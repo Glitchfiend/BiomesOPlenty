@@ -14,7 +14,7 @@ import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.BlockGem;
-import biomesoplenty.common.block.BlockGem.GemType;
+import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 
 public class BiomeGenArctic extends BOPBiome
@@ -32,7 +32,7 @@ public class BiomeGenArctic extends BOPBiome
 
         this.spawnableCreatureList.clear();
         
-        this.addGenerator("tanzanite", GeneratorStage.SAND, new GeneratorOreSingle(BOPBlocks.gem_ore.getDefaultState().withProperty(BlockGem.VARIANT, GemType.TANZANITE), 12, 4, 32));
+        this.addGenerator("tanzanite", GeneratorStage.SAND, new GeneratorOreSingle(BOPBlocks.gem_ore.getDefaultState().withProperty(BlockGem.VARIANT, BOPGems.TANZANITE), 12, 4, 32));
     }
     
     @Override

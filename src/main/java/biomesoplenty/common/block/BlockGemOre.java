@@ -14,7 +14,7 @@ import java.util.Random;
 
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.common.block.BlockGem.GemType;
+import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.item.ItemBOPBlock;
 import biomesoplenty.common.util.block.BlockStateUtils;
 import net.minecraft.block.Block;
@@ -49,7 +49,7 @@ public class BlockGemOre extends Block implements IBOPBlock
     @Override
     public String getStateName(IBlockState state)
     {
-        return ((GemType) state.getValue(VARIANT)).getName() + "_ore";
+        return ((BOPGems) state.getValue(VARIANT)).getName() + "_ore";
     }
     
     
@@ -61,14 +61,14 @@ public class BlockGemOre extends Block implements IBOPBlock
         this.setHardness(3.0F);
         this.setResistance(5.0F);
         this.setStepSound(Block.soundTypePiston);        
-        this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, GemType.AMETHYST) );
+        this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, BOPGems.AMETHYST) );
 
         // all variants need pickaxe:2 to harvest, except amethyst which needs pickaxe:3
         for (IBlockState state : BlockStateUtils.getBlockPresets(this))
         {
             this.setHarvestLevel("pickaxe", 2, state);
         }
-        this.setHarvestLevel("pickaxe", 3, this.blockState.getBaseState().withProperty(VARIANT, GemType.AMETHYST));
+        this.setHarvestLevel("pickaxe", 3, this.blockState.getBaseState().withProperty(VARIANT, BOPGems.AMETHYST));
     
     }
 
@@ -76,12 +76,12 @@ public class BlockGemOre extends Block implements IBOPBlock
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(VARIANT, GemType.values()[meta]);
+        return this.getDefaultState().withProperty(VARIANT, BOPGems.values()[meta]);
     }
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        return ((GemType) state.getValue(VARIANT)).ordinal();
+        return ((BOPGems) state.getValue(VARIANT)).ordinal();
     }
 
     

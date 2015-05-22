@@ -10,7 +10,7 @@ package biomesoplenty.common.item;
 
 import java.util.List;
 
-import biomesoplenty.common.block.BlockGem;
+import biomesoplenty.common.enums.BOPGems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -31,7 +31,7 @@ public class ItemGem extends Item
     @SideOnly(Side.CLIENT)
     public void getSubItems(Item itemIn, CreativeTabs tab, List subItems)
     {
-        for (BlockGem.GemType gemType : BlockGem.GemType.values())
+        for (BOPGems gemType : BOPGems.values())
         {
             subItems.add(new ItemStack(itemIn, 1, gemType.ordinal()));
         }        
@@ -51,7 +51,7 @@ public class ItemGem extends Item
         String gemName;
         int meta = stack.getMetadata();
         try {
-            gemName = BlockGem.GemType.values()[meta].getName();
+            gemName = BOPGems.values()[meta].getName();
         } catch (Exception e) {
             // if lookup fails for whatever reason, just use the meta number
             gemName = Integer.toString(meta);

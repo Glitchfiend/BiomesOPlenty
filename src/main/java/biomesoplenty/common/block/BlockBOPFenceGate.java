@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import biomesoplenty.api.block.IBOPBlock;
-import biomesoplenty.api.block.BOPWoodEnums.AllWoods;
+import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.BlockFenceGate;
 import net.minecraft.block.properties.IProperty;
@@ -36,19 +36,19 @@ public class BlockBOPFenceGate extends BlockFenceGate implements IBOPBlock
     public String getStateName(IBlockState state) {return "";}
     
     // Map from woods to BlockBOPFenceGate instance and back
-    private static Map<AllWoods, BlockBOPFenceGate> variantToBlock = new HashMap<AllWoods, BlockBOPFenceGate>();
-    public static BlockBOPFenceGate getBlock(AllWoods wood)
+    private static Map<BOPWoods, BlockBOPFenceGate> variantToBlock = new HashMap<BOPWoods, BlockBOPFenceGate>();
+    public static BlockBOPFenceGate getBlock(BOPWoods wood)
     {
         return variantToBlock.get(wood);
     }
-    protected AllWoods wood;
-    public AllWoods getWood()
+    protected BOPWoods wood;
+    public BOPWoods getWood()
     {
         return this.wood;
     }
 
     
-    public BlockBOPFenceGate(AllWoods wood)
+    public BlockBOPFenceGate(BOPWoods wood)
     {
         super();
         this.setHarvestLevel("axe", 0);

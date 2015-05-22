@@ -8,8 +8,8 @@
 
 package biomesoplenty.common.block;
 
-import biomesoplenty.api.block.BOPWoodEnums.AllWoods;
 import biomesoplenty.api.block.IBOPBlock;
+import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.item.ItemBOPBlock;
 import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.BlockLog;
@@ -24,7 +24,7 @@ public class BlockBOPLog extends BlockLog implements IBOPBlock
     // setup paged variant property
     
     // LOG_AXIS requires two bits, so we have 2 bits left for the VARIANT which means we can have four per instance
-    public static VariantPagingHelper<BlockBOPLog, AllWoods> paging = new VariantPagingHelper<BlockBOPLog, AllWoods>(4, AllWoods.class);
+    public static VariantPagingHelper<BlockBOPLog, BOPWoods> paging = new VariantPagingHelper<BlockBOPLog, BOPWoods>(4, BOPWoods.class);
     
     // Slightly naughty hackery here
     // The constructor of Block() calls createBlockState() which needs to know the particular instance's variant property
@@ -66,7 +66,7 @@ public class BlockBOPLog extends BlockLog implements IBOPBlock
     @Override
     public String getStateName(IBlockState state)
     {
-        AllWoods wood = (AllWoods) state.getValue(this.variantProperty);
+        BOPWoods wood = (BOPWoods) state.getValue(this.variantProperty);
         switch (wood)
         {
             case GIANT_FLOWER:
@@ -94,7 +94,7 @@ public class BlockBOPLog extends BlockLog implements IBOPBlock
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        AllWoods wood = (AllWoods) state.getValue(this.variantProperty);
+        BOPWoods wood = (BOPWoods) state.getValue(this.variantProperty);
         return ((BlockLog.EnumAxis) state.getValue(LOG_AXIS)).ordinal() * 4 + paging.getIndex(wood);
     }
 

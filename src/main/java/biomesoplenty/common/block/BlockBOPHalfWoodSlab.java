@@ -4,8 +4,8 @@ import java.util.List;
 
 import com.google.common.collect.ImmutableSet;
 
-import biomesoplenty.api.block.BOPWoodEnums.AllWoods;
 import biomesoplenty.api.block.IBOPBlock;
+import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.util.block.BlockStateUtils;
 import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.BlockSlab;
@@ -27,7 +27,7 @@ public class BlockBOPHalfWoodSlab extends BlockSlab implements IBOPBlock
     // setup paged variant property
     
     // HALF requires one bit, so we have 3 bits left for the VARIANT which means we can have eight per instance
-    public static VariantPagingHelper<BlockBOPHalfWoodSlab, AllWoods> paging = new VariantPagingHelper<BlockBOPHalfWoodSlab, AllWoods>(8, AllWoods.class, AllWoods.withPlanks);
+    public static VariantPagingHelper<BlockBOPHalfWoodSlab, BOPWoods> paging = new VariantPagingHelper<BlockBOPHalfWoodSlab, BOPWoods>(8, BOPWoods.class, BOPWoods.withPlanks);
     
     // Slightly naughty hackery here
     // The constructor of Block() calls createBlockState() which needs to know the particular instance's variant property
@@ -70,7 +70,7 @@ public class BlockBOPHalfWoodSlab extends BlockSlab implements IBOPBlock
     @Override
     public String getStateName(IBlockState state)
     {
-        return ((AllWoods) state.getValue(this.variantProperty)).getName() + "_wood_slab";
+        return ((BOPWoods) state.getValue(this.variantProperty)).getName() + "_wood_slab";
     }  
     
     private BlockBOPHalfWoodSlab()
@@ -109,7 +109,7 @@ public class BlockBOPHalfWoodSlab extends BlockSlab implements IBOPBlock
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        AllWoods wood = (AllWoods) state.getValue(this.variantProperty);
+        BOPWoods wood = (BOPWoods) state.getValue(this.variantProperty);
         return (state.getValue(HALF) == BlockSlab.EnumBlockHalf.TOP ? 8 : 0) + paging.getIndex(wood);
     }
 

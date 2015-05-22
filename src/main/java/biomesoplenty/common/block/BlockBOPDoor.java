@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.Random;
 
 import biomesoplenty.api.block.IBOPBlock;
-import biomesoplenty.api.block.BOPWoodEnums.AllWoods;
+import biomesoplenty.common.enums.BOPWoods;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -43,13 +43,13 @@ public class BlockBOPDoor extends BlockDoor implements IBOPBlock
     public String getStateName(IBlockState state) {return "";}
  
     // Map from woods to BlockBOPDoor instance and back
-    private static Map<AllWoods, BlockBOPDoor> variantToBlock = new HashMap<AllWoods, BlockBOPDoor>();
-    public static BlockBOPDoor getBlock(AllWoods wood)
+    private static Map<BOPWoods, BlockBOPDoor> variantToBlock = new HashMap<BOPWoods, BlockBOPDoor>();
+    public static BlockBOPDoor getBlock(BOPWoods wood)
     {
         return variantToBlock.get(wood);
     }
-    protected AllWoods wood;
-    public AllWoods getWood()
+    protected BOPWoods wood;
+    public BOPWoods getWood()
     {
         return this.wood;
     }
@@ -58,7 +58,7 @@ public class BlockBOPDoor extends BlockDoor implements IBOPBlock
     private Item doorItem;
     
     
-    public BlockBOPDoor(AllWoods wood)
+    public BlockBOPDoor(BOPWoods wood)
     {
         super(Material.wood);
         this.setHardness(3.0F);

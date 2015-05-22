@@ -15,13 +15,13 @@ import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.api.block.BOPFlowerEnums.AllFlowers;
-import biomesoplenty.api.block.BOPTreeEnums.AllTrees;
 import biomesoplenty.common.block.BlockBOPFlower;
 import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.block.BlockBOPGrass.BOPGrassType;
 import biomesoplenty.common.config.MiscConfigurationHandler;
+import biomesoplenty.common.enums.BOPFlowers;
+import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
 
@@ -39,11 +39,11 @@ public class BiomeGenOriginValley extends BOPBiome
         
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BOPGrassType.ORIGIN);
     
-        GeneratorBasicTree treeGenerator = new GeneratorBasicTree(4, false, 5, 8, Blocks.log.getDefaultState(), BlockBOPLeaves.paging.getVariantState(AllTrees.ORIGIN));
+        GeneratorBasicTree treeGenerator = new GeneratorBasicTree(4, false, 5, 8, Blocks.log.getDefaultState(), BlockBOPLeaves.paging.getVariantState(BOPTrees.ORIGIN));
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(4);
-        flowerGenerator.add(8, new GeneratorFlora(1, BlockBOPFlower.paging.getVariantState(AllFlowers.ROSE)));
+        flowerGenerator.add(8, new GeneratorFlora(1, BlockBOPFlower.paging.getVariantState(BOPFlowers.ROSE)));
         flowerGenerator.add(10, new GeneratorFlora(1, Blocks.yellow_flower.getDefaultState()));
         this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
     }

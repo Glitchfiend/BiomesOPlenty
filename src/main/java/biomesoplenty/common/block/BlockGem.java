@@ -9,6 +9,7 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.IBOPBlock;
+import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -17,26 +18,11 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.util.IStringSerializable;
 
 public class BlockGem extends Block implements IBOPBlock
 {
     // add properties
-    public static enum GemType implements IStringSerializable
-    {
-        AMETHYST, RUBY, PERIDOT, TOPAZ, TANZANITE, MALACHITE, SAPPHIRE, AMBER;
-        @Override
-        public String getName()
-        {
-            return this.name().toLowerCase();
-        }
-        @Override
-        public String toString()
-        {
-            return this.getName();
-        }
-    };
-    public static final PropertyEnum VARIANT = PropertyEnum.create("variant", GemType.class);
+    public static final PropertyEnum VARIANT = PropertyEnum.create("variant", BOPGems.class);
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { VARIANT });}
  
@@ -53,7 +39,7 @@ public class BlockGem extends Block implements IBOPBlock
     @Override
     public String getStateName(IBlockState state)
     {
-        return ((GemType) state.getValue(VARIANT)).getName() + "_block";
+        return ((BOPGems) state.getValue(VARIANT)).getName() + "_block";
     }
     
 
@@ -66,19 +52,19 @@ public class BlockGem extends Block implements IBOPBlock
         this.setResistance(10.0F);
         this.setStepSound(Block.soundTypeMetal);
         this.setHarvestLevel("pickaxe", 2);
-        this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, GemType.AMETHYST) );        
+        this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, BOPGems.AMETHYST) );        
     }
 
     // map from state to meta and vice verca
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(VARIANT, GemType.values()[meta]);
+        return this.getDefaultState().withProperty(VARIANT, BOPGems.values()[meta]);
     }
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        return ((GemType) state.getValue(VARIANT)).ordinal();
+        return ((BOPGems) state.getValue(VARIANT)).ordinal();
     }
     
 

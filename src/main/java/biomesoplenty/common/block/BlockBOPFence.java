@@ -11,8 +11,8 @@ package biomesoplenty.common.block;
 import java.util.HashMap;
 import java.util.Map;
 
-import biomesoplenty.api.block.BOPWoodEnums.AllWoods;
 import biomesoplenty.api.block.IBOPBlock;
+import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.material.Material;
@@ -36,18 +36,18 @@ public class BlockBOPFence extends BlockFence implements IBOPBlock
     public String getStateName(IBlockState state) {return "";}
 
     // Map from woods to BlockBOPFence instance and back
-    private static Map<AllWoods, BlockBOPFence> variantToBlock = new HashMap<AllWoods, BlockBOPFence>();
-    public static BlockBOPFence getBlock(AllWoods wood)
+    private static Map<BOPWoods, BlockBOPFence> variantToBlock = new HashMap<BOPWoods, BlockBOPFence>();
+    public static BlockBOPFence getBlock(BOPWoods wood)
     {
         return variantToBlock.get(wood);
     }
-    protected AllWoods wood;
-    public AllWoods getWood()
+    protected BOPWoods wood;
+    public BOPWoods getWood()
     {
         return this.wood;
     }
     
-    public BlockBOPFence(AllWoods wood)
+    public BlockBOPFence(BOPWoods wood)
     {
         super(Material.wood);
         this.setHarvestLevel("axe", 0);

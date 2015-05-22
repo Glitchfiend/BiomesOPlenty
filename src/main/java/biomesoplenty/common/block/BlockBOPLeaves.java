@@ -13,7 +13,7 @@ import java.util.Random;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.IBOPBlock;
-import biomesoplenty.api.block.BOPTreeEnums.AllTrees;
+import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.item.ItemBOPBlock;
 import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.BlockLeaves;
@@ -43,7 +43,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     // setup paged variant property
     
     // CHECK_DECAY and DECAYABLE require one bit each, so we have 2 bits left for the VARIANT which means we can have four per instance
-    public static VariantPagingHelper<BlockBOPLeaves, AllTrees> paging = new VariantPagingHelper<BlockBOPLeaves, AllTrees>(4, AllTrees.class);
+    public static VariantPagingHelper<BlockBOPLeaves, BOPTrees> paging = new VariantPagingHelper<BlockBOPLeaves, BOPTrees>(4, BOPTrees.class);
     
     // Slightly naughty hackery here
     // The constructor of Block() calls createBlockState() which needs to know the particular instance's variant property
@@ -86,7 +86,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     @Override
     public String getStateName(IBlockState state)
     {
-        AllTrees tree = ((AllTrees) state.getValue(this.variantProperty));
+        BOPTrees tree = ((BOPTrees) state.getValue(this.variantProperty));
         switch (tree)
         {
             case RED_BIG_FLOWER: case YELLOW_BIG_FLOWER:
@@ -115,7 +115,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        AllTrees tree = (AllTrees) state.getValue(this.variantProperty);
+        BOPTrees tree = (BOPTrees) state.getValue(this.variantProperty);
         int meta = paging.getIndex(tree);
         if (!((Boolean)state.getValue(DECAYABLE)).booleanValue())
         {
@@ -138,7 +138,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        AllTrees treeType = ((AllTrees) state.getValue(this.variantProperty));
+        BOPTrees treeType = ((BOPTrees) state.getValue(this.variantProperty));
         int saplingPage = treeType.ordinal() / 8;
         if (saplingPage == 2) {return Item.getItemFromBlock(BOPBlocks.sapling_2);}
         if (saplingPage == 1) {return Item.getItemFromBlock(BOPBlocks.sapling_1);}
@@ -150,7 +150,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     public int damageDropped(IBlockState state)
     {
         //Ignore all other properties, only the variant is important to ensure different variants use different stacks
-        AllTrees tree = ((AllTrees) state.getValue(this.variantProperty));
+        BOPTrees tree = ((BOPTrees) state.getValue(this.variantProperty));
         return this.getMetaFromState(this.getDefaultState().withProperty(this.variantProperty, tree));
     }
     
@@ -161,7 +161,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
         // chance will initially be related to fortune as follows:  0 => 200, 1 => 180, 2 => 160, 3 => 120, 4+ => 40
         ItemStack fruit = null;
         
-        AllTrees tree = ((AllTrees) state.getValue(this.variantProperty));
+        BOPTrees tree = ((BOPTrees) state.getValue(this.variantProperty));
         switch (tree)
         {
             case RED_BIG_FLOWER: case YELLOW_BIG_FLOWER:
@@ -217,7 +217,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     @Override
     public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
     {
-        AllTrees tree = ((AllTrees) world.getBlockState(pos).getValue(this.variantProperty));
+        BOPTrees tree = ((BOPTrees) world.getBlockState(pos).getValue(this.variantProperty));
         switch (tree)
         {
             case HELLBARK:
@@ -230,7 +230,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     @Override
     public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face)
     {
-        AllTrees tree = ((AllTrees) world.getBlockState(pos).getValue(this.variantProperty));
+        BOPTrees tree = ((BOPTrees) world.getBlockState(pos).getValue(this.variantProperty));
         switch (tree)
         {
             case HELLBARK:

@@ -11,7 +11,7 @@ package biomesoplenty.common.block;
 import java.util.Random;
 
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.api.block.BOPFlowerEnums.AllFlowers;
+import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.item.ItemBOPFlower;
 import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.Block;
@@ -42,7 +42,7 @@ public class BlockBOPFlower extends BlockDecoration
     // setup paged variant property
     
     // All 4 bits are available for the VARIANT which means we can have sixteen per instance
-    public static VariantPagingHelper<BlockBOPFlower, AllFlowers> paging = new VariantPagingHelper<BlockBOPFlower, AllFlowers>(16, AllFlowers.class);
+    public static VariantPagingHelper<BlockBOPFlower, BOPFlowers> paging = new VariantPagingHelper<BlockBOPFlower, BOPFlowers>(16, BOPFlowers.class);
     
     // Slightly naughty hackery here
     // The constructor of Block() calls createBlockState() which needs to know the particular instance's variant property
@@ -82,7 +82,7 @@ public class BlockBOPFlower extends BlockDecoration
     @Override
     public String getStateName(IBlockState state)
     {
-        return ((AllFlowers) state.getValue(this.variantProperty)).getName();
+        return ((BOPFlowers) state.getValue(this.variantProperty)).getName();
     }
     
     
@@ -102,7 +102,7 @@ public class BlockBOPFlower extends BlockDecoration
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        AllFlowers flower = (AllFlowers) state.getValue(this.variantProperty);
+        BOPFlowers flower = (BOPFlowers) state.getValue(this.variantProperty);
         return paging.getIndex(flower);
     }
     
@@ -118,7 +118,7 @@ public class BlockBOPFlower extends BlockDecoration
     @Override
     public void setBlockBoundsBasedOnState(IBlockAccess world, BlockPos pos)
     {
-        switch ((AllFlowers) world.getBlockState(pos).getValue(this.variantProperty))
+        switch ((BOPFlowers) world.getBlockState(pos).getValue(this.variantProperty))
         {
             case CLOVER:
                 this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.5F, 0.015625F, pos);
@@ -147,7 +147,7 @@ public class BlockBOPFlower extends BlockDecoration
     @Override
     public int getLightValue(IBlockAccess world, BlockPos pos)
     {
-        switch ((AllFlowers) world.getBlockState(pos).getValue(this.variantProperty))
+        switch ((BOPFlowers) world.getBlockState(pos).getValue(this.variantProperty))
         {
             case GLOWFLOWER:
                 return 9;
@@ -169,7 +169,7 @@ public class BlockBOPFlower extends BlockDecoration
         super.harvestBlock(world, player, pos, state, tileentity);
         if (player.getCurrentEquippedItem() == null || !(player.getCurrentEquippedItem().getItem() instanceof ItemShears))
         {
-            switch ((AllFlowers) state.getValue(this.variantProperty))
+            switch ((BOPFlowers) state.getValue(this.variantProperty))
             {
                 // suffer wither effect if you harvest deathbloom without shears
                 case DEATHBLOOM:
@@ -190,7 +190,7 @@ public class BlockBOPFlower extends BlockDecoration
     @Override
     public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
     {
-        switch((AllFlowers) state.getValue(this.variantProperty))
+        switch((BOPFlowers) state.getValue(this.variantProperty))
         {
             // suffer wither effect if you walk on deathbloom
             case DEATHBLOOM:
@@ -217,7 +217,7 @@ public class BlockBOPFlower extends BlockDecoration
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(World world, BlockPos pos, IBlockState state, Random rand)
     {
-        switch((AllFlowers) state.getValue(this.variantProperty))
+        switch((BOPFlowers) state.getValue(this.variantProperty))
         {
             case DEATHBLOOM:
                 if (rand.nextInt(4) != 0)
@@ -270,7 +270,7 @@ public class BlockBOPFlower extends BlockDecoration
             }
         }
         
-        switch ((AllFlowers) state.getValue(this.variantProperty))
+        switch ((BOPFlowers) state.getValue(this.variantProperty))
         {
             case ENDERLOTUS:
                 return onSpectralMoss;

@@ -16,16 +16,16 @@ import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.api.block.BOPFlowerEnums.AllFlowers;
-import biomesoplenty.api.block.BOPPlantEnums.AllPlants;
-import biomesoplenty.api.block.BOPTreeEnums.AllTrees;
-import biomesoplenty.api.block.BOPWoodEnums.AllWoods;
 import biomesoplenty.common.block.BlockBOPFlower;
 import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.block.BlockBOPLog;
 import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.block.BlockGem;
-import biomesoplenty.common.block.BlockGem.GemType;
+import biomesoplenty.common.enums.BOPFlowers;
+import biomesoplenty.common.enums.BOPGems;
+import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.enums.BOPTrees;
+import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
@@ -44,19 +44,19 @@ public class BiomeGenLavenderFields extends BOPBiome
     
         this.addWeight(BiomeType.WARM, 3);
         
-        this.addGenerator("lavender", GeneratorStage.FLOWERS, new GeneratorFlora(999, BlockBOPFlower.paging.getVariantState(AllFlowers.LAVENDER)));
+        this.addGenerator("lavender", GeneratorStage.FLOWERS, new GeneratorFlora(999, BlockBOPFlower.paging.getVariantState(BOPFlowers.LAVENDER)));
         
         GeneratorWeighted treeGenerator = new GeneratorWeighted(1);
-        treeGenerator.add(3, new GeneratorBasicTree(1, false, 4, 7, BlockBOPLog.paging.getVariantState(AllWoods.JACARANDA), BlockBOPLeaves.paging.getVariantState(AllTrees.JACARANDA)));
+        treeGenerator.add(3, new GeneratorBasicTree(1, false, 4, 7, BlockBOPLog.paging.getVariantState(BOPWoods.JACARANDA), BlockBOPLeaves.paging.getVariantState(BOPTrees.JACARANDA)));
         treeGenerator.add(1, new GeneratorBigTree(1, false, Blocks.log.getDefaultState(), Blocks.leaves.getDefaultState()));
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         
         GeneratorWeighted grassGenerator = new GeneratorWeighted(20);
-        grassGenerator.add(1, new GeneratorGrass(1, BlockBOPPlant.paging.getVariantState(AllPlants.WHEATGRASS)));
+        grassGenerator.add(1, new GeneratorGrass(1, BlockBOPPlant.paging.getVariantState(BOPPlants.WHEATGRASS)));
         grassGenerator.add(3, new GeneratorGrass(1, Blocks.tallgrass.getDefaultState().withProperty(BlockTallGrass.TYPE, BlockTallGrass.EnumType.GRASS)));
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         
-        this.addGenerator("peridot", GeneratorStage.SAND, new GeneratorOreSingle(BOPBlocks.gem_ore.getDefaultState().withProperty(BlockGem.VARIANT, GemType.PERIDOT), 12, 4, 32));
+        this.addGenerator("peridot", GeneratorStage.SAND, new GeneratorOreSingle(BOPBlocks.gem_ore.getDefaultState().withProperty(BlockGem.VARIANT, BOPGems.PERIDOT), 12, 4, 32));
     }
     
     @Override

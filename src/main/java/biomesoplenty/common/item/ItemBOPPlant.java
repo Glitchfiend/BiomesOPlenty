@@ -8,8 +8,8 @@
 
 package biomesoplenty.common.item;
 
-import biomesoplenty.api.block.BOPPlantEnums.AllPlants;
 import biomesoplenty.common.block.BlockBOPPlant;
+import biomesoplenty.common.enums.BOPPlants;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
@@ -37,8 +37,8 @@ public class ItemBOPPlant extends ItemBOPBlock {
         {
             BlockBOPPlant block = (BlockBOPPlant)this.block;
             IBlockState state = block.getStateFromMeta( itemStackIn.getMetadata() );
-            AllPlants plant = ((AllPlants) state.getValue(block.variantProperty));
-            if (plant == AllPlants.REED)
+            BOPPlants plant = ((BOPPlants) state.getValue(block.variantProperty));
+            if (plant == BOPPlants.REED)
             {
                 
                 MovingObjectPosition movingobjectposition = this.getMovingObjectPositionFromPlayer(worldIn, playerIn, true);
@@ -71,7 +71,7 @@ public class ItemBOPPlant extends ItemBOPBlock {
                             // special case for handling block placement with reeds
                             net.minecraftforge.common.util.BlockSnapshot blocksnapshot = net.minecraftforge.common.util.BlockSnapshot.getBlockSnapshot(worldIn, blockpos1);
                                                 
-                            worldIn.setBlockState(blockpos1, BlockBOPPlant.paging.getVariantState(AllPlants.REED));
+                            worldIn.setBlockState(blockpos1, BlockBOPPlant.paging.getVariantState(BOPPlants.REED));
                             if (net.minecraftforge.event.ForgeEventFactory.onPlayerBlockPlace(playerIn, blocksnapshot, net.minecraft.util.EnumFacing.UP).isCanceled())
                             {
                                 blocksnapshot.restore(true, false);

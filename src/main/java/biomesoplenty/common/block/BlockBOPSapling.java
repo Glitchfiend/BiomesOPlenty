@@ -11,7 +11,7 @@ package biomesoplenty.common.block;
 import java.util.Random;
 
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.api.block.BOPTreeEnums.AllTrees;
+import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.item.ItemBOPSapling;
 import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.Block;
@@ -35,7 +35,7 @@ public class BlockBOPSapling extends BlockDecoration implements IGrowable {
     // setup paged variant property
     
     // STAGE requires one bit, so we have 3 bits left for the VARIANT which means we can have eight per instance
-    public static VariantPagingHelper<BlockBOPSapling, AllTrees> paging = new VariantPagingHelper<BlockBOPSapling, AllTrees>(8, AllTrees.class, AllTrees.withSaplings);
+    public static VariantPagingHelper<BlockBOPSapling, BOPTrees> paging = new VariantPagingHelper<BlockBOPSapling, BOPTrees>(8, BOPTrees.class, BOPTrees.withSaplings);
     
     // Slightly naughty hackery here
     // The constructor of Block() calls createBlockState() which needs to know the particular instance's variant property
@@ -77,7 +77,7 @@ public class BlockBOPSapling extends BlockDecoration implements IGrowable {
     @Override
     public String getStateName(IBlockState state)
     {
-        return ((AllTrees) state.getValue(this.variantProperty)).getName() + "_sapling";
+        return ((BOPTrees) state.getValue(this.variantProperty)).getName() + "_sapling";
     }
     
     
@@ -99,7 +99,7 @@ public class BlockBOPSapling extends BlockDecoration implements IGrowable {
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        AllTrees tree = (AllTrees)state.getValue(this.variantProperty);
+        BOPTrees tree = (BOPTrees)state.getValue(this.variantProperty);
         return ((Integer)state.getValue(STAGE)).intValue() * 8 + paging.getIndex(tree);
     }
     
@@ -157,7 +157,7 @@ public class BlockBOPSapling extends BlockDecoration implements IGrowable {
     
     
     // TODO: specify generator for each sapling
-    protected WorldGenAbstractTree getSmallTreeGenerator(AllTrees treeType)
+    protected WorldGenAbstractTree getSmallTreeGenerator(BOPTrees treeType)
     {
         switch (treeType)
         {
@@ -189,13 +189,13 @@ public class BlockBOPSapling extends BlockDecoration implements IGrowable {
     }
  
     // TODO: specify generator for each sapling
-    protected WorldGenAbstractTree getBigTreeGenerator(AllTrees treeType)
+    protected WorldGenAbstractTree getBigTreeGenerator(BOPTrees treeType)
     {
         return null;
     }
     
     // TODO: specify generator for each sapling
-    protected WorldGenAbstractTree getMegaTreeGenerator(AllTrees treeType)
+    protected WorldGenAbstractTree getMegaTreeGenerator(BOPTrees treeType)
     {
         return null;
     }
@@ -235,7 +235,7 @@ public class BlockBOPSapling extends BlockDecoration implements IGrowable {
     {
         if (!net.minecraftforge.event.terraingen.TerrainGen.saplingGrowTree(worldIn, rand, pos)) {return false;}
 
-        AllTrees treeType = ((AllTrees) state.getValue(this.variantProperty));
+        BOPTrees treeType = ((BOPTrees) state.getValue(this.variantProperty));
         WorldGenAbstractTree smallTreeGenerator = this.getSmallTreeGenerator(treeType);
         WorldGenAbstractTree bigTreeGenerator = this.getBigTreeGenerator(treeType);
         WorldGenAbstractTree megaTreeGenerator = this.getMegaTreeGenerator(treeType);

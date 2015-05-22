@@ -10,9 +10,9 @@ package biomesoplenty.common.item;
 
 import java.util.Random;
 
-import biomesoplenty.api.block.BOPFlowerEnums.AllFlowers;
 import biomesoplenty.api.particle.BOPParticleTypes;
 import biomesoplenty.common.block.BlockBOPFlower;
+import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -27,7 +27,7 @@ public class ItemBOPFlower extends ItemBOPBlock {
         super(block);
     }
     
-    public AllFlowers getFlower(ItemStack stack)
+    public BOPFlowers getFlower(ItemStack stack)
     {
         if (! (this.block instanceof BlockBOPFlower)) {return null;}
         return BlockBOPFlower.paging.getVariant((BlockBOPFlower)this.block, stack.getMetadata());
@@ -42,13 +42,13 @@ public class ItemBOPFlower extends ItemBOPBlock {
     @Override
     public EnumAction getItemUseAction(ItemStack stack)
     {
-        return (this.getFlower(stack) == AllFlowers.DANDELION) ? EnumAction.BLOCK : super.getItemUseAction(stack);
+        return (this.getFlower(stack) == BOPFlowers.DANDELION) ? EnumAction.BLOCK : super.getItemUseAction(stack);
     }
     
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
     {
-        if (this.getFlower(stack) == AllFlowers.DANDELION)
+        if (this.getFlower(stack) == BOPFlowers.DANDELION)
         {
             player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
         }
@@ -58,7 +58,7 @@ public class ItemBOPFlower extends ItemBOPBlock {
     @Override
     public void onUsingTick(ItemStack stack, EntityPlayer player, int count)
     {
-        if (this.getFlower(stack) == AllFlowers.DANDELION)
+        if (this.getFlower(stack) == BOPFlowers.DANDELION)
         {
             Vec3 vec = player.getLook(0.5F);
             Random rnd = player.getRNG();

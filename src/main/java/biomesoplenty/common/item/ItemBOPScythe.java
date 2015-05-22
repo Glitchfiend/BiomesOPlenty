@@ -8,10 +8,10 @@
 
 package biomesoplenty.common.item;
 
-import biomesoplenty.api.block.BOPPlantEnums.AllPlants;
 import biomesoplenty.api.item.BOPItemHelper;
 import biomesoplenty.common.block.BlockBOPFlower;
 import biomesoplenty.common.block.BlockBOPPlant;
+import biomesoplenty.common.enums.BOPPlants;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.material.Material;
@@ -169,7 +169,7 @@ public class ItemBOPScythe extends Item
                     // shorten grass and destroy flowers
                     if (block instanceof BlockBOPPlant)
                     {
-                        switch ((AllPlants) state.getValue(((BlockBOPPlant)block).variantProperty))
+                        switch ((BOPPlants) state.getValue(((BlockBOPPlant)block).variantProperty))
                         {
                             case SHORTGRASS:
                                 block.dropBlockAsItem(world, pos, state, fortune);
@@ -177,7 +177,7 @@ public class ItemBOPScythe extends Item
                                 return true;
                             case MEDIUMGRASS:
                                 block.dropBlockAsItem(world, pos, state, fortune);
-                                world.setBlockState(pos, BlockBOPPlant.paging.getVariantState(AllPlants.SHORTGRASS));
+                                world.setBlockState(pos, BlockBOPPlant.paging.getVariantState(BOPPlants.SHORTGRASS));
                                 return true;
                             default:
                                 return false;
@@ -186,7 +186,7 @@ public class ItemBOPScythe extends Item
                     else if (block == Blocks.tallgrass)
                     {
                         block.dropBlockAsItem(world, pos, state, fortune);
-                        world.setBlockState(pos, BlockBOPPlant.paging.getVariantState(AllPlants.MEDIUMGRASS));
+                        world.setBlockState(pos, BlockBOPPlant.paging.getVariantState(BOPPlants.MEDIUMGRASS));
                         return true;
                     }
                     else if ((block instanceof BlockFlower) || (block instanceof BlockBOPFlower))
