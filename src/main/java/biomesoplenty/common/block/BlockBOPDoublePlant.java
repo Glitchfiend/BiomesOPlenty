@@ -35,8 +35,7 @@ public class BlockBOPDoublePlant extends BlockDoubleDecoration implements IShear
 {
     
     // add properties (note we inherit HALF from BlockDoubleDecoration)
-    // TODO: rename this
-    public static enum FoliageType implements IStringSerializable
+    public static enum DoublePlantType implements IStringSerializable
     {
         FLAX, TALL_CATTAIL;
         @Override
@@ -50,7 +49,7 @@ public class BlockBOPDoublePlant extends BlockDoubleDecoration implements IShear
             return this.getName();
         }
     };
-    public static final PropertyEnum VARIANT = PropertyEnum.create("variant", FoliageType.class);
+    public static final PropertyEnum VARIANT = PropertyEnum.create("variant", DoublePlantType.class);
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { HALF, VARIANT });}
     
@@ -63,33 +62,33 @@ public class BlockBOPDoublePlant extends BlockDoubleDecoration implements IShear
     @Override
     public String getStateName(IBlockState state)
     {
-        return ((FoliageType) state.getValue(VARIANT)).getName();
+        return ((DoublePlantType) state.getValue(VARIANT)).getName();
     }
     
     
     public BlockBOPDoublePlant()
     {
         super();
-        this.setDefaultState( this.blockState.getBaseState().withProperty(HALF, Half.LOWER) .withProperty(VARIANT, FoliageType.FLAX) );
+        this.setDefaultState( this.blockState.getBaseState().withProperty(HALF, Half.LOWER) .withProperty(VARIANT, DoublePlantType.FLAX) );
     }
     
     // map from state to meta and vice verca - use highest bit for Half, and lower bits for variant
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(HALF, Half.values()[meta >> 3]).withProperty(VARIANT, FoliageType.values()[meta & 7]);
+        return this.getDefaultState().withProperty(HALF, Half.values()[meta >> 3]).withProperty(VARIANT, DoublePlantType.values()[meta & 7]);
     }
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        return ((Half) state.getValue(HALF)).ordinal() * 8 + ((FoliageType) state.getValue(VARIANT)).ordinal();
+        return ((Half) state.getValue(HALF)).ordinal() * 8 + ((DoublePlantType) state.getValue(VARIANT)).ordinal();
     }
     
     
     
     public enum ColoringType {PLAIN, LIKE_LEAVES, LIKE_GRASS};
     
-    public static ColoringType getColoringType(FoliageType plant)
+    public static ColoringType getColoringType(DoublePlantType plant)
     {
         switch (plant)
         {
@@ -111,7 +110,7 @@ public class BlockBOPDoublePlant extends BlockDoubleDecoration implements IShear
     @SideOnly(Side.CLIENT)
     public int getRenderColor(IBlockState state)
     {
-        switch (getColoringType((FoliageType) state.getValue(VARIANT)))
+        switch (getColoringType((DoublePlantType) state.getValue(VARIANT)))
         {
             case LIKE_LEAVES:
                 return ColorizerFoliage.getFoliageColorBasic();
@@ -126,7 +125,7 @@ public class BlockBOPDoublePlant extends BlockDoubleDecoration implements IShear
     @SideOnly(Side.CLIENT)
     public int colorMultiplier(IBlockAccess worldIn, BlockPos pos, int renderPass)
     {
-        switch (getColoringType((FoliageType) worldIn.getBlockState(pos).getValue(VARIANT)))
+        switch (getColoringType((DoublePlantType) worldIn.getBlockState(pos).getValue(VARIANT)))
         {
             case LIKE_LEAVES:
                 return BiomeColorHelper.getFoliageColorAtPos(worldIn, pos);
@@ -141,7 +140,7 @@ public class BlockBOPDoublePlant extends BlockDoubleDecoration implements IShear
     @Override
     public int getItemRenderColor(IBlockState state, int tintIndex)
     {
-        switch ((FoliageType) state.getValue(VARIANT))
+        switch ((DoublePlantType) state.getValue(VARIANT))
         {
             case FLAX:
                 return 0xFFFFFF;
@@ -156,7 +155,7 @@ public class BlockBOPDoublePlant extends BlockDoubleDecoration implements IShear
     @Override
     public void setBlockBoundsBasedOnState(IBlockAccess worldIn, BlockPos pos)
     {    
-        switch ((FoliageType) worldIn.getBlockState(pos).getValue(VARIANT))
+        switch ((DoublePlantType) worldIn.getBlockState(pos).getValue(VARIANT))
         {
             default:
                 this.setBlockBoundsByRadiusAndHeight(0.4F, 0.8F);
@@ -198,7 +197,7 @@ public class BlockBOPDoublePlant extends BlockDoubleDecoration implements IShear
         List<ItemStack> ret = new java.util.ArrayList<ItemStack>();
         
         // add items based on the VARIANT - default is to return nothing (require shears to collect the block)
-        switch ((FoliageType) lowerState.getValue(VARIANT))
+        switch ((DoublePlantType) lowerState.getValue(VARIANT))
         {
             case FLAX:
                 if (rand.nextInt(8) == 0)
@@ -225,7 +224,7 @@ public class BlockBOPDoublePlant extends BlockDoubleDecoration implements IShear
         List<ItemStack> ret = new java.util.ArrayList<ItemStack>();
         
         // add items based on the VARIANT
-        FoliageType type = (FoliageType) lowerState.getValue(VARIANT);
+        DoublePlantType type = (DoublePlantType) lowerState.getValue(VARIANT);
         switch (type)
         {
             default:
@@ -235,7 +234,7 @@ public class BlockBOPDoublePlant extends BlockDoubleDecoration implements IShear
         return ret;
     }
 
-    public ItemStack getVariantItem(FoliageType type) {
+    public ItemStack getVariantItem(DoublePlantType type) {
         IBlockState state = this.getDefaultState().withProperty(HALF, Half.LOWER).withProperty(VARIANT, type);
         return new ItemStack(this, 1, this.getMetaFromState(state));
     }
