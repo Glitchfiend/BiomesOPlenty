@@ -37,7 +37,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-// TODO: smoldering grass should probably melt snow that falls on it
 public class BlockBOPGrass extends BlockGrass implements IBOPBlock
 {
     
@@ -238,6 +237,15 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock
                 {
                     world.setBlockState(pos.up(), Blocks.fire.getDefaultState()); // might need to set fire AGE value... not sure
                     world.setBlockState(pos, this.getDefaultState().withProperty(VARIANT, BOPGrassType.SMOLDERING));
+                }
+                break;
+            
+            case SMOLDERING:
+                // smoldering grass melts snow
+                IBlockState stateAbove = world.getBlockState(pos.up());
+                if (stateAbove.getBlock().getMaterial() == Material.snow)
+                {
+                    world.setBlockToAir(pos.up());
                 }
                 break;
                 
