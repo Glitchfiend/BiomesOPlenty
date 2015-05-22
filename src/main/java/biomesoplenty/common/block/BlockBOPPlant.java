@@ -326,35 +326,31 @@ public class BlockBOPPlant extends BlockDecoration implements IShearable
         switch ((BOPPlants) state.getValue(this.variantProperty))
         {
             case CLOVERPATCH: case LEAFPILE: case DEADLEAFPILE:
-                this.setBlockBoundsByRadiusAndHeight(0.5F, 0.015625F);
+                this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.5F, 0.015625F, pos);
                 break;
             case SHORTGRASS:
-                this.setBlockBounds(0.1F, 0F, 0.1F, 0.9F, 0.25F, 0.9F);
+                this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.4F, 0.25F, pos);
                 break; 
             case MEDIUMGRASS:
-                this.setBlockBounds(0.1F, 0F, 0.1F, 0.9F, 0.6F, 0.9F);
+                this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.4F, 0.6F, pos);
                 break;
             case CATTAIL:
-                this.setBlockBoundsByRadiusAndHeight(0.375F, 1.0F);
+                this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.375F, 1.0F, pos);
                 break;
             case TINYCACTUS:
-                // TODO: what on earth is this madness? Does it just cause some random scattering?
-                long i1 = pos.getX() * 3129871 ^ pos.getZ() * 116129781L ^ pos.getY();
-                i1 = i1 * i1 * 42317861L + i1 * 11L;
-                float d0 = (float)(((i1 >> 16 & 15L) / 15.0F - 0.5D) * 0.5D);
-                float d2 = (float)(((i1 >> 24 & 15L) / 15.0F - 0.5D) * 0.5D);
-                this.setBlockBounds(0.3F + d0, 0.0F, 0.3F + d2, 0.7F + d0, 0.4F, 0.7F + d2);
+                this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.3F, 0.7F, pos);
                 break;
             case ROOT:
                 // roots hang from ceiling
-                this.setBlockBoundsByRadiusAndHeight(0.4F, 0.8F, true);
+                this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.4F, 0.8F, true, pos);
                 break;
             case REED:
                 // reeds extend one block below
-                this.setBlockBounds(0.2F, -1.0F, 0.2F, 0.8F, 0.8F, 0.8F);
+                this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.3F, 0.8F, pos);
+                this.minY = -1.0D;
                 break;
             default:
-                this.setBlockBoundsByRadiusAndHeight(0.4F, 0.8F);
+                this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.4F, 0.8F, pos);
                 break;
         }        
     }
