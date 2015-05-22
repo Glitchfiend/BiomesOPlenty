@@ -311,8 +311,11 @@ public class ModCrafting
         
         for (BOPTrees tree : BOPTrees.values())
         {
-            OreDictionary.registerOre("treeSapling", BlockBOPSapling.paging.getVariantItem(tree));
             OreDictionary.registerOre("treeLeaves", BlockBOPLeaves.paging.getVariantItem(tree));
+            if (tree.hasSapling())
+            {
+                OreDictionary.registerOre("treeSapling", BlockBOPSapling.paging.getVariantItem(tree));
+            }
         }
         // TODO ?
         // OreDictionary.registerOre("treeLeaves", new ItemStack(BOPCBlocks.appleLeaves, 1, OreDictionary.WILDCARD_VALUE));
