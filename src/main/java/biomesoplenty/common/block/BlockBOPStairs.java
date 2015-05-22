@@ -8,7 +8,11 @@
 
 package biomesoplenty.common.block;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import biomesoplenty.api.block.IBOPBlock;
+import biomesoplenty.api.block.BOPWoodEnums.AllWoods;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.properties.IProperty;
@@ -31,12 +35,26 @@ public class BlockBOPStairs extends BlockStairs implements IBOPBlock
     @Override
     public String getStateName(IBlockState state) {return "";}
 
-    
-    public BlockBOPStairs(IBlockState modelState)
+    // Map from woods to BlockBOPStairs instance and back
+    private static Map<AllWoods, BlockBOPStairs> variantToBlock = new HashMap<AllWoods, BlockBOPStairs>();
+    public static BlockBOPStairs getBlock(AllWoods wood)
     {
-        super(modelState);
+        return variantToBlock.get(wood);
+    }
+    protected AllWoods wood;
+    public AllWoods getWood()
+    {
+        return this.wood;
+    }
+    
+    public BlockBOPStairs(AllWoods wood)
+    {
+        super(BlockBOPPlanks.paging.getVariantState(wood));
         this.setHarvestLevel("axe", 0);
         this.useNeighborBrightness = true;
+        
+        this.wood = wood;
+        variantToBlock.put(wood, this);
     }
 }
     

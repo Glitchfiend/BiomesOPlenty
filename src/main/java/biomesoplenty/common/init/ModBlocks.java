@@ -115,68 +115,68 @@ public class ModBlocks
         sapling_2 =             registerBlock( BlockBOPSapling.paging.getBlock(2), "sapling_2");
         
         // stairs have no variant metadata, use a new BlockBOPStairs instance for each (note there's no giant_flower_stairs or dead_stairs)
-        sacred_oak_stairs =     registerBlock( new BlockBOPStairs(BlockBOPPlanks.paging.getVariantState(AllWoods.SACRED_OAK)), "sacred_oak_stairs" );
-        cherry_stairs =         registerBlock( new BlockBOPStairs(BlockBOPPlanks.paging.getVariantState(AllWoods.CHERRY)), "cherry_stairs" );
-        dark_stairs =           registerBlock( new BlockBOPStairs(BlockBOPPlanks.paging.getVariantState(AllWoods.DARK)), "dark_stairs" );
-        fir_stairs =            registerBlock( new BlockBOPStairs(BlockBOPPlanks.paging.getVariantState(AllWoods.FIR)), "fir_stairs" );
-        ethereal_stairs =       registerBlock( new BlockBOPStairs(BlockBOPPlanks.paging.getVariantState(AllWoods.ETHEREAL)), "ethereal_stairs" );
-        magic_stairs =          registerBlock( new BlockBOPStairs(BlockBOPPlanks.paging.getVariantState(AllWoods.MAGIC)), "magic_stairs" );
-        mangrove_stairs =       registerBlock( new BlockBOPStairs(BlockBOPPlanks.paging.getVariantState(AllWoods.MANGROVE)), "mangrove_stairs" );
-        palm_stairs =           registerBlock( new BlockBOPStairs(BlockBOPPlanks.paging.getVariantState(AllWoods.PALM)), "palm_stairs" );
-        redwood_stairs =        registerBlock( new BlockBOPStairs(BlockBOPPlanks.paging.getVariantState(AllWoods.REDWOOD)), "redwood_stairs" );
-        willow_stairs =         registerBlock( new BlockBOPStairs(BlockBOPPlanks.paging.getVariantState(AllWoods.WILLOW)), "willow_stairs" );
-        pine_stairs =           registerBlock( new BlockBOPStairs(BlockBOPPlanks.paging.getVariantState(AllWoods.PINE)), "pine_stairs" );
-        hellbark_stairs =       registerBlock( new BlockBOPStairs(BlockBOPPlanks.paging.getVariantState(AllWoods.HELLBARK)), "hellbark_stairs" );
-        jacaranda_stairs =      registerBlock( new BlockBOPStairs(BlockBOPPlanks.paging.getVariantState(AllWoods.JACARANDA)), "jacaranda_stairs" );
-        mahogany_stairs =       registerBlock( new BlockBOPStairs(BlockBOPPlanks.paging.getVariantState(AllWoods.MAHOGANY)), "mahogany_stairs" );
+        sacred_oak_stairs =     registerBlock( new BlockBOPStairs(AllWoods.SACRED_OAK), "sacred_oak_stairs" );
+        cherry_stairs =         registerBlock( new BlockBOPStairs(AllWoods.CHERRY), "cherry_stairs" );
+        dark_stairs =           registerBlock( new BlockBOPStairs(AllWoods.DARK), "dark_stairs" );
+        fir_stairs =            registerBlock( new BlockBOPStairs(AllWoods.FIR), "fir_stairs" );
+        ethereal_stairs =       registerBlock( new BlockBOPStairs(AllWoods.ETHEREAL), "ethereal_stairs" );
+        magic_stairs =          registerBlock( new BlockBOPStairs(AllWoods.MAGIC), "magic_stairs" );
+        mangrove_stairs =       registerBlock( new BlockBOPStairs(AllWoods.MANGROVE), "mangrove_stairs" );
+        palm_stairs =           registerBlock( new BlockBOPStairs(AllWoods.PALM), "palm_stairs" );
+        redwood_stairs =        registerBlock( new BlockBOPStairs(AllWoods.REDWOOD), "redwood_stairs" );
+        willow_stairs =         registerBlock( new BlockBOPStairs(AllWoods.WILLOW), "willow_stairs" );
+        pine_stairs =           registerBlock( new BlockBOPStairs(AllWoods.PINE), "pine_stairs" );
+        hellbark_stairs =       registerBlock( new BlockBOPStairs(AllWoods.HELLBARK), "hellbark_stairs" );
+        jacaranda_stairs =      registerBlock( new BlockBOPStairs(AllWoods.JACARANDA), "jacaranda_stairs" );
+        mahogany_stairs =       registerBlock( new BlockBOPStairs(AllWoods.MAHOGANY), "mahogany_stairs" );
         
         // fences have no variant metadata, use a new BlockBOPFence instance for each (note there's no giant_flower_fence or dead_fence)
-        sacred_oak_fence =      registerBlock( new BlockBOPFence(), "sacred_oak_fence" );
-        cherry_fence =          registerBlock( new BlockBOPFence(), "cherry_fence" );
-        dark_fence =            registerBlock( new BlockBOPFence(), "dark_fence" );
-        fir_fence =             registerBlock( new BlockBOPFence(), "fir_fence" );
-        ethereal_fence =        registerBlock( new BlockBOPFence(), "ethereal_fence" );
-        magic_fence =           registerBlock( new BlockBOPFence(), "magic_fence" );
-        mangrove_fence =        registerBlock( new BlockBOPFence(), "mangrove_fence" );
-        palm_fence =            registerBlock( new BlockBOPFence(), "palm_fence" );
-        redwood_fence =         registerBlock( new BlockBOPFence(), "redwood_fence" );
-        willow_fence =          registerBlock( new BlockBOPFence(), "willow_fence" );
-        pine_fence =            registerBlock( new BlockBOPFence(), "pine_fence" );
-        hellbark_fence =       registerBlock( new BlockBOPFence(), "hellbark_fence" );
-        jacaranda_fence =       registerBlock( new BlockBOPFence(), "jacaranda_fence" );
-        mahogany_fence =        registerBlock( new BlockBOPFence(), "mahogany_fence" );
+        sacred_oak_fence =      registerBlock( new BlockBOPFence(AllWoods.SACRED_OAK), "sacred_oak_fence" );
+        cherry_fence =          registerBlock( new BlockBOPFence(AllWoods.CHERRY), "cherry_fence" );
+        dark_fence =            registerBlock( new BlockBOPFence(AllWoods.DARK), "dark_fence" );
+        fir_fence =             registerBlock( new BlockBOPFence(AllWoods.FIR), "fir_fence" );
+        ethereal_fence =        registerBlock( new BlockBOPFence(AllWoods.ETHEREAL), "ethereal_fence" );
+        magic_fence =           registerBlock( new BlockBOPFence(AllWoods.MAGIC), "magic_fence" );
+        mangrove_fence =        registerBlock( new BlockBOPFence(AllWoods.MANGROVE), "mangrove_fence" );
+        palm_fence =            registerBlock( new BlockBOPFence(AllWoods.PALM), "palm_fence" );
+        redwood_fence =         registerBlock( new BlockBOPFence(AllWoods.REDWOOD), "redwood_fence" );
+        willow_fence =          registerBlock( new BlockBOPFence(AllWoods.WILLOW), "willow_fence" );
+        pine_fence =            registerBlock( new BlockBOPFence(AllWoods.PINE), "pine_fence" );
+        hellbark_fence =        registerBlock( new BlockBOPFence(AllWoods.HELLBARK), "hellbark_fence" );
+        jacaranda_fence =       registerBlock( new BlockBOPFence(AllWoods.JACARANDA), "jacaranda_fence" );
+        mahogany_fence =        registerBlock( new BlockBOPFence(AllWoods.MAHOGANY), "mahogany_fence" );
         
         // fence gates have no variant metadata, use a new BlockBOPFenceGate instance for each (note there's no giant_flower_fence_gate or dead_fence_gate)
-        sacred_oak_fence_gate = registerBlock( new BlockBOPFenceGate(), "sacred_oak_fence_gate" );
-        cherry_fence_gate =     registerBlock( new BlockBOPFenceGate(), "cherry_fence_gate" );
-        dark_fence_gate =       registerBlock( new BlockBOPFenceGate(), "dark_fence_gate" );
-        fir_fence_gate =        registerBlock( new BlockBOPFenceGate(), "fir_fence_gate" );
-        ethereal_fence_gate =   registerBlock( new BlockBOPFenceGate(), "ethereal_fence_gate" );
-        magic_fence_gate =      registerBlock( new BlockBOPFenceGate(), "magic_fence_gate" );
-        mangrove_fence_gate =   registerBlock( new BlockBOPFenceGate(), "mangrove_fence_gate" );
-        palm_fence_gate =       registerBlock( new BlockBOPFenceGate(), "palm_fence_gate" );
-        redwood_fence_gate =    registerBlock( new BlockBOPFenceGate(), "redwood_fence_gate" );
-        willow_fence_gate =     registerBlock( new BlockBOPFenceGate(), "willow_fence_gate" );
-        pine_fence_gate =       registerBlock( new BlockBOPFenceGate(), "pine_fence_gate" );
-        hellbark_fence_gate =  registerBlock( new BlockBOPFenceGate(), "hellbark_fence_gate" );
-        jacaranda_fence_gate =  registerBlock( new BlockBOPFenceGate(), "jacaranda_fence_gate" );
-        mahogany_fence_gate =   registerBlock( new BlockBOPFenceGate(), "mahogany_fence_gate" );
+        sacred_oak_fence_gate = registerBlock( new BlockBOPFenceGate(AllWoods.SACRED_OAK), "sacred_oak_fence_gate" );
+        cherry_fence_gate =     registerBlock( new BlockBOPFenceGate(AllWoods.CHERRY), "cherry_fence_gate" );
+        dark_fence_gate =       registerBlock( new BlockBOPFenceGate(AllWoods.DARK), "dark_fence_gate" );
+        fir_fence_gate =        registerBlock( new BlockBOPFenceGate(AllWoods.FIR), "fir_fence_gate" );
+        ethereal_fence_gate =   registerBlock( new BlockBOPFenceGate(AllWoods.ETHEREAL), "ethereal_fence_gate" );
+        magic_fence_gate =      registerBlock( new BlockBOPFenceGate(AllWoods.MAGIC), "magic_fence_gate" );
+        mangrove_fence_gate =   registerBlock( new BlockBOPFenceGate(AllWoods.MANGROVE), "mangrove_fence_gate" );
+        palm_fence_gate =       registerBlock( new BlockBOPFenceGate(AllWoods.PALM), "palm_fence_gate" );
+        redwood_fence_gate =    registerBlock( new BlockBOPFenceGate(AllWoods.REDWOOD), "redwood_fence_gate" );
+        willow_fence_gate =     registerBlock( new BlockBOPFenceGate(AllWoods.WILLOW), "willow_fence_gate" );
+        pine_fence_gate =       registerBlock( new BlockBOPFenceGate(AllWoods.PINE), "pine_fence_gate" );
+        hellbark_fence_gate =   registerBlock( new BlockBOPFenceGate(AllWoods.HELLBARK), "hellbark_fence_gate" );
+        jacaranda_fence_gate =  registerBlock( new BlockBOPFenceGate(AllWoods.JACARANDA), "jacaranda_fence_gate" );
+        mahogany_fence_gate =   registerBlock( new BlockBOPFenceGate(AllWoods.MAHOGANY), "mahogany_fence_gate" );
         
         // doors have no variant metadata, use a new BlockBOPDoor instance for each (note there's no giant_flower_door or dead_door)
-        sacred_oak_door =       registerDoor( new BlockBOPDoor(), "sacred_oak_door", BOPItems.sacred_oak_door );
-        cherry_door =           registerDoor( new BlockBOPDoor(), "cherry_door", BOPItems.cherry_door );
-        dark_door =             registerDoor( new BlockBOPDoor(), "dark_door", BOPItems.dark_door );
-        fir_door =              registerDoor( new BlockBOPDoor(), "fir_door", BOPItems.fir_door );
-        ethereal_door =         registerDoor( new BlockBOPDoor(), "ethereal_door", BOPItems.ethereal_door );
-        magic_door =            registerDoor( new BlockBOPDoor(), "magic_door", BOPItems.magic_door );
-        mangrove_door =         registerDoor( new BlockBOPDoor(), "mangrove_door", BOPItems.mangrove_door );
-        palm_door =             registerDoor( new BlockBOPDoor(), "palm_door", BOPItems.palm_door );
-        redwood_door =          registerDoor( new BlockBOPDoor(), "redwood_door", BOPItems.redwood_door );
-        willow_door =           registerDoor( new BlockBOPDoor(), "willow_door", BOPItems.willow_door );
-        pine_door =             registerDoor( new BlockBOPDoor(), "pine_door", BOPItems.pine_door );
-        hellbark_door =        registerDoor( new BlockBOPDoor(), "hellbark_door", BOPItems.hellbark_door );
-        jacaranda_door =        registerDoor( new BlockBOPDoor(), "jacaranda_door", BOPItems.jacaranda_door );
-        mahogany_door =         registerDoor( new BlockBOPDoor(), "mahogany_door", BOPItems.mahogany_door );
+        sacred_oak_door =       registerDoor( new BlockBOPDoor(AllWoods.SACRED_OAK), "sacred_oak_door", BOPItems.sacred_oak_door );
+        cherry_door =           registerDoor( new BlockBOPDoor(AllWoods.CHERRY), "cherry_door", BOPItems.cherry_door );
+        dark_door =             registerDoor( new BlockBOPDoor(AllWoods.DARK), "dark_door", BOPItems.dark_door );
+        fir_door =              registerDoor( new BlockBOPDoor(AllWoods.FIR), "fir_door", BOPItems.fir_door );
+        ethereal_door =         registerDoor( new BlockBOPDoor(AllWoods.ETHEREAL), "ethereal_door", BOPItems.ethereal_door );
+        magic_door =            registerDoor( new BlockBOPDoor(AllWoods.MAGIC), "magic_door", BOPItems.magic_door );
+        mangrove_door =         registerDoor( new BlockBOPDoor(AllWoods.MANGROVE), "mangrove_door", BOPItems.mangrove_door );
+        palm_door =             registerDoor( new BlockBOPDoor(AllWoods.PALM), "palm_door", BOPItems.palm_door );
+        redwood_door =          registerDoor( new BlockBOPDoor(AllWoods.REDWOOD), "redwood_door", BOPItems.redwood_door );
+        willow_door =           registerDoor( new BlockBOPDoor(AllWoods.WILLOW), "willow_door", BOPItems.willow_door );
+        pine_door =             registerDoor( new BlockBOPDoor(AllWoods.PINE), "pine_door", BOPItems.pine_door );
+        hellbark_door =         registerDoor( new BlockBOPDoor(AllWoods.HELLBARK), "hellbark_door", BOPItems.hellbark_door );
+        jacaranda_door =        registerDoor( new BlockBOPDoor(AllWoods.JACARANDA), "jacaranda_door", BOPItems.jacaranda_door );
+        mahogany_door =         registerDoor( new BlockBOPDoor(AllWoods.MAHOGANY), "mahogany_door", BOPItems.mahogany_door );
  
         // TODO: stone/mud brick stairs and slabs
         
@@ -238,12 +238,12 @@ public class ModBlocks
     }
     
     // use a separate function for registering doors because the door block and item need to be registered together
-    public static Block registerDoor(Block door_block, String name, Item door_item)
+    public static Block registerDoor(BlockBOPDoor door_block, String name, Item door_item)
     {
-        door_block = registerBlock( new BlockBOPDoor(), name + "_block", null );
-        door_item = ModItems.registerItem( new ItemDoor(door_block), name );
-        ((BlockBOPDoor)door_block).setDoorItem(door_item);
-        return door_block;
+        Block block = registerBlock( door_block, name + "_block", null );
+        door_item = ModItems.registerItem( new ItemDoor(block), name );
+        door_block.setDoorItem(door_item);
+        return block;
     }
     
     
