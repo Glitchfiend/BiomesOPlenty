@@ -11,7 +11,6 @@ package biomesoplenty.common.block;
 import java.util.List;
 import java.util.Random;
 
-import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.item.ItemBOPBlock;
@@ -134,24 +133,19 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
         return 20;
     }
     
-    // TODO: use some kind of mapping to saplings
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
         BOPTrees treeType = ((BOPTrees) state.getValue(this.variantProperty));
-        int saplingPage = treeType.ordinal() / 8;
-        if (saplingPage == 2) {return Item.getItemFromBlock(BOPBlocks.sapling_2);}
-        if (saplingPage == 1) {return Item.getItemFromBlock(BOPBlocks.sapling_1);}
-        return Item.getItemFromBlock(BOPBlocks.sapling_0);
+        return Item.getItemFromBlock( BlockBOPSapling.paging.getBlock(treeType) );
     }
     
-    // TODO: use some kind of mapping to saplings
     @Override
     public int damageDropped(IBlockState state)
     {
-        //Ignore all other properties, only the variant is important to ensure different variants use different stacks
         BOPTrees tree = ((BOPTrees) state.getValue(this.variantProperty));
-        return this.getMetaFromState(this.getDefaultState().withProperty(this.variantProperty, tree));
+        ItemStack stack = BlockBOPSapling.paging.getVariantItem(tree);
+        return stack.getItemDamage();
     }
     
     // TODO: different fruits for different trees?
