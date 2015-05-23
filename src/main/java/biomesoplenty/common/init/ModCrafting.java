@@ -83,8 +83,6 @@ public class ModCrafting
         for (BlockBOPHalfOtherSlab.SlabType slabType : BlockBOPHalfOtherSlab.SlabType.values())
         {
             BlockBOPHalfOtherSlab otherSlab = (BlockBOPHalfOtherSlab)BOPBlocks.other_slab;
-            System.out.println( otherSlab.getVariantItem(slabType, 6) );
-            System.out.println( otherSlab.getFullBlockVariantItem(slabType) );
             GameRegistry.addShapedRecipe(otherSlab.getVariantItem(slabType, 6), new Object[] {"RRR", 'R', otherSlab.getFullBlockVariantItem(slabType)});
         }
         
