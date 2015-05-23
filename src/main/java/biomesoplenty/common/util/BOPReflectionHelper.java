@@ -17,18 +17,38 @@ public class BOPReflectionHelper
     // Works on constructors which aren't usually accessible
     public static <T> T construct(Class<T> clazz, Object... args)
     {
+        Constructor<T> constructor = getConstructor(clazz, args);        
         try {
-            Class<?>[] argClasses = new Class<?>[args.length];
-            for (int i = 0; i < args.length; i++)
-            {
-                argClasses[i] = args[i].getClass();
-            }
-            Constructor<T> constructor = clazz.getDeclaredConstructor(argClasses);
             constructor.setAccessible(true);
             return constructor.newInstance(args);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+    
+    public static <T> Constructor<T> getConstructor(Class<T> clazz, Object... args)
+    {
+        int len = args.length;
+        for (Constructor constructor : clazz.getDeclaredConstructors())
+        {
+            Class[] constructorArgTypes = constructor.getParameterTypes();
+            if (constructorArgTypes.length == len)
+            {
+                boolean match = true;
+                for (int i = 0; i < len; i++)
+                {
+                    if (!constructorArgTypes[i].isInstance(args[i]))
+                    {
+                        match = false;
+                    }
+                }
+                if (match)
+                {
+                    return (Constructor<T>)constructor;
+                }
+            }
+        }
+        return null;
     }
     
 }
