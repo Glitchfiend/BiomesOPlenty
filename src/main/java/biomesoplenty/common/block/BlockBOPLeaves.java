@@ -28,14 +28,16 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumWorldBlockLayer;
+import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-// TODO: sort out proper base color when using fast graphics
-// TODO: flowers look tinted when using fast graphics
-// TODO: inside surface not visible with fast graphics
+// TODO: using fast graphics - transparent color is always rendered as black - can we override this somehow?
+// TODO: using fast graphics - flowering leaves overlay seems to be tinted green - I think that is because it doesn't use distinct tintindexes on fast graphics
+// In older versions a completely different single texture could be used for fast graphics, but I'm not sure that's an option any more
 public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
 {
     
@@ -126,6 +128,68 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
         }
         return meta;
     }
+    
+    
+    public enum ColoringType {PLAIN, TINTED, OVERLAY};
+    
+    public static ColoringType getColoringType(BOPTrees tree)
+    {
+        switch (tree)
+        {
+            case BAMBOO: case DEAD: case ETHEREAL: case FIR: case HELLBARK: case JACARANDA: case MAGIC: case MAPLE: case ORANGE_AUTUMN: case ORIGIN: case PINK_CHERRY: case WHITE_CHERRY: case YELLOW_AUTUMN: case RED_BIG_FLOWER: case YELLOW_BIG_FLOWER:
+                return ColoringType.PLAIN;
+            case FLOWERING:
+                return ColoringType.OVERLAY;
+            case DARK: case MAHOGANY: case MANGROVE: case PALM: case PINE: case REDWOOD: case SACRED_OAK: case WILLOW: default:
+                return ColoringType.TINTED;
+        }
+    }
+ 
+    @Override
+    @SideOnly(Side.CLIENT)
+    public int getBlockColor()
+    {
+        return 0xFFFFFF;
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public int getRenderColor(IBlockState state)
+    {
+        switch (getColoringType((BOPTrees) state.getValue(this.variantProperty)))
+        {
+            case TINTED:
+                return ColorizerFoliage.getFoliageColorBasic();    
+            case OVERLAY:
+                return ColorizerFoliage.getFoliageColorBasic();
+            case PLAIN: default:
+                return 0xFFFFFF;
+        }
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public int colorMultiplier(IBlockAccess worldIn, BlockPos pos, int tintIndex)
+    {
+        switch (getColoringType((BOPTrees) worldIn.getBlockState(pos).getValue(this.variantProperty)))
+        {
+            case TINTED:
+                return BiomeColorHelper.getFoliageColorAtPos(worldIn, pos);
+            case OVERLAY:
+                switch (tintIndex)
+                {
+                    case 0:
+                        return BiomeColorHelper.getFoliageColorAtPos(worldIn, pos);
+                    case 1: default:
+                        return 0xFFFFFF;
+                }
+            case PLAIN: default:
+                return 0xFFFFFF;
+        }
+    }
+    
+    
+    
     
     @Override
     protected int getSaplingDropChance(IBlockState state)

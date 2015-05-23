@@ -40,6 +40,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BlockBOPGrass extends BlockGrass implements IBOPBlock
 {
     
+    // TODO: make it ploughable into farmland
+    
     // add properties (note we also inherit the SNOWY property from BlockGrass)
     public static enum BOPGrassType implements IStringSerializable
     {

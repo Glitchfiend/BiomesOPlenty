@@ -70,7 +70,6 @@ public class BlockCoral extends BlockDecoration
         // set some defaults
         this.setHardness(0.6F);
         this.setStepSound(Block.soundTypeSand);
-        this.setBlockBoundsByRadiusAndHeight(0.4F, 0.8F); // TODO: account for offset
         this.setDefaultState( this.blockState.getBaseState().withProperty(LEVEL, 15).withProperty(VARIANT, CoralType.PINK) );       
 
     }
@@ -87,6 +86,12 @@ public class BlockCoral extends BlockDecoration
     {
         return ((CoralType) state.getValue(VARIANT)).ordinal();
     }
+    
+    @Override
+    public void setBlockBoundsBasedOnState(IBlockAccess world, BlockPos pos)
+    {
+        this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.4F, 0.8F, pos);
+    }    
 
     // glowing_coral emits light
     @Override

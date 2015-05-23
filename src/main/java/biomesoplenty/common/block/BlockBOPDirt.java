@@ -32,6 +32,7 @@ import biomesoplenty.common.item.ItemBOPBlock;
 
 public class BlockBOPDirt extends Block implements IBOPBlock 
 {
+    // TODO: make it ploughable into farmland
     
     // add properties
     public static enum BOPDirtType implements IStringSerializable

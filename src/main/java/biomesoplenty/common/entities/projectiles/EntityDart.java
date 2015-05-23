@@ -49,9 +49,6 @@ public class EntityDart extends EntityArrow
         super(world, x, y, z);
     }
  
-    
-    // TODO: figure out what this dataWatcher stuff is all about
-    
     @Override
     protected void entityInit()
     {
