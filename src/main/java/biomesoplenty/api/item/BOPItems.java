@@ -116,8 +116,6 @@ public class BOPItems
     
     // TODO: public static Item ancientStaff;
     // TODO: public static Item bop_bucket;
-    // TODO: public static Item flower_band;
-    // TODO: public static Item flippers;
     
     
 }

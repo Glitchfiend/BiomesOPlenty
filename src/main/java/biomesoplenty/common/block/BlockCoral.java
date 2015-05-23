@@ -70,7 +70,7 @@ public class BlockCoral extends BlockDecoration
         // set some defaults
         this.setHardness(0.6F);
         this.setStepSound(Block.soundTypeSand);
-        this.setBlockBoundsByRadiusAndHeight(0.4F, 0.8F);
+        this.setBlockBoundsByRadiusAndHeight(0.4F, 0.8F); // TODO: account for offset
         this.setDefaultState( this.blockState.getBaseState().withProperty(LEVEL, 15).withProperty(VARIANT, CoralType.PINK) );       
 
     }

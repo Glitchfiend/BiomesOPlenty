@@ -53,6 +53,7 @@ public class ModBlocks
         bamboo =                registerBlock( new BlockBamboo(), "bamboo" );
         bone_segment =          registerBlock( new BlockBones(), "bone_segment" );
         coral =                 registerBlock( new BlockCoral(), "coral" );
+        seaweed =               registerBlock( new BlockSeaweed(), "seaweed" );
         gem_block =             registerBlock( new BlockGem(), "gem_block" );
         gem_ore =               registerBlock( new BlockGemOre(), "gem_ore" );
         hive =                  registerBlock( new BlockHive(), "hive" );
