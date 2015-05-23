@@ -104,7 +104,7 @@ public class ModCrafting
             if (!wood.hasPlanks()) {continue;}
             GameRegistry.addShapelessRecipe(BlockBOPPlanks.paging.getVariantItem(wood, 4), BlockBOPLog.paging.getVariantItem(wood));
             GameRegistry.addShapedRecipe(BlockBOPHalfWoodSlab.paging.getVariantItem(wood, 6), new Object[] {"###", '#', BlockBOPPlanks.paging.getVariantItem(wood)});
-            GameRegistry.addShapedRecipe(new ItemStack(BlockBOPStairs.getBlock(wood), 4), new Object[] {"#  ", "## ", "###", '#', BlockBOPPlanks.paging.getVariantItem(wood)});
+            GameRegistry.addShapedRecipe(new ItemStack(BlockBOPWoodStairs.getBlock(wood), 4), new Object[] {"#  ", "## ", "###", '#', BlockBOPPlanks.paging.getVariantItem(wood)});
             GameRegistry.addShapedRecipe(new ItemStack(BlockBOPDoor.getBlock(wood).getDoorItem(), 3), new Object[] {"##", "##", "##", '#', BlockBOPPlanks.paging.getVariantItem(wood)});
             GameRegistry.addShapedRecipe(new ItemStack(BlockBOPFence.getBlock(wood), 3), new Object[] {"W#W", "W#W", '#', Items.stick, 'W', BlockBOPPlanks.paging.getVariantItem(wood)});       
             GameRegistry.addShapedRecipe(new ItemStack(BlockBOPFenceGate.getBlock(wood), 1), new Object[] {"#W#", "#W#", '#', Items.stick, 'W', BlockBOPPlanks.paging.getVariantItem(wood)});
@@ -335,7 +335,7 @@ public class ModCrafting
             {
                 OreDictionary.registerOre("plankWood", BlockBOPPlanks.paging.getVariantItem(wood));
                 OreDictionary.registerOre("slabWood", BlockBOPHalfWoodSlab.paging.getVariantItem(wood));
-                OreDictionary.registerOre("stairWood", new ItemStack(BlockBOPStairs.getBlock(wood)));
+                OreDictionary.registerOre("stairWood", new ItemStack(BlockBOPWoodStairs.getBlock(wood)));
                 OreDictionary.registerOre("fenceWood", new ItemStack(BlockBOPFence.getBlock(wood)));
                 OreDictionary.registerOre("fenceGateWood", new ItemStack(BlockBOPFenceGate.getBlock(wood)));
             }

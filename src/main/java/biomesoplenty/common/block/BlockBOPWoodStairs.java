@@ -19,7 +19,7 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemBlock;
 
-public class BlockBOPStairs extends BlockStairs implements IBOPBlock
+public class BlockBOPWoodStairs extends BlockStairs implements IBOPBlock
 {
     
     // implement IBOPBlock
@@ -36,8 +36,8 @@ public class BlockBOPStairs extends BlockStairs implements IBOPBlock
     public String getStateName(IBlockState state) {return "";}
 
     // Map from woods to BlockBOPStairs instance and back
-    private static Map<BOPWoods, BlockBOPStairs> variantToBlock = new HashMap<BOPWoods, BlockBOPStairs>();
-    public static BlockBOPStairs getBlock(BOPWoods wood)
+    private static Map<BOPWoods, BlockBOPWoodStairs> variantToBlock = new HashMap<BOPWoods, BlockBOPWoodStairs>();
+    public static BlockBOPWoodStairs getBlock(BOPWoods wood)
     {
         return variantToBlock.get(wood);
     }
@@ -47,7 +47,7 @@ public class BlockBOPStairs extends BlockStairs implements IBOPBlock
         return this.wood;
     }
     
-    public BlockBOPStairs(BOPWoods wood)
+    public BlockBOPWoodStairs(BOPWoods wood)
     {
         super(BlockBOPPlanks.paging.getVariantState(wood));
         this.setHarvestLevel("axe", 0);

@@ -133,20 +133,20 @@ public class ModBlocks
         sapling_2 =             registerBlock( BlockBOPSapling.paging.getBlock(2), "sapling_2");
         
         // stairs have no variant metadata, use a new BlockBOPStairs instance for each (note there's no giant_flower_stairs or dead_stairs)
-        sacred_oak_stairs =     registerBlock( new BlockBOPStairs(BOPWoods.SACRED_OAK), "sacred_oak_stairs" );
-        cherry_stairs =         registerBlock( new BlockBOPStairs(BOPWoods.CHERRY), "cherry_stairs" );
-        dark_stairs =           registerBlock( new BlockBOPStairs(BOPWoods.DARK), "dark_stairs" );
-        fir_stairs =            registerBlock( new BlockBOPStairs(BOPWoods.FIR), "fir_stairs" );
-        ethereal_stairs =       registerBlock( new BlockBOPStairs(BOPWoods.ETHEREAL), "ethereal_stairs" );
-        magic_stairs =          registerBlock( new BlockBOPStairs(BOPWoods.MAGIC), "magic_stairs" );
-        mangrove_stairs =       registerBlock( new BlockBOPStairs(BOPWoods.MANGROVE), "mangrove_stairs" );
-        palm_stairs =           registerBlock( new BlockBOPStairs(BOPWoods.PALM), "palm_stairs" );
-        redwood_stairs =        registerBlock( new BlockBOPStairs(BOPWoods.REDWOOD), "redwood_stairs" );
-        willow_stairs =         registerBlock( new BlockBOPStairs(BOPWoods.WILLOW), "willow_stairs" );
-        pine_stairs =           registerBlock( new BlockBOPStairs(BOPWoods.PINE), "pine_stairs" );
-        hellbark_stairs =       registerBlock( new BlockBOPStairs(BOPWoods.HELLBARK), "hellbark_stairs" );
-        jacaranda_stairs =      registerBlock( new BlockBOPStairs(BOPWoods.JACARANDA), "jacaranda_stairs" );
-        mahogany_stairs =       registerBlock( new BlockBOPStairs(BOPWoods.MAHOGANY), "mahogany_stairs" );
+        sacred_oak_stairs =     registerBlock( new BlockBOPWoodStairs(BOPWoods.SACRED_OAK), "sacred_oak_stairs" );
+        cherry_stairs =         registerBlock( new BlockBOPWoodStairs(BOPWoods.CHERRY), "cherry_stairs" );
+        dark_stairs =           registerBlock( new BlockBOPWoodStairs(BOPWoods.DARK), "dark_stairs" );
+        fir_stairs =            registerBlock( new BlockBOPWoodStairs(BOPWoods.FIR), "fir_stairs" );
+        ethereal_stairs =       registerBlock( new BlockBOPWoodStairs(BOPWoods.ETHEREAL), "ethereal_stairs" );
+        magic_stairs =          registerBlock( new BlockBOPWoodStairs(BOPWoods.MAGIC), "magic_stairs" );
+        mangrove_stairs =       registerBlock( new BlockBOPWoodStairs(BOPWoods.MANGROVE), "mangrove_stairs" );
+        palm_stairs =           registerBlock( new BlockBOPWoodStairs(BOPWoods.PALM), "palm_stairs" );
+        redwood_stairs =        registerBlock( new BlockBOPWoodStairs(BOPWoods.REDWOOD), "redwood_stairs" );
+        willow_stairs =         registerBlock( new BlockBOPWoodStairs(BOPWoods.WILLOW), "willow_stairs" );
+        pine_stairs =           registerBlock( new BlockBOPWoodStairs(BOPWoods.PINE), "pine_stairs" );
+        hellbark_stairs =       registerBlock( new BlockBOPWoodStairs(BOPWoods.HELLBARK), "hellbark_stairs" );
+        jacaranda_stairs =      registerBlock( new BlockBOPWoodStairs(BOPWoods.JACARANDA), "jacaranda_stairs" );
+        mahogany_stairs =       registerBlock( new BlockBOPWoodStairs(BOPWoods.MAHOGANY), "mahogany_stairs" );
         
         // fences have no variant metadata, use a new BlockBOPFence instance for each (note there's no giant_flower_fence or dead_fence)
         sacred_oak_fence =      registerBlock( new BlockBOPFence(BOPWoods.SACRED_OAK), "sacred_oak_fence" );
