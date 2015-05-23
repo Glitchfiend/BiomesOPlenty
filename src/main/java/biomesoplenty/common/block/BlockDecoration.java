@@ -21,6 +21,7 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumWorldBlockLayer;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -55,7 +56,6 @@ public class BlockDecoration extends Block implements IBOPBlock
         this.setTickRandomly(true);
         this.setHardness(0.0F);
         this.setStepSound(Block.soundTypeGrass);
-        this.setBlockBoundsByRadiusAndHeight(0.3F, 0.6F);
 
         this.setDefaultState(this.blockState.getBaseState());     
     }
@@ -168,6 +168,12 @@ public class BlockDecoration extends Block implements IBOPBlock
     {
         return Block.EnumOffsetType.XZ;
     }
+    
+    @Override
+    public void setBlockBoundsBasedOnState(IBlockAccess worldIn, BlockPos pos) {
+        this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.3F, 0.6F, pos);
+    }
+
     
     
 }

@@ -175,10 +175,10 @@ public class BlockDoubleDecoration extends BlockDecoration {
         switch ((Half) state.getValue(HALF))
         {
             case LOWER:
-                super.setBlockBoundsByRadiusAndHeight(this.radius, this.fromTop ? this.height : 1.0F, this.fromTop);
+                this.setBlockBoundsByRadiusAndHeightWithXZOffset(this.radius, this.fromTop ? this.height : 1.0F, this.fromTop, pos);
                 break;
             case UPPER:
-                super.setBlockBoundsByRadiusAndHeight(this.radius, this.fromTop ? 1.0F : this.height, this.fromTop);
+                this.setBlockBoundsByRadiusAndHeightWithXZOffset(this.radius, this.fromTop ? 1.0F : this.height, this.fromTop, pos);
                 break;
         }
     }

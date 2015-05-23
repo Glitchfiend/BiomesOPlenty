@@ -38,7 +38,7 @@ public class BlockBOPDoublePlant extends BlockDoubleDecoration implements IShear
     // add properties (note we inherit HALF from BlockDoubleDecoration)
     public static enum DoublePlantType implements IStringSerializable
     {
-        FLAX, TALL_CATTAIL;
+        FLAX, TALL_CATTAIL, EYEBULB;
         @Override
         public String getName()
         {
@@ -156,12 +156,13 @@ public class BlockBOPDoublePlant extends BlockDoubleDecoration implements IShear
     @Override
     public void setBlockBoundsBasedOnState(IBlockAccess worldIn, BlockPos pos)
     {    
+        boolean isLower = ((Half) worldIn.getBlockState(pos).getValue(HALF) == Half.LOWER);
         switch ((DoublePlantType) worldIn.getBlockState(pos).getValue(VARIANT))
         {
             default:
-                this.setBlockBoundsByRadiusAndHeight(0.4F, 0.8F);
+                this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.4F, isLower ? 1.0F : 0.8F, pos);
                 break;
-        }        
+        }
     }
     
     
@@ -173,6 +174,7 @@ public class BlockBOPDoublePlant extends BlockDoubleDecoration implements IShear
         Block groundBlock = groundState.getBlock();
         boolean onFertile = (groundBlock == Blocks.dirt || groundBlock == BOPBlocks.dirt || groundBlock == Blocks.mycelium || groundBlock == Blocks.grass);
         boolean onGrass = (groundBlock == Blocks.grass);
+        boolean onHellish = (groundBlock == Blocks.netherrack || groundBlock == BOPBlocks.flesh);
         if (groundBlock instanceof BlockBOPGrass)
         {
             switch ((BlockBOPGrass.BOPGrassType) groundState.getValue(BlockBOPGrass.VARIANT))
@@ -181,6 +183,7 @@ public class BlockBOPDoublePlant extends BlockDoubleDecoration implements IShear
                     break;
                 case OVERGROWN_NETHERRACK:
                     onFertile = true;
+                    onHellish = true;
                     break;
                 case LOAMY: case SANDY: case SILTY: case ORIGIN: default:
                     onFertile = true;
@@ -193,9 +196,11 @@ public class BlockBOPDoublePlant extends BlockDoubleDecoration implements IShear
             case TALL_CATTAIL:
                 boolean hasWater = (world.getBlockState(lowerPos.add(-1, -1, 0)).getBlock().getMaterial() == Material.water || world.getBlockState(lowerPos.add(1,-1,0)).getBlock().getMaterial() == Material.water || world.getBlockState(lowerPos.add(0,-1,-1)).getBlock().getMaterial() == Material.water || world.getBlockState(lowerPos.add(0,-1,1)).getBlock().getMaterial() == Material.water);
                 return onGrass && hasWater;
+            case EYEBULB:
+                return onHellish;
             case FLAX: default:
                 return onFertile;
-        }        
+        }
         
     }
     
