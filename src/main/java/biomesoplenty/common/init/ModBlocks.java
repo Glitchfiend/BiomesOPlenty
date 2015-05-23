@@ -75,11 +75,19 @@ public class ModBlocks
         hard_sand =             registerBlock( (new BlockBOPGeneric(Material.sand)).setHardness(0.9F).setStepSound(Block.soundTypeSand), "hard_sand" );
         mud_brick_block =       registerBlock( (new BlockBOPGeneric()).setResistance(2.0F), "mud_brick_block" );
  
+        // stone and brick slabs
+        // need to register items at the same time really so that they can be mapped to each other - bit messy this
+        other_slab =            registerBlock( new BlockBOPHalfOtherSlab(), "other_slab");
+        double_other_slab =     registerBlock( new BlockBOPDoubleOtherSlab(), "double_other_slab", null ); // no creative tab for double slab
+        BOPItems.other_slab =   ModItems.registerItem( new ItemSlab(other_slab, (BlockSlab)other_slab, (BlockSlab)double_other_slab), "other_slab");
+        GameData.getBlockItemMap().put(other_slab, BOPItems.other_slab);      
+        GameData.getBlockItemMap().put(double_other_slab, BOPItems.other_slab);
+        
         // 22 flower types 16 per BlockBOPFlower instance, needs 2 'pages'
         BlockBOPFlower.createAllPages();
         flower_0 =              registerBlock( BlockBOPFlower.paging.getBlock(0), "flower_0" );
         flower_1 =              registerBlock( BlockBOPFlower.paging.getBlock(1), "flower_1" );
-        
+                
         // 16 wood types, 4 per BlockBOPLog instance, needs 4 'pages'
         BlockBOPLog.createAllPages();
         log_0 =                 registerBlock( BlockBOPLog.paging.getBlock(0), "log_0" );
@@ -90,10 +98,20 @@ public class ModBlocks
         // TODO: check if hellbark planks, fence etc can burn
         
         // 16 wood types, 8 per BlockBOPHalfWoodSlab and BlockBOPDoubleWoodSlab intance, needs 2 'pages'
+        // need to register items at the same time really so that they can be mapped to each other - bit messy this
         BlockBOPDoubleWoodSlab.createAllPages();
         BlockBOPHalfWoodSlab.createAllPages();
-        registerWoodSlab( wood_slab_0, double_wood_slab_0, BOPItems.wood_slab_0, 0);
-        registerWoodSlab( wood_slab_1, double_wood_slab_1, BOPItems.wood_slab_1, 1);
+        wood_slab_0 =           registerBlock( BlockBOPHalfWoodSlab.paging.getBlock(0), "wood_slab_0");
+        double_wood_slab_0 =    registerBlock( BlockBOPDoubleWoodSlab.paging.getBlock(0), "double_wood_slab_0", null ); // no creative tab for double slab
+        BOPItems.wood_slab_0 =  ModItems.registerItem( new ItemSlab(wood_slab_0, (BlockSlab)wood_slab_0, (BlockSlab)double_wood_slab_0), "wood_slab_0");
+        GameData.getBlockItemMap().put(wood_slab_0, BOPItems.wood_slab_0);      
+        GameData.getBlockItemMap().put(double_wood_slab_0, BOPItems.wood_slab_0);
+        wood_slab_1 =           registerBlock( BlockBOPHalfWoodSlab.paging.getBlock(1), "wood_slab_1");
+        double_wood_slab_1 =    registerBlock( BlockBOPDoubleWoodSlab.paging.getBlock(1), "double_wood_slab_1", null ); // no creative tab for double slab
+        BOPItems.wood_slab_1 =  ModItems.registerItem( new ItemSlab(wood_slab_1, (BlockSlab)wood_slab_1, (BlockSlab)double_wood_slab_1), "wood_slab_1");
+        GameData.getBlockItemMap().put(wood_slab_1, BOPItems.wood_slab_1);      
+        GameData.getBlockItemMap().put(double_wood_slab_1, BOPItems.wood_slab_1);
+        
         
         // 16 wood types, 16 per BlockBOPPlanks instance, needs 1 'pages'
         BlockBOPPlanks.createAllPages();
@@ -225,17 +243,6 @@ public class ModBlocks
         return block;
     }
     
-    
-    // use a separate function for registering slabs because the half slab, double slab, and item really need to be registered together
-    public static void registerWoodSlab(Block half_slab, Block double_slab, Item slab_item, int pageNum)
-    {
-
-        half_slab =      registerBlock( BlockBOPHalfWoodSlab.paging.getBlock(pageNum), "wood_slab_" + pageNum);
-        double_slab =    registerBlock( BlockBOPDoubleWoodSlab.paging.getBlock(pageNum), "double_wood_slab_" + pageNum, null ); // no creative tab for double slab
-        slab_item =  ModItems.registerItem( new ItemSlab(half_slab, (BlockSlab)half_slab, (BlockSlab)double_slab), "wood_slab_" + pageNum );
-        GameData.getBlockItemMap().put(half_slab, slab_item);      
-        GameData.getBlockItemMap().put(double_slab, slab_item);
-    }
     
     // use a separate function for registering doors because the door block and item need to be registered together
     public static Block registerDoor(BlockBOPDoor door_block, String name, Item door_item)

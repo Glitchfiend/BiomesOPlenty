@@ -1,0 +1,12 @@
+{
+    "variants": {    
+        "variant=limestone": { "model": "biomesoplenty:limestone" },
+        "variant=siltstone": { "model": "biomesoplenty:siltstone" },
+        "variant=shale": { "model": "biomesoplenty:shale" },
+        "variant=polished_limestone": { "model": "biomesoplenty:polished_limestone" },
+        "variant=polished_siltstone": { "model": "biomesoplenty:polished_siltstone" },
+        "variant=polished_shale": { "model": "biomesoplenty:polished_shale" },
+        "variant=crag_rock": { "model": "biomesoplenty:crag_rock" },
+        "variant=mud_brick": { "model": "biomesoplenty:mud_brick_block" }
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "parent": "block/half_slab",
+    "textures": {
+        "bottom": "biomesoplenty:blocks/polished_siltstone",
+        "top": "biomesoplenty:blocks/polished_siltstone",
+        "side": "biomesoplenty:blocks/polished_siltstone"
+    }
+}

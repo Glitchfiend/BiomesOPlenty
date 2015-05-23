@@ -45,6 +45,7 @@ public class BOPItems
     public static Item pixie_dust;
     public static Item ichor;
     public static Item pinecone;
+    public static Item other_slab;
     
     public static Item dart;
     public static Item dart_blower;

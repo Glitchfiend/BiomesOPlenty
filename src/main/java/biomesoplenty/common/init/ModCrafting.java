@@ -78,10 +78,17 @@ public class ModCrafting
         GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.brown_dye), new Object[] {((BlockBOPDoublePlant)BOPBlocks.double_plant).getVariantItem(BlockBOPDoublePlant.DoublePlantType.TALL_CATTAIL)});
 
         
-        /*** Brick stairs and slabs ***/
+        /*** BOP brick and stone stairs and slabs ***/
+        
+        for (BlockBOPHalfOtherSlab.SlabType slabType : BlockBOPHalfOtherSlab.SlabType.values())
+        {
+            BlockBOPHalfOtherSlab otherSlab = (BlockBOPHalfOtherSlab)BOPBlocks.other_slab;
+            System.out.println( otherSlab.getVariantItem(slabType, 6) );
+            System.out.println( otherSlab.getFullBlockVariantItem(slabType) );
+            GameRegistry.addShapedRecipe(otherSlab.getVariantItem(slabType, 6), new Object[] {"RRR", 'R', otherSlab.getFullBlockVariantItem(slabType)});
+        }
         
         // TODO: implement these blocks
-        // GameRegistry.addShapedRecipe(new ItemStack(BOPCBlocks.stoneSingleSlab, 6, 2), new Object[] {"RRR", 'R', BOPCBlocks.mudBricks});
         // GameRegistry.addShapedRecipe(new ItemStack(BOPCBlocks.mudBricksStairs, 4), new Object[] {"  R", " RR", "RRR", 'R', BOPCBlocks.mudBricks});
         // GameRegistry.addShapedRecipe(new ItemStack(BOPCBlocks.mudBricksStairs, 4), new Object[] {"R  ", "RR ", "RRR", 'R', BOPCBlocks.mudBricks});
         
