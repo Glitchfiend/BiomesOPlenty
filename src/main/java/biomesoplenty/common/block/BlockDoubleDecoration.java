@@ -115,7 +115,7 @@ public class BlockDoubleDecoration extends BlockDecoration {
     // drop block as item if it cannot remain here - return whether on not it could stay
     @Override
     protected boolean checkAndDropBlock(World worldIn, BlockPos pos, IBlockState state)
-    {
+    {        
         if (this.isValidDoubleBlock(worldIn, pos) && this.canBlockStay(worldIn, this.getLowerPos(worldIn, pos), state))
         {
             return true;
@@ -187,14 +187,17 @@ public class BlockDoubleDecoration extends BlockDecoration {
     // handle drops from UPPER and LOWER separately
     @Override
     public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
-    {
+    {        
+        // note it is important to use the state as provided and NOT world.getBlockState(pos)
+        // because when this function is called, the block may have already been turned to air
+        // the state provided is the state before the block was destroyed
         if (state.getValue(HALF) == Half.UPPER)
         {
-            return this.getUpperDrops(world, this.getUpperPos(world, pos), this.getUpperState(world, pos), fortune);
+            return this.getUpperDrops(world, pos, state, fortune);
         }
         else
         {
-            return this.getLowerDrops(world, this.getLowerPos(world, pos), this.getLowerState(world, pos), fortune);
+            return this.getLowerDrops(world, pos, state, fortune);
         }
     }
     
@@ -209,27 +212,21 @@ public class BlockDoubleDecoration extends BlockDecoration {
     }
     
     // if a child class chooses to implement IShearable make shearing the upper or lower block act as shearing both
-    public List<ItemStack> onSheared(ItemStack item, IBlockAccess world, BlockPos pos, int fortune) {
-        
+    public List<ItemStack> onSheared(ItemStack item, IBlockAccess world, BlockPos pos, int fortune) {      
         List<ItemStack> drops = new java.util.ArrayList<ItemStack>();
         if (!this.isValidDoubleBlock(world, pos)) {return drops;}
         drops.addAll( this.getUpperShearDrops(item, world, this.getUpperPos(world, pos), this.getUpperState(world, pos), fortune) );
         drops.addAll( this.getLowerShearDrops(item, world, this.getLowerPos(world, pos), this.getLowerState(world, pos), fortune) );
-        
-        // whichever half was sheared, turn the other to air (to prevent it dropping an additional item when it pops)
-        if (world instanceof World)
-        {
-            ((World)world).setBlockToAir( pos.add(0, world.getBlockState(pos).getValue(HALF) == Half.UPPER ? -1 : 1, 0) );
-        }
-        
         return drops;        
     }
     
     // default behavior is that UPPER drops nothing, and LOWER drops the default item
-    public List<ItemStack> getUpperShearDrops(ItemStack item, IBlockAccess world, BlockPos upperPos, IBlockState upperState, int fortune) {
+    public List<ItemStack> getUpperShearDrops(ItemStack item, IBlockAccess world, BlockPos upperPos, IBlockState upperState, int fortune)
+    {
         return new java.util.ArrayList<ItemStack>();
     }
-    public List<ItemStack> getLowerShearDrops(ItemStack item, IBlockAccess world, BlockPos lowerPos, IBlockState lowerState, int fortune) {
+    public List<ItemStack> getLowerShearDrops(ItemStack item, IBlockAccess world, BlockPos lowerPos, IBlockState lowerState, int fortune)
+    {
         return super.getDrops(world, lowerPos, lowerState, fortune);
     }
     

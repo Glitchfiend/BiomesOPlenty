@@ -18,8 +18,10 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.ColorizerFoliage;
@@ -208,31 +210,35 @@ public class BlockBOPDoublePlant extends BlockDoubleDecoration implements IShear
     // get the items dropped when you bash the bush
     @Override
     public List<ItemStack> getLowerDrops(IBlockAccess world, BlockPos lowerPos, IBlockState lowerState, int fortune)
-    {        
+    {
         Random rand = world instanceof World ? ((World)world).rand : RANDOM;
         
         // start with an empty stack
         List<ItemStack> ret = new java.util.ArrayList<ItemStack>();
         
-        // add items based on the VARIANT - default is to return nothing (require shears to collect the block)
-        switch ((DoublePlantType) lowerState.getValue(VARIANT))
+        // add items based on the VARIANT - default is to drop (lower) block
+        DoublePlantType type = (DoublePlantType) lowerState.getValue(VARIANT);
+        switch (type)
         {
             case FLAX:
-                if (rand.nextInt(8) == 0)
-                {
-                    // 1 in 8 chance of getting a seed from this grass
-                    ret.add(ForgeHooks.getGrassSeed(rand));
-                }            
-        
-            default:
+                // drop flax plant and also 1 in 8 chance of getting a seed
+                ret.add(this.getVariantItem(type));
+                if (rand.nextInt(8) == 0) {ret.add(ForgeHooks.getGrassSeed(rand));}
+            
+            case TALL_CATTAIL:
                 break;
+                
+            case EYEBULB: default:
+                // drop self
+                ret.add(this.getVariantItem(type));
         }
         return ret;
     }
     
     
     @Override
-    public boolean isShearable(ItemStack item, IBlockAccess world, BlockPos pos) {
+    public boolean isShearable(ItemStack item, IBlockAccess world, BlockPos pos)
+    {
         return true;
     }
     
@@ -242,12 +248,17 @@ public class BlockBOPDoublePlant extends BlockDoubleDecoration implements IShear
         List<ItemStack> ret = new java.util.ArrayList<ItemStack>();
         
         // add items based on the VARIANT
+        // note that the sheared items are dropped in addition to regular drops
+        // since the default in getLowerDrops is to drop the (lower) block, the default here is to drop nothing (so we don't have a duplicate)
+        // at the moment, this code is pretty useless, but if in the future we add a double block which can't be collected except with shears
+        // then a case will need to be inserted for it in the switch below
         DoublePlantType type = (DoublePlantType) lowerState.getValue(VARIANT);
         switch (type)
         {
-            default:
-                // default is to get the (lower) block unaltered
+            case TALL_CATTAIL:
                 ret.add(this.getVariantItem(type));
+            default:
+                break;
         }
         return ret;
     }
