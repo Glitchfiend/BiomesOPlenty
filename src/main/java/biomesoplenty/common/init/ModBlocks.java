@@ -70,6 +70,7 @@ public class ModBlocks
         biome_block =           registerBlock( new BlockBiomeBlock(), "biome_block" );
         
         // generics
+        bamboo_thatching =      registerBlock( (new BlockBOPGeneric(Material.wood)).setStepSound(Block.soundTypeWood).setHardness(2.0F), "bamboo_thatching"); bamboo_thatching.setHarvestLevel("axe", 0);
         ash_stone =             registerBlock( new BlockBOPGeneric(), "ash_stone" );
         crag_rock =             registerBlock( (new BlockBOPGeneric()).setStepSound(Block.soundTypeStone), "crag_rock" );
         dried_dirt =            registerBlock( new BlockBOPGeneric(), "dried_dirt"); dried_dirt.setHarvestLevel("pickaxe",0);
