@@ -9,8 +9,10 @@
 package biomesoplenty.common.init;
 
 import static biomesoplenty.api.block.BOPBlocks.*;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
+import net.minecraft.block.BlockStairs;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -29,6 +31,7 @@ import biomesoplenty.common.block.*;
 import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.enums.*;
 import biomesoplenty.common.fluids.blocks.*;
+import biomesoplenty.common.util.BOPReflectionHelper;
 import biomesoplenty.common.util.block.BlockStateUtils;
 import biomesoplenty.common.util.inventory.CreativeTabBOP;
 import biomesoplenty.core.BiomesOPlenty;
@@ -74,6 +77,8 @@ public class ModBlocks
         hard_ice =              registerBlock( (new BlockBOPGeneric()).setHardness(0.75F), "hard_ice" );
         hard_sand =             registerBlock( (new BlockBOPGeneric(Material.sand)).setHardness(0.9F).setStepSound(Block.soundTypeSand), "hard_sand" );
         mud_brick_block =       registerBlock( (new BlockBOPGeneric()).setResistance(2.0F), "mud_brick_block" );
+        
+        mud_brick_stairs =      registerBlock( BOPReflectionHelper.construct(BlockStairs.class, (IBlockState)mud_brick_block.getDefaultState()), "mud_brick_stairs");
  
         // stone and brick slabs
         // need to register items at the same time really so that they can be mapped to each other - bit messy this
@@ -110,8 +115,7 @@ public class ModBlocks
         double_wood_slab_1 =    registerBlock( BlockBOPDoubleWoodSlab.paging.getBlock(1), "double_wood_slab_1", null ); // no creative tab for double slab
         BOPItems.wood_slab_1 =  ModItems.registerItem( new ItemSlab(wood_slab_1, (BlockSlab)wood_slab_1, (BlockSlab)double_wood_slab_1), "wood_slab_1");
         GameData.getBlockItemMap().put(wood_slab_1, BOPItems.wood_slab_1);      
-        GameData.getBlockItemMap().put(double_wood_slab_1, BOPItems.wood_slab_1);
-        
+        GameData.getBlockItemMap().put(double_wood_slab_1, BOPItems.wood_slab_1);        
         
         // 16 wood types, 16 per BlockBOPPlanks instance, needs 1 'pages'
         BlockBOPPlanks.createAllPages();
@@ -195,8 +199,6 @@ public class ModBlocks
         hellbark_door =         registerDoor( new BlockBOPDoor(BOPWoods.HELLBARK), "hellbark_door", BOPItems.hellbark_door );
         jacaranda_door =        registerDoor( new BlockBOPDoor(BOPWoods.JACARANDA), "jacaranda_door", BOPItems.jacaranda_door );
         mahogany_door =         registerDoor( new BlockBOPDoor(BOPWoods.MAHOGANY), "mahogany_door", BOPItems.mahogany_door );
- 
-        // TODO: stone/mud brick stairs and slabs
         
         
         //vines

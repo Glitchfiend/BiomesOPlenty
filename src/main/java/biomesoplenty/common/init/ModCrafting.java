@@ -88,9 +88,9 @@ public class ModCrafting
             GameRegistry.addShapedRecipe(otherSlab.getVariantItem(slabType, 6), new Object[] {"RRR", 'R', otherSlab.getFullBlockVariantItem(slabType)});
         }
         
-        // TODO: implement these blocks
-        // GameRegistry.addShapedRecipe(new ItemStack(BOPCBlocks.mudBricksStairs, 4), new Object[] {"  R", " RR", "RRR", 'R', BOPCBlocks.mudBricks});
-        // GameRegistry.addShapedRecipe(new ItemStack(BOPCBlocks.mudBricksStairs, 4), new Object[] {"R  ", "RR ", "RRR", 'R', BOPCBlocks.mudBricks});
+        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.mud_brick_stairs, 4), new Object[] {"  R", " RR", "RRR", 'R', BOPBlocks.mud_brick_block});
+        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.mud_brick_stairs, 4), new Object[] {"R  ", "RR ", "RRR", 'R', BOPBlocks.mud_brick_block});
+        
         
         /*** Wood stairs and slabs ***/
         

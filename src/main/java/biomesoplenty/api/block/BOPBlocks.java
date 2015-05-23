@@ -122,6 +122,8 @@ public class BOPBlocks
     public static Block other_slab;
     public static Block double_other_slab;
     
+    public static Block mud_brick_stairs;
+    
     public static Block flower_vine;
     public static Block ivy;
     public static Block moss;
