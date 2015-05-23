@@ -77,16 +77,19 @@ public class BlockBOPStone extends Block implements IBOPBlock
         
     }
 
+    // TODO: can we get rid of these and just use a single hardness / resistance value?
+    // These don't work completely as expected - sometimes the block at pos is not this (when destroyed it becomes air for example)
     @Override
     public float getBlockHardness(World world, BlockPos pos)
     {
-        return (Boolean)world.getBlockState(pos).getValue(POLISHED) ? 1.5F : 3.0F;
+        IBlockState state = world.getBlockState(pos);
+        return (state.getBlock() == this && (Boolean)state.getValue(POLISHED)) ? 1.5F : 3.0F;
     }
-
     @Override
     public float getExplosionResistance(World world, BlockPos pos, Entity exploder, Explosion explosion)
     {
-        return (Boolean)world.getBlockState(pos).getValue(POLISHED) ? 7.0F : 5.0F;
+        IBlockState state = world.getBlockState(pos);
+        return (state.getBlock() == this && (Boolean)state.getValue(POLISHED)) ? 7.0F : 5.0F;        
     }
 
     // map from state to meta and vice verca - use highest bit for polished boolean, use low 2 bits for variant
@@ -103,6 +106,12 @@ public class BlockBOPStone extends Block implements IBOPBlock
         int type = ((StoneType) state.getValue(VARIANT)).ordinal();
         boolean polished = (Boolean) state.getValue(POLISHED);
         return type + (polished ? 8 : 0);
+    }
+    
+    @Override
+    public int damageDropped(IBlockState state)
+    {
+        return this.getMetaFromState(state);
     }
 
 }
