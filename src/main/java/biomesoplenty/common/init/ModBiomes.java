@@ -95,7 +95,10 @@ public class ModBiomes
             BOPCommand.biomeCount++;
             biome.biomeID = id;
             biome.setBiomeName(name);
-            biome.configure(conf);
+            // If there was a valid config file, then use it to configure the biome
+            if (!conf.isNull()) {biome.configure(conf);}
+            // log any warnings from parsing the config file
+            for (String msg : conf.messages) {BiomesOPlenty.logger.warn(idName+" config "+msg);}
 
             BiomeGenBase.getBiomeGenArray()[id] = biome;
             

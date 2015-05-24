@@ -17,6 +17,7 @@ import biomesoplenty.api.biome.generation.GenerationManager;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.IGenerator;
 import biomesoplenty.common.util.config.ConfigHelper;
+import biomesoplenty.common.util.config.ConfigHelper.WrappedJsonObject;
 
 public class BOPBiome extends BiomeGenBase implements IExtendedBiome
 {
@@ -37,8 +38,11 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
     
     public void configure(ConfigHelper conf)
     {
+        
+        // Allow name to be overridden
         this.biomeName = conf.getString("biomeName",this.biomeName);
         
+        // Allow basic properties to be overridden
         this.topBlock = conf.getBlockState("topBlock", this.topBlock);
         this.fillerBlock = conf.getBlockState("fillerBlock", this.fillerBlock);
         this.minHeight = conf.getFloat("rootHeight", this.minHeight);
@@ -46,6 +50,26 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         this.temperature = conf.getFloat("temperature", this.temperature);
         this.rainfall = conf.getFloat("rainfall", this.rainfall);
         this.waterColorMultiplier = conf.getInt("waterColorMultiplier", this.waterColorMultiplier);
+        
+        // Allow weights to be overridden
+        WrappedJsonObject confWeights = conf.getObject("weights");
+        if (confWeights != null)
+        {
+            for (BiomeType type : BiomeType.values())
+            {
+                Integer weight = confWeights.getInt(type.name().toLowerCase(), null);
+                if (weight == null) {continue;}
+                if (weight.intValue() == 0)
+                {
+                    this.weightMap.remove(type);
+                }
+                else
+                {
+                    this.weightMap.put(type, weight);
+                }
+            }
+        }
+        
     }
     
 
