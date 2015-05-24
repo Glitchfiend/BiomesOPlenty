@@ -36,7 +36,7 @@ public class ConfigHelper
     public static Gson serializer = new GsonBuilder().setPrettyPrinting().create();
     public static JsonParser parser = new JsonParser();
     public JsonBlockState blockStateParser = new JsonBlockState();
-    public WrappedJsonObject root;
+    public WrappedJsonObject root = null;
     public ArrayList<String> messages = new ArrayList<String>();
     
     
@@ -58,6 +58,11 @@ public class ConfigHelper
             }
         }
         this.parse(jsonString);
+    }
+    
+    public boolean isNull()
+    {
+        return this.root == null;
     }
     
     public void parse(String jsonString)
@@ -157,13 +162,13 @@ public class ConfigHelper
         
     private static enum Types {BOOLEAN, STRING, INTEGER, FLOAT, BLOCKSTATE}
     
-    private class WrappedJsonObject
+    public class WrappedJsonObject
     {
         
+        private JsonObject obj;
+        private ConfigHelper conf;
         
-        protected JsonObject obj;
-        protected ConfigHelper conf;
-        WrappedJsonObject(ConfigHelper conf, JsonObject obj)
+        public WrappedJsonObject(ConfigHelper conf, JsonObject obj)
         {
             this.obj = obj;
             this.conf = conf;
@@ -377,6 +382,8 @@ public class ConfigHelper
                 return null;
             }
         }
-    } 
+    }
+    
+    
     
 }
