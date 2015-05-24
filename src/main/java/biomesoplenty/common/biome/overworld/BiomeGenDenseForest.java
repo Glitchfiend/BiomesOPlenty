@@ -18,6 +18,7 @@ import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.block.BlockGem;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.util.config.ConfigHelper;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
@@ -25,6 +26,7 @@ import biomesoplenty.common.world.feature.tree.GeneratorBigTree;
 import biomesoplenty.common.world.feature.tree.GeneratorBush;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
@@ -35,6 +37,9 @@ public class BiomeGenDenseForest extends BOPBiome
 {
     private static final Height biomeHeight = new Height(0.075F, 0.05F);
     
+    public IBlockState usualTopBlock;
+    public IBlockState alternateTopBlock;
+    
     public BiomeGenDenseForest()
     {
         this.setHeight(biomeHeight);
@@ -42,6 +47,11 @@ public class BiomeGenDenseForest extends BOPBiome
         this.setTemperatureRainfall(0.7F, 0.7F);
         
         this.addWeight(BiomeType.WARM, 7);
+        
+        this.topBlock = Blocks.grass.getDefaultState();
+        this.fillerBlock = Blocks.dirt.getDefaultState();
+        this.usualTopBlock = this.topBlock;
+        this.alternateTopBlock = Blocks.dirt.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.COARSE_DIRT);
         
         this.addGenerator("bushes", GeneratorStage.FLOWERS, new GeneratorFlora(1, BlockBOPPlant.paging.getVariantState(BOPPlants.BUSH)));
         this.addGenerator("berry_bushes", GeneratorStage.FLOWERS, new GeneratorFlora(1, BlockBOPPlant.paging.getVariantState(BOPPlants.BERRYBUSH)));
@@ -62,18 +72,20 @@ public class BiomeGenDenseForest extends BOPBiome
         
         this.addGenerator("amber", GeneratorStage.SAND, new GeneratorOreSingle(BOPBlocks.gem_ore.getDefaultState().withProperty(BlockGem.VARIANT, BOPGems.AMBER), 12, 4, 32));
     }
+
+    @Override
+    public void configure(ConfigHelper conf)
+    {
+        super.configure(conf);
+        
+        this.usualTopBlock = this.topBlock;
+        this.alternateTopBlock = conf.getBlockState("alternateTopBlock", this.alternateTopBlock);
+    }
     
     @Override
     public void genTerrainBlocks(World world, Random random, ChunkPrimer primer, int x, int z, double noise)
     {
-        this.topBlock = Blocks.grass.getDefaultState();
-        this.fillerBlock = Blocks.dirt.getDefaultState();
-        
-        if (noise > 1.75D)
-        {
-            this.topBlock = Blocks.dirt.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.COARSE_DIRT);
-        }
-
+        this.topBlock = (noise > 1.75D) ? this.alternateTopBlock : this.usualTopBlock;
         this.generateBiomeTerrain(world, random, primer, x, z, noise);
     }
     
