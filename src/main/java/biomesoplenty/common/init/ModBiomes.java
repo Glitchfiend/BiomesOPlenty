@@ -97,7 +97,7 @@ public class ModBiomes
             // If there was a valid config file, then use it to configure the biome
             if (!conf.isEmpty()) {biome.configure(conf);}
             // log any warnings from parsing the config file
-            for (String msg : conf.flushMessages()) {BiomesOPlenty.logger.warn(idName+" config "+msg);}
+            for (String msg : conf.flushMessages()) {BiomesOPlenty.logger.warn(msg);}
 
             BiomeGenBase.getBiomeGenArray()[id] = biome;
             

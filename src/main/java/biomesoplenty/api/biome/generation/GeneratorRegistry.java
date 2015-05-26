@@ -8,6 +8,8 @@
 
 package biomesoplenty.api.biome.generation;
 
+import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
+
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 
@@ -33,5 +35,28 @@ public class GeneratorRegistry
     public static boolean generatorExists(String identifier)
     {
         return generatorClasses.containsValue(identifier);
+    }
+    
+    public static IGenerator createGenerator(IConfigObj conf)
+    {
+        GeneratorStage stage = conf.getEnum("stage", GeneratorStage.class);
+        String identifier = conf.getString("type");
+        if (stage == null || identifier == null) {return null;}
+        Class<? extends IGenerator> clazz = getGeneratorClass(identifier);
+        if (clazz == null)
+        {
+            conf.addMessage("No generator is registered with type name " + identifier);
+            return null;
+        }
+        IGenerator generator;
+        try {
+            generator = clazz.newInstance();
+        } catch (Exception e) {
+            conf.addMessage("Failed to create instance of generator " + identifier + " - " + e.getMessage());
+            return null;
+        }
+        generator.setStage(stage);
+        generator.configure(conf);
+        return generator;
     }
 }

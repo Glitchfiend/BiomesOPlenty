@@ -14,7 +14,6 @@ import java.util.Random;
 
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
-import biomesoplenty.api.biome.generation.GenerationManager.GeneratorFactory;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GeneratorWeighted extends GeneratorCustomizable
@@ -133,7 +132,7 @@ public class GeneratorWeighted extends GeneratorCustomizable
                 {
                     // there was previously no generator of this name - attempt to add it
                     Integer weight = conf.getInt("weight", null);
-                    IGenerator generator = GeneratorFactory.create(conf);
+                    IGenerator generator = GeneratorRegistry.createGenerator(conf);
                     if (weight != null && generator != null)
                     {
                         this.add(name, weight, generator);

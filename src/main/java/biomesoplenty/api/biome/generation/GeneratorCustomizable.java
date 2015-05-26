@@ -10,7 +10,6 @@ package biomesoplenty.api.biome.generation;
 
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
-// TODO - scrap this?
 public abstract class GeneratorCustomizable implements IGenerator
 {
     private final String identifier;
