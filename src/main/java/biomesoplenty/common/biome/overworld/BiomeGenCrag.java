@@ -13,7 +13,6 @@ import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.common.config.MiscConfigurationHandler;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 
 public class BiomeGenCrag extends BOPBiome
@@ -34,16 +33,9 @@ public class BiomeGenCrag extends BOPBiome
         this.topBlock = BOPBlocks.crag_rock.getDefaultState();
         this.fillerBlock = BOPBlocks.crag_rock.getDefaultState();
         this.waterColorMultiplier = 944693;
+        this.skyColor = 4944498;
         
         this.addGenerator("emeralds", GeneratorStage.SAND, new GeneratorOreSingle(Blocks.emerald_ore.getDefaultState(), 12, 4, 32));
     }
     
-    @Override
-    public int getSkyColorByTemp(float temperature)
-    {
-        if (MiscConfigurationHandler.skyColors) 
-            return 4944498;
-        
-       return super.getSkyColorByTemp(temperature);
-    }
 }

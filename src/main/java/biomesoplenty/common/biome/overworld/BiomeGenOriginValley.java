@@ -19,7 +19,6 @@ import biomesoplenty.common.block.BlockBOPFlower;
 import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.block.BlockBOPGrass.BOPGrassType;
-import biomesoplenty.common.config.MiscConfigurationHandler;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.world.feature.GeneratorFlora;
@@ -34,6 +33,7 @@ public class BiomeGenOriginValley extends BOPBiome
         this.setHeight(biomeHeight);
         this.setColor(10341485);
         this.setTemperatureRainfall(0.7F, 0.8F);
+        this.skyColor = 8441086;
         
         this.addWeight(BiomeType.WARM, 1);
         
@@ -60,12 +60,4 @@ public class BiomeGenOriginValley extends BOPBiome
         return 3866368;
     }
     
-    @Override
-    public int getSkyColorByTemp(float temperature)
-    {
-        if (MiscConfigurationHandler.skyColors) 
-            return 8441086;
-        
-       return super.getSkyColorByTemp(temperature);
-    }
 }

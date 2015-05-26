@@ -30,6 +30,10 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
     private GenerationManager generationManager = new GenerationManager();
     private Map<BiomeType, Integer> weightMap = new HashMap<BiomeType, Integer>();
     
+    // defaults
+    public int skyColor = -1; // -1 indicates the default skyColor by temperature will be used
+    public boolean hasBiomeEssence = true;
+    
     public BOPBiome()
     {
         super(-1, false);
@@ -55,7 +59,12 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         this.maxHeight = conf.getFloat("variation", this.maxHeight);
         this.temperature = conf.getFloat("temperature", this.temperature);
         this.rainfall = conf.getFloat("rainfall", this.rainfall);
+        this.color = conf.getInt("color",this.color);
         this.waterColorMultiplier = conf.getInt("waterColorMultiplier", this.waterColorMultiplier);
+        this.enableRain = conf.getBool("enableRain", this.enableRain);
+        this.enableSnow = conf.getBool("enableSnow", this.enableSnow);
+        this.skyColor = conf.getInt("skyColor", this.skyColor);
+        this.hasBiomeEssence = conf.getBool("hasBiomeEssence", this.hasBiomeEssence);
         
         // Allow weights to be overridden
         IConfigObj confWeights = conf.getObject("weights");
@@ -201,6 +210,12 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
     // whether or not a biome essence item corresponding to this biome should be able to drop from biome blocks
     public boolean hasBiomeEssence()
     {
-        return true;
+        return this.hasBiomeEssence;
+    }
+    
+    @Override
+    public int getSkyColorByTemp(float temperature)
+    {
+        return (this.skyColor == -1) ? super.getSkyColorByTemp(temperature) : this.skyColor;
     }
 }
