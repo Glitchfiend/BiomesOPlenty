@@ -10,9 +10,9 @@ package biomesoplenty.api.biome.generation;
 
 import java.util.Random;
 
+import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
-import biomesoplenty.common.util.config.ConfigHelper.WrappedJsonObject;
 
 public interface IGenerator
 {
@@ -30,5 +30,5 @@ public interface IGenerator
     public String getIdentifier();
     public GeneratorStage getStage();
     
-    public void configure(WrappedJsonObject conf);
+    public void configure(IConfigObj conf);
 }

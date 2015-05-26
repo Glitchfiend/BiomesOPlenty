@@ -23,7 +23,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import biomesoplenty.api.biome.generation.GeneratorCustomizable;
 import biomesoplenty.common.util.biome.GeneratorUtils;
-import biomesoplenty.common.util.config.ConfigHelper.WrappedJsonObject;
+import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 import com.google.common.collect.Lists;
 
@@ -535,7 +535,7 @@ public class GeneratorBigTree extends GeneratorCustomizable
     }
     
     @Override
-    public void configure(WrappedJsonObject conf)
+    public void configure(IConfigObj conf)
     {
         this.amountPerChunk = conf.getInt("amountPerChunk", this.amountPerChunk);
         this.updateNeighbours = conf.getBool("updateNeighbours", this.updateNeighbours);

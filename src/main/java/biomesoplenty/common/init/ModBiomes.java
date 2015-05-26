@@ -18,7 +18,6 @@ import java.util.Map.Entry;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
 import net.minecraftforge.common.BiomeManager.BiomeType;
-
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.IExtendedBiome;
 import biomesoplenty.common.biome.BOPBiomeManager;
@@ -33,7 +32,7 @@ import biomesoplenty.common.biome.overworld.BiomeGenShrubland;
 import biomesoplenty.common.biome.overworld.BiomeGenSteppe;
 import biomesoplenty.common.biome.overworld.BiomeGenThicket;
 import biomesoplenty.common.command.BOPCommand;
-import biomesoplenty.common.util.config.ConfigHelper;
+import biomesoplenty.common.util.config.BOPConfig;
 import biomesoplenty.common.world.WorldTypeBOP;
 import biomesoplenty.core.BiomesOPlenty;
 
@@ -45,7 +44,7 @@ public class ModBiomes
 
     private static int nextBiomeId = 40;
     private static File biomeIdMapFile;
-    private static ConfigHelper biomeIdMapConf;
+    private static BOPConfig.IConfigObj biomeIdMapConf;
     private static Map<String, Integer> biomeIdMap;
 
     public static void init()
@@ -54,14 +53,14 @@ public class ModBiomes
         
         // get BOP biome ids from the config file (if it exists)
         biomeIdMapFile = new File(BiomesOPlenty.configDirectory, "biome_ids.json");
-        biomeIdMapConf = new ConfigHelper(biomeIdMapFile);
+        biomeIdMapConf = new BOPConfig.ConfigFileObj(biomeIdMapFile);
         biomeIdMap = new HashMap<String, Integer>();
         
         registerBiomes();
         registerExternalBiomes();
         
         // save the biome ids to the config file (creating it if it doesn't exist)
-        ConfigHelper.writeFile(biomeIdMapFile, biomeIdMap);
+        BOPConfig.writeFile(biomeIdMapFile, biomeIdMap);
         
     }
     
@@ -90,15 +89,15 @@ public class ModBiomes
         if (id > -1) {
             
             File configFile = new File(new File(BiomesOPlenty.configDirectory, "biomes"), idName + ".json");
-            ConfigHelper conf = new ConfigHelper(configFile);
+            BOPConfig.IConfigObj conf = new BOPConfig.ConfigFileObj(configFile);
             
             BOPCommand.biomeCount++;
             biome.biomeID = id;
             biome.setBiomeName(name);
             // If there was a valid config file, then use it to configure the biome
-            if (!conf.isNull()) {biome.configure(conf);}
+            if (!conf.isEmpty()) {biome.configure(conf);}
             // log any warnings from parsing the config file
-            for (String msg : conf.messages) {BiomesOPlenty.logger.warn(idName+" config "+msg);}
+            for (String msg : conf.flushMessages()) {BiomesOPlenty.logger.warn(idName+" config "+msg);}
 
             BiomeGenBase.getBiomeGenArray()[id] = biome;
             

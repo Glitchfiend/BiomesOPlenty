@@ -17,7 +17,7 @@ import org.apache.commons.lang3.tuple.Pair;
 
 import biomesoplenty.api.biome.generation.GeneratorCustomizable;
 import biomesoplenty.common.util.biome.GeneratorUtils;
-import biomesoplenty.common.util.config.ConfigHelper.WrappedJsonObject;
+import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public abstract class GeneratorOreBase extends GeneratorCustomizable
 {
@@ -46,7 +46,7 @@ public abstract class GeneratorOreBase extends GeneratorCustomizable
     }
     
     @Override
-    public void configure(WrappedJsonObject conf)
+    public void configure(IConfigObj conf)
     {
         this.amountPerChunk = conf.getInt("amountPerChunk", this.amountPerChunk);
         int minHeight = conf.getInt("minHeight", this.minHeight).intValue();

@@ -10,12 +10,12 @@ package biomesoplenty.common.world.feature;
 
 import java.util.Random;
 
+import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;
-import biomesoplenty.common.util.config.ConfigHelper.WrappedJsonObject;
 
 public class GeneratorOreCluster extends GeneratorOreBase
 {
@@ -41,7 +41,7 @@ public class GeneratorOreCluster extends GeneratorOreBase
     }
     
     @Override
-    public void configure(WrappedJsonObject conf)
+    public void configure(IConfigObj conf)
     {
         super.configure(conf);
         

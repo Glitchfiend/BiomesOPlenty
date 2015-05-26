@@ -15,7 +15,7 @@ import java.util.Random;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import biomesoplenty.api.biome.generation.GenerationManager.GeneratorFactory;
-import biomesoplenty.common.util.config.ConfigHelper.WrappedJsonObject;
+import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GeneratorWeighted extends GeneratorCustomizable
 {
@@ -104,10 +104,10 @@ public class GeneratorWeighted extends GeneratorCustomizable
 
     
     @Override
-    public void configure(WrappedJsonObject conf)
+    public void configure(IConfigObj conf)
     {
         this.amountPerChunk = conf.getInt("amountPerChunk", this.amountPerChunk);
-        WrappedJsonObject confGenerators = conf.getObject("generators");
+        IConfigObj confGenerators = conf.getObject("generators");
         if (confGenerators != null)
         {
             for (String name : confGenerators.getKeys())

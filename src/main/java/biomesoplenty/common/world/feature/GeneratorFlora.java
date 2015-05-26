@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 import biomesoplenty.api.biome.generation.GeneratorCustomizable;
 import biomesoplenty.common.block.BlockDecoration;
 import biomesoplenty.common.util.biome.GeneratorUtils;
-import biomesoplenty.common.util.config.ConfigHelper.WrappedJsonObject;
+import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GeneratorFlora extends GeneratorCustomizable
 {
@@ -80,7 +80,7 @@ public class GeneratorFlora extends GeneratorCustomizable
     }
     
     @Override
-    public void configure(WrappedJsonObject conf)
+    public void configure(IConfigObj conf)
     {
         this.amountPerChunk = conf.getInt("amountPerChunk", this.amountPerChunk);
         this.state = conf.getBlockState("state", this.state);

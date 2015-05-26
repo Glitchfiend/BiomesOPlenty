@@ -24,7 +24,7 @@ import org.apache.commons.lang3.tuple.Pair;
 
 import biomesoplenty.api.biome.generation.GeneratorCustomizable;
 import biomesoplenty.common.util.biome.GeneratorUtils;
-import biomesoplenty.common.util.config.ConfigHelper.WrappedJsonObject;
+import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GeneratorBasicTree extends GeneratorCustomizable
 {
@@ -302,7 +302,7 @@ public class GeneratorBasicTree extends GeneratorCustomizable
     }
     
     @Override
-    public void configure(WrappedJsonObject conf)
+    public void configure(IConfigObj conf)
     {
         this.amountPerChunk = conf.getInt("amountPerChunk", this.amountPerChunk);
         this.updateNeighbours = conf.getBool("updateNeighbours", this.updateNeighbours);

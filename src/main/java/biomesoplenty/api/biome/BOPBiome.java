@@ -16,8 +16,7 @@ import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.generation.GenerationManager;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.IGenerator;
-import biomesoplenty.common.util.config.ConfigHelper;
-import biomesoplenty.common.util.config.ConfigHelper.WrappedJsonObject;
+import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class BOPBiome extends BiomeGenBase implements IExtendedBiome
 {
@@ -36,7 +35,7 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         this.theBiomeDecorator.clayPerChunk = -999;
     }
     
-    public void configure(ConfigHelper conf)
+    public void configure(IConfigObj conf)
     {
         
         // Allow name to be overridden
@@ -52,7 +51,7 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         this.waterColorMultiplier = conf.getInt("waterColorMultiplier", this.waterColorMultiplier);
         
         // Allow weights to be overridden
-        WrappedJsonObject confWeights = conf.getObject("weights");
+        IConfigObj confWeights = conf.getObject("weights");
         if (confWeights != null)
         {
             for (BiomeType type : BiomeType.values())
@@ -71,7 +70,7 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         }
         
         // Allow generators to be configured
-        WrappedJsonObject confGenerators = conf.getObject("generators");
+        IConfigObj confGenerators = conf.getObject("generators");
         if (confGenerators != null)
         {
             for (String name : confGenerators.getKeys())

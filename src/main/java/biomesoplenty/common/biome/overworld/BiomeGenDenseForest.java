@@ -18,7 +18,7 @@ import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.block.BlockGem;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
-import biomesoplenty.common.util.config.ConfigHelper;
+import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
@@ -74,7 +74,7 @@ public class BiomeGenDenseForest extends BOPBiome
     }
 
     @Override
-    public void configure(ConfigHelper conf)
+    public void configure(IConfigObj conf)
     {
         super.configure(conf);
         

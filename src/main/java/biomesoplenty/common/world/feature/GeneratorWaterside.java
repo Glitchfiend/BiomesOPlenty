@@ -19,7 +19,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import biomesoplenty.api.biome.generation.GeneratorCustomizable;
-import biomesoplenty.common.util.config.ConfigHelper.WrappedJsonObject;
+import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GeneratorWaterside extends GeneratorCustomizable
 {
@@ -106,7 +106,7 @@ public class GeneratorWaterside extends GeneratorCustomizable
     }
     
     @Override
-    public void configure(WrappedJsonObject conf)
+    public void configure(IConfigObj conf)
     {
         this.amountPerChunk = conf.getInt("amountPerChunk", this.amountPerChunk);
         this.maxRadius = conf.getInt("maxRadius", this.maxRadius);

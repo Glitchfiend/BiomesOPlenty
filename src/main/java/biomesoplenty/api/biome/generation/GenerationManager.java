@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import biomesoplenty.common.util.config.ConfigHelper.WrappedJsonObject;
+import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import biomesoplenty.common.world.feature.*;
 import biomesoplenty.common.world.feature.tree.*;
 
@@ -57,7 +57,7 @@ public class GenerationManager
         return this.generators.get(name);
     }
 
-    public void configureWith(String name, WrappedJsonObject conf)
+    public void configureWith(String name, IConfigObj conf)
     {
         if (this.generators.containsKey(name))
         {
@@ -88,10 +88,10 @@ public class GenerationManager
     {
         FLORA, DOUBLE_FLORA, GRASS, ORE_CLUSTER, ORE_SINGLE, WATERSIDE, BASIC_TREE, BIG_TREE, BUSH;
         
-        public static IGenerator create(WrappedJsonObject conf)
+        public static IGenerator create(IConfigObj conf)
         {
-            GeneratorStage stage = conf.getEnum("stage", null, GeneratorStage.class);
-            GeneratorFactory factory = conf.getEnum("type", null, GeneratorFactory.class);
+            GeneratorStage stage = conf.getEnum("stage", GeneratorStage.class);
+            GeneratorFactory factory = conf.getEnum("type", GeneratorFactory.class);
             if (stage == null || factory == null) {return null;}
             IGenerator generator = factory.create();
             generator.setStage(stage);

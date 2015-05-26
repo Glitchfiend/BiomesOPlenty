@@ -8,8 +8,9 @@
 
 package biomesoplenty.api.biome.generation;
 
-import biomesoplenty.common.util.config.ConfigHelper.WrappedJsonObject;
+import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
+// TODO - scrap this?
 public abstract class GeneratorCustomizable implements IGenerator
 {
     private final String identifier;
@@ -57,7 +58,7 @@ public abstract class GeneratorCustomizable implements IGenerator
     }
     
     @Override
-    public void configure(WrappedJsonObject conf)
+    public void configure(IConfigObj conf)
     {
         ;
     }

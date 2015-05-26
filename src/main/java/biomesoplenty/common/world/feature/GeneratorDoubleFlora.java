@@ -16,7 +16,7 @@ import biomesoplenty.common.block.BlockBOPDoublePlant;
 import biomesoplenty.common.block.BlockDecoration;
 import biomesoplenty.common.block.BlockDoubleDecoration;
 import biomesoplenty.common.util.biome.GeneratorUtils;
-import biomesoplenty.common.util.config.ConfigHelper.WrappedJsonObject;
+import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockPos;
@@ -91,7 +91,7 @@ public class GeneratorDoubleFlora extends GeneratorCustomizable
     }
     
     @Override
-    public void configure(WrappedJsonObject conf)
+    public void configure(IConfigObj conf)
     {
         this.amountPerChunk = conf.getInt("amountPerChunk", this.amountPerChunk);
         this.bottomState = conf.getBlockState("bottomState", this.bottomState);
