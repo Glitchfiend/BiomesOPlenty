@@ -38,16 +38,16 @@ public class BiomeGenFlowerField extends BOPBiome
         this.addWeight(BiomeType.WARM, 3);
         
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(999);
-        flowerGenerator.add(2, new GeneratorFlora(1, Blocks.red_flower.getDefaultState().withProperty(Blocks.red_flower.getTypeProperty(), EnumFlowerType.PINK_TULIP)));
-        flowerGenerator.add(5, new GeneratorFlora(1, Blocks.red_flower.getDefaultState().withProperty(Blocks.red_flower.getTypeProperty(), EnumFlowerType.WHITE_TULIP)));
-        flowerGenerator.add(7, new GeneratorFlora(1, Blocks.red_flower.getDefaultState().withProperty(Blocks.red_flower.getTypeProperty(), EnumFlowerType.ORANGE_TULIP)));
-        flowerGenerator.add(10, new GeneratorFlora(1, Blocks.red_flower.getDefaultState().withProperty(Blocks.red_flower.getTypeProperty(), EnumFlowerType.RED_TULIP)));
+        flowerGenerator.add("pink_tuilp", 2, new GeneratorFlora(1, Blocks.red_flower.getDefaultState().withProperty(Blocks.red_flower.getTypeProperty(), EnumFlowerType.PINK_TULIP)));
+        flowerGenerator.add("white_tulip", 5, new GeneratorFlora(1, Blocks.red_flower.getDefaultState().withProperty(Blocks.red_flower.getTypeProperty(), EnumFlowerType.WHITE_TULIP)));
+        flowerGenerator.add("orange_tulip", 7, new GeneratorFlora(1, Blocks.red_flower.getDefaultState().withProperty(Blocks.red_flower.getTypeProperty(), EnumFlowerType.ORANGE_TULIP)));
+        flowerGenerator.add("red_tulip", 10, new GeneratorFlora(1, Blocks.red_flower.getDefaultState().withProperty(Blocks.red_flower.getTypeProperty(), EnumFlowerType.RED_TULIP)));
         this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
         
         GeneratorWeighted grassGenerator = new GeneratorWeighted(35);
-        grassGenerator.add(1, new GeneratorGrass(1, BlockBOPPlant.paging.getVariantState(BOPPlants.WHEATGRASS)));
-        grassGenerator.add(1, new GeneratorGrass(1, BlockBOPPlant.paging.getVariantState(BOPPlants.DAMPGRASS)));
-        grassGenerator.add(2, new GeneratorGrass(1, Blocks.tallgrass.getDefaultState().withProperty(BlockTallGrass.TYPE, BlockTallGrass.EnumType.GRASS)));
+        grassGenerator.add("wheatgrass", 1, new GeneratorGrass(1, BlockBOPPlant.paging.getVariantState(BOPPlants.WHEATGRASS)));
+        grassGenerator.add("dampgrass", 1, new GeneratorGrass(1, BlockBOPPlant.paging.getVariantState(BOPPlants.DAMPGRASS)));
+        grassGenerator.add("tallgrass", 2, new GeneratorGrass(1, Blocks.tallgrass.getDefaultState().withProperty(BlockTallGrass.TYPE, BlockTallGrass.EnumType.GRASS)));
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         
         this.addGenerator("peridot", GeneratorStage.SAND, new GeneratorOreSingle(BOPBlocks.gem_ore.getDefaultState().withProperty(BlockGem.VARIANT, BOPGems.PERIDOT), 12, 4, 32));

@@ -53,11 +53,11 @@ public class BiomeGenShrubland extends BOPBiome
         this.addGenerator("flowers", GeneratorStage.FLOWERS, new GeneratorFlora(5, Blocks.red_flower.getDefaultState().withProperty(Blocks.red_flower.getTypeProperty(), EnumFlowerType.ALLIUM)));
         
         GeneratorWeighted grassGenerator = new GeneratorWeighted(1);
-        grassGenerator.add(1, new GeneratorGrass(1, BlockBOPPlant.paging.getVariantState(BOPPlants.SHORTGRASS)));
-        grassGenerator.add(1, new GeneratorGrass(1, BlockBOPPlant.paging.getVariantState(BOPPlants.MEDIUMGRASS)));
-        grassGenerator.add(1, new GeneratorGrass(1, BlockBOPPlant.paging.getVariantState(BOPPlants.WHEATGRASS)));
-        grassGenerator.add(1, new GeneratorGrass(1, BlockBOPPlant.paging.getVariantState(BOPPlants.DAMPGRASS)));
-        grassGenerator.add(1, new GeneratorGrass(2, Blocks.tallgrass.getDefaultState().withProperty(BlockTallGrass.TYPE, BlockTallGrass.EnumType.GRASS)));
+        grassGenerator.add("shortgrass", 1, new GeneratorGrass(1, BlockBOPPlant.paging.getVariantState(BOPPlants.SHORTGRASS)));
+        grassGenerator.add("mediumgrass", 1, new GeneratorGrass(1, BlockBOPPlant.paging.getVariantState(BOPPlants.MEDIUMGRASS)));
+        grassGenerator.add("wheatgrass", 1, new GeneratorGrass(1, BlockBOPPlant.paging.getVariantState(BOPPlants.WHEATGRASS)));
+        grassGenerator.add("dampgrass", 1, new GeneratorGrass(1, BlockBOPPlant.paging.getVariantState(BOPPlants.DAMPGRASS)));
+        grassGenerator.add("tallgrass", 1, new GeneratorGrass(2, Blocks.tallgrass.getDefaultState().withProperty(BlockTallGrass.TYPE, BlockTallGrass.EnumType.GRASS)));
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         
         this.addGenerator("peridot", GeneratorStage.SAND, new GeneratorOreSingle(BOPBlocks.gem_ore.getDefaultState().withProperty(BlockGem.VARIANT, BOPGems.PERIDOT), 12, 4, 32));

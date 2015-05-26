@@ -43,8 +43,8 @@ public class BiomeGenOriginValley extends BOPBiome
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(4);
-        flowerGenerator.add(8, new GeneratorFlora(1, BlockBOPFlower.paging.getVariantState(BOPFlowers.ROSE)));
-        flowerGenerator.add(10, new GeneratorFlora(1, Blocks.yellow_flower.getDefaultState()));
+        flowerGenerator.add("rose", 8, new GeneratorFlora(1, BlockBOPFlower.paging.getVariantState(BOPFlowers.ROSE)));
+        flowerGenerator.add("yellow_flower", 10, new GeneratorFlora(1, Blocks.yellow_flower.getDefaultState()));
         this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
     }
     

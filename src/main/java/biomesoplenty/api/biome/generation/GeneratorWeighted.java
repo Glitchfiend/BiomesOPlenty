@@ -8,74 +8,138 @@
 
 package biomesoplenty.api.biome.generation;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map.Entry;
 import java.util.Random;
 
 import net.minecraft.util.BlockPos;
-import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.World;
+import biomesoplenty.api.biome.generation.GenerationManager.GeneratorFactory;
 import biomesoplenty.common.util.config.ConfigHelper.WrappedJsonObject;
 
-// TODO implement so that we don't rely on minecraft WeightedRandom class and GeneratorWeightedEntry class - can be much simpler
 public class GeneratorWeighted extends GeneratorCustomizable
 {
     private int amountPerChunk;
-    private List<GeneratorWeightedEntry> weightedEntries = new ArrayList<GeneratorWeightedEntry>();
-    
-    public GeneratorWeighted() {}
+    private HashMap<String, IGenerator> generators = new HashMap<String, IGenerator>();
+    private HashMap<IGenerator, Integer> weights = new HashMap<IGenerator, Integer>();
+        
+    public GeneratorWeighted()
+    {
+        // default
+        this(1);
+    }
 
     public GeneratorWeighted(int amountPerChunk)
     {
         this.amountPerChunk = amountPerChunk;
     }
     
-    public void add(int weight, IGenerator entry)
+    public void add(String name, int weight, IGenerator entry)
     {
+        if (this.generators.containsKey(name))
+        {
+            throw new RuntimeException("A generator with name " + name + " already exists!");
+        }
+        if (weight < 1)
+        {
+            throw new IllegalArgumentException("Generator weight must be positive");
+        }
         entry.setStage(GeneratorStage.PARENT);
-        this.weightedEntries.add(new GeneratorWeightedEntry(weight, entry));
+        this.generators.put(name, entry);
+        this.weights.put(entry, weight);
     }
+    
+    public void clear()
+    {
+        this.generators.clear();
+        this.weights.clear();
+    }
+    
+    public IGenerator getGenerator(String name)
+    {
+        return this.generators.get(name);
+    }
+    
+    public void removeGenerator(String name)
+    {
+        IGenerator generator = this.generators.get(name);
+        if (generator != null)
+        {
+            this.generators.remove(name);
+            this.weights.remove(generator);
+        }
+    }
+    
+    public IGenerator getRandomGenerator(Random random)
+    {
+        if (this.weights.isEmpty()) {return null;}
+        int totalWeight = 0;
+        for (int weight : this.weights.values()) {totalWeight += weight;}
+        int j = random.nextInt(totalWeight);
+        for (Entry<IGenerator, Integer> entry : this.weights.entrySet())
+        {
+            j -= entry.getValue();
+            if (j < 0) {return entry.getKey();}
+        }
+        return null;
+    }
+    
+    
     
     @Override
     public void scatter(World world, Random random, BlockPos pos)
     {
         for (int i = 0; i < amountPerChunk; i++)
         {
-            GeneratorWeightedEntry generator = (GeneratorWeightedEntry)WeightedRandom.getRandomItem(random, this.weightedEntries);
-
-            generator.scatter(world, random, pos);
+            this.getRandomGenerator(random).scatter(world, random, pos);
         }
     }
 
     @Override
     public boolean generate(World world, Random random, BlockPos pos)
     {
-        GeneratorWeightedEntry generator = (GeneratorWeightedEntry)WeightedRandom.getRandomItem(random, this.weightedEntries);
-        
-        return generator.generate(world, random, pos);
+        return this.getRandomGenerator(random).generate(world, random, pos);
     }
+    
+
     
     @Override
     public void configure(WrappedJsonObject conf)
     {
         this.amountPerChunk = conf.getInt("amountPerChunk", this.amountPerChunk);
-        ArrayList<WrappedJsonObject> weightedEntriesConf = conf.getObjectArray("weightedEntries");
-        if (!weightedEntriesConf.isEmpty())
+        WrappedJsonObject confGenerators = conf.getObject("generators");
+        if (confGenerators != null)
         {
-            this.weightedEntries.clear();
-            for (WrappedJsonObject weightedEntryConf : weightedEntriesConf)
+            for (String name : confGenerators.getKeys())
             {
-                Integer weight = weightedEntryConf.getInt("weight", null);
-                if (weight == null || weight.intValue() < 1) {continue;}
-                WrappedJsonObject generatorConf = weightedEntryConf.getObject("generator");
-                if (generatorConf == null) {continue;}
-                IGenerator generator = GenerationManager.GeneratorFactory.create(generatorConf);
-                if (generator == null) {continue;}
-                this.add(weight, generator);
+                if (this.generators.containsKey(name))
+                {
+                    IGenerator generator = this.getGenerator(name);
+                    Integer weight = conf.getInt("weight", this.weights.get(generator));
+                    if (weight.intValue() < 1)
+                    {
+                        // remove this generator if the weight is zero (or negative)
+                        this.removeGenerator(name);                       
+                    }
+                    else
+                    {
+                        // adjust weight
+                        this.weights.put(generator, weight);
+                        // configure the existing generator
+                        generator.configure(conf);
+                    }
+                }
+                else
+                {
+                    // there was previously no generator of this name - attempt to add it
+                    Integer weight = conf.getInt("weight", null);
+                    IGenerator generator = GeneratorFactory.create(conf);
+                    if (weight != null && generator != null)
+                    {
+                        this.add(name, weight, generator);
+                    }
+                }
             }
         }
-        // TODO: at the moment, because the weighted entries aren't named, there's no way to just adjust one part of one of them
-        // The only thing you can do is replace the whole array.  Perhaps should use named entries in a Map<String,Generator> kind of arrangement
-        // Then they could be individually altered
     }
 }

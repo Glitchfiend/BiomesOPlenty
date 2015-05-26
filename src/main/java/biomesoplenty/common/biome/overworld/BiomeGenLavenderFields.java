@@ -47,13 +47,13 @@ public class BiomeGenLavenderFields extends BOPBiome
         this.addGenerator("lavender", GeneratorStage.FLOWERS, new GeneratorFlora(999, BlockBOPFlower.paging.getVariantState(BOPFlowers.LAVENDER)));
         
         GeneratorWeighted treeGenerator = new GeneratorWeighted(1);
-        treeGenerator.add(3, new GeneratorBasicTree(1, false, 4, 7, BlockBOPLog.paging.getVariantState(BOPWoods.JACARANDA), BlockBOPLeaves.paging.getVariantState(BOPTrees.JACARANDA)));
-        treeGenerator.add(1, new GeneratorBigTree(1, false, Blocks.log.getDefaultState(), Blocks.leaves.getDefaultState()));
+        treeGenerator.add("jacaranda", 3, new GeneratorBasicTree(1, false, 4, 7, BlockBOPLog.paging.getVariantState(BOPWoods.JACARANDA), BlockBOPLeaves.paging.getVariantState(BOPTrees.JACARANDA)));
+        treeGenerator.add("oak", 1, new GeneratorBigTree(1, false, Blocks.log.getDefaultState(), Blocks.leaves.getDefaultState()));
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         
         GeneratorWeighted grassGenerator = new GeneratorWeighted(20);
-        grassGenerator.add(1, new GeneratorGrass(1, BlockBOPPlant.paging.getVariantState(BOPPlants.WHEATGRASS)));
-        grassGenerator.add(3, new GeneratorGrass(1, Blocks.tallgrass.getDefaultState().withProperty(BlockTallGrass.TYPE, BlockTallGrass.EnumType.GRASS)));
+        grassGenerator.add("wheatgrass", 1, new GeneratorGrass(1, BlockBOPPlant.paging.getVariantState(BOPPlants.WHEATGRASS)));
+        grassGenerator.add("tallgrass", 3, new GeneratorGrass(1, Blocks.tallgrass.getDefaultState().withProperty(BlockTallGrass.TYPE, BlockTallGrass.EnumType.GRASS)));
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         
         this.addGenerator("peridot", GeneratorStage.SAND, new GeneratorOreSingle(BOPBlocks.gem_ore.getDefaultState().withProperty(BlockGem.VARIANT, BOPGems.PERIDOT), 12, 4, 32));
