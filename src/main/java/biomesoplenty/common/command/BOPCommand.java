@@ -109,7 +109,7 @@ public class BOPCommand extends CommandBase
         BiomeGenBase biome = BiomeGenBase.getBiome(biomeId);
         EntityPlayerMP player = getCommandSenderAsPlayer(sender);
         World world = player.worldObj;
-        BlockPos closestBiomePos = biome == null ? null : BiomeUtils.findBiome(world, biome, player.getPosition());
+        BlockPos closestBiomePos = biome == null ? null : BiomeUtils.spiralOutwardsLookingForBiome(world, biome, player.posX, player.posZ, 5000);
         
         if (closestBiomePos != null)
         {

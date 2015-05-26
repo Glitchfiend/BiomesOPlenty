@@ -8,8 +8,6 @@
 
 package biomesoplenty.common.util.biome;
 
-import java.util.Arrays;
-
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -17,53 +15,44 @@ import net.minecraft.world.biome.WorldChunkManager;
 
 public class BiomeUtils
 {
-    public static BlockPos findBiome(World world, BiomeGenBase biome, BlockPos startPos)
+    
+    public static BlockPos spiralOutwardsLookingForBiome(World world, BiomeGenBase biomeToFind, double startX, double startZ, int maxDist)
     {
-        int radius = 256;
+        // TODO: make default sample spacing dependent on size of biomes
+        return spiralOutwardsLookingForBiome(world, biomeToFind, startX, startZ, maxDist, 64);
+    }
+    
+    // sample points in an archimedean spiral starting from startX,startY each one sampleSpace apart
+    // stop when the specified biome is found (and return the position it was found at) or when we reach maxDistance (and return null)
+    public static BlockPos spiralOutwardsLookingForBiome(World world, BiomeGenBase biomeToFind, double startX, double startZ, int maxDist, int sampleSpace)
+    {
+        if (maxDist <= 0 || sampleSpace <= 0) {throw new IllegalArgumentException("maxDist and sampleSpace must be positive");}
         WorldChunkManager chunkManager = world.getWorldChunkManager();
-        BlockPos pos1 = null;
-        BlockPos pos2 = null;
-        
-        for (int x = -10; x <= 10; x++)
+        double a = sampleSpace / Math.sqrt(Math.PI);
+        double b = 2 * Math.sqrt(Math.PI);
+        double x = 0;
+        double z = 0;
+        double dist = 0;
+        int n = 0;
+        for (n = 0; dist < maxDist; ++n)
         {
-            for (int z = -10; z <= 10; z++)
+            double rootN = Math.sqrt(n);
+            dist = a * rootN;
+            x = startX + (dist * Math.sin(b * rootN));
+            z = startZ + (dist * Math.cos(b * rootN));
+            // chunkManager.genBiomes is the first layer returned from initializeAllBiomeGenerators()
+            // chunkManager.biomeIndexLayer is the second layer returned from initializeAllBiomeGenerators(), it's zoomed twice from genBiomes (>> 2) this one is actual size
+            // chunkManager.getBiomeGenAt uses biomeIndexLayer to get the biome
+            BiomeGenBase[] biomesAtSample = chunkManager.getBiomeGenAt(null, (int)x, (int)z, 1, 1, false);
+            // System.out.println(n+" At ("+((int)x)+","+((int)z)+") biome is "+biomesAtSample[0].biomeName+" distance "+((int)dist));
+            if (biomesAtSample[0] == biomeToFind)
             {
-                if (pos1 == null)
-                {
-                    BlockPos foundPos = chunkManager.findBiomePosition(startPos.getX() + (x * 512), startPos.getZ() + (z * 512), 256, Arrays.asList(biome), world.rand);
-
-                    if (foundPos != null && world.getBiomeGenForCoords(foundPos) == biome)
-                    {
-                        pos1 = foundPos;
-                    }
-                }
-                
-                if (pos2 == null)
-                {
-                    BlockPos foundPos = chunkManager.findBiomePosition(startPos.getX() + (x * 512), startPos.getZ() + (-z * 512), 256, Arrays.asList(biome), world.rand);
-
-                    if (foundPos != null && world.getBiomeGenForCoords(foundPos) == biome)
-                    {
-                        pos2 = foundPos;
-                    }
-                }
-                
-                if (pos1 != null && pos2 != null)
-                {
-                    break;
-                }
+                System.out.println("Found "+biomeToFind.biomeName+" after "+n+" samples at ("+((int)x)+","+((int)z)+") distance "+((int)dist));
+                return new BlockPos((int)x, 0, (int)z);
             }
         }
-        
-        if (pos1 != null && pos2 != null)
-        {
-            if (startPos.distanceSq(pos1) < startPos.distanceSq(pos2)) return pos1;
-            else return pos2;
-        }
-        else
-        {
-            if (pos1 != null) return pos1;
-            else return pos2;
-        }
+        System.out.println("Failed to find "+biomeToFind.biomeName+" gave up after "+n+" samples distance "+((int)dist));
+        return null;
     }
+    
 }

@@ -10,6 +10,7 @@ package biomesoplenty.common.item;
 
 import java.util.List;
 
+import biomesoplenty.common.util.biome.BiomeUtils;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -20,7 +21,6 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.WorldChunkManager;
 
 public class ItemBiomeFinder extends Item
 {    
@@ -29,41 +29,7 @@ public class ItemBiomeFinder extends Item
     {
         this.setMaxStackSize(1);
     }
-    
-
-    // sample points in an archimedean spiral starting from startX,startY each one sampleSpace apart
-    // stop when the specified biome is found (and return the position it was found at) or when we reach maxDistance (and return null)
-    public BlockPos spiralOutwardsLookingForBiome(World world, BiomeGenBase biomeToFind, double startX, double startZ, int maxDist, int sampleSpace)
-    {
-        if (maxDist <= 0 || sampleSpace <= 0) {throw new IllegalArgumentException("maxDist and sampleSpace must be positive");}
-        WorldChunkManager chunkManager = world.getWorldChunkManager();
-        double a = sampleSpace / Math.sqrt(Math.PI);
-        double b = 2 * Math.sqrt(Math.PI);
-        double x = 0;
-        double z = 0;
-        double dist = 0;
-        int n = 0;
-        for (n = 0; dist < maxDist; ++n)
-        {
-            double rootN = Math.sqrt(n);
-            dist = a * rootN;
-            x = startX + (dist * Math.sin(b * rootN));
-            z = startZ + (dist * Math.cos(b * rootN));
-            // chunkManager.genBiomes is the first layer returned from initializeAllBiomeGenerators()
-            // chunkManager.biomeIndexLayer is the second layer returned from initializeAllBiomeGenerators(), it's zoomed twice from genBiomes (>> 2) this one is actual size
-            // chunkManager.getBiomeGenAt uses biomeIndexLayer to get the biome
-            BiomeGenBase[] biomesAtSample = chunkManager.getBiomeGenAt(null, (int)x, (int)z, 1, 1, false);
-            // System.out.println(n+" At ("+((int)x)+","+((int)z)+") biome is "+biomesAtSample[0].biomeName+" distance "+((int)dist));
-            if (biomesAtSample[0] == biomeToFind)
-            {
-                System.out.println("Found "+biomeToFind.biomeName+" after "+n+" samples at ("+((int)x)+","+((int)z)+") distance "+((int)dist));
-                return new BlockPos((int)x, 0, (int)z);
-            }
-        }
-        System.out.println("Failed to find "+biomeToFind.biomeName+" gave up after "+n+" samples distance "+((int)dist));
-        return null;
-    }
-    
+        
     
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
@@ -100,8 +66,9 @@ public class ItemBiomeFinder extends Item
             // server notifies player that search is starting
             sendChatMessage(player, I18n.format("biome_finder.searching",biomeToFind.biomeName), EnumChatFormatting.DARK_PURPLE);
             
-            // search for biomeToFind, maximum distance 5000 blocks, 64 blocks between samples
-            BlockPos pos = this.spiralOutwardsLookingForBiome(world, biomeToFind, player.posX, player.posZ, 5000, 64);
+            // search for biomeToFind, maximum distance 5000 blocks
+            BlockPos pos = BiomeUtils.spiralOutwardsLookingForBiome(world, biomeToFind, player.posX, player.posZ, 5000);
+            
             if (pos == null)
             {
                 // server notifies player that search was unsuccessful
