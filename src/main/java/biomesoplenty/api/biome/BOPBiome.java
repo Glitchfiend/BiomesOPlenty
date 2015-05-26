@@ -8,9 +8,16 @@
 
 package biomesoplenty.api.biome;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.generation.GenerationManager;
@@ -76,6 +83,79 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
             for (String name : confGenerators.getKeys())
             {
                 this.generationManager.configureWith(name, confGenerators.getObject(name));
+            }
+        }
+        
+        // Allow spawnable entites to be configured
+        ArrayList<IConfigObj> confEntities = conf.getObjectArray("entities");
+        if (confEntities != null)
+        {
+            for (IConfigObj confEntity : confEntities)
+            {
+                String entityName = confEntity.getString("name");
+                EnumCreatureType creatureType = confEntity.getEnum("creatureType", EnumCreatureType.class);
+                if (entityName == null || creatureType == null) {continue;}
+                
+                // Look for an entity class matching this name
+                // case insensitive, dot used as mod delimiter, no spaces or underscores
+                // eg  'villager', 'Zombie', 'SQUID', 'enderdragon', 'biomesoplenty.wasp' all ok
+                Class <? extends Entity > entityClazz = null;
+                for (Object entry : EntityList.stringToClassMapping.entrySet())
+                {
+                    String entryEntityName = (String)((Entry)entry).getKey();
+                    if (entryEntityName.equalsIgnoreCase(entityName))
+                    {
+                        entityClazz = (Class <? extends Entity >)((Entry)entry).getValue();
+                    }
+                }
+                if (entityClazz == null)
+                {
+                    confEntity.addMessage("No entity registered called " + entityName);
+                    continue;
+                }
+                if (!creatureType.getCreatureClass().isAssignableFrom(entityClazz))
+                {
+                    confEntity.addMessage("Entity " + entityName + " is not of type " + creatureType);
+                    continue;
+                }
+                
+                List<SpawnListEntry> spawns = this.getSpawnableList(creatureType);
+                Integer weight = confEntity.getInt("weight");
+                if (weight != null && weight < 1)
+                {
+                    // weight was set to zero (or negative) so find and remove this spawn
+                    Iterator<SpawnListEntry> spawnIterator = spawns.iterator();
+                    while (spawnIterator.hasNext())
+                    {
+                        SpawnListEntry entry = spawnIterator.next();
+                        if (entry.entityClass == entityClazz)
+                        {
+                            spawnIterator.remove();
+                        }
+                    }
+                }
+                else
+                {
+                    // weight was positive, or omitted, so update an existing spawn or add a new spawn
+                    boolean foundIt = false;
+                    for (SpawnListEntry entry : spawns)
+                    {
+                        if (entry.entityClass == entityClazz)
+                        {
+                            // the entry already exists - adjust the params
+                            entry.itemWeight = confEntity.getInt("weight", entry.itemWeight);
+                            entry.minGroupCount = confEntity.getInt("minGroupCount", entry.minGroupCount);
+                            entry.maxGroupCount = confEntity.getInt("maxGroupCount", entry.maxGroupCount);
+                            foundIt = true;
+                        }
+                    }
+                    if (!foundIt)
+                    {
+                        // the entry does not exist - add it
+                        SpawnListEntry entry = new SpawnListEntry(entityClazz, confEntity.getInt("weight", 10), confEntity.getInt("minGroupCount", 4), confEntity.getInt("maxGroupCount", 4));
+                        spawns.add(entry);
+                    }
+                }
             }
         }
         
