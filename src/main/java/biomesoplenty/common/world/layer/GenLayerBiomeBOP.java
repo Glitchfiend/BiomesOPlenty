@@ -50,6 +50,7 @@ public class GenLayerBiomeBOP extends GenLayerBiome
         }
     }
     
+    // Get array of biome IDs covering the requested area
     @Override
     public int[] getInts(int areaX, int areaY, int areaWidth, int areaHeight)
     {
@@ -61,32 +62,37 @@ public class GenLayerBiomeBOP extends GenLayerBiome
             for (int z = 0; z < areaWidth; ++z)
             {
                 this.initChunkSeed((long)(z + areaX), (long)(x + areaY));
-                int k1 = inputBiomeIds[z + x * areaWidth];
-                int l1 = (k1 & 3840) >> 8;
-                k1 &= -3841;
+                int parentVal = inputBiomeIds[z + x * areaWidth];
+                
+                // Value from parent layer consists of
+                // 4 high bits which determine whether the biome will be a 'special' variant
+                // 8 low bits which determine the base biome type
+                int specialVal = (parentVal & 3840) >> 8;
+                int baseVal = parentVal & -3841;
 
-                /*if (this.field_175973_g != null && this.field_175973_g.fixedBiome >= 0)
+                // Note: vanilla GenLayerBiome has a section here which deals with fixed biomes on a custom world
+                // This doesn't apply in BOP
+                
+                if (isBiomeOceanic(baseVal)) // special case for oceans
                 {
-                    aint1[j1 + i1 * areaWidth] = this.field_175973_g.fixedBiome;
+                    outputBiomeIds[z + x * areaWidth] = baseVal;
                 }
-                else */if (isBiomeOceanic(k1))
+                else if (baseVal == BiomeGenBase.mushroomIsland.biomeID) // special case for mushroom island
                 {
-                    outputBiomeIds[z + x * areaWidth] = k1;
+                    outputBiomeIds[z + x * areaWidth] = parentVal;
                 }
-                else if (k1 == BiomeGenBase.mushroomIsland.biomeID)
+                else if (baseVal == 1)  // baseVal = 1 means a DESERT region
                 {
-                    outputBiomeIds[z + x * areaWidth] = k1;
-                }
-                else if (k1 == 1)
-                {
-                    if (l1 > 0)
+                    if (specialVal > 0)
                     {
+                        // there is a special biome for DESERT : mesa plateau
                         if (this.nextInt(3) == 0)
                         {
                             outputBiomeIds[z + x * areaWidth] = BiomeGenBase.mesaPlateau.biomeID;
                         }
                         else
                         {
+                            // otherwise get a (weighted) random biome from the DESERT list
                             outputBiomeIds[z + x * areaWidth] = BiomeGenBase.mesaPlateau_F.biomeID;
                         }
                     }
@@ -95,34 +101,41 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                         outputBiomeIds[z + x * areaWidth] = getWeightedBiomeEntry(DESERT).biome.biomeID;
                     }
                 }
-                else if (k1 == 2)
+                else if (baseVal == 2) // baseVal = 2 means a WARM region
                 {
-                    if (l1 > 0)
+                    if (specialVal > 0)
                     {
+                        // there is a special biome for WARM : jungle
                         outputBiomeIds[z + x * areaWidth] = BiomeGenBase.jungle.biomeID;
                     }
                     else
                     {
+                        // otherwise get a (weighted) random biome from the WARM list
                         outputBiomeIds[z + x * areaWidth] = getWeightedBiomeEntry(WARM).biome.biomeID;
                     }
                 }
-                else if (k1 == 3)
+                else if (baseVal == 3) // baseVal = 3 means a COOL region
                 {
-                    if (l1 > 0)
+                    if (specialVal > 0)
                     {
+                        // there is a special biome for COOL : mega taiga
                         outputBiomeIds[z + x * areaWidth] = BiomeGenBase.megaTaiga.biomeID;
                     }
                     else
                     {
+                        // otherwise get a (weighted) random biome from the COOL list
                         outputBiomeIds[z + x * areaWidth] = getWeightedBiomeEntry(COOL).biome.biomeID;
                     }
                 }
-                else if (k1 == 4)
+                else if (baseVal == 4) // baseVal = 4 means a ICY region
                 {
+                    // I would have expected the ice spikes to be the special biome for ICY, apparently not - not sure where the ice spikes fit in...
+                    // Regardless of specialVal, get a (weighted) random biome from the ICY list
                     outputBiomeIds[z + x * areaWidth] = getWeightedBiomeEntry(ICY).biome.biomeID;
                 }
                 else
                 {
+                    // default for any other value is mushroom island - I don't think we should ever get here
                     outputBiomeIds[z + x * areaWidth] = BiomeGenBase.mushroomIsland.biomeID;
                 }
             }
