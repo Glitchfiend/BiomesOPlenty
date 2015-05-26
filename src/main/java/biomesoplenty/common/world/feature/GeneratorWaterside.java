@@ -8,6 +8,7 @@
 
 package biomesoplenty.common.world.feature;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -18,11 +19,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import biomesoplenty.api.biome.generation.GeneratorCustomizable;
-import biomesoplenty.common.util.biome.GeneratorUtils;
-
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonSerializationContext;
+import biomesoplenty.common.util.config.ConfigHelper.WrappedJsonObject;
 
 public class GeneratorWaterside extends GeneratorCustomizable
 {
@@ -31,7 +28,11 @@ public class GeneratorWaterside extends GeneratorCustomizable
     private IBlockState state;
     private List<IBlockState> replacedStates;
     
-    public GeneratorWaterside() {}
+    public GeneratorWaterside()
+    {
+        // default
+        this(4, 7, Blocks.gravel.getDefaultState());
+    }
     
     public GeneratorWaterside(int amountPerChunk, int maxRadius, IBlockState state, IBlockState... replacedStates)
     {
@@ -103,22 +104,14 @@ public class GeneratorWaterside extends GeneratorCustomizable
             return true;
         }
     }
-
+    
     @Override
-    public void writeToJson(JsonObject json, JsonSerializationContext context)
+    public void configure(WrappedJsonObject conf)
     {
-        json.addProperty("amount_per_chunk", this.amountPerChunk);
-        json.addProperty("max_radius", this.maxRadius);
-        json.add("state", context.serialize(this.state));
-        json.add("replaced_states", context.serialize(this.replacedStates));
+        this.amountPerChunk = conf.getInt("amountPerChunk", this.amountPerChunk);
+        this.maxRadius = conf.getInt("maxRadius", this.maxRadius);
+        this.state = conf.getBlockState("state", this.state);        
+        this.replacedStates = conf.getBlockStateArray("replacedStates", new ArrayList(this.replacedStates) );
     }
 
-    @Override
-    public void readFromJson(JsonObject json, JsonDeserializationContext context)
-    {
-        this.amountPerChunk = json.get("amount_per_chunk").getAsInt();
-        this.maxRadius = json.get("max_radius").getAsInt();
-        this.state = GeneratorUtils.deserializeStateNonNull(json, "state", context);
-        this.replacedStates = context.deserialize(json.get("replaced_states"), List.class);  
-    }
 }

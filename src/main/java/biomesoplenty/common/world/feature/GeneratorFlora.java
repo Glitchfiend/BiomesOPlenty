@@ -10,17 +10,15 @@ package biomesoplenty.common.world.feature;
 
 import java.util.Random;
 
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonSerializationContext;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import biomesoplenty.api.biome.generation.GeneratorCustomizable;
 import biomesoplenty.common.block.BlockDecoration;
 import biomesoplenty.common.util.biome.GeneratorUtils;
+import biomesoplenty.common.util.config.ConfigHelper.WrappedJsonObject;
 
 public class GeneratorFlora extends GeneratorCustomizable
 {
@@ -28,7 +26,11 @@ public class GeneratorFlora extends GeneratorCustomizable
     protected IBlockState state;
     protected int generationAttempts;
     
-    public GeneratorFlora() {}
+    public GeneratorFlora()
+    {
+        // default
+        this(1, Blocks.red_flower.getDefaultState(), 64);
+    }
     
     public GeneratorFlora(int amountPerChunk, IBlockState state, int generationAttempts)
     {
@@ -76,20 +78,13 @@ public class GeneratorFlora extends GeneratorCustomizable
 
         return true;
     }
-
+    
     @Override
-    public void writeToJson(JsonObject json, JsonSerializationContext context)
+    public void configure(WrappedJsonObject conf)
     {
-        json.addProperty("amount_per_chunk", this.amountPerChunk);
-        json.add("state", context.serialize(this.state));
-        json.addProperty("generation_attempts", this.generationAttempts);
+        this.amountPerChunk = conf.getInt("amountPerChunk", this.amountPerChunk);
+        this.state = conf.getBlockState("state", this.state);
+        this.generationAttempts = conf.getInt("generationAttempts", this.generationAttempts);
     }
 
-    @Override
-    public void readFromJson(JsonObject json, JsonDeserializationContext context)
-    {
-        this.amountPerChunk = json.get("amount_per_chunk").getAsInt();
-        this.state = GeneratorUtils.deserializeStateNonNull(json, "state", context);
-        this.generationAttempts = json.get("generation_attempts").getAsInt();
-    }
 }

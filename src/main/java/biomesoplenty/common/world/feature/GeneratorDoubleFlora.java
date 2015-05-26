@@ -10,13 +10,13 @@ package biomesoplenty.common.world.feature;
 
 import java.util.Random;
 
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonSerializationContext;
-
 import biomesoplenty.api.biome.generation.GeneratorCustomizable;
+import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.common.block.BlockBOPDoublePlant;
 import biomesoplenty.common.block.BlockDecoration;
+import biomesoplenty.common.block.BlockDoubleDecoration;
 import biomesoplenty.common.util.biome.GeneratorUtils;
+import biomesoplenty.common.util.config.ConfigHelper.WrappedJsonObject;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockPos;
@@ -29,7 +29,17 @@ public class GeneratorDoubleFlora extends GeneratorCustomizable
     private IBlockState topState;
     private int generationAttempts;
     
-    public GeneratorDoubleFlora() {}
+    public GeneratorDoubleFlora()
+    {
+        // default
+        this(1, BlockBOPDoublePlant.DoublePlantType.FLAX, 64);        
+    }
+    
+    // convenient shortcut constructor for use with a BlockBOPDoublePlant variant
+    public GeneratorDoubleFlora(int amountPerChunk, BlockBOPDoublePlant.DoublePlantType type, int generationAttempts)
+    {
+        this(amountPerChunk, BOPBlocks.double_plant.getDefaultState().withProperty(BlockBOPDoublePlant.VARIANT, type).withProperty(BlockBOPDoublePlant.HALF, BlockDoubleDecoration.Half.LOWER), BOPBlocks.double_plant.getDefaultState().withProperty(BlockBOPDoublePlant.VARIANT, type).withProperty(BlockBOPDoublePlant.HALF, BlockDoubleDecoration.Half.UPPER), generationAttempts);
+    }
     
     public GeneratorDoubleFlora(int amountPerChunk, IBlockState bottomState, IBlockState topState, int generationAttempts)
     {
@@ -79,22 +89,13 @@ public class GeneratorDoubleFlora extends GeneratorCustomizable
 
         return true;
     }
-
+    
     @Override
-    public void writeToJson(JsonObject json, JsonSerializationContext context)
+    public void configure(WrappedJsonObject conf)
     {
-        json.addProperty("amount_per_chunk", this.amountPerChunk);
-        json.add("bottom_state", context.serialize(this.bottomState));
-        json.add("top_state", context.serialize(this.topState));
-        json.addProperty("generation_attempts", this.generationAttempts);
-    }
-
-    @Override
-    public void readFromJson(JsonObject json, JsonDeserializationContext context)
-    {
-        this.amountPerChunk = json.get("amount_per_chunk").getAsInt();
-        this.bottomState = GeneratorUtils.deserializeStateNonNull(json, "bottom_state", context);
-        this.topState = GeneratorUtils.deserializeStateNonNull(json, "top_state", context);
-        this.generationAttempts = json.get("generation_attempts").getAsInt();
+        this.amountPerChunk = conf.getInt("amountPerChunk", this.amountPerChunk);
+        this.bottomState = conf.getBlockState("bottomState", this.bottomState);
+        this.topState = conf.getBlockState("topState", this.topState);
+        this.generationAttempts = conf.getInt("generationAttempts", this.generationAttempts);
     }
 }

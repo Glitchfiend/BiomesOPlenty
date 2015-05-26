@@ -15,18 +15,20 @@ import net.minecraft.block.state.pattern.BlockHelper;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
+import biomesoplenty.common.util.config.ConfigHelper.WrappedJsonObject;
 
 import com.google.common.base.Predicate;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonSerializationContext;
 
 public class GeneratorOreSingle extends GeneratorOreBase
 {
     private IBlockState state;
     private Predicate replace;
     
-    public GeneratorOreSingle() {}
+    public GeneratorOreSingle()
+    {
+        // default
+        this(Blocks.emerald_ore.getDefaultState(), 12, 4, 32);
+    }
     
     public GeneratorOreSingle(IBlockState state, int amountPerChunk, int minHeight, int maxHeight)
     {
@@ -46,21 +48,14 @@ public class GeneratorOreSingle extends GeneratorOreBase
         
         return false;
     }
-
+    
     @Override
-    public void writeToJson(JsonObject json, JsonSerializationContext context)
+    public void configure(WrappedJsonObject conf)
     {
-        super.writeToJson(json, context);
+        super.configure(conf);
         
-        json.add("state", context.serialize(this.state));
-    }
-
-    @Override
-    public void readFromJson(JsonObject json, JsonDeserializationContext context)
-    {
-        super.readFromJson(json, context);
-        
-        this.state = context.deserialize(json.get("state"), IBlockState.class);
+        this.state = conf.getBlockState("state", this.state);
         this.replace = BlockHelper.forBlock(Blocks.stone);
     }
+    
 }

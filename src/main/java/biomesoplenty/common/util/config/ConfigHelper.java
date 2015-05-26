@@ -27,7 +27,6 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import biomesoplenty.common.util.block.BlockStateUtils;
-import biomesoplenty.common.util.config.JsonBlockState;
 import biomesoplenty.core.BiomesOPlenty;
 
 public class ConfigHelper
@@ -35,7 +34,6 @@ public class ConfigHelper
     
     public static Gson serializer = new GsonBuilder().setPrettyPrinting().create();
     public static JsonParser parser = new JsonParser();
-    public JsonBlockState blockStateParser = new JsonBlockState();
     public WrappedJsonObject root = null;
     public ArrayList<String> messages = new ArrayList<String>();
     
@@ -115,41 +113,41 @@ public class ConfigHelper
     {
         return this.root == null ? new ArrayList<WrappedJsonObject>() : this.root.getObjectArray(name);
     }
-    public ArrayList<Boolean> getBoolArray(String name)
+    public ArrayList<Boolean> getBoolArray(String name, ArrayList<Boolean> defaultVal)
     {
-        return this.root == null ? new ArrayList<Boolean>() : this.root.getBoolArray(name);
+        return this.root == null ? new ArrayList<Boolean>() : this.root.getBoolArray(name, defaultVal);
     }
     public Boolean getBool(String name, Boolean defaultVal)
     {
         return this.root == null ? defaultVal : this.root.getBool(name, defaultVal);
     }
-    public ArrayList<String> getStringArray(String name)
+    public ArrayList<String> getStringArray(String name, ArrayList<String> defaultVal)
     {
-        return this.root == null ? new ArrayList<String>() : this.root.getStringArray(name);
+        return this.root == null ? new ArrayList<String>() : this.root.getStringArray(name, defaultVal);
     }
     public String getString(String name, String defaultVal)
     {
         return this.root == null ? defaultVal : this.root.getString(name, defaultVal);
     }
-    public ArrayList<Integer> getIntArray(String name)
+    public ArrayList<Integer> getIntArray(String name, ArrayList<Integer> defaultVal)
     {
-        return this.root == null ? new ArrayList<Integer>() : this.root.getIntArray(name);
+        return this.root == null ? new ArrayList<Integer>() : this.root.getIntArray(name, defaultVal);
     }
     public Integer getInt(String name, Integer defaultVal)
     {
         return this.root == null ? defaultVal : this.root.getInt(name, defaultVal);
     }
-    public ArrayList<Float> getFloatArray(String name)
+    public ArrayList<Float> getFloatArray(String name, ArrayList<Float> defaultVal)
     {
-        return this.root == null ? new ArrayList<Float>() : this.root.getFloatArray(name);
+        return this.root == null ? new ArrayList<Float>() : this.root.getFloatArray(name, defaultVal);
     }
     public Float getFloat(String name, Float defaultVal)
     {
         return this.root == null ? defaultVal : this.root.getFloat(name, defaultVal);
     }
-    public ArrayList<IBlockState> getBlockStateArray(String name)
+    public ArrayList<IBlockState> getBlockStateArray(String name, ArrayList<IBlockState> defaultVal)
     {
-        return this.root == null ? new ArrayList<IBlockState>() : this.root.getBlockStateArray(name);
+        return this.root == null ? new ArrayList<IBlockState>() : this.root.getBlockStateArray(name, defaultVal);
     }
     public IBlockState getBlockState(String name, IBlockState defaultVal)
     {
@@ -172,6 +170,16 @@ public class ConfigHelper
         {
             this.obj = obj;
             this.conf = conf;
+        }
+        
+        public ArrayList<String> getKeys()
+        {
+            ArrayList<String> out = new ArrayList<String>();
+            for (Entry<String, JsonElement> entry : this.obj.entrySet())
+            {
+                out.add(entry.getKey());
+            }
+            return out;
         }
         
         public WrappedJsonObject getObject(String name)
@@ -213,20 +221,41 @@ public class ConfigHelper
             }
             return list;
         }
-        
-        public ArrayList<Boolean> getBoolArray(String name) {return this.<Boolean>getArray(name, Types.BOOLEAN);}
+                
+        public ArrayList<Boolean> getBoolArray(String name, ArrayList<Boolean> defaultVal) {return this.<Boolean>getArray(name, defaultVal, Types.BOOLEAN);}
         public Boolean getBool(String name, Boolean defaultVal) {return this.<Boolean>get(name, defaultVal, Types.BOOLEAN);}
-        public ArrayList<String> getStringArray(String name) {return this.<String>getArray(name, Types.STRING);}
+        public ArrayList<String> getStringArray(String name, ArrayList<String> defaultVal) {return this.<String>getArray(name, defaultVal, Types.STRING);}
         public String getString(String name, String defaultVal) {return this.<String>get(name, defaultVal, Types.STRING);}
-        public ArrayList<Integer> getIntArray(String name) {return this.<Integer>getArray(name, Types.INTEGER);}
+        public ArrayList<Integer> getIntArray(String name, ArrayList<Integer> defaultVal) {return this.<Integer>getArray(name, defaultVal, Types.INTEGER);}
         public Integer getInt(String name, Integer defaultVal) {return this.<Integer>get(name, defaultVal, Types.INTEGER);}
-        public ArrayList<Float> getFloatArray(String name) {return this.<Float>getArray(name, Types.FLOAT);}
+        public ArrayList<Float> getFloatArray(String name, ArrayList<Float> defaultVal) {return this.<Float>getArray(name, defaultVal, Types.FLOAT);}
         public Float getFloat(String name, Float defaultVal) {return this.<Float>get(name, defaultVal, Types.FLOAT);}
-        public ArrayList<IBlockState> getBlockStateArray(String name) {return this.<IBlockState>getArray(name, Types.BLOCKSTATE);}
+        public ArrayList<IBlockState> getBlockStateArray(String name, ArrayList<IBlockState> defaultVal) {return this.<IBlockState>getArray(name, defaultVal, Types.BLOCKSTATE);}
         public IBlockState getBlockState(String name, IBlockState defaultVal) {return this.<IBlockState>get(name, defaultVal, Types.BLOCKSTATE);}
         
- 
-        
+        public <E extends Enum> ArrayList<E> getEnumArray(String name, ArrayList<E> defaultVal, Class<E> clazz)
+        {
+            if (this.obj == null || !this.obj.has(name)) {return defaultVal;}
+            ArrayList<E> list = new ArrayList<E>();
+            try
+            {
+                JsonArray arr = this.obj.getAsJsonArray(name);
+                for (int i = 0; i < arr.size(); i++)
+                {
+                    E ele = this.<E>asEnum(arr.get(i), clazz);
+                    if (ele != null) {list.add(ele);}
+                }
+            } catch (Exception e) {
+                this.conf.addMessage("Error fetching " + clazz.getName() + " array: " + e.getMessage());
+            }
+            return list;
+        }
+        public <E extends Enum> E getEnum(String name, E defaultVal, Class<E> clazz)
+        {
+            if (this.obj == null || !this.obj.has(name)) {return defaultVal;}
+            E out = this.<E>asEnum(this.obj.get(name), clazz);
+            return out == null ? defaultVal : out;
+        }
         
         private <T> T get(String name, T defaultVal, Types type)
         {
@@ -235,21 +264,20 @@ public class ConfigHelper
             return out == null ? defaultVal : out;    
         }
         
-        private <T> ArrayList<T> getArray(String name, Types type)
+        private <T> ArrayList<T> getArray(String name, ArrayList<T> defaultVal, Types type)
         {
+            if (this.obj == null || !this.obj.has(name)) {return defaultVal;}
             ArrayList<T> list = new ArrayList<T>();
-            if (this.obj != null && this.obj.has(name)) {
-                try
+            try
+            {
+                JsonArray arr = this.obj.getAsJsonArray(name);
+                for (int i = 0; i < arr.size(); i++)
                 {
-                    JsonArray arr = this.obj.getAsJsonArray(name);
-                    for (int i = 0; i < arr.size(); i++)
-                    {
-                        T ele = this.<T>as(arr.get(i), type);
-                        if (ele != null) {list.add(ele);}
-                    }
-                } catch (Exception e) {
-                    this.conf.addMessage("Error fetching " + type.toString().toLowerCase() + " array: " + e.getMessage());
+                    T ele = this.<T>as(arr.get(i), type);
+                    if (ele != null) {list.add(ele);}
                 }
+            } catch (Exception e) {
+                this.conf.addMessage("Error fetching " + type.toString().toLowerCase() + " array: " + e.getMessage());
             }
             return list;
         }
@@ -269,6 +297,32 @@ public class ConfigHelper
                     return (T)this.asBlockState(ele);
                 default:
                     return null;
+            }
+        }
+        
+        public <E extends Enum> E asEnum(JsonElement ele, Class<E>clazz)
+        {
+            try
+            {
+                String val = ele.getAsString();
+                E[] enums = clazz.getEnumConstants();
+                if (enums == null)
+                {
+                    this.conf.addMessage("Class " + clazz.getName() + " contains no enum constants");
+                    return null;
+                }
+                for (E enumVal : enums)
+                {
+                    if (enumVal.name().equalsIgnoreCase(val))
+                    {
+                        return enumVal;
+                    }
+                }
+                this.conf.addMessage("Value " + val + " does not exist in enum " + clazz);
+                return null;
+            } catch (Exception e) {
+                this.conf.addMessage("Error fetching string: " + e.getMessage());
+                return null;
             }
         }
                 

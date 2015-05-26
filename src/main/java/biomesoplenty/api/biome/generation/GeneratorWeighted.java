@@ -15,12 +15,9 @@ import java.util.Random;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.World;
+import biomesoplenty.common.util.config.ConfigHelper.WrappedJsonObject;
 
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.reflect.TypeToken;
-
+// TODO implement so that we don't rely on minecraft WeightedRandom class and GeneratorWeightedEntry class - can be much simpler
 public class GeneratorWeighted extends GeneratorCustomizable
 {
     private int amountPerChunk;
@@ -57,18 +54,28 @@ public class GeneratorWeighted extends GeneratorCustomizable
         
         return generator.generate(world, random, pos);
     }
-
+    
     @Override
-    public void writeToJson(JsonObject json, JsonSerializationContext context)
+    public void configure(WrappedJsonObject conf)
     {
-        json.addProperty("amount_per_chunk", this.amountPerChunk);
-        json.add("entries", context.serialize(this.weightedEntries));
-    }
-
-    @Override
-    public void readFromJson(JsonObject json, JsonDeserializationContext context)
-    {
-        this.amountPerChunk = json.get("amount_per_chunk").getAsInt();
-        this.weightedEntries = context.deserialize(json.get("entries"), new TypeToken<List<GeneratorWeightedEntry>>() {}.getType());
+        this.amountPerChunk = conf.getInt("amountPerChunk", this.amountPerChunk);
+        ArrayList<WrappedJsonObject> weightedEntriesConf = conf.getObjectArray("weightedEntries");
+        if (!weightedEntriesConf.isEmpty())
+        {
+            this.weightedEntries.clear();
+            for (WrappedJsonObject weightedEntryConf : weightedEntriesConf)
+            {
+                Integer weight = weightedEntryConf.getInt("weight", null);
+                if (weight == null || weight.intValue() < 1) {continue;}
+                WrappedJsonObject generatorConf = weightedEntryConf.getObject("generator");
+                if (generatorConf == null) {continue;}
+                IGenerator generator = GenerationManager.GeneratorFactory.create(generatorConf);
+                if (generator == null) {continue;}
+                this.add(weight, generator);
+            }
+        }
+        // TODO: at the moment, because the weighted entries aren't named, there's no way to just adjust one part of one of them
+        // The only thing you can do is replace the whole array.  Perhaps should use named entries in a Map<String,Generator> kind of arrangement
+        // Then they could be individually altered
     }
 }

@@ -8,8 +8,6 @@
 
 package biomesoplenty.common.biome.overworld;
 
-import static biomesoplenty.common.block.BlockBOPDoublePlant.VARIANT;
-import static biomesoplenty.common.block.BlockDoubleDecoration.HALF;
 import net.minecraft.block.BlockFlower.EnumFlowerType;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.entity.passive.EntityHorse;
@@ -21,7 +19,6 @@ import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.BlockBOPDoublePlant;
 import biomesoplenty.common.block.BlockBOPPlant;
-import biomesoplenty.common.block.BlockDoubleDecoration.Half;
 import biomesoplenty.common.block.BlockGem;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
@@ -49,7 +46,7 @@ public class BiomeGenShrubland extends BOPBiome
         this.addGenerator("gravel", GeneratorStage.SAND_PASS2, new GeneratorWaterside(4, 7, Blocks.gravel.getDefaultState()));
         this.addGenerator("bushes", GeneratorStage.FLOWERS, new GeneratorFlora(7, BlockBOPPlant.paging.getVariantState(BOPPlants.BUSH)));
         this.addGenerator("shrubs", GeneratorStage.FLOWERS, new GeneratorFlora(5, BlockBOPPlant.paging.getVariantState(BOPPlants.SHRUB)));
-        this.addGenerator("flax", GeneratorStage.FLOWERS, new GeneratorDoubleFlora(1, BOPBlocks.double_plant.getDefaultState().withProperty(VARIANT, BlockBOPDoublePlant.DoublePlantType.FLAX).withProperty(HALF, Half.LOWER), BOPBlocks.double_plant.getDefaultState().withProperty(VARIANT, BlockBOPDoublePlant.DoublePlantType.FLAX).withProperty(HALF, Half.UPPER), 24));
+        this.addGenerator("flax", GeneratorStage.FLOWERS, new GeneratorDoubleFlora(1, BlockBOPDoublePlant.DoublePlantType.FLAX, 24));
         this.addGenerator("water_reeds", GeneratorStage.LILYPAD, new GeneratorFlora(3, BlockBOPPlant.paging.getVariantState(BOPPlants.REED), 128));
         
         this.addGenerator("trees", GeneratorStage.TREE, new GeneratorBush(1, Blocks.log.getDefaultState(), Blocks.leaves.getDefaultState()));

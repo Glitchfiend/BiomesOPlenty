@@ -8,6 +8,8 @@
 
 package biomesoplenty.api.biome.generation;
 
+import biomesoplenty.common.util.config.ConfigHelper.WrappedJsonObject;
+
 public abstract class GeneratorCustomizable implements IGenerator
 {
     private final String identifier;
@@ -52,5 +54,11 @@ public abstract class GeneratorCustomizable implements IGenerator
     public final String getIdentifier()
     {
         return this.identifier;
+    }
+    
+    @Override
+    public void configure(WrappedJsonObject conf)
+    {
+        ;
     }
 }

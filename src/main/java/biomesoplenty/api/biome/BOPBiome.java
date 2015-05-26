@@ -70,6 +70,16 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
             }
         }
         
+        // Allow generators to be configured
+        WrappedJsonObject confGenerators = conf.getObject("generators");
+        if (confGenerators != null)
+        {
+            for (String name : confGenerators.getKeys())
+            {
+                this.generationManager.configureWith(name, confGenerators.getObject(name));
+            }
+        }
+        
     }
     
 

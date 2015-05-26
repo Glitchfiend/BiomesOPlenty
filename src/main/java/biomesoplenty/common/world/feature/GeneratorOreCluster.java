@@ -11,19 +11,21 @@ package biomesoplenty.common.world.feature;
 import java.util.Random;
 
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;
-
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonSerializationContext;
+import biomesoplenty.common.util.config.ConfigHelper.WrappedJsonObject;
 
 public class GeneratorOreCluster extends GeneratorOreBase
 {
     private WorldGenMinable generator;
     
-    public GeneratorOreCluster() {}
+    public GeneratorOreCluster()
+    {
+        // default
+        this(Blocks.emerald_ore.getDefaultState(), 12, 4, 4, 32);
+    }
     
     public GeneratorOreCluster(IBlockState state, int amountPerChunk, int clusterSize, int minHeight, int maxHeight)
     {
@@ -37,24 +39,14 @@ public class GeneratorOreCluster extends GeneratorOreBase
     {
         return this.generator.generate(world, random, pos);
     }
-
+    
     @Override
-    public void writeToJson(JsonObject json, JsonSerializationContext context)
+    public void configure(WrappedJsonObject conf)
     {
-        super.writeToJson(json, context);
+        super.configure(conf);
         
-        json.add("state", context.serialize(this.generator.oreBlock));
-        json.addProperty("cluster_size", this.generator.numberOfBlocks);
+        this.generator.oreBlock = conf.getBlockState("state", this.generator.oreBlock);
+        this.generator.numberOfBlocks = conf.getInt("clusterSize", this.generator.numberOfBlocks);
     }
-
-    @Override
-    public void readFromJson(JsonObject json, JsonDeserializationContext context)
-    {
-        super.readFromJson(json, context);
-        
-        IBlockState state = context.deserialize(json.get("state"), IBlockState.class);
-        int clusterSize = json.get("cluster_size").getAsInt();
-        
-        this.generator = new WorldGenMinable(state, clusterSize); 
-    }
+    
 }

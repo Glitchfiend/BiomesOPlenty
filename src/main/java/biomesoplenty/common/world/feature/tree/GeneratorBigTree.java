@@ -23,11 +23,9 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import biomesoplenty.api.biome.generation.GeneratorCustomizable;
 import biomesoplenty.common.util.biome.GeneratorUtils;
+import biomesoplenty.common.util.config.ConfigHelper.WrappedJsonObject;
 
 import com.google.common.collect.Lists;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonSerializationContext;
 
 /*This class is heavily based on https://gist.github.com/grum/62cfdec0537e8db24eb3#file-bigtreefeature-java
 additional information has been added from http://pastebin.com/XBLdGqXQ. This class has been cross-checked
@@ -58,7 +56,11 @@ public class GeneratorBigTree extends GeneratorCustomizable
     
     private List<FoliageCoords> foliageCoords;
 
-    public GeneratorBigTree() {}
+    public GeneratorBigTree()
+    {
+        // default
+        this(1, false, 4, 7, Blocks.log.getDefaultState(), Blocks.leaves.getDefaultState());
+    }
     
     public GeneratorBigTree(int amountPerChunk, boolean updateNeighbours, int minHeight, int maxHeight, IBlockState log, IBlockState leaves)
     {
@@ -531,31 +533,21 @@ public class GeneratorBigTree extends GeneratorCustomizable
             return branchBase;
         }
     }
-
+    
     @Override
-    public void writeToJson(JsonObject json, JsonSerializationContext context)
+    public void configure(WrappedJsonObject conf)
     {
-        json.addProperty("amount_per_chunk", this.amountPerChunk);
-        json.addProperty("update_neighbours", this.updateNeighbours);
-        json.addProperty("min_height", this.minHeight);
-        json.addProperty("max_height", this.maxHeight);
-        json.add("log_state", context.serialize(this.log));
-        json.add("leaves_state", context.serialize(this.leaves));
-    }
-
-    @Override
-    public void readFromJson(JsonObject json, JsonDeserializationContext context)
-    {
-        this.amountPerChunk = json.get("amount_per_chunk").getAsInt();
-        this.updateNeighbours = json.get("update_neighbours").getAsBoolean();
-        int minHeight = json.get("min_height").getAsInt();
-        int maxHeight = json.get("max_height").getAsInt();
+        this.amountPerChunk = conf.getInt("amountPerChunk", this.amountPerChunk);
+        this.updateNeighbours = conf.getBool("updateNeighbours", this.updateNeighbours);
+        int minHeight = conf.getInt("minHeight", this.minHeight);
+        int maxHeight = conf.getInt("maxHeight", this.maxHeight);
         
         Pair<Integer, Integer> heights = GeneratorUtils.validateMinMaxHeight(minHeight, maxHeight);
         this.minHeight = heights.getLeft();
         this.maxHeight = heights.getRight();
         
-        this.log = context.deserialize(json.get("log_state"), IBlockState.class);
-        this.leaves = context.deserialize(json.get("leaves_state"), IBlockState.class);
+        this.log = conf.getBlockState("logState", this.log);
+        this.leaves = conf.getBlockState("leavesState", this.leaves);
     }
+    
 }

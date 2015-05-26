@@ -13,10 +13,7 @@ import java.util.Random;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.World;
-
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonSerializationContext;
+import biomesoplenty.common.util.config.ConfigHelper.WrappedJsonObject;
 
 public final class GeneratorWeightedEntry extends WeightedRandom.Item implements IGenerator
 {
@@ -56,18 +53,12 @@ public final class GeneratorWeightedEntry extends WeightedRandom.Item implements
     }
     
     @Override
-    public void writeToJson(JsonObject json, JsonSerializationContext context)
+    public void configure(WrappedJsonObject conf)
     {
-        json.addProperty("weight", this.itemWeight);
-        json.add("wrapped_generator", context.serialize(this.wrappedGenerator));
+        // this should never be used directly
+        ;
     }
-
-    @Override
-    public void readFromJson(JsonObject json, JsonDeserializationContext context)
-    {
-        this.itemWeight = json.get("weight").getAsInt();
-        this.wrappedGenerator = context.deserialize(json.get("wrapped_generator"), IGenerator.class);
-    }
+    
 
     @Override
     public void setStage(GeneratorStage stage)
@@ -96,4 +87,5 @@ public final class GeneratorWeightedEntry extends WeightedRandom.Item implements
     {
         return null;
     }
+
 }

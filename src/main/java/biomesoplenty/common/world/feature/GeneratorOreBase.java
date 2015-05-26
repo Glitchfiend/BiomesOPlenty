@@ -17,18 +17,13 @@ import org.apache.commons.lang3.tuple.Pair;
 
 import biomesoplenty.api.biome.generation.GeneratorCustomizable;
 import biomesoplenty.common.util.biome.GeneratorUtils;
-
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonSerializationContext;
+import biomesoplenty.common.util.config.ConfigHelper.WrappedJsonObject;
 
 public abstract class GeneratorOreBase extends GeneratorCustomizable
 {
     protected int amountPerChunk;
     protected int minHeight;
     protected int maxHeight;
-    
-    protected GeneratorOreBase() {}
     
     protected GeneratorOreBase(int amountPerChunk, int minHeight, int maxHeight)
     {
@@ -51,22 +46,15 @@ public abstract class GeneratorOreBase extends GeneratorCustomizable
     }
     
     @Override
-    public void writeToJson(JsonObject json, JsonSerializationContext context)
+    public void configure(WrappedJsonObject conf)
     {
-        json.addProperty("amount_per_chunk", this.amountPerChunk);
-        json.addProperty("min_height", this.minHeight);
-        json.addProperty("max_height", this.maxHeight);
-    }
-
-    @Override
-    public void readFromJson(JsonObject json, JsonDeserializationContext context)
-    {
-        this.amountPerChunk = json.get("amount_per_chunk").getAsInt();
-        int minHeight = json.get("min_height").getAsInt();
-        int maxHeight = json.get("max_height").getAsInt();
+        this.amountPerChunk = conf.getInt("amountPerChunk", this.amountPerChunk);
+        int minHeight = conf.getInt("minHeight", this.minHeight).intValue();
+        int maxHeight = conf.getInt("maxHeight", this.maxHeight).intValue();
         
         Pair<Integer, Integer> heights = GeneratorUtils.validateMinMaxHeight(minHeight, maxHeight);
         this.minHeight = heights.getLeft();
         this.maxHeight = heights.getRight();
     }
+    
 }

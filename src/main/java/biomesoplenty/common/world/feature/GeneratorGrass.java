@@ -12,6 +12,7 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import biomesoplenty.common.block.BlockDecoration;
@@ -19,7 +20,11 @@ import biomesoplenty.common.util.biome.GeneratorUtils;
 
 public class GeneratorGrass extends GeneratorFlora
 {
-    public GeneratorGrass() {}
+    public GeneratorGrass()
+    {
+        // default
+        this(1, Blocks.tallgrass.getDefaultState(), 128);
+    }
     
     public GeneratorGrass(int amountPerChunk, IBlockState state, int generationAttempts)
     {

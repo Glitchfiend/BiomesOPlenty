@@ -18,12 +18,8 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonSerializationContext;
-
 import biomesoplenty.api.biome.generation.GeneratorCustomizable;
-import biomesoplenty.common.util.biome.GeneratorUtils;
+import biomesoplenty.common.util.config.ConfigHelper.WrappedJsonObject;
 
 public class GeneratorBush extends GeneratorCustomizable
 {
@@ -31,7 +27,11 @@ public class GeneratorBush extends GeneratorCustomizable
     private IBlockState log;
     private IBlockState leaves;
     
-    public GeneratorBush() {}
+    public GeneratorBush()
+    {
+        // default
+        this(1, Blocks.log.getDefaultState(), Blocks.leaves.getDefaultState());
+    }
     
     public GeneratorBush(int amountPerChunk, IBlockState log, IBlockState leaves)
     {
@@ -108,20 +108,13 @@ public class GeneratorBush extends GeneratorCustomizable
 
         return true;
     }
-
+    
     @Override
-    public void writeToJson(JsonObject json, JsonSerializationContext context)
+    public void configure(WrappedJsonObject conf)
     {
-        json.addProperty("amount_per_chunk", this.amountPerChunk);
-        json.add("log_state", context.serialize(this.log));
-        json.add("leaves_state", context.serialize(this.leaves));
+        this.amountPerChunk = conf.getInt("amountPerChunk", this.amountPerChunk);        
+        this.log = conf.getBlockState("logState", this.log);
+        this.leaves = conf.getBlockState("leavesState", this.leaves);
     }
-
-    @Override
-    public void readFromJson(JsonObject json, JsonDeserializationContext context)
-    {
-        this.amountPerChunk = json.get("amount_per_chunk").getAsInt();
-        this.log = GeneratorUtils.deserializeStateNonNull(json, "log_state", context);
-        this.leaves = GeneratorUtils.deserializeStateNonNull(json, "leaves_state", context);
-    }
+    
 }
