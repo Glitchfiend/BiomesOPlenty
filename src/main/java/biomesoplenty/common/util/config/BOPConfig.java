@@ -115,7 +115,7 @@ public class BOPConfig
         public void parse(String jsonString)
         {
             this.members = new HashMap<String, JsonElement>();
-            if (jsonString != null) {return;}
+            if (jsonString == null) {return;}
             JsonElement rootElement = null;
             try
             {
@@ -544,6 +544,11 @@ public class BOPConfig
     {
         public ConfigFileObj(File configFile)
         {
+            this(configFile, false);
+        }
+        
+        public ConfigFileObj(File configFile, boolean warnIfMissing)
+        {
             this.prefix = configFile.getAbsolutePath();
             String jsonString = null;
             if (configFile.exists())
@@ -553,6 +558,11 @@ public class BOPConfig
                     jsonString = FileUtils.readFileToString(configFile);
                 } catch (IOException e) {
                     this.addMessage("Error reading config file "+e.getMessage());
+                }
+            } else {
+                if (warnIfMissing)
+                {
+                    this.addMessage("File missing");
                 }
             }
             this.parse(jsonString);
