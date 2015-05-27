@@ -17,20 +17,18 @@ import biomesoplenty.common.util.BOPReflectionHelper;
 
 public class ModPotions
 {
-    private static int lastId;
+    private static int nextId;
     
     public static void init()
     {
-        lastId = Potion.potionTypes.length;
+        nextId = Potion.potionTypes.length;
         
         // Need to expand the potions array to hold all our potions
         // Irritatingly this has to be done before creating the potion instances, so it can't just be done dynamically
         // ...anyway, increase the number below for every new potion you add
         int numberOfPotionsToAdd = 2;
         expandPotionsArray(numberOfPotionsToAdd);
-        
-        // public static final Potion moveSpeed = (new Potion(1, new ResourceLocation("speed"), false, 8171462)).setPotionName("potion.moveSpeed").setIconIndex(0, 0).registerPotionAttributeModifier(SharedMonsterAttributes.movementSpeed, "91AEAA56-376B-4498-935B-2F7F68070635", 0.20000000298023224D, 2);
-        
+                
         // create the BOP potions
         paralysis = (new PotionParalysis(getNextId(), new ResourceLocation("paralysis"), true, 16767262)).setPotionName("potion.paralysis");
         possession = (new PotionPossession(getNextId(), new ResourceLocation("possession"), true, 1280)).setPotionName("potion.possession");        
@@ -53,7 +51,7 @@ public class ModPotions
     
     private static int getNextId()
     {
-        return lastId++;
+        return nextId++;
     }
     
     
