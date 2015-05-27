@@ -11,6 +11,7 @@ package biomesoplenty.common.entities.projectiles;
 import java.util.List;
 
 import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.api.potion.BOPPotions;
 import biomesoplenty.common.item.ItemDart;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -19,7 +20,6 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.Item;
 import net.minecraft.network.play.server.S2BPacketChangeGameState;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
@@ -91,8 +91,7 @@ public class EntityDart extends EntityArrow
         {
             if (entityHit instanceof EntityLivingBase)
             {
-                // TODO:  add paralysis potion  ((EntityLivingBase)movingobjectposition.entityHit).addPotionEffect(new PotionEffect(BOPPotions.paralysis.id, 100));
-                ((EntityLivingBase)entityHit).addPotionEffect(new PotionEffect(Potion.poison.id, 100));
+                ((EntityLivingBase)entityHit).addPotionEffect(new PotionEffect(BOPPotions.paralysis.id, 100));
             }
         }
 

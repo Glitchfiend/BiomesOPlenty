@@ -51,6 +51,7 @@ public class BiomesOPlenty
         ModBlocks.init();
         ModEntities.init();
         ModItems.init();
+        ModPotions.init();
         
         ModGenerators.init();
         ModBiomes.init();
