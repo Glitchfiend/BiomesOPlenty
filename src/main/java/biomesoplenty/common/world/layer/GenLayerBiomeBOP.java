@@ -13,8 +13,12 @@ import static net.minecraftforge.common.BiomeManager.BiomeType.DESERT;
 import static net.minecraftforge.common.BiomeManager.BiomeType.ICY;
 import static net.minecraftforge.common.BiomeManager.BiomeType.WARM;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.WorldType;
@@ -24,10 +28,13 @@ import net.minecraft.world.gen.layer.GenLayerBiome;
 import net.minecraft.world.gen.layer.IntCache;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
+import net.minecraftforge.common.BiomeManager.BiomeType;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import biomesoplenty.common.biome.BOPBiomeManager;
-
-import com.google.common.collect.ImmutableList;
+import biomesoplenty.common.util.biome.BiomeUtils;
+import biomesoplenty.common.util.config.BOPConfig.ConfigFileObj;
+import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
+import biomesoplenty.core.BiomesOPlenty;
 
 public class GenLayerBiomeBOP extends GenLayerBiome
 {
@@ -37,18 +44,67 @@ public class GenLayerBiomeBOP extends GenLayerBiome
     {
         super(seed, parentLayer, worldType, chunkProviderSettings);
         
+        // get the vanilla biomes (and their hard-coded default weights) from the vanilla GenLayerBiome class private field 'biomes'
         biomes = ReflectionHelper.getPrivateValue(GenLayerBiome.class, this, "biomes");
         
-        //TODO: Use vanilla biome weights
+        // get a set of all of the vanilla biomes which appear at all anywhere in the weights
+        Set<BiomeGenBase> vanillaBiomes = new HashSet<BiomeGenBase>();
+        for (BiomeManager.BiomeType type : BiomeManager.BiomeType.values()) {
+            if (biomes[type.ordinal()] == null) {biomes[type.ordinal()] = new ArrayList<BiomeEntry>();}
+            for (BiomeEntry entry : biomes[type.ordinal()]) {vanillaBiomes.add(entry.biome);}
+        }
+        
+        // for each of the vanilla biomes, allow the default weights to be overriden by config files
+        for (BiomeGenBase vanillaBiome : vanillaBiomes)
+        {
+            // See if there's a config file containing a setting called "weights"
+            String idName = BiomeUtils.getBiomeIdentifier(vanillaBiome);
+            File configFile = new File(new File(BiomesOPlenty.configDirectory, "biomes"), idName + ".json");
+            IConfigObj conf = new ConfigFileObj(configFile);
+            IConfigObj confWeights = conf.getObject("weights");
+            
+            // Allow weights to be overridden by values in the config file
+            if (confWeights != null)
+            {
+                for (BiomeType type : BiomeType.values())
+                {
+                    Iterator<BiomeEntry> entries = biomes[type.ordinal()].iterator();
+                    Integer weight = confWeights.getInt(type.name().toLowerCase(), null);
+                    if (weight == null) {continue;}
+                    boolean foundIt = false;
+                    while (entries.hasNext())
+                    {
+                        BiomeEntry entry = entries.next();
+                        if (entry.biome == vanillaBiome)
+                        {
+                            if (weight.intValue() < 1)
+                            {
+                                entries.remove();
+                            } else {
+                                entry.itemWeight = weight.intValue();
+                            }
+                            foundIt = true;
+                            break;
+                        }
+                    }
+                    if (!foundIt)
+                    {
+                        biomes[type.ordinal()].add(new BiomeEntry(vanillaBiome, weight));
+                    }
+                }
+            }
+        }
+        
+        // For each biome type, add the BOP biomes (weights already configured when they were created)
         for (BiomeManager.BiomeType type : BiomeManager.BiomeType.values())
         {
-            ImmutableList<BiomeEntry> biomesToAdd = BOPBiomeManager.getBiomes(type);
-            int idx = type.ordinal();
-
-            if (biomes[idx] == null) biomes[idx] = new ArrayList<BiomeEntry>();
-            if (biomesToAdd != null) biomes[idx].addAll(biomesToAdd);
+            biomes[type.ordinal()].addAll(BOPBiomeManager.getBiomes(type));            
         }
+        
+        // debugging:
+        // for (BiomeManager.BiomeType type : BiomeManager.BiomeType.values()) {for (BiomeEntry entry : biomes[type.ordinal()]) {System.out.println(type.name() + " " + BiomeUtils.getBiomeIdentifier(entry.biome) + " " + entry.itemWeight);}}
     }
+    
     
     // Get array of biome IDs covering the requested area
     @Override

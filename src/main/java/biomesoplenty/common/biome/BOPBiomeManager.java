@@ -40,6 +40,6 @@ public class BOPBiomeManager
         int idx = type.ordinal();
         List<BiomeEntry> list = idx > biomes.length ? null : biomes[idx];
 
-        return list != null ? ImmutableList.copyOf(list) : null;
+        return list == null ? ImmutableList.<BiomeEntry>of() : ImmutableList.copyOf(list);
     }
 }

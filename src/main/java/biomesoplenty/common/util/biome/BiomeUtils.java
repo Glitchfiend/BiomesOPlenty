@@ -8,6 +8,8 @@
 
 package biomesoplenty.common.util.biome;
 
+import com.google.common.base.CaseFormat;
+
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -15,6 +17,14 @@ import net.minecraft.world.biome.WorldChunkManager;
 
 public class BiomeUtils
 {
+    
+    public static String getBiomeIdentifier(BiomeGenBase biome)
+    {
+        // Vanilla Biomes are typically named in upper camel case, sometimes with spaces
+        // We follow the same convention with BOP Biomes
+        // return a standardised identifier for use in json files, etc by converting to lowercase with underscores 
+        return CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, biome.biomeName.replace(" ", ""));
+    }
     
     public static BlockPos spiralOutwardsLookingForBiome(World world, BiomeGenBase biomeToFind, double startX, double startZ, int maxDist)
     {

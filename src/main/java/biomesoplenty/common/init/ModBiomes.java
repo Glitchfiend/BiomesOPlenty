@@ -32,6 +32,7 @@ import biomesoplenty.common.biome.overworld.BiomeGenShrubland;
 import biomesoplenty.common.biome.overworld.BiomeGenSteppe;
 import biomesoplenty.common.biome.overworld.BiomeGenThicket;
 import biomesoplenty.common.command.BOPCommand;
+import biomesoplenty.common.util.biome.BiomeUtils;
 import biomesoplenty.common.util.config.BOPConfig;
 import biomesoplenty.common.world.WorldTypeBOP;
 import biomesoplenty.core.BiomesOPlenty;
@@ -57,7 +58,6 @@ public class ModBiomes
         biomeIdMap = new HashMap<String, Integer>();
         
         registerBiomes();
-        registerExternalBiomes();
         
         // save the biome ids to the config file (creating it if it doesn't exist)
         BOPConfig.writeFile(biomeIdMapFile, biomeIdMap);
@@ -67,20 +67,23 @@ public class ModBiomes
 
     private static void registerBiomes()
     {
-        alps = registerBOPBiome(new BiomeGenAlps(), "Alps", "alps");
-        arctic = registerBOPBiome(new BiomeGenArctic(), "Arctic", "arctic");
-        crag = registerBOPBiome(new BiomeGenCrag(), "Crag", "crag");
-        denseForest = registerBOPBiome(new BiomeGenDenseForest(), "Dense Forest", "dense_forest");
-        flowerField = registerBOPBiome(new BiomeGenFlowerField(), "Flower Field", "flower_field");
-        lavenderFields = registerBOPBiome(new BiomeGenLavenderFields(), "Lavender Fields", "lavender_fields");
-        originValley = registerBOPBiome(new BiomeGenOriginValley(), "Origin Valley", "origin_valley");
-        shrubland = registerBOPBiome(new BiomeGenShrubland(), "Shrubland", "shrubland");
-        steppe = registerBOPBiome(new BiomeGenSteppe(), "Steppe", "steppe");
-        thicket = registerBOPBiome(new BiomeGenThicket(), "Thicket", "thicket");
+        alps = registerBOPBiome(new BiomeGenAlps(), "Alps");
+        arctic = registerBOPBiome(new BiomeGenArctic(), "Arctic");
+        crag = registerBOPBiome(new BiomeGenCrag(), "Crag");
+        denseForest = registerBOPBiome(new BiomeGenDenseForest(), "Dense Forest");
+        flowerField = registerBOPBiome(new BiomeGenFlowerField(), "Flower Field");
+        lavenderFields = registerBOPBiome(new BiomeGenLavenderFields(), "Lavender Fields");
+        originValley = registerBOPBiome(new BiomeGenOriginValley(), "Origin Valley");
+        shrubland = registerBOPBiome(new BiomeGenShrubland(), "Shrubland");
+        steppe = registerBOPBiome(new BiomeGenSteppe(), "Steppe");
+        thicket = registerBOPBiome(new BiomeGenThicket(), "Thicket");
     }
     
-    private static Optional<BiomeGenBase> registerBOPBiome(BOPBiome biome, String name, String idName)
+    private static Optional<BiomeGenBase> registerBOPBiome(BOPBiome biome, String name)
     {
+        
+        biome.setBiomeName(name);
+        String idName = BiomeUtils.getBiomeIdentifier(biome);
         
         Integer id = biomeIdMapConf.getInt(idName, null);
         if (id == null) {id = new Integer(getNextFreeBiomeId());}
@@ -93,7 +96,6 @@ public class ModBiomes
             
             BOPCommand.biomeCount++;
             biome.biomeID = id;
-            biome.setBiomeName(name);
             // If there was a valid config file, then use it to configure the biome
             if (!conf.isEmpty()) {biome.configure(conf);}
             // log any warnings from parsing the config file
@@ -117,58 +119,6 @@ public class ModBiomes
             return Optional.absent();
         }
     }
-    
-    
-
-    private static void registerExternalBiomes()
-    {
-        /*registerExternalBiome(BiomeGenBase.ocean, "ocean");
-        registerExternalBiome(BiomeGenBase.plains, "plains");
-        registerExternalBiome(BiomeGenBase.desert, "desert");
-        registerExternalBiome(BiomeGenBase.extremeHills, "extreme_hills");
-        registerExternalBiome(BiomeGenBase.forest, "forest");
-        registerExternalBiome(BiomeGenBase.taiga, "taiga");
-        registerExternalBiome(BiomeGenBase.swampland, "swampland");
-        registerExternalBiome(BiomeGenBase.river, "river");
-        registerExternalBiome(BiomeGenBase.hell, "hell");
-        registerExternalBiome(BiomeGenBase.sky, "sky");
-        registerExternalBiome(BiomeGenBase.frozenOcean, "frozen_ocean");
-        registerExternalBiome(BiomeGenBase.frozenRiver, "frozen_river");
-        registerExternalBiome(BiomeGenBase.icePlains, "ice_plains");
-        registerExternalBiome(BiomeGenBase.iceMountains, "ice_mountains");
-        registerExternalBiome(BiomeGenBase.mushroomIsland, "mushroom_island");
-        registerExternalBiome(BiomeGenBase.mushroomIslandShore, "mushroom_island_shore");
-        registerExternalBiome(BiomeGenBase.beach, "beach");
-        registerExternalBiome(BiomeGenBase.desertHills, "beach_hills");
-        registerExternalBiome(BiomeGenBase.forestHills, "forest_hills");
-        registerExternalBiome(BiomeGenBase.taigaHills, "taiga_hills");
-        registerExternalBiome(BiomeGenBase.extremeHillsEdge, "extreme_hills_edge");
-        registerExternalBiome(BiomeGenBase.jungle, "jungle");
-        registerExternalBiome(BiomeGenBase.jungleHills, "jungle_hills");
-        registerExternalBiome(BiomeGenBase.jungleEdge, "jungle_edge");
-        registerExternalBiome(BiomeGenBase.deepOcean, "deep_ocean");
-        registerExternalBiome(BiomeGenBase.stoneBeach, "stone_beach");
-        registerExternalBiome(BiomeGenBase.coldBeach, "cold_beach");
-        registerExternalBiome(BiomeGenBase.birchForest, "birch_forest");
-        registerExternalBiome(BiomeGenBase.birchForestHills, "birch_forest_hills");
-        registerExternalBiome(BiomeGenBase.roofedForest, "roofed_forest");
-        registerExternalBiome(BiomeGenBase.coldTaiga, "cold_taiga");
-        registerExternalBiome(BiomeGenBase.coldTaigaHills, "cold_taiga_hills");
-        registerExternalBiome(BiomeGenBase.megaTaiga, "mega_taiga");
-        registerExternalBiome(BiomeGenBase.megaTaigaHills, "mega_taiga_hills");
-        registerExternalBiome(BiomeGenBase.extremeHillsPlus, "extreme_hills_plus");
-        registerExternalBiome(BiomeGenBase.savanna, "savanna");
-        registerExternalBiome(BiomeGenBase.savannaPlateau, "savanna_plateau");
-        registerExternalBiome(BiomeGenBase.mesa, "mesa");
-        registerExternalBiome(BiomeGenBase.mesaPlateau_F, "mesa_plateau_f");
-        registerExternalBiome(BiomeGenBase.mesaPlateau, "mesa_plateau");*/
-    }
-
-    /*private static void registerExternalBiome(BiomeGenBase biome, String id)
-    {
-        ExtendedBiomeRegistry.createExtension(biome);
-        BiomeConfigurationHandler.translateVanillaValues(biome);
-    }*/
 
     public static int getNextFreeBiomeId()
     {

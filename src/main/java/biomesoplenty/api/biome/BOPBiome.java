@@ -74,7 +74,7 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
             {
                 Integer weight = confWeights.getInt(type.name().toLowerCase(), null);
                 if (weight == null) {continue;}
-                if (weight.intValue() == 0)
+                if (weight.intValue() < 1)
                 {
                     this.weightMap.remove(type);
                 }
