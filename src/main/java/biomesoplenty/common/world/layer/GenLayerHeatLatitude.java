@@ -8,6 +8,7 @@
 
 package biomesoplenty.common.world.layer;
 
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
@@ -56,31 +57,28 @@ public class GenLayerHeatLatitude extends GenLayer
                 
                 this.initChunkSeed((long)X, (long)Y);
 
-                if (parentVal == 0)
+                // set value between 1 and 4 which is periodic in Y (with some random variation)
+                // ocean generally stays as ocean, unless it's ICY when it becomes frozen ocean
+                double Yoffset = Y + this.offset + ((this.nextInt(1001) - 500) * this.offsetVariation / 500.0D);
+                int scaledVal = (int)Math.floor(this.amplitude * Math.abs((Math.abs(Yoffset % period) - halfPeriod)));                
+                switch (scaledVal)
                 {
-                    // ocean stays as ocean
-                    out[x + y * areaWidth] = 0;
-                }
-                else
-                {
-                    // set value between 1 and 4 which is periodic in Y (with some random variation)
-                    double Yoffset = Y + this.offset + ((this.nextInt(1001) - 500) * this.offsetVariation / 500.0D);
-                    int scaledVal = (int)Math.floor(this.amplitude * Math.abs((Math.abs(Yoffset % period) - halfPeriod)));
-                    switch (scaledVal)
-                    {
-                        case 0:
-                            out[x + y * areaWidth] = 1;
-                            break;
-                        case 1: case 2:
-                            out[x + y * areaWidth] = 2;
-                            break;
-                        case 3: case 4:
-                            out[x + y * areaWidth] = 3;
-                            break;
-                        default:
-                            out[x + y * areaWidth] = 4;
-                            break;
-                    }
+                    case 0:
+                        // DESERT
+                        out[x + y * areaWidth] = ((parentVal == 0) ? 0 : 1);
+                        break;
+                    case 1: case 2:
+                        // WARM
+                        out[x + y * areaWidth] = ((parentVal == 0) ? 0 : 2);
+                        break;
+                    case 3: case 4:
+                        // COOL
+                        out[x + y * areaWidth] = ((parentVal == 0) ? 0 : 3);
+                        break;
+                    default:
+                        // ICY
+                        out[x + y * areaWidth] = ((parentVal == 0) ? BiomeGenBase.frozenOcean.biomeID : 4);
+                        break;
                 }
             }
         }
