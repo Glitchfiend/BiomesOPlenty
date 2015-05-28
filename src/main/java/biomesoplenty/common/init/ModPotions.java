@@ -46,7 +46,8 @@ public class ModPotions
         System.arraycopy(Potion.potionTypes, 0, potionTypes, 0, oldNumOfPotions);
         
         // replace Potion.potionTypes with our new expanded array
-        BOPReflectionHelper.setPrivateFinalValue(Potion.class, null, potionTypes, "potionTypes" /* TODO: what's this? "field_76425_a" */);
+        // note - need to specify both the obfuscated and de-obfuscated field names so that it works in dev and in the normal game
+        BOPReflectionHelper.setPrivateFinalValue(Potion.class, null, potionTypes, "potionTypes", "field_76425_a");
     }
     
     private static int getNextId()
