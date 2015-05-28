@@ -11,32 +11,12 @@ package biomesoplenty.common.world;
 import java.io.File;
 
 import biomesoplenty.common.util.config.BOPConfig;
-import biomesoplenty.common.world.layer.GenLayerBiomeBOP;
-import biomesoplenty.common.world.layer.GenLayerHeatLatitude;
-import biomesoplenty.common.world.layer.GenLayerHeatRandom;
-import biomesoplenty.common.world.layer.GenLayerSubBiomesBOP;
+import biomesoplenty.common.world.layer.*;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.WorldChunkManager;
-import net.minecraft.world.gen.layer.GenLayer;
-import net.minecraft.world.gen.layer.GenLayerAddIsland;
-import net.minecraft.world.gen.layer.GenLayerAddMushroomIsland;
-import net.minecraft.world.gen.layer.GenLayerAddSnow;
-import net.minecraft.world.gen.layer.GenLayerBiomeEdge;
-import net.minecraft.world.gen.layer.GenLayerDeepOcean;
-import net.minecraft.world.gen.layer.GenLayerEdge;
-import net.minecraft.world.gen.layer.GenLayerFuzzyZoom;
-import net.minecraft.world.gen.layer.GenLayerIsland;
-import net.minecraft.world.gen.layer.GenLayerRareBiome;
-import net.minecraft.world.gen.layer.GenLayerRemoveTooMuchOcean;
-import net.minecraft.world.gen.layer.GenLayerRiver;
-import net.minecraft.world.gen.layer.GenLayerRiverInit;
-import net.minecraft.world.gen.layer.GenLayerRiverMix;
-import net.minecraft.world.gen.layer.GenLayerShore;
-import net.minecraft.world.gen.layer.GenLayerSmooth;
-import net.minecraft.world.gen.layer.GenLayerVoronoiZoom;
-import net.minecraft.world.gen.layer.GenLayerZoom;
+import net.minecraft.world.gen.layer.*;
 
 public class WorldChunkManagerBOP extends WorldChunkManager
 {
@@ -131,7 +111,7 @@ public class WorldChunkManagerBOP extends WorldChunkManager
         // allocate the basic biomes        
         GenLayer stack = new GenLayerBiomeBOP(200L, hotAndCold, worldType, chunkProviderSettingsJson);
         stack = GenLayerZoom.magnify(1000L, stack, 2);
-        stack = new GenLayerBiomeEdge(1000L, stack);
+        stack = new GenLayerBiomeEdgeBOP(1000L, stack);
         
         // use the hillsInit layer to change some biomes to sub-biomes like hills or rare mutated variants
         GenLayer subBiomesInit = GenLayerZoom.magnify(1000L, riversAndSubBiomesInit, 2);
