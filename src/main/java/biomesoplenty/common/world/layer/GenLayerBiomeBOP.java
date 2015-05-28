@@ -21,7 +21,6 @@ import java.util.List;
 import java.util.Set;
 
 import net.minecraft.util.WeightedRandom;
-import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.GenLayerBiome;
@@ -34,13 +33,14 @@ import biomesoplenty.common.biome.BOPBiomeManager;
 import biomesoplenty.common.util.biome.BiomeUtils;
 import biomesoplenty.common.util.config.BOPConfig.ConfigFileObj;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
+import biomesoplenty.common.world.WorldTypeBOP;
 import biomesoplenty.core.BiomesOPlenty;
 
 public class GenLayerBiomeBOP extends GenLayerBiome
 {
     private List<BiomeEntry>[] biomes;
     
-    public GenLayerBiomeBOP(long seed, GenLayer parentLayer, WorldType worldType, String chunkProviderSettings)
+    public GenLayerBiomeBOP(long seed, GenLayer parentLayer, WorldTypeBOP worldType, String chunkProviderSettings)
     {
         super(seed, parentLayer, worldType, chunkProviderSettings);
         
@@ -185,7 +185,6 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                 }
                 else if (baseVal == 4) // baseVal = 4 means a ICY region
                 {
-                    // I would have expected the ice spikes to be the special biome for ICY, apparently not - not sure where the ice spikes fit in...
                     // Regardless of specialVal, get a (weighted) random biome from the ICY list
                     outputBiomeIds[z + x * areaWidth] = getWeightedBiomeEntry(ICY).biome.biomeID;
                 }

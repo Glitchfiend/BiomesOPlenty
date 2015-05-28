@@ -28,7 +28,7 @@ public class GenLayerHeatLatitude extends GenLayer
         this.period = halfPeriod * 2.0D;
         this.halfPeriod = halfPeriod;
         this.offset = (int)(worldSeed % ((int)(this.period * 2)));
-        this.offsetVariation = halfPeriod / 7.0F;
+        this.offsetVariation = halfPeriod / 10.0F;
         this.amplitude = 5.999D / halfPeriod;
         
     }

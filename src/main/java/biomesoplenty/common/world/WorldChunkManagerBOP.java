@@ -11,9 +11,10 @@ package biomesoplenty.common.world;
 import java.io.File;
 
 import biomesoplenty.common.util.config.BOPConfig;
+import biomesoplenty.common.world.layer.GenLayerBiomeBOP;
 import biomesoplenty.common.world.layer.GenLayerHeatLatitude;
 import biomesoplenty.common.world.layer.GenLayerHeatRandom;
-import biomesoplenty.common.world.layer.GenLayerHillsBOP;
+import biomesoplenty.common.world.layer.GenLayerSubBiomesBOP;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
@@ -22,6 +23,7 @@ import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.GenLayerAddIsland;
 import net.minecraft.world.gen.layer.GenLayerAddMushroomIsland;
 import net.minecraft.world.gen.layer.GenLayerAddSnow;
+import net.minecraft.world.gen.layer.GenLayerBiomeEdge;
 import net.minecraft.world.gen.layer.GenLayerDeepOcean;
 import net.minecraft.world.gen.layer.GenLayerEdge;
 import net.minecraft.world.gen.layer.GenLayerFuzzyZoom;
@@ -38,17 +40,22 @@ import net.minecraft.world.gen.layer.GenLayerZoom;
 
 public class WorldChunkManagerBOP extends WorldChunkManager
 {
-    // TODO: ability to vary landmass creation - eg continents, archipelago etc
-    // TODO: figure out how ice spikes work
-    
+    // TODO: ability to vary landmass creation - eg continents, archipelago etc    
     
     public WorldChunkManagerBOP(long seed, WorldType worldType, String chunkProviderSettings)
     {
         super();
+        if (!(worldType instanceof WorldTypeBOP))
+        {
+            throw new RuntimeException("WorldChunkManagerBOP requires a world of type WorldTypeBOP");
+        }
+        
         this.field_180301_f = chunkProviderSettings;
         BOPConfig.IConfigObj worldConfig = new BOPConfig.ConfigFileObj(new File(BiomesOPlenty.configDirectory, "world.json"));
-        GenLayer[] agenlayer = setupGenLayersVanilla(seed, worldType, chunkProviderSettings, worldConfig);
+        
+        GenLayer[] agenlayer = setupBOPGenLayers(seed, (WorldTypeBOP)worldType, chunkProviderSettings, worldConfig);
         agenlayer = getModdedBiomeGenerators(worldType, seed, agenlayer);
+        
         this.genBiomes = agenlayer[0];
         this.biomeIndexLayer = agenlayer[1];
     }
@@ -97,7 +104,7 @@ public class WorldChunkManagerBOP extends WorldChunkManager
             case LATITUDE:
                 stack = new GenLayerAddIsland(3L, landAndSea);
                 stack = new GenLayerZoom(2002L, stack);
-                stack = new GenLayerHeatLatitude(2L, stack, 8, worldSeed);
+                stack = new GenLayerHeatLatitude(2L, stack, 10, worldSeed);
                 stack = new GenLayerEdge(3L, stack, GenLayerEdge.Mode.SPECIAL);
                 stack = new GenLayerZoom(2002L, stack);
                 break;
@@ -119,18 +126,21 @@ public class WorldChunkManagerBOP extends WorldChunkManager
         return stack;
     }
     
-    public static GenLayer allocateBiomes(long worldSeed, WorldType worldType, String chunkProviderSettingsJson, GenLayer hotAndCold, GenLayer hillsInit)
+    public static GenLayer allocateBiomes(long worldSeed, WorldTypeBOP worldType, String chunkProviderSettingsJson, GenLayer hotAndCold, GenLayer riversAndSubBiomesInit)
     {        
-        // allocate the (low) biomes
-        GenLayer stack = worldType.getBiomeLayer(worldSeed, hotAndCold, chunkProviderSettingsJson);
+        // allocate the basic biomes        
+        GenLayer stack = new GenLayerBiomeBOP(200L, hotAndCold, worldType, chunkProviderSettingsJson);
+        stack = GenLayerZoom.magnify(1000L, stack, 2);
+        stack = new GenLayerBiomeEdge(1000L, stack);
         
-        // use the hillsInit layer to change some to hill biomes
-        stack = new GenLayerHillsBOP(1000L, stack, GenLayerZoom.magnify(1000L, hillsInit, 2));
+        // use the hillsInit layer to change some biomes to sub-biomes like hills or rare mutated variants
+        GenLayer subBiomesInit = GenLayerZoom.magnify(1000L, riversAndSubBiomesInit, 2);
+        stack = new GenLayerSubBiomesBOP(1000L, stack, subBiomesInit);
         return stack;
     }
     
     
-    public static GenLayer[] setupGenLayersVanilla(long worldSeed, WorldType worldType, String chunkProviderSettingsJson, BOPConfig.IConfigObj conf)
+    public static GenLayer[] setupBOPGenLayers(long worldSeed, WorldTypeBOP worldType, String chunkProviderSettingsJson, BOPConfig.IConfigObj conf)
     {
         
         int biomeSize = 4;
@@ -148,11 +158,11 @@ public class WorldChunkManagerBOP extends WorldChunkManager
         mainBranch = new GenLayerAddMushroomIsland(5L, mainBranch);
         mainBranch = new GenLayerDeepOcean(4L, mainBranch);
         
-        // fork off a new branch as a seed for rivers and hills
-        GenLayer riversAndHillsInit = new GenLayerRiverInit(100L, mainBranch);
+        // fork off a new branch as a seed for rivers and sub biomes
+        GenLayer riversAndSubBiomesInit = new GenLayerRiverInit(100L, mainBranch);
          
         // allocate the biomes
-        mainBranch = allocateBiomes(worldSeed, worldType, chunkProviderSettingsJson, mainBranch, riversAndHillsInit);
+        mainBranch = allocateBiomes(worldSeed, worldType, chunkProviderSettingsJson, mainBranch, riversAndSubBiomesInit);
         
         // do a bit more zooming, depending on biomeSize
         mainBranch = new GenLayerRareBiome(1001L, mainBranch);
@@ -165,7 +175,7 @@ public class WorldChunkManagerBOP extends WorldChunkManager
         mainBranch = new GenLayerSmooth(1000L, mainBranch);
 
         // develop the rivers branch
-        GenLayer riversBranch = GenLayerZoom.magnify(1000L, riversAndHillsInit, 2);
+        GenLayer riversBranch = GenLayerZoom.magnify(1000L, riversAndSubBiomesInit, 2);
         riversBranch = GenLayerZoom.magnify(1000L, riversBranch, riverSize);
         riversBranch = new GenLayerRiver(1L, riversBranch);
         riversBranch = new GenLayerSmooth(1000L, riversBranch);

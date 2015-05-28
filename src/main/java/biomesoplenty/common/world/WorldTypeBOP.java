@@ -11,10 +11,6 @@ package biomesoplenty.common.world;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.WorldChunkManager;
-import net.minecraft.world.gen.layer.GenLayer;
-import net.minecraft.world.gen.layer.GenLayerBiomeEdge;
-import net.minecraft.world.gen.layer.GenLayerZoom;
-import biomesoplenty.common.world.layer.GenLayerBiomeBOP;
 
 public class WorldTypeBOP extends WorldType
 {
@@ -23,15 +19,6 @@ public class WorldTypeBOP extends WorldType
         super("BIOMESOP");
 
         this.setNotificationData();
-    }
-
-    @Override
-    public GenLayer getBiomeLayer(long worldSeed, GenLayer parentLayer, String chunkProviderSettingsJson)
-    {
-        GenLayer ret = new GenLayerBiomeBOP(200L, parentLayer, this, chunkProviderSettingsJson);
-        ret = GenLayerZoom.magnify(1000L, ret, 2);
-        ret = new GenLayerBiomeEdge(1000L, ret);
-        return ret;
     }
     
     @Override
