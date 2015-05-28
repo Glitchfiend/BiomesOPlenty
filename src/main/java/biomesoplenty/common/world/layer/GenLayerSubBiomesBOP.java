@@ -8,6 +8,7 @@
 
 package biomesoplenty.common.world.layer;
 
+import biomesoplenty.api.biome.BOPBiomes;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
@@ -230,7 +231,13 @@ public class GenLayerSubBiomesBOP extends GenLayer
             }
         }
         
-        // TODO: add BOP sub biomes here
+        // BOP sub biomes from here on
+        
+        if (biomeId == BiomeGenBase.frozenOcean.biomeID && BOPBiomes.arctic.isPresent())
+        {
+            biomeId = BOPBiomes.arctic.get().biomeID;
+        }
+        
         
         return biomeId;
     }

@@ -77,7 +77,13 @@ public class GenLayerHeatLatitude extends GenLayer
                         break;
                     default:
                         // ICY
-                        out[x + y * areaWidth] = ((parentVal == 0) ? BiomeGenBase.frozenOcean.biomeID : 4);
+                        // change 50% of ocean to frozen ocean, the other 50% pick random ICY biomes - too much frozen ocean is very boring
+                        if (parentVal == 0 && this.nextInt(2) == 0)
+                        {
+                            out[x + y * areaWidth] = BiomeGenBase.frozenOcean.biomeID;
+                        } else {
+                            out[x + y * areaWidth] = 4;
+                        }
                         break;
                 }
             }

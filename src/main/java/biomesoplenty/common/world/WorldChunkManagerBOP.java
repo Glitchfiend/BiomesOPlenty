@@ -161,7 +161,7 @@ public class WorldChunkManagerBOP extends WorldChunkManager
         riversBranch = new GenLayerSmooth(1000L, riversBranch);
         
         // mix rivers into main branch
-        GenLayer riverMixFinal = new GenLayerRiverMix(100L, mainBranch, riversBranch);
+        GenLayer riverMixFinal = new GenLayerRiverMixBOP(100L, mainBranch, riversBranch);
         
         // finish biomes with Voronoi zoom
         GenLayer biomesFinal = new GenLayerVoronoiZoom(10L, riverMixFinal);
