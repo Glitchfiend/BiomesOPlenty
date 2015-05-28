@@ -12,8 +12,10 @@ import static biomesoplenty.api.biome.BOPBiomes.*;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
@@ -21,16 +23,7 @@ import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.IExtendedBiome;
 import biomesoplenty.common.biome.BOPBiomeManager;
-import biomesoplenty.common.biome.overworld.BiomeGenAlps;
-import biomesoplenty.common.biome.overworld.BiomeGenArctic;
-import biomesoplenty.common.biome.overworld.BiomeGenCrag;
-import biomesoplenty.common.biome.overworld.BiomeGenDenseForest;
-import biomesoplenty.common.biome.overworld.BiomeGenFlowerField;
-import biomesoplenty.common.biome.overworld.BiomeGenLavenderFields;
-import biomesoplenty.common.biome.overworld.BiomeGenOriginValley;
-import biomesoplenty.common.biome.overworld.BiomeGenShrubland;
-import biomesoplenty.common.biome.overworld.BiomeGenSteppe;
-import biomesoplenty.common.biome.overworld.BiomeGenThicket;
+import biomesoplenty.common.biome.overworld.*;
 import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.util.biome.BiomeUtils;
 import biomesoplenty.common.util.config.BOPConfig;
@@ -47,6 +40,7 @@ public class ModBiomes
     private static File biomeIdMapFile;
     private static BOPConfig.IConfigObj biomeIdMapConf;
     private static Map<String, Integer> biomeIdMap;
+    private static Set<Integer> idsReservedInConfig;
 
     public static void init()
     {
@@ -56,6 +50,17 @@ public class ModBiomes
         biomeIdMapFile = new File(BiomesOPlenty.configDirectory, "biome_ids.json");
         biomeIdMapConf = new BOPConfig.ConfigFileObj(biomeIdMapFile);
         biomeIdMap = new HashMap<String, Integer>();
+        
+        // make a list of biome ids which are reserved in the config file for a particular biome, to ensure they are not used for a new biome
+        idsReservedInConfig = new HashSet<Integer>();
+        for (String biomeIdName : biomeIdMapConf.getKeys())
+        {
+            Integer reservedId = biomeIdMapConf.getInt(biomeIdName);
+            if (reservedId != null && reservedId.intValue() > -1)
+            {
+                idsReservedInConfig.add(reservedId);
+            }
+        }
         
         registerBiomes();
         
@@ -127,6 +132,11 @@ public class ModBiomes
             if (BiomeGenBase.getBiomeGenArray()[i] != null) 
             {
                 if (i == 255) throw new IllegalArgumentException("There are no more biome ids avaliable!");
+                continue;
+            }
+            else if (idsReservedInConfig.contains(Integer.valueOf(i)))
+            {
+                // this id is reserved for a particular biome
                 continue;
             }
             else
