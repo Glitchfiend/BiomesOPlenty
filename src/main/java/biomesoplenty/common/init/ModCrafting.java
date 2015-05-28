@@ -322,7 +322,7 @@ public class ModCrafting
                 OreDictionary.registerOre("treeSapling", BlockBOPSapling.paging.getVariantItem(tree));
             }
         }
-        // TODO ?
+        // TODO: implement fruit trees
         // OreDictionary.registerOre("treeLeaves", new ItemStack(BOPCBlocks.appleLeaves, 1, OreDictionary.WILDCARD_VALUE));
         // OreDictionary.registerOre("treeLeaves", new ItemStack(BOPCBlocks.persimmonLeaves, 1, OreDictionary.WILDCARD_VALUE));
         

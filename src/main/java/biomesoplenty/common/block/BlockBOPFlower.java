@@ -34,8 +34,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-// TODO: Readd eyebulb in as a seperate block
-// TODO: placing lily of the valley.  where is lily flower?
 public class BlockBOPFlower extends BlockDecoration
 {
     

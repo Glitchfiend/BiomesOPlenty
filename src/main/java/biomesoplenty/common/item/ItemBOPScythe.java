@@ -27,7 +27,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemBOPScythe extends Item
 {
-    
+ 
+    // TODO: figure out how to make this eligibile for enchantments (at the moment you seem to get only unbreaking - fortune also makes sense)
     protected Item.ToolMaterial toolMaterial;
 
     public ItemBOPScythe(Item.ToolMaterial material)

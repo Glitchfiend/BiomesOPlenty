@@ -25,7 +25,6 @@ import net.minecraft.world.World;
 public class BlockCoral extends BlockDecoration
 {
     
-    // TODO: Readd kelp
     public static enum CoralType implements IStringSerializable
     {
         PINK, ORANGE, BLUE, GLOWING, ALGAE;

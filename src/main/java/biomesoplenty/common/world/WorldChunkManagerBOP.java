@@ -38,6 +38,10 @@ import net.minecraft.world.gen.layer.GenLayerZoom;
 
 public class WorldChunkManagerBOP extends WorldChunkManager
 {
+    // TODO: ability to vary landmass creation - eg continents, archipelago etc
+    // TODO: figure out how ice spikes work
+    
+    
     public WorldChunkManagerBOP(long seed, WorldType worldType, String chunkProviderSettings)
     {
         super();

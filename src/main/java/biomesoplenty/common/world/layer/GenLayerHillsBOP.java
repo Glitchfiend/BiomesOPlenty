@@ -16,6 +16,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 // This is the same as vanilla minecraft's GenLayerHills code, just de-obfuscated a bit - might change it slightly later to support hilly versions of BOP biomes
+// TODO: use this for BOP sub-biomes
 public class GenLayerHillsBOP extends GenLayer
 {
     private static final Logger logger = LogManager.getLogger();
