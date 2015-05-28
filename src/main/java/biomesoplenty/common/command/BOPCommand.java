@@ -15,6 +15,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
+import net.minecraft.command.NumberInvalidException;
 import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
@@ -104,12 +105,29 @@ public class BOPCommand extends CommandBase
         {
             throw new WrongUsageException("commands.biomesoplenty.tpbiome.usage");
         }
+
+        // Parse args[1] to find the biome to search for - search for a string matching the biome identifier, or an integer matching the biome id
+        BiomeGenBase biomeToFind = null;
+        if (biomeToFind == null)
+        {
+            try {
+                int biomeId = parseInt(args[1], 0, 255);
+                biomeToFind = BiomeGenBase.getBiome(biomeId);
+            } catch (NumberInvalidException e) {
+                for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray())
+                {
+                    if (biome != null && BiomeUtils.getBiomeIdentifier(biome).equalsIgnoreCase(args[1]))
+                    {
+                        biomeToFind = biome;
+                        break;
+                    }
+                }
+            }
+        }
         
-        int biomeId = parseInt(args[1], 0, 255);
-        BiomeGenBase biome = BiomeGenBase.getBiome(biomeId);
         EntityPlayerMP player = getCommandSenderAsPlayer(sender);
         World world = player.worldObj;
-        BlockPos closestBiomePos = biome == null ? null : BiomeUtils.spiralOutwardsLookingForBiome(world, biome, player.posX, player.posZ, 5000);
+        BlockPos closestBiomePos = biomeToFind == null ? null : BiomeUtils.spiralOutwardsLookingForBiome(world, biomeToFind, player.posX, player.posZ, 5000);
         
         if (closestBiomePos != null)
         {
@@ -118,11 +136,11 @@ public class BOPCommand extends CommandBase
             double z = (double)closestBiomePos.getZ();
             
             player.playerNetServerHandler.setPlayerLocation(x, y, z, player.rotationYaw, player.rotationPitch);
-            sender.addChatMessage(new ChatComponentTranslation("commands.biomesoplenty.tpbiome.success", player.getCommandSenderName(), biome.biomeName, x, y, z));
+            sender.addChatMessage(new ChatComponentTranslation("commands.biomesoplenty.tpbiome.success", player.getCommandSenderName(), biomeToFind.biomeName, x, y, z));
         }
         else
         {
-            sender.addChatMessage(new ChatComponentTranslation("commands.biomesoplenty.tpbiome.error", biome == null ? "Undefined" : biome.biomeName));
+            sender.addChatMessage(new ChatComponentTranslation("commands.biomesoplenty.tpbiome.error", biomeToFind == null ? "Undefined" : biomeToFind.biomeName));
         }
     }
     
