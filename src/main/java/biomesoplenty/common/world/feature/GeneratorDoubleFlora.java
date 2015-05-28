@@ -18,7 +18,9 @@ import biomesoplenty.common.block.BlockDoubleDecoration;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
@@ -39,6 +41,12 @@ public class GeneratorDoubleFlora extends GeneratorCustomizable
     public GeneratorDoubleFlora(int amountPerChunk, BlockBOPDoublePlant.DoublePlantType type, int generationAttempts)
     {
         this(amountPerChunk, BOPBlocks.double_plant.getDefaultState().withProperty(BlockBOPDoublePlant.VARIANT, type).withProperty(BlockBOPDoublePlant.HALF, BlockDoubleDecoration.Half.LOWER), BOPBlocks.double_plant.getDefaultState().withProperty(BlockBOPDoublePlant.VARIANT, type).withProperty(BlockBOPDoublePlant.HALF, BlockDoubleDecoration.Half.UPPER), generationAttempts);
+    }
+    
+    // convenient shortcut constructor for use with a vanilla BlockDoublePlant variant
+    public GeneratorDoubleFlora(int amountPerChunk, BlockDoublePlant.EnumPlantType type, int generationAttempts)
+    {
+        this(amountPerChunk, Blocks.double_plant.getStateFromMeta(type.getMeta()), Blocks.double_plant.getStateFromMeta(8), generationAttempts);
     }
     
     public GeneratorDoubleFlora(int amountPerChunk, IBlockState bottomState, IBlockState topState, int generationAttempts)
