@@ -75,6 +75,7 @@ public class ModBiomes
         alps = registerBOPBiome(new BiomeGenAlps(), "Alps");
         arctic = registerBOPBiome(new BiomeGenArctic(), "Arctic");
         crag = registerBOPBiome(new BiomeGenCrag(), "Crag");
+        chaparral = registerBOPBiome(new BiomeGenChaparral(), "Chaparral");
         denseForest = registerBOPBiome(new BiomeGenDenseForest(), "Dense Forest");
         flowerField = registerBOPBiome(new BiomeGenFlowerField(), "Flower Field");
         lavenderFields = registerBOPBiome(new BiomeGenLavenderFields(), "Lavender Fields");
