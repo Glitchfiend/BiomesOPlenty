@@ -26,6 +26,7 @@ import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
+import biomesoplenty.common.world.feature.GeneratorSplotches;
 import biomesoplenty.common.world.feature.tree.GeneratorBush;
 
 public class BiomeGenChaparral extends BOPBiome
@@ -35,70 +36,45 @@ public class BiomeGenChaparral extends BOPBiome
     public BiomeGenChaparral()
     {
         this.setHeight(biomeHeight);
-        this.setColor(12638301);
+        this.setColor(0xC0D85D);
         this.setTemperatureRainfall(0.8F, 0.6F);
         
         this.addWeight(BiomeType.WARM, 10);
         
-        // this.spawnableCreatureList.clear(); TODO: really? nothing at all except horses here?
-        // this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
+        this.spawnableCreatureList.clear(); // none of your regular farmyard critters here
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 1, 2, 6));
         
-        /*
-         * TODO: not sure how to implement these     
-        this.theBiomeDecorator.grassPerChunk = 10;
-        this.theBiomeDecorator.bopFeatures.generateStoneInGrass = true;
-        this.theBiomeDecorator.bopFeatures.generatePumpkins = false;
-         */
+        // stone patches
+        // TODO: make the generator only run at the surface?
+        this.addGenerator("stone_patches", GeneratorStage.SAND, new GeneratorSplotches(15, Blocks.stone.getDefaultState(), 32, Blocks.grass));
         
-        // this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 5;
+        // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(5);
         this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
-        // this.theBiomeDecorator.bopFeatures.weightedFlowerGen.put(new WorldGenBOPDoubleFlora(vanillameta 4, groupcount 5), weight 8);
         flowerGenerator.add("rose", 8, new GeneratorDoubleFlora(1, BlockDoublePlant.EnumPlantType.ROSE, 64));
-        // this.theBiomeDecorator.bopFeatures.weightedFlowerGen.put(new WorldGenBOPDoubleFlora(vanillameta 1, groupcount 5), weight 4);
         flowerGenerator.add("syringa", 4, new GeneratorDoubleFlora(1, BlockDoublePlant.EnumPlantType.SYRINGA, 64));
         
-        
-        // this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 20;
+        // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(20);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
-        // this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
         grassGenerator.add("tallgrass", 2, new GeneratorGrass(1, Blocks.tallgrass.getDefaultState().withProperty(BlockTallGrass.TYPE, BlockTallGrass.EnumType.GRASS)));
-        // this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 2=mediumgrass), 0.5D);
         grassGenerator.add("mediumgrass", 1, new GeneratorGrass(1, BlockBOPPlant.paging.getVariantState(BOPPlants.MEDIUMGRASS)));
-        // this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 10=wheatgrass), 0.5D);
         grassGenerator.add("wheatgrass", 1, new GeneratorGrass(1, BlockBOPPlant.paging.getVariantState(BOPPlants.WHEATGRASS)));
-        // this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 11=dampgrass), 0.5D);
         grassGenerator.add("dampgrass", 1, new GeneratorGrass(1, BlockBOPPlant.paging.getVariantState(BOPPlants.DAMPGRASS)));
         
-        
-        // this.theBiomeDecorator.treesPerChunk = 8;
+        // trees
         this.addGenerator("trees", GeneratorStage.TREE, new GeneratorBush(8, Blocks.log.getDefaultState(), Blocks.leaves.getDefaultState()));
 
-        // this.theBiomeDecorator.bopFeatures.bushesPerChunk = 10;
-        this.addGenerator("bushes", GeneratorStage.FLOWERS, new GeneratorFlora(10, BlockBOPPlant.paging.getVariantState(BOPPlants.BUSH)));
-
-        // this.theBiomeDecorator.bopFeatures.shrubsPerChunk = 10;
-        this.addGenerator("shrubs", GeneratorStage.FLOWERS, new GeneratorFlora(10, BlockBOPPlant.paging.getVariantState(BOPPlants.SHRUB)));
-        
-        // this.theBiomeDecorator.bopFeatures.berryBushesPerChunk = 2;
+        // other plants
         this.addGenerator("berry_bushes", GeneratorStage.FLOWERS, new GeneratorFlora(2, BlockBOPPlant.paging.getVariantState(BOPPlants.BERRYBUSH)));
-        
-        // this.theBiomeDecorator.bopFeatures.wildCarrotsPerChunk = 1;
-        this.addGenerator("wild_carrots", GeneratorStage.FLOWERS, new GeneratorFlora(1, BlockBOPPlant.paging.getVariantState(BOPPlants.WILDCARROT)));
-        
-        // this.theBiomeDecorator.bopFeatures.leafPilesPerChunk = 10;
+        this.addGenerator("bushes", GeneratorStage.FLOWERS, new GeneratorFlora(10, BlockBOPPlant.paging.getVariantState(BOPPlants.BUSH)));
+        this.addGenerator("shrubs", GeneratorStage.FLOWERS, new GeneratorFlora(10, BlockBOPPlant.paging.getVariantState(BOPPlants.SHRUB)));        
+        this.addGenerator("wild_carrots", GeneratorStage.FLOWERS, new GeneratorFlora(1, BlockBOPPlant.paging.getVariantState(BOPPlants.WILDCARROT)));        
         this.addGenerator("leaf_piles", GeneratorStage.FLOWERS, new GeneratorFlora(10, BlockBOPPlant.paging.getVariantState(BOPPlants.LEAFPILE)));
-
-        // this.theBiomeDecorator.bopFeatures.deadLeafPilesPerChunk = 5;
-        this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS, new GeneratorFlora(5, BlockBOPPlant.paging.getVariantState(BOPPlants.DEADLEAFPILE)));
-        
-        // this.theBiomeDecorator.bopFeatures.waterReedsPerChunk = 2;
+        this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS, new GeneratorFlora(5, BlockBOPPlant.paging.getVariantState(BOPPlants.DEADLEAFPILE)));        
         this.addGenerator("water_reeds", GeneratorStage.LILYPAD, new GeneratorFlora(2, BlockBOPPlant.paging.getVariantState(BOPPlants.REED), 128));
-
         
-        // world.setBlock(x, y, z, BOPCBlocks.gemOre, 4, 2);
+        // gem
         this.addGenerator("peridot", GeneratorStage.SAND, new GeneratorOreSingle(BOPBlocks.gem_ore.getDefaultState().withProperty(BlockGem.VARIANT, BOPGems.PERIDOT), 12, 4, 32));
    
     }
@@ -107,7 +83,7 @@ public class BiomeGenChaparral extends BOPBiome
     @Override
     public int getGrassColorAtPos(BlockPos pos)
     {
-        return 12638301;
+        return 0xC0D85D;
     }
     
 }
