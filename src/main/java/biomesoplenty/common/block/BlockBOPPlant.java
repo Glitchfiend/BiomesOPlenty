@@ -459,7 +459,7 @@ public class BlockBOPPlant extends BlockDecoration implements IShearable
         {
             case BUSH:
                 // every now and then berries grow on a bush
-                if (rand.nextInt(80) > 0 && worldIn.getLightFromNeighbors(pos.up()) >= 9)
+                if (rand.nextInt(80) == 0 && worldIn.getLightFromNeighbors(pos.up()) >= 9)
                 {
                     worldIn.setBlockState(pos, paging.getVariantState(BOPPlants.BERRYBUSH));
                 }
