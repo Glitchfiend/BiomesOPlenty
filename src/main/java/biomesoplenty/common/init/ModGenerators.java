@@ -27,5 +27,6 @@ public class ModGenerators
         registerGenerator("double_flora", GeneratorDoubleFlora.class);
         registerGenerator("grass", GeneratorGrass.class);
         registerGenerator("waterside", GeneratorWaterside.class);
+        registerGenerator("splotches", GeneratorSplotches.class);
     }
 }
