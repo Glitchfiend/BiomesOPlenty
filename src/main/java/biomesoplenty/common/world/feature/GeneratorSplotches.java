@@ -8,10 +8,7 @@
 
 package biomesoplenty.common.world.feature;
 
-import java.util.ArrayList;
 import java.util.Random;
-
-import org.apache.commons.lang3.tuple.Pair;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -21,14 +18,15 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import biomesoplenty.api.biome.generation.GeneratorCustomizable;
 import biomesoplenty.common.util.biome.GeneratorUtils;
+import biomesoplenty.common.util.block.BlockQueryUtils;
+import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryParseException;
+import biomesoplenty.common.util.block.BlockQueryUtils.IBlockQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GeneratorSplotches extends GeneratorCustomizable
-{
-    public static final int WILDCARD = -1;
-    
+{    
     protected int amountPerChunk;
-    protected ArrayList<Pair<Block,Integer>> from;
+    protected IBlockQuery from;
     protected IBlockState to;
     protected int splotchSize;
     
@@ -37,41 +35,28 @@ public class GeneratorSplotches extends GeneratorCustomizable
         // default
         this(1, Blocks.stone.getDefaultState(), 8, Blocks.grass);
     }
+
+    public GeneratorSplotches(int amountPerChunk, IBlockState to, int splotchSize, String from) throws BlockQueryParseException
+    {
+        this(amountPerChunk, to, splotchSize, BlockQueryUtils.parseQueryString(from));
+    }
     
-    public GeneratorSplotches(int amountPerChunk, IBlockState to, int splotchSize, Object... from)
+    public GeneratorSplotches(int amountPerChunk, IBlockState to, int splotchSize, Block from)
+    {
+        this(amountPerChunk, to, splotchSize, new BlockQueryUtils.BlockQueryBlock(from));
+    }
+    
+    public GeneratorSplotches(int amountPerChunk, IBlockState to, int splotchSize, IBlockState from)
+    {
+        this(amountPerChunk, to, splotchSize, new BlockQueryUtils.BlockQueryState(from));
+    }
+    
+    public GeneratorSplotches(int amountPerChunk, IBlockState to, int splotchSize, IBlockQuery from)
     {
         this.amountPerChunk = amountPerChunk;
         this.to = to;
         this.splotchSize = splotchSize;
-        this.from = new ArrayList<Pair<Block,Integer>>();
-        for (Object obj : from)
-        {
-            if (obj instanceof IBlockState)
-            {
-                this.addFrom((IBlockState)obj);
-            }
-            else if (obj instanceof Block)
-            {
-                this.addFrom((Block)obj);
-            }
-            else
-            {
-                throw new RuntimeException("GeneratorSplotches 'from' argument can accept only Block or IBlockState objects");
-            }
-        }
-    }
-    
-    // add a specific blockstate to the possibilities for swapping
-    public void addFrom(IBlockState state)
-    {
-        Block block = (state).getBlock();
-        this.from.add(Pair.of(block, block.getMetaFromState(state)));
-    }
-    
-    // add all variants of a block to the possibilities for swapping
-    public void addFrom(Block block)
-    {
-        this.from.add(Pair.of(block, WILDCARD));      
+        this.from = from;
     }
     
 
@@ -163,20 +148,9 @@ public class GeneratorSplotches extends GeneratorCustomizable
     
     public void replaceAt(World world, BlockPos pos)
     {
-        IBlockState state = world.getBlockState(pos);
-        Block block = state.getBlock();
-        int meta = block.getMetaFromState(state);
-        for (Pair<Block,Integer> pair : this.from)
+        if (from.matches(world.getBlockState(pos)))
         {
-            if (pair.getLeft() == block)
-            {
-                int thisMeta = pair.getRight().intValue();
-                if (thisMeta == WILDCARD || thisMeta == meta)
-                {
-                    world.setBlockState(pos, this.to, 2);
-                    return;
-                }
-            }
+            world.setBlockState(pos, this.to, 2);
         }
     }
     
@@ -187,12 +161,15 @@ public class GeneratorSplotches extends GeneratorCustomizable
         this.amountPerChunk = conf.getInt("amountPerChunk", this.amountPerChunk);
         this.to = conf.getBlockState("to", this.to);
         this.splotchSize = conf.getInt("splotchSize", this.splotchSize);
-        // TODO: need a better way to configure this - this isn't flexible enough
-        IBlockState from = conf.getBlockState("from", null);
-        if (from != null)
+        String fromString = conf.getString("from", null);
+        if (fromString != null)
         {
-            this.from = new ArrayList<Pair<Block,Integer>>();
-            this.addFrom(from);
+            try {
+                IBlockQuery from = BlockQueryUtils.parseQueryString(fromString);
+                this.from = from;
+            } catch (BlockQueryParseException e) {
+                conf.addMessage("from", e.getMessage());
+            }
         }
     }
 
