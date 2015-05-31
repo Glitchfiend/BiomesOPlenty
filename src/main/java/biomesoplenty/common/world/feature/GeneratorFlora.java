@@ -15,14 +15,13 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
-import biomesoplenty.api.biome.generation.GeneratorCustomizable;
+import biomesoplenty.api.biome.generation.BOPGeneratorBase;
 import biomesoplenty.common.block.BlockDecoration;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
-public class GeneratorFlora extends GeneratorCustomizable
+public class GeneratorFlora extends BOPGeneratorBase
 {
-    protected int amountPerChunk;
     protected IBlockState state;
     protected int generationAttempts;
     
@@ -32,31 +31,23 @@ public class GeneratorFlora extends GeneratorCustomizable
         this(1, Blocks.red_flower.getDefaultState(), 64);
     }
     
-    public GeneratorFlora(int amountPerChunk, IBlockState state, int generationAttempts)
+    public GeneratorFlora(float amountPerChunk, IBlockState state, int generationAttempts)
     {
-        this.amountPerChunk = amountPerChunk;
+        super(amountPerChunk);
         this.state = state;
         this.generationAttempts = generationAttempts;
     }
     
-    public GeneratorFlora(int amountPerChunk, IBlockState state)
+    public GeneratorFlora(float amountPerChunk, IBlockState state)
     {
         this(amountPerChunk, state, 64);
     }
-
+    
     @Override
-    public void scatter(World world, Random random, BlockPos pos)
+    public BlockPos getScatterY(World world, Random random, int x, int z)
     {
-        for (int i = 0; i < amountPerChunk; i++)
-        {
-            int x = random.nextInt(16) + 8;
-            int z = random.nextInt(16) + 8;
-            BlockPos genPos = pos.add(x, 0, z);
-            int y = GeneratorUtils.safeNextInt(random, world.getHeight(genPos).getY() + 32);
-            genPos = genPos.add(0, y, 0);
-
-            generate(world, random, genPos);
-        }
+        // always at world surface
+        return GeneratorUtils.ScatterYMethod.AT_SURFACE.getBlockPos(world, random, x, z);
     }
 
     @Override
@@ -82,7 +73,7 @@ public class GeneratorFlora extends GeneratorCustomizable
     @Override
     public void configure(IConfigObj conf)
     {
-        this.amountPerChunk = conf.getInt("amountPerChunk", this.amountPerChunk);
+        this.amountPerChunk = conf.getFloat("amountPerChunk", this.amountPerChunk);
         this.state = conf.getBlockState("state", this.state);
         this.generationAttempts = conf.getInt("generationAttempts", this.generationAttempts);
     }

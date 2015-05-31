@@ -17,6 +17,7 @@ import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.world.feature.GeneratorBlobs;
 import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
 import biomesoplenty.common.world.feature.GeneratorFlora;
@@ -41,8 +42,8 @@ public class BiomeGenHighland extends BOPBiome
         
         // boulders
         // TODO: make the generator only run at the surface?
-        this.addGenerator("boulders", GeneratorStage.SAND, new GeneratorBlobs(4, Blocks.cobblestone.getDefaultState(), 0.3F, 1.2F, 0.5F, 1, Blocks.grass));
-        this.addGenerator("big_boulders", GeneratorStage.SAND, new GeneratorBlobs(1, Blocks.cobblestone.getDefaultState(), 0.3F, 4.0F, 0.5F, 3, Blocks.grass));
+        this.addGenerator("boulders", GeneratorStage.SAND, new GeneratorBlobs(4, Blocks.cobblestone.getDefaultState(), 0.3F, 1.2F, 0.5F, 1, Blocks.grass, ScatterYMethod.AT_OR_BELOW_SURFACE));
+        this.addGenerator("big_boulders", GeneratorStage.SAND, new GeneratorBlobs(1, Blocks.cobblestone.getDefaultState(), 0.3F, 4.0F, 0.5F, 3, Blocks.grass, ScatterYMethod.AT_OR_BELOW_SURFACE));
 
 
         // grasses

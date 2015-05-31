@@ -84,6 +84,7 @@ public class ModBiomes
         shrubland = registerBOPBiome(new BiomeGenShrubland(), "Shrubland");
         steppe = registerBOPBiome(new BiomeGenSteppe(), "Steppe");
         thicket = registerBOPBiome(new BiomeGenThicket(), "Thicket");
+        woodland = registerBOPBiome(new BiomeGenWoodland(), "Woodland");
     }
     
     private static Optional<BiomeGenBase> registerBOPBiome(BOPBiome biome, String name)

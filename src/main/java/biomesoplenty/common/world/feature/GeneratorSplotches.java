@@ -16,65 +16,55 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import biomesoplenty.api.biome.generation.GeneratorCustomizable;
-import biomesoplenty.common.util.biome.GeneratorUtils;
+import biomesoplenty.api.biome.generation.BOPGeneratorBase;
+import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQueryUtils;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryParseException;
 import biomesoplenty.common.util.block.BlockQueryUtils.IBlockQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
-public class GeneratorSplotches extends GeneratorCustomizable
+public class GeneratorSplotches extends BOPGeneratorBase
 {    
-    protected int amountPerChunk;
     protected IBlockQuery from;
     protected IBlockState to;
     protected int splotchSize;
+    protected ScatterYMethod scatterYMethod;
     
     public GeneratorSplotches()
     {
         // default
-        this(1, Blocks.stone.getDefaultState(), 8, Blocks.grass);
+        this(1, Blocks.stone.getDefaultState(), 8, Blocks.grass, ScatterYMethod.AT_OR_BELOW_SURFACE);
     }
 
-    public GeneratorSplotches(int amountPerChunk, IBlockState to, int splotchSize, String from) throws BlockQueryParseException
+    public GeneratorSplotches(float amountPerChunk, IBlockState to, int splotchSize, String from, ScatterYMethod scatterYMethod) throws BlockQueryParseException
     {
-        this(amountPerChunk, to, splotchSize, BlockQueryUtils.parseQueryString(from));
+        this(amountPerChunk, to, splotchSize, BlockQueryUtils.parseQueryString(from), scatterYMethod);
     }
     
-    public GeneratorSplotches(int amountPerChunk, IBlockState to, int splotchSize, Block from)
+    public GeneratorSplotches(float amountPerChunk, IBlockState to, int splotchSize, Block from, ScatterYMethod scatterYMethod)
     {
-        this(amountPerChunk, to, splotchSize, new BlockQueryUtils.BlockQueryBlock(from));
+        this(amountPerChunk, to, splotchSize, new BlockQueryUtils.BlockQueryBlock(from), scatterYMethod);
     }
     
-    public GeneratorSplotches(int amountPerChunk, IBlockState to, int splotchSize, IBlockState from)
+    public GeneratorSplotches(float amountPerChunk, IBlockState to, int splotchSize, IBlockState from, ScatterYMethod scatterYMethod)
     {
-        this(amountPerChunk, to, splotchSize, new BlockQueryUtils.BlockQueryState(from));
+        this(amountPerChunk, to, splotchSize, new BlockQueryUtils.BlockQueryState(from), scatterYMethod);
     }
     
-    public GeneratorSplotches(int amountPerChunk, IBlockState to, int splotchSize, IBlockQuery from)
+    public GeneratorSplotches(float amountPerChunk, IBlockState to, int splotchSize, IBlockQuery from, ScatterYMethod scatterYMethod)
     {
-        this.amountPerChunk = amountPerChunk;
+        super(amountPerChunk);
         this.to = to;
         this.splotchSize = splotchSize;
         this.from = from;
+        this.scatterYMethod = scatterYMethod;
     }
     
-
     @Override
-    public void scatter(World world, Random random, BlockPos pos)
+    public BlockPos getScatterY(World world, Random random, int x, int z)
     {
-        for (int i = 0; i < amountPerChunk; i++)
-        {
-            int x = random.nextInt(16) + 8;
-            int z = random.nextInt(16) + 8;
-            BlockPos genPos = pos.add(x, 0, z);
-            int y = GeneratorUtils.safeNextInt(random, world.getHeight(genPos).getY() + 32);
-            genPos = genPos.add(0, y, 0);
-
-            generate(world, random, genPos);
-        }
-    }
-    
+        return this.scatterYMethod.getBlockPos(world, random, x, z);
+    }    
     
     @Override
     public boolean generate(World world, Random random, BlockPos pos)
@@ -112,12 +102,12 @@ public class GeneratorSplotches extends GeneratorCustomizable
     public void replaceInEllipsoid(World world, double centerX, double centerY, double centerZ, double radiusX, double radiusY, double radiusZ)
     {
         
-        int x0 = MathHelper.floor_double(centerX - radiusX);
-        int y0 = MathHelper.floor_double(centerY - radiusY);
-        int z0 = MathHelper.floor_double(centerZ - radiusZ);
-        int x1 = MathHelper.floor_double(centerX + radiusX);
-        int y1 = MathHelper.floor_double(centerY + radiusY);
-        int z1 = MathHelper.floor_double(centerZ + radiusZ);
+        int x0 = MathHelper.floor_double(centerX - radiusX + 0.5D);
+        int y0 = MathHelper.floor_double(centerY - radiusY + 0.5D);
+        int z0 = MathHelper.floor_double(centerZ - radiusZ + 0.5D);
+        int x1 = MathHelper.floor_double(centerX + radiusX + 0.5D);
+        int y1 = MathHelper.floor_double(centerY + radiusY + 0.5D);
+        int z1 = MathHelper.floor_double(centerZ + radiusZ + 0.5D);  
         
         for (int x = x0; x <= x1; ++x)
         {
@@ -158,7 +148,7 @@ public class GeneratorSplotches extends GeneratorCustomizable
     @Override
     public void configure(IConfigObj conf)
     {
-        this.amountPerChunk = conf.getInt("amountPerChunk", this.amountPerChunk);
+        this.amountPerChunk = conf.getFloat("amountPerChunk", this.amountPerChunk);
         this.to = conf.getBlockState("to", this.to);
         this.splotchSize = conf.getInt("splotchSize", this.splotchSize);
         String fromString = conf.getString("from", null);
@@ -171,6 +161,7 @@ public class GeneratorSplotches extends GeneratorCustomizable
                 conf.addMessage("from", e.getMessage());
             }
         }
+        this.scatterYMethod = conf.getEnum("scatterYMethod", this.scatterYMethod, ScatterYMethod.class);
     }
 
 }

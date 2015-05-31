@@ -17,12 +17,12 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-import biomesoplenty.api.biome.generation.GeneratorCustomizable;
+import biomesoplenty.api.biome.generation.BOPGeneratorBase;
+import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
-public class GeneratorBush extends GeneratorCustomizable
+public class GeneratorBush extends BOPGeneratorBase
 {
-    private int amountPerChunk;
     private IBlockState log;
     private IBlockState leaves;
     
@@ -32,24 +32,18 @@ public class GeneratorBush extends GeneratorCustomizable
         this(1, Blocks.log.getDefaultState(), Blocks.leaves.getDefaultState());
     }
     
-    public GeneratorBush(int amountPerChunk, IBlockState log, IBlockState leaves)
+    public GeneratorBush(float amountPerChunk, IBlockState log, IBlockState leaves)
     {
-        this.amountPerChunk = amountPerChunk;
+        super(amountPerChunk);
         this.log = log;
         this.leaves = leaves;
     }
     
     @Override
-    public void scatter(World world, Random random, BlockPos pos)
+    public BlockPos getScatterY(World world, Random random, int x, int z)
     {
-        for (int i = 0; i < amountPerChunk; i++)
-        {
-            int x = random.nextInt(16) + 8;
-            int z = random.nextInt(16) + 8;
-            BlockPos genPos = world.getHeight(pos.add(x, 0, z));
-            
-            generate(world, random, genPos);
-        }
+        // always at world surface
+        return GeneratorUtils.ScatterYMethod.AT_SURFACE.getBlockPos(world, random, x, z);
     }
 
     @Override
@@ -111,7 +105,7 @@ public class GeneratorBush extends GeneratorCustomizable
     @Override
     public void configure(IConfigObj conf)
     {
-        this.amountPerChunk = conf.getInt("amountPerChunk", this.amountPerChunk);        
+        this.amountPerChunk = conf.getFloat("amountPerChunk", this.amountPerChunk);        
         this.log = conf.getBlockState("logState", this.log);
         this.leaves = conf.getBlockState("leavesState", this.leaves);
     }

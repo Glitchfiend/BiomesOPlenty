@@ -15,19 +15,18 @@ import net.minecraft.world.World;
 
 import org.apache.commons.lang3.tuple.Pair;
 
-import biomesoplenty.api.biome.generation.GeneratorCustomizable;
+import biomesoplenty.api.biome.generation.BOPGeneratorBase;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
-public abstract class GeneratorOreBase extends GeneratorCustomizable
+public abstract class GeneratorOreBase extends BOPGeneratorBase
 {
-    protected int amountPerChunk;
     protected int minHeight;
     protected int maxHeight;
     
-    protected GeneratorOreBase(int amountPerChunk, int minHeight, int maxHeight)
+    protected GeneratorOreBase(float amountPerChunk, int minHeight, int maxHeight)
     {
-        this.amountPerChunk = amountPerChunk;
+        super(amountPerChunk);
         
         Pair<Integer, Integer> heights = GeneratorUtils.validateMinMaxHeight(minHeight, maxHeight);
         this.minHeight = heights.getLeft();
@@ -35,20 +34,16 @@ public abstract class GeneratorOreBase extends GeneratorCustomizable
     }
     
     @Override
-    public void scatter(World world, Random random, BlockPos pos)
+    public BlockPos getScatterY(World world, Random random, int x, int z)
     {
-        for (int i = 0; i < amountPerChunk; i++)
-        {
-            BlockPos generatedPos = pos.add(random.nextInt(16), random.nextInt(maxHeight - minHeight) + minHeight, random.nextInt(16));
-            
-            generate(world, random, generatedPos);
-        }
+        // between max and min
+        return world.getHeight(new BlockPos(x, GeneratorUtils.nextIntBetween(random, this.minHeight, this.maxHeight), z));
     }
     
     @Override
     public void configure(IConfigObj conf)
     {
-        this.amountPerChunk = conf.getInt("amountPerChunk", this.amountPerChunk);
+        this.amountPerChunk = conf.getFloat("amountPerChunk", this.amountPerChunk);
         int minHeight = conf.getInt("minHeight", this.minHeight).intValue();
         int maxHeight = conf.getInt("maxHeight", this.maxHeight).intValue();
         

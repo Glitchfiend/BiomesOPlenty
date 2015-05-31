@@ -26,4 +26,5 @@ public class BOPBiomes
     public static Optional<BiomeGenBase> shrubland = Optional.absent();
     public static Optional<BiomeGenBase> steppe = Optional.absent();
     public static Optional<BiomeGenBase> thicket = Optional.absent();
+    public static Optional<BiomeGenBase> woodland = Optional.absent();
 }

@@ -8,15 +8,20 @@
 
 package biomesoplenty.api.biome.generation;
 
-import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
+import java.util.Random;
 
-public abstract class GeneratorCustomizable implements IGenerator
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.World;
+
+public abstract class BOPGeneratorBase implements IGenerator
 {
     private final String identifier;
     private String name;
     private GeneratorStage stage;
+    protected float amountPerChunk;
     
-    protected GeneratorCustomizable()
+    protected BOPGeneratorBase(float amountPerChunk)
     {
         this.identifier = GeneratorRegistry.getIdentifier((Class<? extends IGenerator>)this.getClass());
         
@@ -24,6 +29,8 @@ public abstract class GeneratorCustomizable implements IGenerator
         {
             throw new RuntimeException("The identifier for " + this.getClass().getCanonicalName() + " cannot be null!");
         }
+        
+        this.amountPerChunk = amountPerChunk;
     }
     
     @Override
@@ -56,9 +63,26 @@ public abstract class GeneratorCustomizable implements IGenerator
         return this.identifier;
     }
     
-    @Override
-    public void configure(IConfigObj conf)
+    public abstract BlockPos getScatterY(World world, Random random, int x, int z);
+    
+    public int getAmountToScatter(Random random)
     {
-        ;
+        int amount = MathHelper.floor_float(this.amountPerChunk);
+        float remainder = this.amountPerChunk - amount;
+        if (random.nextFloat() < remainder) {amount++;}
+        return amount;
     }
+    
+    @Override
+    public void scatter(World world, Random random, BlockPos pos)
+    {
+        int amount = this.getAmountToScatter(random);        
+        for (int i = 0; i < amount; i++)
+        {
+            int x = pos.getX() + random.nextInt(16) + 8;
+            int z = pos.getZ() + random.nextInt(16) + 8;
+            generate(world, random, this.getScatterY(world, random, x, z));
+        }
+    }
+
 }

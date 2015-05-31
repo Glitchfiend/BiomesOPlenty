@@ -45,6 +45,15 @@ public class GeneratorUtils
         return random.nextInt(i);
     }
     
+    // get a random number between 2 values (inclusive of end points)
+    public static int nextIntBetween(Random rand, int a, int b)
+    {
+        if (a == b) {return a;}
+        int min = a < b ? a : b;
+        int max = a > b ? a : b;
+        return min + rand.nextInt(1 + max - min);
+    }
+    
     public static IBlockState deserializeStateNonNull(JsonObject json, String memberName, JsonDeserializationContext context)
     {
         IBlockState state = context.deserialize(json.get(memberName), IBlockState.class);
@@ -67,4 +76,41 @@ public class GeneratorUtils
         IBlockState state = world.getBlockState(pos);
         return state.getBlock().isAir(world, pos) || state.getBlock().isLeaves(world, pos) || state.getBlock().isWood(world, pos) || isBlockTreeReplacable(state.getBlock());
     }
+    
+    
+    public static enum ScatterYMethod
+    {
+        ANYWHERE, AT_SURFACE, AT_OR_BELOW_SURFACE, BELOW_SURFACE, AT_OR_ABOVE_SURFACE, ABOVE_SURFACE;
+        public BlockPos getBlockPos(World world, Random random, int x, int z)
+        {
+            int surfaceY;
+            switch(this)
+            {
+                case AT_SURFACE:
+                    // always at world surface
+                    return world.getHeight(new BlockPos(x, 0, z));
+                case AT_OR_BELOW_SURFACE:
+                    // random point below or at surface
+                    surfaceY = world.getHeight(new BlockPos(x, 0, z)).getY();
+                    return new BlockPos(x, nextIntBetween(random, 1, surfaceY), z);
+                case BELOW_SURFACE:
+                    // random point below surface
+                    surfaceY = world.getHeight(new BlockPos(x, 0, z)).getY();
+                    return new BlockPos(x, nextIntBetween(random, 1, surfaceY - 1), z);
+                case AT_OR_ABOVE_SURFACE:
+                    // random point at or above surface
+                    surfaceY = world.getHeight(new BlockPos(x, 0, z)).getY();
+                    return new BlockPos(x, GeneratorUtils.nextIntBetween(random, surfaceY, 255), z);
+                case ABOVE_SURFACE:
+                    // random point above surface
+                    surfaceY = world.getHeight(new BlockPos(x, 0, z)).getY();
+                    return new BlockPos(x, GeneratorUtils.nextIntBetween(random, surfaceY + 1, 255), z);
+                case ANYWHERE: default:
+                    // random y coord
+                    return new BlockPos(x, nextIntBetween(random, 1, 255), z);
+            }
+        }
+    }
+    
+    
 }

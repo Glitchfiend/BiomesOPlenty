@@ -22,13 +22,12 @@ import net.minecraft.world.World;
 
 import org.apache.commons.lang3.tuple.Pair;
 
-import biomesoplenty.api.biome.generation.GeneratorCustomizable;
+import biomesoplenty.api.biome.generation.BOPGeneratorBase;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
-public class GeneratorBasicTree extends GeneratorCustomizable
+public class GeneratorBasicTree extends BOPGeneratorBase
 {
-    private int amountPerChunk;
     private boolean updateNeighbours;
     private int minHeight;
     private int maxHeight;
@@ -42,9 +41,9 @@ public class GeneratorBasicTree extends GeneratorCustomizable
         this(1, false, 4, 7, Blocks.log.getDefaultState(), Blocks.leaves.getDefaultState());
     }
     
-    public GeneratorBasicTree(int amountPerChunk, boolean updateNeighbours, int minHeight, int maxHeight, IBlockState log, IBlockState leaves, IBlockState vine)
+    public GeneratorBasicTree(float amountPerChunk, boolean updateNeighbours, int minHeight, int maxHeight, IBlockState log, IBlockState leaves, IBlockState vine)
     {
-        this.amountPerChunk = amountPerChunk;
+        super(amountPerChunk);
         this.updateNeighbours = updateNeighbours;
         
         Pair<Integer, Integer> heights = GeneratorUtils.validateMinMaxHeight(minHeight, maxHeight);
@@ -56,22 +55,16 @@ public class GeneratorBasicTree extends GeneratorCustomizable
         this.vine = vine;
     }
     
-    public GeneratorBasicTree(int amountPerChunk, boolean updateNeighbours, int minHeight, int maxHeight, IBlockState log, IBlockState leaves)
+    public GeneratorBasicTree(float amountPerChunk, boolean updateNeighbours, int minHeight, int maxHeight, IBlockState log, IBlockState leaves)
     {
         this(amountPerChunk, updateNeighbours, minHeight, maxHeight, log, leaves, null);
     }
-
+    
     @Override
-    public void scatter(World world, Random random, BlockPos pos)
+    public BlockPos getScatterY(World world, Random random, int x, int z)
     {
-        for (int i = 0; i < amountPerChunk; i++)
-        {
-            int x = random.nextInt(16) + 8;
-            int z = random.nextInt(16) + 8;
-            BlockPos genPos = world.getHeight(pos.add(x, 0, z));
-            
-            generate(world, random, genPos);
-        }
+        // always at world surface
+        return GeneratorUtils.ScatterYMethod.AT_SURFACE.getBlockPos(world, random, x, z);
     }
     
     @Override
@@ -304,7 +297,7 @@ public class GeneratorBasicTree extends GeneratorCustomizable
     @Override
     public void configure(IConfigObj conf)
     {
-        this.amountPerChunk = conf.getInt("amountPerChunk", this.amountPerChunk);
+        this.amountPerChunk = conf.getFloat("amountPerChunk", this.amountPerChunk);
         this.updateNeighbours = conf.getBool("updateNeighbours", this.updateNeighbours);
         int minHeight = conf.getInt("minHeight", this.minHeight);
         int maxHeight = conf.getInt("maxHeight", this.maxHeight);

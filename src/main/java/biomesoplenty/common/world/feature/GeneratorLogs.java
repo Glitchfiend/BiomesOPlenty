@@ -19,8 +19,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
-import biomesoplenty.api.biome.generation.GeneratorCustomizable;
-import biomesoplenty.common.util.biome.GeneratorUtils;
+import biomesoplenty.api.biome.generation.BOPGeneratorBase;
 import biomesoplenty.common.util.block.BlockQueryUtils;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryAny;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryMaterial;
@@ -28,10 +27,9 @@ import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryParseException;
 import biomesoplenty.common.util.block.BlockQueryUtils.IBlockQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
-public class GeneratorLogs extends GeneratorCustomizable
+public class GeneratorLogs extends BOPGeneratorBase
 {
     
-    protected int amountPerChunk;
     protected IBlockState log;
     protected IProperty axisProperty;
     protected IBlockQuery placeOn;
@@ -44,25 +42,25 @@ public class GeneratorLogs extends GeneratorCustomizable
         this(6, Blocks.log.getDefaultState(), 1, 5, new BlockQueryAny(new BlockQueryMaterial(Material.ground), new BlockQueryMaterial(Material.grass)));
     }
     
-    public GeneratorLogs(int amountPerChunk, IBlockState log, int minLength, int maxLength, String from) throws BlockQueryParseException
+    public GeneratorLogs(float amountPerChunk, IBlockState log, int minLength, int maxLength, String from) throws BlockQueryParseException
     {
         this(amountPerChunk, log, minLength, maxLength, BlockQueryUtils.parseQueryString(from));
     }
     
-    public GeneratorLogs(int amountPerChunk, IBlockState log, int minLength, int maxLength, Block from)
+    public GeneratorLogs(float amountPerChunk, IBlockState log, int minLength, int maxLength, Block from)
     {
         this(amountPerChunk, log, minLength, maxLength, new BlockQueryUtils.BlockQueryBlock(from));
     }
     
-    public GeneratorLogs(int amountPerChunk, IBlockState log, int minLength, int maxLength, IBlockState from)
+    public GeneratorLogs(float amountPerChunk, IBlockState log, int minLength, int maxLength, IBlockState from)
     {
         this(amountPerChunk, log, minLength, maxLength, new BlockQueryUtils.BlockQueryState(from));
     }
     
-    public GeneratorLogs(int amountPerChunk, IBlockState log, int minLength, int maxLength, IBlockQuery placeOn)
+    public GeneratorLogs(float amountPerChunk, IBlockState log, int minLength, int maxLength, IBlockQuery placeOn)
     {
         
-        this.amountPerChunk = amountPerChunk;
+        super(amountPerChunk);
         this.log = log;
         this.axisProperty = getAxisProperty(log);
         if (this.axisProperty == null)
@@ -90,16 +88,10 @@ public class GeneratorLogs extends GeneratorCustomizable
     }
     
     @Override
-    public void scatter(World world, Random random, BlockPos pos)
+    public BlockPos getScatterY(World world, Random random, int x, int z)
     {
-        for (int i = 0; i < amountPerChunk; i++)
-        {
-            // pick a random point in the chunk
-            int x = random.nextInt(16) + 8;
-            int z = random.nextInt(16) + 8;
-            int y = GeneratorUtils.safeNextInt(random, world.getHeight(pos.add(x, 0, z)).getY());
-            generate(world, random, pos.add(x, y, z));
-        }
+        // always at world surface
+        return world.getHeight(new BlockPos(x, 0, z));
     }
     
     
@@ -131,7 +123,7 @@ public class GeneratorLogs extends GeneratorCustomizable
     @Override
     public void configure(IConfigObj conf)
     {        
-        this.amountPerChunk = conf.getInt("amountPerChunk", this.amountPerChunk);
+        this.amountPerChunk = conf.getFloat("amountPerChunk", this.amountPerChunk);
         IBlockState log = conf.getBlockState("log", null);
         if (log != null)
         {

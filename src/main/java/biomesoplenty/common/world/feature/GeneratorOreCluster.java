@@ -27,7 +27,7 @@ public class GeneratorOreCluster extends GeneratorOreBase
         this(Blocks.emerald_ore.getDefaultState(), 12, 4, 4, 32);
     }
     
-    public GeneratorOreCluster(IBlockState state, int amountPerChunk, int clusterSize, int minHeight, int maxHeight)
+    public GeneratorOreCluster(IBlockState state, float amountPerChunk, int clusterSize, int minHeight, int maxHeight)
     {
         super(amountPerChunk, minHeight, maxHeight);
         

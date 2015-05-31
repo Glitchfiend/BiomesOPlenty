@@ -18,12 +18,11 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
-import biomesoplenty.api.biome.generation.GeneratorCustomizable;
+import biomesoplenty.api.biome.generation.BOPGeneratorBase;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
-public class GeneratorWaterside extends GeneratorCustomizable
+public class GeneratorWaterside extends BOPGeneratorBase
 {
-    private int amountPerChunk;
     private int maxRadius;
     private IBlockState state;
     private List<IBlockState> replacedStates;
@@ -34,29 +33,23 @@ public class GeneratorWaterside extends GeneratorCustomizable
         this(4, 7, Blocks.gravel.getDefaultState());
     }
     
-    public GeneratorWaterside(int amountPerChunk, int maxRadius, IBlockState state, IBlockState... replacedStates)
+    public GeneratorWaterside(float amountPerChunk, int maxRadius, IBlockState state, IBlockState... replacedStates)
     {
-        this.amountPerChunk = amountPerChunk;
+        super(amountPerChunk);
         this.maxRadius = maxRadius;
         this.state = state;
         this.replacedStates = Arrays.asList(replacedStates);
     }
     
-    public GeneratorWaterside(int amountPerChunk, int maxRadius, IBlockState state)
+    public GeneratorWaterside(float amountPerChunk, int maxRadius, IBlockState state)
     {
         this(amountPerChunk, maxRadius, state, Blocks.grass.getDefaultState(), Blocks.dirt.getDefaultState());
     }
     
     @Override
-    public void scatter(World world, Random random, BlockPos pos)
+    public BlockPos getScatterY(World world, Random random, int x, int z)
     {
-        for (int i = 0; i < this.amountPerChunk; i++)
-        {
-            int x = random.nextInt(16) + 8;
-            int z = random.nextInt(16) + 8;
-            
-            generate(world, random, world.getTopSolidOrLiquidBlock(pos.add(x, 0, z)));
-        }
+        return world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z));
     }
 
     @Override
@@ -108,7 +101,7 @@ public class GeneratorWaterside extends GeneratorCustomizable
     @Override
     public void configure(IConfigObj conf)
     {
-        this.amountPerChunk = conf.getInt("amountPerChunk", this.amountPerChunk);
+        this.amountPerChunk = conf.getFloat("amountPerChunk", this.amountPerChunk);
         this.maxRadius = conf.getInt("maxRadius", this.maxRadius);
         this.state = conf.getBlockState("state", this.state);        
         this.replacedStates = conf.getBlockStateArray("replacedStates", new ArrayList(this.replacedStates) );

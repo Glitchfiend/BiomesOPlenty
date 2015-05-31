@@ -10,7 +10,7 @@ package biomesoplenty.common.world.feature;
 
 import java.util.Random;
 
-import biomesoplenty.api.biome.generation.GeneratorCustomizable;
+import biomesoplenty.api.biome.generation.BOPGeneratorBase;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.BlockBOPDoublePlant;
 import biomesoplenty.common.block.BlockDecoration;
@@ -24,9 +24,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
-public class GeneratorDoubleFlora extends GeneratorCustomizable
+public class GeneratorDoubleFlora extends BOPGeneratorBase
 {
-    private int amountPerChunk;
     private IBlockState bottomState;
     private IBlockState topState;
     private int generationAttempts;
@@ -38,43 +37,36 @@ public class GeneratorDoubleFlora extends GeneratorCustomizable
     }
     
     // convenient shortcut constructor for use with a BlockBOPDoublePlant variant
-    public GeneratorDoubleFlora(int amountPerChunk, BlockBOPDoublePlant.DoublePlantType type, int generationAttempts)
+    public GeneratorDoubleFlora(float amountPerChunk, BlockBOPDoublePlant.DoublePlantType type, int generationAttempts)
     {
         this(amountPerChunk, BOPBlocks.double_plant.getDefaultState().withProperty(BlockBOPDoublePlant.VARIANT, type).withProperty(BlockBOPDoublePlant.HALF, BlockDoubleDecoration.Half.LOWER), BOPBlocks.double_plant.getDefaultState().withProperty(BlockBOPDoublePlant.VARIANT, type).withProperty(BlockBOPDoublePlant.HALF, BlockDoubleDecoration.Half.UPPER), generationAttempts);
     }
     
     // convenient shortcut constructor for use with a vanilla BlockDoublePlant variant
-    public GeneratorDoubleFlora(int amountPerChunk, BlockDoublePlant.EnumPlantType type, int generationAttempts)
+    public GeneratorDoubleFlora(float amountPerChunk, BlockDoublePlant.EnumPlantType type, int generationAttempts)
     {
         this(amountPerChunk, Blocks.double_plant.getStateFromMeta(type.getMeta()), Blocks.double_plant.getStateFromMeta(8), generationAttempts);
     }
     
-    public GeneratorDoubleFlora(int amountPerChunk, IBlockState bottomState, IBlockState topState, int generationAttempts)
+    public GeneratorDoubleFlora(float amountPerChunk, IBlockState bottomState, IBlockState topState, int generationAttempts)
     {
-        this.amountPerChunk = amountPerChunk;
+        super(amountPerChunk);
         this.bottomState = bottomState;
         this.topState = topState;
         this.generationAttempts = generationAttempts;
     }
     
-    public GeneratorDoubleFlora(int amountPerChunk, IBlockState bottomState, IBlockState topState)
+    public GeneratorDoubleFlora(float amountPerChunk, IBlockState bottomState, IBlockState topState)
     {
         this(amountPerChunk, bottomState, topState, 64);
     }
-
+    
+    
     @Override
-    public void scatter(World world, Random random, BlockPos pos)
+    public BlockPos getScatterY(World world, Random random, int x, int z)
     {
-        for (int i = 0; i < amountPerChunk; i++)
-        {
-            int x = random.nextInt(16) + 8;
-            int z = random.nextInt(16) + 8;
-            BlockPos genPos = pos.add(x, 0, z);
-            int y = GeneratorUtils.safeNextInt(random, world.getHeight(genPos).getY() + 32);
-            genPos = genPos.add(0, y, 0);
-
-            generate(world, random, genPos);
-        }
+        // always at world surface
+        return GeneratorUtils.ScatterYMethod.AT_SURFACE.getBlockPos(world, random, x, z);
     }
 
     @Override
@@ -101,7 +93,7 @@ public class GeneratorDoubleFlora extends GeneratorCustomizable
     @Override
     public void configure(IConfigObj conf)
     {
-        this.amountPerChunk = conf.getInt("amountPerChunk", this.amountPerChunk);
+        this.amountPerChunk = conf.getFloat("amountPerChunk", this.amountPerChunk);
         this.bottomState = conf.getBlockState("bottomState", this.bottomState);
         this.topState = conf.getBlockState("topState", this.topState);
         this.generationAttempts = conf.getInt("generationAttempts", this.generationAttempts);

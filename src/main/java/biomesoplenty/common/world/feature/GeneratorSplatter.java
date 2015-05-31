@@ -10,7 +10,8 @@ package biomesoplenty.common.world.feature;
 
 import java.util.Random;
 
-import biomesoplenty.api.biome.generation.GeneratorCustomizable;
+import biomesoplenty.api.biome.generation.BOPGeneratorBase;
+import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQueryUtils;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryParseException;
 import biomesoplenty.common.util.block.BlockQueryUtils.IBlockQuery;
@@ -26,55 +27,49 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
-public class GeneratorSplatter extends GeneratorCustomizable
+public class GeneratorSplatter extends BOPGeneratorBase
 {
     private static IBlockQuery isLeavesOrAir = new BlockQueryAny(new BlockQueryMaterial(Material.leaves), new BlockQueryMaterial(Material.air));
     
-    protected int amountPerChunk;
     protected IBlockQuery placeOn;
     protected int generationAttempts;
     protected IBlockState to;
+    protected ScatterYMethod scatterYMethod;
         
     public GeneratorSplatter()
     {
         // default
-        this(1, Blocks.stone.getDefaultState(), 64, Blocks.grass); 
+        this(1, Blocks.stone.getDefaultState(), 64, Blocks.grass, ScatterYMethod.ANYWHERE);
     }
     
-    public GeneratorSplatter(int amountPerChunk, IBlockState to, int splotchSize, String placeOn) throws BlockQueryParseException
+    public GeneratorSplatter(float amountPerChunk, IBlockState to, int splotchSize, String placeOn, ScatterYMethod scatterYMethod) throws BlockQueryParseException
     {
-        this(amountPerChunk, to, splotchSize, BlockQueryUtils.parseQueryString(placeOn));
+        this(amountPerChunk, to, splotchSize, BlockQueryUtils.parseQueryString(placeOn), scatterYMethod);
     }
     
-    public GeneratorSplatter(int amountPerChunk, IBlockState to, int splotchSize, Block placeOn)
+    public GeneratorSplatter(float amountPerChunk, IBlockState to, int splotchSize, Block placeOn, ScatterYMethod scatterYMethod)
     {
-        this(amountPerChunk, to, splotchSize, new BlockQueryBlock(placeOn));
+        this(amountPerChunk, to, splotchSize, new BlockQueryBlock(placeOn), scatterYMethod);
     }
     
-    public GeneratorSplatter(int amountPerChunk, IBlockState to, int splotchSize, IBlockState placeOn)
+    public GeneratorSplatter(float amountPerChunk, IBlockState to, int splotchSize, IBlockState placeOn, ScatterYMethod scatterYMethod)
     {
-        this(amountPerChunk, to, splotchSize, new BlockQueryState(placeOn));
+        this(amountPerChunk, to, splotchSize, new BlockQueryState(placeOn), scatterYMethod);
     }
     
-    public GeneratorSplatter(int amountPerChunk, IBlockState to, int generationAttempts, IBlockQuery placeOn)
+    public GeneratorSplatter(float amountPerChunk, IBlockState to, int generationAttempts, IBlockQuery placeOn, ScatterYMethod scatterYMethod)
     {
-        this.amountPerChunk = amountPerChunk;
+        super(amountPerChunk);
         this.to = to;
         this.generationAttempts = generationAttempts;
         this.placeOn = placeOn;
+        this.scatterYMethod = scatterYMethod;
     }
     
     @Override
-    public void scatter(World world, Random random, BlockPos pos)
+    public BlockPos getScatterY(World world, Random random, int x, int z)
     {
-        for (int i = 0; i < amountPerChunk; i++)
-        {
-            int x = random.nextInt(16) + 8;
-            int z = random.nextInt(16) + 8;
-            int y = random.nextInt(256);
-            BlockPos genPos = pos.add(x, y, z);
-            generate(world, random, genPos);
-        }
+        return this.scatterYMethod.getBlockPos(world, random, x, z);
     }
 
     @Override
@@ -102,7 +97,7 @@ public class GeneratorSplatter extends GeneratorCustomizable
     @Override
     public void configure(IConfigObj conf)
     {
-        this.amountPerChunk = conf.getInt("amountPerChunk", this.amountPerChunk);
+        this.amountPerChunk = conf.getFloat("amountPerChunk", this.amountPerChunk);
         this.to = conf.getBlockState("to", this.to);
         this.generationAttempts = conf.getInt("generationAttempts", this.generationAttempts);
         String placeOnString = conf.getString("placeOn", null);
@@ -115,6 +110,7 @@ public class GeneratorSplatter extends GeneratorCustomizable
                 conf.addMessage("placeOn", e.getMessage());
             }
         }
+        this.scatterYMethod = conf.getEnum("scatterYMethod", this.scatterYMethod, ScatterYMethod.class);
     }
     
     

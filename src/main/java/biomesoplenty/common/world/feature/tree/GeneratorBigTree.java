@@ -21,7 +21,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import biomesoplenty.api.biome.generation.GeneratorCustomizable;
+import biomesoplenty.api.biome.generation.BOPGeneratorBase;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
@@ -30,7 +30,7 @@ import com.google.common.collect.Lists;
 /*This class is heavily based on https://gist.github.com/grum/62cfdec0537e8db24eb3#file-bigtreefeature-java
 additional information has been added from http://pastebin.com/XBLdGqXQ. This class has been cross-checked
 against WorldGenBigTree to ensure any subsequent changes from Forge/Mojang have been included.*/
-public class GeneratorBigTree extends GeneratorCustomizable
+public class GeneratorBigTree extends BOPGeneratorBase
 {
     private Random random;
     private World world;
@@ -47,7 +47,6 @@ public class GeneratorBigTree extends GeneratorCustomizable
     private int foliageHeight = 4;
     
     //Configurable fields
-    private int amountPerChunk;
     private boolean updateNeighbours;
     private int minHeight;
     private int maxHeight;
@@ -62,9 +61,9 @@ public class GeneratorBigTree extends GeneratorCustomizable
         this(1, false, 4, 7, Blocks.log.getDefaultState(), Blocks.leaves.getDefaultState());
     }
     
-    public GeneratorBigTree(int amountPerChunk, boolean updateNeighbours, int minHeight, int maxHeight, IBlockState log, IBlockState leaves)
+    public GeneratorBigTree(float amountPerChunk, boolean updateNeighbours, int minHeight, int maxHeight, IBlockState log, IBlockState leaves)
     {
-        this.amountPerChunk = amountPerChunk;
+        super(amountPerChunk);
         this.updateNeighbours = updateNeighbours;
         
         Pair<Integer, Integer> heights = GeneratorUtils.validateMinMaxHeight(minHeight, maxHeight);
@@ -75,7 +74,7 @@ public class GeneratorBigTree extends GeneratorCustomizable
         this.leaves = leaves;
     }
     
-    public GeneratorBigTree(int amountPerChunk, boolean updateNeighbours, IBlockState log, IBlockState leaves)
+    public GeneratorBigTree(float amountPerChunk, boolean updateNeighbours, IBlockState log, IBlockState leaves)
     {
         this(amountPerChunk, updateNeighbours, 5, 17, log, leaves);
     }
@@ -432,20 +431,13 @@ public class GeneratorBigTree extends GeneratorCustomizable
         return -1;
     }
     
+   
+    
     @Override
-    public void scatter(World world, Random random, BlockPos pos)
+    public BlockPos getScatterY(World world, Random random, int x, int z)
     {
-        int successes = 0;
-        
-        for (int i = 0; i < amountPerChunk; i++)
-        {
-            int x = random.nextInt(16) + 8;
-            int z = random.nextInt(16) + 8;
-            BlockPos genPos = world.getHeight(pos.add(x, 0, z));
-            
-            if (successes < 2 && generate(world, random, genPos)) 
-                successes++;
-        }
+        // always at world surface
+        return GeneratorUtils.ScatterYMethod.AT_SURFACE.getBlockPos(world, random, x, z);
     }
     
     @Override
@@ -537,7 +529,7 @@ public class GeneratorBigTree extends GeneratorCustomizable
     @Override
     public void configure(IConfigObj conf)
     {
-        this.amountPerChunk = conf.getInt("amountPerChunk", this.amountPerChunk);
+        this.amountPerChunk = conf.getFloat("amountPerChunk", this.amountPerChunk);
         this.updateNeighbours = conf.getBool("updateNeighbours", this.updateNeighbours);
         int minHeight = conf.getInt("minHeight", this.minHeight);
         int maxHeight = conf.getInt("maxHeight", this.maxHeight);

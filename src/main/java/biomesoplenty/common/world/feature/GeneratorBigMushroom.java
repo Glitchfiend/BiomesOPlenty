@@ -17,13 +17,14 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
-import biomesoplenty.api.biome.generation.GeneratorCustomizable;
+import biomesoplenty.api.biome.generation.BOPGeneratorBase;
+import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryAny;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryMaterial;
 import biomesoplenty.common.util.block.BlockQueryUtils.IBlockQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
-public class GeneratorBigMushroom extends GeneratorCustomizable
+public class GeneratorBigMushroom extends BOPGeneratorBase
 {       
     
     public static enum BigMushroomType
@@ -76,7 +77,6 @@ public class GeneratorBigMushroom extends GeneratorCustomizable
     
     private static IBlockQuery isLeavesOrAir = new BlockQueryAny(new BlockQueryMaterial(Material.leaves), new BlockQueryMaterial(Material.air));
 
-    protected int amountPerChunk;
     protected BigMushroomType mushroomType;
     protected IBlockState mushroomState;
     
@@ -86,11 +86,11 @@ public class GeneratorBigMushroom extends GeneratorCustomizable
         this(4, BigMushroomType.BROWN);
     }
     
-    public GeneratorBigMushroom(int amountPerChunk, BigMushroomType mushroomType)
+    public GeneratorBigMushroom(float amountPerChunk, BigMushroomType mushroomType)
     {
-        this.amountPerChunk = amountPerChunk;
+        super(amountPerChunk);
         this.setMushroomType(mushroomType);
-    }  
+    }
     
     public void setMushroomType(BigMushroomType type)
     {
@@ -100,16 +100,10 @@ public class GeneratorBigMushroom extends GeneratorCustomizable
     
     
     @Override
-    public void scatter(World world, Random random, BlockPos pos)
+    public BlockPos getScatterY(World world, Random random, int x, int z)
     {
-        for (int i = 0; i < this.amountPerChunk; i++)
-        {
-            int x = random.nextInt(16) + 8;
-            int z = random.nextInt(16) + 8;
-            BlockPos genPos = world.getHeight(pos.add(x, 0, z));
-            
-            generate(world, random, genPos);
-        }
+        // always at world surface
+        return GeneratorUtils.ScatterYMethod.AT_SURFACE.getBlockPos(world, random, x, z);
     }
     
     protected void replaceWithMushroom(World world, BlockPos pos, BlockHugeMushroom.EnumType side)
@@ -278,7 +272,7 @@ public class GeneratorBigMushroom extends GeneratorCustomizable
     @Override
     public void configure(IConfigObj conf)
     {        
-        this.amountPerChunk = conf.getInt("amountPerChunk", this.amountPerChunk);
+        this.amountPerChunk = conf.getFloat("amountPerChunk", this.amountPerChunk);
         this.setMushroomType(conf.getEnum("type", this.mushroomType, BigMushroomType.class));
     }
     

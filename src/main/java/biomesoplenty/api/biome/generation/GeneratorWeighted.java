@@ -16,9 +16,8 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
-public class GeneratorWeighted extends GeneratorCustomizable
+public class GeneratorWeighted extends BOPGeneratorBase
 {
-    private int amountPerChunk;
     private HashMap<String, IGenerator> generators = new HashMap<String, IGenerator>();
     private HashMap<IGenerator, Integer> weights = new HashMap<IGenerator, Integer>();
         
@@ -28,9 +27,9 @@ public class GeneratorWeighted extends GeneratorCustomizable
         this(1);
     }
 
-    public GeneratorWeighted(int amountPerChunk)
+    public GeneratorWeighted(float amountPerChunk)
     {
-        this.amountPerChunk = amountPerChunk;
+        super(amountPerChunk);
     }
     
     public void add(String name, int weight, IGenerator entry)
@@ -83,12 +82,15 @@ public class GeneratorWeighted extends GeneratorCustomizable
         return null;
     }
     
-    
+    // never used - the scatter method is overriden
+    @Override
+    public BlockPos getScatterY(World world, Random random, int x, int z) {return null;}
     
     @Override
     public void scatter(World world, Random random, BlockPos pos)
     {
-        for (int i = 0; i < amountPerChunk; i++)
+        int amount = this.getAmountToScatter(random); 
+        for (int i = 0; i < amount; i++)
         {
             this.getRandomGenerator(random).scatter(world, random, pos);
         }
@@ -105,7 +107,7 @@ public class GeneratorWeighted extends GeneratorCustomizable
     @Override
     public void configure(IConfigObj conf)
     {
-        this.amountPerChunk = conf.getInt("amountPerChunk", this.amountPerChunk);
+        this.amountPerChunk = conf.getFloat("amountPerChunk", this.amountPerChunk);
         IConfigObj confGenerators = conf.getObject("generators");
         if (confGenerators != null)
         {

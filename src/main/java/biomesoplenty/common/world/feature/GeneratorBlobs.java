@@ -17,8 +17,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import biomesoplenty.api.biome.generation.GeneratorCustomizable;
-import biomesoplenty.common.util.biome.GeneratorUtils;
+import biomesoplenty.api.biome.generation.BOPGeneratorBase;
+import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQueryUtils;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryAny;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryMaterial;
@@ -27,58 +27,52 @@ import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryParseException;
 import biomesoplenty.common.util.block.BlockQueryUtils.IBlockQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
-public class GeneratorBlobs extends GeneratorCustomizable
+public class GeneratorBlobs extends BOPGeneratorBase
 {
-    protected int amountPerChunk;
     protected IBlockQuery placeOn;
     protected IBlockState to;
     protected float minRadius;
     protected float maxRadius;
     protected float radiusFalloff; // should normally be between 0 and 1 so that balls get smaller
-    protected int numBalls;    
+    protected int numBalls;
+    protected ScatterYMethod scatterYMethod;
     
     public GeneratorBlobs()
     {
-        this(1, Blocks.cobblestone.getDefaultState(), 2.0F, 5.0F, 0.5F, 3, new BlockQueryAny(new BlockQueryBlock(Blocks.stone), new BlockQueryMaterial(Material.ground), new BlockQueryMaterial(Material.grass)));
+        this(1, Blocks.cobblestone.getDefaultState(), 2.0F, 5.0F, 0.5F, 3, new BlockQueryAny(new BlockQueryBlock(Blocks.stone), new BlockQueryMaterial(Material.ground), new BlockQueryMaterial(Material.grass)), ScatterYMethod.AT_OR_BELOW_SURFACE);
     }
     
-    public GeneratorBlobs(int amountPerChunk, IBlockState to, float minRadius, float maxRadius, float radiusFalloff, int numBalls, String from) throws BlockQueryParseException
+    public GeneratorBlobs(float amountPerChunk, IBlockState to, float minRadius, float maxRadius, float radiusFalloff, int numBalls, String from, ScatterYMethod scatterYMethod) throws BlockQueryParseException
     {
-        this(amountPerChunk, to, minRadius, maxRadius, radiusFalloff, numBalls, BlockQueryUtils.parseQueryString(from));
+        this(amountPerChunk, to, minRadius, maxRadius, radiusFalloff, numBalls, BlockQueryUtils.parseQueryString(from), scatterYMethod);
     }
     
-    public GeneratorBlobs(int amountPerChunk, IBlockState to, float minRadius, float maxRadius, float radiusFalloff, int numBalls, Block from)
+    public GeneratorBlobs(float amountPerChunk, IBlockState to, float minRadius, float maxRadius, float radiusFalloff, int numBalls, Block from, ScatterYMethod scatterYMethod)
     {
-        this(amountPerChunk, to, minRadius, maxRadius, radiusFalloff, numBalls, new BlockQueryUtils.BlockQueryBlock(from));
+        this(amountPerChunk, to, minRadius, maxRadius, radiusFalloff, numBalls, new BlockQueryUtils.BlockQueryBlock(from), scatterYMethod);
     }
     
-    public GeneratorBlobs(int amountPerChunk, IBlockState to, float minRadius, float maxRadius, float radiusFalloff, int numBalls, IBlockState from)
+    public GeneratorBlobs(float amountPerChunk, IBlockState to, float minRadius, float maxRadius, float radiusFalloff, int numBalls, IBlockState from, ScatterYMethod scatterYMethod)
     {
-        this(amountPerChunk, to, minRadius, maxRadius, radiusFalloff, numBalls, new BlockQueryUtils.BlockQueryState(from));
+        this(amountPerChunk, to, minRadius, maxRadius, radiusFalloff, numBalls, new BlockQueryUtils.BlockQueryState(from), scatterYMethod);
     }
 
-    public GeneratorBlobs(int amountPerChunk, IBlockState to, float minRadius, float maxRadius, float radiusFalloff, int numBalls, IBlockQuery placeOn)
+    public GeneratorBlobs(float amountPerChunk, IBlockState to, float minRadius, float maxRadius, float radiusFalloff, int numBalls, IBlockQuery placeOn, ScatterYMethod scatterYMethod)
     {
-        this.amountPerChunk = amountPerChunk;
+        super(amountPerChunk);
         this.to = to;
         this.minRadius = minRadius;
         this.maxRadius = maxRadius;
         this.radiusFalloff = radiusFalloff;
         this.numBalls = numBalls;
         this.placeOn = placeOn;
+        this.scatterYMethod = scatterYMethod;
     }
     
     @Override
-    public void scatter(World world, Random random, BlockPos pos)
+    public BlockPos getScatterY(World world, Random random, int x, int z)
     {
-        for (int i = 0; i < amountPerChunk; i++)
-        {
-            // pick a random point in the chunk
-            int x = random.nextInt(16) + 8;
-            int z = random.nextInt(16) + 8;
-            int y = GeneratorUtils.safeNextInt(random, world.getHeight(pos.add(x, 0, z)).getY() + 32);
-            generate(world, random, pos.add(x, y, z));
-        }
+        return this.scatterYMethod.getBlockPos(world, random, x, z);
     }
 
     @Override
@@ -164,7 +158,7 @@ public class GeneratorBlobs extends GeneratorCustomizable
     @Override
     public void configure(IConfigObj conf)
     {        
-        this.amountPerChunk = conf.getInt("amountPerChunk", this.amountPerChunk);
+        this.amountPerChunk = conf.getFloat("amountPerChunk", this.amountPerChunk);
         this.to = conf.getBlockState("to", this.to);
         this.minRadius = conf.getFloat("innerRadius", this.minRadius);
         this.radiusFalloff = conf.getFloat("radiusFalloff", this.radiusFalloff);
@@ -179,6 +173,7 @@ public class GeneratorBlobs extends GeneratorCustomizable
                 conf.addMessage("placeOn", e.getMessage());
             }
         }
+        this.scatterYMethod = conf.getEnum("scatterYMethod", this.scatterYMethod, ScatterYMethod.class);
     }
     
 

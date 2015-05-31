@@ -30,7 +30,7 @@ public class GeneratorOreSingle extends GeneratorOreBase
         this(Blocks.emerald_ore.getDefaultState(), 12, 4, 32);
     }
     
-    public GeneratorOreSingle(IBlockState state, int amountPerChunk, int minHeight, int maxHeight)
+    public GeneratorOreSingle(IBlockState state, float amountPerChunk, int minHeight, int maxHeight)
     {
         super(amountPerChunk, minHeight, maxHeight);
         

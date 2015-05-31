@@ -22,6 +22,7 @@ import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.block.BlockGem;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
@@ -46,7 +47,7 @@ public class BiomeGenChaparral extends BOPBiome
         
         // stone patches
         // TODO: make the generator only run at the surface?
-        this.addGenerator("stone_patches", GeneratorStage.SAND, new GeneratorSplotches(15, Blocks.stone.getDefaultState(), 32, Blocks.grass));
+        this.addGenerator("stone_patches", GeneratorStage.SAND, new GeneratorSplotches(15, Blocks.stone.getDefaultState(), 32, Blocks.grass, ScatterYMethod.AT_OR_BELOW_SURFACE));
         
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(5);
