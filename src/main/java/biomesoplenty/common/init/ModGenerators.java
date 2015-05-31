@@ -28,5 +28,6 @@ public class ModGenerators
         registerGenerator("grass", GeneratorGrass.class);
         registerGenerator("waterside", GeneratorWaterside.class);
         registerGenerator("splotches", GeneratorSplotches.class);
+        registerGenerator("blobs", GeneratorBlobs.class);
     }
 }

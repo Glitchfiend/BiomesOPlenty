@@ -18,7 +18,7 @@ import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryAny;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryMaterial;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryBlock;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryState;
-
+import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -31,7 +31,7 @@ public class GeneratorSplatter extends GeneratorCustomizable
     private static IBlockQuery isLeavesOrAir = new BlockQueryAny(new BlockQueryMaterial(Material.leaves), new BlockQueryMaterial(Material.air));
     
     protected int amountPerChunk;
-    protected IBlockQuery from;
+    protected IBlockQuery placeOn;
     protected int generationAttempts;
     protected IBlockState to;
         
@@ -41,27 +41,27 @@ public class GeneratorSplatter extends GeneratorCustomizable
         this(1, Blocks.stone.getDefaultState(), 64, Blocks.grass); 
     }
     
-    public GeneratorSplatter(int amountPerChunk, IBlockState to, int splotchSize, String from) throws BlockQueryParseException
+    public GeneratorSplatter(int amountPerChunk, IBlockState to, int splotchSize, String placeOn) throws BlockQueryParseException
     {
-        this(amountPerChunk, to, splotchSize, BlockQueryUtils.parseQueryString(from));
+        this(amountPerChunk, to, splotchSize, BlockQueryUtils.parseQueryString(placeOn));
     }
     
-    public GeneratorSplatter(int amountPerChunk, IBlockState to, int splotchSize, Block from)
+    public GeneratorSplatter(int amountPerChunk, IBlockState to, int splotchSize, Block placeOn)
     {
-        this(amountPerChunk, to, splotchSize, new BlockQueryBlock(from));
+        this(amountPerChunk, to, splotchSize, new BlockQueryBlock(placeOn));
     }
     
-    public GeneratorSplatter(int amountPerChunk, IBlockState to, int splotchSize, IBlockState from)
+    public GeneratorSplatter(int amountPerChunk, IBlockState to, int splotchSize, IBlockState placeOn)
     {
-        this(amountPerChunk, to, splotchSize, new BlockQueryState(from));
+        this(amountPerChunk, to, splotchSize, new BlockQueryState(placeOn));
     }
     
-    public GeneratorSplatter(int amountPerChunk, IBlockState to, int generationAttempts, IBlockQuery from)
+    public GeneratorSplatter(int amountPerChunk, IBlockState to, int generationAttempts, IBlockQuery placeOn)
     {
         this.amountPerChunk = amountPerChunk;
         this.to = to;
         this.generationAttempts = generationAttempts;
-        this.from = from;
+        this.placeOn = placeOn;
     }
     
     @Override
@@ -86,11 +86,11 @@ public class GeneratorSplatter extends GeneratorCustomizable
             pos = pos.down();
         }
 
-        // look for blocks on the surface matching this.from and randomly put this.to on top of them
+        // look for blocks on the surface matching this.placeOn and randomly put this.to on top of them
         for (int i = 0; i < this.generationAttempts; ++i)
         {
             BlockPos pos1 = pos.add(rand.nextInt(8) - rand.nextInt(8), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(8) - rand.nextInt(8));
-            if (world.isAirBlock(pos1) && this.from.matches(world.getBlockState(pos1.down())))
+            if (world.isAirBlock(pos1) && this.placeOn.matches(world.getBlockState(pos1.down())))
             {
                 world.setBlockState(pos1, this.to);
             }
@@ -98,5 +98,24 @@ public class GeneratorSplatter extends GeneratorCustomizable
 
         return true;
     }
+    
+    @Override
+    public void configure(IConfigObj conf)
+    {
+        this.amountPerChunk = conf.getInt("amountPerChunk", this.amountPerChunk);
+        this.to = conf.getBlockState("to", this.to);
+        this.generationAttempts = conf.getInt("generationAttempts", this.generationAttempts);
+        String placeOnString = conf.getString("placeOn", null);
+        if (placeOnString != null)
+        {
+            try {
+                IBlockQuery placeOn = BlockQueryUtils.parseQueryString(placeOnString);
+                this.placeOn = placeOn;
+            } catch (BlockQueryParseException e) {
+                conf.addMessage("placeOn", e.getMessage());
+            }
+        }
+    }
+    
     
 }
