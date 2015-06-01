@@ -19,38 +19,45 @@ import net.minecraft.world.World;
 import biomesoplenty.api.biome.generation.BOPGeneratorBase;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQueryUtils;
+import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryBlock;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryParseException;
+import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryState;
 import biomesoplenty.common.util.block.BlockQueryUtils.IBlockQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GeneratorSplotches extends BOPGeneratorBase
-{    
+{
+    
+    public static class Builder implements IGeneratorBuilder<GeneratorSplotches>
+    {
+        protected float amountPerChunk = 1.0F;
+        protected IBlockQuery from = new BlockQueryBlock(Blocks.grass);
+        protected IBlockState to = Blocks.cobblestone.getDefaultState();
+        protected int splotchSize = 8;
+        protected ScatterYMethod scatterYMethod = ScatterYMethod.AT_OR_BELOW_SURFACE;
+        
+        public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
+        public Builder from(IBlockQuery a) {this.from = a; return this;}
+        public Builder from(String a) throws BlockQueryParseException {this.from = BlockQueryUtils.parseQueryString(a); return this;}
+        public Builder from(Block a) {this.from = new BlockQueryBlock(a); return this;}
+        public Builder from(IBlockState a) {this.from = new BlockQueryState(a); return this;}        
+        public Builder to(IBlockState a) {this.to = a; return this;}
+        public Builder splotchSize(int a) {this.splotchSize = a; return this;}
+        public Builder scatterYMethod(ScatterYMethod a) {this.scatterYMethod = a; return this;}
+
+        @Override
+        public GeneratorSplotches create()
+        {
+            return new GeneratorSplotches(this.amountPerChunk, this.to, this.splotchSize, this.from, this.scatterYMethod);
+        }
+    }
+    
+    
     protected IBlockQuery from;
     protected IBlockState to;
     protected int splotchSize;
     protected ScatterYMethod scatterYMethod;
-    
-    public GeneratorSplotches()
-    {
-        // default
-        this(1, Blocks.stone.getDefaultState(), 8, Blocks.grass, ScatterYMethod.AT_OR_BELOW_SURFACE);
-    }
-
-    public GeneratorSplotches(float amountPerChunk, IBlockState to, int splotchSize, String from, ScatterYMethod scatterYMethod) throws BlockQueryParseException
-    {
-        this(amountPerChunk, to, splotchSize, BlockQueryUtils.parseQueryString(from), scatterYMethod);
-    }
-    
-    public GeneratorSplotches(float amountPerChunk, IBlockState to, int splotchSize, Block from, ScatterYMethod scatterYMethod)
-    {
-        this(amountPerChunk, to, splotchSize, new BlockQueryUtils.BlockQueryBlock(from), scatterYMethod);
-    }
-    
-    public GeneratorSplotches(float amountPerChunk, IBlockState to, int splotchSize, IBlockState from, ScatterYMethod scatterYMethod)
-    {
-        this(amountPerChunk, to, splotchSize, new BlockQueryUtils.BlockQueryState(from), scatterYMethod);
-    }
-    
+ 
     public GeneratorSplotches(float amountPerChunk, IBlockState to, int splotchSize, IBlockQuery from, ScatterYMethod scatterYMethod)
     {
         super(amountPerChunk);

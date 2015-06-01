@@ -10,15 +10,11 @@ package biomesoplenty.common.biome.overworld;
 
 import net.minecraft.block.BlockFlower.EnumFlowerType;
 import net.minecraft.block.BlockTallGrass;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
-import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.common.block.BlockBOPPlant;
-import biomesoplenty.common.block.BlockGem;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.world.feature.GeneratorFlora;
@@ -37,20 +33,24 @@ public class BiomeGenFlowerField extends BOPBiome
 
         this.addWeight(BiomeType.WARM, 3);
         
+        // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(999);
-        flowerGenerator.add("pink_tuilp", 2, new GeneratorFlora(1, Blocks.red_flower.getDefaultState().withProperty(Blocks.red_flower.getTypeProperty(), EnumFlowerType.PINK_TULIP)));
-        flowerGenerator.add("white_tulip", 5, new GeneratorFlora(1, Blocks.red_flower.getDefaultState().withProperty(Blocks.red_flower.getTypeProperty(), EnumFlowerType.WHITE_TULIP)));
-        flowerGenerator.add("orange_tulip", 7, new GeneratorFlora(1, Blocks.red_flower.getDefaultState().withProperty(Blocks.red_flower.getTypeProperty(), EnumFlowerType.ORANGE_TULIP)));
-        flowerGenerator.add("red_tulip", 10, new GeneratorFlora(1, Blocks.red_flower.getDefaultState().withProperty(Blocks.red_flower.getTypeProperty(), EnumFlowerType.RED_TULIP)));
-        this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
+        this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
+        flowerGenerator.add("pink_tulip", 2, (new GeneratorFlora.Builder().flora(EnumFlowerType.PINK_TULIP).create()));
+        flowerGenerator.add("white_tulip", 5, (new GeneratorFlora.Builder().flora(EnumFlowerType.WHITE_TULIP).create()));
+        flowerGenerator.add("orange_tulip", 7, (new GeneratorFlora.Builder().flora(EnumFlowerType.ORANGE_TULIP).create()));
+        flowerGenerator.add("red_tulip", 10, (new GeneratorFlora.Builder().flora(EnumFlowerType.RED_TULIP).create()));
         
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(35);
-        grassGenerator.add("wheatgrass", 1, new GeneratorGrass(1, BlockBOPPlant.paging.getVariantState(BOPPlants.WHEATGRASS)));
-        grassGenerator.add("dampgrass", 1, new GeneratorGrass(1, BlockBOPPlant.paging.getVariantState(BOPPlants.DAMPGRASS)));
-        grassGenerator.add("tallgrass", 2, new GeneratorGrass(1, Blocks.tallgrass.getDefaultState().withProperty(BlockTallGrass.TYPE, BlockTallGrass.EnumType.GRASS)));
+        // grasses
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(20);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
+        grassGenerator.add("wheatgrass", 1, (new GeneratorGrass.Builder()).grass(BOPPlants.WHEATGRASS).create());
+        grassGenerator.add("dampgrass", 1, (new GeneratorGrass.Builder()).grass(BOPPlants.DAMPGRASS).create());
+        grassGenerator.add("tallgrass", 2, (new GeneratorGrass.Builder()).grass(BlockTallGrass.EnumType.GRASS).create());
+
+        // gem
+        this.addGenerator("peridot", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).gemOre(BOPGems.PERIDOT).create()); 
         
-        this.addGenerator("peridot", GeneratorStage.SAND, new GeneratorOreSingle(BOPBlocks.gem_ore.getDefaultState().withProperty(BlockGem.VARIANT, BOPGems.PERIDOT), 12, 4, 32));
     }
     
     @Override

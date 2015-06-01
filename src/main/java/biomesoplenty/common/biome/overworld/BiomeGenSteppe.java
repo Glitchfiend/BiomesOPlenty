@@ -14,11 +14,10 @@ import net.minecraft.util.BlockPos;
 import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
-import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.BlockBOPPlant;
-import biomesoplenty.common.block.BlockGem;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 
@@ -36,9 +35,14 @@ public class BiomeGenSteppe extends BOPBiome
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
         
-        this.addGenerator("dead_bushes", GeneratorStage.DEAD_BUSH, new GeneratorGrass(3, Blocks.deadbush.getDefaultState(), 4));
-        this.addGenerator("grass", GeneratorStage.GRASS, new GeneratorGrass(15, BlockBOPPlant.paging.getVariantState(BOPPlants.SHORTGRASS)));
-        this.addGenerator("ruby", GeneratorStage.SAND, new GeneratorOreSingle(BOPBlocks.gem_ore.getDefaultState().withProperty(BlockGem.VARIANT, BOPGems.RUBY), 12, 4, 32));
+        // other plants
+        this.addGenerator("dead_bushes", GeneratorStage.DEAD_BUSH,(new GeneratorFlora.Builder()).amountPerChunk(3).flora(Blocks.deadbush.getDefaultState()).generationAttempts(4).create());
+        
+        // grasses
+        this.addGenerator("shrubs", GeneratorStage.GRASS,(new GeneratorGrass.Builder()).amountPerChunk(15).grass(BlockBOPPlant.paging.getVariantState(BOPPlants.SHORTGRASS)).create());
+
+        // gem
+        this.addGenerator("ruby", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).gemOre(BOPGems.RUBY).create());
     }
     
     @Override

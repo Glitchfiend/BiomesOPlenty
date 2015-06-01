@@ -8,42 +8,59 @@
 
 package biomesoplenty.common.world.feature;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import biomesoplenty.api.biome.generation.BOPGeneratorBase;
+import biomesoplenty.common.util.block.BlockQueryUtils;
+import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryAny;
+import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryBlock;
+import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryParseException;
+import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryState;
+import biomesoplenty.common.util.block.BlockQueryUtils.IBlockQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GeneratorWaterside extends BOPGeneratorBase
 {
-    private int maxRadius;
-    private IBlockState state;
-    private List<IBlockState> replacedStates;
     
-    public GeneratorWaterside()
+    public static class Builder implements IGeneratorBuilder<GeneratorWaterside>
     {
-        // default
-        this(4, 7, Blocks.gravel.getDefaultState());
+        protected float amountPerChunk = 1.0F;
+        protected int maxRadius = 7;
+        protected IBlockState to = Blocks.gravel.getDefaultState();                
+        protected IBlockQuery from = new BlockQueryAny(new BlockQueryBlock(Blocks.grass), new BlockQueryBlock(Blocks.dirt));
+        
+        public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
+        public Builder from(IBlockQuery a) {this.from = a; return this;}
+        public Builder from(String a) throws BlockQueryParseException {this.from = BlockQueryUtils.parseQueryString(a); return this;}
+        public Builder from(Block a) {this.from = new BlockQueryBlock(a); return this;}
+        public Builder from(IBlockState a) {this.from = new BlockQueryState(a); return this;}        
+        public Builder to(IBlockState a) {this.to = a; return this;}
+        public Builder maxRadius(int a) {this.maxRadius = a; return this;}
+
+        @Override
+        public GeneratorWaterside create()
+        {
+            return new GeneratorWaterside(this.amountPerChunk, this.maxRadius, this.to, this.from);
+        }
     }
     
-    public GeneratorWaterside(float amountPerChunk, int maxRadius, IBlockState state, IBlockState... replacedStates)
+    
+    protected int maxRadius;
+    protected IBlockState to;
+    protected IBlockQuery from;
+    
+    public GeneratorWaterside(float amountPerChunk, int maxRadius, IBlockState to, IBlockQuery from)
     {
         super(amountPerChunk);
         this.maxRadius = maxRadius;
-        this.state = state;
-        this.replacedStates = Arrays.asList(replacedStates);
-    }
-    
-    public GeneratorWaterside(float amountPerChunk, int maxRadius, IBlockState state)
-    {
-        this(amountPerChunk, maxRadius, state, Blocks.grass.getDefaultState(), Blocks.dirt.getDefaultState());
+        this.to = to;
+        this.from = from;
     }
     
     @Override
@@ -84,10 +101,10 @@ public class GeneratorWaterside extends BOPGeneratorBase
                             BlockPos posToReplace = new BlockPos(x, y, z);
                             IBlockState stateToReplace = world.getBlockState(posToReplace);
 
-                            //If the list contains the state of the current block, replace it
-                            if (replacedStates.contains(stateToReplace))
+                            // If the current block is applicable, replace it
+                            if (this.from.matches(stateToReplace))
                             {
-                                world.setBlockState(posToReplace, this.state, 2);
+                                world.setBlockState(posToReplace, this.to, 2);
                             }
                         }
                     }
@@ -103,8 +120,17 @@ public class GeneratorWaterside extends BOPGeneratorBase
     {
         this.amountPerChunk = conf.getFloat("amountPerChunk", this.amountPerChunk);
         this.maxRadius = conf.getInt("maxRadius", this.maxRadius);
-        this.state = conf.getBlockState("state", this.state);        
-        this.replacedStates = conf.getBlockStateArray("replacedStates", new ArrayList(this.replacedStates) );
+        this.to = conf.getBlockState("to", this.to);        
+        String fromString = conf.getString("from", null);
+        if (fromString != null)
+        {
+            try {
+                IBlockQuery from = BlockQueryUtils.parseQueryString(fromString);
+                this.from = from;
+            } catch (BlockQueryParseException e) {
+                conf.addMessage("from", e.getMessage());
+            }
+        }    
     }
 
 }

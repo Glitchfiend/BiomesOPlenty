@@ -18,6 +18,20 @@ import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GeneratorWeighted extends BOPGeneratorBase
 {
+
+    public static class Builder implements IGeneratorBuilder<GeneratorWeighted>
+    {
+        protected float amountPerChunk = 1.0F;
+        
+        public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
+
+        @Override
+        public GeneratorWeighted create()
+        {
+            return new GeneratorWeighted(this.amountPerChunk);
+        }
+    }
+    
     private HashMap<String, IGenerator> generators = new HashMap<String, IGenerator>();
     private HashMap<IGenerator, Integer> weights = new HashMap<IGenerator, Integer>();
         

@@ -19,18 +19,33 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 
 public class GeneratorOreCluster extends GeneratorOreBase
 {
-    private WorldGenMinable generator;
-    
-    public GeneratorOreCluster()
+    public static class Builder implements IGeneratorBuilder<GeneratorOreCluster>
     {
-        // default
-        this(Blocks.emerald_ore.getDefaultState(), 12, 4, 4, 32);
+        protected float amountPerChunk = 1.0F;
+        protected int minHeight = 4;
+        protected int maxHeight = 32;
+        protected int clusterSize = 4;
+        protected IBlockState state = Blocks.emerald_ore.getDefaultState();
+        
+        public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
+        public Builder state(IBlockState a) {this.state = a; return this;}        
+        public Builder minHeight(int a) {this.minHeight = a; return this;}
+        public Builder maxHeight(int a) {this.maxHeight = a; return this;}
+        public Builder clusterSize(int a) {this.clusterSize = a; return this;}
+
+        @Override
+        public GeneratorOreCluster create()
+        {
+            return new GeneratorOreCluster(this.state, this.amountPerChunk, this.clusterSize, this.minHeight, this.maxHeight);
+        }
     }
+    
+    
+    private WorldGenMinable generator;
     
     public GeneratorOreCluster(IBlockState state, float amountPerChunk, int clusterSize, int minHeight, int maxHeight)
     {
         super(amountPerChunk, minHeight, maxHeight);
-        
         this.generator = new WorldGenMinable(state, clusterSize);
     }
     

@@ -16,6 +16,7 @@ import net.minecraft.world.World;
 
 public abstract class BOPGeneratorBase implements IGenerator
 {
+    
     private final String identifier;
     private String name;
     private GeneratorStage stage;

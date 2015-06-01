@@ -11,36 +11,62 @@ package biomesoplenty.common.world.feature;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockFlower;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import biomesoplenty.api.biome.generation.BOPGeneratorBase;
+import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.common.block.BlockBOPFlower;
+import biomesoplenty.common.block.BlockBOPLilypad;
+import biomesoplenty.common.block.BlockBOPMushroom;
+import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.block.BlockDecoration;
+import biomesoplenty.common.enums.BOPFlowers;
+import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GeneratorFlora extends BOPGeneratorBase
 {
+    
+    public static class Builder implements IGeneratorBuilder<GeneratorFlora>
+    {
+        protected float amountPerChunk = 1.0F;
+        protected IBlockState state = Blocks.red_flower.getDefaultState();
+        protected int generationAttempts = 64;
+        
+        public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
+        public Builder flora(IBlockState a) {this.state = a; return this;}
+        public Builder flora(BOPPlants a) {this.state = BlockBOPPlant.paging.getVariantState(a); return this;}
+        public Builder flora(BOPFlowers a) {this.state = BlockBOPFlower.paging.getVariantState(a); return this;}
+        public Builder flora(BlockBOPMushroom.MushroomType a) {this.state = BOPBlocks.mushroom.getDefaultState().withProperty(BlockBOPMushroom.VARIANT, a); return this;}
+        public Builder flora(BlockBOPLilypad.LilypadType a) {this.state = BOPBlocks.waterlily.getDefaultState().withProperty(BlockBOPLilypad.VARIANT, a); return this;}
+        public Builder flora(BlockFlower.EnumFlowerType a)
+        {
+            BlockFlower flowerBlock = a.getBlockType().getBlock();
+            this.state = flowerBlock.getDefaultState().withProperty(flowerBlock.getTypeProperty(), a);
+            return this;
+        }
+        public Builder generationAttempts(int a) {this.generationAttempts = a; return this;}
+        
+        @Override
+        public GeneratorFlora create()
+        {
+            return new GeneratorFlora(this.amountPerChunk, this.state, this.generationAttempts);
+        }
+    }
+    
+    
     protected IBlockState state;
     protected int generationAttempts;
-    
-    public GeneratorFlora()
-    {
-        // default
-        this(1, Blocks.red_flower.getDefaultState(), 64);
-    }
     
     public GeneratorFlora(float amountPerChunk, IBlockState state, int generationAttempts)
     {
         super(amountPerChunk);
         this.state = state;
         this.generationAttempts = generationAttempts;
-    }
-    
-    public GeneratorFlora(float amountPerChunk, IBlockState state)
-    {
-        this(amountPerChunk, state, 64);
     }
     
     @Override

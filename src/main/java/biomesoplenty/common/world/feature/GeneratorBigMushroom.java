@@ -75,16 +75,25 @@ public class GeneratorBigMushroom extends BOPGeneratorBase
         }
     }
     
+    public static class Builder implements IGeneratorBuilder<GeneratorBigMushroom>
+    {
+        protected float amountPerChunk = 1.0F;
+        protected BigMushroomType mushroomType = BigMushroomType.BROWN;
+        
+        public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
+        public Builder mushroomType(BigMushroomType a) {this.mushroomType = a; return this;}
+
+        @Override
+        public GeneratorBigMushroom create()
+        {
+            return new GeneratorBigMushroom(this.amountPerChunk, this.mushroomType);
+        }
+    }
+    
     private static IBlockQuery isLeavesOrAir = new BlockQueryAny(new BlockQueryMaterial(Material.leaves), new BlockQueryMaterial(Material.air));
 
     protected BigMushroomType mushroomType;
     protected IBlockState mushroomState;
-    
-    public GeneratorBigMushroom()
-    {
-        // default
-        this(4, BigMushroomType.BROWN);
-    }
     
     public GeneratorBigMushroom(float amountPerChunk, BigMushroomType mushroomType)
     {
@@ -97,7 +106,6 @@ public class GeneratorBigMushroom extends BOPGeneratorBase
         this.mushroomType = type;
         this.mushroomState = type.getDefaultState();
     }
-    
     
     @Override
     public BlockPos getScatterY(World world, Random random, int x, int z)

@@ -11,29 +11,41 @@ package biomesoplenty.common.world.feature;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
+import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.block.BlockDecoration;
+import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 
 public class GeneratorGrass extends GeneratorFlora
 {
-    public GeneratorGrass()
+    
+    public static class Builder implements IGeneratorBuilder<GeneratorGrass>
     {
-        // default
-        this(1, Blocks.tallgrass.getDefaultState(), 128);
+        protected float amountPerChunk = 1.0F;
+        protected IBlockState grass = Blocks.tallgrass.getDefaultState();
+        protected int generationAttempts = 128;
+        
+        public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
+        public Builder grass(IBlockState a) {this.grass = a; return this;}
+        public Builder grass(BOPPlants a) {this.grass = BlockBOPPlant.paging.getVariantState(a); return this;}
+        public Builder grass(BlockTallGrass.EnumType a) {this.grass = Blocks.tallgrass.getDefaultState().withProperty(BlockTallGrass.TYPE, a); return this;}        
+        public Builder generationAttempts(int a) {this.generationAttempts = a; return this;}
+        
+        @Override
+        public GeneratorGrass create()
+        {
+            return new GeneratorGrass(this.amountPerChunk, this.grass, this.generationAttempts);
+        }
     }
     
-    public GeneratorGrass(int amountPerChunk, IBlockState state, int generationAttempts)
+    public GeneratorGrass(float amountPerChunk, IBlockState state, int generationAttempts)
     {
         super(amountPerChunk, state, generationAttempts);
-    }
-    
-    public GeneratorGrass(int amountPerChunk, IBlockState state)
-    {
-        this(amountPerChunk, state, 128);
     }
     
     @Override

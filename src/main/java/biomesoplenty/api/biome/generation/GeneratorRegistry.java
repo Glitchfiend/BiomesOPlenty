@@ -8,6 +8,9 @@
 
 package biomesoplenty.api.biome.generation;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 import com.google.common.collect.BiMap;
@@ -16,10 +19,12 @@ import com.google.common.collect.HashBiMap;
 public class GeneratorRegistry
 {
     private static BiMap<String, Class<? extends IGenerator>> generatorClasses = HashBiMap.create();
+    private static Map<String, IGenerator.IGeneratorBuilder> generatorBuilders = new HashMap<String, IGenerator.IGeneratorBuilder>();
     
-    public static void registerGenerator(String identifier, Class<? extends IGenerator> generatorClass)
+    public static <T extends IGenerator> void registerGenerator(String identifier, Class<T> generatorClass, IGenerator.IGeneratorBuilder<T> builder)
     {
         generatorClasses.put(identifier, generatorClass);
+        generatorBuilders.put(identifier, builder);
     }
     
     public static String getIdentifier(Class<? extends IGenerator> generatorClass)
@@ -30,6 +35,11 @@ public class GeneratorRegistry
     public static Class<? extends IGenerator> getGeneratorClass(String identifier)
     {
         return generatorClasses.get(identifier);
+    }
+    
+    public static IGenerator.IGeneratorBuilder getGeneratorBuilder(String identifier)
+    {
+        return generatorBuilders.get(identifier);
     }
 
     public static boolean generatorExists(String identifier)
@@ -42,19 +52,14 @@ public class GeneratorRegistry
         GeneratorStage stage = conf.getEnum("stage", GeneratorStage.class);
         String identifier = conf.getString("type");
         if (stage == null || identifier == null) {return null;}
-        Class<? extends IGenerator> clazz = getGeneratorClass(identifier);
-        if (clazz == null)
+        
+        IGenerator.IGeneratorBuilder builder = getGeneratorBuilder(identifier);
+        if (builder == null)
         {
             conf.addMessage("No generator is registered with type name " + identifier);
-            return null;
+            return null;           
         }
-        IGenerator generator;
-        try {
-            generator = clazz.newInstance();
-        } catch (Exception e) {
-            conf.addMessage("Failed to create instance of generator " + identifier + " - " + e.getMessage());
-            return null;
-        }
+        IGenerator generator = builder.create();
         generator.setStage(stage);
         generator.configure(conf);
         return generator;

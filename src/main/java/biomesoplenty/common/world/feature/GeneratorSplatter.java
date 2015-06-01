@@ -29,33 +29,38 @@ import net.minecraft.world.World;
 
 public class GeneratorSplatter extends BOPGeneratorBase
 {
+    
+    public static class Builder implements IGeneratorBuilder<GeneratorSplatter>
+    {
+        protected float amountPerChunk = 1.0F;
+        protected IBlockQuery placeOn = new BlockQueryBlock(Blocks.grass);
+        protected int generationAttempts = 64;
+        protected IBlockState to = Blocks.stone.getDefaultState();
+        protected ScatterYMethod scatterYMethod = ScatterYMethod.ANYWHERE;
+        
+        public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
+        public Builder placeOn(IBlockQuery a) {this.placeOn = a; return this;}
+        public Builder placeOn(String a) throws BlockQueryParseException {this.placeOn = BlockQueryUtils.parseQueryString(a); return this;}
+        public Builder placeOn(Block a) {this.placeOn = new BlockQueryBlock(a); return this;}
+        public Builder placeOn(IBlockState a) {this.placeOn = new BlockQueryState(a); return this;}        
+        public Builder generationAttempts(int a) {this.generationAttempts = a; return this;}
+        public Builder to(IBlockState a) {this.to = a; return this;}
+        public Builder scatterYMethod(ScatterYMethod a) {this.scatterYMethod = a; return this;}
+
+        @Override
+        public GeneratorSplatter create()
+        {
+            return new GeneratorSplatter(this.amountPerChunk, this.to, this.generationAttempts, this.placeOn, this.scatterYMethod);
+        }
+    }
+    
+    
     private static IBlockQuery isLeavesOrAir = new BlockQueryAny(new BlockQueryMaterial(Material.leaves), new BlockQueryMaterial(Material.air));
     
     protected IBlockQuery placeOn;
     protected int generationAttempts;
     protected IBlockState to;
     protected ScatterYMethod scatterYMethod;
-        
-    public GeneratorSplatter()
-    {
-        // default
-        this(1, Blocks.stone.getDefaultState(), 64, Blocks.grass, ScatterYMethod.ANYWHERE);
-    }
-    
-    public GeneratorSplatter(float amountPerChunk, IBlockState to, int splotchSize, String placeOn, ScatterYMethod scatterYMethod) throws BlockQueryParseException
-    {
-        this(amountPerChunk, to, splotchSize, BlockQueryUtils.parseQueryString(placeOn), scatterYMethod);
-    }
-    
-    public GeneratorSplatter(float amountPerChunk, IBlockState to, int splotchSize, Block placeOn, ScatterYMethod scatterYMethod)
-    {
-        this(amountPerChunk, to, splotchSize, new BlockQueryBlock(placeOn), scatterYMethod);
-    }
-    
-    public GeneratorSplatter(float amountPerChunk, IBlockState to, int splotchSize, IBlockState placeOn, ScatterYMethod scatterYMethod)
-    {
-        this(amountPerChunk, to, splotchSize, new BlockQueryState(placeOn), scatterYMethod);
-    }
     
     public GeneratorSplatter(float amountPerChunk, IBlockState to, int generationAttempts, IBlockQuery placeOn, ScatterYMethod scatterYMethod)
     {

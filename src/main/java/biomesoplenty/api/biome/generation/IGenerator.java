@@ -30,5 +30,10 @@ public interface IGenerator
     public String getIdentifier();
     public GeneratorStage getStage();
     
+    public static interface IGeneratorBuilder<T extends IGenerator>
+    {
+        public T create();
+    }
+    
     public void configure(IConfigObj conf);
 }

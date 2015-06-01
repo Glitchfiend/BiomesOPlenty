@@ -22,40 +22,44 @@ import net.minecraft.world.World;
 import biomesoplenty.api.biome.generation.BOPGeneratorBase;
 import biomesoplenty.common.util.block.BlockQueryUtils;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryAny;
+import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryBlock;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryMaterial;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryParseException;
+import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryState;
 import biomesoplenty.common.util.block.BlockQueryUtils.IBlockQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GeneratorLogs extends BOPGeneratorBase
 {
     
+    public static class Builder implements IGeneratorBuilder<GeneratorLogs>
+    {
+        protected float amountPerChunk = 1.0F;
+        protected IBlockState log = Blocks.log.getDefaultState();
+        protected IBlockQuery placeOn = new BlockQueryAny(new BlockQueryMaterial(Material.ground), new BlockQueryMaterial(Material.grass));
+        protected int minLength = 3;
+        protected int maxLength = 5;
+        
+        public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
+        public Builder placeOn(IBlockQuery a) {this.placeOn = a; return this;}
+        public Builder placeOn(String a) throws BlockQueryParseException {this.placeOn = BlockQueryUtils.parseQueryString(a); return this;}
+        public Builder placeOn(Block a) {this.placeOn = new BlockQueryBlock(a); return this;}
+        public Builder placeOn(IBlockState a) {this.placeOn = new BlockQueryState(a); return this;}        
+        public Builder minLength(int a) {this.minLength = a; return this;}
+        public Builder maxLength(int a) {this.maxLength = a; return this;}
+
+        @Override
+        public GeneratorLogs create()
+        {
+            return new GeneratorLogs(this.amountPerChunk, this.log, this.minLength, this.maxLength, this.placeOn);
+        }
+    }
+    
     protected IBlockState log;
     protected IProperty axisProperty;
     protected IBlockQuery placeOn;
     protected int minLength;
     protected int maxLength;
-    
-    public GeneratorLogs()
-    {
-        // default
-        this(6, Blocks.log.getDefaultState(), 1, 5, new BlockQueryAny(new BlockQueryMaterial(Material.ground), new BlockQueryMaterial(Material.grass)));
-    }
-    
-    public GeneratorLogs(float amountPerChunk, IBlockState log, int minLength, int maxLength, String from) throws BlockQueryParseException
-    {
-        this(amountPerChunk, log, minLength, maxLength, BlockQueryUtils.parseQueryString(from));
-    }
-    
-    public GeneratorLogs(float amountPerChunk, IBlockState log, int minLength, int maxLength, Block from)
-    {
-        this(amountPerChunk, log, minLength, maxLength, new BlockQueryUtils.BlockQueryBlock(from));
-    }
-    
-    public GeneratorLogs(float amountPerChunk, IBlockState log, int minLength, int maxLength, IBlockState from)
-    {
-        this(amountPerChunk, log, minLength, maxLength, new BlockQueryUtils.BlockQueryState(from));
-    }
     
     public GeneratorLogs(float amountPerChunk, IBlockState log, int minLength, int maxLength, IBlockQuery placeOn)
     {

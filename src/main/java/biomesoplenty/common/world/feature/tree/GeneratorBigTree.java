@@ -22,6 +22,10 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import biomesoplenty.api.biome.generation.BOPGeneratorBase;
+import biomesoplenty.common.block.BlockBOPLeaves;
+import biomesoplenty.common.block.BlockBOPLog;
+import biomesoplenty.common.enums.BOPTrees;
+import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
@@ -32,6 +36,33 @@ additional information has been added from http://pastebin.com/XBLdGqXQ. This cl
 against WorldGenBigTree to ensure any subsequent changes from Forge/Mojang have been included.*/
 public class GeneratorBigTree extends BOPGeneratorBase
 {
+    
+    public static class Builder implements IGeneratorBuilder<GeneratorBigTree>
+    {
+        protected float amountPerChunk = 1.0F;
+        protected boolean updateNeighbours = false;
+        protected int minHeight = 5;
+        protected int maxHeight = 17;
+        protected IBlockState log = Blocks.log.getDefaultState();
+        protected IBlockState leaves = Blocks.leaves.getDefaultState();
+        
+        public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
+        public Builder updateNeighbours(boolean a) {this.updateNeighbours = a; return this;}
+        public Builder minHeight(int a) {this.minHeight = a; return this;}
+        public Builder maxHeight(int a) {this.maxHeight = a; return this;}
+        public Builder log(IBlockState a) {this.log = a; return this;}
+        public Builder log(BOPWoods a) {this.log = BlockBOPLog.paging.getVariantState(a); return this;}
+        public Builder leaves(IBlockState a) {this.leaves = a; return this;}
+        public Builder leaves(BOPTrees a) {this.leaves = BlockBOPLeaves.paging.getVariantState(a); return this;}
+
+        @Override
+        public GeneratorBigTree create()
+        {
+            return new GeneratorBigTree(this.amountPerChunk, this.updateNeighbours, this.minHeight, this.maxHeight, this.log, this.leaves);
+        }
+    }
+    
+    
     private Random random;
     private World world;
     private BlockPos origin;
@@ -54,12 +85,6 @@ public class GeneratorBigTree extends BOPGeneratorBase
     private IBlockState leaves;
     
     private List<FoliageCoords> foliageCoords;
-
-    public GeneratorBigTree()
-    {
-        // default
-        this(1, false, 4, 7, Blocks.log.getDefaultState(), Blocks.leaves.getDefaultState());
-    }
     
     public GeneratorBigTree(float amountPerChunk, boolean updateNeighbours, int minHeight, int maxHeight, IBlockState log, IBlockState leaves)
     {
@@ -72,11 +97,6 @@ public class GeneratorBigTree extends BOPGeneratorBase
         
         this.log = log;
         this.leaves = leaves;
-    }
-    
-    public GeneratorBigTree(float amountPerChunk, boolean updateNeighbours, IBlockState log, IBlockState leaves)
-    {
-        this(amountPerChunk, updateNeighbours, 5, 17, log, leaves);
     }
 
     protected void prepare() 

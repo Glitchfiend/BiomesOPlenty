@@ -15,12 +15,9 @@ import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
-import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.BlockBOPDoublePlant;
 import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.block.BlockBOPMushroom;
-import biomesoplenty.common.block.BlockBOPPlant;
-import biomesoplenty.common.block.BlockGem;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.world.feature.GeneratorBigMushroom;
@@ -49,47 +46,47 @@ public class BiomeGenWoodland extends BOPBiome
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(9);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("oak_large", 1, new GeneratorBigTree(1, false, Blocks.log.getDefaultState(), Blocks.leaves.getDefaultState()));
-        treeGenerator.add("oak", 9, new GeneratorBasicTree(1, false, 5, 8, Blocks.log.getDefaultState(), Blocks.leaves.getDefaultState()));
+        treeGenerator.add("oak_large", 1, (new GeneratorBigTree.Builder()).create());
+        treeGenerator.add("oak", 9, (new GeneratorBasicTree.Builder()).minHeight(5).maxHeight(8).create());
 
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(14);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
-        grassGenerator.add("wheatgrass", 1, new GeneratorGrass(1, BlockBOPPlant.paging.getVariantState(BOPPlants.WHEATGRASS)));
-        grassGenerator.add("dampgrass", 1, new GeneratorGrass(1, BlockBOPPlant.paging.getVariantState(BOPPlants.DAMPGRASS)));
-        grassGenerator.add("tallgrass", 2, new GeneratorGrass(1, Blocks.tallgrass.getDefaultState().withProperty(BlockTallGrass.TYPE, BlockTallGrass.EnumType.GRASS)));
-
+        grassGenerator.add("wheatgrass", 1, (new GeneratorGrass.Builder()).grass(BOPPlants.WHEATGRASS).create());
+        grassGenerator.add("dampgrass", 1, (new GeneratorGrass.Builder()).grass(BOPPlants.DAMPGRASS).create());
+        grassGenerator.add("tallgrass", 2, (new GeneratorGrass.Builder()).grass(BlockTallGrass.EnumType.GRASS).create());
+ 
         // big mushrooms
         GeneratorWeighted mushroomGenerator = new GeneratorWeighted(1);
         this.addGenerator("big_mushrooms", GeneratorStage.TREE, mushroomGenerator);
-        mushroomGenerator.add("brown_mushroom", 1, new GeneratorBigMushroom(1, GeneratorBigMushroom.BigMushroomType.BROWN));
-        mushroomGenerator.add("red_mushroom", 1, new GeneratorBigMushroom(1, GeneratorBigMushroom.BigMushroomType.RED));
+        mushroomGenerator.add("brown_mushroom", 1, (new GeneratorBigMushroom.Builder()).mushroomType(GeneratorBigMushroom.BigMushroomType.BROWN).create());
+        mushroomGenerator.add("red_mushroom", 1, (new GeneratorBigMushroom.Builder()).mushroomType(GeneratorBigMushroom.BigMushroomType.RED).create());
         
         // gravel
-        this.addGenerator("gravel", GeneratorStage.SAND_PASS2, new GeneratorWaterside(4, 7, Blocks.gravel.getDefaultState()));
+        this.addGenerator("gravel", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(4).maxRadius(7).to(Blocks.gravel.getDefaultState()).create());
         
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(5);
         this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
-        flowerGenerator.add("rose", 1, new GeneratorDoubleFlora(1, BlockDoublePlant.EnumPlantType.ROSE, 64));
+        flowerGenerator.add("rose", 1, (new GeneratorDoubleFlora.Builder()).flora(BlockDoublePlant.EnumPlantType.ROSE).generationAttempts(64).create());
 
         // other plants
-        this.addGenerator("toadstools", GeneratorStage.FLOWERS, new GeneratorFlora(3, BOPBlocks.mushroom.getDefaultState().withProperty(BlockBOPMushroom.VARIANT, BlockBOPMushroom.MushroomType.TOADSTOOL)));
-        this.addGenerator("shrubs", GeneratorStage.FLOWERS, new GeneratorFlora(20, BlockBOPPlant.paging.getVariantState(BOPPlants.SHRUB)));
-        this.addGenerator("clover_patches", GeneratorStage.FLOWERS, new GeneratorFlora(10, BlockBOPPlant.paging.getVariantState(BOPPlants.CLOVERPATCH)));
-        this.addGenerator("leaf_piles", GeneratorStage.FLOWERS, new GeneratorFlora(10, BlockBOPPlant.paging.getVariantState(BOPPlants.LEAFPILE), 256));
-        this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS, new GeneratorFlora(10, BlockBOPPlant.paging.getVariantState(BOPPlants.DEADLEAFPILE), 256));
-        this.addGenerator("flax", GeneratorStage.FLOWERS, new GeneratorDoubleFlora(1, BlockBOPDoublePlant.DoublePlantType.FLAX, 64));
-        
+        this.addGenerator("toadstools", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(3).flora(BlockBOPMushroom.MushroomType.TOADSTOOL).create());
+        this.addGenerator("shrubs", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(20).flora(BOPPlants.SHRUB).create());
+        this.addGenerator("clover_patches", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(10).flora(BOPPlants.CLOVERPATCH).create());
+        this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(10).flora(BOPPlants.LEAFPILE).generationAttempts(256).create());
+        this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(10).flora(BOPPlants.DEADLEAFPILE).generationAttempts(256).create());
+        this.addGenerator("flax", GeneratorStage.FLOWERS, (new GeneratorDoubleFlora.Builder()).amountPerChunk(1).flora(BlockBOPDoublePlant.DoublePlantType.FLAX).generationAttempts(64).create());
+      
         // water plants
-        this.addGenerator("water_reeds", GeneratorStage.LILYPAD, new GeneratorFlora(5, BlockBOPPlant.paging.getVariantState(BOPPlants.REED), 128));
-        this.addGenerator("duckweed", GeneratorStage.LILYPAD, new GeneratorFlora(5, BOPBlocks.waterlily.getDefaultState().withProperty(BlockBOPLilypad.VARIANT, BlockBOPLilypad.LilypadType.DUCKWEED), 128));
+        this.addGenerator("water_reeds", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(5).flora(BOPPlants.REED).generationAttempts(128).create());
+        this.addGenerator("duckweed", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(5).flora(BlockBOPLilypad.LilypadType.DUCKWEED).generationAttempts(128).create());
         
         // logs
-        this.addGenerator("logs", GeneratorStage.TREE, new GeneratorLogs(8, Blocks.log.getDefaultState(), 3, 5, Blocks.grass));
+        this.addGenerator("logs", GeneratorStage.TREE, (new GeneratorLogs.Builder()).amountPerChunk(8).create());
         
         // gem
-        this.addGenerator("amber", GeneratorStage.SAND, new GeneratorOreSingle(BOPBlocks.gem_ore.getDefaultState().withProperty(BlockGem.VARIANT, BOPGems.AMBER), 15, 4, 32));
+        this.addGenerator("amber", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).gemOre(BOPGems.AMBER).create());
    
     }
     

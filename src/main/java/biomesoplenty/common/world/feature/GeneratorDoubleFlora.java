@@ -26,27 +26,41 @@ import net.minecraft.world.World;
 
 public class GeneratorDoubleFlora extends BOPGeneratorBase
 {
-    private IBlockState bottomState;
-    private IBlockState topState;
-    private int generationAttempts;
     
-    public GeneratorDoubleFlora()
+    public static class Builder implements IGeneratorBuilder<GeneratorDoubleFlora>
     {
-        // default
-        this(1, BlockBOPDoublePlant.DoublePlantType.FLAX, 64);        
+        protected float amountPerChunk = 1.0F;
+        protected IBlockState bottomState = BOPBlocks.double_plant.getDefaultState().withProperty(BlockBOPDoublePlant.VARIANT, BlockBOPDoublePlant.DoublePlantType.FLAX).withProperty(BlockBOPDoublePlant.HALF, BlockDoubleDecoration.Half.LOWER);
+        protected IBlockState topState = BOPBlocks.double_plant.getDefaultState().withProperty(BlockBOPDoublePlant.VARIANT, BlockBOPDoublePlant.DoublePlantType.FLAX).withProperty(BlockBOPDoublePlant.HALF, BlockDoubleDecoration.Half.UPPER);
+        protected int generationAttempts = 64;
+        
+        public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
+        public Builder flora(IBlockState bottom, IBlockState top) {this.bottomState = bottom; this.topState = top; return this;}
+        public Builder flora(BlockBOPDoublePlant.DoublePlantType type)
+        {
+            this.bottomState = BOPBlocks.double_plant.getDefaultState().withProperty(BlockBOPDoublePlant.VARIANT, type).withProperty(BlockBOPDoublePlant.HALF, BlockDoubleDecoration.Half.LOWER);
+            this.topState = BOPBlocks.double_plant.getDefaultState().withProperty(BlockBOPDoublePlant.VARIANT, type).withProperty(BlockBOPDoublePlant.HALF, BlockDoubleDecoration.Half.UPPER);
+            return this;
+        }
+        public Builder flora(BlockDoublePlant.EnumPlantType type)
+        {
+            this.bottomState = Blocks.double_plant.getStateFromMeta(type.getMeta());
+            this.topState = Blocks.double_plant.getStateFromMeta(8);
+            return this;
+        }
+        public Builder generationAttempts(int a) {this.generationAttempts = a; return this;}
+        
+        @Override
+        public GeneratorDoubleFlora create()
+        {
+            return new GeneratorDoubleFlora(this.amountPerChunk, this.bottomState, this.topState, this.generationAttempts);
+        }
     }
     
-    // convenient shortcut constructor for use with a BlockBOPDoublePlant variant
-    public GeneratorDoubleFlora(float amountPerChunk, BlockBOPDoublePlant.DoublePlantType type, int generationAttempts)
-    {
-        this(amountPerChunk, BOPBlocks.double_plant.getDefaultState().withProperty(BlockBOPDoublePlant.VARIANT, type).withProperty(BlockBOPDoublePlant.HALF, BlockDoubleDecoration.Half.LOWER), BOPBlocks.double_plant.getDefaultState().withProperty(BlockBOPDoublePlant.VARIANT, type).withProperty(BlockBOPDoublePlant.HALF, BlockDoubleDecoration.Half.UPPER), generationAttempts);
-    }
     
-    // convenient shortcut constructor for use with a vanilla BlockDoublePlant variant
-    public GeneratorDoubleFlora(float amountPerChunk, BlockDoublePlant.EnumPlantType type, int generationAttempts)
-    {
-        this(amountPerChunk, Blocks.double_plant.getStateFromMeta(type.getMeta()), Blocks.double_plant.getStateFromMeta(8), generationAttempts);
-    }
+    protected IBlockState bottomState;
+    protected IBlockState topState;
+    protected int generationAttempts;
     
     public GeneratorDoubleFlora(float amountPerChunk, IBlockState bottomState, IBlockState topState, int generationAttempts)
     {
@@ -55,12 +69,6 @@ public class GeneratorDoubleFlora extends BOPGeneratorBase
         this.topState = topState;
         this.generationAttempts = generationAttempts;
     }
-    
-    public GeneratorDoubleFlora(float amountPerChunk, IBlockState bottomState, IBlockState topState)
-    {
-        this(amountPerChunk, bottomState, topState, 64);
-    }
-    
     
     @Override
     public BlockPos getScatterY(World world, Random random, int x, int z)

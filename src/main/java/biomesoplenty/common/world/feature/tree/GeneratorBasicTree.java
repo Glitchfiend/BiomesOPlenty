@@ -23,23 +23,51 @@ import net.minecraft.world.World;
 import org.apache.commons.lang3.tuple.Pair;
 
 import biomesoplenty.api.biome.generation.BOPGeneratorBase;
+import biomesoplenty.common.block.BlockBOPLeaves;
+import biomesoplenty.common.block.BlockBOPLog;
+import biomesoplenty.common.enums.BOPTrees;
+import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GeneratorBasicTree extends BOPGeneratorBase
 {
+    
+    public static class Builder implements IGeneratorBuilder<GeneratorBasicTree>
+    {
+        protected float amountPerChunk = 1.0F;
+        protected boolean updateNeighbours = false;
+        protected int minHeight = 4;
+        protected int maxHeight = 7;
+        protected IBlockState log = Blocks.log.getDefaultState();
+        protected IBlockState leaves = Blocks.leaves.getDefaultState();
+        protected IBlockState vine = null;
+        
+        public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
+        public Builder updateNeighbours(boolean a) {this.updateNeighbours = a; return this;}
+        public Builder minHeight(int a) {this.minHeight = a; return this;}
+        public Builder maxHeight(int a) {this.maxHeight = a; return this;}
+        public Builder log(IBlockState a) {this.log = a; return this;}
+        public Builder log(BOPWoods a) {this.log = BlockBOPLog.paging.getVariantState(a); return this;}
+        public Builder leaves(IBlockState a) {this.leaves = a; return this;}
+        public Builder leaves(BOPTrees a) {this.leaves = BlockBOPLeaves.paging.getVariantState(a); return this;}
+
+        public Builder vine(IBlockState a) {this.vine = a; return this;}
+
+        @Override
+        public GeneratorBasicTree create()
+        {
+            return new GeneratorBasicTree(this.amountPerChunk, this.updateNeighbours, this.minHeight, this.maxHeight, this.log, this.leaves, this.vine);
+        }
+    }
+    
+    
     private boolean updateNeighbours;
     private int minHeight;
     private int maxHeight;
     private IBlockState log;
     private IBlockState leaves;
     private IBlockState vine;
-    
-    public GeneratorBasicTree()
-    {
-        // default
-        this(1, false, 4, 7, Blocks.log.getDefaultState(), Blocks.leaves.getDefaultState());
-    }
     
     public GeneratorBasicTree(float amountPerChunk, boolean updateNeighbours, int minHeight, int maxHeight, IBlockState log, IBlockState leaves, IBlockState vine)
     {
@@ -53,11 +81,6 @@ public class GeneratorBasicTree extends BOPGeneratorBase
         this.log = log;
         this.leaves = leaves;
         this.vine = vine;
-    }
-    
-    public GeneratorBasicTree(float amountPerChunk, boolean updateNeighbours, int minHeight, int maxHeight, IBlockState log, IBlockState leaves)
-    {
-        this(amountPerChunk, updateNeighbours, minHeight, maxHeight, log, leaves, null);
     }
     
     @Override

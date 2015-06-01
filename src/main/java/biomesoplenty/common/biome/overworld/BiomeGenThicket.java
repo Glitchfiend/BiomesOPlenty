@@ -8,15 +8,13 @@
 
 package biomesoplenty.common.biome.overworld;
 
+import net.minecraft.block.BlockFlower.EnumFlowerType;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
-import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.common.block.BlockBOPPlant;
-import biomesoplenty.common.block.BlockGem;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.world.feature.GeneratorFlora;
@@ -37,21 +35,25 @@ public class BiomeGenThicket extends BOPBiome
         
         this.addWeight(BiomeType.COOL, 5);
         
+        // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(17);
-        treeGenerator.add("oak", 1, new GeneratorBasicTree(1, false, 4, 7, Blocks.log.getDefaultState(), Blocks.leaves.getDefaultState()));
-        treeGenerator.add("oak_bush", 4,  new GeneratorBush(1, Blocks.log.getDefaultState(), Blocks.leaves.getDefaultState()));
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-       
-        this.addGenerator("gravel", GeneratorStage.SAND_PASS2, new GeneratorWaterside(6, 7, Blocks.gravel.getDefaultState()));
-
-        this.addGenerator("flowers", GeneratorStage.FLOWERS, new GeneratorFlora(5, Blocks.red_flower.getDefaultState()));
-        this.addGenerator("thorns", GeneratorStage.FLOWERS, new GeneratorFlora(55, BlockBOPPlant.paging.getVariantState(BOPPlants.THORN)));
-        this.addGenerator("shrubs", GeneratorStage.FLOWERS, new GeneratorFlora(5, BlockBOPPlant.paging.getVariantState(BOPPlants.SHRUB)));
-
-        this.addGenerator("leaf_piles", GeneratorStage.FLOWERS, new GeneratorFlora(5, BlockBOPPlant.paging.getVariantState(BOPPlants.LEAFPILE), 256));
-        this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS, new GeneratorFlora(10, BlockBOPPlant.paging.getVariantState(BOPPlants.DEADLEAFPILE), 256));
+        treeGenerator.add("oak", 1, (new GeneratorBasicTree.Builder()).create());
+        treeGenerator.add("oak_bush", 4, (new GeneratorBush.Builder()).create());
         
-        this.addGenerator("amber", GeneratorStage.SAND, new GeneratorOreSingle(BOPBlocks.gem_ore.getDefaultState().withProperty(BlockGem.VARIANT, BOPGems.AMBER), 12, 4, 32));
+        // gravel
+        this.addGenerator("gravel", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(6).maxRadius(7).to(Blocks.gravel.getDefaultState()).create());
+
+        // other plants
+        this.addGenerator("flowers", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(5).flora(EnumFlowerType.POPPY).create());
+        this.addGenerator("thorns", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(55).flora(BOPPlants.THORN).create());
+        this.addGenerator("shrubs", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(5).flora(BOPPlants.SHRUB).create());
+        this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(5).flora(BOPPlants.LEAFPILE).generationAttempts(256).create());
+        this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(10).flora(BOPPlants.DEADLEAFPILE).generationAttempts(256).create());
+
+        // gem
+        this.addGenerator("amber", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).gemOre(BOPGems.AMBER).create());
+        
     }
     
     @Override

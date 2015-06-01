@@ -15,20 +15,40 @@ import net.minecraft.block.state.pattern.BlockHelper;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
+import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.common.block.BlockGem;
+import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 import com.google.common.base.Predicate;
 
 public class GeneratorOreSingle extends GeneratorOreBase
 {
+    
+    public static class Builder implements IGeneratorBuilder<GeneratorOreSingle>
+    {
+        protected float amountPerChunk = 1.0F;
+        protected int minHeight = 4;
+        protected int maxHeight = 32;
+        protected IBlockState state = Blocks.emerald_ore.getDefaultState();
+        
+        public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
+        public Builder state(IBlockState a) {this.state = a; return this;}
+        public Builder gemOre(BOPGems a) {this.state = BOPBlocks.gem_ore.getDefaultState().withProperty(BlockGem.VARIANT, a); return this;}
+        public Builder minHeight(int a) {this.minHeight = a; return this;}
+        public Builder maxHeight(int a) {this.maxHeight = a; return this;}
+
+        @Override
+        public GeneratorOreSingle create()
+        {
+            return new GeneratorOreSingle(this.state, this.amountPerChunk, this.minHeight, this.maxHeight);
+        }
+    }
+    
+    
+    
     private IBlockState state;
     private Predicate replace;
-    
-    public GeneratorOreSingle()
-    {
-        // default
-        this(Blocks.emerald_ore.getDefaultState(), 12, 4, 32);
-    }
     
     public GeneratorOreSingle(IBlockState state, float amountPerChunk, int minHeight, int maxHeight)
     {

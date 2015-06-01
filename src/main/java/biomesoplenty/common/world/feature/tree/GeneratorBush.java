@@ -18,19 +18,37 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import biomesoplenty.api.biome.generation.BOPGeneratorBase;
+import biomesoplenty.common.block.BlockBOPLeaves;
+import biomesoplenty.common.block.BlockBOPLog;
+import biomesoplenty.common.enums.BOPTrees;
+import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GeneratorBush extends BOPGeneratorBase
 {
+    
+    public static class Builder implements IGeneratorBuilder<GeneratorBush>
+    {
+        protected float amountPerChunk = 1.0F;
+        protected IBlockState log = Blocks.log.getDefaultState();
+        protected IBlockState leaves = Blocks.leaves.getDefaultState();
+        
+        public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
+        public Builder log(IBlockState a) {this.log = a; return this;}
+        public Builder log(BOPWoods a) {this.log = BlockBOPLog.paging.getVariantState(a); return this;}
+        public Builder leaves(IBlockState a) {this.leaves = a; return this;}
+        public Builder leaves(BOPTrees a) {this.leaves = BlockBOPLeaves.paging.getVariantState(a); return this;}
+
+        @Override
+        public GeneratorBush create()
+        {
+            return new GeneratorBush(this.amountPerChunk, this.log, this.leaves);
+        }
+    }
+    
     private IBlockState log;
     private IBlockState leaves;
-    
-    public GeneratorBush()
-    {
-        // default
-        this(1, Blocks.log.getDefaultState(), Blocks.leaves.getDefaultState());
-    }
     
     public GeneratorBush(float amountPerChunk, IBlockState log, IBlockState leaves)
     {

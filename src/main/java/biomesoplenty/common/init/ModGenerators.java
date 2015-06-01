@@ -17,19 +17,20 @@ public class ModGenerators
 {
     public static void init()
     {
-        registerGenerator("ore_single", GeneratorOreSingle.class);
-        registerGenerator("ore_cluster", GeneratorOreCluster.class);
-        registerGenerator("weighted", GeneratorWeighted.class);
-        registerGenerator("basic_tree", GeneratorBasicTree.class);
-        registerGenerator("big_tree", GeneratorBigTree.class);
-        registerGenerator("bush", GeneratorBush.class);
-        registerGenerator("flora", GeneratorFlora.class);
-        registerGenerator("double_flora", GeneratorDoubleFlora.class);
-        registerGenerator("grass", GeneratorGrass.class);
-        registerGenerator("logs", GeneratorLogs.class);
-        registerGenerator("big_mushrooms", GeneratorBigMushroom.class);
-        registerGenerator("waterside", GeneratorWaterside.class);
-        registerGenerator("splotches", GeneratorSplotches.class);
-        registerGenerator("blobs", GeneratorBlobs.class);
+        registerGenerator("ore_single", GeneratorOreSingle.class, new GeneratorOreSingle.Builder());
+        registerGenerator("ore_cluster", GeneratorOreCluster.class, new GeneratorOreCluster.Builder());
+        registerGenerator("weighted", GeneratorWeighted.class, new GeneratorWeighted.Builder());
+        registerGenerator("basic_tree", GeneratorBasicTree.class, new GeneratorBasicTree.Builder());
+        registerGenerator("big_tree", GeneratorBigTree.class, new GeneratorBigTree.Builder());
+        registerGenerator("bush", GeneratorBush.class, new GeneratorBush.Builder());
+        registerGenerator("flora", GeneratorFlora.class, new GeneratorFlora.Builder());
+        registerGenerator("double_flora", GeneratorDoubleFlora.class, new GeneratorDoubleFlora.Builder());
+        registerGenerator("grass", GeneratorGrass.class, new GeneratorGrass.Builder());
+        registerGenerator("logs", GeneratorLogs.class, new GeneratorLogs.Builder());
+        registerGenerator("big_mushrooms", GeneratorBigMushroom.class, new GeneratorBigMushroom.Builder());
+        registerGenerator("waterside", GeneratorWaterside.class, new GeneratorWaterside.Builder());
+        registerGenerator("splatter", GeneratorSplatter.class, new GeneratorSplatter.Builder());
+        registerGenerator("splotches", GeneratorSplotches.class, new GeneratorSplotches.Builder());
+        registerGenerator("blobs", GeneratorBlobs.class, new GeneratorBlobs.Builder());
     }
 }

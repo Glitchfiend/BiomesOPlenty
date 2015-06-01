@@ -24,11 +24,44 @@ import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryAny;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryMaterial;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryBlock;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryParseException;
+import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryState;
 import biomesoplenty.common.util.block.BlockQueryUtils.IBlockQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GeneratorBlobs extends BOPGeneratorBase
 {
+    
+    public static class Builder implements IGeneratorBuilder<GeneratorBlobs>
+    {
+        protected float amountPerChunk = 1.0F;
+        protected IBlockQuery placeOn = new BlockQueryAny(new BlockQueryBlock(Blocks.stone), new BlockQueryMaterial(Material.ground), new BlockQueryMaterial(Material.grass));
+        protected IBlockState to = Blocks.cobblestone.getDefaultState();
+        protected float minRadius = 2.0F;
+        protected float maxRadius = 5.0F;
+        protected float radiusFalloff = 0.5F;
+        protected int numBalls = 3;
+        protected ScatterYMethod scatterYMethod = ScatterYMethod.AT_OR_BELOW_SURFACE;
+        
+        public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
+        public Builder placeOn(IBlockQuery a) {this.placeOn = a; return this;}
+        public Builder placeOn(String a) throws BlockQueryParseException {this.placeOn = BlockQueryUtils.parseQueryString(a); return this;}
+        public Builder placeOn(Block a) {this.placeOn = new BlockQueryBlock(a); return this;}
+        public Builder placeOn(IBlockState a) {this.placeOn = new BlockQueryState(a); return this;}        
+        public Builder to(IBlockState a) {this.to = a; return this;}
+        public Builder minRadius(float a) {this.minRadius = a; return this;}
+        public Builder maxRadius(float a) {this.maxRadius = a; return this;}
+        public Builder radiusFalloff(float a) {this.radiusFalloff = a; return this;}
+        public Builder numBalls(int a) {this.numBalls = a; return this;}
+        public Builder scatterYMethod(ScatterYMethod a) {this.scatterYMethod = a; return this;}
+
+        @Override
+        public GeneratorBlobs create()
+        {
+            return new GeneratorBlobs(this.amountPerChunk, this.to, this.minRadius, this.maxRadius, this.radiusFalloff, this.numBalls, this.placeOn, this.scatterYMethod);
+        }
+    }
+    
+    
     protected IBlockQuery placeOn;
     protected IBlockState to;
     protected float minRadius;
@@ -36,26 +69,6 @@ public class GeneratorBlobs extends BOPGeneratorBase
     protected float radiusFalloff; // should normally be between 0 and 1 so that balls get smaller
     protected int numBalls;
     protected ScatterYMethod scatterYMethod;
-    
-    public GeneratorBlobs()
-    {
-        this(1, Blocks.cobblestone.getDefaultState(), 2.0F, 5.0F, 0.5F, 3, new BlockQueryAny(new BlockQueryBlock(Blocks.stone), new BlockQueryMaterial(Material.ground), new BlockQueryMaterial(Material.grass)), ScatterYMethod.AT_OR_BELOW_SURFACE);
-    }
-    
-    public GeneratorBlobs(float amountPerChunk, IBlockState to, float minRadius, float maxRadius, float radiusFalloff, int numBalls, String from, ScatterYMethod scatterYMethod) throws BlockQueryParseException
-    {
-        this(amountPerChunk, to, minRadius, maxRadius, radiusFalloff, numBalls, BlockQueryUtils.parseQueryString(from), scatterYMethod);
-    }
-    
-    public GeneratorBlobs(float amountPerChunk, IBlockState to, float minRadius, float maxRadius, float radiusFalloff, int numBalls, Block from, ScatterYMethod scatterYMethod)
-    {
-        this(amountPerChunk, to, minRadius, maxRadius, radiusFalloff, numBalls, new BlockQueryUtils.BlockQueryBlock(from), scatterYMethod);
-    }
-    
-    public GeneratorBlobs(float amountPerChunk, IBlockState to, float minRadius, float maxRadius, float radiusFalloff, int numBalls, IBlockState from, ScatterYMethod scatterYMethod)
-    {
-        this(amountPerChunk, to, minRadius, maxRadius, radiusFalloff, numBalls, new BlockQueryUtils.BlockQueryState(from), scatterYMethod);
-    }
 
     public GeneratorBlobs(float amountPerChunk, IBlockState to, float minRadius, float maxRadius, float radiusFalloff, int numBalls, IBlockQuery placeOn, ScatterYMethod scatterYMethod)
     {

@@ -15,7 +15,6 @@ import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
-import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.world.feature.GeneratorBlobs;
@@ -38,24 +37,22 @@ public class BiomeGenHighland extends BOPBiome
         this.addWeight(BiomeType.WARM, 7);
         
         // other plants
-        this.addGenerator("wild_carrots", GeneratorStage.FLOWERS, new GeneratorFlora(1, BlockBOPPlant.paging.getVariantState(BOPPlants.WILDCARROT)));        
+        this.addGenerator("wild_carrots", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1).flora(BOPPlants.WILDCARROT).create());
         
         // boulders
-        // TODO: make the generator only run at the surface?
-        this.addGenerator("boulders", GeneratorStage.SAND, new GeneratorBlobs(4, Blocks.cobblestone.getDefaultState(), 0.3F, 1.2F, 0.5F, 1, Blocks.grass, ScatterYMethod.AT_OR_BELOW_SURFACE));
-        this.addGenerator("big_boulders", GeneratorStage.SAND, new GeneratorBlobs(1, Blocks.cobblestone.getDefaultState(), 0.3F, 4.0F, 0.5F, 3, Blocks.grass, ScatterYMethod.AT_OR_BELOW_SURFACE));
-
+        this.addGenerator("boulders", GeneratorStage.SAND, (new GeneratorBlobs.Builder()).amountPerChunk(4).placeOn(Blocks.grass).to(Blocks.cobblestone.getDefaultState()).minRadius(0.3F).maxRadius(1.2F).numBalls(1).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
+        this.addGenerator("big_boulders", GeneratorStage.SAND, (new GeneratorBlobs.Builder()).amountPerChunk(1).placeOn(Blocks.grass).to(Blocks.cobblestone.getDefaultState()).minRadius(0.3F).maxRadius(4.0F).numBalls(3).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
 
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(100);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
-        grassGenerator.add("wheatgrass", 1, new GeneratorGrass(1, BlockBOPPlant.paging.getVariantState(BOPPlants.WHEATGRASS)));
-        grassGenerator.add("dampgrass", 1, new GeneratorGrass(1, BlockBOPPlant.paging.getVariantState(BOPPlants.DAMPGRASS)));
-        grassGenerator.add("tallgrass", 1, new GeneratorGrass(1, Blocks.tallgrass.getDefaultState().withProperty(BlockTallGrass.TYPE, BlockTallGrass.EnumType.GRASS)));
-        grassGenerator.add("doublegrass", 4, new GeneratorDoubleFlora(1, BlockDoublePlant.EnumPlantType.GRASS, 64));
-        
+        grassGenerator.add("wheatgrass", 1, (new GeneratorGrass.Builder()).grass(BOPPlants.WHEATGRASS).create());
+        grassGenerator.add("dampgrass", 1, (new GeneratorGrass.Builder()).grass(BOPPlants.DAMPGRASS).create());
+        grassGenerator.add("tallgrass", 1, (new GeneratorGrass.Builder()).grass(BlockTallGrass.EnumType.GRASS).create());
+        grassGenerator.add("doublegrass", 4, (new GeneratorDoubleFlora.Builder()).flora(BlockDoublePlant.EnumPlantType.GRASS).create());
+ 
         // gem
-        this.addGenerator("emerald", GeneratorStage.SAND, new GeneratorOreSingle(Blocks.emerald_ore.getDefaultState(), 15, 4, 32));
+        this.addGenerator("peridot", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).state(Blocks.emerald_ore.getDefaultState()).create());
    
     }
     
