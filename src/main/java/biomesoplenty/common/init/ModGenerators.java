@@ -33,5 +33,6 @@ public class ModGenerators
         registerGenerator("splotches", GeneratorSplotches.class, new GeneratorSplotches.Builder());
         registerGenerator("blobs", GeneratorBlobs.class, new GeneratorBlobs.Builder());
         registerGenerator("lakes", GeneratorLakes.class, new GeneratorLakes.Builder());
+        registerGenerator("columns", GeneratorColumns.class, new GeneratorColumns.Builder());
     }
 }
