@@ -105,16 +105,7 @@ public class GeneratorSplatter extends BOPGeneratorBase
         this.amountPerChunk = conf.getFloat("amountPerChunk", this.amountPerChunk);
         this.to = conf.getBlockState("to", this.to);
         this.generationAttempts = conf.getInt("generationAttempts", this.generationAttempts);
-        String placeOnString = conf.getString("placeOn", null);
-        if (placeOnString != null)
-        {
-            try {
-                IBlockPosQuery placeOn = BlockQueryUtils.parseQueryString(placeOnString);
-                this.placeOn = placeOn;
-            } catch (BlockQueryParseException e) {
-                conf.addMessage("placeOn", e.getMessage());
-            }
-        }
+        this.placeOn = conf.getBlockPosQuery("placeOn", this.placeOn);
         this.scatterYMethod = conf.getEnum("scatterYMethod", this.scatterYMethod, ScatterYMethod.class);
     }
     

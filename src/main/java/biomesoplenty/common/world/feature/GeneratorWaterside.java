@@ -119,17 +119,8 @@ public class GeneratorWaterside extends BOPGeneratorBase
     {
         this.amountPerChunk = conf.getFloat("amountPerChunk", this.amountPerChunk);
         this.maxRadius = conf.getInt("maxRadius", this.maxRadius);
-        this.to = conf.getBlockState("to", this.to);        
-        String fromString = conf.getString("from", null);
-        if (fromString != null)
-        {
-            try {
-                IBlockPosQuery from = BlockQueryUtils.parseQueryString(fromString);
-                this.from = from;
-            } catch (BlockQueryParseException e) {
-                conf.addMessage("from", e.getMessage());
-            }
-        }    
+        this.to = conf.getBlockState("to", this.to);
+        this.from = conf.getBlockPosQuery("from", this.from);  
     }
 
 }

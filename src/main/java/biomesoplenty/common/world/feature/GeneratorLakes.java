@@ -300,16 +300,7 @@ public class GeneratorLakes extends BOPGeneratorBase
         this.lineWith = conf.getBlockState("lineWith", this.lineWith);
         this.grassBorderWith = conf.getBlockState("grassBorderWith", this.grassBorderWith);
         this.frozenLiquid = conf.getBlockState("frozenLiquid", this.frozenLiquid);
-        String grassReplaceString = conf.getString("grassReplace", null);
-        if (grassReplaceString != null)
-        {
-            try {
-                IBlockPosQuery grassReplace = BlockQueryUtils.parseQueryString(grassReplaceString);
-                this.grassReplace = grassReplace;
-            } catch (BlockQueryParseException e) {
-                conf.addMessage("grassReplace", e.getMessage());
-            }
-        }
+        this.grassReplace = conf.getBlockPosQuery("grassReplace", this.grassReplace);
     }
     
 }

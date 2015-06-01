@@ -158,16 +158,7 @@ public class GeneratorSplotches extends BOPGeneratorBase
         this.amountPerChunk = conf.getFloat("amountPerChunk", this.amountPerChunk);
         this.to = conf.getBlockState("to", this.to);
         this.splotchSize = conf.getInt("splotchSize", this.splotchSize);
-        String fromString = conf.getString("from", null);
-        if (fromString != null)
-        {
-            try {
-                IBlockPosQuery from = BlockQueryUtils.parseQueryString(fromString);
-                this.from = from;
-            } catch (BlockQueryParseException e) {
-                conf.addMessage("from", e.getMessage());
-            }
-        }
+        this.from = conf.getBlockPosQuery("from", this.from);
         this.scatterYMethod = conf.getEnum("scatterYMethod", this.scatterYMethod, ScatterYMethod.class);
     }
 

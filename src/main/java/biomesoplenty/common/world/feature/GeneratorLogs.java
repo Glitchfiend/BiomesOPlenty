@@ -146,16 +146,7 @@ public class GeneratorLogs extends BOPGeneratorBase
         }
         this.minLength = conf.getInt("minLength", this.minLength);
         this.maxLength = conf.getInt("maxLength", this.maxLength);
-        String placeOnString = conf.getString("placeOn", null);
-        if (placeOnString != null)
-        {
-            try {
-                IBlockPosQuery placeOn = BlockQueryUtils.parseQueryString(placeOnString);
-                this.placeOn = placeOn;
-            } catch (BlockQueryParseException e) {
-                conf.addMessage("placeOn", e.getMessage());
-            }
-        }
+        this.placeOn = conf.getBlockPosQuery("placeOn", this.placeOn);
     }
     
 }

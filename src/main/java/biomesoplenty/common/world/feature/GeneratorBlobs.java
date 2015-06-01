@@ -176,16 +176,7 @@ public class GeneratorBlobs extends BOPGeneratorBase
         this.minRadius = conf.getFloat("innerRadius", this.minRadius);
         this.radiusFalloff = conf.getFloat("radiusFalloff", this.radiusFalloff);
         this.numBalls = conf.getInt("numBalls", this.numBalls);
-        String placeOnString = conf.getString("placeOn", null);
-        if (placeOnString != null)
-        {
-            try {
-                IBlockPosQuery placeOn = BlockQueryUtils.parseQueryString(placeOnString);
-                this.placeOn = placeOn;
-            } catch (BlockQueryParseException e) {
-                conf.addMessage("placeOn", e.getMessage());
-            }
-        }
+        this.placeOn = conf.getBlockPosQuery("placeOn", this.placeOn);
         this.scatterYMethod = conf.getEnum("scatterYMethod", this.scatterYMethod, ScatterYMethod.class);
     }
     
