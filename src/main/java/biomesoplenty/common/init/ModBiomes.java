@@ -80,6 +80,7 @@ public class ModBiomes
         flowerField = registerBOPBiome(new BiomeGenFlowerField(), "Flower Field");
         highland = registerBOPBiome(new BiomeGenHighland(), "Highland");
         lavenderFields = registerBOPBiome(new BiomeGenLavenderFields(), "Lavender Fields");
+        marsh = registerBOPBiome(new BiomeGenMarsh(), "Marsh");
         originValley = registerBOPBiome(new BiomeGenOriginValley(), "Origin Valley");
         shrubland = registerBOPBiome(new BiomeGenShrubland(), "Shrubland");
         steppe = registerBOPBiome(new BiomeGenSteppe(), "Steppe");
