@@ -37,6 +37,7 @@ public class GeneratorColumns extends BOPGeneratorBase
         protected IBlockState to = Blocks.cobblestone.getDefaultState();
         protected int minHeight = 2;
         protected int maxHeight = 4;
+        protected int generationAttempts = 12;
         
         public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
         public Builder placeOn(IBlockPosQuery a) {this.placeOn = a; return this;}
@@ -46,11 +47,13 @@ public class GeneratorColumns extends BOPGeneratorBase
         public Builder to(IBlockState a) {this.to = a; return this;}
         public Builder minHeight(int a) {this.minHeight = a; return this;}
         public Builder maxHeight(int a) {this.maxHeight = a; return this;}
+        public Builder generationAttempts(int a) {this.generationAttempts = a; return this;}
+
 
         @Override
         public GeneratorColumns create()
         {
-            return new GeneratorColumns(this.amountPerChunk, this.to, this.minHeight, this.maxHeight, this.placeOn);
+            return new GeneratorColumns(this.amountPerChunk, this.to, this.minHeight, this.maxHeight, this.placeOn, this.generationAttempts);
         }
     }
     
@@ -59,14 +62,16 @@ public class GeneratorColumns extends BOPGeneratorBase
     protected IBlockState to;
     protected int minHeight;
     protected int maxHeight;
+    protected int generationAttempts;
 
-    public GeneratorColumns(float amountPerChunk, IBlockState to, int minHeight, int maxHeight, IBlockPosQuery placeOn)
+    public GeneratorColumns(float amountPerChunk, IBlockState to, int minHeight, int maxHeight, IBlockPosQuery placeOn, int generationAttempts)
     {
         super(amountPerChunk);
         this.to = to;
         this.minHeight = minHeight;
         this.maxHeight = maxHeight;
         this.placeOn = placeOn;
+        this.generationAttempts = generationAttempts;
     }
     
     @Override
@@ -79,22 +84,24 @@ public class GeneratorColumns extends BOPGeneratorBase
     @Override
     public boolean generate(World world, Random rand, BlockPos pos)
     {
-        
-        // move upwards until we find an air block
-        while (!world.isAirBlock(pos)) {pos = pos.up();}
-        
-        // if we can't place the column, abandon now
-        if (!this.placeOn.matches(world, pos.down())) {return false;}
-        
-        // choose random target height
-        int height = GeneratorUtils.nextIntBetween(rand, this.minHeight, this.maxHeight);
-        
-        // keep placing blocks upwards (if there's room)
-        while(height > 0 && world.isAirBlock(pos))
+        for (int i = 0; i < this.generationAttempts; ++i)
         {
-            world.setBlockState(pos, this.to);
-            pos = pos.up();
-            height--;
+            BlockPos genPos = pos.add(rand.nextInt(4) - rand.nextInt(4), rand.nextInt(3) - rand.nextInt(3), rand.nextInt(4) - rand.nextInt(4));
+                
+            // see if we can place the column
+            if (this.placeOn.matches(world, genPos.down()))
+            {
+                // choose random target height
+                int height = GeneratorUtils.nextIntBetween(rand, this.minHeight, this.maxHeight);
+                
+                // keep placing blocks upwards (if there's room)
+                while(height > 0 && world.isAirBlock(genPos))
+                {
+                    world.setBlockState(genPos, this.to);
+                    genPos = genPos.up();
+                    height--;
+                }
+            }
         }
         return true;
     }
@@ -106,6 +113,7 @@ public class GeneratorColumns extends BOPGeneratorBase
         this.to = conf.getBlockState("to", this.to);
         this.minHeight = conf.getInt("minHeight", this.minHeight);
         this.maxHeight = conf.getInt("maxHeight", this.maxHeight);
+        this.generationAttempts = conf.getInt("generationAttempts", this.generationAttempts);
         String placeOnString = conf.getString("placeOn", null);
         if (placeOnString != null)
         {
