@@ -117,8 +117,8 @@ public class GeneratorLogs extends BOPGeneratorBase
         BlockLog.EnumAxis direction = (random.nextInt(2) == 0) ? BlockLog.EnumAxis.X : BlockLog.EnumAxis.Z;
         int length = this.minLength + random.nextInt(this.maxLength - this.minLength);
         
-        // keep placing logs along the chosen direction (as long as the block beaneath is suitable)
-        while(length > 0 && this.placeOn.matches(world.getBlockState(pos.down())))
+        // keep placing logs along the chosen direction (as long as the block beneath is suitable)
+        while(length > 0 && world.isAirBlock(pos) && this.placeOn.matches(world.getBlockState(pos.down())))
         {
             world.setBlockState(pos, this.log.withProperty(this.axisProperty, direction));
             pos = (direction == BlockLog.EnumAxis.X) ? pos.east() : pos.north();
