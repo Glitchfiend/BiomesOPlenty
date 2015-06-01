@@ -20,12 +20,12 @@ import net.minecraft.world.World;
 import biomesoplenty.api.biome.generation.BOPGeneratorBase;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQueryUtils;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryAny;
+import biomesoplenty.common.util.block.BlockQueryUtils.BlockPosQueryAny;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryMaterial;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryBlock;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryParseException;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryState;
-import biomesoplenty.common.util.block.BlockQueryUtils.IBlockQuery;
+import biomesoplenty.common.util.block.BlockQueryUtils.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GeneratorBlobs extends BOPGeneratorBase
@@ -34,7 +34,7 @@ public class GeneratorBlobs extends BOPGeneratorBase
     public static class Builder implements IGeneratorBuilder<GeneratorBlobs>
     {
         protected float amountPerChunk = 1.0F;
-        protected IBlockQuery placeOn = new BlockQueryAny(new BlockQueryBlock(Blocks.stone), new BlockQueryMaterial(Material.ground), new BlockQueryMaterial(Material.grass));
+        protected IBlockPosQuery placeOn = new BlockPosQueryAny(new BlockQueryBlock(Blocks.stone), new BlockQueryMaterial(Material.ground), new BlockQueryMaterial(Material.grass));
         protected IBlockState to = Blocks.cobblestone.getDefaultState();
         protected float minRadius = 2.0F;
         protected float maxRadius = 5.0F;
@@ -43,7 +43,7 @@ public class GeneratorBlobs extends BOPGeneratorBase
         protected ScatterYMethod scatterYMethod = ScatterYMethod.AT_OR_BELOW_SURFACE;
         
         public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
-        public Builder placeOn(IBlockQuery a) {this.placeOn = a; return this;}
+        public Builder placeOn(IBlockPosQuery a) {this.placeOn = a; return this;}
         public Builder placeOn(String a) throws BlockQueryParseException {this.placeOn = BlockQueryUtils.parseQueryString(a); return this;}
         public Builder placeOn(Block a) {this.placeOn = new BlockQueryBlock(a); return this;}
         public Builder placeOn(IBlockState a) {this.placeOn = new BlockQueryState(a); return this;}        
@@ -62,7 +62,7 @@ public class GeneratorBlobs extends BOPGeneratorBase
     }
     
     
-    protected IBlockQuery placeOn;
+    protected IBlockPosQuery placeOn;
     protected IBlockState to;
     protected float minRadius;
     protected float maxRadius;
@@ -70,7 +70,7 @@ public class GeneratorBlobs extends BOPGeneratorBase
     protected int numBalls;
     protected ScatterYMethod scatterYMethod;
 
-    public GeneratorBlobs(float amountPerChunk, IBlockState to, float minRadius, float maxRadius, float radiusFalloff, int numBalls, IBlockQuery placeOn, ScatterYMethod scatterYMethod)
+    public GeneratorBlobs(float amountPerChunk, IBlockState to, float minRadius, float maxRadius, float radiusFalloff, int numBalls, IBlockPosQuery placeOn, ScatterYMethod scatterYMethod)
     {
         super(amountPerChunk);
         this.to = to;
@@ -92,7 +92,7 @@ public class GeneratorBlobs extends BOPGeneratorBase
     public boolean generate(World world, Random rand, BlockPos pos)
     {
         // move downwards until we find a block matching this.placeOn
-        while (pos.getY() > 3 && !placeOn.matches(world.getBlockState(pos.down())))
+        while (pos.getY() > 3 && !placeOn.matches(world, pos.down()))
         {
             pos = pos.down();
         }
@@ -180,7 +180,7 @@ public class GeneratorBlobs extends BOPGeneratorBase
         if (placeOnString != null)
         {
             try {
-                IBlockQuery placeOn = BlockQueryUtils.parseQueryString(placeOnString);
+                IBlockPosQuery placeOn = BlockQueryUtils.parseQueryString(placeOnString);
                 this.placeOn = placeOn;
             } catch (BlockQueryParseException e) {
                 conf.addMessage("placeOn", e.getMessage());

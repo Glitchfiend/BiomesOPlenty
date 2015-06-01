@@ -23,12 +23,12 @@ import biomesoplenty.api.biome.generation.BOPGeneratorBase;
 import biomesoplenty.common.block.BlockBOPLog;
 import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.util.block.BlockQueryUtils;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryAny;
+import biomesoplenty.common.util.block.BlockQueryUtils.BlockPosQueryAny;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryBlock;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryMaterial;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryParseException;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryState;
-import biomesoplenty.common.util.block.BlockQueryUtils.IBlockQuery;
+import biomesoplenty.common.util.block.BlockQueryUtils.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GeneratorLogs extends BOPGeneratorBase
@@ -38,14 +38,14 @@ public class GeneratorLogs extends BOPGeneratorBase
     {
         protected float amountPerChunk = 1.0F;
         protected IBlockState log = Blocks.log.getDefaultState();
-        protected IBlockQuery placeOn = new BlockQueryAny(new BlockQueryMaterial(Material.ground), new BlockQueryMaterial(Material.grass));
+        protected IBlockPosQuery placeOn = new BlockPosQueryAny(new BlockQueryMaterial(Material.ground), new BlockQueryMaterial(Material.grass));
         protected int minLength = 3;
         protected int maxLength = 5;
         
         public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
         public Builder log(IBlockState a) {this.log = a; return this;}
         public Builder log(BOPWoods a) {this.log = BlockBOPLog.paging.getVariantState(a); return this;}
-        public Builder placeOn(IBlockQuery a) {this.placeOn = a; return this;}
+        public Builder placeOn(IBlockPosQuery a) {this.placeOn = a; return this;}
         public Builder placeOn(String a) throws BlockQueryParseException {this.placeOn = BlockQueryUtils.parseQueryString(a); return this;}
         public Builder placeOn(Block a) {this.placeOn = new BlockQueryBlock(a); return this;}
         public Builder placeOn(IBlockState a) {this.placeOn = new BlockQueryState(a); return this;}      
@@ -61,11 +61,11 @@ public class GeneratorLogs extends BOPGeneratorBase
     
     protected IBlockState log;
     protected IProperty axisProperty;
-    protected IBlockQuery placeOn;
+    protected IBlockPosQuery placeOn;
     protected int minLength;
     protected int maxLength;
     
-    public GeneratorLogs(float amountPerChunk, IBlockState log, int minLength, int maxLength, IBlockQuery placeOn)
+    public GeneratorLogs(float amountPerChunk, IBlockState log, int minLength, int maxLength, IBlockPosQuery placeOn)
     {
         
         super(amountPerChunk);
@@ -111,14 +111,14 @@ public class GeneratorLogs extends BOPGeneratorBase
         while (!world.isAirBlock(pos)) {pos = pos.up();}
         
         // if we can't start placing the log, abandon now
-        if (!this.placeOn.matches(world.getBlockState(pos.down()))) {return false;}
+        if (!this.placeOn.matches(world, pos.down())) {return false;}
         
         // choose random direction and target length
         BlockLog.EnumAxis direction = (random.nextInt(2) == 0) ? BlockLog.EnumAxis.X : BlockLog.EnumAxis.Z;
         int length = this.minLength + random.nextInt(this.maxLength - this.minLength);
         
         // keep placing logs along the chosen direction (as long as the block beneath is suitable)
-        while(length > 0 && world.isAirBlock(pos) && this.placeOn.matches(world.getBlockState(pos.down())))
+        while(length > 0 && world.isAirBlock(pos) && this.placeOn.matches(world, pos.down()))
         {
             world.setBlockState(pos, this.log.withProperty(this.axisProperty, direction));
             pos = (direction == BlockLog.EnumAxis.X) ? pos.east() : pos.north();
@@ -150,7 +150,7 @@ public class GeneratorLogs extends BOPGeneratorBase
         if (placeOnString != null)
         {
             try {
-                IBlockQuery placeOn = BlockQueryUtils.parseQueryString(placeOnString);
+                IBlockPosQuery placeOn = BlockQueryUtils.parseQueryString(placeOnString);
                 this.placeOn = placeOn;
             } catch (BlockQueryParseException e) {
                 conf.addMessage("placeOn", e.getMessage());

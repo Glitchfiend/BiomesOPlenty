@@ -14,8 +14,8 @@ import biomesoplenty.api.biome.generation.BOPGeneratorBase;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQueryUtils;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryParseException;
-import biomesoplenty.common.util.block.BlockQueryUtils.IBlockQuery;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryAny;
+import biomesoplenty.common.util.block.BlockQueryUtils.IBlockPosQuery;
+import biomesoplenty.common.util.block.BlockQueryUtils.BlockPosQueryAny;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryMaterial;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryBlock;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryState;
@@ -33,13 +33,13 @@ public class GeneratorSplatter extends BOPGeneratorBase
     public static class Builder implements IGeneratorBuilder<GeneratorSplatter>
     {
         protected float amountPerChunk = 1.0F;
-        protected IBlockQuery placeOn = new BlockQueryBlock(Blocks.grass);
+        protected IBlockPosQuery placeOn = new BlockQueryBlock(Blocks.grass);
         protected int generationAttempts = 64;
         protected IBlockState to = Blocks.stone.getDefaultState();
         protected ScatterYMethod scatterYMethod = ScatterYMethod.ANYWHERE;
         
         public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
-        public Builder placeOn(IBlockQuery a) {this.placeOn = a; return this;}
+        public Builder placeOn(IBlockPosQuery a) {this.placeOn = a; return this;}
         public Builder placeOn(String a) throws BlockQueryParseException {this.placeOn = BlockQueryUtils.parseQueryString(a); return this;}
         public Builder placeOn(Block a) {this.placeOn = new BlockQueryBlock(a); return this;}
         public Builder placeOn(IBlockState a) {this.placeOn = new BlockQueryState(a); return this;}        
@@ -55,14 +55,14 @@ public class GeneratorSplatter extends BOPGeneratorBase
     }
     
     
-    private static IBlockQuery isLeavesOrAir = new BlockQueryAny(new BlockQueryMaterial(Material.leaves), new BlockQueryMaterial(Material.air));
+    private static IBlockPosQuery isLeavesOrAir = new BlockPosQueryAny(new BlockQueryMaterial(Material.leaves), new BlockQueryMaterial(Material.air));
     
-    protected IBlockQuery placeOn;
+    protected IBlockPosQuery placeOn;
     protected int generationAttempts;
     protected IBlockState to;
     protected ScatterYMethod scatterYMethod;
     
-    public GeneratorSplatter(float amountPerChunk, IBlockState to, int generationAttempts, IBlockQuery placeOn, ScatterYMethod scatterYMethod)
+    public GeneratorSplatter(float amountPerChunk, IBlockState to, int generationAttempts, IBlockPosQuery placeOn, ScatterYMethod scatterYMethod)
     {
         super(amountPerChunk);
         this.to = to;
@@ -81,7 +81,7 @@ public class GeneratorSplatter extends BOPGeneratorBase
     public boolean generate(World world, Random rand, BlockPos pos)
     {         
         // if we're in the air, move down until we're not
-        while (pos.getY() > 0 && isLeavesOrAir.matches(world.getBlockState(pos)))
+        while (pos.getY() > 0 && isLeavesOrAir.matches(world, pos))
         {
             pos = pos.down();
         }
@@ -90,7 +90,7 @@ public class GeneratorSplatter extends BOPGeneratorBase
         for (int i = 0; i < this.generationAttempts; ++i)
         {
             BlockPos pos1 = pos.add(rand.nextInt(8) - rand.nextInt(8), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(8) - rand.nextInt(8));
-            if (world.isAirBlock(pos1) && this.placeOn.matches(world.getBlockState(pos1.down())))
+            if (world.isAirBlock(pos1) && this.placeOn.matches(world, pos1.down()))
             {
                 world.setBlockState(pos1, this.to);
             }
@@ -109,7 +109,7 @@ public class GeneratorSplatter extends BOPGeneratorBase
         if (placeOnString != null)
         {
             try {
-                IBlockQuery placeOn = BlockQueryUtils.parseQueryString(placeOnString);
+                IBlockPosQuery placeOn = BlockQueryUtils.parseQueryString(placeOnString);
                 this.placeOn = placeOn;
             } catch (BlockQueryParseException e) {
                 conf.addMessage("placeOn", e.getMessage());

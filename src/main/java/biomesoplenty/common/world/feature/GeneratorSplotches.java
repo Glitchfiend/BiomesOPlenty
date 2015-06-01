@@ -22,7 +22,7 @@ import biomesoplenty.common.util.block.BlockQueryUtils;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryBlock;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryParseException;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryState;
-import biomesoplenty.common.util.block.BlockQueryUtils.IBlockQuery;
+import biomesoplenty.common.util.block.BlockQueryUtils.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GeneratorSplotches extends BOPGeneratorBase
@@ -31,13 +31,13 @@ public class GeneratorSplotches extends BOPGeneratorBase
     public static class Builder implements IGeneratorBuilder<GeneratorSplotches>
     {
         protected float amountPerChunk = 1.0F;
-        protected IBlockQuery from = new BlockQueryBlock(Blocks.grass);
+        protected IBlockPosQuery from = new BlockQueryBlock(Blocks.grass);
         protected IBlockState to = Blocks.cobblestone.getDefaultState();
         protected int splotchSize = 8;
         protected ScatterYMethod scatterYMethod = ScatterYMethod.AT_OR_BELOW_SURFACE;
         
         public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
-        public Builder from(IBlockQuery a) {this.from = a; return this;}
+        public Builder from(IBlockPosQuery a) {this.from = a; return this;}
         public Builder from(String a) throws BlockQueryParseException {this.from = BlockQueryUtils.parseQueryString(a); return this;}
         public Builder from(Block a) {this.from = new BlockQueryBlock(a); return this;}
         public Builder from(IBlockState a) {this.from = new BlockQueryState(a); return this;}        
@@ -53,12 +53,12 @@ public class GeneratorSplotches extends BOPGeneratorBase
     }
     
     
-    protected IBlockQuery from;
+    protected IBlockPosQuery from;
     protected IBlockState to;
     protected int splotchSize;
     protected ScatterYMethod scatterYMethod;
  
-    public GeneratorSplotches(float amountPerChunk, IBlockState to, int splotchSize, IBlockQuery from, ScatterYMethod scatterYMethod)
+    public GeneratorSplotches(float amountPerChunk, IBlockState to, int splotchSize, IBlockPosQuery from, ScatterYMethod scatterYMethod)
     {
         super(amountPerChunk);
         this.to = to;
@@ -145,7 +145,7 @@ public class GeneratorSplotches extends BOPGeneratorBase
     
     public void replaceAt(World world, BlockPos pos)
     {
-        if (from.matches(world.getBlockState(pos)))
+        if (from.matches(world, pos))
         {
             world.setBlockState(pos, this.to, 2);
         }
@@ -162,7 +162,7 @@ public class GeneratorSplotches extends BOPGeneratorBase
         if (fromString != null)
         {
             try {
-                IBlockQuery from = BlockQueryUtils.parseQueryString(fromString);
+                IBlockPosQuery from = BlockQueryUtils.parseQueryString(fromString);
                 this.from = from;
             } catch (BlockQueryParseException e) {
                 conf.addMessage("from", e.getMessage());

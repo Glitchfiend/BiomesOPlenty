@@ -22,6 +22,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.BlockPos;
+import net.minecraft.world.World;
 
 public class BlockQueryUtils
 {
@@ -34,78 +36,134 @@ public class BlockQueryUtils
         }
     }
     
-    public static interface IBlockQuery
-    {        
-        public boolean matches(IBlockState state);
-    }
     
-    public static final Map<String, IBlockQuery> predefined = new HashMap<String, IBlockQuery>();
+    /***** IBlockPosQuery *****/
+    // for queries on a particular block position in the world
     
-
-    // Match a block if any of the children match
-    public static class BlockQueryAny implements IBlockQuery
+    public static interface IBlockPosQuery
     {
-        private ArrayList<IBlockQuery> children;
-        public BlockQueryAny(IBlockQuery... children)
+        public boolean matches(World world, BlockPos pos);
+    }    
+        
+
+    // Match a block pos if any of the children match
+    public static class BlockPosQueryAny implements IBlockPosQuery
+    {
+        private ArrayList<IBlockPosQuery> children;
+        public BlockPosQueryAny(IBlockPosQuery... children)
         {
-            this.children = new ArrayList<IBlockQuery>(Arrays.asList(children));
+            this.children = new ArrayList<IBlockPosQuery>(Arrays.asList(children));
         }
         @Override
-        public boolean matches(IBlockState state)
+        public boolean matches(World world, BlockPos pos)
         {
-            for (IBlockQuery child : this.children)
+            for (IBlockPosQuery child : this.children)
             {
-                if (child.matches(state))
+                if (child.matches(world, pos))
                 {
                     return true;
                 }
             }
             return false;
         }
-        
-        public void add(IBlockQuery child)
+        public void add(IBlockPosQuery child)
         {
             if (child != null) {this.children.add(child);}
         }
-        public IBlockQuery instance()
+        public IBlockPosQuery instance()
         {
             return this.children.size() == 1 ? this.children.get(0) : this;
         }
     }
     
-    // Match a block if all of the children match
-    public static class BlockQueryAll implements IBlockQuery
+    // Match a block pos if all of the children match
+    public static class BlockPosQueryAll implements IBlockPosQuery
     {
-        private ArrayList<IBlockQuery> children;
-        public BlockQueryAll(IBlockQuery... children)
+        private ArrayList<IBlockPosQuery> children;
+        public BlockPosQueryAll(IBlockPosQuery... children)
         {
-            this.children = new ArrayList<IBlockQuery>(Arrays.asList(children));
+            this.children = new ArrayList<IBlockPosQuery>(Arrays.asList(children));
         }
         @Override
-        public boolean matches(IBlockState state)
+        public boolean matches(World world, BlockPos pos)
         {
-            for (IBlockQuery child : this.children)
+            for (IBlockPosQuery child : this.children)
             {
-                if (!child.matches(state))
+                if (!child.matches(world, pos))
                 {
                     return false;
                 }
             }
             return true;
         }
-        
-        public void add(IBlockQuery child)
+        public void add(IBlockPosQuery child)
         {
             if (child != null) {this.children.add(child);}
         }
-        public IBlockQuery instance()
+        public IBlockPosQuery instance()
         {
             return this.children.size() == 1 ? this.children.get(0) : this;
         }
     }
     
-    // Match a block if the child does not match
-    public static class BlockQueryNot implements IBlockQuery
+    
+    // Match a block pos if the child does not match
+    public static class BlockPosQueryNot implements IBlockPosQuery
+    {
+        IBlockPosQuery child;
+        public BlockPosQueryNot(IBlockPosQuery child)
+        {
+            this.child = child;
+        }
+        @Override
+        public boolean matches(World world, BlockPos pos)
+        {
+            return !this.child.matches(world, pos);
+        }
+    }
+    
+    // Match block positions adjacent to water
+    public static class BlockPosQueryHasWater implements IBlockPosQuery
+    {
+        public BlockPosQueryHasWater()
+        {
+            ;
+        }
+        @Override
+        public boolean matches(World world, BlockPos pos)
+        {
+            return (world.getBlockState(pos.west()).getBlock().getMaterial() == Material.water || world.getBlockState(pos.east()).getBlock().getMaterial() == Material.water || world.getBlockState(pos.north()).getBlock().getMaterial() == Material.water || world.getBlockState(pos.south()).getBlock().getMaterial() == Material.water);
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /***** IBlockQuery *****/
+    // for queries which depend only on the block state, and not on it's neighbors or position in the world
+    
+    
+    public static interface IBlockQuery extends IBlockPosQuery
+    {
+        public boolean matches(IBlockState state);
+    }
+    
+    public static abstract class BlockQueryBase implements IBlockQuery
+    {
+        @Override
+        public boolean matches(World world, BlockPos pos)
+        {
+            return this.matches(world.getBlockState(pos));
+        }        
+    }
+    
+    // Match a block pos if the child does not match
+    public static class BlockQueryNot extends BlockQueryBase
     {
         IBlockQuery child;
         public BlockQueryNot(IBlockQuery child)
@@ -120,7 +178,7 @@ public class BlockQueryUtils
     }
     
     // Match against a particular block instance
-    public static class BlockQueryBlock implements IBlockQuery
+    public static class BlockQueryBlock extends BlockQueryBase
     {
         private Block block;
         
@@ -149,7 +207,7 @@ public class BlockQueryUtils
     }
     
     // Match against a particular block state instance
-    public static class BlockQueryState implements IBlockQuery
+    public static class BlockQueryState extends BlockQueryBase
     {
         private IBlockState state;
         
@@ -166,7 +224,7 @@ public class BlockQueryUtils
     }
     
     // Match against a block class
-    public static class BlockQueryClass implements IBlockQuery
+    public static class BlockQueryClass extends BlockQueryBase
     {
         public static String[] packages = {"","biomesoplenty.common.block.","net.minecraft.block."};
         
@@ -211,7 +269,7 @@ public class BlockQueryUtils
     }
     
     // Match against a state property value
-    public static class BlockQueryProperty implements IBlockQuery
+    public static class BlockQueryProperty extends BlockQueryBase
     {
         private static Pattern propertyNameValueRegex = Pattern.compile("^\\s*((\\w+)\\s*=\\s*)?([\\w\\|]+)\\s*$");
         
@@ -262,7 +320,7 @@ public class BlockQueryUtils
     }
     
     // Match against a block material
-    public static class BlockQueryMaterial implements IBlockQuery
+    public static class BlockQueryMaterial extends BlockQueryBase
     {
         private Material material;
         public BlockQueryMaterial(Material material)
@@ -290,15 +348,25 @@ public class BlockQueryUtils
         }
     }
     
+    
+
+    
+    
+    
+    /***** Parsing from a string *****/
+    
+    
+    public static final Map<String, IBlockPosQuery> predefined = new HashMap<String, IBlockPosQuery>();
+    
     // regular expression to match a token in a block query - eg  'sand' '%BlockBOPLeaves' '[facing=up]' etc
     private static Pattern nextTokenRegex = Pattern.compile("^(!?([\\w:]+|\\%\\w+|\\$\\w+|~\\w+|\\[.+\\]|@\\w+))");
     // regular expression for splitting up a comma delimited list
     private static Pattern commaDelimitRegex = Pattern.compile("\\s*,\\s*");
     
     // parse the given block query string and return the equivalent IBlockQuery object
-    public static IBlockQuery parseQueryString(String spec) throws BlockQueryParseException
+    public static IBlockPosQuery parseQueryString(String spec) throws BlockQueryParseException
     {
-        BlockQueryAny bmAny = new BlockQueryAny();
+        BlockPosQueryAny bmAny = new BlockPosQueryAny();
         String[] subspecs = commaDelimitRegex.split(spec);
         for (String subspec : subspecs)
         {
@@ -308,9 +376,9 @@ public class BlockQueryUtils
     }
     
     
-    private static IBlockQuery parseQueryStringSingle(String spec) throws BlockQueryParseException
+    private static IBlockPosQuery parseQueryStringSingle(String spec) throws BlockQueryParseException
     {
-        BlockQueryAll bmAll = new BlockQueryAll();
+        BlockPosQueryAll bmAll = new BlockPosQueryAll();
         
         Matcher m = nextTokenRegex.matcher(spec);
         while (spec.length() > 0)
@@ -353,12 +421,12 @@ public class BlockQueryUtils
             }
             else if (token.charAt(0) == '@')
             {
-                IBlockQuery bm = predefined.get(token.substring(1));
+                IBlockPosQuery bm = predefined.get(token.substring(1));
                 if (bm == null)
                 {
-                    throw new BlockQueryParseException("No predefined matcher named " + token.substring(1));
+                    throw new BlockQueryParseException("No predefined query named " + token.substring(1));
                 }
-                bmAll.add( negated ? new BlockQueryNot(bm) : bm );
+                bmAll.add( negated ? new BlockPosQueryNot(bm) : bm );
             }
             else
             {

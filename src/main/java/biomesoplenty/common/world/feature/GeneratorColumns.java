@@ -19,12 +19,12 @@ import net.minecraft.world.World;
 import biomesoplenty.api.biome.generation.BOPGeneratorBase;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.util.block.BlockQueryUtils;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryAny;
+import biomesoplenty.common.util.block.BlockQueryUtils.BlockPosQueryAny;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryMaterial;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryBlock;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryParseException;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryState;
-import biomesoplenty.common.util.block.BlockQueryUtils.IBlockQuery;
+import biomesoplenty.common.util.block.BlockQueryUtils.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GeneratorColumns extends BOPGeneratorBase
@@ -33,13 +33,13 @@ public class GeneratorColumns extends BOPGeneratorBase
     public static class Builder implements IGeneratorBuilder<GeneratorColumns>
     {
         protected float amountPerChunk = 1.0F;
-        protected IBlockQuery placeOn = new BlockQueryAny(new BlockQueryMaterial(Material.ground), new BlockQueryMaterial(Material.grass));
+        protected IBlockPosQuery placeOn = new BlockPosQueryAny(new BlockQueryMaterial(Material.ground), new BlockQueryMaterial(Material.grass));
         protected IBlockState to = Blocks.cobblestone.getDefaultState();
         protected int minHeight = 2;
         protected int maxHeight = 4;
         
         public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
-        public Builder placeOn(IBlockQuery a) {this.placeOn = a; return this;}
+        public Builder placeOn(IBlockPosQuery a) {this.placeOn = a; return this;}
         public Builder placeOn(String a) throws BlockQueryParseException {this.placeOn = BlockQueryUtils.parseQueryString(a); return this;}
         public Builder placeOn(Block a) {this.placeOn = new BlockQueryBlock(a); return this;}
         public Builder placeOn(IBlockState a) {this.placeOn = new BlockQueryState(a); return this;}        
@@ -55,12 +55,12 @@ public class GeneratorColumns extends BOPGeneratorBase
     }
     
     
-    protected IBlockQuery placeOn;
+    protected IBlockPosQuery placeOn;
     protected IBlockState to;
     protected int minHeight;
     protected int maxHeight;
 
-    public GeneratorColumns(float amountPerChunk, IBlockState to, int minHeight, int maxHeight, IBlockQuery placeOn)
+    public GeneratorColumns(float amountPerChunk, IBlockState to, int minHeight, int maxHeight, IBlockPosQuery placeOn)
     {
         super(amountPerChunk);
         this.to = to;
@@ -84,7 +84,7 @@ public class GeneratorColumns extends BOPGeneratorBase
         while (!world.isAirBlock(pos)) {pos = pos.up();}
         
         // if we can't place the column, abandon now
-        if (!this.placeOn.matches(world.getBlockState(pos.down()))) {return false;}
+        if (!this.placeOn.matches(world, pos.down())) {return false;}
         
         // choose random target height
         int height = GeneratorUtils.nextIntBetween(rand, this.minHeight, this.maxHeight);
@@ -110,7 +110,7 @@ public class GeneratorColumns extends BOPGeneratorBase
         if (placeOnString != null)
         {
             try {
-                IBlockQuery placeOn = BlockQueryUtils.parseQueryString(placeOnString);
+                IBlockPosQuery placeOn = BlockQueryUtils.parseQueryString(placeOnString);
                 this.placeOn = placeOn;
             } catch (BlockQueryParseException e) {
                 conf.addMessage("placeOn", e.getMessage());
