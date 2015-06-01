@@ -51,7 +51,7 @@ public class BiomeGenMarsh extends BOPBiome
         // lakes (it might seem obvious that lakes should be done at GeneratorStage.WATER_LAKES, but that is actually executed very late, after all plants and flowers
         // TODO: find a way to make the lakes shallower
         // TODO: put splotches of mud on the bottom? Either using a new GeneratorSplotches or perhaps by adding a lake parameter
-        this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(1.5F).waterLakeFor(this).create());
+        this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(1.5F).waterLakeForBiome(this).create());
         
         // mud
         this.addGenerator("mud", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(8).maxRadius(7).to(BOPBlocks.mud.getDefaultState().withProperty(BlockMud.VARIANT, BlockMud.MudType.MUD)).create());

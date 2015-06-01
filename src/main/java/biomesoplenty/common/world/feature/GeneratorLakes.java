@@ -49,7 +49,7 @@ public class GeneratorLakes extends BOPGeneratorBase
         public Builder grassReplace(Block a) {this.grassReplace = new BlockQueryBlock(a); return this;}
         public Builder grassReplace(IBlockState a) {this.grassReplace = new BlockQueryState(a); return this;}
         public Builder lineWith(IBlockState a) {this.lineWith = a; return this;}
-        public Builder waterLakeFor(BiomeGenBase a)
+        public Builder waterLakeForBiome(BiomeGenBase a)
         {
             this.liquid = Blocks.water.getDefaultState();
             this.frozenLiquid = Blocks.ice.getDefaultState();
