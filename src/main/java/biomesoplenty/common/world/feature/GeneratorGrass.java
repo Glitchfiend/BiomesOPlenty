@@ -28,7 +28,7 @@ public class GeneratorGrass extends GeneratorFlora
     {
         protected float amountPerChunk = 1.0F;
         protected IBlockState grass = Blocks.tallgrass.getDefaultState();
-        protected int generationAttempts = 40;
+        protected int generationAttempts = 64;
         
         public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
         public Builder grass(IBlockState a) {this.grass = a; return this;}
