@@ -51,16 +51,16 @@ public class BiomeGenDenseForest extends BOPBiome
         this.alternateTopBlock = Blocks.dirt.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.COARSE_DIRT);
         
         // other plants
-        this.addGenerator("bushes", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(1).flora(BOPPlants.BUSH).create());
-        this.addGenerator("berry_bushes", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(1).flora(BOPPlants.BERRYBUSH).create());
-        this.addGenerator("shrubs", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(1).flora(BOPPlants.SHRUB).create());
-        this.addGenerator("water_reeds", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(2).flora(BOPPlants.REED).generationAttempts(128).create());
-        this.addGenerator("leaf_piles", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(15).flora(BOPPlants.LEAFPILE).generationAttempts(256).create());        
-        this.addGenerator("huge_trees", GeneratorStage.TREE, (new GeneratorBigTree.Builder()).amountPerChunk(10).minHeight(15).maxHeight(25).create());
-        this.addGenerator("leaves_clusters", GeneratorStage.POST, (new GeneratorBush.Builder()).amountPerChunk(7).create());
+        this.addGenerator("bushes", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(0.1F).flora(BOPPlants.BUSH).create());
+        this.addGenerator("berry_bushes", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(0.1F).flora(BOPPlants.BERRYBUSH).create());
+        this.addGenerator("shrubs", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(0.1F).flora(BOPPlants.SHRUB).create());
+        this.addGenerator("water_reeds", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.2F).flora(BOPPlants.REED).generationAttempts(32).create());
+        this.addGenerator("leaf_piles", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(1.5F).flora(BOPPlants.LEAFPILE).generationAttempts(64).create());        
+        this.addGenerator("huge_trees", GeneratorStage.TREE, (new GeneratorBigTree.Builder()).amountPerChunk(1.0F).minHeight(15).maxHeight(25).create());
+        this.addGenerator("leaves_clusters", GeneratorStage.POST, (new GeneratorBush.Builder()).amountPerChunk(0.7F).create());
 
         // grasses
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(20);
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(2.0F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("tallgrass", 2, (new GeneratorGrass.Builder()).grass(BlockTallGrass.EnumType.GRASS).create());
         grassGenerator.add("fern", 1, (new GeneratorGrass.Builder()).grass(BlockTallGrass.EnumType.FERN).create());

@@ -45,11 +45,11 @@ public class BiomeGenThicket extends BOPBiome
         this.addGenerator("gravel", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(6).maxRadius(7).to(Blocks.gravel.getDefaultState()).create());
 
         // other plants
-        this.addGenerator("flowers", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(5).flora(EnumFlowerType.POPPY).create());
-        this.addGenerator("thorns", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(55).flora(BOPPlants.THORN).create());
-        this.addGenerator("shrubs", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(5).flora(BOPPlants.SHRUB).create());
-        this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(5).flora(BOPPlants.LEAFPILE).generationAttempts(256).create());
-        this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(10).flora(BOPPlants.DEADLEAFPILE).generationAttempts(256).create());
+        this.addGenerator("flowers", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).flora(EnumFlowerType.POPPY).create());
+        this.addGenerator("thorns", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(5.5F).flora(BOPPlants.THORN).create());
+        this.addGenerator("shrubs", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).flora(BOPPlants.SHRUB).create());
+        this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).flora(BOPPlants.LEAFPILE).generationAttempts(32).create());
+        this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).flora(BOPPlants.DEADLEAFPILE).generationAttempts(32).create());
 
         // gem
         this.addGenerator("amber", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).gemOre(BOPGems.AMBER).create());

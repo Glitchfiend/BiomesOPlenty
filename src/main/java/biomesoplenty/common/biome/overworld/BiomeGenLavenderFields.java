@@ -38,7 +38,7 @@ public class BiomeGenLavenderFields extends BOPBiome
         this.addWeight(BiomeType.WARM, 3);
         
         // flowers
-        this.addGenerator("lavender", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(999).flora(BOPFlowers.LAVENDER).create());
+        this.addGenerator("lavender", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(99).flora(BOPFlowers.LAVENDER).create());
 
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(1);
@@ -47,7 +47,7 @@ public class BiomeGenLavenderFields extends BOPBiome
         treeGenerator.add("oak", 1, (new GeneratorBigTree.Builder()).create());
         
         // grasses
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(20);
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(2);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("wheatgrass", 1, (new GeneratorGrass.Builder()).grass(BOPPlants.WHEATGRASS).create());
         grassGenerator.add("tallgrass", 3, (new GeneratorGrass.Builder()).grass(BlockTallGrass.EnumType.GRASS).create());

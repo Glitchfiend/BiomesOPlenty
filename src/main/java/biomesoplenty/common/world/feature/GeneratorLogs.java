@@ -20,6 +20,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import biomesoplenty.api.biome.generation.BOPGeneratorBase;
+import biomesoplenty.common.block.BlockBOPLog;
+import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.util.block.BlockQueryUtils;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryAny;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryBlock;
@@ -41,10 +43,12 @@ public class GeneratorLogs extends BOPGeneratorBase
         protected int maxLength = 5;
         
         public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
+        public Builder log(IBlockState a) {this.log = a; return this;}
+        public Builder log(BOPWoods a) {this.log = BlockBOPLog.paging.getVariantState(a); return this;}
         public Builder placeOn(IBlockQuery a) {this.placeOn = a; return this;}
         public Builder placeOn(String a) throws BlockQueryParseException {this.placeOn = BlockQueryUtils.parseQueryString(a); return this;}
         public Builder placeOn(Block a) {this.placeOn = new BlockQueryBlock(a); return this;}
-        public Builder placeOn(IBlockState a) {this.placeOn = new BlockQueryState(a); return this;}        
+        public Builder placeOn(IBlockState a) {this.placeOn = new BlockQueryState(a); return this;}      
         public Builder minLength(int a) {this.minLength = a; return this;}
         public Builder maxLength(int a) {this.maxLength = a; return this;}
 

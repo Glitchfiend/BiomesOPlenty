@@ -36,10 +36,10 @@ public class BiomeGenSteppe extends BOPBiome
         this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
         
         // other plants
-        this.addGenerator("dead_bushes", GeneratorStage.DEAD_BUSH,(new GeneratorFlora.Builder()).amountPerChunk(3).flora(Blocks.deadbush.getDefaultState()).generationAttempts(4).create());
+        this.addGenerator("dead_bushes", GeneratorStage.DEAD_BUSH,(new GeneratorFlora.Builder()).amountPerChunk(0.3F).flora(Blocks.deadbush.getDefaultState()).generationAttempts(4).create());
         
         // grasses
-        this.addGenerator("shrubs", GeneratorStage.GRASS,(new GeneratorGrass.Builder()).amountPerChunk(15).grass(BlockBOPPlant.paging.getVariantState(BOPPlants.SHORTGRASS)).create());
+        this.addGenerator("shrubs", GeneratorStage.GRASS,(new GeneratorGrass.Builder()).amountPerChunk(1.5F).grass(BlockBOPPlant.paging.getVariantState(BOPPlants.SHORTGRASS)).create());
 
         // gem
         this.addGenerator("ruby", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).gemOre(BOPGems.RUBY).create());

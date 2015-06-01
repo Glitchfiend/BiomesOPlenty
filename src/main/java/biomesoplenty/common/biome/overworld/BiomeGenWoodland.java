@@ -20,6 +20,7 @@ import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.world.feature.GeneratorBigMushroom;
 import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
 import biomesoplenty.common.world.feature.GeneratorFlora;
@@ -50,15 +51,15 @@ public class BiomeGenWoodland extends BOPBiome
         treeGenerator.add("oak", 9, (new GeneratorBasicTree.Builder()).minHeight(5).maxHeight(8).create());
 
         // grasses
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(14);
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(1.4F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("wheatgrass", 1, (new GeneratorGrass.Builder()).grass(BOPPlants.WHEATGRASS).create());
         grassGenerator.add("dampgrass", 1, (new GeneratorGrass.Builder()).grass(BOPPlants.DAMPGRASS).create());
         grassGenerator.add("tallgrass", 2, (new GeneratorGrass.Builder()).grass(BlockTallGrass.EnumType.GRASS).create());
  
         // big mushrooms
-        GeneratorWeighted mushroomGenerator = new GeneratorWeighted(1);
-        this.addGenerator("big_mushrooms", GeneratorStage.TREE, mushroomGenerator);
+        GeneratorWeighted mushroomGenerator = new GeneratorWeighted(0.5F);
+        this.addGenerator("big_mushrooms", GeneratorStage.BIG_SHROOM, mushroomGenerator);
         mushroomGenerator.add("brown_mushroom", 1, (new GeneratorBigMushroom.Builder()).mushroomType(GeneratorBigMushroom.BigMushroomType.BROWN).create());
         mushroomGenerator.add("red_mushroom", 1, (new GeneratorBigMushroom.Builder()).mushroomType(GeneratorBigMushroom.BigMushroomType.RED).create());
         
@@ -66,24 +67,29 @@ public class BiomeGenWoodland extends BOPBiome
         this.addGenerator("gravel", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(4).maxRadius(7).to(Blocks.gravel.getDefaultState()).create());
         
         // flowers
-        GeneratorWeighted flowerGenerator = new GeneratorWeighted(5);
+        GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.5F);
         this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
-        flowerGenerator.add("rose", 1, (new GeneratorDoubleFlora.Builder()).flora(BlockDoublePlant.EnumPlantType.ROSE).generationAttempts(64).create());
+        flowerGenerator.add("rose", 1, (new GeneratorDoubleFlora.Builder()).flora(BlockDoublePlant.EnumPlantType.ROSE).create());
 
         // other plants
-        this.addGenerator("toadstools", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(3).flora(BlockBOPMushroom.MushroomType.TOADSTOOL).create());
-        this.addGenerator("shrubs", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(20).flora(BOPPlants.SHRUB).create());
-        this.addGenerator("clover_patches", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(10).flora(BOPPlants.CLOVERPATCH).create());
-        this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(10).flora(BOPPlants.LEAFPILE).generationAttempts(256).create());
-        this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(10).flora(BOPPlants.DEADLEAFPILE).generationAttempts(256).create());
-        this.addGenerator("flax", GeneratorStage.FLOWERS, (new GeneratorDoubleFlora.Builder()).amountPerChunk(1).flora(BlockBOPDoublePlant.DoublePlantType.FLAX).generationAttempts(64).create());
+        this.addGenerator("shrubs", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(2.0F).flora(BOPPlants.SHRUB).create());
+        this.addGenerator("clover_patches", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).flora(BOPPlants.CLOVERPATCH).create());
+        this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).flora(BOPPlants.LEAFPILE).generationAttempts(64).create());
+        this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(2.0F).flora(BOPPlants.DEADLEAFPILE).generationAttempts(64).create());
+        this.addGenerator("flax", GeneratorStage.FLOWERS, (new GeneratorDoubleFlora.Builder()).amountPerChunk(0.1F).flora(BlockBOPDoublePlant.DoublePlantType.FLAX).create());
       
         // water plants
-        this.addGenerator("water_reeds", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(5).flora(BOPPlants.REED).generationAttempts(128).create());
-        this.addGenerator("duckweed", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(5).flora(BlockBOPLilypad.LilypadType.DUCKWEED).generationAttempts(128).create());
+        this.addGenerator("water_reeds", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.8F).flora(BOPPlants.REED).generationAttempts(32).create());
+        this.addGenerator("duckweed", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.8F).flora(BlockBOPLilypad.LilypadType.DUCKWEED).generationAttempts(32).create());
+        
+        // shrooms
+        this.addGenerator("toadstools", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.3F).flora(BlockBOPMushroom.MushroomType.TOADSTOOL).create());
         
         // logs
-        this.addGenerator("logs", GeneratorStage.TREE, (new GeneratorLogs.Builder()).amountPerChunk(8).create());
+        GeneratorWeighted logsGenerator = new GeneratorWeighted(2.5F);
+        this.addGenerator("logs", GeneratorStage.TREE, logsGenerator);
+        logsGenerator.add("oak_logs", 1, (new GeneratorLogs.Builder()).create());
+        logsGenerator.add("dead_logs", 1, (new GeneratorLogs.Builder()).log(BOPWoods.DEAD).create());
         
         // gem
         this.addGenerator("amber", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).gemOre(BOPGems.AMBER).create());

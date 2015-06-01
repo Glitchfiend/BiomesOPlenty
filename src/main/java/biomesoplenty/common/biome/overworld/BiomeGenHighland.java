@@ -37,14 +37,14 @@ public class BiomeGenHighland extends BOPBiome
         this.addWeight(BiomeType.WARM, 7);
         
         // other plants
-        this.addGenerator("wild_carrots", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1).flora(BOPPlants.WILDCARROT).create());
+        this.addGenerator("wild_carrots", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).flora(BOPPlants.WILDCARROT).create());
         
         // boulders
-        this.addGenerator("boulders", GeneratorStage.SAND, (new GeneratorBlobs.Builder()).amountPerChunk(4).placeOn(Blocks.grass).to(Blocks.cobblestone.getDefaultState()).minRadius(0.3F).maxRadius(1.2F).numBalls(1).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
-        this.addGenerator("big_boulders", GeneratorStage.SAND, (new GeneratorBlobs.Builder()).amountPerChunk(1).placeOn(Blocks.grass).to(Blocks.cobblestone.getDefaultState()).minRadius(0.3F).maxRadius(4.0F).numBalls(3).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
+        this.addGenerator("boulders", GeneratorStage.SAND, (new GeneratorBlobs.Builder()).amountPerChunk(0.5F).placeOn(Blocks.grass).to(Blocks.cobblestone.getDefaultState()).minRadius(0.3F).maxRadius(1.2F).numBalls(1).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
+        this.addGenerator("big_boulders", GeneratorStage.SAND, (new GeneratorBlobs.Builder()).amountPerChunk(0.1F).placeOn(Blocks.grass).to(Blocks.cobblestone.getDefaultState()).minRadius(0.3F).maxRadius(4.0F).numBalls(3).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
 
         // grasses
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(100);
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(10);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("wheatgrass", 1, (new GeneratorGrass.Builder()).grass(BOPPlants.WHEATGRASS).create());
         grassGenerator.add("dampgrass", 1, (new GeneratorGrass.Builder()).grass(BOPPlants.DAMPGRASS).create());

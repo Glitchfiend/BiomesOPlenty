@@ -12,8 +12,6 @@ import net.minecraft.util.BlockPos;
 import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
-import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.common.block.BlockGem;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 
@@ -32,7 +30,8 @@ public class BiomeGenArctic extends BOPBiome
 
         this.spawnableCreatureList.clear();
         
-        this.addGenerator("tanzanite", GeneratorStage.SAND, new GeneratorOreSingle(BOPBlocks.gem_ore.getDefaultState().withProperty(BlockGem.VARIANT, BOPGems.TANZANITE), 12, 4, 32));
+        // gem
+        this.addGenerator("tanzanite", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).gemOre(BOPGems.TANZANITE).create());
     }
     
     @Override

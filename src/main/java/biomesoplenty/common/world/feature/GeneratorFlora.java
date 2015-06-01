@@ -35,7 +35,7 @@ public class GeneratorFlora extends BOPGeneratorBase
     {
         protected float amountPerChunk = 1.0F;
         protected IBlockState state = Blocks.red_flower.getDefaultState();
-        protected int generationAttempts = 64;
+        protected int generationAttempts = 20;
         
         public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
         public Builder flora(IBlockState a) {this.state = a; return this;}

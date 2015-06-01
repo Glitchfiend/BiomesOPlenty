@@ -32,7 +32,7 @@ public class GeneratorDoubleFlora extends BOPGeneratorBase
         protected float amountPerChunk = 1.0F;
         protected IBlockState bottomState = BOPBlocks.double_plant.getDefaultState().withProperty(BlockBOPDoublePlant.VARIANT, BlockBOPDoublePlant.DoublePlantType.FLAX).withProperty(BlockBOPDoublePlant.HALF, BlockDoubleDecoration.Half.LOWER);
         protected IBlockState topState = BOPBlocks.double_plant.getDefaultState().withProperty(BlockBOPDoublePlant.VARIANT, BlockBOPDoublePlant.DoublePlantType.FLAX).withProperty(BlockBOPDoublePlant.HALF, BlockDoubleDecoration.Half.UPPER);
-        protected int generationAttempts = 64;
+        protected int generationAttempts = 20;
         
         public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
         public Builder flora(IBlockState bottom, IBlockState top) {this.bottomState = bottom; this.topState = top; return this;}

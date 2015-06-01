@@ -28,7 +28,7 @@ public class GeneratorGrass extends GeneratorFlora
     {
         protected float amountPerChunk = 1.0F;
         protected IBlockState grass = Blocks.tallgrass.getDefaultState();
-        protected int generationAttempts = 128;
+        protected int generationAttempts = 40;
         
         public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
         public Builder grass(IBlockState a) {this.grass = a; return this;}
@@ -49,18 +49,10 @@ public class GeneratorGrass extends GeneratorFlora
     }
     
     @Override
-    public void scatter(World world, Random random, BlockPos pos)
+    public BlockPos getScatterY(World world, Random random, int x, int z)
     {
-        for (int i = 0; i < this.amountPerChunk; i++)
-        {
-            int x = random.nextInt(16) + 8;
-            int z = random.nextInt(16) + 8;
-            BlockPos genPos = pos.add(x, 0, z);
-            int y = GeneratorUtils.safeNextInt(random, world.getHeight(genPos).getY() * 2);
-            genPos = genPos.add(0, y, 0);
-
-            generate(world, random, genPos);
-        }
+        // always at world surface
+        return GeneratorUtils.ScatterYMethod.AT_SURFACE.getBlockPos(world, random, x, z);
     }
 
     @Override

@@ -35,7 +35,8 @@ public class BiomeGenCrag extends BOPBiome
         this.waterColorMultiplier = 944693;
         this.skyColor = 4944498;
         
-        this.addGenerator("emeralds", GeneratorStage.SAND, new GeneratorOreSingle(Blocks.emerald_ore.getDefaultState(), 12, 4, 32));
+        // gem
+        this.addGenerator("emeralds", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).state(Blocks.emerald_ore.getDefaultState()).create());
     }
     
 }

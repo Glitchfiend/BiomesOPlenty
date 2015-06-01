@@ -44,21 +44,21 @@ public class BiomeGenShrubland extends BOPBiome
         this.addGenerator("gravel", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(4).maxRadius(7).to(Blocks.gravel.getDefaultState()).create());
         
         // other plants
-        this.addGenerator("bushes", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(7).flora(BOPPlants.BUSH).create());
-        this.addGenerator("shrubs", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(5).flora(BOPPlants.SHRUB).create());
-        this.addGenerator("flax", GeneratorStage.FLOWERS,(new GeneratorDoubleFlora.Builder()).amountPerChunk(1).flora(BlockBOPDoublePlant.DoublePlantType.FLAX).generationAttempts(24).create());
+        this.addGenerator("bushes", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.7F).flora(BOPPlants.BUSH).create());
+        this.addGenerator("shrubs", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).flora(BOPPlants.SHRUB).create());
+        this.addGenerator("flax", GeneratorStage.FLOWERS,(new GeneratorDoubleFlora.Builder()).amountPerChunk(0.1F).flora(BlockBOPDoublePlant.DoublePlantType.FLAX).generationAttempts(6).create());
         
         // water plants
-        this.addGenerator("water_reeds", GeneratorStage.LILYPAD,(new GeneratorFlora.Builder()).amountPerChunk(3).flora(BOPPlants.REED).generationAttempts(128).create());  
+        this.addGenerator("water_reeds", GeneratorStage.LILYPAD,(new GeneratorFlora.Builder()).amountPerChunk(0.3F).flora(BOPPlants.REED).generationAttempts(32).create());  
         
         // trees
-        this.addGenerator("trees", GeneratorStage.TREE, new GeneratorBush(1, Blocks.log.getDefaultState(), Blocks.leaves.getDefaultState()));
+        this.addGenerator("trees", GeneratorStage.TREE, (new GeneratorBush.Builder()).amountPerChunk(1).create());
         
         // flowers
-        this.addGenerator("flowers", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(5).flora(EnumFlowerType.ALLIUM).create());
+        this.addGenerator("flowers", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).flora(EnumFlowerType.ALLIUM).create());
 
         // grasses
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(20);
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(2.0F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("shortgrass", 1, (new GeneratorGrass.Builder()).grass(BOPPlants.SHORTGRASS).create());
         grassGenerator.add("mediumgrass", 1, (new GeneratorGrass.Builder()).grass(BOPPlants.MEDIUMGRASS).create());
