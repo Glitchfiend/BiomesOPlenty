@@ -21,6 +21,7 @@ public class BOPBiomes
     public static Optional<BiomeGenBase> denseForest = Optional.absent();
     public static Optional<BiomeGenBase> flowerField = Optional.absent();
     public static Optional<BiomeGenBase> grassland = Optional.absent();    
+    public static Optional<BiomeGenBase> heathland = Optional.absent();    
     public static Optional<BiomeGenBase> highland = Optional.absent();
     public static Optional<BiomeGenBase> lavenderFields = Optional.absent();
     public static Optional<BiomeGenBase> marsh = Optional.absent();

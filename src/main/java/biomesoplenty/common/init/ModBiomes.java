@@ -79,6 +79,7 @@ public class ModBiomes
         denseForest = registerBOPBiome(new BiomeGenDenseForest(), "Dense Forest");
         flowerField = registerBOPBiome(new BiomeGenFlowerField(), "Flower Field");
         grassland = registerBOPBiome(new BiomeGenGrassland(), "Grassland");
+        heathland = registerBOPBiome(new BiomeGenHeathland(), "Heathland");
         highland = registerBOPBiome(new BiomeGenHighland(), "Highland");
         lavenderFields = registerBOPBiome(new BiomeGenLavenderFields(), "Lavender Fields");
         marsh = registerBOPBiome(new BiomeGenMarsh(), "Marsh");
