@@ -28,7 +28,7 @@ public class GeneratorWaterside extends BOPGeneratorBase
     {
         protected float amountPerChunk = 1.0F;
         protected int maxRadius = 7;
-        protected IBlockPosQuery replace = new BlockPosQueryAny(new BlockQueryMaterial(Material.grass), new BlockQueryMaterial(Material.ground));
+        protected IBlockPosQuery replace = new BlockPosQueryOr(new BlockQueryMaterial(Material.grass), new BlockQueryMaterial(Material.ground));
         protected IBlockState with = Blocks.gravel.getDefaultState();                
         
         public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}

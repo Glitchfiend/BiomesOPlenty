@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 import biomesoplenty.api.biome.generation.BOPGeneratorBase;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.util.block.BlockQueryUtils;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockPosQueryAny;
+import biomesoplenty.common.util.block.BlockQueryUtils.BlockPosQueryOr;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryMaterial;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryBlock;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryParseException;
@@ -33,7 +33,7 @@ public class GeneratorColumns extends BOPGeneratorBase
     public static class Builder implements IGeneratorBuilder<GeneratorColumns>
     {
         protected float amountPerChunk = 1.0F;
-        protected IBlockPosQuery placeOn = new BlockPosQueryAny(new BlockQueryMaterial(Material.ground), new BlockQueryMaterial(Material.grass));
+        protected IBlockPosQuery placeOn = new BlockPosQueryOr(new BlockQueryMaterial(Material.ground), new BlockQueryMaterial(Material.grass));
         protected IBlockState with = Blocks.cobblestone.getDefaultState();
         protected int minHeight = 2;
         protected int maxHeight = 4;

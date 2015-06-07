@@ -19,7 +19,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import biomesoplenty.api.biome.generation.BOPGeneratorBase;
 import biomesoplenty.common.util.biome.GeneratorUtils;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockPosQueryAny;
+import biomesoplenty.common.util.block.BlockQueryUtils.BlockPosQueryOr;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryMaterial;
 import biomesoplenty.common.util.block.BlockQueryUtils.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
@@ -90,7 +90,7 @@ public class GeneratorBigMushroom extends BOPGeneratorBase
         }
     }
     
-    private static IBlockPosQuery isLeavesOrAir = new BlockPosQueryAny(new BlockQueryMaterial(Material.leaves), new BlockQueryMaterial(Material.air));
+    private static IBlockPosQuery isLeavesOrAir = new BlockPosQueryOr(new BlockQueryMaterial(Material.leaves), new BlockQueryMaterial(Material.air));
 
     protected BigMushroomType mushroomType;
     protected IBlockState mushroomState;

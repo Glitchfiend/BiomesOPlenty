@@ -20,7 +20,7 @@ import net.minecraft.world.World;
 import biomesoplenty.api.biome.generation.BOPGeneratorBase;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQueryUtils;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockPosQueryAny;
+import biomesoplenty.common.util.block.BlockQueryUtils.BlockPosQueryOr;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryMaterial;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryBlock;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryParseException;
@@ -34,7 +34,7 @@ public class GeneratorBlobs extends BOPGeneratorBase
     public static class Builder implements IGeneratorBuilder<GeneratorBlobs>
     {
         protected float amountPerChunk = 1.0F;
-        protected IBlockPosQuery placeOn = new BlockPosQueryAny(new BlockQueryBlock(Blocks.stone), new BlockQueryMaterial(Material.ground), new BlockQueryMaterial(Material.grass));
+        protected IBlockPosQuery placeOn = new BlockPosQueryOr(new BlockQueryBlock(Blocks.stone), new BlockQueryMaterial(Material.ground), new BlockQueryMaterial(Material.grass));
         protected IBlockState with = Blocks.cobblestone.getDefaultState();
         protected float minRadius = 2.0F;
         protected float maxRadius = 5.0F;

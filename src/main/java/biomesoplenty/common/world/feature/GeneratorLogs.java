@@ -23,7 +23,7 @@ import biomesoplenty.api.biome.generation.BOPGeneratorBase;
 import biomesoplenty.common.block.BlockBOPLog;
 import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.util.block.BlockQueryUtils;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockPosQueryAny;
+import biomesoplenty.common.util.block.BlockQueryUtils.BlockPosQueryOr;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryBlock;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryMaterial;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryParseException;
@@ -38,7 +38,7 @@ public class GeneratorLogs extends BOPGeneratorBase
     {
         protected float amountPerChunk = 1.0F;
         protected IBlockState with = Blocks.log.getDefaultState();
-        protected IBlockPosQuery placeOn = new BlockPosQueryAny(new BlockQueryMaterial(Material.ground), new BlockQueryMaterial(Material.grass));
+        protected IBlockPosQuery placeOn = new BlockPosQueryOr(new BlockQueryMaterial(Material.ground), new BlockQueryMaterial(Material.grass));
         protected int minLength = 3;
         protected int maxLength = 5;
         

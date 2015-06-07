@@ -43,14 +43,31 @@ public class BlockQueryUtils
     public static interface IBlockPosQuery
     {
         public boolean matches(World world, BlockPos pos);
-    }    
-        
+    }
+    
+    // match any position
+    public static class BlockPosQueryAnything implements IBlockPosQuery
+    {
+        @Override
+        public boolean matches(World world, BlockPos pos) {
+            return true;
+        }
+    }
+    
+    // match no positions
+    public static class BlockPosQueryNothing implements IBlockPosQuery
+    {
+        @Override
+        public boolean matches(World world, BlockPos pos) {
+            return false;
+        }
+    }
 
     // Match a block pos if any of the children match
-    public static class BlockPosQueryAny implements IBlockPosQuery
+    public static class BlockPosQueryOr implements IBlockPosQuery
     {
         private ArrayList<IBlockPosQuery> children;
-        public BlockPosQueryAny(IBlockPosQuery... children)
+        public BlockPosQueryOr(IBlockPosQuery... children)
         {
             this.children = new ArrayList<IBlockPosQuery>(Arrays.asList(children));
         }
@@ -77,10 +94,10 @@ public class BlockQueryUtils
     }
     
     // Match a block pos if all of the children match
-    public static class BlockPosQueryAll implements IBlockPosQuery
+    public static class BlockPosQueryAnd implements IBlockPosQuery
     {
         private ArrayList<IBlockPosQuery> children;
-        public BlockPosQueryAll(IBlockPosQuery... children)
+        public BlockPosQueryAnd(IBlockPosQuery... children)
         {
             this.children = new ArrayList<IBlockPosQuery>(Arrays.asList(children));
         }
@@ -366,7 +383,7 @@ public class BlockQueryUtils
     // parse the given block query string and return the equivalent IBlockQuery object
     public static IBlockPosQuery parseQueryString(String spec) throws BlockQueryParseException
     {
-        BlockPosQueryAny bmAny = new BlockPosQueryAny();
+        BlockPosQueryOr bmAny = new BlockPosQueryOr();
         String[] subspecs = commaDelimitRegex.split(spec);
         for (String subspec : subspecs)
         {
@@ -378,7 +395,7 @@ public class BlockQueryUtils
     
     private static IBlockPosQuery parseQueryStringSingle(String spec) throws BlockQueryParseException
     {
-        BlockPosQueryAll bmAll = new BlockPosQueryAll();
+        BlockPosQueryAnd bmAll = new BlockPosQueryAnd();
         
         Matcher m = nextTokenRegex.matcher(spec);
         while (spec.length() > 0)
