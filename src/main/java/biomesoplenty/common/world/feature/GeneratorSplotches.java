@@ -11,6 +11,7 @@ package biomesoplenty.common.world.feature;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
@@ -19,10 +20,7 @@ import net.minecraft.world.World;
 import biomesoplenty.api.biome.generation.BOPGeneratorBase;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQueryUtils;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryBlock;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryParseException;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryState;
-import biomesoplenty.common.util.block.BlockQueryUtils.IBlockPosQuery;
+import biomesoplenty.common.util.block.BlockQueryUtils.*;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GeneratorSplotches extends BOPGeneratorBase
@@ -31,7 +29,7 @@ public class GeneratorSplotches extends BOPGeneratorBase
     public static class Builder implements IGeneratorBuilder<GeneratorSplotches>
     {
         protected float amountPerChunk = 1.0F;
-        protected IBlockPosQuery replace = new BlockQueryBlock(Blocks.grass);
+        protected IBlockPosQuery replace = new BlockPosQueryAny(new BlockQueryMaterial(Material.grass), new BlockQueryMaterial(Material.ground));
         protected IBlockState with = Blocks.cobblestone.getDefaultState();
         protected int splotchSize = 8;
         protected ScatterYMethod scatterYMethod = ScatterYMethod.AT_OR_BELOW_SURFACE;
@@ -81,12 +79,12 @@ public class GeneratorSplotches extends BOPGeneratorBase
         
         // choose a start point
         double x0 = pos.getX() + MathHelper.sin(a) * this.splotchSize / 8.0F;
-        double y0 = pos.getY() + random.nextInt(3) - 2;
+        double y0 = pos.getY() + random.nextInt(3) - 1;
         double z0 = pos.getZ() + MathHelper.cos(a) * this.splotchSize / 8.0F;
         
         // choose an end point
         double x1 = pos.getX() - MathHelper.sin(a) * this.splotchSize / 8.0F;
-        double y1 = pos.getY() + random.nextInt(3) - 2;
+        double y1 = pos.getY() + random.nextInt(3) - 1;
         double z1 = pos.getZ() - MathHelper.cos(a) * this.splotchSize / 8.0F;
 
         // move along a line from the start point to the end point and replace in random ellipsoids along the way (bigger at the center)
@@ -145,7 +143,7 @@ public class GeneratorSplotches extends BOPGeneratorBase
     
     public void replaceAt(World world, BlockPos pos)
     {
-        if (replace.matches(world, pos))
+        if (this.replace.matches(world, pos))
         {
             world.setBlockState(pos, this.with, 2);
         }

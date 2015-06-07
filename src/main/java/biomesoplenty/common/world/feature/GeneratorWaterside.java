@@ -18,11 +18,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import biomesoplenty.api.biome.generation.BOPGeneratorBase;
 import biomesoplenty.common.util.block.BlockQueryUtils;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockPosQueryAny;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryBlock;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryParseException;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryState;
-import biomesoplenty.common.util.block.BlockQueryUtils.IBlockPosQuery;
+import biomesoplenty.common.util.block.BlockQueryUtils.*;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GeneratorWaterside extends BOPGeneratorBase
@@ -32,7 +28,7 @@ public class GeneratorWaterside extends BOPGeneratorBase
     {
         protected float amountPerChunk = 1.0F;
         protected int maxRadius = 7;
-        protected IBlockPosQuery replace = new BlockPosQueryAny(new BlockQueryBlock(Blocks.grass), new BlockQueryBlock(Blocks.dirt));
+        protected IBlockPosQuery replace = new BlockPosQueryAny(new BlockQueryMaterial(Material.grass), new BlockQueryMaterial(Material.ground));
         protected IBlockState with = Blocks.gravel.getDefaultState();                
         
         public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
