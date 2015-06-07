@@ -24,6 +24,7 @@ import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryState;
 import biomesoplenty.common.util.block.BlockQueryUtils.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -101,7 +102,16 @@ public class GeneratorDoubleFlora extends BOPGeneratorBase
 
             if (this.replace.matches(world, genPos) && this.replace.matches(world, genPos.up()) && genPos.getY() < 254)
             {
-                boolean canStay = bottomBlock instanceof BlockDecoration ? ((BlockDecoration)bottomBlock).canBlockStay(world, genPos, this.bottomState) : bottomBlock.canPlaceBlockAt(world, genPos);
+                boolean canStay;
+                if (bottomBlock instanceof BlockDecoration)
+                {
+                    canStay = ((BlockDecoration)bottomBlock).canBlockStay(world, genPos, this.bottomState);
+                } else if (bottomBlock instanceof BlockBush) {
+                    canStay = ((BlockBush)bottomBlock).canPlaceBlockAt(world, genPos);
+                } else {
+                    canStay = bottomBlock.canPlaceBlockAt(world, genPos);
+                }
+                    
                 if (canStay)
                 {
                     world.setBlockState(genPos, this.bottomState, 2);

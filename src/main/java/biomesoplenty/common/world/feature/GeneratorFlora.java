@@ -11,6 +11,7 @@ package biomesoplenty.common.world.feature;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -97,7 +98,16 @@ public class GeneratorFlora extends BOPGeneratorBase
 
             if (this.replace.matches(world, genPos) && genPos.getY() < 255)
             {
-                boolean canStay = block instanceof BlockDecoration ? ((BlockDecoration)block).canBlockStay(world, genPos, this.with) : block.canPlaceBlockAt(world, genPos);
+                boolean canStay;
+                if (block instanceof BlockDecoration)
+                {
+                    canStay = ((BlockDecoration)block).canBlockStay(world, genPos, this.with);
+                } else if (block instanceof BlockBush) {
+                    canStay = ((BlockBush)block).canPlaceBlockAt(world, genPos);
+                } else {
+                    canStay = block.canPlaceBlockAt(world, genPos);
+                }
+                
                 if (canStay)
                 {
                     world.setBlockState(genPos, this.with, 2);
