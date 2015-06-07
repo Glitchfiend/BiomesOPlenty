@@ -85,6 +85,7 @@ public class ModBiomes
         marsh = registerBOPBiome(new BiomeGenMarsh(), "Marsh");
         moor = registerBOPBiome(new BiomeGenMoor(), "Moor");
         originValley = registerBOPBiome(new BiomeGenOriginValley(), "Origin Valley");
+        outback = registerBOPBiome(new BiomeGenOutback(), "Outback");
         shrubland = registerBOPBiome(new BiomeGenShrubland(), "Shrubland");
         steppe = registerBOPBiome(new BiomeGenSteppe(), "Steppe");
         thicket = registerBOPBiome(new BiomeGenThicket(), "Thicket");

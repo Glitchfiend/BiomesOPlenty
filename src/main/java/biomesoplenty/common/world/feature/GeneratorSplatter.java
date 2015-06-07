@@ -37,7 +37,7 @@ public class GeneratorSplatter extends BOPGeneratorBase
         protected IBlockPosQuery placeOn = new BlockPosQueryAnything();
         protected IBlockPosQuery replace = new BlockPosQueryAnything();
         protected IBlockState with = Blocks.stone.getDefaultState();
-        protected int generationAttempts = 32;
+        protected int generationAttempts = 64;
         protected ScatterYMethod scatterYMethod = ScatterYMethod.AT_SURFACE;
         
         public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
@@ -88,13 +88,7 @@ public class GeneratorSplatter extends BOPGeneratorBase
     @Override
     public boolean generate(World world, Random rand, BlockPos pos)
     {         
-        // if we're in the air, move down until we're not
-        while (pos.getY() > 0 && isLeavesOrAir.matches(world, pos))
-        {
-            pos = pos.down();
-        }
-
-        // look for blocks on the surface matching this.placeOn and randomly put this.to on top of them
+        // look for blocks on the matching this.placeOn and randomly put this.to on top of them
         for (int i = 0; i < this.generationAttempts; ++i)
         {
             BlockPos pos1 = pos.add(rand.nextInt(8) - rand.nextInt(8), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(8) - rand.nextInt(8));
