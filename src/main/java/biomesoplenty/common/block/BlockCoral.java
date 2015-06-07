@@ -9,7 +9,6 @@
 package biomesoplenty.common.block;
 
 import static net.minecraft.block.BlockLiquid.LEVEL;
-import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -111,12 +110,12 @@ public class BlockCoral extends BlockDecoration
     public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
     {
         Block ground = world.getBlockState(pos.down()).getBlock();
+        Material groundMaterial = ground.getMaterial();
         Block cover = world.getBlockState(pos.up()).getBlock();
         
         boolean hasWater = (cover == Blocks.water || cover == Blocks.flowing_water);
-        boolean hasEarth = (ground == Blocks.dirt || ground == BOPBlocks.dirt || ground == BOPBlocks.mud || ground == Blocks.sand || ground == Blocks.sponge || ground == Blocks.stone || ground == Blocks.clay || ground == Blocks.gravel);
-        
-        return hasWater && hasEarth;
+        boolean hasEarth = (groundMaterial == Material.ground || groundMaterial == Material.sand || groundMaterial == Material.clay);        
+        return hasWater && (hasEarth || ground == Blocks.sponge);
     }
 
 }

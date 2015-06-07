@@ -378,6 +378,7 @@ public class BlockBOPPlant extends BlockDecoration implements IShearable
         // That looks bonkers to me, so I'm ignoring it for now - need to ask the others
         
         boolean onFertile = (adjacentBlock == Blocks.dirt || adjacentBlock == BOPBlocks.dirt || adjacentBlock == Blocks.mycelium || adjacentBlock == Blocks.grass);
+        boolean onMud = (adjacentBlock == BOPBlocks.mud && adjacentBlockState.getValue(BlockMud.VARIANT) == BlockMud.MudType.MUD);
         boolean onDry = (adjacentBlock == BOPBlocks.hard_dirt || adjacentBlock == Blocks.hardened_clay || adjacentBlock == Blocks.sand || adjacentBlock == BOPBlocks.hard_sand || adjacentBlock == Blocks.soul_sand);
         boolean onSand = (adjacentBlock == Blocks.sand || adjacentBlock == Blocks.soul_sand);
         boolean onGrass = (adjacentBlock == Blocks.grass);
@@ -413,7 +414,7 @@ public class BlockBOPPlant extends BlockDecoration implements IShearable
                 return onFertile || onSand;
             case CATTAIL:
                 boolean hasWater = (world.getBlockState(pos.add(-1, -1, 0)).getBlock().getMaterial() == Material.water || world.getBlockState(pos.add(1,-1,0)).getBlock().getMaterial() == Material.water || world.getBlockState(pos.add(0,-1,-1)).getBlock().getMaterial() == Material.water || world.getBlockState(pos.add(0,-1,1)).getBlock().getMaterial() == Material.water);
-                return onGrass && hasWater;
+                return (onMud || onGrass) && hasWater;
             case RIVERCANE:
                 boolean onSelf = ( (adjacentBlock instanceof BlockBOPPlant) && ((BOPPlants) adjacentBlockState.getValue(((BlockBOPPlant)adjacentBlock).variantProperty) == BOPPlants.RIVERCANE) );
                 return onSelf || onFertile;
@@ -421,8 +422,9 @@ public class BlockBOPPlant extends BlockDecoration implements IShearable
                 return (adjacentBlock == Blocks.soul_sand);
             case REED:
                 // reed needs the ground block to be water, but the block below that to NOT be water
-                // TODO: reed is gonna have some trickiness with placing, implement as lily variation instead?
                 return (adjacentBlock == Blocks.water && world.getBlockState(pos.down().down()).getBlock() != Blocks.water);
+            case SHORTGRASS: case MEDIUMGRASS: case DAMPGRASS: case WILDRICE:
+                return onFertile || onMud;
             default:
                 return onFertile;            
         }
