@@ -14,6 +14,11 @@ import java.util.Random;
 import org.apache.commons.lang3.tuple.Pair;
 
 import net.minecraft.block.BlockLog;
+import net.minecraft.block.BlockNewLeaf;
+import net.minecraft.block.BlockNewLog;
+import net.minecraft.block.BlockOldLeaf;
+import net.minecraft.block.BlockOldLog;
+import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -51,9 +56,29 @@ public class GeneratorBigTree extends BOPGeneratorBase
         public Builder minHeight(int a) {this.minHeight = a; return this;}
         public Builder maxHeight(int a) {this.maxHeight = a; return this;}
         public Builder log(IBlockState a) {this.log = a; return this;}
+        public Builder log(BlockPlanks.EnumType a)
+        {
+            if (a.getMetadata() < 4)
+            {
+                this.log = Blocks.log.getDefaultState().withProperty(BlockOldLog.VARIANT, a);
+            } else {
+                this.log = Blocks.log2.getDefaultState().withProperty(BlockNewLog.VARIANT, a);
+            }
+            return this;
+        }
         public Builder log(BOPWoods a) {this.log = BlockBOPLog.paging.getVariantState(a); return this;}
         public Builder leaves(IBlockState a) {this.leaves = a; return this;}
         public Builder leaves(BOPTrees a) {this.leaves = BlockBOPLeaves.paging.getVariantState(a); return this;}
+        public Builder leaves(BlockPlanks.EnumType a)
+        {
+            if (a.getMetadata() < 4)
+            {
+                this.leaves = Blocks.leaves.getDefaultState().withProperty(BlockOldLeaf.VARIANT, a);
+            } else {
+                this.leaves = Blocks.leaves2.getDefaultState().withProperty(BlockNewLeaf.VARIANT, a);
+            }
+            return this;
+        }
 
         @Override
         public GeneratorBigTree create()
