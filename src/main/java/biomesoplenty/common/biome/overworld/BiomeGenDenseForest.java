@@ -84,10 +84,10 @@ public class BiomeGenDenseForest extends BOPBiome
     }
     
     @Override
-    public void genTerrainBlocks(World world, Random random, ChunkPrimer primer, int x, int z, double noise)
+    public void genTerrainBlocks(World world, Random rand, ChunkPrimer primer, int x, int z, double noise)
     {
         this.topBlock = (noise > 1.75D) ? this.alternateTopBlock : this.usualTopBlock;
-        this.generateBiomeTerrain(world, random, primer, x, z, noise);
+        super.genTerrainBlocks(world, rand, primer, x, z, noise);
     }
     
     @Override
