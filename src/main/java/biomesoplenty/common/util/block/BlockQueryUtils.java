@@ -142,16 +142,23 @@ public class BlockQueryUtils
     // Match block positions adjacent to water
     public static class BlockPosQueryHasWater implements IBlockPosQuery
     {
-        public BlockPosQueryHasWater()
-        {
-            ;
-        }
         @Override
         public boolean matches(World world, BlockPos pos)
         {
             return (world.getBlockState(pos.west()).getBlock().getMaterial() == Material.water || world.getBlockState(pos.east()).getBlock().getMaterial() == Material.water || world.getBlockState(pos.north()).getBlock().getMaterial() == Material.water || world.getBlockState(pos.south()).getBlock().getMaterial() == Material.water);
         }
     }
+    
+    // Match block positions with air above
+    public static class BlockPosQueryAirAbove implements IBlockPosQuery
+    {
+        @Override
+        public boolean matches(World world, BlockPos pos)
+        {
+            return world.isAirBlock(pos.up());
+        }
+    }   
+    
     
     
     
