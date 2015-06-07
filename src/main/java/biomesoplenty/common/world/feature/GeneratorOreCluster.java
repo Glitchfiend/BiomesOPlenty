@@ -25,10 +25,10 @@ public class GeneratorOreCluster extends GeneratorOreBase
         protected int minHeight = 4;
         protected int maxHeight = 32;
         protected int clusterSize = 4;
-        protected IBlockState state = Blocks.emerald_ore.getDefaultState();
+        protected IBlockState with = Blocks.emerald_ore.getDefaultState();
         
         public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
-        public Builder state(IBlockState a) {this.state = a; return this;}        
+        public Builder with(IBlockState a) {this.with = a; return this;}        
         public Builder minHeight(int a) {this.minHeight = a; return this;}
         public Builder maxHeight(int a) {this.maxHeight = a; return this;}
         public Builder clusterSize(int a) {this.clusterSize = a; return this;}
@@ -36,17 +36,17 @@ public class GeneratorOreCluster extends GeneratorOreBase
         @Override
         public GeneratorOreCluster create()
         {
-            return new GeneratorOreCluster(this.state, this.amountPerChunk, this.clusterSize, this.minHeight, this.maxHeight);
+            return new GeneratorOreCluster(this.amountPerChunk, this.with, this.clusterSize, this.minHeight, this.maxHeight);
         }
     }
     
     
     private WorldGenMinable generator;
     
-    public GeneratorOreCluster(IBlockState state, float amountPerChunk, int clusterSize, int minHeight, int maxHeight)
+    public GeneratorOreCluster(float amountPerChunk, IBlockState with, int clusterSize, int minHeight, int maxHeight)
     {
         super(amountPerChunk, minHeight, maxHeight);
-        this.generator = new WorldGenMinable(state, clusterSize);
+        this.generator = new WorldGenMinable(with, clusterSize);
     }
     
     @Override
@@ -60,7 +60,7 @@ public class GeneratorOreCluster extends GeneratorOreBase
     {
         super.configure(conf);
         
-        this.generator.oreBlock = conf.getBlockState("state", this.generator.oreBlock);
+        this.generator.oreBlock = conf.getBlockState("with", this.generator.oreBlock);
         this.generator.numberOfBlocks = conf.getInt("clusterSize", this.generator.numberOfBlocks);
     }
     

@@ -32,7 +32,7 @@ public class BiomeGenArctic extends BOPBiome
         this.spawnableCreatureList.clear();
         
         // gem
-        this.addGenerator("tanzanite", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).gemOre(BOPGems.TANZANITE).create());
+        this.addGenerator("tanzanite", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.TANZANITE).create());
     }
     
     @Override

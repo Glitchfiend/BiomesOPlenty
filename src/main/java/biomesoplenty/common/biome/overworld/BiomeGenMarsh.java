@@ -11,6 +11,7 @@ package biomesoplenty.common.biome.overworld;
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.entity.monster.EntitySlime;
+import net.minecraft.init.Blocks;
 import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
@@ -58,27 +59,26 @@ public class BiomeGenMarsh extends BOPBiome
         // this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(1.5F).waterLakeForBiome(this).create());
         
         // mud
-        this.addGenerator("mud", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(8).maxRadius(7).to(BOPBlocks.mud.getDefaultState().withProperty(BlockMud.VARIANT, BlockMud.MudType.MUD)).create());
+        this.addGenerator("mud", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(8).maxRadius(7).with(BOPBlocks.mud.getDefaultState().withProperty(BlockMud.VARIANT, BlockMud.MudType.MUD)).create());
         
         // other plants
-        this.addGenerator("koru", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).flora(BOPPlants.KORU).create());
+        this.addGenerator("koru", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BOPPlants.KORU).create());
         
         // water plants
-        this.addGenerator("duckweed", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).flora(BlockBOPLilypad.LilypadType.DUCKWEED).generationAttempts(32).create());
-        // TODO: algae aren't spawning for some reason
-        this.addGenerator("algae", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(10.0F).flora( BOPBlocks.coral.getDefaultState().withProperty(BlockCoral.VARIANT, BlockCoral.CoralType.ALGAE)).generationAttempts(32).create());
-        this.addGenerator("water_reeds", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(5.0F).flora(BOPPlants.REED).generationAttempts(32).create());
+        this.addGenerator("duckweed", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BlockBOPLilypad.LilypadType.DUCKWEED).generationAttempts(32).create());
+        this.addGenerator("algae", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(10.0F).replace(Blocks.water).with(BOPBlocks.coral.getDefaultState().withProperty(BlockCoral.VARIANT, BlockCoral.CoralType.ALGAE)).generationAttempts(32).create());
+        this.addGenerator("water_reeds", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(5.0F).with(BOPPlants.REED).generationAttempts(32).create());
 
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(20.0F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
-        grassGenerator.add("wheatgrass", 1, (new GeneratorGrass.Builder()).grass(BOPPlants.WHEATGRASS).create());
-        grassGenerator.add("dampgrass", 1, (new GeneratorGrass.Builder()).grass(BOPPlants.DAMPGRASS).create());
-        grassGenerator.add("tallgrass", 1, (new GeneratorGrass.Builder()).grass(BlockTallGrass.EnumType.GRASS).create());
-        grassGenerator.add("doublegrass", 10, (new GeneratorDoubleFlora.Builder()).flora(BlockDoublePlant.EnumPlantType.GRASS).create());
-               
+        grassGenerator.add("wheatgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.WHEATGRASS).create());
+        grassGenerator.add("dampgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.DAMPGRASS).create());
+        grassGenerator.add("tallgrass", 1, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).create());
+        grassGenerator.add("doublegrass", 10, (new GeneratorDoubleFlora.Builder()).with(BlockDoublePlant.EnumPlantType.GRASS).create());
+        
         // gem
-        this.addGenerator("malachite", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).gemOre(BOPGems.MALACHITE).create());
+        this.addGenerator("malachite", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.MALACHITE).create());
         
    
     }

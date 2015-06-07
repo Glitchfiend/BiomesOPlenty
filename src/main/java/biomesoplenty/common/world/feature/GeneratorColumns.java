@@ -34,7 +34,7 @@ public class GeneratorColumns extends BOPGeneratorBase
     {
         protected float amountPerChunk = 1.0F;
         protected IBlockPosQuery placeOn = new BlockPosQueryAny(new BlockQueryMaterial(Material.ground), new BlockQueryMaterial(Material.grass));
-        protected IBlockState to = Blocks.cobblestone.getDefaultState();
+        protected IBlockState with = Blocks.cobblestone.getDefaultState();
         protected int minHeight = 2;
         protected int maxHeight = 4;
         protected int generationAttempts = 12;
@@ -44,7 +44,7 @@ public class GeneratorColumns extends BOPGeneratorBase
         public Builder placeOn(String a) throws BlockQueryParseException {this.placeOn = BlockQueryUtils.parseQueryString(a); return this;}
         public Builder placeOn(Block a) {this.placeOn = new BlockQueryBlock(a); return this;}
         public Builder placeOn(IBlockState a) {this.placeOn = new BlockQueryState(a); return this;}        
-        public Builder to(IBlockState a) {this.to = a; return this;}
+        public Builder with(IBlockState a) {this.with = a; return this;}
         public Builder minHeight(int a) {this.minHeight = a; return this;}
         public Builder maxHeight(int a) {this.maxHeight = a; return this;}
         public Builder generationAttempts(int a) {this.generationAttempts = a; return this;}
@@ -53,21 +53,21 @@ public class GeneratorColumns extends BOPGeneratorBase
         @Override
         public GeneratorColumns create()
         {
-            return new GeneratorColumns(this.amountPerChunk, this.to, this.minHeight, this.maxHeight, this.placeOn, this.generationAttempts);
+            return new GeneratorColumns(this.amountPerChunk, this.with, this.minHeight, this.maxHeight, this.placeOn, this.generationAttempts);
         }
     }
     
     
     protected IBlockPosQuery placeOn;
-    protected IBlockState to;
+    protected IBlockState with;
     protected int minHeight;
     protected int maxHeight;
     protected int generationAttempts;
 
-    public GeneratorColumns(float amountPerChunk, IBlockState to, int minHeight, int maxHeight, IBlockPosQuery placeOn, int generationAttempts)
+    public GeneratorColumns(float amountPerChunk, IBlockState with, int minHeight, int maxHeight, IBlockPosQuery placeOn, int generationAttempts)
     {
         super(amountPerChunk);
-        this.to = to;
+        this.with = with;
         this.minHeight = minHeight;
         this.maxHeight = maxHeight;
         this.placeOn = placeOn;
@@ -97,7 +97,7 @@ public class GeneratorColumns extends BOPGeneratorBase
                 // keep placing blocks upwards (if there's room)
                 while(height > 0 && world.isAirBlock(genPos))
                 {
-                    world.setBlockState(genPos, this.to);
+                    world.setBlockState(genPos, this.with);
                     genPos = genPos.up();
                     height--;
                 }
@@ -110,7 +110,7 @@ public class GeneratorColumns extends BOPGeneratorBase
     public void configure(IConfigObj conf)
     {          
         this.amountPerChunk = conf.getFloat("amountPerChunk", this.amountPerChunk);
-        this.to = conf.getBlockState("to", this.to);
+        this.with = conf.getBlockState("with", this.with);
         this.minHeight = conf.getInt("minHeight", this.minHeight);
         this.maxHeight = conf.getInt("maxHeight", this.maxHeight);
         this.generationAttempts = conf.getInt("generationAttempts", this.generationAttempts);

@@ -37,7 +37,7 @@ public class BiomeGenAlps extends BOPBiome
         this.fillerBlock = Blocks.snow.getDefaultState();
         
         // gem
-        this.addGenerator("emeralds", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).state(Blocks.emerald_ore.getDefaultState()).create());
+        this.addGenerator("emeralds", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(Blocks.emerald_ore.getDefaultState()).create());
         
     }
 }

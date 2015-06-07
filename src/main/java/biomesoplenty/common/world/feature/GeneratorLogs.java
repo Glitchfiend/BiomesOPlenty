@@ -37,14 +37,14 @@ public class GeneratorLogs extends BOPGeneratorBase
     public static class Builder implements IGeneratorBuilder<GeneratorLogs>
     {
         protected float amountPerChunk = 1.0F;
-        protected IBlockState log = Blocks.log.getDefaultState();
+        protected IBlockState with = Blocks.log.getDefaultState();
         protected IBlockPosQuery placeOn = new BlockPosQueryAny(new BlockQueryMaterial(Material.ground), new BlockQueryMaterial(Material.grass));
         protected int minLength = 3;
         protected int maxLength = 5;
         
         public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
-        public Builder log(IBlockState a) {this.log = a; return this;}
-        public Builder log(BOPWoods a) {this.log = BlockBOPLog.paging.getVariantState(a); return this;}
+        public Builder log(IBlockState a) {this.with = a; return this;}
+        public Builder log(BOPWoods a) {this.with = BlockBOPLog.paging.getVariantState(a); return this;}
         public Builder placeOn(IBlockPosQuery a) {this.placeOn = a; return this;}
         public Builder placeOn(String a) throws BlockQueryParseException {this.placeOn = BlockQueryUtils.parseQueryString(a); return this;}
         public Builder placeOn(Block a) {this.placeOn = new BlockQueryBlock(a); return this;}
@@ -55,25 +55,25 @@ public class GeneratorLogs extends BOPGeneratorBase
         @Override
         public GeneratorLogs create()
         {
-            return new GeneratorLogs(this.amountPerChunk, this.log, this.minLength, this.maxLength, this.placeOn);
+            return new GeneratorLogs(this.amountPerChunk, this.with, this.minLength, this.maxLength, this.placeOn);
         }
     }
     
-    protected IBlockState log;
+    protected IBlockState with;
     protected IProperty axisProperty;
     protected IBlockPosQuery placeOn;
     protected int minLength;
     protected int maxLength;
     
-    public GeneratorLogs(float amountPerChunk, IBlockState log, int minLength, int maxLength, IBlockPosQuery placeOn)
+    public GeneratorLogs(float amountPerChunk, IBlockState with, int minLength, int maxLength, IBlockPosQuery placeOn)
     {
         
         super(amountPerChunk);
-        this.log = log;
-        this.axisProperty = getAxisProperty(log);
+        this.with = with;
+        this.axisProperty = getAxisProperty(with);
         if (this.axisProperty == null)
         {
-            throw new RuntimeException("Block state " + log + " has no axis property with X and Z values - is it actually a log?");
+            throw new RuntimeException("Block state " + with + " has no axis property with X and Z values - is it actually a log?");
         }
         this.placeOn = placeOn;
         this.minLength = minLength;
@@ -120,7 +120,7 @@ public class GeneratorLogs extends BOPGeneratorBase
         // keep placing logs along the chosen direction (as long as the block beneath is suitable)
         while(length > 0 && world.isAirBlock(pos) && this.placeOn.matches(world, pos.down()))
         {
-            world.setBlockState(pos, this.log.withProperty(this.axisProperty, direction));
+            world.setBlockState(pos, this.with.withProperty(this.axisProperty, direction));
             pos = (direction == BlockLog.EnumAxis.X) ? pos.east() : pos.north();
             length--;
         }
@@ -132,15 +132,15 @@ public class GeneratorLogs extends BOPGeneratorBase
     public void configure(IConfigObj conf)
     {        
         this.amountPerChunk = conf.getFloat("amountPerChunk", this.amountPerChunk);
-        IBlockState log = conf.getBlockState("log", null);
-        if (log != null)
+        IBlockState with = conf.getBlockState("with", null);
+        if (with != null)
         {
-            IProperty axisProperty = getAxisProperty(log);
+            IProperty axisProperty = getAxisProperty(with);
             if (axisProperty == null)
             {
-                conf.addMessage("log", "Block state " + log + " has no axis property with X and Z values - is it actually a log?");
+                conf.addMessage("log", "Block state " + with + " has no axis property with X and Z values - is it actually a log?");
             } else {
-                this.log = log;
+                this.with = with;
                 this.axisProperty = axisProperty;
             }
         }

@@ -16,9 +16,16 @@ import biomesoplenty.common.block.BlockBOPDoublePlant;
 import biomesoplenty.common.block.BlockDecoration;
 import biomesoplenty.common.block.BlockDoubleDecoration;
 import biomesoplenty.common.util.biome.GeneratorUtils;
+import biomesoplenty.common.util.block.BlockQueryUtils;
+import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryBlock;
+import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryMaterial;
+import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryParseException;
+import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryState;
+import biomesoplenty.common.util.block.BlockQueryUtils.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDoublePlant;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
@@ -30,19 +37,24 @@ public class GeneratorDoubleFlora extends BOPGeneratorBase
     public static class Builder implements IGeneratorBuilder<GeneratorDoubleFlora>
     {
         protected float amountPerChunk = 1.0F;
+        protected IBlockPosQuery replace = new BlockQueryMaterial(Material.air);
         protected IBlockState bottomState = BOPBlocks.double_plant.getDefaultState().withProperty(BlockBOPDoublePlant.VARIANT, BlockBOPDoublePlant.DoublePlantType.FLAX).withProperty(BlockBOPDoublePlant.HALF, BlockDoubleDecoration.Half.LOWER);
         protected IBlockState topState = BOPBlocks.double_plant.getDefaultState().withProperty(BlockBOPDoublePlant.VARIANT, BlockBOPDoublePlant.DoublePlantType.FLAX).withProperty(BlockBOPDoublePlant.HALF, BlockDoubleDecoration.Half.UPPER);
         protected int generationAttempts = 20;
         
         public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
-        public Builder flora(IBlockState bottom, IBlockState top) {this.bottomState = bottom; this.topState = top; return this;}
-        public Builder flora(BlockBOPDoublePlant.DoublePlantType type)
+        public Builder replace(IBlockPosQuery a) {this.replace = a; return this;}
+        public Builder replace(String a) throws BlockQueryParseException {this.replace = BlockQueryUtils.parseQueryString(a); return this;}
+        public Builder replace(Block a) {this.replace = new BlockQueryBlock(a); return this;}
+        public Builder replace(IBlockState a) {this.replace = new BlockQueryState(a); return this;} 
+        public Builder with(IBlockState bottom, IBlockState top) {this.bottomState = bottom; this.topState = top; return this;}
+        public Builder with(BlockBOPDoublePlant.DoublePlantType type)
         {
             this.bottomState = BOPBlocks.double_plant.getDefaultState().withProperty(BlockBOPDoublePlant.VARIANT, type).withProperty(BlockBOPDoublePlant.HALF, BlockDoubleDecoration.Half.LOWER);
             this.topState = BOPBlocks.double_plant.getDefaultState().withProperty(BlockBOPDoublePlant.VARIANT, type).withProperty(BlockBOPDoublePlant.HALF, BlockDoubleDecoration.Half.UPPER);
             return this;
         }
-        public Builder flora(BlockDoublePlant.EnumPlantType type)
+        public Builder with(BlockDoublePlant.EnumPlantType type)
         {
             this.bottomState = Blocks.double_plant.getStateFromMeta(type.getMeta());
             this.topState = Blocks.double_plant.getStateFromMeta(8);
@@ -53,18 +65,19 @@ public class GeneratorDoubleFlora extends BOPGeneratorBase
         @Override
         public GeneratorDoubleFlora create()
         {
-            return new GeneratorDoubleFlora(this.amountPerChunk, this.bottomState, this.topState, this.generationAttempts);
+            return new GeneratorDoubleFlora(this.amountPerChunk, this.replace, this.bottomState, this.topState, this.generationAttempts);
         }
     }
     
-    
+    protected IBlockPosQuery replace;
     protected IBlockState bottomState;
     protected IBlockState topState;
     protected int generationAttempts;
     
-    public GeneratorDoubleFlora(float amountPerChunk, IBlockState bottomState, IBlockState topState, int generationAttempts)
+    public GeneratorDoubleFlora(float amountPerChunk, IBlockPosQuery replace, IBlockState bottomState, IBlockState topState, int generationAttempts)
     {
         super(amountPerChunk);
+        this.replace = replace;
         this.bottomState = bottomState;
         this.topState = topState;
         this.generationAttempts = generationAttempts;
@@ -86,12 +99,14 @@ public class GeneratorDoubleFlora extends BOPGeneratorBase
         {
             BlockPos genPos = pos.add(random.nextInt(8) - random.nextInt(8), random.nextInt(4) - random.nextInt(4), random.nextInt(8) - random.nextInt(8));
 
-            boolean canStay = bottomBlock instanceof BlockDecoration ? ((BlockDecoration)bottomBlock).canBlockStay(world, genPos, this.bottomState) : bottomBlock.canPlaceBlockAt(world, genPos);
-            
-            if (world.isAirBlock(genPos) && world.isAirBlock(genPos.up()) && (!world.provider.getHasNoSky() || genPos.getY() < 255) && canStay)
+            if (this.replace.matches(world, genPos) && this.replace.matches(world, genPos.up()) && genPos.getY() < 254)
             {
-                world.setBlockState(genPos, this.bottomState, 2);
-                world.setBlockState(genPos.up(), this.topState, 2);
+                boolean canStay = bottomBlock instanceof BlockDecoration ? ((BlockDecoration)bottomBlock).canBlockStay(world, genPos, this.bottomState) : bottomBlock.canPlaceBlockAt(world, genPos);
+                if (canStay)
+                {
+                    world.setBlockState(genPos, this.bottomState, 2);
+                    world.setBlockState(genPos.up(), this.topState, 2);
+                }
             }
         }
 
@@ -102,6 +117,7 @@ public class GeneratorDoubleFlora extends BOPGeneratorBase
     public void configure(IConfigObj conf)
     {
         this.amountPerChunk = conf.getFloat("amountPerChunk", this.amountPerChunk);
+        this.replace = conf.getBlockPosQuery("replace", this.replace);
         this.bottomState = conf.getBlockState("bottomState", this.bottomState);
         this.topState = conf.getBlockState("topState", this.topState);
         this.generationAttempts = conf.getInt("generationAttempts", this.generationAttempts);

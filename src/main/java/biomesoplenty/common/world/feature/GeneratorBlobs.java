@@ -35,7 +35,7 @@ public class GeneratorBlobs extends BOPGeneratorBase
     {
         protected float amountPerChunk = 1.0F;
         protected IBlockPosQuery placeOn = new BlockPosQueryAny(new BlockQueryBlock(Blocks.stone), new BlockQueryMaterial(Material.ground), new BlockQueryMaterial(Material.grass));
-        protected IBlockState to = Blocks.cobblestone.getDefaultState();
+        protected IBlockState with = Blocks.cobblestone.getDefaultState();
         protected float minRadius = 2.0F;
         protected float maxRadius = 5.0F;
         protected float radiusFalloff = 0.5F;
@@ -47,7 +47,7 @@ public class GeneratorBlobs extends BOPGeneratorBase
         public Builder placeOn(String a) throws BlockQueryParseException {this.placeOn = BlockQueryUtils.parseQueryString(a); return this;}
         public Builder placeOn(Block a) {this.placeOn = new BlockQueryBlock(a); return this;}
         public Builder placeOn(IBlockState a) {this.placeOn = new BlockQueryState(a); return this;}        
-        public Builder to(IBlockState a) {this.to = a; return this;}
+        public Builder to(IBlockState a) {this.with = a; return this;}
         public Builder minRadius(float a) {this.minRadius = a; return this;}
         public Builder maxRadius(float a) {this.maxRadius = a; return this;}
         public Builder radiusFalloff(float a) {this.radiusFalloff = a; return this;}
@@ -57,23 +57,23 @@ public class GeneratorBlobs extends BOPGeneratorBase
         @Override
         public GeneratorBlobs create()
         {
-            return new GeneratorBlobs(this.amountPerChunk, this.to, this.minRadius, this.maxRadius, this.radiusFalloff, this.numBalls, this.placeOn, this.scatterYMethod);
+            return new GeneratorBlobs(this.amountPerChunk, this.placeOn, this.with, this.minRadius, this.maxRadius, this.radiusFalloff, this.numBalls, this.scatterYMethod);
         }
     }
     
     
     protected IBlockPosQuery placeOn;
-    protected IBlockState to;
+    protected IBlockState with;
     protected float minRadius;
     protected float maxRadius;
     protected float radiusFalloff; // should normally be between 0 and 1 so that balls get smaller
     protected int numBalls;
     protected ScatterYMethod scatterYMethod;
 
-    public GeneratorBlobs(float amountPerChunk, IBlockState to, float minRadius, float maxRadius, float radiusFalloff, int numBalls, IBlockPosQuery placeOn, ScatterYMethod scatterYMethod)
+    public GeneratorBlobs(float amountPerChunk, IBlockPosQuery placeOn, IBlockState with, float minRadius, float maxRadius, float radiusFalloff, int numBalls, ScatterYMethod scatterYMethod)
     {
         super(amountPerChunk);
-        this.to = to;
+        this.with = with;
         this.minRadius = minRadius;
         this.maxRadius = maxRadius;
         this.radiusFalloff = radiusFalloff;
@@ -157,7 +157,7 @@ public class GeneratorBlobs extends BOPGeneratorBase
                             if (px * px + py * py + pz * pz < 1.0D)
                             {
                                 BlockPos pos = new BlockPos(x, y, z);
-                                world.setBlockState(pos, this.to);
+                                world.setBlockState(pos, this.with);
                             }
                         }
                     }
@@ -172,11 +172,11 @@ public class GeneratorBlobs extends BOPGeneratorBase
     public void configure(IConfigObj conf)
     {        
         this.amountPerChunk = conf.getFloat("amountPerChunk", this.amountPerChunk);
-        this.to = conf.getBlockState("to", this.to);
+        this.placeOn = conf.getBlockPosQuery("placeOn", this.placeOn);
+        this.with = conf.getBlockState("with", this.with);
         this.minRadius = conf.getFloat("innerRadius", this.minRadius);
         this.radiusFalloff = conf.getFloat("radiusFalloff", this.radiusFalloff);
         this.numBalls = conf.getInt("numBalls", this.numBalls);
-        this.placeOn = conf.getBlockPosQuery("placeOn", this.placeOn);
         this.scatterYMethod = conf.getEnum("scatterYMethod", this.scatterYMethod, ScatterYMethod.class);
     }
     

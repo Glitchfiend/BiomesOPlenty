@@ -34,8 +34,8 @@ public class GeneratorSplatter extends BOPGeneratorBase
     {
         protected float amountPerChunk = 1.0F;
         protected IBlockPosQuery placeOn = new BlockQueryBlock(Blocks.grass);
+        protected IBlockState with = Blocks.stone.getDefaultState();
         protected int generationAttempts = 64;
-        protected IBlockState to = Blocks.stone.getDefaultState();
         protected ScatterYMethod scatterYMethod = ScatterYMethod.ANYWHERE;
         
         public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
@@ -44,13 +44,13 @@ public class GeneratorSplatter extends BOPGeneratorBase
         public Builder placeOn(Block a) {this.placeOn = new BlockQueryBlock(a); return this;}
         public Builder placeOn(IBlockState a) {this.placeOn = new BlockQueryState(a); return this;}        
         public Builder generationAttempts(int a) {this.generationAttempts = a; return this;}
-        public Builder to(IBlockState a) {this.to = a; return this;}
+        public Builder with(IBlockState a) {this.with = a; return this;}
         public Builder scatterYMethod(ScatterYMethod a) {this.scatterYMethod = a; return this;}
 
         @Override
         public GeneratorSplatter create()
         {
-            return new GeneratorSplatter(this.amountPerChunk, this.to, this.generationAttempts, this.placeOn, this.scatterYMethod);
+            return new GeneratorSplatter(this.amountPerChunk, this.placeOn, this.with, this.generationAttempts, this.scatterYMethod);
         }
     }
     
@@ -58,16 +58,16 @@ public class GeneratorSplatter extends BOPGeneratorBase
     private static IBlockPosQuery isLeavesOrAir = new BlockPosQueryAny(new BlockQueryMaterial(Material.leaves), new BlockQueryMaterial(Material.air));
     
     protected IBlockPosQuery placeOn;
+    protected IBlockState with;
     protected int generationAttempts;
-    protected IBlockState to;
     protected ScatterYMethod scatterYMethod;
     
-    public GeneratorSplatter(float amountPerChunk, IBlockState to, int generationAttempts, IBlockPosQuery placeOn, ScatterYMethod scatterYMethod)
+    public GeneratorSplatter(float amountPerChunk, IBlockPosQuery placeOn, IBlockState with, int generationAttempts, ScatterYMethod scatterYMethod)
     {
         super(amountPerChunk);
-        this.to = to;
-        this.generationAttempts = generationAttempts;
         this.placeOn = placeOn;
+        this.with = with;
+        this.generationAttempts = generationAttempts;
         this.scatterYMethod = scatterYMethod;
     }
     
@@ -92,7 +92,7 @@ public class GeneratorSplatter extends BOPGeneratorBase
             BlockPos pos1 = pos.add(rand.nextInt(8) - rand.nextInt(8), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(8) - rand.nextInt(8));
             if (world.isAirBlock(pos1) && this.placeOn.matches(world, pos1.down()))
             {
-                world.setBlockState(pos1, this.to);
+                world.setBlockState(pos1, this.with);
             }
         }
 
@@ -103,9 +103,9 @@ public class GeneratorSplatter extends BOPGeneratorBase
     public void configure(IConfigObj conf)
     {
         this.amountPerChunk = conf.getFloat("amountPerChunk", this.amountPerChunk);
-        this.to = conf.getBlockState("to", this.to);
-        this.generationAttempts = conf.getInt("generationAttempts", this.generationAttempts);
         this.placeOn = conf.getBlockPosQuery("placeOn", this.placeOn);
+        this.with = conf.getBlockState("with", this.with);
+        this.generationAttempts = conf.getInt("generationAttempts", this.generationAttempts);
         this.scatterYMethod = conf.getEnum("scatterYMethod", this.scatterYMethod, ScatterYMethod.class);
     }
     

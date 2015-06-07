@@ -28,33 +28,33 @@ public class GeneratorOreSingle extends GeneratorOreBase
     public static class Builder implements IGeneratorBuilder<GeneratorOreSingle>
     {
         protected float amountPerChunk = 1.0F;
+        protected IBlockState with = Blocks.emerald_ore.getDefaultState();
         protected int minHeight = 4;
         protected int maxHeight = 32;
-        protected IBlockState state = Blocks.emerald_ore.getDefaultState();
         
         public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
-        public Builder state(IBlockState a) {this.state = a; return this;}
-        public Builder gemOre(BOPGems a) {this.state = BOPBlocks.gem_ore.getDefaultState().withProperty(BlockGem.VARIANT, a); return this;}
+        public Builder with(IBlockState a) {this.with = a; return this;}
+        public Builder with(BOPGems a) {this.with = BOPBlocks.gem_ore.getDefaultState().withProperty(BlockGem.VARIANT, a); return this;}
         public Builder minHeight(int a) {this.minHeight = a; return this;}
         public Builder maxHeight(int a) {this.maxHeight = a; return this;}
 
         @Override
         public GeneratorOreSingle create()
         {
-            return new GeneratorOreSingle(this.state, this.amountPerChunk, this.minHeight, this.maxHeight);
+            return new GeneratorOreSingle(this.amountPerChunk, this.with, this.minHeight, this.maxHeight);
         }
     }
     
     
     
-    private IBlockState state;
+    private IBlockState with;
     private Predicate replace;
     
-    public GeneratorOreSingle(IBlockState state, float amountPerChunk, int minHeight, int maxHeight)
+    public GeneratorOreSingle(float amountPerChunk, IBlockState state, int minHeight, int maxHeight)
     {
         super(amountPerChunk, minHeight, maxHeight);
         
-        this.state = state;
+        this.with = state;
         this.replace = BlockHelper.forBlock(Blocks.stone);
     }
     
@@ -63,7 +63,7 @@ public class GeneratorOreSingle extends GeneratorOreBase
     {
         if (world.getBlockState(pos).getBlock().isReplaceableOreGen(world, pos, this.replace))
         {
-            return world.setBlockState(pos, this.state, 2);
+            return world.setBlockState(pos, this.with, 2);
         }
         
         return false;
@@ -74,8 +74,7 @@ public class GeneratorOreSingle extends GeneratorOreBase
     {
         super.configure(conf);
         
-        this.state = conf.getBlockState("state", this.state);
-        this.replace = BlockHelper.forBlock(Blocks.stone);
+        this.with = conf.getBlockState("with", this.with);
     }
     
 }

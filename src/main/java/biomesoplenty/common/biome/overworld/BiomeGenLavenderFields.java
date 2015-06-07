@@ -39,7 +39,7 @@ public class BiomeGenLavenderFields extends BOPBiome
         this.addWeight(BiomeType.WARM, 3);
         
         // flowers
-        this.addGenerator("lavender", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(99).flora(BOPFlowers.LAVENDER).create());
+        this.addGenerator("lavender", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(99).with(BOPFlowers.LAVENDER).create());
 
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(1);
@@ -50,11 +50,11 @@ public class BiomeGenLavenderFields extends BOPBiome
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(2);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
-        grassGenerator.add("wheatgrass", 1, (new GeneratorGrass.Builder()).grass(BOPPlants.WHEATGRASS).create());
-        grassGenerator.add("tallgrass", 3, (new GeneratorGrass.Builder()).grass(BlockTallGrass.EnumType.GRASS).create());
+        grassGenerator.add("wheatgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.WHEATGRASS).create());
+        grassGenerator.add("tallgrass", 3, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).create());
          
         // gem
-        this.addGenerator("peridot", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).gemOre(BOPGems.PERIDOT).create()); 
+        this.addGenerator("peridot", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.PERIDOT).create()); 
      }
     
     @Override

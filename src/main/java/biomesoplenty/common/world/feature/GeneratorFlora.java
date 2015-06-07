@@ -12,6 +12,7 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
@@ -26,6 +27,8 @@ import biomesoplenty.common.block.BlockDecoration;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.util.biome.GeneratorUtils;
+import biomesoplenty.common.util.block.BlockQueryUtils;
+import biomesoplenty.common.util.block.BlockQueryUtils.*;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GeneratorFlora extends BOPGeneratorBase
@@ -34,19 +37,24 @@ public class GeneratorFlora extends BOPGeneratorBase
     public static class Builder implements IGeneratorBuilder<GeneratorFlora>
     {
         protected float amountPerChunk = 1.0F;
-        protected IBlockState state = Blocks.red_flower.getDefaultState();
+        protected IBlockPosQuery replace = new BlockQueryMaterial(Material.air);
+        protected IBlockState with = Blocks.red_flower.getDefaultState();
         protected int generationAttempts = 20;
-        
+                
         public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
-        public Builder flora(IBlockState a) {this.state = a; return this;}
-        public Builder flora(BOPPlants a) {this.state = BlockBOPPlant.paging.getVariantState(a); return this;}
-        public Builder flora(BOPFlowers a) {this.state = BlockBOPFlower.paging.getVariantState(a); return this;}
-        public Builder flora(BlockBOPMushroom.MushroomType a) {this.state = BOPBlocks.mushroom.getDefaultState().withProperty(BlockBOPMushroom.VARIANT, a); return this;}
-        public Builder flora(BlockBOPLilypad.LilypadType a) {this.state = BOPBlocks.waterlily.getDefaultState().withProperty(BlockBOPLilypad.VARIANT, a); return this;}
-        public Builder flora(BlockFlower.EnumFlowerType a)
+        public Builder replace(IBlockPosQuery a) {this.replace = a; return this;}
+        public Builder replace(String a) throws BlockQueryParseException {this.replace = BlockQueryUtils.parseQueryString(a); return this;}
+        public Builder replace(Block a) {this.replace = new BlockQueryBlock(a); return this;}
+        public Builder replace(IBlockState a) {this.replace = new BlockQueryState(a); return this;}         
+        public Builder with(IBlockState a) {this.with = a; return this;}
+        public Builder with(BOPPlants a) {this.with = BlockBOPPlant.paging.getVariantState(a); return this;}
+        public Builder with(BOPFlowers a) {this.with = BlockBOPFlower.paging.getVariantState(a); return this;}
+        public Builder with(BlockBOPMushroom.MushroomType a) {this.with = BOPBlocks.mushroom.getDefaultState().withProperty(BlockBOPMushroom.VARIANT, a); return this;}
+        public Builder with(BlockBOPLilypad.LilypadType a) {this.with = BOPBlocks.waterlily.getDefaultState().withProperty(BlockBOPLilypad.VARIANT, a); return this;}
+        public Builder with(BlockFlower.EnumFlowerType a)
         {
             BlockFlower flowerBlock = a.getBlockType().getBlock();
-            this.state = flowerBlock.getDefaultState().withProperty(flowerBlock.getTypeProperty(), a);
+            this.with = flowerBlock.getDefaultState().withProperty(flowerBlock.getTypeProperty(), a);
             return this;
         }
         public Builder generationAttempts(int a) {this.generationAttempts = a; return this;}
@@ -54,18 +62,20 @@ public class GeneratorFlora extends BOPGeneratorBase
         @Override
         public GeneratorFlora create()
         {
-            return new GeneratorFlora(this.amountPerChunk, this.state, this.generationAttempts);
+            return new GeneratorFlora(this.amountPerChunk, this.replace, this.with, this.generationAttempts);
         }
     }
     
     
-    protected IBlockState state;
+    protected IBlockPosQuery replace;
+    protected IBlockState with;
     protected int generationAttempts;
     
-    public GeneratorFlora(float amountPerChunk, IBlockState state, int generationAttempts)
+    public GeneratorFlora(float amountPerChunk, IBlockPosQuery replace, IBlockState with, int generationAttempts)
     {
         super(amountPerChunk);
-        this.state = state;
+        this.replace = replace;
+        this.with = with;
         this.generationAttempts = generationAttempts;
     }
     
@@ -79,17 +89,19 @@ public class GeneratorFlora extends BOPGeneratorBase
     @Override
     public boolean generate(World world, Random random, BlockPos pos)
     {
-        Block block = this.state.getBlock();
+        Block block = this.with.getBlock();
         
         for (int i = 0; i < this.generationAttempts; ++i)
         {
             BlockPos genPos = pos.add(random.nextInt(8) - random.nextInt(8), random.nextInt(4) - random.nextInt(4), random.nextInt(8) - random.nextInt(8));
 
-            boolean canStay = block instanceof BlockDecoration ? ((BlockDecoration)block).canBlockStay(world, genPos, this.state) : block.canPlaceBlockAt(world, genPos);
-            
-            if (world.isAirBlock(genPos) && (!world.provider.getHasNoSky() || genPos.getY() < 255) && canStay)
+            if (this.replace.matches(world, genPos) && genPos.getY() < 255)
             {
-                world.setBlockState(genPos, this.state, 2);
+                boolean canStay = block instanceof BlockDecoration ? ((BlockDecoration)block).canBlockStay(world, genPos, this.with) : block.canPlaceBlockAt(world, genPos);
+                if (canStay)
+                {
+                    world.setBlockState(genPos, this.with, 2);
+                }
             }
         }
 
@@ -100,7 +112,8 @@ public class GeneratorFlora extends BOPGeneratorBase
     public void configure(IConfigObj conf)
     {
         this.amountPerChunk = conf.getFloat("amountPerChunk", this.amountPerChunk);
-        this.state = conf.getBlockState("state", this.state);
+        this.replace = conf.getBlockPosQuery("replace", this.replace);
+        this.with = conf.getBlockState("with", this.with);
         this.generationAttempts = conf.getInt("generationAttempts", this.generationAttempts);
     }
 
