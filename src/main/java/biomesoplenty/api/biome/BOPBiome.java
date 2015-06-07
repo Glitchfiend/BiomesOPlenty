@@ -40,11 +40,12 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
     // defaults
     public int skyColor = -1; // -1 indicates the default skyColor by temperature will be used
     public boolean hasBiomeEssence = true;
+    public IBlockState seaFloorBlock = Blocks.dirt.getDefaultState();
     
     public BOPBiome()
     {
         super(-1, false);
-
+        
         this.theBiomeDecorator.treesPerChunk = -999;
         this.theBiomeDecorator.flowersPerChunk = -999;
         this.theBiomeDecorator.grassPerChunk = -999;
@@ -64,6 +65,8 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         // Allow basic properties to be overridden
         this.topBlock = conf.getBlockState("topBlock", this.topBlock);
         this.fillerBlock = conf.getBlockState("fillerBlock", this.fillerBlock);
+        this.seaFloorBlock = conf.getBlockState("seaFloorBlock", this.seaFloorBlock);
+        
         this.minHeight = conf.getFloat("rootHeight", this.minHeight);
         this.maxHeight = conf.getFloat("variation", this.maxHeight);
         this.temperature = conf.getFloat("temperature", this.temperature);
@@ -254,11 +257,14 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
 
         IBlockState topBlock = this.topBlock;
         IBlockState fillerBlock = this.fillerBlock;
-        
-        int dirtDepth = Math.max(0, (int)(stoneNoiseVal / 3.0D + 3.0D + rand.nextDouble() * 0.25D));
-        
+        IBlockState seaFloorBlock = this.seaFloorBlock;
+
+        boolean hitFloorYet = false;
         int topBlocksToFill = 0;
         int dirtBlocksToFill = 0;
+        int seaFloorBlocksToFill = 0;
+        int dirtDepth = Math.max(0, (int)(stoneNoiseVal / 3.0D + 3.0D + rand.nextDouble() * 0.25D));
+        int seaFloorDepth = 1 + rand.nextInt(2);
         
         int localX = x & 15;
         int localZ = z & 15;
@@ -276,16 +282,22 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
                 continue;
             }
 
-            // topBlocks and dirtBlocks can occur after any pocket of air
             if (state.getBlock().getMaterial() == Material.air)
             {
+                // topBlocks and dirtBlocks can occur after any pocket of air
                 topBlocksToFill = (topBlock == null ? 0 : 1);
                 dirtBlocksToFill = dirtDepth;
                 continue;
             }
+            else if (!hitFloorYet && state.getBlock().getMaterial() == Material.water)
+            {
+                // seaFloorBlocks can occur after surface water
+                seaFloorBlocksToFill = seaFloorDepth;
+            }
             
             if (state.getBlock() == Blocks.stone)
             {
+                hitFloorYet = true;
                 if (topBlocksToFill > 0)
                 {
                     if (y >= 62)
@@ -302,6 +314,11 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
                         dirtBlocksToFill = 0;
                     }
                     topBlocksToFill--;
+                }
+                else if (seaFloorBlocksToFill > 0)
+                {
+                    primer.setBlockState(localZ, y, localX, seaFloorBlock);
+                    --seaFloorBlocksToFill;
                 }
                 else if (dirtBlocksToFill > 0)
                 {
