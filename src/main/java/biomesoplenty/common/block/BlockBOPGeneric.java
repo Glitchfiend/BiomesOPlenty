@@ -8,6 +8,9 @@
 
 package biomesoplenty.common.block;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
@@ -15,6 +18,10 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.common.EnumPlantType;
 
 public class BlockBOPGeneric extends Block implements IBOPBlock
 {
@@ -43,6 +50,26 @@ public class BlockBOPGeneric extends Block implements IBOPBlock
         // set some defaults
         this.setHardness(1.0F);
         this.setStepSound(Block.soundTypePiston);
+    }
+    
+    
+    
+    public Set<EnumPlantType> plantTypesICanSustain = new HashSet<EnumPlantType>();
+    
+    public BlockBOPGeneric addSupportedPlantType(EnumPlantType... plantTypes)
+    {
+        for (EnumPlantType plantType : plantTypes)
+        {
+            this.plantTypesICanSustain.add(plantType);
+        }
+        return this;
+    }
+    
+    @Override
+    public boolean canSustainPlant(IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
+    {
+        EnumPlantType plantType = plantable.getPlantType(world, pos.offset(direction));
+        return this.plantTypesICanSustain.contains(plantType);   
     }
     
 }
