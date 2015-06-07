@@ -23,11 +23,12 @@ import biomesoplenty.common.world.feature.GeneratorOreSingle;
 
 public class BiomeGenSteppe extends BOPBiome
 {
-    private static final Height biomeHeight = new Height(0.1F, 0.4F);
-
     public BiomeGenSteppe()
     {
-        this.setHeight(biomeHeight);
+        // terrain
+        this.bopMinHeight = 64;
+        this.bopMaxHeight = 97;
+        
         this.setColor(13413215);
         this.setTemperatureRainfall(0.7F, 0.05F);
         

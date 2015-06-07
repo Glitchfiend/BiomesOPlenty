@@ -28,11 +28,13 @@ import biomesoplenty.common.world.feature.tree.GeneratorBush;
 
 public class BiomeGenShrubland extends BOPBiome
 {
-    private static final Height biomeHeight = new Height(0.1F, 0.1F);
     
     public BiomeGenShrubland()
     {
-        this.setHeight(biomeHeight);
+        // terrain
+        this.bopMinHeight = 60;
+        this.bopMaxHeight = 79;
+        
         this.setColor(8168286);
         this.setTemperatureRainfall(0.6F, 0.05F);
         

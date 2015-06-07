@@ -16,12 +16,13 @@ import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 
 public class BiomeGenArctic extends BOPBiome
-{
-    private static final Height biomeHeight = new Height(0F, 0F);
-    
+{    
     public BiomeGenArctic()
     {
-        this.setHeight(biomeHeight);
+        // terrain
+        this.bopMinHeight = 63;
+        this.bopMaxHeight = 70;
+        
         this.setColor(14540253);
         this.setEnableSnow();
         this.setTemperatureRainfall(0.05F, 0.5F);

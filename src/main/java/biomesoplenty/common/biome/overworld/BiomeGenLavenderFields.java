@@ -27,11 +27,12 @@ import biomesoplenty.common.world.feature.tree.GeneratorBigTree;
  
 public class BiomeGenLavenderFields extends BOPBiome
 {
-    private static final Height biomeHeight = new Height(0.125F, 0.05F);
-
     public BiomeGenLavenderFields()
     {
-        this.setHeight(biomeHeight);
+        // terrain
+        this.bopMinHeight = 61;
+        this.bopMaxHeight = 76;
+        
         this.setColor(11035852);
         this.setTemperatureRainfall(0.6F, 0.7F);
     

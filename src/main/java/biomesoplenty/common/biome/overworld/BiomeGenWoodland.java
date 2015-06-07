@@ -33,12 +33,13 @@ import biomesoplenty.common.world.feature.tree.GeneratorBigTree;
 
 public class BiomeGenWoodland extends BOPBiome
 {
-    
-   private static final Height biomeHeight = new Height(0.1F, 0.2F);
-    
+        
     public BiomeGenWoodland()
     {
-        this.setHeight(biomeHeight);
+        // terrain
+        this.bopMinHeight = 58;
+        this.bopMaxHeight = 85;
+        
         this.setColor(0x84A92D);
         this.setTemperatureRainfall(0.6F, 0.4F);
         

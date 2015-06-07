@@ -27,12 +27,14 @@ import biomesoplenty.common.world.feature.GeneratorWaterside;
 import biomesoplenty.common.world.feature.tree.GeneratorBush;
 
 public class BiomeGenTundra extends BOPBiome
-{
-    private static final Height biomeHeight = new Height(0.2F, 0.3F);
-    
+{    
     public BiomeGenTundra()
     {
-        this.setHeight(biomeHeight);
+        // terrain
+        this.bopMinHeight = 58;
+        this.bopMaxHeight = 85;
+        this.setOctaveWeights(2, 2, 1, 0, 1, 1);
+        
         this.setColor(0xAD8456);
         this.setTemperatureRainfall(0.2F, 0.5F);
         

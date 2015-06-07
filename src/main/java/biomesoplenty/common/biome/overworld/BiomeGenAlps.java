@@ -20,6 +20,12 @@ public class BiomeGenAlps extends BOPBiome
 
     public BiomeGenAlps()
     {
+        // terrain
+        this.bopMinHeight = 195;
+        this.bopMaxHeight = 209;
+        this.sidewaysNoiseAmount = 0.1D;
+        this.setOctaveWeights(1, 1, 2, 2, 3, 3);
+        
         this.setHeight(biomeHeight);
         this.setColor(13421772);
         this.setEnableSnow();
@@ -32,6 +38,6 @@ public class BiomeGenAlps extends BOPBiome
         
         // gem
         this.addGenerator("emeralds", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).state(Blocks.emerald_ore.getDefaultState()).create());
-
+        
     }
 }

@@ -87,7 +87,7 @@ public class ModBiomes
         steppe = registerBOPBiome(new BiomeGenSteppe(), "Steppe");
         thicket = registerBOPBiome(new BiomeGenThicket(), "Thicket");
         tundra = registerBOPBiome(new BiomeGenTundra(), "Tundra");
-        woodland = registerBOPBiome(new BiomeGenWoodland(), "Woodland");
+        woodland = registerBOPBiome(new BiomeGenWoodland(), "Woodland");        
     }
     
     private static Optional<BiomeGenBase> registerBOPBiome(BOPBiome biome, String name)

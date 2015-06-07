@@ -32,14 +32,16 @@ import net.minecraftforge.common.BiomeManager.BiomeType;
 
 public class BiomeGenDenseForest extends BOPBiome
 {
-    private static final Height biomeHeight = new Height(0.075F, 0.05F);
     
     public IBlockState usualTopBlock;
     public IBlockState alternateTopBlock;
     
     public BiomeGenDenseForest()
     {
-        this.setHeight(biomeHeight);
+        // terrain
+        this.bopMinHeight = 60;
+        this.bopMaxHeight = 76;
+        
         this.setColor(8246897);
         this.setTemperatureRainfall(0.7F, 0.7F);
         

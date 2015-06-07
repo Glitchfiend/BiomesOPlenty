@@ -24,12 +24,13 @@ import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
 import biomesoplenty.common.world.feature.tree.GeneratorBush;
 
 public class BiomeGenThicket extends BOPBiome
-{
-    private static final Height biomeHeight = new Height(0.1F, 0.1F);
-    
+{    
     public BiomeGenThicket()
     {
-        this.setHeight(biomeHeight);
+        // terrain
+        this.bopMinHeight = 60;
+        this.bopMaxHeight = 79;
+        
         this.setColor(7248193);
         this.setTemperatureRainfall(0.6F, 0.2F);
         

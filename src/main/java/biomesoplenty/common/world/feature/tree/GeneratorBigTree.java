@@ -479,10 +479,16 @@ public class GeneratorBigTree extends BOPGeneratorBase
             return false;
         }
 
-        prepare();
-        makeFoliage();
-        makeTrunk();
-        makeBranches();
+        try {
+            prepare();
+            makeFoliage();
+            makeTrunk();
+            makeBranches();
+        } catch (RuntimeException e) {
+            // TODO: deal with this.
+            ;
+        }
+        
         this.world = null; //Fix vanilla Mem leak, holds latest world
 
         return true;

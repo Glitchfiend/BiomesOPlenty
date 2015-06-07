@@ -13,12 +13,19 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Map.Entry;
 
+import net.minecraft.block.BlockSand;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.generation.GenerationManager;
 import biomesoplenty.api.biome.generation.GeneratorStage;
@@ -44,6 +51,8 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         this.theBiomeDecorator.sandPerChunk = -999;
         this.theBiomeDecorator.sandPerChunk2 = -999;
         this.theBiomeDecorator.clayPerChunk = -999;
+        
+        this.setOctaveWeights(1, 1, 1, 1, 1, 1);
     }
     
     public void configure(IConfigObj conf)
@@ -218,4 +227,97 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
     {
         return (this.skyColor == -1) ? super.getSkyColorByTemp(temperature) : this.skyColor;
     }
+    
+    public double[] normalisedOctaveWeights = new double[6];
+    public void setOctaveWeights(double w0, double w1, double w2, double w3, double w4, double w5)
+    {
+        // standard weights for the octaves are 1,2,4,8,6,3
+        double norm = 1 / (1 * w0 + 2 * w1 + 4 * w2 + 8 * w3 + 6 * w4 + 3 * w5);
+        this.normalisedOctaveWeights[0] = w0 * 1 * norm;
+        this.normalisedOctaveWeights[1] = w1 * 2 * norm;
+        this.normalisedOctaveWeights[2] = w2 * 4 * norm;
+        this.normalisedOctaveWeights[3] = w3 * 8 * norm;
+        this.normalisedOctaveWeights[4] = w4 * 6 * norm;
+        this.normalisedOctaveWeights[5] = w5 * 3 * norm;
+    }
+    
+    public double sidewaysNoiseAmount = 0.5D;
+    public int bopMinHeight = 58;
+    public int bopMaxHeight = 85;
+    public boolean noNeighborTerrainInfuence = false;
+    
+    
+    
+    @Override
+    public void genTerrainBlocks(World world, Random rand, ChunkPrimer primer, int x, int z, double stoneNoiseVal)
+    {
+
+        IBlockState topBlock = this.topBlock;
+        IBlockState fillerBlock = this.fillerBlock;
+        
+        int dirtDepth = Math.max(0, (int)(stoneNoiseVal / 3.0D + 3.0D + rand.nextDouble() * 0.25D));
+        
+        int topBlocksToFill = 0;
+        int dirtBlocksToFill = 0;
+        
+        int localX = x & 15;
+        int localZ = z & 15;
+
+        // start at the top and move downwards
+        for (int y = 255; y >= 0; --y)
+        {
+            
+            IBlockState state = primer.getBlockState(localZ, y, localX);
+            
+            // bedrock at the bottom
+            if (y <= rand.nextInt(5))
+            {
+                primer.setBlockState(localZ, y, localX, Blocks.bedrock.getDefaultState());
+                continue;
+            }
+
+            // topBlocks and dirtBlocks can occur after any pocket of air
+            if (state.getBlock().getMaterial() == Material.air)
+            {
+                topBlocksToFill = (topBlock == null ? 0 : 1);
+                dirtBlocksToFill = dirtDepth;
+                continue;
+            }
+            
+            if (state.getBlock() == Blocks.stone)
+            {
+                if (topBlocksToFill > 0)
+                {
+                    if (y >= 62)
+                    {
+                        primer.setBlockState(localZ, y, localX, topBlock);
+                    }
+                    else if (y >= 56 - dirtDepth)
+                    {
+                        primer.setBlockState(localZ, y, localX, fillerBlock);
+                    }
+                    else
+                    {
+                        primer.setBlockState(localZ, y, localX, Blocks.gravel.getDefaultState());
+                        dirtBlocksToFill = 0;
+                    }
+                    topBlocksToFill--;
+                }
+                else if (dirtBlocksToFill > 0)
+                {
+                    primer.setBlockState(localZ, y, localX, fillerBlock);
+                    --dirtBlocksToFill;
+
+                    // add sandstone after a patch of sand
+                    if (dirtBlocksToFill == 0 && fillerBlock.getBlock() == Blocks.sand)
+                    {
+                        dirtBlocksToFill = rand.nextInt(4) + Math.max(0, y - 63);
+                        fillerBlock = fillerBlock.getValue(BlockSand.VARIANT) == BlockSand.EnumType.RED_SAND ? Blocks.red_sandstone.getDefaultState() : Blocks.sandstone.getDefaultState();
+                    }
+                }
+            }
+        }
+    }
+
+    
 }

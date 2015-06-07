@@ -36,12 +36,15 @@ import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import biomesoplenty.common.world.feature.GeneratorWaterside;
 
 public class BiomeGenGrassland extends BOPBiome {
-
-    private static final Height biomeHeight = new Height(0.1F, 0.2F);
     
     public BiomeGenGrassland() {
         
-        this.setHeight(biomeHeight);
+        // terrain
+        this.bopMinHeight = 58;
+        this.bopMaxHeight = 85;
+        this.sidewaysNoiseAmount = 0.1D;
+        this.setOctaveWeights(0, 1, 1, 1, 2, 3);
+        
         this.setColor(0x7FDB7D);
         this.setTemperatureRainfall(0.6F, 0.7F);
         

@@ -27,12 +27,16 @@ import biomesoplenty.common.world.feature.GeneratorSplotches;
 import biomesoplenty.common.world.feature.tree.GeneratorBush;
 
 public class BiomeGenChaparral extends BOPBiome
-{
-    private static final Height biomeHeight = new Height(0.2F, 0.3F);
-    
+{    
     public BiomeGenChaparral()
     {
-        this.setHeight(biomeHeight);
+        
+        // terrain
+        this.bopMinHeight = 59;
+        this.bopMaxHeight = 93;
+        this.sidewaysNoiseAmount = 0.1D;
+        this.setOctaveWeights(1, 4, 3, 1, 1, 0);
+        
         this.setColor(0xC0D85D);
         this.setTemperatureRainfall(0.8F, 0.6F);
         
@@ -75,7 +79,7 @@ public class BiomeGenChaparral extends BOPBiome
         
         // gem
         this.addGenerator("peridot", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).gemOre(BOPGems.PERIDOT).create());
-   
+        
     }
     
     

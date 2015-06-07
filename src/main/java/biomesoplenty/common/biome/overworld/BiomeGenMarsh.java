@@ -24,7 +24,6 @@ import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
-import biomesoplenty.common.world.feature.GeneratorLakes;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import biomesoplenty.common.world.feature.GeneratorWaterside;
 
@@ -33,12 +32,17 @@ public class BiomeGenMarsh extends BOPBiome
    
     // TODO: fog color / closeness? what's that?
     // TODO: should there be foliage colors / water colors?
-    
-    private static final Height biomeHeight = new Height(-0.05F, 0.05F);
-    
+        
     public BiomeGenMarsh()
     {
-        this.setHeight(biomeHeight);
+        
+        // terrain
+        // TODO: the terrain seems to generate a bit higher than expected with these numbers.
+        this.bopMinHeight = 56;
+        this.bopMaxHeight = 66;
+        this.sidewaysNoiseAmount = 0.0D;
+        this.setOctaveWeights(5, 5, 0, 0, 1, 1);
+        
         this.setColor(0x66A06E);
         this.setTemperatureRainfall(0.5F, 0.9F);
         
@@ -51,7 +55,7 @@ public class BiomeGenMarsh extends BOPBiome
         // lakes (it might seem obvious that lakes should be done at GeneratorStage.WATER_LAKES, but that is actually executed very late, after all plants and flowers
         // TODO: find a way to make the lakes shallower
         // TODO: put splotches of mud on the bottom? Either using a new GeneratorSplotches or perhaps by adding a lake parameter
-        this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(1.5F).waterLakeForBiome(this).create());
+        // this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(1.5F).waterLakeForBiome(this).create());
         
         // mud
         this.addGenerator("mud", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(8).maxRadius(7).to(BOPBlocks.mud.getDefaultState().withProperty(BlockMud.VARIANT, BlockMud.MudType.MUD)).create());
@@ -61,7 +65,8 @@ public class BiomeGenMarsh extends BOPBiome
         
         // water plants
         this.addGenerator("duckweed", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).flora(BlockBOPLilypad.LilypadType.DUCKWEED).generationAttempts(32).create());
-        this.addGenerator("algae", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(2.5F).flora( BOPBlocks.coral.getDefaultState().withProperty(BlockCoral.VARIANT, BlockCoral.CoralType.ALGAE)).generationAttempts(32).create());
+        // TODO: algae aren't spawning for some reason
+        this.addGenerator("algae", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(10.0F).flora( BOPBlocks.coral.getDefaultState().withProperty(BlockCoral.VARIANT, BlockCoral.CoralType.ALGAE)).generationAttempts(32).create());
         this.addGenerator("water_reeds", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(5.0F).flora(BOPPlants.REED).generationAttempts(32).create());
 
         // grasses
@@ -74,6 +79,7 @@ public class BiomeGenMarsh extends BOPBiome
                
         // gem
         this.addGenerator("malachite", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).gemOre(BOPGems.MALACHITE).create());
+        
    
     }
     

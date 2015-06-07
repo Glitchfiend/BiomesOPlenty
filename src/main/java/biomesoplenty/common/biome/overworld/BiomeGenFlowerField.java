@@ -22,12 +22,14 @@ import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 
 public class BiomeGenFlowerField extends BOPBiome
-{
-    private static final Height biomeHeight = new Height(0.125F, 0.05F);
-    
+{    
     public BiomeGenFlowerField()
     {
-        this.setHeight(biomeHeight);
+        
+        // terrain
+        this.bopMinHeight = 61;
+        this.bopMaxHeight = 76;
+        
         this.setColor(4044093);
         this.setTemperatureRainfall(0.6F, 0.7F);
 

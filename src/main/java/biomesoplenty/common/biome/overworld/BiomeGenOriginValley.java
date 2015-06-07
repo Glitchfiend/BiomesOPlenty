@@ -24,11 +24,13 @@ import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
 
 public class BiomeGenOriginValley extends BOPBiome
 {
-    private static final Height biomeHeight = new Height(0.1F, 0.3F);
-
     public BiomeGenOriginValley()
     {
-        this.setHeight(biomeHeight);
+        // terrain
+        this.bopMinHeight = 57;
+        this.bopMaxHeight = 91;
+        this.sidewaysNoiseAmount = 0.0D;
+        
         this.setColor(10341485);
         this.setTemperatureRainfall(0.7F, 0.8F);
         this.skyColor = 8441086;

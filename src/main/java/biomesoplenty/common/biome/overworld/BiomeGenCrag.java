@@ -16,12 +16,14 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 
 public class BiomeGenCrag extends BOPBiome
-{
-    private static final Height biomeHeight = new Height(2.0F, 3.0F);
-    
+{    
     public BiomeGenCrag()
     {
-        this.setHeight(biomeHeight);
+        // terrain
+        this.bopMinHeight = 40;
+        this.bopMaxHeight = 230;
+        this.sidewaysNoiseAmount = 1.0D;
+        
         this.setColor(5209457);
         this.setTemperatureRainfall(1.0F, 0.0F);
 
@@ -37,6 +39,7 @@ public class BiomeGenCrag extends BOPBiome
         
         // gem
         this.addGenerator("emeralds", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).state(Blocks.emerald_ore.getDefaultState()).create());
+        
     }
     
 }
