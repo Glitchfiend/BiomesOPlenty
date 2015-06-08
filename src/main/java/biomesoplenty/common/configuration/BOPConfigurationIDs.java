@@ -22,6 +22,8 @@ public class BOPConfigurationIDs
 	public static int birdID;
 	public static int pixieID;
 	
+	//public static int 
+	
 	public static void init(File configFile)
 	{
 		config = new Configuration(configFile);

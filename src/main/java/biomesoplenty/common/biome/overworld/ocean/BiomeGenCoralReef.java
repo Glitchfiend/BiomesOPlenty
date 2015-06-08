@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.api.utils.BiomeUtils;
 import biomesoplenty.common.biome.BOPOceanBiome;
 
 public class BiomeGenCoralReef extends BOPOceanBiome
@@ -43,7 +44,7 @@ public class BiomeGenCoralReef extends BOPOceanBiome
 
 			Block block = world.getBlock(x, y, z);
 
-			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
+			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone) && BiomeUtils.oreWithMetaEnabled(12))
 			{
 				world.setBlock(x, y, z, BOPCBlocks.gemOre, 12, 2);
 			}
