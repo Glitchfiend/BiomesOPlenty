@@ -34,4 +34,8 @@ public class BOPBiomes
     public static Optional<BiomeGenBase> thicket = Optional.absent();
     public static Optional<BiomeGenBase> tundra = Optional.absent();
     public static Optional<BiomeGenBase> woodland = Optional.absent();
+    
+    
+    // sub biomes
+    public static Optional<BiomeGenBase> glacier = Optional.absent();
 }

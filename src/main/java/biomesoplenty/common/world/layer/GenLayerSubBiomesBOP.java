@@ -8,8 +8,9 @@
 
 package biomesoplenty.common.world.layer;
 
-import biomesoplenty.api.biome.BOPBiomes;
-import net.minecraft.world.biome.BiomeGenBase;
+import java.util.List;
+
+import biomesoplenty.common.init.ModBiomes;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
@@ -110,136 +111,23 @@ public class GenLayerSubBiomesBOP extends GenLayer
     public int getRareSubBiome(int biomeId)
     {
         
-        // the mutated versions of vanilla biomes aren't actually saved to static variables in BiomeGenBase
-        // instead, they just manually create mutated versions of many of their biomes via a hard coded list in BiomeGenBase
-        // and by default assume a biome id which is the old one + 128
-        // this severely limits the number of new biomes we can add (we'd have to keep the number below 128 to avoid clashes)
-        // we hard code the list of vanilla biomes with mutated versions below, which enables other biomes to use the biome ids which are not taken
-                
-        if (
-            biomeId == BiomeGenBase.plains.biomeID ||
-            biomeId == BiomeGenBase.desert.biomeID ||
-            biomeId == BiomeGenBase.forest.biomeID ||
-            biomeId == BiomeGenBase.taiga.biomeID ||
-            biomeId == BiomeGenBase.swampland.biomeID ||
-            biomeId == BiomeGenBase.icePlains.biomeID ||
-            biomeId == BiomeGenBase.jungle.biomeID ||
-            biomeId == BiomeGenBase.jungleEdge.biomeID ||
-            biomeId == BiomeGenBase.coldTaiga.biomeID ||
-            biomeId == BiomeGenBase.savanna.biomeID ||
-            biomeId == BiomeGenBase.savannaPlateau.biomeID ||
-            biomeId == BiomeGenBase.mesa.biomeID ||
-            biomeId == BiomeGenBase.mesaPlateau.biomeID ||
-            biomeId == BiomeGenBase.mesaPlateau_F.biomeID ||
-            biomeId == BiomeGenBase.birchForest.biomeID ||
-            biomeId == BiomeGenBase.birchForestHills.biomeID ||
-            biomeId == BiomeGenBase.roofedForest.biomeID ||
-            biomeId == BiomeGenBase.megaTaiga.biomeID ||
-            biomeId == BiomeGenBase.extremeHills.biomeID ||
-            biomeId == BiomeGenBase.extremeHillsPlus.biomeID ||
-            biomeId == BiomeGenBase.megaTaigaHills.biomeID
-        )
-        {
-            if (BiomeGenBase.getBiome(biomeId + 128) != null)
-            {
-                return biomeId + 128;
-            }
-        }
-        
-        // TODO: add BOP rare sub biomes here
-        
-        return biomeId;
+        List<Integer> subBiomeIds = ModBiomes.mutatedBiomesMap.get(biomeId);
+        if (subBiomeIds == null) {return biomeId;}
+        int n = subBiomeIds.size();
+        return (n == 0 ? biomeId : (n == 1 ? subBiomeIds.get(0).intValue() : subBiomeIds.get(this.nextInt(n)).intValue()));
+    
     }    
     
     // Given a biomeId, return the biomeId of a reasonably common alternative biome which you might expect to find a patch of within the outer biome 
     // For many biomes, this is the 'hills' version
     public int getCommonSubBiome(int biomeId)
     {
-        if (biomeId == BiomeGenBase.desert.biomeID)
-        {
-            return BiomeGenBase.desertHills.biomeID;
-        }
-        else if (biomeId == BiomeGenBase.forest.biomeID)
-        {
-            return BiomeGenBase.forestHills.biomeID;
-        }
-        else if (biomeId == BiomeGenBase.birchForest.biomeID)
-        {
-            return BiomeGenBase.birchForestHills.biomeID;
-        }
-        else if (biomeId == BiomeGenBase.roofedForest.biomeID)
-        {
-            return BiomeGenBase.plains.biomeID;
-        }
-        else if (biomeId == BiomeGenBase.taiga.biomeID)
-        {
-            return BiomeGenBase.taigaHills.biomeID;
-        }
-        else if (biomeId == BiomeGenBase.megaTaiga.biomeID)
-        {
-            return BiomeGenBase.megaTaigaHills.biomeID;
-        }
-        else if (biomeId == BiomeGenBase.coldTaiga.biomeID)
-        {
-            return BiomeGenBase.coldTaigaHills.biomeID;
-        }
-        else if (biomeId == BiomeGenBase.plains.biomeID)
-        {
-            if (this.nextInt(3) == 0)
-            {
-                return BiomeGenBase.forestHills.biomeID;
-            }
-            else
-            {
-                return BiomeGenBase.forest.biomeID;
-            }
-        }
-        else if (biomeId == BiomeGenBase.icePlains.biomeID)
-        {
-            return BiomeGenBase.iceMountains.biomeID;
-        }
-        else if (biomeId == BiomeGenBase.jungle.biomeID)
-        {
-            return BiomeGenBase.jungleHills.biomeID;
-        }
-        else if (biomeId == BiomeGenBase.ocean.biomeID)
-        {
-            return BiomeGenBase.deepOcean.biomeID;
-        }
-        else if (biomeId == BiomeGenBase.extremeHills.biomeID)
-        {
-            return BiomeGenBase.extremeHillsPlus.biomeID;
-        }
-        else if (biomeId == BiomeGenBase.savanna.biomeID)
-        {
-            return BiomeGenBase.savannaPlateau.biomeID;
-        }
-        else if (biomesEqualOrMesaPlateau(biomeId, BiomeGenBase.mesaPlateau_F.biomeID))
-        {
-            return BiomeGenBase.mesa.biomeID;
-        }
-        else if (biomeId == BiomeGenBase.deepOcean.biomeID && this.nextInt(3) == 0)
-        {
-            // occasional islands within the oceans
-            if (this.nextInt(2) == 0)
-            {
-                return BiomeGenBase.plains.biomeID;
-            }
-            else
-            {
-                return BiomeGenBase.forest.biomeID;
-            }
-        }
         
-        // BOP sub biomes from here on
+        List<Integer> subBiomeIds = ModBiomes.subBiomesMap.get(biomeId);
+        if (subBiomeIds == null) {return biomeId;}
+        int n = subBiomeIds.size();
+        return (n == 0 ? biomeId : (n == 1 ? subBiomeIds.get(0).intValue() : subBiomeIds.get(this.nextInt(n)).intValue()));
         
-        if (biomeId == BiomeGenBase.frozenOcean.biomeID && BOPBiomes.arctic.isPresent())
-        {
-            biomeId = BOPBiomes.arctic.get().biomeID;
-        }
-        
-        
-        return biomeId;
     }
     
     
