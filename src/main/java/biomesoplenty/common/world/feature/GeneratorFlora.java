@@ -13,6 +13,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockFlower;
+import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -58,6 +59,7 @@ public class GeneratorFlora extends BOPGeneratorBase
             this.with = flowerBlock.getDefaultState().withProperty(flowerBlock.getTypeProperty(), a);
             return this;
         }
+        public Builder with(BlockTallGrass.EnumType a) {this.with = Blocks.tallgrass.getDefaultState().withProperty(BlockTallGrass.TYPE, a); return this;}
         public Builder generationAttempts(int a) {this.generationAttempts = a; return this;}
         
         @Override
