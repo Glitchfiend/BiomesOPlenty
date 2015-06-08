@@ -159,8 +159,24 @@ public class BlockQueryUtils
         }
     }   
     
-    
-    
+    // Match block positions in a height range
+    public static class BlockPosQueryAltitude implements IBlockPosQuery
+    {
+        public int minHeight;
+        public int maxHeight;
+        
+        public BlockPosQueryAltitude(int minHeight, int maxHeight)
+        {
+            this.minHeight = minHeight;
+            this.maxHeight = maxHeight;
+        }
+        
+        @Override
+        public boolean matches(World world, BlockPos pos)
+        {
+            return pos.getY() >= this.minHeight && pos.getY() <= this.maxHeight;
+        }
+    }   
     
     
     
