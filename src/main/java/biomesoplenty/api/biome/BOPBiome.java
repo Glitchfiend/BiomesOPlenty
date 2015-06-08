@@ -248,6 +248,7 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
     public int bopMinHeight = 58;
     public int bopMaxHeight = 85;
     public boolean noNeighborTerrainInfuence = false;
+    public int avgDirtDepth = 3;
     
     
     
@@ -263,7 +264,7 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         int topBlocksToFill = 0;
         int dirtBlocksToFill = 0;
         int seaFloorBlocksToFill = 0;
-        int dirtDepth = Math.max(0, (int)(stoneNoiseVal / 3.0D + 3.0D + rand.nextDouble() * 0.25D));
+        int dirtDepth = Math.max(0, (int)(stoneNoiseVal / 3.0D + this.avgDirtDepth + rand.nextDouble() * 0.25D));
         int seaFloorDepth = 1 + rand.nextInt(2);
         
         int localX = x & 15;

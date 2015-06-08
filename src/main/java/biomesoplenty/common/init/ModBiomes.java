@@ -161,7 +161,7 @@ public class ModBiomes
         
         // sub biomes
         
-        glacier = registerBOPBiome(new BiomeGenCrag(), "Glacier"); // TODO: implement glacier
+        glacier = registerBOPBiome(new BiomeGenGlacier(), "Glacier"); // TODO: implement glacier
         
         setSubBiome(Optional.of(BiomeGenBase.frozenOcean), arctic); // add some arctic regions in frozen oceans        
         setSubBiome(arctic, glacier);
