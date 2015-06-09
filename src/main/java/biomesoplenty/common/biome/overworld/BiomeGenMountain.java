@@ -14,8 +14,11 @@ import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.passive.EntitySheep;
+import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
@@ -41,6 +44,9 @@ import biomesoplenty.common.world.feature.tree.GeneratorPineTree;
 public class BiomeGenMountain extends BOPBiome
 {
     
+    public static enum MountainType {PEAKS, FOOTHILLS}
+    
+    public MountainType type;
     public IBlockState grassBlock;
     public IBlockState dirtBlock;
     public IBlockState coarseDirtBlock;
@@ -48,18 +54,38 @@ public class BiomeGenMountain extends BOPBiome
     public IBlockState snowBlock;
     public IBlockState packedSnowBlock;
         
-    public BiomeGenMountain()
+    public BiomeGenMountain(MountainType type)
     {
+        this.type = type;
+        
         // terrain
-        this.bopMinHeight = 30;
-        this.bopMaxHeight = 240;
+        switch (type)
+        {
+            case PEAKS:
+                this.bopMinHeight = 90;
+                this.bopMaxHeight = 230;
+                break;
+            case FOOTHILLS:
+                this.bopMinHeight = 30;
+                this.bopMaxHeight = 160;
+                break;
+        }
         this.sidewaysNoiseAmount = 0.22F;
         this.setOctaveWeights(1, 1, 2, 2, 3, 2);
         
         this.setColor(0x80A355);
         this.setTemperatureRainfall(0.25F, 0.1F);
         
-        this.addWeight(BiomeType.COOL, 10);
+        if (type == MountainType.PEAKS)
+        {
+            // peaks are created in the biome gen layer, foothills don't have a weight - they only appear later around the peaks (in the biome edge layer)
+            this.addWeight(BiomeType.COOL, 10);
+            
+            // only sheep and wolves on the peaks
+            this.spawnableCreatureList.clear();
+            this.spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntitySheep.class, 12, 4, 6));
+            this.spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityWolf.class, 4, 4, 4));
+        }        
         
         this.topBlock = Blocks.grass.getDefaultState();
         this.fillerBlock = Blocks.dirt.getDefaultState();
@@ -78,7 +104,7 @@ public class BiomeGenMountain extends BOPBiome
         this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.8F).waterLakeForBiome(this).create());        
         
         // trees
-        IBlockPosQuery suitableTreePosition = new BlockPosQueryAnd(new BlockPosQueryAltitude(40, 150), new BlockPosQueryOr(new BlockQueryMaterial(Material.ground), new BlockQueryMaterial(Material.grass)));
+        IBlockPosQuery suitableTreePosition = new BlockPosQueryAnd(new BlockPosQueryAltitude(40, 140), new BlockPosQueryOr(new BlockQueryMaterial(Material.ground), new BlockQueryMaterial(Material.grass)));
         GeneratorWeighted treeGenerator = new GeneratorWeighted(6);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("pine", 1, (new GeneratorPineTree.Builder()).minHeight(6).maxHeight(18).placeOn(suitableTreePosition).create());
@@ -159,7 +185,7 @@ public class BiomeGenMountain extends BOPBiome
                 this.topBlock = this.coarseDirtBlock;
                 this.fillerBlock = this.coarseDirtBlock;
             }
-            else if (noise > 1.7D)
+            else if (this.type == MountainType.PEAKS && noise > 1.7D)
             {
                 this.topBlock = this.stoneBlock;
                 this.fillerBlock = this.stoneBlock;

@@ -14,6 +14,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 
 public class BOPBiomes
 {
+    // normal biomes which have weights
     public static Optional<BiomeGenBase> alps = Optional.absent();
     public static Optional<BiomeGenBase> arctic = Optional.absent();
     public static Optional<BiomeGenBase> crag = Optional.absent();
@@ -35,7 +36,7 @@ public class BOPBiomes
     public static Optional<BiomeGenBase> tundra = Optional.absent();
     public static Optional<BiomeGenBase> woodland = Optional.absent();
     
-    
-    // sub biomes
+    // edge-biomes, sub-biomes and mutated-biomes
     public static Optional<BiomeGenBase> glacier = Optional.absent();
+    public static Optional<BiomeGenBase> mountainFoothills = Optional.absent();
 }

@@ -138,6 +138,8 @@ public class ModBiomes
 
     private static void registerBiomes()
     {
+        
+        // normal biomes which have weights
         alps = registerBOPBiome(new BiomeGenAlps(), "Alps");
         arctic = registerBOPBiome(new BiomeGenArctic(), "Arctic");
         crag = registerBOPBiome(new BiomeGenCrag(), "Crag");
@@ -150,7 +152,7 @@ public class ModBiomes
         lavenderFields = registerBOPBiome(new BiomeGenLavenderFields(), "Lavender Fields");
         marsh = registerBOPBiome(new BiomeGenMarsh(), "Marsh");
         moor = registerBOPBiome(new BiomeGenMoor(), "Moor");
-        mountain = registerBOPBiome(new BiomeGenMountain(), "Mountain");
+        mountain = registerBOPBiome(new BiomeGenMountain(BiomeGenMountain.MountainType.PEAKS), "Mountain");
         originValley = registerBOPBiome(new BiomeGenOriginValley(), "Origin Valley");
         outback = registerBOPBiome(new BiomeGenOutback(), "Outback");
         shrubland = registerBOPBiome(new BiomeGenShrubland(), "Shrubland");
@@ -159,8 +161,9 @@ public class ModBiomes
         tundra = registerBOPBiome(new BiomeGenTundra(), "Tundra");
         woodland = registerBOPBiome(new BiomeGenWoodland(), "Woodland");
         
-        // sub biomes
+        // edge-biomes, sub-biomes and mutated-biomes
         
+        mountainFoothills = registerBOPBiome(new BiomeGenMountain(BiomeGenMountain.MountainType.FOOTHILLS), "Mountain Foothills");
         glacier = registerBOPBiome(new BiomeGenGlacier(), "Glacier"); // TODO: implement glacier
         
         setSubBiome(Optional.of(BiomeGenBase.frozenOcean), arctic); // add some arctic regions in frozen oceans        
