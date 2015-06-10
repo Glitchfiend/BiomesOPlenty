@@ -231,6 +231,15 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         return (this.skyColor == -1) ? super.getSkyColorByTemp(temperature) : this.skyColor;
     }
     
+    @Override
+    public BiomeGenBase setTemperatureRainfall(float temp, float rain)
+    {
+        this.temperature = temp;
+        this.rainfall = rain;
+        return this;
+    }
+    
+    
     public double[] normalisedOctaveWeights = new double[6];
     public void setOctaveWeights(double w0, double w1, double w2, double w3, double w4, double w5)
     {

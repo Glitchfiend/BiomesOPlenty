@@ -22,6 +22,7 @@ import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.world.feature.GeneratorBlobs;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
+import biomesoplenty.common.world.feature.GeneratorLakes;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import biomesoplenty.common.world.feature.GeneratorWaterside;
 import biomesoplenty.common.world.feature.tree.GeneratorBush;
@@ -35,8 +36,8 @@ public class BiomeGenTundra extends BOPBiome
         this.bopMaxHeight = 85;
         this.setOctaveWeights(2, 2, 1, 0, 1, 1);
         
-        this.setColor(0xAD8456);
-        this.setTemperatureRainfall(0.2F, 0.5F);
+        this.setColor(0xA09456);
+        this.setTemperatureRainfall(0.165F, 0.5F); // temperature deliberately borderline between rain and snow
         
         this.addWeight(BiomeType.ICY, 7);
         
@@ -48,6 +49,9 @@ public class BiomeGenTundra extends BOPBiome
         // sand & gravel
         this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(8).maxRadius(7).with(Blocks.sand.getDefaultState()).create());
         this.addGenerator("gravel", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(8).maxRadius(7).with(Blocks.gravel.getDefaultState()).create());
+        
+        // lakes
+        this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.3F).waterLakeForBiome(this).create());        
         
         // trees
         this.addGenerator("trees", GeneratorStage.TREE, (new GeneratorBush.Builder()).amountPerChunk(3).create());
@@ -82,13 +86,13 @@ public class BiomeGenTundra extends BOPBiome
     @Override
     public int getGrassColorAtPos(BlockPos pos)
     {
-        return 0xAD8456;
+        return 0x908A56;
     }
     
     @Override
     public int getFoliageColorAtPos(BlockPos pos)
     {
-        return 0xBF664E;
+        return 0xA09456;
     }
 
 }
