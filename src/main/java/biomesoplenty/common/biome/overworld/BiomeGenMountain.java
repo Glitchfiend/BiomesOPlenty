@@ -85,6 +85,9 @@ public class BiomeGenMountain extends BOPBiome
             this.spawnableCreatureList.clear();
             this.spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntitySheep.class, 12, 4, 6));
             this.spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityWolf.class, 4, 4, 4));
+            
+            // make the water in the peaks a bit greener ( TODO: would like to make it lighter too, but I don't think it's possible with just a multiplication)
+            this.waterColorMultiplier = 0x00ff99;
         }        
         
         this.topBlock = Blocks.grass.getDefaultState();
@@ -101,16 +104,20 @@ public class BiomeGenMountain extends BOPBiome
         this.addGenerator("gravel_patches", GeneratorStage.SAND_PASS2, (new GeneratorSplotches.Builder()).amountPerChunk(2).splotchSize(16).replace(this.topBlock).with(Blocks.gravel.getDefaultState()).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
       
         // lakes
-        this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.8F).waterLakeForBiome(this).create());        
+        this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(1.8F).waterLakeForBiome(this).create());        
         
-        // trees
+        // trees & logs
         IBlockPosQuery suitableTreePosition = new BlockPosQueryAnd(new BlockPosQueryAltitude(40, 140), new BlockPosQueryOr(new BlockQueryMaterial(Material.ground), new BlockQueryMaterial(Material.grass)));
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(6);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(10);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("pine", 1, (new GeneratorPineTree.Builder()).minHeight(6).maxHeight(18).placeOn(suitableTreePosition).create());
+        treeGenerator.add("pine", 1, (new GeneratorPineTree.Builder()).minHeight(6).maxHeight(18).placeOn(suitableTreePosition).create());        
+        GeneratorWeighted logsGenerator = new GeneratorWeighted(2.5F);
+        this.addGenerator("logs", GeneratorStage.TREE, logsGenerator);
+        logsGenerator.add("pine_logs", 1, (new GeneratorLogs.Builder()).placeOn(suitableTreePosition).log(BOPWoods.PINE).create());
+        logsGenerator.add("dead_logs", 1, (new GeneratorLogs.Builder()).placeOn(suitableTreePosition).log(BOPWoods.DEAD).create());
 
         // grasses
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(4.0F);
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(5.0F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("tallgrass", 2, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).generationAttempts(128).create());
         grassGenerator.add("mediumgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).generationAttempts(128).create());
@@ -119,23 +126,21 @@ public class BiomeGenMountain extends BOPBiome
         grassGenerator.add("dampgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.DAMPGRASS).generationAttempts(128).create());
 
         // other plants
-        this.addGenerator("shrubs", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).with(BOPPlants.SHRUB).generationAttempts(64).create());
-        this.addGenerator("clover_patches", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).with(BOPPlants.CLOVERPATCH).create());
+        this.addGenerator("shrubs", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).with(BOPPlants.SHRUB).generationAttempts(type == MountainType.FOOTHILLS ? 64 : 32).create());
+        this.addGenerator("ferns", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(2.0F).with(BlockTallGrass.EnumType.FERN).generationAttempts(type == MountainType.FOOTHILLS ? 64 : 32).create());
         this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.8F).with(BOPPlants.LEAFPILE).create());
         this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.2F).with(BOPPlants.DEADLEAFPILE).create());
-        this.addGenerator("flax", GeneratorStage.FLOWERS, (new GeneratorDoubleFlora.Builder()).amountPerChunk(0.1F).with(BlockBOPDoublePlant.DoublePlantType.FLAX).create());
-        this.addGenerator("berry_bushes", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.3F).with(BOPPlants.BERRYBUSH).create());
-        this.addGenerator("ferns", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).with(BlockTallGrass.EnumType.FERN).generationAttempts(64).create());
-      
-        // water plants
-        this.addGenerator("water_reeds", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.4F).with(BOPPlants.REED).generationAttempts(32).create());
         
-        // logs
-        GeneratorWeighted logsGenerator = new GeneratorWeighted(1.5F);
-        this.addGenerator("logs", GeneratorStage.TREE, logsGenerator);
-        logsGenerator.add("pine_logs", 1, (new GeneratorLogs.Builder()).log(BOPWoods.PINE).create());
-        logsGenerator.add("dead_logs", 1, (new GeneratorLogs.Builder()).log(BOPWoods.DEAD).create());
+        if (type == MountainType.FOOTHILLS)
+        {
+            this.addGenerator("flax", GeneratorStage.FLOWERS, (new GeneratorDoubleFlora.Builder()).amountPerChunk(0.1F).with(BlockBOPDoublePlant.DoublePlantType.FLAX).create());
+            this.addGenerator("berry_bushes", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.3F).with(BOPPlants.BERRYBUSH).create());
+            this.addGenerator("clover_patches", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).with(BOPPlants.CLOVERPATCH).create());
+            this.addGenerator("water_reeds", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.4F).with(BOPPlants.REED).generationAttempts(32).create());
+        }
         
+        // TODO: some flowers?
+                
         // gem
         this.addGenerator("emerald", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(Blocks.emerald_ore.getDefaultState()).create());
    
