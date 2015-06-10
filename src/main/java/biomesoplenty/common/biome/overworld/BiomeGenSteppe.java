@@ -36,6 +36,8 @@ public class BiomeGenSteppe extends BOPBiome
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
         
+        // should the Steppe not have some splattered gravel and coarse dirt?
+        
         // other plants
         this.addGenerator("dead_bushes", GeneratorStage.DEAD_BUSH,(new GeneratorFlora.Builder()).amountPerChunk(0.3F).with(Blocks.deadbush.getDefaultState()).generationAttempts(4).create());
         
