@@ -28,7 +28,7 @@ import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.block.BlockBOPDecoration;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPPlants;
-import biomesoplenty.common.util.biome.GeneratorUtils;
+import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.util.block.BlockQuery.*;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
@@ -41,7 +41,8 @@ public class GeneratorFlora extends BOPGeneratorBase
         protected float amountPerChunk = 1.0F;
         protected IBlockPosQuery replace = new BlockQueryMaterial(Material.air);
         protected IBlockState with = Blocks.red_flower.getDefaultState();
-        protected int generationAttempts = 20;
+        protected int generationAttempts = 32;
+        protected ScatterYMethod scatterYMethod = ScatterYMethod.AT_SURFACE;
                 
         public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
         public Builder replace(IBlockPosQuery a) {this.replace = a; return this;}
@@ -61,11 +62,13 @@ public class GeneratorFlora extends BOPGeneratorBase
         }
         public Builder with(BlockTallGrass.EnumType a) {this.with = Blocks.tallgrass.getDefaultState().withProperty(BlockTallGrass.TYPE, a); return this;}
         public Builder generationAttempts(int a) {this.generationAttempts = a; return this;}
+        public Builder scatterYMethod(ScatterYMethod a) {this.scatterYMethod = a; return this;}
+
         
         @Override
         public GeneratorFlora create()
         {
-            return new GeneratorFlora(this.amountPerChunk, this.replace, this.with, this.generationAttempts);
+            return new GeneratorFlora(this.amountPerChunk, this.replace, this.with, this.generationAttempts, this.scatterYMethod);
         }
     }
     
@@ -73,20 +76,21 @@ public class GeneratorFlora extends BOPGeneratorBase
     protected IBlockPosQuery replace;
     protected IBlockState with;
     protected int generationAttempts;
+    protected ScatterYMethod scatterYMethod;
     
-    public GeneratorFlora(float amountPerChunk, IBlockPosQuery replace, IBlockState with, int generationAttempts)
+    public GeneratorFlora(float amountPerChunk, IBlockPosQuery replace, IBlockState with, int generationAttempts, ScatterYMethod scatterYMethod)
     {
         super(amountPerChunk);
         this.replace = replace;
         this.with = with;
         this.generationAttempts = generationAttempts;
+        this.scatterYMethod = scatterYMethod;
     }
     
     @Override
     public BlockPos getScatterY(World world, Random random, int x, int z)
     {
-        // always at world surface
-        return GeneratorUtils.ScatterYMethod.AT_SURFACE.getBlockPos(world, random, x, z);
+        return this.scatterYMethod.getBlockPos(world, random, x, z);
     }
 
     @Override
@@ -127,6 +131,8 @@ public class GeneratorFlora extends BOPGeneratorBase
         this.replace = conf.getBlockPosQuery("replace", this.replace);
         this.with = conf.getBlockState("with", this.with);
         this.generationAttempts = conf.getInt("generationAttempts", this.generationAttempts);
+        this.scatterYMethod = conf.getEnum("scatterYMethod", this.scatterYMethod, ScatterYMethod.class);
+
     }
 
 }

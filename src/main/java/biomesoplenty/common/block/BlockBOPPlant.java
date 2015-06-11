@@ -371,10 +371,10 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
             case THORN:
                 return BlockQueries.litFertileOrDry.matches(world, pos.down());
             case CATTAIL:
-                return BlockQueries.litBeach.matches(world, pos.down());
+                return BlockQueries.litFertileWaterside.matches(world, pos.down());
             case RIVERCANE:
                 // river cane can also be placed on top of itself
-                return BlockQueries.litBeach.matches(world, pos.down()) || (world.getBlockState(pos.down()) == state);
+                return BlockQueries.litFertileWaterside.matches(world, pos.down()) || (world.getBlockState(pos.down()) == state);
             case WITHERWART:
                 return BlockQueries.sustainsNether.matches(world, pos.down());
             case REED:

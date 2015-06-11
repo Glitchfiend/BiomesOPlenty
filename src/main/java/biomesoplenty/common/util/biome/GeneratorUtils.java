@@ -80,31 +80,34 @@ public class GeneratorUtils
     
     public static enum ScatterYMethod
     {
-        ANYWHERE, AT_SURFACE, AT_OR_BELOW_SURFACE, BELOW_SURFACE, AT_OR_ABOVE_SURFACE, ABOVE_SURFACE;
+        ANYWHERE, AT_SURFACE, AT_GROUND, BELOW_SURFACE, BELOW_GROUND, ABOVE_SURFACE, ABOVE_GROUND;
         public BlockPos getBlockPos(World world, Random random, int x, int z)
         {
-            int surfaceY;
+            int tempY;
             switch(this)
             {
                 case AT_SURFACE:
-                    // always at world surface
+                    // always at the 'surface level' - to be precise, the air block directly above land or sea
                     return world.getHeight(new BlockPos(x, 0, z));
-                case AT_OR_BELOW_SURFACE:
-                    // random point below or at surface
-                    surfaceY = world.getHeight(new BlockPos(x, 0, z)).getY();
-                    return new BlockPos(x, nextIntBetween(random, 1, surfaceY), z);
+                case AT_GROUND:
+                    // always at the 'ground level' - the air or water block directly above the land, or the bottom of the sea bed
+                    return world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z));
                 case BELOW_SURFACE:
-                    // random point below surface
-                    surfaceY = world.getHeight(new BlockPos(x, 0, z)).getY();
-                    return new BlockPos(x, nextIntBetween(random, 1, surfaceY - 1), z);
-                case AT_OR_ABOVE_SURFACE:
-                    // random point at or above surface
-                    surfaceY = world.getHeight(new BlockPos(x, 0, z)).getY();
-                    return new BlockPos(x, GeneratorUtils.nextIntBetween(random, surfaceY, 255), z);
+                    // random point below surface (but possibly in the sea)
+                    tempY = world.getHeight(new BlockPos(x, 0, z)).getY();
+                    return new BlockPos(x, nextIntBetween(random, 1, tempY - 1), z);
+                case BELOW_GROUND:
+                    // random point below ground (and below sea)
+                    tempY = world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z)).getY();
+                    return new BlockPos(x, nextIntBetween(random, 1, tempY - 1), z);
                 case ABOVE_SURFACE:
-                    // random point above surface
-                    surfaceY = world.getHeight(new BlockPos(x, 0, z)).getY();
-                    return new BlockPos(x, GeneratorUtils.nextIntBetween(random, surfaceY + 1, 255), z);
+                    // random point above surface (amd above the sea)
+                    tempY = world.getHeight(new BlockPos(x, 0, z)).getY();
+                    return new BlockPos(x, GeneratorUtils.nextIntBetween(random, tempY, 255), z);
+                case ABOVE_GROUND:
+                    // random point above ground (but possibly in the sea)
+                    tempY = world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z)).getY();
+                    return new BlockPos(x, GeneratorUtils.nextIntBetween(random, tempY, 255), z);
                 case ANYWHERE: default:
                     // random y coord
                     return new BlockPos(x, nextIntBetween(random, 1, 255), z);

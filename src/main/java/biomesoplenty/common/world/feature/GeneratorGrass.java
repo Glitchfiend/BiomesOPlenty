@@ -15,6 +15,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryBlock;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
@@ -32,6 +33,7 @@ public class GeneratorGrass extends GeneratorFlora
         protected int generationAttempts = 96;
         protected IBlockState with = Blocks.tallgrass.getDefaultState();
         protected IBlockPosQuery replace = new BlockQueryMaterial(Material.air);
+        protected ScatterYMethod scatterYMethod = ScatterYMethod.AT_SURFACE;
                 
         public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
         public Builder replace(IBlockPosQuery a) {this.replace = a; return this;}
@@ -42,17 +44,18 @@ public class GeneratorGrass extends GeneratorFlora
         public Builder with(BOPPlants a) {this.with = BlockBOPPlant.paging.getVariantState(a); return this;}
         public Builder with(BlockTallGrass.EnumType a) {this.with = Blocks.tallgrass.getDefaultState().withProperty(BlockTallGrass.TYPE, a); return this;}               
         public Builder generationAttempts(int a) {this.generationAttempts = a; return this;}
+        public Builder scatterYMethod(ScatterYMethod a) {this.scatterYMethod = a; return this;}
         
         @Override
         public GeneratorGrass create()
         {
-            return new GeneratorGrass(this.amountPerChunk, this.replace, this.with, this.generationAttempts);
+            return new GeneratorGrass(this.amountPerChunk, this.replace, this.with, this.generationAttempts, this.scatterYMethod);
         }
     }
     
-    public GeneratorGrass(float amountPerChunk, IBlockPosQuery replace, IBlockState with, int generationAttempts)
+    public GeneratorGrass(float amountPerChunk, IBlockPosQuery replace, IBlockState with, int generationAttempts, ScatterYMethod scatterYMethod)
     {
-        super(amountPerChunk, replace, with, generationAttempts);
+        super(amountPerChunk, replace, with, generationAttempts, scatterYMethod);
     }
 
 }

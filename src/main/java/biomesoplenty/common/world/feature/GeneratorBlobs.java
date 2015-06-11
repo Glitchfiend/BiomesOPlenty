@@ -38,7 +38,7 @@ public class GeneratorBlobs extends BOPGeneratorBase
         protected float maxRadius = 5.0F;
         protected float radiusFalloff = 0.5F;
         protected int numBalls = 3;
-        protected ScatterYMethod scatterYMethod = ScatterYMethod.AT_OR_BELOW_SURFACE;
+        protected ScatterYMethod scatterYMethod = ScatterYMethod.BELOW_SURFACE;
         
         public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
         public Builder placeOn(IBlockPosQuery a) {this.placeOn = a; return this;}

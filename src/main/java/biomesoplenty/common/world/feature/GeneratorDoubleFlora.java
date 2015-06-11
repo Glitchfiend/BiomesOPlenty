@@ -41,7 +41,7 @@ public class GeneratorDoubleFlora extends BOPGeneratorBase
         protected IBlockPosQuery replace = new BlockQueryMaterial(Material.air);
         protected IBlockState bottomState = BOPBlocks.double_plant.getDefaultState().withProperty(BlockBOPDoublePlant.VARIANT, BlockBOPDoublePlant.DoublePlantType.FLAX).withProperty(BlockBOPDoublePlant.HALF, BlockBOPDoubleDecoration.Half.LOWER);
         protected IBlockState topState = BOPBlocks.double_plant.getDefaultState().withProperty(BlockBOPDoublePlant.VARIANT, BlockBOPDoublePlant.DoublePlantType.FLAX).withProperty(BlockBOPDoublePlant.HALF, BlockBOPDoubleDecoration.Half.UPPER);
-        protected int generationAttempts = 20;
+        protected int generationAttempts = 32;
         
         public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
         public Builder replace(IBlockPosQuery a) {this.replace = a; return this;}

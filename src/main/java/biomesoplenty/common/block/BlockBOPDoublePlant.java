@@ -171,7 +171,7 @@ public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements ISh
         switch (plant)
         {
             case TALL_CATTAIL:
-                return BlockQueries.litBeach.matches(world, lowerPos.down());
+                return BlockQueries.litFertileWaterside.matches(world, lowerPos.down());
             case EYEBULB:
                 return BlockQueries.hellish.matches(world, lowerPos.down());
             case FLAX: default:

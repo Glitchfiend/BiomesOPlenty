@@ -32,7 +32,7 @@ public class GeneratorSplotches extends BOPGeneratorBase
         protected IBlockPosQuery replace = new BlockQueryMaterial(Material.grass, Material.ground);
         protected IBlockState with = Blocks.cobblestone.getDefaultState();
         protected int splotchSize = 8;
-        protected ScatterYMethod scatterYMethod = ScatterYMethod.AT_OR_BELOW_SURFACE;
+        protected ScatterYMethod scatterYMethod = ScatterYMethod.BELOW_SURFACE;
         
         public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
         public Builder replace(IBlockPosQuery a) {this.replace = a; return this;}

@@ -28,6 +28,7 @@ public class BlockQueries
     public static IBlockPosQuery hellish;
     public static IBlockPosQuery litFertile;
     public static IBlockPosQuery litBeach;
+    public static IBlockPosQuery litFertileWaterside;
     public static IBlockPosQuery litSand;
     public static IBlockPosQuery litDry;
     public static IBlockPosQuery litFertileOrDry;
@@ -35,5 +36,6 @@ public class BlockQueries
     public static IBlockPosQuery fertileSeaBed;
     public static IBlockPosQuery underwater;
     public static IBlockPosQuery suitableForReed;
+    public static IBlockPosQuery rootsCanDigThrough;
     
 }
