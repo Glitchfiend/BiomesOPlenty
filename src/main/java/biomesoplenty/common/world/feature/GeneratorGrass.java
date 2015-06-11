@@ -15,12 +15,12 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.enums.BOPPlants;
-import biomesoplenty.common.util.block.BlockQueryUtils;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryBlock;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryMaterial;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryParseException;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryState;
-import biomesoplenty.common.util.block.BlockQueryUtils.IBlockPosQuery;
+import biomesoplenty.common.util.block.BlockQuery;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryBlock;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryParseException;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryState;
+import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 
 public class GeneratorGrass extends GeneratorFlora
 {
@@ -35,7 +35,7 @@ public class GeneratorGrass extends GeneratorFlora
                 
         public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
         public Builder replace(IBlockPosQuery a) {this.replace = a; return this;}
-        public Builder replace(String a) throws BlockQueryParseException {this.replace = BlockQueryUtils.parseQueryString(a); return this;}
+        public Builder replace(String a) throws BlockQueryParseException {this.replace = BlockQuery.parseQueryString(a); return this;}
         public Builder replace(Block a) {this.replace = new BlockQueryBlock(a); return this;}
         public Builder replace(IBlockState a) {this.replace = new BlockQueryState(a); return this;}         
         public Builder with(IBlockState a) {this.with = a; return this;}

@@ -29,8 +29,8 @@ import biomesoplenty.common.block.BlockBOPDecoration;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.util.biome.GeneratorUtils;
-import biomesoplenty.common.util.block.BlockQueryUtils;
-import biomesoplenty.common.util.block.BlockQueryUtils.*;
+import biomesoplenty.common.util.block.BlockQuery;
+import biomesoplenty.common.util.block.BlockQuery.*;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GeneratorFlora extends BOPGeneratorBase
@@ -45,7 +45,7 @@ public class GeneratorFlora extends BOPGeneratorBase
                 
         public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
         public Builder replace(IBlockPosQuery a) {this.replace = a; return this;}
-        public Builder replace(String a) throws BlockQueryParseException {this.replace = BlockQueryUtils.parseQueryString(a); return this;}
+        public Builder replace(String a) throws BlockQueryParseException {this.replace = BlockQuery.parseQueryString(a); return this;}
         public Builder replace(Block a) {this.replace = new BlockQueryBlock(a); return this;}
         public Builder replace(IBlockState a) {this.replace = new BlockQueryState(a); return this;}         
         public Builder with(IBlockState a) {this.with = a; return this;}

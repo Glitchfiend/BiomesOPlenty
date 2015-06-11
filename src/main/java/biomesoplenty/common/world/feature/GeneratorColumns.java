@@ -18,13 +18,12 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import biomesoplenty.api.biome.generation.BOPGeneratorBase;
 import biomesoplenty.common.util.biome.GeneratorUtils;
-import biomesoplenty.common.util.block.BlockQueryUtils;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockPosQueryOr;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryMaterial;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryBlock;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryParseException;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryState;
-import biomesoplenty.common.util.block.BlockQueryUtils.IBlockPosQuery;
+import biomesoplenty.common.util.block.BlockQuery;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryBlock;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryParseException;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryState;
+import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GeneratorColumns extends BOPGeneratorBase
@@ -33,7 +32,7 @@ public class GeneratorColumns extends BOPGeneratorBase
     public static class Builder implements IGeneratorBuilder<GeneratorColumns>
     {
         protected float amountPerChunk = 1.0F;
-        protected IBlockPosQuery placeOn = new BlockPosQueryOr(new BlockQueryMaterial(Material.ground), new BlockQueryMaterial(Material.grass));
+        protected IBlockPosQuery placeOn = new BlockQueryMaterial(Material.ground, Material.grass);
         protected IBlockState with = Blocks.cobblestone.getDefaultState();
         protected int minHeight = 2;
         protected int maxHeight = 4;
@@ -41,7 +40,7 @@ public class GeneratorColumns extends BOPGeneratorBase
         
         public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
         public Builder placeOn(IBlockPosQuery a) {this.placeOn = a; return this;}
-        public Builder placeOn(String a) throws BlockQueryParseException {this.placeOn = BlockQueryUtils.parseQueryString(a); return this;}
+        public Builder placeOn(String a) throws BlockQueryParseException {this.placeOn = BlockQuery.parseQueryString(a); return this;}
         public Builder placeOn(Block a) {this.placeOn = new BlockQueryBlock(a); return this;}
         public Builder placeOn(IBlockState a) {this.placeOn = new BlockQueryState(a); return this;}        
         public Builder with(IBlockState a) {this.with = a; return this;}

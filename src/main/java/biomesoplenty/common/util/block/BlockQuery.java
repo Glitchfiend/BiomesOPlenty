@@ -13,58 +13,160 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Sets;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
+import net.minecraftforge.common.IPlantable;
 
-public class BlockQueryUtils
+public class BlockQuery
 {
     
-    public static class BlockQueryParseException extends Exception
-    {
-        public BlockQueryParseException(String message)
-        {
-            super(message);
-        }
-    }
     
+    /***** Interfaces *****/
     
-    /***** IBlockPosQuery *****/
     // for queries on a particular block position in the world
-    
     public static interface IBlockPosQuery
     {
         public boolean matches(World world, BlockPos pos);
     }
     
+    // for compound queries
+    public static interface ICompoundBlockPosQuery extends IBlockPosQuery
+    {
+        public void add(IBlockPosQuery a);
+        public IBlockPosQuery instance();
+    }
+    
+    // for queries which depend only on the block state, and not on it's neighbors or position in the world
+    public static interface IBlockQuery extends IBlockPosQuery
+    {
+        public boolean matches(IBlockState state);
+    }
+    
+    
+    
+    /***** Builder *****/
+    
+    public static class CompoundQueryBuilder
+    {
+        private ICompoundBlockPosQuery query;
+        
+        public CompoundQueryBuilder(ICompoundBlockPosQuery query)
+        {
+            this.query = query;
+        }
+        
+        public CompoundQueryBuilder and(IBlockPosQuery a)
+        {
+            query.add(a);
+            return this;
+        }
+        
+        public CompoundQueryBuilder blocks(Block... blocks) {return this.and(new BlockQueryBlock(blocks));}
+        public CompoundQueryBuilder states(IBlockState... states) {return this.and(new BlockQueryState(states));}
+        public CompoundQueryBuilder blockClass(Class<? extends Block> clazz) {return this.and(new BlockQueryClass(clazz));}
+        public CompoundQueryBuilder materials(Material... materials) {return this.and(new BlockQueryMaterial(materials));}
+        public CompoundQueryBuilder withProperty(String propName, String... propValues) {return this.and(new BlockQueryProperty(propName, propValues));}
+        
+        public CompoundQueryBuilder not(IBlockPosQuery query) {return this.and(new BlockPosQueryNot(query));}
+        public CompoundQueryBuilder notBlocks(Block... blocks) {return this.not(new BlockQueryBlock(blocks));}
+        public CompoundQueryBuilder notStates(IBlockState... states) {return this.not(new BlockQueryState(states));}
+        public CompoundQueryBuilder notBlockClass(Class<? extends Block> clazz) {return this.not(new BlockQueryClass(clazz));}
+        public CompoundQueryBuilder notMaterial(Material... materials) {return this.not(new BlockQueryMaterial(materials));}
+        public CompoundQueryBuilder notWithProperty(String propName, String... propValues) {return this.not(new BlockQueryProperty(propName, propValues));}     
+
+        public CompoundQueryBuilder withAltitudeBetween(int a, int b) {return this.and(new BlockPosQueryAltitude(a,b));}
+        public CompoundQueryBuilder byWater() {return this.and(hasWater);}
+        public CompoundQueryBuilder withAirAbove() {return this.and(airAbove);}
+        public CompoundQueryBuilder withLightAtLeast(int a) {return this.and(new BlockPosQueryLightAtLeast(a));}
+        public CompoundQueryBuilder withLightNoMoreThan(int a) {return this.and(new BlockPosQueryLightNoMoreThan(a));}
+        public CompoundQueryBuilder sustainsPlant(IPlantable plant) {return this.and(new BlockPosQuerySustainsPlant(plant));}
+
+        
+        public IBlockPosQuery create() {return this.query.instance();}
+        
+    }
+    
+    public static CompoundQueryBuilder buildAnd() {return new CompoundQueryBuilder(new BlockPosQueryAnd());}
+    public static CompoundQueryBuilder buildOr() {return new CompoundQueryBuilder(new BlockPosQueryOr());}
+    
+    
+    
+
+    
+ 
+    /***** Some handy reusable queries *****/    
+ 
+    
     // match any position
-    public static class BlockPosQueryAnything implements IBlockPosQuery
+    public static IBlockPosQuery anything = new IBlockPosQuery()
     {
         @Override
         public boolean matches(World world, BlockPos pos) {
             return true;
         }
-    }
+    };
     
     // match no positions
-    public static class BlockPosQueryNothing implements IBlockPosQuery
+    public static IBlockPosQuery nothing = new IBlockPosQuery()
     {
         @Override
         public boolean matches(World world, BlockPos pos) {
             return false;
         }
-    }
+    };
+    
+    // Match block positions adjacent to water
+    public static IBlockPosQuery hasWater = new IBlockPosQuery()
+    {
+        @Override
+        public boolean matches(World world, BlockPos pos)
+        {
+            return (world.getBlockState(pos.west()).getBlock().getMaterial() == Material.water || world.getBlockState(pos.east()).getBlock().getMaterial() == Material.water || world.getBlockState(pos.north()).getBlock().getMaterial() == Material.water || world.getBlockState(pos.south()).getBlock().getMaterial() == Material.water);
+        }
+    };
+    
+    // Match block positions with air above
+    public static IBlockPosQuery airAbove = new IBlockPosQuery()
+    {
+        @Override
+        public boolean matches(World world, BlockPos pos)
+        {
+            return world.isAirBlock(pos.up());
+        }
+    };
+    
+    // Match blocks which are not unbreakable - IE not bedrock, barrier, command blocks
+    public static IBlockPosQuery breakable = new IBlockPosQuery()
+    {
+        // Block.setBlockUnbreakable sets the hardness value to -1.0F
+        @Override
+        public boolean matches(World world, BlockPos pos)
+        {
+            return world.getBlockState(pos).getBlock().getBlockHardness(world, pos) >= 0.0F;
+        }
+    };
+    
+    public static IBlockPosQuery isAirOrLeaves = new BlockQueryMaterial(Material.air, Material.leaves);
+    
+    
+    
+    /***** Compound Queries *****/
+    
 
     // Match a block pos if any of the children match
-    public static class BlockPosQueryOr implements IBlockPosQuery
+    public static class BlockPosQueryOr implements ICompoundBlockPosQuery
     {
         private ArrayList<IBlockPosQuery> children;
         public BlockPosQueryOr(IBlockPosQuery... children)
@@ -83,18 +185,20 @@ public class BlockQueryUtils
             }
             return false;
         }
+        @Override
         public void add(IBlockPosQuery child)
         {
             if (child != null) {this.children.add(child);}
         }
+        @Override
         public IBlockPosQuery instance()
         {
-            return this.children.size() == 1 ? this.children.get(0) : this;
+            return this.children.size() == 0 ? anything : (this.children.size() == 1 ? this.children.get(0) : this);
         }
     }
     
     // Match a block pos if all of the children match
-    public static class BlockPosQueryAnd implements IBlockPosQuery
+    public static class BlockPosQueryAnd implements ICompoundBlockPosQuery
     {
         private ArrayList<IBlockPosQuery> children;
         public BlockPosQueryAnd(IBlockPosQuery... children)
@@ -113,15 +217,22 @@ public class BlockQueryUtils
             }
             return true;
         }
+        @Override
         public void add(IBlockPosQuery child)
         {
             if (child != null) {this.children.add(child);}
         }
+        @Override
         public IBlockPosQuery instance()
         {
-            return this.children.size() == 1 ? this.children.get(0) : this;
+            return this.children.size() == 0 ? anything : (this.children.size() == 1 ? this.children.get(0) : this);
         }
     }
+    
+    
+    
+    
+    /***** Other queries *****/
     
     
     // Match a block pos if the child does not match
@@ -139,25 +250,6 @@ public class BlockQueryUtils
         }
     }
     
-    // Match block positions adjacent to water
-    public static class BlockPosQueryHasWater implements IBlockPosQuery
-    {
-        @Override
-        public boolean matches(World world, BlockPos pos)
-        {
-            return (world.getBlockState(pos.west()).getBlock().getMaterial() == Material.water || world.getBlockState(pos.east()).getBlock().getMaterial() == Material.water || world.getBlockState(pos.north()).getBlock().getMaterial() == Material.water || world.getBlockState(pos.south()).getBlock().getMaterial() == Material.water);
-        }
-    }
-    
-    // Match block positions with air above
-    public static class BlockPosQueryAirAbove implements IBlockPosQuery
-    {
-        @Override
-        public boolean matches(World world, BlockPos pos)
-        {
-            return world.isAirBlock(pos.up());
-        }
-    }   
     
     // Match block positions in a height range
     public static class BlockPosQueryAltitude implements IBlockPosQuery
@@ -176,22 +268,55 @@ public class BlockQueryUtils
         {
             return pos.getY() >= this.minHeight && pos.getY() <= this.maxHeight;
         }
-    }   
-    
-    
-    
-    
-    
-    
-    
-    /***** IBlockQuery *****/
-    // for queries which depend only on the block state, and not on it's neighbors or position in the world
-    
-    
-    public static interface IBlockQuery extends IBlockPosQuery
-    {
-        public boolean matches(IBlockState state);
     }
+    
+    // Match block positions based on light level
+    public static class BlockPosQueryLightAtLeast implements IBlockPosQuery
+    {
+        public int level;
+        
+        public BlockPosQueryLightAtLeast(int level)
+        {
+            this.level = level;
+        }
+        
+        @Override
+        public boolean matches(World world, BlockPos pos)
+        {
+            return world.getLight(pos) >= this.level || world.canSeeSky(pos);
+        }
+    }
+    public static class BlockPosQueryLightNoMoreThan implements IBlockPosQuery
+    {
+        public int level;
+        
+        public BlockPosQueryLightNoMoreThan(int level)
+        {
+            this.level = level;
+        }
+        
+        @Override
+        public boolean matches(World world, BlockPos pos)
+        {
+            return world.getLight(pos) <= this.level;
+        }
+    }
+    
+    // Match blocks which can sustain the given IPlantable block
+    public static class BlockPosQuerySustainsPlant implements IBlockPosQuery
+    {
+        private IPlantable plant;
+        public BlockPosQuerySustainsPlant(IPlantable plant)
+        {
+            this.plant = plant;
+        }
+        @Override
+        public boolean matches(World world, BlockPos pos)
+        {
+            return world.getBlockState(pos).getBlock().canSustainPlant(world, pos, EnumFacing.UP, this.plant);            
+        }
+    }
+      
     
     public static abstract class BlockQueryBase implements IBlockQuery
     {
@@ -202,7 +327,7 @@ public class BlockQueryUtils
         }        
     }
     
-    // Match a block pos if the child does not match
+    // Match a block if the child does not match
     public static class BlockQueryNot extends BlockQueryBase
     {
         IBlockQuery child;
@@ -217,20 +342,20 @@ public class BlockQueryUtils
         }
     }
     
-    // Match against a particular block instance
+    // Match against a set of block instances
     public static class BlockQueryBlock extends BlockQueryBase
     {
-        private Block block;
+        private Set<Block> blocks;
         
-        public BlockQueryBlock(Block block)
+        public BlockQueryBlock(Block... blocks)
         {
-            this.block = block;
+            this.blocks = Sets.newHashSet(blocks);
         }
         
         @Override
         public boolean matches(IBlockState state)
         {
-            return state.getBlock() == this.block;
+            return this.blocks.contains(state.getBlock());
         }
         
         public static IBlockQuery of(String blockName, boolean negated) throws BlockQueryParseException
@@ -246,24 +371,24 @@ public class BlockQueryUtils
         }
     }
     
-    // Match against a particular block state instance
+    // Match against a set of block state instances
     public static class BlockQueryState extends BlockQueryBase
     {
-        private IBlockState state;
+        private Set<IBlockState> states;
         
-        public BlockQueryState(IBlockState state)
+        public BlockQueryState(IBlockState... states)
         {
-            this.state = state;
+            this.states = Sets.newHashSet(states);
         }
         
         @Override
         public boolean matches(IBlockState state)
         {
-            return state == this.state;
+            return this.states.contains(state);
         }
     }
     
-    // Match against a block class
+    // Match against a set of block class
     public static class BlockQueryClass extends BlockQueryBase
     {
         public static String[] packages = {"","biomesoplenty.common.block.","net.minecraft.block."};
@@ -359,18 +484,18 @@ public class BlockQueryUtils
         }
     }
     
-    // Match against a block material
+    // Match against a set of block materials
     public static class BlockQueryMaterial extends BlockQueryBase
     {
-        private Material material;
-        public BlockQueryMaterial(Material material)
+        private Set<Material> materials;
+        public BlockQueryMaterial(Material... materials)
         {
-            this.material = material;
+            this.materials = Sets.newHashSet(materials);
         }
         @Override
         public boolean matches(IBlockState state)
         {
-            return state.getBlock().getMaterial() == this.material;
+            return this.materials.contains(state.getBlock().getMaterial());
         }
         
         public static IBlockQuery of(String materialName, boolean negated) throws BlockQueryParseException
@@ -386,8 +511,7 @@ public class BlockQueryUtils
             } catch (Exception e) {;}
             throw new BlockQueryParseException("No block material found called "+materialName);
         }
-    }
-    
+    }    
     
 
     
@@ -395,6 +519,13 @@ public class BlockQueryUtils
     
     /***** Parsing from a string *****/
     
+    public static class BlockQueryParseException extends Exception
+    {
+        public BlockQueryParseException(String message)
+        {
+            super(message);
+        }
+    }
     
     public static final Map<String, IBlockPosQuery> predefined = new HashMap<String, IBlockPosQuery>();
     

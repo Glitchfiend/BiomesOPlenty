@@ -22,11 +22,8 @@ import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockPosQueryAnd;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockPosQueryOr;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryMaterial;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockPosQueryHasWater;
-import biomesoplenty.common.util.block.BlockQueryUtils.IBlockPosQuery;
+import biomesoplenty.common.util.block.BlockQuery;
+import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.world.feature.GeneratorColumns;
 import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
 import biomesoplenty.common.world.feature.GeneratorFlora;
@@ -58,10 +55,10 @@ public class BiomeGenGrassland extends BOPBiome {
         // gravel
         this.addGenerator("gravel", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(4).maxRadius(7).with(Blocks.gravel.getDefaultState()).create());
                 
-        // other plants        
-        IBlockPosQuery canPlaceRiverCane = new BlockPosQueryAnd(new BlockPosQueryHasWater(), new BlockPosQueryOr(new BlockQueryMaterial(Material.ground), new BlockQueryMaterial(Material.grass)));
+        // other plants
+        IBlockPosQuery canPlaceRiverCane = BlockQuery.buildAnd().byWater().materials(Material.ground, Material.grass).create();
         this.addGenerator("river_cane", GeneratorStage.FLOWERS,(new GeneratorColumns.Builder()).amountPerChunk(1.0F).generationAttempts(24).placeOn(canPlaceRiverCane).with(BlockBOPPlant.paging.getVariantState(BOPPlants.RIVERCANE)).minHeight(1).maxHeight(3).create());
-        IBlockPosQuery canPlaceSugarCane = new BlockPosQueryAnd(new BlockPosQueryHasWater(), new BlockPosQueryOr(new BlockQueryMaterial(Material.ground), new BlockQueryMaterial(Material.grass), new BlockQueryMaterial(Material.sand)));
+        IBlockPosQuery canPlaceSugarCane = BlockQuery.buildAnd().byWater().materials(Material.ground, Material.grass, Material.sand).create();
         this.addGenerator("sugar_cane", GeneratorStage.FLOWERS,(new GeneratorColumns.Builder()).amountPerChunk(4.0F).generationAttempts(24).placeOn(canPlaceSugarCane).with(Blocks.reeds.getDefaultState()).minHeight(1).maxHeight(3).create());
         this.addGenerator("flax", GeneratorStage.FLOWERS,(new GeneratorDoubleFlora.Builder()).amountPerChunk(0.1F).with(BlockBOPDoublePlant.DoublePlantType.FLAX).generationAttempts(6).create());
         

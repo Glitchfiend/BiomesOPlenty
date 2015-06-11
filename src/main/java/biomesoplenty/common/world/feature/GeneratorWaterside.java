@@ -17,8 +17,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import biomesoplenty.api.biome.generation.BOPGeneratorBase;
-import biomesoplenty.common.util.block.BlockQueryUtils;
-import biomesoplenty.common.util.block.BlockQueryUtils.*;
+import biomesoplenty.common.util.block.BlockQuery;
+import biomesoplenty.common.util.block.BlockQuery.*;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GeneratorWaterside extends BOPGeneratorBase
@@ -28,12 +28,12 @@ public class GeneratorWaterside extends BOPGeneratorBase
     {
         protected float amountPerChunk = 1.0F;
         protected int maxRadius = 7;
-        protected IBlockPosQuery replace = new BlockPosQueryOr(new BlockQueryMaterial(Material.grass), new BlockQueryMaterial(Material.ground));
-        protected IBlockState with = Blocks.gravel.getDefaultState();                
+        protected IBlockPosQuery replace = new BlockQueryMaterial(Material.grass, Material.ground);
+        protected IBlockState with = Blocks.gravel.getDefaultState();
         
         public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
         public Builder replace(IBlockPosQuery a) {this.replace = a; return this;}
-        public Builder replace(String a) throws BlockQueryParseException {this.replace = BlockQueryUtils.parseQueryString(a); return this;}
+        public Builder replace(String a) throws BlockQueryParseException {this.replace = BlockQuery.parseQueryString(a); return this;}
         public Builder replace(Block a) {this.replace = new BlockQueryBlock(a); return this;}
         public Builder replace(IBlockState a) {this.replace = new BlockQueryState(a); return this;}        
         public Builder with(IBlockState a) {this.with = a; return this;}

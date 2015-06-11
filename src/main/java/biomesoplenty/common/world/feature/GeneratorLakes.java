@@ -12,11 +12,11 @@ import java.util.Random;
 
 import biomesoplenty.api.biome.generation.BOPGeneratorBase;
 import biomesoplenty.common.util.biome.GeneratorUtils;
-import biomesoplenty.common.util.block.BlockQueryUtils;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryBlock;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryParseException;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryState;
-import biomesoplenty.common.util.block.BlockQueryUtils.IBlockPosQuery;
+import biomesoplenty.common.util.block.BlockQuery;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryBlock;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryParseException;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryState;
+import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -45,7 +45,7 @@ public class GeneratorLakes extends BOPGeneratorBase
         public Builder frozenLiquid(IBlockState a) {this.frozenLiquid = a; return this;}
         public Builder grassBorderWith(IBlockState a) {this.grassBorderWith = a; return this;}
         public Builder grassReplace(IBlockPosQuery a) {this.grassReplace = a; return this;}
-        public Builder grassReplace(String a) throws BlockQueryParseException {this.grassReplace = BlockQueryUtils.parseQueryString(a); return this;}
+        public Builder grassReplace(String a) throws BlockQueryParseException {this.grassReplace = BlockQuery.parseQueryString(a); return this;}
         public Builder grassReplace(Block a) {this.grassReplace = new BlockQueryBlock(a); return this;}
         public Builder grassReplace(IBlockState a) {this.grassReplace = new BlockQueryState(a); return this;}
         public Builder lineWith(IBlockState a) {this.lineWith = a; return this;}

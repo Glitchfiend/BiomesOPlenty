@@ -23,10 +23,10 @@ import net.minecraft.block.state.IBlockState;
 
 import org.apache.commons.io.FileUtils;
 
-import biomesoplenty.common.util.block.BlockQueryUtils;
+import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.util.block.BlockStateUtils;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryParseException;
-import biomesoplenty.common.util.block.BlockQueryUtils.IBlockPosQuery;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryParseException;
+import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.core.BiomesOPlenty;
 
 import com.google.gson.Gson;
@@ -482,7 +482,7 @@ public class BOPConfig
             {
                 String queryString = ele.getAsString();
                 try {
-                    return BlockQueryUtils.parseQueryString(queryString);
+                    return BlockQuery.parseQueryString(queryString);
                 } catch (BlockQueryParseException e) {
                     this.addMessage(extraPrefix, "Error parsing BlockPosQuery " + queryString + " - " + e.getMessage());
                     return null;

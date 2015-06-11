@@ -29,7 +29,8 @@ import biomesoplenty.common.block.BlockBOPDoublePlant;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
-import biomesoplenty.common.util.block.BlockQueryUtils.*;
+import biomesoplenty.common.util.block.BlockQuery;
+import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
 import biomesoplenty.common.world.feature.GeneratorFlora;
@@ -106,8 +107,8 @@ public class BiomeGenMountain extends BOPBiome
         // lakes
         this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(1.8F).waterLakeForBiome(this).create());        
         
-        // trees & logs
-        IBlockPosQuery suitableTreePosition = new BlockPosQueryAnd(new BlockPosQueryAltitude(40, 140), new BlockPosQueryOr(new BlockQueryMaterial(Material.ground), new BlockQueryMaterial(Material.grass)));
+        // trees & logs        
+        IBlockPosQuery suitableTreePosition = BlockQuery.buildAnd().withAltitudeBetween(40, 140).materials(Material.ground, Material.grass).create();
         GeneratorWeighted treeGenerator = new GeneratorWeighted(10);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("pine", 1, (new GeneratorPineTree.Builder()).minHeight(6).maxHeight(18).placeOn(suitableTreePosition).create());        

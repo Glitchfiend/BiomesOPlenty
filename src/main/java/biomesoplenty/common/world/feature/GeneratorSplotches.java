@@ -19,8 +19,8 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import biomesoplenty.api.biome.generation.BOPGeneratorBase;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
-import biomesoplenty.common.util.block.BlockQueryUtils;
-import biomesoplenty.common.util.block.BlockQueryUtils.*;
+import biomesoplenty.common.util.block.BlockQuery;
+import biomesoplenty.common.util.block.BlockQuery.*;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GeneratorSplotches extends BOPGeneratorBase
@@ -29,14 +29,14 @@ public class GeneratorSplotches extends BOPGeneratorBase
     public static class Builder implements IGeneratorBuilder<GeneratorSplotches>
     {
         protected float amountPerChunk = 1.0F;
-        protected IBlockPosQuery replace = new BlockPosQueryOr(new BlockQueryMaterial(Material.grass), new BlockQueryMaterial(Material.ground));
+        protected IBlockPosQuery replace = new BlockQueryMaterial(Material.grass, Material.ground);
         protected IBlockState with = Blocks.cobblestone.getDefaultState();
         protected int splotchSize = 8;
         protected ScatterYMethod scatterYMethod = ScatterYMethod.AT_OR_BELOW_SURFACE;
         
         public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
         public Builder replace(IBlockPosQuery a) {this.replace = a; return this;}
-        public Builder replace(String a) throws BlockQueryParseException {this.replace = BlockQueryUtils.parseQueryString(a); return this;}
+        public Builder replace(String a) throws BlockQueryParseException {this.replace = BlockQuery.parseQueryString(a); return this;}
         public Builder replace(Block a) {this.replace = new BlockQueryBlock(a); return this;}
         public Builder replace(IBlockState a) {this.replace = new BlockQueryState(a); return this;}        
         public Builder with(IBlockState a) {this.with = a; return this;}

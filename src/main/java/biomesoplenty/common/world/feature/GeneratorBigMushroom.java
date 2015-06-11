@@ -12,16 +12,13 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHugeMushroom;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import biomesoplenty.api.biome.generation.BOPGeneratorBase;
 import biomesoplenty.common.util.biome.GeneratorUtils;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockPosQueryOr;
-import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryMaterial;
-import biomesoplenty.common.util.block.BlockQueryUtils.IBlockPosQuery;
+import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GeneratorBigMushroom extends BOPGeneratorBase
@@ -90,8 +87,6 @@ public class GeneratorBigMushroom extends BOPGeneratorBase
         }
     }
     
-    private static IBlockPosQuery isLeavesOrAir = new BlockPosQueryOr(new BlockQueryMaterial(Material.leaves), new BlockQueryMaterial(Material.air));
-
     protected BigMushroomType mushroomType;
     protected IBlockState mushroomState;
     
@@ -136,7 +131,7 @@ public class GeneratorBigMushroom extends BOPGeneratorBase
             {
                 for (int z = pos.getZ() - radius; z <= pos.getZ() + radius; ++z)
                 {
-                    if (!isLeavesOrAir.matches(world, new BlockPos(x, y, z)))
+                    if (!BlockQuery.isAirOrLeaves.matches(world, new BlockPos(x, y, z)))
                     {
                         return false;
                     }
