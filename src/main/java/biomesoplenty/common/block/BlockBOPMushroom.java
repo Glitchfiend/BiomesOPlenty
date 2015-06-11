@@ -23,7 +23,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 // TODO: mushroom spreading? giant mushrooms with bonemeal? mushrooms popping if too bright?
-public class BlockBOPMushroom extends BlockDecoration
+public class BlockBOPMushroom extends BlockBOPDecoration
 {
     // add properties
     public static enum MushroomType implements IStringSerializable

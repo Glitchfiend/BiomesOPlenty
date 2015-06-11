@@ -26,7 +26,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockBamboo extends BlockDecoration
+public class BlockBOPBamboo extends BlockBOPDecoration
 {
     
     // add properties
@@ -35,7 +35,7 @@ public class BlockBamboo extends BlockDecoration
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { AGE });}
     
     
-    public BlockBamboo()
+    public BlockBOPBamboo()
     {
         super(Material.wood);
         this.setHardness(0.2F);

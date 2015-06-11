@@ -25,7 +25,7 @@ import biomesoplenty.common.block.BlockBOPFlower;
 import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.block.BlockBOPPlant;
-import biomesoplenty.common.block.BlockDecoration;
+import biomesoplenty.common.block.BlockBOPDecoration;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.util.biome.GeneratorUtils;
@@ -101,9 +101,9 @@ public class GeneratorFlora extends BOPGeneratorBase
             if (this.replace.matches(world, genPos) && genPos.getY() < 255)
             {
                 boolean canStay;
-                if (block instanceof BlockDecoration)
+                if (block instanceof BlockBOPDecoration)
                 {
-                    canStay = ((BlockDecoration)block).canBlockStay(world, genPos, this.with);
+                    canStay = ((BlockBOPDecoration)block).canBlockStay(world, genPos, this.with);
                 } else if (block instanceof BlockBush) {
                     canStay = ((BlockBush)block).canPlaceBlockAt(world, genPos);
                 } else {

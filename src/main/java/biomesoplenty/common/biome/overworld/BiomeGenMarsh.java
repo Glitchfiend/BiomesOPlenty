@@ -21,8 +21,8 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.BlockBOPDirt;
 import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.block.BlockBOPLilypad;
-import biomesoplenty.common.block.BlockCoral;
-import biomesoplenty.common.block.BlockMud;
+import biomesoplenty.common.block.BlockBOPCoral;
+import biomesoplenty.common.block.BlockBOPMud;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
@@ -48,7 +48,7 @@ public class BiomeGenMarsh extends BOPBiome
         this.sidewaysNoiseAmount = 0.0D;
         this.setOctaveWeights(5, 5, 0, 0, 1, 1);
         
-        IBlockState mud = BOPBlocks.mud.getDefaultState().withProperty(BlockMud.VARIANT, BlockMud.MudType.MUD);
+        IBlockState mud = BOPBlocks.mud.getDefaultState().withProperty(BlockBOPMud.VARIANT, BlockBOPMud.MudType.MUD);
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SILTY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY);
         this.seaFloorBlock = mud;
@@ -72,7 +72,7 @@ public class BiomeGenMarsh extends BOPBiome
         
         // water plants
         this.addGenerator("duckweed", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BlockBOPLilypad.LilypadType.DUCKWEED).generationAttempts(32).create());
-        this.addGenerator("algae", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(10.0F).replace(Blocks.water).with(BOPBlocks.coral.getDefaultState().withProperty(BlockCoral.VARIANT, BlockCoral.CoralType.ALGAE)).generationAttempts(32).create());
+        this.addGenerator("algae", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(10.0F).replace(Blocks.water).with(BOPBlocks.coral.getDefaultState().withProperty(BlockBOPCoral.VARIANT, BlockBOPCoral.CoralType.ALGAE)).generationAttempts(32).create());
         this.addGenerator("water_reeds", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(5.0F).with(BOPPlants.REED).generationAttempts(32).create());
 
         // grasses

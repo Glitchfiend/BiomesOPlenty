@@ -26,7 +26,7 @@ import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.entities.EntityWasp;
 import biomesoplenty.common.item.ItemBOPBlock;
 
-public class BlockHive extends Block implements IBOPBlock
+public class BlockBOPHive extends Block implements IBOPBlock
 {
     
     // add properties
@@ -64,7 +64,7 @@ public class BlockHive extends Block implements IBOPBlock
         return ((HiveType) state.getValue(VARIANT)).getName() + "_block";
     }
     
-    public BlockHive()
+    public BlockBOPHive()
     {
         super(Material.wood);
                 

@@ -49,26 +49,26 @@ public class ModBlocks
     
     public static void init()
     {
-        ash_block =             registerBlock( new BlockAsh(), "ash_block" );
-        bamboo =                registerBlock( new BlockBamboo(), "bamboo" );
-        bone_segment =          registerBlock( new BlockBones(), "bone_segment" );
-        coral =                 registerBlock( new BlockCoral(), "coral" );
-        seaweed =               registerBlock( new BlockSeaweed(), "seaweed" );
-        gem_block =             registerBlock( new BlockGem(), "gem_block" );
-        gem_ore =               registerBlock( new BlockGemOre(), "gem_ore" );
-        hive =                  registerBlock( new BlockHive(), "hive" );
+        ash_block =             registerBlock( new BlockBOPAsh(), "ash_block" );
+        bamboo =                registerBlock( new BlockBOPBamboo(), "bamboo" );
+        bone_segment =          registerBlock( new BlockBOPBones(), "bone_segment" );
+        coral =                 registerBlock( new BlockBOPCoral(), "coral" );
+        seaweed =               registerBlock( new BlockBOPSeaweed(), "seaweed" );
+        gem_block =             registerBlock( new BlockBOPGem(), "gem_block" );
+        gem_ore =               registerBlock( new BlockBOPGemOre(), "gem_ore" );
+        hive =                  registerBlock( new BlockBOPHive(), "hive" );
         mushroom =              registerBlock( new BlockBOPMushroom(), "mushroom" );
         stone =                 registerBlock( new BlockBOPStone(), "stone" );
-        mud =                   registerBlock( new BlockMud(), "mud" );
-        turnip_block =          registerBlock( new BlockTurnip(), "turnip_block", null ); // no creative tab
-        flesh =                 registerBlock( new BlockFlesh(), "flesh" );
+        mud =                   registerBlock( new BlockBOPMud(), "mud" );
+        turnip_block =          registerBlock( new BlockBOPTurnip(), "turnip_block", null ); // no creative tab
+        flesh =                 registerBlock( new BlockBOPFlesh(), "flesh" );
         grass =                 registerBlock( new BlockBOPGrass(), "grass" );
         waterlily =             registerBlock( new BlockBOPLilypad(), "waterlily" );
         dirt =                  registerBlock( new BlockBOPDirt(), "dirt" );
-        stone_formations =      registerBlock( new BlockStoneFormations(), "stone_formations" );
-        fruit_block =           registerBlock( new BlockFruit(), "fruit_block" /*, creativeTab(null) */); // TODO: once the mechanism for farming fruit is established: remove creative tab
-        crystal =               registerBlock( new BlockCrystal(), "crystal" );
-        biome_block =           registerBlock( new BlockBiomeBlock(), "biome_block" );
+        stone_formations =      registerBlock( new BlockBOPStoneFormations(), "stone_formations" );
+        fruit_block =           registerBlock( new BlockBOPFruit(), "fruit_block" /*, creativeTab(null) */); // TODO: once the mechanism for farming fruit is established: remove creative tab
+        crystal =               registerBlock( new BlockBOPCrystal(), "crystal" );
+        biome_block =           registerBlock( new BlockBOPBiomeBlock(), "biome_block" );
         
         // generics
         bamboo_thatching =      registerBlock( (new BlockBOPGeneric(Material.wood)).setStepSound(Block.soundTypeWood).setHardness(2.0F), "bamboo_thatching"); bamboo_thatching.setHarvestLevel("axe", 0);
@@ -216,7 +216,7 @@ public class ModBlocks
         plant_1 =           registerBlock( BlockBOPPlant.paging.getBlock(1), "plant_1" );
         double_plant =      registerBlock( new BlockBOPDoublePlant(), "double_plant" );
         
-        honey_block =       registerBlock( new BlockHoney(), "honey_block" );
+        honey_block =       registerBlock( new BlockBOPHoney(), "honey_block" );
         
         
         // fluids

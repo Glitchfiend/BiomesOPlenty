@@ -32,7 +32,7 @@ import net.minecraftforge.common.IShearable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockBOPDoublePlant extends BlockDoubleDecoration implements IShearable
+public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements IShearable
 {
     
     // add properties (note we inherit HALF from BlockDoubleDecoration)

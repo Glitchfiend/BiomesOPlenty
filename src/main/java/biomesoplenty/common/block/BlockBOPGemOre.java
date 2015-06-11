@@ -8,7 +8,7 @@
 
 package biomesoplenty.common.block;
 
-import static biomesoplenty.common.block.BlockGem.VARIANT;
+import static biomesoplenty.common.block.BlockBOPGem.VARIANT;
 
 import java.util.Random;
 
@@ -29,7 +29,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockGemOre extends Block implements IBOPBlock
+public class BlockBOPGemOre extends Block implements IBOPBlock
 {
     
     // add properties (note VARIANT is imported statically from the BlockGem class)
@@ -53,7 +53,7 @@ public class BlockGemOre extends Block implements IBOPBlock
     }
     
     
-    public BlockGemOre()
+    public BlockBOPGemOre()
     {
         super(Material.rock);
         

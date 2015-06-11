@@ -31,7 +31,7 @@ import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.item.ItemBOPBlock;
 
-public class BlockMud extends Block implements IBOPBlock
+public class BlockBOPMud extends Block implements IBOPBlock
 {
 
     // add properties
@@ -69,7 +69,7 @@ public class BlockMud extends Block implements IBOPBlock
         return ((MudType) state.getValue(VARIANT)).getName();
     }
 
-    public BlockMud() {
+    public BlockBOPMud() {
         
         super(Material.sand);
         

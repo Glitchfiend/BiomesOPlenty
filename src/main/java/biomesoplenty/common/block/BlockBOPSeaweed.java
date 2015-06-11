@@ -25,7 +25,7 @@ import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockSeaweed extends BlockDecoration implements IBOPBlock
+public class BlockBOPSeaweed extends BlockBOPDecoration implements IBOPBlock
 {
     
     // TODO: is it supposed to grow?
@@ -83,7 +83,7 @@ public class BlockSeaweed extends BlockDecoration implements IBOPBlock
     }
     
     
-    public BlockSeaweed()
+    public BlockBOPSeaweed()
     {
         super(Material.water);
         

@@ -13,8 +13,8 @@ import java.util.Random;
 import biomesoplenty.api.biome.generation.BOPGeneratorBase;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.BlockBOPDoublePlant;
-import biomesoplenty.common.block.BlockDecoration;
-import biomesoplenty.common.block.BlockDoubleDecoration;
+import biomesoplenty.common.block.BlockBOPDecoration;
+import biomesoplenty.common.block.BlockBOPDoubleDecoration;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.util.block.BlockQueryUtils;
 import biomesoplenty.common.util.block.BlockQueryUtils.BlockQueryBlock;
@@ -39,8 +39,8 @@ public class GeneratorDoubleFlora extends BOPGeneratorBase
     {
         protected float amountPerChunk = 1.0F;
         protected IBlockPosQuery replace = new BlockQueryMaterial(Material.air);
-        protected IBlockState bottomState = BOPBlocks.double_plant.getDefaultState().withProperty(BlockBOPDoublePlant.VARIANT, BlockBOPDoublePlant.DoublePlantType.FLAX).withProperty(BlockBOPDoublePlant.HALF, BlockDoubleDecoration.Half.LOWER);
-        protected IBlockState topState = BOPBlocks.double_plant.getDefaultState().withProperty(BlockBOPDoublePlant.VARIANT, BlockBOPDoublePlant.DoublePlantType.FLAX).withProperty(BlockBOPDoublePlant.HALF, BlockDoubleDecoration.Half.UPPER);
+        protected IBlockState bottomState = BOPBlocks.double_plant.getDefaultState().withProperty(BlockBOPDoublePlant.VARIANT, BlockBOPDoublePlant.DoublePlantType.FLAX).withProperty(BlockBOPDoublePlant.HALF, BlockBOPDoubleDecoration.Half.LOWER);
+        protected IBlockState topState = BOPBlocks.double_plant.getDefaultState().withProperty(BlockBOPDoublePlant.VARIANT, BlockBOPDoublePlant.DoublePlantType.FLAX).withProperty(BlockBOPDoublePlant.HALF, BlockBOPDoubleDecoration.Half.UPPER);
         protected int generationAttempts = 20;
         
         public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
@@ -51,8 +51,8 @@ public class GeneratorDoubleFlora extends BOPGeneratorBase
         public Builder with(IBlockState bottom, IBlockState top) {this.bottomState = bottom; this.topState = top; return this;}
         public Builder with(BlockBOPDoublePlant.DoublePlantType type)
         {
-            this.bottomState = BOPBlocks.double_plant.getDefaultState().withProperty(BlockBOPDoublePlant.VARIANT, type).withProperty(BlockBOPDoublePlant.HALF, BlockDoubleDecoration.Half.LOWER);
-            this.topState = BOPBlocks.double_plant.getDefaultState().withProperty(BlockBOPDoublePlant.VARIANT, type).withProperty(BlockBOPDoublePlant.HALF, BlockDoubleDecoration.Half.UPPER);
+            this.bottomState = BOPBlocks.double_plant.getDefaultState().withProperty(BlockBOPDoublePlant.VARIANT, type).withProperty(BlockBOPDoublePlant.HALF, BlockBOPDoubleDecoration.Half.LOWER);
+            this.topState = BOPBlocks.double_plant.getDefaultState().withProperty(BlockBOPDoublePlant.VARIANT, type).withProperty(BlockBOPDoublePlant.HALF, BlockBOPDoubleDecoration.Half.UPPER);
             return this;
         }
         public Builder with(BlockDoublePlant.EnumPlantType type)
@@ -103,9 +103,9 @@ public class GeneratorDoubleFlora extends BOPGeneratorBase
             if (this.replace.matches(world, genPos) && this.replace.matches(world, genPos.up()) && genPos.getY() < 254)
             {
                 boolean canStay;
-                if (bottomBlock instanceof BlockDecoration)
+                if (bottomBlock instanceof BlockBOPDecoration)
                 {
-                    canStay = ((BlockDecoration)bottomBlock).canBlockStay(world, genPos, this.bottomState);
+                    canStay = ((BlockBOPDecoration)bottomBlock).canBlockStay(world, genPos, this.bottomState);
                 } else if (bottomBlock instanceof BlockBush) {
                     canStay = ((BlockBush)bottomBlock).canPlaceBlockAt(world, genPos);
                 } else {

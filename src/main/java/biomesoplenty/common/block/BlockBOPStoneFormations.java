@@ -19,7 +19,7 @@ import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockStoneFormations extends BlockDecoration
+public class BlockBOPStoneFormations extends BlockBOPDecoration
 {
     
     // add properties
@@ -55,7 +55,7 @@ public class BlockStoneFormations extends BlockDecoration
     
 
     // constructor
-    public BlockStoneFormations() {
+    public BlockBOPStoneFormations() {
                 
         // set some defaults
         this.setHardness(0.5F);

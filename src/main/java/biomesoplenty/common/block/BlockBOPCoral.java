@@ -21,7 +21,7 @@ import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockCoral extends BlockDecoration
+public class BlockBOPCoral extends BlockBOPDecoration
 {
     
     public static enum CoralType implements IStringSerializable
@@ -61,7 +61,7 @@ public class BlockCoral extends BlockDecoration
     }
     
     
-    public BlockCoral()
+    public BlockBOPCoral()
     {
         super(Material.water);
         

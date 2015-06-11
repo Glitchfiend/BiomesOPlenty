@@ -19,7 +19,7 @@ import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.item.ItemBOPBlock;
 
 // TODO: stop snow settling on this (floats above it)
-public class BlockTurnip extends BlockCrops implements IBOPBlock
+public class BlockBOPTurnip extends BlockCrops implements IBOPBlock
 {
     
     // implement IBOPBlock

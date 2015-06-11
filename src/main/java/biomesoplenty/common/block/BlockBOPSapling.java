@@ -30,7 +30,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockBOPSapling extends BlockDecoration implements IGrowable {
+public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable {
 
     // setup paged variant property
     

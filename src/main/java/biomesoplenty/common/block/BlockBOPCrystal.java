@@ -8,18 +8,19 @@
 
 package biomesoplenty.common.block;
 
+import java.util.Random;
+
+import biomesoplenty.api.block.IBOPBlock;
+import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.util.EnumWorldBlockLayer;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-import biomesoplenty.api.block.IBOPBlock;
-import biomesoplenty.common.item.ItemBOPBlock;
 
-public class BlockHoney extends Block implements IBOPBlock
+public class BlockBOPCrystal extends Block implements IBOPBlock
 {
     
     // implement IBOPBlock
@@ -34,23 +35,25 @@ public class BlockHoney extends Block implements IBOPBlock
     @Override
     public String getStateName(IBlockState state) {return "";}
 
-    public BlockHoney() {
+    
+    public BlockBOPCrystal() {
         super(Material.glass);
-        this.setHardness(0.5F);
-        this.setStepSound(soundTypePiston);
+        this.setHardness(0.15F);
+        this.setResistance(5.0F);
+        this.setLightLevel(1.0F);
+        this.setStepSound(Block.soundTypeGlass);
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
-    public EnumWorldBlockLayer getBlockLayer()
+    public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return EnumWorldBlockLayer.TRANSLUCENT;
+        return BOPItems.crystal_shard;
     }
-    
+
     @Override
-    public boolean isOpaqueCube()
+    public int quantityDropped(Random random)
     {
-        return false;
-    }   
+        return 4;
+    }
     
 }

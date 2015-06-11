@@ -25,7 +25,7 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import biomesoplenty.api.item.BOPItems;
 
-public class BlockFruit extends BlockDecoration
+public class BlockBOPFruit extends BlockBOPDecoration
 {
     
     // add properties
@@ -61,7 +61,7 @@ public class BlockFruit extends BlockDecoration
     
 
     // constructor
-    public BlockFruit() {
+    public BlockBOPFruit() {
                 
         // set some defaults
         this.setStepSound(Block.soundTypeGrass);

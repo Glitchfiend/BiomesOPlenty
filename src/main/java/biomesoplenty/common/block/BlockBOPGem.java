@@ -19,7 +19,7 @@ import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemBlock;
 
-public class BlockGem extends Block implements IBOPBlock
+public class BlockBOPGem extends Block implements IBOPBlock
 {
     // add properties
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", BOPGems.class);
@@ -43,7 +43,7 @@ public class BlockGem extends Block implements IBOPBlock
     }
     
 
-    public BlockGem()
+    public BlockBOPGem()
     {        
         super(Material.rock);
         

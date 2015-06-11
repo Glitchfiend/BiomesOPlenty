@@ -25,10 +25,10 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
-public class BlockBiomeBlock extends BlockBOPGeneric
+public class BlockBOPBiomeBlock extends BlockBOPGeneric
 {   
     
-    public BlockBiomeBlock() {
+    public BlockBOPBiomeBlock() {
         super(Material.glass);
         this.setHardness(0.6F);
         this.setStepSound(Block.soundTypeGlass);

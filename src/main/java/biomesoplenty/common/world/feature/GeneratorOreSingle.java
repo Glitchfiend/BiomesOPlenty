@@ -16,7 +16,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.common.block.BlockGem;
+import biomesoplenty.common.block.BlockBOPGem;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
@@ -34,7 +34,7 @@ public class GeneratorOreSingle extends GeneratorOreBase
         
         public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
         public Builder with(IBlockState a) {this.with = a; return this;}
-        public Builder with(BOPGems a) {this.with = BOPBlocks.gem_ore.getDefaultState().withProperty(BlockGem.VARIANT, a); return this;}
+        public Builder with(BOPGems a) {this.with = BOPBlocks.gem_ore.getDefaultState().withProperty(BlockBOPGem.VARIANT, a); return this;}
         public Builder minHeight(int a) {this.minHeight = a; return this;}
         public Builder maxHeight(int a) {this.maxHeight = a; return this;}
 

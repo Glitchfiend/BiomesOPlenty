@@ -25,7 +25,7 @@ import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockDoubleDecoration extends BlockDecoration {
+public class BlockBOPDoubleDecoration extends BlockBOPDecoration {
     
     // add half property
     public static enum Half implements IStringSerializable
@@ -52,11 +52,11 @@ public class BlockDoubleDecoration extends BlockDecoration {
     public float height;
     public boolean fromTop;
     
-    public BlockDoubleDecoration()
+    public BlockBOPDoubleDecoration()
     {
         this(Material.plants);
     }
-    public BlockDoubleDecoration(Material material)
+    public BlockBOPDoubleDecoration(Material material)
     {
         super(material);
         this.radius = 0.5F;
@@ -107,7 +107,7 @@ public class BlockDoubleDecoration extends BlockDecoration {
         IBlockState upperState = this.getUpperState(world, pos);
         Block lowerBlock = lowerState.getBlock();
         Block upperBlock = upperState.getBlock();
-        return (lowerBlock instanceof BlockDoubleDecoration) && (upperBlock instanceof BlockDoubleDecoration) && (lowerBlock == upperBlock) && lowerState.getValue(HALF) == Half.LOWER && upperState.getValue(HALF) == Half.UPPER;
+        return (lowerBlock instanceof BlockBOPDoubleDecoration) && (upperBlock instanceof BlockBOPDoubleDecoration) && (lowerBlock == upperBlock) && lowerState.getValue(HALF) == Half.LOWER && upperState.getValue(HALF) == Half.UPPER;
     }
     
     

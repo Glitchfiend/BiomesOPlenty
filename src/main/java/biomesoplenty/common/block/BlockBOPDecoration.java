@@ -28,7 +28,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.item.ItemBOPBlock;
 
-public class BlockDecoration extends Block implements IBOPBlock
+public class BlockBOPDecoration extends Block implements IBOPBlock
 {
     
     // implement IBOPBlock
@@ -45,10 +45,10 @@ public class BlockDecoration extends Block implements IBOPBlock
 
 
     // constructor
-    public BlockDecoration() {
+    public BlockBOPDecoration() {
         this(Material.plants);
     }
-    public BlockDecoration(Material material)
+    public BlockBOPDecoration(Material material)
     {
         super(material);
         

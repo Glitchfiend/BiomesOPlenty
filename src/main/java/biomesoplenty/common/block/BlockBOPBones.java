@@ -28,7 +28,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.item.ItemBOPBlock;
 
-public class BlockBones extends Block implements IBOPBlock
+public class BlockBOPBones extends Block implements IBOPBlock
 {
     
     // add properties
@@ -76,7 +76,7 @@ public class BlockBones extends Block implements IBOPBlock
         return new ItemStack(this, howMany, this.getMetaFromState(this.getDefaultState().withProperty(VARIANT, type)));
     }
     
-    public BlockBones()
+    public BlockBOPBones()
     {
         super(Material.rock);
         
