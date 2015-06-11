@@ -9,7 +9,7 @@
 package biomesoplenty.common.block;
 
 import static net.minecraft.block.BlockLiquid.LEVEL;
-import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
@@ -124,23 +124,11 @@ public class BlockBOPSeaweed extends BlockBOPDecoration implements IBOPBlock
         this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.4F, 0.8F, pos);
     }
     
-    
     // require water or seaweed above and earth or seaweed below
     @Override
     public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
     {
-
-        IBlockState stateAbove = world.getBlockState(pos.up());
-        Block blockAbove = stateAbove.getBlock();
-        IBlockState stateBelow = world.getBlockState(pos.down());
-        Block blockBelow = stateBelow.getBlock();
-        
-        boolean hasWaterAbove = (blockAbove == Blocks.water || blockAbove == Blocks.flowing_water);
-        boolean sameSeaweedAbove = ( (blockAbove == this) && ((SeaweedType)state.getValue(VARIANT) == (SeaweedType)stateAbove.getValue(VARIANT)) );
-        boolean hasEarthBelow = (blockBelow == Blocks.dirt || blockBelow == BOPBlocks.dirt || blockBelow == BOPBlocks.mud || blockBelow == BOPBlocks.sand || blockBelow == Blocks.sand || blockBelow == Blocks.sponge || blockBelow == Blocks.stone || blockBelow == Blocks.clay || blockBelow == Blocks.gravel);
-        boolean sameSeaweedBelow = ( (blockBelow == this) && ((SeaweedType)state.getValue(VARIANT) == (SeaweedType)stateBelow.getValue(VARIANT)) );
-        
-        return (hasWaterAbove || sameSeaweedAbove) && (hasEarthBelow || sameSeaweedBelow);
+        return (BlockQueries.fertileSeaBed.matches(world, pos.down()) || world.getBlockState(pos.down()) == state) && (BlockQueries.underwater.matches(world, pos.up()) || world.getBlockState(pos.up()) == state);
     }
 
     @Override

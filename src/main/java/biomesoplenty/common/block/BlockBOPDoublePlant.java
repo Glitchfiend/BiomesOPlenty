@@ -11,14 +11,11 @@ package biomesoplenty.common.block;
 import java.util.List;
 import java.util.Random;
 
-import biomesoplenty.api.block.BOPBlocks;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
+import biomesoplenty.api.block.BlockQueries;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.IStringSerializable;
@@ -164,42 +161,21 @@ public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements ISh
                 break;
         }
     }
-    
+
     
     @Override
     public boolean canBlockStay(World world, BlockPos lowerPos, IBlockState state)
     {     
         DoublePlantType plant = ((DoublePlantType) state.getValue(VARIANT));
-        IBlockState groundState = world.getBlockState(lowerPos.down());
-        Block groundBlock = groundState.getBlock();
-        boolean onFertile = (groundBlock == Blocks.dirt || groundBlock == BOPBlocks.dirt || groundBlock == Blocks.mycelium || groundBlock == Blocks.grass);
-        boolean onGrass = (groundBlock == Blocks.grass);
-        boolean onHellish = (groundBlock == Blocks.netherrack || groundBlock == BOPBlocks.flesh);
-        if (groundBlock instanceof BlockBOPGrass)
-        {
-            switch ((BlockBOPGrass.BOPGrassType) groundState.getValue(BlockBOPGrass.VARIANT))
-            {
-                case SPECTRAL_MOSS: case SMOLDERING:
-                    break;
-                case OVERGROWN_NETHERRACK:
-                    onFertile = true;
-                    onHellish = true;
-                    break;
-                case LOAMY: case SANDY: case SILTY: case ORIGIN: default:
-                    onFertile = true;
-                    onGrass = true;
-                    break;
-            }
-        }
+
         switch (plant)
         {
             case TALL_CATTAIL:
-                boolean hasWater = (world.getBlockState(lowerPos.add(-1, -1, 0)).getBlock().getMaterial() == Material.water || world.getBlockState(lowerPos.add(1,-1,0)).getBlock().getMaterial() == Material.water || world.getBlockState(lowerPos.add(0,-1,-1)).getBlock().getMaterial() == Material.water || world.getBlockState(lowerPos.add(0,-1,1)).getBlock().getMaterial() == Material.water);
-                return onGrass && hasWater;
+                return BlockQueries.litBeach.matches(world, lowerPos.down());
             case EYEBULB:
-                return onHellish;
+                return BlockQueries.hellish.matches(world, lowerPos.down());
             case FLAX: default:
-                return onFertile;
+                return BlockQueries.litFertile.matches(world, lowerPos.down());
         }
         
     }

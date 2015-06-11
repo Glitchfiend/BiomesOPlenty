@@ -17,6 +17,7 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.block.ISustainsPlantType;
 
 import com.google.common.collect.ImmutableMap;
@@ -70,31 +71,31 @@ public class BlockQuery
             this.query = query;
         }
         
-        public CompoundQueryBuilder and(IBlockPosQuery a)
+        public CompoundQueryBuilder add(IBlockPosQuery a)
         {
             query.add(a);
             return this;
         }
         
-        public CompoundQueryBuilder blocks(Block... blocks) {return this.and(new BlockQueryBlock(blocks));}
-        public CompoundQueryBuilder states(IBlockState... states) {return this.and(new BlockQueryState(states));}
-        public CompoundQueryBuilder blockClass(Class<? extends Block> clazz) {return this.and(new BlockQueryClass(clazz));}
-        public CompoundQueryBuilder materials(Material... materials) {return this.and(new BlockQueryMaterial(materials));}
-        public CompoundQueryBuilder withProperty(String propName, String... propValues) {return this.and(new BlockQueryProperty(propName, propValues));}
+        public CompoundQueryBuilder blocks(Block... blocks) {return this.add(new BlockQueryBlock(blocks));}
+        public CompoundQueryBuilder states(IBlockState... states) {return this.add(new BlockQueryState(states));}
+        public CompoundQueryBuilder blockClass(Class<? extends Block> clazz) {return this.add(new BlockQueryClass(clazz));}
+        public CompoundQueryBuilder materials(Material... materials) {return this.add(new BlockQueryMaterial(materials));}
+        public CompoundQueryBuilder withProperty(String propName, String... propValues) {return this.add(new BlockQueryProperty(propName, propValues));}
         
-        public CompoundQueryBuilder not(IBlockPosQuery query) {return this.and(new BlockPosQueryNot(query));}
+        public CompoundQueryBuilder not(IBlockPosQuery query) {return this.add(new BlockPosQueryNot(query));}
         public CompoundQueryBuilder notBlocks(Block... blocks) {return this.not(new BlockQueryBlock(blocks));}
         public CompoundQueryBuilder notStates(IBlockState... states) {return this.not(new BlockQueryState(states));}
         public CompoundQueryBuilder notBlockClass(Class<? extends Block> clazz) {return this.not(new BlockQueryClass(clazz));}
         public CompoundQueryBuilder notMaterial(Material... materials) {return this.not(new BlockQueryMaterial(materials));}
         public CompoundQueryBuilder notWithProperty(String propName, String... propValues) {return this.not(new BlockQueryProperty(propName, propValues));}     
 
-        public CompoundQueryBuilder withAltitudeBetween(int a, int b) {return this.and(new BlockPosQueryAltitude(a,b));}
-        public CompoundQueryBuilder byWater() {return this.and(hasWater);}
-        public CompoundQueryBuilder withAirAbove() {return this.and(airAbove);}
-        public CompoundQueryBuilder withLightAtLeast(int a) {return this.and(new BlockPosQueryLightAtLeast(a));}
-        public CompoundQueryBuilder withLightNoMoreThan(int a) {return this.and(new BlockPosQueryLightNoMoreThan(a));}
-        public CompoundQueryBuilder sustainsPlant(EnumPlantType plantType) {return this.and(new BlockPosQuerySustainsPlantType(plantType));}
+        public CompoundQueryBuilder withAltitudeBetween(int a, int b) {return this.add(new BlockPosQueryAltitude(a,b));}
+        public CompoundQueryBuilder byWater() {return this.add(BlockQueries.hasWater);}
+        public CompoundQueryBuilder withAirAbove() {return this.add(BlockQueries.airAbove);}
+        public CompoundQueryBuilder withLightAtLeast(int a) {return this.add(new BlockPosQueryLightAtLeast(a));}
+        public CompoundQueryBuilder withLightNoMoreThan(int a) {return this.add(new BlockPosQueryLightNoMoreThan(a));}
+        public CompoundQueryBuilder sustainsPlant(EnumPlantType plantType) {return this.add(new BlockPosQuerySustainsPlantType(plantType));}
 
         
         public IBlockPosQuery create() {return this.query.instance();}
@@ -129,39 +130,6 @@ public class BlockQuery
             return false;
         }
     };
-    
-    // Match block positions adjacent to water
-    public static IBlockPosQuery hasWater = new IBlockPosQuery()
-    {
-        @Override
-        public boolean matches(World world, BlockPos pos)
-        {
-            return (world.getBlockState(pos.west()).getBlock().getMaterial() == Material.water || world.getBlockState(pos.east()).getBlock().getMaterial() == Material.water || world.getBlockState(pos.north()).getBlock().getMaterial() == Material.water || world.getBlockState(pos.south()).getBlock().getMaterial() == Material.water);
-        }
-    };
-    
-    // Match block positions with air above
-    public static IBlockPosQuery airAbove = new IBlockPosQuery()
-    {
-        @Override
-        public boolean matches(World world, BlockPos pos)
-        {
-            return world.isAirBlock(pos.up());
-        }
-    };
-    
-    // Match blocks which are not unbreakable - IE not bedrock, barrier, command blocks
-    public static IBlockPosQuery breakable = new IBlockPosQuery()
-    {
-        // Block.setBlockUnbreakable sets the hardness value to -1.0F
-        @Override
-        public boolean matches(World world, BlockPos pos)
-        {
-            return world.getBlockState(pos).getBlock().getBlockHardness(world, pos) >= 0.0F;
-        }
-    };
-    
-    public static IBlockPosQuery isAirOrLeaves = new BlockQueryMaterial(Material.air, Material.leaves);
     
     
     

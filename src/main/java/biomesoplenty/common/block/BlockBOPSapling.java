@@ -10,7 +10,7 @@ package biomesoplenty.common.block;
 
 import java.util.Random;
 
-import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.item.ItemBOPSapling;
 import biomesoplenty.common.util.block.VariantPagingHelper;
@@ -102,27 +102,12 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable {
         BOPTrees tree = (BOPTrees)state.getValue(this.variantProperty);
         return ((Integer)state.getValue(STAGE)).intValue() * 8 + paging.getIndex(tree);
     }
-    
-    // which types of block allow trees
-    // TODO: override for loftwood
+        
+    // TODO: override for loftwood - what is that?
     @Override
     public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
     {
-        IBlockState groundState = world.getBlockState(pos.down());
-        Block groundBlock = groundState.getBlock();
-        boolean onFertile = (groundBlock == Blocks.dirt || groundBlock == BOPBlocks.dirt || groundBlock == Blocks.mycelium || groundBlock == Blocks.grass);        
-        if (groundBlock instanceof BlockBOPGrass)
-        {
-            switch ((BlockBOPGrass.BOPGrassType) groundState.getValue(BlockBOPGrass.VARIANT))
-            {
-                case SPECTRAL_MOSS: case SMOLDERING:
-                    break;
-                case LOAMY: case SANDY: case SILTY: case ORIGIN: default:
-                    onFertile = true;
-                    break;
-            }
-        }
-        return onFertile;
+        return BlockQueries.fertile.matches(world, pos.down());
     }
     
     @Override

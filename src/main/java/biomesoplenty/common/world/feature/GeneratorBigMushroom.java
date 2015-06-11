@@ -17,8 +17,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import biomesoplenty.api.biome.generation.BOPGeneratorBase;
+import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.util.biome.GeneratorUtils;
-import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GeneratorBigMushroom extends BOPGeneratorBase
@@ -131,7 +131,7 @@ public class GeneratorBigMushroom extends BOPGeneratorBase
             {
                 for (int z = pos.getZ() - radius; z <= pos.getZ() + radius; ++z)
                 {
-                    if (!BlockQuery.isAirOrLeaves.matches(world, new BlockPos(x, y, z)))
+                    if (!BlockQueries.airOrLeaves.matches(world, new BlockPos(x, y, z)))
                     {
                         return false;
                     }

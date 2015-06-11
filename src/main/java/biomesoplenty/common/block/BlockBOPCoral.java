@@ -9,13 +9,13 @@
 package biomesoplenty.common.block;
 
 import static net.minecraft.block.BlockLiquid.LEVEL;
+import biomesoplenty.api.block.BlockQueries;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.IBlockAccess;
@@ -105,17 +105,10 @@ public class BlockBOPCoral extends BlockBOPDecoration
         }
     }
 
-    // require water above and earth below
     @Override
     public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
     {
-        Block ground = world.getBlockState(pos.down()).getBlock();
-        Material groundMaterial = ground.getMaterial();
-        Block cover = world.getBlockState(pos.up()).getBlock();
-        
-        boolean hasWater = (cover == Blocks.water || cover == Blocks.flowing_water);
-        boolean hasEarth = (groundMaterial == Material.ground || groundMaterial == Material.sand || groundMaterial == Material.clay);        
-        return hasWater && (hasEarth || ground == Blocks.sponge);
+        return BlockQueries.fertileSeaBed.matches(world, pos.down()) && BlockQueries.underwater.matches(world, pos.up());
     }
 
 }

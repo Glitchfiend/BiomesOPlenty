@@ -11,13 +11,12 @@ package biomesoplenty.common.block;
 import java.util.List;
 import java.util.Random;
 
-import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.item.ItemBOPPlant;
 import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
@@ -26,7 +25,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemShears;
@@ -355,80 +353,38 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
         }        
     }
 
-    
-    
+
     
     @Override
     public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
     {
         BOPPlants plant = ((BOPPlants) state.getValue(this.variantProperty));
-        // roots hang down from above, all the others grow up from below
-        IBlockState adjacentBlockState = world.getBlockState(plant == BOPPlants.ROOT ? pos.up() : pos.down());
-        Block adjacentBlock = adjacentBlockState.getBlock();
-        
-        // TODO: the 1.7 code contained this line:
-        // if (block == Blocks.air && world.provider.dimensionId != -1 ? (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) : false) return false;
-        // which can be expressed a bit more clearly as this:
-        //
-        // boolean notInNether = !(world.provider instanceof net.minecraft.world.WorldProviderHell);
-        // boolean inAir = (groundBlock == Blocks.air);
-        // boolean wellLit = (world.getLight(pos) >= 8 || world.canSeeSky(pos));
-        // if (inAir && notInNether && wellLit) {return false;}
-        // 
-        // That looks bonkers to me, so I'm ignoring it for now - need to ask the others
-        
-        boolean onFertile = (adjacentBlock == Blocks.dirt || adjacentBlock == BOPBlocks.dirt || adjacentBlock == Blocks.mycelium || adjacentBlock == Blocks.grass);
-        boolean onMud = (adjacentBlock == BOPBlocks.mud);
-        boolean onDry = (adjacentBlock == BOPBlocks.hard_dirt || adjacentBlock == Blocks.hardened_clay || adjacentBlock == Blocks.sand || adjacentBlock == BOPBlocks.sand || adjacentBlock == BOPBlocks.hard_sand || adjacentBlock == Blocks.soul_sand);
-        boolean onSand = (adjacentBlock == Blocks.sand || adjacentBlock == BOPBlocks.sand || adjacentBlock == Blocks.soul_sand);
-        boolean onGrass = (adjacentBlock == Blocks.grass);
-        boolean onSpectralMoss = false;
-        
-        if (adjacentBlock instanceof BlockBOPGrass)
-        {
-            switch ((BlockBOPGrass.BOPGrassType) adjacentBlockState.getValue(BlockBOPGrass.VARIANT))
-            {
-                case SPECTRAL_MOSS:
-                    onSpectralMoss = true;
-                    break;
-                case SMOLDERING:
-                    break;
-                case OVERGROWN_NETHERRACK:
-                    onFertile = true;
-                    break;
-                case LOAMY: case SANDY: case SILTY: case ORIGIN: default:
-                    onFertile = true;
-                    onGrass = true;
-                    break;
-            }
-        }        
+      
         switch (plant)
         {
             case DEADGRASS: case DESERTGRASS: case TINYCACTUS:
-                return onDry;
+                return BlockQueries.litDry.matches(world, pos.down());
             case DESERTSPROUTS: case DUNEGRASS:
-                return onSand;
+                return BlockQueries.litSand.matches(world, pos.down());
             case SPECTRALFERN:
-                return onSpectralMoss;
+                return BlockQueries.spectralMoss.matches(world, pos.down());
             case THORN:
-                return onFertile || onSand;
+                return BlockQueries.litFertileOrDry.matches(world, pos.down());
             case CATTAIL:
-                boolean hasWater = (world.getBlockState(pos.add(-1, -1, 0)).getBlock().getMaterial() == Material.water || world.getBlockState(pos.add(1,-1,0)).getBlock().getMaterial() == Material.water || world.getBlockState(pos.add(0,-1,-1)).getBlock().getMaterial() == Material.water || world.getBlockState(pos.add(0,-1,1)).getBlock().getMaterial() == Material.water);
-                return (onMud || onGrass) && hasWater;
+                return BlockQueries.litBeach.matches(world, pos.down());
             case RIVERCANE:
-                boolean onSelf = ( (adjacentBlock instanceof BlockBOPPlant) && ((BOPPlants) adjacentBlockState.getValue(((BlockBOPPlant)adjacentBlock).variantProperty) == BOPPlants.RIVERCANE) );
-                return onSelf || onFertile;
+                // river cane can also be placed on top of itself
+                return BlockQueries.litBeach.matches(world, pos.down()) || (world.getBlockState(pos.down()) == state);
             case WITHERWART:
-                return (adjacentBlock == Blocks.soul_sand);
+                return BlockQueries.sustainsNether.matches(world, pos.down());
             case REED:
-                // reed needs the ground block to be water, but the block below that to NOT be water
-                return (adjacentBlock == Blocks.water && world.getBlockState(pos.down().down()).getBlock() != Blocks.water);
-            case SHORTGRASS: case MEDIUMGRASS: case DAMPGRASS: case WILDRICE:
-                return onFertile || onMud;
+                return BlockQueries.suitableForReed.matches(world, pos.down());
+            case ROOT:
+                // roots hang down - check against block above
+                return BlockQueries.fertile.matches(world, pos.up());
             default:
-                return onFertile;            
+                return BlockQueries.litFertile.matches(world, pos.down());            
         }
-        
     }
     
     

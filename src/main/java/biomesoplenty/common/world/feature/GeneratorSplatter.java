@@ -11,6 +11,7 @@ package biomesoplenty.common.world.feature;
 import java.util.Random;
 
 import biomesoplenty.api.biome.generation.BOPGeneratorBase;
+import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryParseException;
@@ -33,8 +34,8 @@ public class GeneratorSplatter extends BOPGeneratorBase
     public static class Builder implements IGeneratorBuilder<GeneratorSplatter>
     {
         protected float amountPerChunk = 1.0F;
-        protected IBlockPosQuery placeOn = BlockQuery.anything;
-        protected IBlockPosQuery replace = BlockQuery.breakable;
+        protected IBlockPosQuery placeOn = BlockQueries.anything;
+        protected IBlockPosQuery replace = BlockQueries.breakable;
         protected IBlockState with = Blocks.stone.getDefaultState();
         protected int generationAttempts = 64;
         protected ScatterYMethod scatterYMethod = ScatterYMethod.AT_SURFACE;
