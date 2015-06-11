@@ -137,7 +137,7 @@ public class BlockBOPSeaweed extends BlockBOPDecoration implements IBOPBlock
         
         boolean hasWaterAbove = (blockAbove == Blocks.water || blockAbove == Blocks.flowing_water);
         boolean sameSeaweedAbove = ( (blockAbove == this) && ((SeaweedType)state.getValue(VARIANT) == (SeaweedType)stateAbove.getValue(VARIANT)) );
-        boolean hasEarthBelow = (blockBelow == Blocks.dirt || blockBelow == BOPBlocks.dirt || blockBelow == BOPBlocks.mud || blockBelow == Blocks.sand || blockBelow == Blocks.sponge || blockBelow == Blocks.stone || blockBelow == Blocks.clay || blockBelow == Blocks.gravel);
+        boolean hasEarthBelow = (blockBelow == Blocks.dirt || blockBelow == BOPBlocks.dirt || blockBelow == BOPBlocks.mud || blockBelow == BOPBlocks.sand || blockBelow == Blocks.sand || blockBelow == Blocks.sponge || blockBelow == Blocks.stone || blockBelow == Blocks.clay || blockBelow == Blocks.gravel);
         boolean sameSeaweedBelow = ( (blockBelow == this) && ((SeaweedType)state.getValue(VARIANT) == (SeaweedType)stateBelow.getValue(VARIANT)) );
         
         return (hasWaterAbove || sameSeaweedAbove) && (hasEarthBelow || sameSeaweedBelow);

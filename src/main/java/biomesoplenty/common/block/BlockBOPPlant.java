@@ -378,9 +378,9 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
         // That looks bonkers to me, so I'm ignoring it for now - need to ask the others
         
         boolean onFertile = (adjacentBlock == Blocks.dirt || adjacentBlock == BOPBlocks.dirt || adjacentBlock == Blocks.mycelium || adjacentBlock == Blocks.grass);
-        boolean onMud = (adjacentBlock == BOPBlocks.mud && adjacentBlockState.getValue(BlockBOPMud.VARIANT) == BlockBOPMud.MudType.MUD);
-        boolean onDry = (adjacentBlock == BOPBlocks.hard_dirt || adjacentBlock == Blocks.hardened_clay || adjacentBlock == Blocks.sand || adjacentBlock == BOPBlocks.hard_sand || adjacentBlock == Blocks.soul_sand);
-        boolean onSand = (adjacentBlock == Blocks.sand || adjacentBlock == Blocks.soul_sand);
+        boolean onMud = (adjacentBlock == BOPBlocks.mud);
+        boolean onDry = (adjacentBlock == BOPBlocks.hard_dirt || adjacentBlock == Blocks.hardened_clay || adjacentBlock == Blocks.sand || adjacentBlock == BOPBlocks.sand || adjacentBlock == BOPBlocks.hard_sand || adjacentBlock == Blocks.soul_sand);
+        boolean onSand = (adjacentBlock == Blocks.sand || adjacentBlock == BOPBlocks.sand || adjacentBlock == Blocks.soul_sand);
         boolean onGrass = (adjacentBlock == Blocks.grass);
         boolean onSpectralMoss = false;
         

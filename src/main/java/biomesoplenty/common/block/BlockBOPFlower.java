@@ -246,7 +246,7 @@ public class BlockBOPFlower extends BlockBOPDecoration
         Block groundBlock = groundState.getBlock();
         
         boolean onFertile = (groundBlock == Blocks.dirt || groundBlock == Blocks.farmland || groundBlock == BOPBlocks.dirt || groundBlock == Blocks.grass);
-        boolean onDry = (groundBlock == BOPBlocks.hard_dirt || groundBlock == Blocks.hardened_clay || groundBlock == Blocks.sand || groundBlock == BOPBlocks.hard_sand);
+        boolean onDry = (groundBlock == BOPBlocks.hard_dirt || groundBlock == Blocks.hardened_clay || groundBlock == BOPBlocks.sand || groundBlock == Blocks.sand || groundBlock == BOPBlocks.hard_sand);
         boolean onNetherrack = (groundBlock == Blocks.netherrack);
         boolean onStone = (groundBlock == Blocks.stone);
         boolean onSpectralMoss = false;

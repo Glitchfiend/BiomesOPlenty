@@ -10,7 +10,6 @@ package biomesoplenty.common.biome.overworld;
 
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockTallGrass;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.common.BiomeManager.BiomeType;
@@ -22,7 +21,6 @@ import biomesoplenty.common.block.BlockBOPDirt;
 import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.block.BlockBOPCoral;
-import biomesoplenty.common.block.BlockBOPMud;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
@@ -48,10 +46,9 @@ public class BiomeGenMarsh extends BOPBiome
         this.sidewaysNoiseAmount = 0.0D;
         this.setOctaveWeights(5, 5, 0, 0, 1, 1);
         
-        IBlockState mud = BOPBlocks.mud.getDefaultState().withProperty(BlockBOPMud.VARIANT, BlockBOPMud.MudType.MUD);
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SILTY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY);
-        this.seaFloorBlock = mud;
+        this.seaFloorBlock = BOPBlocks.mud.getDefaultState();
         this.setColor(0x66A06E);
         this.setTemperatureRainfall(0.5F, 0.9F);
         
@@ -64,8 +61,8 @@ public class BiomeGenMarsh extends BOPBiome
         // TODO: find a way to make the lakes shallower
         
         // mud
-        this.addGenerator("mud", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(8).maxRadius(7).with(mud).create());
-        this.addGenerator("mud_patches", GeneratorStage.SAND_PASS2, (new GeneratorSplotches.Builder()).amountPerChunk(1).splotchSize(12).replace(this.topBlock).with(mud).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
+        this.addGenerator("mud", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(8).maxRadius(7).with(BOPBlocks.mud.getDefaultState()).create());
+        this.addGenerator("mud_patches", GeneratorStage.SAND_PASS2, (new GeneratorSplotches.Builder()).amountPerChunk(1).splotchSize(12).replace(this.topBlock).with(BOPBlocks.mud.getDefaultState()).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
         
         // other plants
         this.addGenerator("koru", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BOPPlants.KORU).create());

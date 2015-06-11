@@ -60,6 +60,7 @@ public class ModBlocks
         mushroom =              registerBlock( new BlockBOPMushroom(), "mushroom" );
         stone =                 registerBlock( new BlockBOPStone(), "stone" );
         mud =                   registerBlock( new BlockBOPMud(), "mud" );
+        sand =                  registerBlock( new BlockBOPSand(), "sand" );
         turnip_block =          registerBlock( new BlockBOPTurnip(), "turnip_block", null ); // no creative tab
         flesh =                 registerBlock( new BlockBOPFlesh(), "flesh" );
         grass =                 registerBlock( new BlockBOPGrass(), "grass" );
