@@ -45,6 +45,16 @@ public class BlockBOPBamboo extends BlockBOPDecoration
         this.setDefaultState(this.blockState.getBaseState().withProperty(AGE, Integer.valueOf(0)));     
     }
     
+    
+    // bamboo doesn't sustain plants (except more bamboo on top)
+    @Override
+    public boolean canSustainPlant(IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
+    {
+        return direction == EnumFacing.UP && plantable.getPlant(world, pos.offset(direction)).getBlock() == this;
+    }
+    
+    
+    
     @Override
     public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
     {
@@ -142,11 +152,6 @@ public class BlockBOPBamboo extends BlockBOPDecoration
         return true;
     }
     
-    // bamboo doesn't sustain plants (except more bamboo on top)
-    @Override
-    public boolean canSustainPlant(IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
-    {
-        return direction == EnumFacing.UP && plantable.getPlant(world, pos.offset(direction)).getBlock() == this;
-    }
+
     
 }

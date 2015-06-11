@@ -27,11 +27,13 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.EnumPlantType;
 import biomesoplenty.api.block.IBOPBlock;
+import biomesoplenty.api.block.ISustainsPlantType;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.item.ItemBOPBlock;
 
-public class BlockBOPMud extends Block implements IBOPBlock
+public class BlockBOPMud extends Block implements IBOPBlock, ISustainsPlantType
 {
 
     // add properties
@@ -148,12 +150,9 @@ public class BlockBOPMud extends Block implements IBOPBlock
         return 4;
     }    
     
-    
     @Override
-    public boolean canSustainPlant(IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
-    {
-        net.minecraftforge.common.EnumPlantType plantType = plantable.getPlantType(world, pos.offset(direction));
-
+    public boolean canSustainPlantType(IBlockAccess world, BlockPos pos, EnumPlantType plantType)
+    {  
         switch (plantType)
         {
             case Plains:
@@ -169,6 +168,13 @@ public class BlockBOPMud extends Block implements IBOPBlock
             default:
                 return false;
         }
+    }
+    
+    
+    @Override
+    public boolean canSustainPlant(IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
+    {
+        return this.canSustainPlantType(world, pos, plantable.getPlantType(world, pos.offset(direction)));
     }
     
 }

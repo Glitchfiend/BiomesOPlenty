@@ -12,6 +12,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import biomesoplenty.api.block.IBOPBlock;
+import biomesoplenty.api.block.ISustainsPlantType;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -23,7 +24,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.EnumPlantType;
 
-public class BlockBOPGeneric extends Block implements IBOPBlock
+public class BlockBOPGeneric extends Block implements IBOPBlock, ISustainsPlantType
 {
     
     // implement IBOPBlock
@@ -66,10 +67,15 @@ public class BlockBOPGeneric extends Block implements IBOPBlock
     }
     
     @Override
+    public boolean canSustainPlantType(IBlockAccess world, BlockPos pos, EnumPlantType plantType)
+    {
+        return this.plantTypesICanSustain.contains(plantType);
+    }
+    
+    @Override
     public boolean canSustainPlant(IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
     {
-        EnumPlantType plantType = plantable.getPlantType(world, pos.offset(direction));
-        return this.plantTypesICanSustain.contains(plantType);   
+        return this.canSustainPlantType(world, pos, plantable.getPlantType(world, pos.offset(direction)));
     }
     
 }

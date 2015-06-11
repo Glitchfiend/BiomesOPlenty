@@ -17,17 +17,20 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import biomesoplenty.api.block.ISustainsPlantType;
+
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Sets;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-import net.minecraftforge.common.IPlantable;
+import net.minecraftforge.common.EnumPlantType;
 
 public class BlockQuery
 {
@@ -91,7 +94,7 @@ public class BlockQuery
         public CompoundQueryBuilder withAirAbove() {return this.and(airAbove);}
         public CompoundQueryBuilder withLightAtLeast(int a) {return this.and(new BlockPosQueryLightAtLeast(a));}
         public CompoundQueryBuilder withLightNoMoreThan(int a) {return this.and(new BlockPosQueryLightNoMoreThan(a));}
-        public CompoundQueryBuilder sustainsPlant(IPlantable plant) {return this.and(new BlockPosQuerySustainsPlant(plant));}
+        public CompoundQueryBuilder sustainsPlant(EnumPlantType plantType) {return this.and(new BlockPosQuerySustainsPlantType(plantType));}
 
         
         public IBlockPosQuery create() {return this.query.instance();}
@@ -302,18 +305,46 @@ public class BlockQuery
         }
     }
     
-    // Match blocks which can sustain the given IPlantable block
-    public static class BlockPosQuerySustainsPlant implements IBlockPosQuery
+    // Match blocks which can sustain the given forge EnumPlantType plant type
+    public static class BlockPosQuerySustainsPlantType implements IBlockPosQuery
     {
-        private IPlantable plant;
-        public BlockPosQuerySustainsPlant(IPlantable plant)
+        private EnumPlantType plantType;
+        public BlockPosQuerySustainsPlantType(EnumPlantType plantType)
         {
-            this.plant = plant;
+            this.plantType = plantType;
         }
         @Override
         public boolean matches(World world, BlockPos pos)
         {
-            return world.getBlockState(pos).getBlock().canSustainPlant(world, pos, EnumFacing.UP, this.plant);            
+            IBlockState state = world.getBlockState(pos);
+            Block block = state.getBlock();
+            
+            if (block instanceof ISustainsPlantType)
+            {
+                // If there's a function specifically available for it, then use it
+                return ((ISustainsPlantType)block).canSustainPlantType(world, pos, this.plantType);
+            }
+            else
+            {
+                // Otherwise fall back to the vanilla code
+                switch (this.plantType)
+                {
+                    case Desert: return block == net.minecraft.init.Blocks.sand || block == net.minecraft.init.Blocks.hardened_clay || block == net.minecraft.init.Blocks.stained_hardened_clay || block == net.minecraft.init.Blocks.dirt;
+                    case Nether: return block == net.minecraft.init.Blocks.soul_sand;
+                    case Crop:   return block == net.minecraft.init.Blocks.farmland;
+                    case Cave:   return block.isSideSolid(world, pos, EnumFacing.UP);
+                    case Plains: return block == net.minecraft.init.Blocks.grass || block == net.minecraft.init.Blocks.dirt || block == net.minecraft.init.Blocks.farmland;
+                    case Water:  return block.getMaterial() == Material.water && ((Integer)state.getValue(BlockLiquid.LEVEL)) == 0;
+                    case Beach:
+                        boolean isBeach = block == net.minecraft.init.Blocks.grass || block == net.minecraft.init.Blocks.dirt || block == net.minecraft.init.Blocks.sand;
+                        boolean hasWater = (world.getBlockState(pos.east()).getBlock().getMaterial() == Material.water ||
+                                            world.getBlockState(pos.west()).getBlock().getMaterial() == Material.water ||
+                                            world.getBlockState(pos.north()).getBlock().getMaterial() == Material.water ||
+                                            world.getBlockState(pos.south()).getBlock().getMaterial() == Material.water);
+                        return isBeach && hasWater;
+                }
+                return false;  
+            }
         }
     }
       

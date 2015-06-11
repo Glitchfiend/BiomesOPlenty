@@ -24,13 +24,15 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.IBOPBlock;
+import biomesoplenty.api.block.ISustainsPlantType;
 import biomesoplenty.common.item.ItemBOPBlock;
 
-public class BlockBOPDirt extends Block implements IBOPBlock 
+public class BlockBOPDirt extends Block implements IBOPBlock, ISustainsPlantType
 {
     // TODO: make it ploughable into farmland
     
@@ -96,13 +98,10 @@ public class BlockBOPDirt extends Block implements IBOPBlock
         // both variant and coarseness saved in meta, first bit coarseness, other bits variant
         return (Boolean.TRUE.equals(state.getValue(COARSE)) ? 8 : 0) | ((BOPDirtType) state.getValue(VARIANT)).ordinal();
     }
-
     
     @Override
-    public boolean canSustainPlant(IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
-    {
-        net.minecraftforge.common.EnumPlantType plantType = plantable.getPlantType(world, pos.offset(direction));
-        
+    public boolean canSustainPlantType(IBlockAccess world, BlockPos pos, EnumPlantType plantType)
+    {        
         switch (plantType)
         {
             // support desert, plains and cave plants
@@ -120,6 +119,12 @@ public class BlockBOPDirt extends Block implements IBOPBlock
             default:
                 return false;
         }
+    }
+    
+    @Override
+    public boolean canSustainPlant(IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
+    {
+        return this.canSustainPlantType(world, pos, plantable.getPlantType(world, pos.offset(direction)));
     }
     
     @Override

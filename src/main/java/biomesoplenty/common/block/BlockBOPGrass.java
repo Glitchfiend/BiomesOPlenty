@@ -12,6 +12,7 @@ import java.util.Random;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.IBOPBlock;
+import biomesoplenty.api.block.ISustainsPlantType;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
@@ -35,10 +36,11 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockBOPGrass extends BlockGrass implements IBOPBlock
+public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPlantType
 {
     
     // TODO: make it ploughable into farmland
@@ -112,14 +114,10 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock
     }
     
     @Override
-    public boolean canSustainPlant(IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
+    public boolean canSustainPlantType(IBlockAccess world, BlockPos pos, EnumPlantType plantType)
     {
-        // Workaround for bug in forge - BlockReed calls this function with the wrong block position
-        if (plantable instanceof BlockReed) {pos = pos.down();}
-
+        
         IBlockState state = world.getBlockState(pos);
-        net.minecraftforge.common.EnumPlantType plantType = plantable.getPlantType(world, pos.offset(direction));
-
         
         switch ((BOPGrassType) state.getValue(VARIANT))
         {
@@ -156,7 +154,17 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock
             default:
                 return false;
         }
+    }
 
+    
+    @Override
+    public boolean canSustainPlant(IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
+    {
+        // Workaround for bug in forge (hopefully temporary) - BlockReed calls this function with the wrong block position
+        // ...which leads to us getting a state for a block which might not be this one
+        if (plantable instanceof BlockReed) {pos = pos.down();}
+        
+        return this.canSustainPlantType(world, pos, plantable.getPlantType(world, pos.offset(direction)));
     }
     
     

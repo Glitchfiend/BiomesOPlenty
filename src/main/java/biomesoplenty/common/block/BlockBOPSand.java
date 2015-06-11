@@ -23,10 +23,12 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.EnumPlantType;
 import biomesoplenty.api.block.IBOPBlock;
+import biomesoplenty.api.block.ISustainsPlantType;
 import biomesoplenty.common.item.ItemBOPBlock;
 
-public class BlockBOPSand extends BlockFalling implements IBOPBlock
+public class BlockBOPSand extends BlockFalling implements IBOPBlock, ISustainsPlantType
 {
 
     // add properties
@@ -118,13 +120,12 @@ public class BlockBOPSand extends BlockFalling implements IBOPBlock
             default:
                 break;
         }
-    }    
+    }
+    
     
     @Override
-    public boolean canSustainPlant(IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
-    {
-        net.minecraftforge.common.EnumPlantType plantType = plantable.getPlantType(world, pos.offset(direction));
-
+    public boolean canSustainPlantType(IBlockAccess world, BlockPos pos, EnumPlantType plantType)
+    {  
         switch (plantType)
         {
             case Desert:
@@ -140,6 +141,13 @@ public class BlockBOPSand extends BlockFalling implements IBOPBlock
             default:
                 return false;
         }
+    }
+    
+    
+    @Override
+    public boolean canSustainPlant(IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
+    {
+        return this.canSustainPlantType(world, pos, plantable.getPlantType(world, pos.offset(direction)));
     }
     
 }
