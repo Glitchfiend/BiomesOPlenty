@@ -16,6 +16,7 @@ import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockGrass;
+import net.minecraft.block.BlockReed;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -113,10 +114,13 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock
     @Override
     public boolean canSustainPlant(IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
     {
+        // Workaround for bug in forge - BlockReed calls this function with the wrong block position
+        if (plantable instanceof BlockReed) {pos = pos.down();}
 
         IBlockState state = world.getBlockState(pos);
-        net.minecraftforge.common.EnumPlantType plantType = plantable.getPlantType(world, pos.offset(direction));        
+        net.minecraftforge.common.EnumPlantType plantType = plantable.getPlantType(world, pos.offset(direction));
 
+        
         switch ((BOPGrassType) state.getValue(VARIANT))
         {
             // smoldering grass supports no plants
