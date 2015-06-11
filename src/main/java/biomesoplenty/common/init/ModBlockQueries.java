@@ -83,7 +83,7 @@ public class ModBlockQueries
                 return world.getBlockState(pos).getBlock() == Blocks.water && world.getBlockState(pos.down()).getBlock() != Blocks.water;
             }
         }).withLightAtLeast(8).create();
-        rootsCanDigThrough = new BlockQueryMaterial(Material.air, Material.water, Material.ground, Material.grass, Material.sand, Material.clay);
+        rootsCanDigThrough = new BlockQueryMaterial(Material.air, Material.water, Material.ground, Material.grass, Material.sand, Material.clay, Material.plants, Material.leaves);
     
     }
 }
