@@ -29,7 +29,7 @@ public class GeneratorGrass extends GeneratorFlora
     {
         
         protected float amountPerChunk = 1.0F;
-        protected int generationAttempts = 64;
+        protected int generationAttempts = 96;
         protected IBlockState with = Blocks.tallgrass.getDefaultState();
         protected IBlockPosQuery replace = new BlockQueryMaterial(Material.air);
                 

@@ -17,6 +17,7 @@ public class BOPBiomes
     // normal biomes which have weights
     public static Optional<BiomeGenBase> alps = Optional.absent();
     public static Optional<BiomeGenBase> arctic = Optional.absent();
+    public static Optional<BiomeGenBase> bamboo_forest = Optional.absent();
     public static Optional<BiomeGenBase> crag = Optional.absent();
     public static Optional<BiomeGenBase> chaparral = Optional.absent();
     public static Optional<BiomeGenBase> denseForest = Optional.absent();

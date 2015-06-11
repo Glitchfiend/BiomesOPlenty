@@ -12,6 +12,7 @@ import java.util.Random;
 
 import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockState;
@@ -19,6 +20,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -34,9 +36,10 @@ public class BlockBamboo extends BlockDecoration
     
     public BlockBamboo()
     {
+        super(Material.wood);
         this.setHardness(0.2F);
         this.setStepSound(Block.soundTypeWood);
-        this.setBlockBoundsByRadiusAndHeight(0.1875F , 1.0F); 
+        this.setBlockBoundsByRadiusAndHeight(0.1875F , 1.0F);
         
         this.setDefaultState(this.blockState.getBaseState().withProperty(AGE, Integer.valueOf(0)));     
     }
@@ -119,11 +122,21 @@ public class BlockBamboo extends BlockDecoration
         }
     }
     
+    @Override public boolean canSustainLeaves(net.minecraft.world.IBlockAccess world, BlockPos pos)
+    {
+        return true;
+    }
+    
     @Override
     @SideOnly(Side.CLIENT)
     public Block.EnumOffsetType getOffsetType()
     {
         return Block.EnumOffsetType.NONE;
+    }
+    
+    @Override
+    public void setBlockBoundsBasedOnState(IBlockAccess worldIn, BlockPos pos) {
+        this.setBlockBoundsByRadiusAndHeight(0.2F, 1.0F);
     }
     
 }

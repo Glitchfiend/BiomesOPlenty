@@ -144,6 +144,8 @@ public class GeneratorTwigletTree extends BOPGeneratorBase
         
         // choose a random height
         int height = this.minHeight + random.nextInt(1 + this.maxHeight - this.minHeight);
+        int baseHeight = height / 3;
+        
         // start from the block above the ground block
         pos = pos.up();
         
@@ -155,7 +157,7 @@ public class GeneratorTwigletTree extends BOPGeneratorBase
                 // abandon if the log can't grow
                 return true;
             }
-            if (y == 0) {continue;} // no leaves on bottom level
+            if (y <= baseHeight) {continue;} // no leaves below base height
             if (random.nextFloat() < this.leafChance) {this.setLeaves(world, pos.add(1, y, 0));}
             if (random.nextFloat() < this.leafChance) {this.setLeaves(world, pos.add(-1, y, 0));}
             if (random.nextFloat() < this.leafChance) {this.setLeaves(world, pos.add(0, y, 1));}

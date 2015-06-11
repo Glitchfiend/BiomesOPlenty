@@ -132,7 +132,7 @@ public class GeneratorBush extends BOPGeneratorBase
 
                             //Ensures the leaves can replace surrounding blocks, preventing the existing log from being overriden alongside
                             //other terrain
-                            if (world.getBlockState(leavesPos).getBlock().canBeReplacedByLeaves(world, leavesPos))
+                            if (world.isAirBlock(leavesPos))
                             {
                                 world.setBlockState(leavesPos, this.leaves, 2);
                             }
