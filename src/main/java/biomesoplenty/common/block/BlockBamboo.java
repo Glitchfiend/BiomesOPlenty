@@ -20,6 +20,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -122,11 +123,6 @@ public class BlockBamboo extends BlockDecoration
         }
     }
     
-    @Override public boolean canSustainLeaves(net.minecraft.world.IBlockAccess world, BlockPos pos)
-    {
-        return true;
-    }
-    
     @Override
     @SideOnly(Side.CLIENT)
     public Block.EnumOffsetType getOffsetType()
@@ -137,6 +133,20 @@ public class BlockBamboo extends BlockDecoration
     @Override
     public void setBlockBoundsBasedOnState(IBlockAccess worldIn, BlockPos pos) {
         this.setBlockBoundsByRadiusAndHeight(0.2F, 1.0F);
+    }
+    
+    
+    @Override
+    public boolean canSustainLeaves(net.minecraft.world.IBlockAccess world, BlockPos pos)
+    {
+        return true;
+    }
+    
+    // bamboo doesn't sustain plants (except more bamboo on top)
+    @Override
+    public boolean canSustainPlant(IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
+    {
+        return direction == EnumFacing.UP && plantable.getPlant(world, pos.offset(direction)).getBlock() == this;
     }
     
 }

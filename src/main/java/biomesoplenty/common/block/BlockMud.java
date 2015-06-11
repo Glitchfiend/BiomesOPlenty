@@ -23,7 +23,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.item.BOPItems;
@@ -155,5 +157,37 @@ public class BlockMud extends Block implements IBOPBlock
         return 4;
     }    
     
+    
+    @Override
+    public boolean canSustainPlant(IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
+    {
+
+        IBlockState state = world.getBlockState(pos);
+        net.minecraftforge.common.EnumPlantType plantType = plantable.getPlantType(world, pos.offset(direction));
+        MudType mudType = (MudType) state.getValue(VARIANT);
+
+        switch (plantType)
+        {
+            case Desert:
+                return (mudType == MudType.QUICKSAND);
+            case Plains:
+                return (mudType == MudType.MUD);
+            case Beach:
+                if (mudType == MudType.QUICKSAND)
+                {
+                    return (
+                            world.getBlockState(pos.east()).getBlock().getMaterial() == Material.water ||
+                            world.getBlockState(pos.west()).getBlock().getMaterial() == Material.water ||
+                            world.getBlockState(pos.north()).getBlock().getMaterial() == Material.water ||
+                            world.getBlockState(pos.south()).getBlock().getMaterial() == Material.water
+                            );
+                } else {
+                    return false;
+                }
+            // don't support anything else by default
+            default:
+                return false;
+        }
+    }
     
 }

@@ -105,10 +105,9 @@ public class BlockBOPDirt extends Block implements IBOPBlock
         
         switch (plantType)
         {
-            // support desert and plains plants
-            case Desert: case Plains: return true;
-            // support cave plants
-            case Cave:   return isSideSolid(world, pos, EnumFacing.UP);
+            // support desert, plains and cave plants
+            case Desert: case Plains: case Cave:
+                return true;
             // support beach plants if there's water alongside
             case Beach:
                 return (

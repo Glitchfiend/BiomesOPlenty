@@ -115,14 +115,10 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock
     {
 
         IBlockState state = world.getBlockState(pos);
-        net.minecraftforge.common.EnumPlantType plantType = plantable.getPlantType(world, pos.offset(direction));
-        
-        //Forge calls this method regardless of whether the block is infact ours, so we have to check this
-        //(Somewhat illogical, I know)
-        if (state.getBlock() == this)
+        net.minecraftforge.common.EnumPlantType plantType = plantable.getPlantType(world, pos.offset(direction));        
+
+        switch ((BOPGrassType) state.getValue(VARIANT))
         {
-            switch ((BOPGrassType) state.getValue(VARIANT))
-            {
             // smoldering grass supports no plants
             case SMOLDERING:
                 return false;
@@ -137,14 +133,13 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock
                 break;
 
             default: break;
-            }
+        }
 
-            switch (plantType)
-            {
-            // support desert and plains plants
-            case Desert: case Plains: return true;
-            // support cave plants
-            case Cave:   return isSideSolid(world, pos, EnumFacing.UP);
+        switch (plantType)
+        {
+            // support desert, plains and cave plants
+            case Desert: case Plains: case Cave:
+                return true;
             // support beach plants if there's water alongside
             case Beach:
                 return (
@@ -156,10 +151,8 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock
                 // don't support nether plants, water plants, or crops (require farmland), or anything else by default
             default:
                 return false;
-            }
         }
-        
-        return super.canSustainPlant(world, pos, direction, plantable);
+
     }
     
     
