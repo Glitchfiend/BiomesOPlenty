@@ -19,6 +19,7 @@ public class BOPBiomes
     public static Optional<BiomeGenBase> arctic = Optional.absent();
     public static Optional<BiomeGenBase> bamboo_forest = Optional.absent();
     public static Optional<BiomeGenBase> bayou = Optional.absent();
+    public static Optional<BiomeGenBase> bog = Optional.absent();
     public static Optional<BiomeGenBase> crag = Optional.absent();
     public static Optional<BiomeGenBase> chaparral = Optional.absent();
     public static Optional<BiomeGenBase> denseForest = Optional.absent();

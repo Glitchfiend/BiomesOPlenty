@@ -144,6 +144,7 @@ public class ModBiomes
         arctic = registerBOPBiome(new BiomeGenArctic(), "Arctic");
         bamboo_forest = registerBOPBiome(new BiomeGenBambooForest(), "Bamboo Forest");
         bayou = registerBOPBiome(new BiomeGenBayou(), "Bayou");
+        bog = registerBOPBiome(new BiomeGenBog(), "Bog");
         crag = registerBOPBiome(new BiomeGenCrag(), "Crag");
         chaparral = registerBOPBiome(new BiomeGenChaparral(), "Chaparral");
         denseForest = registerBOPBiome(new BiomeGenDenseForest(), "Dense Forest");
