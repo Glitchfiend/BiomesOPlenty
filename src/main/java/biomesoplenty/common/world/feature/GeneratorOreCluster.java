@@ -19,31 +19,33 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 
 public class GeneratorOreCluster extends GeneratorOreBase
 {
-    public static class Builder implements IGeneratorBuilder<GeneratorOreCluster>
+    
+    public static class Builder extends GeneratorOreBase.InnerBuilder<Builder, GeneratorOreCluster> implements IGeneratorBuilder<GeneratorOreCluster>
     {
-        protected float amountPerChunk = 1.0F;
-        protected int minHeight = 4;
-        protected int maxHeight = 32;
-        protected int clusterSize = 4;
-        protected IBlockState with = Blocks.emerald_ore.getDefaultState();
+        protected int clusterSize;
         
-        public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
-        public Builder with(IBlockState a) {this.with = a; return this;}        
-        public Builder minHeight(int a) {this.minHeight = a; return this;}
-        public Builder maxHeight(int a) {this.maxHeight = a; return this;}
-        public Builder clusterSize(int a) {this.clusterSize = a; return this;}
+        public Builder clusterSize(int a) {this.clusterSize = a; return this.self();}
+        
+        public Builder()
+        {
+            this.amountPerChunk = 1.0F;
+            this.with = Blocks.emerald_ore.getDefaultState();
+            this.minHeight = 4;
+            this.maxHeight = 32;
+            this.clusterSize = 4;
+        }
 
         @Override
         public GeneratorOreCluster create()
         {
-            return new GeneratorOreCluster(this.amountPerChunk, this.with, this.clusterSize, this.minHeight, this.maxHeight);
+            return new GeneratorOreCluster(this.amountPerChunk, this.minHeight, this.maxHeight, this.with, this.clusterSize);
         }
     }
     
     
     private WorldGenMinable generator;
     
-    public GeneratorOreCluster(float amountPerChunk, IBlockState with, int clusterSize, int minHeight, int maxHeight)
+    public GeneratorOreCluster(float amountPerChunk, int minHeight, int maxHeight, IBlockState with, int clusterSize)
     {
         super(amountPerChunk, minHeight, maxHeight);
         this.generator = new WorldGenMinable(with, clusterSize);

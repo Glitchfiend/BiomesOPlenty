@@ -9,149 +9,45 @@
 package biomesoplenty.common.world.feature.tree;
 import java.util.Random;
 
-import biomesoplenty.api.biome.generation.BOPGeneratorBase;
 import biomesoplenty.api.block.BlockQueries;
-import biomesoplenty.common.block.BlockBOPLeaves;
-import biomesoplenty.common.block.BlockBOPLog;
-import biomesoplenty.common.enums.BOPTrees;
-import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.util.biome.GeneratorUtils;
-import biomesoplenty.common.util.block.BlockQuery;
-import biomesoplenty.common.util.block.BlockQuery.BlockQueryBlock;
-import biomesoplenty.common.util.block.BlockQuery.BlockQueryParseException;
-import biomesoplenty.common.util.block.BlockQuery.BlockQueryState;
 import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirectional;
-import net.minecraft.block.BlockNewLeaf;
-import net.minecraft.block.BlockNewLog;
-import net.minecraft.block.BlockOldLeaf;
-import net.minecraft.block.BlockOldLog;
-import net.minecraft.block.BlockPlanks;
-import net.minecraft.block.BlockVine;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 
-public class GeneratorBulbTree extends BOPGeneratorBase
+public class GeneratorBulbTree extends GeneratorTreeBase
 {
     
-    public static class Builder implements IGeneratorBuilder<GeneratorBulbTree>
+    public static class Builder extends GeneratorTreeBase.InnerBuilder<Builder, GeneratorBulbTree> implements IGeneratorBuilder<GeneratorBulbTree>
     {
-        protected float amountPerChunk = 1.0F;
-        protected int minHeight = 6;
-        protected int maxHeight = 12;
-        protected IBlockPosQuery placeOn = BlockQueries.fertile;
-        protected IBlockPosQuery replace = BlockQueries.airOrLeaves;
-        protected IBlockState log = Blocks.log.getDefaultState();
-        protected IBlockState leaves = Blocks.leaves.getDefaultState();
-        protected IBlockState vine = Blocks.vine.getDefaultState();
-        
-        public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
-        public Builder minHeight(int a) {this.minHeight = a; return this;}
-        public Builder maxHeight(int a) {this.maxHeight = a; return this;}
-        public Builder placeOn(IBlockPosQuery a) {this.placeOn = a; return this;}
-        public Builder placeOn(String a) throws BlockQueryParseException {this.placeOn = BlockQuery.parseQueryString(a); return this;}
-        public Builder placeOn(Block a) {this.placeOn = new BlockQueryBlock(a); return this;}
-        public Builder placeOn(IBlockState a) {this.placeOn = new BlockQueryState(a); return this;}
-        public Builder replace(IBlockPosQuery a) {this.replace = a; return this;}
-        public Builder replace(String a) throws BlockQueryParseException {this.replace = BlockQuery.parseQueryString(a); return this;}
-        public Builder replace(Block a) {this.replace = new BlockQueryBlock(a); return this;}
-        public Builder replace(IBlockState a) {this.replace = new BlockQueryState(a); return this;}
-        public Builder log(IBlockState a) {this.log = a; return this;}
-        public Builder log(BOPWoods a) {this.log = BlockBOPLog.paging.getVariantState(a); return this;}
-        public Builder log(BlockPlanks.EnumType a)
+        public Builder()
         {
-            if (a.getMetadata() < 4)
-            {
-                this.log = Blocks.log.getDefaultState().withProperty(BlockOldLog.VARIANT, a);
-            } else {
-                this.log = Blocks.log2.getDefaultState().withProperty(BlockNewLog.VARIANT, a);
-            }
-            return this;
+            this.amountPerChunk = 1.0F;
+            this.minHeight = 6;
+            this.maxHeight = 12;
+            this.placeOn = BlockQueries.fertile;
+            this.replace = BlockQueries.airOrLeaves;
+            this.log = Blocks.log.getDefaultState();
+            this.leaves = Blocks.leaves.getDefaultState();
+            this.vine = Blocks.vine.getDefaultState();  
         }
-        public Builder leaves(IBlockState a) {this.leaves = a; return this;}
-        public Builder leaves(BOPTrees a) {this.leaves = BlockBOPLeaves.paging.getVariantState(a); return this;}
-        public Builder leaves(BlockPlanks.EnumType a)
-        {
-            if (a.getMetadata() < 4)
-            {
-                this.leaves = Blocks.leaves.getDefaultState().withProperty(BlockOldLeaf.VARIANT, a);
-            } else {
-                this.leaves = Blocks.leaves2.getDefaultState().withProperty(BlockNewLeaf.VARIANT, a);
-            }
-            return this;
-        }
-        public Builder vine(IBlockState a)
-        {
-            if (a.getBlock() instanceof BlockVine)
-            {
-                this.vine = a;
-            } else {
-                throw new IllegalArgumentException("vine must use a BlockVine block");
-            }
-            return this;
-        }
-
 
         @Override
-        public GeneratorBulbTree create()
-        {
-            return new GeneratorBulbTree(this.amountPerChunk, this.minHeight, this.maxHeight, this.placeOn, this.replace, this.log, this.leaves, this.vine);
+        public GeneratorBulbTree create() {
+            return new GeneratorBulbTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.minHeight, this.maxHeight);
         }
-    }
-    
-
-    private int minHeight;
-    private int maxHeight;
-    private IBlockPosQuery placeOn;
-    private IBlockPosQuery replace;
-    private IBlockState log;
-    private IBlockState leaves;
-    private IBlockState vine;
-    
-    public GeneratorBulbTree(float amountPerChunk, int minHeight, int maxHeight, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine)
-    {
-        super(amountPerChunk);
         
-        this.minHeight = minHeight;
-        this.maxHeight = maxHeight;
-        this.placeOn = placeOn;
-        this.replace = replace;
-        this.log = log;
-        this.leaves = leaves;
-        this.vine = vine;
-    }
-    
-    @Override
-    public BlockPos getScatterY(World world, Random random, int x, int z)
-    {
-        // always at world surface
-        return GeneratorUtils.ScatterYMethod.AT_SURFACE.getBlockPos(world, random, x, z);
     }
     
     
-    public boolean setLeaves(World world, BlockPos pos)
+    public GeneratorBulbTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, int minHeight, int maxHeight)
     {
-        if (this.replace.matches(world, pos))
-        {
-            world.setBlockState(pos, this.leaves, 2);
-            return true;
-        }
-        return false;
-    }
-    
-    public boolean setLog(World world, BlockPos pos)
-    {
-        if (this.replace.matches(world, pos))
-        {
-            world.setBlockState(pos, this.log, 2);
-            return true;
-        }
-        return false;
+        super(amountPerChunk, placeOn, replace, log, leaves, vine, minHeight, maxHeight);
     }
     
     public boolean setCocoa(World world, BlockPos pos, EnumFacing side)
@@ -163,20 +59,6 @@ public class GeneratorBulbTree extends BOPGeneratorBase
             return true;
         }
         return false;
-    }
-    
-    public boolean setVine(World world, BlockPos pos, EnumFacing side, int length)
-    {
-        IBlockState vineState = this.vine.withProperty(BlockVine.NORTH, Boolean.valueOf(side == EnumFacing.NORTH)).withProperty(BlockVine.EAST, Boolean.valueOf(side == EnumFacing.EAST)).withProperty(BlockVine.SOUTH, Boolean.valueOf(side == EnumFacing.SOUTH)).withProperty(BlockVine.WEST, Boolean.valueOf(side == EnumFacing.WEST));
-        boolean setOne = false;
-        while (this.replace.matches(world, pos) && length > 0)
-        {
-            world.setBlockState(pos, vineState, 2);
-            setOne = true;
-            length--;
-            pos = pos.down();
-        }
-        return setOne;
     }
     
     public boolean checkSpace(World world, BlockPos pos, int baseHeight, int height)
@@ -326,7 +208,7 @@ public class GeneratorBulbTree extends BOPGeneratorBase
             for (int l = 0; l < leavesRadius; l++)
             {
                 if (world.getBlockState(pos.offset(back, 1 + l)) == this.leaves) {
-                    this.setVine(world, pos.offset(back, l), back, 4);
+                    this.setVine(world, rand, pos.offset(back, l), back, 4);
                     break;
                 }
             }

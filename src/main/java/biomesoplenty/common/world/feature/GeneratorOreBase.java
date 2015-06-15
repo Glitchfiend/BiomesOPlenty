@@ -10,27 +10,43 @@ package biomesoplenty.common.world.feature;
 
 import java.util.Random;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
 import org.apache.commons.lang3.tuple.Pair;
 
 import biomesoplenty.api.biome.generation.BOPGeneratorBase;
+import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.common.block.BlockBOPGem;
+import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public abstract class GeneratorOreBase extends BOPGeneratorBase
 {
+    
+    protected static abstract class InnerBuilder<T extends BOPGeneratorBase.InnerBuilder<T, G>, G extends GeneratorOreBase> extends BOPGeneratorBase.InnerBuilder<T, G>
+    {
+        protected IBlockState with;
+        protected int minHeight;
+        protected int maxHeight;
+
+        public T with(IBlockState a) {this.with = a; return this.self();}
+        public T with(BOPGems a) {this.with = BOPBlocks.gem_ore.getDefaultState().withProperty(BlockBOPGem.VARIANT, a); return this.self();}
+        public T minHeight(int a) {this.minHeight = a; return this.self();}
+        public T maxHeight(int a) {this.maxHeight = a; return this.self();}
+    
+    }
+    
     protected int minHeight;
     protected int maxHeight;
     
     protected GeneratorOreBase(float amountPerChunk, int minHeight, int maxHeight)
     {
         super(amountPerChunk);
-        
-        Pair<Integer, Integer> heights = GeneratorUtils.validateMinMaxHeight(minHeight, maxHeight);
-        this.minHeight = heights.getLeft();
-        this.maxHeight = heights.getRight();
+        this.minHeight = minHeight;
+        this.maxHeight = maxHeight;
     }
     
     @Override

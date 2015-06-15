@@ -29,26 +29,28 @@ import net.minecraft.world.biome.BiomeGenBase;
 
 public class GeneratorLakes extends BOPGeneratorBase
 {
-
     
-    public static class Builder implements IGeneratorBuilder<GeneratorLakes>
-    {
-        protected float amountPerChunk = 1.0F;
-        protected IBlockState liquid = Blocks.water.getDefaultState();
-        protected IBlockState frozenLiquid = Blocks.ice.getDefaultState();
-        protected IBlockState grassBorderWith = Blocks.grass.getDefaultState();
-        protected IBlockPosQuery grassReplace = new BlockQueryBlock(Blocks.dirt);
-        protected IBlockState lineWith = null;
+    public static class Builder extends BOPGeneratorBase.InnerBuilder<Builder, GeneratorLakes> implements IGeneratorBuilder<GeneratorLakes>
+    {        
+        protected IBlockState liquid;
+        protected IBlockState frozenLiquid;
+        protected IBlockState grassBorderWith;
+        protected IBlockPosQuery grassReplace;
+        protected IBlockState lineWith;        
         
-        public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
-        public Builder liquid(IBlockState a) {this.liquid = a; return this;}
-        public Builder frozenLiquid(IBlockState a) {this.frozenLiquid = a; return this;}
-        public Builder grassBorderWith(IBlockState a) {this.grassBorderWith = a; return this;}
-        public Builder grassReplace(IBlockPosQuery a) {this.grassReplace = a; return this;}
-        public Builder grassReplace(String a) throws BlockQueryParseException {this.grassReplace = BlockQuery.parseQueryString(a); return this;}
-        public Builder grassReplace(Block a) {this.grassReplace = new BlockQueryBlock(a); return this;}
-        public Builder grassReplace(IBlockState a) {this.grassReplace = new BlockQueryState(a); return this;}
-        public Builder lineWith(IBlockState a) {this.lineWith = a; return this;}
+        public Builder liquid(IBlockState a) {this.liquid = a; return this.self();}
+        public Builder liquid(Block a) {this.liquid = a.getDefaultState(); return this.self();}
+        public Builder frozenLiquid(IBlockState a) {this.frozenLiquid = a; return this.self();}
+        public Builder frozenLiquid(Block a) {this.frozenLiquid = a.getDefaultState(); return this.self();}
+        public Builder grassBorderWith(IBlockState a) {this.grassBorderWith = a; return this.self();}
+        public Builder grassBorderWith(Block a) {this.grassBorderWith = a.getDefaultState(); return this.self();}
+        public Builder grassReplace(IBlockPosQuery a) {this.grassReplace = a; return this.self();}
+        public Builder grassReplace(String a) throws BlockQueryParseException {this.grassReplace = BlockQuery.parseQueryString(a); return this.self();}
+        public Builder grassReplace(Block a) {this.grassReplace = new BlockQueryBlock(a); return this.self();}
+        public Builder grassReplace(IBlockState a) {this.grassReplace = new BlockQueryState(a); return this.self();}
+        public Builder lineWith(IBlockState a) {this.lineWith = a; return this.self();}
+        public Builder lineWith(Block a) {this.lineWith = a.getDefaultState(); return this.self();}
+        
         public Builder waterLakeForBiome(BiomeGenBase a)
         {
             this.liquid = Blocks.water.getDefaultState();
@@ -67,10 +69,20 @@ public class GeneratorLakes extends BOPGeneratorBase
             this.lineWith = Blocks.stone.getDefaultState();
             return this;
         }
-
-        @Override
-        public GeneratorLakes create()
+        
+        public Builder()
         {
+            // defaults
+            this.amountPerChunk = 1.0F;
+            this.liquid = Blocks.water.getDefaultState();
+            this.frozenLiquid = Blocks.ice.getDefaultState();
+            this.grassBorderWith = Blocks.grass.getDefaultState();
+            this.grassReplace = new BlockQueryBlock(Blocks.dirt);
+            this.lineWith = null;
+        }
+        
+        @Override
+        public GeneratorLakes create() {
             return new GeneratorLakes(this.amountPerChunk, this.liquid, this.frozenLiquid, this.grassBorderWith, this.grassReplace, this.lineWith);
         }
     }
@@ -80,7 +92,6 @@ public class GeneratorLakes extends BOPGeneratorBase
     protected IBlockState grassBorderWith;
     protected IBlockPosQuery grassReplace;
     protected IBlockState lineWith;
-    
 
     
     public GeneratorLakes(float amountPerChunk, IBlockState liquid,  IBlockState frozenLiquid, IBlockState grassBorderWith, IBlockPosQuery grassReplace, IBlockState lineWith)

@@ -10,136 +10,84 @@ package biomesoplenty.common.world.feature.tree;
 
 import java.util.Random;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockNewLeaf;
-import net.minecraft.block.BlockNewLog;
-import net.minecraft.block.BlockOldLeaf;
-import net.minecraft.block.BlockOldLog;
-import net.minecraft.block.BlockPlanks;
-import net.minecraft.block.BlockSapling;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-import biomesoplenty.api.biome.generation.BOPGeneratorBase;
-import biomesoplenty.common.block.BlockBOPLeaves;
-import biomesoplenty.common.block.BlockBOPLog;
-import biomesoplenty.common.enums.BOPTrees;
-import biomesoplenty.common.enums.BOPWoods;
+import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.util.biome.GeneratorUtils;
+import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
-public class GeneratorBush extends BOPGeneratorBase
+public class GeneratorBush extends GeneratorTreeBase
 {
-    
-    public static class Builder implements IGeneratorBuilder<GeneratorBush>
-    {
-        protected float amountPerChunk = 1.0F;
-        protected IBlockState log = Blocks.log.getDefaultState();
-        protected IBlockState leaves = Blocks.leaves.getDefaultState();
-        
-        public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
-        public Builder log(IBlockState a) {this.log = a; return this;}
-        public Builder log(BOPWoods a) {this.log = BlockBOPLog.paging.getVariantState(a); return this;}
-        public Builder log(BlockPlanks.EnumType a)
+    public static class Builder extends GeneratorTreeBase.InnerBuilder<Builder, GeneratorBush> implements IGeneratorBuilder<GeneratorBush>
+    {   
+        public Builder()
         {
-            if (a.getMetadata() < 4)
-            {
-                this.log = Blocks.log.getDefaultState().withProperty(BlockOldLog.VARIANT, a);
-            } else {
-                this.log = Blocks.log2.getDefaultState().withProperty(BlockNewLog.VARIANT, a);
-            }
-            return this;
-        }
-        public Builder leaves(IBlockState a) {this.leaves = a; return this;}
-        public Builder leaves(BOPTrees a) {this.leaves = BlockBOPLeaves.paging.getVariantState(a); return this;}
-        public Builder leaves(BlockPlanks.EnumType a)
-        {
-            if (a.getMetadata() < 4)
-            {
-                this.leaves = Blocks.leaves.getDefaultState().withProperty(BlockOldLeaf.VARIANT, a);
-            } else {
-                this.leaves = Blocks.leaves2.getDefaultState().withProperty(BlockNewLeaf.VARIANT, a);
-            }
-            return this;
-        }
+            this.amountPerChunk = 1.0F;
+            this.minHeight = 2;
+            this.maxHeight = 4;
+            this.placeOn = BlockQueries.fertile;
+            this.replace = BlockQueries.airOrLeaves;
+            this.log = Blocks.log.getDefaultState();
+            this.leaves = Blocks.leaves.getDefaultState();
+            this.vine = null;
+        }        
 
         @Override
-        public GeneratorBush create()
-        {
-            return new GeneratorBush(this.amountPerChunk, this.log, this.leaves);
+        public GeneratorBush create() {
+            return new GeneratorBush(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.minHeight, this.maxHeight);
         }
     }
     
-    private IBlockState log;
-    private IBlockState leaves;
     
-    public GeneratorBush(float amountPerChunk, IBlockState log, IBlockState leaves)
+    public GeneratorBush(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, int minHeight, int maxHeight)
     {
-        super(amountPerChunk);
-        this.log = log;
-        this.leaves = leaves;
-    }
-    
-    @Override
-    public BlockPos getScatterY(World world, Random random, int x, int z)
-    {
-        // always at world surface
-        return GeneratorUtils.ScatterYMethod.AT_SURFACE.getBlockPos(world, random, x, z);
+        super(amountPerChunk, placeOn, replace, log, leaves, vine, minHeight, maxHeight);
     }
 
     @Override
-    public boolean generate(World world, Random random, BlockPos pos)
+    public boolean generate(World world, Random random, BlockPos startPos)
     {
-        Block block;
-
-        //Move down until we reach the ground
-        do
+        // Move down until we reach the ground
+        while (startPos.getY() > 1 && world.isAirBlock(startPos) || world.getBlockState(startPos).getBlock().isLeaves(world, startPos)) {startPos = startPos.down();}
+        
+        if (!this.placeOn.matches(world, startPos))
         {
-            block = world.getBlockState(pos).getBlock();
-            if (!block.isAir(world, pos) && !block.isLeaves(world, pos)) break;
-            pos = pos.down();
-        } 
-        while (pos.getY() > 0);
+            // Abandon if we can't place the tree on this block
+            return false;
+        }
+        
+        // choose a random height
+        int height = GeneratorUtils.nextIntBetween(random, this.minHeight, this.maxHeight);
+        
+        // start from the block above the ground block
+        BlockPos pos = startPos.up();        
 
-        //Check if the ground block can sustain a sapling before generating above it
-        if (block.canSustainPlant(world, pos, EnumFacing.UP, ((BlockSapling)Blocks.sapling)))
+        //Generate a bush 3 blocks tall, with the bottom block already set to a log
+        for (int y = 0; y < height; ++y)
         {
-            pos = pos.up();
-            world.setBlockState(pos, this.log, 2);
+            //Reduces the radius closer to the top of the bush
+            int leavesRadius = (height - y > 1 ? 2 : 1);
 
-            //Generate a bush 3 blocks tall, with the bottom block already set to a log
-            for (int y = pos.getY(); y <= pos.getY() + 2; ++y)
+            for (int x = -leavesRadius; x <= leavesRadius; ++x)
             {
-                //Determines the distance away from the bottom of the bush
-                int currentLayer = y - pos.getY();
-                //Reduces the radius closer to the top of the bush
-                int leavesRadius = 2 - currentLayer;
-
-                for (int x = pos.getX() - leavesRadius; x <= pos.getX() + leavesRadius; ++x)
+                for (int z = -leavesRadius; z <= leavesRadius; ++z)
                 {
-                    int xDiff = x - pos.getX();
-
-                    for (int z = pos.getZ() - leavesRadius; z <= pos.getZ() + leavesRadius; ++z)
+                    //Randomly prevent the generation of leaves on the corners of each layer
+                    if (Math.abs(x) < leavesRadius || Math.abs(z) < leavesRadius || random.nextInt(2) != 0)
                     {
-                        int zDiff = z - pos.getZ();
-
-                        //Randomly prevent the generation of leaves on the corners of each layer
-                        if (Math.abs(xDiff) != leavesRadius || Math.abs(zDiff) != leavesRadius || random.nextInt(2) != 0)
-                        {
-                            BlockPos leavesPos = new BlockPos(x, y, z);
-
-                            //Ensures the leaves can replace surrounding blocks, preventing the existing log from being overriden alongside
-                            //other terrain
-                            if (world.isAirBlock(leavesPos))
-                            {
-                                world.setBlockState(leavesPos, this.leaves, 2);
-                            }
-                        }
+                        this.setLeaves(world, pos.add(x, y, z));
                     }
                 }
             }
+            
+            // log in the center
+            if (height - y > 1)
+            {
+                this.setLog(world, pos.add(0, y, 0));
+            }            
         }
 
         return true;

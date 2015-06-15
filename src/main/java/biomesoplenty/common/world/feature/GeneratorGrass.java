@@ -8,54 +8,41 @@
 
 package biomesoplenty.common.world.feature;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
-import biomesoplenty.common.block.BlockBOPPlant;
-import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
-import biomesoplenty.common.util.block.BlockQuery;
-import biomesoplenty.common.util.block.BlockQuery.BlockQueryBlock;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
-import biomesoplenty.common.util.block.BlockQuery.BlockQueryParseException;
-import biomesoplenty.common.util.block.BlockQuery.BlockQueryState;
 import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 
 public class GeneratorGrass extends GeneratorFlora
 {
     
-    public static class Builder implements IGeneratorBuilder<GeneratorGrass>
+    public static class Builder extends GeneratorFlora.InnerBuilder<Builder, GeneratorGrass> implements IGeneratorBuilder<GeneratorGrass>
     {
         
-        protected float amountPerChunk = 1.0F;
-        protected int generationAttempts = 96;
-        protected IBlockState with = Blocks.tallgrass.getDefaultState();
-        protected IBlockPosQuery replace = new BlockQueryMaterial(Material.air);
-        protected ScatterYMethod scatterYMethod = ScatterYMethod.AT_SURFACE;
-                
-        public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
-        public Builder replace(IBlockPosQuery a) {this.replace = a; return this;}
-        public Builder replace(String a) throws BlockQueryParseException {this.replace = BlockQuery.parseQueryString(a); return this;}
-        public Builder replace(Block a) {this.replace = new BlockQueryBlock(a); return this;}
-        public Builder replace(IBlockState a) {this.replace = new BlockQueryState(a); return this;}         
-        public Builder with(IBlockState a) {this.with = a; return this;}
-        public Builder with(BOPPlants a) {this.with = BlockBOPPlant.paging.getVariantState(a); return this;}
-        public Builder with(BlockTallGrass.EnumType a) {this.with = Blocks.tallgrass.getDefaultState().withProperty(BlockTallGrass.TYPE, a); return this;}               
-        public Builder generationAttempts(int a) {this.generationAttempts = a; return this;}
-        public Builder scatterYMethod(ScatterYMethod a) {this.scatterYMethod = a; return this;}
-        
+        public Builder()
+        {
+            // defaults
+            this.amountPerChunk = 1.0F;
+            this.placeOn = BlockQueries.anything;
+            this.replace = new BlockQueryMaterial(Material.air);
+            this.with = Blocks.tallgrass.getDefaultState();
+            this.scatterYMethod = ScatterYMethod.AT_SURFACE;
+            this.generationAttempts = 96;
+        }
+
         @Override
         public GeneratorGrass create()
         {
-            return new GeneratorGrass(this.amountPerChunk, this.replace, this.with, this.generationAttempts, this.scatterYMethod);
+            return new GeneratorGrass(this.amountPerChunk, this.placeOn, this.replace, this.with, this.scatterYMethod, this.generationAttempts);
         }
     }
     
-    public GeneratorGrass(float amountPerChunk, IBlockPosQuery replace, IBlockState with, int generationAttempts, ScatterYMethod scatterYMethod)
+    public GeneratorGrass(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState with, ScatterYMethod scatterYMethod, int generationAttempts)
     {
-        super(amountPerChunk, replace, with, generationAttempts, scatterYMethod);
+        super(amountPerChunk, placeOn, replace, with, scatterYMethod, generationAttempts);
     }
 
 }

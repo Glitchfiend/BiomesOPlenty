@@ -10,79 +10,48 @@ package biomesoplenty.common.world.feature;
 
 import java.util.Random;
 
-import biomesoplenty.api.biome.generation.BOPGeneratorBase;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
-import biomesoplenty.common.util.block.BlockQuery;
-import biomesoplenty.common.util.block.BlockQuery.BlockQueryParseException;
 import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
-import biomesoplenty.common.util.block.BlockQuery.BlockPosQueryOr;
-import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
-import biomesoplenty.common.util.block.BlockQuery.BlockQueryBlock;
-import biomesoplenty.common.util.block.BlockQuery.BlockQueryState;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
-public class GeneratorSplatter extends BOPGeneratorBase
+public class GeneratorSplatter extends GeneratorReplacing
 {
     
-    public static class Builder implements IGeneratorBuilder<GeneratorSplatter>
+    public static class Builder extends GeneratorReplacing.InnerBuilder<Builder, GeneratorSplatter> implements IGeneratorBuilder<GeneratorSplatter>
     {
-        protected float amountPerChunk = 1.0F;
-        protected IBlockPosQuery placeOn = BlockQueries.anything;
-        protected IBlockPosQuery replace = BlockQueries.breakable;
-        protected IBlockState with = Blocks.stone.getDefaultState();
-        protected int generationAttempts = 64;
-        protected ScatterYMethod scatterYMethod = ScatterYMethod.AT_SURFACE;
+        protected int generationAttempts;
+
+        public Builder generationAttempts(int a) {this.generationAttempts = a; return this.self();}
         
-        public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
-        public Builder placeOn(IBlockPosQuery a) {this.placeOn = a; return this;}
-        public Builder placeOn(String a) throws BlockQueryParseException {this.placeOn = BlockQuery.parseQueryString(a); return this;}
-        public Builder placeOn(Block a) {this.placeOn = new BlockQueryBlock(a); return this;}
-        public Builder placeOn(IBlockState a) {this.placeOn = new BlockQueryState(a); return this;}
-        public Builder replace(IBlockPosQuery a) {this.replace = a; return this;}
-        public Builder replace(String a) throws BlockQueryParseException {this.replace = BlockQuery.parseQueryString(a); return this;}
-        public Builder replace(Block a) {this.replace = new BlockQueryBlock(a); return this;}
-        public Builder replace(IBlockState a) {this.replace = new BlockQueryState(a); return this;}
-        public Builder with(IBlockState a) {this.with = a; return this;}
-        public Builder generationAttempts(int a) {this.generationAttempts = a; return this;}
-        public Builder scatterYMethod(ScatterYMethod a) {this.scatterYMethod = a; return this;}
+        public Builder()
+        {
+            // defaults
+            this.amountPerChunk = 1.0F;
+            this.placeOn = BlockQueries.anything;
+            this.replace = BlockQueries.breakable;
+            this.with = Blocks.stone.getDefaultState();
+            this.scatterYMethod = ScatterYMethod.AT_SURFACE;
+            this.generationAttempts = 64;
+        }
 
         @Override
         public GeneratorSplatter create()
         {
-            return new GeneratorSplatter(this.amountPerChunk, this.placeOn, this.replace, this.with, this.generationAttempts, this.scatterYMethod);
+            return new GeneratorSplatter(this.amountPerChunk, this.placeOn, this.replace, this.with, this.scatterYMethod, this.generationAttempts);
         }
-    }
+    }    
     
-    
-    private static IBlockPosQuery isLeavesOrAir = new BlockPosQueryOr(new BlockQueryMaterial(Material.leaves), new BlockQueryMaterial(Material.air));
-    
-    protected IBlockPosQuery placeOn;
-    protected IBlockPosQuery replace;
-    protected IBlockState with;
     protected int generationAttempts;
-    protected ScatterYMethod scatterYMethod;
     
-    public GeneratorSplatter(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState with, int generationAttempts, ScatterYMethod scatterYMethod)
+    public GeneratorSplatter(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState with, ScatterYMethod scatterYMethod, int generationAttempts)
     {
-        super(amountPerChunk);
-        this.placeOn = placeOn;
-        this.replace = replace;
-        this.with = with;
+        super(amountPerChunk, placeOn, replace, with, scatterYMethod);
         this.generationAttempts = generationAttempts;
-        this.scatterYMethod = scatterYMethod;
-    }
-    
-    @Override
-    public BlockPos getScatterY(World world, Random random, int x, int z)
-    {
-        return this.scatterYMethod.getBlockPos(world, random, x, z);
     }
 
     @Override

@@ -114,8 +114,8 @@ public class BiomeGenMountain extends BOPBiome
         treeGenerator.add("pine", 1, (new GeneratorPineTree.Builder()).minHeight(6).maxHeight(18).placeOn(suitableTreePosition).create());        
         GeneratorWeighted logsGenerator = new GeneratorWeighted(2.5F);
         this.addGenerator("logs", GeneratorStage.TREE, logsGenerator);
-        logsGenerator.add("pine_logs", 1, (new GeneratorLogs.Builder()).placeOn(suitableTreePosition).log(BOPWoods.PINE).create());
-        logsGenerator.add("dead_logs", 1, (new GeneratorLogs.Builder()).placeOn(suitableTreePosition).log(BOPWoods.DEAD).create());
+        logsGenerator.add("pine_logs", 1, (new GeneratorLogs.Builder()).placeOn(suitableTreePosition).with(BOPWoods.PINE).create());
+        logsGenerator.add("dead_logs", 1, (new GeneratorLogs.Builder()).placeOn(suitableTreePosition).with(BOPWoods.DEAD).create());
 
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(5.0F);

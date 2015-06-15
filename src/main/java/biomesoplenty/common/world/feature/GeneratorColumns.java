@@ -10,74 +10,61 @@ package biomesoplenty.common.world.feature;
 
 import java.util.Random;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
-import biomesoplenty.api.biome.generation.BOPGeneratorBase;
+import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.util.biome.GeneratorUtils;
-import biomesoplenty.common.util.block.BlockQuery;
+import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
-import biomesoplenty.common.util.block.BlockQuery.BlockQueryBlock;
-import biomesoplenty.common.util.block.BlockQuery.BlockQueryParseException;
-import biomesoplenty.common.util.block.BlockQuery.BlockQueryState;
 import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
-public class GeneratorColumns extends BOPGeneratorBase
+public class GeneratorColumns extends GeneratorReplacing
 {
     
-    public static class Builder implements IGeneratorBuilder<GeneratorColumns>
+    public static class Builder extends GeneratorReplacing.InnerBuilder<Builder, GeneratorColumns> implements IGeneratorBuilder<GeneratorColumns>
     {
-        protected float amountPerChunk = 1.0F;
-        protected IBlockPosQuery placeOn = new BlockQueryMaterial(Material.ground, Material.grass);
-        protected IBlockState with = Blocks.cobblestone.getDefaultState();
-        protected int minHeight = 2;
-        protected int maxHeight = 4;
-        protected int generationAttempts = 12;
+        protected int minHeight;
+        protected int maxHeight;
+        protected int generationAttempts;
         
-        public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
-        public Builder placeOn(IBlockPosQuery a) {this.placeOn = a; return this;}
-        public Builder placeOn(String a) throws BlockQueryParseException {this.placeOn = BlockQuery.parseQueryString(a); return this;}
-        public Builder placeOn(Block a) {this.placeOn = new BlockQueryBlock(a); return this;}
-        public Builder placeOn(IBlockState a) {this.placeOn = new BlockQueryState(a); return this;}        
-        public Builder with(IBlockState a) {this.with = a; return this;}
-        public Builder minHeight(int a) {this.minHeight = a; return this;}
-        public Builder maxHeight(int a) {this.maxHeight = a; return this;}
-        public Builder generationAttempts(int a) {this.generationAttempts = a; return this;}
-
+        public Builder minHeight(int a) {this.minHeight = a; return this.self();}
+        public Builder maxHeight(int a) {this.maxHeight = a; return this.self();}
+        public Builder generationAttempts(int a) {this.generationAttempts = a; return this.self();}
+        
+        public Builder()
+        {
+            // defaults
+            this.amountPerChunk = 1.0F;
+            this.placeOn = new BlockQueryMaterial(Material.ground, Material.grass);
+            this.replace = BlockQueries.airOrLeaves;
+            this.with = Blocks.cobblestone.getDefaultState();
+            this.scatterYMethod = ScatterYMethod.AT_SURFACE;
+            this.minHeight = 2;
+            this.maxHeight = 4;
+            this.generationAttempts = 12;
+        }
 
         @Override
         public GeneratorColumns create()
         {
-            return new GeneratorColumns(this.amountPerChunk, this.with, this.minHeight, this.maxHeight, this.placeOn, this.generationAttempts);
+            return new GeneratorColumns(this.amountPerChunk, this.placeOn, this.replace, this.with, this.scatterYMethod, this.minHeight, this.maxHeight, this.generationAttempts);
         }
     }
     
-    
-    protected IBlockPosQuery placeOn;
-    protected IBlockState with;
     protected int minHeight;
     protected int maxHeight;
     protected int generationAttempts;
 
-    public GeneratorColumns(float amountPerChunk, IBlockState with, int minHeight, int maxHeight, IBlockPosQuery placeOn, int generationAttempts)
+    public GeneratorColumns(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState with, ScatterYMethod scatterYMethod, int minHeight, int maxHeight, int generationAttempts)
     {
-        super(amountPerChunk);
-        this.with = with;
+        super(amountPerChunk, placeOn, replace, with, scatterYMethod);
         this.minHeight = minHeight;
         this.maxHeight = maxHeight;
-        this.placeOn = placeOn;
         this.generationAttempts = generationAttempts;
-    }
-    
-    @Override
-    public BlockPos getScatterY(World world, Random random, int x, int z)
-    {
-        // always at world surface
-        return world.getHeight(new BlockPos(x, 0, z));
     }
 
     @Override

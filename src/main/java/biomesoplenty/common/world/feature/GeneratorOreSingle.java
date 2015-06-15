@@ -10,62 +10,64 @@ package biomesoplenty.common.world.feature;
 
 import java.util.Random;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.block.state.pattern.BlockHelper;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
-import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.common.block.BlockBOPGem;
-import biomesoplenty.common.enums.BOPGems;
+import biomesoplenty.common.util.block.BlockQuery;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryBlock;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryParseException;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryState;
+import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
-
-import com.google.common.base.Predicate;
 
 public class GeneratorOreSingle extends GeneratorOreBase
 {
     
-    public static class Builder implements IGeneratorBuilder<GeneratorOreSingle>
+    public static class Builder extends GeneratorOreBase.InnerBuilder<Builder, GeneratorOreSingle> implements IGeneratorBuilder<GeneratorOreSingle>
     {
-        protected float amountPerChunk = 1.0F;
-        protected IBlockState with = Blocks.emerald_ore.getDefaultState();
-        protected int minHeight = 4;
-        protected int maxHeight = 32;
+        protected IBlockPosQuery replace;
         
-        public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
-        public Builder with(IBlockState a) {this.with = a; return this;}
-        public Builder with(BOPGems a) {this.with = BOPBlocks.gem_ore.getDefaultState().withProperty(BlockBOPGem.VARIANT, a); return this;}
-        public Builder minHeight(int a) {this.minHeight = a; return this;}
-        public Builder maxHeight(int a) {this.maxHeight = a; return this;}
+        public Builder replace(IBlockPosQuery a) {this.replace = a; return this.self();}
+        public Builder replace(String a) throws BlockQueryParseException {this.replace = BlockQuery.parseQueryString(a); return this.self();}
+        public Builder replace(Block a) {this.replace = new BlockQueryBlock(a); return this.self();}
+        public Builder replace(IBlockState a) {this.replace = new BlockQueryState(a); return this.self();}
+        
+        public Builder()
+        {
+            this.amountPerChunk = 1.0F;
+            this.minHeight = 4;
+            this.maxHeight = 32;
+            this.with = Blocks.emerald_ore.getDefaultState();
+            this.replace = new BlockQueryBlock(Blocks.stone);
+        }
 
         @Override
         public GeneratorOreSingle create()
         {
-            return new GeneratorOreSingle(this.amountPerChunk, this.with, this.minHeight, this.maxHeight);
+            return new GeneratorOreSingle(this.amountPerChunk, this.minHeight, this.maxHeight, this.with, this.replace);
         }
-    }
-    
-    
+    }    
     
     private IBlockState with;
-    private Predicate replace;
+    private IBlockPosQuery replace;
     
-    public GeneratorOreSingle(float amountPerChunk, IBlockState state, int minHeight, int maxHeight)
+    public GeneratorOreSingle(float amountPerChunk, int minHeight, int maxHeight, IBlockState with, IBlockPosQuery replace)
     {
         super(amountPerChunk, minHeight, maxHeight);
         
-        this.with = state;
-        this.replace = BlockHelper.forBlock(Blocks.stone);
+        this.with = with;
+        this.replace = replace;
     }
     
     @Override
     public boolean generate(World world, Random random, BlockPos pos)
     {
-        if (world.getBlockState(pos).getBlock().isReplaceableOreGen(world, pos, this.replace))
+        if (this.replace.matches(world, pos))
         {
             return world.setBlockState(pos, this.with, 2);
-        }
-        
+        }        
         return false;
     }
     
@@ -75,6 +77,7 @@ public class GeneratorOreSingle extends GeneratorOreBase
         super.configure(conf);
         
         this.with = conf.getBlockState("with", this.with);
+        this.replace = conf.getBlockPosQuery("replace", this.replace);
     }
     
 }

@@ -34,6 +34,16 @@ public abstract class BOPGeneratorBase implements IGenerator
         this.amountPerChunk = amountPerChunk;
     }
     
+    
+    protected static abstract class InnerBuilder<T extends InnerBuilder<T, G>, G extends BOPGeneratorBase>
+    {
+        protected T self() {return (T)this;}
+        protected float amountPerChunk;
+        public T amountPerChunk(float amountPerChunk) {this.amountPerChunk = amountPerChunk; return this.self();}
+        public abstract G create();
+    }
+    
+    
     @Override
     public void setName(String name)
     {

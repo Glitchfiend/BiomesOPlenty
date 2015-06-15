@@ -10,80 +10,67 @@ package biomesoplenty.common.world.feature;
 
 import java.util.Random;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import biomesoplenty.api.biome.generation.BOPGeneratorBase;
+import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery;
-import biomesoplenty.common.util.block.BlockQuery.BlockQueryBlock;
-import biomesoplenty.common.util.block.BlockQuery.BlockQueryParseException;
-import biomesoplenty.common.util.block.BlockQuery.BlockQueryState;
 import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
-public class GeneratorBlobs extends BOPGeneratorBase
+public class GeneratorBlobs extends GeneratorReplacing
 {
     
-    public static class Builder implements IGeneratorBuilder<GeneratorBlobs>
+    public static class Builder extends GeneratorReplacing.InnerBuilder<Builder, GeneratorBlobs> implements IGeneratorBuilder<GeneratorBlobs>
     {
-        protected float amountPerChunk = 1.0F;
-        protected IBlockPosQuery placeOn = BlockQuery.buildOr().blocks(Blocks.stone).materials(Material.ground, Material.grass).create();
-        protected IBlockState with = Blocks.cobblestone.getDefaultState();
-        protected float minRadius = 2.0F;
-        protected float maxRadius = 5.0F;
-        protected float radiusFalloff = 0.5F;
-        protected int numBalls = 3;
-        protected ScatterYMethod scatterYMethod = ScatterYMethod.BELOW_SURFACE;
+        protected float minRadius;
+        protected float maxRadius;
+        protected float radiusFalloff;
+        protected int numBalls;
         
-        public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
-        public Builder placeOn(IBlockPosQuery a) {this.placeOn = a; return this;}
-        public Builder placeOn(String a) throws BlockQueryParseException {this.placeOn = BlockQuery.parseQueryString(a); return this;}
-        public Builder placeOn(Block a) {this.placeOn = new BlockQueryBlock(a); return this;}
-        public Builder placeOn(IBlockState a) {this.placeOn = new BlockQueryState(a); return this;}        
-        public Builder to(IBlockState a) {this.with = a; return this;}
-        public Builder minRadius(float a) {this.minRadius = a; return this;}
-        public Builder maxRadius(float a) {this.maxRadius = a; return this;}
-        public Builder radiusFalloff(float a) {this.radiusFalloff = a; return this;}
-        public Builder numBalls(int a) {this.numBalls = a; return this;}
-        public Builder scatterYMethod(ScatterYMethod a) {this.scatterYMethod = a; return this;}
+        public Builder minRadius(float a) {this.minRadius = a; return this.self();}
+        public Builder maxRadius(float a) {this.maxRadius = a; return this.self();}
+        public Builder radiusFalloff(float a) {this.radiusFalloff = a; return this.self();}
+        public Builder numBalls(int a) {this.numBalls = a; return this.self();}
+        
+        public Builder()
+        {
+            // defaults
+            this.amountPerChunk = 1.0F;
+            this.placeOn = BlockQuery.buildOr().blocks(Blocks.stone).materials(Material.ground, Material.grass).create();
+            this.replace = BlockQueries.breakable;
+            this.with = Blocks.cobblestone.getDefaultState();
+            this.scatterYMethod = ScatterYMethod.BELOW_SURFACE;
+            this.minRadius = 2.0F;
+            this.maxRadius = 5.0F;
+            this.radiusFalloff = 0.5F;
+            this.numBalls = 3;
+        }
 
         @Override
         public GeneratorBlobs create()
         {
-            return new GeneratorBlobs(this.amountPerChunk, this.placeOn, this.with, this.minRadius, this.maxRadius, this.radiusFalloff, this.numBalls, this.scatterYMethod);
+            return new GeneratorBlobs(this.amountPerChunk, this.placeOn, this.replace, this.with, this.scatterYMethod, this.minRadius, this.maxRadius, this.radiusFalloff, this.numBalls);
         }
     }
     
     
-    protected IBlockPosQuery placeOn;
-    protected IBlockState with;
     protected float minRadius;
     protected float maxRadius;
     protected float radiusFalloff; // should normally be between 0 and 1 so that balls get smaller
     protected int numBalls;
-    protected ScatterYMethod scatterYMethod;
 
-    public GeneratorBlobs(float amountPerChunk, IBlockPosQuery placeOn, IBlockState with, float minRadius, float maxRadius, float radiusFalloff, int numBalls, ScatterYMethod scatterYMethod)
+    public GeneratorBlobs(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState with, ScatterYMethod scatterYMethod, float minRadius, float maxRadius, float radiusFalloff, int numBalls)
     {
-        super(amountPerChunk);
-        this.with = with;
+        super(amountPerChunk, placeOn, replace, with, scatterYMethod);
         this.minRadius = minRadius;
         this.maxRadius = maxRadius;
         this.radiusFalloff = radiusFalloff;
         this.numBalls = numBalls;
-        this.placeOn = placeOn;
-        this.scatterYMethod = scatterYMethod;
-    }
-    
-    @Override
-    public BlockPos getScatterY(World world, Random random, int x, int z)
-    {
-        return this.scatterYMethod.getBlockPos(world, random, x, z);
     }
 
     @Override
@@ -155,7 +142,10 @@ public class GeneratorBlobs extends BOPGeneratorBase
                             if (px * px + py * py + pz * pz < 1.0D)
                             {
                                 BlockPos pos = new BlockPos(x, y, z);
-                                world.setBlockState(pos, this.with);
+                                if (this.replace.matches(world, pos))
+                                {
+                                    world.setBlockState(pos, this.with);
+                                }
                             }
                         }
                     }

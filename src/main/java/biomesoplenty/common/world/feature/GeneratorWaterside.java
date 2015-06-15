@@ -10,61 +10,50 @@ package biomesoplenty.common.world.feature;
 
 import java.util.Random;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
-import biomesoplenty.api.biome.generation.BOPGeneratorBase;
-import biomesoplenty.common.util.block.BlockQuery;
+import biomesoplenty.api.block.BlockQueries;
+import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery.*;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
-public class GeneratorWaterside extends BOPGeneratorBase
+public class GeneratorWaterside extends GeneratorReplacing
 {
     
-    public static class Builder implements IGeneratorBuilder<GeneratorWaterside>
+    public static class Builder extends GeneratorReplacing.InnerBuilder<Builder, GeneratorWaterside> implements IGeneratorBuilder<GeneratorWaterside>
     {
-        protected float amountPerChunk = 1.0F;
-        protected int maxRadius = 7;
-        protected IBlockPosQuery replace = new BlockQueryMaterial(Material.grass, Material.ground);
-        protected IBlockState with = Blocks.gravel.getDefaultState();
+        protected int maxRadius;
+
+        public Builder maxRadius(int a) {this.maxRadius = a; return this.self();}
         
-        public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
-        public Builder replace(IBlockPosQuery a) {this.replace = a; return this;}
-        public Builder replace(String a) throws BlockQueryParseException {this.replace = BlockQuery.parseQueryString(a); return this;}
-        public Builder replace(Block a) {this.replace = new BlockQueryBlock(a); return this;}
-        public Builder replace(IBlockState a) {this.replace = new BlockQueryState(a); return this;}        
-        public Builder with(IBlockState a) {this.with = a; return this;}
-        public Builder maxRadius(int a) {this.maxRadius = a; return this;}
+        public Builder()
+        {
+            // defaults
+            this.amountPerChunk = 1.0F;
+            this.placeOn = BlockQueries.anything;
+            this.replace = new BlockQueryMaterial(Material.grass, Material.ground);
+            this.with = Blocks.gravel.getDefaultState();
+            this.scatterYMethod = ScatterYMethod.AT_GROUND;
+            this.maxRadius = 7;
+        }
 
         @Override
         public GeneratorWaterside create()
         {
-            return new GeneratorWaterside(this.amountPerChunk, this.replace, this.with, this.maxRadius);
+            return new GeneratorWaterside(this.amountPerChunk, this.placeOn, this.replace, this.with, this.scatterYMethod, this.maxRadius);
         }
-    }
-    
-    
+    }  
     
    
-    protected IBlockPosQuery replace;
-    protected IBlockState with;
     protected int maxRadius;
     
-    public GeneratorWaterside(float amountPerChunk, IBlockPosQuery replace, IBlockState with, int maxRadius)
+    public GeneratorWaterside(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState with, ScatterYMethod scatterYMethod, int maxRadius)
     {
-        super(amountPerChunk);
-        this.replace = replace;
-        this.with = with;
+        super(amountPerChunk, placeOn, replace, with, scatterYMethod);
         this.maxRadius = maxRadius;
-    }
-    
-    @Override
-    public BlockPos getScatterY(World world, Random random, int x, int z)
-    {
-        return world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z));
     }
 
     @Override

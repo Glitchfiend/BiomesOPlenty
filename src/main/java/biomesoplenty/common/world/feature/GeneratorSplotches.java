@@ -10,71 +10,57 @@ package biomesoplenty.common.world.feature;
 
 import java.util.Random;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import biomesoplenty.api.biome.generation.BOPGeneratorBase;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
-import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.util.block.BlockQuery.*;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
-public class GeneratorSplotches extends BOPGeneratorBase
+public class GeneratorSplotches extends GeneratorReplacing
 {
     
-    public static class Builder implements IGeneratorBuilder<GeneratorSplotches>
+    public static class Builder extends GeneratorReplacing.InnerBuilder<Builder, GeneratorSplotches> implements IGeneratorBuilder<GeneratorSplotches>
     {
-        protected float amountPerChunk = 1.0F;
-        protected IBlockPosQuery replace = new BlockQueryMaterial(Material.grass, Material.ground);
-        protected IBlockState with = Blocks.cobblestone.getDefaultState();
-        protected int splotchSize = 8;
-        protected ScatterYMethod scatterYMethod = ScatterYMethod.BELOW_SURFACE;
+        protected int splotchSize;
+
+        public Builder splotchSize(int a) {this.splotchSize = a; return this.self();}
         
-        public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
-        public Builder replace(IBlockPosQuery a) {this.replace = a; return this;}
-        public Builder replace(String a) throws BlockQueryParseException {this.replace = BlockQuery.parseQueryString(a); return this;}
-        public Builder replace(Block a) {this.replace = new BlockQueryBlock(a); return this;}
-        public Builder replace(IBlockState a) {this.replace = new BlockQueryState(a); return this;}        
-        public Builder with(IBlockState a) {this.with = a; return this;}
-        public Builder splotchSize(int a) {this.splotchSize = a; return this;}
-        public Builder scatterYMethod(ScatterYMethod a) {this.scatterYMethod = a; return this;}
+        public Builder()
+        {
+            // defaults
+            this.amountPerChunk = 1.0F;
+            this.placeOn = new BlockQueryMaterial(Material.grass, Material.ground);
+            this.replace = new BlockQueryMaterial(Material.grass, Material.ground);
+            this.with = Blocks.cobblestone.getDefaultState();
+            this.scatterYMethod = ScatterYMethod.BELOW_SURFACE;
+            this.splotchSize = 8;
+        }
 
         @Override
         public GeneratorSplotches create()
         {
-            return new GeneratorSplotches(this.amountPerChunk, this.replace, this.with, this.splotchSize, this.scatterYMethod);
+            return new GeneratorSplotches(this.amountPerChunk, this.placeOn, this.replace, this.with, this.scatterYMethod, this.splotchSize);
         }
-    }
+    }  
+   
     
-    
-    protected IBlockPosQuery replace;
-    protected IBlockState with;
     protected int splotchSize;
-    protected ScatterYMethod scatterYMethod;
  
-    public GeneratorSplotches(float amountPerChunk, IBlockPosQuery replace, IBlockState with, int splotchSize, ScatterYMethod scatterYMethod)
+    public GeneratorSplotches(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState with, ScatterYMethod scatterYMethod, int splotchSize)
     {
-        super(amountPerChunk);
-        this.replace = replace;
-        this.with = with;
+        super(amountPerChunk, placeOn, replace, with, scatterYMethod);
         this.splotchSize = splotchSize;
-        this.scatterYMethod = scatterYMethod;
-    }
-    
-    @Override
-    public BlockPos getScatterY(World world, Random random, int x, int z)
-    {
-        return this.scatterYMethod.getBlockPos(world, random, x, z);
-    }    
+    } 
     
     @Override
     public boolean generate(World world, Random random, BlockPos pos)
     {
-        
+        if (! this.placeOn.matches(world, pos.down())) {return false;}
+
         float a = random.nextFloat() * (float)Math.PI;
         
         // choose a start point

@@ -71,7 +71,7 @@ public class BiomeGenBayou extends BOPBiome
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("willow", 3, (new GeneratorBayouTree.Builder()).log(BOPWoods.WILLOW).leaves(BOPTrees.WILLOW).minHeight(6).maxHeight(12).minLeavesRadius(1).leavesGradient(2).create());
         treeGenerator.add("willow_large", 1, (new GeneratorBayouTree.Builder()).log(BOPWoods.WILLOW).leaves(BOPTrees.WILLOW).minHeight(10).maxHeight(18).minLeavesRadius(2).leavesGradient(3).create());
-        this.addGenerator("dead_logs", GeneratorStage.TREE, (new GeneratorLogs.Builder()).amountPerChunk(1.5F).log(BOPWoods.DEAD).create());
+        this.addGenerator("dead_logs", GeneratorStage.TREE, (new GeneratorLogs.Builder()).amountPerChunk(1.5F).with(BOPWoods.DEAD).create());
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(10.0F);

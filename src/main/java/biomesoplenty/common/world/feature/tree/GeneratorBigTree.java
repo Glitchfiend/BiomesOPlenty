@@ -14,76 +14,47 @@ import java.util.Random;
 import org.apache.commons.lang3.tuple.Pair;
 
 import net.minecraft.block.BlockLog;
-import net.minecraft.block.BlockNewLeaf;
-import net.minecraft.block.BlockNewLog;
-import net.minecraft.block.BlockOldLeaf;
-import net.minecraft.block.BlockOldLog;
-import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockSapling;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import biomesoplenty.api.biome.generation.BOPGeneratorBase;
-import biomesoplenty.common.block.BlockBOPLeaves;
-import biomesoplenty.common.block.BlockBOPLog;
-import biomesoplenty.common.enums.BOPTrees;
-import biomesoplenty.common.enums.BOPWoods;
+import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.util.biome.GeneratorUtils;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
+import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
-
 import com.google.common.collect.Lists;
 
 /*This class is heavily based on https://gist.github.com/grum/62cfdec0537e8db24eb3#file-bigtreefeature-java
 additional information has been added from http://pastebin.com/XBLdGqXQ. This class has been cross-checked
 against WorldGenBigTree to ensure any subsequent changes from Forge/Mojang have been included.*/
-public class GeneratorBigTree extends BOPGeneratorBase
+public class GeneratorBigTree extends GeneratorTreeBase
 {
     
-    public static class Builder implements IGeneratorBuilder<GeneratorBigTree>
-    {
-        protected float amountPerChunk = 1.0F;
-        protected boolean updateNeighbours = false;
-        protected int minHeight = 5;
-        protected int maxHeight = 17;
-        protected IBlockState log = Blocks.log.getDefaultState();
-        protected IBlockState leaves = Blocks.leaves.getDefaultState();
-        
-        public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
-        public Builder updateNeighbours(boolean a) {this.updateNeighbours = a; return this;}
-        public Builder minHeight(int a) {this.minHeight = a; return this;}
-        public Builder maxHeight(int a) {this.maxHeight = a; return this;}
-        public Builder log(IBlockState a) {this.log = a; return this;}
-        public Builder log(BlockPlanks.EnumType a)
+    // TODO: update neighbours in builder?
+    public static class Builder extends GeneratorTreeBase.InnerBuilder<Builder, GeneratorBigTree> implements IGeneratorBuilder<GeneratorBigTree>
+    {        
+        public Builder()
         {
-            if (a.getMetadata() < 4)
-            {
-                this.log = Blocks.log.getDefaultState().withProperty(BlockOldLog.VARIANT, a);
-            } else {
-                this.log = Blocks.log2.getDefaultState().withProperty(BlockNewLog.VARIANT, a);
-            }
-            return this;
-        }
-        public Builder log(BOPWoods a) {this.log = BlockBOPLog.paging.getVariantState(a); return this;}
-        public Builder leaves(IBlockState a) {this.leaves = a; return this;}
-        public Builder leaves(BOPTrees a) {this.leaves = BlockBOPLeaves.paging.getVariantState(a); return this;}
-        public Builder leaves(BlockPlanks.EnumType a)
-        {
-            if (a.getMetadata() < 4)
-            {
-                this.leaves = Blocks.leaves.getDefaultState().withProperty(BlockOldLeaf.VARIANT, a);
-            } else {
-                this.leaves = Blocks.leaves2.getDefaultState().withProperty(BlockNewLeaf.VARIANT, a);
-            }
-            return this;
+            // defaults
+            this.amountPerChunk = 1.0F;
+            this.placeOn = BlockQueries.anything;
+            this.replace = new BlockQueryMaterial(Material.air);
+            this.log = Blocks.log.getDefaultState();
+            this.leaves = Blocks.leaves.getDefaultState();
+            this.vine = null;
+            this.minHeight = 5;
+            this.maxHeight = 17;
         }
 
         @Override
         public GeneratorBigTree create()
         {
-            return new GeneratorBigTree(this.amountPerChunk, this.updateNeighbours, this.minHeight, this.maxHeight, this.log, this.leaves);
+            return new GeneratorBigTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.minHeight, this.maxHeight, false);
         }
     }
     
@@ -104,24 +75,14 @@ public class GeneratorBigTree extends BOPGeneratorBase
     
     //Configurable fields
     private boolean updateNeighbours;
-    private int minHeight;
-    private int maxHeight;
-    private IBlockState log;
-    private IBlockState leaves;
     
     private List<FoliageCoords> foliageCoords;
+
     
-    public GeneratorBigTree(float amountPerChunk, boolean updateNeighbours, int minHeight, int maxHeight, IBlockState log, IBlockState leaves)
+    public GeneratorBigTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, int minHeight, int maxHeight, boolean updateNeighbours)
     {
-        super(amountPerChunk);
+        super(amountPerChunk, placeOn, replace, log, leaves, vine, minHeight, maxHeight);
         this.updateNeighbours = updateNeighbours;
-        
-        Pair<Integer, Integer> heights = GeneratorUtils.validateMinMaxHeight(minHeight, maxHeight);
-        this.minHeight = heights.getLeft();
-        this.maxHeight = heights.getRight();
-        
-        this.log = log;
-        this.leaves = leaves;
     }
 
     protected void prepare() 
@@ -213,9 +174,7 @@ public class GeneratorBigTree extends BOPGeneratorBase
                 if (Math.pow(Math.abs(dx) + 0.5, 2) + Math.pow(Math.abs(dz) + 0.5, 2) <= radius * radius) 
                 {
                     BlockPos checkedPos = pos.add(dx, 0, dz);
-                    IBlockState checkedState = this.world.getBlockState(checkedPos);
-
-                    if (checkedState.getBlock().isAir(this.world, checkedPos) || checkedState.getBlock().isLeaves(this.world, checkedPos))
+                    if (this.replace.matches(world, checkedPos))
                     {
                         this.setBlockAndNotifyAdequately(world, checkedPos, state);
                     }
@@ -466,7 +425,7 @@ public class GeneratorBigTree extends BOPGeneratorBase
             //is added to ensure the final point is reached.
             BlockPos deltaPos = startPos.add((double)(0.5F + (float)i * dx), (double)(0.5F + (float)i * dy), (double)(0.5F + (float)i * dz));
 
-            if (!GeneratorUtils.canTreeReplace(world, deltaPos))
+            if (!this.replace.matches(world, deltaPos))
             {
                 return i;
             }
@@ -477,13 +436,6 @@ public class GeneratorBigTree extends BOPGeneratorBase
     }
     
    
-    
-    @Override
-    public BlockPos getScatterY(World world, Random random, int x, int z)
-    {
-        // always at world surface
-        return GeneratorUtils.ScatterYMethod.AT_SURFACE.getBlockPos(world, random, x, z);
-    }
     
     @Override
     public boolean generate(World world, Random rand, BlockPos pos)
@@ -527,7 +479,7 @@ public class GeneratorBigTree extends BOPGeneratorBase
         boolean isSoil = state.getBlock().canSustainPlant(this.world, down, EnumFacing.UP, ((BlockSapling)Blocks.sapling));
 
         //Don't grow the tree here if the location can't sustain a sapling
-        if (!isSoil)
+        if (!isSoil || !this.placeOn.matches(world, down))
         {
             return false;
         }

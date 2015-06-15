@@ -19,6 +19,11 @@ import net.minecraft.world.World;
 import biomesoplenty.api.biome.generation.BOPGeneratorBase;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.util.biome.GeneratorUtils;
+import biomesoplenty.common.util.block.BlockQuery;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryBlock;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryParseException;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryState;
+import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GeneratorBigMushroom extends BOPGeneratorBase
@@ -70,29 +75,50 @@ public class GeneratorBigMushroom extends BOPGeneratorBase
                     return (y < (height - 1));
             }
         }
-    }
+    }    
     
-    public static class Builder implements IGeneratorBuilder<GeneratorBigMushroom>
+    
+    
+    public static class Builder extends BOPGeneratorBase.InnerBuilder<Builder, GeneratorBigMushroom> implements IGeneratorBuilder<GeneratorBigMushroom>
     {
-        protected float amountPerChunk = 1.0F;
-        protected BigMushroomType mushroomType = BigMushroomType.BROWN;
+        protected BigMushroomType mushroomType;
+        protected IBlockPosQuery placeOn;
+        protected IBlockPosQuery replace; 
         
-        public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
         public Builder mushroomType(BigMushroomType a) {this.mushroomType = a; return this;}
-
+        public Builder placeOn(IBlockPosQuery a) {this.placeOn = a; return this.self();}
+        public Builder placeOn(String a) throws BlockQueryParseException {this.placeOn = BlockQuery.parseQueryString(a); return this.self();}
+        public Builder placeOn(Block a) {this.placeOn = new BlockQueryBlock(a); return this.self();}
+        public Builder placeOn(IBlockState a) {this.placeOn = new BlockQueryState(a); return this.self();}
+        public Builder replace(IBlockPosQuery a) {this.replace = a; return this.self();}
+        public Builder replace(String a) throws BlockQueryParseException {this.replace = BlockQuery.parseQueryString(a); return this.self();}
+        public Builder replace(Block a) {this.replace = new BlockQueryBlock(a); return this.self();}
+        public Builder replace(IBlockState a) {this.replace = new BlockQueryState(a); return this.self();}
+        
+        public Builder()
+        {
+            this.mushroomType = BigMushroomType.BROWN;
+            this.placeOn = BlockQueries.fertile;
+            this.replace = BlockQueries.airOrLeaves;
+        }
+        
         @Override
         public GeneratorBigMushroom create()
         {
-            return new GeneratorBigMushroom(this.amountPerChunk, this.mushroomType);
+            return new GeneratorBigMushroom(this.amountPerChunk, this.placeOn, this.replace, this.mushroomType);
         }
     }
     
+    protected IBlockPosQuery placeOn;
+    protected IBlockPosQuery replace;
     protected BigMushroomType mushroomType;
     protected IBlockState mushroomState;
     
-    public GeneratorBigMushroom(float amountPerChunk, BigMushroomType mushroomType)
+    public GeneratorBigMushroom(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, BigMushroomType mushroomType)
     {
         super(amountPerChunk);
+        this.placeOn = placeOn;
+        this.replace = replace;
         this.setMushroomType(mushroomType);
     }
     
@@ -111,7 +137,7 @@ public class GeneratorBigMushroom extends BOPGeneratorBase
     
     protected void replaceWithMushroom(World world, BlockPos pos, BlockHugeMushroom.EnumType side)
     {
-        if (world.getBlockState(pos).getBlock().canBeReplacedByLeaves(world, pos))
+        if (this.replace.matches(world, pos))
         {
             world.setBlockState(pos, this.mushroomState.withProperty(BlockHugeMushroom.VARIANT, side), 2);
         }
@@ -131,7 +157,7 @@ public class GeneratorBigMushroom extends BOPGeneratorBase
             {
                 for (int z = pos.getZ() - radius; z <= pos.getZ() + radius; ++z)
                 {
-                    if (!BlockQueries.airOrLeaves.matches(world, new BlockPos(x, y, z)))
+                    if (!this.replace.matches(world, new BlockPos(x, y, z)))
                     {
                         return false;
                     }
@@ -151,8 +177,7 @@ public class GeneratorBigMushroom extends BOPGeneratorBase
         // check that there's room
         if (!this.isEnoughSpace(world, pos, height)) {return false;}
         
-        Block blockBelow = world.getBlockState(pos.down()).getBlock();
-        if (blockBelow != Blocks.dirt && blockBelow != Blocks.grass && blockBelow != Blocks.mycelium)
+        if (!this.placeOn.matches(world, pos.down()))
         {
             return false;
         }

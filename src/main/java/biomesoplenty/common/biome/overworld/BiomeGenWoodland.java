@@ -90,7 +90,7 @@ public class BiomeGenWoodland extends BOPBiome
         GeneratorWeighted logsGenerator = new GeneratorWeighted(2.5F);
         this.addGenerator("logs", GeneratorStage.TREE, logsGenerator);
         logsGenerator.add("oak_logs", 1, (new GeneratorLogs.Builder()).create());
-        logsGenerator.add("dead_logs", 1, (new GeneratorLogs.Builder()).log(BOPWoods.DEAD).create());
+        logsGenerator.add("dead_logs", 1, (new GeneratorLogs.Builder()).with(BOPWoods.DEAD).create());
         
         // gem
         this.addGenerator("amber", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.AMBER).create());

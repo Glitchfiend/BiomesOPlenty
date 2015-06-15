@@ -9,12 +9,7 @@
 package biomesoplenty.common.world.feature.tree;
 import java.util.Random;
 
-import biomesoplenty.api.biome.generation.BOPGeneratorBase;
 import biomesoplenty.api.block.BlockQueries;
-import biomesoplenty.common.block.BlockBOPLeaves;
-import biomesoplenty.common.block.BlockBOPLog;
-import biomesoplenty.common.enums.BOPTrees;
-import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryBlock;
@@ -23,157 +18,79 @@ import biomesoplenty.common.util.block.BlockQuery.BlockQueryState;
 import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockNewLeaf;
-import net.minecraft.block.BlockNewLog;
-import net.minecraft.block.BlockOldLeaf;
-import net.minecraft.block.BlockOldLog;
-import net.minecraft.block.BlockPlanks;
-import net.minecraft.block.BlockVine;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 
-public class GeneratorBayouTree extends BOPGeneratorBase
+public class GeneratorBayouTree extends GeneratorTreeBase
 {
     
-    public static class Builder implements IGeneratorBuilder<GeneratorBayouTree>
+    public static class Builder extends GeneratorTreeBase.InnerBuilder<Builder, GeneratorBayouTree> implements IGeneratorBuilder<GeneratorBayouTree>
     {
-        protected float amountPerChunk = 1.0F;
-        protected int minHeight = 8;
-        protected int maxHeight = 18;
-        protected int minLeavesRadius = 2;
-        protected int leavesGradient = 4;
-        protected int vineAttempts = 10;
-        protected int maxVineLength = 20;
-        protected IBlockPosQuery placeOn = BlockQueries.fertile;
-        protected IBlockPosQuery replace = BlockQueries.airOrLeaves;
-        protected IBlockPosQuery rootsReplace = BlockQueries.rootsCanDigThrough;
-        protected IBlockState log = Blocks.log.getDefaultState();
-        protected IBlockState leaves = Blocks.leaves.getDefaultState();
-        protected IBlockState vine = Blocks.vine.getDefaultState();
-        
-        public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
-        public Builder minHeight(int a) {this.minHeight = a; return this;}
-        public Builder maxHeight(int a) {this.maxHeight = a; return this;}
-        public Builder minLeavesRadius(int a) {this.minLeavesRadius = a; return this;}
-        public Builder leavesGradient(int a) {this.leavesGradient = a; return this;}
-        public Builder vineAttempts(int a) {this.vineAttempts = a; return this;}
-        public Builder maxVineLength(int a) {this.maxVineLength = a; return this;}
-        public Builder placeOn(IBlockPosQuery a) {this.placeOn = a; return this;}
-        public Builder placeOn(String a) throws BlockQueryParseException {this.placeOn = BlockQuery.parseQueryString(a); return this;}
-        public Builder placeOn(Block a) {this.placeOn = new BlockQueryBlock(a); return this;}
-        public Builder placeOn(IBlockState a) {this.placeOn = new BlockQueryState(a); return this;}
-        public Builder replace(IBlockPosQuery a) {this.replace = a; return this;}
-        public Builder replace(String a) throws BlockQueryParseException {this.replace = BlockQuery.parseQueryString(a); return this;}
-        public Builder replace(Block a) {this.replace = new BlockQueryBlock(a); return this;}
-        public Builder replace(IBlockState a) {this.replace = new BlockQueryState(a); return this;}
-        public Builder rootsReplace(IBlockPosQuery a) {this.replace = a; return this;}
-        public Builder rootsReplace(String a) throws BlockQueryParseException {this.replace = BlockQuery.parseQueryString(a); return this;}
-        public Builder rootsReplace(Block a) {this.replace = new BlockQueryBlock(a); return this;}
-        public Builder rootsReplace(IBlockState a) {this.replace = new BlockQueryState(a); return this;}
-        public Builder log(IBlockState a) {this.log = a; return this;}
-        public Builder log(BOPWoods a) {this.log = BlockBOPLog.paging.getVariantState(a); return this;}
-        public Builder log(BlockPlanks.EnumType a)
-        {
-            if (a.getMetadata() < 4)
-            {
-                this.log = Blocks.log.getDefaultState().withProperty(BlockOldLog.VARIANT, a);
-            } else {
-                this.log = Blocks.log2.getDefaultState().withProperty(BlockNewLog.VARIANT, a);
-            }
-            return this;
-        }
-        public Builder leaves(IBlockState a) {this.leaves = a; return this;}
-        public Builder leaves(BOPTrees a) {this.leaves = BlockBOPLeaves.paging.getVariantState(a); return this;}
-        public Builder leaves(BlockPlanks.EnumType a)
-        {
-            if (a.getMetadata() < 4)
-            {
-                this.leaves = Blocks.leaves.getDefaultState().withProperty(BlockOldLeaf.VARIANT, a);
-            } else {
-                this.leaves = Blocks.leaves2.getDefaultState().withProperty(BlockNewLeaf.VARIANT, a);
-            }
-            return this;
-        }
-        public Builder vine(IBlockState a)
-        {
-            if (a.getBlock() instanceof BlockVine)
-            {
-                this.vine = a;
-            } else {
-                throw new IllegalArgumentException("vine must use a BlockVine block");
-            }
-            return this;
-        }
+        protected int minLeavesRadius;
+        protected int leavesGradient;
+        protected int vineAttempts;
+        protected int maxVineLength;
+        protected IBlockPosQuery rootsReplace;
 
+        public Builder minLeavesRadius(int a) {this.minLeavesRadius = a; return this.self();}
+        public Builder leavesGradient(int a) {this.leavesGradient = a; return this.self();}
+        public Builder vineAttempts(int a) {this.vineAttempts = a; return this.self();}
+        public Builder maxVineLength(int a) {this.maxVineLength = a; return this.self();}
+        public Builder rootsReplace(IBlockPosQuery a) {this.replace = a; return this.self();}
+        public Builder rootsReplace(String a) throws BlockQueryParseException {this.replace = BlockQuery.parseQueryString(a); return this.self();}
+        public Builder rootsReplace(Block a) {this.replace = new BlockQueryBlock(a); return this.self();}
+        public Builder rootsReplace(IBlockState a) {this.replace = new BlockQueryState(a); return this.self();}
+        
+        public Builder()
+        {
+            // defaults
+            this.amountPerChunk = 1.0F;
+            this.placeOn = BlockQueries.fertile;
+            this.replace = BlockQueries.airOrLeaves;
+            this.rootsReplace = BlockQueries.rootsCanDigThrough;
+            this.log = Blocks.log.getDefaultState();
+            this.leaves = Blocks.leaves.getDefaultState();
+            this.vine = null;
+            this.minHeight = 8;
+            this.maxHeight = 18;
+            this.minLeavesRadius = 2;
+            this.leavesGradient = 4;
+            this.vineAttempts = 10;
+            this.maxVineLength = 20;
+        }
 
         @Override
         public GeneratorBayouTree create()
         {
-            return new GeneratorBayouTree(this.amountPerChunk, this.minHeight, this.maxHeight, this.minLeavesRadius, this.leavesGradient, this.vineAttempts, this.maxVineLength, this.placeOn, this.replace, this.rootsReplace, this.log, this.leaves, this.vine);
+            return new GeneratorBayouTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.minHeight, this.maxHeight, this.minLeavesRadius, this.leavesGradient, this.vineAttempts, this.maxVineLength, this.rootsReplace);
         }
     }
     
 
-    private int minHeight;
-    private int maxHeight;
     private int minLeavesRadius;
     private int leavesGradient;
     private int vineAttempts;
     private int maxVineLength;
-    private IBlockPosQuery placeOn;
-    private IBlockPosQuery replace;
     private IBlockPosQuery rootsReplace;
-    private IBlockState log;
-    private IBlockState leaves;
-    private IBlockState vine;
     
-    public GeneratorBayouTree(float amountPerChunk, int minHeight, int maxHeight, int minLeavesRadius, int leavesGradient, int vineAttempts, int maxVineLength, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockPosQuery rootsReplace, IBlockState log, IBlockState leaves, IBlockState vine)
+    public GeneratorBayouTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, int minHeight, int maxHeight, int minLeavesRadius, int leavesGradient, int vineAttempts, int maxVineLength, IBlockPosQuery rootsReplace)
     {
-        super(amountPerChunk);
-        
-        this.minHeight = minHeight;
-        this.maxHeight = maxHeight;
+        super(amountPerChunk, placeOn, replace, log, leaves, vine, minHeight, maxHeight);
         this.minLeavesRadius = minLeavesRadius;
         this.leavesGradient = leavesGradient;
         this.vineAttempts = vineAttempts;
         this.maxVineLength = maxVineLength;
-        this.placeOn = placeOn;
-        this.replace = replace;
         this.rootsReplace = rootsReplace;
-        this.log = log;
-        this.leaves = leaves;
-        this.vine = vine;
     }
     
     @Override
     public BlockPos getScatterY(World world, Random random, int x, int z)
     {
-        // always at world surface
+        // always at ground (sometimes underwater)
         return GeneratorUtils.ScatterYMethod.AT_GROUND.getBlockPos(world, random, x, z);
-    }
-    
-    
-    public boolean setLeaves(World world, BlockPos pos)
-    {
-        if (this.replace.matches(world, pos))
-        {
-            world.setBlockState(pos, this.leaves, 2);
-            return true;
-        }
-        return false;
-    }
-    
-    public boolean setLog(World world, BlockPos pos)
-    {
-        if (this.replace.matches(world, pos))
-        {
-            world.setBlockState(pos, this.log, 2);
-            return true;
-        }
-        return false;
     }
     
     public boolean setRoot(World world, BlockPos pos)
@@ -184,20 +101,6 @@ public class GeneratorBayouTree extends BOPGeneratorBase
             return true;
         }
         return false;
-    }
-    
-    public boolean setVine(World world, Random rand, BlockPos pos, EnumFacing side, int length)
-    {
-        IBlockState vineState = this.vine.withProperty(BlockVine.NORTH, Boolean.valueOf(side == EnumFacing.NORTH)).withProperty(BlockVine.EAST, Boolean.valueOf(side == EnumFacing.EAST)).withProperty(BlockVine.SOUTH, Boolean.valueOf(side == EnumFacing.SOUTH)).withProperty(BlockVine.WEST, Boolean.valueOf(side == EnumFacing.WEST));
-        boolean setOne = false;
-        while (this.replace.matches(world, pos) && length > 0 && rand.nextInt(12) > 0)
-        {
-            world.setBlockState(pos, vineState, 2);
-            setOne = true;
-            length--;
-            pos = pos.down();
-        }
-        return setOne;
     }
     
     public boolean checkRootViable(World world, BlockPos pos, int rootHeight, EnumFacing direction)

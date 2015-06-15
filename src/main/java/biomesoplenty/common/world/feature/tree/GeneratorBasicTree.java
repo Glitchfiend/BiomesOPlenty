@@ -11,11 +11,6 @@ package biomesoplenty.common.world.feature.tree;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockNewLeaf;
-import net.minecraft.block.BlockNewLog;
-import net.minecraft.block.BlockOldLeaf;
-import net.minecraft.block.BlockOldLog;
-import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.block.BlockVine;
 import net.minecraft.block.material.Material;
@@ -27,92 +22,44 @@ import net.minecraft.world.World;
 
 import org.apache.commons.lang3.tuple.Pair;
 
-import biomesoplenty.api.biome.generation.BOPGeneratorBase;
-import biomesoplenty.common.block.BlockBOPLeaves;
-import biomesoplenty.common.block.BlockBOPLog;
-import biomesoplenty.common.enums.BOPTrees;
-import biomesoplenty.common.enums.BOPWoods;
+import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.util.biome.GeneratorUtils;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
+import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
-public class GeneratorBasicTree extends BOPGeneratorBase
+public class GeneratorBasicTree extends GeneratorTreeBase
 {
     
-    public static class Builder implements IGeneratorBuilder<GeneratorBasicTree>
-    {
-        protected float amountPerChunk = 1.0F;
-        protected boolean updateNeighbours = false;
-        protected int minHeight = 4;
-        protected int maxHeight = 7;
-        protected IBlockState log = Blocks.log.getDefaultState();
-        protected IBlockState leaves = Blocks.leaves.getDefaultState();
-        protected IBlockState vine = null;
-        
-        public Builder amountPerChunk(float a) {this.amountPerChunk = a; return this;}
-        public Builder updateNeighbours(boolean a) {this.updateNeighbours = a; return this;}
-        public Builder minHeight(int a) {this.minHeight = a; return this;}
-        public Builder maxHeight(int a) {this.maxHeight = a; return this;}
-        public Builder log(IBlockState a) {this.log = a; return this;}
-        public Builder log(BOPWoods a) {this.log = BlockBOPLog.paging.getVariantState(a); return this;}
-        public Builder log(BlockPlanks.EnumType a)
+    // TODO: update neighbours in builder?
+    public static class Builder extends GeneratorTreeBase.InnerBuilder<Builder, GeneratorBasicTree> implements IGeneratorBuilder<GeneratorBasicTree>
+    {        
+        public Builder()
         {
-            if (a.getMetadata() < 4)
-            {
-                this.log = Blocks.log.getDefaultState().withProperty(BlockOldLog.VARIANT, a);
-            } else {
-                this.log = Blocks.log2.getDefaultState().withProperty(BlockNewLog.VARIANT, a);
-            }
-            return this;
+            // defaults
+            this.amountPerChunk = 1.0F;
+            this.placeOn = BlockQueries.anything;
+            this.replace = new BlockQueryMaterial(Material.air);
+            this.log = Blocks.log.getDefaultState();
+            this.leaves = Blocks.leaves.getDefaultState();
+            this.vine = null;
+            this.minHeight = 4;
+            this.maxHeight = 7;
         }
-        public Builder leaves(IBlockState a) {this.leaves = a; return this;}
-        public Builder leaves(BOPTrees a) {this.leaves = BlockBOPLeaves.paging.getVariantState(a); return this;}
-        public Builder leaves(BlockPlanks.EnumType a)
-        {
-            if (a.getMetadata() < 4)
-            {
-                this.leaves = Blocks.leaves.getDefaultState().withProperty(BlockOldLeaf.VARIANT, a);
-            } else {
-                this.leaves = Blocks.leaves2.getDefaultState().withProperty(BlockNewLeaf.VARIANT, a);
-            }
-            return this;
-        }
-
-        public Builder vine(IBlockState a) {this.vine = a; return this;}
 
         @Override
         public GeneratorBasicTree create()
         {
-            return new GeneratorBasicTree(this.amountPerChunk, this.updateNeighbours, this.minHeight, this.maxHeight, this.log, this.leaves, this.vine);
+            return new GeneratorBasicTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.minHeight, this.maxHeight, false);
         }
     }
     
-    
     private boolean updateNeighbours;
-    private int minHeight;
-    private int maxHeight;
-    private IBlockState log;
-    private IBlockState leaves;
-    private IBlockState vine;
     
-    public GeneratorBasicTree(float amountPerChunk, boolean updateNeighbours, int minHeight, int maxHeight, IBlockState log, IBlockState leaves, IBlockState vine)
+    public GeneratorBasicTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, int minHeight, int maxHeight, boolean updateNeighbours)
     {
-        super(amountPerChunk);
+        super(amountPerChunk, placeOn, replace, log, leaves, vine, minHeight, maxHeight);
         this.updateNeighbours = updateNeighbours;
-        
-        Pair<Integer, Integer> heights = GeneratorUtils.validateMinMaxHeight(minHeight, maxHeight);
-        this.minHeight = heights.getLeft();
-        this.maxHeight = heights.getRight();
-        
-        this.log = log;
-        this.leaves = leaves;
-        this.vine = vine;
-    }
-    
-    @Override
-    public BlockPos getScatterY(World world, Random random, int x, int z)
-    {
-        // always at world surface
-        return GeneratorUtils.ScatterYMethod.AT_SURFACE.getBlockPos(world, random, x, z);
     }
     
     @Override
@@ -150,7 +97,7 @@ public class GeneratorBasicTree extends BOPGeneratorBase
                     {
                         if (y >= 0 && y < 256)
                         {
-                            if (!GeneratorUtils.canTreeReplace(world, new BlockPos(x, y, z)))
+                            if (!this.replace.matches(world, new BlockPos(x, y, z)))
                             {
                                 hasSpace = false;
                             }
@@ -173,7 +120,7 @@ public class GeneratorBasicTree extends BOPGeneratorBase
                 Block soil = world.getBlockState(soilPos).getBlock();
                 boolean isSoil = soil.canSustainPlant(world, soilPos, EnumFacing.UP, (BlockSapling)Blocks.sapling);
 
-                if (isSoil && pos.getY() < 256 - height - 1)
+                if (this.placeOn.matches(world, soilPos) && isSoil && pos.getY() < 256 - height - 1)
                 {
                     soil.onPlantGrow(world, soilPos, pos);
                     int leavesLayers = 3;
@@ -200,9 +147,7 @@ public class GeneratorBasicTree extends BOPGeneratorBase
                                 if (Math.abs(xDiff) != leavesRadius || Math.abs(zDiff) != leavesRadius || random.nextInt(2) != 0 && currentLayer != 0)
                                 {
                                     BlockPos leavesPos = new BlockPos(x, y, z);
-                                    Block block = world.getBlockState(leavesPos).getBlock();
-
-                                    if (block.isAir(world, leavesPos) || block.isLeaves(world, leavesPos) || block.getMaterial() == Material.vine)
+                                    if (this.replace.matches(world, leavesPos))
                                     {
                                         this.setBlockAndNotifyAdequately(world, leavesPos, this.leaves);
                                     }
@@ -215,31 +160,27 @@ public class GeneratorBasicTree extends BOPGeneratorBase
                     for (int layer = 0; layer < height; ++layer)
                     {
                         BlockPos blockpos2 = pos.up(layer);
-                        Block block2 = world.getBlockState(blockpos2).getBlock();
-
-                        if (block2.isAir(world, blockpos2) || block2.isLeaves(world, blockpos2) || block2.getMaterial() == Material.vine)
+                        if (this.replace.matches(world, blockpos2))
                         {
                             this.setBlockAndNotifyAdequately(world, pos.up(layer), this.log);
 
                             //If vines are enabled, randomly cover the sides of the trunk with vines from the bottom up
                             if (this.vine != null && layer > 0)
                             {
-                                if (random.nextInt(3) > 0 && world.isAirBlock(pos.add(-1, layer, 0)))
+                                if (random.nextInt(3) > 0 && this.replace.matches(world, pos.add(-1, layer, 0)))
                                 {
                                     this.setBlockAndNotifyAdequately(world, pos.add(-1, layer, 0), this.getVineStateForSide(EnumFacing.EAST));
                                 }
 
-                                if (random.nextInt(3) > 0 && world.isAirBlock(pos.add(1, layer, 0)))
+                                if (random.nextInt(3) > 0 && this.replace.matches(world, pos.add(1, layer, 0)))
                                 {
                                     this.setBlockAndNotifyAdequately(world, pos.add(1, layer, 0), this.getVineStateForSide(EnumFacing.WEST));
                                 }
-
-                                if (random.nextInt(3) > 0 && world.isAirBlock(pos.add(0, layer, -1)))
+                                if (random.nextInt(3) > 0 && this.replace.matches(world, pos.add(0, layer, -1)))
                                 {
                                     this.setBlockAndNotifyAdequately(world, pos.add(0, layer, -1), this.getVineStateForSide(EnumFacing.SOUTH));
                                 }
-
-                                if (random.nextInt(3) > 0 && world.isAirBlock(pos.add(0, layer, 1)))
+                                if (random.nextInt(3) > 0 && this.replace.matches(world, pos.add(0, layer, 1)))
                                 {
                                     this.setBlockAndNotifyAdequately(world, pos.add(0, layer, 1), this.getVineStateForSide(EnumFacing.NORTH));
                                 }
@@ -271,22 +212,22 @@ public class GeneratorBasicTree extends BOPGeneratorBase
                                         BlockPos northPos = blockpos3.north();
                                         BlockPos southPos = blockpos3.south();
 
-                                        if (random.nextInt(4) == 0 && world.getBlockState(westPos).getBlock().isAir(world, westPos))
+                                        if (random.nextInt(4) == 0 && this.replace.matches(world, westPos))
                                         {
                                             this.extendVines(world, westPos, EnumFacing.EAST);
                                         }
 
-                                        if (random.nextInt(4) == 0 && world.getBlockState(eastPos).getBlock().isAir(world, eastPos))
+                                        if (random.nextInt(4) == 0 && this.replace.matches(world, eastPos))
                                         {
                                             this.extendVines(world, eastPos, EnumFacing.WEST);
                                         }
 
-                                        if (random.nextInt(4) == 0 && world.getBlockState(northPos).getBlock().isAir(world, northPos))
+                                        if (random.nextInt(4) == 0 && this.replace.matches(world, northPos))
                                         {
                                             this.extendVines(world, northPos, EnumFacing.SOUTH);
                                         }
 
-                                        if (random.nextInt(4) == 0 && world.getBlockState(southPos).getBlock().isAir(world, southPos))
+                                        if (random.nextInt(4) == 0 && this.replace.matches(world, southPos))
                                         {
                                             this.extendVines(world, southPos, EnumFacing.NORTH);
                                         }
@@ -323,7 +264,7 @@ public class GeneratorBasicTree extends BOPGeneratorBase
         int length = 4;
 
         //Extend vine downwards for a maximum of 4 blocks
-        for (pos = pos.down(); world.getBlockState(pos).getBlock().isAir(world, pos) && length > 0; length--)
+        for (pos = pos.down(); this.replace.matches(world, pos) && length > 0; length--)
         {
             this.setBlockAndNotifyAdequately(world, pos, vineState);
             pos = pos.down();
