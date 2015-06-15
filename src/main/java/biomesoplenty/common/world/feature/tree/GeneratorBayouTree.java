@@ -53,7 +53,7 @@ public class GeneratorBayouTree extends GeneratorTreeBase
             this.rootsReplace = BlockQueries.rootsCanDigThrough;
             this.log = Blocks.log.getDefaultState();
             this.leaves = Blocks.leaves.getDefaultState();
-            this.vine = null;
+            this.vine = Blocks.vine.getDefaultState();
             this.minHeight = 8;
             this.maxHeight = 18;
             this.minLeavesRadius = 2;
@@ -233,8 +233,11 @@ public class GeneratorBayouTree extends GeneratorTreeBase
         this.generateTop(world, random, pos, topHeight);
         
         // Add vines
-        int maxLeavesRadius = this.minLeavesRadius + topHeight / this.leavesGradient;
-        this.addVines(world, random, startPos, height, maxLeavesRadius, this.vineAttempts);
+        if (this.vine != null)
+        {
+            int maxLeavesRadius = this.minLeavesRadius + topHeight / this.leavesGradient;
+            this.addVines(world, random, startPos, height, maxLeavesRadius, this.vineAttempts);
+        }
 
         return true;
     }

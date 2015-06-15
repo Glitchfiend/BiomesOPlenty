@@ -93,8 +93,8 @@ public class BlockQuery
         public CompoundQueryBuilder withAltitudeBetween(int a, int b) {return this.add(new BlockPosQueryAltitude(a,b));}
         public CompoundQueryBuilder byWater() {return this.add(BlockQueries.hasWater);}
         public CompoundQueryBuilder withAirAbove() {return this.add(BlockQueries.airAbove);}
-        public CompoundQueryBuilder withLightAtLeast(int a) {return this.add(new BlockPosQueryLightAtLeast(a));}
-        public CompoundQueryBuilder withLightNoMoreThan(int a) {return this.add(new BlockPosQueryLightNoMoreThan(a));}
+        public CompoundQueryBuilder withLightAboveAtLeast(int a) {return this.add(new BlockPosQueryLightAboveAtLeast(a));}
+        public CompoundQueryBuilder withLightAboveNoMoreThan(int a) {return this.add(new BlockPosQueryLightAboveNoMoreThan(a));}
         public CompoundQueryBuilder sustainsPlant(EnumPlantType plantType) {return this.add(new BlockPosQuerySustainsPlantType(plantType));}
 
         
@@ -241,12 +241,12 @@ public class BlockQuery
         }
     }
     
-    // Match block positions based on light level
-    public static class BlockPosQueryLightAtLeast implements IBlockPosQuery
+    // Match block positions based on light level (of block above)
+    public static class BlockPosQueryLightAboveAtLeast implements IBlockPosQuery
     {
         public int level;
         
-        public BlockPosQueryLightAtLeast(int level)
+        public BlockPosQueryLightAboveAtLeast(int level)
         {
             this.level = level;
         }
@@ -254,14 +254,14 @@ public class BlockQuery
         @Override
         public boolean matches(World world, BlockPos pos)
         {
-            return world.getLight(pos) >= this.level || world.canSeeSky(pos);
+            return world.getLight(pos.up()) >= this.level || world.canSeeSky(pos.up());
         }
     }
-    public static class BlockPosQueryLightNoMoreThan implements IBlockPosQuery
+    public static class BlockPosQueryLightAboveNoMoreThan implements IBlockPosQuery
     {
         public int level;
         
-        public BlockPosQueryLightNoMoreThan(int level)
+        public BlockPosQueryLightAboveNoMoreThan(int level)
         {
             this.level = level;
         }
@@ -269,7 +269,7 @@ public class BlockQuery
         @Override
         public boolean matches(World world, BlockPos pos)
         {
-            return world.getLight(pos) <= this.level;
+            return world.getLight(pos.up()) <= this.level;
         }
     }
     

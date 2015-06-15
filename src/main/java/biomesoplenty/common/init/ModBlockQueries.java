@@ -68,11 +68,11 @@ public class ModBlockQueries
         sustainsNether = BlockQuery.buildAnd().sustainsPlant(EnumPlantType.Nether).create();
         endish = BlockQuery.buildOr().blocks(Blocks.end_stone).states(BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SPECTRAL_MOSS)).create();
         hellish = BlockQuery.buildOr().blocks(Blocks.netherrack, BOPBlocks.flesh).states(BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.OVERGROWN_NETHERRACK)).create();
-        litBeach = BlockQuery.buildAnd().sustainsPlant(EnumPlantType.Beach).withLightAtLeast(8).create();
+        litBeach = BlockQuery.buildAnd().sustainsPlant(EnumPlantType.Beach).withLightAboveAtLeast(8).create();
         litFertileWaterside = BlockQuery.buildAnd().sustainsPlant(EnumPlantType.Plains).byWater().create();
-        litFertile = BlockQuery.buildAnd().sustainsPlant(EnumPlantType.Plains).withLightAtLeast(8).create();
-        litSand = BlockQuery.buildAnd().materials(Material.sand).withLightAtLeast(8).create();
-        litDry = BlockQuery.buildAnd().sustainsPlant(EnumPlantType.Desert).withLightAtLeast(8).create();
+        litFertile = BlockQuery.buildAnd().sustainsPlant(EnumPlantType.Plains).withLightAboveAtLeast(8).create();
+        litSand = BlockQuery.buildAnd().materials(Material.sand).withLightAboveAtLeast(8).create();
+        litDry = BlockQuery.buildAnd().sustainsPlant(EnumPlantType.Desert).withLightAboveAtLeast(8).create();
         litFertileOrDry = BlockQuery.buildOr().add(litFertile).add(litDry).create();
         spectralMoss = new BlockQueryState(BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SPECTRAL_MOSS));
         underwater = new BlockQueryMaterial(Material.water);
@@ -82,7 +82,7 @@ public class ModBlockQueries
             @Override public boolean matches(World world, BlockPos pos) {
                 return world.getBlockState(pos).getBlock() == Blocks.water && world.getBlockState(pos.down()).getBlock() != Blocks.water;
             }
-        }).withLightAtLeast(8).create();
+        }).withLightAboveAtLeast(8).create();
         rootsCanDigThrough = new BlockQueryMaterial(Material.air, Material.water, Material.ground, Material.grass, Material.sand, Material.clay, Material.plants, Material.leaves);
     
     }
