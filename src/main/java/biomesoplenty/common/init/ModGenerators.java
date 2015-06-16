@@ -27,7 +27,7 @@ public class ModGenerators
         registerGenerator("pine_tree", GeneratorPineTree.class, new GeneratorPineTree.Builder());
         registerGenerator("bulb_tree", GeneratorBulbTree.class, new GeneratorBulbTree.Builder());
         registerGenerator("bayou_tree", GeneratorBayouTree.class, new GeneratorBayouTree.Builder());
-        registerGenerator("cypress_tree", GeneratorCypressTree.class, new GeneratorCypressTree.Builder());
+        registerGenerator("taiga_tree", GeneratorTaigaTree.class, new GeneratorTaigaTree.Builder());
         registerGenerator("flora", GeneratorFlora.class, new GeneratorFlora.Builder());
         registerGenerator("double_flora", GeneratorDoubleFlora.class, new GeneratorDoubleFlora.Builder());
         registerGenerator("grass", GeneratorGrass.class, new GeneratorGrass.Builder());

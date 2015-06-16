@@ -13,15 +13,18 @@ import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
+import net.minecraft.block.BlockOldLeaf;
+import net.minecraft.block.BlockOldLog;
+import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
-public class GeneratorCypressTree extends GeneratorTreeBase
+public class GeneratorTaigaTree extends GeneratorTreeBase
 {
-    
-    public static class Builder extends GeneratorTreeBase.InnerBuilder<Builder, GeneratorCypressTree> implements IGeneratorBuilder<GeneratorCypressTree>
+    // TODO: fruit
+    public static class Builder extends GeneratorTreeBase.InnerBuilder<Builder, GeneratorTaigaTree> implements IGeneratorBuilder<GeneratorTaigaTree>
     {
         public Builder()
         {
@@ -30,24 +33,22 @@ public class GeneratorCypressTree extends GeneratorTreeBase
             this.maxHeight = 12;
             this.placeOn = BlockQueries.fertile;
             this.replace = BlockQueries.airOrLeaves;
-            this.log = Blocks.log.getDefaultState();
-            this.leaves = Blocks.leaves.getDefaultState();
+            this.log = Blocks.log.getDefaultState().withProperty(BlockOldLog.VARIANT, BlockPlanks.EnumType.SPRUCE);
+            this.leaves = Blocks.leaves.getDefaultState().withProperty(BlockOldLeaf.VARIANT, BlockPlanks.EnumType.SPRUCE);
             this.vine = Blocks.vine.getDefaultState();  
         }
 
         @Override
-        public GeneratorCypressTree create() {
-            return new GeneratorCypressTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.minHeight, this.maxHeight);
+        public GeneratorTaigaTree create() {
+            return new GeneratorTaigaTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.minHeight, this.maxHeight);
         }
         
-    }
+    }    
     
-    
-    public GeneratorCypressTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, int minHeight, int maxHeight)
+    public GeneratorTaigaTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, int minHeight, int maxHeight)
     {
         super(amountPerChunk, placeOn, replace, log, leaves, vine, minHeight, maxHeight);
     }
-    
     
     public boolean checkSpace(World world, BlockPos pos, int baseHeight, int height)
     {
@@ -72,40 +73,20 @@ public class GeneratorCypressTree extends GeneratorTreeBase
         return true;     
     }
     
-    // generates a layer of leafs, starting with radius minRadius and increasing to maxRadius, returns the next blockpos
+    // generates a layer of leafs
     public void generateLeafLayer(World world, Random rand, BlockPos pos, int radius)
     {
         for (int x = -radius; x <= radius; x++)
         {
             for (int z = -radius; z <= radius; z++)
             {
-                this.setLeaves(world, pos.add(x, 0, z));
+                // skip corners
+                if (Math.abs(x) < radius || Math.abs(z) < radius || radius == 0)
+                {
+                    this.setLeaves(world, pos.add(x, 0, z));
+                }
             }
         }
-        // add the trunk in the middle
-        this.setLog(world, pos.add(0, 0, 0));
-    }
-    
-    
-    // generate the top of the tree (3 blocks)
-    public void generateTop(World world, BlockPos pos)
-    {
-        for(int x = -1; x <= 1; x++)
-        {
-            for(int z = -1; z <= 1; z++)
-            {
-                this.setLeaves(world, pos.add(x, 0, z));
-            }
-        }
-        this.setLog(world, pos);
-        
-        pos = pos.up();
-        this.setLeaves(world, pos);
-        this.setLeaves(world, pos.north());
-        this.setLeaves(world, pos.east());
-        this.setLeaves(world, pos.south());
-        this.setLeaves(world, pos.west());
-        this.setLeaves(world, pos.up());
     }
     
     
@@ -124,52 +105,48 @@ public class GeneratorCypressTree extends GeneratorTreeBase
         
         // Choose heights
         int height = GeneratorUtils.nextIntBetween(random, this.minHeight, this.maxHeight);
-        int topHeight = 3;
-        int baseHeight = 1 + random.nextInt(3);
-        int leavesHeight = height - topHeight - baseHeight;
-        if (leavesHeight < 0) {return false;}
-        int leavesRadius = 1;
+        int baseHeight = GeneratorUtils.nextIntBetween(random, height / 6, height / 3);
+        int leavesHeight = height - baseHeight;
+        if (leavesHeight < 3) {return false;}
+        int leavesMaxRadius = 2 + random.nextInt(2);
         
-        // Start on the space above ground
-        BlockPos pos = startPos.up();
-        
-        if (!this.checkSpace(world, pos, baseHeight, height))
+        if (!this.checkSpace(world, startPos.up(), baseHeight, height))
         {
             // Abandon if there isn't enough room
             return false;
         }
-
-        // Generate bottom of tree (trunk only)
-        for(int i = 0; i < baseHeight; i++)
-        {
-            this.setLog(world, pos);
-            pos = pos.up();
-        }
         
-        // Generate middle of tree
-        int minRadius = 0;
+        // Start at the top of the tree
+        BlockPos pos = startPos.up(height);
+        
+        // Add layers of leaves
+        int localMinRadius = 0;
         int radius = random.nextInt(2);
-        int sectionRadius = 1;
-        for (int y = 0; y < leavesHeight; y++)
+        int localMaxRadius = 1;
+        for (int i = 0; i < leavesHeight; i++)
         {
             this.generateLeafLayer(world, random, pos, radius);
-            if (radius >= sectionRadius)
+            if (radius < localMaxRadius)
             {
-                radius = minRadius;
-                if (minRadius == 0) {minRadius = 1;}
-                if (sectionRadius < leavesRadius) {sectionRadius++;}
+                radius++; 
             } else {
-                radius++;
+                radius = localMinRadius;
+                if (localMinRadius == 0) {localMinRadius = 1;}
+                if (localMaxRadius < leavesMaxRadius) {localMaxRadius++;}
             }
-            pos = pos.up();
+            pos = pos.down();
         }
         
-        // Generate top of tree
-        this.generateTop(world, pos);
+        // Go back to the top of the tree and generate the trunk
+        pos = startPos.up(height - 1);
+        for(int i = 0; i < height - 1; i++)
+        {
+            this.setLog(world, pos);
+            pos = pos.down();
+        }
         
         return true;
     }
-    
     
     
     @Override
