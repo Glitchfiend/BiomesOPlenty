@@ -13,6 +13,10 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockFlower;
+import net.minecraft.block.BlockLeaves;
+import net.minecraft.block.BlockNewLeaf;
+import net.minecraft.block.BlockOldLeaf;
+import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -22,12 +26,14 @@ import net.minecraft.world.World;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.block.BlockBOPFlower;
+import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.block.BlockBOPDecoration;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery.*;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
@@ -50,6 +56,24 @@ public class GeneratorFlora extends GeneratorReplacing
             return this.self();
         }
         public T with(BlockTallGrass.EnumType a) {this.with = Blocks.tallgrass.getDefaultState().withProperty(BlockTallGrass.TYPE, a); return this.self();}
+        public T withNonDecayingLeaf(BlockPlanks.EnumType a)
+        {
+            IBlockState leafState;
+            if (a.getMetadata() < 4)
+            {
+                leafState = Blocks.leaves.getDefaultState().withProperty(BlockOldLeaf.VARIANT, a);
+            } else {
+                leafState = Blocks.leaves2.getDefaultState().withProperty(BlockNewLeaf.VARIANT, a);
+            }
+            this.with = leafState.withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)).withProperty(BlockLeaves.DECAYABLE, Boolean.valueOf(false));
+            return this.self();
+        }
+        public T withNonDecayingLeaf(BOPTrees a)
+        {
+            this.with = BlockBOPLeaves.paging.getVariantState(a).withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)).withProperty(BlockLeaves.DECAYABLE, Boolean.valueOf(false));
+            return this.self();
+        }
+
         public T generationAttempts(int a) {this.generationAttempts = a; return this.self();}
     
     }

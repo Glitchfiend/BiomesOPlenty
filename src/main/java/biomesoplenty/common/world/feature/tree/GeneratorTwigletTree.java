@@ -23,9 +23,11 @@ public class GeneratorTwigletTree extends GeneratorTreeBase
     
     public static class Builder extends GeneratorTreeBase.InnerBuilder<Builder, GeneratorTwigletTree> implements IGeneratorBuilder<GeneratorTwigletTree>
     {
-        protected float leafChance;
+        protected float leafChanceEven;
+        protected float leafChanceOdd;
         
-        public Builder leafChance(float a) {this.leafChance = a; return this.self();}
+        public Builder leafChance(float a) {this.leafChanceEven = a; this.leafChanceOdd = a; return this.self();}
+        public Builder leafChance(float a, float b) {this.leafChanceEven = a; this.leafChanceOdd = b; return this.self();}
         
         public Builder()
         {
@@ -37,21 +39,24 @@ public class GeneratorTwigletTree extends GeneratorTreeBase
             this.log = Blocks.log.getDefaultState();
             this.leaves = Blocks.leaves.getDefaultState();
             this.vine = null;
-            this.leafChance = 0.9F;
-        }        
+            this.leafChanceEven = 0.2F;
+            this.leafChanceOdd = 0.9F;
+        }
 
         @Override
         public GeneratorTwigletTree create() {
-            return new GeneratorTwigletTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.minHeight, this.maxHeight, this.leafChance);
+            return new GeneratorTwigletTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.minHeight, this.maxHeight, this.leafChanceEven, this.leafChanceOdd);
         }
     }
     
-    private float leafChance;
+    private float leafChanceEven;
+    private float leafChanceOdd;
     
-    public GeneratorTwigletTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, int minHeight, int maxHeight, float leafChance)
+    public GeneratorTwigletTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, int minHeight, int maxHeight, float leafChanceEven, float leafChanceOdd)
     {
         super(amountPerChunk, placeOn, replace, log, leaves, vine, minHeight, maxHeight);
-        this.leafChance = leafChance;
+        this.leafChanceEven = leafChanceEven;
+        this.leafChanceOdd = leafChanceOdd;
     }
     
 
@@ -76,6 +81,7 @@ public class GeneratorTwigletTree extends GeneratorTreeBase
         BlockPos pos = startPos.up();
         
         // add log and leaves on each level
+        float leafChance;
         for (int y = 0; y < height; y++)
         {
             if (!this.setLog(world, pos.up(y)))
@@ -83,11 +89,12 @@ public class GeneratorTwigletTree extends GeneratorTreeBase
                 // abandon if the log can't grow
                 return true;
             }
+            leafChance = ((height - y) % 2 == 0) ? this.leafChanceEven : this.leafChanceOdd;
             if (y <= baseHeight) {continue;} // no leaves below base height
-            if (random.nextFloat() < this.leafChance) {this.setLeaves(world, pos.add(1, y, 0));}
-            if (random.nextFloat() < this.leafChance) {this.setLeaves(world, pos.add(-1, y, 0));}
-            if (random.nextFloat() < this.leafChance) {this.setLeaves(world, pos.add(0, y, 1));}
-            if (random.nextFloat() < this.leafChance) {this.setLeaves(world, pos.add(0, y, -1));}
+            if (random.nextFloat() < leafChance) {this.setLeaves(world, pos.add(1, y, 0));}
+            if (random.nextFloat() < leafChance) {this.setLeaves(world, pos.add(-1, y, 0));}
+            if (random.nextFloat() < leafChance) {this.setLeaves(world, pos.add(0, y, 1));}
+            if (random.nextFloat() < leafChance) {this.setLeaves(world, pos.add(0, y, -1));}
         }
         // finish with leaves on top
         this.setLeaves(world, pos.add(0, height, 0));
@@ -101,7 +108,7 @@ public class GeneratorTwigletTree extends GeneratorTreeBase
         this.amountPerChunk = conf.getFloat("amountPerChunk", this.amountPerChunk);
         this.minHeight = conf.getInt("minHeight", this.minHeight);
         this.maxHeight = conf.getInt("maxHeight", this.maxHeight);
-        this.leafChance = conf.getFloat("leafChance", this.leafChance);
+        this.leafChanceEven = conf.getFloat("leafChance", this.leafChanceEven);
         this.log = conf.getBlockState("logState", this.log);
         this.leaves = conf.getBlockState("leavesState", this.leaves);
     }

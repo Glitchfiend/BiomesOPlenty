@@ -17,6 +17,7 @@ import net.minecraft.block.BlockOldLeaf;
 import net.minecraft.block.BlockOldLog;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockVine;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
@@ -30,6 +31,7 @@ import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryBlock;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryParseException;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryState;
 import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
@@ -69,11 +71,13 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
         public T placeOn(String a) throws BlockQueryParseException {this.placeOn = BlockQuery.parseQueryString(a); return this.self();}
         public T placeOn(Block a) {this.placeOn = new BlockQueryBlock(a); return this.self();}
         public T placeOn(IBlockState a) {this.placeOn = new BlockQueryState(a); return this.self();}
+        public T placeOn(Material... a) {this.placeOn = new BlockQueryMaterial(a); return this.self();}
     
         public T replace(IBlockPosQuery a) {this.replace = a; return this.self();}
         public T replace(String a) throws BlockQueryParseException {this.replace = BlockQuery.parseQueryString(a); return this.self();}
         public T replace(Block a) {this.replace = new BlockQueryBlock(a); return this.self();}
         public T replace(IBlockState a) {this.replace = new BlockQueryState(a); return this.self();}
+        public T replace(Material... a) {this.replace = new BlockQueryMaterial(a); return this.self();}
 
         public T log(IBlockState a) {this.log = a; return this.self();}
         public T log(BOPWoods a) {this.log = BlockBOPLog.paging.getVariantState(a); return this.self();}

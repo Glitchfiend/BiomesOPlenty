@@ -11,6 +11,7 @@ package biomesoplenty.common.world.feature;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
@@ -20,6 +21,7 @@ import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryBlock;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryParseException;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryState;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
 import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 
 public abstract class GeneratorReplacing extends BOPGeneratorBase
@@ -48,11 +50,13 @@ public abstract class GeneratorReplacing extends BOPGeneratorBase
         public T placeOn(String a) throws BlockQueryParseException {this.placeOn = BlockQuery.parseQueryString(a); return this.self();}
         public T placeOn(Block a) {this.placeOn = new BlockQueryBlock(a); return this.self();}
         public T placeOn(IBlockState a) {this.placeOn = new BlockQueryState(a); return this.self();}
+        public T placeOn(Material... a) {this.placeOn = new BlockQueryMaterial(a); return this.self();}
     
         public T replace(IBlockPosQuery a) {this.replace = a; return this.self();}
         public T replace(String a) throws BlockQueryParseException {this.replace = BlockQuery.parseQueryString(a); return this.self();}
         public T replace(Block a) {this.replace = new BlockQueryBlock(a); return this.self();}
         public T replace(IBlockState a) {this.replace = new BlockQueryState(a); return this.self();}
+        public T replace(Material... a) {this.replace = new BlockQueryMaterial(a); return this.self();}
         
         public T with(IBlockState a) {this.with = a; return this.self();}
         
