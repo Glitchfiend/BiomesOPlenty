@@ -34,6 +34,10 @@ public class GeneratorBasicTree extends GeneratorTreeBase
     // TODO: update neighbours in builder?
     public static class Builder extends GeneratorTreeBase.InnerBuilder<Builder, GeneratorBasicTree> implements IGeneratorBuilder<GeneratorBasicTree>
     {        
+        protected int leafLayers;
+        
+        public Builder leafLayers(int a) {this.leafLayers = a; return this.self();}
+        
         public Builder()
         {
             // defaults
@@ -45,21 +49,24 @@ public class GeneratorBasicTree extends GeneratorTreeBase
             this.vine = null;
             this.minHeight = 4;
             this.maxHeight = 7;
+            this.leafLayers = 4;
         }
 
         @Override
         public GeneratorBasicTree create()
         {
-            return new GeneratorBasicTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.minHeight, this.maxHeight, false);
+            return new GeneratorBasicTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.minHeight, this.maxHeight, false, this.leafLayers);
         }
     }
     
     private boolean updateNeighbours;
+    private int leafLayers;
     
-    public GeneratorBasicTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, int minHeight, int maxHeight, boolean updateNeighbours)
+    public GeneratorBasicTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, int minHeight, int maxHeight, boolean updateNeighbours, int leafLayers)
     {
         super(amountPerChunk, placeOn, replace, log, leaves, vine, minHeight, maxHeight);
         this.updateNeighbours = updateNeighbours;
+        this.leafLayers = leafLayers;
     }
     
     @Override
@@ -123,7 +130,7 @@ public class GeneratorBasicTree extends GeneratorTreeBase
                 if (this.placeOn.matches(world, soilPos) && isSoil && pos.getY() < 256 - height - 1)
                 {
                     soil.onPlantGrow(world, soilPos, pos);
-                    int leavesLayers = 3;
+                    int leavesLayers = (this.leafLayers - 1);
                     
                     //Generates leaves at the top of the tree, going one block above the top log (<= rather than <)
                     for (int y = pos.getY() + height - leavesLayers; y <= pos.getY() + height; y++)

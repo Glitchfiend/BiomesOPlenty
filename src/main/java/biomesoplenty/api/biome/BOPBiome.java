@@ -52,6 +52,7 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         this.theBiomeDecorator.sandPerChunk = -999;
         this.theBiomeDecorator.sandPerChunk2 = -999;
         this.theBiomeDecorator.clayPerChunk = -999;
+        this.theBiomeDecorator.generateLakes = false;
         
         this.setOctaveWeights(1, 1, 1, 1, 1, 1);
     }
