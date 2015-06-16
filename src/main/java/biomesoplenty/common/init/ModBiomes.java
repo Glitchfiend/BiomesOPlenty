@@ -147,6 +147,7 @@ public class ModBiomes
         bog = registerBOPBiome(new BiomeGenBog(), "Bog");
         boreal_forest = registerBOPBiome(new BiomeGenBorealForest(), "Boreal Forest");
         brushland = registerBOPBiome(new BiomeGenBrushland(), "Brushland");
+        canyon = registerBOPBiome(new BiomeGenCanyon(BiomeGenCanyon.CanyonType.PLATEAU), "Canyon");
         crag = registerBOPBiome(new BiomeGenCrag(), "Crag");
         chaparral = registerBOPBiome(new BiomeGenChaparral(), "Chaparral");
         denseForest = registerBOPBiome(new BiomeGenDenseForest(), "Dense Forest");
@@ -170,10 +171,12 @@ public class ModBiomes
         // edge-biomes, sub-biomes and mutated-biomes
         
         mountainFoothills = registerBOPBiome(new BiomeGenMountain(BiomeGenMountain.MountainType.FOOTHILLS), "Mountain Foothills");
+        canyonRavine = registerBOPBiome(new BiomeGenCanyon(BiomeGenCanyon.CanyonType.RAVINE), "Canyon Ravine");
         glacier = registerBOPBiome(new BiomeGenGlacier(), "Glacier"); // TODO: implement glacier
         
         setSubBiome(Optional.of(BiomeGenBase.frozenOcean), arctic); // add some arctic regions in frozen oceans        
         setSubBiome(arctic, glacier);
+        setSubBiome(canyon, canyonRavine);
 
     }
     

@@ -22,6 +22,7 @@ public class BOPBiomes
     public static Optional<BiomeGenBase> bog = Optional.absent();
     public static Optional<BiomeGenBase> boreal_forest = Optional.absent();
     public static Optional<BiomeGenBase> brushland = Optional.absent();
+    public static Optional<BiomeGenBase> canyon = Optional.absent();
     public static Optional<BiomeGenBase> crag = Optional.absent();
     public static Optional<BiomeGenBase> chaparral = Optional.absent();
     public static Optional<BiomeGenBase> denseForest = Optional.absent();
@@ -45,4 +46,6 @@ public class BOPBiomes
     // edge-biomes, sub-biomes and mutated-biomes
     public static Optional<BiomeGenBase> glacier = Optional.absent();
     public static Optional<BiomeGenBase> mountainFoothills = Optional.absent();
+    public static Optional<BiomeGenBase> canyonRavine = Optional.absent();
+
 }
