@@ -17,42 +17,48 @@ import biomesoplenty.common.util.BOPReflectionHelper;
 
 public class ModPotions
 {
-    private static int nextId;
     
     public static void init()
-    {
-        nextId = Potion.potionTypes.length;
-        
-        // Need to expand the potions array to hold all our potions
-        // Irritatingly this has to be done before creating the potion instances, so it can't just be done dynamically
-        // ...anyway, increase the number below for every new potion you add
-        int numberOfPotionsToAdd = 2;
-        expandPotionsArray(numberOfPotionsToAdd);
-                
+    {                
         // create the BOP potions
-        paralysis = (new PotionParalysis(getNextId(), new ResourceLocation("paralysis"), true, 16767262)).setPotionName("potion.paralysis");
-        possession = (new PotionPossession(getNextId(), new ResourceLocation("possession"), true, 1280)).setPotionName("potion.possession");        
-        
+        paralysis = (new PotionParalysis(getSparePotionId(), new ResourceLocation("paralysis"), true, 16767262)).setPotionName("potion.paralysis");
+        possession = (new PotionPossession(getSparePotionId(), new ResourceLocation("possession"), true, 1280)).setPotionName("potion.possession");   
     }
-    
-    private static void expandPotionsArray(int numberOfPotionsToAdd)
+
+    // gets the next free potion id
+    // will expand the potions array if necessary
+    // this isn't very efficient, but it only has to run once, right at the start, so clarity and simplicity are more important than speed
+    public static int getSparePotionId()
     {
-        int oldNumOfPotions = Potion.potionTypes.length;
+        // look for a free slot in the Potions array
+        // (note we start counting from 1 - vanilla MC doens't use ID 0, nor will we)
+        int n = Potion.potionTypes.length;
+        for (int i = 1; i < n; i++)
+        {
+            if (Potion.potionTypes[i] == null)
+            {
+                return i;
+            }
+        }
         
-        // create a new potionTypes array, big enough to hold the old potions and the new BOP ones
-        Potion[] potionTypes = new Potion[oldNumOfPotions + numberOfPotionsToAdd];
+        // if there isn't a free slot, we'll expand the array...
         
-        // copy the old potions into the array
-        System.arraycopy(Potion.potionTypes, 0, potionTypes, 0, oldNumOfPotions);
+        // things go wrong if you try and have more than 128 potions
+        if (n >= 128)
+        {
+            throw new RuntimeException("There are not enough spare potion IDs - Biomes O Plenty cannot create potions - you might have to remove some mods");
+        }
+        
+        // create a new potionTypes array - one bigger than the previous, and copy the old potions into it
+        Potion[] expandedPotionTypes = new Potion[n + 1];
+        System.arraycopy(Potion.potionTypes, 0, expandedPotionTypes, 0, n);
         
         // replace Potion.potionTypes with our new expanded array
         // note - need to specify both the obfuscated and de-obfuscated field names so that it works in dev and in the normal game
-        BOPReflectionHelper.setPrivateFinalValue(Potion.class, null, potionTypes, "potionTypes", "field_76425_a");
-    }
-    
-    private static int getNextId()
-    {
-        return nextId++;
+        BOPReflectionHelper.setPrivateFinalValue(Potion.class, null, expandedPotionTypes, "potionTypes", "field_76425_a");
+
+        return n;
+
     }
     
     
