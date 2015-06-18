@@ -24,6 +24,7 @@ import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
+import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.*;
 
 public class BiomeGenMoor extends BOPBiome
@@ -81,6 +82,12 @@ public class BiomeGenMoor extends BOPBiome
         // gem
         this.addGenerator("malachite", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.MALACHITE).create());
         
+    }
+    
+    @Override
+    public void applySettings(BOPWorldSettings settings)
+    {
+        if (!settings.generateBopGems) {this.removeGenerator("malachite");}
     }
     
     @Override

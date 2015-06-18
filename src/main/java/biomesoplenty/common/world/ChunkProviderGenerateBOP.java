@@ -28,7 +28,6 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.chunk.IChunkProvider;
-import net.minecraft.world.gen.ChunkProviderSettings;
 import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.MapGenCaves;
 import net.minecraft.world.gen.MapGenRavine;
@@ -58,7 +57,7 @@ public class ChunkProviderGenerateBOP implements IChunkProvider
     public NoiseGeneratorBOPByte byteNoiseGen;
     private World worldObj;
     private final boolean mapFeaturesEnabled;
-    private ChunkProviderSettings settings;
+    private BOPWorldSettings settings;
     private IBlockState seaBlockState;
     private IBlockState stoneBlockState;
     private MapGenBase caveGenerator;
@@ -79,15 +78,20 @@ public class ChunkProviderGenerateBOP implements IChunkProvider
 
     public ChunkProviderGenerateBOP(World worldIn, long seed, boolean mapFeaturesEnabled, String chunkProviderSettingsString)
     {
+        System.out.println("ChunkProviderGenerateBOP json: "+chunkProviderSettingsString);
         
         this.worldObj = worldIn;
         this.mapFeaturesEnabled = mapFeaturesEnabled;
         this.rand = new Random(seed);
+        
+        this.settings = new BOPWorldSettings();
+        this.settings.fromJson(chunkProviderSettingsString);
+        System.out.println("ChunkProviderGenerateBOP settings: "+this.settings.toJson());
                 
         // set up structure generators (overridable by forge)
         this.caveGenerator = TerrainGen.getModdedMapGen(new MapGenCaves(), CAVE);
         this.strongholdGenerator = (MapGenStronghold)TerrainGen.getModdedMapGen(new MapGenStronghold(), STRONGHOLD);
-        this. villageGenerator = (MapGenVillage)TerrainGen.getModdedMapGen(new MapGenVillage(), VILLAGE);
+        this.villageGenerator = (MapGenVillage)TerrainGen.getModdedMapGen(new MapGenVillage(), VILLAGE);
         this.mineshaftGenerator = (MapGenMineshaft)TerrainGen.getModdedMapGen(new MapGenMineshaft(), MINESHAFT);
         this.scatteredFeatureGenerator = (MapGenScatteredFeature)TerrainGen.getModdedMapGen(new MapGenScatteredFeature(), SCATTERED_FEATURE);
         this.ravineGenerator = TerrainGen.getModdedMapGen(new MapGenRavine(), RAVINE);
@@ -105,11 +109,6 @@ public class ChunkProviderGenerateBOP implements IChunkProvider
         // blockstates for stone and sea blocks
         this.stoneBlockState = Blocks.stone.getDefaultState();
         this.seaBlockState = Blocks.water.getDefaultState();
-        if (chunkProviderSettingsString != null)
-        {
-            this.settings = ChunkProviderSettings.Factory.func_177865_a(chunkProviderSettingsString).func_177864_b();
-            this.seaBlockState = this.settings.useLavaOceans ? Blocks.lava.getDefaultState() : Blocks.water.getDefaultState();
-        }
         
         // store a TerrainSettings object for each biome
         this.biomeTerrainSettings = new HashMap<BiomeGenBase, TerrainSettings>();
@@ -419,10 +418,18 @@ public class ChunkProviderGenerateBOP implements IChunkProvider
     private void populateNoiseArray(int chunkX, int chunkZ)
     {
         
+        // TODO: vanilla biomes are not hilly enough for some reason - must have got the sums a little wrong
+        
         BiomeGenBase[] biomes = this.worldObj.getWorldChunkManager().getBiomesForGeneration(null, chunkX * 4 - 2, chunkZ * 4 - 2, 10, 10);
         
-        float coordinateScale = this.settings.coordinateScale;
-        float heightScale = this.settings.heightScale;        
+        // values from vanilla
+        float coordinateScale = 684.412F;
+        float heightScale = 684.412F;
+        double upperLimitScale = 512.0D;
+        double lowerLimitScale = 512.0D;
+        float mainNoiseScaleX = 80.0F;
+        float mainNoiseScaleY = 160.0F;
+        float mainNoiseScaleZ = 80.0F;
         
         int subchunkX = chunkX * 4;
         int subchunkY = 0;
@@ -432,7 +439,7 @@ public class ChunkProviderGenerateBOP implements IChunkProvider
         this.byteNoiseGen.generateNoise(subchunkX, subchunkZ);
         
         // generate the xyz noise for the chunk
-        this.xyzBalanceNoiseArray = this.xyzBalanceNoiseGen.generateNoiseOctaves(this.xyzBalanceNoiseArray, subchunkX, subchunkY, subchunkZ, 5, 33, 5, (double)(coordinateScale / this.settings.mainNoiseScaleX), (double)(heightScale / this.settings.mainNoiseScaleY), (double)(coordinateScale / this.settings.mainNoiseScaleZ));
+        this.xyzBalanceNoiseArray = this.xyzBalanceNoiseGen.generateNoiseOctaves(this.xyzBalanceNoiseArray, subchunkX, subchunkY, subchunkZ, 5, 33, 5, (double)(coordinateScale / mainNoiseScaleX), (double)(heightScale / mainNoiseScaleY), (double)(coordinateScale / mainNoiseScaleZ));
         this.xyzNoiseArrayA = this.xyzNoiseGenA.generateNoiseOctaves(this.xyzNoiseArrayA, subchunkX, subchunkY, subchunkZ, 5, 33, 5, (double)coordinateScale, (double)heightScale, (double)coordinateScale);
         this.xyzNoiseArrayB = this.xyzNoiseGenB.generateNoiseOctaves(this.xyzNoiseArrayB, subchunkX, subchunkY, subchunkZ, 5, 33, 5, (double)coordinateScale, (double)heightScale, (double)coordinateScale);
 
@@ -450,7 +457,7 @@ public class ChunkProviderGenerateBOP implements IChunkProvider
                 double sidewaysNoiseFactor = settings.sidewaysNoiseAmount * 0.4D * settings.amplitude();
                 
                 // get the scaled xz noise value            
-                double xzNoiseAmplitude = settings.amplitude() - 2.5D * sidewaysNoiseFactor;
+                double xzNoiseAmplitude = settings.amplitude() * this.settings.amplitude - 2.5D * sidewaysNoiseFactor;
                 if (xzNoiseAmplitude < 0) {xzNoiseAmplitude = 0.0D;}
                 double xzNoiseVal = this.byteNoiseGen.getWeightedDouble(xzCounter, settings.octaveWeights) * xzNoiseAmplitude;
                 
@@ -461,8 +468,8 @@ public class ChunkProviderGenerateBOP implements IChunkProvider
                 {
 
                     // calculate the sideways noise value
-                    double xyzNoiseA = this.xyzNoiseArrayA[xyzCounter] / (double)this.settings.lowerLimitScale;
-                    double xyzNoiseB = this.xyzNoiseArrayB[xyzCounter] / (double)this.settings.upperLimitScale;
+                    double xyzNoiseA = this.xyzNoiseArrayA[xyzCounter] / lowerLimitScale;
+                    double xyzNoiseB = this.xyzNoiseArrayB[xyzCounter] / upperLimitScale;
                     double balance = (this.xyzBalanceNoiseArray[xyzCounter] / 10.0D + 1.0D) / 2.0D;
                     double sidewaysNoiseValue = MathHelper.denormalizeClamp(xyzNoiseA, xyzNoiseB, balance) / 50.0D;
                     

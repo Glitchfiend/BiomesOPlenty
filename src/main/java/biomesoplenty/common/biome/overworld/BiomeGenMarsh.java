@@ -24,6 +24,7 @@ import biomesoplenty.common.block.BlockBOPCoral;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
+import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
@@ -84,6 +85,12 @@ public class BiomeGenMarsh extends BOPBiome
         this.addGenerator("malachite", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.MALACHITE).create());
            
         
+    }
+    
+    @Override
+    public void applySettings(BOPWorldSettings settings)
+    {
+        if (!settings.generateBopGems) {this.removeGenerator("malachite");}
     }
     
 }

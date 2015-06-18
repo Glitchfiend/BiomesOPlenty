@@ -21,6 +21,7 @@ import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.enums.BOPWoods;
+import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorBigMushroom;
 import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
 import biomesoplenty.common.world.feature.GeneratorFlora;
@@ -95,6 +96,12 @@ public class BiomeGenWoodland extends BOPBiome
         // gem
         this.addGenerator("amber", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.AMBER).create());
    
+    }
+    
+    @Override
+    public void applySettings(BOPWorldSettings settings)
+    {
+        if (!settings.generateBopGems) {this.removeGenerator("amber");}
     }
     
 }

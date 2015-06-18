@@ -15,6 +15,7 @@ import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.enums.BOPTrees;
+import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
@@ -76,6 +77,12 @@ public class BiomeGenBorealForest extends BOPBiome
         // gem
         this.addGenerator("amber", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.AMBER).create());
  
+    }
+    
+    @Override
+    public void applySettings(BOPWorldSettings settings)
+    {
+        if (!settings.generateBopGems) {this.removeGenerator("amber");}
     }
     
     @Override

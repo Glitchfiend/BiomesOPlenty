@@ -8,10 +8,15 @@
 
 package biomesoplenty.common.world;
 
+import biomesoplenty.client.gui.GuiBOPConfigureWorld;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiCreateWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.WorldChunkManager;
 import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class WorldTypeBOP extends WorldType
 {
@@ -33,5 +38,18 @@ public class WorldTypeBOP extends WorldType
     {
         return new ChunkProviderGenerateBOP(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), generatorOptions);
         //return new ChunkProviderGenerateVanilla(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), generatorOptions);
+    }
+    
+    @Override
+    public boolean isCustomizable()
+    {
+        return true;
+    }
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void onCustomizeButton(Minecraft mc, GuiCreateWorld guiCreateWorld)
+    {
+        mc.displayGuiScreen(new GuiBOPConfigureWorld(guiCreateWorld, guiCreateWorld.chunkProviderSettingsJson));
     }
 }

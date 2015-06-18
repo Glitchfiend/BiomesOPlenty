@@ -19,6 +19,7 @@ import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
+import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorBlobs;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
@@ -81,6 +82,12 @@ public class BiomeGenTundra extends BOPBiome
         // gem
         this.addGenerator("tanzanite", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.TANZANITE).create());
 
+    }
+    
+    @Override
+    public void applySettings(BOPWorldSettings settings)
+    {
+        if (!settings.generateBopGems) {this.removeGenerator("tanzanite");}
     }
     
     @Override

@@ -32,6 +32,7 @@ import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
+import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
@@ -143,7 +144,7 @@ public class BiomeGenMountain extends BOPBiome
         // TODO: some flowers?
                 
         // gem
-        this.addGenerator("emerald", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(Blocks.emerald_ore.getDefaultState()).create());
+        this.addGenerator("emeralds", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(Blocks.emerald_ore.getDefaultState()).create());
    
     }
     
@@ -158,6 +159,12 @@ public class BiomeGenMountain extends BOPBiome
         this.stoneBlock = conf.getBlockState("stoneBlock", this.stoneBlock);
         this.snowBlock = conf.getBlockState("snowBlock", this.snowBlock);
         this.packedSnowBlock = conf.getBlockState("packedSnowBlock", this.packedSnowBlock);
+    }
+    
+    @Override
+    public void applySettings(BOPWorldSettings settings)
+    {
+        if (!settings.generateBopGems) {this.removeGenerator("emeralds");}
     }
     
     

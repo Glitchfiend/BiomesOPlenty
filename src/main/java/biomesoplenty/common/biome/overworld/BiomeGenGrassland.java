@@ -22,6 +22,7 @@ import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorColumns;
 import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
 import biomesoplenty.common.world.feature.GeneratorFlora;
@@ -80,6 +81,12 @@ public class BiomeGenGrassland extends BOPBiome {
         this.addGenerator("peridot", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.PERIDOT).create());
         
         
+    }
+    
+    @Override
+    public void applySettings(BOPWorldSettings settings)
+    {
+        if (!settings.generateBopGems) {this.removeGenerator("peridot");}
     }
 
 }

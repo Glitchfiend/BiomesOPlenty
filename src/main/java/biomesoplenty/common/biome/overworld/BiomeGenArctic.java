@@ -13,6 +13,7 @@ import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.common.enums.BOPGems;
+import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 
 public class BiomeGenArctic extends BOPBiome
@@ -33,6 +34,12 @@ public class BiomeGenArctic extends BOPBiome
         
         // gem
         this.addGenerator("tanzanite", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.TANZANITE).create());
+    }
+    
+    @Override
+    public void applySettings(BOPWorldSettings settings)
+    {
+        if (!settings.generateBopGems) {this.removeGenerator("tanzanite");}
     }
     
     @Override

@@ -14,6 +14,7 @@ import biomesoplenty.common.block.BlockBOPSand;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
+import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
@@ -63,6 +64,12 @@ public class BiomeGenBrushland extends BOPBiome
         // gem
         this.addGenerator("ruby", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.RUBY).create());
         
+    }
+    
+    @Override
+    public void applySettings(BOPWorldSettings settings)
+    {
+        if (!settings.generateBopGems) {this.removeGenerator("ruby");}
     }
 
     @Override

@@ -13,6 +13,7 @@ import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 
 public class BiomeGenCrag extends BOPBiome
@@ -40,6 +41,12 @@ public class BiomeGenCrag extends BOPBiome
         // gem
         this.addGenerator("emeralds", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(Blocks.emerald_ore.getDefaultState()).create());
         
+    }
+    
+    @Override
+    public void applySettings(BOPWorldSettings settings)
+    {
+        if (!settings.generateBopGems) {this.removeGenerator("emeralds");}
     }
     
 }

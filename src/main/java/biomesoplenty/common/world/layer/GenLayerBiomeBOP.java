@@ -40,9 +40,9 @@ public class GenLayerBiomeBOP extends GenLayerBiome
 {
     private List<BiomeEntry>[] biomes;
     
-    public GenLayerBiomeBOP(long seed, GenLayer parentLayer, WorldTypeBOP worldType, String chunkProviderSettings)
+    public GenLayerBiomeBOP(long seed, GenLayer parentLayer, WorldTypeBOP worldType)
     {
-        super(seed, parentLayer, worldType, chunkProviderSettings);
+        super(seed, parentLayer, worldType, "");
         
         // get the vanilla biomes (and their hard-coded default weights) from the vanilla GenLayerBiome class private field 'biomes'
         biomes = ReflectionHelper.getPrivateValue(GenLayerBiome.class, this, "biomes");

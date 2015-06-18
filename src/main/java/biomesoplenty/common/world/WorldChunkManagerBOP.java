@@ -8,13 +8,12 @@
 
 package biomesoplenty.common.world;
 
-import java.io.File;
-
-import biomesoplenty.common.util.config.BOPConfig;
+import biomesoplenty.api.biome.BOPBiome;
+import biomesoplenty.common.world.BOPWorldSettings.TemperatureVariationScheme;
 import biomesoplenty.common.world.layer.*;
-import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManager;
 import net.minecraft.world.gen.layer.*;
 
@@ -22,20 +21,34 @@ public class WorldChunkManagerBOP extends WorldChunkManager
 {
     // TODO: ability to vary landmass creation - eg continents, archipelago etc    
     
+    // TODO: client reported different chunkProviderSettings than the server
     public WorldChunkManagerBOP(long seed, WorldType worldType, String chunkProviderSettings)
     {
         super();
         if (!(worldType instanceof WorldTypeBOP))
         {
             throw new RuntimeException("WorldChunkManagerBOP requires a world of type WorldTypeBOP");
+        }        
+        
+        // load the settings object
+        BOPWorldSettings settings = new BOPWorldSettings();
+        settings.fromJson(chunkProviderSettings);
+        System.out.println("settings for world: "+settings.toJson());
+        
+        
+        // loop through the biomes and apply the settings
+        for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray())
+        {
+            if (biome == null) {continue;}
+            if (biome instanceof BOPBiome)
+            {
+                ((BOPBiome)biome).applySettings(settings);
+            }
         }
         
-        this.field_180301_f = chunkProviderSettings;
-        BOPConfig.IConfigObj worldConfig = new BOPConfig.ConfigFileObj(new File(BiomesOPlenty.configDirectory, "world.json"));
-        
-        GenLayer[] agenlayer = setupBOPGenLayers(seed, (WorldTypeBOP)worldType, chunkProviderSettings, worldConfig);
+        // set up all the gen layers
+        GenLayer[] agenlayer = setupBOPGenLayers(seed, (WorldTypeBOP)worldType, settings);
         agenlayer = getModdedBiomeGenerators(worldType, seed, agenlayer);
-        
         this.genBiomes = agenlayer[0];
         this.biomeIndexLayer = agenlayer[1];
     }
@@ -58,9 +71,7 @@ public class WorldChunkManagerBOP extends WorldChunkManager
         stack = new GenLayerRemoveTooMuchOcean(2L, stack);
         return stack;
     }
-    
-    public enum TemperatureVariationScheme {VANILLA, RANDOM, LATITUDE}
-    
+        
     // superimpose hot and cold regions an a land and sea layer
     public static GenLayer addHotAndColdRegions(GenLayer landAndSea, TemperatureVariationScheme scheme, long worldSeed)
     {
@@ -106,10 +117,10 @@ public class WorldChunkManagerBOP extends WorldChunkManager
         return stack;
     }
     
-    public static GenLayer allocateBiomes(long worldSeed, WorldTypeBOP worldType, String chunkProviderSettingsJson, GenLayer hotAndCold, GenLayer riversAndSubBiomesInit)
+    public static GenLayer allocateBiomes(long worldSeed, WorldTypeBOP worldType, BOPWorldSettings settings, GenLayer hotAndCold, GenLayer riversAndSubBiomesInit)
     {        
         // allocate the basic biomes        
-        GenLayer stack = new GenLayerBiomeBOP(200L, hotAndCold, worldType, chunkProviderSettingsJson);
+        GenLayer stack = new GenLayerBiomeBOP(200L, hotAndCold, worldType);
         stack = GenLayerZoom.magnify(1000L, stack, 2);
         stack = new GenLayerBiomeEdgeBOP(1000L, stack);
         
@@ -120,18 +131,17 @@ public class WorldChunkManagerBOP extends WorldChunkManager
     }
     
     
-    public static GenLayer[] setupBOPGenLayers(long worldSeed, WorldTypeBOP worldType, String chunkProviderSettingsJson, BOPConfig.IConfigObj conf)
+    public static GenLayer[] setupBOPGenLayers(long worldSeed, WorldTypeBOP worldType, BOPWorldSettings settings)
     {
         
-        int biomeSize = 4;
+        int biomeSize = settings.biomeSize.getValue();
         int riverSize = 4;
         
         // first few layers just create areas of land and sea, continents and islands
         GenLayer mainBranch = initialLandAndSeaLayer();
         
         // now add hot and cold regions (and two zooms)
-        TemperatureVariationScheme scheme = conf.getEnum("temperatureVariationScheme", TemperatureVariationScheme.VANILLA, TemperatureVariationScheme.class);
-        mainBranch = addHotAndColdRegions(mainBranch, scheme, worldSeed);
+        mainBranch = addHotAndColdRegions(mainBranch, settings.tempScheme, worldSeed);
         
         // add mushroom islands and deep oceans
         mainBranch = new GenLayerAddIsland(4L, mainBranch);
@@ -142,7 +152,7 @@ public class WorldChunkManagerBOP extends WorldChunkManager
         GenLayer riversAndSubBiomesInit = new GenLayerRiverInit(100L, mainBranch);
          
         // allocate the biomes
-        mainBranch = allocateBiomes(worldSeed, worldType, chunkProviderSettingsJson, mainBranch, riversAndSubBiomesInit);
+        mainBranch = allocateBiomes(worldSeed, worldType, settings, mainBranch, riversAndSubBiomesInit);
         
         // do a bit more zooming, depending on biomeSize
         mainBranch = new GenLayerRareBiome(1001L, mainBranch);

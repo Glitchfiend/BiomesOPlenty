@@ -31,6 +31,7 @@ import biomesoplenty.api.biome.generation.GenerationManager;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.IGenerator;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
+import biomesoplenty.common.world.BOPWorldSettings;
 
 public class BOPBiome extends BiomeGenBase implements IExtendedBiome
 {
@@ -55,6 +56,11 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         this.theBiomeDecorator.generateLakes = false;
         
         this.setOctaveWeights(1, 1, 1, 1, 1, 1);
+    }
+    
+    public void applySettings(BOPWorldSettings settings)
+    {
+        
     }
     
     public void configure(IConfigObj conf)
@@ -194,6 +200,11 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
     public void addGenerator(String name, GeneratorStage stage, IGenerator generator)
     {
         this.generationManager.addGenerator(name, stage, generator);
+    }
+    
+    public void removeGenerator(String name)
+    {
+        this.generationManager.removeGenerator(name);
     }
     
     @Override

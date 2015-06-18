@@ -24,6 +24,7 @@ import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
+import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorBlobs;
 import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
 import biomesoplenty.common.world.feature.GeneratorFlora;
@@ -84,6 +85,12 @@ public class BiomeGenCherryBlossomGrove extends BOPBiome
         // gem
         this.addGenerator("topaz", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.TOPAZ).create()); 
      }
+    
+    @Override
+    public void applySettings(BOPWorldSettings settings)
+    {
+        if (!settings.generateBopGems) {this.removeGenerator("topaz");}
+    }
     
     @Override
     public int getGrassColorAtPos(BlockPos pos)

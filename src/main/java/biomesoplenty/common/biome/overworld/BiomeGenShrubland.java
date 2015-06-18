@@ -19,6 +19,7 @@ import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.common.block.BlockBOPDoublePlant;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
@@ -70,5 +71,11 @@ public class BiomeGenShrubland extends BOPBiome
         
         // gem
         this.addGenerator("peridot", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.PERIDOT).create());
+    }
+    
+    @Override
+    public void applySettings(BOPWorldSettings settings)
+    {
+        if (!settings.generateBopGems) {this.removeGenerator("peridot");}
     }
 }

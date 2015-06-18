@@ -19,6 +19,7 @@ import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.BlockBOPStone;
 import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
@@ -68,6 +69,12 @@ public class BiomeGenJadeCliffs extends BOPBiome
         // gem
         this.addGenerator("emerald", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(Blocks.emerald_ore.getDefaultState()).create());
    
+    }
+    
+    @Override
+    public void applySettings(BOPWorldSettings settings)
+    {
+        if (!settings.generateBopGems) {this.removeGenerator("emeralds");}
     }
     
     @Override

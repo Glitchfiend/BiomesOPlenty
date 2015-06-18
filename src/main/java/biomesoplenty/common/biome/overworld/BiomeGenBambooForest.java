@@ -31,6 +31,7 @@ import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
+import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorColumns;
 import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
 import biomesoplenty.common.world.feature.GeneratorFlora;
@@ -97,6 +98,12 @@ public class BiomeGenBambooForest extends BOPBiome
         
         this.usualTopBlock = this.topBlock;
         this.alternateTopBlock = conf.getBlockState("alternateTopBlock", this.alternateTopBlock);
+    }
+    
+    @Override
+    public void applySettings(BOPWorldSettings settings)
+    {
+        if (!settings.generateBopGems) {this.removeGenerator("topaz");}
     }
     
     @Override
