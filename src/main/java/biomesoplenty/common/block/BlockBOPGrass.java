@@ -17,7 +17,6 @@ import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockGrass;
-import net.minecraft.block.BlockReed;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -159,11 +158,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
     
     @Override
     public boolean canSustainPlant(IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
-    {
-        // Workaround for bug in forge (hopefully temporary) - BlockReed calls this function with the wrong block position
-        // ...which leads to us getting a state for a block which might not be this one
-        if (plantable instanceof BlockReed) {pos = pos.down();}
-        
+    {   
         return this.canSustainPlantType(world, pos, plantable.getPlantType(world, pos.offset(direction)));
     }
     
