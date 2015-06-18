@@ -1,5 +1,7 @@
 package biomesoplenty.common.blocks;
 
+import static net.minecraftforge.common.util.ForgeDirection.UP;
+
 import java.util.List;
 
 import cpw.mods.fml.relauncher.Side;
@@ -7,6 +9,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.common.utils.ISubLocalization;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -16,6 +19,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.common.EnumPlantType;
+import net.minecraftforge.common.IPlantable;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class BlockBOPNewDirt extends BlockDirt implements ISubLocalization
 {
@@ -94,4 +100,24 @@ public class BlockBOPNewDirt extends BlockDirt implements ISubLocalization
     {
     	return dirtTypes[(meta - (meta & 1)) / 2];
     }
+    
+    @Override
+    public boolean canSustainPlant(IBlockAccess world, int x, int y, int z, ForgeDirection direction, IPlantable plantable)
+    {
+        switch (plantable.getPlantType(world, x, y + 1, z))
+        {
+            case Cave:
+                return isSideSolid(world, x, y, z, UP);
+            case Plains:
+                return true;
+            case Beach:
+                return (world.getBlock(x - 1, y, z    ).getMaterial() == Material.water ||
+                        world.getBlock(x + 1, y, z    ).getMaterial() == Material.water ||
+                        world.getBlock(x,     y, z - 1).getMaterial() == Material.water ||
+                        world.getBlock(x,     y, z + 1).getMaterial() == Material.water);
+            default:
+                return false;
+        }
+    }
+    
 }
