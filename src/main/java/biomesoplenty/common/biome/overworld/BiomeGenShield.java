@@ -9,6 +9,7 @@ import net.minecraft.world.biome.BiomeGenBase.Height;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.api.utils.BiomeUtils;
 import biomesoplenty.common.biome.BOPOverworldBiome;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.WorldGenMoss;
@@ -73,7 +74,7 @@ public class BiomeGenShield extends BOPOverworldBiome
 
 			Block block = world.getBlock(x, y, z);
 
-			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
+			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone) && BiomeUtils.oreWithMetaEnabled(14))
 			{
 				world.setBlock(x, y, z, BOPCBlocks.gemOre, 14, 2);
 			}

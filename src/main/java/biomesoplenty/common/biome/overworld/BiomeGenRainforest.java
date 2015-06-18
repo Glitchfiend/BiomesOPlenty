@@ -10,6 +10,7 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.api.utils.BiomeUtils;
 import biomesoplenty.common.biome.BOPOverworldBiome;
 import biomesoplenty.common.entities.EntityJungleSpider;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
@@ -87,7 +88,7 @@ public class BiomeGenRainforest extends BOPOverworldBiome
 			//TODO:				getBlock()
 			Block block = world.getBlock(x, y, z);
 
-			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
+			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone) && BiomeUtils.oreWithMetaEnabled(6))
 			{
 				//TODO:	setBlock()
 				world.setBlock(x, y, z, BOPCBlocks.gemOre, 6, 2);

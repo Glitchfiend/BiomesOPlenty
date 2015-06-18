@@ -8,6 +8,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.api.utils.BiomeUtils;
 import biomesoplenty.common.biome.BOPSubBiome;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
@@ -63,7 +64,7 @@ public class BiomeGenScrubland extends BOPSubBiome
 
 			Block block = world.getBlock(x, y, z);
 
-			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
+			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone) && BiomeUtils.oreWithMetaEnabled(2))
 			{
 				world.setBlock(x, y, z, BOPCBlocks.gemOre, 2, 2);
 			}

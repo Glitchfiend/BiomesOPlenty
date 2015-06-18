@@ -10,6 +10,7 @@ import net.minecraft.world.biome.BiomeGenBase.Height;
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.api.utils.BiomeUtils;
 import biomesoplenty.common.biome.BOPOverworldBiome;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
@@ -80,9 +81,8 @@ public class BiomeGenChaparral extends BOPOverworldBiome
             //TODO:             getBlock()
             Block block = world.getBlock(x, y, z);
 
-            if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
+            if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone) && BiomeUtils.oreWithMetaEnabled(4))
             {
-                //TODO: setBlock()
                 world.setBlock(x, y, z, BOPCBlocks.gemOre, 4, 2);
             }
         }
