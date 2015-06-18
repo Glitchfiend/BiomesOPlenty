@@ -150,6 +150,7 @@ public class ModBiomes
         canyon = registerBOPBiome(new BiomeGenCanyon(BiomeGenCanyon.CanyonType.PLATEAU), "Canyon");
         crag = registerBOPBiome(new BiomeGenCrag(), "Crag");
         chaparral = registerBOPBiome(new BiomeGenChaparral(), "Chaparral");
+        cherry_blossom_grove = registerBOPBiome(new BiomeGenCherryBlossomGrove(), "Cherry Blossom Grove");
         denseForest = registerBOPBiome(new BiomeGenDenseForest(), "Dense Forest");
         flowerField = registerBOPBiome(new BiomeGenFlowerField(), "Flower Field");
         grassland = registerBOPBiome(new BiomeGenGrassland(), "Grassland");

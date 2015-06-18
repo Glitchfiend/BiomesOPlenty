@@ -25,6 +25,7 @@ public class BOPBiomes
     public static Optional<BiomeGenBase> canyon = Optional.absent();
     public static Optional<BiomeGenBase> crag = Optional.absent();
     public static Optional<BiomeGenBase> chaparral = Optional.absent();
+    public static Optional<BiomeGenBase> cherry_blossom_grove = Optional.absent();
     public static Optional<BiomeGenBase> denseForest = Optional.absent();
     public static Optional<BiomeGenBase> flowerField = Optional.absent();
     public static Optional<BiomeGenBase> grassland = Optional.absent();    
