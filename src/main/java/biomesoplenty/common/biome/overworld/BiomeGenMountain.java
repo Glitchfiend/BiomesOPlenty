@@ -64,16 +64,13 @@ public class BiomeGenMountain extends BOPBiome
         switch (type)
         {
             case PEAKS:
-                this.bopMinHeight = 90;
-                this.bopMaxHeight = 230;
+                this.terrainSettings.avgHeight(160).heightVariation(70, 70).octaves(1, 1, 2, 2, 3, 2).sidewaysNoise(0.22D); 
                 break;
+                
             case FOOTHILLS:
-                this.bopMinHeight = 30;
-                this.bopMaxHeight = 160;
+                this.terrainSettings.avgHeight(95).heightVariation(70, 70).minHeight(55).octaves(1, 1, 2, 2, 3, 2).sidewaysNoise(0.22D); 
                 break;
         }
-        this.sidewaysNoiseAmount = 0.22F;
-        this.setOctaveWeights(1, 1, 2, 2, 3, 2);
         
         this.setColor(0x80A355);
         this.setTemperatureRainfall(0.25F, 0.1F);

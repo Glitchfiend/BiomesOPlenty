@@ -32,6 +32,7 @@ import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.IGenerator;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import biomesoplenty.common.world.BOPWorldSettings;
+import biomesoplenty.common.world.TerrainSettings;
 
 public class BOPBiome extends BiomeGenBase implements IExtendedBiome
 {
@@ -43,9 +44,15 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
     public boolean hasBiomeEssence = true;
     public IBlockState seaFloorBlock = Blocks.dirt.getDefaultState();
     
+    public TerrainSettings terrainSettings = new TerrainSettings();
+    public boolean noNeighborTerrainInfuence = false;
+    public int avgDirtDepth = 3;
+    
     public BOPBiome()
     {
         super(-1, false);
+        
+        this.terrainSettings.setDefaults();
         
         this.theBiomeDecorator.treesPerChunk = -999;
         this.theBiomeDecorator.flowersPerChunk = -999;
@@ -53,9 +60,7 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         this.theBiomeDecorator.sandPerChunk = -999;
         this.theBiomeDecorator.sandPerChunk2 = -999;
         this.theBiomeDecorator.clayPerChunk = -999;
-        this.theBiomeDecorator.generateLakes = false;
-        
-        this.setOctaveWeights(1, 1, 1, 1, 1, 1);
+        this.theBiomeDecorator.generateLakes = false;        
     }
     
     public void applySettings(BOPWorldSettings settings)
@@ -250,28 +255,6 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         this.rainfall = rain;
         return this;
     }
-    
-    
-    public double[] normalisedOctaveWeights = new double[6];
-    public void setOctaveWeights(double w0, double w1, double w2, double w3, double w4, double w5)
-    {
-        // standard weights for the octaves are 1,2,4,8,6,3
-        double norm = 1 / (1 * w0 + 2 * w1 + 4 * w2 + 8 * w3 + 6 * w4 + 3 * w5);
-        this.normalisedOctaveWeights[0] = w0 * 1 * norm;
-        this.normalisedOctaveWeights[1] = w1 * 2 * norm;
-        this.normalisedOctaveWeights[2] = w2 * 4 * norm;
-        this.normalisedOctaveWeights[3] = w3 * 8 * norm;
-        this.normalisedOctaveWeights[4] = w4 * 6 * norm;
-        this.normalisedOctaveWeights[5] = w5 * 3 * norm;
-    }
-    
-    public double sidewaysNoiseAmount = 0.5D;
-    public int bopMinHeight = 58;
-    public int bopMaxHeight = 85;
-    public boolean noNeighborTerrainInfuence = false;
-    public int avgDirtDepth = 3;
-    
-    
     
     @Override
     public void genTerrainBlocks(World world, Random rand, ChunkPrimer primer, int x, int z, double stoneNoiseVal)

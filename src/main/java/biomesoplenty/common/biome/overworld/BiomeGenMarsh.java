@@ -41,11 +41,7 @@ public class BiomeGenMarsh extends BOPBiome
     public BiomeGenMarsh()
     {        
         // terrain
-        // TODO: the terrain seems to generate a bit higher than expected with these numbers.
-        this.bopMinHeight = 56;
-        this.bopMaxHeight = 66;
-        this.sidewaysNoiseAmount = 0.0D;
-        this.setOctaveWeights(5, 5, 0, 0, 1, 1);
+        this.terrainSettings.avgHeight(63).heightVariation(5, 5).octaves(5, 5, 0, 0, 1, 1).sidewaysNoise(0.1D); 
         
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SILTY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY);

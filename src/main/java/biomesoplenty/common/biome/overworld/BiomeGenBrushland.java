@@ -28,8 +28,7 @@ public class BiomeGenBrushland extends BOPBiome
     public BiomeGenBrushland()
     {
         // terrain
-        this.bopMinHeight = 60;
-        this.bopMaxHeight = 90;
+        this.terrainSettings.avgHeight(66).heightVariation(3, 20);
 
         this.setColor(0xC9C17F);
         this.setTemperatureRainfall(1.2F, 0.1F);

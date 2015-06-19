@@ -33,15 +33,13 @@ public class BiomeGenCanyon extends BOPBiome
         // terrain
         if (type == CanyonType.PLATEAU)
         {
-            this.bopMinHeight = 144;
-            this.bopMaxHeight = 158;
+            this.terrainSettings.avgHeight(140).heightVariation(10, 10);
             
             this.addWeight(BiomeType.DESERT, 5);    
         }
         else
         {
-            this.bopMinHeight = 50;
-            this.bopMaxHeight = 94;
+            this.terrainSettings.avgHeight(63).heightVariation(9, 40);
         }
 
         this.setColor(0xB49C70);

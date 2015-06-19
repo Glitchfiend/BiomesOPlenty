@@ -40,8 +40,7 @@ public class BiomeGenDenseForest extends BOPBiome
     public BiomeGenDenseForest()
     {
         // terrain
-        this.bopMinHeight = 60;
-        this.bopMaxHeight = 76;
+        this.terrainSettings.avgHeight(64).heightVariation(4, 12);
         
         this.setColor(8246897);
         this.setTemperatureRainfall(0.7F, 0.7F);

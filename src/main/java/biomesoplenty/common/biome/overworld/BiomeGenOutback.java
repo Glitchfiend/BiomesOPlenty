@@ -29,9 +29,7 @@ public class BiomeGenOutback extends BOPBiome
     public BiomeGenOutback()
     {
         // terrain
-        this.bopMinHeight = 66;
-        this.bopMaxHeight = 80;
-        this.setOctaveWeights(0, 1, 2, 1, 0, 2);
+        this.terrainSettings.avgHeight(72).heightVariation(8, 10).octaves(0, 1, 2, 1, 0, 2);
         
         this.setTemperatureRainfall(1.3F, 0.05F);
         this.setColor(0xA57644);

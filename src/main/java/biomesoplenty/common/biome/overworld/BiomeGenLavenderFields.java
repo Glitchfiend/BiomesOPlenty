@@ -31,8 +31,7 @@ public class BiomeGenLavenderFields extends BOPBiome
     public BiomeGenLavenderFields()
     {
         // terrain
-        this.bopMinHeight = 61;
-        this.bopMaxHeight = 76;
+        this.terrainSettings.avgHeight(64).heightVariation(4, 12); 
         
         this.setColor(11035852);
         this.setTemperatureRainfall(0.6F, 0.7F);

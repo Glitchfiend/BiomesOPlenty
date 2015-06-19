@@ -34,10 +34,7 @@ public class BiomeGenJadeCliffs extends BOPBiome
     public BiomeGenJadeCliffs()
     {        
         // terrain
-        // TODO: I think the heights in the game are consistently lower than they should be when sidewaysNoiseAmount is high
-        this.bopMinHeight = 53;
-        this.bopMaxHeight = 180;
-        this.sidewaysNoiseAmount = 0.8F;
+        this.terrainSettings.avgHeight(110).heightVariation(80, 80).minHeight(40).sidewaysNoise(0.7D); 
         
         this.setColor(0x8ACC6A);
         this.skyColor = 0xB7CCAD;

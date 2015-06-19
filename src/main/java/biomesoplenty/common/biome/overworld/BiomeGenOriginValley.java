@@ -27,9 +27,7 @@ public class BiomeGenOriginValley extends BOPBiome
     public BiomeGenOriginValley()
     {
         // terrain
-        this.bopMinHeight = 57;
-        this.bopMaxHeight = 91;
-        this.sidewaysNoiseAmount = 0.0D;
+        this.terrainSettings.avgHeight(64).heightVariation(6, 25).sidewaysNoise(0.0D);
         
         this.setColor(10341485);
         this.setTemperatureRainfall(0.7F, 0.8F);

@@ -51,8 +51,7 @@ public class BiomeGenBambooForest extends BOPBiome
     {
         
         // terrain
-        this.bopMinHeight = 50;
-        this.bopMaxHeight = 110;
+        this.terrainSettings.avgHeight(64).heightVariation(10, 30);
         
         this.setColor(0xA3E053);
         this.setTemperatureRainfall(1.2F, 0.9F);

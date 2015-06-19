@@ -34,10 +34,7 @@ public class BiomeGenChaparral extends BOPBiome
     {
         
         // terrain
-        this.bopMinHeight = 59;
-        this.bopMaxHeight = 93;
-        this.sidewaysNoiseAmount = 0.1D;
-        this.setOctaveWeights(1, 4, 3, 1, 1, 0);
+        this.terrainSettings.avgHeight(70).heightVariation(10, 30).sidewaysNoise(0.1D).octaves(1, 4, 3, 1, 1, 0);
         
         this.setColor(0xC0D85D);
         this.setTemperatureRainfall(0.8F, 0.6F);

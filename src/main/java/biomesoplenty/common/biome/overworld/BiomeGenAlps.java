@@ -22,10 +22,7 @@ public class BiomeGenAlps extends BOPBiome
     public BiomeGenAlps()
     {
         // terrain
-        this.bopMinHeight = 195;
-        this.bopMaxHeight = 209;
-        this.sidewaysNoiseAmount = 0.1D;
-        this.setOctaveWeights(1, 1, 2, 2, 3, 3);
+        this.terrainSettings.avgHeight(198).heightVariation(12, 12).octaves(1, 1, 2, 2, 3, 3);
         
         this.setHeight(biomeHeight);
         this.setColor(13421772);

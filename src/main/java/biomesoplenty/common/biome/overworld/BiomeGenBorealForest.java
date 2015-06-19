@@ -30,8 +30,7 @@ public class BiomeGenBorealForest extends BOPBiome
     public BiomeGenBorealForest()
     {
         // terrain
-        this.bopMinHeight = 57;
-        this.bopMaxHeight = 100;
+        this.terrainSettings.avgHeight(70).heightVariation(15, 30);
 
         this.setColor(0x9FB771);
         this.setTemperatureRainfall(0.5F, 0.6F);

@@ -27,8 +27,7 @@ public class BiomeGenSteppe extends BOPBiome
     public BiomeGenSteppe()
     {
         // terrain
-        this.bopMinHeight = 64;
-        this.bopMaxHeight = 97;
+        this.terrainSettings.avgHeight(68).heightVariation(6, 20);
         
         this.setColor(13413215);
         this.setTemperatureRainfall(0.7F, 0.05F);

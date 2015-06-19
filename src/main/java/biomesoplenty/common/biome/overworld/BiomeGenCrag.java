@@ -21,9 +21,7 @@ public class BiomeGenCrag extends BOPBiome
     public BiomeGenCrag()
     {
         // terrain
-        this.bopMinHeight = 40;
-        this.bopMaxHeight = 230;
-        this.sidewaysNoiseAmount = 1.0D;
+        this.terrainSettings.avgHeight(80).heightVariation(80, 200).minHeight(40).sidewaysNoise(0.7F);
         
         this.setColor(5209457);
         this.setTemperatureRainfall(1.0F, 0.0F);

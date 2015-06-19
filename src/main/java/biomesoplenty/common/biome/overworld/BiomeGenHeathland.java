@@ -38,8 +38,7 @@ public class BiomeGenHeathland extends BOPBiome
     {
         
         // terrain
-        this.bopMinHeight = 58;
-        this.bopMaxHeight = 85;
+        this.terrainSettings.avgHeight(64).heightVariation(6, 21);
         
         this.setColor(0xCEC577);
         this.setTemperatureRainfall(0.8F, 0.2F);

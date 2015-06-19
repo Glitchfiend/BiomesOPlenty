@@ -36,10 +36,7 @@ public class BiomeGenGrassland extends BOPBiome {
     public BiomeGenGrassland() {
         
         // terrain
-        this.bopMinHeight = 58;
-        this.bopMaxHeight = 85;
-        this.sidewaysNoiseAmount = 0.1D;
-        this.setOctaveWeights(0, 1, 1, 1, 2, 3);
+        this.terrainSettings.avgHeight(64).heightVariation(6, 25).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.1D); 
         
         this.setColor(0x7FDB7D);
         this.setTemperatureRainfall(0.6F, 0.7F);

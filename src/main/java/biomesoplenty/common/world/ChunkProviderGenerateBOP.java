@@ -74,8 +74,6 @@ public class ChunkProviderGenerateBOP implements IChunkProvider
     private final double[] noiseArray;
     private Map<BiomeGenBase, TerrainSettings> biomeTerrainSettings;
     
-    public static double[] normalisedVanillaOctaveWeights = new double[] {1 / 24.0D, 2 / 24.0D, 4 / 24.0D, 8 / 24.0D, 6 / 24.0D, 3 / 24.0 };
-
     public ChunkProviderGenerateBOP(World worldIn, long seed, boolean mapFeaturesEnabled, String chunkProviderSettingsString)
     {
         System.out.println("ChunkProviderGenerateBOP json: "+chunkProviderSettingsString);
@@ -115,7 +113,7 @@ public class ChunkProviderGenerateBOP implements IChunkProvider
         for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray())
         {
             if (biome == null) {continue;}
-            this.biomeTerrainSettings.put(biome, new TerrainSettings(biome));
+            this.biomeTerrainSettings.put(biome, (biome instanceof BOPBiome) ? ((BOPBiome)biome).terrainSettings : TerrainSettings.forVanillaBiome(biome));
         }
         
     }
@@ -179,10 +177,7 @@ public class ChunkProviderGenerateBOP implements IChunkProvider
         return chunk;
     }
     
-    
-    
-    
-    
+   
 
     
     
@@ -327,56 +322,6 @@ public class ChunkProviderGenerateBOP implements IChunkProvider
             }
         }
     }
-    
-    
-    
-    
-    public static class TerrainSettings
-    {
-        public boolean underwater = false;
-        public double minHeight = 0.0D;
-        public double maxHeight = 0.0D;
-        public double sidewaysNoiseAmount = 0.0D;
-        public double[] octaveWeights = new double[6];
-        
-        public TerrainSettings() {}
-        
-        public TerrainSettings(BiomeGenBase biome)
-        {
-            this.setByBiome(biome);
-        }
-        
-        public void setByBiome(BiomeGenBase biome)
-        {
-            if (biome instanceof BOPBiome)
-            {
-                BOPBiome bopBiome = (BOPBiome)biome;
-                
-                // Get BOP terrain parameters
-                this.minHeight = bopBiome.bopMinHeight;
-                this.maxHeight = bopBiome.bopMaxHeight;
-                this.sidewaysNoiseAmount = bopBiome.sidewaysNoiseAmount;
-                System.arraycopy(bopBiome.normalisedOctaveWeights, 0, this.octaveWeights, 0, 6);
-            } else {
-                
-                // Transform vanilla height parameters into equivalent BOP terrain parameters
-                this.minHeight = (61 + 17 * biome.minHeight - 15 * biome.maxHeight);
-                this.maxHeight = (72 + 17 * biome.minHeight + 60 * biome.maxHeight);
-                this.sidewaysNoiseAmount = 1.0D;
-                System.arraycopy(normalisedVanillaOctaveWeights, 0, this.octaveWeights, 0, 6);
-            }
-            this.underwater = this.maxHeight < 64;
-        }
-        
-        public double amplitude()
-        {
-            return (this.maxHeight - this.minHeight) / 2.0D;
-        }
-        public double averageHeight()
-        {
-            return (this.maxHeight + this.minHeight) / 2.0D;
-        }
-    }    
        
     
     private TerrainSettings getWeightedTerrainSettings(int localX, int localZ, BiomeGenBase[] biomes)
@@ -396,8 +341,10 @@ public class ChunkProviderGenerateBOP implements IChunkProvider
             for (int j = -2; j <= 2; ++j)
             {                
                 float weight = radialFalloff5x5[i + 2 + (j + 2) * 5];
-                TerrainSettings biomeSettings = this.biomeTerrainSettings.get(biomes[localX + i + 2 + (localZ + j + 2) * 10]);
-                
+                TerrainSettings biomeSettings = this.biomeTerrainSettings.get(biomes[localX + i + 2 + (localZ + j + 2) * 10]);              
+                settings.avgHeight += weight * biomeSettings.avgHeight;
+                settings.variationAbove += weight * biomeSettings.variationAbove;
+                settings.variationBelow += weight * biomeSettings.variationBelow;                
                 settings.minHeight += weight * biomeSettings.minHeight;
                 settings.maxHeight += weight * biomeSettings.maxHeight;
                 settings.sidewaysNoiseAmount += weight * biomeSettings.sidewaysNoiseAmount;
@@ -409,17 +356,13 @@ public class ChunkProviderGenerateBOP implements IChunkProvider
         }  
                
         return settings;
-    }
-    
-    
+    }    
     
 
     
     private void populateNoiseArray(int chunkX, int chunkZ)
     {
-        
-        // TODO: vanilla biomes are not hilly enough for some reason - must have got the sums a little wrong
-        
+                
         BiomeGenBase[] biomes = this.worldObj.getWorldChunkManager().getBiomesForGeneration(null, chunkX * 4 - 2, chunkZ * 4 - 2, 10, 10);
         
         // values from vanilla
@@ -452,42 +395,50 @@ public class ChunkProviderGenerateBOP implements IChunkProvider
             {
                 // get the terrain settings to use for this subchunk as a weighted average of the settings from the nearby biomes                
                 TerrainSettings settings = this.getWeightedTerrainSettings(ix, iz, biomes);
+  
+                // get the xz noise value                
+                double xzNoiseVal = this.byteNoiseGen.getWeightedDouble(xzCounter, settings.octaveWeights);
                 
-                // the sideways noise factor in the settings is a relative value (between 0 and 1) - actual value must be scaled according to the amplitude
-                double sidewaysNoiseFactor = settings.sidewaysNoiseAmount * 0.4D * settings.amplitude();
+                // get the amplitudes
+                double xzAmplitude = this.settings.amplitude * (xzNoiseVal < 0 ? settings.variationBelow : settings.variationAbove) * (1 - settings.sidewaysNoiseAmount);
+                double xyzAmplitude = this.settings.amplitude * (xzNoiseVal < 0 ? settings.variationBelow : settings.variationAbove) * (settings.sidewaysNoiseAmount);
                 
-                // get the scaled xz noise value            
-                double xzNoiseAmplitude = settings.amplitude() * this.settings.amplitude - 2.5D * sidewaysNoiseFactor;
-                if (xzNoiseAmplitude < 0) {xzNoiseAmplitude = 0.0D;}
-                double xzNoiseVal = this.byteNoiseGen.getWeightedDouble(xzCounter, settings.octaveWeights) * xzNoiseAmplitude;
-                
-                // the 'base level' is the average height, plus the height from the xz noise (plus a compensation for sideways noise)
-                double baseLevel = settings.averageHeight() + xzNoiseVal - 1.5D * sidewaysNoiseFactor;
+                // the 'base level' is the average height, plus the height from the xz noise
+                double baseLevel = settings.avgHeight + (xzNoiseVal * xzAmplitude);
  
                 for (int iy = 0; iy < 33; ++iy)
                 {
-
-                    // calculate the sideways noise value
-                    double xyzNoiseA = this.xyzNoiseArrayA[xyzCounter] / lowerLimitScale;
-                    double xyzNoiseB = this.xyzNoiseArrayB[xyzCounter] / upperLimitScale;
-                    double balance = (this.xyzBalanceNoiseArray[xyzCounter] / 10.0D + 1.0D) / 2.0D;
-                    double sidewaysNoiseValue = MathHelper.denormalizeClamp(xyzNoiseA, xyzNoiseB, balance) / 50.0D;
+                    int y = iy * 8;
                     
-                    // get the height relative to the base level 
-                    double diffY = baseLevel - iy * 8;
-                    
-                    // final noise value is sum of factors from height above/below base level, and sideways noise 
-                    double noiseVal = (diffY < 0 ? diffY * 0.25F : diffY) + (sidewaysNoiseValue * sidewaysNoiseFactor);
-
-                    // make the noiseVal decrease sharply when we're close to the top of the chunk
-                    // guarantees value of -10 at iy=32, so that there is always some air at the top
-                    if (iy > 29)
+                    if (y < settings.minHeight)
                     {
-                        double closeToTopOfChunkFactor = (double)((float)(iy - 29) / 3.0F); // 1/3, 2/3 or 1
-                        noiseVal = noiseVal * (1.0D - closeToTopOfChunkFactor) + -10.0D * closeToTopOfChunkFactor;
+                        this.noiseArray[xyzCounter] = settings.minHeight - y;
                     }
+                    else if (y > settings.maxHeight)
+                    {
+                        this.noiseArray[xyzCounter] = settings.maxHeight - y;
+                    }
+                    else
+                    {
+                        // calculate the xzy noise value
+                        double xyzNoiseA = this.xyzNoiseArrayA[xyzCounter] / lowerLimitScale;
+                        double xyzNoiseB = this.xyzNoiseArrayB[xyzCounter] / upperLimitScale;
+                        double balance = (this.xyzBalanceNoiseArray[xyzCounter] / 10.0D + 1.0D) / 2.0D;
+                        double xyzNoiseValue = MathHelper.denormalizeClamp(xyzNoiseA, xyzNoiseB, balance) / 50.0D;
+                    
+                        // calculate the depth
+                        double depth = baseLevel - y + (xyzAmplitude * xyzNoiseValue);
 
-                    this.noiseArray[xyzCounter] = noiseVal;
+                        // make the noiseVal decrease sharply when we're close to the top of the chunk
+                        // guarantees value of -10 at iy=32, so that there is always some air at the top
+                        if (iy > 29)
+                        {
+                            double closeToTopOfChunkFactor = (double)((float)(iy - 29) / 3.0F); // 1/3, 2/3 or 1
+                            depth = depth * (1.0D - closeToTopOfChunkFactor) + -10.0D * closeToTopOfChunkFactor;
+                        }
+    
+                        this.noiseArray[xyzCounter] = depth;
+                    }
                     ++xyzCounter;
                 }
                 

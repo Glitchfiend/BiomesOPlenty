@@ -30,8 +30,7 @@ public class BiomeGenHighland extends BOPBiome
     public BiomeGenHighland()
     {
         // terrain
-        this.bopMinHeight = 95;
-        this.bopMaxHeight = 144;
+        this.terrainSettings.avgHeight(120).heightVariation(25, 25);
         
         this.setColor(0x7CAD66);
         this.setTemperatureRainfall(0.5F, 0.8F);

@@ -29,8 +29,7 @@ public class BiomeGenThicket extends BOPBiome
     public BiomeGenThicket()
     {
         // terrain
-        this.bopMinHeight = 60;
-        this.bopMaxHeight = 79;
+        this.terrainSettings.avgHeight(64).heightVariation(4, 15);
         
         this.setColor(7248193);
         this.setTemperatureRainfall(0.6F, 0.2F);

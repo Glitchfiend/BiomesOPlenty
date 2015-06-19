@@ -38,9 +38,7 @@ public class BiomeGenCherryBlossomGrove extends BOPBiome
     public BiomeGenCherryBlossomGrove()
     {
         // terrain
-        this.bopMinHeight = 58;
-        this.bopMaxHeight = 85;
-        this.sidewaysNoiseAmount = 0.8F;
+        this.terrainSettings.avgHeight(63).heightVariation(5, 25).sidewaysNoise(0.8F);
         
         this.setColor(0xF88F8F);
         this.setTemperatureRainfall(0.6F, 0.8F);

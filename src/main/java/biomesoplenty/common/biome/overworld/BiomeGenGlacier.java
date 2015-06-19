@@ -20,9 +20,7 @@ public class BiomeGenGlacier extends BiomeGenArctic
         clearWeights();
         
         // terrain - higher than arctic
-        this.bopMinHeight = 80;
-        this.bopMaxHeight = 95;
-        this.setOctaveWeights(1, 1, 3, 1, 1, 0);
+        this.terrainSettings.avgHeight(88).heightVariation(6, 6).octaves(1, 1, 3, 1, 1, 0); 
         this.avgDirtDepth = 16;
         
         this.setColor(0xB0BBD9);

@@ -46,10 +46,7 @@ public class BiomeGenBayou extends BOPBiome
     public BiomeGenBayou()
     {
         // terrain
-        this.bopMinHeight = 54;
-        this.bopMaxHeight = 65;
-        this.sidewaysNoiseAmount = 0.0F;
-        this.setOctaveWeights(1, 1, 1, 1, 0, 0);
+        this.terrainSettings.avgHeight(63).heightVariation(5, 10).octaves(1, 1, 1, 1, 0, 0).sidewaysNoise(0.0F);
         
         this.setColor(0x8BAF6B);
         this.setTemperatureRainfall(0.8F, 0.9F);
