@@ -9,6 +9,7 @@
 package biomesoplenty.common.world;
 
 import biomesoplenty.api.biome.BOPBiome;
+import biomesoplenty.common.world.BOPWorldSettings.LandMassScheme;
 import biomesoplenty.common.world.BOPWorldSettings.TemperatureVariationScheme;
 import biomesoplenty.common.world.layer.*;
 import net.minecraft.world.World;
@@ -21,7 +22,6 @@ public class WorldChunkManagerBOP extends WorldChunkManager
 {
     // TODO: ability to vary landmass creation - eg continents, archipelago etc    
     
-    // TODO: client reported different chunkProviderSettings than the server
     public WorldChunkManagerBOP(long seed, WorldType worldType, String chunkProviderSettings)
     {
         super();
@@ -31,9 +31,11 @@ public class WorldChunkManagerBOP extends WorldChunkManager
         }        
         
         // load the settings object
-        BOPWorldSettings settings = new BOPWorldSettings(chunkProviderSettings);
-        System.out.println("settings for world: "+settings.toJson());
-        
+        // note on the client side, chunkProviderSettings is an empty string
+        // I'm not sure if this is a bug or deliberate, but it might have some consequences when the biomes/genlayers are different between client and server
+        // The same thing happens in vanilla minecraft
+        System.out.println("settings for world: "+chunkProviderSettings);
+        BOPWorldSettings settings = new BOPWorldSettings(chunkProviderSettings);        
         
         // loop through the biomes and apply the settings
         for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray())
@@ -58,30 +60,51 @@ public class WorldChunkManagerBOP extends WorldChunkManager
     }
     
     // generate the regions of land and sea
-    public static GenLayer initialLandAndSeaLayer()
+    public static GenLayer initialLandAndSeaLayer(LandMassScheme scheme)
     {
-        GenLayer stack = new GenLayerIsland(1L);
-        stack = new GenLayerFuzzyZoom(2000L, stack);
-        stack = new GenLayerAddIsland(1L, stack);
-        stack = new GenLayerZoom(2001L, stack);
-        stack = new GenLayerAddIsland(2L, stack);
-        stack = new GenLayerAddIsland(50L, stack);
-        stack = new GenLayerAddIsland(70L, stack);
-        stack = new GenLayerRemoveTooMuchOcean(2L, stack);
+        System.out.println("Setting up landmass "+scheme.name());
+        GenLayer stack;
+        
+        switch(scheme)
+        {
+            case CONTINENTS:
+                stack = new GenLayerIslandBOP(1L, 4);
+                stack = new GenLayerFuzzyZoom(2000L, stack);
+                stack = new GenLayerZoom(2001L, stack);
+                stack = new GenLayerIslandBOP(3L, 20, stack);
+                break;
+                
+            case ARCHIPELAGO:
+                stack = new GenLayerAllSame(1L, 0);
+                stack = new GenLayerRemoveTooMuchOcean(2L, stack);
+                break;
+        
+            case VANILLA: default:
+                stack = new GenLayerIsland(1L);
+                stack = new GenLayerFuzzyZoom(2000L, stack);
+                stack = new GenLayerRaggedEdges(1L, stack);
+                stack = new GenLayerZoom(2001L, stack);
+                stack = new GenLayerRaggedEdges(2L, stack);
+                stack = new GenLayerRaggedEdges(50L, stack);
+                stack = new GenLayerRaggedEdges(70L, stack);
+                stack = new GenLayerRemoveTooMuchOcean(2L, stack);
+                break;
+        }
+        
         return stack;
     }
         
     // superimpose hot and cold regions an a land and sea layer
-    public static GenLayer addHotAndColdRegions(GenLayer landAndSea, TemperatureVariationScheme scheme, long worldSeed)
+    public static GenLayer addHotAndColdRegions(GenLayer landAndSea, TemperatureVariationScheme tempScheme, long worldSeed)
     {
         GenLayer stack;
-        switch (scheme)
+        switch (tempScheme)
         {
             
             // The 'random' scheme places small hot and cold regions all over the map completely at random
             // this results in biomes scattered randomly like in Minecraft before v1.7
             case RANDOM:
-                stack = new GenLayerAddIsland(3L, landAndSea);
+                stack = new GenLayerRaggedEdges(3L, landAndSea);
                 stack = new GenLayerZoom(2002L, stack);
                 stack = new GenLayerZoom(2002L, stack);
                 stack = new GenLayerHeatRandom(2L, stack);
@@ -92,7 +115,7 @@ public class WorldChunkManagerBOP extends WorldChunkManager
             // the result is bands of temperature in the East-West direction
             // travelling North/South you find different temperatures, travelling East/West you find different biomes of a similar temperature
             case LATITUDE:
-                stack = new GenLayerAddIsland(3L, landAndSea);
+                stack = new GenLayerRaggedEdges(3L, landAndSea);
                 stack = new GenLayerZoom(2002L, stack);
                 stack = new GenLayerHeatLatitude(2L, stack, 10, worldSeed);
                 stack = new GenLayerEdge(3L, stack, GenLayerEdge.Mode.SPECIAL);
@@ -116,16 +139,46 @@ public class WorldChunkManagerBOP extends WorldChunkManager
         return stack;
     }
     
+    // generate the regions of land and sea
+    public static GenLayer secondaryLandMasses(GenLayer hotAndCold, LandMassScheme scheme)
+    {
+        GenLayer stack = hotAndCold;
+        
+        switch(scheme)
+        {
+            case CONTINENTS:
+                stack = new GenLayerRaggedEdges(4L, stack);
+                stack = new GenLayerAddMushroomIsland(5L, stack);
+                stack = new GenLayerDeepOcean(4L, stack);
+                break;
+                
+            case ARCHIPELAGO:
+                stack = new GenLayerArchipelago(1L, 2, stack);
+                stack = new GenLayerAddMushroomIsland(5L, stack);
+                stack = new GenLayerDeepOcean(4L, stack);
+                break;
+        
+            case VANILLA: default:
+                stack = new GenLayerRaggedEdges(4L, hotAndCold);
+                stack = new GenLayerAddMushroomIsland(5L, stack);
+                stack = new GenLayerDeepOcean(4L, stack);
+                break;
+        }
+        
+        return stack;
+    }
+    
+    
     public static GenLayer allocateBiomes(long worldSeed, WorldTypeBOP worldType, BOPWorldSettings settings, GenLayer hotAndCold, GenLayer riversAndSubBiomesInit)
     {        
         // allocate the basic biomes        
-        GenLayer stack = new GenLayerBiomeBOP(200L, hotAndCold, worldType);
+        GenLayer stack = new GenLayerBiomeBOP(200L, hotAndCold, worldType, settings);
         stack = GenLayerZoom.magnify(1000L, stack, 2);
         stack = new GenLayerBiomeEdgeBOP(1000L, stack);
         
         // use the hillsInit layer to change some biomes to sub-biomes like hills or rare mutated variants
         GenLayer subBiomesInit = GenLayerZoom.magnify(1000L, riversAndSubBiomesInit, 2);
-        stack = new GenLayerSubBiomesBOP(1000L, stack, subBiomesInit);
+        stack = new GenLayerSubBiomesBOP(1000L, stack, subBiomesInit, settings);
         return stack;
     }
     
@@ -137,15 +190,13 @@ public class WorldChunkManagerBOP extends WorldChunkManager
         int riverSize = 4;
         
         // first few layers just create areas of land and sea, continents and islands
-        GenLayer mainBranch = initialLandAndSeaLayer();
+        GenLayer mainBranch = initialLandAndSeaLayer(settings.landScheme);
         
         // now add hot and cold regions (and two zooms)
         mainBranch = addHotAndColdRegions(mainBranch, settings.tempScheme, worldSeed);
         
-        // add mushroom islands and deep oceans
-        mainBranch = new GenLayerAddIsland(4L, mainBranch);
-        mainBranch = new GenLayerAddMushroomIsland(5L, mainBranch);
-        mainBranch = new GenLayerDeepOcean(4L, mainBranch);
+        // add mushroom islands and deep oceans and other land masses        
+        mainBranch = secondaryLandMasses(mainBranch, settings.landScheme);
         
         // fork off a new branch as a seed for rivers and sub biomes
         GenLayer riversAndSubBiomesInit = new GenLayerRiverInit(100L, mainBranch);
@@ -158,7 +209,7 @@ public class WorldChunkManagerBOP extends WorldChunkManager
         for (int i = 0; i < biomeSize; ++i)
         {
             mainBranch = new GenLayerZoom((long)(1000 + i), mainBranch);
-            if (i == 0) {mainBranch = new GenLayerAddIsland(3L, mainBranch);}
+            if (i == 0) {mainBranch = new GenLayerRaggedEdges(3L, mainBranch);}
             if (i == 1 || biomeSize == 1) {mainBranch = new GenLayerShore(1000L, mainBranch);}
         }
         mainBranch = new GenLayerSmooth(1000L, mainBranch);

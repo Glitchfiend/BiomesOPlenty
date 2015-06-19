@@ -33,16 +33,19 @@ import biomesoplenty.common.biome.BOPBiomeManager;
 import biomesoplenty.common.util.biome.BiomeUtils;
 import biomesoplenty.common.util.config.BOPConfig.ConfigFileObj;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
+import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.WorldTypeBOP;
 import biomesoplenty.core.BiomesOPlenty;
 
 public class GenLayerBiomeBOP extends GenLayerBiome
 {
     private List<BiomeEntry>[] biomes;
+    private BOPWorldSettings settings;
     
-    public GenLayerBiomeBOP(long seed, GenLayer parentLayer, WorldTypeBOP worldType)
+    public GenLayerBiomeBOP(long seed, GenLayer parentLayer, WorldTypeBOP worldType, BOPWorldSettings settings)
     {
         super(seed, parentLayer, worldType, "");
+        this.settings = settings;
         
         // get the vanilla biomes (and their hard-coded default weights) from the vanilla GenLayerBiome class private field 'biomes'
         biomes = ReflectionHelper.getPrivateValue(GenLayerBiome.class, this, "biomes");

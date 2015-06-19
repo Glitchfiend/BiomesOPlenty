@@ -22,6 +22,13 @@ public class BOPWorldSettings
     
     public static Gson serializer = new GsonBuilder().create();
     
+    public static enum LandMassScheme
+    {
+        VANILLA,
+        CONTINENTS,
+        ARCHIPELAGO;
+    }
+    
     public static enum TemperatureVariationScheme
     {
         VANILLA,
@@ -50,6 +57,7 @@ public class BOPWorldSettings
     
     // BOP World properties
     
+    public LandMassScheme landScheme = LandMassScheme.VANILLA;
     public TemperatureVariationScheme tempScheme = TemperatureVariationScheme.VANILLA;
     public BiomeSize biomeSize = BiomeSize.MEDIUM;
     public float amplitude = 1.0F;
@@ -89,6 +97,7 @@ public class BOPWorldSettings
     public String toJson()
     {
         JsonObject obj = new JsonObject();
+        obj.addProperty("landScheme", this.landScheme.name().toLowerCase());
         obj.addProperty("tempScheme", this.tempScheme.name().toLowerCase());
         obj.addProperty("biomeSize", this.biomeSize.name().toLowerCase());
         obj.addProperty("amplitude", this.amplitude);
@@ -104,6 +113,7 @@ public class BOPWorldSettings
     
     public void fromConfigObj(BOPConfig.IConfigObj worldConfig)
     {
+        this.landScheme = worldConfig.getEnum("landScheme", this.landScheme, LandMassScheme.class);
         this.tempScheme = worldConfig.getEnum("tempScheme", this.tempScheme, TemperatureVariationScheme.class);
         this.biomeSize = worldConfig.getEnum("biomeSize", this.biomeSize, BiomeSize.class);
         this.amplitude = worldConfig.getFloat("amplitude", this.amplitude);
@@ -114,6 +124,7 @@ public class BOPWorldSettings
     {
         
         // BOP default values
+        this.landScheme = LandMassScheme.VANILLA;
         this.tempScheme = TemperatureVariationScheme.VANILLA;
         this.biomeSize = BiomeSize.MEDIUM;
         this.amplitude = 1.0F;

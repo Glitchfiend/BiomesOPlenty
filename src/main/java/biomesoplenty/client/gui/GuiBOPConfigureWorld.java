@@ -1,8 +1,7 @@
 package biomesoplenty.client.gui;
 
 import biomesoplenty.common.world.BOPWorldSettings;
-import biomesoplenty.common.world.BOPWorldSettings.TemperatureVariationScheme;
-import biomesoplenty.common.world.BOPWorldSettings.BiomeSize;
+import biomesoplenty.common.world.BOPWorldSettings.*;
 
 import com.google.common.base.Predicate;
 import com.google.common.primitives.Floats;
@@ -147,7 +146,8 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
         GENERATE_BOP_GEMS (102),
         AMPLITUDE_LABEL(103),
         AMPLITUDE (104),
-        BIOME_SIZE (105);
+        BIOME_SIZE (105),
+        LAND_SCHEME (106);
         
         private int id;
         
@@ -182,6 +182,7 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
         GuiBOPConfigPage.GuiListEntry[] page0 = new GuiBOPConfigPage.GuiListEntry[] {
             new GuiBOPConfigPage.GuiEnumButtonEntry<BiomeSize>(GuiEntries.BIOME_SIZE.getId(), "Biome Size: %s", true, this.settings.biomeSize),
             new GuiBOPConfigPage.GuiEnumButtonEntry<TemperatureVariationScheme>(GuiEntries.TEMP_SCHEME.getId(), "Temperature: %s", true, this.settings.tempScheme),
+            new GuiBOPConfigPage.GuiEnumButtonEntry<LandMassScheme>(GuiEntries.LAND_SCHEME.getId(), "Land Mass: %s", true, this.settings.landScheme),
             new GuiBOPConfigPage.GuiSlideEntry(GuiEntries.AMPLITUDE.getId(), "Amplitude", true, this, 0.2F, 3.0F, this.settings.amplitude)
         };
         
@@ -237,6 +238,10 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
         
         switch (entry)
         {
+            case LAND_SCHEME:
+                LandMassScheme[] land_values = LandMassScheme.values();
+                this.settings.landScheme = land_values[ordinal % land_values.length];
+                break;
             case TEMP_SCHEME:
                 TemperatureVariationScheme[] temp_values = TemperatureVariationScheme.values();
                 this.settings.tempScheme = temp_values[ordinal % temp_values.length];
