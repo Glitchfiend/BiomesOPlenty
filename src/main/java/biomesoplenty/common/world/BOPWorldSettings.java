@@ -80,6 +80,12 @@ public class BOPWorldSettings
         this.setDefault();
     }
     
+    public BOPWorldSettings(String jsonString)
+    {
+        this.setDefault();
+        this.fromJson(jsonString);
+    }
+    
     public String toJson()
     {
         JsonObject obj = new JsonObject();

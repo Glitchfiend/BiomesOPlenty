@@ -67,7 +67,7 @@ public class ItemBiomeFinder extends Item
             sendChatMessage(player, I18n.format("biome_finder.searching",biomeToFind.biomeName), EnumChatFormatting.DARK_PURPLE);
             
             // search for biomeToFind, maximum distance 5000 blocks
-            BlockPos pos = BiomeUtils.spiralOutwardsLookingForBiome(world, biomeToFind, player.posX, player.posZ, 5000);
+            BlockPos pos = BiomeUtils.spiralOutwardsLookingForBiome(world, biomeToFind, player.posX, player.posZ);
             
             if (pos == null)
             {

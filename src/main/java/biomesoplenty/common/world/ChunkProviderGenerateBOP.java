@@ -82,8 +82,7 @@ public class ChunkProviderGenerateBOP implements IChunkProvider
         this.mapFeaturesEnabled = mapFeaturesEnabled;
         this.rand = new Random(seed);
         
-        this.settings = new BOPWorldSettings();
-        this.settings.fromJson(chunkProviderSettingsString);
+        this.settings = new BOPWorldSettings(chunkProviderSettingsString);
         System.out.println("ChunkProviderGenerateBOP settings: "+this.settings.toJson());
                 
         // set up structure generators (overridable by forge)

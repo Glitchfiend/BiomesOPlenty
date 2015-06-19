@@ -31,8 +31,7 @@ public class WorldChunkManagerBOP extends WorldChunkManager
         }        
         
         // load the settings object
-        BOPWorldSettings settings = new BOPWorldSettings();
-        settings.fromJson(chunkProviderSettings);
+        BOPWorldSettings settings = new BOPWorldSettings(chunkProviderSettings);
         System.out.println("settings for world: "+settings.toJson());
         
         

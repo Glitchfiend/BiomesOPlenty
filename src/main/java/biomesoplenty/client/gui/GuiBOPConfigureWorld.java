@@ -65,14 +65,12 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
     {
         this.parentScreen = (GuiCreateWorld)parentScreen;
         
-        this.settings = new BOPWorldSettings();
         if (settingsStringIn.isEmpty())
         {        
-            this.settings.setDefault();
+            this.settings = new BOPWorldSettings();
         } else {
-            this.settings.fromJson(settingsStringIn);
-        }        
-        
+            this.settings = new BOPWorldSettings(settingsStringIn);
+        }
     }
     
    
