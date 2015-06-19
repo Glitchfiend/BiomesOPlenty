@@ -1,475 +1,185 @@
-tile.mud.mud.name=Matsch
-tile.mud.quicksand.name=Treibsand
-
-tile.ashStone.name=Aschestein
-tile.hardSand.name=Gehärteter Sand
-tile.hardDirt.name=Gehärtete Erde
-tile.hardIce.name=Packeis
-tile.driedDirt.name=Getrocknete Erde
-tile.cragRock.name=Gpitzer Fels
-tile.mudBricks.name=Lehmziegel
-tile.biomeBlock.name=Biomessenzerz
-tile.crystal.name=Himmlischer Kristall
-
-tile.rocks.limestone.name=Kalkstein
-tile.rocks.limestonesmooth.name=Geschliffener Kalkstein
-tile.rocks.siltstone.name=Schluffstein
-tile.rocks.siltstonesmooth.name=Geschliffener Schluffstein
-tile.rocks.shale.name=Schiefer
-tile.rocks.shalesmooth.name=Geschliffener Schiefer
-
-tile.ash.name=Ascheblock
-tile.flesh.name=Fleisch
-
-tile.plants.deadgrass.name=Totes Gras
-tile.plants.desertgrass.name=Wüstengras
-tile.plants.desertsprouts.name=Wüstensprossen
-tile.plants.dunegrass.name=Dünengras
-tile.plants.spectralfern.name=Spektralfarn
-tile.plants.thorn.name=Dornen
-tile.plants.barley.name=Gerste
-tile.plants.cattail.name=Rohrkolben
-tile.plants.cattailtop.name=Rohrkolben
-tile.plants.cattailbottom.name=Rohrkolben
-tile.plants.rivercane.name=Flussschilfrohr
-tile.plants.cactus.name=Kleiner Kaktus
-tile.plants.witherwart.name=Witherwarze
-tile.plants.reed.name=Schilfgras
-tile.plants.root.name=Wurzel
-
-tile.flowers.clover.name=Klee
-tile.flowers.swampflower.name=Sumpfblume
-tile.flowers.deadbloom.name=Tote Blume
-tile.flowers.glowflower.name=Schimmernde Blume
-tile.flowers.hydrangea.name=Blaue Hortensie
-tile.flowers.cosmos.name=Orange Kosmee
-tile.flowers.daffodil.name=Pinke Narzisse
-tile.flowers.wildflower.name=Wildblume
-tile.flowers.violet.name=Veilchen
-tile.flowers.anemone.name=Weißes Windröschen
-tile.flowers.lilyflower.name=Wasserlilie
-tile.flowers.enderlotus.name=Enderlotus
-tile.flowers.bromeliad.name=Bromelie
-tile.flowers.eyebulbbottom.name=Öhrknolle
-tile.flowers.eyebulbtop.name=Öhrknolle
-tile.flowers.dandelion.name=Pusteblume
-
-tile.flowers2.hibiscus.name=Pinker Hibiskus
-tile.flowers2.lilyofthevalley.name=Maiglöckchen
-tile.flowers2.burningblossom.name=Flammende Blüte
-tile.flowers2.lavender.name=Lavendel
-tile.flowers2.goldenrod.name=Goldgute
-tile.flowers2.bluebells.name=Hasenglöckchen
-tile.flowers2.minersdelight.name=Des Bergarbeiters Freude
-tile.flowers2.icyiris.name=Eisige Iris
-tile.flowers2.rose.name=Rose
-
-tile.stoneFormations.stalagmite.name=Stalagmit
-tile.stoneFormations.stalactite.name=Stalaktit
-
-tile.foliage.duckweed.name=Entengrütze
-tile.foliage.shortgrass.name=Kurzes Gras
-tile.foliage.mediumgrass.name=Gras
-tile.foliage.hedgebottom.name=Hecke
-tile.foliage.bush.name=Busch
-tile.foliage.sprout.name=Sprössling
-tile.foliage.hedgetop.name=Hecke
-tile.foliage.poisonivy.name=Giftefeu
-tile.foliage.berrybush.name=Beerenbusch
-tile.foliage.shrub.name=Strauch
-tile.foliage.wheatgrass.name=Weizengras
-tile.foliage.dampgrass.name=Feuchtes Gras
-tile.foliage.koru.name=Koru
-tile.foliage.cloverpatch.name=Kleefeld
-tile.foliage.leafpile.name=Blätterhaufen
-tile.foliage.deadleafpile.name=Laubhaufen
-
-tile.petals.bigflowerred.name=Riesige Rote Blume
-tile.petals.bigfloweryellow.name=Riesige Gelbe Blume
-
-tile.mushrooms.toadstool.name=Fliegenpilz
-tile.mushrooms.portobello.name=Champignon
-tile.mushrooms.bluemilk.name=Indigo-Reizker
-tile.mushrooms.glowshroom.name=Glimmerling
-tile.mushrooms.flatmushroom.name=Austern-Seitling
-tile.mushrooms.shadowshroom.name=Schattenpilz
-
-tile.saplings.appleSapling.name=Apfelsetzling
-tile.saplings.yellowautumnSapling.name=Gelber Herbstsetzling
-tile.saplings.bambooSapling.name=Bambussetzling
-tile.saplings.magicSapling.name=Magischer Setzling
-tile.saplings.darkSapling.name=Dunkler Setzling
-tile.saplings.deadSapling.name=Sterbender Setzling
-tile.saplings.firSapling.name=Tannensetzling
-tile.saplings.holySapling.name=Loftwood-Setzling
-tile.saplings.orangeautumnSapling.name=Oranger Herbstsetzling
-tile.saplings.originSapling.name=Ursprungssetzling
-tile.saplings.pinkcherrySapling.name=Pinkfarbener Kirschsetzling
-tile.saplings.mapleSapling.name=Ahornsetzling
-tile.saplings.whitecherrySapling.name=Weißer Kirschsetzling
-tile.saplings.hellbarkSapling.name=Höllrindensetzling
-tile.saplings.jacarandaSapling.name=Jacarandasetzling
-tile.saplings.persimmonSapling.name=Persimonensetzling
-
-tile.colorizedSaplings.sacredoakSapling.name=Himmeleichensetzling
-tile.colorizedSaplings.mangroveSapling.name=Mangrovensetzling
-tile.colorizedSaplings.palmSapling.name=Palmsetzling
-tile.colorizedSaplings.redwoodSapling.name=Mammutbaumsetzling
-tile.colorizedSaplings.willowSapling.name=Weidensetzling
-tile.colorizedSaplings.pineSapling.name=Piniensetzling
-tile.colorizedSaplings.mahoganySapling.name=Mahagonisetzling
-
-tile.willow.name=Weide
-tile.ivy.name=Efeu
-tile.bamboo.name=Bambus
-tile.mudBricksStairs.name=Lehmziegelstufen
-tile.originGrass.name=Ursprungsgras
-tile.longGrass.name=Langes Gras
-tile.overgrownNetherrack.name=Überwucherter Netherstein
-tile.treeMoss.name=Baummoos
-tile.flowerVine.name=Blütenranken
-
-tile.coral1.kelpsingle.name=Seetang
-tile.coral1.pinkcoral.name=Pinke Koralle
-tile.coral1.orangecoral.name=Orange Koralle
-tile.coral1.bluecoral.name=Blaue Koralle
-tile.coral1.glowcoral.name=Leuchtende Koralle
-tile.coral2.algae.name=Algen
-
-tile.bopGrass.spectralmoss.name=Spektralmoos
-tile.bopGrass.smolderinggrass.name=Schwelender Grasblock
-
-tile.gemOre.amethystore.name=Enderamethysterz
-tile.gemOre.amethystblock.name=Amethystblock
-tile.gemOre.rubyore.name=Rubinerz 
-tile.gemOre.rubyblock.name=Rubinblock
-tile.gemOre.peridotore.name=Peridoterz
-tile.gemOre.peridotblock.name=Peridotblock
-tile.gemOre.topazore.name=Topazerz
-tile.gemOre.topazblock.name=Topazblock
-tile.gemOre.tanzaniteore.name=Tansaniterz
-tile.gemOre.tanzaniteblock.name=Tansanitblock
-tile.gemOre.malachiteore.name=Malachiterz
-tile.gemOre.malachiteblock.name=Malachitblock
-tile.gemOre.sapphireore.name=Saphirerz
-tile.gemOre.sapphireblock.name=Saphirblock
-tile.gemOre.amberore.name=Bernsteinerz
-tile.gemOre.amberblock.name=Bernsteinblock
-
-tile.moss.name=Moos
-
-tile.hive.honeycomb.name=Honigwabenblock
-tile.hive.hive.name=Bienenstockblock
-tile.hive.honeycombempty.name=Leerer Honigwabenblock
-tile.hive.honeycombfilled.name=Gefüllter Honigwabenblock
-
-tile.honeyBlock.name=Honigblock
-
-tile.jellyBlock.strawberry.name=Erdbeergeleeblock
-tile.jellyBlock.raspberry.name=Himbeergeleeblock
-tile.jellyBlock.grape.name=Traubengeleeblock
-
-tile.bones.bones_small.name=Kleines Knochensegment
-tile.bones.bones_medium.name=Knochensegment
-tile.bones.bones_large.name=Großes Knochensegment
-
-tile.grave.name=Grabstein
-
-tile.stoneDoubleSlab.mudbrickSlab.name=Lehmziegelstufe
-tile.stoneSingleSlab.mudbrickSlab.name=Lehmziegelstufe
-
-tile.planks.sacredoakPlank.name=Himmeleichenholzbretter
-tile.planks.cherryPlank.name=Kirschholzbretter
-tile.planks.darkPlank.name=Dunkle Holzbretter
-tile.planks.firPlank.name=Tannenholzbretter
-tile.planks.holyPlank.name=Loftwood-Bretter
-tile.planks.magicPlank.name=Magische Holzbretter
-tile.planks.mangrovePlank.name=Mangrovenholzbretter
-tile.planks.palmPlank.name=Palmholzbretter
-tile.planks.redwoodPlank.name=Mammutbaumholzbretter
-tile.planks.willowPlank.name=Weidenholzbretter
-tile.planks.bambooThatching.name=Bambusbretter
-tile.planks.pinePlank.name=Pinienholzbretter
-tile.planks.hellBarkPlank.name=Höllrindenholzbretter
-tile.planks.jacarandaPlank.name=Jacarandaholzbretter
-tile.planks.mahoganyPlank.name=Mahagoniholzbretter
-
-tile.logs1.sacredoakWood.name=Himmeleichenholz
-tile.logs1.cherryWood.name=Kirschholz
-tile.logs1.darkWood.name=Dunkles Holz
-tile.logs1.firWood.name=Tannenholz
-
-tile.logs2.holyWood.name=Loftwood
-tile.logs2.magicWood.name=Magisches Holz
-tile.logs2.mangroveWood.name=Mangrovenholz
-tile.logs2.palmWood.name=Palmholz
-
-tile.logs3.redwoodWood.name=Mammutbaumholz
-tile.logs3.willowWood.name=Weidenholz
-tile.logs3.deadWood.name=Totes Holz
-tile.logs3.bigflowerstemWood.name=Riesiger Blumenstamm
-
-tile.logs4.pineWood.name=Pinienholz
-tile.logs4.hellbarkWood.name=Höllrindenholz
-tile.logs4.jacarandaWood.name=Jacarandaholz
-tile.logs4.mahoganyWood.name=Mahagoniholz
-
-tile.leaves1.yellowautumn.name=Gelbes Herbstlaub
-tile.leaves1.bamboo.name=Bambusblätter
-tile.leaves1.magic.name=Magisches Laub
-tile.leaves1.dark.name=Dunkles Laub
-
-tile.leaves2.dead.name=Sterbendes Laub
-tile.leaves2.fir.name=Tannenblätter
-tile.leaves2.holy.name=Loftwood-Blätter
-tile.leaves2.orangeautumn.name=Orangefarbenes Herbstlaub
-
-tile.leaves3.origin.name=Ursprungslaub
-tile.leaves3.pinkcherry.name=Pinkfarbenes Kirschlaub
-tile.leaves3.maple.name=Ahornblätter
-tile.leaves3.whitecherry.name=Weißes Kirschlaub
-
-tile.leaves4.hellbark.name=Höllrindenblätter
-tile.leaves4.jacaranda.name=Jacarandablätter
-
-tile.colorizedLeaves1.sacredoak.name=Himmeleichenblätter
-tile.colorizedLeaves1.mangrove.name=Mangrovenblätter
-tile.colorizedLeaves1.palm.name=Palmblätter
-tile.colorizedLeaves1.redwood.name=Mammutbaumblätter
-
-tile.colorizedLeaves2.willow.name=Weidenblätter
-tile.colorizedLeaves2.pine.name=Pinienblätter
-tile.colorizedLeaves2.mahogany.name=Mahagoniblätter
-
-tile.appleLeaves.name=Apfellaub
-tile.persimmonLeaves.name=Persimonenlaub
-
-tile.woodenDoubleSlab1.sacredoakSlab.name=Himmeleichenholzstufe
-tile.woodenDoubleSlab1.cherrySlab.name=Kirschholzstufe
-tile.woodenDoubleSlab1.darkSlab.name=Dunkle Holzstufe
-tile.woodenDoubleSlab1.firSlab.name=Tannenholzstufe
-tile.woodenDoubleSlab1.holySlab.name=Loftwood-Holzstufe
-tile.woodenDoubleSlab1.magicSlab.name=Magische Holzstufe
-tile.woodenDoubleSlab1.mangroveSlab.name=Mangrovenholzstufe
-tile.woodenDoubleSlab1.palmSlab.name=Palmholzstufe
-tile.woodenDoubleSlab2.redwoodSlab.name=Mammutbaumholzstufe
-tile.woodenDoubleSlab2.willowSlab.name=Weidenholzstufe
-tile.woodenDoubleSlab2.pineSlab.name=Pinienholzstufe
-tile.woodenDoubleSlab2.hell_barkSlab.name=Höllrindenholzstufe
-tile.woodenDoubleSlab2.jacarandaSlab.name=Jacarandaholzstufe
-tile.woodenDoubleSlab2.mahoganySlab.name=Mahagoniholzstufe
-
-tile.woodenSingleSlab1.sacredoakSlab.name=Himmeleichenholzstufe
-tile.woodenSingleSlab1.cherrySlab.name=Kirschholzstufe
-tile.woodenSingleSlab1.darkSlab.name=Dunkle Holzstufe
-tile.woodenSingleSlab1.firSlab.name=Tannenholzstufe
-tile.woodenSingleSlab1.holySlab.name=Loftwood-Holzstufe
-tile.woodenSingleSlab1.magicSlab.name=Magische Holzstufe
-tile.woodenSingleSlab1.mangroveSlab.name=Mangrovenholzstufe
-tile.woodenSingleSlab1.palmSlab.name=Palmholzstufe
-tile.woodenSingleSlab2.redwoodSlab.name=Mammutbaumholzstufe
-tile.woodenSingleSlab2.willowSlab.name=Weidenholzstufe
-tile.woodenSingleSlab2.pineSlab.name=Pinienholzstufe
-tile.woodenSingleSlab2.hell_barkSlab.name=Höllrindenholzstufe
-tile.woodenSingleSlab2.jacarandaSlab.name=Jacarandaholzstufe
-tile.woodenSingleSlab2.mahoganySlab.name=Mahagoniholzstufe
-
-tile.sacredoakStairs.name=Himmeleichenholztreppe
-tile.cherryStairs.name=Kirschholztreppe
-tile.darkStairs.name=Dunkle Holztreppe
-tile.firStairs.name=Tannenholztreppe
-tile.holyStairs.name=Loftwood-Holztreppe
-tile.magicStairs.name=Magische Holztreppe
-tile.mangroveStairs.name=Mangrovenholztreppe
-tile.palmStairs.name=Palmholztreppe
-tile.redwoodStairs.name=Mammutbaumholztreppe
-tile.willowStairs.name=Weidenholztreppe
-tile.pineStairs.name=Pinienholztreppe
-tile.hellBarkStairs.name=Höllrindenholztreppe
-tile.jacarandaStairs.name=Jacarandaholztreppe
-tile.mahoganyStairs.name=Mahagoniholztreppe
-
-item.food.berries.name=Beere
-item.food.shroompowder.name=Pilzpulver
-item.food.wildcarrots.name=Wilde Karotten
-item.food.sunflowerseeds.name=Sonnenblumenkerne
-item.food.saladfruit.name=Obstsalat
-item.food.saladveggie.name=Gemüsesalat
-item.food.saladshroom.name=Pilzsalat
-item.food.persimmon.name=Persimone
-item.food.filledhoneycomb.name=Gefüllte Honigwabe
-item.food.ambrosia.name=Ambrosia
-item.food.turnip.name=Rübe
-
-item.turnipSeeds.name=Rübensamen
-
-item.dartBlower.name=Blasrohr
-item.dart.dart.name=Dart
-item.dart.poisondart.name=Vergifteter Dart
-
-item.mudball.name=Matschball
-
-item.misc.mudbrick.name=Matschziegel
-item.misc.ash.name=Aschehaufen
-item.misc.fleshchunk.name=Fleischbrocken
-item.misc.emptyhoneycomb.name=Leere Honigwabe
-item.misc.crystalshard.name=Himmlischer Kristallsplitter
-item.misc.bluedye.name=Blauer Farbstoff
-item.misc.browndye.name=Brauner Farbstoff
-item.misc.greendye.name=Grüner Farbstoff
-item.misc.whitedye.name=Weißer Farbstoff
-item.misc.blackdye.name=Schwarzer Farbstoff
-item.misc.ghastlysoul.name=Umhergeisternde Seele
-item.misc.pixiedust.name=Feenstaub
-item.misc.ichor.name=Ichor
-
-item.jarEmpty.name=Leeres Glas
-item.jarFilled.jarhoney.name=Honigglas
-item.jarFilled.jarpoison.name=Glas mit Giftextrakt
-item.jarFilled.jarpixie.name=Feenglas
-
-item.gems.amethyst.name=Enderamethyst
-item.gems.ruby.name=Rubin
-item.gems.peridot.name=Olivin
-item.gems.topaz.name=Topas
-item.gems.tanzanite.name=Tanzanit
-item.gems.malachite.name=Malachit
-item.gems.sapphire.name=Saphir
-item.gems.amber.name=Bernstein
-
-item.pickaxeMud.name=Matschige Spitzhacke
-item.axeMud.name=Matschige Axt
-item.shovelMud.name=Matschige Schaufel
-item.swordMud.name=Matschiges Schwert
-item.hoeMud.name=Matschige Hacke
-item.helmetMud.name=Matschiger Helm
-item.chestplateMud.name=Matschiger Harnisch
-item.leggingsMud.name=Matschige Hose
-item.bootsMud.name=Matschige Stiefel
-
-item.pickaxeAmethyst.name=Amethystspitzhacke
-item.axeAmethyst.name=Amethystaxt
-item.shovelAmethyst.name=Amethystschaufel
-item.swordAmethyst.name=Amethystschwert
-item.hoeAmethyst.name=Amethysthacke
-item.helmetAmethyst.name=Amethysthelm
-item.chestplateAmethyst.name=Amethystharnisch
-item.leggingsAmethyst.name=Amethystbeinschutz
-item.bootsAmethyst.name=Amethyststiefel
-
-item.scytheWood.name=Holzsense
-item.scytheStone.name=Steinsense
-item.scytheIron.name=Eisensense
-item.scytheGold.name=Goldsense
-item.scytheDiamond.name=Diamantsense
-item.scytheMud.name=Matschsense
-item.scytheAmethyst.name=Amethystsense
-
-item.ancientStaff.ancientstaff.name=Antiker Stab
-item.ancientStaff.staffhandle.name=Antiker Stabgriff
-item.ancientStaff.staffpole.name=Antike Stabsstange
-item.ancientStaff.stafftopper.name=Antike Stabspitze
-item.ancientStaff.ancientstaffbroken.name=Verbrauchter Antiker Stab
-
-item.enderporter.name=Enderporter
-
-item.record_wanderer.name=Schallplatte
-item.record_corruption.name=Verdreckte Schallplatte
-
-item.record_wanderer.desc=Tim Rurkowski - Wanderer
-item.record_corruption.desc=???
-
-item.flowerBand.dullflowerband.name=Einfaches Blumenband
-item.flowerBand.plainflowerband.name=Blumenband
-item.flowerBand.lushflowerband.name=Üppiges Blumenband
-item.flowerBand.exoticflowerband.name=Exotisches Blumenband
-
-item.wadingBoots.name=Gummistiefel
-item.flippers.name=Schwimmflossen
-
-item.biomeBook.name=Biomlexikon
-item.biomeFinder.name=Biomradar
-item.biomeEssence.name=Biomessenz
-
-item.poisonBucket.name=Eimer mit Flüssigem Gift
-item.honeyBucket.name=Eimer mit Honig
-
-tile.poison.name=Gift
-tile.springWater.name=Quellwasser
-tile.honey.name=Honig
-
-fluid.poison=Gift
-fluid.springWater=Quellwasser
-fluid.honey.name=Honig
-
-biomeRadar.target=Ziel:
-biomeRadar.foundBiome=Biom gefunden!
-biomeRadar.scanBiome=Rechtsklicke, um nach Biom zu suchen
-
-enderporter.prevent=Eine mystische Energie hindert dich daran, dies in der hiesigen Welt zu vernden.
-
-phrase.bop.useBOPATGWorldtype=Der Biomes-O'-Plenty-Welttyp oder ATG-Welttyp muss genutzt werden, damit die neuen Biome generiert werden. Diese Nachricht wird nur einmal angezeigt.
-phrase.bop.useBOPWorldtype=Der Biomes-O'-Plenty-Welttyp muss genutzt werden, damit die neuen Biome generiert werde. Diese Nachricht wird nur einmal angezeigt.
-phrase.bop.updateAvaliable=Du verwendest nicht die neueste Biomes-O-Plenty-Version. Die neueste empfohlene Version ist: v%s für Minecraft %s
-
-warning.bopStartup1=Biomes O' Plenty verwendet einen eigenen Welttyp für seine Biome. Wenn du eine Welt kreierst,
-warning.bopStartup2=kann er unter 'Weitere Weltoptionen' aktiviert werden, indem du den 'Welttyp'-Button klickst,
-warning.bopStartup3=bis er 'Biomes O' Plenty' anzeigt.
-warning.bopStartup4=Der Welttyp kann auf Servern verwendet werden, indem 'level-type' in der Datei
-warning.bopStartup5=server.properties auf 'BIOMESOP' (ohne Anführungszeichen) gesetzt wird
-warning.bopStartup6=Diese Nachricht wird nur einmal angezeigt.
-
-potion.paralysis=Paralyse
-potion.possession=Besessenheit
-
-entity.BiomesOPlenty.Glob.name=Glob
-entity.BiomesOPlenty.JungleSpider.name=Dschungelspinne
-entity.BiomesOPlenty.Phantom.name=Phantom
-entity.BiomesOPlenty.Rosester.name=Rosester
-entity.BiomesOPlenty.Wasp.name=Wespe
-entity.BiomesOPlenty.Bird.name=Vogel
-entity.BiomesOPlenty.Pixie.name=Fee
-
-achievement.bop.achFlower=Blumenkind
-achievement.bop.achFlower.desc=Werde eins mit der Natur!
-
-achievement.bop.achBerry=Berrensammler
-achievement.bop.achBerry.desc=Die einfachen Dinge im Leben...
-achievement.bop.achMoss=Ein Rollender Stein
-achievement.bop.achMoss.desc=Er setzt nichts an.
-achievement.bop.achThorn=Ziemlich dornig
-achievement.bop.achThorn.desc=Tödlicher als Kakteen!
-achievement.bop.achCoral=Nahrhaft
-achievement.bop.achCoral.desc=Wie wäre es mit einem großen Stück Koralle?
-
-achievement.bop.achFlowerBand=Flower Power
-achievement.bop.achFlowerBand.desc=Groovy, man.
-achievement.bop.achDartBlower=Full Auto
-achievement.bop.achDartBlower.desc=Kind, du wirst dir dein Auge ausschießen!
-achievement.bop.achScythe=Pflanzenkiller
-achievement.bop.achScythe.desc=Des Sensenmannes Job am Tage.
-achievement.bop.achEnderporter=Home Sweet Home
-achievement.bop.achEnderporter.desc=Nutze die magischen Kräfte des Enderporters.
-
-achievement.bop.achHoney=Bittersüß
-achievement.bop.achHoney.desc=Das Land von Blut und Honig.
-achievement.bop.achWitherWart=Zerfall
-achievement.bop.achWitherWart.desc=Ein Meister der Verkleidung.
-achievement.bop.achGrave=Totengräber
-achievement.bop.achGrave.desc=Der neue Boris.
-achievement.bop.achPhantom=Die Dunkle Bedrohung
-achievement.bop.achPhantom.desc=Dieb von Seelen...
-
-achievement.bop.achPromised=Immer Weiter Hoch!
-achievement.bop.achPromised.desc=Willkommen zum Gelobten Land!
-achievement.bop.achCelestial=Blauer Himmel
-achievement.bop.achCelestial.desc=I am the one who...blocks...
-achievement.bop.achAmbrosia=Getränk der Götter
-achievement.bop.achAmbrosia.desc=Stillt euren Durst, meine Freunde.
-
-achievement.bop.achAllBOP=Achievements O' Plenty
-achievement.bop.achAllBOP.desc=Du hast alle Biomes-O'-Plenty-Errungenschaften bekommen!
+commands.biomesoplenty.usage=/biomesoplenty <tpbiome|biomename|stripchunk> [args]
+commands.biomesoplenty.biomename.usage=/biomesoplenty Biomname [biomeId]
+commands.biomesoplenty.biomename.success=Biom ID %s ist zugeordnet zu %s
+commands.biomesoplenty.tpbiome.usage=/biomesoplenty tpbiome [biomeId]
+commands.biomesoplenty.tpbiome.success=Teleportiert %s zu Biom %s zu (%s, %s, %s)
+commands.biomesoplenty.tpbiome.error=Konnte Biom %s nicht finden!
+commands.biomesoplenty.stats.blocks=Blöcke: %s
+commands.biomesoplenty.stats.items=Gegenstände: %s
+commands.biomesoplenty.stats.entities=Wesen: %s
+commands.biomesoplenty.stats.biomes=Biome: %s
+commands.biomesoplenty.stripchunk.usage=/biomesoplenty stripchunk [radius] <include|exclude> [block] [metadata]
+
+generator.BIOMESOP=Biomes O' Plenty
+generator.BIOMESOP.info=Notice: Biomes O' Plenty 1.8 ist in einem sehr frühem Stadium
 
 itemGroup.tabBiomesOPlenty=Biomes O' Plenty
 
-generator.BIOMESOP=Biomes O' Plenty
+tile.ash_block.name=Ascheblock
+
+tile.bamboo.name=Bambus
+
+tile.bone_segment.small.name=Kleines Knochen Segmant
+tile.bone_segment.medium.name=Mittleres Knochen Segment
+tile.bone_segment.large.name=Großes Knochen Segment
+
+tile.grass.spectral_moss.name=Spektral Moos
+tile.grass.smoldering_grass_block.name=Schwelender Grasblock
+tile.grass.loamy_grass_block.name=Lehmiger Grasblock
+tile.grass.sandy_grass_block.name=Sandiger Grasblock
+tile.grass.silty_grass_block.name=Schlammiger Grasblock
+tile.grass.origin_grass_block.name=Ursprünglicher Grasblock
+
+tile.coral.pink.name=Pinke Koralle
+tile.coral.orange.name=Orange Koralle
+tile.coral.blue.name=Blaue Koralle
+tile.coral.glowing.name=Leuchtende Koralle
+tile.coral.algae.name=Alge
+
+tile.coral.kelp_bottom.name=Seetang Unten
+tile.coral.kelp_middle.name=Seetang Mitte
+tile.coral.kelp_top.name=Seetang Oben
+tile.coral.kelp.name=Seetang
+
+tile.flesh.name=Fleisch
+
+tile.flower.clover.name=Klee
+tile.flower.swampflower.name=Sumpfblume
+tile.flower.deathbloom.name=Totenblume
+tile.flower.glowflower.name=Leuchtblume
+tile.flower.blue_hydrangea.name=Blaue Hortensie
+tile.flower.orange_cosmos.name=Oranger Kosmos
+tile.flower.pink_daffodil.name=Pinke Narzisse
+tile.flower.wildflower.name=Wildblume
+tile.flower.violet.name=Veilchen
+tile.flower.white_anemone.name=Weisse Anemone
+tile.flower.enderlotus.name=Enderlotus
+tile.flower.bromeliad.name=Bromelia
+tile.flower.dandelion.name=Löwenzahn Flaum
+tile.flower.pink_hibiscus.name=Pinker Hibiskus
+tile.flower.lily_of_the_valley.name=Maiglöckchen
+tile.flower.burning_blossom.name=Feuerblume
+
+tile.flower2.lavender.name=Lavendel
+tile.flower2.goldenrod.name=Goldregen
+tile.flower2.bluebells.name=Glockenblumen
+tile.flower2.miners_delight.name=Bergmanns Freude
+tile.flower2.icy_iris.name=Eisige Iris
+tile.flower2.rose.name=Rose
+
+tile.gem.amethyst.name=Amethyst Block
+tile.gem.ruby.name=Rubin Block
+tile.gem.peridot.name=Peridot Block
+tile.gem.topaz.name=Topas Block
+tile.gem.tanzanite.name=Tansanit Block
+tile.gem.malachite.name=Malachit Block
+tile.gem.sapphire.name=Saphir Block
+tile.gem.amber.name=Bernstein Block
+
+tile.gem_ore.amethyst.name=Ender Amethyst Erz
+tile.gem_ore.ruby.name=Rubin Erz
+tile.gem_ore.peridot.name=Peridot Erz
+tile.gem_ore.topaz.name=Topas Erz
+tile.gem_ore.tanzanite.name=Tanzsanit Erz
+tile.gem_ore.malachite.name=Malachit Erz
+tile.gem_ore.sapphire.name=Saphir Erz
+tile.gem_ore.amber.name=Bernstein Erz
+
+tile.hive.hive.name=Bienenstock Block
+tile.hive.honeycomb.name=Honigwaben Block
+tile.hive.empty_honeycomb.name=Leerer Honigwaben Block
+tile.hive.filled_honeycomb.name=Voller Honigwaben Block
+
+tile.sacred_oak_log.name=Heiliges Eichenholz
+tile.cherry_log.name=Kirschholz
+tile.dark_log.name=Dunkelholz
+tile.fir_log.name=Tannenholz
+tile.ethereal_log.name=Geisterholz
+tile.log2.magic.name=Magieholz 
+tile.log2.mangrove.name=Mangrovenholz
+tile.log2.palm.name=Palmholz
+tile.log2.redwood.name=Mammutbaumholz
+tile.log2.willow.name=Weidenholz
+tile.log3.dead.name=Totholz
+tile.log3.giant_flower_stem.name=Riesenblumen Stängel
+tile.log3.pine.name=Kiefernholz
+tile.log3.hell_bark.name=Höllenrinde
+tile.log3.jacaranda.name=Palisanderholz
+tile.log4.mahogany.name=Mahagoniholz
+
+tile.mud.mud.name=Schlamm
+tile.sand.quicksand.name=Treibsand
+
+tile.mushroom.toadstool.name=Fliegenpilz
+tile.mushroom.portobello.name=Portobello
+tile.mushroom.blue_milk_cap.name=Mitternachtspilz
+tile.mushroom.glowshroom.name=Leuchtpilz
+tile.mushroom.flat_mushroom.name=Dachpilz
+tile.mushroom.shadow_shroom.name=Schattenpilz
+
+tile.planks.sacred_oak.name=Heilige Eichenholzbretter
+tile.planks.cherry.name=Kirschholzbretter
+tile.planks.dark.name=Dunkelholzbretter
+tile.planks.fir.name=Tannenholzbretter
+tile.planks.ethereal.name=Geisterholzbretter
+tile.planks.magic.name=Magieholzbretter
+tile.planks.mangrove.name=Mangrovenholzbretter
+tile.planks.palm.name=Palmholzbretter
+tile.planks.redwood.name=Mammutbaumholzbretter
+tile.planks.willow.name=Weidenholzbretter
+tile.planks.bamboo_thatching.name=Bambusmatten
+tile.planks.pine.name=Kiefernholzbretter
+tile.planks.hell_bark.name=Höllenrindenbretter
+tile.planks.jacaranda.name=Palisanderholzbretter
+tile.planks.mahogany.name=Mahagoniholzbretter
+
+tile.stone.limestone.name=Kalkstein
+tile.stone.polished_limestone.name=Polierter Kalkstein
+tile.stone.siltstone.name=Schluffstein
+tile.stone.polished_siltstone.name=Polierter Schluffstein
+tile.stone.shale.name=Schiefer
+tile.stone.polished_shale.name=Polierter Schiefer
+
+tile.turnip_block.name=Rübe
+
+tile.waterlily.lily_medium.name=Mittleres Seerosenblatt
+tile.waterlily.lily_small.name=Kleines Seerosenblatt
+tile.waterlily.lily_tiny.name=Sehr kleines Seerosenblatt
+
+tile.dirt.loamy_dirt.name=Lehmiges Erdreich
+tile.dirt.sandy_dirt.name=Sandiges Erdreich
+tile.dirt.silty_dirt.name=Schlammiges Erdreich
+tile.dirt.coarse_loamy_dirt.name=Grobes lehmiges Erdreich
+tile.dirt.coarse_sandy_dirt.name=Grobes sandiges Erdreich
+tile.dirt.coarse_silty_dirt.name=Grobes schlammiges Erdreich
+
+tile.stone_formations.stalagmite.name=Stalagmit
+tile.stone_formations.stalactite.name=Stalaktit
+
+tile.fruit_block.apple_block.name=Apfel Block
+tile.fruit_block.persimmon_block.name=Kaki Block
+tile.fruit_block.peach_block.name=Pfirsich Block
+tile.fruit_block.pear_block.name=Birnen Block
+
+tile.ash_stone.name=Asche Stein
+tile.hard_sand.name=Gehärteter Sand
+tile.hard_dirt.name=Gehärtetes Erdreich
+tile.hard_ice.name=Hartes Eis
+tile.dried_dirt.name=Ausgetrocknetes Erdreich
+tile.crag_rock.name=Felsgestein
+tile.mud_brick.name=Lehmziegel
+tile.crystal.name=Himmelskristall
+
+item.fleshchunk.name=Stück Fleisch
+item.mudball.name=Schlamm Ball
+item.turnip.name=Rübe
+item.turnip_seeds.name=Rübensamen
+item.persimmon.name=Kaki
+item.peach.name=Pfirsich
+item.pear.name=Birne
+item.crystal_shard.name=Himmelskristallscherbe
+
+
+biome_finder.searching=Suche nach %s
+biome_finder.found=%s gefunden!
+biome_finder.not_found=Nicht gefunden. Vielleicht ist %s zu weit entfernt.
