@@ -37,7 +37,7 @@ configFile.withReader {
 
 group = "com.github.glitchfiend.biomesoplenty"
 version = config.mod_version
-archivesBaseName = "BiomesOPlenty-InDev"
+archivesBaseName = "BiomesOPlenty"
 
 minecraft {
     version = config.minecraft_version + "-" + config.forge_version // grab latest forge
