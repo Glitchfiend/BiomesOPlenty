@@ -16,6 +16,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTank;
@@ -44,6 +45,7 @@ public class ItemBOPBucket extends ItemFluidContainer
 	public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player)
 	{
 		MovingObjectPosition movingobjectposition = this.getMovingObjectPositionFromPlayer(world, player, false);
+		ForgeDirection direction = ForgeDirection.getOrientation(movingobjectposition.sideHit);
 		if (movingobjectposition != null)
 		{
             int i = movingobjectposition.blockX;
@@ -55,9 +57,9 @@ public class ItemBOPBucket extends ItemFluidContainer
         	if(tile != null && tile instanceof IFluidHandler)
         	{
         		IFluidHandler tank = (IFluidHandler)tile;
-        		if(tank.fill(null,this.getFluid(itemStack), false) == this.getCapacity(itemStack))
+        		if(tank.fill(direction,this.getFluid(itemStack), false) == this.getCapacity(itemStack))
         		{
-        			tank.fill(null,this.getFluid(itemStack), true);
+        			tank.fill(direction,this.getFluid(itemStack), true);
         			if(!player.capabilities.isCreativeMode)
         				return new ItemStack(Items.bucket);
         		}
