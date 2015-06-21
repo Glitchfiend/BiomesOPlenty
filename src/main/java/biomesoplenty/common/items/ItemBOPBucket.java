@@ -55,9 +55,9 @@ public class ItemBOPBucket extends ItemFluidContainer
         	if(tile != null && tile instanceof IFluidHandler)
         	{
         		IFluidHandler tank = (IFluidHandler)tile;
-        		if(tank.fill(null,this.getFluid(itemStack), false) == this.getCapacity(itemStack))
+        		if(tank.fill(ForgeDirection.UNKNOWN,this.getFluid(itemStack), false) == this.getCapacity(itemStack))
         		{
-        			tank.fill(null,this.getFluid(itemStack), true);
+        			tank.fill(ForgeDirection.UNKNOWN,this.getFluid(itemStack), true);
         			if(!player.capabilities.isCreativeMode)
         				return new ItemStack(Items.bucket);
         		}
