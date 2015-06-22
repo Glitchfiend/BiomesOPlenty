@@ -6,18 +6,19 @@
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  ******************************************************************************/
 
-package biomesoplenty.common.fluids.blocks;
+package biomesoplenty.common.fluids;
 
-import net.minecraft.block.material.Material;
-import net.minecraftforge.fluids.BlockFluidClassic;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 
-public class BlockBloodFluid extends BlockFluidClassic
-{
+public class PoisonFluid extends Fluid {
+    
+    public static final String name = "poison";
+    public static final PoisonFluid instance = new PoisonFluid();
 
-    public BlockBloodFluid(Fluid fluid)
+    public PoisonFluid()
     {
-        super(fluid, Material.water);
+        super(name, new ResourceLocation("biomesoplenty:blocks/poison_still"), new ResourceLocation("biomesoplenty:blocks/poison_flowing"));
     }
 
 }

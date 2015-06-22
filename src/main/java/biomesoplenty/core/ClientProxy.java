@@ -10,11 +10,13 @@ package biomesoplenty.core;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.block.statemap.IStateMapper;
 import net.minecraft.client.renderer.block.statemap.StateMap;
+import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.client.renderer.texture.ITextureObject;
 import net.minecraft.client.renderer.texture.SimpleTexture;
 import net.minecraft.client.resources.model.ModelBakery;
@@ -24,12 +26,10 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.api.particle.BOPParticleTypes;
-import biomesoplenty.client.handler.ModelBakeHandler;
 import biomesoplenty.client.particle.*;
 import biomesoplenty.common.config.MiscConfigurationHandler;
 import biomesoplenty.common.entities.*;
@@ -90,10 +90,17 @@ public class ClientProxy extends CommonProxy
     @Override
     public void registerFluidBlockRendering(Block block, String name) 
     {
+        final ModelResourceLocation fluidLocation = new ModelResourceLocation(BiomesOPlenty.MOD_ID.toLowerCase() + ":fluids", name);
+        
         // use a custom state mapper which will ignore the LEVEL property
-        IStateMapper custom_mapper = (new StateMap.Builder()).addPropertiesToIgnore(new IProperty[] {BlockFluidBase.LEVEL}).build();
-        ModelLoader.setCustomStateMapper(block, custom_mapper);
-        ModelBakeHandler.fluidsToTextureStitch.add(name);
+        ModelLoader.setCustomStateMapper(block, new StateMapperBase()
+        {
+            @Override
+            protected ModelResourceLocation getModelResourceLocation(IBlockState state)
+            {
+                return fluidLocation;
+            }
+        });
     }
     
     @Override

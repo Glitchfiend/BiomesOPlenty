@@ -6,18 +6,19 @@
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  ******************************************************************************/
 
-package biomesoplenty.common.fluids.blocks;
+package biomesoplenty.common.fluids;
 
-import net.minecraft.block.material.Material;
-import net.minecraftforge.fluids.BlockFluidClassic;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 
-public class BlockBloodFluid extends BlockFluidClassic
-{
+public class HoneyFluid extends Fluid {
+    
+    public static final String name = "honey";
+    public static final HoneyFluid instance = new HoneyFluid();
 
-    public BlockBloodFluid(Fluid fluid)
+    public HoneyFluid()
     {
-        super(fluid, Material.water);
+        super(name, new ResourceLocation("biomesoplenty:blocks/honey_still"), new ResourceLocation("biomesoplenty:blocks/honey_flowing"));
     }
 
 }

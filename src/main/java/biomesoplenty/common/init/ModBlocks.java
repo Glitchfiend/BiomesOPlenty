@@ -30,6 +30,9 @@ import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.block.*;
 import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.enums.*;
+import biomesoplenty.common.fluids.BloodFluid;
+import biomesoplenty.common.fluids.HoneyFluid;
+import biomesoplenty.common.fluids.PoisonFluid;
 import biomesoplenty.common.fluids.blocks.*;
 import biomesoplenty.common.util.BOPReflectionHelper;
 import biomesoplenty.common.util.block.BlockStateUtils;
@@ -223,16 +226,16 @@ public class ModBlocks
         // fluids
         // TODO: make the fluids render!  at the moment, no forge fluids are rendering in 1.8, they're invisible
         
-        honey_fluid = new Fluid("honey");
+        honey_fluid = HoneyFluid.instance;
         honey_fluid.setViscosity(1500);
         FluidRegistry.registerFluid(honey_fluid);
         honey = registerFluidBlock(honey_fluid, new BlockHoneyFluid(honey_fluid), "honey");
         
-        blood_fluid = new Fluid("blood");
+        blood_fluid = BloodFluid.instance;
         FluidRegistry.registerFluid(blood_fluid);
         blood = registerFluidBlock(blood_fluid, new BlockBloodFluid(blood_fluid), "blood");
         
-        poison_fluid = new Fluid("poison");
+        poison_fluid = PoisonFluid.instance;
         FluidRegistry.registerFluid(poison_fluid);
         poison = registerFluidBlock(poison_fluid, new BlockPoisonFluid(poison_fluid), "poison");
         
