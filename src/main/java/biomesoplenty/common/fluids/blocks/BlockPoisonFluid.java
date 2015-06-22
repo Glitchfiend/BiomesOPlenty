@@ -15,10 +15,10 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.fluids.BlockFluidFinite;
+import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
 
-public class BlockPoisonFluid extends BlockFluidFinite
+public class BlockPoisonFluid extends BlockFluidClassic
 {
 
     public BlockPoisonFluid(Fluid fluid)
