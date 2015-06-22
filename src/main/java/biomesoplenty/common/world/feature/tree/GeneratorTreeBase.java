@@ -11,6 +11,7 @@ package biomesoplenty.common.world.feature.tree;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockLog;
 import net.minecraft.block.BlockNewLeaf;
 import net.minecraft.block.BlockNewLog;
 import net.minecraft.block.BlockOldLeaf;
@@ -18,6 +19,7 @@ import net.minecraft.block.BlockOldLog;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockVine;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
@@ -45,6 +47,7 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
     protected IBlockState vine;
     protected int minHeight;
     protected int maxHeight;
+    protected IProperty logAxisProperty;
     
     protected GeneratorTreeBase(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, int minHeight, int maxHeight) {
         super(amountPerChunk);
@@ -55,6 +58,7 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
         this.vine = vine;
         this.minHeight = minHeight;
         this.maxHeight = maxHeight;
+        this.logAxisProperty = GeneratorUtils.getAxisProperty(log);
     }
 
     protected static abstract class InnerBuilder<T extends InnerBuilder<T, G>, G extends GeneratorTreeBase> extends BOPGeneratorBase.InnerBuilder<T, G>
@@ -139,9 +143,15 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
     
     public boolean setLog(World world, BlockPos pos)
     {
+        return this.setLog(world, pos, null);
+    }
+    
+    public boolean setLog(World world, BlockPos pos, EnumFacing.Axis axis)
+    {
+        IBlockState directedLog = (axis != null && this.logAxisProperty != null) ? this.log.withProperty(this.logAxisProperty, BlockLog.EnumAxis.fromFacingAxis(axis)) : this.log;
         if (this.replace.matches(world, pos))
         {
-            world.setBlockState(pos, this.log, 2);
+            world.setBlockState(pos, directedLog, 2);
             return true;
         }
         return false;

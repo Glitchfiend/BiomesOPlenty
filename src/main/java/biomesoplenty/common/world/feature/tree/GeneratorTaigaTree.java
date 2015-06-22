@@ -19,6 +19,7 @@ import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
@@ -51,19 +52,12 @@ public class GeneratorTaigaTree extends GeneratorTreeBase
         
     }
     
-    private int trunkStart;
-    private int trunkEnd;
+    private int trunkWidth;
     
     public GeneratorTaigaTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, int minHeight, int maxHeight, int trunkWidth)
     {
         super(amountPerChunk, placeOn, replace, log, leaves, vine, minHeight, maxHeight);
-        this.setTrunkWidth(trunkWidth);
-    }
-    
-    private void setTrunkWidth(int trunkWidth)
-    {
-        this.trunkStart = MathHelper.ceiling_double_int(0.25D - trunkWidth / 2.0D);
-        this.trunkEnd = MathHelper.floor_double(0.25D + trunkWidth / 2.0D);
+        this.trunkWidth = trunkWidth;
     }
     
     public boolean checkSpace(World world, BlockPos pos, int baseHeight, int height)
@@ -71,9 +65,13 @@ public class GeneratorTaigaTree extends GeneratorTreeBase
         for (int y = 0; y <= height; y++)
         {
             
+            int trunkWidth = (this.trunkWidth * (height - y) / height) + 1;
+            int trunkStart = MathHelper.ceiling_double_int(0.25D - trunkWidth / 2.0D);
+            int trunkEnd = MathHelper.floor_double(0.25D + trunkWidth / 2.0D);
+            
             // require 3x3 for the leaves, 1x1 for the trunk
-            int start = (y <= baseHeight ? this.trunkStart : this.trunkStart - 1);
-            int end = (y <= baseHeight ? this.trunkEnd : this.trunkEnd + 1);
+            int start = (y <= baseHeight ? trunkStart : trunkStart - 1);
+            int end = (y <= baseHeight ? trunkEnd : trunkEnd + 1);
             
             for (int x = start; x <= end; x++)
             {
@@ -92,10 +90,10 @@ public class GeneratorTaigaTree extends GeneratorTreeBase
     }
     
     // generates a layer of leafs
-    public void generateLeafLayer(World world, Random rand, BlockPos pos, int leavesRadius)
+    public void generateLeafLayer(World world, Random rand, BlockPos pos, int leavesRadius, int trunkStart, int trunkEnd)
     {
-        int start = this.trunkStart - leavesRadius;
-        int end = this.trunkEnd + leavesRadius;
+        int start = trunkStart - leavesRadius;
+        int end = trunkEnd + leavesRadius;
         
         for (int x = start; x <= end; x++)
         {
@@ -103,10 +101,38 @@ public class GeneratorTaigaTree extends GeneratorTreeBase
             {
                 // skip corners
                 if ((leavesRadius > 0 ) && (x == start || x == end) && (z == start || z == end)) {continue;}
-                int distFromTrunk = (x < 0 ? this.trunkStart - x : x - this.trunkEnd) + (z < 0 ? this.trunkStart - z : z - this.trunkEnd);
+                int distFromTrunk = (x < 0 ? trunkStart - x : x - trunkEnd) + (z < 0 ? trunkStart - z : z - trunkEnd);
                 
                 // set leaves as long as it's not too far from the trunk to survive
-                if (distFromTrunk <=4) {this.setLeaves(world, pos.add(x, 0, z));}
+                if (distFromTrunk < 4 || (distFromTrunk == 4 && rand.nextInt(2) == 0))
+                {
+                    this.setLeaves(world, pos.add(x, 0, z));
+                }
+            }
+        }
+    }
+    
+    public void generateBranch(World world, Random rand, BlockPos pos, EnumFacing direction, int length)
+    {
+        EnumFacing.Axis axis = direction.getAxis();
+        EnumFacing sideways = direction.rotateY();
+        for (int i = 1; i <= length; i++)
+        {
+            BlockPos pos1 = pos.offset(direction, i);
+            int r = (i == 1 || i == length) ? 1 : 2;
+            for (int j = -r; j <= r; j++)
+            {
+                if (i < length || rand.nextInt(2) == 0)
+                {
+                    this.setLeaves(world, pos1.offset(sideways, j));
+                }
+            }
+            if (length - i > 2)
+            {
+                this.setLeaves(world, pos1.up());
+                this.setLeaves(world, pos1.up().offset(sideways, -1));
+                this.setLeaves(world, pos1.up().offset(sideways, 1));
+                this.setLog(world, pos1, axis);
             }
         }
     }
@@ -127,10 +153,9 @@ public class GeneratorTaigaTree extends GeneratorTreeBase
         
         // Choose heights
         int height = GeneratorUtils.nextIntBetween(random, this.minHeight, this.maxHeight);
-        int baseHeight = GeneratorUtils.nextIntBetween(random, height / 6, height / 3);
+        int baseHeight = GeneratorUtils.nextIntBetween(random, height / 5, height / 3);
         int leavesHeight = height - baseHeight;
         if (leavesHeight < 3) {return false;}
-        int leavesMaxRadius = (leavesHeight > 6 ? 3 : 2);
         
         if (!this.checkSpace(world, startPos.up(), baseHeight, height))
         {
@@ -146,19 +171,41 @@ public class GeneratorTaigaTree extends GeneratorTreeBase
         pos.down();
         
         // Add layers of leaves
-        int localMinRadius = 0;
-        int radius = 0;
-        int localMaxRadius = 1;
         for (int i = 0; i < leavesHeight; i++)
         {
-            this.generateLeafLayer(world, random, pos, radius);
-            if (radius < localMaxRadius)
+            
+            int trunkWidth = (this.trunkWidth * i / height) + 1;
+            int trunkStart = MathHelper.ceiling_double_int(0.25D - trunkWidth / 2.0D);
+            int trunkEnd = MathHelper.floor_double(0.25D + trunkWidth / 2.0D);
+            
+            
+            int radius = Math.min(Math.min((i + 2) / 3, 3 + (leavesHeight - i)), 6);
+            if (radius == 0)
             {
-                radius++; 
-            } else {
-                radius = localMinRadius;
-                if (localMinRadius == 0) {localMinRadius = 1;}
-                if (localMaxRadius < leavesMaxRadius) {localMaxRadius++;}
+                this.setLeaves(world, pos);
+            }
+            else if (radius < 4)
+            {
+                // for smallish radius, do simple leaf layers
+                if (i % 2 == 0)
+                {
+                    this.generateLeafLayer(world, random, pos, radius, trunkStart, trunkEnd);
+                }
+                else
+                {
+                    this.generateLeafLayer(world, random, pos, radius / 2, trunkStart, trunkEnd);
+                }
+            }
+            else
+            {
+                // for bigger radius, need branches
+                if (i % 2 == 0)
+                {
+                    this.generateBranch(world, random, pos.add(trunkStart, 0, trunkStart), EnumFacing.NORTH, radius);
+                    this.generateBranch(world, random, pos.add(trunkEnd, 0, trunkStart), EnumFacing.EAST, radius);
+                    this.generateBranch(world, random, pos.add(trunkEnd, 0, trunkEnd), EnumFacing.SOUTH, radius);
+                    this.generateBranch(world, random, pos.add(trunkStart, 0, trunkEnd), EnumFacing.WEST, radius);
+                }
             }
             pos = pos.down();
         }
@@ -166,9 +213,13 @@ public class GeneratorTaigaTree extends GeneratorTreeBase
         // Generate the trunk
         for (int y = 0; y < height - 1; y++)
         {
-            for (int x = this.trunkStart; x <= this.trunkEnd; x++)
+            int trunkWidth = (this.trunkWidth * (height - y) / height) + 1;
+            int trunkStart = MathHelper.ceiling_double_int(0.25D - trunkWidth / 2.0D);
+            int trunkEnd = MathHelper.floor_double(0.25D + trunkWidth / 2.0D);
+            
+            for (int x = trunkStart; x <= trunkEnd; x++)
             {
-                for (int z = this.trunkStart; z <= this.trunkEnd; z++)
+                for (int z = trunkStart; z <= trunkEnd; z++)
                 {
                     this.setLog(world, startPos.add(x, y, z));
                 }
@@ -190,7 +241,7 @@ public class GeneratorTaigaTree extends GeneratorTreeBase
         this.log = conf.getBlockState("logState", this.log);
         this.leaves = conf.getBlockState("leavesState", this.leaves);
         this.vine = conf.getBlockState("vinesState", this.vine);
-        this.setTrunkWidth(conf.getInt("trunkWidth", this.trunkEnd - this.trunkStart));
+        this.trunkWidth = conf.getInt("trunkWidth", this.trunkWidth);
     }
 
 }

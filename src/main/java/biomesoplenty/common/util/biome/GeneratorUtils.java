@@ -8,6 +8,7 @@
 
 package biomesoplenty.common.util.biome;
 
+import java.util.Collection;
 import java.util.Random;
 
 import org.apache.commons.lang3.tuple.Pair;
@@ -16,6 +17,8 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
 
+import net.minecraft.block.BlockLog;
+import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
@@ -99,6 +102,21 @@ public class GeneratorUtils
                     return new BlockPos(x, nextIntBetween(random, 1, 255), z);
             }
         }
+    }
+    
+    
+    // Given a blockstate for some block which has an axis orientation (such as logs), try to determine the axis property
+    public static IProperty getAxisProperty(IBlockState log)
+    {
+        for (Object property : log.getProperties().keySet())
+        {
+            Collection allowedValues = ((IProperty)property).getAllowedValues();
+            if (allowedValues.contains(BlockLog.EnumAxis.X) && allowedValues.contains(BlockLog.EnumAxis.Y) && allowedValues.contains(BlockLog.EnumAxis.Z))
+            {
+                return(IProperty)property;
+            }
+        }
+        return null;
     }
     
     
