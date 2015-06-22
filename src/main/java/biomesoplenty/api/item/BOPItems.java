@@ -108,6 +108,9 @@ public class BOPItems
     public static Item enderporter;
     public static Item jar_empty;
     public static Item jar_filled;
+    public static Item honey_bucket;
+    public static Item blood_bucket;
+    public static Item poison_bucket;
     
     public static Item record_wanderer;
     public static Item record_corruption;

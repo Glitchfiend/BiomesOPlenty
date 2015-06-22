@@ -9,14 +9,19 @@
 package biomesoplenty.common.init;
 
 import static biomesoplenty.api.block.BOPBlocks.*;
+import static biomesoplenty.api.item.BOPItems.blood_bucket;
+import static biomesoplenty.api.item.BOPItems.honey_bucket;
+import static biomesoplenty.api.item.BOPItems.poison_bucket;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemBucket;
 import net.minecraft.item.ItemDoor;
 import net.minecraft.item.ItemSlab;
 import net.minecraftforge.common.EnumPlantType;
@@ -238,6 +243,10 @@ public class ModBlocks
         poison_fluid = PoisonFluid.instance;
         FluidRegistry.registerFluid(poison_fluid);
         poison = registerFluidBlock(poison_fluid, new BlockPoisonFluid(poison_fluid), "poison");
+        
+        honey_bucket = ModItems.registerItem((new ItemBucket(honey)).setContainerItem(Items.bucket), "honey_bucket");
+        blood_bucket = ModItems.registerItem((new ItemBucket(blood)).setContainerItem(Items.bucket), "blood_bucket");
+        poison_bucket = ModItems.registerItem((new ItemBucket(poison)).setContainerItem(Items.bucket), "poison_bucket");
         
         
     }

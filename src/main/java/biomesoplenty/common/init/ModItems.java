@@ -169,10 +169,11 @@ public class ModItems
         enderporter = registerItem(new ItemEnderporter(), "enderporter");
         jar_empty = registerItem(new ItemJarEmpty(), "jar_empty");
         jar_filled = registerItem(new ItemJarFilled(), "jar_filled");
-
+        
         record_wanderer = registerItem(new ItemBOPRecord("wanderer"), "record_wanderer");
         record_corruption = registerItem(new ItemBOPRecord("corruption"), "record_corruption");
         
+        // TODO: use Forge for eggs now?  https://github.com/MinecraftForge/MinecraftForge/commit/c158af902f2a689f612fd20427b5a1590fc2f1ba
         spawn_egg = registerItem(new ItemBOPSpawnEgg(), "spawn_egg");
         
     }
