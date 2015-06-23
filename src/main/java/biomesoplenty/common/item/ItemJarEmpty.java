@@ -8,10 +8,6 @@
 
 package biomesoplenty.common.item;
 
-import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.common.entities.EntityPixie;
-import biomesoplenty.common.fluids.blocks.BlockHoneyFluid;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -24,6 +20,9 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.MovingObjectPosition.MovingObjectType;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.FakePlayer;
+import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.common.entities.EntityPixie;
 
 
 public class ItemJarEmpty extends Item
@@ -35,45 +34,50 @@ public class ItemJarEmpty extends Item
     }
         
     
-    // TODO: can't click on honey yet this.getMovingObjectPositionFromPlayer(world, player, true) registers no hit
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
     {
+        
         MovingObjectPosition hit = this.getMovingObjectPositionFromPlayer(world, player, true);
         if (hit == null) {return stack;}
-   
+        if (hit.typeOfHit != MovingObjectType.BLOCK) {return stack;}
         BlockPos pos = hit.getBlockPos();
-        if (hit.typeOfHit == MovingObjectType.BLOCK)
+        if (!world.isBlockModifiable(player, pos)) {return stack;}
+        if (!player.canPlayerEdit(pos, hit.sideHit, stack)) {return stack;}       
+        
+        // determine if the block is one of our BOP fluids
+        // note - no need to check level - you don't get a hit unless it's full
+        IBlockState state = world.getBlockState(pos);
+        ItemJarFilled.JarContents jarContents = null;
+        if (state.getBlock() == BOPBlocks.honey)
         {
-            if (!world.isBlockModifiable(player, pos)) {return stack;}
-            if (!player.canPlayerEdit(pos, hit.sideHit, stack)) {return stack;}
-            
-            IBlockState state = world.getBlockState(pos);
-            
-            //System.out.println("block:"+state.getBlock().getUnlocalizedName());
-            //System.out.println(state.getBlock() == BOPBlocks.honey ? "honey level:"+((Integer)state.getValue(BlockHoneyFluid.LEVEL)) : "not honey");
-            
-            // TODO: do we need to check level? would we get a hit at all if the level was not full?
-            if (state.getBlock() == BOPBlocks.honey && ((Integer)state.getValue(BlockHoneyFluid.LEVEL)).intValue() >= 7)
-            {
-                world.setBlockToAir(pos);
-                --stack.stackSize;
-                player.triggerAchievement(StatList.objectUseStats[Item.getIdFromItem(this)]);
-                
-                ItemStack honeyJar = new ItemStack(BOPItems.jar_filled, 1, ItemJarFilled.JarContents.HONEY.ordinal());
-                // if there was only one empty jar in the stack, replace it, otherwise add the filledJar elsewhere in the inventory
-                if (stack.stackSize <= 0)
-                {
-                    return honeyJar;
-                }
-                else if (!player.inventory.addItemStackToInventory(honeyJar))
-                {
-                    // no room in inventory, so just drop it on the floor
-                    player.dropPlayerItemWithRandomChoice(honeyJar, false);
-                }
-            }
-            
+            jarContents = ItemJarFilled.JarContents.HONEY;                
         }
+        else if (state.getBlock() == BOPBlocks.poison)
+        {
+            jarContents = ItemJarFilled.JarContents.POISON;
+        }
+        
+        // if it was honey or poison, return the corresponding filled jar
+        if (jarContents != null)
+        {
+            world.setBlockToAir(pos);
+            --stack.stackSize;
+            player.triggerAchievement(StatList.objectUseStats[Item.getIdFromItem(this)]);
+            
+            ItemStack honeyJar = new ItemStack(BOPItems.jar_filled, 1, jarContents.ordinal());
+            // if there was only one empty jar in the stack, replace it, otherwise add the filledJar elsewhere in the inventory
+            if (stack.stackSize <= 0)
+            {
+                return honeyJar;
+            }
+            else if (!player.inventory.addItemStackToInventory(honeyJar))
+            {
+                // no room in inventory, so just drop it on the floor
+                player.dropPlayerItemWithRandomChoice(honeyJar, false);
+            }
+        }
+            
         return stack;
     }
     

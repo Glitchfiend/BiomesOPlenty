@@ -28,7 +28,7 @@ public class BucketEventHandler
 {
     
     @SubscribeEvent
-    public void arse(FillBucketEvent event)
+    public void onRightClickHoldingBucket(FillBucketEvent event)
     {
         // check we're using a bucket, on a block we can modify
         if (event.current.getItem() != Items.bucket) {return;}

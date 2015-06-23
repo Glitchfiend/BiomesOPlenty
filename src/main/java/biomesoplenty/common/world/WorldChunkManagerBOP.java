@@ -19,9 +19,7 @@ import net.minecraft.world.biome.WorldChunkManager;
 import net.minecraft.world.gen.layer.*;
 
 public class WorldChunkManagerBOP extends WorldChunkManager
-{
-    // TODO: ability to vary landmass creation - eg continents, archipelago etc    
-    
+{    
     public WorldChunkManagerBOP(long seed, WorldType worldType, String chunkProviderSettings)
     {
         super();

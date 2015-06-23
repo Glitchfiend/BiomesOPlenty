@@ -18,7 +18,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.fluids.BlockFluidFinite;
 import net.minecraftforge.fluids.Fluid;
 
-// TODO: buckets always seem to drop level 1 honey
 public class BlockHoneyFluid extends BlockFluidFinite
 {
 
@@ -26,6 +25,8 @@ public class BlockHoneyFluid extends BlockFluidFinite
     {
         super(fluid, Material.water);
         this.setLightOpacity(1);
+        // default state should be a 'full block' of honey
+        this.setDefaultState(this.blockState.getBaseState().withProperty(LEVEL, this.quantaPerBlock - 1));
     }
     
     @Override

@@ -229,7 +229,6 @@ public class ModBlocks
         
         
         // fluids
-        // TODO: make the fluids render!  at the moment, no forge fluids are rendering in 1.8, they're invisible
         
         honey_fluid = HoneyFluid.instance;
         honey_fluid.setViscosity(1500);

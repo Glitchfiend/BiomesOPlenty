@@ -53,9 +53,7 @@ public class BiomeGenMarsh extends BOPBiome
         
         this.spawnableCreatureList.clear(); // none of your regular farmyard critters here
         this.spawnableWaterCreatureList.clear();
-        this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));
-        
-        // TODO: find a way to make the lakes shallower
+        this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));        
         
         // mud
         this.addGenerator("mud", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(8).maxRadius(7).with(BOPBlocks.mud.getDefaultState()).create());
