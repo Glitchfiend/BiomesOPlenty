@@ -31,9 +31,19 @@ public class BOPWorldSettings
     
     public static enum TemperatureVariationScheme
     {
-        VANILLA,
-        RANDOM,
-        LATITUDE;
+        LATITUDE,
+        SMALL_ZONES,
+        MEDIUM_ZONES,
+        LARGE_ZONES,
+        RANDOM;
+    }
+    
+    public static enum RainfallVariationScheme
+    {
+        SMALL_ZONES,
+        MEDIUM_ZONES,
+        LARGE_ZONES,
+        RANDOM;
     }
     
     public static enum BiomeSize
@@ -58,7 +68,8 @@ public class BOPWorldSettings
     // BOP World properties
     
     public LandMassScheme landScheme = LandMassScheme.VANILLA;
-    public TemperatureVariationScheme tempScheme = TemperatureVariationScheme.VANILLA;
+    public TemperatureVariationScheme tempScheme = TemperatureVariationScheme.LATITUDE;
+    public RainfallVariationScheme rainScheme = RainfallVariationScheme.MEDIUM_ZONES;
     public BiomeSize biomeSize = BiomeSize.MEDIUM;
     public float amplitude = 1.0F;
     public boolean generateBopGems = true;
@@ -99,6 +110,7 @@ public class BOPWorldSettings
         JsonObject obj = new JsonObject();
         obj.addProperty("landScheme", this.landScheme.name().toLowerCase());
         obj.addProperty("tempScheme", this.tempScheme.name().toLowerCase());
+        obj.addProperty("rainScheme", this.rainScheme.name().toLowerCase());
         obj.addProperty("biomeSize", this.biomeSize.name().toLowerCase());
         obj.addProperty("amplitude", this.amplitude);
         obj.addProperty("generateBopOre", this.generateBopGems);
@@ -115,6 +127,7 @@ public class BOPWorldSettings
     {
         this.landScheme = worldConfig.getEnum("landScheme", this.landScheme, LandMassScheme.class);
         this.tempScheme = worldConfig.getEnum("tempScheme", this.tempScheme, TemperatureVariationScheme.class);
+        this.rainScheme = worldConfig.getEnum("rainScheme", this.rainScheme, RainfallVariationScheme.class);
         this.biomeSize = worldConfig.getEnum("biomeSize", this.biomeSize, BiomeSize.class);
         this.amplitude = worldConfig.getFloat("amplitude", this.amplitude);
         this.generateBopGems = worldConfig.getBool("generateBopOre", this.generateBopGems);
@@ -125,7 +138,8 @@ public class BOPWorldSettings
         
         // BOP default values
         this.landScheme = LandMassScheme.VANILLA;
-        this.tempScheme = TemperatureVariationScheme.VANILLA;
+        this.tempScheme = TemperatureVariationScheme.LATITUDE;
+        this.rainScheme = RainfallVariationScheme.MEDIUM_ZONES;
         this.biomeSize = BiomeSize.MEDIUM;
         this.amplitude = 1.0F;
         this.generateBopGems = true;        

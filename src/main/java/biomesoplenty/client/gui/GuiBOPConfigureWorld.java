@@ -144,10 +144,10 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
     {
         TEMP_SCHEME (101),
         GENERATE_BOP_GEMS (102),
-        AMPLITUDE_LABEL(103),
         AMPLITUDE (104),
         BIOME_SIZE (105),
-        LAND_SCHEME (106);
+        LAND_SCHEME (106),
+        RAIN_SCHEME (107);
         
         private int id;
         
@@ -181,8 +181,9 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
         this.pageNames[0] = "World";
         GuiBOPConfigPage.GuiListEntry[] page0 = new GuiBOPConfigPage.GuiListEntry[] {
             new GuiBOPConfigPage.GuiEnumButtonEntry<BiomeSize>(GuiEntries.BIOME_SIZE.getId(), "Biome Size: %s", true, this.settings.biomeSize),
-            new GuiBOPConfigPage.GuiEnumButtonEntry<TemperatureVariationScheme>(GuiEntries.TEMP_SCHEME.getId(), "Temperature: %s", true, this.settings.tempScheme),
             new GuiBOPConfigPage.GuiEnumButtonEntry<LandMassScheme>(GuiEntries.LAND_SCHEME.getId(), "Land Mass: %s", true, this.settings.landScheme),
+            new GuiBOPConfigPage.GuiEnumButtonEntry<TemperatureVariationScheme>(GuiEntries.TEMP_SCHEME.getId(), "Temperature: %s", true, this.settings.tempScheme),
+            new GuiBOPConfigPage.GuiEnumButtonEntry<RainfallVariationScheme>(GuiEntries.RAIN_SCHEME.getId(), "Rainfall: %s", true, this.settings.rainScheme),
             new GuiBOPConfigPage.GuiSlideEntry(GuiEntries.AMPLITUDE.getId(), "Amplitude", true, this, 0.2F, 3.0F, this.settings.amplitude)
         };
         
@@ -245,6 +246,10 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
             case TEMP_SCHEME:
                 TemperatureVariationScheme[] temp_values = TemperatureVariationScheme.values();
                 this.settings.tempScheme = temp_values[ordinal % temp_values.length];
+                break;
+            case RAIN_SCHEME:
+                RainfallVariationScheme[] rain_values = RainfallVariationScheme.values();
+                this.settings.rainScheme = rain_values[ordinal % rain_values.length];
                 break;
             case BIOME_SIZE:
                 BiomeSize[] size_values = BiomeSize.values();

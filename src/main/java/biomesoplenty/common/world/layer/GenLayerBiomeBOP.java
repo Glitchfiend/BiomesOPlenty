@@ -8,104 +8,25 @@
 
 package biomesoplenty.common.world.layer;
 
-import static net.minecraftforge.common.BiomeManager.BiomeType.COOL;
-import static net.minecraftforge.common.BiomeManager.BiomeType.DESERT;
-import static net.minecraftforge.common.BiomeManager.BiomeType.ICY;
-import static net.minecraftforge.common.BiomeManager.BiomeType.WARM;
-
-import java.io.File;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-
-import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
-import net.minecraft.world.gen.layer.GenLayerBiome;
 import net.minecraft.world.gen.layer.IntCache;
-import net.minecraftforge.common.BiomeManager;
-import net.minecraftforge.common.BiomeManager.BiomeEntry;
-import net.minecraftforge.common.BiomeManager.BiomeType;
-import net.minecraftforge.fml.relauncher.ReflectionHelper;
-import biomesoplenty.common.biome.BOPBiomeManager;
-import biomesoplenty.common.util.biome.BiomeUtils;
-import biomesoplenty.common.util.config.BOPConfig.ConfigFileObj;
-import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
+import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.world.BOPWorldSettings;
-import biomesoplenty.common.world.WorldTypeBOP;
-import biomesoplenty.core.BiomesOPlenty;
 
-public class GenLayerBiomeBOP extends GenLayerBiome
+public class GenLayerBiomeBOP extends GenLayer
 {
-    private List<BiomeEntry>[] biomes;
-    private BOPWorldSettings settings;
     
-    public GenLayerBiomeBOP(long seed, GenLayer parentLayer, WorldTypeBOP worldType, BOPWorldSettings settings)
+    private BOPWorldSettings settings;
+    private GenLayer landMassLayer;
+    private GenLayer climateLayer;
+    
+    public GenLayerBiomeBOP(long seed, GenLayer landMassLayer, GenLayer climateLayer, BOPWorldSettings settings)
     {
-        super(seed, parentLayer, worldType, "");
+        super(seed);
+        this.landMassLayer = landMassLayer;
+        this.climateLayer = climateLayer;
         this.settings = settings;
-        
-        // get the vanilla biomes (and their hard-coded default weights) from the vanilla GenLayerBiome class private field 'biomes'
-        biomes = ReflectionHelper.getPrivateValue(GenLayerBiome.class, this, "biomes");
-        
-        // get a set of all of the vanilla biomes which appear at all anywhere in the weights
-        Set<BiomeGenBase> vanillaBiomes = new HashSet<BiomeGenBase>();
-        for (BiomeManager.BiomeType type : BiomeManager.BiomeType.values()) {
-            if (biomes[type.ordinal()] == null) {biomes[type.ordinal()] = new ArrayList<BiomeEntry>();}
-            for (BiomeEntry entry : biomes[type.ordinal()]) {vanillaBiomes.add(entry.biome);}
-        }
-        
-        // for each of the vanilla biomes, allow the default weights to be overriden by config files
-        for (BiomeGenBase vanillaBiome : vanillaBiomes)
-        {
-            // See if there's a config file containing a setting called "weights"
-            String idName = BiomeUtils.getBiomeIdentifier(vanillaBiome);
-            File configFile = new File(new File(BiomesOPlenty.configDirectory, "biomes"), idName + ".json");
-            IConfigObj conf = new ConfigFileObj(configFile);
-            IConfigObj confWeights = conf.getObject("weights");
-            
-            // Allow weights to be overridden by values in the config file
-            if (confWeights != null)
-            {
-                for (BiomeType type : BiomeType.values())
-                {
-                    Iterator<BiomeEntry> entries = biomes[type.ordinal()].iterator();
-                    Integer weight = confWeights.getInt(type.name().toLowerCase(), null);
-                    if (weight == null) {continue;}
-                    boolean foundIt = false;
-                    while (entries.hasNext())
-                    {
-                        BiomeEntry entry = entries.next();
-                        if (entry.biome == vanillaBiome)
-                        {
-                            if (weight.intValue() < 1)
-                            {
-                                entries.remove();
-                            } else {
-                                entry.itemWeight = weight.intValue();
-                            }
-                            foundIt = true;
-                            break;
-                        }
-                    }
-                    if (!foundIt)
-                    {
-                        biomes[type.ordinal()].add(new BiomeEntry(vanillaBiome, weight));
-                    }
-                }
-            }
-        }
-        
-        // For each biome type, add the BOP biomes (weights already configured when they were created)
-        for (BiomeManager.BiomeType type : BiomeManager.BiomeType.values())
-        {
-            biomes[type.ordinal()].addAll(BOPBiomeManager.getBiomes(type));            
-        }
-        
-        // debugging:
-        // for (BiomeManager.BiomeType type : BiomeManager.BiomeType.values()) {for (BiomeEntry entry : biomes[type.ordinal()]) {System.out.println(type.name() + " " + BiomeUtils.getBiomeIdentifier(entry.biome) + " " + entry.itemWeight);}}
     }
     
     
@@ -113,101 +34,94 @@ public class GenLayerBiomeBOP extends GenLayerBiome
     @Override
     public int[] getInts(int areaX, int areaY, int areaWidth, int areaHeight)
     {
-        int[] inputBiomeIds = this.parent.getInts(areaX, areaY, areaWidth, areaHeight);
-        int[] outputBiomeIds = IntCache.getIntCache(areaWidth * areaHeight);
+        int[] landSeaValues = this.landMassLayer.getInts(areaX, areaY, areaWidth, areaHeight);
+        int[] climateValues = this.climateLayer.getInts(areaX, areaY, areaWidth, areaHeight);
+        int[] out = IntCache.getIntCache(areaWidth * areaHeight);
         
         for (int x = 0; x < areaHeight; ++x)
         {
             for (int z = 0; z < areaWidth; ++z)
             {
+                int index = z + x * areaWidth;
                 this.initChunkSeed((long)(z + areaX), (long)(x + areaY));
-                int parentVal = inputBiomeIds[z + x * areaWidth];
+                int landSeaVal = landSeaValues[index];
+                BOPClimates climate = BOPClimates.lookup(climateValues[index]);
                 
-                // Value from parent layer consists of
-                // 4 high bits which determine whether the biome will be a 'special' variant
-                // 8 low bits which determine the base biome type
-                int specialVal = (parentVal & 3840) >> 8;
-                int baseVal = parentVal & -3841;
-
-                // Note: vanilla GenLayerBiome has a section here which deals with fixed biomes on a custom world
-                // This doesn't apply in BOP
-                
-                if (isBiomeOceanic(baseVal)) // special case for oceans
+                if (landSeaVal == 0)
                 {
-                    outputBiomeIds[z + x * areaWidth] = baseVal;
-                }
-                else if (baseVal == BiomeGenBase.mushroomIsland.biomeID) // special case for mushroom island
-                {
-                    outputBiomeIds[z + x * areaWidth] = parentVal;
-                }
-                else if (baseVal == 1)  // baseVal = 1 means a DESERT region
-                {
-                    if (specialVal > 0)
-                    {
-                        // there is a special biome for DESERT : mesa plateau
-                        if (this.nextInt(3) == 0)
-                        {
-                            outputBiomeIds[z + x * areaWidth] = BiomeGenBase.mesaPlateau.biomeID;
-                        }
-                        else
-                        {
-                            // otherwise get a (weighted) random biome from the DESERT list
-                            outputBiomeIds[z + x * areaWidth] = BiomeGenBase.mesaPlateau_F.biomeID;
-                        }
-                    }
-                    else
-                    {
-                        outputBiomeIds[z + x * areaWidth] = getWeightedBiomeEntry(DESERT).biome.biomeID;
-                    }
-                }
-                else if (baseVal == 2) // baseVal = 2 means a WARM region
-                {
-                    if (specialVal > 0)
-                    {
-                        // there is a special biome for WARM : jungle
-                        outputBiomeIds[z + x * areaWidth] = BiomeGenBase.jungle.biomeID;
-                    }
-                    else
-                    {
-                        // otherwise get a (weighted) random biome from the WARM list
-                        outputBiomeIds[z + x * areaWidth] = getWeightedBiomeEntry(WARM).biome.biomeID;
-                    }
-                }
-                else if (baseVal == 3) // baseVal = 3 means a COOL region
-                {
-                    if (specialVal > 0)
-                    {
-                        // there is a special biome for COOL : mega taiga
-                        outputBiomeIds[z + x * areaWidth] = BiomeGenBase.megaTaiga.biomeID;
-                    }
-                    else
-                    {
-                        // otherwise get a (weighted) random biome from the COOL list
-                        outputBiomeIds[z + x * areaWidth] = getWeightedBiomeEntry(COOL).biome.biomeID;
-                    }
-                }
-                else if (baseVal == 4) // baseVal = 4 means a ICY region
-                {
-                    // Regardless of specialVal, get a (weighted) random biome from the ICY list
-                    outputBiomeIds[z + x * areaWidth] = getWeightedBiomeEntry(ICY).biome.biomeID;
+                    out[index] = 0;
                 }
                 else
                 {
-                    // default for any other value is mushroom island - I don't think we should ever get here
-                    outputBiomeIds[z + x * areaWidth] = BiomeGenBase.mushroomIsland.biomeID;
+                
+                    switch (climate)
+                    {
+                        case ICE_CAP:
+                            out[index] = BiomeGenBase.icePlains.biomeID;
+                            break;
+                            
+                        case FROZEN_DESERT:
+                            out[index] = BiomeGenBase.icePlains.biomeID;
+                            break;
+                            
+                        case TUNDRA:
+                            out[index] = BiomeGenBase.coldTaiga.biomeID;
+                            break;
+                            
+                        case COLD_DESERT:
+                            out[index] = BiomeGenBase.extremeHills.biomeID;
+                            break;
+                            
+                        case BOREAL:
+                            out[index] = BiomeGenBase.coldTaiga.biomeID;
+                            break;
+                            
+                        case COLD_SWAMP:
+                            out[index] = BiomeGenBase.plains.biomeID;
+                            break;
+                            
+                        case WET_TEMPERATE:
+                            out[index] = BiomeGenBase.forest.biomeID;
+                            break;
+                            
+                        case DRY_TEMPERATE:
+                            out[index] = BiomeGenBase.plains.biomeID;
+                            break;
+                            
+                        case COOL_TEMPERATE:
+                            out[index] = BiomeGenBase.plains.biomeID;
+                            break;
+                            
+                        case WARM_TEMPERATE:
+                            out[index] = BiomeGenBase.plains.biomeID;
+                            break;
+                            
+                        case HOT_SWAMP:
+                            out[index] = BiomeGenBase.swampland.biomeID;
+                            break;
+                            
+                        case TROPICAL:
+                            out[index] = BiomeGenBase.jungle.biomeID;
+                            break;
+                            
+                        case MEDITERANEAN:
+                            out[index] = BiomeGenBase.mesa.biomeID;
+                            break;
+                            
+                        case SAVANNA:
+                            out[index] = BiomeGenBase.savanna.biomeID;
+                            break;
+                            
+                        case HOT_DESERT:
+                            out[index] = BiomeGenBase.desert.biomeID;
+                            break;
+                            
+                    }
                 }
             }
         }
 
-        return outputBiomeIds;
+        return out;
     }
 
-    @Override
-    protected BiomeEntry getWeightedBiomeEntry(BiomeManager.BiomeType type)
-    {
-        List<BiomeEntry> biomeList = biomes[type.ordinal()];
-        int totalWeight = WeightedRandom.getTotalWeight(biomeList);
-        int weight = nextInt(totalWeight);
-        return (BiomeEntry)WeightedRandom.getRandomItem(biomeList, weight);
-    }
 }

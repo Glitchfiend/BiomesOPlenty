@@ -10,7 +10,6 @@ package biomesoplenty.common.world;
 
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.common.world.BOPWorldSettings.LandMassScheme;
-import biomesoplenty.common.world.BOPWorldSettings.TemperatureVariationScheme;
 import biomesoplenty.common.world.layer.*;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
@@ -89,52 +88,56 @@ public class WorldChunkManagerBOP extends WorldChunkManager
                 break;
         }
         
+        stack = new GenLayerRaggedEdges(3L, stack);
+        stack = new GenLayerZoom(2002L, stack);
+        stack = new GenLayerZoom(2003L, stack);
+        
         return stack;
     }
         
     // superimpose hot and cold regions an a land and sea layer
-    public static GenLayer addHotAndColdRegions(GenLayer landAndSea, TemperatureVariationScheme tempScheme, long worldSeed)
+    public static GenLayer climateLayer(BOPWorldSettings settings, long worldSeed)
     {
-        GenLayer stack;
-        switch (tempScheme)
+        GenLayer temperature;
+        switch(settings.tempScheme)
         {
-            
-            // The 'random' scheme places small hot and cold regions all over the map completely at random
-            // this results in biomes scattered randomly like in Minecraft before v1.7
+            case LATITUDE: default:
+                temperature = new GenLayerTemperatureLatitude(2L, 16, worldSeed);
+                break;
+            case SMALL_ZONES:
+                temperature = new GenLayerTemperatureNoise(3L, worldSeed, 0.14D);
+                break;
+            case MEDIUM_ZONES:
+                temperature = new GenLayerTemperatureNoise(4L, worldSeed, 0.08D);
+                break;
+            case LARGE_ZONES:
+                temperature = new GenLayerTemperatureNoise(5L, worldSeed, 0.04D);
+                break;
             case RANDOM:
-                stack = new GenLayerRaggedEdges(3L, landAndSea);
-                stack = new GenLayerZoom(2002L, stack);
-                stack = new GenLayerZoom(2002L, stack);
-                stack = new GenLayerHeatRandom(2L, stack);
-                stack = new GenLayerEdge(3L, stack, GenLayerEdge.Mode.SPECIAL);
+                temperature = new GenLayerTemperatureRandom(6L);
                 break;
-                
-            // The 'latitude' scheme causes temperature to depend on latitude (as it does on Earth)
-            // the result is bands of temperature in the East-West direction
-            // travelling North/South you find different temperatures, travelling East/West you find different biomes of a similar temperature
-            case LATITUDE:
-                stack = new GenLayerRaggedEdges(3L, landAndSea);
-                stack = new GenLayerZoom(2002L, stack);
-                stack = new GenLayerHeatLatitude(2L, stack, 10, worldSeed);
-                stack = new GenLayerEdge(3L, stack, GenLayerEdge.Mode.SPECIAL);
-                stack = new GenLayerZoom(2002L, stack);
+        }
+        
+        GenLayer rainfall;
+        switch(settings.rainScheme)
+        {
+            case SMALL_ZONES:
+                rainfall = new GenLayerRainfallNoise(7L, worldSeed, 0.14D);
                 break;
-                
-            // The 'vanilla' scheme results in large temperature regions, arranged semi-randomly (extremes of temperature rarely touch)
-            // this is the minecraft default scheme and causes biomes for similar temperatures to be clustered together
-            case VANILLA: default:
-                stack = new GenLayerAddSnow(2L, landAndSea);
-                stack = new GenLayerAddIsland(3L, stack);
-                stack = new GenLayerEdge(2L, stack, GenLayerEdge.Mode.COOL_WARM);
-                stack = new GenLayerEdge(2L, stack, GenLayerEdge.Mode.HEAT_ICE);
-                stack = new GenLayerEdge(3L, stack, GenLayerEdge.Mode.SPECIAL);
-                stack = new GenLayerZoom(2002L, stack);
-                stack = new GenLayerZoom(2003L, stack);
+            case MEDIUM_ZONES: default:
+                rainfall = new GenLayerRainfallNoise(8L, worldSeed, 0.08D);
                 break;
-                
+            case LARGE_ZONES:
+                rainfall = new GenLayerRainfallNoise(9L, worldSeed, 0.04D);
+                break;
+            case RANDOM:
+                rainfall = new GenLayerRainfallRandom(10L);
+                break;
         }
 
-        return stack;
+        GenLayer climate = new GenLayerClimate(103L, temperature, rainfall);        
+        // stack = new GenLayerEdge(3L, stack, GenLayerEdge.Mode.SPECIAL);
+        return climate;
     }
     
     // generate the regions of land and sea
@@ -146,20 +149,14 @@ public class WorldChunkManagerBOP extends WorldChunkManager
         {
             case CONTINENTS:
                 stack = new GenLayerRaggedEdges(4L, stack);
-                stack = new GenLayerAddMushroomIsland(5L, stack);
-                stack = new GenLayerDeepOcean(4L, stack);
                 break;
                 
             case ARCHIPELAGO:
                 stack = new GenLayerArchipelago(1L, 2, stack);
-                stack = new GenLayerAddMushroomIsland(5L, stack);
-                stack = new GenLayerDeepOcean(4L, stack);
                 break;
         
             case VANILLA: default:
                 stack = new GenLayerRaggedEdges(4L, hotAndCold);
-                stack = new GenLayerAddMushroomIsland(5L, stack);
-                stack = new GenLayerDeepOcean(4L, stack);
                 break;
         }
         
@@ -167,10 +164,10 @@ public class WorldChunkManagerBOP extends WorldChunkManager
     }
     
     
-    public static GenLayer allocateBiomes(long worldSeed, WorldTypeBOP worldType, BOPWorldSettings settings, GenLayer hotAndCold, GenLayer riversAndSubBiomesInit)
+    public static GenLayer allocateBiomes(long worldSeed, WorldTypeBOP worldType, BOPWorldSettings settings, GenLayer mainBranch, GenLayer riversAndSubBiomesInit, GenLayer climateLayer)
     {        
         // allocate the basic biomes        
-        GenLayer stack = new GenLayerBiomeBOP(200L, hotAndCold, worldType, settings);
+        GenLayer stack = new GenLayerBiomeBOP(200L, mainBranch, climateLayer, settings);
         stack = GenLayerZoom.magnify(1000L, stack, 2);
         stack = new GenLayerBiomeEdgeBOP(1000L, stack);
         
@@ -190,20 +187,23 @@ public class WorldChunkManagerBOP extends WorldChunkManager
         // first few layers just create areas of land and sea, continents and islands
         GenLayer mainBranch = initialLandAndSeaLayer(settings.landScheme);
         
-        // now add hot and cold regions (and two zooms)
-        mainBranch = addHotAndColdRegions(mainBranch, settings.tempScheme, worldSeed);
-        
         // add mushroom islands and deep oceans and other land masses        
         mainBranch = secondaryLandMasses(mainBranch, settings.landScheme);
+        
+        mainBranch = new GenLayerAddMushroomIsland(5L, mainBranch);
+        mainBranch = new GenLayerDeepOcean(4L, mainBranch);
         
         // fork off a new branch as a seed for rivers and sub biomes
         GenLayer riversAndSubBiomesInit = new GenLayerRiverInit(100L, mainBranch);
          
+        // create climate layer
+        GenLayer climateLayer = climateLayer(settings, worldSeed);
+        
         // allocate the biomes
-        mainBranch = allocateBiomes(worldSeed, worldType, settings, mainBranch, riversAndSubBiomesInit);
+        mainBranch = allocateBiomes(worldSeed, worldType, settings, mainBranch, riversAndSubBiomesInit, climateLayer);
         
         // do a bit more zooming, depending on biomeSize
-        mainBranch = new GenLayerRareBiome(1001L, mainBranch);
+        //mainBranch = new GenLayerRareBiome(1001L, mainBranch); - sunflower plains I think
         for (int i = 0; i < biomeSize; ++i)
         {
             mainBranch = new GenLayerZoom((long)(1000 + i), mainBranch);
