@@ -11,10 +11,10 @@ package biomesoplenty.common.biome.overworld;
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.init.Blocks;
-import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
+import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.world.BOPWorldSettings;
@@ -35,7 +35,7 @@ public class BiomeGenHighland extends BOPBiome
         this.setColor(0x7CAD66);
         this.setTemperatureRainfall(0.5F, 0.8F);
         
-        this.addWeight(BiomeType.WARM, 7);
+        this.addWeight(BOPClimates.COOL_TEMPERATE, 7);
         
         // other plants
         this.addGenerator("wild_carrots", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BOPPlants.WILDCARROT).create());

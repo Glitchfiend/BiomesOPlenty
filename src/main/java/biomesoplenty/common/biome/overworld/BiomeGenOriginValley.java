@@ -10,13 +10,13 @@ package biomesoplenty.common.biome.overworld;
 
 import net.minecraft.block.BlockFlower.EnumFlowerType;
 import net.minecraft.util.BlockPos;
-import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.block.BlockBOPGrass.BOPGrassType;
+import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.world.feature.GeneratorFlora;
@@ -33,7 +33,7 @@ public class BiomeGenOriginValley extends BOPBiome
         this.setTemperatureRainfall(0.7F, 0.8F);
         this.skyColor = 8441086;
         
-        this.addWeight(BiomeType.WARM, 1);
+        this.addWeight(BOPClimates.WARM_TEMPERATE, 1);
         
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BOPGrassType.ORIGIN);
 

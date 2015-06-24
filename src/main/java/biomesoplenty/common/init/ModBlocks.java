@@ -85,7 +85,7 @@ public class ModBlocks
         crag_rock =             registerBlock( (new BlockBOPGeneric()).setStepSound(Block.soundTypeStone), "crag_rock" );
         dried_dirt =            registerBlock( (new BlockBOPGeneric()).addSupportedPlantType(EnumPlantType.Desert), "dried_dirt"); dried_dirt.setHarvestLevel("pickaxe",0);
         hard_dirt =             registerBlock( (new BlockBOPGeneric()).setHardness(0.7F), "hard_dirt" );
-        hard_ice =              registerBlock( (new BlockBOPGeneric()).setHardness(0.75F), "hard_ice" );
+        hard_ice =              registerBlock( (new BlockBOPGeneric(Material.packedIce)).setHardness(0.75F), "hard_ice" );
         hard_sand =             registerBlock( (new BlockBOPGeneric(Material.sand)).addSupportedPlantType(EnumPlantType.Desert).setHardness(0.9F).setStepSound(Block.soundTypeSand), "hard_sand" );
         mud_brick_block =       registerBlock( (new BlockBOPGeneric()).setResistance(2.0F), "mud_brick_block" );
         

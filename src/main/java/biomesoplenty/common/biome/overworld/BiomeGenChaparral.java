@@ -13,10 +13,10 @@ import net.minecraft.block.BlockTallGrass;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
-import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
+import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
@@ -39,7 +39,7 @@ public class BiomeGenChaparral extends BOPBiome
         this.setColor(0xC0D85D);
         this.setTemperatureRainfall(0.8F, 0.6F);
         
-        this.addWeight(BiomeType.WARM, 10);
+        this.addWeight(BOPClimates.WARM_TEMPERATE, 10);
         
         this.spawnableCreatureList.clear(); // none of your regular farmyard critters here
         this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 1, 2, 6));

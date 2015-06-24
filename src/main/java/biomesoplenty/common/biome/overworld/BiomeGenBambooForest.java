@@ -18,7 +18,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
-import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
@@ -26,6 +25,7 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.block.BlockBOPCoral;
+import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.enums.BOPTrees;
@@ -57,7 +57,7 @@ public class BiomeGenBambooForest extends BOPBiome
         this.setTemperatureRainfall(1.2F, 0.9F);
         this.waterColorMultiplier = 0x00ff66;
 
-        this.addWeight(BiomeType.DESERT, 5);
+        this.addWeight(BOPClimates.TROPICAL, 5);
         
         this.topBlock = Blocks.dirt.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.PODZOL);
         this.usualTopBlock = this.topBlock;

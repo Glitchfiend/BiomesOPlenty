@@ -11,10 +11,10 @@ package biomesoplenty.common.biome.overworld;
 import net.minecraft.block.BlockFlower.EnumFlowerType;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
-import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
+import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.world.BOPWorldSettings;
@@ -34,7 +34,7 @@ public class BiomeGenThicket extends BOPBiome
         this.setColor(7248193);
         this.setTemperatureRainfall(0.6F, 0.2F);
         
-        this.addWeight(BiomeType.COOL, 5);
+        this.addWeight(BOPClimates.DRY_TEMPERATE, 5);
         
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(17);

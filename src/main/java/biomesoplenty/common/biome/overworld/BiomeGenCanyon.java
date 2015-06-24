@@ -4,11 +4,11 @@ import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
-import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
@@ -35,7 +35,7 @@ public class BiomeGenCanyon extends BOPBiome
         {
             this.terrainSettings.avgHeight(140).heightVariation(10, 10);
             
-            this.addWeight(BiomeType.DESERT, 5);    
+            this.addWeight(BOPClimates.MEDITERANEAN, 5);    
         }
         else
         {

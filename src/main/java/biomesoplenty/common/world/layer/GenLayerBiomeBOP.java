@@ -8,7 +8,6 @@
 
 package biomesoplenty.common.world.layer;
 
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 import biomesoplenty.common.enums.BOPClimates;
@@ -27,6 +26,15 @@ public class GenLayerBiomeBOP extends GenLayer
         this.landMassLayer = landMassLayer;
         this.climateLayer = climateLayer;
         this.settings = settings;
+        
+        // debugging
+        BOPClimates.printWeights();
+    }
+    
+    @Override
+    public int nextInt(int a)
+    {
+        return super.nextInt(a);
     }
     
     
@@ -49,74 +57,11 @@ public class GenLayerBiomeBOP extends GenLayer
                 
                 if (landSeaVal == 0)
                 {
-                    out[index] = 0;
+                    out[index] = climate.getRandomOceanBiome(this).biomeID;
                 }
                 else
                 {
-                
-                    switch (climate)
-                    {
-                        case ICE_CAP:
-                            out[index] = BiomeGenBase.icePlains.biomeID;
-                            break;
-                            
-                        case FROZEN_DESERT:
-                            out[index] = BiomeGenBase.icePlains.biomeID;
-                            break;
-                            
-                        case TUNDRA:
-                            out[index] = BiomeGenBase.coldTaiga.biomeID;
-                            break;
-                            
-                        case COLD_DESERT:
-                            out[index] = BiomeGenBase.extremeHills.biomeID;
-                            break;
-                            
-                        case BOREAL:
-                            out[index] = BiomeGenBase.coldTaiga.biomeID;
-                            break;
-                            
-                        case COLD_SWAMP:
-                            out[index] = BiomeGenBase.plains.biomeID;
-                            break;
-                            
-                        case WET_TEMPERATE:
-                            out[index] = BiomeGenBase.forest.biomeID;
-                            break;
-                            
-                        case DRY_TEMPERATE:
-                            out[index] = BiomeGenBase.plains.biomeID;
-                            break;
-                            
-                        case COOL_TEMPERATE:
-                            out[index] = BiomeGenBase.plains.biomeID;
-                            break;
-                            
-                        case WARM_TEMPERATE:
-                            out[index] = BiomeGenBase.plains.biomeID;
-                            break;
-                            
-                        case HOT_SWAMP:
-                            out[index] = BiomeGenBase.swampland.biomeID;
-                            break;
-                            
-                        case TROPICAL:
-                            out[index] = BiomeGenBase.jungle.biomeID;
-                            break;
-                            
-                        case MEDITERANEAN:
-                            out[index] = BiomeGenBase.mesa.biomeID;
-                            break;
-                            
-                        case SAVANNA:
-                            out[index] = BiomeGenBase.savanna.biomeID;
-                            break;
-                            
-                        case HOT_DESERT:
-                            out[index] = BiomeGenBase.desert.biomeID;
-                            break;
-                            
-                    }
+                    out[index] = climate.getRandomLandBiome(this).biomeID;
                 }
             }
         }

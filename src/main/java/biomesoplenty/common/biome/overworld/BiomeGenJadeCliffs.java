@@ -12,12 +12,12 @@ import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
-import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.BlockBOPStone;
+import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
@@ -40,7 +40,7 @@ public class BiomeGenJadeCliffs extends BOPBiome
         this.skyColor = 0xB7CCAD;
         this.setTemperatureRainfall(0.8F, 0.9F);
         
-        this.addWeight(BiomeType.WARM, 3);
+        this.addWeight(BOPClimates.WET_TEMPERATE, 3);
         
         this.addGenerator("limestone_patches", GeneratorStage.SAND, (new GeneratorSplotches.Builder()).amountPerChunk(26).splotchSize(25).replace(Blocks.stone).with(BOPBlocks.stone.getDefaultState().withProperty(BlockBOPStone.VARIANT, BlockBOPStone.StoneType.LIMESTONE)).create());
                     

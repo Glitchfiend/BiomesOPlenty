@@ -1,6 +1,6 @@
 package biomesoplenty.common.world.layer;
 
-import biomesoplenty.common.world.BOPBiomeManager;
+import biomesoplenty.common.enums.BOPClimates;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
@@ -14,7 +14,7 @@ public class GenLayerClimate extends GenLayer {
         super(seed);
         this.temperature = temperature;
         this.rainfall = rainfall;
-        this.climateMapping = BOPBiomeManager.getClimateMappingInts();
+        this.climateMapping = BOPClimates.getClimateMappingInts();
     }
 
     @Override

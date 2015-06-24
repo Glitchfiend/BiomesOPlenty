@@ -9,9 +9,9 @@
 package biomesoplenty.common.biome.overworld;
 
 import net.minecraft.init.Blocks;
-import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
+import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 
@@ -29,7 +29,8 @@ public class BiomeGenAlps extends BOPBiome
         this.setEnableSnow();
         this.setTemperatureRainfall(0.0F, 0.5F);
 
-        this.addWeight(BiomeType.ICY, 5);
+        this.addWeight(BOPClimates.BOREAL, 5);
+        this.addWeight(BOPClimates.COLD_DESERT, 5);
         
         this.topBlock = Blocks.snow.getDefaultState();
         this.fillerBlock = Blocks.snow.getDefaultState();

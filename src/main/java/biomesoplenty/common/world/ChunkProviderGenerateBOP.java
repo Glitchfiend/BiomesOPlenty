@@ -503,7 +503,7 @@ public class ChunkProviderGenerateBOP implements IChunkProvider
         BlockPos target;
         
         // add water lakes
-        if (biomegenbase != BiomeGenBase.desert && biomegenbase != BiomeGenBase.desertHills && this.settings.useWaterLakes && !hasVillageGenerated && this.rand.nextInt(this.settings.waterLakeChance) == 0 && TerrainGen.populate(chunkProvider, worldObj, rand, chunkX, chunkZ, hasVillageGenerated, LAKE))
+        if (biomegenbase.rainfall > 0.01F && biomegenbase != BiomeGenBase.desert && biomegenbase != BiomeGenBase.desertHills && this.settings.useWaterLakes && !hasVillageGenerated && this.rand.nextInt(this.settings.waterLakeChance) == 0 && TerrainGen.populate(chunkProvider, worldObj, rand, chunkX, chunkZ, hasVillageGenerated, LAKE))
         {
             target = decorateStart.add(this.rand.nextInt(16), this.rand.nextInt(256), this.rand.nextInt(16));
             (new WorldGenLakes(Blocks.water)).generate(this.worldObj, this.rand, target);
@@ -546,13 +546,14 @@ public class ChunkProviderGenerateBOP implements IChunkProvider
                 for (int j = 0; j < 16; ++j)
                 {
                     target = this.worldObj.getPrecipitationHeight(decorateStart.add(i, 0, j));
+                    BiomeGenBase biome = this.worldObj.getBiomeGenForCoords(target);
                     // if it's cold enough for ice, and there's exposed water, then freeze it
                     if (this.worldObj.canBlockFreezeWater(target.down()))
                     {
                         this.worldObj.setBlockState(target.down(), Blocks.ice.getDefaultState(), 2);
                     }
                     // if it's cold enough for snow, add a layer of snow
-                    if (this.worldObj.canSnowAt(target, true))
+                    if (biome.rainfall > 0.01F && this.worldObj.canSnowAt(target, true))
                     {
                         this.worldObj.setBlockState(target, Blocks.snow_layer.getDefaultState(), 2);
                     }

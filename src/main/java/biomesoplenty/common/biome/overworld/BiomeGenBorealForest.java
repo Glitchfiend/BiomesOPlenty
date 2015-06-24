@@ -6,12 +6,12 @@ import net.minecraft.block.BlockTallGrass;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
-import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.common.block.BlockBOPDoublePlant;
 import biomesoplenty.common.block.BlockBOPLilypad;
+import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.enums.BOPTrees;
@@ -27,6 +27,7 @@ import biomesoplenty.common.world.feature.tree.GeneratorTaigaTree;
 
 public class BiomeGenBorealForest extends BOPBiome
 {    
+    // TODO: this is very poorly named, boreal forests are cold, this is a mixed forest
     public BiomeGenBorealForest()
     {
         // terrain
@@ -34,7 +35,7 @@ public class BiomeGenBorealForest extends BOPBiome
 
         this.setColor(0x9FB771);
         this.setTemperatureRainfall(0.5F, 0.6F);
-        this.addWeight(BiomeType.COOL, 10);
+        this.addWeight(BOPClimates.COOL_TEMPERATE, 10);
 
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntityWolf.class, 5, 4, 4));

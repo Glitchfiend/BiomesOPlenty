@@ -9,10 +9,10 @@
 package biomesoplenty.common.biome.overworld;
 
 import net.minecraft.init.Blocks;
-import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 
@@ -26,7 +26,7 @@ public class BiomeGenCrag extends BOPBiome
         this.setColor(5209457);
         this.setTemperatureRainfall(1.0F, 0.0F);
 
-        this.addWeight(BiomeType.COOL, 3);
+        this.addWeight(BOPClimates.WET_TEMPERATE, 3);
 
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();

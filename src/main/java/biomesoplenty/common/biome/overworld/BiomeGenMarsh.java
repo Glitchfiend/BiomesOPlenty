@@ -12,7 +12,6 @@ import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.init.Blocks;
-import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
@@ -21,6 +20,7 @@ import biomesoplenty.common.block.BlockBOPDirt;
 import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.block.BlockBOPCoral;
+import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
@@ -49,7 +49,7 @@ public class BiomeGenMarsh extends BOPBiome
         this.setColor(0x66A06E);
         this.setTemperatureRainfall(0.5F, 0.9F);
         
-        this.addWeight(BiomeType.WARM, 7);
+        this.addWeight(BOPClimates.COLD_SWAMP, 7);
         
         this.spawnableCreatureList.clear(); // none of your regular farmyard critters here
         this.spawnableWaterCreatureList.clear();

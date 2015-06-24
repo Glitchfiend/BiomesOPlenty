@@ -12,11 +12,11 @@ import net.minecraft.block.BlockFlower.EnumFlowerType;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.init.Blocks;
-import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.common.block.BlockBOPDoublePlant;
+import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.world.BOPWorldSettings;
@@ -38,7 +38,7 @@ public class BiomeGenShrubland extends BOPBiome
         this.setColor(8168286);
         this.setTemperatureRainfall(0.6F, 0.05F);
         
-        this.addWeight(BiomeType.COOL, 10);
+        this.addWeight(BOPClimates.DRY_TEMPERATE, 10);
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
         

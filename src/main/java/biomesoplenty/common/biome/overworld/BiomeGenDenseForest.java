@@ -13,6 +13,7 @@ import java.util.Random;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
+import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
@@ -29,7 +30,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
-import net.minecraftforge.common.BiomeManager.BiomeType;
 
 public class BiomeGenDenseForest extends BOPBiome
 {
@@ -45,7 +45,7 @@ public class BiomeGenDenseForest extends BOPBiome
         this.setColor(8246897);
         this.setTemperatureRainfall(0.7F, 0.7F);
         
-        this.addWeight(BiomeType.WARM, 7);
+        this.addWeight(BOPClimates.WARM_TEMPERATE, 7);
         
         this.topBlock = Blocks.grass.getDefaultState();
         this.fillerBlock = Blocks.dirt.getDefaultState();

@@ -23,12 +23,14 @@ public class BOPBiomes
     public static Optional<BiomeGenBase> boreal_forest = Optional.absent();
     public static Optional<BiomeGenBase> brushland = Optional.absent();
     public static Optional<BiomeGenBase> canyon = Optional.absent();
-    public static Optional<BiomeGenBase> crag = Optional.absent();
     public static Optional<BiomeGenBase> chaparral = Optional.absent();
     public static Optional<BiomeGenBase> cherry_blossom_grove = Optional.absent();
+    public static Optional<BiomeGenBase> coldDesert = Optional.absent();
     public static Optional<BiomeGenBase> coniferous_forest = Optional.absent();
+    public static Optional<BiomeGenBase> crag = Optional.absent();
     public static Optional<BiomeGenBase> denseForest = Optional.absent();
     public static Optional<BiomeGenBase> flowerField = Optional.absent();
+    public static Optional<BiomeGenBase> frozenDesert = Optional.absent();
     public static Optional<BiomeGenBase> grassland = Optional.absent();    
     public static Optional<BiomeGenBase> heathland = Optional.absent();    
     public static Optional<BiomeGenBase> highland = Optional.absent();

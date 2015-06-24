@@ -20,12 +20,12 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.ChunkPrimer;
-import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.BlockBOPDoublePlant;
+import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
@@ -78,7 +78,7 @@ public class BiomeGenMountain extends BOPBiome
         if (type == MountainType.PEAKS)
         {
             // peaks are created in the biome gen layer, foothills don't have a weight - they only appear later around the peaks (in the biome edge layer)
-            this.addWeight(BiomeType.COOL, 10);
+            this.addWeight(BOPClimates.DRY_TEMPERATE, 10);
             
             // only sheep and wolves on the peaks
             this.spawnableCreatureList.clear();

@@ -11,11 +11,11 @@ package biomesoplenty.common.biome.overworld;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockSand;
 import net.minecraft.init.Blocks;
-import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.util.block.BlockQuery;
@@ -36,7 +36,7 @@ public class BiomeGenOutback extends BOPBiome
         this.topBlock = BOPBlocks.hard_sand.getDefaultState();
         this.fillerBlock = BOPBlocks.hard_sand.getDefaultState();
         
-        this.addWeight(BiomeType.DESERT, 7);
+        this.addWeight(BOPClimates.HOT_DESERT, 7);
         
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();

@@ -11,13 +11,13 @@ package biomesoplenty.common.biome.overworld;
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.init.Blocks;
-import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.common.block.BlockBOPDoublePlant;
 import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.block.BlockBOPMushroom;
+import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.enums.BOPWoods;
@@ -43,7 +43,7 @@ public class BiomeGenWoodland extends BOPBiome
         this.setColor(0x84A92D);
         this.setTemperatureRainfall(0.6F, 0.4F);
         
-        this.addWeight(BiomeType.COOL, 10);
+        this.addWeight(BOPClimates.COOL_TEMPERATE, 10);
         
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(9);

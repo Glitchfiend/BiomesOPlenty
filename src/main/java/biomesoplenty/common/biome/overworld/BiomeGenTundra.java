@@ -11,10 +11,10 @@ package biomesoplenty.common.biome.overworld;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
-import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
+import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
@@ -38,7 +38,7 @@ public class BiomeGenTundra extends BOPBiome
         this.setColor(0xA09456);
         this.setTemperatureRainfall(0.165F, 0.5F); // temperature deliberately borderline between rain and snow
         
-        this.addWeight(BiomeType.ICY, 7);
+        this.addWeight(BOPClimates.TUNDRA, 10);
         
         this.spawnableCreatureList.clear();
         

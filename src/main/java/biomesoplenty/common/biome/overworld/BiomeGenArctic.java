@@ -9,9 +9,9 @@
 package biomesoplenty.common.biome.overworld;
 
 import net.minecraft.util.BlockPos;
-import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
+import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
@@ -27,7 +27,7 @@ public class BiomeGenArctic extends BOPBiome
         this.setEnableSnow();
         this.setTemperatureRainfall(0.05F, 0.5F);
 
-        this.addWeight(BiomeType.ICY, 10);
+        this.addWeight(BOPClimates.ICE_CAP, 30);
 
         this.spawnableCreatureList.clear();
         

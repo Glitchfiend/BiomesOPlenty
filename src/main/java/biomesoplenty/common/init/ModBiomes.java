@@ -20,13 +20,11 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraftforge.common.BiomeManager.BiomeEntry;
-import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.IExtendedBiome;
-import biomesoplenty.common.biome.BOPBiomeManager;
 import biomesoplenty.common.biome.overworld.*;
 import biomesoplenty.common.command.BOPCommand;
+import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.util.biome.BiomeUtils;
 import biomesoplenty.common.util.config.BOPConfig;
 import biomesoplenty.common.world.WorldTypeBOP;
@@ -148,12 +146,14 @@ public class ModBiomes
         boreal_forest = registerBOPBiome(new BiomeGenBorealForest(), "Boreal Forest");
         brushland = registerBOPBiome(new BiomeGenBrushland(), "Brushland");
         canyon = registerBOPBiome(new BiomeGenCanyon(BiomeGenCanyon.CanyonType.PLATEAU), "Canyon");
-        crag = registerBOPBiome(new BiomeGenCrag(), "Crag");
         chaparral = registerBOPBiome(new BiomeGenChaparral(), "Chaparral");
         cherry_blossom_grove = registerBOPBiome(new BiomeGenCherryBlossomGrove(), "Cherry Blossom Grove");
+        coldDesert = registerBOPBiome(new BiomeGenColdDesert(BiomeGenColdDesert.ColdDesertType.COLD), "Cold Desert");
         coniferous_forest = registerBOPBiome(new BiomeGenConiferousForest(), "Coniferous Forest");
+        crag = registerBOPBiome(new BiomeGenCrag(), "Crag");
         denseForest = registerBOPBiome(new BiomeGenDenseForest(), "Dense Forest");
         flowerField = registerBOPBiome(new BiomeGenFlowerField(), "Flower Field");
+        frozenDesert = registerBOPBiome(new BiomeGenColdDesert(BiomeGenColdDesert.ColdDesertType.FROZEN), "Frozen Desert");
         grassland = registerBOPBiome(new BiomeGenGrassland(), "Grassland");
         heathland = registerBOPBiome(new BiomeGenHeathland(), "Heathland");
         highland = registerBOPBiome(new BiomeGenHighland(), "Highland");
@@ -245,13 +245,13 @@ public class ModBiomes
 
             BiomeGenBase.getBiomeGenArray()[id] = biome;
             
-            for (Entry<BiomeType, Integer> entry : ((IExtendedBiome)biome).getWeightMap().entrySet())
+            for (Entry<BOPClimates, Integer> entry : ((IExtendedBiome)biome).getWeightMap().entrySet())
             {
                 if (entry != null)
                 {
-                    BiomeType biomeType = entry.getKey();
+                    BOPClimates climate = entry.getKey();
                     int weight = entry.getValue();
-                    BOPBiomeManager.addBiome(biomeType, new BiomeEntry(biome, weight));
+                    climate.addLandBiome(weight, biome);
                 }
             }
             

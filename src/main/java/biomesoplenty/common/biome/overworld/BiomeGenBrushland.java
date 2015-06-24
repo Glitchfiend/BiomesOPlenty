@@ -5,12 +5,12 @@ import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.BlockPos;
-import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.BlockBOPSand;
+import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
@@ -32,7 +32,7 @@ public class BiomeGenBrushland extends BOPBiome
 
         this.setColor(0xC9C17F);
         this.setTemperatureRainfall(1.2F, 0.1F);
-        this.addWeight(BiomeType.DESERT, 10);
+        this.addWeight(BOPClimates.MEDITERANEAN, 10);
         
         // quicksand
         this.addGenerator("quicksand_patches", GeneratorStage.SAND, (new GeneratorSplotches.Builder()).amountPerChunk(0.6F).splotchSize(16).with(BOPBlocks.sand.getDefaultState().withProperty(BlockBOPSand.VARIANT, BlockBOPSand.SandType.QUICKSAND)).splotchSize(20).scatterYMethod(ScatterYMethod.AT_SURFACE).create());

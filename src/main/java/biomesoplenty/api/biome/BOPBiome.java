@@ -26,10 +26,10 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.ChunkPrimer;
-import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.generation.GenerationManager;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.IGenerator;
+import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.TerrainSettings;
@@ -37,7 +37,7 @@ import biomesoplenty.common.world.TerrainSettings;
 public class BOPBiome extends BiomeGenBase implements IExtendedBiome
 {
     private GenerationManager generationManager = new GenerationManager();
-    private Map<BiomeType, Integer> weightMap = new HashMap<BiomeType, Integer>();
+    private Map<BOPClimates, Integer> weightMap = new HashMap<BOPClimates, Integer>();
     
     // defaults
     public int skyColor = -1; // -1 indicates the default skyColor by temperature will be used
@@ -94,17 +94,17 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         IConfigObj confWeights = conf.getObject("weights");
         if (confWeights != null)
         {
-            for (BiomeType type : BiomeType.values())
+            for (BOPClimates climate : BOPClimates.values())
             {
-                Integer weight = confWeights.getInt(type.name().toLowerCase(), null);
+                Integer weight = confWeights.getInt(climate.name().toLowerCase(), null);
                 if (weight == null) {continue;}
                 if (weight.intValue() < 1)
                 {
-                    this.weightMap.remove(type);
+                    this.weightMap.remove(climate);
                 }
                 else
                 {
-                    this.weightMap.put(type, weight);
+                    this.weightMap.put(climate, weight);
                 }
             }
         }
@@ -219,15 +219,15 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
     }
 
     @Override
-    public Map<BiomeType, Integer> getWeightMap()
+    public Map<BOPClimates, Integer> getWeightMap()
     {
         return this.weightMap;
     }
 
     @Override
-    public void addWeight(BiomeType type, int weight)
+    public void addWeight(BOPClimates climate, int weight)
     {
-        this.weightMap.put(type, weight);
+        this.weightMap.put(climate, weight);
     }
     
     @Override

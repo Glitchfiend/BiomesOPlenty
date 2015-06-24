@@ -12,12 +12,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BiomeOwner;
 import biomesoplenty.api.biome.IExtendedBiome;
 import biomesoplenty.api.biome.generation.GenerationManager;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.IGenerator;
+import biomesoplenty.common.enums.BOPClimates;
 
 public class ExtendedBiomeRegistry
 {
@@ -51,7 +51,7 @@ public class ExtendedBiomeRegistry
     {
         public final BiomeGenBase biome;
         private GenerationManager generationManager = new GenerationManager();
-        private Map<BiomeType, Integer> weightMap = new HashMap<BiomeType, Integer>();
+        private Map<BOPClimates, Integer> weightMap = new HashMap<BOPClimates, Integer>();
 
         private BiomeExtension(BiomeGenBase biome)
         {
@@ -77,15 +77,15 @@ public class ExtendedBiomeRegistry
         }
         
         @Override
-        public Map<BiomeType, Integer> getWeightMap()
+        public Map<BOPClimates, Integer> getWeightMap()
         {
             return this.weightMap;
         }
         
         @Override
-        public void addWeight(BiomeType type, int weight)
+        public void addWeight(BOPClimates climate, int weight)
         {
-            this.weightMap.put(type, weight);
+            this.weightMap.put(climate, weight);
         }
         
         @Override

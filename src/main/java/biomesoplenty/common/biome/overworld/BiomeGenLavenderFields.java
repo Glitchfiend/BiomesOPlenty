@@ -10,10 +10,10 @@ package biomesoplenty.common.biome.overworld;
 
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.util.BlockPos;
-import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
+import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
@@ -36,7 +36,7 @@ public class BiomeGenLavenderFields extends BOPBiome
         this.setColor(11035852);
         this.setTemperatureRainfall(0.6F, 0.7F);
     
-        this.addWeight(BiomeType.WARM, 3);
+        this.addWeight(BOPClimates.WARM_TEMPERATE, 3);
         
         // flowers
         this.addGenerator("lavender", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(99).with(BOPFlowers.LAVENDER).create());
