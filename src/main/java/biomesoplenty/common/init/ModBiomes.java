@@ -90,11 +90,13 @@ public class ModBiomes
         setSubBiome(BiomeGenBase.plains, BiomeGenBase.forestHills, BiomeGenBase.forest);
         setSubBiome(BiomeGenBase.icePlains, BiomeGenBase.iceMountains);
         setSubBiome(BiomeGenBase.jungle, BiomeGenBase.jungleHills);
-        setSubBiome(BiomeGenBase.ocean, BiomeGenBase.deepOcean);
         setSubBiome(BiomeGenBase.extremeHills, BiomeGenBase.extremeHillsPlus);
         setSubBiome(BiomeGenBase.savanna, BiomeGenBase.savannaPlateau);
         setSubBiome(BiomeGenBase.mesaPlateau_F, BiomeGenBase.mesa);
-        setSubBiome(BiomeGenBase.deepOcean, BiomeGenBase.deepOcean, BiomeGenBase.deepOcean, BiomeGenBase.plains, BiomeGenBase.forest);  // occasional islands within the oceans
+        
+        // oceans get occasional patches of deep ocean
+        // don't add any islands - those are done per climate in GenLayerBiomeIslands
+        setSubBiome(BiomeGenBase.ocean, BiomeGenBase.deepOcean);
         
     }
     

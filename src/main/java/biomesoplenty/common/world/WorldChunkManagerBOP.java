@@ -68,12 +68,13 @@ public class WorldChunkManagerBOP extends WorldChunkManager
                 stack = new GenLayerIslandBOP(1L, 4);
                 stack = new GenLayerFuzzyZoom(2000L, stack);
                 stack = new GenLayerZoom(2001L, stack);
-                stack = new GenLayerIslandBOP(3L, 20, stack);
+                stack = new GenLayerIslandBOP(3L, 12, stack);
+                stack = new GenLayerZoom(2002L, stack);
+                stack = new GenLayerRaggedEdges(4L, stack);
                 break;
                 
             case ARCHIPELAGO:
-                stack = new GenLayerAllSame(1L, 0);
-                stack = new GenLayerRemoveTooMuchOcean(2L, stack);
+                stack = new GenLayerIslandBOP(1L, 5);
                 break;
         
             case VANILLA: default:
@@ -84,13 +85,13 @@ public class WorldChunkManagerBOP extends WorldChunkManager
                 stack = new GenLayerRaggedEdges(2L, stack);
                 stack = new GenLayerRaggedEdges(50L, stack);
                 stack = new GenLayerRaggedEdges(70L, stack);
-                stack = new GenLayerRemoveTooMuchOcean(2L, stack);
+                stack = new GenLayerRemoveTooMuchOcean(2L, stack); // <--- this is the layer which does 90% of the work, the ones before it are almost pointless
+                stack = new GenLayerRaggedEdges(3L, stack);
+                stack = new GenLayerZoom(2002L, stack);
+                stack = new GenLayerZoom(2003L, stack);
+                stack = new GenLayerRaggedEdges(4L, stack);
                 break;
         }
-        
-        stack = new GenLayerRaggedEdges(3L, stack);
-        stack = new GenLayerZoom(2002L, stack);
-        stack = new GenLayerZoom(2003L, stack);
         
         return stack;
     }
@@ -138,43 +139,57 @@ public class WorldChunkManagerBOP extends WorldChunkManager
         GenLayer climate = new GenLayerClimate(103L, temperature, rainfall);        
         // stack = new GenLayerEdge(3L, stack, GenLayerEdge.Mode.SPECIAL);
         return climate;
-    }
+    }    
     
-    // generate the regions of land and sea
-    public static GenLayer secondaryLandMasses(GenLayer hotAndCold, LandMassScheme scheme)
-    {
-        GenLayer stack = hotAndCold;
+    public static GenLayer allocateBiomes(long worldSeed, WorldTypeBOP worldType, BOPWorldSettings settings, GenLayer mainBranch, GenLayer subBiomesInit, GenLayer climateLayer)
+    {        
+        // allocate the basic biomes        
+        GenLayer biomesLayer = new GenLayerBiomeBOP(200L, mainBranch, climateLayer, settings);
         
-        switch(scheme)
+        // magnify everything (using the same seed)
+        biomesLayer = new GenLayerZoom(1000L, biomesLayer);
+        subBiomesInit = new GenLayerZoom(1000L, subBiomesInit);
+        climateLayer = new GenLayerZoom(1000L, climateLayer);
+        
+        // add medium islands
+        switch(settings.landScheme)
         {
-            case CONTINENTS:
-                stack = new GenLayerRaggedEdges(4L, stack);
-                break;
-                
             case ARCHIPELAGO:
-                stack = new GenLayerArchipelago(1L, 2, stack);
+                biomesLayer = new GenLayerBiomeIslands(15L, biomesLayer, climateLayer, 4);
                 break;
-        
+            case CONTINENTS:
+                biomesLayer = new GenLayerBiomeIslands(15L, biomesLayer, climateLayer, 60);
+                break;
             case VANILLA: default:
-                stack = new GenLayerRaggedEdges(4L, hotAndCold);
                 break;
         }
         
-        return stack;
-    }
-    
-    
-    public static GenLayer allocateBiomes(long worldSeed, WorldTypeBOP worldType, BOPWorldSettings settings, GenLayer mainBranch, GenLayer riversAndSubBiomesInit, GenLayer climateLayer)
-    {        
-        // allocate the basic biomes        
-        GenLayer stack = new GenLayerBiomeBOP(200L, mainBranch, climateLayer, settings);
-        stack = GenLayerZoom.magnify(1000L, stack, 2);
-        stack = new GenLayerBiomeEdgeBOP(1000L, stack);
+        // magnify everything again (using the same seed)
+        biomesLayer = new GenLayerZoom(1000L, biomesLayer);
+        subBiomesInit = new GenLayerZoom(1000L, subBiomesInit);
+        climateLayer = new GenLayerZoom(1000L, climateLayer);
         
-        // use the hillsInit layer to change some biomes to sub-biomes like hills or rare mutated variants
-        GenLayer subBiomesInit = GenLayerZoom.magnify(1000L, riversAndSubBiomesInit, 2);
-        stack = new GenLayerSubBiomesBOP(1000L, stack, subBiomesInit, settings);
-        return stack;
+        // add edge biomes
+        biomesLayer = new GenLayerBiomeEdgeBOP(1000L, biomesLayer);
+        
+        // add sub-biomes (like hills or rare mutated variants) seeded with subBiomesInit        
+        biomesLayer = new GenLayerSubBiomesBOP(1000L, biomesLayer, subBiomesInit);
+        
+        // add tiny islands
+        switch(settings.landScheme)
+        {
+            case ARCHIPELAGO:
+                biomesLayer = new GenLayerBiomeIslands(15L, biomesLayer, climateLayer, 8);
+                break;
+            case CONTINENTS:
+                biomesLayer = new GenLayerBiomeIslands(15L, biomesLayer, climateLayer, 60);
+                break;
+            case VANILLA: default:
+                biomesLayer = new GenLayerBiomeIslands(15L, biomesLayer, climateLayer, 12);
+                break;
+        }
+        
+        return biomesLayer;
     }
     
     
@@ -187,9 +202,7 @@ public class WorldChunkManagerBOP extends WorldChunkManager
         // first few layers just create areas of land and sea, continents and islands
         GenLayer mainBranch = initialLandAndSeaLayer(settings.landScheme);
         
-        // add mushroom islands and deep oceans and other land masses        
-        mainBranch = secondaryLandMasses(mainBranch, settings.landScheme);
-        
+        // add mushroom islands and deep oceans        
         mainBranch = new GenLayerAddMushroomIsland(5L, mainBranch);
         mainBranch = new GenLayerDeepOcean(4L, mainBranch);
         

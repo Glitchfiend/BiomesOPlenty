@@ -10,7 +10,7 @@ package biomesoplenty.common.world.layer;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
-public class GenLayerRaggedEdges extends GenLayer
+public class GenLayerRaggedEdges extends BOPGenLayer
 {
 
     public GenLayerRaggedEdges(long seed, GenLayer parent)

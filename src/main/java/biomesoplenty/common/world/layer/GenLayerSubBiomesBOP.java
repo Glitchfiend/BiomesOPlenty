@@ -11,22 +11,18 @@ package biomesoplenty.common.world.layer;
 import java.util.List;
 
 import biomesoplenty.common.init.ModBiomes;
-import biomesoplenty.common.world.BOPWorldSettings;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
-public class GenLayerSubBiomesBOP extends GenLayer
+public class GenLayerSubBiomesBOP extends BOPGenLayer
 {
     private GenLayer subBiomesInit;
-    private BOPWorldSettings settings;
     
-    public GenLayerSubBiomesBOP(long seed, GenLayer biomesLayer, GenLayer subBiomesInit, BOPWorldSettings settings)
+    public GenLayerSubBiomesBOP(long seed, GenLayer biomesLayer, GenLayer subBiomesInit)
     {
         super(seed);
         this.parent = biomesLayer;
         this.subBiomesInit = subBiomesInit;
-        this.settings = settings;
     }
 
     @Override
@@ -126,12 +122,6 @@ public class GenLayerSubBiomesBOP extends GenLayer
     // For many biomes, this is the 'hills' version
     public int getCommonSubBiome(int biomeId)
     {
-        // prevent too many islands when using CONTINENTS
-        // TODO: this is a horrible hacky special case - would prefer a more elegant system
-        if (this.settings.landScheme == BOPWorldSettings.LandMassScheme.CONTINENTS && biomeId == BiomeGenBase.deepOcean.biomeID && this.nextInt(4)!=0)
-        {
-            return biomeId;
-        }
         
         List<Integer> subBiomeIds = ModBiomes.subBiomesMap.get(biomeId);
         if (subBiomeIds == null) {return biomeId;}

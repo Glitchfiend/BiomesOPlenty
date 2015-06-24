@@ -9,10 +9,9 @@
 package biomesoplenty.common.world.layer;
 
 import net.minecraft.util.MathHelper;
-import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
-public class GenLayerTemperatureLatitude extends GenLayer
+public class GenLayerTemperatureLatitude extends BOPGenLayer
 {
     
     private double period;

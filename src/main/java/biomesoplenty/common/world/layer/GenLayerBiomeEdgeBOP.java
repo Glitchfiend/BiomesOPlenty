@@ -15,7 +15,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
-public class GenLayerBiomeEdgeBOP extends GenLayer
+public class GenLayerBiomeEdgeBOP extends BOPGenLayer
 {
 
     public GenLayerBiomeEdgeBOP(long seed, GenLayer parent)

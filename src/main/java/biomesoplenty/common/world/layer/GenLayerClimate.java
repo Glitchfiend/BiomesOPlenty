@@ -4,7 +4,7 @@ import biomesoplenty.common.enums.BOPClimates;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
-public class GenLayerClimate extends GenLayer {
+public class GenLayerClimate extends BOPGenLayer {
 
     private final GenLayer temperature;
     private final GenLayer rainfall;

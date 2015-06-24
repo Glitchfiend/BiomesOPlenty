@@ -8,10 +8,9 @@
 
 package biomesoplenty.common.world.layer;
 
-import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
-public class GenLayerRainfallRandom extends GenLayer
+public class GenLayerRainfallRandom extends BOPGenLayer
 {
     
     public GenLayerRainfallRandom(long seed)

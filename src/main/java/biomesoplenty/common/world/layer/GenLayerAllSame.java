@@ -7,10 +7,9 @@
  ******************************************************************************/
 
 package biomesoplenty.common.world.layer;
-import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
-public class GenLayerAllSame extends GenLayer
+public class GenLayerAllSame extends BOPGenLayer
 {
     private final int val;
     

@@ -3,29 +3,36 @@ package biomesoplenty.common.enums;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import biomesoplenty.common.world.layer.GenLayerBiomeBOP;
+import biomesoplenty.common.world.layer.BOPGenLayer;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.BiomeManager.BiomeType;
 
 public enum BOPClimates {
 
-    ICE_CAP,
-    FROZEN_DESERT,
-    TUNDRA,
-    COLD_DESERT,
-    BOREAL,
-    COLD_SWAMP,
-    WET_TEMPERATE,
-    DRY_TEMPERATE,
-    COOL_TEMPERATE,
-    WARM_TEMPERATE,
-    HOT_SWAMP,
-    TROPICAL,
-    MEDITERANEAN,
-    SAVANNA,
-    HOT_DESERT;
-
+    ICE_CAP (BiomeType.ICY),
+    FROZEN_DESERT (BiomeType.ICY),
+    TUNDRA (BiomeType.ICY),
+    COLD_DESERT (BiomeType.COOL),
+    BOREAL (BiomeType.ICY),
+    COLD_SWAMP (BiomeType.COOL),
+    WET_TEMPERATE (BiomeType.COOL),
+    DRY_TEMPERATE (BiomeType.WARM),
+    COOL_TEMPERATE (BiomeType.COOL),
+    WARM_TEMPERATE (BiomeType.WARM),
+    HOT_SWAMP (BiomeType.WARM),
+    TROPICAL (BiomeType.DESERT),
+    MEDITERANEAN (BiomeType.WARM),
+    SAVANNA (BiomeType.DESERT),
+    HOT_DESERT (BiomeType.DESERT);
+    
+    public final BiomeType biomeType;
     private int totalLandBiomesWeight;
     private ArrayList<WeightedBiomeEntry> landBiomes = new ArrayList<WeightedBiomeEntry>();
+    
+    private BOPClimates(BiomeType biomeType)
+    {
+        this.biomeType = biomeType;
+    }
     
     public BOPClimates addLandBiome(int weight, BiomeGenBase biome)
     {
@@ -39,7 +46,7 @@ public enum BOPClimates {
         return this;
     }
     
-    public BiomeGenBase getRandomLandBiome(GenLayerBiomeBOP layer)
+    public BiomeGenBase getRandomLandBiome(BOPGenLayer layer)
     {
         int weight = layer.nextInt(this.totalLandBiomesWeight);
         Iterator<WeightedBiomeEntry> iterator = this.landBiomes.iterator();
@@ -53,21 +60,18 @@ public enum BOPClimates {
         return item.biome;
     }
     
-    public BiomeGenBase getRandomOceanBiome(GenLayerBiomeBOP layer)
+    public BiomeGenBase getRandomOceanBiome(BOPGenLayer layer, boolean deep)
     {
         switch (this)
         {
             case ICE_CAP:
                 return (layer.nextInt(2)==0) ? this.getRandomLandBiome(layer) : BiomeGenBase.frozenOcean;
             case FROZEN_DESERT: case TUNDRA: case COLD_DESERT: case BOREAL:
-                return (layer.nextInt(2)==0) ? BiomeGenBase.ocean : BiomeGenBase.frozenOcean;
+                return (layer.nextInt(3)!=0) ? (deep ? BiomeGenBase.deepOcean : BiomeGenBase.ocean) : BiomeGenBase.frozenOcean;
             default:
-                return BiomeGenBase.ocean;
+                return (deep ? BiomeGenBase.deepOcean : BiomeGenBase.ocean);
         }
     }
-    
-    
-    
     
     static
     {
@@ -85,8 +89,8 @@ public enum BOPClimates {
         BOPClimates.WARM_TEMPERATE.addLandBiome(20, BiomeGenBase.plains).addLandBiome(10, BiomeGenBase.roofedForest).addLandBiome(10, BiomeGenBase.forest).addLandBiome(10, BiomeGenBase.birchForest);
         BOPClimates.HOT_SWAMP.addLandBiome(10, BiomeGenBase.swampland);
         BOPClimates.TROPICAL.addLandBiome(10, BiomeGenBase.jungle);
-        BOPClimates.MEDITERANEAN.addLandBiome(5, BiomeGenBase.plains).addLandBiome(5, BiomeGenBase.mesa);
-        BOPClimates.SAVANNA.addLandBiome(20, BiomeGenBase.savanna).addLandBiome(5, BiomeGenBase.mesa);
+        BOPClimates.MEDITERANEAN.addLandBiome(5, BiomeGenBase.plains).addLandBiome(5, BiomeGenBase.mesaPlateau);
+        BOPClimates.SAVANNA.addLandBiome(20, BiomeGenBase.savanna).addLandBiome(5, BiomeGenBase.mesaPlateau);
         BOPClimates.HOT_DESERT.addLandBiome(30, BiomeGenBase.desert);
     }
     

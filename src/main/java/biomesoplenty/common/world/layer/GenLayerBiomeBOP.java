@@ -8,12 +8,14 @@
 
 package biomesoplenty.common.world.layer;
 
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
+import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.world.BOPWorldSettings;
 
-public class GenLayerBiomeBOP extends GenLayer
+public class GenLayerBiomeBOP extends BOPGenLayer
 {
     
     private BOPWorldSettings settings;
@@ -30,13 +32,6 @@ public class GenLayerBiomeBOP extends GenLayer
         // debugging
         BOPClimates.printWeights();
     }
-    
-    @Override
-    public int nextInt(int a)
-    {
-        return super.nextInt(a);
-    }
-    
     
     // Get array of biome IDs covering the requested area
     @Override
@@ -55,9 +50,19 @@ public class GenLayerBiomeBOP extends GenLayer
                 int landSeaVal = landSeaValues[index];
                 BOPClimates climate = BOPClimates.lookup(climateValues[index]);
                 
-                if (landSeaVal == 0)
+                // At this point, oceans and land have been assigned, and so have mushroom islands
+                if (landSeaVal == BiomeGenBase.deepOcean.biomeID)
                 {
-                    out[index] = climate.getRandomOceanBiome(this).biomeID;
+                    out[index] = climate.getRandomOceanBiome(this, true).biomeID;
+                }
+                else if (landSeaVal == BiomeGenBase.mushroomIsland.biomeID && climate.biomeType != BiomeType.ICY)
+                {
+                    // keep mushroom islands, unless it's in an icy climate in which case, replace
+                    out[index] = BiomeGenBase.mushroomIsland.biomeID;
+                }
+                else if (landSeaVal == 0)
+                {
+                    out[index] = climate.getRandomOceanBiome(this, false).biomeID;
                 }
                 else
                 {

@@ -4,12 +4,12 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
-public class GenLayerBOPRiver extends GenLayer
+public class GenLayerBOPRiver extends BOPGenLayer
 {
-    public GenLayerBOPRiver(long p_i2128_1_, GenLayer p_i2128_3_)
+    public GenLayerBOPRiver(long seed, GenLayer parent)
     {
-        super(p_i2128_1_);
-        super.parent = p_i2128_3_;
+        super(seed);
+        this.parent = parent;
     }
 
     @Override

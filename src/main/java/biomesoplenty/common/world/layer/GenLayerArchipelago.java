@@ -10,7 +10,7 @@ package biomesoplenty.common.world.layer;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
-public class GenLayerArchipelago extends GenLayer
+public class GenLayerArchipelago extends BOPGenLayer
 {
 
     private final int seaChance;

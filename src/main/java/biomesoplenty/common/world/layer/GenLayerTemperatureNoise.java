@@ -1,10 +1,9 @@
 package biomesoplenty.common.world.layer;
 
 import biomesoplenty.common.world.SimplexNoise;
-import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
-public class GenLayerTemperatureNoise extends GenLayer {
+public class GenLayerTemperatureNoise extends BOPGenLayer {
 
     private final double xOffset;
     private final double yOffset;
