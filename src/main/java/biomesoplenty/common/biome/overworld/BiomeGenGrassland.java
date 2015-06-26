@@ -12,6 +12,7 @@ import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.BlockFlower.EnumFlowerType;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
@@ -85,6 +86,18 @@ public class BiomeGenGrassland extends BOPBiome {
     public void applySettings(BOPWorldSettings settings)
     {
         if (!settings.generateBopGems) {this.removeGenerator("peridot");}
+    }
+    
+    @Override
+    public int getGrassColorAtPos(BlockPos pos)
+    {
+        return 0x7FDB7D;
+    }
+    
+    @Override
+    public int getFoliageColorAtPos(BlockPos pos)
+    {
+        return 0x7FDB7D;
     }
 
 }
