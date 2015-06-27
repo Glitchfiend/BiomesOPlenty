@@ -1,11 +1,5 @@
 package biomesoplenty.client.gui;
 
-import biomesoplenty.common.world.BOPWorldSettings;
-import biomesoplenty.common.world.BOPWorldSettings.*;
-
-import com.google.common.base.Predicate;
-import com.google.common.primitives.Floats;
-
 import java.io.IOException;
 
 import net.minecraft.client.gui.Gui;
@@ -21,9 +15,17 @@ import net.minecraft.client.renderer.WorldRenderer;
 import net.minecraft.client.resources.I18n;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import biomesoplenty.common.world.BOPWorldSettings;
+import biomesoplenty.common.world.BOPWorldSettings.BiomeSize;
+import biomesoplenty.common.world.BOPWorldSettings.LandMassScheme;
+import biomesoplenty.common.world.BOPWorldSettings.RainfallVariationScheme;
+import biomesoplenty.common.world.BOPWorldSettings.TemperatureVariationScheme;
+
+import com.google.common.base.Predicate;
+import com.google.common.primitives.Floats;
 
 @SideOnly(Side.CLIENT)
-public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatHelper, GuiBOPConfigPage.GuiResponder
+public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatHelper, GuiBOPPageTable.GuiResponder
 {
     private GuiCreateWorld parentScreen;
     
@@ -32,7 +34,7 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
     protected String page0Title = "Basic Settings";
     protected String[] pageNames;
     
-    private GuiBOPConfigPage pages;
+    private GuiBOPPageManager pageManager;
     
     private GuiButton doneButton;
     private GuiButton defaultsButton;
@@ -71,8 +73,7 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
             this.settings = new BOPWorldSettings(settingsStringIn);
         }
     }
-    
-   
+
     private static enum Actions
     {
         PREVIOUS (301),
@@ -105,9 +106,6 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
             return null;
         }
     }
-    
-
-   
 
     @Override
     public void initGui()
@@ -136,7 +134,7 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
     public void handleMouseInput() throws IOException
     {
         super.handleMouseInput();
-        this.pages.handleMouseInput();
+        this.pageManager.handleMouseInput();
     }
 
     
@@ -179,26 +177,42 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
         this.pageNames = new String[3];
         
         this.pageNames[0] = "World";
-        GuiBOPConfigPage.GuiListEntry[] page0 = new GuiBOPConfigPage.GuiListEntry[] {
-            new GuiBOPConfigPage.GuiEnumButtonEntry<BiomeSize>(GuiEntries.BIOME_SIZE.getId(), "Biome Size: %s", true, this.settings.biomeSize),
-            new GuiBOPConfigPage.GuiEnumButtonEntry<LandMassScheme>(GuiEntries.LAND_SCHEME.getId(), "Land Mass: %s", true, this.settings.landScheme),
-            new GuiBOPConfigPage.GuiEnumButtonEntry<TemperatureVariationScheme>(GuiEntries.TEMP_SCHEME.getId(), "Temperature: %s", true, this.settings.tempScheme),
-            new GuiBOPConfigPage.GuiEnumButtonEntry<RainfallVariationScheme>(GuiEntries.RAIN_SCHEME.getId(), "Rainfall: %s", true, this.settings.rainScheme),
-            new GuiBOPConfigPage.GuiSlideEntry(GuiEntries.AMPLITUDE.getId(), "Amplitude", true, this, 0.2F, 3.0F, this.settings.amplitude)
+        GuiBOPPageTable.GuiFieldEntry[] page0Fields = new GuiBOPPageTable.GuiFieldEntry[] {
+            new GuiBOPPageTable.GuiEnumButtonEntry<BiomeSize>(GuiEntries.BIOME_SIZE.getId(), "Biome Size: %s", true, this.settings.biomeSize),
+            new GuiBOPPageTable.GuiEnumButtonEntry<LandMassScheme>(GuiEntries.LAND_SCHEME.getId(), "Land Mass: %s", true, this.settings.landScheme),
+            new GuiBOPPageTable.GuiEnumButtonEntry<TemperatureVariationScheme>(GuiEntries.TEMP_SCHEME.getId(), "Temperature: %s", true, this.settings.tempScheme),
+            new GuiBOPPageTable.GuiEnumButtonEntry<RainfallVariationScheme>(GuiEntries.RAIN_SCHEME.getId(), "Rainfall: %s", true, this.settings.rainScheme),
+            new GuiBOPPageTable.GuiSlideEntry(GuiEntries.AMPLITUDE.getId(), "Amplitude", true, this, 0.2F, 3.0F, this.settings.amplitude)
         };
         
         this.pageNames[1] = "Biomes";
-        GuiBOPConfigPage.GuiListEntry[] page1 = new GuiBOPConfigPage.GuiListEntry[] {
+        GuiBOPPageTable.GuiFieldEntry[] page1Fields = new GuiBOPPageTable.GuiFieldEntry[] {
 
         };
         
         this.pageNames[2] = "Features";
-        GuiBOPConfigPage.GuiListEntry[] page2 = new GuiBOPConfigPage.GuiListEntry[] {
-            new GuiBOPConfigPage.GuiButtonEntry(GuiEntries.GENERATE_BOP_GEMS.getId(), "Generate BOP gems", true, this.settings.generateBopGems)
+        GuiBOPPageTable.GuiFieldEntry[] page2Fields = new GuiBOPPageTable.GuiFieldEntry[] {
+            new GuiBOPPageTable.GuiButtonEntry(GuiEntries.GENERATE_BOP_GEMS.getId(), "Generate BOP gems", true, this.settings.generateBopGems)
         };
         
-        this.pages = new GuiBOPConfigPage(this.mc, this.width, this.height, 32, this.height - 32, 25, this, new GuiBOPConfigPage.GuiListEntry[][] {page0, page1, page2});
+        this.pageManager = new GuiBOPPageManager(this.mc, this.width, this.height, 32, this.height - 32, 25);
+        this.pageManager.setPages(createTableForFields(page0Fields, page1Fields, page2Fields));
+        this.pageManager.setup();
+        
         this.showNewPage();
+    }
+    
+    private GuiBOPPageTable[] createTableForFields(GuiBOPPageTable.GuiFieldEntry[]... fieldGroup)
+    {
+        GuiBOPPageTable[] output = new GuiBOPPageTable[fieldGroup.length];
+        
+        for (int i = 0; i < fieldGroup.length; i++)
+        {
+            GuiBOPPageTable.GuiFieldEntry[] fields = fieldGroup[i];
+            output[i] = new GuiBOPPageTable(this.pageManager, i, this, fields);
+        }
+        
+        return output;
     }
 
     public String serialize()
@@ -343,12 +357,12 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
                     break;
                     
                 case PREVIOUS:
-                    this.pages.gotToPrevPage(); // prev page
+                    this.pageManager.gotToPrevPage(); // prev page
                     this.showNewPage();
                     break;
                     
                 case NEXT:
-                    this.pages.goToNextPage(); // next page
+                    this.pageManager.goToNextPage(); // next page
                     this.showNewPage();
                     break;
                     
@@ -387,7 +401,7 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
             switch (action)
             {
                 case DONE:
-                    this.actionPerformed((GuiListButton)this.pages.getGui(300));
+                    this.actionPerformed((GuiListButton)this.pageManager.getGui(300));
                     break;
                 case DEFAULTS:
                     this.doSetDefaults();
@@ -413,10 +427,10 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
 
     private void showNewPage()
     {
-        this.prevButton.enabled = this.pages.getCurrentPageNum() != 0;
-        this.nextButton.enabled = this.pages.getCurrentPageNum() != this.pages.getNumPages() - 1;
-        this.pageInfo = I18n.format("book.pageIndicator", new Object[] {Integer.valueOf(this.pages.getCurrentPageNum() + 1), Integer.valueOf(this.pages.getNumPages())});
-        this.page0Title = this.pageNames[this.pages.getCurrentPageNum()];
+        this.prevButton.enabled = this.pageManager.getActivePage().pageNumber != 0;
+        this.nextButton.enabled = this.pageManager.getActivePage().pageNumber != this.pageManager.getNumPages() - 1;
+        this.pageInfo = I18n.format("book.pageIndicator", new Object[] {Integer.valueOf(this.pageManager.getActivePage().pageNumber + 1), Integer.valueOf(this.pageManager.getNumPages())});
+        this.page0Title = this.pageNames[this.pageManager.getActivePage().pageNumber];
     }
 
     @Override
@@ -435,14 +449,14 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
                     this.func_175327_a(-1.0F);
                     break;
                 default:
-                    this.pages.func_178062_a(typedChar, keyCode);
+                    this.pageManager.func_178062_a(typedChar, keyCode);
             }
         }
     }
 
     private void func_175327_a(float p_175327_1_)
     {
-        Gui gui = this.pages.func_178056_g();
+        Gui gui = this.pageManager.func_178056_g();
 
         if (gui instanceof GuiTextField)
         {
@@ -488,7 +502,7 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
 
         if (this.modalAction == 0 && !this.field_175340_C)
         {
-            this.pages.mouseClicked(mouseX, mouseY, mouseButton);
+            this.pageManager.mouseClicked(mouseX, mouseY, mouseButton);
         }
     }
 
@@ -503,7 +517,7 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
         }
         else if (this.modalAction == 0)
         {
-            this.pages.mouseReleased(mouseX, mouseY, state);
+            this.pageManager.mouseReleased(mouseX, mouseY, state);
         }
     }
 
@@ -511,7 +525,7 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
     public void drawScreen(int mouseX, int mouseY, float partialTicks)
     {
         this.drawDefaultBackground();
-        this.pages.drawScreen(mouseX, mouseY, partialTicks);
+        this.pageManager.drawScreen(mouseX, mouseY, partialTicks);
         this.drawCenteredString(this.fontRendererObj, this.screenTitle, this.width / 2, 2, 16777215);
         this.drawCenteredString(this.fontRendererObj, this.pageInfo, this.width / 2, 12, 16777215);
         this.drawCenteredString(this.fontRendererObj, this.page0Title, this.width / 2, 22, 16777215);
