@@ -11,9 +11,9 @@ public class GuiEnumButton<T extends Enum> extends GuiButton
 {
     private T value;
     private String localizationStr;
-    private final GuiBOPPageTable.GuiResponder guiResponder;
+    private final GuiBOPPageList.GuiResponder guiResponder;
 
-    public GuiEnumButton(GuiBOPPageTable.GuiResponder responder, int fieldId, int x, int y, String localizationStr, T initialValue)
+    public GuiEnumButton(GuiBOPPageList.GuiResponder responder, int fieldId, int x, int y, String localizationStr, T initialValue)
     {
         super(fieldId, x, y, 150, 20, "");
         this.localizationStr = localizationStr;
