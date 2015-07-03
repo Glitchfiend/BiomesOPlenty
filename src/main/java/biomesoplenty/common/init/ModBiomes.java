@@ -171,6 +171,7 @@ public class ModBiomes
         thicket = registerBOPBiome(new BiomeGenThicket(), "Thicket");
         tundra = registerBOPBiome(new BiomeGenTundra(), "Tundra");
         woodland = registerBOPBiome(new BiomeGenWoodland(), "Woodland");
+        xeric_shrubland = registerBOPBiome(new BiomeGenXericShrubland(), "Xeric Shrubland");
         
         // edge-biomes, sub-biomes and mutated-biomes
         
