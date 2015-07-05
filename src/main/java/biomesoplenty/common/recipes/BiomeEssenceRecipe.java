@@ -5,11 +5,16 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
+import net.minecraftforge.oredict.RecipeSorter;
 import biomesoplenty.api.BOPItemHelper;
 import biomesoplenty.api.content.BOPCItems;
 
 public class BiomeEssenceRecipe implements IRecipe
 {
+	static {
+		RecipeSorter.register("BiomesOPlenty:biomeessenceRecipe", BiomeEssenceRecipe.class, RecipeSorter.Category.SHAPELESS, "after:minecraft:shapeless");
+	}
+
     private ItemStack recipeOutput;
     
     @Override
