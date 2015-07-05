@@ -8,8 +8,6 @@
 
 package biomesoplenty.client.gui;
 
-import net.minecraft.client.gui.GuiListExtended;
-
 public class GuiBOPPageBiomes //extends GuiBOPPageDelegate
 {
     //Subclass implementing GuiListExtended.IGuiListEntry 

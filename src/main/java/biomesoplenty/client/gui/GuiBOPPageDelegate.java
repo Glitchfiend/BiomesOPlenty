@@ -10,7 +10,6 @@ package biomesoplenty.client.gui;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
-import net.minecraft.client.gui.GuiListExtended;
 import net.minecraft.client.gui.GuiSlot;
 
 public abstract class GuiBOPPageDelegate extends GuiSlot

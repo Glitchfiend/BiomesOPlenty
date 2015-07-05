@@ -13,6 +13,7 @@ import java.util.Random;
 public class NoiseGeneratorBOPByte
 {
     
+    // TODO: get rid of the interpolater classes - there's only one sensible interpolater
     /*** Interpolation ***/
     
     public static interface IIntInterpolater
@@ -234,6 +235,7 @@ public class NoiseGeneratorBOPByte
                 int val11 = this.randomCombineTwo(permutations[permV1 + 1], fracU - 255, fracV - 255);
                 
                 // bilinear interpolation in x direction first (twice) then in z direction (once) to get the interpolated value
+                // TODO: use smoothing funciton on fracU and fracV and lerp instead of interpolate
                 int val0 = this.interpolater.interpolate(fracU, val00, val01);
                 int val1 = this.interpolater.interpolate(fracU, val10, val11);
                 int val = this.interpolater.interpolate(fracV, val0, val1);
