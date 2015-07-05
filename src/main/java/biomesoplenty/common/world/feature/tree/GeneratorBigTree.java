@@ -38,6 +38,9 @@ public class GeneratorBigTree extends GeneratorTreeBase
     // TODO: update neighbours in builder?
     public static class Builder extends GeneratorTreeBase.InnerBuilder<Builder, GeneratorBigTree> implements IGeneratorBuilder<GeneratorBigTree>
     {        
+        private int foliageHeight;
+        private double foliageDensity;
+        
         public Builder()
         {
             // defaults
@@ -49,12 +52,20 @@ public class GeneratorBigTree extends GeneratorTreeBase
             this.vine = null;
             this.minHeight = 5;
             this.maxHeight = 17;
+            
+            this.foliageHeight = 4;
+            this.foliageDensity = 1.0F;
+            
         }
+        
+        public Builder foliageHeight(int a) {this.foliageHeight = a; return this.self();}
+        public Builder foliageDensity(double a) {this.foliageDensity = a; return this.self();}
+
 
         @Override
         public GeneratorBigTree create()
         {
-            return new GeneratorBigTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.minHeight, this.maxHeight, false);
+            return new GeneratorBigTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.minHeight, this.maxHeight, this.foliageHeight, this.foliageDensity, false);
         }
     }
     
@@ -68,20 +79,22 @@ public class GeneratorBigTree extends GeneratorTreeBase
     private double trunkHeightScale = 0.618;
     private double branchSlope = 0.381;
     private double widthScale = 1;
-    private double foliageDensity = 1;
     private int trunkWidth = 1;
     //private int heightVariance = 12;
-    private int foliageHeight = 4;
     
     //Configurable fields
     private boolean updateNeighbours;
+    private int foliageHeight;
+    private double foliageDensity;
     
     private List<FoliageCoords> foliageCoords;
 
     
-    public GeneratorBigTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, int minHeight, int maxHeight, boolean updateNeighbours)
+    public GeneratorBigTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, int minHeight, int maxHeight, int foliageHeight, double foliageDensity, boolean updateNeighbours)
     {
         super(amountPerChunk, placeOn, replace, log, leaves, vine, minHeight, maxHeight);
+        this.foliageHeight = foliageHeight;
+        this.foliageDensity = foliageDensity;
         this.updateNeighbours = updateNeighbours;
     }
 

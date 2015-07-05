@@ -153,6 +153,7 @@ public class ModBiomes
         coldDesert = registerBOPBiome(new BiomeGenColdDesert(BiomeGenColdDesert.ColdDesertType.COLD), "Cold Desert");
         coniferous_forest = registerBOPBiome(new BiomeGenConiferousForest(), "Coniferous Forest");
         crag = registerBOPBiome(new BiomeGenCrag(), "Crag");
+        deadForest = registerBOPBiome(new BiomeGenDeadForest(), "Dead Forest");
         denseForest = registerBOPBiome(new BiomeGenDenseForest(), "Dense Forest");
         flowerField = registerBOPBiome(new BiomeGenFlowerField(), "Flower Field");
         frozenDesert = registerBOPBiome(new BiomeGenColdDesert(BiomeGenColdDesert.ColdDesertType.FROZEN), "Frozen Desert");
