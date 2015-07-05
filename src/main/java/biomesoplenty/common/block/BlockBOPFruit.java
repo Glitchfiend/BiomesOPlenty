@@ -31,7 +31,7 @@ public class BlockBOPFruit extends BlockBOPDecoration
     // add properties
     public static enum FruitType implements IStringSerializable
     {
-        APPLE, PERSIMMON, PEACH, PEAR;
+        APPLE, PERSIMMON, PEACH, PEAR, PINECONE;
         @Override
         public String getName()
         {
@@ -100,6 +100,8 @@ public class BlockBOPFruit extends BlockBOPDecoration
                 return BOPItems.peach;
             case PEAR:
                 return BOPItems.pear;
+            case PINECONE:
+                return BOPItems.pinecone;
             case APPLE: default:
                 return Items.apple;
         }       
