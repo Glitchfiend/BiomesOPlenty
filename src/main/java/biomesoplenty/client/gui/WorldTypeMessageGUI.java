@@ -98,10 +98,4 @@ public class WorldTypeMessageGUI extends GuiScreen
        
         super.drawScreen(x, y, renderPartialTicks);
     }
-    
-    @Override
-    public void drawCenteredString(FontRenderer fontRenderer, String string, int x, int y, int colour)
-    {
-        fontRenderer.drawStringWithShadow(string, x - fontRenderer.getStringWidth(string.replaceAll("\\P{InBasic_Latin}", "")) / 2, y, colour);
-    }
 }
