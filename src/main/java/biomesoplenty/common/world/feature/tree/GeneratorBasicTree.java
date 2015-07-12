@@ -43,7 +43,7 @@ public class GeneratorBasicTree extends GeneratorTreeBase
             // defaults
             this.amountPerChunk = 1.0F;
             this.placeOn = BlockQueries.anything;
-            this.replace = new BlockQueryMaterial(Material.air);
+            this.replace = new BlockQueryMaterial(Material.air, Material.leaves);
             this.log = Blocks.log.getDefaultState();
             this.leaves = Blocks.leaves.getDefaultState();
             this.vine = null;
