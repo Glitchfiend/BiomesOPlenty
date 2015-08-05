@@ -30,7 +30,7 @@ public class BiomeGenFrostForest extends BOPBiome
     public BiomeGenFrostForest()
     {
         // terrain
-        this.terrainSettings.avgHeight(64).heightVariation(6, 21);
+        this.terrainSettings.avgHeight(66).heightVariation(6, 21);
         
         this.setColor(0xABD6BC);
         this.skyColor = 0xCEE0EA;
