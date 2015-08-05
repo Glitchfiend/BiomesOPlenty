@@ -46,7 +46,7 @@ public class GeneratorBigTree extends GeneratorTreeBase
             // defaults
             this.amountPerChunk = 1.0F;
             this.placeOn = BlockQueries.anything;
-            this.replace = new BlockQueryMaterial(Material.air);
+            this.replace = new BlockQueryMaterial(Material.air, Material.leaves);
             this.log = Blocks.log.getDefaultState();
             this.leaves = Blocks.leaves.getDefaultState();
             this.vine = null;
@@ -458,10 +458,7 @@ public class GeneratorBigTree extends GeneratorTreeBase
 
         this.random = new Random(rand.nextLong());
 
-        if (this.height == 0)
-        {
-            this.height = random.nextInt(this.maxHeight - this.minHeight) + this.minHeight;
-        }
+        this.height = random.nextInt(this.maxHeight - this.minHeight) + this.minHeight;
 
         if (!this.checkLocation())
         {
