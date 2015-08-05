@@ -267,7 +267,10 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
         IBlockState state = world.getBlockState(pos);
         if (state.getBlock() == this)
         {
-            ret.add(new ItemStack(this, 1, this.damageDropped(state)));
+            // get default state corresponding to this tree (IE discard CHECK_DECAY and DECAYABLE bits for item meta)
+            BOPTrees tree = (BOPTrees)state.getValue(this.variantProperty);
+            int meta = this.getMetaFromState(this.getDefaultState().withProperty(this.variantProperty, tree));
+            ret.add(new ItemStack(this, 1, meta));
         }
         return ret;
     }
