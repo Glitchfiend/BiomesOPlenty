@@ -154,7 +154,7 @@ public class GeneratorBulbTree extends GeneratorTreeBase
         if (height < 6) {return false;}
         int topHeight = 3;
         int heightMinusTop = height - topHeight;
-        int numBranches = heightMinusTop / 3;
+        int numBranches = heightMinusTop / 5;
         int baseHeight = heightMinusTop - (numBranches * 2);
         
         // Start on the space above ground
@@ -194,6 +194,7 @@ public class GeneratorBulbTree extends GeneratorTreeBase
 
     protected void addVines(World world, Random rand, BlockPos startPos, int baseHeight, int height, int leavesRadius, int generationAttempts)
     {
+        if (this.vine == null) {return;}
         for (int i = 0; i < generationAttempts; i++)
         {
             // choose a random direction

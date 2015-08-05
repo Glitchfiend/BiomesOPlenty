@@ -109,14 +109,18 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
         }
         public T vine(IBlockState a)
         {
-            if (a.getBlock() instanceof BlockVine)
+            if (a == null)
+            {
+                this.vine = null;
+            }
+            else if (a.getBlock() instanceof BlockVine)
             {
                 this.vine = a;
             } else {
                 throw new IllegalArgumentException("vine must use a BlockVine block");
             }
             return this.self();
-        }        
+        }
         
         public T minHeight(int a) {this.minHeight = a; return this.self();}
         public T maxHeight(int a) {this.maxHeight = a; return this.self();}
@@ -159,6 +163,7 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
     
     public boolean setVine(World world, Random rand, BlockPos pos, EnumFacing side, int length)
     {
+        if (this.vine == null) {return false;}
         IBlockState vineState = this.vine.withProperty(BlockVine.NORTH, Boolean.valueOf(side == EnumFacing.NORTH)).withProperty(BlockVine.EAST, Boolean.valueOf(side == EnumFacing.EAST)).withProperty(BlockVine.SOUTH, Boolean.valueOf(side == EnumFacing.SOUTH)).withProperty(BlockVine.WEST, Boolean.valueOf(side == EnumFacing.WEST));
         boolean setOne = false;
         while (this.replace.matches(world, pos) && length > 0 && rand.nextInt(12) > 0)
