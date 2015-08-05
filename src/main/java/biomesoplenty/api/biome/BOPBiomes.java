@@ -30,11 +30,12 @@ public class BOPBiomes
     public static Optional<BiomeGenBase> crag = Optional.absent();
     public static Optional<BiomeGenBase> deadForest = Optional.absent();
     public static Optional<BiomeGenBase> deadSwamp = Optional.absent();
-    public static Optional<BiomeGenBase> deciduousForest = Optional.absent();
-    public static Optional<BiomeGenBase> eucalyptusForest = Optional.absent();
+    public static Optional<BiomeGenBase> deciduousForest = Optional.absent(); // TODO change to deciduous_forest
+    public static Optional<BiomeGenBase> eucalyptusForest = Optional.absent(); // TODO change to eucalyptus_forest
     public static Optional<BiomeGenBase> fen = Optional.absent();
-    public static Optional<BiomeGenBase> denseForest = Optional.absent();
-    public static Optional<BiomeGenBase> flowerField = Optional.absent();
+    public static Optional<BiomeGenBase> denseForest = Optional.absent(); // TODO change to dense_forest
+    public static Optional<BiomeGenBase> flowerField = Optional.absent(); // TODO change to flower_field
+    public static Optional<BiomeGenBase> frost_forest = Optional.absent();
     public static Optional<BiomeGenBase> frozenDesert = Optional.absent();
     public static Optional<BiomeGenBase> grassland = Optional.absent();    
     public static Optional<BiomeGenBase> heathland = Optional.absent();    
@@ -44,7 +45,7 @@ public class BOPBiomes
     public static Optional<BiomeGenBase> marsh = Optional.absent();
     public static Optional<BiomeGenBase> moor = Optional.absent();
     public static Optional<BiomeGenBase> mountain = Optional.absent();
-    public static Optional<BiomeGenBase> originValley = Optional.absent();
+    public static Optional<BiomeGenBase> originValley = Optional.absent(); // TODO change to origin_valley
     public static Optional<BiomeGenBase> outback = Optional.absent();
     public static Optional<BiomeGenBase> shrubland = Optional.absent();
     public static Optional<BiomeGenBase> steppe = Optional.absent();
