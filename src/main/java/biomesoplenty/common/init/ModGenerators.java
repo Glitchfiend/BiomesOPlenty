@@ -39,5 +39,6 @@ public class ModGenerators
         registerGenerator("blobs", GeneratorBlobs.class, new GeneratorBlobs.Builder());
         registerGenerator("lakes", GeneratorLakes.class, new GeneratorLakes.Builder());
         registerGenerator("columns", GeneratorColumns.class, new GeneratorColumns.Builder());
+        registerGenerator("mixed_lily", GeneratorMixedLily.class, new GeneratorMixedLily.Builder());
     }
 }
