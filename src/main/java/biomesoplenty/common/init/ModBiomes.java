@@ -157,6 +157,7 @@ public class ModBiomes
         deadSwamp = registerBOPBiome(new BiomeGenDeadSwamp(), "Dead Swamp");
         deciduousForest = registerBOPBiome(new BiomeGenDeciduousForest(), "Deciduous Forest");
         eucalyptusForest = registerBOPBiome(new BiomeGenEucalyptusForest(), "Eucalyptus Forest");
+        fen = registerBOPBiome(new BiomeGenFen(), "Fen");
         denseForest = registerBOPBiome(new BiomeGenDenseForest(), "Dense Forest");
         flowerField = registerBOPBiome(new BiomeGenFlowerField(), "Flower Field");
         frozenDesert = registerBOPBiome(new BiomeGenColdDesert(BiomeGenColdDesert.ColdDesertType.FROZEN), "Frozen Desert");
