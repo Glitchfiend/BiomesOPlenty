@@ -38,10 +38,10 @@ public class GenLayerBiomeEdgeBOP extends BOPGenLayer
                 int biomeId = parentVals[x + 1 + (y + 1) * (areaWidth + 2)];
                 
                 // line BOP mountain peaks with BOP mountain foothills
-                if (this.replaceBiomeEdge(parentVals, out, x, y, areaWidth, biomeId, BOPBiomes.mountain, BOPBiomes.mountainFoothills)) {continue;}
+                if (this.replaceBiomeEdge(parentVals, out, x, y, areaWidth, biomeId, BOPBiomes.mountain, BOPBiomes.mountain_foothills)) {continue;}
                 
                 // line BOP canyon with BOP canyon ravine
-                if (this.replaceBiomeEdge(parentVals, out, x, y, areaWidth, biomeId, BOPBiomes.canyon, BOPBiomes.canyonRavine)) {continue;}
+                if (this.replaceBiomeEdge(parentVals, out, x, y, areaWidth, biomeId, BOPBiomes.canyon, BOPBiomes.canyon_ravine)) {continue;}
                 
                 // line extreme hills with extreme hills edge
                 if (this.replaceBiomeEdgeIfNecessary(parentVals, out, x, y, areaWidth, biomeId, BiomeGenBase.extremeHills.biomeID, BiomeGenBase.extremeHillsEdge.biomeID)) {continue;}

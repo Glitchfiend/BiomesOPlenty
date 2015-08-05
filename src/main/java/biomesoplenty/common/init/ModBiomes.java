@@ -150,27 +150,27 @@ public class ModBiomes
         canyon = registerBOPBiome(new BiomeGenCanyon(BiomeGenCanyon.CanyonType.PLATEAU), "Canyon");
         chaparral = registerBOPBiome(new BiomeGenChaparral(), "Chaparral");
         cherry_blossom_grove = registerBOPBiome(new BiomeGenCherryBlossomGrove(), "Cherry Blossom Grove");
-        coldDesert = registerBOPBiome(new BiomeGenColdDesert(BiomeGenColdDesert.ColdDesertType.COLD), "Cold Desert");
+        cold_desert = registerBOPBiome(new BiomeGenColdDesert(BiomeGenColdDesert.ColdDesertType.COLD), "Cold Desert");
         coniferous_forest = registerBOPBiome(new BiomeGenConiferousForest(), "Coniferous Forest");
         crag = registerBOPBiome(new BiomeGenCrag(), "Crag");
-        deadForest = registerBOPBiome(new BiomeGenDeadForest(), "Dead Forest");
-        deadSwamp = registerBOPBiome(new BiomeGenDeadSwamp(), "Dead Swamp");
-        deciduousForest = registerBOPBiome(new BiomeGenDeciduousForest(), "Deciduous Forest");
-        eucalyptusForest = registerBOPBiome(new BiomeGenEucalyptusForest(), "Eucalyptus Forest");
+        dead_forest = registerBOPBiome(new BiomeGenDeadForest(), "Dead Forest");
+        dead_swamp = registerBOPBiome(new BiomeGenDeadSwamp(), "Dead Swamp");
+        deciduous_forest = registerBOPBiome(new BiomeGenDeciduousForest(), "Deciduous Forest");
+        eucalyptus_forest = registerBOPBiome(new BiomeGenEucalyptusForest(), "Eucalyptus Forest");
         fen = registerBOPBiome(new BiomeGenFen(), "Fen");
-        denseForest = registerBOPBiome(new BiomeGenDenseForest(), "Dense Forest");
-        flowerField = registerBOPBiome(new BiomeGenFlowerField(), "Flower Field");
+        dense_forest = registerBOPBiome(new BiomeGenDenseForest(), "Dense Forest");
+        flower_field = registerBOPBiome(new BiomeGenFlowerField(), "Flower Field");
         frost_forest = registerBOPBiome(new BiomeGenFrostForest(), "Frost Forest");
-        frozenDesert = registerBOPBiome(new BiomeGenColdDesert(BiomeGenColdDesert.ColdDesertType.FROZEN), "Frozen Desert");
+        frozen_desert = registerBOPBiome(new BiomeGenColdDesert(BiomeGenColdDesert.ColdDesertType.FROZEN), "Frozen Desert");
         grassland = registerBOPBiome(new BiomeGenGrassland(), "Grassland");
         heathland = registerBOPBiome(new BiomeGenHeathland(), "Heathland");
         highland = registerBOPBiome(new BiomeGenHighland(), "Highland");
         jade_cliffs = registerBOPBiome(new BiomeGenJadeCliffs(), "Jade Cliffs");
-        lavenderFields = registerBOPBiome(new BiomeGenLavenderFields(), "Lavender Fields");
+        lavender_fields = registerBOPBiome(new BiomeGenLavenderFields(), "Lavender Fields");
         marsh = registerBOPBiome(new BiomeGenMarsh(), "Marsh");
         moor = registerBOPBiome(new BiomeGenMoor(), "Moor");
         mountain = registerBOPBiome(new BiomeGenMountain(BiomeGenMountain.MountainType.PEAKS), "Mountain");
-        originValley = registerBOPBiome(new BiomeGenOriginValley(), "Origin Valley");
+        origin_valley = registerBOPBiome(new BiomeGenOriginValley(), "Origin Valley");
         outback = registerBOPBiome(new BiomeGenOutback(), "Outback");
         shrubland = registerBOPBiome(new BiomeGenShrubland(), "Shrubland");
         steppe = registerBOPBiome(new BiomeGenSteppe(), "Steppe");
@@ -181,13 +181,13 @@ public class ModBiomes
         
         // edge-biomes, sub-biomes and mutated-biomes
         
-        mountainFoothills = registerBOPBiome(new BiomeGenMountain(BiomeGenMountain.MountainType.FOOTHILLS), "Mountain Foothills");
-        canyonRavine = registerBOPBiome(new BiomeGenCanyon(BiomeGenCanyon.CanyonType.RAVINE), "Canyon Ravine");
+        mountain_foothills = registerBOPBiome(new BiomeGenMountain(BiomeGenMountain.MountainType.FOOTHILLS), "Mountain Foothills");
+        canyon_ravine = registerBOPBiome(new BiomeGenCanyon(BiomeGenCanyon.CanyonType.RAVINE), "Canyon Ravine");
         glacier = registerBOPBiome(new BiomeGenGlacier(), "Glacier"); // TODO: implement glacier
         
         setSubBiome(Optional.of(BiomeGenBase.frozenOcean), arctic); // add some arctic regions in frozen oceans        
         setSubBiome(arctic, glacier);
-        setSubBiome(canyon, canyonRavine);
+        setSubBiome(canyon, canyon_ravine);
 
     }
     
