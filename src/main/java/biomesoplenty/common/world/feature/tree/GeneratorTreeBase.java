@@ -11,6 +11,7 @@ package biomesoplenty.common.world.feature.tree;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.BlockNewLeaf;
 import net.minecraft.block.BlockNewLog;
@@ -96,14 +97,14 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
             return this.self();
         }
         public T leaves(IBlockState a) {this.leaves = a; return this.self();}
-        public T leaves(BOPTrees a) {this.leaves = BlockBOPLeaves.paging.getVariantState(a); return this.self();}
+        public T leaves(BOPTrees a) {this.leaves = BlockBOPLeaves.paging.getVariantState(a).withProperty(BlockLeaves.CHECK_DECAY, false); return this.self();}
         public T leaves(BlockPlanks.EnumType a)
         {
             if (a.getMetadata() < 4)
             {
-                this.leaves = Blocks.leaves.getDefaultState().withProperty(BlockOldLeaf.VARIANT, a);
+                this.leaves = Blocks.leaves.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, false).withProperty(BlockOldLeaf.VARIANT, a);
             } else {
-                this.leaves = Blocks.leaves2.getDefaultState().withProperty(BlockNewLeaf.VARIANT, a);
+                this.leaves = Blocks.leaves2.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, false).withProperty(BlockNewLeaf.VARIANT, a);
             }
             return this.self();
         }
@@ -166,7 +167,7 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
         if (this.vine == null) {return false;}
         IBlockState vineState = this.vine.withProperty(BlockVine.NORTH, Boolean.valueOf(side == EnumFacing.NORTH)).withProperty(BlockVine.EAST, Boolean.valueOf(side == EnumFacing.EAST)).withProperty(BlockVine.SOUTH, Boolean.valueOf(side == EnumFacing.SOUTH)).withProperty(BlockVine.WEST, Boolean.valueOf(side == EnumFacing.WEST));
         boolean setOne = false;
-        while (this.replace.matches(world, pos) && length > 0 && rand.nextInt(12) > 0)
+        while (world.getBlockState(pos).getBlock().isAir(world, pos) && length > 0 && rand.nextInt(12) > 0)
         {
             world.setBlockState(pos, vineState, 2);
             setOne = true;
