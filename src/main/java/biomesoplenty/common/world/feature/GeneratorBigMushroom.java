@@ -97,6 +97,7 @@ public class GeneratorBigMushroom extends BOPGeneratorBase
         
         public Builder()
         {
+            this.amountPerChunk = 1.0F;
             this.mushroomType = BigMushroomType.BROWN;
             this.placeOn = BlockQueries.fertile;
             this.replace = BlockQueries.airOrLeaves;
@@ -173,7 +174,7 @@ public class GeneratorBigMushroom extends BOPGeneratorBase
     {
 
         int height = rand.nextInt(3) + 5;
-        
+                
         // check that there's room
         if (!this.isEnoughSpace(world, pos, height)) {return false;}
         
