@@ -59,9 +59,15 @@ public class ModBlockQueries
             {
                 return world.getBlockState(pos).getBlock().getBlockHardness(world, pos) >= 0.0F;
             }
-        };
+        }; 
         
-        airOrLeaves = new BlockQueryMaterial(Material.air, Material.leaves);    
+        airOrLeaves = new BlockQueryMaterial(Material.air, Material.leaves);  
+        
+        // Match blocks which count as 'the surface' - useful for finding places to put plants, trees, lilypads etc - note plants, trees, snow all excluded because they sit or grow 'on' the surface
+        surfaceBlocks = new BlockQueryMaterial(Material.barrier, Material.clay, Material.grass, Material.ground, Material.ice, Material.lava, Material.packedIce, Material.rock, Material.sand, Material.water);
+        // As above but without the liquids - useful for placing stuff on the sea floor
+        groundBlocks = new BlockQueryMaterial(Material.barrier, Material.clay, Material.grass, Material.ground, Material.packedIce, Material.rock, Material.sand);
+        
         fertile = BlockQuery.buildAnd().sustainsPlant(EnumPlantType.Plains).create();
         fertileOrNetherrack = BlockQuery.buildOr().sustainsPlant(EnumPlantType.Plains).blocks(Blocks.netherrack).states(BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.OVERGROWN_NETHERRACK)).create();
         sustainsCave = BlockQuery.buildAnd().sustainsPlant(EnumPlantType.Cave).create();

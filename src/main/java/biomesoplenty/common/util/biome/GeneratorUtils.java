@@ -11,17 +11,20 @@ package biomesoplenty.common.util.biome;
 import java.util.Collection;
 import java.util.Random;
 
-import org.apache.commons.lang3.tuple.Pair;
-
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonSyntaxException;
-
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
+
+import org.apache.commons.lang3.tuple.Pair;
+
+import biomesoplenty.api.block.BlockQueries;
+import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
+
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonSyntaxException;
 
 public class GeneratorUtils
 {
@@ -65,7 +68,18 @@ public class GeneratorUtils
         
         return state;
     }
-    
+        
+    public static BlockPos getFirstBlockMatching(World world, BlockPos startPos, IBlockPosQuery query)
+    {
+        for (BlockPos pos = startPos; pos.getY() > 0; pos = pos.down())
+        {
+            if (query.matches(world, pos))
+            {
+                return pos;
+            }
+        }
+        return null;
+    }
     
     public static enum ScatterYMethod
     {
@@ -73,14 +87,17 @@ public class GeneratorUtils
         public BlockPos getBlockPos(World world, Random random, int x, int z)
         {
             int tempY;
+            BlockPos pos;
             switch(this)
             {
                 case AT_SURFACE:
                     // always at the 'surface level' - to be precise, the air block directly above land or sea
-                    return world.getHeight(new BlockPos(x, 0, z));
+                    pos = getFirstBlockMatching(world, new BlockPos(x, 255, z), BlockQueries.surfaceBlocks);
+                    return (pos == null ? new BlockPos(x, 1, z) : pos.up());                    
                 case AT_GROUND:
                     // always at the 'ground level' - the air or water block directly above the land, or the bottom of the sea bed
-                    return world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z));
+                    pos = getFirstBlockMatching(world, new BlockPos(x, 255, z), BlockQueries.groundBlocks);
+                    return (pos == null ? new BlockPos(x, 1, z) : pos.up());                     
                 case BELOW_SURFACE:
                     // random point below surface (but possibly in the sea)
                     tempY = world.getHeight(new BlockPos(x, 0, z)).getY();

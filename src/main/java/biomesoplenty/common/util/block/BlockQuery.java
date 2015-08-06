@@ -28,6 +28,7 @@ import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
@@ -297,14 +298,14 @@ public class BlockQuery
                 // Otherwise fall back to the vanilla code
                 switch (this.plantType)
                 {
-                    case Desert: return block == net.minecraft.init.Blocks.sand || block == net.minecraft.init.Blocks.hardened_clay || block == net.minecraft.init.Blocks.stained_hardened_clay || block == net.minecraft.init.Blocks.dirt;
-                    case Nether: return block == net.minecraft.init.Blocks.soul_sand;
-                    case Crop:   return block == net.minecraft.init.Blocks.farmland;
+                    case Desert: return block == Blocks.sand || block == Blocks.hardened_clay || block == Blocks.stained_hardened_clay || block == Blocks.dirt;
+                    case Nether: return block == Blocks.soul_sand;
+                    case Crop:   return block == Blocks.farmland;
                     case Cave:   return block.isSideSolid(world, pos, EnumFacing.UP);
-                    case Plains: return block == net.minecraft.init.Blocks.grass || block == net.minecraft.init.Blocks.dirt || block == net.minecraft.init.Blocks.farmland;
+                    case Plains: return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == Blocks.mycelium;
                     case Water:  return block.getMaterial() == Material.water && ((Integer)state.getValue(BlockLiquid.LEVEL)) == 0;
                     case Beach:
-                        boolean isBeach = block == net.minecraft.init.Blocks.grass || block == net.minecraft.init.Blocks.dirt || block == net.minecraft.init.Blocks.sand;
+                        boolean isBeach = block == Blocks.grass || block == Blocks.dirt || block == Blocks.sand || block == Blocks.mycelium;
                         boolean hasWater = (world.getBlockState(pos.east()).getBlock().getMaterial() == Material.water ||
                                             world.getBlockState(pos.west()).getBlock().getMaterial() == Material.water ||
                                             world.getBlockState(pos.north()).getBlock().getMaterial() == Material.water ||
