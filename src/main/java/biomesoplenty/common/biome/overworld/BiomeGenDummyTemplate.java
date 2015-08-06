@@ -50,6 +50,7 @@ public class BiomeGenDummyTemplate extends BOPBiome
         this.terrainSettings.avgHeight(64).heightVariation(6, 21).octaves(1, 1, 1, 1, 1, 1);
         
         this.setColor(0xFFFFFF);
+        this.skyColor = 0xFFFFFF;
         this.setEnableSnow();
         this.setTemperatureRainfall(0.5F, 0.5F);
 
@@ -75,8 +76,8 @@ public class BiomeGenDummyTemplate extends BOPBiome
         grassGenerator.add("dunegrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.DUNEGRASS).create());        
         grassGenerator.add("shortgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
         grassGenerator.add("mediumgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());
-        grassGenerator.add("mediumgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());
         grassGenerator.add("tallgrass", 1, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).create());
+        grassGenerator.add("ferns", 1, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.FERN).create());
         grassGenerator.add("wheatgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.WHEATGRASS).create());
         grassGenerator.add("dampgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.DAMPGRASS).create());
         grassGenerator.add("doublegrass", 1, (new GeneratorDoubleFlora.Builder()).with(BlockDoublePlant.EnumPlantType.GRASS).create());
@@ -100,7 +101,6 @@ public class BiomeGenDummyTemplate extends BOPBiome
         this.addGenerator("wild_rice", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BOPPlants.WILDRICE).create());
         this.addGenerator("witherwart", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BOPPlants.WITHERWART).create());
         this.addGenerator("dead_bushes", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BlockTallGrass.EnumType.DEAD_BUSH).create());
-        this.addGenerator("ferns", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BlockTallGrass.EnumType.FERN).create());
         this.addGenerator("eyebulbs", GeneratorStage.FLOWERS, (new GeneratorDoubleFlora.Builder()).amountPerChunk(0.5F).with(BlockBOPDoublePlant.DoublePlantType.EYEBULB).create());
         this.addGenerator("flax", GeneratorStage.FLOWERS, (new GeneratorDoubleFlora.Builder()).amountPerChunk(0.5F).with(BlockBOPDoublePlant.DoublePlantType.FLAX).create());
         this.addGenerator("tall_cattails", GeneratorStage.FLOWERS, (new GeneratorDoubleFlora.Builder()).amountPerChunk(0.5F).with(BlockBOPDoublePlant.DoublePlantType.TALL_CATTAIL).create());
