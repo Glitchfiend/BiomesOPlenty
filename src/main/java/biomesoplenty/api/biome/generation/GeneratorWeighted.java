@@ -84,7 +84,10 @@ public class GeneratorWeighted extends BOPGeneratorBase
     
     public IGenerator getRandomGenerator(Random random)
     {
-        if (this.weights.isEmpty()) {return null;}
+        if (this.weights.isEmpty())
+        {
+            throw new RuntimeException("GeneratorWeighted has no child generators");
+        }
         int totalWeight = 0;
         for (int weight : this.weights.values()) {totalWeight += weight;}
         int j = random.nextInt(totalWeight);
@@ -93,7 +96,7 @@ public class GeneratorWeighted extends BOPGeneratorBase
             j -= entry.getValue();
             if (j < 0) {return entry.getKey();}
         }
-        return null;
+        throw new RuntimeException("Shouldn't ever get here");
     }
     
     // never used - the scatter method is overriden
