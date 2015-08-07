@@ -34,6 +34,7 @@ public class ModGenerators
         registerGenerator("grass", GeneratorGrass.class, new GeneratorGrass.Builder());
         registerGenerator("logs", GeneratorLogs.class, new GeneratorLogs.Builder());
         registerGenerator("big_mushrooms", GeneratorBigMushroom.class, new GeneratorBigMushroom.Builder());
+        registerGenerator("big_flowers", GeneratorBigFlower.class, new GeneratorBigFlower.Builder());
         registerGenerator("waterside", GeneratorWaterside.class, new GeneratorWaterside.Builder());
         registerGenerator("splatter", GeneratorSplatter.class, new GeneratorSplatter.Builder());
         registerGenerator("splotches", GeneratorSplotches.class, new GeneratorSplotches.Builder());
