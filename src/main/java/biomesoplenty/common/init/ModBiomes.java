@@ -163,6 +163,7 @@ public class ModBiomes
         frost_forest = registerBOPBiome(new BiomeGenFrostForest(), "Frost Forest");
         frozen_desert = registerBOPBiome(new BiomeGenColdDesert(BiomeGenColdDesert.ColdDesertType.FROZEN), "Frozen Desert");
         fungi_forest = registerBOPBiome(new BiomeGenFungiForest(), "Fungi Forest");
+        garden = registerBOPBiome(new BiomeGenGarden(), "Garden");
         grassland = registerBOPBiome(new BiomeGenGrassland(), "Grassland");
         heathland = registerBOPBiome(new BiomeGenHeathland(), "Heathland");
         highland = registerBOPBiome(new BiomeGenHighland(), "Highland");

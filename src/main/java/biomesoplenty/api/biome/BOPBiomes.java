@@ -38,6 +38,7 @@ public class BOPBiomes
     public static Optional<BiomeGenBase> frost_forest = Optional.absent();
     public static Optional<BiomeGenBase> frozen_desert = Optional.absent();
     public static Optional<BiomeGenBase> fungi_forest = Optional.absent();
+    public static Optional<BiomeGenBase> garden = Optional.absent();
     public static Optional<BiomeGenBase> grassland = Optional.absent();    
     public static Optional<BiomeGenBase> heathland = Optional.absent();    
     public static Optional<BiomeGenBase> highland = Optional.absent();
