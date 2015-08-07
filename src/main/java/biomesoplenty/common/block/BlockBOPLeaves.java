@@ -201,15 +201,14 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
         BOPTrees treeType = ((BOPTrees) state.getValue(this.variantProperty));
-        return Item.getItemFromBlock( BlockBOPSapling.paging.getBlock(treeType) );
+        return treeType.hasSapling() ? Item.getItemFromBlock( BlockBOPSapling.paging.getBlock(treeType) ) : null;
     }
     
     @Override
     public int damageDropped(IBlockState state)
     {
-        BOPTrees tree = ((BOPTrees) state.getValue(this.variantProperty));
-        ItemStack stack = BlockBOPSapling.paging.getVariantItem(tree);
-        return stack.getItemDamage();
+        BOPTrees treeType = ((BOPTrees) state.getValue(this.variantProperty));
+        return treeType.hasSapling() ? BlockBOPSapling.paging.getVariantItem(treeType).getItemDamage() : 0;
     }
     
     // TODO: different fruits for different trees?
