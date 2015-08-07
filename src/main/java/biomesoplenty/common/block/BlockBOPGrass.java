@@ -47,7 +47,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
     // add properties (note we also inherit the SNOWY property from BlockGrass)
     public static enum BOPGrassType implements IStringSerializable
     {
-        SPECTRAL_MOSS, SMOLDERING, LOAMY, SANDY, SILTY, ORIGIN, OVERGROWN_NETHERRACK;
+        SPECTRAL_MOSS, SMOLDERING, LOAMY, SANDY, SILTY, ORIGIN, OVERGROWN_NETHERRACK, DAISY;
         @Override
         public String getName()
         {
@@ -444,7 +444,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
                 return BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY);
             case OVERGROWN_NETHERRACK:
                 return Blocks.netherrack.getDefaultState();
-            case SMOLDERING: case ORIGIN:  default:
+            case SMOLDERING: case ORIGIN: case DAISY:  default:
                 return Blocks.dirt.getStateFromMeta(BlockDirt.DirtType.DIRT.getMetadata());
         }
     }
@@ -497,7 +497,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
                 break;
             
             // origin grass spreads to any kind of dirt
-            case ORIGIN:
+            case ORIGIN: case DAISY:
                 if ((target.getBlock() == Blocks.dirt && target.getValue(BlockDirt.VARIANT) == BlockDirt.DirtType.DIRT) || (target.getBlock() == BOPBlocks.dirt && Boolean.FALSE.equals(target.getValue(BlockBOPDirt.COARSE))))
                 {
                     return BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.ORIGIN);

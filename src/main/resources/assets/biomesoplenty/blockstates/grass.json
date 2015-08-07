@@ -13,6 +13,8 @@
         "snowy=false,variant=origin": { "model": "biomesoplenty:origin_grass_block" },
         "snowy=true,variant=origin": { "model": "biomesoplenty:origin_grass_block_snowed" },
         "snowy=false,variant=overgrown_netherrack": { "model": "biomesoplenty:overgrown_netherrack" },
-        "snowy=true,variant=overgrown_netherrack": { "model": "biomesoplenty:overgrown_netherrack" }
+        "snowy=true,variant=overgrown_netherrack": { "model": "biomesoplenty:overgrown_netherrack" },
+        "snowy=false,variant=daisy": { "model": "biomesoplenty:daisy_grass_block" },
+        "snowy=true,variant=daisy": { "model": "biomesoplenty:daisy_grass_block_snowed" }
     }
 }
