@@ -95,7 +95,7 @@ public class BlockBOPHalfWoodSlab extends BlockSlab implements IBOPBlock
     @Override
     public String getUnlocalizedName(int meta)
     {
-        return this.getStateName(this.getStateFromMeta(meta));
+        return "tile." + this.getStateName(this.getStateFromMeta(meta));
     }
     @Override
     public IProperty getVariantProperty()
