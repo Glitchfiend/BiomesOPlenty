@@ -19,68 +19,145 @@ generator.BIOMESOP.info=Notice: Biomes O' Plenty 1.8 is in a very early state
 
 itemGroup.tabBiomesOPlenty=Biomes O' Plenty
 
+item.ambrosia.name=Ambrosia
+item.amethyst_axe.name=Amethyst Axe
+item.amethyst_boots.name=Amethyst Boots
+item.amethyst_chestplate.name=Amethyst Chestplate
+item.amethyst_helmet.name=Amethyst Helmet
+item.amethyst_hoe.name=Amethyst Hoe
+item.amethyst_leggings.name=Amethyst Leggings
+item.amethyst_pickaxe.name=Amethyst Pickaxe
+item.amethyst_scythe.name=Amethyst Scythe
+item.amethyst_shovel.name=Amethyst Shovel
+item.amethyst_sword.name=Amethyst Sword
+item.ash.name=Pile of Ashes
+item.berries.name=Berry
+item.biome_essence.name=Biome Essence
+item.biome_finder.name=Biome Radar
+item.black_dye.name=Black Dye
+item.blood_bucket.name=Blood Bucket
+item.blue_dye.name=Blue Dye
+item.brown_dye.name=Brown Dye
+item.cherry_door.name=Cherry Door
+item.crystal_shard.name=Celestial Crystal Shard
+item.dark_door.name=Dark Door
+item.dart.name=Dart
+item.dart_blower.name=Dart Blower
+item.diamond_scythe.name=Diamond Scythe
+item.dull_flower_band.name=Dull Flower Band
+item.enderporter.name=Enderporter
+item.ethereal_door.name=Ethereal Door
+item.exotic_flower_band.name=Exotic Flower Band
+item.filled_honeycomb.name=Filled Honeycomb
+item.fir_door.name=Fir Door
 item.fleshchunk.name=Chunk of Flesh
+item.flippers.name=Flippers
+item.gem_amber.name=Amber
+item.gem_amethyst.name=Ender Amethyst
+item.gem_malachite.name=Malachite
+item.gem_peridot.name=Peridot
+item.gem_ruby.name=Ruby
+item.gem_sapphire.name=Sapphire
+item.gem_tanzanite.name=Tanzanite
+item.gem_topaz.name=Topaz
+item.ghastly_soul.name=Ghastly Soul
+item.green_dye.name=Green Dye
+item.gold_scythe.name=Gold Scythe
+item.hellbark_door.name=Hellbark Door
+item.honey_bucket.name=Honey Bucket
+item.honeycomb.name=Empty Honeycomb
+item.ichor.name=Ichor
+item.iron_scythe.name=Iron Scythe
+item.jacaranda_door.name=Jacaranda Door
+item.jar_empty.name=Empty Jar
+item.jar_filled_honey.name=Honey Jar
+item.jar_filled_pixie.name=Pixie Jar
+item.jar_filled_poison.name=Poison Extract Jar
+item.lush_flower_band.name=Lush Flower Band
+item.magic_door.name=Magic Door
+item.mahogany_door.name=Mahogany Door
+item.mangrove_door.name=Mangrove Door
 item.mudball.name=Mud Ball
-item.turnip.name=Turnip
-item.turnip_seeds.name=Turnip Seeds
+item.mud_axe.name=Muddy Axe
+item.mud_boots.name=Muddy Boots
+item.mud_brick.name=Mud Brick
+item.mud_chestplate.name=Muddy Chestplate
+item.mud_helmet.name=Muddy Helmet
+item.mud_hoe.name=Muddy Hoe
+item.mud_leggings.name=Muddy Leggings
+item.mud_pickaxe.name=Muddy Pickaxe
+item.mud_scythe.name=Muddy Scythe
+item.mud_shovel.name=Muddy Shovel
+item.mud_sword.name=Muddy Sword
+item.palm_door.name=Palm Door
 item.persimmon.name=Persimmon
 item.peach.name=Peach
 item.pear.name=Pear
-item.crystal_shard.name=Celestial Crystal Shard
-
+item.pinecone.name=Pinecone
+item.pine_door.name=Pine Door
+item.pixie_dust.name=Pixie Dust
+item.plain_flower_band.name=Plain Flower Band
+item.poison_bucket.name=Poison Bucket
+item.poisondart.name=Poison Dart
+item.record_corruption.name=Music Disc
+item.record.corruption.desc=???
+item.record_wanderer.name=Music Disc
+item.record.wanderer.desc=Tim Rurkowski - Wanderer
+item.redwood_door.name=Redwood Door
+item.ricebowl.name=Bowl of Rice
+item.sacred_oak_door.name=Sacred Oak Door
+item.saladfruit.name=Fruit Salad
+item.shroompowder.name=Shroom Powder
+item.spawn_egg_pixie.name=Spawn Pixie
+item.spawn_egg_wasp.name=Spawn Wasp
+item.stone_scythe.name=Stone Scythe
+item.turnip.name=Turnip
+item.turnip_seeds.name=Turnip Seeds
+item.wading_boots.name=Wading Boots
+item.white_dye.name=White Dye
+item.wildcarrots.name=Wild Carrots
+item.willow_door.name=Willow Door
+item.wood_scythe.name=Wooden Scythe
 
 tile.ash_block.name=Ash Block
-
 tile.bamboo.name=Bamboo
 tile.bamboo_thatching.name=Bamboo Thatching
-
 tile.biome_block.name=Biome Essence Ore
-
 tile.bone_segment.small_bone_segment.name=Small Bone Segment
 tile.bone_segment.medium_bone_segment.name=Medium Bone Segment
 tile.bone_segment.large_bone_segment.name=Large Bone Segment
-
 tile.cherry_fence.name=Cherry Fence
 tile.cherry_fence_gate.name=Cherry Fence Gate
 tile.cherry_wood_slab.name=Cherry Wood Slab
 tile.cherry_stairs.name=Cherry Wood Stairs
-
 tile.coral.pink_coral.name=Pink Coral
 tile.coral.orange_coral.name=Orange Coral
 tile.coral.blue_coral.name=Blue Coral
 tile.coral.glowing_coral.name=Glowing Coral
 tile.coral.algae.name=Algae
-
 tile.crag_rock_slab.name=Crag Rock Slab
-
 tile.dark_fence.name=Dark Fence
 tile.dark_fence_gate.name=Dark Fence Gate
 tile.dark_wood_slab.name=Dark Wood Slab
 tile.dark_stairs.name=Dark Wood Stairs
-
 tile.dirt.loamy_dirt.name=Loamy Dirt
 tile.dirt.sandy_dirt.name=Sandy Dirt
 tile.dirt.silty_dirt.name=Silty Dirt
 tile.dirt.coarse_loamy_dirt.name=Coarse Loamy Dirt
 tile.dirt.coarse_sandy_dirt.name=Coarse Sandy Dirt
 tile.dirt.coarse_silty_dirt.name=Coarse Silty Dirt
-
 tile.double_plant.flax.name=Flax
 tile.double_plant.tall_cattail.name=Cattail
 tile.double_plant.eyebulb.name=Eyebulb
-
 tile.ethereal_fence.name=Ethereal Fence
 tile.ethereal_fence_gate.name=Ethereal Fence Gate
 tile.ethereal_wood_slab.name=Ethereal Wood Slab
 tile.ethereal_stairs.name=Ethereal Wood Stairs
-
 tile.fir_fence.name=Fir Fence
 tile.fir_fence_gate.name=Fir Fence Gate
 tile.fir_wood_slab.name=Fir Wood Slab
 tile.fir_stairs.name=Fir Wood Stairs
-
 tile.flesh.name=Flesh
-
 tile.flower_0.clover.name=Clover
 tile.flower_0.swampflower.name=Swampflower
 tile.flower_0.deathbloom.name=Deathbloom
@@ -97,22 +174,18 @@ tile.flower_0.dandelion.name=Dandelion Puff
 tile.flower_0.pink_hibiscus.name=Pink Hibiscus
 tile.flower_0.lily_of_the_valley.name=Lily of the Valley
 tile.flower_0.burning_blossom.name=Burning Blossom
-
 tile.flower_1.lavender.name=Lavender
 tile.flower_1.goldenrod.name=Goldenrod
 tile.flower_1.bluebells.name=Bluebells
 tile.flower_1.miners_delight.name=Miner's Delight
 tile.flower_1.icy_iris.name=Icy Iris
 tile.flower_1.rose.name=Rose
-
 tile.flower_vine.name=Flowering Vines
-
 tile.fruit_block.apple_block.name=Apple Block
 tile.fruit_block.persimmon_block.name=Persimmon Block
 tile.fruit_block.peach_block.name=Peach Block
 tile.fruit_block.pear_block.name=Pear Block
 tile.fruit_block.pinecone_block.name=Pinecone
-
 tile.gem_block.amethyst_block.name=Block of Amethyst
 tile.gem_block.ruby_block.name=Block of Ruby
 tile.gem_block.peridot_block.name=Block of Peridot
@@ -121,7 +194,6 @@ tile.gem_block.tanzanite_block.name=Block of Tanzanite
 tile.gem_block.malachite_block.name=Block of Malachite
 tile.gem_block.sapphire_block.name=Block of Sapphire
 tile.gem_block.amber_block.name=Block of Amber
-
 tile.gem_ore.amethyst_ore.name=Ender Amethyst Ore
 tile.gem_ore.ruby_ore.name=Ruby Ore
 tile.gem_ore.peridot_ore.name=Peridot Ore
@@ -130,7 +202,7 @@ tile.gem_ore.tanzanite_ore.name=Tanzanite Ore
 tile.gem_ore.malachite_ore.name=Malachite Ore
 tile.gem_ore.sapphire_ore.name=Sapphire Ore
 tile.gem_ore.amber_ore.name=Amber Ore
-
+tile.grass.daisy_grass_block.name=Long Grass
 tile.grass.spectral_moss.name=Spectral Moss
 tile.grass.smoldering_grass_block.name=Smoldering Grass Block
 tile.grass.loamy_grass_block.name=Loamy Grass Block
@@ -138,26 +210,20 @@ tile.grass.sandy_grass_block.name=Sandy Grass Block
 tile.grass.silty_grass_block.name=Silty Grass Block
 tile.grass.origin_grass_block.name=Origin Grass Block
 tile.grass.overgrown_netherrack.name=Overgrown Netherrack
-
 tile.hellbark_fence.name=Hellbark Fence
 tile.hellbark_fence_gate.name=Hellbark Fence Gate
 tile.hellbark_wood_slab.name=Hellbark Wood Slab
 tile.hellbark_stairs.name=Hellbark Wood Stairs
-
 tile.hive.hive_block.name=Hive Block
 tile.hive.honeycomb_block.name=Honeycomb Block
 tile.hive.empty_honeycomb_block.name=Empty Honeycomb Block
 tile.hive.filled_honeycomb_block.name=Filled Honeycomb Block
-
 tile.honey_block.name=Honey Block
-
 tile.ivy.name=Ivy
-
 tile.jacaranda_fence.name=Jacaranda Fence
 tile.jacaranda_fence_gate.name=Jacaranda Fence Gate
 tile.jacaranda_wood_slab.name=Jacaranda Wood Slab
 tile.jacaranda_stairs.name=Jacaranda Wood Stairs
-
 tile.leaves_0.yellow_autumn_leaves.name=Yellow Autumn Leaves
 tile.leaves_0.orange_autumn_leaves.name=Orange Autumn Leaves
 tile.leaves_0.bamboo_leaves.name=Bamboo Leaves
@@ -182,9 +248,7 @@ tile.leaves_5.pine_leaves.name=Pine Leaves
 tile.leaves_5.mahogany_leaves.name=Mahogany Leaves
 tile.leaves_5.red_big_flower_petal.name=Giant Red Flower Petal
 tile.leaves_5.yellow_big_flower_petal.name=Giant Yellow Flower Petal
-
 tile.limestone_slab.name=Limestone Slab
-
 tile.log_0.sacred_oak_log.name=Sacred Oak Wood
 tile.log_0.cherry_log.name=Cherry Wood
 tile.log_0.dark_log.name=Dark Wood
@@ -201,48 +265,38 @@ tile.log_3.jacaranda_log.name=Jacaranda Wood
 tile.log_3.mahogany_log.name=Mahogany Wood
 tile.log_3.giant_flower_stem.name=Giant Flower Stem
 tile.log_3.dead_log.name=Dead Wood
-
 tile.magic_fence.name=Magic Fence
 tile.magic_fence_gate.name=Magic Fence Gate
 tile.magic_wood_slab.name=Magic Wood Slab
 tile.magic_stairs.name=Magic Wood Stairs
-
 tile.mahogany_fence.name=Mahogany Fence
 tile.mahogany_fence_gate.name=Mahogany Fence Gate
 tile.mahogany_wood_slab.name=Mahogany Wood Slab
 tile.mahogany_stairs.name=Mahogany Wood Stairs
-
 tile.mangrove_fence.name=Mangrove Fence
 tile.mangrove_fence_gate.name=Mangrove Fence Gate
 tile.mangrove_wood_slab.name=Mangrove Wood Slab
 tile.mangrove_stairs.name=Mangrove Wood Stairs
-
 tile.moss.name=Moss
-
 tile.mud.mud.name=Mud
 tile.mud_brick_block.name=Mud Bricks
 tile.mud_brick_slab.name=Mud Bricks Slab
 tile.mud_brick_stairs.name=Mud Bricks Stairs
-
 tile.sand.quicksand.name=Quicksand
-
 tile.mushroom.toadstool.name=Toadstool
 tile.mushroom.portobello.name=Portobello
 tile.mushroom.blue_milk_cap.name=Blue Milk Cap
 tile.mushroom.glowshroom.name=Glowshroom
 tile.mushroom.flat_mushroom.name=Flat Mushroom
 tile.mushroom.shadow_shroom.name=Shadow Shroom
-
 tile.palm_fence.name=Palm Fence
 tile.palm_fence_gate.name=Palm Fence Gate
 tile.palm_wood_slab.name=Palm Wood Slab
 tile.palm_stairs.name=Palm Wood Stairs
-
 tile.pine_fence.name=Pine Fence
 tile.pine_fence_gate.name=Pine Fence Gate
 tile.pine_wood_slab.name=Pine Wood Slab
 tile.pine_stairs.name=Pine Wood Stairs
-
 tile.planks_0.sacred_oak_planks.name=Sacred Oak Wood Planks
 tile.planks_0.cherry_planks.name=Cherry Wood Planks
 tile.planks_0.dark_planks.name=Dark Wood Planks
@@ -258,7 +312,6 @@ tile.planks_0.pine_planks.name=Pine Wood Planks
 tile.planks_0.hellbark_planks.name=Hellbark Wood Planks
 tile.planks_0.jacaranda_planks.name=Jacaranda Wood Planks
 tile.planks_0.mahogany_planks.name=Mahogany Wood Planks
-
 tile.plant_0.shortgrass.name=Short Grass
 tile.plant_0.mediumgrass.name=Medium Grass
 tile.plant_0.bush.name=Bush
@@ -286,21 +339,17 @@ tile.plant_1.tinycactus.name=Tiny Cactus
 tile.plant_1.witherwart.name=Wither Wart
 tile.plant_1.reed.name=Reed
 tile.plant_1.root.name=Root
-
 tile.polished_limestone_slab.name=Polished Limestone Slab
 tile.polished_siltstone_slab.name=Polished Siltstone Slab
 tile.polished_shale_slab.name=Polished Shale Slab
-
 tile.redwood_fence.name=Redwood Fence
 tile.redwood_fence_gate.name=Redwood Fence Gate
 tile.redwood_wood_slab.name=Redwood Wood Slab
 tile.redwood_stairs.name=Redwood Wood Stairs
-
 tile.sacred_oak_fence.name=Sacred Oak Fence
 tile.sacred_oak_fence_gate.name=Sacred Oak Fence Gate
 tile.sacred_oak_wood_slab.name=Sacred Oak Wood Slab
 tile.sacred_oak_stairs=Sacred Oak Wood Stairs
-
 tile.sapling_0.yellow_autumn_sapling.name=Yellow Autumn Sapling
 tile.sapling_0.orange_autumn_sapling.name=Orange Autumn Sapling
 tile.sapling_0.bamboo_sapling.name=Bamboo Sapling
@@ -323,38 +372,28 @@ tile.sapling_2.redwood_sapling.name=Redwood Sapling
 tile.sapling_2.willow_sapling.name=Willow Sapling
 tile.sapling_2.pine_sapling.name=Pine Sapling
 tile.sapling_2.mahogany_sapling.name=Mahogany Sapling
-
 tile.seaweed.kelp.name=Kelp
-
 tile.shale_slab.name=Shale Slab
 tile.siltstone_slab.name=Siltstone Slab
-
 tile.stone.limestone.name=Limestone
 tile.stone.polished_limestone.name=Polished Limestone
 tile.stone.siltstone.name=Siltstone
 tile.stone.polished_siltstone.name=Polished Siltstone
 tile.stone.shale.name=Shale
 tile.stone.polished_shale.name=Polished Shale
-
 tile.stone_formations.stalagmite.name=Stalagmite
 tile.stone_formations.stalactite.name=Stalactite
-
 tile.tree_moss.name=Tree Moss
-
 tile.turnip_block.name=Turnip
-
 tile.waterlily.duckweed.name=Duckweed
 tile.waterlily.lily_medium.name=Medium Lily Pad
 tile.waterlily.lily_small.name=Small Lily Pad
 tile.waterlily.lily_tiny.name=Tiny Lily Pad
-
 tile.willow_fence.name=Willow Fence
 tile.willow_fence_gate.name=Willow Fence Gate
 tile.willow_wood_slab.name=Willow Wood Slab
 tile.willow_stairs.name=Willow Wood Stairs
-
 tile.wisteria.name=Wisteria
-
 tile.ash_stone.name=Ash Stone
 tile.hard_sand.name=Hardened Sand
 tile.hard_dirt.name=Hardened Dirt
