@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Random;
 
 import biomesoplenty.api.block.IBOPBlock;
+import biomesoplenty.common.block.BlockBOPDoubleDecoration.Half;
 import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.item.ItemBOPBlock;
 import biomesoplenty.common.util.block.VariantPagingHelper;
@@ -20,6 +21,8 @@ import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -28,6 +31,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumWorldBlockLayer;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -188,8 +192,30 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
         }
     }
     
+    // blocks that are not placed during generation should not decay
+    @Override
+    public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
+    {
+        return this.getStateFromMeta(meta).withProperty(CHECK_DECAY, Boolean.valueOf(false)).withProperty(DECAYABLE, Boolean.valueOf(false));
+    }
     
+    // Inventory models are set only for the default states of leaves. Consequently, we modify the states for player placed leaves when they are
+    // actually placed, not when they are in the inventory. We cannot change the default properties whilst reusing code from BlockLeaves.
+    @Override
+    public ItemStack getPickBlock(MovingObjectPosition target, World world, BlockPos pos, EntityPlayer player)
+    {
+        return new ItemStack(this, 1, this.getMetaFromState(this.getDefaultState().withProperty(this.variantProperty, world.getBlockState(pos).getValue(this.variantProperty))));
+    }
     
+    // leaves in the inventory should not be decayable
+    //TODO REMOVE
+    @Override
+    protected ItemStack createStackedBlock(IBlockState state)
+    {
+    	IBlockState newState = state.withProperty(CHECK_DECAY, Boolean.valueOf(false)).withProperty(DECAYABLE, Boolean.valueOf(false));
+    	
+    	return super.createStackedBlock(newState);
+    }
     
     @Override
     protected int getSaplingDropChance(IBlockState state)

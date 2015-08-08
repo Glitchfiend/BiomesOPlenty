@@ -112,6 +112,13 @@ public class BlockBOPDecoration extends Block implements IBOPBlock
         this.checkAndDropBlock(worldIn, pos, state);
     }
 
+    // our blocks usually drop their current state as opposed to a single 'default' state
+    @Override
+    public int damageDropped(IBlockState state)
+    {
+        return this.getMetaFromState(state);
+    }
+    
     // drop block as item if it cannot remain here - return whether on not it could stay
     protected boolean checkAndDropBlock(World worldIn, BlockPos pos, IBlockState state)
     {

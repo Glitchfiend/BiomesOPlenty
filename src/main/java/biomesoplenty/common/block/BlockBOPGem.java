@@ -67,5 +67,10 @@ public class BlockBOPGem extends Block implements IBOPBlock
         return ((BOPGems) state.getValue(VARIANT)).ordinal();
     }
     
-
+    // our blocks usually drop their current state as opposed to a single 'default' state
+    @Override
+    public int damageDropped(IBlockState state)
+    {
+        return this.getMetaFromState(state);
+    }
 }

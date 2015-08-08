@@ -25,14 +25,17 @@ import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.IStringSerializable;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
@@ -411,6 +414,14 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
                 break;
 
         }       
+    }
+    
+    // by default, getPickBlock uses damageDropped to determine the metadata of the block picked. This
+    // doesn't suit our case as the block dropped has a different metadata configuration from this block
+    @Override
+    public ItemStack getPickBlock(MovingObjectPosition target, World world, BlockPos pos, EntityPlayer player)
+    {
+        return new ItemStack(this, 1, this.getMetaFromState(world.getBlockState(pos)));
     }
     
     // you need a silk touch tool to pick up grass-like blocks - by default they drop the corresponding 'dirt' type 
