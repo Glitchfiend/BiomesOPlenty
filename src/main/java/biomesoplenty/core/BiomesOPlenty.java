@@ -25,7 +25,7 @@ import org.apache.logging.log4j.Logger;
 import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.init.*;
 
-@Mod(modid = BiomesOPlenty.MOD_ID, name = BiomesOPlenty.MOD_NAME)
+@Mod(modid = BiomesOPlenty.MOD_ID, name = BiomesOPlenty.MOD_NAME, dependencies = "required-after:Forge@[11.14.3.1468,)")
 public class BiomesOPlenty
 {
     public static final String MOD_NAME = "Biomes O' Plenty";
