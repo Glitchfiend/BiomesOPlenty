@@ -12,6 +12,7 @@ import java.util.Map;
 
 import com.google.common.collect.Maps;
 
+import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.entities.*;
 import biomesoplenty.common.entities.projectiles.*;
 import biomesoplenty.core.BiomesOPlenty;
@@ -50,6 +51,7 @@ public class ModEntities
         nextBOPEntityId++;
         EntityRegistry.registerModEntity(entityClass, entityName, bopEntityId, BiomesOPlenty.instance, trackingRange, updateFrequency, sendsVelocityUpdates);
         idToBOPEntityName.put(bopEntityId, entityName);
+        BOPCommand.entityCount++;
         return bopEntityId;
     }
     

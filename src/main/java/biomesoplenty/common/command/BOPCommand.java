@@ -150,11 +150,7 @@ public class BOPCommand extends CommandBase
         
         text.getChatStyle().setColor(EnumChatFormatting.GREEN);
         sender.addChatMessage(text);
-        
-        text = new ChatComponentTranslation("commands.biomesoplenty.stats.blocks", blockCount);
-        text.getChatStyle().setColor(EnumChatFormatting.GREEN);
-        sender.addChatMessage(text);
-        
+  
         text = new ChatComponentTranslation("commands.biomesoplenty.stats.items", itemCount);
         text.getChatStyle().setColor(EnumChatFormatting.GREEN);
         sender.addChatMessage(text);
