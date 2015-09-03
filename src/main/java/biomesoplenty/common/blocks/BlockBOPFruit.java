@@ -104,7 +104,7 @@ public class BlockBOPFruit extends BOPBlockWorldDecor
 	@Override
     public boolean canReplace(World world, int x, int y, int z, int side, ItemStack itemStack)
 	{
-		int metadata = itemStack.getItemDamage();
+		int metadata = itemStack != null ? itemStack.getItemDamage() : 0;
 		
         return this.isValidPosition(world, x, y, z, metadata);
 	}
