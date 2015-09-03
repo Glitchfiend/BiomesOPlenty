@@ -183,7 +183,7 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 	@Override
     public boolean canReplace(World world, int x, int y, int z, int side, ItemStack itemStack)
 	{
-		int metadata = itemStack.getItemDamage();
+		int metadata = itemStack != null ? itemStack.getItemDamage() : 0;
 		
         if (metadata == 5 || metadata == 13 || metadata == 15)
         	return this.isValidPosition(world, x, y, z, metadata);
