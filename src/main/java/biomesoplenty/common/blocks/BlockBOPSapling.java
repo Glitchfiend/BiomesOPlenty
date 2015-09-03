@@ -72,7 +72,8 @@ public class BlockBOPSapling extends BlockSapling
 	@Override
 	public boolean canReplace(World world, int x, int y, int z, int side, ItemStack itemStack)
 	{
-		return this.canPlaceBlockAt(world, x, y, z) && this.isValidPosition(world, x, y, z, itemStack.getItemDamage());
+		int metadata = itemStack != null ? itemStack.getItemDamage() : 0;
+		return this.canPlaceBlockAt(world, x, y, z) && this.isValidPosition(world, x, y, z, metadata);
 	} 
 	
 	/**
