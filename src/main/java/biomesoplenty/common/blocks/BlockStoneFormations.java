@@ -110,7 +110,8 @@ public class BlockStoneFormations extends BOPBlockWorldDecor implements ISubLoca
 	@Override
     public boolean canReplace(World world, int x, int y, int z, int side, ItemStack itemStack)
 	{
-		return isValidPosition(world, x, y, z, itemStack.getItemDamage());
+		int metadata = itemStack != null ? itemStack.getItemDamage() : 0;
+		return isValidPosition(world, x, y, z, metadata);
 	}
 	
 	@Override
