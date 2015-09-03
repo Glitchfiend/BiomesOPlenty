@@ -76,7 +76,8 @@ public class BlockBOPCoral extends BOPBlock
     @Override
 	public boolean canReplace(World world, int x, int y, int z, int side, ItemStack itemStack)
     {
-    	return world.getBlock(x, y + 1, z) == Blocks.water && this.canBlockStay(world, x, y, z, itemStack.getItemDamage());
+    	int metadata = itemStack != null ? itemStack.getItemDamage() : 0;
+    	return world.getBlock(x, y + 1, z) == Blocks.water && this.canBlockStay(world, x, y, z, metadata);
     }
     
 	@Override
