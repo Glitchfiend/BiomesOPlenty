@@ -33,7 +33,8 @@ public abstract class BOPBlock extends Block
     @Override
     public boolean canReplace(World world, int x, int y, int z, int side, ItemStack itemStack)
     {
-    	return this.canBlockStay(world, x, y, z, itemStack.getItemDamage());
+    	int metadata = itemStack != null ? itemStack.getItemDamage() : 0;
+    	return this.canBlockStay(world, x, y, z, metadata);
     } 
     
     @Override
