@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.Random;
 
 import biomesoplenty.api.block.IBOPBlock;
-import biomesoplenty.common.block.BlockBOPDoubleDecoration.Half;
 import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.item.ItemBOPBlock;
 import biomesoplenty.common.util.block.VariantPagingHelper;
