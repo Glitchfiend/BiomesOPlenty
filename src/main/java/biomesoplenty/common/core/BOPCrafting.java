@@ -17,6 +17,7 @@ import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -160,32 +161,32 @@ public class BOPCrafting
 		GameRegistry.addRecipe(new ItemStack(Items.coal, 1), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(BOPCItems.misc, 1, 1)});
 		GameRegistry.addRecipe(new ItemStack(BOPCBlocks.mud, 1), new Object[] {"MM", "MM", 'M', BOPCItems.mudball});
 		GameRegistry.addRecipe(new ItemStack(BOPCBlocks.gemOre, 1, 1), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(BOPCItems.gems, 1, 0)});
-		GameRegistry.addRecipe(new ItemStack(BOPCBlocks.gemOre, 1, 3), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(BOPCItems.gems, 1, 1)});
-		GameRegistry.addRecipe(new ItemStack(BOPCBlocks.gemOre, 1, 5), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(BOPCItems.gems, 1, 2)});
-		GameRegistry.addRecipe(new ItemStack(BOPCBlocks.gemOre, 1, 7), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(BOPCItems.gems, 1, 3)});
-		GameRegistry.addRecipe(new ItemStack(BOPCBlocks.gemOre, 1, 9), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(BOPCItems.gems, 1, 4)});
-		GameRegistry.addRecipe(new ItemStack(BOPCBlocks.gemOre, 1, 11), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(BOPCItems.gems, 1, 5)});
-		GameRegistry.addRecipe(new ItemStack(BOPCBlocks.gemOre, 1, 13), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(BOPCItems.gems, 1, 6)});
-		GameRegistry.addRecipe(new ItemStack(BOPCBlocks.gemOre, 1, 15), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(BOPCItems.gems, 1, 7)});
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCBlocks.gemOre, 1, 3), new Object[] {"AAA", "AAA", "AAA", 'A', "gemRuby"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCBlocks.gemOre, 1, 5), new Object[] {"AAA", "AAA", "AAA", 'A', "gemPeridot"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCBlocks.gemOre, 1, 7), new Object[] {"AAA", "AAA", "AAA", 'A', "gemTopaz"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCBlocks.gemOre, 1, 9), new Object[] {"AAA", "AAA", "AAA", 'A', "gemTanzanite"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCBlocks.gemOre, 1, 11), new Object[] {"AAA", "AAA", "AAA", 'A', "gemMalachite"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCBlocks.gemOre, 1, 13), new Object[] {"AAA", "AAA", "AAA", 'A', "gemSapphire"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCBlocks.gemOre, 1, 15), new Object[] {"AAA", "AAA", "AAA", 'A', "gemAmber"}));
 		GameRegistry.addRecipe(new ItemStack(BOPCBlocks.ash, 1), new Object[] {"AA", "AA", 'A', new ItemStack(BOPCItems.misc, 1, 1)});
 		GameRegistry.addRecipe(new ItemStack(BOPCBlocks.mudBricks, 1), new Object[] {"MM", "MM", 'M', new ItemStack(BOPCItems.misc, 1, 0)});
 		GameRegistry.addRecipe(new ItemStack(BOPCBlocks.crystal, 1), new Object[] {"CC", "CC", 'C', new ItemStack(BOPCItems.misc, 1, 4)});
 		//        GameRegistry.addRecipe(new ItemStack(BOPCBlocks.planks, 1, 10), new Object[] {"###", "###", "###", '#', BOPCBlocks.bamboo});
-		GameRegistry.addRecipe(new ItemStack(Blocks.mossy_cobblestone, 1, 0), new Object[] {"MMM", "MCM", "MMM", 'M', BOPCBlocks.moss, 'C', Blocks.cobblestone});
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.mossy_cobblestone, 1, 0), new Object[] {"MMM", "MCM", "MMM", 'M', BOPCBlocks.moss, 'C', "cobblestone"}));
 		GameRegistry.addRecipe(new ItemStack(Blocks.stonebrick, 1, 1), new Object[] {"MMM", "MSM", "MMM", 'M', BOPCBlocks.moss, 'S', Blocks.stonebrick});
 
 		//Scythes
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCItems.scytheWood, 1), new Object [] {" MM", "M S", "  S", Character.valueOf('M'), "plankWood", Character.valueOf('S'), "stickWood" }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCItems.scytheStone, 1), new Object [] {" MM", "M S", "  S", Character.valueOf('M'), Blocks.cobblestone, Character.valueOf('S'), "stickWood" }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCItems.scytheIron, 1), new Object [] {" MM", "M S", "  S", Character.valueOf('M'), Items.iron_ingot, Character.valueOf('S'), "stickWood" }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCItems.scytheGold, 1), new Object [] {" MM", "M S", "  S", Character.valueOf('M'), Items.gold_ingot, Character.valueOf('S'), "stickWood" }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCItems.scytheDiamond, 1), new Object [] {" MM", "M S", "  S", Character.valueOf('M'), Items.diamond, Character.valueOf('S'), "stickWood" }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCItems.scytheStone, 1), new Object [] {" MM", "M S", "  S", Character.valueOf('M'), "cobblestone", Character.valueOf('S'), "stickWood" }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCItems.scytheIron, 1), new Object [] {" MM", "M S", "  S", Character.valueOf('M'), "ingotIron", Character.valueOf('S'), "stickWood" }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCItems.scytheGold, 1), new Object [] {" MM", "M S", "  S", Character.valueOf('M'), "ingotGold", Character.valueOf('S'), "stickWood" }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCItems.scytheDiamond, 1), new Object [] {" MM", "M S", "  S", Character.valueOf('M'), "gemDiamond", Character.valueOf('S'), "stickWood" }));
 
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCItems.scytheWood, 1), new Object [] {"MM ", "S M", "S  ", Character.valueOf('M'), "plankWood", Character.valueOf('S'), "stickWood" }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCItems.scytheStone, 1), new Object [] {"MM ", "S M", "S  ", Character.valueOf('M'), Blocks.cobblestone, Character.valueOf('S'), "stickWood" }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCItems.scytheIron, 1), new Object [] {"MM ", "S M", "S  ", Character.valueOf('M'), Items.iron_ingot, Character.valueOf('S'), "stickWood" }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCItems.scytheGold, 1), new Object [] {"MM ", "S M", "S  ", Character.valueOf('M'), Items.gold_ingot, Character.valueOf('S'), "stickWood" }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCItems.scytheDiamond, 1), new Object [] {"MM ", "S M", "S  ", Character.valueOf('M'), Items.diamond, Character.valueOf('S'), "stickWood" }));	
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCItems.scytheStone, 1), new Object [] {"MM ", "S M", "S  ", Character.valueOf('M'), "cobblestone", Character.valueOf('S'), "stickWood" }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCItems.scytheIron, 1), new Object [] {"MM ", "S M", "S  ", Character.valueOf('M'), "ingotIron", Character.valueOf('S'), "stickWood" }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCItems.scytheGold, 1), new Object [] {"MM ", "S M", "S  ", Character.valueOf('M'), "ingotGold", Character.valueOf('S'), "stickWood" }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCItems.scytheDiamond, 1), new Object [] {"MM ", "S M", "S  ", Character.valueOf('M'), "gemDiamond", Character.valueOf('S'), "stickWood" }));	
 
 		//Mud Tools and Armor
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCItems.pickaxeMud, 1), new Object [] {"###", " X ", " X ", Character.valueOf('#'), BOPCItems.mudball, Character.valueOf('X'), "stickWood" }));
@@ -201,17 +202,17 @@ public class BOPCrafting
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCItems.scytheMud, 1), new Object [] {"MM ", "S M", "S  ", Character.valueOf('M'), BOPCItems.mudball, Character.valueOf('S'), "stickWood" }));
 
 		//Amethyst Tools and Armor
-		GameRegistry.addRecipe(new ItemStack(BOPCItems.pickaxeAmethyst, 1), new Object [] {"###", " X ", " X ", Character.valueOf('#'), new ItemStack(BOPCItems.gems, 1, 0), Character.valueOf('X'), Items.iron_ingot});
-		GameRegistry.addRecipe(new ItemStack(BOPCItems.shovelAmethyst, 1), new Object [] {"#", "X", "X", Character.valueOf('#'), new ItemStack(BOPCItems.gems, 1, 0), Character.valueOf('X'), Items.iron_ingot});
-		GameRegistry.addRecipe(new ItemStack(BOPCItems.swordAmethyst, 1), new Object [] {"#", "#", "X", Character.valueOf('#'), new ItemStack(BOPCItems.gems, 1, 0), Character.valueOf('X'), Items.iron_ingot});
-		GameRegistry.addRecipe(new ItemStack(BOPCItems.axeAmethyst, 1), new Object [] {"##", "#X", " X", Character.valueOf('#'), new ItemStack(BOPCItems.gems, 1, 0), Character.valueOf('X'), Items.iron_ingot});
-		GameRegistry.addRecipe(new ItemStack(BOPCItems.hoeAmethyst, 1), new Object [] {"##", " X", " X", Character.valueOf('#'), new ItemStack(BOPCItems.gems, 1, 0), Character.valueOf('X'), Items.iron_ingot});
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCItems.pickaxeAmethyst, 1), new Object [] {"###", " X ", " X ", Character.valueOf('#'), new ItemStack(BOPCItems.gems, 1, 0), Character.valueOf('X'), "ingotIron"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCItems.shovelAmethyst, 1), new Object [] {"#", "X", "X", Character.valueOf('#'), new ItemStack(BOPCItems.gems, 1, 0), Character.valueOf('X'), "ingotIron"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCItems.swordAmethyst, 1), new Object [] {"#", "#", "X", Character.valueOf('#'), new ItemStack(BOPCItems.gems, 1, 0), Character.valueOf('X'), "ingotIron"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCItems.axeAmethyst, 1), new Object [] {"##", "#X", " X", Character.valueOf('#'), new ItemStack(BOPCItems.gems, 1, 0), Character.valueOf('X'), "ingotIron"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCItems.hoeAmethyst, 1), new Object [] {"##", " X", " X", Character.valueOf('#'), new ItemStack(BOPCItems.gems, 1, 0), Character.valueOf('X'), "ingotIron"}));
 		GameRegistry.addRecipe(new ItemStack(BOPCItems.helmetAmethyst, 1), new Object [] {"###", "# #", Character.valueOf('#'), new ItemStack(BOPCItems.gems, 1, 0)});
 		GameRegistry.addRecipe(new ItemStack(BOPCItems.chestplateAmethyst, 1), new Object [] {"# #", "###", "###", Character.valueOf('#'), new ItemStack(BOPCItems.gems, 1, 0)});
 		GameRegistry.addRecipe(new ItemStack(BOPCItems.leggingsAmethyst, 1), new Object [] {"###", "# #", "# #", Character.valueOf('#'), new ItemStack(BOPCItems.gems, 1, 0)});
 		GameRegistry.addRecipe(new ItemStack(BOPCItems.bootsAmethyst, 1), new Object [] {"# #", "# #", Character.valueOf('#'), new ItemStack(BOPCItems.gems, 1, 0)});
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCItems.scytheAmethyst, 1), new Object [] {" MM", "M S", "  S", Character.valueOf('M'), new ItemStack(BOPCItems.gems, 1, 0), Character.valueOf('S'), Items.iron_ingot}));	
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCItems.scytheAmethyst, 1), new Object [] {"MM ", "S M", "S  ", Character.valueOf('M'), new ItemStack(BOPCItems.gems, 1, 0), Character.valueOf('S'), Items.iron_ingot}));	
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCItems.scytheAmethyst, 1), new Object [] {" MM", "M S", "  S", Character.valueOf('M'), new ItemStack(BOPCItems.gems, 1, 0), Character.valueOf('S'), "ingotIron"}));	
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCItems.scytheAmethyst, 1), new Object [] {"MM ", "S M", "S  ", Character.valueOf('M'), new ItemStack(BOPCItems.gems, 1, 0), Character.valueOf('S'), "ingotIron"}));	
 
 		//Flower Bands
 		GameRegistry.addRecipe(new ItemStack(BOPCItems.flowerBand, 1, 0), new Object [] {"CCC", "C C", "CCC", Character.valueOf('C'), new ItemStack(BOPCBlocks.flowers, 1, 0)});
@@ -235,11 +236,11 @@ public class BOPCrafting
 		GameRegistry.addRecipe(new ItemStack(BOPCItems.dart, 4, 0), new Object[] {"T", "R", "F", Character.valueOf('T'), new ItemStack(BOPCBlocks.plants, 1, 5), Character.valueOf('R'), new ItemStack(BOPCBlocks.plants, 1, 8), Character.valueOf('F'), Items.feather});
 		GameRegistry.addShapelessRecipe(new ItemStack(BOPCItems.dart, 1, 1), new Object[] {new ItemStack(BOPCItems.jarFilled, 1, 1), new ItemStack(BOPCItems.dart, 1, 0)});
 
-		GameRegistry.addRecipe(new ItemStack(BOPCItems.biomeFinder, 1, 0), new Object[] {" E ", "ERE", " E ", 'E', new ItemStack(Items.emerald, 1, 0), 'R', new ItemStack(Items.redstone, 1, 0)});
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCItems.biomeFinder, 1, 0), new Object[] {" E ", "ERE", " E ", 'E', "gemEmerald", 'R', "dustRedstone"}));
 		GameRegistry.addRecipe(new BiomeEssenceRecipe());
 		
 		GameRegistry.addRecipe(new ItemStack(BOPCBlocks.planks, 1, 10), new Object[] {"##", "##", '#', BOPCBlocks.bamboo});
-		GameRegistry.addRecipe(new ItemStack(BOPCItems.jarEmpty, 3, 0), new Object[] {"# #", "# #", "###", '#', Blocks.glass});
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCItems.jarEmpty, 3, 0), new Object[] {"# #", "# #", "###", '#', "blockGlass"}));
 		GameRegistry.addShapelessRecipe(new ItemStack(BOPCItems.food, 1, 10), new Object[] {new ItemStack(BOPCItems.misc, 1, 11), new ItemStack(Items.potionitem, 1, 0), new ItemStack(BOPCBlocks.flowers2, 1, 6), new ItemStack(BOPCBlocks.coral1, 1, 11), new ItemStack(BOPCBlocks.plants, 1, 15), new ItemStack(BOPCItems.misc, 1, 4), new ItemStack(BOPCItems.jarFilled, 1, 0), new ItemStack(BOPCItems.food, 1, 0), Items.sugar});
 		
 		GameRegistry.addRecipe(new ItemStack(BOPCBlocks.flesh, 1, 0), new Object[] {"##", "##", '#', new ItemStack(BOPCItems.misc, 1, 3)});
@@ -263,15 +264,15 @@ public class BOPCrafting
 		
 		//Honeycombs
 		GameRegistry.addRecipe(new ItemStack(BOPCBlocks.hive, 1, 0), new Object [] {"##", "##", Character.valueOf('#'), new ItemStack(BOPCItems.misc, 1, 2)});
-		GameRegistry.addRecipe(new ItemStack(BOPCBlocks.hive, 1, 3), new Object [] {"##", "##", Character.valueOf('#'), new ItemStack(BOPCItems.food, 1, 9)});
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPCBlocks.hive, 1, 3), new Object [] {"##", "##", Character.valueOf('#'), "foodFilledhoneycomb"}));
 		
 		//Plants
 		GameRegistry.addShapelessRecipe(new ItemStack(BOPCItems.food, 2, 1), new Object[] {new ItemStack(BOPCBlocks.mushrooms,1,0)});
 		GameRegistry.addShapelessRecipe(new ItemStack(BOPCItems.jarFilled, 1, 1), new Object[] {new ItemStack(BOPCBlocks.foliage,1,7), new ItemStack(BOPCItems.jarEmpty,1, 0)});
 		GameRegistry.addShapelessRecipe(new ItemStack(BOPCItems.food, 1, 13), new Object[] {Items.bowl, new ItemStack(BOPCBlocks.plants, 1, 6)});
 		GameRegistry.addShapelessRecipe(new ItemStack(BOPCItems.food, 1, 4), new Object[] {Items.bowl, new ItemStack(BOPCItems.food, 1, 0), Items.apple, Items.melon});
-		GameRegistry.addShapelessRecipe(new ItemStack(BOPCItems.food, 1, 5), new Object[] {Items.bowl, new ItemStack(BOPCItems.food, 1, 2), Items.carrot, Items.potato});
 		GameRegistry.addShapelessRecipe(new ItemStack(BOPCItems.food, 1, 6), new Object[] {Items.bowl, new ItemStack(BOPCBlocks.mushrooms, 1, 0), new ItemStack(BOPCBlocks.mushrooms, 1, 1), new ItemStack(BOPCBlocks.mushrooms, 1, 2)});
+		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPCItems.food, 1, 5), new Object[] {Items.bowl, "cropWildcarrots", "cropCarrot", "cropPotato"}));
 	}
 
 	private static void addSmeltingRecipes()
@@ -347,6 +348,14 @@ public class BOPCrafting
 		OreDictionary.registerOre("oreMalachite", new ItemStack(BOPCBlocks.gemOre, 1, 10));
 		OreDictionary.registerOre("oreSapphire", new ItemStack(BOPCBlocks.gemOre, 1, 12));
 		OreDictionary.registerOre("oreAmber", new ItemStack(BOPCBlocks.gemOre, 1, 14));
+		
+		OreDictionary.registerOre("blockRuby", new ItemStack(BOPCBlocks.gemOre, 1, 3));
+		OreDictionary.registerOre("blockTopaz", new ItemStack(BOPCBlocks.gemOre, 1, 7));
+		OreDictionary.registerOre("blockPeridot", new ItemStack(BOPCBlocks.gemOre, 1, 5));
+		OreDictionary.registerOre("blockTanzanite", new ItemStack(BOPCBlocks.gemOre, 1, 9));
+		OreDictionary.registerOre("blockMalachite", new ItemStack(BOPCBlocks.gemOre, 1, 11));
+		OreDictionary.registerOre("blockSapphire", new ItemStack(BOPCBlocks.gemOre, 1, 13));
+		OreDictionary.registerOre("blockAmber", new ItemStack(BOPCBlocks.gemOre, 1, 15));
 
 		OreDictionary.registerOre("treeSapling", new ItemStack(BOPCBlocks.saplings, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("treeSapling", new ItemStack(BOPCBlocks.colorizedSaplings, 1, OreDictionary.WILDCARD_VALUE));
