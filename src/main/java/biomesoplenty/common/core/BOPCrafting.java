@@ -351,13 +351,10 @@ public class BOPCrafting
 		OreDictionary.registerOre("treeSapling", new ItemStack(BOPCBlocks.saplings, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("treeSapling", new ItemStack(BOPCBlocks.colorizedSaplings, 1, OreDictionary.WILDCARD_VALUE));
 
-		for (int i = 0; i <= 3; i++)
-		{
-			OreDictionary.registerOre("logWood", new ItemStack(BOPCBlocks.logs1, 1, i));
-			OreDictionary.registerOre("logWood", new ItemStack(BOPCBlocks.logs2, 1, i));
-			OreDictionary.registerOre("logWood", new ItemStack(BOPCBlocks.logs3, 1, i));
-			OreDictionary.registerOre("logWood", new ItemStack(BOPCBlocks.logs4, 1, i));
-		}
+		OreDictionary.registerOre("logWood", new ItemStack(BOPCBlocks.logs1, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("logWood", new ItemStack(BOPCBlocks.logs2, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("logWood", new ItemStack(BOPCBlocks.logs3, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("logWood", new ItemStack(BOPCBlocks.logs4, 1, OreDictionary.WILDCARD_VALUE));
 
 		OreDictionary.registerOre("slabWood", new ItemStack(BOPCBlocks.woodenSingleSlab1, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("slabWood", new ItemStack(BOPCBlocks.woodenSingleSlab2, 1, OreDictionary.WILDCARD_VALUE));
