@@ -1,7 +1,6 @@
 package biomesoplenty.common.items;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
 import biomesoplenty.BiomesOPlenty;
@@ -11,14 +10,13 @@ public class ItemBOPAxe extends ItemAxe
 {
 	public int textureID = 0;
 
-	public ItemBOPAxe(Item.ToolMaterial toolMaterial, int texture)
+	public ItemBOPAxe(ToolMaterial toolMaterial, int texture)
 	{
 		super(toolMaterial);
 		
 		this.textureID = texture;
 		
 		this.setHarvestLevel("axe", 4);
-		this.setHasSubtypes(true);
 		
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
