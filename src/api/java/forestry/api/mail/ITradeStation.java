@@ -9,7 +9,7 @@ import net.minecraft.inventory.IInventory;
 
 public interface ITradeStation extends ILetterHandler, IInventory {
 
-	String getMoniker();
+	IMailAddress getAddress();
 
 	boolean isValid();
 

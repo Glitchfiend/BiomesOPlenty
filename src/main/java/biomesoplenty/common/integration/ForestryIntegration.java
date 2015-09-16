@@ -8,6 +8,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.api.content.BOPCItems;
 import forestry.api.apiculture.FlowerManager;
+import forestry.api.core.ForestryAPI;
 import forestry.api.recipes.RecipeManagers;
 import forestry.api.storage.BackpackManager;
 
@@ -29,8 +30,10 @@ public class ForestryIntegration
 	{
 		addFermenterRecipes();
 		addSqueezerRecipes();
-		addFlowers();
-		addBlocksToBackpack();
+		if(ForestryAPI.enabledPlugins.contains("APICULTURE"))
+		addBOPFlowers();
+		if(ForestryAPI.enabledPlugins.contains("STORAGE"))
+			addBlocksToBackpack();
 	}
 	
 	private static void addFermenterRecipes()
@@ -45,15 +48,12 @@ public class ForestryIntegration
 		RecipeManagers.squeezerManager.addRecipe(10, new ItemStack[] { new ItemStack(BOPCItems.food, 1, 8) }, FluidRegistry.getFluidStack(LIQUID_JUICE, 200), new ItemStack(mulch), 20);
 	}
 	
-	private static void addFlowers()
+	private static void addBOPFlowers()
 	{
-		try{
-			FlowerManager.plainFlowers.add(new ItemStack(BOPCBlocks.flowers, 1, OreDictionary.WILDCARD_VALUE));
-			FlowerManager.plainFlowers.add(new ItemStack(BOPCBlocks.flowers2, 1, OreDictionary.WILDCARD_VALUE));
-		}
-		catch(NoSuchFieldError e){
-			return;
-		}
+		for(int i = 0; i < 16; i++)
+			FlowerManager.flowerRegistry.registerPlantableFlower(BOPCBlocks.flowers, i, 1, FlowerManager.FlowerTypeVanilla);
+		for(int i = 0; i < 9; i++)
+			FlowerManager.flowerRegistry.registerPlantableFlower(BOPCBlocks.flowers2, i, 1, FlowerManager.FlowerTypeVanilla);
 	}
 	
 	private static void addBlocksToBackpack()

@@ -15,7 +15,7 @@ public enum EnumBeeType {
 	String name;
 
 	private EnumBeeType() {
-		this.name = "bees." + this.toString().toLowerCase(Locale.ENGLISH);
+		this.name = this.toString().toLowerCase(Locale.ENGLISH);
 	}
 
 	public String getName() {

@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import net.minecraft.item.ItemStack;
-
-import forestry.api.genetics.IMutation;
 /**
  * 
  * Some miscellaneous lists and settings for bees.
@@ -18,21 +16,6 @@ import forestry.api.genetics.IMutation;
  * @author SirSengir
  */
 public class BeeManager {
-
-	/**
-	 * Get your own reference to this via AlleleManager.alleleRegistry.getSpeciesRoot("rootBees") and save it somewhere.
-	 */
-	@Deprecated
-	public static IBeeRoot beeInterface;
-	
-	/**
-	 * Species templates for bees that can drop from hives.
-	 * 
-	 * 0 - Forest 1 - Meadows 2 - Desert 3 - Jungle 4 - End 5 - Snow 6 - Swamp
-	 * 
-	 * see {@link IMutation} for template format
-	 */
-	public static ArrayList<IHiveDrop>[] hiveDrops;
 
 	/**
 	 * 0 - Common Village Bees 1 - Uncommon Village Bees (20 % of spawns)
@@ -43,4 +26,24 @@ public class BeeManager {
 	 * List of items that can induce swarming. Integer denotes x in 1000 chance.
 	 */
 	public static HashMap<ItemStack, Integer> inducers = new HashMap<ItemStack, Integer>();
+
+	/**
+	 * Convenient access to AlleleManager.alleleRegistry.getSpeciesRoot("rootBees")
+	 */
+	public static IBeeRoot beeRoot;
+
+	/**
+	 * Used to create new bees.
+	 */
+	public static IBeeFactory beeFactory;
+
+	/**
+	 * Used to create new bee mutations.
+	 */
+	public static IBeeMutationFactory beeMutationFactory;
+
+	/**
+	 * Used to get Forestry's jubilance implementations.
+	 */
+	public static IJubilanceFactory jubilanceFactory;
 }

@@ -6,11 +6,11 @@
 package forestry.api.arboriculture;
 
 public enum EnumGermlingType {
-	SAPLING("Sapling"), BLOSSOM("Blossom"), POLLEN("Pollen"), GERMLING("Germling"), NONE("None");
+	SAPLING("sapling"), BLOSSOM("blossom"), POLLEN("pollen"), GERMLING("germling"), NONE("none");
 
 	public static final EnumGermlingType[] VALUES = values();
 	
-	String name;
+	private final String name;
 
 	private EnumGermlingType(String name) {
 		this.name = name;

@@ -1,6 +1,6 @@
 /*******************************************************************************
  * Copyright 2011-2014 SirSengir
- * 
+ *
  * This work (the API) is licensed under the "MIT" License, see LICENSE.txt for details.
  ******************************************************************************/
 package forestry.api.genetics;
@@ -9,7 +9,8 @@ import java.util.Collection;
 import java.util.Map;
 
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
+
+import com.mojang.authlib.GameProfile;
 
 import forestry.api.genetics.IClassification.EnumClassLevel;
 
@@ -38,21 +39,21 @@ public interface IAlleleRegistry {
 	 * @return {@link ISpeciesRoot} if it exists, null otherwise.
 	 */
 	ISpeciesRoot getSpeciesRoot(String uid);
-	
+
 	/**
 	 * Retrieve a matching {@link ISpeciesRoot} for the given itemstack.
 	 * @param stack An itemstack possibly containing NBT data which can be converted by a species root.
 	 * @return {@link ISpeciesRoot} if found, null otherwise.
 	 */
 	ISpeciesRoot getSpeciesRoot(ItemStack stack);
-	
+
 	/**
 	 * Retrieve a matching {@link ISpeciesRoot} for the given {@link IIndividual}-class.
 	 * @param clz Class extending {@link IIndividual}.
 	 * @return {@link ISpeciesRoot} if found, null otherwise.
 	 */
 	ISpeciesRoot getSpeciesRoot(Class<? extends IIndividual> clz);
-	
+
 	/* INDIVIDUAL */
 	/**
 	 * Tests the itemstack for genetic information.
@@ -85,7 +86,7 @@ public interface IAlleleRegistry {
 	 *            IAllele to register.
 	 */
 	void registerAllele(IAllele allele);
-	
+
 	/**
 	 * @return HashMap of all registered deprecated alleles and their corresponding replacements
 	 */
@@ -109,16 +110,6 @@ public interface IAlleleRegistry {
 	 * @return IAllele if found or a replacement is found in the Deprecated Allele map, null otherwise.
 	 */
 	IAllele getAllele(String uid);
-
-	/* THIS SHOULD BE PHASED OUT */
-	@Deprecated
-	void reloadMetaMap(World world);
-
-	@Deprecated
-	IAllele getFromMetaMap(int meta);
-
-	@Deprecated
-	int getFromUIDMap(String uid);
 
 	/* CLASSIFICATIONS */
 	/**
@@ -215,13 +206,13 @@ public interface IAlleleRegistry {
 	 * @param species {@link IAlleleSpecies} to encode on the research note.
 	 * @return An itemstack containing a research note with the given species encoded onto it.
 	 */
-	ItemStack getSpeciesNoteStack(String researcher, IAlleleSpecies species);
-	
+	ItemStack getSpeciesNoteStack(GameProfile researcher, IAlleleSpecies species);
+
 	/**
 	 * @param researcher Username of the player who researched this note.
 	 * @param mutation {@link IMutation} to encode on the research note.
 	 * @return An itemstack containing a research note with the given mutation encoded onto it.
 	 */
-	ItemStack getMutationNoteStack(String researcher, IMutation mutation);
+	ItemStack getMutationNoteStack(GameProfile researcher, IMutation mutation);
 
 }

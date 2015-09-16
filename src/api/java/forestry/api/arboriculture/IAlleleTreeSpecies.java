@@ -35,12 +35,6 @@ public interface IAlleleTreeSpecies extends IAlleleSpecies {
 	Collection<IFruitFamily> getSuitableFruit();
 
 	/**
-	 * @return Trunk girth. 1 = 1x1, 2 = 2x2, etc.
-	 */
-	@Deprecated
-	int getGirth();
-
-	/**
 	 * @param tree
 	 * @param world
 	 * @param x

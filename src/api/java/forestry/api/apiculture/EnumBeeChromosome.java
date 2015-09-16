@@ -5,7 +5,6 @@
  ******************************************************************************/
 package forestry.api.apiculture;
 
-import forestry.api.genetics.AlleleManager;
 import forestry.api.genetics.IAllele;
 import forestry.api.genetics.IAlleleArea;
 import forestry.api.genetics.IAlleleBoolean;
@@ -98,6 +97,6 @@ public enum EnumBeeChromosome implements IChromosomeType {
 
 	@Override
 	public ISpeciesRoot getSpeciesRoot() {
-		return AlleleManager.alleleRegistry.getSpeciesRoot("rootBees");
+		return BeeManager.beeRoot;
 	}
 }

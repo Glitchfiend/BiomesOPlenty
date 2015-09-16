@@ -21,7 +21,21 @@ public interface IBeekeepingLogic extends INBTTagable {
 	
 	IEffectData[] getEffectData();
 
-	/* UPDATING */
+	/**
+	 * Checks that the bees can work, setting error conditions on the housing where needed
+	 * @return true if no errors are present and doWork should be called
+	 */
+	boolean canWork();
+
+	/**
+	 * Performs actual work, breeding, production, etc.
+	 */
+	void doWork();
+
+	/**
+	 * @deprecated since Forestry 3.6. use canWork() and doWork() instead
+	 */
+	@Deprecated
 	void update();
 
 }

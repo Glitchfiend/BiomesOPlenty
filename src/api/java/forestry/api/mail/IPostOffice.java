@@ -26,5 +26,5 @@ public interface IPostOffice {
 
 	void deregisterTradeStation(ITradeStation trade);
 
-	Map<String, ITradeStation> getActiveTradeStations(World world);
+	Map<IMailAddress, ITradeStation> getActiveTradeStations(World world);
 }

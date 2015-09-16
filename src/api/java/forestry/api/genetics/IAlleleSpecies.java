@@ -8,6 +8,8 @@ package forestry.api.genetics;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+import com.mojang.authlib.GameProfile;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -16,10 +18,10 @@ import forestry.api.core.EnumTemperature;
 import forestry.api.core.IIconProvider;
 
 /**
- * Basic species allele. 
+ * Basic species allele.
  */
 public interface IAlleleSpecies extends IAllele {
-	
+
 	/**
 	 * @return the {@link ISpeciesRoot} associated with this species.
 	 */
@@ -57,22 +59,22 @@ public interface IAlleleSpecies extends IAllele {
 	 * @return Values between 3 - 11 are useful.
 	 */
 	int getComplexity();
-	
+
 	/**
 	 * @param itemstack
 	 * @return A float signifying the chance for the passed itemstack to yield a research success.
 	 */
 	float getResearchSuitability(ItemStack itemstack);
-	
+
 	/**
 	 * @param world
-	 * @param researcher
+	 * @param gameProfile
 	 * @param individual
 	 * @param bountyLevel
 	 * @return Array of itemstacks representing the bounty for this research success.
 	 */
-	ItemStack[] getResearchBounty(World world, String researcher, IIndividual individual, int bountyLevel);
-	
+	ItemStack[] getResearchBounty(World world, GameProfile gameProfile, IIndividual individual, int bountyLevel);
+
 	/* CLIMATE */
 	/**
 	 * @return Preferred temperature

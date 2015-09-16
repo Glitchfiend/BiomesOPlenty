@@ -30,5 +30,10 @@ public interface IAllele {
 	 * @return Localized short, human-readable identifier used in tooltips and beealyzer.
 	 */
 	String getName();
-	
+
+	/**
+	* @return The unlocalized identifier
+	*/
+	String getUnlocalizedName();
+
 }
