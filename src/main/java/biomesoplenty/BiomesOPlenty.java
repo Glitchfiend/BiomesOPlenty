@@ -46,11 +46,7 @@ public class BiomesOPlenty
     {
         configPath = event.getModConfigurationDirectory() + "/biomesoplenty/";
         BOPConfiguration.init(configPath);
-        
-        //Version.check();
-        
         tabBiomesOPlenty = new CreativeTabsBOP(CreativeTabs.getNextID(), "tabBiomesOPlenty");
-        
         BOPPacketHandler.init();
         BOPPotions.init();
         BOPFluids.preInit();
@@ -64,11 +60,8 @@ public class BiomesOPlenty
         BOPConfigurationStrongholds.init(BOPConfiguration.strongholdsConfigFile);
         BOPEntities.init();
         BOPVanillaCompat.init();
-        
         BOPEventHandlers.init();
-        
         proxy.registerRenderers();
-        
         BOPIntegration.preInit();
     }
     
@@ -76,7 +69,6 @@ public class BiomesOPlenty
     public void load(FMLInitializationEvent event)
     {
         TreecapitatorIntegration.init();
-
         BOPDimensions.init();
     }
     
@@ -84,7 +76,6 @@ public class BiomesOPlenty
     public void postInit(FMLPostInitializationEvent event)
     {
     	BOPIntegration.postInit();
-        
         BOPBiomes.worldTypeBOP = new WorldTypeBOP();
     }
 }

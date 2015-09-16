@@ -47,8 +47,13 @@ public class ForestryIntegration
 	
 	private static void addFlowers()
 	{
-		FlowerManager.plainFlowers.add(new ItemStack(BOPCBlocks.flowers, 1, OreDictionary.WILDCARD_VALUE));
-		FlowerManager.plainFlowers.add(new ItemStack(BOPCBlocks.flowers2, 1, OreDictionary.WILDCARD_VALUE));
+		try{
+			FlowerManager.plainFlowers.add(new ItemStack(BOPCBlocks.flowers, 1, OreDictionary.WILDCARD_VALUE));
+			FlowerManager.plainFlowers.add(new ItemStack(BOPCBlocks.flowers2, 1, OreDictionary.WILDCARD_VALUE));
+		}
+		catch(NoSuchFieldError e){
+			return;
+		}
 	}
 	
 	private static void addBlocksToBackpack()

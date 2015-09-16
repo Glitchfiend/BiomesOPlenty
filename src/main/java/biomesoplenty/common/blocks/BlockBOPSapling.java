@@ -137,7 +137,7 @@ public class BlockBOPSapling extends BlockSapling
 			switch (meta)
 			{
 			case 0: // Apple Tree
-				obj = new WorldGenOriginalTree(Blocks.log, BOPCBlocks.appleLeaves, 0, 0, 1);
+				obj = new WorldGenOriginalTree(Blocks.log, BOPCBlocks.appleLeaves, 0, 0, 0);
 				break;
 
 			case 1: // Autumn Tree

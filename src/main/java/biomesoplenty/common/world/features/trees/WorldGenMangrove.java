@@ -23,6 +23,17 @@ public class WorldGenMangrove extends WorldGenAbstractTree
 
 		if (y >= 1 && y + height + 1 <= 256)
 		{
+			for(int x2 = x - 3, x3 = x + 3; x2 < x3; x2++){
+				for(int y2 = y - 6, y3 = y + 6; y2 < y3; y2++){
+					for(int z2 = z - 3, z3 = z + 3; z2 < z3; z2++){
+						Block block = world.getBlock(x2, y2, z2);
+						if(block == Blocks.bedrock){
+							return false;
+						}
+					}
+				}
+			}
+			
 			byte width;
 
 			for (int yi = y; yi <= y + 1 + height; ++yi)
@@ -97,22 +108,21 @@ public class WorldGenMangrove extends WorldGenAbstractTree
 							{
 								int l2 = zi - z;
 
-								//																		  When yi == y + height
-										if (Math.abs(j2) != l1 || Math.abs(l2) != l1 || random.nextInt(2) != 0 && delta != 0)
-										{
-											Block block = world.getBlock(xi, yi, zi);
+								if (Math.abs(j2) != l1 || Math.abs(l2) != l1 || random.nextInt(2) != 0 && delta != 0)
+								{
+									Block block = world.getBlock(xi, yi, zi);
 
-											if (block.isAir(world, xi, yi, zi) || block.isLeaves(world, xi, yi, zi))
-											{
-												this.setBlockAndNotifyAdequately(world, xi, yi, zi, BOPCBlocks.colorizedLeaves1, 1);
-												this.setBlockAndNotifyAdequately(world, xi, yi - 1, zi, BOPCBlocks.colorizedLeaves1, 1);
+									if (block.isAir(world, xi, yi, zi) || block.isLeaves(world, xi, yi, zi))
+									{
+										this.setBlockAndNotifyAdequately(world, xi, yi, zi, BOPCBlocks.colorizedLeaves1, 1);
+										this.setBlockAndNotifyAdequately(world, xi, yi - 1, zi, BOPCBlocks.colorizedLeaves1, 1);
 
-												this.setBlockAndNotifyAdequately(world, x + 1, (y + height) - 3, z, BOPCBlocks.colorizedLeaves1, 1);
-												this.setBlockAndNotifyAdequately(world, x - 1, (y + height) - 3, z, BOPCBlocks.colorizedLeaves1, 1);
-												this.setBlockAndNotifyAdequately(world, x, (y + height) - 3, z + 1, BOPCBlocks.colorizedLeaves1, 1);
-												this.setBlockAndNotifyAdequately(world, x, (y + height) - 3, z - 1, BOPCBlocks.colorizedLeaves1, 1);
-											}
-										}
+										this.setBlockAndNotifyAdequately(world, x + 1, (y + height) - 3, z, BOPCBlocks.colorizedLeaves1, 1);
+										this.setBlockAndNotifyAdequately(world, x - 1, (y + height) - 3, z, BOPCBlocks.colorizedLeaves1, 1);
+										this.setBlockAndNotifyAdequately(world, x, (y + height) - 3, z + 1, BOPCBlocks.colorizedLeaves1, 1);
+										this.setBlockAndNotifyAdequately(world, x, (y + height) - 3, z - 1, BOPCBlocks.colorizedLeaves1, 1);
+									}
+								}
 							}
 						}
 					}
@@ -156,9 +166,9 @@ public class WorldGenMangrove extends WorldGenAbstractTree
 							this.setBlockAndNotifyAdequately(world, x + 3, y - 5, z, BOPCBlocks.logs2, 2);
 							this.setBlockAndNotifyAdequately(world, x, y - 5, z - 3, BOPCBlocks.logs2, 2);
 							this.setBlockAndNotifyAdequately(world, x, y - 5, z + 3, BOPCBlocks.logs2, 2);
+
 						}
 					}
-
 					return true;
 				}
 			}

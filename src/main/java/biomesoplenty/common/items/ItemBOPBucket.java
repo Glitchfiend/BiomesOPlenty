@@ -45,14 +45,14 @@ public class ItemBOPBucket extends ItemFluidContainer
 	public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player)
 	{
 		MovingObjectPosition movingobjectposition = this.getMovingObjectPositionFromPlayer(world, player, false);
-		ForgeDirection direction = ForgeDirection.getOrientation(movingobjectposition.sideHit);
 		if (movingobjectposition != null)
 		{
-            int i = movingobjectposition.blockX;
-            int j = movingobjectposition.blockY;
-            int k = movingobjectposition.blockZ;
+			ForgeDirection direction = ForgeDirection.getOrientation(movingobjectposition.sideHit);
+            int x = movingobjectposition.blockX;
+            int y = movingobjectposition.blockY;
+            int z = movingobjectposition.blockZ;
 
-        	TileEntity tile = world.getTileEntity(i, j, k);
+        	TileEntity tile = world.getTileEntity(x, y, z);
         	
         	if(tile != null && tile instanceof IFluidHandler)
         	{
@@ -68,40 +68,40 @@ public class ItemBOPBucket extends ItemFluidContainer
 
         	if (movingobjectposition.sideHit == 0)
             {
-                --j;
+                --y;
             }
 
             if (movingobjectposition.sideHit == 1)
             {
-                ++j;
+                ++y;
             }
 
             if (movingobjectposition.sideHit == 2)
             {
-                --k;
+                --z;
             }
 
             if (movingobjectposition.sideHit == 3)
             {
-                ++k;
+                ++z;
             }
 
             if (movingobjectposition.sideHit == 4)
             {
-                --i;
+                --x;
             }
 
             if (movingobjectposition.sideHit == 5)
             {
-                ++i;
+                ++x;
             }
 
-            if (!player.canPlayerEdit(i, j, k, movingobjectposition.sideHit, itemStack))
+            if (!player.canPlayerEdit(x, y, z, movingobjectposition.sideHit, itemStack))
             {
                 return itemStack;
             }
 
-            if (this.tryPlaceContainedLiquid(itemStack, world, i, j, k) && !player.capabilities.isCreativeMode)
+            if (this.tryPlaceContainedLiquid(itemStack, world, x, y, z) && !player.capabilities.isCreativeMode)
             {
                 return new ItemStack(Items.bucket);
             }

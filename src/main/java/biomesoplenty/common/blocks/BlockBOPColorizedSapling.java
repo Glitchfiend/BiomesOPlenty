@@ -19,6 +19,7 @@ import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.world.features.trees.WorldGenBOPSwampTree;
 import biomesoplenty.common.world.features.trees.WorldGenMangrove;
+import biomesoplenty.common.world.features.trees.WorldGenMixedTree;
 import biomesoplenty.common.world.features.trees.WorldGenPalmTree1;
 import biomesoplenty.common.world.features.trees.WorldGenPineTree;
 import biomesoplenty.common.world.features.trees.WorldGenRainforestTree1;
@@ -152,6 +153,10 @@ public class BlockBOPColorizedSapling extends BlockSapling
 			        
 			    case 6: //Mahogany Tree
 			    	obj = new WorldGenRainforestTree1(BOPCBlocks.logs4, BOPCBlocks.colorizedLeaves2, 3, 2, false, 8, 8);
+			    	break;
+			    	
+			    case 7: //Flowering Oak Tree
+			    	obj = new WorldGenMixedTree(Blocks.log, Blocks.leaves, 0, 0, BOPCBlocks.colorizedLeaves2, 3);
 			    	break;
 			}
 		}

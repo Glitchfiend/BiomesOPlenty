@@ -95,6 +95,8 @@ public class BlockBOPNewGrass extends BlockGrass implements ISubLocalization
                                     world.getBlock(x,     y, z - 1).getMaterial() == Material.water ||
                                     world.getBlock(x,     y, z + 1).getMaterial() == Material.water);
                 return hasWater;
+		default:
+			break;
         }
 
         return super.canSustainPlant(world, x, y, z, direction, plantable);
