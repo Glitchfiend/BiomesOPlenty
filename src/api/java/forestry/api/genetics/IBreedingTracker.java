@@ -55,12 +55,6 @@ public interface IBreedingTracker {
 
 	/**
 	 * Register a successful mutation. Will mark it as discovered.
-	 */
-	@Deprecated
-	void registerMutation(IAllele allele0, IAllele allele1);
-
-	/**
-	 * Register a successful mutation. Will mark it as discovered.
 	 * 
 	 * @param mutation
 	 */

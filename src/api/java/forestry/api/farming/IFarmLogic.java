@@ -32,6 +32,8 @@ public interface IFarmLogic {
 
 	Collection<ICrop> harvest(int x, int y, int z, ForgeDirection direction, int extent);
 
+	IFarmLogic setManual(boolean manual);
+
 	@SideOnly(Side.CLIENT)
 	IIcon getIcon();
 

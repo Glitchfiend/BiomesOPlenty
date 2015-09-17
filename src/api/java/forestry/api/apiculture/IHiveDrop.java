@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 /**
  * Bees can be seeded either as hive drops or as mutation results.
  * 
- * Add IHiveDrops to BeeManager.hiveDrops
+ * Add IHiveDrops with HiveManager.get___Hive.addDrop
  * 
  * @author SirSengir
  */

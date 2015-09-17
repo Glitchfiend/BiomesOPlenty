@@ -17,6 +17,8 @@ public interface IInfuserManager {
 
 	boolean hasMixtures(ItemStack[] ingredients);
 
+	boolean isIngredient(ItemStack itemstack);
+
 	ItemStack[] getRequired(ItemStack[] ingredients);
 
 }

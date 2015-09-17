@@ -82,7 +82,7 @@ public class ItemJarFilled extends Item
 	@Override
 	public boolean onItemUse(ItemStack itemStack, EntityPlayer entityPlayer, World world, int x, int y, int z, int side, float xoffset, float yoffset, float zoffset)
 	{
-		if (itemStack.getItemDamage() == 2 && BOPConfigurationIDs.pixieID > 0)
+		if (itemStack.getItemDamage() == 2)
 		{
 			if (entityPlayer.dimension == 0)
 			{

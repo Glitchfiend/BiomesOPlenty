@@ -1,15 +1,13 @@
 /*******************************************************************************
  * Copyright 2011-2014 SirSengir
- * 
+ *
  * This work (the API) is licensed under the "MIT" License, see LICENSE.txt for details.
  ******************************************************************************/
-package forestry.api.genetics;
+package forestry.api.apiculture.hives;
 
-/**
- * AlleleManager.alleleRegistry can be cast to this type.
- */
-public interface ILegacyHandler {
-	void registerLegacyMapping(int id, String uid);
+public class HiveManager {
 
-	IAllele getFromLegacyMap(int id);
+	public static IHiveRegistry hiveRegistry;
+	public static IHiveGenHelper genHelper;
+
 }

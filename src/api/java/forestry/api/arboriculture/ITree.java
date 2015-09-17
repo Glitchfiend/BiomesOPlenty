@@ -15,8 +15,9 @@ import net.minecraftforge.common.EnumPlantType;
 
 import forestry.api.genetics.IEffectData;
 import forestry.api.genetics.IIndividual;
+import forestry.api.world.ITreeGenData;
 
-public interface ITree extends IIndividual {
+public interface ITree extends IIndividual, ITreeGenData {
 
 	void mate(ITree other);
 

@@ -29,4 +29,8 @@ public class AlleleManager {
 	 * Queryable instance of an {@link IClimateHelper} for easier implementation.
 	 */
 	public static IClimateHelper climateHelper;
+	/**
+	 * Creates Forestry alleles.
+	 */
+	public static IAlleleFactory alleleFactory;
 }

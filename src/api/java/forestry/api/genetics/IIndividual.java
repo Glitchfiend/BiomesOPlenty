@@ -47,11 +47,7 @@ public interface IIndividual extends INBTTagable {
 	 * @return A deep copy of this individual.
 	 */
 	IIndividual copy();
-	
-	/**
-	 * @param chromosomeOrdinal Ordinal of the chromosome to check.
-	 * @return true if both primary and secondary allele on the given chromosome match.
-	 */
-	boolean isPureBred(int chromosomeOrdinal);
+
+	boolean isPureBred(IChromosomeType chromosomeType);
 
 }

@@ -5,6 +5,7 @@
  ******************************************************************************/
 package forestry.api.farming;
 
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -54,6 +55,6 @@ public interface IFarmable {
 	 * @param z
 	 * @return true on success, false otherwise.
 	 */
-	boolean plantSaplingAt(ItemStack germling, World world, int x, int y, int z);
+	boolean plantSaplingAt(EntityPlayer player, ItemStack germling, World world, int x, int y, int z);
 
 }

@@ -20,9 +20,9 @@ public interface IGenome extends INBTTagable {
 
 	IChromosome[] getChromosomes();
 
-	IAllele getActiveAllele(int chromosome);
+	IAllele getActiveAllele(IChromosomeType chromosomeType);
 
-	IAllele getInactiveAllele(int chromosome);
+	IAllele getInactiveAllele(IChromosomeType chromosomeType);
 
 	boolean isGeneticEqual(IGenome other);
 	

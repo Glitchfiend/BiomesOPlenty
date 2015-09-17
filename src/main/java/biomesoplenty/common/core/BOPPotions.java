@@ -2,6 +2,7 @@ package biomesoplenty.common.core;
 
 import static biomesoplenty.api.content.BOPCPotions.paralysis;
 import static biomesoplenty.api.content.BOPCPotions.possession;
+import static biomesoplenty.common.configuration.BOPConfigurationIDs.*;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -18,8 +19,8 @@ public class BOPPotions
 	
 	public static void init()
 	{
-		paralysis = new PotionParalysis(getSparePotionId(), true, 16767262).setPotionName("potion.paralysis");
-		possession = new PotionPossession(getSparePotionId(), true, 1280).setPotionName("potion.possession");
+		paralysis = new PotionParalysis(potionAutoAssign ? getSparePotionId() : paralysisPotionID, true, 16767262).setPotionName("potion.paralysis");
+		possession = new PotionPossession(potionAutoAssign ? getSparePotionId() : possessionPotionID, true, 1280).setPotionName("potion.possession");
 	}
 
     

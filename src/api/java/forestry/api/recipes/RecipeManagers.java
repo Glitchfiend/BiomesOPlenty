@@ -17,10 +17,6 @@ public class RecipeManagers {
 	public static Collection<ICraftingProvider> craftingProviders;
 	
 	/**
-	 * Allows you to add recipes to the bottler. See {@link IBottlerManager} for details.
-	 */
-	public static IBottlerManager bottlerManager;
-	/**
 	 * Allows you to add recipes to the carpenter. See {@link ICarpenterManager} for details.
 	 */
 	public static ICarpenterManager carpenterManager;

@@ -43,6 +43,7 @@ public class ItemBiomeFinder extends Item
     {
         if (!itemStack.hasTagCompound()) itemStack.setTagCompound(new NBTTagCompound());
         
+        //itemStack.getTagCompound().setInteger("biomeIDToFind", 1);
         int biomeIDToFind = itemStack.getTagCompound().getInteger("biomeIDToFind");
         
         if (!world.isRemote && !itemStack.getTagCompound().getBoolean("foundBiome"))
@@ -192,9 +193,14 @@ public class ItemBiomeFinder extends Item
                     
                     if (itemStack.getTagCompound().hasKey("foundBiome"))
                     {
+                    	NBTTagCompound stackCompound = itemStack != null ? itemStack.getTagCompound() : null;
+                    	NBTTagCompound biomePositionCompound = stackCompound.getCompoundTag("biomePosition");
                         boolean foundBiome = itemStack.getTagCompound().getBoolean("foundBiome");
                         
-                        if (foundBiome) infoList.add("" + EnumChatFormatting.DARK_GREEN + EnumChatFormatting.ITALIC + StatCollector.translateToLocal("biomeRadar.foundBiome"));
+                        if (foundBiome){
+                        	infoList.add("" + EnumChatFormatting.DARK_GREEN + EnumChatFormatting.ITALIC + StatCollector.translateToLocal("biomeRadar.foundBiome"));
+                        	infoList.add("" + EnumChatFormatting.GRAY + "X: " + EnumChatFormatting.GREEN + biomePositionCompound.getInteger("x") + EnumChatFormatting.GRAY + "  Z: " + EnumChatFormatting.GREEN + biomePositionCompound.getInteger("z"));
+                        }
                         else infoList.add("" + EnumChatFormatting.DARK_GRAY + EnumChatFormatting.ITALIC + StatCollector.translateToLocal("biomeRadar.scanBiome"));
                     }
                 }

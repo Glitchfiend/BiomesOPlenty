@@ -16,14 +16,12 @@ public class WorldGenMarsh extends WorldGenerator
 
         for (int var7 = z; y < 63; ++y)
         {
-            //TODO:             getBlock()
             Block block = world.getBlock(x, y - 1, z);
 
             if ((block == Blocks.water) && y < 256 - var6 - 1)
             {
                 for (int var8 = 2; var8 <= 5; ++var8)
                 {
-                    //TODO: setBlock()
                     world.setBlock(x, y, z, Blocks.grass);
                     world.setBlock(x - 1, y, z, Blocks.grass);
                     world.setBlock(x + 1, y, z, Blocks.grass);
@@ -127,7 +125,6 @@ public class WorldGenMarsh extends WorldGenerator
                         world.setBlock(x, y + 1, z - 1, Blocks.tallgrass, 1, 2);
                         world.setBlock(x, y + 1, z + 1, Blocks.tallgrass, 1, 2);
                     }
-                    break;
                 }
             }
             else

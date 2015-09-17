@@ -5,17 +5,22 @@
  ******************************************************************************/
 package forestry.api.mail;
 
+import java.lang.IllegalArgumentException;
 import net.minecraft.item.ItemStack;
+import com.mojang.authlib.GameProfile;
 
 public class TradeStationInfo {
-	public final String moniker;
-	public final String owner;
+	public final IMailAddress address;
+	public final GameProfile owner;
 	public final ItemStack tradegood;
 	public final ItemStack[] required;
 	public final IPostalState state;
 
-	public TradeStationInfo(String moniker, String owner, ItemStack tradegood, ItemStack[] required, IPostalState state) {
-		this.moniker = moniker;
+	public TradeStationInfo(IMailAddress address, GameProfile owner, ItemStack tradegood, ItemStack[] required, IPostalState state) {
+        if (!address.isTrader()) {
+            throw new IllegalArgumentException("TradeStation address must be a trader");
+        }
+		this.address = address;
 		this.owner = owner;
 		this.tradegood = tradegood;
 		this.required = required;

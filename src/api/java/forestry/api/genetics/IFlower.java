@@ -1,16 +1,20 @@
 /*******************************************************************************
  * Copyright 2011-2014 SirSengir
- * 
+ *
  * This work (the API) is licensed under the "MIT" License, see LICENSE.txt for details.
  ******************************************************************************/
-package forestry.api.recipes;
+package forestry.api.genetics;
 
-import net.minecraft.item.ItemStack;
+import net.minecraft.block.Block;
 
-public interface IGenericCrate {
+public interface IFlower extends Comparable<IFlower> {
 
-	void setContained(ItemStack crate, ItemStack contained);
+	Block getBlock();
+	int getMeta();
 
-	ItemStack getContained(ItemStack crate);
+	double getWeight();
+	void setWeight(double weight);
+
+	boolean isPlantable();
 
 }

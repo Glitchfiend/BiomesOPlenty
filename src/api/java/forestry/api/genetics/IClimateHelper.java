@@ -19,6 +19,9 @@ public interface IClimateHelper {
 	boolean isWithinLimits(EnumTemperature temperature, EnumHumidity humidity,
 			EnumTemperature baseTemp, EnumTolerance tolTemp,
 			EnumHumidity baseHumid, EnumTolerance tolHumid);
+
+	boolean isWithinLimits(EnumTemperature temperature, EnumTemperature baseTemp, EnumTolerance tolTemp);
+	boolean isWithinLimits(EnumHumidity humidity, EnumHumidity baseHumid, EnumTolerance tolHumid);
 	
 	/**
 	 * Gets a collection of humidities which fit the given parameters.
@@ -43,7 +46,7 @@ public interface IClimateHelper {
 	String toDisplay(EnumTemperature temperature);
 	/**
 	 * Gets a localized, human readable string for the given humidity.
-	 * @param temperature Humidity to generate the string for.
+	 * @param humidity Humidity to generate the string for.
 	 * @return A localized, human readable string for the given humidity.
 	 */
 	String toDisplay(EnumHumidity humidity);
