@@ -64,7 +64,6 @@ public class BiomeGenTropicalRainforest extends BOPOverworldBiome implements IBi
     }
     
     @Override
-    //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
         return random.nextInt(5) == 0 ? new WorldGenTrees(false, 4 + random.nextInt(7), 3, 3, true) : 

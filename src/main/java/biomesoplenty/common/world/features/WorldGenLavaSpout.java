@@ -14,13 +14,11 @@ public class WorldGenLavaSpout extends WorldGeneratorBOP
     @Override
     public boolean generate(World world, Random random, int x, int y, int z)
     {
-        //TODO:      isAirBlock()
         while (world.isAirBlock(x, y, z) && y > 2)
         {
             --y;
         }
 
-        //TODO:             getBlock()
         Block block = world.getBlock(x, y, z);
 
         if (block != BOPCBlocks.ashStone)
@@ -33,7 +31,6 @@ public class WorldGenLavaSpout extends WorldGeneratorBOP
             {
                 for (int var8 = -2; var8 <= 2; ++var8)
                 {
-                    //TODO:   isAirBlock()                                      isAirBlock()
                     if (world.isAirBlock(x + var7, y - 1, z + var8) && world.isAirBlock(x + var7, y - 2, z + var8))
                     {
                         return false;
@@ -41,7 +38,6 @@ public class WorldGenLavaSpout extends WorldGeneratorBOP
                 }
             }
 
-            //TODO: setBlock()
             world.setBlock(x, y - 1, z, Blocks.flowing_lava);
             world.setBlock(x, y, z, Blocks.flowing_lava);
             world.setBlock(x, y + 1, z, Blocks.flowing_lava);

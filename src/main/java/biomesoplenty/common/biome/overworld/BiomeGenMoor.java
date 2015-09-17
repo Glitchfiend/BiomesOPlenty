@@ -21,9 +21,7 @@ public class BiomeGenMoor extends BOPOverworldBiome
 	{
 		super(id);
 		
-        //TODO: setHeight()
         this.setHeight(biomeHeight);
-        //TODO: setColor()
         this.setColor(6394725);
         this.setTemperatureRainfall(0.5F, 1.0F);
 
@@ -90,14 +88,12 @@ public class BiomeGenMoor extends BOPOverworldBiome
     }
 
 	@Override
-    //TODO:     getBiomeGrassColor()
     public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
     {
 		return 6394725;
 	}
 
 	@Override
-    //TODO:     getBiomeFoliageColor()
     public int getBiomeFoliageColor(int x, int y, int z)
     {
 		return 6394725;

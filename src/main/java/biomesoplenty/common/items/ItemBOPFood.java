@@ -116,7 +116,6 @@ public class ItemBOPFood extends ItemFood
         {
         	case 4:
         		if (!player.inventory.addItemStackToInventory(new ItemStack(Items.bowl)))
-        			//TODO: player.dropPlayerItem(ItemStack itemStack)?
                     player.dropPlayerItemWithRandomChoice(new ItemStack(Items.bowl, 1, 0), false);
         		break;
         		
@@ -246,8 +245,7 @@ public class ItemBOPFood extends ItemFood
         }
     }
 	
-	//@Override
-    //TODO: public void getSubItems(Item item, CreativeTabs creativeTabs, List list)
+	@Override
     public void getSubItems(Item item, CreativeTabs creativeTabs, List list)
     {
 		for (int i = 0; i < foodTypes.length; ++i) 

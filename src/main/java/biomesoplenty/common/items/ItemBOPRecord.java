@@ -44,16 +44,13 @@ public class ItemBOPRecord extends ItemRecord
 	@Override
 	public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int par7, float par8, float par9, float par10)
 	{
-		//TODO: world.getBlock()
 		if (world.getBlock(x, y, z) == Blocks.jukebox && world.getBlockMetadata(x, y, z) == 0)
 		{
 			if (world.isRemote)
 				return true;
 			else
 			{
-				//TODO:						  .insertRecord()
 				((BlockJukebox)Blocks.jukebox).func_149926_b(world, x, y, z, itemStack);
-                //TODO:													    Item.getIdFromItem()
 				world.playAuxSFXAtEntity((EntityPlayer)null, 1005, x, y, z, Item.getIdFromItem(this));
 				--itemStack.stackSize;
 				return true;
@@ -70,7 +67,6 @@ public class ItemBOPRecord extends ItemRecord
 	}
 
 	@Override
-	//TODO:		  getRecordTitle()
 	public String getRecordNameLocal()
 	{
 		return StatCollector.translateToLocal(this.getUnlocalizedName() + ".desc");

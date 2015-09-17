@@ -12,7 +12,6 @@ public class WorldGenLog extends WorldGeneratorBOP
     @Override
     public boolean generate(World world, Random random, int x, int y, int z)
     {
-        //TODO:         isAirBlock()
         while (!world.isAirBlock(x, y, z) && y > 2)
         {
             ++y;
@@ -30,7 +29,6 @@ public class WorldGenLog extends WorldGeneratorBOP
             if (direction == 0) ix = i;
             else iz = i;
             
-            //TODO:   isAirBlock()                               getBlock()
             if (!world.isAirBlock(x + ix, y, z + iz) || world.getBlock(x + ix, y - 1, z + iz) != Blocks.grass)
             {
                 isAllowed = false;

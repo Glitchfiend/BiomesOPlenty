@@ -34,7 +34,6 @@ public class BiomeGenLavenderFields extends BOPOverworldBiome
 	}
 	
 	@Override
-	//TODO:						getRandomWorldGenForTrees()
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
 		return random.nextInt(3) == 0 ? this.worldGeneratorBigTree : new WorldGenOriginalTree(BOPCBlocks.logs4, BOPCBlocks.leaves4, 2, 1);

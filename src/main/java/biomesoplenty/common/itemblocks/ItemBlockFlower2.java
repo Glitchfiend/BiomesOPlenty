@@ -41,7 +41,6 @@ public class ItemBlockFlower2 extends ItemBlock
 	@Override
 	public IIcon getIconFromDamage(int meta)
 	{
-		//TODO: block		  getIcon()
 		return field_150939_a.getIcon(0, meta);
 	}
 

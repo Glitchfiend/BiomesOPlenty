@@ -193,7 +193,6 @@ public class WorldGenSacredOak extends WorldGenAbstractTree
 				else
 				{
 					var11[var9] = var10[var9] + var13;
-					//TODO:					getBlock()
 					Block block = worldObj.getBlock(var11[0], var11[1], var11[2]);
 
 					if (block != Blocks.air && block != leaves)
@@ -202,7 +201,6 @@ public class WorldGenSacredOak extends WorldGenAbstractTree
 					}
 					else
 					{
-						//TODO:	setBlock()
 						this.func_150515_a(worldObj, var11[0], var11[1], var11[2], leaves);
 						++var13;
 					}
@@ -322,7 +320,6 @@ public class WorldGenSacredOak extends WorldGenAbstractTree
 					 }
 				 }
 
-				 //TODO: setBlockAndMetadata()
 				 this.setBlockAndNotifyAdequately(worldObj, var14[0], var14[1], var14[2], par3, var17);
 			 }
 		 }
@@ -461,7 +458,6 @@ public class WorldGenSacredOak extends WorldGenAbstractTree
 				 var13[var6] = MathHelper.floor_double(par1ArrayOfInteger[var6] + var14 * var9);
 				 var13[var7] = MathHelper.floor_double(par1ArrayOfInteger[var7] + var14 * var11);
 				 
-				 //TODO:				getBlock()
 				 Block block = worldObj.getBlock(var13[0], var13[1], var13[2]);
 
 				 if (block != Blocks.air && block != BOPCBlocks.colorizedLeaves1)
@@ -483,7 +479,6 @@ public class WorldGenSacredOak extends WorldGenAbstractTree
 		 int[] var1 = new int[] {basePos[0], basePos[1], basePos[2]};
 		 int[] var2 = new int[] {basePos[0], basePos[1] + heightLimit - 1, basePos[2]};
 		 
-		 //TODO:			getBlock()
 		 Block block = worldObj.getBlock(basePos[0], basePos[1] - 1, basePos[2]);
 
 		 if (block != Blocks.dirt && block != Blocks.grass)

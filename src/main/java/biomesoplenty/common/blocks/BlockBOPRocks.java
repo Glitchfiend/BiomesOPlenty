@@ -20,22 +20,18 @@ public class BlockBOPRocks extends Block
 
 	public BlockBOPRocks()
 	{
-		//TODO: Material.rock
 		super(Material.rock);
 		
 		this.setHarvestLevel("pickaxe", 1, 0);
 		this.setHarvestLevel("pickaxe", 2, 2);
 		this.setHarvestLevel("pickaxe", 3, 4);
 		
-		//TODO setStepSound(Block.soundStoneFootstep)
 		this.setStepSound(Block.soundTypePiston);
 		
-		//TODO: this.setCreativeTab()
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
-	//TODO:		registerIcons()
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		textures = new IIcon[types.length];
@@ -46,7 +42,6 @@ public class BlockBOPRocks extends Block
 	}
 
 	@Override
-	//TODO:		 getIcon()
 	public IIcon getIcon(int side, int meta)
 	{
 		if (meta < 0 || meta >= textures.length) 
@@ -58,14 +53,12 @@ public class BlockBOPRocks extends Block
 	}
 
 	@Override
-	//TODO:	   getDamageValue()
 	public int getDamageValue(World world, int x, int y, int z) 
 	{
 		return world.getBlockMetadata(x, y, z);
 	}
 
 	@Override
-	//TODO:		getSubBlocks()
 	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
 	{
 		for (int i = 0; i < types.length; ++i) 
@@ -75,18 +68,15 @@ public class BlockBOPRocks extends Block
 	}
 
 	@Override
-	//TODO     damageDropped()
 	public int damageDropped(int meta)
 	{
 		return meta == 0 ? 1 : meta;
 	}
 
 	@Override
-	//TODO:		 getBlockHardness()
 	public float getBlockHardness(World world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
-		//TODO:			 blockHardness
 		float hardness = blockHardness;
 
 		switch (meta)
@@ -123,7 +113,6 @@ public class BlockBOPRocks extends Block
 	public float getExplosionResistance(Entity par1Entity, World world, int x, int y, int z, double explosionX, double explosionY, double explosionZ)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
-		//TODO:			   blockResistance
 		float resistance = blockResistance;
 
 		switch (meta)

@@ -284,7 +284,6 @@ public class ItemBOPScythe extends Item
     }
     
 	@Override
-	//TODO:		 getStrVsBlock
 	public float func_150893_a(ItemStack item, Block block)
 	{
 		return Items.shears.func_150893_a(item, block);

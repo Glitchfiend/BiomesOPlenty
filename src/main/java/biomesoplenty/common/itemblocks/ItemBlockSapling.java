@@ -34,7 +34,6 @@ public class ItemBlockSapling extends ItemBlock
 	@Override
 	public IIcon getIconFromDamage(int meta)
 	{
-		//TODO:	linkedBlock   getIcon
 		return field_150939_a.getIcon(0, meta);
 	}
 }

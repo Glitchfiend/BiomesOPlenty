@@ -72,7 +72,6 @@ public class BiomeGenBambooForest extends BOPOverworldBiome implements IBiomeFog
     }
 
 	@Override
-	//TODO:						getRandomWorldGenForTrees()
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
 		return random.nextInt(3) == 0 ? new WorldGenShrub(0, 0) : new WorldGenBulbTree(BOPCBlocks.bamboo, BOPCBlocks.leaves1, 0, 1, false, 10, 12, false);

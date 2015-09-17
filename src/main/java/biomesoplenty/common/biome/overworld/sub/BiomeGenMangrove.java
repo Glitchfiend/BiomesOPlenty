@@ -46,7 +46,6 @@ public class BiomeGenMangrove extends BOPSubBiome
 	}
 
 	@Override
-	//TODO:						getRandomWorldGenForTrees()
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
 		return random.nextInt(3) == 0 ? new WorldGenBOPShrub(BOPCBlocks.logs2, BOPCBlocks.colorizedLeaves1, 2, 1, Blocks.sand) : new WorldGenMangrove();

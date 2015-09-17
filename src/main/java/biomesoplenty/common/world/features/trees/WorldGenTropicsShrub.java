@@ -18,13 +18,11 @@ public class WorldGenTropicsShrub extends WorldGenAbstractTree
     @Override
     public boolean generate(World world, Random random, int x, int y, int z)
     {
-        //TODO:        isAirBlock()
         while (world.isAirBlock(x, y, z) && y > 2)
         {
             --y;
         }
 
-        //TODO:           getBlock()
         Block block = world.getBlock(x, y, z);
 
         if (block != Blocks.grass && block != Blocks.sand && block != BOPCBlocks.newBopGrass)
@@ -37,7 +35,6 @@ public class WorldGenTropicsShrub extends WorldGenAbstractTree
             {
                 for (int var8 = -2; var8 <= 2; ++var8)
                 {
-                    //TODO:     isAirBlock()                                    isAirBlock()
                     if (world.isAirBlock(x + var7, y - 1, z + var8) && world.isAirBlock(x + var7, y - 2, z + var8))
                     {
                         return false;
@@ -45,7 +42,6 @@ public class WorldGenTropicsShrub extends WorldGenAbstractTree
                 }
             }
 
-            //TODO: setBlock()
             world.setBlock(x, y, z, Blocks.dirt);
             world.setBlock(x, y + 1, z, Blocks.log, 3, 2);
             world.setBlock(x, y + 2, z, Blocks.log, 3, 2);

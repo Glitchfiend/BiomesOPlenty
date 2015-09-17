@@ -23,9 +23,7 @@ public class BiomeGenXericShrubland extends BOPOverworldBiome
 	{
 		super(id);
 		
-        //TODO: setHeight()
         this.setHeight(biomeHeight);
-        //TODO: setColor()
         this.setColor(14863781);
         this.setTemperatureRainfall(1.0F, 0.2F);
 
@@ -79,14 +77,12 @@ public class BiomeGenXericShrubland extends BOPOverworldBiome
     }
     
     @Override
-    //TODO:     getBiomeGrassColor()
     public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
     {
 		return 14863781;
 	}
 
 	@Override
-    //TODO:     getBiomeFoliageColor()
     public int getBiomeFoliageColor(int x, int y, int z)
     {
 		return 14863781;

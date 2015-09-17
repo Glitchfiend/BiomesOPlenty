@@ -37,14 +37,12 @@ public class BlockTurnip extends BlockCrops
     }
 
     @Override
-    //TODO:			getSeedItem()
     protected Item func_149866_i()
     {
         return BOPCItems.turnipSeeds;
     }
 
     @Override
-    //TODO:		  getCropItem()
     protected Item func_149865_P()
     {
         return BOPCItems.food;

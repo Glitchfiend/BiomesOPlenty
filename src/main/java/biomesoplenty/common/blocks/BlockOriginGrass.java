@@ -21,25 +21,19 @@ public class BlockOriginGrass extends Block
 
 	public BlockOriginGrass()
 	{
-		//TODO:	Material.grass
 		super(Material.grass);
 		
-		//TODO: this.setHardness
 		this.setHardness(0.6F);
 		this.setHarvestLevel("shovel", 0);
 		
-		//TODO setStepSound(Block.soundGrassFootstep)
 		this.setStepSound(Block.soundTypeGrass);
 		
-		//TODO: setTickRandomly()
 		this.setTickRandomly(true);
 		
-		//TODO: this.setCreativeTab()
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
-	//TODO:		registerIcons()
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		this.icon[0] = iconRegister.registerIcon("biomesoplenty:origingrass3");
@@ -51,7 +45,6 @@ public class BlockOriginGrass extends Block
 	}
 
 	@Override
-	//TODO:		 getIcon()
 	public IIcon getIcon(int side, int meta)
 	{
 	    if (side < 0 || side >= this.icon.length)
@@ -67,7 +60,6 @@ public class BlockOriginGrass extends Block
 	}
 
 	@Override
-	//TODO:			onBlockActivated()
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitVecX, float hitVecY, float hitVecZ)
 	{
 		if (player.getCurrentEquippedItem() != null)
@@ -76,12 +68,10 @@ public class BlockOriginGrass extends Block
 			{
 				Block tilledField = Blocks.farmland;
 
-				//TODO:													  stepSound.getPlaceSound()				stepSound.getVolume()						stepSound.getPitch()
 				world.playSoundEffect(x + 0.5F, y + 0.5F, z + 0.5F, tilledField.stepSound.func_150496_b(), (tilledField.stepSound.getVolume() + 1.0F) / 2.0F, tilledField.stepSound.getPitch() * 0.8F);
 
 				if (!world.isRemote)
 				{
-					//TODO: setBlock()
 					world.setBlock(x, y, z, tilledField, 0, 2);
 				}
 				
@@ -99,14 +89,12 @@ public class BlockOriginGrass extends Block
 	}
 
 	@Override
-	//TODO:		updateTick()
 	public void updateTick(World world, int x, int y, int z, Random random)
 	{
 		if (!world.isRemote)
 		{
 			if (world.getBlockLightValue(x, y + 1, z) < 4 && world.getBlockLightOpacity(x, y + 1, z) > 2)
 			{
-				//TODO: setBlock()
 				world.setBlock(x, y, z, Blocks.dirt, 0, 2);
 			}
 			else if (world.getBlockLightValue(x, y + 1, z) >= 9)
@@ -116,13 +104,10 @@ public class BlockOriginGrass extends Block
 					int rX = x + random.nextInt(3) - 1;
 					int rY = y + random.nextInt(5) - 3;
 					int rZ = z + random.nextInt(3) - 1;
-					//TODO:			    getBlock()
                     Block block = world.getBlock(rX, rY + 1, rZ);
 
-                    //TODO:	  getBlock()
 					if (world.getBlock(rX, rY, rZ) == Blocks.dirt && world.getBlockLightValue(rX, rY + 1, rZ) >= 4 && world.getBlockLightOpacity(rX, rY + 1, rZ) <= 2)
 					{
-						//TODO: setBlock()
 						world.setBlock(rX, rY, rZ, this, 0, 2);
 					}
 				}
@@ -131,10 +116,8 @@ public class BlockOriginGrass extends Block
 	}
 
 	@Override
-	//TODO:	   getItemDropped()
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-		//TODO:				getItemDropped()
 		return Blocks.dirt.getItemDropped(0, random, fortune);
 	}
 }

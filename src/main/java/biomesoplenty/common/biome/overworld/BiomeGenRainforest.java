@@ -26,9 +26,7 @@ public class BiomeGenRainforest extends BOPOverworldBiome
 	{
 		super(id);
 		
-        //TODO: setHeight()
         this.setHeight(biomeHeight);
-        //TODO:	setColor()
         this.setColor(1368687);
         this.setTemperatureRainfall(1.0F, 1.0F);
 		
@@ -61,7 +59,6 @@ public class BiomeGenRainforest extends BOPOverworldBiome
 	}
 	
 	@Override
-	//TODO:						getRandomWorldGenForTrees()
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
 		return random.nextInt(15) == 0 ? new WorldGenOriginalTree(Blocks.log, Blocks.leaves, 2, 2) : (random.nextInt(5) == 0 ? worldGeneratorBigTree : new WorldGenMixedTree(Blocks.log, Blocks.leaves, 0, 0, BOPCBlocks.colorizedLeaves2, 3));
@@ -85,12 +82,10 @@ public class BiomeGenRainforest extends BOPOverworldBiome
 			int y = random.nextInt(28) + 4;
 			int z = chunkZ + random.nextInt(16);
 			
-			//TODO:				getBlock()
 			Block block = world.getBlock(x, y, z);
 
 			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone) && BiomeUtils.oreWithMetaEnabled(6))
 			{
-				//TODO:	setBlock()
 				world.setBlock(x, y, z, BOPCBlocks.gemOre, 6, 2);
 			}
 		}
@@ -99,14 +94,12 @@ public class BiomeGenRainforest extends BOPOverworldBiome
 
 
 	@Override
-	//TODO:		getBiomeGrassColor()
 	public int getBiomeGrassColor(int x, int y, int z)
 	{
 		return 1759340;
 	}
 
 	@Override
-	//TODO:		getBiomeFoliageColor()
 	public int getBiomeFoliageColor(int x, int y, int z)
 	{
 		return 1368687;

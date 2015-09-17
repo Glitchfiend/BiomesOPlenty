@@ -110,10 +110,8 @@ public class EntityRosester extends EntityChicken
             int k = MathHelper.floor_double(this.posY);
             int l = MathHelper.floor_double(this.posZ + (double)((float)(i / 2 % 2 * 2 - 1) * 0.25F));
 
-            //TODO:										isAirBlock()														getFloatTemperature()								canPlaceBlockAt()							
             if (!this.worldObj.isRemote && this.worldObj.isAirBlock(j, k, l) && this.worldObj.getBiomeGenForCoords(j, l).getFloatTemperature(j, k, l) > 0.3F && Blocks.red_flower.canPlaceBlockAt(this.worldObj, j, k, l) && this.worldObj.rand.nextInt(300) == 0)
             {
-            	//TODO:		  setBlock()
                 this.worldObj.setBlock(j, k, l, Blocks.red_flower, 0, 2);
             }
         }
@@ -141,14 +139,12 @@ public class EntityRosester extends EntityChicken
 	}
 
 	@Override
-	//TODO:			playStepSound()
 	protected void func_145780_a(int par1, int par2, int par3, Block block)
 	{
 		this.playSound("mob.chicken.step", 0.15F, 1.0F);
 	}
 
 	@Override
-	//TODO:			getDropItem()
 	protected Item getDropItem()
 	{
 		return Items.feather;
@@ -166,12 +162,10 @@ public class EntityRosester extends EntityChicken
 
 		if (this.isBurning())
 		{
-			//TODO: dropItem()
 			this.dropItem(Items.cooked_chicken, 1);
 		}
 		else
 		{
-			//TODO: dropItem()
 			this.dropItem(Items.chicken, 1);
 		}
 	}

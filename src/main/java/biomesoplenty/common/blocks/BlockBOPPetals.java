@@ -24,22 +24,16 @@ public class BlockBOPPetals extends BlockLeavesBase implements IShearable
 
 	public BlockBOPPetals()
 	{
-    	//TODO:	Material.leaves
         super(Material.leaves, false);
 		
-		//TODO: setTickRandomly()
 		this.setTickRandomly(true);
-		//TODO: this.setHardness
 		this.setHardness(0.2F);
-		//TODO setStepSound(Block.soundGrassFootstep)
 		this.setStepSound(Block.soundTypeGrass);
 
-		//TODO: this.setCreativeTab()
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
-	//TODO:		registerIcons()
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		textures = new IIcon[petals.length][2];
@@ -51,7 +45,6 @@ public class BlockBOPPetals extends BlockLeavesBase implements IShearable
 	}
 
 	@Override
-	//TODO:		 getIcon()
 	public IIcon getIcon(int side, int meta)
 	{
 		return textures[meta < 0 || meta >= textures.length ? 0 : meta][0];
@@ -63,7 +56,6 @@ public class BlockBOPPetals extends BlockLeavesBase implements IShearable
 	}
 
 	@Override
-	//TODO:		getSubBlocks()
 	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
 	{
 		for (int i = 0; i < textures.length; ++i) {
@@ -72,26 +64,21 @@ public class BlockBOPPetals extends BlockLeavesBase implements IShearable
 	}
 
 	@Override
-	//TODO:	   getItemDropped()
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
 		if (metadata == 0)
-			//TODO:		getItemFromBlock()
 			return Item.getItemFromBlock(Blocks.red_flower);
 		else
-			//TODO:     getItemFromBlock()
 			return Item.getItemFromBlock(Blocks.yellow_flower);
 	}
 
 	@Override
-	//TODO     damageDropped()
 	public int damageDropped(int meta)
 	{
 		return meta & 15;
 	}
 
 	@Override
-	//TODO:    quantityDropped()
 	public int quantityDropped(Random random)
 	{
 		return random.nextInt(20) == 0 ? 1 : 0;

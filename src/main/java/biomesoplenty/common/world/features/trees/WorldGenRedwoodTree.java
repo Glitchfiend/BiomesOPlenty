@@ -155,7 +155,6 @@ public class WorldGenRedwoodTree extends WorldGenAbstractTree
 
                                     if (block1.isAir(world, i2, k1, k2) || block1.isLeaves(world, i2, k1, k2))
                                     {
-                                        //TODO: setBlockAndMetadata()
                                         //this.setBlockAndNotifyAdequately(world, i2, k1, k2, this.leaves, this.leavesMeta);
                                         this.setBlockAndNotifyAdequately(world, i2, k1 + 6, k2, this.leaves, this.leavesMeta);
                                         this.setBlockAndNotifyAdequately(world, i2, k1 + 10, k2, this.leaves, this.leavesMeta);

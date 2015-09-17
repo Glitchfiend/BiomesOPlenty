@@ -18,13 +18,11 @@ public class WorldGenPoplar extends WorldGenAbstractTree
     @Override
     public boolean generate(World world, Random random, int x, int y, int z)
     {
-        //TODO:     isAirBlock()
         while (world.isAirBlock(x, y, z) && y > 2)
         {
             --y;
         }
 
-        //TODO:           getBlock()
         Block block = world.getBlock(x, y, z);
 
         if (block != Blocks.grass && block != BOPCBlocks.newBopGrass)
@@ -37,13 +35,11 @@ public class WorldGenPoplar extends WorldGenAbstractTree
             {
                 for (int var8 = -2; var8 <= 2; ++var8)
                 {
-                    //TODO:  isAirBlock()                                   isAirBlock()                                            isAirBlock()
                     if (world.isAirBlock(x + var7, y - 1, z + var8) && world.isAirBlock(x + var7, y - 2, z + var8) && !world.isAirBlock(x + var7, y, z + var8))
                         return false;
                 }
             }
 
-            //TODO: setBlock()
             world.setBlock(x, y, z, Blocks.dirt);
             world.setBlock(x, y + 1, z, Blocks.log2, 1, 2);
             world.setBlock(x, y + 2, z, Blocks.log2, 1, 2);

@@ -130,7 +130,6 @@ public class WorldGenRainforestTree1 extends WorldGenAbstractTree
 
                         if (block.isAir(world, x, y + k1, z) || block.isLeaves(world, x, y + k1, z))
                         {
-                            //TODO: setBlock()
                             this.setBlockAndNotifyAdequately(world, x, y + k1, z, this.wood, this.woodMeta);
                             this.setBlockAndNotifyAdequately(world, x - 3, y + (l - 3), z, this.wood, this.woodMeta + 4);
                             this.setBlockAndNotifyAdequately(world, x + 3, y + (l - 3), z, this.wood, this.woodMeta + 4);

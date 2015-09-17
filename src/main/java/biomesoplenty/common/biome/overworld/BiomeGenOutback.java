@@ -21,9 +21,7 @@ public class BiomeGenOutback extends BOPOverworldBiome
 	{
 		super(id);
 		
-        //TODO: setHeight()
         this.setHeight(biomeHeight);
-        //TODO: setColor()
         this.setColor(10843716);
         this.setTemperatureRainfall(1.3F, 0.05F);
 
@@ -44,7 +42,6 @@ public class BiomeGenOutback extends BOPOverworldBiome
 	}
 	
     @Override
-    //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
         return random.nextInt(3) == 0 ? new WorldGenBOPShrub(Blocks.log2, Blocks.leaves2, 0, 0, BOPCBlocks.hardSand) : 

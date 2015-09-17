@@ -31,7 +31,6 @@ public class PositionUtils
 		}
 		Vec3 vec31 = vec3.addVector((double)f7 * d3, (double)f6 * d3, (double)f8 * d3);
 
-		//TODO: 	 rayTraceBlocks_do_do()?
 		return world.func_147447_a(vec3, vec31, rayTrace, !rayTrace, false);
 	}
 }

@@ -62,7 +62,6 @@ public class ItemBlockFlower extends ItemBlock
 		if (meta == 13)
 			return textures[0];
 		else
-			//TODO: block		  getIcon()
 			return field_150939_a.getIcon(0, meta);
 	}
 

@@ -60,7 +60,6 @@ public class BiomeGenChaparral extends BOPOverworldBiome
     }
     
     @Override
-    //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
         return random.nextInt(2) == 0 ? new WorldGenMiniShrub(Blocks.log, Blocks.leaves, 0, 0, Blocks.grass, Blocks.sand) : (random.nextInt(5) == 0 ?  new WorldGenBOPShrub(Blocks.log, Blocks.leaves, 0, 0, Blocks.grass, Blocks.sand) : new WorldGenChaparral3());
@@ -78,7 +77,6 @@ public class BiomeGenChaparral extends BOPOverworldBiome
             int y = random.nextInt(28) + 4;
             int z = chunkZ + random.nextInt(16);
 
-            //TODO:             getBlock()
             Block block = world.getBlock(x, y, z);
 
             if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone) && BiomeUtils.oreWithMetaEnabled(4))
@@ -89,7 +87,6 @@ public class BiomeGenChaparral extends BOPOverworldBiome
     }
 
     @Override
-    //TODO:     getBiomeGrassColor()
     public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
     {
         return 12638301;

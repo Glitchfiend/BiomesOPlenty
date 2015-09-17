@@ -24,16 +24,13 @@ public class BlockPoisonFluid extends BlockFluidClassic
 
 	public BlockPoisonFluid()
 	{
-		//TODO:											  water
 		super(FluidRegistry.getFluid("poison"), Material.water);
 
 		this.quantaPerBlock = 4;
-		//TODO: setLightOpacity()
 		this.setLightOpacity(3);
 	}
 
 	@Override
-	//TODO:		onEntityCollidedWithBlock()
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
@@ -46,7 +43,6 @@ public class BlockPoisonFluid extends BlockFluidClassic
 	}
 
 	@Override
-	//TODO:		registerIcons()
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		liquidPoisonStillIcon = iconRegister.registerIcon("biomesoplenty:liquid_poison_still");
@@ -54,7 +50,6 @@ public class BlockPoisonFluid extends BlockFluidClassic
 	}
 
 	@Override
-	//TODO:		 getIcon()
 	public IIcon getIcon(int side, int meta)
 	{
 		return side != 0 && side != 1 ? liquidPoisonFlowingIcon : liquidPoisonStillIcon;

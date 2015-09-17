@@ -12,7 +12,6 @@ public class WorldProviderSurfaceBOP extends WorldProviderSurface
 	public boolean canCoordinateBeSpawn(int x, int z)
     {
     	int y = getTopBlockCoord(this.worldObj, x, z);
-    	//TODO:							getBlock()
     	Block topBlock = this.worldObj.getBlock(x, y, z);
     	boolean flag = topBlock == Blocks.sand || topBlock == Blocks.stone || topBlock == Blocks.snow_layer && this.worldChunkMgr.getBiomesToSpawnIn().contains(this.worldObj.getBiomeGenForCoordsBody(x, z));
     	boolean isClear = true;

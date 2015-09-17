@@ -47,7 +47,6 @@ public class ItemBlockBOPLilypad extends ItemBlock
 	@Override
 	public IIcon getIconFromDamage(int meta)
 	{
-			//TODO: block		  getIcon()
 			return field_150939_a.getIcon(0, meta);
 	}
 	
@@ -72,10 +71,8 @@ public class ItemBlockBOPLilypad extends ItemBlock
 				if (!player.canPlayerEdit(i, j, k, movingobjectposition.sideHit, itemStack))
 					return itemStack;
 
-				//TODO:	  getBlock()			getMaterial()						water															isAirBlock()
 				if (world.getBlock(i, j, k).getMaterial() == Material.water && world.isAirBlock(i, j + 1, k))
 				{
-					//TODO:	setBlock()				linkedBlock
 					world.setBlock(i, j + 1, k, field_150939_a, itemStack.getItemDamage(), 2);
 
 					if (!player.capabilities.isCreativeMode)

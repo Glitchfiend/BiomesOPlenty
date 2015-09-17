@@ -57,7 +57,6 @@ public class BonemealEventHandler
 
 				if (world.rand.nextFloat() < chance)
 				{
-					//TODO:											  growTree()
 					((BlockBOPSapling)BOPCBlocks.saplings).func_149878_d(event.world, x, y, z, event.world.rand);
 				}
 			}
@@ -70,7 +69,6 @@ public class BonemealEventHandler
 			{
 				if (world.rand.nextFloat() < 0.45D)
 				{
-					//TODO:											  					growTree()
 					((BlockBOPColorizedSapling)BOPCBlocks.colorizedSaplings).func_149878_d(event.world, x, y, z, event.world.rand);
 				}
 			}
@@ -132,7 +130,6 @@ public class BonemealEventHandler
 			{
 				if (!event.world.isRemote)
 				{
-					//TODO:									   fertilize
 					((BlockCrops)BOPCBlocks.turnip).func_149863_m(event.world, x, y, z);
 				}
 			}
@@ -159,7 +156,6 @@ public class BonemealEventHandler
 
 						if (!event.world.isRemote)
 						{
-							//TODO:     setBlock()
 							event.world.setBlock(x, var14, z, BOPCBlocks.plants, 4, 2);
 						}
 					}

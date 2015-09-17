@@ -22,9 +22,7 @@ public class BiomeGenTundra extends BOPOverworldBiome
     {
         super(id);
         
-        //TODO: setHeight()
         this.setHeight(biomeHeight);
-        //TODO: setColor()
         this.setColor(11371606);
         this.setTemperatureRainfall(0.2F, 0.5F);
 
@@ -55,7 +53,6 @@ public class BiomeGenTundra extends BOPOverworldBiome
     }
 
     @Override
-    //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
         return new WorldGenShrub(0, 0);

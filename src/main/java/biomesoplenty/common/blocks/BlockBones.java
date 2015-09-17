@@ -23,21 +23,16 @@ public class BlockBones extends Block
 
 	public BlockBones()
 	{
-		//TODO: Material.rock
 		super(Material.rock);
 		
-		//TODO: this.setHardness
 		this.setHardness(3.0F);
 		
-		//TODO: this.setResistance
 		this.setResistance(5.0F);
 		
-		//TODO: this.setCreativeTab()
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
-	//TODO:		registerIcons()
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		textures = new IIcon[boneTypes.length];
@@ -49,7 +44,6 @@ public class BlockBones extends Block
 	}
 
 	@Override
-	//TODO:		 getIcon()
 	public IIcon getIcon(int side, int meta)
 	{
 		if (meta == 5 || meta == 6) {
@@ -64,7 +58,6 @@ public class BlockBones extends Block
 	}
 
 	@Override
-	//TODO: getCollisionBoundingBoxFromPool
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
@@ -95,7 +88,6 @@ public class BlockBones extends Block
 	}
 
 	@Override
-	//TODO:				 getSelectedBoundingBoxFromPool()
 	public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
@@ -126,7 +118,6 @@ public class BlockBones extends Block
 	}
 
 	@Override
-	//TODO:     setBlockBoundsBasedOnState()
 	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
@@ -190,12 +181,10 @@ public class BlockBones extends Block
 			break;
 		}
 
-		//TODO: this.setBlockBounds()
 		this.setBlockBounds(minX, minY, minZ, maxX, maxY, maxZ);
 	}
 
 	@Override
-	//TODO:	   getDamageValue()
 	public int getDamageValue(World world, int x, int y, int z) 
 	{
 		int meta = world.getBlockMetadata(x, y, z);
@@ -209,7 +198,6 @@ public class BlockBones extends Block
 	}
 
 	@Override
-	//TODO:		getSubBlocks()
 	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
 	{
 		for (int i = 0; i < boneTypes.length; ++i) {
@@ -218,35 +206,30 @@ public class BlockBones extends Block
 	}
 
 	@Override
-	//TODO:		   isOpaqueCube()
 	public boolean isOpaqueCube()
 	{
 		return false;
 	}
 
 	@Override
-	//TODO:		   renderAsNormalBlock()
     public boolean renderAsNormalBlock()
     {
         return false;
     }
 
 	@Override
-	//TODO		getRenderType()
 	public int getRenderType()
 	{
 		return RenderUtils.bonesModel;
 	}
 
 	@Override
-	//TODO			shouldSideBeRendered
     public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side)
 	{
 		return true;
 	}
 
 	@Override
-	//TODO     damageDropped()
 	public int damageDropped(int meta)
 	{
 		if (meta == 3 || meta == 4) 

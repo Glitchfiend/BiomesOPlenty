@@ -22,7 +22,6 @@ public class BiomeGenDeciduousForest extends BOPOverworldBiome
 		super(id);
 		
         //this.setHeight(biomeHeight); Not set?
-        //TODO:	setColor()
         this.setColor(12695369);
         this.setTemperatureRainfall(0.6F, 0.8F);
 		
@@ -51,7 +50,6 @@ public class BiomeGenDeciduousForest extends BOPOverworldBiome
 	}
 
 	@Override
-	//TODO:						getRandomWorldGenForTrees()
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
 		return random.nextInt(6) == 0 ? new WorldGenShrub(2,2) : (random.nextInt(3) == 0 ? new WorldGenShrub(0,0) : new WorldGenBulbTree(Blocks.log, Blocks.leaves, 0, 0, false, 10, 15, false));

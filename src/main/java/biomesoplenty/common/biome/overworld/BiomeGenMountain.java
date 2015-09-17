@@ -49,7 +49,6 @@ public class BiomeGenMountain extends BOPOverworldBiome
 	}
 
 	@Override
-	//TODO:						getRandomWorldGenForTrees()
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
 		return random.nextInt(15) == 0 ? new WorldGenOriginalTree(Blocks.log, Blocks.leaves, 0, 0, 0) : (random.nextInt(4) == 0 ? new WorldGenPineTree() : worldGeneratorTrees);

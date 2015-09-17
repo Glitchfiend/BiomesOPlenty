@@ -23,9 +23,7 @@ public class BiomeGenThicket extends BOPOverworldBiome
 	{
 		super(id);
 		
-        //TODO: setHeight()
         this.setHeight(biomeHeight);
-        //TODO:	setColor()
         this.setColor(7248193);
         this.setTemperatureRainfall(0.6F, 0.2F);
 
@@ -43,7 +41,6 @@ public class BiomeGenThicket extends BOPOverworldBiome
 	}
 
 	@Override
-	//TODO:						getRandomWorldGenForTrees()
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
 		return random.nextInt(5) == 0 ? worldGeneratorTrees : new WorldGenShrub(0, 0);
@@ -77,14 +74,12 @@ public class BiomeGenThicket extends BOPOverworldBiome
 	}
 	
 	@Override
-    //TODO:     getBiomeGrassColor()
     public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
     {
 		return 11049591;
 	}
 
 	@Override
-    //TODO:     getBiomeFoliageColor()
     public int getBiomeFoliageColor(int x, int y, int z)
     {
 		return 10854765;

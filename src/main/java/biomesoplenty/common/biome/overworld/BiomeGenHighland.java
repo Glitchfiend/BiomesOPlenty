@@ -49,12 +49,10 @@ public class BiomeGenHighland extends BOPOverworldBiome
 			int y = random.nextInt(28) + 4;
 			int z = chunkZ + random.nextInt(16);
 			
-			//TODO:				getBlock()
 			Block block = world.getBlock(x, y, z);
 
 			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
 			{
-				//TODO:	setBlock()
 				world.setBlock(x, y, z, Blocks.emerald_ore, 0, 2);
 			}
 		}

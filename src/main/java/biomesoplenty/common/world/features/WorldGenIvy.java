@@ -18,15 +18,12 @@ public class WorldGenIvy extends WorldGeneratorBOP
 
 		for (int var7 = z; y < 128; ++y)
 		{
-			//TODO:	  isAirBlock()
 			if (world.isAirBlock(x, y, z))
 			{
 				for (int var8 = 2; var8 <= 5; ++var8)
 				{
-					//TODO:							canPlaceBlockOnSide()
 					if (BOPCBlocks.ivy.canPlaceBlockOnSide(world, x, y, z, var8))
 					{
-						//TODO:	setBlock()
 						world.setBlock(x, y, z, BOPCBlocks.ivy, 1 << Direction.facingToDirection[Facing.oppositeSide[var8]], 2);
 						break;
 					}

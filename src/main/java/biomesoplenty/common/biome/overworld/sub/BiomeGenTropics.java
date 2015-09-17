@@ -29,9 +29,7 @@ public class BiomeGenTropics extends BOPSubBiome
         this.zoom = 0.01D;
 		this.threshold = 0.5D;
         
-        //TODO: setHeight()
         this.setHeight(biomeHeight);
-        //TODO: setColor()
         this.setColor(2211330);
         this.setTemperatureRainfall(1.2F, 1.0F);
         
@@ -67,7 +65,6 @@ public class BiomeGenTropics extends BOPSubBiome
     }
     
     @Override
-    //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
         return random.nextInt(2) == 0 ? new WorldGenPalmTree1() : 
@@ -87,12 +84,10 @@ public class BiomeGenTropics extends BOPSubBiome
             int y = random.nextInt(28) + 4;
             int z = chunkZ + random.nextInt(16);
             
-            //TODO:             getBlock()
             Block block = world.getBlock(x, y, z);
 
             if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone) && BiomeUtils.oreWithMetaEnabled(12))
             {
-                //TODO: setBlock()
                 world.setBlock(x, y, z, BOPCBlocks.gemOre, 12, 2);
             }
         }

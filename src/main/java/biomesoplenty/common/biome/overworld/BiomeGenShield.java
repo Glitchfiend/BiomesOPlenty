@@ -52,7 +52,6 @@ public class BiomeGenShield extends BOPOverworldBiome
 	}
 
 	@Override
-    //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
 		return random.nextInt(2) == 0 ? new WorldGenShrub(0, 0) : 

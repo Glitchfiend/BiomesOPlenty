@@ -77,7 +77,6 @@ public class BiomeGenArctic extends BOPOverworldBiome implements IBiomeFog
     @Override
     public float getFogDensity(int x, int y, int z)
     {
-        // TODO Auto-generated method stub
         return 0.4F;
     }
     

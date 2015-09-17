@@ -25,9 +25,7 @@ public class BiomeGenGrove extends BOPOverworldBiome
 	{
 		super(id);
 		
-        //TODO: setHeight()
         this.setHeight(biomeHeight);
-        //TODO: setColor()
         this.setColor(5341009);
         this.setTemperatureRainfall(0.7F, 0.8F);
 
@@ -56,7 +54,6 @@ public class BiomeGenGrove extends BOPOverworldBiome
 	}
 
 	@Override
-    //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
 		return random.nextInt(2) == 0 ? new WorldGenMiniShrub(Blocks.log, Blocks.leaves, 0, 0, Blocks.grass, Blocks.sand) : random.nextInt(3) == 0 ? new WorldGenPoplar2() : new WorldGenPoplar();

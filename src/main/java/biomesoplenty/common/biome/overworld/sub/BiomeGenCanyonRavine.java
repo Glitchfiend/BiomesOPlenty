@@ -24,9 +24,7 @@ public class BiomeGenCanyonRavine extends BOPSubBiome
 		this.zoom = 0.25D;
 		this.threshold = 0.25D;
 		
-        //TODO: setHeight()
         this.setHeight(biomeHeight);
-        //TODO:	setColor()
         this.setColor(9337689);
         this.setTemperatureRainfall(1.0F, 0.3F);
 
@@ -49,7 +47,6 @@ public class BiomeGenCanyonRavine extends BOPSubBiome
 	}
 
 	@Override
-	//TODO:						getRandomWorldGenForTrees()
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
 		return random.nextInt(5) == 0 ? new WorldGenPineTree() : new WorldGenBOPShrub(Blocks.log2, Blocks.leaves2, 0, 0, 64, 256, BOPCBlocks.hardDirt);
@@ -77,14 +74,12 @@ public class BiomeGenCanyonRavine extends BOPSubBiome
 	}
 
 	@Override
-	//TODO:		getBiomeFoliageColor()
 	public int getBiomeFoliageColor(int x, int y, int z)
 	{
 		return 11123300;
 	}
 
 	@Override
-	//TODO:		getBiomeGrassColor()
     public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
     {
 		

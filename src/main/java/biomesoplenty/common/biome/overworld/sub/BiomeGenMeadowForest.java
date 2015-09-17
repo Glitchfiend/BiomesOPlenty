@@ -23,7 +23,6 @@ public class BiomeGenMeadowForest extends BOPSubBiome
 		this.zoom = 0.25D;
 		this.threshold = 0.25D;
 		
-        //TODO: setColor()
         this.setColor(5543515);
         this.setTemperatureRainfall(0.7F, 0.7F);
 
@@ -56,7 +55,6 @@ public class BiomeGenMeadowForest extends BOPSubBiome
 	}
 	
     @Override
-    //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
         return new WorldGenBOPTaiga2(Blocks.log, Blocks.leaves, 1, 1, false, 6, 4, 0, 4);
@@ -84,14 +82,12 @@ public class BiomeGenMeadowForest extends BOPSubBiome
     }
 
     @Override
-    //TODO:     getBiomeGrassColor()
     public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
     {
         return 6533741;
     }
 
     @Override
-    //TODO:     getBiomeFoliageColor()
     public int getBiomeFoliageColor(int x, int y, int z)
     {
         return 6533741;

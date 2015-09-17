@@ -55,7 +55,6 @@ public class BiomeGenSeasonalForestClearing extends BOPSubBiome implements IBiom
     }
 
     @Override
-    //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
         return random.nextInt(2) == 0 ?  new WorldGenOriginalTree(Blocks.log2, BOPCBlocks.leaves2, 1, 3, false, 5, 3, false)
@@ -111,7 +110,6 @@ public class BiomeGenSeasonalForestClearing extends BOPSubBiome implements IBiom
     @Override
     public float getFogDensity(int x, int y, int z)
     {
-        // TODO Auto-generated method stub
         return 1.0F;
     }
     

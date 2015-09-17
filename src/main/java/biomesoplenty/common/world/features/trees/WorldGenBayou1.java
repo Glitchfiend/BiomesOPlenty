@@ -115,7 +115,6 @@ public class WorldGenBayou1 extends WorldGenAbstractTree
                     block1.onPlantGrow(world, x, y - 1, z + 1, x, y, z + 1);
                     block1.onPlantGrow(world, x, y - 1, z - 1, x, y, z - 1);
 
-                    //TODO: setBlockAndMetadata()
                     this.setBlockAndNotifyAdequately(world, x - 1, y, z, this.wood, this.woodMeta);
                     this.setBlockAndNotifyAdequately(world, x + 1, y, z, this.wood, this.woodMeta);
                     this.setBlockAndNotifyAdequately(world, x, y, z - 1, this.wood, this.woodMeta);
@@ -152,7 +151,6 @@ public class WorldGenBayou1 extends WorldGenAbstractTree
 
                                 if ((Math.abs(l1) != k1 || Math.abs(j2) != k1 || random.nextInt(2) != 0 && j1 != 0) && world.getBlock(l2, k2, i2).canBeReplacedByLeaves(world, l2, k2, i2))
                                 {
-                                    //TODO: setBlockAndMetadata()
                                     this.setBlockAndNotifyAdequately(world, l2, k2, i2, this.leaves, this.leavesMeta);
                                 }
                             }
@@ -165,7 +163,6 @@ public class WorldGenBayou1 extends WorldGenAbstractTree
 
                         if (block6.isAir(world, x, y + k2, z) || block6.isLeaves(world, x, y + k2, z) || block6 == Blocks.flowing_water || block6 == Blocks.water)
                         {
-                            //TODO: setBlockAndMetadata()
                             this.setBlockAndNotifyAdequately(world, x, y + k2, z, this.wood, this.woodMeta);
                         }
                     }
@@ -221,7 +218,6 @@ public class WorldGenBayou1 extends WorldGenAbstractTree
 
     private void generateVines(World world, int x, int y, int z, int flag)
     {
-        //TODO: setBlockAndMetadata()
         this.setBlockAndNotifyAdequately(world, x, y, z, BOPCBlocks.willow, flag);
         int i1 = 4;
 
@@ -229,13 +225,11 @@ public class WorldGenBayou1 extends WorldGenAbstractTree
         {
             --y;
 
-            //TODO:     getBlock()
             if (!(world.getBlock(x, y, z).isAir(world, x, y, z)) || i1 <= 0)
             {
                 return;
             }
 
-            //TODO: setBlockAndMetadata()
             this.setBlockAndNotifyAdequately(world, x, y, z, BOPCBlocks.willow, flag);
             --i1;
         }
