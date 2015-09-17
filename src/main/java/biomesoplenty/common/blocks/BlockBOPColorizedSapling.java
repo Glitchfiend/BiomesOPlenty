@@ -112,7 +112,6 @@ public class BlockBOPColorizedSapling extends BlockSapling
 	}
 
 	@Override
-	//TODO:		growTree()
 	public void func_149878_d(World world, int x, int y, int z, Random random)
 	{
 		int meta = world.getBlockMetadata(x, y, z) & 7;

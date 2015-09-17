@@ -80,7 +80,6 @@ public class BlockBOPFruit extends BOPBlockWorldDecor
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	//TODO:		getSubBlocks()
 	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
 	{
 		//for (int i = 0; i < fruit.length; ++i)

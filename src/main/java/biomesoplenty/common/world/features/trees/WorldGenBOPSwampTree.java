@@ -138,7 +138,6 @@ public class WorldGenBOPSwampTree extends WorldGenAbstractTree
 
                                 if ((Math.abs(l1) != k1 || Math.abs(j2) != k1 || random.nextInt(2) != 0 && j1 != 0) && world.getBlock(l2, k2, i2).canBeReplacedByLeaves(world, l2, k2, i2))
                                 {
-                                	//TODO:	setBlockAndMetadata()
                                     this.setBlockAndNotifyAdequately(world, l2, k2, i2, this.leaves, this.leavesMeta);
                                 }
                             }
@@ -151,7 +150,6 @@ public class WorldGenBOPSwampTree extends WorldGenAbstractTree
 
                         if (block2.isAir(world, x, y + k2, z) || block2.isLeaves(world, x, y + k2, z) || block2 == Blocks.flowing_water || block2 == Blocks.water)
                         {
-                        	//TODO:	setBlockAndMetadata()
                             this.setBlockAndNotifyAdequately(world, x, y + k2, z, this.wood, this.woodMeta);
                         }
                     }

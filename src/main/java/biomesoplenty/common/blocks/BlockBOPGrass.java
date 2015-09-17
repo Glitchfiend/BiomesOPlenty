@@ -25,26 +25,20 @@ public class BlockBOPGrass extends Block
 
 	public BlockBOPGrass()
 	{
-		//TODO:	Material.grass
 		super(Material.grass);
 		
-		//TODO: this.setHardness
 		this.setHardness(0.6F);
 		this.setHarvestLevel("shovel", 0);
 		
-		//TODO: setTickRandomly()
 		this.setTickRandomly(true);
-		//TODO setStepSound(Block.soundGrassFootstep)
 		this.setStepSound(Block.soundTypeGrass);
 
 		//setLightValue(0.25F);
 
-		//TODO: this.setCreativeTab()
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
-	//TODO:		registerIcons()
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		this.icon[0][0] = iconRegister.registerIcon("biomesoplenty:spectralmoss_bottom");
@@ -63,7 +57,6 @@ public class BlockBOPGrass extends Block
 	}
 
 	@Override
-	//TODO:		 getIcon()
 	public IIcon getIcon(int side, int meta)
 	{
 		if (meta < 0 || meta >= this.icon.length) meta = 1;
@@ -73,7 +66,6 @@ public class BlockBOPGrass extends Block
 	}
 
 	@Override
-	//TODO:		getSubBlocks()
 	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
 	{
 		for (int i = 0; i < types.length; ++i) {
@@ -82,7 +74,6 @@ public class BlockBOPGrass extends Block
 	}
 
 	@Override
-	//TODO     damageDropped()
 	public int damageDropped(int meta)
 	{
 		return meta;
@@ -104,7 +95,6 @@ public class BlockBOPGrass extends Block
 	}
 
 	@Override
-	//TODO:		onBlockPlaced()
 	public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta)
 	{
 		if (meta == 0)
@@ -125,7 +115,6 @@ public class BlockBOPGrass extends Block
 	}
 
 	@Override
-	//TODO: 	randomDisplayTick()
 	public void randomDisplayTick(World world, int x, int y, int z, Random random)
 	{
 		if (!world.isRemote)
@@ -146,16 +135,13 @@ public class BlockBOPGrass extends Block
 	}
 
 	@Override
-	//TODO:		updateTick()
 	public void updateTick(World world, int x, int y, int z, Random random)
 	{
 		if (world.getBlockMetadata(x, y, z) == 0)
 		{
 			if (world.provider.isHellWorld)
 			{
-				//TODO: setBlock()
 				world.setBlock(x, y + 1, z, Blocks.fire, 0, 2);
-				//TODO: setBlock()
 				world.setBlock(x, y, z, this, 1, 2);
 			}
 
@@ -163,7 +149,6 @@ public class BlockBOPGrass extends Block
 			{
 				if (world.getBlockLightValue(x, y + 1, z) < 4 && world.getBlockLightOpacity(x, y + 1, z) > 2)
 				{
-					//TODO: setBlock()
 					world.setBlock(x, y, z, Blocks.end_stone, 0, 2);
 				}
 				else if (world.getBlockLightValue(x, y + 1, z) >= 9)
@@ -173,13 +158,10 @@ public class BlockBOPGrass extends Block
 						int rX = x + random.nextInt(3) - 1;
 						int rY = y + random.nextInt(5) - 3;
 						int rZ = z + random.nextInt(3) - 1;
-						//TODO:			    getBlock()
 	                    Block block = world.getBlock(rX, rY + 1, rZ);
 
-	                    //TODO:	  getBlock()
 						if (world.getBlock(rX, rY, rZ) == Blocks.end_stone && world.getBlockLightValue(rX, rY + 1, rZ) >= 4 && world.getBlockLightOpacity(rX, rY + 1, rZ) <= 2)
 						{
-							//TODO: setBlock()
 							world.setBlock(rX, rY, rZ, BOPCBlocks.bopGrass, 0, 2);
 						}
 					}
@@ -189,7 +171,6 @@ public class BlockBOPGrass extends Block
 	}
 
 	@Override
-	//TODO: getCollisionBoundingBoxFromPool
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
 	{
 		if (world.getBlockMetadata(x, y, z) == 1)
@@ -198,12 +179,10 @@ public class BlockBOPGrass extends Block
 			return AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y + 1 - f, z + 1);
 		}
 
-		//TODO:		getCollisionBoundingBoxFromPool()
 		return super.getCollisionBoundingBoxFromPool(world, x, y, z);
 	}
 
 	@Override
-	//TODO:		onEntityCollidedWithBlock()
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
 	{
 		if (world.getBlockMetadata(x, y, z) == 1) {
@@ -212,10 +191,8 @@ public class BlockBOPGrass extends Block
 	}
 
 	@Override
-	//TODO:	   getItemDropped()
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-		//TODO:						getItemFromBlock()									getItemFromBlock()
 		return metadata == 0 ? Item.getItemFromBlock(Blocks.end_stone) : Item.getItemFromBlock(Blocks.dirt);
 	}
 

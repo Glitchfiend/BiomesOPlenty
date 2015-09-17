@@ -105,7 +105,6 @@ public class BlockBOPMushroom extends BlockBush
 	
 	public boolean isValidPosition(World world, int x, int y, int z, int metadata)
 	{
-		//TODO:					  getBlock()
 		Block block = world.getBlock(x, y - 1, z);
 		
 		switch (metadata)

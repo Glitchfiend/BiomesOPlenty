@@ -47,7 +47,6 @@ public class ItemBlockFruit extends ItemBlock
 	@Override
 	public IIcon getIconFromDamage(int meta)
 	{
-			//TODO: block		  getIcon()
 			return field_150939_a.getIcon(0, meta);
 	}
 	
@@ -75,12 +74,10 @@ public class ItemBlockFruit extends ItemBlock
 				if (!player.canPlayerEdit(i, j, k, movingobjectposition.sideHit, itemStack))
 					return itemStack;
 
-				//TODO:	  getBlock()			getMaterial()						water															isAirBlock()
 				if (world.getBlock(i, j, k).getMaterial() == Material.water && world.getBlockMetadata(i, j, k) == 0 && world.isAirBlock(i, j + 1, k))
 				{
 					if (world.getBlock(i, j - 1, k).getMaterial() != Material.water)
 					{
-						//TODO:	setBlock()				linkedBlock
 						world.setBlock(i, j + 1, k, field_150939_a, 14, 2);
 	
 						if (!player.capabilities.isCreativeMode)

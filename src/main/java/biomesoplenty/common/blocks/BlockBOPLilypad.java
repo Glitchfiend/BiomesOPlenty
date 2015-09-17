@@ -117,7 +117,6 @@ public class BlockBOPLilypad extends BOPBlockWorldDecor
 	}
     
     @Override
-	//TODO     damageDropped()
 	public int damageDropped(int meta)
 	{
 		return meta;

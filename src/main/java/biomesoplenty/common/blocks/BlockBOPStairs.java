@@ -39,29 +39,22 @@ public class BlockBOPStairs extends BlockStairs
 
 		if (isWoodCategory(category.toString())) 
 		{
-			//TODO: this.setHardness
 			this.setHardness(2.0F);
 
-			//TODO setStepSound(Block.soundWoodFootstep)
 			this.setStepSound(Block.soundTypeWood);
 		}
 		else 
 		{
-			//TODO: this.setHardness
 			this.setHardness(3.0F);
 
-			//TODO 	setStepSound(Block.soundStoneFootstep)
 			this.setStepSound(Block.soundTypePiston);
 		}
-		//TODO: useNeighborBrightness?
 		useNeighborBrightness = true;
 
-		//TODO: this.setCreativeTab()
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
-	//TODO:		registerIcons()
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		if (isStoneCategory(category.toString()))
@@ -133,7 +126,6 @@ public class BlockBOPStairs extends BlockStairs
 	}
 
 	@Override
-	//TODO:		 getIcon()
 	public IIcon getIcon(int side, int meta)
 	{
 		int adjCat = category.ordinal();

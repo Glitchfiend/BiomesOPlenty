@@ -44,7 +44,6 @@ public class BiomeGenDenseForest extends BOPOverworldBiome
     }
 
     @Override
-    //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
         return random.nextInt(2) == 0 ? new WorldGenBOPHugeTree(Blocks.log, Blocks.leaves, 0, 0) : new WorldGenBOPShrub(Blocks.log, Blocks.leaves, 0, 0, Blocks.dirt, Blocks.grass);
@@ -89,14 +88,12 @@ public class BiomeGenDenseForest extends BOPOverworldBiome
     }
     
     @Override
-    //TODO:     getBiomeGrassColor()
     public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
     {
 		return 8246897;
 	}
 
 	@Override
-    //TODO:     getBiomeFoliageColor()
     public int getBiomeFoliageColor(int x, int y, int z)
     {
 		return 10022742;

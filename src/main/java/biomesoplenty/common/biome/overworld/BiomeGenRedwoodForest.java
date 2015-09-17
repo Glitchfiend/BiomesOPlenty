@@ -53,7 +53,6 @@ public class BiomeGenRedwoodForest extends BOPOverworldBiome
     }
 
     @Override
-    //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
         return random.nextInt(4) == 0 ? new WorldGenRedwoodTree(BOPCBlocks.logs3, BOPCBlocks.colorizedLeaves1, 0, 3, false, 40, 10) : (random.nextInt(15) == 0 ? new WorldGenShrub(0,0) : (random.nextInt(2) == 0 ? new WorldGenRedwoodTree2(BOPCBlocks.logs3, BOPCBlocks.colorizedLeaves1, 0, 3, false, 30, 15) : new WorldGenRedwoodTree3(BOPCBlocks.logs3, BOPCBlocks.colorizedLeaves1, 0, 3, false, 20, 10)));

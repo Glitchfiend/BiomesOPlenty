@@ -19,15 +19,12 @@ public class BlockHoneyFluid extends BlockFluidFinite
 
 	public BlockHoneyFluid()
 	{
-		//TODO:											  water
 		super(FluidRegistry.getFluid("honey"), Material.water);
 
-		//TODO: setLightOpacity()
 		this.setLightOpacity(1);
 	}
 	
 	@Override
-	//TODO:		onEntityCollidedWithBlock()
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
@@ -39,7 +36,6 @@ public class BlockHoneyFluid extends BlockFluidFinite
 	}
 
 	@Override
-	//TODO:		registerIcons()
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		honeyStillIcon = iconRegister.registerIcon("biomesoplenty:honey_still");
@@ -47,7 +43,6 @@ public class BlockHoneyFluid extends BlockFluidFinite
 	}
 
 	@Override
-	//TODO:		 getIcon()
 	public IIcon getIcon(int side, int meta)
 	{
 		return side != 0 && side != 1 ? honeyFlowingIcon : honeyStillIcon;

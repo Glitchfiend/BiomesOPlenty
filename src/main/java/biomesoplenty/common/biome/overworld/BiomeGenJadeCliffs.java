@@ -42,7 +42,6 @@ public class BiomeGenJadeCliffs extends BOPOverworldBiome
 	}
 	
 	@Override
-	//TODO:						getRandomWorldGenForTrees()
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
 		return random.nextInt(4) == 0 ? new WorldGenShrub(0, 1) : new WorldGenPineTree();

@@ -25,9 +25,7 @@ public class BiomeGenGrassland extends BOPOverworldBiome
 	{
 		super(id);
 		
-        //TODO: setHeight()
         this.setHeight(biomeHeight);
-        //TODO:	setColor()
         this.setColor(8379261);
         this.setTemperatureRainfall(0.6F, 0.7F);
 

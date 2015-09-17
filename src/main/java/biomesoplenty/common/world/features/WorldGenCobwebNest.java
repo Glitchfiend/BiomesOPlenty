@@ -16,7 +16,6 @@ public class WorldGenCobwebNest extends WorldGeneratorBOP
     {
         Block var15;
 
-        //TODO:                                        getBlock()
         for (boolean var6 = false; ((var15 = par1World.getBlock(par3, par4, par5)) == Blocks.air || var15 == Blocks.web) && par4 > 0; --par4)
         {
             ;

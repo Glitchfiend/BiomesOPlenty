@@ -23,9 +23,7 @@ public class BiomeGenCherryBlossomGrove extends BOPOverworldBiome
 	{
 		super(id);
 
-        //TODO: setHeight()
         this.setHeight(biomeHeight);
-        //TODO:	setColor()
         this.setColor(16289679);
         this.setTemperatureRainfall(0.6F, 0.8F);
 		
@@ -54,7 +52,6 @@ public class BiomeGenCherryBlossomGrove extends BOPOverworldBiome
 	}
 
 	@Override
-	//TODO:						getRandomWorldGenForTrees()
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
 		return random.nextInt(15) == 0 ? new WorldGenMixedTree(Blocks.log, Blocks.leaves, 0, 0, BOPCBlocks.colorizedLeaves2, 3, 2) : (random.nextInt(3) == 0 ? new WorldGenBOPBigTree(BOPCBlocks.logs1, BOPCBlocks.leaves3, 1, 3) : new WorldGenBOPBigTree(BOPCBlocks.logs1, BOPCBlocks.leaves3, 1, 1));
@@ -82,14 +79,12 @@ public class BiomeGenCherryBlossomGrove extends BOPOverworldBiome
 	}
 
 	@Override
-	//TODO:		getBiomeGrassColor()
 	public int getBiomeGrassColor(int x, int y, int z)
 	{
 		return 10747818;
 	}
 
 	@Override
-	//TODO:		getBiomeFoliageColor()
 	public int getBiomeFoliageColor(int x, int y, int z)
 	{
 		return 10747818;

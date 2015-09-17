@@ -104,7 +104,6 @@ public class ItemJarEmpty extends Item
 			}
     		else
     		{
-    			//TODO: player.dropPlayerItem(ItemStack itemStack)?
                 par2EntityPlayer.dropPlayerItemWithRandomChoice(new ItemStack(BOPCItems.jarFilled, 1, 2), false);
             }
 

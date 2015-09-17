@@ -26,8 +26,7 @@ public class DyeEventHandler
 
 			if (itemstack.getItem() == BOPCItems.misc && (itemDamage == 5 || itemDamage == 6 || itemDamage == 7 || itemDamage == 8 || itemDamage == 9))    
 			{
-				int dyeMeta = convertToDyeMeta(itemDamage);    
-				//TODO:				 getBlockFromDye()
+				int dyeMeta = convertToDyeMeta(itemDamage);
 				int i = BlockColored.func_150032_b(dyeMeta);
 
 				if (entity instanceof EntityWolf)

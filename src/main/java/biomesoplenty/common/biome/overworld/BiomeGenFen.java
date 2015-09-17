@@ -67,7 +67,6 @@ public class BiomeGenFen extends BOPOverworldBiome implements IBiomeFog
 	}
 
 	@Override
-	//TODO:						getRandomWorldGenForTrees()
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
 		return random.nextInt(3) == 0 ? new WorldGenBOPTaiga2(Blocks.log2, BOPCBlocks.leaves2, 1, 0, false, 10, 12, 3, -1) : 
@@ -126,7 +125,6 @@ public class BiomeGenFen extends BOPOverworldBiome implements IBiomeFog
 	@Override
 	public float getFogDensity(int x, int y, int z)
 	{
-	    // TODO Auto-generated method stub
 	    return 0.8F;
 	}
 }

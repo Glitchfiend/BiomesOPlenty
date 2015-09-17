@@ -34,13 +34,11 @@ public class WorldGenBrush2 extends WorldGenAbstractTree
 	@Override
 	public boolean generate(World world, Random random, int x, int y, int z)
 	{
-		//TODO:		isAirBlock()
 		while (world.isAirBlock(x, y, z) && y > 2)
 		{
 			--y;
 		}
 
-		//TODO:			  getBlock()
 		Block block = world.getBlock(x, y, z);
 
 		if (!soilBlocks.contains(block))
@@ -53,15 +51,13 @@ public class WorldGenBrush2 extends WorldGenAbstractTree
 			{
 				for (int var8 = -2; var8 <= 2; ++var8)
 				{
-					//TODO:	 isAirBlock()												isAirBlock()
 					if (world.isAirBlock(x + var7, y - 1, z + var8) && world.isAirBlock(x + var7, y - 2, z + var8))
 						return false;
 				}
 			}
 
-			//TODO: getBlock()
 			world.getBlock(x, y, z).onPlantGrow(world, x, y, z, x, y, z);
-	         //TODO: setBlock()
+
 			world.setBlock(x, y + 1, z, wood, woodMeta, 2);
 			world.setBlock(x, y + 2, z, wood, woodMeta, 2);
 			world.setBlock(x, y + 3, z, wood, woodMeta, 2);

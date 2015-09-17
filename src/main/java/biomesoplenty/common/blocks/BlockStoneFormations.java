@@ -89,9 +89,7 @@ public class BlockStoneFormations extends BOPBlockWorldDecor implements ISubLoca
 	
 	public boolean isValidPosition(World world, int x, int y, int z, int metadata)
 	{
-		//TODO:					  getBlock()
 		Block blockBottom = world.getBlock(x, y - 1, z);
-		//TODO:				   getBlock()
 		Block blockTop = world.getBlock(x, y + 1, z);
 		
 		switch (metadata)

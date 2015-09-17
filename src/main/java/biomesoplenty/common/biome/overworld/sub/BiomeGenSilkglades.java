@@ -26,9 +26,7 @@ public class BiomeGenSilkglades extends BOPSubBiome
         this.zoom = 0.25D;
 		this.threshold = 0.25D;
         
-        //TODO: setHeight()
         this.setHeight(biomeHeight);
-        //TODO: setColor()
         this.setColor(13420973);
         this.setTemperatureRainfall(0.5F, 0.9F);
 
@@ -64,7 +62,6 @@ public class BiomeGenSilkglades extends BOPSubBiome
     }
 
     @Override
-    //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
         return random.nextInt(5) == 0 ? new WorldGenBOPSwampTree(Blocks.log, BOPCBlocks.leaves2, 0, 0, 6, 9, BOPCBlocks.leaves2, 0) : 

@@ -14,7 +14,6 @@ public class WorldGenWasteland4 extends WorldGeneratorBOP
     @Override
     public boolean generate(World world, Random random, int x, int y, int z)
     {
-        //TODO:      isAirBlock()
         while (world.isAirBlock(x, y, z) && y > 2)
         {
             --y;
@@ -34,7 +33,6 @@ public class WorldGenWasteland4 extends WorldGeneratorBOP
             {
                 for (int var8 = -2; var8 <= 2; ++var8)
                 {
-                    //TODO:  isAirBlock()                                       isAirBlock()
                     if (world.isAirBlock(x + var7, y - 1, z + var8) && world.isAirBlock(x + var7, y - 2, z + var8))
                     {
                         return false;
@@ -46,7 +44,6 @@ public class WorldGenWasteland4 extends WorldGeneratorBOP
 
             if (var999 == 0)
             {
-                //TODO: setBlock()
                 this.func_150515_a(world, x, y - 1, z, Blocks.air);
                 this.func_150515_a(world, x + 1, y - 1, z, Blocks.air);
                 this.func_150515_a(world, x - 1, y - 1, z, Blocks.air);

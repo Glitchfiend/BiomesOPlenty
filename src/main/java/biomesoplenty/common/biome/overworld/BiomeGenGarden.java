@@ -59,7 +59,6 @@ public class BiomeGenGarden extends BOPOverworldBiome
 	}
 
 	@Override
-	//TODO:						getRandomWorldGenForTrees()
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
 		return random.nextInt(6) == 0 ? new WorldGenGiantFlower(0) : (random.nextInt(6) == 0 ? new WorldGenGiantFlower(1) : new WorldGenShrub(0, 0));

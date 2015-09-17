@@ -369,7 +369,6 @@ public class WorldGenBogTree2 extends WorldGenAbstractTree
 
                         if (block2.isAir(world, x, y + k2, z) || block2.isLeaves(world, x, y + k2, z) || block2 == Blocks.flowing_water || block2 == Blocks.water)
                         {
-                            //TODO: setBlockAndMetadata()
                             this.setBlockAndNotifyAdequately(world, x, y + k2, z, this.wood, this.woodMeta);
                             this.setBlockAndNotifyAdequately(world, x - 1, y, z, this.wood, this.woodMeta + 4);
                             this.setBlockAndNotifyAdequately(world, x + 1, y, z, this.wood, this.woodMeta + 4);

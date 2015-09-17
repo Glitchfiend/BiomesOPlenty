@@ -179,7 +179,6 @@ public class WorldGenBOPTaiga2 extends WorldGenAbstractTree
 
                                 if ((Math.abs(i3) != l3 || Math.abs(k3) != l3 || l3 <= 0) && world.getBlock(l2, k2, j3).canBeReplacedByLeaves(world, l2, k2, j3))
                                 {
-                                    //TODO:	setBlockAndMetadata()
                                     this.setBlockAndNotifyAdequately(world, l2, k2, j3, leaves, this.metaLeaves);
                                 }
                             }
@@ -210,7 +209,6 @@ public class WorldGenBOPTaiga2 extends WorldGenAbstractTree
 
                         if (block2.isAir(world, x, y + k2, z) || block2.isLeaves(world, x, y + k2, z))
                         {
-                            //TODO:	setBlockAndMetadata()
 							this.setBlockAndNotifyAdequately(world, x, y + k2, z, wood, metaWood);
                         }
                     }

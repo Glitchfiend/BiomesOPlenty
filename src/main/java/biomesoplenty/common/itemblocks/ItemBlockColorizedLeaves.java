@@ -24,7 +24,6 @@ public class ItemBlockColorizedLeaves extends ItemBlock
 	@Override
 	public String getUnlocalizedName(ItemStack itemStack)
 	{
-		//TODO:													 block
 		BlockBOPColorizedLeaves block = (BlockBOPColorizedLeaves)field_150939_a;		
 		return super.getUnlocalizedName() + "." + block.getLeafType(itemStack.getItemDamage());
 	}

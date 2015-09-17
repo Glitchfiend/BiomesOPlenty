@@ -54,26 +54,20 @@ public class BlockBOPLog extends Block
 
 	public BlockBOPLog(LogCategory cat)
 	{
-		//TODO: Material.wood
 		super(Material.wood);
 		
 		category = cat;
 		
-		//TODO: this.setHardness
 		this.setHardness(2.0F);
 		this.setHarvestLevel("axe", 0);
 		
-		//TODO: this.setResistance
 		this.setResistance(5.0F);
-		//TODO setStepSound(Block.soundWoodFootstep)
 		this.setStepSound(Block.soundTypeWood);
 		
-		//TODO: this.setCreativeTab()
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
-	//TODO:		registerIcons()
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		textures = new IIcon[types.length];
@@ -93,7 +87,6 @@ public class BlockBOPLog extends Block
 	}
 
 	@Override
-	//TODO:		 getIcon()
 	public IIcon getIcon(int side, int meta)
 	{
 		int pos = meta & 12;
@@ -126,7 +119,6 @@ public class BlockBOPLog extends Block
 				{
 					for (int k = -radius; k <= radius; ++k)
 					{
-						//TODO:				getBlock()
 						Block block = world.getBlock(x + i, y + j, z + k);
 
 						if (block.isLeaves(world, x, y, z)) 
@@ -140,7 +132,6 @@ public class BlockBOPLog extends Block
 	}
 
 	@Override
-	//TODO:		onBlockPlaced()
 	public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta)
 	{
 		int type = getTypeFromMeta(meta);

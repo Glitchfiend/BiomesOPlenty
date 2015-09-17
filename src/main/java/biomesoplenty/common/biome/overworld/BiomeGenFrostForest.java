@@ -49,7 +49,6 @@ public class BiomeGenFrostForest extends BOPOverworldBiome implements IBiomeFog
 	}
 
 	@Override
-	//TODO:						getRandomWorldGenForTrees()
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
 		return worldGeneratorTrees;
@@ -67,12 +66,10 @@ public class BiomeGenFrostForest extends BOPOverworldBiome implements IBiomeFog
 			int y = random.nextInt(28) + 4;
 			int z = chunkZ + random.nextInt(16);
 			
-			//TODO:				getBlock()
 			Block block = world.getBlock(x, y, z);
 
 			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone) && BiomeUtils.oreWithMetaEnabled(8))
 			{
-				//TODO:	setBlock()
 				world.setBlock(x, y, z, BOPCBlocks.gemOre, 8, 2);
 			}
 		}
@@ -106,7 +103,6 @@ public class BiomeGenFrostForest extends BOPOverworldBiome implements IBiomeFog
     @Override
    	public float getFogDensity(int x, int y, int z)
     {
-        // TODO Auto-generated method stub
         return 0.6F;
     }
     

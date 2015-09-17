@@ -266,7 +266,6 @@ public class WorldGenOriginalTree extends WorldGenAbstractTree
 
 	private void growVines(World world, int x, int y, int z, int flag)
 	{
-		//TODO:	setBlockAndMetadata()
 		this.setBlockAndNotifyAdequately(world, x, y, z, Blocks.vine, flag);
 		int i1 = 4;
 
@@ -274,13 +273,11 @@ public class WorldGenOriginalTree extends WorldGenAbstractTree
 		{
 			--y;
 
-			//TODO:		getBlock()
 			if (world.getBlock(x, y, z).isAir(world, x, y, z) || i1 <= 0)
 			{
 				return;
 			}
 
-			//TODO:	setBlockAndMetadata()
 			this.setBlockAndNotifyAdequately(world, x, y, z, Blocks.vine, flag);
 			--i1;
 		}

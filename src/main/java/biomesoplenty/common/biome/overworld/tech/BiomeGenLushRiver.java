@@ -43,7 +43,6 @@ public class BiomeGenLushRiver extends BOPOverworldBiome
     }
     
     @Override
-    //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
         return new WorldGenBOPShrub(Blocks.log, Blocks.leaves, 0, 0, Blocks.grass);

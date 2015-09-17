@@ -19,9 +19,7 @@ public class BiomeGenOriginValley extends BOPOverworldBiome
 	{
 		super(id);
 		
-        //TODO: setHeight()
         this.setHeight(biomeHeight);
-        //TODO: setColor()
         this.setColor(10341485);
         this.setTemperatureRainfall(0.7F, 0.8F);
 		
@@ -46,7 +44,6 @@ public class BiomeGenOriginValley extends BOPOverworldBiome
 	}
 
 	@Override
-    //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
 		return new WorldGenOriginalTree(Blocks.log, BOPCBlocks.leaves3, 0, 0, false, 5, 3, false);

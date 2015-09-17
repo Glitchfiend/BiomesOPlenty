@@ -23,9 +23,7 @@ public class BiomeGenDeadSwamp extends BOPOverworldBiome implements IBiomeFog
 	{
 		super(id);
 		
-        //TODO: setHeight()
         this.setHeight(biomeHeight);
-        //TODO: setColor()
         this.setColor(9154376);
         this.setTemperatureRainfall(0.7F, 0.9F);
 
@@ -57,7 +55,6 @@ public class BiomeGenDeadSwamp extends BOPOverworldBiome implements IBiomeFog
 	}
 
     @Override
-    //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
         return new WorldGenDeadTree();
@@ -75,12 +72,10 @@ public class BiomeGenDeadSwamp extends BOPOverworldBiome implements IBiomeFog
             int y = random.nextInt(28) + 4;
             int z = chunkZ + random.nextInt(16);
             
-            //TODO:             getBlock()
             Block block = world.getBlock(x, y, z);
 
             if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone) && BiomeUtils.oreWithMetaEnabled(10))
             {
-                //TODO: setBlock()
                 world.setBlock(x, y, z, BOPCBlocks.gemOre, 10, 2);
             }
         }
@@ -97,14 +92,12 @@ public class BiomeGenDeadSwamp extends BOPOverworldBiome implements IBiomeFog
     }
 
 	@Override
-    //TODO:     getBiomeGrassColor()
     public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
     {
 		return 6713420;
 	}
 
 	@Override
-    //TODO:     getBiomeFoliageColor()
     public int getBiomeFoliageColor(int x, int y, int z)
     {
 		return 6713420;
@@ -126,7 +119,6 @@ public class BiomeGenDeadSwamp extends BOPOverworldBiome implements IBiomeFog
     @Override
     public float getFogDensity(int x, int y, int z)
     {
-        // TODO Auto-generated method stub
         return 0.6F;
     }
 }

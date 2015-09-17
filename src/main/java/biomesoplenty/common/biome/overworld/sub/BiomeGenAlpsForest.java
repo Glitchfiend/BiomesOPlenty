@@ -43,7 +43,6 @@ public class BiomeGenAlpsForest extends BOPSubBiome
 	}
 	
 	@Override
-    //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
         return new WorldGenBOPTaiga2(Blocks.log, Blocks.leaves, 1, 1, false, 9, 9, 6, 4);
@@ -61,12 +60,10 @@ public class BiomeGenAlpsForest extends BOPSubBiome
             int y = random.nextInt(28) + 4;
             int z = chunkZ + random.nextInt(16);
             
-            //TODO:             getBlock()
             Block block = world.getBlock(x, y, z);
 
             if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
             {
-                //TODO: setBlock()
                 world.setBlock(x, y, z, Blocks.emerald_ore, 0, 2);
             }
         }

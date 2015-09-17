@@ -44,10 +44,8 @@ public class EntityFlyingCreature extends EntityAmbientCreature
             if (this.onGround)
             {
             	f2 = 0.54600006F;
-            	//TODO:						getBlock()
             	Block block = this.worldObj.getBlock(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.boundingBox.minY) - 1, MathHelper.floor_double(this.posZ));
 
-            	//TODO:		slipperiness
             	f2 = block.slipperiness * 0.91F;
             }
 
@@ -58,10 +56,8 @@ public class EntityFlyingCreature extends EntityAmbientCreature
             if (this.onGround)
             {
             	f2 = 0.54600006F;
-            	//TODO:						getBlock()
             	Block block = this.worldObj.getBlock(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.boundingBox.minY) - 1, MathHelper.floor_double(this.posZ));
 
-            	//TODO:		slipperiness
             	f2 = block.slipperiness * 0.91F;
             }
 

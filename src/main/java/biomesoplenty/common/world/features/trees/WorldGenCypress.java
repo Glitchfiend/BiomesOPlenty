@@ -140,7 +140,6 @@ public class WorldGenCypress extends WorldGenAbstractTree
                                 {
                                     if (random.nextInt(2) != 0)
                                     {
-                                        //TODO: setBlockAndMetadata()
                                         this.setBlockAndNotifyAdequately(world, l2, k2, j3, leaves, this.metaLeaves);
                                     }
                                 }
@@ -172,7 +171,6 @@ public class WorldGenCypress extends WorldGenAbstractTree
 
                         if (block2.isAir(world, x, y + k2, z) || block2.isLeaves(world, x, y + k2, z))
                         {
-                            //TODO: setBlockAndMetadata()
                             this.setBlockAndNotifyAdequately(world, x, y + k2, z, wood, metaWood);
                             this.setBlockAndNotifyAdequately(world, x, (y + k2), z, wood, metaWood);
                             this.setBlockAndNotifyAdequately(world, x, (y + k2) - 2, z, wood, metaWood);

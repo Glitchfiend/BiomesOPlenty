@@ -62,7 +62,6 @@ public class BiomeGenLushSwamp extends BOPOverworldBiome
     }
 
     @Override
-    //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
         return new WorldGenBOPSwampTree(Blocks.log, Blocks.leaves, 0, 0, 8, 6, BOPCBlocks.ivy, -1);
@@ -84,7 +83,6 @@ public class BiomeGenLushSwamp extends BOPOverworldBiome
 
             if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone) && BiomeUtils.oreWithMetaEnabled(10))
             {
-                //TODO: setBlock()
                 world.setBlock(x, y, z, BOPCBlocks.gemOre, 10, 2);
             }
         }

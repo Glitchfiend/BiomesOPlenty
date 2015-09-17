@@ -19,17 +19,14 @@ public class WorldGenRiverCane extends WorldGeneratorBOP
 			int j1 = y;
 			int k1 = z + par2Random.nextInt(8) - par2Random.nextInt(8);
 
-			//TODO:	  isAirBlock()
 			if (world.isAirBlock(i1, j1, k1))
 			{
 				int l1 = 1 + par2Random.nextInt(par2Random.nextInt(3) + 1);
 
 				for (int i2 = 0; i2 < l1; ++i2)
 				{
-					//TODO:							canReplace()
 					if (BOPCBlocks.plants.canReplace(world, i1, j1, k1, 0, new ItemStack(BOPCBlocks.plants, 1, 8)))
 					{
-						//TODO:	setBlock()
 						world.setBlock(i1, j1 + i2, k1, BOPCBlocks.plants, 8, 2);
 					}
 				}

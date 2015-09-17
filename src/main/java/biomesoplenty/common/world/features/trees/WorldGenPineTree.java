@@ -19,13 +19,11 @@ public class WorldGenPineTree extends WorldGenAbstractTree
 	@Override
 	public boolean generate(World world, Random random, int x, int y, int z)
 	{
-		//TODO:		isAirBlock()
 		while (world.isAirBlock(x, y, z) && y > 2)
 		{
 			--y;
 		}
 
-		//TODO:			  getBlock()
 		Block var6 = world.getBlock(x, y, z);
 
 		if (var6 != Blocks.grass && var6 != BOPCBlocks.hardDirt && var6 != Blocks.stone && var6 != Blocks.dirt && var6 != BOPCBlocks.newBopDirt  && var6 != BOPCBlocks.newBopGrass)
@@ -38,7 +36,6 @@ public class WorldGenPineTree extends WorldGenAbstractTree
 			{
 				for (int var8 = -2; var8 <= 2; ++var8)
 				{
-					//TODO:	isAirBlock()												isAirBlock()											  isAirBlock()
 					if (world.isAirBlock(x + var7, y - 1, z + var8) && world.isAirBlock(x + var7, y - 2, z + var8) && !world.isAirBlock(x + var7, y, z + var8))
 					{
 						return false;

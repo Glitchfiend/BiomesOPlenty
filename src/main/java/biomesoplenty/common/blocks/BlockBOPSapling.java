@@ -118,14 +118,12 @@ public class BlockBOPSapling extends BlockSapling
 			this.checkAndDropBlock(world, x, y, z);
 			if (world.getBlockLightValue(x, y + 1, z) >= 9 && random.nextInt(7) == 0) 
 			{
-				//TODO: growTree()
 				this.func_149878_d(world, x, y, z, random);
 			}
 		}
 	}
 
 	@Override
-	//TODO:		growTree()
 	public void func_149878_d(World world, int x, int y, int z, Random random)
 	{
 		int meta = world.getBlockMetadata(x, y, z) & TYPES;

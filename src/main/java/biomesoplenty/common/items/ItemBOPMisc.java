@@ -71,7 +71,6 @@ public class ItemBOPMisc extends Item
     }
 
 	@Override
-    //TODO: public void getSubItems(Item item, CreativeTabs creativeTabs, List list)
     public void getSubItems(Item item, CreativeTabs creativeTabs, List list)
 	{
 		for(int meta = 0; meta < items.length; ++meta) 

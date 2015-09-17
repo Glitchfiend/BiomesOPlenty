@@ -63,7 +63,6 @@ public class BiomeGenTemperateRainforest extends BOPOverworldBiome implements IB
 	}
 
 	@Override
-    //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
 		return random.nextInt(10) == 0 ? new WorldGenBOPSwampTree(BOPCBlocks.logs3, BOPCBlocks.colorizedLeaves2, 1, 0, 6, 9, BOPCBlocks.colorizedLeaves2, 0)  : 
@@ -84,12 +83,10 @@ public class BiomeGenTemperateRainforest extends BOPOverworldBiome implements IB
             int y = random.nextInt(28) + 4;
             int z = chunkZ + random.nextInt(16);
 
-            //TODO:             getBlock()
             Block block = world.getBlock(x, y, z);
 
             if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone) && BiomeUtils.oreWithMetaEnabled(14))
             {
-                //TODO: setBlock()
             	world.setBlock(x, y, z, BOPCBlocks.gemOre, 14, 2);
             }
         }
@@ -131,7 +128,6 @@ public class BiomeGenTemperateRainforest extends BOPOverworldBiome implements IB
     @Override
     public float getFogDensity(int x, int y, int z)
     {
-        // TODO Auto-generated method stub
         return 0.8F;
     }
 }

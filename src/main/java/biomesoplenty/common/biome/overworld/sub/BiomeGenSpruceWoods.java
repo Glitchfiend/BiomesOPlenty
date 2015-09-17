@@ -60,7 +60,6 @@ public class BiomeGenSpruceWoods extends BOPSubBiome
     }
 
     @Override
-    //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
         return random.nextInt(3) == 0 ? worldGeneratorTrees : new WorldGenTaiga2(false);

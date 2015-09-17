@@ -34,7 +34,6 @@ public class WorldGenOvergrownNetherrack extends WorldGeneratorBOP
 
             int var999 = random.nextInt(5);
 
-            //TODO:    isAirBlock()
             if (world.isAirBlock(randX, randY, randZ) && (world.getBlock(randX, randY - 1, randZ) == Blocks.netherrack))
             {
                 world.setBlock(randX, randY - 1, randZ, BOPCBlocks.overgrownNetherrack, 0, 2);

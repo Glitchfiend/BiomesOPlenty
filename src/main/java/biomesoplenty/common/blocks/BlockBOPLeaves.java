@@ -61,28 +61,21 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
 
 	public BlockBOPLeaves(LeafCategory cat)
 	{
-    	//TODO:	Material.leaves
         super(Material.leaves, false);
 
 		category = cat;
 		
-		//TODO: this.setHardness
 		this.setHardness(0.2F);
 		
-		//TODO setStepSound(Block.soundGrassFootstep)
 		this.setStepSound(Block.soundTypeGrass);
 
-		//TODO: setTickRandomly()
 		this.setTickRandomly(true);
-		//TODO:	setLightOpacity()
 		this.setLightOpacity(1);
 
-		//TODO: this.setCreativeTab()
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
-	//TODO:		registerIcons()
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		textures = new IIcon[3][leaves.length];
@@ -120,24 +113,19 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
 	}
 
 	@Override
-	//TODO:		 getIcon()
 	public IIcon getIcon(int side, int metadata)
 	{
 		int type = getTypeFromMeta(metadata) + (category.ordinal() * 4);
-		//TODO:			  isOpaqueCube()
 		return textures[(!isOpaqueCube() ? 0 : 1)][type >= leaves.length ? 0 : type];
 	}
 
 	@Override
-	//TODO:		   isOpaqueCube()
 	public boolean isOpaqueCube()
 	{
-		//TODO:		   isOpaqueCube()
 		return Blocks.leaves.isOpaqueCube();
 	}
 
 	@Override
-	//TODO:		getSubBlocks()
 	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
 	{
 		for (int i = 0; i < 4; ++i)
@@ -150,10 +138,8 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
 	}
 
 	@Override
-	//TODO: 	randomDisplayTick()
 	public void randomDisplayTick(World world, int x, int y, int z, Random random)
 	{
-		//TODO:												  doesBlockHaveSolidTopSurface
 		if (world.canLightningStrikeAt(x, y + 1, z) && !World.doesBlockHaveSolidTopSurface(world, x, y - 1, z) && random.nextInt(15) == 1)
 		{
 			double d0 = x + random.nextFloat();
@@ -162,7 +148,6 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
 			world.spawnParticle("dripWater", d0, d1, d2, 0.0D, 0.0D, 0.0D);
 		}
 
-		//TODO: 	randomDisplayTick()
 		super.randomDisplayTick(world, x, y, z, random);
 	}
 	
@@ -177,7 +162,6 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
 	}
 
     @Override
-	//TODO:		breakBlock()
 	public void breakBlock(World world, int x, int y, int z, Block par5, int par6)
     {
         byte radius = 1;
@@ -191,7 +175,6 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
                 {
                     for (int k = -radius; k <= radius; ++k)
                     {
-						//TODO:				getBlock()
 						Block block = world.getBlock(x + i, y + j, z + k);
 
 						if (block.isLeaves(world, x, y, z)) 
@@ -205,7 +188,6 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
     }
 
 	@Override
-	//TODO:		updateTick()
 	public void updateTick(World world, int x, int y, int z, Random random)
 	{
 		if (world.isRemote)
@@ -240,7 +222,6 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
 					{
 						for (j2 = -b0; j2 <= b0; ++j2)
 						{
-                        	//TODO:				world.getBlock()
                             Block block = world.getBlock(x + l1, y + i2, z + j2);
 
 							if (block != null && block.canSustainLeaves(world, x + l1, y + i2, z + j2))
@@ -320,9 +301,7 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
 
     private void removeLeaves(World world, int x, int y, int z)
     {
-    	//TODO: dropBlockAsItem
         this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
-        //TODO: setBlockToAir
         world.setBlockToAir(x, y, z);
     }
 
@@ -373,15 +352,12 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
 
 
     @Override
-	//TODO:	   getItemDropped()
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-    	//TODO:		getItemFromBlock()
         return Item.getItemFromBlock(BOPCBlocks.saplings);
     }
 
 	@Override
-	//TODO: 	dropBlockAsItemWithChance()
 	public void dropBlockAsItemWithChance(World world, int x, int y, int z, int metadata, float chance, int fortune)
 	{
 		if (world.isRemote)
@@ -389,35 +365,29 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
 
 		if (world.rand.nextInt(20) == 0)
 		{
-			//TODO:			 getItemDropped()
 			Item item = this.getItemDropped(metadata, world.rand, fortune);
-			//TODO:dropBlockAsItem_do											damageDropped()
 			this.dropBlockAsItem(world, x, y, z, new ItemStack(item, 1, this.damageDropped(metadata)));
 		}
 
 		if (((metadata & 3) == 0 || (metadata & 3) == 4 || (metadata & 3) == 7) && (world.rand.nextInt(50) == 0)) 
 		{
-			//TODO:dropBlockAsItem_do
 			this.dropBlockAsItem(world, x, y, z, new ItemStack(BOPCItems.food, 1, 8));
 		}
 	}
 
 	@Override
-	//TODO     damageDropped()
 	public int damageDropped(int meta)
 	{
 		return (getTypeFromMeta(meta) + category.ordinal() * 4) + 1;
 	}
 
 	@Override
-	//TODO:	   getDamageValue()
 	public int getDamageValue(World world, int x, int y, int z) 
     {
 		return getTypeFromMeta(world.getBlockMetadata(x, y, z));
 	}
 
 	@Override
-	//TODO:    quantityDropped()
 	public int quantityDropped(Random random)
 	{
 		return random.nextInt(20) == 0 ? 1 : 0;
@@ -453,7 +423,6 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
 	}
 
 	@Override
-	//TODO			shouldSideBeRendered
 	public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side)
 	{
 		return true;

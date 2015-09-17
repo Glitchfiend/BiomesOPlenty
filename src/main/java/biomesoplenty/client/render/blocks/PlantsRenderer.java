@@ -27,29 +27,22 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 			if (meta < 5)
 				return renderCrossedSquares(block, x, y, z, renderer, true);
 			if (meta == 5)
-				//TODO:			renderCrossedSquares
 				return renderer.renderCrossedSquares(block, x, y, z);
 			if (meta == 6)
 				return renderBlockCrops(block, x, y, z, renderer);
 			if (meta == 7)
-				//TODO: 		renderBlockCrops
 				return renderer.renderBlockCrops(block, x, y, z);
 			if (meta == 8)
-				//TODO: 		renderBlockCrops
 				return renderer.renderBlockCrops(block, x, y, z);
 			if (meta == 9)
-				//TODO: 		renderBlockCrops
 				return renderer.renderBlockCrops(block, x, y, z);
 			if (meta == 10)
-				//TODO: 		renderBlockCrops
 				return renderer.renderBlockCrops(block, x, y, z);
 			if (meta == 11)
-				//TODO: 		renderBlockCrops
 				return renderer.renderBlockCrops(block, x, y, z);
 			if (meta == 12)
 				return renderCrossedSquares(block, x, y, z, renderer, true);
 			if (meta == 13)
-				//TODO: 		renderBlockCrops
 				return renderer.renderBlockCrops(block, x, y, z);
 			if (meta == 14)
 			{
@@ -76,9 +69,7 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 	private boolean renderBlockCrops(Block block, int x, int y, int z, RenderBlocks renderer)
 	{
 		Tessellator tessellator = Tessellator.instance;
-		//TODO:						  blockAccess
 		IBlockAccess world = renderer.blockAccess;
-		//TODO:								getMixedBrightnessForBlock()
 		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
 		tessellator.setColorOpaque_F(1.0F, 1.0F, 1.0F);
 
@@ -92,7 +83,6 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 		d0 += ((i1 >> 16 & 15L) / 15.0F - 0.5D) * 0.125D;
 		d2 += ((i1 >> 24 & 15L) / 15.0F - 0.5D) * 0.125D;
 
-		//TODO:	 renderCropBlocksImpl()
 		renderer.renderBlockCropsImpl(block, world.getBlockMetadata(x, y, z), d0, y - 0.0625F, d2);
 		return true;
 	}
@@ -100,12 +90,9 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 	private boolean renderCrossedSquares(Block block, int x, int y, int z, RenderBlocks renderer, boolean colourMultiply)
 	{
 		Tessellator tessellator = Tessellator.instance;
-		//TODO:						  blockAccess
 		IBlockAccess world = renderer.blockAccess;
-		//TODO:								getMixedBrightnessForBlock()
 		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
 		float f = 1.0F;
-		//TODO:			  colorMultiplier()
 		int l = block.colorMultiplier(world, x, y, z);
 		float f1 = (l >> 16 & 255) / 255.0F;
 		float f2 = (l >> 8 & 255) / 255.0F;
@@ -154,14 +141,11 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 		
 		if (meta == 14)
 		{
-			//TODO:	 drawCrossedSquares()
 			renderer.drawCrossedSquares(block.getIcon(0, world.getBlockMetadata(x, y, z)), d0, d1, d2, 1.0F);
-			//TODO:	 drawCrossedSquares()
 			renderer.drawCrossedSquares(((BlockBOPPlant)BOPCBlocks.plants).reedbottom, d0, d1 - 1, d2, 1.0F);
 		}
 		else
 		{
-			//TODO:	 drawCrossedSquares()
 			renderer.drawCrossedSquares(block.getIcon(0, world.getBlockMetadata(x, y, z)), d0, d1, d2, 1.0F);
 		}
 		return true;

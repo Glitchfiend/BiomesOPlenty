@@ -18,19 +18,16 @@ public class WorldGenMoss extends WorldGeneratorBOP
 
 		for (int var7 = z; y < 80; ++y)
 		{
-			//TODO:	  isAirBlock()
 			if (world.isAirBlock(x, y, z))
 			{
 				for (int var8 = 2; var8 <= 5; ++var8)
 				{
-					//TODO:							canPlaceBlockOnSide()
 					if (BOPCBlocks.moss.canPlaceBlockOnSide(world, x, y, z, var8))
 					{
 						int var999 = random.nextInt(4);
 
 						if (var999 == 0)
 						{
-							//TODO:	setBlock()
 							world.setBlock(x, y, z, BOPCBlocks.moss, 1 << Direction.facingToDirection[Facing.oppositeSide[var8]], 2);
 						}
 						break;

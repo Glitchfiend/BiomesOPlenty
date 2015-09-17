@@ -22,12 +22,10 @@ public class BlockBloodFluid extends BlockFluidClassic
 
 	public BlockBloodFluid() 
 	{
-		//TODO:											  water
 		super(FluidRegistry.getFluid("hell_blood"), Material.water);
 	}
 
 	@Override
-	//TODO:		registerIcons()
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		bloodStillIcon = iconRegister.registerIcon("biomesoplenty:blood_still");
@@ -35,7 +33,6 @@ public class BlockBloodFluid extends BlockFluidClassic
 	}
 
 	@Override
-	//TODO:		 getIcon()
 	public IIcon getIcon(int side, int meta)
 	{
 		return side != 0 && side != 1 ? bloodFlowingIcon : bloodStillIcon;

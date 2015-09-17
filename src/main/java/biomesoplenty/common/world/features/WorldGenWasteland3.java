@@ -13,7 +13,6 @@ public class WorldGenWasteland3 extends WorldGeneratorBOP
     @Override
     public boolean generate(World world, Random random, int x, int y, int z)
     {
-        //TODO:      isAirBlock()
         while (world.isAirBlock(x, y, z) && y > 2)
         {
             --y;
@@ -33,7 +32,6 @@ public class WorldGenWasteland3 extends WorldGeneratorBOP
             {
                 for (int var8 = -2; var8 <= 2; ++var8)
                 {
-                    //TODO:  isAirBlock()                                       isAirBlock()
                     if (world.isAirBlock(x + var7, y - 1, z + var8) && world.isAirBlock(x + var7, y - 2, z + var8))
                     {
                         return false;

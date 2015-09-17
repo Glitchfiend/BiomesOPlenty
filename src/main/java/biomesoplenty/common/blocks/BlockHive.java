@@ -23,21 +23,16 @@ public class BlockHive extends Block
 	
 	public BlockHive()
 	{
-		//TODO: Material.wood
 		super(Material.wood);
 		
-		//TODO: this.setHardness
 		this.setHardness(0.5F);
 		
-		//TODO setStepSound(Block.soundGrassFootstep)
 		this.setStepSound(Block.soundTypeGrass);
 		
-		//TODO: this.setCreativeTab()
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 	
     @Override
-	//TODO:		breakBlock()
 	public void breakBlock(World world, int x, int y, int z, Block par5, int par6)
     {
     	if (world.getBlockMetadata(x, y, z) == 2)
@@ -49,7 +44,6 @@ public class BlockHive extends Block
     }
 
 	@Override
-	//TODO:		registerIcons()
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		textures = new IIcon[hiveTypes.length];
@@ -61,7 +55,6 @@ public class BlockHive extends Block
 	}
 	
 	@Override
-	//TODO:		 getIcon()
 	public IIcon getIcon(int side, int meta)
 	{
         if (meta < 0 || meta >= hiveTypes.length) 
@@ -73,7 +66,6 @@ public class BlockHive extends Block
 	}
 	
 	@Override
-	//TODO:		getSubBlocks()
 	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
 	{
 		for (int i = 0; i < hiveTypes.length; ++i) 
@@ -83,7 +75,6 @@ public class BlockHive extends Block
 	}
 	
 	@Override
-	//TODO:	   getItemDropped()
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
 		if (metadata == 0)
@@ -96,12 +87,10 @@ public class BlockHive extends Block
 			return BOPCItems.food;
 		}
 		
-		//TODO:     getItemFromBlock()
 		return Item.getItemFromBlock(this);
 	}
 	
 	@Override
-	//TODO     damageDropped()
 	public int damageDropped(int meta)
 	{
 		if (meta == 0)

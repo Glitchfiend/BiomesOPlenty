@@ -27,9 +27,7 @@ public class BiomeGenLushDesert extends BOPOverworldBiome
     {
         super(id);
         
-        //TODO: setHeight()
         this.setHeight(biomeHeight);
-        //TODO: setColor()
         this.setColor(9087277);
         this.setTemperatureRainfall(1.1F, 0.5F);
 
@@ -67,7 +65,6 @@ public class BiomeGenLushDesert extends BOPOverworldBiome
     }
 
     @Override
-    //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
         return random.nextInt(4) == 0 ? new WorldGenCypress(Blocks.log2, Blocks.leaves2, 0, 0, false, 7, 10, 2) : 
@@ -105,7 +102,6 @@ public class BiomeGenLushDesert extends BOPOverworldBiome
 
             if (block != null && (block.isReplaceableOreGen(world, x, y, z, Blocks.stone)))
             {
-                //TODO: setBlock()
                 world.setBlock(x, y, z, Blocks.flowing_water, 0, 2);
             }
         }

@@ -46,12 +46,10 @@ public class BiomeGenCrag extends BOPOverworldBiome implements IBiomeFog
             int y = random.nextInt(28) + 4;
             int z = chunkZ + random.nextInt(16);
             
-            //TODO:             getBlock()
             Block block = world.getBlock(x, y, z);
 
             if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
             {
-                //TODO: setBlock()
                 world.setBlock(x, y, z, Blocks.emerald_ore, 0, 2);
             }
         }
@@ -76,7 +74,6 @@ public class BiomeGenCrag extends BOPOverworldBiome implements IBiomeFog
     @Override
     public float getFogDensity(int x, int y, int z)
     {
-        // TODO Auto-generated method stub
         return 1.0F;
     }
 }

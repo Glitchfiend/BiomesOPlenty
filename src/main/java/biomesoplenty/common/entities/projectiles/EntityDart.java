@@ -64,15 +64,11 @@ public class EntityDart extends EntityArrow
 			prevRotationPitch = rotationPitch = (float)(Math.atan2(motionY, f) * 180.0D / Math.PI);
 		}
 
-		//TODO: worldObj.getBlock()
 		Block block = worldObj.getBlock(xTile, yTile, zTile);
 
-		//TODO: block.getMaterial()  Material.air
 		if (block.getMaterial() != Material.air)
 		{
-			//TODO: setBlockBoundsBasedOnState
 			block.setBlockBoundsBasedOnState(worldObj, xTile, yTile, zTile);
-			//TODO:						        getCollisionBoundingBoxFromPool()
 			AxisAlignedBB axisalignedbb = block.getCollisionBoundingBoxFromPool(worldObj, xTile, yTile, zTile);
 
 			if (axisalignedbb != null && axisalignedbb.isVecInside(Vec3.createVectorHelper(posX, posY, posZ)))
@@ -84,7 +80,6 @@ public class EntityDart extends EntityArrow
 		++ticksInAir;
 		Vec3 vec3 = Vec3.createVectorHelper(posX, posY, posZ);
 		Vec3 vec31 = Vec3.createVectorHelper(posX + motionX, posY + motionY, posZ + motionZ);
-		//TODO: 											 rayTraceBlocks_do_do()?
 		MovingObjectPosition movingobjectposition = worldObj.func_147447_a(vec3, vec31, false, true, false);
 		vec3 = Vec3.createVectorHelper(posX, posY, posZ);
 		vec31 = Vec3.createVectorHelper(posX + motionX, posY + motionY, posZ + motionZ);
@@ -174,7 +169,6 @@ public class EntityDart extends EntityArrow
 					{
 						if (shootingEntity != null && movingobjectposition.entityHit != shootingEntity && movingobjectposition.entityHit instanceof EntityPlayer && shootingEntity instanceof EntityPlayerMP)
 						{
-							//TODO:													sendPacketToPlayer()
 							((EntityPlayerMP)shootingEntity).playerNetServerHandler.sendPacket(new S2BPacketChangeGameState(6, 0.0F));
 						}
 					}
@@ -269,7 +263,6 @@ public class EntityDart extends EntityArrow
 		motionZ *= f4;
 		motionY -= f1;
 		this.setPosition(posX, posY, posZ);
-		//TODO: doBlockCollisions()
 		this.func_145775_I();
 	}
 

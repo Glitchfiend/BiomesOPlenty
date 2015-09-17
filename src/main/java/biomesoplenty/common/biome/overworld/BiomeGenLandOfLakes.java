@@ -58,7 +58,6 @@ public class BiomeGenLandOfLakes extends BOPOverworldBiome
 	}
 	
 	@Override
-    //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
 		return random.nextInt(3) == 0 ? new WorldGenTaiga2(false) : (random.nextInt(6) == 0 ? new WorldGenOriginalTree(Blocks.log, Blocks.leaves, 2, 2, false, 5, 3, false) : 

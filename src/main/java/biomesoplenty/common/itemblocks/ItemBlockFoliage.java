@@ -52,7 +52,6 @@ public class ItemBlockFoliage extends ItemColored
 		if (itemStack.getItemDamage() == 3 || itemStack.getItemDamage() == 8 || itemStack.getItemDamage() == 9 || itemStack.getItemDamage() == 15)
 			return 16777215;
 		else
-			//TODO:							 getRenderColor()
 			return BOPCBlocks.foliage.getRenderColor(itemStack.getItemDamage());
 	}
 
@@ -107,10 +106,8 @@ public class ItemBlockFoliage extends ItemColored
 				if (!player.canPlayerEdit(i, j, k, movingobjectposition.sideHit, itemStack))
 					return itemStack;
 
-				//TODO:	  getBlock()			getMaterial()						water															isAirBlock()
 				if (world.getBlock(i, j, k).getMaterial() == Material.water && world.getBlockMetadata(i, j, k) == 0 && world.isAirBlock(i, j + 1, k))
 				{
-					//TODO:	setBlock()				linkedBlock
 					world.setBlock(i, j + 1, k, field_150939_a, 0, 2);
 
 					if (!player.capabilities.isCreativeMode)

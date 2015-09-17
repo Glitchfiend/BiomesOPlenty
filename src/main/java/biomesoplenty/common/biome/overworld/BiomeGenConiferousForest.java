@@ -26,9 +26,7 @@ public class BiomeGenConiferousForest extends BOPOverworldBiome
 	{
 		super(id);
 		
-        //TODO: setHeight()
         this.setHeight(biomeHeight);
-        //TODO: setColor()
         this.setColor(5410656);
         this.setTemperatureRainfall(0.5F, 0.5F);
 
@@ -69,7 +67,6 @@ public class BiomeGenConiferousForest extends BOPOverworldBiome
 	}
 
 	@Override
-    //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
 		return random.nextInt(6) == 0 ? new WorldGenBOPTaiga2(BOPCBlocks.logs1, BOPCBlocks.leaves2, 3, 1, false, 10, 10, 5, 4) :

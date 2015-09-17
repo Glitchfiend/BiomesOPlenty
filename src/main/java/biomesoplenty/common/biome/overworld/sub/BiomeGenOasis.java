@@ -49,7 +49,6 @@ public class BiomeGenOasis extends BOPSubBiome
 	}
 	
     @Override
-    //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
         return new WorldGenPalmTree1();

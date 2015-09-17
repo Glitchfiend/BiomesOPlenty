@@ -15,26 +15,20 @@ public class BlockGrave extends Block
 {	
 	public BlockGrave()
 	{
-		//TODO: Material.rock
 		super(Material.rock);
 
-				//TODO: this.setHardness
 		this.setHardness(5f);
 		
-		//TODO: this.setCreativeTab()
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 	
 	@Override
-	//TODO:		registerIcons()
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-				//TODO: blockIcon
 		this.blockIcon = iconRegister.registerIcon("biomesoplenty:grave");
 	}
     
 	@Override
-	//TODO:     setBlockBoundsBasedOnState()
 	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
@@ -42,48 +36,39 @@ public class BlockGrave extends Block
 		switch (meta)
 		{
 			case 0:
-						//TODO: setBlockBounds
 		this.setBlockBounds(0.0F, 0.0F, 0.31F, 1.0F, 1.6875F, 0.69F);
 				break;
 
 			case 1:
-						//TODO: setBlockBounds
 		this.setBlockBounds(0.0F, -1.0F, 0.31F, 1.0F, 0.6875F, 0.69F);
 				break;
 				
 			case 2:
-						//TODO: setBlockBounds
 		this.setBlockBounds(0.31F, 0.0F, 0.0F, 0.69F, 1.6875F, 1.0F);
 				break;
 
 			case 3:
-						//TODO: setBlockBounds
 		this.setBlockBounds(0.31F, -1.0F, 0.0F, 0.69F, 0.6875F, 1.0F);
 				break;
 		}
 	}
 	
 	@Override
-    //TODO:		onNeighborBlockChange()
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block neighborBlock)
 	{
 		if (neighborBlock == this)
 		{
 			if (world.getBlockMetadata(x, y, z) == 0 || world.getBlockMetadata(x, y, z) == 2)
 			{
-				//TODO:	  getBlock()
 				if (world.getBlock(x, y + 1, z) != this)
 				{
-					//TODO: destroyBlock()
 		            world.func_147480_a(x, y, z, true);
 				}
 			}
 			else
 			{
-				//TODO:   getBlock()
 				if (world.getBlock(x, y - 1, z) != this)
 				{
-					//TODO: destroyBlock()
 		            world.func_147480_a(x, y, z, true);
 				}
 			}
@@ -102,28 +87,24 @@ public class BlockGrave extends Block
 	}
 
 	@Override
-	//TODO:		   renderAsNormalBlock()
     public boolean renderAsNormalBlock()
 	{
 		return false;
 	}
 
 	@Override
-	//TODO:		   isOpaqueCube()
 	public boolean isOpaqueCube()
 	{
 		return false;
 	}
 
 	@Override
-	//TODO		getRenderType()
 	public int getRenderType()
 	{
 		return RenderUtils.graveModel;
 	}
 	
 	@Override
-	//TODO			shouldSideBeRendered
     public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side)
 	{
 		return true;

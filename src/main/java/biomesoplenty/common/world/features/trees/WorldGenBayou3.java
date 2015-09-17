@@ -101,7 +101,6 @@ public class WorldGenBayou3 extends WorldGenAbstractTree
                 {
                     block1.onPlantGrow(world, x, y - 1, z, x, y, z);
 
-                    //TODO: setBlockAndMetadata()
                     this.setBlockAndNotifyAdequately(world, x - 1, y, z, this.wood, this.metaWood);
                     this.setBlockAndNotifyAdequately(world, x + 1, y, z, this.wood, this.metaWood);
                     this.setBlockAndNotifyAdequately(world, x, y, z - 1, this.wood, this.metaWood);
@@ -133,7 +132,6 @@ public class WorldGenBayou3 extends WorldGenAbstractTree
 
                         if (block2.isAir(world, x, y + k2, z) || block2.isLeaves(world, x, y + k2, z) || block2 == Blocks.flowing_water || block2 == Blocks.water)
                         {
-                            //TODO: setBlockAndMetadata()
                             this.setBlockAndNotifyAdequately(world, x, y + k2, z, this.wood, this.metaWood);
                         }
                     }

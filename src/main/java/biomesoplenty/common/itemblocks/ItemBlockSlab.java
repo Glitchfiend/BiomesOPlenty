@@ -21,10 +21,8 @@ public class ItemBlockSlab extends ItemSlab
 	@Override
 	public String getUnlocalizedName(ItemStack itemStack) 
 	{
-		//TODO:									getBlockFromItem
 		BlockBOPSlab slab = (BlockBOPSlab)Block.getBlockFromItem(itemStack.getItem());
 
-		//TODO:																		getFullSlabName()
 		return super.getUnlocalizedName() + "." + (new StringBuilder()).append(slab.func_150002_b(itemStack.getItemDamage())).toString();
 	}
 }

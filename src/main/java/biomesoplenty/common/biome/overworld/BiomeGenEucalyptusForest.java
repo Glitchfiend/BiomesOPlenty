@@ -77,7 +77,6 @@ public class BiomeGenEucalyptusForest extends BOPOverworldBiome implements IBiom
 	}
 
 	 @Override
-	 //TODO:                     getRandomWorldGenForTrees()
 	 public WorldGenAbstractTree func_150567_a(Random random)
 	 {
 		 return random.nextInt(5) == 0 ? new WorldGenBulbTree(Blocks.log, Blocks.leaves, 3, 3, false, 15, 25, true) : new WorldGenBOPShrub(Blocks.log, Blocks.leaves, 0, 0, Blocks.dirt, Blocks.grass);
@@ -103,7 +102,6 @@ public class BiomeGenEucalyptusForest extends BOPOverworldBiome implements IBiom
     @Override
     public float getFogDensity(int x, int y, int z)
     {
-        // TODO Auto-generated method stub
         return 0.5F;
     }
 }

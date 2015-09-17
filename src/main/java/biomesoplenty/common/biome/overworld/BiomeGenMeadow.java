@@ -23,7 +23,6 @@ public class BiomeGenMeadow extends BOPOverworldBiome
 	{
 		super(id);
 		
-        //TODO: setColor()
         this.setColor(6533741);
         this.setTemperatureRainfall(0.7F, 0.7F);
 
@@ -60,7 +59,6 @@ public class BiomeGenMeadow extends BOPOverworldBiome
 	}
 	
     @Override
-    //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
         return random.nextInt(5) == 0 ? new WorldGenBOPTaiga2(Blocks.log, Blocks.leaves, 1, 1, false, 6, 4, 0, 4) : new WorldGenBOPShrub(Blocks.log, Blocks.leaves, 0, 1, Blocks.dirt, Blocks.grass);
@@ -88,14 +86,12 @@ public class BiomeGenMeadow extends BOPOverworldBiome
     }
 
     @Override
-    //TODO:     getBiomeGrassColor()
     public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
     {
         return 6533741;
     }
 
     @Override
-    //TODO:     getBiomeFoliageColor()
     public int getBiomeFoliageColor(int x, int y, int z)
     {
         return 6533741;

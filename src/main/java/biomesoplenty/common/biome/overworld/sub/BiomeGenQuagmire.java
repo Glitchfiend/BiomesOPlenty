@@ -24,9 +24,7 @@ public class BiomeGenQuagmire extends BOPSubBiome
         this.zoom = 0.5D;
 		this.threshold = 0D;
         
-        //TODO: setHeight()
         this.setHeight(biomeHeight);
-        //TODO: setColor()
         this.setColor(5257771);
         this.setTemperatureRainfall(0.8F, 0.9F);
 
@@ -58,7 +56,6 @@ public class BiomeGenQuagmire extends BOPSubBiome
     }
 
     @Override
-    //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
         return new WorldGenDeadTree();

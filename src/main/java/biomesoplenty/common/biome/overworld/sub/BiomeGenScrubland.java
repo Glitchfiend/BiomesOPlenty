@@ -44,7 +44,6 @@ public class BiomeGenScrubland extends BOPSubBiome
 	}
 	
 	@Override
-    //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
 	{
 		return random.nextInt(3) == 0 ? new WorldGenShrub(3, 0) : new WorldGenOriginalTree(Blocks.log, Blocks.leaves, 3, 2, false, 2, 1, false);
