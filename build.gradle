@@ -165,8 +165,15 @@ curse {
 
 uploadArchives {
     dependsOn 'reobf'
+    
+
+    println 'HI there!'
+    
     repositories {
         if (project.hasProperty("filesmaven")) {
+                println project.filesmaven.username
+                println project.filesmaven.key
+        
                 logger.info('Publishing to files server')
 
                 mavenDeployer {
