@@ -124,7 +124,7 @@ artifacts {
 }
 
 uploadArchives {
-    dependsOn 'reobf'
+    dependsOn 'build'
     
     repositories {
         if ("$System.env.maven_username" != "null" && "$System.env.maven_password" != "null") {
