@@ -8,9 +8,7 @@
 
 package biomesoplenty.common.handler;
 
-import biomesoplenty.api.particle.BOPParticleTypes;
 import biomesoplenty.common.remote.TrailManager;
-import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;

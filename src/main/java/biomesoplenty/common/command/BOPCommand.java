@@ -10,10 +10,14 @@ package biomesoplenty.common.command;
 
 import java.util.List;
 
+import com.google.common.collect.Lists;
+
+import biomesoplenty.common.util.biome.BiomeUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
+import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.NumberInvalidException;
 import net.minecraft.command.WrongUsageException;
@@ -26,9 +30,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.storage.ExtendedBlockStorage;
-import biomesoplenty.common.util.biome.BiomeUtils;
-
-import com.google.common.collect.Lists;
 
 public class BOPCommand extends CommandBase
 {
@@ -247,5 +248,13 @@ public class BOPCommand extends CommandBase
         }
         
         return null;
+    }
+    
+    //This is apparently causing a compile error on Jenkins for some unknown reason
+    //Nontheless, this fixes it
+    @Override
+    public int compareTo(Object object)
+    {
+        return this.getCommandName().compareTo(((ICommand)object).getCommandName());
     }
 }
