@@ -124,74 +124,79 @@ artifacts {
 }
 
 uploadArchives {
-    repositories.mavenDeployer {
-        dependsOn 'build'
+    dependsOn 'reobf'
     
+    repositories {
         if ("$System.env.maven_username" != "null" && "$System.env.maven_password" != "null") {
-            logger.info('Publishing to files server')
-            configuration = configurations.deployJars
-        
-            repository(url: "http://files.minecraftforge.net/maven/manage/upload") {
-                authentication(userName: "$System.env.maven_username", password: "$System.env.maven_password")
+                logger.info('Publishing to files server')
+
+                mavenDeployer {
+                configuration = configurations.deployJars
+
+                repository(url: project.filesmaven.url) {
+                    authentication(userName: "$System.env.maven_username", privateKey: "$System.env.maven_password")
+                }
+
+                pom {
+                    groupId = project.group
+                    version = project.version
+                    artifactId = project.archivesBaseName
+                    project {
+                        name project.archivesBaseName
+                        packaging 'jar'
+                        description 'Biomes O Plenty'
+                        url 'https://github.com/Glitchfiend/BiomesOPlenty'
+
+                        scm {
+                            url 'https://github.com/Glitchfiend/BiomesOPlenty'
+                            connection 'scm:git:git://github.com/Glitchfiend/BiomesOPlenty.git'
+                            developerConnection 'scm:git:git@github.com:Glitchfiend/BiomesOPlenty.git'
+                        }
+
+                        issueManagement {
+                            system 'github'
+                            url 'https://github.com/Glitchfiend/BiomesOPlenty/issues'
+                        }
+
+                        licenses {
+                            license {
+                                name 'Creative Commons Attribution-NonCommercial-NoDerivs 4.0 International Public License'
+                                url 'http://creativecommons.org/licenses/by-nc-nd/4.0/'
+                                distribution 'repo'
+                            }
+                        }
+
+                        developers {
+                            developer {
+                                id 'Adubbz'
+                                name 'Adubbz'
+                                roles { role 'developer' }
+                            }
+                            developer {
+                                id 'Amnet'
+                                name 'Amnet'
+                                roles { role 'developer' }
+                            }
+                            developer {
+                                id 'Forstride'
+                                name 'Forstride'
+                                roles { role 'developer' }
+                            }
+                            developer {
+                                id 'ted80'
+                                name 'ted80'
+                                roles { role 'developer' }
+                            }
+                        }
+                    }
+                }
             }
         } else {
-           logger.info('Publishing to repo folder')
-    
-           pom.version = "${project.minecraft.version}-${project.version}"
-           repository(url: 'file://localhost/' + project.file('repo').getAbsolutePath())
-        }
-         
-        pom {
-            groupId = project.group
-            version = project.version
-            artifactId = project.archivesBaseName
-            project {
-                name project.archivesBaseName
-                packaging 'jar'
-                description 'Biomes O Plenty'
-                url 'https://github.com/Glitchfiend/BiomesOPlenty'
+            logger.info('Publishing to repo folder')
 
-                scm {
-                    url 'https://github.com/Glitchfiend/BiomesOPlenty'
-                    connection 'scm:git:git://github.com/Glitchfiend/BiomesOPlenty.git'
-                    developerConnection 'scm:git:git@github.com:Glitchfiend/BiomesOPlenty.git'
-                }
-
-                issueManagement {
-                    system 'github'
-                    url 'https://github.com/Glitchfiend/BiomesOPlenty/issues'
-                }
-
-                licenses {
-                    license {
-                        name 'Creative Commons Attribution-NonCommercial-NoDerivs 4.0 International Public License'
-                        url 'http://creativecommons.org/licenses/by-nc-nd/4.0/'
-                        distribution 'repo'
-                    }
-                }
-
-                developers {
-                    developer {
-                        id 'Adubbz'
-                        name 'Adubbz'
-                        roles { role 'developer' }
-                    }
-                    developer {
-                        id 'Amnet'
-                        name 'Amnet'
-                        roles { role 'developer' }
-                    }
-                    developer {
-                        id 'Forstride'
-                        name 'Forstride'
-                        roles { role 'developer' }
-                    }
-                    developer {
-                        id 'ted80'
-                        name 'ted80'
-                        roles { role 'developer' }
-                    }
-                }
+            mavenDeployer {
+                pom.version = "${project.minecraft.version}-${project.version}"
+                repository(url: 'file://localhost/' + project.file('repo').getAbsolutePath())
             }
         }
     }
