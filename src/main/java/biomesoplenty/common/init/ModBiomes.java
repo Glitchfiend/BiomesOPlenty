@@ -165,6 +165,7 @@ public class ModBiomes
         fungi_forest = registerBOPBiome(new BiomeGenFungiForest(), "Fungi Forest");
         garden = registerBOPBiome(new BiomeGenGarden(), "Garden");
         grassland = registerBOPBiome(new BiomeGenGrassland(), "Grassland");
+        grove = registerBOPBiome(new BiomeGenGrove(), "Grove");
         heathland = registerBOPBiome(new BiomeGenHeathland(), "Heathland");
         highland = registerBOPBiome(new BiomeGenHighland(), "Highland");
         jade_cliffs = registerBOPBiome(new BiomeGenJadeCliffs(), "Jade Cliffs");
