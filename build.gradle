@@ -166,21 +166,15 @@ curse {
 uploadArchives {
     dependsOn 'reobf'
     
-
-    println 'HI there!'
-    
     repositories {
-        if (project.hasProperty("filesmaven")) {
-                println project.filesmaven.username
-                println project.filesmaven.key
-        
+        if ("$System.env.maven_username" != "null" && "$System.env.maven_password" != "null") {
                 logger.info('Publishing to files server')
 
                 mavenDeployer {
                 configuration = configurations.deployJars
 
                 repository(url: project.filesmaven.url) {
-                    authentication(userName: project.filesmaven.username, privateKey: project.filesmaven.key)
+                    authentication(userName: "$System.env.maven_username", privateKey: "$System.env.maven_password")
                 }
 
                 pom {
