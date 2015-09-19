@@ -112,7 +112,7 @@ uploadArchives {
         if ("$System.env.maven_username" != "null" && "$System.env.maven_password" != "null") {
             logger.info('Publishing to files server')
 
-            repository(url: project.filesmaven.url) {
+            repository(url: "http://files.minecraftforge.net/maven/manage/upload") {
                 authentication(userName: "$System.env.maven_username", privateKey: "$System.env.maven_password")
             }
         } else {
