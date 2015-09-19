@@ -120,6 +120,9 @@ public class ClientProxy extends CommonProxy
                 int itemId = Item.getIdFromItem(BOPItems.mudball);
                 minecraft.theWorld.spawnParticle(EnumParticleTypes.ITEM_CRACK, x, y, z, MathHelper.getRandomDoubleInRange(minecraft.theWorld.rand, -0.08D, 0.08D), MathHelper.getRandomDoubleInRange(minecraft.theWorld.rand, -0.08D, 0.08D), MathHelper.getRandomDoubleInRange(minecraft.theWorld.rand, -0.08D, 0.08D), new int[] {itemId});
                 return;
+            case PLAYER_TRAIL:
+                entityFx = new EntityTrailFX(minecraft.theWorld, x, y, z);
+                break;
             default:
                 break;
         }

@@ -44,5 +44,6 @@ public class ModHandlers
     {
         MinecraftForge.EVENT_BUS.register(new ModelBakeHandler());
         MinecraftForge.EVENT_BUS.register(new GuiEventHandler());
+        FMLCommonHandler.instance().bus().register(new TrailsEventHandler());
     }
 }
