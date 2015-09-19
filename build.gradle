@@ -1,13 +1,9 @@
 buildscript {
     repositories {
-        mavenCentral()
+        jcenter()
         maven {
-            name = 'sonatype-nexus-public'
-            url = 'https://oss.sonatype.org/content/repositories/public/'
-        }
-        maven {
-            name = 'forge-repo'
-            url = 'http://files.minecraftforge.net/maven/'
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
         }
     }
     dependencies {
@@ -16,14 +12,7 @@ buildscript {
 }
 
 apply plugin: 'net.minecraftforge.gradle.forge'
-apply plugin: "maven"
-
-repositories {
-    flatDir {
-        name "fileRepo"
-        dirs "repo"
-    }
-}
+apply plugin: 'maven'
 
 // define the properties file
 ext.configFile = file "build.properties"
@@ -46,13 +35,6 @@ minecraft {
 
 // add some stuff to the version
 version = "${config.minecraft_version}-${config.mod_version}.${System.getenv().BUILD_NUMBER}"
-
-// Source compiler configuration
-tasks.withType(JavaCompile) {
-    //options.compilerArgs += [ '-Xlint:all', '-Xlint:-path', '-Xlint:-processing' ]
-    //options.deprecation = true
-    options.encoding = 'utf8'
-}
 
 def commonManifest = {
     attributes 'FMLCorePlugin': 'biomesoplenty.common.asm.BOPLoadingPlugin'
