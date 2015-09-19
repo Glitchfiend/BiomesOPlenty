@@ -1,8 +1,22 @@
-plugins {
-    id "net.minecraftforge.gradle.forge" version "2.0.1"
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            name = 'sonatype-nexus-public'
+            url = 'https://oss.sonatype.org/content/repositories/public/'
+        }
+        maven {
+            name = 'forge-repo'
+            url = 'http://files.minecraftforge.net/maven/'
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+    }
 }
 
-apply plugin: "maven"
+apply plugin: "forge"
+apply plugin: "curseforge"
 
 repositories {
     flatDir {
@@ -32,6 +46,10 @@ minecraft {
 
 // add some stuff to the version
 version = "${config.minecraft_version}-${config.mod_version}.${System.getenv().BUILD_NUMBER}"
+
+jenkins {
+    job = 'BiomesOPlenty'
+}
 
 // Source compiler configuration
 tasks.withType(JavaCompile) {
@@ -72,24 +90,47 @@ processResources {
     }
 }
 
-import net.minecraftforge.gradle.tasks.JenkinsChangelog
+import net.minecraftforge.gradle.tasks.dev.ChangelogTask
 import net.minecraftforge.gradle.common.Constants
+import net.minecraftforge.gradle.delayed.*
 
-task createChangelog(type: JenkinsChangelog) {
+task createChangelog(type: ChangelogTask) {
     def jobName = "${System.getenv().JOB_NAME}"
     def buildNumber = "${System.getenv().BUILD_NUMBER}"
 
-    serverRoot = 'http://ci.jenkins.minecraftforge.net/'
-    jobName = jobName.toString();
-    authName = 'console_script';
-    authPassword = 'dc6d48ca20a474beeac280a9a16a926e';
-    targetBuild = buildNumber.toString();
-    output = 'build/libs/' + project.getName() + '-' + project.version + '-changelog.txt';
+    setServerRoot(new DelayedString(project, 'http://ci.jenkins.minecraftforge.net/'))
+    setJobName(new DelayedString(project, jobName.toString()));
+    setAuthName(new DelayedString(project, 'console_script'));
+    setAuthPassword(new DelayedString(project, 'dc6d48ca20a474beeac280a9a16a926e'));
+    setTargetBuild({buildNumber.toString()});
+    setOutput(new DelayedFile(project, 'build/libs/' + project.getName() + '-' + project.version + '-changelog.txt'));
+}
+
+def curseChangelog
+
+task createCurseChangelog {
+    def env = System.getenv()
+    def jenkinsUrl = env.JENKINS_URL
+    def jenkinsJob = env.JOB_NAME
+    def buildNumber = env.BUILD_NUMBER
+
+    if (jenkinsUrl != null && jenkinsJob != null && buildNumber != null) {
+        def auth = "console_script:dc6d48ca20a474beeac280a9a16a926e".getBytes().encodeBase64().toString()
+        def url = new URL("$jenkinsUrl/job/$jenkinsJob/$buildNumber/api/xml?depth=20").openConnection()
+        url.setRequestProperty("Authorization", "Basic " + auth)
+        String data = url.getInputStream().text
+
+        def xml = new XmlSlurper().parseText(data)
+
+        xml.changeSet.item.each { change ->
+            curseChangelog += "$change.author.fullName: $change.msg" + '\n'
+        }
+    }
 }
 
 tasks.build.dependsOn('createChangelog')
 
-task sourcesJar(type: Jar) {
+task sourceJar(type: Jar) {
     from sourceSets.main.allJava
     from (sourceSets.main.output) {
         include 'LICENSE.txt'
@@ -106,78 +147,96 @@ task deobfJar(type: Jar) {
 }
 
 artifacts {
-    archives sourcesJar
+    archives sourceJar
     archives deobfJar
 }
 
+curse {
+    dependsOn "createCurseChangelog"
+
+    projectId = project.config.curse_project_id
+    apiKey = "$System.env.curse_api_key"
+    changelog = curseChangelog
+    releaseType = project.config.curse_release_type
+
+    additionalArtifact deobfJar
+    additionalArtifact sourceJar
+}
+
 uploadArchives {
-    dependsOn 'build'
-    repositories.mavenDeployer {
-        if (project.hasProperty('forgeMavenPass'))
-        {
-            repository(url: "http://files.minecraftforge.net/maven/manage/upload") {
-                authentication(userName: "forge", password: project.getProperty('forgeMavenPass')) // the elvis operator. look it up.
+    dependsOn 'reobf'
+    repositories {
+        if (project.hasProperty("filesmaven")) {
+                logger.info('Publishing to files server')
+
+                mavenDeployer {
+                configuration = configurations.deployJars
+
+                repository(url: project.filesmaven.url) {
+                    authentication(userName: project.filesmaven.username, privateKey: project.filesmaven.key)
+                }
+
+                pom {
+                    groupId = project.group
+                    version = project.version
+                    artifactId = project.archivesBaseName
+                    project {
+                        name project.archivesBaseName
+                        packaging 'jar'
+                        description 'Biomes O Plenty'
+                        url 'https://github.com/Glitchfiend/BiomesOPlenty'
+
+                        scm {
+                            url 'https://github.com/Glitchfiend/BiomesOPlenty'
+                            connection 'scm:git:git://github.com/Glitchfiend/BiomesOPlenty.git'
+                            developerConnection 'scm:git:git@github.com:Glitchfiend/BiomesOPlenty.git'
+                        }
+
+                        issueManagement {
+                            system 'github'
+                            url 'https://github.com/Glitchfiend/BiomesOPlenty/issues'
+                        }
+
+                        licenses {
+                            license {
+                                name 'Creative Commons Attribution-NonCommercial-NoDerivs 4.0 International Public License'
+                                url 'http://creativecommons.org/licenses/by-nc-nd/4.0/'
+                                distribution 'repo'
+                            }
+                        }
+
+                        developers {
+                            developer {
+                                id 'Adubbz'
+                                name 'Adubbz'
+                                roles { role 'developer' }
+                            }
+                            developer {
+                                id 'Amnet'
+                                name 'Amnet'
+                                roles { role 'developer' }
+                            }
+                            developer {
+                                id 'Forstride'
+                                name 'Forstride'
+                                roles { role 'developer' }
+                            }
+                            developer {
+                                id 'ted80'
+                                name 'ted80'
+                                roles { role 'developer' }
+                            }
+                        }
+                    }
+                }
             }
-        }
-        else
-        {
-            // local repo folder. Might wanna juset use  gradle install   if you wanans end it to maven-local
-            repository(url: 'file://localhost/' + project.file('repo').getAbsolutePath())
-        }
-    
-        pom {
-            groupId = project.group
-            version = project.version
-            artifactId = project.archivesBaseName
-            project {
-                name project.archivesBaseName
-                packaging 'jar'
-                description 'Biomes O Plenty'
-                url 'https://github.com/Glitchfiend/BiomesOPlenty'
-            
-                scm {
-                    url 'https://github.com/Glitchfiend/BiomesOPlenty'
-                    connection 'scm:git:git://github.com/Glitchfiend/BiomesOPlenty.git'
-                    developerConnection 'scm:git:git@github.com:Glitchfiend/BiomesOPlenty.git'
-                }
-            
-                issueManagement {
-                    system 'github'
-                    url 'https://github.com/Glitchfiend/BiomesOPlenty/issues'
-                }
-            
-                licenses {
-                    license {
-                        name 'Creative Commons Attribution-NonCommercial-NoDerivs 4.0 International Public License'
-                        url 'http://creativecommons.org/licenses/by-nc-nd/4.0/'
-                        distribution 'repo'
-                    }
-                }
-            
-                developers {
-                    developer {
-                        id 'Adubbz'
-                        name 'Adubbz'
-                        roles { role 'developer' }
-                    }
-                    developer {
-                        id 'Amnet'
-                        name 'Amnet'
-                        roles { role 'developer' }
-                    }
-                    developer {
-                        id 'Forstride'
-                        name 'Forstride'
-                        roles { role 'developer' }
-                    }
-                    developer {
-                        id 'ted80'
-                        name 'ted80'
-                        roles { role 'developer' }
-                    }
-                }
+        } else {
+            logger.info('Publishing to repo folder')
+
+            mavenDeployer {
+                pom.version = "${project.minecraft.version}-${project.version}"
+                repository(url: 'file://localhost/' + project.file('repo').getAbsolutePath())
             }
         }
     }
 }
-
