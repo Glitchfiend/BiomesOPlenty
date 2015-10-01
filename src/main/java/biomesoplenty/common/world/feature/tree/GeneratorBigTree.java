@@ -511,7 +511,7 @@ public class GeneratorBigTree extends GeneratorTreeBase
         return true;
     }
     
-    private void setBlockAndNotifyAdequately(World world, BlockPos pos, IBlockState state)
+    public void setBlockAndNotifyAdequately(World world, BlockPos pos, IBlockState state)
     {
         if (this.updateNeighbours)
         {

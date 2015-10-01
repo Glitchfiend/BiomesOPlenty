@@ -13,8 +13,9 @@ import java.util.Random;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenerator;
 
-public abstract class BOPGeneratorBase implements IGenerator
+public abstract class BOPGeneratorBase extends WorldGenerator implements IGenerator
 {
     
     private final String identifier;
