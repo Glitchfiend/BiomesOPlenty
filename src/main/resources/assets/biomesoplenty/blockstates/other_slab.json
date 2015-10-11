@@ -8,7 +8,7 @@
         "half=top,variant=shale": { "model": "biomesoplenty:upper_slab_shale" },
         "half=bottom,variant=polished_limestone": { "model": "biomesoplenty:half_slab_polished_limestone" },
         "half=top,variant=polished_limestone": { "model": "biomesoplenty:upper_slab_polished_limestone" },
-        "half=bottom,variant=polished_siltstone": { "model": "biomesoplenty:half_polished_siltstone" },
+        "half=bottom,variant=polished_siltstone": { "model": "biomesoplenty:half_slab_polished_siltstone" },
         "half=top,variant=polished_siltstone": { "model": "biomesoplenty:upper_slab_polished_siltstone" },
         "half=bottom,variant=polished_shale": { "model": "biomesoplenty:half_slab_polished_shale" },
         "half=top,variant=polished_shale": { "model": "biomesoplenty:upper_slab_polished_shale" },
