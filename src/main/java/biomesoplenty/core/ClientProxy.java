@@ -8,6 +8,21 @@
 
 package biomesoplenty.core;
 
+import biomesoplenty.api.block.IBOPBlock;
+import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.api.particle.BOPParticleTypes;
+import biomesoplenty.client.particle.EntityDandelionFX;
+import biomesoplenty.client.particle.EntityPixieTrailFX;
+import biomesoplenty.client.particle.EntityTrailFX;
+import biomesoplenty.common.config.MiscConfigurationHandler;
+import biomesoplenty.common.entities.EntityPixie;
+import biomesoplenty.common.entities.EntityWasp;
+import biomesoplenty.common.entities.RenderPixie;
+import biomesoplenty.common.entities.RenderWasp;
+import biomesoplenty.common.entities.projectiles.EntityDart;
+import biomesoplenty.common.entities.projectiles.EntityMudball;
+import biomesoplenty.common.entities.projectiles.RenderDart;
+import biomesoplenty.common.entities.projectiles.RenderMudball;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
@@ -27,13 +42,6 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import biomesoplenty.api.block.IBOPBlock;
-import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.api.particle.BOPParticleTypes;
-import biomesoplenty.client.particle.*;
-import biomesoplenty.common.config.MiscConfigurationHandler;
-import biomesoplenty.common.entities.*;
-import biomesoplenty.common.entities.projectiles.*;
 
 public class ClientProxy extends CommonProxy
 {
@@ -104,7 +112,7 @@ public class ClientProxy extends CommonProxy
     }
     
     @Override
-    public void spawnParticle(BOPParticleTypes type, double x, double y, double z)
+    public void spawnParticle(BOPParticleTypes type, double x, double y, double z, Object... info)
     {
         Minecraft minecraft = Minecraft.getMinecraft();
         EntityFX entityFx = null;
@@ -121,7 +129,10 @@ public class ClientProxy extends CommonProxy
                 minecraft.theWorld.spawnParticle(EnumParticleTypes.ITEM_CRACK, x, y, z, MathHelper.getRandomDoubleInRange(minecraft.theWorld.rand, -0.08D, 0.08D), MathHelper.getRandomDoubleInRange(minecraft.theWorld.rand, -0.08D, 0.08D), MathHelper.getRandomDoubleInRange(minecraft.theWorld.rand, -0.08D, 0.08D), new int[] {itemId});
                 return;
             case PLAYER_TRAIL:
-                entityFx = new EntityTrailFX(minecraft.theWorld, x, y, z);
+                if (info.length < 1)
+                    throw new RuntimeException("Missing argument for trail name!");
+                
+                entityFx = new EntityTrailFX(minecraft.theWorld, x, y, z, (String)info[0]);
                 break;
             default:
                 break;

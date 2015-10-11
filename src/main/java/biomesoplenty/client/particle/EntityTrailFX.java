@@ -17,27 +17,27 @@ import net.minecraftforge.fml.client.FMLClientHandler;
 
 public class EntityTrailFX extends EntityFX
 {
-	private static ResourceLocation TEST_TRAIL_LOC = new ResourceLocation("biomesoplenty:textures/particles/test_trail.png");
-	
+	private ResourceLocation trailResource;
     /**The index of the flower to be spawned, values are 0-3*/
 	private int particleIndex;
+	private double startY;
 	
-	public EntityTrailFX(World world, double x, double y, double z) 
+	public EntityTrailFX(World world, double x, double y, double z, String trailName) 
 	{
 		super(world, x, y, z);
 		
+		this.trailResource = new ResourceLocation("biomesoplenty:textures/particles/" + trailName + ".png");
         this.motionX = this.motionY = this.motionZ = 0.0D; //Trail particles should not move
 		this.particleMaxAge = 550;
 		this.particleIndex = this.rand.nextInt(4); //Choose a random index on creation
+		this.startY = y; //Where y coordinate where this particle has started (before it moves downwards with time)
 	}
     
     @Override
     public void renderParticle(WorldRenderer renderer, Entity entity, float partialTicks, float rotX, float rotXZ, float rotZ, float rotYZ, float rotXY)
     {
         // EffectRenderer will by default bind the vanilla particles texture, override with our own
-        FMLClientHandler.instance().getClient().renderEngine.bindTexture(TEST_TRAIL_LOC);
-        
-        particleIndex = 1;
+        FMLClientHandler.instance().getClient().renderEngine.bindTexture(this.trailResource);
         
         //The overall maxU and maxV of the particle sheet is 1.0 (representing 16px)
         float minU = (particleIndex % 2) * 0.5F; //Particles on the left side are 0, right are 0.5
@@ -64,5 +64,14 @@ public class EntityTrailFX extends EntityFX
     public int getFXLayer()
     {
         return 2;
+    }
+    
+    @Override
+    public void onUpdate()
+    {
+        super.onUpdate();
+        
+        this.posY = this.startY - 0.01 * ((float)this.particleAge / (float)this.particleMaxAge);
+        this.prevPosY = this.posY;
     }
 }

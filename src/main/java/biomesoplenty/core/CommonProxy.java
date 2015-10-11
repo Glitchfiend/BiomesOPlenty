@@ -18,5 +18,5 @@ public class CommonProxy
     public void registerItemVariantModel(Item item, String name, int metadata) {}
     public void registerNonRenderingProperties(Block block) {}
     public void registerFluidBlockRendering(Block block, String name) {}
-    public void spawnParticle(BOPParticleTypes type, double x, double y, double z) {}
+    public void spawnParticle(BOPParticleTypes type, double x, double y, double z, Object... info) {}
 }
