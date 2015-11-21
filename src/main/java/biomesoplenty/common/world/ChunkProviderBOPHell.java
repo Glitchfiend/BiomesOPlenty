@@ -498,7 +498,7 @@ public class ChunkProviderBOPHell implements IChunkProvider
 			 j1 = k + hellRNG.nextInt(16) + 8;
 			 k1 = hellRNG.nextInt(120) + 4;
 			 l1 = l + hellRNG.nextInt(16) + 8;
-			 (new WorldGenHellLava(Blocks.lava, false)).generate(worldObj, hellRNG, j1, k1, l1);
+			 (new WorldGenHellLava(Blocks.flowing_lava, false)).generate(worldObj, hellRNG, j1, k1, l1);
 		 }
 
 		 i1 = hellRNG.nextInt(hellRNG.nextInt(10) + 1) + 1;
