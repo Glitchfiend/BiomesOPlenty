@@ -106,7 +106,7 @@ artifacts {
 }
 
 uploadArchives {
-    dependsOn 'reobf'
+    dependsOn 'build'
     repositories {
         if (project.hasProperty("filesmaven")) {
             logger.info('Publishing to files server')
