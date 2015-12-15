@@ -22,7 +22,6 @@ import net.minecraft.world.gen.ChunkProviderSettings;
 
 public class BiomeUtils
 {
-    
     public static int getBiomeSize(World world)
     {
         String generatorSettingsJson = world.getWorldInfo().getGeneratorOptions();
@@ -32,7 +31,7 @@ public class BiomeUtils
         }
         else
         {
-            return ChunkProviderSettings.Factory.func_177865_a(generatorSettingsJson).func_177864_b().biomeSize;
+            return ChunkProviderSettings.Factory.jsonToFactory(generatorSettingsJson).func_177864_b().biomeSize;
         }
     }
     

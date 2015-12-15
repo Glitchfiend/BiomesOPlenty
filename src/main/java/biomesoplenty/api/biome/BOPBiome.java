@@ -13,19 +13,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 import java.util.Map.Entry;
+import java.util.Random;
 
-import net.minecraft.block.BlockSand;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityList;
-import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.chunk.ChunkPrimer;
 import biomesoplenty.api.biome.generation.GenerationManager;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.IGenerator;
@@ -33,6 +23,16 @@ import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.TerrainSettings;
+import net.minecraft.block.BlockSand;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.chunk.ChunkPrimer;
 
 public class BOPBiome extends BiomeGenBase implements IExtendedBiome
 {
@@ -132,13 +132,13 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
                 // Look for an entity class matching this name
                 // case insensitive, dot used as mod delimiter, no spaces or underscores
                 // eg  'villager', 'Zombie', 'SQUID', 'enderdragon', 'biomesoplenty.wasp' all ok
-                Class <? extends Entity > entityClazz = null;
+                Class <? extends EntityLiving> entityClazz = null;
                 for (Object entry : EntityList.stringToClassMapping.entrySet())
                 {
                     String entryEntityName = (String)((Entry)entry).getKey();
                     if (entryEntityName.equalsIgnoreCase(entityName))
                     {
-                        entityClazz = (Class <? extends Entity >)((Entry)entry).getValue();
+                        entityClazz = (Class <? extends EntityLiving>)((Entry)entry).getValue();
                     }
                 }
                 if (entityClazz == null)

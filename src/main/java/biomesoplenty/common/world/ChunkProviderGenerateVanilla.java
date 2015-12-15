@@ -107,7 +107,7 @@ public class ChunkProviderGenerateVanilla implements IChunkProvider
 
         if (p_i45636_5_ != null)
         {
-            this.settings = ChunkProviderSettings.Factory.func_177865_a(p_i45636_5_).func_177864_b();
+            this.settings = ChunkProviderSettings.Factory.jsonToFactory(p_i45636_5_).func_177864_b();
             this.seaBlock = this.settings.useLavaOceans ? Blocks.lava : Blocks.water;
         }
 
@@ -221,37 +221,37 @@ public class ChunkProviderGenerateVanilla implements IChunkProvider
 
         if (this.settings.useCaves)
         {
-            this.caveGenerator.func_175792_a(this, this.worldObj, x, z, chunkprimer);
+            this.caveGenerator.generate(this, this.worldObj, x, z, chunkprimer);
         }
 
         if (this.settings.useRavines)
         {
-            this.ravineGenerator.func_175792_a(this, this.worldObj, x, z, chunkprimer);
+            this.ravineGenerator.generate(this, this.worldObj, x, z, chunkprimer);
         }
 
         if (this.settings.useMineShafts && this.mapFeaturesEnabled)
         {
-            this.mineshaftGenerator.func_175792_a(this, this.worldObj, x, z, chunkprimer);
+            this.mineshaftGenerator.generate(this, this.worldObj, x, z, chunkprimer);
         }
 
         if (this.settings.useVillages && this.mapFeaturesEnabled)
         {
-            this.villageGenerator.func_175792_a(this, this.worldObj, x, z, chunkprimer);
+            this.villageGenerator.generate(this, this.worldObj, x, z, chunkprimer);
         }
 
         if (this.settings.useStrongholds && this.mapFeaturesEnabled)
         {
-            this.strongholdGenerator.func_175792_a(this, this.worldObj, x, z, chunkprimer);
+            this.strongholdGenerator.generate(this, this.worldObj, x, z, chunkprimer);
         }
 
         if (this.settings.useTemples && this.mapFeaturesEnabled)
         {
-            this.scatteredFeatureGenerator.func_175792_a(this, this.worldObj, x, z, chunkprimer);
+            this.scatteredFeatureGenerator.generate(this, this.worldObj, x, z, chunkprimer);
         }
 
         if (this.settings.useMonuments && this.mapFeaturesEnabled)
         {
-            this.oceanMonumentGenerator.func_175792_a(this, this.worldObj, x, z, chunkprimer);
+            this.oceanMonumentGenerator.generate(this, this.worldObj, x, z, chunkprimer);
         }
 
         Chunk chunk = new Chunk(this.worldObj, chunkprimer, x, z);
@@ -461,27 +461,27 @@ public class ChunkProviderGenerateVanilla implements IChunkProvider
 
         if (this.settings.useMineShafts && this.mapFeaturesEnabled)
         {
-            this.mineshaftGenerator.func_175794_a(this.worldObj, this.rand, chunkcoordintpair);
+            this.mineshaftGenerator.generateStructure(this.worldObj, this.rand, chunkcoordintpair);
         }
 
         if (this.settings.useVillages && this.mapFeaturesEnabled)
         {
-            flag = this.villageGenerator.func_175794_a(this.worldObj, this.rand, chunkcoordintpair);
+            flag = this.villageGenerator.generateStructure(this.worldObj, this.rand, chunkcoordintpair);
         }
 
         if (this.settings.useStrongholds && this.mapFeaturesEnabled)
         {
-            this.strongholdGenerator.func_175794_a(this.worldObj, this.rand, chunkcoordintpair);
+            this.strongholdGenerator.generateStructure(this.worldObj, this.rand, chunkcoordintpair);
         }
 
         if (this.settings.useTemples && this.mapFeaturesEnabled)
         {
-            this.scatteredFeatureGenerator.func_175794_a(this.worldObj, this.rand, chunkcoordintpair);
+            this.scatteredFeatureGenerator.generateStructure(this.worldObj, this.rand, chunkcoordintpair);
         }
 
         if (this.settings.useMonuments && this.mapFeaturesEnabled)
         {
-            this.oceanMonumentGenerator.func_175794_a(this.worldObj, this.rand, chunkcoordintpair);
+            this.oceanMonumentGenerator.generateStructure(this.worldObj, this.rand, chunkcoordintpair);
         }
 
         int k1;
@@ -560,7 +560,7 @@ public class ChunkProviderGenerateVanilla implements IChunkProvider
 
         if (this.settings.useMonuments && this.mapFeaturesEnabled && p_177460_2_.getInhabitedTime() < 3600L)
         {
-            flag |= this.oceanMonumentGenerator.func_175794_a(this.worldObj, this.rand, new ChunkCoordIntPair(p_177460_3_, p_177460_4_));
+            flag |= this.oceanMonumentGenerator.generateStructure(this.worldObj, this.rand, new ChunkCoordIntPair(p_177460_3_, p_177460_4_));
         }
 
         return flag;
@@ -631,27 +631,27 @@ public class ChunkProviderGenerateVanilla implements IChunkProvider
     {
         if (this.settings.useMineShafts && this.mapFeaturesEnabled)
         {
-            this.mineshaftGenerator.func_175792_a(this, this.worldObj, p_180514_2_, p_180514_3_, (ChunkPrimer)null);
+            this.mineshaftGenerator.generate(this, this.worldObj, p_180514_2_, p_180514_3_, (ChunkPrimer)null);
         }
 
         if (this.settings.useVillages && this.mapFeaturesEnabled)
         {
-            this.villageGenerator.func_175792_a(this, this.worldObj, p_180514_2_, p_180514_3_, (ChunkPrimer)null);
+            this.villageGenerator.generate(this, this.worldObj, p_180514_2_, p_180514_3_, (ChunkPrimer)null);
         }
 
         if (this.settings.useStrongholds && this.mapFeaturesEnabled)
         {
-            this.strongholdGenerator.func_175792_a(this, this.worldObj, p_180514_2_, p_180514_3_, (ChunkPrimer)null);
+            this.strongholdGenerator.generate(this, this.worldObj, p_180514_2_, p_180514_3_, (ChunkPrimer)null);
         }
 
         if (this.settings.useTemples && this.mapFeaturesEnabled)
         {
-            this.scatteredFeatureGenerator.func_175792_a(this, this.worldObj, p_180514_2_, p_180514_3_, (ChunkPrimer)null);
+            this.scatteredFeatureGenerator.generate(this, this.worldObj, p_180514_2_, p_180514_3_, (ChunkPrimer)null);
         }
 
         if (this.settings.useMonuments && this.mapFeaturesEnabled)
         {
-            this.oceanMonumentGenerator.func_175792_a(this, this.worldObj, p_180514_2_, p_180514_3_, (ChunkPrimer)null);
+            this.oceanMonumentGenerator.generate(this, this.worldObj, p_180514_2_, p_180514_3_, (ChunkPrimer)null);
         }
     }
 

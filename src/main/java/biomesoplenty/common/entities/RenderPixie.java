@@ -1,16 +1,15 @@
 package biomesoplenty.common.entities;
 
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.OpenGlHelper;
 
 @SideOnly(Side.CLIENT)
-public class RenderPixie extends RenderLiving
+public class RenderPixie extends RenderLiving<EntityPixie>
 {
     
     private static final ResourceLocation pixieTextureLocation = new ResourceLocation("biomesoplenty:textures/entity/pixie.png");
@@ -22,7 +21,7 @@ public class RenderPixie extends RenderLiving
     }
 
     @Override
-    protected ResourceLocation getEntityTexture(Entity entity)
+    protected ResourceLocation getEntityTexture(EntityPixie entity)
     {
         return pixieTextureLocation;
     }
@@ -31,7 +30,7 @@ public class RenderPixie extends RenderLiving
     // Looks like the idea is to set some rendering functions, then call super.doRender, then go back to normal
     // LayerEndermanEyes have the same kind of approach I think
     @Override
-    public void doRender(Entity entity, double x, double y, double z, float entityYaw, float partialTicks)
+    public void doRender(EntityPixie entity, double x, double y, double z, float entityYaw, float partialTicks)
     {
         GlStateManager.enableBlend();
         GlStateManager.disableAlpha();
@@ -50,5 +49,5 @@ public class RenderPixie extends RenderLiving
         GlStateManager.disableBlend();
         GlStateManager.enableAlpha();
     }
-   
+ 
 }

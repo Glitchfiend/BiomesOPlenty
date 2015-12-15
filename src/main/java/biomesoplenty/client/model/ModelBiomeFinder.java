@@ -32,12 +32,6 @@ public class ModelBiomeFinder extends IFlexibleBakedModel.Wrapper implements ISm
         this.defaultModel = defaultModel;
         this.frames = ModelUtils.generateModelsForTextures(defaultModel, frameTextures);
      }
-    
-    @Override
-    public TextureAtlasSprite getTexture()
-    {
-        return null;
-    }
 
     @Override
     public IBakedModel handleItemState(ItemStack stack)

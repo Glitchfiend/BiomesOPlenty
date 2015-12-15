@@ -76,14 +76,14 @@ public class BiomeGenDeciduousForest extends BOPBiome
     @Override
     public int getGrassColorAtPos(BlockPos pos)
     {
-        double noise = field_180281_af.func_151601_a((double)pos.getX() * 0.0225D, (double)pos.getZ() * 0.0225D);
+        double noise = GRASS_COLOR_NOISE.func_151601_a((double)pos.getX() * 0.0225D, (double)pos.getZ() * 0.0225D);
         return noise < -0.1D ? 0xC1B749 : 0xAD8E41;
     }
 
     @Override
     public int getFoliageColorAtPos(BlockPos pos)
     {
-        double noise = field_180281_af.func_151601_a((double)pos.getX() * 0.0225D, (double)pos.getZ() * 0.0225D);
+        double noise = GRASS_COLOR_NOISE.func_151601_a((double)pos.getX() * 0.0225D, (double)pos.getZ() * 0.0225D);
         return noise < -0.1D ? 0xC4C93A : 0xAFA248;
     }
 }

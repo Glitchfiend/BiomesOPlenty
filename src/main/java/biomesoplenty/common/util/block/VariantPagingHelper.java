@@ -22,7 +22,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
 
 
-public class VariantPagingHelper<B extends Block, V extends Comparable & IStringSerializable & VariantPagingHelper.IPagedVariants>
+public class VariantPagingHelper<B extends Block, V extends Enum<V> & IStringSerializable & VariantPagingHelper.IPagedVariants>
 {
     
     public interface IPagedVariants
@@ -107,7 +107,7 @@ public class VariantPagingHelper<B extends Block, V extends Comparable & IString
             this.variantToPageIndex.put(variant, new PageIndex(pageNum, index));
             this.masterIndexToVariant.put(Integer.valueOf(pageNum * this.variantsPerPage + index), variant);           
         }
-        this.pageNumToProperty.put(Integer.valueOf(pageNum), PropertyEnum.create("variant", this.variantsEnumClass, variants) );
+        this.pageNumToProperty.put(Integer.valueOf(pageNum), PropertyEnum.create("variant", this.variantsEnumClass, variants));
     }
     
     public void addBlock(int pageNum, B block)

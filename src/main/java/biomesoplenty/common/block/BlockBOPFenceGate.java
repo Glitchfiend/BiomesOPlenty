@@ -15,6 +15,7 @@ import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.BlockFenceGate;
+import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemBlock;
@@ -50,7 +51,8 @@ public class BlockBOPFenceGate extends BlockFenceGate implements IBOPBlock
     
     public BlockBOPFenceGate(BOPWoods wood)
     {
-        super();
+        super(BlockPlanks.EnumType.OAK);
+        
         this.setHarvestLevel("axe", 0);
         
         this.wood = wood;

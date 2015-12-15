@@ -13,6 +13,7 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.WorldRenderer;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
@@ -70,19 +71,19 @@ public class RenderDart extends Render
         GlStateManager.translate(-4.0F, 0.0F, 0.0F);
         
         GL11.glNormal3f(scale, 0.0F, 0.0F);
-        worldrenderer.startDrawingQuads();
-        worldrenderer.addVertexWithUV(-7.0D, -2.0D, -2.0D, (double)flights_u0, (double)flights_v0);
-        worldrenderer.addVertexWithUV(-7.0D, -2.0D, 2.0D, (double)flights_u1, (double)flights_v0);
-        worldrenderer.addVertexWithUV(-7.0D, 2.0D, 2.0D, (double)flights_u1, (double)flights_v1);
-        worldrenderer.addVertexWithUV(-7.0D, 2.0D, -2.0D, (double)flights_u0, (double)flights_v1);
+        worldrenderer.begin(7, DefaultVertexFormats.POSITION_TEX);
+        worldrenderer.pos(-7.0D, -2.0D, -2.0D).tex((double)flights_u0, (double)flights_v0).endVertex();
+        worldrenderer.pos(-7.0D, -2.0D, 2.0D).tex((double)flights_u1, (double)flights_v0).endVertex();;
+        worldrenderer.pos(-7.0D, 2.0D, 2.0D).tex((double)flights_u1, (double)flights_v1).endVertex();;
+        worldrenderer.pos(-7.0D, 2.0D, -2.0D).tex((double)flights_u0, (double)flights_v1).endVertex();;
         tessellator.draw();
         
         GL11.glNormal3f(-scale, 0.0F, 0.0F);
-        worldrenderer.startDrawingQuads();
-        worldrenderer.addVertexWithUV(-7.0D, 2.0D, -2.0D, (double)flights_u0, (double)flights_v0);
-        worldrenderer.addVertexWithUV(-7.0D, 2.0D, 2.0D, (double)flights_u1, (double)flights_v0);
-        worldrenderer.addVertexWithUV(-7.0D, -2.0D, 2.0D, (double)flights_u1, (double)flights_v1);
-        worldrenderer.addVertexWithUV(-7.0D, -2.0D, -2.0D, (double)flights_u0, (double)flights_v1);
+        worldrenderer.begin(7, DefaultVertexFormats.POSITION_TEX);
+        worldrenderer.pos(-7.0D, 2.0D, -2.0D).tex((double)flights_u0, (double)flights_v0).endVertex();;
+        worldrenderer.pos(-7.0D, 2.0D, 2.0D).tex((double)flights_u1, (double)flights_v0).endVertex();;
+        worldrenderer.pos(-7.0D, -2.0D, 2.0D).tex((double)flights_u1, (double)flights_v1).endVertex();;
+        worldrenderer.pos(-7.0D, -2.0D, -2.0D).tex((double)flights_u0, (double)flights_v1).endVertex();;
         tessellator.draw();
 
         // render shaft
@@ -91,11 +92,11 @@ public class RenderDart extends Render
         {
             GlStateManager.rotate(90.0F, 1.0F, 0.0F, 0.0F);
             GL11.glNormal3f(0.0F, 0.0F, scale);
-            worldrenderer.startDrawingQuads();
-            worldrenderer.addVertexWithUV(-8.0D, -2.0D, 0.0D, (double)shaft_u0, (double)shaft_v0);
-            worldrenderer.addVertexWithUV(8.0D, -2.0D, 0.0D, (double)shaft_u1, (double)shaft_v0);
-            worldrenderer.addVertexWithUV(8.0D, 2.0D, 0.0D, (double)shaft_u1, (double)shaft_v1);
-            worldrenderer.addVertexWithUV(-8.0D, 2.0D, 0.0D, (double)shaft_u0, (double)shaft_v1);
+            worldrenderer.begin(7, DefaultVertexFormats.POSITION_TEX);
+            worldrenderer.pos(-8.0D, -2.0D, 0.0D).tex((double)shaft_u0, (double)shaft_v0).endVertex();;
+            worldrenderer.pos(8.0D, -2.0D, 0.0D).tex((double)shaft_u1, (double)shaft_v0).endVertex();;
+            worldrenderer.pos(8.0D, 2.0D, 0.0D).tex((double)shaft_u1, (double)shaft_v1).endVertex();;
+            worldrenderer.pos(-8.0D, 2.0D, 0.0D).tex((double)shaft_u0, (double)shaft_v1).endVertex();;
             tessellator.draw();
         }
 

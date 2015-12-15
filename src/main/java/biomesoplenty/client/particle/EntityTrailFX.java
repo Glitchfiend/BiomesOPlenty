@@ -53,11 +53,14 @@ public class EntityTrailFX extends EntityFX
         float y = (float)(prevPosY + (posY - prevPosY) - interpPosY);
         float z = (float)(prevPosZ + (posZ - prevPosZ) - interpPosZ);
 
-        renderer.setColorRGBA_F(this.particleRed, this.particleGreen, this.particleBlue, alpha);
-        renderer.addVertexWithUV(x - width, y, z + width, minU, maxV);
-        renderer.addVertexWithUV(x + width, y, z + width, minU, minV);
-        renderer.addVertexWithUV(x + width, y, z - width, maxU, minV);
-        renderer.addVertexWithUV(x - width, y, z - width, maxU, maxV);
+        int i = this.getBrightnessForRender(partialTicks);
+        int j = i >> 16 & 65535;
+        int k = i & 65535;
+        
+        renderer.pos(x - width, y, z + width).tex(minU, maxV).color(this.particleRed, this.particleGreen, this.particleBlue, alpha).lightmap(j, k).endVertex();
+        renderer.pos(x + width, y, z + width).tex(minU, minV).color(this.particleRed, this.particleGreen, this.particleBlue, alpha).lightmap(j, k).endVertex();
+        renderer.pos(x + width, y, z - width).tex(maxU, minV).color(this.particleRed, this.particleGreen, this.particleBlue, alpha).lightmap(j, k).endVertex();
+        renderer.pos(x - width, y, z - width).tex(maxU, maxV).color(this.particleRed, this.particleGreen, this.particleBlue, alpha).lightmap(j, k).endVertex();
     }
 
     @Override

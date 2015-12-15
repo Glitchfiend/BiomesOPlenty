@@ -89,7 +89,7 @@ public class ClientProxy extends CommonProxy
             if (nonRenderingProperties != null)
             {
                 // use a custom state mapper which will ignore the properties specified in the block as being non-rendering
-                IStateMapper custom_mapper = (new StateMap.Builder()).addPropertiesToIgnore(nonRenderingProperties).build();
+                IStateMapper custom_mapper = (new StateMap.Builder()).ignore(nonRenderingProperties).build();
                 ModelLoader.setCustomStateMapper(block, custom_mapper);
             }
         }

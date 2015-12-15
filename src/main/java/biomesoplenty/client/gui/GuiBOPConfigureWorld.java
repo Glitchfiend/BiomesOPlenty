@@ -12,6 +12,7 @@ import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.WorldRenderer;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.resources.I18n;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -249,9 +250,9 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
 
 
     @Override
-    public String func_175318_a(int p_175318_1_, String p_175318_2_, float p_175318_3_)
+    public String getText(int id, String name, float value)
     {
-        return p_175318_2_ + ": " + this.stringFormatFloat(p_175318_1_, p_175318_3_);
+        return name + ": " + this.stringFormatFloat(id, value);
     }
 
     private String stringFormatFloat(int fieldId, float value)
@@ -361,7 +362,7 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
     @Override
     public void func_175319_a(int fieldId, String value) {this.handleStringSelection(fieldId, value);}
     @Override
-    public void func_175320_a(int fieldId, float value) {this.handleFloatSelection(fieldId, value);}
+    public void onTick(int fieldId, float value) {this.handleFloatSelection(fieldId, value);}
     @Override 
     public void func_175321_a(int fieldId, boolean value) {this.handleBooleanSelection(fieldId, value);}
     
@@ -544,12 +545,11 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
             WorldRenderer worldrenderer = tessellator.getWorldRenderer();
             this.mc.getTextureManager().bindTexture(optionsBackground);
             GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-            worldrenderer.startDrawingQuads();
-            worldrenderer.setColorOpaque_I(4210752);
-            worldrenderer.addVertexWithUV((double)(this.width / 2 - 90), 185.0D, 0.0D, 0.0D, 2.65625D);
-            worldrenderer.addVertexWithUV((double)(this.width / 2 + 90), 185.0D, 0.0D, 5.625D, 2.65625D);
-            worldrenderer.addVertexWithUV((double)(this.width / 2 + 90), 100.0D, 0.0D, 5.625D, 0.0D);
-            worldrenderer.addVertexWithUV((double)(this.width / 2 - 90), 100.0D, 0.0D, 0.0D, 0.0D);
+            worldrenderer.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR);
+            worldrenderer.pos((double)(this.width / 2 - 90), 185.0D, 0.0D).tex(0.0D, 2.65625D).color(64, 64, 64, 64).endVertex();
+            worldrenderer.pos((double)(this.width / 2 + 90), 185.0D, 0.0D).tex(5.625D, 2.65625D).color(64, 64, 64, 64).endVertex();
+            worldrenderer.pos((double)(this.width / 2 + 90), 100.0D, 0.0D).tex(5.625D, 0.0D).color(64, 64, 64, 64).endVertex();
+            worldrenderer.pos((double)(this.width / 2 - 90), 100.0D, 0.0D).tex(0.0D, 0.0D).color(64, 64, 64, 64).endVertex();
             tessellator.draw();
             this.drawCenteredString(this.fontRendererObj, I18n.format("createWorld.customize.custom.confirmTitle", new Object[0]), this.width / 2, 105, 16777215);
             this.drawCenteredString(this.fontRendererObj, I18n.format("createWorld.customize.custom.confirm1", new Object[0]), this.width / 2, 125, 16777215);

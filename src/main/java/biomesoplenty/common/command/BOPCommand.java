@@ -137,7 +137,7 @@ public class BOPCommand extends CommandBase
             double z = (double)closestBiomePos.getZ();
             
             player.playerNetServerHandler.setPlayerLocation(x, y, z, player.rotationYaw, player.rotationPitch);
-            sender.addChatMessage(new ChatComponentTranslation("commands.biomesoplenty.tpbiome.success", player.getCommandSenderName(), biomeToFind.biomeName, x, y, z));
+            sender.addChatMessage(new ChatComponentTranslation("commands.biomesoplenty.tpbiome.success", player.getName(), biomeToFind.biomeName, x, y, z));
         }
         else
         {
@@ -248,13 +248,5 @@ public class BOPCommand extends CommandBase
         }
         
         return null;
-    }
-    
-    //This is apparently causing a compile error on Jenkins for some unknown reason
-    //Nontheless, this fixes it
-    @Override
-    public int compareTo(Object object)
-    {
-        return this.getCommandName().compareTo(((ICommand)object).getCommandName());
     }
 }

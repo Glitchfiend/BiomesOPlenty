@@ -138,31 +138,31 @@ public class ChunkProviderGenerateBOP implements IChunkProvider
         // add structures
         if (this.settings.useCaves)
         {
-            this.caveGenerator.func_175792_a(this, this.worldObj, chunkX, chunkZ, chunkprimer);
+            this.caveGenerator.generate(this, this.worldObj, chunkX, chunkZ, chunkprimer);
         }
         if (this.settings.useRavines)
         {
-            this.ravineGenerator.func_175792_a(this, this.worldObj, chunkX, chunkZ, chunkprimer);
+            this.ravineGenerator.generate(this, this.worldObj, chunkX, chunkZ, chunkprimer);
         }
         if (this.settings.useMineShafts && this.mapFeaturesEnabled)
         {
-            this.mineshaftGenerator.func_175792_a(this, this.worldObj, chunkX, chunkZ, chunkprimer);
+            this.mineshaftGenerator.generate(this, this.worldObj, chunkX, chunkZ, chunkprimer);
         }
         if (this.settings.useVillages && this.mapFeaturesEnabled)
         {
-            this.villageGenerator.func_175792_a(this, this.worldObj, chunkX, chunkZ, chunkprimer);
+            this.villageGenerator.generate(this, this.worldObj, chunkX, chunkZ, chunkprimer);
         }
         if (this.settings.useStrongholds && this.mapFeaturesEnabled)
         {
-            this.strongholdGenerator.func_175792_a(this, this.worldObj, chunkX, chunkZ, chunkprimer);
+            this.strongholdGenerator.generate(this, this.worldObj, chunkX, chunkZ, chunkprimer);
         }
         if (this.settings.useTemples && this.mapFeaturesEnabled)
         {
-            this.scatteredFeatureGenerator.func_175792_a(this, this.worldObj, chunkX, chunkZ, chunkprimer);
+            this.scatteredFeatureGenerator.generate(this, this.worldObj, chunkX, chunkZ, chunkprimer);
         }
         if (this.settings.useMonuments && this.mapFeaturesEnabled)
         {
-            this.oceanMonumentGenerator.func_175792_a(this, this.worldObj, chunkX, chunkZ, chunkprimer);
+            this.oceanMonumentGenerator.generate(this, this.worldObj, chunkX, chunkZ, chunkprimer);
         }
 
         // create and return the chunk
@@ -480,23 +480,23 @@ public class ChunkProviderGenerateBOP implements IChunkProvider
         // populate the structures
         if (this.settings.useMineShafts && this.mapFeaturesEnabled)
         {
-            this.mineshaftGenerator.func_175794_a(this.worldObj, this.rand, chunkcoordintpair);
+            this.mineshaftGenerator.generateStructure(this.worldObj, this.rand, chunkcoordintpair);
         }
         if (this.settings.useVillages && this.mapFeaturesEnabled)
         {
-            hasVillageGenerated = this.villageGenerator.func_175794_a(this.worldObj, this.rand, chunkcoordintpair);
+            hasVillageGenerated = this.villageGenerator.generateStructure(this.worldObj, this.rand, chunkcoordintpair);
         }
         if (this.settings.useStrongholds && this.mapFeaturesEnabled)
         {
-            this.strongholdGenerator.func_175794_a(this.worldObj, this.rand, chunkcoordintpair);
+            this.strongholdGenerator.generateStructure(this.worldObj, this.rand, chunkcoordintpair);
         }
         if (this.settings.useTemples && this.mapFeaturesEnabled)
         {
-            this.scatteredFeatureGenerator.func_175794_a(this.worldObj, this.rand, chunkcoordintpair);
+            this.scatteredFeatureGenerator.generateStructure(this.worldObj, this.rand, chunkcoordintpair);
         }
         if (this.settings.useMonuments && this.mapFeaturesEnabled)
         {
-            this.oceanMonumentGenerator.func_175794_a(this.worldObj, this.rand, chunkcoordintpair);
+            this.oceanMonumentGenerator.generateStructure(this.worldObj, this.rand, chunkcoordintpair);
         }
 
         BlockPos decorateStart = blockpos.add(8, 0, 8);
@@ -575,7 +575,7 @@ public class ChunkProviderGenerateBOP implements IChunkProvider
 
         if (this.settings.useMonuments && this.mapFeaturesEnabled && p_177460_2_.getInhabitedTime() < 3600L)
         {
-            flag |= this.oceanMonumentGenerator.func_175794_a(this.worldObj, this.rand, new ChunkCoordIntPair(p_177460_3_, p_177460_4_));
+            flag |= this.oceanMonumentGenerator.generateStructure(this.worldObj, this.rand, new ChunkCoordIntPair(p_177460_3_, p_177460_4_));
         }
 
         return flag;
@@ -646,27 +646,27 @@ public class ChunkProviderGenerateBOP implements IChunkProvider
     {
         if (this.settings.useMineShafts && this.mapFeaturesEnabled)
         {
-            this.mineshaftGenerator.func_175792_a(this, this.worldObj, p_180514_2_, p_180514_3_, (ChunkPrimer)null);
+            this.mineshaftGenerator.generate(this, this.worldObj, p_180514_2_, p_180514_3_, (ChunkPrimer)null);
         }
 
         if (this.settings.useVillages && this.mapFeaturesEnabled)
         {
-            this.villageGenerator.func_175792_a(this, this.worldObj, p_180514_2_, p_180514_3_, (ChunkPrimer)null);
+            this.villageGenerator.generate(this, this.worldObj, p_180514_2_, p_180514_3_, (ChunkPrimer)null);
         }
 
         if (this.settings.useStrongholds && this.mapFeaturesEnabled)
         {
-            this.strongholdGenerator.func_175792_a(this, this.worldObj, p_180514_2_, p_180514_3_, (ChunkPrimer)null);
+            this.strongholdGenerator.generate(this, this.worldObj, p_180514_2_, p_180514_3_, (ChunkPrimer)null);
         }
 
         if (this.settings.useTemples && this.mapFeaturesEnabled)
         {
-            this.scatteredFeatureGenerator.func_175792_a(this, this.worldObj, p_180514_2_, p_180514_3_, (ChunkPrimer)null);
+            this.scatteredFeatureGenerator.generate(this, this.worldObj, p_180514_2_, p_180514_3_, (ChunkPrimer)null);
         }
 
         if (this.settings.useMonuments && this.mapFeaturesEnabled)
         {
-            this.oceanMonumentGenerator.func_175792_a(this, this.worldObj, p_180514_2_, p_180514_3_, (ChunkPrimer)null);
+            this.oceanMonumentGenerator.generate(this, this.worldObj, p_180514_2_, p_180514_3_, (ChunkPrimer)null);
         }
     }
 
