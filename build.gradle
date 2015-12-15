@@ -113,7 +113,7 @@ uploadArchives {
             logger.info('Publishing to files server')
 
             repository(url: "http://files.minecraftforge.net/maven/manage/upload") {
-                authentication(userName: "$System.env.maven_username", privateKey: "$System.env.maven_password")
+                authentication(userName: 'console_script', password: 'dc6d48ca20a474beeac280a9a16a926e')
             }
         } else {
             logger.info('Publishing to repo folder')
