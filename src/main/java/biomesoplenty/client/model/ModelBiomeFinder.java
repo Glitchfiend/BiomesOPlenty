@@ -18,18 +18,17 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.client.model.IFlexibleBakedModel;
+import net.minecraftforge.client.model.IModel;
 import net.minecraftforge.client.model.ISmartItemModel;
 
 public class ModelBiomeFinder extends IFlexibleBakedModel.Wrapper implements ISmartItemModel
 {
-    
     private IBakedModel[] frames;
-    private IBakedModel defaultModel;
     
-    public ModelBiomeFinder(IBakedModel defaultModel, TextureAtlasSprite[] frameTextures)
+    public ModelBiomeFinder(IModel defaultModel, TextureAtlasSprite[] frameTextures)
     {
-        super(defaultModel, DefaultVertexFormats.ITEM);
-        this.defaultModel = defaultModel;
+        super(null, DefaultVertexFormats.ITEM);
+
         this.frames = ModelUtils.generateModelsForTextures(defaultModel, frameTextures);
      }
 
@@ -37,7 +36,7 @@ public class ModelBiomeFinder extends IFlexibleBakedModel.Wrapper implements ISm
     public IBakedModel handleItemState(ItemStack stack)
     {
         EntityPlayerSP player = Minecraft.getMinecraft().thePlayer;
-        if (player == null) {return this.defaultModel;}
+        if (player == null) {return this.frames[0];}
         
         NBTTagCompound nbt = stack.getTagCompound();
         if (nbt != null && nbt.hasKey("biomeIDToFind"))

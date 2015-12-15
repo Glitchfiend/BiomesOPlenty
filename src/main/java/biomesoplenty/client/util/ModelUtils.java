@@ -8,43 +8,36 @@
 
 package biomesoplenty.client.util;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.google.common.base.Function;
 
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.resources.model.IBakedModel;
-import net.minecraft.client.resources.model.SimpleBakedModel;
-import net.minecraft.util.EnumFacing;
-
-import com.google.common.collect.Lists;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.model.IModel;
 
 public class ModelUtils
 {
-    public static IBakedModel[] generateModelsForTextures(IBakedModel model, TextureAtlasSprite[] textures) 
+    public static IBakedModel[] generateModelsForTextures(IModel model, TextureAtlasSprite[] textures) 
     {
         IBakedModel[] output = new IBakedModel[textures.length];
         
         for (int i = 0; i < output.length; i++)
         {
-            TextureAtlasSprite texture = textures[i];
-            SimpleBakedModel.Builder builder = new SimpleBakedModel.Builder(model, texture);
+            final TextureAtlasSprite texture = textures[i];
+
+            //Defines how TextureAtlasSprites are obtained whilst baking
+            Function<ResourceLocation, TextureAtlasSprite> textureGetter = new Function<ResourceLocation, TextureAtlasSprite>()
+            {
+                public TextureAtlasSprite apply(ResourceLocation location)
+                {
+                    return texture;
+                }
+            };
             
-            builder.setTexture(texture);
-            output[i] = builder.makeBakedModel();
+            output[i] = model.bake(model.getDefaultState(), DefaultVertexFormats.ITEM, textureGetter);
         }
         
         return output;
-    }
-    
-    public static List createFaceLists() 
-    {
-        List list = new ArrayList(EnumFacing.values().length);
-        
-        for (int i = 0; i < EnumFacing.values().length; i++) 
-        {
-            list.add(i, Lists.newLinkedList());
-        }
-
-        return list;
     }
 }

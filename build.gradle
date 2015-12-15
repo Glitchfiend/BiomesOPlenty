@@ -107,72 +107,78 @@ artifacts {
 
 uploadArchives {
     dependsOn 'build'
-    
-    repositories.mavenDeployer {
-        if ("$System.env.maven_username" != "null" && "$System.env.maven_password" != "null") {
+    repositories {
+        if (project.hasProperty("filesmaven")) {
             logger.info('Publishing to files server')
+            
+            mavenDeployer {
+                configuration = configurations.deployJars
 
-            repository(url: "http://files.minecraftforge.net/maven/manage/upload") {
-                authentication(userName: 'console_script', password: 'dc6d48ca20a474beeac280a9a16a926e')
+                repository(url: project.filesmaven.url) {
+                    authentication(userName: project.filesmaven.username, privateKey: project.filesmaven.key)
+                }
+
+                // This is just the pom data for the maven repo
+                pom {
+					groupId = project.group
+					version = project.version
+					artifactId = project.archivesBaseName
+					project {
+						name project.archivesBaseName
+						packaging 'jar'
+						description 'Biomes O Plenty'
+						url 'https://github.com/Glitchfiend/BiomesOPlenty'
+					
+						scm {
+							url 'https://github.com/Glitchfiend/BiomesOPlenty'
+							connection 'scm:git:git://github.com/Glitchfiend/BiomesOPlenty.git'
+							developerConnection 'scm:git:git@github.com:Glitchfiend/BiomesOPlenty.git'
+						}
+					
+						issueManagement {
+							system 'github'
+							url 'https://github.com/Glitchfiend/BiomesOPlenty/issues'
+						}
+					
+						licenses {
+							license {
+								name 'Creative Commons Attribution-NonCommercial-NoDerivs 4.0 International Public License'
+								url 'http://creativecommons.org/licenses/by-nc-nd/4.0/'
+								distribution 'repo'
+							}
+						}
+					
+						developers {
+							developer {
+								id 'Adubbz'
+								name 'Adubbz'
+								roles { role 'developer' }
+							}
+							developer {
+								id 'Amnet'
+								name 'Amnet'
+								roles { role 'developer' }
+							}
+							developer {
+								id 'Forstride'
+								name 'Forstride'
+								roles { role 'developer' }
+							}
+							developer {
+								id 'ted80'
+								name 'ted80'
+								roles { role 'developer' }
+							}
+						}
+					}
+                }
             }
         } else {
             logger.info('Publishing to repo folder')
-
-            pom.version = "${project.minecraft.version}-${project.version}"
-            repository(url: 'file://localhost/' + project.file('repo').getAbsolutePath())
-        }
-
-        pom {
-            groupId = project.group
-            version = project.version
-            artifactId = project.archivesBaseName
-            project {
-                name project.archivesBaseName
-                packaging 'jar'
-                description 'Biomes O Plenty'
-                url 'https://github.com/Glitchfiend/BiomesOPlenty'
-        
-                scm {
-                    url 'https://github.com/Glitchfiend/BiomesOPlenty'
-                    connection 'scm:git:git://github.com/Glitchfiend/BiomesOPlenty.git'
-                    developerConnection 'scm:git:git@github.com:Glitchfiend/BiomesOPlenty.git'
-                }
-        
-                issueManagement {
-                    system 'github'
-                    url 'https://github.com/Glitchfiend/BiomesOPlenty/issues'
-                }
-        
-                licenses {
-                    license {
-                        name 'Creative Commons Attribution-NonCommercial-NoDerivs 4.0 International Public License'
-                        url 'http://creativecommons.org/licenses/by-nc-nd/4.0/'
-                        distribution 'repo'
-                    }
-                }
-        
-                developers {
-                    developer {
-                        id 'Adubbz'
-                        name 'Adubbz'
-                        roles { role 'developer' }
-                    }
-                    developer {
-                        id 'Amnet'
-                        name 'Amnet'
-                        roles { role 'developer' }
-                    }
-                    developer {
-                        id 'Forstride'
-                        name 'Forstride'
-                        roles { role 'developer' }
-                    }
-                    developer {
-                        id 'ted80'
-                        name 'ted80'
-                        roles { role 'developer' }
-                    }
-                }
+            
+            mavenDeployer {
+                pom.version = "${project.minecraft.version}-${project.version}"
+                repository(url: 'file://localhost/' + project.file('repo').getAbsolutePath())
             }
         }
     }
