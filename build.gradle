@@ -1,11 +1,6 @@
 buildscript {
     repositories {
-		mavenCentral()
         jcenter()
-		maven {
-            name = 'sonatype-nexus-public'
-            url = 'https://oss.sonatype.org/content/repositories/public/'
-        }
         maven {
             name = "forge"
             url = "http://files.minecraftforge.net/maven"
@@ -18,13 +13,6 @@ buildscript {
 
 apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'maven'
-
-repositories {
-    flatDir {
-        name "fileRepo"
-        dirs "repo"
-    }
-}
 
 // define the properties file
 ext.configFile = file "build.properties"
