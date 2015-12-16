@@ -7,7 +7,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.0-SNAPSHOT'
     }
 }
 
@@ -30,7 +30,7 @@ archivesBaseName = "BiomesOPlenty"
 
 minecraft {
     version = config.minecraft_version + "-" + config.forge_version // grab latest forge
-    mappings = "snapshot_nodoc_20151214"
+    mappings = "snapshot_nodoc_20150214"
 }
 
 // add some stuff to the version
@@ -71,7 +71,7 @@ processResources {
 import net.minecraftforge.gradle.tasks.JenkinsChangelog
 import net.minecraftforge.gradle.common.Constants
 
-task createChangelog(type: JenkinsChangelog) {
+task changelog(type: JenkinsChangelog) {
     def buildNumber = "${System.getenv().BUILD_NUMBER}"
 
     serverRoot = 'http://ci.jenkins.minecraftforge.net/'
@@ -82,7 +82,7 @@ task createChangelog(type: JenkinsChangelog) {
     output = 'build/libs/' + project.getName() + '-' + project.version + '-changelog.txt';
 }
 
-tasks.build.dependsOn('createChangelog')
+tasks.build.dependsOn('changelog')
 
 task sourcesJar(type: Jar) {
     from sourceSets.main.allJava
@@ -101,12 +101,14 @@ task deobfJar(type: Jar) {
 }
 
 artifacts {
+	archives changelog.output
     archives sourcesJar
     archives deobfJar
 }
 
 uploadArchives {
     dependsOn 'build'
+	
     repositories {
         if (project.hasProperty("filesmaven")) {
             logger.info('Publishing to files server')
