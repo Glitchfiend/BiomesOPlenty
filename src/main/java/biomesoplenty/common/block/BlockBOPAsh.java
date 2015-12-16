@@ -64,7 +64,7 @@ public class BlockBOPAsh extends BlockBOPGeneric
         return (side == EnumFacing.UP);
     }
     
-    // drop 4 balls of ash instead of one block
+    // drop 4 balls of ash instead of one block 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
