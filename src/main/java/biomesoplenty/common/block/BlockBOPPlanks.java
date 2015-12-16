@@ -76,6 +76,7 @@ public class BlockBOPPlanks extends Block implements IBOPBlock
     {
         super(Material.wood);
         this.setDefaultState(this.blockState.getBaseState());
+        this.setHardness(2.0F).setResistance(5.0F).setStepSound(soundTypeWood);
         this.setHarvestLevel("axe", 0);
     }
     
