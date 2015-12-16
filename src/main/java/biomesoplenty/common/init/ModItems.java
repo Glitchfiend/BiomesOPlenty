@@ -105,7 +105,7 @@ public class ModItems
         
         mud_armor_material = EnumHelper.addArmorMaterial("MUD", "biomesoplenty:mud_armor", 2, new int[]{1,1,1,1}, 5);
         mud_armor_material.customCraftingMaterial = mudball;
-        amethyst_armor_material = EnumHelper.addArmorMaterial("AMETHYST", "biomesoplenty:amethyst_armor", 40, new int[]{6,12,10,6}, 20);
+        amethyst_armor_material = EnumHelper.addArmorMaterial("AMETHYST", "biomesoplenty:amethyst_armor", 40, new int[]{3,8,8,3}, 20);
         
         wading_boots = registerItem(new ItemWadingBoots(wading_boots_material, 0), "wading_boots");
         flippers = registerItem(new ItemFlippers(flippers_material, 0), "flippers");
