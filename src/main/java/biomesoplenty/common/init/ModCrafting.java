@@ -228,7 +228,7 @@ public class ModCrafting
         {
             if (wood.canMakeCharcoal())
             {
-                GameRegistry.addSmelting(BlockBOPLog.paging.getVariantItem(wood), new ItemStack(Items.coal, 1, 1), 15F);
+                GameRegistry.addSmelting(BlockBOPLog.paging.getVariantItem(wood), new ItemStack(Items.coal, 1, 1), 0.15F);
             }
         }
         
