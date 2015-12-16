@@ -32,6 +32,7 @@ public class ModHandlers
         MinecraftForge.EVENT_BUS.register(new BucketEventHandler());
         MinecraftForge.EVENT_BUS.register(new PotionParalysisEventHandler());
         MinecraftForge.EVENT_BUS.register(new PotionPossessionEventHandler());
+        FMLCommonHandler.instance().bus().register(new AchievementEventHandler());
         
         if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
         {
