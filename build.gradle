@@ -67,7 +67,7 @@ processResources {
         exclude '**/*.properties'
     }
 }
-
+ 
 import net.minecraftforge.gradle.tasks.JenkinsChangelog
 import net.minecraftforge.gradle.common.Constants
 
