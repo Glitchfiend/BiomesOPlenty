@@ -118,7 +118,7 @@ uploadArchives {
 
 	def dir = new File("build/libs/")
 	
-	if (dir.exists() {
+	if (dir.exists()) {
 		dir.eachFileRecurse (FileType.FILES) { file ->
 			//Add each file to the list
 			list << file
