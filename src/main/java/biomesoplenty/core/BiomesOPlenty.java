@@ -66,12 +66,6 @@ public class BiomesOPlenty
     {
         proxy.registerRenderers();
     }
-
-    @EventHandler
-    public void postInit(FMLPostInitializationEvent event)
-    {
-
-    }
     
     @EventHandler
     public void serverStarting(FMLServerStartingEvent event)
