@@ -54,15 +54,6 @@ public class GenLayerBiomeBOP extends GenLayerBiome
         this.biomeLists[0].add(new BiomeEntry(BiomeGenBase.savanna, 20));
         this.biomeLists[0].add(new BiomeEntry(BiomeGenBase.plains, 10));
         
-        //Debug
-        for (List<BiomeEntry> entryList : this.biomeLists)
-        {
-        	for (BiomeEntry entry : entryList)
-        	{
-        		System.out.println(entry.biome.biomeName);
-        	}
-        }
-        
         for (int i = 0; i < biomeLists.length; i++)
         {
         	List<BiomeEntry> currentBiomeList = biomeLists[i];
