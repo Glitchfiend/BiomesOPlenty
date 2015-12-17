@@ -30,7 +30,7 @@ public class BiomesOPlenty
 {
     public static final String MOD_NAME = "Biomes O' Plenty";
     public static final String MOD_ID = "BiomesOPlenty";
-
+     
     @Instance(MOD_ID)
     public static BiomesOPlenty instance;
 
