@@ -11,13 +11,12 @@ buildscript {
     }
 }
 
-apply plugin: 'net.minecraftforge.gradle.forge'
-apply plugin: 'maven'
-
 plugins {
-    id "net.minecraftforge.gradle.forge" version "2.0.2"
     id "com.matthewprenger.cursegradle" version "1.0.5"
 }
+
+apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'maven'
 
 // define the properties file
 ext.configFile = file "build.properties"
