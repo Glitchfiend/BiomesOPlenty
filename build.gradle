@@ -100,6 +100,30 @@ task deobfJar(type: Jar) {
     classifier = 'deobf'
 }
 
+task listOutputs << {
+	//This is needed by the Groovy Postbuild to append labels for each build used in the changelog.
+	println "Output files:"
+	println "--------------------"
+	def list = []
+
+	def dir = new File("build/libs/")
+	
+	if (dir.exists()) {
+		dir.eachFileRecurse (FileType.FILES) { file ->
+			//Add each file to the list
+			list << file
+		}
+	
+		//Print the names of all of the output files
+		list.each {
+			println it.getName()
+		}
+	}
+	println "--------------------"
+}
+
+tasks.listOutputs.dependsOn('build')
+
 artifacts {
 	archives changelog.output
     archives sourcesJar
@@ -112,26 +136,6 @@ uploadArchives {
     dependsOn 'build'
 	
     repositories {
-		//This is needed by the Groovy Postbuild to append labels for each build used in the changelog.
-		println "Output files:"
-		println "--------------------"
-		def list = []
-
-		def dir = new File("build/libs/")
-	
-		if (dir.exists()) {
-			dir.eachFileRecurse (FileType.FILES) { file ->
-				//Add each file to the list
-				list << file
-			}
-	
-			//Print the names of all of the output files
-			list.each {
-				println it.getName()
-			}
-		}
-		println "--------------------"
-	
         if (project.hasProperty("filesmaven")) {
             logger.info('Publishing to files server')
             
