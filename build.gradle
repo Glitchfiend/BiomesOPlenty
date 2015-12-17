@@ -117,14 +117,17 @@ uploadArchives {
 	def list = []
 
 	def dir = new File("build/libs/")
-	dir.eachFileRecurse (FileType.FILES) { file ->
-		//Add each file to the list
-		list << file
-	}
 	
-	//Print the names of all of the output files
-	list.each {
-		println it.getName()
+	if (dir.exists() {
+		dir.eachFileRecurse (FileType.FILES) { file ->
+			//Add each file to the list
+			list << file
+		}
+	
+		//Print the names of all of the output files
+		list.each {
+			println it.getName()
+		}
 	}
 	println "--------------------"
 	
