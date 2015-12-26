@@ -96,9 +96,7 @@ public class ModBlocks
         other_slab =            registerBlock( new BlockBOPHalfOtherSlab(), "other_slab");
         double_other_slab =     registerBlock( new BlockBOPDoubleOtherSlab(), "double_other_slab", null ); // no creative tab for double slab
         BOPItems.other_slab =   ModItems.registerItem( new ItemSlab(other_slab, (BlockSlab)other_slab, (BlockSlab)double_other_slab), "other_slab");
-        GameData.getBlockItemMap().put(other_slab, BOPItems.other_slab);      
-        GameData.getBlockItemMap().put(double_other_slab, BOPItems.other_slab);
-        
+
         // 22 flower types 16 per BlockBOPFlower instance, needs 2 'pages'
         BlockBOPFlower.createAllPages();
         flower_0 =              registerBlock( BlockBOPFlower.paging.getBlock(0), "flower_0" );
@@ -120,13 +118,10 @@ public class ModBlocks
         wood_slab_0 =           registerBlock( BlockBOPHalfWoodSlab.paging.getBlock(0), "wood_slab_0");
         double_wood_slab_0 =    registerBlock( BlockBOPDoubleWoodSlab.paging.getBlock(0), "double_wood_slab_0", null ); // no creative tab for double slab
         BOPItems.wood_slab_0 =  ModItems.registerItem( new ItemSlab(wood_slab_0, (BlockSlab)wood_slab_0, (BlockSlab)double_wood_slab_0), "wood_slab_0");
-        GameData.getBlockItemMap().put(wood_slab_0, BOPItems.wood_slab_0);      
-        GameData.getBlockItemMap().put(double_wood_slab_0, BOPItems.wood_slab_0);
+
         wood_slab_1 =           registerBlock( BlockBOPHalfWoodSlab.paging.getBlock(1), "wood_slab_1");
         double_wood_slab_1 =    registerBlock( BlockBOPDoubleWoodSlab.paging.getBlock(1), "double_wood_slab_1", null ); // no creative tab for double slab
-        BOPItems.wood_slab_1 =  ModItems.registerItem( new ItemSlab(wood_slab_1, (BlockSlab)wood_slab_1, (BlockSlab)double_wood_slab_1), "wood_slab_1");
-        GameData.getBlockItemMap().put(wood_slab_1, BOPItems.wood_slab_1);      
-        GameData.getBlockItemMap().put(double_wood_slab_1, BOPItems.wood_slab_1);        
+        BOPItems.wood_slab_1 =  ModItems.registerItem( new ItemSlab(wood_slab_1, (BlockSlab)wood_slab_1, (BlockSlab)double_wood_slab_1), "wood_slab_1");     
         
         // 16 wood types, 16 per BlockBOPPlanks instance, needs 1 'pages'
         BlockBOPPlanks.createAllPages();
