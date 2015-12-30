@@ -1,14 +1,9 @@
 buildscript {
     repositories {
-        mavenCentral()
-                mavenLocal()
+        jcenter()
         maven {
-            name = "ForgeFS"
+            name = "forge"
             url = "http://files.minecraftforge.net/maven"
-        }
-                maven {
-            name = "sonatype"
-            url = "https://oss.sonatype.org/content/repositories/snapshots/"
         }
     }
     dependencies {
@@ -16,24 +11,12 @@ buildscript {
     }
 }
 
-configurations {
-    deployJars
+plugins {
+    id "com.matthewprenger.cursegradle" version "1.0.3"
 }
 
-apply plugin: "maven"
-apply plugin: "forge"
-
-repositories {
-    mavenLocal()
-    flatDir {
-        name "fileRepo"
-        dirs "repo"
-    }
-    ivy {
-        name 'Forge FS legacy'
-        artifactPattern "http://files.minecraftforge.net/[module]/[module]-dev-[revision].[ext]"
-    }
-}
+apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'maven'
 
 // define the properties file
 ext.configFile = file "build.properties"
@@ -45,32 +28,31 @@ configFile.withReader {
     project.ext.config = new ConfigSlurper().parse prop
 }
 
-dependencies {
-    //compile name: 'WorldCore', version: "${config.minecraft_version}-${config.worldcore_version}", ext: 'jar'
-    //compile name: 'ForgeMultipart', version: "${config.minecraft_version}-${config.fmp_version}", ext: 'jar'
-}
-
 group = "com.github.glitchfiend.biomesoplenty"
 version = config.mod_version
 archivesBaseName = "BiomesOPlenty"
 
 minecraft {
     version = config.minecraft_version + "-" + config.forge_version // grab latest forge
-    assetDir = "run/assets"
-
-        replaceIn "BiomesOPlenty.java"
-            replace "1.42.666.42.1", config.forge_version
+    mappings = "snapshot_nodoc_20151214"
 }
 
 // add some stuff to the version
 version = "${config.minecraft_version}-${config.mod_version}.${System.getenv().BUILD_NUMBER}"
 
-jenkins {
-    job = 'BiomesOPlenty'
+def commonManifest = {
+    attributes 'FMLCorePlugin': 'biomesoplenty.common.asm.BOPLoadingPlugin'
+    attributes 'FMLCorePluginContainsFMLMod': 'true'
+    attributes 'ForceLoadAsMod': true
+    attributes 'FMLAT': 'biomesoplenty_at.cfg'
+}
+
+jar {
+    manifest commonManifest
+    classifier = 'universal'
 }
 
 processResources {
-    // replace stuff in the files we want.
     from(sourceSets.main.resources.srcDirs) {
         include '**/*.info'
         include '**/*.properties'
@@ -80,136 +62,164 @@ processResources {
             'modid': project.archivesBaseName,
             'mod_version': project.config.mod_version,
             'minecraft_version': project.config.minecraft_version,
-            'build_number': project.config.build_number,
-            'worldcore_version': project.config.worldcore_version
+            'build_number': project.config.build_number
         ])
     }
 
-    // copy everything else, thats we didnt do before
     from(sourceSets.main.resources.srcDirs) {
         exclude '**/*.info'
         exclude '**/*.properties'
     }
 }
-
-jar {
-    manifest {
-        //attributes 'FMLCorePlugin': 'biomesoplenty.asm.BOPFMLLoadingPlugin'
-        //attributes 'FMLCorePluginContainsFMLMod': 'true'
-    }
-    classifier = 'universal'
-}
-
-import net.minecraftforge.gradle.tasks.dev.ChangelogTask
+ 
+import net.minecraftforge.gradle.tasks.JenkinsChangelog
 import net.minecraftforge.gradle.common.Constants
-import net.minecraftforge.gradle.delayed.*
 
-task createChangelog(type: ChangelogTask) {
-        def jobName = "${System.getenv().JOB_NAME}"
-        def buildNumber = "${System.getenv().BUILD_NUMBER}"
+task changelog(type: JenkinsChangelog) {
+    def buildNumber = "${System.getenv().BUILD_NUMBER}"
 
-        setServerRoot(new DelayedString(project, 'http://ci.jenkins.minecraftforge.net/'))
-        setJobName(new DelayedString(project, jobName.toString()));
-    setAuthName(new DelayedString(project, 'console_script'));
-    setAuthPassword(new DelayedString(project, 'dc6d48ca20a474beeac280a9a16a926e'));
-    setTargetBuild({buildNumber.toString()});
-    setOutput(new DelayedFile(project, 'build/distributions/' + project.getName() + '-' + project.version + '-changelog.txt'));
+    serverRoot = 'http://ci.jenkins.minecraftforge.net/'
+    jobName = 'BiomesOPlenty'
+    authName = 'console_script';
+    authPassword = 'dc6d48ca20a474beeac280a9a16a926e';
+    targetBuild = buildNumber.toString();
+    output = 'build/libs/' + project.getName() + '-' + project.version + '-changelog.txt';
 }
 
-tasks.build.dependsOn('createChangelog')
+tasks.build.dependsOn('changelog')
 
-task sourceJar(type: Jar) {
+task sourcesJar(type: Jar) {
     from sourceSets.main.allJava
-    classifier = 'sources'
-}
-
-task apiZip(type: Zip) {
-    from(sourceSets.main.java)
-    {
-        include "biomesoplenty/api/*"
+    from (sourceSets.main.output) {
+        include 'LICENSE.txt'
     }
-    classifier = 'api'
+
+    classifier = 'sources'
 }
 
 task deobfJar(type: Jar) {
     from sourceSets.main.output
+
+    manifest commonManifest
     classifier = 'deobf'
 }
 
-artifacts {
-    archives sourceJar
-    archives deobfJar
-    archives apiZip
+task listOutputs << {
+    //This is needed by the Groovy Postbuild to append labels for each build used in the changelog.
+    println "Output files:"
+    println "--------------------"
+    def list = []
+
+    def dir = new File("build/libs/")
+    
+    if (dir.exists()) {
+        dir.eachFileRecurse (FileType.FILES) { file ->
+            //Add each file to the list
+            list << file
+        }
+    
+        //Print the names of all of the output files
+        list.each {
+            println it.getName()
+        }
+    }
+    println "--------------------"
 }
 
-uploadArchives {
-    repositories {
-                add getProject().repositories.mavenLocal()
-    }
-    repositories.mavenDeployer {
-            configuration = configurations.deployJars
+tasks.build.finalizedBy('listOutputs')
 
+artifacts {
+    archives changelog.output
+    archives sourcesJar
+    archives deobfJar
+}
+
+curseforge {
+    apiKey = "$System.env.curse_api_key"
+    project {
+        id = '220318'
+        changelog = file('build/libs/' + project.getName() + '-' + project.version + '-changelog.txt');
+        releaseType = 'beta'
+    }
+}
+
+import groovy.io.FileType
+
+uploadArchives {
+    dependsOn 'build'
+    
+    repositories {
         if (project.hasProperty("filesmaven")) {
             logger.info('Publishing to files server')
-            repository(url: project.filesmaven.url) {
-                authentication(userName: project.filesmaven.username, privateKey: project.filesmaven.key)
+            
+            mavenDeployer {
+                configuration = configurations.deployJars
+
+                repository(url: project.filesmaven.url) {
+                    authentication(userName: project.filesmaven.username, privateKey: project.filesmaven.key)
+                }
+
+                // This is just the pom data for the maven repo
+                pom {
+                    groupId = project.group
+                    version = project.version
+                    artifactId = project.archivesBaseName
+                    project {
+                        name project.archivesBaseName
+                        packaging 'jar'
+                        description 'Biomes O Plenty'
+                        url 'https://github.com/Glitchfiend/BiomesOPlenty'
+                    
+                        scm {
+                            url 'https://github.com/Glitchfiend/BiomesOPlenty'
+                            connection 'scm:git:git://github.com/Glitchfiend/BiomesOPlenty.git'
+                            developerConnection 'scm:git:git@github.com:Glitchfiend/BiomesOPlenty.git'
+                        }
+                    
+                        issueManagement {
+                            system 'github'
+                            url 'https://github.com/Glitchfiend/BiomesOPlenty/issues'
+                        }
+                    
+                        licenses {
+                            license {
+                                name 'Creative Commons Attribution-NonCommercial-NoDerivs 4.0 International Public License'
+                                url 'http://creativecommons.org/licenses/by-nc-nd/4.0/'
+                                distribution 'repo'
+                            }
+                        }
+                    
+                        developers {
+                            developer {
+                                id 'Adubbz'
+                                name 'Adubbz'
+                                roles { role 'developer' }
+                            }
+                            developer {
+                                id 'Amnet'
+                                name 'Amnet'
+                                roles { role 'developer' }
+                            }
+                            developer {
+                                id 'Forstride'
+                                name 'Forstride'
+                                roles { role 'developer' }
+                            }
+                            developer {
+                                id 'ted80'
+                                name 'ted80'
+                                roles { role 'developer' }
+                            }
+                        }
+                    }
+                }
             }
         } else {
             logger.info('Publishing to repo folder')
-            repository(url: 'file://localhost/' + project.file('repo').getAbsolutePath())
-        }
-
-        pom {
-            groupId = project.group
-            version = project.version
-            artifactId = project.archivesBaseName
-        }
-        pom.project {
-            name project.archivesBaseName
-            packaging 'jar'
-            description 'Biomes O Plenty'
-            url 'https://github.com/Glitchfiend/BiomesOPlenty'
-
-            scm {
-                url 'https://github.com/Glitchfiend/BiomesOPlenty'
-                connection 'scm:git:git://github.com/Glitchfiend/BiomesOPlenty.git'
-                developerConnection 'scm:git:git@github.com:Glitchfiend/BiomesOPlenty.git'
-            }
-
-            issueManagement {
-                system 'github'
-                url 'https://github.com/Glitchfiend/BiomesOPlenty/issues'
-            }
-
-            licenses {
-                license {
-                    name 'Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported'
-                    url 'http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US'
-                    distribution 'repo'
-                }
-            }
-
-            developers {
-                developer {
-                    id 'Adubbz'
-                    name 'Adubbz'
-                    roles { role 'developer' }
-                }
-                developer {
-                    id 'Forstride'
-                    name 'Forstride'
-                    roles { role 'developer' }
-                }
-                developer {
-                    id 'Amnet'
-                    name 'Amnet'
-                    roles { role 'developer' }
-                }
-                developer {
-                    id 'ted80'
-                    name 'ted80'
-                    roles { role 'developer' }
-                }
+            
+            mavenDeployer {
+                pom.version = "${project.minecraft.version}-${project.version}"
+                repository(url: 'file://localhost/' + project.file('repo').getAbsolutePath())
             }
         }
     }
