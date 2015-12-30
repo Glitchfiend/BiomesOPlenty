@@ -16,9 +16,13 @@ buildscript {
     }
 }
 
+
+plugins {
+    id "com.matthewprenger.cursegradle" version "1.0.5"
+}
+
 apply plugin: "maven"
 apply plugin: "forge"
-apply plugin: "curseforge"
 
 repositories {
     mavenLocal()
@@ -126,11 +130,13 @@ artifacts {
     archives apiZip
 }
 
-curse {
-    projectId = '220318'
+curseforge {
     apiKey = "$System.env.curse_api_key"
-    releaseType = 'beta'
-    changelog = file('build/libs/' + project.getName() + '-' + project.version + '-changelog.txt');
+    project {
+        id = '220318'
+        changelog = file('build/libs/' + project.getName() + '-' + project.version + '-changelog.txt');
+        releaseType = 'beta'
+    }
 }
 
 uploadArchives {
