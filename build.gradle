@@ -11,10 +11,6 @@ buildscript {
     }
 }
 
-plugins {
-    id "com.matthewprenger.cursegradle" version "1.0.3"
-}
-
 apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'maven'
 
@@ -132,15 +128,6 @@ artifacts {
     archives changelog.output
     archives sourcesJar
     archives deobfJar
-}
-
-curseforge {
-    apiKey = "$System.env.curse_api_key"
-    project {
-        id = '220318'
-        changelog = file('build/libs/' + project.getName() + '-' + project.version + '-changelog.txt');
-        releaseType = 'beta'
-    }
 }
 
 import groovy.io.FileType
