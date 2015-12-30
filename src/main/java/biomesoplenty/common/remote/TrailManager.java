@@ -22,8 +22,6 @@ public class TrailManager
 {
     private static final String REMOTE_TRAILS_FILE = "https://raw.githubusercontent.com/Glitchfiend/BiomesOPlenty/master/trails.txt";
     
-    //private static File cacheDirectory = new File(Minecraft.getMinecraft().fil)
-    
     public static HashMap<UUID, String> trailsMap = new HashMap<UUID, String>();
     public static HashMap<String, ResourceLocation> trailTextures = new HashMap<String, ResourceLocation>();
     
@@ -51,16 +49,10 @@ public class TrailManager
             }
             
             reader.close();
-            
-            //TODO: Retrieve trail textures
-            for (String trailName : trailTextures.keySet())
-            {
-                
-            }
         } 
         catch (Exception e)
         {
-            BiomesOPlenty.logger.warn("There was an issue retrieving trails from remote!");
+            BiomesOPlenty.logger.warn("There was an issue retrieving trail info from remote!");
         } 
     }
 }
