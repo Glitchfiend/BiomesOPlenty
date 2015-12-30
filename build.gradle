@@ -52,10 +52,6 @@ archivesBaseName = "BiomesOPlenty"
 
 minecraft {
     version = config.minecraft_version + "-" + config.forge_version // grab latest forge
-    assetDir = "run/assets"
-
-        replaceIn "BiomesOPlenty.java"
-            replace "1.42.666.42.1", config.forge_version
 }
 
 // add some stuff to the version
