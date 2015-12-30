@@ -16,16 +16,9 @@ buildscript {
     }
 }
 
-plugins {
-    id "com.matthewprenger.cursegradle" version "1.0.3"
-}
-
-configurations {
-    deployJars
-}
-
 apply plugin: "maven"
 apply plugin: "forge"
+apply plugin: "curseforge"
 
 repositories {
     mavenLocal()
@@ -49,11 +42,6 @@ configFile.withReader {
     project.ext.config = new ConfigSlurper().parse prop
 }
 
-dependencies {
-    //compile name: 'WorldCore', version: "${config.minecraft_version}-${config.worldcore_version}", ext: 'jar'
-    //compile name: 'ForgeMultipart', version: "${config.minecraft_version}-${config.fmp_version}", ext: 'jar'
-}
-
 group = "com.github.glitchfiend.biomesoplenty"
 version = config.mod_version
 archivesBaseName = "BiomesOPlenty"
@@ -68,10 +56,6 @@ minecraft {
 
 // add some stuff to the version
 version = "${config.minecraft_version}-${config.mod_version}.${System.getenv().BUILD_NUMBER}"
-
-jenkins {
-    job = 'BiomesOPlenty'
-}
 
 processResources {
     // replace stuff in the files we want.
@@ -97,10 +81,6 @@ processResources {
 }
 
 jar {
-    manifest {
-        //attributes 'FMLCorePlugin': 'biomesoplenty.asm.BOPFMLLoadingPlugin'
-        //attributes 'FMLCorePluginContainsFMLMod': 'true'
-    }
     classifier = 'universal'
 }
 
@@ -109,11 +89,11 @@ import net.minecraftforge.gradle.common.Constants
 import net.minecraftforge.gradle.delayed.*
 
 task createChangelog(type: ChangelogTask) {
-        def jobName = "${System.getenv().JOB_NAME}"
-        def buildNumber = "${System.getenv().BUILD_NUMBER}"
+    def jobName = "${System.getenv().JOB_NAME}"
+    def buildNumber = "${System.getenv().BUILD_NUMBER}"
 
-        setServerRoot(new DelayedString(project, 'http://ci.jenkins.minecraftforge.net/'))
-        setJobName(new DelayedString(project, jobName.toString()));
+    setServerRoot(new DelayedString(project, 'http://ci.jenkins.minecraftforge.net/'))
+    setJobName(new DelayedString(project, jobName.toString()));
     setAuthName(new DelayedString(project, 'console_script'));
     setAuthPassword(new DelayedString(project, 'dc6d48ca20a474beeac280a9a16a926e'));
     setTargetBuild({buildNumber.toString()});
