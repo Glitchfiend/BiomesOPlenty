@@ -107,14 +107,6 @@ task sourceJar(type: Jar) {
     classifier = 'sources'
 }
 
-task apiZip(type: Zip) {
-    from(sourceSets.main.java)
-    {
-        include "biomesoplenty/api/*"
-    }
-    classifier = 'api'
-}
-
 task deobfJar(type: Jar) {
     from sourceSets.main.output
     classifier = 'deobf'
@@ -123,7 +115,6 @@ task deobfJar(type: Jar) {
 artifacts {
     archives sourceJar
     archives deobfJar
-    archives apiZip
 }
 
 curseforge {
