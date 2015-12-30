@@ -34,6 +34,7 @@ archivesBaseName = "BiomesOPlenty"
 
 minecraft {
     version = config.minecraft_version + "-" + config.forge_version // grab latest forge
+    mappings = "snapshot_nodoc_20140925"
 }
 
 // add some stuff to the version
