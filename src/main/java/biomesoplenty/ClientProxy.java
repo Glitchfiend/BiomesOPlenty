@@ -12,7 +12,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import biomesoplenty.api.content.BOPCItems;
 import biomesoplenty.client.particles.EntityDandelionFX;
-import biomesoplenty.client.particles.EntityFlowerScatterFX;
+import biomesoplenty.client.particles.EntityTrailFX;
 import biomesoplenty.client.particles.EntityMagicTreeFX;
 import biomesoplenty.client.particles.EntityPixieTrailFX;
 import biomesoplenty.client.particles.EntitySteamFX;
@@ -117,7 +117,7 @@ public class ClientProxy extends CommonProxy
 		}
 		else if (string == "flowerscatter")
 		{
-			entityfx = new EntityFlowerScatterFX(minecraft.theWorld, x, y, z, (IIcon)args[0]);
+			entityfx = new EntityTrailFX(minecraft.theWorld, x, y, z, (String)args[0]);
 		}
 
 		minecraft.effectRenderer.addEffect(entityfx);

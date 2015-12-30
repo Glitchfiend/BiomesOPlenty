@@ -42,3 +42,4 @@ build_number.properties
 .project
 .classpath
 /bin/
+/build/
