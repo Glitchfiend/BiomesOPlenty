@@ -12,7 +12,7 @@ buildscript {
 }
 
 plugins {
-    id "com.matthewprenger.cursegradle" version "1.0.3"
+    id "com.matthewprenger.cursegradle" version "1.0.5"
 }
 
 apply plugin: 'net.minecraftforge.gradle.forge'
@@ -34,7 +34,6 @@ archivesBaseName = "BiomesOPlenty"
 
 minecraft {
     version = config.minecraft_version + "-" + config.forge_version // grab latest forge
-    mappings = "snapshot_nodoc_20151214"
 }
 
 // add some stuff to the version
