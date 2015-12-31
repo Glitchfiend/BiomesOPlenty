@@ -52,7 +52,7 @@ public class BOPItems
 		BOPItemHelper.armorMaterialMud = EnumHelper.addArmorMaterial("MUD", 2, new int[] {1, 1, 1, 1}, 5);
 		
 		BOPItemHelper.toolMaterialAmethyst = EnumHelper.addToolMaterial("AMETHYST", 4, 2013, 15.0F, 5, 16);
-		BOPItemHelper.armorMaterialAmethyst = EnumHelper.addArmorMaterial("AMETHYST", 40, new int[] {6, 12, 10, 6}, 20);
+		BOPItemHelper.armorMaterialAmethyst = EnumHelper.addArmorMaterial("AMETHYST", 40, new int[] {3, 8, 8, 3}, 20);
 		
 		BOPItemHelper.armorMaterialUnprotective = EnumHelper.addArmorMaterial("UNPROTECTIVE", -1, new int[] {0, 0, 0, 0}, 0);
 		
