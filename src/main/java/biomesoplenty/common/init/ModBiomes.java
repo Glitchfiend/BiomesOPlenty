@@ -8,9 +8,53 @@
 
 package biomesoplenty.common.init;
 
-import static biomesoplenty.api.biome.BOPBiomes.*;
+import static biomesoplenty.api.biome.BOPBiomes.alps;
+import static biomesoplenty.api.biome.BOPBiomes.arctic;
+import static biomesoplenty.api.biome.BOPBiomes.bamboo_forest;
+import static biomesoplenty.api.biome.BOPBiomes.bayou;
+import static biomesoplenty.api.biome.BOPBiomes.bog;
+import static biomesoplenty.api.biome.BOPBiomes.boreal_forest;
+import static biomesoplenty.api.biome.BOPBiomes.brushland;
+import static biomesoplenty.api.biome.BOPBiomes.canyon;
+import static biomesoplenty.api.biome.BOPBiomes.canyon_ravine;
+import static biomesoplenty.api.biome.BOPBiomes.chaparral;
+import static biomesoplenty.api.biome.BOPBiomes.cherry_blossom_grove;
+import static biomesoplenty.api.biome.BOPBiomes.cold_desert;
+import static biomesoplenty.api.biome.BOPBiomes.coniferous_forest;
+import static biomesoplenty.api.biome.BOPBiomes.crag;
+import static biomesoplenty.api.biome.BOPBiomes.dead_forest;
+import static biomesoplenty.api.biome.BOPBiomes.dead_swamp;
+import static biomesoplenty.api.biome.BOPBiomes.deciduous_forest;
+import static biomesoplenty.api.biome.BOPBiomes.dense_forest;
+import static biomesoplenty.api.biome.BOPBiomes.eucalyptus_forest;
+import static biomesoplenty.api.biome.BOPBiomes.fen;
+import static biomesoplenty.api.biome.BOPBiomes.flower_field;
+import static biomesoplenty.api.biome.BOPBiomes.frost_forest;
+import static biomesoplenty.api.biome.BOPBiomes.frozen_desert;
+import static biomesoplenty.api.biome.BOPBiomes.fungi_forest;
+import static biomesoplenty.api.biome.BOPBiomes.garden;
+import static biomesoplenty.api.biome.BOPBiomes.glacier;
+import static biomesoplenty.api.biome.BOPBiomes.grassland;
+import static biomesoplenty.api.biome.BOPBiomes.grove;
+import static biomesoplenty.api.biome.BOPBiomes.heathland;
+import static biomesoplenty.api.biome.BOPBiomes.highland;
+import static biomesoplenty.api.biome.BOPBiomes.jade_cliffs;
+import static biomesoplenty.api.biome.BOPBiomes.lavender_fields;
+import static biomesoplenty.api.biome.BOPBiomes.marsh;
+import static biomesoplenty.api.biome.BOPBiomes.moor;
+import static biomesoplenty.api.biome.BOPBiomes.mountain;
+import static biomesoplenty.api.biome.BOPBiomes.mountain_foothills;
+import static biomesoplenty.api.biome.BOPBiomes.origin_valley;
+import static biomesoplenty.api.biome.BOPBiomes.outback;
+import static biomesoplenty.api.biome.BOPBiomes.shrubland;
+import static biomesoplenty.api.biome.BOPBiomes.steppe;
+import static biomesoplenty.api.biome.BOPBiomes.thicket;
+import static biomesoplenty.api.biome.BOPBiomes.tundra;
+import static biomesoplenty.api.biome.BOPBiomes.woodland;
+import static biomesoplenty.api.biome.BOPBiomes.xeric_shrubland;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -19,18 +63,58 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import net.minecraft.world.biome.BiomeGenBase;
+import com.google.common.base.Optional;
+
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.IExtendedBiome;
-import biomesoplenty.common.biome.overworld.*;
+import biomesoplenty.common.biome.overworld.BiomeGenAlps;
+import biomesoplenty.common.biome.overworld.BiomeGenArctic;
+import biomesoplenty.common.biome.overworld.BiomeGenBambooForest;
+import biomesoplenty.common.biome.overworld.BiomeGenBayou;
+import biomesoplenty.common.biome.overworld.BiomeGenBog;
+import biomesoplenty.common.biome.overworld.BiomeGenBorealForest;
+import biomesoplenty.common.biome.overworld.BiomeGenBrushland;
+import biomesoplenty.common.biome.overworld.BiomeGenCanyon;
+import biomesoplenty.common.biome.overworld.BiomeGenChaparral;
+import biomesoplenty.common.biome.overworld.BiomeGenCherryBlossomGrove;
+import biomesoplenty.common.biome.overworld.BiomeGenColdDesert;
+import biomesoplenty.common.biome.overworld.BiomeGenConiferousForest;
+import biomesoplenty.common.biome.overworld.BiomeGenCrag;
+import biomesoplenty.common.biome.overworld.BiomeGenDeadForest;
+import biomesoplenty.common.biome.overworld.BiomeGenDeadSwamp;
+import biomesoplenty.common.biome.overworld.BiomeGenDeciduousForest;
+import biomesoplenty.common.biome.overworld.BiomeGenDenseForest;
+import biomesoplenty.common.biome.overworld.BiomeGenEucalyptusForest;
+import biomesoplenty.common.biome.overworld.BiomeGenFen;
+import biomesoplenty.common.biome.overworld.BiomeGenFlowerField;
+import biomesoplenty.common.biome.overworld.BiomeGenFrostForest;
+import biomesoplenty.common.biome.overworld.BiomeGenFungiForest;
+import biomesoplenty.common.biome.overworld.BiomeGenGarden;
+import biomesoplenty.common.biome.overworld.BiomeGenGlacier;
+import biomesoplenty.common.biome.overworld.BiomeGenGrassland;
+import biomesoplenty.common.biome.overworld.BiomeGenGrove;
+import biomesoplenty.common.biome.overworld.BiomeGenHeathland;
+import biomesoplenty.common.biome.overworld.BiomeGenHighland;
+import biomesoplenty.common.biome.overworld.BiomeGenJadeCliffs;
+import biomesoplenty.common.biome.overworld.BiomeGenLavenderFields;
+import biomesoplenty.common.biome.overworld.BiomeGenMarsh;
+import biomesoplenty.common.biome.overworld.BiomeGenMoor;
+import biomesoplenty.common.biome.overworld.BiomeGenMountain;
+import biomesoplenty.common.biome.overworld.BiomeGenOriginValley;
+import biomesoplenty.common.biome.overworld.BiomeGenOutback;
+import biomesoplenty.common.biome.overworld.BiomeGenShrubland;
+import biomesoplenty.common.biome.overworld.BiomeGenSteppe;
+import biomesoplenty.common.biome.overworld.BiomeGenThicket;
+import biomesoplenty.common.biome.overworld.BiomeGenTundra;
+import biomesoplenty.common.biome.overworld.BiomeGenWoodland;
+import biomesoplenty.common.biome.overworld.BiomeGenXericShrubland;
 import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.util.biome.BiomeUtils;
 import biomesoplenty.common.util.config.BOPConfig;
 import biomesoplenty.common.world.WorldTypeBOP;
 import biomesoplenty.core.BiomesOPlenty;
-
-import com.google.common.base.Optional;
+import net.minecraft.world.biome.BiomeGenBase;
 
 public class ModBiomes
 {
@@ -62,6 +146,20 @@ public class ModBiomes
             {
                 idsReservedInConfig.add(reservedId);
             }
+        }
+        
+        //Create a folder and temp file to show people where to put biome config files
+        File biomesDir = new File(BiomesOPlenty.configDirectory, "biomes");
+        
+        if (!biomesDir.exists())
+        {
+        	biomesDir.mkdir();
+        	
+        	try 
+        	{
+				(new File(biomesDir, "Put biome config files here")).createNewFile();
+			} 
+        	catch (IOException e) {}
         }
         
         initSubBiomes();
