@@ -10,11 +10,19 @@ package biomesoplenty.common.block;
 
 import java.util.Random;
 
+import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.enums.BOPTrees;
+import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.item.ItemBOPSapling;
 import biomesoplenty.common.util.block.VariantPagingHelper;
+import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
+import biomesoplenty.common.world.feature.tree.GeneratorBayouTree;
+import biomesoplenty.common.world.feature.tree.GeneratorBulbTree;
+import biomesoplenty.common.world.feature.tree.GeneratorPineTree;
+import biomesoplenty.common.world.feature.tree.GeneratorTaigaTree;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
@@ -24,7 +32,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.relauncher.Side;
@@ -142,45 +149,67 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable {
     
     
     // TODO: specify generator for each sapling
-    protected WorldGenAbstractTree getSmallTreeGenerator(BOPTrees treeType)
+    protected WorldGenerator getSmallTreeGenerator(BOPTrees treeType)
     {
         switch (treeType)
         {
             case YELLOW_AUTUMN:
+            	return new GeneratorBasicTree.Builder().log(BlockPlanks.EnumType.BIRCH).leaves(BOPTrees.YELLOW_AUTUMN).minHeight(5).maxHeight(8).create();
             case ORANGE_AUTUMN:
+            	return new GeneratorBasicTree.Builder().log(BlockPlanks.EnumType.BIRCH).leaves(BOPTrees.ORANGE_AUTUMN).minHeight(5).maxHeight(8).create();
             case BAMBOO:
-            case MAGIC:
-            case DARK:
+            	return new GeneratorBulbTree.Builder().minHeight(6).maxHeight(18).log(BOPBlocks.bamboo.getDefaultState()).leaves(BOPTrees.BAMBOO).create();
+            case MAGIC: //Not implemented
+                return new WorldGenTrees(true);
+            case DARK: //Not implemented
+                return new WorldGenTrees(true);
             case DEAD:
+            	return new GeneratorBasicTree.Builder().log(BlockPlanks.EnumType.OAK).leaves(BOPTrees.DEAD).minHeight(5).maxHeight(8).create();
             case FIR:
-            case ETHEREAL:
+            	return new GeneratorTaigaTree.Builder().log(BOPWoods.FIR).leaves(BOPTrees.FIR).minHeight(5).maxHeight(28).create();
+            case ETHEREAL: //Not implemented
+                return new WorldGenTrees(true);
             case ORIGIN:
+            	return new GeneratorBasicTree.Builder().amountPerChunk(4).minHeight(5).maxHeight(8).leaves(BOPTrees.ORIGIN).create();
             case PINK_CHERRY:
+            	new GeneratorBasicTree.Builder().log(BOPWoods.CHERRY).leaves(BOPTrees.PINK_CHERRY).create();
             case WHITE_CHERRY:
-            case MAPLE:
-            case HELLBARK:
-            case FLOWERING:
+            	new GeneratorBasicTree.Builder().log(BOPWoods.CHERRY).leaves(BOPTrees.WHITE_CHERRY).create();
+            case MAPLE: //Not implemented
+                return new WorldGenTrees(true);
+            case HELLBARK: //Not implemented
+                return new WorldGenTrees(true);
+            case FLOWERING: //Not implemented
+                return new WorldGenTrees(true);
             case JACARANDA:
-            case SACRED_OAK:
-            case MANGROVE:
-            case PALM:
-            case REDWOOD:
+            	return new GeneratorBasicTree.Builder().minHeight(4).maxHeight(7).log(BOPWoods.JACARANDA).leaves(BOPTrees.JACARANDA).create();
+            case SACRED_OAK: //Not implemented
+                return new WorldGenTrees(true);
+            case MANGROVE: //Not implemented
+                return new WorldGenTrees(true);
+            case PALM: //Not implemented
+                return new WorldGenTrees(true);
+            case REDWOOD: //Not implemented
+                return new WorldGenTrees(true);
             case WILLOW:
+            	return new GeneratorBayouTree.Builder().log(BOPWoods.WILLOW).leaves(BOPTrees.WILLOW).minHeight(6).maxHeight(12).minLeavesRadius(1).leavesGradient(2).create();
             case PINE:
-            case MAHOGANY:
+            	return new GeneratorPineTree.Builder().minHeight(6).maxHeight(20).create();
+            case MAHOGANY: //Not implemented
+                return new WorldGenTrees(true);
             default:
-                 return new WorldGenTrees(true);
+            	return null;
         }
     }
  
     // TODO: specify generator for each sapling
-    protected WorldGenAbstractTree getBigTreeGenerator(BOPTrees treeType)
+    protected WorldGenerator getBigTreeGenerator(BOPTrees treeType)
     {
         return null;
     }
     
     // TODO: specify generator for each sapling
-    protected WorldGenAbstractTree getMegaTreeGenerator(BOPTrees treeType)
+    protected WorldGenerator getMegaTreeGenerator(BOPTrees treeType)
     {
         return null;
     }
@@ -221,9 +250,9 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable {
         if (!net.minecraftforge.event.terraingen.TerrainGen.saplingGrowTree(worldIn, rand, pos)) {return false;}
 
         BOPTrees treeType = ((BOPTrees) state.getValue(this.variantProperty));
-        WorldGenAbstractTree smallTreeGenerator = this.getSmallTreeGenerator(treeType);
-        WorldGenAbstractTree bigTreeGenerator = this.getBigTreeGenerator(treeType);
-        WorldGenAbstractTree megaTreeGenerator = this.getMegaTreeGenerator(treeType);
+        WorldGenerator smallTreeGenerator = this.getSmallTreeGenerator(treeType);
+        WorldGenerator bigTreeGenerator = this.getBigTreeGenerator(treeType);
+        WorldGenerator megaTreeGenerator = this.getMegaTreeGenerator(treeType);
 
         if (megaTreeGenerator != null)
         {
@@ -257,18 +286,18 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable {
         return false;
     }
     
-    public boolean generateSmallOrBigTree(World worldIn, BlockPos pos, IBlockState state, Random rand, WorldGenAbstractTree generator)
+    public boolean generateSmallOrBigTree(World worldIn, BlockPos pos, IBlockState state, Random rand, WorldGenerator generator)
     {        
         // remove the sapling
         worldIn.setBlockState(pos, Blocks.air.getDefaultState(), 4);
         // try to grow the tree
-        boolean success = ((WorldGenerator)generator).generate(worldIn, rand, pos);
+        boolean success = generator.generate(worldIn, rand, pos);
         // put the sapling back if we failed
         if (!success) {worldIn.setBlockState(pos, state, 4);}
         return success;
     }
     
-    public boolean generateMegaTree(World worldIn, BlockPos pos, IBlockState state, Random rand, WorldGenAbstractTree generator)
+    public boolean generateMegaTree(World worldIn, BlockPos pos, IBlockState state, Random rand, WorldGenerator generator)
     {        
         // remove the saplings
         IBlockState air = Blocks.air.getDefaultState();
@@ -277,7 +306,7 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable {
         worldIn.setBlockState(pos.add(0, 0, 1), air, 4);
         worldIn.setBlockState(pos.add(1, 0, 1), air, 4);
         // try to grow the tree
-        boolean success = ((WorldGenerator)generator).generate(worldIn, rand, pos);
+        boolean success = generator.generate(worldIn, rand, pos);
         if (!success)
         {
             // put the saplings back if we failed
