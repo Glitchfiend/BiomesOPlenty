@@ -10,6 +10,21 @@ package biomesoplenty.core;
 
 import java.io.File;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import biomesoplenty.common.command.BOPCommand;
+import biomesoplenty.common.init.ModBiomes;
+import biomesoplenty.common.init.ModBlockQueries;
+import biomesoplenty.common.init.ModBlocks;
+import biomesoplenty.common.init.ModChecks;
+import biomesoplenty.common.init.ModConfiguration;
+import biomesoplenty.common.init.ModCrafting;
+import biomesoplenty.common.init.ModEntities;
+import biomesoplenty.common.init.ModGenerators;
+import biomesoplenty.common.init.ModHandlers;
+import biomesoplenty.common.init.ModItems;
+import biomesoplenty.common.init.ModPotions;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -18,12 +33,6 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import biomesoplenty.common.command.BOPCommand;
-import biomesoplenty.common.init.*;
 
 @Mod(modid = BiomesOPlenty.MOD_ID, name = BiomesOPlenty.MOD_NAME, dependencies = "required-after:Forge@[11.14.3.1468,)")
 public class BiomesOPlenty
@@ -65,6 +74,12 @@ public class BiomesOPlenty
     public void init(FMLInitializationEvent event)
     {
         proxy.registerRenderers();
+    }
+    
+    @EventHandler
+    public void postInit(FMLPostInitializationEvent event)
+    {
+        ModChecks.postInit();
     }
     
     @EventHandler

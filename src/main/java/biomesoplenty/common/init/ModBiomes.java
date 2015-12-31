@@ -39,7 +39,7 @@ public class ModBiomes
     private static int nextBiomeId = 40;
     private static File biomeIdMapFile;
     private static BOPConfig.IConfigObj biomeIdMapConf;
-    private static Map<String, Integer> biomeIdMap;
+    protected static Map<String, Integer> biomeIdMap;
     private static Set<Integer> idsReservedInConfig;
     public static Map<Integer, List<Integer>> subBiomesMap;
     public static Map<Integer, List<Integer>> mutatedBiomesMap;
