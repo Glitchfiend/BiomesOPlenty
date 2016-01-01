@@ -146,11 +146,19 @@ import groovy.io.FileType
 uploadArchives {
     repositories {
         mavenDeployer {
-            configuration = configurations.deployJars
 
-            repository(url: project.filesmaven.url) {
-                authentication(userName: forgeMavenUsername, privateKey: forgeMavenPassword)
-            }
+			 if (project.hasProperty('filesmaven'))
+			{
+				repository(url: project.filesmaven.url) {
+					authentication(userName: forgeMavenUsername, privateKey: forgeMavenPassword)
+				}
+			}
+			else
+			{
+				// local repo folder. Might wanna juset use  gradle install   if you wanans end it to maven-local
+				repository(url: 'file://localhost/' + project.file('repo').getAbsolutePath())
+			}
+
 
             pom {
                 groupId = project.group
@@ -206,13 +214,5 @@ uploadArchives {
                 }
             }
         }
-    } else {
-        logger.info('Publishing to repo folder')
-        
-        mavenDeployer {
-            pom.version = "${project.minecraft.version}-${project.version}"
-            repository(url: 'file://localhost/' + project.file('repo').getAbsolutePath())
-        }
     }
-}
 }
