@@ -172,9 +172,9 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable {
             case ORIGIN:
             	return new GeneratorBasicTree.Builder().amountPerChunk(4).minHeight(5).maxHeight(8).leaves(BOPTrees.ORIGIN).create();
             case PINK_CHERRY:
-            	new GeneratorBasicTree.Builder().log(BOPWoods.CHERRY).leaves(BOPTrees.PINK_CHERRY).create();
+            	return new GeneratorBasicTree.Builder().log(BOPWoods.CHERRY).leaves(BOPTrees.PINK_CHERRY).create();
             case WHITE_CHERRY:
-            	new GeneratorBasicTree.Builder().log(BOPWoods.CHERRY).leaves(BOPTrees.WHITE_CHERRY).create();
+            	return new GeneratorBasicTree.Builder().log(BOPWoods.CHERRY).leaves(BOPTrees.WHITE_CHERRY).create();
             case MAPLE: //Not implemented
                 return new WorldGenTrees(true);
             case HELLBARK: //Not implemented
