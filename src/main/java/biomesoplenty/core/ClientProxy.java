@@ -49,20 +49,20 @@ public class ClientProxy extends CommonProxy
 {
     public static ResourceLocation[] bopTitlePanoramaPaths = new ResourceLocation[] {new ResourceLocation("biomesoplenty:textures/gui/title/background/panorama_0.png"), new ResourceLocation("biomesoplenty:textures/gui/title/background/panorama_1.png"), new ResourceLocation("biomesoplenty:textures/gui/title/background/panorama_2.png"), new ResourceLocation("biomesoplenty:textures/gui/title/background/panorama_3.png"), new ResourceLocation("biomesoplenty:textures/gui/title/background/panorama_4.png"), new ResourceLocation("biomesoplenty:textures/gui/title/background/panorama_5.png")};
     public static ResourceLocation particleTexturesLocation = new ResourceLocation("biomesoplenty:textures/particles/particles.png");
-    
+
     @Override
     public void registerRenderers()
     {
         if (MiscConfigurationHandler.overrideTitlePanorama)
             GuiMainMenu.titlePanoramaPaths = bopTitlePanoramaPaths;
-            
+
         //Entity rendering and other stuff will go here in future
         registerEntityRenderer(EntityDart.class, RenderDart.class);
         registerEntityRenderer(EntityWasp.class, RenderWasp.class);
         registerEntityRenderer(EntityPixie.class, RenderPixie.class);
         registerEntityRenderer(EntityMudball.class, RenderMudball.class);
     }
-    
+
     @Override
     public void registerItemVariantModel(Item item, String name, int metadata) 
     {
@@ -72,7 +72,7 @@ public class ClientProxy extends CommonProxy
             ModelLoader.setCustomModelResourceLocation(item, metadata, new ModelResourceLocation(BiomesOPlenty.MOD_ID + ":" + name, "inventory"));
         }
     }
-    
+
     @Override
     public void registerNonRenderingProperties(Block block) 
     {
@@ -80,7 +80,7 @@ public class ClientProxy extends CommonProxy
         {
             IBOPBlock bopBlock = (IBOPBlock)block;
             IProperty[] nonRenderingProperties = bopBlock.getNonRenderingProperties();
-            
+
             if (nonRenderingProperties != null)
             {
                 // use a custom state mapper which will ignore the properties specified in the block as being non-rendering
@@ -89,12 +89,12 @@ public class ClientProxy extends CommonProxy
             }
         }
     }
-    
+
     @Override
     public void registerFluidBlockRendering(Block block, String name) 
     {
         final ModelResourceLocation fluidLocation = new ModelResourceLocation(BiomesOPlenty.MOD_ID.toLowerCase() + ":fluids", name);
-        
+
         // use a custom state mapper which will ignore the LEVEL property
         ModelLoader.setCustomStateMapper(block, new StateMapperBase()
         {
@@ -105,7 +105,7 @@ public class ClientProxy extends CommonProxy
             }
         });
     }
-    
+
     @Override
     public void spawnParticle(BOPParticleTypes type, double x, double y, double z, Object... info)
     {
@@ -113,62 +113,62 @@ public class ClientProxy extends CommonProxy
         EntityFX entityFx = null;
         switch (type)
         {
-            case PIXIETRAIL:
-                entityFx = new EntityPixieTrailFX(minecraft.theWorld, x, y, z, MathHelper.getRandomDoubleInRange(minecraft.theWorld.rand, -0.03, 0.03), -0.02D, MathHelper.getRandomDoubleInRange(minecraft.theWorld.rand, -0.03, 0.03));
-                break;
-            case DANDELION:
-                entityFx = new EntityDandelionFX(minecraft.theWorld, x, y, z, 2.0F);
-                break;
-            case MUD:
-                int itemId = Item.getIdFromItem(BOPItems.mudball);
-                minecraft.theWorld.spawnParticle(EnumParticleTypes.ITEM_CRACK, x, y, z, MathHelper.getRandomDoubleInRange(minecraft.theWorld.rand, -0.08D, 0.08D), MathHelper.getRandomDoubleInRange(minecraft.theWorld.rand, -0.08D, 0.08D), MathHelper.getRandomDoubleInRange(minecraft.theWorld.rand, -0.08D, 0.08D), new int[] {itemId});
-                return;
-            case PLAYER_TRAIL:
-                if (info.length < 1)
-                    throw new RuntimeException("Missing argument for trail name!");
-                
-                entityFx = new EntityTrailFX(minecraft.theWorld, x, y, z, (String)info[0]);
-                break;
-            default:
-                break;
+        case PIXIETRAIL:
+            entityFx = new EntityPixieTrailFX(minecraft.theWorld, x, y, z, MathHelper.getRandomDoubleInRange(minecraft.theWorld.rand, -0.03, 0.03), -0.02D, MathHelper.getRandomDoubleInRange(minecraft.theWorld.rand, -0.03, 0.03));
+            break;
+        case DANDELION:
+            entityFx = new EntityDandelionFX(minecraft.theWorld, x, y, z, 2.0F);
+            break;
+        case MUD:
+            int itemId = Item.getIdFromItem(BOPItems.mudball);
+            minecraft.theWorld.spawnParticle(EnumParticleTypes.ITEM_CRACK, x, y, z, MathHelper.getRandomDoubleInRange(minecraft.theWorld.rand, -0.08D, 0.08D), MathHelper.getRandomDoubleInRange(minecraft.theWorld.rand, -0.08D, 0.08D), MathHelper.getRandomDoubleInRange(minecraft.theWorld.rand, -0.08D, 0.08D), new int[] {itemId});
+            return;
+        case PLAYER_TRAIL:
+            if (info.length < 1)
+                throw new RuntimeException("Missing argument for trail name!");
+
+            entityFx = new EntityTrailFX(minecraft.theWorld, x, y, z, (String)info[0]);
+            break;
+        default:
+            break;
         }
-        
+
         if (entityFx != null) {minecraft.effectRenderer.addEffect(entityFx);}
     }
 
     // 
     // The below method and class is used as part of Forge 1668+'s workaround for render manager being null during preinit
     //
-    
+
     private static <E extends Entity> void registerEntityRenderer(Class<E> entityClass, Class<? extends Render<E>> renderClass)
     {
-    	RenderingRegistry.registerEntityRenderingHandler(entityClass, new EntityRenderFactory<E>(renderClass));
+        RenderingRegistry.registerEntityRenderingHandler(entityClass, new EntityRenderFactory<E>(renderClass));
     }
-    
+
     private static class EntityRenderFactory<E extends Entity> implements IRenderFactory<E>
     {
-    	private Class<? extends Render<E>> renderClass;
-    	
-    	private EntityRenderFactory(Class<? extends Render<E>> renderClass)
-    	{
-    		this.renderClass = renderClass;
-    	}
-    	
-		@Override
-		public Render<E> createRenderFor(RenderManager manager) 
-		{
-			Render<E> renderer = null;
-			
-			try 
-			{
-				renderer = renderClass.getConstructor(RenderManager.class).newInstance(manager);
-			} 
-			catch (Exception e) 
-			{
-				e.printStackTrace();
-			}
-			
-			return renderer;
-		}
+        private Class<? extends Render<E>> renderClass;
+
+        private EntityRenderFactory(Class<? extends Render<E>> renderClass)
+        {
+            this.renderClass = renderClass;
+        }
+
+        @Override
+        public Render<E> createRenderFor(RenderManager manager) 
+        {
+            Render<E> renderer = null;
+
+            try 
+            {
+                renderer = renderClass.getConstructor(RenderManager.class).newInstance(manager);
+            } 
+            catch (Exception e) 
+            {
+                e.printStackTrace();
+            }
+
+            return renderer;
+        }
     }
 }

@@ -12,7 +12,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class RenderPixie extends RenderLiving<EntityPixie>
 {
     private static final ResourceLocation pixieTextureLocation = new ResourceLocation("biomesoplenty:textures/entity/pixie.png");
-    
+
     public RenderPixie(RenderManager renderManager)
     {
         super(renderManager, new ModelPixie(), 0.25F);
@@ -42,11 +42,11 @@ public class RenderPixie extends RenderLiving<EntityPixie>
         OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)i / 1.0F, (float)j / 1.0F);
         GlStateManager.enableLighting();
         GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);  
-       
+
         super.doRender(entity, x, y, z, entityYaw, partialTicks);
 
         GlStateManager.disableBlend();
         GlStateManager.enableAlpha();
     }
- 
+
 }

@@ -26,7 +26,7 @@ public class RenderWasp extends RenderLiving<EntityWasp>
     {
         super(renderManager, new ModelWasp(), 0.5F);
     }
-    
+
     @Override
     protected void preRenderCallback(EntityWasp entity, float partialTickTime)
     {
