@@ -282,13 +282,13 @@ public class BOPCrafting
 		GameRegistry.addSmelting(new ItemStack(BOPCBlocks.plants, 1, 12), new ItemStack(Items.dye, 1, 2), 0.2F);
 		GameRegistry.addSmelting(BOPCItems.mudball, new ItemStack(BOPCItems.misc, 1, 0), 0F);
 
-		GameRegistry.addSmelting(BOPCBlocks.logs1, new ItemStack(Items.coal, 1, 1), 15F);
-		GameRegistry.addSmelting(BOPCBlocks.logs2, new ItemStack(Items.coal, 1, 1), 15F);
-		GameRegistry.addSmelting(BOPCBlocks.logs4, new ItemStack(Items.coal, 1, 1), 15F);
+		GameRegistry.addSmelting(BOPCBlocks.logs1, new ItemStack(Items.coal, 1, 1), 0.15F);
+		GameRegistry.addSmelting(BOPCBlocks.logs2, new ItemStack(Items.coal, 1, 1), 0.15F);
+		GameRegistry.addSmelting(BOPCBlocks.logs4, new ItemStack(Items.coal, 1, 1), 0.15F);
 		
 		for (int i = 0; i < 3; ++i) 
 		{
-			GameRegistry.addSmelting(new ItemStack(BOPCBlocks.logs3, 1, i), new ItemStack(Items.coal, 1, 1), 15F);
+			GameRegistry.addSmelting(new ItemStack(BOPCBlocks.logs3, 1, i), new ItemStack(Items.coal, 1, 1), 0.15F);
 		}
 
 		GameRegistry.registerFuelHandler(new FurnaceFuelHandler());
