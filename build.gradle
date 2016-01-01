@@ -146,11 +146,10 @@ import groovy.io.FileType
 uploadArchives {
     repositories {
         mavenDeployer {
-
 			if (project.hasProperty('forgeMavenPassword'))
 			{
 				repository(url: "http://files.minecraftforge.net/maven/manage/upload") {
-					authentication(userName: project.getProperty('forgeMavenUsername'), privateKey: project.getProperty('forgeMavenPassword'))
+					authentication(userName: project.getProperty('forgeMavenUsername'), password: project.getProperty('forgeMavenPassword'))
 				}
 			}
 			else
@@ -158,7 +157,6 @@ uploadArchives {
 				// local repo folder. Might wanna juset use  gradle install   if you wanans end it to maven-local
 				repository(url: 'file://localhost/' + project.file('repo').getAbsolutePath())
 			}
-
 
             pom {
                 groupId = project.group
