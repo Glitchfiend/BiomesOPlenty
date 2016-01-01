@@ -147,9 +147,9 @@ uploadArchives {
     repositories {
         mavenDeployer {
 
-			if (project.hasProperty('filesmaven'))
+			if (project.hasProperty('forgeMavenPassword'))
 			{
-				repository(url: project.filesmaven.url) {
+				repository(url: "http://files.minecraftforge.net/maven/manage/upload") {
 					authentication(userName: project.getProperty('forgeMavenUsername'), privateKey: project.getProperty('forgeMavenPassword'))
 				}
 			}
