@@ -32,15 +32,17 @@ import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.block.statemap.IStateMapper;
 import net.minecraft.client.renderer.block.statemap.StateMap;
 import net.minecraft.client.renderer.block.statemap.StateMapperBase;
-import net.minecraft.client.renderer.texture.ITextureObject;
-import net.minecraft.client.renderer.texture.SimpleTexture;
+import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy
@@ -51,21 +53,14 @@ public class ClientProxy extends CommonProxy
     @Override
     public void registerRenderers()
     {
-        Minecraft minecraft = Minecraft.getMinecraft();
-        
         if (MiscConfigurationHandler.overrideTitlePanorama)
             GuiMainMenu.titlePanoramaPaths = bopTitlePanoramaPaths;
             
         //Entity rendering and other stuff will go here in future
-        RenderingRegistry.registerEntityRenderingHandler(EntityDart.class, new RenderDart(minecraft.getRenderManager()));
-        RenderingRegistry.registerEntityRenderingHandler(EntityWasp.class, new RenderWasp(minecraft.getRenderManager()));
-        RenderingRegistry.registerEntityRenderingHandler(EntityPixie.class, new RenderPixie(minecraft.getRenderManager()));
-        RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, new RenderMudball(minecraft.getRenderManager(), BOPItems.mudball, minecraft.getRenderItem()));
-        //RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, new RenderSnowball(minecraft.getRenderManager(), BOPItems.mudball, minecraft.getRenderItem()));
-
-
-        ITextureObject particleTextures = (ITextureObject)(new SimpleTexture(particleTexturesLocation));
-        minecraft.renderEngine.loadTexture(particleTexturesLocation, particleTextures);
+        registerEntityRenderer(EntityDart.class, RenderDart.class);
+        registerEntityRenderer(EntityWasp.class, RenderWasp.class);
+        registerEntityRenderer(EntityPixie.class, RenderPixie.class);
+        registerEntityRenderer(EntityMudball.class, RenderMudball.class);
     }
     
     @Override
@@ -73,7 +68,7 @@ public class ClientProxy extends CommonProxy
     {
         if (item != null) 
         { 
-            ModelBakery.addVariantName(item, BiomesOPlenty.MOD_ID + ":" + name);
+            ModelBakery.registerItemVariants(item, new ResourceLocation("biomesoplenty:" + name));
             ModelLoader.setCustomModelResourceLocation(item, metadata, new ModelResourceLocation(BiomesOPlenty.MOD_ID + ":" + name, "inventory"));
         }
     }
@@ -141,4 +136,39 @@ public class ClientProxy extends CommonProxy
         if (entityFx != null) {minecraft.effectRenderer.addEffect(entityFx);}
     }
 
+    // 
+    // The below method and class is used as part of Forge 1668+'s workaround for render manager being null during preinit
+    //
+    
+    private static <E extends Entity> void registerEntityRenderer(Class<E> entityClass, Class<? extends Render<E>> renderClass)
+    {
+    	RenderingRegistry.registerEntityRenderingHandler(entityClass, new EntityRenderFactory<E>(renderClass));
+    }
+    
+    private static class EntityRenderFactory<E extends Entity> implements IRenderFactory<E>
+    {
+    	private Class<? extends Render<E>> renderClass;
+    	
+    	private EntityRenderFactory(Class<? extends Render<E>> renderClass)
+    	{
+    		this.renderClass = renderClass;
+    	}
+    	
+		@Override
+		public Render<E> createRenderFor(RenderManager manager) 
+		{
+			Render<E> renderer = null;
+			
+			try 
+			{
+				renderer = renderClass.getConstructor(RenderManager.class).newInstance(manager);
+			} 
+			catch (Exception e) 
+			{
+				e.printStackTrace();
+			}
+			
+			return renderer;
+		}
+    }
 }

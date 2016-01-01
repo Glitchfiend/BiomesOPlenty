@@ -24,9 +24,8 @@ import org.lwjgl.opengl.GL11;
 import biomesoplenty.common.item.ItemDart;
 
 @SideOnly(Side.CLIENT)
-public class RenderDart extends Render
+public class RenderDart extends Render<EntityDart>
 {
-
     protected ResourceLocation[] textures;
     
     public RenderDart(RenderManager renderManager)
@@ -40,7 +39,8 @@ public class RenderDart extends Render
         }
     }
 
-    public void doRender(EntityDart dart, double x, double y, double z, float entityYaw, float partialTicks)
+    @Override
+	public void doRender(EntityDart dart, double x, double y, double z, float entityYaw, float partialTicks)
     {
         this.bindEntityTexture(dart);
         GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
@@ -105,20 +105,9 @@ public class RenderDart extends Render
         super.doRender(dart, x, y, z, entityYaw, partialTicks);
     }
 
+    @Override
     protected ResourceLocation getEntityTexture(EntityDart dart)
     {
         return this.textures[dart.getDartType().ordinal()];
-    }
-
-    @Override
-    protected ResourceLocation getEntityTexture(Entity entity)
-    {
-        return this.getEntityTexture((EntityDart)entity);
-    }
-
-    @Override
-    public void doRender(Entity entity, double x, double y, double z, float entityYaw, float partialTicks)
-    {
-        this.doRender((EntityDart)entity, x, y, z, entityYaw, partialTicks);
     }
 }

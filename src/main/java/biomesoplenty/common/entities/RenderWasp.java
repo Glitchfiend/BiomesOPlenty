@@ -12,15 +12,13 @@ import org.lwjgl.opengl.GL11;
 
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 
 @SideOnly(Side.CLIENT)
-public class RenderWasp extends RenderLiving
+public class RenderWasp extends RenderLiving<EntityWasp>
 {
     private static final ResourceLocation waspTextureLocation = new ResourceLocation("biomesoplenty:textures/entity/wasp.png");
 
@@ -30,17 +28,15 @@ public class RenderWasp extends RenderLiving
     }
     
     @Override
-    protected void preRenderCallback(EntityLivingBase entity, float partialTickTime)
+    protected void preRenderCallback(EntityWasp entity, float partialTickTime)
     {
         GL11.glRotatef(180F, 0.0F, 1.0F, 0.0F);
         GL11.glTranslatef(0.0F, 0.75F, 0.0F);
     }
 
     @Override
-    protected ResourceLocation getEntityTexture(Entity entity)
+    protected ResourceLocation getEntityTexture(EntityWasp entity)
     {
         return waspTextureLocation;
     }
-    
-    
 }

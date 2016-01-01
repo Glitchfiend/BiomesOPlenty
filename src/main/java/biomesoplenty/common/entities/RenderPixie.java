@@ -11,7 +11,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RenderPixie extends RenderLiving<EntityPixie>
 {
-    
     private static final ResourceLocation pixieTextureLocation = new ResourceLocation("biomesoplenty:textures/entity/pixie.png");
     
     public RenderPixie(RenderManager renderManager)

@@ -68,13 +68,12 @@ public class BiomesOPlenty
         ModHandlers.init();
         
         ModCrafting.init();
+        
+        proxy.registerRenderers();
     }
 
     @EventHandler
-    public void init(FMLInitializationEvent event)
-    {
-        proxy.registerRenderers();
-    }
+    public void init(FMLInitializationEvent event) {}
     
     @EventHandler
     public void postInit(FMLPostInitializationEvent event)

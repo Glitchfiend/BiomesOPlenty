@@ -1,33 +1,31 @@
 package biomesoplenty.common.entities.projectiles;
 
+import biomesoplenty.api.item.BOPItems;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.texture.TextureMap;
-import net.minecraft.entity.Entity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class RenderMudball extends Render
+public class RenderMudball extends Render<EntityMudball>
 {
-    protected final Item item;
     private final RenderItem renderItem;
 
-    public RenderMudball(RenderManager renderManager, Item item, RenderItem renderItem)
+    public RenderMudball(RenderManager renderManager)
     {
         super(renderManager);
-        this.item = item;
-        this.renderItem = renderItem;
+        this.renderItem = Minecraft.getMinecraft().getRenderItem();
     }
 
     @Override
-    public void doRender(Entity entity, double x, double y, double z, float entityYaw, float partialTicks)
+    public void doRender(EntityMudball entity, double x, double y, double z, float entityYaw, float partialTicks)
     {
         GlStateManager.pushMatrix();
         GlStateManager.translate((float)x, (float)y, (float)z);
@@ -42,13 +40,13 @@ public class RenderMudball extends Render
         super.doRender(entity, x, y, z, entityYaw, partialTicks);
     }
 
-    public ItemStack getItemStack(Entity p_177082_1_)
+    public ItemStack getItemStack(EntityMudball entity)
     {
-        return new ItemStack(this.item, 1, 0);
+        return new ItemStack(BOPItems.mudball, 1, 0);
     }
 
     @Override
-    protected ResourceLocation getEntityTexture(Entity entity)
+    protected ResourceLocation getEntityTexture(EntityMudball entity)
     {
         return TextureMap.locationBlocksTexture;
     }
