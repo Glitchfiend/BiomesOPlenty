@@ -1,6 +1,5 @@
 package biomesoplenty.common.eventhandler;
 
-import net.minecraftforge.common.MinecraftForge;
 import biomesoplenty.client.fog.FogHandler;
 import biomesoplenty.common.eventhandler.client.FlowerScatterEventHandler;
 import biomesoplenty.common.eventhandler.client.gui.MainMenuEventHandler;
@@ -9,6 +8,7 @@ import biomesoplenty.common.eventhandler.entity.DyeEventHandler;
 import biomesoplenty.common.eventhandler.entity.FlippersEventHandler;
 import biomesoplenty.common.eventhandler.entity.SlimeSpawnEventHandler;
 import biomesoplenty.common.eventhandler.entity.TemptEventHandler;
+import biomesoplenty.common.eventhandler.loading.LabelHandler;
 import biomesoplenty.common.eventhandler.misc.BonemealEventHandler;
 import biomesoplenty.common.eventhandler.misc.BucketEventHandler;
 import biomesoplenty.common.eventhandler.misc.CompatibilityWithVanillaAchievements;
@@ -21,6 +21,7 @@ import biomesoplenty.common.eventhandler.world.MapGenEventHandler;
 import biomesoplenty.common.eventhandler.world.VillageMaterialEventHandler;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.relauncher.Side;
+import net.minecraftforge.common.MinecraftForge;
 
 public class BOPEventHandlers 
 {
@@ -44,6 +45,7 @@ public class BOPEventHandlers
 		MinecraftForge.TERRAIN_GEN_BUS.register(new BiomeSizeEventHandler());
 		MinecraftForge.TERRAIN_GEN_BUS.register(new VillageMaterialEventHandler());
 		MinecraftForge.TERRAIN_GEN_BUS.register(new MapGenEventHandler());
+		MinecraftForge.EVENT_BUS.register(new LabelHandler());
 	}
 	
 	private static void registerEntityEventHandlers()

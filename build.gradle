@@ -1,7 +1,6 @@
 buildscript {
     repositories {
         mavenCentral()
-                mavenLocal()
         maven {
             name = "ForgeFS"
             url = "http://files.minecraftforge.net/maven"
@@ -128,73 +127,72 @@ curseforge {
 
 uploadArchives {
     repositories {
-                add getProject().repositories.mavenLocal()
-    }
-    repositories.mavenDeployer {
-            configuration = configurations.deployJars
+        mavenDeployer {
+			if (project.hasProperty('forgeMavenPassword'))
+			{
+				repository(url: "http://files.minecraftforge.net/maven/manage/upload") {
+					authentication(userName: project.getProperty('forgeMavenUsername'), password: project.getProperty('forgeMavenPassword'))
+				}
+			}
+			else
+			{
+				// local repo folder. Might wanna juset use  gradle install   if you wanans end it to maven-local
+				repository(url: 'file://localhost/' + project.file('repo').getAbsolutePath())
+			}
 
-        if (project.hasProperty("filesmaven")) {
-            logger.info('Publishing to files server')
-            repository(url: project.filesmaven.url) {
-                authentication(userName: project.filesmaven.username, privateKey: project.filesmaven.key)
-            }
-        } else {
-            logger.info('Publishing to repo folder')
-            repository(url: 'file://localhost/' + project.file('repo').getAbsolutePath())
-        }
-
-        pom {
-            groupId = project.group
-            version = project.version
-            artifactId = project.archivesBaseName
-        }
-        pom.project {
-            name project.archivesBaseName
-            packaging 'jar'
-            description 'Biomes O Plenty'
-            url 'https://github.com/Glitchfiend/BiomesOPlenty'
-
-            scm {
-                url 'https://github.com/Glitchfiend/BiomesOPlenty'
-                connection 'scm:git:git://github.com/Glitchfiend/BiomesOPlenty.git'
-                developerConnection 'scm:git:git@github.com:Glitchfiend/BiomesOPlenty.git'
-            }
-
-            issueManagement {
-                system 'github'
-                url 'https://github.com/Glitchfiend/BiomesOPlenty/issues'
-            }
-
-            licenses {
-                license {
-                    name 'Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported'
-                    url 'http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US'
-                    distribution 'repo'
+            pom {
+                groupId = project.group
+                version = project.version
+                artifactId = project.archivesBaseName
+                project {
+                    name project.archivesBaseName
+                    packaging 'jar'
+                    description 'Biomes O Plenty'
+                    url 'https://github.com/Glitchfiend/BiomesOPlenty'
+                
+                    scm {
+                        url 'https://github.com/Glitchfiend/BiomesOPlenty'
+                        connection 'scm:git:git://github.com/Glitchfiend/BiomesOPlenty.git'
+                        developerConnection 'scm:git:git@github.com:Glitchfiend/BiomesOPlenty.git'
+                    }
+                
+                    issueManagement {
+                        system 'github'
+                        url 'https://github.com/Glitchfiend/BiomesOPlenty/issues'
+                    }
+                
+                    licenses {
+                        license {
+                            name 'Creative Commons Attribution-NonCommercial-NoDerivs 4.0 International Public License'
+                            url 'http://creativecommons.org/licenses/by-nc-nd/4.0/'
+                            distribution 'repo'
+                        }
+                    }
+                
+                    developers {
+                        developer {
+                            id 'Adubbz'
+                            name 'Adubbz'
+                            roles { role 'developer' }
+                        }
+                        developer {
+                            id 'Amnet'
+                            name 'Amnet'
+                            roles { role 'developer' }
+                        }
+                        developer {
+                            id 'Forstride'
+                            name 'Forstride'
+                            roles { role 'developer' }
+                        }
+                        developer {
+                            id 'ted80'
+                            name 'ted80'
+                            roles { role 'developer' }
+                        }
+                    }
                 }
             }
-
-            developers {
-                developer {
-                    id 'Adubbz'
-                    name 'Adubbz'
-                    roles { role 'developer' }
-                }
-                developer {
-                    id 'Forstride'
-                    name 'Forstride'
-                    roles { role 'developer' }
-                }
-                developer {
-                    id 'Amnet'
-                    name 'Amnet'
-                    roles { role 'developer' }
-                }
-                developer {
-                    id 'ted80'
-                    name 'ted80'
-                    roles { role 'developer' }
-                }
-            }
-        }
-    }
+		}
+	}
 }
