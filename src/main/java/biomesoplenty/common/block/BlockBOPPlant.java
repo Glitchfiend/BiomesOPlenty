@@ -215,6 +215,22 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
     }
     
     @Override
+    public boolean isReplaceable(World world, BlockPos pos)
+    {
+        IBlockState state = world.getBlockState(pos);
+        BOPPlants plant = (BOPPlants) state.getValue(this.variantProperty);
+        
+        switch (plant)
+        {
+            case THORN: case WILDRICE: case CATTAIL: case RIVERCANE: case TINYCACTUS: case WITHERWART:
+                return false;
+            
+            default:
+                return true;
+        }
+    }
+    
+    @Override
     @SideOnly(Side.CLIENT)
     public boolean addDestroyEffects(World world, BlockPos pos, net.minecraft.client.particle.EffectRenderer effectRenderer)
     {
