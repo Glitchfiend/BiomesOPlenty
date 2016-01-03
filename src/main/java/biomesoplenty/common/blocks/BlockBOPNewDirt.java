@@ -33,9 +33,7 @@ public class BlockBOPNewDirt extends BlockDirt implements ISubLocalization
 	{
 		this.setHardness(0.5F);
 		this.setHarvestLevel("shovel", 0);
-		
 		this.setStepSound(soundTypeGravel);
-		
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 	

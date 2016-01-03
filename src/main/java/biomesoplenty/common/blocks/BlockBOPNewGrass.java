@@ -72,8 +72,9 @@ public class BlockBOPNewGrass extends BlockGrass implements ISubLocalization
                     	else if (world.getBlock(randX, randY, randZ) == BOPCBlocks.newBopDirt)
                     	{
                     		int dirtMeta = world.getBlockMetadata(randX, randY, randZ);
-                    		
-                    		world.setBlock(randX, randY, randZ, BOPCBlocks.newBopGrass, (dirtMeta - (dirtMeta & 1)) / 2, 2);
+                    		if((dirtMeta & 1) == 0) {
+                    			world.setBlock(randX, randY, randZ, BOPCBlocks.newBopGrass, dirtMeta / 2, 2);
+                    		}
                     	}
                     }
                 }

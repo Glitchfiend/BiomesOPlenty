@@ -14,6 +14,7 @@ import biomesoplenty.common.eventhandler.misc.BucketEventHandler;
 import biomesoplenty.common.eventhandler.misc.AchievementEventHandler;
 import biomesoplenty.common.eventhandler.misc.FurnaceBurnTimeEventHandler;
 import biomesoplenty.common.eventhandler.misc.OreDictionaryEventHandler;
+import biomesoplenty.common.eventhandler.misc.UseHoeEventHandler;
 import biomesoplenty.common.eventhandler.potions.PotionParalysisEventHandler;
 import biomesoplenty.common.eventhandler.potions.PotionPossessionEventHandler;
 import biomesoplenty.common.eventhandler.world.BiomeSizeEventHandler;
@@ -75,6 +76,7 @@ public class BOPEventHandlers
 		MinecraftForge.EVENT_BUS.register(new BucketEventHandler());
 		MinecraftForge.EVENT_BUS.register(new OreDictionaryEventHandler());
 		MinecraftForge.EVENT_BUS.register(new FurnaceBurnTimeEventHandler());
+		MinecraftForge.EVENT_BUS.register(new UseHoeEventHandler());
 		FMLCommonHandler.instance().bus().register(new AchievementEventHandler());
 	}
 	
