@@ -271,45 +271,4 @@ public class WorldChunkManagerBOP extends WorldChunkManager
         return new GenLayer[] {riverMixFinal, biomesFinal, riverMixFinal};
         
     }
-
-    @Override
-    public boolean areBiomesViable(int x, int z, int radius, List<BiomeGenBase> allowedBiomes)
-    {
-        IntCache.resetIntCache();
-        int minX = x - (radius >> 2);
-        int minY = z - (radius >> 2);
-        int maxX = x + (radius >> 2);
-        int maxY = z + (radius >> 2);
-        
-        int areaWidth = maxX - minX + 1; //Find difference between the min and the max X. Add 1 as the result cannot be 0
-        int areaHeight = maxY - minY + 1; //Find difference between the min and the max Y. Add 1 as the result cannot be 0
-        int[] biomeIds = this.genBiomes.getInts(minX, minY, areaWidth, areaHeight); //Create an array of the biome ids within the desired area
-
-        try
-        {
-            //Ensure entire area contains only desired biomes
-            for (int index = 0; index < areaWidth * areaHeight; ++index)
-            {
-                BiomeGenBase biomegenbase = BiomeGenBase.getBiome(biomeIds[index]);
-
-                if (!allowedBiomes.contains(biomegenbase))
-                {
-                    return false; //Stop checking, we have found an undesirable biome
-                }
-            }
-
-            return true;
-        }
-        catch (Throwable throwable)
-        {
-            CrashReport crashreport = CrashReport.makeCrashReport(throwable, "Invalid Biome id");
-            CrashReportCategory crashreportcategory = crashreport.makeCategory("Layer");
-            crashreportcategory.addCrashSection("Layer", this.genBiomes.toString());
-            crashreportcategory.addCrashSection("x", Integer.valueOf(x));
-            crashreportcategory.addCrashSection("z", Integer.valueOf(z));
-            crashreportcategory.addCrashSection("radius", Integer.valueOf(radius));
-            crashreportcategory.addCrashSection("allowed", allowedBiomes);
-            throw new ReportedException(crashreport);
-        }
-    }
 }
