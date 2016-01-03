@@ -6,10 +6,14 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.common.util.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.content.BOPCBlocks;
 
 public class BlockBOPPlank extends Block
 {
@@ -55,6 +59,51 @@ public class BlockBOPPlank extends Block
 		for (int i = 0; i < woodTypes.length; ++i) 
 		{
 			list.add(new ItemStack(block, 1, i));
+		}
+	}
+
+	@Override
+	public int getFlammability(IBlockAccess world, int x, int y, int z, ForgeDirection face)
+	{
+		Block block = BOPCBlocks.planks;
+
+		if (block == BOPCBlocks.planks && world.getBlockMetadata(x, y, z) == 12)
+		{
+			return 0;
+		}
+		else
+		{
+			return Blocks.fire.getFlammability(this);
+		}
+	}
+
+	@Override
+	public int getFireSpreadSpeed(IBlockAccess world, int x, int y, int z, ForgeDirection face)
+	{
+		Block block = BOPCBlocks.planks;
+
+		if (block == BOPCBlocks.planks && world.getBlockMetadata(x, y, z) == 12)
+		{
+			return 0;
+		}
+		else
+		{
+			return Blocks.fire.getEncouragement(this);
+		}
+	}
+
+	@Override
+	public boolean isFlammable(IBlockAccess world, int x, int y, int z, ForgeDirection face)
+	{
+		Block block = BOPCBlocks.planks;
+
+		if (block == BOPCBlocks.planks && world.getBlockMetadata(x, y, z) == 12)
+		{
+			return false;
+		}
+		else
+		{
+			return getFlammability(world, x, y, z, face) > 0;
 		}
 	}
 

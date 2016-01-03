@@ -7,7 +7,7 @@ import net.minecraft.stats.AchievementList;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
 
-public class CompatibilityWithVanillaAchievements {
+public class AchievementEventHandler {
 	
 	@SubscribeEvent
 	public void woodMined(PlayerEvent.ItemPickupEvent event){

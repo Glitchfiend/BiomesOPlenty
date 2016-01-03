@@ -5,7 +5,6 @@ import biomesoplenty.api.BOPItemHelper;
 import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.api.content.BOPCItems;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
-import biomesoplenty.common.handlers.FurnaceFuelHandler;
 import biomesoplenty.common.recipes.BiomeEssenceRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
@@ -29,7 +28,6 @@ public class BOPCrafting
     
 	public static void init()
 	{
-		FurnaceFuelHandler.setFuelValues();
 		addOreRegistration();
 		addCraftingRecipes();
 		addSmeltingRecipes();
@@ -291,7 +289,6 @@ public class BOPCrafting
 			GameRegistry.addSmelting(new ItemStack(BOPCBlocks.logs3, 1, i), new ItemStack(Items.coal, 1, 1), 0.15F);
 		}
 
-		GameRegistry.registerFuelHandler(new FurnaceFuelHandler());
 	}
 
 	private static void addOreRegistration()

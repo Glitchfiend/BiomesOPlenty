@@ -11,7 +11,8 @@ import biomesoplenty.common.eventhandler.entity.TemptEventHandler;
 import biomesoplenty.common.eventhandler.loading.LabelHandler;
 import biomesoplenty.common.eventhandler.misc.BonemealEventHandler;
 import biomesoplenty.common.eventhandler.misc.BucketEventHandler;
-import biomesoplenty.common.eventhandler.misc.CompatibilityWithVanillaAchievements;
+import biomesoplenty.common.eventhandler.misc.AchievementEventHandler;
+import biomesoplenty.common.eventhandler.misc.FurnaceBurnTimeEventHandler;
 import biomesoplenty.common.eventhandler.misc.OreDictionaryEventHandler;
 import biomesoplenty.common.eventhandler.potions.PotionParalysisEventHandler;
 import biomesoplenty.common.eventhandler.potions.PotionPossessionEventHandler;
@@ -73,7 +74,8 @@ public class BOPEventHandlers
 		MinecraftForge.EVENT_BUS.register(new BonemealEventHandler());
 		MinecraftForge.EVENT_BUS.register(new BucketEventHandler());
 		MinecraftForge.EVENT_BUS.register(new OreDictionaryEventHandler());
-		FMLCommonHandler.instance().bus().register(new CompatibilityWithVanillaAchievements());
+		MinecraftForge.EVENT_BUS.register(new FurnaceBurnTimeEventHandler());
+		FMLCommonHandler.instance().bus().register(new AchievementEventHandler());
 	}
 	
 	private static void registerClientEventHandlers()
