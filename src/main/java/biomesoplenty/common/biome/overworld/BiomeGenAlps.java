@@ -29,6 +29,9 @@ public class BiomeGenAlps extends BOPBiome
         this.setEnableSnow();
         this.setTemperatureRainfall(0.0F, 0.5F);
 
+        this.canSpawnInBiome = false;
+        this.canGenerateVillages = false;
+        
         this.addWeight(BOPClimates.BOREAL, 5);
         this.addWeight(BOPClimates.COLD_DESERT, 5);
         

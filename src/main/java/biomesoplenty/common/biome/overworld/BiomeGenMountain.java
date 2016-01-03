@@ -60,6 +60,8 @@ public class BiomeGenMountain extends BOPBiome
     {
         this.type = type;
         
+        this.canSpawnInBiome = false;
+        
         // terrain
         switch (type)
         {

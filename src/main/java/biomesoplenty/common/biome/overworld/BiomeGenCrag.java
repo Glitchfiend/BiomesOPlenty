@@ -26,6 +26,9 @@ public class BiomeGenCrag extends BOPBiome
         this.setColor(5209457);
         this.setTemperatureRainfall(1.0F, 0.0F);
 
+        this.canSpawnInBiome = false;
+        this.canGenerateVillages = false;
+        
         this.addWeight(BOPClimates.WET_TEMPERATE, 3);
 
         this.spawnableCreatureList.clear();

@@ -30,7 +30,7 @@ public class GenLayerBiomeBOP extends BOPGenLayer
         this.settings = settings;
         
         // debugging
-        BOPClimates.printWeights();
+        //BOPClimates.printWeights();
     }
     
     // Get array of biome IDs covering the requested area

@@ -33,6 +33,8 @@ public class BiomeGenOriginValley extends BOPBiome
         this.setTemperatureRainfall(0.7F, 0.8F);
         this.skyColor = 8441086;
         
+        this.canGenerateVillages = false;
+        
         this.addWeight(BOPClimates.WARM_TEMPERATE, 1);
         
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BOPGrassType.ORIGIN);

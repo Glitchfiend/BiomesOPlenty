@@ -16,6 +16,8 @@ public class BiomeGenGlacier extends BiomeGenArctic
     {
         super();
         
+        this.canSpawnInBiome = false;
+        
         // clear weights - this biome shouldn't spawn except as arctic sub-biome
         clearWeights();
         

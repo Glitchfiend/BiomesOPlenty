@@ -8,14 +8,43 @@
 
 package biomesoplenty.common.world;
 
+import java.util.List;
+
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.common.world.BOPWorldSettings.LandMassScheme;
-import biomesoplenty.common.world.layer.*;
+import biomesoplenty.common.world.layer.GenLayerBiomeBOP;
+import biomesoplenty.common.world.layer.GenLayerBiomeEdgeBOP;
+import biomesoplenty.common.world.layer.GenLayerBiomeIslands;
+import biomesoplenty.common.world.layer.GenLayerClimate;
+import biomesoplenty.common.world.layer.GenLayerIslandBOP;
+import biomesoplenty.common.world.layer.GenLayerRaggedEdges;
+import biomesoplenty.common.world.layer.GenLayerRainfallNoise;
+import biomesoplenty.common.world.layer.GenLayerRainfallRandom;
+import biomesoplenty.common.world.layer.GenLayerRiverMixBOP;
+import biomesoplenty.common.world.layer.GenLayerSubBiomesBOP;
+import biomesoplenty.common.world.layer.GenLayerTemperatureLatitude;
+import biomesoplenty.common.world.layer.GenLayerTemperatureNoise;
+import biomesoplenty.common.world.layer.GenLayerTemperatureRandom;
+import net.minecraft.crash.CrashReport;
+import net.minecraft.crash.CrashReportCategory;
+import net.minecraft.util.ReportedException;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManager;
-import net.minecraft.world.gen.layer.*;
+import net.minecraft.world.gen.layer.GenLayer;
+import net.minecraft.world.gen.layer.GenLayerAddMushroomIsland;
+import net.minecraft.world.gen.layer.GenLayerDeepOcean;
+import net.minecraft.world.gen.layer.GenLayerFuzzyZoom;
+import net.minecraft.world.gen.layer.GenLayerIsland;
+import net.minecraft.world.gen.layer.GenLayerRemoveTooMuchOcean;
+import net.minecraft.world.gen.layer.GenLayerRiver;
+import net.minecraft.world.gen.layer.GenLayerRiverInit;
+import net.minecraft.world.gen.layer.GenLayerShore;
+import net.minecraft.world.gen.layer.GenLayerSmooth;
+import net.minecraft.world.gen.layer.GenLayerVoronoiZoom;
+import net.minecraft.world.gen.layer.GenLayerZoom;
+import net.minecraft.world.gen.layer.IntCache;
 
 public class WorldChunkManagerBOP extends WorldChunkManager
 {    
@@ -243,6 +272,44 @@ public class WorldChunkManagerBOP extends WorldChunkManager
         
     }
 
-    
-    
+    @Override
+    public boolean areBiomesViable(int x, int z, int radius, List<BiomeGenBase> allowedBiomes)
+    {
+        IntCache.resetIntCache();
+        int minX = x - (radius >> 2);
+        int minY = z - (radius >> 2);
+        int maxX = x + (radius >> 2);
+        int maxY = z + (radius >> 2);
+        
+        int areaWidth = maxX - minX + 1; //Find difference between the min and the max X. Add 1 as the result cannot be 0
+        int areaHeight = maxY - minY + 1; //Find difference between the min and the max Y. Add 1 as the result cannot be 0
+        int[] biomeIds = this.genBiomes.getInts(minX, minY, areaWidth, areaHeight); //Create an array of the biome ids within the desired area
+
+        try
+        {
+            //Ensure entire area contains only desired biomes
+            for (int index = 0; index < areaWidth * areaHeight; ++index)
+            {
+                BiomeGenBase biomegenbase = BiomeGenBase.getBiome(biomeIds[index]);
+
+                if (!allowedBiomes.contains(biomegenbase))
+                {
+                    return false; //Stop checking, we have found an undesirable biome
+                }
+            }
+
+            return true;
+        }
+        catch (Throwable throwable)
+        {
+            CrashReport crashreport = CrashReport.makeCrashReport(throwable, "Invalid Biome id");
+            CrashReportCategory crashreportcategory = crashreport.makeCategory("Layer");
+            crashreportcategory.addCrashSection("Layer", this.genBiomes.toString());
+            crashreportcategory.addCrashSection("x", Integer.valueOf(x));
+            crashreportcategory.addCrashSection("z", Integer.valueOf(z));
+            crashreportcategory.addCrashSection("radius", Integer.valueOf(radius));
+            crashreportcategory.addCrashSection("allowed", allowedBiomes);
+            throw new ReportedException(crashreport);
+        }
+    }
 }

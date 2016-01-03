@@ -33,6 +33,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.ChunkPrimer;
+import net.minecraftforge.common.BiomeManager;
 
 public class BOPBiome extends BiomeGenBase implements IExtendedBiome
 {
@@ -43,6 +44,9 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
     public int skyColor = -1; // -1 indicates the default skyColor by temperature will be used
     public boolean hasBiomeEssence = true;
     public IBlockState seaFloorBlock = Blocks.dirt.getDefaultState();
+    
+    public boolean canSpawnInBiome = true;
+    public boolean canGenerateVillages = true;
     
     public TerrainSettings terrainSettings = new TerrainSettings();
     public boolean noNeighborTerrainInfuence = false;
@@ -89,6 +93,8 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         this.enableSnow = conf.getBool("enableSnow", this.enableSnow);
         this.skyColor = conf.getInt("skyColor", this.skyColor);
         this.hasBiomeEssence = conf.getBool("hasBiomeEssence", this.hasBiomeEssence);
+        this.canSpawnInBiome = conf.getBool("canSpawnInBiome", this.canSpawnInBiome);
+        this.canGenerateVillages = conf.getBool("canGenerateVillages", this.canGenerateVillages);
         
         // Allow weights to be overridden
         IConfigObj confWeights = conf.getObject("weights");

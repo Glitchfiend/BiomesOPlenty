@@ -117,6 +117,7 @@ import biomesoplenty.common.world.WorldTypeBOP;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.BiomeDictionary.Type;
 
 public class ModBiomes
@@ -421,6 +422,13 @@ public class ModBiomes
                     climate.addLandBiome(weight, biome);
                 }
             }
+            
+            //Enable spwning and village generation in the biome
+            if (biome.canSpawnInBiome)
+                BiomeManager.addSpawnBiome(biome);
+            
+            if (biome.canGenerateVillages)
+                BiomeManager.addVillageBiome(biome, true);
             
             return Optional.of((BiomeGenBase)biome);
             

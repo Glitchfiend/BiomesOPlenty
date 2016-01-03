@@ -29,6 +29,9 @@ public class BiomeGenColdDesert extends BOPBiome
     
     public BiomeGenColdDesert(ColdDesertType type)
     {
+        this.canSpawnInBiome = false;
+        this.canGenerateVillages = false;
+        
         // terrain
         this.terrainSettings.avgHeight(70).heightVariation(10, 25).sidewaysNoise(0.7D);
         
