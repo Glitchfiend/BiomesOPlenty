@@ -339,7 +339,6 @@ public class BOPBlocks
 		Blocks.fire.setFireInfo(BOPCBlocks.redwoodStairs, 5, 20);
 		Blocks.fire.setFireInfo(BOPCBlocks.willowStairs, 5, 20);
 		Blocks.fire.setFireInfo(BOPCBlocks.pineStairs, 5, 20);
-		Blocks.fire.setFireInfo(BOPCBlocks.hellBarkStairs, 5, 20);
 		Blocks.fire.setFireInfo(BOPCBlocks.jacarandaStairs, 5, 20);
 		Blocks.fire.setFireInfo(BOPCBlocks.mahoganyStairs, 5, 20);
 		
