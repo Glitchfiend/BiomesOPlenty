@@ -25,6 +25,7 @@ import biomesoplenty.common.init.ModGenerators;
 import biomesoplenty.common.init.ModHandlers;
 import biomesoplenty.common.init.ModItems;
 import biomesoplenty.common.init.ModPotions;
+import biomesoplenty.common.remote.TrailManager;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -54,6 +55,7 @@ public class BiomesOPlenty
     {
         configDirectory = new File(event.getModConfigurationDirectory(), "biomesoplenty");
 
+        TrailManager.retrieveTrails();
         ModConfiguration.init(configDirectory);
         
         // setup blocks before items, because some items need to reference blocks in their constructors (eg seeds)

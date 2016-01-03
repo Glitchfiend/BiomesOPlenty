@@ -55,4 +55,9 @@ public class TrailManager
             BiomesOPlenty.logger.warn("There was an issue retrieving trail info from remote!");
         } 
     }
+    
+    public static enum TrailVisibilityMode
+    {
+        ALL, OTHERS, NOBODY; //TODO: Implement NOBODY mode
+    }
 }
