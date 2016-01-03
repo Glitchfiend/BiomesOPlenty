@@ -2,6 +2,7 @@ package biomesoplenty.common.blocks;
 
 import static net.minecraftforge.common.util.ForgeDirection.UP;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -9,6 +10,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.content.BOPCBlocks;
+import static biomesoplenty.api.content.BOPCBlocks.*;
 import biomesoplenty.client.render.RenderUtils;
 import biomesoplenty.common.utils.ISubLocalization;
 import net.minecraft.block.Block;
@@ -17,10 +19,12 @@ import net.minecraft.block.BlockGrass;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
@@ -36,9 +40,7 @@ public class BlockBOPNewGrass extends BlockGrass implements ISubLocalization
 	{
 		this.setHardness(0.6F);
 		this.setHarvestLevel("shovel", 0);
-		
 		this.setStepSound(soundTypeGrass);
-		
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 	
@@ -103,8 +105,7 @@ public class BlockBOPNewGrass extends BlockGrass implements ISubLocalization
     }
     
     @Override
-    //			onApplyBonemeal - Dodgy Name
-	public void func_149853_b(World world, Random random, int x, int y, int z)
+	public void func_149853_b(World world, Random random, int x, int y, int z) // onApplyBonemeal - Dodgy Name
     {
         int l = 0;
 
@@ -156,17 +157,18 @@ public class BlockBOPNewGrass extends BlockGrass implements ISubLocalization
     {
     	world.setBlock(x, y, z, BOPCBlocks.newBopDirt, world.getBlockMetadata(x, y, z) * 2, 2);
     }
-	
-    @Override
-	public Item getItemDropped(int metadata, Random random, int fortune)
+    
+    public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune)
     {
-        return BOPCBlocks.newBopDirt.getItemDropped(metadata * 2, random, fortune);
+        ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+        ret.add(new ItemStack(BOPCBlocks.newBopDirt, 1, metadata * 2));
+        return ret;
     }
     
     @Override
 	public int damageDropped(int metadata)
     {
-        return metadata * 2;
+        return metadata;
     }
 	
 	@Override

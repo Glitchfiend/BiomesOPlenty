@@ -48,7 +48,6 @@ public class BlockBOPNewDirt extends BlockDirt implements ISubLocalization
 	public String getUnlocalizedName(String baseName, ItemStack itemStack) 
 	{
 		int meta = itemStack.getItemDamage();
-		
 		return baseName + "." + (isCoarseDirt(meta) ? "coarse_dirt_" : "dirt_") + getBaseType(meta);
 	}
     
