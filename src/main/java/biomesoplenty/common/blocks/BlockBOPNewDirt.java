@@ -19,6 +19,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -32,9 +33,7 @@ public class BlockBOPNewDirt extends BlockDirt implements ISubLocalization
 	{
 		this.setHardness(0.5F);
 		this.setHarvestLevel("shovel", 0);
-		
 		this.setStepSound(soundTypeGravel);
-		
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 	
@@ -48,7 +47,6 @@ public class BlockBOPNewDirt extends BlockDirt implements ISubLocalization
 	public String getUnlocalizedName(String baseName, ItemStack itemStack) 
 	{
 		int meta = itemStack.getItemDamage();
-		
 		return baseName + "." + (isCoarseDirt(meta) ? "coarse_dirt_" : "dirt_") + getBaseType(meta);
 	}
     
@@ -120,4 +118,8 @@ public class BlockBOPNewDirt extends BlockDirt implements ISubLocalization
         }
     }
     
+    public int getDamageValue(World world, int x, int y, int z)
+    {
+        return world.getBlockMetadata(x, y, z);
+    }
 }

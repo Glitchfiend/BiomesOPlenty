@@ -34,7 +34,6 @@ public class WorldGenOriginalTree extends WorldGenAbstractTree
 	public WorldGenOriginalTree(Block wood, Block leaves, int metaWood, int metaLeaves, int metaFruit)
 	{
 		this(wood, leaves, metaWood, metaLeaves, false, 5, 4, false);
-		
 		this.metaFruit = metaFruit;
 	}
 
