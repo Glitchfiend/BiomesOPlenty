@@ -40,6 +40,8 @@ public class BiomeGenJadeCliffs extends BOPBiome
         this.skyColor = 0xB7CCAD;
         this.setTemperatureRainfall(0.8F, 0.9F);
         
+        this.canGenerateVillages = false;
+        
         this.addWeight(BOPClimates.WET_TEMPERATE, 3);
         
         this.addGenerator("limestone_patches", GeneratorStage.SAND, (new GeneratorSplotches.Builder()).amountPerChunk(26).splotchSize(25).replace(Blocks.stone).with(BOPBlocks.stone.getDefaultState().withProperty(BlockBOPStone.VARIANT, BlockBOPStone.StoneType.LIMESTONE)).create());
