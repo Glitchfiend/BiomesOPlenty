@@ -53,7 +53,7 @@ public abstract class GeneratorOreBase extends BOPGeneratorBase
     public BlockPos getScatterY(World world, Random random, int x, int z)
     {
         // between max and min
-        return world.getHeight(new BlockPos(x, GeneratorUtils.nextIntBetween(random, this.minHeight, this.maxHeight), z));
+        return new BlockPos(x, GeneratorUtils.nextIntBetween(random, this.minHeight, this.maxHeight), z);
     }
     
     @Override
