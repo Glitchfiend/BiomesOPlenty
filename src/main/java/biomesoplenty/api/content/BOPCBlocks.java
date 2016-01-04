@@ -46,6 +46,7 @@ public class BOPCBlocks
 	
 	public static Block newBopGrass;
 	public static Block newBopDirt;
+	public static Block newBopFarmland;
     
 	public static Block logs1;
 	public static Block logs2;

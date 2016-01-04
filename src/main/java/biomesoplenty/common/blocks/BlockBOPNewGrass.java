@@ -33,7 +33,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 public class BlockBOPNewGrass extends BlockGrass implements ISubLocalization
 {
-	private static final String[] grassTypes = new String[] { "loamy", "sandy", "silty" };
+	public static final String[] grassTypes = new String[] { "loamy", "sandy", "silty" };
 	private static final IIcon[] grassIcons = new IIcon[grassTypes.length * 2];
 	
 	public BlockBOPNewGrass()
