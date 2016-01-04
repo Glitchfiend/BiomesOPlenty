@@ -57,6 +57,7 @@ import static biomesoplenty.api.content.BOPCBlocks.mudBricksStairs;
 import static biomesoplenty.api.content.BOPCBlocks.mushrooms;
 import static biomesoplenty.api.content.BOPCBlocks.newBopDirt;
 import static biomesoplenty.api.content.BOPCBlocks.newBopGrass;
+import static biomesoplenty.api.content.BOPCBlocks.newBopFarmland;
 import static biomesoplenty.api.content.BOPCBlocks.originGrass;
 import static biomesoplenty.api.content.BOPCBlocks.overgrownNetherrack;
 import static biomesoplenty.api.content.BOPCBlocks.palmStairs;
@@ -109,6 +110,7 @@ import biomesoplenty.common.blocks.BlockBOPLog;
 import biomesoplenty.common.blocks.BlockBOPLog.LogCategory;
 import biomesoplenty.common.blocks.BlockBOPMushroom;
 import biomesoplenty.common.blocks.BlockBOPNewDirt;
+import biomesoplenty.common.blocks.BlockBOPNewFarmland;
 import biomesoplenty.common.blocks.BlockBOPNewGrass;
 import biomesoplenty.common.blocks.BlockBOPPersimmonLeaves;
 import biomesoplenty.common.blocks.BlockBOPPetals;
@@ -224,6 +226,7 @@ public class BOPBlocks
         
         newBopGrass = registerMetadataBlock(new BlockBOPNewGrass().setBlockName("newBopGrass"));
         newBopDirt = registerMetadataBlock(new BlockBOPNewDirt().setBlockName("newBopDirt"));
+        newBopFarmland = registerMetadataBlock(new BlockBOPNewFarmland().setBlockName("newBopFarmland"));
         
 		logs1 = registerBlock(new BlockBOPLog(LogCategory.CAT1).setBlockName("logs1"), ItemBlockLog.class);
 		logs2 = registerBlock(new BlockBOPLog(LogCategory.CAT2).setBlockName("logs2"), ItemBlockLog.class);
