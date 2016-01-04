@@ -8,12 +8,16 @@
 
 package biomesoplenty.core;
 
+import java.util.List;
+import java.util.Map;
+
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.api.particle.BOPParticleTypes;
 import biomesoplenty.client.particle.EntityDandelionFX;
 import biomesoplenty.client.particle.EntityPixieTrailFX;
 import biomesoplenty.client.particle.EntityTrailFX;
+import biomesoplenty.client.texture.ForgeRedirectedResourcePack;
 import biomesoplenty.common.config.MiscConfigurationHandler;
 import biomesoplenty.common.entities.EntityPixie;
 import biomesoplenty.common.entities.EntityWasp;
@@ -34,6 +38,7 @@ import net.minecraft.client.renderer.block.statemap.StateMap;
 import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.resources.IResourcePack;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.entity.Entity;
@@ -42,8 +47,12 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.common.ForgeModContainer;
+import net.minecraftforge.fml.client.FMLClientHandler;
+import net.minecraftforge.fml.client.FMLFileResourcePack;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import net.minecraftforge.fml.relauncher.ReflectionHelper;
 
 public class ClientProxy extends CommonProxy
 {
@@ -61,6 +70,8 @@ public class ClientProxy extends CommonProxy
         registerEntityRenderer(EntityWasp.class, RenderWasp.class);
         registerEntityRenderer(EntityPixie.class, RenderPixie.class);
         registerEntityRenderer(EntityMudball.class, RenderMudball.class);
+        
+        replaceForgeResources();
     }
 
     @Override
@@ -136,6 +147,30 @@ public class ClientProxy extends CommonProxy
         if (entityFx != null) {minecraft.effectRenderer.addEffect(entityFx);}
     }
 
+    private static void replaceForgeResources()
+    {
+        //TODO: Implement models for our buckets
+        if (ForgeModContainer.replaceVanillaBucketModel && MiscConfigurationHandler.overrideForgeBuckets)
+        {
+            FMLClientHandler clientHandler = FMLClientHandler.instance();
+
+            List<IResourcePack> resourcePackList = ReflectionHelper.getPrivateValue(FMLClientHandler.class, clientHandler, "resourcePackList");
+            Map<String, IResourcePack> resourcePackMap = ReflectionHelper.getPrivateValue(FMLClientHandler.class, clientHandler, "resourcePackMap");
+            FMLFileResourcePack resourcePack = (FMLFileResourcePack)clientHandler.getResourcePackFor("Forge");
+
+            //Remove the old resource pack from the registry
+            resourcePackList.remove(resourcePack);
+            resourcePackMap.remove("Forge");
+
+            //Replace Forge's resource pack with our modified version
+            ForgeRedirectedResourcePack redirectedResourcePack = new ForgeRedirectedResourcePack(resourcePack.getFMLContainer());
+
+            //Add our new resource pack in its place
+            resourcePackList.add(redirectedResourcePack);
+            resourcePackMap.put("Forge", redirectedResourcePack);
+        }
+    }
+    
     // 
     // The below method and class is used as part of Forge 1668+'s workaround for render manager being null during preinit
     //
