@@ -133,7 +133,7 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable {
     @Override
     public int damageDropped(IBlockState state)
     {
-        return 0;
+        return this.getMetaFromState(state);
     }
     
     @Override
