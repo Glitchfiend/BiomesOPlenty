@@ -2,6 +2,7 @@ package biomesoplenty.common.integration;
 
 import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.api.content.BOPCItems;
+import cpw.mods.fml.common.event.FMLInterModComms;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -14,6 +15,7 @@ public class ThaumcraftIntegration
 	protected static void init()
 	{
 		addThaumcraftAspects();
+		addThaumcraftGolemsSupport();
 	}
 
 	private static void addThaumcraftAspects()
@@ -155,6 +157,14 @@ public class ThaumcraftIntegration
 		addAspectsToItemMeta(BOPCItems.misc, 0, new Aspect[] { Aspect.EARTH, Aspect.FIRE }, new int[] { 2, 1 });
 		addAspectsToItemMeta(BOPCItems.dart, 0, new Aspect[] { Aspect.WEAPON }, new int[] { 1 });
 		addAspectsToItemMeta(BOPCItems.dart, 1, new Aspect[] { Aspect.WEAPON, Aspect.POISON }, new int[] { 1, 2 });
+	}
+
+	//Allows Thaumcraft golems to harvest BoP crops
+	private static void addThaumcraftGolemsSupport()
+	{
+		FMLInterModComms.sendMessage("Thaumcraft", "harvestClickableCrop", new ItemStack(BOPCBlocks.foliage, 1, 8));
+		FMLInterModComms.sendMessage("Thaumcraft", "harvestStandardCrop", new ItemStack(BOPCBlocks.fruitBop, 1, 0));
+		FMLInterModComms.sendMessage("Thaumcraft", "harvestStandardCrop", new ItemStack(BOPCBlocks.fruitBop, 1, 1));
 	}
 
 	private static void addAspectsToBlock(Block block, Aspect[] aspects, int[] amounts)

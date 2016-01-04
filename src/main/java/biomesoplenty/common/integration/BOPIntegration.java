@@ -31,7 +31,8 @@ public class BOPIntegration
 			{
 				BOPLogger.warning("There was an error while integrating Forestry with Biomes O' Plenty", e);
 			}
-			
+		}
+
 		if (Loader.isModLoaded("Thaumcraft"))
 		{
 			try
@@ -44,5 +45,4 @@ public class BOPIntegration
 			}
 		}
 	}
-}
 }
