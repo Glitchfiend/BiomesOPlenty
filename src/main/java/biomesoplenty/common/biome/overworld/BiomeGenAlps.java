@@ -17,14 +17,11 @@ import biomesoplenty.common.world.feature.GeneratorOreSingle;
 
 public class BiomeGenAlps extends BOPBiome
 {
-    private static final Height biomeHeight = new Height(8.0F, 0.025F);
-
     public BiomeGenAlps()
     {
         // terrain
         this.terrainSettings.avgHeight(198).heightVariation(12, 12).octaves(1, 1, 2, 2, 3, 3);
         
-        this.setHeight(biomeHeight);
         this.setColor(13421772);
         this.setEnableSnow();
         this.setTemperatureRainfall(0.0F, 0.5F);
