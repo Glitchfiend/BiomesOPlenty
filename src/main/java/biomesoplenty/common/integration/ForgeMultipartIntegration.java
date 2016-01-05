@@ -1,9 +1,9 @@
 package biomesoplenty.common.integration;
 
-import net.minecraft.block.Block;
 import biomesoplenty.api.content.BOPCBlocks;
 import codechicken.microblock.BlockMicroMaterial;
 import codechicken.microblock.MicroMaterialRegistry;
+import net.minecraft.block.Block;
 
 public class ForgeMultipartIntegration
 {
@@ -57,6 +57,6 @@ public class ForgeMultipartIntegration
 		for(int i = metaFrom; i <= metaTo; i++)
 		{
 			MicroMaterialRegistry.registerMaterial(new BlockMicroMaterial(b, i), b.getUnlocalizedName() + "." + i);
-    	}
+		}
 	}
 }
