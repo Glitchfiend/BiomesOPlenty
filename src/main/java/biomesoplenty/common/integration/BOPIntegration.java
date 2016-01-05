@@ -44,5 +44,29 @@ public class BOPIntegration
 				BOPLogger.warning("There was an error while integrating Thaumcraft with Biomes O' Plenty", e);
 			}
 		}
+
+		if (Loader.isModLoaded("ForgeMultipart"))
+		{
+			try
+			{
+				ForgeMultipartIntegration.init();
+			}
+			catch (Exception e)
+			{
+				BOPLogger.warning("There was an error while integrating ForgeMultipart with Biomes O' Plenty", e);
+			}
+		}
+
+		if (Loader.isModLoaded("ThermalExpansion"))
+		{
+			try
+			{
+				TEIntegration.init();
+			}
+			catch (Exception e)
+			{
+				BOPLogger.warning("There was an error while integrating Thermal Expansion with Biomes O' Plenty", e);
+			}
+		}
 	}
 }
