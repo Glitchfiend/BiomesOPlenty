@@ -135,6 +135,9 @@ public class BlockStoneFormations extends BOPBlockWorldDecor implements ISubLoca
 	@Override
 	public String getUnlocalizedName(String baseName, ItemStack itemStack) 
 	{
+		if(itemStack.getItemDamage() > 1) {
+			return null;
+		}
 		return baseName + "." + forms[itemStack.getItemDamage()];
 	}
 }

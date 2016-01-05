@@ -62,16 +62,11 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
 	public BlockBOPLeaves(LeafCategory cat)
 	{
         super(Material.leaves, false);
-
 		category = cat;
-		
 		this.setHardness(0.2F);
-		
 		this.setStepSound(Block.soundTypeGrass);
-
 		this.setTickRandomly(true);
 		this.setLightOpacity(1);
-
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
@@ -310,7 +305,7 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
 	{
 		int metadata = world.getBlockMetadata(x, y, z);
 		
-		if (category == LeafCategory.CAT4 && metadata == 0)
+		if (category == LeafCategory.CAT4 && getTypeFromMeta(metadata) == 0)
 		{
 			return 0;
 		}
@@ -325,7 +320,7 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
 	{
 		int metadata = world.getBlockMetadata(x, y, z);
 		
-		if (category == LeafCategory.CAT4 && metadata == 0)
+		if (category == LeafCategory.CAT4 && getTypeFromMeta(metadata) == 0)
 		{
 			return 0;
 		}
@@ -340,7 +335,7 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
 	{
 		int metadata = world.getBlockMetadata(x, y, z);
 		
-		if (category == LeafCategory.CAT4 && metadata == 0)
+		if (category == LeafCategory.CAT4 && getTypeFromMeta(metadata) == 0)
 		{
 			return false;
 		}
