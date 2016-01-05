@@ -133,7 +133,8 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable {
     @Override
     public int damageDropped(IBlockState state)
     {
-        return this.getMetaFromState(state);
+        //We don't want item drops to have metadata for the stage
+        return this.getMetaFromState(state) & 7;
     }
     
     @Override
