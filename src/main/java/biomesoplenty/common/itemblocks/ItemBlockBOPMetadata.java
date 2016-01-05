@@ -12,7 +12,6 @@ public class ItemBlockBOPMetadata extends ItemBlockWithMetadata
 	public ItemBlockBOPMetadata(Block block) 
 	{
 		super(block, block);
-		
 		this.block = block;
 	}
 
@@ -21,7 +20,12 @@ public class ItemBlockBOPMetadata extends ItemBlockWithMetadata
 	{
 		if (block instanceof ISubLocalization)
 		{
-			return ((ISubLocalization)block).getUnlocalizedName(super.getUnlocalizedName(itemStack), itemStack);
+			try{
+				return ((ISubLocalization)block).getUnlocalizedName(super.getUnlocalizedName(itemStack), itemStack);
+			}
+			catch(Exception e) {
+				return null;
+			}
 		}
 		else
 		{
