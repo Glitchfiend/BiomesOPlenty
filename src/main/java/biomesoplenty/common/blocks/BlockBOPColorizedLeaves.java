@@ -65,7 +65,7 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     {
         textures = new IIcon[3][leaves.length];
         
-        if(Loader.isModLoaded("BetterGrassAndLeavesMod"))
+        if(Loader.isModLoaded("BetterFoliage"))
         {
             for (int i = 0; i < leaves.length; ++i)
             {

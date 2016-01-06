@@ -74,7 +74,7 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		textures = new IIcon[3][leaves.length];
-		if(Loader.isModLoaded("BetterGrassAndLeavesMod"))
+		if(Loader.isModLoaded("BetterFoliage"))
 			for (int i = 0; i < leaves.length; ++i)
 			{
 				textures[0][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_round");
