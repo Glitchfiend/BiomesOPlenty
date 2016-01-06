@@ -46,7 +46,7 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		textures = new IIcon[3][4];
-		if(Loader.isModLoaded("BetterGrassAndLeavesMod"))
+		if(Loader.isModLoaded("BetterFoliage"))
 			for (int i = 0; i < 4; ++i)
 			{
 				textures[0][i] = iconRegister.registerIcon("biomesoplenty:leaves_persimmon" + i + "_round");
