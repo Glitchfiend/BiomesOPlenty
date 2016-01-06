@@ -96,7 +96,12 @@ public class BlockBOPBamboo extends BlockBOPDecoration
         return ((Integer)state.getValue(AGE)).intValue();
     }
 
-    
+    @Override
+    public int damageDropped(IBlockState state)
+    {
+        //We don't want item drops to have metadata for the age
+        return 0;
+    }
 
     // restore collision box removed by BlockDecoration
     @Override
