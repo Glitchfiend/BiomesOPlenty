@@ -51,7 +51,7 @@ public abstract class BOPBlockWorldDecor extends BlockBush
 	@Override
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block neighborBlock)
 	{
-		if (world.getBlock(x, y, z) != Blocks.air)
+		if (world.getBlock(x, y, z) != null)
 		{
 		dropIfCantStay(world, x, y, z, new ItemStack(world.getBlock(x, y, z), 1, world.getBlockMetadata(x, y, z)));
 		}
