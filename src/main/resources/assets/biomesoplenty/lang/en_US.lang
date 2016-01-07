@@ -119,6 +119,8 @@ item.wildcarrots.name=Wild Carrots
 item.willow_door.name=Willow Door
 item.wood_scythe.name=Wooden Scythe
 
+fluid.poison=Poison
+
 tile.ash_block.name=Ash Block
 tile.bamboo.name=Bamboo
 tile.bamboo_thatching.name=Bamboo Thatching
@@ -349,7 +351,7 @@ tile.redwood_stairs.name=Redwood Wood Stairs
 tile.sacred_oak_fence.name=Sacred Oak Fence
 tile.sacred_oak_fence_gate.name=Sacred Oak Fence Gate
 tile.sacred_oak_wood_slab.name=Sacred Oak Wood Slab
-tile.sacred_oak_stairs=Sacred Oak Wood Stairs
+tile.sacred_oak_stairs.name=Sacred Oak Wood Stairs
 tile.sapling_0.yellow_autumn_sapling.name=Yellow Autumn Sapling
 tile.sapling_0.orange_autumn_sapling.name=Orange Autumn Sapling
 tile.sapling_0.bamboo_sapling.name=Bamboo Sapling

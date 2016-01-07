@@ -9,12 +9,15 @@
 package biomesoplenty.common.item;
 
 import java.util.List;
+import java.util.Map;
 
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Maps;
 
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.util.block.BlockStateUtils;
 import net.minecraft.block.Block;
+import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -86,13 +89,10 @@ public class ItemBOPBlock extends ItemBlock
         else
         {
             int meta = stack.getMetadata();
-            for (IBlockState state : presets) {
-                if (block.getMetaFromState(state) == meta)
-                {
-                    return super.getUnlocalizedName() + "." + bopBlock.getStateName(state);
-                }
-            }
-            return super.getUnlocalizedName() + "." + meta;
+            IBlockState oldState = block.getStateFromMeta(meta);
+            IBlockState newState = BlockStateUtils.getPresetState(oldState);
+
+            return super.getUnlocalizedName() + "." + bopBlock.getStateName(newState);
         }
     }
 }

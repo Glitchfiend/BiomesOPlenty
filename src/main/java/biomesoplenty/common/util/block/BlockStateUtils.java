@@ -88,6 +88,23 @@ public class BlockStateUtils
         return getStatesSet(defaultState, ((IBOPBlock)block).getPresetProperties());        
     }    
     
+    /**Discards additional block information to retrieve a state equivalent to those in the inventory**/
+    public static IBlockState getPresetState(IBlockState state)
+    {
+        IBlockState outState = state.getBlock().getDefaultState();
+        
+        if (state.getBlock() instanceof IBOPBlock)
+        {
+            IBOPBlock bopBlock = (IBOPBlock)state.getBlock();
+            
+            for (IProperty property : bopBlock.getPresetProperties())
+            {
+                outState.withProperty(property, outState.getValue(property));
+            }
+        }
+        
+        return outState;
+    }
     
     /*  no use for this yet - but left here because it might be useful later
      * 
