@@ -99,7 +99,7 @@ public class BlockStateUtils
             
             for (IProperty property : bopBlock.getPresetProperties())
             {
-                outState.withProperty(property, outState.getValue(property));
+                outState = outState.withProperty(property, state.getValue(property));
             }
         }
         
