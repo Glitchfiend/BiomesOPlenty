@@ -12,12 +12,24 @@ public class BOPIntegration
 			ATGIntegration.init();
 		}*/
 	}
-	
+
 	public static void init()
 	{
-		
+
+		if (Loader.isModLoaded("ForgeMultipart"))
+		{
+			try
+			{
+				ForgeMultipartIntegration.init();
+			}
+			catch (Exception e)
+			{
+				BOPLogger.warning("There was an error while integrating ForgeMultipart with Biomes O' Plenty", e);
+			}
+		}
+
 	}
-	
+
 	public static void postInit()
 	{
 		
@@ -42,18 +54,6 @@ public class BOPIntegration
 			catch (Exception e)
 			{
 				BOPLogger.warning("There was an error while integrating Thaumcraft with Biomes O' Plenty", e);
-			}
-		}
-
-		if (Loader.isModLoaded("ForgeMultipart"))
-		{
-			try
-			{
-				ForgeMultipartIntegration.init();
-			}
-			catch (Exception e)
-			{
-				BOPLogger.warning("There was an error while integrating ForgeMultipart with Biomes O' Plenty", e);
 			}
 		}
 
