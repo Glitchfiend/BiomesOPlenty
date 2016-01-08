@@ -1,6 +1,7 @@
 package biomesoplenty.common.world.layer;
 
 import biomesoplenty.common.enums.BOPClimates;
+import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
@@ -27,6 +28,11 @@ public class GenLayerClimate extends BOPGenLayer {
         for (int i = 0; i < areaWidth * areaHeight; ++i)
         {
             // temperature values from 0 (cold) to 8 (hot) and rainfall values from 0 (wet) to 11 (dry), index is (temperatureValue * 12) + rainfallValue
+            if (((temperatureValues[i] * 12) + rainfallValues[i]) >= this.climateMapping.length)
+            {
+                BiomesOPlenty.logger.error("Invalid climate values " + temperatureValues[i] + " " + rainfallValues[i]);
+            }
+            
             out[i] = this.climateMapping[(temperatureValues[i] * 12) + rainfallValues[i]];
         }
         return out;

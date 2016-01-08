@@ -21,7 +21,7 @@ public class BiomeGenArctic extends BOPBiome
     public BiomeGenArctic()
     {
         // terrain
-        this.terrainSettings.avgHeight(64).heightVariation(10, 6);
+        this.terrainSettings.avgHeight(64).heightVariation(6, 4).octaves(0, 0, 2, 0, 0, 5).sidewaysNoise(0.2F);
         
         this.setColor(14540253);
         this.setEnableSnow();
