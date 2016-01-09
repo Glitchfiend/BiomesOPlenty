@@ -341,15 +341,19 @@ public class ChunkProviderGenerateBOP implements IChunkProvider
             {                
                 float weight = radialFalloff5x5[i + 2 + (j + 2) * 5];
                 TerrainSettings biomeSettings = this.biomeTerrainSettings.get(biomes[localX + i + 2 + (localZ + j + 2) * 10]);              
-                settings.avgHeight += weight * biomeSettings.avgHeight;
-                settings.variationAbove += weight * biomeSettings.variationAbove;
-                settings.variationBelow += weight * biomeSettings.variationBelow;                
-                settings.minHeight += weight * biomeSettings.minHeight;
-                settings.maxHeight += weight * biomeSettings.maxHeight;
-                settings.sidewaysNoiseAmount += weight * biomeSettings.sidewaysNoiseAmount;
-                for (int k = 0; k < settings.octaveWeights.length; k++)
+                
+                if (biomeSettings != null)
                 {
-                    settings.octaveWeights[k] += weight * biomeSettings.octaveWeights[k];
+                    settings.avgHeight += weight * biomeSettings.avgHeight;
+                    settings.variationAbove += weight * biomeSettings.variationAbove;
+                    settings.variationBelow += weight * biomeSettings.variationBelow;                
+                    settings.minHeight += weight * biomeSettings.minHeight;
+                    settings.maxHeight += weight * biomeSettings.maxHeight;
+                    settings.sidewaysNoiseAmount += weight * biomeSettings.sidewaysNoiseAmount;
+                    for (int k = 0; k < settings.octaveWeights.length; k++)
+                    {
+                        settings.octaveWeights[k] += weight * biomeSettings.octaveWeights[k];
+                    }
                 }
             }
         }  
