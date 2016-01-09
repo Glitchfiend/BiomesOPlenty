@@ -7,8 +7,12 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.0-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
     }
+}
+
+plugins {
+    id "com.matthewprenger.cursegradle" version "1.0.5"
 }
 
 apply plugin: 'net.minecraftforge.gradle.forge'
@@ -30,16 +34,14 @@ archivesBaseName = "BiomesOPlenty"
 
 minecraft {
     version = config.minecraft_version + "-" + config.forge_version // grab latest forge
-    mappings = "snapshot_nodoc_20150214"
+	useDepAts = true
+    mappings = project.config.mappings_version
 }
 
 // add some stuff to the version
 version = "${config.minecraft_version}-${config.mod_version}.${System.getenv().BUILD_NUMBER}"
 
 def commonManifest = {
-    attributes 'FMLCorePlugin': 'biomesoplenty.common.asm.BOPLoadingPlugin'
-    attributes 'FMLCorePluginContainsFMLMod': 'true'
-    attributes 'ForceLoadAsMod': true
     attributes 'FMLAT': 'biomesoplenty_at.cfg'
 }
 
@@ -100,87 +102,114 @@ task deobfJar(type: Jar) {
     classifier = 'deobf'
 }
 
+task listOutputs << {
+    //This is needed by the Groovy Postbuild to append labels for each build used in the changelog.
+    println "Output files:"
+    println "--------------------"
+    def list = []
+
+    def dir = new File("build/libs/")
+    
+    if (dir.exists()) {
+        dir.eachFileRecurse (FileType.FILES) { file ->
+            //Add each file to the list
+            list << file
+        }
+    
+        //Print the names of all of the output files
+        list.each {
+            println it.getName()
+        }
+    }
+    println "--------------------"
+}
+
+tasks.build.finalizedBy('listOutputs')
+
 artifacts {
-	archives changelog.output
+    archives changelog.output
     archives sourcesJar
     archives deobfJar
 }
 
+curseforge {
+    apiKey = "$System.env.curse_api_key"
+    project {
+        id = '220318'
+        changelog = file('build/libs/' + project.getName() + '-' + project.version + '-changelog.txt');
+        releaseType = 'beta'
+    }
+}
+
+import groovy.io.FileType
+
 uploadArchives {
-    dependsOn 'build'
-	
     repositories {
-        if (project.hasProperty("filesmaven")) {
-            logger.info('Publishing to files server')
-            
-            mavenDeployer {
-                configuration = configurations.deployJars
+        mavenDeployer {
+			if (project.hasProperty('forgeMavenPassword'))
+			{
+				repository(url: "http://files.minecraftforge.net/maven/manage/upload") {
+					authentication(userName: project.getProperty('forgeMavenUsername'), password: project.getProperty('forgeMavenPassword'))
+				}
+			}
+			else
+			{
+				// local repo folder. Might wanna juset use  gradle install   if you wanans end it to maven-local
+				repository(url: 'file://localhost/' + project.file('repo').getAbsolutePath())
+			}
 
-                repository(url: project.filesmaven.url) {
-                    authentication(userName: project.filesmaven.username, privateKey: project.filesmaven.key)
+            pom {
+                groupId = project.group
+                version = project.version
+                artifactId = project.archivesBaseName
+                project {
+                    name project.archivesBaseName
+                    packaging 'jar'
+                    description 'Biomes O Plenty'
+                    url 'https://github.com/Glitchfiend/BiomesOPlenty'
+                
+                    scm {
+                        url 'https://github.com/Glitchfiend/BiomesOPlenty'
+                        connection 'scm:git:git://github.com/Glitchfiend/BiomesOPlenty.git'
+                        developerConnection 'scm:git:git@github.com:Glitchfiend/BiomesOPlenty.git'
+                    }
+                
+                    issueManagement {
+                        system 'github'
+                        url 'https://github.com/Glitchfiend/BiomesOPlenty/issues'
+                    }
+                
+                    licenses {
+                        license {
+                            name 'Creative Commons Attribution-NonCommercial-NoDerivs 4.0 International Public License'
+                            url 'http://creativecommons.org/licenses/by-nc-nd/4.0/'
+                            distribution 'repo'
+                        }
+                    }
+                
+                    developers {
+                        developer {
+                            id 'Adubbz'
+                            name 'Adubbz'
+                            roles { role 'developer' }
+                        }
+                        developer {
+                            id 'Amnet'
+                            name 'Amnet'
+                            roles { role 'developer' }
+                        }
+                        developer {
+                            id 'Forstride'
+                            name 'Forstride'
+                            roles { role 'developer' }
+                        }
+                        developer {
+                            id 'ted80'
+                            name 'ted80'
+                            roles { role 'developer' }
+                        }
+                    }
                 }
-
-                // This is just the pom data for the maven repo
-                pom {
-					groupId = project.group
-					version = project.version
-					artifactId = project.archivesBaseName
-					project {
-						name project.archivesBaseName
-						packaging 'jar'
-						description 'Biomes O Plenty'
-						url 'https://github.com/Glitchfiend/BiomesOPlenty'
-					
-						scm {
-							url 'https://github.com/Glitchfiend/BiomesOPlenty'
-							connection 'scm:git:git://github.com/Glitchfiend/BiomesOPlenty.git'
-							developerConnection 'scm:git:git@github.com:Glitchfiend/BiomesOPlenty.git'
-						}
-					
-						issueManagement {
-							system 'github'
-							url 'https://github.com/Glitchfiend/BiomesOPlenty/issues'
-						}
-					
-						licenses {
-							license {
-								name 'Creative Commons Attribution-NonCommercial-NoDerivs 4.0 International Public License'
-								url 'http://creativecommons.org/licenses/by-nc-nd/4.0/'
-								distribution 'repo'
-							}
-						}
-					
-						developers {
-							developer {
-								id 'Adubbz'
-								name 'Adubbz'
-								roles { role 'developer' }
-							}
-							developer {
-								id 'Amnet'
-								name 'Amnet'
-								roles { role 'developer' }
-							}
-							developer {
-								id 'Forstride'
-								name 'Forstride'
-								roles { role 'developer' }
-							}
-							developer {
-								id 'ted80'
-								name 'ted80'
-								roles { role 'developer' }
-							}
-						}
-					}
-                }
-            }
-        } else {
-            logger.info('Publishing to repo folder')
-            
-            mavenDeployer {
-                pom.version = "${project.minecraft.version}-${project.version}"
-                repository(url: 'file://localhost/' + project.file('repo').getAbsolutePath())
             }
         }
     }
