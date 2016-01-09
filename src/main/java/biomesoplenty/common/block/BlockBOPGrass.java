@@ -23,6 +23,7 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.particle.EffectRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -414,6 +415,26 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
                 break;
 
         }       
+    }
+
+    @SideOnly(Side.CLIENT)
+    @Override
+    public boolean addDestroyEffects(World world, BlockPos pos, EffectRenderer effectRenderer)
+    {
+        IBlockState state = world.getBlockState(pos);
+        
+        if (state.getBlock() == this)
+        {
+            //Fixes grass block break particles
+            switch ((BOPGrassType) state.getValue(VARIANT))
+            {       
+                case LOAMY: case SANDY: case SILTY:
+                    effectRenderer.addBlockDestroyEffects(pos, getDirtBlockState(state));
+                    return true;
+            }
+        }
+        
+        return false;
     }
     
     // by default, getPickBlock uses damageDropped to determine the metadata of the block picked. This
