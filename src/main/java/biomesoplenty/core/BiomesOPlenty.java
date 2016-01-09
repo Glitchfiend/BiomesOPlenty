@@ -18,6 +18,7 @@ import biomesoplenty.common.init.ModBiomes;
 import biomesoplenty.common.init.ModBlockQueries;
 import biomesoplenty.common.init.ModBlocks;
 import biomesoplenty.common.init.ModChecks;
+import biomesoplenty.common.init.ModCompatibility;
 import biomesoplenty.common.init.ModConfiguration;
 import biomesoplenty.common.init.ModCrafting;
 import biomesoplenty.common.init.ModEntities;
@@ -80,6 +81,7 @@ public class BiomesOPlenty
     @EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
+        ModCompatibility.postInit();
         ModChecks.postInit();
     }
     
