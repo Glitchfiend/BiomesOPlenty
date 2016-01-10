@@ -143,7 +143,13 @@ public class VariantPagingHelper<B extends Block, V extends Enum<V> & IStringSer
     }
     public V getVariant(int pageNum, int index)
     {
-        return this.masterIndexToVariant.get(pageNum * this.variantsPerPage + index);
+        V value = this.masterIndexToVariant.get(pageNum * this.variantsPerPage + index);
+        
+        //Use the default value if we can't find one for this index
+        if (value == null)
+            value = (V)this.getBlock(pageNum).getDefaultState().getValue(this.getVariantProperty(pageNum));
+            
+        return value;
     }
     public V getVariant(B block, int index)
     {
