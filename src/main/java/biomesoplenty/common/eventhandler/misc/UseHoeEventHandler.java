@@ -1,6 +1,8 @@
 package biomesoplenty.common.eventhandler.misc;
 
 import biomesoplenty.api.content.BOPCBlocks;
+import cpw.mods.fml.common.eventhandler.Event.Result;
+import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.block.Block;
 import net.minecraftforge.event.entity.player.UseHoeEvent;
@@ -8,9 +10,12 @@ import net.minecraftforge.event.entity.player.UseHoeEvent;
 public class UseHoeEventHandler
 {
 
-	@SubscribeEvent
+	@SubscribeEvent(priority=EventPriority.LOWEST)
 	public void useHoe(UseHoeEvent event)
 	{
+		if (event.getResult() != Result.DEFAULT || event.isCanceled())
+			return;
+		
 		int meta = event.world.getBlockMetadata(event.x, event.y, event.z);
 		Block block = event.world.getBlock(event.x, event.y, event.z);
 		boolean result = false;
