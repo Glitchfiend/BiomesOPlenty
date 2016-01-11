@@ -161,6 +161,9 @@ tile.newBopDirt.dirt_loamy.name=Глиняная земля
 tile.newBopDirt.coarse_dirt_silty.name=Грубая илистая земля
 tile.newBopDirt.coarse_dirt_sandy.name=Грубая песчаная земля
 tile.newBopDirt.coarse_dirt_loamy.name=Грубая глиняная земля
+tile.newBopFarmland.silty.name=Илистая грядка
+tile.newBopFarmland.sandy.name=Песчанная грядка
+tile.newBopFarmland.loamy.name=Глиняная грядка
 
 tile.bopGrass.spectralmoss.name=Спектральный мох
 tile.bopGrass.smolderinggrass.name=Блок тлеющей травы

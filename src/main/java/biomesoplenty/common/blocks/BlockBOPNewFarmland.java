@@ -1,15 +1,19 @@
 package biomesoplenty.common.blocks;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
+import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.common.utils.ISubLocalization;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFarmland;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -22,7 +26,7 @@ import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class BlockBOPNewFarmland extends BlockFarmland
+public class BlockBOPNewFarmland extends BlockFarmland implements ISubLocalization
 {
 
 	IIcon[] dry = new IIcon[BlockBOPNewGrass.grassTypes.length];
@@ -35,6 +39,23 @@ public class BlockBOPNewFarmland extends BlockFarmland
 		this.setHardness(0.5F);
 		this.setHarvestLevel("shovel", 0);
 		this.setStepSound(soundTypeGravel);
+	}
+
+	@Override
+	public String getUnlocalizedName(String baseName, ItemStack itemStack) 
+	{
+		int meta = itemStack.getItemDamage();
+		return baseName + "." + BlockBOPNewGrass.grassTypes[meta / 2];
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void getSubBlocks(Item block, CreativeTabs creativeTab, List blockList)
+	{
+		for (int i = 0; i < BlockBOPNewGrass.grassTypes.length * 2; i++)
+		{
+			blockList.add(new ItemStack(block, 1, i));
+		}
 	}
 
 	@SideOnly(Side.CLIENT)

@@ -161,6 +161,9 @@ tile.newBopDirt.dirt_loamy.name=Loamy Dirt
 tile.newBopDirt.coarse_dirt_silty.name=Coarse Silty Dirt
 tile.newBopDirt.coarse_dirt_sandy.name=Coarse Sandy Dirt
 tile.newBopDirt.coarse_dirt_loamy.name=Coarse Loamy Dirt
+tile.newBopFarmland.silty.name=Silty Farmland
+tile.newBopFarmland.sandy.name=Sandy Farmland
+tile.newBopFarmland.loamy.name=Loamy Farmland
 
 tile.bopGrass.spectralmoss.name=Spectral Moss
 tile.bopGrass.smolderinggrass.name=Smoldering Grass Block
