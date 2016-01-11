@@ -24,7 +24,9 @@ import com.google.common.base.Optional;
 
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.BOPBiomes;
+import biomesoplenty.api.biome.ExtendedBiomeWrapper;
 import biomesoplenty.api.biome.IExtendedBiome;
+import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.common.biome.overworld.BiomeGenAlps;
 import biomesoplenty.common.biome.overworld.BiomeGenArctic;
 import biomesoplenty.common.biome.overworld.BiomeGenBambooForest;
@@ -67,18 +69,21 @@ import biomesoplenty.common.biome.overworld.BiomeGenThicket;
 import biomesoplenty.common.biome.overworld.BiomeGenTundra;
 import biomesoplenty.common.biome.overworld.BiomeGenWoodland;
 import biomesoplenty.common.biome.overworld.BiomeGenXericShrubland;
+import biomesoplenty.common.biome.vanilla.BiomeExtEnd;
 import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.util.biome.BiomeUtils;
 import biomesoplenty.common.util.config.BOPConfig;
 import biomesoplenty.common.world.WorldTypeBOP;
+import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.core.BiomesOPlenty;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.BiomeDictionary.Type;
+import net.minecraftforge.common.BiomeManager;
 
-public class ModBiomes
+public class ModBiomes implements BOPBiomes.IBiomeRegistry
 {
     public static WorldTypeBOP worldTypeBOP;
 
@@ -87,6 +92,8 @@ public class ModBiomes
     private static BOPConfig.IConfigObj biomeIdMapConf;
     protected static Map<String, Integer> biomeIdMap;
     private static Set<Integer> idsReservedInConfig;
+    private static Map<Integer, IExtendedBiome> biomeWrapperMap;
+    
     public static Map<Integer, List<Integer>> subBiomesMap;
     public static Map<Integer, List<Integer>> mutatedBiomesMap;
 
@@ -126,6 +133,7 @@ public class ModBiomes
         
         initSubBiomes();
         initMutatedBiomes();
+        initExtendedBiomes();
         
         registerBiomes();
         registerBiomeDictionaryTags();
@@ -196,6 +204,12 @@ public class ModBiomes
         setSubBiome(BiomeGenBase.megaTaigaHills, BiomeGenBase.getBiome(BiomeGenBase.megaTaigaHills.biomeID + 128));        
     }
     
+    public static void initExtendedBiomes()
+    {
+        biomeWrapperMap = new HashMap<Integer, IExtendedBiome>();
+        
+        end_extension = registerWrappedBiome(new BiomeExtEnd(), "end");
+    }
 
     private static void registerBiomes()
     {
@@ -310,6 +324,56 @@ public class ModBiomes
         
     }
     
+    @Override
+    public IExtendedBiome registerBiome(IExtendedBiome extendedBiome, String idName)
+    {
+        if (extendedBiome == null)
+            throw new IllegalArgumentException("Extended biome to register cannot be null!");
+            
+        configureBiome(extendedBiome, idName);
+        
+        //Extra functionality builtin, such as with BOPBiome
+        if (extendedBiome instanceof BiomeGenBase)
+        {
+            for (Entry<BOPClimates, Integer> entry : extendedBiome.getWeightMap().entrySet())
+            {
+                if (entry != null)
+                {
+                    BOPClimates climate = entry.getKey();
+                    int weight = entry.getValue();
+                    climate.addLandBiome(weight, extendedBiome.getBaseBiome());
+                }
+            }
+        }
+        else //extendedBiome is a wrapper
+        {
+            biomeWrapperMap.put(extendedBiome.getBaseBiome().biomeID, extendedBiome);
+        }
+        
+        return extendedBiome;
+    }
+    
+    @Override
+    public IExtendedBiome getExtendedBiome(BiomeGenBase biome) 
+    {
+        //Extra functionality builtin, such as with BOPBiome
+        if (biome instanceof IExtendedBiome)
+        {
+            return (IExtendedBiome)biome;
+        }
+        else
+        {
+            IExtendedBiome wrapper = biomeWrapperMap.get(biome.biomeID);
+            
+            //This biome may not have a wrapper
+            if (wrapper != null)
+            {
+                return wrapper;
+            }
+        }
+        
+        return null;
+    }
 
     private static void setSubBiome(Optional<BiomeGenBase> parent, Optional<BiomeGenBase>... subBiomes)
     {
@@ -349,6 +413,26 @@ public class ModBiomes
         }
     }
     
+    private static void configureBiome(IExtendedBiome biome, String idName)
+    {
+        File configFile = new File(new File(BiomesOPlenty.configDirectory, "biomes"), idName + ".json");
+        BOPConfig.IConfigObj conf = new BOPConfig.ConfigFileObj(configFile);
+        
+        // If there was a valid config file, then use it to configure the biome
+        if (!conf.isEmpty()) {biome.configure(conf);}
+        // log any warnings from parsing the config file
+        for (String msg : conf.flushMessages()) {BiomesOPlenty.logger.warn(msg);}
+    }
+    
+    private static IExtendedBiome registerWrappedBiome(IExtendedBiome extendedBiome, String idName)
+    {
+        //Non-wrapped biomes should not be registered this way
+        if (extendedBiome.getBaseBiome() instanceof IExtendedBiome)
+            throw new IllegalArgumentException("Biome already implements IExtendedBiome, it should be registered appropriately");
+        
+        return BOPBiomes.REG_INSTANCE.registerBiome(extendedBiome, idName);
+    }
+    
     private static Optional<BiomeGenBase> registerBOPBiome(BOPBiome biome, String name)
     {
         
@@ -360,28 +444,12 @@ public class ModBiomes
         biomeIdMap.put(idName, id);
         
         if (id > -1) {
-            
-            File configFile = new File(new File(BiomesOPlenty.configDirectory, "biomes"), idName + ".json");
-            BOPConfig.IConfigObj conf = new BOPConfig.ConfigFileObj(configFile);
-            
             BOPCommand.biomeCount++;
             biome.biomeID = id;
-            // If there was a valid config file, then use it to configure the biome
-            if (!conf.isEmpty()) {biome.configure(conf);}
-            // log any warnings from parsing the config file
-            for (String msg : conf.flushMessages()) {BiomesOPlenty.logger.warn(msg);}
+
+            BOPBiomes.REG_INSTANCE.registerBiome(biome, idName);
 
             BiomeGenBase.getBiomeGenArray()[id] = biome;
-            
-            for (Entry<BOPClimates, Integer> entry : ((IExtendedBiome)biome).getWeightMap().entrySet())
-            {
-                if (entry != null)
-                {
-                    BOPClimates climate = entry.getKey();
-                    int weight = entry.getValue();
-                    climate.addLandBiome(weight, biome);
-                }
-            }
             
             //Enable spwning and village generation in the biome
             if (biome.canSpawnInBiome)
@@ -428,5 +496,4 @@ public class ModBiomes
 
         return -1;
     }
- 
 }

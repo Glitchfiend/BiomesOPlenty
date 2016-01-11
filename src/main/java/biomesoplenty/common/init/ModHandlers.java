@@ -27,6 +27,7 @@ public class ModHandlers
         DecorateBiomeEventHandler decorateBiomeHandler = new DecorateBiomeEventHandler();
         MinecraftForge.EVENT_BUS.register(decorateBiomeHandler);
         MinecraftForge.TERRAIN_GEN_BUS.register(decorateBiomeHandler);
+        MinecraftForge.ORE_GEN_BUS.register(decorateBiomeHandler);
         MinecraftForge.EVENT_BUS.register(new DyeEventHandler());
         MinecraftForge.EVENT_BUS.register(new FlippersEventHandler());
         MinecraftForge.EVENT_BUS.register(new BucketEventHandler());

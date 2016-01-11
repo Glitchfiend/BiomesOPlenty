@@ -72,6 +72,7 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         
     }
     
+    @Override
     public void configure(IConfigObj conf)
     {
         
@@ -347,5 +348,9 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         }
     }
 
-    
+    @Override
+    public BiomeGenBase getBaseBiome()
+    {
+        return this;
+    }
 }

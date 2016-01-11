@@ -49,7 +49,11 @@ public enum GeneratorStage
     @SerializedName("post")
     POST(null),
     @SerializedName("parent")
-    PARENT(null);
+    PARENT(null),
+    @SerializedName("ore_pre")
+    ORE_PRE(null),
+    @SerializedName("ore_post")
+    ORE_POST(null);
     
     private Decorate.EventType decorateType;
     

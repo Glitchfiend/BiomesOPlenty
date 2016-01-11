@@ -14,6 +14,8 @@ import net.minecraft.world.biome.BiomeGenBase;
 
 public class BOPBiomes
 {
+    public static final IBiomeRegistry REG_INSTANCE = createRegistry();
+    
     // normal biomes which have weights
     public static Optional<BiomeGenBase> alps = Optional.absent();
     public static Optional<BiomeGenBase> arctic = Optional.absent();
@@ -63,4 +65,28 @@ public class BOPBiomes
     public static Optional<BiomeGenBase> mountain_foothills = Optional.absent();
     public static Optional<BiomeGenBase> canyon_ravine = Optional.absent();
 
+    //Biome extensions
+    public static IExtendedBiome end_extension;
+    
+    private static IBiomeRegistry createRegistry()
+    {
+        IBiomeRegistry instance = null;
+        
+        try 
+        {
+            instance = (IBiomeRegistry)Class.forName("biomesoplenty.common.init.ModBiomes").newInstance();
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+        
+        return instance;
+    }
+    
+    public static interface IBiomeRegistry
+    {
+        public IExtendedBiome registerBiome(IExtendedBiome biome, String idName);
+        public IExtendedBiome getExtendedBiome(BiomeGenBase biome);
+    }
 }

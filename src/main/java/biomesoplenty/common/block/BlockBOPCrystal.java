@@ -17,8 +17,12 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.boss.EntityDragon;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.BlockPos;
+import net.minecraft.world.IBlockAccess;
 
 public class BlockBOPCrystal extends Block implements IBOPBlock
 {
@@ -42,6 +46,18 @@ public class BlockBOPCrystal extends Block implements IBOPBlock
         this.setResistance(5.0F);
         this.setLightLevel(1.0F);
         this.setStepSound(Block.soundTypeGlass);
+    }
+    
+    @Override
+    public boolean canEntityDestroy(IBlockAccess world, BlockPos pos, Entity entity)
+    {
+        //Prevent the ender dragon from destroying this block
+        if (entity instanceof EntityDragon)
+        {
+            return false;
+        }
+
+        return true;
     }
     
     @Override
