@@ -2,6 +2,7 @@ package biomesoplenty.common.world.layer;
 
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.core.BiomesOPlenty;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
@@ -27,28 +28,11 @@ public class GenLayerClimate extends BOPGenLayer {
 
         for (int i = 0; i < areaWidth * areaHeight; ++i)
         {
-            //TODO: Debug code - remove once out of bounds bug is solved.
-            if (i >= temperatureValues.length)
-            {
-                BiomesOPlenty.logger.error(i + " is out of bounds for temperature values");
-            }
-            
-            if (i >= rainfallValues.length)
-            {
-                BiomesOPlenty.logger.error(i + " is out of bounds for rainfall values");
-            }
-            
             int index = (temperatureValues[i] * 12) + rainfallValues[i];
-            
-            if (index >= climateMapping.length)
-            {
-                BiomesOPlenty.logger.error("Index " + i + " is out of bounds for climate mappings");
-                BiomesOPlenty.logger.error("Temperature: " + temperatureValues[i]);
-                BiomesOPlenty.logger.error("Rainfall: " + rainfallValues[i]);
-            }
-            
+
             // temperature values from 0 (cold) to 8 (hot) and rainfall values from 0 (wet) to 11 (dry), index is (temperatureValue * 12) + rainfallValue
-            out[i] = this.climateMapping[index];
+            // index is clamped to account for potential rounding errors due to use of doubles/floats
+            out[i] = this.climateMapping[MathHelper.clamp_int(index, 0, this.climateMapping.length)];
         }
         return out;
     }
