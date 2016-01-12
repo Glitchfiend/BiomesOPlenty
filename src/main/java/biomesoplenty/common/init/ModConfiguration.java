@@ -10,12 +10,14 @@ package biomesoplenty.common.init;
 
 import java.io.File;
 
+import biomesoplenty.common.config.GameplayConfigurationHandler;
 import biomesoplenty.common.config.MiscConfigurationHandler;
 
 public class ModConfiguration
 {
     public static void init(File configDirectory)
     {
+        GameplayConfigurationHandler.init(new File(configDirectory, "gameplay.cfg"));
         MiscConfigurationHandler.init(new File(configDirectory, "misc.cfg"));
     }
 }

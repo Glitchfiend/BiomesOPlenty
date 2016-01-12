@@ -198,7 +198,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
     public void harvestBlock(World world, EntityPlayer player, BlockPos pos, IBlockState state, TileEntity tileentity)
     {
         super.harvestBlock(world, player, pos, state, tileentity);
-        boolean usingShears = (player.getCurrentEquippedItem() == null || !(player.getCurrentEquippedItem().getItem() instanceof ItemShears));
+        boolean usingShears = (player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().getItem() instanceof ItemShears);
         switch ((BOPPlants) state.getValue(this.variantProperty))
         {
             // suffer cactus damage if you harvest thorn without shears

@@ -8,9 +8,12 @@
 
 package biomesoplenty.common.block;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.common.config.GameplayConfigurationHandler;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.item.ItemBOPFlower;
 import biomesoplenty.common.util.block.VariantPagingHelper;
@@ -24,6 +27,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemShears;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntity;
@@ -31,10 +35,11 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.IShearable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockBOPFlower extends BlockBOPDecoration
+public class BlockBOPFlower extends BlockBOPDecoration implements IShearable
 {
     
     // setup paged variant property
@@ -283,6 +288,32 @@ public class BlockBOPFlower extends BlockBOPDecoration
         }
         
     }
+    
+    //
+    // The below three methods are used for the require shears setting
+    //
+    
+    @Override
+    public boolean isShearable(ItemStack item, IBlockAccess world, BlockPos pos) 
+    {
+        return GameplayConfigurationHandler.flowerDropsNeedShears;
+    }
+    
+    @Override
+    public void dropBlockAsItemWithChance(World world, BlockPos pos, IBlockState state, float chance, int fortune)
+    {
+        EntityPlayer player = this.harvesters.get();
+        boolean usingShears = (player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().getItem() instanceof ItemShears);
+        
+        //Player must use shears when flowerDropsNeedShears is enabled
+        if (GameplayConfigurationHandler.flowerDropsNeedShears && !usingShears)
+            return;
+        
+        super.dropBlockAsItemWithChance(world, pos, state, chance, fortune);
+    }
+
+    @Override
+    public List<ItemStack> onSheared(ItemStack item, IBlockAccess world, BlockPos pos, int fortune)  { return new ArrayList<ItemStack>(); }
     
     
 
