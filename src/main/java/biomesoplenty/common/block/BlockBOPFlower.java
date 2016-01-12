@@ -303,12 +303,17 @@ public class BlockBOPFlower extends BlockBOPDecoration implements IShearable
     public void dropBlockAsItemWithChance(World world, BlockPos pos, IBlockState state, float chance, int fortune)
     {
         EntityPlayer player = this.harvesters.get();
-        boolean usingShears = (player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().getItem() instanceof ItemShears);
         
-        //Player must use shears when flowerDropsNeedShears is enabled
-        if (GameplayConfigurationHandler.flowerDropsNeedShears && !usingShears)
-            return;
-        
+        //Only check if shears are being using if the appropriate option is enabled, and it's a player harvesting this block
+        if (GameplayConfigurationHandler.flowerDropsNeedShears && player != null)
+        {
+            boolean usingShears = (player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().getItem() instanceof ItemShears);
+
+            //Player must use shears when flowerDropsNeedShears is enabled
+            if (!usingShears)
+                return;
+        }
+
         super.dropBlockAsItemWithChance(world, pos, state, chance, fortune);
     }
 
