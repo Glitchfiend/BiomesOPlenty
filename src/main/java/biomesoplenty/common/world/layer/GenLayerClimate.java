@@ -27,13 +27,28 @@ public class GenLayerClimate extends BOPGenLayer {
 
         for (int i = 0; i < areaWidth * areaHeight; ++i)
         {
-            // temperature values from 0 (cold) to 8 (hot) and rainfall values from 0 (wet) to 11 (dry), index is (temperatureValue * 12) + rainfallValue
-            if (((temperatureValues[i] * 12) + rainfallValues[i]) >= this.climateMapping.length)
+            //TODO: Debug code - remove once out of bounds bug is solved.
+            if (i >= temperatureValues.length)
             {
-                BiomesOPlenty.logger.error("Invalid climate values " + temperatureValues[i] + " " + rainfallValues[i]);
+                BiomesOPlenty.logger.error(i + " is out of bounds for temperature values");
             }
             
-            out[i] = this.climateMapping[(temperatureValues[i] * 12) + rainfallValues[i]];
+            if (i >= rainfallValues.length)
+            {
+                BiomesOPlenty.logger.error(i + " is out of bounds for rainfall values");
+            }
+            
+            int index = (temperatureValues[i] * 12) + rainfallValues[i];
+            
+            if (index >= climateMapping.length)
+            {
+                BiomesOPlenty.logger.error("Index " + i + " is out of bounds for climate mappings");
+                BiomesOPlenty.logger.error("Temperature: " + temperatureValues[i]);
+                BiomesOPlenty.logger.error("Rainfall: " + rainfallValues[i]);
+            }
+            
+            // temperature values from 0 (cold) to 8 (hot) and rainfall values from 0 (wet) to 11 (dry), index is (temperatureValue * 12) + rainfallValue
+            out[i] = this.climateMapping[index];
         }
         return out;
     }
