@@ -53,6 +53,7 @@ public class BOPBiomes
     public static Optional<BiomeGenBase> origin_valley = Optional.absent();
     public static Optional<BiomeGenBase> outback = Optional.absent();
     public static Optional<BiomeGenBase> prairie = Optional.absent();
+    public static Optional<BiomeGenBase> sacred_springs = Optional.absent();
     public static Optional<BiomeGenBase> shrubland = Optional.absent();
     public static Optional<BiomeGenBase> steppe = Optional.absent();
     public static Optional<BiomeGenBase> thicket = Optional.absent();

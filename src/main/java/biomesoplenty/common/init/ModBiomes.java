@@ -63,6 +63,7 @@ import biomesoplenty.common.biome.overworld.BiomeGenMountain;
 import biomesoplenty.common.biome.overworld.BiomeGenOriginValley;
 import biomesoplenty.common.biome.overworld.BiomeGenOutback;
 import biomesoplenty.common.biome.overworld.BiomeGenPrairie;
+import biomesoplenty.common.biome.overworld.BiomeGenSacredSprings;
 import biomesoplenty.common.biome.overworld.BiomeGenShrubland;
 import biomesoplenty.common.biome.overworld.BiomeGenSteppe;
 import biomesoplenty.common.biome.overworld.BiomeGenThicket;
@@ -251,6 +252,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         origin_valley = registerBOPBiome(new BiomeGenOriginValley(), "Origin Valley");
         outback = registerBOPBiome(new BiomeGenOutback(), "Outback");
         prairie = registerBOPBiome(new BiomeGenPrairie(), "Prairie");
+        sacred_springs = registerBOPBiome(new BiomeGenSacredSprings(), "Sacred Springs");
         shrubland = registerBOPBiome(new BiomeGenShrubland(), "Shrubland");
         steppe = registerBOPBiome(new BiomeGenSteppe(), "Steppe");
         thicket = registerBOPBiome(new BiomeGenThicket(), "Thicket");

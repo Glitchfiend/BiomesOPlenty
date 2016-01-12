@@ -10,6 +10,7 @@ package biomesoplenty.common.block;
 
 import java.util.Random;
 
+import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.enums.BOPTrees;
@@ -18,6 +19,7 @@ import biomesoplenty.common.item.ItemBOPSapling;
 import biomesoplenty.common.util.block.VariantPagingHelper;
 import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
 import biomesoplenty.common.world.feature.tree.GeneratorBayouTree;
+import biomesoplenty.common.world.feature.tree.GeneratorBigTree;
 import biomesoplenty.common.world.feature.tree.GeneratorBulbTree;
 import biomesoplenty.common.world.feature.tree.GeneratorPineTree;
 import biomesoplenty.common.world.feature.tree.GeneratorTaigaTree;
@@ -184,8 +186,8 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable {
                 return new WorldGenTrees(true);
             case JACARANDA:
             	return new GeneratorBasicTree.Builder().minHeight(4).maxHeight(7).log(BOPWoods.JACARANDA).leaves(BOPTrees.JACARANDA).create();
-            case SACRED_OAK: //Not implemented
-                return new WorldGenTrees(true);
+            case SACRED_OAK:
+                return new GeneratorBigTree.Builder().log(BOPWoods.SACRED_OAK).leaves(BOPTrees.SACRED_OAK).minHeight(35).maxHeight(45).trunkWidth(2).foliageDensity(1.25D).create();
             case MANGROVE: //Not implemented
                 return new WorldGenTrees(true);
             case PALM: //Not implemented
