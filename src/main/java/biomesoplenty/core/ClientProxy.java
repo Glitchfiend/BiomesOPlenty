@@ -38,6 +38,7 @@ import net.minecraft.client.renderer.block.statemap.StateMap;
 import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.resources.AbstractResourcePack;
 import net.minecraft.client.resources.IResourcePack;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
@@ -52,6 +53,7 @@ import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.client.FMLFileResourcePack;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 
 public class ClientProxy extends CommonProxy
@@ -156,14 +158,14 @@ public class ClientProxy extends CommonProxy
 
             List<IResourcePack> resourcePackList = ReflectionHelper.getPrivateValue(FMLClientHandler.class, clientHandler, "resourcePackList");
             Map<String, IResourcePack> resourcePackMap = ReflectionHelper.getPrivateValue(FMLClientHandler.class, clientHandler, "resourcePackMap");
-            FMLFileResourcePack resourcePack = (FMLFileResourcePack)clientHandler.getResourcePackFor("Forge");
+            AbstractResourcePack resourcePack = (AbstractResourcePack)clientHandler.getResourcePackFor("Forge");
 
             //Remove the old resource pack from the registry
             resourcePackList.remove(resourcePack);
             resourcePackMap.remove("Forge");
 
             //Replace Forge's resource pack with our modified version
-            ForgeRedirectedResourcePack redirectedResourcePack = new ForgeRedirectedResourcePack(resourcePack.getFMLContainer());
+            ForgeRedirectedResourcePack redirectedResourcePack = new ForgeRedirectedResourcePack(FMLCommonHandler.instance().findContainerFor("Forge"));
 
             //Add our new resource pack in its place
             resourcePackList.add(redirectedResourcePack);
