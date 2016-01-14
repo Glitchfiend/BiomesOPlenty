@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright 2016, the Biomes O' Plenty Team
+ * Copyright 2016-2016, the Biomes O' Plenty Team
  * 
  * This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License.
  * 
