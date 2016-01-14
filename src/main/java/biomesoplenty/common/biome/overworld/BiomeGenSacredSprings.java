@@ -35,7 +35,7 @@ public class BiomeGenSacredSprings extends BOPBiome
         this.addWeight(BOPClimates.WARM_TEMPERATE, 3);
         
         // trees
-        this.addGenerator("sacred_oak_trees", GeneratorStage.POST, (new GeneratorBigTree.Builder()).amountPerChunk(0.2F).log(BOPWoods.SACRED_OAK).leaves(BOPTrees.SACRED_OAK).minHeight(35).maxHeight(45).trunkWidth(2).foliageDensity(1.25D).create());
+        this.addGenerator("sacred_oak_trees", GeneratorStage.POST, (new GeneratorBigTree.Builder()).amountPerChunk(0.2F).log(BOPWoods.SACRED_OAK).leaves(BOPTrees.SACRED_OAK).minHeight(35).maxHeight(40).trunkWidth(2).foliageDensity(2.0D).create());
         this.addGenerator("leaves_clusters", GeneratorStage.TREE, (new GeneratorBush.Builder()).amountPerChunk(12.5F).create());
     
         // grasses
