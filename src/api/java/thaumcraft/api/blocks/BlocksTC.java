@@ -95,6 +95,10 @@ public class BlocksTC {
 	public static Block lampArcane;
 	public static Block lampFertility;
 	public static Block lampGrowth;
+	public static Block golemBuilder;
+	public static Block nodeStabilizer;
+	public static Block essentiaTransportInput;
+	public static Block essentiaTransportOutput;
 	
 	// Fluids
 	public static Block fluxGoo;	
@@ -107,6 +111,9 @@ public class BlocksTC {
 	public static Block effect;
 	public static Block barrier;
 	public static Block placeholder;
+	
+	
+	
 	
 	
 	

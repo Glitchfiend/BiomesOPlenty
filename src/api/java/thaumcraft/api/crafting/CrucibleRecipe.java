@@ -14,11 +14,11 @@ public class CrucibleRecipe {
 	
 	public Object catalyst;
 	public AspectList aspects;
-	public String research;
+	public String[] research;
 	
 	public int hash;
 	
-	public CrucibleRecipe(String researchKey, ItemStack result, Object cat, AspectList tags) {
+	public CrucibleRecipe(String[] researchKey, ItemStack result, Object cat, AspectList tags) {
 		recipeOutput = result;
 		this.aspects = tags;
 		this.research = researchKey;
@@ -26,7 +26,8 @@ public class CrucibleRecipe {
 		if (cat instanceof String) {
 			this.catalyst = OreDictionary.getOres((String) cat);
 		}
-		String hc = researchKey;
+		String hc = "";
+		for (String ss:research) hc+=ss;
 		hc += result.toString();
 		for (Aspect tag:tags.getAspects()) {
 			hc += tag.getTag()+tags.getAmount(tag);

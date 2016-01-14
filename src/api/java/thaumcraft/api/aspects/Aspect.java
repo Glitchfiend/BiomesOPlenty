@@ -162,7 +162,7 @@ public class Aspect {
 	
 	//SECONDARY (PRIMAL + PRIMAL)  	
 		public static final Aspect VOID = new Aspect("vacuos",0x888888, new Aspect[] {AIR, ENTROPY},771);
-		public static final Aspect LIGHT = new Aspect("lux",0xfff663, new Aspect[] {AIR, FIRE});
+		public static final Aspect LIGHT = new Aspect("lux",0xffd585, new Aspect[] {AIR, FIRE});
 		public static final Aspect MOTION = new Aspect("motus",0xcdccf4, new Aspect[] {AIR, ORDER});
 		public static final Aspect COLD = new Aspect("gelum",0xe1ffff, new Aspect[] {FIRE, ENTROPY});
 		public static final Aspect CRYSTAL = new Aspect("vitreus",0x80ffff, new Aspect[] {EARTH, AIR});

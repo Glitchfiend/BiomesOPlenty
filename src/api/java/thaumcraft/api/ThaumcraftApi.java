@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
+import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -263,13 +264,15 @@ public class ThaumcraftApi {
      * @param cost the vis cost
      * @param tags the aspects required to craft this
      */
-    public static CrucibleRecipe addCrucibleRecipe(String key, ItemStack result, Object catalyst, AspectList tags) {
-    	CrucibleRecipe rc = new CrucibleRecipe(key, result, catalyst, tags);
+    public static CrucibleRecipe addCrucibleRecipe(String key, ItemStack result, Object catalyst, AspectList tags) {    	
+		return addCrucibleRecipe(new String[] {key},result,catalyst,tags);
+	}
+    
+    public static CrucibleRecipe addCrucibleRecipe(String[] keys, ItemStack result, Object catalyst, AspectList tags) {
+    	CrucibleRecipe rc = new CrucibleRecipe(keys, result, catalyst, tags);
     	getCraftingRecipes().add(rc);
 		return rc;
 	}
-    
-    
 	
 	/**
 	 * @param stack the recipe result
@@ -538,6 +541,8 @@ public class ThaumcraftApi {
 				}
 			}
 		}
+
+		
 		
 	// PORTABLE HOLE BLACKLIST
 	/**
@@ -556,6 +561,25 @@ public class ThaumcraftApi {
 		
 		
 	// CROPS 	
+		
+	public static HashMap<String,ItemStack> seedList = new HashMap<String,ItemStack>();
+	
+	/**
+	 * This method is used to register an item that will act as a seed for the specified block.
+	 * If your seed items use IPlantable it might not be necessary to do this as I 
+	 * attempt to automatically detect such links.
+	 * @param block
+	 * @param seed
+	 */
+	public static void registerSeed(Block block, ItemStack seed) {
+		seedList.put(block.getUnlocalizedName(), seed);
+	}
+
+	public static ItemStack getSeed(Block block) {
+		return seedList.get(block.getUnlocalizedName());
+	}	
+		
+		
 	/**
 	 * To define mod crops you need to use FMLInterModComms in your @Mod.Init method.
 	 * There are two 'types' of crops you can add. Standard crops and clickable crops.

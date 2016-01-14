@@ -1,5 +1,6 @@
 package thaumcraft.api.aura;
 
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import thaumcraft.api.ThaumcraftApi;
@@ -64,6 +65,19 @@ public class AuraHelper {
 	 */
 	public static int getAuraBase(World world, BlockPos pos) {
 		return ThaumcraftApi.internalMethods.getAuraBase(world,pos);
+	}
+	
+	/**
+	 * Gets if the local aura for the given aspect is below 10% and that the player has the node preserver research.
+	 * If the passed in player is null it will ignore the need for the research to be completed and just assume it is.
+	 * @param world
+	 * @param player
+	 * @param pos
+	 * @param aspect
+	 * @return
+	 */
+	public static boolean shouldPreserveAura(World world, EntityPlayer player, BlockPos pos, Aspect aspect) {
+		return ThaumcraftApi.internalMethods.shouldPreserveAura(world,player,pos,aspect);
 	}
 	
 	/**

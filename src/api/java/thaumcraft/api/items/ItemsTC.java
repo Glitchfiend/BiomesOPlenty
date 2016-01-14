@@ -33,6 +33,8 @@ public class ItemsTC {
 	/** "clockwork","biothaumic" */
 	public static Item mind;
 	public static Item morphicResonator;
+	/** "vision", "aggression" */
+	public static Item modules;
 	
 	//consumables
 	public static Item alumentum;
@@ -45,7 +47,7 @@ public class ItemsTC {
 	public static Item bottleTaint;
 	public static Item bathSalts;
 	public static Item sanitySoap;
-	/** "basic","focus","magnet"*/
+	/** "basic","focus","magnet","advanced"*/
 	public static Item turretPlacer;
 	
 	
@@ -144,6 +146,7 @@ public class ItemsTC {
 	public static Item focusWarding;
 	public static Item focusHole;
 	public static Item focusShard;
+	public static Item focusGrapple;
 	
 	public static Item focusPouch;	
 	
@@ -175,8 +178,13 @@ public class ItemsTC {
 	//golems
 	public static Item golemBell;
 	public static Item golemPlacer;
-	/** "blank","pickup","fill","fill_advanced","empty","empty_advanced" */
+	/** 
+	 * damage 0 = blank seal
+	 * use GolemHelper.getSealStack to return an itemstack of a specific seal 
+	 * **/
 	public static Item seals;
+	
+	
 		
 	
 	

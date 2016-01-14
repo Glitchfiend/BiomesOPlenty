@@ -1,6 +1,6 @@
 package thaumcraft.api;
 
-import java.util.HashMap;
+import java.nio.ByteBuffer;
 import java.util.Iterator;
 import java.util.List;
 
@@ -326,4 +326,42 @@ public class ThaumcraftApiHelper {
 		default: return null;
 		}
 	}
+	
+	public static int setByteInInt(int data, byte b, int index)
+	{
+		ByteBuffer bb = ByteBuffer.allocate(4);
+		bb.putInt(0,data);
+		bb.put(index, b);
+	    return bb.getInt(0);
+	}
+	
+	public static byte getByteInInt(int data, int index) {
+		ByteBuffer bb = ByteBuffer.allocate(4);
+		bb.putInt(0,data);
+		return bb.get(index);
+	}	
+	
+	public static long setByteInLong(long data, byte b, int index)
+	{
+		ByteBuffer bb = ByteBuffer.allocate(8);
+		bb.putLong(0,data);
+		bb.put(index, b);
+	    return bb.getLong(0);
+	}
+	
+	public static byte getByteInLong(long data, int index) {
+		ByteBuffer bb = ByteBuffer.allocate(8);
+		bb.putLong(0,data);
+		return bb.get(index);
+	}	
+	
+	public static int setNibbleInInt(int data, int nibble, int nibbleIndex)
+	{
+	    int shift = nibbleIndex * 4;
+	    return (data & ~(0xf << shift)) | (nibble << shift);
+	}
+	
+	public static int getNibbleInInt(int data, int nibbleIndex) {
+		return (data >> (nibbleIndex << 2)) & 0xF;
+	}	
 }

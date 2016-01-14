@@ -15,9 +15,9 @@ public class PotionFluxTaint extends Potion
     public static PotionFluxTaint instance = null; // will be instantiated at runtime
     private int statusIconIndex = -1;
     
-    public PotionFluxTaint(int par1, boolean par2, int par3)
+    public PotionFluxTaint(boolean par2, int par3)
     {
-    	super(par1,new ResourceLocation("flux_taint"),par2,par3);
+    	super(new ResourceLocation("flux_taint"),par2,par3);
     	setIconIndex(0, 0);
     }
     

@@ -8,6 +8,10 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
+import thaumcraft.api.golems.seals.ISeal;
+import thaumcraft.api.golems.seals.ISealEntity;
+import thaumcraft.api.golems.seals.SealPos;
+import thaumcraft.api.golems.tasks.Task;
 
 public interface IInternalMethodHandler {
 
@@ -25,6 +29,12 @@ public interface IInternalMethodHandler {
 	public void addAura(World world, BlockPos pos, Aspect aspect, int amount);
 	public void pollute(World world, BlockPos pos, int amount, boolean showEffect);
 	public int getAura(World world, BlockPos pos, Aspect aspect);
-	public int getAuraBase(World world, BlockPos pos);
+	public int getAuraBase(World world, BlockPos pos);	
+	public void registerSeal(ISeal seal);
+	public ISeal getSeal(String key);
+	public ISealEntity getSealEntity(int dim, SealPos pos);
+	public void addGolemTask(int dim, Task task);
+	public boolean shouldPreserveAura(World world, EntityPlayer player, BlockPos pos, Aspect aspect);
+	public ItemStack getSealStack(String key);
 	
 }
