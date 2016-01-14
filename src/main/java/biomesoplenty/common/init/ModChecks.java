@@ -24,12 +24,17 @@ public class ModChecks
 		{
 			String biomeIdentifier = entry.getKey();
 			int id = entry.getValue();
-			BiomeGenBase biome = BiomeGenBase.getBiome(id);
-
-			//Check if the biome is unexpectedly null, or if the identifier doesn't match that which is in our map
-			if (biome == null || !BiomeUtils.getBiomeIdentifier(biome).equals(biomeIdentifier))
+			
+			//Ensure the id is valid
+			if (id >= 0 && id <= BiomeGenBase.getBiomeGenArray().length)
 			{
-				throw new RuntimeException("Unexpected biome " + biome.biomeName + " for id " + id + ". This is not a bug, please ensure your biome ids are configured to be unique.");
+			    BiomeGenBase biome = BiomeGenBase.getBiome(id);
+
+			    //Check if the biome is unexpectedly null, or if the identifier doesn't match that which is in our map
+			    if (biome == null || !BiomeUtils.getBiomeIdentifier(biome).equals(biomeIdentifier))
+			    {
+			        throw new RuntimeException("Unexpected biome " + biome.biomeName + " for id " + id + ". This is not a bug, please ensure your biome ids are configured to be unique.");
+			    }
 			}
 		}
 		
