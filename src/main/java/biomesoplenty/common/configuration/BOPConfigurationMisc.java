@@ -17,6 +17,7 @@ public class BOPConfigurationMisc
 	public static boolean titlePanorama;
 
     public static boolean hotSpringsRegeneration;
+    public static boolean poisonIvyEffects;
 	
 	public static int spawnSearchRadius;
 	public static boolean onlySpawnOnBeaches;
@@ -34,7 +35,9 @@ public class BOPConfigurationMisc
 			hotSpringsRegeneration = config.get("Miscellanious Settings", "Enable Spring Water Regeneration Effect", true).getBoolean(true);
             hotSpringsRegeneration = config.get("Miscellanious Settings", "Behave Normally During Special Events", false).getBoolean(false);
             		titlePanorama = config.get("Miscellanious Settings", "Enable Biomes O\' Plenty Main Menu Panorama", true).getBoolean(false);
-
+            poisonIvyEffects = config.get("Miscellanious Settings", "Enable Poison Ivy Effects", true).getBoolean(true);
+            		
+            		
 			//Hard-Coded Colors
 			skyColors = config.get("Hard-Coded Colors", "Enable Sky Colors", true).getBoolean(false);
 			fogColors = config.get("Hard-Coded Colors", "Enable Fog Colors", true).getBoolean(false);

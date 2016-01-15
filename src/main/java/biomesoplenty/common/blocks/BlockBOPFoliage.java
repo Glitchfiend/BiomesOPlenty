@@ -32,6 +32,7 @@ import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.api.content.BOPCItems;
 import biomesoplenty.client.render.RenderUtils;
 import biomesoplenty.common.blocks.templates.BOPBlockWorldDecor;
+import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -228,7 +229,7 @@ public class BlockBOPFoliage extends BOPBlockWorldDecor implements IShearable
 				{
 					InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
 
-					if (!((inventory.armorInventory[0] != null && inventory.armorInventory[0].getItem() == Items.leather_boots) && (inventory.armorInventory[1] != null && inventory.armorInventory[1].getItem() == Items.leather_leggings)))
+					if ((inventory.armorInventory[0] == null || inventory.armorInventory[1] == null) && BOPConfigurationMisc.poisonIvyEffects)
 					{
 						((EntityLivingBase)entity).addPotionEffect(new PotionEffect(Potion.poison.id, 100));
 					}
