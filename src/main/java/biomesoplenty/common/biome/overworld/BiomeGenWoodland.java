@@ -11,6 +11,7 @@ package biomesoplenty.common.biome.overworld;
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
@@ -101,6 +102,18 @@ public class BiomeGenWoodland extends BOPBiome
     public void applySettings(BOPWorldSettings settings)
     {
         if (!settings.generateBopGems) {this.removeGenerator("amber");}
+    }
+    
+    @Override
+    public int getGrassColorAtPos(BlockPos pos)
+    {
+        return 0xB0BA51;
+    }
+
+    @Override
+    public int getFoliageColorAtPos(BlockPos pos)
+    {
+        return 0x9CA825;
     }
     
 }

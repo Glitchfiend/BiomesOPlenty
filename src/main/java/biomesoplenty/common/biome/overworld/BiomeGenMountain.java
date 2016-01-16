@@ -75,7 +75,7 @@ public class BiomeGenMountain extends BOPBiome
         }
         
         this.setColor(0x80A355);
-        this.setTemperatureRainfall(0.25F, 0.1F);
+        this.setTemperatureRainfall(0.5F, 0.1F);
         
         if (type == MountainType.PEAKS)
         {
@@ -156,8 +156,8 @@ public class BiomeGenMountain extends BOPBiome
         this.dirtBlock = this.fillerBlock;        
         this.coarseDirtBlock = conf.getBlockState("coarseDirtBlock", this.coarseDirtBlock);
         this.stoneBlock = conf.getBlockState("stoneBlock", this.stoneBlock);
-        this.snowBlock = conf.getBlockState("snowBlock", this.snowBlock);
-        this.packedSnowBlock = conf.getBlockState("packedSnowBlock", this.packedSnowBlock);
+        //this.snowBlock = conf.getBlockState("snowBlock", this.snowBlock);
+        //this.packedSnowBlock = conf.getBlockState("packedSnowBlock", this.packedSnowBlock);
     }
     
     @Override
@@ -186,8 +186,8 @@ public class BiomeGenMountain extends BOPBiome
             }
             else
             {
-                this.topBlock = this.snowBlock;
-                this.fillerBlock = this.packedSnowBlock;
+                this.topBlock = this.grassBlock;
+                this.fillerBlock = this.dirtBlock;
             }
         }
         else

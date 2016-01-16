@@ -33,7 +33,7 @@ public class BiomeGenTundra extends BOPBiome
     public BiomeGenTundra()
     {
         // terrain
-        this.terrainSettings.avgHeight(64).heightVariation(30, 30).minHeight(59).octaves(2, 2, 1, 0, 1, 1); 
+        this.terrainSettings.avgHeight(64).heightVariation(5, 10).minHeight(59).octaves(2, 2, 1, 0, 1, 1); 
         
         this.setColor(0xA09456);
         this.setTemperatureRainfall(0.165F, 0.5F); // temperature deliberately borderline between rain and snow
@@ -46,14 +46,14 @@ public class BiomeGenTundra extends BOPBiome
         this.addGenerator("boulders", GeneratorStage.SAND, (new GeneratorBlobs.Builder()).amountPerChunk(0.5F).placeOn(Blocks.grass).with(Blocks.cobblestone.getDefaultState()).minRadius(0.3F).maxRadius(1.2F).numBalls(1).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
         
         // sand & gravel
-        this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(8).maxRadius(7).with(Blocks.sand.getDefaultState()).create());
-        this.addGenerator("gravel", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(8).maxRadius(7).with(Blocks.gravel.getDefaultState()).create());
+        this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(4).maxRadius(7).with(Blocks.sand.getDefaultState()).create());
+        this.addGenerator("gravel", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(12).maxRadius(7).with(Blocks.gravel.getDefaultState()).create());
         
         // lakes
         this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.3F).waterLakeForBiome(this).create());        
         
         // trees
-        this.addGenerator("trees", GeneratorStage.TREE, (new GeneratorBush.Builder()).amountPerChunk(3).create());
+        this.addGenerator("trees", GeneratorStage.TREE, (new GeneratorBush.Builder()).amountPerChunk(2).create());
         
         // other plants
         this.addGenerator("shrubs", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.3F).with(BOPPlants.SHRUB).create());
@@ -91,13 +91,13 @@ public class BiomeGenTundra extends BOPBiome
     @Override
     public int getGrassColorAtPos(BlockPos pos)
     {
-        return 0x908A56;
+        return 0xAD8456;
     }
     
     @Override
     public int getFoliageColorAtPos(BlockPos pos)
     {
-        return 0xA09456;
+        return 0xBF664E;
     }
 
 }
