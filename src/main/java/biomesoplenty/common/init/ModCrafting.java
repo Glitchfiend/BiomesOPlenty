@@ -174,6 +174,9 @@ public class ModCrafting
         GameRegistry.addShapedRecipe(new ItemStack(BOPItems.biome_finder), new Object[] {" E ", "ERE", " E ", 'E', new ItemStack(Items.emerald), 'R', new ItemStack(Items.redstone)});
         GameRegistry.addRecipe(new BiomeEssenceRecipe());
         
+        /*** Flower Basket ***/
+        
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.flower_basket), new Object [] {" S ", "S S", "SSS", 'S', "stickWood" }));
         
         /*** Misc Others ***/
         

@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import biomesoplenty.client.model.ModelBiomeFinder;
+import biomesoplenty.client.model.ModelFlowerBasket;
 import biomesoplenty.client.texture.TextureAnimationFrame;
 import biomesoplenty.client.util.TextureUtils;
 import net.minecraft.client.renderer.texture.TextureMap;
@@ -27,8 +28,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class ModelBakeHandler
 {
-    public static final ModelResourceLocation BIOME_FINDER_LOC = new ModelResourceLocation("biomesoplenty:item/biome_finder", "inventory");
-    public static final ModelResourceLocation BIOME_FINDER_REG_LOC = new ModelResourceLocation("biomesoplenty:biome_finder", "inventory");
+    public static final ModelResourceLocation BIOME_FINDER_LOC = new ModelResourceLocation("biomesoplenty:biome_finder", "inventory");
+    
+    public static final ModelResourceLocation FLOWER_BASKET_LOC = new ModelResourceLocation("biomesoplenty:flower_basket", "inventory");
+    public static final ModelResourceLocation FLOWER_BASKET_EMPTY_LOC = new ModelResourceLocation("biomesoplenty:flower_basket_empty", "inventory");
+    public static final ModelResourceLocation FLOWER_BASKET_FULL_LOC = new ModelResourceLocation("biomesoplenty:flower_basket_full", "inventory");
     
     public static List<String> fluidsToTextureStitch = new ArrayList<String>();
     
@@ -58,6 +62,7 @@ public class ModelBakeHandler
     	//Get the existing model defined by the json file
     	IModel biomeFinderModel = modelLoader.getModel(BIOME_FINDER_LOC);
     	//Replace the existing model with our new flexible one
-        modelRegistry.putObject(BIOME_FINDER_REG_LOC, new ModelBiomeFinder(biomeFinderModel, biomeFinderFrames));
+        modelRegistry.putObject(BIOME_FINDER_LOC, new ModelBiomeFinder(biomeFinderModel, biomeFinderFrames));
+        modelRegistry.putObject(FLOWER_BASKET_LOC, new ModelFlowerBasket(modelRegistry.getObject(FLOWER_BASKET_EMPTY_LOC), modelRegistry.getObject(FLOWER_BASKET_FULL_LOC)));
     }
 }

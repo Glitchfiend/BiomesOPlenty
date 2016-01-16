@@ -14,6 +14,8 @@ commands.biomesoplenty.stats.entities=Entities: %s
 commands.biomesoplenty.stats.biomes=Biomes: %s
 commands.biomesoplenty.stripchunk.usage=/biomesoplenty stripchunk [radius] <include|exclude> [block] [metadata]
 
+container.flower_basket=Flower Basket
+
 generator.BIOMESOP=Biomes O' Plenty
 generator.BIOMESOP.info=Notice: Biomes O' Plenty 1.8 is in a very early state
 
@@ -52,6 +54,7 @@ item.filled_honeycomb.name=Filled Honeycomb
 item.fir_door.name=Fir Door
 item.fleshchunk.name=Chunk of Flesh
 item.flippers.name=Flippers
+item.flower_basket.name=Flower Basket
 item.gem_amber.name=Amber
 item.gem_amethyst.name=Ender Amethyst
 item.gem_malachite.name=Malachite

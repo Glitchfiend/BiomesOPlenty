@@ -14,6 +14,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import biomesoplenty.common.command.BOPCommand;
+import biomesoplenty.common.handler.GuiHandler;
 import biomesoplenty.common.init.ModBiomes;
 import biomesoplenty.common.init.ModBlockQueries;
 import biomesoplenty.common.init.ModBlocks;
@@ -35,6 +36,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 @Mod(modid = BiomesOPlenty.MOD_ID, name = BiomesOPlenty.MOD_NAME, dependencies = "required-after:Forge@[11.14.3.1468,)")
 public class BiomesOPlenty
@@ -76,7 +78,10 @@ public class BiomesOPlenty
     }
 
     @EventHandler
-    public void init(FMLInitializationEvent event) {}
+    public void init(FMLInitializationEvent event) 
+    {
+        NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
+    }
     
     @EventHandler
     public void postInit(FMLPostInitializationEvent event)
