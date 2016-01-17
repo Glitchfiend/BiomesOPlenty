@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "biomesoplenty:blocks/rivercane"
+        "layer0": "biomesoplenty:items/rivercane"
     },
     "display": {
         "thirdperson": {

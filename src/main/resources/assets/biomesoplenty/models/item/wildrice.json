@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "biomesoplenty:blocks/wildrice"
+        "layer0": "biomesoplenty:items/wildrice"
     },
     "display": {
         "thirdperson": {

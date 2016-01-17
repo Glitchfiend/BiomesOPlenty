@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "biomesoplenty:blocks/witherwart"
+        "layer0": "biomesoplenty:items/witherwart"
     },
     "display": {
         "thirdperson": {
