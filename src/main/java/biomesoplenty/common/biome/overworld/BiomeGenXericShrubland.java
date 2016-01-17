@@ -36,13 +36,13 @@ public class BiomeGenXericShrubland extends BOPBiome
         this.terrainSettings.avgHeight(64).heightVariation(4, 15);
         
         this.setColor(0xE2CDA5);
-        this.setTemperatureRainfall(1.0F, 0.2F);
+        this.setTemperatureRainfall(1.1F, 0.1F);
         this.topBlock = Blocks.sand.getDefaultState();
         this.fillerBlock = Blocks.sand.getDefaultState();
         
         this.canSpawnInBiome = false;
         
-        this.addWeight(BOPClimates.DRY_TEMPERATE, 10);
+        this.addWeight(BOPClimates.HOT_DESERT, 3);
         
         this.spawnableCreatureList.clear();
         
