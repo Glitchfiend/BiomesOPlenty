@@ -103,14 +103,14 @@ public class BiomeGenFen extends BOPBiome
         this.addGenerator("red_mushrooms", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.4F).with(Blocks.red_mushroom.getDefaultState()).create());
         
         // gem
-        this.addGenerator("amber", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.AMBER).create());
+        this.addGenerator("malachite", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.MALACHITE).create());
    
     }
     
     @Override
     public void applySettings(BOPWorldSettings settings)
     {
-        if (!settings.generateBopGems) {this.removeGenerator("amber");}
+        if (!settings.generateBopGems) {this.removeGenerator("malachite");}
     }
     
     

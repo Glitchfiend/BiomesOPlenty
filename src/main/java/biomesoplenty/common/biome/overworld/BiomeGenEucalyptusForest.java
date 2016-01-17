@@ -41,8 +41,8 @@ public class BiomeGenEucalyptusForest extends BOPBiome
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(5);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("eucalyptus_bush", 4, (new GeneratorBush.Builder()).log(BlockPlanks.EnumType.BIRCH).leaves(BlockPlanks.EnumType.BIRCH).maxHeight(2).create());        
-        treeGenerator.add("tall_eucalyptus", 1, (new GeneratorBulbTree.Builder()).minHeight(10).maxHeight(25).log(BlockPlanks.EnumType.BIRCH).leaves(BlockPlanks.EnumType.BIRCH).vine(null).create());
+        treeGenerator.add("eucalyptus_bush", 4, (new GeneratorBush.Builder()).log(BlockPlanks.EnumType.JUNGLE).leaves(BlockPlanks.EnumType.JUNGLE).maxHeight(2).create());        
+        treeGenerator.add("tall_eucalyptus", 1, (new GeneratorBulbTree.Builder()).minHeight(10).maxHeight(25).log(BlockPlanks.EnumType.JUNGLE).leaves(BlockPlanks.EnumType.JUNGLE).vine(null).create());
         // TODO: Add Eucalyptus wood as a new wood type - the bark is quite special
         
         // grasses

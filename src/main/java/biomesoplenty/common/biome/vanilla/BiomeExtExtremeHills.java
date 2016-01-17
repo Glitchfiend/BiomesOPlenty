@@ -7,15 +7,23 @@ import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.enums.BOPTrees;
+import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
+import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
+import biomesoplenty.common.world.feature.tree.GeneratorBigTree;
 
 public class BiomeExtExtremeHills extends ExtendedBiomeWrapper
 {
     public BiomeExtExtremeHills()
     {
         super(BiomeGenBase.extremeHills);
+        
+        // trees
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(1);
+        treeGenerator.add("jacaranda", 3, (new GeneratorBasicTree.Builder()).minHeight(4).maxHeight(7).log(BOPWoods.JACARANDA).leaves(BOPTrees.JACARANDA).create());
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(0.5F);

@@ -48,7 +48,7 @@ public class BiomeGenXericShrubland extends BOPBiome
         
         // splatter top blocks
         IBlockPosQuery emptySand = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();
-        this.addGenerator("grass_splatter", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(4.0F).generationAttempts(128).replace(emptySand).with(Blocks.grass.getDefaultState()).create());
+        this.addGenerator("grass_splatter", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(5.0F).generationAttempts(128).replace(emptySand).with(Blocks.grass.getDefaultState()).create());
         
         // other plants
         this.addGenerator("desertgrass", GeneratorStage.GRASS, (new GeneratorGrass.Builder()).amountPerChunk(0.8F).with(BOPPlants.DESERTGRASS).generationAttempts(8).create());
@@ -82,7 +82,7 @@ public class BiomeGenXericShrubland extends BOPBiome
     @Override
     public void applySettings(BOPWorldSettings settings)
     {
-        if (!settings.generateBopGems) {this.removeGenerator("peridot");}
+        if (!settings.generateBopGems) {this.removeGenerator("ruby");}
     }
     
     @Override

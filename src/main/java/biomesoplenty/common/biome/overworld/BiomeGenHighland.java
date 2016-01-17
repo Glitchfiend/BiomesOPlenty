@@ -55,14 +55,14 @@ public class BiomeGenHighland extends BOPBiome
         grassGenerator.add("doublegrass", 4, (new GeneratorDoubleFlora.Builder()).with(BlockDoublePlant.EnumPlantType.GRASS).create());
  
         // gem
-        this.addGenerator("peridot", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(Blocks.emerald_ore.getDefaultState()).create());
+        this.addGenerator("emerald", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(Blocks.emerald_ore.getDefaultState()).create());
    
     }
     
     @Override
     public void applySettings(BOPWorldSettings settings)
     {
-        if (!settings.generateBopGems) {this.removeGenerator("peridot");}
+        if (!settings.generateBopGems) {this.removeGenerator("emerald");}
     }
     
 }

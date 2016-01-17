@@ -67,7 +67,7 @@ public class BiomeGenColdDesert extends BOPBiome
         {
             this.addGenerator("stone_patches", GeneratorStage.SAND, (new GeneratorSplotches.Builder()).amountPerChunk(6).splotchSize(24).placeOn(surface).replace(surface).with(Blocks.stone.getDefaultState()).scatterYMethod(ScatterYMethod.AT_SURFACE).create());           
         }
-        this.addGenerator("boulders", GeneratorStage.SAND_PASS2, (new GeneratorBlobs.Builder()).amountPerChunk(0.5F).placeOn(surface).with(Blocks.stone.getDefaultState()).minRadius(0.3F).maxRadius(3.2F).numBalls(4).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
+        this.addGenerator("boulders", GeneratorStage.SAND_PASS2, (new GeneratorBlobs.Builder()).amountPerChunk(0.2F).placeOn(surface).with(Blocks.stone.getDefaultState()).minRadius(0.3F).maxRadius(3.2F).numBalls(4).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
         
         // gem
         this.addGenerator("tanzanite", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.TANZANITE).create());

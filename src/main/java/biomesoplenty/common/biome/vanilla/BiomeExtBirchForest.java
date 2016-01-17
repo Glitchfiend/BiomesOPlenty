@@ -5,9 +5,11 @@ import biomesoplenty.api.biome.ExtendedBiomeWrapper;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.common.block.BlockBOPDoublePlant;
+import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
@@ -35,9 +37,13 @@ public class BiomeExtBirchForest extends ExtendedBiomeWrapper
         this.addGenerator("clover_patches", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).with(BOPPlants.CLOVERPATCH).create());
         this.addGenerator("poison_ivy", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BOPPlants.POISONIVY).create());
         
+        // shrooms
+        this.addGenerator("toadstools", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BlockBOPMushroom.MushroomType.TOADSTOOL).create());
+        
         // flowers
-        GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.6F);
+        GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.4F);
         this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
+        flowerGenerator.add("white_anemones", 1, (new GeneratorFlora.Builder().with(BOPFlowers.WHITE_ANEMONE).create()));
         flowerGenerator.add("lily_of_the_valley", 1, (new GeneratorFlora.Builder().with(BOPFlowers.LILY_OF_THE_VALLEY)).generationAttempts(128).create());
         
         // gem
