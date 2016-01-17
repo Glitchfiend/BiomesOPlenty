@@ -8,7 +8,65 @@
 
 package biomesoplenty.common.init;
 
-import static biomesoplenty.api.biome.BOPBiomes.*;
+import static biomesoplenty.api.biome.BOPBiomes.alps;
+import static biomesoplenty.api.biome.BOPBiomes.arctic;
+import static biomesoplenty.api.biome.BOPBiomes.bamboo_forest;
+import static biomesoplenty.api.biome.BOPBiomes.bayou;
+import static biomesoplenty.api.biome.BOPBiomes.birch_forest_extension;
+import static biomesoplenty.api.biome.BOPBiomes.bog;
+import static biomesoplenty.api.biome.BOPBiomes.boreal_forest;
+import static biomesoplenty.api.biome.BOPBiomes.brushland;
+import static biomesoplenty.api.biome.BOPBiomes.canyon;
+import static biomesoplenty.api.biome.BOPBiomes.canyon_ravine;
+import static biomesoplenty.api.biome.BOPBiomes.chaparral;
+import static biomesoplenty.api.biome.BOPBiomes.cherry_blossom_grove;
+import static biomesoplenty.api.biome.BOPBiomes.cold_desert;
+import static biomesoplenty.api.biome.BOPBiomes.coniferous_forest;
+import static biomesoplenty.api.biome.BOPBiomes.crag;
+import static biomesoplenty.api.biome.BOPBiomes.dead_forest;
+import static biomesoplenty.api.biome.BOPBiomes.dead_swamp;
+import static biomesoplenty.api.biome.BOPBiomes.deciduous_forest;
+import static biomesoplenty.api.biome.BOPBiomes.dense_forest;
+import static biomesoplenty.api.biome.BOPBiomes.desert_extension;
+import static biomesoplenty.api.biome.BOPBiomes.end_extension;
+import static biomesoplenty.api.biome.BOPBiomes.eucalyptus_forest;
+import static biomesoplenty.api.biome.BOPBiomes.extreme_hills_extension;
+import static biomesoplenty.api.biome.BOPBiomes.fen;
+import static biomesoplenty.api.biome.BOPBiomes.flower_field;
+import static biomesoplenty.api.biome.BOPBiomes.forest_extension;
+import static biomesoplenty.api.biome.BOPBiomes.frost_forest;
+import static biomesoplenty.api.biome.BOPBiomes.frozen_desert;
+import static biomesoplenty.api.biome.BOPBiomes.fungi_forest;
+import static biomesoplenty.api.biome.BOPBiomes.garden;
+import static biomesoplenty.api.biome.BOPBiomes.glacier;
+import static biomesoplenty.api.biome.BOPBiomes.grassland;
+import static biomesoplenty.api.biome.BOPBiomes.grove;
+import static biomesoplenty.api.biome.BOPBiomes.heathland;
+import static biomesoplenty.api.biome.BOPBiomes.highland;
+import static biomesoplenty.api.biome.BOPBiomes.ice_plains_extension;
+import static biomesoplenty.api.biome.BOPBiomes.jade_cliffs;
+import static biomesoplenty.api.biome.BOPBiomes.jungle_extension;
+import static biomesoplenty.api.biome.BOPBiomes.lavender_fields;
+import static biomesoplenty.api.biome.BOPBiomes.marsh;
+import static biomesoplenty.api.biome.BOPBiomes.mesa_extension;
+import static biomesoplenty.api.biome.BOPBiomes.moor;
+import static biomesoplenty.api.biome.BOPBiomes.mountain;
+import static biomesoplenty.api.biome.BOPBiomes.mountain_foothills;
+import static biomesoplenty.api.biome.BOPBiomes.origin_valley;
+import static biomesoplenty.api.biome.BOPBiomes.outback;
+import static biomesoplenty.api.biome.BOPBiomes.plains_extension;
+import static biomesoplenty.api.biome.BOPBiomes.prairie;
+import static biomesoplenty.api.biome.BOPBiomes.roofed_forest_extension;
+import static biomesoplenty.api.biome.BOPBiomes.sacred_springs;
+import static biomesoplenty.api.biome.BOPBiomes.savanna_extension;
+import static biomesoplenty.api.biome.BOPBiomes.shrubland;
+import static biomesoplenty.api.biome.BOPBiomes.steppe;
+import static biomesoplenty.api.biome.BOPBiomes.swampland_extension;
+import static biomesoplenty.api.biome.BOPBiomes.taiga_extension;
+import static biomesoplenty.api.biome.BOPBiomes.thicket;
+import static biomesoplenty.api.biome.BOPBiomes.tundra;
+import static biomesoplenty.api.biome.BOPBiomes.woodland;
+import static biomesoplenty.api.biome.BOPBiomes.xeric_shrubland;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,13 +78,13 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import com.google.common.base.Optional;
-
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeDictionary.Type;
+import net.minecraftforge.common.BiomeManager;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.BOPBiomes;
-import biomesoplenty.api.biome.ExtendedBiomeWrapper;
 import biomesoplenty.api.biome.IExtendedBiome;
-import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.common.biome.overworld.BiomeGenAlps;
 import biomesoplenty.common.biome.overworld.BiomeGenArctic;
 import biomesoplenty.common.biome.overworld.BiomeGenBambooForest;
@@ -70,19 +128,27 @@ import biomesoplenty.common.biome.overworld.BiomeGenThicket;
 import biomesoplenty.common.biome.overworld.BiomeGenTundra;
 import biomesoplenty.common.biome.overworld.BiomeGenWoodland;
 import biomesoplenty.common.biome.overworld.BiomeGenXericShrubland;
+import biomesoplenty.common.biome.vanilla.BiomeExtBirchForest;
+import biomesoplenty.common.biome.vanilla.BiomeExtDesert;
 import biomesoplenty.common.biome.vanilla.BiomeExtEnd;
+import biomesoplenty.common.biome.vanilla.BiomeExtExtremeHills;
+import biomesoplenty.common.biome.vanilla.BiomeExtForest;
+import biomesoplenty.common.biome.vanilla.BiomeExtIcePlains;
+import biomesoplenty.common.biome.vanilla.BiomeExtJungle;
+import biomesoplenty.common.biome.vanilla.BiomeExtMesa;
+import biomesoplenty.common.biome.vanilla.BiomeExtPlains;
+import biomesoplenty.common.biome.vanilla.BiomeExtRoofedForest;
+import biomesoplenty.common.biome.vanilla.BiomeExtSavanna;
+import biomesoplenty.common.biome.vanilla.BiomeExtSwampland;
+import biomesoplenty.common.biome.vanilla.BiomeExtTaiga;
 import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.util.biome.BiomeUtils;
 import biomesoplenty.common.util.config.BOPConfig;
 import biomesoplenty.common.world.WorldTypeBOP;
-import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.core.BiomesOPlenty;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.BiomeDictionary.Type;
-import net.minecraftforge.common.BiomeManager;
+
+import com.google.common.base.Optional;
 
 public class ModBiomes implements BOPBiomes.IBiomeRegistry
 {
@@ -210,6 +276,19 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         biomeWrapperMap = new HashMap<Integer, IExtendedBiome>();
         
         end_extension = registerWrappedBiome(new BiomeExtEnd(), "end");
+        birch_forest_extension = registerWrappedBiome(new BiomeExtBirchForest(), "birch_forest");
+        desert_extension = registerWrappedBiome(new BiomeExtDesert(), "desert");
+        extreme_hills_extension = registerWrappedBiome(new BiomeExtExtremeHills(), "extreme_hills");
+        forest_extension = registerWrappedBiome(new BiomeExtForest(), "forest");
+        ice_plains_extension = registerWrappedBiome(new BiomeExtIcePlains(), "ice_plains");
+        jungle_extension = registerWrappedBiome(new BiomeExtJungle(), "jungle");
+        mesa_extension = registerWrappedBiome(new BiomeExtMesa(), "mesa");
+        plains_extension = registerWrappedBiome(new BiomeExtPlains(), "plains");
+        roofed_forest_extension = registerWrappedBiome(new BiomeExtRoofedForest(), "roofed_forest");
+        savanna_extension = registerWrappedBiome(new BiomeExtSavanna(), "savanna");
+        swampland_extension = registerWrappedBiome(new BiomeExtSwampland(), "swampland");
+        taiga_extension = registerWrappedBiome(new BiomeExtTaiga(), "taiga");
+        
     }
 
     private static void registerBiomes()

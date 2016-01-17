@@ -8,9 +8,9 @@
 
 package biomesoplenty.api.biome;
 
-import com.google.common.base.Optional;
-
 import net.minecraft.world.biome.BiomeGenBase;
+
+import com.google.common.base.Optional;
 
 public class BOPBiomes
 {
@@ -68,6 +68,18 @@ public class BOPBiomes
 
     //Biome extensions
     public static IExtendedBiome end_extension;
+    public static IExtendedBiome plains_extension;
+    public static IExtendedBiome forest_extension;
+    public static IExtendedBiome jungle_extension;
+    public static IExtendedBiome desert_extension;
+    public static IExtendedBiome taiga_extension;
+    public static IExtendedBiome mesa_extension;
+    public static IExtendedBiome ice_plains_extension;
+    public static IExtendedBiome extreme_hills_extension;
+    public static IExtendedBiome swampland_extension;
+    public static IExtendedBiome birch_forest_extension;
+    public static IExtendedBiome roofed_forest_extension;
+    public static IExtendedBiome savanna_extension;
     
     private static IBiomeRegistry createRegistry()
     {
