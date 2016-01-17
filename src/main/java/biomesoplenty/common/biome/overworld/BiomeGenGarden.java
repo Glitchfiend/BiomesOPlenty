@@ -43,7 +43,7 @@ public class BiomeGenGarden extends BOPBiome
         this.setTemperatureRainfall(0.7F, 0.8F);
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.DAISY);
 
-        this.addWeight(BOPClimates.COOL_TEMPERATE, 3);
+        this.addWeight(BOPClimates.COOL_TEMPERATE, 1);
         
         this.spawnableCreatureList.clear();
         // TODO: implement rosester? this.spawnableCreatureList.add(new SpawnListEntry(EntityRosester.class, 10, 4, 4));
