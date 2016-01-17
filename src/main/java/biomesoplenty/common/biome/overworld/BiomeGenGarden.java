@@ -53,7 +53,7 @@ public class BiomeGenGarden extends BOPBiome
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("red_big_flowers", 1, (new GeneratorBigFlower.Builder()).flowerType(GeneratorBigFlower.BigFlowerType.RED).create());
         treeGenerator.add("yellow_big_flowers", 1, (new GeneratorBigFlower.Builder()).flowerType(GeneratorBigFlower.BigFlowerType.YELLOW).create());
-        treeGenerator.add("oak_bush", 3, (new GeneratorBush.Builder()).create());
+        treeGenerator.add("oak_bush", 3, (new GeneratorBush.Builder()).maxHeight(2).create());
         
         // grasses      
         GeneratorWeighted grassGenerator = new GeneratorWeighted(6.0F);

@@ -70,8 +70,8 @@ public class BiomeGenHeathland extends BOPBiome
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(3);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("jacaranda_bush", 1, (new GeneratorBush.Builder()).log(BOPWoods.JACARANDA).leaves(BOPTrees.JACARANDA).create());
-        treeGenerator.add("oak_bush", 1, (new GeneratorBush.Builder()).create());
+        treeGenerator.add("jacaranda_bush", 1, (new GeneratorBush.Builder()).log(BOPWoods.JACARANDA).maxHeight(2).leaves(BOPTrees.JACARANDA).create());
+        treeGenerator.add("oak_bush", 1, (new GeneratorBush.Builder()).maxHeight(2).create());
         treeGenerator.add("oak", 1, (new GeneratorBasicTree.Builder()).create());
         
         // other plants

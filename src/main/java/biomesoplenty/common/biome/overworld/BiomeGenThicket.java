@@ -40,7 +40,7 @@ public class BiomeGenThicket extends BOPBiome
         GeneratorWeighted treeGenerator = new GeneratorWeighted(17);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("oak", 1, (new GeneratorBasicTree.Builder()).create());
-        treeGenerator.add("oak_bush", 4, (new GeneratorBush.Builder()).create());
+        treeGenerator.add("oak_bush", 4, (new GeneratorBush.Builder()).maxHeight(2).create());
         
         // gravel
         this.addGenerator("gravel", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(6).maxRadius(7).with(Blocks.gravel.getDefaultState()).create());

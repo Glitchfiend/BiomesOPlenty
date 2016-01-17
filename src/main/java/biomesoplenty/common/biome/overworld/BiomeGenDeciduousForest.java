@@ -34,8 +34,8 @@ public class BiomeGenDeciduousForest extends BOPBiome
         // trees & logs
         GeneratorWeighted treeGenerator = new GeneratorWeighted(18);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("birch_bush", 2, (new GeneratorBush.Builder()).log(BlockPlanks.EnumType.BIRCH).leaves(BlockPlanks.EnumType.BIRCH).create());
-        treeGenerator.add("oak_bush", 3, (new GeneratorBush.Builder()).create());
+        treeGenerator.add("birch_bush", 2, (new GeneratorBush.Builder()).log(BlockPlanks.EnumType.BIRCH).leaves(BlockPlanks.EnumType.BIRCH).maxHeight(2).create());
+        treeGenerator.add("oak_bush", 3, (new GeneratorBush.Builder()).maxHeight(2).create());
         treeGenerator.add("tall_oak", 6, (new GeneratorBulbTree.Builder()).minHeight(10).maxHeight(20).vine(null).create());
  
         // grasses

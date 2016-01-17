@@ -48,7 +48,7 @@ public class BiomeGenBorealForest extends BOPBiome
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("small_oak", 2, (new GeneratorBasicTree.Builder()).create());
         treeGenerator.add("oak", 3, (new GeneratorBasicTree.Builder()).minHeight(8).maxHeight(12).create());
-        treeGenerator.add("oak_bush", 3, (new GeneratorBush.Builder()).amountPerChunk(3).create());
+        treeGenerator.add("oak_bush", 3, (new GeneratorBush.Builder()).amountPerChunk(3).maxHeight(2).create());
         treeGenerator.add("yellow_autumn", 4, (new GeneratorBasicTree.Builder()).log(BlockPlanks.EnumType.BIRCH).leaves(BOPTrees.YELLOW_AUTUMN).minHeight(5).maxHeight(8).create());
         treeGenerator.add("spruce", 4, (new GeneratorTaigaTree.Builder()).minHeight(10).maxHeight(19).create()); // TODO: implement pine cones
  

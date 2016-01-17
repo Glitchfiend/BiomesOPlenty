@@ -68,7 +68,7 @@ public class BiomeGenBambooForest extends BOPBiome
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("bamboo", 2, (new GeneratorBulbTree.Builder()).minHeight(6).maxHeight(18).log(BOPBlocks.bamboo.getDefaultState()).leaves(BOPTrees.BAMBOO).create());  
         treeGenerator.add("bamboo_thin", 1, (new GeneratorTwigletTree.Builder()).minHeight(2).maxHeight(8).leafChance(0.3F).log(BOPBlocks.bamboo.getDefaultState()).leaves(BOPTrees.BAMBOO).create());  
-        treeGenerator.add("oak_bush", 1, (new GeneratorBush.Builder()).create());
+        treeGenerator.add("oak_bush", 1, (new GeneratorBush.Builder()).maxHeight(2).create());
 
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(10);

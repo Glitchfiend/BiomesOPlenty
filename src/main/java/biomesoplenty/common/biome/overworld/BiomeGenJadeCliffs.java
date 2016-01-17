@@ -50,7 +50,7 @@ public class BiomeGenJadeCliffs extends BOPBiome
         GeneratorWeighted treeGenerator = new GeneratorWeighted(10);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("pine", 3, (new GeneratorPineTree.Builder()).minHeight(6).maxHeight(20).create());
-        treeGenerator.add("oak_bush", 1, (new GeneratorBush.Builder()).create());        
+        treeGenerator.add("oak_bush", 1, (new GeneratorBush.Builder()).maxHeight(2).create());        
 
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(1.0F);

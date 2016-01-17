@@ -63,7 +63,7 @@ public class BiomeGenFungiForest extends BOPBiome
         GeneratorWeighted treeGenerator = new GeneratorWeighted(12);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("mega_oak", 1, (new GeneratorMegaJungleTree.Builder()).log(BlockPlanks.EnumType.OAK).leaves(BlockPlanks.EnumType.OAK).vine(BOPBlocks.ivy.getDefaultState()).create());
-        treeGenerator.add("oak_bush", 1, (new GeneratorBush.Builder()).create());
+        treeGenerator.add("oak_bush", 1, (new GeneratorBush.Builder()).maxHeight(2).create());
         
         // grasses        
         GeneratorWeighted grassGenerator = new GeneratorWeighted(5.0F);
