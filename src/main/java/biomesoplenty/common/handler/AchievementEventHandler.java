@@ -10,18 +10,8 @@ package biomesoplenty.common.handler;
 import java.util.Iterator;
 import java.util.Set;
 
-import net.minecraft.block.Block;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.item.Item;
-import net.minecraft.stats.AchievementList;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.JsonSerializableSet;
-import net.minecraft.util.MathHelper;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.PlayerEvent;
+import com.google.common.collect.Sets;
+
 import biomesoplenty.api.achievement.BOPAchievements;
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.block.BOPBlocks;
@@ -30,8 +20,20 @@ import biomesoplenty.common.block.BlockBOPFlower;
 import biomesoplenty.common.block.BlockBOPLog;
 import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.enums.BOPPlants;
-
-import com.google.common.collect.Sets;
+import net.minecraft.block.Block;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.stats.AchievementList;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.JsonSerializableSet;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.PlayerEvent;
+import net.minecraftforge.fml.common.gameevent.PlayerEvent.ItemCraftedEvent;
 
 public class AchievementEventHandler 
 {
@@ -40,10 +42,6 @@ public class AchievementEventHandler
     @SubscribeEvent
     public void onItemPickup(PlayerEvent.ItemPickupEvent event)
     {
-        //Only add achievements on the server
-        if (event.player.worldObj.isRemote)
-            return;
-        
         Item item = event.pickedUp.getEntityItem().getItem();
         Block block = Block.getBlockFromItem(item);
         EntityPlayer player = event.player;
@@ -106,6 +104,12 @@ public class AchievementEventHandler
         {
             player.triggerAchievement(BOPAchievements.obtain_celestial_crystal);
         }
+    }
+    
+    @SubscribeEvent
+    public void onItemCrafted(ItemCraftedEvent event)
+    {
+        ItemStack item = event.crafting;
     }
 
     @SubscribeEvent
