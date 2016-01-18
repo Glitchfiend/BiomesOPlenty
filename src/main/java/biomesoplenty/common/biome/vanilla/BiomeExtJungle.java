@@ -35,7 +35,7 @@ public class BiomeExtJungle extends ExtendedBiomeWrapper
      	// flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(1.5F);
         this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
-        flowerGenerator.add("orange_cosmos", 1, (new GeneratorFlora.Builder().with(BOPFlowers.ORANGE_COSMOS).create()));
+        flowerGenerator.add("orange_cosmos", 4, (new GeneratorFlora.Builder().with(BOPFlowers.ORANGE_COSMOS).create()));
         
         // gem
         this.addGenerator("topaz", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.TOPAZ).create());
