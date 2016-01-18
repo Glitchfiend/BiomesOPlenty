@@ -1,3 +1,6 @@
+achievement.obtain_flowers=Flower Child
+achievement.obtain_flowers.desc=Become one with nature!
+
 biome_finder.searching=Searching for %s
 biome_finder.found=Found %s!
 biome_finder.not_found=Not found, maybe %s is too far away
