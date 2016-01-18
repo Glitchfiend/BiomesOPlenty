@@ -13,10 +13,13 @@ public class BOPAchievements
 {
     public static Achievement obtain_flowers;
     public static Achievement obtain_berry;
+    public static Achievement obtain_coral;
+    public static Achievement obtain_miners_delight;
     public static Achievement eat_shroom_powder;
     public static Achievement obtain_thorn;
     public static Achievement craft_poison_jar;
     public static Achievement craft_flax_string;
+    public static Achievement craft_muddy_pickaxe;
     public static Achievement craft_amethyst_sword;
     public static Achievement obtain_deathbloom;
     public static Achievement craft_dart_blower;
@@ -30,5 +33,6 @@ public class BOPAchievements
     public static Achievement craft_ambrosia;
     public static Achievement explore_all_biomes;
     public static Achievement use_enderporter;
+    public static Achievement use_biome_radar;
 
 }

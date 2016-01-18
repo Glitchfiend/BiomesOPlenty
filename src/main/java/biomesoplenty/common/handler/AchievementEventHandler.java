@@ -13,6 +13,7 @@ import java.util.Set;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.AchievementList;
@@ -30,7 +31,6 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.block.BlockBOPFlower;
 import biomesoplenty.common.block.BlockBOPLog;
-import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPPlants;
@@ -55,7 +55,7 @@ public class AchievementEventHandler
         }
 
         //Flower Child Achievement
-        if (block != null && block instanceof BlockBOPFlower)
+        if (block != null && block instanceof BlockBOPFlower || block == Blocks.red_flower || block == Blocks.yellow_flower)
         {
             player.triggerAchievement(BOPAchievements.obtain_flowers);
         }
@@ -65,6 +65,19 @@ public class AchievementEventHandler
         {
             player.triggerAchievement(BOPAchievements.obtain_berry);
         }
+        
+        //Totally Coral Achievement
+        if (block != null && block == BOPBlocks.coral)
+        {
+            player.triggerAchievement(BOPAchievements.obtain_coral);
+        }
+        
+        //Life Finds a Way Achievement
+        if (block != null && block == BlockBOPFlower.paging.getBlock(BOPFlowers.MINERS_DELIGHT))
+        {
+            player.triggerAchievement(BOPAchievements.obtain_miners_delight);
+        }
+
 
         //Rather Thorny Achievement
         if (block != null && block == BlockBOPPlant.paging.getBlock(BOPPlants.THORN))
@@ -133,7 +146,13 @@ public class AchievementEventHandler
             player.triggerAchievement(BOPAchievements.craft_amethyst_sword);
         }
         
-        //Go Planet Achievement
+        //Getting a Downgrade Achievement
+        if (item != null && item == BOPItems.mud_pickaxe)
+        {
+            player.triggerAchievement(BOPAchievements.craft_muddy_pickaxe);
+        }
+        
+        //By Your Powers Combined Achievement
         if (item != null && item == BOPItems.ornamental_artifact)
         {
             player.triggerAchievement(BOPAchievements.craft_ornamental_artifact);
