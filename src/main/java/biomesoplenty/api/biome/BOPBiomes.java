@@ -8,9 +8,10 @@
 
 package biomesoplenty.api.biome;
 
-import net.minecraft.world.biome.BiomeGenBase;
-
 import com.google.common.base.Optional;
+import com.google.common.collect.ImmutableSet;
+
+import net.minecraft.world.biome.BiomeGenBase;
 
 public class BOPBiomes
 {
@@ -106,5 +107,6 @@ public class BOPBiomes
     {
         public IExtendedBiome registerBiome(IExtendedBiome biome, String idName);
         public IExtendedBiome getExtendedBiome(BiomeGenBase biome);
+        public ImmutableSet<BiomeGenBase> getPresentBiomes();
     }
 }

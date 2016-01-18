@@ -12,5 +12,6 @@ import net.minecraft.stats.Achievement;
 public class BOPAchievements 
 {
     public static Achievement obtain_flowers;
+    public static Achievement explore_all_biomes;
 
 }

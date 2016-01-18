@@ -1,5 +1,7 @@
 achievement.obtain_flowers=Flower Child
 achievement.obtain_flowers.desc=Become one with nature!
+achievement.explore_all_biomes=The Wanderer
+achievement.explore_all_biomes.desc=Around around around...
 
 biome_finder.searching=Searching for %s
 biome_finder.found=Found %s!

@@ -159,6 +159,8 @@ import biomesoplenty.common.world.WorldTypeBOP;
 import biomesoplenty.core.BiomesOPlenty;
 
 import com.google.common.base.Optional;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Sets;
 
 public class ModBiomes implements BOPBiomes.IBiomeRegistry
 {
@@ -171,6 +173,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
     private static Set<Integer> idsReservedInConfig;
     private static Map<Integer, IExtendedBiome> biomeWrapperMap;
     
+    public static Set<BiomeGenBase> presentBiomes;
     public static Map<Integer, List<Integer>> subBiomesMap;
     public static Map<Integer, List<Integer>> mutatedBiomesMap;
 
@@ -182,6 +185,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         biomeIdMapFile = new File(BiomesOPlenty.configDirectory, "biome_ids.json");
         biomeIdMapConf = new BOPConfig.ConfigFileObj(biomeIdMapFile);
         biomeIdMap = new HashMap<String, Integer>();
+        presentBiomes = Sets.newHashSet();
         
         // make a list of biome ids which are reserved in the config file for a particular biome, to ensure they are not used for a new biome
         idsReservedInConfig = new HashSet<Integer>();
@@ -431,6 +435,8 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         if (extendedBiome == null)
             throw new IllegalArgumentException("Extended biome to register cannot be null!");
             
+        //Add to the set of present biomes
+        presentBiomes.add(extendedBiome.getBaseBiome());
         configureBiome(extendedBiome, idName);
         
         //Extra functionality builtin, such as with BOPBiome
@@ -474,6 +480,12 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         }
         
         return null;
+    }
+    
+    @Override
+    public ImmutableSet<BiomeGenBase> getPresentBiomes()
+    {
+        return ImmutableSet.copyOf(presentBiomes);
     }
 
     private static void setSubBiome(Optional<BiomeGenBase> parent, Optional<BiomeGenBase>... subBiomes)
