@@ -8,32 +8,36 @@
 package biomesoplenty.common.init;
 
 import static biomesoplenty.api.achievement.BOPAchievements.craft_ambrosia;
+import static biomesoplenty.api.achievement.BOPAchievements.craft_amethyst_sword;
+import static biomesoplenty.api.achievement.BOPAchievements.craft_dart_blower;
+import static biomesoplenty.api.achievement.BOPAchievements.craft_flax_string;
 import static biomesoplenty.api.achievement.BOPAchievements.craft_ornamental_artifact;
+import static biomesoplenty.api.achievement.BOPAchievements.craft_poison_jar;
+import static biomesoplenty.api.achievement.BOPAchievements.eat_shroom_powder;
 import static biomesoplenty.api.achievement.BOPAchievements.explore_all_biomes;
+import static biomesoplenty.api.achievement.BOPAchievements.grow_sacred_oak;
 import static biomesoplenty.api.achievement.BOPAchievements.obtain_berry;
 import static biomesoplenty.api.achievement.BOPAchievements.obtain_celestial_crystal;
-import static biomesoplenty.api.achievement.BOPAchievements.obtain_coral;
+import static biomesoplenty.api.achievement.BOPAchievements.obtain_deathbloom;
 import static biomesoplenty.api.achievement.BOPAchievements.obtain_flowers;
+import static biomesoplenty.api.achievement.BOPAchievements.obtain_ghastly_soul;
 import static biomesoplenty.api.achievement.BOPAchievements.obtain_honeycomb;
 import static biomesoplenty.api.achievement.BOPAchievements.obtain_pixie_dust;
-import static biomesoplenty.api.achievement.BOPAchievements.obtain_poison_ivy;
 import static biomesoplenty.api.achievement.BOPAchievements.obtain_thorn;
 import static biomesoplenty.api.achievement.BOPAchievements.obtain_turnip;
-import static biomesoplenty.api.achievement.BOPAchievements.obtain_deathbloom;
-import static biomesoplenty.api.achievement.BOPAchievements.obtain_glowshroom;
-import static biomesoplenty.api.achievement.BOPAchievements.obtain_ghastly_soul;
 import static biomesoplenty.api.achievement.BOPAchievements.use_enderporter;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Achievement;
 import net.minecraftforge.common.AchievementPage;
-import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.block.BlockBOPFlower;
-import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.block.BlockBOPPlant;
+import biomesoplenty.common.block.BlockBOPSapling;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.enums.BOPTrees;
+import biomesoplenty.common.item.ItemJarFilled;
 
 public class ModAchievements 
 {
@@ -50,14 +54,17 @@ public class ModAchievements
     {
         obtain_flowers = addAchievement("achievement.obtain_flowers", "obtain_flowers", 0, 0, new ItemStack(Blocks.red_flower), null);
         obtain_berry = addAchievement("achievement.obtain_berry", "obtain_berry", 2, 1, new ItemStack(BOPItems.berries), obtain_flowers);
-        obtain_coral = addAchievement("achievement.obtain_coral", "obtain_coral", 1, -2, new ItemStack(BOPBlocks.coral), obtain_berry);
-        obtain_thorn = addAchievement("achievement.obtain_thorn", "obtain_thorn", -2, -2, BlockBOPPlant.paging.getVariantItem(BOPPlants.THORN), obtain_coral);
-        obtain_glowshroom = addAchievement("achievement.obtain_glowshroom", "obtain_glowshroom", -5, -4, BlockBOPPlant.paging.getVariantItem(BOPPlants.KORU), obtain_coral);
-        obtain_poison_ivy = addAchievement("achievement.obtain_poison_ivy", "obtain_poison_ivy", -3, 1, BlockBOPPlant.paging.getVariantItem(BOPPlants.POISONIVY), obtain_thorn);
-        obtain_deathbloom = addAchievement("achievement.obtain_deathbloom", "obtain_deathbloom", -6, 2, BlockBOPFlower.paging.getVariantItem(BOPFlowers.DEATHBLOOM), obtain_poison_ivy);
-        obtain_turnip = addAchievement("achievement.obtain_turnip", "obtain_turnip", -1, -5, new ItemStack(BOPItems.turnip), obtain_coral);
-        obtain_honeycomb = addAchievement("achievement.obtain_honeycomb", "obtain_honeycomb", 3, -3, new ItemStack(BOPItems.filled_honeycomb), obtain_coral);
-        craft_ornamental_artifact = addAchievement("achievement.craft_ornamental_artifact", "craft_ornamental_artifact", 5, -4, new ItemStack(BOPItems.gem), obtain_honeycomb);
+        eat_shroom_powder = addAchievement("achievement.eat_shroom_powder", "eat_shroom_powder", 1, -2, new ItemStack(BOPItems.shroompowder), obtain_berry);
+        obtain_thorn = addAchievement("achievement.obtain_thorn", "obtain_thorn", -2, -2, BlockBOPPlant.paging.getVariantItem(BOPPlants.THORN), eat_shroom_powder);
+        craft_poison_jar = addAchievement("achievement.craft_poison_jar", "craft_poison_jar", -3, 1, new ItemStack(BOPItems.jar_filled, 1, ItemJarFilled.JarContents.POISON.ordinal()), obtain_thorn);
+        craft_flax_string = addAchievement("achievement.craft_flax_string", "craft_flax_string", -4, -4, new ItemStack(BOPItems.flax_string), eat_shroom_powder);
+        craft_dart_blower = addAchievement("achievement.craft_dart_blower", "craft_dart_blower", -6, -2, new ItemStack(BOPItems.dart_blower), craft_flax_string);
+        craft_amethyst_sword = addAchievement("achievement.craft_amethyst_sword", "craft_amethyst_sword", -7, 0, new ItemStack(BOPItems.amethyst_sword), craft_dart_blower).setSpecial();
+        obtain_deathbloom = addAchievement("achievement.obtain_deathbloom", "obtain_deathbloom", -6, 2, BlockBOPFlower.paging.getVariantItem(BOPFlowers.DEATHBLOOM), craft_poison_jar);
+        obtain_turnip = addAchievement("achievement.obtain_turnip", "obtain_turnip", -1, -5, new ItemStack(BOPItems.turnip), eat_shroom_powder);
+        grow_sacred_oak = addAchievement("achievement.grow_sacred_oak", "grow_sacred_oak", -3, -6, BlockBOPSapling.paging.getVariantItem(BOPTrees.SACRED_OAK), obtain_turnip).setSpecial();
+        obtain_honeycomb = addAchievement("achievement.obtain_honeycomb", "obtain_honeycomb", 3, -3, new ItemStack(BOPItems.filled_honeycomb), eat_shroom_powder);
+        craft_ornamental_artifact = addAchievement("achievement.craft_ornamental_artifact", "craft_ornamental_artifact", 5, -4, new ItemStack(BOPItems.ornamental_artifact), obtain_honeycomb);
         obtain_pixie_dust = addAchievement("achievement.obtain_pixie_dust", "obtain_pixie_dust", 7, -2, new ItemStack(BOPItems.pixie_dust), craft_ornamental_artifact);
         obtain_ghastly_soul = addAchievement("achievement.obtain_ghastly_soul", "obtain_ghastly_soul", 4, 2, new ItemStack(BOPItems.ghastly_soul), obtain_honeycomb);
         obtain_celestial_crystal = addAchievement("achievement.obtain_celestial_crystal", "obtain_celestial_crystal", 6, 0, new ItemStack(BOPItems.crystal_shard), obtain_honeycomb);

@@ -14,6 +14,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.stats.AchievementList;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.JsonSerializableSet;
@@ -33,6 +34,7 @@ import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.item.ItemJarFilled;
 
 import com.google.common.collect.Sets;
 
@@ -64,22 +66,10 @@ public class AchievementEventHandler
             player.triggerAchievement(BOPAchievements.obtain_berry);
         }
 
-        //Totally Coral Achievement
-        if (block != null && block == BOPBlocks.coral)
-        {
-            player.triggerAchievement(BOPAchievements.obtain_coral);
-        }
-
         //Rather Thorny Achievement
         if (block != null && block == BlockBOPPlant.paging.getBlock(BOPPlants.THORN))
         {
             player.triggerAchievement(BOPAchievements.obtain_thorn);
-        }
-
-        //Pick Your Poison Achievement
-        if (block != null && block == BlockBOPPlant.paging.getBlock(BOPPlants.POISONIVY))
-        {
-            player.triggerAchievement(BOPAchievements.obtain_poison_ivy);
         }
         
         //I am Become Death Achievement
@@ -130,6 +120,37 @@ public class AchievementEventHandler
         {
             player.triggerAchievement(BOPAchievements.craft_ambrosia);
         }
+        
+        //Flaxen Fun Achievement
+        if (item != null && item == BOPItems.flax_string)
+        {
+            player.triggerAchievement(BOPAchievements.craft_flax_string);
+        }
+        
+        //True Swordsman Achievement
+        if (item != null && item == BOPItems.amethyst_sword)
+        {
+            player.triggerAchievement(BOPAchievements.craft_amethyst_sword);
+        }
+        
+        //Go Planet Achievement
+        if (item != null && item == BOPItems.ornamental_artifact)
+        {
+            player.triggerAchievement(BOPAchievements.craft_ornamental_artifact);
+        }
+        
+        //Darts and Crafts Achievement
+        if (item != null && item == BOPItems.dart_blower)
+        {
+            player.triggerAchievement(BOPAchievements.craft_dart_blower);
+        }
+        
+        //Pick Your Poison Achievement
+        if (item != null && item == new ItemStack(BOPItems.jar_filled, 1, ItemJarFilled.JarContents.POISON.ordinal()).getItem())
+        {
+            player.triggerAchievement(BOPAchievements.craft_poison_jar);
+        }
+        
     }
 
     @SubscribeEvent

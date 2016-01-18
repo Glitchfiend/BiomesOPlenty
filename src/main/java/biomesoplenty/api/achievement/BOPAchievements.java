@@ -13,12 +13,15 @@ public class BOPAchievements
 {
     public static Achievement obtain_flowers;
     public static Achievement obtain_berry;
-    public static Achievement obtain_coral;
+    public static Achievement eat_shroom_powder;
     public static Achievement obtain_thorn;
-    public static Achievement obtain_poison_ivy;
+    public static Achievement craft_poison_jar;
+    public static Achievement craft_flax_string;
+    public static Achievement craft_amethyst_sword;
     public static Achievement obtain_deathbloom;
-    public static Achievement obtain_glowshroom;
+    public static Achievement craft_dart_blower;
     public static Achievement obtain_turnip;
+    public static Achievement grow_sacred_oak;
     public static Achievement obtain_honeycomb;
     public static Achievement obtain_pixie_dust;
     public static Achievement obtain_ghastly_soul;

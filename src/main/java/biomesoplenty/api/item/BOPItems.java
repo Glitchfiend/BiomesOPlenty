@@ -32,6 +32,8 @@ public class BOPItems
     public static Item mudball;
     public static Item turnip_seeds;
     public static Item crystal_shard;
+    public static Item ornamental_artifact;
+    public static Item flax_string;
     public static Item honeycomb;
     public static Item gem;
     public static Item ash;
