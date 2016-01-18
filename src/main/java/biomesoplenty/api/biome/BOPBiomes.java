@@ -47,6 +47,7 @@ public class BOPBiomes
     public static Optional<BiomeGenBase> highland = Optional.absent();
     public static Optional<BiomeGenBase> jade_cliffs = Optional.absent();
     public static Optional<BiomeGenBase> lavender_fields = Optional.absent();
+    public static Optional<BiomeGenBase> maple_woods = Optional.absent();
     public static Optional<BiomeGenBase> marsh = Optional.absent();
     public static Optional<BiomeGenBase> moor = Optional.absent();
     public static Optional<BiomeGenBase> mountain = Optional.absent();

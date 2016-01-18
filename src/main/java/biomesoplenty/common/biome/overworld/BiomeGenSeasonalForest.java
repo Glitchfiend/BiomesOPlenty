@@ -44,7 +44,7 @@ public class BiomeGenSeasonalForest extends BOPBiome
         treeGenerator.add("large_oak", 1, (new GeneratorBigTree.Builder()).log(BlockPlanks.EnumType.OAK).leaves(BlockPlanks.EnumType.OAK).create());
         treeGenerator.add("oak", 1, (new GeneratorBasicTree.Builder()).minHeight(8).maxHeight(12).create());
         treeGenerator.add("yellow_autumn", 4, (new GeneratorBasicTree.Builder()).log(BlockPlanks.EnumType.BIRCH).leaves(BOPTrees.YELLOW_AUTUMN).minHeight(5).maxHeight(8).create());
-        treeGenerator.add("red_autumn", 4, (new GeneratorBasicTree.Builder()).log(BlockPlanks.EnumType.OAK).leaves(BOPTrees.MAPLE).minHeight(5).maxHeight(8).create());
+        treeGenerator.add("maple", 4, (new GeneratorBasicTree.Builder()).log(BlockPlanks.EnumType.OAK).leaves(BOPTrees.MAPLE).minHeight(5).maxHeight(8).create());
         treeGenerator.add("orange_autumn", 5, (new GeneratorBasicTree.Builder()).log(BlockPlanks.EnumType.DARK_OAK).leaves(BOPTrees.ORANGE_AUTUMN).minHeight(5).maxHeight(8).create());
         treeGenerator.add("dying_tree", 2, (new GeneratorBigTree.Builder()).minHeight(5).maxHeight(12).foliageHeight(2).leaves(BOPTrees.DEAD).create());
         
