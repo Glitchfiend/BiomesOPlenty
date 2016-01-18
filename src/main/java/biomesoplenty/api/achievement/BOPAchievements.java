@@ -16,11 +16,16 @@ public class BOPAchievements
     public static Achievement obtain_coral;
     public static Achievement obtain_thorn;
     public static Achievement obtain_poison_ivy;
+    public static Achievement obtain_deathbloom;
+    public static Achievement obtain_glowshroom;
     public static Achievement obtain_turnip;
     public static Achievement obtain_honeycomb;
     public static Achievement obtain_pixie_dust;
+    public static Achievement obtain_ghastly_soul;
     public static Achievement obtain_celestial_crystal;
     public static Achievement craft_ornamental_artifact;
+    public static Achievement craft_ambrosia;
     public static Achievement explore_all_biomes;
+    public static Achievement use_enderporter;
 
 }

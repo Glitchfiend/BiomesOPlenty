@@ -10,21 +10,10 @@ package biomesoplenty.common.handler;
 import java.util.Iterator;
 import java.util.Set;
 
-import com.google.common.collect.Sets;
-
-import biomesoplenty.api.achievement.BOPAchievements;
-import biomesoplenty.api.biome.BOPBiomes;
-import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.common.block.BlockBOPFlower;
-import biomesoplenty.common.block.BlockBOPLog;
-import biomesoplenty.common.block.BlockBOPPlant;
-import biomesoplenty.common.enums.BOPPlants;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.stats.AchievementList;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.JsonSerializableSet;
@@ -34,6 +23,18 @@ import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.ItemCraftedEvent;
+import biomesoplenty.api.achievement.BOPAchievements;
+import biomesoplenty.api.biome.BOPBiomes;
+import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.common.block.BlockBOPFlower;
+import biomesoplenty.common.block.BlockBOPLog;
+import biomesoplenty.common.block.BlockBOPMushroom;
+import biomesoplenty.common.block.BlockBOPPlant;
+import biomesoplenty.common.enums.BOPFlowers;
+import biomesoplenty.common.enums.BOPPlants;
+
+import com.google.common.collect.Sets;
 
 public class AchievementEventHandler 
 {
@@ -80,15 +81,27 @@ public class AchievementEventHandler
         {
             player.triggerAchievement(BOPAchievements.obtain_poison_ivy);
         }
+        
+        //I am Become Death Achievement
+        if (block != null && block == BlockBOPFlower.paging.getBlock(BOPFlowers.DEATHBLOOM))
+        {
+            player.triggerAchievement(BOPAchievements.obtain_deathbloom);
+        }
 
         //Stalk Market Achievement
         if (item != null && item == BOPItems.turnip)
         {
             player.triggerAchievement(BOPAchievements.obtain_turnip);
         }
+        
+        //Soul Searching Achievement
+        if (item != null && item == BOPItems.ghastly_soul)
+        {
+            player.triggerAchievement(BOPAchievements.obtain_ghastly_soul);
+        }
 
-        //Honeycomb Crunch Achievement
-        if (item != null && item == BOPItems.honeycomb)
+        //Honeycomb's Big Achievement
+        if (item != null && item == BOPItems.filled_honeycomb)
         {
             player.triggerAchievement(BOPAchievements.obtain_honeycomb);
         }
@@ -109,7 +122,14 @@ public class AchievementEventHandler
     @SubscribeEvent
     public void onItemCrafted(ItemCraftedEvent event)
     {
-        ItemStack item = event.crafting;
+        Item item = event.crafting.getItem();
+        EntityPlayer player = event.player;
+        
+        //Nectar of the Gods Achievement
+        if (item != null && item == BOPItems.ambrosia)
+        {
+            player.triggerAchievement(BOPAchievements.craft_ambrosia);
+        }
     }
 
     @SubscribeEvent
