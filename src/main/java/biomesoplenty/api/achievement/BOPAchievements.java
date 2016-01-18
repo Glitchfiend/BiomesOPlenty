@@ -12,6 +12,15 @@ import net.minecraft.stats.Achievement;
 public class BOPAchievements 
 {
     public static Achievement obtain_flowers;
+    public static Achievement obtain_berry;
+    public static Achievement obtain_coral;
+    public static Achievement obtain_thorn;
+    public static Achievement obtain_poison_ivy;
+    public static Achievement obtain_turnip;
+    public static Achievement obtain_honeycomb;
+    public static Achievement obtain_pixie_dust;
+    public static Achievement obtain_celestial_crystal;
+    public static Achievement craft_ornamental_artifact;
     public static Achievement explore_all_biomes;
 
 }

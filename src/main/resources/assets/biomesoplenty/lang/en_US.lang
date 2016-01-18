@@ -1,5 +1,23 @@
 achievement.obtain_flowers=Flower Child
 achievement.obtain_flowers.desc=Become one with nature!
+achievement.obtain_berry=Berry Good
+achievement.obtain_berry.desc=Berries are berry nice!...Berry.
+achievement.obtain_coral=Totally Coral!
+achievement.obtain_coral.desc=That nose job is so coral!
+achievement.obtain_turnip=Stalk Market
+achievement.obtain_turnip.desc=Sell high, buy low!
+achievement.obtain_thorn=Rather Thorny
+achievement.obtain_thorn.desc=Yes...Rather thorny indeed...
+achievement.obtain_poison_ivy=Pick Your Poison
+achievement.obtain_poison_ivy.desc=Too late, you already did!
+achievement.obtain_honeycomb=Honeycomb Crunch
+achievement.obtain_honeycomb.desc=Yeah yeah yeah
+achievement.obtain_pixie_dust=Don't Breathe This
+achievement.obtain_pixie_dust.desc=Pixie smoke...
+achievement.obtain_celestial_crystal=Far Out...
+achievement.obtain_celestial_crystal.desc=This is from like, the cosmos, man...
+achievement.craft_ornamental_artifact=Captain Glam-It
+achievement.craft_ornamental_artifact.desc=By your powers combined...
 achievement.explore_all_biomes=The Wanderer
 achievement.explore_all_biomes.desc=Around around around...
 

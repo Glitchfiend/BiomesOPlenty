@@ -10,12 +10,6 @@ package biomesoplenty.common.handler;
 import java.util.Iterator;
 import java.util.Set;
 
-import com.google.common.collect.Sets;
-
-import biomesoplenty.api.achievement.BOPAchievements;
-import biomesoplenty.api.biome.BOPBiomes;
-import biomesoplenty.common.block.BlockBOPFlower;
-import biomesoplenty.common.block.BlockBOPLog;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -28,6 +22,16 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
+import biomesoplenty.api.achievement.BOPAchievements;
+import biomesoplenty.api.biome.BOPBiomes;
+import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.common.block.BlockBOPFlower;
+import biomesoplenty.common.block.BlockBOPLog;
+import biomesoplenty.common.block.BlockBOPPlant;
+import biomesoplenty.common.enums.BOPPlants;
+
+import com.google.common.collect.Sets;
 
 public class AchievementEventHandler 
 {
@@ -50,6 +54,54 @@ public class AchievementEventHandler
 		{
 		    player.addStat(BOPAchievements.obtain_flowers, 1);
 		}
+		
+		//Berry Good Achievement
+        if (item != null && item == BOPItems.berries)
+        {
+            player.addStat(BOPAchievements.obtain_berry, 1);
+        }
+        
+        //Totally Coral Achievement
+        if (block != null && block == BOPBlocks.coral)
+        {
+            player.addStat(BOPAchievements.obtain_coral, 1);
+        }
+        
+        //Rather Thorny Achievement
+        if (block != null && block == BlockBOPPlant.paging.getBlock(BOPPlants.THORN))
+        {
+            player.addStat(BOPAchievements.obtain_thorn, 1);
+        }
+        
+        //Pick Your Poison Achievement
+        if (block != null && block == BlockBOPPlant.paging.getBlock(BOPPlants.POISONIVY))
+        {
+            player.addStat(BOPAchievements.obtain_poison_ivy, 1);
+        }
+		
+		//Stalk Market Achievement
+        if (item != null && item == BOPItems.turnip)
+        {
+            player.addStat(BOPAchievements.obtain_turnip, 1);
+        }
+        
+        //Honeycomb Crunch Achievement
+        if (item != null && item == BOPItems.honeycomb)
+        {
+            player.addStat(BOPAchievements.obtain_honeycomb, 1);
+        }
+        
+        //Don't Breathe This Achievement
+        if (item != null && item == BOPItems.pixie_dust)
+        {
+            player.addStat(BOPAchievements.obtain_pixie_dust, 1);
+        }
+        
+        //Far Out Achievement
+        if (item != null && item == BOPItems.crystal_shard)
+        {
+            player.addStat(BOPAchievements.obtain_celestial_crystal, 1);
+        }
 	}
 	
 	@SubscribeEvent
