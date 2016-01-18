@@ -20,7 +20,9 @@ import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.block.BlockBOPCoral;
+import biomesoplenty.common.block.BlockBOPDirt;
 import biomesoplenty.common.block.BlockBOPDoublePlant;
+import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.enums.BOPClimates;
@@ -47,6 +49,9 @@ public class BiomeGenFen extends BOPBiome
     {        
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(8, 15);
+        
+        this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.LOAMY);
+        this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.LOAMY);
         
         this.setColor(0xBAC481);
         this.setTemperatureRainfall(0.4F, 0.4F);

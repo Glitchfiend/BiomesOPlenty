@@ -17,6 +17,7 @@ import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.BlockBOPCoral;
+import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPGems;
@@ -53,7 +54,7 @@ public class BiomeGenQuagmire extends BOPBiome
         
      // splatter top blocks
         IBlockPosQuery emptyMud = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();
-        this.addGenerator("grass_splatter", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(1.0F).generationAttempts(128).replace(emptyMud).with(Blocks.grass.getDefaultState()).create());
+        this.addGenerator("grass_splatter", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(1.0F).generationAttempts(128).replace(emptyMud).with(BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.LOAMY)).create());
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(5.0F);

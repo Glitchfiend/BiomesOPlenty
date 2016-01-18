@@ -15,7 +15,10 @@ import net.minecraft.init.Blocks;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
+import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.common.block.BlockBOPDirt;
 import biomesoplenty.common.block.BlockBOPDoublePlant;
+import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
@@ -35,6 +38,8 @@ public class BiomeGenShrubland extends BOPBiome
         // terrain
         this.terrainSettings.avgHeight(66).heightVariation(8, 15).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.1D);
         
+        this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SILTY);
+        this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY);
         this.setColor(8168286);
         this.setTemperatureRainfall(0.6F, 0.05F);
         

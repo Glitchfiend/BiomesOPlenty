@@ -13,6 +13,9 @@ import net.minecraft.util.BlockPos;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
+import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.common.block.BlockBOPDirt;
+import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
@@ -31,6 +34,9 @@ public class BiomeGenFrostForest extends BOPBiome
     {
         // terrain
         this.terrainSettings.avgHeight(66).heightVariation(6, 21);
+        
+        this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SILTY);
+        this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY);
         
         this.setColor(0xABD6BC);
         this.skyColor = 0xCEE0EA;

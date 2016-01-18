@@ -55,7 +55,6 @@ public class BiomeGenBambooForest extends BOPBiome
         
         this.setColor(0xA3E053);
         this.setTemperatureRainfall(1.2F, 0.9F);
-        this.waterColorMultiplier = 0x00ff66;
 
         this.addWeight(BOPClimates.TROPICAL, 5);
         

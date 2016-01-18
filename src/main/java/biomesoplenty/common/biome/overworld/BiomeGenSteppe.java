@@ -13,6 +13,9 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
+import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.common.block.BlockBOPDirt;
+import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPGems;
@@ -27,6 +30,8 @@ public class BiomeGenSteppe extends BOPBiome
     public BiomeGenSteppe()
     {
         // terrain
+        this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SANDY);
+        this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SANDY);
         this.terrainSettings.avgHeight(68).heightVariation(6, 20);
         
         this.setColor(13413215);

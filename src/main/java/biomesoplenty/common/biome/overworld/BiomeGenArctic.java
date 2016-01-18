@@ -11,6 +11,9 @@ package biomesoplenty.common.biome.overworld;
 import net.minecraft.util.BlockPos;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
+import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.common.block.BlockBOPDirt;
+import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.world.BOPWorldSettings;
@@ -22,6 +25,9 @@ public class BiomeGenArctic extends BOPBiome
     {
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(6, 4).octaves(0, 0, 2, 0, 0, 5).sidewaysNoise(0.2F);
+        
+        this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SILTY);
+        this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY);
         
         this.setColor(14540253);
         this.setEnableSnow();

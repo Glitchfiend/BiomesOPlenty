@@ -15,6 +15,8 @@ import net.minecraft.util.BlockPos;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
+import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
@@ -48,7 +50,7 @@ public class BiomeGenXericShrubland extends BOPBiome
         
         // splatter top blocks
         IBlockPosQuery emptySand = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();
-        this.addGenerator("grass_splatter", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(5.0F).generationAttempts(128).replace(emptySand).with(Blocks.grass.getDefaultState()).create());
+        this.addGenerator("grass_splatter", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(5.0F).generationAttempts(128).replace(emptySand).with(BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SANDY)).create());
         
         // other plants
         this.addGenerator("desertgrass", GeneratorStage.GRASS, (new GeneratorGrass.Builder()).amountPerChunk(0.8F).with(BOPPlants.DESERTGRASS).generationAttempts(8).create());
