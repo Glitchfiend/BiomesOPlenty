@@ -24,7 +24,6 @@ import net.minecraft.stats.Achievement;
 import net.minecraftforge.common.AchievementPage;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.enums.BOPPlants;
 
@@ -50,13 +49,14 @@ public class ModAchievements
         obtain_honeycomb = addAchievement("achievement.obtain_honeycomb", "obtain_honeycomb", 3, -3, new ItemStack(BOPItems.honeycomb), obtain_coral);
         obtain_pixie_dust = addAchievement("achievement.obtain_pixie_dust", "obtain_pixie_dust", 5, -4, new ItemStack(BOPItems.pixie_dust), obtain_honeycomb);
         obtain_celestial_crystal = addAchievement("achievement.obtain_celestial_crystal", "obtain_celestial_crystal", 7, -1, new ItemStack(BOPItems.crystal_shard), obtain_pixie_dust);
-        craft_ornamental_artifact = addAchievement("achievement.craft_ornamental_artifact", "craft_ornamental_artifact", 3, -8, new ItemStack(BOPItems.gem), obtain_pixie_dust);
-        explore_all_biomes = addAchievement("achievement.explore_all_biomes", "explore_all_biomes", 0, -8, new ItemStack(BOPItems.earth), craft_ornamental_artifact).setSpecial();
+        craft_ornamental_artifact = addAchievement("achievement.craft_ornamental_artifact", "craft_ornamental_artifact", 3, -6, new ItemStack(BOPItems.gem), obtain_pixie_dust);
+        explore_all_biomes = addAchievement("achievement.explore_all_biomes", "explore_all_biomes", 0, -7, new ItemStack(BOPItems.earth), craft_ornamental_artifact).setSpecial();
     }
     
     private static Achievement addAchievement(String unlocalizedName, String identifier, int column, int row, ItemStack iconStack, Achievement parent)
     {
         Achievement achievement = new Achievement(unlocalizedName, identifier, column, row, iconStack, parent);
+        achievement.registerStat();
         achievementPage.getAchievements().add(achievement);
         return achievement;
     }

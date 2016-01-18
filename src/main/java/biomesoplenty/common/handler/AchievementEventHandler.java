@@ -36,91 +36,95 @@ import com.google.common.collect.Sets;
 public class AchievementEventHandler 
 {
     private static final Set<BiomeGenBase> BOP_BIOMES_TO_EXPLORE = Sets.union(BOPBiomes.REG_INSTANCE.getPresentBiomes(), BiomeGenBase.explorationBiomesList);
-    
-	@SubscribeEvent
-	public void onItemPickup(PlayerEvent.ItemPickupEvent event)
-	{
-		Item item = event.pickedUp.getEntityItem().getItem();
-		Block block = Block.getBlockFromItem(item);
-		EntityPlayer player = event.player;
-		
-		if (block != null && block instanceof BlockBOPLog)
-		{
-			event.player.addStat(AchievementList.mineWood, 1);
-		}
-		
-		//Flower Child Achievement
-		if (block != null && block instanceof BlockBOPFlower)
-		{
-		    player.addStat(BOPAchievements.obtain_flowers, 1);
-		}
-		
-		//Berry Good Achievement
+
+    @SubscribeEvent
+    public void onItemPickup(PlayerEvent.ItemPickupEvent event)
+    {
+        //Only add achievements on the server
+        if (event.player.worldObj.isRemote)
+            return;
+        
+        Item item = event.pickedUp.getEntityItem().getItem();
+        Block block = Block.getBlockFromItem(item);
+        EntityPlayer player = event.player;
+
+        if (block != null && block instanceof BlockBOPLog)
+        {
+            player.triggerAchievement(AchievementList.mineWood);
+        }
+
+        //Flower Child Achievement
+        if (block != null && block instanceof BlockBOPFlower)
+        {
+            player.triggerAchievement(BOPAchievements.obtain_flowers);
+        }
+
+        //Berry Good Achievement
         if (item != null && item == BOPItems.berries)
         {
-            player.addStat(BOPAchievements.obtain_berry, 1);
+            player.triggerAchievement(BOPAchievements.obtain_berry);
         }
-        
+
         //Totally Coral Achievement
         if (block != null && block == BOPBlocks.coral)
         {
-            player.addStat(BOPAchievements.obtain_coral, 1);
+            player.triggerAchievement(BOPAchievements.obtain_coral);
         }
-        
+
         //Rather Thorny Achievement
         if (block != null && block == BlockBOPPlant.paging.getBlock(BOPPlants.THORN))
         {
-            player.addStat(BOPAchievements.obtain_thorn, 1);
+            player.triggerAchievement(BOPAchievements.obtain_thorn);
         }
-        
+
         //Pick Your Poison Achievement
         if (block != null && block == BlockBOPPlant.paging.getBlock(BOPPlants.POISONIVY))
         {
-            player.addStat(BOPAchievements.obtain_poison_ivy, 1);
+            player.triggerAchievement(BOPAchievements.obtain_poison_ivy);
         }
-		
-		//Stalk Market Achievement
+
+        //Stalk Market Achievement
         if (item != null && item == BOPItems.turnip)
         {
-            player.addStat(BOPAchievements.obtain_turnip, 1);
+            player.triggerAchievement(BOPAchievements.obtain_turnip);
         }
-        
+
         //Honeycomb Crunch Achievement
         if (item != null && item == BOPItems.honeycomb)
         {
-            player.addStat(BOPAchievements.obtain_honeycomb, 1);
+            player.triggerAchievement(BOPAchievements.obtain_honeycomb);
         }
-        
+
         //Don't Breathe This Achievement
         if (item != null && item == BOPItems.pixie_dust)
         {
-            player.addStat(BOPAchievements.obtain_pixie_dust, 1);
+            player.triggerAchievement(BOPAchievements.obtain_pixie_dust);
         }
-        
+
         //Far Out Achievement
         if (item != null && item == BOPItems.crystal_shard)
         {
-            player.addStat(BOPAchievements.obtain_celestial_crystal, 1);
+            player.triggerAchievement(BOPAchievements.obtain_celestial_crystal);
         }
-	}
-	
-	@SubscribeEvent
-	public void onPlayerUpdate(LivingUpdateEvent event)
-	{
-	    if (!event.entity.worldObj.isRemote && event.entity instanceof EntityPlayer)
-	    {
-	        EntityPlayerMP player = (EntityPlayerMP)event.entity;
-	        
-	        //Check every five seconds if the player has entered a new biome, if they haven't already gotten the achievement
+    }
+
+    @SubscribeEvent
+    public void onPlayerUpdate(LivingUpdateEvent event)
+    {
+        if (!event.entity.worldObj.isRemote && event.entity instanceof EntityPlayer)
+        {
+            EntityPlayerMP player = (EntityPlayerMP)event.entity;
+
+            //Check every five seconds if the player has entered a new biome, if they haven't already gotten the achievement
             if (player.ticksExisted % 20 * 5 == 0 && !player.getStatFile().hasAchievementUnlocked(BOPAchievements.explore_all_biomes))
             {
                 this.updateBiomesExplored(player);
             }
-	    }
-	}
-	
-	public void updateBiomesExplored(EntityPlayerMP player)
-	{
+        }
+    }
+
+    public void updateBiomesExplored(EntityPlayerMP player)
+    {
         BiomeGenBase currentBiome = player.worldObj.getBiomeGenForCoords(new BlockPos(MathHelper.floor_double(player.posX), 0, MathHelper.floor_double(player.posZ)));
         String biomeName = currentBiome.biomeName;
         //Get a list of the current explored biomes
@@ -169,5 +173,5 @@ public class AchievementEventHandler
                 player.triggerAchievement(BOPAchievements.explore_all_biomes);
             }
         }
-	}
+    }
 }
