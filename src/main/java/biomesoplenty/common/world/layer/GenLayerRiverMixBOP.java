@@ -76,14 +76,18 @@ public class GenLayerRiverMixBOP extends BOPGenLayer
     
     private boolean biomeSupportsRivers(int biomeId)
     {
-        BiomeGenBase biome = BiomeGenBase.getBiome(biomeId);
-        
-        if (biome != null && biome instanceof BOPBiome)
+        //Check if the biome id is valid
+        if (biomeId >= 0 && biomeId <= BiomeGenBase.getBiomeGenArray().length)
         {
-            BOPBiome bopBiome = (BOPBiome)biome;
-            return bopBiome.canGenerateRivers;
+            BiomeGenBase biome = BiomeGenBase.getBiome(biomeId);
+
+            if (biome != null && biome instanceof BOPBiome)
+            {
+                BOPBiome bopBiome = (BOPBiome)biome;
+                return bopBiome.canGenerateRivers;
+            }
         }
-        
+
         return true;
     }
 }
