@@ -45,6 +45,7 @@ public class BiomeGenXericShrubland extends BOPBiome
         this.canSpawnInBiome = false;
         
         this.addWeight(BOPClimates.HOT_DESERT, 3);
+        this.addWeight(BOPClimates.SAVANNA, 1);
         
         this.spawnableCreatureList.clear();
         

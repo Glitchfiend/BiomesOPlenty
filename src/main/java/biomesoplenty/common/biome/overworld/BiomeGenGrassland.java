@@ -43,7 +43,7 @@ public class BiomeGenGrassland extends BOPBiome {
         this.setTemperatureRainfall(0.6F, 0.7F);
 
         this.addWeight(BOPClimates.COOL_TEMPERATE, 7);
-        this.addWeight(BOPClimates.DRY_TEMPERATE, 7);
+        this.addWeight(BOPClimates.WET_TEMPERATE, 7);
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
         

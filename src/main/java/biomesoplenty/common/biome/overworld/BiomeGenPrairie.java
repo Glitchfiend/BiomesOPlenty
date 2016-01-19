@@ -36,7 +36,8 @@ public class BiomeGenPrairie extends BOPBiome
         this.setColor(0xC8E580);
         this.setTemperatureRainfall(0.8F, 0.3F);
         
-        this.addWeight(BOPClimates.WARM_TEMPERATE, 10);
+        this.addWeight(BOPClimates.WARM_TEMPERATE, 7);
+        this.addWeight(BOPClimates.DRY_TEMPERATE, 7);
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 1, 2, 6));
         

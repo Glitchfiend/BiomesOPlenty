@@ -35,7 +35,7 @@ public class BiomeGenFlowerField extends BOPBiome
         
         this.canGenerateVillages = false;
 
-        this.addWeight(BOPClimates.COOL_TEMPERATE, 3);
+        this.addWeight(BOPClimates.WARM_TEMPERATE, 3);
         
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(99);

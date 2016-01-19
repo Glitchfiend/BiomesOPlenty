@@ -52,7 +52,7 @@ public class BiomeGenFungiForest extends BOPBiome
         
         this.canGenerateVillages = false;
 
-        this.addWeight(BOPClimates.WARM_TEMPERATE, 3);
+        this.addWeight(BOPClimates.WET_TEMPERATE, 2);
         
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();

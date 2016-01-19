@@ -83,7 +83,8 @@ public class BiomeGenMountain extends BOPBiome
             this.canGenerateVillages = false;
             
             // peaks are created in the biome gen layer, foothills don't have a weight - they only appear later around the peaks (in the biome edge layer)
-            this.addWeight(BOPClimates.DRY_TEMPERATE, 10);
+            this.addWeight(BOPClimates.DRY_TEMPERATE, 7);
+            this.addWeight(BOPClimates.COOL_TEMPERATE, 7);
             
             // only sheep and wolves on the peaks
             this.spawnableCreatureList.clear();

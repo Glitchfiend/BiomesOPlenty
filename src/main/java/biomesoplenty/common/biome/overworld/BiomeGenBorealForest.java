@@ -35,6 +35,7 @@ public class BiomeGenBorealForest extends BOPBiome
         this.setColor(0x9FB771);
         this.setTemperatureRainfall(0.5F, 0.6F);
         this.addWeight(BOPClimates.COOL_TEMPERATE, 10);
+        this.addWeight(BOPClimates.BOREAL, 3);
 
         this.canGenerateVillages = false;
         

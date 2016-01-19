@@ -43,7 +43,7 @@ public class BiomeGenFrostForest extends BOPBiome
         this.setEnableSnow();
         this.setTemperatureRainfall(0.0F, 0.5F);
 
-        this.addWeight(BOPClimates.TUNDRA, 10);
+        this.addWeight(BOPClimates.TUNDRA, 7);
          
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(3);

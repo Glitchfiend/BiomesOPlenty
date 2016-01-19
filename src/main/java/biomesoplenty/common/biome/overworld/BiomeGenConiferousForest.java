@@ -40,7 +40,8 @@ public class BiomeGenConiferousForest extends BOPBiome
         
         this.canGenerateVillages = false;
     
-        this.addWeight(BOPClimates.COOL_TEMPERATE, 10);
+        this.addWeight(BOPClimates.COOL_TEMPERATE, 7);
+        this.addWeight(BOPClimates.BOREAL, 7);
         
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.LOAMY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.LOAMY);

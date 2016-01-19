@@ -65,9 +65,9 @@ public class BiomeGenWasteland extends BOPBiome
         this.spawnableWaterCreatureList.clear();
         
         // trees
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(2.0F);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(0.5F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("dead_tree", 1, (new GeneratorBigTree.Builder()).amountPerChunk(1.0F).minHeight(5).maxHeight(12).foliageHeight(0).foliageDensity(0.5D).log(BOPWoods.DEAD).leaves(Blocks.air.getDefaultState()).create());
+        treeGenerator.add("dead_tree", 1, (new GeneratorBigTree.Builder()).amountPerChunk(0.5F).minHeight(5).maxHeight(12).foliageHeight(0).foliageDensity(0.5D).log(BOPWoods.DEAD).leaves(Blocks.air.getDefaultState()).create());
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(0.2F);
@@ -82,7 +82,7 @@ public class BiomeGenWasteland extends BOPBiome
         this.addGenerator("poison_lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.2F).waterLakeForBiome(this).liquid(BOPBlocks.poison).frozenLiquid((IBlockState)null).create());
         
         // spikes
-        this.addGenerator("spikes", GeneratorStage.PRE, (new GeneratorSpike.Builder()).amountPerChunk(0.5F).create());
+        this.addGenerator("spikes", GeneratorStage.PRE, (new GeneratorSpike.Builder()).amountPerChunk(0.6F).create());
         
         // gem
         this.addGenerator("malachite", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.MALACHITE).create());

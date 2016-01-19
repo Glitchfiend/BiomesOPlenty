@@ -44,6 +44,7 @@ public class BiomeGenShrubland extends BOPBiome
         this.setTemperatureRainfall(0.6F, 0.05F);
         
         this.addWeight(BOPClimates.DRY_TEMPERATE, 10);
+        this.addWeight(BOPClimates.MEDITERANEAN, 5);
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
         

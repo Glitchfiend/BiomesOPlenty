@@ -38,7 +38,7 @@ public class BiomeGenLavenderFields extends BOPBiome
         
         this.canGenerateVillages = false;
     
-        this.addWeight(BOPClimates.WARM_TEMPERATE, 3);
+        this.addWeight(BOPClimates.MEDITERANEAN, 3);
         
         // flowers
         this.addGenerator("lavender", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(99).with(BOPFlowers.LAVENDER).create());

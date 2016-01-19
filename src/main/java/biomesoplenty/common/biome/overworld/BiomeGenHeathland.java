@@ -49,7 +49,7 @@ public class BiomeGenHeathland extends BOPBiome
         this.setColor(0xCEC577);
         this.setTemperatureRainfall(0.8F, 0.2F);
         
-        this.addWeight(BOPClimates.WARM_TEMPERATE, 10);
+        this.addWeight(BOPClimates.MEDITERANEAN, 10);
         
         this.spawnableCreatureList.clear(); // none of your regular farmyard critters here
         // TODO: why is there SO many horses?

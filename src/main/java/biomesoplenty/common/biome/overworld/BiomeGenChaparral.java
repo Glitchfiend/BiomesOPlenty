@@ -39,7 +39,7 @@ public class BiomeGenChaparral extends BOPBiome
         this.setColor(0xC0D85D);
         this.setTemperatureRainfall(0.8F, 0.6F);
         
-        this.addWeight(BOPClimates.WARM_TEMPERATE, 10);
+        this.addWeight(BOPClimates.MEDITERANEAN, 10);
         
         this.spawnableCreatureList.clear(); // none of your regular farmyard critters here
         this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 1, 2, 6));

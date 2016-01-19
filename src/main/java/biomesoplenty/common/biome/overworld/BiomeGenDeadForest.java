@@ -47,6 +47,7 @@ public class BiomeGenDeadForest extends BOPBiome
         this.setTemperatureRainfall(0.4F, 0.3F);
         
         this.addWeight(BOPClimates.COOL_TEMPERATE, 5);
+        this.addWeight(BOPClimates.BOREAL, 1);
         
         // gravel
         this.addGenerator("gravel", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(4).maxRadius(7).with(Blocks.gravel.getDefaultState()).create());

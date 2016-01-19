@@ -58,7 +58,7 @@ public class BiomeGenFen extends BOPBiome
         
         this.canGenerateRivers = false;
         
-        this.addWeight(BOPClimates.WET_TEMPERATE, 10);
+        this.addWeight(BOPClimates.COLD_SWAMP, 7);
 
         // TODO: this.theBiomeDecorator.bopFeatures.waterSpringsPerChunk = 99;
         

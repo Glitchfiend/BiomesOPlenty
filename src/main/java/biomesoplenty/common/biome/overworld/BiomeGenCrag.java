@@ -24,13 +24,13 @@ public class BiomeGenCrag extends BOPBiome
         this.terrainSettings.avgHeight(80).heightVariation(80, 200).minHeight(40).sidewaysNoise(0.7F);
         
         this.setColor(5209457);
-        this.setTemperatureRainfall(1.0F, 0.0F);
+        this.setTemperatureRainfall(0.5F, 0.0F);
 
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
         this.canGenerateRivers = false;
         
-        this.addWeight(BOPClimates.WET_TEMPERATE, 3);
+        this.addWeight(BOPClimates.TUNDRA, 3);
 
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();

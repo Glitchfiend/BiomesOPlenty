@@ -36,7 +36,7 @@ public class BiomeGenBrushland extends BOPBiome
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SANDY);
         this.setColor(0xC9C17F);
         this.setTemperatureRainfall(1.2F, 0.1F);
-        this.addWeight(BOPClimates.MEDITERANEAN, 10);
+        this.addWeight(BOPClimates.SAVANNA, 10);
         
         // quicksand
         this.addGenerator("quicksand_patches", GeneratorStage.SAND, (new GeneratorSplotches.Builder()).amountPerChunk(0.6F).splotchSize(16).with(BOPBlocks.sand.getDefaultState().withProperty(BlockBOPSand.VARIANT, BlockBOPSand.SandType.QUICKSAND)).splotchSize(20).scatterYMethod(ScatterYMethod.AT_SURFACE).create());

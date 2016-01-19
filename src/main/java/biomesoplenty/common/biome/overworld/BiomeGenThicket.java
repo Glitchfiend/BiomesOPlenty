@@ -42,7 +42,8 @@ public class BiomeGenThicket extends BOPBiome
         
         this.canGenerateVillages = false;
         
-        this.addWeight(BOPClimates.DRY_TEMPERATE, 5);
+        this.addWeight(BOPClimates.DRY_TEMPERATE, 3);
+        this.addWeight(BOPClimates.COOL_TEMPERATE, 3);
         
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(17);

@@ -38,7 +38,7 @@ public class BiomeGenRainforest extends BOPBiome
 
         this.setColor(0x14E26F);
         this.setTemperatureRainfall(1.0F, 1.0F);
-        this.addWeight(BOPClimates.TROPICAL, 10);
+        this.addWeight(BOPClimates.TROPICAL, 7);
         
         this.canGenerateVillages = false;
         

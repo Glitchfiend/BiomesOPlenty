@@ -38,7 +38,8 @@ public class BiomeGenGrove extends BOPBiome
         this.setColor(0x517F51);
         this.setTemperatureRainfall(0.7F, 0.8F);
         
-        this.addWeight(BOPClimates.WET_TEMPERATE, 10);
+        this.addWeight(BOPClimates.WET_TEMPERATE, 7);
+        this.addWeight(BOPClimates.COOL_TEMPERATE, 7);
                  
         // other plants
         this.addGenerator("sprouts", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BOPPlants.SPROUT).create());

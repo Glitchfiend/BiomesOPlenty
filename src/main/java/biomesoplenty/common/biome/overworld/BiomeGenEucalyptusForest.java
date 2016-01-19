@@ -38,7 +38,8 @@ public class BiomeGenEucalyptusForest extends BOPBiome
         
         this.canGenerateVillages = false;
         
-        this.addWeight(BOPClimates.SAVANNA, 7);
+        this.addWeight(BOPClimates.WET_TEMPERATE, 3);
+        this.addWeight(BOPClimates.TROPICAL, 5);
                             
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(5);
@@ -78,13 +79,13 @@ public class BiomeGenEucalyptusForest extends BOPBiome
     @Override
     public int getGrassColorAtPos(BlockPos pos)
     {
-        return 0x9DCC70;
+        return 0x84D168;
     }
     
     @Override
     public int getFoliageColorAtPos(BlockPos pos)
     {
-        return 0x71CE52;
+        return 0x67CE52;
     }
     
     /*
