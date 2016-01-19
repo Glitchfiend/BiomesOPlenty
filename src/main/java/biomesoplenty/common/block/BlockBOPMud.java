@@ -153,21 +153,7 @@ public class BlockBOPMud extends Block implements IBOPBlock, ISustainsPlantType
     @Override
     public boolean canSustainPlantType(IBlockAccess world, BlockPos pos, EnumPlantType plantType)
     {  
-        switch (plantType)
-        {
-            case Plains:
-                return true;
-            case Beach:
-                return (
-                        world.getBlockState(pos.east()).getBlock().getMaterial() == Material.water ||
-                        world.getBlockState(pos.west()).getBlock().getMaterial() == Material.water ||
-                        world.getBlockState(pos.north()).getBlock().getMaterial() == Material.water ||
-                        world.getBlockState(pos.south()).getBlock().getMaterial() == Material.water
-                        );
-            // don't support anything else by default
-            default:
-                return false;
-        }
+        return false;
     }
     
     
