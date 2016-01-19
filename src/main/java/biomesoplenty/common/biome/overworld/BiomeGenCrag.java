@@ -30,7 +30,7 @@ public class BiomeGenCrag extends BOPBiome
         this.canGenerateVillages = false;
         this.canGenerateRivers = false;
         
-        this.addWeight(BOPClimates.TUNDRA, 3);
+        this.addWeight(BOPClimates.COLD_DESERT, 3);
 
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
