@@ -28,6 +28,7 @@ public class BiomeGenCrag extends BOPBiome
 
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
+        this.canGenerateRivers = false;
         
         this.addWeight(BOPClimates.WET_TEMPERATE, 3);
 

@@ -37,6 +37,7 @@ public class BiomeGenMapleWoods extends BOPBiome
         this.setTemperatureRainfall(0.2F, 0.8F);
         this.addWeight(BOPClimates.COOL_TEMPERATE, 10);
 
+        this.canGenerateVillages = false;
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntityWolf.class, 5, 4, 4));
         

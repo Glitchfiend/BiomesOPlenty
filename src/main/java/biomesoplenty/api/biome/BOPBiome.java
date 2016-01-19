@@ -98,7 +98,7 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         
         this.canSpawnInBiome = conf.getBool("canSpawnInBiome", this.canSpawnInBiome);
         this.canGenerateVillages = conf.getBool("canGenerateVillages", this.canGenerateVillages);
-        this.canGenerateRivers = conf.getBool("canGenerateRivers", this.canGenerateVillages);
+        this.canGenerateRivers = conf.getBool("canGenerateRivers", this.canGenerateRivers);
         
         // Allow weights to be overridden
         IConfigObj confWeights = conf.getObject("weights");

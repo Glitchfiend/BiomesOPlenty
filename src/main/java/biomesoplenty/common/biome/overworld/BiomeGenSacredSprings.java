@@ -32,6 +32,9 @@ public class BiomeGenSacredSprings extends BOPBiome
         this.setColor(39259);
         this.setTemperatureRainfall(1.2F, 0.9F);
         
+        this.canGenerateRivers = false;
+        this.canGenerateVillages = false;
+        
         this.addWeight(BOPClimates.WARM_TEMPERATE, 3);
         
         // trees

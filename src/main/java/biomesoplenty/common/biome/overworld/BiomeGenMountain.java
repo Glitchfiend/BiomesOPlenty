@@ -74,11 +74,14 @@ public class BiomeGenMountain extends BOPBiome
                 break;
         }
         
+        this.canGenerateVillages = false;
         this.setColor(0x80A355);
         this.setTemperatureRainfall(0.5F, 0.1F);
         
         if (type == MountainType.PEAKS)
         {
+            this.canGenerateVillages = false;
+            
             // peaks are created in the biome gen layer, foothills don't have a weight - they only appear later around the peaks (in the biome edge layer)
             this.addWeight(BOPClimates.DRY_TEMPERATE, 10);
             

@@ -52,6 +52,8 @@ public class BiomeGenBog extends BOPBiome
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.LOAMY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.LOAMY);
 
+        this.canGenerateRivers = false;
+        
         this.addWeight(BOPClimates.COLD_SWAMP, 7);
         
         this.spawnableCreatureList.clear();

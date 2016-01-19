@@ -49,6 +49,9 @@ public class BiomeGenMarsh extends BOPBiome
         this.setColor(0x66A06E);
         this.setTemperatureRainfall(0.5F, 0.9F);
         
+        this.canGenerateRivers = false;
+        this.canGenerateVillages = false;
+        
         this.addWeight(BOPClimates.COLD_SWAMP, 7);
         
         this.spawnableCreatureList.clear(); // none of your regular farmyard critters here

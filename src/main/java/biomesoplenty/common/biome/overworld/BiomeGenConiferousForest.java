@@ -37,6 +37,8 @@ public class BiomeGenConiferousForest extends BOPBiome
         
         this.setColor(0x528F60);
         this.setTemperatureRainfall(0.5F, 0.5F);
+        
+        this.canGenerateVillages = false;
     
         this.addWeight(BOPClimates.COOL_TEMPERATE, 10);
         

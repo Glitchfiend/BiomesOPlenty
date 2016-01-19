@@ -40,6 +40,8 @@ public class BiomeGenThicket extends BOPBiome
         this.setColor(7248193);
         this.setTemperatureRainfall(0.6F, 0.2F);
         
+        this.canGenerateVillages = false;
+        
         this.addWeight(BOPClimates.DRY_TEMPERATE, 5);
         
         // trees

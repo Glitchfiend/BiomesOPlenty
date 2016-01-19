@@ -39,6 +39,8 @@ public class BiomeGenSnowyConiferousForest extends BOPBiome
         this.setEnableSnow();
         this.setTemperatureRainfall(0.0F, 0.5F);
     
+        this.canGenerateVillages = false;
+        
         this.addWeight(BOPClimates.TUNDRA, 10);
         
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.LOAMY);

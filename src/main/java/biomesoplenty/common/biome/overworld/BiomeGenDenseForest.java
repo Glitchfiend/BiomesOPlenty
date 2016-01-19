@@ -45,6 +45,8 @@ public class BiomeGenDenseForest extends BOPBiome
         this.setColor(8246897);
         this.setTemperatureRainfall(0.7F, 0.7F);
         
+        this.canGenerateVillages = false;
+        
         this.addWeight(BOPClimates.WARM_TEMPERATE, 7);
         
         this.topBlock = Blocks.grass.getDefaultState();

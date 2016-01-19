@@ -41,6 +41,8 @@ public class BiomeGenDeadForest extends BOPBiome
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.LOAMY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.LOAMY);
         
+        this.canGenerateVillages = false;
+        
         this.setColor(0xBCA165);
         this.setTemperatureRainfall(0.4F, 0.3F);
         
