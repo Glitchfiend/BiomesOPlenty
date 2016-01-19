@@ -44,5 +44,6 @@ public class ModGenerators
         registerGenerator("columns", GeneratorColumns.class, new GeneratorColumns.Builder());
         registerGenerator("mixed_lily", GeneratorMixedLily.class, new GeneratorMixedLily.Builder());
         registerGenerator("crystals", GeneratorCrystals.class, new GeneratorCrystals.Builder());
+        registerGenerator("spike", GeneratorSpike.class, new GeneratorSpike.Builder());
     }
 }

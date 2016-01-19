@@ -493,7 +493,7 @@ public class GeneratorBigTree extends GeneratorTreeBase
         boolean isSoil = state.getBlock().canSustainPlant(this.world, down, EnumFacing.UP, ((BlockSapling)Blocks.sapling));
 
         //Don't grow the tree here if the location can't sustain a sapling
-        if (!isSoil || !this.placeOn.matches(world, down))
+        if (!isSoil && !this.placeOn.matches(world, down))
         {
             return false;
         }

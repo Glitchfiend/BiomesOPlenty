@@ -52,7 +52,7 @@ public class GeneratorCrystals extends GeneratorReplacing
     
     public GeneratorCrystals(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState with, ScatterYMethod scatterYMethod, int generationAttempts, int maxRadius, int maxDepth)
     {
-        super(amountPerChunk, replace, replace, with, scatterYMethod);
+        super(amountPerChunk, placeOn, replace, with, scatterYMethod);
         this.generationAttempts = generationAttempts;
         this.maxRadius = maxRadius;
         this.maxDepth = maxDepth;

@@ -33,6 +33,7 @@ import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorLakes;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
+import biomesoplenty.common.world.feature.GeneratorSpike;
 import biomesoplenty.common.world.feature.GeneratorSplatter;
 import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
 import biomesoplenty.common.world.feature.tree.GeneratorBigTree;
@@ -63,11 +64,10 @@ public class BiomeGenWasteland extends BOPBiome
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
         
-        IBlockPosQuery emptyDriedDirt = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();
-        
         // trees
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(1);
-        treeGenerator.add("dead_tree", 1, (new GeneratorBigTree.Builder()).amountPerChunk(1.0F).minHeight(5).maxHeight(12).placeOn(emptyDriedDirt).foliageHeight(0).foliageDensity(0.5D).log(BOPWoods.DEAD).leaves(Blocks.air.getDefaultState()).create());
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(2.0F);
+        this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
+        treeGenerator.add("dead_tree", 1, (new GeneratorBigTree.Builder()).amountPerChunk(1.0F).minHeight(5).maxHeight(12).foliageHeight(0).foliageDensity(0.5D).log(BOPWoods.DEAD).leaves(Blocks.air.getDefaultState()).create());
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(0.2F);
@@ -80,6 +80,9 @@ public class BiomeGenWasteland extends BOPBiome
         // lakes
         this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.5F).waterLakeForBiome(this).create());
         this.addGenerator("poison_lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.2F).waterLakeForBiome(this).liquid(BOPBlocks.poison).frozenLiquid((IBlockState)null).create());
+        
+        // spikes
+        this.addGenerator("spikes", GeneratorStage.PRE, (new GeneratorSpike.Builder()).amountPerChunk(0.5F).create());
         
         // gem
         this.addGenerator("malachite", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.MALACHITE).create());

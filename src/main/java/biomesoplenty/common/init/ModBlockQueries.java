@@ -12,6 +12,7 @@ import static biomesoplenty.api.block.BlockQueries.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import biomesoplenty.api.block.BOPBlocks;
@@ -58,6 +59,17 @@ public class ModBlockQueries
             public boolean matches(World world, BlockPos pos)
             {
                 return world.getBlockState(pos).getBlock().getBlockHardness(world, pos) >= 0.0F;
+            }
+        }; 
+        
+        //Match blocks with a solid top
+        solid = new IBlockPosQuery()
+        {
+            // Block.setBlockUnbreakable sets the hardness value to -1.0F
+            @Override
+            public boolean matches(World world, BlockPos pos)
+            {
+                return world.isSideSolid(pos, EnumFacing.UP);
             }
         }; 
         

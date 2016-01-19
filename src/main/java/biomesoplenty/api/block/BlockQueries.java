@@ -21,6 +21,7 @@ public class BlockQueries
     public static IBlockPosQuery airOrLeaves;
     public static IBlockPosQuery surfaceBlocks;
     public static IBlockPosQuery groundBlocks;
+    public static IBlockPosQuery solid;
     
     public static IBlockPosQuery fertile;
     public static IBlockPosQuery fertileOrNetherrack;
