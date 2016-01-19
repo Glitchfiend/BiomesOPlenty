@@ -112,19 +112,19 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
     @Override
     public void initGui()
     {
-        this.screenTitle = I18n.format("options.customizeTitle", new Object[0]);
+        this.screenTitle = I18n.format("options.customizeTitle");
         
         this.buttonList.clear();
-        this.buttonList.add(this.prevButton = new GuiButton(Actions.PREVIOUS.getId(), 20, 5, 80, 20, I18n.format("createWorld.customize.custom.prev", new Object[0])));
-        this.buttonList.add(this.nextButton = new GuiButton(Actions.NEXT.getId(), this.width - 100, 5, 80, 20, I18n.format("createWorld.customize.custom.next", new Object[0])));
-        this.buttonList.add(this.defaultsButton = new GuiButton(Actions.DEFAULTS.getId(), this.width / 2 - 187, this.height - 27, 90, 20, I18n.format("createWorld.customize.custom.defaults", new Object[0])));
-        this.buttonList.add(this.doneButton = new GuiButton(Actions.DONE.getId(), this.width / 2 + 98, this.height - 27, 90, 20, I18n.format("gui.done", new Object[0])));
+        this.buttonList.add(this.prevButton = new GuiButton(Actions.PREVIOUS.getId(), 20, 5, 80, 20, I18n.format("createWorld.customize.custom.prev")));
+        this.buttonList.add(this.nextButton = new GuiButton(Actions.NEXT.getId(), this.width - 100, 5, 80, 20, I18n.format("createWorld.customize.custom.next")));
+        this.buttonList.add(this.defaultsButton = new GuiButton(Actions.DEFAULTS.getId(), this.width / 2 - 187, this.height - 27, 90, 20, I18n.format("createWorld.customize.custom.defaults")));
+        this.buttonList.add(this.doneButton = new GuiButton(Actions.DONE.getId(), this.width / 2 + 98, this.height - 27, 90, 20, I18n.format("gui.done")));
        
-        this.yesButton = new GuiButton(Actions.YES.getId(), this.width / 2 - 55, 160, 50, 20, I18n.format("gui.yes", new Object[0]));
+        this.yesButton = new GuiButton(Actions.YES.getId(), this.width / 2 - 55, 160, 50, 20, I18n.format("gui.yes"));
         this.yesButton.visible = false;
         this.buttonList.add(this.yesButton);
         
-        this.noButton = new GuiButton(Actions.NO.getId(), this.width / 2 + 5, 160, 50, 20, I18n.format("gui.no", new Object[0]));
+        this.noButton = new GuiButton(Actions.NO.getId(), this.width / 2 + 5, 160, 50, 20, I18n.format("gui.no"));
         this.noButton.visible = false;
         this.buttonList.add(this.noButton);
         
