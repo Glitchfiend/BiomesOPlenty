@@ -34,6 +34,7 @@ public class BiomeGenOriginValley extends BOPBiome
         this.skyColor = 8441086;
         
         this.canGenerateVillages = false;
+        this.canGenerateRivers = false;
         
         this.addWeight(BOPClimates.WARM_TEMPERATE, 1);
         

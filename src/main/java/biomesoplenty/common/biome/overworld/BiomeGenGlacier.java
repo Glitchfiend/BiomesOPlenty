@@ -27,6 +27,8 @@ public class BiomeGenGlacier extends BiomeGenArctic
         
         this.setColor(0xB0BBD9);
         
+        this.canGenerateVillages = false;
+        
         this.topBlock = BOPBlocks.hard_ice.getDefaultState();
         this.fillerBlock = BOPBlocks.hard_ice.getDefaultState();
 

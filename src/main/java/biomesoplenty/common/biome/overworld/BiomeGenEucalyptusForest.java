@@ -36,6 +36,8 @@ public class BiomeGenEucalyptusForest extends BOPBiome
         this.setColor(0x9DCC70);
         this.setTemperatureRainfall(0.9F, 0.1F);
         
+        this.canGenerateVillages = false;
+        
         this.addWeight(BOPClimates.SAVANNA, 7);
                             
         // trees

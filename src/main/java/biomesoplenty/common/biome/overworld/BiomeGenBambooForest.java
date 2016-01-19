@@ -56,6 +56,8 @@ public class BiomeGenBambooForest extends BOPBiome
         this.setColor(0xA3E053);
         this.setTemperatureRainfall(1.2F, 0.9F);
 
+        this.canGenerateVillages = false;
+        
         this.addWeight(BOPClimates.TROPICAL, 5);
         
         this.topBlock = Blocks.dirt.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.PODZOL);

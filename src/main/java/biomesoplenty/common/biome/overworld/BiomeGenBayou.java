@@ -53,6 +53,9 @@ public class BiomeGenBayou extends BOPBiome
         this.waterColorMultiplier = 0xFFD932;
         this.skyColor = 0xACC4BC;
         this.seaFloorBlock = BOPBlocks.mud.getDefaultState();
+        
+        this.canGenerateRivers = false;
+        this.canGenerateVillages = false;
 
         this.addWeight(BOPClimates.HOT_SWAMP, 10);
         

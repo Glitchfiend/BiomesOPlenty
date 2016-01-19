@@ -57,6 +57,9 @@ public class BiomeGenWetland extends BOPBiome
         this.waterColorMultiplier = 0x636084;
         this.seaFloorBlock = BOPBlocks.mud.getDefaultState();
 
+        this.canGenerateRivers = false;
+        this.canGenerateVillages = false;
+        
         this.addWeight(BOPClimates.WET_TEMPERATE, 10);
         
         this.spawnableWaterCreatureList.clear();

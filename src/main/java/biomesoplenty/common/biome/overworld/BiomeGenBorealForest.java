@@ -36,6 +36,7 @@ public class BiomeGenBorealForest extends BOPBiome
         this.setTemperatureRainfall(0.5F, 0.6F);
         this.addWeight(BOPClimates.COOL_TEMPERATE, 10);
 
+        this.canGenerateVillages = false;
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntityWolf.class, 5, 4, 4));
         
