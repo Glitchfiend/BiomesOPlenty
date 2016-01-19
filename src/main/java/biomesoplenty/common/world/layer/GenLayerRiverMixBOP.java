@@ -8,6 +8,7 @@
 
 package biomesoplenty.common.world.layer;
 
+import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.BOPBiomes;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
@@ -42,7 +43,7 @@ public class GenLayerRiverMixBOP extends BOPGenLayer
 
         for (int i = 0; i < areaWidth * areaHeight; ++i)
         {
-            if (biomeIds[i] != BiomeGenBase.frozenOcean.biomeID && biomeIds[i] != BiomeGenBase.ocean.biomeID && biomeIds[i] != BiomeGenBase.deepOcean.biomeID)
+            if (biomeIds[i] != BiomeGenBase.frozenOcean.biomeID && biomeIds[i] != BiomeGenBase.ocean.biomeID && biomeIds[i] != BiomeGenBase.deepOcean.biomeID && biomeSupportsRivers(i))
             {
                 if (riverValues[i] == BiomeGenBase.river.biomeID)
                 {
@@ -71,5 +72,18 @@ public class GenLayerRiverMixBOP extends BOPGenLayer
         }
 
         return out;
+    }
+    
+    private boolean biomeSupportsRivers(int biomeId)
+    {
+        BiomeGenBase biome = BiomeGenBase.getBiome(biomeId);
+        
+        if (biome != null && biome instanceof BOPBiome)
+        {
+            BOPBiome bopBiome = (BOPBiome)biome;
+            return bopBiome.canGenerateRivers;
+        }
+        
+        return true;
     }
 }

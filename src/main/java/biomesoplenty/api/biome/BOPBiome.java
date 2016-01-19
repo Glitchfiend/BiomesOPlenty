@@ -47,6 +47,7 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
     
     public boolean canSpawnInBiome = true;
     public boolean canGenerateVillages = true;
+    public boolean canGenerateRivers = true;
     
     public TerrainSettings terrainSettings = new TerrainSettings();
     public boolean noNeighborTerrainInfuence = false;
@@ -94,8 +95,10 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         this.enableSnow = conf.getBool("enableSnow", this.enableSnow);
         this.skyColor = conf.getInt("skyColor", this.skyColor);
         this.hasBiomeEssence = conf.getBool("hasBiomeEssence", this.hasBiomeEssence);
+        
         this.canSpawnInBiome = conf.getBool("canSpawnInBiome", this.canSpawnInBiome);
         this.canGenerateVillages = conf.getBool("canGenerateVillages", this.canGenerateVillages);
+        this.canGenerateRivers = conf.getBool("canGenerateRivers", this.canGenerateVillages);
         
         // Allow weights to be overridden
         IConfigObj confWeights = conf.getObject("weights");
