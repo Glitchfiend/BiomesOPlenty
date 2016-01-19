@@ -77,7 +77,7 @@ public class GenLayerRiverMixBOP extends BOPGenLayer
     private boolean biomeSupportsRivers(int biomeId)
     {
         //Check if the biome id is valid
-        if (biomeId >= 0 && biomeId <= BiomeGenBase.getBiomeGenArray().length)
+        if (biomeId >= 0 && biomeId < BiomeGenBase.getBiomeGenArray().length)
         {
             BiomeGenBase biome = BiomeGenBase.getBiome(biomeId);
 
