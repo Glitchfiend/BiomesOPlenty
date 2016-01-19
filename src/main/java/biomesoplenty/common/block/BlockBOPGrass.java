@@ -148,10 +148,10 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
             // support beach plants if there's water alongside
             case Beach:
                 return (
-                        world.getBlockState(pos.east()).getBlock().getMaterial() == Material.water ||
-                        world.getBlockState(pos.west()).getBlock().getMaterial() == Material.water ||
-                        world.getBlockState(pos.north()).getBlock().getMaterial() == Material.water ||
-                        world.getBlockState(pos.south()).getBlock().getMaterial() == Material.water
+                        (!world.isAirBlock(pos.east()) && world.getBlockState(pos.east()).getBlock().getMaterial() == Material.water) ||
+                        (!world.isAirBlock(pos.west()) && world.getBlockState(pos.west()).getBlock().getMaterial() == Material.water) ||
+                        (!world.isAirBlock(pos.north()) && world.getBlockState(pos.north()).getBlock().getMaterial() == Material.water) ||
+                        (!world.isAirBlock(pos.south()) && world.getBlockState(pos.south()).getBlock().getMaterial() == Material.water)
                         );
                 // don't support nether plants, water plants, or crops (require farmland), or anything else by default
             default:
