@@ -39,7 +39,7 @@ public class BiomeGenMeadow extends BOPBiome
         this.setColor(0x63B26D);
         this.setTemperatureRainfall(0.7F, 0.7F);
         this.addWeight(BOPClimates.WET_TEMPERATE, 10);
-        this.addWeight(BOPClimates.COOL_TEMPERATE, 7);
+        this.addWeight(BOPClimates.COOL_TEMPERATE, 10);
         
         // trees & logs
         GeneratorWeighted treeGenerator = new GeneratorWeighted(2);
@@ -61,7 +61,7 @@ public class BiomeGenMeadow extends BOPBiome
         flowerGenerator.add("blue_hydrangeas", 3, (new GeneratorFlora.Builder().with(BOPFlowers.BLUE_HYDRANGEA).create()));
         flowerGenerator.add("syringa", 1, (new GeneratorDoubleFlora.Builder().with(BlockDoublePlant.EnumPlantType.SYRINGA).create()));
         flowerGenerator.add("sunflower", 2, (new GeneratorDoubleFlora.Builder().with(BlockDoublePlant.EnumPlantType.SUNFLOWER).create()));
-        flowerGenerator.add("sunflower", 1, (new GeneratorDoubleFlora.Builder().with(BlockDoublePlant.EnumPlantType.ROSE).create()));
+        flowerGenerator.add("rose", 1, (new GeneratorDoubleFlora.Builder().with(BlockDoublePlant.EnumPlantType.ROSE).create()));
         
         // other plants
         this.addGenerator("bushes", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(BOPPlants.BUSH).create());
