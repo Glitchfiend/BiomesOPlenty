@@ -47,6 +47,7 @@ import static biomesoplenty.api.biome.BOPBiomes.ice_plains_extension;
 import static biomesoplenty.api.biome.BOPBiomes.jade_cliffs;
 import static biomesoplenty.api.biome.BOPBiomes.jungle_extension;
 import static biomesoplenty.api.biome.BOPBiomes.lavender_fields;
+import static biomesoplenty.api.biome.BOPBiomes.lush_desert;
 import static biomesoplenty.api.biome.BOPBiomes.maple_woods;
 import static biomesoplenty.api.biome.BOPBiomes.marsh;
 import static biomesoplenty.api.biome.BOPBiomes.meadow;
@@ -124,6 +125,7 @@ import biomesoplenty.common.biome.overworld.BiomeGenHeathland;
 import biomesoplenty.common.biome.overworld.BiomeGenHighland;
 import biomesoplenty.common.biome.overworld.BiomeGenJadeCliffs;
 import biomesoplenty.common.biome.overworld.BiomeGenLavenderFields;
+import biomesoplenty.common.biome.overworld.BiomeGenLushDesert;
 import biomesoplenty.common.biome.overworld.BiomeGenMapleWoods;
 import biomesoplenty.common.biome.overworld.BiomeGenMarsh;
 import biomesoplenty.common.biome.overworld.BiomeGenMeadow;
@@ -347,6 +349,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         highland = registerBOPBiome(new BiomeGenHighland(), "Highland");
         jade_cliffs = registerBOPBiome(new BiomeGenJadeCliffs(), "Jade Cliffs");
         lavender_fields = registerBOPBiome(new BiomeGenLavenderFields(), "Lavender Fields");
+        lush_desert = registerBOPBiome(new BiomeGenLushDesert(), "Lush Desert");
         maple_woods = registerBOPBiome(new BiomeGenMapleWoods(), "Maple Woods");
         marsh = registerBOPBiome(new BiomeGenMarsh(), "Marsh");
         meadow = registerBOPBiome(new BiomeGenMeadow(), "Meadow");
@@ -416,6 +419,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         registerBiomeToDictionary(BOPBiomes.highland, Type.HILLS, Type.MOUNTAIN, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.jade_cliffs, Type.FOREST, Type.MOUNTAIN, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.lavender_fields, Type.MAGICAL, Type.PLAINS, Type.LUSH, Type.SPARSE);
+        registerBiomeToDictionary(BOPBiomes.lush_desert, Type.HOT, Type.DRY, Type.LUSH, Type.SANDY);
         registerBiomeToDictionary(BOPBiomes.maple_woods, Type.FOREST, Type.DENSE, Type.CONIFEROUS, Type.COLD);
         registerBiomeToDictionary(BOPBiomes.marsh, Type.SWAMP, Type.WATER, Type.WET, Type.SPARSE, Type.LUSH);
         registerBiomeToDictionary(BOPBiomes.meadow, Type.PLAINS, Type.FOREST, Type.LUSH, Type.SPARSE);
@@ -436,7 +440,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         registerBiomeToDictionary(BOPBiomes.wasteland, Type.WASTELAND, Type.DEAD, Type.SPARSE, Type.DRY);
         registerBiomeToDictionary(BOPBiomes.wetland, Type.SWAMP, Type.FOREST, Type.WET, Type.LUSH);
         registerBiomeToDictionary(BOPBiomes.woodland, Type.FOREST, Type.DRY, Type.DENSE);
-        registerBiomeToDictionary(BOPBiomes.xeric_shrubland, Type.PLAINS, Type.SPARSE, Type.DRY);
+        registerBiomeToDictionary(BOPBiomes.xeric_shrubland, Type.PLAINS, Type.SPARSE, Type.DRY, Type.LUSH, Type.HOT, Type.SANDY);
         
         // edge-biomes, sub-biomes and mutated-biomes
         registerBiomeToDictionary(BOPBiomes.glacier, Type.SNOWY, Type.HILLS, Type.COLD, Type.DEAD);
