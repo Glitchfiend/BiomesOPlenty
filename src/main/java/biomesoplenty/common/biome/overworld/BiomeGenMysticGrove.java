@@ -22,6 +22,7 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.BlockBOPCoral;
 import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.block.BlockBOPMushroom;
+import biomesoplenty.common.entities.EntityPixie;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
@@ -58,6 +59,8 @@ public class BiomeGenMysticGrove extends BOPBiome
         this.spawnableCreatureList.clear(); // none of your regular farmyard critters here
         this.spawnableWaterCreatureList.clear();
         this.spawnableMonsterList.add(new SpawnListEntry(EntityWitch.class, 10, 4, 4));      
+        
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityPixie.class, 4, 1, 1));
         
         // lakes
         this.addGenerator("poison_lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.1F).waterLakeForBiome(this).liquid(BOPBlocks.poison).frozenLiquid((IBlockState)null).create());

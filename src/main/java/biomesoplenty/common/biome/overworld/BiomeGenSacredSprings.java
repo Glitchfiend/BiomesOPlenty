@@ -20,7 +20,9 @@ import biomesoplenty.common.world.feature.tree.GeneratorBush;
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.BlockFlower.EnumFlowerType;
+import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.util.BlockPos;
+import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 
 public class BiomeGenSacredSprings extends BOPBiome
 {
@@ -36,6 +38,8 @@ public class BiomeGenSacredSprings extends BOPBiome
         this.canGenerateVillages = false;
         
         this.addWeight(BOPClimates.TROPICAL, 2);
+        
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
         
         // trees
         this.addGenerator("sacred_oak_trees", GeneratorStage.POST, (new GeneratorBigTree.Builder()).amountPerChunk(0.2F).log(BOPWoods.SACRED_OAK).leaves(BOPTrees.SACRED_OAK).minHeight(35).maxHeight(40).trunkWidth(2).foliageDensity(2.0D).create());

@@ -10,7 +10,9 @@ package biomesoplenty.common.biome.overworld;
 
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.util.BlockPos;
+import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
@@ -40,6 +42,8 @@ public class BiomeGenEucalyptusForest extends BOPBiome
         
         this.addWeight(BOPClimates.WET_TEMPERATE, 3);
         this.addWeight(BOPClimates.TROPICAL, 5);
+        
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
                             
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(5);

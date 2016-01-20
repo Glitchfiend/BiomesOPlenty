@@ -42,7 +42,7 @@ public class BiomeGenCherryBlossomGrove extends BOPBiome
         
         this.canGenerateVillages = false;
     
-        this.addWeight(BOPClimates.COOL_TEMPERATE, 3);
+        this.addWeight(BOPClimates.COOL_TEMPERATE, 2);
         
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(6.0F);
