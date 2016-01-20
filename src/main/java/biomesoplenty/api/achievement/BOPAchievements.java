@@ -28,7 +28,7 @@ public class BOPAchievements
     public static Achievement grow_sacred_oak;
     public static Achievement obtain_honeycomb;
     public static Achievement obtain_pixie_dust;
-    public static Achievement obtain_ghastly_soul;
+    public static Achievement obtain_soul;
     public static Achievement obtain_celestial_crystal;
     public static Achievement craft_ornamental_artifact;
     public static Achievement craft_ambrosia;

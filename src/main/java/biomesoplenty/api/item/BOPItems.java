@@ -43,7 +43,7 @@ public class BOPItems
     public static Item green_dye;
     public static Item white_dye;
     public static Item black_dye;
-    public static Item ghastly_soul;
+    public static Item soul;
     public static Item pixie_dust;
     public static Item ichor;
     public static Item pinecone;
@@ -54,7 +54,7 @@ public class BOPItems
     
     public static Item sacred_oak_door;
     public static Item cherry_door;
-    public static Item dark_door;
+    public static Item umbran_door;
     public static Item fir_door;
     public static Item ethereal_door;
     public static Item magic_door;

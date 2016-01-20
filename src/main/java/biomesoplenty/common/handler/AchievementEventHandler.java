@@ -114,9 +114,9 @@ public class AchievementEventHandler
         }
         
         //Soul Searching Achievement
-        if (item != null && item == BOPItems.ghastly_soul)
+        if (item != null && item == BOPItems.soul)
         {
-            player.triggerAchievement(BOPAchievements.obtain_ghastly_soul);
+            player.triggerAchievement(BOPAchievements.obtain_soul);
         }
 
         //Honeycomb's Big Achievement

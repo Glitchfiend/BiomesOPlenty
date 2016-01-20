@@ -1,8 +1,0 @@
-{
-    "parent": "block/inner_stairs",
-    "textures": {
-        "bottom": "biomesoplenty:blocks/dark_planks",
-        "top": "biomesoplenty:blocks/dark_planks",
-        "side": "biomesoplenty:blocks/dark_planks"
-    }
-}

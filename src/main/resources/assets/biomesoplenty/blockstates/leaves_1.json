@@ -1,6 +1,6 @@
 {
     "variants": {
-        "variant=dark": { "model": "biomesoplenty:dark_leaves" },
+        "variant=umbran": { "model": "biomesoplenty:umbran_leaves" },
         "variant=dead": { "model": "biomesoplenty:dead_leaves" },
         "variant=fir": { "model": "biomesoplenty:fir_leaves" },
         "variant=ethereal": { "model": "biomesoplenty:ethereal_leaves" }

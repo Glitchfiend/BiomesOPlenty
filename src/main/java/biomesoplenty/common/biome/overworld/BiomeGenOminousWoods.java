@@ -78,8 +78,8 @@ public class BiomeGenOminousWoods extends BOPBiome
         // trees & logs
         GeneratorWeighted treeGenerator = new GeneratorWeighted(9);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("dark_moss", 2, (new GeneratorBasicTree.Builder()).log(BOPWoods.DARK).leaves(BOPTrees.DARK).minHeight(8).maxHeight(12).minLeavesRadius(2).vine(BOPBlocks.tree_moss.getDefaultState()).create());
-        treeGenerator.add("dark_spruce", 6, (new GeneratorTaigaTree.Builder()).log(BOPWoods.DARK).leaves(BOPTrees.DARK).maxHeight(20).create()); // TODO: implement pine cones
+        treeGenerator.add("umbran_moss", 2, (new GeneratorBasicTree.Builder()).log(BOPWoods.UMBRAN).leaves(BOPTrees.UMBRAN).minHeight(8).maxHeight(12).minLeavesRadius(2).vine(BOPBlocks.tree_moss.getDefaultState()).create());
+        treeGenerator.add("umbran_spruce", 6, (new GeneratorTaigaTree.Builder()).log(BOPWoods.UMBRAN).leaves(BOPTrees.UMBRAN).maxHeight(20).create()); // TODO: implement pine cones
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(3.0F);

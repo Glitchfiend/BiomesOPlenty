@@ -164,7 +164,7 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable {
             	return new GeneratorBulbTree.Builder().minHeight(6).maxHeight(18).log(BOPBlocks.bamboo.getDefaultState()).leaves(BOPTrees.BAMBOO).create();
             case MAGIC: //Not implemented
                 return new WorldGenTrees(true);
-            case DARK: //Not implemented
+            case UMBRAN: //Not implemented
                 return new WorldGenTrees(true);
             case DEAD:
             	return new GeneratorBasicTree.Builder().log(BlockPlanks.EnumType.OAK).leaves(BOPTrees.DEAD).minHeight(5).maxHeight(8).create();

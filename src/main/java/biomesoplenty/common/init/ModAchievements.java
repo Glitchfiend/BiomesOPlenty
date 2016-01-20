@@ -22,10 +22,10 @@ import static biomesoplenty.api.achievement.BOPAchievements.obtain_celestial_cry
 import static biomesoplenty.api.achievement.BOPAchievements.obtain_coral;
 import static biomesoplenty.api.achievement.BOPAchievements.obtain_deathbloom;
 import static biomesoplenty.api.achievement.BOPAchievements.obtain_flowers;
-import static biomesoplenty.api.achievement.BOPAchievements.obtain_ghastly_soul;
 import static biomesoplenty.api.achievement.BOPAchievements.obtain_honeycomb;
 import static biomesoplenty.api.achievement.BOPAchievements.obtain_miners_delight;
 import static biomesoplenty.api.achievement.BOPAchievements.obtain_pixie_dust;
+import static biomesoplenty.api.achievement.BOPAchievements.obtain_soul;
 import static biomesoplenty.api.achievement.BOPAchievements.obtain_thorn;
 import static biomesoplenty.api.achievement.BOPAchievements.obtain_turnip;
 import static biomesoplenty.api.achievement.BOPAchievements.obtain_wilted_lily;
@@ -74,9 +74,9 @@ public class ModAchievements
         obtain_berry = addAchievement("achievement.obtain_berry", "obtain_berry", 2, 1, new ItemStack(BOPItems.berries), obtain_flowers);
         eat_shroom_powder = addAchievement("achievement.eat_shroom_powder", "eat_shroom_powder", 5, -1, new ItemStack(BOPItems.shroompowder), obtain_berry);
         obtain_honeycomb = addAchievement("achievement.obtain_honeycomb", "obtain_honeycomb", 4, 1, new ItemStack(BOPItems.filled_honeycomb), eat_shroom_powder);
-        obtain_ghastly_soul = addAchievement("achievement.obtain_ghastly_soul", "obtain_ghastly_soul", 3, 4, new ItemStack(BOPItems.ghastly_soul), obtain_honeycomb);
+        obtain_soul = addAchievement("achievement.obtain_soul", "obtain_soul", 3, 4, new ItemStack(BOPItems.soul), obtain_honeycomb);
         obtain_celestial_crystal = addAchievement("achievement.obtain_celestial_crystal", "obtain_celestial_crystal", 6, 3, new ItemStack(BOPItems.crystal_shard), obtain_honeycomb);
-        use_enderporter = addAchievement("achievement.use_enderporter", "use_enderporter", 1, 7, new ItemStack(BOPItems.enderporter), obtain_ghastly_soul).setSpecial();
+        use_enderporter = addAchievement("achievement.use_enderporter", "use_enderporter", 1, 7, new ItemStack(BOPItems.enderporter), obtain_soul).setSpecial();
         craft_ambrosia = addAchievement("achievement.craft_ambrosia", "craft_ambrosia", 7, 5, new ItemStack(BOPItems.ambrosia), obtain_celestial_crystal).setSpecial();
         
         obtain_coral = addAchievement("achievement.obtain_coral", "obtain_coral", 2, -2, new ItemStack(BOPBlocks.coral), obtain_flowers);

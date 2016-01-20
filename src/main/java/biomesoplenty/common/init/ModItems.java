@@ -84,8 +84,8 @@ public class ModItems
         green_dye = registerItem(new Item(), "green_dye");
         white_dye = registerItem(new Item(), "white_dye");
         black_dye = registerItem(new Item(), "black_dye");
-        ghastly_soul = registerItem(new Item(), "ghastly_soul");
-        ghastly_soul.setMaxStackSize(1);
+        soul = registerItem(new Item(), "soul");
+        soul.setMaxStackSize(1);
         pixie_dust = registerItem(new Item(), "pixie_dust");
         ichor = registerItem(new Item(), "ichor");
         pinecone = registerItem(new Item(), "pinecone");

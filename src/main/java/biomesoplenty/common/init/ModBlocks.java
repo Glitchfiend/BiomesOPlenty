@@ -145,7 +145,7 @@ public class ModBlocks
         // stairs have no variant metadata, use a new BlockBOPStairs instance for each (note there's no giant_flower_stairs or dead_stairs)
         sacred_oak_stairs =     registerBlock( new BlockBOPWoodStairs(BOPWoods.SACRED_OAK), "sacred_oak_stairs" );
         cherry_stairs =         registerBlock( new BlockBOPWoodStairs(BOPWoods.CHERRY), "cherry_stairs" );
-        dark_stairs =           registerBlock( new BlockBOPWoodStairs(BOPWoods.DARK), "dark_stairs" );
+        umbran_stairs =           registerBlock( new BlockBOPWoodStairs(BOPWoods.UMBRAN), "umbran_stairs" );
         fir_stairs =            registerBlock( new BlockBOPWoodStairs(BOPWoods.FIR), "fir_stairs" );
         ethereal_stairs =       registerBlock( new BlockBOPWoodStairs(BOPWoods.ETHEREAL), "ethereal_stairs" );
         magic_stairs =          registerBlock( new BlockBOPWoodStairs(BOPWoods.MAGIC), "magic_stairs" );
@@ -161,7 +161,7 @@ public class ModBlocks
         // fences have no variant metadata, use a new BlockBOPFence instance for each (note there's no giant_flower_fence or dead_fence)
         sacred_oak_fence =      registerBlock( new BlockBOPFence(BOPWoods.SACRED_OAK), "sacred_oak_fence" );
         cherry_fence =          registerBlock( new BlockBOPFence(BOPWoods.CHERRY), "cherry_fence" );
-        dark_fence =            registerBlock( new BlockBOPFence(BOPWoods.DARK), "dark_fence" );
+        umbran_fence =            registerBlock( new BlockBOPFence(BOPWoods.UMBRAN), "umbran_fence" );
         fir_fence =             registerBlock( new BlockBOPFence(BOPWoods.FIR), "fir_fence" );
         ethereal_fence =        registerBlock( new BlockBOPFence(BOPWoods.ETHEREAL), "ethereal_fence" );
         magic_fence =           registerBlock( new BlockBOPFence(BOPWoods.MAGIC), "magic_fence" );
@@ -177,7 +177,7 @@ public class ModBlocks
         // fence gates have no variant metadata, use a new BlockBOPFenceGate instance for each (note there's no giant_flower_fence_gate or dead_fence_gate)
         sacred_oak_fence_gate = registerBlock( new BlockBOPFenceGate(BOPWoods.SACRED_OAK), "sacred_oak_fence_gate" );
         cherry_fence_gate =     registerBlock( new BlockBOPFenceGate(BOPWoods.CHERRY), "cherry_fence_gate" );
-        dark_fence_gate =       registerBlock( new BlockBOPFenceGate(BOPWoods.DARK), "dark_fence_gate" );
+        umbran_fence_gate =       registerBlock( new BlockBOPFenceGate(BOPWoods.UMBRAN), "umbran_fence_gate" );
         fir_fence_gate =        registerBlock( new BlockBOPFenceGate(BOPWoods.FIR), "fir_fence_gate" );
         ethereal_fence_gate =   registerBlock( new BlockBOPFenceGate(BOPWoods.ETHEREAL), "ethereal_fence_gate" );
         magic_fence_gate =      registerBlock( new BlockBOPFenceGate(BOPWoods.MAGIC), "magic_fence_gate" );
@@ -193,7 +193,7 @@ public class ModBlocks
         // doors have no variant metadata, use a new BlockBOPDoor instance for each (note there's no giant_flower_door or dead_door)
         sacred_oak_door =       registerDoor( new BlockBOPDoor(BOPWoods.SACRED_OAK), "sacred_oak_door", BOPItems.sacred_oak_door );
         cherry_door =           registerDoor( new BlockBOPDoor(BOPWoods.CHERRY), "cherry_door", BOPItems.cherry_door );
-        dark_door =             registerDoor( new BlockBOPDoor(BOPWoods.DARK), "dark_door", BOPItems.dark_door );
+        umbran_door =             registerDoor( new BlockBOPDoor(BOPWoods.UMBRAN), "umbran_door", BOPItems.umbran_door );
         fir_door =              registerDoor( new BlockBOPDoor(BOPWoods.FIR), "fir_door", BOPItems.fir_door );
         ethereal_door =         registerDoor( new BlockBOPDoor(BOPWoods.ETHEREAL), "ethereal_door", BOPItems.ethereal_door );
         magic_door =            registerDoor( new BlockBOPDoor(BOPWoods.MAGIC), "magic_door", BOPItems.magic_door );

@@ -139,7 +139,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     {
         switch (tree)
         {
-            case BAMBOO: case DARK: case DEAD: case ETHEREAL: case FIR: case HELLBARK: case JACARANDA: case MAGIC: case MAPLE: case ORANGE_AUTUMN: case ORIGIN: case PINK_CHERRY: case WHITE_CHERRY: case YELLOW_AUTUMN: case RED_BIG_FLOWER: case YELLOW_BIG_FLOWER:
+            case BAMBOO: case UMBRAN: case DEAD: case ETHEREAL: case FIR: case HELLBARK: case JACARANDA: case MAGIC: case MAPLE: case ORANGE_AUTUMN: case ORIGIN: case PINK_CHERRY: case WHITE_CHERRY: case YELLOW_AUTUMN: case RED_BIG_FLOWER: case YELLOW_BIG_FLOWER:
                 return ColoringType.PLAIN;
             case FLOWERING:
                 return ColoringType.OVERLAY;
@@ -252,7 +252,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
             case ORANGE_AUTUMN:
             case BAMBOO:
             case MAGIC:
-            case DARK:
+            case UMBRAN:
             case DEAD:
             case FIR:
             case ETHEREAL:

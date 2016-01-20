@@ -49,7 +49,7 @@ public class BOPBlocks
     public static Block double_wood_slab_1;
     public static Block sacred_oak_stairs;
     public static Block cherry_stairs;
-    public static Block dark_stairs;
+    public static Block umbran_stairs;
     public static Block fir_stairs;
     public static Block ethereal_stairs;
     public static Block magic_stairs;
@@ -63,7 +63,7 @@ public class BOPBlocks
     public static Block mahogany_stairs;
     public static Block sacred_oak_fence;
     public static Block cherry_fence;
-    public static Block dark_fence;
+    public static Block umbran_fence;
     public static Block fir_fence;
     public static Block ethereal_fence;
     public static Block magic_fence;
@@ -77,7 +77,7 @@ public class BOPBlocks
     public static Block mahogany_fence;
     public static Block sacred_oak_fence_gate;
     public static Block cherry_fence_gate;
-    public static Block dark_fence_gate;
+    public static Block umbran_fence_gate;
     public static Block fir_fence_gate;
     public static Block ethereal_fence_gate;
     public static Block magic_fence_gate;
@@ -91,7 +91,7 @@ public class BOPBlocks
     public static Block mahogany_fence_gate;
     public static Block sacred_oak_door;
     public static Block cherry_door;
-    public static Block dark_door;
+    public static Block umbran_door;
     public static Block fir_door;
     public static Block ethereal_door;
     public static Block magic_door;

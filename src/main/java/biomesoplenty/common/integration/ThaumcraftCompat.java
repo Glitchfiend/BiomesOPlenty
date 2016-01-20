@@ -46,7 +46,7 @@ public class ThaumcraftCompat
 
         //Logs
 
-        addAspectsToState(BlockBOPLog.paging.getVariantState(BOPWoods.DARK), new Aspect[] { Aspect.PLANT, Aspect.DARKNESS }, new int[] { 4, 2 });
+        addAspectsToState(BlockBOPLog.paging.getVariantState(BOPWoods.UMBRAN), new Aspect[] { Aspect.PLANT, Aspect.DARKNESS }, new int[] { 4, 2 });
         addAspectsToState(BlockBOPLog.paging.getVariantState(BOPWoods.ETHEREAL), new Aspect[] { Aspect.PLANT, Aspect.LIGHT }, new int[] { 4, 2 });
         addAspectsToState(BlockBOPLog.paging.getVariantState(BOPWoods.HELLBARK), new Aspect[] { Aspect.PLANT, Aspect.FIRE }, new int[] { 4, 2 });
         addAspectsToState(BlockBOPLog.paging.getVariantState(BOPWoods.DEAD), new Aspect[] { Aspect.PLANT, Aspect.DEATH }, new int[] { 4, 2 });
@@ -56,7 +56,7 @@ public class ThaumcraftCompat
 
         addAspectsToState(BlockBOPPlanks.paging.getVariantState(BOPWoods.SACRED_OAK), new Aspect[] { Aspect.PLANT, Aspect.LIGHT }, new int[] { 1, 1 });
         addAspectsToState(BlockBOPPlanks.paging.getVariantState(BOPWoods.MAGIC), new Aspect[] { Aspect.PLANT }, new int[] { 1 });
-        addAspectsToState(BlockBOPPlanks.paging.getVariantState(BOPWoods.DARK), new Aspect[] { Aspect.PLANT, Aspect.DARKNESS }, new int[] { 1, 1 });
+        addAspectsToState(BlockBOPPlanks.paging.getVariantState(BOPWoods.UMBRAN), new Aspect[] { Aspect.PLANT, Aspect.DARKNESS }, new int[] { 1, 1 });
         addAspectsToState(BlockBOPPlanks.paging.getVariantState(BOPWoods.ETHEREAL), new Aspect[] { Aspect.PLANT, Aspect.LIGHT }, new int[] { 1, 1 });
         addAspectsToBlock(BOPBlocks.bamboo_thatching, new Aspect[] { Aspect.WATER, Aspect.PLANT }, new int[] { 4, 4 });
         addAspectsToState(BlockBOPPlanks.paging.getVariantState(BOPWoods.HELLBARK), new Aspect[] { Aspect.PLANT, Aspect.FIRE }, new int[] { 1, 1 });
@@ -66,7 +66,7 @@ public class ThaumcraftCompat
         //TODO: addAspectsToBlock(BOPCBlocks.appleLeaves, new Aspect[] { Aspect.PLANT, Aspect.LIFE }, new int[] { 1, 1 });
         //TODO: addAspectsToBlock(BOPCBlocks.persimmonLeaves, new Aspect[] { Aspect.PLANT, Aspect.LIFE }, new int[] { 1, 1 });
         addAspectsToState(BlockBOPLeaves.paging.getVariantState(BOPTrees.DEAD), new Aspect[] { Aspect.PLANT, Aspect.DEATH }, new int[] { 1, 1 });
-        addAspectsToState(BlockBOPLeaves.paging.getVariantState(BOPTrees.DARK), new Aspect[] { Aspect.PLANT, Aspect.DARKNESS }, new int[] { 1, 1 });
+        addAspectsToState(BlockBOPLeaves.paging.getVariantState(BOPTrees.UMBRAN), new Aspect[] { Aspect.PLANT, Aspect.DARKNESS }, new int[] { 1, 1 });
         addAspectsToState(BlockBOPLeaves.paging.getVariantState(BOPTrees.ETHEREAL), new Aspect[] { Aspect.PLANT, Aspect.LIGHT }, new int[] { 1, 1 });
         addAspectsToState(BlockBOPLeaves.paging.getVariantState(BOPTrees.SACRED_OAK), new Aspect[] { Aspect.PLANT, Aspect.LIGHT }, new int[] { 1, 1 });
         addAspectsToState(BlockBOPLeaves.paging.getVariantState(BOPTrees.MAGIC), new Aspect[] { Aspect.PLANT }, new int[] { 1 });
@@ -79,7 +79,7 @@ public class ThaumcraftCompat
         //TODO: Persimmon addAspectsToState(BOPCBlocks.saplings, 15, new Aspect[] { Aspect.PLANT, Aspect.PLANT, Aspect.LIFE }, new int[] { 1, 1, 2 });
         addAspectsToState(BlockBOPSapling.paging.getVariantState(BOPTrees.ETHEREAL), new Aspect[] { Aspect.PLANT, Aspect.PLANT, Aspect.LIGHT }, new int[] { 1, 1, 2 });
         addAspectsToState(BlockBOPSapling.paging.getVariantState(BOPTrees.MAGIC), new Aspect[] { Aspect.PLANT, Aspect.PLANT }, new int[] { 1, 1 });
-        addAspectsToState(BlockBOPSapling.paging.getVariantState(BOPTrees.DARK), new Aspect[] { Aspect.PLANT, Aspect.PLANT, Aspect.DARKNESS }, new int[] { 1, 1, 2 });
+        addAspectsToState(BlockBOPSapling.paging.getVariantState(BOPTrees.UMBRAN), new Aspect[] { Aspect.PLANT, Aspect.PLANT, Aspect.DARKNESS }, new int[] { 1, 1, 2 });
         addAspectsToState(BlockBOPSapling.paging.getVariantState(BOPTrees.DEAD), new Aspect[] { Aspect.PLANT, Aspect.PLANT, Aspect.DEATH }, new int[] { 1, 1, 2 });
         addAspectsToState(BlockBOPSapling.paging.getVariantState(BOPTrees.HELLBARK), new Aspect[] { Aspect.PLANT, Aspect.PLANT, Aspect.FIRE }, new int[] { 1, 1, 2 });
         addAspectsToState(BlockBOPSapling.paging.getVariantState(BOPTrees.SACRED_OAK), new Aspect[] { Aspect.PLANT, Aspect.PLANT, Aspect.LIGHT }, new int[] { 1, 1, 2 });
