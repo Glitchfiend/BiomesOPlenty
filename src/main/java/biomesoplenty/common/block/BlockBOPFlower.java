@@ -131,7 +131,7 @@ public class BlockBOPFlower extends BlockBOPDecoration implements IShearable
                 this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.2F, 0.8F, pos);
                 break;
 
-            case PINK_DAFFODIL: case DANDELION:
+            case PINK_DAFFODIL: case WILTED_LILY:
                 this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.2F, 0.6F, pos);
                 break;
 
@@ -254,12 +254,14 @@ public class BlockBOPFlower extends BlockBOPDecoration implements IShearable
         boolean onDry = (groundBlock == BOPBlocks.hard_dirt || groundBlock == Blocks.hardened_clay || groundBlock == BOPBlocks.sand || groundBlock == Blocks.sand || groundBlock == BOPBlocks.hard_sand);
         boolean onNetherrack = (groundBlock == Blocks.netherrack);
         boolean onStone = (groundBlock == Blocks.stone);
+        boolean onDriedDirt = (groundBlock == BOPBlocks.dried_dirt);
         boolean onSpectralMoss = false;
         
         if (groundBlock instanceof BlockBOPGrass)
         {
             switch ((BlockBOPGrass.BOPGrassType) groundState.getValue(BlockBOPGrass.VARIANT))
             {
+            
                 case SPECTRAL_MOSS:
                     onSpectralMoss = true;
                     break;
@@ -279,6 +281,8 @@ public class BlockBOPFlower extends BlockBOPDecoration implements IShearable
                 return onSpectralMoss;
             case BROMELIAD:
                 return onDry;
+            case WILTED_LILY:
+                return onDriedDirt;
             case BURNING_BLOSSOM:
                 return onNetherrack;
             case MINERS_DELIGHT:

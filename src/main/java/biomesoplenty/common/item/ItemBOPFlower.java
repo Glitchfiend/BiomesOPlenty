@@ -32,52 +32,5 @@ public class ItemBOPFlower extends ItemBOPBlock {
         if (! (this.block instanceof BlockBOPFlower)) {return null;}
         return BlockBOPFlower.paging.getVariant((BlockBOPFlower)this.block, stack.getMetadata());
     }
-    
-    @Override
-    public int getMaxItemUseDuration(ItemStack stack)
-    {
-        return 20;
-    }
-    
-    @Override
-    public EnumAction getItemUseAction(ItemStack stack)
-    {
-        return (this.getFlower(stack) == BOPFlowers.DANDELION) ? EnumAction.BLOCK : super.getItemUseAction(stack);
-    }
-    
-    @Override
-    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
-    {
-        if (this.getFlower(stack) == BOPFlowers.DANDELION)
-        {
-            player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
-        }
-        return stack;
-    }
-
-    @Override
-    public void onUsingTick(ItemStack stack, EntityPlayer player, int count)
-    {
-        if (this.getFlower(stack) == BOPFlowers.DANDELION)
-        {
-            Vec3 vec = player.getLook(0.5F);
-            Random rnd = player.getRNG();
-        
-            if (player.worldObj.isRemote)
-            {
-                for (int p = 0; p < 4; ++p)
-                {
-                    float pos = (rnd.nextFloat() - 0.5F) / 8;
-                    BiomesOPlenty.proxy.spawnParticle(BOPParticleTypes.DANDELION, player.posX + vec.xCoord + pos, player.posY + vec.yCoord + player.getEyeHeight() + pos, player.posZ + vec.zCoord + pos);
-                }
-            }
-        
-            if (count < 10 && !player.capabilities.isCreativeMode) {
-                player.stopUsingItem();
-                --stack.stackSize;
-            }
-        }
-    }
-
 
 }

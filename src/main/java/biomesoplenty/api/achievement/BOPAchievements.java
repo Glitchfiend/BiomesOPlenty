@@ -15,6 +15,7 @@ public class BOPAchievements
     public static Achievement obtain_berry;
     public static Achievement obtain_coral;
     public static Achievement obtain_miners_delight;
+    public static Achievement obtain_wilted_lily;
     public static Achievement eat_shroom_powder;
     public static Achievement obtain_thorn;
     public static Achievement craft_poison_jar;

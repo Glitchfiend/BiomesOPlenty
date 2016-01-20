@@ -133,7 +133,7 @@ public class BiomeGenDummyTemplate extends BOPBiome
         flowerGenerator.add("bromeliads", 1, (new GeneratorFlora.Builder().with(BOPFlowers.BROMELIAD).create()));
         flowerGenerator.add("burning_blossoms", 1, (new GeneratorFlora.Builder().with(BOPFlowers.BURNING_BLOSSOM).create()));
         flowerGenerator.add("clover", 1, (new GeneratorFlora.Builder().with(BOPFlowers.CLOVER).create()));
-        flowerGenerator.add("dandelions", 1, (new GeneratorFlora.Builder().with(BOPFlowers.DANDELION).create()));
+        flowerGenerator.add("wilted_lilies", 1, (new GeneratorFlora.Builder().with(BOPFlowers.WILTED_LILY).create()));
         flowerGenerator.add("deathblooms", 1, (new GeneratorFlora.Builder().with(BOPFlowers.DEATHBLOOM).create()));
         flowerGenerator.add("enterlotuses", 1, (new GeneratorFlora.Builder().with(BOPFlowers.ENDERLOTUS).create()));
         flowerGenerator.add("glowflowers", 1, (new GeneratorFlora.Builder().with(BOPFlowers.GLOWFLOWER).create()));

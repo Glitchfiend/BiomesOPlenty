@@ -139,7 +139,7 @@ public class ThaumcraftCompat
         addAspectsToState(BlockBOPFlower.paging.getVariantState(BOPFlowers.SWAMPFLOWER), new Aspect[] { Aspect.PLANT }, new int[] { 4 });
         addAspectsToState(BlockBOPFlower.paging.getVariantState(BOPFlowers.WILDFLOWER), new Aspect[] { Aspect.PLANT }, new int[] { 4 });
         addAspectsToState(BlockBOPFlower.paging.getVariantState(BOPFlowers.ORANGE_COSMOS), new Aspect[] { Aspect.PLANT }, new int[] { 4 });
-        addAspectsToState(BlockBOPFlower.paging.getVariantState(BOPFlowers.DANDELION), new Aspect[] { Aspect.PLANT }, new int[] { 4 });
+        addAspectsToState(BlockBOPFlower.paging.getVariantState(BOPFlowers.WILTED_LILY), new Aspect[] { Aspect.PLANT }, new int[] { 2 });
         addAspectsToState(BlockBOPFlower.paging.getVariantState(BOPFlowers.PINK_DAFFODIL), new Aspect[] { Aspect.PLANT }, new int[] { 4 });
         addAspectsToState(BlockBOPFlower.paging.getVariantState(BOPFlowers.BROMELIAD), new Aspect[] { Aspect.PLANT }, new int[] { 4 });
         addAspectsToState(BlockBOPFlower.paging.getVariantState(BOPFlowers.CLOVER), new Aspect[] { Aspect.PLANT }, new int[] { 2 });

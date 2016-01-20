@@ -14,7 +14,6 @@ import java.util.Map;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.api.particle.BOPParticleTypes;
-import biomesoplenty.client.particle.EntityDandelionFX;
 import biomesoplenty.client.particle.EntityPixieTrailFX;
 import biomesoplenty.client.particle.EntityTrailFX;
 import biomesoplenty.client.texture.ForgeRedirectedResourcePack;
@@ -128,9 +127,6 @@ public class ClientProxy extends CommonProxy
         {
         case PIXIETRAIL:
             entityFx = new EntityPixieTrailFX(minecraft.theWorld, x, y, z, MathHelper.getRandomDoubleInRange(minecraft.theWorld.rand, -0.03, 0.03), -0.02D, MathHelper.getRandomDoubleInRange(minecraft.theWorld.rand, -0.03, 0.03));
-            break;
-        case DANDELION:
-            entityFx = new EntityDandelionFX(minecraft.theWorld, x, y, z, 2.0F);
             break;
         case MUD:
             int itemId = Item.getIdFromItem(BOPItems.mudball);
