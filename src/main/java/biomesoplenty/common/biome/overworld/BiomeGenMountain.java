@@ -27,6 +27,7 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.BlockBOPDoublePlant;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery;
@@ -115,7 +116,7 @@ public class BiomeGenMountain extends BOPBiome
         IBlockPosQuery suitableTreePosition = BlockQuery.buildAnd().withAltitudeBetween(40, 140).materials(Material.ground, Material.grass).create();
         GeneratorWeighted treeGenerator = new GeneratorWeighted(10);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("pine", 1, (new GeneratorPineTree.Builder()).minHeight(6).maxHeight(18).placeOn(suitableTreePosition).create());        
+        treeGenerator.add("pine", 1, (new GeneratorPineTree.Builder()).minHeight(6).maxHeight(18).log(BOPWoods.PINE).leaves(BOPTrees.PINE).placeOn(suitableTreePosition).create());        
         GeneratorWeighted logsGenerator = new GeneratorWeighted(2.5F);
         this.addGenerator("logs", GeneratorStage.TREE, logsGenerator);
         logsGenerator.add("pine_logs", 1, (new GeneratorLogs.Builder()).placeOn(suitableTreePosition).with(BOPWoods.PINE).create());

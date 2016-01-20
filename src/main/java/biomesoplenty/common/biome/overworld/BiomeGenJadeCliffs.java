@@ -19,6 +19,8 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.BlockBOPStone;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.enums.BOPTrees;
+import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
 import biomesoplenty.common.world.feature.GeneratorFlora;
@@ -49,7 +51,7 @@ public class BiomeGenJadeCliffs extends BOPBiome
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(10);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("pine", 3, (new GeneratorPineTree.Builder()).minHeight(6).maxHeight(20).create());
+        treeGenerator.add("pine", 3, (new GeneratorPineTree.Builder()).minHeight(6).maxHeight(20).log(BOPWoods.PINE).leaves(BOPTrees.PINE).create());
         treeGenerator.add("oak_bush", 1, (new GeneratorBush.Builder()).maxHeight(2).create());        
 
         // grasses
