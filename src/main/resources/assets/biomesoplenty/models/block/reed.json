@@ -2,6 +2,7 @@
     "ambientocclusion": false,
     "textures": {
     	"cross": "biomesoplenty:blocks/reed",
+		"cross_bottom": "biomesoplenty:blocks/reed_bottom",
         "particle": "biomesoplenty:blocks/reed"
     },
     "elements": [
@@ -28,8 +29,8 @@
             "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45, "rescale": true },
             "shade": false,
             "faces": {
-                "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#cross" },
-                "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#cross" }
+                "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#cross_bottom" },
+                "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#cross_bottom" }
             }
         },
         {   "from": [ 8, -16, 0.8 ],
@@ -37,8 +38,8 @@
             "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45, "rescale": true },
             "shade": false,
             "faces": {
-                "west": { "uv": [ 0, 0, 16, 16 ], "texture": "#cross" },
-                "east": { "uv": [ 0, 0, 16, 16 ], "texture": "#cross" }
+                "west": { "uv": [ 0, 0, 16, 16 ], "texture": "#cross_bottom" },
+                "east": { "uv": [ 0, 0, 16, 16 ], "texture": "#cross_bottom" }
             }
         }
     ]
