@@ -8,7 +8,9 @@
 
 package biomesoplenty.common.block;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import com.google.common.collect.ImmutableSet;
 
@@ -25,6 +27,9 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockPos;
+import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -123,10 +128,16 @@ public class BlockBOPDoubleWoodSlab extends BlockSlab implements IBOPBlock
     }
 
     @Override
-    public int damageDropped(IBlockState state)
+    public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
     {
-        // always drop a bottom slab
-        return this.getMetaFromState(state.withProperty(HALF, BlockSlab.EnumBlockHalf.BOTTOM));
+        List<ItemStack> ret = new ArrayList<ItemStack>();
+        BOPWoods wood = (BOPWoods) state.getValue(this.variantProperty);
+        IBlockState halfState = BlockBOPHalfWoodSlab.paging.getVariantState(wood);
+        
+        //Drop two of the corresponding half slab for this block
+        ret.add(new ItemStack(halfState.getBlock(), 2, halfState.getBlock().getMetaFromState(halfState)));
+        
+        return ret;
     }
 
     @Override
