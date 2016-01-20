@@ -18,6 +18,7 @@ public class BlockQueries
     public static IBlockPosQuery hasWater;
     public static IBlockPosQuery airAbove;
     public static IBlockPosQuery breakable;
+    public static IBlockPosQuery air;
     public static IBlockPosQuery airOrLeaves;
     public static IBlockPosQuery surfaceBlocks;
     public static IBlockPosQuery groundBlocks;

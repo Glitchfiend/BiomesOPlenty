@@ -10,6 +10,13 @@ package biomesoplenty.common.world.feature.tree;
 
 import java.util.Random;
 
+import org.apache.commons.lang3.tuple.Pair;
+
+import biomesoplenty.api.block.BlockQueries;
+import biomesoplenty.common.util.biome.GeneratorUtils;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
+import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
+import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.block.BlockVine;
@@ -19,14 +26,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-
-import org.apache.commons.lang3.tuple.Pair;
-
-import biomesoplenty.api.block.BlockQueries;
-import biomesoplenty.common.util.biome.GeneratorUtils;
-import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
-import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
-import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GeneratorBasicTree extends GeneratorTreeBase
 {
@@ -61,12 +60,14 @@ public class GeneratorBasicTree extends GeneratorTreeBase
     
     private boolean updateNeighbours;
     private int leafLayers;
+    private final IBlockPosQuery placeVinesOn; //This shouldn't need to be configurable, however it can be if necessary
     
     public GeneratorBasicTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, int minHeight, int maxHeight, boolean updateNeighbours, int leafLayers)
     {
         super(amountPerChunk, placeOn, replace, log, leaves, vine, minHeight, maxHeight);
         this.updateNeighbours = updateNeighbours;
         this.leafLayers = leafLayers;
+        this.placeVinesOn = BlockQueries.air;
     }
     
     @Override
@@ -162,7 +163,7 @@ public class GeneratorBasicTree extends GeneratorTreeBase
                             }
                         }
                     }
-
+                    
                     //Create the trunk from the bottom up, using < to ensure it is covered with one layer of leaves
                     for (int layer = 0; layer < height; ++layer)
                     {
@@ -174,20 +175,20 @@ public class GeneratorBasicTree extends GeneratorTreeBase
                             //If vines are enabled, randomly cover the sides of the trunk with vines from the bottom up
                             if (this.vine != null && layer > 0)
                             {
-                                if (random.nextInt(3) > 0 && this.replace.matches(world, pos.add(-1, layer, 0)))
+                                if (random.nextInt(3) > 0 && this.placeVinesOn.matches(world, pos.add(-1, layer, 0)))
                                 {
                                     this.setBlockAndNotifyAdequately(world, pos.add(-1, layer, 0), this.getVineStateForSide(EnumFacing.EAST));
                                 }
 
-                                if (random.nextInt(3) > 0 && this.replace.matches(world, pos.add(1, layer, 0)))
+                                if (random.nextInt(3) > 0 && this.placeVinesOn.matches(world, pos.add(1, layer, 0)))
                                 {
                                     this.setBlockAndNotifyAdequately(world, pos.add(1, layer, 0), this.getVineStateForSide(EnumFacing.WEST));
                                 }
-                                if (random.nextInt(3) > 0 && this.replace.matches(world, pos.add(0, layer, -1)))
+                                if (random.nextInt(3) > 0 && this.placeVinesOn.matches(world, pos.add(0, layer, -1)))
                                 {
                                     this.setBlockAndNotifyAdequately(world, pos.add(0, layer, -1), this.getVineStateForSide(EnumFacing.SOUTH));
                                 }
-                                if (random.nextInt(3) > 0 && this.replace.matches(world, pos.add(0, layer, 1)))
+                                if (random.nextInt(3) > 0 && this.placeVinesOn.matches(world, pos.add(0, layer, 1)))
                                 {
                                     this.setBlockAndNotifyAdequately(world, pos.add(0, layer, 1), this.getVineStateForSide(EnumFacing.NORTH));
                                 }
@@ -219,22 +220,22 @@ public class GeneratorBasicTree extends GeneratorTreeBase
                                         BlockPos northPos = blockpos3.north();
                                         BlockPos southPos = blockpos3.south();
 
-                                        if (random.nextInt(4) == 0 && this.replace.matches(world, westPos))
+                                        if (random.nextInt(4) == 0 && this.placeVinesOn.matches(world, westPos))
                                         {
                                             this.extendVines(world, westPos, EnumFacing.EAST);
                                         }
 
-                                        if (random.nextInt(4) == 0 && this.replace.matches(world, eastPos))
+                                        if (random.nextInt(4) == 0 && this.placeVinesOn.matches(world, eastPos))
                                         {
                                             this.extendVines(world, eastPos, EnumFacing.WEST);
                                         }
 
-                                        if (random.nextInt(4) == 0 && this.replace.matches(world, northPos))
+                                        if (random.nextInt(4) == 0 && this.placeVinesOn.matches(world, northPos))
                                         {
                                             this.extendVines(world, northPos, EnumFacing.SOUTH);
                                         }
 
-                                        if (random.nextInt(4) == 0 && this.replace.matches(world, southPos))
+                                        if (random.nextInt(4) == 0 && this.placeVinesOn.matches(world, southPos))
                                         {
                                             this.extendVines(world, southPos, EnumFacing.NORTH);
                                         }
@@ -271,7 +272,7 @@ public class GeneratorBasicTree extends GeneratorTreeBase
         int length = 4;
 
         //Extend vine downwards for a maximum of 4 blocks
-        for (pos = pos.down(); this.replace.matches(world, pos) && length > 0; length--)
+        for (pos = pos.down(); this.placeVinesOn.matches(world, pos) && length > 0; length--)
         {
             this.setBlockAndNotifyAdequately(world, pos, vineState);
             pos = pos.down();

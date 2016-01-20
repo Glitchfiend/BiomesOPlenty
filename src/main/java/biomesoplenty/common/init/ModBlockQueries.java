@@ -73,6 +73,7 @@ public class ModBlockQueries
             }
         }; 
         
+        air = new BlockQueryMaterial(Material.air);  
         airOrLeaves = new BlockQueryMaterial(Material.air, Material.leaves);  
         
         // Match blocks which count as 'the surface' - useful for finding places to put plants, trees, lilypads etc - note plants, trees, snow all excluded because they sit or grow 'on' the surface
