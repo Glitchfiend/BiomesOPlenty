@@ -60,7 +60,7 @@ public class BiomeGenBambooForest extends BOPBiome
 
         this.canGenerateVillages = false;
         
-        this.addWeight(BOPClimates.TROPICAL, 5);
+        this.addWeight(BOPClimates.TROPICAL, 3);
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
         

@@ -33,7 +33,7 @@ public class BiomeGenColdDesert extends BOPBiome
         this.canGenerateVillages = false;
         
         // terrain
-        this.terrainSettings.avgHeight(70).heightVariation(10, 25).sidewaysNoise(0.7D);
+        this.terrainSettings.avgHeight(64).heightVariation(5, 10).sidewaysNoise(0.7D);
         
         this.topBlock = Blocks.gravel.getDefaultState();
         this.fillerBlock = Blocks.stone.getDefaultState();
@@ -60,7 +60,7 @@ public class BiomeGenColdDesert extends BOPBiome
         IBlockPosQuery surface = new BlockQueryBlock(Blocks.stone, Blocks.gravel, BOPBlocks.hard_ice);
         if (type == ColdDesertType.FROZEN)
         {
-            this.addGenerator("hard_ice_patches", GeneratorStage.SAND, (new GeneratorSplotches.Builder()).amountPerChunk(6).splotchSize(24).placeOn(surface).replace(surface).with(BOPBlocks.hard_ice.getDefaultState()).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
+            this.addGenerator("hard_ice_patches", GeneratorStage.SAND, (new GeneratorSplotches.Builder()).amountPerChunk(13).splotchSize(24).placeOn(surface).replace(surface).with(BOPBlocks.hard_ice.getDefaultState()).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
             this.addGenerator("stone_patches", GeneratorStage.SAND, (new GeneratorSplotches.Builder()).amountPerChunk(3).splotchSize(16).placeOn(surface).replace(surface).with(Blocks.stone.getDefaultState()).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
         }
         else

@@ -38,7 +38,7 @@ public class BiomeGenMeadow extends BOPBiome
 
         this.setColor(0x63B26D);
         this.setTemperatureRainfall(0.7F, 0.7F);
-        this.addWeight(BOPClimates.WET_TEMPERATE, 10);
+
         this.addWeight(BOPClimates.COOL_TEMPERATE, 10);
         
         // trees & logs

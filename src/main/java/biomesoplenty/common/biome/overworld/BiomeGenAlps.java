@@ -29,6 +29,7 @@ public class BiomeGenAlps extends BOPBiome
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
         
+        this.addWeight(BOPClimates.BOREAL, 3);
         this.addWeight(BOPClimates.TUNDRA, 5);
         this.addWeight(BOPClimates.COLD_DESERT, 5);
         

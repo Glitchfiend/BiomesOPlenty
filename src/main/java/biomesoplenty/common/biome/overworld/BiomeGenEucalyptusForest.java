@@ -39,8 +39,7 @@ public class BiomeGenEucalyptusForest extends BOPBiome
         this.setTemperatureRainfall(0.9F, 0.1F);
         
         this.canGenerateVillages = false;
-        
-        this.addWeight(BOPClimates.WET_TEMPERATE, 3);
+
         this.addWeight(BOPClimates.TROPICAL, 5);
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
