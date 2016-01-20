@@ -144,7 +144,7 @@ public class AchievementEventHandler
         if (event.action != Action.LEFT_CLICK_BLOCK)
         {
             ItemStack stack = event.entityPlayer.getHeldItem();
-            Item item = stack.getItem();
+            Item item = stack != null ? stack.getItem() : null;
             EntityPlayer player = event.entityPlayer;
 
             //Gone Home
