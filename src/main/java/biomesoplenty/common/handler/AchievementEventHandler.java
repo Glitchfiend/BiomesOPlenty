@@ -23,6 +23,10 @@ import net.minecraft.util.JsonSerializableSet;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.entity.player.PlayerUseItemEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
+import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.ItemCraftedEvent;
@@ -33,8 +37,10 @@ import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.block.BlockBOPFlower;
 import biomesoplenty.common.block.BlockBOPLog;
 import biomesoplenty.common.block.BlockBOPPlant;
+import biomesoplenty.common.block.BlockBOPSapling;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.item.ItemJarFilled;
 
 import com.google.common.collect.Sets;
@@ -133,6 +139,52 @@ public class AchievementEventHandler
     }
     
     @SubscribeEvent
+    public void onItemUsed(PlayerInteractEvent event)
+    {
+        if (event.action != Action.LEFT_CLICK_BLOCK)
+        {
+            ItemStack stack = event.entityPlayer.getHeldItem();
+            Item item = stack.getItem();
+            EntityPlayer player = event.entityPlayer;
+
+            //Gone Home
+            if (item == BOPItems.enderporter)
+            {
+                player.triggerAchievement(BOPAchievements.use_enderporter);
+            }
+        }
+    }
+    
+    @SubscribeEvent
+    public void onItemUsed(PlayerUseItemEvent.Finish event)
+    {
+        ItemStack stack = event.item;
+        Item item = stack.getItem();
+        EntityPlayer player = event.entityPlayer;
+        
+        //Trippin'
+        if (item == BOPItems.shroompowder)
+        {
+            player.triggerAchievement(BOPAchievements.eat_shroom_powder);
+        }
+    }
+    
+    @SubscribeEvent
+    public void onBlockPlaced(BlockEvent.PlaceEvent event)
+    {
+        ItemStack stack = event.itemInHand;
+        Item item = stack.getItem();
+        Block block = Block.getBlockFromItem(item);
+        IBlockState state = block != null ? block.getStateFromMeta(stack.getItemDamage()) : null;
+        
+        //Yggdrasil
+        if (state == BlockBOPSapling.paging.getVariantState(BOPTrees.SACRED_OAK))
+        {
+            event.player.triggerAchievement(BOPAchievements.grow_sacred_oak);
+        }
+    }
+    
+    @SubscribeEvent
     public void onItemCrafted(ItemCraftedEvent event)
     {
         Item item = event.crafting.getItem();
@@ -190,14 +242,43 @@ public class AchievementEventHandler
             EntityPlayerMP player = (EntityPlayerMP)event.entity;
 
             //Check every five seconds if the player has entered a new biome, if they haven't already gotten the achievement
-            if (player.ticksExisted % 20 * 5 == 0 && !player.getStatFile().hasAchievementUnlocked(BOPAchievements.explore_all_biomes))
+            if (player.ticksExisted % 20 * 5 == 0)
             {
-                this.updateBiomesExplored(player);
+                if (!player.getStatFile().hasAchievementUnlocked(BOPAchievements.use_biome_radar))
+                {
+                    this.updateBiomeRadarExplore(player);
+                }
+                
+                if (!player.getStatFile().hasAchievementUnlocked(BOPAchievements.explore_all_biomes))
+                {
+                    this.updateBiomesExplored(player);
+                }
             }
         }
     }
 
-    public void updateBiomesExplored(EntityPlayerMP player)
+    private void updateBiomeRadarExplore(EntityPlayerMP player)
+    {
+        BiomeGenBase currentBiome = player.worldObj.getBiomeGenForCoords(new BlockPos(MathHelper.floor_double(player.posX), 0, MathHelper.floor_double(player.posZ)));
+
+        //Search every item in the player's main inventory for a biome radar
+        for (ItemStack stack : player.inventory.mainInventory)
+        {
+            if (stack.getItem() == BOPItems.biome_finder && stack.hasTagCompound() && stack.getTagCompound().hasKey("biomeIDToFind"))
+            {
+                int biomeIdToFind = stack.getTagCompound().getInteger("biomeIDToFind");
+
+                //If the current biome id is the id on the radar, award the achievement and stop searching
+                if (biomeIdToFind == currentBiome.biomeID) 
+                {
+                    player.triggerAchievement(BOPAchievements.use_biome_radar);
+                    return;
+                }
+            }
+        }
+    }
+    
+    private void updateBiomesExplored(EntityPlayerMP player)
     {
         BiomeGenBase currentBiome = player.worldObj.getBiomeGenForCoords(new BlockPos(MathHelper.floor_double(player.posX), 0, MathHelper.floor_double(player.posZ)));
         String biomeName = currentBiome.biomeName;
