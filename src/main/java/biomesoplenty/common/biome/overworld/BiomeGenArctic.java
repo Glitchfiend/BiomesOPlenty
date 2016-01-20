@@ -34,6 +34,7 @@ public class BiomeGenArctic extends BOPBiome
         this.setTemperatureRainfall(0.05F, 0.5F);
 
         this.canSpawnInBiome = false;
+        this.canGenerateVillages = false;
         
         this.addWeight(BOPClimates.ICE_CAP, 30);
 

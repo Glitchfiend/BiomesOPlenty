@@ -48,8 +48,6 @@ public class BiomeGenLushDesert extends BOPBiome
         this.topBlock = Blocks.hardened_clay.getDefaultState();
         this.fillerBlock = Blocks.hardened_clay.getDefaultState();
         
-        this.canGenerateVillages = false;
-        
         this.canSpawnInBiome = false;
         
         this.addWeight(BOPClimates.HOT_DESERT, 5);

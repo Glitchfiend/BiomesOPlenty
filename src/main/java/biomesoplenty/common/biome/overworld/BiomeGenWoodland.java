@@ -44,6 +44,8 @@ public class BiomeGenWoodland extends BOPBiome
         this.setColor(0x84A92D);
         this.setTemperatureRainfall(0.6F, 0.3F);
         
+        this.canGenerateVillages = false;
+        
         this.addWeight(BOPClimates.DRY_TEMPERATE, 5);
         this.addWeight(BOPClimates.COOL_TEMPERATE, 10);
         

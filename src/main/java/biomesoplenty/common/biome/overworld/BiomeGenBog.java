@@ -53,6 +53,7 @@ public class BiomeGenBog extends BOPBiome
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.LOAMY);
 
         this.canGenerateRivers = false;
+        this.canGenerateVillages = false;
         
         this.addWeight(BOPClimates.COLD_SWAMP, 7);
         

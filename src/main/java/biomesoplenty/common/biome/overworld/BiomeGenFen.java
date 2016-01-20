@@ -57,6 +57,7 @@ public class BiomeGenFen extends BOPBiome
         this.setTemperatureRainfall(0.4F, 0.4F);
         
         this.canGenerateRivers = false;
+        this.canGenerateVillages = false;
         
         this.addWeight(BOPClimates.COLD_SWAMP, 7);
 
