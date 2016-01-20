@@ -11,6 +11,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
@@ -45,8 +46,11 @@ public class AchievementEventHandler
     @SubscribeEvent
     public void onItemPickup(PlayerEvent.ItemPickupEvent event)
     {
-        Item item = event.pickedUp.getEntityItem().getItem();
+        ItemStack stack = event.pickedUp.getEntityItem();
+        Item item = stack.getItem();
+        
         Block block = Block.getBlockFromItem(item);
+        IBlockState state = block != null ? block.getStateFromMeta(stack.getItemDamage()) : null;
         EntityPlayer player = event.player;
 
         if (block != null && block instanceof BlockBOPLog)
@@ -73,20 +77,20 @@ public class AchievementEventHandler
         }
         
         //Life Finds a Way Achievement
-        if (block != null && block == BlockBOPFlower.paging.getBlock(BOPFlowers.MINERS_DELIGHT))
+        if (block != null && state == BlockBOPFlower.paging.getVariantState(BOPFlowers.MINERS_DELIGHT))
         {
             player.triggerAchievement(BOPAchievements.obtain_miners_delight);
         }
 
 
         //Rather Thorny Achievement
-        if (block != null && block == BlockBOPPlant.paging.getBlock(BOPPlants.THORN))
+        if (block != null && state == BlockBOPPlant.paging.getVariantState(BOPPlants.THORN))
         {
             player.triggerAchievement(BOPAchievements.obtain_thorn);
         }
         
         //I am Become Death Achievement
-        if (block != null && block == BlockBOPFlower.paging.getBlock(BOPFlowers.DEATHBLOOM))
+        if (block != null && state == BlockBOPFlower.paging.getVariantState(BOPFlowers.DEATHBLOOM))
         {
             player.triggerAchievement(BOPAchievements.obtain_deathbloom);
         }
