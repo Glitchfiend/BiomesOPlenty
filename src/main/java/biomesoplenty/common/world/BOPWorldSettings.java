@@ -68,7 +68,7 @@ public class BOPWorldSettings
     // BOP World properties
     
     public LandMassScheme landScheme = LandMassScheme.VANILLA;
-    public TemperatureVariationScheme tempScheme = TemperatureVariationScheme.LATITUDE;
+    public TemperatureVariationScheme tempScheme = TemperatureVariationScheme.MEDIUM_ZONES;
     public RainfallVariationScheme rainScheme = RainfallVariationScheme.MEDIUM_ZONES;
     public BiomeSize biomeSize = BiomeSize.MEDIUM;
     public float amplitude = 1.0F;
@@ -138,7 +138,7 @@ public class BOPWorldSettings
         
         // BOP default values
         this.landScheme = LandMassScheme.VANILLA;
-        this.tempScheme = TemperatureVariationScheme.LATITUDE;
+        this.tempScheme = TemperatureVariationScheme.MEDIUM_ZONES;
         this.rainScheme = RainfallVariationScheme.MEDIUM_ZONES;
         this.biomeSize = BiomeSize.MEDIUM;
         this.amplitude = 1.0F;
