@@ -34,8 +34,10 @@ public class GeneratorBasicTree extends GeneratorTreeBase
     public static class Builder extends GeneratorTreeBase.InnerBuilder<Builder, GeneratorBasicTree> implements IGeneratorBuilder<GeneratorBasicTree>
     {        
         protected int leafLayers;
+        protected int leafRadius;
         
         public Builder leafLayers(int a) {this.leafLayers = a; return this.self();}
+        public Builder leafRadius(int a) {this.leafRadius = a; return this.self();}
         
         public Builder()
         {
@@ -49,24 +51,27 @@ public class GeneratorBasicTree extends GeneratorTreeBase
             this.minHeight = 4;
             this.maxHeight = 7;
             this.leafLayers = 4;
+            this.leafRadius = 2;
         }
 
         @Override
         public GeneratorBasicTree create()
         {
-            return new GeneratorBasicTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.minHeight, this.maxHeight, false, this.leafLayers);
+            return new GeneratorBasicTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.minHeight, this.maxHeight, false, this.leafLayers, this.leafRadius);
         }
     }
     
     private boolean updateNeighbours;
     private int leafLayers;
+    private int leafRadius;
     private final IBlockPosQuery placeVinesOn; //This shouldn't need to be configurable, however it can be if necessary
     
-    public GeneratorBasicTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, int minHeight, int maxHeight, boolean updateNeighbours, int leafLayers)
+    public GeneratorBasicTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, int minHeight, int maxHeight, boolean updateNeighbours, int leafLayers, int leafRadius)
     {
         super(amountPerChunk, placeOn, replace, log, leaves, vine, minHeight, maxHeight);
         this.updateNeighbours = updateNeighbours;
         this.leafLayers = leafLayers;
+        this.leafRadius = leafRadius;
         this.placeVinesOn = BlockQueries.air;
     }
     
@@ -140,7 +145,7 @@ public class GeneratorBasicTree extends GeneratorTreeBase
                         int currentLayer = y - (pos.getY() + height);
                         //Uses integer division truncation (-3 / 2 = -1, -2 / 2 = -1) to reduce
                         //the radius closer to the top of the tree. (2, 2, 1, 1)
-                        int leavesRadius =  1 - currentLayer / 2;
+                        int leavesRadius =  1 - currentLayer / this.leafRadius;
 
                         for (int x = pos.getX() - leavesRadius; x <= pos.getX() + leavesRadius; x++)
                         {
@@ -204,7 +209,7 @@ public class GeneratorBasicTree extends GeneratorTreeBase
                             int currentLayer = y - (pos.getY() + height);
                             //Uses integer division truncation (-3 / 2 = -1, -2 / 2 = -1) to reduce
                             //the radius closer to the top of the tree. (3, 3, 2, 2)
-                            int leavesRadius = 2 - currentLayer / 2;
+                            int leavesRadius = 2 - currentLayer / this.leafRadius;
 
                             for (int x = pos.getX() - leavesRadius; x <= pos.getX() + leavesRadius; x++)
                             {
