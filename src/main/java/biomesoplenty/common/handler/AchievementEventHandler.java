@@ -94,6 +94,12 @@ public class AchievementEventHandler
         {
             player.triggerAchievement(BOPAchievements.obtain_deathbloom);
         }
+        
+        //Godsend Achievement
+        if (block != null && state == BlockBOPFlower.paging.getVariantState(BOPFlowers.WILTED_LILY))
+        {
+            player.triggerAchievement(BOPAchievements.obtain_wilted_lily);
+        }
 
         //Stalk Market Achievement
         if (item != null && item == BOPItems.turnip)
