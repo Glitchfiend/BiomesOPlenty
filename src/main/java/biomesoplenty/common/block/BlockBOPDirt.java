@@ -99,6 +99,13 @@ public class BlockBOPDirt extends Block implements IBOPBlock, ISustainsPlantType
         return (Boolean.TRUE.equals(state.getValue(COARSE)) ? 8 : 0) | ((BOPDirtType) state.getValue(VARIANT)).ordinal();
     }
     
+    // our blocks usually drop their current state as opposed to a single 'default' state
+    @Override
+    public int damageDropped(IBlockState state)
+    {
+        return this.getMetaFromState(state);
+    }
+    
     @Override
     public boolean canSustainPlantType(IBlockAccess world, BlockPos pos, EnumPlantType plantType)
     {        
