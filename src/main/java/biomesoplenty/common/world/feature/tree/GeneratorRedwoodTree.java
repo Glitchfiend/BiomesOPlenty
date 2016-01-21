@@ -36,7 +36,7 @@ public class GeneratorRedwoodTree extends GeneratorTreeBase
             this.minHeight = 40;
             this.maxHeight = 60;
             this.placeOn = BlockQueries.fertile;
-            this.replace = BlockQueries.airOrLeaves;
+            this.replace = BlockQueries.replaceable;
             this.log = BlockBOPLog.paging.getVariantState(BOPWoods.REDWOOD);
             this.leaves = BlockBOPLeaves.paging.getVariantState(BOPTrees.REDWOOD);
             this.vine = null;
@@ -148,11 +148,13 @@ public class GeneratorRedwoodTree extends GeneratorTreeBase
         // Move up to space above ground
         pos = pos.up();
         
+        GeneratorSpike spikeGenerator = (new GeneratorSpike.Builder().with(this.log).replace(BlockQueries.anything).minRadius(4).maxRadius(4).create());
+        
         // check that there's room and if the blocks below are suitable
-        if (!this.canPlaceHere(world, pos, height, 4)) {return false;}
+        if (!this.canPlaceHere(world, pos, height, 1) || !spikeGenerator.canPlaceHere(world, pos, height, 4)) {return false;}
         
         //Generate the base of the tree
-        (new GeneratorSpike.Builder().with(this.log).minRadius(4).maxRadius(4).create()).generate(world, random, pos);
+        spikeGenerator.generate(world, random, pos);
         
         BlockPos trunkTop = pos;
         //Move upwards until the block above this is air

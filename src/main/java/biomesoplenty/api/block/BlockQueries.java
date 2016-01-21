@@ -23,6 +23,7 @@ public class BlockQueries
     public static IBlockPosQuery surfaceBlocks;
     public static IBlockPosQuery groundBlocks;
     public static IBlockPosQuery solid;
+    public static IBlockPosQuery replaceable;
     
     public static IBlockPosQuery fertile;
     public static IBlockPosQuery fertileOrNetherrack;

@@ -73,6 +73,17 @@ public class ModBlockQueries
             }
         }; 
         
+        //Match replacable blocks
+        replaceable = new IBlockPosQuery()
+        {
+            // Block.setBlockUnbreakable sets the hardness value to -1.0F
+            @Override
+            public boolean matches(World world, BlockPos pos)
+            {
+                return world.getBlockState(pos).getBlock().isReplaceable(world, pos);
+            }
+        }; 
+        
         air = new BlockQueryMaterial(Material.air);  
         airOrLeaves = new BlockQueryMaterial(Material.air, Material.leaves);  
         
