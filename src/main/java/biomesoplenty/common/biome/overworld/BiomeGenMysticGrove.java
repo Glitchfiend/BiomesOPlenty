@@ -53,6 +53,7 @@ public class BiomeGenMysticGrove extends BOPBiome
 
         this.canGenerateRivers = false;
         this.canGenerateVillages = false;
+        this.canSpawnInBiome = false;
         
         this.addWeight(BOPClimates.WET_TEMPERATE, 1);
         

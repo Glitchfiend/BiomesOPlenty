@@ -66,6 +66,7 @@ public class BiomeGenOminousWoods extends BOPBiome
         
         this.canGenerateRivers = false;
         this.canGenerateVillages = false;
+        this.canSpawnInBiome = false;
         
         this.addWeight(BOPClimates.COLD_SWAMP, 1);
         

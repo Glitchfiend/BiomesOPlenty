@@ -4,8 +4,8 @@
     "description": "Adds over 75 new biomes, blocks, and more!",
     "version": "${mod_version}",
     "mcversion": "${minecraft_version}",
-    "url": "www.minecraftforum.net/topic/1495041-",
+    "url": "http://files.minecraftforge.net/maven/com/github/glitchfiend/biomesoplenty/BiomesOPlenty/",
     "authorList": ["Adubbz", "Amnet", "Cheeserolls", "Forstride", "ted80"],
-    "credits": "enchilado, gamax92, Soaryn, Tim Rurkowski",
+    "credits": "Tim Rurkowski, gamax92, and many more",
     "logoFile": "assets/biomesoplenty/textures/gui/logo.png"
 }]

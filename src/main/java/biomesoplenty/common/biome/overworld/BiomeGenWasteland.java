@@ -60,6 +60,7 @@ public class BiomeGenWasteland extends BOPBiome
 
         this.canGenerateRivers = false;
         this.canGenerateVillages = false;
+        this.canSpawnInBiome = false;
         
         this.addWeight(BOPClimates.HOT_DESERT, 2);
         
