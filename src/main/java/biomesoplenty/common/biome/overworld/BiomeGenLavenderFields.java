@@ -50,6 +50,8 @@ public class BiomeGenLavenderFields extends BOPBiome
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(2);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
+        grassGenerator.add("shortgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
+        grassGenerator.add("mediumgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());
         grassGenerator.add("wheatgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.WHEATGRASS).create());
         grassGenerator.add("tallgrass", 3, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).create());
          

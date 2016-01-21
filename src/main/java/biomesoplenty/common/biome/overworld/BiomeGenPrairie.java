@@ -19,6 +19,7 @@ import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import biomesoplenty.common.world.feature.tree.GeneratorTaigaTree;
 import net.minecraft.block.BlockPlanks.EnumType;
+import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.util.BlockPos;
@@ -58,6 +59,8 @@ public class BiomeGenPrairie extends BOPBiome
         this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
         flowerGenerator.add("white_anemones", 1, (new GeneratorFlora.Builder().with(BOPFlowers.WHITE_ANEMONE).generationAttempts(16).create()));
         flowerGenerator.add("goldenrods", 2, (new GeneratorFlora.Builder().with(BOPFlowers.GOLDENROD).generationAttempts(16).create()));
+        flowerGenerator.add("houstonia", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.HOUSTONIA).create()));
+        flowerGenerator.add("oxeye_daisy", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.OXEYE_DAISY).create()));
         
         // other plants
         this.addGenerator("berry_bushes", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(0.4F).with(BOPPlants.BERRYBUSH).generationAttempts(8).create());

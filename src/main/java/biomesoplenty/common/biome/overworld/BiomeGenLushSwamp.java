@@ -9,6 +9,7 @@
 package biomesoplenty.common.biome.overworld;
 
 import net.minecraft.block.BlockDoublePlant;
+import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.BlockFlower.EnumFlowerType;
@@ -80,6 +81,8 @@ public class BiomeGenLushSwamp extends BOPBiome
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(5.0F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
+        grassGenerator.add("shortgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
+        grassGenerator.add("mediumgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());
         grassGenerator.add("wheatgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.WHEATGRASS).create());
         grassGenerator.add("dampgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.DAMPGRASS).create());
         grassGenerator.add("tallgrass", 2, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).create());
@@ -88,8 +91,9 @@ public class BiomeGenLushSwamp extends BOPBiome
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.7F);
         this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
         flowerGenerator.add("blue_hydrangeas", 3, (new GeneratorFlora.Builder().with(BOPFlowers.BLUE_HYDRANGEA).create()));
-        flowerGenerator.add("swampflower", 1, (new GeneratorFlora.Builder()).with(BOPFlowers.SWAMPFLOWER).create());
+        flowerGenerator.add("swampflower", 2, (new GeneratorFlora.Builder()).with(BOPFlowers.SWAMPFLOWER).create());
         flowerGenerator.add("blue_orchid", 1, (new GeneratorFlora.Builder().with(EnumFlowerType.BLUE_ORCHID).create()));
+        flowerGenerator.add("houstonia", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.HOUSTONIA).create()));
         
         // other plants
         this.addGenerator("koru", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.3F).with(BOPPlants.KORU).create());

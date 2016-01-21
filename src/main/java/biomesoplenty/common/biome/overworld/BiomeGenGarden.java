@@ -9,6 +9,7 @@
 package biomesoplenty.common.biome.overworld;
 
 import net.minecraft.block.BlockDoublePlant;
+import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockFlower.EnumFlowerType;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.init.Blocks;
@@ -81,6 +82,7 @@ public class BiomeGenGarden extends BOPBiome
         flowerGenerator.add("white_anemones", 6, (new GeneratorFlora.Builder().with(BOPFlowers.WHITE_ANEMONE).create()));
         flowerGenerator.add("blue_hydrangeas", 3, (new GeneratorFlora.Builder().with(BOPFlowers.BLUE_HYDRANGEA).create()));
         flowerGenerator.add("sunflowers", 1, (new GeneratorDoubleFlora.Builder()).with(BlockDoublePlant.EnumPlantType.SUNFLOWER).create());
+        flowerGenerator.add("oxeye_daisy", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.OXEYE_DAISY).create()));
         
         // gem
         this.addGenerator("peridot", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.PERIDOT).create());

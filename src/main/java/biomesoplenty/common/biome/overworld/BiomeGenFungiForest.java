@@ -8,6 +8,7 @@
 
 package biomesoplenty.common.biome.overworld;
 
+import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.entity.passive.EntityMooshroom;
@@ -90,7 +91,8 @@ public class BiomeGenFungiForest extends BOPBiome
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(1.0F);        
         this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
         flowerGenerator.add("swampflowers", 1, (new GeneratorFlora.Builder().with(BOPFlowers.SWAMPFLOWER).create()));
-
+        flowerGenerator.add("oxeye_daisy", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.OXEYE_DAISY).create()));
+        
         // shrooms
         GeneratorWeighted mushroomGenerator = new GeneratorWeighted(4.0F);
         this.addGenerator("mushrooms", GeneratorStage.SHROOM, mushroomGenerator);
