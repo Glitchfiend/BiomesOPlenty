@@ -155,7 +155,7 @@ public class GeneratorSpike extends GeneratorReplacing
         {
             return false;
         }
-        for (int y = pos.getY(); y <= pos.getY() + 8; ++y)
+        for (int y = pos.getY(); y <= pos.getY() + height; ++y)
         {
             for (int x = pos.getX() - radius; x <= pos.getX() + radius; ++x)
             {
