@@ -264,6 +264,10 @@ public class AchievementEventHandler
         //Search every item in the player's main inventory for a biome radar
         for (ItemStack stack : player.inventory.mainInventory)
         {
+            //If the stack is null, skip it
+            if (stack == null)
+                continue;
+            
             if (stack.getItem() == BOPItems.biome_finder && stack.hasTagCompound() && stack.getTagCompound().hasKey("biomeIDToFind"))
             {
                 int biomeIdToFind = stack.getTagCompound().getInteger("biomeIDToFind");
