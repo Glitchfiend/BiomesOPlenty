@@ -9,6 +9,8 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.IBOPBlock;
+import biomesoplenty.common.block.BlockBOPGrass.BOPGrassType;
+import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.item.ItemBOPLilypad;
 import net.minecraft.block.BlockLilyPad;
 import net.minecraft.block.properties.IProperty;
@@ -18,6 +20,12 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.IStringSerializable;
+import net.minecraft.world.ColorizerFoliage;
+import net.minecraft.world.ColorizerGrass;
+import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.biome.BiomeColorHelper;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockBOPLilypad extends BlockLilyPad implements IBOPBlock
 {
@@ -88,6 +96,41 @@ public class BlockBOPLilypad extends BlockLilyPad implements IBOPBlock
     public net.minecraftforge.common.EnumPlantType getPlantType(net.minecraft.world.IBlockAccess world, BlockPos pos)
     {
         return net.minecraftforge.common.EnumPlantType.Water;
+    }
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public int getBlockColor()
+    {
+        return 0xFFFFFF;
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public int getRenderColor(IBlockState state)
+    {
+        switch ((LilypadType) state.getValue(VARIANT))
+        {
+            case DUCKWEED:
+                return ColorizerGrass.getGrassColor(0.5D, 1.0D);
+            
+            default:
+                return 0xFFFFFF;
+        }
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public int colorMultiplier(IBlockAccess worldIn, BlockPos pos, int renderPass)
+    {
+        switch ((LilypadType) worldIn.getBlockState(pos).getValue(VARIANT))
+        {
+            case DUCKWEED:
+                return BiomeColorHelper.getGrassColorAtPos(worldIn, pos);
+            
+            default:
+                return 0xFFFFFF;
+        }
     }
     
 }
