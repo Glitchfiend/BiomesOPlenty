@@ -47,7 +47,6 @@ public class BiomeGenMoor extends BOPBiome
         
         this.addWeight(BOPClimates.COLD_SWAMP, 7);
         
-        this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
           
         // mud

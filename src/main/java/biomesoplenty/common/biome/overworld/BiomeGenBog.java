@@ -57,7 +57,6 @@ public class BiomeGenBog extends BOPBiome
         
         this.addWeight(BOPClimates.COLD_SWAMP, 7);
         
-        this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
         this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));
         

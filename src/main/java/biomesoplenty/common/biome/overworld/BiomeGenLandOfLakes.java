@@ -62,9 +62,7 @@ public class BiomeGenLandOfLakes extends BOPBiome
         this.addWeight(BOPClimates.WET_TEMPERATE, 3);
         this.addWeight(BOPClimates.COOL_TEMPERATE, 3);
         
-        this.spawnableCreatureList.clear(); // none of your regular farmyard critters here
-        this.spawnableWaterCreatureList.clear();
-        this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));        
+        this.spawnableWaterCreatureList.clear();       
         
      // gravel
         this.addGenerator("gravel", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(4).maxRadius(7).with(Blocks.gravel.getDefaultState()).create());

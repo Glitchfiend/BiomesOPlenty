@@ -52,8 +52,6 @@ public class BiomeGenLushDesert extends BOPBiome
         
         this.addWeight(BOPClimates.HOT_DESERT, 5);
         
-        this.spawnableCreatureList.clear();
-        
         // trees
         IBlockPosQuery emptyHardenedClay = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();
         GeneratorWeighted treeGenerator = new GeneratorWeighted(3);

@@ -29,7 +29,7 @@ public class BiomeGenDeciduousForest extends BOPBiome
 
         this.setColor(0xC1B749);
         this.setTemperatureRainfall(0.6F, 0.8F);
-        this.addWeight(BOPClimates.WARM_TEMPERATE, 10);  
+        this.addWeight(BOPClimates.COOL_TEMPERATE, 7);  
         
         this.canGenerateVillages = false;
          

@@ -62,6 +62,7 @@ public class BiomeGenBambooForest extends BOPBiome
         
         this.addWeight(BOPClimates.TROPICAL, 3);
         
+        this.spawnableCreatureList.clear();
         this.spawnableCreatureList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
         
         this.topBlock = Blocks.dirt.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.PODZOL);
