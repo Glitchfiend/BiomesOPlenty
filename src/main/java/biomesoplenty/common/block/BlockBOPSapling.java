@@ -163,10 +163,10 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable {
             	return new GeneratorBasicTree.Builder().log(BlockPlanks.EnumType.BIRCH).leaves(BOPTrees.ORANGE_AUTUMN).minHeight(5).maxHeight(8).create();
             case BAMBOO:
             	return new GeneratorBulbTree.Builder().minHeight(6).maxHeight(18).log(BOPBlocks.bamboo.getDefaultState()).leaves(BOPTrees.BAMBOO).create();
-            case MAGIC: //Not implemented
-                return new WorldGenTrees(true);
-            case UMBRAN: //Not implemented
-                return new WorldGenTrees(true);
+            case MAGIC:
+                return new GeneratorBasicTree.Builder().log(BOPWoods.MAGIC).leaves(BOPTrees.MAGIC).create();
+            case UMBRAN:
+                return new GeneratorTaigaTree.Builder().log(BOPWoods.UMBRAN).leaves(BOPTrees.UMBRAN).maxHeight(20).create();
             case DEAD:
             	return new GeneratorBasicTree.Builder().log(BlockPlanks.EnumType.OAK).leaves(BOPTrees.DEAD).minHeight(5).maxHeight(8).create();
             case FIR:
@@ -179,8 +179,8 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable {
             	return new GeneratorBasicTree.Builder().log(BOPWoods.CHERRY).leaves(BOPTrees.PINK_CHERRY).create();
             case WHITE_CHERRY:
             	return new GeneratorBasicTree.Builder().log(BOPWoods.CHERRY).leaves(BOPTrees.WHITE_CHERRY).create();
-            case MAPLE: //Not implemented
-                return new WorldGenTrees(true);
+            case MAPLE:
+                return new GeneratorBasicTree.Builder().log(BlockPlanks.EnumType.OAK).leaves(BOPTrees.MAPLE).minHeight(5).maxHeight(10).create();
             case HELLBARK: //Not implemented
                 return new WorldGenTrees(true);
             case FLOWERING: //Not implemented
