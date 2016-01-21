@@ -4,6 +4,6 @@
         "particle": "blocks/dirt",
         "bottom": "blocks/dirt",
         "top": "biomesoplenty:blocks/grass_daisy_top",
-        "side": "blocks/grass_side_snowed"
+        "side": "biomesoplenty:blocks/grass_daisy_side_snowed"
     }
 }
