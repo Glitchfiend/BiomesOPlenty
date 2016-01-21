@@ -45,7 +45,7 @@ public class BiomeGenRedwoodForest extends BOPBiome
         
         // trees
         //
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(20.0F);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(25.0F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("redwood", 5, (new GeneratorRedwoodTree.Builder()).log(BOPWoods.REDWOOD).leaves(BOPTrees.REDWOOD).create());
         treeGenerator.add("oak_bush", 1, (new GeneratorBush.Builder()).maxHeight(2).create());
