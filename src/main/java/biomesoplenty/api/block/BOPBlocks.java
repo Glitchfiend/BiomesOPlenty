@@ -138,7 +138,7 @@ public class BOPBlocks
     public static Block double_plant;
     
     public static Block honey_block;
-    public static Block jar_block;
+    public static Block terrarium;
     
     public static Block honey;
     public static Fluid honey_fluid;

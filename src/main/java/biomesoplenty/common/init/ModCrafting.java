@@ -8,16 +8,6 @@
 
 package biomesoplenty.common.init;
 
-import com.google.common.base.CaseFormat;
-
-import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.common.block.*;
-import biomesoplenty.common.crafting.BiomeEssenceRecipe;
-import biomesoplenty.common.enums.*;
-import biomesoplenty.common.handler.FurnaceFuelHandler;
-import biomesoplenty.common.item.ItemDart;
-import biomesoplenty.common.item.ItemJarFilled;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
@@ -25,6 +15,39 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
+import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.common.block.BlockBOPBones;
+import biomesoplenty.common.block.BlockBOPDoor;
+import biomesoplenty.common.block.BlockBOPDoublePlant;
+import biomesoplenty.common.block.BlockBOPFence;
+import biomesoplenty.common.block.BlockBOPFenceGate;
+import biomesoplenty.common.block.BlockBOPFlower;
+import biomesoplenty.common.block.BlockBOPGrass;
+import biomesoplenty.common.block.BlockBOPHalfOtherSlab;
+import biomesoplenty.common.block.BlockBOPHalfWoodSlab;
+import biomesoplenty.common.block.BlockBOPHive;
+import biomesoplenty.common.block.BlockBOPLeaves;
+import biomesoplenty.common.block.BlockBOPLog;
+import biomesoplenty.common.block.BlockBOPMushroom;
+import biomesoplenty.common.block.BlockBOPPlanks;
+import biomesoplenty.common.block.BlockBOPPlant;
+import biomesoplenty.common.block.BlockBOPSapling;
+import biomesoplenty.common.block.BlockBOPSeaweed;
+import biomesoplenty.common.block.BlockBOPTerrarium;
+import biomesoplenty.common.block.BlockBOPWoodStairs;
+import biomesoplenty.common.crafting.BiomeEssenceRecipe;
+import biomesoplenty.common.enums.BOPFlowers;
+import biomesoplenty.common.enums.BOPGems;
+import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.enums.BOPTrees;
+import biomesoplenty.common.enums.BOPWoods;
+import biomesoplenty.common.handler.FurnaceFuelHandler;
+import biomesoplenty.common.item.ItemDart;
+import biomesoplenty.common.item.ItemJarFilled;
+
+import com.google.common.base.CaseFormat;
 
 public class ModCrafting
 {
@@ -212,13 +235,14 @@ public class ModCrafting
         //Plants
         GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.shroompowder), new Object[] {new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.TOADSTOOL.ordinal())});
         GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.jar_filled, 1, ItemJarFilled.JarContents.POISON.ordinal()), new Object[] {BlockBOPPlant.paging.getVariantItem(BOPPlants.POISONIVY), new ItemStack(BOPItems.jar_empty)});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.jar_filled, 1, ItemJarFilled.JarContents.TERRARIUM.ordinal()), new Object[] {new ItemStack(BOPBlocks.moss), new ItemStack(BOPItems.jar_empty)});
         GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.ricebowl), new Object[] {Items.bowl, BlockBOPPlant.paging.getVariantItem(BOPPlants.WILDRICE)});
         GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.saladfruit), new Object[] {Items.bowl, BOPItems.berries, Items.apple, Items.melon});
         GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.saladveggie), new Object[] {Items.bowl, BOPItems.wildcarrots, Items.carrot, Items.potato});
         GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.saladshroom), new Object[] {Items.bowl, new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.TOADSTOOL.ordinal()), new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.PORTOBELLO.ordinal()), new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.BLUE_MILK_CAP.ordinal())});
 
-        
+        //Terrariums
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.FERN.ordinal()), new Object[] {"blockGrass", new ItemStack(Blocks.tallgrass, 1, 2), new ItemStack(BOPItems.jar_empty)}));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.MUSHROOM.ordinal()), new Object[] {"blockGrass", new ItemStack(Blocks.red_mushroom), new ItemStack(BOPItems.jar_empty)}));
     }
     
     
@@ -263,6 +287,13 @@ public class ModCrafting
         
         OreDictionary.registerOre("blockMeatRaw", new ItemStack(BOPBlocks.flesh, 1, 0));
         
+        OreDictionary.registerOre("blockGrass", new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.LOAMY.ordinal()));
+        OreDictionary.registerOre("blockGrass", new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.SILTY.ordinal()));
+        OreDictionary.registerOre("blockGrass", new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.SANDY.ordinal()));
+        OreDictionary.registerOre("blockGrass", new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.DAISY.ordinal()));
+        OreDictionary.registerOre("blockGrass", new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.ORIGIN.ordinal()));
+        OreDictionary.registerOre("blockGrass", new ItemStack(Blocks.grass));
+        
         OreDictionary.registerOre("foodMushroompowder", new ItemStack(BOPItems.shroompowder));
         OreDictionary.registerOre("foodFruitsalad", new ItemStack(BOPItems.saladfruit));
         OreDictionary.registerOre("foodVeggiesalad", new ItemStack(BOPItems.saladveggie));
@@ -294,7 +325,6 @@ public class ModCrafting
         
         OreDictionary.registerOre("record", new ItemStack(BOPItems.record_corruption));
         OreDictionary.registerOre("record", new ItemStack(BOPItems.record_wanderer));
-        
         
         for (BOPGems gem : BOPGems.values())
         {

@@ -10,7 +10,11 @@
         "5": "biomesoplenty:blocks/jar_bottom_side",
         "6": "biomesoplenty:blocks/jar_bottom",
         "7": "biomesoplenty:blocks/jar_stopper_side",
-        "8": "biomesoplenty:blocks/jar_stopper_top"
+        "8": "biomesoplenty:blocks/jar_stopper_top",
+		"9": "biomesoplenty:blocks/jar_fern_grass_side",
+        "10": "biomesoplenty:blocks/jar_fern_grass_top",
+        "11": "biomesoplenty:blocks/jar_fern_grass_bottom",
+		"12": "biomesoplenty:blocks/jar_fern"
     },
     "elements": [
         {
@@ -61,6 +65,39 @@
                 "west": { "texture": "#7", "uv": [ 6.0, 3.0, 11.0, 6.0 ] },
                 "up": { "texture": "#8", "uv": [ 6.0, 5.0, 11.0, 10.0 ] },
                 "down": { "texture": "#8", "uv": [ 6.0, 5.0, 11.0, 10.0 ] }
+            }
+        },
+		{
+            "name": "Plant Base",
+            "from": [ 5.0, 1.0, 5.0 ], 
+            "to": [ 12.0, 5.0, 12.0 ], 
+            "faces": {
+                "north": { "texture": "#9", "uv": [ 5.0, 10.0, 12.0, 14.0 ] },
+                "east": { "texture": "#9", "uv": [ 5.0, 10.0, 12.0, 14.0 ] },
+                "south": { "texture": "#9", "uv": [ 5.0, 10.0, 12.0, 14.0 ] },
+                "west": { "texture": "#9", "uv": [ 5.0, 10.0, 12.0, 14.0 ] },
+                "up": { "texture": "#10", "uv": [ 5.0, 5.0, 12.0, 12.0 ] },
+                "down": { "texture": "#11", "uv": [ 5.0, 5.0, 12.0, 12.0 ] }
+            }
+        },
+		{
+            "name": "Plant Cross 1",
+            "from": [ 5.0, 5.0, 8.0 ], 
+            "to": [ 12.0, 10.0, 8.0 ], 
+            "rotation": { "origin": [ 8.0, 8.0, 8.0 ], "axis": "y", "angle": -45.0 },
+            "faces": {
+                "north": { "texture": "#12", "uv": [ 5.0, 5.0, 12.0, 10.0 ] },
+                "south": { "texture": "#12", "uv": [ 5.0, 5.0, 12.0, 10.0 ] }
+            }
+        },
+        {
+            "name": "Plant Cross 2",
+            "from": [ 5.0, 5.0, 8.0 ], 
+            "to": [ 12.0, 10.0, 8.0 ], 
+            "rotation": { "origin": [ 8.0, 8.0, 8.0 ], "axis": "y", "angle": 45.0 },
+            "faces": {
+                "north": { "texture": "#12", "uv": [ 5.0, 5.0, 12.0, 10.0 ] },
+                "south": { "texture": "#12", "uv": [ 5.0, 5.0, 12.0, 10.0 ] }
             }
         }
     ]

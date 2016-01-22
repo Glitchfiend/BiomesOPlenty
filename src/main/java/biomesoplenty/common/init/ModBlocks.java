@@ -221,7 +221,7 @@ public class ModBlocks
         double_plant =      registerBlock( new BlockBOPDoublePlant(), "double_plant" );
         
         honey_block =       registerBlock( new BlockBOPHoney(), "honey_block" );
-        jar_block =        registerBlock( new BlockBOPJar(), "jar_block" );
+        terrarium =        registerBlock( new BlockBOPTerrarium(), "terrarium" );
         
         
         // fluids
