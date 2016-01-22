@@ -67,6 +67,7 @@ public class BlockBOPFruit extends BlockBOPDecoration
         this.setStepSound(Block.soundTypeGrass);
         this.setBlockBoundsByRadiusAndHeight(0.25F, 0.25F, true);        
         this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, FruitType.APPLE) );
+        this.setCreativeTab(null);
     }
 
     // map from state to meta and vice verca

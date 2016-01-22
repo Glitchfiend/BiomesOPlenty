@@ -170,7 +170,7 @@ public class ItemJarFilled extends Item
                 double distZ = hitZ - player.posZ;                
                 double a = 0.9D;
                 Vec3 releasePoint = new Vec3(player.posX + a * distX, player.posY + (double)player.getEyeHeight() + a * distY, player.posZ + a * distZ);
-                return this.releasePixie(stack, world, player, releasePoint);
+                return this.releasePixie(stack, world, player, releasePoint);	
                 
             // TODO: are you supposed to be able to pour out honey? How much should you get?  Why don't we just use buckets?
             case HONEY: case POISON: case TERRARIUM: default:
