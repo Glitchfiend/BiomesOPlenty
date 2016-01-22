@@ -125,6 +125,7 @@ item.jar_empty.name=Empty Jar
 item.jar_filled_honey.name=Honey Jar
 item.jar_filled_pixie.name=Pixie Jar
 item.jar_filled_poison.name=Poison Extract Jar
+item.jar_filled_terrarium.name=Terrarium Jar
 item.lush_flower_band.name=Lush Flower Band
 item.magic_door.name=Magic Door
 item.mahogany_door.name=Mahogany Door

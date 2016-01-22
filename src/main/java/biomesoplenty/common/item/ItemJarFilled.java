@@ -31,7 +31,7 @@ public class ItemJarFilled extends Item
     
     public enum JarContents implements IStringSerializable
     {
-        HONEY, POISON, PIXIE;
+        HONEY, POISON, PIXIE, TERRARIUM;
         
         @Override
         public String getName()
@@ -151,7 +151,7 @@ public class ItemJarFilled extends Item
                 }
                 return stack;
                 
-            case HONEY: case POISON: default:
+            case HONEY: case POISON: case TERRARIUM: default:
                 return stack;
         }
     }
@@ -173,7 +173,7 @@ public class ItemJarFilled extends Item
                 return this.releasePixie(stack, world, player, releasePoint);
                 
             // TODO: are you supposed to be able to pour out honey? How much should you get?  Why don't we just use buckets?
-            case HONEY: case POISON: default:
+            case HONEY: case POISON: case TERRARIUM: default:
                 return false;
         }
     }
