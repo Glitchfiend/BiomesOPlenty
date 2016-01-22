@@ -14,7 +14,11 @@ import org.apache.commons.lang3.tuple.Pair;
 
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.util.biome.GeneratorUtils;
+import biomesoplenty.common.util.block.BlockQuery;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryBlock;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryParseException;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryState;
 import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import net.minecraft.block.Block;
@@ -34,10 +38,19 @@ public class GeneratorBasicTree extends GeneratorTreeBase
     public static class Builder extends GeneratorTreeBase.InnerBuilder<Builder, GeneratorBasicTree> implements IGeneratorBuilder<GeneratorBasicTree>
     {        
         protected int leafLayers;
+        protected int leavesOffset;
         protected int minLeavesRadius;
+        protected IBlockPosQuery placeVinesOn;
         
         public Builder leafLayers(int a) {this.leafLayers = a; return this.self();}
+        public Builder leavesOffset(int a) {this.leavesOffset = a; return this.self();}
         public Builder minLeavesRadius(int a) {this.minLeavesRadius = a; return this.self();}
+        
+        public Builder placeVinesOn(IBlockPosQuery a) {this.placeVinesOn = a; return this.self();}
+        public Builder placeVinesOn(String a) throws BlockQueryParseException {this.placeVinesOn = BlockQuery.parseQueryString(a); return this.self();}
+        public Builder placeVinesOn(Block a) {this.placeVinesOn = new BlockQueryBlock(a); return this.self();}
+        public Builder placeVinesOn(IBlockState a) {this.placeVinesOn = new BlockQueryState(a); return this.self();}
+        public Builder placeVinesOn(Material... a) {this.placeVinesOn = new BlockQueryMaterial(a); return this.self();}
         
         public Builder()
         {
@@ -51,28 +64,32 @@ public class GeneratorBasicTree extends GeneratorTreeBase
             this.minHeight = 4;
             this.maxHeight = 7;
             this.leafLayers = 4;
+            this.leavesOffset = 1;
             this.minLeavesRadius = 1;
+            this.placeVinesOn = BlockQueries.air;
         }
 
         @Override
         public GeneratorBasicTree create()
         {
-            return new GeneratorBasicTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.minHeight, this.maxHeight, false, this.leafLayers, this.minLeavesRadius);
+            return new GeneratorBasicTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.minHeight, this.maxHeight, false, this.leafLayers, this.leavesOffset, this.minLeavesRadius, this.placeVinesOn);
         }
     }
     
     private boolean updateNeighbours;
     private int leafLayers;
+    protected int leavesOffset;
     private int minLeavesRadius;
-    private final IBlockPosQuery placeVinesOn; //This shouldn't need to be configurable, however it can be if necessary
+    private final IBlockPosQuery placeVinesOn;
     
-    public GeneratorBasicTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, int minHeight, int maxHeight, boolean updateNeighbours, int leafLayers, int minLeavesRadius)
+    public GeneratorBasicTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, int minHeight, int maxHeight, boolean updateNeighbours, int leafLayers, int leavesOffset, int minLeavesRadius, IBlockPosQuery placeVinesOn)
     {
         super(amountPerChunk, placeOn, replace, log, leaves, vine, minHeight, maxHeight);
         this.updateNeighbours = updateNeighbours;
+        this.leavesOffset = leavesOffset;
         this.leafLayers = leafLayers;
         this.minLeavesRadius = minLeavesRadius;
-        this.placeVinesOn = BlockQueries.air;
+        this.placeVinesOn = placeVinesOn;
     }
     
     @Override
@@ -209,7 +226,7 @@ public class GeneratorBasicTree extends GeneratorTreeBase
                             int currentLayer = y - (pos.getY() + height);
                             //Uses integer division truncation (-3 / 2 = -1, -2 / 2 = -1) to reduce
                             //the radius closer to the top of the tree. (3, 3, 2, 2)
-                            int leavesRadius = (this.minLeavesRadius + 1) - currentLayer / 2;
+                            int leavesRadius = (this.minLeavesRadius + this.leavesOffset) - currentLayer / 2;
 
                             for (int x = pos.getX() - leavesRadius; x <= pos.getX() + leavesRadius; x++)
                             {
