@@ -40,7 +40,7 @@ public class BiomeGenSacredSprings extends BOPBiome
         
         this.addWeight(BOPClimates.TROPICAL, 2);
         
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
         
         // trees
         this.addGenerator("sacred_oak_trees", GeneratorStage.POST, (new GeneratorBigTree.Builder()).amountPerChunk(0.2F).log(BOPWoods.SACRED_OAK).leaves(BOPTrees.SACRED_OAK).minHeight(35).maxHeight(40).trunkWidth(2).foliageDensity(2.0D).create());
@@ -65,7 +65,8 @@ public class BiomeGenSacredSprings extends BOPBiome
         
         // other plants
         this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(2.5F).with(BOPPlants.LEAFPILE).create());
-    
+        this.addGenerator("rafflesia", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BOPPlants.RAFFLESIA).create());
+        
         // water plants
         this.addGenerator("mixed_lily", GeneratorStage.LILYPAD, (new GeneratorMixedLily.Builder()).amountPerChunk(1.0F).generationAttempts(96).create());
     

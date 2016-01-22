@@ -10,6 +10,7 @@
         "variant=tinycactus": { "model": "biomesoplenty:tinycactus" },
         "variant=witherwart": { "model": "biomesoplenty:witherwart" },
         "variant=reed": { "model": "biomesoplenty:reed" },
-        "variant=root": { "model": "biomesoplenty:root" }
+        "variant=root": { "model": "biomesoplenty:root" },
+		"variant=rafflesia": { "model": "biomesoplenty:rafflesia" }
     }
 }

@@ -181,7 +181,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
                 ret.add(new ItemStack(BOPItems.wildcarrots));
                 break;
                 
-            case CATTAIL: case RIVERCANE: case TINYCACTUS: case WITHERWART: case REED: case ROOT:
+            case CATTAIL: case RIVERCANE: case TINYCACTUS: case WITHERWART: case REED: case ROOT: case RAFFLESIA:
                 // these variants drop themselves as items
                 ret.add(paging.getVariantItem(plant));
                 break;
@@ -222,7 +222,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
         
         switch (plant)
         {
-            case THORN: case WILDRICE: case CATTAIL: case RIVERCANE: case TINYCACTUS: case WITHERWART:
+            case THORN: case WILDRICE: case CATTAIL: case RIVERCANE: case TINYCACTUS: case WITHERWART: case RAFFLESIA:
                 return false;
             
             default:

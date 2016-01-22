@@ -49,7 +49,8 @@ public class BiomeGenTropicalRainforest extends BOPBiome
     
         this.addWeight(BOPClimates.TROPICAL, 7);
         
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
+        this.spawnableCreatureList.clear();
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
         
         // quicksand
         this.addGenerator("quicksand_patches", GeneratorStage.SAND, (new GeneratorSplotches.Builder()).amountPerChunk(0.6F).splotchSize(16).with(BOPBlocks.sand.getDefaultState().withProperty(BlockBOPSand.VARIANT, BlockBOPSand.SandType.QUICKSAND)).splotchSize(20).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
@@ -71,6 +72,7 @@ public class BiomeGenTropicalRainforest extends BOPBiome
         this.addGenerator("poison_ivy", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BOPPlants.POISONIVY).create());
         this.addGenerator("double_fern", GeneratorStage.FLOWERS, (new GeneratorDoubleFlora.Builder()).amountPerChunk(0.2F).with(BlockDoublePlant.EnumPlantType.FERN).create());
         this.addGenerator("sprouts", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).with(BOPPlants.SPROUT).create());
+        this.addGenerator("rafflesia", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.3F).with(BOPPlants.RAFFLESIA).create());
         
         // shrooms
         this.addGenerator("brown_mushrooms", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(Blocks.brown_mushroom.getDefaultState()).create());

@@ -36,19 +36,19 @@ public class BiomeGenEucalyptusForest extends BOPBiome
         this.terrainSettings.avgHeight(64).heightVariation(10, 20); 
         
         this.setColor(0x9DCC70);
-        this.setTemperatureRainfall(0.9F, 0.1F);
+        this.setTemperatureRainfall(0.9F, 0.9F);
         
         this.canGenerateVillages = false;
 
         this.addWeight(BOPClimates.TROPICAL, 5);
         
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
                             
         // trees
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(5);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(10);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("eucalyptus_bush", 4, (new GeneratorBush.Builder()).log(BlockPlanks.EnumType.JUNGLE).leaves(BlockPlanks.EnumType.JUNGLE).maxHeight(2).create());        
-        treeGenerator.add("tall_eucalyptus", 1, (new GeneratorBulbTree.Builder()).minHeight(10).maxHeight(25).log(BlockPlanks.EnumType.JUNGLE).leaves(BlockPlanks.EnumType.JUNGLE).vine(null).create());
+        treeGenerator.add("oak_bush", 8, (new GeneratorBush.Builder()).maxHeight(2).create());        
+        treeGenerator.add("tall_eucalyptus", 1, (new GeneratorBulbTree.Builder()).minHeight(15).maxHeight(30).log(BlockPlanks.EnumType.JUNGLE).leaves(BlockPlanks.EnumType.JUNGLE).vine(null).create());
         // TODO: Add Eucalyptus wood as a new wood type - the bark is quite special
         
         // grasses
@@ -64,7 +64,8 @@ public class BiomeGenEucalyptusForest extends BOPBiome
         this.addGenerator("sprouts", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(BOPPlants.SPROUT).create());
         this.addGenerator("bushes", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BOPPlants.BUSH).create());
         this.addGenerator("shrubs", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BOPPlants.SHRUB).create());
-
+        this.addGenerator("rafflesia", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(BOPPlants.RAFFLESIA).create());
+        
         // water plants
         this.addGenerator("mixed_lily", GeneratorStage.LILYPAD, (new GeneratorMixedLily.Builder()).amountPerChunk(0.8F).create());
         
@@ -77,18 +78,6 @@ public class BiomeGenEucalyptusForest extends BOPBiome
     public void applySettings(BOPWorldSettings settings)
     {
         if (!settings.generateBopGems) {this.removeGenerator("topaz");}
-    }
-    
-    @Override
-    public int getGrassColorAtPos(BlockPos pos)
-    {
-        return 0x84D168;
-    }
-    
-    @Override
-    public int getFoliageColorAtPos(BlockPos pos)
-    {
-        return 0x67CE52;
     }
     
     /*
