@@ -28,7 +28,7 @@ public class BlockBOPTerrarium extends Block implements IBOPBlock
     // add properties
     public static enum TerrariumType implements IStringSerializable
     {
-        FERN, MUSHROOM;
+        FERN, MUSHROOM, CACTUS;
         @Override
         public String getName()
         {

@@ -1,6 +1,7 @@
 {
     "variants": {
         "variant=fern": { "model": "biomesoplenty:terrarium_fern" },
-        "variant=mushroom": { "model": "biomesoplenty:terrarium_mushroom" }
+        "variant=mushroom": { "model": "biomesoplenty:terrarium_mushroom" },
+		"variant=cactus": { "model": "biomesoplenty:terrarium_cactus" }
     }
 }
