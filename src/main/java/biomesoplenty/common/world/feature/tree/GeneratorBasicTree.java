@@ -266,7 +266,7 @@ public class GeneratorBasicTree extends GeneratorTreeBase
     
     private IBlockState getVineStateForSide(EnumFacing side)
     {
-        return this.vine.withProperty(BlockVine.getPropertyFor(side), Boolean.valueOf(true));
+        return this.vine.getBlock() instanceof BlockVine ? this.vine.withProperty(BlockVine.getPropertyFor(side), Boolean.valueOf(true)) : this.vine;
     }
 
     private void extendVines(World world, BlockPos pos, EnumFacing side)
