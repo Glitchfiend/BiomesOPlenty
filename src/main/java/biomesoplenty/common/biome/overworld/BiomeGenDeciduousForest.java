@@ -3,6 +3,7 @@ package biomesoplenty.common.biome.overworld;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
@@ -18,6 +19,7 @@ import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
+import biomesoplenty.common.world.feature.GeneratorWaterside;
 import biomesoplenty.common.world.feature.tree.GeneratorBulbTree;
 import biomesoplenty.common.world.feature.tree.GeneratorBush;
 
@@ -33,6 +35,9 @@ public class BiomeGenDeciduousForest extends BOPBiome
         this.addWeight(BOPClimates.COOL_TEMPERATE, 7);  
         
         this.canGenerateVillages = false;
+        
+        // sand
+        this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.sand.getDefaultState()).create());
          
         // trees & logs
         GeneratorWeighted treeGenerator = new GeneratorWeighted(18);

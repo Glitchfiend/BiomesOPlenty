@@ -52,7 +52,8 @@ public class BiomeGenTemperateRainforest extends BOPBiome
     
         this.addWeight(BOPClimates.WET_TEMPERATE, 10);
         
-        // gravel
+        // sand and gravel
+        this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.sand.getDefaultState()).create());
         this.addGenerator("gravel", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(4).maxRadius(7).with(Blocks.gravel.getDefaultState()).create());
         
         // trees

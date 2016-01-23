@@ -46,6 +46,9 @@ public class BiomeGenRainforest extends BOPBiome
         
         this.spawnableMonsterList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
         
+        // aand
+        this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.sand.getDefaultState()).create());
+        
         // trees & logs
         GeneratorWeighted treeGenerator = new GeneratorWeighted(20);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);

@@ -50,6 +50,9 @@ public class BiomeGenWoodland extends BOPBiome
         this.addWeight(BOPClimates.DRY_TEMPERATE, 5);
         this.addWeight(BOPClimates.COOL_TEMPERATE, 10);
         
+        // sand
+        this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.sand.getDefaultState()).create());
+        
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(9);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);

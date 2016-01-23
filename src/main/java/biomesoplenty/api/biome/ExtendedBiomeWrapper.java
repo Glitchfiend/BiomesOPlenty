@@ -7,7 +7,9 @@ import biomesoplenty.api.biome.generation.GenerationManager;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.IGenerator;
 import biomesoplenty.common.enums.BOPClimates;
+import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
+import biomesoplenty.common.world.feature.GeneratorFlora;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class ExtendedBiomeWrapper implements IExtendedBiome
@@ -19,6 +21,9 @@ public class ExtendedBiomeWrapper implements IExtendedBiome
     public ExtendedBiomeWrapper(BiomeGenBase biome)
     {
         this.biome = biome;
+        
+        // roots
+        this.addGenerator("roots", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(4.0F).with(BOPPlants.ROOT).create());
     }
 
     @Override

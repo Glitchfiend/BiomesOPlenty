@@ -51,7 +51,8 @@ public class BiomeGenThicket extends BOPBiome
         treeGenerator.add("oak", 1, (new GeneratorBasicTree.Builder()).create());
         treeGenerator.add("oak_bush", 4, (new GeneratorBush.Builder()).maxHeight(2).create());
         
-        // gravel
+        // sand and gravel
+        this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.sand.getDefaultState()).create());
         this.addGenerator("gravel", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(6).maxRadius(7).with(Blocks.gravel.getDefaultState()).create());
 
         // other plants
