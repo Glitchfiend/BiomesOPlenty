@@ -9,8 +9,9 @@
 package biomesoplenty.common.biome.overworld;
 
 import net.minecraft.block.BlockDoublePlant;
-import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.BlockFlower.EnumFlowerType;
+import net.minecraft.block.BlockLeaves;
+import net.minecraft.block.BlockTallGrass;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
@@ -25,7 +26,6 @@ import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.block.BlockBOPPlant;
-import biomesoplenty.common.block.BlockBOPVine;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
@@ -33,8 +33,6 @@ import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
-import biomesoplenty.common.util.block.BlockQuery;
-import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorColumns;
 import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
@@ -51,7 +49,7 @@ public class BiomeGenWetland extends BOPBiome
     public BiomeGenWetland()
     {
         // terrain
-        this.terrainSettings.avgHeight(63).heightVariation(5, 10).octaves(1, 1, 1, 1, 0, 0).sidewaysNoise(0.0F);
+        this.terrainSettings.avgHeight(63).heightVariation(5, 15).octaves(1, 1, 1, 1, 0, 0).sidewaysNoise(0.0F);
         
         this.setColor(0x4F9657);
         this.setTemperatureRainfall(0.6F, 0.9F);
@@ -70,10 +68,10 @@ public class BiomeGenWetland extends BOPBiome
         this.addGenerator("mud", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(10).maxRadius(8).with(BOPBlocks.mud.getDefaultState()).create());
         
         // trees & logs
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(9);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(7);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("willow", 5, (new GeneratorBasicTree.Builder()).log(BOPWoods.WILLOW).leaves(BOPTrees.WILLOW).minHeight(8).maxHeight(12).minLeavesRadius(2).vine(BlockBOPLeaves.paging.getVariantState(BOPTrees.WILLOW)).create());
-        treeGenerator.add("spruce", 4, (new GeneratorTaigaTree.Builder()).maxHeight(13).create()); // TODO: implement pine cones
+        treeGenerator.add("willow", 3, (new GeneratorBasicTree.Builder()).log(BOPWoods.WILLOW).leaves(BOPTrees.WILLOW).minHeight(8).maxHeight(12).minLeavesRadius(2).vine(BlockBOPLeaves.paging.getVariantState(BOPTrees.WILLOW).withProperty(BlockLeaves.DECAYABLE, Boolean.valueOf(false))).leavesOffset(0).create());
+        treeGenerator.add("spruce", 5, (new GeneratorTaigaTree.Builder()).maxHeight(13).create()); // TODO: implement pine cones
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(10.0F);
