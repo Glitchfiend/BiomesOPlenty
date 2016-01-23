@@ -19,6 +19,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
+@SuppressWarnings("unchecked")
 public class BlockBOPDoubleOtherSlab extends BlockBOPHalfOtherSlab
 {
     
