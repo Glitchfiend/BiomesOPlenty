@@ -173,14 +173,19 @@ public class AchievementEventHandler
     public void onBlockPlaced(BlockEvent.PlaceEvent event)
     {
         ItemStack stack = event.itemInHand;
-        Item item = stack.getItem();
-        Block block = Block.getBlockFromItem(item);
-        IBlockState state = block != null ? block.getStateFromMeta(stack.getItemDamage()) : null;
         
-        //Yggdrasil
-        if (state == BlockBOPSapling.paging.getVariantState(BOPTrees.SACRED_OAK))
+        //Blocks can be placed by things other than players
+        if (stack != null)
         {
-            event.player.triggerAchievement(BOPAchievements.grow_sacred_oak);
+            Item item = stack.getItem();
+            Block block = Block.getBlockFromItem(item);
+            IBlockState state = block != null ? block.getStateFromMeta(stack.getItemDamage()) : null;
+
+            //Yggdrasil
+            if (state == BlockBOPSapling.paging.getVariantState(BOPTrees.SACRED_OAK))
+            {
+                event.player.triggerAchievement(BOPAchievements.grow_sacred_oak);
+            }
         }
     }
     
