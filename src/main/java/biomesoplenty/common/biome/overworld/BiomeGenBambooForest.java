@@ -12,6 +12,7 @@ import java.util.Random;
 
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockDoublePlant;
+import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.passive.EntityOcelot;
@@ -28,6 +29,7 @@ import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.block.BlockBOPCoral;
 import biomesoplenty.common.enums.BOPClimates;
+import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.enums.BOPTrees;
@@ -68,6 +70,12 @@ public class BiomeGenBambooForest extends BOPBiome
         this.topBlock = Blocks.dirt.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.PODZOL);
         this.usualTopBlock = this.topBlock;
         this.alternateTopBlock = Blocks.grass.getDefaultState();
+        
+        // flowers
+        GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.5F);
+        this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
+        flowerGenerator.add("dandelion", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.DANDELION).create()));
+        flowerGenerator.add("poppy", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.POPPY).create()));
         
         // trees & logs
         GeneratorWeighted treeGenerator = new GeneratorWeighted(30);

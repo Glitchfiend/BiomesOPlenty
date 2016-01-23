@@ -44,7 +44,6 @@ public class BiomeGenRedwoodForest extends BOPBiome
         this.addWeight(BOPClimates.WARM_TEMPERATE, 7);
         
         // trees
-        //
         GeneratorWeighted treeGenerator = new GeneratorWeighted(25.0F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("redwood", 5, (new GeneratorRedwoodTree.Builder()).log(BOPWoods.REDWOOD).leaves(BOPTrees.REDWOOD).create());

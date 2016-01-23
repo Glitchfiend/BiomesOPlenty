@@ -62,7 +62,8 @@ public class BiomeGenHeathland extends BOPBiome
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(2.0F);
         this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
         flowerGenerator.add("wildflower", 4, (new GeneratorFlora.Builder()).with(BOPFlowers.WILDFLOWER).create());
-        flowerGenerator.add("poppy", 3, (new GeneratorFlora.Builder()).with(BlockFlower.EnumFlowerType.POPPY).create());
+        flowerGenerator.add("dandelion", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.DANDELION).create()));
+        flowerGenerator.add("poppy", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.POPPY).create()));
         flowerGenerator.add("syringa", 2, (new GeneratorDoubleFlora.Builder()).with(BlockDoublePlant.EnumPlantType.SYRINGA).create());
         
         // grasses        

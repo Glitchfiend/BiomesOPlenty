@@ -1,5 +1,6 @@
 package biomesoplenty.common.biome.overworld;
 
+import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.util.BlockPos;
@@ -39,7 +40,13 @@ public class BiomeGenDeciduousForest extends BOPBiome
         treeGenerator.add("birch_bush", 2, (new GeneratorBush.Builder()).log(BlockPlanks.EnumType.BIRCH).leaves(BlockPlanks.EnumType.BIRCH).maxHeight(2).create());
         treeGenerator.add("oak_bush", 3, (new GeneratorBush.Builder()).maxHeight(2).create());
         treeGenerator.add("tall_oak", 6, (new GeneratorBulbTree.Builder()).minHeight(10).maxHeight(20).vine(null).create());
- 
+  
+        // flowers
+        GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.5F);
+        this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
+        flowerGenerator.add("dandelion", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.DANDELION).create()));
+        flowerGenerator.add("poppy", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.POPPY).create()));
+        
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(10.0F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);

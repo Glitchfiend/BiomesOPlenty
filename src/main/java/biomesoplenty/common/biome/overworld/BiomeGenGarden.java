@@ -78,6 +78,7 @@ public class BiomeGenGarden extends BOPBiome
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(3.0F);
         this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
+        flowerGenerator.add("dandelion", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.DANDELION).create()));
         flowerGenerator.add("poppies", 5, (new GeneratorFlora.Builder().with(EnumFlowerType.POPPY).create()));
         flowerGenerator.add("white_anemones", 6, (new GeneratorFlora.Builder().with(BOPFlowers.WHITE_ANEMONE).create()));
         flowerGenerator.add("blue_hydrangeas", 3, (new GeneratorFlora.Builder().with(BOPFlowers.BLUE_HYDRANGEA).create()));

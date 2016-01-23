@@ -67,7 +67,8 @@ public class BiomeGenXericShrubland extends BOPBiome
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(4.0F);
         this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
         flowerGenerator.add("wildflowers", 4, (new GeneratorFlora.Builder().with(BOPFlowers.WILDFLOWER).create()));
-        flowerGenerator.add("poppies", 2, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.POPPY).create()));
+        flowerGenerator.add("dandelion", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.DANDELION).create()));
+        flowerGenerator.add("poppy", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.POPPY).create()));
         flowerGenerator.add("dandelions", 2, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.DANDELION).create()));
         
         // grasses (note weighting must be quite high as the grasses will only grow on the splattered grass blocks)
