@@ -40,7 +40,7 @@ public class BlockBOPDoubleOtherSlab extends BlockBOPHalfOtherSlab
     public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
     {
         List<ItemStack> ret = new ArrayList<ItemStack>();
-        SlabType type = state.getValue(BlockBOPHalfOtherSlab.VARIANT);
+        SlabType type = (SlabType)state.getValue(BlockBOPHalfOtherSlab.VARIANT);
         IBlockState halfState = BOPBlocks.other_slab.getDefaultState().withProperty(BlockBOPHalfOtherSlab.VARIANT, type);
         
         //Drop two of the corresponding half slab for this block
