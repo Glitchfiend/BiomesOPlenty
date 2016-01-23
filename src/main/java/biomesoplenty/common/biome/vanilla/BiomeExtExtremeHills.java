@@ -22,9 +22,9 @@ public class BiomeExtExtremeHills extends ExtendedBiomeWrapper
         super(BiomeGenBase.extremeHills);
         
         // trees
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(2);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(0.3F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("jacaranda", 3, (new GeneratorBasicTree.Builder()).minHeight(4).maxHeight(7).log(BOPWoods.JACARANDA).leaves(BOPTrees.JACARANDA).create());
+        treeGenerator.add("jacaranda", 1, (new GeneratorBasicTree.Builder()).minHeight(4).maxHeight(7).log(BOPWoods.JACARANDA).leaves(BOPTrees.JACARANDA).create());
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(0.5F);

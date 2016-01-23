@@ -58,7 +58,7 @@ public class GeneratorBayouTree extends GeneratorTreeBase
             this.maxHeight = 18;
             this.minLeavesRadius = 2;
             this.leavesGradient = 4;
-            this.vineAttempts = 10;
+            this.vineAttempts = 20;
             this.maxVineLength = 20;
         }
 

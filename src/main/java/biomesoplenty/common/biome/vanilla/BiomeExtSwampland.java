@@ -1,5 +1,6 @@
 package biomesoplenty.common.biome.vanilla;
 
+import net.minecraft.block.BlockLeaves;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
 import biomesoplenty.api.biome.ExtendedBiomeWrapper;
@@ -8,11 +9,14 @@ import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.BlockBOPCoral;
 import biomesoplenty.common.block.BlockBOPDoublePlant;
+import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.enums.BOPTrees;
+import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
 import biomesoplenty.common.world.feature.GeneratorFlora;
@@ -20,12 +24,18 @@ import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import biomesoplenty.common.world.feature.GeneratorSplotches;
 import biomesoplenty.common.world.feature.GeneratorWaterside;
+import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
 
 public class BiomeExtSwampland extends ExtendedBiomeWrapper
 {
     public BiomeExtSwampland()
     {
         super(BiomeGenBase.swampland);
+        
+        // trees
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(0.5F);
+        this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
+        treeGenerator.add("willow", 1, (new GeneratorBasicTree.Builder()).log(BOPWoods.WILLOW).leaves(BOPTrees.WILLOW).minHeight(8).maxHeight(12).minLeavesRadius(2).vine(BlockBOPLeaves.paging.getVariantState(BOPTrees.WILLOW).withProperty(BlockLeaves.DECAYABLE, Boolean.valueOf(false))).leavesOffset(0).create());
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(1.2F);

@@ -1,6 +1,7 @@
 package biomesoplenty.common.biome.overworld;
 
 import net.minecraft.block.BlockDoublePlant;
+import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.entity.passive.EntityWolf;
@@ -14,6 +15,7 @@ import biomesoplenty.common.block.BlockBOPCoral;
 import biomesoplenty.common.block.BlockBOPDirt;
 import biomesoplenty.common.block.BlockBOPDoublePlant;
 import biomesoplenty.common.block.BlockBOPGrass;
+import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.enums.BOPClimates;
@@ -29,6 +31,7 @@ import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import biomesoplenty.common.world.feature.GeneratorWaterside;
+import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
 import biomesoplenty.common.world.feature.tree.GeneratorBush;
 import biomesoplenty.common.world.feature.tree.GeneratorTaigaTree;
 
@@ -58,6 +61,7 @@ public class BiomeGenTemperateRainforest extends BOPBiome
         treeGenerator.add("small_cedar", 3, (new GeneratorTaigaTree.Builder()).log(BlockPlanks.EnumType.OAK).leaves(BlockPlanks.EnumType.OAK).minHeight(5).maxHeight(15).create());
         treeGenerator.add("cedar", 5, (new GeneratorTaigaTree.Builder()).log(BlockPlanks.EnumType.OAK).leaves(BlockPlanks.EnumType.OAK).minHeight(20).maxHeight(40).create());
         treeGenerator.add("oak_bush", 5, (new GeneratorBush.Builder()).maxHeight(2).create());
+        treeGenerator.add("willow", 1, (new GeneratorBasicTree.Builder()).log(BOPWoods.WILLOW).leaves(BOPTrees.WILLOW).minHeight(8).maxHeight(12).minLeavesRadius(2).vine(BlockBOPLeaves.paging.getVariantState(BOPTrees.WILLOW).withProperty(BlockLeaves.DECAYABLE, Boolean.valueOf(false))).leavesOffset(0).create());
         
         // other plants
         this.addGenerator("shrubs", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).with(BOPPlants.SHRUB).create());
