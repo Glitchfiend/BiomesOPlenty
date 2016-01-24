@@ -2,6 +2,19 @@
     "variants": {
         "variant=fern": { "model": "biomesoplenty:terrarium_fern" },
         "variant=mushroom": { "model": "biomesoplenty:terrarium_mushroom" },
-		"variant=cactus": { "model": "biomesoplenty:terrarium_cactus" }
+		"variant=cactus": { "model": "biomesoplenty:terrarium_cactus" },
+		"variant=moss": { "model": "biomesoplenty:terrarium_moss" },
+		"variant=flower": { "model": "biomesoplenty:terrarium_flower" },
+		"variant=koru": { "model": "biomesoplenty:terrarium_koru" },
+		"variant=bamboo": { "model": "biomesoplenty:terrarium_bamboo" },
+		"variant=sapling": { "model": "biomesoplenty:terrarium_sapling" },
+		"variant=glowshroom": { "model": "biomesoplenty:terrarium_glowshroom" },
+		"variant=dead": { "model": "biomesoplenty:terrarium_dead" },
+		"variant=mystic": { "model": "biomesoplenty:terrarium_mystic" },
+		"variant=ominous": { "model": "biomesoplenty:terrarium_ominous" },
+		"variant=wasteland": { "model": "biomesoplenty:terrarium_wasteland" },
+		"variant=origin": { "model": "biomesoplenty:terrarium_origin" },
+		"variant=nether": { "model": "biomesoplenty:terrarium_nether" },
+		"variant=ender": { "model": "biomesoplenty:terrarium_ender" }
     }
 }
