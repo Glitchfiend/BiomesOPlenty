@@ -44,6 +44,7 @@ public class BiomeGenGarden extends BOPBiome
         this.setTemperatureRainfall(0.7F, 0.8F);
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.DAISY);
 
+        this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
         
         this.addWeight(BOPClimates.COOL_TEMPERATE, 1);

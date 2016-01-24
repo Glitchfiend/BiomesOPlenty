@@ -55,6 +55,7 @@ public class BiomeGenBayou extends BOPBiome
         this.skyColor = 0xACC4BC;
         this.seaFloorBlock = BOPBlocks.mud.getDefaultState();
         
+        this.canSpawnInBiome = false;
         this.canGenerateRivers = false;
         this.canGenerateVillages = false;
 

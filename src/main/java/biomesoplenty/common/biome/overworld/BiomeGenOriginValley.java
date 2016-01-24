@@ -33,6 +33,7 @@ public class BiomeGenOriginValley extends BOPBiome
         this.setTemperatureRainfall(0.7F, 0.8F);
         this.skyColor = 8441086;
         
+        this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
         this.canGenerateRivers = false;
         

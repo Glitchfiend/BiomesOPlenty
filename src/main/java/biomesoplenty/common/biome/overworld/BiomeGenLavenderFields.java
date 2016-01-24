@@ -36,6 +36,8 @@ public class BiomeGenLavenderFields extends BOPBiome
         this.setColor(11035852);
         this.setTemperatureRainfall(0.6F, 0.7F);
     
+        this.canSpawnInBiome = false;
+        
         this.addWeight(BOPClimates.MEDITERANEAN, 3);
         
         // flowers

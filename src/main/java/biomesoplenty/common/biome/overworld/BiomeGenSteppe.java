@@ -38,6 +38,8 @@ public class BiomeGenSteppe extends BOPBiome
         this.setColor(13413215);
         this.setTemperatureRainfall(0.7F, 0.05F);
         
+        this.canSpawnInBiome = false;
+        
         this.addWeight(BOPClimates.SAVANNA, 7);
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));

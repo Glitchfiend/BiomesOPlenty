@@ -50,6 +50,7 @@ public class BiomeGenMarsh extends BOPBiome
         this.setColor(0x66A06E);
         this.setTemperatureRainfall(0.5F, 0.9F);
         
+        this.canSpawnInBiome = false;
         this.canGenerateRivers = false;
         this.canGenerateVillages = false;
         

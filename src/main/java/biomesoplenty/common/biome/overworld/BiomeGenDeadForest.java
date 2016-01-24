@@ -41,6 +41,7 @@ public class BiomeGenDeadForest extends BOPBiome
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.LOAMY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.LOAMY);
         
+        this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
         
         this.setColor(0xBCA165);

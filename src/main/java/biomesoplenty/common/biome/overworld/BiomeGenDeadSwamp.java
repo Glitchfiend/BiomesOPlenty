@@ -52,6 +52,7 @@ public class BiomeGenDeadSwamp extends BOPBiome
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.LOAMY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.LOAMY);
         
+        this.canSpawnInBiome = false;
         this.canGenerateRivers = false;
         this.canGenerateVillages = false;
         

@@ -47,6 +47,7 @@ public class BiomeGenQuagmire extends BOPBiome
         this.skyColor = 0xBDC4BE;
         this.seaFloorBlock = BOPBlocks.mud.getDefaultState();
 
+        this.canSpawnInBiome = false;
         this.canGenerateRivers = false;
         this.canGenerateVillages = false;
         

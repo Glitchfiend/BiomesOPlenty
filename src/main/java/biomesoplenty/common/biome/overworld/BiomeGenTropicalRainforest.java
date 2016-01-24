@@ -47,6 +47,7 @@ public class BiomeGenTropicalRainforest extends BOPBiome
         this.skyColor = 0xC8CC5F;
         this.waterColorMultiplier = 0x5DFF00;
         
+        this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
     
         this.addWeight(BOPClimates.TROPICAL, 7);

@@ -56,6 +56,7 @@ public class BiomeGenFen extends BOPBiome
         this.setColor(0xBAC481);
         this.setTemperatureRainfall(0.4F, 0.4F);
         
+        this.canSpawnInBiome = false;
         this.canGenerateRivers = false;
         this.canGenerateVillages = false;
         

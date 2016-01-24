@@ -42,6 +42,7 @@ public class BiomeGenRainforest extends BOPBiome
         this.setTemperatureRainfall(1.0F, 1.0F);
         this.addWeight(BOPClimates.TROPICAL, 7);
         
+        this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
         
         this.spawnableMonsterList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));

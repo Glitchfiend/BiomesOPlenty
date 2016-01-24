@@ -40,6 +40,8 @@ public class BiomeGenTundra extends BOPBiome
         
         this.addWeight(BOPClimates.TUNDRA, 10);
         
+        this.canSpawnInBiome = false;
+        
         this.spawnableCreatureList.clear();
         
         // boulders

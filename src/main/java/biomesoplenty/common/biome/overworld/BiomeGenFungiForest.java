@@ -51,6 +51,7 @@ public class BiomeGenFungiForest extends BOPBiome
         this.waterColorMultiplier = 0x00FF2E;
         this.setTemperatureRainfall(0.5F, 0.5F);
         
+        this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
 
         this.addWeight(BOPClimates.WET_TEMPERATE, 2);
