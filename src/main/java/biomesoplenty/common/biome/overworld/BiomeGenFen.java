@@ -14,6 +14,7 @@ import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
+import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
@@ -25,6 +26,7 @@ import biomesoplenty.common.block.BlockBOPDoublePlant;
 import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.block.BlockBOPPlant;
+import biomesoplenty.common.entities.EntitySnail;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
@@ -61,6 +63,8 @@ public class BiomeGenFen extends BOPBiome
         this.canGenerateVillages = false;
         
         this.addWeight(BOPClimates.COLD_SWAMP, 7);
+        
+        this.spawnableCreatureList.add(new SpawnListEntry(EntitySnail.class, 8, 1, 2));
 
         // TODO: this.theBiomeDecorator.bopFeatures.waterSpringsPerChunk = 99;
         

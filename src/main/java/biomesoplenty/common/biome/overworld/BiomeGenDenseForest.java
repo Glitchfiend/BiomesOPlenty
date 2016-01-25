@@ -13,6 +13,7 @@ import java.util.Random;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
+import biomesoplenty.common.entities.EntitySnail;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
@@ -29,6 +30,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraft.world.chunk.ChunkPrimer;
 
 public class BiomeGenDenseForest extends BOPBiome
@@ -49,6 +51,8 @@ public class BiomeGenDenseForest extends BOPBiome
         this.canGenerateVillages = false;
         
         this.addWeight(BOPClimates.WARM_TEMPERATE, 3);
+        
+        this.spawnableCreatureList.add(new SpawnListEntry(EntitySnail.class, 6, 1, 2));
         
         this.topBlock = Blocks.grass.getDefaultState();
         this.fillerBlock = Blocks.dirt.getDefaultState();

@@ -14,6 +14,7 @@ import net.minecraft.block.BlockTallGrass;
 import net.minecraft.entity.passive.EntityMooshroom;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
+import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
@@ -21,6 +22,7 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.block.BlockBOPPlant;
+import biomesoplenty.common.entities.EntitySnail;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
@@ -59,6 +61,7 @@ public class BiomeGenFungiForest extends BOPBiome
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
         this.spawnableCreatureList.add(new SpawnListEntry(EntityMooshroom.class, 3, 4, 8));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntitySnail.class, 6, 1, 2));
         
         // mycelium
         this.addGenerator("mycelium", GeneratorStage.SAND, (new GeneratorSplotches.Builder()).replace(Blocks.grass).with(Blocks.mycelium.getDefaultState()).scatterYMethod(ScatterYMethod.AT_GROUND).splotchSize(32).create());
