@@ -4,10 +4,9 @@ import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
-import net.minecraft.entity.passive.EntityWolf;
+import net.minecraft.entity.passive.EntityBat;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
-import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
@@ -21,7 +20,6 @@ import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
-import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
@@ -29,7 +27,6 @@ import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import biomesoplenty.common.world.feature.GeneratorWaterside;
-import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
 import biomesoplenty.common.world.feature.tree.GeneratorBush;
 import biomesoplenty.common.world.feature.tree.GeneratorTaigaTree;
 
@@ -46,7 +43,7 @@ public class BiomeGenMeadow extends BOPBiome
         this.addWeight(BOPClimates.COOL_TEMPERATE, 10);
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntitySnail.class, 6, 1, 2));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 12, 2, 4));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
         
         // sand
         this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.sand.getDefaultState()).create());
