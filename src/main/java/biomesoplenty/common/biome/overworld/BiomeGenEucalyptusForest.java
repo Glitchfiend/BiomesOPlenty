@@ -17,6 +17,7 @@ import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
+import biomesoplenty.common.entities.EntityButterfly;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
@@ -44,6 +45,7 @@ public class BiomeGenEucalyptusForest extends BOPBiome
         this.addWeight(BOPClimates.TROPICAL, 5);
         
         this.spawnableMonsterList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
                             
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(10);

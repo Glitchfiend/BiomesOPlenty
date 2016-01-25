@@ -45,9 +45,11 @@ import biomesoplenty.client.particle.EntityPixieTrailFX;
 import biomesoplenty.client.particle.EntityTrailFX;
 import biomesoplenty.client.texture.ForgeRedirectedResourcePack;
 import biomesoplenty.common.config.MiscConfigurationHandler;
+import biomesoplenty.common.entities.EntityButterfly;
 import biomesoplenty.common.entities.EntityPixie;
 import biomesoplenty.common.entities.EntitySnail;
 import biomesoplenty.common.entities.EntityWasp;
+import biomesoplenty.common.entities.RenderButterfly;
 import biomesoplenty.common.entities.RenderPixie;
 import biomesoplenty.common.entities.RenderSnail;
 import biomesoplenty.common.entities.RenderWasp;
@@ -72,6 +74,7 @@ public class ClientProxy extends CommonProxy
         registerEntityRenderer(EntityWasp.class, RenderWasp.class);
         registerEntityRenderer(EntityPixie.class, RenderPixie.class);
         registerEntityRenderer(EntitySnail.class, RenderSnail.class);
+        registerEntityRenderer(EntityButterfly.class, RenderButterfly.class);
         registerEntityRenderer(EntityMudball.class, RenderMudball.class);
         
         replaceForgeResources();

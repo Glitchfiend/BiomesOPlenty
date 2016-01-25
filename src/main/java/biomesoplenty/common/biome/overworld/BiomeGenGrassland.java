@@ -9,7 +9,6 @@
 package biomesoplenty.common.biome.overworld;
 
 import net.minecraft.block.BlockTallGrass;
-import net.minecraft.block.BlockFlower.EnumFlowerType;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
@@ -20,6 +19,7 @@ import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.block.BlockBOPDoublePlant;
 import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.block.BlockBOPPlant;
+import biomesoplenty.common.entities.EntityButterfly;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
@@ -46,6 +46,7 @@ public class BiomeGenGrassland extends BOPBiome {
         this.addWeight(BOPClimates.WET_TEMPERATE, 7);
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
         
         // lakes
         this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.2F).waterLakeForBiome(this).create());

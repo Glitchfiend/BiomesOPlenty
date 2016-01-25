@@ -43,6 +43,7 @@ public class ModEntities
         registerBOPEntityWithSpawnEgg(EntityWasp.class, "wasp", 80, 3, true, 0xE5B013, 0x333234);
         registerBOPEntityWithSpawnEgg(EntityPixie.class, "pixie", 80, 3, true, 0xFF99E9, 0xFFFFFF);     
         registerBOPEntityWithSpawnEgg(EntitySnail.class, "snail", 80, 3, true, 0xA694BC, 0xCDA26E);
+        registerBOPEntityWithSpawnEgg(EntityButterfly.class, "butterfly", 80, 3, true, 0x282828, 0xEF6F1F);
     }
     
     // register an entity

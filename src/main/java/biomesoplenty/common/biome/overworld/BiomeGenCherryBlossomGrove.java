@@ -18,6 +18,7 @@ import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.common.block.BlockBOPDoublePlant;
 import biomesoplenty.common.block.BlockBOPLilypad;
+import biomesoplenty.common.entities.EntityButterfly;
 import biomesoplenty.common.entities.EntitySnail;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPFlowers;
@@ -49,6 +50,7 @@ public class BiomeGenCherryBlossomGrove extends BOPBiome
         this.addWeight(BOPClimates.COOL_TEMPERATE, 2);
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntitySnail.class, 6, 1, 2));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
         
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(6.0F);

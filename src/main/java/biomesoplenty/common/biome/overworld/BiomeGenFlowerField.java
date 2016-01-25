@@ -11,9 +11,11 @@ package biomesoplenty.common.biome.overworld;
 import net.minecraft.block.BlockFlower.EnumFlowerType;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.util.BlockPos;
+import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
+import biomesoplenty.common.entities.EntityButterfly;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
@@ -34,6 +36,8 @@ public class BiomeGenFlowerField extends BOPBiome
         this.setTemperatureRainfall(0.6F, 0.7F);
 
         this.addWeight(BOPClimates.WARM_TEMPERATE, 3);
+        
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
         
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(99);

@@ -21,9 +21,11 @@ import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityMoveHelper;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.MathHelper;
+import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 
 public class EntitySnail extends EntityLiving implements IMob {
@@ -38,6 +40,40 @@ public class EntitySnail extends EntityLiving implements IMob {
     {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(2.0D);
+    }
+    
+    // Checks to make sure the light is not too bright where the mob is spawning
+    // This is same code as for EntitySkeleton
+    protected boolean isValidLightLevel()
+    {
+        BlockPos blockpos = new BlockPos(this.posX, this.getEntityBoundingBox().minY, this.posZ);
+
+        if (this.worldObj.getLightFor(EnumSkyBlock.SKY, blockpos) > this.rand.nextInt(32))
+        {
+            // TODO: not sure what's going on here...
+            return false;
+        }
+        else
+        {
+            int light = this.worldObj.getLightFromNeighbors(blockpos);
+
+            // if it's thundering, force getSkylightSubtracted to 10 before calculating getLightFromNeighbors, then restore it
+            if (this.worldObj.isThundering())
+            {
+                int oldSkyLightSubtracted = this.worldObj.getSkylightSubtracted();
+                this.worldObj.setSkylightSubtracted(10);
+                light = this.worldObj.getLightFromNeighbors(blockpos);
+                this.worldObj.setSkylightSubtracted(oldSkyLightSubtracted);
+            }
+
+            return light >= 3;
+        }
+    }
+    
+    @Override
+    public boolean getCanSpawnHere()
+    {
+        return this.isValidLightLevel() && super.getCanSpawnHere();
     }
     
 }
