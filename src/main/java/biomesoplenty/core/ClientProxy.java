@@ -11,21 +11,6 @@ package biomesoplenty.core;
 import java.util.List;
 import java.util.Map;
 
-import biomesoplenty.api.block.IBOPBlock;
-import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.api.particle.BOPParticleTypes;
-import biomesoplenty.client.particle.EntityPixieTrailFX;
-import biomesoplenty.client.particle.EntityTrailFX;
-import biomesoplenty.client.texture.ForgeRedirectedResourcePack;
-import biomesoplenty.common.config.MiscConfigurationHandler;
-import biomesoplenty.common.entities.EntityPixie;
-import biomesoplenty.common.entities.EntityWasp;
-import biomesoplenty.common.entities.RenderPixie;
-import biomesoplenty.common.entities.RenderWasp;
-import biomesoplenty.common.entities.projectiles.EntityDart;
-import biomesoplenty.common.entities.projectiles.EntityMudball;
-import biomesoplenty.common.entities.projectiles.RenderDart;
-import biomesoplenty.common.entities.projectiles.RenderMudball;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
@@ -49,11 +34,27 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.ForgeModContainer;
 import net.minecraftforge.fml.client.FMLClientHandler;
-import net.minecraftforge.fml.client.FMLFileResourcePack;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
+import biomesoplenty.api.block.IBOPBlock;
+import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.api.particle.BOPParticleTypes;
+import biomesoplenty.client.particle.EntityPixieTrailFX;
+import biomesoplenty.client.particle.EntityTrailFX;
+import biomesoplenty.client.texture.ForgeRedirectedResourcePack;
+import biomesoplenty.common.config.MiscConfigurationHandler;
+import biomesoplenty.common.entities.EntityPixie;
+import biomesoplenty.common.entities.EntitySnail;
+import biomesoplenty.common.entities.EntityWasp;
+import biomesoplenty.common.entities.RenderPixie;
+import biomesoplenty.common.entities.RenderSnail;
+import biomesoplenty.common.entities.RenderWasp;
+import biomesoplenty.common.entities.projectiles.EntityDart;
+import biomesoplenty.common.entities.projectiles.EntityMudball;
+import biomesoplenty.common.entities.projectiles.RenderDart;
+import biomesoplenty.common.entities.projectiles.RenderMudball;
 
 public class ClientProxy extends CommonProxy
 {
@@ -70,6 +71,7 @@ public class ClientProxy extends CommonProxy
         registerEntityRenderer(EntityDart.class, RenderDart.class);
         registerEntityRenderer(EntityWasp.class, RenderWasp.class);
         registerEntityRenderer(EntityPixie.class, RenderPixie.class);
+        registerEntityRenderer(EntitySnail.class, RenderSnail.class);
         registerEntityRenderer(EntityMudball.class, RenderMudball.class);
         
         replaceForgeResources();
