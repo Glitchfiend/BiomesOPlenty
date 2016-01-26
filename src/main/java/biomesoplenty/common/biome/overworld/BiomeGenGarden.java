@@ -50,7 +50,7 @@ public class BiomeGenGarden extends BOPBiome
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
         
-        this.addWeight(BOPClimates.COOL_TEMPERATE, 1);
+        this.addWeight(BOPClimates.WET_TEMPERATE, 1);
         
         this.spawnableCreatureList.clear();
         this.spawnableCreatureList.add(new SpawnListEntry(EntitySnail.class, 6, 1, 2));
@@ -58,11 +58,11 @@ public class BiomeGenGarden extends BOPBiome
         // TODO: implement rosester? this.spawnableCreatureList.add(new SpawnListEntry(EntityRosester.class, 10, 4, 4));
         
         // trees
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(2);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(1);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("red_big_flowers", 1, (new GeneratorBigFlower.Builder()).flowerType(GeneratorBigFlower.BigFlowerType.RED).create());
         treeGenerator.add("yellow_big_flowers", 1, (new GeneratorBigFlower.Builder()).flowerType(GeneratorBigFlower.BigFlowerType.YELLOW).create());
-        treeGenerator.add("oak_bush", 3, (new GeneratorBush.Builder()).maxHeight(2).create());
+        treeGenerator.add("oak_bush", 2, (new GeneratorBush.Builder()).maxHeight(2).create());
         
         // grasses      
         GeneratorWeighted grassGenerator = new GeneratorWeighted(6.0F);
@@ -76,7 +76,8 @@ public class BiomeGenGarden extends BOPBiome
         // other plants
         this.addGenerator("sprouts", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.3F).with(BOPPlants.SPROUT).create());
         this.addGenerator("shrubs", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.2F).with(BOPPlants.SHRUB).create());
-        this.addGenerator("melons", GeneratorStage.FLOWERS, (new GeneratorSplatter.Builder()).amountPerChunk(0.05F).placeOn(this.topBlock).with(Blocks.melon_block.getDefaultState()).generationAttempts(8).create());
+        this.addGenerator("pumpkins", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(0.015625F).with(Blocks.pumpkin.getDefaultState()).create());
+        this.addGenerator("melons", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(0.015625F).with(Blocks.melon_block.getDefaultState()).create());
         
         // water plants
         this.addGenerator("water_reeds", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BOPPlants.REED).generationAttempts(32).create());

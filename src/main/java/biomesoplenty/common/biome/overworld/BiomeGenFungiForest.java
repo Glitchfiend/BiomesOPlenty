@@ -56,7 +56,7 @@ public class BiomeGenFungiForest extends BOPBiome
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
 
-        this.addWeight(BOPClimates.WET_TEMPERATE, 2);
+        this.addWeight(BOPClimates.TROPICAL, 1);
         
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
@@ -87,6 +87,7 @@ public class BiomeGenFungiForest extends BOPBiome
         this.addGenerator("river_cane", GeneratorStage.FLOWERS,(new GeneratorColumns.Builder()).amountPerChunk(0.4F).placeOn(BlockQueries.litFertileWaterside).with(BlockBOPPlant.paging.getVariantState(BOPPlants.RIVERCANE)).minHeight(1).maxHeight(3).create());
         this.addGenerator("shrubs", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BOPPlants.SHRUB).create());
         this.addGenerator("clover_patches", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(2.0F).with(BOPPlants.CLOVERPATCH).create());
+        this.addGenerator("melons", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(0.015625F).with(Blocks.melon_block.getDefaultState()).create());
         
         // water plants
         this.addGenerator("mixed_lily", GeneratorStage.LILYPAD, (new GeneratorMixedLily.Builder()).amountPerChunk(1.2F).create());
