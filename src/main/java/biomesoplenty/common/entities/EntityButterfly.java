@@ -13,18 +13,19 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-import biomesoplenty.common.entities.EntityButterfly.ButterflyMoveTargetPos;
 import net.minecraft.entity.EntityFlying;
+import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityMoveHelper;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.MathHelper;
-import net.minecraft.world.EnumSkyBlock;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 
 public class EntityButterfly extends EntityFlying implements IMob {
@@ -42,6 +43,55 @@ public class EntityButterfly extends EntityFlying implements IMob {
     {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1.0D);
+    }
+    
+    protected void entityInit()
+    {
+        super.entityInit();
+        this.dataWatcher.addObject(18, Byte.valueOf((byte)0));
+    }
+    
+    public void writeEntityToNBT(NBTTagCompound tagCompound)
+    {
+        super.writeEntityToNBT(tagCompound);
+        tagCompound.setInteger("ButterflyType", this.getButterflyType());
+    }
+
+    public void readEntityFromNBT(NBTTagCompound tagCompund)
+    {
+        super.readEntityFromNBT(tagCompund);
+        this.setButterflyType(tagCompund.getInteger("ButterflyType"));
+    }
+    
+    public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData livingdata)
+    {
+        livingdata = super.onInitialSpawn(difficulty, livingdata);
+        int i = this.rand.nextInt(3);
+        boolean flag = false;
+
+        if (livingdata instanceof EntityButterfly.ButterflyTypeData)
+        {
+            i = ((EntityButterfly.ButterflyTypeData)livingdata).typeData;
+            flag = true;
+        }
+        else
+        {
+            livingdata = new EntityButterfly.ButterflyTypeData(i);
+        }
+
+        this.setButterflyType(i);
+
+        return livingdata;
+    }
+    
+    public int getButterflyType()
+    {
+        return this.dataWatcher.getWatchableObjectByte(18);
+    }
+    
+    public void setButterflyType(int butterflyTypeId)
+    {
+        this.dataWatcher.updateObject(18, Byte.valueOf((byte)butterflyTypeId));
     }
     
     @Override
@@ -312,6 +362,16 @@ public class EntityButterfly extends EntityFlying implements IMob {
                 this.butterfly.getMoveHelper().setMoveTo(this.targetPos.posX, this.targetPos.posY, this.targetPos.posZ, 1.0D);
             }
             return result;
+        }
+    }
+    
+    public static class ButterflyTypeData implements IEntityLivingData
+    {
+        public int typeData;
+
+        public ButterflyTypeData(int type)
+        {
+            this.typeData = type;
         }
     }
     

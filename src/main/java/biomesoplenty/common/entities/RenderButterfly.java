@@ -4,6 +4,8 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.entity.passive.EntityRabbit;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -11,18 +13,28 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RenderButterfly extends RenderLiving<EntityButterfly>
 {
-    private static final ResourceLocation butterflyTextureLocation = new ResourceLocation("biomesoplenty:textures/entity/butterfly.png");
-
+    private static final ResourceLocation ORANGE = new ResourceLocation("biomesoplenty:textures/entity/butterfly/orange.png");
+    private static final ResourceLocation BLUE = new ResourceLocation("biomesoplenty:textures/entity/butterfly/blue.png");
+    private static final ResourceLocation PURPLE = new ResourceLocation("biomesoplenty:textures/entity/butterfly/purple.png");
+    
     public RenderButterfly(RenderManager renderManager)
     {
         super(renderManager, new ModelButterfly(), 0.25F);
         this.shadowSize = 0.0F;
     }
 
-    @Override
     protected ResourceLocation getEntityTexture(EntityButterfly entity)
     {
-        return butterflyTextureLocation;
+        switch (entity.getButterflyType())
+        {
+            case 0:
+            default:
+                return ORANGE;
+            case 1:
+                return BLUE;
+            case 2:
+                return PURPLE;
+        }
     }
 
 }
