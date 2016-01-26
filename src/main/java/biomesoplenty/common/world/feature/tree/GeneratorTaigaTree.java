@@ -217,6 +217,14 @@ public class GeneratorTaigaTree extends GeneratorTreeBase
             int trunkStart = MathHelper.ceiling_double_int(0.25D - trunkWidth / 2.0D);
             int trunkEnd = MathHelper.floor_double(0.25D + trunkWidth / 2.0D);
             
+            // TODO: Temporary fix for trees generating larger than normal bases when in the sides of hills
+            // Should look into doing this properly but i'm busy :P
+            if (this.trunkWidth <= 1)
+            {
+                trunkStart = 0; 
+                trunkEnd = 0;
+            }
+            
             for (int x = trunkStart; x <= trunkEnd; x++)
             {
                 for (int z = trunkStart; z <= trunkEnd; z++)
