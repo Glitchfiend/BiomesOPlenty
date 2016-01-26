@@ -24,6 +24,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.util.biome.GeneratorUtils;
+import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
 import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
@@ -46,7 +47,7 @@ public class GeneratorBigTree extends GeneratorTreeBase
         {
             // defaults
             this.amountPerChunk = 1.0F;
-            this.placeOn = BlockQueries.anything;
+            this.placeOn = BlockQueries.fertile;
             this.replace = new BlockQueryMaterial(Material.air, Material.leaves);
             this.log = Blocks.log.getDefaultState();
             this.leaves = Blocks.leaves.getDefaultState();

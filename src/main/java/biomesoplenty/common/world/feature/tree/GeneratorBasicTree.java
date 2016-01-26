@@ -195,7 +195,7 @@ public class GeneratorBasicTree extends GeneratorTreeBase
                             this.setBlockAndNotifyAdequately(world, pos.up(layer), this.log);
 
                             //If vines are enabled, randomly cover the sides of the trunk with vines from the bottom up
-                            if (this.vine != null && layer > 0)
+                            /*if (this.vine != null && layer > 0)
                             {
                                 if (random.nextInt(3) > 0 && this.placeVinesOn.matches(world, pos.add(-1, layer, 0)))
                                 {
@@ -214,7 +214,7 @@ public class GeneratorBasicTree extends GeneratorTreeBase
                                 {
                                     this.setBlockAndNotifyAdequately(world, pos.add(0, layer, 1), this.getVineStateForSide(EnumFacing.NORTH));
                                 }
-                            }
+                            }*/
                         }
                     }
 
