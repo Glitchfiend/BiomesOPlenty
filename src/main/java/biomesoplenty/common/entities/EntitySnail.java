@@ -8,26 +8,15 @@
 
 package biomesoplenty.common.entities;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
-
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIBase;
-import net.minecraft.entity.ai.EntityMoveHelper;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.MathHelper;
-import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
+import biomesoplenty.api.block.BOPBlocks;
 
 public class EntitySnail extends EntityLiving implements IMob {
     
@@ -58,11 +47,25 @@ public class EntitySnail extends EntityLiving implements IMob {
     @Override
     public boolean getCanSpawnHere()
     {
-    	BlockPos blockpos = new BlockPos(this.posX, this.getEntityBoundingBox().minY, this.posZ);
-
-    	int light = this.worldObj.getLightFromNeighbors(blockpos);
-    	
-    	return light > 4 && super.getCanSpawnHere();
+        int x = MathHelper.floor_double(this.posX);
+        int y = MathHelper.floor_double(this.getEntityBoundingBox().minY);
+        int z = MathHelper.floor_double(this.posZ);
+        BlockPos blockpos = new BlockPos(x, y, z);
+        if (this.worldObj.getBlockState(blockpos.down()).getBlock() != Blocks.grass && this.worldObj.getBlockState(blockpos.down()).getBlock() != BOPBlocks.grass)
+        {
+        	return false;
+        }
+        else
+        {
+        	if (blockpos.getY() <= this.worldObj.getSeaLevel())
+        	{
+        		return false;
+        	}
+        	else
+        	{
+        	return this.worldObj.getLight(blockpos) > 6 && super.getCanSpawnHere();
+        	}
+        }
     }
     
 }
