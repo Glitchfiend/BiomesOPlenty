@@ -1,14 +1,18 @@
 package biomesoplenty.common.biome.vanilla;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.world.biome.BiomeGenBase;
 import biomesoplenty.api.biome.ExtendedBiomeWrapper;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
+import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.common.block.BlockBOPSand;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
+import biomesoplenty.common.world.feature.GeneratorLakes;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 
 public class BiomeExtSavanna extends ExtendedBiomeWrapper
@@ -16,6 +20,9 @@ public class BiomeExtSavanna extends ExtendedBiomeWrapper
     public BiomeExtSavanna()
     {
         super(BiomeGenBase.savanna);
+        
+     // quicksand
+        this.addGenerator("quicksand", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.1F).liquid(BOPBlocks.sand.getDefaultState().withProperty(BlockBOPSand.VARIANT, BlockBOPSand.SandType.QUICKSAND)).frozenLiquid((IBlockState)null).create());
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(4.0F);

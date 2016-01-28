@@ -4,6 +4,7 @@ import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import biomesoplenty.api.biome.BOPBiome;
@@ -20,6 +21,7 @@ import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
+import biomesoplenty.common.world.feature.GeneratorLakes;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import biomesoplenty.common.world.feature.GeneratorSplotches;
 import biomesoplenty.common.world.feature.GeneratorWaterside;
@@ -44,7 +46,7 @@ public class BiomeGenBrushland extends BOPBiome
         this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(4).maxRadius(7).with(Blocks.sand.getDefaultState()).create());
         
         // quicksand
-        this.addGenerator("quicksand_patches", GeneratorStage.SAND, (new GeneratorSplotches.Builder()).amountPerChunk(0.6F).splotchSize(16).with(BOPBlocks.sand.getDefaultState().withProperty(BlockBOPSand.VARIANT, BlockBOPSand.SandType.QUICKSAND)).splotchSize(20).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
+        this.addGenerator("quicksand", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.2F).waterLakeForBiome(this).liquid(BOPBlocks.sand.getDefaultState().withProperty(BlockBOPSand.VARIANT, BlockBOPSand.SandType.QUICKSAND)).frozenLiquid((IBlockState)null).create());
         
         // trees & logs
         GeneratorWeighted treeGenerator = new GeneratorWeighted(2.4F);
