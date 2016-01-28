@@ -198,7 +198,7 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable {
             case WILLOW:
             	return new GeneratorBayouTree.Builder().log(BOPWoods.WILLOW).leaves(BOPTrees.WILLOW).minHeight(6).maxHeight(12).minLeavesRadius(1).leavesGradient(2).create();
             case PINE:
-            	return new GeneratorPineTree.Builder().minHeight(6).maxHeight(20).create();
+            	return new GeneratorPineTree.Builder().minHeight(6).maxHeight(18).log(BOPWoods.PINE).leaves(BOPTrees.PINE).create();
             case MAHOGANY: //Not implemented
                 return new WorldGenTrees(true);
             default:
