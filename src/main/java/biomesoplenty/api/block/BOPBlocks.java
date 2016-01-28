@@ -131,7 +131,6 @@ public class BOPBlocks
     public static Block ivy;
     public static Block moss;
     public static Block tree_moss;
-    public static Block wisteria;
     
     public static Block plant_0;
     public static Block plant_1;

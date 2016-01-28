@@ -213,7 +213,6 @@ public class ModBlocks
         ivy =               registerBlock( new BlockBOPVine(true), "ivy" );
         moss =              registerBlock( new BlockBOPVine(true), "moss" );
         tree_moss =         registerBlock( new BlockBOPVine(false), "tree_moss" );
-        wisteria =          registerBlock( new BlockBOPVine(false), "wisteria" );
         
         BlockBOPPlant.createAllPages();
         plant_0 =           registerBlock( BlockBOPPlant.paging.getBlock(0), "plant_0" );

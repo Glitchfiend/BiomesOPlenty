@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "biomesoplenty:blocks/wisteria"
+        "layer0": "biomesoplenty:items/wisteria"
     },
     "display": {
         "thirdperson": {
@@ -16,3 +16,4 @@
         }
     }
 }
+
