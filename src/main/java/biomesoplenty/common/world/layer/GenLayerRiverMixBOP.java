@@ -47,7 +47,7 @@ public class GenLayerRiverMixBOP extends BOPGenLayer
             {
                 if (riverValues[i] == BiomeGenBase.river.biomeID)
                 {
-                    if (biomeIds[i] == BiomeGenBase.icePlains.biomeID || (BOPBiomes.arctic.isPresent() && biomeIds[i] == BOPBiomes.arctic.get().biomeID))
+                    if (biomeIds[i] == BiomeGenBase.icePlains.biomeID || (BOPBiomes.cold_desert.isPresent() && biomeIds[i] == BOPBiomes.cold_desert.get().biomeID) || (BOPBiomes.frozen_desert.isPresent() && biomeIds[i] == BOPBiomes.frozen_desert.get().biomeID))
                     {
                         out[i] = BiomeGenBase.frozenRiver.biomeID;
                     }

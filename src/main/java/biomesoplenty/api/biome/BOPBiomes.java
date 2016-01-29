@@ -19,7 +19,6 @@ public class BOPBiomes
     
     // normal biomes which have weights
     public static Optional<BiomeGenBase> alps = Optional.absent();
-    public static Optional<BiomeGenBase> arctic = Optional.absent();
     public static Optional<BiomeGenBase> bamboo_forest = Optional.absent();
     public static Optional<BiomeGenBase> bayou = Optional.absent();
     public static Optional<BiomeGenBase> bog = Optional.absent();
@@ -79,7 +78,6 @@ public class BOPBiomes
     public static Optional<BiomeGenBase> xeric_shrubland = Optional.absent();
     
     // edge-biomes, sub-biomes and mutated-biomes
-    public static Optional<BiomeGenBase> glacier = Optional.absent();
     public static Optional<BiomeGenBase> mountain_foothills = Optional.absent();
     public static Optional<BiomeGenBase> canyon_ravine = Optional.absent();
 

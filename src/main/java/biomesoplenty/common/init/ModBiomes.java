@@ -9,7 +9,6 @@
 package biomesoplenty.common.init;
 
 import static biomesoplenty.api.biome.BOPBiomes.alps;
-import static biomesoplenty.api.biome.BOPBiomes.arctic;
 import static biomesoplenty.api.biome.BOPBiomes.bamboo_forest;
 import static biomesoplenty.api.biome.BOPBiomes.bayou;
 import static biomesoplenty.api.biome.BOPBiomes.birch_forest_extension;
@@ -38,7 +37,6 @@ import static biomesoplenty.api.biome.BOPBiomes.frost_forest;
 import static biomesoplenty.api.biome.BOPBiomes.frozen_desert;
 import static biomesoplenty.api.biome.BOPBiomes.fungi_forest;
 import static biomesoplenty.api.biome.BOPBiomes.garden;
-import static biomesoplenty.api.biome.BOPBiomes.glacier;
 import static biomesoplenty.api.biome.BOPBiomes.grassland;
 import static biomesoplenty.api.biome.BOPBiomes.grove;
 import static biomesoplenty.api.biome.BOPBiomes.heathland;
@@ -102,7 +100,6 @@ import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.biome.IExtendedBiome;
 import biomesoplenty.common.biome.overworld.BiomeGenAlps;
-import biomesoplenty.common.biome.overworld.BiomeGenArctic;
 import biomesoplenty.common.biome.overworld.BiomeGenBambooForest;
 import biomesoplenty.common.biome.overworld.BiomeGenBayou;
 import biomesoplenty.common.biome.overworld.BiomeGenBog;
@@ -124,7 +121,6 @@ import biomesoplenty.common.biome.overworld.BiomeGenFlowerField;
 import biomesoplenty.common.biome.overworld.BiomeGenFrostForest;
 import biomesoplenty.common.biome.overworld.BiomeGenFungiForest;
 import biomesoplenty.common.biome.overworld.BiomeGenGarden;
-import biomesoplenty.common.biome.overworld.BiomeGenGlacier;
 import biomesoplenty.common.biome.overworld.BiomeGenGrassland;
 import biomesoplenty.common.biome.overworld.BiomeGenGrove;
 import biomesoplenty.common.biome.overworld.BiomeGenHeathland;
@@ -332,7 +328,6 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         
         // normal biomes which have weights
         alps = registerBOPBiome(new BiomeGenAlps(), "Alps");
-        arctic = registerBOPBiome(new BiomeGenArctic(), "Arctic");
         bamboo_forest = registerBOPBiome(new BiomeGenBambooForest(), "Bamboo Forest");
         bayou = registerBOPBiome(new BiomeGenBayou(), "Bayou");
         bog = registerBOPBiome(new BiomeGenBog(), "Bog");
@@ -395,10 +390,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         
         mountain_foothills = registerBOPBiome(new BiomeGenMountain(BiomeGenMountain.MountainType.FOOTHILLS), "Mountain Foothills");
         canyon_ravine = registerBOPBiome(new BiomeGenCanyon(BiomeGenCanyon.CanyonType.RAVINE), "Canyon Ravine");
-        glacier = registerBOPBiome(new BiomeGenGlacier(), "Glacier"); // TODO: implement glacier
         
-        setSubBiome(Optional.of(BiomeGenBase.frozenOcean), arctic); // add some arctic regions in frozen oceans        
-        setSubBiome(arctic, glacier);
         setSubBiome(canyon, canyon_ravine);
 
     }
@@ -408,7 +400,6 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         //TODO: Add biome dictionary tags for biomes that haven't been added yet
         
         registerBiomeToDictionary(BOPBiomes.alps, Type.SNOWY, Type.MOUNTAIN, Type.COLD);
-        registerBiomeToDictionary(BOPBiomes.arctic, Type.SNOWY, Type.WASTELAND, Type.COLD, Type.DEAD);
         registerBiomeToDictionary(BOPBiomes.bamboo_forest, Type.JUNGLE, Type.FOREST, Type.DENSE, Type.LUSH);
         registerBiomeToDictionary(BOPBiomes.bayou, Type.SWAMP, Type.WATER, Type.LUSH, Type.WET);
         registerBiomeToDictionary(BOPBiomes.bog, Type.SWAMP, Type.FOREST, Type.WET, Type.DEAD);
@@ -468,7 +459,6 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         registerBiomeToDictionary(BOPBiomes.xeric_shrubland, Type.PLAINS, Type.SPARSE, Type.DRY, Type.LUSH, Type.HOT, Type.SANDY);
         
         // edge-biomes, sub-biomes and mutated-biomes
-        registerBiomeToDictionary(BOPBiomes.glacier, Type.SNOWY, Type.HILLS, Type.COLD, Type.DEAD);
         registerBiomeToDictionary(BOPBiomes.mountain_foothills, Type.HILLS, Type.MOUNTAIN);
         registerBiomeToDictionary(BOPBiomes.canyon_ravine, Type.SANDY, Type.HILLS, Type.DRY, Type.HOT);
         
