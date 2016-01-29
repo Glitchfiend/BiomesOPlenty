@@ -8,11 +8,14 @@
 
 package biomesoplenty.common.biome.overworld;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
+import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.world.BOPWorldSettings;
+import biomesoplenty.common.world.feature.GeneratorLakes;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 
 public class BiomeGenAlps extends BOPBiome
@@ -38,6 +41,9 @@ public class BiomeGenAlps extends BOPBiome
         this.fillerBlock = Blocks.snow.getDefaultState();
 
         this.spawnableCreatureList.clear();
+        
+        // hot springs
+        this.addGenerator("hot_springs", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.1F).waterLakeForBiome(this).liquid(BOPBlocks.hot_spring_water).frozenLiquid((IBlockState)null).create());
         
         // gem
         this.addGenerator("emeralds", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(Blocks.emerald_ore.getDefaultState()).create());

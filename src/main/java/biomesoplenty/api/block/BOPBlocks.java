@@ -145,4 +145,6 @@ public class BOPBlocks
     public static Fluid blood_fluid;
     public static Block poison;
     public static Fluid poison_fluid;
+    public static Block hot_spring_water;
+    public static Fluid hot_spring_water_fluid;
 }
