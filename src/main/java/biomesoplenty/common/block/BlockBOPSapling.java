@@ -160,7 +160,7 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable {
             case YELLOW_AUTUMN:
             	return new GeneratorBasicTree.Builder().log(BlockPlanks.EnumType.BIRCH).leaves(BOPTrees.YELLOW_AUTUMN).minHeight(5).maxHeight(8).create();
             case ORANGE_AUTUMN:
-            	return new GeneratorBasicTree.Builder().log(BlockPlanks.EnumType.BIRCH).leaves(BOPTrees.ORANGE_AUTUMN).minHeight(5).maxHeight(8).create();
+            	return new GeneratorBasicTree.Builder().log(BlockPlanks.EnumType.DARK_OAK).leaves(BOPTrees.ORANGE_AUTUMN).minHeight(5).maxHeight(8).create();
             case BAMBOO:
             	return new GeneratorBulbTree.Builder().minHeight(6).maxHeight(18).log(BOPBlocks.bamboo.getDefaultState()).leaves(BOPTrees.BAMBOO).create();
             case MAGIC:
