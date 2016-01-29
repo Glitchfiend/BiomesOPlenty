@@ -84,7 +84,7 @@ public enum BOPClimates {
         BOPClimates.BOREAL.addLandBiome(10, BiomeGenBase.coldTaiga).addLandBiome(10, BiomeGenBase.extremeHills).addLandBiome(10, BiomeGenBase.taiga);
         BOPClimates.COLD_SWAMP.addLandBiome(3, BiomeGenBase.swampland);
         BOPClimates.WET_TEMPERATE.addLandBiome(10, BiomeGenBase.forest).addLandBiome(20, BiomeGenBase.roofedForest);
-        BOPClimates.DRY_TEMPERATE.addLandBiome(10, BiomeGenBase.plains);
+        BOPClimates.DRY_TEMPERATE.addLandBiome(5, BiomeGenBase.plains);
         BOPClimates.COOL_TEMPERATE.addLandBiome(5, BiomeGenBase.taiga).addLandBiome(10, BiomeGenBase.forest).addLandBiome(20, BiomeGenBase.birchForest);
         BOPClimates.WARM_TEMPERATE.addLandBiome(20, BiomeGenBase.plains).addLandBiome(5, BiomeGenBase.forest).addLandBiome(5, BiomeGenBase.birchForest);
         BOPClimates.HOT_SWAMP.addLandBiome(7, BiomeGenBase.swampland);

@@ -50,7 +50,6 @@ public class BiomeGenWoodland extends BOPBiome
         
         this.canGenerateVillages = false;
         
-        this.addWeight(BOPClimates.DRY_TEMPERATE, 5);
         this.addWeight(BOPClimates.COOL_TEMPERATE, 10);
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntitySnail.class, 6, 1, 2));

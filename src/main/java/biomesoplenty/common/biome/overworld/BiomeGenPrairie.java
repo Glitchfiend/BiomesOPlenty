@@ -42,7 +42,6 @@ public class BiomeGenPrairie extends BOPBiome
         this.setTemperatureRainfall(0.8F, 0.3F);
         
         this.addWeight(BOPClimates.WARM_TEMPERATE, 7);
-        this.addWeight(BOPClimates.DRY_TEMPERATE, 7);
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 1, 2, 6));
         this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));

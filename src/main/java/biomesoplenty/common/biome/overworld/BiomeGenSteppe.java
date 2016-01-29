@@ -40,7 +40,7 @@ public class BiomeGenSteppe extends BOPBiome
         
         this.canSpawnInBiome = false;
         
-        this.addWeight(BOPClimates.SAVANNA, 7);
+        this.addWeight(BOPClimates.DRY_TEMPERATE, 5);
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
         
