@@ -15,6 +15,7 @@ import java.util.Random;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.config.GameplayConfigurationHandler;
 import biomesoplenty.common.enums.BOPFlowers;
+import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.item.ItemBOPFlower;
 import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.Block;
@@ -32,6 +33,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -319,6 +321,32 @@ public class BlockBOPFlower extends BlockBOPDecoration implements IShearable
         }
 
         super.dropBlockAsItemWithChance(world, pos, state, chance, fortune);
+    }
+    
+    @Override
+    public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
+    {
+        BOPFlowers flower = ((BOPFlowers) world.getBlockState(pos).getValue(this.variantProperty));
+        switch (flower)
+        {
+            case BURNING_BLOSSOM:
+                return 0;
+            default:
+                return Blocks.red_flower.getFlammability(world, pos, face);
+        }
+    }
+    
+    @Override
+    public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face)
+    {
+    	BOPFlowers flower = ((BOPFlowers) world.getBlockState(pos).getValue(this.variantProperty));
+        switch (flower)
+        {
+            case BURNING_BLOSSOM:
+                return 0;
+            default:
+                return Blocks.red_flower.getFireSpreadSpeed(world, pos, face);
+        }
     }
 
     @Override

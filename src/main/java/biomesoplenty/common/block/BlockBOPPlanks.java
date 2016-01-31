@@ -13,7 +13,11 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.world.IBlockAccess;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.item.ItemBOPBlock;
@@ -98,5 +102,32 @@ public class BlockBOPPlanks extends Block implements IBOPBlock
     {
         return this.getMetaFromState(state);
     }
+    
+    @Override
+    public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
+    {
+        BOPWoods wood = ((BOPWoods) world.getBlockState(pos).getValue(this.variantProperty));
+        switch (wood)
+        {
+            case HELLBARK:
+                return 0;
+            default:
+                return Blocks.planks.getFlammability(world, pos, face);
+        }
+    }
+    
+    @Override
+    public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face)
+    {
+    	BOPWoods wood = ((BOPWoods) world.getBlockState(pos).getValue(this.variantProperty));
+        switch (wood)
+        {
+            case HELLBARK:
+                return 0;
+            default:
+                return Blocks.planks.getFireSpreadSpeed(world, pos, face);
+        }
+    }
+    
     
 }

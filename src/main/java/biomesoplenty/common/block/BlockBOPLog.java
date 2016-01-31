@@ -9,6 +9,7 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.IBOPBlock;
+import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.item.ItemBOPBlock;
 import biomesoplenty.common.util.block.VariantPagingHelper;
@@ -16,7 +17,11 @@ import net.minecraft.block.BlockLog;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.world.IBlockAccess;
 
 public class BlockBOPLog extends BlockLog implements IBOPBlock
 {
@@ -103,6 +108,32 @@ public class BlockBOPLog extends BlockLog implements IBOPBlock
     public int damageDropped(IBlockState state)
     {
         return this.getMetaFromState(state.withProperty(LOG_AXIS, BlockLog.EnumAxis.Y));
+    }
+    
+    @Override
+    public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
+    {
+        BOPWoods wood = ((BOPWoods) world.getBlockState(pos).getValue(this.variantProperty));
+        switch (wood)
+        {
+            case HELLBARK:
+                return 0;
+            default:
+                return Blocks.log.getFlammability(world, pos, face);
+        }
+    }
+    
+    @Override
+    public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face)
+    {
+    	BOPWoods wood = ((BOPWoods) world.getBlockState(pos).getValue(this.variantProperty));
+        switch (wood)
+        {
+            case HELLBARK:
+                return 0;
+            default:
+                return Blocks.log.getFireSpreadSpeed(world, pos, face);
+        }
     }
     
     

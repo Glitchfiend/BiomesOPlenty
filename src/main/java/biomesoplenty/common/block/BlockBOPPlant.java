@@ -14,6 +14,7 @@ import java.util.Random;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.item.ItemBOPPlant;
 import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.Block;
@@ -544,6 +545,60 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
                 break;
         }
         return ret;
+    }
+    
+    @Override
+    public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
+    {
+        BOPPlants plant = ((BOPPlants) world.getBlockState(pos).getValue(this.variantProperty));
+        switch (plant)
+        {
+            case WILDRICE:
+                return 0;
+            case CATTAIL:
+                return 0;
+            case RIVERCANE:
+                return 0;
+            case WILDCARROT:
+                return 0;
+            case WITHERWART:
+                return 0;
+            case REED:
+                return 0;
+            case ROOT:
+                return 0;
+            case RAFFLESIA:
+                return 0;
+            default:
+                return Blocks.tallgrass.getFlammability(world, pos, face);
+        }
+    }
+    
+    @Override
+    public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face)
+    {
+    	BOPPlants plant = ((BOPPlants) world.getBlockState(pos).getValue(this.variantProperty));
+        switch (plant)
+        {
+            case WILDRICE:
+                return 0;
+            case CATTAIL:
+                return 0;
+            case RIVERCANE:
+                return 0;
+            case WILDCARROT:
+                return 0;
+            case WITHERWART:
+                return 0;
+            case REED:
+                return 0;
+            case ROOT:
+                return 0;
+            case RAFFLESIA:
+                return 0;
+            default:
+                return Blocks.tallgrass.getFireSpreadSpeed(world, pos, face);
+        }
     }
     
     

@@ -22,9 +22,13 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -143,6 +147,32 @@ public class BlockBOPHalfWoodSlab extends BlockSlab implements IBOPBlock
         for (IBlockState state : presets)
         {
             list.add(new ItemStack(itemIn, 1, this.getMetaFromState(state)));
+        }
+    }
+    
+    @Override
+    public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
+    {
+        BOPWoods wood = ((BOPWoods) world.getBlockState(pos).getValue(this.variantProperty));
+        switch (wood)
+        {
+            case HELLBARK:
+                return 0;
+            default:
+                return Blocks.wooden_slab.getFlammability(world, pos, face);
+        }
+    }
+    
+    @Override
+    public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face)
+    {
+    	BOPWoods wood = ((BOPWoods) world.getBlockState(pos).getValue(this.variantProperty));
+        switch (wood)
+        {
+            case HELLBARK:
+                return 0;
+            default:
+                return Blocks.wooden_slab.getFireSpreadSpeed(world, pos, face);
         }
     }
     
