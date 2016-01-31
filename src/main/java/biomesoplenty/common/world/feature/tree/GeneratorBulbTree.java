@@ -34,7 +34,7 @@ public class GeneratorBulbTree extends GeneratorTreeBase
             this.replace = BlockQueries.airOrLeaves;
             this.log = Blocks.log.getDefaultState();
             this.leaves = Blocks.leaves.getDefaultState();
-            this.vine = Blocks.vine.getDefaultState();  
+            this.vine = null;  
         }
 
         @Override
