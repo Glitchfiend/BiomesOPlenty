@@ -47,7 +47,6 @@ import biomesoplenty.common.block.BlockBOPFence;
 import biomesoplenty.common.block.BlockBOPFenceGate;
 import biomesoplenty.common.block.BlockBOPFlesh;
 import biomesoplenty.common.block.BlockBOPFlower;
-import biomesoplenty.common.block.BlockBOPFruit;
 import biomesoplenty.common.block.BlockBOPGem;
 import biomesoplenty.common.block.BlockBOPGemOre;
 import biomesoplenty.common.block.BlockBOPGeneric;
@@ -118,7 +117,6 @@ public class ModBlocks
         waterlily =             registerBlock( new BlockBOPLilypad(), "waterlily" );
         dirt =                  registerBlock( new BlockBOPDirt(), "dirt" );
         stone_formations =      registerBlock( new BlockBOPStoneFormations(), "stone_formations" );
-        fruit_block =           registerBlock( new BlockBOPFruit(), "fruit_block" /*, creativeTab(null) */); // TODO: once the mechanism for farming fruit is established: remove creative tab
         crystal =               registerBlock( new BlockBOPCrystal(), "crystal" );
         biome_block =           registerBlock( new BlockBOPBiomeBlock(), "biome_block" );
         

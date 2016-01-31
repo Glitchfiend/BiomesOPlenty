@@ -11,10 +11,6 @@ package biomesoplenty.common.block;
 import java.util.List;
 import java.util.Random;
 
-import biomesoplenty.api.block.IBOPBlock;
-import biomesoplenty.common.enums.BOPTrees;
-import biomesoplenty.common.item.ItemBOPBlock;
-import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.properties.IProperty;
@@ -37,6 +33,11 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import biomesoplenty.api.block.IBOPBlock;
+import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.common.enums.BOPTrees;
+import biomesoplenty.common.item.ItemBOPBlock;
+import biomesoplenty.common.util.block.VariantPagingHelper;
 
 // TODO: using fast graphics - transparent color is always rendered as black - can we override this somehow?
 // TODO: using fast graphics - flowering leaves overlay seems to be tinted green - I think that is because it doesn't use distinct tintindexes on fast graphics
@@ -249,27 +250,101 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
             case RED_BIG_FLOWER: case YELLOW_BIG_FLOWER:
                 break;
             case YELLOW_AUTUMN:
+            	if (worldIn.rand.nextInt(chance) == 0)
+                {
+                    fruit = new ItemStack(BOPItems.persimmon, 1, 0);
+                }
+            	break;
             case ORANGE_AUTUMN:
+            	if (worldIn.rand.nextInt(chance) == 0)
+                {
+                    fruit = new ItemStack(BOPItems.persimmon, 1, 0);
+                }
+            	break;
             case BAMBOO:
+            	break;
             case MAGIC:
+            	break;
             case UMBRAN:
+            	break;
             case DEAD:
+            	if (worldIn.rand.nextInt(chance) == 0)
+                {
+                    fruit = new ItemStack(BOPItems.persimmon, 1, 0);
+                }
+            	break;
             case FIR:
+            	if (worldIn.rand.nextInt(chance) == 0)
+                {
+                    fruit = new ItemStack(BOPItems.pinecone, 1, 0);
+                }
+            	break;
             case ETHEREAL:
+            	break;
             case ORIGIN:
+            	if (worldIn.rand.nextInt(chance) == 0)
+                {
+                    fruit = new ItemStack(Items.apple, 1, 0);
+                }
+            	break;
             case PINK_CHERRY:
+            	break;
             case WHITE_CHERRY:
+            	break;
             case MAPLE:
+            	if (worldIn.rand.nextInt(chance) == 0)
+                {
+                    fruit = new ItemStack(BOPItems.persimmon, 1, 0);
+                }
+            	break;
             case HELLBARK:
+            	break;
             case FLOWERING:
+            	if (worldIn.rand.nextInt(chance) == 0)
+                {
+                    fruit = new ItemStack(BOPItems.peach, 1, 0);
+                }
+            	break;
             case JACARANDA:
+            	if (worldIn.rand.nextInt(chance) == 0)
+                {
+                    fruit = new ItemStack(BOPItems.peach, 1, 0);
+                }
+            	break;
             case SACRED_OAK:
+            	break;
             case MANGROVE:
+            	if (worldIn.rand.nextInt(chance) == 0)
+                {
+                    fruit = new ItemStack(BOPItems.pear, 1, 0);
+                }
+            	break;
             case PALM:
+            	break;
             case REDWOOD:
+            	if (worldIn.rand.nextInt(chance) == 0)
+                {
+                    fruit = new ItemStack(BOPItems.pinecone, 1, 0);
+                }
+            	break;
             case WILLOW:
+            	if (worldIn.rand.nextInt(chance) == 0)
+                {
+                    fruit = new ItemStack(BOPItems.pear, 1, 0);
+                }
+            	break;
             case PINE:
+            	if (worldIn.rand.nextInt(chance) == 0)
+                {
+                    fruit = new ItemStack(BOPItems.pinecone, 1, 0);
+                }
+            	break;
             case MAHOGANY:
+            	if (worldIn.rand.nextInt(chance) == 0)
+                {
+                    fruit = new ItemStack(BOPItems.peach, 1, 0);
+                }
+            	break;
             default:
                 if (worldIn.rand.nextInt(chance) == 0)
                 {

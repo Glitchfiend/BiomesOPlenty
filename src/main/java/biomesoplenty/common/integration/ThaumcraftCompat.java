@@ -182,8 +182,6 @@ public class ThaumcraftCompat
     private static void addThaumcraftGolemsSupport()
     {
         addClickableCrop(BlockBOPPlant.paging.getVariantState(BOPPlants.BERRYBUSH));
-        FMLInterModComms.sendMessage("Thaumcraft", "harvestStandardCrop", new ItemStack(BOPBlocks.fruit_block, 1, 0));
-        FMLInterModComms.sendMessage("Thaumcraft", "harvestStandardCrop", new ItemStack(BOPBlocks.fruit_block, 1, 1));
     }
 
     private static void addAspectsToBlock(Block block, Aspect[] aspects, int[] amounts)

@@ -113,7 +113,6 @@ public class BOPBlocks
     public static Block waterlily;
     public static Block dirt;
     public static Block stone_formations;
-    public static Block fruit_block;
     public static Block ash_stone;
     public static Block hard_sand;
     public static Block hard_dirt;

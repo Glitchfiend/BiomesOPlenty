@@ -35,7 +35,7 @@ public class BiomeGenFlowerField extends BOPBiome
         this.setColor(4044093);
         this.setTemperatureRainfall(0.6F, 0.7F);
 
-        this.addWeight(BOPClimates.WARM_TEMPERATE, 3);
+        this.addWeight(BOPClimates.WARM_TEMPERATE, 2);
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
         
