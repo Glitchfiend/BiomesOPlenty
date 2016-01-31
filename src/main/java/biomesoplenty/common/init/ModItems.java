@@ -63,10 +63,9 @@ public class ModItems
         saladshroom =       registerItem(new ItemSoup(6), "saladshroom");
         ((ItemFood)saladshroom).setPotionEffect(Potion.jump.id, 550, 1, 0.05F);
         ricebowl =          registerItem(new ItemSoup(2), "ricebowl");
-        // TODO: eating earth is supposed to kill you isn't it?
-        earth =             registerItem(new ItemFood(0, 0.0F, false), "earth", null); // no creative tab
-
         
+        earth = registerItem(new Item(), "earth");
+        earth.setCreativeTab(null);
         fleshchunk = registerItem(new Item(), "fleshchunk");
         mudball = registerItem(new ItemMudball(), "mudball");
         turnip_seeds = registerItem(new ItemSeeds(BOPBlocks.turnip_block, Blocks.farmland), "turnip_seeds");
