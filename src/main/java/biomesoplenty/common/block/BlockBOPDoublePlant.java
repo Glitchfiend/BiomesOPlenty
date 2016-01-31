@@ -16,8 +16,10 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.ColorizerGrass;
@@ -242,4 +244,16 @@ public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements ISh
         return new ItemStack(this, 1, this.getMetaFromState(state));
     }
     
+    
+    @Override
+    public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
+    {
+        return Blocks.tallgrass.getFlammability(world, pos, face);
+    }
+
+    @Override
+    public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face)
+    {
+        return Blocks.tallgrass.getFlammability(world, pos, face);
+    }
 }

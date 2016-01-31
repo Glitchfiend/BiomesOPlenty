@@ -17,7 +17,11 @@ import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.world.IBlockAccess;
 
 public class BlockBOPWoodStairs extends BlockStairs implements IBOPBlock
 {
@@ -55,6 +59,18 @@ public class BlockBOPWoodStairs extends BlockStairs implements IBOPBlock
         
         this.wood = wood;
         variantToBlock.put(wood, this);
+    }
+    
+    @Override
+    public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
+    {
+        return Blocks.planks.getFlammability(world, pos, face);
+    }
+
+    @Override
+    public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face)
+    {
+        return Blocks.planks.getFireSpreadSpeed(world, pos, face);
     }
 }
     

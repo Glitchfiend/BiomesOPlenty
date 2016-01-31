@@ -18,7 +18,11 @@ import net.minecraft.block.BlockFence;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.world.IBlockAccess;
 
 public class BlockBOPFence extends BlockFence implements IBOPBlock
 {
@@ -60,5 +64,16 @@ public class BlockBOPFence extends BlockFence implements IBOPBlock
         this.setStepSound(soundTypeWood);
     }
     
+    @Override
+    public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
+    {
+        return Blocks.planks.getFlammability(world, pos, face);
+    }
+
+    @Override
+    public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face)
+    {
+        return Blocks.planks.getFireSpreadSpeed(world, pos, face);
+    }
 }
     
