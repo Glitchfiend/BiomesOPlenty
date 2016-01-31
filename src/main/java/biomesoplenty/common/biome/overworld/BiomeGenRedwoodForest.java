@@ -1,11 +1,17 @@
 package biomesoplenty.common.biome.overworld;
 
+import java.util.Random;
+
+import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
+import net.minecraft.world.chunk.ChunkPrimer;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
@@ -21,6 +27,7 @@ import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
+import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
 import biomesoplenty.common.world.feature.GeneratorFlora;
@@ -32,6 +39,9 @@ import biomesoplenty.common.world.feature.tree.GeneratorRedwoodTree;
 
 public class BiomeGenRedwoodForest extends BOPBiome
 {
+	
+    public IBlockState usualTopBlock;
+    public IBlockState alternateTopBlock;
     
     public BiomeGenRedwoodForest()
     {
@@ -41,6 +51,10 @@ public class BiomeGenRedwoodForest extends BOPBiome
         
         this.setColor(0x6DAA3C);
         this.setTemperatureRainfall(0.7F, 0.7F);
+        
+        this.topBlock = Blocks.grass.getDefaultState();
+        this.usualTopBlock = this.topBlock;
+        this.alternateTopBlock = Blocks.dirt.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.PODZOL);
         
         this.canGenerateVillages = false;
     
@@ -83,9 +97,25 @@ public class BiomeGenRedwoodForest extends BOPBiome
     }
     
     @Override
+    public void configure(IConfigObj conf)
+    {
+        super.configure(conf);
+        
+        this.usualTopBlock = this.topBlock;
+        this.alternateTopBlock = conf.getBlockState("alternateTopBlock", this.alternateTopBlock);
+    }
+    
+    @Override
     public void applySettings(BOPWorldSettings settings)
     {
         if (!settings.generateBopGems) {this.removeGenerator("amber");}
+    }
+    
+    @Override
+    public void genTerrainBlocks(World world, Random rand, ChunkPrimer primer, int x, int z, double noise)
+    {
+        this.topBlock = (noise + rand.nextDouble() * 3.0D > 1.8D) ? this.alternateTopBlock : this.usualTopBlock;
+        super.genTerrainBlocks(world, rand, primer, x, z, noise);
     }
 
 }
