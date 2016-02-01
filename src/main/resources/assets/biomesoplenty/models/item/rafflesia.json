@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "biomesoplenty:blocks/rafflesia"
+        "layer0": "biomesoplenty:items/rafflesia"
     },
     "display": {
         "thirdperson": {

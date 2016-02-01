@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "biomesoplenty:blocks/tall_cattail_upper"
+        "layer0": "biomesoplenty:items/tall_cattail"
     },
     "display": {
         "thirdperson": {
