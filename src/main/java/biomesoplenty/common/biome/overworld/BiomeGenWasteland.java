@@ -47,7 +47,7 @@ public class BiomeGenWasteland extends BOPBiome
     public BiomeGenWasteland()
     {
         // terrain
-        this.terrainSettings.avgHeight(64).heightVariation(5, 5);
+        this.terrainSettings.avgHeight(64).heightVariation(0,5);
         
         this.setColor(0x5A5440);
         this.setTemperatureRainfall(0.9F, 0.05F);
@@ -68,17 +68,14 @@ public class BiomeGenWasteland extends BOPBiome
         this.spawnableWaterCreatureList.clear();
         
         // trees
+        IBlockPosQuery emptyDriedDirt = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();
         GeneratorWeighted treeGenerator = new GeneratorWeighted(0.5F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("dead_tree", 1, (new GeneratorBigTree.Builder()).amountPerChunk(0.5F).minHeight(5).maxHeight(12).foliageHeight(0).foliageDensity(0.5D).log(BOPWoods.DEAD).leaves(Blocks.air.getDefaultState()).create());
-        
-        // grasses
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(0.2F);
-        this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
-        grassGenerator.add("dead_bushes", 1, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.DEAD_BUSH).create());
+        treeGenerator.add("dead_tree", 1, (new GeneratorBigTree.Builder()).amountPerChunk(0.5F).placeOn(emptyDriedDirt).minHeight(5).maxHeight(12).foliageHeight(0).foliageDensity(0.5D).log(BOPWoods.DEAD).leaves(Blocks.air.getDefaultState()).create());
         
         // other plants
         this.addGenerator("dead_grass", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).with(BOPPlants.DEADGRASS).create());
+        this.addGenerator("desertgrass", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BOPPlants.DESERTGRASS).create());
         
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.05F);
@@ -86,11 +83,11 @@ public class BiomeGenWasteland extends BOPBiome
         flowerGenerator.add("wilted_lily", 1, (new GeneratorFlora.Builder()).with(BOPFlowers.WILTED_LILY).create());
         
         // lakes
-        this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.5F).waterLakeForBiome(this).create());
-        this.addGenerator("poison_lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.2F).waterLakeForBiome(this).liquid(BOPBlocks.poison).frozenLiquid((IBlockState)null).create());
+        this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.1F).waterLakeForBiome(this).create());
+        this.addGenerator("poison_lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.1F).waterLakeForBiome(this).liquid(BOPBlocks.poison).frozenLiquid((IBlockState)null).create());
         
         // spikes
-        this.addGenerator("spikes", GeneratorStage.PRE, (new GeneratorSpike.Builder()).amountPerChunk(0.6F).create());
+        this.addGenerator("spikes", GeneratorStage.PRE, (new GeneratorSpike.Builder()).amountPerChunk(0.2F).create());
         
         // gem
         this.addGenerator("malachite", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.MALACHITE).create());

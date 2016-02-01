@@ -64,12 +64,9 @@ public class BiomeGenXericShrubland extends BOPBiome
         this.addGenerator("cacti", GeneratorStage.FLOWERS,(new GeneratorColumns.Builder()).amountPerChunk(1.5F).generationAttempts(3).placeOn(this.topBlock).with(Blocks.cactus.getDefaultState()).minHeight(1).maxHeight(2).create());
         
         // flowers
-        GeneratorWeighted flowerGenerator = new GeneratorWeighted(4.0F);
+        GeneratorWeighted flowerGenerator = new GeneratorWeighted(1.0F);
         this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
-        flowerGenerator.add("wildflowers", 4, (new GeneratorFlora.Builder().with(BOPFlowers.WILDFLOWER).create()));
-        flowerGenerator.add("dandelion", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.DANDELION).create()));
-        flowerGenerator.add("poppy", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.POPPY).create()));
-        flowerGenerator.add("dandelions", 2, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.DANDELION).create()));
+        flowerGenerator.add("wildflowers", 1, (new GeneratorFlora.Builder().with(BOPFlowers.WILDFLOWER).create()));
         
         // grasses (note weighting must be quite high as the grasses will only grow on the splattered grass blocks)
         GeneratorWeighted grassGenerator = new GeneratorWeighted(12.0F);
@@ -92,12 +89,12 @@ public class BiomeGenXericShrubland extends BOPBiome
     @Override
     public int getGrassColorAtPos(BlockPos pos)
     {
-        return 0xE2CDA5;
+        return 0xD4E0A6;
     }
     
     @Override
     public int getFoliageColorAtPos(BlockPos pos)
     {
-        return 0xE2CDA5;
+        return 0xD4E0A6;
     }
 }
