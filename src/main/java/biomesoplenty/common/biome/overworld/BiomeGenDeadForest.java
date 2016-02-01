@@ -86,6 +86,9 @@ public class BiomeGenDeadForest extends BOPBiome
     {
         if (!settings.generateBopGems) {this.removeGenerator("tanzanite");}
         if (!settings.generateThorns) {this.removeGenerator("thorns");}
+        
+        GeneratorWeighted grassGen = (GeneratorWeighted)this.getGenerator("grass");
+        if (!settings.generateBopGrasses) {grassGen.removeGenerator("shortgrass"); grassGen.removeGenerator("mediumgrass"); grassGen.removeGenerator("wheatgrass"); grassGen.removeGenerator("dampgrass");}
     }
     
     @Override

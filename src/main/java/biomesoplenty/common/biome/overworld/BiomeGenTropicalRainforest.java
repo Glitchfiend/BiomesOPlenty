@@ -117,6 +117,9 @@ public class BiomeGenTropicalRainforest extends BOPBiome
         if (!settings.generateBopGems) {this.removeGenerator("topaz");}
         if (!settings.generatePoisonIvy) {this.removeGenerator("poison_ivy");}
         if (!settings.generateQuicksand) {this.removeGenerator("quicksand");}
+        
+        GeneratorWeighted grassGen = (GeneratorWeighted)this.getGenerator("grass");
+        if (!settings.generateBopGrasses) {grassGen.removeGenerator("shortgrass"); grassGen.removeGenerator("mediumgrass"); grassGen.removeGenerator("wheatgrass"); grassGen.removeGenerator("dampgrass");}
     }
     
     @Override

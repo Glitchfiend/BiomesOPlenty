@@ -66,6 +66,9 @@ public class BiomeGenHighland extends BOPBiome
     {
         if (!settings.generateBopGems) {this.removeGenerator("emerald");}
         if (!settings.generateWildCarrots) {this.removeGenerator("wild_carrots");}
+        
+        GeneratorWeighted grassGen = (GeneratorWeighted)this.getGenerator("grass");
+        if (!settings.generateBopGrasses) {grassGen.removeGenerator("shortgrass"); grassGen.removeGenerator("mediumgrass"); grassGen.removeGenerator("wheatgrass"); grassGen.removeGenerator("dampgrass");}
     }
     
 }

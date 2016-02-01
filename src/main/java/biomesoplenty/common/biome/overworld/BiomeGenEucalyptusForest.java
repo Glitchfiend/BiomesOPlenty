@@ -89,6 +89,9 @@ public class BiomeGenEucalyptusForest extends BOPBiome
     public void applySettings(BOPWorldSettings settings)
     {
         if (!settings.generateBopGems) {this.removeGenerator("topaz");}
+        
+        GeneratorWeighted grassGen = (GeneratorWeighted)this.getGenerator("grass");
+        if (!settings.generateBopGrasses) {grassGen.removeGenerator("shortgrass"); grassGen.removeGenerator("mediumgrass"); grassGen.removeGenerator("wheatgrass"); grassGen.removeGenerator("dampgrass");}
     }
     
     /*

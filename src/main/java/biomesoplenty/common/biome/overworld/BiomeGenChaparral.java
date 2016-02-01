@@ -96,6 +96,9 @@ public class BiomeGenChaparral extends BOPBiome
         if (!settings.generateBopGems) {this.removeGenerator("peridot");}
         if (!settings.generateBerryBushes) {this.removeGenerator("berry_bushes");}
         if (!settings.generateWildCarrots) {this.removeGenerator("wild_carrots");}
+        
+        GeneratorWeighted grassGen = (GeneratorWeighted)this.getGenerator("grass");
+        if (!settings.generateBopGrasses) {grassGen.removeGenerator("shortgrass"); grassGen.removeGenerator("mediumgrass"); grassGen.removeGenerator("wheatgrass"); grassGen.removeGenerator("dampgrass");}
     }
     
     

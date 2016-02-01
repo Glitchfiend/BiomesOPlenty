@@ -91,6 +91,9 @@ public class BiomeGenMoor extends BOPBiome
     {
         if (!settings.generateBopGems) {this.removeGenerator("malachite");}
         if (!settings.generateFlax) {this.removeGenerator("flax");}
+        
+        GeneratorWeighted grassGen = (GeneratorWeighted)this.getGenerator("grass");
+        if (!settings.generateBopGrasses) {grassGen.removeGenerator("shortgrass"); grassGen.removeGenerator("mediumgrass"); grassGen.removeGenerator("wheatgrass"); grassGen.removeGenerator("dampgrass");}
     }
     
     @Override

@@ -223,6 +223,11 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         this.generationManager.addGenerator(name, stage, generator);
     }
     
+    public IGenerator getGenerator(String name)
+    {
+    	return this.generationManager.getGenerator(name);
+    }
+    
     public void removeGenerator(String name)
     {
         this.generationManager.removeGenerator(name);

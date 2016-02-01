@@ -8,11 +8,13 @@
 
 package biomesoplenty.common.biome.overworld;
 
+import net.minecraft.block.BlockTallGrass;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
+import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.BlockBOPDirt;
 import biomesoplenty.common.block.BlockBOPGrass;
@@ -53,7 +55,11 @@ public class BiomeGenSteppe extends BOPBiome
         this.addGenerator("dead_bushes", GeneratorStage.DEAD_BUSH,(new GeneratorFlora.Builder()).amountPerChunk(0.3F).with(Blocks.deadbush.getDefaultState()).generationAttempts(4).create());
         
         // grasses
-        this.addGenerator("shrubs", GeneratorStage.GRASS,(new GeneratorGrass.Builder()).amountPerChunk(15).with(BlockBOPPlant.paging.getVariantState(BOPPlants.SHORTGRASS)).create());
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(7.0F);
+        this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
+        grassGenerator.add("shortgrass", 5, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
+        grassGenerator.add("mediumgrass", 3, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());
+        grassGenerator.add("tallgrass", 1, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).create());
 
         // gem
         this.addGenerator("ruby", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.RUBY).create());
@@ -63,6 +69,9 @@ public class BiomeGenSteppe extends BOPBiome
     public void applySettings(BOPWorldSettings settings)
     {
         if (!settings.generateBopGems) {this.removeGenerator("ruby");}
+        
+        GeneratorWeighted grassGen = (GeneratorWeighted)this.getGenerator("grass");
+        if (!settings.generateBopGrasses) {grassGen.removeGenerator("shortgrass"); grassGen.removeGenerator("mediumgrass"); grassGen.removeGenerator("wheatgrass"); grassGen.removeGenerator("dampgrass");}
     }
     
     @Override

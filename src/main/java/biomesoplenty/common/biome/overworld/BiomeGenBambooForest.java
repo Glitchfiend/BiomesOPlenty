@@ -19,17 +19,16 @@ import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraft.world.chunk.ChunkPrimer;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
+import biomesoplenty.api.biome.generation.IGenerator;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
-import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.block.BlockBOPCoral;
+import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.enums.BOPClimates;
-import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.enums.BOPTrees;
@@ -119,6 +118,9 @@ public class BiomeGenBambooForest extends BOPBiome
     public void applySettings(BOPWorldSettings settings)
     {
         if (!settings.generateBopGems) {this.removeGenerator("topaz");}
+        
+        GeneratorWeighted grassGen = (GeneratorWeighted)this.getGenerator("grass");
+        if (!settings.generateBopGrasses) {grassGen.removeGenerator("shortgrass"); grassGen.removeGenerator("mediumgrass"); grassGen.removeGenerator("wheatgrass"); grassGen.removeGenerator("dampgrass");}
     }
     
     @Override

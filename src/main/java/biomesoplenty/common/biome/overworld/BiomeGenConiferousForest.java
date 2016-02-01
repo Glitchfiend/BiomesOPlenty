@@ -113,6 +113,9 @@ public class BiomeGenConiferousForest extends BOPBiome
         if (!settings.generatePoisonIvy) {this.removeGenerator("poison_ivy");}
         if (!settings.generateFlax) {this.removeGenerator("flax");}
         if (!settings.generateBerryBushes) {this.removeGenerator("berry_bushes");}
+        
+        GeneratorWeighted grassGen = (GeneratorWeighted)this.getGenerator("grass");
+        if (!settings.generateBopGrasses) {grassGen.removeGenerator("shortgrass"); grassGen.removeGenerator("mediumgrass"); grassGen.removeGenerator("wheatgrass"); grassGen.removeGenerator("dampgrass");}
     }
 
 }

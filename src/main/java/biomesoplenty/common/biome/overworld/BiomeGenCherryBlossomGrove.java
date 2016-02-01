@@ -100,6 +100,9 @@ public class BiomeGenCherryBlossomGrove extends BOPBiome
     {
         if (!settings.generateBopGems) {this.removeGenerator("topaz");}
         if (!settings.generateFlax) {this.removeGenerator("flax");}
+        
+        GeneratorWeighted grassGen = (GeneratorWeighted)this.getGenerator("grass");
+        if (!settings.generateBopGrasses) {grassGen.removeGenerator("shortgrass"); grassGen.removeGenerator("mediumgrass"); grassGen.removeGenerator("wheatgrass"); grassGen.removeGenerator("dampgrass");}
     }
     
     @Override

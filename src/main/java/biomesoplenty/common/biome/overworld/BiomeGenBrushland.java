@@ -84,6 +84,9 @@ public class BiomeGenBrushland extends BOPBiome
         if (!settings.generateBopGems) {this.removeGenerator("ruby");}
         if (!settings.generateThorns) {this.removeGenerator("thorns");}
         if (!settings.generateQuicksand) {this.removeGenerator("quicksand");}
+        
+        GeneratorWeighted grassGen = (GeneratorWeighted)this.getGenerator("grass");
+        if (!settings.generateBopGrasses) {grassGen.removeGenerator("shortgrass"); grassGen.removeGenerator("mediumgrass"); grassGen.removeGenerator("wheatgrass"); grassGen.removeGenerator("dampgrass");}
     }
 
     @Override

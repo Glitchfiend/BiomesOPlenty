@@ -87,5 +87,8 @@ public class BiomeGenMapleWoods extends BOPBiome
     {
         if (!settings.generateBopGems) {this.removeGenerator("tanzanite");}
         if (!settings.generatePoisonIvy) {this.removeGenerator("poison_ivy");}
+        
+        GeneratorWeighted grassGen = (GeneratorWeighted)this.getGenerator("grass");
+        if (!settings.generateBopGrasses) {grassGen.removeGenerator("shortgrass"); grassGen.removeGenerator("mediumgrass"); grassGen.removeGenerator("wheatgrass"); grassGen.removeGenerator("dampgrass");}
     }
 }

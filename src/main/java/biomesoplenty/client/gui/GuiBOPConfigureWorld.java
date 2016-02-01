@@ -179,7 +179,8 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
         GENERATE_BERRY_BUSHES (110),
         GENERATE_WILD_CARROTS (111),
         GENERATE_THORNS (112),
-        GENERATE_QUICKSAND (113);
+        GENERATE_QUICKSAND (113),
+        GENERATE_BOP_GRASSES (114);
         
         private int id;
         
@@ -232,7 +233,8 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BERRY_BUSHES.getId(), "Generate Berry Bushes", true, this.settings.generateBerryBushes),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_WILD_CARROTS.getId(), "Generate Wild Carrots", true, this.settings.generateWildCarrots),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_THORNS.getId(), "Generate Thorns", true, this.settings.generateThorns),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_QUICKSAND.getId(), "Generate Quicksand", true, this.settings.generateQuicksand)
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_QUICKSAND.getId(), "Generate Quicksand", true, this.settings.generateQuicksand),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_GRASSES.getId(), "Generate BOP Grasses", true, this.settings.generateBopGrasses)
         };
         
         this.pageManager = new GuiBOPPageManager(createTableForFields(page0Fields, page1Fields, page2Fields));
@@ -343,7 +345,10 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
                 this.settings.generateThorns = value;
                 break;
             case GENERATE_QUICKSAND:
-                this.settings.generateThorns = value;
+                this.settings.generateQuicksand = value;
+                break;
+            case GENERATE_BOP_GRASSES:
+                this.settings.generateBopGrasses = value;
                 break;
             default:
                 break;

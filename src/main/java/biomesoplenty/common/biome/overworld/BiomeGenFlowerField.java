@@ -48,7 +48,7 @@ public class BiomeGenFlowerField extends BOPBiome
         flowerGenerator.add("red_tulip", 10, (new GeneratorFlora.Builder().with(EnumFlowerType.RED_TULIP).create()));
         
         // grasses
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(0.2F);
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(0.5F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("shortgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
         grassGenerator.add("mediumgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());
@@ -65,6 +65,9 @@ public class BiomeGenFlowerField extends BOPBiome
     public void applySettings(BOPWorldSettings settings)
     {
         if (!settings.generateBopGems) {this.removeGenerator("peridot");}
+        
+        GeneratorWeighted grassGen = (GeneratorWeighted)this.getGenerator("grass");
+        if (!settings.generateBopGrasses) {grassGen.removeGenerator("shortgrass"); grassGen.removeGenerator("mediumgrass"); grassGen.removeGenerator("wheatgrass"); grassGen.removeGenerator("dampgrass");}
     }
     
     @Override
