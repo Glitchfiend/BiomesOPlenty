@@ -94,6 +94,8 @@ public class BiomeGenTundra extends BOPBiome
         
         if (!settings.generateBopWaterPlants) {this.removeGenerator("algae"); this.removeGenerator("water_reeds"); this.removeGenerator("algae"); this.removeGenerator("duckweed"); this.removeGenerator("medium_lily"); this.removeGenerator("small_lily"); this.removeGenerator("tiny_lily");}
         
+        if (!settings.generateBopFlowers) {this.removeGenerator("flowers");}
+        
         GeneratorWeighted grassGen = (GeneratorWeighted)this.getGenerator("grass");
         if (!settings.generateBopGrasses) {grassGen.removeGenerator("shortgrass"); grassGen.removeGenerator("mediumgrass"); grassGen.removeGenerator("wheatgrass"); grassGen.removeGenerator("dampgrass");}
     }

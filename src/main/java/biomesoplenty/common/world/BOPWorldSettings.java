@@ -73,16 +73,20 @@ public class BOPWorldSettings
     public BiomeSize biomeSize = BiomeSize.MEDIUM;
     public float amplitude = 1.0F;
     public boolean generateBopGems = true;
+    public boolean generateBopSoils = true;
+    public boolean generateBopGrasses = true;
+    public boolean generateBopFoliage = true;
+    public boolean generateBopFlowers = true;
+    public boolean generateBopPlants = true;
+    public boolean generateBopWaterPlants = true;
+    public boolean generateBopMushrooms = true;
     public boolean generatePoisonIvy = true;
     public boolean generateFlax = true;
     public boolean generateBerryBushes = true;
     public boolean generateWildCarrots = true;
     public boolean generateThorns = true;
     public boolean generateQuicksand = true;
-    public boolean generateBopGrasses = true;
-    public boolean generateBopFoliage = true;
-    public boolean generateBopPlants = true;
-    public boolean generateBopWaterPlants = true;
+    public boolean generateLiquidPoison = true;
     
     
     // Vanilla properties - not configurable (yet) but included for consistency with vanilla ChunkProviderSettings
@@ -124,16 +128,20 @@ public class BOPWorldSettings
         obj.addProperty("biomeSize", this.biomeSize.name().toLowerCase());
         obj.addProperty("amplitude", this.amplitude);
         obj.addProperty("generateBopOre", this.generateBopGems);
+        obj.addProperty("generateBopSoils", this.generateBopSoils);
+        obj.addProperty("generateBopGrasses", this.generateBopGrasses);
+        obj.addProperty("generateBopFoliage", this.generateBopFoliage);
+        obj.addProperty("generateBopFlowers", this.generateBopFlowers);
+        obj.addProperty("generateBopPlants", this.generateBopPlants);
+        obj.addProperty("generateBopWaterPlants", this.generateBopWaterPlants);
+        obj.addProperty("generateBopMushrooms", this.generateBopMushrooms);
         obj.addProperty("generatePoisonIvy", this.generatePoisonIvy);
         obj.addProperty("generateFlax", this.generateFlax);
         obj.addProperty("generateBerryBushes", this.generateBerryBushes);
         obj.addProperty("generateWildCarrots", this.generateWildCarrots);
         obj.addProperty("generateThorns", this.generateThorns);
         obj.addProperty("generateQuicksand", this.generateQuicksand);
-        obj.addProperty("generateBopGrasses", this.generateBopGrasses);
-        obj.addProperty("generateBopFoliage", this.generateBopFoliage);
-        obj.addProperty("generateBopPlants", this.generateBopPlants);
-        obj.addProperty("generateBopWaterPlants", this.generateBopWaterPlants);
+        obj.addProperty("generateLiquidPoison", this.generateLiquidPoison);
         
         return serializer.toJson(obj);
     }
@@ -151,16 +159,20 @@ public class BOPWorldSettings
         this.biomeSize = worldConfig.getEnum("biomeSize", this.biomeSize, BiomeSize.class);
         this.amplitude = worldConfig.getFloat("amplitude", this.amplitude);
         this.generateBopGems = worldConfig.getBool("generateBopOre", this.generateBopGems);
+        this.generateBopSoils = worldConfig.getBool("generateBopSoils", this.generateBopSoils);
+        this.generateBopGrasses = worldConfig.getBool("generateBopGrasses", this.generateBopGrasses);
+        this.generateBopFoliage = worldConfig.getBool("generateBopFoliage", this.generateBopFoliage);
+        this.generateBopFlowers = worldConfig.getBool("generateBopFlowers", this.generateBopFlowers);
+        this.generateBopPlants = worldConfig.getBool("generateBopPlants", this.generateBopPlants);
+        this.generateBopWaterPlants = worldConfig.getBool("generateBopWaterPlants", this.generateBopWaterPlants);
+        this.generateBopMushrooms = worldConfig.getBool("generateBopMushrooms", this.generateBopMushrooms);
         this.generatePoisonIvy = worldConfig.getBool("generatePoisonIvy", this.generatePoisonIvy);
         this.generateFlax = worldConfig.getBool("generateFlax", this.generateFlax);
         this.generateBerryBushes = worldConfig.getBool("generateBerryBushes", this.generateBerryBushes);
         this.generateWildCarrots = worldConfig.getBool("generateWildCarrots", this.generateWildCarrots);
         this.generateThorns = worldConfig.getBool("generateThorns", this.generateThorns);
         this.generateQuicksand = worldConfig.getBool("generateQuicksand", this.generateQuicksand);
-        this.generateBopGrasses = worldConfig.getBool("generateBopGrasses", this.generateBopGrasses);
-        this.generateBopFoliage = worldConfig.getBool("generateBopFoliage", this.generateBopFoliage);
-        this.generateBopPlants = worldConfig.getBool("generateBopPlants", this.generateBopPlants);
-        this.generateBopWaterPlants = worldConfig.getBool("generateBopWaterPlants", this.generateBopWaterPlants);
+        this.generateLiquidPoison = worldConfig.getBool("generateLiquidPoison", this.generateLiquidPoison);
     }
     
     public void setDefault()
@@ -172,17 +184,21 @@ public class BOPWorldSettings
         this.rainScheme = RainfallVariationScheme.MEDIUM_ZONES;
         this.biomeSize = BiomeSize.MEDIUM;
         this.amplitude = 1.0F;
-        this.generateBopGems = true;    
+        this.generateBopGems = true;  
+        this.generateBopSoils = true;  
+        this.generateBopGrasses = true;  
+        this.generateBopFoliage = true; 
+        this.generateBopFlowers = true;  
+        this.generateBopPlants = true; 
+        this.generateBopWaterPlants = true; 
+        this.generateBopMushrooms = true; 
         this.generatePoisonIvy = true;  
         this.generateFlax = true;  
         this.generateBerryBushes = true;  
         this.generateWildCarrots = true;  
         this.generateThorns = true;  
-        this.generateQuicksand = true;  
-        this.generateBopGrasses = true;  
-        this.generateBopFoliage = true;  
-        this.generateBopPlants = true; 
-        this.generateBopWaterPlants = true; 
+        this.generateQuicksand = true; 
+        this.generateLiquidPoison = true; 
         
         // Vanilla default values
         this.seaLevel = 63;

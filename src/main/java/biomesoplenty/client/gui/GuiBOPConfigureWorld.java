@@ -174,16 +174,20 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
         BIOME_SIZE (105),
         LAND_SCHEME (106),
         RAIN_SCHEME (107),
-        GENERATE_POISON_IVY (108),
-        GENERATE_FLAX (109),
-        GENERATE_BERRY_BUSHES (110),
-        GENERATE_WILD_CARROTS (111),
-        GENERATE_THORNS (112),
-        GENERATE_QUICKSAND (113),
-        GENERATE_BOP_GRASSES (114),
-        GENERATE_BOP_FOLIAGE (115),
-        GENERATE_BOP_PLANTS (116),
-        GENERATE_BOP_WATER_PLANTS (117);
+        GENERATE_BOP_SOILS (108),
+        GENERATE_BOP_GRASSES (109),
+        GENERATE_BOP_FOLIAGE (110),
+        GENERATE_BOP_FLOWERS (111),
+        GENERATE_BOP_PLANTS (112),
+        GENERATE_BOP_WATER_PLANTS (113),
+        GENERATE_BOP_MUSHROOMS (114),
+        GENERATE_POISON_IVY (115),
+        GENERATE_FLAX (116),
+        GENERATE_BERRY_BUSHES (117),
+        GENERATE_WILD_CARROTS (118),
+        GENERATE_THORNS (119),
+        GENERATE_QUICKSAND (120),
+        GENERATE_LIQUID_POISON (121),;
         
         private int id;
         
@@ -231,16 +235,20 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
         this.pageNames[2] = "Features";
         GuiBOPPageList.GuiFieldEntry[] page2Fields = new GuiBOPPageList.GuiFieldEntry[] {
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_GEMS.getId(), "Generate BOP Gems", true, this.settings.generateBopGems),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_SOILS.getId(), "Generate BOP Soils", true, this.settings.generateBopSoils),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_GRASSES.getId(), "Generate BOP Grasses", true, this.settings.generateBopGrasses),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_FOLIAGE.getId(), "Generate BOP Foliage", true, this.settings.generateBopFoliage),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_FLOWERS.getId(), "Generate BOP Flowers", true, this.settings.generateBopFlowers),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_PLANTS.getId(), "Generate BOP Plants", true, this.settings.generateBopPlants),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_WATER_PLANTS.getId(), "Generate BOP Water P.", true, this.settings.generateBopWaterPlants),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_MUSHROOMS.getId(), "Generate BOP Shrooms", true, this.settings.generateBopMushrooms),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_POISON_IVY.getId(), "Generate Poison Ivy", true, this.settings.generatePoisonIvy),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_FLAX.getId(), "Generate Flax", true, this.settings.generateFlax),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BERRY_BUSHES.getId(), "Generate Berry Bushes", true, this.settings.generateBerryBushes),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_WILD_CARROTS.getId(), "Generate Wild Carrots", true, this.settings.generateWildCarrots),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_THORNS.getId(), "Generate Thorns", true, this.settings.generateThorns),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_QUICKSAND.getId(), "Generate Quicksand", true, this.settings.generateQuicksand),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_GRASSES.getId(), "Generate BOP Grasses", true, this.settings.generateBopGrasses),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_FOLIAGE.getId(), "Generate BOP Foliage", true, this.settings.generateBopFoliage),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_PLANTS.getId(), "Generate BOP Plants", true, this.settings.generateBopPlants),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_WATER_PLANTS.getId(), "Generate BOP Water P.", true, this.settings.generateBopWaterPlants)
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_LIQUID_POISON.getId(), "Generate Liquid Poison", true, this.settings.generateLiquidPoison)
         };
         
         this.pageManager = new GuiBOPPageManager(createTableForFields(page0Fields, page1Fields, page2Fields));
@@ -335,6 +343,27 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
             case GENERATE_BOP_GEMS:
                 this.settings.generateBopGems = value;
                 break;
+            case GENERATE_BOP_SOILS:
+                this.settings.generateBopSoils = value;
+                break;
+            case GENERATE_BOP_GRASSES:
+                this.settings.generateBopGrasses = value;
+                break;
+            case GENERATE_BOP_FOLIAGE:
+                this.settings.generateBopFoliage = value;
+                break;
+            case GENERATE_BOP_FLOWERS:
+                this.settings.generateBopFlowers = value;
+                break;
+            case GENERATE_BOP_PLANTS:
+                this.settings.generateBopPlants = value;
+                break;
+            case GENERATE_BOP_WATER_PLANTS:
+                this.settings.generateBopWaterPlants = value;
+                break;
+            case GENERATE_BOP_MUSHROOMS:
+                this.settings.generateBopMushrooms = value;
+                break;
             case GENERATE_POISON_IVY:
                 this.settings.generatePoisonIvy = value;
                 break;
@@ -353,17 +382,8 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
             case GENERATE_QUICKSAND:
                 this.settings.generateQuicksand = value;
                 break;
-            case GENERATE_BOP_GRASSES:
-                this.settings.generateBopGrasses = value;
-                break;
-            case GENERATE_BOP_FOLIAGE:
-                this.settings.generateBopFoliage = value;
-                break;
-            case GENERATE_BOP_PLANTS:
-                this.settings.generateBopPlants = value;
-                break;
-            case GENERATE_BOP_WATER_PLANTS:
-                this.settings.generateBopWaterPlants = value;
+            case GENERATE_LIQUID_POISON:
+                this.settings.generateLiquidPoison = value;
                 break;
             default:
                 break;
