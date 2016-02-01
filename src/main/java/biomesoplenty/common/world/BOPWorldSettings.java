@@ -80,6 +80,8 @@ public class BOPWorldSettings
     public boolean generateThorns = true;
     public boolean generateQuicksand = true;
     public boolean generateBopGrasses = true;
+    public boolean generateBopFoliage = true;
+    public boolean generateBopPlants = true;
     
     
     // Vanilla properties - not configurable (yet) but included for consistency with vanilla ChunkProviderSettings
@@ -128,6 +130,8 @@ public class BOPWorldSettings
         obj.addProperty("generateThorns", this.generateThorns);
         obj.addProperty("generateQuicksand", this.generateQuicksand);
         obj.addProperty("generateBopGrasses", this.generateBopGrasses);
+        obj.addProperty("generateBopFoliage", this.generateBopFoliage);
+        obj.addProperty("generateBopPlants", this.generateBopPlants);
         
         return serializer.toJson(obj);
     }
@@ -152,6 +156,8 @@ public class BOPWorldSettings
         this.generateThorns = worldConfig.getBool("generateThorns", this.generateThorns);
         this.generateQuicksand = worldConfig.getBool("generateQuicksand", this.generateQuicksand);
         this.generateBopGrasses = worldConfig.getBool("generateBopGrasses", this.generateBopGrasses);
+        this.generateBopFoliage = worldConfig.getBool("generateBopFoliage", this.generateBopFoliage);
+        this.generateBopPlants = worldConfig.getBool("generateBopPlants", this.generateBopPlants);
     }
     
     public void setDefault()
@@ -171,6 +177,8 @@ public class BOPWorldSettings
         this.generateThorns = true;  
         this.generateQuicksand = true;  
         this.generateBopGrasses = true;  
+        this.generateBopFoliage = true;  
+        this.generateBopPlants = true; 
         
         // Vanilla default values
         this.seaLevel = 63;

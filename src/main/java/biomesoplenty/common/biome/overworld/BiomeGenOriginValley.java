@@ -19,6 +19,7 @@ import biomesoplenty.common.block.BlockBOPGrass.BOPGrassType;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPTrees;
+import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
 
@@ -49,6 +50,13 @@ public class BiomeGenOriginValley extends BOPBiome
         this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
         flowerGenerator.add("rose", 8, (new GeneratorFlora.Builder().with(BOPFlowers.ROSE).create()));
         flowerGenerator.add("yellow_flower", 10, (new GeneratorFlora.Builder().with(EnumFlowerType.DANDELION).create()));
+    }
+    
+    
+    @Override
+    public void applySettings(BOPWorldSettings settings)
+    {
+        this.removeGenerator("roots");
     }
     
     @Override

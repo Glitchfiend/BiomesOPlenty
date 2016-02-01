@@ -180,7 +180,9 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
         GENERATE_WILD_CARROTS (111),
         GENERATE_THORNS (112),
         GENERATE_QUICKSAND (113),
-        GENERATE_BOP_GRASSES (114);
+        GENERATE_BOP_GRASSES (114),
+        GENERATE_BOP_FOLIAGE (115),
+        GENERATE_BOP_PLANTS (116);
         
         private int id;
         
@@ -234,7 +236,9 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_WILD_CARROTS.getId(), "Generate Wild Carrots", true, this.settings.generateWildCarrots),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_THORNS.getId(), "Generate Thorns", true, this.settings.generateThorns),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_QUICKSAND.getId(), "Generate Quicksand", true, this.settings.generateQuicksand),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_GRASSES.getId(), "Generate BOP Grasses", true, this.settings.generateBopGrasses)
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_GRASSES.getId(), "Generate BOP Grasses", true, this.settings.generateBopGrasses),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_FOLIAGE.getId(), "Generate BOP Foliage", true, this.settings.generateBopFoliage),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_PLANTS.getId(), "Generate BOP Plants", true, this.settings.generateBopPlants)
         };
         
         this.pageManager = new GuiBOPPageManager(createTableForFields(page0Fields, page1Fields, page2Fields));
@@ -349,6 +353,12 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
                 break;
             case GENERATE_BOP_GRASSES:
                 this.settings.generateBopGrasses = value;
+                break;
+            case GENERATE_BOP_FOLIAGE:
+                this.settings.generateBopFoliage = value;
+                break;
+            case GENERATE_BOP_PLANTS:
+                this.settings.generateBopPlants = value;
                 break;
             default:
                 break;
