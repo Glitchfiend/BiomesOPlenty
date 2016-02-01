@@ -85,7 +85,7 @@ public class BiomeGenWoodland extends BOPBiome
         flowerGenerator.add("poppy", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.POPPY).create()));
         
         // other plants
-        this.addGenerator("shrubs", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BOPPlants.SHRUB).create());
+        this.addGenerator("shrubs", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(BOPPlants.SHRUB).create());
         this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).with(BOPPlants.LEAFPILE).generationAttempts(64).create());
         this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(2.0F).with(BOPPlants.DEADLEAFPILE).generationAttempts(64).create());
         this.addGenerator("flax", GeneratorStage.FLOWERS, (new GeneratorDoubleFlora.Builder()).amountPerChunk(0.1F).with(BlockBOPDoublePlant.DoublePlantType.FLAX).create());  
@@ -100,7 +100,7 @@ public class BiomeGenWoodland extends BOPBiome
         this.addGenerator("toadstools", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.3F).with(BlockBOPMushroom.MushroomType.TOADSTOOL).create());
         
         // logs
-        GeneratorWeighted logsGenerator = new GeneratorWeighted(1.0F);
+        GeneratorWeighted logsGenerator = new GeneratorWeighted(0.5F);
         this.addGenerator("logs", GeneratorStage.TREE, logsGenerator);
         logsGenerator.add("oak_logs", 1, (new GeneratorLogs.Builder()).create());
         logsGenerator.add("dead_logs", 1, (new GeneratorLogs.Builder()).with(BOPWoods.DEAD).create());
