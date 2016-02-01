@@ -171,6 +171,8 @@ public class BiomeGenMountain extends BOPBiome
     public void applySettings(BOPWorldSettings settings)
     {
         if (!settings.generateBopGems) {this.removeGenerator("emeralds");}
+        if (!settings.generateFlax) {this.removeGenerator("flax");}
+        if (!settings.generateBerryBushes) {this.removeGenerator("berry_bushes");}
     }
     
     

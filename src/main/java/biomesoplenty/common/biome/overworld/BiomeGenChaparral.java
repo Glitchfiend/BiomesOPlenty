@@ -94,6 +94,8 @@ public class BiomeGenChaparral extends BOPBiome
     public void applySettings(BOPWorldSettings settings)
     {
         if (!settings.generateBopGems) {this.removeGenerator("peridot");}
+        if (!settings.generateBerryBushes) {this.removeGenerator("berry_bushes");}
+        if (!settings.generateWildCarrots) {this.removeGenerator("wild_carrots");}
     }
     
     

@@ -86,5 +86,6 @@ public class BiomeGenMapleWoods extends BOPBiome
     public void applySettings(BOPWorldSettings settings)
     {
         if (!settings.generateBopGems) {this.removeGenerator("tanzanite");}
+        if (!settings.generatePoisonIvy) {this.removeGenerator("poison_ivy");}
     }
 }

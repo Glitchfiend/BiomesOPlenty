@@ -85,6 +85,7 @@ public class BiomeGenGrassland extends BOPBiome {
     public void applySettings(BOPWorldSettings settings)
     {
         if (!settings.generateBopGems) {this.removeGenerator("peridot");}
+        if (!settings.generateFlax) {this.removeGenerator("flax");}
     }
     
     @Override

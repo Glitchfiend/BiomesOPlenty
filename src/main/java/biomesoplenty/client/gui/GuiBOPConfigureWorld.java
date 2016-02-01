@@ -173,7 +173,13 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
         AMPLITUDE (104),
         BIOME_SIZE (105),
         LAND_SCHEME (106),
-        RAIN_SCHEME (107);
+        RAIN_SCHEME (107),
+        GENERATE_POISON_IVY (108),
+        GENERATE_FLAX (109),
+        GENERATE_BERRY_BUSHES (110),
+        GENERATE_WILD_CARROTS (111),
+        GENERATE_THORNS (112),
+        GENERATE_QUICKSAND (113);
         
         private int id;
         
@@ -220,7 +226,13 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
         
         this.pageNames[2] = "Features";
         GuiBOPPageList.GuiFieldEntry[] page2Fields = new GuiBOPPageList.GuiFieldEntry[] {
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_GEMS.getId(), "Generate BOP gems", true, this.settings.generateBopGems)
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_GEMS.getId(), "Generate BOP Gems", true, this.settings.generateBopGems),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_POISON_IVY.getId(), "Generate Poison Ivy", true, this.settings.generatePoisonIvy),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_FLAX.getId(), "Generate Flax", true, this.settings.generateFlax),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BERRY_BUSHES.getId(), "Generate Berry Bushes", true, this.settings.generateBerryBushes),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_WILD_CARROTS.getId(), "Generate Wild Carrots", true, this.settings.generateWildCarrots),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_THORNS.getId(), "Generate Thorns", true, this.settings.generateThorns),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_QUICKSAND.getId(), "Generate Quicksand", true, this.settings.generateQuicksand)
         };
         
         this.pageManager = new GuiBOPPageManager(createTableForFields(page0Fields, page1Fields, page2Fields));
@@ -314,6 +326,24 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
         {
             case GENERATE_BOP_GEMS:
                 this.settings.generateBopGems = value;
+                break;
+            case GENERATE_POISON_IVY:
+                this.settings.generatePoisonIvy = value;
+                break;
+            case GENERATE_FLAX:
+                this.settings.generateFlax = value;
+                break;
+            case GENERATE_BERRY_BUSHES:
+                this.settings.generateBerryBushes = value;
+                break;
+            case GENERATE_WILD_CARROTS:
+                this.settings.generateWildCarrots = value;
+                break;
+            case GENERATE_THORNS:
+                this.settings.generateThorns = value;
+                break;
+            case GENERATE_QUICKSAND:
+                this.settings.generateThorns = value;
                 break;
             default:
                 break;

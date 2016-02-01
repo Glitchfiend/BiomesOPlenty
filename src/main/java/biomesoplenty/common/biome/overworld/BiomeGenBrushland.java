@@ -82,6 +82,8 @@ public class BiomeGenBrushland extends BOPBiome
     public void applySettings(BOPWorldSettings settings)
     {
         if (!settings.generateBopGems) {this.removeGenerator("ruby");}
+        if (!settings.generateThorns) {this.removeGenerator("thorns");}
+        if (!settings.generateQuicksand) {this.removeGenerator("quicksand");}
     }
 
     @Override

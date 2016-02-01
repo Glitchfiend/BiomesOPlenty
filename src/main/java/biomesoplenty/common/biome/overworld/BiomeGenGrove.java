@@ -91,6 +91,7 @@ public class BiomeGenGrove extends BOPBiome
     public void applySettings(BOPWorldSettings settings)
     {
         if (!settings.generateBopGems) {this.removeGenerator("amber");}
+        if (!settings.generateBerryBushes) {this.removeGenerator("berry_bushes");}
     }
     
     @Override

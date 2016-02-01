@@ -110,6 +110,9 @@ public class BiomeGenConiferousForest extends BOPBiome
     public void applySettings(BOPWorldSettings settings)
     {
         if (!settings.generateBopGems) {this.removeGenerator("amber");}
+        if (!settings.generatePoisonIvy) {this.removeGenerator("poison_ivy");}
+        if (!settings.generateFlax) {this.removeGenerator("flax");}
+        if (!settings.generateBerryBushes) {this.removeGenerator("berry_bushes");}
     }
 
 }

@@ -112,6 +112,8 @@ public class BiomeGenOminousWoods extends BOPBiome
     public void applySettings(BOPWorldSettings settings)
     {
         if (!settings.generateBopGems) {this.removeGenerator("malachite");}
+        if (!settings.generatePoisonIvy) {this.removeGenerator("poison_ivy");}
+        if (!settings.generateThorns) {this.removeGenerator("thorns");}
     }
     
     @Override

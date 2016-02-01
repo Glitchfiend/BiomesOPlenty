@@ -108,6 +108,7 @@ public class BiomeGenDeciduousForest extends BOPBiome
     public void applySettings(BOPWorldSettings settings)
     {
         if (!settings.generateBopGems) {this.removeGenerator("amber");}
+        if (!settings.generateFlax) {this.removeGenerator("flax");}
     }
     
     @Override

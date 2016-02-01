@@ -70,6 +70,7 @@ public class BiomeGenThicket extends BOPBiome
     public void applySettings(BOPWorldSettings settings)
     {
         if (!settings.generateBopGems) {this.removeGenerator("amber");}
+        if (!settings.generateThorns) {this.removeGenerator("thorns");}
     }
     
     @Override

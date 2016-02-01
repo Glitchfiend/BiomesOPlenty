@@ -99,6 +99,7 @@ public class BiomeGenCherryBlossomGrove extends BOPBiome
     public void applySettings(BOPWorldSettings settings)
     {
         if (!settings.generateBopGems) {this.removeGenerator("topaz");}
+        if (!settings.generateFlax) {this.removeGenerator("flax");}
     }
     
     @Override

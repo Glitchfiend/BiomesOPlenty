@@ -98,6 +98,8 @@ public class BiomeGenMeadow extends BOPBiome
     public void applySettings(BOPWorldSettings settings)
     {
         if (!settings.generateBopGems) {this.removeGenerator("peridot");}
+        if (!settings.generateFlax) {this.removeGenerator("flax");}
+        if (!settings.generateWildCarrots) {this.removeGenerator("wild_carrots");}
     }
     
     @Override

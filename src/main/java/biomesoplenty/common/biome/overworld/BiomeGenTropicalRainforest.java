@@ -115,6 +115,8 @@ public class BiomeGenTropicalRainforest extends BOPBiome
     public void applySettings(BOPWorldSettings settings)
     {
         if (!settings.generateBopGems) {this.removeGenerator("topaz");}
+        if (!settings.generatePoisonIvy) {this.removeGenerator("poison_ivy");}
+        if (!settings.generateQuicksand) {this.removeGenerator("quicksand");}
     }
     
     @Override

@@ -73,6 +73,12 @@ public class BOPWorldSettings
     public BiomeSize biomeSize = BiomeSize.MEDIUM;
     public float amplitude = 1.0F;
     public boolean generateBopGems = true;
+    public boolean generatePoisonIvy = true;
+    public boolean generateFlax = true;
+    public boolean generateBerryBushes = true;
+    public boolean generateWildCarrots = true;
+    public boolean generateThorns = true;
+    public boolean generateQuicksand = true;
     
     
     // Vanilla properties - not configurable (yet) but included for consistency with vanilla ChunkProviderSettings
@@ -114,6 +120,12 @@ public class BOPWorldSettings
         obj.addProperty("biomeSize", this.biomeSize.name().toLowerCase());
         obj.addProperty("amplitude", this.amplitude);
         obj.addProperty("generateBopOre", this.generateBopGems);
+        obj.addProperty("generatePoisonIvy", this.generatePoisonIvy);
+        obj.addProperty("generateFlax", this.generateFlax);
+        obj.addProperty("generateBerryBushes", this.generateBerryBushes);
+        obj.addProperty("generateWildCarrots", this.generateWildCarrots);
+        obj.addProperty("generateThorns", this.generateThorns);
+        obj.addProperty("generateQuicksand", this.generateQuicksand);
         
         return serializer.toJson(obj);
     }
@@ -131,6 +143,12 @@ public class BOPWorldSettings
         this.biomeSize = worldConfig.getEnum("biomeSize", this.biomeSize, BiomeSize.class);
         this.amplitude = worldConfig.getFloat("amplitude", this.amplitude);
         this.generateBopGems = worldConfig.getBool("generateBopOre", this.generateBopGems);
+        this.generatePoisonIvy = worldConfig.getBool("generatePoisonIvy", this.generatePoisonIvy);
+        this.generateFlax = worldConfig.getBool("generateFlax", this.generateFlax);
+        this.generateBerryBushes = worldConfig.getBool("generateBerryBushes", this.generateBerryBushes);
+        this.generateWildCarrots = worldConfig.getBool("generateWildCarrots", this.generateWildCarrots);
+        this.generateThorns = worldConfig.getBool("generateThorns", this.generateThorns);
+        this.generateQuicksand = worldConfig.getBool("generateQuicksand", this.generateQuicksand);
     }
     
     public void setDefault()
@@ -142,7 +160,13 @@ public class BOPWorldSettings
         this.rainScheme = RainfallVariationScheme.MEDIUM_ZONES;
         this.biomeSize = BiomeSize.MEDIUM;
         this.amplitude = 1.0F;
-        this.generateBopGems = true;        
+        this.generateBopGems = true;    
+        this.generatePoisonIvy = true;  
+        this.generateFlax = true;  
+        this.generateBerryBushes = true;  
+        this.generateWildCarrots = true;  
+        this.generateThorns = true;  
+        this.generateQuicksand = true;  
         
         // Vanilla default values
         this.seaLevel = 63;

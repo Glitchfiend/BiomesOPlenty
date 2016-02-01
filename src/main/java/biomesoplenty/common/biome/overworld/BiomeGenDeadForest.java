@@ -85,6 +85,7 @@ public class BiomeGenDeadForest extends BOPBiome
     public void applySettings(BOPWorldSettings settings)
     {
         if (!settings.generateBopGems) {this.removeGenerator("tanzanite");}
+        if (!settings.generateThorns) {this.removeGenerator("thorns");}
     }
     
     @Override

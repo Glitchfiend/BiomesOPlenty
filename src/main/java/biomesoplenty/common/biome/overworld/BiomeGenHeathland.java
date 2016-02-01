@@ -98,6 +98,7 @@ public class BiomeGenHeathland extends BOPBiome
     public void applySettings(BOPWorldSettings settings)
     {
         if (!settings.generateBopGems) {this.removeGenerator("peridot");}
+        if (!settings.generateBerryBushes) {this.removeGenerator("berry_bushes");}
     }
     
     

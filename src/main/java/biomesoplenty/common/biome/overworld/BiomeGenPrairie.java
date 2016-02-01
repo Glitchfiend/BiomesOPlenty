@@ -89,6 +89,8 @@ public class BiomeGenPrairie extends BOPBiome
     public void applySettings(BOPWorldSettings settings)
     {
         if (!settings.generateBopGems) {this.removeGenerator("tanzanite");}
+        if (!settings.generateFlax) {this.removeGenerator("flax");}
+        if (!settings.generateBerryBushes) {this.removeGenerator("berry_bushes");}
     }
     
     @Override
