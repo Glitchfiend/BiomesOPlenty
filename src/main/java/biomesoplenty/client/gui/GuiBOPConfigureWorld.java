@@ -181,15 +181,18 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
         GENERATE_BOP_PLANTS (112),
         GENERATE_BOP_WATER_PLANTS (113),
         GENERATE_BOP_MUSHROOMS (114),
-        GENERATE_POISON_IVY (115),
-        GENERATE_FLAX (116),
-        GENERATE_BERRY_BUSHES (117),
-        GENERATE_WILD_CARROTS (118),
-        GENERATE_THORNS (119),
-        GENERATE_QUICKSAND (120),
-        GENERATE_LIQUID_POISON (121),
-        GENERATE_HOT_SPRINGS (122),
-        GENERATE_NETHER_HIVES (123);
+        GENERATE_ROCK_FORMATIONS (115),
+        GENERATE_POISON_IVY (116),
+        GENERATE_FLAX (117),
+        GENERATE_BERRY_BUSHES (118),
+        GENERATE_WILD_CARROTS (119),
+        GENERATE_THORNS (120),
+        GENERATE_QUICKSAND (121),
+        GENERATE_LIQUID_POISON (122),
+        GENERATE_HOT_SPRINGS (123),
+        GENERATE_NETHER_HIVES (124),
+        GENERATE_NETHER_PLANTS (125),
+        GENERATE_END_FEATURES (126);
         
         private int id;
         
@@ -242,8 +245,9 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_FOLIAGE.getId(), "Generate BOP Foliage", true, this.settings.generateBopFoliage),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_FLOWERS.getId(), "Generate BOP Flowers", true, this.settings.generateBopFlowers),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_PLANTS.getId(), "Generate BOP Plants", true, this.settings.generateBopPlants),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_WATER_PLANTS.getId(), "Generate BOP Water P.", true, this.settings.generateBopWaterPlants),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_WATER_PLANTS.getId(), "Generate BOP Water Pl.", true, this.settings.generateBopWaterPlants),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_MUSHROOMS.getId(), "Generate BOP Shrooms", true, this.settings.generateBopMushrooms),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_ROCK_FORMATIONS.getId(), "Generate Rock Forma.", true, this.settings.generateRockFormations),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_POISON_IVY.getId(), "Generate Poison Ivy", true, this.settings.generatePoisonIvy),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_FLAX.getId(), "Generate Flax", true, this.settings.generateFlax),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BERRY_BUSHES.getId(), "Generate Berry Bushes", true, this.settings.generateBerryBushes),
@@ -252,7 +256,9 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_QUICKSAND.getId(), "Generate Quicksand", true, this.settings.generateQuicksand),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_LIQUID_POISON.getId(), "Generate Liquid Poison", true, this.settings.generateLiquidPoison),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_HOT_SPRINGS.getId(), "Generate Hot Springs", true, this.settings.generateHotSprings),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_NETHER_HIVES.getId(), "Generate Nether Hives", true, this.settings.generateNetherHives)
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_NETHER_HIVES.getId(), "Generate Nether Hives", true, this.settings.generateNetherHives),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_NETHER_PLANTS.getId(), "Generate Nether Plants", true, this.settings.generateNetherPlants),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_END_FEATURES.getId(), "Generate End Features", true, this.settings.generateEndFeatures)
         };
         
         this.pageManager = new GuiBOPPageManager(createTableForFields(page0Fields, page1Fields, page2Fields));
@@ -368,6 +374,9 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
             case GENERATE_BOP_MUSHROOMS:
                 this.settings.generateBopMushrooms = value;
                 break;
+            case GENERATE_ROCK_FORMATIONS:
+                this.settings.generateRockFormations = value;
+                break;
             case GENERATE_POISON_IVY:
                 this.settings.generatePoisonIvy = value;
                 break;
@@ -394,6 +403,12 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
                 break;
             case GENERATE_NETHER_HIVES:
                 this.settings.generateNetherHives = value;
+                break;
+            case GENERATE_NETHER_PLANTS:
+                this.settings.generateNetherPlants = value;
+                break;
+            case GENERATE_END_FEATURES:
+                this.settings.generateEndFeatures = value;
                 break;
             default:
                 break;

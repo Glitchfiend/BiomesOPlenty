@@ -85,6 +85,7 @@ public class BiomeGenWoodland extends BOPBiome
         flowerGenerator.add("poppy", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.POPPY).create()));
         
         // other plants
+        this.addGenerator("berry_bushes", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BOPPlants.BERRYBUSH).create());
         this.addGenerator("shrubs", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(BOPPlants.SHRUB).create());
         this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).with(BOPPlants.LEAFPILE).generationAttempts(64).create());
         this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(2.0F).with(BOPPlants.DEADLEAFPILE).generationAttempts(64).create());
@@ -116,6 +117,7 @@ public class BiomeGenWoodland extends BOPBiome
         if (!settings.generateBopGems) {this.removeGenerator("amber");}
         if (!settings.generatePoisonIvy) {this.removeGenerator("poison_ivy");}
         if (!settings.generateFlax) {this.removeGenerator("flax");}
+        if (!settings.generateBerryBushes) {this.removeGenerator("berry_bushes");}
         
         if (!settings.generateBopFoliage) {this.removeGenerator("bushes"); this.removeGenerator("koru"); this.removeGenerator("shrubs"); this.removeGenerator("leaf_piles"); this.removeGenerator("dead_leaf_piles"); this.removeGenerator("clover_patches"); this.removeGenerator("sprouts");}
         

@@ -10,6 +10,8 @@ package biomesoplenty.common.world;
 
 import java.io.File;
 
+import javax.swing.text.html.HTMLDocument.HTMLReader.FormAction;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
@@ -80,6 +82,7 @@ public class BOPWorldSettings
     public boolean generateBopPlants = true;
     public boolean generateBopWaterPlants = true;
     public boolean generateBopMushrooms = true;
+    public boolean generateRockFormations = true;
     public boolean generatePoisonIvy = true;
     public boolean generateFlax = true;
     public boolean generateBerryBushes = true;
@@ -89,6 +92,8 @@ public class BOPWorldSettings
     public boolean generateLiquidPoison = true;
     public boolean generateHotSprings = true;
     public boolean generateNetherHives = true;
+    public boolean generateNetherPlants = true;
+    public boolean generateEndFeatures = true;
     
     
     // Vanilla properties - not configurable (yet) but included for consistency with vanilla ChunkProviderSettings
@@ -137,6 +142,7 @@ public class BOPWorldSettings
         obj.addProperty("generateBopPlants", this.generateBopPlants);
         obj.addProperty("generateBopWaterPlants", this.generateBopWaterPlants);
         obj.addProperty("generateBopMushrooms", this.generateBopMushrooms);
+        obj.addProperty("generateRockFormations", this.generateRockFormations);
         obj.addProperty("generatePoisonIvy", this.generatePoisonIvy);
         obj.addProperty("generateFlax", this.generateFlax);
         obj.addProperty("generateBerryBushes", this.generateBerryBushes);
@@ -146,6 +152,8 @@ public class BOPWorldSettings
         obj.addProperty("generateLiquidPoison", this.generateLiquidPoison);
         obj.addProperty("generateHotSprings", this.generateHotSprings);
         obj.addProperty("generateNetherHives", this.generateNetherHives);
+        obj.addProperty("generateNetherPlants", this.generateNetherPlants);
+        obj.addProperty("generateEndFeatures", this.generateEndFeatures);
         
         return serializer.toJson(obj);
     }
@@ -170,6 +178,7 @@ public class BOPWorldSettings
         this.generateBopPlants = worldConfig.getBool("generateBopPlants", this.generateBopPlants);
         this.generateBopWaterPlants = worldConfig.getBool("generateBopWaterPlants", this.generateBopWaterPlants);
         this.generateBopMushrooms = worldConfig.getBool("generateBopMushrooms", this.generateBopMushrooms);
+        this.generateRockFormations = worldConfig.getBool("generateRockFormations", this.generateRockFormations);
         this.generatePoisonIvy = worldConfig.getBool("generatePoisonIvy", this.generatePoisonIvy);
         this.generateFlax = worldConfig.getBool("generateFlax", this.generateFlax);
         this.generateBerryBushes = worldConfig.getBool("generateBerryBushes", this.generateBerryBushes);
@@ -179,6 +188,8 @@ public class BOPWorldSettings
         this.generateLiquidPoison = worldConfig.getBool("generateLiquidPoison", this.generateLiquidPoison);
         this.generateHotSprings = worldConfig.getBool("generateHotSprings", this.generateHotSprings);
         this.generateNetherHives = worldConfig.getBool("generateNetherHives", this.generateNetherHives);
+        this.generateNetherPlants = worldConfig.getBool("generateNetherPlants", this.generateNetherPlants);
+        this.generateEndFeatures = worldConfig.getBool("generateEndFeatures", this.generateEndFeatures);
     }
     
     public void setDefault()
@@ -198,6 +209,7 @@ public class BOPWorldSettings
         this.generateBopPlants = true; 
         this.generateBopWaterPlants = true; 
         this.generateBopMushrooms = true; 
+        this.generateRockFormations = true; 
         this.generatePoisonIvy = true;  
         this.generateFlax = true;  
         this.generateBerryBushes = true;  
@@ -207,6 +219,8 @@ public class BOPWorldSettings
         this.generateLiquidPoison = true; 
         this.generateHotSprings = true;
         this.generateNetherHives = true;
+        this.generateNetherPlants = true;
+        this.generateEndFeatures = true;
         
         // Vanilla default values
         this.seaLevel = 63;
