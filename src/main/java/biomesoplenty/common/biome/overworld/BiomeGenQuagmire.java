@@ -92,14 +92,16 @@ public class BiomeGenQuagmire extends BOPBiome
     {
         if (!settings.generateBopGems) {this.removeGenerator("malachite");}
         
+        IBlockPosQuery emptyMud = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();
+        if (!settings.generateBopSoils) {this.removeGenerator("grass_splatter"); this.addGenerator("grass_splatter_new", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(1.0F).generationAttempts(128).replace(emptyMud).with(Blocks.grass.getDefaultState()).create());}
+        
         if (!settings.generateBopFoliage) {this.removeGenerator("bushes"); this.removeGenerator("koru"); this.removeGenerator("shrubs"); this.removeGenerator("leaf_piles"); this.removeGenerator("dead_leaf_piles"); this.removeGenerator("clover_patches"); this.removeGenerator("sprouts");}
         
         if (!settings.generateBopPlants) {this.removeGenerator("cattail"); this.removeGenerator("double_cattail"); this.removeGenerator("river_cane"); this.removeGenerator("tiny_cacti"); this.removeGenerator("roots"); this.removeGenerator("rafflesia"); this.removeGenerator("desert_sprouts");}
         
         if (!settings.generateBopWaterPlants) {this.removeGenerator("algae"); this.removeGenerator("water_reeds"); this.removeGenerator("algae"); this.removeGenerator("duckweed"); this.removeGenerator("medium_lily"); this.removeGenerator("small_lily"); this.removeGenerator("tiny_lily");}
         
-        GeneratorWeighted grassGen = (GeneratorWeighted)this.getGenerator("grass");
-        if (!settings.generateBopGrasses) {grassGen.removeGenerator("shortgrass"); grassGen.removeGenerator("mediumgrass"); grassGen.removeGenerator("wheatgrass"); grassGen.removeGenerator("dampgrass");}
+        if (!settings.generateBopGrasses) {this.removeGenerator("grass");}
     }
     
     @Override

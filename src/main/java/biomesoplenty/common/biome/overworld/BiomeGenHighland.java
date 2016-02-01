@@ -64,7 +64,6 @@ public class BiomeGenHighland extends BOPBiome
     @Override
     public void applySettings(BOPWorldSettings settings)
     {
-        if (!settings.generateBopGems) {this.removeGenerator("emerald");}
         if (!settings.generateWildCarrots) {this.removeGenerator("wild_carrots");}
         
         if (!settings.generateBopPlants) {this.removeGenerator("cattail"); this.removeGenerator("double_cattail"); this.removeGenerator("river_cane"); this.removeGenerator("tiny_cacti"); this.removeGenerator("roots"); this.removeGenerator("rafflesia"); this.removeGenerator("desert_sprouts");}

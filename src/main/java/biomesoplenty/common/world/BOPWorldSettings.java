@@ -87,6 +87,8 @@ public class BOPWorldSettings
     public boolean generateThorns = true;
     public boolean generateQuicksand = true;
     public boolean generateLiquidPoison = true;
+    public boolean generateHotSprings = true;
+    public boolean generateNetherHives = true;
     
     
     // Vanilla properties - not configurable (yet) but included for consistency with vanilla ChunkProviderSettings
@@ -142,6 +144,8 @@ public class BOPWorldSettings
         obj.addProperty("generateThorns", this.generateThorns);
         obj.addProperty("generateQuicksand", this.generateQuicksand);
         obj.addProperty("generateLiquidPoison", this.generateLiquidPoison);
+        obj.addProperty("generateHotSprings", this.generateHotSprings);
+        obj.addProperty("generateNetherHives", this.generateNetherHives);
         
         return serializer.toJson(obj);
     }
@@ -173,6 +177,8 @@ public class BOPWorldSettings
         this.generateThorns = worldConfig.getBool("generateThorns", this.generateThorns);
         this.generateQuicksand = worldConfig.getBool("generateQuicksand", this.generateQuicksand);
         this.generateLiquidPoison = worldConfig.getBool("generateLiquidPoison", this.generateLiquidPoison);
+        this.generateHotSprings = worldConfig.getBool("generateHotSprings", this.generateHotSprings);
+        this.generateNetherHives = worldConfig.getBool("generateNetherHives", this.generateNetherHives);
     }
     
     public void setDefault()
@@ -199,6 +205,8 @@ public class BOPWorldSettings
         this.generateThorns = true;  
         this.generateQuicksand = true; 
         this.generateLiquidPoison = true; 
+        this.generateHotSprings = true;
+        this.generateNetherHives = true;
         
         // Vanilla default values
         this.seaLevel = 63;

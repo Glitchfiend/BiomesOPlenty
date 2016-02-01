@@ -187,7 +187,9 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
         GENERATE_WILD_CARROTS (118),
         GENERATE_THORNS (119),
         GENERATE_QUICKSAND (120),
-        GENERATE_LIQUID_POISON (121),;
+        GENERATE_LIQUID_POISON (121),
+        GENERATE_HOT_SPRINGS (122),
+        GENERATE_NETHER_HIVES (123);
         
         private int id;
         
@@ -248,7 +250,9 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_WILD_CARROTS.getId(), "Generate Wild Carrots", true, this.settings.generateWildCarrots),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_THORNS.getId(), "Generate Thorns", true, this.settings.generateThorns),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_QUICKSAND.getId(), "Generate Quicksand", true, this.settings.generateQuicksand),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_LIQUID_POISON.getId(), "Generate Liquid Poison", true, this.settings.generateLiquidPoison)
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_LIQUID_POISON.getId(), "Generate Liquid Poison", true, this.settings.generateLiquidPoison),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_HOT_SPRINGS.getId(), "Generate Hot Springs", true, this.settings.generateHotSprings),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_NETHER_HIVES.getId(), "Generate Nether Hives", true, this.settings.generateNetherHives)
         };
         
         this.pageManager = new GuiBOPPageManager(createTableForFields(page0Fields, page1Fields, page2Fields));
@@ -384,6 +388,12 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
                 break;
             case GENERATE_LIQUID_POISON:
                 this.settings.generateLiquidPoison = value;
+                break;
+            case GENERATE_HOT_SPRINGS:
+                this.settings.generateHotSprings = value;
+                break;
+            case GENERATE_NETHER_HIVES:
+                this.settings.generateNetherHives = value;
                 break;
             default:
                 break;

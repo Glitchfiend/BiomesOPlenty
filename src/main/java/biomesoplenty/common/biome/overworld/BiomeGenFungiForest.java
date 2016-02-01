@@ -20,6 +20,7 @@ import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
+import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.entities.EntitySnail;
@@ -90,7 +91,10 @@ public class BiomeGenFungiForest extends BOPBiome
         this.addGenerator("melons", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(0.015625F).placeOn(this.topBlock).with(Blocks.melon_block.getDefaultState()).create());
         
         // water plants
-        this.addGenerator("mixed_lily", GeneratorStage.LILYPAD, (new GeneratorMixedLily.Builder()).amountPerChunk(1.2F).create());
+        this.addGenerator("lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(Blocks.waterlily.getDefaultState()).create());
+        this.addGenerator("medium_lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.3F).with(BlockBOPLilypad.LilypadType.MEDIUM).create());
+        this.addGenerator("small_lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BlockBOPLilypad.LilypadType.SMALL).create());
+        this.addGenerator("tiny_lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BlockBOPLilypad.LilypadType.TINY).create());
          
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(1.0F);        

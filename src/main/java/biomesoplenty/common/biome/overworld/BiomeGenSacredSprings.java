@@ -3,6 +3,7 @@ package biomesoplenty.common.biome.overworld;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
+import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
@@ -22,6 +23,7 @@ import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.BlockFlower.EnumFlowerType;
 import net.minecraft.entity.passive.EntityOcelot;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 
@@ -69,7 +71,10 @@ public class BiomeGenSacredSprings extends BOPBiome
         this.addGenerator("rafflesia", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BOPPlants.RAFFLESIA).create());
         
         // water plants
-        this.addGenerator("mixed_lily", GeneratorStage.LILYPAD, (new GeneratorMixedLily.Builder()).amountPerChunk(1.0F).generationAttempts(96).create());
+        this.addGenerator("lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(Blocks.waterlily.getDefaultState()).create());
+        this.addGenerator("medium_lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.3F).with(BlockBOPLilypad.LilypadType.MEDIUM).create());
+        this.addGenerator("small_lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BlockBOPLilypad.LilypadType.SMALL).create());
+        this.addGenerator("tiny_lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BlockBOPLilypad.LilypadType.TINY).create());
     
         // gem
         this.addGenerator("topaz", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.TOPAZ).create());

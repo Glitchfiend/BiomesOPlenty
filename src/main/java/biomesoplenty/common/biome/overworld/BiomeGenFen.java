@@ -24,6 +24,7 @@ import biomesoplenty.common.block.BlockBOPCoral;
 import biomesoplenty.common.block.BlockBOPDirt;
 import biomesoplenty.common.block.BlockBOPDoublePlant;
 import biomesoplenty.common.block.BlockBOPGrass;
+import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.entities.EntitySnail;
@@ -106,7 +107,10 @@ public class BiomeGenFen extends BOPBiome
         
         // water plants
         this.addGenerator("water_reeds", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(1.0F).with(BOPPlants.REED).generationAttempts(32).create());
-        this.addGenerator("mixed_lily", GeneratorStage.LILYPAD, (new GeneratorMixedLily.Builder()).amountPerChunk(2.0F).generationAttempts(96).create());
+        this.addGenerator("lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(Blocks.waterlily.getDefaultState()).create());
+        this.addGenerator("medium_lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BlockBOPLilypad.LilypadType.MEDIUM).create());
+        this.addGenerator("small_lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BlockBOPLilypad.LilypadType.SMALL).create());
+        this.addGenerator("tiny_lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BlockBOPLilypad.LilypadType.TINY).create());
         this.addGenerator("algae", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(3.0F).replace(Blocks.water).with(BOPBlocks.coral.getDefaultState().withProperty(BlockBOPCoral.VARIANT, BlockBOPCoral.CoralType.ALGAE)).generationAttempts(32).scatterYMethod(ScatterYMethod.AT_GROUND).create());
         
         // shrooms
