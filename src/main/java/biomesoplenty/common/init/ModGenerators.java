@@ -46,5 +46,6 @@ public class ModGenerators
         registerGenerator("crystals", GeneratorCrystals.class, new GeneratorCrystals.Builder());
         registerGenerator("spike", GeneratorSpike.class, new GeneratorSpike.Builder());
         registerGenerator("redwood_tree", GeneratorRedwoodTree.class, new GeneratorRedwoodTree.Builder());
+        registerGenerator("mahogany_tree", GeneratorMahoganyTree.class, new GeneratorMahoganyTree.Builder());
     }
 }

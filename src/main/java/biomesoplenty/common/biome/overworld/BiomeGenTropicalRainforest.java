@@ -35,6 +35,7 @@ import biomesoplenty.common.world.feature.GeneratorSplatter;
 import biomesoplenty.common.world.feature.GeneratorSplotches;
 import biomesoplenty.common.world.feature.GeneratorWaterside;
 import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
+import biomesoplenty.common.world.feature.tree.GeneratorMahoganyTree;
 
 public class BiomeGenTropicalRainforest extends BOPBiome
 {
@@ -67,7 +68,7 @@ public class BiomeGenTropicalRainforest extends BOPBiome
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(15.0F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("mahogany", 6, (new GeneratorBasicTree.Builder()).log(BOPWoods.MAHOGANY).leaves(BOPTrees.MAHOGANY).minLeavesRadius(2).minHeight(10).maxHeight(15).create());
+        treeGenerator.add("mahogany", 6, (new GeneratorMahoganyTree.Builder()).create());
         treeGenerator.add("jungle", 2, (new GeneratorBasicTree.Builder()).log(BlockPlanks.EnumType.JUNGLE).leaves(BlockPlanks.EnumType.JUNGLE).minHeight(8).maxHeight(12).vine(Blocks.vine.getDefaultState()).create());
         
         // flowers

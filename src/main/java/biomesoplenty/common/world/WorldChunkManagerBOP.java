@@ -68,6 +68,8 @@ public class WorldChunkManagerBOP extends WorldChunkManager
         // loop through the biomes and apply the settings
         for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray())
         {
+            if (biome == null) {continue;}
+            
             IExtendedBiome extBiome = BOPBiomes.REG_INSTANCE.getExtendedBiome(biome);
             
             if (extBiome == null) {continue;}
