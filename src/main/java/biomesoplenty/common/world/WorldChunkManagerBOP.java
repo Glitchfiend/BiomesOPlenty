@@ -11,6 +11,8 @@ package biomesoplenty.common.world;
 import java.util.List;
 
 import biomesoplenty.api.biome.BOPBiome;
+import biomesoplenty.api.biome.BOPBiomes;
+import biomesoplenty.api.biome.IExtendedBiome;
 import biomesoplenty.common.world.BOPWorldSettings.LandMassScheme;
 import biomesoplenty.common.world.layer.GenLayerBiomeBOP;
 import biomesoplenty.common.world.layer.GenLayerBiomeEdgeBOP;
@@ -66,10 +68,12 @@ public class WorldChunkManagerBOP extends WorldChunkManager
         // loop through the biomes and apply the settings
         for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray())
         {
-            if (biome == null) {continue;}
-            if (biome instanceof BOPBiome)
+            IExtendedBiome extBiome = BOPBiomes.REG_INSTANCE.getExtendedBiome(biome);
+            
+            if (extBiome == null) {continue;}
+            else
             {
-                ((BOPBiome)biome).applySettings(settings);
+                extBiome.applySettings(settings);
             }
         }
         

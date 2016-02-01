@@ -510,6 +510,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
             }
         }
         
+        //No extension exists
         return null;
     }
     

@@ -74,10 +74,8 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         this.addGenerator("roots", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(4.0F).with(BOPPlants.ROOT).create());
     }
     
-    public void applySettings(BOPWorldSettings settings)
-    {
-        
-    }
+    @Override
+    public void applySettings(BOPWorldSettings settings){}
     
     @Override
     public void configure(IConfigObj conf)

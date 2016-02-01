@@ -9,6 +9,7 @@ import biomesoplenty.api.biome.generation.IGenerator;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
+import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import net.minecraft.world.biome.BiomeGenBase;
 
@@ -26,6 +27,9 @@ public class ExtendedBiomeWrapper implements IExtendedBiome
         this.addGenerator("roots", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(4.0F).with(BOPPlants.ROOT).create());
     }
 
+    @Override
+    public void applySettings(BOPWorldSettings settings){}
+    
     @Override
     public void configure(IConfigObj conf) 
     {
