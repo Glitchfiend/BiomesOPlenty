@@ -40,6 +40,7 @@ import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorLakes;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
+import biomesoplenty.common.world.feature.tree.GeneratorBigTree;
 
 public class BiomeGenMysticGrove extends BOPBiome
 {    
@@ -76,6 +77,8 @@ public class BiomeGenMysticGrove extends BOPBiome
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("flowering_vine", 2, (new GeneratorBasicTree.Builder()).minHeight(8).maxHeight(12).minLeavesRadius(2).vine(BOPBlocks.flower_vine.getDefaultState()).create());
         treeGenerator.add("magic", 9, (new GeneratorBasicTree.Builder()).log(BOPWoods.MAGIC).leaves(BOPTrees.MAGIC).create());
+        treeGenerator.add("jacaranda", 1, (new GeneratorBasicTree.Builder()).minHeight(4).maxHeight(7).log(BOPWoods.JACARANDA).leaves(BOPTrees.JACARANDA).create());
+        treeGenerator.add("oak_large", 3, (new GeneratorBigTree.Builder()).create());
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(3.0F);
