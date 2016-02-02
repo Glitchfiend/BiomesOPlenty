@@ -46,7 +46,7 @@ public class BiomeGenQuagmire extends BOPBiome
         this.topBlock = BOPBlocks.mud.getDefaultState();
         this.fillerBlock = BOPBlocks.mud.getDefaultState();
         this.waterColorMultiplier = 0xCC5100;
-        this.skyColor = 0xBDC4BE;
+        //this.skyColor = 0xBDC4BE;
         this.seaFloorBlock = BOPBlocks.mud.getDefaultState();
 
         this.canSpawnInBiome = false;
@@ -58,7 +58,6 @@ public class BiomeGenQuagmire extends BOPBiome
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
         this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntitySnail.class, 8, 1, 2));
         
      // splatter top blocks
         IBlockPosQuery emptyMud = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();

@@ -154,7 +154,7 @@ public class BiomeGenFen extends BOPBiome
     @Override
     public int getFoliageColorAtPos(BlockPos pos)
     {
-        return 0xCEB979;
+        return 0xA7C166;
     }
 
     /* TODO

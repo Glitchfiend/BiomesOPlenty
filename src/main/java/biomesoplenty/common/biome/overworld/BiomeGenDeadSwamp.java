@@ -26,6 +26,7 @@ import biomesoplenty.common.entities.EntitySnail;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.world.BOPWorldSettings;
@@ -45,12 +46,12 @@ public class BiomeGenDeadSwamp extends BOPBiome
     {
         
         // terrain
-        this.terrainSettings.avgHeight(63).heightVariation(4, 4).octaves(2, 2, 1, 0, 1, 1).sidewaysNoise(0.5D);
+        this.terrainSettings.avgHeight(63).heightVariation(6, 3);
 
         this.setTemperatureRainfall(0.7F, 0.9F);
         this.setColor(0x8BAF48);
         this.waterColorMultiplier = 0xA2AD51;
-        this.skyColor = 0x627268;
+        //this.skyColor = 0x627268;
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.LOAMY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.LOAMY);
         
@@ -69,9 +70,10 @@ public class BiomeGenDeadSwamp extends BOPBiome
         this.addGenerator("mud_patches", GeneratorStage.SAND_PASS2, (new GeneratorSplotches.Builder()).amountPerChunk(1).splotchSize(12).replace(this.topBlock).with(BOPBlocks.mud.getDefaultState()).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
         
         // trees
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(1.0F);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(0.6F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("dead_tree", 1, (new GeneratorBigTree.Builder()).amountPerChunk(1.0F).minHeight(5).maxHeight(16).log(BOPWoods.DEAD).leaves(Blocks.air.getDefaultState()).create());
+        treeGenerator.add("dying_tree", 2, (new GeneratorBigTree.Builder()).minHeight(5).maxHeight(12).foliageHeight(1).log(BOPWoods.DEAD).leaves(BOPTrees.DEAD).create());
+        treeGenerator.add("dead_tree", 1, (new GeneratorBigTree.Builder()).minHeight(5).maxHeight(12).foliageHeight(0).foliageDensity(0.5D).log(BOPWoods.DEAD).leaves(Blocks.air.getDefaultState()).create());
 
         // other plants
         this.addGenerator("koru", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BOPPlants.KORU).create());

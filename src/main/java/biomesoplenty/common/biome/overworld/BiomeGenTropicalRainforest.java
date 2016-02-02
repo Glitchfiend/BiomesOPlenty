@@ -41,7 +41,7 @@ public class BiomeGenTropicalRainforest extends BOPBiome
         
         this.setColor(0x88E140);
         this.setTemperatureRainfall(1.2F, 1.0F);
-        this.skyColor = 0xC8CC5F;
+        //this.skyColor = 0xC8CC5F;
         this.waterColorMultiplier = 0x5DFF00;
         
         this.canSpawnInBiome = false;

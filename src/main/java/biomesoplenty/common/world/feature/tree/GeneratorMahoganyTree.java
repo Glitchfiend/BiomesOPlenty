@@ -38,7 +38,7 @@ public class GeneratorMahoganyTree extends GeneratorBasicTree
             this.maxHeight = 15;
             this.leafLayers = 4;
             this.leavesOffset = 1;
-            this.minLeavesRadius = 2;
+            this.minLeavesRadius = 1;
             this.leavesLayerHeight = 1;
             this.placeVinesOn = BlockQueries.air;
         }
@@ -72,7 +72,7 @@ public class GeneratorMahoganyTree extends GeneratorBasicTree
         
         //Generate upper branches
         BlockPos branchStartPos = start.up(endHeight - 2);
-        int branchHeight = (this.leafLayers - 1) + 2;
+        int branchHeight = (this.leafLayers - 1) + 1;
         
         generateBranch(world, branchStartPos, EnumFacing.NORTH, branchHeight);
         generateBranch(world, branchStartPos, EnumFacing.EAST, branchHeight);
@@ -94,9 +94,9 @@ public class GeneratorMahoganyTree extends GeneratorBasicTree
         EnumFacing logDirection = direction.rotateY();
         
         //Extend inner branches outwards to prevent decay
-        for (int i = -2; i <= 2; i++)
+        for (int i = -1; i <= 1; i++)
         {
-            if (replace.matches(world, pos = middle.offset(direction, 3).offset(logDirection, i).up(height - 1))) this.setLog(world, pos, logDirection.getAxis());
+           if (replace.matches(world, pos = middle.offset(direction, 3).offset(logDirection, i).up(height - 1))) this.setLog(world, pos, logDirection.getAxis());
         }
     }
 }
