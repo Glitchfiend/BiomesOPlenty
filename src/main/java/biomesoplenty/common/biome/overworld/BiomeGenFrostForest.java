@@ -40,7 +40,7 @@ public class BiomeGenFrostForest extends BOPBiome
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY);
         
         this.setColor(0xABD6BC);
-        this.skyColor = 0xCEE0EA;
+        //this.skyColor = 0xCEE0EA;
         this.setEnableSnow();
         this.setTemperatureRainfall(0.0F, 0.5F);
         
