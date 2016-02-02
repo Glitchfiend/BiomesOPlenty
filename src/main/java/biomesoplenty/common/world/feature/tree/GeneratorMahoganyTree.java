@@ -70,8 +70,6 @@ public class GeneratorMahoganyTree extends GeneratorBasicTree
             }
         }
         
-        System.out.println(this.leafLayers);
-        
         //Generate upper branches
         BlockPos branchStartPos = start.up(endHeight - 2);
         int branchHeight = (this.leafLayers - 1) + 2;
