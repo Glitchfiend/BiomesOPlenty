@@ -120,7 +120,9 @@ public class ModBlockQueries
         suitableForReed = BlockQuery.buildAnd().add(new IBlockPosQuery() {
             // reed needs the ground block to be water, but the block below that to NOT be water
             @Override public boolean matches(World world, BlockPos pos) {
-                return world.getBlockState(pos).getBlock() == Blocks.water && world.getBlockState(pos.down()).getBlock() != Blocks.water;
+                BlockPos groundPos = pos.down();
+                return world.getBlockState(pos).getBlock() == Blocks.water && 
+                        (world.getBlockState(groundPos).getBlock() != Blocks.water && world.getBlockState(groundPos).getBlock().isSideSolid(world, groundPos, EnumFacing.UP));
             }
         }).withLightAboveAtLeast(8).create();
         rootsCanDigThrough = new BlockQueryMaterial(Material.air, Material.water, Material.ground, Material.grass, Material.sand, Material.clay, Material.plants, Material.leaves);
