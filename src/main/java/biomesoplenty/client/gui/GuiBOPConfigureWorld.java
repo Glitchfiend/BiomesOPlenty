@@ -223,7 +223,7 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
     {
         this.pageNames = new String[3];
         
-        this.pageNames[0] = "World";
+        this.pageNames[0] = "World Settings";
         GuiBOPPageList.GuiFieldEntry[] page0Fields = new GuiBOPPageList.GuiFieldEntry[] {
             new GuiBOPPageList.GuiEnumButtonEntry<BiomeSize>(GuiEntries.BIOME_SIZE.getId(), "Biome Size: %s", true, this.settings.biomeSize),
             new GuiBOPPageList.GuiEnumButtonEntry<LandMassScheme>(GuiEntries.LAND_SCHEME.getId(), "Land Mass: %s", true, this.settings.landScheme),
@@ -232,33 +232,33 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
             new GuiBOPPageList.GuiSlideEntry(GuiEntries.AMPLITUDE.getId(), "Amplitude", true, this, 0.2F, 3.0F, this.settings.amplitude)
         };
         
-        this.pageNames[1] = "Biomes";
+        this.pageNames[1] = "Biome Settings";
         GuiBOPPageList.GuiFieldEntry[] page1Fields = new GuiBOPPageList.GuiFieldEntry[] {
 
         };
         
-        this.pageNames[2] = "Features";
+        this.pageNames[2] = "Feature Generation Settings";
         GuiBOPPageList.GuiFieldEntry[] page2Fields = new GuiBOPPageList.GuiFieldEntry[] {
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_GEMS.getId(), "Generate BOP Gems", true, this.settings.generateBopGems),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_SOILS.getId(), "Generate BOP Soils", true, this.settings.generateBopSoils),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_GRASSES.getId(), "Generate BOP Grasses", true, this.settings.generateBopGrasses),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_FOLIAGE.getId(), "Generate BOP Foliage", true, this.settings.generateBopFoliage),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_FLOWERS.getId(), "Generate BOP Flowers", true, this.settings.generateBopFlowers),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_PLANTS.getId(), "Generate BOP Plants", true, this.settings.generateBopPlants),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_WATER_PLANTS.getId(), "Generate BOP Water Pl.", true, this.settings.generateBopWaterPlants),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_MUSHROOMS.getId(), "Generate BOP Shrooms", true, this.settings.generateBopMushrooms),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_ROCK_FORMATIONS.getId(), "Generate Rock Forma.", true, this.settings.generateRockFormations),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_POISON_IVY.getId(), "Generate Poison Ivy", true, this.settings.generatePoisonIvy),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_FLAX.getId(), "Generate Flax", true, this.settings.generateFlax),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BERRY_BUSHES.getId(), "Generate Berry Bushes", true, this.settings.generateBerryBushes),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_WILD_CARROTS.getId(), "Generate Wild Carrots", true, this.settings.generateWildCarrots),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_THORNS.getId(), "Generate Thorns", true, this.settings.generateThorns),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_QUICKSAND.getId(), "Generate Quicksand", true, this.settings.generateQuicksand),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_LIQUID_POISON.getId(), "Generate Liquid Poison", true, this.settings.generateLiquidPoison),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_HOT_SPRINGS.getId(), "Generate Hot Springs", true, this.settings.generateHotSprings),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_NETHER_HIVES.getId(), "Generate Nether Hives", true, this.settings.generateNetherHives),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_NETHER_PLANTS.getId(), "Generate Nether Plants", true, this.settings.generateNetherPlants),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_END_FEATURES.getId(), "Generate End Features", true, this.settings.generateEndFeatures)
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_GEMS.getId(), "BOP Gems", true, this.settings.generateBopGems),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_SOILS.getId(), "BOP Soils", true, this.settings.generateBopSoils),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_GRASSES.getId(), "BOP Grasses", true, this.settings.generateBopGrasses),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_FOLIAGE.getId(), "BOP Foliage", true, this.settings.generateBopFoliage),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_FLOWERS.getId(), "BOP Flowers", true, this.settings.generateBopFlowers),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_PLANTS.getId(), "BOP Plants", true, this.settings.generateBopPlants),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_WATER_PLANTS.getId(), "BOP Water Plants", true, this.settings.generateBopWaterPlants),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_MUSHROOMS.getId(), "BOP Mushrooms", true, this.settings.generateBopMushrooms),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_ROCK_FORMATIONS.getId(), "Rock Formations", true, this.settings.generateRockFormations),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_POISON_IVY.getId(), "Poison Ivy", true, this.settings.generatePoisonIvy),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_FLAX.getId(), "Flax", true, this.settings.generateFlax),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BERRY_BUSHES.getId(), "Berry Bushes", true, this.settings.generateBerryBushes),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_WILD_CARROTS.getId(), "Wild Carrots", true, this.settings.generateWildCarrots),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_THORNS.getId(), "Thorns", true, this.settings.generateThorns),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_QUICKSAND.getId(), "Quicksand", true, this.settings.generateQuicksand),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_LIQUID_POISON.getId(), "Liquid Poison Pools", true, this.settings.generateLiquidPoison),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_HOT_SPRINGS.getId(), "Hot Spring Pools", true, this.settings.generateHotSprings),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_NETHER_HIVES.getId(), "Nether Hives", true, this.settings.generateNetherHives),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_NETHER_PLANTS.getId(), "Nether Plants", true, this.settings.generateNetherPlants),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_END_FEATURES.getId(), "End Features", true, this.settings.generateEndFeatures)
         };
         
         this.pageManager = new GuiBOPPageManager(createTableForFields(page0Fields, page1Fields, page2Fields));
