@@ -60,26 +60,26 @@ public class GeneratorMahoganyTree extends GeneratorBasicTree
     {
         int endHeight = height - this.leafLayers;
         
-        for (int layer = 0; layer <= height; ++layer)
+        for (int layer = 0; layer <= endHeight - 3; layer++)
         {
             BlockPos middlePos = start.up(layer);
             
-            if (layer == endHeight - 2) 
-            {
-                int branchHeight = height - endHeight - 1 + 2;
-                
-                //Generate the upper branches and stop
-                generateBranch(world, middlePos, EnumFacing.NORTH, branchHeight);
-                generateBranch(world, middlePos, EnumFacing.EAST, branchHeight);
-                generateBranch(world, middlePos, EnumFacing.SOUTH, branchHeight);
-                generateBranch(world, middlePos, EnumFacing.WEST, branchHeight);
-                break;
-            }
-            else if (this.replace.matches(world, middlePos))
+            if (this.replace.matches(world, middlePos))
             {
                 this.setLog(world, middlePos);
             }
         }
+        
+        System.out.println(this.leafLayers);
+        
+        //Generate upper branches
+        BlockPos branchStartPos = start.up(endHeight - 2);
+        int branchHeight = (this.leafLayers - 1) + 2;
+        
+        generateBranch(world, branchStartPos, EnumFacing.NORTH, branchHeight);
+        generateBranch(world, branchStartPos, EnumFacing.EAST, branchHeight);
+        generateBranch(world, branchStartPos, EnumFacing.SOUTH, branchHeight);
+        generateBranch(world, branchStartPos, EnumFacing.WEST, branchHeight);
     }
     
     private void generateBranch(World world, BlockPos middle, EnumFacing direction, int height)
@@ -88,9 +88,17 @@ public class GeneratorMahoganyTree extends GeneratorBasicTree
 
         if (replace.matches(world, pos = middle.offset(direction))) this.setLog(world, pos, direction.getAxis());
         
-        for (int i = 1; i <= height; ++i)
+        for (int i = 0; i <= height - 1; i++)
         {
-            if (replace.matches(world, pos = middle.offset(direction, 2).up(i))) this.setLog(world, pos, Axis.Y);
+            if (replace.matches(world, pos = middle.offset(direction, 2).up(i + 1))) this.setLog(world, pos, Axis.Y);
+        }
+        
+        EnumFacing logDirection = direction.rotateY();
+        
+        //Extend inner branches outwards to prevent decay
+        for (int i = -2; i <= 2; i++)
+        {
+            if (replace.matches(world, pos = middle.offset(direction, 3).offset(logDirection, i).up(height - 1))) this.setLog(world, pos, logDirection.getAxis());
         }
     }
 }

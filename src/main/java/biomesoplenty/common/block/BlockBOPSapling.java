@@ -21,6 +21,7 @@ import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
 import biomesoplenty.common.world.feature.tree.GeneratorBayouTree;
 import biomesoplenty.common.world.feature.tree.GeneratorBigTree;
 import biomesoplenty.common.world.feature.tree.GeneratorBulbTree;
+import biomesoplenty.common.world.feature.tree.GeneratorMahoganyTree;
 import biomesoplenty.common.world.feature.tree.GeneratorPineTree;
 import biomesoplenty.common.world.feature.tree.GeneratorRedwoodTree;
 import biomesoplenty.common.world.feature.tree.GeneratorTaigaTree;
@@ -199,8 +200,8 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable {
             	return new GeneratorBayouTree.Builder().log(BOPWoods.WILLOW).leaves(BOPTrees.WILLOW).minHeight(6).maxHeight(12).minLeavesRadius(1).leavesGradient(2).create();
             case PINE:
             	return new GeneratorPineTree.Builder().minHeight(6).maxHeight(18).log(BOPWoods.PINE).leaves(BOPTrees.PINE).create();
-            case MAHOGANY: //Not implemented
-                return new WorldGenTrees(true);
+            case MAHOGANY:
+                return new GeneratorMahoganyTree.Builder().create();
             default:
             	return null;
         }
