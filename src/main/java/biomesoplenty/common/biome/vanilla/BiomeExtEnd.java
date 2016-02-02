@@ -8,6 +8,7 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
+import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorCrystals;
 import biomesoplenty.common.world.feature.GeneratorOreCluster;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
@@ -27,5 +28,12 @@ public class BiomeExtEnd extends ExtendedBiomeWrapper
         
         // biome essence
         this.addGenerator("biome_essence", GeneratorStage.ORE_PRE, (new GeneratorOreSingle.Builder()).replace(Blocks.end_stone.getDefaultState()).amountPerChunk(24).with(BOPBlocks.biome_block.getDefaultState()).create());
+    }
+    
+    @Override
+    public void applySettings(BOPWorldSettings settings)
+    {
+        if (!settings.generateBopGems) {this.removeGenerator("amethyst");}
+        if (!settings.generateEndFeatures) {this.removeGenerator("crystals"); this.removeGenerator("biome_essence");}
     }
 }
