@@ -70,8 +70,8 @@ public class ModItems
         mudball = registerItem(new ItemMudball(), "mudball");
         turnip_seeds = registerItem(new ItemSeeds(BOPBlocks.turnip_block, Blocks.farmland), "turnip_seeds");
         crystal_shard = registerItem(new Item(), "crystal_shard");
-        ornamental_artifact = registerItem(new Item(), "ornamental_artifact");
-        ornamental_artifact.setMaxStackSize(1);
+        terrestrial_artifact = registerItem(new Item(), "terrestrial_artifact");
+        terrestrial_artifact.setMaxStackSize(1);
         flax_string = registerItem(new Item(), "flax_string");
         honeycomb = registerItem(new Item(), "honeycomb");
         gem = registerItem(new ItemGem(), "gem");

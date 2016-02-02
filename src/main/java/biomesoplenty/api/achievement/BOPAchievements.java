@@ -30,10 +30,10 @@ public class BOPAchievements
     public static Achievement obtain_pixie_dust;
     public static Achievement obtain_soul;
     public static Achievement obtain_celestial_crystal;
-    public static Achievement craft_ornamental_artifact;
+    public static Achievement craft_terrestrial_artifact;
     public static Achievement craft_ambrosia;
     public static Achievement explore_all_biomes;
     public static Achievement use_enderporter;
-    public static Achievement use_biome_radar;
+    public static Achievement use_biome_finder;
 
 }

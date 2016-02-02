@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "biomesoplenty:items/ornamental_artifact"
+        "layer0": "biomesoplenty:items/terrestrial_artifact"
     },
     "display": {
         "thirdperson": {

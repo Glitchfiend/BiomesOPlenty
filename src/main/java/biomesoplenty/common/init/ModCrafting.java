@@ -197,7 +197,7 @@ public class ModCrafting
         
         /*** Biome Finder ***/
         
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.biome_finder), new Object[] {" E ", "ERE", " E ", 'E', new ItemStack(Items.emerald), 'R', new ItemStack(Items.redstone)});
+        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.biome_finder), new Object[] {" A ", "AOA", " A ", 'A', new ItemStack(BOPItems.gem, 1, BOPGems.AMETHYST.ordinal()), 'O', new ItemStack(BOPItems.terrestrial_artifact)});
         GameRegistry.addRecipe(new BiomeEssenceRecipe());
         
         /*** Flower Basket ***/
@@ -256,7 +256,7 @@ public class ModCrafting
         GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.ambrosia), new Object[] {new ItemStack(BOPItems.pixie_dust), new ItemStack(Items.potionitem, 1, 0), new ItemStack(BOPItems.ichor), new ItemStack(BOPBlocks.seaweed, 1, BlockBOPSeaweed.SeaweedType.KELP.ordinal()), BlockBOPPlant.paging.getVariantItem(BOPPlants.ROOT), new ItemStack(BOPItems.crystal_shard), new ItemStack(BOPItems.jar_filled, 1, ItemJarFilled.JarContents.HONEY.ordinal()), new ItemStack(BOPItems.berries), Items.sugar});
         
         // Oranmental Artifact
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.ornamental_artifact), new Object[] {new ItemStack(BOPItems.gem, 1, BOPGems.RUBY.ordinal()), new ItemStack(BOPItems.gem, 1, BOPGems.TOPAZ.ordinal()), new ItemStack(BOPItems.gem, 1, BOPGems.AMBER.ordinal()), new ItemStack(BOPItems.gem, 1, BOPGems.PERIDOT.ordinal()), new ItemStack(BOPItems.gem, 1, BOPGems.MALACHITE.ordinal()), new ItemStack(BOPItems.gem, 1, BOPGems.SAPPHIRE.ordinal()), new ItemStack(BOPItems.gem, 1, BOPGems.TANZANITE.ordinal()), Items.emerald});
+        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.terrestrial_artifact), new Object[] {new ItemStack(BOPItems.gem, 1, BOPGems.RUBY.ordinal()), new ItemStack(BOPItems.gem, 1, BOPGems.TOPAZ.ordinal()), new ItemStack(BOPItems.gem, 1, BOPGems.AMBER.ordinal()), new ItemStack(BOPItems.gem, 1, BOPGems.PERIDOT.ordinal()), new ItemStack(BOPItems.gem, 1, BOPGems.MALACHITE.ordinal()), new ItemStack(BOPItems.gem, 1, BOPGems.SAPPHIRE.ordinal()), new ItemStack(BOPItems.gem, 1, BOPGems.TANZANITE.ordinal()), Items.emerald});
         
         // Flesh Block
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.flesh), new Object[] {"##", "##", '#', new ItemStack(BOPItems.fleshchunk)});

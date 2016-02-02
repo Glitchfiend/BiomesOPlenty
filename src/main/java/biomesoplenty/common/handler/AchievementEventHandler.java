@@ -220,9 +220,9 @@ public class AchievementEventHandler
         }
         
         //By Your Powers Combined Achievement
-        if (item != null && item == BOPItems.ornamental_artifact)
+        if (item != null && item == BOPItems.terrestrial_artifact)
         {
-            player.triggerAchievement(BOPAchievements.craft_ornamental_artifact);
+            player.triggerAchievement(BOPAchievements.craft_terrestrial_artifact);
         }
         
         //Darts and Crafts Achievement
@@ -249,7 +249,7 @@ public class AchievementEventHandler
             //Check every five seconds if the player has entered a new biome, if they haven't already gotten the achievement
             if (player.ticksExisted % 20 * 5 == 0)
             {
-                if (!player.getStatFile().hasAchievementUnlocked(BOPAchievements.use_biome_radar))
+                if (!player.getStatFile().hasAchievementUnlocked(BOPAchievements.use_biome_finder))
                 {
                     this.updateBiomeRadarExplore(player);
                 }
@@ -280,7 +280,7 @@ public class AchievementEventHandler
                 //If the current biome id is the id on the radar, award the achievement and stop searching
                 if (biomeIdToFind == currentBiome.biomeID) 
                 {
-                    player.triggerAchievement(BOPAchievements.use_biome_radar);
+                    player.triggerAchievement(BOPAchievements.use_biome_finder);
                     return;
                 }
             }

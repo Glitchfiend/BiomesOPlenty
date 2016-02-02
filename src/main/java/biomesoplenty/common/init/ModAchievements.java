@@ -12,7 +12,7 @@ import static biomesoplenty.api.achievement.BOPAchievements.craft_amethyst_sword
 import static biomesoplenty.api.achievement.BOPAchievements.craft_dart_blower;
 import static biomesoplenty.api.achievement.BOPAchievements.craft_flax_string;
 import static biomesoplenty.api.achievement.BOPAchievements.craft_muddy_pickaxe;
-import static biomesoplenty.api.achievement.BOPAchievements.craft_ornamental_artifact;
+import static biomesoplenty.api.achievement.BOPAchievements.craft_terrestrial_artifact;
 import static biomesoplenty.api.achievement.BOPAchievements.craft_poison_jar;
 import static biomesoplenty.api.achievement.BOPAchievements.eat_shroom_powder;
 import static biomesoplenty.api.achievement.BOPAchievements.explore_all_biomes;
@@ -29,7 +29,7 @@ import static biomesoplenty.api.achievement.BOPAchievements.obtain_soul;
 import static biomesoplenty.api.achievement.BOPAchievements.obtain_thorn;
 import static biomesoplenty.api.achievement.BOPAchievements.obtain_turnip;
 import static biomesoplenty.api.achievement.BOPAchievements.obtain_wilted_lily;
-import static biomesoplenty.api.achievement.BOPAchievements.use_biome_radar;
+import static biomesoplenty.api.achievement.BOPAchievements.use_biome_finder;
 import static biomesoplenty.api.achievement.BOPAchievements.use_enderporter;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -81,11 +81,11 @@ public class ModAchievements
         
         obtain_coral = addAchievement("achievement.obtain_coral", "obtain_coral", 2, -2, new ItemStack(BOPBlocks.coral), obtain_flowers);
         obtain_miners_delight = addAchievement("achievement.obtain_miners_delight", "obtain_miners_delight", 3, -4, BlockBOPFlower.paging.getVariantItem(BOPFlowers.MINERS_DELIGHT), obtain_coral);
-        craft_ornamental_artifact = addAchievement("achievement.craft_ornamental_artifact", "craft_ornamental_artifact", 6, -4, new ItemStack(BOPItems.ornamental_artifact), obtain_miners_delight);
-        obtain_pixie_dust = addAchievement("achievement.obtain_pixie_dust", "obtain_pixie_dust", 7, -2, new ItemStack(BOPItems.pixie_dust), craft_ornamental_artifact);
-        obtain_wilted_lily = addAchievement("achievement.obtain_wilted_lily", "obtain_wilted_lily", 8, -5, BlockBOPFlower.paging.getVariantItem(BOPFlowers.WILTED_LILY), craft_ornamental_artifact);
-        use_biome_radar = addAchievement("achievement.use_biome_radar", "use_biome_radar", 5, -6, new ItemStack(BOPItems.biome_finder), craft_ornamental_artifact);
-        explore_all_biomes = addAchievement("achievement.explore_all_biomes", "explore_all_biomes", 2, -7, new ItemStack(BOPItems.earth), use_biome_radar).setSpecial();
+        craft_terrestrial_artifact = addAchievement("achievement.craft_terrestrial_artifact", "craft_terrestrial_artifact", 6, -4, new ItemStack(BOPItems.terrestrial_artifact), obtain_miners_delight);
+        obtain_pixie_dust = addAchievement("achievement.obtain_pixie_dust", "obtain_pixie_dust", 7, -2, new ItemStack(BOPItems.pixie_dust), craft_terrestrial_artifact);
+        obtain_wilted_lily = addAchievement("achievement.obtain_wilted_lily", "obtain_wilted_lily", 8, -5, BlockBOPFlower.paging.getVariantItem(BOPFlowers.WILTED_LILY), craft_terrestrial_artifact);
+        use_biome_finder = addAchievement("achievement.use_biome_finder", "use_biome_finder", 5, -6, new ItemStack(BOPItems.biome_finder), craft_terrestrial_artifact);
+        explore_all_biomes = addAchievement("achievement.explore_all_biomes", "explore_all_biomes", 2, -7, new ItemStack(BOPItems.earth), use_biome_finder).setSpecial();
     }
     
     private static Achievement addAchievement(String unlocalizedName, String identifier, int column, int row, ItemStack iconStack, Achievement parent)
