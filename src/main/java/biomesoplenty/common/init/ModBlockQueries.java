@@ -51,6 +51,16 @@ public class ModBlockQueries
             }
         };
         
+        // Match block positions with air below
+        airBelow = new IBlockPosQuery()
+        {
+            @Override
+            public boolean matches(World world, BlockPos pos)
+            {
+                return world.isAirBlock(pos.down());
+            }
+        };
+        
         // Match blocks which are not unbreakable - IE not bedrock, barrier, command blocks
         breakable = new IBlockPosQuery()
         {

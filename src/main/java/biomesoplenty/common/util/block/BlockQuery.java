@@ -94,6 +94,7 @@ public class BlockQuery
         public CompoundQueryBuilder withAltitudeBetween(int a, int b) {return this.add(new BlockPosQueryAltitude(a,b));}
         public CompoundQueryBuilder byWater() {return this.add(BlockQueries.hasWater);}
         public CompoundQueryBuilder withAirAbove() {return this.add(BlockQueries.airAbove);}
+        public CompoundQueryBuilder withAirBelow() {return this.add(BlockQueries.airBelow);}
         public CompoundQueryBuilder withLightAboveAtLeast(int a) {return this.add(new BlockPosQueryLightAboveAtLeast(a));}
         public CompoundQueryBuilder withLightAboveNoMoreThan(int a) {return this.add(new BlockPosQueryLightAboveNoMoreThan(a));}
         public CompoundQueryBuilder sustainsPlant(EnumPlantType plantType) {return this.add(new BlockPosQuerySustainsPlantType(plantType));}
