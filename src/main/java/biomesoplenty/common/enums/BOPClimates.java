@@ -81,7 +81,7 @@ public enum BOPClimates {
         BOPClimates.FROZEN_DESERT.addLandBiome(5, BiomeGenBase.icePlains);
         BOPClimates.TUNDRA.addLandBiome(5, BiomeGenBase.icePlains).addLandBiome(10, BiomeGenBase.coldTaiga);
         BOPClimates.COLD_DESERT.addLandBiome(5, BiomeGenBase.extremeHills);
-        BOPClimates.BOREAL.addLandBiome(10, BiomeGenBase.coldTaiga).addLandBiome(10, BiomeGenBase.extremeHills).addLandBiome(10, BiomeGenBase.taiga);
+        BOPClimates.BOREAL.addLandBiome(10, BiomeGenBase.coldTaiga).addLandBiome(2, BiomeGenBase.megaTaiga).addLandBiome(10, BiomeGenBase.extremeHills).addLandBiome(10, BiomeGenBase.taiga);
         BOPClimates.COLD_SWAMP.addLandBiome(3, BiomeGenBase.swampland);
         BOPClimates.WET_TEMPERATE.addLandBiome(10, BiomeGenBase.forest).addLandBiome(20, BiomeGenBase.roofedForest);
         BOPClimates.DRY_TEMPERATE.addLandBiome(5, BiomeGenBase.plains);
@@ -91,7 +91,7 @@ public enum BOPClimates {
         BOPClimates.TROPICAL.addLandBiome(10, BiomeGenBase.jungle);
         BOPClimates.MEDITERANEAN.addLandBiome(5, BiomeGenBase.plains);
         BOPClimates.SAVANNA.addLandBiome(20, BiomeGenBase.savanna).addLandBiome(5, BiomeGenBase.mesaPlateau);
-        BOPClimates.HOT_DESERT.addLandBiome(30, BiomeGenBase.desert);
+        BOPClimates.HOT_DESERT.addLandBiome(30, BiomeGenBase.desert).addLandBiome(5, BiomeGenBase.mesaPlateau);
     }
     
     
