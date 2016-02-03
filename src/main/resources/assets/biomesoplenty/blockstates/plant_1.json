@@ -6,7 +6,7 @@
         "variant=wildrice": { "model": "biomesoplenty:wildrice" },
         "variant=cattail": { "model": "biomesoplenty:cattail" },
         "variant=rivercane": { "model": "biomesoplenty:rivercane" },
-        "variant=wildcarrot": { "model": "biomesoplenty:wildcarrot_block" },
+        "variant=caveweed": { "model": "biomesoplenty:caveweed" },
         "variant=tinycactus": { "model": "biomesoplenty:tinycactus" },
         "variant=witherwart": { "model": "biomesoplenty:witherwart" },
         "variant=reed": { "model": "biomesoplenty:reed" },

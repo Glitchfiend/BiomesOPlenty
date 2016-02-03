@@ -39,9 +39,6 @@ public class BiomeGenHighland extends BOPBiome
         
         this.addWeight(BOPClimates.COOL_TEMPERATE, 7);
         
-        // other plants
-        this.addGenerator("wild_carrots", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BOPPlants.WILDCARROT).create());
-        
         // boulders
         this.addGenerator("boulders", GeneratorStage.SAND, (new GeneratorBlobs.Builder()).amountPerChunk(0.5F).placeOn(Blocks.grass).with(Blocks.cobblestone.getDefaultState()).minRadius(0.3F).maxRadius(1.2F).numBalls(1).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
         this.addGenerator("big_boulders", GeneratorStage.SAND, (new GeneratorBlobs.Builder()).amountPerChunk(0.1F).placeOn(Blocks.grass).with(Blocks.cobblestone.getDefaultState()).minRadius(0.3F).maxRadius(4.0F).numBalls(3).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
@@ -64,8 +61,6 @@ public class BiomeGenHighland extends BOPBiome
     @Override
     public void applySettings(BOPWorldSettings settings)
     {
-        if (!settings.generateWildCarrots) {this.removeGenerator("wild_carrots");}
-        
         if (!settings.generateBopPlants) {this.removeGenerator("cattail"); this.removeGenerator("double_cattail"); this.removeGenerator("river_cane"); this.removeGenerator("tiny_cacti"); this.removeGenerator("roots"); this.removeGenerator("rafflesia"); this.removeGenerator("desert_sprouts");}
         
         GeneratorWeighted grassGen = (GeneratorWeighted)this.getGenerator("grass");

@@ -57,6 +57,8 @@ public class BiomeGenOriginValley extends BOPBiome
     public void applySettings(BOPWorldSettings settings)
     {
         this.removeGenerator("roots");
+        
+        this.removeGenerator("caveweed");
     }
     
     @Override

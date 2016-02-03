@@ -102,8 +102,6 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
         BOPPlants plant = (BOPPlants) state.getValue(this.variantProperty);
         switch (plant)
         {
-            case WILDCARROT:
-                return plant.getName() + "_block";
             default:
                 return plant.getName();
         }
@@ -177,10 +175,6 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
                 {
                     ret.add(paging.getVariantItem(plant));
                 }
-                break;
-            
-            case WILDCARROT:
-                ret.add(new ItemStack(BOPItems.wildcarrots));
                 break;
                 
             case CATTAIL: case RIVERCANE: case TINYCACTUS: case WITHERWART: case REED: case ROOT: case RAFFLESIA: case WISTERIA:
@@ -277,7 +271,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
         {
             case SHRUB: case LEAFPILE: case POISONIVY: case BUSH: case BERRYBUSH:
                 return ColoringType.LIKE_LEAVES;
-            case SHORTGRASS: case MEDIUMGRASS: case SPROUT: case KORU: case CLOVERPATCH: case WHEATGRASS: case DAMPGRASS:
+            case SHORTGRASS: case MEDIUMGRASS: case SPROUT: case KORU: case CLOVERPATCH: case WHEATGRASS: case DAMPGRASS: case CAVEWEED:
                 return ColoringType.LIKE_GRASS;
             default:
                 return ColoringType.PLAIN;
@@ -389,6 +383,8 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
                 return BlockQueries.spectralMoss.matches(world, pos.down());
             case THORN:
                 return BlockQueries.litFertileOrDry.matches(world, pos.down());
+            case CAVEWEED:
+                return BlockQueries.sustainsCave.matches(world, pos.down());
             case CATTAIL:
                 return BlockQueries.litFertileWaterside.matches(world, pos.down());
             case RIVERCANE:
@@ -512,7 +508,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
         IBlockState state = world.getBlockState(pos);
         switch ((BOPPlants) state.getValue(this.variantProperty))
         {
-            case CATTAIL: case RIVERCANE: case WILDCARROT:
+            case CATTAIL: case RIVERCANE:
                 return false;
             default:
                 return true;
@@ -559,8 +555,6 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
                 return 0;
             case RIVERCANE:
                 return 0;
-            case WILDCARROT:
-                return 0;
             case WITHERWART:
                 return 0;
             case REED:
@@ -585,8 +579,6 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
             case CATTAIL:
                 return 0;
             case RIVERCANE:
-                return 0;
-            case WILDCARROT:
                 return 0;
             case WITHERWART:
                 return 0;

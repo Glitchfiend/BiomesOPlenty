@@ -174,7 +174,6 @@ item.turnip_seeds.name=Turnip Seeds
 item.umbran_door.name=Umbran Door
 item.wading_boots.name=Wading Boots
 item.white_dye.name=White Dye
-item.wildcarrots.name=Wild Carrots
 item.willow_door.name=Willow Door
 item.wood_scythe.name=Wooden Scythe
 
@@ -384,7 +383,7 @@ tile.plant_1.thorn.name=Thorns
 tile.plant_1.wildrice.name=Wild Rice
 tile.plant_1.cattail.name=Cattail
 tile.plant_1.rivercane.name=River Cane
-tile.plant_1.wildcarrot_block.name=Wild Carrots
+tile.plant_1.caveweed.name=Caveweed
 tile.plant_1.tinycactus.name=Tiny Cactus
 tile.plant_1.witherwart.name=Wither Wart
 tile.plant_1.reed.name=Reed

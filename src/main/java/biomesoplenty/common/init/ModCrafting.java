@@ -278,7 +278,7 @@ public class ModCrafting
         GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.jar_filled, 1, ItemJarFilled.JarContents.POISON.ordinal()), new Object[] {BlockBOPPlant.paging.getVariantItem(BOPPlants.POISONIVY), new ItemStack(BOPItems.jar_empty)});
         GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.ricebowl), new Object[] {Items.bowl, BlockBOPPlant.paging.getVariantItem(BOPPlants.WILDRICE)});
         GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.saladfruit), new Object[] {Items.bowl, BOPItems.berries, Items.apple, Items.melon});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.saladveggie), new Object[] {Items.bowl, BOPItems.wildcarrots, Items.carrot, Items.potato});
+        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.saladveggie), new Object[] {Items.bowl, BOPItems.turnip, Items.carrot, Items.potato});
         GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.saladshroom), new Object[] {Items.bowl, new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.TOADSTOOL.ordinal()), new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.PORTOBELLO.ordinal()), new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.BLUE_MILK_CAP.ordinal())});
 
         // Terrariums
@@ -361,7 +361,6 @@ public class ModCrafting
         OreDictionary.registerOre("foodAmbrosia", new ItemStack(BOPItems.ambrosia));
         OreDictionary.registerOre("foodBowlofrice", new ItemStack(BOPItems.ricebowl));
         
-        OreDictionary.registerOre("cropWildcarrots", new ItemStack(BOPItems.wildcarrots));
         OreDictionary.registerOre("cropPeach", new ItemStack(BOPItems.peach));
         OreDictionary.registerOre("cropPersimmon", new ItemStack(BOPItems.persimmon));
         OreDictionary.registerOre("cropTurnip", new ItemStack(BOPItems.turnip));

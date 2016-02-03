@@ -86,7 +86,6 @@ public class BOPWorldSettings
     public boolean generatePoisonIvy = true;
     public boolean generateFlax = true;
     public boolean generateBerryBushes = true;
-    public boolean generateWildCarrots = true;
     public boolean generateThorns = true;
     public boolean generateQuicksand = true;
     public boolean generateLiquidPoison = true;
@@ -146,7 +145,6 @@ public class BOPWorldSettings
         obj.addProperty("generatePoisonIvy", this.generatePoisonIvy);
         obj.addProperty("generateFlax", this.generateFlax);
         obj.addProperty("generateBerryBushes", this.generateBerryBushes);
-        obj.addProperty("generateWildCarrots", this.generateWildCarrots);
         obj.addProperty("generateThorns", this.generateThorns);
         obj.addProperty("generateQuicksand", this.generateQuicksand);
         obj.addProperty("generateLiquidPoison", this.generateLiquidPoison);
@@ -182,7 +180,6 @@ public class BOPWorldSettings
         this.generatePoisonIvy = worldConfig.getBool("generatePoisonIvy", this.generatePoisonIvy);
         this.generateFlax = worldConfig.getBool("generateFlax", this.generateFlax);
         this.generateBerryBushes = worldConfig.getBool("generateBerryBushes", this.generateBerryBushes);
-        this.generateWildCarrots = worldConfig.getBool("generateWildCarrots", this.generateWildCarrots);
         this.generateThorns = worldConfig.getBool("generateThorns", this.generateThorns);
         this.generateQuicksand = worldConfig.getBool("generateQuicksand", this.generateQuicksand);
         this.generateLiquidPoison = worldConfig.getBool("generateLiquidPoison", this.generateLiquidPoison);
@@ -213,7 +210,6 @@ public class BOPWorldSettings
         this.generatePoisonIvy = true;  
         this.generateFlax = true;  
         this.generateBerryBushes = true;  
-        this.generateWildCarrots = true;  
         this.generateThorns = true;  
         this.generateQuicksand = true; 
         this.generateLiquidPoison = true; 

@@ -185,7 +185,6 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
         GENERATE_POISON_IVY (116),
         GENERATE_FLAX (117),
         GENERATE_BERRY_BUSHES (118),
-        GENERATE_WILD_CARROTS (119),
         GENERATE_THORNS (120),
         GENERATE_QUICKSAND (121),
         GENERATE_LIQUID_POISON (122),
@@ -251,7 +250,6 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_POISON_IVY.getId(), "Poison Ivy", true, this.settings.generatePoisonIvy),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_FLAX.getId(), "Flax", true, this.settings.generateFlax),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BERRY_BUSHES.getId(), "Berry Bushes", true, this.settings.generateBerryBushes),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_WILD_CARROTS.getId(), "Wild Carrots", true, this.settings.generateWildCarrots),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_THORNS.getId(), "Thorns", true, this.settings.generateThorns),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_QUICKSAND.getId(), "Quicksand", true, this.settings.generateQuicksand),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_LIQUID_POISON.getId(), "Liquid Poison Pools", true, this.settings.generateLiquidPoison),
@@ -385,9 +383,6 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
                 break;
             case GENERATE_BERRY_BUSHES:
                 this.settings.generateBerryBushes = value;
-                break;
-            case GENERATE_WILD_CARROTS:
-                this.settings.generateWildCarrots = value;
                 break;
             case GENERATE_THORNS:
                 this.settings.generateThorns = value;

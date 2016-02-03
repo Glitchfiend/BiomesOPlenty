@@ -15,7 +15,6 @@ public class BOPItems
     
     public static Item berries;
     public static Item shroompowder;
-    public static Item wildcarrots;
     public static Item peach;
     public static Item saladfruit;
     public static Item saladveggie;

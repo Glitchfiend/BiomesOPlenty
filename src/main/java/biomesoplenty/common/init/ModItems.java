@@ -50,7 +50,6 @@ public class ModItems
         shroompowder =      registerItem(new ItemFood(1, 0.1F, false), "shroompowder");
         ((ItemFood)shroompowder).setAlwaysEdible();
         ((ItemFood)shroompowder).setPotionEffect(Potion.confusion.id, 225, 0, 0.6F);
-        wildcarrots =       registerItem(new ItemFood(3, 0.5F, false), "wildcarrots");
         peach =             registerItem(new ItemFood(5, 0.2F, false), "peach");
         persimmon =         registerItem(new ItemFood(5, 0.2F, false), "persimmon");
         filled_honeycomb =  registerItem(new ItemBOPFood(3, 0.4F, 16), "filled_honeycomb");
