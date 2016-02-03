@@ -22,10 +22,12 @@ import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
+import biomesoplenty.common.world.feature.GeneratorSplotches;
 import biomesoplenty.common.world.feature.GeneratorWaterside;
 
 public class BiomeGenSteppe extends BOPBiome
@@ -35,7 +37,8 @@ public class BiomeGenSteppe extends BOPBiome
         // terrain
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SANDY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SANDY);
-        this.terrainSettings.avgHeight(68).heightVariation(6, 20);
+
+        this.terrainSettings.avgHeight(70).heightVariation(6, 20).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.1D); 
         
         this.setColor(13413215);
         this.setTemperatureRainfall(0.7F, 0.05F);
@@ -50,14 +53,15 @@ public class BiomeGenSteppe extends BOPBiome
         
         // sand
         this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.sand.getDefaultState()).create());
-        
+
         // other plants
         this.addGenerator("dead_bushes", GeneratorStage.DEAD_BUSH,(new GeneratorFlora.Builder()).amountPerChunk(0.3F).with(Blocks.deadbush.getDefaultState()).generationAttempts(4).create());
+        this.addGenerator("desertgrass", GeneratorStage.GRASS, (new GeneratorGrass.Builder()).amountPerChunk(12.0F).with(BOPPlants.DESERTGRASS).generationAttempts(8).create());
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(7.0F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
-        grassGenerator.add("shortgrass", 5, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
+        grassGenerator.add("shortgrass", 7, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
         grassGenerator.add("mediumgrass", 3, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());
         grassGenerator.add("tallgrass", 1, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).create());
 
@@ -77,20 +81,20 @@ public class BiomeGenSteppe extends BOPBiome
         if (!settings.generateBopWaterPlants) {this.removeGenerator("algae"); this.removeGenerator("water_reeds"); this.removeGenerator("algae"); this.removeGenerator("duckweed"); this.removeGenerator("medium_lily"); this.removeGenerator("small_lily"); this.removeGenerator("tiny_lily");}
         
         GeneratorWeighted grassGen = (GeneratorWeighted)this.getGenerator("grass");
-        if (!settings.generateBopGrasses) {grassGen.removeGenerator("shortgrass"); grassGen.removeGenerator("mediumgrass"); grassGen.removeGenerator("wheatgrass"); grassGen.removeGenerator("dampgrass");}
+        if (!settings.generateBopGrasses) {grassGen.removeGenerator("shortgrass"); grassGen.removeGenerator("mediumgrass"); grassGen.removeGenerator("wheatgrass"); grassGen.removeGenerator("dampgrass"); this.removeGenerator("desertgrass");}
     }
     
     @Override
     public int getGrassColorAtPos(BlockPos pos)
     {
         double noise = GRASS_COLOR_NOISE.func_151601_a((double)pos.getX() * 0.0225D, (double)pos.getZ() * 0.0225D);
-        return noise < -0.1D ? 13214328 : 12885629;
+        return noise < -0.1D ? 13741418 : 13018487;
     }
 
     @Override
     public int getFoliageColorAtPos(BlockPos pos)
     {
         double noise = GRASS_COLOR_NOISE.func_151601_a((double)pos.getX() * 0.0225D, (double)pos.getZ() * 0.0225D);
-        return noise < -0.1D ? 13214328 : 12885629;
+        return noise < -0.1D ? 13741418 : 13018487;
     }
 }

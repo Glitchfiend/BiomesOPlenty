@@ -116,13 +116,12 @@ public class BiomeGenMountain extends BOPBiome
         
         // trees & logs        
         IBlockPosQuery suitableTreePosition = BlockQuery.buildAnd().withAltitudeBetween(40, 140).materials(Material.ground, Material.grass).create();
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(10);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(5);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("pine", 1, (new GeneratorPineTree.Builder()).minHeight(6).maxHeight(18).log(BOPWoods.PINE).leaves(BOPTrees.PINE).placeOn(suitableTreePosition).create());        
-        GeneratorWeighted logsGenerator = new GeneratorWeighted(2.5F);
+        GeneratorWeighted logsGenerator = new GeneratorWeighted(0.5F);
         this.addGenerator("logs", GeneratorStage.TREE, logsGenerator);
         logsGenerator.add("pine_logs", 1, (new GeneratorLogs.Builder()).placeOn(suitableTreePosition).with(BOPWoods.PINE).create());
-        logsGenerator.add("dead_logs", 1, (new GeneratorLogs.Builder()).placeOn(suitableTreePosition).with(BOPWoods.DEAD).create());
 
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(5.0F);
