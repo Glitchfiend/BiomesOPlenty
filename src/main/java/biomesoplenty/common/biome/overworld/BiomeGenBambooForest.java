@@ -54,7 +54,7 @@ public class BiomeGenBambooForest extends BOPBiome
     {
         
         // terrain
-        this.terrainSettings.avgHeight(64).heightVariation(10, 30);
+        this.terrainSettings.avgHeight(68).heightVariation(5, 10);
         
         this.setColor(0xA3E053);
         this.setTemperatureRainfall(1.2F, 0.9F);
@@ -79,9 +79,9 @@ public class BiomeGenBambooForest extends BOPBiome
         // trees & logs
         GeneratorWeighted treeGenerator = new GeneratorWeighted(30);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("bamboo", 2, (new GeneratorBulbTree.Builder()).minHeight(6).maxHeight(18).log(BOPBlocks.bamboo.getDefaultState()).leaves(BOPTrees.BAMBOO).create());  
-        treeGenerator.add("bamboo_thin", 1, (new GeneratorTwigletTree.Builder()).minHeight(2).maxHeight(8).leafChance(0.3F).log(BOPBlocks.bamboo.getDefaultState()).leaves(BOPTrees.BAMBOO).create());  
-        treeGenerator.add("oak_bush", 1, (new GeneratorBush.Builder()).maxHeight(2).create());
+        treeGenerator.add("bamboo", 3, (new GeneratorBulbTree.Builder()).minHeight(10).maxHeight(20).log(BOPBlocks.bamboo.getDefaultState()).leaves(BOPTrees.BAMBOO).create());  
+        treeGenerator.add("bamboo_thin", 1, (new GeneratorTwigletTree.Builder()).minHeight(5).maxHeight(10).leafChance(0.3F).log(BOPBlocks.bamboo.getDefaultState()).leaves(BOPTrees.BAMBOO).create());  
+        //treeGenerator.add("oak_bush", 1, (new GeneratorBush.Builder()).maxHeight(2).create());
 
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(10);
