@@ -21,6 +21,7 @@ import static biomesoplenty.api.biome.BOPBiomes.chaparral;
 import static biomesoplenty.api.biome.BOPBiomes.cherry_blossom_grove;
 import static biomesoplenty.api.biome.BOPBiomes.cold_desert;
 import static biomesoplenty.api.biome.BOPBiomes.coniferous_forest;
+import static biomesoplenty.api.biome.BOPBiomes.coral_reef;
 import static biomesoplenty.api.biome.BOPBiomes.crag;
 import static biomesoplenty.api.biome.BOPBiomes.dead_forest;
 import static biomesoplenty.api.biome.BOPBiomes.dead_swamp;
@@ -109,6 +110,7 @@ import biomesoplenty.common.biome.overworld.BiomeGenChaparral;
 import biomesoplenty.common.biome.overworld.BiomeGenCherryBlossomGrove;
 import biomesoplenty.common.biome.overworld.BiomeGenColdDesert;
 import biomesoplenty.common.biome.overworld.BiomeGenConiferousForest;
+import biomesoplenty.common.biome.overworld.BiomeGenCoralReef;
 import biomesoplenty.common.biome.overworld.BiomeGenCrag;
 import biomesoplenty.common.biome.overworld.BiomeGenDeadForest;
 import biomesoplenty.common.biome.overworld.BiomeGenDeadSwamp;
@@ -387,8 +389,10 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         
         mountain_foothills = registerBOPBiome(new BiomeGenMountain(BiomeGenMountain.MountainType.FOOTHILLS), "Mountain Foothills");
         canyon_ravine = registerBOPBiome(new BiomeGenCanyon(BiomeGenCanyon.CanyonType.RAVINE), "Canyon Ravine");
+        coral_reef = registerBOPBiome(new BiomeGenCoralReef(), "Coral Reef");
         
         setSubBiome(canyon, canyon_ravine);
+        setSubBiome(BiomeGenBase.ocean, BOPBiomes.coral_reef.get());
 
     }
     
@@ -457,6 +461,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         // edge-biomes, sub-biomes and mutated-biomes
         registerBiomeToDictionary(BOPBiomes.mountain_foothills, Type.HILLS, Type.MOUNTAIN);
         registerBiomeToDictionary(BOPBiomes.canyon_ravine, Type.SANDY, Type.HILLS, Type.DRY, Type.HOT);
+        registerBiomeToDictionary(BOPBiomes.coral_reef, Type.WATER, Type.OCEAN);
         
     }
     
