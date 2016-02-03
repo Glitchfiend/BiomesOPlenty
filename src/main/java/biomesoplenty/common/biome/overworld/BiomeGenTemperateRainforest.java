@@ -45,7 +45,7 @@ public class BiomeGenTemperateRainforest extends BOPBiome
     {
         
         // terrain
-        this.terrainSettings.avgHeight(63).heightVariation(10, 25);
+        this.terrainSettings.avgHeight(63).heightVariation(10, 35);
         
         this.setColor(0xBBDD63);
         this.setTemperatureRainfall(0.8F, 1.2F);
