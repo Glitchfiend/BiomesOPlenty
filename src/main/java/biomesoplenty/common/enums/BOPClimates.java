@@ -76,8 +76,8 @@ public enum BOPClimates {
         // set up vanilla biomes
         
         BOPClimates.ICE_CAP.addLandBiome(5,BiomeGenBase.icePlains);
-        BOPClimates.TUNDRA.addLandBiome(5, BiomeGenBase.icePlains).addLandBiome(10, BiomeGenBase.coldTaiga);
-        BOPClimates.BOREAL.addLandBiome(10, BiomeGenBase.coldTaiga).addLandBiome(2, BiomeGenBase.megaTaiga).addLandBiome(10, BiomeGenBase.extremeHills).addLandBiome(10, BiomeGenBase.taiga);
+        BOPClimates.TUNDRA.addLandBiome(5, BiomeGenBase.icePlains).addLandBiome(10, BiomeGenBase.coldTaiga).addLandBiome(5, BiomeGenBase.extremeHills);
+        BOPClimates.BOREAL.addLandBiome(2, BiomeGenBase.coldTaiga).addLandBiome(2, BiomeGenBase.megaTaiga).addLandBiome(10, BiomeGenBase.extremeHills).addLandBiome(10, BiomeGenBase.taiga);
         BOPClimates.COLD_SWAMP.addLandBiome(3, BiomeGenBase.swampland);
         BOPClimates.WET_TEMPERATE.addLandBiome(20, BiomeGenBase.roofedForest);
         BOPClimates.DRY_TEMPERATE.addLandBiome(5, BiomeGenBase.plains);
