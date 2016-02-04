@@ -152,13 +152,13 @@ public class BiomeGenShield extends BOPBiome
     @Override
     public int getGrassColorAtPos(BlockPos pos)
     {
-        return 0x647F38;
+        return 0x7C9B45;
     }
     
     @Override
     public int getFoliageColorAtPos(BlockPos pos)
     {
-        return 0x789643;
+        return 0x8EAF4F;
     }
     
 }

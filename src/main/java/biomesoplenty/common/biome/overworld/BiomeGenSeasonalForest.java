@@ -47,7 +47,7 @@ public class BiomeGenSeasonalForest extends BOPBiome
         this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.sand.getDefaultState()).create());
         
         // trees & logs
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(20);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(15);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("large_oak", 1, (new GeneratorBigTree.Builder()).log(BlockPlanks.EnumType.OAK).leaves(BlockPlanks.EnumType.OAK).create());
         treeGenerator.add("oak", 1, (new GeneratorBasicTree.Builder()).minHeight(8).maxHeight(12).create());
@@ -116,12 +116,12 @@ public class BiomeGenSeasonalForest extends BOPBiome
     @Override
     public int getGrassColorAtPos(BlockPos pos)
     {
-        return 0xBEC44C;
+        return 0xB5B952;
     }
     
     @Override
     public int getFoliageColorAtPos(BlockPos pos)
     {
-        return 0xB3C442;
+        return 0xA3A627;
     }
 }
