@@ -58,14 +58,14 @@ public class BiomeGenColdDesert extends BOPBiome
         {
         	this.alternateTopBlock = BOPBlocks.hard_ice.getDefaultState();
             this.setTemperatureRainfall(0.0F, 0.0F);
-            this.addWeight(BOPClimates.FROZEN_DESERT, 10);
+            this.addWeight(BOPClimates.ICE_CAP, 10);
             this.setColor(0xB3D7E3);
         }
         else
         {
         	this.alternateTopBlock = Blocks.snow.getDefaultState();
             this.setTemperatureRainfall(0.2F, 0.0F);
-            this.addWeight(BOPClimates.COLD_DESERT, 10);
+            this.addWeight(BOPClimates.ICE_CAP, 10);
             this.setColor(0xB3AF9B);
         }
 

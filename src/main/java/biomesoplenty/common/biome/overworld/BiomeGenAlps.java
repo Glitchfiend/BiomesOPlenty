@@ -35,7 +35,7 @@ public class BiomeGenAlps extends BOPBiome
         
         this.addWeight(BOPClimates.BOREAL, 3);
         this.addWeight(BOPClimates.TUNDRA, 5);
-        this.addWeight(BOPClimates.COLD_DESERT, 5);
+        this.addWeight(BOPClimates.ICE_CAP, 5);
         
         this.topBlock = Blocks.snow.getDefaultState();
         this.fillerBlock = Blocks.snow.getDefaultState();
