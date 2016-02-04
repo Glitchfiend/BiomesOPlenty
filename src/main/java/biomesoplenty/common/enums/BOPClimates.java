@@ -21,7 +21,8 @@ public enum BOPClimates {
     TROPICAL (BiomeType.DESERT),
     MEDITERANEAN (BiomeType.WARM),
     SAVANNA (BiomeType.DESERT),
-    HOT_DESERT (BiomeType.DESERT);
+    HOT_DESERT (BiomeType.DESERT),
+    WASTELAND (BiomeType.DESERT);
     
     public final BiomeType biomeType;
     private int totalLandBiomesWeight;
@@ -88,6 +89,7 @@ public enum BOPClimates {
         BOPClimates.MEDITERANEAN.addLandBiome(5, BiomeGenBase.plains);
         BOPClimates.SAVANNA.addLandBiome(20, BiomeGenBase.savanna);
         BOPClimates.HOT_DESERT.addLandBiome(30, BiomeGenBase.desert).addLandBiome(10, BiomeGenBase.mesaPlateau);
+        BOPClimates.WASTELAND.addLandBiome(1, BiomeGenBase.desert);
     }
     
     
@@ -111,7 +113,7 @@ public enum BOPClimates {
         WET_TEMPERATE,	WET_TEMPERATE,	WET_TEMPERATE,	WARM_TEMPERATE,	WARM_TEMPERATE,	WARM_TEMPERATE,	WARM_TEMPERATE,	WARM_TEMPERATE,	WARM_TEMPERATE,	DRY_TEMPERATE,	DRY_TEMPERATE,	SAVANNA,		// 5
         HOT_SWAMP,		HOT_SWAMP,		HOT_SWAMP,		WET_TEMPERATE,	WARM_TEMPERATE,	WARM_TEMPERATE,	WARM_TEMPERATE,	MEDITERANEAN,	MEDITERANEAN,	SAVANNA,		SAVANNA,		HOT_DESERT,		// 6
         TROPICAL,		TROPICAL,		HOT_SWAMP,		HOT_SWAMP,		WET_TEMPERATE,	WARM_TEMPERATE,	MEDITERANEAN,	MEDITERANEAN,	SAVANNA,		HOT_DESERT,		HOT_DESERT,		HOT_DESERT,		// 7
-        TROPICAL,		TROPICAL,		TROPICAL,		HOT_SWAMP,		HOT_SWAMP,		MEDITERANEAN,	MEDITERANEAN,	SAVANNA,		SAVANNA,		HOT_DESERT,		HOT_DESERT,		HOT_DESERT		// 8
+        TROPICAL,		TROPICAL,		TROPICAL,		HOT_SWAMP,		HOT_SWAMP,		MEDITERANEAN,	MEDITERANEAN,	SAVANNA,		SAVANNA,		HOT_DESERT,		HOT_DESERT,		WASTELAND		// 8
     };
     
     public static int[] getClimateMappingInts()

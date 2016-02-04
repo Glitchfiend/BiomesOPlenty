@@ -47,7 +47,7 @@ public class BiomeGenWasteland extends BOPBiome
     public BiomeGenWasteland()
     {
         // terrain
-        this.terrainSettings.avgHeight(64).heightVariation(0,7);
+        this.terrainSettings.avgHeight(66).heightVariation(1,5);
         
         this.setColor(0x5A5440);
         this.setTemperatureRainfall(0.9F, 0.05F);
@@ -62,7 +62,7 @@ public class BiomeGenWasteland extends BOPBiome
         this.canGenerateVillages = false;
         this.canSpawnInBiome = false;
         
-        this.addWeight(BOPClimates.HOT_DESERT, 2);
+        this.addWeight(BOPClimates.WASTELAND, 50);
         
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
@@ -84,8 +84,7 @@ public class BiomeGenWasteland extends BOPBiome
         flowerGenerator.add("wilted_lily", 1, (new GeneratorFlora.Builder()).with(BOPFlowers.WILTED_LILY).create());
         
         // lakes
-        this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.1F).waterLakeForBiome(this).create());
-        this.addGenerator("poison_lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.1F).waterLakeForBiome(this).liquid(BOPBlocks.poison).frozenLiquid((IBlockState)null).create());
+        this.addGenerator("poison_lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.05F).waterLakeForBiome(this).liquid(BOPBlocks.poison).frozenLiquid((IBlockState)null).create());
         
         // spikes
         //this.addGenerator("spikes", GeneratorStage.PRE, (new GeneratorSpike.Builder()).amountPerChunk(0.2F).create());
