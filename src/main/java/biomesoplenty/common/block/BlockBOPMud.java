@@ -78,7 +78,7 @@ public class BlockBOPMud extends Block implements IBOPBlock, ISustainsPlantType
         
         // set some defaults
         this.setHardness(0.6F);
-        this.setStepSound(Block.soundTypeGrass);
+        this.setStepSound(Block.soundTypeSand);
         this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, MudType.MUD) );
         
     }    
