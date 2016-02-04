@@ -43,7 +43,7 @@ public class GenLayerRiverMixBOP extends BOPGenLayer
 
         for (int i = 0; i < areaWidth * areaHeight; ++i)
         {
-            if (biomeIds[i] != BiomeGenBase.frozenOcean.biomeID && biomeIds[i] != BiomeGenBase.ocean.biomeID && biomeIds[i] != BiomeGenBase.deepOcean.biomeID && biomeSupportsRivers(i))
+            if (biomeIds[i] != BiomeGenBase.frozenOcean.biomeID && biomeIds[i] != BiomeGenBase.ocean.biomeID && biomeIds[i] != BiomeGenBase.deepOcean.biomeID && biomeSupportsRivers(biomeIds[i]))
             {
                 if (riverValues[i] == BiomeGenBase.river.biomeID)
                 {
