@@ -45,6 +45,7 @@ public class BiomeGenRainforest extends BOPBiome
         
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
+        this.canGenerateRivers = false;
         
         this.spawnableMonsterList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
         this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));

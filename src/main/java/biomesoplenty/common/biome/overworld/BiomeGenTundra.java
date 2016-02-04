@@ -40,6 +40,7 @@ public class BiomeGenTundra extends BOPBiome
         
         this.addWeight(BOPClimates.TUNDRA, 10);
         
+        this.canGenerateRivers = false;
         this.canSpawnInBiome = false;
         
         this.spawnableCreatureList.clear();
