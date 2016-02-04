@@ -62,7 +62,6 @@ public class BiomeGenLandOfLakes extends BOPBiome
         this.canGenerateVillages = false;
         
         this.addWeight(BOPClimates.WET_TEMPERATE, 3);
-        this.addWeight(BOPClimates.COOL_TEMPERATE, 3);
         
         this.spawnableWaterCreatureList.clear();       
         this.spawnableCreatureList.add(new SpawnListEntry(EntitySnail.class, 8, 1, 2));

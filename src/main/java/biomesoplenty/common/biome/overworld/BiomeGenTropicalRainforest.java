@@ -47,7 +47,7 @@ public class BiomeGenTropicalRainforest extends BOPBiome
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
     
-        this.addWeight(BOPClimates.TROPICAL, 7);
+        this.addWeight(BOPClimates.TROPICAL, 5);
         
         this.spawnableCreatureList.clear();
         this.spawnableMonsterList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));

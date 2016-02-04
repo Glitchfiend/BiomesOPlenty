@@ -67,7 +67,7 @@ public class BiomeGenShield extends BOPBiome
         
         this.canGenerateVillages = false;
         
-        this.addWeight(BOPClimates.BOREAL, 7);
+        this.addWeight(BOPClimates.BOREAL, 5);
         
         // gravel
         this.addGenerator("gravel", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(12).maxRadius(7).with(Blocks.gravel.getDefaultState()).create());

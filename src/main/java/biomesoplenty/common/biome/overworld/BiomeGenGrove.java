@@ -42,7 +42,6 @@ public class BiomeGenGrove extends BOPBiome
         this.setColor(0x517F51);
         this.setTemperatureRainfall(0.7F, 0.8F);
         
-        this.addWeight(BOPClimates.WET_TEMPERATE, 7);
         this.addWeight(BOPClimates.COOL_TEMPERATE, 7);
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));

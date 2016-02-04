@@ -35,7 +35,7 @@ public class BiomeGenCanyon extends BOPBiome
         {
             this.terrainSettings.avgHeight(140).heightVariation(10, 10);
             
-            this.addWeight(BOPClimates.MEDITERANEAN, 5);    
+            this.addWeight(BOPClimates.SAVANNA, 3);    
         }
         else
         {

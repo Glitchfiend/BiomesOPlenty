@@ -43,8 +43,7 @@ public class BiomeGenDeciduousForest extends BOPBiome
         this.setColor(0xC1B749);
         this.setTemperatureRainfall(0.7F, 0.2F);
         
-        this.addWeight(BOPClimates.WARM_TEMPERATE, 7); 
-        this.addWeight(BOPClimates.COOL_TEMPERATE, 3);  
+        this.addWeight(BOPClimates.WARM_TEMPERATE, 5); 
         
         this.topBlock = Blocks.grass.getDefaultState();
         this.usualTopBlock = this.topBlock;

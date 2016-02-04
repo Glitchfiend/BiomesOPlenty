@@ -48,7 +48,7 @@ public class BiomeGenMoor extends BOPBiome
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
         
-        this.addWeight(BOPClimates.COLD_SWAMP, 7);
+        this.addWeight(BOPClimates.COLD_SWAMP, 5);
         
         this.spawnableWaterCreatureList.clear();
         this.spawnableCreatureList.add(new SpawnListEntry(EntitySnail.class, 8, 1, 2));
