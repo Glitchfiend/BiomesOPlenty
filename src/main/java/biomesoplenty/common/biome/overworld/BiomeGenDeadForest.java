@@ -47,7 +47,6 @@ public class BiomeGenDeadForest extends BOPBiome
         this.setColor(0xBCA165);
         this.setTemperatureRainfall(0.4F, 0.3F);
         
-        this.addWeight(BOPClimates.COOL_TEMPERATE, 2);
         this.addWeight(BOPClimates.BOREAL, 3);
         
         // gravel
