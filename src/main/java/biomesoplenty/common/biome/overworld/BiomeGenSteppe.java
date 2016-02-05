@@ -44,6 +44,7 @@ public class BiomeGenSteppe extends BOPBiome
         this.setTemperatureRainfall(0.7F, 0.05F);
         
         this.canSpawnInBiome = false;
+        this.canGenerateVillages = true;
         
         this.addWeight(BOPClimates.DRY_TEMPERATE, 5);
         

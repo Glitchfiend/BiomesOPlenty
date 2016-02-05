@@ -44,6 +44,8 @@ public class BiomeGenGrove extends BOPBiome
         
         this.addWeight(BOPClimates.COOL_TEMPERATE, 7);
         
+        this.canGenerateVillages = true;
+        
         this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
                  
         // other plants

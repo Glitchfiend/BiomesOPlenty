@@ -42,6 +42,8 @@ public class BiomeGenBrushland extends BOPBiome
         this.setTemperatureRainfall(1.2F, 0.1F);
         this.addWeight(BOPClimates.SAVANNA, 10);
         
+        this.canGenerateVillages = true;
+        
         //sand
         this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(4).maxRadius(7).with(Blocks.sand.getDefaultState()).create());
         

@@ -45,6 +45,8 @@ public class BiomeGenGrassland extends BOPBiome {
         this.addWeight(BOPClimates.COOL_TEMPERATE, 7);
         this.addWeight(BOPClimates.WET_TEMPERATE, 3);
         
+        this.canGenerateVillages = true;
+        
         this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
         this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
         

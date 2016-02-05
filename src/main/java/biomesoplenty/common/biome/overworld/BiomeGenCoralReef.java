@@ -42,6 +42,8 @@ public class BiomeGenCoralReef extends BOPBiome
         this.setColor(18285);
     
         this.canSpawnInBiome = false;
+        this.canGenerateVillages = false;
+        this.canGenerateRivers = false;
         
         clearWeights();
 

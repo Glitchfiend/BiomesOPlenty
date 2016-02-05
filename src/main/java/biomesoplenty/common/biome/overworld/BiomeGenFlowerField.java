@@ -37,6 +37,8 @@ public class BiomeGenFlowerField extends BOPBiome
 
         this.addWeight(BOPClimates.WARM_TEMPERATE, 2);
         
+        this.canGenerateVillages = false;
+        
         this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
         
         // flowers

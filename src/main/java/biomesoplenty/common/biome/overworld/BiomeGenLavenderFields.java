@@ -39,6 +39,7 @@ public class BiomeGenLavenderFields extends BOPBiome
         this.setTemperatureRainfall(0.6F, 0.7F);
     
         this.canSpawnInBiome = false;
+        this.canGenerateVillages = false;
         
         this.addWeight(BOPClimates.MEDITERANEAN, 3);
         

@@ -41,6 +41,8 @@ public class BiomeGenMeadow extends BOPBiome
 
         this.addWeight(BOPClimates.COOL_TEMPERATE, 10);
         
+        this.canGenerateVillages = true;
+        
         this.spawnableCreatureList.add(new SpawnListEntry(EntitySnail.class, 6, 1, 2));
         this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
         

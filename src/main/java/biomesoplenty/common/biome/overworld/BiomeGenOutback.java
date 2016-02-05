@@ -41,6 +41,8 @@ public class BiomeGenOutback extends BOPBiome
         
         this.addWeight(BOPClimates.HOT_DESERT, 7);
         
+        this.canGenerateVillages = true;
+        
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
         

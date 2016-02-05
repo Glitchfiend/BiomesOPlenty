@@ -43,6 +43,7 @@ public class BiomeGenXericShrubland extends BOPBiome
         this.fillerBlock = Blocks.sand.getDefaultState();
         
         this.canSpawnInBiome = false;
+        this.canGenerateVillages = true;
         
         this.addWeight(BOPClimates.HOT_DESERT, 1);
         

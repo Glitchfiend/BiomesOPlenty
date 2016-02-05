@@ -62,6 +62,7 @@ public class BiomeGenWetland extends BOPBiome
         this.canGenerateVillages = false;
         
         this.addWeight(BOPClimates.WET_TEMPERATE, 7);
+        this.addWeight(BOPClimates.COLD_SWAMP, 5);
         
         this.spawnableWaterCreatureList.clear();
         this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));

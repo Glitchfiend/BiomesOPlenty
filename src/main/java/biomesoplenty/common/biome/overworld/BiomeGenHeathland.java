@@ -51,6 +51,8 @@ public class BiomeGenHeathland extends BOPBiome
         
         this.addWeight(BOPClimates.MEDITERANEAN, 10);
         
+        this.canGenerateVillages = true;
+        
         // TODO: why is there SO many horses?
         this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 1, 2, 6));
  
