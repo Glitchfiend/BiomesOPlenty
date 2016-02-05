@@ -57,6 +57,7 @@ public class BOPBiomes
     public static Optional<BiomeGenBase> ominous_woods = Optional.absent();
     public static Optional<BiomeGenBase> origin_valley = Optional.absent();
     public static Optional<BiomeGenBase> outback = Optional.absent();
+    public static Optional<BiomeGenBase> overgrown_cliffs = Optional.absent();
     public static Optional<BiomeGenBase> prairie = Optional.absent();
     public static Optional<BiomeGenBase> quagmire = Optional.absent();
     public static Optional<BiomeGenBase> rainforest = Optional.absent();
@@ -73,6 +74,7 @@ public class BOPBiomes
     public static Optional<BiomeGenBase> tundra = Optional.absent();
     public static Optional<BiomeGenBase> wasteland = Optional.absent();
     public static Optional<BiomeGenBase> wetland = Optional.absent();
+    public static Optional<BiomeGenBase> wisteria_meadow = Optional.absent();
     public static Optional<BiomeGenBase> woodland = Optional.absent();
     public static Optional<BiomeGenBase> xeric_shrubland = Optional.absent();
     

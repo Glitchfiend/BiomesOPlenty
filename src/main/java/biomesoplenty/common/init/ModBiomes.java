@@ -58,6 +58,7 @@ import static biomesoplenty.api.biome.BOPBiomes.mystic_grove;
 import static biomesoplenty.api.biome.BOPBiomes.ominous_woods;
 import static biomesoplenty.api.biome.BOPBiomes.origin_valley;
 import static biomesoplenty.api.biome.BOPBiomes.outback;
+import static biomesoplenty.api.biome.BOPBiomes.overgrown_cliffs;
 import static biomesoplenty.api.biome.BOPBiomes.plains_extension;
 import static biomesoplenty.api.biome.BOPBiomes.prairie;
 import static biomesoplenty.api.biome.BOPBiomes.quagmire;
@@ -79,6 +80,7 @@ import static biomesoplenty.api.biome.BOPBiomes.tropical_rainforest;
 import static biomesoplenty.api.biome.BOPBiomes.tundra;
 import static biomesoplenty.api.biome.BOPBiomes.wasteland;
 import static biomesoplenty.api.biome.BOPBiomes.wetland;
+import static biomesoplenty.api.biome.BOPBiomes.wisteria_meadow;
 import static biomesoplenty.api.biome.BOPBiomes.woodland;
 import static biomesoplenty.api.biome.BOPBiomes.xeric_shrubland;
 
@@ -138,6 +140,7 @@ import biomesoplenty.common.biome.overworld.BiomeGenMysticGrove;
 import biomesoplenty.common.biome.overworld.BiomeGenOminousWoods;
 import biomesoplenty.common.biome.overworld.BiomeGenOriginValley;
 import biomesoplenty.common.biome.overworld.BiomeGenOutback;
+import biomesoplenty.common.biome.overworld.BiomeGenOvergrownCliffs;
 import biomesoplenty.common.biome.overworld.BiomeGenPrairie;
 import biomesoplenty.common.biome.overworld.BiomeGenQuagmire;
 import biomesoplenty.common.biome.overworld.BiomeGenRainforest;
@@ -154,6 +157,7 @@ import biomesoplenty.common.biome.overworld.BiomeGenTropicalRainforest;
 import biomesoplenty.common.biome.overworld.BiomeGenTundra;
 import biomesoplenty.common.biome.overworld.BiomeGenWasteland;
 import biomesoplenty.common.biome.overworld.BiomeGenWetland;
+import biomesoplenty.common.biome.overworld.BiomeGenWisteriaMeadow;
 import biomesoplenty.common.biome.overworld.BiomeGenWoodland;
 import biomesoplenty.common.biome.overworld.BiomeGenXericShrubland;
 import biomesoplenty.common.biome.vanilla.BiomeExtBirchForest;
@@ -366,6 +370,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         ominous_woods = registerBOPBiome(new BiomeGenOminousWoods(), "Ominous Woods");
         origin_valley = registerBOPBiome(new BiomeGenOriginValley(), "Origin Valley");
         outback = registerBOPBiome(new BiomeGenOutback(), "Outback");
+        overgrown_cliffs = registerBOPBiome(new BiomeGenOvergrownCliffs(), "Overgrown Cliffs");
         prairie = registerBOPBiome(new BiomeGenPrairie(), "Prairie");
         quagmire = registerBOPBiome(new BiomeGenQuagmire(), "Quagmire");
         rainforest = registerBOPBiome(new BiomeGenRainforest(), "Rainforest");
@@ -380,8 +385,9 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         thicket = registerBOPBiome(new BiomeGenThicket(), "Thicket");
         tropical_rainforest = registerBOPBiome(new BiomeGenTropicalRainforest(), "Tropical Rainforest");
         tundra = registerBOPBiome(new BiomeGenTundra(), "Tundra");
-        wetland = registerBOPBiome(new BiomeGenWetland(), "Wetland");
         wasteland = registerBOPBiome(new BiomeGenWasteland(), "Wasteland");
+        wetland = registerBOPBiome(new BiomeGenWetland(), "Wetland");
+        wisteria_meadow = registerBOPBiome(new BiomeGenWisteriaMeadow(), "Wisteria Meadow");
         woodland = registerBOPBiome(new BiomeGenWoodland(), "Woodland");
         xeric_shrubland = registerBOPBiome(new BiomeGenXericShrubland(), "Xeric Shrubland");
         
@@ -439,6 +445,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         registerBiomeToDictionary(BOPBiomes.ominous_woods, Type.MAGICAL, Type.FOREST, Type.SPOOKY, Type.DEAD);
         registerBiomeToDictionary(BOPBiomes.origin_valley, Type.MAGICAL, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.outback, Type.SANDY, Type.PLAINS, Type.SAVANNA, Type.DRY, Type.HOT);
+        registerBiomeToDictionary(BOPBiomes.overgrown_cliffs, Type.MOUNTAIN, Type.LUSH, Type.DENSE, Type.JUNGLE);
         registerBiomeToDictionary(BOPBiomes.prairie, Type.PLAINS, Type.DRY, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.quagmire, Type.SWAMP, Type.WATER, Type.DEAD, Type.WET, Type.WASTELAND);
         registerBiomeToDictionary(BOPBiomes.rainforest, Type.JUNGLE, Type.FOREST, Type.DENSE, Type.LUSH, Type.HILLS, Type.WET);
@@ -455,6 +462,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         registerBiomeToDictionary(BOPBiomes.tundra, Type.COLD, Type.WASTELAND, Type.DRY, Type.DEAD, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.wasteland, Type.WASTELAND, Type.DEAD, Type.SPARSE, Type.DRY);
         registerBiomeToDictionary(BOPBiomes.wetland, Type.SWAMP, Type.FOREST, Type.WET, Type.LUSH);
+        registerBiomeToDictionary(BOPBiomes.wisteria_meadow, Type.PLAINS, Type.FOREST, Type.LUSH, Type.MAGICAL);
         registerBiomeToDictionary(BOPBiomes.woodland, Type.FOREST, Type.DRY, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.xeric_shrubland, Type.PLAINS, Type.SPARSE, Type.DRY, Type.LUSH, Type.HOT, Type.SANDY);
         
