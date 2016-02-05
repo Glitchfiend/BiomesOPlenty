@@ -43,6 +43,9 @@ public class GenLayerBiomeEdgeBOP extends BOPGenLayer
                 // line BOP canyon with BOP canyon ravine
                 if (this.replaceBiomeEdge(parentVals, out, x, y, areaWidth, biomeId, BOPBiomes.canyon, BOPBiomes.canyon_ravine)) {continue;}
                 
+                // line BOP wasteland with vanilla desert
+                if (this.replaceBiomeEdge(parentVals, out, x, y, areaWidth, biomeId, BOPBiomes.wasteland, Optional.of(BiomeGenBase.desert))) {continue;}
+                
                 // line extreme hills with extreme hills edge
                 if (this.replaceBiomeEdgeIfNecessary(parentVals, out, x, y, areaWidth, biomeId, BiomeGenBase.extremeHills.biomeID, BiomeGenBase.extremeHillsEdge.biomeID)) {continue;}
                 
