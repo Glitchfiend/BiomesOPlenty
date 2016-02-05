@@ -42,6 +42,7 @@ public class BiomeGenTundra extends BOPBiome
         
         this.canGenerateRivers = false;
         this.canSpawnInBiome = false;
+        this.canGenerateVillages = true;
         
         this.spawnableCreatureList.clear();
         

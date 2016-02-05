@@ -20,6 +20,8 @@ import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.enums.BOPTrees;
+import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
@@ -39,17 +41,19 @@ public class BiomeGenWisteriaMeadow extends BOPBiome
         this.terrainSettings.avgHeight(64).heightVariation(5, 5).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.1D);
 
         this.setColor(11569864);
-        this.setTemperatureRainfall(0.8F, 0.4F);
+        this.setTemperatureRainfall(0.5F, 0.7F);
 
         this.addWeight(BOPClimates.COOL_TEMPERATE, 2);
+        
+        this.canGenerateVillages = false;
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
         
         //trees
-        this.addGenerator("trees", GeneratorStage.TREE, (new GeneratorBasicTree.Builder()).amountPerChunk(1.0F).minHeight(6).maxHeight(10).hanging(BlockBOPPlant.paging.getVariantState(BOPPlants.WISTERIA)).maxLeavesRadius(2).hangingChance(0.75F).create());
+        this.addGenerator("trees", GeneratorStage.TREE, (new GeneratorBasicTree.Builder()).amountPerChunk(12.0F).minHeight(9).maxHeight(14).hanging(BlockBOPPlant.paging.getVariantState(BOPPlants.WISTERIA)).log(BOPWoods.JACARANDA).leaves(BOPTrees.JACARANDA).maxLeavesRadius(2).hangingChance(0.75F).create());
         
         // grasses
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(5.0F);
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(8.0F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("shortgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
         grassGenerator.add("mediumgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());
@@ -58,13 +62,16 @@ public class BiomeGenWisteriaMeadow extends BOPBiome
         grassGenerator.add("tallgrass", 2, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).create());
         
         // flowers
-        GeneratorWeighted flowerGenerator = new GeneratorWeighted(25.0F);
+        GeneratorWeighted flowerGenerator = new GeneratorWeighted(30.0F);
         this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
-        flowerGenerator.add("clover", 1, (new GeneratorFlora.Builder().with(BOPFlowers.CLOVER).create()));
-        flowerGenerator.add("white_anemones", 1, (new GeneratorFlora.Builder().with(BOPFlowers.WHITE_ANEMONE).create()));
-        flowerGenerator.add("houstonia", 2, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.HOUSTONIA).create()));
-        flowerGenerator.add("oxeye_daisy", 2, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.OXEYE_DAISY).create()));
-
+        flowerGenerator.add("clover", 5, (new GeneratorFlora.Builder().with(BOPFlowers.CLOVER).create()));
+        flowerGenerator.add("white_anemones", 5, (new GeneratorFlora.Builder().with(BOPFlowers.WHITE_ANEMONE).create()));
+        flowerGenerator.add("houstonia", 6, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.HOUSTONIA).create()));
+        flowerGenerator.add("oxeye_daisy", 6, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.OXEYE_DAISY).create()));
+        flowerGenerator.add("syringa", 1, (new GeneratorDoubleFlora.Builder().with(BlockDoublePlant.EnumPlantType.SYRINGA).create()));
+        flowerGenerator.add("allium", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.ALLIUM).create()));
+        flowerGenerator.add("paeonias", 1, (new GeneratorDoubleFlora.Builder()).with(BlockDoublePlant.EnumPlantType.PAEONIA).create());
+        
         // gem
         this.addGenerator("peridot", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.PERIDOT).create());
  

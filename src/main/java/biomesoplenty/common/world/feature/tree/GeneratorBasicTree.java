@@ -286,13 +286,13 @@ public class GeneratorBasicTree extends GeneratorTreeBase
         //Generate below the bottom layer of leaves
         int y = start.getY() + (height - this.leafLayers);
         
-        for (int x = start.getX() - maxLeavesRadius; x <= start.getX() + maxLeavesRadius; x++)
+        for (int x = start.getX() - (maxLeavesRadius + 1); x <= start.getX() + (maxLeavesRadius + 1); x++)
         {
-            for (int z = start.getZ() - maxLeavesRadius; z <= start.getZ() + maxLeavesRadius; z++)
+            for (int z = start.getZ() - (maxLeavesRadius + 1); z <= start.getZ() + (maxLeavesRadius + 1); z++)
             {
                 BlockPos hangingPos = new BlockPos(x, y, z);
                 
-                if (!world.isAirBlock(hangingPos.up()) && world.rand.nextFloat() <= this.hangingChance)
+                if (!world.isAirBlock(hangingPos.up()) && (world.isAirBlock(hangingPos)) && world.rand.nextFloat() <= this.hangingChance)
                 {
                     this.setHanging(world, hangingPos);
                 }
