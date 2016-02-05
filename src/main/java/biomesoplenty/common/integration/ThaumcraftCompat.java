@@ -88,12 +88,9 @@ public class ThaumcraftCompat
         //Blocks
 
         addAspectsToBlock(BOPBlocks.mud, new Aspect[] { Aspect.WATER, Aspect.EARTH }, new int[] { 2, 5 });
-        addAspectsToBlock(BOPBlocks.dried_dirt, new Aspect[] { Aspect.ENTROPY, Aspect.EARTH }, new int[] { 1, 1 });
+        addAspectsToBlock(BOPBlocks.dried_sand, new Aspect[] { Aspect.ENTROPY, Aspect.EARTH }, new int[] { 1, 1 });
         addAspectsToBlock(BOPBlocks.hard_ice, new Aspect[] { Aspect.EARTH, Aspect.COLD }, new int[] { 2, 2 });
         addAspectsToState(BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BOPGrassType.ORIGIN), new Aspect[] { Aspect.EARTH, Aspect.PLANT }, new int[] { 1, 2 });
-        addAspectsToBlock(BOPBlocks.ash_stone, new Aspect[] { Aspect.EARTH, Aspect.FIRE }, new int[] { 1, 1 });
-        addAspectsToBlock(BOPBlocks.hard_sand, new Aspect[] { Aspect.EARTH, Aspect.ENTROPY }, new int[] { 1, 2 });
-        addAspectsToBlock(BOPBlocks.hard_dirt, new Aspect[] { Aspect.EARTH }, new int[] { 2 });
         addAspectsToBlock(BOPBlocks.crystal, new Aspect[] { Aspect.DESIRE, Aspect.LIGHT, Aspect.CRYSTAL }, new int[] { 5, 5, 5 });
         addAspectsToBlock(BOPBlocks.crag_rock, new Aspect[] { Aspect.EARTH }, new int[] { 2 });
         addAspectsToState(BOPBlocks.sand.getDefaultState().withProperty(BlockBOPSand.VARIANT, BlockBOPSand.SandType.QUICKSAND), new Aspect[] { Aspect.EARTH, Aspect.TRAP }, new int[] { 2, 4 });

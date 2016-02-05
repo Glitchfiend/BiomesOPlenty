@@ -1,5 +1,5 @@
 {
-    "parent": "biomesoplenty:block/hard_dirt",
+    "parent": "biomesoplenty:block/dried_sand",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

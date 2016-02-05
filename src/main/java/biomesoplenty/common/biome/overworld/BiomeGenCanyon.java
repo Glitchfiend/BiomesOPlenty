@@ -1,5 +1,6 @@
 package biomesoplenty.common.biome.overworld;
 
+import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.init.Blocks;
@@ -8,6 +9,7 @@ import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.common.block.BlockBOPDirt;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
@@ -50,18 +52,18 @@ public class BiomeGenCanyon extends BOPBiome
 
         this.spawnableCreatureList.clear();
 
-        this.topBlock = BOPBlocks.hard_dirt.getDefaultState();
-        this.fillerBlock = BOPBlocks.hard_dirt.getDefaultState();
+        this.topBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SANDY).withProperty(BlockBOPDirt.COARSE, true);
+        this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SANDY).withProperty(BlockBOPDirt.COARSE, true);
         
         // splatter top blocks
-        IBlockPosQuery emptyHardDirt = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();
-        this.addGenerator("grass_splatter", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(4.0F).generationAttempts(128).replace(emptyHardDirt).with(Blocks.grass.getDefaultState()).create());
+        IBlockPosQuery emptyCoarseDirt = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();
+        this.addGenerator("grass_splatter", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(4.0F).generationAttempts(128).replace(emptyCoarseDirt).with(Blocks.grass.getDefaultState()).create());
         
         // trees and logs
         GeneratorWeighted treeGenerator = new GeneratorWeighted(5);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);        
-        treeGenerator.add("pine", 1, (new GeneratorPineTree.Builder()).minHeight(6).maxHeight(18).placeOn(emptyHardDirt).create());        
-        treeGenerator.add("brush", 2, (new GeneratorBush.Builder()).log(BlockPlanks.EnumType.ACACIA).leaves(BlockPlanks.EnumType.ACACIA).placeOn(emptyHardDirt).create());
+        treeGenerator.add("pine", 1, (new GeneratorPineTree.Builder()).minHeight(6).maxHeight(18).placeOn(emptyCoarseDirt).create());        
+        treeGenerator.add("brush", 2, (new GeneratorBush.Builder()).log(BlockPlanks.EnumType.ACACIA).leaves(BlockPlanks.EnumType.ACACIA).placeOn(emptyCoarseDirt).create());
 
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.5F);
@@ -72,7 +74,7 @@ public class BiomeGenCanyon extends BOPBiome
         this.addGenerator("water_reeds", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(2.0F).with(BOPPlants.REED).generationAttempts(32).create());
 
         // grasses (note weighting must be quite high as the grasses will only grow on the splattered grass blocks)
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(12.0F);
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(4.0F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("mediumgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());
         grassGenerator.add("tallgrass", 2, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).create());

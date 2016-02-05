@@ -36,7 +36,7 @@ public class BlockBOPHalfOtherSlab extends BlockSlab implements IBOPBlock
     // add properties
     public static enum SlabType implements IStringSerializable
     {
-        LIMESTONE, SILTSTONE, SHALE, POLISHED_LIMESTONE, POLISHED_SILTSTONE, POLISHED_SHALE, CRAG_ROCK, MUD_BRICK;
+        MUD_BRICK;
         @Override
         public String getName()
         {
@@ -54,27 +54,6 @@ public class BlockBOPHalfOtherSlab extends BlockSlab implements IBOPBlock
             IBlockState state = null;
             switch (this)
             {
-                case LIMESTONE:
-                    state = BOPBlocks.stone.getDefaultState().withProperty(BlockBOPStone.POLISHED, Boolean.valueOf(false)).withProperty(BlockBOPStone.VARIANT, BlockBOPStone.StoneType.LIMESTONE);
-                    break;
-                case SILTSTONE:
-                    state = BOPBlocks.stone.getDefaultState().withProperty(BlockBOPStone.POLISHED, Boolean.valueOf(false)).withProperty(BlockBOPStone.VARIANT, BlockBOPStone.StoneType.SILTSTONE);
-                    break;
-                case SHALE:
-                    state = BOPBlocks.stone.getDefaultState().withProperty(BlockBOPStone.POLISHED, Boolean.valueOf(false)).withProperty(BlockBOPStone.VARIANT, BlockBOPStone.StoneType.SHALE);
-                    break;
-                case POLISHED_LIMESTONE:
-                    state = BOPBlocks.stone.getDefaultState().withProperty(BlockBOPStone.POLISHED, Boolean.valueOf(true)).withProperty(BlockBOPStone.VARIANT, BlockBOPStone.StoneType.LIMESTONE);
-                    break;
-                case POLISHED_SILTSTONE:
-                    state = BOPBlocks.stone.getDefaultState().withProperty(BlockBOPStone.POLISHED, Boolean.valueOf(true)).withProperty(BlockBOPStone.VARIANT, BlockBOPStone.StoneType.SILTSTONE);
-                    break;
-                case POLISHED_SHALE:
-                    state = BOPBlocks.stone.getDefaultState().withProperty(BlockBOPStone.POLISHED, Boolean.valueOf(true)).withProperty(BlockBOPStone.VARIANT, BlockBOPStone.StoneType.SHALE);
-                    break;
-                case CRAG_ROCK:
-                    state = BOPBlocks.crag_rock.getDefaultState();
-                    break;
                 case MUD_BRICK:
                     state = BOPBlocks.mud_brick_block.getDefaultState();
                     break;

@@ -1,8 +1,0 @@
-{
-    "parent": "block/half_slab",
-    "textures": {
-        "bottom": "biomesoplenty:blocks/polished_shale",
-        "top": "biomesoplenty:blocks/polished_shale",
-        "side": "biomesoplenty:blocks/polished_shale"
-    }
-}

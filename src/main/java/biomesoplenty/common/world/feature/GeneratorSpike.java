@@ -43,7 +43,7 @@ public class GeneratorSpike extends GeneratorReplacing
             this.amountPerChunk = 1.0F;
             this.placeOn = BlockQueries.solid;
             this.replace = new BlockQueryMaterial(Material.air);
-            this.with = BOPBlocks.dried_dirt.getDefaultState();
+            this.with = BOPBlocks.dried_sand.getDefaultState();
             this.scatterYMethod = ScatterYMethod.AT_SURFACE;
             this.minHeight = 8;
             this.maxHeight = 12;

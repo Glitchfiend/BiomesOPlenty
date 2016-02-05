@@ -253,10 +253,10 @@ public class BlockBOPFlower extends BlockBOPDecoration implements IShearable
         Block groundBlock = groundState.getBlock();
         
         boolean onFertile = (groundBlock == Blocks.dirt || groundBlock == Blocks.farmland || groundBlock == BOPBlocks.dirt || groundBlock == Blocks.grass);
-        boolean onDry = (groundBlock == BOPBlocks.hard_dirt || groundBlock == Blocks.hardened_clay || groundBlock == BOPBlocks.sand || groundBlock == Blocks.sand || groundBlock == BOPBlocks.hard_sand);
+        boolean onDry = (groundBlock == Blocks.hardened_clay || groundBlock == BOPBlocks.sand || groundBlock == Blocks.sand);
         boolean onNetherrack = (groundBlock == Blocks.netherrack);
         boolean onStone = (groundBlock == Blocks.stone);
-        boolean onDriedDirt = (groundBlock == BOPBlocks.dried_dirt);
+        boolean onDriedSand = (groundBlock == BOPBlocks.dried_sand);
         boolean onSpectralMoss = false;
         
         if (groundBlock instanceof BlockBOPGrass)
@@ -284,7 +284,7 @@ public class BlockBOPFlower extends BlockBOPDecoration implements IShearable
             case BROMELIAD:
                 return onDry;
             case WILTED_LILY:
-                return onDriedDirt;
+                return onDriedSand;
             case BURNING_BLOSSOM:
                 return onNetherrack;
             case MINERS_DELIGHT:

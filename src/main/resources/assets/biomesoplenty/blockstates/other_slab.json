@@ -1,19 +1,5 @@
 {
     "variants": {    
-        "half=bottom,variant=limestone": { "model": "biomesoplenty:half_slab_limestone" },
-        "half=top,variant=limestone": { "model": "biomesoplenty:upper_slab_limestone" },
-        "half=bottom,variant=siltstone": { "model": "biomesoplenty:half_slab_siltstone" },
-        "half=top,variant=siltstone": { "model": "biomesoplenty:upper_slab_siltstone" },
-        "half=bottom,variant=shale": { "model": "biomesoplenty:half_slab_shale" },
-        "half=top,variant=shale": { "model": "biomesoplenty:upper_slab_shale" },
-        "half=bottom,variant=polished_limestone": { "model": "biomesoplenty:half_slab_polished_limestone" },
-        "half=top,variant=polished_limestone": { "model": "biomesoplenty:upper_slab_polished_limestone" },
-        "half=bottom,variant=polished_siltstone": { "model": "biomesoplenty:half_slab_polished_siltstone" },
-        "half=top,variant=polished_siltstone": { "model": "biomesoplenty:upper_slab_polished_siltstone" },
-        "half=bottom,variant=polished_shale": { "model": "biomesoplenty:half_slab_polished_shale" },
-        "half=top,variant=polished_shale": { "model": "biomesoplenty:upper_slab_polished_shale" },
-        "half=bottom,variant=crag_rock": { "model": "biomesoplenty:half_slab_crag_rock" },
-        "half=top,variant=crag_rock": { "model": "biomesoplenty:upper_slab_crag_rock" },
         "half=bottom,variant=mud_brick": { "model": "biomesoplenty:half_slab_mud_brick" },
         "half=top,variant=mud_brick": { "model": "biomesoplenty:upper_slab_mud_brick" }
     }

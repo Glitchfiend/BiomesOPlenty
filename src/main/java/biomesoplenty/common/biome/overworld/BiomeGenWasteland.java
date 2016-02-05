@@ -51,12 +51,12 @@ public class BiomeGenWasteland extends BOPBiome
         
         this.setColor(0x5A5440);
         this.setTemperatureRainfall(0.9F, 0.05F);
-        this.topBlock = BOPBlocks.dried_dirt.getDefaultState();
-        this.fillerBlock = BOPBlocks.dried_dirt.getDefaultState();
+        this.topBlock = BOPBlocks.dried_sand.getDefaultState();
+        this.fillerBlock = BOPBlocks.dried_sand.getDefaultState();
         this.waterColorMultiplier = 0xE5FF00;
         this.skyColor = 0x909E70;
         this.setDisableRain();
-        this.seaFloorBlock = BOPBlocks.dried_dirt.getDefaultState();
+        this.seaFloorBlock = BOPBlocks.dried_sand.getDefaultState();
 
         this.canGenerateRivers = false;
         this.canGenerateVillages = false;
@@ -68,11 +68,11 @@ public class BiomeGenWasteland extends BOPBiome
         this.spawnableWaterCreatureList.clear();
         
         // trees
-        IBlockPosQuery emptyDriedDirt = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();
+        IBlockPosQuery emptyDriedSand = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();
         GeneratorWeighted treeGenerator = new GeneratorWeighted(0.3F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("dead_tree", 3, (new GeneratorBigTree.Builder()).placeOn(emptyDriedDirt).minHeight(5).maxHeight(12).foliageHeight(0).foliageDensity(0.5D).log(BOPWoods.DEAD).leaves(Blocks.air.getDefaultState()).create());
-        treeGenerator.add("dying_tree", 1, (new GeneratorBigTree.Builder()).placeOn(emptyDriedDirt).minHeight(5).maxHeight(12).foliageHeight(1).log(BOPWoods.DEAD).leaves(BOPTrees.DEAD).create());
+        treeGenerator.add("dead_tree", 3, (new GeneratorBigTree.Builder()).placeOn(emptyDriedSand).minHeight(5).maxHeight(12).foliageHeight(0).foliageDensity(0.5D).log(BOPWoods.DEAD).leaves(Blocks.air.getDefaultState()).create());
+        treeGenerator.add("dying_tree", 1, (new GeneratorBigTree.Builder()).placeOn(emptyDriedSand).minHeight(5).maxHeight(12).foliageHeight(1).log(BOPWoods.DEAD).leaves(BOPTrees.DEAD).create());
         
         // other plants
         this.addGenerator("dead_grass", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).with(BOPPlants.DEADGRASS).create());

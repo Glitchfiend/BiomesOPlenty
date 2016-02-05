@@ -122,12 +122,9 @@ public class ModBlocks
         
         // generics
         bamboo_thatching =      registerBlock( (new BlockBOPGeneric(Material.wood)).setStepSound(Block.soundTypeWood).setHardness(2.0F), "bamboo_thatching"); bamboo_thatching.setHarvestLevel("axe", 0);
-        ash_stone =             registerBlock( new BlockBOPGeneric(), "ash_stone" );
         crag_rock =             registerBlock( (new BlockBOPGeneric()).setStepSound(Block.soundTypeStone), "crag_rock" );
-        dried_dirt =            registerBlock( (new BlockBOPGeneric()).addSupportedPlantType(EnumPlantType.Desert), "dried_dirt"); dried_dirt.setHarvestLevel("pickaxe",0);
-        hard_dirt =             registerBlock( (new BlockBOPGeneric()).setHardness(0.7F), "hard_dirt" );
+        dried_sand =            registerBlock( (new BlockBOPGeneric()).addSupportedPlantType(EnumPlantType.Desert), "dried_sand"); dried_sand.setHarvestLevel("pickaxe",0);
         hard_ice =              registerBlock( (new BlockBOPGeneric(Material.packedIce)).setHardness(0.75F), "hard_ice" );
-        hard_sand =             registerBlock( (new BlockBOPGeneric(Material.sand)).addSupportedPlantType(EnumPlantType.Desert).setHardness(0.9F).setStepSound(Block.soundTypeSand), "hard_sand" );
         mud_brick_block =       registerBlock( (new BlockBOPGeneric()).setResistance(2.0F), "mud_brick_block" );
         
         mud_brick_stairs =      registerBlock( BOPReflectionHelper.construct(BlockStairs.class, (IBlockState)mud_brick_block.getDefaultState()), "mud_brick_stairs");

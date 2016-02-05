@@ -1,8 +1,0 @@
-{
-    "parent": "block/upper_slab",
-    "textures": {
-        "bottom": "biomesoplenty:blocks/crag_rock",
-        "top": "biomesoplenty:blocks/crag_rock",
-        "side": "biomesoplenty:blocks/crag_rock"
-    }
-}

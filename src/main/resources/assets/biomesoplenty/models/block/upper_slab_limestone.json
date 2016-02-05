@@ -1,8 +1,0 @@
-{
-    "parent": "block/upper_slab",
-    "textures": {
-        "bottom": "biomesoplenty:blocks/limestone",
-        "top": "biomesoplenty:blocks/limestone",
-        "side": "biomesoplenty:blocks/limestone"
-    }
-}
