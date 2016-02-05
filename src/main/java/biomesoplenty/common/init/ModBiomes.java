@@ -398,7 +398,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         coral_reef = registerBOPBiome(new BiomeGenCoralReef(), "Coral Reef");
         
         setSubBiome(canyon, canyon_ravine);
-        setSubBiome(BiomeGenBase.ocean, BOPBiomes.coral_reef.get());
+        setSubBiome(Optional.of(BiomeGenBase.ocean), BOPBiomes.coral_reef);
 
     }
     
