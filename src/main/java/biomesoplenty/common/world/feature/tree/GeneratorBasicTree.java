@@ -292,8 +292,6 @@ public class GeneratorBasicTree extends GeneratorTreeBase
             {
                 BlockPos hangingPos = new BlockPos(x, y, z);
                 
-                System.out.println(hangingPos);
-                
                 if (!world.isAirBlock(hangingPos.up()) && world.rand.nextFloat() <= this.hangingChance)
                 {
                     this.setHanging(world, hangingPos);
