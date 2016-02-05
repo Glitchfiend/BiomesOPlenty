@@ -52,6 +52,7 @@ public class GeneratorBigTree extends GeneratorTreeBase
             this.log = Blocks.log.getDefaultState();
             this.leaves = Blocks.leaves.getDefaultState();
             this.vine = null;
+            this.hanging = null;
             this.minHeight = 5;
             this.maxHeight = 17;
             
@@ -69,7 +70,7 @@ public class GeneratorBigTree extends GeneratorTreeBase
         @Override
         public GeneratorBigTree create()
         {
-            return new GeneratorBigTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.minHeight, this.maxHeight, this.trunkWidth, this.foliageHeight, this.foliageDensity, false);
+            return new GeneratorBigTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.minHeight, this.maxHeight, this.trunkWidth, this.foliageHeight, this.foliageDensity, false);
         }
     }
     
@@ -94,9 +95,9 @@ public class GeneratorBigTree extends GeneratorTreeBase
     private List<FoliageCoords> foliageCoords;
 
     
-    public GeneratorBigTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, int minHeight, int maxHeight, int trunkWidth, int foliageHeight, double foliageDensity, boolean updateNeighbours)
+    public GeneratorBigTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, int minHeight, int maxHeight, int trunkWidth, int foliageHeight, double foliageDensity, boolean updateNeighbours)
     {
-        super(amountPerChunk, placeOn, replace, log, leaves, vine, minHeight, maxHeight);
+        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, minHeight, maxHeight);
         this.foliageHeight = foliageHeight;
         this.foliageDensity = foliageDensity;
         this.trunkWidth = trunkWidth;

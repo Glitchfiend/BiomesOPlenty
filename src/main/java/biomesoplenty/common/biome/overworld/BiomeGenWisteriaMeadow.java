@@ -13,6 +13,7 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.BlockBOPCoral;
 import biomesoplenty.common.block.BlockBOPDoublePlant;
 import biomesoplenty.common.block.BlockBOPLilypad;
+import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.entities.EntityButterfly;
 import biomesoplenty.common.entities.EntitySnail;
 import biomesoplenty.common.enums.BOPClimates;
@@ -45,7 +46,7 @@ public class BiomeGenWisteriaMeadow extends BOPBiome
         this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
         
         //trees
-        this.addGenerator("trees", GeneratorStage.TREE, (new GeneratorBasicTree.Builder()).amountPerChunk(1.0F).minHeight(6).maxHeight(10).minLeavesRadius(2).create());
+        this.addGenerator("trees", GeneratorStage.TREE, (new GeneratorBasicTree.Builder()).amountPerChunk(1.0F).minHeight(6).maxHeight(10).hanging(BlockBOPPlant.paging.getVariantState(BOPPlants.WISTERIA)).maxLeavesRadius(2).hangingChance(0.75F).create());
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(5.0F);

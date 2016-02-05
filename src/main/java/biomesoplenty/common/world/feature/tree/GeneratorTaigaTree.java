@@ -42,21 +42,22 @@ public class GeneratorTaigaTree extends GeneratorTreeBase
             this.log = Blocks.log.getDefaultState().withProperty(BlockOldLog.VARIANT, BlockPlanks.EnumType.SPRUCE);
             this.leaves = Blocks.leaves.getDefaultState().withProperty(BlockOldLeaf.VARIANT, BlockPlanks.EnumType.SPRUCE);
             this.vine = Blocks.vine.getDefaultState();
+            this.hanging = null;
             this.trunkWidth = 1;
         }
 
         @Override
         public GeneratorTaigaTree create() {
-            return new GeneratorTaigaTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.minHeight, this.maxHeight, this.trunkWidth);
+            return new GeneratorTaigaTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.minHeight, this.maxHeight, this.trunkWidth);
         }
         
     }
     
     private int trunkWidth;
     
-    public GeneratorTaigaTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, int minHeight, int maxHeight, int trunkWidth)
+    public GeneratorTaigaTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, int minHeight, int maxHeight, int trunkWidth)
     {
-        super(amountPerChunk, placeOn, replace, log, leaves, vine, minHeight, maxHeight);
+        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, minHeight, maxHeight);
         this.trunkWidth = trunkWidth;
     }
     

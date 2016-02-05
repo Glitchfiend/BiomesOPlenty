@@ -33,18 +33,19 @@ public class GeneratorBush extends GeneratorTreeBase
             this.log = Blocks.log.getDefaultState();
             this.leaves = Blocks.leaves.getDefaultState();
             this.vine = null;
+            this.hanging = null;
         }        
 
         @Override
         public GeneratorBush create() {
-            return new GeneratorBush(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.minHeight, this.maxHeight);
+            return new GeneratorBush(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.minHeight, this.maxHeight);
         }
     }
     
     
-    public GeneratorBush(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, int minHeight, int maxHeight)
+    public GeneratorBush(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, int minHeight, int maxHeight)
     {
-        super(amountPerChunk, placeOn, replace, log, leaves, vine, minHeight, maxHeight);
+        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, minHeight, maxHeight);
     }
 
     @Override

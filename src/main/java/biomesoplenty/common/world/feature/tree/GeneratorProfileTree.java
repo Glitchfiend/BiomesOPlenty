@@ -38,21 +38,22 @@ public class GeneratorProfileTree extends GeneratorTreeBase
             this.log = Blocks.log.getDefaultState();
             this.leaves = Blocks.leaves.getDefaultState();
             this.vine = null;
+            this.hanging = null;
             this.profile = TreeProfile.POPLAR;
         }
 
         @Override
         public GeneratorProfileTree create() {
-            return new GeneratorProfileTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.minHeight, this.maxHeight, this.profile);
+            return new GeneratorProfileTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.minHeight, this.maxHeight, this.profile);
         }
         
     }
     
     protected TreeProfile profile;
     
-    public GeneratorProfileTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, int minHeight, int maxHeight, TreeProfile profile)
+    public GeneratorProfileTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, int minHeight, int maxHeight, TreeProfile profile)
     {
-        super(amountPerChunk, placeOn, replace, log, leaves, vine, minHeight, maxHeight);
+        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, minHeight, maxHeight);
         this.profile = profile;
     }
     

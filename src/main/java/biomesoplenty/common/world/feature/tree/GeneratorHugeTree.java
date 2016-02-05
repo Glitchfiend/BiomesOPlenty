@@ -20,8 +20,8 @@ import net.minecraft.world.World;
 public abstract class GeneratorHugeTree extends GeneratorTreeBase
 {
 
-    protected GeneratorHugeTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, int minHeight, int maxHeight) {
-        super(amountPerChunk, placeOn, replace, log, leaves, vine, minHeight, maxHeight);
+    protected GeneratorHugeTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, int minHeight, int maxHeight) {
+        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, minHeight, maxHeight);
     }
 
     protected int chooseHeight(Random rand)

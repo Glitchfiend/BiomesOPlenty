@@ -46,17 +46,19 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
     protected IBlockState log;
     protected IBlockState leaves;
     protected IBlockState vine;
+    protected IBlockState hanging;
     protected int minHeight;
     protected int maxHeight;
     protected IProperty logAxisProperty;
     
-    protected GeneratorTreeBase(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, int minHeight, int maxHeight) {
+    protected GeneratorTreeBase(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, int minHeight, int maxHeight) {
         super(amountPerChunk);
         this.placeOn = placeOn;
         this.replace = replace;
         this.log = log;
         this.leaves = leaves;
         this.vine = vine;
+        this.hanging = hanging;
         this.minHeight = minHeight;
         this.maxHeight = maxHeight;
         this.logAxisProperty = GeneratorUtils.getAxisProperty(log);
@@ -69,6 +71,7 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
         protected IBlockState log;
         protected IBlockState leaves;
         protected IBlockState vine;
+        protected IBlockState hanging;
         protected int minHeight;
         protected int maxHeight;
         
@@ -117,6 +120,18 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
             else
             {
                 this.vine = a;
+            }
+            return this.self();
+        }
+        public T hanging(IBlockState a)
+        {
+            if (a == null)
+            {
+                this.hanging = null;
+            }
+            else
+            {
+                this.hanging = a;
             }
             return this.self();
         }
@@ -175,4 +190,13 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
         return setOne;
     }
     
+    public boolean setHanging(World world, BlockPos pos)
+    {
+        if (this.hanging == null) {return false;}
+        if (this.replace.matches(world, pos))
+        {
+            world.setBlockState(pos, this.hanging, 2);
+        }
+        return false;
+    }
 }

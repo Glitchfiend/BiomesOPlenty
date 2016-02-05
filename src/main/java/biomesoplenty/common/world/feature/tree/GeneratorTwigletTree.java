@@ -39,22 +39,23 @@ public class GeneratorTwigletTree extends GeneratorTreeBase
             this.log = Blocks.log.getDefaultState();
             this.leaves = Blocks.leaves.getDefaultState();
             this.vine = null;
+            this.hanging = null;
             this.leafChanceEven = 0.2F;
             this.leafChanceOdd = 0.9F;
         }
 
         @Override
         public GeneratorTwigletTree create() {
-            return new GeneratorTwigletTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.minHeight, this.maxHeight, this.leafChanceEven, this.leafChanceOdd);
+            return new GeneratorTwigletTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.minHeight, this.maxHeight, this.leafChanceEven, this.leafChanceOdd);
         }
     }
     
     private float leafChanceEven;
     private float leafChanceOdd;
     
-    public GeneratorTwigletTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, int minHeight, int maxHeight, float leafChanceEven, float leafChanceOdd)
+    public GeneratorTwigletTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, int minHeight, int maxHeight, float leafChanceEven, float leafChanceOdd)
     {
-        super(amountPerChunk, placeOn, replace, log, leaves, vine, minHeight, maxHeight);
+        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, minHeight, maxHeight);
         this.leafChanceEven = leafChanceEven;
         this.leafChanceOdd = leafChanceOdd;
     }

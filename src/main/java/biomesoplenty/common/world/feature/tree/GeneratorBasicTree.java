@@ -45,19 +45,21 @@ public class GeneratorBasicTree extends GeneratorTreeBase
             this.log = Blocks.log.getDefaultState();
             this.leaves = Blocks.leaves.getDefaultState();
             this.vine = null;
+            this.hanging = null;
             this.minHeight = 4;
             this.maxHeight = 7;
             this.leafLayers = 4;
             this.leavesOffset = 1;
-            this.minLeavesRadius = 1;
+            this.maxLeavesRadius = 1;
             this.leavesLayerHeight = 2;
             this.placeVinesOn = BlockQueries.air;
+            this.hangingChance = 0.0F;
         }
 
         @Override
         public GeneratorBasicTree create()
         {
-            return new GeneratorBasicTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.minHeight, this.maxHeight, false, this.leafLayers, this.leavesOffset, this.minLeavesRadius, this.leavesLayerHeight, this.placeVinesOn);
+            return new GeneratorBasicTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.minHeight, this.maxHeight, false, this.leafLayers, this.leavesOffset, this.maxLeavesRadius, this.leavesLayerHeight, this.placeVinesOn, this.hangingChance);
         }
     }
     
@@ -65,38 +67,43 @@ public class GeneratorBasicTree extends GeneratorTreeBase
     {
         protected int leafLayers;
         protected int leavesOffset;
-        protected int minLeavesRadius;
+        protected int maxLeavesRadius;
         protected int leavesLayerHeight;
         protected IBlockPosQuery placeVinesOn;
+        protected float hangingChance;
         
         public T leafLayers(int a) {this.leafLayers = a; return this.self();}
         public T leavesOffset(int a) {this.leavesOffset = a; return this.self();}
         public T leavesLayerHeight(int a) {this.leavesLayerHeight = a; return this.self();}
-        public T minLeavesRadius(int a) {this.minLeavesRadius = a; return this.self();}
+        public T maxLeavesRadius(int a) {this.maxLeavesRadius = a; return this.self();}
         
         public T placeVinesOn(IBlockPosQuery a) {this.placeVinesOn = a; return this.self();}
         public T placeVinesOn(String a) throws BlockQueryParseException {this.placeVinesOn = BlockQuery.parseQueryString(a); return this.self();}
         public T placeVinesOn(Block a) {this.placeVinesOn = new BlockQueryBlock(a); return this.self();}
         public T placeVinesOn(IBlockState a) {this.placeVinesOn = new BlockQueryState(a); return this.self();}
         public T placeVinesOn(Material... a) {this.placeVinesOn = new BlockQueryMaterial(a); return this.self();}
+        
+        public T hangingChance(float a) {this.hangingChance = a; return this.self();}
     }
     
     protected boolean updateNeighbours;
     protected int leafLayers;
     protected int leavesOffset;
-    protected int minLeavesRadius;
+    protected int maxLeavesRadius;
     protected int leavesLayerHeight;
     protected IBlockPosQuery placeVinesOn;
+    protected float hangingChance;
     
-    public GeneratorBasicTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, int minHeight, int maxHeight, boolean updateNeighbours, int leafLayers, int leavesOffset, int minLeavesRadius, int leavesLayerHeight, IBlockPosQuery placeVinesOn)
+    public GeneratorBasicTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, int minHeight, int maxHeight, boolean updateNeighbours, int leafLayers, int leavesOffset, int maxLeavesRadius, int leavesLayerHeight, IBlockPosQuery placeVinesOn, float hangingChance)
     {
-        super(amountPerChunk, placeOn, replace, log, leaves, vine, minHeight, maxHeight);
+        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, minHeight, maxHeight);
         this.updateNeighbours = updateNeighbours;
         this.leavesOffset = leavesOffset;
         this.leafLayers = leafLayers;
-        this.minLeavesRadius = minLeavesRadius;
+        this.maxLeavesRadius = maxLeavesRadius;
         this.leavesLayerHeight = leavesLayerHeight;
         this.placeVinesOn = placeVinesOn;
+        this.hangingChance = hangingChance;
     }
     
     @Override
@@ -169,7 +176,7 @@ public class GeneratorBasicTree extends GeneratorTreeBase
                         int currentLayer = y - (pos.getY() + height);
                         //Uses integer division truncation (-3 / 2 = -1, -2 / 2 = -1) to reduce
                         //the radius closer to the top of the tree. (2, 2, 1, 1)
-                        int leavesRadius =  this.minLeavesRadius - currentLayer / this.leavesLayerHeight;
+                        int leavesRadius =  this.maxLeavesRadius - currentLayer / this.leavesLayerHeight;
 
                         for (int x = pos.getX() - leavesRadius; x <= pos.getX() + leavesRadius; x++)
                         {
@@ -203,7 +210,7 @@ public class GeneratorBasicTree extends GeneratorTreeBase
                             int currentLayer = y - (pos.getY() + height);
                             //Uses integer division truncation (-3 / 2 = -1, -2 / 2 = -1) to reduce
                             //the radius closer to the top of the tree. (3, 3, 2, 2)
-                            int leavesRadius = (this.minLeavesRadius + this.leavesOffset) - currentLayer / this.leavesLayerHeight;
+                            int leavesRadius = (this.maxLeavesRadius + this.leavesOffset) - currentLayer / this.leavesLayerHeight;
 
                             for (int x = pos.getX() - leavesRadius; x <= pos.getX() + leavesRadius; x++)
                             {
@@ -243,6 +250,9 @@ public class GeneratorBasicTree extends GeneratorTreeBase
                             }
                         }
                     }
+                    
+                    //Generate fruit or any other blocks that may hang off of the tree
+                    if (this.hanging != null) this.generateHanging(world, pos, height);
 
                     return true;
                 }
@@ -267,28 +277,27 @@ public class GeneratorBasicTree extends GeneratorTreeBase
             if (this.replace.matches(world, blockpos2))
             {
                 this.setBlockAndNotifyAdequately(world, start.up(layer), this.log);
-
-                //If vines are enabled, randomly cover the sides of the trunk with vines from the bottom up
-                /*if (this.vine != null && layer > 0)
+            }
+        }
+    }
+    
+    protected void generateHanging(World world, BlockPos start, int height)
+    {
+        //Generate below the bottom layer of leaves
+        int y = start.getY() + (height - this.leafLayers);
+        
+        for (int x = start.getX() - maxLeavesRadius; x <= start.getX() + maxLeavesRadius; x++)
+        {
+            for (int z = start.getZ() - maxLeavesRadius; z <= start.getZ() + maxLeavesRadius; z++)
+            {
+                BlockPos hangingPos = new BlockPos(x, y, z);
+                
+                System.out.println(hangingPos);
+                
+                if (!world.isAirBlock(hangingPos.up()) && world.rand.nextFloat() <= this.hangingChance)
                 {
-                    if (random.nextInt(3) > 0 && this.placeVinesOn.matches(world, pos.add(-1, layer, 0)))
-                    {
-                        this.setBlockAndNotifyAdequately(world, pos.add(-1, layer, 0), this.getVineStateForSide(EnumFacing.EAST));
-                    }
-
-                    if (random.nextInt(3) > 0 && this.placeVinesOn.matches(world, pos.add(1, layer, 0)))
-                    {
-                        this.setBlockAndNotifyAdequately(world, pos.add(1, layer, 0), this.getVineStateForSide(EnumFacing.WEST));
-                    }
-                    if (random.nextInt(3) > 0 && this.placeVinesOn.matches(world, pos.add(0, layer, -1)))
-                    {
-                        this.setBlockAndNotifyAdequately(world, pos.add(0, layer, -1), this.getVineStateForSide(EnumFacing.SOUTH));
-                    }
-                    if (random.nextInt(3) > 0 && this.placeVinesOn.matches(world, pos.add(0, layer, 1)))
-                    {
-                        this.setBlockAndNotifyAdequately(world, pos.add(0, layer, 1), this.getVineStateForSide(EnumFacing.NORTH));
-                    }
-                }*/
+                    this.setHanging(world, hangingPos);
+                }
             }
         }
     }
@@ -340,5 +349,8 @@ public class GeneratorBasicTree extends GeneratorTreeBase
         this.log = conf.getBlockState("logState", this.log);
         this.leaves = conf.getBlockState("leavesState", this.leaves);
         this.vine = conf.getBlockState("vineState", this.vine);
+        this.hanging = conf.getBlockState("hangingState", this.hanging);
+        
+        this.hangingChance = conf.getFloat("hangingChance", this.hangingChance);
     }
 }
