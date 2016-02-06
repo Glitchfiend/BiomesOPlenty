@@ -75,17 +75,16 @@ public class GeneratorColumns extends GeneratorReplacing
             BlockPos genPos = pos.add(rand.nextInt(4) - rand.nextInt(4), rand.nextInt(3) - rand.nextInt(3), rand.nextInt(4) - rand.nextInt(4));
                 
             // see if we can place the column
-            if (this.placeOn.matches(world, genPos.down()))
+            if (this.placeOn.matches(world, genPos.down()) && this.replace.matches(world, genPos))
             {
                 // choose random target height
-                int height = GeneratorUtils.nextIntBetween(rand, this.minHeight, this.maxHeight);
+                int targetHeight = GeneratorUtils.nextIntBetween(rand, this.minHeight, this.maxHeight);
                 
                 // keep placing blocks upwards (if there's room)
-                while(height > 0 && world.isAirBlock(genPos))
+                for (int height = targetHeight; height >= 0 && replace.matches(world, genPos); height--)
                 {
                     world.setBlockState(genPos, this.with);
                     genPos = genPos.up();
-                    height--;
                 }
             }
         }

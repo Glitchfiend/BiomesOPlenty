@@ -18,6 +18,7 @@ public class BlockQueries
     public static IBlockPosQuery hasWater;
     public static IBlockPosQuery airAbove;
     public static IBlockPosQuery airBelow;
+    public static IBlockPosQuery waterCovered;
     public static IBlockPosQuery breakable;
     public static IBlockPosQuery air;
     public static IBlockPosQuery airOrLeaves;
@@ -43,5 +44,4 @@ public class BlockQueries
     public static IBlockPosQuery underwater;
     public static IBlockPosQuery suitableForReed;
     public static IBlockPosQuery rootsCanDigThrough;
-    
 }

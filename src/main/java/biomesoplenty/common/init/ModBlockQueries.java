@@ -61,6 +61,16 @@ public class ModBlockQueries
             }
         };
         
+        // Match block positions with water above
+        waterCovered = new IBlockPosQuery()
+        {
+            @Override
+            public boolean matches(World world, BlockPos pos)
+            {
+                return world.getBlockState(pos).getBlock().getMaterial() == Material.water && world.getBlockState(pos.up()).getBlock().getMaterial() == Material.water;
+            }
+        };
+        
         // Match blocks which are not unbreakable - IE not bedrock, barrier, command blocks
         breakable = new IBlockPosQuery()
         {

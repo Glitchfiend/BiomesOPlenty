@@ -113,26 +113,12 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
         }
         public T vine(IBlockState a)
         {
-            if (a == null)
-            {
-                this.vine = null;
-            }
-            else
-            {
-                this.vine = a;
-            }
+            this.vine = a;
             return this.self();
         }
         public T hanging(IBlockState a)
         {
-            if (a == null)
-            {
-                this.hanging = null;
-            }
-            else
-            {
-                this.hanging = a;
-            }
+            this.hanging = a;
             return this.self();
         }
         

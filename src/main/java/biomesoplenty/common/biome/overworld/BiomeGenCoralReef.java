@@ -8,29 +8,18 @@
 
 package biomesoplenty.common.biome.overworld;
 
-import net.minecraft.block.BlockTallGrass;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.BlockPos;
-import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
-import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.block.BlockBOPCoral;
-import biomesoplenty.common.entities.EntityButterfly;
-import biomesoplenty.common.enums.BOPClimates;
-import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
-import biomesoplenty.common.enums.BOPPlants;
-import biomesoplenty.common.enums.BOPTrees;
-import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.world.BOPWorldSettings;
+import biomesoplenty.common.world.feature.GeneratorColumns;
 import biomesoplenty.common.world.feature.GeneratorFlora;
-import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
-import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
-import biomesoplenty.common.world.feature.tree.GeneratorBigTree;
+import net.minecraft.init.Blocks;
  
 public class BiomeGenCoralReef extends BOPBiome
 {
@@ -54,6 +43,9 @@ public class BiomeGenCoralReef extends BOPBiome
         this.addGenerator("glowing_coral", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(15.0F).replace(Blocks.water).with(BOPBlocks.coral.getDefaultState().withProperty(BlockBOPCoral.VARIANT, BlockBOPCoral.CoralType.GLOWING)).scatterYMethod(ScatterYMethod.AT_GROUND).create());
         this.addGenerator("algae", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(3.0F).replace(Blocks.water).with(BOPBlocks.coral.getDefaultState().withProperty(BlockBOPCoral.VARIANT, BlockBOPCoral.CoralType.ALGAE)).scatterYMethod(ScatterYMethod.AT_GROUND).create());
          
+        // kelp
+        this.addGenerator("kelp", GeneratorStage.LILYPAD, (new GeneratorColumns.Builder()).replace(BlockQueries.waterCovered).placeOn(BlockQueries.groundBlocks).with(BOPBlocks.seaweed.getDefaultState()).scatterYMethod(ScatterYMethod.AT_GROUND).create());
+        
         // gem
         this.addGenerator("sapphire", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.SAPPHIRE).create()); 
     }
