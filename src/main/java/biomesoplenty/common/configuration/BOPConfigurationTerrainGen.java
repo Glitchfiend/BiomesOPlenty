@@ -30,6 +30,8 @@ public class BOPConfigurationTerrainGen
 	public static boolean genMalachiteOre;
 	public static boolean genSapphireOre;
 	public static boolean genAmberOre;
+	
+	public static boolean genWaspHives;
 
 	public static void init(File configFile)
 	{
@@ -60,6 +62,8 @@ public class BOPConfigurationTerrainGen
 			genMalachiteOre = config.get("Biomes O\' Plenty World Type Settings", "genMalachiteOre", true).getBoolean();
 			genSapphireOre = config.get("Biomes O\' Plenty World Type Settings", "genSapphireOre", true).getBoolean();
 			genAmberOre = config.get("Biomes O\' Plenty World Type Settings", "genAmberOre", true, "One by one.").getBoolean();
+			
+			genWaspHives = config.get("Biomes O\' Plenty World Type Settings", "genWaspHives", true, "Disable or Enable wasp hives in the Nether.").getBoolean();
 			
 			
 		}
