@@ -44,7 +44,7 @@ public class BiomeGenShrubland extends BOPBiome
         this.setTemperatureRainfall(0.6F, 0.05F);
         
         this.addWeight(BOPClimates.DRY_TEMPERATE, 10);
-        this.addWeight(BOPClimates.MEDITERANEAN, 5);
+        this.addWeight(BOPClimates.MEDITERANEAN, 7);
         
         this.canGenerateVillages = true;
         

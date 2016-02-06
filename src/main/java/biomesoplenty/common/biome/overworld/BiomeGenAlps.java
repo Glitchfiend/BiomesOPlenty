@@ -33,12 +33,13 @@ public class BiomeGenAlps extends BOPBiome
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
         
-        this.addWeight(BOPClimates.BOREAL, 2);
         this.addWeight(BOPClimates.TUNDRA, 3);
         this.addWeight(BOPClimates.ICE_CAP, 5);
         
         this.topBlock = Blocks.snow.getDefaultState();
         this.fillerBlock = Blocks.snow.getDefaultState();
+        
+        this.avgDirtDepth = 8;
 
         this.spawnableCreatureList.clear();
         
