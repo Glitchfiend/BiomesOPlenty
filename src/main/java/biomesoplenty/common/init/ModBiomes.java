@@ -80,7 +80,6 @@ import static biomesoplenty.api.biome.BOPBiomes.tropical_rainforest;
 import static biomesoplenty.api.biome.BOPBiomes.tundra;
 import static biomesoplenty.api.biome.BOPBiomes.wasteland;
 import static biomesoplenty.api.biome.BOPBiomes.wetland;
-import static biomesoplenty.api.biome.BOPBiomes.wisteria_meadow;
 import static biomesoplenty.api.biome.BOPBiomes.woodland;
 import static biomesoplenty.api.biome.BOPBiomes.xeric_shrubland;
 
@@ -157,7 +156,6 @@ import biomesoplenty.common.biome.overworld.BiomeGenTropicalRainforest;
 import biomesoplenty.common.biome.overworld.BiomeGenTundra;
 import biomesoplenty.common.biome.overworld.BiomeGenWasteland;
 import biomesoplenty.common.biome.overworld.BiomeGenWetland;
-import biomesoplenty.common.biome.overworld.BiomeGenWisteriaMeadow;
 import biomesoplenty.common.biome.overworld.BiomeGenWoodland;
 import biomesoplenty.common.biome.overworld.BiomeGenXericShrubland;
 import biomesoplenty.common.biome.vanilla.BiomeExtBirchForest;
@@ -387,7 +385,6 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         tundra = registerBOPBiome(new BiomeGenTundra(), "Tundra");
         wasteland = registerBOPBiome(new BiomeGenWasteland(), "Wasteland");
         wetland = registerBOPBiome(new BiomeGenWetland(), "Wetland");
-        wisteria_meadow = registerBOPBiome(new BiomeGenWisteriaMeadow(), "Wisteria Meadow");
         woodland = registerBOPBiome(new BiomeGenWoodland(), "Woodland");
         xeric_shrubland = registerBOPBiome(new BiomeGenXericShrubland(), "Xeric Shrubland");
         
@@ -462,7 +459,6 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         registerBiomeToDictionary(BOPBiomes.tundra, Type.COLD, Type.WASTELAND, Type.DRY, Type.DEAD, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.wasteland, Type.WASTELAND, Type.DEAD, Type.SPARSE, Type.DRY);
         registerBiomeToDictionary(BOPBiomes.wetland, Type.SWAMP, Type.FOREST, Type.WET, Type.LUSH);
-        registerBiomeToDictionary(BOPBiomes.wisteria_meadow, Type.PLAINS, Type.FOREST, Type.LUSH, Type.MAGICAL);
         registerBiomeToDictionary(BOPBiomes.woodland, Type.FOREST, Type.DRY, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.xeric_shrubland, Type.PLAINS, Type.SPARSE, Type.DRY, Type.LUSH, Type.HOT, Type.SANDY);
         
