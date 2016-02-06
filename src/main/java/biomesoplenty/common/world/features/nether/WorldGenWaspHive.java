@@ -8,12 +8,14 @@ import net.minecraft.world.World;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.world.generation.WorldGeneratorBOP;
+import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
 
 public class WorldGenWaspHive extends WorldGeneratorBOP
 {
 	@Override
 	public boolean generate(World world, Random rand, int x, int y, int z)
 	{ 
+		if (!BOPConfigurationTerrainGen.genWaspHives) return false;
 
 		int baseWidth = 4 + rand.nextInt(2);
 		int baseHeight = 8 + rand.nextInt(2);
