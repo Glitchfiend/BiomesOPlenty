@@ -66,7 +66,6 @@ import biomesoplenty.common.block.BlockBOPSand;
 import biomesoplenty.common.block.BlockBOPSapling;
 import biomesoplenty.common.block.BlockBOPSeaweed;
 import biomesoplenty.common.block.BlockBOPStone;
-import biomesoplenty.common.block.BlockBOPStoneFormations;
 import biomesoplenty.common.block.BlockBOPTerrarium;
 import biomesoplenty.common.block.BlockBOPTurnip;
 import biomesoplenty.common.block.BlockBOPVine;
@@ -116,7 +115,6 @@ public class ModBlocks
         grass =                 registerBlock( new BlockBOPGrass(), "grass" );
         waterlily =             registerBlock( new BlockBOPLilypad(), "waterlily" );
         dirt =                  registerBlock( new BlockBOPDirt(), "dirt" );
-        stone_formations =      registerBlock( new BlockBOPStoneFormations(), "stone_formations" );
         crystal =               registerBlock( new BlockBOPCrystal(), "crystal" );
         biome_block =           registerBlock( new BlockBOPBiomeBlock(), "biome_block" );
         
