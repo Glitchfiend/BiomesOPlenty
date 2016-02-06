@@ -173,6 +173,7 @@ import biomesoplenty.common.biome.vanilla.BiomeExtSwampland;
 import biomesoplenty.common.biome.vanilla.BiomeExtTaiga;
 import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.enums.BOPClimates;
+import biomesoplenty.common.enums.BOPClimates.WeightedBiomeEntry;
 import biomesoplenty.common.util.biome.BiomeUtils;
 import biomesoplenty.common.util.config.BOPConfig;
 import biomesoplenty.common.world.WorldTypeBOP;
@@ -196,7 +197,10 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
     public static Set<BiomeGenBase> presentBiomes;
     public static Map<Integer, List<Integer>> subBiomesMap;
     public static Map<Integer, List<Integer>> mutatedBiomesMap;
-
+    
+    public static ArrayList<WeightedBiomeEntry> islandBiomesList = new ArrayList<WeightedBiomeEntry>();
+    public static int totalIslandBiomesWeight;
+    
     public static void init()
     {
         worldTypeBOP = new WorldTypeBOP();
@@ -398,6 +402,8 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         setSubBiome(Optional.of(BiomeGenBase.ocean), BOPBiomes.coral_reef);
         setSubBiome(Optional.of(BiomeGenBase.ocean), BOPBiomes.kelp_forest);
 
+        // island biomes
+        
     }
     
     private static void registerBiomeDictionaryTags()
@@ -566,6 +572,12 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         {
             map.get(parentId).add(subBiome.biomeID);
         }
+    }
+    
+    private static void addIslandBiome(BiomeGenBase biome, int weight)
+    {
+        totalIslandBiomesWeight += weight;
+        islandBiomesList.add(new WeightedBiomeEntry(weight, biome));
     }
     
     private static void configureBiome(IExtendedBiome biome, String idName)

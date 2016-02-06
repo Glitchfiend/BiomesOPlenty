@@ -19,6 +19,7 @@ import biomesoplenty.common.world.layer.GenLayerBiomeEdgeBOP;
 import biomesoplenty.common.world.layer.GenLayerBiomeIslands;
 import biomesoplenty.common.world.layer.GenLayerClimate;
 import biomesoplenty.common.world.layer.GenLayerIslandBOP;
+import biomesoplenty.common.world.layer.GenLayerLargeIsland;
 import biomesoplenty.common.world.layer.GenLayerRaggedEdges;
 import biomesoplenty.common.world.layer.GenLayerRainfallNoise;
 import biomesoplenty.common.world.layer.GenLayerRainfallRandom;
@@ -239,6 +240,7 @@ public class WorldChunkManagerBOP extends WorldChunkManager
         
         // add mushroom islands and deep oceans        
         mainBranch = new GenLayerAddMushroomIsland(5L, mainBranch);
+        mainBranch = new GenLayerLargeIsland(5L, mainBranch);
         mainBranch = new GenLayerDeepOcean(4L, mainBranch);
         
         // fork off a new branch as a seed for rivers and sub biomes
