@@ -42,6 +42,7 @@ import static biomesoplenty.api.biome.BOPBiomes.heathland;
 import static biomesoplenty.api.biome.BOPBiomes.highland;
 import static biomesoplenty.api.biome.BOPBiomes.ice_plains_extension;
 import static biomesoplenty.api.biome.BOPBiomes.jungle_extension;
+import static biomesoplenty.api.biome.BOPBiomes.kelp_forest;
 import static biomesoplenty.api.biome.BOPBiomes.land_of_lakes;
 import static biomesoplenty.api.biome.BOPBiomes.lavender_fields;
 import static biomesoplenty.api.biome.BOPBiomes.lush_desert;
@@ -74,6 +75,7 @@ import static biomesoplenty.api.biome.BOPBiomes.steppe;
 import static biomesoplenty.api.biome.BOPBiomes.swampland_extension;
 import static biomesoplenty.api.biome.BOPBiomes.taiga_extension;
 import static biomesoplenty.api.biome.BOPBiomes.temperate_rainforest;
+import static biomesoplenty.api.biome.BOPBiomes.tropical_island;
 import static biomesoplenty.api.biome.BOPBiomes.tropical_rainforest;
 import static biomesoplenty.api.biome.BOPBiomes.tundra;
 import static biomesoplenty.api.biome.BOPBiomes.wasteland;
@@ -123,6 +125,7 @@ import biomesoplenty.common.biome.overworld.BiomeGenGrassland;
 import biomesoplenty.common.biome.overworld.BiomeGenGrove;
 import biomesoplenty.common.biome.overworld.BiomeGenHeathland;
 import biomesoplenty.common.biome.overworld.BiomeGenHighland;
+import biomesoplenty.common.biome.overworld.BiomeGenKelpForest;
 import biomesoplenty.common.biome.overworld.BiomeGenLandOfLakes;
 import biomesoplenty.common.biome.overworld.BiomeGenLavenderFields;
 import biomesoplenty.common.biome.overworld.BiomeGenLushDesert;
@@ -148,6 +151,7 @@ import biomesoplenty.common.biome.overworld.BiomeGenShrubland;
 import biomesoplenty.common.biome.overworld.BiomeGenSnowyConiferousForest;
 import biomesoplenty.common.biome.overworld.BiomeGenSteppe;
 import biomesoplenty.common.biome.overworld.BiomeGenTemperateRainforest;
+import biomesoplenty.common.biome.overworld.BiomeGenTropicalIsland;
 import biomesoplenty.common.biome.overworld.BiomeGenTropicalRainforest;
 import biomesoplenty.common.biome.overworld.BiomeGenTundra;
 import biomesoplenty.common.biome.overworld.BiomeGenWasteland;
@@ -387,9 +391,12 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         mountain_foothills = registerBOPBiome(new BiomeGenMountain(BiomeGenMountain.MountainType.FOOTHILLS), "Mountain Foothills");
         canyon_ravine = registerBOPBiome(new BiomeGenCanyon(BiomeGenCanyon.CanyonType.RAVINE), "Canyon Ravine");
         coral_reef = registerBOPBiome(new BiomeGenCoralReef(), "Coral Reef");
+        kelp_forest = registerBOPBiome(new BiomeGenKelpForest(), "Kelp Forest");
+        tropical_island = registerBOPBiome(new BiomeGenTropicalIsland(), "Tropical Island");
         
         setSubBiome(canyon, canyon_ravine);
         setSubBiome(Optional.of(BiomeGenBase.ocean), BOPBiomes.coral_reef);
+        setSubBiome(Optional.of(BiomeGenBase.ocean), BOPBiomes.kelp_forest);
 
     }
     
@@ -458,6 +465,8 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         registerBiomeToDictionary(BOPBiomes.mountain_foothills, Type.HILLS, Type.MOUNTAIN);
         registerBiomeToDictionary(BOPBiomes.canyon_ravine, Type.SANDY, Type.HILLS, Type.DRY, Type.HOT);
         registerBiomeToDictionary(BOPBiomes.coral_reef, Type.WATER, Type.OCEAN);
+        registerBiomeToDictionary(BOPBiomes.kelp_forest, Type.WATER, Type.OCEAN);
+        registerBiomeToDictionary(BOPBiomes.tropical_island, Type.WATER, Type.OCEAN, Type.JUNGLE, Type.LUSH);
         
     }
     

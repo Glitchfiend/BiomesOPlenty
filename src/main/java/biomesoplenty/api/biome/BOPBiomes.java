@@ -79,6 +79,8 @@ public class BOPBiomes
     public static Optional<BiomeGenBase> mountain_foothills = Optional.absent();
     public static Optional<BiomeGenBase> canyon_ravine = Optional.absent();
     public static Optional<BiomeGenBase> coral_reef = Optional.absent();
+    public static Optional<BiomeGenBase> kelp_forest = Optional.absent();
+    public static Optional<BiomeGenBase> tropical_island = Optional.absent();
 
     //Biome extensions
     public static IExtendedBiome end_extension;

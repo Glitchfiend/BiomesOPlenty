@@ -21,14 +21,14 @@ import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import net.minecraft.init.Blocks;
  
-public class BiomeGenCoralReef extends BOPBiome
+public class BiomeGenKelpForest extends BOPBiome
 {
-    public BiomeGenCoralReef()
+    public BiomeGenKelpForest()
     {
         // terrain
-        this.terrainSettings.avgHeight(50).heightVariation(5, 10); 
+        this.terrainSettings.avgHeight(40).heightVariation(5, 10); 
         
-        this.setColor(18285);
+        this.setColor(27468);
     
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
@@ -36,12 +36,12 @@ public class BiomeGenCoralReef extends BOPBiome
         
         clearWeights();
 
-        // coral
-        this.addGenerator("pink_coral", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(15.0F).replace(Blocks.water).with(BOPBlocks.coral.getDefaultState().withProperty(BlockBOPCoral.VARIANT, BlockBOPCoral.CoralType.PINK)).scatterYMethod(ScatterYMethod.AT_GROUND).create());
-        this.addGenerator("orange_coral", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(15.0F).replace(Blocks.water).with(BOPBlocks.coral.getDefaultState().withProperty(BlockBOPCoral.VARIANT, BlockBOPCoral.CoralType.ORANGE)).scatterYMethod(ScatterYMethod.AT_GROUND).create());
-        this.addGenerator("blue_coral", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(15.0F).replace(Blocks.water).with(BOPBlocks.coral.getDefaultState().withProperty(BlockBOPCoral.VARIANT, BlockBOPCoral.CoralType.BLUE)).scatterYMethod(ScatterYMethod.AT_GROUND).create());
-        this.addGenerator("glowing_coral", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(15.0F).replace(Blocks.water).with(BOPBlocks.coral.getDefaultState().withProperty(BlockBOPCoral.VARIANT, BlockBOPCoral.CoralType.GLOWING)).scatterYMethod(ScatterYMethod.AT_GROUND).create());
+        // algae
         this.addGenerator("algae", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(3.0F).replace(Blocks.water).with(BOPBlocks.coral.getDefaultState().withProperty(BlockBOPCoral.VARIANT, BlockBOPCoral.CoralType.ALGAE)).scatterYMethod(ScatterYMethod.AT_GROUND).create());
+         
+        // kelp
+        this.addGenerator("kelp", GeneratorStage.LILYPAD, (new GeneratorColumns.Builder()).amountPerChunk(5.0F).replace(BlockQueries.waterCovered).placeOn(BlockQueries.groundBlocks).with(BOPBlocks.seaweed.getDefaultState()).scatterYMethod(ScatterYMethod.AT_GROUND).create());
+        this.addGenerator("kelp_tall", GeneratorStage.LILYPAD, (new GeneratorColumns.Builder()).amountPerChunk(6.0F).replace(BlockQueries.waterCovered).placeOn(BlockQueries.groundBlocks).with(BOPBlocks.seaweed.getDefaultState()).minHeight(10).maxHeight(20).scatterYMethod(ScatterYMethod.AT_GROUND).create());
         
         // gem
         this.addGenerator("sapphire", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.SAPPHIRE).create()); 
