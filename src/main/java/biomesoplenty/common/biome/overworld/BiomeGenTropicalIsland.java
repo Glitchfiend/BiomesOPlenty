@@ -14,6 +14,7 @@ import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.block.BlockBOPCoral;
+import biomesoplenty.common.entities.EntityButterfly;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
@@ -28,13 +29,16 @@ import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.init.Blocks;
+import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
  
 public class BiomeGenTropicalIsland extends BOPBiome
 {
     public BiomeGenTropicalIsland()
     {
         // terrain
-        this.terrainSettings.avgHeight(70).heightVariation(5, 20); 
+        this.terrainSettings.avgHeight(70).heightVariation(5, 35).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.0D); 
+        
+        this.setTemperatureRainfall(1.0F, 1.0F);
         
         this.setColor(2211330);
     
@@ -42,10 +46,16 @@ public class BiomeGenTropicalIsland extends BOPBiome
         this.canGenerateVillages = false;
         this.canGenerateRivers = false;
         
+        this.skyColor = 507391;
+        
+        this.spawnableCreatureList.clear();
+        this.spawnableMonsterList.clear();
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
+        
         clearWeights();
         
         // grasses
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(3.0F);
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(4.0F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("shortgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
         grassGenerator.add("mediumgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());
@@ -59,7 +69,7 @@ public class BiomeGenTropicalIsland extends BOPBiome
         this.addGenerator("melons", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(0.015625F).placeOn(this.topBlock).with(Blocks.melon_block.getDefaultState()).create());
         
         // flowers
-        GeneratorWeighted flowerGenerator = new GeneratorWeighted(1.5F);
+        GeneratorWeighted flowerGenerator = new GeneratorWeighted(2.0F);
         this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
         flowerGenerator.add("hibiscus", 6, (new GeneratorFlora.Builder().with(BOPFlowers.PINK_HIBISCUS).create()));
         flowerGenerator.add("blue_hydrangeas", 2, (new GeneratorFlora.Builder().with(BOPFlowers.BLUE_HYDRANGEA).create()));
