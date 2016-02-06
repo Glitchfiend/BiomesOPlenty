@@ -82,7 +82,7 @@ public class BiomeGenLushSwamp extends BOPBiome
         // trees & logs
         GeneratorWeighted treeGenerator = new GeneratorWeighted(9);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("swamp", 5, (new GeneratorBasicTree.Builder()).minHeight(8).maxHeight(12).maxLeavesRadius(2).vine(BOPBlocks.ivy.getDefaultState()).create());
+        treeGenerator.add("swamp", 5, (new GeneratorBasicTree.Builder()).minHeight(8).maxHeight(12).maxLeavesRadius(2).vine(Blocks.vine.getDefaultState()).create());
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(5.0F);
