@@ -2,62 +2,92 @@
     "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
 	"ambientocclusion": false,
     "textures": {
-		"particle": "biomesoplenty:blocks/cloverpatch",
-        "0": "biomesoplenty:blocks/cloverpatch",
-        "1": "biomesoplenty:blocks/cloverstem"
+		"particle": "biomesoplenty:items/cloverpatch",
+        "0": "biomesoplenty:blocks/cloverpatch_1",
+        "1": "biomesoplenty:blocks/cloverpatch_2",
+		"2": "biomesoplenty:blocks/cloverpatch_3",
+		"3": "biomesoplenty:blocks/cloverpatch_4",
+		"4": "biomesoplenty:blocks/cloverstem"
     },
     "elements": [
         {
-            "name": "Clovers",
+            "name": "Top 1",
+            "from": [ 0.0, 8.0, 0.0 ], 
+            "to": [ 16.0, 8.0, 16.0 ], 
+            "faces": {
+                "up": { "texture": "#0", "uv": [ 0.0, 0.0, 16.0, 16.0 ], "tintindex": 0 },
+				"down": { "texture": "#0", "uv": [ 0.0, 16.0, 16.0, 0.0 ], "tintindex": 0 }
+            }
+        },
+        {
+            "name": "Top 2",
+            "from": [ 0.0, 6.0, 0.0 ], 
+            "to": [ 16.0, 6.0, 16.0 ], 
+            "faces": {
+                "up": { "texture": "#1", "uv": [ 0.0, 0.0, 16.0, 16.0 ], "tintindex": 0 },
+				"down": { "texture": "#1", "uv": [ 0.0, 16.0, 16.0, 0.0 ], "tintindex": 0 }
+            }
+        },
+        {
+            "name": "Top 3",
             "from": [ 0.0, 4.0, 0.0 ], 
             "to": [ 16.0, 4.0, 16.0 ], 
             "faces": {
-                "up": { "texture": "#0", "uv": [ 0.0, 0.0, 16.0, 16.0 ], "tintindex": 0  },
-                "down": { "texture": "#0", "uv": [ 0.0, 0.0, 16.0, 16.0 ], "tintindex": 0  }
+                "up": { "texture": "#2", "uv": [ 0.0, 0.0, 16.0, 16.0 ], "tintindex": 0 },
+				"down": { "texture": "#2", "uv": [ 0.0, 16.0, 16.0, 0.0 ], "tintindex": 0 }
+            }
+        },
+        {
+            "name": "Top 4",
+            "from": [ 0.0, 2.0, 0.0 ], 
+            "to": [ 16.0, 2.0, 16.0 ], 
+            "faces": {
+                "up": { "texture": "#3", "uv": [ 0.0, 0.0, 16.0, 16.0 ], "tintindex": 0 },
+				"down": { "texture": "#3", "uv": [ 0.0, 16.0, 16.0, 0.0 ], "tintindex": 0 }
             }
         },
         {
             "name": "Stem 1",
             "from": [ 4.0, 0.0, 4.0 ], 
-            "to": [ 5.0, 4.0, 5.0 ], 
+            "to": [ 5.0, 8.0, 5.0 ], 
             "faces": {
-                "north": { "texture": "#1", "uv": [ 0.0, 0.0, 1.0, 4.0 ], "tintindex": 0  },
-                "east": { "texture": "#1", "uv": [ 0.0, 0.0, 1.0, 4.0 ], "tintindex": 0  },
-                "south": { "texture": "#1", "uv": [ 0.0, 0.0, 1.0, 4.0 ], "tintindex": 0  },
-                "west": { "texture": "#1", "uv": [ 0.0, 0.0, 1.0, 4.0 ], "tintindex": 0  }
+                "north": { "texture": "#4", "uv": [ 7.0, 8.0, 8.0, 16.0 ], "tintindex": 0 },
+                "east": { "texture": "#4", "uv": [ 7.0, 8.0, 8.0, 16.0 ], "tintindex": 0 },
+                "south": { "texture": "#4", "uv": [ 7.0, 8.0, 8.0, 16.0 ], "tintindex": 0 },
+                "west": { "texture": "#4", "uv": [ 7.0, 8.0, 8.0, 16.0 ], "tintindex": 0 }
             }
         },
         {
             "name": "Stem 2",
-            "from": [ 3.0, 0.0, 12.0 ], 
-            "to": [ 4.0, 4.0, 13.0 ], 
+            "from": [ 12.0, 0.0, 3.0 ], 
+            "to": [ 13.0, 6.0, 4.0 ], 
             "faces": {
-                "north": { "texture": "#1", "uv": [ 0.0, 0.0, 1.0, 4.0 ], "tintindex": 0  },
-                "east": { "texture": "#1", "uv": [ 0.0, 0.0, 1.0, 4.0 ], "tintindex": 0  },
-                "south": { "texture": "#1", "uv": [ 0.0, 0.0, 1.0, 4.0 ], "tintindex": 0  },
-                "west": { "texture": "#1", "uv": [ 0.0, 0.0, 1.0, 4.0 ], "tintindex": 0  }
+                "north": { "texture": "#4", "uv": [ 7.0, 10.0, 8.0, 16.0 ], "tintindex": 0 },
+                "east": { "texture": "#4", "uv": [ 7.0, 10.0, 8.0, 16.0 ], "tintindex": 0 },
+                "south": { "texture": "#4", "uv": [ 7.0, 10.0, 8.0, 16.0 ], "tintindex": 0 },
+                "west": { "texture": "#4", "uv": [ 7.0, 10.0, 8.0, 16.0 ], "tintindex": 0 }
             }
         },
         {
             "name": "Stem 3",
-            "from": [ 11.0, 0.0, 11.0 ], 
-            "to": [ 12.0, 4.0, 12.0 ], 
+            "from": [ 3.0, 0.0, 12.0 ], 
+            "to": [ 4.0, 4.0, 13.0 ], 
             "faces": {
-                "north": { "texture": "#1", "uv": [ 0.0, 0.0, 1.0, 4.0 ], "tintindex": 0  },
-                "east": { "texture": "#1", "uv": [ 0.0, 0.0, 1.0, 4.0 ], "tintindex": 0  },
-                "south": { "texture": "#1", "uv": [ 0.0, 0.0, 1.0, 4.0 ], "tintindex": 0  },
-                "west": { "texture": "#1", "uv": [ 0.0, 0.0, 1.0, 4.0 ], "tintindex": 0  }
+                "north": { "texture": "#4", "uv": [ 7.0, 12.0, 8.0, 16.0 ], "tintindex": 0 },
+                "east": { "texture": "#4", "uv": [ 7.0, 12.0, 8.0, 16.0 ], "tintindex": 0 },
+                "south": { "texture": "#4", "uv": [ 7.0, 12.0, 8.0, 16.0 ], "tintindex": 0 },
+                "west": { "texture": "#4", "uv": [ 7.0, 12.0, 8.0, 16.0 ], "tintindex": 0 }
             }
         },
         {
             "name": "Stem 4",
-            "from": [ 12.0, 0.0, 3.0 ], 
-            "to": [ 13.0, 4.0, 4.0 ], 
+            "from": [ 11.0, 0.0, 11.0 ], 
+            "to": [ 12.0, 2.0, 12.0 ], 
             "faces": {
-                "north": { "texture": "#1", "uv": [ 0.0, 0.0, 1.0, 4.0 ], "tintindex": 0  },
-                "east": { "texture": "#1", "uv": [ 0.0, 0.0, 1.0, 4.0 ], "tintindex": 0  },
-                "south": { "texture": "#1", "uv": [ 0.0, 0.0, 1.0, 4.0 ], "tintindex": 0  },
-                "west": { "texture": "#1", "uv": [ 0.0, 0.0, 1.0, 4.0 ], "tintindex": 0  }
+                "north": { "texture": "#4", "uv": [ 7.0, 14.0, 8.0, 16.0 ], "tintindex": 0 },
+                "east": { "texture": "#4", "uv": [ 7.0, 14.0, 8.0, 16.0 ], "tintindex": 0 },
+                "south": { "texture": "#4", "uv": [ 7.0, 14.0, 8.0, 16.0 ], "tintindex": 0 },
+                "west": { "texture": "#4", "uv": [ 7.0, 14.0, 8.0, 16.0 ], "tintindex": 0 }
             }
         }
     ]
