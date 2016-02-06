@@ -26,7 +26,7 @@ public class BiomeGenKelpForest extends BOPBiome
     public BiomeGenKelpForest()
     {
         // terrain
-        this.terrainSettings.avgHeight(40).heightVariation(5, 10); 
+        this.terrainSettings.avgHeight(40).heightVariation(5, 5); 
         
         this.setColor(27468);
     
@@ -41,7 +41,7 @@ public class BiomeGenKelpForest extends BOPBiome
          
         // kelp
         this.addGenerator("kelp", GeneratorStage.LILYPAD, (new GeneratorColumns.Builder()).amountPerChunk(5.0F).replace(BlockQueries.waterCovered).placeOn(BlockQueries.groundBlocks).with(BOPBlocks.seaweed.getDefaultState()).scatterYMethod(ScatterYMethod.AT_GROUND).create());
-        this.addGenerator("kelp_tall", GeneratorStage.LILYPAD, (new GeneratorColumns.Builder()).amountPerChunk(6.0F).replace(BlockQueries.waterCovered).placeOn(BlockQueries.groundBlocks).with(BOPBlocks.seaweed.getDefaultState()).minHeight(10).maxHeight(20).scatterYMethod(ScatterYMethod.AT_GROUND).create());
+        this.addGenerator("kelp_tall", GeneratorStage.LILYPAD, (new GeneratorColumns.Builder()).amountPerChunk(6.0F).replace(BlockQueries.waterCovered).placeOn(BlockQueries.groundBlocks).with(BOPBlocks.seaweed.getDefaultState()).minHeight(8).maxHeight(18).scatterYMethod(ScatterYMethod.AT_GROUND).create());
         
         // gem
         this.addGenerator("sapphire", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.SAPPHIRE).create()); 

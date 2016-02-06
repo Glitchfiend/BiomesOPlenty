@@ -37,6 +37,7 @@ import static biomesoplenty.api.biome.BOPBiomes.frozen_desert;
 import static biomesoplenty.api.biome.BOPBiomes.fungi_forest;
 import static biomesoplenty.api.biome.BOPBiomes.garden;
 import static biomesoplenty.api.biome.BOPBiomes.grassland;
+import static biomesoplenty.api.biome.BOPBiomes.gravel_beach;
 import static biomesoplenty.api.biome.BOPBiomes.grove;
 import static biomesoplenty.api.biome.BOPBiomes.heathland;
 import static biomesoplenty.api.biome.BOPBiomes.highland;
@@ -122,6 +123,7 @@ import biomesoplenty.common.biome.overworld.BiomeGenFrostForest;
 import biomesoplenty.common.biome.overworld.BiomeGenFungiForest;
 import biomesoplenty.common.biome.overworld.BiomeGenGarden;
 import biomesoplenty.common.biome.overworld.BiomeGenGrassland;
+import biomesoplenty.common.biome.overworld.BiomeGenGravelBeach;
 import biomesoplenty.common.biome.overworld.BiomeGenGrove;
 import biomesoplenty.common.biome.overworld.BiomeGenHeathland;
 import biomesoplenty.common.biome.overworld.BiomeGenHighland;
@@ -396,6 +398,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         canyon_ravine = registerBOPBiome(new BiomeGenCanyon(BiomeGenCanyon.CanyonType.RAVINE), "Canyon Ravine");
         coral_reef = registerBOPBiome(new BiomeGenCoralReef(), "Coral Reef");
         kelp_forest = registerBOPBiome(new BiomeGenKelpForest(), "Kelp Forest");
+        gravel_beach = registerBOPBiome(new BiomeGenGravelBeach(), "Gravel Beach");
 
         setSubBiome(canyon, canyon_ravine);
         setSubBiome(Optional.of(BiomeGenBase.ocean), BOPBiomes.coral_reef);
@@ -475,6 +478,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         registerBiomeToDictionary(BOPBiomes.coral_reef, Type.WATER, Type.OCEAN);
         registerBiomeToDictionary(BOPBiomes.kelp_forest, Type.WATER, Type.OCEAN);
         registerBiomeToDictionary(BOPBiomes.tropical_island, Type.WATER, Type.OCEAN, Type.JUNGLE, Type.LUSH);
+        registerBiomeToDictionary(BOPBiomes.gravel_beach, Type.BEACH);   
         
     }
     

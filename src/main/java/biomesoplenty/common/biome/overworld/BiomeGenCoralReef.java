@@ -26,7 +26,7 @@ public class BiomeGenCoralReef extends BOPBiome
     public BiomeGenCoralReef()
     {
         // terrain
-        this.terrainSettings.avgHeight(50).heightVariation(5, 10); 
+        this.terrainSettings.avgHeight(45).heightVariation(5, 10); 
         
         this.setColor(18285);
     
