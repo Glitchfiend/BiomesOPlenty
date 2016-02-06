@@ -1,0 +1,8 @@
+{
+    "parent": "block/farmland",
+    "textures": {
+        "particle": "biomesoplenty:blocks/dirt_loamy",
+        "dirt": "biomesoplenty:blocks/dirt_loamy",
+        "top": "biomesoplenty:blocks/farmland_dry_loamy"
+    }
+}

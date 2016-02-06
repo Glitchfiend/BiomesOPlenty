@@ -112,6 +112,7 @@ public class BOPBlocks
     public static Block grass;
     public static Block waterlily;
     public static Block dirt;
+    public static Block farmland;
     public static Block stone_formations;
     public static Block hard_ice;
     public static Block dried_sand;

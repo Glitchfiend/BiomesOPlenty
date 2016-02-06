@@ -1,8 +1,8 @@
 /*******************************************************************************
  * Copyright 2014-2016, the Biomes O' Plenty Team
- * 
+ *
  * This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License.
- * 
+ *
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  ******************************************************************************/
 
@@ -34,8 +34,6 @@ import biomesoplenty.common.item.ItemBOPBlock;
 
 public class BlockBOPDirt extends Block implements IBOPBlock, ISustainsPlantType
 {
-    // TODO: make it ploughable into farmland
-    
     // add properties
     public static enum BOPDirtType implements IStringSerializable
     {
@@ -55,7 +53,7 @@ public class BlockBOPDirt extends Block implements IBOPBlock, ISustainsPlantType
     public static final PropertyBool COARSE = PropertyBool.create("coarse");
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { COARSE, VARIANT });}
-    
+
     // implement IBOPBlock
     @Override
     public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
@@ -71,20 +69,20 @@ public class BlockBOPDirt extends Block implements IBOPBlock, ISustainsPlantType
         return (Boolean.TRUE.equals(state.getValue(COARSE)) ? "coarse_" : "") + ((BOPDirtType) state.getValue(VARIANT)).getName() + "_dirt";
     }
 
-    
+
     public BlockBOPDirt() {
-        
+
         super(Material.ground);
-        
+
         // set some defaults
         this.setTickRandomly(true);
         this.setHardness(0.5F);
         this.setHarvestLevel("shovel", 0);
-        this.setStepSound(Block.soundTypeGravel);      
+        this.setStepSound(Block.soundTypeGravel);
         this.setDefaultState( this.blockState.getBaseState().withProperty(COARSE, Boolean.valueOf(false)).withProperty(VARIANT, BOPDirtType.LOAMY) );
-    
+
     }
-    
+
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
@@ -98,17 +96,17 @@ public class BlockBOPDirt extends Block implements IBOPBlock, ISustainsPlantType
         // both variant and coarseness saved in meta, first bit coarseness, other bits variant
         return (Boolean.TRUE.equals(state.getValue(COARSE)) ? 8 : 0) | ((BOPDirtType) state.getValue(VARIANT)).ordinal();
     }
-    
+
     // our blocks usually drop their current state as opposed to a single 'default' state
     @Override
     public int damageDropped(IBlockState state)
     {
         return this.getMetaFromState(state);
     }
-    
+
     @Override
     public boolean canSustainPlantType(IBlockAccess world, BlockPos pos, EnumPlantType plantType)
-    {        
+    {
         switch (plantType)
         {
             // support desert, plains and cave plants
@@ -127,13 +125,13 @@ public class BlockBOPDirt extends Block implements IBOPBlock, ISustainsPlantType
                 return false;
         }
     }
-    
+
     @Override
     public boolean canSustainPlant(IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
     {
         return this.canSustainPlantType(world, pos, plantable.getPlantType(world, pos.offset(direction)));
     }
-    
+
     @Override
     @SideOnly(Side.CLIENT)
     public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
@@ -143,14 +141,14 @@ public class BlockBOPDirt extends Block implements IBOPBlock, ISustainsPlantType
             pullGrassFromNeighbors(world, pos, grassState, rand, 4, 1, 3, 1);
         }
     }
-    
+
     // BOPGrass variants spread randomly to BOPDirt on the grass's updateTick
     // However, vanilla grass does not.  This function fixes this by 'pulling' grass from nearby vanilla grass blocks at the same rate as it would spread to vanilla dirt
     public void pullGrassFromNeighbors(World world, BlockPos pos, IBlockState grassState, Random rand, int tries, int xzSpread, int downSpread, int upSpread)
     {
         // if there's not enough light then there's no chance of this block becoming grassy
         if (world.getLightFromNeighbors(pos.up()) < 4 || world.getBlockState(pos.up()).getBlock().getLightOpacity(world, pos.up()) > 2) {return;}
-        
+
         int numNearbyGrassSpreadingBlocks = 0;
         BlockPos pos1;
         for (int dy = -downSpread; dy <= upSpread; dy++)
@@ -169,7 +167,7 @@ public class BlockBOPDirt extends Block implements IBOPBlock, ISustainsPlantType
             }
         }
         if (numNearbyGrassSpreadingBlocks == 0) {return;}
-        
+
         // each grass block gets 4 tries to spread grass, chance of this block being chosen each time is 1 / volume of blocks close enough
         // overall chance of spread = 1 - chance of not spreading
         int vol = (xzSpread * 2 + 1) * (xzSpread * 2 + 1) * (upSpread + downSpread + 1);
@@ -179,8 +177,8 @@ public class BlockBOPDirt extends Block implements IBOPBlock, ISustainsPlantType
             world.setBlockState(pos, grassState);
         }
     }
-    
-        
+
+
     // get the blockstate which corresponds to the type of grass which grows on this dirt
     public static IBlockState getGrassBlockState(IBlockState state)
     {
@@ -190,7 +188,7 @@ public class BlockBOPDirt extends Block implements IBOPBlock, ISustainsPlantType
             return null;
         }
         switch ((BOPDirtType) state.getValue(VARIANT))
-        {   
+        {
             case LOAMY:
                 return BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.LOAMY);
             case SANDY:
@@ -202,15 +200,15 @@ public class BlockBOPDirt extends Block implements IBOPBlock, ISustainsPlantType
                 return Blocks.grass.getDefaultState();
         }
     }
-    
+
     public Block getGrassBlock(IBlockState state)
     {
         return getGrassBlockState(state).getBlock();
     }
-    
+
     public int getGrassBlockMeta(IBlockState state)
     {
         return this.getGrassBlock(state).getMetaFromState(getGrassBlockState(state));
     }
-    
+
 }
