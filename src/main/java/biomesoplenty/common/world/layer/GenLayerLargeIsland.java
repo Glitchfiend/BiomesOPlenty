@@ -35,15 +35,15 @@ public class GenLayerLargeIsland extends BOPGenLayer
         {
             for (int x = 0; x < areaWidth; ++x)
             {
-                int northWestVal = biomeIds[x + 0 + (z + 0) * outerWidth];
-                int northEastVal = biomeIds[x + 2 + (z + 0) * outerWidth];
-                int southWestVal = biomeIds[x + 0 + (z + 2) * outerWidth];
-                int southEastVal = biomeIds[x + 2 + (z + 2) * outerWidth];
+                int biomeNorth = biomeIds[x + 1 + (z + 1 - 1) * (areaWidth + 2)];
+                int biomeEast = biomeIds[x + 1 + 1 + (z + 1) * (areaWidth + 2)];
+                int biomeWest = biomeIds[x + 1 - 1 + (z + 1) * (areaWidth + 2)];
+                int biomeSouth = biomeIds[x + 1 + (z + 1 + 1) * (areaWidth + 2)];
                 int centerVal = biomeIds[x + 1 + (z + 1) * outerWidth];
 
                 this.initChunkSeed((long)(x + areaX), (long)(z + areaY));
 
-                if (centerVal == 0 && northWestVal == 0 && northEastVal == 0 && southWestVal == 0 && southEastVal == 0 && this.nextInt(75) == 0)
+                if (centerVal == 0 && biomeNorth == 0 && biomeEast == 0 && biomeWest == 0 && biomeSouth == 0 && this.nextInt(50) == 0)
                 {
                     out[x + z * areaWidth] = getRandomIslandBiome();
                 }
