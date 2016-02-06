@@ -46,7 +46,7 @@ public class BiomeGenLavenderFields extends BOPBiome
         this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
         
         // flowers
-        this.addGenerator("lavender", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(99).with(BOPFlowers.LAVENDER).create());
+        this.addGenerator("lavender", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(50).with(BOPFlowers.LAVENDER).create());
 
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(1);
@@ -55,7 +55,7 @@ public class BiomeGenLavenderFields extends BOPBiome
         treeGenerator.add("oak", 1, (new GeneratorBigTree.Builder()).create());
         
         // grasses
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(2);
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(15);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("shortgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
         grassGenerator.add("mediumgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());
