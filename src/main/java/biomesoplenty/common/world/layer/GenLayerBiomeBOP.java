@@ -13,6 +13,7 @@ import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.common.enums.BOPClimates;
+import biomesoplenty.common.init.ModBiomes;
 import biomesoplenty.common.world.BOPWorldSettings;
 
 public class GenLayerBiomeBOP extends BOPGenLayer
@@ -55,10 +56,10 @@ public class GenLayerBiomeBOP extends BOPGenLayer
                 {
                     out[index] = climate.getRandomOceanBiome(this, true).biomeID;
                 }
-                else if (landSeaVal == BiomeGenBase.mushroomIsland.biomeID && climate.biomeType != BiomeType.ICY)
+                else if ((landSeaVal == BiomeGenBase.mushroomIsland.biomeID || ModBiomes.islandBiomesMap.containsKey(landSeaVal)) && climate.biomeType != BiomeType.ICY)
                 {
-                    // keep mushroom islands, unless it's in an icy climate in which case, replace
-                    out[index] = BiomeGenBase.mushroomIsland.biomeID;
+                    // keep islands, unless it's in an icy climate in which case, replace
+                    out[index] = landSeaVal;
                 }
                 else if (landSeaVal == 0)
                 {

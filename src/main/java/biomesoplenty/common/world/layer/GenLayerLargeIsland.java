@@ -8,6 +8,7 @@
 package biomesoplenty.common.world.layer;
 
 import java.util.Iterator;
+import java.util.Map.Entry;
 
 import biomesoplenty.common.enums.BOPClimates.WeightedBiomeEntry;
 import biomesoplenty.common.init.ModBiomes;
@@ -42,7 +43,7 @@ public class GenLayerLargeIsland extends BOPGenLayer
 
                 this.initChunkSeed((long)(x + areaX), (long)(z + areaY));
 
-                if (centerVal == 0 && northWestVal == 0 && northEastVal == 0 && southWestVal == 0 && southEastVal == 0 && this.nextInt(50) == 0)
+                if (centerVal == 0 && northWestVal == 0 && northEastVal == 0 && southWestVal == 0 && southEastVal == 0 && this.nextInt(75) == 0)
                 {
                     out[x + z * areaWidth] = getRandomIslandBiome();
                 }
@@ -59,14 +60,15 @@ public class GenLayerLargeIsland extends BOPGenLayer
     public int getRandomIslandBiome()
     {
         int weight = this.nextInt(ModBiomes.totalIslandBiomesWeight);
-        Iterator<WeightedBiomeEntry> iterator = ModBiomes.islandBiomesList.iterator();
-        WeightedBiomeEntry item;
+        Iterator<Entry<Integer, Integer>> iterator = ModBiomes.islandBiomesMap.entrySet().iterator();
+        
+        Entry<Integer, Integer> item;
         do
         {
             item = iterator.next();
-            weight -= item.weight;
+            weight -= item.getValue();
         }
         while (weight >= 0);
-        return item.biome.biomeID;
+        return item.getKey();
     }
 }

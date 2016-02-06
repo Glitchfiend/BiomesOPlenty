@@ -198,7 +198,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
     public static Map<Integer, List<Integer>> subBiomesMap;
     public static Map<Integer, List<Integer>> mutatedBiomesMap;
     
-    public static ArrayList<WeightedBiomeEntry> islandBiomesList = new ArrayList<WeightedBiomeEntry>();
+    public static Map<Integer, Integer> islandBiomesMap = new HashMap<Integer, Integer>();
     public static int totalIslandBiomesWeight;
     
     public static void init()
@@ -396,14 +396,16 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         canyon_ravine = registerBOPBiome(new BiomeGenCanyon(BiomeGenCanyon.CanyonType.RAVINE), "Canyon Ravine");
         coral_reef = registerBOPBiome(new BiomeGenCoralReef(), "Coral Reef");
         kelp_forest = registerBOPBiome(new BiomeGenKelpForest(), "Kelp Forest");
-        tropical_island = registerBOPBiome(new BiomeGenTropicalIsland(), "Tropical Island");
-        
+
         setSubBiome(canyon, canyon_ravine);
         setSubBiome(Optional.of(BiomeGenBase.ocean), BOPBiomes.coral_reef);
         setSubBiome(Optional.of(BiomeGenBase.ocean), BOPBiomes.kelp_forest);
 
         // island biomes
         
+        tropical_island = registerBOPBiome(new BiomeGenTropicalIsland(), "Tropical Island");
+    
+        addIslandBiome(tropical_island, 10);
     }
     
     private static void registerBiomeDictionaryTags()
@@ -574,10 +576,13 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         }
     }
     
-    private static void addIslandBiome(BiomeGenBase biome, int weight)
+    private static void addIslandBiome(Optional<BiomeGenBase> biome, int weight)
     {
-        totalIslandBiomesWeight += weight;
-        islandBiomesList.add(new WeightedBiomeEntry(weight, biome));
+        if (biome.isPresent())
+        {
+            totalIslandBiomesWeight += weight;
+            islandBiomesMap.put(biome.get().biomeID, weight);
+        }
     }
     
     private static void configureBiome(IExtendedBiome biome, String idName)
