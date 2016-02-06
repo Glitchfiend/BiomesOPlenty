@@ -8,10 +8,15 @@
 
 package biomesoplenty.common.biome.overworld;
 
+import java.util.Random;
+
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
+import net.minecraft.world.World;
+import net.minecraft.world.chunk.ChunkPrimer;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
@@ -23,6 +28,7 @@ import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
+import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
@@ -32,12 +38,17 @@ import biomesoplenty.common.world.feature.GeneratorWaterside;
 
 public class BiomeGenSteppe extends BOPBiome
 {
+    public IBlockState usualTopBlock;
+    public IBlockState alternateTopBlock;
+	
     public BiomeGenSteppe()
     {
         // terrain
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SANDY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SANDY);
-
+        this.usualTopBlock = this.topBlock;
+        this.alternateTopBlock = BOPBlocks.dried_sand.getDefaultState();
+        
         this.terrainSettings.avgHeight(70).heightVariation(6, 20).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.1D); 
         
         this.setColor(13413215);
@@ -71,6 +82,15 @@ public class BiomeGenSteppe extends BOPBiome
     }
     
     @Override
+    public void configure(IConfigObj conf)
+    {
+        super.configure(conf);
+        
+        this.usualTopBlock = this.topBlock;
+        this.alternateTopBlock = conf.getBlockState("alternateTopBlock", this.alternateTopBlock);
+    }
+    
+    @Override
     public void applySettings(BOPWorldSettings settings)
     {
         if (!settings.generateBopGems) {this.removeGenerator("ruby");}
@@ -85,6 +105,13 @@ public class BiomeGenSteppe extends BOPBiome
         
         GeneratorWeighted grassGen = (GeneratorWeighted)this.getGenerator("grass");
         if (!settings.generateBopGrasses) {grassGen.removeGenerator("shortgrass"); grassGen.removeGenerator("mediumgrass"); grassGen.removeGenerator("wheatgrass"); grassGen.removeGenerator("dampgrass"); this.removeGenerator("desertgrass");}
+    }
+    
+    @Override
+    public void genTerrainBlocks(World world, Random rand, ChunkPrimer primer, int x, int z, double noise)
+    {
+        this.topBlock = (noise + rand.nextDouble() * 1.0D > 1.8D) ? this.alternateTopBlock : this.usualTopBlock;
+        super.genTerrainBlocks(world, rand, primer, x, z, noise);
     }
     
     @Override
