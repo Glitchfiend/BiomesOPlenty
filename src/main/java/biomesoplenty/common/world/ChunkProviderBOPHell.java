@@ -554,7 +554,8 @@ public class ChunkProviderBOPHell implements IChunkProvider
 		 WorldGenMinable worldgenminable = new WorldGenMinable(Blocks.quartz_ore, 13, Blocks.netherrack);
 		 int j2;
 
-		 for (k1 = 0; k1 < 16; ++k1)
+		 doGen = TerrainGen.generateOre(worldObj, hellRNG, worldgenminable, k, l, QUARTZ);
+		 for (k1 = 0; k1 < 16 && doGen; ++k1)
 		 {
 			 l1 = k + hellRNG.nextInt(16);
 			 i2 = hellRNG.nextInt(108) + 10;
