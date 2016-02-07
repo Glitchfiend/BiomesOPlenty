@@ -79,7 +79,6 @@ public class ModBlocks
         grass =                 registerBlock( new BlockBOPGrass(), "grass" );
         waterlily =             registerBlock( new BlockBOPLilypad(), "waterlily" );
         dirt =                  registerBlock( new BlockBOPDirt(), "dirt" );
-        farmland =              registerBlock( new BlockBOPFarmland(), "farmland" );
         crystal =               registerBlock( new BlockBOPCrystal(), "crystal" );
         biome_block =           registerBlock( new BlockBOPBiomeBlock(), "biome_block" );
         
@@ -136,7 +135,11 @@ public class ModBlocks
         leaves_3 =              registerBlock( BlockBOPLeaves.paging.getBlock(3), "leaves_3" );
         leaves_4 =              registerBlock( BlockBOPLeaves.paging.getBlock(4), "leaves_4" );
         leaves_5 =              registerBlock( BlockBOPLeaves.paging.getBlock(5), "leaves_5" );
-        
+
+        BlockBOPFarmland.createAllPages();
+        farmland_0 =              registerBlock( BlockBOPFarmland.paging.getBlock(0), "farmland_0");
+        farmland_1 =              registerBlock( BlockBOPFarmland.paging.getBlock(1), "farmland_1");
+
         // 22 tree types, 8 per BlockBOPSapling instance, needs 3 'pages'
         BlockBOPSapling.createAllPages();
         sapling_0 =             registerBlock( BlockBOPSapling.paging.getBlock(0), "sapling_0");

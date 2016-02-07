@@ -10,6 +10,7 @@ package biomesoplenty.common.block;
 
 import java.util.Random;
 
+import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -35,7 +36,7 @@ import biomesoplenty.common.item.ItemBOPBlock;
 public class BlockBOPDirt extends Block implements IBOPBlock, ISustainsPlantType
 {
     // add properties
-    public static enum BOPDirtType implements IStringSerializable
+    public static enum BOPDirtType implements IStringSerializable, VariantPagingHelper.IPagedVariants
     {
         LOAMY, SANDY, SILTY;
         @Override

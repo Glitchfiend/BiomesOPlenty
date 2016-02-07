@@ -1,52 +1,65 @@
+/*******************************************************************************
+ * Copyright 2014-2016, the Biomes O' Plenty Team
+ *
+ * This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License.
+ *
+ * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
+ ******************************************************************************/
+
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.item.ItemBOPBlock;
+import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockFarmland;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class BlockBOPFarmland extends BlockFarmland implements IBOPBlock
 {
-    public static enum BOPFarmlandType implements IStringSerializable
+    public static VariantPagingHelper<BlockBOPFarmland, BlockBOPDirt.BOPDirtType> paging = new VariantPagingHelper<BlockBOPFarmland, BlockBOPDirt.BOPDirtType>(2, BlockBOPDirt.BOPDirtType.class);
+
+    private static IProperty currentVariantProperty;
+
+    public static void createAllPages()
     {
-        LOAMY, SANDY, SILTY;
-        @Override
-        public String getName()
+        int numPages = paging.getNumPages();
+        for (int i = 0; i < numPages; ++i)
         {
-            return this.name().toLowerCase();
-        }
-        @Override
-        public String toString()
-        {
-            return this.getName();
+            currentVariantProperty = paging.getVariantProperty(i);
+            paging.addBlock(i, new BlockBOPFarmland());
         }
     }
 
-    public static final PropertyEnum VARIANT = PropertyEnum.create("variant", BOPFarmlandType.class);
+    public IProperty variantProperty;
+
     @Override
-    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { MOISTURE, VARIANT });}
+    protected BlockState createBlockState()
+    {
+        this.variantProperty = currentVariantProperty;
+        return new BlockState(this, new IProperty[] { MOISTURE, this.variantProperty });
+    }
 
     @Override
     public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
@@ -55,16 +68,15 @@ public class BlockBOPFarmland extends BlockFarmland implements IBOPBlock
     public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
 
     @Override
-    public IProperty[] getPresetProperties() { return new IProperty[] { VARIANT }; }
+    public IProperty[] getPresetProperties() { return new IProperty[] { this.variantProperty }; }
 
     @Override
     public IProperty[] getNonRenderingProperties() { return null; }
 
     @Override
-    public String getStateName(IBlockState state) {
-        BOPFarmlandType farmlandType = (BOPFarmlandType)state.getValue(VARIANT);
-
-        return farmlandType + "_farmland";
+    public String getStateName(IBlockState state)
+    {
+        return ((BlockBOPDirt.BOPDirtType) state.getValue(this.variantProperty)).getName() + "_farmland";
     }
 
     public BlockBOPFarmland()
@@ -73,17 +85,20 @@ public class BlockBOPFarmland extends BlockFarmland implements IBOPBlock
         this.setHardness(0.6F);
         this.setHarvestLevel("shovel", 0);
         this.setStepSound(soundTypeGravel);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(MOISTURE, Integer.valueOf(0)).withProperty(VARIANT, BOPFarmlandType.LOAMY));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(MOISTURE, Integer.valueOf(0)));
     }
 
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(MOISTURE, Integer.valueOf(meta & 7)).withProperty(VARIANT, BOPFarmlandType.values()[Math.min(2, meta & 7)]);
+        return this.getDefaultState().withProperty(this.variantProperty, paging.getVariant(this, meta & 1)).withProperty(MOISTURE, Integer.valueOf(meta >> 1));
     }
 
     public int getMetaFromState(IBlockState state)
     {
-        return ((BOPFarmlandType) state.getValue(VARIANT)).ordinal();
+        BlockBOPDirt.BOPDirtType dirt = (BlockBOPDirt.BOPDirtType) state.getValue(this.variantProperty);
+        int meta = paging.getIndex(dirt);
+        meta |= state.getValue(MOISTURE) << 1;
+        return meta;
     }
 
     @Override
@@ -99,12 +114,12 @@ public class BlockBOPFarmland extends BlockFarmland implements IBOPBlock
             }
             else if (!this.hasCrops(world, pos))
             {
-                world.setBlockState(pos, BOPBlocks.dirt.getDefaultState());
+                world.setBlockState(pos, this.getDirtBlockState(world.getBlockState(pos)));
             }
         }
         else if (i < 7)
         {
-            world.setBlockState(pos, state.withProperty(MOISTURE, Integer.valueOf(0)), 2);
+            world.setBlockState(pos, state.withProperty(MOISTURE, Integer.valueOf(7)), 2);
         }
     }
 
@@ -130,11 +145,9 @@ public class BlockBOPFarmland extends BlockFarmland implements IBOPBlock
     @Override
     public void onNeighborBlockChange(World world, BlockPos pos, IBlockState state, Block neighborBlock)
     {
-        super.onNeighborBlockChange(world, pos, state, neighborBlock);
-
         if (world.getBlockState(pos.up()).getBlock().getMaterial().isSolid())
         {
-            world.setBlockState(pos, BOPBlocks.dirt.getDefaultState());
+            world.setBlockState(pos, this.getDirtBlockState(world.getBlockState(pos)));
         }
     }
 
@@ -150,23 +163,27 @@ public class BlockBOPFarmland extends BlockFarmland implements IBOPBlock
                     return;
                 }
 
-                world.setBlockState(pos, BOPBlocks.dirt.getDefaultState()); //TODO Check, was setBlock(pos, BOPBlocks.dirt, (world.getBlockMetadata(pos) / 2) * 2, 2);
+                world.setBlockState(pos, this.getDirtBlockState(world.getBlockState(pos)));
             }
         }
     }
 
     @Override
-    public ArrayList<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
+    public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
-        ret.add(new ItemStack(BOPBlocks.dirt, 1, (state.getBlock().getMetaFromState(state) / 2) * 2)); //TODO Check
-        return ret;
+        return Item.getItemFromBlock(BOPBlocks.dirt);
+    }
+
+    @Override
+    public int damageDropped(IBlockState state)
+    {
+        return BOPBlocks.dirt.getMetaFromState(this.getDirtBlockState(state));
     }
 
     @Override
     public ItemStack getPickBlock(MovingObjectPosition target, World world, BlockPos pos, EntityPlayer player)
     {
-        return new ItemStack(BOPBlocks.dirt, 1, this.getMetaFromState(world.getBlockState(pos)));
+        return new ItemStack(BOPBlocks.dirt, 1, BOPBlocks.dirt.getMetaFromState(this.getDirtBlockState(world.getBlockState(pos))));
     }
 
     @Override
@@ -180,6 +197,21 @@ public class BlockBOPFarmland extends BlockFarmland implements IBOPBlock
                 return true;
             default:
                 return super.canSustainPlant(world, pos, direction, plantable);
+        }
+    }
+
+    public IBlockState getDirtBlockState(IBlockState state)
+    {
+        switch ((BlockBOPDirt.BOPDirtType) state.getValue(this.variantProperty))
+        {
+            case LOAMY:
+                return BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.LOAMY);
+            case SANDY:
+                return BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SANDY);
+            case SILTY:
+                return BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY);
+            default:
+            return Blocks.dirt.getStateFromMeta(BlockDirt.DirtType.DIRT.getMetadata());
         }
     }
 }
