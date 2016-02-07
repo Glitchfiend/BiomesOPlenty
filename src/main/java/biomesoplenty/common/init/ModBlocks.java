@@ -137,8 +137,8 @@ public class ModBlocks
         leaves_5 =              registerBlock( BlockBOPLeaves.paging.getBlock(5), "leaves_5" );
 
         BlockBOPFarmland.createAllPages();
-        farmland_0 =              registerBlock( BlockBOPFarmland.paging.getBlock(0), "farmland_0");
-        farmland_1 =              registerBlock( BlockBOPFarmland.paging.getBlock(1), "farmland_1");
+        farmland_0 =              registerBlock( BlockBOPFarmland.paging.getBlock(0), "farmland_0", null);
+        farmland_1 =              registerBlock( BlockBOPFarmland.paging.getBlock(1), "farmland_1", null);
 
         // 22 tree types, 8 per BlockBOPSapling instance, needs 3 'pages'
         BlockBOPSapling.createAllPages();
