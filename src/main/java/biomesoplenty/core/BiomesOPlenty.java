@@ -39,12 +39,13 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 
-@Mod(modid = BiomesOPlenty.MOD_ID, name = BiomesOPlenty.MOD_NAME, dependencies = "required-after:Forge@[11.14.3.1468,)")
+@Mod(modid = BiomesOPlenty.MOD_ID, name = BiomesOPlenty.MOD_NAME, dependencies = "required-after:Forge@[11.14.3.1468,)", guiFactory = BiomesOPlenty.GUI_FACTORY)
 public class BiomesOPlenty
 {
     public static final String MOD_NAME = "Biomes O' Plenty";
     public static final String MOD_ID = "BiomesOPlenty";
-     
+    public static final String GUI_FACTORY = "biomesoplenty.client.gui.GuiFactory";
+
     @Instance(MOD_ID)
     public static BiomesOPlenty instance;
 

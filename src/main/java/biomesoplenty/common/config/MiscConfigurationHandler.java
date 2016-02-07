@@ -8,40 +8,50 @@
 
 package biomesoplenty.common.config;
 
-import java.io.File;
-
 import biomesoplenty.common.remote.TrailManager;
 import biomesoplenty.common.remote.TrailManager.TrailVisibilityMode;
 import biomesoplenty.common.util.entity.PlayerUtil;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
+
+import java.io.File;
 
 public class MiscConfigurationHandler
 {
     public static Configuration config;
-    
+
+    public static String guiSettings = "GUI Settings";
+    public static String textureSettings = "Texture Settings";
+
     public static boolean useBoPWorldTypeDefault;
     public static boolean overrideTitlePanorama;
     public static boolean overrideForgeBuckets;
-    
+
     //Client-side only
     public static TrailVisibilityMode trailVisbilityMode;
 
     public static void init(File configFile)
     {
-        config = new Configuration(configFile);
+        if (config == null)
+        {
+            config = new Configuration(configFile);
+            loadConfiguration();
+        }
+    }
 
+    private static void loadConfiguration()
+    {
         try
         {
-            config.load();
-            
             //TODO: Make this default to true once all biomes have been implemented
-            useBoPWorldTypeDefault = config.getBoolean("Default to BoP World Type", "GUI Settings", false, "Use the Biomes O' Plenty World Type by default when selecting a world.");
-            overrideTitlePanorama = config.getBoolean("Enable Biomes O\' Plenty Main Menu Panorama", "Texture Settings", true, "Override the main menu panorama and use ours instead (It\'s nicer!)");
-            overrideForgeBuckets = config.getBoolean("Enable Biomes O\' Plenty Bucket Textures", "Texture Settings", true, "Override the Forge bucket texture and use ours instead (It\'s nicer!)");
-             
+            useBoPWorldTypeDefault = config.getBoolean("Default to BoP World Type", guiSettings, false, "Use the Biomes O' Plenty World Type by default when selecting a world.");
+            overrideTitlePanorama = config.getBoolean("Enable Biomes O\' Plenty Main Menu Panorama", textureSettings, true, "Override the main menu panorama and use ours instead (It\'s nicer!)");
+            overrideForgeBuckets = config.getBoolean("Enable Biomes O\' Plenty Bucket Textures", textureSettings, true, "Override the Forge bucket texture and use ours instead (It\'s nicer!)");
+
             //Client-side only options
             if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
             {
@@ -59,6 +69,15 @@ public class MiscConfigurationHandler
         finally
         {
             if (config.hasChanged()) config.save();
+        }
+    }
+
+    @SubscribeEvent
+    public void onConfigurationChangedEvent(ConfigChangedEvent.OnConfigChangedEvent event)
+    {
+        if (event.modID.equalsIgnoreCase(BiomesOPlenty.MOD_ID))
+        {
+            loadConfiguration();
         }
     }
 }
