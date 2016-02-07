@@ -14,6 +14,9 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.BlockPos;
+import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.common.EnumPlantType;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.item.ItemBOPBlock;
@@ -45,6 +48,11 @@ public class BlockBOPTurnip extends BlockCrops implements IBOPBlock
     protected Item getCrop()
     {
         return BOPItems.turnip;
+    }
+    
+    @Override
+    public EnumPlantType getPlantType(IBlockAccess world, BlockPos pos) {
+        return EnumPlantType.Crop;
     }
 
 }    

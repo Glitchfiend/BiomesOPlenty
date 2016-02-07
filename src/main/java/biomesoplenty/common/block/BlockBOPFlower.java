@@ -252,7 +252,7 @@ public class BlockBOPFlower extends BlockBOPDecoration implements IShearable
         IBlockState groundState = world.getBlockState(pos.down());
         Block groundBlock = groundState.getBlock();
         
-        boolean onFertile = (groundBlock == Blocks.dirt || groundBlock == Blocks.farmland || groundBlock == BOPBlocks.dirt || groundBlock == Blocks.grass);
+        boolean onFertile = (groundBlock == Blocks.dirt || groundBlock == Blocks.farmland || groundBlock == BOPBlocks.farmland_0 || groundBlock == BOPBlocks.farmland_1 || groundBlock == BOPBlocks.dirt || groundBlock == Blocks.grass);
         boolean onDry = (groundBlock == Blocks.hardened_clay || groundBlock == BOPBlocks.sand || groundBlock == Blocks.sand);
         boolean onNetherrack = (groundBlock == Blocks.netherrack);
         boolean onStone = (groundBlock == Blocks.stone);

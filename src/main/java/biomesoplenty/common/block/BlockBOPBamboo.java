@@ -66,7 +66,7 @@ public class BlockBOPBamboo extends BlockBOPDecoration
             return true;
         }
         // can place on various soil blocks
-        if (groundBlock == Blocks.dirt || groundBlock == Blocks.farmland || groundBlock == BOPBlocks.dirt || groundBlock == Blocks.grass)
+        if (groundBlock == Blocks.dirt || groundBlock == Blocks.farmland || groundBlock == BOPBlocks.farmland_0 || groundBlock == BOPBlocks.farmland_1 || groundBlock == BOPBlocks.dirt || groundBlock == Blocks.grass)
         {
             return true;
         }

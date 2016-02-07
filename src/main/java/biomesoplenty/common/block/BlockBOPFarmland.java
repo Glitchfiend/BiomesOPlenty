@@ -195,6 +195,8 @@ public class BlockBOPFarmland extends BlockFarmland implements IBOPBlock
         {
             case Crop:
                 return true;
+            case Plains:
+            	return true;
             default:
                 return super.canSustainPlant(world, pos, direction, plantable);
         }
