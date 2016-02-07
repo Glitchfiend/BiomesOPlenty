@@ -13,6 +13,8 @@ import static biomesoplenty.api.item.BOPItems.blood_bucket;
 import static biomesoplenty.api.item.BOPItems.honey_bucket;
 import static biomesoplenty.api.item.BOPItems.poison_bucket;
 import static biomesoplenty.api.item.BOPItems.hot_spring_water_bucket;
+
+import biomesoplenty.common.block.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.BlockStairs;
@@ -32,44 +34,6 @@ import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.common.block.BlockBOPAsh;
-import biomesoplenty.common.block.BlockBOPBamboo;
-import biomesoplenty.common.block.BlockBOPBiomeBlock;
-import biomesoplenty.common.block.BlockBOPBones;
-import biomesoplenty.common.block.BlockBOPCoral;
-import biomesoplenty.common.block.BlockBOPCrystal;
-import biomesoplenty.common.block.BlockBOPDirt;
-import biomesoplenty.common.block.BlockBOPDoor;
-import biomesoplenty.common.block.BlockBOPDoubleOtherSlab;
-import biomesoplenty.common.block.BlockBOPDoublePlant;
-import biomesoplenty.common.block.BlockBOPDoubleWoodSlab;
-import biomesoplenty.common.block.BlockBOPFence;
-import biomesoplenty.common.block.BlockBOPFenceGate;
-import biomesoplenty.common.block.BlockBOPFlesh;
-import biomesoplenty.common.block.BlockBOPFlower;
-import biomesoplenty.common.block.BlockBOPGem;
-import biomesoplenty.common.block.BlockBOPGemOre;
-import biomesoplenty.common.block.BlockBOPGeneric;
-import biomesoplenty.common.block.BlockBOPGrass;
-import biomesoplenty.common.block.BlockBOPHalfOtherSlab;
-import biomesoplenty.common.block.BlockBOPHalfWoodSlab;
-import biomesoplenty.common.block.BlockBOPHive;
-import biomesoplenty.common.block.BlockBOPHoney;
-import biomesoplenty.common.block.BlockBOPLeaves;
-import biomesoplenty.common.block.BlockBOPLilypad;
-import biomesoplenty.common.block.BlockBOPLog;
-import biomesoplenty.common.block.BlockBOPMud;
-import biomesoplenty.common.block.BlockBOPMushroom;
-import biomesoplenty.common.block.BlockBOPPlanks;
-import biomesoplenty.common.block.BlockBOPPlant;
-import biomesoplenty.common.block.BlockBOPSand;
-import biomesoplenty.common.block.BlockBOPSapling;
-import biomesoplenty.common.block.BlockBOPSeaweed;
-import biomesoplenty.common.block.BlockBOPStone;
-import biomesoplenty.common.block.BlockBOPTerrarium;
-import biomesoplenty.common.block.BlockBOPTurnip;
-import biomesoplenty.common.block.BlockBOPVine;
-import biomesoplenty.common.block.BlockBOPWoodStairs;
 import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.fluids.BloodFluid;
@@ -171,7 +135,11 @@ public class ModBlocks
         leaves_3 =              registerBlock( BlockBOPLeaves.paging.getBlock(3), "leaves_3" );
         leaves_4 =              registerBlock( BlockBOPLeaves.paging.getBlock(4), "leaves_4" );
         leaves_5 =              registerBlock( BlockBOPLeaves.paging.getBlock(5), "leaves_5" );
-        
+
+        BlockBOPFarmland.createAllPages();
+        farmland_0 =              registerBlock( BlockBOPFarmland.paging.getBlock(0), "farmland_0");
+        farmland_1 =              registerBlock( BlockBOPFarmland.paging.getBlock(1), "farmland_1");
+
         // 22 tree types, 8 per BlockBOPSapling instance, needs 3 'pages'
         BlockBOPSapling.createAllPages();
         sapling_0 =             registerBlock( BlockBOPSapling.paging.getBlock(0), "sapling_0");
