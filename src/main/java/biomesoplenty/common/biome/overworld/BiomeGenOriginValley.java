@@ -38,7 +38,7 @@ public class BiomeGenOriginValley extends BOPBiome
         this.canGenerateVillages = false;
         this.canGenerateRivers = false;
         
-        this.addWeight(BOPClimates.WARM_TEMPERATE, 1);
+        this.addWeight(BOPClimates.COOL_TEMPERATE, 1);
         
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BOPGrassType.ORIGIN);
 

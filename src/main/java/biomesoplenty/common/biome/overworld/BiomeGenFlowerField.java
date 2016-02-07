@@ -42,7 +42,7 @@ public class BiomeGenFlowerField extends BOPBiome
         this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
         
         // flowers
-        GeneratorWeighted flowerGenerator = new GeneratorWeighted(99);
+        GeneratorWeighted flowerGenerator = new GeneratorWeighted(50);
         this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
         flowerGenerator.add("pink_tulip", 2, (new GeneratorFlora.Builder().with(EnumFlowerType.PINK_TULIP).create()));
         flowerGenerator.add("white_tulip", 5, (new GeneratorFlora.Builder().with(EnumFlowerType.WHITE_TULIP).create()));
@@ -50,7 +50,7 @@ public class BiomeGenFlowerField extends BOPBiome
         flowerGenerator.add("red_tulip", 10, (new GeneratorFlora.Builder().with(EnumFlowerType.RED_TULIP).create()));
         
         // grasses
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(0.5F);
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(15.0F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("shortgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
         grassGenerator.add("mediumgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());

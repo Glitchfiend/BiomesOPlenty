@@ -52,7 +52,7 @@ public class BiomeGenTemperateRainforest extends BOPBiome
         
         this.canGenerateVillages = false;
     
-        this.addWeight(BOPClimates.WET_TEMPERATE, 10);
+        this.addWeight(BOPClimates.WET_TEMPERATE, 7);
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntitySnail.class, 6, 1, 2));
         

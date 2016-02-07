@@ -50,7 +50,7 @@ public class BiomeGenHeathland extends BOPBiome
         this.setColor(0xADAE68);
         this.setTemperatureRainfall(0.7F, 0.05F);
         
-        this.addWeight(BOPClimates.MEDITERANEAN, 5);
+        this.addWeight(BOPClimates.DRY_TEMPERATE, 5);
         
         this.canGenerateVillages = true;
         
