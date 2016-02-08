@@ -51,6 +51,13 @@ biome_finder.searching=Searching for %s
 biome_finder.found=Found %s!
 biome_finder.not_found=Not found, maybe %s is too far away
 
+config.category.convenienceSettings.title=Convenience Settings
+config.category.guiSettings.title=GUI Settings
+config.category.textureSettings.title=Texture Settings
+config.category.convenienceSettings.tooltip=Require shears to be used to collect flower drops.
+config.category.guiSettings.tooltip=Use the Biomes O' Plenty World Type by default when selecting a world.
+config.category.textureSettings.tooltip=Override the Forge bucket texture and use ours instead (It's nicer!)
+
 commands.biomesoplenty.usage=/biomesoplenty <tpbiome|biomename|stripchunk> [args]
 commands.biomesoplenty.biomename.usage=/biomesoplenty biomename [biomeId]
 commands.biomesoplenty.biomename.success=Biome ID %s is associated with %s
