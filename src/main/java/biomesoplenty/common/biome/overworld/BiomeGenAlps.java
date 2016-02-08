@@ -27,7 +27,7 @@ public class BiomeGenAlps extends BOPBiome
         
         this.setColor(13421772);
         this.setEnableSnow();
-        this.setTemperatureRainfall(0.0F, 0.5F);
+        this.setTemperatureRainfall(-0.5F, 0.3F);
 
         this.canGenerateRivers = false;
         this.canSpawnInBiome = false;

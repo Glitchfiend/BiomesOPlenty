@@ -24,7 +24,7 @@ public class BiomeGenCrag extends BOPBiome
         this.terrainSettings.avgHeight(80).heightVariation(80, 200).minHeight(40).sidewaysNoise(0.7F);
         
         this.setColor(5209457);
-        this.setTemperatureRainfall(0.9F, 0.5F);
+        this.setTemperatureRainfall(0.5F, 0.5F);
 
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;

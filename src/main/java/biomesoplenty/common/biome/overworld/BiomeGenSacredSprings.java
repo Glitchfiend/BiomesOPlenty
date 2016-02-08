@@ -39,7 +39,7 @@ public class BiomeGenSacredSprings extends BOPBiome
         this.terrainSettings.avgHeight(62).heightVariation(11, 45);
         
         this.setColor(39259);
-        this.setTemperatureRainfall(1.2F, 0.9F);
+        this.setTemperatureRainfall(0.8F, 0.9F);
         
         this.canSpawnInBiome = false;
         this.canGenerateRivers = false;

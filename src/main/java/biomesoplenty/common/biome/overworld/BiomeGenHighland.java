@@ -33,7 +33,7 @@ public class BiomeGenHighland extends BOPBiome
         this.terrainSettings.avgHeight(120).heightVariation(25, 25);
         
         this.setColor(0x7CAD66);
-        this.setTemperatureRainfall(0.5F, 0.8F);
+        this.setTemperatureRainfall(0.55F, 0.8F);
         
         this.canGenerateRivers = false;
         this.canGenerateVillages = false;

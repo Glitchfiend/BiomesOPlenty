@@ -42,7 +42,7 @@ public class BiomeGenFrostForest extends BOPBiome
         this.setColor(0xABD6BC);
         //this.skyColor = 0xCEE0EA;
         this.setEnableSnow();
-        this.setTemperatureRainfall(0.0F, 0.5F);
+        this.setTemperatureRainfall(-0.25F, 0.5F);
         
         this.canGenerateVillages = false;
 

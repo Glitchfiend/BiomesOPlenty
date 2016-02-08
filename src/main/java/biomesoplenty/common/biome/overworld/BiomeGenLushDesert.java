@@ -46,7 +46,7 @@ public class BiomeGenLushDesert extends BOPBiome
         this.terrainSettings.avgHeight(64).heightVariation(4, 15);
         
         this.setColor(0x8AA92D);
-        this.setTemperatureRainfall(1.1F, 0.5F);
+        this.setTemperatureRainfall(1.2F, 0.5F);
         this.topBlock = Blocks.hardened_clay.getDefaultState();
         this.fillerBlock = Blocks.hardened_clay.getDefaultState();
         

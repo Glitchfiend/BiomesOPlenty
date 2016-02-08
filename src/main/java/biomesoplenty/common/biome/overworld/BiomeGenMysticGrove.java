@@ -52,7 +52,7 @@ public class BiomeGenMysticGrove extends BOPBiome
         
         this.setColor(0x69CFDB);
         this.skyColor = 0x88E8D0;
-        this.setTemperatureRainfall(0.7F, 1.0F);
+        this.setTemperatureRainfall(0.6F, 0.8F);
         this.waterColorMultiplier = 0xFF107A;
 
         this.canGenerateRivers = false;

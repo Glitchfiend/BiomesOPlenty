@@ -57,14 +57,15 @@ public class BiomeGenColdDesert extends BOPBiome
         if (type == ColdDesertType.FROZEN)
         {
         	this.alternateTopBlock = BOPBlocks.hard_ice.getDefaultState();
-            this.setTemperatureRainfall(0.0F, 0.0F);
+            this.setTemperatureRainfall(-0.5F, 0.0F);
             this.addWeight(BOPClimates.ICE_CAP, 10);
             this.setColor(0xB3D7E3);
         }
         else
         {
         	this.alternateTopBlock = Blocks.snow.getDefaultState();
-            this.setTemperatureRainfall(0.2F, 0.0F);
+            this.setTemperatureRainfall(0.0F, 0.0F);
+            this.enableSnow = false;
             this.addWeight(BOPClimates.ICE_CAP, 10);
             this.setColor(0xB3AF9B);
         }

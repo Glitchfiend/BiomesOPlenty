@@ -40,7 +40,7 @@ public class BiomeGenEucalyptusForest extends BOPBiome
         this.terrainSettings.avgHeight(64).heightVariation(10, 20); 
         
         this.setColor(0x9DCC70);
-        this.setTemperatureRainfall(0.9F, 0.9F);
+        this.setTemperatureRainfall(0.85F, 0.9F);
         
         this.canGenerateVillages = false;
 

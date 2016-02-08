@@ -45,7 +45,7 @@ public class BiomeGenCanyon extends BOPBiome
         }
 
         this.setColor(0xB49C70);
-        this.setTemperatureRainfall(1.0F, 0.3F);
+        this.setTemperatureRainfall(1.2F, 0.3F);
         
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;

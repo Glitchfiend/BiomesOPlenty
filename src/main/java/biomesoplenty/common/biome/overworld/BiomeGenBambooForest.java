@@ -57,7 +57,7 @@ public class BiomeGenBambooForest extends BOPBiome
         this.terrainSettings.avgHeight(68).heightVariation(5, 10);
         
         this.setColor(0xA3E053);
-        this.setTemperatureRainfall(1.2F, 0.9F);
+        this.setTemperatureRainfall(0.85F, 0.9F);
 
         this.canGenerateVillages = false;
         

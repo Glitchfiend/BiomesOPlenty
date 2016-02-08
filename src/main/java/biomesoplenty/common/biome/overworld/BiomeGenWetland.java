@@ -54,7 +54,7 @@ public class BiomeGenWetland extends BOPBiome
         this.terrainSettings.avgHeight(63).heightVariation(5, 15).octaves(1, 1, 1, 1, 0, 0).sidewaysNoise(0.0F);
         
         this.setColor(0x4F9657);
-        this.setTemperatureRainfall(0.6F, 0.9F);
+        this.setTemperatureRainfall(0.6F, 0.7F);
         this.waterColorMultiplier = 0x636084;
         this.seaFloorBlock = BOPBlocks.mud.getDefaultState();
 

@@ -52,7 +52,7 @@ public class BiomeGenSteppe extends BOPBiome
         this.terrainSettings.avgHeight(70).heightVariation(6, 20).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.1D); 
         
         this.setColor(13413215);
-        this.setTemperatureRainfall(0.7F, 0.05F);
+        this.setTemperatureRainfall(0.9F, 0.1F);
         
         this.canSpawnInBiome = false;
         this.canGenerateVillages = true;

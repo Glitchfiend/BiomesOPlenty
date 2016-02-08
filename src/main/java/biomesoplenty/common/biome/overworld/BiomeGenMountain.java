@@ -78,7 +78,7 @@ public class BiomeGenMountain extends BOPBiome
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
         this.setColor(0x80A355);
-        this.setTemperatureRainfall(0.5F, 0.1F);
+        this.setTemperatureRainfall(0.3F, 0.1F);
         
         if (type == MountainType.PEAKS)
         {
