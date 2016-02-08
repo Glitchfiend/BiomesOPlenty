@@ -48,7 +48,7 @@ public class BiomeGenHeathland extends BOPBiome
         this.terrainSettings.avgHeight(65).heightVariation(5, 15).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.1D);
         
         this.setColor(0xADAE68);
-        this.setTemperatureRainfall(0.7F, 0.05F);
+        this.setTemperatureRainfall(0.75F, 0.05F);
         
         this.addWeight(BOPClimates.DRY_TEMPERATE, 5);
         

@@ -50,7 +50,7 @@ public class BiomeGenWasteland extends BOPBiome
         this.terrainSettings.avgHeight(66).heightVariation(1,5);
         
         this.setColor(0x5A5440);
-        this.setTemperatureRainfall(0.9F, 0.05F);
+        this.setTemperatureRainfall(2.0F, 0.05F);
         this.topBlock = BOPBlocks.dried_sand.getDefaultState();
         this.fillerBlock = BOPBlocks.dried_sand.getDefaultState();
         this.waterColorMultiplier = 0xE5FF00;

@@ -59,7 +59,7 @@ public class BiomeGenOminousWoods extends BOPBiome
         
         this.setColor(0x3F4151);
         this.skyColor = 0x34333D;
-        this.setTemperatureRainfall(0.5F, 0.9F);
+        this.setTemperatureRainfall(0.45F, 0.6F);
         this.waterColorMultiplier = 0x1E1B26;
 
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.LOAMY);

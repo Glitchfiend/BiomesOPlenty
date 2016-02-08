@@ -40,7 +40,7 @@ public class BiomeGenRainforest extends BOPBiome
         this.terrainSettings.avgHeight(80).heightVariation(50, 50).sidewaysNoise(1.5D);
 
         this.setColor(0x14E26F);
-        this.setTemperatureRainfall(1.0F, 1.0F);
+        this.setTemperatureRainfall(0.95F, 1.0F);
         this.addWeight(BOPClimates.TROPICAL, 7);
         
         this.canSpawnInBiome = false;

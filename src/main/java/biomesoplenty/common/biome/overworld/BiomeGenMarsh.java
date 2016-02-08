@@ -50,7 +50,7 @@ public class BiomeGenMarsh extends BOPBiome
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.LOAMY);
         this.seaFloorBlock = BOPBlocks.mud.getDefaultState();
         this.setColor(0x66A06E);
-        this.setTemperatureRainfall(0.5F, 0.9F);
+        this.setTemperatureRainfall(0.65F, 0.9F);
         
         this.canSpawnInBiome = false;
         this.canGenerateRivers = false;

@@ -51,7 +51,7 @@ public class BiomeGenBayou extends BOPBiome
         this.terrainSettings.avgHeight(63).heightVariation(5, 10).octaves(1, 1, 1, 1, 0, 0).sidewaysNoise(0.0F);
         
         this.setColor(0x8BAF6B);
-        this.setTemperatureRainfall(0.8F, 0.9F);
+        this.setTemperatureRainfall(0.85F, 0.9F);
         this.waterColorMultiplier = 0xFFD932;
         //this.skyColor = 0xACC4BC;
         this.seaFloorBlock = BOPBlocks.mud.getDefaultState();

@@ -40,7 +40,7 @@ public class BiomeGenConiferousForest extends BOPBiome
         this.terrainSettings.avgHeight(68).heightVariation(10, 20);
         
         this.setColor(0x528F60);
-        this.setTemperatureRainfall(0.5F, 0.5F);
+        this.setTemperatureRainfall(0.45F, 0.5F);
         
         this.canGenerateVillages = false;
     

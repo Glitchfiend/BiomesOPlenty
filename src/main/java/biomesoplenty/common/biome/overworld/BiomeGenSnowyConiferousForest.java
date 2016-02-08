@@ -38,7 +38,7 @@ public class BiomeGenSnowyConiferousForest extends BOPBiome
         
         this.setColor(0xFFFFFF);
         this.setEnableSnow();
-        this.setTemperatureRainfall(0.0F, 0.5F);
+        this.setTemperatureRainfall(-0.25F, 0.5F);
     
         this.canGenerateVillages = false;
         

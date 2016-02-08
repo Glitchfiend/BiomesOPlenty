@@ -59,7 +59,7 @@ public class BiomeGenShield extends BOPBiome
         this.terrainSettings.avgHeight(63).heightVariation(10, 10).sidewaysNoise(0.1D).octaves(1, 4, 3, 1, 1, 0);
         
         this.setColor(0x647F38);
-        this.setTemperatureRainfall(0.5F, 0.8F);
+        this.setTemperatureRainfall(0.3F, 0.8F);
         
         this.topBlock = Blocks.grass.getDefaultState();
         this.usualTopBlock = this.topBlock;

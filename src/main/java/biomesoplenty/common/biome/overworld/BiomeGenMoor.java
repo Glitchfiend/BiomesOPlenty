@@ -38,7 +38,7 @@ public class BiomeGenMoor extends BOPBiome
         // terrain
         this.terrainSettings.avgHeight(88).heightVariation(8, 10).octaves(0, 1, 1, 3, 1, 0);
         
-        this.setTemperatureRainfall(0.5F, 1.0F);
+        this.setTemperatureRainfall(0.4F, 1.0F);
         this.setColor(0x619365);
         this.waterColorMultiplier = 0x588276;
         //this.skyColor =0xA0C5D3;

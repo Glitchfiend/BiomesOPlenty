@@ -35,7 +35,7 @@ public class BiomeGenMapleWoods extends BOPBiome
         this.terrainSettings.avgHeight(70).heightVariation(10, 25);
 
         this.setColor(0x6AA369);
-        this.setTemperatureRainfall(0.2F, 0.8F);
+        this.setTemperatureRainfall(0.25F, 0.8F);
         this.addWeight(BOPClimates.BOREAL, 10);
 
         this.canGenerateVillages = false;

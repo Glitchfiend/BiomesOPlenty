@@ -45,7 +45,7 @@ public class BiomeGenDeadForest extends BOPBiome
         this.canGenerateVillages = false;
         
         this.setColor(0xBCA165);
-        this.setTemperatureRainfall(0.4F, 0.3F);
+        this.setTemperatureRainfall(0.3F, 0.3F);
         
         this.addWeight(BOPClimates.BOREAL, 3);
         

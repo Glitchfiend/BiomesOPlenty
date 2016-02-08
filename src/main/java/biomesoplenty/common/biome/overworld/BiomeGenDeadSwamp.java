@@ -48,7 +48,7 @@ public class BiomeGenDeadSwamp extends BOPBiome
         // terrain
         this.terrainSettings.avgHeight(63).heightVariation(6, 3);
 
-        this.setTemperatureRainfall(0.7F, 0.9F);
+        this.setTemperatureRainfall(0.55F, 0.9F);
         this.setColor(0x8BAF48);
         this.waterColorMultiplier = 0xA2AD51;
         //this.skyColor = 0x627268;

@@ -40,7 +40,7 @@ public class BiomeGenBrushland extends BOPBiome
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SANDY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SANDY);
         this.setColor(0xC6C19B);
-        this.setTemperatureRainfall(1.0F, 0.1F);
+        this.setTemperatureRainfall(1.5F, 0.1F);
         this.addWeight(BOPClimates.SAVANNA, 10);
         
         this.canGenerateVillages = true;
