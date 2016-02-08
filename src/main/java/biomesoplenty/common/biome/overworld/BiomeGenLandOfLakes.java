@@ -57,7 +57,7 @@ public class BiomeGenLandOfLakes extends BOPBiome
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.LOAMY);
         this.seaFloorBlock = BOPBlocks.mud.getDefaultState();
         this.setColor(0x66A06E);
-        this.setTemperatureRainfall(0.45F, 0.9F);
+        this.setTemperatureRainfall(0.5F, 0.9F);
         
         this.canGenerateVillages = false;
         

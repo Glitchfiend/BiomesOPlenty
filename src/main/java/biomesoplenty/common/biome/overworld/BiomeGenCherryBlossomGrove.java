@@ -43,7 +43,7 @@ public class BiomeGenCherryBlossomGrove extends BOPBiome
         this.terrainSettings.avgHeight(63).heightVariation(5, 25).sidewaysNoise(0.8F);
         
         this.setColor(0xF88F8F);
-        this.setTemperatureRainfall(0.6F, 0.8F);
+        this.setTemperatureRainfall(0.55F, 0.8F);
         
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
