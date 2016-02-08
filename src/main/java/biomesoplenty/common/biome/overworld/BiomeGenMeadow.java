@@ -39,8 +39,8 @@ public class BiomeGenMeadow extends BOPBiome
         this.setColor(0x63B26D);
         this.setTemperatureRainfall(0.45F, 0.7F);
 
-        this.addWeight(BOPClimates.COOL_TEMPERATE, 10);
-        this.addWeight(BOPClimates.BOREAL, 3);
+        this.addWeight(BOPClimates.COOL_TEMPERATE, 3);
+        this.addWeight(BOPClimates.BOREAL, 7);
         
         this.canGenerateVillages = true;
         

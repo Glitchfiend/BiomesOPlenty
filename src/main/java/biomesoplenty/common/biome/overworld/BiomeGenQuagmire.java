@@ -42,7 +42,7 @@ public class BiomeGenQuagmire extends BOPBiome
         this.terrainSettings.avgHeight(63).heightVariation(5, 10).octaves(1, 1, 1, 1, 0, 0).sidewaysNoise(0.0F);
         
         this.setColor(0x503A2B);
-        this.setTemperatureRainfall(0.5F, 0.9F);
+        this.setTemperatureRainfall(0.55F, 0.9F);
         this.topBlock = BOPBlocks.mud.getDefaultState();
         this.fillerBlock = BOPBlocks.mud.getDefaultState();
         this.waterColorMultiplier = 0xCC5100;

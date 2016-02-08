@@ -40,7 +40,7 @@ public class BiomeGenGrove extends BOPBiome
         this.terrainSettings.avgHeight(66).heightVariation(8, 20).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.1D);
         
         this.setColor(0x517F51);
-        this.setTemperatureRainfall(0.6F, 0.8F);
+        this.setTemperatureRainfall(0.55F, 0.8F);
         
         this.addWeight(BOPClimates.COOL_TEMPERATE, 7);
         
