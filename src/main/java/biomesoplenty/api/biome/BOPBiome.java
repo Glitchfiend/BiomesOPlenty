@@ -363,6 +363,12 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
             }
         }
     }
+    
+    @Override
+    public int getBeachId()
+    {
+        return this.beachBiomeId;
+    }
 
     @Override
     public BiomeGenBase getBaseBiome()

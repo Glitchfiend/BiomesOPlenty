@@ -10,6 +10,8 @@ package biomesoplenty.common.world.layer;
 import com.google.common.base.Predicate;
 
 import biomesoplenty.api.biome.BOPBiome;
+import biomesoplenty.api.biome.BOPBiomes;
+import biomesoplenty.api.biome.IExtendedBiome;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.BiomeGenJungle;
 import net.minecraft.world.biome.BiomeGenMesa;
@@ -71,10 +73,10 @@ public class GenLayerShoreBOP extends BOPGenLayer
                         if (biomeId != BiomeGenBase.ocean.biomeID && biomeId != BiomeGenBase.deepOcean.biomeID && biomeId != BiomeGenBase.river.biomeID && biomeId != BiomeGenBase.swampland.biomeID)
                         {
                             //Generate custom beaches for our biomes
-                            if (biome != null && biome instanceof BOPBiome)
+                            if (biome != null && BOPBiomes.REG_INSTANCE.getExtendedBiome(biome) != null)
                             {
-                                BOPBiome bopBiome = (BOPBiome)biome;
-                                setBiomeWithAdjacent(biomeIds, out, x, z, areaWidth, biomeId, bopBiome.beachBiomeId, OCEANIC_PREDICATE);
+                                IExtendedBiome extBiome = BOPBiomes.REG_INSTANCE.getExtendedBiome(biome);
+                                setBiomeWithAdjacent(biomeIds, out, x, z, areaWidth, biomeId, extBiome.getBeachId(), OCEANIC_PREDICATE);
                             }
                             else
                             {
