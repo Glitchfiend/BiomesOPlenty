@@ -4,6 +4,7 @@ import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockFlower.EnumFlowerType;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.biome.ExtendedBiomeWrapper;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
@@ -23,6 +24,11 @@ public class BiomeExtForest extends ExtendedBiomeWrapper
     public BiomeExtForest()
     {
         super(BiomeGenBase.forest);
+        
+        if (BOPBiomes.gravel_beach.isPresent())
+        {
+        	this.beachBiomeId = BOPBiomes.gravel_beach.get().biomeID;
+        }
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(5.0F);

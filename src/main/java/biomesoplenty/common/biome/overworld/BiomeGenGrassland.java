@@ -46,6 +46,11 @@ public class BiomeGenGrassland extends BOPBiome {
         this.addWeight(BOPClimates.COOL_TEMPERATE, 7);
         this.addWeight(BOPClimates.WET_TEMPERATE, 3);
         
+        if (BOPBiomes.gravel_beach.isPresent())
+        {
+        	this.beachBiomeId = BOPBiomes.gravel_beach.get().biomeID;
+        }
+        
         this.canGenerateVillages = true;
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));

@@ -1,6 +1,7 @@
 package biomesoplenty.common.biome.vanilla;
 
 import net.minecraft.world.biome.BiomeGenBase;
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.biome.ExtendedBiomeWrapper;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
@@ -17,6 +18,11 @@ public class BiomeExtTaiga extends ExtendedBiomeWrapper
     public BiomeExtTaiga()
     {
         super(BiomeGenBase.taiga);
+        
+        if (BOPBiomes.gravel_beach.isPresent())
+        {
+        	this.beachBiomeId = BOPBiomes.gravel_beach.get().biomeID;
+        }
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(0.5F);
