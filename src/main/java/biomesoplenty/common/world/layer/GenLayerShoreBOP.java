@@ -64,9 +64,12 @@ public class GenLayerShoreBOP extends BOPGenLayer
                 }
                 else if (biomeId != BiomeGenBase.extremeHills.biomeID && biomeId != BiomeGenBase.extremeHillsPlus.biomeID && biomeId != BiomeGenBase.extremeHillsEdge.biomeID)
                 {
-                    if (!isBiomeOceanic(biomeId) && biome != null && biome.isSnowyBiome()) //Snowy biomes should have cold beaches
+                    if (biome != null && biome.isSnowyBiome()) //Snowy biomes should have cold beaches
                     {
-                        setBiomeWithAdjacent(biomeIds, out, x, z, areaWidth, biomeId, BiomeGenBase.coldBeach.biomeID, OCEANIC_PREDICATE);
+                        //Frozen ocean should not have a beach
+                        if (isBiomeOceanic(biomeId)) out[x + z * areaWidth] = biomeId;
+                        else
+                            setBiomeWithAdjacent(biomeIds, out, x, z, areaWidth, biomeId, BiomeGenBase.coldBeach.biomeID, OCEANIC_PREDICATE);
                     }
                     else if (biomeId != BiomeGenBase.mesa.biomeID && biomeId != BiomeGenBase.mesaPlateau_F.biomeID)
                     {
