@@ -24,6 +24,7 @@ import biomesoplenty.common.world.layer.GenLayerRaggedEdges;
 import biomesoplenty.common.world.layer.GenLayerRainfallNoise;
 import biomesoplenty.common.world.layer.GenLayerRainfallRandom;
 import biomesoplenty.common.world.layer.GenLayerRiverMixBOP;
+import biomesoplenty.common.world.layer.GenLayerShoreBOP;
 import biomesoplenty.common.world.layer.GenLayerSubBiomesBOP;
 import biomesoplenty.common.world.layer.GenLayerTemperatureLatitude;
 import biomesoplenty.common.world.layer.GenLayerTemperatureNoise;
@@ -258,7 +259,7 @@ public class WorldChunkManagerBOP extends WorldChunkManager
         {
             mainBranch = new GenLayerZoom((long)(1000 + i), mainBranch);
             if (i == 0) {mainBranch = new GenLayerRaggedEdges(3L, mainBranch);}
-            if (i == 1 || biomeSize == 1) {mainBranch = new GenLayerShore(1000L, mainBranch);}
+            if (i == 1 || biomeSize == 1) {mainBranch = new GenLayerShoreBOP(1000L, mainBranch);}
         }
         mainBranch = new GenLayerSmooth(1000L, mainBranch);
 
