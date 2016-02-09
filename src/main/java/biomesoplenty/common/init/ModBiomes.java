@@ -333,6 +333,9 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
 
     private static void registerBiomes()
     {
+        // beach biomes (normal biomes rely on these being registered first)
+        
+        gravel_beach = registerBOPBiome(new BiomeGenGravelBeach(), "Gravel Beach");
         
         // normal biomes which have weights
         alps = registerBOPBiome(new BiomeGenAlps(), "Alps");
@@ -398,7 +401,6 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         canyon_ravine = registerBOPBiome(new BiomeGenCanyon(BiomeGenCanyon.CanyonType.RAVINE), "Canyon Ravine");
         coral_reef = registerBOPBiome(new BiomeGenCoralReef(), "Coral Reef");
         kelp_forest = registerBOPBiome(new BiomeGenKelpForest(), "Kelp Forest");
-        gravel_beach = registerBOPBiome(new BiomeGenGravelBeach(), "Gravel Beach");
 
         setSubBiome(canyon, canyon_ravine);
         setSubBiome(Optional.of(BiomeGenBase.ocean), BOPBiomes.coral_reef);
