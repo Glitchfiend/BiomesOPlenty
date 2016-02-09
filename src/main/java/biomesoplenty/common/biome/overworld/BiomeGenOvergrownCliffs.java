@@ -13,7 +13,9 @@ import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.init.Blocks;
+import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
@@ -50,6 +52,7 @@ public class BiomeGenOvergrownCliffs extends BOPBiome
         this.beachBiomeId = -1;
 
         this.spawnableCreatureList.clear();
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
         
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(40.0F);

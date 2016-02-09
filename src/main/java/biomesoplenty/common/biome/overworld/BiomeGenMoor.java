@@ -49,7 +49,7 @@ public class BiomeGenMoor extends BOPBiome
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
         
-        this.beachBiomeId = BiomeGenBase.stoneBeach.biomeID;
+        this.beachBiomeId = -1;
         
         this.addWeight(BOPClimates.COLD_SWAMP, 5);
         

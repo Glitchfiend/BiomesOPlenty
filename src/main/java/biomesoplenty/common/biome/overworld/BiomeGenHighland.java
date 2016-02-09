@@ -41,7 +41,7 @@ public class BiomeGenHighland extends BOPBiome
         
         this.addWeight(BOPClimates.COOL_TEMPERATE, 7);
         
-        this.beachBiomeId = BiomeGenBase.stoneBeach.biomeID;
+        this.beachBiomeId = -1;
         
         // boulders
         this.addGenerator("boulders", GeneratorStage.SAND, (new GeneratorBlobs.Builder()).amountPerChunk(0.5F).placeOn(Blocks.grass).with(Blocks.cobblestone.getDefaultState()).minRadius(0.3F).maxRadius(1.2F).numBalls(1).scatterYMethod(ScatterYMethod.AT_SURFACE).create());

@@ -79,6 +79,7 @@ import static biomesoplenty.api.biome.BOPBiomes.temperate_rainforest;
 import static biomesoplenty.api.biome.BOPBiomes.tropical_island;
 import static biomesoplenty.api.biome.BOPBiomes.tropical_rainforest;
 import static biomesoplenty.api.biome.BOPBiomes.tundra;
+import static biomesoplenty.api.biome.BOPBiomes.volcanic_island;
 import static biomesoplenty.api.biome.BOPBiomes.wasteland;
 import static biomesoplenty.api.biome.BOPBiomes.wetland;
 import static biomesoplenty.api.biome.BOPBiomes.woodland;
@@ -156,6 +157,7 @@ import biomesoplenty.common.biome.overworld.BiomeGenTemperateRainforest;
 import biomesoplenty.common.biome.overworld.BiomeGenTropicalIsland;
 import biomesoplenty.common.biome.overworld.BiomeGenTropicalRainforest;
 import biomesoplenty.common.biome.overworld.BiomeGenTundra;
+import biomesoplenty.common.biome.overworld.BiomeGenVolcanicIsland;
 import biomesoplenty.common.biome.overworld.BiomeGenWasteland;
 import biomesoplenty.common.biome.overworld.BiomeGenWetland;
 import biomesoplenty.common.biome.overworld.BiomeGenWoodland;
@@ -391,8 +393,10 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         // island biomes
         
         tropical_island = registerBOPBiome(new BiomeGenTropicalIsland(), "Tropical Island");
+        volcanic_island = registerBOPBiome(new BiomeGenVolcanicIsland(), "Volcanic Island");
     
         addIslandBiome(tropical_island, 10);
+        addIslandBiome(volcanic_island, 3);
     }
     
     public static void initExtendedBiomes()
@@ -482,6 +486,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         registerBiomeToDictionary(BOPBiomes.coral_reef, Type.WATER, Type.OCEAN);
         registerBiomeToDictionary(BOPBiomes.kelp_forest, Type.WATER, Type.OCEAN);
         registerBiomeToDictionary(BOPBiomes.tropical_island, Type.WATER, Type.OCEAN, Type.JUNGLE, Type.LUSH);
+        registerBiomeToDictionary(BOPBiomes.volcanic_island, Type.WATER, Type.OCEAN, Type.DEAD, Type.WASTELAND, Type.MOUNTAIN, Type.HOT);
         registerBiomeToDictionary(BOPBiomes.gravel_beach, Type.BEACH);   
         
     }
