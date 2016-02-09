@@ -44,8 +44,20 @@ public class GenLayerShoreBOP extends BOPGenLayer
                 }
                 else if (biome != null && biome.getBiomeClass() == BiomeGenJungle.class)
                 {
-                    setBiomeWithAdjacent(biomeIds, out, x, z, areaWidth, biomeId, BiomeGenBase.jungleEdge.biomeID, JUNGLE_BORDER_PREDICATE);
-                    setBiomeWithAdjacent(biomeIds, out, x, z, areaWidth, biomeId, BiomeGenBase.beach.biomeID, OCEANIC_PREDICATE);
+                    int biomeNorth = biomeIds[x + 1 + (z + 1 - 1) * (areaWidth + 2)];
+                    int biomeEast = biomeIds[x + 1 + 1 + (z + 1) * (areaWidth + 2)];
+                    int biomeWest = biomeIds[x + 1 - 1 + (z + 1) * (areaWidth + 2)];
+                    int biomeSouth = biomeIds[x + 1 + (z + 1 + 1) * (areaWidth + 2)];
+                    
+                    //Ensure the biomes surrounding the jungle are all suitable before generating a beach
+                    if (JUNGLE_BORDER_PREDICATE.apply(biomeNorth) && JUNGLE_BORDER_PREDICATE.apply(biomeEast) && JUNGLE_BORDER_PREDICATE.apply(biomeWest) && JUNGLE_BORDER_PREDICATE.apply(biomeSouth))
+                    {
+                        setBiomeWithAdjacent(biomeIds, out, x, z, areaWidth, biomeId, BiomeGenBase.beach.biomeID, OCEANIC_PREDICATE);
+                    }
+                    else //There is a non-jungle/ocean/taiga/forest next to the jungle, generate an edge biome
+                    {
+                        out[x + z * areaWidth] = BiomeGenBase.jungleEdge.biomeID;
+                    }
                 }
                 else if (biomeId != BiomeGenBase.extremeHills.biomeID && biomeId != BiomeGenBase.extremeHillsPlus.biomeID && biomeId != BiomeGenBase.extremeHillsEdge.biomeID)
                 {
