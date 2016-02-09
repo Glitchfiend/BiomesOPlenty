@@ -9,6 +9,7 @@ package biomesoplenty.common.world.layer;
 
 import com.google.common.base.Predicate;
 
+import biomesoplenty.api.biome.BOPBiome;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.BiomeGenJungle;
 import net.minecraft.world.biome.BiomeGenMesa;
@@ -69,7 +70,15 @@ public class GenLayerShoreBOP extends BOPGenLayer
                     {
                         if (biomeId != BiomeGenBase.ocean.biomeID && biomeId != BiomeGenBase.deepOcean.biomeID && biomeId != BiomeGenBase.river.biomeID && biomeId != BiomeGenBase.swampland.biomeID)
                         {
-                            setBiomeWithAdjacent(biomeIds, out, x, z, areaWidth, biomeId, BiomeGenBase.beach.biomeID, OCEANIC_PREDICATE);
+                            if (biome != null && biome instanceof BOPBiome)
+                            {
+                                BOPBiome bopBiome = (BOPBiome)biome;
+                                setBiomeWithAdjacent(biomeIds, out, x, z, areaWidth, biomeId, bopBiome.beachBiomeId, OCEANIC_PREDICATE);
+                            }
+                            else
+                            {
+                                setBiomeWithAdjacent(biomeIds, out, x, z, areaWidth, biomeId, BiomeGenBase.beach.biomeID, OCEANIC_PREDICATE);
+                            }
                         }
                         else //Biome is watery, don't put any beaches next to it
                         {
@@ -120,6 +129,23 @@ public class GenLayerShoreBOP extends BOPGenLayer
         {
             out[x + z * areaWidth] = biomeId;
         }
+    }
+    
+    private boolean getRiver(int biomeId)
+    {
+        //Check if the biome id is valid
+        if (biomeId >= 0 && biomeId < BiomeGenBase.getBiomeGenArray().length)
+        {
+            BiomeGenBase biome = BiomeGenBase.getBiome(biomeId);
+
+            if (biome != null && biome instanceof BOPBiome)
+            {
+                BOPBiome bopBiome = (BOPBiome)biome;
+                return bopBiome.canGenerateRivers;
+            }
+        }
+
+        return true;
     }
     
     private static final Predicate<Integer> OCEAN_PREDICATE = new Predicate<Integer>()
