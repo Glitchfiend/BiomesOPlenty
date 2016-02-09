@@ -45,6 +45,8 @@ public class BiomeGenSacredSprings extends BOPBiome
         this.canGenerateRivers = false;
         this.canGenerateVillages = false;
         
+        this.beachBiomeId = this.biomeID;
+        
         this.addWeight(BOPClimates.TROPICAL, 1);
         
         this.spawnableMonsterList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));

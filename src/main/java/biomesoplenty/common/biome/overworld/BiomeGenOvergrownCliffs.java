@@ -46,6 +46,8 @@ public class BiomeGenOvergrownCliffs extends BOPBiome
         this.canGenerateVillages = false;
         
         this.addWeight(BOPClimates.TROPICAL, 2);
+        
+        this.beachBiomeId = this.biomeID;
 
         this.spawnableCreatureList.clear();
         

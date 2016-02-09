@@ -15,6 +15,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import biomesoplenty.api.biome.BOPBiome;
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.common.block.BlockBOPDoublePlant;
@@ -51,6 +52,11 @@ public class BiomeGenWoodland extends BOPBiome
         this.canGenerateVillages = false;
         
         this.addWeight(BOPClimates.WARM_TEMPERATE, 10);
+        
+        if (BOPBiomes.gravel_beach.isPresent())
+        {
+        	this.beachBiomeId = BOPBiomes.gravel_beach.get().biomeID;
+        }
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntitySnail.class, 6, 1, 2));
         this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));

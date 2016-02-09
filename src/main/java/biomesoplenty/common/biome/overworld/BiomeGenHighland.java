@@ -11,6 +11,7 @@ package biomesoplenty.common.biome.overworld;
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.init.Blocks;
+import net.minecraft.world.biome.BiomeGenBase;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
@@ -39,6 +40,8 @@ public class BiomeGenHighland extends BOPBiome
         this.canGenerateVillages = false;
         
         this.addWeight(BOPClimates.COOL_TEMPERATE, 7);
+        
+        this.beachBiomeId = BiomeGenBase.stoneBeach.biomeID;
         
         // boulders
         this.addGenerator("boulders", GeneratorStage.SAND, (new GeneratorBlobs.Builder()).amountPerChunk(0.5F).placeOn(Blocks.grass).with(Blocks.cobblestone.getDefaultState()).minRadius(0.3F).maxRadius(1.2F).numBalls(1).scatterYMethod(ScatterYMethod.AT_SURFACE).create());

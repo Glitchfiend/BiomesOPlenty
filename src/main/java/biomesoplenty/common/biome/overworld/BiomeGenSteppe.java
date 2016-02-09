@@ -18,6 +18,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
 import biomesoplenty.api.biome.BOPBiome;
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.api.block.BOPBlocks;
@@ -58,6 +59,11 @@ public class BiomeGenSteppe extends BOPBiome
         this.canGenerateVillages = true;
         
         this.addWeight(BOPClimates.DRY_TEMPERATE, 5);
+        
+        if (BOPBiomes.gravel_beach.isPresent())
+        {
+        	this.beachBiomeId = BOPBiomes.gravel_beach.get().biomeID;
+        }
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
         

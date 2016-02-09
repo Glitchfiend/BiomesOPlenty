@@ -56,6 +56,8 @@ public class BiomeGenMarsh extends BOPBiome
         this.canGenerateRivers = false;
         this.canGenerateVillages = false;
         
+        this.beachBiomeId = this.biomeID;
+        
         this.addWeight(BOPClimates.WET_TEMPERATE, 7);
         
         this.spawnableCreatureList.clear(); // none of your regular farmyard critters here

@@ -8,6 +8,7 @@ import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import biomesoplenty.api.biome.BOPBiome;
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.common.block.BlockBOPDoublePlant;
@@ -39,6 +40,11 @@ public class BiomeGenMapleWoods extends BOPBiome
         this.addWeight(BOPClimates.BOREAL, 10);
 
         this.canGenerateVillages = false;
+        
+        if (BOPBiomes.gravel_beach.isPresent())
+        {
+        	this.beachBiomeId = BOPBiomes.gravel_beach.get().biomeID;
+        }
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntityWolf.class, 5, 4, 4));
         

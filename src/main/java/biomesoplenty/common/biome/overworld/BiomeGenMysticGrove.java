@@ -59,6 +59,8 @@ public class BiomeGenMysticGrove extends BOPBiome
         this.canGenerateVillages = false;
         this.canSpawnInBiome = false;
         
+        this.beachBiomeId = this.biomeID;
+        
         this.addWeight(BOPClimates.WET_TEMPERATE, 1);
         
         this.spawnableCreatureList.clear(); // none of your regular farmyard critters here

@@ -59,6 +59,8 @@ public class BiomeGenBayou extends BOPBiome
         this.canSpawnInBiome = false;
         this.canGenerateRivers = false;
         this.canGenerateVillages = false;
+        
+        this.beachBiomeId = this.biomeID;
 
         this.addWeight(BOPClimates.HOT_SWAMP, 10);
         

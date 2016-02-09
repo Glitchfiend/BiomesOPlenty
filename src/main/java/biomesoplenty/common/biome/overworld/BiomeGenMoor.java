@@ -11,6 +11,7 @@ package biomesoplenty.common.biome.overworld;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
@@ -47,6 +48,8 @@ public class BiomeGenMoor extends BOPBiome
         
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
+        
+        this.beachBiomeId = BiomeGenBase.stoneBeach.biomeID;
         
         this.addWeight(BOPClimates.COLD_SWAMP, 5);
         

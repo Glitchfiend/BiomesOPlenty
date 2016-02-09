@@ -12,6 +12,7 @@ import net.minecraft.block.BlockTallGrass;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import biomesoplenty.api.biome.BOPBiome;
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.common.enums.BOPClimates;
@@ -43,6 +44,11 @@ public class BiomeGenTundra extends BOPBiome
         this.canGenerateRivers = false;
         this.canSpawnInBiome = false;
         this.canGenerateVillages = true;
+        
+        if (BOPBiomes.gravel_beach.isPresent())
+        {
+        	this.beachBiomeId = BOPBiomes.gravel_beach.get().biomeID;
+        }
         
         this.spawnableCreatureList.clear();
         

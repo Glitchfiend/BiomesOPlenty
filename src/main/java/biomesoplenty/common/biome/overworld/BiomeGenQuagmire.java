@@ -53,6 +53,8 @@ public class BiomeGenQuagmire extends BOPBiome
         this.canGenerateRivers = false;
         this.canGenerateVillages = false;
         
+        this.beachBiomeId = this.biomeID;
+        
         this.addWeight(BOPClimates.COLD_SWAMP, 2);
         
         this.spawnableCreatureList.clear();

@@ -16,6 +16,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import biomesoplenty.api.biome.BOPBiome;
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.api.block.BOPBlocks;
@@ -62,6 +63,11 @@ public class BiomeGenLandOfLakes extends BOPBiome
         this.canGenerateVillages = false;
         
         this.addWeight(BOPClimates.COLD_SWAMP, 3);
+        
+        if (BOPBiomes.gravel_beach.isPresent())
+        {
+        	this.beachBiomeId = BOPBiomes.gravel_beach.get().biomeID;
+        }
         
         this.spawnableWaterCreatureList.clear();       
         this.spawnableCreatureList.add(new SpawnListEntry(EntitySnail.class, 8, 1, 2));
