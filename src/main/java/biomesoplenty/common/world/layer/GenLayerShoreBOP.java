@@ -70,6 +70,7 @@ public class GenLayerShoreBOP extends BOPGenLayer
                     {
                         if (biomeId != BiomeGenBase.ocean.biomeID && biomeId != BiomeGenBase.deepOcean.biomeID && biomeId != BiomeGenBase.river.biomeID && biomeId != BiomeGenBase.swampland.biomeID)
                         {
+                            //Generate custom beaches for our biomes
                             if (biome != null && biome instanceof BOPBiome)
                             {
                                 BOPBiome bopBiome = (BOPBiome)biome;
@@ -129,23 +130,6 @@ public class GenLayerShoreBOP extends BOPGenLayer
         {
             out[x + z * areaWidth] = biomeId;
         }
-    }
-    
-    private boolean getRiver(int biomeId)
-    {
-        //Check if the biome id is valid
-        if (biomeId >= 0 && biomeId < BiomeGenBase.getBiomeGenArray().length)
-        {
-            BiomeGenBase biome = BiomeGenBase.getBiome(biomeId);
-
-            if (biome != null && biome instanceof BOPBiome)
-            {
-                BOPBiome bopBiome = (BOPBiome)biome;
-                return bopBiome.canGenerateRivers;
-            }
-        }
-
-        return true;
     }
     
     private static final Predicate<Integer> OCEAN_PREDICATE = new Predicate<Integer>()
