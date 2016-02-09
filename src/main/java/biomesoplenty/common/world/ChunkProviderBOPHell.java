@@ -7,6 +7,7 @@ import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.NETH
 import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.FIRE;
 import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.GLOWSTONE;
 import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.NETHER_LAVA;
+import static net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType.QUARTZ;
 
 import java.util.List;
 import java.util.Random;
