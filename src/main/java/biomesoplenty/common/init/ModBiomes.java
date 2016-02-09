@@ -240,10 +240,11 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         
         initSubBiomes();
         initMutatedBiomes();
-        initExtendedBiomes();
-        
+
         registerBiomes();
         registerBiomeDictionaryTags();
+        
+        initExtendedBiomes();
         
         // save the biome ids to the config file (creating it if it doesn't exist)
         BOPConfig.writeFile(biomeIdMapFile, biomeIdMap);
@@ -309,26 +310,6 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         setSubBiome(BiomeGenBase.extremeHills, BiomeGenBase.getBiome(BiomeGenBase.extremeHills.biomeID + 128));
         setSubBiome(BiomeGenBase.extremeHillsPlus, BiomeGenBase.getBiome(BiomeGenBase.extremeHillsPlus.biomeID + 128));
         setSubBiome(BiomeGenBase.megaTaigaHills, BiomeGenBase.getBiome(BiomeGenBase.megaTaigaHills.biomeID + 128));        
-    }
-    
-    public static void initExtendedBiomes()
-    {
-        biomeWrapperMap = new HashMap<Integer, IExtendedBiome>();
-        
-        end_extension = registerWrappedBiome(new BiomeExtEnd(), "end");
-        birch_forest_extension = registerWrappedBiome(new BiomeExtBirchForest(), "birch_forest");
-        desert_extension = registerWrappedBiome(new BiomeExtDesert(), "desert");
-        extreme_hills_extension = registerWrappedBiome(new BiomeExtExtremeHills(), "extreme_hills");
-        forest_extension = registerWrappedBiome(new BiomeExtForest(), "forest");
-        ice_plains_extension = registerWrappedBiome(new BiomeExtIcePlains(), "ice_plains");
-        jungle_extension = registerWrappedBiome(new BiomeExtJungle(), "jungle");
-        mesa_extension = registerWrappedBiome(new BiomeExtMesa(), "mesa");
-        plains_extension = registerWrappedBiome(new BiomeExtPlains(), "plains");
-        roofed_forest_extension = registerWrappedBiome(new BiomeExtRoofedForest(), "roofed_forest");
-        savanna_extension = registerWrappedBiome(new BiomeExtSavanna(), "savanna");
-        swampland_extension = registerWrappedBiome(new BiomeExtSwampland(), "swampland");
-        taiga_extension = registerWrappedBiome(new BiomeExtTaiga(), "taiga");
-        
     }
 
     private static void registerBiomes()
@@ -411,6 +392,26 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         tropical_island = registerBOPBiome(new BiomeGenTropicalIsland(), "Tropical Island");
     
         addIslandBiome(tropical_island, 10);
+    }
+    
+    public static void initExtendedBiomes()
+    {
+        biomeWrapperMap = new HashMap<Integer, IExtendedBiome>();
+        
+        end_extension = registerWrappedBiome(new BiomeExtEnd(), "end");
+        birch_forest_extension = registerWrappedBiome(new BiomeExtBirchForest(), "birch_forest");
+        desert_extension = registerWrappedBiome(new BiomeExtDesert(), "desert");
+        extreme_hills_extension = registerWrappedBiome(new BiomeExtExtremeHills(), "extreme_hills");
+        forest_extension = registerWrappedBiome(new BiomeExtForest(), "forest");
+        ice_plains_extension = registerWrappedBiome(new BiomeExtIcePlains(), "ice_plains");
+        jungle_extension = registerWrappedBiome(new BiomeExtJungle(), "jungle");
+        mesa_extension = registerWrappedBiome(new BiomeExtMesa(), "mesa");
+        plains_extension = registerWrappedBiome(new BiomeExtPlains(), "plains");
+        roofed_forest_extension = registerWrappedBiome(new BiomeExtRoofedForest(), "roofed_forest");
+        savanna_extension = registerWrappedBiome(new BiomeExtSavanna(), "savanna");
+        swampland_extension = registerWrappedBiome(new BiomeExtSwampland(), "swampland");
+        taiga_extension = registerWrappedBiome(new BiomeExtTaiga(), "taiga");
+        
     }
     
     private static void registerBiomeDictionaryTags()
