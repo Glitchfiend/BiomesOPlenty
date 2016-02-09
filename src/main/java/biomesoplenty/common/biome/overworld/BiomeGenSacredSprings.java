@@ -45,7 +45,7 @@ public class BiomeGenSacredSprings extends BOPBiome
         this.canGenerateRivers = false;
         this.canGenerateVillages = false;
         
-        this.beachBiomeId = this.biomeID;
+        this.beachBiomeId = -1;
         
         this.addWeight(BOPClimates.TROPICAL, 1);
         

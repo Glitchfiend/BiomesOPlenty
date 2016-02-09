@@ -59,7 +59,7 @@ public class BiomeGenMysticGrove extends BOPBiome
         this.canGenerateVillages = false;
         this.canSpawnInBiome = false;
         
-        this.beachBiomeId = this.biomeID;
+        this.beachBiomeId = -1;
         
         this.addWeight(BOPClimates.WET_TEMPERATE, 1);
         

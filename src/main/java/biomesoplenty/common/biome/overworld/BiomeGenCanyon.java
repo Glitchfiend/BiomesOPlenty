@@ -50,7 +50,7 @@ public class BiomeGenCanyon extends BOPBiome
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
         
-        this.beachBiomeId = this.biomeID;
+        this.beachBiomeId = -1;
 
         this.spawnableCreatureList.clear();
 

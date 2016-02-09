@@ -64,7 +64,7 @@ public class BiomeGenLushSwamp extends BOPBiome
         this.canGenerateRivers = false;
         this.canGenerateVillages = false;
         
-        this.beachBiomeId = this.biomeID;
+        this.beachBiomeId = -1;
         
         this.addWeight(BOPClimates.WET_TEMPERATE, 10);
         

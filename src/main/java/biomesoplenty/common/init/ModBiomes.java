@@ -244,6 +244,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         registerBiomes();
         registerBiomeDictionaryTags();
         
+        //After normal biomes to account for adding custom beaches
         initExtendedBiomes();
         
         // save the biome ids to the config file (creating it if it doesn't exist)

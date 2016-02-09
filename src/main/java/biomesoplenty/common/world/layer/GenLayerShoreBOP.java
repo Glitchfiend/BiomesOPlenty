@@ -76,7 +76,7 @@ public class GenLayerShoreBOP extends BOPGenLayer
                             if (biome != null && BOPBiomes.REG_INSTANCE.getExtendedBiome(biome) != null)
                             {
                                 IExtendedBiome extBiome = BOPBiomes.REG_INSTANCE.getExtendedBiome(biome);
-                                setBiomeWithAdjacent(biomeIds, out, x, z, areaWidth, biomeId, extBiome.getBeachId(), OCEANIC_PREDICATE);
+                                setBiomeWithAdjacent(biomeIds, out, x, z, areaWidth, biomeId, extBiome.getBeachId() == -1 ? biomeId : extBiome.getBeachId(), OCEANIC_PREDICATE);
                             }
                             else
                             {

@@ -62,7 +62,7 @@ public class BiomeGenWasteland extends BOPBiome
         this.canGenerateVillages = false;
         this.canSpawnInBiome = false;
         
-        this.beachBiomeId = this.biomeID;
+        this.beachBiomeId = -1;
         
         this.addWeight(BOPClimates.WASTELAND, 50);
         
