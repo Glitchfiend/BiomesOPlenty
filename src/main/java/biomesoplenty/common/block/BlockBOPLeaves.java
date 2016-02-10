@@ -144,7 +144,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
                 return ColoringType.PLAIN;
             case FLOWERING:
                 return ColoringType.OVERLAY;
-            case MAHOGANY: case MANGROVE: case PALM: case PINE: case REDWOOD: case SACRED_OAK: case WILLOW: default:
+            case MAHOGANY: case MANGROVE: case PALM: case PINE: case REDWOOD: case SACRED_OAK: case WILLOW: case EBONY: case EUCALYPTUS: default:
                 return ColoringType.TINTED;
         }
     }

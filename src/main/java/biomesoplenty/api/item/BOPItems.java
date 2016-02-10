@@ -65,6 +65,8 @@ public class BOPItems
     public static Item hellbark_door;
     public static Item jacaranda_door;
     public static Item mahogany_door;
+    public static Item ebony_door;
+    public static Item eucalyptus_door;
     
     public static Item wood_slab_0;
     public static Item wood_slab_1;

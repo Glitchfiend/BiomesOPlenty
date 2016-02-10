@@ -11,6 +11,10 @@
         "half=bottom,variant=jacaranda": { "model": "biomesoplenty:half_slab_jacaranda" },
         "half=top,variant=jacaranda": { "model": "biomesoplenty:upper_slab_jacaranda" },
         "half=bottom,variant=mahogany": { "model": "biomesoplenty:half_slab_mahogany" },
-        "half=top,variant=mahogany": { "model": "biomesoplenty:upper_slab_mahogany" }
+        "half=top,variant=mahogany": { "model": "biomesoplenty:upper_slab_mahogany" },
+		"half=bottom,variant=ebony": { "model": "biomesoplenty:half_slab_ebony" },
+        "half=top,variant=ebony": { "model": "biomesoplenty:upper_slab_ebony" },
+		"half=bottom,variant=eucalyptus": { "model": "biomesoplenty:half_slab_eucalyptus" },
+        "half=top,variant=eucalyptus": { "model": "biomesoplenty:upper_slab_eucalyptus" }
     }
 }

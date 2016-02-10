@@ -8,14 +8,14 @@
         "axis=z,variant=mahogany":    { "model": "biomesoplenty:mahogany_log_side" },
         "axis=x,variant=mahogany":    { "model": "biomesoplenty:mahogany_log_side", "y": 90 },
         "axis=none,variant=mahogany": { "model": "biomesoplenty:mahogany_bark" },
-        "axis=y,variant=giant_flower":    { "model": "biomesoplenty:giant_flower_stem" },
-        "axis=z,variant=giant_flower":    { "model": "biomesoplenty:giant_flower_stem_side" },
-        "axis=x,variant=giant_flower":    { "model": "biomesoplenty:giant_flower_stem_side", "y": 90 },
-        "axis=none,variant=giant_flower": { "model": "biomesoplenty:giant_flower_bark" },
-        "axis=y,variant=dead":    { "model": "biomesoplenty:dead_log" },
-        "axis=z,variant=dead":    { "model": "biomesoplenty:dead_log_side" },
-        "axis=x,variant=dead":    { "model": "biomesoplenty:dead_log_side", "y": 90 },
-        "axis=none,variant=dead": { "model": "biomesoplenty:dead_bark" }
+		"axis=y,variant=ebony":    { "model": "biomesoplenty:ebony_log" },
+        "axis=z,variant=ebony":    { "model": "biomesoplenty:ebony_log_side" },
+        "axis=x,variant=ebony":    { "model": "biomesoplenty:ebony_log_side", "y": 90 },
+        "axis=none,variant=ebony": { "model": "biomesoplenty:ebony_bark" },
+        "axis=y,variant=eucalyptus":    { "model": "biomesoplenty:eucalyptus_log" },
+        "axis=z,variant=eucalyptus":    { "model": "biomesoplenty:eucalyptus_log_side" },
+        "axis=x,variant=eucalyptus":    { "model": "biomesoplenty:eucalyptus_log_side", "y": 90 },
+        "axis=none,variant=eucalyptus": { "model": "biomesoplenty:eucalyptus_bark" }
     }
 }
 

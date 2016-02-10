@@ -14,6 +14,7 @@
         "variant=pine": { "model": "biomesoplenty:pine_planks" },
         "variant=hell_bark": { "model": "biomesoplenty:hell_bark_planks" },
         "variant=jacaranda": { "model": "biomesoplenty:jacaranda_planks" },
-        "variant=mahogany": { "model": "biomesoplenty:mahogany_planks" }
+        "variant=mahogany": { "model": "biomesoplenty:mahogany_planks" },
+		"variant=ebony": { "model": "biomesoplenty:ebony_planks" }
     }
 }

@@ -175,7 +175,7 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable {
             case ETHEREAL: //Not implemented
                 return new WorldGenTrees(true);
             case ORIGIN:
-            	return new GeneratorBasicTree.Builder().amountPerChunk(4).minHeight(5).maxHeight(8).leaves(BOPTrees.ORIGIN).create();
+            	return new GeneratorBasicTree.Builder().minHeight(5).maxHeight(8).leaves(BOPTrees.ORIGIN).create();
             case PINK_CHERRY:
             	return new GeneratorBasicTree.Builder().log(BOPWoods.CHERRY).leaves(BOPTrees.PINK_CHERRY).create();
             case WHITE_CHERRY:
@@ -202,6 +202,10 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable {
             	return new GeneratorPineTree.Builder().minHeight(6).maxHeight(18).log(BOPWoods.PINE).leaves(BOPTrees.PINE).create();
             case MAHOGANY:
                 return new GeneratorMahoganyTree.Builder().create();
+            case EBONY:
+                return new GeneratorBigTree.Builder().log(BOPWoods.EBONY).leaves(BOPTrees.EBONY).minHeight(4).maxHeight(10).foliageHeight(1).create();
+            case EUCALYPTUS: //Not implemented
+                return new GeneratorBulbTree.Builder().minHeight(15).maxHeight(30).log(BOPWoods.EUCALYPTUS).leaves(BOPTrees.EUCALYPTUS).create();
             default:
             	return null;
         }

@@ -135,6 +135,7 @@ public class ModBlocks
         leaves_3 =              registerBlock( BlockBOPLeaves.paging.getBlock(3), "leaves_3" );
         leaves_4 =              registerBlock( BlockBOPLeaves.paging.getBlock(4), "leaves_4" );
         leaves_5 =              registerBlock( BlockBOPLeaves.paging.getBlock(5), "leaves_5" );
+        leaves_6 =              registerBlock( BlockBOPLeaves.paging.getBlock(6), "leaves_6" );
 
         BlockBOPFarmland.createAllPages();
         farmland_0 =              registerBlock( BlockBOPFarmland.paging.getBlock(0), "farmland_0", null);
@@ -161,6 +162,8 @@ public class ModBlocks
         hellbark_stairs =       registerBlock( new BlockBOPWoodStairs(BOPWoods.HELLBARK), "hellbark_stairs" );
         jacaranda_stairs =      registerBlock( new BlockBOPWoodStairs(BOPWoods.JACARANDA), "jacaranda_stairs" );
         mahogany_stairs =       registerBlock( new BlockBOPWoodStairs(BOPWoods.MAHOGANY), "mahogany_stairs" );
+        ebony_stairs =       	registerBlock( new BlockBOPWoodStairs(BOPWoods.EBONY), "ebony_stairs" );
+        eucalyptus_stairs =     registerBlock( new BlockBOPWoodStairs(BOPWoods.EUCALYPTUS), "eucalyptus_stairs" );
         
         // fences have no variant metadata, use a new BlockBOPFence instance for each (note there's no giant_flower_fence or dead_fence)
         sacred_oak_fence =      registerBlock( new BlockBOPFence(BOPWoods.SACRED_OAK), "sacred_oak_fence" );
@@ -177,6 +180,8 @@ public class ModBlocks
         hellbark_fence =        registerBlock( new BlockBOPFence(BOPWoods.HELLBARK), "hellbark_fence" );
         jacaranda_fence =       registerBlock( new BlockBOPFence(BOPWoods.JACARANDA), "jacaranda_fence" );
         mahogany_fence =        registerBlock( new BlockBOPFence(BOPWoods.MAHOGANY), "mahogany_fence" );
+        ebony_fence =        	registerBlock( new BlockBOPFence(BOPWoods.EBONY), "ebony_fence" );
+        eucalyptus_fence =      registerBlock( new BlockBOPFence(BOPWoods.EUCALYPTUS), "eucalyptus_fence" );
         
         // fence gates have no variant metadata, use a new BlockBOPFenceGate instance for each (note there's no giant_flower_fence_gate or dead_fence_gate)
         sacred_oak_fence_gate = registerBlock( new BlockBOPFenceGate(BOPWoods.SACRED_OAK), "sacred_oak_fence_gate" );
@@ -193,6 +198,8 @@ public class ModBlocks
         hellbark_fence_gate =   registerBlock( new BlockBOPFenceGate(BOPWoods.HELLBARK), "hellbark_fence_gate" );
         jacaranda_fence_gate =  registerBlock( new BlockBOPFenceGate(BOPWoods.JACARANDA), "jacaranda_fence_gate" );
         mahogany_fence_gate =   registerBlock( new BlockBOPFenceGate(BOPWoods.MAHOGANY), "mahogany_fence_gate" );
+        ebony_fence_gate =   	registerBlock( new BlockBOPFenceGate(BOPWoods.EBONY), "ebony_fence_gate" );
+        eucalyptus_fence_gate = registerBlock( new BlockBOPFenceGate(BOPWoods.EUCALYPTUS), "eucalyptus_fence_gate" );
         
         // doors have no variant metadata, use a new BlockBOPDoor instance for each (note there's no giant_flower_door or dead_door)
         sacred_oak_door =       registerDoor( new BlockBOPDoor(BOPWoods.SACRED_OAK), "sacred_oak_door", BOPItems.sacred_oak_door );
@@ -209,7 +216,8 @@ public class ModBlocks
         hellbark_door =         registerDoor( new BlockBOPDoor(BOPWoods.HELLBARK), "hellbark_door", BOPItems.hellbark_door );
         jacaranda_door =        registerDoor( new BlockBOPDoor(BOPWoods.JACARANDA), "jacaranda_door", BOPItems.jacaranda_door );
         mahogany_door =         registerDoor( new BlockBOPDoor(BOPWoods.MAHOGANY), "mahogany_door", BOPItems.mahogany_door );
-        
+        ebony_door =         	registerDoor( new BlockBOPDoor(BOPWoods.EBONY), "ebony_door", BOPItems.ebony_door );
+        eucalyptus_door =       registerDoor( new BlockBOPDoor(BOPWoods.EUCALYPTUS), "eucalyptus_door", BOPItems.eucalyptus_door );
         
         //vines
         // TODO: special placement rules?
