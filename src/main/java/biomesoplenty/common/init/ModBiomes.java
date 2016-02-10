@@ -56,8 +56,10 @@ import static biomesoplenty.api.biome.BOPBiomes.moor;
 import static biomesoplenty.api.biome.BOPBiomes.mountain;
 import static biomesoplenty.api.biome.BOPBiomes.mountain_foothills;
 import static biomesoplenty.api.biome.BOPBiomes.mystic_grove;
+import static biomesoplenty.api.biome.BOPBiomes.oasis;
 import static biomesoplenty.api.biome.BOPBiomes.ominous_woods;
 import static biomesoplenty.api.biome.BOPBiomes.origin_valley;
+import static biomesoplenty.api.biome.BOPBiomes.orchard;
 import static biomesoplenty.api.biome.BOPBiomes.outback;
 import static biomesoplenty.api.biome.BOPBiomes.overgrown_cliffs;
 import static biomesoplenty.api.biome.BOPBiomes.plains_extension;
@@ -139,7 +141,9 @@ import biomesoplenty.common.biome.overworld.BiomeGenMeadow;
 import biomesoplenty.common.biome.overworld.BiomeGenMoor;
 import biomesoplenty.common.biome.overworld.BiomeGenMountain;
 import biomesoplenty.common.biome.overworld.BiomeGenMysticGrove;
+import biomesoplenty.common.biome.overworld.BiomeGenOasis;
 import biomesoplenty.common.biome.overworld.BiomeGenOminousWoods;
+import biomesoplenty.common.biome.overworld.BiomeGenOrchard;
 import biomesoplenty.common.biome.overworld.BiomeGenOriginValley;
 import biomesoplenty.common.biome.overworld.BiomeGenOutback;
 import biomesoplenty.common.biome.overworld.BiomeGenOvergrownCliffs;
@@ -358,6 +362,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         mountain = registerBOPBiome(new BiomeGenMountain(BiomeGenMountain.MountainType.PEAKS), "Mountain");
         mystic_grove = registerBOPBiome(new BiomeGenMysticGrove(), "Mystic Grove");
         ominous_woods = registerBOPBiome(new BiomeGenOminousWoods(), "Ominous Woods");
+        orchard = registerBOPBiome(new BiomeGenOrchard(), "Orchard");
         origin_valley = registerBOPBiome(new BiomeGenOriginValley(), "Origin Valley");
         outback = registerBOPBiome(new BiomeGenOutback(), "Outback");
         overgrown_cliffs = registerBOPBiome(new BiomeGenOvergrownCliffs(), "Overgrown Cliffs");
@@ -383,10 +388,12 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         
         mountain_foothills = registerBOPBiome(new BiomeGenMountain(BiomeGenMountain.MountainType.FOOTHILLS), "Mountain Foothills");
         canyon_ravine = registerBOPBiome(new BiomeGenCanyon(BiomeGenCanyon.CanyonType.RAVINE), "Canyon Ravine");
+        oasis = registerBOPBiome(new BiomeGenOasis(), "Oasis");
         coral_reef = registerBOPBiome(new BiomeGenCoralReef(), "Coral Reef");
         kelp_forest = registerBOPBiome(new BiomeGenKelpForest(), "Kelp Forest");
 
         setSubBiome(canyon, canyon_ravine);
+        setSubBiome(Optional.of(BiomeGenBase.desert), BOPBiomes.oasis);
         setSubBiome(Optional.of(BiomeGenBase.ocean), BOPBiomes.coral_reef);
         setSubBiome(Optional.of(BiomeGenBase.ocean), BOPBiomes.kelp_forest);
 
@@ -459,7 +466,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         registerBiomeToDictionary(BOPBiomes.mountain, Type.MOUNTAIN, Type.FOREST, Type.DRY);
         registerBiomeToDictionary(BOPBiomes.mystic_grove, Type.MAGICAL, Type.FOREST, Type.LUSH);
         registerBiomeToDictionary(BOPBiomes.ominous_woods, Type.MAGICAL, Type.FOREST, Type.SPOOKY, Type.DEAD);
-        registerBiomeToDictionary(BOPBiomes.origin_valley, Type.MAGICAL, Type.SPARSE);
+        //registerBiomeToDictionary(BOPBiomes.origin_valley, Type.FOREST, Type.PLAINS, Type.LUSH);
         registerBiomeToDictionary(BOPBiomes.outback, Type.SANDY, Type.PLAINS, Type.SAVANNA, Type.DRY, Type.HOT);
         registerBiomeToDictionary(BOPBiomes.overgrown_cliffs, Type.MOUNTAIN, Type.LUSH, Type.DENSE, Type.JUNGLE);
         registerBiomeToDictionary(BOPBiomes.prairie, Type.PLAINS, Type.DRY, Type.SPARSE);
@@ -483,6 +490,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         // edge-biomes, sub-biomes and mutated-biomes
         registerBiomeToDictionary(BOPBiomes.mountain_foothills, Type.HILLS, Type.MOUNTAIN);
         registerBiomeToDictionary(BOPBiomes.canyon_ravine, Type.SANDY, Type.HILLS, Type.DRY, Type.HOT);
+        registerBiomeToDictionary(BOPBiomes.oasis, Type.DESERT, Type.LUSH, Type.JUNGLE, Type.HOT);
         registerBiomeToDictionary(BOPBiomes.coral_reef, Type.WATER, Type.OCEAN);
         registerBiomeToDictionary(BOPBiomes.kelp_forest, Type.WATER, Type.OCEAN);
         registerBiomeToDictionary(BOPBiomes.tropical_island, Type.WATER, Type.OCEAN, Type.JUNGLE, Type.LUSH);
