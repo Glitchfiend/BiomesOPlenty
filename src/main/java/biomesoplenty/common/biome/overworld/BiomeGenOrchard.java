@@ -42,7 +42,7 @@ public class BiomeGenOrchard extends BOPBiome
         
         this.addWeight(BOPClimates.WARM_TEMPERATE, 3);
         
-        this.canGenerateVillages = false;
+        this.canGenerateVillages = true;
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 1, 2, 6));
         this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
