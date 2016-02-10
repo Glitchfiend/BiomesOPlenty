@@ -45,16 +45,12 @@ public class ModItems
     public static void registerItems()
     {
         // food
-        ambrosia =          registerItem(new ItemAmbrosia(), "ambrosia");
-        berries =           registerItem(new ItemBOPFood(1, 0.1F, 8), "berries"); 
-        shroompowder =      registerItem(new ItemFood(1, 0.1F, false), "shroompowder");
-        ((ItemFood)shroompowder).setAlwaysEdible();
-        ((ItemFood)shroompowder).setPotionEffect(Potion.confusion.id, 225, 0, 0.6F);
-        peach =             registerItem(new ItemFood(5, 0.2F, false), "peach");
+    	berries =           registerItem(new ItemBOPFood(1, 0.1F, 8), "berries"); 
+    	pear =              registerItem(new ItemFood(5, 0.3F, false), "pear");
+    	peach =             registerItem(new ItemFood(5, 0.2F, false), "peach");
         persimmon =         registerItem(new ItemFood(5, 0.2F, false), "persimmon");
-        filled_honeycomb =  registerItem(new ItemBOPFood(3, 0.4F, 16), "filled_honeycomb");
+        turnip_seeds = registerItem(new ItemSeeds(BOPBlocks.turnip_block, Blocks.farmland), "turnip_seeds");
         turnip =            registerItem(new ItemFood(3, 0.4F, false), "turnip");
-        pear =              registerItem(new ItemFood(5, 0.3F, false), "pear");
         saladfruit =        registerItem(new ItemSoup(6), "saladfruit");
         ((ItemFood)saladfruit).setPotionEffect(Potion.digSpeed.id, 775, 1, 0.05F);
         saladveggie =       registerItem(new ItemSoup(6), "saladveggie");
@@ -62,35 +58,36 @@ public class ModItems
         saladshroom =       registerItem(new ItemSoup(6), "saladshroom");
         ((ItemFood)saladshroom).setPotionEffect(Potion.jump.id, 550, 1, 0.05F);
         ricebowl =          registerItem(new ItemSoup(2), "ricebowl");
+        honeycomb = registerItem(new Item(), "honeycomb");
+        filled_honeycomb =  registerItem(new ItemBOPFood(3, 0.4F, 16), "filled_honeycomb");
+        pinecone = registerItem(new Item(), "pinecone");
+        shroompowder =      registerItem(new ItemFood(1, 0.1F, false), "shroompowder");
+        ((ItemFood)shroompowder).setAlwaysEdible();
+        ((ItemFood)shroompowder).setPotionEffect(Potion.confusion.id, 225, 0, 0.6F);
+        ambrosia =          registerItem(new ItemAmbrosia(), "ambrosia");
         
         earth = registerItem(new Item(), "earth");
         earth.setCreativeTab(null);
-        fleshchunk = registerItem(new Item(), "fleshchunk");
+        flax_string = registerItem(new Item(), "flax_string");
         mudball = registerItem(new ItemMudball(), "mudball");
-        turnip_seeds = registerItem(new ItemSeeds(BOPBlocks.turnip_block, Blocks.farmland), "turnip_seeds");
-        crystal_shard = registerItem(new Item(), "crystal_shard");
+        mud_brick = registerItem(new Item(), "mud_brick");
+        ash = registerItem(new Item(), "ash");
+        fleshchunk = registerItem(new Item(), "fleshchunk");
+        gem = registerItem(new ItemGem(), "gem");
         terrestrial_artifact = registerItem(new Item(), "terrestrial_artifact");
         terrestrial_artifact.setMaxStackSize(1);
-        flax_string = registerItem(new Item(), "flax_string");
-        honeycomb = registerItem(new Item(), "honeycomb");
-        gem = registerItem(new ItemGem(), "gem");
-        ash = registerItem(new Item(), "ash");
-        mud_brick = registerItem(new Item(), "mud_brick");
+        crystal_shard = registerItem(new Item(), "crystal_shard");
+        biome_essence = registerItem(new ItemBiomeEssence(), "biome_essence");
+        pixie_dust = registerItem(new Item(), "pixie_dust");
+        ichor = registerItem(new Item(), "ichor");
+        soul = registerItem(new Item(), "soul");
+        soul.setMaxStackSize(1);
         // TODO: move dyes to their own class?
         blue_dye = registerItem(new Item(), "blue_dye");
         brown_dye = registerItem(new Item(), "brown_dye");
         green_dye = registerItem(new Item(), "green_dye");
         white_dye = registerItem(new Item(), "white_dye");
         black_dye = registerItem(new Item(), "black_dye");
-        soul = registerItem(new Item(), "soul");
-        soul.setMaxStackSize(1);
-        pixie_dust = registerItem(new Item(), "pixie_dust");
-        ichor = registerItem(new Item(), "ichor");
-        pinecone = registerItem(new Item(), "pinecone");
-        
-        
-        dart = registerItem(new ItemDart(), "dart");
-        dart_blower = registerItem(new ItemDartBlower(), "dart_blower");
     
         // armor
         
@@ -130,8 +127,6 @@ public class ModItems
         amethyst_chestplate = registerItem(new ItemArmor(amethyst_armor_material, 0, 1), "amethyst_chestplate");
         amethyst_leggings = registerItem(new ItemArmor(amethyst_armor_material, 0, 2), "amethyst_leggings");
         amethyst_boots = registerItem(new ItemArmor(amethyst_armor_material, 0, 3), "amethyst_boots");
-    
-        
         
         // tools
 
@@ -162,7 +157,6 @@ public class ModItems
         amethyst_shovel = registerItem(new ItemSpade(amethyst_tool_material), "amethyst_shovel");
         amethyst_sword = registerItem(new ItemSword(amethyst_tool_material), "amethyst_sword");
         
-        
         mud_scythe = registerItem(new ItemBOPScythe(mud_tool_material), "mud_scythe");
         wood_scythe = registerItem(new ItemBOPScythe(ToolMaterial.WOOD), "wood_scythe");
         stone_scythe = registerItem(new ItemBOPScythe(ToolMaterial.STONE), "stone_scythe");
@@ -170,14 +164,15 @@ public class ModItems
         gold_scythe = registerItem(new ItemBOPScythe(ToolMaterial.GOLD), "gold_scythe");
         diamond_scythe = registerItem(new ItemBOPScythe(ToolMaterial.EMERALD), "diamond_scythe");
         amethyst_scythe = registerItem(new ItemBOPScythe(amethyst_tool_material), "amethyst_scythe");
-
         
-        biome_finder = registerItem(new ItemBiomeFinder(), "biome_finder");
-        biome_essence = registerItem(new ItemBiomeEssence(), "biome_essence");
-        enderporter = registerItem(new ItemEnderporter(), "enderporter");
-        flower_basket = registerItem(new ItemFlowerBasket(), "flower_basket");
+        dart = registerItem(new ItemDart(), "dart");
+        dart_blower = registerItem(new ItemDartBlower(), "dart_blower");
+        
         jar_empty = registerItem(new ItemJarEmpty(), "jar_empty");
         jar_filled = registerItem(new ItemJarFilled(), "jar_filled");
+        flower_basket = registerItem(new ItemFlowerBasket(), "flower_basket");
+        biome_finder = registerItem(new ItemBiomeFinder(), "biome_finder");
+        enderporter = registerItem(new ItemEnderporter(), "enderporter");
         
         record_wanderer = registerItem(new ItemBOPRecord("wanderer"), "record_wanderer");
         record_corruption = registerItem(new ItemBOPRecord("corruption"), "record_corruption");
