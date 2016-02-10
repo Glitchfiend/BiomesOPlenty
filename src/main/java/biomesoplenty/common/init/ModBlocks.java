@@ -108,6 +108,7 @@ public class ModBlocks
         log_1 =                 registerBlock( BlockBOPLog.paging.getBlock(1), "log_1" );
         log_2 =                 registerBlock( BlockBOPLog.paging.getBlock(2), "log_2" );
         log_3 =                 registerBlock( BlockBOPLog.paging.getBlock(3), "log_3" );
+        log_4 =                 registerBlock( BlockBOPLog.paging.getBlock(4), "log_4" );
         
         // TODO: check if hellbark planks, fence etc can burn
         

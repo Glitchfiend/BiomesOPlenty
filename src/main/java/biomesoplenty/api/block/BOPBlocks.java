@@ -32,6 +32,7 @@ public class BOPBlocks
     public static Block log_1;
     public static Block log_2;
     public static Block log_3;
+    public static Block log_4;
     public static Block leaves_0;
     public static Block leaves_1;
     public static Block leaves_2;
