@@ -82,6 +82,10 @@ public class BlockBOPFarmland extends BlockFarmland implements IBOPBlock
     public BlockBOPFarmland()
     {
         super();
+        this.setTickRandomly(true);
+        this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.9375F, 1.0F);
+        this.setLightOpacity(255);
+        this.useNeighborBrightness = true;
         this.setHardness(0.6F);
         this.setHarvestLevel("shovel", 0);
         this.setStepSound(soundTypeGravel);
