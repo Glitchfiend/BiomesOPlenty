@@ -28,6 +28,7 @@ import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
  

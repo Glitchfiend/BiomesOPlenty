@@ -84,13 +84,13 @@ public class BiomeGenPrairie extends BOPBiome
         this.addGenerator("portobellos", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(2).with(BlockBOPMushroom.MushroomType.PORTOBELLO).create());
         
         // gem
-        this.addGenerator("tanzanite", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.TANZANITE).create());
+        this.addGenerator("peridot", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.PERIDOT).create());
     }
     
     @Override
     public void applySettings(BOPWorldSettings settings)
     {
-        if (!settings.generateBopGems) {this.removeGenerator("tanzanite");}
+        if (!settings.generateBopGems) {this.removeGenerator("peridot");}
         if (!settings.generateFlax) {this.removeGenerator("flax");}
         if (!settings.generateBerryBushes) {this.removeGenerator("berry_bushes");}
         

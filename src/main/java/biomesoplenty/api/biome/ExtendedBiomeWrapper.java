@@ -19,6 +19,8 @@ public class ExtendedBiomeWrapper implements IExtendedBiome
     private GenerationManager generationManager = new GenerationManager();
     private Map<BOPClimates, Integer> weightMap = new HashMap<BOPClimates, Integer>();
     
+    public int beachBiomeId = BiomeGenBase.beach.biomeID;
+    
     public ExtendedBiomeWrapper(BiomeGenBase biome)
     {
         this.biome = biome;
@@ -33,6 +35,8 @@ public class ExtendedBiomeWrapper implements IExtendedBiome
     @Override
     public void configure(IConfigObj conf) 
     {
+        this.beachBiomeId = conf.getInt("beachBiomeId", this.beachBiomeId);
+        
         // Allow generators to be configured
         IConfigObj confGenerators = conf.getObject("generators");
         if (confGenerators != null)
@@ -88,6 +92,12 @@ public class ExtendedBiomeWrapper implements IExtendedBiome
     public void clearWeights()
     {
         this.weightMap.clear();
+    }
+    
+    @Override
+    public int getBeachId()
+    {
+        return this.beachBiomeId;
     }
 
     @Override

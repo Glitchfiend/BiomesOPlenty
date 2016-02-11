@@ -56,8 +56,10 @@ import static biomesoplenty.api.biome.BOPBiomes.moor;
 import static biomesoplenty.api.biome.BOPBiomes.mountain;
 import static biomesoplenty.api.biome.BOPBiomes.mountain_foothills;
 import static biomesoplenty.api.biome.BOPBiomes.mystic_grove;
+import static biomesoplenty.api.biome.BOPBiomes.oasis;
 import static biomesoplenty.api.biome.BOPBiomes.ominous_woods;
 import static biomesoplenty.api.biome.BOPBiomes.origin_valley;
+import static biomesoplenty.api.biome.BOPBiomes.orchard;
 import static biomesoplenty.api.biome.BOPBiomes.outback;
 import static biomesoplenty.api.biome.BOPBiomes.overgrown_cliffs;
 import static biomesoplenty.api.biome.BOPBiomes.plains_extension;
@@ -79,6 +81,7 @@ import static biomesoplenty.api.biome.BOPBiomes.temperate_rainforest;
 import static biomesoplenty.api.biome.BOPBiomes.tropical_island;
 import static biomesoplenty.api.biome.BOPBiomes.tropical_rainforest;
 import static biomesoplenty.api.biome.BOPBiomes.tundra;
+import static biomesoplenty.api.biome.BOPBiomes.volcanic_island;
 import static biomesoplenty.api.biome.BOPBiomes.wasteland;
 import static biomesoplenty.api.biome.BOPBiomes.wetland;
 import static biomesoplenty.api.biome.BOPBiomes.woodland;
@@ -138,7 +141,9 @@ import biomesoplenty.common.biome.overworld.BiomeGenMeadow;
 import biomesoplenty.common.biome.overworld.BiomeGenMoor;
 import biomesoplenty.common.biome.overworld.BiomeGenMountain;
 import biomesoplenty.common.biome.overworld.BiomeGenMysticGrove;
+import biomesoplenty.common.biome.overworld.BiomeGenOasis;
 import biomesoplenty.common.biome.overworld.BiomeGenOminousWoods;
+import biomesoplenty.common.biome.overworld.BiomeGenOrchard;
 import biomesoplenty.common.biome.overworld.BiomeGenOriginValley;
 import biomesoplenty.common.biome.overworld.BiomeGenOutback;
 import biomesoplenty.common.biome.overworld.BiomeGenOvergrownCliffs;
@@ -156,6 +161,7 @@ import biomesoplenty.common.biome.overworld.BiomeGenTemperateRainforest;
 import biomesoplenty.common.biome.overworld.BiomeGenTropicalIsland;
 import biomesoplenty.common.biome.overworld.BiomeGenTropicalRainforest;
 import biomesoplenty.common.biome.overworld.BiomeGenTundra;
+import biomesoplenty.common.biome.overworld.BiomeGenVolcanicIsland;
 import biomesoplenty.common.biome.overworld.BiomeGenWasteland;
 import biomesoplenty.common.biome.overworld.BiomeGenWetland;
 import biomesoplenty.common.biome.overworld.BiomeGenWoodland;
@@ -240,10 +246,12 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         
         initSubBiomes();
         initMutatedBiomes();
-        initExtendedBiomes();
-        
+
         registerBiomes();
         registerBiomeDictionaryTags();
+        
+        //After normal biomes to account for adding custom beaches
+        initExtendedBiomes();
         
         // save the biome ids to the config file (creating it if it doesn't exist)
         BOPConfig.writeFile(biomeIdMapFile, biomeIdMap);
@@ -310,29 +318,12 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         setSubBiome(BiomeGenBase.extremeHillsPlus, BiomeGenBase.getBiome(BiomeGenBase.extremeHillsPlus.biomeID + 128));
         setSubBiome(BiomeGenBase.megaTaigaHills, BiomeGenBase.getBiome(BiomeGenBase.megaTaigaHills.biomeID + 128));        
     }
-    
-    public static void initExtendedBiomes()
-    {
-        biomeWrapperMap = new HashMap<Integer, IExtendedBiome>();
-        
-        end_extension = registerWrappedBiome(new BiomeExtEnd(), "end");
-        birch_forest_extension = registerWrappedBiome(new BiomeExtBirchForest(), "birch_forest");
-        desert_extension = registerWrappedBiome(new BiomeExtDesert(), "desert");
-        extreme_hills_extension = registerWrappedBiome(new BiomeExtExtremeHills(), "extreme_hills");
-        forest_extension = registerWrappedBiome(new BiomeExtForest(), "forest");
-        ice_plains_extension = registerWrappedBiome(new BiomeExtIcePlains(), "ice_plains");
-        jungle_extension = registerWrappedBiome(new BiomeExtJungle(), "jungle");
-        mesa_extension = registerWrappedBiome(new BiomeExtMesa(), "mesa");
-        plains_extension = registerWrappedBiome(new BiomeExtPlains(), "plains");
-        roofed_forest_extension = registerWrappedBiome(new BiomeExtRoofedForest(), "roofed_forest");
-        savanna_extension = registerWrappedBiome(new BiomeExtSavanna(), "savanna");
-        swampland_extension = registerWrappedBiome(new BiomeExtSwampland(), "swampland");
-        taiga_extension = registerWrappedBiome(new BiomeExtTaiga(), "taiga");
-        
-    }
 
     private static void registerBiomes()
     {
+        // beach biomes (normal biomes rely on these being registered first)
+        
+        gravel_beach = registerBOPBiome(new BiomeGenGravelBeach(), "Gravel Beach");
         
         // normal biomes which have weights
         alps = registerBOPBiome(new BiomeGenAlps(), "Alps");
@@ -371,6 +362,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         mountain = registerBOPBiome(new BiomeGenMountain(BiomeGenMountain.MountainType.PEAKS), "Mountain");
         mystic_grove = registerBOPBiome(new BiomeGenMysticGrove(), "Mystic Grove");
         ominous_woods = registerBOPBiome(new BiomeGenOminousWoods(), "Ominous Woods");
+        orchard = registerBOPBiome(new BiomeGenOrchard(), "Orchard");
         origin_valley = registerBOPBiome(new BiomeGenOriginValley(), "Origin Valley");
         outback = registerBOPBiome(new BiomeGenOutback(), "Outback");
         overgrown_cliffs = registerBOPBiome(new BiomeGenOvergrownCliffs(), "Overgrown Cliffs");
@@ -396,19 +388,42 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         
         mountain_foothills = registerBOPBiome(new BiomeGenMountain(BiomeGenMountain.MountainType.FOOTHILLS), "Mountain Foothills");
         canyon_ravine = registerBOPBiome(new BiomeGenCanyon(BiomeGenCanyon.CanyonType.RAVINE), "Canyon Ravine");
+        oasis = registerBOPBiome(new BiomeGenOasis(), "Oasis");
         coral_reef = registerBOPBiome(new BiomeGenCoralReef(), "Coral Reef");
         kelp_forest = registerBOPBiome(new BiomeGenKelpForest(), "Kelp Forest");
-        gravel_beach = registerBOPBiome(new BiomeGenGravelBeach(), "Gravel Beach");
 
         setSubBiome(canyon, canyon_ravine);
+        setSubBiome(Optional.of(BiomeGenBase.desert), BOPBiomes.oasis);
         setSubBiome(Optional.of(BiomeGenBase.ocean), BOPBiomes.coral_reef);
         setSubBiome(Optional.of(BiomeGenBase.ocean), BOPBiomes.kelp_forest);
 
         // island biomes
         
         tropical_island = registerBOPBiome(new BiomeGenTropicalIsland(), "Tropical Island");
+        volcanic_island = registerBOPBiome(new BiomeGenVolcanicIsland(), "Volcanic Island");
     
         addIslandBiome(tropical_island, 10);
+        addIslandBiome(volcanic_island, 3);
+    }
+    
+    public static void initExtendedBiomes()
+    {
+        biomeWrapperMap = new HashMap<Integer, IExtendedBiome>();
+        
+        end_extension = registerWrappedBiome(new BiomeExtEnd(), "end");
+        birch_forest_extension = registerWrappedBiome(new BiomeExtBirchForest(), "birch_forest");
+        desert_extension = registerWrappedBiome(new BiomeExtDesert(), "desert");
+        extreme_hills_extension = registerWrappedBiome(new BiomeExtExtremeHills(), "extreme_hills");
+        forest_extension = registerWrappedBiome(new BiomeExtForest(), "forest");
+        ice_plains_extension = registerWrappedBiome(new BiomeExtIcePlains(), "ice_plains");
+        jungle_extension = registerWrappedBiome(new BiomeExtJungle(), "jungle");
+        mesa_extension = registerWrappedBiome(new BiomeExtMesa(), "mesa");
+        plains_extension = registerWrappedBiome(new BiomeExtPlains(), "plains");
+        roofed_forest_extension = registerWrappedBiome(new BiomeExtRoofedForest(), "roofed_forest");
+        savanna_extension = registerWrappedBiome(new BiomeExtSavanna(), "savanna");
+        swampland_extension = registerWrappedBiome(new BiomeExtSwampland(), "swampland");
+        taiga_extension = registerWrappedBiome(new BiomeExtTaiga(), "taiga");
+        
     }
     
     private static void registerBiomeDictionaryTags()
@@ -451,7 +466,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         registerBiomeToDictionary(BOPBiomes.mountain, Type.MOUNTAIN, Type.FOREST, Type.DRY);
         registerBiomeToDictionary(BOPBiomes.mystic_grove, Type.MAGICAL, Type.FOREST, Type.LUSH);
         registerBiomeToDictionary(BOPBiomes.ominous_woods, Type.MAGICAL, Type.FOREST, Type.SPOOKY, Type.DEAD);
-        registerBiomeToDictionary(BOPBiomes.origin_valley, Type.MAGICAL, Type.SPARSE);
+        //registerBiomeToDictionary(BOPBiomes.origin_valley, Type.FOREST, Type.PLAINS, Type.LUSH);
         registerBiomeToDictionary(BOPBiomes.outback, Type.SANDY, Type.PLAINS, Type.SAVANNA, Type.DRY, Type.HOT);
         registerBiomeToDictionary(BOPBiomes.overgrown_cliffs, Type.MOUNTAIN, Type.LUSH, Type.DENSE, Type.JUNGLE);
         registerBiomeToDictionary(BOPBiomes.prairie, Type.PLAINS, Type.DRY, Type.SPARSE);
@@ -475,9 +490,11 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         // edge-biomes, sub-biomes and mutated-biomes
         registerBiomeToDictionary(BOPBiomes.mountain_foothills, Type.HILLS, Type.MOUNTAIN);
         registerBiomeToDictionary(BOPBiomes.canyon_ravine, Type.SANDY, Type.HILLS, Type.DRY, Type.HOT);
+        registerBiomeToDictionary(BOPBiomes.oasis, Type.DESERT, Type.LUSH, Type.JUNGLE, Type.HOT);
         registerBiomeToDictionary(BOPBiomes.coral_reef, Type.WATER, Type.OCEAN);
         registerBiomeToDictionary(BOPBiomes.kelp_forest, Type.WATER, Type.OCEAN);
         registerBiomeToDictionary(BOPBiomes.tropical_island, Type.WATER, Type.OCEAN, Type.JUNGLE, Type.LUSH);
+        registerBiomeToDictionary(BOPBiomes.volcanic_island, Type.WATER, Type.OCEAN, Type.DEAD, Type.WASTELAND, Type.MOUNTAIN, Type.HOT);
         registerBiomeToDictionary(BOPBiomes.gravel_beach, Type.BEACH);   
         
     }

@@ -59,6 +59,8 @@ public class BiomeGenDeadSwamp extends BOPBiome
         this.canGenerateRivers = false;
         this.canGenerateVillages = false;
         
+        this.beachBiomeId = -1;
+        
         this.addWeight(BOPClimates.COLD_SWAMP, 3);
         
         this.spawnableCreatureList.clear();

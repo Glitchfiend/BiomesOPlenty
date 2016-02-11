@@ -20,6 +20,7 @@ import biomesoplenty.common.world.feature.GeneratorColumns;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import net.minecraft.init.Blocks;
+import net.minecraft.world.biome.BiomeGenBase;
  
 public class BiomeGenKelpForest extends BOPBiome
 {
@@ -33,6 +34,8 @@ public class BiomeGenKelpForest extends BOPBiome
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
         this.canGenerateRivers = false;
+        
+        this.beachBiomeId = BiomeGenBase.ocean.biomeID;
         
         clearWeights();
 

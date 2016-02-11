@@ -16,7 +16,7 @@ import com.google.common.base.Predicate;
 public enum BOPWoods implements IStringSerializable, IPagedVariants
 {
     
-    SACRED_OAK, CHERRY, UMBRAN, FIR, ETHEREAL, MAGIC, MANGROVE, PALM, REDWOOD, WILLOW, PINE, HELLBARK, JACARANDA, MAHOGANY, GIANT_FLOWER, DEAD;
+    SACRED_OAK, CHERRY, UMBRAN, FIR, ETHEREAL, MAGIC, MANGROVE, PALM, REDWOOD, WILLOW, PINE, HELLBARK, JACARANDA, MAHOGANY, EBONY, EUCALYPTUS, GIANT_FLOWER, DEAD;
     
     @Override
     public String getName() {

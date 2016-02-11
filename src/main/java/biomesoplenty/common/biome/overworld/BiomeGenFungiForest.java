@@ -56,6 +56,8 @@ public class BiomeGenFungiForest extends BOPBiome
         
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
+        
+        this.beachBiomeId = -1;
 
         this.addWeight(BOPClimates.TROPICAL, 1);
         

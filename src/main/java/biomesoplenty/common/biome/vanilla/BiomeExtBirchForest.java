@@ -2,6 +2,7 @@ package biomesoplenty.common.biome.vanilla;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.biome.ExtendedBiomeWrapper;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
@@ -21,6 +22,11 @@ public class BiomeExtBirchForest extends ExtendedBiomeWrapper
     public BiomeExtBirchForest()
     {
         super(BiomeGenBase.birchForest);
+        
+        if (BOPBiomes.gravel_beach.isPresent())
+        {
+        	this.beachBiomeId = BOPBiomes.gravel_beach.get().biomeID;
+        }
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(2.5F);

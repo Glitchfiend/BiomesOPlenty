@@ -1,0 +1,8 @@
+{
+    "parent": "block/inner_stairs",
+    "textures": {
+        "bottom": "biomesoplenty:blocks/ebony_planks",
+        "top": "biomesoplenty:blocks/ebony_planks",
+        "side": "biomesoplenty:blocks/ebony_planks"
+    }
+}

@@ -61,6 +61,8 @@ public class BiomeGenWetland extends BOPBiome
         this.canGenerateRivers = false;
         this.canGenerateVillages = false;
         
+        this.beachBiomeId = -1;
+        
         this.addWeight(BOPClimates.WET_TEMPERATE, 7);
         this.addWeight(BOPClimates.COLD_SWAMP, 5);
         

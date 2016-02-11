@@ -6,6 +6,7 @@ import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import biomesoplenty.api.biome.BOPBiome;
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.api.block.BOPBlocks;
@@ -43,6 +44,11 @@ public class BiomeGenConiferousForest extends BOPBiome
         this.setTemperatureRainfall(0.45F, 0.5F);
         
         this.canGenerateVillages = false;
+        
+        if (BOPBiomes.gravel_beach.isPresent())
+        {
+        	this.beachBiomeId = BOPBiomes.gravel_beach.get().biomeID;
+        }
     
         this.addWeight(BOPClimates.BOREAL, 10);
         

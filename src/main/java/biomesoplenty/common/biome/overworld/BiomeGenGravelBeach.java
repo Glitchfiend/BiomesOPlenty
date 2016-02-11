@@ -26,7 +26,7 @@ public class BiomeGenGravelBeach extends BOPBiome
     public BiomeGenGravelBeach()
     {
         // terrain
-        this.terrainSettings.avgHeight(64).heightVariation(5, 5); 
+        this.terrainSettings.avgHeight(64).heightVariation(3, 4); 
         
         this.setColor(0x908884);
     

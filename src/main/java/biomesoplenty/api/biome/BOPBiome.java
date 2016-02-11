@@ -53,6 +53,8 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
     public boolean canGenerateVillages = true;
     public boolean canGenerateRivers = true;
     
+    public int beachBiomeId = BiomeGenBase.beach.biomeID;
+    
     public TerrainSettings terrainSettings = new TerrainSettings();
     public boolean noNeighborTerrainInfuence = false;
     public int avgDirtDepth = 3;
@@ -68,7 +70,7 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         this.theBiomeDecorator.grassPerChunk = -999;
         this.theBiomeDecorator.sandPerChunk = -999;
         this.theBiomeDecorator.sandPerChunk2 = -999;
-        this.theBiomeDecorator.generateLakes = false;       
+        this.theBiomeDecorator.generateLakes = false;
         
         // roots
         this.addGenerator("roots", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(4.0F).with(BOPPlants.ROOT).create());
@@ -103,6 +105,8 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         this.canSpawnInBiome = conf.getBool("canSpawnInBiome", this.canSpawnInBiome);
         this.canGenerateVillages = conf.getBool("canGenerateVillages", this.canGenerateVillages);
         this.canGenerateRivers = conf.getBool("canGenerateRivers", this.canGenerateRivers);
+        
+        this.beachBiomeId = conf.getInt("beachBiomeId", this.beachBiomeId);
         
         // Allow weights to be overridden
         IConfigObj confWeights = conf.getObject("weights");
@@ -358,6 +362,12 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
                 }
             }
         }
+    }
+    
+    @Override
+    public int getBeachId()
+    {
+        return this.beachBiomeId;
     }
 
     @Override

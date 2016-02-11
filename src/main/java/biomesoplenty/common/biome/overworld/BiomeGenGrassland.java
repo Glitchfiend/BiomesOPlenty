@@ -13,6 +13,7 @@ import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import biomesoplenty.api.biome.BOPBiome;
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.api.block.BlockQueries;
@@ -44,6 +45,11 @@ public class BiomeGenGrassland extends BOPBiome {
 
         this.addWeight(BOPClimates.COOL_TEMPERATE, 7);
         this.addWeight(BOPClimates.WET_TEMPERATE, 3);
+        
+        if (BOPBiomes.gravel_beach.isPresent())
+        {
+        	this.beachBiomeId = BOPBiomes.gravel_beach.get().biomeID;
+        }
         
         this.canGenerateVillages = true;
         
