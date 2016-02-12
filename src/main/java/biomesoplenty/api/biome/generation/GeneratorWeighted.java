@@ -130,10 +130,12 @@ public class GeneratorWeighted extends BOPGeneratorBase
         {
             for (String name : confGenerators.getKeys())
             {
+                IConfigObj confCurrentGen = confGenerators.getObject(name);
+                
                 if (this.generators.containsKey(name))
                 {
                     IGenerator generator = this.getGenerator(name);
-                    Integer weight = conf.getInt("weight", this.weights.get(generator));
+                    Integer weight = confCurrentGen.getInt("weight", this.weights.get(generator));
                     if (weight.intValue() < 1)
                     {
                         // remove this generator if the weight is zero (or negative)
@@ -144,14 +146,14 @@ public class GeneratorWeighted extends BOPGeneratorBase
                         // adjust weight
                         this.weights.put(generator, weight);
                         // configure the existing generator
-                        generator.configure(conf);
+                        generator.configure(confCurrentGen);
                     }
                 }
                 else
                 {
                     // there was previously no generator of this name - attempt to add it
-                    Integer weight = conf.getInt("weight", null);
-                    IGenerator generator = GeneratorRegistry.createGenerator(conf);
+                    Integer weight = confCurrentGen.getInt("weight", null);
+                    IGenerator generator = GeneratorRegistry.createGenerator(confCurrentGen);
                     if (weight != null && generator != null)
                     {
                         this.add(name, weight, generator);
