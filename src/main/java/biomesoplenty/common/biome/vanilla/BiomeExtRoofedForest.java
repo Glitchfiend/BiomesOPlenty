@@ -20,11 +20,6 @@ public class BiomeExtRoofedForest extends ExtendedBiomeWrapper
     {
         super(BiomeGenBase.roofedForest);
         
-        if (BOPBiomes.gravel_beach.isPresent())
-        {
-        	this.beachBiomeId = BOPBiomes.gravel_beach.get().biomeID;
-        }
-        
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(2.0F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
