@@ -21,23 +21,22 @@ import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
+import biomesoplenty.common.world.feature.tree.GeneratorBigTree;
 
 
-public class BiomeGenFrostForest extends BOPBiome
+public class BiomeGenSnowyForest extends BOPBiome
 {
 
-    public BiomeGenFrostForest()
+    public BiomeGenSnowyForest()
     {
         // terrain
         this.terrainSettings.avgHeight(66).heightVariation(6, 21);
-        
-        this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SILTY);
-        this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY);
         
         this.setColor(0xABD6BC);
         //this.skyColor = 0xCEE0EA;
@@ -51,7 +50,8 @@ public class BiomeGenFrostForest extends BOPBiome
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(3);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("oak", 1, (new GeneratorBasicTree.Builder()).create());
+        treeGenerator.add("oak", 3, (new GeneratorBasicTree.Builder()).leaves(BOPTrees.DEAD).create());
+        treeGenerator.add("dying_tree", 1, (new GeneratorBigTree.Builder()).minHeight(5).maxHeight(12).foliageHeight(2).leaves(BOPTrees.DEAD).create());
         
         // grasses        
         GeneratorWeighted grassGenerator = new GeneratorWeighted(2.0F);
@@ -68,7 +68,6 @@ public class BiomeGenFrostForest extends BOPBiome
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.3F);
         this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
-        flowerGenerator.add("icy_irises", 1, (new GeneratorFlora.Builder().with(BOPFlowers.ICY_IRIS).create()));
         flowerGenerator.add("violets", 1, (new GeneratorFlora.Builder().with(BOPFlowers.VIOLET).create()));
         
         // gem
@@ -80,9 +79,7 @@ public class BiomeGenFrostForest extends BOPBiome
     public void applySettings(BOPWorldSettings settings)
     {
         if (!settings.generateBopGems) {this.removeGenerator("tanzanite");}
-        
-        if (!settings.generateBopSoils) {this.topBlock = Blocks.grass.getDefaultState(); this.fillerBlock = Blocks.dirt.getDefaultState();}
-        
+
         if (!settings.generateBopFoliage) {this.removeGenerator("caveweed"); this.removeGenerator("bushes"); this.removeGenerator("koru"); this.removeGenerator("shrubs"); this.removeGenerator("leaf_piles"); this.removeGenerator("dead_leaf_piles"); this.removeGenerator("clover_patches"); this.removeGenerator("sprouts");}
         
         if (!settings.generateBopPlants) {this.removeGenerator("cattail"); this.removeGenerator("double_cattail"); this.removeGenerator("river_cane"); this.removeGenerator("tiny_cacti"); this.removeGenerator("roots"); this.removeGenerator("rafflesia"); this.removeGenerator("desert_sprouts");}
@@ -96,13 +93,13 @@ public class BiomeGenFrostForest extends BOPBiome
     @Override
     public int getGrassColorAtPos(BlockPos pos)
     {
-        return 0xABD6BC;
+        return 0xBCA165;
     }
 
     @Override
     public int getFoliageColorAtPos(BlockPos pos)
     {
-        return 0xABD6BC;
+        return 0xBCA165;
     }
     
     /* TODO
