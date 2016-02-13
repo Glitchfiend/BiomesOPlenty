@@ -104,8 +104,8 @@ public class BiomeGenFen extends BOPBiome
         flowerGenerator.add("poppy", 1, (new GeneratorFlora.Builder()).with(BlockFlower.EnumFlowerType.POPPY).create());
 
         // other plants
-        this.addGenerator("cattails", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).with(BOPPlants.CATTAIL).create());
-        this.addGenerator("double_cattails", GeneratorStage.FLOWERS,(new GeneratorDoubleFlora.Builder()).amountPerChunk(2.0F).with(BlockBOPDoublePlant.DoublePlantType.TALL_CATTAIL).create());
+        this.addGenerator("cattails", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(3.0F).with(BOPPlants.CATTAIL).create());
+        this.addGenerator("double_cattails", GeneratorStage.FLOWERS,(new GeneratorDoubleFlora.Builder()).amountPerChunk(4.0F).with(BlockBOPDoublePlant.DoublePlantType.TALL_CATTAIL).create());
         this.addGenerator("river_cane", GeneratorStage.FLOWERS,(new GeneratorColumns.Builder()).amountPerChunk(1.0F).generationAttempts(24).placeOn(BlockQueries.litFertileWaterside).with(BlockBOPPlant.paging.getVariantState(BOPPlants.RIVERCANE)).minHeight(1).maxHeight(3).create());
         this.addGenerator("koru", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BOPPlants.KORU).create());
         this.addGenerator("shrubs", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.3F).with(BOPPlants.SHRUB).create());
