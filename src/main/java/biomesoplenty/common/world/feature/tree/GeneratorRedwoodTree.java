@@ -41,19 +41,20 @@ public class GeneratorRedwoodTree extends GeneratorTreeBase
             this.leaves = BlockBOPLeaves.paging.getVariantState(BOPTrees.REDWOOD);
             this.vine = null;
             this.hanging = null;
+            this.altLeaves = null;
         }
 
         @Override
         public GeneratorRedwoodTree create() 
         {
-            return new GeneratorRedwoodTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.minHeight, this.maxHeight);
+            return new GeneratorRedwoodTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.altLeaves, this.minHeight, this.maxHeight);
         }
         
     }
 
-    protected GeneratorRedwoodTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, int minHeight, int maxHeight) 
+    protected GeneratorRedwoodTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, IBlockState altLeaves, int minHeight, int maxHeight) 
     {
-        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, minHeight, maxHeight);
+        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, altLeaves, minHeight, maxHeight);
     }
     
     public boolean canPlaceHere(World world, BlockPos pos, int height, int radius)

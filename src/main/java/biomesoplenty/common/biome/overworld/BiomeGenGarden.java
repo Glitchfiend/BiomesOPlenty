@@ -26,6 +26,7 @@ import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorBigFlower;
 import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
@@ -62,7 +63,7 @@ public class BiomeGenGarden extends BOPBiome
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("red_big_flowers", 1, (new GeneratorBigFlower.Builder()).flowerType(GeneratorBigFlower.BigFlowerType.RED).create());
         treeGenerator.add("yellow_big_flowers", 1, (new GeneratorBigFlower.Builder()).flowerType(GeneratorBigFlower.BigFlowerType.YELLOW).create());
-        treeGenerator.add("oak_bush", 2, (new GeneratorBush.Builder()).maxHeight(2).create());
+        treeGenerator.add("oak_bush", 2, (new GeneratorBush.Builder()).maxHeight(2).altLeaves(BOPTrees.FLOWERING).create());
         
         // grasses      
         GeneratorWeighted grassGenerator = new GeneratorWeighted(6.0F);

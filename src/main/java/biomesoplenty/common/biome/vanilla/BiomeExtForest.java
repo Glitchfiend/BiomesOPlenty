@@ -13,11 +13,14 @@ import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.enums.BOPTrees;
+import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
+import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
 
 public class BiomeExtForest extends ExtendedBiomeWrapper
 {
@@ -29,6 +32,12 @@ public class BiomeExtForest extends ExtendedBiomeWrapper
         {
         	this.beachBiomeId = BOPBiomes.gravel_beach.get().biomeID;
         }
+        
+        // trees
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(0.5F);
+        this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
+        treeGenerator.add("flowering_oak", 1, (new GeneratorBasicTree.Builder()).altLeaves(BOPTrees.FLOWERING).create());
+        
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(5.0F);

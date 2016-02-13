@@ -46,6 +46,7 @@ public class GeneratorBasicTree extends GeneratorTreeBase
             this.leaves = Blocks.leaves.getDefaultState();
             this.vine = null;
             this.hanging = null;
+            this.altLeaves = null;
             this.minHeight = 4;
             this.maxHeight = 7;
             this.leafLayers = 4;
@@ -59,7 +60,7 @@ public class GeneratorBasicTree extends GeneratorTreeBase
         @Override
         public GeneratorBasicTree create()
         {
-            return new GeneratorBasicTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.minHeight, this.maxHeight, false, this.leafLayers, this.leavesOffset, this.maxLeavesRadius, this.leavesLayerHeight, this.placeVinesOn, this.hangingChance);
+            return new GeneratorBasicTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.altLeaves, this.minHeight, this.maxHeight, false, this.leafLayers, this.leavesOffset, this.maxLeavesRadius, this.leavesLayerHeight, this.placeVinesOn, this.hangingChance);
         }
     }
     
@@ -94,9 +95,9 @@ public class GeneratorBasicTree extends GeneratorTreeBase
     protected IBlockPosQuery placeVinesOn;
     protected float hangingChance;
     
-    public GeneratorBasicTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, int minHeight, int maxHeight, boolean updateNeighbours, int leafLayers, int leavesOffset, int maxLeavesRadius, int leavesLayerHeight, IBlockPosQuery placeVinesOn, float hangingChance)
+    public GeneratorBasicTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, IBlockState altLeaves, int minHeight, int maxHeight, boolean updateNeighbours, int leafLayers, int leavesOffset, int maxLeavesRadius, int leavesLayerHeight, IBlockPosQuery placeVinesOn, float hangingChance)
     {
-        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, minHeight, maxHeight);
+        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, altLeaves, minHeight, maxHeight);
         this.updateNeighbours = updateNeighbours;
         this.leavesOffset = leavesOffset;
         this.leafLayers = leafLayers;
@@ -193,7 +194,21 @@ public class GeneratorBasicTree extends GeneratorTreeBase
                                     BlockPos leavesPos = new BlockPos(x, y, z);
                                     if (this.replace.matches(world, leavesPos))
                                     {
-                                        this.setBlockAndNotifyAdequately(world, leavesPos, this.leaves);
+                                    	if (this.altLeaves != null)
+                                    	{
+                                    		if (random.nextInt(4) == 0)
+                                    		{
+                                    			this.setBlockAndNotifyAdequately(world, leavesPos, this.altLeaves);
+                                    		}
+                                    		else
+                                    		{
+                                    			this.setBlockAndNotifyAdequately(world, leavesPos, this.leaves);
+                                    		}
+                                    	}
+                                    	else
+                                    	{
+                                    		this.setBlockAndNotifyAdequately(world, leavesPos, this.leaves);
+                                    	}
                                     }
                                 }
                             }
@@ -348,6 +363,7 @@ public class GeneratorBasicTree extends GeneratorTreeBase
         this.leaves = conf.getBlockState("leavesState", this.leaves);
         this.vine = conf.getBlockState("vineState", this.vine);
         this.hanging = conf.getBlockState("hangingState", this.hanging);
+        this.altLeaves = conf.getBlockState("altLeavesState", this.altLeaves);
         
         this.hangingChance = conf.getFloat("hangingChance", this.hangingChance);
     }

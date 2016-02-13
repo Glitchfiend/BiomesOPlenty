@@ -184,8 +184,8 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable {
                 return new GeneratorBasicTree.Builder().log(BlockPlanks.EnumType.OAK).leaves(BOPTrees.MAPLE).minHeight(5).maxHeight(10).create();
             case HELLBARK: //Not implemented
                 return new WorldGenTrees(true);
-            case FLOWERING: //Not implemented
-                return new WorldGenTrees(true);
+            case FLOWERING:
+                return new GeneratorBasicTree.Builder().altLeaves(BOPTrees.FLOWERING).create();
             case JACARANDA:
             	return new GeneratorBasicTree.Builder().minHeight(4).maxHeight(7).log(BOPWoods.JACARANDA).leaves(BOPTrees.JACARANDA).create();
             case SACRED_OAK:
@@ -204,7 +204,7 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable {
                 return new GeneratorMahoganyTree.Builder().create();
             case EBONY:
                 return new GeneratorBigTree.Builder().log(BOPWoods.EBONY).leaves(BOPTrees.EBONY).minHeight(4).maxHeight(10).foliageHeight(1).create();
-            case EUCALYPTUS: //Not implemented
+            case EUCALYPTUS:
                 return new GeneratorBulbTree.Builder().minHeight(15).maxHeight(30).log(BOPWoods.EUCALYPTUS).leaves(BOPTrees.EUCALYPTUS).create();
             default:
             	return null;

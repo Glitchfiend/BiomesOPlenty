@@ -14,7 +14,6 @@ import net.minecraft.block.BlockTallGrass;
 import net.minecraft.entity.passive.EntityMooshroom;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
-import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
@@ -28,13 +27,13 @@ import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorBigMushroom;
 import biomesoplenty.common.world.feature.GeneratorColumns;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
-import biomesoplenty.common.world.feature.GeneratorMixedLily;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import biomesoplenty.common.world.feature.GeneratorSplotches;
 import biomesoplenty.common.world.feature.tree.GeneratorBush;
@@ -73,7 +72,7 @@ public class BiomeGenFungiForest extends BOPBiome
         GeneratorWeighted treeGenerator = new GeneratorWeighted(12);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("mega_oak", 1, (new GeneratorMegaJungleTree.Builder()).log(BlockPlanks.EnumType.OAK).leaves(BlockPlanks.EnumType.OAK).vine(BOPBlocks.ivy.getDefaultState()).create());
-        treeGenerator.add("oak_bush", 1, (new GeneratorBush.Builder()).maxHeight(2).create());
+        treeGenerator.add("oak_bush", 1, (new GeneratorBush.Builder()).maxHeight(2).altLeaves(BOPTrees.FLOWERING).create());
         
         // grasses        
         GeneratorWeighted grassGenerator = new GeneratorWeighted(5.0F);

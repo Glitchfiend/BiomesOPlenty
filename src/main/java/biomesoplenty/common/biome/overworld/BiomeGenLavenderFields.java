@@ -52,7 +52,7 @@ public class BiomeGenLavenderFields extends BOPBiome
         GeneratorWeighted treeGenerator = new GeneratorWeighted(1);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("jacaranda", 3, (new GeneratorBasicTree.Builder()).minHeight(4).maxHeight(7).log(BOPWoods.JACARANDA).leaves(BOPTrees.JACARANDA).create());
-        treeGenerator.add("oak", 1, (new GeneratorBigTree.Builder()).create());
+        treeGenerator.add("oak", 1, (new GeneratorBigTree.Builder()).altLeaves(BOPTrees.FLOWERING).create());
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(15);

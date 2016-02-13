@@ -34,18 +34,19 @@ public class GeneratorBush extends GeneratorTreeBase
             this.leaves = Blocks.leaves.getDefaultState();
             this.vine = null;
             this.hanging = null;
+            this.altLeaves = null;
         }        
 
         @Override
         public GeneratorBush create() {
-            return new GeneratorBush(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.minHeight, this.maxHeight);
+            return new GeneratorBush(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.altLeaves, this.minHeight, this.maxHeight);
         }
     }
     
     
-    public GeneratorBush(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, int minHeight, int maxHeight)
+    public GeneratorBush(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, IBlockState altLeaves, int minHeight, int maxHeight)
     {
-        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, minHeight, maxHeight);
+        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, altLeaves, minHeight, maxHeight);
     }
 
     @Override
@@ -79,7 +80,21 @@ public class GeneratorBush extends GeneratorTreeBase
                     //Randomly prevent the generation of leaves on the corners of each layer
                     if (Math.abs(x) < leavesRadius || Math.abs(z) < leavesRadius || random.nextInt(2) != 0)
                     {
-                        this.setLeaves(world, pos.add(x, y, z));
+                    	if (this.altLeaves != null)
+                    	{
+	                    	if (random.nextInt(4) == 0)
+	                    	{
+	                    		this.setAltLeaves(world, pos.add(x, y, z));
+	                    	}
+	                    	else
+	                    	{
+	                    		this.setLeaves(world, pos.add(x, y, z));
+	                    	}
+                    	}
+                    	else
+                    	{
+                    		this.setLeaves(world, pos.add(x, y, z));
+                    	}
                     }
                 }
             }
