@@ -5,6 +5,7 @@
         "variant=bluebells": { "model": "biomesoplenty:bluebells" },
         "variant=miners_delight": { "model": "biomesoplenty:miners_delight" },
         "variant=icy_iris": { "model": "biomesoplenty:icy_iris" },
-        "variant=rose": { "model": "biomesoplenty:rose" }
+        "variant=rose": { "model": "biomesoplenty:rose" },
+		"variant=waterlily": { "model": "biomesoplenty:waterlily" }
     }
 }

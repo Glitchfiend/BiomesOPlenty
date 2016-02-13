@@ -35,7 +35,7 @@ public class BlockBOPLilypad extends BlockLilyPad implements IBOPBlock
     // add properties
     public static enum LilypadType implements IStringSerializable
     {
-        MEDIUM, SMALL, TINY, DUCKWEED;
+        MEDIUM, SMALL, TINY, DUCKWEED, FLOWER;
         @Override
         public String getName()
         {
@@ -104,7 +104,14 @@ public class BlockBOPLilypad extends BlockLilyPad implements IBOPBlock
     @Override
     public AxisAlignedBB getCollisionBoundingBox(World worldIn, BlockPos pos, IBlockState state)
     {
-        return null;
+    	switch ((LilypadType) state.getValue(VARIANT))
+        {
+            case FLOWER:
+            	return new AxisAlignedBB((double)pos.getX() + this.minX, (double)pos.getY() + this.minY, (double)pos.getZ() + this.minZ, (double)pos.getX() + this.maxX, (double)pos.getY() + this.maxY, (double)pos.getZ() + this.maxZ);
+            
+            default:
+                return null;
+        }
     }
     
     @Override
@@ -136,6 +143,15 @@ public class BlockBOPLilypad extends BlockLilyPad implements IBOPBlock
         {
             case DUCKWEED:
                 return BiomeColorHelper.getGrassColorAtPos(worldIn, pos);
+                
+            case FLOWER:
+            	switch (renderPass)
+                {
+                    case 0:
+                        return 2129968;
+                    case 1: default:
+                        return 0xFFFFFF;
+                }
             
             default:
                 return 0xFFFFFF;
