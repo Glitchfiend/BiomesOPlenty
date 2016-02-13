@@ -56,7 +56,6 @@ public class BiomeGenConiferousForest extends BOPBiome
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.LOAMY);
 
         this.spawnableCreatureList.add(new SpawnListEntry(EntityWolf.class, 8, 4, 4));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntitySnail.class, 6, 1, 2));
         
         // gravel
         this.addGenerator("gravel", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(4).maxRadius(7).with(Blocks.gravel.getDefaultState()).create());
