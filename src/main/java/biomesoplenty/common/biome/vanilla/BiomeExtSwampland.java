@@ -50,8 +50,8 @@ public class BiomeExtSwampland extends ExtendedBiomeWrapper
         this.addGenerator("mud", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(8).maxRadius(7).with(BOPBlocks.mud.getDefaultState()).create());
         
         // other plants
-        this.addGenerator("cattails", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BOPPlants.CATTAIL).create());
-        this.addGenerator("double_cattails", GeneratorStage.FLOWERS,(new GeneratorDoubleFlora.Builder()).amountPerChunk(0.2F).with(BlockBOPDoublePlant.DoublePlantType.TALL_CATTAIL).create());
+        this.addGenerator("cattails", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(3.0F).with(BOPPlants.CATTAIL).create());
+        this.addGenerator("double_cattails", GeneratorStage.FLOWERS,(new GeneratorDoubleFlora.Builder()).amountPerChunk(2.0F).with(BlockBOPDoublePlant.DoublePlantType.TALL_CATTAIL).create());
         this.addGenerator("koru", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.2F).with(BOPPlants.KORU).create());
         
         // flowers

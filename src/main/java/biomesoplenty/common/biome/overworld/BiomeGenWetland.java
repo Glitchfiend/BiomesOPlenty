@@ -71,7 +71,7 @@ public class BiomeGenWetland extends BOPBiome
         this.spawnableCreatureList.add(new SpawnListEntry(EntitySnail.class, 8, 1, 2));
         
         // mud
-        this.addGenerator("mud", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(10).maxRadius(8).with(BOPBlocks.mud.getDefaultState()).create());
+        this.addGenerator("mud", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(8).maxRadius(8).with(BOPBlocks.mud.getDefaultState()).create());
         
         // trees & logs
         GeneratorWeighted treeGenerator = new GeneratorWeighted(7);
@@ -100,8 +100,8 @@ public class BiomeGenWetland extends BOPBiome
         
         // other plants
         this.addGenerator("koru", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.3F).with(BOPPlants.KORU).create());
-        this.addGenerator("cattail", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(3.0F).with(BOPPlants.CATTAIL).create());
-        this.addGenerator("double_cattail", GeneratorStage.FLOWERS, (new GeneratorDoubleFlora.Builder()).amountPerChunk(3.0F).with(BlockBOPDoublePlant.DoublePlantType.TALL_CATTAIL).create());
+        this.addGenerator("cattail", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(8.0F).with(BOPPlants.CATTAIL).create());
+        this.addGenerator("double_cattail", GeneratorStage.FLOWERS, (new GeneratorDoubleFlora.Builder()).amountPerChunk(6.0F).with(BlockBOPDoublePlant.DoublePlantType.TALL_CATTAIL).create());
         this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BOPPlants.LEAFPILE).create());
         this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(BOPPlants.DEADLEAFPILE).create());
         this.addGenerator("sugar_cane", GeneratorStage.FLOWERS,(new GeneratorColumns.Builder()).amountPerChunk(1.0F).generationAttempts(24).placeOn(BlockQueries.litFertileWaterside).with(Blocks.reeds.getDefaultState()).minHeight(1).maxHeight(3).create());
