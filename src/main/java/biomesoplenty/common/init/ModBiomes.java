@@ -41,6 +41,7 @@ import static biomesoplenty.api.biome.BOPBiomes.forest_hills_extension;
 import static biomesoplenty.api.biome.BOPBiomes.frozen_desert;
 import static biomesoplenty.api.biome.BOPBiomes.fungi_forest;
 import static biomesoplenty.api.biome.BOPBiomes.garden;
+import static biomesoplenty.api.biome.BOPBiomes.glacier;
 import static biomesoplenty.api.biome.BOPBiomes.grassland;
 import static biomesoplenty.api.biome.BOPBiomes.gravel_beach;
 import static biomesoplenty.api.biome.BOPBiomes.grove;
@@ -138,6 +139,7 @@ import biomesoplenty.common.biome.overworld.BiomeGenFen;
 import biomesoplenty.common.biome.overworld.BiomeGenFlowerField;
 import biomesoplenty.common.biome.overworld.BiomeGenFungiForest;
 import biomesoplenty.common.biome.overworld.BiomeGenGarden;
+import biomesoplenty.common.biome.overworld.BiomeGenGlacier;
 import biomesoplenty.common.biome.overworld.BiomeGenGrassland;
 import biomesoplenty.common.biome.overworld.BiomeGenGravelBeach;
 import biomesoplenty.common.biome.overworld.BiomeGenGrove;
@@ -416,11 +418,13 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         
         mountain_foothills = registerBOPBiome(new BiomeGenMountain(BiomeGenMountain.MountainType.FOOTHILLS), "Mountain Foothills");
         canyon_ravine = registerBOPBiome(new BiomeGenCanyon(BiomeGenCanyon.CanyonType.RAVINE), "Canyon Ravine");
+        glacier = registerBOPBiome(new BiomeGenGlacier(), "Glacier");
         oasis = registerBOPBiome(new BiomeGenOasis(), "Oasis");
         coral_reef = registerBOPBiome(new BiomeGenCoralReef(), "Coral Reef");
         kelp_forest = registerBOPBiome(new BiomeGenKelpForest(), "Kelp Forest");
 
         setSubBiome(canyon, canyon_ravine);
+        setSubBiome(Optional.of(BiomeGenBase.icePlains), BOPBiomes.glacier);
         setSubBiome(Optional.of(BiomeGenBase.desert), BOPBiomes.oasis);
         setSubBiome(Optional.of(BiomeGenBase.ocean), BOPBiomes.coral_reef);
         setSubBiome(Optional.of(BiomeGenBase.ocean), BOPBiomes.kelp_forest);
@@ -532,6 +536,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         // edge-biomes, sub-biomes and mutated-biomes
         registerBiomeToDictionary(BOPBiomes.mountain_foothills, Type.HILLS, Type.MOUNTAIN, Type.FOREST, Type.DRY, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.canyon_ravine, Type.MOUNTAIN, Type.DRY, Type.HILLS, Type.HOT, Type.SPARSE);
+        registerBiomeToDictionary(BOPBiomes.glacier, Type.SNOWY, Type.WASTELAND, Type.COLD);
         registerBiomeToDictionary(BOPBiomes.oasis, Type.SANDY, Type.LUSH, Type.JUNGLE, Type.HOT, Type.WET, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.coral_reef, Type.WATER, Type.OCEAN);
         registerBiomeToDictionary(BOPBiomes.kelp_forest, Type.WATER, Type.OCEAN);
