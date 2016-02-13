@@ -90,16 +90,30 @@ public class BOPBiomes
     public static IExtendedBiome end_extension;
     public static IExtendedBiome plains_extension;
     public static IExtendedBiome forest_extension;
+    public static IExtendedBiome forest_hills_extension;
     public static IExtendedBiome jungle_extension;
+    public static IExtendedBiome jungle_hills_extension;
     public static IExtendedBiome desert_extension;
+    public static IExtendedBiome desert_hills_extension;
     public static IExtendedBiome taiga_extension;
+    public static IExtendedBiome taiga_hills_extension;
     public static IExtendedBiome mesa_extension;
+    public static IExtendedBiome mesa_plateau_extension;
     public static IExtendedBiome ice_plains_extension;
+    public static IExtendedBiome ice_mountains_extension;
     public static IExtendedBiome extreme_hills_extension;
+    public static IExtendedBiome extreme_hills_plus_extension;
     public static IExtendedBiome swampland_extension;
     public static IExtendedBiome birch_forest_extension;
+    public static IExtendedBiome birch_forest_hills_extension;
     public static IExtendedBiome roofed_forest_extension;
     public static IExtendedBiome savanna_extension;
+    public static IExtendedBiome savanna_plateau_extension;
+    public static IExtendedBiome ocean_extension;
+    public static IExtendedBiome cold_taiga_extension;
+    public static IExtendedBiome cold_taiga_hills_extension;
+    public static IExtendedBiome mega_taiga_extension;
+    public static IExtendedBiome mega_taiga_hills_extension;
     
     private static IBiomeRegistry createRegistry()
     {
