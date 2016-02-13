@@ -26,6 +26,7 @@ public class MiscConfigurationHandler
 
     public static String guiSettings = "GUI Settings";
     public static String textureSettings = "Texture Settings";
+    public static String trailSettings = "Trail Settings";
 
     public static boolean useBoPWorldTypeDefault;
     public static boolean overrideTitlePanorama;
@@ -58,7 +59,7 @@ public class MiscConfigurationHandler
                 //Check if the player has a trail
                 if (TrailManager.trailsMap.containsKey(PlayerUtil.getClientPlayerUUID()))
                 {
-                    trailVisbilityMode = TrailVisibilityMode.values()[config.getInt("Modify Trail Visibility", "Trail Settings", 0, 0, 1, "0 = All trails visble, 1 = Others can see your trail but you can't")];
+                    trailVisbilityMode = TrailVisibilityMode.values()[config.getInt("Modify Trail Visibility", trailSettings, 0, 0, 1, "0 = All trails visble, 1 = Others can see your trail but you can't")];
                 }
             }
         }
