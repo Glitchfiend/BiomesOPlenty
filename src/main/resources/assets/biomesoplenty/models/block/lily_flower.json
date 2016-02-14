@@ -1,7 +1,7 @@
 {
     "ambientocclusion": false,
     "textures": {
-        "particle": "biomesoplenty:items/waterlily",
+        "particle": "biomesoplenty:items/lily_flower",
         "lilypad": "minecraft:blocks/waterlily",
 		"flower": "biomesoplenty:blocks/waterlily"
     },
