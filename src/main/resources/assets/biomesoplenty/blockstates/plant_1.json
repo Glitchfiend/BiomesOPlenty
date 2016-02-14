@@ -10,7 +10,6 @@
         "variant=witherwart": { "model": "biomesoplenty:witherwart" },
         "variant=reed": { "model": "biomesoplenty:reed" },
         "variant=root": { "model": "biomesoplenty:root" },
-		"variant=rafflesia": { "model": "biomesoplenty:rafflesia" },
-		"variant=wisteria": { "model": "biomesoplenty:wisteria" }
+		"variant=rafflesia": { "model": "biomesoplenty:rafflesia" }
     }
 }

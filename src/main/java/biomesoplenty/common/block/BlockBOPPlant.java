@@ -177,7 +177,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
                 }
                 break;
                 
-            case CATTAIL: case RIVERCANE: case TINYCACTUS: case WITHERWART: case REED: case ROOT: case RAFFLESIA: case WISTERIA:
+            case CATTAIL: case RIVERCANE: case TINYCACTUS: case WITHERWART: case REED: case ROOT: case RAFFLESIA:
                 // these variants drop themselves as items
                 ret.add(paging.getVariantItem(plant));
                 break;
@@ -395,9 +395,6 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
             case ROOT:
                 // roots hang down - check against block above
                 return BlockQueries.fertile.matches(world, pos.up());
-            case WISTERIA:
-                // wisteria hangs on leaves - check against block above
-            	return (blockAbove instanceof BlockBOPLeaves) || blockAbove == Blocks.leaves || blockAbove == Blocks.leaves2;
             default:
                 return BlockQueries.litFertile.matches(world, pos.down());            
         }
