@@ -35,7 +35,7 @@ public class BlockBOPLilypad extends BlockLilyPad implements IBOPBlock
     // add properties
     public static enum LilypadType implements IStringSerializable
     {
-        MEDIUM, SMALL, TINY, DUCKWEED, FLOWER;
+        MEDIUM, SMALL, TINY, FLOWER;
         @Override
         public String getName()
         {
@@ -65,13 +65,8 @@ public class BlockBOPLilypad extends BlockLilyPad implements IBOPBlock
     @Override
     public String getStateName(IBlockState state) {
         LilypadType type = (LilypadType) state.getValue(VARIANT);
-        switch (type)
-        {
-            case DUCKWEED:
-                return type.getName();
-            default:
-                return "lily_"+type.getName();
-        }
+
+        return "lily_"+type.getName();
     }
 
     
@@ -125,14 +120,7 @@ public class BlockBOPLilypad extends BlockLilyPad implements IBOPBlock
     @SideOnly(Side.CLIENT)
     public int getRenderColor(IBlockState state)
     {
-        switch ((LilypadType) state.getValue(VARIANT))
-        {
-            case DUCKWEED:
-                return ColorizerGrass.getGrassColor(0.5D, 1.0D);
-            
-            default:
-                return 0xFFFFFF;
-        }
+    	return 0xFFFFFF;
     }
 
     @Override
@@ -141,9 +129,6 @@ public class BlockBOPLilypad extends BlockLilyPad implements IBOPBlock
     {
         switch ((LilypadType) worldIn.getBlockState(pos).getValue(VARIANT))
         {
-            case DUCKWEED:
-                return BiomeColorHelper.getGrassColorAtPos(worldIn, pos);
-                
             case FLOWER:
             	switch (renderPass)
                 {

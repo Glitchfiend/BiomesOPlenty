@@ -271,7 +271,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
         {
             case SHRUB: case LEAFPILE: case POISONIVY: case BUSH: case BERRYBUSH:
                 return ColoringType.LIKE_LEAVES;
-            case SHORTGRASS: case MEDIUMGRASS: case SPROUT: case KORU: case CLOVERPATCH: case WHEATGRASS: case DAMPGRASS: case CAVEWEED:
+            case SHORTGRASS: case MEDIUMGRASS: case SPROUT: case KORU: case CLOVERPATCH: case WHEATGRASS: case DAMPGRASS:
                 return ColoringType.LIKE_GRASS;
             default:
                 return ColoringType.PLAIN;
@@ -383,8 +383,6 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
                 return BlockQueries.spectralMoss.matches(world, pos.down());
             case THORN:
                 return BlockQueries.litFertileOrDry.matches(world, pos.down());
-            case CAVEWEED:
-                return BlockQueries.sustainsCave.matches(world, pos.down());
             case CATTAIL:
                 return BlockQueries.litFertileWaterside.matches(world, pos.down());
             case RIVERCANE:
