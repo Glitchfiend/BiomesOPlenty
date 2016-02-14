@@ -210,6 +210,8 @@ public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements ISh
         DoublePlantType type = (DoublePlantType) lowerState.getValue(VARIANT);
         switch (type)
         {
+            case FLAX:
+                break;
             case TALL_CATTAIL:
                 ret.add(BlockBOPPlant.paging.getVariantItem(BOPPlants.CATTAIL));
                 break;
@@ -229,10 +231,11 @@ public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements ISh
     }
     
     @Override
-    public List<ItemStack> getLowerShearDrops(ItemStack item, IBlockAccess world, BlockPos lowerPos, IBlockState lowerState, int fortune) {
+    public List<ItemStack> getLowerShearDrops(ItemStack item, IBlockAccess world, BlockPos lowerPos, IBlockState lowerState, int fortune)
+    {
         // start with an empty stack
         List<ItemStack> ret = new java.util.ArrayList<ItemStack>();
-        
+
         // add items based on the VARIANT
         // note that the sheared items are dropped in addition to regular drops
         // since the default in getLowerDrops is to drop the (lower) block, the default here is to drop nothing (so we don't have a duplicate)
@@ -241,6 +244,8 @@ public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements ISh
         DoublePlantType type = (DoublePlantType) lowerState.getValue(VARIANT);
         switch (type)
         {
+            case FLAX:
+                ret.add(this.getVariantItem(type));
             default:
                 break;
         }
