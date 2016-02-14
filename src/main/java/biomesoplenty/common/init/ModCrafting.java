@@ -69,42 +69,42 @@ public class ModCrafting
         /*** Dyes ***/
         
         // Flower1
-    	GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, EnumDyeColor.SILVER.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.CLOVER)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, EnumDyeColor.CYAN.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.SWAMPFLOWER)});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.black_dye), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.DEATHBLOOM)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, EnumDyeColor.CYAN.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.GLOWFLOWER)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, EnumDyeColor.LIGHT_BLUE.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.BLUE_HYDRANGEA)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, EnumDyeColor.ORANGE.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.ORANGE_COSMOS)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, EnumDyeColor.PINK.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.PINK_DAFFODIL)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, EnumDyeColor.MAGENTA.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.WILDFLOWER)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, EnumDyeColor.PURPLE.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.VIOLET)});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.white_dye), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.WHITE_ANEMONE)});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.black_dye), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.ENDERLOTUS)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, EnumDyeColor.RED.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.BROMELIAD)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, EnumDyeColor.GRAY.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.WILTED_LILY)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, EnumDyeColor.PINK.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.PINK_HIBISCUS)});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.white_dye), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.LILY_OF_THE_VALLEY)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, EnumDyeColor.ORANGE.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.BURNING_BLOSSOM)});
+    	GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, EnumDyeColor.SILVER.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.CLOVER)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, EnumDyeColor.CYAN.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.SWAMPFLOWER)});
+        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.black_dye, 2), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.DEATHBLOOM)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, EnumDyeColor.CYAN.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.GLOWFLOWER)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, EnumDyeColor.LIGHT_BLUE.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.BLUE_HYDRANGEA)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, EnumDyeColor.ORANGE.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.ORANGE_COSMOS)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, EnumDyeColor.PINK.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.PINK_DAFFODIL)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, EnumDyeColor.MAGENTA.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.WILDFLOWER)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, EnumDyeColor.PURPLE.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.VIOLET)});
+        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.white_dye, 2), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.WHITE_ANEMONE)});
+        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.black_dye, 2), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.ENDERLOTUS)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, EnumDyeColor.RED.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.BROMELIAD)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, EnumDyeColor.GRAY.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.WILTED_LILY)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, EnumDyeColor.PINK.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.PINK_HIBISCUS)});
+        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.white_dye, 2), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.LILY_OF_THE_VALLEY)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, EnumDyeColor.ORANGE.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.BURNING_BLOSSOM)});
 
         // Flower 2
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, EnumDyeColor.PURPLE.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.LAVENDER)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, EnumDyeColor.YELLOW.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.GOLDENROD)});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.blue_dye), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.BLUEBELLS)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, EnumDyeColor.PINK.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.MINERS_DELIGHT)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, EnumDyeColor.LIGHT_BLUE.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.ICY_IRIS)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, EnumDyeColor.RED.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.ROSE)});
-
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, EnumDyeColor.PURPLE.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.LAVENDER)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, EnumDyeColor.YELLOW.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.GOLDENROD)});
+        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.blue_dye, 2), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.BLUEBELLS)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, EnumDyeColor.PINK.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.MINERS_DELIGHT)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, EnumDyeColor.LIGHT_BLUE.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.ICY_IRIS)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, EnumDyeColor.RED.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.ROSE)});
+        
         // Others
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, EnumDyeColor.GRAY.getDyeDamage()), new Object[] {new ItemStack(BOPItems.ash)});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.green_dye), new Object[] {new ItemStack(BOPBlocks.moss)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, EnumDyeColor.LIME.getDyeDamage()), new Object[] {new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.GLOWSHROOM.ordinal())});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.brown_dye), new Object[] {new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.FLAT_MUSHROOM.ordinal())});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.blue_dye), new Object[] {new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.BLUE_MILK_CAP.ordinal())});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.brown_dye), new Object[] {BlockBOPPlant.paging.getVariantItem(BOPPlants.CATTAIL)});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.brown_dye), new Object[] {((BlockBOPDoublePlant)BOPBlocks.double_plant).getVariantItem(BlockBOPDoublePlant.DoublePlantType.TALL_CATTAIL)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, EnumDyeColor.LIGHT_BLUE.getDyeDamage()), new Object[] {((BlockBOPDoublePlant)BOPBlocks.double_plant).getVariantItem(BlockBOPDoublePlant.DoublePlantType.FLAX)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, EnumDyeColor.RED.getDyeDamage()), new Object[] {BlockBOPPlant.paging.getVariantItem(BOPPlants.RAFFLESIA)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, EnumDyeColor.BROWN.getDyeDamage()), new Object[] {new ItemStack(BOPItems.pinecone)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, EnumDyeColor.GRAY.getDyeDamage()), new Object[] {new ItemStack(BOPItems.ash)});
+        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.green_dye, 2), new Object[] {new ItemStack(BOPBlocks.moss)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, EnumDyeColor.LIME.getDyeDamage()), new Object[] {new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.GLOWSHROOM.ordinal())});
+        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.brown_dye, 2), new Object[] {new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.FLAT_MUSHROOM.ordinal())});
+        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.blue_dye, 2), new Object[] {new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.BLUE_MILK_CAP.ordinal())});
+        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.brown_dye, 2), new Object[] {BlockBOPPlant.paging.getVariantItem(BOPPlants.CATTAIL)});
+        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.brown_dye, 2), new Object[] {((BlockBOPDoublePlant)BOPBlocks.double_plant).getVariantItem(BlockBOPDoublePlant.DoublePlantType.TALL_CATTAIL)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, EnumDyeColor.LIGHT_BLUE.getDyeDamage()), new Object[] {((BlockBOPDoublePlant)BOPBlocks.double_plant).getVariantItem(BlockBOPDoublePlant.DoublePlantType.FLAX)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, EnumDyeColor.RED.getDyeDamage()), new Object[] {BlockBOPPlant.paging.getVariantItem(BOPPlants.RAFFLESIA)});
+        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.brown_dye, 2), new Object[] {new ItemStack(BOPItems.pinecone)});
         
         /*** BOP brick and stone stairs and slabs ***/
         

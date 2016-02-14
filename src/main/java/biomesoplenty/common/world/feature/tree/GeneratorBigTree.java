@@ -53,6 +53,7 @@ public class GeneratorBigTree extends GeneratorTreeBase
             this.leaves = Blocks.leaves.getDefaultState();
             this.vine = null;
             this.hanging = null;
+            this.altLeaves = null;
             this.minHeight = 5;
             this.maxHeight = 17;
             
@@ -70,7 +71,7 @@ public class GeneratorBigTree extends GeneratorTreeBase
         @Override
         public GeneratorBigTree create()
         {
-            return new GeneratorBigTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.minHeight, this.maxHeight, this.trunkWidth, this.foliageHeight, this.foliageDensity, false);
+            return new GeneratorBigTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.altLeaves, this.minHeight, this.maxHeight, this.trunkWidth, this.foliageHeight, this.foliageDensity, false);
         }
     }
     
@@ -95,9 +96,9 @@ public class GeneratorBigTree extends GeneratorTreeBase
     private List<FoliageCoords> foliageCoords;
 
     
-    public GeneratorBigTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, int minHeight, int maxHeight, int trunkWidth, int foliageHeight, double foliageDensity, boolean updateNeighbours)
+    public GeneratorBigTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, IBlockState altLeaves, int minHeight, int maxHeight, int trunkWidth, int foliageHeight, double foliageDensity, boolean updateNeighbours)
     {
-        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, minHeight, maxHeight);
+        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, altLeaves, minHeight, maxHeight);
         this.foliageHeight = foliageHeight;
         this.foliageDensity = foliageDensity;
         this.trunkWidth = trunkWidth;
@@ -271,7 +272,26 @@ public class GeneratorBigTree extends GeneratorTreeBase
         
         for (int y = 0; y < foliageHeight; y++) 
         {
-            crossection(blockPos.up(y), foliageShape(y), this.leaves);
+        	if (this.altLeaves != null)
+        	{
+	        	IBlockState clusterLeaves = this.leaves;
+	        	int rand = new Random().nextInt(4);
+	        	
+	        	if (rand == 0)
+	        	{
+	        		clusterLeaves = this.altLeaves;
+	        	}
+	        	else
+	        	{
+	        		clusterLeaves = this.leaves;
+	        	}
+	        	
+	        	crossection(blockPos.up(y), foliageShape(y), clusterLeaves);
+        	}
+        	else
+        	{
+        		crossection(blockPos.up(y), foliageShape(y), this.leaves);
+        	}
         }
     }
 

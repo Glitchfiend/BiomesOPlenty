@@ -1,6 +1,6 @@
 {
-    "parent": "block/crop",
+    "parent": "block/cross",
     "textures": {
-        "crop": "biomesoplenty:blocks/tall_cattail_upper"
+        "cross": "biomesoplenty:blocks/tall_cattail_upper"
     }
 }

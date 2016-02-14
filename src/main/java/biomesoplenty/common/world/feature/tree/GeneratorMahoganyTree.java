@@ -35,6 +35,7 @@ public class GeneratorMahoganyTree extends GeneratorBasicTree
             this.leaves = BlockBOPLeaves.paging.getVariantState(BOPTrees.MAHOGANY);
             this.vine = null;
             this.hanging = null;
+            this.altLeaves = null;
             this.minHeight = 10;
             this.maxHeight = 15;
             this.leafLayers = 4;
@@ -48,13 +49,13 @@ public class GeneratorMahoganyTree extends GeneratorBasicTree
         @Override
         public GeneratorMahoganyTree create()
         {
-            return new GeneratorMahoganyTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.minHeight, this.maxHeight, false, this.leafLayers, this.leavesOffset, this.maxLeavesRadius, this.leavesLayerHeight, this.placeVinesOn, this.hangingChance);
+            return new GeneratorMahoganyTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.altLeaves, this.minHeight, this.maxHeight, false, this.leafLayers, this.leavesOffset, this.maxLeavesRadius, this.leavesLayerHeight, this.placeVinesOn, this.hangingChance);
         }
     }
     
-    public GeneratorMahoganyTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, int minHeight, int maxHeight, boolean updateNeighbours, int leafLayers, int leavesOffset, int minLeavesRadius, int leavesLayerHeight, IBlockPosQuery placeVinesOn, float hangingChance) 
+    public GeneratorMahoganyTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, IBlockState altLeaves, int minHeight, int maxHeight, boolean updateNeighbours, int leafLayers, int leavesOffset, int minLeavesRadius, int leavesLayerHeight, IBlockPosQuery placeVinesOn, float hangingChance) 
     {
-        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, minHeight, maxHeight, updateNeighbours, leafLayers, leavesOffset, minLeavesRadius, leavesLayerHeight, placeVinesOn, hangingChance);
+        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, altLeaves, minHeight, maxHeight, updateNeighbours, leafLayers, leavesOffset, minLeavesRadius, leavesLayerHeight, placeVinesOn, hangingChance);
     }
 
     @Override

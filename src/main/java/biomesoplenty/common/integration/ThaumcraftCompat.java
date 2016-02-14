@@ -149,7 +149,7 @@ public class ThaumcraftCompat
         addAspectsToState(BlockBOPFlower.paging.getVariantState(BOPFlowers.BLUEBELLS), new Aspect[] { Aspect.PLANT }, new int[] { 4 });
         addAspectsToState(BlockBOPFlower.paging.getVariantState(BOPFlowers.MINERS_DELIGHT), new Aspect[] { Aspect.PLANT, Aspect.EARTH }, new int[] { 4, 1 });
         addAspectsToState(BlockBOPFlower.paging.getVariantState(BOPFlowers.ICY_IRIS), new Aspect[] { Aspect.PLANT, Aspect.COLD }, new int[] { 4, 2 });
-
+        
         //Gems
         addAspectsToState(BOPBlocks.gem_ore.getDefaultState().withProperty(BlockBOPGem.VARIANT, BOPGems.RUBY), new Aspect[] { Aspect.DESIRE, Aspect.CRYSTAL, Aspect.EARTH }, new int[] { 3, 5, 3 });
         addAspectsToState(BOPBlocks.gem_block.getDefaultState().withProperty(BlockBOPGem.VARIANT, BOPGems.RUBY), new Aspect[] { Aspect.DESIRE, Aspect.CRYSTAL }, new int[] { 5, 7 });

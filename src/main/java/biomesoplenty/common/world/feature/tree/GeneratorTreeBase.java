@@ -47,11 +47,12 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
     protected IBlockState leaves;
     protected IBlockState vine;
     protected IBlockState hanging;
+    protected IBlockState altLeaves;
     protected int minHeight;
     protected int maxHeight;
     protected IProperty logAxisProperty;
     
-    protected GeneratorTreeBase(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, int minHeight, int maxHeight) {
+    protected GeneratorTreeBase(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, IBlockState altLeaves, int minHeight, int maxHeight) {
         super(amountPerChunk);
         this.placeOn = placeOn;
         this.replace = replace;
@@ -59,6 +60,7 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
         this.leaves = leaves;
         this.vine = vine;
         this.hanging = hanging;
+        this.altLeaves = altLeaves;
         this.minHeight = minHeight;
         this.maxHeight = maxHeight;
         this.logAxisProperty = GeneratorUtils.getAxisProperty(log);
@@ -72,6 +74,7 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
         protected IBlockState leaves;
         protected IBlockState vine;
         protected IBlockState hanging;
+        protected IBlockState altLeaves;
         protected int minHeight;
         protected int maxHeight;
         
@@ -119,6 +122,19 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
         public T hanging(IBlockState a)
         {
             this.hanging = a;
+            return this.self();
+        }
+        
+        public T altLeaves(IBlockState a) {this.altLeaves = a; return this.self();}
+        public T altLeaves(BOPTrees a) {this.altLeaves = BlockBOPLeaves.paging.getVariantState(a).withProperty(BlockLeaves.CHECK_DECAY, false); return this.self();}
+        public T altLeaves(BlockPlanks.EnumType a)
+        {
+            if (a.getMetadata() < 4)
+            {
+                this.altLeaves = Blocks.leaves.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, false).withProperty(BlockOldLeaf.VARIANT, a);
+            } else {
+                this.altLeaves = Blocks.leaves2.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, false).withProperty(BlockNewLeaf.VARIANT, a);
+            }
             return this.self();
         }
         
@@ -182,6 +198,16 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
         if (this.replace.matches(world, pos))
         {
             world.setBlockState(pos, this.hanging, 2);
+        }
+        return false;
+    }
+    
+    public boolean setAltLeaves(World world, BlockPos pos)
+    {
+        if (this.replace.matches(world, pos))
+        {
+            world.setBlockState(pos, this.altLeaves, 2);
+            return true;
         }
         return false;
     }

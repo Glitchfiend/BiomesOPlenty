@@ -18,11 +18,13 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -33,7 +35,7 @@ public class BlockBOPLilypad extends BlockLilyPad implements IBOPBlock
     // add properties
     public static enum LilypadType implements IStringSerializable
     {
-        MEDIUM, SMALL, TINY, DUCKWEED;
+        MEDIUM, SMALL, TINY, DUCKWEED, FLOWER;
         @Override
         public String getName()
         {
@@ -98,6 +100,20 @@ public class BlockBOPLilypad extends BlockLilyPad implements IBOPBlock
         return net.minecraftforge.common.EnumPlantType.Water;
     }
     
+    // no collision box - you can walk straight through them
+    @Override
+    public AxisAlignedBB getCollisionBoundingBox(World worldIn, BlockPos pos, IBlockState state)
+    {
+    	switch ((LilypadType) state.getValue(VARIANT))
+        {
+            case FLOWER:
+            	return new AxisAlignedBB((double)pos.getX() + this.minX, (double)pos.getY() + this.minY, (double)pos.getZ() + this.minZ, (double)pos.getX() + this.maxX, (double)pos.getY() + this.maxY, (double)pos.getZ() + this.maxZ);
+            
+            default:
+                return null;
+        }
+    }
+    
     @Override
     @SideOnly(Side.CLIENT)
     public int getBlockColor()
@@ -127,6 +143,15 @@ public class BlockBOPLilypad extends BlockLilyPad implements IBOPBlock
         {
             case DUCKWEED:
                 return BiomeColorHelper.getGrassColorAtPos(worldIn, pos);
+                
+            case FLOWER:
+            	switch (renderPass)
+                {
+                    case 0:
+                        return 2129968;
+                    case 1: default:
+                        return 0xFFFFFF;
+                }
             
             default:
                 return 0xFFFFFF;

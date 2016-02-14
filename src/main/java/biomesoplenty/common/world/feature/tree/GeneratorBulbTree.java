@@ -36,19 +36,20 @@ public class GeneratorBulbTree extends GeneratorTreeBase
             this.leaves = Blocks.leaves.getDefaultState();
             this.vine = null;
             this.hanging = null;
+            this.altLeaves = null;
         }
 
         @Override
         public GeneratorBulbTree create() {
-            return new GeneratorBulbTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.minHeight, this.maxHeight);
+            return new GeneratorBulbTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.altLeaves, this.minHeight, this.maxHeight);
         }
         
     }
     
     
-    public GeneratorBulbTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, int minHeight, int maxHeight)
+    public GeneratorBulbTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, IBlockState altLeaves, int minHeight, int maxHeight)
     {
-        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, minHeight, maxHeight);
+        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, altLeaves, minHeight, maxHeight);
     }
     
     public boolean setCocoa(World world, BlockPos pos, EnumFacing side)

@@ -41,7 +41,7 @@ public class BiomeGenOvergrownCliffs extends BOPBiome
         this.terrainSettings.avgHeight(70).heightVariation(5, 100).octaves(1, 1, 1, 1, 0, 0).sidewaysNoise(0.0F);
         
         this.setColor(8373350);
-        this.setTemperatureRainfall(0.9F, 0.7F);
+        this.setTemperatureRainfall(0.95F, 0.75F);
 
         this.canGenerateRivers = false;
         this.canSpawnInBiome = false;
