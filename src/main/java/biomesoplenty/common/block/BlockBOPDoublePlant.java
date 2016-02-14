@@ -8,10 +8,8 @@
 
 package biomesoplenty.common.block;
 
-import java.util.List;
-import java.util.Random;
-
 import biomesoplenty.api.block.BlockQueries;
+import biomesoplenty.common.enums.BOPPlants;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
@@ -26,10 +24,11 @@ import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeColorHelper;
-import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.List;
 
 public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements IShearable
 {
@@ -181,30 +180,41 @@ public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements ISh
         }
         
     }
+
+    @Override
+    public List<ItemStack> getUpperDrops(IBlockAccess world, BlockPos upperPos, IBlockState upperState, int fortune)
+    {
+        List<ItemStack> ret = new java.util.ArrayList<ItemStack>();
+
+        DoublePlantType type = (DoublePlantType) upperState.getValue(VARIANT);
+        switch (type) {
+
+            case TALL_CATTAIL:
+                ret.add(BlockBOPPlant.paging.getVariantItem(BOPPlants.CATTAIL));
+
+            default:
+                break;
+        }
+        return ret;
+    }
     
     
     // get the items dropped when you bash the bush
     @Override
     public List<ItemStack> getLowerDrops(IBlockAccess world, BlockPos lowerPos, IBlockState lowerState, int fortune)
     {
-        Random rand = world instanceof World ? ((World)world).rand : RANDOM;
-        
         // start with an empty stack
         List<ItemStack> ret = new java.util.ArrayList<ItemStack>();
-        
+
         // add items based on the VARIANT - default is to drop (lower) block
         DoublePlantType type = (DoublePlantType) lowerState.getValue(VARIANT);
         switch (type)
         {
-            case FLAX:
-                // drop flax plant and also 1 in 8 chance of getting a seed
-                ret.add(this.getVariantItem(type));
-                if (rand.nextInt(8) == 0) {ret.add(ForgeHooks.getGrassSeed(rand));}
-            
             case TALL_CATTAIL:
+                ret.add(BlockBOPPlant.paging.getVariantItem(BOPPlants.CATTAIL));
                 break;
-                
-            case EYEBULB: default:
+
+            default:
                 // drop self
                 ret.add(this.getVariantItem(type));
         }
@@ -231,8 +241,6 @@ public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements ISh
         DoublePlantType type = (DoublePlantType) lowerState.getValue(VARIANT);
         switch (type)
         {
-            case TALL_CATTAIL:
-                ret.add(this.getVariantItem(type));
             default:
                 break;
         }
