@@ -8,17 +8,23 @@
 
 package biomesoplenty.common.block;
 
-import biomesoplenty.api.block.BlockQueries;
-import biomesoplenty.common.enums.BOPPlants;
+import java.util.List;
+
+import com.google.common.collect.ImmutableSet;
+
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
@@ -27,8 +33,10 @@ import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.util.List;
+import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.block.BlockQueries;
+import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.util.block.BlockStateUtils;
 
 public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements IShearable
 {
@@ -257,6 +265,36 @@ public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements ISh
         return new ItemStack(this, 1, this.getMetaFromState(state));
     }
     
+    @Override
+    public ItemStack getPickBlock(MovingObjectPosition target, World world, BlockPos pos, EntityPlayer player)
+    {
+    	IBlockState state = world.getBlockState(pos);
+    	
+    	switch ((DoublePlantType) state.getValue(VARIANT))
+    	{
+    		case TALL_CATTAIL:
+    			return new ItemStack(BOPBlocks.plant_1, 1, BlockBOPPlant.paging.getIndex(BOPPlants.CATTAIL));
+    	
+    		default:
+    			return new ItemStack(this, 1, this.getMetaFromState(world.getBlockState(pos)));
+    	}
+    }
+    
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void getSubBlocks(Item itemIn, CreativeTabs tab, List<ItemStack> list)
+    {
+    	// get the preset blocks variants
+        ImmutableSet<IBlockState> presets = BlockStateUtils.getBlockPresets(this);
+        
+        for (IBlockState state : presets)
+        {
+        	if (state != BOPBlocks.double_plant.getDefaultState().withProperty(VARIANT,BlockBOPDoublePlant.DoublePlantType.TALL_CATTAIL))
+        	{
+        		list.add(new ItemStack(itemIn, 1, this.getMetaFromState(state)));
+        	}
+        }
+    }
     
     @Override
     public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
