@@ -42,6 +42,7 @@ import biomesoplenty.common.world.feature.GeneratorLogs;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import biomesoplenty.common.world.feature.GeneratorSplotches;
 import biomesoplenty.common.world.feature.GeneratorWaterside;
+import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
 import biomesoplenty.common.world.feature.tree.GeneratorPineTree;
 
 public class BiomeGenMountain extends BOPBiome
@@ -54,8 +55,6 @@ public class BiomeGenMountain extends BOPBiome
     public IBlockState dirtBlock;
     public IBlockState coarseDirtBlock;
     public IBlockState stoneBlock;
-    public IBlockState snowBlock;
-    public IBlockState packedSnowBlock;
         
     public BiomeGenMountain(MountainType type)
     {
@@ -67,35 +66,32 @@ public class BiomeGenMountain extends BOPBiome
         switch (type)
         {
             case PEAKS:
-                this.terrainSettings.avgHeight(160).heightVariation(70, 70).octaves(1, 1, 2, 2, 3, 2).sidewaysNoise(0.22D); 
+                this.terrainSettings.avgHeight(140).heightVariation(30, 60).octaves(1, 1, 2, 2, 3, 3).sidewaysNoise(0.1D); 
                 break;
                 
             case FOOTHILLS:
-                this.terrainSettings.avgHeight(95).heightVariation(70, 70).minHeight(55).octaves(1, 1, 2, 2, 3, 2).sidewaysNoise(0.22D); 
+                this.terrainSettings.avgHeight(100).heightVariation(15, 30).octaves(0, 1, 1, 3, 1, 0).sidewaysNoise(0.1D); 
                 break;
         }
         
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
         this.setColor(0x80A355);
-        this.setTemperatureRainfall(0.3F, 0.1F);
+        this.setTemperatureRainfall(0.8F, 0.1F);
         
-        this.beachBiomeId = BiomeGenBase.stoneBeach.biomeID;
+        this.beachBiomeId = -1;
         
         if (type == MountainType.PEAKS)
         {
             this.canGenerateVillages = false;
             
             // peaks are created in the biome gen layer, foothills don't have a weight - they only appear later around the peaks (in the biome edge layer)
-            this.addWeight(BOPClimates.BOREAL, 3);
+            this.addWeight(BOPClimates.DRY_TEMPERATE, 3);
             
             // only sheep and wolves on the peaks
             this.spawnableCreatureList.clear();
             this.spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntitySheep.class, 12, 4, 6));
             this.spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityWolf.class, 4, 4, 4));
-            
-            // make the water in the peaks a bit greener ( TODO: would like to make it lighter too, but I don't think it's possible with just a multiplication)
-            this.waterColorMultiplier = 0x00ff99;
         }        
         
         this.topBlock = Blocks.grass.getDefaultState();
@@ -104,8 +100,6 @@ public class BiomeGenMountain extends BOPBiome
         this.dirtBlock = this.fillerBlock;
         this.coarseDirtBlock = Blocks.dirt.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.COARSE_DIRT);
         this.stoneBlock = Blocks.stone.getDefaultState();
-        this.snowBlock = Blocks.snow.getDefaultState();
-        this.packedSnowBlock = BOPBlocks.hard_ice.getDefaultState();
         
         // gravel
         this.addGenerator("gravel", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(6).maxRadius(7).with(Blocks.gravel.getDefaultState()).create());
@@ -115,13 +109,11 @@ public class BiomeGenMountain extends BOPBiome
         this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(1.8F).waterLakeForBiome(this).create());        
         
         // trees & logs        
-        IBlockPosQuery suitableTreePosition = BlockQuery.buildAnd().withAltitudeBetween(40, 140).materials(Material.ground, Material.grass).create();
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(5);
+        IBlockPosQuery suitableTreePosition = BlockQuery.buildAnd().withAltitudeBetween(64, 140).materials(Material.ground, Material.grass).create();
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(3);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("pine", 1, (new GeneratorPineTree.Builder()).minHeight(6).maxHeight(18).log(BOPWoods.PINE).leaves(BOPTrees.PINE).placeOn(suitableTreePosition).create());        
-        GeneratorWeighted logsGenerator = new GeneratorWeighted(0.5F);
-        this.addGenerator("logs", GeneratorStage.TREE, logsGenerator);
-        logsGenerator.add("pine_logs", 1, (new GeneratorLogs.Builder()).placeOn(suitableTreePosition).with(BOPWoods.PINE).create());
+        treeGenerator.add("pine", 2, (new GeneratorPineTree.Builder()).minHeight(6).maxHeight(18).log(BOPWoods.PINE).leaves(BOPTrees.PINE).placeOn(suitableTreePosition).create());        
+        treeGenerator.add("oak", 1, (new GeneratorBasicTree.Builder()).create());
 
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(5.0F);
@@ -190,9 +182,9 @@ public class BiomeGenMountain extends BOPBiome
         int localZ = z & 15;
         int height = 255;
         while (height > 0 && primer.getBlockState(localX, height, localZ).getBlock().getMaterial() == Material.air) {height--;}
-        int snowLine = 160 + (int)(noise * 5);
+        int peakLine = 140 + (int)(noise * 5);
         
-        if (height > snowLine)
+        if (height > peakLine)
         {
             if (noise > 1.7D)
             {
