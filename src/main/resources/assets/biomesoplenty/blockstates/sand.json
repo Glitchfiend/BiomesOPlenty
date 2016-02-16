@@ -1,5 +1,10 @@
 {
     "variants": {
-        "variant=quicksand": { "model": "biomesoplenty:quicksand" }
+		"variant=quicksand": [
+            { "model": "biomesoplenty:quicksand" },
+            { "model": "biomesoplenty:quicksand", "y": 90 },
+            { "model": "biomesoplenty:quicksand", "y": 180 },
+            { "model": "biomesoplenty:quicksand", "y": 270 }
+        	]
     }
 }
