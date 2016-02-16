@@ -35,7 +35,6 @@ public class BOPBiomes
     public static Optional<BiomeGenBase> eucalyptus_forest = Optional.absent();
     public static Optional<BiomeGenBase> fen = Optional.absent();
     public static Optional<BiomeGenBase> flower_field = Optional.absent();
-    public static Optional<BiomeGenBase> frozen_desert = Optional.absent();
     public static Optional<BiomeGenBase> garden = Optional.absent();
     public static Optional<BiomeGenBase> grassland = Optional.absent();    
     public static Optional<BiomeGenBase> grove = Optional.absent();

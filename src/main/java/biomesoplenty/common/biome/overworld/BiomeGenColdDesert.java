@@ -26,6 +26,7 @@ import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorBlobs;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
+import biomesoplenty.common.world.feature.GeneratorSplatter;
 import biomesoplenty.common.world.feature.GeneratorSplotches;
 
 public class BiomeGenColdDesert extends BOPBiome
@@ -33,10 +34,8 @@ public class BiomeGenColdDesert extends BOPBiome
     
 	public IBlockState usualTopBlock;
     public IBlockState alternateTopBlock;
-	
-    public static enum ColdDesertType {FROZEN, COLD;}
     
-    public BiomeGenColdDesert(ColdDesertType type)
+    public BiomeGenColdDesert()
     {
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
@@ -46,43 +45,25 @@ public class BiomeGenColdDesert extends BOPBiome
         
         this.topBlock = Blocks.gravel.getDefaultState();
         this.fillerBlock = Blocks.stone.getDefaultState();
+        this.usualTopBlock = this.topBlock;
+        this.alternateTopBlock = Blocks.snow.getDefaultState();
         
         this.canGenerateRivers = false;
-        
-        this.usualTopBlock = this.topBlock;
         
         this.setDisableRain();
         this.enableSnow = false;
         
-        if (type == ColdDesertType.FROZEN)
-        {
-        	this.alternateTopBlock = BOPBlocks.hard_ice.getDefaultState();
-            this.setTemperatureRainfall(-0.5F, 0.0F);
-            this.addWeight(BOPClimates.ICE_CAP, 10);
-            this.setColor(0xB3D7E3);
-        }
-        else
-        {
-        	this.alternateTopBlock = Blocks.snow.getDefaultState();
-            this.setTemperatureRainfall(0.0F, 0.0F);
-            this.enableSnow = false;
-            this.addWeight(BOPClimates.ICE_CAP, 10);
-            this.setColor(0xB3AF9B);
-        }
+        this.setTemperatureRainfall(0.0F, 0.0F);
+        this.addWeight(BOPClimates.ICE_CAP, 10);
+        this.setColor(0xB3AF9B);
 
         this.spawnableCreatureList.clear();
         
         // gravel, stone and boulders
         IBlockPosQuery surface = new BlockQueryBlock(Blocks.stone, Blocks.gravel);
-        if (type == ColdDesertType.FROZEN)
-        {
-            this.addGenerator("stone_patches", GeneratorStage.SAND, (new GeneratorSplotches.Builder()).amountPerChunk(3).splotchSize(16).placeOn(surface).replace(surface).with(Blocks.stone.getDefaultState()).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
-        }
-        else
-        {
-            this.addGenerator("stone_patches", GeneratorStage.SAND, (new GeneratorSplotches.Builder()).amountPerChunk(6).splotchSize(24).placeOn(surface).replace(surface).with(Blocks.stone.getDefaultState()).scatterYMethod(ScatterYMethod.AT_SURFACE).create());           
-        }
+        this.addGenerator("stone_patches", GeneratorStage.SAND, (new GeneratorSplotches.Builder()).amountPerChunk(6).splotchSize(24).placeOn(surface).replace(surface).with(Blocks.stone.getDefaultState()).scatterYMethod(ScatterYMethod.AT_SURFACE).create());           
         this.addGenerator("boulders", GeneratorStage.SAND_PASS2, (new GeneratorBlobs.Builder()).amountPerChunk(0.2F).placeOn(surface).with(Blocks.cobblestone.getDefaultState()).minRadius(0.3F).maxRadius(3.2F).numBalls(4).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
+        this.addGenerator("hard_ice_splatter", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(1.0F).replace(surface).with(BOPBlocks.hard_ice.getDefaultState()).create());
         
         // gem
         this.addGenerator("tanzanite", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.TANZANITE).create());
@@ -100,9 +81,9 @@ public class BiomeGenColdDesert extends BOPBiome
     @Override
     public void applySettings(BOPWorldSettings settings)
     {
-    	if (!settings.generateBopFoliage) {this.removeGenerator("caveweed"); this.removeGenerator("bushes"); this.removeGenerator("koru"); this.removeGenerator("shrubs"); this.removeGenerator("leaf_piles"); this.removeGenerator("dead_leaf_piles"); this.removeGenerator("clover_patches"); this.removeGenerator("sprouts");}
+    	if (!settings.generateBopGems) {this.removeGenerator("tanzanite");}
     	
-        if (!settings.generateBopGems) {this.removeGenerator("tanzanite");}
+    	if (!settings.generateBopFoliage) {this.removeGenerator("bushes"); this.removeGenerator("koru"); this.removeGenerator("shrubs"); this.removeGenerator("leaf_piles"); this.removeGenerator("dead_leaf_piles"); this.removeGenerator("clover_patches"); this.removeGenerator("sprouts");}
         
         if (!settings.generateBopPlants) {this.removeGenerator("cattail"); this.removeGenerator("double_cattail"); this.removeGenerator("river_cane"); this.removeGenerator("tiny_cacti"); this.removeGenerator("roots"); this.removeGenerator("rafflesia"); this.removeGenerator("desert_sprouts");}
     }

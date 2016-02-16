@@ -38,7 +38,6 @@ import static biomesoplenty.api.biome.BOPBiomes.fen;
 import static biomesoplenty.api.biome.BOPBiomes.flower_field;
 import static biomesoplenty.api.biome.BOPBiomes.forest_extension;
 import static biomesoplenty.api.biome.BOPBiomes.forest_hills_extension;
-import static biomesoplenty.api.biome.BOPBiomes.frozen_desert;
 import static biomesoplenty.api.biome.BOPBiomes.garden;
 import static biomesoplenty.api.biome.BOPBiomes.glacier;
 import static biomesoplenty.api.biome.BOPBiomes.grassland;
@@ -363,7 +362,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         canyon = registerBOPBiome(new BiomeGenCanyon(BiomeGenCanyon.CanyonType.PLATEAU), "Canyon");
         chaparral = registerBOPBiome(new BiomeGenChaparral(), "Chaparral");
         cherry_blossom_grove = registerBOPBiome(new BiomeGenCherryBlossomGrove(), "Cherry Blossom Grove");
-        cold_desert = registerBOPBiome(new BiomeGenColdDesert(BiomeGenColdDesert.ColdDesertType.COLD), "Cold Desert");
+        cold_desert = registerBOPBiome(new BiomeGenColdDesert(), "Cold Desert");
         coniferous_forest = registerBOPBiome(new BiomeGenConiferousForest(), "Coniferous Forest");
         crag = registerBOPBiome(new BiomeGenCrag(), "Crag");
         dead_forest = registerBOPBiome(new BiomeGenDeadForest(), "Dead Forest");
@@ -371,7 +370,6 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         eucalyptus_forest = registerBOPBiome(new BiomeGenEucalyptusForest(), "Eucalyptus Forest");
         fen = registerBOPBiome(new BiomeGenFen(), "Fen");
         flower_field = registerBOPBiome(new BiomeGenFlowerField(), "Flower Field");
-        frozen_desert = registerBOPBiome(new BiomeGenColdDesert(BiomeGenColdDesert.ColdDesertType.FROZEN), "Frozen Desert");
         garden = registerBOPBiome(new BiomeGenGarden(), "Garden");
         grassland = registerBOPBiome(new BiomeGenGrassland(), "Grassland");
         grove = registerBOPBiome(new BiomeGenGrove(), "Grove");
@@ -490,7 +488,6 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         registerBiomeToDictionary(BOPBiomes.eucalyptus_forest, Type.FOREST, Type.JUNGLE, Type.LUSH, Type.WET, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.fen, Type.SWAMP, Type.FOREST, Type.COLD, Type.DEAD, Type.WET, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.flower_field, Type.PLAINS, Type.LUSH);
-        registerBiomeToDictionary(BOPBiomes.frozen_desert, Type.SNOWY, Type.DRY, Type.COLD);
         registerBiomeToDictionary(BOPBiomes.garden, Type.PLAINS, Type.LUSH, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.grassland, Type.PLAINS, Type.HILLS, Type.WET);    
         registerBiomeToDictionary(BOPBiomes.grove, Type.FOREST, Type.PLAINS, Type.LUSH, Type.WET, Type.SPARSE);
