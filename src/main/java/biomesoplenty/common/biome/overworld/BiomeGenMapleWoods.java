@@ -56,7 +56,7 @@ public class BiomeGenMapleWoods extends BOPBiome
         GeneratorWeighted treeGenerator = new GeneratorWeighted(20);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("maple", 4, (new GeneratorBasicTree.Builder()).log(BlockPlanks.EnumType.OAK).leaves(BOPTrees.MAPLE).minHeight(5).maxHeight(10).create());
-        treeGenerator.add("spruce", 4, (new GeneratorTaigaTree.Builder()).minHeight(10).maxHeight(19).create()); // TODO: implement pine cones
+        treeGenerator.add("spruce", 2, (new GeneratorTaigaTree.Builder()).minHeight(10).maxHeight(19).create()); // TODO: implement pine cones
  
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(5.0F);
