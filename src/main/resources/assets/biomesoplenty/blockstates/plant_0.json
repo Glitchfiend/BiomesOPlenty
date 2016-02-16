@@ -10,9 +10,26 @@
         "variant=wheatgrass": { "model": "biomesoplenty:wheatgrass" },
         "variant=dampgrass": { "model": "biomesoplenty:dampgrass" },
         "variant=koru": { "model": "biomesoplenty:koru" },
-        "variant=cloverpatch": { "model": "biomesoplenty:cloverpatch" },
-        "variant=leafpile": { "model": "biomesoplenty:leafpile" },
-        "variant=deadleafpile": { "model": "biomesoplenty:deadleafpile" },
+        "variant=cloverpatch": [
+            { "model": "biomesoplenty:cloverpatch" },
+            { "model": "biomesoplenty:cloverpatch", "y": 90 },
+            { "model": "biomesoplenty:cloverpatch", "y": 180 },
+            { "model": "biomesoplenty:cloverpatch", "y": 270 }
+        	],
+        	
+        "variant=leafpile": [
+            { "model": "biomesoplenty:leafpile" },
+            { "model": "biomesoplenty:leafpile", "y": 90 },
+            { "model": "biomesoplenty:leafpile", "y": 180 },
+            { "model": "biomesoplenty:leafpile", "y": 270 }
+        	],
+
+        "variant=deadleafpile": [
+            { "model": "biomesoplenty:deadleafpile" },
+            { "model": "biomesoplenty:deadleafpile", "y": 90 },
+            { "model": "biomesoplenty:deadleafpile", "y": 180 },
+            { "model": "biomesoplenty:deadleafpile", "y": 270 }
+        	],
         "variant=deadgrass": { "model": "biomesoplenty:deadgrass" },
         "variant=desertgrass": { "model": "biomesoplenty:desertgrass" },
         "variant=desertsprouts": { "model": "biomesoplenty:desertsprouts" }
