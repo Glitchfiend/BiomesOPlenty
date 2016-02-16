@@ -16,8 +16,6 @@ import static biomesoplenty.api.biome.BOPBiomes.birch_forest_hills_extension;
 import static biomesoplenty.api.biome.BOPBiomes.bog;
 import static biomesoplenty.api.biome.BOPBiomes.boreal_forest;
 import static biomesoplenty.api.biome.BOPBiomes.brushland;
-import static biomesoplenty.api.biome.BOPBiomes.canyon;
-import static biomesoplenty.api.biome.BOPBiomes.canyon_ravine;
 import static biomesoplenty.api.biome.BOPBiomes.chaparral;
 import static biomesoplenty.api.biome.BOPBiomes.cherry_blossom_grove;
 import static biomesoplenty.api.biome.BOPBiomes.cold_desert;
@@ -36,9 +34,9 @@ import static biomesoplenty.api.biome.BOPBiomes.extreme_hills_extension;
 import static biomesoplenty.api.biome.BOPBiomes.extreme_hills_plus_extension;
 import static biomesoplenty.api.biome.BOPBiomes.fen;
 import static biomesoplenty.api.biome.BOPBiomes.flower_field;
+import static biomesoplenty.api.biome.BOPBiomes.flower_island;
 import static biomesoplenty.api.biome.BOPBiomes.forest_extension;
 import static biomesoplenty.api.biome.BOPBiomes.forest_hills_extension;
-import static biomesoplenty.api.biome.BOPBiomes.garden;
 import static biomesoplenty.api.biome.BOPBiomes.glacier;
 import static biomesoplenty.api.biome.BOPBiomes.grassland;
 import static biomesoplenty.api.biome.BOPBiomes.gravel_beach;
@@ -68,7 +66,7 @@ import static biomesoplenty.api.biome.BOPBiomes.mystic_grove;
 import static biomesoplenty.api.biome.BOPBiomes.oasis;
 import static biomesoplenty.api.biome.BOPBiomes.ocean_extension;
 import static biomesoplenty.api.biome.BOPBiomes.ominous_woods;
-import static biomesoplenty.api.biome.BOPBiomes.origin_valley;
+import static biomesoplenty.api.biome.BOPBiomes.origin_island;
 import static biomesoplenty.api.biome.BOPBiomes.orchard;
 import static biomesoplenty.api.biome.BOPBiomes.outback;
 import static biomesoplenty.api.biome.BOPBiomes.overgrown_cliffs;
@@ -123,7 +121,6 @@ import biomesoplenty.common.biome.overworld.BiomeGenBayou;
 import biomesoplenty.common.biome.overworld.BiomeGenBog;
 import biomesoplenty.common.biome.overworld.BiomeGenBorealForest;
 import biomesoplenty.common.biome.overworld.BiomeGenBrushland;
-import biomesoplenty.common.biome.overworld.BiomeGenCanyon;
 import biomesoplenty.common.biome.overworld.BiomeGenChaparral;
 import biomesoplenty.common.biome.overworld.BiomeGenCherryBlossomGrove;
 import biomesoplenty.common.biome.overworld.BiomeGenColdDesert;
@@ -135,7 +132,7 @@ import biomesoplenty.common.biome.overworld.BiomeGenDeadSwamp;
 import biomesoplenty.common.biome.overworld.BiomeGenEucalyptusForest;
 import biomesoplenty.common.biome.overworld.BiomeGenFen;
 import biomesoplenty.common.biome.overworld.BiomeGenFlowerField;
-import biomesoplenty.common.biome.overworld.BiomeGenGarden;
+import biomesoplenty.common.biome.overworld.BiomeGenFlowerIsland;
 import biomesoplenty.common.biome.overworld.BiomeGenGlacier;
 import biomesoplenty.common.biome.overworld.BiomeGenGrassland;
 import biomesoplenty.common.biome.overworld.BiomeGenGravelBeach;
@@ -156,7 +153,7 @@ import biomesoplenty.common.biome.overworld.BiomeGenMysticGrove;
 import biomesoplenty.common.biome.overworld.BiomeGenOasis;
 import biomesoplenty.common.biome.overworld.BiomeGenOminousWoods;
 import biomesoplenty.common.biome.overworld.BiomeGenOrchard;
-import biomesoplenty.common.biome.overworld.BiomeGenOriginValley;
+import biomesoplenty.common.biome.overworld.BiomeGenOriginIsland;
 import biomesoplenty.common.biome.overworld.BiomeGenOutback;
 import biomesoplenty.common.biome.overworld.BiomeGenOvergrownCliffs;
 import biomesoplenty.common.biome.overworld.BiomeGenPrairie;
@@ -359,7 +356,6 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         bog = registerBOPBiome(new BiomeGenBog(), "Bog");
         boreal_forest = registerBOPBiome(new BiomeGenBorealForest(), "Boreal Forest");
         brushland = registerBOPBiome(new BiomeGenBrushland(), "Brushland");
-        canyon = registerBOPBiome(new BiomeGenCanyon(BiomeGenCanyon.CanyonType.PLATEAU), "Canyon");
         chaparral = registerBOPBiome(new BiomeGenChaparral(), "Chaparral");
         cherry_blossom_grove = registerBOPBiome(new BiomeGenCherryBlossomGrove(), "Cherry Blossom Grove");
         cold_desert = registerBOPBiome(new BiomeGenColdDesert(), "Cold Desert");
@@ -370,7 +366,6 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         eucalyptus_forest = registerBOPBiome(new BiomeGenEucalyptusForest(), "Eucalyptus Forest");
         fen = registerBOPBiome(new BiomeGenFen(), "Fen");
         flower_field = registerBOPBiome(new BiomeGenFlowerField(), "Flower Field");
-        garden = registerBOPBiome(new BiomeGenGarden(), "Garden");
         grassland = registerBOPBiome(new BiomeGenGrassland(), "Grassland");
         grove = registerBOPBiome(new BiomeGenGrove(), "Grove");
         heathland = registerBOPBiome(new BiomeGenHeathland(), "Heathland");
@@ -387,7 +382,6 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         mystic_grove = registerBOPBiome(new BiomeGenMysticGrove(), "Mystic Grove");
         ominous_woods = registerBOPBiome(new BiomeGenOminousWoods(), "Ominous Woods");
         orchard = registerBOPBiome(new BiomeGenOrchard(), "Orchard");
-        origin_valley = registerBOPBiome(new BiomeGenOriginValley(), "Origin Valley");
         outback = registerBOPBiome(new BiomeGenOutback(), "Outback");
         overgrown_cliffs = registerBOPBiome(new BiomeGenOvergrownCliffs(), "Overgrown Cliffs");
         prairie = registerBOPBiome(new BiomeGenPrairie(), "Prairie");
@@ -412,13 +406,11 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         // edge-biomes, sub-biomes and mutated-biomes
         
         mountain_foothills = registerBOPBiome(new BiomeGenMountain(BiomeGenMountain.MountainType.FOOTHILLS), "Mountain Foothills");
-        canyon_ravine = registerBOPBiome(new BiomeGenCanyon(BiomeGenCanyon.CanyonType.RAVINE), "Canyon Ravine");
         glacier = registerBOPBiome(new BiomeGenGlacier(), "Glacier");
         oasis = registerBOPBiome(new BiomeGenOasis(), "Oasis");
         coral_reef = registerBOPBiome(new BiomeGenCoralReef(), "Coral Reef");
         kelp_forest = registerBOPBiome(new BiomeGenKelpForest(), "Kelp Forest");
 
-        setSubBiome(canyon, canyon_ravine);
         setSubBiome(Optional.of(BiomeGenBase.icePlains), BOPBiomes.glacier);
         setSubBiome(Optional.of(BiomeGenBase.desert), BOPBiomes.oasis);
         setSubBiome(Optional.of(BiomeGenBase.ocean), BOPBiomes.coral_reef);
@@ -426,11 +418,15 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
 
         // island biomes
         
+        origin_island = registerBOPBiome(new BiomeGenOriginIsland(), "Origin Island");
         tropical_island = registerBOPBiome(new BiomeGenTropicalIsland(), "Tropical Island");
         volcanic_island = registerBOPBiome(new BiomeGenVolcanicIsland(), "Volcanic Island");
+        flower_island = registerBOPBiome(new BiomeGenFlowerIsland(), "Flower Island");
     
-        addIslandBiome(tropical_island, 10);
-        addIslandBiome(volcanic_island, 3);
+        addIslandBiome(origin_island, 1);
+        addIslandBiome(tropical_island, 3);
+        addIslandBiome(volcanic_island, 5);
+        addIslandBiome(flower_island, 7);
     }
     
     public static void initExtendedBiomes()
@@ -477,7 +473,6 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         registerBiomeToDictionary(BOPBiomes.bog, Type.SWAMP, Type.FOREST, Type.COLD, Type.WET);
         registerBiomeToDictionary(BOPBiomes.boreal_forest, Type.FOREST, Type.CONIFEROUS, Type.HILLS, Type.COLD, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.brushland, Type.SAVANNA, Type.HOT, Type.DRY, Type.SPARSE);
-        registerBiomeToDictionary(BOPBiomes.canyon, Type.MOUNTAIN, Type.DRY, Type.HILLS, Type.HOT, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.chaparral, Type.PLAINS, Type.DRY);
         registerBiomeToDictionary(BOPBiomes.cherry_blossom_grove, Type.FOREST, Type.MAGICAL, Type.LUSH, Type.WET, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.cold_desert, Type.SNOWY, Type.DRY, Type.COLD);
@@ -488,7 +483,6 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         registerBiomeToDictionary(BOPBiomes.eucalyptus_forest, Type.FOREST, Type.JUNGLE, Type.LUSH, Type.WET, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.fen, Type.SWAMP, Type.FOREST, Type.COLD, Type.DEAD, Type.WET, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.flower_field, Type.PLAINS, Type.LUSH);
-        registerBiomeToDictionary(BOPBiomes.garden, Type.PLAINS, Type.LUSH, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.grassland, Type.PLAINS, Type.HILLS, Type.WET);    
         registerBiomeToDictionary(BOPBiomes.grove, Type.FOREST, Type.PLAINS, Type.LUSH, Type.WET, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.heathland, Type.PLAINS, Type.FOREST, Type.DRY, Type.SPARSE);    
@@ -504,7 +498,6 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         registerBiomeToDictionary(BOPBiomes.mountain, Type.MOUNTAIN, Type.FOREST, Type.DRY, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.mystic_grove, Type.MAGICAL, Type.FOREST, Type.LUSH, Type.WET, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.ominous_woods, Type.MAGICAL, Type.FOREST, Type.SPOOKY, Type.DEAD, Type.WET, Type.DENSE);
-        //registerBiomeToDictionary(BOPBiomes.origin_valley, Type.FOREST, Type.PLAINS, Type.LUSH);
         registerBiomeToDictionary(BOPBiomes.outback, Type.SANDY, Type.SAVANNA, Type.HOT, Type.DRY, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.overgrown_cliffs, Type.MOUNTAIN, Type.HILLS, Type.LUSH, Type.JUNGLE, Type.WET, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.prairie, Type.PLAINS, Type.DRY, Type.SPARSE);
@@ -528,13 +521,13 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         
         // edge-biomes, sub-biomes and mutated-biomes
         registerBiomeToDictionary(BOPBiomes.mountain_foothills, Type.HILLS, Type.MOUNTAIN, Type.FOREST, Type.DRY, Type.SPARSE);
-        registerBiomeToDictionary(BOPBiomes.canyon_ravine, Type.MOUNTAIN, Type.DRY, Type.HILLS, Type.HOT, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.glacier, Type.SNOWY, Type.WASTELAND, Type.COLD);
         registerBiomeToDictionary(BOPBiomes.oasis, Type.SANDY, Type.LUSH, Type.JUNGLE, Type.HOT, Type.WET, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.coral_reef, Type.WATER, Type.OCEAN);
         registerBiomeToDictionary(BOPBiomes.kelp_forest, Type.WATER, Type.OCEAN);
         registerBiomeToDictionary(BOPBiomes.tropical_island, Type.WATER, Type.OCEAN, Type.JUNGLE, Type.LUSH, Type.WET, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.volcanic_island, Type.WATER, Type.OCEAN, Type.DEAD, Type.WASTELAND, Type.MOUNTAIN, Type.HOT, Type.DRY);
+        registerBiomeToDictionary(BOPBiomes.flower_island, Type.WATER, Type.OCEAN, Type.PLAINS, Type.LUSH, Type.DENSE, Type.MAGICAL);
         registerBiomeToDictionary(BOPBiomes.gravel_beach, Type.BEACH);   
         
     }

@@ -74,6 +74,7 @@ public class BiomeGenMountain extends BOPBiome
                 break;
         }
         
+        this.canGenerateRivers = false;
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
         this.setColor(0x80A355);

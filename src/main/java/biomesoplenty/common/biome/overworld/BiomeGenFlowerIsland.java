@@ -36,13 +36,13 @@ import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import biomesoplenty.common.world.feature.GeneratorSplatter;
 import biomesoplenty.common.world.feature.tree.GeneratorBush;
 
-public class BiomeGenGarden extends BOPBiome
+public class BiomeGenFlowerIsland extends BOPBiome
 {
 
-    public BiomeGenGarden()
+    public BiomeGenFlowerIsland()
     {
         // terrain
-        this.terrainSettings.avgHeight(66).heightVariation(6, 14).octaves(0, 0, 1, 1, 2, 2);
+        this.terrainSettings.avgHeight(70).heightVariation(10, 15).octaves(0, 0, 1, 1, 2, 2);
         
         this.setColor(0x74D374);
         this.setTemperatureRainfall(0.6F, 0.8F);
@@ -50,9 +50,11 @@ public class BiomeGenGarden extends BOPBiome
 
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
+        this.canGenerateRivers = false;
         
-        this.addWeight(BOPClimates.WET_TEMPERATE, 1);
+        clearWeights();
         
+        this.spawnableMonsterList.clear();
         this.spawnableCreatureList.clear();
         this.spawnableCreatureList.add(new SpawnListEntry(EntitySnail.class, 6, 1, 2));
         this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));

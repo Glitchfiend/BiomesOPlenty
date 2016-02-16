@@ -23,9 +23,9 @@ import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
 
-public class BiomeGenOriginValley extends BOPBiome
+public class BiomeGenOriginIsland extends BOPBiome
 {
-    public BiomeGenOriginValley()
+    public BiomeGenOriginIsland()
     {
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(6, 25).sidewaysNoise(0.0D);
@@ -38,7 +38,7 @@ public class BiomeGenOriginValley extends BOPBiome
         this.canGenerateVillages = false;
         this.canGenerateRivers = false;
         
-        this.addWeight(BOPClimates.COOL_TEMPERATE, 1);
+        clearWeights();
         
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BOPGrassType.ORIGIN);
 

@@ -24,7 +24,6 @@ public class BOPBiomes
     public static Optional<BiomeGenBase> bog = Optional.absent();
     public static Optional<BiomeGenBase> boreal_forest = Optional.absent();
     public static Optional<BiomeGenBase> brushland = Optional.absent();
-    public static Optional<BiomeGenBase> canyon = Optional.absent();
     public static Optional<BiomeGenBase> chaparral = Optional.absent();
     public static Optional<BiomeGenBase> cherry_blossom_grove = Optional.absent();
     public static Optional<BiomeGenBase> cold_desert = Optional.absent();
@@ -35,7 +34,6 @@ public class BOPBiomes
     public static Optional<BiomeGenBase> eucalyptus_forest = Optional.absent();
     public static Optional<BiomeGenBase> fen = Optional.absent();
     public static Optional<BiomeGenBase> flower_field = Optional.absent();
-    public static Optional<BiomeGenBase> garden = Optional.absent();
     public static Optional<BiomeGenBase> grassland = Optional.absent();    
     public static Optional<BiomeGenBase> grove = Optional.absent();
     public static Optional<BiomeGenBase> heathland = Optional.absent();    
@@ -52,7 +50,6 @@ public class BOPBiomes
     public static Optional<BiomeGenBase> mystic_grove = Optional.absent();
     public static Optional<BiomeGenBase> ominous_woods = Optional.absent();
     public static Optional<BiomeGenBase> orchard = Optional.absent();
-    public static Optional<BiomeGenBase> origin_valley = Optional.absent();
     public static Optional<BiomeGenBase> outback = Optional.absent();
     public static Optional<BiomeGenBase> overgrown_cliffs = Optional.absent();
     public static Optional<BiomeGenBase> prairie = Optional.absent();
@@ -76,13 +73,14 @@ public class BOPBiomes
     
     // edge-biomes, sub-biomes and mutated-biomes
     public static Optional<BiomeGenBase> mountain_foothills = Optional.absent();
-    public static Optional<BiomeGenBase> canyon_ravine = Optional.absent();
     public static Optional<BiomeGenBase> glacier = Optional.absent();
     public static Optional<BiomeGenBase> oasis = Optional.absent();
     public static Optional<BiomeGenBase> coral_reef = Optional.absent();
     public static Optional<BiomeGenBase> kelp_forest = Optional.absent();
+    public static Optional<BiomeGenBase> origin_island = Optional.absent();
     public static Optional<BiomeGenBase> tropical_island = Optional.absent();
     public static Optional<BiomeGenBase> volcanic_island = Optional.absent();
+    public static Optional<BiomeGenBase> flower_island = Optional.absent();
     public static Optional<BiomeGenBase> gravel_beach = Optional.absent();
 
     //Biome extensions
