@@ -1,6 +1,11 @@
 {
     "variants": {
-        "variant=clover": { "model": "biomesoplenty:clover" },
+        "variant=clover": [
+            { "model": "biomesoplenty:clover" },
+            { "model": "biomesoplenty:clover", "y": 90 },
+            { "model": "biomesoplenty:clover", "y": 180 },
+            { "model": "biomesoplenty:clover", "y": 270 }
+        	],
         "variant=swampflower": { "model": "biomesoplenty:swampflower" },
         "variant=deathbloom": { "model": "biomesoplenty:deathbloom" },
         "variant=glowflower": { "model": "biomesoplenty:glowflower" },
