@@ -66,16 +66,10 @@
         	],
         	
         "snowy=false,variant=origin": [
-            { "model": "biomesoplenty:origin_grass_block" },
-            { "model": "biomesoplenty:origin_grass_block", "y": 90 },
-            { "model": "biomesoplenty:origin_grass_block", "y": 180 },
-            { "model": "biomesoplenty:origin_grass_block", "y": 270 }
+            { "model": "biomesoplenty:origin_grass_block" }
         	],
         "snowy=true,variant=origin": [
-            { "model": "biomesoplenty:origin_grass_block_snowed" },
-            { "model": "biomesoplenty:origin_grass_block_snowed", "y": 90 },
-            { "model": "biomesoplenty:origin_grass_block_snowed", "y": 180 },
-            { "model": "biomesoplenty:origin_grass_block_snowed", "y": 270 }
+            { "model": "biomesoplenty:origin_grass_block_snowed" }
         	],
         	
         "snowy=false,variant=overgrown_netherrack": [
