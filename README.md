@@ -4,6 +4,10 @@
 
 -----------------
 
+Note: To use the mod on a server, you must set the level-type setting in your server's config file to BIOMESOP
+
+-----------------
+
 **Please note that the 1.8.9 version is still in development.  Whilst it may have many bugs fixed compared to 1.7, there will still be some missing features.**
 
 **The configuration system for biomes is implemented, however it remains undocumented at this time.  Most world-breaking changes should be complete at this point, however do be aware that they are still possible.**
