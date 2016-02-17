@@ -62,6 +62,7 @@ import static biomesoplenty.api.biome.BOPBiomes.mesa_plateau_extension;
 import static biomesoplenty.api.biome.BOPBiomes.moor;
 import static biomesoplenty.api.biome.BOPBiomes.mountain;
 import static biomesoplenty.api.biome.BOPBiomes.mountain_foothills;
+import static biomesoplenty.api.biome.BOPBiomes.mushroom_island_extension;
 import static biomesoplenty.api.biome.BOPBiomes.mystic_grove;
 import static biomesoplenty.api.biome.BOPBiomes.oasis;
 import static biomesoplenty.api.biome.BOPBiomes.ocean_extension;
@@ -195,6 +196,7 @@ import biomesoplenty.common.biome.vanilla.BiomeExtMegaTaiga;
 import biomesoplenty.common.biome.vanilla.BiomeExtMegaTaigaHills;
 import biomesoplenty.common.biome.vanilla.BiomeExtMesa;
 import biomesoplenty.common.biome.vanilla.BiomeExtMesaPlateau;
+import biomesoplenty.common.biome.vanilla.BiomeExtMushroomIsland;
 import biomesoplenty.common.biome.vanilla.BiomeExtOcean;
 import biomesoplenty.common.biome.vanilla.BiomeExtPlains;
 import biomesoplenty.common.biome.vanilla.BiomeExtRoofedForest;
@@ -434,6 +436,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         biomeWrapperMap = new HashMap<Integer, IExtendedBiome>();
         
         end_extension = registerWrappedBiome(new BiomeExtEnd(), "end");
+        mushroom_island_extension = registerWrappedBiome(new BiomeExtMushroomIsland(), "mushroom_island");
         birch_forest_extension = registerWrappedBiome(new BiomeExtBirchForest(), "birch_forest");
         birch_forest_hills_extension = registerWrappedBiome(new BiomeExtBirchForestHills(), "birch_forest_hills");
         cold_taiga_extension = registerWrappedBiome(new BiomeExtColdTaiga(), "cold_taiga");
