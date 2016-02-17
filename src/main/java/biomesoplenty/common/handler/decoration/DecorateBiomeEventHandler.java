@@ -93,13 +93,13 @@ public class DecorateBiomeEventHandler
             }
             
             //Biomes should explicitly allow for the following by defining their own generators
-            if (extendedBiome.getBiomeOwner() == BiomeOwner.BIOMESOPLENTY)
+            /*if (extendedBiome.getBiomeOwner() == BiomeOwner.BIOMESOPLENTY)
             {
                 if (stage == GeneratorStage.PUMPKIN)
                 {
                     return false;
                 }
-            }
+            }*/
         }
 
         return true;

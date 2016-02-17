@@ -70,7 +70,7 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         this.theBiomeDecorator.grassPerChunk = -999;
         this.theBiomeDecorator.sandPerChunk = -999;
         this.theBiomeDecorator.sandPerChunk2 = -999;
-        this.theBiomeDecorator.generateLakes = false;
+        //this.theBiomeDecorator.generateLakes = false;
         
         // roots
         this.addGenerator("roots", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(4.0F).with(BOPPlants.ROOT).create());
