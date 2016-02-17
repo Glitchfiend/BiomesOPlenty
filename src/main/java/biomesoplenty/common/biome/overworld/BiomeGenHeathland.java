@@ -28,6 +28,8 @@ import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.enums.BOPWoods;
+import biomesoplenty.common.util.block.BlockQuery;
+import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
 import biomesoplenty.common.world.feature.GeneratorFlora;
@@ -45,10 +47,10 @@ public class BiomeGenHeathland extends BOPBiome
     {
         
         // terrain
-        this.terrainSettings.avgHeight(65).heightVariation(5, 15).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.1D);
+        this.terrainSettings.avgHeight(75).heightVariation(7, 10).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.1D);
         
         this.setColor(0xADAE68);
-        this.setTemperatureRainfall(0.75F, 0.05F);
+        this.setTemperatureRainfall(0.75F, 0.2F);
         
         this.addWeight(BOPClimates.DRY_TEMPERATE, 5);
         
@@ -79,14 +81,15 @@ public class BiomeGenHeathland extends BOPBiome
         grassGenerator.add("dampgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.DAMPGRASS).create());
         
         // trees
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(7);
+        IBlockPosQuery suitableTreePosition = BlockQuery.buildAnd().withAltitudeBetween(77, 90).materials(Material.ground, Material.grass).create();
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(12);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("red_bush", 7, (new GeneratorFlora.Builder()).placeOn(this.topBlock).replace(Material.air).withNonDecayingLeaf(BOPTrees.MAPLE).create());
         treeGenerator.add("small_bush", 11, (new GeneratorFlora.Builder()).placeOn(this.topBlock).replace(Material.air).withNonDecayingLeaf(BlockPlanks.EnumType.OAK).create());
         treeGenerator.add("oak_bush", 3, (new GeneratorBush.Builder()).maxHeight(2).create());
         treeGenerator.add("oak", 2, (new GeneratorBasicTree.Builder()).minHeight(3).maxHeight(5).create());
-        treeGenerator.add("decaying_tree", 2, (new GeneratorBigTree.Builder()).amountPerChunk(1.0F).minHeight(5).maxHeight(12).foliageHeight(2).create());
-        treeGenerator.add("pine", 1, (new GeneratorPineTree.Builder()).minHeight(6).maxHeight(18).log(BOPWoods.PINE).leaves(BOPTrees.PINE).create());  
+        treeGenerator.add("decaying_tree", 1, (new GeneratorBigTree.Builder()).amountPerChunk(1.0F).minHeight(5).maxHeight(12).foliageHeight(2).create());
+        treeGenerator.add("pine", 15, (new GeneratorPineTree.Builder()).minHeight(6).maxHeight(18).log(BOPWoods.PINE).leaves(BOPTrees.PINE).placeOn(suitableTreePosition).create());  
         
         // other plants
         this.addGenerator("thorns", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.4F).with(BOPPlants.THORN).create());

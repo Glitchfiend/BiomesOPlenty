@@ -26,7 +26,7 @@ public class BiomeGenVolcanicIsland extends BOPBiome
         // terrain
         this.terrainSettings.avgHeight(120).heightVariation(50, 50).octaves(1, 1, 2, 2, 3, 2).sidewaysNoise(0.1D); 
         
-        this.setTemperatureRainfall(1.2F, 0.5F);
+        this.setTemperatureRainfall(1.2F, 0.0F);
         
         this.setColor(6645093);
         

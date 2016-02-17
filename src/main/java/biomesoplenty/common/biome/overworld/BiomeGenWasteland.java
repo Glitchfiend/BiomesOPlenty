@@ -50,7 +50,7 @@ public class BiomeGenWasteland extends BOPBiome
         this.terrainSettings.avgHeight(66).heightVariation(1,5);
         
         this.setColor(0x5A5440);
-        this.setTemperatureRainfall(2.0F, 0.05F);
+        this.setTemperatureRainfall(2.0F, 0.0F);
         this.topBlock = BOPBlocks.dried_sand.getDefaultState();
         this.fillerBlock = BOPBlocks.dried_sand.getDefaultState();
         this.waterColorMultiplier = 0xE5FF00;
@@ -86,6 +86,7 @@ public class BiomeGenWasteland extends BOPBiome
         flowerGenerator.add("wilted_lily", 1, (new GeneratorFlora.Builder()).with(BOPFlowers.WILTED_LILY).create());
         
         // lakes
+        this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.05F).waterLakeForBiome(this).create());
         this.addGenerator("poison_lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.05F).waterLakeForBiome(this).liquid(BOPBlocks.poison).frozenLiquid((IBlockState)null).create());
         
         // spikes
