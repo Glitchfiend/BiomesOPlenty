@@ -9,6 +9,7 @@
 package biomesoplenty.common.biome.overworld;
 
 import net.minecraft.block.BlockDoublePlant;
+import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.init.Blocks;
@@ -41,6 +42,9 @@ import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import biomesoplenty.common.world.feature.GeneratorSplatter;
 import biomesoplenty.common.world.feature.GeneratorWaterside;
 import biomesoplenty.common.world.feature.tree.GeneratorBayouTree;
+import biomesoplenty.common.world.feature.tree.GeneratorBulbTree;
+import biomesoplenty.common.world.feature.tree.GeneratorTaigaTree;
+import biomesoplenty.common.world.feature.tree.GeneratorTwigletTree;
 
 public class BiomeGenBayou extends BOPBiome
 {    
@@ -78,7 +82,6 @@ public class BiomeGenBayou extends BOPBiome
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("willow", 3, (new GeneratorBayouTree.Builder()).log(BOPWoods.WILLOW).leaves(BOPTrees.WILLOW).minHeight(6).maxHeight(12).minLeavesRadius(1).leavesGradient(2).create());
         treeGenerator.add("willow_large", 1, (new GeneratorBayouTree.Builder()).log(BOPWoods.WILLOW).leaves(BOPTrees.WILLOW).minHeight(10).maxHeight(18).minLeavesRadius(2).leavesGradient(3).create());
-        this.addGenerator("dead_logs", GeneratorStage.TREE, (new GeneratorLogs.Builder()).amountPerChunk(1.5F).with(BOPWoods.DEAD).create());
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(10.0F);
@@ -128,6 +131,15 @@ public class BiomeGenBayou extends BOPBiome
         if (!settings.generateBopPlants) {this.removeGenerator("cattail"); this.removeGenerator("double_cattail"); this.removeGenerator("river_cane"); this.removeGenerator("tiny_cacti"); this.removeGenerator("roots"); this.removeGenerator("rafflesia"); this.removeGenerator("desert_sprouts");}
         
         if (!settings.generateBopWaterPlants) {this.removeGenerator("algae"); this.removeGenerator("water_reeds"); this.removeGenerator("medium_lily"); this.removeGenerator("small_lily"); this.removeGenerator("tiny_lily"); this.removeGenerator("flower_lily");}
+        
+        GeneratorWeighted treeGen = (GeneratorWeighted)this.getGenerator("trees");
+        if (!settings.generateBopTrees) {this.removeGenerator("trees");
+        
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(8);
+        this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
+        treeGenerator.add("willow", 3, (new GeneratorBayouTree.Builder()).minHeight(6).maxHeight(12).minLeavesRadius(1).leavesGradient(2).create());
+        treeGenerator.add("willow_large", 1, (new GeneratorBayouTree.Builder()).minHeight(10).maxHeight(18).minLeavesRadius(2).leavesGradient(3).create());
+        }
         
         GeneratorWeighted grassGen = (GeneratorWeighted)this.getGenerator("grass");
         if (!settings.generateBopGrasses) {grassGen.removeGenerator("shortgrass"); grassGen.removeGenerator("mediumgrass"); grassGen.removeGenerator("wheatgrass"); grassGen.removeGenerator("dampgrass");}

@@ -13,6 +13,7 @@ import java.util.Random;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockFlower;
+import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.passive.EntityOcelot;
@@ -42,6 +43,7 @@ import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import biomesoplenty.common.world.feature.tree.GeneratorBulbTree;
 import biomesoplenty.common.world.feature.tree.GeneratorBush;
+import biomesoplenty.common.world.feature.tree.GeneratorTaigaTree;
 import biomesoplenty.common.world.feature.tree.GeneratorTwigletTree;
 
 public class BiomeGenBambooForest extends BOPBiome

@@ -119,6 +119,17 @@ public class BiomeGenLushDesert extends BOPBiome
         
         if (!settings.generateBopWaterPlants) {this.removeGenerator("algae"); this.removeGenerator("water_reeds"); this.removeGenerator("medium_lily"); this.removeGenerator("small_lily"); this.removeGenerator("tiny_lily");}
         
+        GeneratorWeighted treeGen = (GeneratorWeighted)this.getGenerator("trees");
+        if (!settings.generateBopTrees) {this.removeGenerator("trees");
+        
+        IBlockPosQuery emptyHardenedClay = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(3);
+        this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
+        treeGenerator.add("decaying_tree", 4, (new GeneratorBigTree.Builder()).amountPerChunk(1.0F).placeOn(emptyHardenedClay).minHeight(5).log(BlockPlanks.EnumType.ACACIA).leaves(BlockPlanks.EnumType.ACACIA).maxHeight(12).foliageHeight(2).create());
+        treeGenerator.add("dead_tree", 2, (new GeneratorBigTree.Builder()).amountPerChunk(0.5F).placeOn(emptyHardenedClay).minHeight(5).maxHeight(12).foliageHeight(0).foliageDensity(0.5D).log(BlockPlanks.EnumType.DARK_OAK).leaves(Blocks.air.getDefaultState()).create());
+        treeGenerator.add("oak_bush", 5, (new GeneratorBush.Builder()).maxHeight(2).placeOn(emptyHardenedClay).create());
+        }
+        
         GeneratorWeighted flowerGen = (GeneratorWeighted)this.getGenerator("flowers");
         if (!settings.generateBopFlowers) {flowerGen.removeGenerator("bluebells"); flowerGen.removeGenerator("clover"); flowerGen.removeGenerator("swampflower"); flowerGen.removeGenerator("deathbloom"); flowerGen.removeGenerator("glowflower"); flowerGen.removeGenerator("blue_hydrangeas"); flowerGen.removeGenerator("pink_daffodil"); flowerGen.removeGenerator("white_anemones"); flowerGen.removeGenerator("orange_cosmos"); flowerGen.removeGenerator("wildflowers"); flowerGen.removeGenerator("violet"); flowerGen.removeGenerator("hibiscus"); flowerGen.removeGenerator("goldenrods"); flowerGen.removeGenerator("icy_irises"); flowerGen.removeGenerator("wilted_lily"); flowerGen.removeGenerator("lily_of_the_valley"); flowerGen.removeGenerator("bromeliad"); this.removeGenerator("bromeliad");}
         

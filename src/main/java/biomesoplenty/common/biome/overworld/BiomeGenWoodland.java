@@ -105,12 +105,6 @@ public class BiomeGenWoodland extends BOPBiome
         this.addGenerator("flat_mushroom", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BlockBOPMushroom.MushroomType.FLAT_MUSHROOM).create());
         this.addGenerator("toadstools", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.3F).with(BlockBOPMushroom.MushroomType.TOADSTOOL).create());
         
-        // logs
-        GeneratorWeighted logsGenerator = new GeneratorWeighted(0.5F);
-        this.addGenerator("logs", GeneratorStage.TREE, logsGenerator);
-        logsGenerator.add("oak_logs", 1, (new GeneratorLogs.Builder()).create());
-        logsGenerator.add("dead_logs", 1, (new GeneratorLogs.Builder()).with(BOPWoods.DEAD).create());
-        
         // gem
         this.addGenerator("amber", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.AMBER).create());
    

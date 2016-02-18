@@ -76,6 +76,7 @@ public class BOPWorldSettings
     public float amplitude = 1.0F;
     public boolean generateBopGems = true;
     public boolean generateBopSoils = true;
+    public boolean generateBopTrees = true;
     public boolean generateBopGrasses = true;
     public boolean generateBopFoliage = true;
     public boolean generateBopFlowers = true;
@@ -135,6 +136,7 @@ public class BOPWorldSettings
         obj.addProperty("amplitude", this.amplitude);
         obj.addProperty("generateBopOre", this.generateBopGems);
         obj.addProperty("generateBopSoils", this.generateBopSoils);
+        obj.addProperty("generateBopTrees", this.generateBopTrees);
         obj.addProperty("generateBopGrasses", this.generateBopGrasses);
         obj.addProperty("generateBopFoliage", this.generateBopFoliage);
         obj.addProperty("generateBopFlowers", this.generateBopFlowers);
@@ -170,6 +172,7 @@ public class BOPWorldSettings
         this.amplitude = worldConfig.getFloat("amplitude", this.amplitude);
         this.generateBopGems = worldConfig.getBool("generateBopOre", this.generateBopGems);
         this.generateBopSoils = worldConfig.getBool("generateBopSoils", this.generateBopSoils);
+        this.generateBopTrees = worldConfig.getBool("generateBopTrees", this.generateBopTrees);
         this.generateBopGrasses = worldConfig.getBool("generateBopGrasses", this.generateBopGrasses);
         this.generateBopFoliage = worldConfig.getBool("generateBopFoliage", this.generateBopFoliage);
         this.generateBopFlowers = worldConfig.getBool("generateBopFlowers", this.generateBopFlowers);
@@ -200,6 +203,7 @@ public class BOPWorldSettings
         this.amplitude = 1.0F;
         this.generateBopGems = true;  
         this.generateBopSoils = true;  
+        this.generateBopTrees = true;  
         this.generateBopGrasses = true;  
         this.generateBopFoliage = true; 
         this.generateBopFlowers = true;  

@@ -57,6 +57,8 @@ public class BiomeExtExtremeHillsPlus extends ExtendedBiomeWrapper
         
         if (!settings.generateBopFlowers) {this.removeGenerator("flowers");}
         
+        if (!settings.generateBopTrees) {this.removeGenerator("trees");}
+        
         if (!settings.generateBopGrasses) {this.removeGenerator("grass");}
     }
 }

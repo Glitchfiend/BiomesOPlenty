@@ -175,16 +175,17 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
         LAND_SCHEME (106),
         RAIN_SCHEME (107),
         GENERATE_BOP_SOILS (108),
-        GENERATE_BOP_GRASSES (109),
-        GENERATE_BOP_FOLIAGE (110),
-        GENERATE_BOP_FLOWERS (111),
-        GENERATE_BOP_PLANTS (112),
-        GENERATE_BOP_WATER_PLANTS (113),
-        GENERATE_BOP_MUSHROOMS (114),
-        GENERATE_ROCK_FORMATIONS (115),
-        GENERATE_POISON_IVY (116),
-        GENERATE_FLAX (117),
-        GENERATE_BERRY_BUSHES (118),
+        GENERATE_BOP_TREES (109),
+        GENERATE_BOP_GRASSES (110),
+        GENERATE_BOP_FOLIAGE (111),
+        GENERATE_BOP_FLOWERS (112),
+        GENERATE_BOP_PLANTS (113),
+        GENERATE_BOP_WATER_PLANTS (114),
+        GENERATE_BOP_MUSHROOMS (115),
+        GENERATE_ROCK_FORMATIONS (116),
+        GENERATE_POISON_IVY (117),
+        GENERATE_FLAX (118),
+        GENERATE_BERRY_BUSHES (119),
         GENERATE_THORNS (120),
         GENERATE_QUICKSAND (121),
         GENERATE_LIQUID_POISON (122),
@@ -240,6 +241,7 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
         GuiBOPPageList.GuiFieldEntry[] page2Fields = new GuiBOPPageList.GuiFieldEntry[] {
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_GEMS.getId(), "BOP Gems", true, this.settings.generateBopGems),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_SOILS.getId(), "BOP Soils", true, this.settings.generateBopSoils),
+            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_TREES.getId(), "BOP Logs/Leaves", true, this.settings.generateBopTrees),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_GRASSES.getId(), "BOP Grasses", true, this.settings.generateBopGrasses),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_FOLIAGE.getId(), "BOP Foliage", true, this.settings.generateBopFoliage),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_FLOWERS.getId(), "BOP Flowers", true, this.settings.generateBopFlowers),
@@ -353,6 +355,9 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
                 break;
             case GENERATE_BOP_SOILS:
                 this.settings.generateBopSoils = value;
+                break;
+            case GENERATE_BOP_TREES:
+                this.settings.generateBopTrees = value;
                 break;
             case GENERATE_BOP_GRASSES:
                 this.settings.generateBopGrasses = value;
