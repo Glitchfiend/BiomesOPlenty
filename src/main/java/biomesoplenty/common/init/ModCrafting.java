@@ -252,7 +252,11 @@ public class ModCrafting
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.dirt, 4, BOPBlocks.dirt.getMetaFromState(BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY).withProperty(BlockBOPDirt.COARSE, true))), new Object[] {"DG", "GD", 'G', Blocks.gravel, 'D', new ItemStack(BOPBlocks.dirt, 4, BlockBOPDirt.BOPDirtType.SILTY.ordinal())});
         
         // Enderporter
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.enderporter), new Object[] {"IOI", "OAO", "IOI", 'I', Items.ender_eye, 'O', new ItemStack(BOPItems.soul), 'A', new ItemStack(BOPItems.gem, 1, BOPGems.AMETHYST.ordinal())});
+        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.enderporter), new Object[] {"IOI", "OTO", "IOI", 'I', Items.ender_eye, 'O', BOPItems.soul, 'T', BOPItems.terrestrial_artifact});
+        
+        // Records
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.record_wanderer), new Object [] {"TTT", "TRT", "TTT", 'T', BOPItems.terrestrial_artifact, 'R', "record"}));     
+        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.record_corruption), new Object[] {"MMM", "MRM", "MMM", 'M', BOPItems.mudball, 'R', BOPItems.record_wanderer});
         
         // Bamboo Thatching
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.bamboo_thatching), new Object[] {"##", "##", '#', BOPBlocks.bamboo});
