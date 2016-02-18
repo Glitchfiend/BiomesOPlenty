@@ -68,7 +68,7 @@ public class BiomeGenOriginIsland extends BOPBiome
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BOPGrassType.ORIGIN);
 
         // trees
-        this.addGenerator("trees", GeneratorStage.TREE, (new GeneratorBasicTree.Builder()).amountPerChunk(4).minHeight(5).maxHeight(8).leaves(BOPTrees.ORIGIN).create());
+        this.addGenerator("trees", GeneratorStage.TREE, (new GeneratorBasicTree.Builder()).amountPerChunk(5).minHeight(5).maxHeight(8).leaves(BOPTrees.ORIGIN).create());
 
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.4F);
