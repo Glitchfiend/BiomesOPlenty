@@ -55,12 +55,14 @@ public class ItemEventHandler
             {
                 InventoryFlowerBasket inventory = new InventoryFlowerBasket(basketStack, player);
 
-                //Add the stack to the basket's inventory
-                inventory.func_174894_a(stack);
-                //Set stack size to 0 to cause it to be removed
-                stack.stackSize = 0;
-                //Prevent the stack from being added to the player's inventory
-                event.setResult(Result.ALLOW);
+                //Add the stack to the basket's inventory, if successful, don't add it to the player's regular inventory
+                if (inventory.func_174894_a(stack) == null)
+                {
+                    //Set stack size to 0 to cause it to be removed
+                    stack.stackSize = 0;
+                    //Prevent the stack from being added to the player's inventory
+                    event.setResult(Result.ALLOW);
+                }
             }
         }
     }
