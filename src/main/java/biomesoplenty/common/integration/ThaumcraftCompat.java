@@ -124,7 +124,6 @@ public class ThaumcraftCompat
         addAspectsToState(BlockBOPPlant.paging.getVariantState(BOPPlants.DESERTGRASS), new Aspect[] { Aspect.PLANT }, new int[] { 1 });
         addAspectsToState(BlockBOPPlant.paging.getVariantState(BOPPlants.DEADGRASS), new Aspect[] { Aspect.PLANT, Aspect.DEATH }, new int[] { 1, 2 });
         addAspectsToBlock(BOPBlocks.tree_moss, new Aspect[] { Aspect.PLANT }, new int[] { 2 });
-        addAspectsToBlock(BOPBlocks.moss, new Aspect[] { Aspect.PLANT }, new int[] { 2 });
         //TODO: addAspectsToBlock(BOPBlocks.willow, new Aspect[] { Aspect.PLANT }, new int[] { 2 });
 
         //Flowers

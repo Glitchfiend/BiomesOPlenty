@@ -36,15 +36,24 @@ public class ModVanillaCompat
 		ChestGenHooks strongholdLibrary = ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_LIBRARY);
 		ChestGenHooks village = ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH);
 		ChestGenHooks bonusChest = ChestGenHooks.getInfo(ChestGenHooks.BONUS_CHEST);
+		ChestGenHooks netherFortress = ChestGenHooks.getInfo(ChestGenHooks.NETHER_FORTRESS);
 
+		bonusChest.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.peach), 1, 3, 10));
+		bonusChest.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.pear), 1, 3, 10));
+		bonusChest.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.persimmon), 1, 3, 10));
+		
+		netherFortress.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.fleshchunk), 2, 6, 5));
+		netherFortress.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.honeycomb), 2, 6, 5));
+		netherFortress.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.filled_honeycomb), 2, 6, 3));
+		
 		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.turnip_seeds), 3, 6, 25));
-		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.gem, 1, BOPGems.RUBY.ordinal()), 1, 4, 5));
-		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.gem, 1, BOPGems.AMBER.ordinal()), 1, 4, 5));
-		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.gem, 1, BOPGems.MALACHITE.ordinal()), 1, 4, 5));
-		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.gem, 1, BOPGems.PERIDOT.ordinal()), 1, 4, 5));
-		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.gem, 1, BOPGems.SAPPHIRE.ordinal()), 1, 4, 5));
-		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.gem, 1, BOPGems.TANZANITE.ordinal()), 1, 4, 5));
-		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.gem, 1, BOPGems.TOPAZ.ordinal()), 1, 4, 5));
+		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.gem, 1, BOPGems.RUBY.ordinal()), 1, 4, 3));
+		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.gem, 1, BOPGems.AMBER.ordinal()), 1, 4, 3));
+		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.gem, 1, BOPGems.MALACHITE.ordinal()), 1, 4, 3));
+		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.gem, 1, BOPGems.PERIDOT.ordinal()), 1, 4, 3));
+		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.gem, 1, BOPGems.SAPPHIRE.ordinal()), 1, 4, 3));
+		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.gem, 1, BOPGems.TANZANITE.ordinal()), 1, 4, 3));
+		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.gem, 1, BOPGems.TOPAZ.ordinal()), 1, 4, 3));
 		
 		strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(BOPBlocks.sapling_1, 1, BOPTrees.SACRED_OAK.ordinal()), 1, 1, 1));
 		strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(BOPBlocks.sapling_1, 1, BOPTrees.SACRED_OAK.ordinal()), 1, 1, 1));

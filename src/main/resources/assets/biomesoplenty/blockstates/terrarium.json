@@ -3,7 +3,7 @@
         "variant=fern": { "model": "biomesoplenty:terrarium_fern" },
         "variant=mushroom": { "model": "biomesoplenty:terrarium_mushroom" },
 		"variant=cactus": { "model": "biomesoplenty:terrarium_cactus" },
-		"variant=moss": { "model": "biomesoplenty:terrarium_moss" },
+		"variant=flax": { "model": "biomesoplenty:terrarium_flax" },
 		"variant=flower": { "model": "biomesoplenty:terrarium_flower" },
 		"variant=koru": { "model": "biomesoplenty:terrarium_koru" },
 		"variant=bamboo": { "model": "biomesoplenty:terrarium_bamboo" },

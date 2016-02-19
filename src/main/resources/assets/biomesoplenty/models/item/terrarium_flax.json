@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "biomesoplenty:items/moss"
+        "layer0": "biomesoplenty:items/terrarium_flax"
     },
     "display": {
         "thirdperson": {

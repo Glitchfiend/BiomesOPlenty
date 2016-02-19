@@ -212,7 +212,6 @@ public class ModBlocks
         coral =                 registerBlock( new BlockBOPCoral(), "coral" );
         seaweed =               registerBlock( new BlockBOPSeaweed(), "seaweed" );
         waterlily =             registerBlock( new BlockBOPLilypad(), "waterlily" );
-        moss =              registerBlock( new BlockBOPVine(true), "moss" );
         bamboo =                registerBlock( new BlockBOPBamboo(), "bamboo" );
         turnip_block =          registerBlock( new BlockBOPTurnip(), "turnip_block", null ); // no creative tab
 
