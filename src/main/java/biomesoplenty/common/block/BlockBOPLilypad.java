@@ -90,6 +90,13 @@ public class BlockBOPLilypad extends BlockLilyPad implements IBOPBlock
         return ((LilypadType) state.getValue(VARIANT)).ordinal();
     }
     
+    // our blocks usually drop their current state as opposed to a single 'default' state
+    @Override
+    public int damageDropped(IBlockState state)
+    {
+        return this.getMetaFromState(state);
+    }
+    
     @Override
     public net.minecraftforge.common.EnumPlantType getPlantType(net.minecraft.world.IBlockAccess world, BlockPos pos)
     {
