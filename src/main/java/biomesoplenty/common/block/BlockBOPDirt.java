@@ -134,9 +134,9 @@ public class BlockBOPDirt extends Block implements IBOPBlock, ISustainsPlantType
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
     public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
         IBlockState grassState = getGrassBlockState(state);
+
         if (grassState != null)
         {
             pullGrassFromNeighbors(world, pos, grassState, rand, 4, 1, 3, 1);
@@ -184,7 +184,7 @@ public class BlockBOPDirt extends Block implements IBOPBlock, ISustainsPlantType
     public static IBlockState getGrassBlockState(IBlockState state)
     {
         // no grass grows on coarse dirt
-        if (Boolean.FALSE.equals(state.getValue(COARSE)))
+        if (Boolean.TRUE.equals(state.getValue(COARSE)))
         {
             return null;
         }
