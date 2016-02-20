@@ -43,7 +43,7 @@ public class BlockBOPVine extends BlockVine implements IBOPBlock
 
     public BlockBOPVine(boolean useGreyScaleTextures)
     {
-        super();
+        this.setStepSound(soundTypeGrass);
         this.setHardness(0.2F);
         this.useGreyScaleTextures = useGreyScaleTextures;
     }

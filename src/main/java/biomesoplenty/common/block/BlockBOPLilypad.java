@@ -72,6 +72,7 @@ public class BlockBOPLilypad extends BlockLilyPad implements IBOPBlock
     
     public BlockBOPLilypad()
     {        
+        this.setStepSound(soundTypeGrass);
         this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, LilypadType.MEDIUM));
     }
     
