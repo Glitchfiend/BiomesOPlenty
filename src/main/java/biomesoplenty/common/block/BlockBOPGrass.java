@@ -230,7 +230,6 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
         switch ((BOPGrassType) state.getValue(VARIANT))
         {
