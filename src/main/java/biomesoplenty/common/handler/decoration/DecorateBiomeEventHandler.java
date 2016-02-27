@@ -31,7 +31,7 @@ public class DecorateBiomeEventHandler
     @SubscribeEvent
     public void onPreBiomeDecorate(DecorateBiomeEvent.Pre event)
     {
-        if (event.world.getWorldType() != ModBiomes.worldTypeBOP)
+        if (BOPBiomes.excludedDecoratedWorldTypes.contains(event.world.getWorldType()))
             return;
         
         runGeneratorStage(event.world, event.rand, event.pos, GeneratorStage.PRE);
@@ -40,7 +40,7 @@ public class DecorateBiomeEventHandler
     @SubscribeEvent
     public void onBiomeDecorate(DecorateBiomeEvent.Decorate event)
     {
-        if (event.world.getWorldType() != ModBiomes.worldTypeBOP)
+        if (BOPBiomes.excludedDecoratedWorldTypes.contains(event.world.getWorldType()))
             return;
         
         if (event.type != Decorate.EventType.CUSTOM)
@@ -54,7 +54,7 @@ public class DecorateBiomeEventHandler
     @SubscribeEvent
     public void onPostBiomeDecorate(DecorateBiomeEvent.Post event)
     {
-        if (event.world.getWorldType() != ModBiomes.worldTypeBOP)
+        if (BOPBiomes.excludedDecoratedWorldTypes.contains(event.world.getWorldType()))
             return;
         
         runGeneratorStage(event.world, event.rand, event.pos, GeneratorStage.POST);
@@ -63,7 +63,7 @@ public class DecorateBiomeEventHandler
     @SubscribeEvent
     public void onPreGenerateOres(OreGenEvent.Pre event)
     {
-        if (event.world.getWorldType() != ModBiomes.worldTypeBOP)
+        if (BOPBiomes.excludedDecoratedWorldTypes.contains(event.world.getWorldType()))
             return;
         
         runGeneratorStage(event.world, event.rand, event.pos, GeneratorStage.ORE_PRE);
@@ -72,7 +72,7 @@ public class DecorateBiomeEventHandler
     @SubscribeEvent
     public void onPostGenerateOres(OreGenEvent.Post event)
     { 
-        if (event.world.getWorldType() != ModBiomes.worldTypeBOP)
+        if (BOPBiomes.excludedDecoratedWorldTypes.contains(event.world.getWorldType()))
             return;
         
         runGeneratorStage(event.world, event.rand, event.pos, GeneratorStage.ORE_POST);

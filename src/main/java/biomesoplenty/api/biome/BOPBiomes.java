@@ -8,14 +8,21 @@
 
 package biomesoplenty.api.biome;
 
+import java.util.List;
+
 import com.google.common.base.Optional;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Lists;
 
+import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class BOPBiomes
 {
     public static final IBiomeRegistry REG_INSTANCE = createRegistry();
+    
+    /**A list of world types where BoP biome decoration does not occur**/
+    public static List<WorldType> excludedDecoratedWorldTypes = Lists.newArrayList();
     
     // normal biomes which have weights
     public static Optional<BiomeGenBase> alps = Optional.absent();

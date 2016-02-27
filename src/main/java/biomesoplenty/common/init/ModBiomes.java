@@ -8,6 +8,8 @@
 
 package biomesoplenty.common.init;
 
+import static biomesoplenty.api.biome.BOPBiomes.excludedDecoratedWorldTypes;
+
 import static biomesoplenty.api.biome.BOPBiomes.alps;
 import static biomesoplenty.api.biome.BOPBiomes.bamboo_forest;
 import static biomesoplenty.api.biome.BOPBiomes.bayou;
@@ -109,6 +111,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
@@ -282,6 +285,13 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         // save the biome ids to the config file (creating it if it doesn't exist)
         BOPConfig.writeFile(biomeIdMapFile, biomeIdMap);
         
+        //Exclude biome decoration from certain worldtypes
+        excludedDecoratedWorldTypes.add(WorldType.AMPLIFIED);
+        excludedDecoratedWorldTypes.add(WorldType.CUSTOMIZED);
+        excludedDecoratedWorldTypes.add(WorldType.DEFAULT);
+        excludedDecoratedWorldTypes.add(WorldType.DEFAULT_1_1);
+        excludedDecoratedWorldTypes.add(WorldType.FLAT);
+        excludedDecoratedWorldTypes.add(WorldType.LARGE_BIOMES);
     }
     
     public static void initSubBiomes()
