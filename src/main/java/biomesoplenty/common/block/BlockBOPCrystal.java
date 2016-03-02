@@ -14,6 +14,7 @@ import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
@@ -45,7 +46,7 @@ public class BlockBOPCrystal extends Block implements IBOPBlock
         this.setHardness(0.15F);
         this.setResistance(5.0F);
         this.setLightLevel(1.0F);
-        this.setStepSound(Block.soundTypeGlass);
+        this.setStepSound(SoundType.GLASS);
     }
     
     @Override

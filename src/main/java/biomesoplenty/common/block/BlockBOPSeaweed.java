@@ -14,6 +14,7 @@ import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
@@ -88,7 +89,7 @@ public class BlockBOPSeaweed extends BlockBOPDecoration implements IBOPBlock
         super(Material.water);
         
         // set some defaults
-        this.setStepSound(Block.soundTypeSand);
+        this.setStepSound(SoundType.PLANT);
         this.setDefaultState( this.blockState.getBaseState().withProperty(LEVEL, 15).withProperty(POSITION, SeaweedPosition.SINGLE).withProperty(VARIANT, SeaweedType.KELP) );
     }
     

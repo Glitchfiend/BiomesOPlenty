@@ -51,7 +51,7 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
     public boolean canGenerateVillages = true;
     public boolean canGenerateRivers = true;
     
-    public int beachBiomeId = Biomes.beach.biomeID;
+    public int beachBiomeId = BiomeGenBase.getIdForBiome(Biomes.beach);
     
     public TerrainSettings terrainSettings = new TerrainSettings();
     public boolean noNeighborTerrainInfuence = false;
@@ -89,7 +89,7 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         this.fillerBlock = conf.getBlockState("fillerBlock", this.fillerBlock);
         this.seaFloorBlock = conf.getBlockState("seaFloorBlock", this.seaFloorBlock);
         
-        this.minHeight = conf.getFloat("rootHeight", this.minHeight);
+        this.minHeight = conf.getFloat("rootHeight", this.getBaseHeight());
         this.maxHeight = conf.getFloat("variation", this.maxHeight);
         this.temperature = conf.getFloat("temperature", this.temperature);
         this.rainfall = conf.getFloat("rainfall", this.rainfall);

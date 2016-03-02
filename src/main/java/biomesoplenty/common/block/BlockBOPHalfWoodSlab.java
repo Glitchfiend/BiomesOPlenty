@@ -17,6 +17,7 @@ import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.util.block.BlockStateUtils;
 import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.BlockSlab;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
@@ -88,7 +89,7 @@ public class BlockBOPHalfWoodSlab extends BlockSlab implements IBOPBlock
     {
         super(Material.wood);
         this.useNeighborBrightness = true;
-        this.setHardness(2.0F).setResistance(5.0F).setStepSound(soundTypeWood);
+        this.setHardness(2.0F).setResistance(5.0F).setStepSound(SoundType.WOOD);
         this.setHarvestLevel("axe", 0);
         this.setDefaultState(this.blockState.getBaseState().withProperty(HALF, BlockSlab.EnumBlockHalf.BOTTOM));
     }

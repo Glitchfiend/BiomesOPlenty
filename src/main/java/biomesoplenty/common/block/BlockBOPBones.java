@@ -11,6 +11,7 @@ package biomesoplenty.common.block;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
@@ -82,7 +83,7 @@ public class BlockBOPBones extends Block implements IBOPBlock
         // set some defaults
         this.setHardness(3.0F);
         this.setResistance(5.0F);
-        this.setStepSound(Block.soundTypeStone);
+        this.setStepSound(SoundType.STONE);
      
         this.setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.Y).withProperty(VARIANT, BoneType.LARGE));
     }

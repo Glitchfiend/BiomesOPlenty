@@ -15,6 +15,7 @@ import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.block.ISustainsPlantType;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
@@ -50,7 +51,7 @@ public class BlockBOPGeneric extends Block implements IBOPBlock, ISustainsPlantT
         super(material);
         // set some defaults
         this.setHardness(1.0F);
-        this.setStepSound(Block.soundTypePiston);
+        this.setStepSound(SoundType.STONE);
     }
     
     

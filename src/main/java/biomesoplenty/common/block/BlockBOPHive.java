@@ -15,6 +15,7 @@ import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.entities.EntityWasp;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
@@ -69,7 +70,7 @@ public class BlockBOPHive extends Block implements IBOPBlock
                 
         // set some defaults
         this.setHardness(0.5F);
-        this.setStepSound(Block.soundTypeGrass);
+        this.setStepSound(SoundType.PLANT);
         this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, HiveType.HIVE) );
     }
 

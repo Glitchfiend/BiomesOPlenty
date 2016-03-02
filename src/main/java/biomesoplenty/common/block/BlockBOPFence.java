@@ -15,6 +15,7 @@ import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.BlockFence;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
@@ -61,7 +62,7 @@ public class BlockBOPFence extends BlockFence implements IBOPBlock
         
         this.setHardness(2.0F);
         this.setResistance(5.0F);
-        this.setStepSound(soundTypeWood);
+        this.setStepSound(SoundType.WOOD);
     }
     
     @Override

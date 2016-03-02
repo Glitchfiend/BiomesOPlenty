@@ -14,6 +14,7 @@ import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
@@ -47,7 +48,7 @@ public class BlockBOPFlesh extends Block implements IBOPBlock
     public BlockBOPFlesh() {
         super(Material.sponge);
         this.setHardness(0.4F);
-        this.setStepSound(Block.soundTypeGravel);
+        this.setStepSound(SoundType.GROUND);
     }
     
     @Override

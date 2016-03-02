@@ -18,6 +18,7 @@ import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.item.ItemBOPBlock;
 import biomesoplenty.common.util.block.BlockStateUtils;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
@@ -59,7 +60,7 @@ public class BlockBOPGemOre extends Block implements IBOPBlock
         // set some defaults
         this.setHardness(3.0F);
         this.setResistance(5.0F);
-        this.setStepSound(Block.soundTypePiston);        
+        this.setStepSound(SoundType.STONE);        
         this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, BOPGems.AMETHYST) );
 
         // all variants need pickaxe:2 to harvest, except amethyst which needs pickaxe:3

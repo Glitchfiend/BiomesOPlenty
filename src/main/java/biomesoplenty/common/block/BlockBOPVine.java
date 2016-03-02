@@ -11,6 +11,7 @@ package biomesoplenty.common.block;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.BlockVine;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -43,7 +44,7 @@ public class BlockBOPVine extends BlockVine implements IBOPBlock
 
     public BlockBOPVine(boolean useGreyScaleTextures)
     {
-        this.setStepSound(soundTypeGrass);
+        this.setStepSound(SoundType.PLANT);
         this.setHardness(0.2F);
         this.useGreyScaleTextures = useGreyScaleTextures;
     }

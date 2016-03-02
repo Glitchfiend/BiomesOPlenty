@@ -13,6 +13,7 @@ import java.util.Random;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
@@ -54,7 +55,7 @@ public class BlockBOPDecoration extends Block implements IBOPBlock
         // set some defaults
         this.setTickRandomly(true);
         this.setHardness(0.0F);
-        this.setStepSound(Block.soundTypeGrass);
+        this.setStepSound(SoundType.PLANT);
 
         this.setDefaultState(this.blockState.getBaseState());     
     }

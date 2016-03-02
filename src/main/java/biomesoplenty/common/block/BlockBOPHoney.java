@@ -11,6 +11,7 @@ package biomesoplenty.common.block;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
@@ -36,7 +37,7 @@ public class BlockBOPHoney extends Block implements IBOPBlock
     public BlockBOPHoney() {
         super(Material.glass);
         this.setHardness(0.5F);
-        this.setStepSound(soundTypePiston);
+        this.setStepSound(SoundType.STONE);
     }
     
     @Override

@@ -45,7 +45,8 @@ public class EntityButterfly extends EntityFlying implements IMob {
         this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1.0D);
     }
     
-    protected void entityInit()
+    @Override
+	protected void entityInit()
     {
         super.entityInit();
         this.dataWatcher.addObject(18, Byte.valueOf((byte)0));

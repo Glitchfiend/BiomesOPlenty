@@ -277,7 +277,7 @@ public class AchievementEventHandler
                 int biomeIdToFind = stack.getTagCompound().getInteger("biomeIDToFind");
 
                 //If the current biome id is the id on the radar, award the achievement and stop searching
-                if (biomeIdToFind == currentBiome.biomeID) 
+                if (biomeIdToFind == BiomeGenBase.getIdForBiome(currentBiome)) 
                 {
                     player.triggerAchievement(BOPAchievements.use_biome_finder);
                     return;
@@ -289,7 +289,7 @@ public class AchievementEventHandler
     private void updateBiomesExplored(EntityPlayerMP player)
     {
         BiomeGenBase currentBiome = player.worldObj.getBiomeGenForCoords(new BlockPos(MathHelper.floor_double(player.posX), 0, MathHelper.floor_double(player.posZ)));
-        String biomeName = currentBiome.biomeName;
+        String biomeName = currentBiome.getBiomeName();
         //Get a list of the current explored biomes
         JsonSerializableSet exploredBiomeNames = (JsonSerializableSet)player.getStatFile().func_150870_b(BOPAchievements.explore_all_biomes);
 
@@ -317,7 +317,7 @@ public class AchievementEventHandler
                 {
                     BiomeGenBase biome = (BiomeGenBase)iterator.next();
 
-                    if (biome.biomeName.equals(exploredBiomeName))
+                    if (biome.getBiomeName().equals(exploredBiomeName))
                     {
                         iterator.remove();
                     }

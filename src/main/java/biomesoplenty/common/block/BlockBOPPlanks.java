@@ -13,6 +13,7 @@ import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.item.ItemBOPBlock;
 import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
@@ -79,7 +80,8 @@ public class BlockBOPPlanks extends Block implements IBOPBlock
     {
         super(Material.wood);
         this.setDefaultState(this.blockState.getBaseState());
-        this.setHardness(2.0F).setResistance(5.0F).setStepSound(soundTypeWood);
+        this.setHardness(2.0F).setResistance(5.0F);
+        this.setStepSound(SoundType.WOOD);
         this.setHarvestLevel("axe", 0);
     }
     

@@ -16,6 +16,7 @@ import biomesoplenty.api.block.ISustainsPlantType;
 import biomesoplenty.common.item.ItemBOPBlock;
 import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
@@ -76,7 +77,7 @@ public class BlockBOPDirt extends Block implements IBOPBlock, ISustainsPlantType
         this.setTickRandomly(true);
         this.setHardness(0.5F);
         this.setHarvestLevel("shovel", 0);
-        this.setStepSound(Block.soundTypeGravel);
+        this.setStepSound(SoundType.GROUND);
         this.setDefaultState( this.blockState.getBaseState().withProperty(COARSE, Boolean.valueOf(false)).withProperty(VARIANT, BOPDirtType.LOAMY) );
 
     }

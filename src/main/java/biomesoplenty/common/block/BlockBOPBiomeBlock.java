@@ -16,6 +16,7 @@ import java.util.Random;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.item.BOPItems;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
@@ -31,7 +32,7 @@ public class BlockBOPBiomeBlock extends BlockBOPGeneric
     public BlockBOPBiomeBlock() {
         super(Material.glass);
         this.setHardness(0.6F);
-        this.setStepSound(Block.soundTypeGlass);
+        this.setStepSound(SoundType.GLASS);
     }
     
     // list of biomes which have an associated essence (possible drops when this block is broken)

@@ -13,6 +13,7 @@ import biomesoplenty.api.block.ISustainsPlantType;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
@@ -71,7 +72,7 @@ public class BlockBOPSand extends BlockFalling implements IBOPBlock, ISustainsPl
         
         // set some defaults
         this.setHardness(0.6F);
-        this.setStepSound(Block.soundTypeSand);
+        this.setStepSound(SoundType.SAND);
         this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, SandType.QUICKSAND) );
         
     }

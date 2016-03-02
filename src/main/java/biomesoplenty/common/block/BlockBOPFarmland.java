@@ -17,6 +17,7 @@ import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockFarmland;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
@@ -86,7 +87,7 @@ public class BlockBOPFarmland extends BlockFarmland implements IBOPBlock
         this.useNeighborBrightness = true;
         this.setHardness(0.6F);
         this.setHarvestLevel("shovel", 0);
-        this.setStepSound(soundTypeGravel);
+        this.setStepSound(SoundType.GROUND);
         this.setDefaultState(this.blockState.getBaseState().withProperty(MOISTURE, Integer.valueOf(0)));
     }
 

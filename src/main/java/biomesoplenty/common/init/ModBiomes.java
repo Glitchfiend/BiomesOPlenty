@@ -299,23 +299,23 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
 
         // Add vanilla sub biomes
         
-        setSubBiome(BiomeGenBase.desert, BiomeGenBase.desertHills);
-        setSubBiome(BiomeGenBase.forest, BiomeGenBase.forestHills);
-        setSubBiome(BiomeGenBase.birchForest, BiomeGenBase.birchForestHills);
-        setSubBiome(BiomeGenBase.roofedForest, BiomeGenBase.plains);
-        setSubBiome(BiomeGenBase.taiga, BiomeGenBase.taigaHills);
-        setSubBiome(BiomeGenBase.megaTaiga, BiomeGenBase.megaTaigaHills);
-        setSubBiome(BiomeGenBase.coldTaiga, BiomeGenBase.coldTaigaHills);
-        setSubBiome(BiomeGenBase.plains, BiomeGenBase.forestHills, BiomeGenBase.forest);
-        setSubBiome(BiomeGenBase.icePlains, BiomeGenBase.iceMountains);
-        setSubBiome(BiomeGenBase.jungle, BiomeGenBase.jungleHills);
-        setSubBiome(BiomeGenBase.extremeHills, BiomeGenBase.extremeHillsPlus);
-        setSubBiome(BiomeGenBase.savanna, BiomeGenBase.savannaPlateau);
-        setSubBiome(BiomeGenBase.mesaPlateau_F, BiomeGenBase.mesa);
+        setSubBiome(Biomes.desert, Biomes.desertHills);
+        setSubBiome(Biomes.forest, Biomes.forestHills);
+        setSubBiome(Biomes.birchForest, Biomes.birchForestHills);
+        setSubBiome(Biomes.roofedForest, Biomes.plains);
+        setSubBiome(Biomes.taiga, Biomes.taigaHills);
+        setSubBiome(Biomes.megaTaiga, Biomes.megaTaigaHills);
+        setSubBiome(Biomes.coldTaiga, Biomes.coldTaigaHills);
+        setSubBiome(Biomes.plains, Biomes.forestHills, Biomes.forest);
+        setSubBiome(Biomes.icePlains, Biomes.iceMountains);
+        setSubBiome(Biomes.jungle, Biomes.jungleHills);
+        setSubBiome(Biomes.extremeHills, Biomes.extremeHillsPlus);
+        setSubBiome(Biomes.savanna, Biomes.savannaPlateau);
+        setSubBiome(Biomes.mesaPlateau_F, Biomes.mesa);
         
         // oceans get occasional patches of deep ocean
         // don't add any islands - those are done per climate in GenLayerBiomeIslands
-        setSubBiome(BiomeGenBase.ocean, BiomeGenBase.deepOcean);
+        setSubBiome(Biomes.ocean, Biomes.deepOcean);
         
     }
     

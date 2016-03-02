@@ -16,6 +16,7 @@ import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.BlockFenceGate;
 import net.minecraft.block.BlockPlanks;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -64,7 +65,7 @@ public class BlockBOPFenceGate extends BlockFenceGate implements IBOPBlock
         
         this.setHardness(2.0F);
         this.setResistance(5.0F);
-        this.setStepSound(soundTypeWood);
+        this.setStepSound(SoundType.WOOD);
     }
     
     public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
