@@ -8,9 +8,6 @@
 
 package biomesoplenty.common.world;
 
-import java.util.List;
-
-import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.biome.IExtendedBiome;
 import biomesoplenty.common.world.BOPWorldSettings.LandMassScheme;
@@ -29,13 +26,10 @@ import biomesoplenty.common.world.layer.GenLayerSubBiomesBOP;
 import biomesoplenty.common.world.layer.GenLayerTemperatureLatitude;
 import biomesoplenty.common.world.layer.GenLayerTemperatureNoise;
 import biomesoplenty.common.world.layer.GenLayerTemperatureRandom;
-import net.minecraft.crash.CrashReport;
-import net.minecraft.crash.CrashReportCategory;
-import net.minecraft.util.ReportedException;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.WorldChunkManager;
+import net.minecraft.world.biome.BiomeProvider;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.GenLayerAddMushroomIsland;
 import net.minecraft.world.gen.layer.GenLayerDeepOcean;
@@ -44,15 +38,13 @@ import net.minecraft.world.gen.layer.GenLayerIsland;
 import net.minecraft.world.gen.layer.GenLayerRemoveTooMuchOcean;
 import net.minecraft.world.gen.layer.GenLayerRiver;
 import net.minecraft.world.gen.layer.GenLayerRiverInit;
-import net.minecraft.world.gen.layer.GenLayerShore;
 import net.minecraft.world.gen.layer.GenLayerSmooth;
 import net.minecraft.world.gen.layer.GenLayerVoronoiZoom;
 import net.minecraft.world.gen.layer.GenLayerZoom;
-import net.minecraft.world.gen.layer.IntCache;
 
-public class WorldChunkManagerBOP extends WorldChunkManager
+public class BiomeProviderBOP extends BiomeProvider
 {    
-    public WorldChunkManagerBOP(long seed, WorldType worldType, String chunkProviderSettings)
+    public BiomeProviderBOP(long seed, WorldType worldType, String chunkProviderSettings)
     {
         super();
         if (!(worldType instanceof WorldTypeBOP))
@@ -88,7 +80,7 @@ public class WorldChunkManagerBOP extends WorldChunkManager
         this.biomeIndexLayer = agenlayer[1];
     }
     
-    public WorldChunkManagerBOP(World world)
+    public BiomeProviderBOP(World world)
     {
         this(world.getSeed(), world.getWorldInfo().getTerrainType(), world.getWorldInfo().getGeneratorOptions());
     }

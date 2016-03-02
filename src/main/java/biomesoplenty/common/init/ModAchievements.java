@@ -12,8 +12,8 @@ import static biomesoplenty.api.achievement.BOPAchievements.craft_amethyst_sword
 import static biomesoplenty.api.achievement.BOPAchievements.craft_dart_blower;
 import static biomesoplenty.api.achievement.BOPAchievements.craft_flax_string;
 import static biomesoplenty.api.achievement.BOPAchievements.craft_muddy_pickaxe;
-import static biomesoplenty.api.achievement.BOPAchievements.craft_terrestrial_artifact;
 import static biomesoplenty.api.achievement.BOPAchievements.craft_poison_jar;
+import static biomesoplenty.api.achievement.BOPAchievements.craft_terrestrial_artifact;
 import static biomesoplenty.api.achievement.BOPAchievements.eat_shroom_powder;
 import static biomesoplenty.api.achievement.BOPAchievements.explore_all_biomes;
 import static biomesoplenty.api.achievement.BOPAchievements.grow_sacred_oak;
@@ -31,10 +31,7 @@ import static biomesoplenty.api.achievement.BOPAchievements.obtain_turnip;
 import static biomesoplenty.api.achievement.BOPAchievements.obtain_wilted_lily;
 import static biomesoplenty.api.achievement.BOPAchievements.use_biome_finder;
 import static biomesoplenty.api.achievement.BOPAchievements.use_enderporter;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
-import net.minecraft.stats.Achievement;
-import net.minecraftforge.common.AchievementPage;
+
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.block.BlockBOPFlower;
@@ -44,6 +41,10 @@ import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.item.ItemJarFilled;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
+import net.minecraft.stats.Achievement;
+import net.minecraftforge.common.AchievementPage;
 
 public class ModAchievements 
 {

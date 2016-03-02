@@ -9,7 +9,6 @@ package biomesoplenty.common.world.feature.tree;
 
 import java.util.Random;
 
-import biomesoplenty.api.biome.generation.IGenerator.IGeneratorBuilder;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.block.BlockBOPLog;
@@ -19,11 +18,9 @@ import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import biomesoplenty.common.world.feature.GeneratorSpike;
-import biomesoplenty.common.world.feature.tree.GeneratorPineTree.Builder;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class GeneratorRedwoodTree extends GeneratorTreeBase

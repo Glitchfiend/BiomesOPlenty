@@ -1,8 +1,7 @@
 package biomesoplenty.common.world.layer;
 
 import biomesoplenty.common.enums.BOPClimates;
-import biomesoplenty.core.BiomesOPlenty;
-import net.minecraft.util.MathHelper;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 

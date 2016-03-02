@@ -8,15 +8,10 @@
 
 package biomesoplenty.common.biome.overworld;
 
-import net.minecraft.block.BlockPlanks;
-import net.minecraft.block.BlockSand;
-import net.minecraft.block.BlockTallGrass;
-import net.minecraft.init.Blocks;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.common.block.BlockBOPDirt;
 import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPGems;
@@ -24,8 +19,17 @@ import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.world.BOPWorldSettings;
-import biomesoplenty.common.world.feature.*;
-import biomesoplenty.common.world.feature.tree.*;
+import biomesoplenty.common.world.feature.GeneratorColumns;
+import biomesoplenty.common.world.feature.GeneratorFlora;
+import biomesoplenty.common.world.feature.GeneratorGrass;
+import biomesoplenty.common.world.feature.GeneratorOreSingle;
+import biomesoplenty.common.world.feature.GeneratorSplatter;
+import biomesoplenty.common.world.feature.tree.GeneratorBush;
+import biomesoplenty.common.world.feature.tree.GeneratorTwigletTree;
+import net.minecraft.block.BlockPlanks;
+import net.minecraft.block.BlockSand;
+import net.minecraft.block.BlockTallGrass;
+import net.minecraft.init.Blocks;
 
 public class BiomeGenOutback extends BOPBiome
 {    

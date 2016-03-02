@@ -9,6 +9,7 @@
 package biomesoplenty.common.world.layer;
 
 import biomesoplenty.common.enums.BOPClimates;
+import net.minecraft.init.Biomes;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
@@ -42,7 +43,7 @@ public class GenLayerBiomeIslands extends BOPGenLayer
                 this.initChunkSeed((long)(x + areaX), (long)(z + areaY));
                 
                 // if it's an ocean, there's a chance of creating an island here
-                if ((biomeID == BiomeGenBase.ocean.biomeID || biomeID == BiomeGenBase.deepOcean.biomeID) && (this.nextInt(this.islandChance) == 0))
+                if ((biomeID == BiomeGenBase.getIdForBiome(Biomes.ocean) || biomeID == BiomeGenBase.getIdForBiome(Biomes.deepOcean)) && (this.nextInt(this.islandChance) == 0))
                 {
                     // check that the tile is surrounded by ocean
                     int biomeNorth = biomeIds[x + 1 + (z + 1 - 1) * (areaWidth + 2)];
@@ -50,14 +51,14 @@ public class GenLayerBiomeIslands extends BOPGenLayer
                     int biomeWest = biomeIds[x + 1 - 1 + (z + 1) * (areaWidth + 2)];
                     int biomeSouth = biomeIds[x + 1 + (z + 1 + 1) * (areaWidth + 2)];
                     if (
-                        (biomeNorth == BiomeGenBase.ocean.biomeID || biomeNorth == BiomeGenBase.deepOcean.biomeID) &&
-                        (biomeEast == BiomeGenBase.ocean.biomeID || biomeEast == BiomeGenBase.deepOcean.biomeID) &&
-                        (biomeWest == BiomeGenBase.ocean.biomeID || biomeWest == BiomeGenBase.deepOcean.biomeID) &&
-                        (biomeSouth == BiomeGenBase.ocean.biomeID || biomeSouth == BiomeGenBase.deepOcean.biomeID)
+                        (biomeNorth == BiomeGenBase.getIdForBiome(Biomes.ocean) || biomeNorth == BiomeGenBase.getIdForBiome(Biomes.deepOcean)) &&
+                        (biomeEast == BiomeGenBase.getIdForBiome(Biomes.ocean) || biomeEast == BiomeGenBase.getIdForBiome(Biomes.deepOcean)) &&
+                        (biomeWest == BiomeGenBase.getIdForBiome(Biomes.ocean) || biomeWest == BiomeGenBase.getIdForBiome(Biomes.deepOcean)) &&
+                        (biomeSouth == BiomeGenBase.getIdForBiome(Biomes.ocean) || biomeSouth == BiomeGenBase.getIdForBiome(Biomes.deepOcean))
                     )
                     {
                         int climateVal = climateVals[x + z * areaWidth];
-                        out[x + z * areaWidth] = BOPClimates.lookup(climateVal).getRandomLandBiome(this).biomeID;
+                        out[x + z * areaWidth] = BiomeGenBase.getIdForBiome(BOPClimates.lookup(climateVal).getRandomLandBiome(this));
                     }
                     else
                     {

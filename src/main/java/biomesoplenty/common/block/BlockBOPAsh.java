@@ -11,17 +11,17 @@ package biomesoplenty.common.block;
 import java.util.Random;
 
 import biomesoplenty.api.item.BOPItems;
-import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.Item;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -34,12 +34,12 @@ public class BlockBOPAsh extends BlockBOPGeneric
 
         this.setHardness(0.4F);
         this.setHarvestLevel("shovel", 0);
-        this.setStepSound(Block.soundTypeSand);
+        this.setStepSound(SoundType.SAND);
     }
 
     // ash blocks are slightly lower
     @Override
-    public AxisAlignedBB getCollisionBoundingBox(World world, BlockPos pos, IBlockState state)
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState state, World world, BlockPos pos)
     {
         float heightOffset = 0.125F;
         return new AxisAlignedBB((double) pos.getX(), (double) pos.getY(), (double) pos.getZ(), (double) (pos.getX() + 1), (double) ((float) (pos.getY() + 1) - heightOffset), (double) (pos.getZ() + 1));
@@ -79,7 +79,7 @@ public class BlockBOPAsh extends BlockBOPGeneric
     // randomly show some smoke particles
     @Override
     @SideOnly(Side.CLIENT)
-    public void randomDisplayTick(World world, BlockPos pos, IBlockState state, Random random)
+    public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random random)
     {
         if (random.nextInt(2) == 0)
         {

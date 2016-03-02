@@ -8,6 +8,19 @@
 
 package biomesoplenty.common.world;
 
+import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.CAVE;
+import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.MINESHAFT;
+import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.OCEAN_MONUMENT;
+import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.RAVINE;
+import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.SCATTERED_FEATURE;
+import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.STRONGHOLD;
+import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.VILLAGE;
+import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.ANIMALS;
+import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.DUNGEON;
+import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.ICE;
+import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE;
+import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAVA;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,11 +31,10 @@ import net.minecraft.block.BlockFalling;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.IProgressUpdate;
-import net.minecraft.util.MathHelper;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.ChunkCoordIntPair;
-import net.minecraft.world.SpawnerAnimals;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
@@ -40,11 +52,11 @@ import net.minecraft.world.gen.structure.MapGenScatteredFeature;
 import net.minecraft.world.gen.structure.MapGenStronghold;
 import net.minecraft.world.gen.structure.MapGenVillage;
 import net.minecraft.world.gen.structure.StructureOceanMonument;
-import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.*;
-import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.*;
-import net.minecraftforge.common.*;
-import net.minecraftforge.fml.common.eventhandler.Event.*;
-import net.minecraftforge.event.terraingen.*;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.terraingen.ChunkProviderEvent;
+import net.minecraftforge.event.terraingen.PopulateChunkEvent;
+import net.minecraftforge.event.terraingen.TerrainGen;
+import net.minecraftforge.fml.common.eventhandler.Event.Result;
 
 public class ChunkProviderGenerateBOP implements IChunkProvider
 {

@@ -8,8 +8,6 @@
 
 package biomesoplenty.common.biome.overworld;
 
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.block.BOPBlocks;
@@ -17,6 +15,8 @@ import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorLakes;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 
 public class BiomeGenAlps extends BOPBiome
 {

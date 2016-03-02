@@ -9,7 +9,6 @@
 package biomesoplenty.client.particle;
 
 import net.minecraft.client.particle.EntityFX;
-import net.minecraft.client.renderer.WorldRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;

@@ -8,8 +8,8 @@
 
 package biomesoplenty.common.enums;
 
-import net.minecraft.util.IStringSerializable;
 import biomesoplenty.common.util.block.VariantPagingHelper.IPagedVariants;
+import net.minecraft.util.IStringSerializable;
 
 public enum BOPPlants implements IStringSerializable, IPagedVariants
 {

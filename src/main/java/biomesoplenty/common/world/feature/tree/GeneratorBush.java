@@ -10,14 +10,14 @@ package biomesoplenty.common.world.feature.tree;
 
 import java.util.Random;
 
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.BlockPos;
-import net.minecraft.world.World;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 public class GeneratorBush extends GeneratorTreeBase
 {

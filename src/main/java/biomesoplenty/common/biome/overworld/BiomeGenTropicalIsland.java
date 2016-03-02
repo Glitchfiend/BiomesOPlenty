@@ -11,26 +11,17 @@ package biomesoplenty.common.biome.overworld;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
-import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.api.block.BlockQueries;
-import biomesoplenty.common.block.BlockBOPCoral;
 import biomesoplenty.common.entities.EntityButterfly;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
-import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.world.BOPWorldSettings;
-import biomesoplenty.common.world.feature.GeneratorColumns;
-import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
-import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockTallGrass;
-import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.init.Blocks;
-import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
  
 public class BiomeGenTropicalIsland extends BOPBiome
 {

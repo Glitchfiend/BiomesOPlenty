@@ -9,9 +9,9 @@
 package biomesoplenty.common.item;
 
 import biomesoplenty.common.entities.projectiles.EntityMudball;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.stats.StatList;
 import net.minecraft.world.World;
 

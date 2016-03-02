@@ -8,12 +8,6 @@
 
 package biomesoplenty.common.biome.overworld;
 
-import net.minecraft.block.BlockDoublePlant;
-import net.minecraft.block.BlockFlower;
-import net.minecraft.block.BlockTallGrass;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.BlockPos;
-import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
@@ -34,6 +28,11 @@ import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
 import biomesoplenty.common.world.feature.tree.GeneratorBigTree;
+import net.minecraft.block.BlockDoublePlant;
+import net.minecraft.block.BlockFlower;
+import net.minecraft.block.BlockTallGrass;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.math.BlockPos;
  
 public class BiomeGenCherryBlossomGrove extends BOPBiome
 {

@@ -10,6 +10,13 @@ package biomesoplenty.common.world.feature;
 
 import java.util.Random;
 
+import biomesoplenty.common.block.BlockBOPLog;
+import biomesoplenty.common.enums.BOPWoods;
+import biomesoplenty.common.util.biome.GeneratorUtils;
+import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
+import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
+import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.BlockNewLog;
 import net.minecraft.block.BlockOldLog;
@@ -18,15 +25,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import biomesoplenty.common.block.BlockBOPLog;
-import biomesoplenty.common.enums.BOPWoods;
-import biomesoplenty.common.util.biome.GeneratorUtils;
-import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
-import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
-import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
-import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GeneratorLogs extends GeneratorReplacing
 {

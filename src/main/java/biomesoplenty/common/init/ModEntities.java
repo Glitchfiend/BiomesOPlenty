@@ -13,8 +13,12 @@ import java.util.Map;
 import com.google.common.collect.Maps;
 
 import biomesoplenty.common.command.BOPCommand;
-import biomesoplenty.common.entities.*;
-import biomesoplenty.common.entities.projectiles.*;
+import biomesoplenty.common.entities.EntityButterfly;
+import biomesoplenty.common.entities.EntityPixie;
+import biomesoplenty.common.entities.EntitySnail;
+import biomesoplenty.common.entities.EntityWasp;
+import biomesoplenty.common.entities.projectiles.EntityDart;
+import biomesoplenty.common.entities.projectiles.EntityMudball;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;

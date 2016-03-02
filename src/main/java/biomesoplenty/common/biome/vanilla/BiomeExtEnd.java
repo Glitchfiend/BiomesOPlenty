@@ -1,7 +1,5 @@
 package biomesoplenty.common.biome.vanilla;
 
-import net.minecraft.init.Blocks;
-import net.minecraft.world.biome.BiomeGenBase;
 import biomesoplenty.api.biome.ExtendedBiomeWrapper;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.block.BOPBlocks;
@@ -10,8 +8,9 @@ import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorCrystals;
-import biomesoplenty.common.world.feature.GeneratorOreCluster;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.biome.BiomeGenBase;
 
 public class BiomeExtEnd extends ExtendedBiomeWrapper
 {

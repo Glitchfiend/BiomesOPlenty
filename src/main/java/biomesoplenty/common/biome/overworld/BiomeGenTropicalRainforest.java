@@ -1,13 +1,5 @@
 package biomesoplenty.common.biome.overworld;
 
-import net.minecraft.block.BlockDoublePlant;
-import net.minecraft.block.BlockFlower;
-import net.minecraft.block.BlockPlanks;
-import net.minecraft.block.BlockTallGrass;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.passive.EntityOcelot;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.BlockPos;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
@@ -29,7 +21,14 @@ import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import biomesoplenty.common.world.feature.GeneratorWaterside;
 import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
 import biomesoplenty.common.world.feature.tree.GeneratorMahoganyTree;
-import biomesoplenty.common.world.feature.tree.GeneratorTaigaTree;
+import net.minecraft.block.BlockDoublePlant;
+import net.minecraft.block.BlockFlower;
+import net.minecraft.block.BlockPlanks;
+import net.minecraft.block.BlockTallGrass;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.passive.EntityOcelot;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.math.BlockPos;
 
 public class BiomeGenTropicalRainforest extends BOPBiome
 {

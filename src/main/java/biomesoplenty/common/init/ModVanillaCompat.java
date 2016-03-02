@@ -1,15 +1,15 @@
 package biomesoplenty.common.init;
 
-import net.minecraft.block.BlockDispenser;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.WeightedRandomChestContent;
-import net.minecraftforge.common.ChestGenHooks;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.entities.projectiles.dispenser.DispenserBehaviorDart;
 import biomesoplenty.common.entities.projectiles.dispenser.DispenserBehaviorMudball;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPTrees;
+import net.minecraft.block.BlockDispenser;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.WeightedRandomChestContent;
+import net.minecraftforge.common.ChestGenHooks;
 
 public class ModVanillaCompat
 {

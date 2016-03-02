@@ -8,9 +8,6 @@
 
 package biomesoplenty.common.biome.overworld;
 
-import net.minecraft.block.BlockTallGrass;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.BlockPos;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.biome.generation.GeneratorStage;
@@ -28,6 +25,9 @@ import biomesoplenty.common.world.feature.GeneratorLakes;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import biomesoplenty.common.world.feature.GeneratorWaterside;
 import biomesoplenty.common.world.feature.tree.GeneratorBush;
+import net.minecraft.block.BlockTallGrass;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.math.BlockPos;
 
 public class BiomeGenTundra extends BOPBiome
 {    

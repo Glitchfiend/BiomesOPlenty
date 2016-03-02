@@ -9,23 +9,17 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.IBOPBlock;
-import biomesoplenty.common.block.BlockBOPGrass.BOPGrassType;
-import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.item.ItemBOPLilypad;
 import net.minecraft.block.BlockLilyPad;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.IStringSerializable;
-import net.minecraft.world.ColorizerFoliage;
-import net.minecraft.world.ColorizerGrass;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 

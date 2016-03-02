@@ -8,13 +8,13 @@
 
 package biomesoplenty.common.world.feature;
 
-import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
 import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 
 public class GeneratorGrass extends GeneratorFlora
 {

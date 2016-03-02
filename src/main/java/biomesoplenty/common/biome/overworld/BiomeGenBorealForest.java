@@ -1,18 +1,10 @@
 package biomesoplenty.common.biome.overworld;
 
-import net.minecraft.block.BlockDoublePlant;
-import net.minecraft.block.BlockFlower;
-import net.minecraft.block.BlockPlanks;
-import net.minecraft.block.BlockTallGrass;
-import net.minecraft.entity.passive.EntityWolf;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.BlockPos;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.common.block.BlockBOPDoublePlant;
-import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
@@ -26,6 +18,13 @@ import biomesoplenty.common.world.feature.GeneratorWaterside;
 import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
 import biomesoplenty.common.world.feature.tree.GeneratorBush;
 import biomesoplenty.common.world.feature.tree.GeneratorTaigaTree;
+import net.minecraft.block.BlockDoublePlant;
+import net.minecraft.block.BlockFlower;
+import net.minecraft.block.BlockPlanks;
+import net.minecraft.block.BlockTallGrass;
+import net.minecraft.entity.passive.EntityWolf;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.math.BlockPos;
 
 public class BiomeGenBorealForest extends BOPBiome
 {    

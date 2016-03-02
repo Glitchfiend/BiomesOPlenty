@@ -10,9 +10,9 @@ package biomesoplenty.client.util;
 
 import com.google.common.base.Function;
 
+import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.client.resources.model.IBakedModel;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.IModel;
 

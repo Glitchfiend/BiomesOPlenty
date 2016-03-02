@@ -8,6 +8,8 @@
 
 package biomesoplenty.common.config;
 
+import java.io.File;
+
 import biomesoplenty.common.remote.TrailManager;
 import biomesoplenty.common.remote.TrailManager.TrailVisibilityMode;
 import biomesoplenty.common.util.entity.PlayerUtil;
@@ -17,8 +19,6 @@ import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
-
-import java.io.File;
 
 public class MiscConfigurationHandler
 {

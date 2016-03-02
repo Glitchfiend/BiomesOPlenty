@@ -10,21 +10,9 @@ package biomesoplenty.common.biome.overworld;
 
 import java.util.Random;
 
-import net.minecraft.block.BlockDirt;
-import net.minecraft.block.BlockDoublePlant;
-import net.minecraft.block.BlockFlower;
-import net.minecraft.block.BlockPlanks;
-import net.minecraft.block.BlockTallGrass;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.passive.EntityOcelot;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.BlockPos;
-import net.minecraft.world.World;
-import net.minecraft.world.chunk.ChunkPrimer;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
-import biomesoplenty.api.biome.generation.IGenerator;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.block.BlockBOPCoral;
@@ -42,9 +30,17 @@ import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import biomesoplenty.common.world.feature.tree.GeneratorBulbTree;
-import biomesoplenty.common.world.feature.tree.GeneratorBush;
-import biomesoplenty.common.world.feature.tree.GeneratorTaigaTree;
 import biomesoplenty.common.world.feature.tree.GeneratorTwigletTree;
+import net.minecraft.block.BlockDirt;
+import net.minecraft.block.BlockDoublePlant;
+import net.minecraft.block.BlockFlower;
+import net.minecraft.block.BlockTallGrass;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.passive.EntityOcelot;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.minecraft.world.chunk.ChunkPrimer;
 
 public class BiomeGenBambooForest extends BOPBiome
 {    

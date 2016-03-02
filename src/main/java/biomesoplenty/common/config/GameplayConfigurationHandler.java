@@ -7,12 +7,12 @@
  ******************************************************************************/
 package biomesoplenty.common.config;
 
+import java.io.File;
+
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-
-import java.io.File;
 
 public class GameplayConfigurationHandler
 {

@@ -12,10 +12,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
-
 import com.google.common.collect.ImmutableCollection;
 import com.google.common.collect.ImmutableList;
+
+import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GenerationManager
 {

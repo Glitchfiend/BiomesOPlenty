@@ -8,15 +8,23 @@
 
 package biomesoplenty.common.init;
 
+import biomesoplenty.client.handler.ModelBakeHandler;
+import biomesoplenty.common.handler.AchievementEventHandler;
+import biomesoplenty.common.handler.BucketEventHandler;
+import biomesoplenty.common.handler.DyeEventHandler;
+import biomesoplenty.common.handler.FlippersEventHandler;
+import biomesoplenty.common.handler.GuiEventHandler;
+import biomesoplenty.common.handler.ItemEventHandler;
+import biomesoplenty.common.handler.TrailsEventHandler;
+import biomesoplenty.common.handler.UseHoeEventHandler;
+import biomesoplenty.common.handler.decoration.DecorateBiomeEventHandler;
+import biomesoplenty.common.handler.potion.PotionParalysisEventHandler;
+import biomesoplenty.common.handler.potion.PotionPossessionEventHandler;
+import biomesoplenty.common.network.BOPPacketHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import biomesoplenty.client.handler.*;
-import biomesoplenty.common.handler.*;
-import biomesoplenty.common.handler.decoration.*;
-import biomesoplenty.common.handler.potion.*;
-import biomesoplenty.common.network.BOPPacketHandler;
 
 public class ModHandlers
 {

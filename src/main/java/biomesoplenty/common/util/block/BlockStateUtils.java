@@ -11,15 +11,15 @@ package biomesoplenty.common.util.block;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Stack;
 import java.util.Map.Entry;
+import java.util.Stack;
 
+import com.google.common.collect.ImmutableSet;
+
+import biomesoplenty.api.block.IBOPBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
-import biomesoplenty.api.block.IBOPBlock;
-
-import com.google.common.collect.ImmutableSet;
 
 public class BlockStateUtils
 {
@@ -141,7 +141,7 @@ public class BlockStateUtils
     
     public static IProperty getPropertyByName(IBlockState blockState, String propertyName)
     {
-        for (IProperty property : (ImmutableSet<IProperty>) blockState.getProperties().keySet())
+        for (IProperty property : (ImmutableSet<IProperty<?>>) blockState.getProperties().keySet())
         {
             if (property.getName().equals(propertyName))
                 return property;

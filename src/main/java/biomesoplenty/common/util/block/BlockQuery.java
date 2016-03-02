@@ -17,21 +17,20 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.api.block.BlockQueries;
-import biomesoplenty.api.block.ISustainsPlantType;
-
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Sets;
 
+import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.block.BlockQueries;
+import biomesoplenty.api.block.ISustainsPlantType;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 

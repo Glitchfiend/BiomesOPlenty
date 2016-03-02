@@ -8,14 +8,14 @@
 
 package biomesoplenty.common.handler;
 
+import biomesoplenty.common.config.MiscConfigurationHandler;
+import biomesoplenty.common.init.ModBiomes;
 import net.minecraft.client.gui.GuiCreateWorld;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.client.event.GuiScreenEvent.InitGuiEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import biomesoplenty.common.config.MiscConfigurationHandler;
-import biomesoplenty.common.init.ModBiomes;
 
 public class GuiEventHandler
 {

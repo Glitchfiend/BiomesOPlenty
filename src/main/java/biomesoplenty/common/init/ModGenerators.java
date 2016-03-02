@@ -9,9 +9,37 @@
 package biomesoplenty.common.init;
 
 import static biomesoplenty.api.biome.generation.GeneratorRegistry.registerGenerator;
+
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
-import biomesoplenty.common.world.feature.*;
-import biomesoplenty.common.world.feature.tree.*;
+import biomesoplenty.common.world.feature.GeneratorBigFlower;
+import biomesoplenty.common.world.feature.GeneratorBigMushroom;
+import biomesoplenty.common.world.feature.GeneratorBlobs;
+import biomesoplenty.common.world.feature.GeneratorColumns;
+import biomesoplenty.common.world.feature.GeneratorCrystals;
+import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
+import biomesoplenty.common.world.feature.GeneratorFlora;
+import biomesoplenty.common.world.feature.GeneratorGrass;
+import biomesoplenty.common.world.feature.GeneratorLakes;
+import biomesoplenty.common.world.feature.GeneratorLogs;
+import biomesoplenty.common.world.feature.GeneratorMixedLily;
+import biomesoplenty.common.world.feature.GeneratorOreCluster;
+import biomesoplenty.common.world.feature.GeneratorOreSingle;
+import biomesoplenty.common.world.feature.GeneratorSpike;
+import biomesoplenty.common.world.feature.GeneratorSplatter;
+import biomesoplenty.common.world.feature.GeneratorSplotches;
+import biomesoplenty.common.world.feature.GeneratorWaterside;
+import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
+import biomesoplenty.common.world.feature.tree.GeneratorBayouTree;
+import biomesoplenty.common.world.feature.tree.GeneratorBigTree;
+import biomesoplenty.common.world.feature.tree.GeneratorBulbTree;
+import biomesoplenty.common.world.feature.tree.GeneratorBush;
+import biomesoplenty.common.world.feature.tree.GeneratorMahoganyTree;
+import biomesoplenty.common.world.feature.tree.GeneratorMegaJungleTree;
+import biomesoplenty.common.world.feature.tree.GeneratorPineTree;
+import biomesoplenty.common.world.feature.tree.GeneratorProfileTree;
+import biomesoplenty.common.world.feature.tree.GeneratorRedwoodTree;
+import biomesoplenty.common.world.feature.tree.GeneratorTaigaTree;
+import biomesoplenty.common.world.feature.tree.GeneratorTwigletTree;
 
 public class ModGenerators
 {

@@ -8,20 +8,9 @@
 
 package biomesoplenty.common.biome.overworld;
 
-import net.minecraft.block.BlockDoublePlant;
-import net.minecraft.block.BlockFlower;
-import net.minecraft.block.BlockPlanks;
-import net.minecraft.block.BlockTallGrass;
-import net.minecraft.block.material.Material;
-import net.minecraft.entity.passive.EntityHorse;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.BlockPos;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
-import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.common.block.BlockBOPDirt;
-import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
@@ -31,7 +20,6 @@ import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.world.BOPWorldSettings;
-import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
@@ -40,7 +28,13 @@ import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
 import biomesoplenty.common.world.feature.tree.GeneratorBigTree;
 import biomesoplenty.common.world.feature.tree.GeneratorBush;
 import biomesoplenty.common.world.feature.tree.GeneratorPineTree;
-import biomesoplenty.common.world.feature.tree.GeneratorTaigaTree;
+import net.minecraft.block.BlockFlower;
+import net.minecraft.block.BlockPlanks;
+import net.minecraft.block.BlockTallGrass;
+import net.minecraft.block.material.Material;
+import net.minecraft.entity.passive.EntityHorse;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.math.BlockPos;
 
 public class BiomeGenHeathland extends BOPBiome
 {    

@@ -12,19 +12,21 @@ import java.util.List;
 
 import com.google.common.collect.ImmutableSet;
 
+import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.block.BlockQueries;
+import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.util.block.BlockStateUtils;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
-import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
@@ -33,10 +35,6 @@ import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.api.block.BlockQueries;
-import biomesoplenty.common.enums.BOPPlants;
-import biomesoplenty.common.util.block.BlockStateUtils;
 
 public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements IShearable
 {

@@ -19,13 +19,11 @@ import java.util.Random;
 import biomesoplenty.api.biome.generation.GenerationManager;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.IGenerator;
-import biomesoplenty.common.block.BlockBOPDoublePlant;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.TerrainSettings;
-import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import net.minecraft.block.BlockSand;
 import net.minecraft.block.material.Material;
@@ -33,11 +31,11 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.ChunkPrimer;
-import net.minecraftforge.common.BiomeManager;
 
 public class BOPBiome extends BiomeGenBase implements IExtendedBiome
 {
@@ -53,7 +51,7 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
     public boolean canGenerateVillages = true;
     public boolean canGenerateRivers = true;
     
-    public int beachBiomeId = BiomeGenBase.beach.biomeID;
+    public int beachBiomeId = Biomes.beach.biomeID;
     
     public TerrainSettings terrainSettings = new TerrainSettings();
     public boolean noNeighborTerrainInfuence = false;

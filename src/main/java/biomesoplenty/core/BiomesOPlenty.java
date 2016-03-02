@@ -10,16 +10,6 @@ package biomesoplenty.core;
 
 import java.io.File;
 
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.Mod.Instance;
-import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
-import net.minecraftforge.fml.common.network.NetworkRegistry;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -40,6 +30,15 @@ import biomesoplenty.common.init.ModItems;
 import biomesoplenty.common.init.ModPotions;
 import biomesoplenty.common.init.ModVanillaCompat;
 import biomesoplenty.common.remote.TrailManager;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.Mod.Instance;
+import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 @Mod(modid = BiomesOPlenty.MOD_ID, name = BiomesOPlenty.MOD_NAME, dependencies = "required-after:Forge@[11.14.3.1468,)", guiFactory = BiomesOPlenty.GUI_FACTORY)
 public class BiomesOPlenty

@@ -12,9 +12,9 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.Random;
 
-import net.minecraft.util.BlockPos;
-import net.minecraft.world.World;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 public class GeneratorWeighted extends BOPGeneratorBase
 {

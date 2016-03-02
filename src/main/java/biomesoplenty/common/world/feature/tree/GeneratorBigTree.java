@@ -13,22 +13,22 @@ import java.util.Random;
 
 import org.apache.commons.lang3.tuple.Pair;
 
+import com.google.common.collect.Lists;
+
+import biomesoplenty.api.block.BlockQueries;
+import biomesoplenty.common.util.biome.GeneratorUtils;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
+import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
+import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.MathHelper;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-import biomesoplenty.api.block.BlockQueries;
-import biomesoplenty.common.util.biome.GeneratorUtils;
-import biomesoplenty.common.util.block.BlockQuery;
-import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
-import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
-import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
-import com.google.common.collect.Lists;
 
 /*This class is heavily based on https://gist.github.com/grum/62cfdec0537e8db24eb3#file-bigtreefeature-java
 additional information has been added from http://pastebin.com/XBLdGqXQ. This class has been cross-checked

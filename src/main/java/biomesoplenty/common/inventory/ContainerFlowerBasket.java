@@ -8,8 +8,8 @@
 
 package biomesoplenty.common.inventory;
 
-import static biomesoplenty.common.inventory.InventoryFlowerBasket.INVENTORY_ROWS;
 import static biomesoplenty.common.inventory.InventoryFlowerBasket.INVENTORY_COLUMNS;
+import static biomesoplenty.common.inventory.InventoryFlowerBasket.INVENTORY_ROWS;
 
 import biomesoplenty.common.item.ItemFlowerBasket;
 import net.minecraft.entity.player.EntityPlayer;

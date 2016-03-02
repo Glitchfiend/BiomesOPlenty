@@ -8,10 +8,10 @@
 
 package biomesoplenty.common.enums;
 
-import net.minecraft.util.IStringSerializable;
-import biomesoplenty.common.util.block.VariantPagingHelper.IPagedVariants;
-
 import com.google.common.base.Predicate;
+
+import biomesoplenty.common.util.block.VariantPagingHelper.IPagedVariants;
+import net.minecraft.util.IStringSerializable;
 
 public enum BOPWoods implements IStringSerializable, IPagedVariants
 {

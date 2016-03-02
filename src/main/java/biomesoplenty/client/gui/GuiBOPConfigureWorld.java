@@ -2,6 +2,14 @@ package biomesoplenty.client.gui;
 
 import java.io.IOException;
 
+import com.google.common.base.Predicate;
+import com.google.common.primitives.Floats;
+
+import biomesoplenty.common.world.BOPWorldSettings;
+import biomesoplenty.common.world.BOPWorldSettings.BiomeSize;
+import biomesoplenty.common.world.BOPWorldSettings.LandMassScheme;
+import biomesoplenty.common.world.BOPWorldSettings.RainfallVariationScheme;
+import biomesoplenty.common.world.BOPWorldSettings.TemperatureVariationScheme;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiCreateWorld;
@@ -11,19 +19,10 @@ import net.minecraft.client.gui.GuiSlider;
 import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.WorldRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.resources.I18n;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import biomesoplenty.common.world.BOPWorldSettings;
-import biomesoplenty.common.world.BOPWorldSettings.BiomeSize;
-import biomesoplenty.common.world.BOPWorldSettings.LandMassScheme;
-import biomesoplenty.common.world.BOPWorldSettings.RainfallVariationScheme;
-import biomesoplenty.common.world.BOPWorldSettings.TemperatureVariationScheme;
-
-import com.google.common.base.Predicate;
-import com.google.common.primitives.Floats;
 
 @SideOnly(Side.CLIENT)
 public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatHelper, GuiBOPPageList.GuiResponder

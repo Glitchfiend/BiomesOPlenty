@@ -8,10 +8,6 @@
 
 package biomesoplenty.common.biome.overworld;
 
-import net.minecraft.block.BlockDoublePlant;
-import net.minecraft.block.BlockTallGrass;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.biome.BiomeGenBase;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
@@ -21,9 +17,11 @@ import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorBlobs;
 import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
-import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
+import net.minecraft.block.BlockDoublePlant;
+import net.minecraft.block.BlockTallGrass;
+import net.minecraft.init.Blocks;
 
 public class BiomeGenHighland extends BOPBiome
 {

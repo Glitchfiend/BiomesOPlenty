@@ -8,16 +8,14 @@
 
 package biomesoplenty.common.util.biome;
 
+import com.google.common.base.CaseFormat;
+
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.WorldTypeBOP;
 import biomesoplenty.core.BiomesOPlenty;
-
-import com.google.common.base.CaseFormat;
-
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.WorldChunkManager;
 import net.minecraft.world.gen.ChunkProviderSettings;
 
 public class BiomeUtils
@@ -35,12 +33,14 @@ public class BiomeUtils
         }
     }
     
+    //TODO: This MUST be replaced with Vanilla's new proper identifiers
+    @Deprecated
     public static String getBiomeIdentifier(BiomeGenBase biome)
     {
         // Vanilla Biomes are typically named in upper camel case, sometimes with spaces
         // We follow the same convention with BOP Biomes
         // return a standardised identifier for use in json files, etc by converting to lowercase with underscores 
-        return CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, biome.biomeName.replace(" ", ""));
+        return CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, biome.getBiomeName().replace(" ", ""));
     }
     
     public static BlockPos spiralOutwardsLookingForBiome(World world, BiomeGenBase biomeToFind, double startX, double startZ)
@@ -75,11 +75,11 @@ public class BiomeUtils
             BiomeGenBase[] biomesAtSample = chunkManager.getBiomeGenAt(null, (int)x, (int)z, 1, 1, false);
             if (biomesAtSample[0] == biomeToFind)
             {
-                BiomesOPlenty.logger.info("Found "+biomeToFind.biomeName+" after "+n+" samples, spaced "+sampleSpace+" blocks apart at ("+((int)x)+","+((int)z)+") distance "+((int)dist));
+                BiomesOPlenty.logger.info("Found "+biomeToFind.getBiomeName()+" after "+n+" samples, spaced "+sampleSpace+" blocks apart at ("+((int)x)+","+((int)z)+") distance "+((int)dist));
                 return new BlockPos((int)x, 0, (int)z);
             }
         }
-        BiomesOPlenty.logger.info("Failed to find "+biomeToFind.biomeName+" gave up after "+n+" samples, spaced "+sampleSpace+" blocks apart distance "+((int)dist));
+        BiomesOPlenty.logger.info("Failed to find "+biomeToFind.getBiomeName()+" gave up after "+n+" samples, spaced "+sampleSpace+" blocks apart distance "+((int)dist));
         return null;
     }
     

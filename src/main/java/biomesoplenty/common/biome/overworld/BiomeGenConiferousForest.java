@@ -1,11 +1,5 @@
 package biomesoplenty.common.biome.overworld;
 
-import net.minecraft.block.BlockFlower;
-import net.minecraft.block.BlockPlanks;
-import net.minecraft.block.BlockTallGrass;
-import net.minecraft.entity.passive.EntityWolf;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.biome.generation.GeneratorStage;
@@ -14,9 +8,7 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.BlockBOPDirt;
 import biomesoplenty.common.block.BlockBOPDoublePlant;
 import biomesoplenty.common.block.BlockBOPGrass;
-import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.block.BlockBOPMushroom;
-import biomesoplenty.common.entities.EntitySnail;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
@@ -28,9 +20,13 @@ import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
-import biomesoplenty.common.world.feature.GeneratorSplatter;
 import biomesoplenty.common.world.feature.GeneratorWaterside;
 import biomesoplenty.common.world.feature.tree.GeneratorTaigaTree;
+import net.minecraft.block.BlockFlower;
+import net.minecraft.block.BlockPlanks;
+import net.minecraft.block.BlockTallGrass;
+import net.minecraft.entity.passive.EntityWolf;
+import net.minecraft.init.Blocks;
 
 public class BiomeGenConiferousForest extends BOPBiome
 {

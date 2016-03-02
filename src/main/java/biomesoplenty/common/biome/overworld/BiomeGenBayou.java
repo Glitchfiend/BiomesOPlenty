@@ -8,12 +8,6 @@
 
 package biomesoplenty.common.biome.overworld;
 
-import net.minecraft.block.BlockDoublePlant;
-import net.minecraft.block.BlockPlanks;
-import net.minecraft.block.BlockTallGrass;
-import net.minecraft.entity.monster.EntitySlime;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.BlockPos;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
@@ -37,14 +31,15 @@ import biomesoplenty.common.world.feature.GeneratorColumns;
 import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
-import biomesoplenty.common.world.feature.GeneratorLogs;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import biomesoplenty.common.world.feature.GeneratorSplatter;
 import biomesoplenty.common.world.feature.GeneratorWaterside;
 import biomesoplenty.common.world.feature.tree.GeneratorBayouTree;
-import biomesoplenty.common.world.feature.tree.GeneratorBulbTree;
-import biomesoplenty.common.world.feature.tree.GeneratorTaigaTree;
-import biomesoplenty.common.world.feature.tree.GeneratorTwigletTree;
+import net.minecraft.block.BlockDoublePlant;
+import net.minecraft.block.BlockTallGrass;
+import net.minecraft.entity.monster.EntitySlime;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.math.BlockPos;
 
 public class BiomeGenBayou extends BOPBiome
 {    

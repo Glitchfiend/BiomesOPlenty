@@ -10,8 +10,6 @@ package biomesoplenty.common.world;
 
 import java.io.File;
 
-import javax.swing.text.html.HTMLDocument.HTMLReader.FormAction;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;

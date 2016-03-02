@@ -8,14 +8,8 @@
 
 package biomesoplenty.common.init;
 
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.EnumDyeColor;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.oredict.OreDictionary;
-import net.minecraftforge.oredict.ShapedOreRecipe;
-import net.minecraftforge.oredict.ShapelessOreRecipe;
+import com.google.common.base.CaseFormat;
+
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.block.BlockBOPBones;
@@ -30,7 +24,6 @@ import biomesoplenty.common.block.BlockBOPHalfOtherSlab;
 import biomesoplenty.common.block.BlockBOPHalfWoodSlab;
 import biomesoplenty.common.block.BlockBOPHive;
 import biomesoplenty.common.block.BlockBOPLeaves;
-import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.block.BlockBOPLog;
 import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.block.BlockBOPPlanks;
@@ -49,8 +42,14 @@ import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.handler.FurnaceFuelHandler;
 import biomesoplenty.common.item.ItemDart;
 import biomesoplenty.common.item.ItemJarFilled;
-
-import com.google.common.base.CaseFormat;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.EnumDyeColor;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.ShapedOreRecipe;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 public class ModCrafting
 {

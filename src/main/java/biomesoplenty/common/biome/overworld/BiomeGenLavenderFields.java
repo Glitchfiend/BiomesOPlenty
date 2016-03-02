@@ -8,10 +8,6 @@
 
 package biomesoplenty.common.biome.overworld;
 
-import net.minecraft.block.BlockPlanks;
-import net.minecraft.block.BlockTallGrass;
-import net.minecraft.util.BlockPos;
-import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
@@ -28,7 +24,8 @@ import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
 import biomesoplenty.common.world.feature.tree.GeneratorBigTree;
-import biomesoplenty.common.world.feature.tree.GeneratorTaigaTree;
+import net.minecraft.block.BlockTallGrass;
+import net.minecraft.util.math.BlockPos;
  
 public class BiomeGenLavenderFields extends BOPBiome
 {

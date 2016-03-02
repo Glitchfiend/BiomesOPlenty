@@ -8,6 +8,10 @@
 
 package biomesoplenty.client.gui;
 
+import com.google.common.base.Objects;
+import com.google.common.base.Predicate;
+import com.google.common.base.Predicates;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiButton;
@@ -18,10 +22,6 @@ import net.minecraft.client.gui.GuiSlider;
 import net.minecraft.client.gui.GuiTextField;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import com.google.common.base.Objects;
-import com.google.common.base.Predicate;
-import com.google.common.base.Predicates;
 
 public abstract class GuiBOPPageList extends GuiBOPPageDelegate
 {

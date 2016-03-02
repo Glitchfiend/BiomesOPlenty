@@ -8,12 +8,14 @@
 
 package biomesoplenty.common.init;
 
-import static biomesoplenty.api.potion.BOPPotions.*;
+import static biomesoplenty.api.potion.BOPPotions.paralysis;
+import static biomesoplenty.api.potion.BOPPotions.possession;
 
+import biomesoplenty.common.potion.PotionParalysis;
+import biomesoplenty.common.potion.PotionPossession;
+import biomesoplenty.common.util.BOPReflectionHelper;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.ResourceLocation;
-import biomesoplenty.common.potion.*;
-import biomesoplenty.common.util.BOPReflectionHelper;
 
 public class ModPotions
 {

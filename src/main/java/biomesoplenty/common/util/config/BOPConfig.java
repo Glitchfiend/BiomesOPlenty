@@ -17,17 +17,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.state.IBlockState;
-
 import org.apache.commons.io.FileUtils;
-
-import biomesoplenty.common.util.block.BlockQuery;
-import biomesoplenty.common.util.block.BlockStateUtils;
-import biomesoplenty.common.util.block.BlockQuery.BlockQueryParseException;
-import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
-import biomesoplenty.core.BiomesOPlenty;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -35,6 +25,15 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+
+import biomesoplenty.common.util.block.BlockQuery;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryParseException;
+import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
+import biomesoplenty.common.util.block.BlockStateUtils;
+import biomesoplenty.core.BiomesOPlenty;
+import net.minecraft.block.Block;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.state.IBlockState;
 
 public class BOPConfig
 {

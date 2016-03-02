@@ -1,10 +1,10 @@
 package biomesoplenty.common.entities.projectiles.dispenser;
 
+import biomesoplenty.common.entities.projectiles.EntityDart;
 import net.minecraft.dispenser.BehaviorProjectileDispense;
 import net.minecraft.dispenser.IPosition;
 import net.minecraft.entity.IProjectile;
 import net.minecraft.world.World;
-import biomesoplenty.common.entities.projectiles.EntityDart;
 
 public class DispenserBehaviorDart extends BehaviorProjectileDispense
 {

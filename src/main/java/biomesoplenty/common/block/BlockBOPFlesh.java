@@ -10,6 +10,9 @@ package biomesoplenty.common.block;
 
 import java.util.Random;
 
+import biomesoplenty.api.block.IBOPBlock;
+import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -19,15 +22,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import biomesoplenty.api.block.IBOPBlock;
-import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.common.item.ItemBOPBlock;
 
 public class BlockBOPFlesh extends Block implements IBOPBlock
 {

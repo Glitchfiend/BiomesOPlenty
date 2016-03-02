@@ -1,5 +1,7 @@
 package biomesoplenty.common.integration;
 
+import com.sun.jna.platform.unix.X11.XSizeHints.Aspect;
+
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.block.BlockBOPBones;
@@ -28,9 +30,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.event.FMLInterModComms;
-import thaumcraft.api.ThaumcraftApi;
-import thaumcraft.api.aspects.Aspect;
-import thaumcraft.api.aspects.AspectList;
 
 public class ThaumcraftCompat 
 {

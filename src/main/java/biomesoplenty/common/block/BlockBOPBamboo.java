@@ -12,15 +12,15 @@ import java.util.Random;
 
 import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
-import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -39,7 +39,7 @@ public class BlockBOPBamboo extends BlockBOPDecoration
     {
         super(Material.wood);
         this.setHardness(0.2F);
-        this.setStepSound(Block.soundTypeWood);
+        this.setStepSound(SoundType.WOOD);
         this.setBlockBoundsByRadiusAndHeight(0.1875F , 1.0F);
         
         this.setDefaultState(this.blockState.getBaseState().withProperty(AGE, Integer.valueOf(0)));     

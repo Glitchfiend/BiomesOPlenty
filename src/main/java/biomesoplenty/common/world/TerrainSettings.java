@@ -8,7 +8,7 @@
 
 package biomesoplenty.common.world;
 
-import net.minecraft.util.MathHelper;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.biome.BiomeGenBase;
     
 public class TerrainSettings

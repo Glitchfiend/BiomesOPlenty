@@ -10,9 +10,10 @@ package biomesoplenty.common.item;
 
 import java.util.List;
 
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -36,7 +37,7 @@ public class ItemBiomeEssence extends Item
         BiomeGenBase biome = this.getBiome(itemStack);
         if (biome != null)
         {
-            infoList.add(biome.biomeName);
+            infoList.add(biome.getBiomeName());
         }
     }
 
@@ -45,7 +46,7 @@ public class ItemBiomeEssence extends Item
     public int getColorFromItemStack(ItemStack itemStack, int tintIndex)
     {
         BiomeGenBase biome = this.getBiome(itemStack);
-        return biome == null ? 0xFFFFFF : biome.color;
+        return biome == null ? 0xFFFFFF : biome.getGrassColorAtPos(BlockPos.ORIGIN);
     }
     
     @Override

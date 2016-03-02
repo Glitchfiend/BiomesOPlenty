@@ -8,8 +8,11 @@
 
 package biomesoplenty.common.item;
 
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.init.MobEffects;
+import net.minecraft.init.PotionTypes;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
@@ -48,16 +51,16 @@ public class ItemAmbrosia extends ItemFood
     protected void onFoodEaten(ItemStack stack, World worldIn, EntityPlayer player)
     {
         if (worldIn.isRemote) {return;}
-        player.addPotionEffect(new PotionEffect(Potion.absorption.id, 5000, 4));
-        player.addPotionEffect(new PotionEffect(Potion.saturation.id, 100, 1));
-        player.addPotionEffect(new PotionEffect(Potion.regeneration.id, 500, 2));
-        player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 500, 2));
-        player.addPotionEffect(new PotionEffect(Potion.resistance.id, 600, 1));
+        player.addPotionEffect(new PotionEffect(MobEffects.absorption, 5000, 4));
+        player.addPotionEffect(new PotionEffect(MobEffects.saturation, 100, 1));
+        player.addPotionEffect(new PotionEffect(MobEffects.regeneration, 500, 2));
+        player.addPotionEffect(new PotionEffect(MobEffects.digSpeed, 500, 2));
+        player.addPotionEffect(new PotionEffect(MobEffects.resistance, 600, 1));
     }
     
     // keep the empty bottle after finishing
     @Override
-    public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityPlayer playerIn)
+    public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase playerIn)
     {
         super.onItemUseFinish(stack, worldIn, playerIn);
         return new ItemStack(Items.glass_bottle);

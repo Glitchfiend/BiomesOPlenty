@@ -1,19 +1,18 @@
 package biomesoplenty.client.gui;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import biomesoplenty.common.config.GameplayConfigurationHandler;
 import biomesoplenty.common.config.MiscConfigurationHandler;
 import biomesoplenty.common.remote.TrailManager;
 import biomesoplenty.common.util.entity.PlayerUtil;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.fml.client.config.DummyConfigElement;
 import net.minecraftforge.fml.client.config.GuiConfig;
 import net.minecraftforge.fml.client.config.IConfigElement;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class GuiBOPConfig extends GuiConfig
 {

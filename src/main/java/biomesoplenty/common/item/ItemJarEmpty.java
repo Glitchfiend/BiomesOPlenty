@@ -8,6 +8,9 @@
 
 package biomesoplenty.common.item;
 
+import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.common.entities.EntityPixie;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -15,14 +18,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.util.MovingObjectPosition.MovingObjectType;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.FakePlayer;
-import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.common.entities.EntityPixie;
 
 
 public class ItemJarEmpty extends Item

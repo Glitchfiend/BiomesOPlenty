@@ -8,11 +8,6 @@
 
 package biomesoplenty.common.biome.overworld;
 
-import net.minecraft.block.BlockDoublePlant;
-import net.minecraft.block.BlockTallGrass;
-import net.minecraft.block.BlockFlower.EnumFlowerType;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.BlockPos;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
@@ -20,7 +15,6 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.block.BlockBOPCoral;
 import biomesoplenty.common.block.BlockBOPDoublePlant;
-import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.enums.BOPClimates;
@@ -37,6 +31,11 @@ import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorMixedLily;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import biomesoplenty.common.world.feature.GeneratorWaterside;
+import net.minecraft.block.BlockDoublePlant;
+import net.minecraft.block.BlockFlower.EnumFlowerType;
+import net.minecraft.block.BlockTallGrass;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.math.BlockPos;
 
 
 // This class is not intended to be used in the game

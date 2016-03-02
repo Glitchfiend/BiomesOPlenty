@@ -10,6 +10,21 @@ package biomesoplenty.common.world.feature;
 
 import java.util.Random;
 
+import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.block.BlockQueries;
+import biomesoplenty.common.block.BlockBOPDecoration;
+import biomesoplenty.common.block.BlockBOPFlower;
+import biomesoplenty.common.block.BlockBOPLeaves;
+import biomesoplenty.common.block.BlockBOPLilypad;
+import biomesoplenty.common.block.BlockBOPMushroom;
+import biomesoplenty.common.block.BlockBOPPlant;
+import biomesoplenty.common.enums.BOPFlowers;
+import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.enums.BOPTrees;
+import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
+import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
+import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockFlower;
@@ -21,22 +36,8 @@ import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.api.block.BlockQueries;
-import biomesoplenty.common.block.BlockBOPFlower;
-import biomesoplenty.common.block.BlockBOPLeaves;
-import biomesoplenty.common.block.BlockBOPLilypad;
-import biomesoplenty.common.block.BlockBOPMushroom;
-import biomesoplenty.common.block.BlockBOPPlant;
-import biomesoplenty.common.block.BlockBOPDecoration;
-import biomesoplenty.common.enums.BOPFlowers;
-import biomesoplenty.common.enums.BOPPlants;
-import biomesoplenty.common.enums.BOPTrees;
-import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
-import biomesoplenty.common.util.block.BlockQuery.*;
-import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GeneratorFlora extends GeneratorReplacing
 {

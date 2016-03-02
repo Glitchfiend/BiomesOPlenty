@@ -13,7 +13,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiCreateWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
-import net.minecraft.world.biome.WorldChunkManager;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -30,7 +29,7 @@ public class WorldTypeBOP extends WorldType
     @Override
     public WorldChunkManager getChunkManager(World world)
     {
-        return new WorldChunkManagerBOP(world);
+        return new BiomeProviderBOP(world);
     }
     
     @Override

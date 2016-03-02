@@ -8,15 +8,15 @@
 
 package biomesoplenty.common.entities;
 
+import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.MathHelper;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-import biomesoplenty.api.block.BOPBlocks;
 
 public class EntitySnail extends EntityLiving implements IMob {
     

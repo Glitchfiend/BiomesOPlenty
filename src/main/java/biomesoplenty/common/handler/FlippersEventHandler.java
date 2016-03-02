@@ -1,10 +1,10 @@
 package biomesoplenty.common.handler;
 
+import biomesoplenty.api.item.BOPItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import biomesoplenty.api.item.BOPItems;
 
 public class FlippersEventHandler 
 {

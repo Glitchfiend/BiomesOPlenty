@@ -10,6 +10,18 @@ package biomesoplenty.common.world.feature.tree;
 
 import java.util.Random;
 
+import biomesoplenty.api.biome.generation.BOPGeneratorBase;
+import biomesoplenty.common.block.BlockBOPLeaves;
+import biomesoplenty.common.block.BlockBOPLog;
+import biomesoplenty.common.enums.BOPTrees;
+import biomesoplenty.common.enums.BOPWoods;
+import biomesoplenty.common.util.biome.GeneratorUtils;
+import biomesoplenty.common.util.block.BlockQuery;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryBlock;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryParseException;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryState;
+import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockLog;
@@ -23,21 +35,9 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import biomesoplenty.api.biome.generation.BOPGeneratorBase;
-import biomesoplenty.common.block.BlockBOPLeaves;
-import biomesoplenty.common.block.BlockBOPLog;
-import biomesoplenty.common.enums.BOPTrees;
-import biomesoplenty.common.enums.BOPWoods;
-import biomesoplenty.common.util.biome.GeneratorUtils;
-import biomesoplenty.common.util.block.BlockQuery;
-import biomesoplenty.common.util.block.BlockQuery.BlockQueryBlock;
-import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
-import biomesoplenty.common.util.block.BlockQuery.BlockQueryParseException;
-import biomesoplenty.common.util.block.BlockQuery.BlockQueryState;
-import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 
 public abstract class GeneratorTreeBase extends BOPGeneratorBase
 {

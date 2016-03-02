@@ -8,22 +8,21 @@
 
 package biomesoplenty.common.handler;
 
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.stats.StatList;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.MovingObjectPosition;
-import net.minecraftforge.event.entity.player.FillBucketEvent;
-import net.minecraftforge.fml.common.eventhandler.Event.Result;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.fluids.blocks.BlockBloodFluid;
 import biomesoplenty.common.fluids.blocks.BlockHoneyFluid;
 import biomesoplenty.common.fluids.blocks.BlockHotSpringWaterFluid;
 import biomesoplenty.common.fluids.blocks.BlockPoisonFluid;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.stats.StatList;
+import net.minecraft.util.math.BlockPos;
+import net.minecraftforge.event.entity.player.FillBucketEvent;
+import net.minecraftforge.fml.common.eventhandler.Event.Result;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class BucketEventHandler
 {

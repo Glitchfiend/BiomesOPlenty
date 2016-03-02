@@ -20,13 +20,12 @@ import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import biomesoplenty.common.world.feature.GeneratorWaterside;
 import biomesoplenty.common.world.feature.tree.GeneratorTaigaTree;
-import net.minecraft.block.BlockPlanks.EnumType;
 import net.minecraft.block.BlockFlower;
+import net.minecraft.block.BlockPlanks.EnumType;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.BlockPos;
-import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
+import net.minecraft.util.math.BlockPos;
 
 public class BiomeGenPrairie extends BOPBiome
 {

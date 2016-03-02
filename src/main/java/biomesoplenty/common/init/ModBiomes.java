@@ -8,8 +8,6 @@
 
 package biomesoplenty.common.init;
 
-import static biomesoplenty.api.biome.BOPBiomes.excludedDecoratedWorldTypes;
-
 import static biomesoplenty.api.biome.BOPBiomes.alps;
 import static biomesoplenty.api.biome.BOPBiomes.bamboo_forest;
 import static biomesoplenty.api.biome.BOPBiomes.bayou;
@@ -32,6 +30,7 @@ import static biomesoplenty.api.biome.BOPBiomes.desert_extension;
 import static biomesoplenty.api.biome.BOPBiomes.desert_hills_extension;
 import static biomesoplenty.api.biome.BOPBiomes.end_extension;
 import static biomesoplenty.api.biome.BOPBiomes.eucalyptus_forest;
+import static biomesoplenty.api.biome.BOPBiomes.excludedDecoratedWorldTypes;
 import static biomesoplenty.api.biome.BOPBiomes.extreme_hills_extension;
 import static biomesoplenty.api.biome.BOPBiomes.extreme_hills_plus_extension;
 import static biomesoplenty.api.biome.BOPBiomes.fen;
@@ -45,8 +44,8 @@ import static biomesoplenty.api.biome.BOPBiomes.gravel_beach;
 import static biomesoplenty.api.biome.BOPBiomes.grove;
 import static biomesoplenty.api.biome.BOPBiomes.heathland;
 import static biomesoplenty.api.biome.BOPBiomes.highland;
-import static biomesoplenty.api.biome.BOPBiomes.ice_plains_extension;
 import static biomesoplenty.api.biome.BOPBiomes.ice_mountains_extension;
+import static biomesoplenty.api.biome.BOPBiomes.ice_plains_extension;
 import static biomesoplenty.api.biome.BOPBiomes.jungle_extension;
 import static biomesoplenty.api.biome.BOPBiomes.jungle_hills_extension;
 import static biomesoplenty.api.biome.BOPBiomes.kelp_forest;
@@ -69,8 +68,8 @@ import static biomesoplenty.api.biome.BOPBiomes.mystic_grove;
 import static biomesoplenty.api.biome.BOPBiomes.oasis;
 import static biomesoplenty.api.biome.BOPBiomes.ocean_extension;
 import static biomesoplenty.api.biome.BOPBiomes.ominous_woods;
-import static biomesoplenty.api.biome.BOPBiomes.origin_island;
 import static biomesoplenty.api.biome.BOPBiomes.orchard;
+import static biomesoplenty.api.biome.BOPBiomes.origin_island;
 import static biomesoplenty.api.biome.BOPBiomes.outback;
 import static biomesoplenty.api.biome.BOPBiomes.overgrown_cliffs;
 import static biomesoplenty.api.biome.BOPBiomes.plains_extension;
@@ -111,11 +110,10 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import net.minecraft.world.WorldType;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.BiomeDictionary.Type;
-import net.minecraftforge.common.BiomeManager;
+import com.google.common.base.Optional;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Sets;
+
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.biome.IExtendedBiome;
@@ -191,8 +189,8 @@ import biomesoplenty.common.biome.vanilla.BiomeExtExtremeHills;
 import biomesoplenty.common.biome.vanilla.BiomeExtExtremeHillsPlus;
 import biomesoplenty.common.biome.vanilla.BiomeExtForest;
 import biomesoplenty.common.biome.vanilla.BiomeExtForestHills;
-import biomesoplenty.common.biome.vanilla.BiomeExtIcePlains;
 import biomesoplenty.common.biome.vanilla.BiomeExtIceMountains;
+import biomesoplenty.common.biome.vanilla.BiomeExtIcePlains;
 import biomesoplenty.common.biome.vanilla.BiomeExtJungle;
 import biomesoplenty.common.biome.vanilla.BiomeExtJungleHills;
 import biomesoplenty.common.biome.vanilla.BiomeExtMegaTaiga;
@@ -210,15 +208,16 @@ import biomesoplenty.common.biome.vanilla.BiomeExtTaiga;
 import biomesoplenty.common.biome.vanilla.BiomeExtTaigaHills;
 import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.enums.BOPClimates;
-import biomesoplenty.common.enums.BOPClimates.WeightedBiomeEntry;
 import biomesoplenty.common.util.biome.BiomeUtils;
 import biomesoplenty.common.util.config.BOPConfig;
 import biomesoplenty.common.world.WorldTypeBOP;
 import biomesoplenty.core.BiomesOPlenty;
-
-import com.google.common.base.Optional;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Sets;
+import net.minecraft.init.Biomes;
+import net.minecraft.world.WorldType;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeDictionary.Type;
+import net.minecraftforge.common.BiomeManager;
 
 public class ModBiomes implements BOPBiomes.IBiomeRegistry
 {
@@ -332,27 +331,27 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         // this severely limits the number of new biomes we can add (we'd have to keep the number below 128 to avoid clashes)
         // we hard code the list of vanilla biomes with mutated versions below, which enables other biomes to use the biome ids which are not taken
         
-        setSubBiome(BiomeGenBase.plains, BiomeGenBase.getBiome(BiomeGenBase.plains.biomeID + 128));
-        setSubBiome(BiomeGenBase.desert, BiomeGenBase.getBiome(BiomeGenBase.desert.biomeID + 128));
-        setSubBiome(BiomeGenBase.forest, BiomeGenBase.getBiome(BiomeGenBase.forest.biomeID + 128));
-        setSubBiome(BiomeGenBase.taiga, BiomeGenBase.getBiome(BiomeGenBase.taiga.biomeID + 128));
-        setSubBiome(BiomeGenBase.swampland, BiomeGenBase.getBiome(BiomeGenBase.swampland.biomeID + 128));
-        setSubBiome(BiomeGenBase.icePlains, BiomeGenBase.getBiome(BiomeGenBase.icePlains.biomeID + 128));
-        setSubBiome(BiomeGenBase.jungle, BiomeGenBase.getBiome(BiomeGenBase.jungle.biomeID + 128));
-        setSubBiome(BiomeGenBase.jungleEdge, BiomeGenBase.getBiome(BiomeGenBase.jungleEdge.biomeID + 128));
-        setSubBiome(BiomeGenBase.coldTaiga, BiomeGenBase.getBiome(BiomeGenBase.coldTaiga.biomeID + 128));
-        setSubBiome(BiomeGenBase.savanna, BiomeGenBase.getBiome(BiomeGenBase.savanna.biomeID + 128));
-        setSubBiome(BiomeGenBase.savannaPlateau, BiomeGenBase.getBiome(BiomeGenBase.savannaPlateau.biomeID + 128));
-        setSubBiome(BiomeGenBase.mesa, BiomeGenBase.getBiome(BiomeGenBase.mesa.biomeID + 128));
-        setSubBiome(BiomeGenBase.mesaPlateau, BiomeGenBase.getBiome(BiomeGenBase.mesaPlateau.biomeID + 128));
-        setSubBiome(BiomeGenBase.mesaPlateau_F, BiomeGenBase.getBiome(BiomeGenBase.mesaPlateau_F.biomeID + 128));
-        setSubBiome(BiomeGenBase.birchForest, BiomeGenBase.getBiome(BiomeGenBase.birchForest.biomeID + 128));
-        setSubBiome(BiomeGenBase.birchForestHills, BiomeGenBase.getBiome(BiomeGenBase.birchForestHills.biomeID + 128));
-        setSubBiome(BiomeGenBase.roofedForest, BiomeGenBase.getBiome(BiomeGenBase.roofedForest.biomeID + 128));
-        setSubBiome(BiomeGenBase.megaTaiga, BiomeGenBase.getBiome(BiomeGenBase.megaTaiga.biomeID + 128));
-        setSubBiome(BiomeGenBase.extremeHills, BiomeGenBase.getBiome(BiomeGenBase.extremeHills.biomeID + 128));
-        setSubBiome(BiomeGenBase.extremeHillsPlus, BiomeGenBase.getBiome(BiomeGenBase.extremeHillsPlus.biomeID + 128));
-        setSubBiome(BiomeGenBase.megaTaigaHills, BiomeGenBase.getBiome(BiomeGenBase.megaTaigaHills.biomeID + 128));        
+        setSubBiome(Biomes.plains, BiomeGenBase.getBiome(Biomes.plains.biomeID + 128));
+        setSubBiome(Biomes.desert, BiomeGenBase.getBiome(Biomes.desert.biomeID + 128));
+        setSubBiome(Biomes.forest, BiomeGenBase.getBiome(Biomes.forest.biomeID + 128));
+        setSubBiome(Biomes.taiga, BiomeGenBase.getBiome(Biomes.taiga.biomeID + 128));
+        setSubBiome(Biomes.swampland, BiomeGenBase.getBiome(Biomes.swampland.biomeID + 128));
+        setSubBiome(Biomes.icePlains, BiomeGenBase.getBiome(Biomes.icePlains.biomeID + 128));
+        setSubBiome(Biomes.jungle, BiomeGenBase.getBiome(Biomes.jungle.biomeID + 128));
+        setSubBiome(Biomes.jungleEdge, BiomeGenBase.getBiome(Biomes.jungleEdge.biomeID + 128));
+        setSubBiome(Biomes.coldTaiga, BiomeGenBase.getBiome(Biomes.coldTaiga.biomeID + 128));
+        setSubBiome(Biomes.savanna, BiomeGenBase.getBiome(Biomes.savanna.biomeID + 128));
+        setSubBiome(Biomes.savannaPlateau, BiomeGenBase.getBiome(Biomes.savannaPlateau.biomeID + 128));
+        setSubBiome(Biomes.mesa, BiomeGenBase.getBiome(Biomes.mesa.biomeID + 128));
+        setSubBiome(Biomes.mesaPlateau, BiomeGenBase.getBiome(Biomes.mesaPlateau.biomeID + 128));
+        setSubBiome(Biomes.mesaPlateau_F, BiomeGenBase.getBiome(Biomes.mesaPlateau_F.biomeID + 128));
+        setSubBiome(Biomes.birchForest, BiomeGenBase.getBiome(Biomes.birchForest.biomeID + 128));
+        setSubBiome(Biomes.birchForestHills, BiomeGenBase.getBiome(Biomes.birchForestHills.biomeID + 128));
+        setSubBiome(Biomes.roofedForest, BiomeGenBase.getBiome(Biomes.roofedForest.biomeID + 128));
+        setSubBiome(Biomes.megaTaiga, BiomeGenBase.getBiome(Biomes.megaTaiga.biomeID + 128));
+        setSubBiome(Biomes.extremeHills, BiomeGenBase.getBiome(Biomes.extremeHills.biomeID + 128));
+        setSubBiome(Biomes.extremeHillsPlus, BiomeGenBase.getBiome(Biomes.extremeHillsPlus.biomeID + 128));
+        setSubBiome(Biomes.megaTaigaHills, BiomeGenBase.getBiome(Biomes.megaTaigaHills.biomeID + 128));        
     }
 
     private static void registerBiomes()

@@ -8,9 +8,9 @@
 
 package biomesoplenty.api.biome.generation;
 
-import net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate;
-
 import com.google.gson.annotations.SerializedName;
+
+import net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate;
 
 public enum GeneratorStage
 {

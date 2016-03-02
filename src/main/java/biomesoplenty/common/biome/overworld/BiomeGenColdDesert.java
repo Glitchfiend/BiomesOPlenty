@@ -10,10 +10,6 @@ package biomesoplenty.common.biome.overworld;
 
 import java.util.Random;
 
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
-import net.minecraft.world.chunk.ChunkPrimer;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.block.BOPBlocks;
@@ -28,6 +24,10 @@ import biomesoplenty.common.world.feature.GeneratorBlobs;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import biomesoplenty.common.world.feature.GeneratorSplatter;
 import biomesoplenty.common.world.feature.GeneratorSplotches;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+import net.minecraft.world.chunk.ChunkPrimer;
 
 public class BiomeGenColdDesert extends BOPBiome
 {    

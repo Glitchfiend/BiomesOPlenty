@@ -11,10 +11,10 @@ package biomesoplenty.api.biome.generation;
 import java.util.HashMap;
 import java.util.Map;
 
-import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
-
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
+
+import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 
 public class GeneratorRegistry
 {

@@ -11,7 +11,7 @@ package biomesoplenty.api.biome.generation;
 import java.util.Random;
 
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public interface IGenerator

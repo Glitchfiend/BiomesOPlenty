@@ -11,9 +11,8 @@ package biomesoplenty.client.particle;
 import biomesoplenty.core.ClientProxy;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.WorldRenderer;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.MathHelper;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.client.FMLClientHandler;
 

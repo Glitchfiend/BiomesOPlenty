@@ -8,18 +8,10 @@
 
 package biomesoplenty.common.item;
 
-import java.util.Random;
-
-import biomesoplenty.api.particle.BOPParticleTypes;
 import biomesoplenty.common.block.BlockBOPFlower;
 import biomesoplenty.common.enums.BOPFlowers;
-import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.block.Block;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Vec3;
-import net.minecraft.world.World;
 
 public class ItemBOPFlower extends ItemBOPBlock {
 

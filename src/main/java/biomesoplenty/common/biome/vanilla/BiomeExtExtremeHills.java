@@ -1,22 +1,17 @@
 package biomesoplenty.common.biome.vanilla;
 
-import net.minecraft.block.BlockPlanks;
-import net.minecraft.world.biome.BiomeGenBase;
 import biomesoplenty.api.biome.ExtendedBiomeWrapper;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.common.enums.BOPFlowers;
-import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
-import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
-import biomesoplenty.common.world.feature.tree.GeneratorBigTree;
-import biomesoplenty.common.world.feature.tree.GeneratorTaigaTree;
+import net.minecraft.world.biome.BiomeGenBase;
 
 public class BiomeExtExtremeHills extends ExtendedBiomeWrapper
 {
