@@ -67,7 +67,7 @@ public class ModBlockQueries
             @Override
             public boolean matches(World world, BlockPos pos)
             {
-                return (world.getBlockState(pos.west()).getBlock().getMaterial() == Material.water || world.getBlockState(pos.east()).getBlock().getMaterial() == Material.water || world.getBlockState(pos.north()).getBlock().getMaterial() == Material.water || world.getBlockState(pos.south()).getBlock().getMaterial() == Material.water);
+                return (world.getBlockState(pos.west()).getMaterial() == Material.water || world.getBlockState(pos.east()).getMaterial() == Material.water || world.getBlockState(pos.north()).getBlock().getMaterial() == Material.water || world.getBlockState(pos.south()).getBlock().getMaterial() == Material.water);
             }
         };
         
@@ -97,7 +97,7 @@ public class ModBlockQueries
             @Override
             public boolean matches(World world, BlockPos pos)
             {
-                return world.getBlockState(pos).getBlock().getMaterial() == Material.water && world.getBlockState(pos.up()).getBlock().getMaterial() == Material.water;
+                return world.getBlockState(pos).getMaterial() == Material.water && world.getBlockState(pos.up()).getMaterial() == Material.water;
             }
         };
         
@@ -108,7 +108,7 @@ public class ModBlockQueries
             @Override
             public boolean matches(World world, BlockPos pos)
             {
-                return world.getBlockState(pos).getBlock().getBlockHardness(world, pos) >= 0.0F;
+                return world.getBlockState(pos).getBlockHardness(world, pos) >= 0.0F;
             }
         }; 
         
@@ -119,7 +119,7 @@ public class ModBlockQueries
             @Override
             public boolean matches(World world, BlockPos pos)
             {
-                return world.isSideSolid(pos, EnumFacing.UP);
+                return world.getBlockState(pos).isSideSolid(world, pos, EnumFacing.UP);
             }
         }; 
         
@@ -162,7 +162,7 @@ public class ModBlockQueries
             @Override public boolean matches(World world, BlockPos pos) {
                 BlockPos groundPos = pos.down();
                 return world.getBlockState(pos).getBlock() == Blocks.water && 
-                        (world.getBlockState(groundPos).getBlock() != Blocks.water && world.getBlockState(groundPos).getBlock().isSideSolid(world, groundPos, EnumFacing.UP));
+                        (world.getBlockState(groundPos).getBlock() != Blocks.water && world.getBlockState(groundPos).isSideSolid(world, groundPos, EnumFacing.UP));
             }
         }).withLightAboveAtLeast(8).create();
         rootsCanDigThrough = new BlockQueryMaterial(Material.air, Material.water, Material.ground, Material.grass, Material.sand, Material.clay, Material.plants, Material.leaves);

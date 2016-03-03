@@ -63,9 +63,9 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
     
     public final String idName;
     
-    public BOPBiome(String idName, BiomeProps defaultProps)
+    private BOPBiome(String idName, PropsBuilder defaultBuilder, BOPConfig.IConfigObj conf)
     {
-        super(configureBiome(idName, defaultProps));
+        super(configureBiomeProps(idName, defaultBuilder, conf));
 
         this.idName = idName;
         this.terrainSettings.setDefaults();
@@ -81,31 +81,46 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         this.addGenerator("roots", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(4.0F).with(BOPPlants.ROOT).create());
     }
     
-    public static BiomeProps configureBiome(String idName, BiomeProps props)
+    public BOPBiome(String idName, PropsBuilder defaultBuilder)
     {
-        BOPConfig.IConfigObj conf = ModBiomes.readConfigFile(idName);
-     
+        this(idName, defaultBuilder, ModBiomes.readConfigFile(idName));
+    }
+    
+    public static BiomeProps configureBiomeProps(String idName, PropsBuilder defaultBuilder, BOPConfig.IConfigObj conf)
+    {
         // If there isn't a valid config file, don't use it to configure the biome
         if (conf.isEmpty())
-            return props;
+            return defaultBuilder.build();
         
-        // Allow name to be overridden
-        props = new BiomeProps(conf.getString("biomeName",props.biomeName));
+        defaultBuilder.withBaseHeight(conf.getFloat("rootHeight"));
+        defaultBuilder.withHeightVariation(conf.getFloat("variation"));
+        defaultBuilder.withTemperature(conf.getFloat("temperature"));
+        defaultBuilder.withRainfall(conf.getFloat("rainfall"));
+        defaultBuilder.withWaterColor(conf.getInt("waterColor"));
         
+        Boolean enableRain = conf.getBool("enableRain");
+        if (enableRain != null && !enableRain) defaultBuilder.withRainDisabled();
+
+        Boolean enableSnow = conf.getBool("enableSnow");
+        if (enableSnow != null && enableSnow) defaultBuilder.withSnowEnabled();
         
+        defaultBuilder.withBaseBiome(conf.getString("baseBiome"));
+        defaultBuilder.withGuiColour(conf.getInt("guiColour"));
+        
+        return defaultBuilder.build();
+    }
+    
+    @Override
+    public void applySettings(BOPWorldSettings settings){}
+    
+    @Override
+    public void configure(IConfigObj conf)
+    {
         // Allow basic properties to be overridden
         this.topBlock = conf.getBlockState("topBlock", this.topBlock);
         this.fillerBlock = conf.getBlockState("fillerBlock", this.fillerBlock);
         this.seaFloorBlock = conf.getBlockState("seaFloorBlock", this.seaFloorBlock);
         
-        this.minHeight = conf.getFloat("rootHeight", this.getBaseHeight());
-        this.maxHeight = conf.getFloat("variation", this.maxHeight);
-        this.temperature = conf.getFloat("temperature", this.temperature);
-        this.rainfall = conf.getFloat("rainfall", this.rainfall);
-        this.color = conf.getInt("color",this.color);
-        this.waterColorMultiplier = conf.getInt("waterColorMultiplier", this.waterColorMultiplier);
-        this.enableRain = conf.getBool("enableRain", this.enableRain);
-        this.enableSnow = conf.getBool("enableSnow", this.enableSnow);
         this.skyColor = conf.getInt("skyColor", this.skyColor);
         this.hasBiomeEssence = conf.getBool("hasBiomeEssence", this.hasBiomeEssence);
         
@@ -216,13 +231,7 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
                 }
             }
         }
-        
-        return props;
     }
-    
-    @Override
-    public void applySettings(BOPWorldSettings settings){}
-    
 
     @Override
     public BiomeOwner getBiomeOwner()
@@ -385,77 +394,62 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         return this.idName;
     }
     
-    //TODO: Convert this to a proper builder
-    private static class BiomePropsBuilder extends BiomeGenBase.BiomeProperties
+    protected static class PropsBuilder
     {
-        /**The colour of this biome as seen in guis**/
-        private float guiColour = 0xffffff;
-        
-        //Copied from Vanilla's BiomeProperties to provide us with access
         private final String biomeName;
+        
+        /**The colour of this biome as seen in guis**/
+        private int guiColour = 0xffffff;
         private float baseHeight = 0.1F;
         private float heightVariation = 0.2F;
         private float temperature = 0.5F;
         private float rainfall = 0.5F;
         private int waterColor = 16777215;
-        private boolean enableSnow;
+        private boolean enableSnow = false;
         private boolean enableRain = true;
         private String baseBiomeRegName;
         
-        public BiomeProps(String name) { super(name); }
+        public PropsBuilder(String name) { this.biomeName = name; }
         
-        public BiomeProps setGuiColour(int colour)
+        public PropsBuilder withGuiColour(int colour)
         {
-            this.guiColour = colour;
-            return this;
+            this.guiColour = colour; return this;
         }
         
-        @Override
-        public BiomeProps setTemperature(float temperature)
+        public PropsBuilder withTemperature(Float temperature) { if (temperature != null) this.temperature = temperature; return this; }
+        public PropsBuilder withRainfall(Float rainfall) { if (rainfall != null) this.rainfall = rainfall; return this; }
+        public PropsBuilder withBaseHeight(Float baseHeight) { if (baseHeight != null) this.baseHeight = baseHeight; return this; }
+        public PropsBuilder withHeightVariation(Float heightVariation) { if (heightVariation != null) this.heightVariation = heightVariation; return this; }
+        public PropsBuilder withRainDisabled() { this.enableRain = false; return this; }
+        public PropsBuilder withSnowEnabled() { this.enableSnow = true; return this; }
+        public PropsBuilder withWaterColor(Integer waterColor) { if (waterColor != null) this.waterColor = waterColor; return this; }
+        public PropsBuilder withBaseBiome(String name) { this.baseBiomeRegName = name; return this; }
+        
+        public BiomeProps build()
         {
-            return (BiomeProps)super.setTemperature(temperature);
+            return new BiomeProps(this.biomeName, this.temperature, this.rainfall, this.baseHeight, this.heightVariation, this.enableRain, this.enableSnow, this.waterColor, this.baseBiomeRegName, this.guiColour);
         }
-
-        @Override
-        public BiomeProps setRainfall(float rainfall)
-        {
-            return (BiomeProps) super.setRainfall(rainfall);
-        }
-
-        @Override
-        public BiomeProps setBaseHeight(float baseHeight)
-        {
-            return (BiomeProps)super.setBaseHeight(baseHeight);
-        }
-
-        @Override
-        public BiomeProps setHeightVariation(float heightVariation)
-        {
-            return (BiomeProps)super.setHeightVariation(heightVariation);
-        }
-
-        @Override
-        public BiomeProps setRainDisabled()
-        {
-            return (BiomeProps)super.setRainDisabled();
-        }
-
-        @Override
-        public BiomeProps setSnowEnabled()
-        {
-            return (BiomeProps)super.setSnowEnabled();
-        }
-
-        @Override
-        public BiomeProps setWaterColor(int waterColor)
-        {
-            return (BiomeProps)super.setWaterColor(waterColor);
-        }
-
-        @Override
-        public BiomeProps setBaseBiome(String name) 
+    }
+    
+    private static class BiomeProps extends BiomeGenBase.BiomeProperties
+    {
+        /**The colour of this biome as seen in guis**/
+        private int guiColour = 0xffffff;
+        
+        private BiomeProps(String name, float temperature, float rainfall, float baseHeight, float heightVariation, boolean enableRain, boolean enableSnow, int waterColor, String baseBiomeRegName, int guiColour) 
         { 
-            return (BiomeProps)super.setBaseBiome(name); 
+            super(name); 
+            
+            this.setTemperature(temperature);
+            this.setRainfall(rainfall);
+            this.setBaseHeight(baseHeight);
+            this.setHeightVariation(heightVariation);
+            if (!enableRain) this.setRainDisabled();
+            if (enableSnow) this.setSnowEnabled();
+            this.setWaterColor(waterColor);
+            this.setBaseBiome(baseBiomeRegName);
+            
+            this.guiColour = guiColour;
         }
     }
 }

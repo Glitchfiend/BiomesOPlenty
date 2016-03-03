@@ -167,7 +167,7 @@ public class GeneratorLakes extends BOPGeneratorBase
                 {
                     if (this.isCavityEdge(x, y, z, cavityShape)) {
 
-                        Material material = world.getBlockState(startPos.add(x, y, z)).getBlock().getMaterial();
+                        Material material = world.getBlockState(startPos.add(x, y, z)).getMaterial();
 
                         // abandon if there's liquid at the edge of the cavity above the water level
                         if (y >= 4 && material.isLiquid())
@@ -272,7 +272,7 @@ public class GeneratorLakes extends BOPGeneratorBase
                     {
                         if (this.isCavityEdge(x, y, z, cavityShape))
                         {
-                            if ((y < 4 || rand.nextInt(2) != 0) && world.getBlockState(pos.add(x, y, z)).getBlock().getMaterial().isSolid())
+                            if ((y < 4 || rand.nextInt(2) != 0) && world.getBlockState(pos.add(x, y, z)).getMaterial().isSolid())
                             {
                                 world.setBlockState(pos.add(x, y, z), this.lineWith, 2);
                             }

@@ -107,7 +107,7 @@ public class ModCompatibility
             
             WrappedBiomeEntry other = (WrappedBiomeEntry)input;
             
-            return other.biomeEntry.itemWeight == this.biomeEntry.itemWeight && other.biomeEntry.biome.biomeID == this.biomeEntry.biome.biomeID;
+            return other.biomeEntry.itemWeight == this.biomeEntry.itemWeight && other.biomeEntry.biome == this.biomeEntry.biome;
         }
     }
 }

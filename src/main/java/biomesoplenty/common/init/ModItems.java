@@ -124,6 +124,7 @@ import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor;
@@ -230,14 +231,14 @@ public class ModItems
         exotic_flower_band = registerItem(new ItemFlowerBand(exotic_flower_band_material, 0), "exotic_flower_band");
         dull_flower_band = registerItem(new ItemFlowerBand(dull_flower_band_material, 0), "dull_flower_band");
         
-        mud_helmet = registerItem(new ItemArmor(mud_armor_material, 0, 0), "mud_helmet");
-        mud_chestplate = registerItem(new ItemArmor(mud_armor_material, 0, 1), "mud_chestplate");
-        mud_leggings = registerItem(new ItemArmor(mud_armor_material, 0, 2), "mud_leggings");
-        mud_boots = registerItem(new ItemArmor(mud_armor_material, 0, 3), "mud_boots");
-        amethyst_helmet = registerItem(new ItemArmor(amethyst_armor_material, 0, 0), "amethyst_helmet");
-        amethyst_chestplate = registerItem(new ItemArmor(amethyst_armor_material, 0, 1), "amethyst_chestplate");
-        amethyst_leggings = registerItem(new ItemArmor(amethyst_armor_material, 0, 2), "amethyst_leggings");
-        amethyst_boots = registerItem(new ItemArmor(amethyst_armor_material, 0, 3), "amethyst_boots");
+        mud_helmet = registerItem(new ItemArmor(mud_armor_material, 0, EntityEquipmentSlot.HEAD), "mud_helmet");
+        mud_chestplate = registerItem(new ItemArmor(mud_armor_material, 0, EntityEquipmentSlot.CHEST), "mud_chestplate");
+        mud_leggings = registerItem(new ItemArmor(mud_armor_material, 0, EntityEquipmentSlot.LEGS), "mud_leggings");
+        mud_boots = registerItem(new ItemArmor(mud_armor_material, 0, EntityEquipmentSlot.FEET), "mud_boots");
+        amethyst_helmet = registerItem(new ItemArmor(amethyst_armor_material, 0, EntityEquipmentSlot.HEAD), "amethyst_helmet");
+        amethyst_chestplate = registerItem(new ItemArmor(amethyst_armor_material, 0, EntityEquipmentSlot.CHEST), "amethyst_chestplate");
+        amethyst_leggings = registerItem(new ItemArmor(amethyst_armor_material, 0, EntityEquipmentSlot.LEGS), "amethyst_leggings");
+        amethyst_boots = registerItem(new ItemArmor(amethyst_armor_material, 0, EntityEquipmentSlot.FEET), "amethyst_boots");
         
         // tools
 

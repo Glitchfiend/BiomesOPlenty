@@ -61,7 +61,7 @@ public class GeneratorWaterside extends GeneratorReplacing
     public boolean generate(World world, Random random, BlockPos pos)
     {
         //Check we are generating around water
-        if (world.getBlockState(pos).getBlock().getMaterial() != Material.water)
+        if (world.getBlockState(pos).getMaterial() != Material.water)
         {
             return false;
         }

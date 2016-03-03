@@ -173,7 +173,7 @@ public class GeneratorBigFlower extends BOPGeneratorBase
             return false;
         }
 
-        world.getBlockState(pos.down()).getBlock().onPlantGrow(world, pos.down(), pos);
+        world.getBlockState(pos.down()).getBlock().onPlantGrow(world.getBlockState(pos.down()), world, pos.down(), pos);
 
         this.setStem(world, pos);
         this.setStem(world, pos.up(1));
