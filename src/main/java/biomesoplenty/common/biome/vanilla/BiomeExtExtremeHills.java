@@ -11,13 +11,13 @@ import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.init.Biomes;
 
 public class BiomeExtExtremeHills extends ExtendedBiomeWrapper
 {
     public BiomeExtExtremeHills()
     {
-        super(BiomeGenBase.extremeHills);
+        super(Biomes.extremeHills);
         
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(0.3F);

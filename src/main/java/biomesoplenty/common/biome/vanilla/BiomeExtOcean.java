@@ -5,13 +5,13 @@ import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.init.Biomes;
 
 public class BiomeExtOcean extends ExtendedBiomeWrapper
 {
     public BiomeExtOcean()
     {
-        super(BiomeGenBase.ocean);
+        super(Biomes.ocean);
         
         // gem
         this.addGenerator("sapphire", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.SAPPHIRE).create());    

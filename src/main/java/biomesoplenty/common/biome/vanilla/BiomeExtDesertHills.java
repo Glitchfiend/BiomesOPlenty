@@ -7,13 +7,13 @@ import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.init.Biomes;
 
 public class BiomeExtDesertHills extends ExtendedBiomeWrapper
 {
     public BiomeExtDesertHills()
     {
-        super(BiomeGenBase.desertHills);
+        super(Biomes.desertHills);
         
         // other plants
         this.addGenerator("tiny_cacti", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.3F).with(BOPPlants.TINYCACTUS).create());

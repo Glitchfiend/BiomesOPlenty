@@ -23,7 +23,7 @@ public class BiomeGenAlps extends BOPBiome
 {
     public BiomeGenAlps()
     {
-        super(new BiomeProps("Alps").setGuiColour(13421772).setSnowEnabled().setTemperature(-0.5F).setRainfall(0.3F));
+        super("alps", new PropsBuilder("Alps").withGuiColour(13421772).withSnowEnabled().withTemperature(-0.5F).withRainfall(0.3F));
         
         // terrain
         this.terrainSettings.avgHeight(198).heightVariation(12, 12).octaves(1, 1, 2, 2, 3, 3);

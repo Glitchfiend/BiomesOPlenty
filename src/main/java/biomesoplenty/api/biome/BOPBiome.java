@@ -37,6 +37,7 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.ChunkPrimer;
@@ -61,13 +62,13 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
     public boolean noNeighborTerrainInfuence = false;
     public int avgDirtDepth = 3;
     
-    public final String idName;
+    public final ResourceLocation idLoc;
     
-    private BOPBiome(String idName, PropsBuilder defaultBuilder, BOPConfig.IConfigObj conf)
+    private BOPBiome(ResourceLocation idLoc, PropsBuilder defaultBuilder, BOPConfig.IConfigObj conf)
     {
-        super(configureBiomeProps(idName, defaultBuilder, conf));
+        super(configureBiomeProps(idLoc, defaultBuilder, conf));
 
-        this.idName = idName;
+        this.idLoc = idLoc;
         this.terrainSettings.setDefaults();
         
         this.theBiomeDecorator.treesPerChunk = -999;
@@ -81,12 +82,12 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         this.addGenerator("roots", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(4.0F).with(BOPPlants.ROOT).create());
     }
     
-    public BOPBiome(String idName, PropsBuilder defaultBuilder)
+    public BOPBiome(ResourceLocation idLoc, PropsBuilder defaultBuilder)
     {
-        this(idName, defaultBuilder, ModBiomes.readConfigFile(idName));
+        this(idLoc, defaultBuilder, ModBiomes.readConfigFile(idLoc.getResourcePath()));
     }
     
-    public static BiomeProps configureBiomeProps(String idName, PropsBuilder defaultBuilder, BOPConfig.IConfigObj conf)
+    public static BiomeProps configureBiomeProps(ResourceLocation idLoc, PropsBuilder defaultBuilder, BOPConfig.IConfigObj conf)
     {
         // If there isn't a valid config file, don't use it to configure the biome
         if (conf.isEmpty())
@@ -128,7 +129,7 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         this.canGenerateVillages = conf.getBool("canGenerateVillages", this.canGenerateVillages);
         this.canGenerateRivers = conf.getBool("canGenerateRivers", this.canGenerateRivers);
         
-        this.beachBiomeId = conf.getInt("beachBiomeId", this.beachBiomeId);
+        this.beachBiomeIdLoc = conf.getInt("beachBiomeIdLoc", this.beachBiomeIdLoc);
         
         // Allow weights to be overridden
         IConfigObj confWeights = conf.getObject("weights");
@@ -389,9 +390,9 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
     }
     
     @Override
-    public String getIdName() 
+    public ResourceLocation getIdLoc() 
     {
-        return this.idName;
+        return this.idLoc;
     }
     
     protected static class PropsBuilder

@@ -7,13 +7,13 @@ import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.init.Biomes;
 
 public class BiomeExtMushroomIsland extends ExtendedBiomeWrapper
 {
     public BiomeExtMushroomIsland()
     {
-        super(BiomeGenBase.mushroomIsland);
+        super(Biomes.mushroomIsland);
         
         // shrooms
         this.addGenerator("flat_mushroom", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.4F).with(BlockBOPMushroom.MushroomType.FLAT_MUSHROOM).create());

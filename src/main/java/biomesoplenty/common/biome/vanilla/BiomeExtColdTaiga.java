@@ -10,13 +10,13 @@ import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.init.Biomes;
 
 public class BiomeExtColdTaiga extends ExtendedBiomeWrapper
 {
     public BiomeExtColdTaiga()
     {
-        super(BiomeGenBase.coldTaiga);
+        super(Biomes.coldTaiga);
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(0.5F);

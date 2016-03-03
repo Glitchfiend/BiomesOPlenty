@@ -16,6 +16,7 @@ import biomesoplenty.api.biome.generation.IGenerator;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import biomesoplenty.common.world.BOPWorldSettings;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public interface IExtendedBiome
@@ -34,5 +35,5 @@ public interface IExtendedBiome
     
     /**Get the base biome associated with this extension**/
     public BiomeGenBase getBaseBiome();
-    public String getIdName();
+    public ResourceLocation getIdLoc();
 }

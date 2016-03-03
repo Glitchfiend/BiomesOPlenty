@@ -23,14 +23,14 @@ import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import biomesoplenty.common.world.feature.GeneratorWaterside;
 import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
 import net.minecraft.block.BlockOldLeaf;
+import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
-import net.minecraft.world.biome.BiomeGenBase;
 
 public class BiomeExtSwampland extends ExtendedBiomeWrapper
 {
     public BiomeExtSwampland()
     {
-        super(BiomeGenBase.swampland);
+        super(Biomes.swampland);
         
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(0.5F);

@@ -10,13 +10,13 @@ import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.init.Biomes;
 
 public class BiomeExtRoofedForest extends ExtendedBiomeWrapper
 {
     public BiomeExtRoofedForest()
     {
-        super(BiomeGenBase.roofedForest);
+        super(Biomes.roofedForest);
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(2.0F);

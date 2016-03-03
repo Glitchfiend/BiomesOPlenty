@@ -10,13 +10,13 @@ import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.init.Biomes;
 
 public class BiomeExtSavannaPlateau extends ExtendedBiomeWrapper
 {
     public BiomeExtSavannaPlateau()
     {
-        super(BiomeGenBase.savannaPlateau);
+        super(Biomes.savannaPlateau);
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(4.0F);

@@ -322,69 +322,69 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
     {
         // beach biomes (normal biomes rely on these being registered first)
         
-        gravel_beach = registerBOPBiome(new BiomeGenGravelBeach(), "Gravel Beach");
+        gravel_beach = registerBOPBiome(new BiomeGenGravelBeach());
         
         // normal biomes which have weights
-        alps = registerBOPBiome(new BiomeGenAlps(), "Alps");
-        bamboo_forest = registerBOPBiome(new BiomeGenBambooForest(), "Bamboo Forest");
-        bayou = registerBOPBiome(new BiomeGenBayou(), "Bayou");
-        bog = registerBOPBiome(new BiomeGenBog(), "Bog");
-        boreal_forest = registerBOPBiome(new BiomeGenBorealForest(), "Boreal Forest");
-        brushland = registerBOPBiome(new BiomeGenBrushland(), "Brushland");
-        chaparral = registerBOPBiome(new BiomeGenChaparral(), "Chaparral");
-        cherry_blossom_grove = registerBOPBiome(new BiomeGenCherryBlossomGrove(), "Cherry Blossom Grove");
-        cold_desert = registerBOPBiome(new BiomeGenColdDesert(), "Cold Desert");
-        coniferous_forest = registerBOPBiome(new BiomeGenConiferousForest(), "Coniferous Forest");
-        crag = registerBOPBiome(new BiomeGenCrag(), "Crag");
-        dead_forest = registerBOPBiome(new BiomeGenDeadForest(), "Dead Forest");
-        dead_swamp = registerBOPBiome(new BiomeGenDeadSwamp(), "Dead Swamp");
-        eucalyptus_forest = registerBOPBiome(new BiomeGenEucalyptusForest(), "Eucalyptus Forest");
-        fen = registerBOPBiome(new BiomeGenFen(), "Fen");
-        flower_field = registerBOPBiome(new BiomeGenFlowerField(), "Flower Field");
-        grassland = registerBOPBiome(new BiomeGenGrassland(), "Grassland");
-        grove = registerBOPBiome(new BiomeGenGrove(), "Grove");
-        heathland = registerBOPBiome(new BiomeGenHeathland(), "Heathland");
-        highland = registerBOPBiome(new BiomeGenHighland(), "Highland");
-        land_of_lakes = registerBOPBiome(new BiomeGenLandOfLakes(), "Land Of Lakes");
-        lavender_fields = registerBOPBiome(new BiomeGenLavenderFields(), "Lavender Fields");
-        lush_desert = registerBOPBiome(new BiomeGenLushDesert(), "Lush Desert");
-        lush_swamp = registerBOPBiome(new BiomeGenLushSwamp(), "Lush Swamp");
-        maple_woods = registerBOPBiome(new BiomeGenMapleWoods(), "Maple Woods");
-        marsh = registerBOPBiome(new BiomeGenMarsh(), "Marsh");
-        meadow = registerBOPBiome(new BiomeGenMeadow(), "Meadow");
-        moor = registerBOPBiome(new BiomeGenMoor(), "Moor");
-        mountain = registerBOPBiome(new BiomeGenMountain(BiomeGenMountain.MountainType.PEAKS), "Mountain");
-        mystic_grove = registerBOPBiome(new BiomeGenMysticGrove(), "Mystic Grove");
-        ominous_woods = registerBOPBiome(new BiomeGenOminousWoods(), "Ominous Woods");
-        orchard = registerBOPBiome(new BiomeGenOrchard(), "Orchard");
-        outback = registerBOPBiome(new BiomeGenOutback(), "Outback");
-        overgrown_cliffs = registerBOPBiome(new BiomeGenOvergrownCliffs(), "Overgrown Cliffs");
-        prairie = registerBOPBiome(new BiomeGenPrairie(), "Prairie");
-        quagmire = registerBOPBiome(new BiomeGenQuagmire(), "Quagmire");
-        rainforest = registerBOPBiome(new BiomeGenRainforest(), "Rainforest");
-        redwood_forest = registerBOPBiome(new BiomeGenRedwoodForest(), "Redwood Forest");
-        sacred_springs = registerBOPBiome(new BiomeGenSacredSprings(), "Sacred Springs");
-        seasonal_forest = registerBOPBiome(new BiomeGenSeasonalForest(), "Seasonal Forest");
-        shield = registerBOPBiome(new BiomeGenShield(), "Shield");
-        shrubland = registerBOPBiome(new BiomeGenShrubland(), "Shrubland");
-        snowy_coniferous_forest = registerBOPBiome(new BiomeGenSnowyConiferousForest(), "Snowy Coniferous Forest");
-        snowy_forest = registerBOPBiome(new BiomeGenSnowyForest(), "Snowy Forest");
-        steppe = registerBOPBiome(new BiomeGenSteppe(), "Steppe");
-        temperate_rainforest = registerBOPBiome(new BiomeGenTemperateRainforest(), "Temperate Rainforest");
-        tropical_rainforest = registerBOPBiome(new BiomeGenTropicalRainforest(), "Tropical Rainforest");
-        tundra = registerBOPBiome(new BiomeGenTundra(), "Tundra");
-        wasteland = registerBOPBiome(new BiomeGenWasteland(), "Wasteland");
-        wetland = registerBOPBiome(new BiomeGenWetland(), "Wetland");
-        woodland = registerBOPBiome(new BiomeGenWoodland(), "Woodland");
-        xeric_shrubland = registerBOPBiome(new BiomeGenXericShrubland(), "Xeric Shrubland");
+        alps = registerBOPBiome(new BiomeGenAlps());
+        bamboo_forest = registerBOPBiome(new BiomeGenBambooForest());
+        bayou = registerBOPBiome(new BiomeGenBayou());
+        bog = registerBOPBiome(new BiomeGenBog());
+        boreal_forest = registerBOPBiome(new BiomeGenBorealForest());
+        brushland = registerBOPBiome(new BiomeGenBrushland());
+        chaparral = registerBOPBiome(new BiomeGenChaparral());
+        cherry_blossom_grove = registerBOPBiome(new BiomeGenCherryBlossomGrove());
+        cold_desert = registerBOPBiome(new BiomeGenColdDesert());
+        coniferous_forest = registerBOPBiome(new BiomeGenConiferousForest());
+        crag = registerBOPBiome(new BiomeGenCrag());
+        dead_forest = registerBOPBiome(new BiomeGenDeadForest());
+        dead_swamp = registerBOPBiome(new BiomeGenDeadSwamp());
+        eucalyptus_forest = registerBOPBiome(new BiomeGenEucalyptusForest());
+        fen = registerBOPBiome(new BiomeGenFen());
+        flower_field = registerBOPBiome(new BiomeGenFlowerField());
+        grassland = registerBOPBiome(new BiomeGenGrassland());
+        grove = registerBOPBiome(new BiomeGenGrove());
+        heathland = registerBOPBiome(new BiomeGenHeathland());
+        highland = registerBOPBiome(new BiomeGenHighland());
+        land_of_lakes = registerBOPBiome(new BiomeGenLandOfLakes());
+        lavender_fields = registerBOPBiome(new BiomeGenLavenderFields());
+        lush_desert = registerBOPBiome(new BiomeGenLushDesert());
+        lush_swamp = registerBOPBiome(new BiomeGenLushSwamp());
+        maple_woods = registerBOPBiome(new BiomeGenMapleWoods());
+        marsh = registerBOPBiome(new BiomeGenMarsh());
+        meadow = registerBOPBiome(new BiomeGenMeadow());
+        moor = registerBOPBiome(new BiomeGenMoor());
+        mountain = registerBOPBiome(new BiomeGenMountain(BiomeGenMountain.MountainType.PEAKS));
+        mystic_grove = registerBOPBiome(new BiomeGenMysticGrove());
+        ominous_woods = registerBOPBiome(new BiomeGenOminousWoods());
+        orchard = registerBOPBiome(new BiomeGenOrchard());
+        outback = registerBOPBiome(new BiomeGenOutback());
+        overgrown_cliffs = registerBOPBiome(new BiomeGenOvergrownCliffs());
+        prairie = registerBOPBiome(new BiomeGenPrairie());
+        quagmire = registerBOPBiome(new BiomeGenQuagmire());
+        rainforest = registerBOPBiome(new BiomeGenRainforest());
+        redwood_forest = registerBOPBiome(new BiomeGenRedwoodForest());
+        sacred_springs = registerBOPBiome(new BiomeGenSacredSprings());
+        seasonal_forest = registerBOPBiome(new BiomeGenSeasonalForest());
+        shield = registerBOPBiome(new BiomeGenShield());
+        shrubland = registerBOPBiome(new BiomeGenShrubland());
+        snowy_coniferous_forest = registerBOPBiome(new BiomeGenSnowyConiferousForest());
+        snowy_forest = registerBOPBiome(new BiomeGenSnowyForest());
+        steppe = registerBOPBiome(new BiomeGenSteppe());
+        temperate_rainforest = registerBOPBiome(new BiomeGenTemperateRainforest());
+        tropical_rainforest = registerBOPBiome(new BiomeGenTropicalRainforest());
+        tundra = registerBOPBiome(new BiomeGenTundra());
+        wasteland = registerBOPBiome(new BiomeGenWasteland());
+        wetland = registerBOPBiome(new BiomeGenWetland());
+        woodland = registerBOPBiome(new BiomeGenWoodland());
+        xeric_shrubland = registerBOPBiome(new BiomeGenXericShrubland());
         
         // edge-biomes, sub-biomes and mutated-biomes
         
-        mountain_foothills = registerBOPBiome(new BiomeGenMountain(BiomeGenMountain.MountainType.FOOTHILLS), "Mountain Foothills");
-        glacier = registerBOPBiome(new BiomeGenGlacier(), "Glacier");
-        oasis = registerBOPBiome(new BiomeGenOasis(), "Oasis");
-        coral_reef = registerBOPBiome(new BiomeGenCoralReef(), "Coral Reef");
-        kelp_forest = registerBOPBiome(new BiomeGenKelpForest(), "Kelp Forest");
+        mountain_foothills = registerBOPBiome(new BiomeGenMountain(BiomeGenMountain.MountainType.FOOTHILLS));
+        glacier = registerBOPBiome(new BiomeGenGlacier());
+        oasis = registerBOPBiome(new BiomeGenOasis());
+        coral_reef = registerBOPBiome(new BiomeGenCoralReef());
+        kelp_forest = registerBOPBiome(new BiomeGenKelpForest());
 
         setSubBiome(Optional.of(Biomes.icePlains), BOPBiomes.glacier);
         setSubBiome(Optional.of(Biomes.desert), BOPBiomes.oasis);
@@ -393,10 +393,10 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
 
         // island biomes
         
-        origin_island = registerBOPBiome(new BiomeGenOriginIsland(), "Origin Island");
-        tropical_island = registerBOPBiome(new BiomeGenTropicalIsland(), "Tropical Island");
-        volcanic_island = registerBOPBiome(new BiomeGenVolcanicIsland(), "Volcanic Island");
-        flower_island = registerBOPBiome(new BiomeGenFlowerIsland(), "Flower Island");
+        origin_island = registerBOPBiome(new BiomeGenOriginIsland());
+        tropical_island = registerBOPBiome(new BiomeGenTropicalIsland());
+        volcanic_island = registerBOPBiome(new BiomeGenVolcanicIsland());
+        flower_island = registerBOPBiome(new BiomeGenFlowerIsland());
     
         addIslandBiome(origin_island, 1);
         addIslandBiome(tropical_island, 3);
@@ -516,7 +516,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
             
         //Add to the set of present biomes
         presentBiomes.add(extendedBiome.getBaseBiome());
-        configureBiome(extendedBiome, idName);
+        extendedBiome.configureBiome(extendedBiome, idName);
         
         //Extra functionality builtin, such as with BOPBiome
         if (extendedBiome instanceof BiomeGenBase)
@@ -625,8 +625,9 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         return BOPBiomes.REG_INSTANCE.registerBiome(extendedBiome, idName);
     }
     
-    private static Optional<BiomeGenBase> registerBOPBiome(BOPBiome biome, String idName)
+    private static Optional<BiomeGenBase> registerBOPBiome(BOPBiome biome)
     {
+        String idName = biome.getIdName();
         Integer id = biomeIdMapConf.getInt(idName, null);
         if (id == null) {id = new Integer(getNextFreeBiomeId());}
         biomeIdMap.put(idName, id);

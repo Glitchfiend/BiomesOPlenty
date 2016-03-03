@@ -1,5 +1,6 @@
 package biomesoplenty.common.biome.vanilla;
 
+import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.biome.ExtendedBiomeWrapper;
 import biomesoplenty.api.biome.generation.GeneratorStage;
@@ -11,17 +12,17 @@ import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.init.Biomes;
 
 public class BiomeExtTaigaHills extends ExtendedBiomeWrapper
 {
     public BiomeExtTaigaHills()
     {
-        super(BiomeGenBase.taigaHills);
+        super(Biomes.taigaHills);
         
         if (BOPBiomes.gravel_beach.isPresent())
         {
-        	this.beachBiomeId = BOPBiomes.gravel_beach.get().biomeID;
+            this.beachBiomeIdLoc = ((BOPBiome)BOPBiomes.gravel_beach.get()).getIdLoc();
         }
         
         // grasses

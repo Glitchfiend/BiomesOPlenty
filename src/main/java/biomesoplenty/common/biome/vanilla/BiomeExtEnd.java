@@ -9,14 +9,14 @@ import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorCrystals;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
+import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
-import net.minecraft.world.biome.BiomeGenBase;
 
 public class BiomeExtEnd extends ExtendedBiomeWrapper
 {
     public BiomeExtEnd()
     {
-        super(BiomeGenBase.sky);
+        super(Biomes.sky);
         
         //celestial crystals
         IBlockPosQuery emptyEndstone = BlockQuery.buildAnd().withAltitudeBetween(0, 50).withAirBelow().states(Blocks.end_stone.getDefaultState()).create();
