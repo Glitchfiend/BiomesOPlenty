@@ -117,6 +117,7 @@ import com.google.common.collect.Sets;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.biome.IExtendedBiome;
+import biomesoplenty.api.biome.BOPBiome.BiomeProps;
 import biomesoplenty.common.biome.overworld.BiomeGenAlps;
 import biomesoplenty.common.biome.overworld.BiomeGenBambooForest;
 import biomesoplenty.common.biome.overworld.BiomeGenBayou;
@@ -232,7 +233,6 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
     
     public static Set<BiomeGenBase> presentBiomes;
     public static Map<Integer, List<Integer>> subBiomesMap;
-    public static Map<Integer, List<Integer>> mutatedBiomesMap;
     
     public static Map<Integer, Integer> islandBiomesMap = new HashMap<Integer, Integer>();
     public static int totalIslandBiomesWeight;
@@ -273,7 +273,6 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         }
         
         initSubBiomes();
-        initMutatedBiomes();
 
         registerBiomes();
         registerBiomeDictionaryTags();
@@ -317,41 +316,6 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         // don't add any islands - those are done per climate in GenLayerBiomeIslands
         setSubBiome(Biomes.ocean, Biomes.deepOcean);
         
-    }
-    
-    public static void initMutatedBiomes()
-    {
-        mutatedBiomesMap = new HashMap<Integer, List<Integer>>();
-        
-        // Add vanilla mutated biomes
-        
-        // the mutated versions of vanilla biomes aren't actually saved to static variables in BiomeGenBase
-        // instead, they just manually create mutated versions of many of their biomes via a hard coded list in BiomeGenBase
-        // and by default assume a biome id which is the old one + 128
-        // this severely limits the number of new biomes we can add (we'd have to keep the number below 128 to avoid clashes)
-        // we hard code the list of vanilla biomes with mutated versions below, which enables other biomes to use the biome ids which are not taken
-        
-        setSubBiome(Biomes.plains, BiomeGenBase.getBiome(Biomes.plains.biomeID + 128));
-        setSubBiome(Biomes.desert, BiomeGenBase.getBiome(Biomes.desert.biomeID + 128));
-        setSubBiome(Biomes.forest, BiomeGenBase.getBiome(Biomes.forest.biomeID + 128));
-        setSubBiome(Biomes.taiga, BiomeGenBase.getBiome(Biomes.taiga.biomeID + 128));
-        setSubBiome(Biomes.swampland, BiomeGenBase.getBiome(Biomes.swampland.biomeID + 128));
-        setSubBiome(Biomes.icePlains, BiomeGenBase.getBiome(Biomes.icePlains.biomeID + 128));
-        setSubBiome(Biomes.jungle, BiomeGenBase.getBiome(Biomes.jungle.biomeID + 128));
-        setSubBiome(Biomes.jungleEdge, BiomeGenBase.getBiome(Biomes.jungleEdge.biomeID + 128));
-        setSubBiome(Biomes.coldTaiga, BiomeGenBase.getBiome(Biomes.coldTaiga.biomeID + 128));
-        setSubBiome(Biomes.savanna, BiomeGenBase.getBiome(Biomes.savanna.biomeID + 128));
-        setSubBiome(Biomes.savannaPlateau, BiomeGenBase.getBiome(Biomes.savannaPlateau.biomeID + 128));
-        setSubBiome(Biomes.mesa, BiomeGenBase.getBiome(Biomes.mesa.biomeID + 128));
-        setSubBiome(Biomes.mesaPlateau, BiomeGenBase.getBiome(Biomes.mesaPlateau.biomeID + 128));
-        setSubBiome(Biomes.mesaPlateau_F, BiomeGenBase.getBiome(Biomes.mesaPlateau_F.biomeID + 128));
-        setSubBiome(Biomes.birchForest, BiomeGenBase.getBiome(Biomes.birchForest.biomeID + 128));
-        setSubBiome(Biomes.birchForestHills, BiomeGenBase.getBiome(Biomes.birchForestHills.biomeID + 128));
-        setSubBiome(Biomes.roofedForest, BiomeGenBase.getBiome(Biomes.roofedForest.biomeID + 128));
-        setSubBiome(Biomes.megaTaiga, BiomeGenBase.getBiome(Biomes.megaTaiga.biomeID + 128));
-        setSubBiome(Biomes.extremeHills, BiomeGenBase.getBiome(Biomes.extremeHills.biomeID + 128));
-        setSubBiome(Biomes.extremeHillsPlus, BiomeGenBase.getBiome(Biomes.extremeHillsPlus.biomeID + 128));
-        setSubBiome(Biomes.megaTaigaHills, BiomeGenBase.getBiome(Biomes.megaTaigaHills.biomeID + 128));        
     }
 
     private static void registerBiomes()
@@ -422,10 +386,10 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         coral_reef = registerBOPBiome(new BiomeGenCoralReef(), "Coral Reef");
         kelp_forest = registerBOPBiome(new BiomeGenKelpForest(), "Kelp Forest");
 
-        setSubBiome(Optional.of(BiomeGenBase.icePlains), BOPBiomes.glacier);
-        setSubBiome(Optional.of(BiomeGenBase.desert), BOPBiomes.oasis);
-        setSubBiome(Optional.of(BiomeGenBase.ocean), BOPBiomes.coral_reef);
-        setSubBiome(Optional.of(BiomeGenBase.ocean), BOPBiomes.kelp_forest);
+        setSubBiome(Optional.of(Biomes.icePlains), BOPBiomes.glacier);
+        setSubBiome(Optional.of(Biomes.desert), BOPBiomes.oasis);
+        setSubBiome(Optional.of(Biomes.ocean), BOPBiomes.coral_reef);
+        setSubBiome(Optional.of(Biomes.ocean), BOPBiomes.kelp_forest);
 
         // island biomes
         
@@ -604,12 +568,18 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         return ImmutableSet.copyOf(presentBiomes);
     }
 
-    private static void setSubBiome(Optional<BiomeGenBase> parent, Optional<BiomeGenBase>... subBiomes)
+    public static BOPConfig.IConfigObj readConfigFile(String idName)
     {
-        setSubBiome(parent, false, subBiomes);
+        File configFile = new File(new File(BiomesOPlenty.configDirectory, "biomes"), idName + ".json");
+        BOPConfig.IConfigObj conf = new BOPConfig.ConfigFileObj(configFile);
+        
+        // log any warnings from parsing the config file
+        for (String msg : conf.flushMessages()) {BiomesOPlenty.logger.warn(msg);}
+        
+        return conf;
     }
     
-    private static void setSubBiome(Optional<BiomeGenBase> parent, boolean mutated, Optional<BiomeGenBase>... subBiomes)
+    private static void setSubBiome(Optional<BiomeGenBase> parent, Optional<BiomeGenBase>... subBiomes)
     {
         if (parent.isPresent())
         {
@@ -617,7 +587,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
             {
                 if (subBiome.isPresent())
                 {
-                    setSubBiome(parent.get(), mutated, subBiome.get());
+                    setSubBiome(parent.get(), subBiome.get());
                 }
             }
         }
@@ -625,12 +595,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
     
     private static void setSubBiome(BiomeGenBase parent, BiomeGenBase... subBiomes)
     {
-        setSubBiome(parent, false, subBiomes);
-    }
-    
-    private static void setSubBiome(BiomeGenBase parent, boolean mutated, BiomeGenBase... subBiomes)
-    {
-        Map<Integer, List<Integer>> map = mutated ? mutatedBiomesMap : subBiomesMap;
+        Map<Integer, List<Integer>> map = subBiomesMap;
         int parentId = parent.biomeID;
         if (!map.containsKey(parentId))
         {
@@ -651,17 +616,6 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         }
     }
     
-    private static void configureBiome(IExtendedBiome biome, String idName)
-    {
-        File configFile = new File(new File(BiomesOPlenty.configDirectory, "biomes"), idName + ".json");
-        BOPConfig.IConfigObj conf = new BOPConfig.ConfigFileObj(configFile);
-        
-        // If there was a valid config file, then use it to configure the biome
-        if (!conf.isEmpty()) {biome.configure(conf);}
-        // log any warnings from parsing the config file
-        for (String msg : conf.flushMessages()) {BiomesOPlenty.logger.warn(msg);}
-    }
-    
     private static IExtendedBiome registerWrappedBiome(IExtendedBiome extendedBiome, String idName)
     {
         //Non-wrapped biomes should not be registered this way
@@ -671,23 +625,17 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         return BOPBiomes.REG_INSTANCE.registerBiome(extendedBiome, idName);
     }
     
-    private static Optional<BiomeGenBase> registerBOPBiome(BOPBiome biome, String name)
+    private static Optional<BiomeGenBase> registerBOPBiome(BOPBiome biome, String idName)
     {
-        
-        biome.setBiomeName(name);
-        String idName = BiomeUtils.getBiomeIdentifier(biome);
-        
         Integer id = biomeIdMapConf.getInt(idName, null);
         if (id == null) {id = new Integer(getNextFreeBiomeId());}
         biomeIdMap.put(idName, id);
         
         if (id > -1) {
             BOPCommand.biomeCount++;
-            biome.biomeID = id;
 
             BOPBiomes.REG_INSTANCE.registerBiome(biome, idName);
-
-            BiomeGenBase.getBiomeGenArray()[id] = biome;
+            BiomeGenBase.registerBiome(id, idName, biome);
             
             //Enable spwning and village generation in the biome
             if (biome.canSpawnInBiome)
@@ -715,7 +663,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
     {
         for (int i = nextBiomeId; i < 256; i++)
         {
-            if (BiomeGenBase.getBiomeGenArray()[i] != null) 
+            if (BiomeGenBase.getBiome(i) != null) 
             {
                 if (i == 255) throw new IllegalArgumentException("There are no more biome ids avaliable!");
                 continue;

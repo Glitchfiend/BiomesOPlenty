@@ -8,6 +8,7 @@
 
 package biomesoplenty.api.biome;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -21,10 +22,13 @@ import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.IGenerator;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.init.ModBiomes;
+import biomesoplenty.common.util.config.BOPConfig;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.TerrainSettings;
 import biomesoplenty.common.world.feature.GeneratorFlora;
+import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.block.BlockSand;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -57,10 +61,13 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
     public boolean noNeighborTerrainInfuence = false;
     public int avgDirtDepth = 3;
     
-    public BOPBiome()
+    public final String idName;
+    
+    public BOPBiome(String idName, BiomeProps defaultProps)
     {
-        super(-1, false);
-        
+        super(configureBiome(idName, defaultProps));
+
+        this.idName = idName;
         this.terrainSettings.setDefaults();
         
         this.theBiomeDecorator.treesPerChunk = -999;
@@ -74,15 +81,17 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         this.addGenerator("roots", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(4.0F).with(BOPPlants.ROOT).create());
     }
     
-    @Override
-    public void applySettings(BOPWorldSettings settings){}
-    
-    @Override
-    public void configure(IConfigObj conf)
+    public static BiomeProps configureBiome(String idName, BiomeProps props)
     {
+        BOPConfig.IConfigObj conf = ModBiomes.readConfigFile(idName);
+     
+        // If there isn't a valid config file, don't use it to configure the biome
+        if (conf.isEmpty())
+            return props;
         
         // Allow name to be overridden
-        this.biomeName = conf.getString("biomeName",this.biomeName);
+        props = new BiomeProps(conf.getString("biomeName",props.biomeName));
+        
         
         // Allow basic properties to be overridden
         this.topBlock = conf.getBlockState("topBlock", this.topBlock);
@@ -208,7 +217,11 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
             }
         }
         
+        return props;
     }
+    
+    @Override
+    public void applySettings(BOPWorldSettings settings){}
     
 
     @Override
@@ -270,14 +283,6 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
     }
     
     @Override
-    public BiomeGenBase setTemperatureRainfall(float temp, float rain)
-    {
-        this.temperature = temp;
-        this.rainfall = rain;
-        return this;
-    }
-    
-    @Override
     public void genTerrainBlocks(World world, Random rand, ChunkPrimer primer, int x, int z, double stoneNoiseVal)
     {
 
@@ -308,14 +313,14 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
                 continue;
             }
 
-            if (state.getBlock().getMaterial() == Material.air)
+            if (state.getMaterial() == Material.air)
             {
                 // topBlocks and dirtBlocks can occur after any pocket of air
                 topBlocksToFill = (topBlock == null ? 0 : 1);
                 dirtBlocksToFill = dirtDepth;
                 continue;
             }
-            else if (!hitFloorYet && state.getBlock().getMaterial() == Material.water)
+            else if (!hitFloorYet && state.getMaterial() == Material.water)
             {
                 // seaFloorBlocks can occur after surface water
                 seaFloorBlocksToFill = seaFloorDepth;
@@ -372,5 +377,85 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
     public BiomeGenBase getBaseBiome()
     {
         return this;
+    }
+    
+    @Override
+    public String getIdName() 
+    {
+        return this.idName;
+    }
+    
+    //TODO: Convert this to a proper builder
+    private static class BiomePropsBuilder extends BiomeGenBase.BiomeProperties
+    {
+        /**The colour of this biome as seen in guis**/
+        private float guiColour = 0xffffff;
+        
+        //Copied from Vanilla's BiomeProperties to provide us with access
+        private final String biomeName;
+        private float baseHeight = 0.1F;
+        private float heightVariation = 0.2F;
+        private float temperature = 0.5F;
+        private float rainfall = 0.5F;
+        private int waterColor = 16777215;
+        private boolean enableSnow;
+        private boolean enableRain = true;
+        private String baseBiomeRegName;
+        
+        public BiomeProps(String name) { super(name); }
+        
+        public BiomeProps setGuiColour(int colour)
+        {
+            this.guiColour = colour;
+            return this;
+        }
+        
+        @Override
+        public BiomeProps setTemperature(float temperature)
+        {
+            return (BiomeProps)super.setTemperature(temperature);
+        }
+
+        @Override
+        public BiomeProps setRainfall(float rainfall)
+        {
+            return (BiomeProps) super.setRainfall(rainfall);
+        }
+
+        @Override
+        public BiomeProps setBaseHeight(float baseHeight)
+        {
+            return (BiomeProps)super.setBaseHeight(baseHeight);
+        }
+
+        @Override
+        public BiomeProps setHeightVariation(float heightVariation)
+        {
+            return (BiomeProps)super.setHeightVariation(heightVariation);
+        }
+
+        @Override
+        public BiomeProps setRainDisabled()
+        {
+            return (BiomeProps)super.setRainDisabled();
+        }
+
+        @Override
+        public BiomeProps setSnowEnabled()
+        {
+            return (BiomeProps)super.setSnowEnabled();
+        }
+
+        @Override
+        public BiomeProps setWaterColor(int waterColor)
+        {
+            return (BiomeProps)super.setWaterColor(waterColor);
+        }
+
+        @Override
+        public BiomeProps setBaseBiome(String name) 
+        { 
+            return (BiomeProps)super.setBaseBiome(name); 
+        }
     }
 }

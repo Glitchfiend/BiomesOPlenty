@@ -25,7 +25,7 @@ public class ModChecks
 			String biomeIdentifier = entry.getKey();
 			int id = entry.getValue();
 			
-			//Ensure the id is valid
+			//Ensure the id is valid (some biomes may be set to -1 as they are disabled)
 			if (id >= 0 && id <= BiomeGenBase.getBiomeGenArray().length)
 			{
 			    BiomeGenBase biome = BiomeGenBase.getBiome(id);

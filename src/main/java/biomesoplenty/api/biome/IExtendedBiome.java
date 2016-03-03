@@ -14,14 +14,12 @@ import biomesoplenty.api.biome.generation.GenerationManager;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.IGenerator;
 import biomesoplenty.common.enums.BOPClimates;
-import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import biomesoplenty.common.world.BOPWorldSettings;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public interface IExtendedBiome
 {
     public void applySettings(BOPWorldSettings settings);
-    public void configure(IConfigObj conf);
     
     public BiomeOwner getBiomeOwner();
     public void addGenerator(String name, GeneratorStage stage, IGenerator generator);
@@ -34,4 +32,5 @@ public interface IExtendedBiome
     
     /**Get the base biome associated with this extension**/
     public BiomeGenBase getBaseBiome();
+    public String getIdName();
 }

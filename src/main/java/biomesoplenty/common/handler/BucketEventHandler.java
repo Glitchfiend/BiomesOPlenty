@@ -20,6 +20,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -31,14 +32,14 @@ public class BucketEventHandler
     public void onRightClickHoldingBucket(FillBucketEvent event)
     {
         // check we're using a bucket, on a block we can modify
-        if (event.current.getItem() != Items.bucket) {return;}
-        if (event.target.typeOfHit != MovingObjectPosition.MovingObjectType.BLOCK) {return;}
-        BlockPos blockpos = event.target.getBlockPos();
-        if (!event.world.isBlockModifiable(event.entityPlayer, blockpos)) {return;}
-        if (!event.entityPlayer.canPlayerEdit(blockpos.offset(event.target.sideHit), event.target.sideHit, event.current)) {return;}
+        if (event.getEmptyBucket().getItem() != Items.bucket) {return;}
+        if (event.getTarget().typeOfHit != RayTraceResult.Type.BLOCK) {return;}
+        BlockPos blockpos = event.getTarget().getBlockPos();
+        if (!event.getWorld().isBlockModifiable(event.entityPlayer, blockpos)) {return;}
+        if (!event.entityPlayer.canPlayerEdit(blockpos.offset(event.getTarget().sideHit), event.getTarget().sideHit, event.getEmptyBucket())) {return;}
         
         // determine if the block is one of our BOP fluids
-        IBlockState iblockstate = event.world.getBlockState(blockpos);
+        IBlockState iblockstate = event.getWorld().getBlockState(blockpos);
         Item filled_bucket = null;
         if (iblockstate.getBlock() == BOPBlocks.honey && ((Integer)iblockstate.getValue(BlockHoneyFluid.LEVEL)).intValue() == 0)
         {
@@ -63,9 +64,9 @@ public class BucketEventHandler
         
         // remove the fluid and return the appropriate filled bucket
         event.setResult(Result.ALLOW);
-        event.result = new ItemStack(filled_bucket);
-        event.world.setBlockToAir(blockpos);
-        event.entityPlayer.triggerAchievement(StatList.objectUseStats[Item.getIdFromItem(event.current.getItem())]);
+        event.setFilledBucket(new ItemStack(filled_bucket));
+        event.getWorld().setBlockToAir(blockpos);
+        event.entityPlayer.triggerAchievement(StatList.objectUseStats[Item.getIdFromItem(event.getEmptyBucket().getItem())]);
     }
         
 }

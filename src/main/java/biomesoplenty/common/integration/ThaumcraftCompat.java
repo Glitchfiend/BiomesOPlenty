@@ -31,15 +31,16 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.event.FMLInterModComms;
 
+//TODO: Re-add this
 public class ThaumcraftCompat 
 {
     public static void init()
     {
-        addThaumcraftAspects();
-        addThaumcraftGolemsSupport();
+        //addThaumcraftAspects();
+        //addThaumcraftGolemsSupport();
     }
 
-    private static void addThaumcraftAspects()
+    /*private static void addThaumcraftAspects()
     {
         //Thaumcraft sets most aspects automatically, just special cases are there
 
@@ -211,5 +212,5 @@ public class ThaumcraftCompat
             list.add(aspects[i], amounts[i]);
 
         ThaumcraftApi.registerObjectTag(stack, list);
-    }
+    }*/
 }

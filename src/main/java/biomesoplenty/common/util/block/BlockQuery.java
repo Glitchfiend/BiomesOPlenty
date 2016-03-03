@@ -302,15 +302,15 @@ public class BlockQuery
                     case Desert: return block == Blocks.sand || block == Blocks.hardened_clay || block == Blocks.stained_hardened_clay || block == Blocks.dirt;
                     case Nether: return block == Blocks.soul_sand;
                     case Crop:   return block == Blocks.farmland || block == BOPBlocks.farmland_0 || block == BOPBlocks.farmland_1;
-                    case Cave:   return block.isSideSolid(world, pos, EnumFacing.UP);
+                    case Cave:   return block.isSideSolid(state, world, pos, EnumFacing.UP);
                     case Plains: return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPBlocks.farmland_0 || block == BOPBlocks.farmland_1 || block == Blocks.mycelium;
-                    case Water:  return block.getMaterial() == Material.water && ((Integer)state.getValue(BlockLiquid.LEVEL)) == 0;
+                    case Water:  return state.getMaterial() == Material.water && ((Integer)state.getValue(BlockLiquid.LEVEL)) == 0;
                     case Beach:
                         boolean isBeach = block == Blocks.grass || block == Blocks.dirt || block == Blocks.sand || block == Blocks.mycelium;
-                        boolean hasWater = (world.getBlockState(pos.east()).getBlock().getMaterial() == Material.water ||
-                                            world.getBlockState(pos.west()).getBlock().getMaterial() == Material.water ||
-                                            world.getBlockState(pos.north()).getBlock().getMaterial() == Material.water ||
-                                            world.getBlockState(pos.south()).getBlock().getMaterial() == Material.water);
+                        boolean hasWater = (world.getBlockState(pos.east()).getMaterial() == Material.water ||
+                                            world.getBlockState(pos.west()).getMaterial() == Material.water ||
+                                            world.getBlockState(pos.north()).getMaterial() == Material.water ||
+                                            world.getBlockState(pos.south()).getMaterial() == Material.water);
                         return isBeach && hasWater;
                 }
                 return false;  
@@ -496,7 +496,7 @@ public class BlockQuery
         @Override
         public boolean matches(IBlockState state)
         {
-            return this.materials.contains(state.getBlock().getMaterial());
+            return this.materials.contains(state.getMaterial());
         }
         
         public static IBlockQuery of(String materialName, boolean negated) throws BlockQueryParseException

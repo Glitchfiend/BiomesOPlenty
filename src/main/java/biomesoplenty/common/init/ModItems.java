@@ -123,6 +123,7 @@ import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor;
@@ -136,6 +137,7 @@ import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
@@ -163,7 +165,7 @@ public class ModItems
         saladfruit =        registerItem(new ItemSoup(6), "saladfruit");
         ((ItemFood)saladfruit).setPotionEffect(Potion.digSpeed.id, 775, 1, 0.05F);
         saladveggie =       registerItem(new ItemSoup(6), "saladveggie");
-        ((ItemFood)saladveggie).setPotionEffect(Potion.nightVision.id, 1100, 1, 0.05F); // TODO: Is this the right potion effect for veggie salad?
+        ((ItemFood)saladveggie).setPotionEffect(new PotionEffect(MobEffects.nightVision, 1100, 1), 0.05F); // TODO: Is this the right potion effect for veggie salad?
         saladshroom =       registerItem(new ItemSoup(6), "saladshroom");
         ((ItemFood)saladshroom).setPotionEffect(Potion.jump.id, 550, 1, 0.05F);
         ricebowl =          registerItem(new ItemSoup(2), "ricebowl");
@@ -271,7 +273,7 @@ public class ModItems
         stone_scythe = registerItem(new ItemBOPScythe(ToolMaterial.STONE), "stone_scythe");
         iron_scythe = registerItem(new ItemBOPScythe(ToolMaterial.IRON), "iron_scythe");
         gold_scythe = registerItem(new ItemBOPScythe(ToolMaterial.GOLD), "gold_scythe");
-        diamond_scythe = registerItem(new ItemBOPScythe(ToolMaterial.EMERALD), "diamond_scythe");
+        diamond_scythe = registerItem(new ItemBOPScythe(ToolMaterial.DIAMOND), "diamond_scythe");
         amethyst_scythe = registerItem(new ItemBOPScythe(amethyst_tool_material), "amethyst_scythe");
         
         dart = registerItem(new ItemDart(), "dart");

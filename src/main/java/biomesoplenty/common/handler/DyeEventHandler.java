@@ -24,7 +24,7 @@ public class DyeEventHandler
     @SubscribeEvent
     public void entityInteract(EntityInteractEvent event)
     {
-        ItemStack stack = event.entityPlayer.getCurrentEquippedItem();
+        ItemStack stack = event.entityPlayer.getHeldItem(event.getHand());
         if (stack == null) {return;}
         
         Item item = stack.getItem();
@@ -36,7 +36,7 @@ public class DyeEventHandler
         else if (item == BOPItems.white_dye) {dyeColor = EnumDyeColor.WHITE;}
         else {return;}
 
-        Entity target = event.target;
+        Entity target = event.getTarget();
         if (target instanceof EntityWolf)
         {
             EntityWolf wolf = (EntityWolf)target;

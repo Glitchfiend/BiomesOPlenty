@@ -7,6 +7,7 @@ import biomesoplenty.common.entities.projectiles.dispenser.DispenserBehaviorMudb
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPTrees;
 import net.minecraft.block.BlockDispenser;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraftforge.common.ChestGenHooks;
@@ -38,31 +39,31 @@ public class ModVanillaCompat
 		ChestGenHooks bonusChest = ChestGenHooks.getInfo(ChestGenHooks.BONUS_CHEST);
 		ChestGenHooks netherFortress = ChestGenHooks.getInfo(ChestGenHooks.NETHER_FORTRESS);
 
-		bonusChest.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.peach), 1, 3, 10));
-		bonusChest.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.pear), 1, 3, 10));
-		bonusChest.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.persimmon), 1, 3, 10));
+		bonusChest.addItem(new WeightedRandomChestContent(BOPItems.peach, 0, 1, 3, 10));
+		bonusChest.addItem(new WeightedRandomChestContent(BOPItems.pear, 0, 1, 3, 10));
+		bonusChest.addItem(new WeightedRandomChestContent(BOPItems.persimmon, 0, 1, 3, 10));
 		
-		netherFortress.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.fleshchunk), 2, 6, 5));
-		netherFortress.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.honeycomb), 2, 6, 5));
-		netherFortress.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.filled_honeycomb), 2, 6, 3));
+		netherFortress.addItem(new WeightedRandomChestContent(BOPItems.fleshchunk, 0, 2, 6, 5));
+		netherFortress.addItem(new WeightedRandomChestContent(BOPItems.honeycomb, 0, 2, 6, 5));
+		netherFortress.addItem(new WeightedRandomChestContent(BOPItems.filled_honeycomb, 0, 2, 6, 3));
 		
-		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.turnip_seeds), 3, 6, 25));
-		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.gem, 1, BOPGems.RUBY.ordinal()), 1, 4, 3));
-		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.gem, 1, BOPGems.AMBER.ordinal()), 1, 4, 3));
-		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.gem, 1, BOPGems.MALACHITE.ordinal()), 1, 4, 3));
-		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.gem, 1, BOPGems.PERIDOT.ordinal()), 1, 4, 3));
-		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.gem, 1, BOPGems.SAPPHIRE.ordinal()), 1, 4, 3));
-		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.gem, 1, BOPGems.TANZANITE.ordinal()), 1, 4, 3));
-		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.gem, 1, BOPGems.TOPAZ.ordinal()), 1, 4, 3));
+		mineshaft.addItem(new WeightedRandomChestContent(BOPItems.turnip_seeds, 0, 3, 6, 25));
+		mineshaft.addItem(new WeightedRandomChestContent(BOPItems.gem, BOPGems.RUBY.ordinal(), 1, 4, 3));
+		mineshaft.addItem(new WeightedRandomChestContent(BOPItems.gem, BOPGems.AMBER.ordinal(), 1, 4, 3));
+		mineshaft.addItem(new WeightedRandomChestContent(BOPItems.gem, BOPGems.MALACHITE.ordinal(), 1, 4, 3));
+		mineshaft.addItem(new WeightedRandomChestContent(BOPItems.gem, BOPGems.PERIDOT.ordinal(), 1, 4, 3));
+		mineshaft.addItem(new WeightedRandomChestContent(BOPItems.gem, BOPGems.SAPPHIRE.ordinal(), 1, 4, 3));
+		mineshaft.addItem(new WeightedRandomChestContent(BOPItems.gem, BOPGems.TANZANITE.ordinal(), 1, 4, 3));
+		mineshaft.addItem(new WeightedRandomChestContent(BOPItems.gem, BOPGems.TOPAZ.ordinal(), 1, 4, 3));
 		
-		strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(BOPBlocks.sapling_1, 1, BOPTrees.SACRED_OAK.ordinal()), 1, 1, 1));
-		strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(BOPBlocks.sapling_1, 1, BOPTrees.SACRED_OAK.ordinal()), 1, 1, 1));
-		strongholdLibrary.addItem(new WeightedRandomChestContent(new ItemStack(BOPBlocks.sapling_1, 1, BOPTrees.SACRED_OAK.ordinal()), 1, 1, 1));
+		strongholdCorridor.addItem(new WeightedRandomChestContent(Item.getItemFromBlock(BOPBlocks.sapling_1), BOPTrees.SACRED_OAK.ordinal(), 1, 1, 1));
+		strongholdCrossing.addItem(new WeightedRandomChestContent(Item.getItemFromBlock(BOPBlocks.sapling_1), BOPTrees.SACRED_OAK.ordinal(), 1, 1, 1));
+		strongholdLibrary.addItem(new WeightedRandomChestContent(Item.getItemFromBlock(BOPBlocks.sapling_1), BOPTrees.SACRED_OAK.ordinal(), 1, 1, 1));
 		
-		village.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.wading_boots), 1, 1, 15));
-		village.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.flippers), 1, 1, 15));
+		village.addItem(new WeightedRandomChestContent(BOPItems.wading_boots, 0, 1, 1, 15));
+		village.addItem(new WeightedRandomChestContent(BOPItems.flippers, 0, 1, 1, 15));
 		
-		desertTemple.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.gem, 1, BOPGems.RUBY.ordinal()), 2, 8, 10));
-		jungleTemple.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.gem, 1, BOPGems.TOPAZ.ordinal()), 2, 8, 10));
+		desertTemple.addItem(new WeightedRandomChestContent(BOPItems.gem, BOPGems.RUBY.ordinal(), 2, 8, 10));
+		jungleTemple.addItem(new WeightedRandomChestContent(BOPItems.gem, BOPGems.TOPAZ.ordinal(), 2, 8, 10));
 	}
 }

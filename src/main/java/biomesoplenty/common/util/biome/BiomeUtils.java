@@ -16,6 +16,7 @@ import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.BiomeProvider;
 import net.minecraft.world.gen.ChunkProviderSettings;
 
 public class BiomeUtils
@@ -33,16 +34,6 @@ public class BiomeUtils
         }
     }
     
-    //TODO: This MUST be replaced with Vanilla's new proper identifiers
-    @Deprecated
-    public static String getBiomeIdentifier(BiomeGenBase biome)
-    {
-        // Vanilla Biomes are typically named in upper camel case, sometimes with spaces
-        // We follow the same convention with BOP Biomes
-        // return a standardised identifier for use in json files, etc by converting to lowercase with underscores 
-        return CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, biome.getBiomeName().replace(" ", ""));
-    }
-    
     public static BlockPos spiralOutwardsLookingForBiome(World world, BiomeGenBase biomeToFind, double startX, double startZ)
     {
         int sampleSpacing = 4 << BiomeUtils.getBiomeSize(world);
@@ -56,7 +47,7 @@ public class BiomeUtils
     {
         
         if (maxDist <= 0 || sampleSpace <= 0) {throw new IllegalArgumentException("maxDist and sampleSpace must be positive");}
-        WorldChunkManager chunkManager = world.getWorldChunkManager();
+        BiomeProvider chunkManager = world.getWorldChunkManager();
         double a = sampleSpace / Math.sqrt(Math.PI);
         double b = 2 * Math.sqrt(Math.PI);
         double x = 0;

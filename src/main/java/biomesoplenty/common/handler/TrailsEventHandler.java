@@ -57,7 +57,7 @@ public class TrailsEventHandler
 			    
                 BlockPos groundPos = playerPos.add(offsetX, -1, offsetZ);
                 
-			    if (!world.isAirBlock(groundPos) && world.getBlockState(groundPos).getBlock().isSideSolid(world, groundPos, EnumFacing.UP)) //Only place particles on blocks with a solid top
+			    if (!world.isAirBlock(groundPos) && world.getBlockState(groundPos).isSideSolid(world, groundPos, EnumFacing.UP)) //Only place particles on blocks with a solid top
 			    {
 			        if (player.posX != player.prevPosX || player.posZ != player.prevPosZ) //Particles should only spawn if the player is moving
 			        {

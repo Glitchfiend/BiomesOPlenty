@@ -13,7 +13,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiCreateWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
-import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.biome.BiomeProvider;
+import net.minecraft.world.chunk.IChunkGenerator;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -27,13 +28,13 @@ public class WorldTypeBOP extends WorldType
     }
     
     @Override
-    public WorldChunkManager getChunkManager(World world)
+    public BiomeProvider getBiomeProvider(World world)
     {
         return new BiomeProviderBOP(world);
     }
     
     @Override
-    public IChunkProvider getChunkGenerator(World world, String generatorOptions)
+    public IChunkGenerator getChunkGenerator(World world, String generatorOptions)
     {
         return new ChunkProviderGenerateBOP(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), generatorOptions);
         //return new ChunkProviderGenerateVanilla(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), generatorOptions);

@@ -17,17 +17,16 @@ import biomesoplenty.common.world.feature.GeneratorLakes;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.world.biome.BiomeGenBase;
 
 public class BiomeGenAlps extends BOPBiome
 {
     public BiomeGenAlps()
     {
+        super(new BiomeProps("Alps").setGuiColour(13421772).setSnowEnabled().setTemperature(-0.5F).setRainfall(0.3F));
+        
         // terrain
         this.terrainSettings.avgHeight(198).heightVariation(12, 12).octaves(1, 1, 2, 2, 3, 3);
-        
-        this.setColor(13421772);
-        this.setEnableSnow();
-        this.setTemperatureRainfall(-0.5F, 0.3F);
 
         this.canGenerateRivers = false;
         this.canSpawnInBiome = false;
