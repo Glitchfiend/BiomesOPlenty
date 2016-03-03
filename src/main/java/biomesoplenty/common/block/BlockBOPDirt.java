@@ -21,6 +21,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
@@ -51,7 +52,7 @@ public class BlockBOPDirt extends Block implements IBOPBlock, ISustainsPlantType
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", BOPDirtType.class);
     public static final PropertyBool COARSE = PropertyBool.create("coarse");
     @Override
-    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { COARSE, VARIANT });}
+    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, new IProperty[] { COARSE, VARIANT });}
 
     // implement IBOPBlock
     @Override

@@ -20,6 +20,7 @@ import net.minecraft.block.BlockFarmland;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -54,10 +55,10 @@ public class BlockBOPFarmland extends BlockFarmland implements IBOPBlock
     public IProperty variantProperty;
 
     @Override
-    protected BlockState createBlockState()
+    protected BlockStateContainer createBlockState()
     {
         this.variantProperty = currentVariantProperty;
-        return new BlockState(this, new IProperty[] { MOISTURE, this.variantProperty });
+        return new BlockStateContainer(this, new IProperty[] { MOISTURE, this.variantProperty });
     }
 
     @Override

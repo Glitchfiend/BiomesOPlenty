@@ -19,6 +19,7 @@ import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -69,10 +70,10 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     public IProperty variantProperty;
     
     @Override
-    protected BlockState createBlockState()
+    protected BlockStateContainer createBlockState()
     {
         this.variantProperty = currentVariantProperty; // get from static variable
-        return new BlockState(this, new IProperty[] { CHECK_DECAY, DECAYABLE, this.variantProperty });
+        return new BlockStateContainer(this, new IProperty[] { CHECK_DECAY, DECAYABLE, this.variantProperty });
     }
     
     

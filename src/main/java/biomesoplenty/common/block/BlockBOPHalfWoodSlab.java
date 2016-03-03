@@ -20,6 +20,7 @@ import net.minecraft.block.BlockSlab;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
@@ -64,10 +65,10 @@ public class BlockBOPHalfWoodSlab extends BlockSlab implements IBOPBlock
     
     // add properties (note we inherit HALF property from parent BlockSlab)
     @Override
-    protected BlockState createBlockState()
+    protected BlockStateContainer createBlockState()
     {
         this.variantProperty = currentVariantProperty; // get from static variable
-        return new BlockState(this, new IProperty[] { HALF, this.variantProperty });
+        return new BlockStateContainer(this, new IProperty[] { HALF, this.variantProperty });
     }
     
     // implement IBOPBlock

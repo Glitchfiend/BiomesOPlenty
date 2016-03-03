@@ -22,6 +22,7 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.particle.EffectRenderer;
 import net.minecraft.entity.Entity;
@@ -61,7 +62,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
     };
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", BOPGrassType.class);
     @Override
-    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { SNOWY, VARIANT });}
+    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, new IProperty[] { SNOWY, VARIANT });}
     
     
     // implement IBOPBlock

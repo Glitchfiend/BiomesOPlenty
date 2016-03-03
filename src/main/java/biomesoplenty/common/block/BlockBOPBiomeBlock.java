@@ -19,6 +19,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Biomes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.BlockPos;
@@ -47,16 +48,16 @@ public class BlockBOPBiomeBlock extends BlockBOPGeneric
         
         List<BiomeGenBase> vanillaBiomesToExclude = Arrays.asList(
             new BiomeGenBase[] {
-                BiomeGenBase.sky,
-                BiomeGenBase.hell,
-                BiomeGenBase.beach,
-                BiomeGenBase.coldBeach,
-                BiomeGenBase.stoneBeach,
-                BiomeGenBase.ocean,
-                BiomeGenBase.frozenOcean,
-                BiomeGenBase.deepOcean,
-                BiomeGenBase.river,
-                BiomeGenBase.frozenRiver
+                Biomes.sky,
+                Biomes.hell,
+                Biomes.beach,
+                Biomes.coldBeach,
+                Biomes.stoneBeach,
+                Biomes.ocean,
+                Biomes.frozenOcean,
+                Biomes.deepOcean,
+                Biomes.river,
+                Biomes.frozenRiver
             }
         );
         

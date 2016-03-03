@@ -13,11 +13,11 @@ import static net.minecraft.block.BlockLiquid.LEVEL;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.item.ItemBOPBlock;
-import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
@@ -65,7 +65,7 @@ public class BlockBOPSeaweed extends BlockBOPDecoration implements IBOPBlock
     public static final PropertyEnum POSITION = PropertyEnum.create("position", SeaweedPosition.class);
 
     @Override
-    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { LEVEL, POSITION, VARIANT });}
+    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, new IProperty[] { LEVEL, POSITION, VARIANT });}
     
     
     // implement IBOPBlock

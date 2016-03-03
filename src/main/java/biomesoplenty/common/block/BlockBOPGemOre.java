@@ -21,6 +21,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -34,7 +35,7 @@ public class BlockBOPGemOre extends Block implements IBOPBlock
     
     // add properties (note VARIANT is imported statically from the BlockGem class)
     @Override
-    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { VARIANT });}
+    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, new IProperty[] { VARIANT });}
 
     
     // implement IBOPBlock

@@ -18,7 +18,7 @@ import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.util.block.BlockStateUtils;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.state.BlockStateBase;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -57,7 +57,7 @@ public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements ISh
     };
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", DoublePlantType.class);
     @Override
-    protected BlockState createBlockState() {return new BlockStateBase(this, new IProperty[] { HALF, VARIANT });}
+    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, new IProperty[] { HALF, VARIANT });}
     
     
     // implement IBOPBlock

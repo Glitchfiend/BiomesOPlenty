@@ -16,6 +16,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemBlock;
@@ -45,7 +46,7 @@ public class BlockBOPStone extends Block implements IBOPBlock
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", StoneType.class);
     public static PropertyBool POLISHED = PropertyBool.create("polished");
     @Override
-    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { VARIANT, POLISHED });}
+    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, new IProperty[] { VARIANT, POLISHED });}
     
     
     // implement IBOPBlock

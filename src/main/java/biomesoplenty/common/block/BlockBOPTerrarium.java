@@ -14,6 +14,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.IStringSerializable;
@@ -40,7 +41,7 @@ public class BlockBOPTerrarium extends Block implements IBOPBlock
     };
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", TerrariumType.class);
     @Override
-    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { VARIANT });}
+    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, new IProperty[] { VARIANT });}
 
     
     // implement IBOPBlock

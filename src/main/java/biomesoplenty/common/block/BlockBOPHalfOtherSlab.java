@@ -19,6 +19,7 @@ import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -66,7 +67,7 @@ public class BlockBOPHalfOtherSlab extends BlockSlab implements IBOPBlock
     // add properties (note we inherit HALF property from parent BlockSlab)
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", SlabType.class);
     @Override
-    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { HALF, VARIANT });}
+    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, new IProperty[] { HALF, VARIANT });}
     
     
     // implement IBOPBlock

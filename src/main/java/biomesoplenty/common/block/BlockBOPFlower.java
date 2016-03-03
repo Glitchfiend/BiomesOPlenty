@@ -19,6 +19,7 @@ import biomesoplenty.common.item.ItemBOPFlower;
 import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -68,10 +69,10 @@ public class BlockBOPFlower extends BlockBOPDecoration implements IShearable
     public IProperty variantProperty;
     
     @Override
-    protected BlockState createBlockState()
+    protected BlockStateContainer createBlockState()
     {
         this.variantProperty = currentVariantProperty; // get from static variable
-        return new BlockState(this, new IProperty[] { this.variantProperty });
+        return new BlockStateContainer(this, new IProperty[] { this.variantProperty });
     }
         
     

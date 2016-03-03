@@ -16,6 +16,8 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.block.state.BlockStateBase;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
@@ -32,7 +34,7 @@ public class BlockBOPBamboo extends BlockBOPDecoration
     // add properties
     public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 15);
     @Override
-    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { AGE });}
+    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, new IProperty[] { AGE });}
     
     
     public BlockBOPBamboo()

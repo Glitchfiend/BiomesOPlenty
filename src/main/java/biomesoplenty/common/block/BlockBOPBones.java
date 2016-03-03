@@ -15,6 +15,7 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemBlock;
@@ -49,7 +50,7 @@ public class BlockBOPBones extends Block implements IBOPBlock
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", BoneType.class);
     public static final PropertyEnum AXIS = PropertyEnum.create("axis", EnumFacing.Axis.class);
     @Override
-    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { AXIS, VARIANT });}
+    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, new IProperty[] { AXIS, VARIANT });}
 
     
     // implement IBOPBlock

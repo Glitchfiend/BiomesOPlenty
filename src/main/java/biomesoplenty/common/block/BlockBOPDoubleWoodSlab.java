@@ -18,8 +18,10 @@ import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.util.block.BlockStateUtils;
 import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.BlockSlab;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
@@ -64,10 +66,10 @@ public class BlockBOPDoubleWoodSlab extends BlockSlab implements IBOPBlock
     
     // add properties (note we inherit HALF property from parent BlockSlab)
     @Override
-    protected BlockState createBlockState()
+    protected BlockStateContainer createBlockState()
     {
         this.variantProperty = currentVariantProperty; // get from static variable
-        return new BlockState(this, new IProperty[] { HALF, this.variantProperty });
+        return new BlockStateContainer(this, new IProperty[] { HALF, this.variantProperty });
     }
 
     // implement IBOPBlock
@@ -90,7 +92,7 @@ public class BlockBOPDoubleWoodSlab extends BlockSlab implements IBOPBlock
     {
         super(Material.wood);
         this.useNeighborBrightness = true;
-        this.setHardness(2.0F).setResistance(5.0F).setStepSound(soundTypeWood);
+        this.setHardness(2.0F).setResistance(5.0F).setStepSound(SoundType.WOOD);
         this.setHarvestLevel("axe", 0);
         this.setDefaultState(this.blockState.getBaseState().withProperty(HALF, BlockSlab.EnumBlockHalf.BOTTOM));
     }

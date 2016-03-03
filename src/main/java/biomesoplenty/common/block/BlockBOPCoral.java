@@ -11,11 +11,11 @@ package biomesoplenty.common.block;
 import static net.minecraft.block.BlockLiquid.LEVEL;
 
 import biomesoplenty.api.block.BlockQueries;
-import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
@@ -41,7 +41,7 @@ public class BlockBOPCoral extends BlockBOPDecoration
     };
     public static PropertyEnum VARIANT = PropertyEnum.create("variant", CoralType.class);
     @Override
-    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { LEVEL, VARIANT });}  
+    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, new IProperty[] { LEVEL, VARIANT });}  
 
     // implement IBOPBlock
     @Override
