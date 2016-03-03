@@ -163,11 +163,11 @@ public class GeneratorBasicTree extends GeneratorTreeBase
             {
                 BlockPos soilPos = pos.down();
                 Block soil = world.getBlockState(soilPos).getBlock();
-                boolean isSoil = soil.canSustainPlant(world, soilPos, EnumFacing.UP, (BlockSapling)Blocks.sapling);
+                boolean isSoil = soil.canSustainPlant(world.getBlockState(soilPos), world, soilPos, EnumFacing.UP, (BlockSapling)Blocks.sapling);
 
                 if (this.placeOn.matches(world, soilPos) && isSoil && pos.getY() < 256 - height - 1)
                 {
-                    soil.onPlantGrow(world, soilPos, pos);
+                    soil.onPlantGrow(world.getBlockState(soilPos), world, soilPos, pos);
                     int leavesLayers = (this.leafLayers - 1);
                     
                     //Generates leaves at the top of the tree, going one block above the top log (<= rather than <)
@@ -234,7 +234,7 @@ public class GeneratorBasicTree extends GeneratorTreeBase
                                     BlockPos blockpos3 = new BlockPos(x, y, z);
 
                                     //Surround leaves on the edge of the tree with vines and extend them downwards
-                                    if (world.getBlockState(blockpos3).getBlock().isLeaves(world, blockpos3))
+                                    if (world.getBlockState(blockpos3).getBlock().isLeaves(world.getBlockState(blockpos3), world, blockpos3))
                                     {
                                         BlockPos westPos = blockpos3.west();
                                         BlockPos eastPos = blockpos3.east();

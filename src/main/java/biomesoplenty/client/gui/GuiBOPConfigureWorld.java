@@ -19,6 +19,7 @@ import net.minecraft.client.gui.GuiSlider;
 import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.VertexBuffer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.resources.I18n;
 import net.minecraftforge.fml.relauncher.Side;
@@ -636,7 +637,7 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
             GlStateManager.disableLighting();
             GlStateManager.disableFog();
             Tessellator tessellator = Tessellator.getInstance();
-            WorldRenderer worldrenderer = tessellator.getWorldRenderer();
+            VertexBuffer worldrenderer = tessellator.getBuffer();
             this.mc.getTextureManager().bindTexture(optionsBackground);
             GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
             worldrenderer.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR);

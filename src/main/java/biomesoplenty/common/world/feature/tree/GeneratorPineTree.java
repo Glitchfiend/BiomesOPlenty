@@ -57,7 +57,7 @@ public class GeneratorPineTree extends GeneratorTreeBase
     {
         
         // Move down until we reach the ground
-        while (pos.getY() > 1 && world.isAirBlock(pos) || world.getBlockState(pos).getBlock().isLeaves(world, pos)) {pos = pos.down();}
+        while (pos.getY() > 1 && world.isAirBlock(pos) || world.getBlockState(pos).getBlock().isLeaves(world.getBlockState(pos), world, pos)) {pos = pos.down();}
         
         if (!this.placeOn.matches(world, pos))
         {

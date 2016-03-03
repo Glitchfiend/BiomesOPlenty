@@ -118,6 +118,6 @@ public abstract class GeneratorHugeTree extends GeneratorTreeBase
     //Just a helper macro
     private void onPlantGrow(World world, BlockPos pos, BlockPos source)
     {
-        world.getBlockState(pos).getBlock().onPlantGrow(world, pos, source);
+        world.getBlockState(pos).getBlock().onPlantGrow(world.getBlockState(pos), world, pos, source);
     }
 }

@@ -182,7 +182,7 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
         if (this.vine == null) {return false;}
         IBlockState vineState = this.vine.getBlock() instanceof BlockVine ? this.vine.withProperty(BlockVine.NORTH, Boolean.valueOf(side == EnumFacing.NORTH)).withProperty(BlockVine.EAST, Boolean.valueOf(side == EnumFacing.EAST)).withProperty(BlockVine.SOUTH, Boolean.valueOf(side == EnumFacing.SOUTH)).withProperty(BlockVine.WEST, Boolean.valueOf(side == EnumFacing.WEST)) : this.vine;
         boolean setOne = false;
-        while (world.getBlockState(pos).getBlock().isAir(world, pos) && length > 0 && rand.nextInt(12) > 0)
+        while (world.getBlockState(pos).getBlock().isAir(world.getBlockState(pos), world, pos) && length > 0 && rand.nextInt(12) > 0)
         {
             world.setBlockState(pos, vineState, 2);
             setOne = true;

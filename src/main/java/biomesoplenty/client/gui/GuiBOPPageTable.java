@@ -209,7 +209,7 @@ public class GuiBOPPageTable extends GuiBOPPageList
         guitextfield.setText(field.getLabelText());
         guitextfield.func_175207_a(this.responder); // setResponder
         guitextfield.setVisible(field.isVisible());
-        guitextfield.func_175205_a(field.getValidator()); // setValidator
+        guitextfield.setValidator(field.getValidator()); // setValidator
         return guitextfield;
     }
 

@@ -9,6 +9,7 @@ import biomesoplenty.common.remote.TrailManager;
 import biomesoplenty.common.util.entity.PlayerUtil;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.fml.client.config.DummyConfigElement;
 import net.minecraftforge.fml.client.config.GuiConfig;
@@ -30,12 +31,12 @@ public class GuiBOPConfig extends GuiConfig
         List<IConfigElement> textureSettings = new ConfigElement(MiscConfigurationHandler.config.getCategory(MiscConfigurationHandler.textureSettings.toLowerCase())).getChildElements();
         List<IConfigElement> trailSettings = new ConfigElement(MiscConfigurationHandler.config.getCategory(MiscConfigurationHandler.trailSettings.toLowerCase())).getChildElements();
 
-        list.add(new DummyConfigElement.DummyCategoryElement(StatCollector.translateToLocal("config.category.convenienceSettings.title"), "config.category.convenienceSettings", convenienceSettings));
-        list.add(new DummyConfigElement.DummyCategoryElement(StatCollector.translateToLocal("config.category.guiSettings.title"), "config.category.guiSettings", guiSettings));
-        list.add(new DummyConfigElement.DummyCategoryElement(StatCollector.translateToLocal("config.category.textureSettings.title"), "config.category.textureSettings", textureSettings));
+        list.add(new DummyConfigElement.DummyCategoryElement(I18n.translateToLocal("config.category.convenienceSettings.title"), "config.category.convenienceSettings", convenienceSettings));
+        list.add(new DummyConfigElement.DummyCategoryElement(I18n.translateToLocal("config.category.guiSettings.title"), "config.category.guiSettings", guiSettings));
+        list.add(new DummyConfigElement.DummyCategoryElement(I18n.translateToLocal("config.category.textureSettings.title"), "config.category.textureSettings", textureSettings));
         if (TrailManager.trailsMap.containsKey(PlayerUtil.getClientPlayerUUID()))
         {
-            list.add(new DummyConfigElement.DummyCategoryElement(StatCollector.translateToLocal("config.category.trailSettings.title"), "config.category.trailSettings", trailSettings));
+            list.add(new DummyConfigElement.DummyCategoryElement(I18n.translateToLocal("config.category.trailSettings.title"), "config.category.trailSettings", trailSettings));
         }
 
         return list;

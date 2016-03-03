@@ -138,7 +138,7 @@ public class GeneratorRedwoodTree extends GeneratorTreeBase
     public boolean generate(World world, Random random, BlockPos pos) 
     {
         // Move down until we reach the ground
-        while (pos.getY() > 1 && world.isAirBlock(pos) || world.getBlockState(pos).getBlock().isLeaves(world, pos)) {pos = pos.down();}
+        while (pos.getY() > 1 && world.isAirBlock(pos) || world.getBlockState(pos).getBlock().isLeaves(world.getBlockState(pos), world, pos)) {pos = pos.down();}
         
         // Choose heights
         int height = GeneratorUtils.nextIntBetween(random, this.minHeight, this.maxHeight);

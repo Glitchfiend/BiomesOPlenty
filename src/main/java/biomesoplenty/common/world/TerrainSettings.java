@@ -103,9 +103,9 @@ public class TerrainSettings
     {
         // Transform vanilla height parameters into equivalent BOP terrain parameters
         // Note they're named appallingly - minHeight and maxHeight in the vanilla biomes should be called baseHeight and scale
-        double avgHeight = 65 + 17 * biome.minHeight;
-        double variationAbove = 7 + 20 * 4 * biome.maxHeight;
-        double variationBelow = 4 + 20 * biome.maxHeight;
+        double avgHeight = 65 + 17 * biome.getBaseHeight();
+        double variationAbove = 7 + 20 * 4 * biome.getHeightVariation();
+        double variationBelow = 4 + 20 * biome.getHeightVariation();
         
         return (new TerrainSettings()).setDefaults().avgHeight(avgHeight).heightVariation(variationAbove, variationBelow).sidewaysNoise(0.9D);
 

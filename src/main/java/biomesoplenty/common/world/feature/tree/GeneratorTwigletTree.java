@@ -67,7 +67,7 @@ public class GeneratorTwigletTree extends GeneratorTreeBase
     {
 
         // Move down until we reach the ground
-        while (startPos.getY() > 1 && world.isAirBlock(startPos) || world.getBlockState(startPos).getBlock().isLeaves(world, startPos)) {startPos = startPos.down();}
+        while (startPos.getY() > 1 && world.isAirBlock(startPos) || world.getBlockState(startPos).getBlock().isLeaves(world.getBlockState(startPos), world, startPos)) {startPos = startPos.down();}
         
         if (!this.placeOn.matches(world, startPos))
         {
