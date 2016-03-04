@@ -38,11 +38,10 @@ public class BiomeGenCherryBlossomGrove extends BOPBiome
 {
     public BiomeGenCherryBlossomGrove()
     {
+        super("cherry_blossom_grove", new PropsBuilder("Cherry Blossom Grove").withGuiColour(0xF88F8F).withTemperature(0.55F).withRainfall(0.8F));
+        
         // terrain
         this.terrainSettings.avgHeight(63).heightVariation(5, 25).sidewaysNoise(0.8F);
-        
-        this.setColor(0xF88F8F);
-        this.setTemperatureRainfall(0.55F, 0.8F);
         
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;

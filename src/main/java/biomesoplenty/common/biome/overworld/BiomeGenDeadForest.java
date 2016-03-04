@@ -36,6 +36,8 @@ public class BiomeGenDeadForest extends BOPBiome
 {    
     public BiomeGenDeadForest()
     {
+        super("dead_forest", new PropsBuilder("Dead Forest").withGuiColour(0xBCA165).withTemperature(0.3F).withRainfall(0.3F));
+        
         // terrain
         this.terrainSettings.avgHeight(68).heightVariation(8, 25);
         
@@ -47,11 +49,8 @@ public class BiomeGenDeadForest extends BOPBiome
         
         if (BOPBiomes.gravel_beach.isPresent())
         {
-        	this.beachBiomeId = BOPBiomes.gravel_beach.get().biomeID;
+        	this.beachBiomeLocation = ((BOPBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
         }
-        
-        this.setColor(0xBCA165);
-        this.setTemperatureRainfall(0.3F, 0.3F);
         
         this.addWeight(BOPClimates.BOREAL, 3);
         

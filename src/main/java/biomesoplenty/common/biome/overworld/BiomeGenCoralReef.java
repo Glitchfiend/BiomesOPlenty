@@ -13,27 +13,28 @@ import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.BlockBOPCoral;
 import biomesoplenty.common.enums.BOPGems;
+import biomesoplenty.common.util.biome.BiomeUtils;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
+import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
-import net.minecraft.world.biome.BiomeGenBase;
  
 public class BiomeGenCoralReef extends BOPBiome
 {
     public BiomeGenCoralReef()
     {
+        super("coral_reef", new PropsBuilder("Coral Reef").withGuiColour(18285));
+        
         // terrain
         this.terrainSettings.avgHeight(45).heightVariation(5, 10); 
-        
-        this.setColor(18285);
     
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
         this.canGenerateRivers = false;
         
-        this.beachBiomeId = BiomeGenBase.ocean.biomeID;
+        this.beachBiomeLocation = BiomeUtils.getLocForBiome(Biomes.beach);
         
         clearWeights();
 

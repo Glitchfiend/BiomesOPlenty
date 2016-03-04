@@ -34,13 +34,14 @@ import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.ResourceLocation;
 
 public class BOPConfig
 {
     
     public static Gson serializer = new GsonBuilder().setPrettyPrinting().create();
     public static JsonParser parser = new JsonParser();
-    private static enum Types {BOOLEAN, STRING, INTEGER, FLOAT, BLOCKSTATE, BLOCKPOSQUERY}
+    private static enum Types {BOOLEAN, STRING, INTEGER, FLOAT, BLOCKSTATE, BLOCKPOSQUERY, RESOURCELOCATION}
     
     public static boolean writeFile(File outputFile, Object obj)
     {
@@ -75,6 +76,7 @@ public class BOPConfig
         public Float getFloat(String name, Float defaultVal);
         public IBlockState getBlockState(String name, IBlockState defaultVal);
         public IBlockPosQuery getBlockPosQuery(String name, IBlockPosQuery defaultVal);
+        public ResourceLocation getResourceLocation(String name, ResourceLocation defaultVal);
         public <E extends Enum> E getEnum(String name, E defaultVal, Class<E> clazz);
         
         // Use the methods below when you want to obtain a value from a config file which SHOULD be present
@@ -85,6 +87,7 @@ public class BOPConfig
         public Float getFloat(String name);
         public IBlockState getBlockState(String name);
         public IBlockPosQuery getBlockPosQuery(String name);
+        public ResourceLocation getResourceLocation(String name);
         public <E extends Enum> E getEnum(String name, Class<E> clazz);
 
         // Use the methods below when you want to obtain an array of values from a config file, if it is present, but you have a default value to use if it isn't
@@ -95,6 +98,7 @@ public class BOPConfig
         public ArrayList<Float> getFloatArray(String name, ArrayList<Float> defaultVal);
         public ArrayList<IBlockState> getBlockStateArray(String name, ArrayList<IBlockState> defaultVal);
         public ArrayList<IBlockPosQuery> getBlockPosQueryArray(String name, ArrayList<IBlockPosQuery> defaultVal);
+        public ArrayList<ResourceLocation> getResourceLocationArray(String name, ArrayList<ResourceLocation> defaultVal);
         public <E extends Enum> ArrayList<E> getEnumArray(String name, ArrayList<E> defaultVal, Class<E> clazz);
 
         // Use the methods below when you want to obtain an array of values from a config file which SHOULD be present
@@ -105,6 +109,7 @@ public class BOPConfig
         public ArrayList<Float> getFloatArray(String name);
         public ArrayList<IBlockState> getBlockStateArray(String name);
         public ArrayList<IBlockPosQuery> getBlockPosQueryArray(String name);
+        public ArrayList<ResourceLocation> getResourceLocationArray(String name);
         public <E extends Enum> ArrayList<E> getEnumArray(String name, Class<E> clazz);
 
         
@@ -256,6 +261,8 @@ public class BOPConfig
         @Override
         public IBlockPosQuery getBlockPosQuery(String name, IBlockPosQuery defaultVal) {return this.<IBlockPosQuery>get(name, defaultVal, false, Types.BLOCKPOSQUERY);}
         @Override
+        public ResourceLocation getResourceLocation(String name, ResourceLocation defaultVal) {return this.<ResourceLocation>get(name, defaultVal, false, Types.RESOURCELOCATION);}
+        @Override
         public <E extends Enum> E getEnum(String name, E defaultVal, Class<E> clazz) {return this.getEnum(name, defaultVal, false, clazz);}
 
         @Override
@@ -270,6 +277,8 @@ public class BOPConfig
         public IBlockState getBlockState(String name) {return this.<IBlockState>get(name, null, true, Types.BLOCKSTATE);}
         @Override
         public IBlockPosQuery getBlockPosQuery(String name) {return this.<IBlockPosQuery>get(name, null, true, Types.BLOCKPOSQUERY);}
+        @Override
+        public ResourceLocation getResourceLocation(String name) {return this.<ResourceLocation>get(name, null, true, Types.RESOURCELOCATION);}
         @Override
         public <E extends Enum> E getEnum(String name, Class<E> clazz) {return this.getEnum(name, null, true, clazz);}
         
@@ -286,6 +295,8 @@ public class BOPConfig
         @Override
         public ArrayList<IBlockPosQuery> getBlockPosQueryArray(String name, ArrayList<IBlockPosQuery> defaultVal) {return this.<IBlockPosQuery>getArray(name, defaultVal, false, Types.BLOCKPOSQUERY);}
         @Override
+        public ArrayList<ResourceLocation> getResourceLocationArray(String name, ArrayList<ResourceLocation> defaultVal) {return this.<ResourceLocation>getArray(name, defaultVal, false, Types.RESOURCELOCATION);}
+        @Override
         public <E extends Enum> ArrayList<E> getEnumArray(String name, ArrayList<E> defaultVal, Class<E> clazz) {return this.getEnumArray(name, defaultVal, false, clazz);}
  
         @Override
@@ -300,6 +311,8 @@ public class BOPConfig
         public ArrayList<IBlockState> getBlockStateArray(String name) {return this.<IBlockState>getArray(name, null, true, Types.BLOCKSTATE);}
         @Override
         public ArrayList<IBlockPosQuery> getBlockPosQueryArray(String name) {return this.<IBlockPosQuery>getArray(name, null, true, Types.BLOCKPOSQUERY);}
+        @Override
+        public ArrayList<ResourceLocation> getResourceLocationArray(String name) {return this.<ResourceLocation>getArray(name, null, true, Types.RESOURCELOCATION);}
         @Override
         public <E extends Enum> ArrayList<E> getEnumArray(String name, Class<E> clazz) {return this.getEnumArray(name, null, true, clazz);}
 
@@ -559,7 +572,16 @@ public class BOPConfig
             }
         }
 
-        
+        protected ResourceLocation asResourceLocation(JsonElement ele, String extraPrefix)
+        {
+            try
+            {
+                return new ResourceLocation(asString(ele, extraPrefix));
+            } catch (Exception e) {
+                this.addMessage(extraPrefix, "Error fetching resourcelocation: " + e.getMessage());
+                return null;
+            }
+        }
         
     }
     

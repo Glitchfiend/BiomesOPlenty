@@ -50,12 +50,10 @@ public class BiomeGenBambooForest extends BOPBiome
     
     public BiomeGenBambooForest()
     {
+        super("bamboo_forest", new PropsBuilder("Bamboo Forest").withGuiColour(0xA3E053).withRainfall(0.85F).withTemperature(0.9F));
         
         // terrain
         this.terrainSettings.avgHeight(68).heightVariation(5, 10);
-        
-        this.setColor(0xA3E053);
-        this.setTemperatureRainfall(0.85F, 0.9F);
 
         this.canGenerateVillages = false;
         

@@ -9,6 +9,7 @@
 package biomesoplenty.common.biome.overworld;
 
 import biomesoplenty.api.biome.BOPBiome;
+import biomesoplenty.api.biome.BOPBiome.PropsBuilder;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.api.block.BOPBlocks;
@@ -44,13 +45,11 @@ public class BiomeGenDeadSwamp extends BOPBiome
     
     public BiomeGenDeadSwamp()
     {
+        super("dead_swamp", new PropsBuilder("Dead Swamp").withGuiColour(0x8BAF48).withTemperature(0.55F).withRainfall(0.9F).withWaterColor(0xA2AD51));
         
         // terrain
         this.terrainSettings.avgHeight(63).heightVariation(6, 3);
 
-        this.setTemperatureRainfall(0.55F, 0.9F);
-        this.setColor(0x8BAF48);
-        this.waterColorMultiplier = 0xA2AD51;
         //this.skyColor = 0x627268;
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.LOAMY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.LOAMY);
@@ -59,7 +58,7 @@ public class BiomeGenDeadSwamp extends BOPBiome
         this.canGenerateRivers = false;
         this.canGenerateVillages = false;
         
-        this.beachBiomeId = -1;
+        this.beachBiomeLocation = null;
         
         this.addWeight(BOPClimates.COLD_SWAMP, 3);
         

@@ -53,7 +53,7 @@ public class BiomeGenMarsh extends BOPBiome
         this.canGenerateRivers = false;
         this.canGenerateVillages = false;
         
-        this.beachBiomeId = -1;
+        this.beachBiomeLocation = null;
         
         this.addWeight(BOPClimates.WET_TEMPERATE, 7);
         

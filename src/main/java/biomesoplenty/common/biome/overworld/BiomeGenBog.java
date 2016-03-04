@@ -48,11 +48,11 @@ public class BiomeGenBog extends BOPBiome
     
     public BiomeGenBog()
     {
+        super("bog", new PropsBuilder("Bog").withGuiColour(0xD8935F).withTemperature(0.5F).withRainfall(0.9F));
+        
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(6, 20);
         
-        this.setColor(0xD8935F);
-        this.setTemperatureRainfall(0.5F, 0.9F);
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.LOAMY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.LOAMY);
 
@@ -61,7 +61,7 @@ public class BiomeGenBog extends BOPBiome
         
         if (BOPBiomes.gravel_beach.isPresent())
         {
-        	this.beachBiomeId = BOPBiomes.gravel_beach.get().biomeID;
+        	this.beachBiomeLocation = ((BOPBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
         }
         
         this.addWeight(BOPClimates.COLD_SWAMP, 7);

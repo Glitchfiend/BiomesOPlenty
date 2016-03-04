@@ -154,7 +154,7 @@ public class BlockBOPBamboo extends BlockBOPDecoration
     
     
     @Override
-    public boolean canSustainLeaves(net.minecraft.world.IBlockAccess world, BlockPos pos)
+    public boolean canSustainLeaves(IBlockState state, IBlockAccess world, BlockPos pos)
     {
         return true;
     }

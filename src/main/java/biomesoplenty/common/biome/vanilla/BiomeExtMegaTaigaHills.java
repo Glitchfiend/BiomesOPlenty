@@ -22,7 +22,7 @@ public class BiomeExtMegaTaigaHills extends ExtendedBiomeWrapper
         
         if (BOPBiomes.gravel_beach.isPresent())
         {
-            this.beachBiomeIdLoc = ((BOPBiome)BOPBiomes.gravel_beach.get()).getIdLoc();
+            this.beachBiomeLocation = ((BOPBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
         }
         
         // grasses

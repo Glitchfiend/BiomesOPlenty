@@ -403,21 +403,22 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
     
     @Override
     @SideOnly(Side.CLIENT)
-    public void randomDisplayTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
+    public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) 
+    {
         switch ((BOPPlants) state.getValue(this.variantProperty))
         {
             // poison ivy throws up occasional spell particles
             case POISONIVY:
                 if (rand.nextInt(32)==0)
                 {           
-                    worldIn.spawnParticle(EnumParticleTypes.SPELL_MOB, (double)((float)pos.getX() + rand.nextFloat()), (double)((float)pos.getY() + 1.1F), (double)((float)pos.getZ() + rand.nextFloat()), 0.0D, 0.0D, 0.0D);
+                    world.spawnParticle(EnumParticleTypes.SPELL_MOB, (double)((float)pos.getX() + rand.nextFloat()), (double)((float)pos.getY() + 1.1F), (double)((float)pos.getZ() + rand.nextFloat()), 0.0D, 0.0D, 0.0D);
                 }
                 break;
                 
             default:
                 break;
         }
-        super.randomDisplayTick(worldIn, pos, state, rand);
+        super.randomDisplayTick(state, world, pos, rand);
     }
     
     

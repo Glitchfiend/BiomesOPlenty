@@ -206,7 +206,8 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void randomDisplayTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
+    public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand)
+    {
         switch ((BOPGrassType) state.getValue(VARIANT))
         {
              
@@ -226,7 +227,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
                 break;
                     
         }
-        super.randomDisplayTick(worldIn, pos, state, rand);
+        super.randomDisplayTick(state, world, pos, rand);
     }
     
     @Override

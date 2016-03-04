@@ -45,13 +45,12 @@ public class BiomeGenDummyTemplate extends BOPBiome
 
     public BiomeGenDummyTemplate()
     {
+        super(null, null);
+        
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(6, 21).octaves(1, 1, 1, 1, 1, 1);
         
-        this.setColor(0xFFFFFF);
         this.skyColor = 0xFFFFFF;
-        this.setEnableSnow();
-        this.setTemperatureRainfall(0.5F, 0.5F);
 
         this.addWeight(BOPClimates.COOL_TEMPERATE, 10);
         

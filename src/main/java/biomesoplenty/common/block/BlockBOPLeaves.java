@@ -30,6 +30,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -200,7 +201,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     // Inventory models are set only for the default states of leaves. Consequently, we modify the states for player placed leaves when they are
     // actually placed, not when they are in the inventory. We cannot change the default properties whilst reusing code from BlockLeaves.
     @Override
-    public ItemStack getPickBlock(MovingObjectPosition target, World world, BlockPos pos, EntityPlayer player)
+    public ItemStack getPickBlock(RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
     {
         return new ItemStack(this, 1, this.getMetaFromState(this.getDefaultState().withProperty(this.variantProperty, world.getBlockState(pos).getValue(this.variantProperty))));
     }
@@ -403,13 +404,13 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     //it simply be extending BlockLeaves.
     @Override
     @SideOnly(Side.CLIENT)
-    public EnumWorldBlockLayer getBlockLayer()
+    public BlockRenderLayer getBlockLayer()
     {
         return Blocks.leaves.getBlockLayer();
     }
     
     @Override
-    public boolean isOpaqueCube()
+    public boolean isOpaqueCube(IBlockState state)
     {
         return Blocks.leaves.isOpaqueCube();
     }

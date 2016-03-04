@@ -11,6 +11,7 @@ package biomesoplenty.common.handler;
 import biomesoplenty.common.block.BlockBOPDirt;
 import biomesoplenty.common.block.BlockBOPFarmland;
 import biomesoplenty.common.block.BlockBOPGrass;
+import biomesoplenty.common.util.entity.PlayerUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.state.IBlockState;
@@ -73,7 +74,7 @@ public class UseHoeEventHandler
                 event.current.damageItem(1, event.entityLiving);
             }
             event.world.playSoundEffect((double) ((float) pos.getX() + 0.5F), (double) ((float) pos.getY() + 0.5F), (double) ((float) pos.getZ() + 0.5F), block.stepSound.getStepSound(), (state.getBlock().stepSound.getVolume() + 1.0F) / 2.0F, state.getBlock().stepSound.getFrequency() * 0.8F);
-            event.entityPlayer.swingItem();
+            event.entityPlayer.swingArm(PlayerUtil.getHandForItem(event.entityPlayer, event.current));
         }
     }
 }

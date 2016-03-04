@@ -33,18 +33,16 @@ public class BiomeGenConiferousForest extends BOPBiome
     
     public BiomeGenConiferousForest()
     {
+        super("coniferous_forest", new PropsBuilder("Coniferous Forest").withGuiColour(0x528F60).withTemperature(0.45F).withRainfall(0.5F));
         
         // terrain
         this.terrainSettings.avgHeight(68).heightVariation(10, 20);
-        
-        this.setColor(0x528F60);
-        this.setTemperatureRainfall(0.45F, 0.5F);
         
         this.canGenerateVillages = false;
         
         if (BOPBiomes.gravel_beach.isPresent())
         {
-        	this.beachBiomeId = BOPBiomes.gravel_beach.get().biomeID;
+        	this.beachBiomeLocation = ((BOPBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
         }
     
         this.addWeight(BOPClimates.BOREAL, 10);

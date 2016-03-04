@@ -47,7 +47,7 @@ public class BiomeGenTundra extends BOPBiome
         
         if (BOPBiomes.gravel_beach.isPresent())
         {
-        	this.beachBiomeId = BOPBiomes.gravel_beach.get().biomeID;
+        	this.beachBiomeLocation = ((BOPBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
         }
         
         this.spawnableCreatureList.clear();

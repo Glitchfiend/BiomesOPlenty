@@ -20,17 +20,16 @@ public class BiomeGenCrag extends BOPBiome
 {    
     public BiomeGenCrag()
     {
+        super("crag", new PropsBuilder("Crag").withGuiColour(5209457).withTemperature(0.5F).withRainfall(0.5F).withWaterColor(944693));
+        
         // terrain
         this.terrainSettings.avgHeight(80).heightVariation(80, 200).minHeight(40).sidewaysNoise(0.7F);
-        
-        this.setColor(5209457);
-        this.setTemperatureRainfall(0.5F, 0.5F);
 
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
         this.canGenerateRivers = false;
         
-        this.beachBiomeId = -1;
+        this.beachBiomeLocation = null;
         
         this.addWeight(BOPClimates.COLD_SWAMP, 1);
 
@@ -39,7 +38,6 @@ public class BiomeGenCrag extends BOPBiome
         
         this.topBlock = BOPBlocks.crag_rock.getDefaultState();
         this.fillerBlock = BOPBlocks.crag_rock.getDefaultState();
-        this.waterColorMultiplier = 944693;
         this.skyColor = 4944498;
         
         this.avgDirtDepth = 8;

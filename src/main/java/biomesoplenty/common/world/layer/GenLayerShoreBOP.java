@@ -11,6 +11,7 @@ import com.google.common.base.Predicate;
 
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.biome.IExtendedBiome;
+import biomesoplenty.common.util.biome.BiomeUtils;
 import net.minecraft.init.Biomes;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.BiomeGenJungle;
@@ -79,7 +80,8 @@ public class GenLayerShoreBOP extends BOPGenLayer
                             if (biome != null && BOPBiomes.REG_INSTANCE.getExtendedBiome(biome) != null)
                             {
                                 IExtendedBiome extBiome = BOPBiomes.REG_INSTANCE.getExtendedBiome(biome);
-                                setBiomeWithAdjacent(biomeIds, out, x, z, areaWidth, biomeId, extBiome.getBeachId() == -1 ? biomeId : extBiome.getBeachId(), OCEANIC_PREDICATE);
+                                BiomeGenBase beachBiome = BiomeUtils.getBiomeForLoc(extBiome.getBeachLocation());
+                                setBiomeWithAdjacent(biomeIds, out, x, z, areaWidth, biomeId, beachBiome == null ? biomeId : BiomeGenBase.getIdForBiome(beachBiome), OCEANIC_PREDICATE);
                             }
                             else
                             {

@@ -22,7 +22,11 @@ import net.minecraft.command.NumberInvalidException;
 import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
@@ -60,7 +64,7 @@ public class BOPCommand extends CommandBase
     }
 
     @Override
-    public void processCommand(ICommandSender sender, String[] args) throws CommandException
+    public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException
     {
         if (args.length < 1)
         {
@@ -94,7 +98,7 @@ public class BOPCommand extends CommandBase
         int biomeId = parseInt(args[1], 0, 255);
         BiomeGenBase biome = BiomeGenBase.getBiome(biomeId);
         
-        sender.addChatMessage(new ChatComponentTranslation("commands.biomesoplenty.biomename.success", biomeId, biome == null ? "Undefined" : biome.biomeName));
+        sender.addChatMessage(new TextComponentTranslation("commands.biomesoplenty.biomename.success", biomeId, biome == null ? "Undefined" : biome.getBiomeName()));
     }
     
     private void teleportFoundBiome(ICommandSender sender, String[] args) throws CommandException
@@ -112,14 +116,7 @@ public class BOPCommand extends CommandBase
                 int biomeId = parseInt(args[1], 0, 255);
                 biomeToFind = BiomeGenBase.getBiome(biomeId);
             } catch (NumberInvalidException e) {
-                for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray())
-                {
-                    if (biome != null && BiomeUtils.getBiomeIdentifier(biome).equalsIgnoreCase(args[1]))
-                    {
-                        biomeToFind = biome;
-                        break;
-                    }
-                }
+                biomeToFind = BiomeUtils.getBiomeForLoc(new ResourceLocation(args[1]));
             }
         }
         
@@ -134,31 +131,31 @@ public class BOPCommand extends CommandBase
             double z = (double)closestBiomePos.getZ();
             
             player.playerNetServerHandler.setPlayerLocation(x, y, z, player.rotationYaw, player.rotationPitch);
-            sender.addChatMessage(new ChatComponentTranslation("commands.biomesoplenty.tpbiome.success", player.getName(), biomeToFind.biomeName, x, y, z));
+            sender.addChatMessage(new TextComponentTranslation("commands.biomesoplenty.tpbiome.success", player.getName(), biomeToFind.getBiomeName(), x, y, z));
         }
         else
         {
-            sender.addChatMessage(new ChatComponentTranslation("commands.biomesoplenty.tpbiome.error", biomeToFind == null ? "Undefined" : biomeToFind.biomeName));
+            sender.addChatMessage(new TextComponentTranslation("commands.biomesoplenty.tpbiome.error", biomeToFind == null ? "Undefined" : biomeToFind.getBiomeName()));
         }
     }
     
     private void printStats(ICommandSender sender, String[] args) throws CommandException
     {
-        ChatComponentTranslation text = new ChatComponentTranslation("commands.biomesoplenty.stats.blocks", blockCount);
+        TextComponentTranslation text = new TextComponentTranslation("commands.biomesoplenty.stats.blocks", blockCount);
         
-        text.getChatStyle().setColor(EnumChatFormatting.GREEN);
+        text.getChatStyle().setColor(TextFormatting.GREEN);
         sender.addChatMessage(text);
   
-        text = new ChatComponentTranslation("commands.biomesoplenty.stats.items", itemCount);
-        text.getChatStyle().setColor(EnumChatFormatting.GREEN);
+        text = new TextComponentTranslation("commands.biomesoplenty.stats.items", itemCount);
+        text.getChatStyle().setColor(TextFormatting.GREEN);
         sender.addChatMessage(text);
         
-        text = new ChatComponentTranslation("commands.biomesoplenty.stats.entities", entityCount);
-        text.getChatStyle().setColor(EnumChatFormatting.GREEN);
+        text = new TextComponentTranslation("commands.biomesoplenty.stats.entities", entityCount);
+        text.getChatStyle().setColor(TextFormatting.GREEN);
         sender.addChatMessage(text);
         
-        text = new ChatComponentTranslation("commands.biomesoplenty.stats.biomes", biomeCount);
-        text.getChatStyle().setColor(EnumChatFormatting.GREEN);
+        text = new TextComponentTranslation("commands.biomesoplenty.stats.biomes", biomeCount);
+        text.getChatStyle().setColor(TextFormatting.GREEN);
         sender.addChatMessage(text);
     }
     
@@ -218,7 +215,7 @@ public class BOPCommand extends CommandBase
                                     if (((!blacklist && stateList.contains(state)) || (blacklist && !stateList.contains(state))) && pos.getY() > 0)
                                     {
                                         blockStorage.set(x, y, z, Blocks.air.getDefaultState());
-                                        world.markBlockForUpdate(pos);
+                                        world.notifyBlockUpdate(pos, state, Blocks.air.getDefaultState(), 3);
                                         world.notifyNeighborsRespectDebug(pos, Blocks.air);
                                     }
                                 }
@@ -233,7 +230,7 @@ public class BOPCommand extends CommandBase
     }
 
     @Override
-    public List addTabCompletionOptions(ICommandSender sender, String[] args, BlockPos pos)
+    public List<String> getTabCompletionOptions(MinecraftServer server, ICommandSender sender, String[] args, BlockPos pos)
     {
         if (args.length == 1)
         {

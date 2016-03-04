@@ -16,7 +16,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
@@ -30,7 +35,7 @@ public class ItemBiomeFinder extends Item
         
     
     @Override
-    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
+    public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand)
     {
 
         if (!stack.hasTagCompound()) {stack.setTagCompound(new NBTTagCompound());}
@@ -38,15 +43,15 @@ public class ItemBiomeFinder extends Item
         
         if (nbt.getBoolean("found"))
         {
-            return stack;
+            return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);
         }
         if (nbt.hasKey("searchStarted") && (world.getWorldTime() - nbt.getLong("searchStarted") < 100))
         {
-            return stack;
+            return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);
         }
         if (!nbt.hasKey("biomeIDToFind"))
         {
-            return stack;
+            return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);
         }
         BiomeGenBase biomeToFind = BiomeGenBase.getBiome(nbt.getInteger("biomeIDToFind")); // returns ocean if biomeIDToFind is out of bounds
         
@@ -57,12 +62,12 @@ public class ItemBiomeFinder extends Item
         if (world.isRemote)
         {
             // client functionality stops here
-            return stack;
+            return new ActionResult<ItemStack>(EnumActionResult.PASS, stack);
         }
         else
         {            
             // server notifies player that search is starting
-            sendChatMessage(player, I18n.format("biome_finder.searching",biomeToFind.biomeName), EnumChatFormatting.DARK_PURPLE);
+            sendChatMessage(player, I18n.format("biome_finder.searching",biomeToFind.getBiomeName()), TextFormatting.DARK_PURPLE);
             
             // search for biomeToFind, maximum distance 5000 blocks
             BlockPos pos = BiomeUtils.spiralOutwardsLookingForBiome(world, biomeToFind, player.posX, player.posZ);
@@ -70,27 +75,27 @@ public class ItemBiomeFinder extends Item
             if (pos == null)
             {
                 // server notifies player that search was unsuccessful
-                sendChatMessage(player, I18n.format("biome_finder.not_found",biomeToFind.biomeName), EnumChatFormatting.RED);
+                sendChatMessage(player, I18n.format("biome_finder.not_found",biomeToFind.getBiomeName()), TextFormatting.RED);
                 // write not found tag
                 writeNBTNotFound(nbt);
             }
             else
             {
                 // server notifies player that search was successful
-                sendChatMessage(player, I18n.format("biome_finder.found",biomeToFind.biomeName), EnumChatFormatting.GREEN);
+                sendChatMessage(player, I18n.format("biome_finder.found",biomeToFind.getBiomeName()), TextFormatting.GREEN);
                 // write found tag
                 writeNBTFound(nbt, pos);
             }
             // It is necessary for the server to return a copy of the stack to make sure that the client successfully replaces it in the inventory
-            return stack.copy();
+            return new ActionResult<ItemStack>(EnumActionResult.PASS, stack.copy());
             
         }
 
     }
     
-    public static void sendChatMessage(EntityPlayer player, String msg, EnumChatFormatting color)
+    public static void sendChatMessage(EntityPlayer player, String msg, TextFormatting color)
     {
-        ChatComponentText chatComponent = new ChatComponentText(msg);
+        TextComponentTranslation chatComponent = new TextComponentTranslation(msg);
         chatComponent.getChatStyle().setColor(color);
         player.addChatMessage(chatComponent);
     }
@@ -127,7 +132,7 @@ public class ItemBiomeFinder extends Item
         if (nbt.hasKey("biomeIDToFind"))
         {
             BiomeGenBase biomeToFind = BiomeGenBase.getBiome(nbt.getInteger("biomeIDToFind")); // returns ocean if biomeIDToFind is out of bounds
-            infoList.add(biomeToFind.biomeName);
+            infoList.add(biomeToFind.getBiomeName());
         }
     }
 

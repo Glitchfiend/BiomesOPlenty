@@ -47,7 +47,7 @@ public class BiomeGenShrubland extends BOPBiome
         
         if (BOPBiomes.gravel_beach.isPresent())
         {
-        	this.beachBiomeId = BOPBiomes.gravel_beach.get().biomeID;
+        	this.beachBiomeLocation = ((BOPBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
         }
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));

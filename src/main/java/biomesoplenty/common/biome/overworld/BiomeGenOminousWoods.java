@@ -56,7 +56,7 @@ public class BiomeGenOminousWoods extends BOPBiome
         this.canGenerateVillages = false;
         this.canSpawnInBiome = false;
         
-        this.beachBiomeId = -1;
+        this.beachBiomeLocation = null;
         
         this.addWeight(BOPClimates.COLD_SWAMP, 1);
         

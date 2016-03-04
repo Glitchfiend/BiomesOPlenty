@@ -30,18 +30,18 @@ public class BiomeGenBorealForest extends BOPBiome
 {    
     public BiomeGenBorealForest()
     {
+        super("boreal_forest", new PropsBuilder("Boreal Forest").withGuiColour(0x9FB771).withTemperature(0.3F).withRainfall(0.6F));
+        
         // terrain
         this.terrainSettings.avgHeight(70).heightVariation(15, 30);
 
-        this.setColor(0x9FB771);
-        this.setTemperatureRainfall(0.3F, 0.6F);
         this.addWeight(BOPClimates.BOREAL, 5);
 
         this.canGenerateVillages = false;
         
         if (BOPBiomes.gravel_beach.isPresent())
         {
-        	this.beachBiomeId = BOPBiomes.gravel_beach.get().biomeID;
+        	this.beachBiomeLocation = ((BOPBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
         }
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntityWolf.class, 5, 4, 4));

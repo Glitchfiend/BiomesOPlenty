@@ -79,7 +79,7 @@ public class BiomeGenMountain extends BOPBiome
         this.setColor(0x80A355);
         this.setTemperatureRainfall(0.8F, 0.1F);
         
-        this.beachBiomeId = -1;
+        this.beachBiomeLocation = null;
         
         if (type == MountainType.PEAKS)
         {

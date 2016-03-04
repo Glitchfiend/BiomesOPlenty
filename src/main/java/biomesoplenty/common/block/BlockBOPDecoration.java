@@ -20,6 +20,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -149,23 +150,23 @@ public class BlockBOPDecoration extends Block implements IBOPBlock
 
     // not opaque
     @Override
-    public boolean isOpaqueCube()
+    public boolean isOpaqueCube(IBlockState state)
     {
         return false;
     }
 
     // not full cube
     @Override
-    public boolean isFullCube()
+    public boolean isFullCube(IBlockState state)
     {
         return false;
     }
 
     @SideOnly(Side.CLIENT)
     @Override
-    public EnumWorldBlockLayer getBlockLayer()
+    public BlockRenderLayer getBlockLayer()
     {
-        return EnumWorldBlockLayer.CUTOUT;
+        return BlockRenderLayer.CUTOUT;
     }
 
     //decoration should be randomly offset by default

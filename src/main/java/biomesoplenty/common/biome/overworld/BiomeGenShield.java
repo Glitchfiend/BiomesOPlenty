@@ -63,7 +63,7 @@ public class BiomeGenShield extends BOPBiome
         
         if (BOPBiomes.gravel_beach.isPresent())
         {
-        	this.beachBiomeId = BOPBiomes.gravel_beach.get().biomeID;
+        	this.beachBiomeLocation = ((BOPBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
         }
         
         this.addWeight(BOPClimates.BOREAL, 5);

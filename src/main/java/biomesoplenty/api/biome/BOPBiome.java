@@ -23,6 +23,7 @@ import biomesoplenty.api.biome.generation.IGenerator;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.init.ModBiomes;
+import biomesoplenty.common.util.biome.BiomeUtils;
 import biomesoplenty.common.util.config.BOPConfig;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import biomesoplenty.common.world.BOPWorldSettings;
@@ -56,19 +57,19 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
     public boolean canGenerateVillages = true;
     public boolean canGenerateRivers = true;
     
-    public int beachBiomeId = BiomeGenBase.getIdForBiome(Biomes.beach);
+    public ResourceLocation beachBiomeLocation = BiomeUtils.getLocForBiome(Biomes.beach);
     
     public TerrainSettings terrainSettings = new TerrainSettings();
     public boolean noNeighborTerrainInfuence = false;
     public int avgDirtDepth = 3;
     
-    public final ResourceLocation idLoc;
+    public final ResourceLocation location;
     
     private BOPBiome(ResourceLocation idLoc, PropsBuilder defaultBuilder, BOPConfig.IConfigObj conf)
     {
         super(configureBiomeProps(idLoc, defaultBuilder, conf));
 
-        this.idLoc = idLoc;
+        this.location = idLoc;
         this.terrainSettings.setDefaults();
         
         this.theBiomeDecorator.treesPerChunk = -999;
@@ -82,9 +83,9 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         this.addGenerator("roots", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(4.0F).with(BOPPlants.ROOT).create());
     }
     
-    public BOPBiome(ResourceLocation idLoc, PropsBuilder defaultBuilder)
+    public BOPBiome(String idName, PropsBuilder defaultBuilder)
     {
-        this(idLoc, defaultBuilder, ModBiomes.readConfigFile(idLoc.getResourcePath()));
+        this(new ResourceLocation(BiomesOPlenty.MOD_ID, idName), defaultBuilder, ModBiomes.readConfigFile(idName));
     }
     
     public static BiomeProps configureBiomeProps(ResourceLocation idLoc, PropsBuilder defaultBuilder, BOPConfig.IConfigObj conf)
@@ -129,7 +130,7 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         this.canGenerateVillages = conf.getBool("canGenerateVillages", this.canGenerateVillages);
         this.canGenerateRivers = conf.getBool("canGenerateRivers", this.canGenerateRivers);
         
-        this.beachBiomeIdLoc = conf.getInt("beachBiomeIdLoc", this.beachBiomeIdLoc);
+        this.beachBiomeLocation = conf.getResourceLocation("beachBiomeLocation", this.beachBiomeLocation);
         
         // Allow weights to be overridden
         IConfigObj confWeights = conf.getObject("weights");
@@ -378,9 +379,9 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
     }
     
     @Override
-    public int getBeachId()
+    public ResourceLocation getBeachLocation()
     {
-        return this.beachBiomeId;
+        return this.beachBiomeLocation;
     }
 
     @Override
@@ -390,9 +391,9 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
     }
     
     @Override
-    public ResourceLocation getIdLoc() 
+    public ResourceLocation getResourceLocation() 
     {
-        return this.idLoc;
+        return this.location;
     }
     
     protected static class PropsBuilder

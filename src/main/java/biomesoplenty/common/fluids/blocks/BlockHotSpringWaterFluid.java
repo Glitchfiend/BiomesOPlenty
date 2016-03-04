@@ -43,12 +43,12 @@ public class BlockHotSpringWaterFluid extends BlockFluidClassic
     
     @Override
     @SideOnly(Side.CLIENT)
-    public void randomDisplayTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
-
-        super.randomDisplayTick(worldIn, pos, state, rand);
+    public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) 
+    {
+        super.randomDisplayTick(state, world, pos, rand);
         if (rand.nextInt(20)==0)
         {           
-        	worldIn.spawnParticle(EnumParticleTypes.CLOUD, pos.getX() + rand.nextFloat(), pos.getY() + 1.0F, pos.getZ() + rand.nextFloat(), 0.0D, 0.0D, 0.0D, new int[0]);
+        	world.spawnParticle(EnumParticleTypes.CLOUD, pos.getX() + rand.nextFloat(), pos.getY() + 1.0F, pos.getZ() + rand.nextFloat(), 0.0D, 0.0D, 0.0D, new int[0]);
         }
     }
 

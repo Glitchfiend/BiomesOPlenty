@@ -39,7 +39,7 @@ public class BiomeGenVolcanicIsland extends BOPBiome
         
         this.theBiomeDecorator.generateLakes = false;
         
-        this.beachBiomeId = -1;
+        this.beachBiomeLocation = null;
         
         this.avgDirtDepth = 16;
         

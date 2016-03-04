@@ -13,6 +13,7 @@ import com.google.common.base.CaseFormat;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.WorldTypeBOP;
 import biomesoplenty.core.BiomesOPlenty;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -32,6 +33,16 @@ public class BiomeUtils
         {
             return ChunkProviderSettings.Factory.jsonToFactory(generatorSettingsJson).func_177864_b().biomeSize;
         }
+    }
+    
+    public static ResourceLocation getLocForBiome(BiomeGenBase biome)
+    {
+        return BiomeGenBase.biomeRegistry.getNameForObject(biome);
+    }
+    
+    public static BiomeGenBase getBiomeForLoc(ResourceLocation location)
+    {
+        return BiomeGenBase.biomeRegistry.getObject(location);
     }
     
     public static BlockPos spiralOutwardsLookingForBiome(World world, BiomeGenBase biomeToFind, double startX, double startZ)

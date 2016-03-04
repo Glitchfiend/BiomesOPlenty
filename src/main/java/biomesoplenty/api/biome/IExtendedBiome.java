@@ -31,9 +31,9 @@ public interface IExtendedBiome
     public void clearWeights();
     public void addWeight(BOPClimates climate, int weight);
     
-    public int getBeachId();
+    public ResourceLocation getBeachLocation();
     
     /**Get the base biome associated with this extension**/
     public BiomeGenBase getBaseBiome();
-    public ResourceLocation getIdLoc();
+    public ResourceLocation getResourceLocation();
 }

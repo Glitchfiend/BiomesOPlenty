@@ -37,6 +37,8 @@ public class BiomeGenColdDesert extends BOPBiome
     
     public BiomeGenColdDesert()
     {
+        super("cold_desert", new PropsBuilder("Cold Desert").withGuiColour(0xB3AF9B).withTemperature(0.0F).withRainfall(0.0F).withRainDisabled());
+        
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
         
@@ -50,12 +52,7 @@ public class BiomeGenColdDesert extends BOPBiome
         
         this.canGenerateRivers = false;
         
-        this.setDisableRain();
-        this.enableSnow = false;
-        
-        this.setTemperatureRainfall(0.0F, 0.0F);
         this.addWeight(BOPClimates.ICE_CAP, 10);
-        this.setColor(0xB3AF9B);
 
         this.spawnableCreatureList.clear();
         

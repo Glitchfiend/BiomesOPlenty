@@ -42,7 +42,7 @@ public class BiomeGenOvergrownCliffs extends BOPBiome
         
         this.addWeight(BOPClimates.TROPICAL, 2);
         
-        this.beachBiomeId = -1;
+        this.beachBiomeLocation = null;
 
         this.spawnableCreatureList.clear();
         this.spawnableMonsterList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));

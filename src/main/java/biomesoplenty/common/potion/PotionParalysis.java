@@ -18,14 +18,12 @@ public class PotionParalysis extends Potion
 {
     public static ResourceLocation bopPotionEffectTexture = new ResourceLocation("biomesoplenty:textures/potions/status-icons.png");
     
-    public PotionParalysis(int potionId, ResourceLocation location, boolean badEffect, int color)
+    public PotionParalysis(boolean badEffect, int color)
     {
-        super(potionId, location, badEffect, color);
+        super(badEffect, color);
         // status icon in position 2 row 0
         this.setIconIndex(1, 0);
     }
-    
-    
     
     @Override
     @SideOnly(Side.CLIENT)

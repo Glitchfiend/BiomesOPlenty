@@ -42,13 +42,13 @@ public class BlockBOPHoney extends Block implements IBOPBlock
     
     @Override
     @SideOnly(Side.CLIENT)
-    public EnumWorldBlockLayer getBlockLayer()
+    public BlockRenderLayer getBlockLayer()
     {
-        return EnumWorldBlockLayer.TRANSLUCENT;
+        return BlockRenderLayer.TRANSLUCENT;
     }
     
     @Override
-    public boolean isOpaqueCube()
+    public boolean isOpaqueCube(IBlockState state)
     {
         return false;
     }   

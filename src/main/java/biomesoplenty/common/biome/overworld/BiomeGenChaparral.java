@@ -35,12 +35,10 @@ public class BiomeGenChaparral extends BOPBiome
 {    
     public BiomeGenChaparral()
     {
+        super("chaparral", new PropsBuilder("Chaparral").withGuiColour(0xC0D85D).withTemperature(0.8F).withRainfall(0.6F));
         
         // terrain
         this.terrainSettings.avgHeight(70).heightVariation(10, 30).sidewaysNoise(0.1D).octaves(1, 4, 3, 1, 1, 0);
-        
-        this.setColor(0xC0D85D);
-        this.setTemperatureRainfall(0.8F, 0.6F);
         
         this.addWeight(BOPClimates.MEDITERANEAN, 10);
 

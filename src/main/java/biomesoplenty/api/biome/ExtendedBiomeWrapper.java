@@ -8,9 +8,11 @@ import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.IGenerator;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.util.biome.BiomeUtils;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorFlora;
+import net.minecraft.init.Biomes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.BiomeGenBase;
 
@@ -20,7 +22,7 @@ public class ExtendedBiomeWrapper implements IExtendedBiome
     private GenerationManager generationManager = new GenerationManager();
     private Map<BOPClimates, Integer> weightMap = new HashMap<BOPClimates, Integer>();
     
-    public ResourceLocation beachBiomeIdLoc = BiomeGenBase.beach.biomeID;
+    public ResourceLocation beachBiomeLocation = BiomeUtils.getLocForBiome(Biomes.beach);
     
     public ExtendedBiomeWrapper(BiomeGenBase biome)
     {
@@ -36,7 +38,7 @@ public class ExtendedBiomeWrapper implements IExtendedBiome
     @Override
     public void configure(IConfigObj conf) 
     {
-        this.beachBiomeIdLoc = conf.getInt("beachBiomeIdLoc", this.beachBiomeIdLoc);
+        this.beachBiomeLocation = conf.getResourceLocation("beachBiomeLocation", this.beachBiomeLocation);
         
         // Allow generators to be configured
         IConfigObj confGenerators = conf.getObject("generators");
@@ -96,9 +98,15 @@ public class ExtendedBiomeWrapper implements IExtendedBiome
     }
     
     @Override
-    public int getBeachId()
+    public ResourceLocation getBeachLocation() 
     {
-        return this.beachBiomeIdLoc;
+        return this.beachBiomeLocation;
+    }
+    
+    @Override
+    public ResourceLocation getResourceLocation() 
+    {
+        return BiomeUtils.getLocForBiome(this.biome);
     }
 
     @Override

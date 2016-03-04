@@ -41,7 +41,7 @@ public class BiomeGenSeasonalForest extends BOPBiome
         
         if (BOPBiomes.gravel_beach.isPresent())
         {
-        	this.beachBiomeId = BOPBiomes.gravel_beach.get().biomeID;
+        	this.beachBiomeLocation = ((BOPBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
         }
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntityWolf.class, 5, 4, 4));
