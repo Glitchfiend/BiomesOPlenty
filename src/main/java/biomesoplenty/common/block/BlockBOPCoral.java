@@ -86,11 +86,11 @@ public class BlockBOPCoral extends BlockBOPDecoration
         return ((CoralType) state.getValue(VARIANT)).ordinal();
     }
     
-    @Override
+/*    @Override
     public void setBlockBoundsBasedOnState(IBlockAccess world, BlockPos pos)
     {
         this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.4F, 0.8F, pos);
-    }    
+    }  */
 
     // glowing_coral emits light
     @Override

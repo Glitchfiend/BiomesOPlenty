@@ -18,12 +18,16 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityArrow;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
+import net.minecraft.network.play.server.SPacketChangeGameState;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class EntityDart extends EntityArrow
@@ -113,11 +117,11 @@ public class EntityDart extends EntityArrow
                 // TODO: what is all this?  Something about informing the other player in a multiplayer game that he got hit or something?
                 if (this.shootingEntity != null && entityHit != this.shootingEntity && entityHit instanceof EntityPlayer && this.shootingEntity instanceof EntityPlayerMP)
                 {
-                    ((EntityPlayerMP)this.shootingEntity).playerNetServerHandler.sendPacket(new S2BPacketChangeGameState(6, 0.0F));
+                    ((EntityPlayerMP)this.shootingEntity).playerNetServerHandler.sendPacket(new SPacketChangeGameState(6, 0.0F));
                 }
             }
 
-            this.playSound("random.bowhit", 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
+            this.playSound(SoundEvents.entity_arrow_hit, 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
             this.setDead();
         }
         else
@@ -154,16 +158,16 @@ public class EntityDart extends EntityArrow
         }
 
         ++this.ticksInAir;
-        Vec3 currentPosision = new Vec3(this.posX, this.posY, this.posZ);
-        Vec3 futurePosition = new Vec3(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
+        Vec3d currentPosision = new Vec3d(this.posX, this.posY, this.posZ);
+        Vec3d futurePosition = new Vec3d(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
         
         // see if there's a block between the current and future positions
-        MovingObjectPosition blockCollision = this.worldObj.rayTraceBlocks(currentPosision, futurePosition, false, true, false);
+        RayTraceResult blockCollision = this.worldObj.rayTraceBlocks(currentPosision, futurePosition, false, true, false);
 
         // if there's a block, then correct futurePosition to be the hit surface of the block
         if (blockCollision != null)
         {
-            futurePosition = new Vec3(blockCollision.hitVec.xCoord, blockCollision.hitVec.yCoord, blockCollision.hitVec.zCoord);
+            futurePosition = new Vec3d(blockCollision.hitVec.xCoord, blockCollision.hitVec.yCoord, blockCollision.hitVec.zCoord);
         }
 
         // get a list of all the entities which are anywhere near getting hit
@@ -178,7 +182,7 @@ public class EntityDart extends EntityArrow
             if (entity.canBeCollidedWith() && (entity != this.shootingEntity || this.ticksInAir >= 5))
             {
                 AxisAlignedBB axisalignedbb1 = entity.getEntityBoundingBox().expand((double)entityCollisionTolerance, (double)entityCollisionTolerance, (double)entityCollisionTolerance);
-                MovingObjectPosition entityCollision = axisalignedbb1.calculateIntercept(currentPosision, futurePosition);
+                RayTraceResult entityCollision = axisalignedbb1.calculateIntercept(currentPosision, futurePosition);
                 if (entityCollision != null)
                 {
                     // skip players who cannot be hit

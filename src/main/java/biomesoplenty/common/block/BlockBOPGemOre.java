@@ -42,8 +42,6 @@ public class BlockBOPGemOre extends Block implements IBOPBlock
     @Override
     public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
     @Override
-    public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
-    @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
     @Override
     public IProperty[] getNonRenderingProperties() { return null; }
@@ -106,7 +104,7 @@ public class BlockBOPGemOre extends Block implements IBOPBlock
 
     // Drop some experience when gems are mined
     @Override
-    public int getExpDrop(IBlockAccess world, BlockPos pos, int fortune)
+    public int getExpDrop(IBlockState state, IBlockAccess world, BlockPos pos, int fortune)
     {
         Random rand = world instanceof World ? ((World)world).rand : new Random();
         return MathHelper.getRandomIntegerInRange(rand, 3, 7);

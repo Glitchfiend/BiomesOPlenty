@@ -117,7 +117,6 @@ import com.google.common.collect.Sets;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.biome.IExtendedBiome;
-import biomesoplenty.api.biome.BOPBiome.BiomeProps;
 import biomesoplenty.common.biome.overworld.BiomeGenAlps;
 import biomesoplenty.common.biome.overworld.BiomeGenBambooForest;
 import biomesoplenty.common.biome.overworld.BiomeGenBayou;
@@ -626,7 +625,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
     
     private static Optional<BiomeGenBase> registerBOPBiome(BOPBiome biome)
     {
-        String idName = biome.getIdName();
+        String idName = biome.getResourceLocation().getResourcePath();
         Integer id = biomeIdMapConf.getInt(idName, null);
         if (id == null) {id = new Integer(getNextFreeBiomeId());}
         biomeIdMap.put(idName, id);

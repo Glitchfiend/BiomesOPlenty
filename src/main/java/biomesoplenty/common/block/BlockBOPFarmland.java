@@ -31,6 +31,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
@@ -80,7 +81,7 @@ public class BlockBOPFarmland extends BlockFarmland implements IBOPBlock
     {
         super();
         this.setTickRandomly(true);
-        this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.9375F, 1.0F);
+        //this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.9375F, 1.0F);
         this.setLightOpacity(255);
         this.useNeighborBrightness = true;
         this.setHardness(0.6F);
@@ -107,7 +108,7 @@ public class BlockBOPFarmland extends BlockFarmland implements IBOPBlock
     {
         int i = (state.getValue(MOISTURE)).intValue();
 
-        if (!this.hasWater(world, pos) && !world.canLightningStrike(pos.up()))
+        if (!this.hasWater(world, pos) && !world.isRainingAt(pos.up()))
         {
             if (i > 0)
             {
@@ -128,7 +129,7 @@ public class BlockBOPFarmland extends BlockFarmland implements IBOPBlock
     {
         for (BlockPos.MutableBlockPos mutableblockpos : BlockPos.getAllInBoxMutable(pos.add(-4, 0, -4), pos.add(4, 1, 4)))
         {
-            if (world.getBlockState(mutableblockpos).getBlock().getMaterial() == Material.water)
+            if (world.getBlockState(mutableblockpos).getMaterial() == Material.water)
             {
                 return true;
             }
@@ -140,13 +141,13 @@ public class BlockBOPFarmland extends BlockFarmland implements IBOPBlock
     private boolean hasCrops(World world, BlockPos pos)
     {
         Block block = world.getBlockState(pos.up()).getBlock();
-        return block instanceof IPlantable && canSustainPlant(world, pos, EnumFacing.UP, (IPlantable)block);
+        return block instanceof IPlantable && canSustainPlant(world.getBlockState(pos.up()), world, pos, EnumFacing.UP, (IPlantable)block);
     }
 
     @Override
     public void onNeighborBlockChange(World world, BlockPos pos, IBlockState state, Block neighborBlock)
     {
-        if (world.getBlockState(pos.up()).getBlock().getMaterial().isSolid())
+        if (world.getBlockState(pos.up()).getMaterial().isSolid())
         {
             world.setBlockState(pos, this.getDirtBlockState(world.getBlockState(pos)));
         }
@@ -182,13 +183,13 @@ public class BlockBOPFarmland extends BlockFarmland implements IBOPBlock
     }
 
     @Override
-    public ItemStack getPickBlock(MovingObjectPosition target, World world, BlockPos pos, EntityPlayer player)
+    public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
     {
         return new ItemStack(BOPBlocks.dirt, 1, BOPBlocks.dirt.getMetaFromState(this.getDirtBlockState(world.getBlockState(pos))));
     }
 
     @Override
-    public boolean canSustainPlant(IBlockAccess world, BlockPos pos, EnumFacing direction, IPlantable plantable)
+    public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
     {
         EnumPlantType plantType = plantable.getPlantType(world, pos.up());
 
@@ -199,7 +200,7 @@ public class BlockBOPFarmland extends BlockFarmland implements IBOPBlock
             case Plains:
             	return true;
             default:
-                return super.canSustainPlant(world, pos, direction, plantable);
+                return super.canSustainPlant(state, world, pos, direction, plantable);
         }
     }
 

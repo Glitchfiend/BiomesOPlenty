@@ -95,7 +95,7 @@ public class BlockBOPMud extends Block implements IBOPBlock, ISustainsPlantType
     }
     
     
-    @Override
+/*    @Override
     public AxisAlignedBB getCollisionBoundingBox(World world, BlockPos pos, IBlockState state)
     {   
         float heightOffset;
@@ -111,7 +111,7 @@ public class BlockBOPMud extends Block implements IBOPBlock, ISustainsPlantType
                 break;
         }
         return new AxisAlignedBB((double) pos.getX(), (double) pos.getY(), (double) pos.getZ(), (double) (pos.getX() + 1), (double) ((float) (pos.getY() + 1) - heightOffset), (double) (pos.getZ() + 1));
-    }
+    }*/
 
     @Override
     public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
@@ -157,7 +157,7 @@ public class BlockBOPMud extends Block implements IBOPBlock, ISustainsPlantType
     
     
     @Override
-    public boolean canSustainPlant(IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
+    public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
     {
         return this.canSustainPlantType(world, pos, plantable.getPlantType(world, pos.offset(direction)));
     }

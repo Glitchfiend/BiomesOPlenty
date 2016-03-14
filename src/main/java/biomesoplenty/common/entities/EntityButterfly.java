@@ -47,7 +47,7 @@ public class EntityButterfly extends EntityFlying implements IMob {
     protected void applyEntityAttributes()
     {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(1.0D);
     }
     
     @Override
@@ -97,23 +97,11 @@ public class EntityButterfly extends EntityFlying implements IMob {
     
     public void setButterflyType(int butterflyTypeId)
     {
-        this.dataWatcher.set(18, Byte.valueOf((byte)butterflyTypeId));
+        this.dataWatcher.set(TYPE, Byte.valueOf((byte)butterflyTypeId));
     }
     
     @Override
     public boolean canBePushed()
-    {
-        return false;
-    }
-    
-    @Override
-    public boolean allowLeashing()
-    {
-        return false;
-    }
-
-    @Override
-    protected boolean interact(EntityPlayer player)
     {
         return false;
     }
@@ -201,7 +189,7 @@ public class EntityButterfly extends EntityFlying implements IMob {
         
         public boolean isBoxBlocked(AxisAlignedBB box)
         {
-            return !this.butterfly.worldObj.getCollidingBoundingBoxes(this.butterfly, box).isEmpty();
+            return !this.butterfly.worldObj.getCubes(this.butterfly, box).isEmpty();
         }
         
         // check nothing will collide with the butterfly in the direction of aim, for howFar units (or until the destination - whichever is closer)
@@ -237,6 +225,7 @@ public class EntityButterfly extends EntityFlying implements IMob {
         private int courseChangeCooldown = 0;
         private double closeEnough = 0.3D;
         private ButterflyMoveTargetPos targetPos = new ButterflyMoveTargetPos();
+        private boolean update;
 
         public ButterflyMoveHelper()
         {

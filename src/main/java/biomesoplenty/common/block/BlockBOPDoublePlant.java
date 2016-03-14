@@ -28,6 +28,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
@@ -104,60 +105,9 @@ public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements ISh
                 return ColoringType.PLAIN;
         }       
     }
- 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public int getBlockColor()
-    {
-        return 0xFFFFFF;
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public int getRenderColor(IBlockState state)
-    {
-        switch (getColoringType((DoublePlantType) state.getValue(VARIANT)))
-        {
-            case LIKE_LEAVES:
-                return ColorizerFoliage.getFoliageColorBasic();
-            case LIKE_GRASS:
-                return ColorizerGrass.getGrassColor(0.5D, 1.0D);
-            case PLAIN: default:
-                return 0xFFFFFF;
-        }
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public int colorMultiplier(IBlockAccess worldIn, BlockPos pos, int renderPass)
-    {
-        switch (getColoringType((DoublePlantType) worldIn.getBlockState(pos).getValue(VARIANT)))
-        {
-            case LIKE_LEAVES:
-                return BiomeColorHelper.getFoliageColorAtPos(worldIn, pos);
-            case LIKE_GRASS:
-                return BiomeColorHelper.getGrassColorAtPos(worldIn, pos);
-            case PLAIN: default:
-                return 0xFFFFFF;
-        }
-    }
-    
-    // flax item should not be tinted, even though the model is
-    @Override
-    public int getItemRenderColor(IBlockState state, int tintIndex)
-    {
-        switch ((DoublePlantType) state.getValue(VARIANT))
-        {
-            case FLAX:
-                return 0xFFFFFF;
-            default:
-                return this.getRenderColor(state);
-        }
-    }
     
     
-    
-    // different variants have different sizes
+/*    // different variants have different sizes
     @Override
     public void setBlockBoundsBasedOnState(IBlockAccess worldIn, BlockPos pos)
     {    
@@ -168,7 +118,7 @@ public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements ISh
                 this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.4F, isLower ? 1.0F : 0.8F, pos);
                 break;
         }
-    }
+    }*/
 
     
     @Override
@@ -265,10 +215,8 @@ public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements ISh
     }
     
     @Override
-    public ItemStack getPickBlock(MovingObjectPosition target, World world, BlockPos pos, EntityPlayer player)
+    public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
     {
-    	IBlockState state = world.getBlockState(pos);
-    	
     	switch ((DoublePlantType) state.getValue(VARIANT))
     	{
     		case TALL_CATTAIL:

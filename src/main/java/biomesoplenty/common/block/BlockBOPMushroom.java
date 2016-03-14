@@ -60,7 +60,7 @@ public class BlockBOPMushroom extends BlockBOPDecoration
     public BlockBOPMushroom()
     {
         // set some defaults
-        this.setBlockBoundsByRadiusAndHeight(0.2F, 0.4F);       
+        //this.setBlockBoundsByRadiusAndHeight(0.2F, 0.4F);
         this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, MushroomType.TOADSTOOL) );        
     }
     

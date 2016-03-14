@@ -43,11 +43,11 @@ public class BiomeGenXericShrubland extends BOPBiome
 	
     public BiomeGenXericShrubland()
     {
+        super("xeric_shrubland", new PropsBuilder("Xeric Shrubland").withGuiColour(0xE2CDA5).withTemperature(1.5F).withRainfall(0.1F));
+
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(1, 5);
-        
-        this.setColor(0xE2CDA5);
-        this.setTemperatureRainfall(1.5F, 0.1F);
+
         this.topBlock = Blocks.sand.getDefaultState();
         this.fillerBlock = Blocks.sand.getDefaultState();
         this.usualTopBlock = this.topBlock;

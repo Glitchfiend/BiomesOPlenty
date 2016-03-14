@@ -29,19 +29,7 @@ public class EntitySnail extends EntityLiving implements IMob {
     protected void applyEntityAttributes()
     {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(3.0D);
-    }
-    
-    @Override
-    public boolean allowLeashing()
-    {
-        return false;
-    }
-
-    @Override
-    protected boolean interact(EntityPlayer player)
-    {
-        return false;
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(3.0D);
     }
     
     @Override

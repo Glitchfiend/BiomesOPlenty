@@ -11,6 +11,7 @@ package biomesoplenty.common.world.layer;
 import java.util.List;
 
 import biomesoplenty.common.init.ModBiomes;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
@@ -110,12 +111,7 @@ public class GenLayerSubBiomesBOP extends BOPGenLayer
     // This is usually the 'mutated' version of a biome
     public int getRareSubBiome(int biomeId)
     {
-        
-        List<Integer> subBiomeIds = ModBiomes.mutatedBiomesMap.get(biomeId);
-        if (subBiomeIds == null) {return biomeId;}
-        int n = subBiomeIds.size();
-        return (n == 0 ? biomeId : (n == 1 ? subBiomeIds.get(0).intValue() : subBiomeIds.get(this.nextInt(n)).intValue()));
-    
+        return BiomeGenBase.getIdForBiome(BiomeGenBase.getMutationForBiome(BiomeGenBase.getBiome(biomeId)));
     }    
     
     // Given a biomeId, return the biomeId of a reasonably common alternative biome which you might expect to find a patch of within the outer biome 

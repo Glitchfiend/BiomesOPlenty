@@ -25,6 +25,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemShears;
 import net.minecraft.item.ItemStack;
@@ -32,6 +33,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -118,7 +120,7 @@ public class BlockBOPFlower extends BlockBOPDecoration implements IShearable
     }
     
     
-    // set the size of the different flowers' bounding boxes
+/*    // set the size of the different flowers' bounding boxes
     @Override
     public void setBlockBoundsBasedOnState(IBlockAccess world, BlockPos pos)
     {
@@ -144,14 +146,14 @@ public class BlockBOPFlower extends BlockBOPDecoration implements IShearable
                 this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.4F, 0.8F, pos);
                 break;
         }
-    }
+    }*/
     
     
     // some flowers emit light
     @Override
-    public int getLightValue(IBlockAccess world, BlockPos pos)
+    public int getLightValue(IBlockState state)
     {
-        switch ((BOPFlowers) world.getBlockState(pos).getValue(this.variantProperty))
+        switch ((BOPFlowers) state.getValue(this.variantProperty))
         {
             case GLOWFLOWER:
                 return 9;
@@ -163,21 +165,21 @@ public class BlockBOPFlower extends BlockBOPDecoration implements IShearable
                 return 9;
 
             default:
-                return super.getLightValue();
+                return super.getLightValue(state);
         }
     }
     
     @Override
-    public void harvestBlock(World world, EntityPlayer player, BlockPos pos, IBlockState state, TileEntity tileentity)
+    public void harvestBlock(World world, EntityPlayer player, BlockPos pos, IBlockState state, TileEntity tileentity, ItemStack stack)
     {
-        super.harvestBlock(world, player, pos, state, tileentity);
-        if (player.getCurrentEquippedItem() == null || !(player.getCurrentEquippedItem().getItem() instanceof ItemShears))
+        super.harvestBlock(world, player, pos, state, tileentity, stack);
+        if (player.getHeldItem(EnumHand.MAIN_HAND) == null || !(player.getHeldItem(EnumHand.MAIN_HAND).getItem() instanceof ItemShears))
         {
             switch ((BOPFlowers) state.getValue(this.variantProperty))
             {
                 // suffer wither effect if you harvest deathbloom without shears
                 case DEATHBLOOM:
-                    player.addPotionEffect(new PotionEffect(Potion.wither.id, 300));
+                    player.addPotionEffect(new PotionEffect(MobEffects.wither, 300));
                     break;
 
                 // catch on fire if you harvest burning_blossom without shears
@@ -199,7 +201,7 @@ public class BlockBOPFlower extends BlockBOPDecoration implements IShearable
             // suffer wither effect if you walk on deathbloom
             case DEATHBLOOM:
                 if (entity instanceof EntityLivingBase) {
-                    ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.wither.id, 200));
+                    ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.wither, 200));
                 }
                 break;
                 
@@ -219,7 +221,7 @@ public class BlockBOPFlower extends BlockBOPDecoration implements IShearable
     // add particle effects for deathbloom and burning_blossom
     @Override
     @SideOnly(Side.CLIENT)
-    public void randomDisplayTick(World world, BlockPos pos, IBlockState state, Random rand)
+    public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand)
     {
         switch((BOPFlowers) state.getValue(this.variantProperty))
         {
@@ -312,7 +314,7 @@ public class BlockBOPFlower extends BlockBOPDecoration implements IShearable
         //Only check if shears are being using if the appropriate option is enabled, and it's a player harvesting this block
         if (GameplayConfigurationHandler.flowerDropsNeedShears && player != null)
         {
-            boolean usingShears = (player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().getItem() instanceof ItemShears);
+            boolean usingShears = (player.getHeldItem(EnumHand.MAIN_HAND) != null && player.getHeldItem(EnumHand.MAIN_HAND).getItem() instanceof ItemShears);
 
             //Player must use shears when flowerDropsNeedShears is enabled
             if (!usingShears)

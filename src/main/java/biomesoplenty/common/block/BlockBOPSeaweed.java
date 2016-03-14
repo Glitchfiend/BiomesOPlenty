@@ -117,11 +117,11 @@ public class BlockBOPSeaweed extends BlockBOPDecoration implements IBOPBlock
         return ((SeaweedType) state.getValue(VARIANT)).ordinal();
     }
     
-    @Override
+/*    @Override
     public void setBlockBoundsBasedOnState(IBlockAccess world, BlockPos pos)
     {
         this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.4F, 0.8F, pos);
-    }
+    }*/
     
     // require water or seaweed above and earth or seaweed below
     @Override

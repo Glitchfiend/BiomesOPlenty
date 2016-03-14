@@ -48,7 +48,7 @@ public class BlockBOPCrystal extends Block implements IBOPBlock
     }
     
     @Override
-    public boolean canEntityDestroy(IBlockAccess world, BlockPos pos, Entity entity)
+    public boolean canEntityDestroy(IBlockState state, IBlockAccess world, BlockPos pos, Entity entity)
     {
         //Prevent the ender dragon from destroying this block
         if (entity instanceof EntityDragon)

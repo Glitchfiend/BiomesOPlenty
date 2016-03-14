@@ -35,16 +35,14 @@ public class BiomeGenWasteland extends BOPBiome
     
     public BiomeGenWasteland()
     {
+        super("wasteland", new PropsBuilder("Wasteland").withGuiColour(0x5A5440).withTemperature(2.0F).withRainfall(0.0F).withWaterColor(0xE5FF00).withRainDisabled());
+
         // terrain
         this.terrainSettings.avgHeight(66).heightVariation(1,5);
         
-        this.setColor(0x5A5440);
-        this.setTemperatureRainfall(2.0F, 0.0F);
         this.topBlock = BOPBlocks.dried_sand.getDefaultState();
         this.fillerBlock = BOPBlocks.dried_sand.getDefaultState();
-        this.waterColorMultiplier = 0xE5FF00;
         this.skyColor = 0x909E70;
-        this.setDisableRain();
         this.seaFloorBlock = BOPBlocks.dried_sand.getDefaultState();
 
         this.canGenerateRivers = false;

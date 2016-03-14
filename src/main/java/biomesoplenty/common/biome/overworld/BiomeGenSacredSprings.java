@@ -33,11 +33,10 @@ public class BiomeGenSacredSprings extends BOPBiome
 {
     public BiomeGenSacredSprings()
     {
+        super("sacred_springs", new PropsBuilder("Sacred Springs").withGuiColour(39259).withTemperature(0.8F).withRainfall(0.9F));
+
         // terrain
         this.terrainSettings.avgHeight(62).heightVariation(11, 45);
-        
-        this.setColor(39259);
-        this.setTemperatureRainfall(0.8F, 0.9F);
         
         this.canSpawnInBiome = false;
         this.canGenerateRivers = false;

@@ -119,7 +119,7 @@ public class BlockBOPBones extends Block implements IBOPBlock
     }
 
 
-    @Override
+/*    @Override
     @SideOnly(Side.CLIENT)
     public AxisAlignedBB getSelectedBoundingBox(World worldIn, BlockPos pos)
     {
@@ -181,7 +181,7 @@ public class BlockBOPBones extends Block implements IBOPBlock
                 this.setBlockBounds(min, min, 0F, max, max, 1.0F);
                 break;
         }
-    }
+    }*/
 
     @Override
     public boolean isOpaqueCube(IBlockState state)

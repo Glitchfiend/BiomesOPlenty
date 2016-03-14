@@ -8,6 +8,7 @@
 
 package biomesoplenty.common.entities.projectiles;
 
+import net.minecraft.client.renderer.VertexBuffer;
 import org.lwjgl.opengl.GL11;
 
 import biomesoplenty.common.item.ItemDart;
@@ -46,7 +47,7 @@ public class RenderDart extends Render<EntityDart>
         GlStateManager.rotate(dart.prevRotationYaw + (dart.rotationYaw - dart.prevRotationYaw) * partialTicks - 90.0F, 0.0F, 1.0F, 0.0F);
         GlStateManager.rotate(dart.prevRotationPitch + (dart.rotationPitch - dart.prevRotationPitch) * partialTicks, 0.0F, 0.0F, 1.0F);
         Tessellator tessellator = Tessellator.getInstance();
-        WorldRenderer worldrenderer = tessellator.getWorldRenderer();
+        VertexBuffer worldrenderer = tessellator.getBuffer();
         
         float shaft_u0 = 0.0F;
         float shaft_u1 = 0.5F;

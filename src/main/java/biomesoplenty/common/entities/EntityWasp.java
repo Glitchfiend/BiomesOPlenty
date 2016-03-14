@@ -43,34 +43,17 @@ public class EntityWasp extends EntityFlying implements IMob {
     protected void applyEntityAttributes()
     {
         super.applyEntityAttributes();
-        this.getAttributeMap().registerAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(2.5D);
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(10.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(10.0D);
+        this.getAttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(2.5D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(10.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(10.0D);
     }
     
     @Override
     public boolean attackEntityAsMob(Entity target)
     {
-        float f = (float)this.getEntityAttribute(SharedMonsterAttributes.attackDamage).getAttributeValue();
+        float f = (float)this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue();
         return target.attackEntityFrom(DamageSource.causeMobDamage(this), f);
     }
-    
-    @Override
-    protected String getLivingSound()
-    {
-        return "biomesoplenty:mob.wasp.say";
-    }
-    @Override
-    protected String getHurtSound()
-    {
-        return "biomesoplenty:mob.wasp.hurt";
-    }
-    @Override
-    protected String getDeathSound()
-    {
-        return "biomesoplenty:mob.wasp.hurt";
-    }
-        
     
     // Helper class representing a point in space that the wasp is targeting for some reason
     class WaspMoveTargetPos
@@ -131,7 +114,7 @@ public class EntityWasp extends EntityFlying implements IMob {
         
         public boolean isBoxBlocked(AxisAlignedBB box)
         {
-            return !this.wasp.worldObj.getCollidingBoundingBoxes(this.wasp, box).isEmpty();
+            return !this.wasp.worldObj.getCubes(this.wasp, box).isEmpty();
         }
         
         // check nothing will collide with the wasp in the direction of aim, for howFar units (or until the destination - whichever is closer)
@@ -168,6 +151,7 @@ public class EntityWasp extends EntityFlying implements IMob {
         private int courseChangeCooldown = 0;
         private double closeEnough = 0.3D;
         private WaspMoveTargetPos targetPos = new WaspMoveTargetPos();
+        private boolean update;
 
         public WaspMoveHelper()
         {

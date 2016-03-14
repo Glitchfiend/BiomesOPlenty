@@ -59,7 +59,7 @@ public class BlockBOPDecoration extends Block implements IBOPBlock
         this.setDefaultState(this.blockState.getBaseState());     
     }
     
-    // utility function for setting the block bounds - typically decoration blocks are smaller than full block size
+/*    // utility function for setting the block bounds - typically decoration blocks are smaller than full block size
     public void setBlockBoundsByRadiusAndHeight(float radius, float height)
     {
         this.setBlockBoundsByRadiusAndHeight(radius, height, false);
@@ -88,7 +88,7 @@ public class BlockBOPDecoration extends Block implements IBOPBlock
         float dz = (((float)(i >> 24 & 15L) / 15.0F) - 0.5F) * 0.5F;
         this.setBlockBounds(0.5F - radius + dx, (fromTop ? 1.0F - height : 0.0F), 0.5F - radius + dz, 0.5F + radius + dx, (fromTop ? 1.0F : height), 0.5F + radius + dz);
     }
- 
+ */
     // add a canBlockStay() check before placing this block
     @Override
     public boolean canReplace(World world, BlockPos pos, EnumFacing side, ItemStack stack)
@@ -139,12 +139,12 @@ public class BlockBOPDecoration extends Block implements IBOPBlock
         return true;
     }
 
-    // no collision box - you can walk straight through them
+/*    // no collision box - you can walk straight through them
     @Override
     public AxisAlignedBB getCollisionBoundingBox(World worldIn, BlockPos pos, IBlockState state)
     {
         return null;
-    }
+    }*/
 
     // not opaque
     @Override
@@ -175,10 +175,10 @@ public class BlockBOPDecoration extends Block implements IBOPBlock
         return Block.EnumOffsetType.XZ;
     }
     
-    @Override
+/*    @Override
     public void setBlockBoundsBasedOnState(IBlockAccess worldIn, BlockPos pos) {
         this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.3F, 0.6F, pos);
-    }
+    }*/
 
     
     

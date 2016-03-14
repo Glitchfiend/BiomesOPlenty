@@ -109,7 +109,7 @@ public class BlockBOPDoubleWoodSlab extends BlockSlab implements IBOPBlock
         return this.variantProperty;
     }
     @Override
-    public Object getVariant(ItemStack stack)
+    public Comparable<?> getTypeForItem(ItemStack stack)
     {
         return paging.getVariant(this, stack.getMetadata() & 7);
     }

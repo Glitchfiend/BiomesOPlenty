@@ -75,8 +75,6 @@ public class BlockBOPHalfWoodSlab extends BlockSlab implements IBOPBlock
     @Override
     public Class<? extends ItemBlock> getItemClass() { return null; }
     @Override
-    public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
-    @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {this.variantProperty}; }
     @Override
     public IProperty[] getNonRenderingProperties() { return null; }
@@ -90,7 +88,8 @@ public class BlockBOPHalfWoodSlab extends BlockSlab implements IBOPBlock
     {
         super(Material.wood);
         this.useNeighborBrightness = true;
-        this.setHardness(2.0F).setResistance(5.0F).setStepSound(SoundType.WOOD);
+        this.setHardness(2.0F).setResistance(5.0F);
+        this.setStepSound(SoundType.WOOD);
         this.setHarvestLevel("axe", 0);
         this.setDefaultState(this.blockState.getBaseState().withProperty(HALF, BlockSlab.EnumBlockHalf.BOTTOM));
     }
@@ -108,7 +107,7 @@ public class BlockBOPHalfWoodSlab extends BlockSlab implements IBOPBlock
         return this.variantProperty;
     }
     @Override
-    public Object getVariant(ItemStack stack)
+    public Comparable<?> getTypeForItem(ItemStack stack)
     {
         return paging.getVariant(this, stack.getMetadata() & 7);
     }

@@ -82,7 +82,7 @@ public class ItemBOPPlant extends ItemBOPBlock {
                                 --itemStackIn.stackSize;
                             }
 
-                            playerIn.triggerAchievement(StatList.objectUseStats[Item.getIdFromItem(this)]);
+                            //TODO: 1.9 playerIn.triggerAchievement(StatList.objectUseStats[Item.getIdFromItem(this)]);
                         }
                     }
 

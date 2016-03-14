@@ -101,23 +101,6 @@ public class EntityPixie extends EntityFlying implements IMob {
     {
         return this.isValidLightLevel() && super.getCanSpawnHere();
     }
-    
-    
-    @Override
-    protected String getLivingSound()
-    {
-        return "biomesoplenty:mob.pixie.say";
-    }
-    @Override
-    protected String getHurtSound()
-    {
-        return "biomesoplenty:mob.pixie.hurt";
-    }
-    @Override
-    protected String getDeathSound()
-    {
-        return "biomesoplenty:mob.pixie.hurt";
-    }
         
     
     // TODO - move PixieMoveTargetPos and AIPixieRandomFly outside and implement in a more generic way, to be reused for pixie and wasp 
@@ -183,7 +166,7 @@ public class EntityPixie extends EntityFlying implements IMob {
         
         public boolean isBoxBlocked(AxisAlignedBB box)
         {
-            return !this.pixie.worldObj.getCollidingBoundingBoxes(this.pixie, box).isEmpty();
+            return !this.pixie.worldObj.getCubes(this.pixie, box).isEmpty();
         }
         
         // check nothing will collide with the pixie in the direction of aim, for howFar units (or until the destination - whichever is closer)
@@ -219,6 +202,7 @@ public class EntityPixie extends EntityFlying implements IMob {
         private int courseChangeCooldown = 0;
         private double closeEnough = 0.3D;
         private PixieMoveTargetPos targetPos = new PixieMoveTargetPos();
+        private boolean update;
 
         public PixieMoveHelper()
         {

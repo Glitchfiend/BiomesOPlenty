@@ -37,6 +37,7 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
@@ -143,10 +144,10 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
             // support beach plants if there's water alongside
             case Beach:
                 return (
-                        (!world.isAirBlock(pos.east()) && world.getBlockState(pos.east()).getBlock().getMaterial() == Material.water) ||
-                        (!world.isAirBlock(pos.west()) && world.getBlockState(pos.west()).getBlock().getMaterial() == Material.water) ||
-                        (!world.isAirBlock(pos.north()) && world.getBlockState(pos.north()).getBlock().getMaterial() == Material.water) ||
-                        (!world.isAirBlock(pos.south()) && world.getBlockState(pos.south()).getBlock().getMaterial() == Material.water)
+                        (!world.isAirBlock(pos.east()) && world.getBlockState(pos.east()).getMaterial() == Material.water) ||
+                        (!world.isAirBlock(pos.west()) && world.getBlockState(pos.west()).getMaterial() == Material.water) ||
+                        (!world.isAirBlock(pos.north()) && world.getBlockState(pos.north()).getMaterial() == Material.water) ||
+                        (!world.isAirBlock(pos.south()) && world.getBlockState(pos.south()).getMaterial() == Material.water)
                         );
                 // don't support nether plants, water plants, or crops (require farmland), or anything else by default
             default:
@@ -156,7 +157,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
 
     
     @Override
-    public boolean canSustainPlant(IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
+    public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
     {   
         return this.canSustainPlantType(world, pos, plantable.getPlantType(world, pos.offset(direction)));
     }
@@ -187,7 +188,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
             case SPECTRAL_MOSS:
                 if (world.provider instanceof net.minecraft.world.WorldProviderHell)
                 {
-                    world.playSound(pos.getX(), pos.getY(), pos.getZ(), "mob.ghast.death", 20.0F, (float)Math.random() * 0.1F, true);
+                    //TODO: 1.9 world.playSound(pos.getX(), pos.getY(), pos.getZ(), "mob.ghast.death", 20.0F, (float)Math.random() * 0.1F, true);
                     for (int l = 0; l < 8; ++l)
                     {
                         world.spawnParticle(EnumParticleTypes.FLAME, (double)pos.getX() + Math.random(), (double)pos.getY() + 0.5D + Math.random(), (double)pos.getZ() + Math.random(), 0.0D, 0.0D, 0.0D);
@@ -351,7 +352,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
                 // shift a random distance
                 currPos = currPos.add(rand.nextInt(3) - 1, (rand.nextInt(3) - 1) * rand.nextInt(3) / 2, rand.nextInt(3) - 1);
                 Block currBlockBelow =  worldIn.getBlockState(currPos.down()).getBlock();
-                if ( (currBlockBelow != Blocks.grass && currBlockBelow != BOPBlocks.grass) || worldIn.getBlockState(currPos).getBlock().isNormalCube())
+                if ( (currBlockBelow != Blocks.grass && currBlockBelow != BOPBlocks.grass) || worldIn.getBlockState(currPos).isNormalCube())
                 {
                     // this block can't spread the growth
                     walkOk = false;
@@ -378,7 +379,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
         }
     }
     
-    @Override
+/*    @Override
     public AxisAlignedBB getCollisionBoundingBox(World world, BlockPos pos, IBlockState state)
     {   
         float heightOffset = 0.0F;
@@ -393,7 +394,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
                 break;
         }
         return new AxisAlignedBB((double) pos.getX(), (double) pos.getY(), (double) pos.getZ(), (double) (pos.getX() + 1), (double) ((float) (pos.getY() + 1) - heightOffset), (double) (pos.getZ() + 1));
-    }
+    }*/
     
     @Override
     public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
@@ -434,7 +435,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
     // by default, getPickBlock uses damageDropped to determine the metadata of the block picked. This
     // doesn't suit our case as the block dropped has a different metadata configuration from this block
     @Override
-    public ItemStack getPickBlock(MovingObjectPosition target, World world, BlockPos pos, EntityPlayer player)
+    public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
     {
         return new ItemStack(this, 1, this.getMetaFromState(world.getBlockState(pos)));
     }

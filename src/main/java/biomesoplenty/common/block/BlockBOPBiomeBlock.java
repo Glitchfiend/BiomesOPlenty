@@ -32,7 +32,7 @@ public class BlockBOPBiomeBlock extends BlockBOPGeneric
 {   
     
     public BlockBOPBiomeBlock() {
-        super(Material.glass);
+        super(Material.glass, SoundType.GLASS);
         this.setHardness(0.6F);
         this.setStepSound(SoundType.GLASS);
     }
@@ -95,7 +95,7 @@ public class BlockBOPBiomeBlock extends BlockBOPGeneric
             biome = biomes.get(rand.nextInt(numChoices));
             ItemStack biome_essence = new ItemStack(BOPItems.biome_essence);
             biome_essence.setTagCompound(new NBTTagCompound());
-            biome_essence.getTagCompound().setInteger("biomeID", biome.biomeID);
+            biome_essence.getTagCompound().setInteger("biomeID", BiomeGenBase.getIdForBiome(biome));
             ret.add(biome_essence);              
         }
 

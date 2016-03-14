@@ -42,7 +42,7 @@ public class BlockBOPBamboo extends BlockBOPDecoration
         super(Material.wood);
         this.setHardness(0.2F);
         this.setStepSound(SoundType.WOOD);
-        this.setBlockBoundsByRadiusAndHeight(0.1875F , 1.0F);
+        //this.setBlockBoundsByRadiusAndHeight(0.1875F , 1.0F);
         
         this.setDefaultState(this.blockState.getBaseState().withProperty(AGE, Integer.valueOf(0)));     
     }
@@ -106,11 +106,11 @@ public class BlockBOPBamboo extends BlockBOPDecoration
     }
 
     // restore collision box removed by BlockDecoration
-    @Override
+/*    @Override
     public AxisAlignedBB getCollisionBoundingBox(World world, BlockPos pos, IBlockState state)
     {
         return new AxisAlignedBB((double) pos.getX() + this.minX, (double) pos.getY() + this.minY, (double) pos.getZ() + this.minZ, (double) pos.getX() + this.maxX, (double) pos.getY() + this.maxY, (double) pos.getZ() + this.maxZ);
-    }
+    }*/
     
     // check this block is still able to remain on update ticks
     // if it is the bamboo also grows upward
@@ -147,10 +147,10 @@ public class BlockBOPBamboo extends BlockBOPDecoration
         return Block.EnumOffsetType.NONE;
     }
     
-    @Override
+/*    @Override
     public void setBlockBoundsBasedOnState(IBlockAccess worldIn, BlockPos pos) {
         this.setBlockBoundsByRadiusAndHeight(0.2F, 1.0F);
-    }
+    }*/
     
     
     @Override

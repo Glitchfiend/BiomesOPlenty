@@ -280,7 +280,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
     }
     
     // different variants have different sizes
-    @Override
+/*    @Override
     public void setBlockBoundsBasedOnState(IBlockAccess worldIn, BlockPos pos)
     {   
         IBlockState state = worldIn.getBlockState(pos);
@@ -308,13 +308,12 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
             case REED:
                 // reeds extend one block below
                 this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.3F, 0.8F, pos);
-                this.minY = -1.0D;
                 break;
             default:
                 this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.4F, 0.8F, pos);
                 break;
         }        
-    }
+    }*/
 
 
     

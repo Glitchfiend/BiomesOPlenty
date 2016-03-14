@@ -21,12 +21,10 @@ public class BiomeGenGlacier extends BOPBiome
     
     public BiomeGenGlacier()
     {
-        
+        super("glacier", new PropsBuilder("Glacier").withTemperature(-0.5F).withRainfall(0.2F).withGuiColour(11582425));
+
         // terrain
         this.terrainSettings.avgHeight(88).heightVariation(8, 10).octaves(0, 1, 1, 3, 1, 0);
-        
-        this.setTemperatureRainfall(-0.5F, 0.2F);
-        this.setColor(11582425);
 
         this.topBlock = Blocks.ice.getDefaultState();
         this.fillerBlock = BOPBlocks.hard_ice.getDefaultState();

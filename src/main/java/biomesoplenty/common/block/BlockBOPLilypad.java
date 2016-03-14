@@ -96,18 +96,4 @@ public class BlockBOPLilypad extends BlockLilyPad implements IBOPBlock
     {
         return net.minecraftforge.common.EnumPlantType.Water;
     }
-    
-    // no collision box - you can walk straight through them
-    @Override
-    public AxisAlignedBB getCollisionBoundingBox(World worldIn, BlockPos pos, IBlockState state)
-    {
-    	switch ((LilypadType) state.getValue(VARIANT))
-        {
-            case FLOWER:
-            	return new AxisAlignedBB((double)pos.getX() + this.minX, (double)pos.getY() + this.minY, (double)pos.getZ() + this.minZ, (double)pos.getX() + this.maxX, (double)pos.getY() + this.maxY, (double)pos.getZ() + this.maxZ);
-            
-            default:
-                return null;
-        }
-    }
 }

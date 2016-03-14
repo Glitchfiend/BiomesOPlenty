@@ -160,7 +160,7 @@ public class BlockBOPDoubleDecoration extends BlockBOPDecoration {
     
     
 
-    @Override
+/*    @Override
     // utility function for setting the block bounds - 
     public void setBlockBoundsByRadiusAndHeight(float radius, float height, boolean fromTop)
     {
@@ -181,7 +181,7 @@ public class BlockBOPDoubleDecoration extends BlockBOPDecoration {
                 this.setBlockBoundsByRadiusAndHeightWithXZOffset(this.radius, this.fromTop ? 1.0F : this.height, this.fromTop, pos);
                 break;
         }
-    }
+    }*/
     
 
     // handle drops from UPPER and LOWER separately

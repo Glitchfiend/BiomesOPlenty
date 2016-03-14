@@ -16,6 +16,7 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.util.block.BlockStateUtils;
 import net.minecraft.block.BlockSlab;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
@@ -74,8 +75,6 @@ public class BlockBOPHalfOtherSlab extends BlockSlab implements IBOPBlock
     @Override
     public Class<? extends ItemBlock> getItemClass() { return null; }
     @Override
-    public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
-    @Override
     public IProperty[] getPresetProperties() { return new IProperty[] { VARIANT }; }
     @Override
     public IProperty[] getNonRenderingProperties() { return null; }
@@ -118,7 +117,7 @@ public class BlockBOPHalfOtherSlab extends BlockSlab implements IBOPBlock
     {
         super(Material.rock);
         this.useNeighborBrightness = true;
-        this.setStepSound(soundTypeStone);
+        this.setStepSound(SoundType.STONE);
         // TODO: should depend on variant really, but that's quite hard to achieve...
         this.setHardness(2.0F).setResistance(7.0F);
         this.setDefaultState(this.blockState.getBaseState().withProperty(HALF, BlockSlab.EnumBlockHalf.BOTTOM));
@@ -149,7 +148,7 @@ public class BlockBOPHalfOtherSlab extends BlockSlab implements IBOPBlock
         return VARIANT;
     }
     @Override
-    public Object getVariant(ItemStack stack)
+    public Comparable<?> getTypeForItem(ItemStack stack)
     {
         return SlabType.values()[stack.getMetadata() & 7];
     }
