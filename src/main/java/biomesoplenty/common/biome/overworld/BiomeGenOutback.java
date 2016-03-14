@@ -35,11 +35,11 @@ public class BiomeGenOutback extends BOPBiome
 {    
     public BiomeGenOutback()
     {
+        super("outback", new PropsBuilder("Outback").withGuiColour(0xA57644).withTemperature(1.5F).withRainfall(0.05F));
+
         // terrain
         this.terrainSettings.avgHeight(72).heightVariation(8, 10).octaves(0, 1, 2, 1, 0, 2);
-        
-        this.setTemperatureRainfall(1.5F, 0.05F);
-        this.setColor(0xA57644);
+
         this.topBlock = Blocks.sand.getDefaultState().withProperty(BlockSand.VARIANT, BlockSand.EnumType.RED_SAND);
         this.fillerBlock = Blocks.sand.getDefaultState().withProperty(BlockSand.VARIANT, BlockSand.EnumType.RED_SAND);
         

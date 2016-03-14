@@ -29,13 +29,10 @@ public class BiomeGenSnowyConiferousForest extends BOPBiome
     
     public BiomeGenSnowyConiferousForest()
     {
-        
+        super("snowy_coniferous_forest", new PropsBuilder("Snowy Coniferous Forest").withGuiColour(0xFFFFFF).withSnowEnabled().withTemperature(-0.25F).withRainfall(0.5F));
+
         // terrain
         this.terrainSettings.avgHeight(68).heightVariation(10, 20);
-        
-        this.setColor(0xFFFFFF);
-        this.setEnableSnow();
-        this.setTemperatureRainfall(-0.25F, 0.5F);
     
         this.canGenerateVillages = false;
         

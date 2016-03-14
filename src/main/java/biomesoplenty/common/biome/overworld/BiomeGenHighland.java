@@ -28,11 +28,10 @@ public class BiomeGenHighland extends BOPBiome
         
     public BiomeGenHighland()
     {
+        super("highland", new PropsBuilder("Highland").withGuiColour(0x7CAD66).withTemperature(0.55F).withRainfall(0.8F));
+
         // terrain
         this.terrainSettings.avgHeight(120).heightVariation(25, 25);
-        
-        this.setColor(0x7CAD66);
-        this.setTemperatureRainfall(0.55F, 0.8F);
         
         this.canGenerateRivers = false;
         this.canGenerateVillages = false;

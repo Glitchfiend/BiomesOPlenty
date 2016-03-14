@@ -36,12 +36,11 @@ import net.minecraft.util.math.BlockPos;
 public class BiomeGenGrassland extends BOPBiome {
     
     public BiomeGenGrassland() {
-        
+
+        super("grassland", new PropsBuilder("Grassland").withGuiColour(0x7FDB7D).withTemperature(0.6F).withRainfall(0.7F));
+
         // terrain
-        this.terrainSettings.avgHeight(64).heightVariation(6, 25).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.1D); 
-        
-        this.setColor(0x7FDB7D);
-        this.setTemperatureRainfall(0.6F, 0.7F);
+        this.terrainSettings.avgHeight(64).heightVariation(6, 25).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.1D);
 
         this.addWeight(BOPClimates.COOL_TEMPERATE, 7);
         this.addWeight(BOPClimates.WET_TEMPERATE, 3);

@@ -30,11 +30,10 @@ public class BiomeGenOvergrownCliffs extends BOPBiome
 {
     public BiomeGenOvergrownCliffs()
     {
+        super("overgrown_cliffs", new PropsBuilder("Overgrown Cliffs").withGuiColour(8373350).withTemperature(0.95F).withRainfall(0.75F));
+
         // terrain
         this.terrainSettings.avgHeight(70).heightVariation(5, 100).octaves(1, 1, 1, 1, 0, 0).sidewaysNoise(0.0F);
-        
-        this.setColor(8373350);
-        this.setTemperatureRainfall(0.95F, 0.75F);
 
         this.canGenerateRivers = false;
         this.canSpawnInBiome = false;

@@ -46,11 +46,10 @@ public class BiomeGenLushSwamp extends BOPBiome
     
     public BiomeGenLushSwamp()
     {
+        super("lush_swamp", new PropsBuilder("Lush Swamp").withGuiColour(0x57AE34).withTemperature(0.7F).withRainfall(1.0F));
+
         // terrain
         this.terrainSettings.avgHeight(63).heightVariation(5, 10).octaves(1, 1, 1, 1, 0, 0).sidewaysNoise(0.0F);
-        
-        this.setColor(0x57AE34);
-        this.setTemperatureRainfall(0.7F, 1.0F);
 
         this.canGenerateRivers = false;
         this.canGenerateVillages = false;

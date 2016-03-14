@@ -40,12 +40,10 @@ public class BiomeGenOasis extends BOPBiome
 	
     public BiomeGenOasis()
     {
+        super("oasis", new PropsBuilder("Oasis").withGuiColour(7712283).withTemperature(2.0F).withRainfall(0.5F));
+
         // terrain
-        this.terrainSettings.avgHeight(64).heightVariation(5, 3); 
-        
-        this.setTemperatureRainfall(2.0F, 0.5F);
-        
-        this.setColor(7712283);
+        this.terrainSettings.avgHeight(64).heightVariation(5, 3);
     
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;

@@ -14,11 +14,13 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.block.BlockBOPCoral;
 import biomesoplenty.common.enums.BOPGems;
+import biomesoplenty.common.util.biome.BiomeUtils;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorColumns;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
+import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
  
@@ -26,16 +28,16 @@ public class BiomeGenKelpForest extends BOPBiome
 {
     public BiomeGenKelpForest()
     {
+        super("kelp_forest", new PropsBuilder("Kelp Forest").withGuiColour(27468));
+
         // terrain
-        this.terrainSettings.avgHeight(40).heightVariation(5, 5); 
-        
-        this.setColor(27468);
+        this.terrainSettings.avgHeight(40).heightVariation(5, 5);
     
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
         this.canGenerateRivers = false;
         
-        this.beachBiomeId = BiomeGenBase.ocean.biomeID;
+        this.beachBiomeLocation = BiomeUtils.getLocForBiome(Biomes.ocean);
         
         clearWeights();
 

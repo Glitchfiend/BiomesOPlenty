@@ -26,11 +26,11 @@ public class BiomeGenMapleWoods extends BOPBiome
 {    
     public BiomeGenMapleWoods()
     {
+        super("maple_woods", new PropsBuilder("Maple Woods").withGuiColour(0x6AA369).withTemperature(0.25F).withRainfall(0.8F));
+
         // terrain
         this.terrainSettings.avgHeight(70).heightVariation(10, 25);
-
-        this.setColor(0x6AA369);
-        this.setTemperatureRainfall(0.25F, 0.8F);
+        
         this.addWeight(BOPClimates.BOREAL, 10);
 
         this.canGenerateVillages = false;

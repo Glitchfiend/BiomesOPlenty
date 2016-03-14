@@ -531,7 +531,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         }
         else //extendedBiome is a wrapper
         {
-            biomeWrapperMap.put(extendedBiome.getBaseBiome().biomeID, extendedBiome);
+            biomeWrapperMap.put(BiomeGenBase.getIdForBiome(extendedBiome.getBaseBiome()), extendedBiome);
         }
         
         return extendedBiome;
@@ -547,7 +547,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         }
         else
         {
-            IExtendedBiome wrapper = biomeWrapperMap.get(biome.biomeID);
+            IExtendedBiome wrapper = biomeWrapperMap.get(BiomeGenBase.getIdForBiome(biome));
             
             //This biome may not have a wrapper
             if (wrapper != null)
@@ -594,14 +594,14 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
     private static void setSubBiome(BiomeGenBase parent, BiomeGenBase... subBiomes)
     {
         Map<Integer, List<Integer>> map = subBiomesMap;
-        int parentId = parent.biomeID;
+        int parentId = BiomeGenBase.getIdForBiome(parent);
         if (!map.containsKey(parentId))
         {
             map.put(parentId, new ArrayList<Integer>());
         }
         for (BiomeGenBase subBiome : subBiomes)
         {
-            map.get(parentId).add(subBiome.biomeID);
+            map.get(parentId).add(BiomeGenBase.getIdForBiome(subBiome));
         }
     }
     
@@ -610,7 +610,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         if (biome.isPresent())
         {
             totalIslandBiomesWeight += weight;
-            islandBiomesMap.put(biome.get().biomeID, weight);
+            islandBiomesMap.put(BiomeGenBase.getIdForBiome(biome.get()), weight);
         }
     }
     

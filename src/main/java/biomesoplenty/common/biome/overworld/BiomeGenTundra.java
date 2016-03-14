@@ -33,11 +33,10 @@ public class BiomeGenTundra extends BOPBiome
 {    
     public BiomeGenTundra()
     {
+        super("tundra", new PropsBuilder("Tundra").withGuiColour(0xA09456).withTemperature(0.2F).withRainfall(0.5F));
+
         // terrain
-        this.terrainSettings.avgHeight(64).heightVariation(5, 10).minHeight(59).octaves(2, 2, 1, 0, 1, 1); 
-        
-        this.setColor(0xA09456);
-        this.setTemperatureRainfall(0.165F, 0.5F); // temperature deliberately borderline between rain and snow
+        this.terrainSettings.avgHeight(64).heightVariation(5, 10).minHeight(59).octaves(2, 2, 1, 0, 1, 1);
         
         this.addWeight(BOPClimates.TUNDRA, 10);
         

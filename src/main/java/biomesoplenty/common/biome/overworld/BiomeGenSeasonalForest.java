@@ -30,11 +30,11 @@ public class BiomeGenSeasonalForest extends BOPBiome
 {    
     public BiomeGenSeasonalForest()
     {
+        super("seasonal_forest", new PropsBuilder("Seasonal Forest").withGuiColour(0xBEC44C).withTemperature(0.4F).withRainfall(0.8F));
+
         // terrain
         this.terrainSettings.avgHeight(70).heightVariation(10, 30);
 
-        this.setColor(0xBEC44C);
-        this.setTemperatureRainfall(0.4F, 0.8F);
         this.addWeight(BOPClimates.COOL_TEMPERATE, 7);
 
         this.canGenerateVillages = false;

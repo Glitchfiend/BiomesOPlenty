@@ -39,15 +39,15 @@ public class BiomeGenMarsh extends BOPBiome
     // TODO: should there be foliage colors / water colors?
         
     public BiomeGenMarsh()
-    {        
+    {
+        super("marsh", new PropsBuilder("Marsh").withGuiColour(0x66A06E).withTemperature(0.7F).withRainfall(0.9F));
+
         // terrain
         this.terrainSettings.avgHeight(63).heightVariation(5, 2).octaves(5, 5, 0, 0, 1, 1).sidewaysNoise(0.1D); 
         
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.LOAMY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.LOAMY);
         this.seaFloorBlock = BOPBlocks.mud.getDefaultState();
-        this.setColor(0x66A06E);
-        this.setTemperatureRainfall(0.7F, 0.9F);
         
         this.canSpawnInBiome = false;
         this.canGenerateRivers = false;

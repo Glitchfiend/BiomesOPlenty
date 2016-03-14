@@ -27,12 +27,10 @@ public class BiomeGenTropicalIsland extends BOPBiome
 {
     public BiomeGenTropicalIsland()
     {
+        super("tropical_island", new PropsBuilder("Tropical Island").withTemperature(1.0F).withRainfall(1.0F).withGuiColour(2211330));
+
         // terrain
-        this.terrainSettings.avgHeight(70).heightVariation(5, 35).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.0D); 
-        
-        this.setTemperatureRainfall(1.0F, 1.0F);
-        
-        this.setColor(2211330);
+        this.terrainSettings.avgHeight(70).heightVariation(5, 35).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.0D);
     
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;

@@ -142,7 +142,7 @@ public class AchievementEventHandler
     @SubscribeEvent
     public void onItemUsed(PlayerInteractEvent event)
     {
-        if (event.action != Action.LEFT_CLICK_BLOCK)
+        /* TODO: 1.9 if (event.action != Action.LEFT_CLICK_BLOCK)
         {
             ItemStack stack = event.entityPlayer.getHeldItem();
             Item item = stack != null ? stack.getItem() : null;
@@ -153,7 +153,7 @@ public class AchievementEventHandler
             {
                 player.addStat(BOPAchievements.use_enderporter);
             }
-        }
+        }*/
     }
     
     @SubscribeEvent
@@ -246,7 +246,7 @@ public class AchievementEventHandler
     @SubscribeEvent
     public void onPlayerUpdate(LivingUpdateEvent event)
     {
-        if (!event.entity.worldObj.isRemote && event.entity instanceof EntityPlayer)
+        /* TODO: 1.9 if (!event.entity.worldObj.isRemote && event.entity instanceof EntityPlayer)
         {
             EntityPlayerMP player = (EntityPlayerMP)event.entity;
 
@@ -263,7 +263,7 @@ public class AchievementEventHandler
                     this.updateBiomesExplored(player);
                 }
             }
-        }
+        }*/
     }
 
     private void updateBiomeRadarExplore(EntityPlayerMP player)

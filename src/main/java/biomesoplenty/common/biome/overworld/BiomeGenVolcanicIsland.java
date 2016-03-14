@@ -23,12 +23,10 @@ public class BiomeGenVolcanicIsland extends BOPBiome
 {
     public BiomeGenVolcanicIsland()
     {
+        super("volcanic_island", new PropsBuilder("Volcanic Island").withGuiColour(6645093).withTemperature(1.2F).withRainfall(0.2F));
+
         // terrain
-        this.terrainSettings.avgHeight(120).heightVariation(50, 50).octaves(1, 1, 2, 2, 3, 2).sidewaysNoise(0.1D); 
-        
-        this.setTemperatureRainfall(1.2F, 0.0F);
-        
-        this.setColor(6645093);
+        this.terrainSettings.avgHeight(120).heightVariation(50, 50).octaves(1, 1, 2, 2, 3, 2).sidewaysNoise(0.1D);
         
         this.topBlock = BOPBlocks.ash_block.getDefaultState();
         this.fillerBlock = BOPBlocks.ash_block.getDefaultState();

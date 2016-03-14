@@ -42,15 +42,15 @@ public class BiomeGenLandOfLakes extends BOPBiome
     // TODO: should there be foliage colors / water colors?
         
     public BiomeGenLandOfLakes()
-    {        
+    {
+        super("land_of_lakes", new PropsBuilder("Land of Lakes").withGuiColour(0x66A06E).withTemperature(0.5F).withRainfall(0.9F));
+
         // terrain
         this.terrainSettings.avgHeight(63).heightVariation(10, 10).octaves(5, 5, 0, 0, 1, 1).sidewaysNoise(0.1D); 
         
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.LOAMY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.LOAMY);
         this.seaFloorBlock = BOPBlocks.mud.getDefaultState();
-        this.setColor(0x66A06E);
-        this.setTemperatureRainfall(0.5F, 0.9F);
         
         this.canGenerateVillages = false;
         

@@ -47,13 +47,12 @@ public class BiomeGenMysticGrove extends BOPBiome
     
     public BiomeGenMysticGrove()
     {
+        super("mystic_grove", new PropsBuilder("Mystic Grove").withGuiColour(0x69CFDB).withTemperature(0.6F).withRainfall(0.8F).withWaterColor(0xFF107A));
+
         // terrain
         this.terrainSettings.avgHeight(63).heightVariation(5, 25);
-        
-        this.setColor(0x69CFDB);
+
         this.skyColor = 0x88E8D0;
-        this.setTemperatureRainfall(0.6F, 0.8F);
-        this.waterColorMultiplier = 0xFF107A;
 
         this.canGenerateRivers = false;
         this.canGenerateVillages = false;

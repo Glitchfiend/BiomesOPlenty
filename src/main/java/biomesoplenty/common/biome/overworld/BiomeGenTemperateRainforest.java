@@ -39,12 +39,10 @@ public class BiomeGenTemperateRainforest extends BOPBiome
     
     public BiomeGenTemperateRainforest()
     {
+        super("temperate_rainforest", new PropsBuilder("Temperate Rainforest").withGuiColour(0xBBDD63).withTemperature(0.75F).withRainfall(1.2F));
         
         // terrain
         this.terrainSettings.avgHeight(63).heightVariation(10, 35);
-        
-        this.setColor(0xBBDD63);
-        this.setTemperatureRainfall(0.75F, 1.2F);
         
         this.canGenerateVillages = false;
     

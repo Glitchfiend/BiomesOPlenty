@@ -35,14 +35,10 @@ public class BiomeGenTropicalRainforest extends BOPBiome
     
     public BiomeGenTropicalRainforest()
     {
-        
+        super("tropical_rainforest", new PropsBuilder("Tropical Rainforest").withGuiColour(0x88E140).withTemperature(1.2F).withRainfall(1.0F).withWaterColor(0x5DFF00));
+
         // terrain
         this.terrainSettings.avgHeight(67).heightVariation(10, 25);
-        
-        this.setColor(0x88E140);
-        this.setTemperatureRainfall(1.2F, 1.0F);
-        //this.skyColor = 0xC8CC5F;
-        this.waterColorMultiplier = 0x5DFF00;
         
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;

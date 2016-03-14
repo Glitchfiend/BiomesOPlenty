@@ -15,10 +15,10 @@ public class BiomeGenGravelBeach extends BOPBiome
 {
     public BiomeGenGravelBeach()
     {
+        super("gravel_beach", new PropsBuilder("Gravel Beach").withGuiColour(0x908884));
+
         // terrain
-        this.terrainSettings.avgHeight(64).heightVariation(3, 4); 
-        
-        this.setColor(0x908884);
+        this.terrainSettings.avgHeight(64).heightVariation(3, 4);
     
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;

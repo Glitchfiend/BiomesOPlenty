@@ -34,11 +34,10 @@ public class BiomeGenShrubland extends BOPBiome
     
     public BiomeGenShrubland()
     {
+        super("shrubland", new PropsBuilder("Shrubland").withGuiColour(8168286).withTemperature(0.6F).withRainfall(0.05F));
+
         // terrain
         this.terrainSettings.avgHeight(66).heightVariation(8, 15).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.1D);
-        
-        this.setColor(8168286);
-        this.setTemperatureRainfall(0.6F, 0.05F);
         
         this.addWeight(BOPClimates.DRY_TEMPERATE, 10);
         this.addWeight(BOPClimates.MEDITERANEAN, 7);

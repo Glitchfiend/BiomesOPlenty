@@ -32,6 +32,7 @@ import biomesoplenty.common.world.feature.GeneratorSplotches;
 import biomesoplenty.common.world.feature.GeneratorWaterside;
 import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
 import biomesoplenty.common.world.feature.tree.GeneratorPineTree;
+import com.google.common.base.CaseFormat;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
@@ -57,6 +58,8 @@ public class BiomeGenMountain extends BOPBiome
         
     public BiomeGenMountain(MountainType type)
     {
+        super(type.name().toLowerCase(), new PropsBuilder(CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, type.toString())).withGuiColour(0x80A355).withTemperature(0.8F).withRainfall(0.1F));
+
         this.type = type;
         
         this.canSpawnInBiome = false;
@@ -76,8 +79,6 @@ public class BiomeGenMountain extends BOPBiome
         this.canGenerateRivers = false;
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
-        this.setColor(0x80A355);
-        this.setTemperatureRainfall(0.8F, 0.1F);
         
         this.beachBiomeLocation = null;
         
@@ -191,7 +192,7 @@ public class BiomeGenMountain extends BOPBiome
         int localX = x & 15;
         int localZ = z & 15;
         int height = 255;
-        while (height > 0 && primer.getBlockState(localX, height, localZ).getBlock().getMaterial() == Material.air) {height--;}
+        while (height > 0 && primer.getBlockState(localX, height, localZ).getMaterial() == Material.air) {height--;}
         int peakLine = 140 + (int)(noise * 5);
         
         if (height > peakLine)

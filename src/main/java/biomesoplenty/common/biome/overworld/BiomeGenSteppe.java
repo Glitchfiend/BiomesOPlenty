@@ -41,16 +41,15 @@ public class BiomeGenSteppe extends BOPBiome
 	
     public BiomeGenSteppe()
     {
+        super("steppe", new PropsBuilder("Steppe").withGuiColour(13413215).withTemperature(0.75F).withRainfall(0.1F));
+
         // terrain
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SANDY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SANDY);
         this.usualTopBlock = this.topBlock;
         this.alternateTopBlock = BOPBlocks.dried_sand.getDefaultState();
         
-        this.terrainSettings.avgHeight(70).heightVariation(6, 20).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.1D); 
-        
-        this.setColor(13413215);
-        this.setTemperatureRainfall(0.75F, 0.1F);
+        this.terrainSettings.avgHeight(70).heightVariation(6, 20).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.1D);
         
         this.canSpawnInBiome = false;
         this.canGenerateVillages = true;

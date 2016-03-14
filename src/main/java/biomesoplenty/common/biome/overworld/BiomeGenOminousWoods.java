@@ -41,13 +41,12 @@ public class BiomeGenOminousWoods extends BOPBiome
     
     public BiomeGenOminousWoods()
     {
+        super("ominous_woods", new PropsBuilder("Ominous Woods").withGuiColour(0x3F4151).withTemperature(0.45F).withRainfall(0.6F).withWaterColor(0x1E1B26));
+
         // terrain
         this.terrainSettings.avgHeight(70).heightVariation(5, 25);
-        
-        this.setColor(0x3F4151);
+
         this.skyColor = 0x34333D;
-        this.setTemperatureRainfall(0.45F, 0.6F);
-        this.waterColorMultiplier = 0x1E1B26;
 
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.LOAMY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.LOAMY);

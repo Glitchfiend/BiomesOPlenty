@@ -40,13 +40,11 @@ public class BiomeGenHeathland extends BOPBiome
 {    
     public BiomeGenHeathland()
     {
-        
+        super("heathland", new PropsBuilder("Heathland").withGuiColour(0xADAE68).withTemperature(0.75F).withRainfall(0.2F));
+
         // terrain
         this.terrainSettings.avgHeight(75).heightVariation(7, 10).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.1D);
-        
-        this.setColor(0xADAE68);
-        this.setTemperatureRainfall(0.75F, 0.2F);
-        
+
         this.addWeight(BOPClimates.DRY_TEMPERATE, 5);
         
         this.canGenerateVillages = true;

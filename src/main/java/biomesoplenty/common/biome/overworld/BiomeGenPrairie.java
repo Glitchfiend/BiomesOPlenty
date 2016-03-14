@@ -31,14 +31,13 @@ public class BiomeGenPrairie extends BOPBiome
 {
     public BiomeGenPrairie()
     {
+        super("prairie", new PropsBuilder("Prairie").withGuiColour(0xC8E580).withTemperature(0.8F).withRainfall(0.3F));
+
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(4, 15);
         
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SILTY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY);
-        
-        this.setColor(0xC8E580);
-        this.setTemperatureRainfall(0.8F, 0.3F);
         
         this.addWeight(BOPClimates.WARM_TEMPERATE, 7);
         

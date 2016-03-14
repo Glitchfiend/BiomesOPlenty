@@ -32,13 +32,10 @@ public class BiomeGenSnowyForest extends BOPBiome
 
     public BiomeGenSnowyForest()
     {
+        super("snowy_forest", new PropsBuilder("Snowy Forest").withGuiColour(0xABD6BC).withSnowEnabled().withTemperature(-0.25F).withRainfall(0.5F));
+
         // terrain
         this.terrainSettings.avgHeight(66).heightVariation(6, 21);
-        
-        this.setColor(0xABD6BC);
-        //this.skyColor = 0xCEE0EA;
-        this.setEnableSnow();
-        this.setTemperatureRainfall(-0.25F, 0.5F);
         
         this.canGenerateVillages = false;
 

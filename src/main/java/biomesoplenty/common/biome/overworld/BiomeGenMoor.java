@@ -38,13 +38,11 @@ public class BiomeGenMoor extends BOPBiome
     
     public BiomeGenMoor()
     {
-        
+        super("moor", new PropsBuilder("Moor").withGuiColour(0x619365).withTemperature(0.55F).withRainfall(1.0F).withWaterColor(0x588276));
+
         // terrain
         this.terrainSettings.avgHeight(88).heightVariation(8, 10).octaves(0, 1, 1, 3, 1, 0);
-        
-        this.setTemperatureRainfall(0.55F, 1.0F);
-        this.setColor(0x619365);
-        this.waterColorMultiplier = 0x588276;
+
         //this.skyColor =0xA0C5D3;
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.LOAMY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.LOAMY);

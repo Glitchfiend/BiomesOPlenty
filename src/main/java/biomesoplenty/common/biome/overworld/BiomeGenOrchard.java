@@ -26,11 +26,10 @@ public class BiomeGenOrchard extends BOPBiome
 {
     public BiomeGenOrchard()
     {
+        super("orchard", new PropsBuilder("Orchard").withGuiColour(14024557).withTemperature(0.7F).withRainfall(0.7F));
+
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(4, 15);
-
-        this.setColor(14024557);
-        this.setTemperatureRainfall(0.7F, 0.7F);
         
         this.addWeight(BOPClimates.WARM_TEMPERATE, 3);
         
