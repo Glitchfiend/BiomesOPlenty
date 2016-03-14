@@ -10,6 +10,7 @@ package biomesoplenty.common.world;
 
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.biome.IExtendedBiome;
+import biomesoplenty.common.util.biome.BiomeUtils;
 import biomesoplenty.common.world.BOPWorldSettings.LandMassScheme;
 import biomesoplenty.common.world.layer.GenLayerBiomeBOP;
 import biomesoplenty.common.world.layer.GenLayerBiomeEdgeBOP;
@@ -60,7 +61,7 @@ public class BiomeProviderBOP extends BiomeProvider
         BOPWorldSettings settings = new BOPWorldSettings(chunkProviderSettings);        
         
         // loop through the biomes and apply the settings
-        for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray())
+        for (BiomeGenBase biome : BiomeUtils.getRegisteredBiomes())
         {
             if (biome == null) {continue;}
             

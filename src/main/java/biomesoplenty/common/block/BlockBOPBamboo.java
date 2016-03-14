@@ -50,7 +50,7 @@ public class BlockBOPBamboo extends BlockBOPDecoration
     
     // bamboo doesn't sustain plants (except more bamboo on top)
     @Override
-    public boolean canSustainPlant(IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
+    public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
     {
         return direction == EnumFacing.UP && plantable.getPlant(world, pos.offset(direction)).getBlock() == this;
     }

@@ -36,6 +36,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ColorizerFoliage;
@@ -191,10 +192,10 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
     }
     
     @Override
-    public void harvestBlock(World world, EntityPlayer player, BlockPos pos, IBlockState state, TileEntity tileentity)
+    public void harvestBlock(World world, EntityPlayer player, BlockPos pos, IBlockState state, TileEntity tileentity, ItemStack stack)
     {
-        super.harvestBlock(world, player, pos, state, tileentity);
-        boolean usingShears = (player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().getItem() instanceof ItemShears);
+        super.harvestBlock(world, player, pos, state, tileentity, stack);
+        boolean usingShears = (stack != null && stack.getItem() instanceof ItemShears);
         switch ((BOPPlants) state.getValue(this.variantProperty))
         {
             // suffer cactus damage if you harvest thorn without shears
@@ -423,7 +424,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
     }
     
     @Override
-    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumFacing side, float hitX, float hitY, float hitZ)
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ)
     {
         switch ((BOPPlants) state.getValue(this.variantProperty))
         {
@@ -445,7 +446,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
             default:
                 break;
         }
-        return super.onBlockActivated(worldIn, pos, state, playerIn, side, hitX, hitY, hitZ);
+        return super.onBlockActivated(worldIn, pos, state, playerIn, hand, heldItem, side, hitX, hitY, hitZ);
     }
     
 

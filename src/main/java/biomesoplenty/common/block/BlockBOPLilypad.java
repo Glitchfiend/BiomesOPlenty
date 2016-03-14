@@ -110,39 +110,4 @@ public class BlockBOPLilypad extends BlockLilyPad implements IBOPBlock
                 return null;
         }
     }
-    
-    @Override
-    @SideOnly(Side.CLIENT)
-    public int getBlockColor()
-    {
-        return 0xFFFFFF;
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public int getRenderColor(IBlockState state)
-    {
-    	return 0xFFFFFF;
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public int colorMultiplier(IBlockAccess worldIn, BlockPos pos, int renderPass)
-    {
-        switch ((LilypadType) worldIn.getBlockState(pos).getValue(VARIANT))
-        {
-            case FLOWER:
-            	switch (renderPass)
-                {
-                    case 0:
-                        return 2129968;
-                    case 1: default:
-                        return 0xFFFFFF;
-                }
-            
-            default:
-                return 0xFFFFFF;
-        }
-    }
-    
 }

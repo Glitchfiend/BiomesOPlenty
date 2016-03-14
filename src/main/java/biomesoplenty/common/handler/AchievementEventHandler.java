@@ -26,6 +26,7 @@ import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.item.ItemJarFilled;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
@@ -36,6 +37,7 @@ import net.minecraft.util.JsonSerializableSet;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
@@ -155,16 +157,19 @@ public class AchievementEventHandler
     }
     
     @SubscribeEvent
-    public void onItemUsed(PlayerUseItemEvent.Finish event)
+    public void onItemUsed(LivingEntityUseItemEvent.Finish event)
     {
         ItemStack stack = event.item;
         Item item = stack.getItem();
-        EntityPlayer player = event.entityPlayer;
-        
-        //Trippin'
-        if (item == BOPItems.shroompowder)
+
+        if (event.entity instanceof EntityPlayer)
         {
-            player.addStat(BOPAchievements.eat_shroom_powder);
+            EntityPlayer player = (EntityPlayer)event.entityLiving;
+
+            //Trippin'
+            if (item == BOPItems.shroompowder) {
+                player.addStat(BOPAchievements.eat_shroom_powder);
+            }
         }
     }
     

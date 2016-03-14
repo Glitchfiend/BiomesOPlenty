@@ -28,6 +28,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
@@ -145,49 +146,6 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
                 return ColoringType.TINTED;
         }
     }
- 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public int getBlockColor()
-    {
-        return 0xFFFFFF;
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public int getRenderColor(IBlockState state)
-    {
-        switch (getColoringType((BOPTrees) state.getValue(this.variantProperty)))
-        {
-            case TINTED:
-                return ColorizerFoliage.getFoliageColorBasic();    
-            case OVERLAY:
-                return ColorizerFoliage.getFoliageColorBasic();
-            case PLAIN: default:
-                return 0xFFFFFF;
-        }
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public int colorMultiplier(IBlockAccess worldIn, BlockPos pos, int tintIndex)
-    {
-        switch (getColoringType((BOPTrees) worldIn.getBlockState(pos).getValue(this.variantProperty)))
-        {
-            case TINTED:
-                return BiomeColorHelper.getFoliageColorAtPos(worldIn, pos);
-            case OVERLAY:
-                switch (tintIndex)
-                {
-                    case 0:
-                        return BiomeColorHelper.getFoliageColorAtPos(worldIn, pos);
-                    case 1: default:
-                        return 0xFFFFFF;
-                }
-            case PLAIN: default:
-                return 0xFFFFFF;
-        }
-    }
     
     // blocks that are not placed during generation should not decay
     @Override
@@ -199,7 +157,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     // Inventory models are set only for the default states of leaves. Consequently, we modify the states for player placed leaves when they are
     // actually placed, not when they are in the inventory. We cannot change the default properties whilst reusing code from BlockLeaves.
     @Override
-    public ItemStack getPickBlock(RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
+    public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
     {
         return new ItemStack(this, 1, this.getMetaFromState(this.getDefaultState().withProperty(this.variantProperty, world.getBlockState(pos).getValue(this.variantProperty))));
     }
@@ -410,7 +368,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     @Override
     public boolean isOpaqueCube(IBlockState state)
     {
-        return Blocks.leaves.isOpaqueCube();
+        return Blocks.leaves.isOpaqueCube(state);
     }
     
     

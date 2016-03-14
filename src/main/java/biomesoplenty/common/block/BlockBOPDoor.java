@@ -18,10 +18,13 @@ import net.minecraft.block.BlockDoor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -33,8 +36,6 @@ public class BlockBOPDoor extends BlockDoor implements IBOPBlock
     // properties inherited from BlockDoor:  FACING, OPEN, HINGE, HALF, POWERED
     @Override
     public Class<? extends ItemBlock> getItemClass() { return null; }
-    @Override
-    public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
     @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {}; }
     @Override
@@ -80,9 +81,9 @@ public class BlockBOPDoor extends BlockDoor implements IBOPBlock
     
     @Override
     @SideOnly(Side.CLIENT)
-    public Item getItem(World worldIn, BlockPos pos)
+    public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
     {
-        return this.getDoorItem();
+        return new ItemStack(this.getDoorItem(), 1);
     }
     
     @Override

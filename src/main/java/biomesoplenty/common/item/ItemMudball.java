@@ -10,9 +10,11 @@ package biomesoplenty.common.item;
 
 import biomesoplenty.common.entities.projectiles.EntityMudball;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
 public class ItemMudball extends Item
@@ -31,14 +33,14 @@ public class ItemMudball extends Item
             --itemStackIn.stackSize;
         }
 
-        worldIn.playSoundAtEntity(playerIn, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+        worldIn.playSound(playerIn, playerIn.getPosition(), SoundEvents.entity_arrow_shoot, SoundCategory.NEUTRAL, 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
 
         if (!worldIn.isRemote)
         {
             worldIn.spawnEntityInWorld(new EntityMudball(worldIn, playerIn));
         }
 
-        playerIn.addState(StatList.objectUseStats[Item.getIdFromItem(this)]);
+        //TODO: playerIn.addState(StatList.objectUseStats[Item.getIdFromItem(this)]);
         return itemStackIn;
     }
 }

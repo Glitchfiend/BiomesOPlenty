@@ -19,6 +19,9 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -87,7 +90,7 @@ public class ItemJarFilled extends Item
     
     
     
-    protected Vec3 getAirPositionInFrontOfPlayer(World world, EntityPlayer player, double targetDistance)
+    protected Vec3d getAirPositionInFrontOfPlayer(World world, EntityPlayer player, double targetDistance)
     {
         float cosYaw = MathHelper.cos(-player.rotationYaw * 0.017453292F - (float)Math.PI);
         float sinYaw = MathHelper.sin(-player.rotationYaw * 0.017453292F - (float)Math.PI);
@@ -96,11 +99,11 @@ public class ItemJarFilled extends Item
         float facingY = MathHelper.sin(-player.rotationPitch * 0.017453292F);
         float facingZ = cosYaw * cosPitch;
 
-        Vec3 playerEyePosition = new Vec3(player.posX, player.posY + (double)player.getEyeHeight(), player.posZ);
-        Vec3 targetPosition = playerEyePosition.addVector((double)facingX * targetDistance, (double)facingY * targetDistance, (double)facingZ * targetDistance);
+        Vec3d playerEyePosition = new Vec3d(player.posX, player.posY + (double)player.getEyeHeight(), player.posZ);
+        Vec3d targetPosition = playerEyePosition.addVector((double)facingX * targetDistance, (double)facingY * targetDistance, (double)facingZ * targetDistance);
         
         // see if there's anything in the way
-        MovingObjectPosition hit = world.rayTraceBlocks(playerEyePosition, targetPosition, true, false, false);
+        RayTraceResult hit = world.rayTraceBlocks(playerEyePosition, targetPosition, true, false, false);
         if (hit == null)
         {
             return targetPosition;
@@ -114,7 +117,7 @@ public class ItemJarFilled extends Item
     }
     
     // TODO: should you get back an empty jar?
-    public boolean releasePixie(ItemStack stack, World world, EntityPlayer player, Vec3 releasePoint)
+    public boolean releasePixie(ItemStack stack, World world, EntityPlayer player, Vec3d releasePoint)
     {
         if (world.provider.isSurfaceWorld())
         {
@@ -126,7 +129,7 @@ public class ItemJarFilled extends Item
             if (!player.capabilities.isCreativeMode) {--stack.stackSize;}
             return true;
         } else {
-            player.addChatComponentMessage(new ChatComponentText("\u00a75Pixies cannot survive in this environment!"));
+            player.addChatComponentMessage(new TextComponentString("\u00a75Pixies cannot survive in this environment!"));
             return false;
         }
     }
@@ -143,7 +146,7 @@ public class ItemJarFilled extends Item
                 if (this.getContentsType(stack) == JarContents.PIXIE)
                 {
                     // release pixie into the air in front of the player (target distance 0.8, but will be closer if there's blocks in the way)
-                    Vec3 releasePoint = this.getAirPositionInFrontOfPlayer(world, player, 0.8D);
+                    Vec3d releasePoint = this.getAirPositionInFrontOfPlayer(world, player, 0.8D);
                     this.releasePixie(stack, world, player, releasePoint);
                 }
                 return stack;
@@ -166,7 +169,7 @@ public class ItemJarFilled extends Item
                 double distY = hitY - (player.posY + (double)player.getEyeHeight());
                 double distZ = hitZ - player.posZ;                
                 double a = 0.9D;
-                Vec3 releasePoint = new Vec3(player.posX + a * distX, player.posY + (double)player.getEyeHeight() + a * distY, player.posZ + a * distZ);
+                Vec3d releasePoint = new Vec3d(player.posX + a * distX, player.posY + (double)player.getEyeHeight() + a * distY, player.posZ + a * distZ);
                 return this.releasePixie(stack, world, player, releasePoint);	
                 
             // TODO: are you supposed to be able to pour out honey? How much should you get?  Why don't we just use buckets?

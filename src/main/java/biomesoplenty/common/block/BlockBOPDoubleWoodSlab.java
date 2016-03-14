@@ -90,7 +90,8 @@ public class BlockBOPDoubleWoodSlab extends BlockSlab implements IBOPBlock
     {
         super(Material.wood);
         this.useNeighborBrightness = true;
-        this.setHardness(2.0F).setResistance(5.0F).setStepSound(SoundType.WOOD);
+        this.setHardness(2.0F).setResistance(5.0F);
+        this.setStepSound(SoundType.WOOD);
         this.setHarvestLevel("axe", 0);
         this.setDefaultState(this.blockState.getBaseState().withProperty(HALF, BlockSlab.EnumBlockHalf.BOTTOM));
     }
