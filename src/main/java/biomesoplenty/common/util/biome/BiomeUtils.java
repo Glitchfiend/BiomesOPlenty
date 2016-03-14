@@ -13,12 +13,20 @@ import com.google.common.base.CaseFormat;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.WorldTypeBOP;
 import biomesoplenty.core.BiomesOPlenty;
+import com.google.common.base.Function;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.BiomeProvider;
 import net.minecraft.world.gen.ChunkProviderSettings;
+import org.apache.commons.lang3.tuple.Pair;
+
+import javax.annotation.Nullable;
+import java.util.List;
+import java.util.Map;
 
 public class BiomeUtils
 {
@@ -44,6 +52,21 @@ public class BiomeUtils
     {
         return BiomeGenBase.biomeRegistry.getObject(location);
     }
+
+    private static final Function<ResourceLocation, Pair<ResourceLocation, BiomeGenBase>> MAPPING_FOR_LOCATION = new Function<ResourceLocation, Pair<ResourceLocation, BiomeGenBase>>()
+    {
+        @Nullable
+        @Override
+        public Pair<ResourceLocation, BiomeGenBase> apply(@Nullable ResourceLocation input)
+        {
+            return Pair.of(input, BiomeGenBase.biomeRegistry.getObject(input));
+        }
+    };
+
+    public static List<BiomeGenBase> getRegisteredBiomes()
+    {
+        return Lists.newArrayList(BiomeGenBase.biomeRegistry.iterator());
+    }
     
     public static BlockPos spiralOutwardsLookingForBiome(World world, BiomeGenBase biomeToFind, double startX, double startZ)
     {
@@ -58,7 +81,7 @@ public class BiomeUtils
     {
         
         if (maxDist <= 0 || sampleSpace <= 0) {throw new IllegalArgumentException("maxDist and sampleSpace must be positive");}
-        BiomeProvider chunkManager = world.getWorldChunkManager();
+        BiomeProvider chunkManager = world.getBiomeProvider();
         double a = sampleSpace / Math.sqrt(Math.PI);
         double b = 2 * Math.sqrt(Math.PI);
         double x = 0;

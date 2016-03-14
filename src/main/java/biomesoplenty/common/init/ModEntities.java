@@ -65,7 +65,7 @@ public class ModEntities
     public static int registerBOPEntityWithSpawnEgg(Class<? extends Entity> entityClass, String entityName, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates, int eggBackgroundColor, int eggForegroundColor)
     {
         int bopEntityId = registerBOPEntity(entityClass, entityName, trackingRange, updateFrequency, sendsVelocityUpdates);
-        entityEggs.put(Integer.valueOf(bopEntityId), new EntityList.EntityEggInfo(bopEntityId, eggBackgroundColor, eggForegroundColor));
+        entityEggs.put(Integer.valueOf(bopEntityId), new EntityList.EntityEggInfo(entityName, eggBackgroundColor, eggForegroundColor));
         return bopEntityId;
     }
     

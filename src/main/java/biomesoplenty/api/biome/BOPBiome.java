@@ -69,6 +69,8 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
     {
         super(configureBiomeProps(idLoc, defaultBuilder, conf));
 
+        this.configure(conf);
+
         this.location = idLoc;
         this.terrainSettings.setDefaults();
         
@@ -440,8 +442,8 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         
         private BiomeProps(String name, float temperature, float rainfall, float baseHeight, float heightVariation, boolean enableRain, boolean enableSnow, int waterColor, String baseBiomeRegName, int guiColour) 
         { 
-            super(name); 
-            
+            super(name);
+
             this.setTemperature(temperature);
             this.setRainfall(rainfall);
             this.setBaseHeight(baseHeight);

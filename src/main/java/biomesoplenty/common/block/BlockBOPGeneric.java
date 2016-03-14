@@ -32,8 +32,6 @@ public class BlockBOPGeneric extends Block implements IBOPBlock, ISustainsPlantT
     @Override
     public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
     @Override
-    public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
-    @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {}; }
     @Override
     public IProperty[] getNonRenderingProperties() { return null; }
@@ -43,15 +41,15 @@ public class BlockBOPGeneric extends Block implements IBOPBlock, ISustainsPlantT
     
     public BlockBOPGeneric() {
         // use rock as default material
-        this(Material.rock);
+        this(Material.rock, SoundType.STONE);
     }
     
-    public BlockBOPGeneric(Material material)
+    public BlockBOPGeneric(Material material, SoundType soundType)
     {
         super(material);
         // set some defaults
         this.setHardness(1.0F);
-        this.setStepSound(SoundType.STONE);
+        this.setStepSound(soundType);
     }
     
     
@@ -74,7 +72,7 @@ public class BlockBOPGeneric extends Block implements IBOPBlock, ISustainsPlantT
     }
     
     @Override
-    public boolean canSustainPlant(IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
+    public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
     {
         return this.canSustainPlantType(world, pos, plantable.getPlantType(world, pos.offset(direction)));
     }

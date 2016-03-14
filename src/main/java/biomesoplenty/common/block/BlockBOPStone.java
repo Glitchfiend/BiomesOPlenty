@@ -53,8 +53,6 @@ public class BlockBOPStone extends Block implements IBOPBlock
     @Override
     public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
     @Override
-    public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
-    @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT, POLISHED}; }
     @Override
     public IProperty[] getNonRenderingProperties() { return null; }
@@ -81,9 +79,8 @@ public class BlockBOPStone extends Block implements IBOPBlock
     // TODO: can we get rid of these and just use a single hardness / resistance value?
     // These don't work completely as expected - sometimes the block at pos is not this (when destroyed it becomes air for example)
     @Override
-    public float getBlockHardness(World world, BlockPos pos)
+    public float getBlockHardness(IBlockState state, World world, BlockPos pos)
     {
-        IBlockState state = world.getBlockState(pos);
         return (state.getBlock() == this && (Boolean)state.getValue(POLISHED)) ? 1.5F : 3.0F;
     }
     @Override

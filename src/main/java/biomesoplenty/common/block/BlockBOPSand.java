@@ -55,8 +55,6 @@ public class BlockBOPSand extends BlockFalling implements IBOPBlock, ISustainsPl
     @Override
     public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
     @Override
-    public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
-    @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
     @Override
     public IProperty[] getNonRenderingProperties() { return null; }
@@ -94,17 +92,18 @@ public class BlockBOPSand extends BlockFalling implements IBOPBlock, ISustainsPl
     {
         return this.getMetaFromState(state);
     }
-    
+
+    //This seems to actually be for collision
     @Override
-    public AxisAlignedBB getCollisionBoundingBox(World world, BlockPos pos, IBlockState state)
+    public AxisAlignedBB getSelectedBoundingBox(IBlockState state, World world, BlockPos pos)
     {   
         switch ((SandType) state.getValue(VARIANT))
         {            
             // no bounding box for quicksand - you're supposed to sink into it
             case QUICKSAND:
-                return null;
+                return NULL_AABB;
             default:
-                return super.getCollisionBoundingBox(world, pos, state);
+                return super.getCollisionBoundingBox(state, world, pos);
         }
     }
 
@@ -132,10 +131,10 @@ public class BlockBOPSand extends BlockFalling implements IBOPBlock, ISustainsPl
                 return true;
             case Beach:
                 return (
-                        world.getBlockState(pos.east()).getBlock().getMaterial() == Material.water ||
-                        world.getBlockState(pos.west()).getBlock().getMaterial() == Material.water ||
-                        world.getBlockState(pos.north()).getBlock().getMaterial() == Material.water ||
-                        world.getBlockState(pos.south()).getBlock().getMaterial() == Material.water
+                        world.getBlockState(pos.east()).getMaterial() == Material.water ||
+                        world.getBlockState(pos.west()).getMaterial() == Material.water ||
+                        world.getBlockState(pos.north()).getMaterial() == Material.water ||
+                        world.getBlockState(pos.south()).getMaterial() == Material.water
                         );
             // don't support anything else by default
             default:
@@ -145,7 +144,7 @@ public class BlockBOPSand extends BlockFalling implements IBOPBlock, ISustainsPl
     
     
     @Override
-    public boolean canSustainPlant(IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
+    public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
     {
         return this.canSustainPlantType(world, pos, plantable.getPlantType(world, pos.offset(direction)));
     }

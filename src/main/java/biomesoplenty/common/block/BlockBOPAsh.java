@@ -30,7 +30,7 @@ public class BlockBOPAsh extends BlockBOPGeneric
 {
     public BlockBOPAsh()
     {
-        super(Material.sand);
+        super(Material.sand, SoundType.SAND);
 
         this.setHardness(0.4F);
         this.setHarvestLevel("shovel", 0);

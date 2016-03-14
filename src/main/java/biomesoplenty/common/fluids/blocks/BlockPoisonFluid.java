@@ -11,6 +11,7 @@ package biomesoplenty.common.fluids.blocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.MobEffects;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.math.BlockPos;
@@ -33,8 +34,8 @@ public class BlockPoisonFluid extends BlockFluidClassic
     {
         if (entity instanceof EntityLivingBase)
         {
-            ((EntityLivingBase)entity).addPotionEffect(new PotionEffect(Potion.poison.id, 100));
-            ((EntityLivingBase)entity).addPotionEffect(new PotionEffect(Potion.hunger.id, 100));
+            ((EntityLivingBase)entity).addPotionEffect(new PotionEffect(MobEffects.poison, 100));
+            ((EntityLivingBase)entity).addPotionEffect(new PotionEffect(MobEffects.hunger, 100));
         }
     }
 

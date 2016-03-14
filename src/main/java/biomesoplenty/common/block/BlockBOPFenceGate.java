@@ -33,8 +33,6 @@ public class BlockBOPFenceGate extends BlockFenceGate implements IBOPBlock
     @Override
     public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
     @Override
-    public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
-    @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {}; }
     @Override
     public IProperty[] getNonRenderingProperties() { return new IProperty[] {POWERED}; }

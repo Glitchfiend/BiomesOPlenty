@@ -69,8 +69,6 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
     @Override
     public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
     @Override
-    public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
-    @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
     @Override
     public IProperty[] getNonRenderingProperties() { return null; }
@@ -214,12 +212,12 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
             // smoldering grass throws up random flame and smoke particles
             case SMOLDERING:
                 if (rand.nextInt(4)==0)
-                {           
-                    worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, (double)((float)pos.getX() + rand.nextFloat()), (double)((float)pos.getY() + 1.1F), (double)((float)pos.getZ() + rand.nextFloat()), 0.0D, 0.0D, 0.0D);
+                {
+                    world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, (double)((float)pos.getX() + rand.nextFloat()), (double)((float)pos.getY() + 1.1F), (double)((float)pos.getZ() + rand.nextFloat()), 0.0D, 0.0D, 0.0D);
                 }
                 if (rand.nextInt(6)==0)
                 {
-                    worldIn.spawnParticle(EnumParticleTypes.FLAME, (double)((float)pos.getX() + rand.nextFloat()), (double)((float)pos.getY() + 1.1F), (double)((float)pos.getZ() + rand.nextFloat()), 0.0D, 0.0D, 0.0D);
+                    world.spawnParticle(EnumParticleTypes.FLAME, (double)((float)pos.getX() + rand.nextFloat()), (double)((float)pos.getY() + 1.1F), (double)((float)pos.getZ() + rand.nextFloat()), 0.0D, 0.0D, 0.0D);
                 }
                 break;
                 
@@ -246,7 +244,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
             case SMOLDERING:
                 // smoldering grass melts snow
                 IBlockState stateAbove = world.getBlockState(pos.up());
-                if (stateAbove.getBlock().getMaterial() == Material.snow)
+                if (stateAbove.getMaterial() == Material.snow)
                 {
                     world.setBlockToAir(pos.up());
                 }
@@ -278,7 +276,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
     {
         
         // if this block is covered, then turn it back to dirt (IE kill the grass)
-       if (world.getLightFromNeighbors(pos.up()) < 4 && world.getBlockState(pos.up()).getBlock().getLightOpacity(world, pos.up()) > 2)
+       if (world.getLightFromNeighbors(pos.up()) < 4 && world.getBlockState(pos.up()).getBlock().getLightOpacity(world.getBlockState(pos.up())) > 2)
        {
            world.setBlockState(pos, getDirtBlockState(state));
        }
@@ -299,7 +297,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
                    if (targetGrass == null) {break;}
                    
                    // if there's enough light, turn the block to the relevant grass block
-                   if (world.getLightFromNeighbors(pos1.up()) >= 4 && blockAboveTarget.getLightOpacity(world, pos1.up()) <= 2)
+                   if (world.getLightFromNeighbors(pos1.up()) >= 4 && blockAboveTarget.getLightOpacity(target) <= 2)
                    {
                        world.setBlockState(pos1, targetGrass);
                    }                      

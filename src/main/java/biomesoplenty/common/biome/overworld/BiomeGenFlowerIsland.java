@@ -41,11 +41,11 @@ public class BiomeGenFlowerIsland extends BOPBiome
 
     public BiomeGenFlowerIsland()
     {
+        super("Flower Island", new PropsBuilder("flower_island").withGuiColour(0x74D374).withTemperature(0.6F).withRainfall(0.8F));
+
         // terrain
         this.terrainSettings.avgHeight(70).heightVariation(10, 15).octaves(0, 0, 1, 1, 2, 2);
-        
-        this.setColor(0x74D374);
-        this.setTemperatureRainfall(0.6F, 0.8F);
+
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.DAISY);
 
         this.canSpawnInBiome = false;

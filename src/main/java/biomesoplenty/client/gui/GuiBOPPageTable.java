@@ -207,9 +207,9 @@ public class GuiBOPPageTable extends GuiBOPPageList
     {
         GuiTextField guitextfield = new GuiTextField(field.getFieldId(), this.mc.fontRendererObj, xPosition, yPosition, 150, 20);
         guitextfield.setText(field.getLabelText());
-        guitextfield.func_175207_a(this.responder); // setResponder
+        guitextfield.setGuiResponder(this.responder);
         guitextfield.setVisible(field.isVisible());
-        guitextfield.setValidator(field.getValidator()); // setValidator
+        guitextfield.setValidator(field.getValidator());
         return guitextfield;
     }
 

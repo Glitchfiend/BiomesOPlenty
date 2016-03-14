@@ -21,6 +21,9 @@ import net.minecraft.entity.ai.EntityMoveHelper;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -29,7 +32,9 @@ import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 
 public class EntityButterfly extends EntityFlying implements IMob {
-    
+
+    private static final DataParameter<Byte> TYPE = EntityDataManager.<Byte>createKey(EntityButterfly.class, DataSerializers.BYTE);
+
     public EntityButterfly(World worldIn) {
         super(worldIn);
         this.setSize(0.5F, 0.5F);
@@ -49,7 +54,7 @@ public class EntityButterfly extends EntityFlying implements IMob {
 	protected void entityInit()
     {
         super.entityInit();
-        this.dataWatcher.addObject(18, Byte.valueOf((byte)0));
+        this.dataWatcher.register(TYPE, Byte.valueOf((byte)0));
     }
     
     public void writeEntityToNBT(NBTTagCompound tagCompound)
@@ -87,12 +92,12 @@ public class EntityButterfly extends EntityFlying implements IMob {
     
     public int getButterflyType()
     {
-        return this.dataWatcher.getWatchableObjectByte(18);
+        return this.dataWatcher.get(TYPE);
     }
     
     public void setButterflyType(int butterflyTypeId)
     {
-        this.dataWatcher.updateObject(18, Byte.valueOf((byte)butterflyTypeId));
+        this.dataWatcher.set(18, Byte.valueOf((byte)butterflyTypeId));
     }
     
     @Override

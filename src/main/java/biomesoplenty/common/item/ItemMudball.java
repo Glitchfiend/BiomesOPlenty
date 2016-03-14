@@ -38,7 +38,7 @@ public class ItemMudball extends Item
             worldIn.spawnEntityInWorld(new EntityMudball(worldIn, playerIn));
         }
 
-        playerIn.triggerAchievement(StatList.objectUseStats[Item.getIdFromItem(this)]);
+        playerIn.addState(StatList.objectUseStats[Item.getIdFromItem(this)]);
         return itemStackIn;
     }
 }

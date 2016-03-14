@@ -76,8 +76,6 @@ public class BlockBOPDoubleWoodSlab extends BlockSlab implements IBOPBlock
     @Override
     public Class<? extends ItemBlock> getItemClass() { return null; }
     @Override
-    public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
-    @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {this.variantProperty}; }
     // HALF isn't used in double slab because both halves are present
     @Override

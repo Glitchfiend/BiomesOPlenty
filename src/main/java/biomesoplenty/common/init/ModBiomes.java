@@ -516,7 +516,6 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
             
         //Add to the set of present biomes
         presentBiomes.add(extendedBiome.getBaseBiome());
-        extendedBiome.configureBiome(extendedBiome, idName);
         
         //Extra functionality builtin, such as with BOPBiome
         if (extendedBiome instanceof BiomeGenBase)

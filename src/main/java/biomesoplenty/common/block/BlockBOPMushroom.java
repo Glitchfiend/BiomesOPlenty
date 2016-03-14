@@ -47,8 +47,6 @@ public class BlockBOPMushroom extends BlockBOPDecoration
     @Override
     public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
     @Override
-    public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
-    @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
     @Override
     public IProperty[] getNonRenderingProperties() { return null; }
@@ -80,14 +78,14 @@ public class BlockBOPMushroom extends BlockBOPDecoration
     
     // glowshrooms emit light
     @Override
-    public int getLightValue(IBlockAccess world, BlockPos pos)
+    public int getLightValue(IBlockState state)
     {
-        switch ((MushroomType) world.getBlockState(pos).getValue(VARIANT))
+        switch ((MushroomType) state.getValue(VARIANT))
         {
             case GLOWSHROOM:
                 return 6;
             default:
-                return super.getLightValue();
+                return super.getLightValue(state);
         }
     }
     

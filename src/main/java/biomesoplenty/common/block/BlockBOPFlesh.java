@@ -37,8 +37,6 @@ public class BlockBOPFlesh extends Block implements IBOPBlock
     @Override
     public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
     @Override
-    public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
-    @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {}; }
     @Override
     public IProperty[] getNonRenderingProperties() { return null; }
@@ -52,8 +50,8 @@ public class BlockBOPFlesh extends Block implements IBOPBlock
     }
     
     @Override
-    public AxisAlignedBB getCollisionBoundingBox(World world, BlockPos pos, IBlockState state)
-    {   
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState state, World world, BlockPos pos)
+    {
         // 7/8 height
         float heightOffset = 0.125F;
         return new AxisAlignedBB((double) pos.getX(), (double) pos.getY(), (double) pos.getZ(), (double) (pos.getX() + 1), (double) ((float) (pos.getY() + 1) - heightOffset), (double) (pos.getZ() + 1));

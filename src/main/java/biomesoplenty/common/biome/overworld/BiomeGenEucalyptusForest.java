@@ -34,12 +34,11 @@ public class BiomeGenEucalyptusForest extends BOPBiome
 {
     
     public BiomeGenEucalyptusForest()
-    {        
+    {
+        super("eucalyptus_forest", new PropsBuilder("Eucalyptus Forest").withGuiColour(0x9DCC70).withTemperature(0.85F).withRainfall(0.9F));
+
         // terrain
-        this.terrainSettings.avgHeight(64).heightVariation(10, 20); 
-        
-        this.setColor(0x9DCC70);
-        this.setTemperatureRainfall(0.85F, 0.9F);
+        this.terrainSettings.avgHeight(64).heightVariation(10, 20);
         
         this.canGenerateVillages = false;
 

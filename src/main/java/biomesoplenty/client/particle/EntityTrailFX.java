@@ -9,6 +9,7 @@
 package biomesoplenty.client.particle;
 
 import net.minecraft.client.particle.EntityFX;
+import net.minecraft.client.renderer.VertexBuffer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
@@ -26,14 +27,14 @@ public class EntityTrailFX extends EntityFX
 		super(world, x, y, z);
 		
 		this.trailResource = new ResourceLocation("biomesoplenty:textures/particles/" + trailName + ".png");
-        this.motionX = this.motionY = this.motionZ = 0.0D; //Trail particles should not move
+        this.xSpeed = this.ySpeed = this.zSpeed = 0.0D; //Trail particles should not move
 		this.particleMaxAge = 550;
 		this.particleIndex = this.rand.nextInt(4); //Choose a random index on creation
 		this.startY = y; //Where y coordinate where this particle has started (before it moves downwards with time)
 	}
     
     @Override
-    public void renderParticle(WorldRenderer renderer, Entity entity, float partialTicks, float rotX, float rotXZ, float rotZ, float rotYZ, float rotXY)
+    public void renderParticle(VertexBuffer renderer, Entity entity, float partialTicks, float rotX, float rotXZ, float rotZ, float rotYZ, float rotXY)
     {
         // EffectRenderer will by default bind the vanilla particles texture, override with our own
         FMLClientHandler.instance().getClient().renderEngine.bindTexture(this.trailResource);

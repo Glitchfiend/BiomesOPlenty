@@ -94,15 +94,15 @@ public class BlockBOPCoral extends BlockBOPDecoration
 
     // glowing_coral emits light
     @Override
-    public int getLightValue(IBlockAccess world, BlockPos pos)
+    public int getLightValue(IBlockState state)
     {
-        switch ((CoralType) world.getBlockState(pos).getValue(VARIANT))
+        switch ((CoralType) state.getValue(VARIANT))
         {
             case GLOWING:
                 return 10;
                 
             default:
-                return super.getLightValue(); 
+                return super.getLightValue(state);
         }
     }
 

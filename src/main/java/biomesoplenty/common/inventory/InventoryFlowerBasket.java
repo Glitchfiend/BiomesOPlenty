@@ -8,8 +8,10 @@
 
 package biomesoplenty.common.inventory;
 
+import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.item.ItemFlowerBasket;
 import biomesoplenty.common.util.NBTUtil;
+import biomesoplenty.common.util.entity.PlayerUtil;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.InventoryBasic;
 import net.minecraft.item.ItemStack;
@@ -35,7 +37,7 @@ public class InventoryFlowerBasket extends InventoryBasic
         //Load only on the server
         ItemStack basketStack = ownerStack;
 
-        if (basketStack == null) basketStack = player.getHeldItem();
+        if (basketStack == null) basketStack = player.getHeldItem(PlayerUtil.getHandForItem(player, new ItemStack(BOPItems.flower_basket, 1, 0)));
         else this.ownerStack = basketStack;
 
         NBTTagCompound invData = NBTUtil.getOrCreateStackNBT(basketStack);

@@ -27,6 +27,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemShears;
 import net.minecraft.item.ItemStack;
@@ -210,7 +211,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
     }
     
     @Override
-    public boolean isReplaceable(World world, BlockPos pos)
+    public boolean isReplaceable(IBlockAccess world, BlockPos pos)
     {
         IBlockState state = world.getBlockState(pos);
         BOPPlants plant = (BOPPlants) state.getValue(this.variantProperty);
@@ -275,56 +276,6 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
             default:
                 return ColoringType.PLAIN;
         }       
-    }
- 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public int getBlockColor()
-    {
-        return 0xFFFFFF;
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public int getRenderColor(IBlockState state)
-    {
-        switch (getColoringType((BOPPlants) state.getValue(this.variantProperty)))
-        {
-            case LIKE_LEAVES:
-                return ColorizerFoliage.getFoliageColorBasic();
-            case LIKE_GRASS:
-                return ColorizerGrass.getGrassColor(0.5D, 1.0D);
-            case PLAIN: default:
-                return 0xFFFFFF;
-        }
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public int colorMultiplier(IBlockAccess worldIn, BlockPos pos, int renderPass)
-    {
-        switch (getColoringType((BOPPlants) worldIn.getBlockState(pos).getValue(this.variantProperty)))
-        {
-            case LIKE_LEAVES:
-                return BiomeColorHelper.getFoliageColorAtPos(worldIn, pos);
-            case LIKE_GRASS:
-                return BiomeColorHelper.getGrassColorAtPos(worldIn, pos);
-            case PLAIN: default:
-                return 0xFFFFFF;
-        }
-    }
-    
-    // berrybush / shrub item should not be tinted, even though the model is
-    @Override
-    public int getItemRenderColor(IBlockState state, int tintIndex)
-    {
-        switch ((BOPPlants) state.getValue(this.variantProperty))
-        {
-            case BERRYBUSH: case SHRUB:
-                return 0xFFFFFF;
-            default:
-                return this.getRenderColor(state);
-        }
     }
     
     // different variants have different sizes
@@ -450,7 +401,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
             case POISONIVY:
                 // poison ivy poisons players who walk into it
                 if (entity instanceof EntityPlayer) {
-                    ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.poison.id, 100));
+                    ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.poison, 100));
                 }
                 break;
             case THORN: case TINYCACTUS:

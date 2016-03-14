@@ -60,80 +60,80 @@ public class AchievementEventHandler
 
         if (block != null && block instanceof BlockBOPLog)
         {
-            player.triggerAchievement(AchievementList.mineWood);
+            player.addStat(AchievementList.mineWood);
         }
 
         //Flower Child Achievement
         if (block != null && block instanceof BlockBOPFlower || block == Blocks.red_flower || block == Blocks.yellow_flower)
         {
-            player.triggerAchievement(BOPAchievements.obtain_flowers);
+            player.addStat(BOPAchievements.obtain_flowers);
         }
 
         //Berry Good Achievement
         if (item != null && item == BOPItems.berries)
         {
-            player.triggerAchievement(BOPAchievements.obtain_berry);
+            player.addStat(BOPAchievements.obtain_berry);
         }
         
         //Totally Coral Achievement
         if (block != null && block == BOPBlocks.coral)
         {
-            player.triggerAchievement(BOPAchievements.obtain_coral);
+            player.addStat(BOPAchievements.obtain_coral);
         }
         
         //Life Finds a Way Achievement
         if (block != null && state == BlockBOPFlower.paging.getVariantState(BOPFlowers.MINERS_DELIGHT))
         {
-            player.triggerAchievement(BOPAchievements.obtain_miners_delight);
+            player.addStat(BOPAchievements.obtain_miners_delight);
         }
 
 
         //Rather Thorny Achievement
         if (block != null && state == BlockBOPPlant.paging.getVariantState(BOPPlants.THORN))
         {
-            player.triggerAchievement(BOPAchievements.obtain_thorn);
+            player.addStat(BOPAchievements.obtain_thorn);
         }
         
         //I am Become Death Achievement
         if (block != null && state == BlockBOPFlower.paging.getVariantState(BOPFlowers.DEATHBLOOM))
         {
-            player.triggerAchievement(BOPAchievements.obtain_deathbloom);
+            player.addStat(BOPAchievements.obtain_deathbloom);
         }
         
         //Godsend Achievement
         if (block != null && state == BlockBOPFlower.paging.getVariantState(BOPFlowers.WILTED_LILY))
         {
-            player.triggerAchievement(BOPAchievements.obtain_wilted_lily);
+            player.addStat(BOPAchievements.obtain_wilted_lily);
         }
 
         //Stalk Market Achievement
         if (item != null && item == BOPItems.turnip)
         {
-            player.triggerAchievement(BOPAchievements.obtain_turnip);
+            player.addStat(BOPAchievements.obtain_turnip);
         }
         
         //Soul Searching Achievement
         if (item != null && item == BOPItems.soul)
         {
-            player.triggerAchievement(BOPAchievements.obtain_soul);
+            player.addStat(BOPAchievements.obtain_soul);
         }
 
         //Honeycomb's Big Achievement
         if (item != null && item == BOPItems.filled_honeycomb)
         {
-            player.triggerAchievement(BOPAchievements.obtain_honeycomb);
+            player.addStat(BOPAchievements.obtain_honeycomb);
         }
 
         //Don't Breathe This Achievement
         if (item != null && item == BOPItems.pixie_dust)
         {
-            player.triggerAchievement(BOPAchievements.obtain_pixie_dust);
+            player.addStat(BOPAchievements.obtain_pixie_dust);
         }
 
         //Far Out Achievement
         if (item != null && item == BOPItems.crystal_shard)
         {
-            player.triggerAchievement(BOPAchievements.obtain_celestial_crystal);
+            player.addStat(BOPAchievements.obtain_celestial_crystal);
         }
     }
     
@@ -149,7 +149,7 @@ public class AchievementEventHandler
             //Gone Home
             if (item == BOPItems.enderporter)
             {
-                player.triggerAchievement(BOPAchievements.use_enderporter);
+                player.addStat(BOPAchievements.use_enderporter);
             }
         }
     }
@@ -164,7 +164,7 @@ public class AchievementEventHandler
         //Trippin'
         if (item == BOPItems.shroompowder)
         {
-            player.triggerAchievement(BOPAchievements.eat_shroom_powder);
+            player.addStat(BOPAchievements.eat_shroom_powder);
         }
     }
     
@@ -183,7 +183,7 @@ public class AchievementEventHandler
             //Yggdrasil
             if (state == BlockBOPSapling.paging.getVariantState(BOPTrees.SACRED_OAK))
             {
-                event.player.triggerAchievement(BOPAchievements.grow_sacred_oak);
+                event.player.addStat(BOPAchievements.grow_sacred_oak);
             }
         }
     }
@@ -197,43 +197,43 @@ public class AchievementEventHandler
         //Nectar of the Gods Achievement
         if (item != null && item == BOPItems.ambrosia)
         {
-            player.triggerAchievement(BOPAchievements.craft_ambrosia);
+            player.addStat(BOPAchievements.craft_ambrosia);
         }
         
         //Flaxen Fun Achievement
         if (item != null && item == BOPItems.flax_string)
         {
-            player.triggerAchievement(BOPAchievements.craft_flax_string);
+            player.addStat(BOPAchievements.craft_flax_string);
         }
         
         //True Swordsman Achievement
         if (item != null && item == BOPItems.amethyst_sword)
         {
-            player.triggerAchievement(BOPAchievements.craft_amethyst_sword);
+            player.addStat(BOPAchievements.craft_amethyst_sword);
         }
         
         //Getting a Downgrade Achievement
         if (item != null && item == BOPItems.mud_pickaxe)
         {
-            player.triggerAchievement(BOPAchievements.craft_muddy_pickaxe);
+            player.addStat(BOPAchievements.craft_muddy_pickaxe);
         }
         
         //By Your Powers Combined Achievement
         if (item != null && item == BOPItems.terrestrial_artifact)
         {
-            player.triggerAchievement(BOPAchievements.craft_terrestrial_artifact);
+            player.addStat(BOPAchievements.craft_terrestrial_artifact);
         }
         
         //Darts and Crafts Achievement
         if (item != null && item == BOPItems.dart_blower)
         {
-            player.triggerAchievement(BOPAchievements.craft_dart_blower);
+            player.addStat(BOPAchievements.craft_dart_blower);
         }
         
         //Pick Your Poison Achievement
         if (item != null && item == new ItemStack(BOPItems.jar_filled, 1, ItemJarFilled.JarContents.POISON.ordinal()).getItem())
         {
-            player.triggerAchievement(BOPAchievements.craft_poison_jar);
+            player.addStat(BOPAchievements.craft_poison_jar);
         }
         
     }
@@ -279,7 +279,7 @@ public class AchievementEventHandler
                 //If the current biome id is the id on the radar, award the achievement and stop searching
                 if (biomeIdToFind == BiomeGenBase.getIdForBiome(currentBiome)) 
                 {
-                    player.triggerAchievement(BOPAchievements.use_biome_finder);
+                    player.addStat(BOPAchievements.use_biome_finder);
                     return;
                 }
             }
@@ -333,7 +333,7 @@ public class AchievementEventHandler
             //Has the player fulfilled the achievement (there are no biomes left in the set of biomes to be explored)
             if (set.isEmpty())
             {
-                player.triggerAchievement(BOPAchievements.explore_all_biomes);
+                player.addStat(BOPAchievements.explore_all_biomes);
             }
         }
     }

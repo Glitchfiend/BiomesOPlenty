@@ -10,7 +10,6 @@ import net.minecraft.block.BlockDispenser;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.WeightedRandomChestContent;
-import net.minecraftforge.common.ChestGenHooks;
 
 public class ModVanillaCompat
 {
@@ -28,7 +27,8 @@ public class ModVanillaCompat
     
 	private static void addDungeonLoot()
 	{
-		ChestGenHooks desertTemple = ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_DESERT_CHEST);
+		//TODO: Requires Forge update
+		/*ChestGenHooks desertTemple = ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_DESERT_CHEST);
 		ChestGenHooks dungeon = ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST);
 		ChestGenHooks jungleTemple = ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST);
 		ChestGenHooks mineshaft = ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR);
@@ -64,6 +64,6 @@ public class ModVanillaCompat
 		village.addItem(new WeightedRandomChestContent(BOPItems.flippers, 0, 1, 1, 15));
 		
 		desertTemple.addItem(new WeightedRandomChestContent(BOPItems.gem, BOPGems.RUBY.ordinal(), 2, 8, 10));
-		jungleTemple.addItem(new WeightedRandomChestContent(BOPItems.gem, BOPGems.TOPAZ.ordinal(), 2, 8, 10));
+		jungleTemple.addItem(new WeightedRandomChestContent(BOPItems.gem, BOPGems.TOPAZ.ordinal(), 2, 8, 10));*/
 	}
 }

@@ -16,6 +16,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.UseHoeEvent;
@@ -73,7 +74,7 @@ public class UseHoeEventHandler
             {
                 event.current.damageItem(1, event.entityLiving);
             }
-            event.world.playSoundEffect((double) ((float) pos.getX() + 0.5F), (double) ((float) pos.getY() + 0.5F), (double) ((float) pos.getZ() + 0.5F), block.stepSound.getStepSound(), (state.getBlock().stepSound.getVolume() + 1.0F) / 2.0F, state.getBlock().stepSound.getFrequency() * 0.8F);
+            event.world.playSound(event.entityPlayer, (double) ((float) pos.getX() + 0.5F), (double) ((float) pos.getY() + 0.5F), (double) ((float) pos.getZ() + 0.5F), block.getStepSound().getStepSound(), SoundCategory.BLOCKS, (state.getBlock().getStepSound().getVolume() + 1.0F) / 2.0F, state.getBlock().getStepSound().getPitch() * 0.8F);
             event.entityPlayer.swingArm(PlayerUtil.getHandForItem(event.entityPlayer, event.current));
         }
     }

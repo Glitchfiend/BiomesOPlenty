@@ -67,7 +67,7 @@ public class ModBlockQueries
             @Override
             public boolean matches(World world, BlockPos pos)
             {
-                return (world.getBlockState(pos.west()).getMaterial() == Material.water || world.getBlockState(pos.east()).getMaterial() == Material.water || world.getBlockState(pos.north()).getBlock().getMaterial() == Material.water || world.getBlockState(pos.south()).getBlock().getMaterial() == Material.water);
+                return (world.getBlockState(pos.west()).getMaterial() == Material.water || world.getBlockState(pos.east()).getMaterial() == Material.water || world.getBlockState(pos.north()).getMaterial() == Material.water || world.getBlockState(pos.south()).getMaterial() == Material.water);
             }
         };
         

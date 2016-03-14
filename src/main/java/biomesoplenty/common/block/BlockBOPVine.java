@@ -29,8 +29,6 @@ public class BlockBOPVine extends BlockVine implements IBOPBlock
     @Override
     public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
     @Override
-    public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
-    @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {}; }
     @Override
     public IProperty[] getNonRenderingProperties() { return null; }
@@ -53,27 +51,7 @@ public class BlockBOPVine extends BlockVine implements IBOPBlock
     {
         this(true);
     }
-    
-    @Override
-    @SideOnly(Side.CLIENT)
-    public int getBlockColor()
-    {
-        return (this.useGreyScaleTextures ? super.getBlockColor() : 0xFFFFFF);
-    }
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public int getRenderColor(IBlockState state)
-    {
-        return (this.useGreyScaleTextures ? super.getRenderColor(state) : 0xFFFFFF);
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public int colorMultiplier(IBlockAccess worldIn, BlockPos pos, int renderPass)
-    {
-        return (this.useGreyScaleTextures ? super.colorMultiplier(worldIn, pos, renderPass) : 0xFFFFFF);
-    }
     
     @Override
     public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)

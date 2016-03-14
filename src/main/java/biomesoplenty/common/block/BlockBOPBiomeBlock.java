@@ -15,6 +15,7 @@ import java.util.Random;
 
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.common.util.biome.BiomeUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -61,7 +62,7 @@ public class BlockBOPBiomeBlock extends BlockBOPGeneric
             }
         );
         
-        for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray())
+        for (BiomeGenBase biome : BiomeUtils.getRegisteredBiomes())
         {
             if (biome == null) {continue;}
             if (biome instanceof BOPBiome)

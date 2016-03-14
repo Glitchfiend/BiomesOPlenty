@@ -74,6 +74,7 @@ import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.BlockStairs;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -109,9 +110,9 @@ public class ModBlocks
         farmland_1 =              registerBlock( BlockBOPFarmland.paging.getBlock(1), "farmland_1", null);
         
         stone =                 registerBlock( new BlockBOPStone(), "stone" );
-        crag_rock =             registerBlock( (new BlockBOPGeneric()).setStepSound(Block.soundTypeStone), "crag_rock" );
+        crag_rock =             registerBlock( (new BlockBOPGeneric()), "crag_rock" );
         dried_sand =            registerBlock( (new BlockBOPGeneric()).addSupportedPlantType(EnumPlantType.Desert), "dried_sand"); dried_sand.setHarvestLevel("pickaxe",0);
-        hard_ice =              registerBlock( (new BlockBOPGeneric(Material.packedIce)).setHardness(0.75F), "hard_ice" );
+        hard_ice =              registerBlock( (new BlockBOPGeneric(Material.packedIce, SoundType.STONE)).setHardness(0.75F), "hard_ice" );
         ash_block =             registerBlock( new BlockBOPAsh(), "ash_block" );
         mud =                   registerBlock( new BlockBOPMud(), "mud" );
         sand =                  registerBlock( new BlockBOPSand(), "sand" );
@@ -127,7 +128,7 @@ public class ModBlocks
         bone_segment =          registerBlock( new BlockBOPBones(), "bone_segment" );
         
         //Material Blocks
-        bamboo_thatching =      registerBlock( (new BlockBOPGeneric(Material.wood)).setStepSound(Block.soundTypeWood).setHardness(2.0F), "bamboo_thatching"); bamboo_thatching.setHarvestLevel("axe", 0);
+        bamboo_thatching =      registerBlock( (new BlockBOPGeneric(Material.wood, SoundType.WOOD)).setHardness(2.0F), "bamboo_thatching"); bamboo_thatching.setHarvestLevel("axe", 0);
         mud_brick_block =       registerBlock( (new BlockBOPGeneric()).setResistance(2.0F), "mud_brick_block" );   
         mud_brick_stairs =      registerBlock( BOPReflectionHelper.construct(BlockStairs.class, (IBlockState)mud_brick_block.getDefaultState()), "mud_brick_stairs");
  

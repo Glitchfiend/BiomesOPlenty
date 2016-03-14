@@ -66,7 +66,7 @@ public class BucketEventHandler
         event.setResult(Result.ALLOW);
         event.setFilledBucket(new ItemStack(filled_bucket));
         event.getWorld().setBlockToAir(blockpos);
-        event.entityPlayer.triggerAchievement(StatList.objectUseStats[Item.getIdFromItem(event.getEmptyBucket().getItem())]);
+        //TODO: event.entityPlayer.triggerAchievement(StatList.objectUseStats[Item.getIdFromItem(event.getEmptyBucket().getItem())]);
     }
         
 }

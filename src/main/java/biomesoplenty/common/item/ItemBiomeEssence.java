@@ -32,21 +32,11 @@ public class ItemBiomeEssence extends Item
     }
     
     @Override
-    public void addInformation(ItemStack itemStack, EntityPlayer player, List infoList, boolean advancedItemTooltips)
-    {
+    public void addInformation(ItemStack itemStack, EntityPlayer player, List infoList, boolean advancedItemTooltips) {
         BiomeGenBase biome = this.getBiome(itemStack);
-        if (biome != null)
-        {
+        if (biome != null) {
             infoList.add(biome.getBiomeName());
         }
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public int getColorFromItemStack(ItemStack itemStack, int tintIndex)
-    {
-        BiomeGenBase biome = this.getBiome(itemStack);
-        return biome == null ? 0xFFFFFF : biome.getGrassColorAtPos(BlockPos.ORIGIN);
     }
     
     @Override

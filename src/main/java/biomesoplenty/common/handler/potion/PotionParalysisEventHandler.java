@@ -42,7 +42,7 @@ public class PotionParalysisEventHandler
 
             if (entity.getActivePotionEffect(BOPPotions.paralysis).getDuration() == 0)
             {
-                entity.removePotionEffect(BOPPotions.paralysis.id);
+                entity.removePotionEffect(BOPPotions.paralysis);
                 return;
             }
         }

@@ -14,6 +14,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.MobEffects;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumParticleTypes;
@@ -37,7 +38,7 @@ public class BlockHotSpringWaterFluid extends BlockFluidClassic
     {
         if (entity instanceof EntityLivingBase)
         {
-            ((EntityLivingBase)entity).addPotionEffect(new PotionEffect(Potion.regeneration.id, 100));
+            ((EntityLivingBase)entity).addPotionEffect(new PotionEffect(MobEffects.regeneration, 100));
         }
     }
     

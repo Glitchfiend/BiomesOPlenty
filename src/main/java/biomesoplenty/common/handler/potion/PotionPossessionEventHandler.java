@@ -46,7 +46,7 @@ public class PotionPossessionEventHandler
 
             if (entity.getActivePotionEffect(BOPPotions.possession).getDuration() == 0)
             {
-                entity.removePotionEffect(BOPPotions.possession.id);
+                entity.removePotionEffect(BOPPotions.possession);
                 return;
             }
         }

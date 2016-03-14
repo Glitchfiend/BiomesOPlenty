@@ -58,8 +58,6 @@ public class BlockBOPDirt extends Block implements IBOPBlock, ISustainsPlantType
     @Override
     public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
     @Override
-    public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
-    @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {COARSE, VARIANT}; }
     @Override
     public IProperty[] getNonRenderingProperties() { return null; }
@@ -115,10 +113,10 @@ public class BlockBOPDirt extends Block implements IBOPBlock, ISustainsPlantType
             // support beach plants if there's water alongside
             case Beach:
                 return (
-                    world.getBlockState(pos.east()).getBlock().getMaterial() == Material.water ||
-                    world.getBlockState(pos.west()).getBlock().getMaterial() == Material.water ||
-                    world.getBlockState(pos.north()).getBlock().getMaterial() == Material.water ||
-                    world.getBlockState(pos.south()).getBlock().getMaterial() == Material.water
+                    world.getBlockState(pos.east()).getMaterial() == Material.water ||
+                    world.getBlockState(pos.west()).getMaterial() == Material.water ||
+                    world.getBlockState(pos.north()).getMaterial() == Material.water ||
+                    world.getBlockState(pos.south()).getMaterial() == Material.water
                 );
              // don't support nether plants, water plants, or crops (require farmland), or anything else by default
             default:
@@ -127,7 +125,7 @@ public class BlockBOPDirt extends Block implements IBOPBlock, ISustainsPlantType
     }
 
     @Override
-    public boolean canSustainPlant(IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
+    public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
     {
         return this.canSustainPlantType(world, pos, plantable.getPlantType(world, pos.offset(direction)));
     }
@@ -146,8 +144,9 @@ public class BlockBOPDirt extends Block implements IBOPBlock, ISustainsPlantType
     // However, vanilla grass does not.  This function fixes this by 'pulling' grass from nearby vanilla grass blocks at the same rate as it would spread to vanilla dirt
     public void pullGrassFromNeighbors(World world, BlockPos pos, IBlockState grassState, Random rand, int tries, int xzSpread, int downSpread, int upSpread)
     {
+        IBlockState upState = world.getBlockState(pos.up());
         // if there's not enough light then there's no chance of this block becoming grassy
-        if (world.getLightFromNeighbors(pos.up()) < 4 || world.getBlockState(pos.up()).getBlock().getLightOpacity(world, pos.up()) > 2) {return;}
+        if (world.getLightFromNeighbors(pos.up()) < 4 || upState.getBlock().getLightOpacity(upState) > 2) {return;}
 
         int numNearbyGrassSpreadingBlocks = 0;
         BlockPos pos1;

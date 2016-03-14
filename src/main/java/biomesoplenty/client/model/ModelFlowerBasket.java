@@ -9,25 +9,30 @@
 package biomesoplenty.client.model;
 
 import biomesoplenty.common.inventory.InventoryFlowerBasket;
+import com.google.common.collect.ImmutableList;
 import net.minecraft.client.renderer.block.model.IBakedModel;
+import net.minecraft.client.renderer.block.model.ItemOverride;
+import net.minecraft.client.renderer.block.model.ItemOverrideList;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 
-public class ModelFlowerBasket extends IFlexibleBakedModel.Wrapper implements ISmartItemModel
+public class ModelFlowerBasket extends ItemOverrideList
 {
     private IBakedModel emptyBakedModel;
     private IBakedModel filledBakedModel;
     
     public ModelFlowerBasket(IBakedModel emptyModel, IBakedModel filledModel)
     {
-        super(null, DefaultVertexFormats.ITEM);
+        super(ImmutableList.<ItemOverride>of());
         
         this.emptyBakedModel = emptyModel;
         this.filledBakedModel = filledModel;
     }
 
     @Override
-    public IBakedModel handleItemState(ItemStack stack) 
+    public IBakedModel handleItemState(IBakedModel originalModel, ItemStack stack, World world, EntityLivingBase entity)
     {
         InventoryFlowerBasket inventory = new InventoryFlowerBasket(stack, null);
         boolean filled = false;

@@ -48,15 +48,14 @@ public class BiomeGenFen extends BOPBiome
 {
         
     public BiomeGenFen()
-    {        
+    {
+        super("fen", new PropsBuilder("Fen").withGuiColour(0xBAC481).withTemperature(0.4F).withRainfall(0.4F));
+
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(8, 15);
         
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.LOAMY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.LOAMY);
-        
-        this.setColor(0xBAC481);
-        this.setTemperatureRainfall(0.4F, 0.4F);
         
         this.canSpawnInBiome = false;
         this.canGenerateRivers = false;

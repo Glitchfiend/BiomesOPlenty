@@ -16,6 +16,7 @@ import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.SoundType;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
@@ -31,8 +32,6 @@ public class BlockBOPFence extends BlockFence implements IBOPBlock
     // implement IBOPBlock
     @Override
     public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
-    @Override
-    public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
     @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {}; }
     @Override
@@ -54,7 +53,7 @@ public class BlockBOPFence extends BlockFence implements IBOPBlock
     
     public BlockBOPFence(BOPWoods wood)
     {
-        super(Material.wood);
+        super(Material.wood, MapColor.woodColor);
         this.setHarvestLevel("axe", 0);
         
         this.wood = wood;

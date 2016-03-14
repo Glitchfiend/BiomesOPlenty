@@ -23,7 +23,7 @@ public class PlayerUtil
     {
         for (EnumHand hand : EnumHand.values())
         {
-            if (player.getHeldItem(hand) == stack)
+            if (player.getHeldItem(hand).equals(stack))
                 return hand;
         }
         

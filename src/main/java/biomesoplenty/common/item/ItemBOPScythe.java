@@ -40,9 +40,9 @@ public class ItemBOPScythe extends Item
     
     // Scythe is strong against leaves
     @Override
-    public float getStrVsBlock(ItemStack stack, Block block)
+    public float getStrVsBlock(ItemStack stack, IBlockState state)
     {
-        return block.getMaterial() == Material.leaves ? 15.0F : super.getStrVsBlock(stack, block);
+        return state.getMaterial() == Material.leaves ? 15.0F : super.getStrVsBlock(stack, state);
     }
     
     @Override
@@ -82,7 +82,7 @@ public class ItemBOPScythe extends Item
             radius = 4;
             height = 4;
         }
-        else if (toolMaterial == ToolMaterial.EMERALD)
+        else if (toolMaterial == ToolMaterial.DIAMOND)
         {
             radius = 5;
             height = 5;

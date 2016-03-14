@@ -27,12 +27,10 @@ public class BiomeGenFlowerField extends BOPBiome
 {    
     public BiomeGenFlowerField()
     {
-        
+        super("flower_field", new PropsBuilder("Flower Field").withGuiColour(4044093).withTemperature(0.6F).withRainfall(0.7F));
+
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(4, 12);
-        
-        this.setColor(4044093);
-        this.setTemperatureRainfall(0.6F, 0.7F);
 
         this.addWeight(BOPClimates.WARM_TEMPERATE, 2);
         

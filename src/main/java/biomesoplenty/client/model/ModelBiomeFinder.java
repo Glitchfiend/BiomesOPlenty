@@ -9,29 +9,34 @@
 package biomesoplenty.client.model;
 
 import biomesoplenty.client.util.ModelUtils;
+import com.google.common.collect.ImmutableList;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.renderer.block.model.IBakedModel;
+import net.minecraft.client.renderer.block.model.ItemOverride;
+import net.minecraft.client.renderer.block.model.ItemOverrideList;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.world.World;
 import net.minecraftforge.client.model.IModel;
 
-public class ModelBiomeFinder extends IFlexibleBakedModel.Wrapper implements ISmartItemModel
+public class ModelBiomeFinder extends ItemOverrideList
 {
     private IBakedModel[] frames;
     
     public ModelBiomeFinder(IModel defaultModel, TextureAtlasSprite[] frameTextures)
     {
-        super(null, DefaultVertexFormats.ITEM);
+        super(ImmutableList.<ItemOverride>of());
 
         this.frames = ModelUtils.generateModelsForTextures(defaultModel, frameTextures);
      }
 
     @Override
-    public IBakedModel handleItemState(ItemStack stack)
+    public IBakedModel handleItemState(IBakedModel originalModel, ItemStack stack, World world, EntityLivingBase entity)
     {
         EntityPlayerSP player = Minecraft.getMinecraft().thePlayer;
         if (player == null) {return this.frames[0];}

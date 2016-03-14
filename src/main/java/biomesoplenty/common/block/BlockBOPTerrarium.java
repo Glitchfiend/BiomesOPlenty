@@ -17,6 +17,7 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -49,8 +50,6 @@ public class BlockBOPTerrarium extends Block implements IBOPBlock
     @Override
     public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
     @Override
-    public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
-    @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
     @Override
     public IProperty[] getNonRenderingProperties() { return null; }
@@ -70,16 +69,6 @@ public class BlockBOPTerrarium extends Block implements IBOPBlock
     	super(Material.glass);
     	this.setHardness(1.0F);
         this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, TerrariumType.FERN));
-        this.setBlockBoundsByRadiusAndHeight(0.8F , 0.8F);
-    }
-    
-    public void setBlockBoundsByRadiusAndHeight(float radius, float height)
-    {
-        this.setBlockBoundsByRadiusAndHeight(radius, height, false);
-    }
-    public void setBlockBoundsByRadiusAndHeight(float radius, float height, boolean fromTop)
-    {
-        this.setBlockBounds(0.5F - radius, (fromTop ? 1.0F - height : 0.0F), 0.5F - radius, 0.5F + radius, (fromTop ? 1.0F : height), 0.5F + radius);
     }
     
     @Override
@@ -119,11 +108,6 @@ public class BlockBOPTerrarium extends Block implements IBOPBlock
     public BlockRenderLayer getBlockLayer()
     {
         return BlockRenderLayer.CUTOUT;
-    }
-    
-    @Override
-    public void setBlockBoundsBasedOnState(IBlockAccess worldIn, BlockPos pos) {
-        this.setBlockBoundsByRadiusAndHeight(0.2F, 1.0F);
     }
     
 }

@@ -164,18 +164,18 @@ public class ModItems
         turnip_seeds = registerItem(new ItemSeeds(BOPBlocks.turnip_block, Blocks.farmland), "turnip_seeds");
         turnip =            registerItem(new ItemFood(3, 0.4F, false), "turnip");
         saladfruit =        registerItem(new ItemSoup(6), "saladfruit");
-        ((ItemFood)saladfruit).setPotionEffect(Potion.digSpeed.id, 775, 1, 0.05F);
+        ((ItemFood)saladfruit).setPotionEffect(new PotionEffect(MobEffects.digSpeed, 775, 1), 0.05F);
         saladveggie =       registerItem(new ItemSoup(6), "saladveggie");
         ((ItemFood)saladveggie).setPotionEffect(new PotionEffect(MobEffects.nightVision, 1100, 1), 0.05F); // TODO: Is this the right potion effect for veggie salad?
         saladshroom =       registerItem(new ItemSoup(6), "saladshroom");
-        ((ItemFood)saladshroom).setPotionEffect(Potion.jump.id, 550, 1, 0.05F);
+        ((ItemFood)saladshroom).setPotionEffect(new PotionEffect(MobEffects.jump, 550, 1), 0.05F);
         ricebowl =          registerItem(new ItemSoup(2), "ricebowl");
         honeycomb = registerItem(new Item(), "honeycomb");
         filled_honeycomb =  registerItem(new ItemBOPFood(3, 0.4F, 16), "filled_honeycomb");
         pinecone = registerItem(new Item(), "pinecone");
         shroompowder =      registerItem(new ItemFood(1, 0.1F, false), "shroompowder");
         ((ItemFood)shroompowder).setAlwaysEdible();
-        ((ItemFood)shroompowder).setPotionEffect(Potion.confusion.id, 225, 0, 0.6F);
+        ((ItemFood)shroompowder).setPotionEffect(new PotionEffect(MobEffects.confusion, 225, 0), 0.6F);
         ambrosia =          registerItem(new ItemAmbrosia(), "ambrosia");
         
         earth = registerItem(new Item(), "earth");
@@ -329,7 +329,7 @@ public class ModItems
                     String subItemName = item.getUnlocalizedName(subItem);
                     subItemName =  subItemName.substring(subItemName.indexOf(".") + 1); // remove 'item.' from the front
 
-                    ModelBakery.addVariantName(item, BiomesOPlenty.MOD_ID + ":" + subItemName);
+                    ModelBakery.registerItemVariants(item, new ResourceLocation(BiomesOPlenty.MOD_ID, subItemName));
                     ModelLoader.setCustomModelResourceLocation(item, subItem.getMetadata(), new ModelResourceLocation(BiomesOPlenty.MOD_ID + ":" + subItemName, "inventory"));
                 }
             }
