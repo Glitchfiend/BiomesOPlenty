@@ -18,7 +18,11 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.FakePlayer;
 
@@ -30,18 +34,18 @@ public class ItemJarEmpty extends Item
     {
         this.setMaxDamage(0);
     }
-        
-    
+
+
     @Override
-    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
+    public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand)
     {
         
-        MovingObjectPosition hit = this.getMovingObjectPositionFromPlayer(world, player, true);
-        if (hit == null) {return stack;}
-        if (hit.typeOfHit != MovingObjectType.BLOCK) {return stack;}
+        RayTraceResult hit = this.getMovingObjectPositionFromPlayer(world, player, true);
+        if (hit == null) {new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);}
+        if (hit.typeOfHit != RayTraceResult.Type.BLOCK) {new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);}
         BlockPos pos = hit.getBlockPos();
-        if (!world.isBlockModifiable(player, pos)) {return stack;}
-        if (!player.canPlayerEdit(pos, hit.sideHit, stack)) {return stack;}       
+        if (!world.isBlockModifiable(player, pos)) {new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);}
+        if (!player.canPlayerEdit(pos, hit.sideHit, stack)) {new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);}
         
         // determine if the block is one of our BOP fluids
         // note - no need to check level - you don't get a hit unless it's full
@@ -61,13 +65,13 @@ public class ItemJarEmpty extends Item
         {
             world.setBlockToAir(pos);
             --stack.stackSize;
-            player.triggerAchievement(StatList.objectUseStats[Item.getIdFromItem(this)]);
+            //TODO: 1.9 player.triggerAchievement(StatList.objectUseStats[Item.getIdFromItem(this)]);
             
             ItemStack honeyJar = new ItemStack(BOPItems.jar_filled, 1, jarContents.ordinal());
             // if there was only one empty jar in the stack, replace it, otherwise add the filledJar elsewhere in the inventory
             if (stack.stackSize <= 0)
             {
-                return honeyJar;
+                return new ActionResult<ItemStack>(EnumActionResult.FAIL, honeyJar);
             }
             else if (!player.inventory.addItemStackToInventory(honeyJar))
             {
@@ -75,12 +79,12 @@ public class ItemJarEmpty extends Item
                 player.dropPlayerItemWithRandomChoice(honeyJar, false);
             }
         }
-            
-        return stack;
+
+        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
     }
     
     @Override
-    public boolean itemInteractionForEntity(ItemStack stack, EntityPlayer player, EntityLivingBase target)
+    public boolean itemInteractionForEntity(ItemStack stack, EntityPlayer player, EntityLivingBase target, EnumHand hand)
     {
         // right clicking a pixie with an empty jar catches it in the jar
         if (target instanceof EntityPixie)

@@ -15,8 +15,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.IStringSerializable;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
@@ -136,9 +135,9 @@ public class ItemJarFilled extends Item
     
     
     @Override
-    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
+    public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand)
     {
-        if (world.isRemote) {return stack;}
+        if (world.isRemote) {return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);}
         switch (this.getContentsType(stack))
         {
             // right click in air releases pixie
@@ -149,18 +148,18 @@ public class ItemJarFilled extends Item
                     Vec3d releasePoint = this.getAirPositionInFrontOfPlayer(world, player, 0.8D);
                     this.releasePixie(stack, world, player, releasePoint);
                 }
-                return stack;
+                return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
                 
             case HONEY: case POISON: default:
-                return stack;
+                return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);
         }
     }
     
     
     @Override
-    public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ)
+    public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
-        if (world.isRemote) {return false;}
+        if (world.isRemote) {return EnumActionResult.FAIL;}
         switch (this.getContentsType(stack))
         {
             // right click on block also releases pixie
@@ -170,11 +169,11 @@ public class ItemJarFilled extends Item
                 double distZ = hitZ - player.posZ;                
                 double a = 0.9D;
                 Vec3d releasePoint = new Vec3d(player.posX + a * distX, player.posY + (double)player.getEyeHeight() + a * distY, player.posZ + a * distZ);
-                return this.releasePixie(stack, world, player, releasePoint);	
+                return this.releasePixie(stack, world, player, releasePoint) ? EnumActionResult.SUCCESS : EnumActionResult.FAIL;
                 
             // TODO: are you supposed to be able to pour out honey? How much should you get?  Why don't we just use buckets?
             case HONEY: case POISON: default:
-                return false;
+                return EnumActionResult.SUCCESS;
         }
     }
     

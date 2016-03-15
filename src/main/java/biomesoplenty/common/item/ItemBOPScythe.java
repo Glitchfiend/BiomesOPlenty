@@ -68,12 +68,12 @@ public class ItemBOPScythe extends Item
     
     
     @Override
-    public boolean onBlockDestroyed(ItemStack stack, World worldIn, Block blockIn, BlockPos pos, EntityLivingBase playerIn)
+    public boolean onBlockDestroyed(ItemStack stack, World worldIn, IBlockState state, BlockPos pos, EntityLivingBase entityLiving)
     {
 
-        if (blockIn == null || worldIn.getBlockState(pos).getBlock() == Blocks.air) {return false;}
+        if (state.getBlock() == null || worldIn.getBlockState(pos).getBlock() == Blocks.air) {return false;}
                         
-        boolean isLeaves = blockIn.isLeaves(worldIn, pos);        
+        boolean isLeaves = state.getBlock().isLeaves(worldIn.getBlockState(pos), worldIn, pos);
         
         int radius = isLeaves ? 0 : 3;
         int height = isLeaves ? 0 : 4;
@@ -94,22 +94,22 @@ public class ItemBOPScythe extends Item
         }
         
         // automatically damage the item once - for the block originally destroyed
-        stack.damageItem(1, playerIn);
+        stack.damageItem(1, entityLiving);
         
         int numberTrimmed = 0;
         if (isLeaves)
         {
-            numberTrimmed += trim(stack, playerIn, worldIn, pos, height, radius, TrimType.TRIM_LEAVES, false, 40);
+            numberTrimmed += trim(stack, entityLiving, worldIn, pos, height, radius, TrimType.TRIM_LEAVES, false, 40);
         }
         else
         {
             // trim once with the corners cut
-            numberTrimmed += trim(stack, playerIn, worldIn, pos, height, radius, TrimType.TRIM_GRASS_AND_FLOWERS, true, 70);
+            numberTrimmed += trim(stack, entityLiving, worldIn, pos, height, radius, TrimType.TRIM_GRASS_AND_FLOWERS, true, 70);
             if (worldIn.rand.nextInt(3) == 0)
             {
                 // with one in 3 chance, also do another 'free' trim of a smaller radius, without the corners cut
                 // ('free' in the sense that it does not damage the scythe)
-                numberTrimmed += trim(stack, playerIn, worldIn, pos, height, radius - 1, TrimType.TRIM_GRASS_AND_FLOWERS, false, 0);
+                numberTrimmed += trim(stack, entityLiving, worldIn, pos, height, radius - 1, TrimType.TRIM_GRASS_AND_FLOWERS, false, 0);
             }
         }
         return numberTrimmed > 0;
@@ -155,7 +155,7 @@ public class ItemBOPScythe extends Item
                 case TRIM_LEAVES:
                     
                     // remove leaves
-                    if (block.isLeaves(world, pos))
+                    if (block.isLeaves(state, world, pos))
                     {
                         block.dropBlockAsItem(world, pos, state, fortune);
                         world.setBlockToAir(pos);

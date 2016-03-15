@@ -17,6 +17,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.IShearable;
@@ -27,9 +30,9 @@ public class ItemFlowerBasket extends Item
     {
         this.maxStackSize = 1;
     }
-    
+
     @Override
-    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
+    public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand)
     {
         if (!world.isRemote)
         {
@@ -44,7 +47,7 @@ public class ItemFlowerBasket extends Item
             player.openGui(BiomesOPlenty.instance, GuiHandler.FLOWER_BASKET_ID, world, 0, 0, 0);
         }
 
-        return stack;
+        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
     }
     
     public static ItemStack findBasketStack(EntityPlayer player)

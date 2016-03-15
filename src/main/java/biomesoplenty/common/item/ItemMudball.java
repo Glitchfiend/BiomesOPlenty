@@ -14,6 +14,9 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
@@ -26,21 +29,21 @@ public class ItemMudball extends Item
 
     // throw a mudball on right click
     @Override
-    public ItemStack onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn)
+    public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand)
     {
-        if (!playerIn.capabilities.isCreativeMode)
+        if (!player.capabilities.isCreativeMode)
         {
-            --itemStackIn.stackSize;
+            --stack.stackSize;
         }
 
-        worldIn.playSound(playerIn, playerIn.getPosition(), SoundEvents.entity_arrow_shoot, SoundCategory.NEUTRAL, 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+        world.playSound(player, player.getPosition(), SoundEvents.entity_arrow_shoot, SoundCategory.NEUTRAL, 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
 
-        if (!worldIn.isRemote)
+        if (!world.isRemote)
         {
-            worldIn.spawnEntityInWorld(new EntityMudball(worldIn, playerIn));
+            world.spawnEntityInWorld(new EntityMudball(world, player));
         }
 
         //TODO: playerIn.addState(StatList.objectUseStats[Item.getIdFromItem(this)]);
-        return itemStackIn;
+        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
     }
 }

@@ -8,6 +8,7 @@
 
 package biomesoplenty.common.item;
 
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemRecord;
 import net.minecraft.util.ResourceLocation;
 
@@ -16,7 +17,7 @@ public class ItemBOPRecord extends ItemRecord
     
     public ItemBOPRecord(String name)
     {
-        super(name);
+        super(name, SoundEvents.record_11);
     }
     
     @Override

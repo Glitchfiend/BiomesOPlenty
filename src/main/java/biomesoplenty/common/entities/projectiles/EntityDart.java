@@ -20,6 +20,10 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.network.play.server.SPacketChangeGameState;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
@@ -32,6 +36,7 @@ import net.minecraft.world.World;
 
 public class EntityDart extends EntityArrow
 {
+    private static final DataParameter<Byte> TYPE = EntityDataManager.<Byte>createKey(EntityDart.class, DataSerializers.BYTE);
     
     private int ticksInAir = 0;
     
@@ -40,9 +45,9 @@ public class EntityDart extends EntityArrow
         super(world);
     }
     
-    public EntityDart(World world, EntityLivingBase shootingEntity, float velocity)
+    public EntityDart(World world, EntityLivingBase shootingEntity)
     {
-        super(world, shootingEntity, velocity);
+        super(world, shootingEntity);
     }
     
     public EntityDart(World world, double x, double y, double z)
@@ -53,17 +58,17 @@ public class EntityDart extends EntityArrow
     @Override
     protected void entityInit()
     {
-        this.dataWatcher.addObject(16, Byte.valueOf((byte)0));
+        this.dataWatcher.register(TYPE, Byte.valueOf((byte)0));
     }
     
     public void setDartType(ItemDart.DartType dartType)
     {
-        dataWatcher.updateObject(16, (byte)dartType.ordinal());
+        dataWatcher.set(TYPE, (byte)dartType.ordinal());
     }
     
     public ItemDart.DartType getDartType()
     {
-        return ItemDart.DartType.values()[dataWatcher.getWatchableObjectByte(16)];
+        return ItemDart.DartType.values()[dataWatcher.get(TYPE)];
     }
     
     // TODO: read/write to NBT?
@@ -72,7 +77,7 @@ public class EntityDart extends EntityArrow
     // Called from onUpdate when it is detected that the dart has hit a solid block
     public void onHitSolidBlock()
     {
-        this.playSound("random.bowhit", 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
+        this.playSound(SoundEvents.entity_arrow_hit, 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
         int itemId = Item.getIdFromItem(BOPItems.dart);
         int itemMeta = this.getDartType().ordinal();
         for (int i = 0; i < 16; ++i)
@@ -92,7 +97,7 @@ public class EntityDart extends EntityArrow
         {
             if (entityHit instanceof EntityLivingBase)
             {
-                ((EntityLivingBase)entityHit).addPotionEffect(new PotionEffect(BOPPotions.paralysis.id, 100));
+                ((EntityLivingBase)entityHit).addPotionEffect(new PotionEffect(BOPPotions.paralysis, 100));
             }
         }
 
@@ -261,5 +266,11 @@ public class EntityDart extends EntityArrow
         
         this.setPosition(this.posX, this.posY, this.posZ);
         this.doBlockCollisions();
+    }
+
+    @Override
+    protected ItemStack getArrowStack()
+    {
+        return new ItemStack(BOPItems.dart);
     }
 }

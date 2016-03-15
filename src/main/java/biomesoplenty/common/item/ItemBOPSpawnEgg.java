@@ -29,9 +29,13 @@ import net.minecraft.stats.StatList;
 import net.minecraft.tileentity.MobSpawnerBaseLogic;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityMobSpawner;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -54,7 +58,7 @@ public class ItemBOPSpawnEgg extends Item
         while (iterator.hasNext())
         {
             EntityList.EntityEggInfo entityegginfo = (EntityList.EntityEggInfo)iterator.next();
-            subItems.add(new ItemStack(itemIn, 1, entityegginfo.spawnedID));
+            subItems.add(new ItemStack(itemIn, 1, EntityList.getIDFromString(entityegginfo.spawnedID)));
         }
     }
     
@@ -87,23 +91,15 @@ public class ItemBOPSpawnEgg extends Item
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
-    public int getColorFromItemStack(ItemStack stack, int renderPass)
-    {
-        EntityList.EntityEggInfo entityegginfo = ModEntities.entityEggs.get(Integer.valueOf(stack.getMetadata()));
-        return entityegginfo != null ? (renderPass == 0 ? entityegginfo.primaryColor : entityegginfo.secondaryColor) : 16777215;
-    }
-
-    @Override
-    public boolean onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ)
+    public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
         if (worldIn.isRemote)
         {
-            return true;
+            return EnumActionResult.SUCCESS;
         }
-        else if (!playerIn.canPlayerEdit(pos.offset(side), side, stack))
+        else if (!playerIn.canPlayerEdit(pos.offset(facing), facing, stack))
         {
-            return false;
+            return EnumActionResult.FAIL;
         }
         else
         {
@@ -116,23 +112,23 @@ public class ItemBOPSpawnEgg extends Item
                 if (tileentity instanceof TileEntityMobSpawner)
                 {
                     MobSpawnerBaseLogic mobspawnerbaselogic = ((TileEntityMobSpawner)tileentity).getSpawnerBaseLogic();
-                    mobspawnerbaselogic.setEntityName(EntityList.getStringFromID(stack.getMetadata()));
+                    mobspawnerbaselogic.setEntityName(EntityList.classToStringMapping.get(EntityList.getClassFromID(stack.getMetadata())));
                     tileentity.markDirty();
-                    worldIn.markBlockForUpdate(pos);
+                    worldIn.notifyBlockUpdate(pos, iblockstate, iblockstate, 3);
 
                     if (!playerIn.capabilities.isCreativeMode)
                     {
                         --stack.stackSize;
                     }
 
-                    return true;
+                    return EnumActionResult.SUCCESS;
                 }
             }
 
-            pos = pos.offset(side);
+            pos = pos.offset(facing);
             double d0 = 0.0D;
 
-            if (side == EnumFacing.UP && iblockstate instanceof BlockFence)
+            if (facing == EnumFacing.UP && iblockstate instanceof BlockFence)
             {
                 d0 = 0.5D;
             }
@@ -152,63 +148,63 @@ public class ItemBOPSpawnEgg extends Item
                 }
             }
 
-            return true;
+            return EnumActionResult.SUCCESS;
         }
     }
 
     @Override
-    public ItemStack onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn)
+    public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand)
     {
-        if (worldIn.isRemote)
+        if (world.isRemote)
         {
-            return itemStackIn;
+            return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);
         }
         else
         {
-            MovingObjectPosition movingobjectposition = this.getMovingObjectPositionFromPlayer(worldIn, playerIn, true);
+            RayTraceResult movingobjectposition = this.getMovingObjectPositionFromPlayer(world, player, true);
 
             if (movingobjectposition == null)
             {
-                return itemStackIn;
+                return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);
             }
             else
             {
-                if (movingobjectposition.typeOfHit == MovingObjectPosition.MovingObjectType.BLOCK)
+                if (movingobjectposition.typeOfHit == RayTraceResult.Type.BLOCK)
                 {
                     BlockPos blockpos = movingobjectposition.getBlockPos();
 
-                    if (!worldIn.isBlockModifiable(playerIn, blockpos))
+                    if (!world.isBlockModifiable(player, blockpos))
                     {
-                        return itemStackIn;
+                        return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);
                     }
 
-                    if (!playerIn.canPlayerEdit(blockpos, movingobjectposition.sideHit, itemStackIn))
+                    if (!player.canPlayerEdit(blockpos, movingobjectposition.sideHit, stack))
                     {
-                        return itemStackIn;
+                        return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);
                     }
 
-                    if (worldIn.getBlockState(blockpos).getBlock() instanceof BlockLiquid)
+                    if (world.getBlockState(blockpos).getBlock() instanceof BlockLiquid)
                     {
-                        Entity entity = spawnBOPCreature(worldIn, itemStackIn.getMetadata(), (double)blockpos.getX() + 0.5D, (double)blockpos.getY() + 0.5D, (double)blockpos.getZ() + 0.5D);
+                        Entity entity = spawnBOPCreature(world, stack.getMetadata(), (double)blockpos.getX() + 0.5D, (double)blockpos.getY() + 0.5D, (double)blockpos.getZ() + 0.5D);
 
                         if (entity != null)
                         {
-                            if (entity instanceof EntityLivingBase && itemStackIn.hasDisplayName())
+                            if (entity instanceof EntityLivingBase && stack.hasDisplayName())
                             {
-                                ((EntityLiving)entity).setCustomNameTag(itemStackIn.getDisplayName());
+                                ((EntityLiving)entity).setCustomNameTag(stack.getDisplayName());
                             }
 
-                            if (!playerIn.capabilities.isCreativeMode)
+                            if (!player.capabilities.isCreativeMode)
                             {
-                                --itemStackIn.stackSize;
+                                --stack.stackSize;
                             }
 
-                            playerIn.triggerAchievement(StatList.objectUseStats[Item.getIdFromItem(this)]);
+                            //TODO: 1.9 playerIn.triggerAchievement(StatList.objectUseStats[Item.getIdFromItem(this)]);
                         }
                     }
                 }
 
-                return itemStackIn;
+                return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
             }
         }
     }

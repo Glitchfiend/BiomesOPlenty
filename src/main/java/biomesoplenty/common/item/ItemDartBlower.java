@@ -12,8 +12,13 @@ package biomesoplenty.common.item;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.entities.projectiles.EntityDart;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
 
@@ -25,19 +30,19 @@ public class ItemDartBlower extends Item
         this.maxStackSize = 1;
         this.setMaxDamage(63);
     }
-   
+
     @Override
-    public ItemStack onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn)
+    public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand)
     {
-        if (worldIn.isRemote) {return itemStackIn;}
-        boolean isCreative = playerIn.capabilities.isCreativeMode;
+        if (world.isRemote) {return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);}
+        boolean isCreative = player.capabilities.isCreativeMode;
         
         // look for the best dart in inventory - find out which slot it's in
         int bestDartSlot = -1;
         ItemDart.DartType bestAvailableDartType = ItemDart.DartType.DART;
-        for (int k = 0; k < playerIn.inventory.mainInventory.length; ++k)
+        for (int k = 0; k < player.inventory.mainInventory.length; ++k)
         {
-            ItemStack current = playerIn.inventory.mainInventory[k];
+            ItemStack current = player.inventory.mainInventory[k];
             if (current != null && current.getItem()==BOPItems.dart)
             {
                 ItemDart.DartType currentDartType = ItemDart.DartType.fromMeta(current.getMetadata());
@@ -52,18 +57,18 @@ public class ItemDartBlower extends Item
         if (isCreative || (bestDartSlot > -1))
         {
             // there is a dart available to blow - blow it.
-            EntityDart entityDart = new EntityDart(worldIn, playerIn, 1.0F);
+            EntityDart entityDart = new EntityDart(world, player);
             entityDart.setDartType(bestAvailableDartType);
             if (!isCreative)
             {
-                itemStackIn.damageItem(1, playerIn);
-                playerIn.inventory.decrStackSize(bestDartSlot, 1);
+                stack.damageItem(1, player);
+                player.inventory.decrStackSize(bestDartSlot, 1);
             }
-            worldIn.spawnEntityInWorld(entityDart);
-            worldIn.playSoundAtEntity(playerIn, "random.bow", 1.0F, 1.75F);
+            world.spawnEntityInWorld(entityDart);
+            world.playSound(player, player.getPosition(), SoundEvents.entity_arrow_shoot, SoundCategory.NEUTRAL, 1.0F, 1.75F);
         }
-              
-        return itemStackIn;
+
+        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
     }
     
 
