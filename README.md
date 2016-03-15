@@ -4,6 +4,10 @@
 
 -----------------
 
+<p align="center"><img src="http://i.imgur.com/rjmyjrV.png"></p>
+
+-----------------
+
 **Note:** To use the mod on a **server**, you must set the **level-type** setting in your server's config file to **BIOMESOP**
 
 Also, if you want to **disable or add certain world generation features** in certain biomes, check out our guide for creating **biome configuration files**: https://github.com/Glitchfiend/BiomesOPlenty/wiki/Configuring-Biomes
