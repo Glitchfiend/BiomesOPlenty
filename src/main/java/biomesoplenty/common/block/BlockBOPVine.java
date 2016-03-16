@@ -14,6 +14,7 @@ import net.minecraft.block.BlockVine;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumFacing;
@@ -34,7 +35,8 @@ public class BlockBOPVine extends BlockVine implements IBOPBlock
     public IProperty[] getNonRenderingProperties() { return null; }
     @Override
     public String getStateName(IBlockState state) {return "";}
-    
+    @Override
+    public IBlockColor getColourHandler() { return null; }
 
     // if set to true, (the default), use BlockVine getBlockColor(), getRenderColor() and colorMultiplier() functions to color the texture based on biome
     // if set to false, use 0xFFFFFF for all the color functions so that the texture is used as it is

@@ -10,6 +10,7 @@ package biomesoplenty.api.block;
 
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.item.ItemBlock;
 
 public interface IBOPBlock {
@@ -18,5 +19,7 @@ public interface IBOPBlock {
     public IProperty[] getPresetProperties();
     public IProperty[] getNonRenderingProperties();
     public String getStateName(IBlockState state);
+
+    public IBlockColor getColourHandler();
     
 }

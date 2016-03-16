@@ -23,6 +23,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -85,6 +86,8 @@ public class BlockBOPDoubleWoodSlab extends BlockSlab implements IBOPBlock
     {
         return "double_" + ((BOPWoods)state.getValue(this.variantProperty)).getName() + "_wood_slab";
     }
+    @Override
+    public IBlockColor getColourHandler() { return null; }
     
     private BlockBOPDoubleWoodSlab()
     {

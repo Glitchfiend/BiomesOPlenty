@@ -18,6 +18,7 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.item.ItemBlock;
 
 public class BlockBOPGem extends Block implements IBOPBlock
@@ -40,7 +41,8 @@ public class BlockBOPGem extends Block implements IBOPBlock
     {
         return ((BOPGems) state.getValue(VARIANT)).getName() + "_block";
     }
-    
+    @Override
+    public IBlockColor getColourHandler() { return null; }
 
     public BlockBOPGem()
     {        

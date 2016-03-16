@@ -30,6 +30,7 @@ import biomesoplenty.common.entities.projectiles.EntityDart;
 import biomesoplenty.common.entities.projectiles.EntityMudball;
 import biomesoplenty.common.entities.projectiles.RenderDart;
 import biomesoplenty.common.entities.projectiles.RenderMudball;
+import com.google.common.collect.Lists;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
@@ -63,6 +64,8 @@ public class ClientProxy extends CommonProxy
     public static ResourceLocation[] bopTitlePanoramaPaths = new ResourceLocation[] {new ResourceLocation("biomesoplenty:textures/gui/title/background/panorama_0.png"), new ResourceLocation("biomesoplenty:textures/gui/title/background/panorama_1.png"), new ResourceLocation("biomesoplenty:textures/gui/title/background/panorama_2.png"), new ResourceLocation("biomesoplenty:textures/gui/title/background/panorama_3.png"), new ResourceLocation("biomesoplenty:textures/gui/title/background/panorama_4.png"), new ResourceLocation("biomesoplenty:textures/gui/title/background/panorama_5.png")};
     public static ResourceLocation particleTexturesLocation = new ResourceLocation("biomesoplenty:textures/particles/particles.png");
 
+    private static List<Block> blocksToColour = Lists.newArrayList();
+
     @Override
     public void registerRenderers()
     {
@@ -81,6 +84,16 @@ public class ClientProxy extends CommonProxy
     }
 
     @Override
+    public void registerColouredBlocks()
+    {
+        for (Block block : blocksToColour)
+        {
+            IBOPBlock bopBlock = (IBOPBlock)block;
+            Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(bopBlock.getColourHandler(), block);
+        }
+    }
+
+    @Override
     public void registerItemVariantModel(Item item, String name, int metadata) 
     {
         if (item != null) 
@@ -91,11 +104,13 @@ public class ClientProxy extends CommonProxy
     }
 
     @Override
-    public void registerNonRenderingProperties(Block block) 
+    public void registerBlockSided(Block block)
     {
         if (block instanceof IBOPBlock)
         {
             IBOPBlock bopBlock = (IBOPBlock)block;
+
+            //Register non-rendering properties
             IProperty[] nonRenderingProperties = bopBlock.getNonRenderingProperties();
 
             if (nonRenderingProperties != null)
@@ -103,6 +118,12 @@ public class ClientProxy extends CommonProxy
                 // use a custom state mapper which will ignore the properties specified in the block as being non-rendering
                 IStateMapper custom_mapper = (new StateMap.Builder()).ignore(nonRenderingProperties).build();
                 ModelLoader.setCustomStateMapper(block, custom_mapper);
+            }
+
+            //Register colour handlers
+            if (bopBlock.getColourHandler() != null)
+            {
+                blocksToColour.add(block);
             }
         }
     }

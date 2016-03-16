@@ -20,6 +20,7 @@ import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumFacing;
@@ -38,6 +39,8 @@ public class BlockBOPFence extends BlockFence implements IBOPBlock
     public IProperty[] getNonRenderingProperties() { return null; }
     @Override
     public String getStateName(IBlockState state) {return "";}
+    @Override
+    public IBlockColor getColourHandler() { return null; }
 
     // Map from woods to BlockBOPFence instance and back
     private static Map<BOPWoods, BlockBOPFence> variantToBlock = new HashMap<BOPWoods, BlockBOPFence>();

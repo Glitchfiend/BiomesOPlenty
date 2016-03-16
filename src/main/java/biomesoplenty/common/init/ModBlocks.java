@@ -77,6 +77,7 @@ import net.minecraft.block.BlockStairs;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -84,6 +85,10 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemBucket;
 import net.minecraft.item.ItemDoor;
 import net.minecraft.item.ItemSlab;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.ColorizerFoliage;
+import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fluids.Fluid;
@@ -92,7 +97,15 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ModBlocks
 {
-        
+    public static final IBlockColor FOLIAGE_COLOURING = new IBlockColor()
+    {
+        @Override
+        public int colorMultiplier(IBlockState state, IBlockAccess world, BlockPos pos, int tintIndex)
+        {
+            return world != null && pos != null ? BiomeColorHelper.getFoliageColorAtPos(world, pos) : ColorizerFoliage.getFoliageColorBasic();
+        }
+    };
+
     // TODO: use getDrops() in classes where the drops are very specific, instead of implementing all 3 of quantityDropped() getItemDropped() and damageDropped()
     // TODO: docblocks!
     // TODO: make better use of canSustainPlant() in BlockDecoration and children
@@ -353,7 +366,7 @@ public class ModBlocks
             IBOPBlock bopBlock = (IBOPBlock)block;
             GameRegistry.registerBlock(block, bopBlock.getItemClass(), blockName);
             
-            BiomesOPlenty.proxy.registerNonRenderingProperties(block);
+            BiomesOPlenty.proxy.registerBlockSided(block);
             
             // check for missing default states
             IBlockState defaultState = block.getDefaultState();

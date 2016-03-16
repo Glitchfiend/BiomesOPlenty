@@ -21,6 +21,7 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -69,6 +70,8 @@ public class BlockBOPMud extends Block implements IBOPBlock, ISustainsPlantType
     {
         return ((MudType) state.getValue(VARIANT)).getName();
     }
+    @Override
+    public IBlockColor getColourHandler() { return null; }
 
     public BlockBOPMud() {
         

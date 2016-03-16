@@ -17,6 +17,7 @@ import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumFacing;
@@ -36,6 +37,8 @@ public class BlockBOPWoodStairs extends BlockStairs implements IBOPBlock
     public IProperty[] getNonRenderingProperties() { return null; }
     @Override
     public String getStateName(IBlockState state) {return "";}
+    @Override
+    public IBlockColor getColourHandler() { return null; }
 
     // Map from woods to BlockBOPStairs instance and back
     private static Map<BOPWoods, BlockBOPWoodStairs> variantToBlock = new HashMap<BOPWoods, BlockBOPWoodStairs>();

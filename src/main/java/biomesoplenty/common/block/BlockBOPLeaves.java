@@ -21,6 +21,7 @@ import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -98,6 +99,8 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
                 return tree.getName() + "_leaves";
         }
     }
+    @Override
+    public IBlockColor getColourHandler() { return null; }
     
     private BlockBOPLeaves()
     {

@@ -18,6 +18,7 @@ import net.minecraft.block.BlockDoor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -42,7 +43,9 @@ public class BlockBOPDoor extends BlockDoor implements IBOPBlock
     public IProperty[] getNonRenderingProperties() { return new IProperty[] {POWERED}; }
     @Override
     public String getStateName(IBlockState state) {return "";}
- 
+    @Override
+    public IBlockColor getColourHandler() { return null; }
+
     // Map from woods to BlockBOPDoor instance and back
     private static Map<BOPWoods, BlockBOPDoor> variantToBlock = new HashMap<BOPWoods, BlockBOPDoor>();
     public static BlockBOPDoor getBlock(BOPWoods wood)

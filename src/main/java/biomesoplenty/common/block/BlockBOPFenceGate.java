@@ -19,6 +19,7 @@ import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumFacing;
@@ -38,7 +39,9 @@ public class BlockBOPFenceGate extends BlockFenceGate implements IBOPBlock
     public IProperty[] getNonRenderingProperties() { return new IProperty[] {POWERED}; }
     @Override
     public String getStateName(IBlockState state) {return "";}
-    
+    @Override
+    public IBlockColor getColourHandler() { return null; }
+
     // Map from woods to BlockBOPFenceGate instance and back
     private static Map<BOPWoods, BlockBOPFenceGate> variantToBlock = new HashMap<BOPWoods, BlockBOPFenceGate>();
     public static BlockBOPFenceGate getBlock(BOPWoods wood)

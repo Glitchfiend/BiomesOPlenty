@@ -84,6 +84,8 @@ public class BiomesOPlenty
     @EventHandler
     public void init(FMLInitializationEvent event) 
     {
+        BiomesOPlenty.proxy.registerColouredBlocks();
+
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
     }
     
@@ -92,7 +94,7 @@ public class BiomesOPlenty
     {
         ModCompatibility.postInit();
     }
-    
+
     @EventHandler
     public void serverStarting(FMLServerStartingEvent event)
     {

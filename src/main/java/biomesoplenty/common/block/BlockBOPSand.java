@@ -18,6 +18,7 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumFacing;
@@ -63,6 +64,8 @@ public class BlockBOPSand extends BlockFalling implements IBOPBlock, ISustainsPl
     {
         return ((SandType) state.getValue(VARIANT)).getName();
     }
+    @Override
+    public IBlockColor getColourHandler() { return null; }
 
     public BlockBOPSand() {
         

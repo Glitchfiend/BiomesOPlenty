@@ -25,6 +25,7 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.particle.EffectRenderer;
+import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -84,7 +85,8 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
                 return grassType.getName() + "_grass_block";
         }
     }
-    
+    @Override
+    public IBlockColor getColourHandler() { return null; }
     
     public BlockBOPGrass()
     {

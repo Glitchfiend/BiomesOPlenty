@@ -15,6 +15,7 @@ import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.math.BlockPos;
@@ -34,7 +35,8 @@ public class BlockBOPTurnip extends BlockCrops implements IBOPBlock
     public IProperty[] getNonRenderingProperties() { return null; }
     @Override
     public String getStateName(IBlockState state) {return "";}
-    
+    @Override
+    public IBlockColor getColourHandler() { return null; }
 
     @Override
     protected Item getSeed()

@@ -11,12 +11,14 @@ package biomesoplenty.common.block;
 import java.util.Random;
 
 import biomesoplenty.api.block.IBOPBlock;
+import biomesoplenty.common.init.ModBlocks;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -41,7 +43,8 @@ public class BlockBOPDecoration extends Block implements IBOPBlock
     public IProperty[] getNonRenderingProperties() { return null; }
     @Override
     public String getStateName(IBlockState state) {return "";}
-
+    @Override
+    public IBlockColor getColourHandler() { return ModBlocks.FOLIAGE_COLOURING; }
 
     // constructor
     public BlockBOPDecoration() {

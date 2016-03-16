@@ -16,6 +16,7 @@ import net.minecraft.block.BlockLog;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumFacing;
@@ -77,8 +78,8 @@ public class BlockBOPLog extends BlockLog implements IBOPBlock
                 return wood.getName() + "_log";
         }
     }
-
-
+    @Override
+    public IBlockColor getColourHandler() { return null; }
     
     private BlockBOPLog()
     {
