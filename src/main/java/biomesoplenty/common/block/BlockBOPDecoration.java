@@ -44,7 +44,7 @@ public class BlockBOPDecoration extends Block implements IBOPBlock
     @Override
     public String getStateName(IBlockState state) {return "";}
     @Override
-    public IBlockColor getColourHandler() { return ModBlocks.FOLIAGE_COLOURING; }
+    public IBlockColor getColourHandler() { return null; }
 
     // constructor
     public BlockBOPDecoration() {

@@ -20,6 +20,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -106,6 +107,48 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
             default:
                 return plant.getName();
         }
+    }
+
+    public enum ColoringType {PLAIN, LIKE_LEAVES, LIKE_GRASS};
+
+    public static ColoringType getColoringType(BOPPlants plant)
+    {
+        switch (plant)
+        {
+            case SHRUB: case LEAFPILE: case POISONIVY: case BUSH: case BERRYBUSH:
+            return ColoringType.LIKE_LEAVES;
+            case SHORTGRASS: case MEDIUMGRASS: case SPROUT: case KORU: case CLOVERPATCH: case WHEATGRASS: case DAMPGRASS:
+            return ColoringType.LIKE_GRASS;
+            default:
+                return ColoringType.PLAIN;
+        }
+    }
+
+    @Override
+    public IBlockColor getColourHandler()
+    {
+        final IProperty variantProp = this.variantProperty;
+
+        return new IBlockColor()
+        {
+            @Override
+            public int colorMultiplier(IBlockState state, IBlockAccess world, BlockPos pos, int tintIndex)
+            {
+                if ( world != null && pos != null)
+                {
+                    switch (getColoringType((BOPPlants) state.getValue(variantProp)))
+                    {
+                        case LIKE_LEAVES:
+                            return BiomeColorHelper.getFoliageColorAtPos(world, pos);
+
+                        case LIKE_GRASS:
+                            return BiomeColorHelper.getGrassColorAtPos(world, pos);
+                    }
+                }
+
+                return ColorizerFoliage.getFoliageColorBasic();
+            }
+        };
     }
     
     private BlockBOPPlant()
@@ -260,23 +303,6 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
                 
         }
         return false;
-    }
-    
-   
-    
-    public enum ColoringType {PLAIN, LIKE_LEAVES, LIKE_GRASS};
-    
-    public static ColoringType getColoringType(BOPPlants plant)
-    {
-        switch (plant)
-        {
-            case SHRUB: case LEAFPILE: case POISONIVY: case BUSH: case BERRYBUSH:
-                return ColoringType.LIKE_LEAVES;
-            case SHORTGRASS: case MEDIUMGRASS: case SPROUT: case KORU: case CLOVERPATCH: case WHEATGRASS: case DAMPGRASS:
-                return ColoringType.LIKE_GRASS;
-            default:
-                return ColoringType.PLAIN;
-        }       
     }
     
     // different variants have different sizes

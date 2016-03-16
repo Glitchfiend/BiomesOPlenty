@@ -13,6 +13,7 @@ import java.util.Random;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.block.ISustainsPlantType;
+import biomesoplenty.common.init.ModBlocks;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
@@ -86,7 +87,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
         }
     }
     @Override
-    public IBlockColor getColourHandler() { return null; }
+    public IBlockColor getColourHandler() { return ModBlocks.GRASS_COLORING; }
     
     public BlockBOPGrass()
     {

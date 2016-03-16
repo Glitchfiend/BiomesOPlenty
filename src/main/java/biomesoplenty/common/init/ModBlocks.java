@@ -87,6 +87,7 @@ import net.minecraft.item.ItemDoor;
 import net.minecraft.item.ItemSlab;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ColorizerFoliage;
+import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.common.EnumPlantType;
@@ -103,6 +104,15 @@ public class ModBlocks
         public int colorMultiplier(IBlockState state, IBlockAccess world, BlockPos pos, int tintIndex)
         {
             return world != null && pos != null ? BiomeColorHelper.getFoliageColorAtPos(world, pos) : ColorizerFoliage.getFoliageColorBasic();
+        }
+    };
+
+    public static final IBlockColor GRASS_COLORING = new IBlockColor()
+    {
+        @Override
+        public int colorMultiplier(IBlockState state, IBlockAccess world, BlockPos pos, int tintIndex)
+        {
+            return world != null && pos != null ? BiomeColorHelper.getGrassColorAtPos(world, pos) : ColorizerGrass.getGrassColor(0.5D, 1.0D);
         }
     };
 

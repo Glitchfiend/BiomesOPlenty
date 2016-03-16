@@ -13,6 +13,7 @@ import java.util.Random;
 
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.item.ItemBOPBlock;
 import biomesoplenty.common.util.block.VariantPagingHelper;
@@ -99,8 +100,48 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
                 return tree.getName() + "_leaves";
         }
     }
+
+    public enum ColoringType {PLAIN, TINTED, OVERLAY};
+
+    public static ColoringType getColoringType(BOPTrees tree)
+    {
+        switch (tree)
+        {
+            case BAMBOO: case UMBRAN: case DEAD: case ETHEREAL: case FIR: case HELLBARK: case JACARANDA: case MAGIC: case MAPLE: case ORANGE_AUTUMN: case ORIGIN: case PINK_CHERRY: case WHITE_CHERRY: case YELLOW_AUTUMN: case RED_BIG_FLOWER: case YELLOW_BIG_FLOWER:
+            return ColoringType.PLAIN;
+            case FLOWERING:
+                return ColoringType.OVERLAY;
+            case MAHOGANY: case MANGROVE: case PALM: case PINE: case REDWOOD: case SACRED_OAK: case WILLOW: case EBONY: case EUCALYPTUS: default:
+            return ColoringType.TINTED;
+        }
+    }
+
     @Override
-    public IBlockColor getColourHandler() { return null; }
+    public IBlockColor getColourHandler()
+    {
+        final IProperty variantProp = this.variantProperty;
+
+        return new IBlockColor()
+        {
+            @Override
+            public int colorMultiplier(IBlockState state, IBlockAccess world, BlockPos pos, int tintIndex)
+            {
+                if ( world != null && pos != null)
+                {
+                    switch (getColoringType((BOPTrees) state.getValue(variantProp)))
+                    {
+                        case TINTED:
+                            return BiomeColorHelper.getFoliageColorAtPos(world, pos);
+                        case OVERLAY:
+                            if (tintIndex == 0)
+                                return BiomeColorHelper.getFoliageColorAtPos(world, pos);
+                    }
+                }
+
+                return 0xFFFFFF;
+            }
+        };
+    }
     
     private BlockBOPLeaves()
     {
@@ -132,22 +173,6 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
             meta |= 8;
         }
         return meta;
-    }
-    
-    
-    public enum ColoringType {PLAIN, TINTED, OVERLAY};
-    
-    public static ColoringType getColoringType(BOPTrees tree)
-    {
-        switch (tree)
-        {
-            case BAMBOO: case UMBRAN: case DEAD: case ETHEREAL: case FIR: case HELLBARK: case JACARANDA: case MAGIC: case MAPLE: case ORANGE_AUTUMN: case ORIGIN: case PINK_CHERRY: case WHITE_CHERRY: case YELLOW_AUTUMN: case RED_BIG_FLOWER: case YELLOW_BIG_FLOWER:
-                return ColoringType.PLAIN;
-            case FLOWERING:
-                return ColoringType.OVERLAY;
-            case MAHOGANY: case MANGROVE: case PALM: case PINE: case REDWOOD: case SACRED_OAK: case WILLOW: case EBONY: case EUCALYPTUS: default:
-                return ColoringType.TINTED;
-        }
     }
     
     // blocks that are not placed during generation should not decay
@@ -359,7 +384,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     }
     
     
-    //The fields used by getBlockLayer() and isOpaqueCube() are set externally for Blocks.leaves *specifically*. As a result, we do not inherit
+    //The fields used by getBlockLayer(), isOpaqueCube() and shouldSideBeRendered are set externally for Blocks.leaves *specifically*. As a result, we do not inherit
     //it simply be extending BlockLeaves.
     @Override
     @SideOnly(Side.CLIENT)
@@ -373,8 +398,14 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     {
         return Blocks.leaves.isOpaqueCube(state);
     }
-    
-    
+
+    @SideOnly(Side.CLIENT)
+    @Override
+    public boolean shouldSideBeRendered(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side)
+    {
+        return Blocks.leaves.shouldSideBeRendered(state, world, pos, side);
+    }
+
     // We are forced to implement the method below in order to extend the BlockLeaves abstract class
     // ...however, we don't actually use it anywhere so it's safe to just return null
     // it makes no sense in our context

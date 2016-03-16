@@ -20,6 +20,7 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -71,8 +72,41 @@ public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements ISh
     {
         return ((DoublePlantType) state.getValue(VARIANT)).getName();
     }
-    
-    
+
+    public enum ColoringType {PLAIN, LIKE_LEAVES, LIKE_GRASS};
+
+    public static ColoringType getColoringType(DoublePlantType plant)
+    {
+        switch (plant)
+        {
+            case FLAX:
+                return ColoringType.LIKE_GRASS;
+            default:
+                return ColoringType.PLAIN;
+        }
+    }
+
+    public IBlockColor getColourHandler()
+    {
+        return new IBlockColor()
+        {
+            @Override
+            public int colorMultiplier(IBlockState state, IBlockAccess world, BlockPos pos, int tintIndex)
+            {
+                if ( world != null && pos != null)
+                {
+                    switch (getColoringType((DoublePlantType) state.getValue(VARIANT)))
+                    {
+                        case LIKE_GRASS:
+                            return BiomeColorHelper.getGrassColorAtPos(world, pos);
+                    }
+                }
+
+                return ColorizerFoliage.getFoliageColorBasic();
+            }
+        };
+    }
+
     public BlockBOPDoublePlant()
     {
         super();
@@ -93,18 +127,7 @@ public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements ISh
     
     
     
-    public enum ColoringType {PLAIN, LIKE_LEAVES, LIKE_GRASS};
-    
-    public static ColoringType getColoringType(DoublePlantType plant)
-    {
-        switch (plant)
-        {
-            case FLAX:
-                return ColoringType.LIKE_GRASS;
-            default:
-                return ColoringType.PLAIN;
-        }       
-    }
+
     
     
 /*    // different variants have different sizes
