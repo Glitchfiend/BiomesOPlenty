@@ -145,7 +145,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
                 if (rand.nextInt(8) == 0)
                 {
                     // 1 in 8 chance of getting a seed from this grass
-                    ret.add(ForgeHooks.getGrassSeed(rand));
+                    ret.add(ForgeHooks.getGrassSeed(rand, fortune));
                 }
                 break;
                 

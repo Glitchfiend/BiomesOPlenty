@@ -1,5 +1,5 @@
 {
-    "parent": "builtin/generated",
+    "parent": "item/generated",
     "textures": {
         "layer0": "biomesoplenty:items/terrarium_mushroom"
     },
