@@ -20,6 +20,6 @@ Biomes O' Plenty is licensed under a [Creative Commons Attribution-NonCommercial
 
 -----------------
 
-We've partnered with CreeperHost, and will be launching an official Glitchfiend server soon, with all of our mods installed.  It won't be happening until they're updated to 1.9, but feel free to use this promo code when ordering a server of your own!
+We've partnered with **CreeperHost**, and will be launching an **official Glitchfiend server** soon, with all of our mods installed.  It won't be happening until they're updated to 1.9, but feel free to use this **promo code** when ordering a server of your own!
 
 <p align="center"><img src="http://i.imgur.com/rjmyjrV.png"></p>
