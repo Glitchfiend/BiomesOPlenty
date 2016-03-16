@@ -4,10 +4,6 @@
 
 -----------------
 
-<p align="center"><img src="http://i.imgur.com/rjmyjrV.png"></p>
-
------------------
-
 **Note:** To use the mod on a **server**, you must set the **level-type** setting in your server's config file to **BIOMESOP**
 
 Also, if you want to **disable or add certain world generation features** in certain biomes, check out our guide for creating **biome configuration files**: https://github.com/Glitchfiend/BiomesOPlenty/wiki/Configuring-Biomes
@@ -21,3 +17,7 @@ Also, if you want to **disable or add certain world generation features** in cer
  [<img src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png">](http://creativecommons.org/licenses/by-nc-nd/4.0/deed.en_US)
 
 Biomes O' Plenty is licensed under a [Creative Commons Attribution-NonCommercial-NoDerivs 4.0 Unported License](http://creativecommons.org/licenses/by-nc-nd/4.0/deed.en_US).
+
+-----------------
+
+<p align="center"><img src="http://i.imgur.com/rjmyjrV.png"></p>
