@@ -95,7 +95,7 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable {
     public BlockBOPSapling()
     {
         super();
-        this.setStepSound(SoundType.PLANT);
+        this.setSoundType(SoundType.PLANT);
         //this.setBlockBoundsByRadiusAndHeight(0.4F, 0.8F);
         this.setDefaultState(this.blockState.getBaseState().withProperty(STAGE, Integer.valueOf(0)));
     }

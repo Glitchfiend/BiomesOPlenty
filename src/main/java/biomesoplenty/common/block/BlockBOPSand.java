@@ -73,7 +73,7 @@ public class BlockBOPSand extends BlockFalling implements IBOPBlock, ISustainsPl
         
         // set some defaults
         this.setHardness(0.6F);
-        this.setStepSound(SoundType.SAND);
+        this.setSoundType(SoundType.SAND);
         this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, SandType.QUICKSAND) );
         
     }

@@ -119,7 +119,7 @@ public class BlockBOPHalfOtherSlab extends BlockSlab implements IBOPBlock
     {
         super(Material.rock);
         this.useNeighborBrightness = true;
-        this.setStepSound(SoundType.STONE);
+        this.setSoundType(SoundType.STONE);
         // TODO: should depend on variant really, but that's quite hard to achieve...
         this.setHardness(2.0F).setResistance(7.0F);
         this.setDefaultState(this.blockState.getBaseState().withProperty(HALF, BlockSlab.EnumBlockHalf.BOTTOM));

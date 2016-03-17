@@ -30,7 +30,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockBOPBamboo extends BlockBOPDecoration
 {
-    
+    protected static final AxisAlignedBB BOUNDING_BOX = new AxisAlignedBB(0.1875D, 0.0D, 0.1875D, 0.8125D, 1.0D, 0.8125D);
+
     // add properties
     public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 15);
     @Override
@@ -41,8 +42,7 @@ public class BlockBOPBamboo extends BlockBOPDecoration
     {
         super(Material.wood);
         this.setHardness(0.2F);
-        this.setStepSound(SoundType.WOOD);
-        //this.setBlockBoundsByRadiusAndHeight(0.1875F , 1.0F);
+        this.setSoundType(SoundType.WOOD);
         
         this.setDefaultState(this.blockState.getBaseState().withProperty(AGE, Integer.valueOf(0)));     
     }
@@ -54,8 +54,18 @@ public class BlockBOPBamboo extends BlockBOPDecoration
     {
         return direction == EnumFacing.UP && plantable.getPlant(world, pos.offset(direction)).getBlock() == this;
     }
-    
-    
+
+    @Override
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
+    {
+        return BOUNDING_BOX;
+    }
+
+    @Override
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState state, World world, BlockPos pos)
+    {
+        return BOUNDING_BOX;
+    }
     
     @Override
     public boolean canBlockStay(World world, BlockPos pos, IBlockState state)

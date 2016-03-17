@@ -46,7 +46,7 @@ public class BlockBOPCrystal extends Block implements IBOPBlock
         this.setHardness(0.15F);
         this.setResistance(5.0F);
         this.setLightLevel(1.0F);
-        this.setStepSound(SoundType.GLASS);
+        this.setSoundType(SoundType.GLASS);
     }
     
     @Override

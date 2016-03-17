@@ -84,7 +84,7 @@ public class BlockBOPBones extends Block implements IBOPBlock
         // set some defaults
         this.setHardness(3.0F);
         this.setResistance(5.0F);
-        this.setStepSound(SoundType.STONE);
+        this.setSoundType(SoundType.STONE);
      
         this.setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.Y).withProperty(VARIANT, BoneType.LARGE));
     }
@@ -120,70 +120,39 @@ public class BlockBOPBones extends Block implements IBOPBlock
         return this.getMetaFromState(this.getDefaultState().withProperty(VARIANT, state.getValue(VARIANT)));
     }
 
-
-/*    @Override
-    @SideOnly(Side.CLIENT)
-    public AxisAlignedBB getSelectedBoundingBox(World worldIn, BlockPos pos)
-    {
-        this.setBlockBoundsBasedOnState(worldIn, pos);
-        return super.getSelectedBoundingBox(worldIn, pos);
-    }
-
     @Override
-    public AxisAlignedBB getCollisionBoundingBox(World worldIn, BlockPos pos, IBlockState state)
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
     {
-        this.setBlockBoundsBasedOnState(worldIn, pos);
-        return super.getCollisionBoundingBox(worldIn, pos, state);
-    }
-
-    // bounding box is a bit complex as it depends on both size and orientation
-    @Override
-    public void setBlockBoundsBasedOnState(IBlockAccess world, BlockPos pos)
-    {
-        IBlockState state = world.getBlockState(pos);
-
-        if (state.getBlock() != this)
-            return;
-
-        float width;
+        double width = 1.0D;
 
         switch ((BoneType) state.getValue(VARIANT))
         {
             case SMALL:
-                width = 0.25F;
+                width = 0.25D;
                 break;
 
             case MEDIUM:
-                width = 0.625F;
-                break;
-
-            case LARGE:
-                width = 1F;
-                break;
-
-            default:
-                width = 1F;
+                width = 0.625D;
                 break;
         }
 
-        float min = (1.0F - width) / 2F;
-        float max = 1.0F - min;
+        double min = (1.0D - width) / 2D;
+        double max = 1.0D - min;
 
         switch ((EnumFacing.Axis) state.getValue(AXIS))
         {
             case X:
-                this.setBlockBounds(0F, min, min, 1.0F, max, max);
-                break;
+                return new AxisAlignedBB(0.0D, min, min, 1.0D, max, max);
 
             case Y:
-                this.setBlockBounds(min, 0F, min, max, 1.0F, max);
-                break;
+                return new AxisAlignedBB(min, 0.0D, min, max, 1.0D, max);
 
             case Z:
-                this.setBlockBounds(min, min, 0F, max, max, 1.0F);
-                break;
+                return new AxisAlignedBB(min, min, 0.0D, max, max, 1.0D);
         }
-    }*/
+
+        return FULL_BLOCK_AABB;
+    }
 
     @Override
     public boolean isOpaqueCube(IBlockState state)

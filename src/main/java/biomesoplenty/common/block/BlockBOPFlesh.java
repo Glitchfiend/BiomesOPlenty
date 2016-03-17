@@ -49,7 +49,7 @@ public class BlockBOPFlesh extends Block implements IBOPBlock
     public BlockBOPFlesh() {
         super(Material.sponge);
         this.setHardness(0.4F);
-        this.setStepSound(SoundType.GROUND);
+        this.setSoundType(SoundType.GROUND);
     }
     
     @Override

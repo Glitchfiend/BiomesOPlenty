@@ -89,7 +89,7 @@ public class BlockBOPFarmland extends BlockFarmland implements IBOPBlock
         this.useNeighborBrightness = true;
         this.setHardness(0.6F);
         this.setHarvestLevel("shovel", 0);
-        this.setStepSound(SoundType.GROUND);
+        this.setSoundType(SoundType.GROUND);
         this.setDefaultState(this.blockState.getBaseState().withProperty(MOISTURE, Integer.valueOf(0)));
     }
 

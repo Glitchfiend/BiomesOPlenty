@@ -57,9 +57,16 @@ public class BlockBOPDecoration extends Block implements IBOPBlock
         // set some defaults
         this.setTickRandomly(true);
         this.setHardness(0.0F);
-        this.setStepSound(SoundType.PLANT);
+        this.setSoundType(SoundType.PLANT);
 
         this.setDefaultState(this.blockState.getBaseState());     
+    }
+
+    // no collision box - you can walk straight through them
+    @Override
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState state, World world, BlockPos pos)
+    {
+        return NULL_AABB;
     }
     
 /*    // utility function for setting the block bounds - typically decoration blocks are smaller than full block size
@@ -141,13 +148,6 @@ public class BlockBOPDecoration extends Block implements IBOPBlock
     {
         return true;
     }
-
-/*    // no collision box - you can walk straight through them
-    @Override
-    public AxisAlignedBB getCollisionBoundingBox(World worldIn, BlockPos pos, IBlockState state)
-    {
-        return null;
-    }*/
 
     // not opaque
     @Override

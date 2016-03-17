@@ -28,21 +28,22 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockBOPAsh extends BlockBOPGeneric
 {
+    protected static final AxisAlignedBB COLLISION_BOX = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.875D, 1.0D);
+
     public BlockBOPAsh()
     {
         super(Material.sand, SoundType.SAND);
 
         this.setHardness(0.4F);
         this.setHarvestLevel("shovel", 0);
-        this.setStepSound(SoundType.SAND);
+        this.setSoundType(SoundType.SAND);
     }
 
     // ash blocks are slightly lower
     @Override
     public AxisAlignedBB getCollisionBoundingBox(IBlockState state, World world, BlockPos pos)
     {
-        float heightOffset = 0.125F;
-        return new AxisAlignedBB((double) pos.getX(), (double) pos.getY(), (double) pos.getZ(), (double) (pos.getX() + 1), (double) ((float) (pos.getY() + 1) - heightOffset), (double) (pos.getZ() + 1));
+        return COLLISION_BOX;
     }
 
     @Override

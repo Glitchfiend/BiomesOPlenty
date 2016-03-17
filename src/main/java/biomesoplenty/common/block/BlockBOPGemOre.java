@@ -61,7 +61,7 @@ public class BlockBOPGemOre extends Block implements IBOPBlock
         // set some defaults
         this.setHardness(3.0F);
         this.setResistance(5.0F);
-        this.setStepSound(SoundType.STONE);        
+        this.setSoundType(SoundType.STONE);
         this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, BOPGems.AMETHYST) );
 
         // all variants need pickaxe:2 to harvest, except amethyst which needs pickaxe:3

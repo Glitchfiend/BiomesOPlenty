@@ -51,7 +51,7 @@ public class BlockBOPGem extends Block implements IBOPBlock
         // set some defaults
         this.setHardness(5.0F);
         this.setResistance(10.0F);
-        this.setStepSound(SoundType.METAL);
+        this.setSoundType(SoundType.METAL);
         this.setHarvestLevel("pickaxe", 2);
         this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, BOPGems.AMETHYST) );        
     }

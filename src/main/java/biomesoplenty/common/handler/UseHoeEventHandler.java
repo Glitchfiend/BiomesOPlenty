@@ -74,7 +74,7 @@ public class UseHoeEventHandler
             {
                 event.current.damageItem(1, event.entityLiving);
             }
-            event.world.playSound(event.entityPlayer, (double) ((float) pos.getX() + 0.5F), (double) ((float) pos.getY() + 0.5F), (double) ((float) pos.getZ() + 0.5F), block.getStepSound().getStepSound(), SoundCategory.BLOCKS, (state.getBlock().getStepSound().getVolume() + 1.0F) / 2.0F, state.getBlock().getStepSound().getPitch() * 0.8F);
+            event.world.playSound(event.entityPlayer, (double) ((float) pos.getX() + 0.5F), (double) ((float) pos.getY() + 0.5F), (double) ((float) pos.getZ() + 0.5F), block.getSoundType().getStepSound(), SoundCategory.BLOCKS, (state.getBlock().getSoundType().getVolume() + 1.0F) / 2.0F, state.getBlock().getSoundType().getPitch() * 0.8F);
             event.entityPlayer.swingArm(PlayerUtil.getHandForItem(event.entityPlayer, event.current));
         }
     }

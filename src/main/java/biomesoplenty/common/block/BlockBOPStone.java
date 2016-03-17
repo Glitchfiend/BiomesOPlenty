@@ -70,7 +70,7 @@ public class BlockBOPStone extends Block implements IBOPBlock
         super(Material.rock);
 
         // set some defaults
-        this.setStepSound(SoundType.STONE);
+        this.setSoundType(SoundType.STONE);
         this.setHarvestLevel("pickaxe", 1, this.getDefaultState().withProperty(VARIANT, StoneType.LIMESTONE));
         this.setHarvestLevel("pickaxe", 2, this.getDefaultState().withProperty(VARIANT, StoneType.SILTSTONE));
         this.setHarvestLevel("pickaxe", 3, this.getDefaultState().withProperty(VARIANT, StoneType.SHALE));

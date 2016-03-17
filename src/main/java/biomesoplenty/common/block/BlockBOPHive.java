@@ -72,7 +72,7 @@ public class BlockBOPHive extends Block implements IBOPBlock
                 
         // set some defaults
         this.setHardness(0.5F);
-        this.setStepSound(SoundType.PLANT);
+        this.setSoundType(SoundType.PLANT);
         this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, HiveType.HIVE) );
     }
 

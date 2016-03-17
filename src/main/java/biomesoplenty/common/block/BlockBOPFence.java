@@ -64,7 +64,7 @@ public class BlockBOPFence extends BlockFence implements IBOPBlock
         
         this.setHardness(2.0F);
         this.setResistance(5.0F);
-        this.setStepSound(SoundType.WOOD);
+        this.setSoundType(SoundType.WOOD);
     }
     
     @Override

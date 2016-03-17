@@ -39,7 +39,7 @@ public class BlockBOPHoney extends Block implements IBOPBlock
     public BlockBOPHoney() {
         super(Material.glass);
         this.setHardness(0.5F);
-        this.setStepSound(SoundType.STONE);
+        this.setSoundType(SoundType.STONE);
     }
     
     @Override

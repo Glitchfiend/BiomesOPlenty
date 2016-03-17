@@ -51,7 +51,7 @@ public class BlockBOPGeneric extends Block implements IBOPBlock, ISustainsPlantT
         super(material);
         // set some defaults
         this.setHardness(1.0F);
-        this.setStepSound(soundType);
+        this.setSoundType(soundType);
     }
     
     

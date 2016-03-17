@@ -66,7 +66,7 @@ public class BlockBOPFenceGate extends BlockFenceGate implements IBOPBlock
         
         this.setHardness(2.0F);
         this.setResistance(5.0F);
-        this.setStepSound(SoundType.WOOD);
+        this.setSoundType(SoundType.WOOD);
     }
     
     public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)

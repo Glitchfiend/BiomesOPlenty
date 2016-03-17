@@ -34,7 +34,7 @@ public class BlockBOPBiomeBlock extends BlockBOPGeneric
     public BlockBOPBiomeBlock() {
         super(Material.glass, SoundType.GLASS);
         this.setHardness(0.6F);
-        this.setStepSound(SoundType.GLASS);
+        this.setSoundType(SoundType.GLASS);
     }
     
     // list of biomes which have an associated essence (possible drops when this block is broken)

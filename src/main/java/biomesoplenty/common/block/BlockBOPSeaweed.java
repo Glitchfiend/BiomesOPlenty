@@ -87,7 +87,7 @@ public class BlockBOPSeaweed extends BlockBOPDecoration implements IBOPBlock
         super(Material.water);
         
         // set some defaults
-        this.setStepSound(SoundType.PLANT);
+        this.setSoundType(SoundType.PLANT);
         this.setDefaultState( this.blockState.getBaseState().withProperty(LEVEL, 15).withProperty(POSITION, SeaweedPosition.SINGLE).withProperty(VARIANT, SeaweedType.KELP) );
     }
     

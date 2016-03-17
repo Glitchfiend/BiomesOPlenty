@@ -96,7 +96,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
         // set some defaults
         this.setHardness(0.6F);
         this.setHarvestLevel("shovel", 0);
-        this.setStepSound(SoundType.PLANT);
+        this.setSoundType(SoundType.PLANT);
         this.setDefaultState(this.blockState.getBaseState().withProperty(SNOWY, Boolean.valueOf(false)).withProperty(VARIANT, BOPGrassType.LOAMY));
         
     }

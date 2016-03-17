@@ -78,7 +78,7 @@ public class BlockBOPDirt extends Block implements IBOPBlock, ISustainsPlantType
         this.setTickRandomly(true);
         this.setHardness(0.5F);
         this.setHarvestLevel("shovel", 0);
-        this.setStepSound(SoundType.GROUND);
+        this.setSoundType(SoundType.GROUND);
         this.setDefaultState( this.blockState.getBaseState().withProperty(COARSE, Boolean.valueOf(false)).withProperty(VARIANT, BOPDirtType.LOAMY) );
 
     }
