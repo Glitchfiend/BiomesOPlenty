@@ -1,6 +1,0 @@
-{
-    "parent": "block/fence_ns",
-    "textures": {
-        "texture": "biomesoplenty:blocks/magic_planks"
-    }
-}
