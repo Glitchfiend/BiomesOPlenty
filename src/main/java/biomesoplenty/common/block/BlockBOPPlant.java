@@ -134,19 +134,18 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
             @Override
             public int colorMultiplier(IBlockState state, IBlockAccess world, BlockPos pos, int tintIndex)
             {
-                if ( world != null && pos != null)
-                {
-                    switch (getColoringType((BOPPlants) state.getValue(variantProp)))
-                    {
-                        case LIKE_LEAVES:
-                            return BiomeColorHelper.getFoliageColorAtPos(world, pos);
+                boolean inWorld = world != null && pos != null;
 
-                        case LIKE_GRASS:
-                            return BiomeColorHelper.getGrassColorAtPos(world, pos);
-                    }
+                switch (getColoringType((BOPPlants) state.getValue(variantProp)))
+                {
+                    case LIKE_LEAVES:
+                        return inWorld ? BiomeColorHelper.getFoliageColorAtPos(world, pos) : ColorizerFoliage.getFoliageColorBasic();
+
+                    case LIKE_GRASS:
+                        return inWorld ? BiomeColorHelper.getGrassColorAtPos(world, pos) : ColorizerGrass.getGrassColor(0.5D, 1.0D);
                 }
 
-                return ColorizerFoliage.getFoliageColorBasic();
+                return 0xFFFFFF;
             }
         };
     }
