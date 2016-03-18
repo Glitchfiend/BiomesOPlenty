@@ -121,8 +121,6 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     @Override
     public IBlockColor getBlockColor()
     {
-        final IProperty variantProp = this.variantProperty;
-
         return new IBlockColor()
         {
             @Override
@@ -130,17 +128,17 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
             {
                 if ( world != null && pos != null)
                 {
-                    switch (getColoringType((BOPTrees) state.getValue(variantProp)))
+                    switch (getColoringType((BOPTrees) state.getValue(BlockBOPLeaves.this.variantProperty)))
                     {
                         case TINTED:
                             return BiomeColorHelper.getFoliageColorAtPos(world, pos);
                         case OVERLAY:
-                            if (tintIndex == 0)
+                            if (tintIndex == 0) 
                                 return BiomeColorHelper.getFoliageColorAtPos(world, pos);
                     }
                 }
 
-                return 0xFFFFFF;
+                return ColorizerFoliage.getFoliageColorBasic();
             }
         };
     }
