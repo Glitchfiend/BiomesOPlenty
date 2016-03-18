@@ -84,7 +84,7 @@ public class BiomesOPlenty
     @EventHandler
     public void init(FMLInitializationEvent event) 
     {
-        BiomesOPlenty.proxy.registerColouredBlocks();
+        BiomesOPlenty.proxy.registerColouring();
 
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
     }

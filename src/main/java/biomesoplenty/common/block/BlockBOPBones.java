@@ -18,6 +18,7 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.color.IBlockColor;
+import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -53,7 +54,9 @@ public class BlockBOPBones extends Block implements IBOPBlock
     @Override
     protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, new IProperty[] { AXIS, VARIANT });}
     @Override
-    public IBlockColor getColourHandler() { return null; }
+    public IBlockColor getBlockColor() { return null; }
+    @Override
+    public IItemColor getItemColor() { return null; }
     
     // implement IBOPBlock
     @Override

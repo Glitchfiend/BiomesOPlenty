@@ -19,6 +19,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.color.IBlockColor;
+import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -44,8 +45,10 @@ public class BlockBOPFlesh extends Block implements IBOPBlock
     @Override
     public String getStateName(IBlockState state) {return "";}
     @Override
-    public IBlockColor getColourHandler() { return null; }
-
+    public IBlockColor getBlockColor() { return null; }
+    @Override
+    public IItemColor getItemColor() { return null; }
+    
     public BlockBOPFlesh() {
         super(Material.sponge);
         this.setHardness(0.4F);

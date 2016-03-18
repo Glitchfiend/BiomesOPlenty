@@ -18,6 +18,7 @@ import net.minecraft.block.BlockStairs;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.color.IBlockColor;
+import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumFacing;
@@ -38,8 +39,10 @@ public class BlockBOPWoodStairs extends BlockStairs implements IBOPBlock
     @Override
     public String getStateName(IBlockState state) {return "";}
     @Override
-    public IBlockColor getColourHandler() { return null; }
-
+    public IBlockColor getBlockColor() { return null; }
+    @Override
+    public IItemColor getItemColor() { return null; }
+    
     // Map from woods to BlockBOPStairs instance and back
     private static Map<BOPWoods, BlockBOPWoodStairs> variantToBlock = new HashMap<BOPWoods, BlockBOPWoodStairs>();
     public static BlockBOPWoodStairs getBlock(BOPWoods wood)

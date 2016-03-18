@@ -19,6 +19,7 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.color.IBlockColor;
+import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumFacing;
@@ -75,7 +76,9 @@ public class BlockBOPPlanks extends Block implements IBOPBlock
         return ((BOPWoods) state.getValue(this.variantProperty)).getName() + "_planks";
     }
     @Override
-    public IBlockColor getColourHandler() { return null; }
+    public IBlockColor getBlockColor() { return null; }
+    @Override
+    public IItemColor getItemColor() { return null; }
     
     public BlockBOPPlanks()
     {

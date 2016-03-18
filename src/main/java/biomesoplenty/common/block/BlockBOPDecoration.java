@@ -19,6 +19,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.color.IBlockColor;
+import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -44,8 +45,10 @@ public class BlockBOPDecoration extends Block implements IBOPBlock
     @Override
     public String getStateName(IBlockState state) {return "";}
     @Override
-    public IBlockColor getColourHandler() { return null; }
-
+    public IBlockColor getBlockColor() { return null; }
+    @Override
+    public IItemColor getItemColor() { return null; }
+    
     // constructor
     public BlockBOPDecoration() {
         this(Material.plants);

@@ -23,6 +23,7 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.color.IBlockColor;
+import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -85,7 +86,9 @@ public class BlockBOPHalfOtherSlab extends BlockSlab implements IBOPBlock
         return ((SlabType) state.getValue(VARIANT)).getName() + "_slab";
     }
     @Override
-    public IBlockColor getColourHandler() { return null; }
+    public IBlockColor getBlockColor() { return null; }
+    @Override
+    public IItemColor getItemColor() { return null; }
     
     public IBlockState getFullBlockVariantState(SlabType type)
     {

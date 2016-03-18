@@ -21,6 +21,7 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.color.IBlockColor;
+import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -125,10 +126,8 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
     }
 
     @Override
-    public IBlockColor getColourHandler()
+    public IBlockColor getBlockColor()
     {
-        final IProperty variantProp = this.variantProperty;
-
         return new IBlockColor()
         {
             @Override
@@ -136,7 +135,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
             {
                 boolean inWorld = world != null && pos != null;
 
-                switch (getColoringType((BOPPlants) state.getValue(variantProp)))
+                switch (getColoringType((BOPPlants) state.getValue(BlockBOPPlant.this.variantProperty)))
                 {
                     case LIKE_LEAVES:
                         return inWorld ? BiomeColorHelper.getFoliageColorAtPos(world, pos) : ColorizerFoliage.getFoliageColorBasic();
@@ -146,6 +145,28 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
                 }
 
                 return 0xFFFFFF;
+            }
+        };
+    }
+    
+    @Override
+    public IItemColor getItemColor()
+    {
+        return new IItemColor()
+        {
+            @Override
+            public int getColorFromItemstack(ItemStack stack, int tintIndex) 
+            {
+                IBlockState state = ((ItemBlock)stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata());
+                
+                switch ((BOPPlants) state.getValue(BlockBOPPlant.this.variantProperty))
+                {
+                    case BERRYBUSH: case SHRUB:
+                        return 0xFFFFFF;
+                    
+                    default:
+                        return BlockBOPPlant.this.getBlockColor().colorMultiplier(state, null, null, tintIndex);
+                }
             }
         };
     }

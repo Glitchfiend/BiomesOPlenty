@@ -15,6 +15,7 @@ import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.enums.BOPTrees;
+import biomesoplenty.common.init.ModBlocks;
 import biomesoplenty.common.item.ItemBOPBlock;
 import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.BlockLeaves;
@@ -23,6 +24,7 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.color.IBlockColor;
+import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -117,7 +119,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     }
 
     @Override
-    public IBlockColor getColourHandler()
+    public IBlockColor getBlockColor()
     {
         final IProperty variantProp = this.variantProperty;
 
@@ -142,6 +144,8 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
             }
         };
     }
+    @Override
+    public IItemColor getItemColor() { return ModBlocks.BLOCK_ITEM_COLORING; }
     
     private BlockBOPLeaves()
     {

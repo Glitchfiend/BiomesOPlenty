@@ -15,7 +15,7 @@ import net.minecraft.item.Item;
 public class CommonProxy
 {
     public void registerRenderers() {}
-    public void registerColouredBlocks() {}
+    public void registerColouring() {}
     public void registerItemVariantModel(Item item, String name, int metadata) {}
     public void registerBlockSided(Block block) {}
     public void registerFluidBlockRendering(Block block, String name) {}

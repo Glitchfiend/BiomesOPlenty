@@ -415,11 +415,7 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         
         public PropsBuilder(String name) { this.biomeName = name; }
         
-        public PropsBuilder withGuiColour(int colour)
-        {
-            this.guiColour = colour; return this;
-        }
-        
+        public PropsBuilder withGuiColour(Integer colour) { if (colour != null) this.guiColour = colour; return this; }
         public PropsBuilder withTemperature(Float temperature) { if (temperature != null) this.temperature = temperature; return this; }
         public PropsBuilder withRainfall(Float rainfall) { if (rainfall != null) this.rainfall = rainfall; return this; }
         public PropsBuilder withBaseHeight(Float baseHeight) { if (baseHeight != null) this.baseHeight = baseHeight; return this; }
@@ -427,7 +423,7 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         public PropsBuilder withRainDisabled() { this.enableRain = false; return this; }
         public PropsBuilder withSnowEnabled() { this.enableSnow = true; return this; }
         public PropsBuilder withWaterColor(Integer waterColor) { if (waterColor != null) this.waterColor = waterColor; return this; }
-        public PropsBuilder withBaseBiome(String name) { this.baseBiomeRegName = name; return this; }
+        public PropsBuilder withBaseBiome(String name) { if (name != null) this.baseBiomeRegName = name; return this; }
         
         public BiomeProps build()
         {

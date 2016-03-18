@@ -84,12 +84,16 @@ public class ClientProxy extends CommonProxy
     }
 
     @Override
-    public void registerColouredBlocks()
+    public void registerColouring()
     {
         for (Block block : blocksToColour)
         {
             IBOPBlock bopBlock = (IBOPBlock)block;
-            Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(bopBlock.getColourHandler(), block);
+            
+            if (bopBlock.getBlockColor() != null)
+                Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(bopBlock.getBlockColor(), block);
+            if (bopBlock.getItemColor() != null)
+                Minecraft.getMinecraft().getItemColors().registerItemColorHandler(bopBlock.getItemColor(), block);
         }
     }
 
@@ -121,7 +125,7 @@ public class ClientProxy extends CommonProxy
             }
 
             //Register colour handlers
-            if (bopBlock.getColourHandler() != null)
+            if (bopBlock.getBlockColor() != null || bopBlock.getItemColor() != null)
             {
                 blocksToColour.add(block);
             }
