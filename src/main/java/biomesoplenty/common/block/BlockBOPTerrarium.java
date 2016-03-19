@@ -21,11 +21,14 @@ import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.IStringSerializable;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 
 public class BlockBOPTerrarium extends Block implements IBOPBlock
 {
+	protected static final AxisAlignedBB BOUNDING_BOX = new AxisAlignedBB(0.19999998807D, 0.0D, 0.19999998807D, 0.69999998808D, 0.69999998808D, 0.69999998808D);
     
     // add properties
     public static enum TerrariumType implements IStringSerializable
@@ -74,6 +77,18 @@ public class BlockBOPTerrarium extends Block implements IBOPBlock
     	super(Material.glass);
     	this.setHardness(1.0F);
         this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, TerrariumType.FERN));
+    }
+    
+    @Override
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
+    {
+        return BOUNDING_BOX;
+    }
+    
+    @Override
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState state, World world, BlockPos pos)
+    {
+        return BOUNDING_BOX;
     }
     
     @Override

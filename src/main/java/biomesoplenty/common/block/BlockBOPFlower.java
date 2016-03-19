@@ -15,6 +15,7 @@ import java.util.Random;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.config.GameplayConfigurationHandler;
 import biomesoplenty.common.enums.BOPFlowers;
+import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.item.ItemBOPFlower;
 import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.Block;
@@ -35,6 +36,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -119,35 +121,25 @@ public class BlockBOPFlower extends BlockBOPDecoration implements IShearable
         return this.getMetaFromState(state);
     }
     
-    
-/*    // set the size of the different flowers' bounding boxes
+    // different variants have different sizes
     @Override
-    public void setBlockBoundsBasedOnState(IBlockAccess world, BlockPos pos)
-    {
-        switch ((BOPFlowers) world.getBlockState(pos).getValue(this.variantProperty))
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
+    {   
+    	BOPFlowers flower = (BOPFlowers) state.getValue(this.variantProperty);
+        switch (flower)
         {
-            case CLOVER:
-                this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.5F, 0.015625F, pos);
-                break;
-
-            case ORANGE_COSMOS:
-                this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.2F, 0.8F, pos);
-                break;
-
-            case PINK_DAFFODIL: case WILTED_LILY:
-                this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.2F, 0.6F, pos);
-                break;
-
-            case WHITE_ANEMONE:
-                this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.2F, 0.5F, pos);
-                break;
-
+        	case CLOVER:
+        		return new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.09375D, 0.9375D);
+        	case SWAMPFLOWER: case VIOLET: case WHITE_ANEMONE: case BLUEBELLS:
+        		return new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.4000000357627869D, 0.9375D);
+        	case BLUE_HYDRANGEA: case BURNING_BLOSSOM:
+        		return new AxisAlignedBB(0.20000001788D, 0.0D, 0.20000001788D, 0.79999998211D, 0.6000000238418579D, 0.79999998211D);
+        	case ENDERLOTUS: case BROMELIAD: case PINK_HIBISCUS: case LILY_OF_THE_VALLEY: case LAVENDER:
+            	return new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);
             default:
-                this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.4F, 0.8F, pos);
-                break;
-        }
-    }*/
-    
+            	return new AxisAlignedBB(0.30000001192092896D, 0.0D, 0.30000001192092896D, 0.699999988079071D, 0.6000000238418579D, 0.699999988079071D);
+        }        
+    }
     
     // some flowers emit light
     @Override

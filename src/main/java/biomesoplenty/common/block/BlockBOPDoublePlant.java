@@ -28,6 +28,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.ColorizerFoliage;
@@ -41,8 +42,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements IShearable
 {
-    
-    // add properties (note we inherit HALF from BlockDoubleDecoration)
+	// add properties (note we inherit HALF from BlockDoubleDecoration)
     public static enum DoublePlantType implements IStringSerializable
     {
         FLAX, TALL_CATTAIL, EYEBULB;
@@ -126,24 +126,17 @@ public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements ISh
         return ((Half) state.getValue(HALF)).ordinal() * 8 + ((DoublePlantType) state.getValue(VARIANT)).ordinal();
     }
     
-    
-    
-
-    
-    
-/*    // different variants have different sizes
-    @Override
-    public void setBlockBoundsBasedOnState(IBlockAccess worldIn, BlockPos pos)
-    {    
-        boolean isLower = ((Half) worldIn.getBlockState(pos).getValue(HALF) == Half.LOWER);
-        switch ((DoublePlantType) worldIn.getBlockState(pos).getValue(VARIANT))
+    // different variants have different sizes
+    /*@Override
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
+    {   
+        boolean isLower = ((Half) state.getValue(HALF) == Half.LOWER);
+        switch ((DoublePlantType) state.getValue(VARIANT))
         {
             default:
-                this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.4F, isLower ? 1.0F : 0.8F, pos);
-                break;
+                return new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, isLower ? 1.0D : 0.800000011920929D, 0.8999999761581421D);
         }
     }*/
-
     
     @Override
     public boolean canBlockStay(World world, BlockPos lowerPos, IBlockState state)

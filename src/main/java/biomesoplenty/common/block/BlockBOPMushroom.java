@@ -9,6 +9,7 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BlockQueries;
+import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
@@ -16,6 +17,7 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.IStringSerializable;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -87,6 +89,22 @@ public class BlockBOPMushroom extends BlockBOPDecoration
             default:
                 return super.getLightValue(state);
         }
+    }
+    
+    // different variants have different sizes
+    @Override
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
+    {   
+    	MushroomType plant = (MushroomType) state.getValue(this.VARIANT);
+        switch (plant)
+        {
+	        case GLOWSHROOM: case SHADOW_SHROOM:
+	        	return new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);
+	        case TOADSTOOL: case FLAT_MUSHROOM:
+            	return new AxisAlignedBB(0.20000001788D, 0.0D, 0.20000001788D, 0.79999998211D, 0.6000000238418579D, 0.79999998211D);
+	        default:
+            	return new AxisAlignedBB(0.30000001192092896D, 0.0D, 0.30000001192092896D, 0.699999988079071D, 0.4000000059604645D, 0.699999988079071D);
+        }        
     }
     
     // which types of mushroom can live on which types of block
