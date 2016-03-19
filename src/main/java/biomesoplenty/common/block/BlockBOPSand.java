@@ -99,9 +99,8 @@ public class BlockBOPSand extends BlockFalling implements IBOPBlock, ISustainsPl
         return this.getMetaFromState(state);
     }
 
-    //This seems to actually be for collision
     @Override
-    public AxisAlignedBB getSelectedBoundingBox(IBlockState state, World world, BlockPos pos)
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState state, World world, BlockPos pos)
     {   
         switch ((SandType) state.getValue(VARIANT))
         {            
