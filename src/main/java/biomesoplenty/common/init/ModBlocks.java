@@ -27,9 +27,11 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemBucket;
 import net.minecraft.item.ItemDoor;
 import net.minecraft.item.ItemSlab;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import biomesoplenty.api.block.IBOPBlock;
@@ -266,6 +268,10 @@ public class ModBlocks
         poison_bucket = ModItems.registerItem((new ItemBucket(poison)).setContainerItem(Items.bucket), "poison_bucket");
         hot_spring_water_bucket = ModItems.registerItem((new ItemBucket(hot_spring_water)).setContainerItem(Items.bucket), "hot_spring_water_bucket");
         
+        FluidContainerRegistry.registerFluidContainer(honey_fluid, new ItemStack(honey_bucket));
+        FluidContainerRegistry.registerFluidContainer(blood_fluid, new ItemStack(blood_bucket));
+        FluidContainerRegistry.registerFluidContainer(poison_fluid, new ItemStack(poison_bucket));
+        FluidContainerRegistry.registerFluidContainer(hot_spring_water_fluid, new ItemStack(hot_spring_water_bucket));
     }
     
     
