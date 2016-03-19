@@ -40,10 +40,12 @@ public class ItemMudball extends Item
 
         if (!world.isRemote)
         {
-            world.spawnEntityInWorld(new EntityMudball(world, player));
+        	EntityMudball mudball = new EntityMudball(world, player);
+        	mudball.func_184538_a(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
+            world.spawnEntityInWorld(mudball);
         }
 
-        //TODO: playerIn.addState(StatList.objectUseStats[Item.getIdFromItem(this)]);
+        player.addStat(StatList.getObjectUseStats(this));
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
     }
 }
