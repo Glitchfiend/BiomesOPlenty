@@ -126,19 +126,19 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
             @Override
             public int colorMultiplier(IBlockState state, IBlockAccess world, BlockPos pos, int tintIndex)
             {
-                if ( world != null && pos != null)
-                {
-                    switch (getColoringType((BOPTrees) state.getValue(BlockBOPLeaves.this.variantProperty)))
-                    {
-                        case TINTED:
-                            return BiomeColorHelper.getFoliageColorAtPos(world, pos);
-                        case OVERLAY:
-                            if (tintIndex == 0) 
-                                return BiomeColorHelper.getFoliageColorAtPos(world, pos);
-                    }
-                }
+            	boolean inWorld = world != null && pos != null;
 
-                return ColorizerFoliage.getFoliageColorBasic();
+            	switch (getColoringType((BOPTrees) state.getValue(BlockBOPLeaves.this.variantProperty)))
+            	{
+            		case TINTED:
+            			return inWorld ? BiomeColorHelper.getFoliageColorAtPos(world, pos) : ColorizerFoliage.getFoliageColorBasic();
+            		case OVERLAY:
+            			if (tintIndex == 0) 
+            				return inWorld ? BiomeColorHelper.getFoliageColorAtPos(world, pos) : ColorizerFoliage.getFoliageColorBasic();
+            			//Otherwise fall-through
+            		default:
+            			return 0xFFFFFF;
+            	}
             }
         };
     }
