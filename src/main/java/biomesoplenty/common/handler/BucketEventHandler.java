@@ -33,7 +33,7 @@ public class BucketEventHandler
     {
         // check we're using a bucket, on a block we can modify
         if (event.getEmptyBucket().getItem() != Items.bucket) {return;}
-        if (event.getTarget().typeOfHit != RayTraceResult.Type.BLOCK) {return;}
+        if (event.getTarget() == null || event.getTarget().typeOfHit != RayTraceResult.Type.BLOCK) {return;}
         BlockPos blockpos = event.getTarget().getBlockPos();
         if (!event.getWorld().isBlockModifiable(event.entityPlayer, blockpos)) {return;}
         if (!event.entityPlayer.canPlayerEdit(blockpos.offset(event.getTarget().sideHit), event.getTarget().sideHit, event.getEmptyBucket())) {return;}
