@@ -215,16 +215,16 @@ public class ModItems
         // DIAMOND("diamond", 33, new int[]{3, 8, 6, 3}, 10);
         
         // TODO: do we really want durability of -1 for these unprotective armor items?  does that mean it lasts forever?
-        wading_boots_material = addArmorMaterial("WADING_BOOTS", "biomesoplenty:wading_boots", -1, new int[]{0,0,0,0}, 0);
-        flippers_material = addArmorMaterial("FLIPPERS", "biomesoplenty:flippers", -1, new int[]{0,0,0,0}, 0);
-        plain_flower_band_material = addArmorMaterial("PLAIN_FLOWER_BAND", "biomesoplenty:plain_flower_band", -1, new int[]{0,0,0,0}, 0);
-        lush_flower_band_material = addArmorMaterial("LUSH_FLOWER_BAND", "biomesoplenty:lush_flower_band", -1, new int[]{0,0,0,0}, 0);
-        exotic_flower_band_material = addArmorMaterial("EXOTIC_FLOWER_BAND", "biomesoplenty:exotic_flower_band", -1, new int[]{0,0,0,0}, 0);
-        dull_flower_band_material = addArmorMaterial("DULL_FLOWER_BAND", "biomesoplenty:dull_flower_band", -1, new int[]{0,0,0,0}, 0);
+        wading_boots_material = addArmorMaterial("WADING_BOOTS", "biomesoplenty:wading_boots", -1, new int[]{0,0,0,0}, 0, SoundEvents.item_armor_equip_generic);
+        flippers_material = addArmorMaterial("FLIPPERS", "biomesoplenty:flippers", -1, new int[]{0,0,0,0}, 0, SoundEvents.item_armor_equip_generic);
+        plain_flower_band_material = addArmorMaterial("PLAIN_FLOWER_BAND", "biomesoplenty:plain_flower_band", -1, new int[]{0,0,0,0}, 0, SoundEvents.item_armor_equip_generic);
+        lush_flower_band_material = addArmorMaterial("LUSH_FLOWER_BAND", "biomesoplenty:lush_flower_band", -1, new int[]{0,0,0,0}, 0, SoundEvents.item_armor_equip_generic);
+        exotic_flower_band_material = addArmorMaterial("EXOTIC_FLOWER_BAND", "biomesoplenty:exotic_flower_band", -1, new int[]{0,0,0,0}, 0, SoundEvents.item_armor_equip_generic);
+        dull_flower_band_material = addArmorMaterial("DULL_FLOWER_BAND", "biomesoplenty:dull_flower_band", -1, new int[]{0,0,0,0}, 0, SoundEvents.item_armor_equip_generic);
         
-        mud_armor_material = addArmorMaterial("MUD", "biomesoplenty:mud_armor", 2, new int[]{1,1,1,1}, 5);
+        mud_armor_material = addArmorMaterial("MUD", "biomesoplenty:mud_armor", 2, new int[]{1,1,1,1}, 5, SoundEvents.item_armor_equip_generic);
         mud_armor_material.customCraftingMaterial = mudball;
-        amethyst_armor_material = addArmorMaterial("AMETHYST", "biomesoplenty:amethyst_armor", 40, new int[]{3,8,8,3}, 20);
+        amethyst_armor_material = addArmorMaterial("AMETHYST", "biomesoplenty:amethyst_armor", 40, new int[]{3,8,8,3}, 20, SoundEvents.item_armor_equip_generic);
         
         wading_boots = registerItem(new ItemWadingBoots(wading_boots_material, 0), "wading_boots");
         flippers = registerItem(new ItemFlippers(flippers_material, 0), "flippers");
@@ -344,14 +344,8 @@ public class ModItems
         return item;   
     }
 
-    private static ItemArmor.ArmorMaterial addArmorMaterial(String name, String textureName, int durability, int[] reductionAmounts, int enchantability, SoundEvent event)
+    private static ItemArmor.ArmorMaterial addArmorMaterial(String name, String textureName, int durability, int[] reductionAmounts, int enchantability, SoundEvent soundOnEquip)
     {
-        //TODO: 1.9
-        return ItemArmor.ArmorMaterial.IRON;
-    }
-
-    private static ItemArmor.ArmorMaterial addArmorMaterial(String name, String textureName, int durability, int[] reductionAmounts, int enchantability)
-    {
-        return ModItems.addArmorMaterial(name, textureName, durability, reductionAmounts, enchantability, SoundEvents.item_armor_equip_generic);
+        return EnumHelper.addArmorMaterial(name, textureName, durability, reductionAmounts, enchantability, soundOnEquip);
     }
 }
