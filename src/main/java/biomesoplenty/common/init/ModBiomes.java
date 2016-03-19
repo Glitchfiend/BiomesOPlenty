@@ -634,7 +634,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
             BOPCommand.biomeCount++;
 
             BOPBiomes.REG_INSTANCE.registerBiome(biome, idName);
-            BiomeGenBase.registerBiome(id, idName, biome);
+            BiomeGenBase.registerBiome(id, biome.getResourceLocation().toString(), biome);
             
             //Enable spwning and village generation in the biome
             if (biome.canSpawnInBiome)
