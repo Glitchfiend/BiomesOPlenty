@@ -11,11 +11,6 @@ package biomesoplenty.common.block;
 import java.util.List;
 import java.util.Random;
 
-import biomesoplenty.api.block.BlockQueries;
-import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.common.enums.BOPPlants;
-import biomesoplenty.common.item.ItemBOPPlant;
-import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
@@ -33,13 +28,13 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemShears;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.ColorizerGrass;
@@ -51,6 +46,11 @@ import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import biomesoplenty.api.block.BlockQueries;
+import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.item.ItemBOPPlant;
+import biomesoplenty.common.util.block.VariantPagingHelper;
 
 // TODO: pick block?
 
@@ -326,41 +326,34 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
     }
     
     // different variants have different sizes
-/*    @Override
-    public void setBlockBoundsBasedOnState(IBlockAccess worldIn, BlockPos pos)
+    @Override
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
     {   
-        IBlockState state = worldIn.getBlockState(pos);
-        switch ((BOPPlants) state.getValue(this.variantProperty))
+    	BOPPlants plant = (BOPPlants) state.getValue(this.variantProperty);
+        switch (plant)
         {
-            case CLOVERPATCH: case LEAFPILE: case DEADLEAFPILE:
-                this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.5F, 0.015625F, pos);
-                break;
-            case SHORTGRASS:
-                this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.4F, 0.25F, pos);
-                break; 
+	        case CLOVERPATCH: case RAFFLESIA:
+	        	return new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.4000000357627869D, 0.9375D);
+            case LEAFPILE: case DEADLEAFPILE:
+            	return new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.09375D, 0.9375D);
+            case SHORTGRASS: case DESERTGRASS: case DESERTSPROUTS:
+            	return new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.4000000357627869D, 0.8999999761581421D);
             case MEDIUMGRASS:
-                this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.4F, 0.6F, pos);
-                break;
+            	return new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);
             case CATTAIL:
-                this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.375F, 1.0F, pos);
-                break;
+            	return new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);
             case TINYCACTUS:
-                this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.3F, 0.7F, pos);
-                break;
+            	return new AxisAlignedBB(0.30000001192092896D, 0.0D, 0.30000001192092896D, 0.699999988079071D, 0.6000000238418579D, 0.699999988079071D);
             case ROOT:
                 // roots hang from ceiling
-                this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.4F, 0.8F, true, pos);
-                break;
+            	return new AxisAlignedBB(0.09999999403953552D, 0.199999988079071D, 0.09999999403953552D, 0.8999999761581421D, 1.0D, 0.8999999761581421D);
             case REED:
                 // reeds extend one block below
-                this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.3F, 0.8F, pos);
-                break;
+            	return new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);
             default:
-                this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.4F, 0.8F, pos);
-                break;
+            	return new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);
         }        
-    }*/
-
+    }
 
     
     @Override
