@@ -11,6 +11,7 @@ package biomesoplenty.common.block;
 import java.util.List;
 import java.util.Random;
 
+import biomesoplenty.api.block.BOPBlocks.Coloring;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.enums.BOPPlants;
@@ -119,6 +120,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public IBlockColor getBlockColor()
     {
         return new IBlockColor()
@@ -143,7 +145,8 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
         };
     }
     @Override
-    public IItemColor getItemColor() { return ModBlocks.BLOCK_ITEM_COLORING; }
+    @SideOnly(Side.CLIENT)
+    public IItemColor getItemColor() { return Coloring.BLOCK_ITEM_COLORING; }
     
     private BlockBOPLeaves()
     {

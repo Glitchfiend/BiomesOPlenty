@@ -86,6 +86,7 @@ public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements ISh
         }
     }
 
+    @SideOnly(Side.CLIENT)
     public IBlockColor getBlockColor()
     {
         return new IBlockColor()

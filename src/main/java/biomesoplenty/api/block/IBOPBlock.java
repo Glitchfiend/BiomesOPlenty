@@ -13,6 +13,8 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.item.ItemBlock;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public interface IBOPBlock {
     
@@ -21,6 +23,8 @@ public interface IBOPBlock {
     public IProperty[] getNonRenderingProperties();
     public String getStateName(IBlockState state);
 
+	@SideOnly(Side.CLIENT)
     public IBlockColor getBlockColor();
+	@SideOnly(Side.CLIENT)
     public IItemColor getItemColor();
 }

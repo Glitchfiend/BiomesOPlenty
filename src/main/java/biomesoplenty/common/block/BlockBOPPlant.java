@@ -126,6 +126,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public IBlockColor getBlockColor()
     {
         return new IBlockColor()
@@ -150,6 +151,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
     }
     
     @Override
+    @SideOnly(Side.CLIENT)
     public IItemColor getItemColor()
     {
         return new IItemColor()

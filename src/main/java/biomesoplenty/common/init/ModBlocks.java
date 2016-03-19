@@ -97,38 +97,11 @@ import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ModBlocks
 {
-    public static final IBlockColor FOLIAGE_COLORING = new IBlockColor()
-    {
-        @Override
-        public int colorMultiplier(IBlockState state, IBlockAccess world, BlockPos pos, int tintIndex)
-        {
-            return world != null && pos != null ? BiomeColorHelper.getFoliageColorAtPos(world, pos) : ColorizerFoliage.getFoliageColorBasic();
-        }
-    };
-
-    public static final IBlockColor GRASS_COLORING = new IBlockColor()
-    {
-        @Override
-        public int colorMultiplier(IBlockState state, IBlockAccess world, BlockPos pos, int tintIndex)
-        {
-            return world != null && pos != null ? BiomeColorHelper.getGrassColorAtPos(world, pos) : ColorizerGrass.getGrassColor(0.5D, 1.0D);
-        }
-    };
-    
-    public static final IItemColor BLOCK_ITEM_COLORING = new IItemColor()
-    {
-        @Override
-        public int getColorFromItemstack(ItemStack stack, int tintIndex) 
-        {
-            IBlockState state = ((ItemBlock)stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata());
-            IBlockColor blockColor = ((IBOPBlock)state.getBlock()).getBlockColor();
-            return blockColor == null ? 0xFFFFFF : blockColor.colorMultiplier(state, null, null, tintIndex);
-        }
-    };
-
     // TODO: use getDrops() in classes where the drops are very specific, instead of implementing all 3 of quantityDropped() getItemDropped() and damageDropped()
     // TODO: docblocks!
     // TODO: make better use of canSustainPlant() in BlockDecoration and children
@@ -340,7 +313,6 @@ public class ModBlocks
         blood_bucket = ModItems.registerItem((new ItemBucket(blood)).setContainerItem(Items.bucket), "blood_bucket");
         poison_bucket = ModItems.registerItem((new ItemBucket(poison)).setContainerItem(Items.bucket), "poison_bucket");
         hot_spring_water_bucket = ModItems.registerItem((new ItemBucket(hot_spring_water)).setContainerItem(Items.bucket), "hot_spring_water_bucket");
-        
     }
     
     
