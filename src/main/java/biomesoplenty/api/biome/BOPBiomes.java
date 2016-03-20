@@ -84,6 +84,7 @@ public class BOPBiomes
     public static Optional<BiomeGenBase> oasis = Optional.absent();
     public static Optional<BiomeGenBase> coral_reef = Optional.absent();
     public static Optional<BiomeGenBase> kelp_forest = Optional.absent();
+    public static Optional<BiomeGenBase> mangrove = Optional.absent();
     public static Optional<BiomeGenBase> origin_island = Optional.absent();
     public static Optional<BiomeGenBase> tropical_island = Optional.absent();
     public static Optional<BiomeGenBase> volcanic_island = Optional.absent();

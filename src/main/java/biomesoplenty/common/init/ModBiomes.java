@@ -53,6 +53,7 @@ import static biomesoplenty.api.biome.BOPBiomes.land_of_lakes;
 import static biomesoplenty.api.biome.BOPBiomes.lavender_fields;
 import static biomesoplenty.api.biome.BOPBiomes.lush_desert;
 import static biomesoplenty.api.biome.BOPBiomes.lush_swamp;
+import static biomesoplenty.api.biome.BOPBiomes.mangrove;
 import static biomesoplenty.api.biome.BOPBiomes.maple_woods;
 import static biomesoplenty.api.biome.BOPBiomes.marsh;
 import static biomesoplenty.api.biome.BOPBiomes.meadow;
@@ -146,6 +147,7 @@ import biomesoplenty.common.biome.overworld.BiomeGenLandOfLakes;
 import biomesoplenty.common.biome.overworld.BiomeGenLavenderFields;
 import biomesoplenty.common.biome.overworld.BiomeGenLushDesert;
 import biomesoplenty.common.biome.overworld.BiomeGenLushSwamp;
+import biomesoplenty.common.biome.overworld.BiomeGenMangrove;
 import biomesoplenty.common.biome.overworld.BiomeGenMapleWoods;
 import biomesoplenty.common.biome.overworld.BiomeGenMarsh;
 import biomesoplenty.common.biome.overworld.BiomeGenMeadow;
@@ -392,6 +394,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
 
         // island biomes
         
+        mangrove = registerBOPBiome(new BiomeGenMangrove());
         origin_island = registerBOPBiome(new BiomeGenOriginIsland());
         tropical_island = registerBOPBiome(new BiomeGenTropicalIsland());
         volcanic_island = registerBOPBiome(new BiomeGenVolcanicIsland());
@@ -401,6 +404,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         addIslandBiome(tropical_island, 3);
         addIslandBiome(volcanic_island, 5);
         addIslandBiome(flower_island, 7);
+        addIslandBiome(mangrove, 10);
     }
     
     public static void initExtendedBiomes()
@@ -500,6 +504,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         registerBiomeToDictionary(BOPBiomes.oasis, Type.SANDY, Type.LUSH, Type.JUNGLE, Type.HOT, Type.WET, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.coral_reef, Type.WATER, Type.OCEAN);
         registerBiomeToDictionary(BOPBiomes.kelp_forest, Type.WATER, Type.OCEAN);
+        registerBiomeToDictionary(BOPBiomes.mangrove, Type.WATER, Type.OCEAN, Type.FOREST, Type.LUSH, Type.WET, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.tropical_island, Type.WATER, Type.OCEAN, Type.JUNGLE, Type.LUSH, Type.WET, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.volcanic_island, Type.WATER, Type.OCEAN, Type.DEAD, Type.WASTELAND, Type.MOUNTAIN, Type.HOT, Type.DRY);
         registerBiomeToDictionary(BOPBiomes.flower_island, Type.WATER, Type.OCEAN, Type.PLAINS, Type.LUSH, Type.DENSE, Type.MAGICAL);
