@@ -58,7 +58,7 @@ public class BiomeGenMountain extends BOPBiome
         
     public BiomeGenMountain(MountainType type)
     {
-        super(type.name().toLowerCase(), new PropsBuilder(CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, type.toString())).withGuiColour(0x80A355).withTemperature(0.8F).withRainfall(0.1F));
+        super("mountain_" + type.name().toLowerCase(), new PropsBuilder("Mountain " + CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, type.toString())).withGuiColour(0x80A355).withTemperature(0.8F).withRainfall(0.1F));
 
         this.type = type;
         
