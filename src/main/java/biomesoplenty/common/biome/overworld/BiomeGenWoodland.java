@@ -61,7 +61,6 @@ public class BiomeGenWoodland extends BOPBiome
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(10);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("oak_large", 1, (new GeneratorBigTree.Builder()).create());
         treeGenerator.add("oak", 9, (new GeneratorBasicTree.Builder()).minHeight(5).maxHeight(8).create());
 
         // grasses
@@ -127,13 +126,13 @@ public class BiomeGenWoodland extends BOPBiome
     @Override
     public int getGrassColorAtPos(BlockPos pos)
     {
-        return 0x99BE4B;
+        return 0x8DC047;
     }
 
     @Override
     public int getFoliageColorAtPos(BlockPos pos)
     {
-        return 0x80AD1E;
+        return 0x72AF1A;
     }
     
 }

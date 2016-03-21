@@ -432,22 +432,23 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
         switch ((BOPPlants) state.getValue(this.variantProperty))
         {
             case POISONIVY:
-                // poison ivy poisons players who walk into it
+                // poison ivy poisons players who walk into it, unless they're wearing boots and pants
                 if (entity instanceof EntityPlayer) {
+                	InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
+                    if (inventory.armorInventory[0] != null && inventory.armorInventory[1] != null) {
+                        break;
+                    }
                     ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.poison, 100));
                 }
                 break;
             case THORN: case TINYCACTUS:
-                // thorns and tiny cacti harm players like a vanilla cactus unless the player is wearing leather boots and leather leggings
-                // TODO: should other types of armor protect from thorns?
+            	// thorns and tiny cacti damage players who walk into them, unless they're wearing boots and pants
                 if (entity instanceof EntityPlayer) {
-                    InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
-                    boolean wearingLeatherBoots = (inventory.armorInventory[0] != null && inventory.armorInventory[0].getItem() == Items.leather_boots);
-                    boolean wearingLeatherLeggings = (inventory.armorInventory[1] != null && inventory.armorInventory[1].getItem() == Items.leather_leggings);
-                    if (!wearingLeatherBoots && !wearingLeatherLeggings)
-                    {
-                        entity.attackEntityFrom(DamageSource.cactus, 1);
+                	InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
+                    if (inventory.armorInventory[0] != null && inventory.armorInventory[1] != null) {
+                        break;
                     }
+                    entity.attackEntityFrom(DamageSource.cactus, 1);
                 }
                 break;
             default:

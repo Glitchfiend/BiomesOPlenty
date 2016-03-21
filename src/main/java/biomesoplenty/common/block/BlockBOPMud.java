@@ -38,6 +38,7 @@ import net.minecraftforge.common.EnumPlantType;
 
 public class BlockBOPMud extends Block implements IBOPBlock, ISustainsPlantType
 {
+	protected static final AxisAlignedBB MUD_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.875D, 1.0D);
 
     // add properties
     public static enum MudType implements IStringSerializable
@@ -101,23 +102,10 @@ public class BlockBOPMud extends Block implements IBOPBlock, ISustainsPlantType
     }
     
     
-/*    @Override
-    public AxisAlignedBB getCollisionBoundingBox(World world, BlockPos pos, IBlockState state)
-    {   
-        float heightOffset;
-        switch ((MudType) state.getValue(VARIANT))
-        {
-            // sink a little when standing on mud
-            case MUD:
-                heightOffset = 0.35F;
-                break;
-            
-            default:
-                heightOffset = 0.0F;
-                break;
-        }
-        return new AxisAlignedBB((double) pos.getX(), (double) pos.getY(), (double) pos.getZ(), (double) (pos.getX() + 1), (double) ((float) (pos.getY() + 1) - heightOffset), (double) (pos.getZ() + 1));
-    }*/
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World worldIn, BlockPos pos)
+    {
+        return MUD_AABB;
+    }
 
     @Override
     public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)

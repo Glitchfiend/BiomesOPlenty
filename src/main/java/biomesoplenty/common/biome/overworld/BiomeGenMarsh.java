@@ -40,10 +40,10 @@ public class BiomeGenMarsh extends BOPBiome
         
     public BiomeGenMarsh()
     {
-        super("marsh", new PropsBuilder("Marsh").withGuiColour(0x66A06E).withTemperature(0.7F).withRainfall(0.9F));
+        super("marsh", new PropsBuilder("Marsh").withGuiColour(0x66A06E).withTemperature(0.6F).withRainfall(0.8F));
 
         // terrain
-        this.terrainSettings.avgHeight(63).heightVariation(5, 2).octaves(5, 5, 0, 0, 1, 1).sidewaysNoise(0.1D); 
+        this.terrainSettings.avgHeight(62).heightVariation(5, 2).octaves(5, 5, 0, 0, 1, 1).sidewaysNoise(0.1D); 
         
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.LOAMY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.LOAMY);
