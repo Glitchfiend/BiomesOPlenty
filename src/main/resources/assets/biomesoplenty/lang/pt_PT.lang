@@ -1,91 +1,51 @@
 achievement.obtain_flowers=Florescer
 achievement.obtain_flowers.desc=Encontra uma flor!
-
 achievement.obtain_berry=Bagamente Frutífero
 achievement.obtain_berry.desc=Colhe um baga de uma arbusto!
 achievement.obtain_coral=Inteiramente Coralino!
-
 achievement.obtain_coral.desc=Mergulha por algum coral. 
 achievement.obtain_miners_delight=A Vida encontra Forma
 achievement.obtain_miners_delight.desc=Encontra a flor deleite do mineiro numa caverna funda.
-
 achievement.eat_shroom_powder=Disparo
- 
-achievement.eat_shroom_powder.desc=Ingere algum pó de cogumelo mágico
-. 
+achievement.eat_shroom_powder.desc=Ingere algum pó de cogumelo mágico.
 achievement.obtain_turnip=Mercado do Talo
 achievement.obtain_turnip.desc=Colhe um nabo.
 achievement.grow_sacred_oak=Yggdrasil
- 
 achievement.grow_sacred_oak.desc=Planta um rebento de carvalho sagrado. 
-
 achievement.craft_flax_string=Diversão Linhosa 
-
 achievement.craft_flax_string.desc=Transforma flores de linho em fio de linho. 
-
 achievement.craft_dart_blower=Dardos e Ofícios 
-
-achievement.craft_dart_blower.desc=Faz um sopra dardos com cana-do-rio
-. 
+achievement.craft_dart_blower.desc=Faz um sopra dardos com cana-do-rio. 
 achievement.craft_muddy_pickaxe=Obter uma Desmelhoria 
-
 achievement.craft_muddy_pickaxe.desc=Constrói uma...picareta lamacenta...?
- 
 achievement.craft_amethyst_sword=Verdadeiro Espadachim
- 
-achievement.craft_amethyst_sword.desc=Melhora para uma espada de ametista. 
-
+achievement.craft_amethyst_sword.desc=Melhora para uma espada de ametista.
 achievement.obtain_thorn=Bastante Espinhoso 
-
 achievement.obtain_thorn.desc=Colhe um espinheiro! 
-
 achievement.craft_poison_jar=Coleta o Teu Veneno
- 
 achievement.craft_poison_jar.desc=Extrai veneno de uma hera venenosa. 
-
 achievement.obtain_deathbloom=Eu Tornei-me a Morte 
 achievement.obtain_deathbloom.desc=Adquire uma flor da morte. 
-
 achievement.obtain_honeycomb=Favo de Mel dos Grandes 
-
 achievement.obtain_honeycomb.desc=Rouba um favo de mel cheio de uma colmeia de vespas do Nether.
- 
 achievement.obtain_soul=Procura pela Alma 
-
 achievement.obtain_soul.desc=Recupera uma alma perdida. 
-
 achievement.obtain_wilted_lily=Dádiva de Deus
- 
 achievement.obtain_wilted_lily.desc=Resgata um lírio murcho. 
-
 achievement.obtain_pixie_dust=Não Respires Isto 
-
 achievement.obtain_pixie_dust.desc=Mata uma pixie e coleta o seu pó mágico.
- 
 achievement.obtain_celestial_crystal=Longínquo...
- 
 achievement.obtain_celestial_crystal.desc=Minera um cristal celestial no Fim. 
-
 achievement.craft_terrestrial_artifact=Os Teus Poderes Combinados 
-
 achievement.craft_terrestrial_artifact.desc=Combina todas as oito gemas exclusivas de biomas. 
-
 achievement.craft_ambrosia=Néctar dos Deuses 
-
 achievement.craft_ambrosia.desc=Açúcar, água, mel, bagas, raízes, algas, ichor, pó de pixie e cristais celestiais! 
-
 achievement.explore_all_biomes=O Viajante 
-
 achievement.explore_all_biomes.desc=Descobre mesmo todos os biomas.
- 
 achievement.use_enderporter=Ir para Casa 
-
 achievement.use_enderporter.desc=Viaja de volta ao ponto de origem com o porteiro-do-fim
- 
 achievement.use_biome_finder=Festa de Pesquisa 
 achievement.use_biome_finder.desc=Usa o localizador de biomas para descobrires um bioma.
-
-
 
 biome_finder.searching=Procurar por %s.
 biome_finder.found=%s encontrado!
@@ -222,7 +182,7 @@ item.spawn_egg_butterfly.name=Evocar Borboleta
 item.stone_scythe.name=Foice de Pedra
 item.turnip.name=Nabo
 item.turnip_seeds.name=Sementes de Nabo
-item.umbran_door.name=Porta de Madeira da Sombra
+item.umbran_door.name=Porta de Madeira Sombria
 item.wading_boots.name=Galochas
 item.white_dye.name=Tinta Branca
 item.willow_door.name=Porta de Salgueiro
@@ -338,7 +298,7 @@ tile.leaves_0.yellow_autumn_leaves.name=Folhas Amarelas de Outono
 tile.leaves_0.orange_autumn_leaves.name=Folhas Laranjas de Outono
 tile.leaves_0.bamboo_leaves.name=Folhas de Bambu
 tile.leaves_0.magic_leaves.name=Folhas Mágicas
-tile.leaves_1.umbran_leaves.name=Folhas da Sombra
+tile.leaves_1.umbran_leaves.name=Folhas Sombrias
 tile.leaves_1.dead_leaves.name=Folhas Mortas
 tile.leaves_1.fir_leaves.name=Folhas de Pinheiro
 tile.leaves_1.ethereal_leaves.name=Folhas Etéreas
@@ -362,7 +322,7 @@ tile.leaves_6.red_big_flower_petal.name=Pétala de Flor Vermelha Gigante
 tile.leaves_6.yellow_big_flower_petal.name=Pétala de Flor Amarela Gigante
 tile.log_0.sacred_oak_log.name=Madeira de Carvalho Sagrado
 tile.log_0.cherry_log.name=Madeira de Cerejeira
-tile.log_0.umbran_log.name=Madeira da Sombra
+tile.log_0.umbran_log.name=Madeira Sombria
 tile.log_0.fir_log.name=Madeira de Pinheiro
 tile.log_1.ethereal_log.name=Madeira Etérea
 tile.log_1.magic_log.name=Madeira Mágica
@@ -378,8 +338,8 @@ tile.log_3.ebony_log.name=Madeira de Ébano
 tile.log_3.eucalyptus_log.name=Madeira de Eucalipto
 tile.log_4.giant_flower_stem.name=Caule de Flor Gigante
 tile.log_4.dead_log.name=Madeira Morta
-tile.magic_fence.name=Cerca Mágica
-tile.magic_fence_gate.name=Portão Mágico
+tile.magic_fence.name=Cerca de Madeira Mágica
+tile.magic_fence_gate.name=Portão de Madeira Mágica
 tile.magic_wood_slab.name=Degrau de Madeira Mágica
 tile.magic_stairs.name=Escadas de Madeira Mágica
 tile.mahogany_fence.name=Cerca de Mogno
@@ -411,7 +371,7 @@ tile.pine_wood_slab.name=Degrau de Madeira de Pinho
 tile.pine_stairs.name=Escadas de Madeira de Pinho
 tile.planks_0.sacred_oak_planks.name=Tábuas de Madeira de Carvalho Sagrado
 tile.planks_0.cherry_planks.name=Tábuas de Madeira de Cerejeira
-tile.planks_0.umbran_planks.name=Tábuas de Madeira da Sombra
+tile.planks_0.umbran_planks.name=Tábuas de Madeira Sombria
 tile.planks_0.fir_planks.name=Tábuas de Madeira de Pinheiro
 tile.planks_0.ethereal_planks.name=Tábuas de Madeira Etérea
 tile.planks_0.magic_planks.name=Tábuas de Madeira Mágica
@@ -465,7 +425,7 @@ tile.sapling_0.yellow_autumn_sapling.name=Rebento Amarelo de Outono
 tile.sapling_0.orange_autumn_sapling.name=Rebento Laranja de Outono
 tile.sapling_0.bamboo_sapling.name=Rebento de Bambu
 tile.sapling_0.magic_sapling.name=Rebento Mágico
-tile.sapling_0.umbran_sapling.name=Rebento da Sombra
+tile.sapling_0.umbran_sapling.name=Rebento Sombrio
 tile.sapling_0.dead_sapling.name=Rebento Morto
 tile.sapling_0.fir_sapling.name=Rebento de Pinheiro
 tile.sapling_0.ethereal_sapling.name=Rebento Etéreo
@@ -510,10 +470,10 @@ tile.terrarium.terrarium_nether.name=Terrário do Nether
 tile.terrarium.terrarium_ender.name=Terrário do Fim
 tile.tree_moss.name=Musgo de Árvore
 tile.turnip_block.name=Nabo
-tile.umbran_fence.name=Cerca de Madeira da Sombra
-tile.umbran_fence_gate.name=Portão de Madeira da Sombra
-tile.umbran_wood_slab.name=Degrau de Madeira da Sombra
-tile.umbran_stairs.name=Escadas de Madeira da Sombra
+tile.umbran_fence.name=Cerca de Madeira Sombria
+tile.umbran_fence_gate.name=Portão de Madeira Sombria
+tile.umbran_wood_slab.name=Degrau de Madeira Sombria
+tile.umbran_stairs.name=Escadas de Madeira Sombria
 tile.waterlily.lily_medium.name=Nenúfar Médio
 tile.waterlily.lily_small.name=Nenúfar Pequeno
 tile.waterlily.lily_tiny.name=Nenúfar Minúsculo
