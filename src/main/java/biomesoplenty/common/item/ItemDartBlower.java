@@ -59,6 +59,7 @@ public class ItemDartBlower extends Item
             // there is a dart available to blow - blow it.
             EntityDart entityDart = new EntityDart(world, player);
             entityDart.setDartType(bestAvailableDartType);
+            entityDart.func_184547_a(player, player.rotationPitch, player.rotationYaw, 0.0F, 3.0F, 1.0F);
             if (!isCreative)
             {
                 stack.damageItem(1, player);
