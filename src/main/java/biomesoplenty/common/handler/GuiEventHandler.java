@@ -23,7 +23,7 @@ public class GuiEventHandler
     @SubscribeEvent
     public void onPreInitCreateWorld(InitGuiEvent.Pre event)
     {
-        GuiScreen screenGui = event.gui;
+        GuiScreen screenGui = event.getGui();
         
         if (MiscConfigurationHandler.useBoPWorldTypeDefault && screenGui instanceof GuiCreateWorld)
         {

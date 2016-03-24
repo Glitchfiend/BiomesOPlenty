@@ -92,7 +92,7 @@ public class EntityButterfly extends EntityFlying implements IMob {
     
     public int getButterflyType()
     {
-        return this.dataWatcher.get(TYPE);
+        return (int) this.dataWatcher.get(TYPE);
     }
     
     public void setButterflyType(int butterflyTypeId)

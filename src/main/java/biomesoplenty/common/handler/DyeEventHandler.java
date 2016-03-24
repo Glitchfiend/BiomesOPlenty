@@ -24,7 +24,7 @@ public class DyeEventHandler
     @SubscribeEvent
     public void entityInteract(EntityInteractEvent event)
     {
-        ItemStack stack = event.entityPlayer.getHeldItem(event.getHand());
+        ItemStack stack = event.getEntityPlayer().getHeldItem(event.getHand());
         if (stack == null) {return;}
         
         Item item = stack.getItem();
@@ -43,7 +43,7 @@ public class DyeEventHandler
             if (dyeColor != wolf.getCollarColor())
             {
                 wolf.setCollarColor(dyeColor);
-                if (!event.entityPlayer.capabilities.isCreativeMode) {--stack.stackSize;}
+                if (!event.getEntityPlayer().capabilities.isCreativeMode) {--stack.stackSize;}
                 event.setResult(Result.ALLOW); 
             }
         }
@@ -53,7 +53,7 @@ public class DyeEventHandler
             if (!sheep.getSheared() && dyeColor != sheep.getFleeceColor())
             {
                 sheep.setFleeceColor(dyeColor);
-                if (!event.entityPlayer.capabilities.isCreativeMode) {--stack.stackSize;}
+                if (!event.getEntityPlayer().capabilities.isCreativeMode) {--stack.stackSize;}
                 event.setResult(Result.ALLOW);
             }
         }

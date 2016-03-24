@@ -20,9 +20,9 @@ public class PotionPossessionEventHandler
     @SubscribeEvent
     public void onEntityUpdate(LivingUpdateEvent event)
     {
-        if (event.entityLiving.isPotionActive(BOPPotions.possession))
+        if (event.getEntityLiving().isPotionActive(BOPPotions.possession))
         {
-            EntityLivingBase entity = event.entityLiving;
+            EntityLivingBase entity = event.getEntityLiving();
             
             Random rand = entity.worldObj.rand;
 

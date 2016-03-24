@@ -76,7 +76,7 @@ public class MiscConfigurationHandler
     @SubscribeEvent
     public void onConfigurationChangedEvent(ConfigChangedEvent.OnConfigChangedEvent event)
     {
-        if (event.modID.equalsIgnoreCase(BiomesOPlenty.MOD_ID))
+        if (event.getModID().equalsIgnoreCase(BiomesOPlenty.MOD_ID))
         {
             loadConfiguration();
         }

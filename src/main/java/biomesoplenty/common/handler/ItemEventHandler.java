@@ -19,8 +19,8 @@ public class ItemEventHandler
     @SubscribeEvent
     public void onItemToss(ItemTossEvent event)
     {
-        EntityPlayer player = event.player;
-        ItemStack stack = event.entityItem.getEntityItem();
+        EntityPlayer player = event.getPlayer();
+        ItemStack stack = event.getEntityItem().getEntityItem();
         
         if (player.openContainer instanceof ContainerFlowerBasket)
         {
@@ -40,10 +40,10 @@ public class ItemEventHandler
     @SubscribeEvent
     public void onItemPickup(EntityItemPickupEvent event)
     {
-        EntityPlayer player = event.entityPlayer;
-        EntityItem entityItem = event.item;
+        EntityPlayer player = event.getEntityPlayer();
+        EntityItem entityItem = event.getItem();
         
-        ItemStack stack = event.item.getEntityItem();
+        ItemStack stack = event.getItem().getEntityItem();
         ItemStack basketStack = ItemFlowerBasket.findBasketStack(player);
         
         if (!player.worldObj.isRemote)

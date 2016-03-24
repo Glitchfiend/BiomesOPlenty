@@ -29,21 +29,21 @@ public class DecorateBiomeEventHandler
     @SubscribeEvent
     public void onPreBiomeDecorate(DecorateBiomeEvent.Pre event)
     {
-        if (BOPBiomes.excludedDecoratedWorldTypes.contains(event.world.getWorldType()))
+        if (BOPBiomes.excludedDecoratedWorldTypes.contains(event.getWorld().getWorldType()))
             return;
         
-        runGeneratorStage(event.world, event.rand, event.pos, GeneratorStage.PRE);
+        runGeneratorStage(event.getWorld(), event.getRand(), event.getPos(), GeneratorStage.PRE);
     }
     
     @SubscribeEvent
     public void onBiomeDecorate(DecorateBiomeEvent.Decorate event)
     {
-        if (BOPBiomes.excludedDecoratedWorldTypes.contains(event.world.getWorldType()))
+        if (BOPBiomes.excludedDecoratedWorldTypes.contains(event.getWorld().getWorldType()))
             return;
         
-        if (event.type != Decorate.EventType.CUSTOM)
+        if (event.getType() != Decorate.EventType.CUSTOM)
         {
-            boolean allow = runGeneratorStage(event.world, event.rand, event.pos, GeneratorStage.mapDecorateType(event.type));
+            boolean allow = runGeneratorStage(event.getWorld(), event.getRand(), event.getPos(), GeneratorStage.mapDecorateType(event.getType()));
             
             event.setResult(allow ? Result.ALLOW : Result.DENY);
         }
@@ -52,28 +52,28 @@ public class DecorateBiomeEventHandler
     @SubscribeEvent
     public void onPostBiomeDecorate(DecorateBiomeEvent.Post event)
     {
-        if (BOPBiomes.excludedDecoratedWorldTypes.contains(event.world.getWorldType()))
+        if (BOPBiomes.excludedDecoratedWorldTypes.contains(event.getWorld().getWorldType()))
             return;
         
-        runGeneratorStage(event.world, event.rand, event.pos, GeneratorStage.POST);
+        runGeneratorStage(event.getWorld(), event.getRand(), event.getPos(), GeneratorStage.POST);
     }
     
     @SubscribeEvent
     public void onPreGenerateOres(OreGenEvent.Pre event)
     {
-        if (BOPBiomes.excludedDecoratedWorldTypes.contains(event.world.getWorldType()))
+        if (BOPBiomes.excludedDecoratedWorldTypes.contains(event.getWorld().getWorldType()))
             return;
         
-        runGeneratorStage(event.world, event.rand, event.pos, GeneratorStage.ORE_PRE);
+        runGeneratorStage(event.getWorld(), event.getRand(), event.getPos(), GeneratorStage.ORE_PRE);
     }
     
     @SubscribeEvent
     public void onPostGenerateOres(OreGenEvent.Post event)
     { 
-        if (BOPBiomes.excludedDecoratedWorldTypes.contains(event.world.getWorldType()))
+        if (BOPBiomes.excludedDecoratedWorldTypes.contains(event.getWorld().getWorldType()))
             return;
         
-        runGeneratorStage(event.world, event.rand, event.pos, GeneratorStage.ORE_POST);
+        runGeneratorStage(event.getWorld(), event.getRand(), event.getPos(), GeneratorStage.ORE_POST);
     }
     
     private static boolean runGeneratorStage(World world, Random random, BlockPos pos, GeneratorStage stage)

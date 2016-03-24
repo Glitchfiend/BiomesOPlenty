@@ -159,12 +159,12 @@ public class AchievementEventHandler
     @SubscribeEvent
     public void onItemUsed(LivingEntityUseItemEvent.Finish event)
     {
-        ItemStack stack = event.item;
+        ItemStack stack = event.getItem();
         Item item = stack.getItem();
 
-        if (event.entity instanceof EntityPlayer)
+        if (event.getEntity() instanceof EntityPlayer)
         {
-            EntityPlayer player = (EntityPlayer)event.entityLiving;
+            EntityPlayer player = (EntityPlayer)event.getEntityLiving();
 
             //Trippin'
             if (item == BOPItems.shroompowder) {
@@ -176,7 +176,7 @@ public class AchievementEventHandler
     @SubscribeEvent
     public void onBlockPlaced(BlockEvent.PlaceEvent event)
     {
-        ItemStack stack = event.itemInHand;
+        ItemStack stack = event.getItemInHand();
         
         //Blocks can be placed by things other than players
         if (stack != null)
@@ -188,7 +188,7 @@ public class AchievementEventHandler
             //Yggdrasil
             if (state == BlockBOPSapling.paging.getVariantState(BOPTrees.SACRED_OAK))
             {
-                event.player.addStat(BOPAchievements.grow_sacred_oak);
+                event.getPlayer().addStat(BOPAchievements.grow_sacred_oak);
             }
         }
     }

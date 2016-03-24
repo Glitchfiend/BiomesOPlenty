@@ -34,8 +34,8 @@ public class UseHoeEventHandler
             return;
         }
 
-        World world = event.world;
-        BlockPos pos = event.pos;
+        World world = event.getWorld();
+        BlockPos pos = event.getPos();
         IBlockState state = world.getBlockState(pos);
         Block block = state.getBlock();
         boolean result = false;
@@ -70,12 +70,12 @@ public class UseHoeEventHandler
 
         if (result)
         {
-            if (!event.entityPlayer.capabilities.isCreativeMode)
+            if (!event.getEntityPlayer().capabilities.isCreativeMode)
             {
-                event.current.damageItem(1, event.entityLiving);
+                event.getCurrent().damageItem(1, event.getEntityLiving());
             }
-            event.world.playSound(event.entityPlayer, (double) ((float) pos.getX() + 0.5F), (double) ((float) pos.getY() + 0.5F), (double) ((float) pos.getZ() + 0.5F), block.getSoundType().getStepSound(), SoundCategory.BLOCKS, (state.getBlock().getSoundType().getVolume() + 1.0F) / 2.0F, state.getBlock().getSoundType().getPitch() * 0.8F);
-            event.entityPlayer.swingArm(PlayerUtil.getHandForItem(event.entityPlayer, event.current));
+            event.getWorld().playSound(event.getEntityPlayer(), (double) ((float) pos.getX() + 0.5F), (double) ((float) pos.getY() + 0.5F), (double) ((float) pos.getZ() + 0.5F), block.getSoundType().getStepSound(), SoundCategory.BLOCKS, (state.getBlock().getSoundType().getVolume() + 1.0F) / 2.0F, state.getBlock().getSoundType().getPitch() * 0.8F);
+            event.getEntityPlayer().swingArm(PlayerUtil.getHandForItem(event.getEntityPlayer(), event.getCurrent()));
         }
     }
 }

@@ -22,9 +22,9 @@ public class PotionParalysisEventHandler
     public void onEntityUpdate(LivingUpdateEvent event)
     {
         
-        if (event.entityLiving.isPotionActive(BOPPotions.paralysis))
+        if (event.getEntityLiving().isPotionActive(BOPPotions.paralysis))
         {
-            EntityLivingBase entity = event.entityLiving;
+            EntityLivingBase entity = event.getEntityLiving();
             
             entity.motionX = 0.0;
             
@@ -51,7 +51,7 @@ public class PotionParalysisEventHandler
     @SubscribeEvent
     public void onEndermanTP(EnderTeleportEvent event)
     {
-        if (event.entityLiving.isPotionActive(BOPPotions.paralysis)) 
+        if (event.getEntityLiving().isPotionActive(BOPPotions.paralysis)) 
         {
             event.setCanceled(true);
         }
