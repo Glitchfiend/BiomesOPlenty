@@ -18,6 +18,7 @@ import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityMoveHelper;
+import net.minecraft.entity.ai.EntityMoveHelper.Action;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
@@ -54,7 +55,7 @@ public class EntityButterfly extends EntityFlying implements IMob {
 	protected void entityInit()
     {
         super.entityInit();
-        this.dataWatcher.register(TYPE, Byte.valueOf((byte)0));
+        this.dataManager.register(TYPE, Byte.valueOf((byte)0));
     }
     
     public void writeEntityToNBT(NBTTagCompound tagCompound)
@@ -92,12 +93,12 @@ public class EntityButterfly extends EntityFlying implements IMob {
     
     public int getButterflyType()
     {
-        return (int) this.dataWatcher.get(TYPE);
+        return (int) this.dataManager.get(TYPE);
     }
     
     public void setButterflyType(int butterflyTypeId)
     {
-        this.dataWatcher.set(TYPE, Byte.valueOf((byte)butterflyTypeId));
+        this.dataManager.set(TYPE, Byte.valueOf((byte)butterflyTypeId));
     }
     
     @Override
@@ -225,7 +226,6 @@ public class EntityButterfly extends EntityFlying implements IMob {
         private int courseChangeCooldown = 0;
         private double closeEnough = 0.3D;
         private ButterflyMoveTargetPos targetPos = new ButterflyMoveTargetPos();
-        private boolean update;
 
         public ButterflyMoveHelper()
         {
@@ -243,7 +243,7 @@ public class EntityButterfly extends EntityFlying implements IMob {
         public void onUpdateMoveHelper()
         {
             // if we have arrived at the previous target, or we have no target to aim for, do nothing
-            if (!this.update) {return;}
+            if (this.action != Action.MOVE_TO) {return;}
             
             if (this.courseChangeCooldown-- > 0) {
                 // limit the rate at which we change course
@@ -267,10 +267,10 @@ public class EntityButterfly extends EntityFlying implements IMob {
             if (!this.targetPos.isPathClear(5.0D))
             {
                 //System.out.println("Abandoning move target - way is blocked" );
-                this.update = false;
+                this.action = Action.WAIT;
             } else if (this.targetPos.dist < this.closeEnough) {
                 //System.out.println("Arrived (close enough) dist:"+this.targetPos.dist);
-                this.update = false;
+                this.action = Action.WAIT;
             }
         }        
 

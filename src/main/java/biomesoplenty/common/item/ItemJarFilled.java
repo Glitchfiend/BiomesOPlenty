@@ -121,7 +121,7 @@ public class ItemJarFilled extends Item
         if (world.provider.isSurfaceWorld())
         {
             EntityPixie pixie = new EntityPixie(world);                    
-            pixie.setLocationAndAngles(releasePoint.xCoord, releasePoint.yCoord, releasePoint.zCoord, MathHelper.wrapAngleTo180_float(world.rand.nextFloat() * 360.0F), 0.0F);
+            pixie.setLocationAndAngles(releasePoint.xCoord, releasePoint.yCoord, releasePoint.zCoord, MathHelper.wrapDegrees(world.rand.nextFloat() * 360.0F), 0.0F);
             world.spawnEntityInWorld(pixie);
             pixie.playLivingSound();
             if (stack.hasDisplayName()) {pixie.setCustomNameTag(stack.getDisplayName());}

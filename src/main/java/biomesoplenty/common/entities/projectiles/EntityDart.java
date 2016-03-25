@@ -58,17 +58,17 @@ public class EntityDart extends EntityArrow
     @Override
     protected void entityInit()
     {
-        this.dataWatcher.register(TYPE, Byte.valueOf((byte)0));
+        this.dataManager.register(TYPE, Byte.valueOf((byte)0));
     }
     
     public void setDartType(ItemDart.DartType dartType)
     {
-        dataWatcher.set(TYPE, (byte)dartType.ordinal());
+        dataManager.set(TYPE, (byte)dartType.ordinal());
     }
     
     public ItemDart.DartType getDartType()
     {
-        return ItemDart.DartType.values()[dataWatcher.get(TYPE)];
+        return ItemDart.DartType.values()[dataManager.get(TYPE)];
     }
     
     // TODO: read/write to NBT?

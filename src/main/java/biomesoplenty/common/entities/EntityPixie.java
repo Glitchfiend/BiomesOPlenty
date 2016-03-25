@@ -202,7 +202,6 @@ public class EntityPixie extends EntityFlying implements IMob {
         private int courseChangeCooldown = 0;
         private double closeEnough = 0.3D;
         private PixieMoveTargetPos targetPos = new PixieMoveTargetPos();
-        private boolean update;
 
         public PixieMoveHelper()
         {
@@ -220,7 +219,7 @@ public class EntityPixie extends EntityFlying implements IMob {
         public void onUpdateMoveHelper()
         {
             // if we have arrived at the previous target, or we have no target to aim for, do nothing
-            if (!this.update) {return;}
+            if (this.action != Action.MOVE_TO) {return;}
             
             if (this.courseChangeCooldown-- > 0) {
                 // limit the rate at which we change course
@@ -244,10 +243,10 @@ public class EntityPixie extends EntityFlying implements IMob {
             if (!this.targetPos.isPathClear(5.0D))
             {
                 //System.out.println("Abandoning move target - way is blocked" );
-                this.update = false;
+                this.action = Action.WAIT;
             } else if (this.targetPos.dist < this.closeEnough) {
                 //System.out.println("Arrived (close enough) dist:"+this.targetPos.dist);
-                this.update = false;
+                this.action = Action.WAIT;
             }
         }        
 
