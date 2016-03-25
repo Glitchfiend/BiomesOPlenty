@@ -95,6 +95,7 @@ import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -313,8 +314,13 @@ public class ModBlocks
         blood_bucket = ModItems.registerItem((new ItemBucket(blood)).setContainerItem(Items.bucket), "blood_bucket");
         poison_bucket = ModItems.registerItem((new ItemBucket(poison)).setContainerItem(Items.bucket), "poison_bucket");
         hot_spring_water_bucket = ModItems.registerItem((new ItemBucket(hot_spring_water)).setContainerItem(Items.bucket), "hot_spring_water_bucket");
-    }
     
+        FluidContainerRegistry.registerFluidContainer(honey_fluid, new ItemStack(honey_bucket));
+        FluidContainerRegistry.registerFluidContainer(blood_fluid, new ItemStack(blood_bucket));
+        FluidContainerRegistry.registerFluidContainer(poison_fluid, new ItemStack(poison_bucket));
+        FluidContainerRegistry.registerFluidContainer(hot_spring_water_fluid, new ItemStack(hot_spring_water_bucket));
+    }
+
     
     public static Block registerFluidBlock(Fluid fluid, BlockFluidBase fluidBlock, String name)
     {

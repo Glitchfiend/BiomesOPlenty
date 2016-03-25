@@ -185,11 +185,15 @@ public class AchievementEventHandler
             Block block = Block.getBlockFromItem(item);
             IBlockState state = block != null ? block.getStateFromMeta(stack.getItemDamage()) : null;
 
-            //Yggdrasil
-            if (state == BlockBOPSapling.paging.getVariantState(BOPTrees.SACRED_OAK))
+            try
             {
-                event.getPlayer().addStat(BOPAchievements.grow_sacred_oak);
+                //Yggdrasil
+                if (state == BlockBOPSapling.paging.getVariantState(BOPTrees.SACRED_OAK))
+                {
+                    event.getPlayer().addStat(BOPAchievements.grow_sacred_oak);
+                }
             }
+            catch(Exception e) {} //Fail quietly if there's a problem matching metadata to a block state
         }
     }
     
