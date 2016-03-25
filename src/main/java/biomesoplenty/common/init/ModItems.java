@@ -252,10 +252,12 @@ public class ModItems
         // IRON(2, 250, 6.0F, 2.0F, 14),
         // EMERALD(3, 1561, 8.0F, 3.0F, 10),
         // GOLD(0, 32, 12.0F, 0.0F, 22);
-        mud_tool_material = /*TODO: 1.9 EnumHelper.addToolMaterial("MUD", 0, 32, 0.5F, 0.0F, 1)*/ToolMaterial.DIAMOND;
-        //TODO: 1.9 mud_tool_material.setRepairItem(new ItemStack(mudball));
-        amethyst_tool_material = /*TODO: 1.9 EnumHelper.addToolMaterial("AMETHYST", 4, 2013, 15.0F, 5.0F, 16)*/ToolMaterial.DIAMOND;
+        mud_tool_material = EnumHelper.addToolMaterial("MUD", 0, 32, 0.5F, 0.0F, 1);
+        mud_tool_material.setRepairItem(new ItemStack(mudball));
+        amethyst_tool_material = EnumHelper.addToolMaterial("AMETHYST", 4, 2013, 15.0F, 5.0F, 16);
         // no repair item for amethyst tool - they can't be repaired
+        setAxeDamageAndSpeed(mud_tool_material, 3.0F, -3.3F);
+        setAxeDamageAndSpeed(amethyst_tool_material, 8.0F, -2.8F);
 
         // ItemAxe and ItemPickaxe have protected constructors - use reflection to construct
         mud_axe = registerItem(BOPReflectionHelper.construct(ItemAxe.class, mud_tool_material), "mud_axe");
@@ -319,4 +321,29 @@ public class ModItems
     {
         return EnumHelper.addArmorMaterial(name, textureName, durability, reductionAmounts, enchantability, soundOnEquip);
     }
+    
+    private static void setAxeDamageAndSpeed(ToolMaterial material, float damage, float speed)
+    {
+        int index = material.ordinal(); 
+        
+        //Expand the arrays if necessary
+        if (ItemAxe.ATTACK_DAMAGES.length - 1 < index)
+        {
+            float[] attackDamages = new float[index + 1];
+            System.arraycopy(ItemAxe.ATTACK_DAMAGES, 0, attackDamages, 0, ItemAxe.ATTACK_DAMAGES.length);
+            ItemAxe.ATTACK_DAMAGES = attackDamages;
+        }  
+        
+        if (ItemAxe.ATTACK_SPEEDS.length - 1 < index)
+        {
+            float[] attackSpeeds = new float[index + 1];
+            System.arraycopy(ItemAxe.ATTACK_SPEEDS, 0, attackSpeeds, 0, ItemAxe.ATTACK_SPEEDS.length);
+            ItemAxe.ATTACK_SPEEDS = attackSpeeds;
+        }
+        
+        //Update the values associated with this material
+        ItemAxe.ATTACK_DAMAGES[index] = damage;
+        ItemAxe.ATTACK_SPEEDS[index] = damage;
+    }
+    
 }
