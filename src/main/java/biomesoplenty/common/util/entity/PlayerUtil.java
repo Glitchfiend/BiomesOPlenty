@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
 import net.minecraftforge.fml.relauncher.Side;
@@ -19,11 +20,13 @@ public class PlayerUtil
         return minecraft.getSession().getProfile().getId();
     }
     
-    public static EnumHand getHandForItem(EntityPlayer player, ItemStack stack)
+    public static EnumHand getHandForItemAndMeta(EntityPlayer player, Item item, int meta)
     {
         for (EnumHand hand : EnumHand.values())
         {
-            if (player.getHeldItem(hand).equals(stack))
+            ItemStack heldStack = player.getHeldItem(hand);
+            
+            if (heldStack != null && heldStack.getItem() == item && heldStack.getMetadata() == meta)
                 return hand;
         }
         

@@ -37,7 +37,7 @@ public class InventoryFlowerBasket extends InventoryBasic
         //Load only on the server
         ItemStack basketStack = ownerStack;
 
-        if (basketStack == null) basketStack = player.getHeldItem(PlayerUtil.getHandForItem(player, new ItemStack(BOPItems.flower_basket, 1, 0)));
+        if (basketStack == null) basketStack = player.getHeldItem(PlayerUtil.getHandForItemAndMeta(player, BOPItems.flower_basket, 0));
         else this.ownerStack = basketStack;
 
         NBTTagCompound invData = NBTUtil.getOrCreateStackNBT(basketStack);
