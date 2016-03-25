@@ -1,42 +1,36 @@
 {
-  "mob.pixie.hurt": {
-    "category": "neutral",
+  "entity.pixie.hurt": {
     "sounds": [
-      "mob/pixie/hurt"
+      "biomesoplenty:entity/pixie/hurt"
     ]
   },
-  "mob.pixie.say": {
-    "category": "neutral",
+  "entity.pixie.ambient": {
     "sounds": [
-      "mob/pixie/say"
+      "biomesoplenty:entity/pixie/ambient"
     ]
   },
-  "mob.wasp.hurt": {
-    "category": "hostile",
+  "entity.wasp.hurt": {
     "sounds": [
-      "mob/wasp/hurt"
+      "biomesoplenty:entity/wasp/hurt"
     ]
   },
-  "mob.wasp.say": {
-    "category": "hostile",
+  "entity.wasp.ambient": {
     "sounds": [
-      "mob/wasp/say"
+      "biomesoplenty:entity/wasp/ambient"
     ]
   },
   "records.wanderer": {
-    "category": "record",
     "sounds": [
       {
-        "name": "records/wanderer",
+        "name": "biomesoplenty:records/wanderer",
         "stream": true
       }
     ]
   },
   "records.corruption": {
-    "category": "record",
     "sounds": [
       {
-        "name": "records/corruption",
+        "name": "biomesoplenty:records/corruption",
         "stream": true
       }
     ]

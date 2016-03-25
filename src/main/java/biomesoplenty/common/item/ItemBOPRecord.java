@@ -11,13 +11,14 @@ package biomesoplenty.common.item;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemRecord;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 
 public class ItemBOPRecord extends ItemRecord
 {    
     
-    public ItemBOPRecord(String name)
+    public ItemBOPRecord(String name, SoundEvent record)
     {
-        super(name, SoundEvents.record_11);
+        super(name, record);
     }
     
     @Override

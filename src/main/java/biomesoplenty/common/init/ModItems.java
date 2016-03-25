@@ -97,6 +97,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.sound.BOPSounds;
 import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.item.ItemAmbrosia;
 import biomesoplenty.common.item.ItemBOPFood;
@@ -288,8 +289,8 @@ public class ModItems
         biome_finder = registerItem(new ItemBiomeFinder(), "biome_finder");
         enderporter = registerItem(new ItemEnderporter(), "enderporter");
         
-        record_wanderer = registerItem(new ItemBOPRecord("wanderer"), "record_wanderer");
-        record_corruption = registerItem(new ItemBOPRecord("corruption"), "record_corruption");
+        record_wanderer = registerItem(new ItemBOPRecord("wanderer", BOPSounds.records_wanderer), "record_wanderer");
+        record_corruption = registerItem(new ItemBOPRecord("corruption", BOPSounds.records_corruption), "record_corruption");
         
         // TODO: use Forge for eggs now?  https://github.com/MinecraftForge/MinecraftForge/commit/c158af902f2a689f612fd20427b5a1590fc2f1ba
         spawn_egg = registerItem(new ItemBOPSpawnEgg(), "spawn_egg");

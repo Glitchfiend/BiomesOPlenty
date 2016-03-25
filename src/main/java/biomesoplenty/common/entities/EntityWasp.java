@@ -13,6 +13,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+import biomesoplenty.api.sound.BOPSounds;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityFlying;
 import net.minecraft.entity.EntityLivingBase;
@@ -24,6 +25,7 @@ import net.minecraft.entity.ai.EntityMoveHelper.Action;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -54,6 +56,18 @@ public class EntityWasp extends EntityFlying implements IMob {
     {
         float f = (float)this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue();
         return target.attackEntityFrom(DamageSource.causeMobDamage(this), f);
+    }
+    
+    @Override
+    protected SoundEvent getAmbientSound()
+    {
+        return BOPSounds.wasp_ambient;
+    }
+    
+    @Override
+    protected SoundEvent getHurtSound()
+    {
+        return BOPSounds.wasp_hurt;
     }
     
     // Helper class representing a point in space that the wasp is targeting for some reason

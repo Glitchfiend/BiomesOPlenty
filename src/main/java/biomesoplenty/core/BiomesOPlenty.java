@@ -27,6 +27,7 @@ import biomesoplenty.common.init.ModGenerators;
 import biomesoplenty.common.init.ModHandlers;
 import biomesoplenty.common.init.ModItems;
 import biomesoplenty.common.init.ModPotions;
+import biomesoplenty.common.init.ModSounds;
 import biomesoplenty.common.init.ModVanillaCompat;
 import biomesoplenty.common.remote.TrailManager;
 import net.minecraftforge.fml.common.Mod;
@@ -65,6 +66,7 @@ public class BiomesOPlenty
         
         // setup blocks before items, because some items need to reference blocks in their constructors (eg seeds)
         ModBlocks.init();
+        ModSounds.init();
         ModEntities.init();
         ModItems.init();
         ModPotions.init();
