@@ -154,7 +154,6 @@ public class ModItems
     public static void init()
     {
         registerItems();
-        setupModels();
     }
     
     public static void registerItems()
@@ -295,14 +294,6 @@ public class ModItems
         // TODO: use Forge for eggs now?  https://github.com/MinecraftForge/MinecraftForge/commit/c158af902f2a689f612fd20427b5a1590fc2f1ba
         spawn_egg = registerItem(new ItemBOPSpawnEgg(), "spawn_egg");
         
-    }
-    
-    private static void setupModels()
-    {
-        if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
-        {
-            ModelBakery.registerItemVariants(flower_basket, new ResourceLocation(BiomesOPlenty.MOD_ID, "flower_basket_empty"), new ResourceLocation(BiomesOPlenty.MOD_ID, "flower_basket_full"));
-        }
     }
     
     public static Item registerItem(Item item, String name)

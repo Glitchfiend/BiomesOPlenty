@@ -9,25 +9,53 @@
 package biomesoplenty.common.item;
 
 import biomesoplenty.common.handler.GuiHandler;
+import biomesoplenty.common.inventory.InventoryFlowerBasket;
 import biomesoplenty.common.util.NBTUtil;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.IShearable;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemFlowerBasket extends Item
 {
     public ItemFlowerBasket()
     {
+        this.addPropertyOverride(new ResourceLocation("open"), new IItemPropertyGetter()
+        {
+            @Override
+            @SideOnly(Side.CLIENT)
+            public float apply(ItemStack stack, World world, EntityLivingBase entity) 
+            {
+                InventoryFlowerBasket inventory = new InventoryFlowerBasket(stack, null);
+                boolean filled = false;
+                
+                for (int index = 0; index < inventory.getSizeInventory(); ++index)
+                {
+                    if (inventory.getStackInSlot(index) != null)
+                    {
+                        filled = true;
+                        break;
+                    }
+                }
+                
+                return filled ? 1 : 0;
+            }  
+        });
+        
         this.maxStackSize = 1;
     }
 
