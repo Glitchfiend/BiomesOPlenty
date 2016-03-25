@@ -10,11 +10,14 @@ package biomesoplenty.common.item;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map.Entry;
 
+import biomesoplenty.api.item.IColoredItem;
 import biomesoplenty.common.init.ModEntities;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -40,7 +43,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemBOPSpawnEgg extends Item
+public class ItemBOPSpawnEgg extends Item implements IColoredItem
 {
     
     public ItemBOPSpawnEgg()
@@ -53,12 +56,9 @@ public class ItemBOPSpawnEgg extends Item
     @SideOnly(Side.CLIENT)
     public void getSubItems(Item itemIn, CreativeTabs tab, List subItems)
     {
-        Iterator iterator = ModEntities.entityEggs.values().iterator();
-
-        while (iterator.hasNext())
+        for (Entry<Integer, EntityList.EntityEggInfo> entry : ModEntities.entityEggs.entrySet())
         {
-            EntityList.EntityEggInfo entityegginfo = (EntityList.EntityEggInfo)iterator.next();
-            subItems.add(new ItemStack(itemIn, 1, EntityList.getIDFromString(entityegginfo.spawnedID)));
+            subItems.add(new ItemStack(itemIn, 1, entry.getKey()));
         }
     }
     
@@ -81,13 +81,27 @@ public class ItemBOPSpawnEgg extends Item
         return entity;
     }
     
-    // get the correct name for this item by looking up the meta value in the DartType enum
     @Override
     public String getUnlocalizedName(ItemStack stack)
     {
         int bopEntityId = stack.getMetadata();
         String entityName = ModEntities.idToBOPEntityName.get(bopEntityId);
         return super.getUnlocalizedName(stack)+"_"+entityName;
+    }
+    
+    @SideOnly(Side.CLIENT)
+    @Override
+    public IItemColor getItemColor()
+    {
+        return new IItemColor()
+        {
+            @Override
+            public int getColorFromItemstack(ItemStack stack, int tintIndex) 
+            {
+                EntityList.EntityEggInfo entityegginfo = ModEntities.entityEggs.get(Integer.valueOf(stack.getMetadata()));
+                return entityegginfo != null ? (tintIndex == 0 ? entityegginfo.primaryColor : entityegginfo.secondaryColor) : 16777215;
+            }
+        };
     }
 
     @Override

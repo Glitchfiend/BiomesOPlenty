@@ -8,11 +8,13 @@
 
 package biomesoplenty.core;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.api.item.IColoredItem;
 import biomesoplenty.api.particle.BOPParticleTypes;
 import biomesoplenty.client.particle.EntityPixieTrailFX;
 import biomesoplenty.client.particle.EntityTrailFX;
@@ -30,6 +32,8 @@ import biomesoplenty.common.entities.projectiles.EntityDart;
 import biomesoplenty.common.entities.projectiles.EntityMudball;
 import biomesoplenty.common.entities.projectiles.RenderDart;
 import biomesoplenty.common.entities.projectiles.RenderMudball;
+import biomesoplenty.common.util.inventory.CreativeTabBOP;
+
 import com.google.common.collect.Lists;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
@@ -48,6 +52,7 @@ import net.minecraft.client.resources.AbstractResourcePack;
 import net.minecraft.client.resources.IResourcePack;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
@@ -65,7 +70,8 @@ public class ClientProxy extends CommonProxy
     public static ResourceLocation particleTexturesLocation = new ResourceLocation("biomesoplenty:textures/particles/particles.png");
 
     private static List<Block> blocksToColour = Lists.newArrayList();
-
+    private static List<Item> itemsToColor = Lists.newArrayList();
+    
     @Override
     public void registerRenderers()
     {
@@ -89,11 +95,14 @@ public class ClientProxy extends CommonProxy
         for (Block block : blocksToColour)
         {
             IBOPBlock bopBlock = (IBOPBlock)block;
-            
-            if (bopBlock.getBlockColor() != null)
-                Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(bopBlock.getBlockColor(), block);
-            if (bopBlock.getItemColor() != null)
-                Minecraft.getMinecraft().getItemColors().registerItemColorHandler(bopBlock.getItemColor(), block);
+            if (bopBlock.getBlockColor() != null)Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(bopBlock.getBlockColor(), block);
+            if (bopBlock.getItemColor() != null) Minecraft.getMinecraft().getItemColors().registerItemColorHandler(bopBlock.getItemColor(), block);
+        }
+        
+        for (Item item : itemsToColor)
+        {
+            IColoredItem coloredItem = (IColoredItem)item;
+            Minecraft.getMinecraft().getItemColors().registerItemColorHandler(coloredItem.getItemColor(), item);
         }
     }
 
@@ -129,6 +138,35 @@ public class ClientProxy extends CommonProxy
             {
                 blocksToColour.add(block);
             }
+        }
+    }
+    
+    @Override
+    public void registerItemSided(Item item)
+    {
+        // register sub types if there are any
+        if (item.getHasSubtypes())
+        {
+            List<ItemStack> subItems = new ArrayList<ItemStack>();
+            item.getSubItems(item, CreativeTabBOP.instance, subItems);
+            for (ItemStack subItem : subItems)
+            {
+                String subItemName = item.getUnlocalizedName(subItem);
+                subItemName =  subItemName.substring(subItemName.indexOf(".") + 1); // remove 'item.' from the front
+
+                ModelBakery.registerItemVariants(item, new ResourceLocation(BiomesOPlenty.MOD_ID, subItemName));
+                ModelLoader.setCustomModelResourceLocation(item, subItem.getMetadata(), new ModelResourceLocation(BiomesOPlenty.MOD_ID + ":" + subItemName, "inventory"));
+            }
+        }
+        else
+        {
+            ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(BiomesOPlenty.MOD_ID + ":" + item.delegate.getResourceName().getResourcePath(), "inventory"));
+        }
+        
+        //Register colour handlers
+        if (item instanceof IColoredItem && ((IColoredItem)item).getItemColor() != null)
+        {
+            this.itemsToColor.add(item);
         }
     }
 

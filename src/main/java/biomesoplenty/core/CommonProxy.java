@@ -18,6 +18,7 @@ public class CommonProxy
     public void registerColouring() {}
     public void registerItemVariantModel(Item item, String name, int metadata) {}
     public void registerBlockSided(Block block) {}
+    public void registerItemSided(Item item) {}
     public void registerFluidBlockRendering(Block block, String name) {}
     public void spawnParticle(BOPParticleTypes type, double x, double y, double z, Object... info) {}
 }

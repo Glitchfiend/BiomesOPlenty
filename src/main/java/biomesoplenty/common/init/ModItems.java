@@ -318,28 +318,7 @@ public class ModItems
         }
         GameRegistry.registerItem(item,name);
         BOPCommand.itemCount++;
-        
-        // register sub types if there are any
-        if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
-        {
-            if (item.getHasSubtypes())
-            {
-                List<ItemStack> subItems = new ArrayList<ItemStack>();
-                item.getSubItems(item, CreativeTabBOP.instance, subItems);
-                for (ItemStack subItem : subItems)
-                {
-                    String subItemName = item.getUnlocalizedName(subItem);
-                    subItemName =  subItemName.substring(subItemName.indexOf(".") + 1); // remove 'item.' from the front
-
-                    ModelBakery.registerItemVariants(item, new ResourceLocation(BiomesOPlenty.MOD_ID, subItemName));
-                    ModelLoader.setCustomModelResourceLocation(item, subItem.getMetadata(), new ModelResourceLocation(BiomesOPlenty.MOD_ID + ":" + subItemName, "inventory"));
-                }
-            }
-            else
-            {
-                ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(BiomesOPlenty.MOD_ID + ":" + name, "inventory"));
-            }
-        }
+        BiomesOPlenty.proxy.registerItemSided(item);
         
         return item;   
     }
