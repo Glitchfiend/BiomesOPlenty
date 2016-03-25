@@ -9,6 +9,7 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.IBOPBlock;
+import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.item.ItemBOPLilypad;
 import net.minecraft.block.BlockLilyPad;
 import net.minecraft.block.SoundType;
@@ -22,8 +23,11 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.ColorizerFoliage;
+import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -65,7 +69,31 @@ public class BlockBOPLilypad extends BlockLilyPad implements IBOPBlock
         return "lily_"+type.getName();
     }
     @Override
-    public IBlockColor getBlockColor() { return null; }
+    @SideOnly(Side.CLIENT)
+    public IBlockColor getBlockColor()
+    {
+        return new IBlockColor()
+        {
+            @Override
+            public int colorMultiplier(IBlockState state, IBlockAccess world, BlockPos pos, int tintIndex)
+            {
+                if (tintIndex == 0)
+                {
+                    boolean inWorld = world != null && pos != null;
+                    
+                    switch ((LilypadType) state.getValue(VARIANT))
+                    {
+                        //Vanilla lilys have different colouring in the inventory and in the world. We just include
+                        //the differences in the texture itself for ours
+                        case FLOWER:
+                            return inWorld ? 2129968 : 7455580;
+                    }
+                }
+                
+                return 0xFFFFFF;
+            }
+        };
+    }
     @Override
     public IItemColor getItemColor() { return null; }
     
