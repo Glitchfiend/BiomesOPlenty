@@ -15,11 +15,17 @@ import biomesoplenty.common.entities.EntityButterfly;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.enums.BOPTrees;
+import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
+import biomesoplenty.common.world.feature.tree.GeneratorPalmTree;
+import biomesoplenty.common.world.feature.tree.GeneratorTaigaTree;
+import biomesoplenty.common.world.feature.tree.GeneratorTwigletTree;
 import net.minecraft.block.BlockFlower;
+import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.init.Blocks;
  
@@ -43,6 +49,12 @@ public class BiomeGenTropicalIsland extends BOPBiome
         this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
         
         clearWeights();
+        
+        // trees
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(25.0F);
+        this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
+        treeGenerator.add("palm", 4, (new GeneratorPalmTree.Builder()).log(BOPWoods.PALM).leaves(BOPTrees.PALM).create());
+        treeGenerator.add("jungle_twiglet", 2, (new GeneratorTwigletTree.Builder()).minHeight(2).maxHeight(2).log(BlockPlanks.EnumType.JUNGLE).leaves(BlockPlanks.EnumType.JUNGLE).create());
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(4.0F);
@@ -80,6 +92,15 @@ public class BiomeGenTropicalIsland extends BOPBiome
         
         if (!settings.generateBopPlants) {this.removeGenerator("cattail"); this.removeGenerator("double_cattail"); this.removeGenerator("river_cane"); this.removeGenerator("tiny_cacti"); this.removeGenerator("roots"); this.removeGenerator("rafflesia"); this.removeGenerator("desert_sprouts");}
     
+        GeneratorWeighted treeGen = (GeneratorWeighted)this.getGenerator("trees");
+        if (!settings.generateBopTrees) {this.removeGenerator("trees");
+        
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(25.0F);
+        this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
+        treeGenerator.add("palm", 4, (new GeneratorPalmTree.Builder()).log(BlockPlanks.EnumType.JUNGLE).leaves(BlockPlanks.EnumType.JUNGLE).create());
+        treeGenerator.add("jungle_twiglet", 2, (new GeneratorTwigletTree.Builder()).minHeight(2).maxHeight(2).log(BlockPlanks.EnumType.JUNGLE).leaves(BlockPlanks.EnumType.JUNGLE).create());
+        }
+        
         GeneratorWeighted flowerGen = (GeneratorWeighted)this.getGenerator("flowers");
         if (!settings.generateBopFlowers) {flowerGen.removeGenerator("bluebells"); flowerGen.removeGenerator("clover"); flowerGen.removeGenerator("swampflower"); flowerGen.removeGenerator("deathbloom"); flowerGen.removeGenerator("glowflower"); flowerGen.removeGenerator("blue_hydrangeas"); flowerGen.removeGenerator("pink_daffodil"); flowerGen.removeGenerator("white_anemones"); flowerGen.removeGenerator("orange_cosmos"); flowerGen.removeGenerator("wildflowers"); flowerGen.removeGenerator("violet"); flowerGen.removeGenerator("hibiscus"); flowerGen.removeGenerator("goldenrods"); flowerGen.removeGenerator("icy_irises"); flowerGen.removeGenerator("wilted_lily"); flowerGen.removeGenerator("lily_of_the_valley"); flowerGen.removeGenerator("bromeliad"); this.removeGenerator("bromeliad");}
         

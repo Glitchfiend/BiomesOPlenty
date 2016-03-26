@@ -18,6 +18,8 @@ import biomesoplenty.common.block.BlockBOPCoral;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.enums.BOPTrees;
+import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import biomesoplenty.common.world.BOPWorldSettings;
@@ -27,6 +29,9 @@ import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorLakes;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import biomesoplenty.common.world.feature.GeneratorWaterside;
+import biomesoplenty.common.world.feature.tree.GeneratorPalmTree;
+import biomesoplenty.common.world.feature.tree.GeneratorTwigletTree;
+import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -61,6 +66,11 @@ public class BiomeGenOasis extends BOPBiome
         
         // lakes
         this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(1.5F).waterLakeForBiome(this).create());
+        
+        // trees
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(10.0F);
+        this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
+        treeGenerator.add("palm", 4, (new GeneratorPalmTree.Builder()).log(BOPWoods.PALM).leaves(BOPTrees.PALM).create());
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(4.0F);
@@ -103,6 +113,14 @@ public class BiomeGenOasis extends BOPBiome
         if (!settings.generateBopPlants) {this.removeGenerator("cattail"); this.removeGenerator("double_cattail"); this.removeGenerator("river_cane"); this.removeGenerator("tiny_cacti"); this.removeGenerator("roots"); this.removeGenerator("rafflesia"); this.removeGenerator("desert_sprouts");}
     
         if (!settings.generateBopFlowers) {this.removeGenerator("bromeliad");}
+        
+        GeneratorWeighted treeGen = (GeneratorWeighted)this.getGenerator("trees");
+        if (!settings.generateBopTrees) {this.removeGenerator("trees");
+        
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(10.0F);
+        this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
+        treeGenerator.add("palm", 4, (new GeneratorPalmTree.Builder()).log(BlockPlanks.EnumType.JUNGLE).leaves(BlockPlanks.EnumType.JUNGLE).create());
+        }
         
         GeneratorWeighted grassGen = (GeneratorWeighted)this.getGenerator("grass");
         if (!settings.generateBopGrasses) {grassGen.removeGenerator("shortgrass"); grassGen.removeGenerator("mediumgrass"); grassGen.removeGenerator("wheatgrass"); grassGen.removeGenerator("dampgrass");this.removeGenerator("desertgrass");}

@@ -78,7 +78,7 @@ public class GeneratorPalmTree extends GeneratorTreeBase
         // Move up to space above ground
         pos = pos.up();
         
-        if (!this.checkSpace(world, pos, height, leavesRadius))
+        if (!this.checkSpace(world, pos, height, 1))
         {
             // Abandon if there isn't enough room
             return false;
@@ -89,7 +89,7 @@ public class GeneratorPalmTree extends GeneratorTreeBase
         // Generate trunk of tree (trunk only)
         for(int step = 0; step <= heightMinusTop; step++)
         {
-            BlockPos offsetPos = pos.up(step).offset(direction, MathHelper.floor_double(slantOffset));
+        	BlockPos offsetPos = pos.up(step).offset(direction, (int)Math.floor(slantOffset));
             
             if (step == heightMinusTop)
             {
