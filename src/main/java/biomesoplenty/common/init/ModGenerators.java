@@ -35,6 +35,7 @@ import biomesoplenty.common.world.feature.tree.GeneratorBulbTree;
 import biomesoplenty.common.world.feature.tree.GeneratorBush;
 import biomesoplenty.common.world.feature.tree.GeneratorMahoganyTree;
 import biomesoplenty.common.world.feature.tree.GeneratorMegaJungleTree;
+import biomesoplenty.common.world.feature.tree.GeneratorPalmTree;
 import biomesoplenty.common.world.feature.tree.GeneratorPineTree;
 import biomesoplenty.common.world.feature.tree.GeneratorProfileTree;
 import biomesoplenty.common.world.feature.tree.GeneratorRedwoodTree;
@@ -75,5 +76,6 @@ public class ModGenerators
         registerGenerator("spike", GeneratorSpike.class, new GeneratorSpike.Builder());
         registerGenerator("redwood_tree", GeneratorRedwoodTree.class, new GeneratorRedwoodTree.Builder());
         registerGenerator("mahogany_tree", GeneratorMahoganyTree.class, new GeneratorMahoganyTree.Builder());
+        registerGenerator("palm_tree", GeneratorPalmTree.class, new GeneratorPalmTree.Builder());
     }
 }
