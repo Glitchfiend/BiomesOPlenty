@@ -89,7 +89,7 @@ public class GeneratorPalmTree extends GeneratorTreeBase
         // Generate trunk of tree (trunk only)
         for(int step = 0; step <= heightMinusTop; step++)
         {
-        	BlockPos offsetPos = pos.up(step).offset(direction, (int)Math.floor(slantOffset));
+        	BlockPos offsetPos = pos.up(step).offset(direction, (int)Math.round(slantOffset));
             
             if (step == heightMinusTop)
             {

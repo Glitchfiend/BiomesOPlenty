@@ -21,6 +21,7 @@ import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
+import biomesoplenty.common.world.feature.GeneratorWaterside;
 import biomesoplenty.common.world.feature.tree.GeneratorPalmTree;
 import biomesoplenty.common.world.feature.tree.GeneratorTaigaTree;
 import biomesoplenty.common.world.feature.tree.GeneratorTwigletTree;
@@ -36,7 +37,7 @@ public class BiomeGenTropicalIsland extends BOPBiome
         super("tropical_island", new PropsBuilder("Tropical Island").withTemperature(1.0F).withRainfall(1.0F).withGuiColour(2211330));
 
         // terrain
-        this.terrainSettings.avgHeight(70).heightVariation(5, 35).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.0D);
+        this.terrainSettings.avgHeight(64).heightVariation(5, 40).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.2D);
     
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
@@ -49,6 +50,9 @@ public class BiomeGenTropicalIsland extends BOPBiome
         this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
         
         clearWeights();
+        
+        // sand
+        this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(10).maxRadius(7).with(Blocks.sand.getDefaultState()).create());
         
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(25.0F);
