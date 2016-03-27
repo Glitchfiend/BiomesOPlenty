@@ -1,7 +1,19 @@
 {
     "variants": {
-        "variant=dunegrass": { "model": "biomesoplenty:dunegrass" },
-        "variant=spectralfern": { "model": "biomesoplenty:spectralfern" },
+		"variant=leafpile": [
+            { "model": "biomesoplenty:leafpile" },
+            { "model": "biomesoplenty:leafpile", "y": 90 },
+            { "model": "biomesoplenty:leafpile", "y": 180 },
+            { "model": "biomesoplenty:leafpile", "y": 270 }
+        	],
+
+        "variant=deadleafpile": [
+            { "model": "biomesoplenty:deadleafpile" },
+            { "model": "biomesoplenty:deadleafpile", "y": 90 },
+            { "model": "biomesoplenty:deadleafpile", "y": 180 },
+            { "model": "biomesoplenty:deadleafpile", "y": 270 }
+        	],
+			
         "variant=thorn": { "model": "biomesoplenty:thorn" },
         "variant=wildrice": { "model": "biomesoplenty:wildrice" },
         "variant=cattail": { "model": "biomesoplenty:cattail" },
