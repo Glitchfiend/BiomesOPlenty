@@ -477,14 +477,15 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         registerBiomeToDictionary(BOPBiomes.mountain, Type.MOUNTAIN, Type.FOREST, Type.DRY, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.mystic_grove, Type.MAGICAL, Type.FOREST, Type.LUSH, Type.WET, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.ominous_woods, Type.MAGICAL, Type.FOREST, Type.SPOOKY, Type.DEAD, Type.WET, Type.DENSE);
+        registerBiomeToDictionary(BOPBiomes.orchard, Type.FOREST, Type.PLAINS, Type.DENSE, Type.LUSH);
         registerBiomeToDictionary(BOPBiomes.outback, Type.SANDY, Type.SAVANNA, Type.HOT, Type.DRY, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.overgrown_cliffs, Type.MOUNTAIN, Type.HILLS, Type.LUSH, Type.JUNGLE, Type.WET, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.prairie, Type.PLAINS, Type.DRY, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.quagmire, Type.SWAMP, Type.DEAD, Type.WASTELAND, Type.WET);
         registerBiomeToDictionary(BOPBiomes.rainforest, Type.JUNGLE, Type.FOREST, Type.LUSH, Type.HILLS, Type.WET, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.redwood_forest, Type.FOREST, Type.DENSE);
-        registerBiomeToDictionary(BOPBiomes.seasonal_forest, Type.FOREST, Type.COLD, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.sacred_springs, Type.MAGICAL, Type.FOREST, Type.JUNGLE, Type.LUSH, Type.WET, Type.DENSE);
+        registerBiomeToDictionary(BOPBiomes.seasonal_forest, Type.FOREST, Type.COLD, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.shield, Type.FOREST, Type.COLD, Type.WET, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.shrubland, Type.PLAINS, Type.DRY, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.snowy_coniferous_forest, Type.FOREST, Type.CONIFEROUS, Type.SNOWY, Type.COLD, Type.DENSE);
@@ -505,6 +506,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         registerBiomeToDictionary(BOPBiomes.coral_reef, Type.WATER, Type.OCEAN);
         registerBiomeToDictionary(BOPBiomes.kelp_forest, Type.WATER, Type.OCEAN);
         registerBiomeToDictionary(BOPBiomes.mangrove, Type.WATER, Type.OCEAN, Type.FOREST, Type.LUSH, Type.WET, Type.DENSE);
+        //Origin Island not tagged purposely
         registerBiomeToDictionary(BOPBiomes.tropical_island, Type.WATER, Type.OCEAN, Type.JUNGLE, Type.LUSH, Type.WET, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.volcanic_island, Type.WATER, Type.OCEAN, Type.DEAD, Type.WASTELAND, Type.MOUNTAIN, Type.HOT, Type.DRY);
         registerBiomeToDictionary(BOPBiomes.flower_island, Type.WATER, Type.OCEAN, Type.PLAINS, Type.LUSH, Type.DENSE, Type.MAGICAL);
