@@ -29,17 +29,26 @@ configFile.withReader {
 }
 
 group = "com.github.glitchfiend.biomesoplenty"
+// why set the version twice?
 version = config.mod_version
 archivesBaseName = "BiomesOPlenty"
 
-minecraft {
-    version = config.minecraft_version + "-" + config.forge_version // grab latest forge
-	useDepAts = true
-    mappings = project.config.mappings_version
-}
-
 // add some stuff to the version
 version = "${config.minecraft_version}-${config.mod_version}.${System.getenv().BUILD_NUMBER}"
+// set this for the version.properties file, or was this broken on purpose?
+config.build_number = (System.getenv().BUILD_NUMBER) ? System.getenv().BUILD_NUMBER : ""
+
+minecraft {
+    version = config.minecraft_version + "-" + config.forge_version // grab latest forge
+    useDepAts = true
+    mappings = project.config.mappings_version
+    //gradle complains if this isn't set when setting up/using IDEA workspace
+    runDir = "run"
+    //set a full version string with appended build number to be used in mod registration
+    def buildnum = (config.build_number!="") ? '.' + config.build_number : ""
+    replace '@MOD_VERSION@', config.mod_version + buildnum
+    replaceIn 'BiomesOPlenty.java'
+}
 
 def commonManifest = {
     attributes 'FMLAT': 'biomesoplenty_at.cfg'
