@@ -472,12 +472,8 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
                     {
                         berries.onCollideWithPlayer(playerIn);
                     }
-                    return true;
                 }
-                break;
-                
-            default:
-                break;
+                return true;
         }
         return super.onBlockActivated(worldIn, pos, state, playerIn, hand, heldItem, side, hitX, hitY, hitZ);
     }
