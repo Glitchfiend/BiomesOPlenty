@@ -38,13 +38,13 @@ import static biomesoplenty.api.block.BlockQueries.sustainsCave;
 import static biomesoplenty.api.block.BlockQueries.sustainsNether;
 import static biomesoplenty.api.block.BlockQueries.underwater;
 import static biomesoplenty.api.block.BlockQueries.waterCovered;
-
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryState;
 import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
+import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
@@ -161,7 +161,7 @@ public class ModBlockQueries
             // reed needs the ground block to be water, but the block below that to NOT be water
             @Override public boolean matches(World world, BlockPos pos) {
                 BlockPos groundPos = pos.down();
-                return world.getBlockState(pos).getBlock() == Blocks.water && 
+                return (world.getBlockState(pos).getMaterial() == Material.water && ((Integer)world.getBlockState(pos).getValue(BlockLiquid.LEVEL)).intValue() == 0 || world.getBlockState(pos).getMaterial() == Material.ice) && 
                         (world.getBlockState(groundPos).getBlock() != Blocks.water && world.getBlockState(groundPos).isSideSolid(world, groundPos, EnumFacing.UP));
             }
         }).withLightAboveAtLeast(8).create();
