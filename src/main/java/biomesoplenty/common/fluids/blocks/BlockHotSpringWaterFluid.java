@@ -18,7 +18,9 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
@@ -27,7 +29,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockHotSpringWaterFluid extends BlockFluidClassic
 {
-
     public BlockHotSpringWaterFluid(Fluid fluid)
     {
         super(fluid, Material.water);
@@ -53,4 +54,15 @@ public class BlockHotSpringWaterFluid extends BlockFluidClassic
         }
     }
 
+    @Override
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
+    {
+        return FULL_BLOCK_AABB;
+    }
+
+    @Override
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World worldIn, BlockPos pos)
+    {
+        return NULL_AABB;
+    }
 }
