@@ -87,6 +87,7 @@ import net.minecraft.item.ItemBucket;
 import net.minecraft.item.ItemDoor;
 import net.minecraft.item.ItemSlab;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.ColorizerGrass;
@@ -97,6 +98,7 @@ import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fml.common.registry.GameData;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -322,9 +324,9 @@ public class ModBlocks
     }
 
     
-    public static Block registerFluidBlock(Fluid fluid, BlockFluidBase fluidBlock, String name)
+    public static Block registerFluidBlock(Fluid fluid, Block fluidBlock, String name)
     {
-        Block block = GameRegistry.registerBlock(fluidBlock, null, name);
+        Block block = GameRegistry.register(fluidBlock, new ResourceLocation(BiomesOPlenty.MOD_ID, name));
         BiomesOPlenty.proxy.registerFluidBlockRendering(block, name);
         fluid.setBlock(fluidBlock);
         return block;
@@ -365,8 +367,8 @@ public class ModBlocks
         {
             // if this block supports the IBOPBlock interface then we can determine the item block class, and sub-blocks automatically
             IBOPBlock bopBlock = (IBOPBlock)block;
-            GameRegistry.registerBlock(block, bopBlock.getItemClass(), blockName);
-            
+
+            registerBlockWithItem(block, blockName, bopBlock.getItemClass());
             BiomesOPlenty.proxy.registerBlockSided(block);
             
             // check for missing default states
@@ -398,11 +400,27 @@ public class ModBlocks
         else
         {
             // for vanilla blocks, just register a single variant with meta=0 and assume ItemBlock for the item class
-            GameRegistry.registerBlock(block, ItemBlock.class , blockName);
+            registerBlockWithItem(block, blockName, ItemBlock.class);
             registerBlockVariant(block, blockName, 0);
         }
 
         return block;
+    }
+    
+    private static void registerBlockWithItem(Block block, String blockName, Class<? extends ItemBlock> clazz)
+    {
+        try
+        {
+            Item itemBlock = clazz != null ? (Item)clazz.getConstructor(Block.class).newInstance(block) : null;
+            ResourceLocation location = new ResourceLocation(BiomesOPlenty.MOD_ID, blockName);
+
+            GameRegistry.register(block, location);
+            if (itemBlock != null) GameRegistry.register(itemBlock, location);
+        }
+        catch (Exception e)
+        {
+            throw new RuntimeException("An error occurred associating an item block during registration...");
+        }
     }
     
 }

@@ -310,7 +310,8 @@ public class ModItems
         {
             item.setCreativeTab(CreativeTabBOP.instance);
         }
-        GameRegistry.registerItem(item,name);
+
+        GameRegistry.register(item, new ResourceLocation(BiomesOPlenty.MOD_ID, name));
         BOPCommand.itemCount++;
         BiomesOPlenty.proxy.registerItemSided(item);
         

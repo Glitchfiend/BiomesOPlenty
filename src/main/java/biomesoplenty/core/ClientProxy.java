@@ -160,7 +160,7 @@ public class ClientProxy extends CommonProxy
         }
         else
         {
-            ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(BiomesOPlenty.MOD_ID + ":" + item.delegate.getResourceName().getResourcePath(), "inventory"));
+            ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(BiomesOPlenty.MOD_ID + ":" + item.delegate.name().getResourcePath(), "inventory"));
         }
         
         //Register colour handlers

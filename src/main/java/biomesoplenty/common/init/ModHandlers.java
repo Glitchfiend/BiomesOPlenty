@@ -42,7 +42,7 @@ public class ModHandlers
         MinecraftForge.EVENT_BUS.register(new PotionPossessionEventHandler());
         MinecraftForge.EVENT_BUS.register(new ItemEventHandler());
         MinecraftForge.EVENT_BUS.register(new UseHoeEventHandler());
-        FMLCommonHandler.instance().bus().register(new AchievementEventHandler());
+        MinecraftForge.EVENT_BUS.register(new AchievementEventHandler());
         
         if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
         {
@@ -54,6 +54,6 @@ public class ModHandlers
     private static void registerClientEvents()
     {
         MinecraftForge.EVENT_BUS.register(new GuiEventHandler());
-        FMLCommonHandler.instance().bus().register(new TrailsEventHandler());
+        MinecraftForge.EVENT_BUS.register(new TrailsEventHandler());
     }
 }
