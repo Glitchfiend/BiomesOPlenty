@@ -11,6 +11,8 @@ package biomesoplenty.common.block;
 import java.util.List;
 import java.util.Random;
 
+import com.google.common.collect.Lists;
+
 import biomesoplenty.api.block.BOPBlocks.Coloring;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.item.BOPItems;
@@ -223,6 +225,20 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     {
         BOPTrees treeType = ((BOPTrees) state.getValue(this.variantProperty));
         return treeType.hasSapling() ? BlockBOPSapling.paging.getVariantItem(treeType).getItemDamage() : 0;
+    }
+    
+    @Override
+    public java.util.List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
+    {
+        BOPTrees treeType = ((BOPTrees) state.getValue(this.variantProperty));
+        
+        if (treeType.hasSapling())
+        {
+            return super.getDrops(world, pos, state, fortune);
+        }
+        
+        //Tree types without saplings shouldn't drop apples either
+        return Lists.newArrayList();
     }
     
     // TODO: different fruits for different trees?
