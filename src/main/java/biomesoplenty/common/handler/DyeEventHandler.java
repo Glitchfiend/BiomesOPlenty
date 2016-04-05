@@ -15,14 +15,14 @@ import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.event.entity.player.EntityInteractEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class DyeEventHandler
 {
     @SubscribeEvent
-    public void entityInteract(EntityInteractEvent event)
+    public void entityInteract(PlayerInteractEvent.EntityInteract event)
     {
         ItemStack stack = event.getEntityPlayer().getHeldItem(event.getHand());
         if (stack == null) {return;}
