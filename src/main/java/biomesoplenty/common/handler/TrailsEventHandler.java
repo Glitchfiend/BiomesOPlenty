@@ -37,7 +37,7 @@ public class TrailsEventHandler
 			EntityPlayer player = (EntityPlayer)event.player;
 			
 			//Check if the player has a trail
-			if (TrailManager.trailsMap.containsKey(player.getUniqueID()))
+			if (minecraft.thePlayer != null && TrailManager.trailsMap.containsKey(player.getUniqueID()))
 			{
 			    //Don't display if the local player's trail if they have the visibility set to others
 			    if (MiscConfigurationHandler.trailVisbilityMode == TrailVisibilityMode.OTHERS && minecraft.thePlayer.getUniqueID() == player.getUniqueID())
