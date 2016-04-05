@@ -11,6 +11,7 @@ package biomesoplenty.common.block;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.item.ItemBOPBlock;
+import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
@@ -21,6 +22,8 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 // TODO: mushroom spreading? giant mushrooms with bonemeal? mushrooms popping if too bright?
 public class BlockBOPMushroom extends BlockBOPDecoration
@@ -122,6 +125,13 @@ public class BlockBOPMushroom extends BlockBOPDecoration
             default:
                 return BlockQueries.fertile.matches(world, pos.down());
         }
+    }
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public Block.EnumOffsetType getOffsetType()
+    {
+        return Block.EnumOffsetType.NONE;
     }
 
 }
