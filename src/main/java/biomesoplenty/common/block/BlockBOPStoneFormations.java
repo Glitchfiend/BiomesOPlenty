@@ -17,6 +17,7 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -27,7 +28,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.block.IBOPBlock;
-import biomesoplenty.common.block.BlockBOPMushroom.MushroomType;
 import biomesoplenty.common.item.ItemBOPBlock;
 
 public class BlockBOPStoneFormations extends BlockBOPDecoration implements IBOPBlock
@@ -97,18 +97,25 @@ public class BlockBOPStoneFormations extends BlockBOPDecoration implements IBOPB
     {
         boolean formationAbove = (worldIn.getBlockState(pos.up()).getBlock() == this);
         boolean formationBelow = (worldIn.getBlockState(pos.down()).getBlock() == this);
-        boolean groundBelow = (worldIn.getBlockState(pos.down()).getMaterial() != Material.air && worldIn.getBlockState(pos.down()).getBlock() != this);
-        boolean groundAbove = (worldIn.getBlockState(pos.up()).getMaterial() != Material.air && worldIn.getBlockState(pos.up()).getBlock() != this);
+        
+        boolean groundAbove = (worldIn.getBlockState(pos.up()).getBlock() == Blocks.stone.getDefaultState());
+        boolean groundBelow = (worldIn.getBlockState(pos.down()).getBlock() == Blocks.stone.getDefaultState());
+        
         FormationPosition position;
-        if (groundAbove && groundBelow) {position = FormationPosition.STAL_SINGLE;}
-        else if (!formationAbove && groundBelow) {position = FormationPosition.STALAGMITE_SMALL;}
-        else if (formationAbove && groundBelow) {position = FormationPosition.STALAGMITE_MEDIUM;}
-        else if (!formationBelow && groundAbove) {position = FormationPosition.STALACTITE_SMALL;}
-        else if (formationBelow && groundAbove) {position = FormationPosition.STALACTITE_MEDIUM;}
-        else if (formationAbove && formationBelow) {position = FormationPosition.STAL_CONNECTOR;}
-        else if (formationAbove && !formationBelow) {position = FormationPosition.STALACTITE_BOTTOM;}
-        else if (formationBelow && !formationAbove) {position = FormationPosition.STALAGMITE_TOP;}
-        else {position = FormationPosition.STALAGMITE_SMALL;}
+        position = FormationPosition.STALAGMITE_SMALL;
+        
+        if (groundAbove && groundBelow && !formationAbove && !formationBelow) {position = FormationPosition.STAL_SINGLE;}
+        if (!groundAbove && !groundBelow && formationAbove && formationBelow) {position = FormationPosition.STAL_CONNECTOR;}
+        
+        if (!groundAbove && groundBelow && !formationAbove && !formationBelow) {position = FormationPosition.STALAGMITE_SMALL;}
+        if (!groundAbove && groundBelow && formationAbove && !formationBelow) {position = FormationPosition.STALAGMITE_MEDIUM;}
+        
+        if (groundAbove && !groundBelow && !formationAbove && !formationBelow) {position = FormationPosition.STALACTITE_SMALL;}
+        if (groundAbove && !groundBelow && !formationAbove && formationBelow) {position = FormationPosition.STALACTITE_MEDIUM;}
+        
+        if (!groundAbove && !groundBelow && !formationAbove && formationBelow) {position = FormationPosition.STALAGMITE_TOP;}
+        if (!groundAbove && !groundBelow && formationAbove && !formationBelow) {position = FormationPosition.STALACTITE_BOTTOM;}
+        
         return state.withProperty(POSITION, position);
     }
     
@@ -145,7 +152,7 @@ public class BlockBOPStoneFormations extends BlockBOPDecoration implements IBOPB
     @Override
     public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
     {        
-    	return (BlockQueries.sustainsCave.matches(world, pos.down()) || world.getBlockState(pos.down()) == state) || (BlockQueries.sustainsCave.matches(world, pos.up()) || world.getBlockState(pos.up()) == state);
+    	return (world.getBlockState(pos.down()).getBlock() == Blocks.stone.getDefaultState()) || (world.getBlockState(pos.down()) == state) || (world.getBlockState(pos.up()).getBlock() == Blocks.stone.getDefaultState()) || (world.getBlockState(pos.up()) == state);
     }
     
     @Override

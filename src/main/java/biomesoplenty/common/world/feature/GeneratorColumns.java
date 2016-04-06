@@ -19,6 +19,7 @@ import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -30,10 +31,12 @@ public class GeneratorColumns extends GeneratorReplacing
         protected int minHeight;
         protected int maxHeight;
         protected int generationAttempts;
+        protected boolean randomDirection;
         
         public Builder minHeight(int a) {this.minHeight = a; return this.self();}
         public Builder maxHeight(int a) {this.maxHeight = a; return this.self();}
         public Builder generationAttempts(int a) {this.generationAttempts = a; return this.self();}
+        public Builder randomDirection(boolean a) {this.randomDirection = a; return this.self();}
         
         public Builder()
         {
@@ -46,25 +49,28 @@ public class GeneratorColumns extends GeneratorReplacing
             this.minHeight = 2;
             this.maxHeight = 4;
             this.generationAttempts = 12;
+            this.randomDirection = false;
         }
 
         @Override
         public GeneratorColumns create()
         {
-            return new GeneratorColumns(this.amountPerChunk, this.placeOn, this.replace, this.with, this.scatterYMethod, this.minHeight, this.maxHeight, this.generationAttempts);
+            return new GeneratorColumns(this.amountPerChunk, this.placeOn, this.replace, this.with, this.scatterYMethod, this.minHeight, this.maxHeight, this.generationAttempts, this.randomDirection);
         }
     }
     
     protected int minHeight;
     protected int maxHeight;
     protected int generationAttempts;
+    protected boolean randomDirection;
 
-    public GeneratorColumns(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState with, ScatterYMethod scatterYMethod, int minHeight, int maxHeight, int generationAttempts)
+    public GeneratorColumns(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState with, ScatterYMethod scatterYMethod, int minHeight, int maxHeight, int generationAttempts, boolean randomDirection)
     {
         super(amountPerChunk, placeOn, replace, with, scatterYMethod);
         this.minHeight = minHeight;
         this.maxHeight = maxHeight;
         this.generationAttempts = generationAttempts;
+        this.randomDirection = randomDirection;
     }
 
     @Override
@@ -74,18 +80,58 @@ public class GeneratorColumns extends GeneratorReplacing
         {
             BlockPos genPos = pos.add(rand.nextInt(4) - rand.nextInt(4), rand.nextInt(3) - rand.nextInt(3), rand.nextInt(4) - rand.nextInt(4));
                 
-            // see if we can place the column
-            if (this.placeOn.matches(world, genPos.down()) && this.replace.matches(world, genPos))
+            if (this.randomDirection == true)
             {
-                // choose random target height
-                int targetHeight = GeneratorUtils.nextIntBetween(rand, this.minHeight, this.maxHeight);
-                
-                // keep placing blocks upwards (if there's room)
-                for (int height = targetHeight; height >= 0 && replace.matches(world, genPos); height--)
-                {
-                    world.setBlockState(genPos, this.with);
-                    genPos = genPos.up();
-                }
+            	int randDirection = rand.nextInt(1);
+            	
+            	if (randDirection == 0)
+            	{
+	            	// see if we can place the column
+		            if (this.placeOn.matches(world, genPos.down()) && this.replace.matches(world, genPos))
+		            {
+		                // choose random target height
+		                int targetHeight = GeneratorUtils.nextIntBetween(rand, this.minHeight, this.maxHeight);
+		                
+		                // keep placing blocks upwards (if there's room)
+		                for (int height = targetHeight; height >= 0 && replace.matches(world, genPos); height--)
+		                {
+		                    world.setBlockState(genPos, this.with);
+		                    genPos = genPos.up();
+		                }
+		            }
+            	}
+            	else
+            	{
+            		// see if we can place the column
+    	            if (this.placeOn.matches(world, genPos.up()) && this.replace.matches(world, genPos))
+    	            {
+    	                // choose random target height
+    	                int targetHeight = GeneratorUtils.nextIntBetween(rand, this.minHeight, this.maxHeight);
+    	                
+    	                // keep placing blocks upwards (if there's room)
+    	                for (int height = targetHeight; height >= 0 && replace.matches(world, genPos); height++)
+    	                {
+    	                    world.setBlockState(genPos, this.with);
+    	                    genPos = genPos.down();
+    	                }
+    	            }
+            	}
+            }
+            else
+            {
+            	// see if we can place the column
+	            if (this.placeOn.matches(world, genPos.down()) && this.replace.matches(world, genPos))
+	            {
+	                // choose random target height
+	                int targetHeight = GeneratorUtils.nextIntBetween(rand, this.minHeight, this.maxHeight);
+	                
+	                // keep placing blocks upwards (if there's room)
+	                for (int height = targetHeight; height >= 0 && replace.matches(world, genPos); height--)
+	                {
+	                    world.setBlockState(genPos, this.with);
+	                    genPos = genPos.up();
+	                }
+	            }
             }
         }
         return true;
@@ -99,6 +145,7 @@ public class GeneratorColumns extends GeneratorReplacing
         this.minHeight = conf.getInt("minHeight", this.minHeight);
         this.maxHeight = conf.getInt("maxHeight", this.maxHeight);
         this.generationAttempts = conf.getInt("generationAttempts", this.generationAttempts);
+        this.randomDirection = conf.getBool("randomDirection", this.randomDirection);
         this.placeOn = conf.getBlockPosQuery("placeOn", this.placeOn);
     }
     

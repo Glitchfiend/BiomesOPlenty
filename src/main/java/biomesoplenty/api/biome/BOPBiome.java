@@ -20,14 +20,17 @@ import java.util.Random;
 import biomesoplenty.api.biome.generation.GenerationManager;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.IGenerator;
+import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.init.ModBiomes;
 import biomesoplenty.common.util.biome.BiomeUtils;
+import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.config.BOPConfig;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.TerrainSettings;
+import biomesoplenty.common.world.feature.GeneratorColumns;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.block.BlockSand;
@@ -83,6 +86,7 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         
         // roots
         this.addGenerator("roots", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(4.0F).with(BOPPlants.ROOT).create());
+        this.addGenerator("stone_formations", GeneratorStage.FLOWERS,(new GeneratorColumns.Builder()).amountPerChunk(30.0F).generationAttempts(32).placeOn(Blocks.stone).with(BOPBlocks.stone_formations.getDefaultState()).scatterYMethod(ScatterYMethod.BELOW_GROUND).minHeight(1).maxHeight(7).randomDirection(true).create());
     }
     
     public BOPBiome(String idName, PropsBuilder defaultBuilder)
