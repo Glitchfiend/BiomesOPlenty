@@ -30,7 +30,7 @@ public class GeneratorPalmTree extends GeneratorTreeBase
         {
             this.amountPerChunk = 1.0F;
             this.minHeight = 10;
-            this.maxHeight = 12;
+            this.maxHeight = 14;
             this.placeOn = BlockQueries.fertile;
             this.replace = BlockQueries.replaceable;
             this.log = Blocks.log.getDefaultState();
@@ -69,9 +69,16 @@ public class GeneratorPalmTree extends GeneratorTreeBase
         int height = GeneratorUtils.nextIntBetween(random, this.minHeight, this.maxHeight);
         int leavesRadius = 2;
         int heightMinusTop = height - leavesRadius;
+        boolean slant = true;
         EnumFacing direction = EnumFacing.random(random); //The direction the palm tree curves towards
+        if (direction == EnumFacing.DOWN || direction == EnumFacing.UP)
+        {
+        	slant = false;
+        }
         double baseSlant = random.nextInt(35) / 100D; 
         double slantMultiplier = 1.3D;
+        
+        System.out.println("Slant" + baseSlant);
         
         if (height < 8) {return false;} //Prevent trees from being too small 
         
@@ -89,7 +96,12 @@ public class GeneratorPalmTree extends GeneratorTreeBase
         // Generate trunk of tree (trunk only)
         for(int step = 0; step <= heightMinusTop; step++)
         {
-        	BlockPos offsetPos = pos.up(step).offset(direction, (int)Math.round(slantOffset));
+        	BlockPos offsetPos = pos.up(step);
+        	
+        	if (slant == true)
+        	{
+        		offsetPos = pos.up(step).offset(direction, (int)Math.floor(slantOffset));
+        	}
             
             if (step == heightMinusTop)
             {

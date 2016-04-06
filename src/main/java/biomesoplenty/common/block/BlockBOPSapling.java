@@ -204,7 +204,7 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable {
             case MANGROVE: //Not implemented
                 return new WorldGenTrees(true);
             case PALM:
-                return new GeneratorPalmTree.Builder().log(BOPWoods.PALM).leaves(BOPTrees.PALM).create();
+                return new GeneratorPalmTree.Builder().log(BOPWoods.PALM).leaves(BlockBOPLeaves.paging.getVariantState(BOPTrees.PALM).withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).create();
             case REDWOOD:
                 return new GeneratorRedwoodTree.Builder().create();
             case WILLOW:
