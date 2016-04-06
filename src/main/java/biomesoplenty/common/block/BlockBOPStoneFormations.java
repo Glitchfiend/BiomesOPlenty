@@ -104,14 +104,38 @@ public class BlockBOPStoneFormations extends BlockBOPDecoration implements IBOPB
         FormationPosition position;
         position = FormationPosition.STALAGMITE_SMALL;
         
-        if (groundAbove && groundBelow && !formationAbove && !formationBelow) {position = FormationPosition.STAL_SINGLE;}
-        if (!groundAbove && !groundBelow && formationAbove && formationBelow) {position = FormationPosition.STAL_CONNECTOR;}
-        if (!groundAbove && groundBelow && !formationAbove && !formationBelow) {position = FormationPosition.STALAGMITE_SMALL;}
-        if (!groundAbove && groundBelow && formationAbove && !formationBelow) {position = FormationPosition.STALAGMITE_MEDIUM;}
-        if (groundAbove && !groundBelow && !formationAbove && !formationBelow) {position = FormationPosition.STALACTITE_SMALL;}
-        if (groundAbove && !groundBelow && !formationAbove && formationBelow) {position = FormationPosition.STALACTITE_MEDIUM;}
-        if (!groundAbove && !groundBelow && !formationAbove && formationBelow) {position = FormationPosition.STALAGMITE_TOP;}
-        if (!groundAbove && !groundBelow && formationAbove && !formationBelow) {position = FormationPosition.STALACTITE_BOTTOM;}
+        if (groundAbove && !formationAbove)
+        {
+            if (groundBelow && !formationBelow)
+            {
+                position = FormationPosition.STAL_SINGLE;
+            }
+            else if (!groundBelow)
+            {
+                if (formationBelow) position = FormationPosition.STALACTITE_MEDIUM;
+                else position = FormationPosition.STALACTITE_SMALL;
+            }
+        }
+        else if (!groundAbove)
+        {
+            if (!groundBelow)
+            {
+                if (formationAbove)
+                {
+                    if (formationBelow) {position = FormationPosition.STAL_CONNECTOR;}
+                    else {position = FormationPosition.STALACTITE_BOTTOM;}
+                }
+                else if (formationBelow)
+                {
+                    position = FormationPosition.STALAGMITE_TOP;
+                }
+            }
+            else
+            {
+                if (!formationAbove && !formationBelow) {position = FormationPosition.STALAGMITE_SMALL;}
+                else if (formationAbove && !formationBelow) {position = FormationPosition.STALAGMITE_MEDIUM;}
+            }
+        }
         
         return state.withProperty(POSITION, position);
     }
