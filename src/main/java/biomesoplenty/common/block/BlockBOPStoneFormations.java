@@ -98,21 +98,18 @@ public class BlockBOPStoneFormations extends BlockBOPDecoration implements IBOPB
         boolean formationAbove = (worldIn.getBlockState(pos.up()).getBlock() == this);
         boolean formationBelow = (worldIn.getBlockState(pos.down()).getBlock() == this);
         
-        boolean groundAbove = (worldIn.getBlockState(pos.up()).getBlock() == Blocks.stone.getDefaultState());
-        boolean groundBelow = (worldIn.getBlockState(pos.down()).getBlock() == Blocks.stone.getDefaultState());
+        boolean groundAbove = (worldIn.getBlockState(pos.up()).getBlock() == Blocks.stone);
+        boolean groundBelow = (worldIn.getBlockState(pos.down()).getBlock() == Blocks.stone);
         
         FormationPosition position;
         position = FormationPosition.STALAGMITE_SMALL;
         
         if (groundAbove && groundBelow && !formationAbove && !formationBelow) {position = FormationPosition.STAL_SINGLE;}
         if (!groundAbove && !groundBelow && formationAbove && formationBelow) {position = FormationPosition.STAL_CONNECTOR;}
-        
         if (!groundAbove && groundBelow && !formationAbove && !formationBelow) {position = FormationPosition.STALAGMITE_SMALL;}
         if (!groundAbove && groundBelow && formationAbove && !formationBelow) {position = FormationPosition.STALAGMITE_MEDIUM;}
-        
         if (groundAbove && !groundBelow && !formationAbove && !formationBelow) {position = FormationPosition.STALACTITE_SMALL;}
         if (groundAbove && !groundBelow && !formationAbove && formationBelow) {position = FormationPosition.STALACTITE_MEDIUM;}
-        
         if (!groundAbove && !groundBelow && !formationAbove && formationBelow) {position = FormationPosition.STALAGMITE_TOP;}
         if (!groundAbove && !groundBelow && formationAbove && !formationBelow) {position = FormationPosition.STALACTITE_BOTTOM;}
         
@@ -152,7 +149,7 @@ public class BlockBOPStoneFormations extends BlockBOPDecoration implements IBOPB
     @Override
     public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
     {        
-    	return (world.getBlockState(pos.down()).getBlock() == Blocks.stone.getDefaultState()) || (world.getBlockState(pos.down()) == state) || (world.getBlockState(pos.up()).getBlock() == Blocks.stone.getDefaultState()) || (world.getBlockState(pos.up()) == state);
+    	return world.getBlockState(pos.down()).getBlock() == Blocks.stone || world.getBlockState(pos.down()) == state || world.getBlockState(pos.up()).getBlock() == Blocks.stone || world.getBlockState(pos.up()) == state;
     }
     
     @Override

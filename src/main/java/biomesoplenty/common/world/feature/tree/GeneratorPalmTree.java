@@ -78,8 +78,6 @@ public class GeneratorPalmTree extends GeneratorTreeBase
         double baseSlant = random.nextInt(35) / 100D; 
         double slantMultiplier = 1.3D;
         
-        System.out.println("Slant" + baseSlant);
-        
         if (height < 8) {return false;} //Prevent trees from being too small 
         
         // Move up to space above ground
