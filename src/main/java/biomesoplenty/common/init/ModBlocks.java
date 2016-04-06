@@ -13,9 +13,26 @@ import static biomesoplenty.api.item.BOPItems.blood_bucket;
 import static biomesoplenty.api.item.BOPItems.honey_bucket;
 import static biomesoplenty.api.item.BOPItems.hot_spring_water_bucket;
 import static biomesoplenty.api.item.BOPItems.poison_bucket;
-
-import com.google.common.collect.ImmutableSet;
-
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockSlab;
+import net.minecraft.block.BlockStairs;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemBucket;
+import net.minecraft.item.ItemDoor;
+import net.minecraft.item.ItemSlab;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.EnumPlantType;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidContainerRegistry;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.block.BlockBOPAsh;
@@ -53,6 +70,7 @@ import biomesoplenty.common.block.BlockBOPSand;
 import biomesoplenty.common.block.BlockBOPSapling;
 import biomesoplenty.common.block.BlockBOPSeaweed;
 import biomesoplenty.common.block.BlockBOPStone;
+import biomesoplenty.common.block.BlockBOPStoneFormations;
 import biomesoplenty.common.block.BlockBOPTerrarium;
 import biomesoplenty.common.block.BlockBOPTurnip;
 import biomesoplenty.common.block.BlockBOPVine;
@@ -71,37 +89,8 @@ import biomesoplenty.common.util.BOPReflectionHelper;
 import biomesoplenty.common.util.block.BlockStateUtils;
 import biomesoplenty.common.util.inventory.CreativeTabBOP;
 import biomesoplenty.core.BiomesOPlenty;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockSlab;
-import net.minecraft.block.BlockStairs;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.renderer.color.IBlockColor;
-import net.minecraft.client.renderer.color.IItemColor;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemBucket;
-import net.minecraft.item.ItemDoor;
-import net.minecraft.item.ItemSlab;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ColorizerFoliage;
-import net.minecraft.world.ColorizerGrass;
-import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.biome.BiomeColorHelper;
-import net.minecraftforge.common.EnumPlantType;
-import net.minecraftforge.fluids.BlockFluidBase;
-import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidContainerRegistry;
-import net.minecraftforge.fluids.FluidRegistry;
-import net.minecraftforge.fml.common.registry.GameData;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+
+import com.google.common.collect.ImmutableSet;
 
 public class ModBlocks
 {
@@ -259,6 +248,8 @@ public class ModBlocks
         eucalyptus_door =       registerDoor( new BlockBOPDoor(BOPWoods.EUCALYPTUS), "eucalyptus_door", BOPItems.eucalyptus_door );
         
         // Plants
+        
+        stone_formations =                 registerBlock( new BlockBOPStoneFormations(), "stone_formations" );
         
         coral =                 registerBlock( new BlockBOPCoral(), "coral" );
         seaweed =               registerBlock( new BlockBOPSeaweed(), "seaweed" );

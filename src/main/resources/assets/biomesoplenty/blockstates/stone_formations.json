@@ -1,0 +1,13 @@
+{
+    "variants": {
+        "position=stal_single,variant=stone_formation":  { "model": "biomesoplenty:stal_single" },
+        "position=stal_connector,variant=stone_formation":  { "model": "biomesoplenty:stal_connector" },
+        "position=stalagmite_small,variant=stone_formation":  { "model": "biomesoplenty:stalagmite_small" },
+        "position=stalagmite_medium,variant=stone_formation":  { "model": "biomesoplenty:stalagmite_medium" },
+		"position=stalagmite_top,variant=stone_formation":  { "model": "biomesoplenty:stalagmite_top" },
+		"position=stalactite_small,variant=stone_formation":  { "model": "biomesoplenty:stalactite_small" },
+        "position=stalactite_medium,variant=stone_formation":  { "model": "biomesoplenty:stalactite_medium" },
+		"position=stalactite_bottom,variant=stone_formation":  { "model": "biomesoplenty:stalactite_bottom" }
+    }
+}
+    
