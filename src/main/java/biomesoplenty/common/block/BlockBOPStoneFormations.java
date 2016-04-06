@@ -27,6 +27,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.block.IBOPBlock;
+import biomesoplenty.common.block.BlockBOPMushroom.MushroomType;
 import biomesoplenty.common.item.ItemBOPBlock;
 
 public class BlockBOPStoneFormations extends BlockBOPDecoration implements IBOPBlock
@@ -127,7 +128,17 @@ public class BlockBOPStoneFormations extends BlockBOPDecoration implements IBOPB
     @Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
     {   
-    	return new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);     
+    	return new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 1.0D, 0.8999999761581421D); 
+    	/*FormationPosition position = (FormationPosition) state.getValue(this.POSITION);
+        switch (position)
+        {
+	        case STALAGMITE_SMALL: case STALAGMITE_TOP:
+	        	return new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);   
+	        case STALACTITE_SMALL: case STALACTITE_BOTTOM:
+	        	return new AxisAlignedBB(0.09999999403953552D, 0.199999988079071D, 0.09999999403953552D, 0.8999999761581421D, 1.0D, 0.8999999761581421D);
+	        default:
+	        	return new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 1.0D, 0.8999999761581421D);   
+        }*/
     }
     
     // which types of mushroom can live on which types of block
