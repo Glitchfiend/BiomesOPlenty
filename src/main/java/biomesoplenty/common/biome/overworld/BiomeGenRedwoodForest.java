@@ -40,7 +40,7 @@ public class BiomeGenRedwoodForest extends BOPBiome
         super("redwood_forest", new PropsBuilder("Redwood Forest").withGuiColour(0x6DAA3C).withTemperature(0.7F).withRainfall(0.7F));
 
         // terrain
-        this.terrainSettings.avgHeight(63).heightVariation(5, 5).octaves(0, 1, 2, 2, 1, 0);
+        this.terrainSettings.avgHeight(64).heightVariation(3, 7).octaves(0, 1, 2, 2, 1, 0);
         
         this.topBlock = Blocks.grass.getDefaultState();
         this.usualTopBlock = this.topBlock;

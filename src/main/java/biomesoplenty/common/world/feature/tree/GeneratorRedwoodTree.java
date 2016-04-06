@@ -18,6 +18,7 @@ import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import biomesoplenty.common.world.feature.GeneratorSpike;
+import net.minecraft.block.BlockOldLeaf;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
@@ -35,7 +36,7 @@ public class GeneratorRedwoodTree extends GeneratorTreeBase
             this.placeOn = BlockQueries.fertile;
             this.replace = BlockQueries.replaceable;
             this.log = BlockBOPLog.paging.getVariantState(BOPWoods.REDWOOD);
-            this.leaves = BlockBOPLeaves.paging.getVariantState(BOPTrees.REDWOOD);
+            this.leaves = BlockBOPLeaves.paging.getVariantState(BOPTrees.REDWOOD).withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false));
             this.vine = null;
             this.hanging = null;
             this.altLeaves = null;
@@ -116,8 +117,8 @@ public class GeneratorRedwoodTree extends GeneratorTreeBase
         int leavesRadius;
         
         //Alternate between a smaller radius and a larger radius
-        if (index < 2) leavesRadius = 2;
-        else leavesRadius = 3;
+        if (index < 2) leavesRadius = 3;
+        else leavesRadius = 5;
 
         //This may break for larger radii however it will do for this purpose
         double increment = 0.05D;
