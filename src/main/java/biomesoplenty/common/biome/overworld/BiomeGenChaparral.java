@@ -24,9 +24,12 @@ import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import biomesoplenty.common.world.feature.GeneratorSplotches;
 import biomesoplenty.common.world.feature.GeneratorWaterside;
 import biomesoplenty.common.world.feature.tree.GeneratorBush;
+import biomesoplenty.common.world.feature.tree.GeneratorTwigletTree;
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockFlower;
+import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -38,7 +41,7 @@ public class BiomeGenChaparral extends BOPBiome
         super("chaparral", new PropsBuilder("Chaparral").withGuiColour(0xC0D85D).withTemperature(0.8F).withRainfall(0.6F));
         
         // terrain
-        this.terrainSettings.avgHeight(70).heightVariation(10, 30).sidewaysNoise(0.1D).octaves(1, 4, 3, 1, 1, 0);
+        this.terrainSettings.avgHeight(70).heightVariation(10, 20).sidewaysNoise(0.1D).octaves(1, 4, 3, 1, 1, 0);
         
         this.addWeight(BOPClimates.MEDITERANEAN, 10);
 
@@ -71,8 +74,11 @@ public class BiomeGenChaparral extends BOPBiome
         grassGenerator.add("dampgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.DAMPGRASS).create());
         
         // trees
-        this.addGenerator("trees", GeneratorStage.TREE, (new GeneratorBush.Builder()).amountPerChunk(4).maxHeight(2).create());
-
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(7.0F);
+        this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
+        treeGenerator.add("twiglet", 3, (new GeneratorTwigletTree.Builder()).minHeight(2).maxHeight(2).log(BlockPlanks.EnumType.OAK).leaves(BlockPlanks.EnumType.OAK).create());
+        treeGenerator.add("small_bush", 1, (new GeneratorFlora.Builder()).placeOn(this.topBlock).replace(Material.air).withNonDecayingLeaf(BlockPlanks.EnumType.OAK).create());
+        
         // other plants
         this.addGenerator("berry_bushes", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(BOPPlants.BERRYBUSH).create());
         this.addGenerator("bushes", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).with(BOPPlants.BUSH).create());
