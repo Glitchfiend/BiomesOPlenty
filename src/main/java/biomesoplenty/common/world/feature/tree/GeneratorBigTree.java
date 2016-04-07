@@ -20,6 +20,7 @@ import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
 import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
+import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.block.material.Material;
@@ -246,18 +247,10 @@ public class GeneratorBigTree extends GeneratorTreeBase
         //The following has been replaced as recommended by
         //http://www.reddit.com/r/Minecraft/comments/1m97cw/while_you_are_all_crying_over_the_name_change_of/ccfgc3k
         //The change should fix the decaying leaves
-        /*else if (y == 0 || y == foliageHeight - 1) 
+        else if (y == 0 || y == foliageHeight - 1) 
         {
             return 2f;
-        }*/
-        else if (y == 0 || y == foliageHeight - 2) 
-        {
-            return 2f;
-        } 
-        else if (y == foliageHeight - 1) 
-        {
-            return 1.5f;
-        } 
+        }
         else 
         {
             return 3f;
@@ -286,11 +279,11 @@ public class GeneratorBigTree extends GeneratorTreeBase
 	        		clusterLeaves = this.leaves;
 	        	}
 	        	
-	        	crossection(blockPos.up(y), foliageShape(y), clusterLeaves);
+	        	crossection(blockPos.up(y), foliageShape(y), clusterLeaves.withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)));
         	}
         	else
         	{
-        		crossection(blockPos.up(y), foliageShape(y), this.leaves);
+        		crossection(blockPos.up(y), foliageShape(y), this.leaves.withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)));
         	}
         }
     }
