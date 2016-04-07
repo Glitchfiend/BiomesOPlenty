@@ -13,8 +13,10 @@ import java.util.Random;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
+import net.minecraft.block.BlockCocoa;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -40,6 +42,7 @@ public class GeneratorTwigletTree extends GeneratorTreeBase
             this.leaves = Blocks.leaves.getDefaultState();
             this.vine = null;
             this.hanging = null;
+            this.trunkFruit = null;
             this.altLeaves = null;
             this.leafChanceEven = 0.2F;
             this.leafChanceOdd = 0.9F;
@@ -47,16 +50,16 @@ public class GeneratorTwigletTree extends GeneratorTreeBase
 
         @Override
         public GeneratorTwigletTree create() {
-            return new GeneratorTwigletTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.altLeaves, this.minHeight, this.maxHeight, this.leafChanceEven, this.leafChanceOdd);
+            return new GeneratorTwigletTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.trunkFruit, this.altLeaves, this.minHeight, this.maxHeight, this.leafChanceEven, this.leafChanceOdd);
         }
     }
     
     private float leafChanceEven;
     private float leafChanceOdd;
     
-    public GeneratorTwigletTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, IBlockState altLeaves, int minHeight, int maxHeight, float leafChanceEven, float leafChanceOdd)
+    public GeneratorTwigletTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, IBlockState trunkFruit, IBlockState altLeaves, int minHeight, int maxHeight, float leafChanceEven, float leafChanceOdd)
     {
-        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, altLeaves, minHeight, maxHeight);
+        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, trunkFruit, altLeaves, minHeight, maxHeight);
         this.leafChanceEven = leafChanceEven;
         this.leafChanceOdd = leafChanceOdd;
     }
@@ -97,11 +100,41 @@ public class GeneratorTwigletTree extends GeneratorTreeBase
             if (random.nextFloat() < leafChance) {this.setLeaves(world, pos.add(-1, y, 0));}
             if (random.nextFloat() < leafChance) {this.setLeaves(world, pos.add(0, y, 1));}
             if (random.nextFloat() < leafChance) {this.setLeaves(world, pos.add(0, y, -1));}
+            
+            if (this.trunkFruit != null)
+            {
+                if (random.nextInt(3) == 0)
+                {
+                    for (int l3 = 0; l3 < 2; ++l3)
+                    {
+                        for (EnumFacing enumfacing : EnumFacing.Plane.HORIZONTAL)
+                        {
+                            if (random.nextInt(4 - l3) == 0)
+                            {
+                                EnumFacing enumfacing1 = enumfacing.getOpposite();
+                                this.generateTrunkFruit(world, random.nextInt(3), pos.add(enumfacing1.getFrontOffsetX(), 0, enumfacing1.getFrontOffsetZ()), enumfacing);
+                            }
+                        }
+                    }
+                }
+            }
         }
         // finish with leaves on top
         this.setLeaves(world, pos.add(0, height, 0));
 
         return true;
+    }
+    
+    private void generateTrunkFruit(World world, int age, BlockPos pos, EnumFacing direction)
+    {
+        if (this.trunkFruit == Blocks.cocoa.getDefaultState())
+        {
+            this.setBlockAndNotifyAdequately(world, pos, this.trunkFruit.withProperty(BlockCocoa.AGE, Integer.valueOf(age)).withProperty(BlockCocoa.FACING, direction));
+        }
+        else
+        {
+            this.setBlockAndNotifyAdequately(world, pos, this.trunkFruit.withProperty(BlockCocoa.FACING, direction));
+        }
     }
     
     @Override

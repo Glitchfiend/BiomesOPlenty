@@ -55,6 +55,7 @@ public class GeneratorMangroveTree extends GeneratorTreeBase
             this.leaves = Blocks.leaves.getDefaultState();
             this.vine = null;
             this.hanging = null;
+            this.trunkFruit = null;
             this.altLeaves = null;
             this.minHeight = 8;
             this.maxHeight = 10;
@@ -67,7 +68,7 @@ public class GeneratorMangroveTree extends GeneratorTreeBase
         @Override
         public GeneratorMangroveTree create()
         {
-            return new GeneratorMangroveTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.altLeaves, this.minHeight, this.maxHeight, this.minLeavesRadius, this.leavesGradient, this.vineAttempts, this.maxVineLength, this.rootsReplace);
+            return new GeneratorMangroveTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.trunkFruit, this.altLeaves, this.minHeight, this.maxHeight, this.minLeavesRadius, this.leavesGradient, this.vineAttempts, this.maxVineLength, this.rootsReplace);
         }
     }
     
@@ -78,9 +79,9 @@ public class GeneratorMangroveTree extends GeneratorTreeBase
     private int maxVineLength;
     private IBlockPosQuery rootsReplace;
     
-    public GeneratorMangroveTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, IBlockState altLeaves, int minHeight, int maxHeight, int minLeavesRadius, int leavesGradient, int vineAttempts, int maxVineLength, IBlockPosQuery rootsReplace)
+    public GeneratorMangroveTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, IBlockState trunkFruit, IBlockState altLeaves, int minHeight, int maxHeight, int minLeavesRadius, int leavesGradient, int vineAttempts, int maxVineLength, IBlockPosQuery rootsReplace)
     {
-        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, altLeaves, minHeight, maxHeight);
+        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, trunkFruit, altLeaves, minHeight, maxHeight);
         this.minLeavesRadius = minLeavesRadius;
         this.leavesGradient = leavesGradient;
         this.vineAttempts = vineAttempts;

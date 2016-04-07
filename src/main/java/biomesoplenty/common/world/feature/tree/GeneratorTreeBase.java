@@ -47,12 +47,13 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
     protected IBlockState leaves;
     protected IBlockState vine;
     protected IBlockState hanging;
+    protected IBlockState trunkFruit;
     protected IBlockState altLeaves;
     protected int minHeight;
     protected int maxHeight;
     protected IProperty logAxisProperty;
     
-    protected GeneratorTreeBase(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, IBlockState altLeaves, int minHeight, int maxHeight) {
+    protected GeneratorTreeBase(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, IBlockState trunkFruit, IBlockState altLeaves, int minHeight, int maxHeight) {
         super(amountPerChunk);
         this.placeOn = placeOn;
         this.replace = replace;
@@ -60,6 +61,7 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
         this.leaves = leaves;
         this.vine = vine;
         this.hanging = hanging;
+        this.trunkFruit = trunkFruit;
         this.altLeaves = altLeaves;
         this.minHeight = minHeight;
         this.maxHeight = maxHeight;
@@ -74,6 +76,7 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
         protected IBlockState leaves;
         protected IBlockState vine;
         protected IBlockState hanging;
+        protected IBlockState trunkFruit;
         protected IBlockState altLeaves;
         protected int minHeight;
         protected int maxHeight;
@@ -122,6 +125,11 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
         public T hanging(IBlockState a)
         {
             this.hanging = a;
+            return this.self();
+        }
+        public T trunkFruit(IBlockState a)
+        {
+            this.trunkFruit = a;
             return this.self();
         }
         
@@ -198,6 +206,16 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
         if (this.replace.matches(world, pos))
         {
             world.setBlockState(pos, this.hanging, 2);
+        }
+        return false;
+    }
+    
+    public boolean setTrunkFruit(World world, BlockPos pos)
+    {
+        if (this.trunkFruit == null) {return false;}
+        if (this.replace.matches(world, pos))
+        {
+            world.setBlockState(pos, this.trunkFruit, 2);
         }
         return false;
     }

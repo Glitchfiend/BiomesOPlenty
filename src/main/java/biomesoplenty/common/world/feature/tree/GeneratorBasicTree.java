@@ -22,6 +22,7 @@ import biomesoplenty.common.util.block.BlockQuery.BlockQueryState;
 import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockCocoa;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.block.BlockVine;
 import net.minecraft.block.material.Material;
@@ -46,6 +47,7 @@ public class GeneratorBasicTree extends GeneratorTreeBase
             this.leaves = Blocks.leaves.getDefaultState();
             this.vine = null;
             this.hanging = null;
+            this.trunkFruit = null;
             this.altLeaves = null;
             this.minHeight = 4;
             this.maxHeight = 7;
@@ -60,7 +62,7 @@ public class GeneratorBasicTree extends GeneratorTreeBase
         @Override
         public GeneratorBasicTree create()
         {
-            return new GeneratorBasicTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.altLeaves, this.minHeight, this.maxHeight, false, this.leafLayers, this.leavesOffset, this.maxLeavesRadius, this.leavesLayerHeight, this.placeVinesOn, this.hangingChance);
+            return new GeneratorBasicTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.trunkFruit, this.altLeaves, this.minHeight, this.maxHeight, false, this.leafLayers, this.leavesOffset, this.maxLeavesRadius, this.leavesLayerHeight, this.placeVinesOn, this.hangingChance);
         }
     }
     
@@ -95,9 +97,9 @@ public class GeneratorBasicTree extends GeneratorTreeBase
     protected IBlockPosQuery placeVinesOn;
     protected float hangingChance;
     
-    public GeneratorBasicTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, IBlockState altLeaves, int minHeight, int maxHeight, boolean updateNeighbours, int leafLayers, int leavesOffset, int maxLeavesRadius, int leavesLayerHeight, IBlockPosQuery placeVinesOn, float hangingChance)
+    public GeneratorBasicTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, IBlockState trunkFruit, IBlockState altLeaves, int minHeight, int maxHeight, boolean updateNeighbours, int leafLayers, int leavesOffset, int maxLeavesRadius, int leavesLayerHeight, IBlockPosQuery placeVinesOn, float hangingChance)
     {
-        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, altLeaves, minHeight, maxHeight);
+        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, trunkFruit, altLeaves, minHeight, maxHeight);
         this.updateNeighbours = updateNeighbours;
         this.leavesOffset = leavesOffset;
         this.leafLayers = leafLayers;
@@ -268,7 +270,25 @@ public class GeneratorBasicTree extends GeneratorTreeBase
                     
                     //Generate fruit or any other blocks that may hang off of the tree
                     if (this.hanging != null) this.generateHanging(world, pos, height);
-
+                    
+                    if (this.trunkFruit != null)
+                    {
+                        if (random.nextInt(5) == 0 && height > 5)
+                        {
+                            for (int l3 = 0; l3 < 2; ++l3)
+                            {
+                                for (EnumFacing enumfacing : EnumFacing.Plane.HORIZONTAL)
+                                {
+                                    if (random.nextInt(4 - l3) == 0)
+                                    {
+                                        EnumFacing enumfacing1 = enumfacing.getOpposite();
+                                        this.generateTrunkFruit(world, random.nextInt(3), pos.add(enumfacing1.getFrontOffsetX(), height - 5 + l3, enumfacing1.getFrontOffsetZ()), enumfacing);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
                     return true;
                 }
                 else
@@ -312,6 +332,18 @@ public class GeneratorBasicTree extends GeneratorTreeBase
                     this.setHanging(world, hangingPos);
                 }
             }
+        }
+    }
+    
+    private void generateTrunkFruit(World world, int age, BlockPos pos, EnumFacing direction)
+    {
+        if (this.trunkFruit == Blocks.cocoa.getDefaultState())
+        {
+            this.setBlockAndNotifyAdequately(world, pos, this.trunkFruit.withProperty(BlockCocoa.AGE, Integer.valueOf(age)).withProperty(BlockCocoa.FACING, direction));
+        }
+        else
+        {
+            this.setBlockAndNotifyAdequately(world, pos, this.trunkFruit.withProperty(BlockCocoa.FACING, direction));
         }
     }
     
@@ -363,6 +395,7 @@ public class GeneratorBasicTree extends GeneratorTreeBase
         this.leaves = conf.getBlockState("leavesState", this.leaves);
         this.vine = conf.getBlockState("vineState", this.vine);
         this.hanging = conf.getBlockState("hangingState", this.hanging);
+        this.trunkFruit = conf.getBlockState("trunkFruitState", this.trunkFruit);
         this.altLeaves = conf.getBlockState("altLeavesState", this.altLeaves);
         
         this.hangingChance = conf.getFloat("hangingChance", this.hangingChance);

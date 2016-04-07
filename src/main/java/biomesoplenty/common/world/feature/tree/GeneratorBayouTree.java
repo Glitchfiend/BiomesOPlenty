@@ -55,6 +55,7 @@ public class GeneratorBayouTree extends GeneratorTreeBase
             this.leaves = Blocks.leaves.getDefaultState();
             this.vine = Blocks.vine.getDefaultState();
             this.hanging = null;
+            this.trunkFruit = null;
             this.altLeaves = null;
             this.minHeight = 8;
             this.maxHeight = 18;
@@ -67,7 +68,7 @@ public class GeneratorBayouTree extends GeneratorTreeBase
         @Override
         public GeneratorBayouTree create()
         {
-            return new GeneratorBayouTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.altLeaves, this.minHeight, this.maxHeight, this.minLeavesRadius, this.leavesGradient, this.vineAttempts, this.maxVineLength, this.rootsReplace);
+            return new GeneratorBayouTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.trunkFruit, this.altLeaves, this.minHeight, this.maxHeight, this.minLeavesRadius, this.leavesGradient, this.vineAttempts, this.maxVineLength, this.rootsReplace);
         }
     }
     
@@ -78,9 +79,9 @@ public class GeneratorBayouTree extends GeneratorTreeBase
     private int maxVineLength;
     private IBlockPosQuery rootsReplace;
     
-    public GeneratorBayouTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, IBlockState altLeaves, int minHeight, int maxHeight, int minLeavesRadius, int leavesGradient, int vineAttempts, int maxVineLength, IBlockPosQuery rootsReplace)
+    public GeneratorBayouTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, IBlockState trunkFruit, IBlockState altLeaves, int minHeight, int maxHeight, int minLeavesRadius, int leavesGradient, int vineAttempts, int maxVineLength, IBlockPosQuery rootsReplace)
     {
-        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, altLeaves, minHeight, maxHeight);
+        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, trunkFruit, altLeaves, minHeight, maxHeight);
         this.minLeavesRadius = minLeavesRadius;
         this.leavesGradient = leavesGradient;
         this.vineAttempts = vineAttempts;
@@ -285,5 +286,6 @@ public class GeneratorBayouTree extends GeneratorTreeBase
         this.log = conf.getBlockState("logState", this.log);
         this.leaves = conf.getBlockState("leavesState", this.leaves);
         this.vine = conf.getBlockState("vinesState", this.vine);
+        this.trunkFruit = conf.getBlockState("trunkFruitState", this.trunkFruit);
     }
 }
