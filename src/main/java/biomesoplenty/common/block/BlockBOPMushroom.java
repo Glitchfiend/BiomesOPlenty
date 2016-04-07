@@ -16,6 +16,7 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -119,7 +120,7 @@ public class BlockBOPMushroom extends BlockBOPDecoration
             case TOADSTOOL:
                 return BlockQueries.fertileOrNetherrack.matches(world, pos.down());
             case GLOWSHROOM:
-                return BlockQueries.sustainsCave.matches(world, pos.down());
+                return (BlockQueries.sustainsCave.matches(world, pos.down()) || world.getBlockState(pos.down()).getBlock() == Blocks.stone); 
             case SHADOW_SHROOM:
                 return BlockQueries.endish.matches(world, pos.down());
             default:

@@ -21,7 +21,9 @@ import biomesoplenty.api.biome.generation.GenerationManager;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.IGenerator;
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.enums.BOPClimates;
+import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.init.ModBiomes;
 import biomesoplenty.common.util.biome.BiomeUtils;
@@ -86,6 +88,8 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         
         // roots
         this.addGenerator("roots", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(4.0F).with(BOPPlants.ROOT).create());
+        this.addGenerator("miners_delight", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(BOPFlowers.MINERS_DELIGHT).scatterYMethod(ScatterYMethod.BELOW_GROUND).create());
+        this.addGenerator("glowshrooms", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.5F).with(BOPBlocks.mushroom.getDefaultState().withProperty(BlockBOPMushroom.VARIANT, BlockBOPMushroom.MushroomType.GLOWSHROOM)).scatterYMethod(ScatterYMethod.BELOW_GROUND).create());
         this.addGenerator("stone_formations", GeneratorStage.FLOWERS,(new GeneratorColumns.Builder()).amountPerChunk(30.0F).generationAttempts(32).placeOn(Blocks.stone).with(BOPBlocks.stone_formations.getDefaultState()).scatterYMethod(ScatterYMethod.BELOW_GROUND).minHeight(1).maxHeight(7).randomDirection(true).create());
     }
     
