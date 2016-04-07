@@ -54,6 +54,7 @@ import static biomesoplenty.api.biome.BOPBiomes.land_of_lakes;
 import static biomesoplenty.api.biome.BOPBiomes.lavender_fields;
 import static biomesoplenty.api.biome.BOPBiomes.lush_desert;
 import static biomesoplenty.api.biome.BOPBiomes.lush_swamp;
+import static biomesoplenty.api.biome.BOPBiomes.mangrove;
 import static biomesoplenty.api.biome.BOPBiomes.maple_woods;
 import static biomesoplenty.api.biome.BOPBiomes.marsh;
 import static biomesoplenty.api.biome.BOPBiomes.meadow;
@@ -148,6 +149,7 @@ import biomesoplenty.common.biome.overworld.BiomeGenLandOfLakes;
 import biomesoplenty.common.biome.overworld.BiomeGenLavenderFields;
 import biomesoplenty.common.biome.overworld.BiomeGenLushDesert;
 import biomesoplenty.common.biome.overworld.BiomeGenLushSwamp;
+import biomesoplenty.common.biome.overworld.BiomeGenMangrove;
 import biomesoplenty.common.biome.overworld.BiomeGenMapleWoods;
 import biomesoplenty.common.biome.overworld.BiomeGenMarsh;
 import biomesoplenty.common.biome.overworld.BiomeGenMeadow;
@@ -430,6 +432,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
 
         // island biomes
         
+        mangrove = registerBOPBiome(new BiomeGenMangrove(), "Mangrove");
         origin_island = registerBOPBiome(new BiomeGenOriginIsland(), "Origin Island");
         tropical_island = registerBOPBiome(new BiomeGenTropicalIsland(), "Tropical Island");
         volcanic_island = registerBOPBiome(new BiomeGenVolcanicIsland(), "Volcanic Island");
@@ -439,6 +442,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         addIslandBiome(tropical_island, 3);
         addIslandBiome(volcanic_island, 5);
         addIslandBiome(flower_island, 7);
+        addIslandBiome(mangrove, 10);
     }
     
     public static void initExtendedBiomes()

@@ -89,6 +89,7 @@ public class BOPBiomes
     public static Optional<BiomeGenBase> volcanic_island = Optional.absent();
     public static Optional<BiomeGenBase> flower_island = Optional.absent();
     public static Optional<BiomeGenBase> gravel_beach = Optional.absent();
+    public static Optional<BiomeGenBase> mangrove = Optional.absent();
 
     //Biome extensions
     public static IExtendedBiome end_extension;
