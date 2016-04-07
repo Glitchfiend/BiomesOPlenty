@@ -1,0 +1,20 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "biomesoplenty:items/biome_finder_00"
+    },
+    "overrides": [
+        { "predicate": { "frame": 0.00 }, "model": "biomesoplenty:item/biome_finder" },
+        { "predicate": { "frame": 0.01 }, "model": "biomesoplenty:item/biome_finder_01" },
+        { "predicate": { "frame": 0.02 }, "model": "biomesoplenty:item/biome_finder_02" },
+        { "predicate": { "frame": 0.03 }, "model": "biomesoplenty:item/biome_finder_03" },
+        { "predicate": { "frame": 0.04 }, "model": "biomesoplenty:item/biome_finder_04" },
+        { "predicate": { "frame": 0.05 }, "model": "biomesoplenty:item/biome_finder_05" },
+        { "predicate": { "frame": 0.06 }, "model": "biomesoplenty:item/biome_finder_06" },
+        { "predicate": { "frame": 0.07 }, "model": "biomesoplenty:item/biome_finder_07" },
+        { "predicate": { "frame": 0.08 }, "model": "biomesoplenty:item/biome_finder_08" },
+        { "predicate": { "frame": 0.09 }, "model": "biomesoplenty:item/biome_finder_09" },
+        { "predicate": { "frame": 0.10 }, "model": "biomesoplenty:item/biome_finder_10" },
+        { "predicate": { "frame": 0.11 }, "model": "biomesoplenty:item/biome_finder_11" }
+    ]
+}

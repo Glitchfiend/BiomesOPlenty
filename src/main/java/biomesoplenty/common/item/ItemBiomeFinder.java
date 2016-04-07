@@ -10,26 +10,85 @@ package biomesoplenty.common.item;
 
 import java.util.List;
 
+import biomesoplenty.common.inventory.InventoryFlowerBasket;
 import biomesoplenty.common.util.biome.BiomeUtils;
 import net.minecraft.client.resources.I18n;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemBiomeFinder extends Item
 {    
     
     public ItemBiomeFinder()
     {
+        this.addPropertyOverride(new ResourceLocation("frame"), new IItemPropertyGetter()
+        {
+            @Override
+            @SideOnly(Side.CLIENT)
+            public float apply(ItemStack stack, World world, EntityLivingBase entity) 
+            {
+                if (entity == null) {return 0.00F;}
+                
+                NBTTagCompound nbt = stack.getTagCompound();
+                if (nbt != null && nbt.hasKey("biomeIDToFind"))
+                {                
+                    if (nbt.hasKey("searchStarted"))
+                    {
+                        // searching for biome, but not yet found indicate searching by flashing
+                        return this.getFlashingFrame(entity);
+                    }
+                    else if (nbt.getBoolean("found"))
+                    {
+                        // if the biome has been found, point at it
+                        int posX = nbt.getInteger("posX");
+                        int posZ = nbt.getInteger("posZ");
+                        return getFrameForPositionRelativeToPlayer(entity, posX, posZ);
+                    }
+                    else
+                    {
+                        // the search has not yet been started, show all sectors lit
+                        return 0.09F;
+                    }
+                }
+                else
+                {
+                    // if we've got here, the biome finder has not been bound to a biome yet - show no sectors lit
+                    return 0.08F;
+                }
+            }  
+
+            public float getFlashingFrame(EntityLivingBase entity)
+            {
+                return (entity.ticksExisted % 2 == 0 ? 0.10F : 0.11F);
+            }
+            
+            public float getFrameForPositionRelativeToPlayer(EntityLivingBase entity, int biomePosX, int biomePosZ)
+            {
+                double xDiff = (double)biomePosX - entity.posX;
+                double zDiff = (double)biomePosZ - entity.posZ;
+                // angle (in degrees) of direction from player to biome (relative to player rotation)
+                double angleDiff = (Math.atan2(zDiff, xDiff) * 180.0D / Math.PI) + 270.0D - entity.rotationYaw;
+                // there are 8 sectors on the biome finder, so 45 degrees each (offset by 22.5 to center the angle in the middle of the sector)
+                int sector = (int)Math.floor((angleDiff + 22.5D) / 45.0D);
+                return (((sector % 8) + 8) % 8) / 100.0F;        
+            }
+        });
+        
         this.setMaxStackSize(1);
     }
         
