@@ -20,6 +20,7 @@ import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
 import biomesoplenty.common.world.feature.tree.GeneratorBigTree;
 import biomesoplenty.common.world.feature.tree.GeneratorBulbTree;
 import biomesoplenty.common.world.feature.tree.GeneratorMahoganyTree;
+import biomesoplenty.common.world.feature.tree.GeneratorMangroveTree;
 import biomesoplenty.common.world.feature.tree.GeneratorPalmTree;
 import biomesoplenty.common.world.feature.tree.GeneratorPineTree;
 import biomesoplenty.common.world.feature.tree.GeneratorRedwoodTree;
@@ -202,7 +203,7 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable {
             case SACRED_OAK:
                 return new GeneratorBigTree.Builder().log(BOPWoods.SACRED_OAK).leaves(BOPTrees.SACRED_OAK).minHeight(35).maxHeight(45).trunkWidth(2).foliageDensity(1.25D).create();
             case MANGROVE: //Not implemented
-                return new WorldGenTrees(true);
+                return new GeneratorMangroveTree.Builder().log(BOPWoods.MANGROVE).leaves(BOPTrees.MANGROVE).create();
             case PALM:
                 return new GeneratorPalmTree.Builder().log(BOPWoods.PALM).leaves(BlockBOPLeaves.paging.getVariantState(BOPTrees.PALM).withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).create();
             case REDWOOD:

@@ -9,7 +9,6 @@
 package biomesoplenty.common.init;
 
 import static biomesoplenty.api.biome.generation.GeneratorRegistry.registerGenerator;
-
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.common.world.feature.GeneratorBigFlower;
 import biomesoplenty.common.world.feature.GeneratorBigMushroom;
@@ -34,6 +33,7 @@ import biomesoplenty.common.world.feature.tree.GeneratorBigTree;
 import biomesoplenty.common.world.feature.tree.GeneratorBulbTree;
 import biomesoplenty.common.world.feature.tree.GeneratorBush;
 import biomesoplenty.common.world.feature.tree.GeneratorMahoganyTree;
+import biomesoplenty.common.world.feature.tree.GeneratorMangroveTree;
 import biomesoplenty.common.world.feature.tree.GeneratorMegaJungleTree;
 import biomesoplenty.common.world.feature.tree.GeneratorPalmTree;
 import biomesoplenty.common.world.feature.tree.GeneratorPineTree;
@@ -57,6 +57,7 @@ public class ModGenerators
         registerGenerator("bulb_tree", GeneratorBulbTree.class, new GeneratorBulbTree.Builder());
         registerGenerator("mega_jungle_tree", GeneratorMegaJungleTree.class, new GeneratorMegaJungleTree.Builder());
         registerGenerator("bayou_tree", GeneratorBayouTree.class, new GeneratorBayouTree.Builder());
+        registerGenerator("mangrove_tree", GeneratorMangroveTree.class, new GeneratorMangroveTree.Builder());
         registerGenerator("taiga_tree", GeneratorTaigaTree.class, new GeneratorTaigaTree.Builder());
         registerGenerator("profile_tree", GeneratorProfileTree.class, new GeneratorProfileTree.Builder());
         registerGenerator("flora", GeneratorFlora.class, new GeneratorFlora.Builder());

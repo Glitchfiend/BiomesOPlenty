@@ -10,36 +10,26 @@ package biomesoplenty.common.biome.overworld;
 
 import java.util.Random;
 
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+import net.minecraft.world.chunk.ChunkPrimer;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.block.BlockBOPSand;
-import biomesoplenty.common.entities.EntityButterfly;
-import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
-import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import biomesoplenty.common.world.BOPWorldSettings;
-import biomesoplenty.common.world.feature.GeneratorFlora;
-import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorLakes;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
-import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
-import biomesoplenty.common.world.feature.tree.GeneratorBayouTree;
-import net.minecraft.block.BlockFlower;
-import net.minecraft.block.BlockOldLeaf;
-import net.minecraft.block.BlockTallGrass;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
-import net.minecraft.world.chunk.ChunkPrimer;
+import biomesoplenty.common.world.feature.tree.GeneratorMangroveTree;
  
 public class BiomeGenMangrove extends BOPBiome
 {
@@ -75,9 +65,9 @@ public class BiomeGenMangrove extends BOPBiome
         
         // trees & logs
         IBlockPosQuery emptySandMud = BlockQuery.buildAnd().states(this.usualTopBlock).create();
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(10);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(7);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("mangrove", 1, (new GeneratorBayouTree.Builder()).placeOn(emptySandMud).log(BOPWoods.MANGROVE).leaves(BOPTrees.MANGROVE).minHeight(6).maxHeight(8).minLeavesRadius(1).vine(null).leavesGradient(1).create());
+        treeGenerator.add("mangrove", 1, (new GeneratorMangroveTree.Builder()).placeOn(emptySandMud).log(BOPWoods.MANGROVE).leaves(BOPTrees.MANGROVE).create());
         
         // gem
         this.addGenerator("sapphire", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.SAPPHIRE).create()); 
