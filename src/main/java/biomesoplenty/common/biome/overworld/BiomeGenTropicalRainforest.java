@@ -120,7 +120,7 @@ public class BiomeGenTropicalRainforest extends BOPBiome
         GeneratorWeighted treeGenerator = new GeneratorWeighted(15.0F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("mahogany", 6, (new GeneratorMahoganyTree.Builder()).log(BlockPlanks.EnumType.JUNGLE).leaves(BlockPlanks.EnumType.JUNGLE).create());
-        treeGenerator.add("jungle", 2, (new GeneratorBasicTree.Builder()).log(BlockPlanks.EnumType.JUNGLE).leaves(BlockPlanks.EnumType.JUNGLE).minHeight(8).maxHeight(12).vine(Blocks.vine.getDefaultState()).create());
+        treeGenerator.add("jungle", 2, (new GeneratorBasicTree.Builder()).log(BlockPlanks.EnumType.JUNGLE).leaves(BlockPlanks.EnumType.JUNGLE).minHeight(8).maxHeight(12).trunkFruit(Blocks.cocoa.getDefaultState()).vine(Blocks.vine.getDefaultState()).create());
         }
         
         GeneratorWeighted flowerGen = (GeneratorWeighted)this.getGenerator("flowers");
