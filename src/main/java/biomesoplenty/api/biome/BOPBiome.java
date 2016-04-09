@@ -127,7 +127,13 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
     }
     
     @Override
-    public void applySettings(BOPWorldSettings settings){}
+    public void applySettings(BOPWorldSettings settings)
+    {
+        if (!settings.generateBopMushrooms) {this.removeGenerator("glowshrooms");}
+        if (!settings.generateBopPlants) {this.removeGenerator("roots");}
+        if (!settings.generateBopFlowers) {this.removeGenerator("miners_delight");}
+        if (!settings.generateRockFormations) {this.removeGenerator("stone_formations");}
+    }
     
     @Override
     public void configure(IConfigObj conf)

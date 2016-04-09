@@ -97,7 +97,7 @@ public class BiomeGenSteppe extends BOPBiome
     {
         if (!settings.generateBopGems) {this.removeGenerator("ruby");}
         
-        if (!settings.generateBopSoils) {this.topBlock = Blocks.grass.getDefaultState(); this.fillerBlock = Blocks.dirt.getDefaultState();}
+        if (!settings.generateBopSoils) {this.topBlock = Blocks.grass.getDefaultState(); this.usualTopBlock = Blocks.grass.getDefaultState(); this.fillerBlock = Blocks.dirt.getDefaultState();}
         
         if (!settings.generateBopPlants) {this.removeGenerator("cattail"); this.removeGenerator("double_cattail"); this.removeGenerator("river_cane"); this.removeGenerator("tiny_cacti"); this.removeGenerator("roots"); this.removeGenerator("rafflesia"); this.removeGenerator("desert_sprouts");}
         

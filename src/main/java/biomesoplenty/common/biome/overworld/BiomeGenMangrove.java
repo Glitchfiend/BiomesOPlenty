@@ -10,6 +10,8 @@ package biomesoplenty.common.biome.overworld;
 
 import java.util.Random;
 
+import net.minecraft.block.BlockOldLeaf;
+import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -30,6 +32,8 @@ import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.feature.GeneratorLakes;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import biomesoplenty.common.world.feature.tree.GeneratorMangroveTree;
+import biomesoplenty.common.world.feature.tree.GeneratorPalmTree;
+import biomesoplenty.common.world.feature.tree.GeneratorTwigletTree;
  
 public class BiomeGenMangrove extends BOPBiome
 {
@@ -115,6 +119,15 @@ public class BiomeGenMangrove extends BOPBiome
     public void applySettings(BOPWorldSettings settings)
     {
         if (!settings.generateBopGems) {this.removeGenerator("sapphire");}
+        
+        GeneratorWeighted treeGen = (GeneratorWeighted)this.getGenerator("trees");
+        if (!settings.generateBopTrees) {this.removeGenerator("trees");
+        
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(7.0F);
+        IBlockPosQuery emptySandMud = BlockQuery.buildAnd().states(this.usualTopBlock).create();
+        this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
+        treeGenerator.add("mangrove", 1, (new GeneratorMangroveTree.Builder()).placeOn(emptySandMud).log(BlockPlanks.EnumType.OAK).leaves(BlockPlanks.EnumType.OAK).create());
+        }
         
         if (!settings.generateBopFoliage) {this.removeGenerator("bushes"); this.removeGenerator("koru"); this.removeGenerator("shrubs"); this.removeGenerator("leaf_piles"); this.removeGenerator("dead_leaf_piles"); this.removeGenerator("clover_patches"); this.removeGenerator("sprouts");}
         
