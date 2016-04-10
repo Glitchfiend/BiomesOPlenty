@@ -160,7 +160,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
     @Override
     public boolean canSustainPlant(IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
     {   
-        return this.canSustainPlantType(world, pos, plantable.getPlantType(world, pos.offset(direction)));
+        return this.canSustainPlantType(world, pos, plantable.getPlantType(world, pos));
     }
     
     
