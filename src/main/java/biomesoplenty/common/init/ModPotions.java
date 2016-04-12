@@ -8,16 +8,14 @@
 
 package biomesoplenty.common.init;
 
-import static biomesoplenty.api.potion.BOPPotions.paralysis;
-import static biomesoplenty.api.potion.BOPPotions.possession;
-
 import biomesoplenty.common.potion.PotionParalysis;
 import biomesoplenty.common.potion.PotionPossession;
-import biomesoplenty.common.util.BOPReflectionHelper;
 import biomesoplenty.core.BiomesOPlenty;
-import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.ResourceLocation;
+
+import static biomesoplenty.api.potion.BOPPotions.paralysis;
+import static biomesoplenty.api.potion.BOPPotions.possession;
 
 public class ModPotions
 {
@@ -31,7 +29,7 @@ public class ModPotions
     
     public static Potion registerPotion(String name, Potion potion)
     {
-        Potion.potionRegistry.register(getSparePotionId(), new ResourceLocation(BiomesOPlenty.MOD_ID, name), potion);
+        Potion.REGISTRY.register(getSparePotionId(), new ResourceLocation(BiomesOPlenty.MOD_ID, name), potion);
         return potion;
     }
     
@@ -45,7 +43,7 @@ public class ModPotions
         
         // look for a free slot in the Potions array
         // (note we start counting from 1 - vanilla MC doens't use ID 0, nor will we)
-        for (; Potion.potionRegistry.getObjectById(nextId) != null; nextId++) {}
+        for (; Potion.REGISTRY.getObjectById(nextId) != null; nextId++) {}
 
         return nextId;
     }

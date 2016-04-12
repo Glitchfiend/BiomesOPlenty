@@ -36,12 +36,13 @@ public class ItemMudball extends Item
             --stack.stackSize;
         }
 
-        world.playSound(player, player.getPosition(), SoundEvents.entity_arrow_shoot, SoundCategory.NEUTRAL, 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+        world.playSound(player, player.getPosition(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.NEUTRAL, 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
 
         if (!world.isRemote)
         {
         	EntityMudball mudball = new EntityMudball(world, player);
-        	mudball.func_184538_a(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
+        	//TODO: replace this
+            //mudball.func_184538_a(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
             world.spawnEntityInWorld(mudball);
         }
 

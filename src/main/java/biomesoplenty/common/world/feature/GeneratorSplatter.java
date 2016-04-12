@@ -34,7 +34,7 @@ public class GeneratorSplatter extends GeneratorReplacing
             this.amountPerChunk = 1.0F;
             this.placeOn = BlockQueries.anything;
             this.replace = BlockQueries.breakable;
-            this.with = Blocks.stone.getDefaultState();
+            this.with = Blocks.STONE.getDefaultState();
             this.scatterYMethod = ScatterYMethod.AT_SURFACE;
             this.generationAttempts = 64;
         }

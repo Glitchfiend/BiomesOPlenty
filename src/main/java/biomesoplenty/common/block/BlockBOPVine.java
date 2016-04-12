@@ -10,7 +10,6 @@ package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPBlocks.Coloring;
 import biomesoplenty.api.block.IBOPBlock;
-import biomesoplenty.common.init.ModBlocks;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.BlockVine;
 import net.minecraft.block.SoundType;
@@ -22,11 +21,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.biome.BiomeColorHelper;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockBOPVine extends BlockVine implements IBOPBlock
 {  
@@ -65,13 +60,13 @@ public class BlockBOPVine extends BlockVine implements IBOPBlock
     @Override
     public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
     {
-        return Blocks.vine.getFlammability(world, pos, face);
+        return Blocks.VINE.getFlammability(world, pos, face);
     }
 
     @Override
     public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face)
     {
-        return Blocks.vine.getFlammability(world, pos, face);
+        return Blocks.VINE.getFlammability(world, pos, face);
     }
 }
     

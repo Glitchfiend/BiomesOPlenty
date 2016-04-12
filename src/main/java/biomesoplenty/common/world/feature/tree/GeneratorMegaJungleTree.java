@@ -34,7 +34,7 @@ public class GeneratorMegaJungleTree extends GeneratorHugeTree
             this.replace = BlockQueries.airOrLeaves;
             this.log(BlockPlanks.EnumType.JUNGLE);
             this.leaves(BlockPlanks.EnumType.JUNGLE);
-            this.vine = Blocks.vine.getDefaultState();
+            this.vine = Blocks.VINE.getDefaultState();
             this.hanging = null;
             this.trunkFruit = null;
             this.altLeaves = null;

@@ -8,9 +8,6 @@
 
 package biomesoplenty.common.item;
 
-import java.util.List;
-
-import biomesoplenty.common.inventory.InventoryFlowerBasket;
 import biomesoplenty.common.util.biome.BiomeUtils;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.EntityLivingBase;
@@ -30,6 +27,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.List;
 
 public class ItemBiomeFinder extends Item
 {    
@@ -155,7 +154,7 @@ public class ItemBiomeFinder extends Item
     public static void sendChatMessage(EntityPlayer player, String msg, TextFormatting color)
     {
         TextComponentTranslation chatComponent = new TextComponentTranslation(msg);
-        chatComponent.getChatStyle().setColor(color);
+        chatComponent.getStyle().setColor(color);
         player.addChatMessage(chatComponent);
     }
     

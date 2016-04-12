@@ -39,7 +39,7 @@ public class EntitySnail extends EntityLiving implements IMob {
         int y = MathHelper.floor_double(this.getEntityBoundingBox().minY);
         int z = MathHelper.floor_double(this.posZ);
         BlockPos blockpos = new BlockPos(x, y, z);
-        if (this.worldObj.getBlockState(blockpos.down()).getBlock() != Blocks.grass && this.worldObj.getBlockState(blockpos.down()).getBlock() != BOPBlocks.grass)
+        if (this.worldObj.getBlockState(blockpos.down()).getBlock() != Blocks.GRASS && this.worldObj.getBlockState(blockpos.down()).getBlock() != BOPBlocks.grass)
         {
         	return false;
         }

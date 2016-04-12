@@ -8,8 +8,6 @@
 
 package biomesoplenty.common.block;
 
-import static net.minecraft.block.BlockLiquid.LEVEL;
-
 import biomesoplenty.api.block.BlockQueries;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -19,8 +17,9 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+
+import static net.minecraft.block.BlockLiquid.LEVEL;
 
 public class BlockBOPCoral extends BlockBOPDecoration
 {
@@ -64,7 +63,7 @@ public class BlockBOPCoral extends BlockBOPDecoration
     
     public BlockBOPCoral()
     {
-        super(Material.water);
+        super(Material.WATER);
         
         // set some defaults
         this.setHardness(0.6F);

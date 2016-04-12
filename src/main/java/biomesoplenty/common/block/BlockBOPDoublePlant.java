@@ -8,14 +8,11 @@
 
 package biomesoplenty.common.block;
 
-import java.util.List;
-
-import com.google.common.collect.ImmutableSet;
-
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.util.block.BlockStateUtils;
+import com.google.common.collect.ImmutableSet;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
@@ -28,17 +25,17 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.ColorizerFoliage;
-import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.List;
 
 public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements IShearable
 {
@@ -263,12 +260,12 @@ public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements ISh
     @Override
     public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
     {
-        return Blocks.tallgrass.getFlammability(world, pos, face);
+        return Blocks.TALLGRASS.getFlammability(world, pos, face);
     }
 
     @Override
     public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face)
     {
-        return Blocks.tallgrass.getFlammability(world, pos, face);
+        return Blocks.TALLGRASS.getFlammability(world, pos, face);
     }
 }

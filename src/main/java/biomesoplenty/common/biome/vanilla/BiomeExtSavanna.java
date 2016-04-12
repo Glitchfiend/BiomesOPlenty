@@ -20,7 +20,7 @@ public class BiomeExtSavanna extends ExtendedBiomeWrapper
 {
     public BiomeExtSavanna()
     {
-        super(Biomes.savanna);
+        super(Biomes.SAVANNA);
         
      // quicksand
         this.addGenerator("quicksand", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.1F).liquid(BOPBlocks.sand.getDefaultState().withProperty(BlockBOPSand.VARIANT, BlockBOPSand.SandType.QUICKSAND)).frozenLiquid((IBlockState)null).create());

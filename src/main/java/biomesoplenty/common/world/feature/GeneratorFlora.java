@@ -56,15 +56,15 @@ public class GeneratorFlora extends GeneratorReplacing
             this.with = flowerBlock.getDefaultState().withProperty(flowerBlock.getTypeProperty(), a);
             return this.self();
         }
-        public T with(BlockTallGrass.EnumType a) {this.with = Blocks.tallgrass.getDefaultState().withProperty(BlockTallGrass.TYPE, a); return this.self();}
+        public T with(BlockTallGrass.EnumType a) {this.with = Blocks.TALLGRASS.getDefaultState().withProperty(BlockTallGrass.TYPE, a); return this.self();}
         public T withNonDecayingLeaf(BlockPlanks.EnumType a)
         {
             IBlockState leafState;
             if (a.getMetadata() < 4)
             {
-                leafState = Blocks.leaves.getDefaultState().withProperty(BlockOldLeaf.VARIANT, a);
+                leafState = Blocks.LEAVES.getDefaultState().withProperty(BlockOldLeaf.VARIANT, a);
             } else {
-                leafState = Blocks.leaves2.getDefaultState().withProperty(BlockNewLeaf.VARIANT, a);
+                leafState = Blocks.LEAVES2.getDefaultState().withProperty(BlockNewLeaf.VARIANT, a);
             }
             this.with = leafState.withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)).withProperty(BlockLeaves.DECAYABLE, Boolean.valueOf(false));
             return this.self();
@@ -87,8 +87,8 @@ public class GeneratorFlora extends GeneratorReplacing
             // defaults
             this.amountPerChunk = 1.0F;
             this.placeOn = BlockQueries.anything;
-            this.replace = new BlockQueryMaterial(Material.air);
-            this.with = Blocks.red_flower.getDefaultState();
+            this.replace = new BlockQueryMaterial(Material.AIR);
+            this.with = Blocks.RED_FLOWER.getDefaultState();
             this.scatterYMethod = ScatterYMethod.AT_SURFACE;
             this.generationAttempts = 32;
         }

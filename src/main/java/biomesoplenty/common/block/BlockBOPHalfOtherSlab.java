@@ -120,7 +120,7 @@ public class BlockBOPHalfOtherSlab extends BlockSlab implements IBOPBlock
     
     public BlockBOPHalfOtherSlab()
     {
-        super(Material.rock);
+        super(Material.ROCK);
         this.useNeighborBrightness = true;
         this.setSoundType(SoundType.STONE);
         // TODO: should depend on variant really, but that's quite hard to achieve...

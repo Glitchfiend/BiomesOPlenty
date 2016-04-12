@@ -95,22 +95,22 @@ public class BiomeGenMountain extends BOPBiome
             this.spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityWolf.class, 4, 4, 4));
         }        
         
-        this.topBlock = Blocks.grass.getDefaultState();
-        this.fillerBlock = Blocks.dirt.getDefaultState();
+        this.topBlock = Blocks.GRASS.getDefaultState();
+        this.fillerBlock = Blocks.DIRT.getDefaultState();
         this.grassBlock = this.topBlock;
         this.dirtBlock = this.fillerBlock;
-        this.coarseDirtBlock = Blocks.dirt.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.COARSE_DIRT);
-        this.stoneBlock = Blocks.stone.getDefaultState();
+        this.coarseDirtBlock = Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.COARSE_DIRT);
+        this.stoneBlock = Blocks.STONE.getDefaultState();
         
         // gravel
-        this.addGenerator("gravel", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(6).maxRadius(7).with(Blocks.gravel.getDefaultState()).create());
-        this.addGenerator("gravel_patches", GeneratorStage.SAND_PASS2, (new GeneratorSplotches.Builder()).amountPerChunk(2).splotchSize(16).replace(this.topBlock).with(Blocks.gravel.getDefaultState()).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
+        this.addGenerator("gravel", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(6).maxRadius(7).with(Blocks.GRAVEL.getDefaultState()).create());
+        this.addGenerator("gravel_patches", GeneratorStage.SAND_PASS2, (new GeneratorSplotches.Builder()).amountPerChunk(2).splotchSize(16).replace(this.topBlock).with(Blocks.GRAVEL.getDefaultState()).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
       
         // lakes
         this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(1.8F).waterLakeForBiome(this).create());        
         
         // trees & logs        
-        IBlockPosQuery suitableTreePosition = BlockQuery.buildAnd().withAltitudeBetween(64, 140).materials(Material.ground, Material.grass).create();
+        IBlockPosQuery suitableTreePosition = BlockQuery.buildAnd().withAltitudeBetween(64, 140).materials(Material.GROUND, Material.GRASS).create();
         GeneratorWeighted treeGenerator = new GeneratorWeighted(3);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("pine", 2, (new GeneratorPineTree.Builder()).minHeight(6).maxHeight(18).log(BOPWoods.PINE).leaves(BOPTrees.PINE).placeOn(suitableTreePosition).create());        
@@ -141,7 +141,7 @@ public class BiomeGenMountain extends BOPBiome
         // TODO: some flowers?
                 
         // gem
-        this.addGenerator("emeralds", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(Blocks.emerald_ore.getDefaultState()).create());
+        this.addGenerator("emeralds", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(Blocks.EMERALD_ORE.getDefaultState()).create());
    
     }
     
@@ -173,7 +173,7 @@ public class BiomeGenMountain extends BOPBiome
         GeneratorWeighted treeGen = (GeneratorWeighted)this.getGenerator("trees");
         if (!settings.generateBopTrees) {this.removeGenerator("trees");
         
-        IBlockPosQuery suitableTreePosition = BlockQuery.buildAnd().withAltitudeBetween(64, 140).materials(Material.ground, Material.grass).create();
+        IBlockPosQuery suitableTreePosition = BlockQuery.buildAnd().withAltitudeBetween(64, 140).materials(Material.GROUND, Material.GRASS).create();
         GeneratorWeighted treeGenerator = new GeneratorWeighted(3);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("pine", 2, (new GeneratorPineTree.Builder()).minHeight(6).maxHeight(18).log(BlockPlanks.EnumType.SPRUCE).leaves(BlockPlanks.EnumType.SPRUCE).placeOn(suitableTreePosition).create());        
@@ -192,7 +192,7 @@ public class BiomeGenMountain extends BOPBiome
         int localX = x & 15;
         int localZ = z & 15;
         int height = 255;
-        while (height > 0 && primer.getBlockState(localX, height, localZ).getMaterial() == Material.air) {height--;}
+        while (height > 0 && primer.getBlockState(localX, height, localZ).getMaterial() == Material.AIR) {height--;}
         int peakLine = 140 + (int)(noise * 5);
         
         if (height > peakLine)

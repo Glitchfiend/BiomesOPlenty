@@ -8,18 +8,10 @@
 
 package biomesoplenty.common.world.feature.tree;
 
-import java.util.Random;
-
-import org.apache.commons.lang3.tuple.Pair;
-
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.util.block.BlockQuery;
-import biomesoplenty.common.util.block.BlockQuery.BlockQueryBlock;
-import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
-import biomesoplenty.common.util.block.BlockQuery.BlockQueryParseException;
-import biomesoplenty.common.util.block.BlockQuery.BlockQueryState;
-import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
+import biomesoplenty.common.util.block.BlockQuery.*;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCocoa;
@@ -31,6 +23,9 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import org.apache.commons.lang3.tuple.Pair;
+
+import java.util.Random;
 
 public class GeneratorBasicTree extends GeneratorTreeBase
 {
@@ -42,9 +37,9 @@ public class GeneratorBasicTree extends GeneratorTreeBase
             // defaults
             this.amountPerChunk = 1.0F;
             this.placeOn = BlockQueries.anything;
-            this.replace = new BlockQueryMaterial(Material.air, Material.leaves);
-            this.log = Blocks.log.getDefaultState();
-            this.leaves = Blocks.leaves.getDefaultState();
+            this.replace = new BlockQueryMaterial(Material.AIR, Material.LEAVES);
+            this.log = Blocks.LOG.getDefaultState();
+            this.leaves = Blocks.LEAVES.getDefaultState();
             this.vine = null;
             this.hanging = null;
             this.trunkFruit = null;
@@ -165,7 +160,7 @@ public class GeneratorBasicTree extends GeneratorTreeBase
             {
                 BlockPos soilPos = pos.down();
                 Block soil = world.getBlockState(soilPos).getBlock();
-                boolean isSoil = soil.canSustainPlant(world.getBlockState(soilPos), world, soilPos, EnumFacing.UP, (BlockSapling)Blocks.sapling);
+                boolean isSoil = soil.canSustainPlant(world.getBlockState(soilPos), world, soilPos, EnumFacing.UP, (BlockSapling)Blocks.SAPLING);
 
                 if (this.placeOn.matches(world, soilPos) && isSoil && pos.getY() < 256 - height - 1)
                 {
@@ -337,7 +332,7 @@ public class GeneratorBasicTree extends GeneratorTreeBase
     
     private void generateTrunkFruit(World world, int age, BlockPos pos, EnumFacing direction)
     {
-        if (this.trunkFruit == Blocks.cocoa.getDefaultState())
+        if (this.trunkFruit == Blocks.COCOA.getDefaultState())
         {
             this.setBlockAndNotifyAdequately(world, pos, this.trunkFruit.withProperty(BlockCocoa.AGE, Integer.valueOf(age)).withProperty(BlockCocoa.FACING, direction));
         }

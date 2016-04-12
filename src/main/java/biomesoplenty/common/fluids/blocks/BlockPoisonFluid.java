@@ -13,7 +13,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.MobEffects;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -26,18 +25,19 @@ public class BlockPoisonFluid extends BlockFluidClassic
 {
     public BlockPoisonFluid(Fluid fluid)
     {
-        super(fluid, Material.water);
+        super(fluid, Material.WATER);
         this.setLightOpacity(3);
         this.quantaPerBlock = 4;
     }
     
-    @Override
+    //TODO: this probably moved somewhere else, find out what it is and where - Topisani
+    // @Override
     public void onEntityCollidedWithBlock(World world, BlockPos pos, Entity entity)
     {
         if (entity instanceof EntityLivingBase)
         {
-            ((EntityLivingBase)entity).addPotionEffect(new PotionEffect(MobEffects.poison, 100));
-            ((EntityLivingBase)entity).addPotionEffect(new PotionEffect(MobEffects.hunger, 100));
+            ((EntityLivingBase)entity).addPotionEffect(new PotionEffect(MobEffects.POISON, 100));
+            ((EntityLivingBase)entity).addPotionEffect(new PotionEffect(MobEffects.HUNGER, 100));
         }
     }
 

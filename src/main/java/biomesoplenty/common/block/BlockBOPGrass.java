@@ -8,19 +8,12 @@
 
 package biomesoplenty.common.block;
 
-import java.util.Random;
-
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BOPBlocks.Coloring;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.block.ISustainsPlantType;
-import biomesoplenty.common.init.ModBlocks;
 import biomesoplenty.common.item.ItemBOPBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockDirt;
-import net.minecraft.block.BlockGrass;
-import net.minecraft.block.BlockTallGrass;
-import net.minecraft.block.SoundType;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
@@ -39,7 +32,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.IStringSerializable;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
@@ -47,6 +39,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.Random;
 
 public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPlantType
 {
@@ -151,10 +145,10 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
             // support beach plants if there's water alongside
             case Beach:
                 return (
-                        (!world.isAirBlock(pos.east()) && world.getBlockState(pos.east()).getMaterial() == Material.water) ||
-                        (!world.isAirBlock(pos.west()) && world.getBlockState(pos.west()).getMaterial() == Material.water) ||
-                        (!world.isAirBlock(pos.north()) && world.getBlockState(pos.north()).getMaterial() == Material.water) ||
-                        (!world.isAirBlock(pos.south()) && world.getBlockState(pos.south()).getMaterial() == Material.water)
+                        (!world.isAirBlock(pos.east()) && world.getBlockState(pos.east()).getMaterial() == Material.WATER) ||
+                        (!world.isAirBlock(pos.west()) && world.getBlockState(pos.west()).getMaterial() == Material.WATER) ||
+                        (!world.isAirBlock(pos.north()) && world.getBlockState(pos.north()).getMaterial() == Material.WATER) ||
+                        (!world.isAirBlock(pos.south()) && world.getBlockState(pos.south()).getMaterial() == Material.WATER)
                         );
                 // don't support nether plants, water plants, or crops (require farmland), or anything else by default
             default:
@@ -244,7 +238,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
                 // spectral moss in the nether catches on fire and turns to smoldering grass
                 if (world.provider instanceof net.minecraft.world.WorldProviderHell)
                 {
-                    world.setBlockState(pos.up(), Blocks.fire.getDefaultState()); // might need to set fire AGE value... not sure
+                    world.setBlockState(pos.up(), Blocks.FIRE.getDefaultState()); // might need to set fire AGE value... not sure
                     world.setBlockState(pos, this.getDefaultState().withProperty(VARIANT, BOPGrassType.SMOLDERING));
                 }
                 break;
@@ -252,7 +246,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
             case SMOLDERING:
                 // smoldering grass melts snow
                 IBlockState stateAbove = world.getBlockState(pos.up());
-                if (stateAbove.getMaterial() == Material.snow)
+                if (stateAbove.getMaterial() == Material.SNOW)
                 {
                     world.setBlockToAir(pos.up());
                 }
@@ -359,7 +353,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
                 // shift a random distance
                 currPos = currPos.add(rand.nextInt(3) - 1, (rand.nextInt(3) - 1) * rand.nextInt(3) / 2, rand.nextInt(3) - 1);
                 Block currBlockBelow =  worldIn.getBlockState(currPos.down()).getBlock();
-                if ( (currBlockBelow != Blocks.grass && currBlockBelow != BOPBlocks.grass) || worldIn.getBlockState(currPos).isNormalCube())
+                if ( (currBlockBelow != Blocks.GRASS && currBlockBelow != BOPBlocks.grass) || worldIn.getBlockState(currPos).isNormalCube())
                 {
                     // this block can't spread the growth
                     walkOk = false;
@@ -376,8 +370,8 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
                 else
                 {
                     // otherwise plant tall grass
-                    IBlockState tallgrassState = Blocks.tallgrass.getDefaultState().withProperty(BlockTallGrass.TYPE, BlockTallGrass.EnumType.GRASS);
-                    if (Blocks.tallgrass.canBlockStay(worldIn, currPos, tallgrassState))
+                    IBlockState tallgrassState = Blocks.TALLGRASS.getDefaultState().withProperty(BlockTallGrass.TYPE, BlockTallGrass.EnumType.GRASS);
+                    if (Blocks.TALLGRASS.canBlockStay(worldIn, currPos, tallgrassState))
                     {
                         worldIn.setBlockState(currPos, tallgrassState);
                     }
@@ -469,7 +463,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
         switch ((BOPGrassType) state.getValue(VARIANT))
         {
             case SPECTRAL_MOSS:
-                return Blocks.end_stone.getDefaultState();             
+                return Blocks.END_STONE.getDefaultState();
             case LOAMY:
                 return BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.LOAMY);
             case SANDY:
@@ -477,9 +471,9 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
             case SILTY:
                 return BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY);
             case OVERGROWN_NETHERRACK:
-                return Blocks.netherrack.getDefaultState();
+                return Blocks.NETHERRACK.getDefaultState();
             case SMOLDERING: case ORIGIN: case DAISY:  default:
-                return Blocks.dirt.getStateFromMeta(BlockDirt.DirtType.DIRT.getMetadata());
+                return Blocks.DIRT.getStateFromMeta(BlockDirt.DirtType.DIRT.getMetadata());
         }
     }
     
@@ -503,14 +497,14 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
         {
             // spectral moss only spreads to end stone
             case SPECTRAL_MOSS:
-                if (target.getBlock()==Blocks.end_stone)
+                if (target.getBlock()== Blocks.END_STONE)
                 {
                     return BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SPECTRAL_MOSS);
                 }
                 break;
              
             case OVERGROWN_NETHERRACK:
-                if (target.getBlock()==Blocks.netherrack)
+                if (target.getBlock()== Blocks.NETHERRACK)
                 {
                     return BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.OVERGROWN_NETHERRACK);
                 }
@@ -519,9 +513,9 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
             // loamy/sandy/silty grasses spread to any kind of dirt
             case LOAMY: case SANDY: case SILTY:
                 // vanilla dirt gets vanilla grass spread to it
-                if (target.getBlock() == Blocks.dirt && target.getValue(BlockDirt.VARIANT) == BlockDirt.DirtType.DIRT)
+                if (target.getBlock() == Blocks.DIRT && target.getValue(BlockDirt.VARIANT) == BlockDirt.DirtType.DIRT)
                 {
-                    return Blocks.grass.getDefaultState();
+                    return Blocks.GRASS.getDefaultState();
                 }
                 // BOP dirt get's the corresponding BOP grass spread to it (unless it's coarse - grass doesn't grow on coarse dirt)
                 if (target.getBlock() == BOPBlocks.dirt)
@@ -532,7 +526,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
             
             // origin grass spreads to any kind of dirt
             case ORIGIN: case DAISY:
-                if ((target.getBlock() == Blocks.dirt && target.getValue(BlockDirt.VARIANT) == BlockDirt.DirtType.DIRT) || (target.getBlock() == BOPBlocks.dirt && Boolean.FALSE.equals(target.getValue(BlockBOPDirt.COARSE))))
+                if ((target.getBlock() == Blocks.DIRT && target.getValue(BlockDirt.VARIANT) == BlockDirt.DirtType.DIRT) || (target.getBlock() == BOPBlocks.dirt && Boolean.FALSE.equals(target.getValue(BlockBOPDirt.COARSE))))
                 {
                     return BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.ORIGIN);
                 }

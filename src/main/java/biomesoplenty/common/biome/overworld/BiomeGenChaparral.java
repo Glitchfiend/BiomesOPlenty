@@ -51,10 +51,10 @@ public class BiomeGenChaparral extends BOPBiome
         this.canGenerateVillages = true;
         
         // sand
-        this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.sand.getDefaultState()).create());
+        this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.SAND.getDefaultState()).create());
         
         // stone patches
-        this.addGenerator("stone_patches", GeneratorStage.SAND, (new GeneratorSplotches.Builder()).amountPerChunk(2).splotchSize(15).replace(this.topBlock).with(Blocks.stone.getDefaultState()).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
+        this.addGenerator("stone_patches", GeneratorStage.SAND, (new GeneratorSplotches.Builder()).amountPerChunk(2).splotchSize(15).replace(this.topBlock).with(Blocks.STONE.getDefaultState()).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
         
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.5F);
@@ -77,7 +77,7 @@ public class BiomeGenChaparral extends BOPBiome
         GeneratorWeighted treeGenerator = new GeneratorWeighted(7.0F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("twiglet", 3, (new GeneratorTwigletTree.Builder()).minHeight(2).maxHeight(2).log(BlockPlanks.EnumType.OAK).leaves(BlockPlanks.EnumType.OAK).create());
-        treeGenerator.add("small_bush", 1, (new GeneratorFlora.Builder()).placeOn(this.topBlock).replace(Material.air).withNonDecayingLeaf(BlockPlanks.EnumType.OAK).create());
+        treeGenerator.add("small_bush", 1, (new GeneratorFlora.Builder()).placeOn(this.topBlock).replace(Material.AIR).withNonDecayingLeaf(BlockPlanks.EnumType.OAK).create());
         
         // other plants
         this.addGenerator("berry_bushes", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(BOPPlants.BERRYBUSH).create());

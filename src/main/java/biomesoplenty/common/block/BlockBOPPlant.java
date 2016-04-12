@@ -8,9 +8,11 @@
 
 package biomesoplenty.common.block;
 
-import java.util.List;
-import java.util.Random;
-
+import biomesoplenty.api.block.BlockQueries;
+import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.common.item.ItemBOPPlant;
+import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
@@ -46,11 +48,9 @@ import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import biomesoplenty.api.block.BlockQueries;
-import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.common.enums.BOPPlants;
-import biomesoplenty.common.item.ItemBOPPlant;
-import biomesoplenty.common.util.block.VariantPagingHelper;
+
+import java.util.List;
+import java.util.Random;
 
 // TODO: pick block?
 
@@ -218,7 +218,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
                 if (rand.nextInt(50) == 0)
                 {
                     // in in 50 chance of getting a carrot or potato from SPROUT
-                    ret.add(new ItemStack(rand.nextInt(2) == 0 ? Items.carrot : Items.potato));
+                    ret.add(new ItemStack(rand.nextInt(2) == 0 ? Items.CARROT : Items.POTATO));
                 }
                 break;
                 
@@ -438,7 +438,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
                     if (inventory.armorInventory[0] != null && inventory.armorInventory[1] != null) {
                         break;
                     }
-                    ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.poison, 100));
+                    ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.POISON, 100));
                 }
                 break;
             case THORN: case TINYCACTUS:
@@ -540,7 +540,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
             case RAFFLESIA:
                 return 0;
             default:
-                return Blocks.tallgrass.getFlammability(world, pos, face);
+                return Blocks.TALLGRASS.getFlammability(world, pos, face);
         }
     }
     
@@ -565,7 +565,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
             case RAFFLESIA:
                 return 0;
             default:
-                return Blocks.tallgrass.getFireSpreadSpeed(world, pos, face);
+                return Blocks.TALLGRASS.getFireSpreadSpeed(world, pos, face);
         }
     }
     

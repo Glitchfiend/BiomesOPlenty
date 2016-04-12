@@ -8,8 +8,6 @@
 
 package biomesoplenty.common.block;
 
-import java.util.List;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -24,6 +22,8 @@ import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class BlockBOPDoubleDecoration extends BlockBOPDecoration {
     
@@ -54,7 +54,7 @@ public class BlockBOPDoubleDecoration extends BlockBOPDecoration {
     
     public BlockBOPDoubleDecoration()
     {
-        this(Material.plants);
+        this(Material.PLANTS);
     }
     public BlockBOPDoubleDecoration(Material material)
     {
@@ -123,7 +123,7 @@ public class BlockBOPDoubleDecoration extends BlockBOPDecoration {
         else
         {
             this.dropBlockAsItem(worldIn, pos, state, 0);
-            worldIn.setBlockState(pos, Blocks.air.getDefaultState(), 3);
+            worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
             return false;
         }
     }

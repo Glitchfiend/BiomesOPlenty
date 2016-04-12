@@ -16,7 +16,7 @@ public class BiomeExtMesaPlateau extends ExtendedBiomeWrapper
 {
     public BiomeExtMesaPlateau()
     {
-        super(Biomes.mesaPlateau);
+        super(Biomes.MESA_CLEAR_ROCK);
         
         // other plants
         this.addGenerator("desertgrass", GeneratorStage.GRASS, (new GeneratorGrass.Builder()).amountPerChunk(0.5F).with(BOPPlants.DESERTGRASS).generationAttempts(8).create());

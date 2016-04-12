@@ -8,15 +8,6 @@
 
 package biomesoplenty.api.biome;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Random;
-
 import biomesoplenty.api.biome.generation.GenerationManager;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.IGenerator;
@@ -50,6 +41,9 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.ChunkPrimer;
 
+import java.util.*;
+import java.util.Map.Entry;
+
 public class BOPBiome extends BiomeGenBase implements IExtendedBiome
 {
     private GenerationManager generationManager = new GenerationManager();
@@ -58,13 +52,13 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
     // defaults
     public int skyColor = -1; // -1 indicates the default skyColor by temperature will be used
     public boolean hasBiomeEssence = true;
-    public IBlockState seaFloorBlock = Blocks.dirt.getDefaultState();
+    public IBlockState seaFloorBlock = Blocks.DIRT.getDefaultState();
     
     public boolean canSpawnInBiome = true;
     public boolean canGenerateVillages = true;
     public boolean canGenerateRivers = true;
     
-    public ResourceLocation beachBiomeLocation = BiomeUtils.getLocForBiome(Biomes.beach);
+    public ResourceLocation beachBiomeLocation = BiomeUtils.getLocForBiome(Biomes.BEACH);
     
     public TerrainSettings terrainSettings = new TerrainSettings();
     public boolean noNeighborTerrainInfuence = false;
@@ -91,7 +85,7 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         // roots
         this.addGenerator("roots", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(4.0F).with(BOPPlants.ROOT).create());
         
-        IBlockPosQuery suitableStonePosition = BlockQuery.buildAnd().withAltitudeBetween(0, 55).blocks(Blocks.stone).create();
+        IBlockPosQuery suitableStonePosition = BlockQuery.buildAnd().withAltitudeBetween(0, 55).blocks(Blocks.STONE).create();
         this.addGenerator("miners_delight", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.25F).generationAttempts(64).with(BOPFlowers.MINERS_DELIGHT).placeOn(suitableStonePosition).scatterYMethod(ScatterYMethod.BELOW_GROUND).create());
         this.addGenerator("glowshrooms", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.5F).generationAttempts(64).placeOn(suitableStonePosition).with(BOPBlocks.mushroom.getDefaultState().withProperty(BlockBOPMushroom.VARIANT, BlockBOPMushroom.MushroomType.GLOWSHROOM)).scatterYMethod(ScatterYMethod.BELOW_GROUND).create());
         this.addGenerator("stone_formations", GeneratorStage.FLOWERS,(new GeneratorColumns.Builder()).amountPerChunk(30.0F).generationAttempts(32).placeOn(suitableStonePosition).with(BOPBlocks.stone_formations.getDefaultState()).minHeight(1).maxHeight(7).randomDirection(true).scatterYMethod(ScatterYMethod.BELOW_GROUND).create());
@@ -195,7 +189,7 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
                 // case insensitive, dot used as mod delimiter, no spaces or underscores
                 // eg  'villager', 'Zombie', 'SQUID', 'enderdragon', 'biomesoplenty.wasp' all ok
                 Class <? extends EntityLiving> entityClazz = null;
-                for (Object entry : EntityList.stringToClassMapping.entrySet())
+                for (Object entry : EntityList.NAME_TO_CLASS.entrySet())
                 {
                     String entryEntityName = (String)((Entry)entry).getKey();
                     if (entryEntityName.equalsIgnoreCase(entityName))
@@ -340,24 +334,24 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
             // bedrock at the bottom
             if (y <= rand.nextInt(5))
             {
-                primer.setBlockState(localZ, y, localX, Blocks.bedrock.getDefaultState());
+                primer.setBlockState(localZ, y, localX, Blocks.BEDROCK.getDefaultState());
                 continue;
             }
 
-            if (state.getMaterial() == Material.air)
+            if (state.getMaterial() == Material.AIR)
             {
                 // topBlocks and dirtBlocks can occur after any pocket of air
                 topBlocksToFill = (topBlock == null ? 0 : 1);
                 dirtBlocksToFill = dirtDepth;
                 continue;
             }
-            else if (!hitFloorYet && state.getMaterial() == Material.water)
+            else if (!hitFloorYet && state.getMaterial() == Material.WATER)
             {
                 // seaFloorBlocks can occur after surface water
                 seaFloorBlocksToFill = seaFloorDepth;
             }
             
-            if (state.getBlock() == Blocks.stone)
+            if (state.getBlock() == Blocks.STONE)
             {
                 hitFloorYet = true;
                 if (topBlocksToFill > 0)
@@ -372,7 +366,7 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
                     }
                     else
                     {
-                        primer.setBlockState(localZ, y, localX, Blocks.gravel.getDefaultState());
+                        primer.setBlockState(localZ, y, localX, Blocks.GRAVEL.getDefaultState());
                         dirtBlocksToFill = 0;
                     }
                     topBlocksToFill--;
@@ -388,10 +382,10 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
                     --dirtBlocksToFill;
 
                     // add sandstone after a patch of sand
-                    if (dirtBlocksToFill == 0 && fillerBlock.getBlock() == Blocks.sand)
+                    if (dirtBlocksToFill == 0 && fillerBlock.getBlock() == Blocks.SAND)
                     {
                         dirtBlocksToFill = rand.nextInt(4) + Math.max(0, y - 63);
-                        fillerBlock = fillerBlock.getValue(BlockSand.VARIANT) == BlockSand.EnumType.RED_SAND ? Blocks.red_sandstone.getDefaultState() : Blocks.sandstone.getDefaultState();
+                        fillerBlock = fillerBlock.getValue(BlockSand.VARIANT) == BlockSand.EnumType.RED_SAND ? Blocks.RED_SANDSTONE.getDefaultState() : Blocks.SANDSTONE.getDefaultState();
                     }
                 }
             }

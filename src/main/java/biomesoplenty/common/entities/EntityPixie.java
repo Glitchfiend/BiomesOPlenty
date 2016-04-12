@@ -8,11 +8,6 @@
 
 package biomesoplenty.common.entities;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
-
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.api.particle.BOPParticleTypes;
 import biomesoplenty.core.BiomesOPlenty;
@@ -27,6 +22,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
 public class EntityPixie extends EntityFlying implements IMob {
     
@@ -166,7 +166,7 @@ public class EntityPixie extends EntityFlying implements IMob {
         
         public boolean isBoxBlocked(AxisAlignedBB box)
         {
-            return !this.pixie.worldObj.getCubes(this.pixie, box).isEmpty();
+            return !this.pixie.worldObj.getCollisionBoxes(this.pixie, box).isEmpty();
         }
         
         // check nothing will collide with the pixie in the direction of aim, for howFar units (or until the destination - whichever is closer)

@@ -120,7 +120,7 @@ public class BlockBOPLog extends BlockLog implements IBOPBlock
             case HELLBARK:
                 return 0;
             default:
-                return Blocks.log.getFlammability(world, pos, face);
+                return Blocks.LOG.getFlammability(world, pos, face);
         }
     }
     
@@ -133,7 +133,7 @@ public class BlockBOPLog extends BlockLog implements IBOPBlock
             case HELLBARK:
                 return 0;
             default:
-                return Blocks.log.getFireSpreadSpeed(world, pos, face);
+                return Blocks.LOG.getFireSpreadSpeed(world, pos, face);
         }
     }
     

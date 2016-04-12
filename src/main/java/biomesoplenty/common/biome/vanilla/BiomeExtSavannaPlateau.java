@@ -16,7 +16,7 @@ public class BiomeExtSavannaPlateau extends ExtendedBiomeWrapper
 {
     public BiomeExtSavannaPlateau()
     {
-        super(Biomes.savannaPlateau);
+        super(Biomes.SAVANNA_PLATEAU);
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(4.0F);

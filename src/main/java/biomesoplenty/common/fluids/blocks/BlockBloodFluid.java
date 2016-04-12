@@ -21,7 +21,7 @@ public class BlockBloodFluid extends BlockFluidClassic
 {
     public BlockBloodFluid(Fluid fluid)
     {
-        super(fluid, Material.water);
+        super(fluid, Material.WATER);
     }
 
     @Override

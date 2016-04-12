@@ -18,7 +18,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.stats.StatList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
@@ -32,7 +31,7 @@ public class BucketEventHandler
     public void onRightClickHoldingBucket(FillBucketEvent event)
     {
         // check we're using a bucket, on a block we can modify
-        if (event.getEmptyBucket().getItem() != Items.bucket) {return;}
+        if (event.getEmptyBucket().getItem() != Items.BUCKET) {return;}
         if (event.getTarget() == null || event.getTarget().typeOfHit != RayTraceResult.Type.BLOCK) {return;}
         BlockPos blockpos = event.getTarget().getBlockPos();
         if (!event.getWorld().isBlockModifiable(event.getEntityPlayer(), blockpos)) {return;}
@@ -55,7 +54,7 @@ public class BucketEventHandler
         }
         else if (iblockstate.getBlock() == BOPBlocks.hot_spring_water && ((Integer)iblockstate.getValue(BlockHotSpringWaterFluid.LEVEL)).intValue() == 0)
         {
-            filled_bucket = Items.water_bucket;
+            filled_bucket = Items.WATER_BUCKET;
         }
         else
         {

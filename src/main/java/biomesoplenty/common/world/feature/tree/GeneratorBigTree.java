@@ -8,18 +8,12 @@
 
 package biomesoplenty.common.world.feature.tree;
 
-import java.util.List;
-import java.util.Random;
-
-import org.apache.commons.lang3.tuple.Pair;
-
-import com.google.common.collect.Lists;
-
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
 import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
+import com.google.common.collect.Lists;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.BlockSapling;
@@ -30,6 +24,10 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+import org.apache.commons.lang3.tuple.Pair;
+
+import java.util.List;
+import java.util.Random;
 
 /*This class is heavily based on https://gist.github.com/grum/62cfdec0537e8db24eb3#file-bigtreefeature-java
 additional information has been added from http://pastebin.com/XBLdGqXQ. This class has been cross-checked
@@ -49,9 +47,9 @@ public class GeneratorBigTree extends GeneratorTreeBase
             // defaults
             this.amountPerChunk = 1.0F;
             this.placeOn = BlockQueries.fertile;
-            this.replace = new BlockQueryMaterial(Material.air, Material.leaves);
-            this.log = Blocks.log.getDefaultState();
-            this.leaves = Blocks.leaves.getDefaultState();
+            this.replace = new BlockQueryMaterial(Material.AIR, Material.LEAVES);
+            this.log = Blocks.LOG.getDefaultState();
+            this.leaves = Blocks.LEAVES.getDefaultState();
             this.vine = null;
             this.hanging = null;
             this.trunkFruit = null;
@@ -506,7 +504,7 @@ public class GeneratorBigTree extends GeneratorTreeBase
     {
         BlockPos down = this.origin.down();
         IBlockState state = this.world.getBlockState(down);
-        boolean isSoil = state.getBlock().canSustainPlant(state, this.world, down, EnumFacing.UP, ((BlockSapling)Blocks.sapling));
+        boolean isSoil = state.getBlock().canSustainPlant(state, this.world, down, EnumFacing.UP, ((BlockSapling)Blocks.SAPLING));
 
         //Don't grow the tree here if the location can't sustain a sapling
         if (!isSoil && !this.placeOn.matches(world, down))

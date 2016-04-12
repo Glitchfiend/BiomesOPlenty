@@ -64,7 +64,7 @@ public class UseHoeEventHandler
             }
             else if (dirtBlock instanceof BlockDirt && state.getValue(BlockBOPGrass.VARIANT) != BlockBOPGrass.BOPGrassType.SMOLDERING)
             {
-                world.setBlockState(pos, Blocks.farmland.getDefaultState());
+                world.setBlockState(pos, Blocks.FARMLAND.getDefaultState());
             }
         }
 

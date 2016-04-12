@@ -16,7 +16,7 @@ public class BiomeExtJungleHills extends ExtendedBiomeWrapper
 {
     public BiomeExtJungleHills()
     {
-        super(Biomes.jungleHills);
+        super(Biomes.JUNGLE_HILLS);
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(5.0F);

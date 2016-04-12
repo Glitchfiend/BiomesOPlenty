@@ -39,9 +39,9 @@ public class GeneratorTaigaTree extends GeneratorTreeBase
             this.maxHeight = 12;
             this.placeOn = BlockQueries.fertile;
             this.replace = BlockQueries.airOrLeaves;
-            this.log = Blocks.log.getDefaultState().withProperty(BlockOldLog.VARIANT, BlockPlanks.EnumType.SPRUCE);
-            this.leaves = Blocks.leaves.getDefaultState().withProperty(BlockOldLeaf.VARIANT, BlockPlanks.EnumType.SPRUCE);
-            this.vine = Blocks.vine.getDefaultState();
+            this.log = Blocks.LOG.getDefaultState().withProperty(BlockOldLog.VARIANT, BlockPlanks.EnumType.SPRUCE);
+            this.leaves = Blocks.LEAVES.getDefaultState().withProperty(BlockOldLeaf.VARIANT, BlockPlanks.EnumType.SPRUCE);
+            this.vine = Blocks.VINE.getDefaultState();
             this.hanging = null;
             this.trunkFruit = null;
             this.altLeaves = null;

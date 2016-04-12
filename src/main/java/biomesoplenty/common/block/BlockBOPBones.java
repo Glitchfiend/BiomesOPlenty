@@ -28,8 +28,6 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockBOPBones extends Block implements IBOPBlock
 {
@@ -82,7 +80,7 @@ public class BlockBOPBones extends Block implements IBOPBlock
     
     public BlockBOPBones()
     {
-        super(Material.rock);
+        super(Material.ROCK);
         
         // set some defaults
         this.setHardness(3.0F);

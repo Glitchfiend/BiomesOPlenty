@@ -49,7 +49,7 @@ public class BlockBOPGem extends Block implements IBOPBlock
     
     public BlockBOPGem()
     {        
-        super(Material.rock);
+        super(Material.ROCK);
         
         // set some defaults
         this.setHardness(5.0F);

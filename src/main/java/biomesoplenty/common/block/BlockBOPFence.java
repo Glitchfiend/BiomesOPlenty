@@ -8,9 +8,6 @@
 
 package biomesoplenty.common.block;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.item.ItemBOPBlock;
@@ -27,6 +24,9 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class BlockBOPFence extends BlockFence implements IBOPBlock
 {
@@ -59,7 +59,7 @@ public class BlockBOPFence extends BlockFence implements IBOPBlock
     
     public BlockBOPFence(BOPWoods wood)
     {
-        super(Material.wood, MapColor.woodColor);
+        super(Material.WOOD, MapColor.WOOD);
         this.setHarvestLevel("axe", 0);
         
         this.wood = wood;
@@ -73,13 +73,13 @@ public class BlockBOPFence extends BlockFence implements IBOPBlock
     @Override
     public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
     {
-        return Blocks.planks.getFlammability(world, pos, face);
+        return Blocks.PLANKS.getFlammability(world, pos, face);
     }
 
     @Override
     public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face)
     {
-        return Blocks.planks.getFireSpreadSpeed(world, pos, face);
+        return Blocks.PLANKS.getFireSpreadSpeed(world, pos, face);
     }
 }
     

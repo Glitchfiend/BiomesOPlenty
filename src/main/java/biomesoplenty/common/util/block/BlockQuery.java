@@ -8,21 +8,11 @@
 
 package biomesoplenty.common.util.block;
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.Sets;
-
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.block.ISustainsPlantType;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Sets;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
@@ -33,6 +23,11 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
+
+import java.lang.reflect.Field;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class BlockQuery
 {
@@ -299,18 +294,18 @@ public class BlockQuery
                 // Otherwise fall back to the vanilla code
                 switch (this.plantType)
                 {
-                    case Desert: return block == Blocks.sand || block == Blocks.hardened_clay || block == Blocks.stained_hardened_clay || block == Blocks.dirt;
-                    case Nether: return block == Blocks.soul_sand;
-                    case Crop:   return block == Blocks.farmland || block == BOPBlocks.farmland_0 || block == BOPBlocks.farmland_1;
+                    case Desert: return block == Blocks.SAND || block == Blocks.HARDENED_CLAY || block == Blocks.STAINED_HARDENED_CLAY || block == Blocks.DIRT;
+                    case Nether: return block == Blocks.SOUL_SAND;
+                    case Crop:   return block == Blocks.FARMLAND || block == BOPBlocks.farmland_0 || block == BOPBlocks.farmland_1;
                     case Cave:   return block.isSideSolid(state, world, pos, EnumFacing.UP);
-                    case Plains: return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPBlocks.farmland_0 || block == BOPBlocks.farmland_1 || block == Blocks.mycelium;
-                    case Water:  return state.getMaterial() == Material.water && ((Integer)state.getValue(BlockLiquid.LEVEL)) == 0;
+                    case Plains: return block == Blocks.GRASS || block == Blocks.DIRT || block == Blocks.FARMLAND || block == BOPBlocks.farmland_0 || block == BOPBlocks.farmland_1 || block == Blocks.MYCELIUM;
+                    case Water:  return state.getMaterial() == Material.WATER && ((Integer)state.getValue(BlockLiquid.LEVEL)) == 0;
                     case Beach:
-                        boolean isBeach = block == Blocks.grass || block == Blocks.dirt || block == Blocks.sand || block == Blocks.mycelium;
-                        boolean hasWater = (world.getBlockState(pos.east()).getMaterial() == Material.water ||
-                                            world.getBlockState(pos.west()).getMaterial() == Material.water ||
-                                            world.getBlockState(pos.north()).getMaterial() == Material.water ||
-                                            world.getBlockState(pos.south()).getMaterial() == Material.water);
+                        boolean isBeach = block == Blocks.GRASS || block == Blocks.DIRT || block == Blocks.SAND || block == Blocks.MYCELIUM;
+                        boolean hasWater = (world.getBlockState(pos.east()).getMaterial() == Material.WATER ||
+                                            world.getBlockState(pos.west()).getMaterial() == Material.WATER ||
+                                            world.getBlockState(pos.north()).getMaterial() == Material.WATER ||
+                                            world.getBlockState(pos.south()).getMaterial() == Material.WATER);
                         return isBeach && hasWater;
                 }
                 return false;  

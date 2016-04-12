@@ -8,8 +8,6 @@
 
 package biomesoplenty.common.block;
 
-import java.util.Random;
-
 import biomesoplenty.api.item.BOPItems;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -26,13 +24,15 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.util.Random;
+
 public class BlockBOPAsh extends BlockBOPGeneric
 {
     protected static final AxisAlignedBB COLLISION_BOX = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.875D, 1.0D);
 
     public BlockBOPAsh()
     {
-        super(Material.sand, SoundType.SAND);
+        super(Material.SAND, SoundType.SAND);
 
         this.setHardness(0.4F);
         this.setHarvestLevel("shovel", 0);

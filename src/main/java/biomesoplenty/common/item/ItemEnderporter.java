@@ -13,7 +13,6 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
@@ -39,12 +38,12 @@ public class ItemEnderporter extends Item {
         if (world.provider.isSurfaceWorld())
         {
             stack.damageItem(1, player);
-            player.addPotionEffect(new PotionEffect(MobEffects.blindness, 30, 999));
-            player.addPotionEffect(new PotionEffect(MobEffects.resistance, 200, 999));
-            player.addPotionEffect(new PotionEffect(MobEffects.nightVision, 100, 999));
-            player.addPotionEffect(new PotionEffect(MobEffects.regeneration, 200, 3));
+            player.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, 30, 999));
+            player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 200, 999));
+            player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 100, 999));
+            player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 200, 3));
             player.setPosition((double)world.getSpawnPoint().getX(), 250, (double)world.getSpawnPoint().getZ());
-            world.playSound(player, player.getPosition(), SoundEvents.entity_player_levelup, SoundCategory.NEUTRAL, 1.0F, 5.0F);
+            world.playSound(player, player.getPosition(), SoundEvents.ENTITY_PLAYER_LEVELUP, SoundCategory.NEUTRAL, 1.0F, 5.0F);
             //TODO: FEATURE par3EntityPlayer.addStat(BOPAchievements.achEnderporter, 1);
         }
         else
@@ -53,7 +52,7 @@ public class ItemEnderporter extends Item {
             if (!world.isRemote)
             {
                 TextComponentTranslation msg = new TextComponentTranslation("enderporter.prevent");
-                msg.getChatStyle().setColor(TextFormatting.DARK_PURPLE);
+                msg.getStyle().setColor(TextFormatting.DARK_PURPLE);
                 player.addChatMessage(msg);
             }
         }

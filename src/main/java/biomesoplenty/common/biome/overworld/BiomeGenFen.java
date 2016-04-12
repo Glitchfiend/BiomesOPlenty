@@ -73,7 +73,7 @@ public class BiomeGenFen extends BOPBiome
         // TODO: this.theBiomeDecorator.bopFeatures.waterSpringsPerChunk = 99;
         
         // gravel
-        this.addGenerator("gravel", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(4).maxRadius(7).with(Blocks.gravel.getDefaultState()).create());
+        this.addGenerator("gravel", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(4).maxRadius(7).with(Blocks.GRAVEL.getDefaultState()).create());
         
         // mud
         this.addGenerator("mud", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(BOPBlocks.mud.getDefaultState()).create());
@@ -83,7 +83,7 @@ public class BiomeGenFen extends BOPBiome
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("dark_oak_taiga", 5, (new GeneratorTaigaTree.Builder()).log(BlockPlanks.EnumType.DARK_OAK).maxHeight(14).leaves(BlockPlanks.EnumType.DARK_OAK).create());
         treeGenerator.add("dying", 10, (new GeneratorTaigaTree.Builder()).log(BlockPlanks.EnumType.DARK_OAK).maxHeight(14).leaves(BOPTrees.DEAD).create());
-        treeGenerator.add("dead", 1, (new GeneratorBigTree.Builder()).log(BOPWoods.DEAD).leaves(Blocks.air.getDefaultState()).maxHeight(14).create());
+        treeGenerator.add("dead", 1, (new GeneratorBigTree.Builder()).log(BOPWoods.DEAD).leaves(Blocks.AIR.getDefaultState()).maxHeight(14).create());
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(2.5F);
@@ -110,19 +110,19 @@ public class BiomeGenFen extends BOPBiome
         
         // water plants
         this.addGenerator("water_reeds", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(1.0F).with(BOPPlants.REED).generationAttempts(32).create());
-        this.addGenerator("lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(Blocks.waterlily.getDefaultState()).create());
+        this.addGenerator("lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(Blocks.WATERLILY.getDefaultState()).create());
         this.addGenerator("medium_lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BlockBOPLilypad.LilypadType.MEDIUM).create());
         this.addGenerator("small_lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BlockBOPLilypad.LilypadType.SMALL).create());
         this.addGenerator("tiny_lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BlockBOPLilypad.LilypadType.TINY).create());
-        this.addGenerator("algae", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(3.0F).replace(Blocks.water).with(BOPBlocks.coral.getDefaultState().withProperty(BlockBOPCoral.VARIANT, BlockBOPCoral.CoralType.ALGAE)).generationAttempts(32).scatterYMethod(ScatterYMethod.AT_GROUND).create());
+        this.addGenerator("algae", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(3.0F).replace(Blocks.WATER).with(BOPBlocks.coral.getDefaultState().withProperty(BlockBOPCoral.VARIANT, BlockBOPCoral.CoralType.ALGAE)).generationAttempts(32).scatterYMethod(ScatterYMethod.AT_GROUND).create());
         this.addGenerator("flower_lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BlockBOPLilypad.LilypadType.FLOWER).create());
         
         // shrooms
         this.addGenerator("flat_mushroom", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BlockBOPMushroom.MushroomType.FLAT_MUSHROOM).create());
         this.addGenerator("toadstools", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(BlockBOPMushroom.MushroomType.TOADSTOOL).create());
         this.addGenerator("portobellos", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BlockBOPMushroom.MushroomType.PORTOBELLO).create());
-        this.addGenerator("brown_mushrooms", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.4F).with(Blocks.brown_mushroom.getDefaultState()).create());
-        this.addGenerator("red_mushrooms", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.4F).with(Blocks.red_mushroom.getDefaultState()).create());
+        this.addGenerator("brown_mushrooms", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.4F).with(Blocks.BROWN_MUSHROOM.getDefaultState()).create());
+        this.addGenerator("red_mushrooms", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.4F).with(Blocks.RED_MUSHROOM.getDefaultState()).create());
         
         // gem
         this.addGenerator("malachite", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.MALACHITE).create());
@@ -134,7 +134,7 @@ public class BiomeGenFen extends BOPBiome
     {
         if (!settings.generateBopGems) {this.removeGenerator("malachite");}
         
-        if (!settings.generateBopSoils) {this.topBlock = Blocks.grass.getDefaultState(); this.fillerBlock = Blocks.dirt.getDefaultState();}
+        if (!settings.generateBopSoils) {this.topBlock = Blocks.GRASS.getDefaultState(); this.fillerBlock = Blocks.DIRT.getDefaultState();}
         
         if (!settings.generateBopMushrooms) {this.removeGenerator("toadstools"); this.removeGenerator("flat_mushroom"); this.removeGenerator("blue_milk_caps"); this.removeGenerator("portobellos");}
         
@@ -151,7 +151,7 @@ public class BiomeGenFen extends BOPBiome
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("dark_oak_taiga", 5, (new GeneratorTaigaTree.Builder()).log(BlockPlanks.EnumType.DARK_OAK).maxHeight(14).leaves(BlockPlanks.EnumType.DARK_OAK).create());
         treeGenerator.add("dying", 10, (new GeneratorTaigaTree.Builder()).log(BlockPlanks.EnumType.DARK_OAK).maxHeight(14).leaves(BlockPlanks.EnumType.DARK_OAK).create());
-        treeGenerator.add("dead", 1, (new GeneratorBigTree.Builder()).log(BlockPlanks.EnumType.DARK_OAK).leaves(Blocks.air.getDefaultState()).maxHeight(14).create());
+        treeGenerator.add("dead", 1, (new GeneratorBigTree.Builder()).log(BlockPlanks.EnumType.DARK_OAK).leaves(Blocks.AIR.getDefaultState()).maxHeight(14).create());
         }
         
         GeneratorWeighted grassGen = (GeneratorWeighted)this.getGenerator("grass");

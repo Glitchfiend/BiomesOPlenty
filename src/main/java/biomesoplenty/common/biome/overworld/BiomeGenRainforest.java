@@ -46,14 +46,14 @@ public class BiomeGenRainforest extends BOPBiome
         this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
         
         // aand
-        this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.sand.getDefaultState()).create());
+        this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.SAND.getDefaultState()).create());
         
         // trees & logs
         GeneratorWeighted treeGenerator = new GeneratorWeighted(20);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("birch", 4, (new GeneratorBasicTree.Builder()).log(BlockPlanks.EnumType.BIRCH).leaves(BlockPlanks.EnumType.BIRCH).minHeight(5).maxHeight(8).create());
         treeGenerator.add("oak", 7, (new GeneratorBasicTree.Builder()).minHeight(8).maxHeight(12).altLeaves(BOPTrees.FLOWERING).create());
-        treeGenerator.add("jungle", 1, (new GeneratorBasicTree.Builder()).minHeight(8).maxHeight(12).log(BlockPlanks.EnumType.JUNGLE).leaves(BlockPlanks.EnumType.JUNGLE).trunkFruit(Blocks.cocoa.getDefaultState()).create());
+        treeGenerator.add("jungle", 1, (new GeneratorBasicTree.Builder()).minHeight(8).maxHeight(12).log(BlockPlanks.EnumType.JUNGLE).leaves(BlockPlanks.EnumType.JUNGLE).trunkFruit(Blocks.COCOA.getDefaultState()).create());
         treeGenerator.add("large_oak", 4, (new GeneratorBigTree.Builder()).log(BlockPlanks.EnumType.OAK).leaves(BlockPlanks.EnumType.OAK).create());
  
         // grasses
@@ -80,10 +80,10 @@ public class BiomeGenRainforest extends BOPBiome
         this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.5F).with(BOPPlants.LEAFPILE).generationAttempts(64).create());
         this.addGenerator("clover_patches", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).with(BOPPlants.CLOVERPATCH).create());
         this.addGenerator("rafflesia", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.3F).with(BOPPlants.RAFFLESIA).create());
-        this.addGenerator("melons", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(0.015625F).placeOn(this.topBlock).with(Blocks.melon_block.getDefaultState()).create());
+        this.addGenerator("melons", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(0.015625F).placeOn(this.topBlock).with(Blocks.MELON_BLOCK.getDefaultState()).create());
         
         // water plants
-        this.addGenerator("lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(Blocks.waterlily.getDefaultState()).create());
+        this.addGenerator("lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(Blocks.WATERLILY.getDefaultState()).create());
         this.addGenerator("medium_lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.3F).with(BlockBOPLilypad.LilypadType.MEDIUM).create());
         this.addGenerator("small_lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BlockBOPLilypad.LilypadType.SMALL).create());
         this.addGenerator("tiny_lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BlockBOPLilypad.LilypadType.TINY).create());
@@ -112,7 +112,7 @@ public class BiomeGenRainforest extends BOPBiome
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("birch", 4, (new GeneratorBasicTree.Builder()).log(BlockPlanks.EnumType.BIRCH).leaves(BlockPlanks.EnumType.BIRCH).minHeight(5).maxHeight(8).create());
         treeGenerator.add("oak", 7, (new GeneratorBasicTree.Builder()).minHeight(8).maxHeight(12).create());
-        treeGenerator.add("jungle", 1, (new GeneratorBasicTree.Builder()).minHeight(8).maxHeight(12).log(BlockPlanks.EnumType.JUNGLE).leaves(BlockPlanks.EnumType.JUNGLE).trunkFruit(Blocks.cocoa.getDefaultState()).create());
+        treeGenerator.add("jungle", 1, (new GeneratorBasicTree.Builder()).minHeight(8).maxHeight(12).log(BlockPlanks.EnumType.JUNGLE).leaves(BlockPlanks.EnumType.JUNGLE).trunkFruit(Blocks.COCOA.getDefaultState()).create());
         treeGenerator.add("large_oak", 4, (new GeneratorBigTree.Builder()).log(BlockPlanks.EnumType.OAK).leaves(BlockPlanks.EnumType.OAK).create());
         }
         

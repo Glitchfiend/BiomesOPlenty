@@ -60,7 +60,7 @@ public class BiomeGenWasteland extends BOPBiome
         IBlockPosQuery emptyDriedSand = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();
         GeneratorWeighted treeGenerator = new GeneratorWeighted(0.3F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("dead_tree", 3, (new GeneratorBigTree.Builder()).placeOn(emptyDriedSand).minHeight(5).maxHeight(12).foliageHeight(0).foliageDensity(0.5D).log(BOPWoods.DEAD).leaves(Blocks.air.getDefaultState()).create());
+        treeGenerator.add("dead_tree", 3, (new GeneratorBigTree.Builder()).placeOn(emptyDriedSand).minHeight(5).maxHeight(12).foliageHeight(0).foliageDensity(0.5D).log(BOPWoods.DEAD).leaves(Blocks.AIR.getDefaultState()).create());
         treeGenerator.add("dying_tree", 1, (new GeneratorBigTree.Builder()).placeOn(emptyDriedSand).minHeight(5).maxHeight(12).foliageHeight(1).log(BOPWoods.DEAD).leaves(BOPTrees.DEAD).create());
         
         // other plants
@@ -103,7 +103,7 @@ public class BiomeGenWasteland extends BOPBiome
         IBlockPosQuery emptyDriedSand = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();
         GeneratorWeighted treeGenerator = new GeneratorWeighted(0.3F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("dead_tree", 3, (new GeneratorBigTree.Builder()).placeOn(emptyDriedSand).minHeight(5).maxHeight(12).foliageHeight(0).foliageDensity(0.5D).log(BlockPlanks.EnumType.OAK).leaves(Blocks.air.getDefaultState()).create());
+        treeGenerator.add("dead_tree", 3, (new GeneratorBigTree.Builder()).placeOn(emptyDriedSand).minHeight(5).maxHeight(12).foliageHeight(0).foliageDensity(0.5D).log(BlockPlanks.EnumType.OAK).leaves(Blocks.AIR.getDefaultState()).create());
         treeGenerator.add("dying_tree", 1, (new GeneratorBigTree.Builder()).placeOn(emptyDriedSand).minHeight(5).maxHeight(12).foliageHeight(1).log(BlockPlanks.EnumType.DARK_OAK).leaves(BlockPlanks.EnumType.DARK_OAK).create());
         }
         

@@ -17,7 +17,6 @@ import biomesoplenty.common.world.feature.GeneratorLakes;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
-import net.minecraft.world.biome.BiomeGenBase;
 
 public class BiomeGenAlps extends BOPBiome
 {
@@ -35,8 +34,8 @@ public class BiomeGenAlps extends BOPBiome
         this.addWeight(BOPClimates.TUNDRA, 3);
         this.addWeight(BOPClimates.ICE_CAP, 5);
         
-        this.topBlock = Blocks.snow.getDefaultState();
-        this.fillerBlock = Blocks.snow.getDefaultState();
+        this.topBlock = Blocks.SNOW.getDefaultState();
+        this.fillerBlock = Blocks.SNOW.getDefaultState();
         
         this.avgDirtDepth = 8;
 
@@ -46,7 +45,7 @@ public class BiomeGenAlps extends BOPBiome
         this.addGenerator("hot_springs", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.1F).waterLakeForBiome(this).liquid(BOPBlocks.hot_spring_water).frozenLiquid((IBlockState)null).create());
         
         // gem
-        this.addGenerator("emeralds", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(Blocks.emerald_ore.getDefaultState()).create());
+        this.addGenerator("emeralds", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(Blocks.EMERALD_ORE.getDefaultState()).create());
         
     }
     

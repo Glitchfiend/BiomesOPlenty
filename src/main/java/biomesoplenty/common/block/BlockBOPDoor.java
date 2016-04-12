@@ -8,10 +8,6 @@
 
 package biomesoplenty.common.block;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
-
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.enums.BOPWoods;
 import net.minecraft.block.BlockDoor;
@@ -30,6 +26,10 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 
 public class BlockBOPDoor extends BlockDoor implements IBOPBlock
 {  
@@ -67,7 +67,7 @@ public class BlockBOPDoor extends BlockDoor implements IBOPBlock
     
     public BlockBOPDoor(BOPWoods wood)
     {
-        super(Material.wood);
+        super(Material.WOOD);
         this.setHardness(3.0F);
         this.setHarvestLevel("axe", 0);
         
@@ -82,7 +82,7 @@ public class BlockBOPDoor extends BlockDoor implements IBOPBlock
     
     public Item getDoorItem()
     {
-        return this.doorItem == null ? Items.oak_door : this.doorItem;
+        return this.doorItem == null ? Items.OAK_DOOR : this.doorItem;
     }
     
     @Override

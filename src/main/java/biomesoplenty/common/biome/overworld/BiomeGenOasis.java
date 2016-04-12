@@ -8,28 +8,17 @@
 
 package biomesoplenty.common.biome.overworld;
 
-import java.util.Random;
-
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.BlockBOPCoral;
 import biomesoplenty.common.block.BlockBOPLeaves;
-import biomesoplenty.common.enums.BOPFlowers;
-import biomesoplenty.common.enums.BOPGems;
-import biomesoplenty.common.enums.BOPPlants;
-import biomesoplenty.common.enums.BOPTrees;
-import biomesoplenty.common.enums.BOPWoods;
+import biomesoplenty.common.enums.*;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import biomesoplenty.common.world.BOPWorldSettings;
-import biomesoplenty.common.world.feature.GeneratorColumns;
-import biomesoplenty.common.world.feature.GeneratorFlora;
-import biomesoplenty.common.world.feature.GeneratorGrass;
-import biomesoplenty.common.world.feature.GeneratorLakes;
-import biomesoplenty.common.world.feature.GeneratorOreSingle;
-import biomesoplenty.common.world.feature.GeneratorWaterside;
+import biomesoplenty.common.world.feature.*;
 import biomesoplenty.common.world.feature.tree.GeneratorPalmTree;
 import biomesoplenty.common.world.feature.tree.GeneratorTwigletTree;
 import net.minecraft.block.BlockOldLeaf;
@@ -39,6 +28,8 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
+
+import java.util.Random;
  
 public class BiomeGenOasis extends BOPBiome
 {
@@ -56,15 +47,15 @@ public class BiomeGenOasis extends BOPBiome
         this.canGenerateVillages = false;
         this.canGenerateRivers = false;
         
-        this.topBlock = Blocks.sand.getDefaultState();
-        this.fillerBlock = Blocks.sand.getDefaultState();
+        this.topBlock = Blocks.SAND.getDefaultState();
+        this.fillerBlock = Blocks.SAND.getDefaultState();
         this.usualTopBlock = this.topBlock;
-        this.alternateTopBlock = Blocks.grass.getDefaultState();
+        this.alternateTopBlock = Blocks.GRASS.getDefaultState();
         
         clearWeights();
         
         // oases
-        this.addGenerator("oases", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(20).maxRadius(7).replace(Blocks.sand.getDefaultState()).with(Blocks.grass.getDefaultState()).create());
+        this.addGenerator("oases", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(20).maxRadius(7).replace(Blocks.SAND.getDefaultState()).with(Blocks.GRASS.getDefaultState()).create());
         
         // lakes
         this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(1.5F).waterLakeForBiome(this).create());
@@ -73,7 +64,7 @@ public class BiomeGenOasis extends BOPBiome
         GeneratorWeighted treeGenerator = new GeneratorWeighted(10.0F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("palm", 4, (new GeneratorPalmTree.Builder()).log(BOPWoods.PALM).leaves(BlockBOPLeaves.paging.getVariantState(BOPTrees.PALM).withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).create());
-        treeGenerator.add("jungle_twiglet", 1, (new GeneratorTwigletTree.Builder()).minHeight(2).maxHeight(2).log(BlockPlanks.EnumType.JUNGLE).leaves(BlockPlanks.EnumType.JUNGLE).trunkFruit(Blocks.cocoa.getDefaultState()).create());
+        treeGenerator.add("jungle_twiglet", 1, (new GeneratorTwigletTree.Builder()).minHeight(2).maxHeight(2).log(BlockPlanks.EnumType.JUNGLE).leaves(BlockPlanks.EnumType.JUNGLE).trunkFruit(Blocks.COCOA.getDefaultState()).create());
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(4.0F);
@@ -88,10 +79,10 @@ public class BiomeGenOasis extends BOPBiome
         this.addGenerator("desertgrass", GeneratorStage.GRASS, (new GeneratorGrass.Builder()).amountPerChunk(1.5F).with(BOPPlants.DESERTGRASS).generationAttempts(8).create());
         this.addGenerator("bromeliad", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder().amountPerChunk(0.5F).with(BOPFlowers.BROMELIAD).generationAttempts(8).create()));
         this.addGenerator("tiny_cacti", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(0.6F).with(BOPPlants.TINYCACTUS).create());
-        this.addGenerator("cacti", GeneratorStage.FLOWERS,(new GeneratorColumns.Builder()).amountPerChunk(0.4F).generationAttempts(3).placeOn(this.topBlock).with(Blocks.cactus.getDefaultState()).minHeight(1).maxHeight(2).create());
+        this.addGenerator("cacti", GeneratorStage.FLOWERS,(new GeneratorColumns.Builder()).amountPerChunk(0.4F).generationAttempts(3).placeOn(this.topBlock).with(Blocks.CACTUS.getDefaultState()).minHeight(1).maxHeight(2).create());
 
         // water plants
-        this.addGenerator("algae", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(3.0F).replace(Blocks.water).with(BOPBlocks.coral.getDefaultState().withProperty(BlockBOPCoral.VARIANT, BlockBOPCoral.CoralType.ALGAE)).scatterYMethod(ScatterYMethod.AT_GROUND).create());
+        this.addGenerator("algae", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(3.0F).replace(Blocks.WATER).with(BOPBlocks.coral.getDefaultState().withProperty(BlockBOPCoral.VARIANT, BlockBOPCoral.CoralType.ALGAE)).scatterYMethod(ScatterYMethod.AT_GROUND).create());
         
         // gem
         this.addGenerator("ruby", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.RUBY).create()); 
@@ -122,8 +113,8 @@ public class BiomeGenOasis extends BOPBiome
         
         GeneratorWeighted treeGenerator = new GeneratorWeighted(10.0F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("palm", 4, (new GeneratorPalmTree.Builder()).log(BlockPlanks.EnumType.JUNGLE).leaves(Blocks.leaves.getStateFromMeta(BlockPlanks.EnumType.JUNGLE.getMetadata()).withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).create());
-        treeGenerator.add("jungle_twiglet", 1, (new GeneratorTwigletTree.Builder()).minHeight(2).maxHeight(2).log(BlockPlanks.EnumType.JUNGLE).leaves(BlockPlanks.EnumType.JUNGLE).trunkFruit(Blocks.cocoa.getDefaultState()).create());
+        treeGenerator.add("palm", 4, (new GeneratorPalmTree.Builder()).log(BlockPlanks.EnumType.JUNGLE).leaves(Blocks.LEAVES.getStateFromMeta(BlockPlanks.EnumType.JUNGLE.getMetadata()).withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).create());
+        treeGenerator.add("jungle_twiglet", 1, (new GeneratorTwigletTree.Builder()).minHeight(2).maxHeight(2).log(BlockPlanks.EnumType.JUNGLE).leaves(BlockPlanks.EnumType.JUNGLE).trunkFruit(Blocks.COCOA.getDefaultState()).create());
         }
         
         GeneratorWeighted grassGen = (GeneratorWeighted)this.getGenerator("grass");

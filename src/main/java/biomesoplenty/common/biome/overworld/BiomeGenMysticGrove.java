@@ -79,7 +79,7 @@ public class BiomeGenMysticGrove extends BOPBiome
         // trees & logs
         GeneratorWeighted treeGenerator = new GeneratorWeighted(10);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("flowering_vine", 2, (new GeneratorBasicTree.Builder()).minHeight(8).maxHeight(12).maxLeavesRadius(2).leaves(Blocks.leaves.getDefaultState().withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).vine(BOPBlocks.flower_vine.getDefaultState()).create());
+        treeGenerator.add("flowering_vine", 2, (new GeneratorBasicTree.Builder()).minHeight(8).maxHeight(12).maxLeavesRadius(2).leaves(Blocks.LEAVES.getDefaultState().withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).vine(BOPBlocks.flower_vine.getDefaultState()).create());
         treeGenerator.add("magic", 9, (new GeneratorBasicTree.Builder()).log(BOPWoods.MAGIC).leaves(BOPTrees.MAGIC).create());
         treeGenerator.add("jacaranda", 1, (new GeneratorBasicTree.Builder()).minHeight(4).maxHeight(7).log(BOPWoods.JACARANDA).leaves(BOPTrees.JACARANDA).create());
         treeGenerator.add("oak_large", 3, (new GeneratorBigTree.Builder()).altLeaves(BOPTrees.FLOWERING).create());
@@ -114,17 +114,17 @@ public class BiomeGenMysticGrove extends BOPBiome
         this.addGenerator("clover_patches", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BOPPlants.CLOVERPATCH).create());
         
         // water plants
-        this.addGenerator("lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(Blocks.waterlily.getDefaultState()).create());
+        this.addGenerator("lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(Blocks.WATERLILY.getDefaultState()).create());
         this.addGenerator("medium_lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BlockBOPLilypad.LilypadType.MEDIUM).create());
         this.addGenerator("small_lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BlockBOPLilypad.LilypadType.SMALL).create());
         this.addGenerator("tiny_lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BlockBOPLilypad.LilypadType.TINY).create());
-        this.addGenerator("algae", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(1.0F).replace(Blocks.water).with(BOPBlocks.coral.getDefaultState().withProperty(BlockBOPCoral.VARIANT, BlockBOPCoral.CoralType.ALGAE)).scatterYMethod(ScatterYMethod.AT_GROUND).create());
+        this.addGenerator("algae", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(1.0F).replace(Blocks.WATER).with(BOPBlocks.coral.getDefaultState().withProperty(BlockBOPCoral.VARIANT, BlockBOPCoral.CoralType.ALGAE)).scatterYMethod(ScatterYMethod.AT_GROUND).create());
         this.addGenerator("flower_lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BlockBOPLilypad.LilypadType.FLOWER).create());
         
         // shrooms
         this.addGenerator("blue_milk_caps", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BlockBOPMushroom.MushroomType.BLUE_MILK_CAP).create());
-        this.addGenerator("red_mushrooms", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(Blocks.red_mushroom.getDefaultState()).create());
-        this.addGenerator("brown_mushrooms", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(Blocks.brown_mushroom.getDefaultState()).create());
+        this.addGenerator("red_mushrooms", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(Blocks.RED_MUSHROOM.getDefaultState()).create());
+        this.addGenerator("brown_mushrooms", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(Blocks.BROWN_MUSHROOM.getDefaultState()).create());
 
         // gem
         this.addGenerator("topaz", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.TOPAZ).create());
@@ -153,7 +153,7 @@ public class BiomeGenMysticGrove extends BOPBiome
         
         GeneratorWeighted treeGenerator = new GeneratorWeighted(10);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("flowering_vine", 2, (new GeneratorBasicTree.Builder()).minHeight(8).maxHeight(12).maxLeavesRadius(2).leaves(Blocks.leaves.getDefaultState().withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).vine(Blocks.vine.getDefaultState()).create());
+        treeGenerator.add("flowering_vine", 2, (new GeneratorBasicTree.Builder()).minHeight(8).maxHeight(12).maxLeavesRadius(2).leaves(Blocks.LEAVES.getDefaultState().withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).vine(Blocks.VINE.getDefaultState()).create());
         treeGenerator.add("magic", 9, (new GeneratorBasicTree.Builder()).create());
         treeGenerator.add("jacaranda", 1, (new GeneratorBasicTree.Builder()).minHeight(4).maxHeight(7).create());
         treeGenerator.add("oak_large", 3, (new GeneratorBigTree.Builder()).create());

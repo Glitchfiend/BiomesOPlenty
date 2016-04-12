@@ -53,8 +53,8 @@ public class BiomeGenHeathland extends BOPBiome
         this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 1, 2, 6));
  
         // sand and gravel
-        this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.sand.getDefaultState()).create());
-        this.addGenerator("gravel", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(4).maxRadius(7).with(Blocks.gravel.getDefaultState()).create());
+        this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.SAND.getDefaultState()).create());
+        this.addGenerator("gravel", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(4).maxRadius(7).with(Blocks.GRAVEL.getDefaultState()).create());
          
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(3.0F);
@@ -74,11 +74,11 @@ public class BiomeGenHeathland extends BOPBiome
         grassGenerator.add("dampgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.DAMPGRASS).create());
         
         // trees
-        IBlockPosQuery suitableTreePosition = BlockQuery.buildAnd().withAltitudeBetween(77, 90).materials(Material.ground, Material.grass).create();
+        IBlockPosQuery suitableTreePosition = BlockQuery.buildAnd().withAltitudeBetween(77, 90).materials(Material.GROUND, Material.GRASS).create();
         GeneratorWeighted treeGenerator = new GeneratorWeighted(12);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("red_bush", 7, (new GeneratorFlora.Builder()).placeOn(this.topBlock).replace(Material.air).withNonDecayingLeaf(BOPTrees.MAPLE).create());
-        treeGenerator.add("small_bush", 11, (new GeneratorFlora.Builder()).placeOn(this.topBlock).replace(Material.air).withNonDecayingLeaf(BlockPlanks.EnumType.OAK).create());
+        treeGenerator.add("red_bush", 7, (new GeneratorFlora.Builder()).placeOn(this.topBlock).replace(Material.AIR).withNonDecayingLeaf(BOPTrees.MAPLE).create());
+        treeGenerator.add("small_bush", 11, (new GeneratorFlora.Builder()).placeOn(this.topBlock).replace(Material.AIR).withNonDecayingLeaf(BlockPlanks.EnumType.OAK).create());
         treeGenerator.add("oak_bush", 3, (new GeneratorBush.Builder()).maxHeight(2).create());
         treeGenerator.add("oak", 2, (new GeneratorBasicTree.Builder()).minHeight(3).maxHeight(5).create());
         treeGenerator.add("decaying_tree", 1, (new GeneratorBigTree.Builder()).amountPerChunk(1.0F).minHeight(5).maxHeight(12).foliageHeight(2).create());
@@ -105,7 +105,7 @@ public class BiomeGenHeathland extends BOPBiome
         
         if (!settings.generateThorns) {this.removeGenerator("thorns");}
         
-        if (!settings.generateBopSoils) {this.topBlock = Blocks.grass.getDefaultState(); this.fillerBlock = Blocks.dirt.getDefaultState();}
+        if (!settings.generateBopSoils) {this.topBlock = Blocks.GRASS.getDefaultState(); this.fillerBlock = Blocks.DIRT.getDefaultState();}
         
         if (!settings.generateBopFoliage) {this.removeGenerator("bushes"); this.removeGenerator("koru"); this.removeGenerator("shrubs"); this.removeGenerator("leaf_piles"); this.removeGenerator("dead_leaf_piles"); this.removeGenerator("clover_patches"); this.removeGenerator("sprouts");}
         
@@ -116,11 +116,11 @@ public class BiomeGenHeathland extends BOPBiome
         GeneratorWeighted treeGen = (GeneratorWeighted)this.getGenerator("trees");
         if (!settings.generateBopTrees) {this.removeGenerator("trees");
         
-        IBlockPosQuery suitableTreePosition = BlockQuery.buildAnd().withAltitudeBetween(77, 90).materials(Material.ground, Material.grass).create();
+        IBlockPosQuery suitableTreePosition = BlockQuery.buildAnd().withAltitudeBetween(77, 90).materials(Material.GROUND, Material.GRASS).create();
         GeneratorWeighted treeGenerator = new GeneratorWeighted(12);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("red_bush", 7, (new GeneratorFlora.Builder()).placeOn(this.topBlock).replace(Material.air).withNonDecayingLeaf(BlockPlanks.EnumType.BIRCH).create());
-        treeGenerator.add("small_bush", 11, (new GeneratorFlora.Builder()).placeOn(this.topBlock).replace(Material.air).withNonDecayingLeaf(BlockPlanks.EnumType.OAK).create());
+        treeGenerator.add("red_bush", 7, (new GeneratorFlora.Builder()).placeOn(this.topBlock).replace(Material.AIR).withNonDecayingLeaf(BlockPlanks.EnumType.BIRCH).create());
+        treeGenerator.add("small_bush", 11, (new GeneratorFlora.Builder()).placeOn(this.topBlock).replace(Material.AIR).withNonDecayingLeaf(BlockPlanks.EnumType.OAK).create());
         treeGenerator.add("oak_bush", 3, (new GeneratorBush.Builder()).maxHeight(2).create());
         treeGenerator.add("oak", 2, (new GeneratorBasicTree.Builder()).minHeight(3).maxHeight(5).create());
         treeGenerator.add("decaying_tree", 1, (new GeneratorBigTree.Builder()).amountPerChunk(1.0F).minHeight(5).maxHeight(12).foliageHeight(2).create());

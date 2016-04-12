@@ -8,10 +8,7 @@
 
 package biomesoplenty.common.block;
 
-import java.util.Random;
-
 import biomesoplenty.api.block.IBOPBlock;
-import biomesoplenty.common.init.ModBlocks;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -27,10 +24,11 @@ import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.Random;
 
 public class BlockBOPDecoration extends Block implements IBOPBlock
 {
@@ -51,7 +49,7 @@ public class BlockBOPDecoration extends Block implements IBOPBlock
     
     // constructor
     public BlockBOPDecoration() {
-        this(Material.plants);
+        this(Material.PLANTS);
     }
     public BlockBOPDecoration(Material material)
     {
@@ -141,7 +139,7 @@ public class BlockBOPDecoration extends Block implements IBOPBlock
         else
         {
             this.dropBlockAsItem(worldIn, pos, state, 0);
-            worldIn.setBlockState(pos, Blocks.air.getDefaultState(), 3);
+            worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
             return false;
         }
     }

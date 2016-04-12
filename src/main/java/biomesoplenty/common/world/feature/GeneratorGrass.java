@@ -27,8 +27,8 @@ public class GeneratorGrass extends GeneratorFlora
             // defaults
             this.amountPerChunk = 1.0F;
             this.placeOn = BlockQueries.anything;
-            this.replace = new BlockQueryMaterial(Material.air);
-            this.with = Blocks.tallgrass.getDefaultState();
+            this.replace = new BlockQueryMaterial(Material.AIR);
+            this.with = Blocks.TALLGRASS.getDefaultState();
             this.scatterYMethod = ScatterYMethod.AT_SURFACE;
             this.generationAttempts = 96;
         }

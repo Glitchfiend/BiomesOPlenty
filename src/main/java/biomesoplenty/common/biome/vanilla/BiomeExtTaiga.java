@@ -18,7 +18,7 @@ public class BiomeExtTaiga extends ExtendedBiomeWrapper
 {
     public BiomeExtTaiga()
     {
-        super(Biomes.taiga);
+        super(Biomes.TAIGA);
         
         if (BOPBiomes.gravel_beach.isPresent())
         {

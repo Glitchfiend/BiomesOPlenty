@@ -33,7 +33,7 @@ public class BiomeGenGravelBeach extends BOPBiome
         
         clearWeights();
         
-        this.topBlock = Blocks.gravel.getDefaultState();
-        this.fillerBlock = Blocks.gravel.getDefaultState();
+        this.topBlock = Blocks.GRAVEL.getDefaultState();
+        this.fillerBlock = Blocks.GRAVEL.getDefaultState();
     }
 }

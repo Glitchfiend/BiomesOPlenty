@@ -1,8 +1,5 @@
 package biomesoplenty.api.biome;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import biomesoplenty.api.biome.generation.GenerationManager;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.IGenerator;
@@ -16,13 +13,16 @@ import net.minecraft.init.Biomes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.BiomeGenBase;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class ExtendedBiomeWrapper implements IExtendedBiome
 {
     public final BiomeGenBase biome;
     private GenerationManager generationManager = new GenerationManager();
     private Map<BOPClimates, Integer> weightMap = new HashMap<BOPClimates, Integer>();
     
-    public ResourceLocation beachBiomeLocation = BiomeUtils.getLocForBiome(Biomes.beach);
+    public ResourceLocation beachBiomeLocation = BiomeUtils.getLocForBiome(Biomes.BEACH);
     
     public ExtendedBiomeWrapper(BiomeGenBase biome)
     {

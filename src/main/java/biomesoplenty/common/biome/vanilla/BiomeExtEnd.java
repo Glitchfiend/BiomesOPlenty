@@ -16,17 +16,17 @@ public class BiomeExtEnd extends ExtendedBiomeWrapper
 {
     public BiomeExtEnd()
     {
-        super(Biomes.sky);
+        super(Biomes.SKY);
         
         //celestial crystals
-        IBlockPosQuery emptyEndstone = BlockQuery.buildAnd().withAltitudeBetween(0, 50).withAirBelow().states(Blocks.end_stone.getDefaultState()).create();
+        IBlockPosQuery emptyEndstone = BlockQuery.buildAnd().withAltitudeBetween(0, 50).withAirBelow().states(Blocks.END_STONE.getDefaultState()).create();
         this.addGenerator("crystals", GeneratorStage.ORE_PRE, (new GeneratorCrystals.Builder()).amountPerChunk(12.0F).placeOn(emptyEndstone).with(BOPBlocks.crystal.getDefaultState()).create());
     
         // gem
-        this.addGenerator("amethyst", GeneratorStage.ORE_PRE, (new GeneratorOreSingle.Builder()).replace(Blocks.end_stone.getDefaultState()).amountPerChunk(24).with(BOPGems.AMETHYST).create());
+        this.addGenerator("amethyst", GeneratorStage.ORE_PRE, (new GeneratorOreSingle.Builder()).replace(Blocks.END_STONE.getDefaultState()).amountPerChunk(24).with(BOPGems.AMETHYST).create());
         
         // biome essence
-        this.addGenerator("biome_essence", GeneratorStage.ORE_PRE, (new GeneratorOreSingle.Builder()).replace(Blocks.end_stone.getDefaultState()).amountPerChunk(24).with(BOPBlocks.biome_block.getDefaultState()).create());
+        this.addGenerator("biome_essence", GeneratorStage.ORE_PRE, (new GeneratorOreSingle.Builder()).replace(Blocks.END_STONE.getDefaultState()).amountPerChunk(24).with(BOPBlocks.biome_block.getDefaultState()).create());
     }
     
     @Override

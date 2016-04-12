@@ -310,7 +310,7 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable {
     public boolean generateSmallOrBigTree(World worldIn, BlockPos pos, IBlockState state, Random rand, WorldGenerator generator)
     {        
         // remove the sapling
-        worldIn.setBlockState(pos, Blocks.air.getDefaultState(), 4);
+        worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 4);
         // try to grow the tree
         boolean success = generator.generate(worldIn, rand, pos);
         // put the sapling back if we failed
@@ -321,7 +321,7 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable {
     public boolean generateMegaTree(World worldIn, BlockPos pos, IBlockState state, Random rand, WorldGenerator generator)
     {        
         // remove the saplings
-        IBlockState air = Blocks.air.getDefaultState();
+        IBlockState air = Blocks.AIR.getDefaultState();
         worldIn.setBlockState(pos, air, 4);
         worldIn.setBlockState(pos.add(1, 0, 0), air, 4);
         worldIn.setBlockState(pos.add(0, 0, 1), air, 4);

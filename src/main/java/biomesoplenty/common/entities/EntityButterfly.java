@@ -8,19 +8,12 @@
 
 package biomesoplenty.common.entities;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
-
 import net.minecraft.entity.EntityFlying;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityMoveHelper;
-import net.minecraft.entity.ai.EntityMoveHelper.Action;
 import net.minecraft.entity.monster.IMob;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
@@ -31,6 +24,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
 public class EntityButterfly extends EntityFlying implements IMob {
 
@@ -190,7 +188,7 @@ public class EntityButterfly extends EntityFlying implements IMob {
         
         public boolean isBoxBlocked(AxisAlignedBB box)
         {
-            return !this.butterfly.worldObj.getCubes(this.butterfly, box).isEmpty();
+            return !this.butterfly.worldObj.getCollisionBoxes(this.butterfly, box).isEmpty();
         }
         
         // check nothing will collide with the butterfly in the direction of aim, for howFar units (or until the destination - whichever is closer)

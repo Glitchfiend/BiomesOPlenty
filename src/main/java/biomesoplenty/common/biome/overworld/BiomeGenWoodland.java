@@ -56,7 +56,7 @@ public class BiomeGenWoodland extends BOPBiome
         this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
         
         // sand
-        this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.sand.getDefaultState()).create());
+        this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.SAND.getDefaultState()).create());
         
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(10);
@@ -73,7 +73,7 @@ public class BiomeGenWoodland extends BOPBiome
         grassGenerator.add("tallgrass", 2, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).create());
         
         // gravel
-        this.addGenerator("gravel", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(4).maxRadius(7).with(Blocks.gravel.getDefaultState()).create());
+        this.addGenerator("gravel", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(4).maxRadius(7).with(Blocks.GRAVEL.getDefaultState()).create());
         
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.5F);

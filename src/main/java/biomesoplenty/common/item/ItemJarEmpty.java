@@ -17,7 +17,6 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.stats.StatList;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
@@ -40,7 +39,7 @@ public class ItemJarEmpty extends Item
     public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand)
     {
         
-        RayTraceResult hit = this.getMovingObjectPositionFromPlayer(world, player, true);
+        RayTraceResult hit = this.rayTrace(world, player, true);
         if (hit == null) {new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);}
         if (hit.typeOfHit != RayTraceResult.Type.BLOCK) {new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);}
         BlockPos pos = hit.getBlockPos();
@@ -76,7 +75,7 @@ public class ItemJarEmpty extends Item
             else if (!player.inventory.addItemStackToInventory(honeyJar))
             {
                 // no room in inventory, so just drop it on the floor
-                player.dropPlayerItemWithRandomChoice(honeyJar, false);
+                player.dropItem(honeyJar, false);
             }
         }
 

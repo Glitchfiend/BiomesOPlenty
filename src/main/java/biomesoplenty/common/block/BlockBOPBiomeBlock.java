@@ -8,15 +8,9 @@
 
 package biomesoplenty.common.block;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
-
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.util.biome.BiomeUtils;
-import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -28,11 +22,16 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+
 public class BlockBOPBiomeBlock extends BlockBOPGeneric
 {   
     
     public BlockBOPBiomeBlock() {
-        super(Material.glass, SoundType.GLASS);
+        super(Material.GLASS, SoundType.GLASS);
         this.setHardness(0.6F);
         this.setSoundType(SoundType.GLASS);
     }
@@ -49,16 +48,16 @@ public class BlockBOPBiomeBlock extends BlockBOPGeneric
         
         List<BiomeGenBase> vanillaBiomesToExclude = Arrays.asList(
             new BiomeGenBase[] {
-                Biomes.sky,
-                Biomes.hell,
-                Biomes.beach,
-                Biomes.coldBeach,
-                Biomes.stoneBeach,
-                Biomes.ocean,
-                Biomes.frozenOcean,
-                Biomes.deepOcean,
-                Biomes.river,
-                Biomes.frozenRiver
+                Biomes.SKY,
+                Biomes.HELL,
+                Biomes.BEACH,
+                Biomes.COLD_BEACH,
+                Biomes.STONE_BEACH,
+                Biomes.OCEAN,
+                Biomes.FROZEN_OCEAN,
+                Biomes.DEEP_OCEAN,
+                Biomes.RIVER,
+                Biomes.FROZEN_RIVER
             }
         );
         

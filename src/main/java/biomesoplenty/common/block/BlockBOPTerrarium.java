@@ -74,7 +74,7 @@ public class BlockBOPTerrarium extends Block implements IBOPBlock
     
     public BlockBOPTerrarium()
     {        
-    	super(Material.glass);
+    	super(Material.GLASS);
     	this.setHardness(1.0F);
         this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, TerrariumType.FERN));
     }

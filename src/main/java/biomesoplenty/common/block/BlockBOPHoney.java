@@ -40,7 +40,7 @@ public class BlockBOPHoney extends Block implements IBOPBlock
     public IItemColor getItemColor() { return null; }
     
     public BlockBOPHoney() {
-        super(Material.glass);
+        super(Material.GLASS);
         this.setHardness(0.5F);
         this.setSoundType(SoundType.STONE);
     }

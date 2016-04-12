@@ -8,8 +8,6 @@
 
 package biomesoplenty.common.biome.overworld;
 
-import java.util.Random;
-
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
@@ -24,11 +22,7 @@ import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import biomesoplenty.common.world.BOPWorldSettings;
-import biomesoplenty.common.world.feature.GeneratorColumns;
-import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
-import biomesoplenty.common.world.feature.GeneratorFlora;
-import biomesoplenty.common.world.feature.GeneratorGrass;
-import biomesoplenty.common.world.feature.GeneratorOreSingle;
+import biomesoplenty.common.world.feature.*;
 import biomesoplenty.common.world.feature.tree.GeneratorBulbTree;
 import biomesoplenty.common.world.feature.tree.GeneratorTwigletTree;
 import net.minecraft.block.BlockDirt;
@@ -41,6 +35,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
+
+import java.util.Random;
 
 public class BiomeGenBambooForest extends BOPBiome
 {    
@@ -62,9 +58,9 @@ public class BiomeGenBambooForest extends BOPBiome
         this.spawnableCreatureList.clear();
         this.spawnableMonsterList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
         
-        this.topBlock = Blocks.dirt.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.PODZOL);
+        this.topBlock = Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.PODZOL);
         this.usualTopBlock = this.topBlock;
-        this.alternateTopBlock = Blocks.grass.getDefaultState();
+        this.alternateTopBlock = Blocks.GRASS.getDefaultState();
         
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.5F);
@@ -92,7 +88,7 @@ public class BiomeGenBambooForest extends BOPBiome
         this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(3.0F).with(BOPPlants.LEAFPILE).create());
         this.addGenerator("ferns", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(4.0F).with(BlockTallGrass.EnumType.FERN).create());
         this.addGenerator("river_cane", GeneratorStage.FLOWERS,(new GeneratorColumns.Builder()).amountPerChunk(5.0F).generationAttempts(24).placeOn(BlockQueries.litFertileWaterside).with(BlockBOPPlant.paging.getVariantState(BOPPlants.RIVERCANE)).minHeight(1).maxHeight(3).create());
-        this.addGenerator("algae", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(4.0F).replace(Blocks.water).with(BOPBlocks.coral.getDefaultState().withProperty(BlockBOPCoral.VARIANT, BlockBOPCoral.CoralType.ALGAE)).scatterYMethod(ScatterYMethod.AT_GROUND).create());
+        this.addGenerator("algae", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(4.0F).replace(Blocks.WATER).with(BOPBlocks.coral.getDefaultState().withProperty(BlockBOPCoral.VARIANT, BlockBOPCoral.CoralType.ALGAE)).scatterYMethod(ScatterYMethod.AT_GROUND).create());
         this.addGenerator("bushes", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BOPPlants.BUSH).create());
         
         // gem

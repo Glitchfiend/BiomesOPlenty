@@ -62,7 +62,7 @@ public class BiomeGenFlowerIsland extends BOPBiome
         
         // regular grass
         IBlockPosQuery emptyGrass = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();
-        this.addGenerator("grass_splatter", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(6.0F).replace(emptyGrass).with(Blocks.grass.getDefaultState()).create());
+        this.addGenerator("grass_splatter", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(6.0F).replace(emptyGrass).with(Blocks.GRASS.getDefaultState()).create());
         
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(1);

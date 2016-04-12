@@ -44,21 +44,21 @@ public class GenLayerRiverMixBOP extends BOPGenLayer
 
         for (int i = 0; i < areaWidth * areaHeight; ++i)
         {
-            if (biomeIds[i] != BiomeGenBase.getIdForBiome(Biomes.frozenOcean) && biomeIds[i] != BiomeGenBase.getIdForBiome(Biomes.ocean) && biomeIds[i] != BiomeGenBase.getIdForBiome(Biomes.deepOcean) && biomeSupportsRivers(biomeIds[i]))
+            if (biomeIds[i] != BiomeGenBase.getIdForBiome(Biomes.FROZEN_OCEAN) && biomeIds[i] != BiomeGenBase.getIdForBiome(Biomes.OCEAN) && biomeIds[i] != BiomeGenBase.getIdForBiome(Biomes.DEEP_OCEAN) && biomeSupportsRivers(biomeIds[i]))
             {
-                if (riverValues[i] == BiomeGenBase.getIdForBiome(Biomes.river))
+                if (riverValues[i] == BiomeGenBase.getIdForBiome(Biomes.RIVER))
                 {
-                    if (biomeIds[i] == BiomeGenBase.getIdForBiome(Biomes.icePlains) || (BOPBiomes.snowy_forest.isPresent() && biomeIds[i] == BiomeGenBase.getIdForBiome(BOPBiomes.snowy_forest.get())) || (BOPBiomes.alps.isPresent() && biomeIds[i] == BiomeGenBase.getIdForBiome(BOPBiomes.alps.get())))
+                    if (biomeIds[i] == BiomeGenBase.getIdForBiome(Biomes.ICE_PLAINS) || (BOPBiomes.snowy_forest.isPresent() && biomeIds[i] == BiomeGenBase.getIdForBiome(BOPBiomes.snowy_forest.get())) || (BOPBiomes.alps.isPresent() && biomeIds[i] == BiomeGenBase.getIdForBiome(BOPBiomes.alps.get())))
                     {
-                        out[i] = BiomeGenBase.getIdForBiome(Biomes.frozenRiver);
+                        out[i] = BiomeGenBase.getIdForBiome(Biomes.FROZEN_RIVER);
                     }
-                    else if (biomeIds[i] != BiomeGenBase.getIdForBiome(Biomes.mushroomIsland) && biomeIds[i] != BiomeGenBase.getIdForBiome(Biomes.mushroomIslandShore))
+                    else if (biomeIds[i] != BiomeGenBase.getIdForBiome(Biomes.MUSHROOM_ISLAND) && biomeIds[i] != BiomeGenBase.getIdForBiome(Biomes.MUSHROOM_ISLAND_SHORE))
                     {
                         out[i] = riverValues[i] & 255;
                     }
                     else
                     {
-                        out[i] = BiomeGenBase.getIdForBiome(Biomes.mushroomIslandShore);
+                        out[i] = BiomeGenBase.getIdForBiome(Biomes.MUSHROOM_ISLAND_SHORE);
                     }
                 }
                 else

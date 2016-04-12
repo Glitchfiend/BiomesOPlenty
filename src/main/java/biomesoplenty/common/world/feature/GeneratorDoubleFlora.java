@@ -8,8 +8,6 @@
 
 package biomesoplenty.common.world.feature;
 
-import java.util.Random;
-
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.block.BlockBOPDecoration;
@@ -27,6 +25,8 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GeneratorDoubleFlora extends GeneratorReplacing
 {
@@ -49,8 +49,8 @@ public class GeneratorDoubleFlora extends GeneratorReplacing
         }
         public Builder with(BlockDoublePlant.EnumPlantType type)
         {
-            this.with = Blocks.double_plant.getStateFromMeta(type.getMeta());
-            this.withTop = Blocks.double_plant.getStateFromMeta(8);
+            this.with = Blocks.DOUBLE_PLANT.getStateFromMeta(type.getMeta());
+            this.withTop = Blocks.DOUBLE_PLANT.getStateFromMeta(8);
             return this;
         }
         
@@ -59,7 +59,7 @@ public class GeneratorDoubleFlora extends GeneratorReplacing
             // defaults
             this.amountPerChunk = 1.0F;
             this.placeOn = BlockQueries.anything;
-            this.replace = new BlockQueryMaterial(Material.air);
+            this.replace = new BlockQueryMaterial(Material.AIR);
             this.with = BOPBlocks.double_plant.getDefaultState().withProperty(BlockBOPDoublePlant.VARIANT, BlockBOPDoublePlant.DoublePlantType.FLAX).withProperty(BlockBOPDoublePlant.HALF, BlockBOPDoubleDecoration.Half.LOWER);
             this.withTop = BOPBlocks.double_plant.getDefaultState().withProperty(BlockBOPDoublePlant.VARIANT, BlockBOPDoublePlant.DoublePlantType.FLAX).withProperty(BlockBOPDoublePlant.HALF, BlockBOPDoubleDecoration.Half.UPPER);
             this.scatterYMethod = ScatterYMethod.AT_SURFACE;

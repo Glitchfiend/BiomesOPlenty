@@ -34,9 +34,9 @@ public class GeneratorSplotches extends GeneratorReplacing
         {
             // defaults
             this.amountPerChunk = 1.0F;
-            this.placeOn = new BlockQueryMaterial(Material.grass, Material.ground);
-            this.replace = new BlockQueryMaterial(Material.grass, Material.ground);
-            this.with = Blocks.cobblestone.getDefaultState();
+            this.placeOn = new BlockQueryMaterial(Material.GRASS, Material.GROUND);
+            this.replace = new BlockQueryMaterial(Material.GRASS, Material.GROUND);
+            this.with = Blocks.COBBLESTONE.getDefaultState();
             this.scatterYMethod = ScatterYMethod.BELOW_SURFACE;
             this.splotchSize = 8;
         }

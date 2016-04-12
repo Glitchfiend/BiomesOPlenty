@@ -52,7 +52,7 @@ public class BiomeGenMangrove extends BOPBiome
         this.topBlock = BOPBlocks.mud.getDefaultState();
         this.fillerBlock = BOPBlocks.mud.getDefaultState();
         this.usualTopBlock = this.topBlock;
-        this.alternateTopBlock = Blocks.sand.getDefaultState();
+        this.alternateTopBlock = Blocks.SAND.getDefaultState();
     
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
@@ -98,9 +98,9 @@ public class BiomeGenMangrove extends BOPBiome
 
             for (int k = 255; k >= 0; --k)
             {
-                if (primer.getBlockState(j, k, i).getMaterial() != Material.air)
+                if (primer.getBlockState(j, k, i).getMaterial() != Material.AIR)
                 {
-                    if (k == 62 && primer.getBlockState(j, k, i).getBlock() != Blocks.water)
+                    if (k == 62 && primer.getBlockState(j, k, i).getBlock() != Blocks.WATER)
                     {
                         primer.setBlockState(j, k, i, WATER);
                     }

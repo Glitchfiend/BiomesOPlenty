@@ -41,9 +41,9 @@ public class GeneratorBlobs extends GeneratorReplacing
         {
             // defaults
             this.amountPerChunk = 1.0F;
-            this.placeOn = BlockQuery.buildOr().blocks(Blocks.stone).materials(Material.ground, Material.grass).create();
+            this.placeOn = BlockQuery.buildOr().blocks(Blocks.STONE).materials(Material.GROUND, Material.GRASS).create();
             this.replace = BlockQueries.breakable;
-            this.with = Blocks.cobblestone.getDefaultState();
+            this.with = Blocks.COBBLESTONE.getDefaultState();
             this.scatterYMethod = ScatterYMethod.BELOW_SURFACE;
             this.minRadius = 2.0F;
             this.maxRadius = 5.0F;

@@ -99,9 +99,9 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
         {
             if (a.getMetadata() < 4)
             {
-                this.log = Blocks.log.getDefaultState().withProperty(BlockOldLog.VARIANT, a);
+                this.log = Blocks.LOG.getDefaultState().withProperty(BlockOldLog.VARIANT, a);
             } else {
-                this.log = Blocks.log2.getDefaultState().withProperty(BlockNewLog.VARIANT, a);
+                this.log = Blocks.LOG2.getDefaultState().withProperty(BlockNewLog.VARIANT, a);
             }
             return this.self();
         }
@@ -111,9 +111,9 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
         {
             if (a.getMetadata() < 4)
             {
-                this.leaves = Blocks.leaves.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, false).withProperty(BlockOldLeaf.VARIANT, a);
+                this.leaves = Blocks.LEAVES.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, false).withProperty(BlockOldLeaf.VARIANT, a);
             } else {
-                this.leaves = Blocks.leaves2.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, false).withProperty(BlockNewLeaf.VARIANT, a);
+                this.leaves = Blocks.LEAVES2.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, false).withProperty(BlockNewLeaf.VARIANT, a);
             }
             return this.self();
         }
@@ -139,9 +139,9 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
         {
             if (a.getMetadata() < 4)
             {
-                this.altLeaves = Blocks.leaves.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, false).withProperty(BlockOldLeaf.VARIANT, a);
+                this.altLeaves = Blocks.LEAVES.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, false).withProperty(BlockOldLeaf.VARIANT, a);
             } else {
-                this.altLeaves = Blocks.leaves2.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, false).withProperty(BlockNewLeaf.VARIANT, a);
+                this.altLeaves = Blocks.LEAVES2.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, false).withProperty(BlockNewLeaf.VARIANT, a);
             }
             return this.self();
         }

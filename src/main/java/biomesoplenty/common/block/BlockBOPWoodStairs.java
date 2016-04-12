@@ -68,13 +68,13 @@ public class BlockBOPWoodStairs extends BlockStairs implements IBOPBlock
     @Override
     public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
     {
-        return Blocks.planks.getFlammability(world, pos, face);
+        return Blocks.PLANKS.getFlammability(world, pos, face);
     }
 
     @Override
     public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face)
     {
-        return Blocks.planks.getFireSpreadSpeed(world, pos, face);
+        return Blocks.PLANKS.getFireSpreadSpeed(world, pos, face);
     }
 }
     

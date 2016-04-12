@@ -17,7 +17,7 @@ public class BiomeExtDesert extends ExtendedBiomeWrapper
 {
     public BiomeExtDesert()
     {
-        super(Biomes.desert);
+        super(Biomes.DESERT);
         
         // quicksand
         this.addGenerator("quicksand", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.2F).liquid(BOPBlocks.sand.getDefaultState().withProperty(BlockBOPSand.VARIANT, BlockBOPSand.SandType.QUICKSAND)).frozenLiquid((IBlockState)null).create());

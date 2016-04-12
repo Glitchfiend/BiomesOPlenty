@@ -35,8 +35,8 @@ public class GeneratorWaterside extends GeneratorReplacing
             // defaults
             this.amountPerChunk = 1.0F;
             this.placeOn = BlockQueries.anything;
-            this.replace = new BlockQueryMaterial(Material.grass, Material.ground);
-            this.with = Blocks.gravel.getDefaultState();
+            this.replace = new BlockQueryMaterial(Material.GRASS, Material.GROUND);
+            this.with = Blocks.GRAVEL.getDefaultState();
             this.scatterYMethod = ScatterYMethod.AT_GROUND;
             this.maxRadius = 7;
         }
@@ -61,7 +61,7 @@ public class GeneratorWaterside extends GeneratorReplacing
     public boolean generate(World world, Random random, BlockPos pos)
     {
         //Check we are generating around water
-        if (world.getBlockState(pos).getMaterial() != Material.water)
+        if (world.getBlockState(pos).getMaterial() != Material.WATER)
         {
             return false;
         }

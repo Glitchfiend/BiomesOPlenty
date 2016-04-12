@@ -13,7 +13,7 @@ public class BiomeExtMushroomIsland extends ExtendedBiomeWrapper
 {
     public BiomeExtMushroomIsland()
     {
-        super(Biomes.mushroomIsland);
+        super(Biomes.MUSHROOM_ISLAND);
         
         // shrooms
         this.addGenerator("flat_mushroom", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.4F).with(BlockBOPMushroom.MushroomType.FLAT_MUSHROOM).create());
