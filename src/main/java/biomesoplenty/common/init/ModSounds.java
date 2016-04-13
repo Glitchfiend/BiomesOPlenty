@@ -7,11 +7,11 @@
  ******************************************************************************/
 package biomesoplenty.common.init;
 
-import static biomesoplenty.api.sound.BOPSounds.*;
-
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+
+import static biomesoplenty.api.sound.BOPSounds.*;
 
 public class ModSounds 
 {
@@ -29,6 +29,6 @@ public class ModSounds
     {
         ResourceLocation location = new ResourceLocation(BiomesOPlenty.MOD_ID, soundName);
         SoundEvent.registerSound(location.toString());
-        return SoundEvent.soundEventRegistry.getObject(location);
+        return SoundEvent.REGISTRY.getObject(location);
     }
 }

@@ -7,11 +7,6 @@
  ******************************************************************************/
 package biomesoplenty.common.handler;
 
-import java.util.Iterator;
-import java.util.Set;
-
-import com.google.common.collect.Sets;
-
 import biomesoplenty.api.achievement.BOPAchievements;
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.block.BOPBlocks;
@@ -24,6 +19,7 @@ import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.item.ItemJarFilled;
+import com.google.common.collect.Sets;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -44,9 +40,12 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.ItemCraftedEvent;
 
+import java.util.Iterator;
+import java.util.Set;
+
 public class AchievementEventHandler 
 {
-    private static final Set<BiomeGenBase> BOP_BIOMES_TO_EXPLORE = Sets.union(BOPBiomes.REG_INSTANCE.getPresentBiomes(), BiomeGenBase.explorationBiomesList);
+    private static final Set<BiomeGenBase> BOP_BIOMES_TO_EXPLORE = Sets.union(BOPBiomes.REG_INSTANCE.getPresentBiomes(), BiomeGenBase.EXPLORATION_BIOMES_LIST);
 
     @SubscribeEvent
     public void onItemPickup(PlayerEvent.ItemPickupEvent event)
@@ -60,11 +59,11 @@ public class AchievementEventHandler
 
         if (block != null && block instanceof BlockBOPLog)
         {
-            player.addStat(AchievementList.mineWood);
+            player.addStat(AchievementList.MINE_WOOD);
         }
 
         //Flower Child Achievement
-        if (block != null && block instanceof BlockBOPFlower || block == Blocks.red_flower || block == Blocks.yellow_flower)
+        if (block != null && block instanceof BlockBOPFlower || block == Blocks.RED_FLOWER || block == Blocks.YELLOW_FLOWER)
         {
             player.addStat(BOPAchievements.obtain_flowers);
         }

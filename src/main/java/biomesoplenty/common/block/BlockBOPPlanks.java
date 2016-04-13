@@ -82,7 +82,7 @@ public class BlockBOPPlanks extends Block implements IBOPBlock
     
     public BlockBOPPlanks()
     {
-        super(Material.wood);
+        super(Material.WOOD);
         this.setDefaultState(this.blockState.getBaseState());
         this.setHardness(2.0F).setResistance(5.0F);
         this.setSoundType(SoundType.WOOD);
@@ -117,7 +117,7 @@ public class BlockBOPPlanks extends Block implements IBOPBlock
             case HELLBARK:
                 return 0;
             default:
-                return Blocks.planks.getFlammability(world, pos, face);
+                return Blocks.PLANKS.getFlammability(world, pos, face);
         }
     }
     
@@ -130,7 +130,7 @@ public class BlockBOPPlanks extends Block implements IBOPBlock
             case HELLBARK:
                 return 0;
             default:
-                return Blocks.planks.getFireSpreadSpeed(world, pos, face);
+                return Blocks.PLANKS.getFireSpreadSpeed(world, pos, face);
         }
     }
     

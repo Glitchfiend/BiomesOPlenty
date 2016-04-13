@@ -17,7 +17,7 @@ public class BiomeExtExtremeHills extends ExtendedBiomeWrapper
 {
     public BiomeExtExtremeHills()
     {
-        super(Biomes.extremeHills);
+        super(Biomes.EXTREME_HILLS);
         
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(0.3F);

@@ -66,7 +66,7 @@ public class ItemDartBlower extends Item
                 player.inventory.decrStackSize(bestDartSlot, 1);
             }
             world.spawnEntityInWorld(entityDart);
-            world.playSound(player, player.getPosition(), SoundEvents.entity_arrow_shoot, SoundCategory.NEUTRAL, 1.0F, 1.75F);
+            world.playSound(player, player.getPosition(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.NEUTRAL, 1.0F, 1.75F);
         }
 
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);

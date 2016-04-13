@@ -46,7 +46,7 @@ public class BlockBOPGeneric extends Block implements IBOPBlock, ISustainsPlantT
     
     public BlockBOPGeneric() {
         // use rock as default material
-        this(Material.rock, SoundType.STONE);
+        this(Material.ROCK, SoundType.STONE);
     }
     
     public BlockBOPGeneric(Material material, SoundType soundType)

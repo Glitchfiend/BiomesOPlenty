@@ -1,15 +1,9 @@
 package biomesoplenty.common.init;
 
-import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.entities.projectiles.dispenser.DispenserBehaviorDart;
 import biomesoplenty.common.entities.projectiles.dispenser.DispenserBehaviorMudball;
-import biomesoplenty.common.enums.BOPGems;
-import biomesoplenty.common.enums.BOPTrees;
 import net.minecraft.block.BlockDispenser;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.WeightedRandomChestContent;
 
 public class ModVanillaCompat
 {
@@ -21,8 +15,8 @@ public class ModVanillaCompat
     
     private static void registerDispenserBehaviors()
     {
-    	BlockDispenser.dispenseBehaviorRegistry.putObject(BOPItems.mudball, new DispenserBehaviorMudball());
-    	BlockDispenser.dispenseBehaviorRegistry.putObject(BOPItems.dart, new DispenserBehaviorDart());
+    	BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(BOPItems.mudball, new DispenserBehaviorMudball());
+    	BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(BOPItems.dart, new DispenserBehaviorDart());
     }
     
 	private static void addDungeonLoot()

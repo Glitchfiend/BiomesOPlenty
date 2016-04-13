@@ -16,7 +16,7 @@ public class BiomeExtIceMountains extends ExtendedBiomeWrapper
 {
     public BiomeExtIceMountains()
     {
-        super(Biomes.iceMountains);
+        super(Biomes.ICE_MOUNTAINS);
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(0.1F);

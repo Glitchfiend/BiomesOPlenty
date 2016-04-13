@@ -1,12 +1,12 @@
 package biomesoplenty.common.enums;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
 import biomesoplenty.common.world.layer.BOPGenLayer;
 import net.minecraft.init.Biomes;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeManager.BiomeType;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public enum BOPClimates {
 
@@ -65,11 +65,11 @@ public enum BOPClimates {
         switch (this)
         {
             case ICE_CAP:
-                return (layer.nextInt(2)==0) ? this.getRandomLandBiome(layer) : Biomes.frozenOcean;
+                return (layer.nextInt(2)==0) ? this.getRandomLandBiome(layer) : Biomes.FROZEN_OCEAN;
             case TUNDRA: case BOREAL:
-                return (layer.nextInt(3)!=0) ? (deep ? Biomes.deepOcean : Biomes.ocean) : Biomes.frozenOcean;
+                return (layer.nextInt(3)!=0) ? (deep ? Biomes.DEEP_OCEAN : Biomes.OCEAN) : Biomes.FROZEN_OCEAN;
             default:
-                return (deep ? Biomes.deepOcean : Biomes.ocean);
+                return (deep ? Biomes.DEEP_OCEAN : Biomes.OCEAN);
         }
     }
     
@@ -77,20 +77,20 @@ public enum BOPClimates {
     {
         // set up vanilla biomes
         
-        BOPClimates.ICE_CAP.addLandBiome(10,Biomes.icePlains);
-        BOPClimates.TUNDRA.addLandBiome(10, Biomes.coldTaiga).addLandBiome(10, Biomes.extremeHills);
-        BOPClimates.BOREAL.addLandBiome(5, Biomes.megaTaiga).addLandBiome(5, Biomes.extremeHills).addLandBiome(20, Biomes.taiga);
-        BOPClimates.COLD_SWAMP.addLandBiome(5, Biomes.swampland);
-        BOPClimates.WET_TEMPERATE.addLandBiome(20, Biomes.roofedForest).addLandBiome(5, Biomes.forest);
-        BOPClimates.DRY_TEMPERATE.addLandBiome(5, Biomes.plains);
-        BOPClimates.COOL_TEMPERATE.addLandBiome(15, Biomes.forest).addLandBiome(10, Biomes.birchForest);
-        BOPClimates.WARM_TEMPERATE.addLandBiome(20, Biomes.plains).addLandBiome(5, Biomes.birchForest);
-        BOPClimates.HOT_SWAMP.addLandBiome(5, Biomes.swampland);
-        BOPClimates.TROPICAL.addLandBiome(15, Biomes.jungle);
-        BOPClimates.MEDITERANEAN.addLandBiome(5, Biomes.plains);
-        BOPClimates.SAVANNA.addLandBiome(20, Biomes.savanna);
-        BOPClimates.HOT_DESERT.addLandBiome(30, Biomes.desert).addLandBiome(10, Biomes.mesaPlateau);
-        BOPClimates.WASTELAND.addLandBiome(1, Biomes.desert);
+        BOPClimates.ICE_CAP.addLandBiome(10,Biomes.ICE_PLAINS);
+        BOPClimates.TUNDRA.addLandBiome(10, Biomes.COLD_TAIGA).addLandBiome(10, Biomes.EXTREME_HILLS);
+        BOPClimates.BOREAL.addLandBiome(5, Biomes.REDWOOD_TAIGA).addLandBiome(5, Biomes.EXTREME_HILLS).addLandBiome(20, Biomes.TAIGA);
+        BOPClimates.COLD_SWAMP.addLandBiome(5, Biomes.SWAMPLAND);
+        BOPClimates.WET_TEMPERATE.addLandBiome(20, Biomes.ROOFED_FOREST).addLandBiome(5, Biomes.FOREST);
+        BOPClimates.DRY_TEMPERATE.addLandBiome(5, Biomes.PLAINS);
+        BOPClimates.COOL_TEMPERATE.addLandBiome(15, Biomes.FOREST).addLandBiome(10, Biomes.BIRCH_FOREST);
+        BOPClimates.WARM_TEMPERATE.addLandBiome(20, Biomes.PLAINS).addLandBiome(5, Biomes.BIRCH_FOREST);
+        BOPClimates.HOT_SWAMP.addLandBiome(5, Biomes.SWAMPLAND);
+        BOPClimates.TROPICAL.addLandBiome(15, Biomes.JUNGLE);
+        BOPClimates.MEDITERANEAN.addLandBiome(5, Biomes.PLAINS);
+        BOPClimates.SAVANNA.addLandBiome(20, Biomes.SAVANNA);
+        BOPClimates.HOT_DESERT.addLandBiome(30, Biomes.DESERT).addLandBiome(10, Biomes.MESA_CLEAR_ROCK);
+        BOPClimates.WASTELAND.addLandBiome(1, Biomes.DESERT);
     }
     
     

@@ -53,11 +53,11 @@ public class GenLayerBiomeBOP extends BOPGenLayer
                 BOPClimates climate = BOPClimates.lookup(climateValues[index]);
                 
                 // At this point, oceans and land have been assigned, and so have mushroom islands
-                if (landSeaVal == BiomeGenBase.getIdForBiome(Biomes.deepOcean))
+                if (landSeaVal == BiomeGenBase.getIdForBiome(Biomes.DEEP_OCEAN))
                 {
                     out[index] = BiomeGenBase.getIdForBiome(climate.getRandomOceanBiome(this, true));
                 }
-                else if ((landSeaVal == BiomeGenBase.getIdForBiome(Biomes.mushroomIsland) || ModBiomes.islandBiomesMap.containsKey(landSeaVal)) && climate.biomeType != BiomeType.ICY)
+                else if ((landSeaVal == BiomeGenBase.getIdForBiome(Biomes.MUSHROOM_ISLAND) || ModBiomes.islandBiomesMap.containsKey(landSeaVal)) && climate.biomeType != BiomeType.ICY)
                 {
                     // keep islands, unless it's in an icy climate in which case, replace
                     out[index] = landSeaVal;

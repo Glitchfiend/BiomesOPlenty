@@ -80,7 +80,7 @@ public class BlockBOPMud extends Block implements IBOPBlock, ISustainsPlantType
     public BlockBOPMud() {
         
         // TODO: use a custom material and sount type for mud? A squelching sound?
-        super(Material.ground);
+        super(Material.GROUND);
         
         // set some defaults
         this.setHardness(0.6F);

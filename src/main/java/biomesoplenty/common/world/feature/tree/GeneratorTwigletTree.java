@@ -38,8 +38,8 @@ public class GeneratorTwigletTree extends GeneratorTreeBase
             this.maxHeight = 6;
             this.placeOn = BlockQueries.fertile;
             this.replace = BlockQueries.airOrLeaves;
-            this.log = Blocks.log.getDefaultState();
-            this.leaves = Blocks.leaves.getDefaultState();
+            this.log = Blocks.LOG.getDefaultState();
+            this.leaves = Blocks.LEAVES.getDefaultState();
             this.vine = null;
             this.hanging = null;
             this.trunkFruit = null;
@@ -127,7 +127,7 @@ public class GeneratorTwigletTree extends GeneratorTreeBase
     
     private void generateTrunkFruit(World world, int age, BlockPos pos, EnumFacing direction)
     {
-        if (this.trunkFruit == Blocks.cocoa.getDefaultState())
+        if (this.trunkFruit == Blocks.COCOA.getDefaultState())
         {
             this.setBlockAndNotifyAdequately(world, pos, this.trunkFruit.withProperty(BlockCocoa.AGE, Integer.valueOf(age)).withProperty(BlockCocoa.FACING, direction));
         }

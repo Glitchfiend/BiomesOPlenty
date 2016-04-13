@@ -42,9 +42,9 @@ public class GeneratorColumns extends GeneratorReplacing
         {
             // defaults
             this.amountPerChunk = 1.0F;
-            this.placeOn = new BlockQueryMaterial(Material.ground, Material.grass);
+            this.placeOn = new BlockQueryMaterial(Material.GROUND, Material.GRASS);
             this.replace = BlockQueries.airOrLeaves;
-            this.with = Blocks.cobblestone.getDefaultState();
+            this.with = Blocks.COBBLESTONE.getDefaultState();
             this.scatterYMethod = ScatterYMethod.AT_SURFACE;
             this.minHeight = 2;
             this.maxHeight = 4;

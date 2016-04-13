@@ -59,7 +59,7 @@ public class ModAchievements
     
     private static void addAchievements()
     {
-        obtain_flowers = addAchievement("achievement.obtain_flowers", "obtain_flowers", 0, 0, new ItemStack(Blocks.red_flower), null);
+        obtain_flowers = addAchievement("achievement.obtain_flowers", "obtain_flowers", 0, 0, new ItemStack(Blocks.RED_FLOWER), null);
 
         craft_muddy_pickaxe = addAchievement("achievement.craft_muddy_pickaxe", "craft_muddy_pickaxe", -1, -4, new ItemStack(BOPItems.mud_pickaxe), obtain_flowers);
         obtain_turnip = addAchievement("achievement.obtain_turnip", "obtain_turnip", -1, -6, new ItemStack(BOPItems.turnip), craft_muddy_pickaxe);

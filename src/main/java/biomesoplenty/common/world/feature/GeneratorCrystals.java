@@ -1,7 +1,5 @@
 package biomesoplenty.common.world.feature;
 
-import java.util.Random;
-
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
@@ -13,6 +11,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GeneratorCrystals extends GeneratorReplacing
 {
@@ -31,8 +31,8 @@ public class GeneratorCrystals extends GeneratorReplacing
             // defaults
             this.amountPerChunk = 1.0F;
             this.placeOn = BlockQueries.hellish;
-            this.replace = new BlockQueryMaterial(Material.air);
-            this.with = Blocks.glowstone.getDefaultState();
+            this.replace = new BlockQueryMaterial(Material.AIR);
+            this.with = Blocks.GLOWSTONE.getDefaultState();
             this.scatterYMethod = ScatterYMethod.BELOW_GROUND;
             this.generationAttempts = 1500;
             this.maxRadius = 7;

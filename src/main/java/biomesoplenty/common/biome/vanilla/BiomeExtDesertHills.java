@@ -13,7 +13,7 @@ public class BiomeExtDesertHills extends ExtendedBiomeWrapper
 {
     public BiomeExtDesertHills()
     {
-        super(Biomes.desertHills);
+        super(Biomes.DESERT_HILLS);
         
         // other plants
         this.addGenerator("tiny_cacti", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.3F).with(BOPPlants.TINYCACTUS).create());

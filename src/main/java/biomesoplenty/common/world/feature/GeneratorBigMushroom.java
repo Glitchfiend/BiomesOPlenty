@@ -8,8 +8,6 @@
 
 package biomesoplenty.common.world.feature;
 
-import java.util.Random;
-
 import biomesoplenty.api.biome.generation.BOPGeneratorBase;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.util.biome.GeneratorUtils;
@@ -26,6 +24,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import java.util.Random;
+
 public class GeneratorBigMushroom extends BOPGeneratorBase
 {       
     
@@ -37,9 +37,9 @@ public class GeneratorBigMushroom extends BOPGeneratorBase
             switch (this)
             {
                 case BROWN:
-                    return Blocks.brown_mushroom_block.getDefaultState();
+                    return Blocks.BROWN_MUSHROOM_BLOCK.getDefaultState();
                 case RED: default:
-                    return Blocks.red_mushroom_block.getDefaultState();
+                    return Blocks.RED_MUSHROOM_BLOCK.getDefaultState();
             }
         }
         public int getCapHeight(int height)

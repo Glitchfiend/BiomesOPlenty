@@ -42,9 +42,9 @@ public class BiomeGenRedwoodForest extends BOPBiome
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(3, 7).octaves(0, 1, 2, 2, 1, 0);
         
-        this.topBlock = Blocks.grass.getDefaultState();
+        this.topBlock = Blocks.GRASS.getDefaultState();
         this.usualTopBlock = this.topBlock;
-        this.alternateTopBlock = Blocks.dirt.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.PODZOL);
+        this.alternateTopBlock = Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.PODZOL);
         
         this.canGenerateVillages = false;
     
@@ -53,7 +53,7 @@ public class BiomeGenRedwoodForest extends BOPBiome
         this.spawnableCreatureList.add(new SpawnListEntry(EntitySnail.class, 6, 1, 2));
         
         // sand
-        this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.sand.getDefaultState()).create());
+        this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.SAND.getDefaultState()).create());
         
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(25.0F);
@@ -75,8 +75,8 @@ public class BiomeGenRedwoodForest extends BOPBiome
         this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.8F).with(BOPPlants.LEAFPILE).generationAttempts(64).create());
         
         // shrooms
-        this.addGenerator("brown_mushrooms", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(Blocks.brown_mushroom.getDefaultState()).create());
-        this.addGenerator("red_mushrooms", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(Blocks.red_mushroom.getDefaultState()).create());
+        this.addGenerator("brown_mushrooms", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(Blocks.BROWN_MUSHROOM.getDefaultState()).create());
+        this.addGenerator("red_mushrooms", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(Blocks.RED_MUSHROOM.getDefaultState()).create());
 
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(10.0F);

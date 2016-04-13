@@ -16,7 +16,7 @@ public class BiomeExtPlains extends ExtendedBiomeWrapper
 {
     public BiomeExtPlains()
     {
-        super(Biomes.plains);
+        super(Biomes.PLAINS);
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(5.0F);

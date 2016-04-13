@@ -32,8 +32,8 @@ public class GeneratorBulbTree extends GeneratorTreeBase
             this.maxHeight = 12;
             this.placeOn = BlockQueries.fertile;
             this.replace = BlockQueries.airOrLeaves;
-            this.log = Blocks.log.getDefaultState();
-            this.leaves = Blocks.leaves.getDefaultState();
+            this.log = Blocks.LOG.getDefaultState();
+            this.leaves = Blocks.LEAVES.getDefaultState();
             this.vine = null;
             this.hanging = null;
             this.trunkFruit = null;
@@ -55,7 +55,7 @@ public class GeneratorBulbTree extends GeneratorTreeBase
     
     public boolean setCocoa(World world, BlockPos pos, EnumFacing side)
     {
-        IBlockState cocoaState = Blocks.cocoa.getDefaultState().withProperty(BlockDirectional.FACING, side);
+        IBlockState cocoaState = Blocks.COCOA.getDefaultState().withProperty(BlockDirectional.FACING, side);
         if (this.replace.matches(world, pos))
         {
             world.setBlockState(pos, cocoaState);

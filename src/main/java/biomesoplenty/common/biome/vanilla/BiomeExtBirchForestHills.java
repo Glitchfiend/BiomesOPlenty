@@ -21,7 +21,7 @@ public class BiomeExtBirchForestHills extends ExtendedBiomeWrapper
 {
     public BiomeExtBirchForestHills()
     {
-        super(Biomes.birchForestHills);
+        super(Biomes.BIRCH_FOREST_HILLS);
         
         if (BOPBiomes.gravel_beach.isPresent())
         {

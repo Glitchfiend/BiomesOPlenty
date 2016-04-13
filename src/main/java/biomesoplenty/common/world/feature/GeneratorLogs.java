@@ -41,9 +41,9 @@ public class GeneratorLogs extends GeneratorReplacing
         {
             if (a.getMetadata() < 4)
             {
-                this.with = Blocks.log.getDefaultState().withProperty(BlockOldLog.VARIANT, a);
+                this.with = Blocks.LOG.getDefaultState().withProperty(BlockOldLog.VARIANT, a);
             } else {
-                this.with = Blocks.log2.getDefaultState().withProperty(BlockNewLog.VARIANT, a);
+                this.with = Blocks.LOG2.getDefaultState().withProperty(BlockNewLog.VARIANT, a);
             }
             return this.self();
         }
@@ -54,9 +54,9 @@ public class GeneratorLogs extends GeneratorReplacing
         {
             // defaults
             this.amountPerChunk = 1.0F;
-            this.placeOn = new BlockQueryMaterial(Material.grass, Material.ground);
-            this.replace = new BlockQueryMaterial(Material.air);
-            this.with = Blocks.log.getDefaultState();
+            this.placeOn = new BlockQueryMaterial(Material.GRASS, Material.GROUND);
+            this.replace = new BlockQueryMaterial(Material.AIR);
+            this.with = Blocks.LOG.getDefaultState();
             this.scatterYMethod = ScatterYMethod.AT_SURFACE;
             this.minLength = 3;
             this.maxLength = 5;

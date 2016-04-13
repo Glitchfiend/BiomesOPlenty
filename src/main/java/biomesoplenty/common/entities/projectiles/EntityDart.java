@@ -8,8 +8,6 @@
 
 package biomesoplenty.common.entities.projectiles;
 
-import java.util.List;
-
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.api.potion.BOPPotions;
 import biomesoplenty.common.item.ItemDart;
@@ -33,6 +31,8 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class EntityDart extends EntityArrow
 {
@@ -77,7 +77,7 @@ public class EntityDart extends EntityArrow
     // Called from onUpdate when it is detected that the dart has hit a solid block
     public void onHitSolidBlock()
     {
-        this.playSound(SoundEvents.entity_arrow_hit, 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
+        this.playSound(SoundEvents.ENTITY_ARROW_HIT, 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
         int itemId = Item.getIdFromItem(BOPItems.dart);
         int itemMeta = this.getDartType().ordinal();
         for (int i = 0; i < 16; ++i)
@@ -126,7 +126,7 @@ public class EntityDart extends EntityArrow
                 }
             }
 
-            this.playSound(SoundEvents.entity_arrow_hit, 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
+            this.playSound(SoundEvents.ENTITY_ARROW_HIT, 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
             this.setDead();
         }
         else

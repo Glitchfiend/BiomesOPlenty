@@ -16,7 +16,7 @@ public class BiomeExtColdTaiga extends ExtendedBiomeWrapper
 {
     public BiomeExtColdTaiga()
     {
-        super(Biomes.coldTaiga);
+        super(Biomes.COLD_TAIGA);
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(0.5F);

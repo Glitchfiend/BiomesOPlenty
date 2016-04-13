@@ -30,8 +30,8 @@ public class GeneratorBush extends GeneratorTreeBase
             this.maxHeight = 4;
             this.placeOn = BlockQueries.fertile;
             this.replace = BlockQueries.airOrLeaves;
-            this.log = Blocks.log.getDefaultState();
-            this.leaves = Blocks.leaves.getDefaultState();
+            this.log = Blocks.LOG.getDefaultState();
+            this.leaves = Blocks.LEAVES.getDefaultState();
             this.vine = null;
             this.hanging = null;
             this.trunkFruit = null;

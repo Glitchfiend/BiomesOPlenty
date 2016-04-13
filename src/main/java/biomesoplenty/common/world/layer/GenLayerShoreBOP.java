@@ -42,9 +42,9 @@ public class GenLayerShoreBOP extends BOPGenLayer
                 int biomeId = biomeIds[x + 1 + (z + 1) * (areaWidth + 2)];
                 BiomeGenBase biome = BiomeGenBase.getBiome(biomeId);
 
-                if (biomeId == BiomeGenBase.getIdForBiome(Biomes.mushroomIsland)) 
+                if (biomeId == BiomeGenBase.getIdForBiome(Biomes.MUSHROOM_ISLAND))
                 {
-                    setBiomeWithAdjacent(biomeIds, out, x, z, areaWidth, biomeId, BiomeGenBase.getIdForBiome(Biomes.mushroomIslandShore), OCEAN_PREDICATE);
+                    setBiomeWithAdjacent(biomeIds, out, x, z, areaWidth, biomeId, BiomeGenBase.getIdForBiome(Biomes.MUSHROOM_ISLAND_SHORE), OCEAN_PREDICATE);
                 }
                 else if (biome != null && biome.getBiomeClass() == BiomeGenJungle.class)
                 {
@@ -56,25 +56,25 @@ public class GenLayerShoreBOP extends BOPGenLayer
                     //Ensure the biomes surrounding the jungle are all suitable before generating a beach
                     if (JUNGLE_BORDER_PREDICATE.apply(biomeNorth) && JUNGLE_BORDER_PREDICATE.apply(biomeEast) && JUNGLE_BORDER_PREDICATE.apply(biomeWest) && JUNGLE_BORDER_PREDICATE.apply(biomeSouth))
                     {
-                        setBiomeWithAdjacent(biomeIds, out, x, z, areaWidth, biomeId, BiomeGenBase.getIdForBiome(Biomes.beach), OCEANIC_PREDICATE);
+                        setBiomeWithAdjacent(biomeIds, out, x, z, areaWidth, biomeId, BiomeGenBase.getIdForBiome(Biomes.BEACH), OCEANIC_PREDICATE);
                     }
                     else //There is a non-jungle/ocean/taiga/forest next to the jungle, generate an edge biome
                     {
-                        out[x + z * areaWidth] = BiomeGenBase.getIdForBiome(Biomes.jungleEdge);
+                        out[x + z * areaWidth] = BiomeGenBase.getIdForBiome(Biomes.JUNGLE_EDGE);
                     }
                 }
-                else if (biomeId != BiomeGenBase.getIdForBiome(Biomes.extremeHills) && biomeId != BiomeGenBase.getIdForBiome(Biomes.extremeHillsPlus) && biomeId != BiomeGenBase.getIdForBiome(Biomes.extremeHillsEdge))
+                else if (biomeId != BiomeGenBase.getIdForBiome(Biomes.EXTREME_HILLS) && biomeId != BiomeGenBase.getIdForBiome(Biomes.EXTREME_HILLS_WITH_TREES) && biomeId != BiomeGenBase.getIdForBiome(Biomes.EXTREME_HILLS_EDGE))
                 {
                     if (biome != null && biome.isSnowyBiome()) //Snowy biomes should have cold beaches
                     {
                         //Frozen ocean should not have a beach
                         if (isBiomeOceanic(biomeId)) out[x + z * areaWidth] = biomeId;
                         else
-                            setBiomeWithAdjacent(biomeIds, out, x, z, areaWidth, biomeId, BiomeGenBase.getIdForBiome(Biomes.coldBeach), OCEANIC_PREDICATE);
+                            setBiomeWithAdjacent(biomeIds, out, x, z, areaWidth, biomeId, BiomeGenBase.getIdForBiome(Biomes.COLD_BEACH), OCEANIC_PREDICATE);
                     }
-                    else if (biomeId != BiomeGenBase.getIdForBiome(Biomes.mesa) && biomeId != BiomeGenBase.getIdForBiome(Biomes.mesaPlateau_F))
+                    else if (biomeId != BiomeGenBase.getIdForBiome(Biomes.MESA) && biomeId != BiomeGenBase.getIdForBiome(Biomes.MESA_ROCK))
                     {
-                        if (biomeId != BiomeGenBase.getIdForBiome(Biomes.ocean) && biomeId != BiomeGenBase.getIdForBiome(Biomes.deepOcean) && biomeId != BiomeGenBase.getIdForBiome(Biomes.river) && biomeId != BiomeGenBase.getIdForBiome(Biomes.swampland))
+                        if (biomeId != BiomeGenBase.getIdForBiome(Biomes.OCEAN) && biomeId != BiomeGenBase.getIdForBiome(Biomes.DEEP_OCEAN) && biomeId != BiomeGenBase.getIdForBiome(Biomes.RIVER) && biomeId != BiomeGenBase.getIdForBiome(Biomes.SWAMPLAND))
                         {
                             //Generate custom beaches for our biomes
                             if (biome != null && BOPBiomes.REG_INSTANCE.getExtendedBiome(biome) != null)
@@ -85,7 +85,7 @@ public class GenLayerShoreBOP extends BOPGenLayer
                             }
                             else
                             {
-                                setBiomeWithAdjacent(biomeIds, out, x, z, areaWidth, biomeId, BiomeGenBase.getIdForBiome(Biomes.beach), OCEANIC_PREDICATE);
+                                setBiomeWithAdjacent(biomeIds, out, x, z, areaWidth, biomeId, BiomeGenBase.getIdForBiome(Biomes.BEACH), OCEANIC_PREDICATE);
                             }
                         }
                         else //Biome is watery, don't put any beaches next to it
@@ -104,7 +104,7 @@ public class GenLayerShoreBOP extends BOPGenLayer
                         if (!isBiomeOceanic(biomeNorth) && !isBiomeOceanic(biomeEast) && !isBiomeOceanic(biomeWest) && !isBiomeOceanic(biomeSouth))
                         {
                             //If at least one of the surrounding biomes is a non-mesa, set it to desert
-                            setBiomeWithAdjacent(biomeIds, out, x, z, areaWidth, biomeId, BiomeGenBase.getIdForBiome(Biomes.desert), MESA_PREDICATE); 
+                            setBiomeWithAdjacent(biomeIds, out, x, z, areaWidth, biomeId, BiomeGenBase.getIdForBiome(Biomes.DESERT), MESA_PREDICATE);
                         }
                         else
                         {
@@ -114,7 +114,7 @@ public class GenLayerShoreBOP extends BOPGenLayer
                 }
                 else //Biome is a variant of the extreme hills
                 {
-                    this.setBiomeWithAdjacent(biomeIds, out, x, z, areaWidth, biomeId, BiomeGenBase.getIdForBiome(Biomes.stoneBeach), OCEANIC_PREDICATE);
+                    this.setBiomeWithAdjacent(biomeIds, out, x, z, areaWidth, biomeId, BiomeGenBase.getIdForBiome(Biomes.STONE_BEACH), OCEANIC_PREDICATE);
                 }
             }
         }
@@ -144,7 +144,7 @@ public class GenLayerShoreBOP extends BOPGenLayer
         @Override
         public boolean apply(Integer input) 
         {
-            return input == BiomeGenBase.getIdForBiome(Biomes.ocean);
+            return input == BiomeGenBase.getIdForBiome(Biomes.OCEAN);
         }
     };
     
@@ -162,7 +162,7 @@ public class GenLayerShoreBOP extends BOPGenLayer
         @Override
         public boolean apply(Integer input) 
         {
-            return BiomeGenBase.getBiome(input) != null && BiomeGenBase.getBiome(input).getBiomeClass() == BiomeGenJungle.class ? true : input == BiomeGenBase.getIdForBiome(Biomes.jungleEdge) || input == BiomeGenBase.getIdForBiome(Biomes.jungle) || input == BiomeGenBase.getIdForBiome(Biomes.jungleHills) || input == BiomeGenBase.getIdForBiome(Biomes.forest) || input == BiomeGenBase.getIdForBiome(Biomes.taiga) || isBiomeOceanic(input);
+            return BiomeGenBase.getBiome(input) != null && BiomeGenBase.getBiome(input).getBiomeClass() == BiomeGenJungle.class ? true : input == BiomeGenBase.getIdForBiome(Biomes.JUNGLE_EDGE) || input == BiomeGenBase.getIdForBiome(Biomes.JUNGLE) || input == BiomeGenBase.getIdForBiome(Biomes.JUNGLE_HILLS) || input == BiomeGenBase.getIdForBiome(Biomes.FOREST) || input == BiomeGenBase.getIdForBiome(Biomes.TAIGA) || isBiomeOceanic(input);
         }
     };
     

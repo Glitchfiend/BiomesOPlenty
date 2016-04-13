@@ -8,10 +8,6 @@
 
 package biomesoplenty.core;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.api.item.IColoredItem;
@@ -20,20 +16,12 @@ import biomesoplenty.client.particle.EntityPixieTrailFX;
 import biomesoplenty.client.particle.EntityTrailFX;
 import biomesoplenty.client.texture.ForgeRedirectedResourcePack;
 import biomesoplenty.common.config.MiscConfigurationHandler;
-import biomesoplenty.common.entities.EntityButterfly;
-import biomesoplenty.common.entities.EntityPixie;
-import biomesoplenty.common.entities.EntitySnail;
-import biomesoplenty.common.entities.EntityWasp;
-import biomesoplenty.common.entities.RenderButterfly;
-import biomesoplenty.common.entities.RenderPixie;
-import biomesoplenty.common.entities.RenderSnail;
-import biomesoplenty.common.entities.RenderWasp;
+import biomesoplenty.common.entities.*;
 import biomesoplenty.common.entities.projectiles.EntityDart;
 import biomesoplenty.common.entities.projectiles.EntityMudball;
 import biomesoplenty.common.entities.projectiles.RenderDart;
 import biomesoplenty.common.entities.projectiles.RenderMudball;
 import biomesoplenty.common.util.inventory.CreativeTabBOP;
-
 import com.google.common.collect.Lists;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
@@ -64,6 +52,10 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 public class ClientProxy extends CommonProxy
 {
     public static ResourceLocation[] bopTitlePanoramaPaths = new ResourceLocation[] {new ResourceLocation("biomesoplenty:textures/gui/title/background/panorama_0.png"), new ResourceLocation("biomesoplenty:textures/gui/title/background/panorama_1.png"), new ResourceLocation("biomesoplenty:textures/gui/title/background/panorama_2.png"), new ResourceLocation("biomesoplenty:textures/gui/title/background/panorama_3.png"), new ResourceLocation("biomesoplenty:textures/gui/title/background/panorama_4.png"), new ResourceLocation("biomesoplenty:textures/gui/title/background/panorama_5.png")};
@@ -76,7 +68,7 @@ public class ClientProxy extends CommonProxy
     public void registerRenderers()
     {
         if (MiscConfigurationHandler.overrideTitlePanorama)
-            GuiMainMenu.titlePanoramaPaths = bopTitlePanoramaPaths;
+            GuiMainMenu.TITLE_PANORAMA_PATHS = bopTitlePanoramaPaths;
 
         //Entity rendering and other stuff will go here in future
         registerEntityRenderer(EntityDart.class, RenderDart.class);

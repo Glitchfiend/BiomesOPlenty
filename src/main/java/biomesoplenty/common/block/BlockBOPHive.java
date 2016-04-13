@@ -71,7 +71,7 @@ public class BlockBOPHive extends Block implements IBOPBlock
     
     public BlockBOPHive()
     {
-        super(Material.wood);
+        super(Material.WOOD);
                 
         // set some defaults
         this.setHardness(0.5F);

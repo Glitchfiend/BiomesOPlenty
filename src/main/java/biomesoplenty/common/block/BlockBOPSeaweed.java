@@ -84,7 +84,7 @@ public class BlockBOPSeaweed extends BlockBOPDecoration implements IBOPBlock
     
     public BlockBOPSeaweed()
     {
-        super(Material.water);
+        super(Material.WATER);
         
         // set some defaults
         this.setSoundType(SoundType.PLANT);
@@ -139,7 +139,7 @@ public class BlockBOPSeaweed extends BlockBOPDecoration implements IBOPBlock
     @Override
     public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state)
     {
-        world.setBlockState(pos, Blocks.water.getDefaultState() );
+        world.setBlockState(pos, Blocks.WATER.getDefaultState() );
     }
 
   

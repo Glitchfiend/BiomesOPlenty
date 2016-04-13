@@ -26,7 +26,7 @@ public class BiomeGenGlacier extends BOPBiome
         // terrain
         this.terrainSettings.avgHeight(88).heightVariation(8, 10).octaves(0, 1, 1, 3, 1, 0);
 
-        this.topBlock = Blocks.ice.getDefaultState();
+        this.topBlock = Blocks.ICE.getDefaultState();
         this.fillerBlock = BOPBlocks.hard_ice.getDefaultState();
         
         this.avgDirtDepth = 16;

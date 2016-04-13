@@ -1,22 +1,13 @@
 package biomesoplenty.client.gui;
 
-import java.io.IOException;
-
-import com.google.common.base.Predicate;
-import com.google.common.primitives.Floats;
-
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.BOPWorldSettings.BiomeSize;
 import biomesoplenty.common.world.BOPWorldSettings.LandMassScheme;
 import biomesoplenty.common.world.BOPWorldSettings.RainfallVariationScheme;
 import biomesoplenty.common.world.BOPWorldSettings.TemperatureVariationScheme;
-import net.minecraft.client.gui.Gui;
-import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiCreateWorld;
-import net.minecraft.client.gui.GuiListButton;
-import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.gui.GuiSlider;
-import net.minecraft.client.gui.GuiTextField;
+import com.google.common.base.Predicate;
+import com.google.common.primitives.Floats;
+import net.minecraft.client.gui.*;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.VertexBuffer;
@@ -24,6 +15,8 @@ import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.resources.I18n;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.io.IOException;
 
 @SideOnly(Side.CLIENT)
 public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatHelper, GuiBOPPageList.GuiResponder
@@ -638,7 +631,7 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
             GlStateManager.disableFog();
             Tessellator tessellator = Tessellator.getInstance();
             VertexBuffer worldrenderer = tessellator.getBuffer();
-            this.mc.getTextureManager().bindTexture(optionsBackground);
+            this.mc.getTextureManager().bindTexture(OPTIONS_BACKGROUND);
             GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
             worldrenderer.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR);
             worldrenderer.pos((double)(this.width / 2 - 90), 185.0D, 0.0D).tex(0.0D, 2.65625D).color(64, 64, 64, 64).endVertex();

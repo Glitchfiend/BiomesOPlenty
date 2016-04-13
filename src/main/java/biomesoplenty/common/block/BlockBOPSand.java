@@ -72,7 +72,7 @@ public class BlockBOPSand extends BlockFalling implements IBOPBlock, ISustainsPl
     
     public BlockBOPSand() {
         
-        super(Material.sand);
+        super(Material.SAND);
         
         // set some defaults
         this.setHardness(0.6F);
@@ -136,10 +136,10 @@ public class BlockBOPSand extends BlockFalling implements IBOPBlock, ISustainsPl
                 return true;
             case Beach:
                 return (
-                        world.getBlockState(pos.east()).getMaterial() == Material.water ||
-                        world.getBlockState(pos.west()).getMaterial() == Material.water ||
-                        world.getBlockState(pos.north()).getMaterial() == Material.water ||
-                        world.getBlockState(pos.south()).getMaterial() == Material.water
+                        world.getBlockState(pos.east()).getMaterial() == Material.WATER ||
+                        world.getBlockState(pos.west()).getMaterial() == Material.WATER ||
+                        world.getBlockState(pos.north()).getMaterial() == Material.WATER ||
+                        world.getBlockState(pos.south()).getMaterial() == Material.WATER
                         );
             // don't support anything else by default
             default:

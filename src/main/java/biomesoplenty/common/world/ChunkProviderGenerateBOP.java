@@ -8,24 +8,6 @@
 
 package biomesoplenty.common.world;
 
-import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.CAVE;
-import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.MINESHAFT;
-import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.OCEAN_MONUMENT;
-import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.RAVINE;
-import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.SCATTERED_FEATURE;
-import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.STRONGHOLD;
-import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.VILLAGE;
-import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.ANIMALS;
-import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.DUNGEON;
-import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.ICE;
-import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE;
-import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAVA;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.common.util.biome.BiomeUtils;
 import net.minecraft.block.BlockFalling;
@@ -33,7 +15,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.IProgressUpdate;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.ChunkCoordIntPair;
@@ -43,23 +24,21 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.chunk.IChunkGenerator;
-import net.minecraft.world.chunk.IChunkProvider;
-import net.minecraft.world.gen.MapGenBase;
-import net.minecraft.world.gen.MapGenCaves;
-import net.minecraft.world.gen.MapGenRavine;
-import net.minecraft.world.gen.NoiseGeneratorOctaves;
-import net.minecraft.world.gen.NoiseGeneratorPerlin;
+import net.minecraft.world.gen.*;
 import net.minecraft.world.gen.feature.WorldGenDungeons;
 import net.minecraft.world.gen.feature.WorldGenLakes;
-import net.minecraft.world.gen.structure.MapGenMineshaft;
-import net.minecraft.world.gen.structure.MapGenScatteredFeature;
-import net.minecraft.world.gen.structure.MapGenStronghold;
-import net.minecraft.world.gen.structure.MapGenVillage;
-import net.minecraft.world.gen.structure.StructureOceanMonument;
+import net.minecraft.world.gen.structure.*;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
-import net.minecraftforge.fml.common.eventhandler.Event.Result;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+
+import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.*;
+import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.*;
 
 public class ChunkProviderGenerateBOP implements IChunkGenerator
 {
@@ -119,8 +98,8 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
         this.noiseArray = new double[825];
 
         // blockstates for stone and sea blocks
-        this.stoneBlockState = Blocks.stone.getDefaultState();
-        this.seaBlockState = Blocks.water.getDefaultState();
+        this.stoneBlockState = Blocks.STONE.getDefaultState();
+        this.seaBlockState = Blocks.WATER.getDefaultState();
         
         // store a TerrainSettings object for each biome
         this.biomeTerrainSettings = new HashMap<BiomeGenBase, TerrainSettings>();
@@ -341,7 +320,7 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
         
         // Rivers shouldn't be influenced by the neighbors
         BiomeGenBase centerBiome = biomes[localX + 2 + (localZ + 2) * 10];
-        if (centerBiome == Biomes.river || centerBiome == Biomes.frozenRiver || ((centerBiome instanceof BOPBiome) && ((BOPBiome)centerBiome).noNeighborTerrainInfuence))
+        if (centerBiome == Biomes.RIVER || centerBiome == Biomes.FROZEN_RIVER || ((centerBiome instanceof BOPBiome) && ((BOPBiome)centerBiome).noNeighborTerrainInfuence))
         {
             return this.biomeTerrainSettings.get(centerBiome);
         }
@@ -510,10 +489,10 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
         BlockPos target;
         
         // add water lakes
-        if (biomegenbase.getRainfall() > 0.01F && biomegenbase != Biomes.desert && biomegenbase != Biomes.desertHills && this.settings.useWaterLakes && !hasVillageGenerated && this.rand.nextInt(this.settings.waterLakeChance) == 0 && TerrainGen.populate(this, worldObj, rand, chunkX, chunkZ, hasVillageGenerated, LAKE))
+        if (biomegenbase.getRainfall() > 0.01F && biomegenbase != Biomes.DESERT && biomegenbase != Biomes.DESERT_HILLS && this.settings.useWaterLakes && !hasVillageGenerated && this.rand.nextInt(this.settings.waterLakeChance) == 0 && TerrainGen.populate(this, worldObj, rand, chunkX, chunkZ, hasVillageGenerated, LAKE))
         {
             target = decorateStart.add(this.rand.nextInt(16), this.rand.nextInt(256), this.rand.nextInt(16));
-            (new WorldGenLakes(Blocks.water)).generate(this.worldObj, this.rand, target);
+            (new WorldGenLakes(Blocks.WATER)).generate(this.worldObj, this.rand, target);
         }
 
         // add lava lakes
@@ -522,7 +501,7 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
             target = decorateStart.add(this.rand.nextInt(16), this.rand.nextInt(248) + 8, this.rand.nextInt(16));
             if (target.getY() < 63 || this.rand.nextInt(this.settings.lavaLakeChance / 8) == 0)
             {
-                (new WorldGenLakes(Blocks.lava)).generate(this.worldObj, this.rand, target);
+                (new WorldGenLakes(Blocks.LAVA)).generate(this.worldObj, this.rand, target);
             }
         }
 
@@ -557,12 +536,12 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
                     // if it's cold enough for ice, and there's exposed water, then freeze it
                     if (this.worldObj.canBlockFreezeWater(target.down()))
                     {
-                        this.worldObj.setBlockState(target.down(), Blocks.ice.getDefaultState(), 2);
+                        this.worldObj.setBlockState(target.down(), Blocks.ICE.getDefaultState(), 2);
                     }
                     // if it's cold enough for snow, add a layer of snow
                     if (biome.getRainfall() > 0.01F && this.worldObj.canSnowAt(target, true))
                     {
-                        this.worldObj.setBlockState(target, Blocks.snow_layer.getDefaultState(), 2);
+                        this.worldObj.setBlockState(target, Blocks.SNOW_LAYER.getDefaultState(), 2);
                     }
                 }
             }           

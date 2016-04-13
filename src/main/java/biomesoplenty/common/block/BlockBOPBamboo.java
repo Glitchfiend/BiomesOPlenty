@@ -8,15 +8,12 @@
 
 package biomesoplenty.common.block;
 
-import java.util.Random;
-
 import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
-import net.minecraft.block.state.BlockStateBase;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -27,6 +24,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.Random;
 
 public class BlockBOPBamboo extends BlockBOPDecoration
 {
@@ -40,7 +39,7 @@ public class BlockBOPBamboo extends BlockBOPDecoration
     
     public BlockBOPBamboo()
     {
-        super(Material.wood);
+        super(Material.WOOD);
         this.setHardness(0.2F);
         this.setSoundType(SoundType.WOOD);
         
@@ -78,7 +77,7 @@ public class BlockBOPBamboo extends BlockBOPDecoration
             return true;
         }
         // can place on various soil blocks
-        if (groundBlock == Blocks.dirt || groundBlock == Blocks.farmland || groundBlock == BOPBlocks.farmland_0 || groundBlock == BOPBlocks.farmland_1 || groundBlock == BOPBlocks.dirt || groundBlock == Blocks.grass)
+        if (groundBlock == Blocks.DIRT || groundBlock == Blocks.FARMLAND || groundBlock == BOPBlocks.farmland_0 || groundBlock == BOPBlocks.farmland_1 || groundBlock == BOPBlocks.dirt || groundBlock == Blocks.GRASS)
         {
             return true;
         }

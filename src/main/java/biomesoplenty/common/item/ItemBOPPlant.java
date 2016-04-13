@@ -15,9 +15,7 @@ import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.stats.StatList;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
@@ -44,7 +42,7 @@ public class ItemBOPPlant extends ItemBOPBlock {
             if (plant == BOPPlants.REED)
             {
                 
-                RayTraceResult movingobjectposition = this.getMovingObjectPositionFromPlayer(worldIn, playerIn, true);
+                RayTraceResult movingobjectposition = this.rayTrace(worldIn, playerIn, true);
                 
                 if (movingobjectposition == null)
                 {
@@ -69,7 +67,7 @@ public class ItemBOPPlant extends ItemBOPBlock {
                         BlockPos blockpos1 = blockpos.up();
                         IBlockState iblockstate = worldIn.getBlockState(blockpos);
 
-                        if (iblockstate.getMaterial() == Material.water && ((Integer)iblockstate.getValue(BlockLiquid.LEVEL)).intValue() == 0 && worldIn.isAirBlock(blockpos1))
+                        if (iblockstate.getMaterial() == Material.WATER && ((Integer)iblockstate.getValue(BlockLiquid.LEVEL)).intValue() == 0 && worldIn.isAirBlock(blockpos1))
                         {
                             // special case for handling block placement with reeds
                             net.minecraftforge.common.util.BlockSnapshot blocksnapshot = net.minecraftforge.common.util.BlockSnapshot.getBlockSnapshot(worldIn, blockpos1);

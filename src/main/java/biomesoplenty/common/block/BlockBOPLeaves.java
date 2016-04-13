@@ -288,7 +288,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
             case ORIGIN:
             	if (worldIn.rand.nextInt(chance) == 0)
                 {
-                    fruit = new ItemStack(Items.apple, 1, 0);
+                    fruit = new ItemStack(Items.APPLE, 1, 0);
                 }
             	break;
             case PINK_CHERRY:
@@ -352,7 +352,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
             default:
                 if (worldIn.rand.nextInt(chance) == 0)
                 {
-                    fruit = new ItemStack(Items.apple, 1, 0);
+                    fruit = new ItemStack(Items.APPLE, 1, 0);
                 }
                 break;
         }
@@ -387,7 +387,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
             case HELLBARK:
                 return 0;
             default:
-                return Blocks.leaves.getFlammability(world, pos, face);
+                return Blocks.LEAVES.getFlammability(world, pos, face);
         }
     }
     
@@ -400,31 +400,31 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
             case HELLBARK:
                 return 0;
             default:
-                return Blocks.leaves.getFireSpreadSpeed(world, pos, face);
+                return Blocks.LEAVES.getFireSpreadSpeed(world, pos, face);
         }
     }
     
     
-    //The fields used by getBlockLayer(), isOpaqueCube() and shouldSideBeRendered are set externally for Blocks.leaves *specifically*. As a result, we do not inherit
+    //The fields used by getBlockLayer(), isOpaqueCube() and shouldSideBeRendered are set externally for Blocks.LEAVES *specifically*. As a result, we do not inherit
     //it simply be extending BlockLeaves.
     @Override
     @SideOnly(Side.CLIENT)
     public BlockRenderLayer getBlockLayer()
     {
-        return Blocks.leaves.getBlockLayer();
+        return Blocks.LEAVES.getBlockLayer();
     }
     
     @Override
     public boolean isOpaqueCube(IBlockState state)
     {
-        return Blocks.leaves.isOpaqueCube(state);
+        return Blocks.LEAVES.isOpaqueCube(state);
     }
 
     @SideOnly(Side.CLIENT)
     @Override
     public boolean shouldSideBeRendered(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side)
     {
-        return Blocks.leaves.shouldSideBeRendered(state, world, pos, side);
+        return Blocks.LEAVES.shouldSideBeRendered(state, world, pos, side);
     }
 
     // We are forced to implement the method below in order to extend the BlockLeaves abstract class

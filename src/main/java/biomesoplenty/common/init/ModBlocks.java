@@ -8,73 +8,9 @@
 
 package biomesoplenty.common.init;
 
-import static biomesoplenty.api.block.BOPBlocks.*;
-import static biomesoplenty.api.item.BOPItems.blood_bucket;
-import static biomesoplenty.api.item.BOPItems.honey_bucket;
-import static biomesoplenty.api.item.BOPItems.hot_spring_water_bucket;
-import static biomesoplenty.api.item.BOPItems.poison_bucket;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockSlab;
-import net.minecraft.block.BlockStairs;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemBucket;
-import net.minecraft.item.ItemDoor;
-import net.minecraft.item.ItemSlab;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.EnumPlantType;
-import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidContainerRegistry;
-import net.minecraftforge.fluids.FluidRegistry;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.common.block.BlockBOPAsh;
-import biomesoplenty.common.block.BlockBOPBamboo;
-import biomesoplenty.common.block.BlockBOPBiomeBlock;
-import biomesoplenty.common.block.BlockBOPBones;
-import biomesoplenty.common.block.BlockBOPCoral;
-import biomesoplenty.common.block.BlockBOPCrystal;
-import biomesoplenty.common.block.BlockBOPDirt;
-import biomesoplenty.common.block.BlockBOPDoor;
-import biomesoplenty.common.block.BlockBOPDoubleOtherSlab;
-import biomesoplenty.common.block.BlockBOPDoublePlant;
-import biomesoplenty.common.block.BlockBOPDoubleWoodSlab;
-import biomesoplenty.common.block.BlockBOPFarmland;
-import biomesoplenty.common.block.BlockBOPFence;
-import biomesoplenty.common.block.BlockBOPFenceGate;
-import biomesoplenty.common.block.BlockBOPFlesh;
-import biomesoplenty.common.block.BlockBOPFlower;
-import biomesoplenty.common.block.BlockBOPGem;
-import biomesoplenty.common.block.BlockBOPGemOre;
-import biomesoplenty.common.block.BlockBOPGeneric;
-import biomesoplenty.common.block.BlockBOPGrass;
-import biomesoplenty.common.block.BlockBOPHalfOtherSlab;
-import biomesoplenty.common.block.BlockBOPHalfWoodSlab;
-import biomesoplenty.common.block.BlockBOPHive;
-import biomesoplenty.common.block.BlockBOPHoney;
-import biomesoplenty.common.block.BlockBOPLeaves;
-import biomesoplenty.common.block.BlockBOPLilypad;
-import biomesoplenty.common.block.BlockBOPLog;
-import biomesoplenty.common.block.BlockBOPMud;
-import biomesoplenty.common.block.BlockBOPMushroom;
-import biomesoplenty.common.block.BlockBOPPlanks;
-import biomesoplenty.common.block.BlockBOPPlant;
-import biomesoplenty.common.block.BlockBOPSand;
-import biomesoplenty.common.block.BlockBOPSapling;
-import biomesoplenty.common.block.BlockBOPSeaweed;
-import biomesoplenty.common.block.BlockBOPStone;
-import biomesoplenty.common.block.BlockBOPStoneFormations;
-import biomesoplenty.common.block.BlockBOPTerrarium;
-import biomesoplenty.common.block.BlockBOPTurnip;
-import biomesoplenty.common.block.BlockBOPVine;
-import biomesoplenty.common.block.BlockBOPWoodStairs;
+import biomesoplenty.common.block.*;
 import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.fluids.BloodFluid;
@@ -89,8 +25,44 @@ import biomesoplenty.common.util.BOPReflectionHelper;
 import biomesoplenty.common.util.block.BlockStateUtils;
 import biomesoplenty.common.util.inventory.CreativeTabBOP;
 import biomesoplenty.core.BiomesOPlenty;
-
 import com.google.common.collect.ImmutableSet;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockSlab;
+import net.minecraft.block.BlockStairs;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
+import net.minecraft.item.*;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.EnumPlantType;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidContainerRegistry;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+
+import static biomesoplenty.api.block.BOPBlocks.*;
+import static biomesoplenty.api.block.BOPBlocks.cherry_door;
+import static biomesoplenty.api.block.BOPBlocks.ebony_door;
+import static biomesoplenty.api.block.BOPBlocks.ethereal_door;
+import static biomesoplenty.api.block.BOPBlocks.eucalyptus_door;
+import static biomesoplenty.api.block.BOPBlocks.fir_door;
+import static biomesoplenty.api.block.BOPBlocks.hellbark_door;
+import static biomesoplenty.api.block.BOPBlocks.jacaranda_door;
+import static biomesoplenty.api.block.BOPBlocks.magic_door;
+import static biomesoplenty.api.block.BOPBlocks.mahogany_door;
+import static biomesoplenty.api.block.BOPBlocks.mangrove_door;
+import static biomesoplenty.api.block.BOPBlocks.other_slab;
+import static biomesoplenty.api.block.BOPBlocks.palm_door;
+import static biomesoplenty.api.block.BOPBlocks.pine_door;
+import static biomesoplenty.api.block.BOPBlocks.redwood_door;
+import static biomesoplenty.api.block.BOPBlocks.sacred_oak_door;
+import static biomesoplenty.api.block.BOPBlocks.umbran_door;
+import static biomesoplenty.api.block.BOPBlocks.willow_door;
+import static biomesoplenty.api.block.BOPBlocks.wood_slab_0;
+import static biomesoplenty.api.block.BOPBlocks.wood_slab_1;
+import static biomesoplenty.api.item.BOPItems.*;
 
 public class ModBlocks
 {
@@ -113,7 +85,7 @@ public class ModBlocks
         stone =                 registerBlock( new BlockBOPStone(), "stone" );
         crag_rock =             registerBlock( (new BlockBOPGeneric()), "crag_rock" );
         dried_sand =            registerBlock( (new BlockBOPGeneric()).addSupportedPlantType(EnumPlantType.Desert), "dried_sand"); dried_sand.setHarvestLevel("pickaxe",0);
-        hard_ice =              registerBlock( (new BlockBOPGeneric(Material.packedIce, SoundType.STONE)).setHardness(0.75F), "hard_ice" );
+        hard_ice =              registerBlock( (new BlockBOPGeneric(Material.PACKED_ICE, SoundType.STONE)).setHardness(0.75F), "hard_ice" );
         ash_block =             registerBlock( new BlockBOPAsh(), "ash_block" );
         mud =                   registerBlock( new BlockBOPMud(), "mud" );
         sand =                  registerBlock( new BlockBOPSand(), "sand" );
@@ -129,7 +101,7 @@ public class ModBlocks
         bone_segment =          registerBlock( new BlockBOPBones(), "bone_segment" );
         
         //Material Blocks
-        bamboo_thatching =      registerBlock( (new BlockBOPGeneric(Material.wood, SoundType.WOOD)).setHardness(2.0F), "bamboo_thatching"); bamboo_thatching.setHarvestLevel("axe", 0);
+        bamboo_thatching =      registerBlock( (new BlockBOPGeneric(Material.WOOD, SoundType.WOOD)).setHardness(2.0F), "bamboo_thatching"); bamboo_thatching.setHarvestLevel("axe", 0);
         mud_brick_block =       registerBlock( (new BlockBOPGeneric()).setResistance(2.0F), "mud_brick_block" );   
         mud_brick_stairs =      registerBlock( BOPReflectionHelper.construct(BlockStairs.class, (IBlockState)mud_brick_block.getDefaultState()), "mud_brick_stairs");
  
@@ -303,10 +275,10 @@ public class ModBlocks
         FluidRegistry.registerFluid(hot_spring_water_fluid);
         hot_spring_water = registerFluidBlock(hot_spring_water_fluid, new BlockHotSpringWaterFluid(hot_spring_water_fluid), "hot_spring_water");
         
-        honey_bucket = ModItems.registerItem((new ItemBucket(honey)).setContainerItem(Items.bucket), "honey_bucket");
-        blood_bucket = ModItems.registerItem((new ItemBucket(blood)).setContainerItem(Items.bucket), "blood_bucket");
-        poison_bucket = ModItems.registerItem((new ItemBucket(poison)).setContainerItem(Items.bucket), "poison_bucket");
-        hot_spring_water_bucket = ModItems.registerItem((new ItemBucket(hot_spring_water)).setContainerItem(Items.bucket), "hot_spring_water_bucket");
+        honey_bucket = ModItems.registerItem((new ItemBucket(honey)).setContainerItem(Items.BUCKET), "honey_bucket");
+        blood_bucket = ModItems.registerItem((new ItemBucket(blood)).setContainerItem(Items.BUCKET), "blood_bucket");
+        poison_bucket = ModItems.registerItem((new ItemBucket(poison)).setContainerItem(Items.BUCKET), "poison_bucket");
+        hot_spring_water_bucket = ModItems.registerItem((new ItemBucket(hot_spring_water)).setContainerItem(Items.BUCKET), "hot_spring_water_bucket");
     
         FluidContainerRegistry.registerFluidContainer(honey_fluid, new ItemStack(honey_bucket));
         FluidContainerRegistry.registerFluidContainer(blood_fluid, new ItemStack(blood_bucket));

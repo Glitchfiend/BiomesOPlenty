@@ -8,8 +8,6 @@
 
 package biomesoplenty.common.world.feature;
 
-import java.util.Random;
-
 import biomesoplenty.api.biome.generation.BOPGeneratorBase;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.util.block.BlockQuery;
@@ -26,6 +24,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+
+import java.util.Random;
 
 public class GeneratorLakes extends BOPGeneratorBase
 {
@@ -53,8 +53,8 @@ public class GeneratorLakes extends BOPGeneratorBase
         
         public Builder waterLakeForBiome(BiomeGenBase a)
         {
-            this.liquid = Blocks.water.getDefaultState();
-            this.frozenLiquid = Blocks.ice.getDefaultState();
+            this.liquid = Blocks.WATER.getDefaultState();
+            this.frozenLiquid = Blocks.ICE.getDefaultState();
             this.grassBorderWith = a.topBlock;
             this.grassReplace = new BlockQueryBlock(a.fillerBlock.getBlock());
             this.lineWith = null;
@@ -62,11 +62,11 @@ public class GeneratorLakes extends BOPGeneratorBase
         }
         public Builder lavaLake()
         {
-            this.liquid = Blocks.lava.getDefaultState();
+            this.liquid = Blocks.LAVA.getDefaultState();
             this.frozenLiquid = null;
             this.grassBorderWith = null;
             this.grassReplace = null;
-            this.lineWith = Blocks.stone.getDefaultState();
+            this.lineWith = Blocks.STONE.getDefaultState();
             return this;
         }
         
@@ -74,10 +74,10 @@ public class GeneratorLakes extends BOPGeneratorBase
         {
             // defaults
             this.amountPerChunk = 1.0F;
-            this.liquid = Blocks.water.getDefaultState();
-            this.frozenLiquid = Blocks.ice.getDefaultState();
-            this.grassBorderWith = Blocks.grass.getDefaultState();
-            this.grassReplace = new BlockQueryBlock(Blocks.dirt);
+            this.liquid = Blocks.WATER.getDefaultState();
+            this.frozenLiquid = Blocks.ICE.getDefaultState();
+            this.grassBorderWith = Blocks.GRASS.getDefaultState();
+            this.grassReplace = new BlockQueryBlock(Blocks.DIRT);
             this.lineWith = null;
         }
         
@@ -233,7 +233,7 @@ public class GeneratorLakes extends BOPGeneratorBase
                 {
                     if (cavityShape[(x * 16 + z) * 8 + y])
                     {
-                        world.setBlockState(pos.add(x, y, z), y >= 4 ? Blocks.air.getDefaultState() : this.liquid, 2);
+                        world.setBlockState(pos.add(x, y, z), y >= 4 ? Blocks.AIR.getDefaultState() : this.liquid, 2);
                     }
                 }
             }

@@ -44,8 +44,8 @@ public class BiomeGenLushDesert extends BOPBiome
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(4, 15);
 
-        this.topBlock = Blocks.hardened_clay.getDefaultState();
-        this.fillerBlock = Blocks.hardened_clay.getDefaultState();
+        this.topBlock = Blocks.HARDENED_CLAY.getDefaultState();
+        this.fillerBlock = Blocks.HARDENED_CLAY.getDefaultState();
         
         this.canSpawnInBiome = false;
         this.canGenerateVillages = true;
@@ -57,14 +57,14 @@ public class BiomeGenLushDesert extends BOPBiome
         GeneratorWeighted treeGenerator = new GeneratorWeighted(3);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("decaying_tree", 4, (new GeneratorBigTree.Builder()).amountPerChunk(1.0F).placeOn(emptyHardenedClay).minHeight(5).log(BlockPlanks.EnumType.ACACIA).leaves(BlockPlanks.EnumType.ACACIA).maxHeight(12).foliageHeight(2).create());
-        treeGenerator.add("dead_tree", 2, (new GeneratorBigTree.Builder()).amountPerChunk(0.5F).placeOn(emptyHardenedClay).minHeight(5).maxHeight(12).foliageHeight(0).foliageDensity(0.5D).log(BOPWoods.DEAD).leaves(Blocks.air.getDefaultState()).create());
+        treeGenerator.add("dead_tree", 2, (new GeneratorBigTree.Builder()).amountPerChunk(0.5F).placeOn(emptyHardenedClay).minHeight(5).maxHeight(12).foliageHeight(0).foliageDensity(0.5D).log(BOPWoods.DEAD).leaves(Blocks.AIR.getDefaultState()).create());
         treeGenerator.add("oak_bush", 5, (new GeneratorBush.Builder()).maxHeight(2).placeOn(emptyHardenedClay).create());
         
         // sand
-        this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.sand.getDefaultState()).create());
+        this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.SAND.getDefaultState()).create());
         
         // oases
-        this.addGenerator("oases", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(10).maxRadius(7).replace(Blocks.hardened_clay.getDefaultState()).with(Blocks.grass.getDefaultState()).create());
+        this.addGenerator("oases", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(10).maxRadius(7).replace(Blocks.HARDENED_CLAY.getDefaultState()).with(Blocks.GRASS.getDefaultState()).create());
         
         // lakes
         this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(1.5F).waterLakeForBiome(this).create());
@@ -75,8 +75,8 @@ public class BiomeGenLushDesert extends BOPBiome
         this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.75F).with(BOPPlants.LEAFPILE).generationAttempts(32).create());
         this.addGenerator("bushes", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.8F).with(BOPPlants.BUSH).create());
         this.addGenerator("tiny_cacti", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(0.9F).with(BOPPlants.TINYCACTUS).create());
-        this.addGenerator("dead_bushes", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(1.0F).with(Blocks.deadbush.getDefaultState()).create());
-        this.addGenerator("cacti", GeneratorStage.FLOWERS,(new GeneratorColumns.Builder()).amountPerChunk(1.5F).generationAttempts(3).placeOn(this.topBlock).with(Blocks.cactus.getDefaultState()).minHeight(1).maxHeight(2).create());
+        this.addGenerator("dead_bushes", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(1.0F).with(Blocks.DEADBUSH.getDefaultState()).create());
+        this.addGenerator("cacti", GeneratorStage.FLOWERS,(new GeneratorColumns.Builder()).amountPerChunk(1.5F).generationAttempts(3).placeOn(this.topBlock).with(Blocks.CACTUS.getDefaultState()).minHeight(1).maxHeight(2).create());
         
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(4.0F);
@@ -87,7 +87,7 @@ public class BiomeGenLushDesert extends BOPBiome
         flowerGenerator.add("poppy", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.POPPY).create()));
         
         // water plants
-        this.addGenerator("algae", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).replace(Blocks.water).with(BOPBlocks.coral.getDefaultState().withProperty(BlockBOPCoral.VARIANT, BlockBOPCoral.CoralType.ALGAE)).scatterYMethod(ScatterYMethod.AT_GROUND).create());
+        this.addGenerator("algae", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).replace(Blocks.WATER).with(BOPBlocks.coral.getDefaultState().withProperty(BlockBOPCoral.VARIANT, BlockBOPCoral.CoralType.ALGAE)).scatterYMethod(ScatterYMethod.AT_GROUND).create());
         this.addGenerator("water_reeds", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BOPPlants.REED).generationAttempts(32).create());
         
         // grasses (note weighting must be quite high as the grasses will only grow on the splattered grass blocks)
@@ -123,7 +123,7 @@ public class BiomeGenLushDesert extends BOPBiome
         GeneratorWeighted treeGenerator = new GeneratorWeighted(3);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("decaying_tree", 4, (new GeneratorBigTree.Builder()).amountPerChunk(1.0F).placeOn(emptyHardenedClay).minHeight(5).log(BlockPlanks.EnumType.ACACIA).leaves(BlockPlanks.EnumType.ACACIA).maxHeight(12).foliageHeight(2).create());
-        treeGenerator.add("dead_tree", 2, (new GeneratorBigTree.Builder()).amountPerChunk(0.5F).placeOn(emptyHardenedClay).minHeight(5).maxHeight(12).foliageHeight(0).foliageDensity(0.5D).log(BlockPlanks.EnumType.DARK_OAK).leaves(Blocks.air.getDefaultState()).create());
+        treeGenerator.add("dead_tree", 2, (new GeneratorBigTree.Builder()).amountPerChunk(0.5F).placeOn(emptyHardenedClay).minHeight(5).maxHeight(12).foliageHeight(0).foliageDensity(0.5D).log(BlockPlanks.EnumType.DARK_OAK).leaves(Blocks.AIR.getDefaultState()).create());
         treeGenerator.add("oak_bush", 5, (new GeneratorBush.Builder()).maxHeight(2).placeOn(emptyHardenedClay).create());
         }
         

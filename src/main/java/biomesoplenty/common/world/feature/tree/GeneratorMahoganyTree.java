@@ -30,7 +30,7 @@ public class GeneratorMahoganyTree extends GeneratorBasicTree
             // defaults
             this.amountPerChunk = 1.0F;
             this.placeOn = BlockQueries.anything;
-            this.replace = new BlockQueryMaterial(Material.air, Material.leaves);
+            this.replace = new BlockQueryMaterial(Material.AIR, Material.LEAVES);
             this.log = BlockBOPLog.paging.getVariantState(BOPWoods.MAHOGANY);
             this.leaves = BlockBOPLeaves.paging.getVariantState(BOPTrees.MAHOGANY);
             this.vine = null;

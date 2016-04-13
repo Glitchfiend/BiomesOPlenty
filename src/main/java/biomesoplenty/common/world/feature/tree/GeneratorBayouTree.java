@@ -51,9 +51,9 @@ public class GeneratorBayouTree extends GeneratorTreeBase
             this.placeOn = BlockQueries.fertile;
             this.replace = BlockQueries.airOrLeaves;
             this.rootsReplace = BlockQueries.rootsCanDigThrough;
-            this.log = Blocks.log.getDefaultState();
-            this.leaves = Blocks.leaves.getDefaultState();
-            this.vine = Blocks.vine.getDefaultState();
+            this.log = Blocks.LOG.getDefaultState();
+            this.leaves = Blocks.LEAVES.getDefaultState();
+            this.vine = Blocks.VINE.getDefaultState();
             this.hanging = null;
             this.trunkFruit = null;
             this.altLeaves = null;

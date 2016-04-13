@@ -70,7 +70,7 @@ public class BlockBOPStone extends Block implements IBOPBlock
     
     public BlockBOPStone()
     {
-        super(Material.rock);
+        super(Material.ROCK);
 
         // set some defaults
         this.setSoundType(SoundType.STONE);

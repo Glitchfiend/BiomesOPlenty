@@ -135,7 +135,7 @@ public class BlockBOPFarmland extends BlockFarmland implements IBOPBlock
     {
         for (BlockPos.MutableBlockPos mutableblockpos : BlockPos.getAllInBoxMutable(pos.add(-4, 0, -4), pos.add(4, 1, 4)))
         {
-            if (world.getBlockState(mutableblockpos).getMaterial() == Material.water)
+            if (world.getBlockState(mutableblockpos).getMaterial() == Material.WATER)
             {
                 return true;
             }
@@ -221,7 +221,7 @@ public class BlockBOPFarmland extends BlockFarmland implements IBOPBlock
             case SILTY:
                 return BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY);
             default:
-            return Blocks.dirt.getStateFromMeta(BlockDirt.DirtType.DIRT.getMetadata());
+            return Blocks.DIRT.getStateFromMeta(BlockDirt.DirtType.DIRT.getMetadata());
         }
     }
 }

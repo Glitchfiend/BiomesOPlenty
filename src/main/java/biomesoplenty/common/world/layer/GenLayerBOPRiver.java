@@ -39,7 +39,7 @@ public class GenLayerBOPRiver extends BOPGenLayer
                 }
                 else
                 {
-                    out[x + y * areaWidth] = BiomeGenBase.getIdForBiome(Biomes.river);
+                    out[x + y * areaWidth] = BiomeGenBase.getIdForBiome(Biomes.RIVER);
                 }
             }
         }

@@ -16,7 +16,7 @@ public class BiomeExtRoofedForest extends ExtendedBiomeWrapper
 {
     public BiomeExtRoofedForest()
     {
-        super(Biomes.roofedForest);
+        super(Biomes.ROOFED_FOREST);
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(2.0F);

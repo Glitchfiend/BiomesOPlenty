@@ -47,7 +47,7 @@ public class BiomeGenPrairie extends BOPBiome
         this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
         
         // sand
-        this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.sand.getDefaultState()).create());
+        this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.SAND.getDefaultState()).create());
         
         // trees
         this.addGenerator("trees", GeneratorStage.TREE, (new GeneratorTaigaTree.Builder()).amountPerChunk(1).minHeight(6).maxHeight(8).log(EnumType.OAK).leaves(EnumType.OAK).create()); // TODO: implement pine cones
@@ -92,7 +92,7 @@ public class BiomeGenPrairie extends BOPBiome
         if (!settings.generateFlax) {this.removeGenerator("flax");}
         if (!settings.generateBerryBushes) {this.removeGenerator("berry_bushes");}
         
-        if (!settings.generateBopSoils) {this.topBlock = Blocks.grass.getDefaultState(); this.fillerBlock = Blocks.dirt.getDefaultState();}
+        if (!settings.generateBopSoils) {this.topBlock = Blocks.GRASS.getDefaultState(); this.fillerBlock = Blocks.DIRT.getDefaultState();}
         
         if (!settings.generateBopFoliage) {this.removeGenerator("bushes"); this.removeGenerator("koru"); this.removeGenerator("shrubs"); this.removeGenerator("leaf_piles"); this.removeGenerator("dead_leaf_piles"); this.removeGenerator("clover_patches"); this.removeGenerator("sprouts");}
         

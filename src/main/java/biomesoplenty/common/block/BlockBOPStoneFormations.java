@@ -85,7 +85,7 @@ public class BlockBOPStoneFormations extends BlockBOPDecoration implements IBOPB
     
     public BlockBOPStoneFormations()
     {
-    	super(Material.rock);
+    	super(Material.ROCK);
         // set some defaults
     	this.setHardness(1.0F);
     	this.setSoundType(SoundType.STONE);
@@ -98,8 +98,8 @@ public class BlockBOPStoneFormations extends BlockBOPDecoration implements IBOPB
         boolean formationAbove = (worldIn.getBlockState(pos.up()).getBlock() == this);
         boolean formationBelow = (worldIn.getBlockState(pos.down()).getBlock() == this);
         
-        boolean groundAbove = (worldIn.getBlockState(pos.up()).getBlock() == Blocks.stone);
-        boolean groundBelow = (worldIn.getBlockState(pos.down()).getBlock() == Blocks.stone);
+        boolean groundAbove = (worldIn.getBlockState(pos.up()).getBlock() == Blocks.STONE);
+        boolean groundBelow = (worldIn.getBlockState(pos.down()).getBlock() == Blocks.STONE);
         
         FormationPosition position;
         position = FormationPosition.STALAGMITE_SMALL;
@@ -173,7 +173,7 @@ public class BlockBOPStoneFormations extends BlockBOPDecoration implements IBOPB
     @Override
     public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
     {        
-    	return world.getBlockState(pos.down()).getBlock() == Blocks.stone || world.getBlockState(pos.down()) == state || world.getBlockState(pos.up()).getBlock() == Blocks.stone || world.getBlockState(pos.up()) == state;
+    	return world.getBlockState(pos.down()).getBlock() == Blocks.STONE || world.getBlockState(pos.down()) == state || world.getBlockState(pos.up()).getBlock() == Blocks.STONE || world.getBlockState(pos.up()) == state;
     }
     
     @Override

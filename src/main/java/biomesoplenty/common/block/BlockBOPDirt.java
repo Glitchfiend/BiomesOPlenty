@@ -75,7 +75,7 @@ public class BlockBOPDirt extends Block implements IBOPBlock, ISustainsPlantType
     
     public BlockBOPDirt() {
 
-        super(Material.ground);
+        super(Material.GROUND);
 
         // set some defaults
         this.setTickRandomly(true);
@@ -118,10 +118,10 @@ public class BlockBOPDirt extends Block implements IBOPBlock, ISustainsPlantType
             // support beach plants if there's water alongside
             case Beach:
                 return (
-                    world.getBlockState(pos.east()).getMaterial() == Material.water ||
-                    world.getBlockState(pos.west()).getMaterial() == Material.water ||
-                    world.getBlockState(pos.north()).getMaterial() == Material.water ||
-                    world.getBlockState(pos.south()).getMaterial() == Material.water
+                    world.getBlockState(pos.east()).getMaterial() == Material.WATER ||
+                    world.getBlockState(pos.west()).getMaterial() == Material.WATER ||
+                    world.getBlockState(pos.north()).getMaterial() == Material.WATER ||
+                    world.getBlockState(pos.south()).getMaterial() == Material.WATER
                 );
              // don't support nether plants, water plants, or crops (require farmland), or anything else by default
             default:
@@ -163,7 +163,7 @@ public class BlockBOPDirt extends Block implements IBOPBlock, ISustainsPlantType
                 {
                     // count only vanilla grass blocks with enough light (BOP Grass 'pushes' itself onto dirt, no need to 'pull' it)
                     pos1 = pos.add(dx, dy, dz);
-                    if (world.getBlockState(pos1).getBlock() == Blocks.grass && world.getLightFromNeighbors(pos1.up()) >= 9)
+                    if (world.getBlockState(pos1).getBlock() == Blocks.GRASS && world.getLightFromNeighbors(pos1.up()) >= 9)
                     {
                         numNearbyGrassSpreadingBlocks++;
                     }
@@ -201,7 +201,7 @@ public class BlockBOPDirt extends Block implements IBOPBlock, ISustainsPlantType
                 return BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SILTY);
             default:
                 // return vanilla grass as a backup
-                return Blocks.grass.getDefaultState();
+                return Blocks.GRASS.getDefaultState();
         }
     }
 

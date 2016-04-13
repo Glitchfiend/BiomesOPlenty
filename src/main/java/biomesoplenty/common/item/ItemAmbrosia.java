@@ -12,11 +12,9 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
-import net.minecraft.init.PotionTypes;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
@@ -51,11 +49,11 @@ public class ItemAmbrosia extends ItemFood
     protected void onFoodEaten(ItemStack stack, World worldIn, EntityPlayer player)
     {
         if (worldIn.isRemote) {return;}
-        player.addPotionEffect(new PotionEffect(MobEffects.absorption, 5000, 4));
-        player.addPotionEffect(new PotionEffect(MobEffects.saturation, 100, 1));
-        player.addPotionEffect(new PotionEffect(MobEffects.regeneration, 500, 2));
-        player.addPotionEffect(new PotionEffect(MobEffects.digSpeed, 500, 2));
-        player.addPotionEffect(new PotionEffect(MobEffects.resistance, 600, 1));
+        player.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 5000, 4));
+        player.addPotionEffect(new PotionEffect(MobEffects.SATURATION, 100, 1));
+        player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 500, 2));
+        player.addPotionEffect(new PotionEffect(MobEffects.HASTE, 500, 2));
+        player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 600, 1));
     }
     
     // keep the empty bottle after finishing
@@ -63,7 +61,7 @@ public class ItemAmbrosia extends ItemFood
     public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase playerIn)
     {
         super.onItemUseFinish(stack, worldIn, playerIn);
-        return new ItemStack(Items.glass_bottle);
+        return new ItemStack(Items.GLASS_BOTTLE);
     }
     
 }

@@ -8,8 +8,6 @@
 
 package biomesoplenty.common.block;
 
-import java.util.Random;
-
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.item.ItemBOPBlock;
@@ -32,6 +30,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.util.Random;
+
 public class BlockBOPFlesh extends Block implements IBOPBlock
 {
     
@@ -50,7 +50,7 @@ public class BlockBOPFlesh extends Block implements IBOPBlock
     public IItemColor getItemColor() { return null; }
     
     public BlockBOPFlesh() {
-        super(Material.sponge);
+        super(Material.SPONGE);
         this.setHardness(0.4F);
         this.setSoundType(SoundType.GROUND);
     }

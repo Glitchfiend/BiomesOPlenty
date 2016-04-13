@@ -8,14 +8,11 @@
 
 package biomesoplenty.common.fluids.blocks;
 
-import java.util.Random;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.MobEffects;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -27,19 +24,22 @@ import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.util.Random;
+
 public class BlockHotSpringWaterFluid extends BlockFluidClassic
 {
     public BlockHotSpringWaterFluid(Fluid fluid)
     {
-        super(fluid, Material.water);
+        super(fluid, Material.WATER);
     }
-    
-    @Override
+
+    //TODO: this no longer exists. Fix? - Topisani
+    //@Override
     public void onEntityCollidedWithBlock(World world, BlockPos pos, Entity entity)
     {
         if (entity instanceof EntityLivingBase)
         {
-            ((EntityLivingBase)entity).addPotionEffect(new PotionEffect(MobEffects.regeneration, 100));
+            ((EntityLivingBase)entity).addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 100));
         }
     }
     

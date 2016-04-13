@@ -42,11 +42,11 @@ public class GeneratorOreCluster extends GeneratorOreBase
         public Builder()
         {
             this.amountPerChunk = 1.0F;
-            this.with = Blocks.emerald_ore.getDefaultState();
+            this.with = Blocks.EMERALD_ORE.getDefaultState();
             this.minHeight = 4;
             this.maxHeight = 32;
             this.clusterSize = 4;
-            this.replace = new BlockQueryBlock(Blocks.stone);
+            this.replace = new BlockQueryBlock(Blocks.STONE);
         }
 
         @Override

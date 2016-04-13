@@ -8,18 +8,11 @@
 
 package biomesoplenty.common.command;
 
-import java.util.List;
-
-import com.google.common.collect.Lists;
-
 import biomesoplenty.common.util.biome.BiomeUtils;
+import com.google.common.collect.Lists;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.command.CommandBase;
-import net.minecraft.command.CommandException;
-import net.minecraft.command.ICommandSender;
-import net.minecraft.command.NumberInvalidException;
-import net.minecraft.command.WrongUsageException;
+import net.minecraft.command.*;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.server.MinecraftServer;
@@ -31,6 +24,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.storage.ExtendedBlockStorage;
+
+import java.util.List;
 
 public class BOPCommand extends CommandBase
 {
@@ -143,19 +138,19 @@ public class BOPCommand extends CommandBase
     {
         TextComponentTranslation text = new TextComponentTranslation("commands.biomesoplenty.stats.blocks", blockCount);
         
-        text.getChatStyle().setColor(TextFormatting.GREEN);
+        text.getStyle().setColor(TextFormatting.GREEN);
         sender.addChatMessage(text);
   
         text = new TextComponentTranslation("commands.biomesoplenty.stats.items", itemCount);
-        text.getChatStyle().setColor(TextFormatting.GREEN);
+        text.getStyle().setColor(TextFormatting.GREEN);
         sender.addChatMessage(text);
         
         text = new TextComponentTranslation("commands.biomesoplenty.stats.entities", entityCount);
-        text.getChatStyle().setColor(TextFormatting.GREEN);
+        text.getStyle().setColor(TextFormatting.GREEN);
         sender.addChatMessage(text);
         
         text = new TextComponentTranslation("commands.biomesoplenty.stats.biomes", biomeCount);
-        text.getChatStyle().setColor(TextFormatting.GREEN);
+        text.getStyle().setColor(TextFormatting.GREEN);
         sender.addChatMessage(text);
     }
     
@@ -214,9 +209,9 @@ public class BOPCommand extends CommandBase
                                     
                                     if (((!blacklist && stateList.contains(state)) || (blacklist && !stateList.contains(state))) && pos.getY() > 0)
                                     {
-                                        blockStorage.set(x, y, z, Blocks.air.getDefaultState());
-                                        world.notifyBlockUpdate(pos, state, Blocks.air.getDefaultState(), 3);
-                                        world.notifyNeighborsRespectDebug(pos, Blocks.air);
+                                        blockStorage.set(x, y, z, Blocks.AIR.getDefaultState());
+                                        world.notifyBlockUpdate(pos, state, Blocks.AIR.getDefaultState(), 3);
+                                        world.notifyNeighborsRespectDebug(pos, Blocks.AIR);
                                     }
                                 }
                             }

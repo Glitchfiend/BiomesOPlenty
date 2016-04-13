@@ -8,11 +8,6 @@
 
 package biomesoplenty.common.entities;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
-
 import biomesoplenty.api.sound.BOPSounds;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityFlying;
@@ -21,7 +16,6 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAIFindEntityNearestPlayer;
 import net.minecraft.entity.ai.EntityMoveHelper;
-import net.minecraft.entity.ai.EntityMoveHelper.Action;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumFacing;
@@ -29,6 +23,11 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
 public class EntityWasp extends EntityFlying implements IMob {
     
@@ -129,7 +128,8 @@ public class EntityWasp extends EntityFlying implements IMob {
         
         public boolean isBoxBlocked(AxisAlignedBB box)
         {
-            return !this.wasp.worldObj.getCubes(this.wasp, box).isEmpty();
+            //Im assuming this does what getCubes did. If not, im terribly sorry - Topisani
+            return !this.wasp.worldObj.getCollisionBoxes(this.wasp, box).isEmpty();
         }
         
         // check nothing will collide with the wasp in the direction of aim, for howFar units (or until the destination - whichever is closer)

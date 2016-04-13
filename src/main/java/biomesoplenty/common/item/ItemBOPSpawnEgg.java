@@ -8,10 +8,6 @@
 
 package biomesoplenty.common.item;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map.Entry;
-
 import biomesoplenty.api.item.IColoredItem;
 import biomesoplenty.common.init.ModEntities;
 import net.minecraft.block.BlockFence;
@@ -19,16 +15,11 @@ import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityList;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.stats.StatList;
 import net.minecraft.tileentity.MobSpawnerBaseLogic;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityMobSpawner;
@@ -42,6 +33,9 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.List;
+import java.util.Map.Entry;
 
 public class ItemBOPSpawnEgg extends Item implements IColoredItem
 {
@@ -119,14 +113,14 @@ public class ItemBOPSpawnEgg extends Item implements IColoredItem
         {
             IBlockState iblockstate = worldIn.getBlockState(pos);
 
-            if (iblockstate.getBlock() == Blocks.mob_spawner)
+            if (iblockstate.getBlock() == Blocks.MOB_SPAWNER)
             {
                 TileEntity tileentity = worldIn.getTileEntity(pos);
 
                 if (tileentity instanceof TileEntityMobSpawner)
                 {
                     MobSpawnerBaseLogic mobspawnerbaselogic = ((TileEntityMobSpawner)tileentity).getSpawnerBaseLogic();
-                    mobspawnerbaselogic.setEntityName(EntityList.classToStringMapping.get(EntityList.getClassFromID(stack.getMetadata())));
+                    mobspawnerbaselogic.setEntityName(EntityList.CLASS_TO_NAME.get(EntityList.getClassFromID(stack.getMetadata())));
                     tileentity.markDirty();
                     worldIn.notifyBlockUpdate(pos, iblockstate, iblockstate, 3);
 
@@ -175,7 +169,7 @@ public class ItemBOPSpawnEgg extends Item implements IColoredItem
         }
         else
         {
-            RayTraceResult movingobjectposition = this.getMovingObjectPositionFromPlayer(world, player, true);
+            RayTraceResult movingobjectposition = this.rayTrace(world, player, true);
 
             if (movingobjectposition == null)
             {

@@ -8,8 +8,6 @@
 
 package biomesoplenty.common.biome.overworld;
 
-import java.util.Random;
-
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.block.BOPBlocks;
@@ -29,6 +27,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
 
+import java.util.Random;
+
 public class BiomeGenColdDesert extends BOPBiome
 {    
     
@@ -45,10 +45,10 @@ public class BiomeGenColdDesert extends BOPBiome
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(5, 10).sidewaysNoise(0.7D);
         
-        this.topBlock = Blocks.gravel.getDefaultState();
-        this.fillerBlock = Blocks.stone.getDefaultState();
+        this.topBlock = Blocks.GRAVEL.getDefaultState();
+        this.fillerBlock = Blocks.STONE.getDefaultState();
         this.usualTopBlock = this.topBlock;
-        this.alternateTopBlock = Blocks.snow.getDefaultState();
+        this.alternateTopBlock = Blocks.SNOW.getDefaultState();
         
         this.canGenerateRivers = false;
         
@@ -57,9 +57,9 @@ public class BiomeGenColdDesert extends BOPBiome
         this.spawnableCreatureList.clear();
         
         // gravel, stone and boulders
-        IBlockPosQuery surface = new BlockQueryBlock(Blocks.stone, Blocks.gravel);
-        this.addGenerator("stone_patches", GeneratorStage.SAND, (new GeneratorSplotches.Builder()).amountPerChunk(6).splotchSize(24).placeOn(surface).replace(surface).with(Blocks.stone.getDefaultState()).scatterYMethod(ScatterYMethod.AT_SURFACE).create());           
-        this.addGenerator("boulders", GeneratorStage.SAND_PASS2, (new GeneratorBlobs.Builder()).amountPerChunk(0.2F).placeOn(surface).with(Blocks.cobblestone.getDefaultState()).minRadius(0.3F).maxRadius(3.2F).numBalls(4).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
+        IBlockPosQuery surface = new BlockQueryBlock(Blocks.STONE, Blocks.GRAVEL);
+        this.addGenerator("stone_patches", GeneratorStage.SAND, (new GeneratorSplotches.Builder()).amountPerChunk(6).splotchSize(24).placeOn(surface).replace(surface).with(Blocks.STONE.getDefaultState()).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
+        this.addGenerator("boulders", GeneratorStage.SAND_PASS2, (new GeneratorBlobs.Builder()).amountPerChunk(0.2F).placeOn(surface).with(Blocks.COBBLESTONE.getDefaultState()).minRadius(0.3F).maxRadius(3.2F).numBalls(4).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
         this.addGenerator("hard_ice_splatter", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(1.0F).replace(surface).with(BOPBlocks.hard_ice.getDefaultState()).create());
         
         // gem

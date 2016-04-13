@@ -8,8 +8,6 @@
 
 package biomesoplenty.common.biome.overworld;
 
-import java.util.Random;
-
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
@@ -36,6 +34,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
 
+import java.util.Random;
+
 public class BiomeGenXericShrubland extends BOPBiome
 {
 	public IBlockState usualTopBlock;
@@ -48,8 +48,8 @@ public class BiomeGenXericShrubland extends BOPBiome
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(1, 5);
 
-        this.topBlock = Blocks.sand.getDefaultState();
-        this.fillerBlock = Blocks.sand.getDefaultState();
+        this.topBlock = Blocks.SAND.getDefaultState();
+        this.fillerBlock = Blocks.SAND.getDefaultState();
         this.usualTopBlock = this.topBlock;
         this.alternateTopBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SANDY);
         
@@ -64,7 +64,7 @@ public class BiomeGenXericShrubland extends BOPBiome
         GeneratorWeighted treeGenerator = new GeneratorWeighted(5.0F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);        
         treeGenerator.add("brush_twiglet", 1, (new GeneratorTwigletTree.Builder()).placeOn(this.topBlock).minHeight(1).maxHeight(2).log(BlockPlanks.EnumType.ACACIA).leaves(BlockPlanks.EnumType.ACACIA).create());        
-        treeGenerator.add("brush_bush", 3, (new GeneratorFlora.Builder()).placeOn(this.topBlock).replace(Material.air).withNonDecayingLeaf(BlockPlanks.EnumType.ACACIA).create());
+        treeGenerator.add("brush_bush", 3, (new GeneratorFlora.Builder()).placeOn(this.topBlock).replace(Material.AIR).withNonDecayingLeaf(BlockPlanks.EnumType.ACACIA).create());
         treeGenerator.add("oak_bush", 2, (new GeneratorBush.Builder()).maxHeight(2).create());
         
         // other plants
@@ -74,8 +74,8 @@ public class BiomeGenXericShrubland extends BOPBiome
         this.addGenerator("bromeliad", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder().amountPerChunk(0.5F).with(BOPFlowers.BROMELIAD).generationAttempts(8).create()));
         this.addGenerator("bushes", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.8F).with(BOPPlants.BUSH).create());
         this.addGenerator("tiny_cacti", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(0.9F).with(BOPPlants.TINYCACTUS).create());
-        this.addGenerator("dead_bushes", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(1.0F).with(Blocks.deadbush.getDefaultState()).create());
-        this.addGenerator("cacti", GeneratorStage.FLOWERS,(new GeneratorColumns.Builder()).amountPerChunk(1.5F).generationAttempts(3).placeOn(this.topBlock).with(Blocks.cactus.getDefaultState()).minHeight(1).maxHeight(2).create());
+        this.addGenerator("dead_bushes", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(1.0F).with(Blocks.DEADBUSH.getDefaultState()).create());
+        this.addGenerator("cacti", GeneratorStage.FLOWERS,(new GeneratorColumns.Builder()).amountPerChunk(1.5F).generationAttempts(3).placeOn(this.topBlock).with(Blocks.CACTUS.getDefaultState()).minHeight(1).maxHeight(2).create());
         
         // grasses (note weighting must be quite high as the grasses will only grow on the splattered grass blocks)
         GeneratorWeighted grassGenerator = new GeneratorWeighted(12.0F);
@@ -104,7 +104,7 @@ public class BiomeGenXericShrubland extends BOPBiome
 
         if (!settings.generateBopFoliage) {this.removeGenerator("bushes"); this.removeGenerator("koru"); this.removeGenerator("shrubs"); this.removeGenerator("leaf_piles"); this.removeGenerator("dead_leaf_piles"); this.removeGenerator("clover_patches"); this.removeGenerator("sprouts");}
         
-        if (!settings.generateBopSoils) {this.alternateTopBlock = Blocks.grass.getDefaultState();}
+        if (!settings.generateBopSoils) {this.alternateTopBlock = Blocks.GRASS.getDefaultState();}
         
         if (!settings.generateBopPlants) {this.removeGenerator("cattail"); this.removeGenerator("double_cattail"); this.removeGenerator("river_cane"); this.removeGenerator("tiny_cacti"); this.removeGenerator("roots"); this.removeGenerator("rafflesia"); this.removeGenerator("desert_sprouts");}
         

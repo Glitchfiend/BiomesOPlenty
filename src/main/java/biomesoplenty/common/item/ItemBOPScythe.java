@@ -43,7 +43,7 @@ public class ItemBOPScythe extends Item
     @Override
     public float getStrVsBlock(ItemStack stack, IBlockState state)
     {
-        return state.getMaterial() == Material.leaves ? 15.0F : super.getStrVsBlock(stack, state);
+        return state.getMaterial() == Material.LEAVES ? 15.0F : super.getStrVsBlock(stack, state);
     }
     
     @Override
@@ -72,7 +72,7 @@ public class ItemBOPScythe extends Item
     public boolean onBlockDestroyed(ItemStack stack, World worldIn, IBlockState state, BlockPos pos, EntityLivingBase entityLiving)
     {
 
-        if (state.getBlock() == null || worldIn.getBlockState(pos).getBlock() == Blocks.air) {return false;}
+        if (state.getBlock() == null || worldIn.getBlockState(pos).getBlock() == Blocks.AIR) {return false;}
                         
         boolean isLeaves = state.getBlock().isLeaves(worldIn.getBlockState(pos), worldIn, pos);
         
@@ -183,7 +183,7 @@ public class ItemBOPScythe extends Item
                                 return true;
                         }
                     }
-                    else if (block == Blocks.tallgrass)
+                    else if (block == Blocks.TALLGRASS)
                     {
                         block.dropBlockAsItem(world, pos, state, fortune);
                         world.setBlockState(pos, BlockBOPPlant.paging.getVariantState(BOPPlants.MEDIUMGRASS));

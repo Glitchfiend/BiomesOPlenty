@@ -32,9 +32,9 @@ public class GeneratorMixedLily extends BOPGeneratorBase
         BOPBlocks.waterlily.getDefaultState().withProperty(BlockBOPLilypad.VARIANT, BlockBOPLilypad.LilypadType.TINY),
         BOPBlocks.waterlily.getDefaultState().withProperty(BlockBOPLilypad.VARIANT, BlockBOPLilypad.LilypadType.SMALL),
         BOPBlocks.waterlily.getDefaultState().withProperty(BlockBOPLilypad.VARIANT, BlockBOPLilypad.LilypadType.MEDIUM),
-        Blocks.waterlily.getDefaultState()
+        Blocks.WATERLILY.getDefaultState()
     };
-    protected static IBlockPosQuery replace = new BlockQueryMaterial(Material.air);
+    protected static IBlockPosQuery replace = new BlockQueryMaterial(Material.AIR);
     
     protected int generationAttempts;
 

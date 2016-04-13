@@ -11,7 +11,7 @@ public class BiomeExtOcean extends ExtendedBiomeWrapper
 {
     public BiomeExtOcean()
     {
-        super(Biomes.ocean);
+        super(Biomes.OCEAN);
         
         // gem
         this.addGenerator("sapphire", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.SAPPHIRE).create());    

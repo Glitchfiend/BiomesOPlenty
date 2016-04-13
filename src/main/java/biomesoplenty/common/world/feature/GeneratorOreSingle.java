@@ -39,8 +39,8 @@ public class GeneratorOreSingle extends GeneratorOreBase
             this.amountPerChunk = 1.0F;
             this.minHeight = 4;
             this.maxHeight = 32;
-            this.with = Blocks.emerald_ore.getDefaultState();
-            this.replace = new BlockQueryBlock(Blocks.stone);
+            this.with = Blocks.EMERALD_ORE.getDefaultState();
+            this.replace = new BlockQueryBlock(Blocks.STONE);
         }
 
         @Override

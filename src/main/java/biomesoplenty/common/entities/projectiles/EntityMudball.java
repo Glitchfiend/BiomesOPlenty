@@ -5,7 +5,6 @@ import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.MobEffects;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.RayTraceResult;
@@ -38,7 +37,7 @@ public class EntityMudball extends EntityThrowable
             hit.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 0.0F);
             if (hit.entityHit instanceof EntityLivingBase)
             {
-                ((EntityLivingBase)hit.entityHit).addPotionEffect(new PotionEffect(MobEffects.moveSlowdown, 400, 2));
+                ((EntityLivingBase)hit.entityHit).addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 400, 2));
             }
         }
 

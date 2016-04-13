@@ -8,14 +8,9 @@
 
 package biomesoplenty.common.block;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.config.GameplayConfigurationHandler;
 import biomesoplenty.common.enums.BOPFlowers;
-import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.item.ItemBOPFlower;
 import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.Block;
@@ -30,7 +25,6 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemShears;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
@@ -43,6 +37,10 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class BlockBOPFlower extends BlockBOPDecoration implements IShearable
 {
@@ -171,7 +169,7 @@ public class BlockBOPFlower extends BlockBOPDecoration implements IShearable
             {
                 // suffer wither effect if you harvest deathbloom without shears
                 case DEATHBLOOM:
-                    player.addPotionEffect(new PotionEffect(MobEffects.wither, 300));
+                    player.addPotionEffect(new PotionEffect(MobEffects.WITHER, 300));
                     break;
 
                 // catch on fire if you harvest burning_blossom without shears
@@ -193,7 +191,7 @@ public class BlockBOPFlower extends BlockBOPDecoration implements IShearable
             // suffer wither effect if you walk on deathbloom
             case DEATHBLOOM:
                 if (entity instanceof EntityLivingBase) {
-                    ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.wither, 200));
+                    ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.WITHER, 200));
                 }
                 break;
                 
@@ -245,10 +243,10 @@ public class BlockBOPFlower extends BlockBOPDecoration implements IShearable
         IBlockState groundState = world.getBlockState(pos.down());
         Block groundBlock = groundState.getBlock();
         
-        boolean onFertile = (groundBlock == Blocks.dirt || groundBlock == Blocks.farmland || groundBlock == BOPBlocks.farmland_0 || groundBlock == BOPBlocks.farmland_1 || groundBlock == BOPBlocks.dirt || groundBlock == Blocks.grass);
-        boolean onDry = (groundBlock == Blocks.hardened_clay || groundBlock == BOPBlocks.sand || groundBlock == Blocks.sand);
-        boolean onNetherrack = (groundBlock == Blocks.netherrack);
-        boolean onStone = (groundBlock == Blocks.stone);
+        boolean onFertile = (groundBlock == Blocks.DIRT || groundBlock == Blocks.FARMLAND || groundBlock == BOPBlocks.farmland_0 || groundBlock == BOPBlocks.farmland_1 || groundBlock == BOPBlocks.dirt || groundBlock == Blocks.GRASS);
+        boolean onDry = (groundBlock == Blocks.HARDENED_CLAY || groundBlock == BOPBlocks.sand || groundBlock == Blocks.SAND);
+        boolean onNetherrack = (groundBlock == Blocks.NETHERRACK);
+        boolean onStone = (groundBlock == Blocks.STONE);
         boolean onDriedSand = (groundBlock == BOPBlocks.dried_sand);
         boolean onSpectralMoss = false;
         
@@ -325,7 +323,7 @@ public class BlockBOPFlower extends BlockBOPDecoration implements IShearable
             case BURNING_BLOSSOM:
                 return 0;
             default:
-                return Blocks.red_flower.getFlammability(world, pos, face);
+                return Blocks.RED_FLOWER.getFlammability(world, pos, face);
         }
     }
     
@@ -338,7 +336,7 @@ public class BlockBOPFlower extends BlockBOPDecoration implements IShearable
             case BURNING_BLOSSOM:
                 return 0;
             default:
-                return Blocks.red_flower.getFireSpreadSpeed(world, pos, face);
+                return Blocks.RED_FLOWER.getFireSpreadSpeed(world, pos, face);
         }
     }
 
