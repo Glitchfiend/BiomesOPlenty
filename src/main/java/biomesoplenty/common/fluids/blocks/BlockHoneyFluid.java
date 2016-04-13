@@ -31,9 +31,8 @@ public class BlockHoneyFluid extends BlockFluidFinite
         this.setDefaultState(this.blockState.getBaseState().withProperty(LEVEL, this.quantaPerBlock - 1));
     }
 
-    //TODO: whats happened here? - Topisani
-    // @Override
-    public void onEntityCollidedWithBlock(World world, BlockPos pos, Entity entity)
+    @Override
+    public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
     {
         if (entity instanceof EntityLivingBase)
         {

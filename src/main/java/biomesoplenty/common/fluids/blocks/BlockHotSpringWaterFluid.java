@@ -33,9 +33,8 @@ public class BlockHotSpringWaterFluid extends BlockFluidClassic
         super(fluid, Material.WATER);
     }
 
-    //TODO: this no longer exists. Fix? - Topisani
-    //@Override
-    public void onEntityCollidedWithBlock(World world, BlockPos pos, Entity entity)
+    @Override
+    public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
     {
         if (entity instanceof EntityLivingBase)
         {

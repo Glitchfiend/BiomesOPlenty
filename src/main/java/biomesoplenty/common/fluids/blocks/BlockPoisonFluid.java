@@ -30,9 +30,8 @@ public class BlockPoisonFluid extends BlockFluidClassic
         this.quantaPerBlock = 4;
     }
     
-    //TODO: this probably moved somewhere else, find out what it is and where - Topisani
-    // @Override
-    public void onEntityCollidedWithBlock(World world, BlockPos pos, Entity entity)
+    @Override
+    public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
     {
         if (entity instanceof EntityLivingBase)
         {
