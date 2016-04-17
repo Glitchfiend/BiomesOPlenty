@@ -10,12 +10,12 @@ package biomesoplenty.common.world.feature.tree;
 import java.util.Random;
 
 import biomesoplenty.api.block.BlockQueries;
+import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.block.BlockBOPLog;
 import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.util.biome.GeneratorUtils;
-import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import biomesoplenty.common.world.feature.GeneratorSpike;
 import net.minecraft.block.BlockOldLeaf;

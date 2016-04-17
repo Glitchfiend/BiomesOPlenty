@@ -12,10 +12,10 @@ import java.util.Random;
 
 import biomesoplenty.api.biome.generation.BOPGeneratorBase;
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
-import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import net.minecraft.block.BlockLilyPad;
 import net.minecraft.block.material.Material;

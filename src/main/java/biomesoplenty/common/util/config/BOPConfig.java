@@ -26,9 +26,9 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryParseException;
-import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.util.block.BlockStateUtils;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.block.Block;

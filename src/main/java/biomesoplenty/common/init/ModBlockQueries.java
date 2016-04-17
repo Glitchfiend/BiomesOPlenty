@@ -9,11 +9,11 @@
 package biomesoplenty.common.init;
 
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryState;
-import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;

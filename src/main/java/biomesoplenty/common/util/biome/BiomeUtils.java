@@ -39,6 +39,8 @@ public class BiomeUtils
         }
     }
     
+    /**Use getRegistryName() instead**/
+    @Deprecated
     public static ResourceLocation getLocForBiome(BiomeGenBase biome)
     {
         return BiomeGenBase.REGISTRY.getNameForObject(biome);

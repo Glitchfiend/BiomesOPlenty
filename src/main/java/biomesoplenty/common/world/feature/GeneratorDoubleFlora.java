@@ -10,12 +10,12 @@ package biomesoplenty.common.world.feature;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
+import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.common.block.BlockBOPDecoration;
 import biomesoplenty.common.block.BlockBOPDoubleDecoration;
 import biomesoplenty.common.block.BlockBOPDoublePlant;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
-import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;

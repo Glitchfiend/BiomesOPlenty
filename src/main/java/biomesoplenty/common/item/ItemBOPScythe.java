@@ -8,7 +8,7 @@
 
 package biomesoplenty.common.item;
 
-import biomesoplenty.api.item.BOPItemHelper;
+import biomesoplenty.api.item.BOPMaterials;
 import biomesoplenty.common.block.BlockBOPFlower;
 import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.enums.BOPPlants;
@@ -88,7 +88,7 @@ public class ItemBOPScythe extends Item
             radius = 5;
             height = 5;
         }
-        else if (toolMaterial == BOPItemHelper.amethyst_tool_material)
+        else if (toolMaterial == BOPMaterials.amethyst_tool_material)
         {
             radius = 6;
             height = 6;

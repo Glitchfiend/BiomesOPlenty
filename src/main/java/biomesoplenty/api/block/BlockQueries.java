@@ -8,11 +8,8 @@
 
 package biomesoplenty.api.block;
 
-import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
-
 public class BlockQueries
 {
-    
     public static IBlockPosQuery anything;
     public static IBlockPosQuery nothing;
     public static IBlockPosQuery hasWater;

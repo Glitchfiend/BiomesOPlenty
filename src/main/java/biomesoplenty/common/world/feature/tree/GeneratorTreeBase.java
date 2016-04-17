@@ -11,6 +11,7 @@ package biomesoplenty.common.world.feature.tree;
 import java.util.Random;
 
 import biomesoplenty.api.biome.generation.BOPGeneratorBase;
+import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.block.BlockBOPLog;
 import biomesoplenty.common.enums.BOPTrees;
@@ -21,7 +22,6 @@ import biomesoplenty.common.util.block.BlockQuery.BlockQueryBlock;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryParseException;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryState;
-import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockLog;

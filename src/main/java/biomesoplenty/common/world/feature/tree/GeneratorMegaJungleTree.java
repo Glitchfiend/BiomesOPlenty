@@ -10,7 +10,7 @@ package biomesoplenty.common.world.feature.tree;
 import java.util.Random;
 
 import biomesoplenty.api.block.BlockQueries;
-import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
+import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.state.IBlockState;

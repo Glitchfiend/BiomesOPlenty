@@ -10,6 +10,7 @@ package biomesoplenty.common.util.block;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
+import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.api.block.ISustainsPlantType;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Sets;
@@ -31,16 +32,6 @@ import java.util.regex.Pattern;
 
 public class BlockQuery
 {
-    
-    
-    /***** Interfaces *****/
-    
-    // for queries on a particular block position in the world
-    public static interface IBlockPosQuery
-    {
-        public boolean matches(World world, BlockPos pos);
-    }
-    
     // for compound queries
     public static interface ICompoundBlockPosQuery extends IBlockPosQuery
     {

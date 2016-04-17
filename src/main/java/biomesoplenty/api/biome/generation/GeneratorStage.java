@@ -69,7 +69,7 @@ public enum GeneratorStage
     
     public static GeneratorStage mapDecorateType(Decorate.EventType decorateType)
     {
-        //Somewhat of a hack, requires the ordering of our enum to be the s
+        //Somewhat of a hack, requires the ordering of our enum to be the same as the decorate event
         return decorateType != Decorate.EventType.CUSTOM ? GeneratorStage.values()[decorateType.ordinal() + 1] : null;
     }
 }

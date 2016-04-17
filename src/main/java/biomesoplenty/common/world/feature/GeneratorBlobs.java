@@ -11,9 +11,9 @@ package biomesoplenty.common.world.feature;
 import java.util.Random;
 
 import biomesoplenty.api.block.BlockQueries;
+import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery;
-import biomesoplenty.common.util.block.BlockQuery.IBlockPosQuery;
 import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;

@@ -28,7 +28,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-import static biomesoplenty.api.item.BOPItemHelper.*;
+import static biomesoplenty.api.item.BOPMaterials.*;
 import static biomesoplenty.api.item.BOPItems.*;
 
 public class ModItems

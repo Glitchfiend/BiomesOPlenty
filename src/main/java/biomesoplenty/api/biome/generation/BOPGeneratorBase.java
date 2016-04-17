@@ -16,11 +16,10 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 public abstract class BOPGeneratorBase extends WorldGenerator implements IGenerator
-{
-    
-    private final String identifier;
-    private String name;
-    private GeneratorStage stage;
+{ 
+    protected final String identifier;
+    protected String name;
+    protected GeneratorStage stage;
     protected float amountPerChunk;
     
     protected BOPGeneratorBase(float amountPerChunk)
@@ -96,5 +95,4 @@ public abstract class BOPGeneratorBase extends WorldGenerator implements IGenera
             generate(world, random, this.getScatterY(world, random, x, z));
         }
     }
-
 }
