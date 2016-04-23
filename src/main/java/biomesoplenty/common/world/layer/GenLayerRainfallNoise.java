@@ -1,5 +1,6 @@
 package biomesoplenty.common.world.layer;
 
+import biomesoplenty.api.generation.BOPGenLayer;
 import biomesoplenty.common.world.SimplexNoise;
 import net.minecraft.world.gen.layer.IntCache;
 

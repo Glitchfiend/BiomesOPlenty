@@ -8,6 +8,7 @@
 
 package biomesoplenty.common.world.layer;
 
+import biomesoplenty.api.generation.BOPGenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
 public class GenLayerRainfallRandom extends BOPGenLayer

@@ -11,6 +11,7 @@ package biomesoplenty.common.world.layer;
 import com.google.common.base.Optional;
 
 import biomesoplenty.api.biome.BOPBiomes;
+import biomesoplenty.api.generation.BOPGenLayer;
 import net.minecraft.init.Biomes;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;

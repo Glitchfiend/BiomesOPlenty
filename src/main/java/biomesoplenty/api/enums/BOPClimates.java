@@ -3,7 +3,7 @@ package biomesoplenty.api.enums;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import biomesoplenty.api.generation.IBOPGenLayer;
+import biomesoplenty.api.generation.BOPGenLayer;
 import net.minecraft.init.Biomes;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeManager.BiomeType;
@@ -46,7 +46,7 @@ public enum BOPClimates {
         return this;
     }
     
-    public BiomeGenBase getRandomLandBiome(IBOPGenLayer layer)
+    public BiomeGenBase getRandomLandBiome(BOPGenLayer layer)
     {
         int weight = layer.nextInt(this.totalLandBiomesWeight);
         Iterator<WeightedBiomeEntry> iterator = this.landBiomes.iterator();
@@ -60,7 +60,7 @@ public enum BOPClimates {
         return item.biome;
     }
     
-    public BiomeGenBase getRandomOceanBiome(IBOPGenLayer layer, boolean deep)
+    public BiomeGenBase getRandomOceanBiome(BOPGenLayer layer, boolean deep)
     {
         switch (this)
         {

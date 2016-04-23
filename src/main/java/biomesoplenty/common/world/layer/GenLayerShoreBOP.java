@@ -11,6 +11,7 @@ import com.google.common.base.Predicate;
 
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.biome.IExtendedBiome;
+import biomesoplenty.api.generation.BOPGenLayer;
 import biomesoplenty.common.util.biome.BiomeUtils;
 import net.minecraft.init.Biomes;
 import net.minecraft.world.biome.BiomeGenBase;

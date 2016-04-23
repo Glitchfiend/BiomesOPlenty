@@ -10,6 +10,7 @@ package biomesoplenty.common.world.layer;
 
 import java.util.List;
 
+import biomesoplenty.api.generation.BOPGenLayer;
 import biomesoplenty.common.init.ModBiomes;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;

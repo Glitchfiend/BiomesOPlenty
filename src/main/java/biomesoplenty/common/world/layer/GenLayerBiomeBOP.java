@@ -9,6 +9,7 @@
 package biomesoplenty.common.world.layer;
 
 import biomesoplenty.api.enums.BOPClimates;
+import biomesoplenty.api.generation.BOPGenLayer;
 import biomesoplenty.common.init.ModBiomes;
 import biomesoplenty.common.world.BOPWorldSettings;
 import net.minecraft.init.Biomes;

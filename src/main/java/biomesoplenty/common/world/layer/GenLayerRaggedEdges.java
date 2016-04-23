@@ -7,6 +7,7 @@
  ******************************************************************************/
 
 package biomesoplenty.common.world.layer;
+import biomesoplenty.api.generation.BOPGenLayer;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
