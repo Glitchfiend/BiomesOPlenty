@@ -111,6 +111,17 @@ task deobfJar(type: Jar) {
     classifier = 'deobf'
 }
 
+task apiJar(type: Jar) {
+	from(sourceSets.main.allJava) {
+		include 'biomesoplenty/api/**'
+	}
+	from (sourceSets.main.output) {
+        include 'LICENSE.txt'
+    }
+
+	classifier = 'api'
+}
+
 task listOutputs << {
     //This is needed by the Groovy Postbuild to append labels for each build used in the changelog.
     println "Output files:"
@@ -139,6 +150,7 @@ artifacts {
     archives changelog.output
     archives sourcesJar
     archives deobfJar
+	archives apiJar
 }
 
 curseforge {
