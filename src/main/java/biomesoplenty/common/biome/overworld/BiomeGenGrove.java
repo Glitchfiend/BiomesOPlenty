@@ -8,22 +8,22 @@
 
 package biomesoplenty.common.biome.overworld;
 
-import biomesoplenty.api.biome.BOPBiome;
-import biomesoplenty.api.biome.generation.GeneratorStage;
-import biomesoplenty.api.biome.generation.GeneratorWeighted;
+import biomesoplenty.api.config.IBOPWorldSettings;
+import biomesoplenty.api.config.IBOPWorldSettings.GeneratorType;
+import biomesoplenty.api.enums.BOPClimates;
+import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.entities.EntityButterfly;
-import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.enums.BOPTrees;
-import biomesoplenty.common.world.BOPWorldSettings;
-import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
-import biomesoplenty.common.world.feature.GeneratorFlora;
-import biomesoplenty.common.world.feature.GeneratorGrass;
-import biomesoplenty.common.world.feature.GeneratorOreSingle;
-import biomesoplenty.common.world.feature.tree.GeneratorBush;
-import biomesoplenty.common.world.feature.tree.GeneratorProfileTree;
+import biomesoplenty.common.world.generator.GeneratorDoubleFlora;
+import biomesoplenty.common.world.generator.GeneratorFlora;
+import biomesoplenty.common.world.generator.GeneratorGrass;
+import biomesoplenty.common.world.generator.GeneratorOreSingle;
+import biomesoplenty.common.world.generator.GeneratorWeighted;
+import biomesoplenty.common.world.generator.tree.GeneratorBush;
+import biomesoplenty.common.world.generator.tree.GeneratorProfileTree;
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockPlanks;
@@ -87,19 +87,19 @@ public class BiomeGenGrove extends BOPBiome
     }
     
     @Override
-    public void applySettings(BOPWorldSettings settings)
+    public void applySettings(IBOPWorldSettings settings)
     {
-        if (!settings.generateBopGems) {this.removeGenerator("amber");}
-        if (!settings.generateBerryBushes) {this.removeGenerator("berry_bushes");}
+        if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("amber");}
+        if (!settings.isEnabled(GeneratorType.BERRY_BUSHES)) {this.removeGenerator("berry_bushes");}
         
-        if (!settings.generateBopFoliage) {this.removeGenerator("bushes"); this.removeGenerator("koru"); this.removeGenerator("shrubs"); this.removeGenerator("leaf_piles"); this.removeGenerator("dead_leaf_piles"); this.removeGenerator("clover_patches"); this.removeGenerator("sprouts");}
+        if (!settings.isEnabled(GeneratorType.FOLIAGE)) {this.removeGenerator("bushes"); this.removeGenerator("koru"); this.removeGenerator("shrubs"); this.removeGenerator("leaf_piles"); this.removeGenerator("dead_leaf_piles"); this.removeGenerator("clover_patches"); this.removeGenerator("sprouts");}
         
-        if (!settings.generateBopPlants) {this.removeGenerator("cattail"); this.removeGenerator("double_cattail"); this.removeGenerator("river_cane"); this.removeGenerator("tiny_cacti"); this.removeGenerator("roots"); this.removeGenerator("rafflesia"); this.removeGenerator("desert_sprouts");}
+        if (!settings.isEnabled(GeneratorType.PLANTS)) {this.removeGenerator("cattail"); this.removeGenerator("double_cattail"); this.removeGenerator("river_cane"); this.removeGenerator("tiny_cacti"); this.removeGenerator("roots"); this.removeGenerator("rafflesia"); this.removeGenerator("desert_sprouts");}
         
-        if (!settings.generateBopWaterPlants) {this.removeGenerator("algae"); this.removeGenerator("water_reeds"); this.removeGenerator("medium_lily"); this.removeGenerator("small_lily"); this.removeGenerator("tiny_lily");}
+        if (!settings.isEnabled(GeneratorType.WATER_PLANTS)) {this.removeGenerator("algae"); this.removeGenerator("water_reeds"); this.removeGenerator("medium_lily"); this.removeGenerator("small_lily"); this.removeGenerator("tiny_lily");}
         
         GeneratorWeighted treeGen = (GeneratorWeighted)this.getGenerator("trees");
-        if (!settings.generateBopTrees) {this.removeGenerator("trees");
+        if (!settings.isEnabled(GeneratorType.TREES)) {this.removeGenerator("trees");
         
         GeneratorWeighted treeGenerator = new GeneratorWeighted(3);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
@@ -109,10 +109,10 @@ public class BiomeGenGrove extends BOPBiome
         }
         
         GeneratorWeighted flowerGen = (GeneratorWeighted)this.getGenerator("flowers");
-        if (!settings.generateBopFlowers) {flowerGen.removeGenerator("bluebells"); flowerGen.removeGenerator("clover"); flowerGen.removeGenerator("swampflower"); flowerGen.removeGenerator("deathbloom"); flowerGen.removeGenerator("glowflower"); flowerGen.removeGenerator("blue_hydrangeas"); flowerGen.removeGenerator("pink_daffodil"); flowerGen.removeGenerator("white_anemones"); flowerGen.removeGenerator("orange_cosmos"); flowerGen.removeGenerator("wildflowers"); flowerGen.removeGenerator("violet"); flowerGen.removeGenerator("hibiscus"); flowerGen.removeGenerator("goldenrods"); flowerGen.removeGenerator("icy_irises"); flowerGen.removeGenerator("wilted_lily"); flowerGen.removeGenerator("lily_of_the_valley"); flowerGen.removeGenerator("bromeliad"); this.removeGenerator("bromeliad");}
+        if (!settings.isEnabled(GeneratorType.FLOWERS)) {flowerGen.removeGenerator("bluebells"); flowerGen.removeGenerator("clover"); flowerGen.removeGenerator("swampflower"); flowerGen.removeGenerator("deathbloom"); flowerGen.removeGenerator("glowflower"); flowerGen.removeGenerator("blue_hydrangeas"); flowerGen.removeGenerator("pink_daffodil"); flowerGen.removeGenerator("white_anemones"); flowerGen.removeGenerator("orange_cosmos"); flowerGen.removeGenerator("wildflowers"); flowerGen.removeGenerator("violet"); flowerGen.removeGenerator("hibiscus"); flowerGen.removeGenerator("goldenrods"); flowerGen.removeGenerator("icy_irises"); flowerGen.removeGenerator("wilted_lily"); flowerGen.removeGenerator("lily_of_the_valley"); flowerGen.removeGenerator("bromeliad"); this.removeGenerator("bromeliad");}
         
         GeneratorWeighted grassGen = (GeneratorWeighted)this.getGenerator("grass");
-        if (!settings.generateBopGrasses) {grassGen.removeGenerator("shortgrass"); grassGen.removeGenerator("mediumgrass"); grassGen.removeGenerator("wheatgrass"); grassGen.removeGenerator("dampgrass");}
+        if (!settings.isEnabled(GeneratorType.GRASSES)) {grassGen.removeGenerator("shortgrass"); grassGen.removeGenerator("mediumgrass"); grassGen.removeGenerator("wheatgrass"); grassGen.removeGenerator("dampgrass");}
     }
     
     @Override

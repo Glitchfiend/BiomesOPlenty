@@ -8,7 +8,6 @@
 
 package biomesoplenty.common.block;
 
-import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;

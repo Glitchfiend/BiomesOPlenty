@@ -8,11 +8,14 @@
 
 package biomesoplenty.common.block;
 
+import java.util.List;
+
+import com.google.common.collect.ImmutableSet;
+
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.util.block.BlockStateUtils;
-import com.google.common.collect.ImmutableSet;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
@@ -34,8 +37,6 @@ import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.util.List;
 
 public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements IShearable
 {

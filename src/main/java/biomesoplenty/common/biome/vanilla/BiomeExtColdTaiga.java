@@ -1,15 +1,15 @@
 package biomesoplenty.common.biome.vanilla;
 
-import biomesoplenty.api.biome.ExtendedBiomeWrapper;
-import biomesoplenty.api.biome.generation.GeneratorStage;
-import biomesoplenty.api.biome.generation.GeneratorWeighted;
+import biomesoplenty.api.config.IBOPWorldSettings;
+import biomesoplenty.api.config.IBOPWorldSettings.GeneratorType;
+import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
-import biomesoplenty.common.world.BOPWorldSettings;
-import biomesoplenty.common.world.feature.GeneratorFlora;
-import biomesoplenty.common.world.feature.GeneratorGrass;
-import biomesoplenty.common.world.feature.GeneratorOreSingle;
+import biomesoplenty.common.world.generator.GeneratorFlora;
+import biomesoplenty.common.world.generator.GeneratorGrass;
+import biomesoplenty.common.world.generator.GeneratorOreSingle;
+import biomesoplenty.common.world.generator.GeneratorWeighted;
 import net.minecraft.init.Biomes;
 
 public class BiomeExtColdTaiga extends ExtendedBiomeWrapper
@@ -36,16 +36,16 @@ public class BiomeExtColdTaiga extends ExtendedBiomeWrapper
     }
     
     @Override
-    public void applySettings(BOPWorldSettings settings)
+    public void applySettings(IBOPWorldSettings settings)
     {
-        if (!settings.generateBopGems) {this.removeGenerator("tanzanite");}
+        if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("tanzanite");}
         
-        if (!settings.generateBopFlowers) {this.removeGenerator("flowers");}
+        if (!settings.isEnabled(GeneratorType.FLOWERS)) {this.removeGenerator("flowers");}
         
-        if (!settings.generateBopFoliage) {this.removeGenerator("bushes"); this.removeGenerator("koru"); this.removeGenerator("shrubs"); this.removeGenerator("leaf_piles"); this.removeGenerator("dead_leaf_piles"); this.removeGenerator("clover_patches"); this.removeGenerator("sprouts");}
+        if (!settings.isEnabled(GeneratorType.FOLIAGE)) {this.removeGenerator("bushes"); this.removeGenerator("koru"); this.removeGenerator("shrubs"); this.removeGenerator("leaf_piles"); this.removeGenerator("dead_leaf_piles"); this.removeGenerator("clover_patches"); this.removeGenerator("sprouts");}
         
-        if (!settings.generateBopPlants) {this.removeGenerator("cattail"); this.removeGenerator("double_cattail"); this.removeGenerator("river_cane"); this.removeGenerator("tiny_cacti"); this.removeGenerator("roots"); this.removeGenerator("rafflesia"); this.removeGenerator("desert_sprouts");}
+        if (!settings.isEnabled(GeneratorType.PLANTS)) {this.removeGenerator("cattail"); this.removeGenerator("double_cattail"); this.removeGenerator("river_cane"); this.removeGenerator("tiny_cacti"); this.removeGenerator("roots"); this.removeGenerator("rafflesia"); this.removeGenerator("desert_sprouts");}
 
-        if (!settings.generateBopGrasses) {this.removeGenerator("grass");}
+        if (!settings.isEnabled(GeneratorType.GRASSES)) {this.removeGenerator("grass");}
     }
 }

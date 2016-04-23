@@ -13,12 +13,8 @@ import java.util.Random;
 
 import com.google.common.collect.Lists;
 
-import biomesoplenty.api.block.BOPBlocks.Coloring;
-import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.enums.BOPTrees;
-import biomesoplenty.common.init.ModBlocks;
 import biomesoplenty.common.item.ItemBOPBlock;
 import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.BlockLeaves;
@@ -148,7 +144,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     }
     @Override
     @SideOnly(Side.CLIENT)
-    public IItemColor getItemColor() { return Coloring.BLOCK_ITEM_COLORING; }
+    public IItemColor getItemColor() { return BlockColoring.BLOCK_ITEM_COLORING; }
     
     private BlockBOPLeaves()
     {

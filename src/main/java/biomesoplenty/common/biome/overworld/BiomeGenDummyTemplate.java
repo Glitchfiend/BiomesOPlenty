@@ -8,29 +8,29 @@
 
 package biomesoplenty.common.biome.overworld;
 
-import biomesoplenty.api.biome.BOPBiome;
-import biomesoplenty.api.biome.generation.GeneratorStage;
-import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
+import biomesoplenty.api.config.IBOPWorldSettings;
+import biomesoplenty.api.config.IBOPWorldSettings.GeneratorType;
+import biomesoplenty.api.enums.BOPClimates;
+import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.block.BlockBOPCoral;
 import biomesoplenty.common.block.BlockBOPDoublePlant;
 import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.block.BlockBOPPlant;
-import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
-import biomesoplenty.common.world.BOPWorldSettings;
-import biomesoplenty.common.world.feature.GeneratorBigMushroom;
-import biomesoplenty.common.world.feature.GeneratorColumns;
-import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
-import biomesoplenty.common.world.feature.GeneratorFlora;
-import biomesoplenty.common.world.feature.GeneratorGrass;
-import biomesoplenty.common.world.feature.GeneratorMixedLily;
-import biomesoplenty.common.world.feature.GeneratorOreSingle;
-import biomesoplenty.common.world.feature.GeneratorWaterside;
+import biomesoplenty.common.world.generator.GeneratorBigMushroom;
+import biomesoplenty.common.world.generator.GeneratorColumns;
+import biomesoplenty.common.world.generator.GeneratorDoubleFlora;
+import biomesoplenty.common.world.generator.GeneratorFlora;
+import biomesoplenty.common.world.generator.GeneratorGrass;
+import biomesoplenty.common.world.generator.GeneratorMixedLily;
+import biomesoplenty.common.world.generator.GeneratorOreSingle;
+import biomesoplenty.common.world.generator.GeneratorWaterside;
+import biomesoplenty.common.world.generator.GeneratorWeighted;
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockFlower.EnumFlowerType;
 import net.minecraft.block.BlockTallGrass;
@@ -175,9 +175,9 @@ public class BiomeGenDummyTemplate extends BOPBiome
     }
     
     @Override
-    public void applySettings(BOPWorldSettings settings)
+    public void applySettings(IBOPWorldSettings settings)
     {
-        if (!settings.generateBopGems) {this.removeGenerator("amber");}
+        if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("amber");}
     }
     
     @Override

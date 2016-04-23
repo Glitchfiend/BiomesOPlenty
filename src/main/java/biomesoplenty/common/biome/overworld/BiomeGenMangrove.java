@@ -10,30 +10,27 @@ package biomesoplenty.common.biome.overworld;
 
 import java.util.Random;
 
-import net.minecraft.block.BlockOldLeaf;
+import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.block.IBlockPosQuery;
+import biomesoplenty.api.config.IBOPWorldSettings;
+import biomesoplenty.api.config.IBOPWorldSettings.GeneratorType;
+import biomesoplenty.api.config.IConfigObj;
+import biomesoplenty.api.generation.GeneratorStage;
+import biomesoplenty.common.block.BlockBOPSand;
+import biomesoplenty.common.enums.BOPGems;
+import biomesoplenty.common.enums.BOPTrees;
+import biomesoplenty.common.enums.BOPWoods;
+import biomesoplenty.common.util.block.BlockQuery;
+import biomesoplenty.common.world.generator.GeneratorLakes;
+import biomesoplenty.common.world.generator.GeneratorOreSingle;
+import biomesoplenty.common.world.generator.GeneratorWeighted;
+import biomesoplenty.common.world.generator.tree.GeneratorMangroveTree;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
-import biomesoplenty.api.biome.BOPBiome;
-import biomesoplenty.api.biome.generation.GeneratorStage;
-import biomesoplenty.api.biome.generation.GeneratorWeighted;
-import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.api.block.IBlockPosQuery;
-import biomesoplenty.common.block.BlockBOPSand;
-import biomesoplenty.common.enums.BOPGems;
-import biomesoplenty.common.enums.BOPTrees;
-import biomesoplenty.common.enums.BOPWoods;
-import biomesoplenty.common.util.block.BlockQuery;
-import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
-import biomesoplenty.common.world.BOPWorldSettings;
-import biomesoplenty.common.world.feature.GeneratorLakes;
-import biomesoplenty.common.world.feature.GeneratorOreSingle;
-import biomesoplenty.common.world.feature.tree.GeneratorMangroveTree;
-import biomesoplenty.common.world.feature.tree.GeneratorPalmTree;
-import biomesoplenty.common.world.feature.tree.GeneratorTwigletTree;
  
 public class BiomeGenMangrove extends BOPBiome
 {
@@ -116,12 +113,12 @@ public class BiomeGenMangrove extends BOPBiome
     }
     
     @Override
-    public void applySettings(BOPWorldSettings settings)
+    public void applySettings(IBOPWorldSettings settings)
     {
-        if (!settings.generateBopGems) {this.removeGenerator("sapphire");}
+        if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("sapphire");}
         
         GeneratorWeighted treeGen = (GeneratorWeighted)this.getGenerator("trees");
-        if (!settings.generateBopTrees) {this.removeGenerator("trees");
+        if (!settings.isEnabled(GeneratorType.TREES)) {this.removeGenerator("trees");
         
         GeneratorWeighted treeGenerator = new GeneratorWeighted(7.0F);
         IBlockPosQuery emptySandMud = BlockQuery.buildAnd().states(this.usualTopBlock).create();
@@ -129,8 +126,8 @@ public class BiomeGenMangrove extends BOPBiome
         treeGenerator.add("mangrove", 1, (new GeneratorMangroveTree.Builder()).placeOn(emptySandMud).log(BlockPlanks.EnumType.OAK).leaves(BlockPlanks.EnumType.OAK).create());
         }
         
-        if (!settings.generateBopFoliage) {this.removeGenerator("bushes"); this.removeGenerator("koru"); this.removeGenerator("shrubs"); this.removeGenerator("leaf_piles"); this.removeGenerator("dead_leaf_piles"); this.removeGenerator("clover_patches"); this.removeGenerator("sprouts");}
+        if (!settings.isEnabled(GeneratorType.FOLIAGE)) {this.removeGenerator("bushes"); this.removeGenerator("koru"); this.removeGenerator("shrubs"); this.removeGenerator("leaf_piles"); this.removeGenerator("dead_leaf_piles"); this.removeGenerator("clover_patches"); this.removeGenerator("sprouts");}
         
-        if (!settings.generateBopPlants) {this.removeGenerator("cattail"); this.removeGenerator("double_cattail"); this.removeGenerator("river_cane"); this.removeGenerator("tiny_cacti"); this.removeGenerator("roots"); this.removeGenerator("rafflesia"); this.removeGenerator("desert_sprouts");}
+        if (!settings.isEnabled(GeneratorType.PLANTS)) {this.removeGenerator("cattail"); this.removeGenerator("double_cattail"); this.removeGenerator("river_cane"); this.removeGenerator("tiny_cacti"); this.removeGenerator("roots"); this.removeGenerator("rafflesia"); this.removeGenerator("desert_sprouts");}
     }
 }

@@ -11,7 +11,8 @@ package biomesoplenty.common.util.block;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.block.IBlockPosQuery;
-import biomesoplenty.api.block.ISustainsPlantType;
+import biomesoplenty.common.block.ISustainsPlantType;
+
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Sets;
 import net.minecraft.block.Block;

@@ -9,7 +9,6 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BlockQueries;
-import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;

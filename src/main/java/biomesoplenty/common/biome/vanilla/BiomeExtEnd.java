@@ -1,14 +1,14 @@
 package biomesoplenty.common.biome.vanilla;
 
-import biomesoplenty.api.biome.ExtendedBiomeWrapper;
-import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.IBlockPosQuery;
+import biomesoplenty.api.config.IBOPWorldSettings;
+import biomesoplenty.api.config.IBOPWorldSettings.GeneratorType;
+import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.util.block.BlockQuery;
-import biomesoplenty.common.world.BOPWorldSettings;
-import biomesoplenty.common.world.feature.GeneratorCrystals;
-import biomesoplenty.common.world.feature.GeneratorOreSingle;
+import biomesoplenty.common.world.generator.GeneratorCrystals;
+import biomesoplenty.common.world.generator.GeneratorOreSingle;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 
@@ -30,9 +30,9 @@ public class BiomeExtEnd extends ExtendedBiomeWrapper
     }
     
     @Override
-    public void applySettings(BOPWorldSettings settings)
+    public void applySettings(IBOPWorldSettings settings)
     {
-        if (!settings.generateBopGems) {this.removeGenerator("amethyst");}
-        if (!settings.generateEndFeatures) {this.removeGenerator("crystals"); this.removeGenerator("biome_essence");}
+        if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("amethyst");}
+        if (!settings.isEnabled(GeneratorType.END_FEATURES)) {this.removeGenerator("crystals"); this.removeGenerator("biome_essence");}
     }
 }

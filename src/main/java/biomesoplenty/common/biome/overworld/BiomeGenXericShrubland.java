@@ -8,23 +8,25 @@
 
 package biomesoplenty.common.biome.overworld;
 
-import biomesoplenty.api.biome.BOPBiome;
-import biomesoplenty.api.biome.generation.GeneratorStage;
-import biomesoplenty.api.biome.generation.GeneratorWeighted;
+import java.util.Random;
+
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.config.IBOPWorldSettings;
+import biomesoplenty.api.config.IBOPWorldSettings.GeneratorType;
+import biomesoplenty.api.config.IConfigObj;
+import biomesoplenty.api.enums.BOPClimates;
+import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.block.BlockBOPGrass;
-import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
-import biomesoplenty.common.util.config.BOPConfig.IConfigObj;
-import biomesoplenty.common.world.BOPWorldSettings;
-import biomesoplenty.common.world.feature.GeneratorColumns;
-import biomesoplenty.common.world.feature.GeneratorFlora;
-import biomesoplenty.common.world.feature.GeneratorGrass;
-import biomesoplenty.common.world.feature.GeneratorOreSingle;
-import biomesoplenty.common.world.feature.tree.GeneratorBush;
-import biomesoplenty.common.world.feature.tree.GeneratorTwigletTree;
+import biomesoplenty.common.world.generator.GeneratorColumns;
+import biomesoplenty.common.world.generator.GeneratorFlora;
+import biomesoplenty.common.world.generator.GeneratorGrass;
+import biomesoplenty.common.world.generator.GeneratorOreSingle;
+import biomesoplenty.common.world.generator.GeneratorWeighted;
+import biomesoplenty.common.world.generator.tree.GeneratorBush;
+import biomesoplenty.common.world.generator.tree.GeneratorTwigletTree;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.material.Material;
@@ -33,8 +35,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
-
-import java.util.Random;
 
 public class BiomeGenXericShrubland extends BOPBiome
 {
@@ -98,22 +98,22 @@ public class BiomeGenXericShrubland extends BOPBiome
     }
     
     @Override
-    public void applySettings(BOPWorldSettings settings)
+    public void applySettings(IBOPWorldSettings settings)
     {
-        if (!settings.generateBopGems) {this.removeGenerator("ruby");}
+        if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("ruby");}
 
-        if (!settings.generateBopFoliage) {this.removeGenerator("bushes"); this.removeGenerator("koru"); this.removeGenerator("shrubs"); this.removeGenerator("leaf_piles"); this.removeGenerator("dead_leaf_piles"); this.removeGenerator("clover_patches"); this.removeGenerator("sprouts");}
+        if (!settings.isEnabled(GeneratorType.FOLIAGE)) {this.removeGenerator("bushes"); this.removeGenerator("koru"); this.removeGenerator("shrubs"); this.removeGenerator("leaf_piles"); this.removeGenerator("dead_leaf_piles"); this.removeGenerator("clover_patches"); this.removeGenerator("sprouts");}
         
-        if (!settings.generateBopSoils) {this.alternateTopBlock = Blocks.GRASS.getDefaultState();}
+        if (!settings.isEnabled(GeneratorType.SOILS)) {this.alternateTopBlock = Blocks.GRASS.getDefaultState();}
         
-        if (!settings.generateBopPlants) {this.removeGenerator("cattail"); this.removeGenerator("double_cattail"); this.removeGenerator("river_cane"); this.removeGenerator("tiny_cacti"); this.removeGenerator("roots"); this.removeGenerator("rafflesia"); this.removeGenerator("desert_sprouts");}
+        if (!settings.isEnabled(GeneratorType.PLANTS)) {this.removeGenerator("cattail"); this.removeGenerator("double_cattail"); this.removeGenerator("river_cane"); this.removeGenerator("tiny_cacti"); this.removeGenerator("roots"); this.removeGenerator("rafflesia"); this.removeGenerator("desert_sprouts");}
         
-        if (!settings.generateBopWaterPlants) {this.removeGenerator("algae"); this.removeGenerator("water_reeds"); this.removeGenerator("medium_lily"); this.removeGenerator("small_lily"); this.removeGenerator("tiny_lily");}
+        if (!settings.isEnabled(GeneratorType.WATER_PLANTS)) {this.removeGenerator("algae"); this.removeGenerator("water_reeds"); this.removeGenerator("medium_lily"); this.removeGenerator("small_lily"); this.removeGenerator("tiny_lily");}
         
-        if (!settings.generateBopFlowers) {this.removeGenerator("flowers"); this.removeGenerator("bromeliad");}
+        if (!settings.isEnabled(GeneratorType.FLOWERS)) {this.removeGenerator("flowers"); this.removeGenerator("bromeliad");}
         
         GeneratorWeighted grassGen = (GeneratorWeighted)this.getGenerator("grass");
-        if (!settings.generateBopGrasses) {grassGen.removeGenerator("shortgrass"); grassGen.removeGenerator("mediumgrass"); grassGen.removeGenerator("wheatgrass"); grassGen.removeGenerator("dampgrass"); this.removeGenerator("dunegrass"); this.removeGenerator("desertgrass");}
+        if (!settings.isEnabled(GeneratorType.GRASSES)) {grassGen.removeGenerator("shortgrass"); grassGen.removeGenerator("mediumgrass"); grassGen.removeGenerator("wheatgrass"); grassGen.removeGenerator("dampgrass"); this.removeGenerator("dunegrass"); this.removeGenerator("desertgrass");}
     }
     
     @Override

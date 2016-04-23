@@ -11,7 +11,6 @@ package biomesoplenty.common.block;
 import static net.minecraft.block.BlockLiquid.LEVEL;
 
 import biomesoplenty.api.block.BlockQueries;
-import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;

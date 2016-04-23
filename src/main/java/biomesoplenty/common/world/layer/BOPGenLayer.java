@@ -7,9 +7,10 @@
  ******************************************************************************/
 
 package biomesoplenty.common.world.layer;
+import biomesoplenty.api.generation.IBOPGenLayer;
 import net.minecraft.world.gen.layer.GenLayer;
 
-public abstract class BOPGenLayer extends GenLayer
+public abstract class BOPGenLayer extends GenLayer implements IBOPGenLayer
 {
     
     public BOPGenLayer(long seed) {
@@ -22,5 +23,4 @@ public abstract class BOPGenLayer extends GenLayer
     {
         return super.nextInt(a);
     }
-
 }

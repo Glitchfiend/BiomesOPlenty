@@ -8,7 +8,8 @@
 
 package biomesoplenty.common.block;
 
-import biomesoplenty.api.block.IBOPBlock;
+import java.util.Random;
+
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
@@ -24,8 +25,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-
-import java.util.Random;
 
 public class BlockBOPCrystal extends Block implements IBOPBlock
 {

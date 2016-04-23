@@ -8,15 +8,14 @@
 
 package biomesoplenty.common.biome.overworld;
 
-import biomesoplenty.api.biome.BOPBiome;
-import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.IBlockPosQuery;
+import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery;
-import biomesoplenty.common.world.feature.GeneratorLakes;
-import biomesoplenty.common.world.feature.GeneratorOreSingle;
-import biomesoplenty.common.world.feature.GeneratorSplotches;
+import biomesoplenty.common.world.generator.GeneratorLakes;
+import biomesoplenty.common.world.generator.GeneratorOreSingle;
+import biomesoplenty.common.world.generator.GeneratorSplotches;
 import net.minecraft.init.Blocks;
  
 public class BiomeGenVolcanicIsland extends BOPBiome

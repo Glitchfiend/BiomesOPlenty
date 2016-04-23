@@ -8,12 +8,12 @@
 
 package biomesoplenty.common.biome.overworld;
 
-import biomesoplenty.api.biome.BOPBiome;
-import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.config.IBOPWorldSettings;
+import biomesoplenty.api.config.IBOPWorldSettings.GeneratorType;
+import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.enums.BOPGems;
-import biomesoplenty.common.world.BOPWorldSettings;
-import biomesoplenty.common.world.feature.GeneratorOreSingle;
+import biomesoplenty.common.world.generator.GeneratorOreSingle;
 import net.minecraft.init.Blocks;
 
 public class BiomeGenGlacier extends BOPBiome
@@ -45,9 +45,9 @@ public class BiomeGenGlacier extends BOPBiome
     }
     
     @Override
-    public void applySettings(BOPWorldSettings settings)
+    public void applySettings(IBOPWorldSettings settings)
     {
-        if (!settings.generateBopGems) {this.removeGenerator("malachite");}
+        if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("malachite");}
     }
     
 }

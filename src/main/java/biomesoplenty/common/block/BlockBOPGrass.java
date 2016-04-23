@@ -8,12 +8,15 @@
 
 package biomesoplenty.common.block;
 
+import java.util.Random;
+
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.api.block.BOPBlocks.Coloring;
-import biomesoplenty.api.block.IBOPBlock;
-import biomesoplenty.api.block.ISustainsPlantType;
 import biomesoplenty.common.item.ItemBOPBlock;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockDirt;
+import net.minecraft.block.BlockGrass;
+import net.minecraft.block.BlockTallGrass;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
@@ -39,8 +42,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.util.Random;
 
 public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPlantType
 {
@@ -83,9 +84,9 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
         }
     }
     @Override
-    public IBlockColor getBlockColor() { return Coloring.GRASS_COLORING; }
+    public IBlockColor getBlockColor() { return BlockColoring.GRASS_COLORING; }
     @Override
-    public IItemColor getItemColor() { return Coloring.BLOCK_ITEM_COLORING; }
+    public IItemColor getItemColor() { return BlockColoring.BLOCK_ITEM_COLORING; }
     
     public BlockBOPGrass()
     {

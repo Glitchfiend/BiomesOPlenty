@@ -8,8 +8,13 @@
 
 package biomesoplenty.common.block;
 
-import biomesoplenty.api.biome.BOPBiome;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+
 import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.common.biome.overworld.BOPBiome;
 import biomesoplenty.common.util.biome.BiomeUtils;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -21,11 +26,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
 
 public class BlockBOPBiomeBlock extends BlockBOPGeneric
 {   

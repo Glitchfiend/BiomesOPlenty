@@ -8,7 +8,7 @@
 
 package biomesoplenty.common.world;
 
-import biomesoplenty.api.biome.BOPBiome;
+import biomesoplenty.common.biome.overworld.BOPBiome;
 import biomesoplenty.common.util.biome.BiomeUtils;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.state.IBlockState;

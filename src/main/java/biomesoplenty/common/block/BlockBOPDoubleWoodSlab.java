@@ -8,11 +8,14 @@
 
 package biomesoplenty.common.block;
 
-import biomesoplenty.api.block.IBOPBlock;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.google.common.collect.ImmutableSet;
+
 import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.util.block.BlockStateUtils;
 import biomesoplenty.common.util.block.VariantPagingHelper;
-import com.google.common.collect.ImmutableSet;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -31,9 +34,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class BlockBOPDoubleWoodSlab extends BlockSlab implements IBOPBlock

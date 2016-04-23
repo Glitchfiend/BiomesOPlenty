@@ -8,7 +8,6 @@
 
 package biomesoplenty.common.item;
 
-import biomesoplenty.api.item.IColoredItem;
 import biomesoplenty.common.init.ModEntities;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.BlockLiquid;

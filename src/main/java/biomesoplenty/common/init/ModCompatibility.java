@@ -5,7 +5,7 @@ import java.util.List;
 import com.google.common.base.Function;
 import com.google.common.collect.Lists;
 
-import biomesoplenty.common.enums.BOPClimates;
+import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.integration.ThaumcraftCompat;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.world.biome.BiomeGenBase;

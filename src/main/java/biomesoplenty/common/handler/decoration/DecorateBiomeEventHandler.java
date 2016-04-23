@@ -12,9 +12,10 @@ import java.util.Random;
 
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.biome.IExtendedBiome;
-import biomesoplenty.api.biome.generation.GenerationManager;
-import biomesoplenty.api.biome.generation.GeneratorStage;
-import biomesoplenty.api.biome.generation.IGenerator;
+import biomesoplenty.api.generation.GeneratorStage;
+import biomesoplenty.api.generation.IGenerationManager;
+import biomesoplenty.api.generation.IGenerator;
+import biomesoplenty.common.world.GenerationManager;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -83,7 +84,7 @@ public class DecorateBiomeEventHandler
         
         if (extendedBiome != null)
         {
-            GenerationManager generationManager = extendedBiome.getGenerationManager();
+            IGenerationManager generationManager = extendedBiome.getGenerationManager();
             
             for (IGenerator generator : generationManager.getGeneratorsForStage(stage))
             {

@@ -8,8 +8,8 @@
 
 package biomesoplenty.common.world.layer;
 
-import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.BOPBiomes;
+import biomesoplenty.common.biome.overworld.BOPBiome;
 import net.minecraft.init.Biomes;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;

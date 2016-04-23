@@ -8,13 +8,13 @@
 
 package biomesoplenty.common.init;
 
-import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.biome.IExtendedBiome;
+import biomesoplenty.api.config.IConfigObj;
+import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.overworld.*;
 import biomesoplenty.common.biome.vanilla.*;
 import biomesoplenty.common.command.BOPCommand;
-import biomesoplenty.common.enums.BOPClimates;
 import biomesoplenty.common.util.config.BOPConfig;
 import biomesoplenty.common.world.WorldTypeBOP;
 import biomesoplenty.core.BiomesOPlenty;
@@ -41,7 +41,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
 
     private static int nextBiomeId = 40;
     private static File biomeIdMapFile;
-    private static BOPConfig.IConfigObj biomeIdMapConf;
+    private static IConfigObj biomeIdMapConf;
     protected static Map<String, Integer> biomeIdMap;
     private static Set<Integer> idsReservedInConfig;
     private static Map<Integer, IExtendedBiome> biomeWrapperMap;
@@ -387,10 +387,10 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         return ImmutableSet.copyOf(presentBiomes);
     }
 
-    public static BOPConfig.IConfigObj readConfigFile(String idName)
+    public static IConfigObj readConfigFile(String idName)
     {
         File configFile = new File(new File(BiomesOPlenty.configDirectory, "biomes"), idName + ".json");
-        BOPConfig.IConfigObj conf = new BOPConfig.ConfigFileObj(configFile);
+        IConfigObj conf = new BOPConfig.ConfigFileObj(configFile);
         
         // log any warnings from parsing the config file
         for (String msg : conf.flushMessages()) {BiomesOPlenty.logger.warn(msg);}

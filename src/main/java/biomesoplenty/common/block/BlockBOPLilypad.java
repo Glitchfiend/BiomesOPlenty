@@ -8,8 +8,6 @@
 
 package biomesoplenty.common.block;
 
-import biomesoplenty.api.block.IBOPBlock;
-import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.item.ItemBOPLilypad;
 import net.minecraft.block.BlockLilyPad;
 import net.minecraft.block.SoundType;
@@ -21,13 +19,8 @@ import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.IStringSerializable;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ColorizerFoliage;
-import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 

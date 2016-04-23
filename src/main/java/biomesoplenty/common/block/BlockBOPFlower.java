@@ -8,6 +8,10 @@
 
 package biomesoplenty.common.block;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.config.GameplayConfigurationHandler;
 import biomesoplenty.common.enums.BOPFlowers;
@@ -37,10 +41,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
 public class BlockBOPFlower extends BlockBOPDecoration implements IShearable
 {

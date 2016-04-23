@@ -8,7 +8,10 @@
 
 package biomesoplenty.common.block;
 
-import biomesoplenty.api.block.IBOPBlock;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+
 import biomesoplenty.common.enums.BOPWoods;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.material.Material;
@@ -26,10 +29,6 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
 
 public class BlockBOPDoor extends BlockDoor implements IBOPBlock
 {  

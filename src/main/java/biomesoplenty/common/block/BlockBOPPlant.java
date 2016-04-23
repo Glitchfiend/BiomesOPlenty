@@ -8,6 +8,9 @@
 
 package biomesoplenty.common.block;
 
+import java.util.List;
+import java.util.Random;
+
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.enums.BOPPlants;
@@ -48,9 +51,6 @@ import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.util.List;
-import java.util.Random;
 
 // TODO: pick block?
 

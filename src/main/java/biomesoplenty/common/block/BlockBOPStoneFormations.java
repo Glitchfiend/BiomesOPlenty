@@ -10,6 +10,7 @@ package biomesoplenty.common.block;
 
 import java.util.Random;
 
+import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -26,9 +27,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import biomesoplenty.api.block.BlockQueries;
-import biomesoplenty.api.block.IBOPBlock;
-import biomesoplenty.common.item.ItemBOPBlock;
 
 public class BlockBOPStoneFormations extends BlockBOPDecoration implements IBOPBlock
 {

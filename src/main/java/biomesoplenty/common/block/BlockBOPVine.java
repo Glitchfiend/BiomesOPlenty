@@ -8,8 +8,6 @@
 
 package biomesoplenty.common.block;
 
-import biomesoplenty.api.block.BOPBlocks.Coloring;
-import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.BlockVine;
 import net.minecraft.block.SoundType;
@@ -36,9 +34,9 @@ public class BlockBOPVine extends BlockVine implements IBOPBlock
     @Override
     public String getStateName(IBlockState state) {return "";}
     @Override
-    public IBlockColor getBlockColor() { return useGreyScaleTextures ? Coloring.FOLIAGE_COLORING : null; }
+    public IBlockColor getBlockColor() { return useGreyScaleTextures ? BlockColoring.FOLIAGE_COLORING : null; }
     @Override
-    public IItemColor getItemColor() { return Coloring.BLOCK_ITEM_COLORING; }
+    public IItemColor getItemColor() { return BlockColoring.BLOCK_ITEM_COLORING; }
     
     // if set to true, (the default), use BlockVine getBlockColor(), getRenderColor() and colorMultiplier() functions to color the texture based on biome
     // if set to false, use 0xFFFFFF for all the color functions so that the texture is used as it is

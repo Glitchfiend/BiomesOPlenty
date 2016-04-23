@@ -10,8 +10,6 @@ package biomesoplenty.common.block;
 
 import java.util.Random;
 
-import biomesoplenty.api.block.IBOPBlock;
-import biomesoplenty.api.block.ISustainsPlantType;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;

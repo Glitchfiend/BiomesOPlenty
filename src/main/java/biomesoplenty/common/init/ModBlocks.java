@@ -8,7 +8,6 @@
 
 package biomesoplenty.common.init;
 
-import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.block.*;
 import biomesoplenty.common.command.BOPCommand;

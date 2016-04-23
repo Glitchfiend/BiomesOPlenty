@@ -8,7 +8,9 @@
 
 package biomesoplenty.common.block;
 
-import biomesoplenty.api.block.IBOPBlock;
+import java.util.HashMap;
+import java.util.Map;
+
 import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.BlockFence;
@@ -24,9 +26,6 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class BlockBOPFence extends BlockFence implements IBOPBlock
 {

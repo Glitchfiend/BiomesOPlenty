@@ -14,10 +14,12 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 
+import biomesoplenty.api.config.IBOPWorldSettings;
+import biomesoplenty.api.config.IConfigObj;
 import biomesoplenty.common.util.config.BOPConfig;
 import biomesoplenty.core.BiomesOPlenty;
 
-public class BOPWorldSettings
+public class BOPWorldSettings implements IBOPWorldSettings
 {
     
     public static Gson serializer = new GsonBuilder().create();
@@ -161,7 +163,7 @@ public class BOPWorldSettings
         this.fromConfigObj(new BOPConfig.ConfigObj(jsonString));
     }
     
-    public void fromConfigObj(BOPConfig.IConfigObj worldConfig)
+    public void fromConfigObj(IConfigObj worldConfig)
     {
         this.landScheme = worldConfig.getEnum("landScheme", this.landScheme, LandMassScheme.class);
         this.tempScheme = worldConfig.getEnum("tempScheme", this.tempScheme, TemperatureVariationScheme.class);
@@ -239,10 +241,59 @@ public class BOPWorldSettings
         
         
         // Allow defaults to be overridden from file
-        BOPConfig.IConfigObj worldConfig = new BOPConfig.ConfigFileObj(new File(BiomesOPlenty.configDirectory, "world.json"));
+        IConfigObj worldConfig = new BOPConfig.ConfigFileObj(new File(BiomesOPlenty.configDirectory, "world.json"));
         this.fromConfigObj(worldConfig);
         
     }
-    
-    
+
+    @Override
+    public boolean isEnabled(GeneratorType type)
+    {
+        switch (type)
+        {
+        case GEMS: 
+            return this.generateBopGems;
+        case SOILS: 
+            return this.generateBopSoils;
+        case TREES: 
+            return this.generateBopTrees;
+        case GRASSES: 
+            return this.generateBopGrasses;
+        case FOLIAGE: 
+            return this.generateBopFoliage;
+        case FLOWERS: 
+            return this.generateBopFlowers;
+        case PLANTS: 
+            return this.generateBopPlants;
+        case WATER_PLANTS: 
+            return this.generateBopWaterPlants;
+        case MUSHROOMS: 
+            return this.generateBopMushrooms;
+        case ROCK_FORMATIONS: 
+            return this.generateRockFormations;
+        case POISON_IVY: 
+            return this.generatePoisonIvy;
+        case FLAX: 
+            return this.generateFlax;
+        case BERRY_BUSHES: 
+            return this.generateBerryBushes;
+        case THORNS: 
+            return this.generateThorns;
+        case QUICKSAND: 
+            return this.generateQuicksand;
+        case LIQUID_POISON: 
+            return this.generateLiquidPoison;
+        case HOT_SPRINGS: 
+            return this.generateHotSprings;
+        case NETHER_HIVES: 
+            return this.generateNetherHives;
+        case NETHER_PLANTS: 
+            return this.generateNetherPlants;
+        case END_FEATURES:
+            return this.generateEndFeatures;
+
+        default:
+            return true;
+        }
+    }    
 }

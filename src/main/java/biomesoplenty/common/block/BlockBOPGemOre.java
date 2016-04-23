@@ -12,7 +12,6 @@ import static biomesoplenty.common.block.BlockBOPGem.VARIANT;
 
 import java.util.Random;
 
-import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.item.ItemBOPBlock;

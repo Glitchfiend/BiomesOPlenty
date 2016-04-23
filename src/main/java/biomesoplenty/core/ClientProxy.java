@@ -8,19 +8,19 @@
 
 package biomesoplenty.core;
 
-import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.api.item.IColoredItem;
 import biomesoplenty.api.particle.BOPParticleTypes;
 import biomesoplenty.client.particle.EntityPixieTrailFX;
 import biomesoplenty.client.particle.EntityTrailFX;
 import biomesoplenty.client.texture.ForgeRedirectedResourcePack;
+import biomesoplenty.common.block.IBOPBlock;
 import biomesoplenty.common.config.MiscConfigurationHandler;
 import biomesoplenty.common.entities.*;
 import biomesoplenty.common.entities.projectiles.EntityDart;
 import biomesoplenty.common.entities.projectiles.EntityMudball;
 import biomesoplenty.common.entities.projectiles.RenderDart;
 import biomesoplenty.common.entities.projectiles.RenderMudball;
+import biomesoplenty.common.item.IColoredItem;
 import biomesoplenty.common.util.inventory.CreativeTabBOP;
 import com.google.common.collect.Lists;
 import net.minecraft.block.Block;

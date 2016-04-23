@@ -11,7 +11,6 @@ package biomesoplenty.common.block;
 import java.util.Random;
 
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.item.ItemBOPBlock;
 import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.Block;

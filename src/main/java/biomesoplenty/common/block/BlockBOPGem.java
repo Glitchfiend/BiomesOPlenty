@@ -8,7 +8,6 @@
 
 package biomesoplenty.common.block;
 
-import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;

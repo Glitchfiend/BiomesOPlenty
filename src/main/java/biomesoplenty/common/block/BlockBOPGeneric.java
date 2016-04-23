@@ -11,8 +11,6 @@ package biomesoplenty.common.block;
 import java.util.HashSet;
 import java.util.Set;
 
-import biomesoplenty.api.block.IBOPBlock;
-import biomesoplenty.api.block.ISustainsPlantType;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;

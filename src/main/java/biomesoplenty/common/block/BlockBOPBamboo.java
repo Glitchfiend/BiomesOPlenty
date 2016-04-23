@@ -8,6 +8,8 @@
 
 package biomesoplenty.common.block;
 
+import java.util.Random;
+
 import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -24,8 +26,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.util.Random;
 
 public class BlockBOPBamboo extends BlockBOPDecoration
 {

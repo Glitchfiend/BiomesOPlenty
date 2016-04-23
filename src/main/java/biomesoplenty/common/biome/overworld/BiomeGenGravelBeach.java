@@ -8,7 +8,6 @@
 
 package biomesoplenty.common.biome.overworld;
 
-import biomesoplenty.api.biome.BOPBiome;
 import net.minecraft.init.Blocks;
  
 public class BiomeGenGravelBeach extends BOPBiome

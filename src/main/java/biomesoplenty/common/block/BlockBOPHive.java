@@ -10,7 +10,6 @@ package biomesoplenty.common.block;
 
 import java.util.Random;
 
-import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.entities.EntityWasp;
 import biomesoplenty.common.item.ItemBOPBlock;

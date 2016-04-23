@@ -8,17 +8,16 @@
 
 package biomesoplenty.common.biome.overworld;
 
-import biomesoplenty.api.biome.BOPBiome;
-import biomesoplenty.api.biome.generation.GeneratorStage;
-import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.config.IBOPWorldSettings;
+import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.block.BlockBOPGrass.BOPGrassType;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPTrees;
-import biomesoplenty.common.world.BOPWorldSettings;
-import biomesoplenty.common.world.feature.GeneratorFlora;
-import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
+import biomesoplenty.common.world.generator.GeneratorFlora;
+import biomesoplenty.common.world.generator.GeneratorWeighted;
+import biomesoplenty.common.world.generator.tree.GeneratorBasicTree;
 import net.minecraft.block.BlockFlower.EnumFlowerType;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntitySkeleton;
@@ -78,7 +77,7 @@ public class BiomeGenOriginIsland extends BOPBiome
     
     
     @Override
-    public void applySettings(BOPWorldSettings settings)
+    public void applySettings(IBOPWorldSettings settings)
     {
         this.removeGenerator("roots");
     }

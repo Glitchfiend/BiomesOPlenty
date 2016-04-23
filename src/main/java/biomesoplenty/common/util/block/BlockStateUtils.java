@@ -16,7 +16,7 @@ import java.util.Stack;
 
 import com.google.common.collect.ImmutableSet;
 
-import biomesoplenty.api.block.IBOPBlock;
+import biomesoplenty.common.block.IBOPBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;

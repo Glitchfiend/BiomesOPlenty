@@ -13,7 +13,6 @@ import java.util.List;
 import com.google.common.collect.ImmutableSet;
 
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.util.block.BlockStateUtils;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.SoundType;
