@@ -7,7 +7,12 @@
  ******************************************************************************/
 package biomesoplenty.api.generation;
 
+import net.minecraft.world.gen.layer.GenLayer;
+
 public class Generators
 {
     public static IGeneratorRegistry registry;
+    
+    public static GenLayer biomeGenLayer;
+    public static GenLayer biomeIndexLayer;
 }

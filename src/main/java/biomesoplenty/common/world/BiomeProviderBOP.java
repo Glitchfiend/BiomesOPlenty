@@ -10,6 +10,7 @@ package biomesoplenty.common.world;
 
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.biome.IExtendedBiome;
+import biomesoplenty.api.generation.Generators;
 import biomesoplenty.common.util.biome.BiomeUtils;
 import biomesoplenty.common.world.BOPWorldSettings.LandMassScheme;
 import biomesoplenty.common.world.layer.GenLayerBiomeBOP;
@@ -75,10 +76,10 @@ public class BiomeProviderBOP extends BiomeProvider
         }
         
         // set up all the gen layers
-        GenLayer[] agenlayer = setupBOPGenLayers(seed, (WorldTypeBOP)worldType, settings);
+        GenLayer[] agenlayer = setupBOPGenLayers(seed, settings);
         agenlayer = getModdedBiomeGenerators(worldType, seed, agenlayer);
-        this.genBiomes = agenlayer[0];
-        this.biomeIndexLayer = agenlayer[1];
+        this.genBiomes = Generators.biomeGenLayer = agenlayer[0];
+        this.biomeIndexLayer = Generators.biomeIndexLayer = agenlayer[1];
     }
     
     public BiomeProviderBOP(World world)
@@ -171,7 +172,7 @@ public class BiomeProviderBOP extends BiomeProvider
         return climate;
     }    
     
-    public static GenLayer allocateBiomes(long worldSeed, WorldTypeBOP worldType, BOPWorldSettings settings, GenLayer mainBranch, GenLayer subBiomesInit, GenLayer climateLayer)
+    public static GenLayer allocateBiomes(long worldSeed, BOPWorldSettings settings, GenLayer mainBranch, GenLayer subBiomesInit, GenLayer climateLayer)
     {        
         // allocate the basic biomes        
         GenLayer biomesLayer = new GenLayerBiomeBOP(200L, mainBranch, climateLayer, settings);
@@ -223,7 +224,7 @@ public class BiomeProviderBOP extends BiomeProvider
     }
     
     
-    public static GenLayer[] setupBOPGenLayers(long worldSeed, WorldTypeBOP worldType, BOPWorldSettings settings)
+    public static GenLayer[] setupBOPGenLayers(long worldSeed, BOPWorldSettings settings)
     {
         
         int biomeSize = settings.biomeSize.getValue();
@@ -244,7 +245,7 @@ public class BiomeProviderBOP extends BiomeProvider
         GenLayer climateLayer = climateLayer(settings, worldSeed);
         
         // allocate the biomes
-        mainBranch = allocateBiomes(worldSeed, worldType, settings, mainBranch, riversAndSubBiomesInit, climateLayer);
+        mainBranch = allocateBiomes(worldSeed, settings, mainBranch, riversAndSubBiomesInit, climateLayer);
         
         // do a bit more zooming, depending on biomeSize
         //mainBranch = new GenLayerRareBiome(1001L, mainBranch); - sunflower plains I think
