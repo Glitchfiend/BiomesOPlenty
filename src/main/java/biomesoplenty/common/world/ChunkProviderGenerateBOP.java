@@ -8,6 +8,24 @@
 
 package biomesoplenty.common.world;
 
+import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.CAVE;
+import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.MINESHAFT;
+import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.OCEAN_MONUMENT;
+import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.RAVINE;
+import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.SCATTERED_FEATURE;
+import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.STRONGHOLD;
+import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.VILLAGE;
+import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.ANIMALS;
+import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.DUNGEON;
+import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.ICE;
+import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE;
+import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAVA;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+
 import biomesoplenty.common.biome.overworld.BOPBiome;
 import biomesoplenty.common.util.biome.BiomeUtils;
 import net.minecraft.block.BlockFalling;
@@ -16,29 +34,29 @@ import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldEntitySpawner;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.chunk.IChunkGenerator;
-import net.minecraft.world.gen.*;
+import net.minecraft.world.gen.MapGenBase;
+import net.minecraft.world.gen.MapGenCaves;
+import net.minecraft.world.gen.MapGenRavine;
+import net.minecraft.world.gen.NoiseGeneratorOctaves;
+import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraft.world.gen.feature.WorldGenDungeons;
 import net.minecraft.world.gen.feature.WorldGenLakes;
-import net.minecraft.world.gen.structure.*;
+import net.minecraft.world.gen.structure.MapGenMineshaft;
+import net.minecraft.world.gen.structure.MapGenScatteredFeature;
+import net.minecraft.world.gen.structure.MapGenStronghold;
+import net.minecraft.world.gen.structure.MapGenVillage;
+import net.minecraft.world.gen.structure.StructureOceanMonument;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-
-import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.*;
-import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.*;
 
 public class ChunkProviderGenerateBOP implements IChunkGenerator
 {
@@ -66,7 +84,7 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
     private double[] xyzNoiseArrayB;
     private double[] stoneNoiseArray;
     private final double[] noiseArray;
-    private Map<BiomeGenBase, TerrainSettings> biomeTerrainSettings;
+    private Map<Biome, TerrainSettings> biomeTerrainSettings;
     
     public ChunkProviderGenerateBOP(World worldIn, long seed, boolean mapFeaturesEnabled, String chunkProviderSettingsString)
     {
@@ -102,8 +120,8 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
         this.seaBlockState = Blocks.WATER.getDefaultState();
         
         // store a TerrainSettings object for each biome
-        this.biomeTerrainSettings = new HashMap<BiomeGenBase, TerrainSettings>();
-        for (BiomeGenBase biome : BiomeUtils.getRegisteredBiomes())
+        this.biomeTerrainSettings = new HashMap<Biome, TerrainSettings>();
+        for (Biome biome : BiomeUtils.getRegisteredBiomes())
         {
             if (biome == null) {continue;}
             this.biomeTerrainSettings.put(biome, (biome instanceof BOPBiome) ? ((BOPBiome)biome).terrainSettings : TerrainSettings.forVanillaBiome(biome));
@@ -126,7 +144,7 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
         this.setChunkAirStoneWater(chunkX, chunkZ, chunkprimer);
         
         // hand over to the biomes for them to set bedrock grass and dirt
-        BiomeGenBase[] biomes = this.worldObj.getBiomeProvider().loadBlockGeneratorData(null, chunkX * 16, chunkZ * 16, 16, 16);
+        Biome[] biomes = this.worldObj.getBiomeProvider().loadBlockGeneratorData(null, chunkX * 16, chunkZ * 16, 16, 16);
         this.replaceBlocksForBiome(chunkX, chunkZ, chunkprimer, biomes);
 
         // add structures
@@ -164,7 +182,7 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
         byte[] chunkBiomes = chunk.getBiomeArray();
         for (int k = 0; k < chunkBiomes.length; ++k)
         {
-            chunkBiomes[k] = (byte)BiomeGenBase.getIdForBiome(biomes[k]);
+            chunkBiomes[k] = (byte)Biome.getIdForBiome(biomes[k]);
         }
         chunk.generateSkylightMap();
         return chunk;
@@ -279,18 +297,18 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
 
     
     // Biomes add their top blocks and filler blocks to the primer here
-    public void replaceBlocksForBiome(int chunkX, int chunkZ, ChunkPrimer primer, BiomeGenBase[] biomes)
+    public void replaceBlocksForBiome(int chunkX, int chunkZ, ChunkPrimer primer, Biome[] biomes)
     {
         if (!net.minecraftforge.event.ForgeEventFactory.onReplaceBiomeBlocks(this, chunkX, chunkZ, primer, this.worldObj)) return;
 
         double d0 = 0.03125D;
-        this.stoneNoiseArray = this.stoneNoiseGen.func_151599_a(this.stoneNoiseArray, (double)(chunkX * 16), (double)(chunkZ * 16), 16, 16, d0 * 2.0D, d0 * 2.0D, 1.0D);
+        this.stoneNoiseArray = this.stoneNoiseGen.getRegion(this.stoneNoiseArray, (double)(chunkX * 16), (double)(chunkZ * 16), 16, 16, d0 * 2.0D, d0 * 2.0D, 1.0D);
 
         for (int localX = 0; localX < 16; ++localX)
         {
             for (int localZ = 0; localZ < 16; ++localZ)
             {
-                BiomeGenBase biome = biomes[localZ + localX * 16];
+                Biome biome = biomes[localZ + localX * 16];
                 biome.genTerrainBlocks(this.worldObj, this.rand, primer, chunkX * 16 + localX, chunkZ * 16 + localZ, this.stoneNoiseArray[localZ + localX * 16]);
             }
         }
@@ -315,11 +333,11 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
     }
        
     
-    private TerrainSettings getWeightedTerrainSettings(int localX, int localZ, BiomeGenBase[] biomes)
+    private TerrainSettings getWeightedTerrainSettings(int localX, int localZ, Biome[] biomes)
     {
         
         // Rivers shouldn't be influenced by the neighbors
-        BiomeGenBase centerBiome = biomes[localX + 2 + (localZ + 2) * 10];
+        Biome centerBiome = biomes[localX + 2 + (localZ + 2) * 10];
         if (centerBiome == Biomes.RIVER || centerBiome == Biomes.FROZEN_RIVER || ((centerBiome instanceof BOPBiome) && ((BOPBiome)centerBiome).noNeighborTerrainInfuence))
         {
             return this.biomeTerrainSettings.get(centerBiome);
@@ -358,7 +376,7 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
     private void populateNoiseArray(int chunkX, int chunkZ)
     {
 
-        BiomeGenBase[] biomes = this.worldObj.getBiomeProvider().getBiomesForGeneration(null, chunkX * 4 - 2, chunkZ * 4 - 2, 10, 10);
+        Biome[] biomes = this.worldObj.getBiomeProvider().getBiomesForGeneration(null, chunkX * 4 - 2, chunkZ * 4 - 2, 10, 10);
 
         // values from vanilla
         float coordinateScale = 684.412F;
@@ -452,14 +470,14 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
         
         BlockPos blockpos = new BlockPos(x, 0, z);
         
-        BiomeGenBase biomegenbase = this.worldObj.getBiomeGenForCoords(blockpos.add(16, 0, 16));
+        Biome Biome = this.worldObj.getBiomeGenForCoords(blockpos.add(16, 0, 16));
         
         this.rand.setSeed(this.worldObj.getSeed());
         long l0 = this.rand.nextLong() / 2L * 2L + 1L;
         long l1 = this.rand.nextLong() / 2L * 2L + 1L;
         this.rand.setSeed((long)chunkX * l0 + (long)chunkZ * l1 ^ this.worldObj.getSeed());
         boolean hasVillageGenerated = false;
-        ChunkCoordIntPair chunkcoordintpair = new ChunkCoordIntPair(chunkX, chunkZ);
+        ChunkPos chunkcoordintpair = new ChunkPos(chunkX, chunkZ);
 
         MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Pre(this, worldObj, rand, chunkX, chunkZ, hasVillageGenerated));
 
@@ -489,7 +507,7 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
         BlockPos target;
         
         // add water lakes
-        if (biomegenbase.getRainfall() > 0.01F && biomegenbase != Biomes.DESERT && biomegenbase != Biomes.DESERT_HILLS && this.settings.useWaterLakes && !hasVillageGenerated && this.rand.nextInt(this.settings.waterLakeChance) == 0 && TerrainGen.populate(this, worldObj, rand, chunkX, chunkZ, hasVillageGenerated, LAKE))
+        if (Biome.getRainfall() > 0.01F && Biome != Biomes.DESERT && Biome != Biomes.DESERT_HILLS && this.settings.useWaterLakes && !hasVillageGenerated && this.rand.nextInt(this.settings.waterLakeChance) == 0 && TerrainGen.populate(this, worldObj, rand, chunkX, chunkZ, hasVillageGenerated, LAKE))
         {
             target = decorateStart.add(this.rand.nextInt(16), this.rand.nextInt(256), this.rand.nextInt(16));
             (new WorldGenLakes(Blocks.WATER)).generate(this.worldObj, this.rand, target);
@@ -516,12 +534,12 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
         }
 
         // hand over to the biome to decorate itself
-        biomegenbase.decorate(this.worldObj, this.rand, new BlockPos(x, 0, z));
+        Biome.decorate(this.worldObj, this.rand, new BlockPos(x, 0, z));
         
         // add animals
         if (TerrainGen.populate(this, worldObj, rand, chunkX, chunkZ, hasVillageGenerated, ANIMALS))
         {
-            WorldEntitySpawner.performWorldGenSpawning(this.worldObj, biomegenbase, x + 8, z + 8, 16, 16, this.rand);
+            WorldEntitySpawner.performWorldGenSpawning(this.worldObj, Biome, x + 8, z + 8, 16, 16, this.rand);
         }
         
         // add ice and snow
@@ -532,7 +550,7 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
                 for (int j = 0; j < 16; ++j)
                 {
                     target = this.worldObj.getPrecipitationHeight(decorateStart.add(i, 0, j));
-                    BiomeGenBase biome = this.worldObj.getBiomeGenForCoords(target);
+                    Biome biome = this.worldObj.getBiomeGenForCoords(target);
                     // if it's cold enough for ice, and there's exposed water, then freeze it
                     if (this.worldObj.canBlockFreezeWater(target.down()))
                     {
@@ -559,20 +577,20 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
 
         if (this.settings.useMonuments && this.mapFeaturesEnabled && chunkIn.getInhabitedTime() < 3600L)
         {
-            flag |= this.oceanMonumentGenerator.generateStructure(this.worldObj, this.rand, new ChunkCoordIntPair(x, z));
+            flag |= this.oceanMonumentGenerator.generateStructure(this.worldObj, this.rand, new ChunkPos(x, z));
         }
 
         return flag;
     }
 
     @Override
-    public List<BiomeGenBase.SpawnListEntry> getPossibleCreatures(EnumCreatureType creatureType, BlockPos pos)
+    public List<Biome.SpawnListEntry> getPossibleCreatures(EnumCreatureType creatureType, BlockPos pos)
     {
-        BiomeGenBase biomegenbase = this.worldObj.getBiomeGenForCoords(pos);
+        Biome Biome = this.worldObj.getBiomeGenForCoords(pos);
 
         if (this.mapFeaturesEnabled)
         {
-            if (creatureType == EnumCreatureType.MONSTER && this.scatteredFeatureGenerator.func_175798_a(pos))
+            if (creatureType == EnumCreatureType.MONSTER && this.scatteredFeatureGenerator.isSwampHut(pos))
             {
                 return this.scatteredFeatureGenerator.getScatteredFeatureSpawnList();
             }
@@ -583,7 +601,7 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
             }
         }
 
-        return biomegenbase.getSpawnableList(creatureType);
+        return Biome.getSpawnableList(creatureType);
     }
 
     @Override

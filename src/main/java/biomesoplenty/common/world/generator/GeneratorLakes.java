@@ -8,6 +8,8 @@
 
 package biomesoplenty.common.world.generator;
 
+import java.util.Random;
+
 import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.api.config.IConfigObj;
 import biomesoplenty.api.generation.BOPGeneratorBase;
@@ -23,9 +25,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
-
-import java.util.Random;
+import net.minecraft.world.biome.Biome;
 
 public class GeneratorLakes extends BOPGeneratorBase
 {
@@ -51,7 +51,7 @@ public class GeneratorLakes extends BOPGeneratorBase
         public Builder lineWith(IBlockState a) {this.lineWith = a; return this.self();}
         public Builder lineWith(Block a) {this.lineWith = a.getDefaultState(); return this.self();}
         
-        public Builder waterLakeForBiome(BiomeGenBase a)
+        public Builder waterLakeForBiome(Biome a)
         {
             this.liquid = Blocks.WATER.getDefaultState();
             this.frozenLiquid = Blocks.ICE.getDefaultState();

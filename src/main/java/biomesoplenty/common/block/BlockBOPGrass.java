@@ -22,7 +22,7 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.particle.EffectRenderer;
+import net.minecraft.client.particle.ParticleManager;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.entity.Entity;
@@ -416,7 +416,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
 
     @SideOnly(Side.CLIENT)
     @Override
-    public boolean addDestroyEffects(World world, BlockPos pos, EffectRenderer effectRenderer)
+    public boolean addDestroyEffects(World world, BlockPos pos, ParticleManager effectRenderer)
     {
         IBlockState state = world.getBlockState(pos);
         

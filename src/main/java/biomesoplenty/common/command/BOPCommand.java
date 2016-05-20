@@ -8,11 +8,18 @@
 
 package biomesoplenty.common.command;
 
-import biomesoplenty.common.util.biome.BiomeUtils;
+import java.util.List;
+
 import com.google.common.collect.Lists;
+
+import biomesoplenty.common.util.biome.BiomeUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.command.*;
+import net.minecraft.command.CommandBase;
+import net.minecraft.command.CommandException;
+import net.minecraft.command.ICommandSender;
+import net.minecraft.command.NumberInvalidException;
+import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.server.MinecraftServer;
@@ -21,11 +28,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.storage.ExtendedBlockStorage;
-
-import java.util.List;
 
 public class BOPCommand extends CommandBase
 {
@@ -91,7 +96,7 @@ public class BOPCommand extends CommandBase
         }
         
         int biomeId = parseInt(args[1], 0, 255);
-        BiomeGenBase biome = BiomeGenBase.getBiome(biomeId);
+        Biome biome = Biome.getBiome(biomeId);
         
         sender.addChatMessage(new TextComponentTranslation("commands.biomesoplenty.biomename.success", biomeId, biome == null ? "Undefined" : biome.getBiomeName()));
     }
@@ -104,12 +109,12 @@ public class BOPCommand extends CommandBase
         }
 
         // Parse args[1] to find the biome to search for - search for a string matching the biome identifier, or an integer matching the biome id
-        BiomeGenBase biomeToFind = null;
+        Biome biomeToFind = null;
         if (biomeToFind == null)
         {
             try {
                 int biomeId = parseInt(args[1], 0, 255);
-                biomeToFind = BiomeGenBase.getBiome(biomeId);
+                biomeToFind = Biome.getBiome(biomeId);
             } catch (NumberInvalidException e) {
                 biomeToFind = BiomeUtils.getBiomeForLoc(new ResourceLocation(args[1]));
             }
@@ -125,7 +130,7 @@ public class BOPCommand extends CommandBase
             double y = (double)world.getTopSolidOrLiquidBlock(closestBiomePos).getY();
             double z = (double)closestBiomePos.getZ();
             
-            player.playerNetServerHandler.setPlayerLocation(x, y, z, player.rotationYaw, player.rotationPitch);
+            player.connection.setPlayerLocation(x, y, z, player.rotationYaw, player.rotationPitch);
             sender.addChatMessage(new TextComponentTranslation("commands.biomesoplenty.tpbiome.success", player.getName(), biomeToFind.getBiomeName(), x, y, z));
         }
         else

@@ -49,7 +49,7 @@ public abstract class GuiBOPPageList extends GuiBOPPageDelegate
     }
 
     @Override
-    protected void func_178040_a(int p_178040_1_, int p_178040_2_, int p_178040_3_)
+    protected void updateItemPos(int p_178040_1_, int p_178040_2_, int p_178040_3_)
     {
         this.getListEntry(p_178040_1_).setSelected(p_178040_1_, p_178040_2_, p_178040_3_);
     }
@@ -257,7 +257,7 @@ public abstract class GuiBOPPageList extends GuiBOPPageDelegate
     
         private void drawGuiLabel(GuiLabel guiLabel, int y, int mouseX, int mouseY, boolean isVisible)
         {
-            guiLabel.field_146174_h = y;
+            guiLabel.y = y;
     
             if (!isVisible)
             {

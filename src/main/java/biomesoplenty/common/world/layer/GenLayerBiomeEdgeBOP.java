@@ -13,7 +13,7 @@ import com.google.common.base.Optional;
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.generation.BOPGenLayer;
 import net.minecraft.init.Biomes;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
@@ -46,21 +46,21 @@ public class GenLayerBiomeEdgeBOP extends BOPGenLayer
                 if (this.replaceBiomeEdge(parentVals, out, x, y, areaWidth, biomeId, BOPBiomes.wasteland, Optional.of(Biomes.DESERT))) {continue;}
                 
                 // line extreme hills with extreme hills edge
-                if (this.replaceBiomeEdgeIfNecessary(parentVals, out, x, y, areaWidth, biomeId, BiomeGenBase.getIdForBiome(Biomes.EXTREME_HILLS), BiomeGenBase.getIdForBiome(Biomes.EXTREME_HILLS_EDGE))) {continue;}
+                if (this.replaceBiomeEdgeIfNecessary(parentVals, out, x, y, areaWidth, biomeId, Biome.getIdForBiome(Biomes.EXTREME_HILLS), Biome.getIdForBiome(Biomes.EXTREME_HILLS_EDGE))) {continue;}
                 
                 // line mesa plateau with mesa
-                if (this.replaceBiomeEdge(parentVals, out, x, y, areaWidth, biomeId, BiomeGenBase.getIdForBiome(Biomes.MESA_ROCK), BiomeGenBase.getIdForBiome(Biomes.MESA))) {continue;}
-                if (this.replaceBiomeEdge(parentVals, out, x, y, areaWidth, biomeId, BiomeGenBase.getIdForBiome(Biomes.MESA_CLEAR_ROCK), BiomeGenBase.getIdForBiome(Biomes.MESA))) {continue;}
+                if (this.replaceBiomeEdge(parentVals, out, x, y, areaWidth, biomeId, Biome.getIdForBiome(Biomes.MESA_ROCK), Biome.getIdForBiome(Biomes.MESA))) {continue;}
+                if (this.replaceBiomeEdge(parentVals, out, x, y, areaWidth, biomeId, Biome.getIdForBiome(Biomes.MESA_CLEAR_ROCK), Biome.getIdForBiome(Biomes.MESA))) {continue;}
                 
                 // line mega taiga with ordinary taiga
-                if (this.replaceBiomeEdge(parentVals, out, x, y, areaWidth, biomeId, BiomeGenBase.getIdForBiome(Biomes.REDWOOD_TAIGA), BiomeGenBase.getIdForBiome(Biomes.TAIGA))) {continue;}
+                if (this.replaceBiomeEdge(parentVals, out, x, y, areaWidth, biomeId, Biome.getIdForBiome(Biomes.REDWOOD_TAIGA), Biome.getIdForBiome(Biomes.TAIGA))) {continue;}
                 
                 int northBiomeId;
                 int eastBiomeId;
                 int westBiomeId;
                 int southBiomeId;
 
-                if (biomeId == BiomeGenBase.getIdForBiome(Biomes.DESERT))
+                if (biomeId == Biome.getIdForBiome(Biomes.DESERT))
                 {
                     // if desert is next to ice plains turn it into extremeGillsPlus (separate the ice and desert with a big mountain)
                     northBiomeId = parentVals[x + 1 + (y + 1 - 1) * (areaWidth + 2)];
@@ -68,16 +68,16 @@ public class GenLayerBiomeEdgeBOP extends BOPGenLayer
                     westBiomeId = parentVals[x + 1 - 1 + (y + 1) * (areaWidth + 2)];
                     southBiomeId = parentVals[x + 1 + (y + 1 + 1) * (areaWidth + 2)];
 
-                    if (northBiomeId != BiomeGenBase.getIdForBiome(Biomes.ICE_PLAINS) && eastBiomeId != BiomeGenBase.getIdForBiome(Biomes.ICE_PLAINS) && westBiomeId != BiomeGenBase.getIdForBiome(Biomes.ICE_PLAINS) && southBiomeId != BiomeGenBase.getIdForBiome(Biomes.ICE_PLAINS))
+                    if (northBiomeId != Biome.getIdForBiome(Biomes.ICE_PLAINS) && eastBiomeId != Biome.getIdForBiome(Biomes.ICE_PLAINS) && westBiomeId != Biome.getIdForBiome(Biomes.ICE_PLAINS) && southBiomeId != Biome.getIdForBiome(Biomes.ICE_PLAINS))
                     {
                         out[x + y * areaWidth] = biomeId;
                     }
                     else
                     {
-                        out[x + y * areaWidth] = BiomeGenBase.getIdForBiome(Biomes.EXTREME_HILLS_WITH_TREES);
+                        out[x + y * areaWidth] = Biome.getIdForBiome(Biomes.EXTREME_HILLS_WITH_TREES);
                     }
                 }
-                else if (biomeId == BiomeGenBase.getIdForBiome(Biomes.SWAMPLAND))
+                else if (biomeId == Biome.getIdForBiome(Biomes.SWAMPLAND))
                 {
                     // if swamp is next to desert, cold taiga or ice planes, turn it into plains
                     // if swamp is next to jungle, turn it into jungle edge
@@ -86,20 +86,20 @@ public class GenLayerBiomeEdgeBOP extends BOPGenLayer
                     westBiomeId = parentVals[x + 1 - 1 + (y + 1) * (areaWidth + 2)];
                     southBiomeId = parentVals[x + 1 + (y + 1 + 1) * (areaWidth + 2)];
 
-                    if (northBiomeId != BiomeGenBase.getIdForBiome(Biomes.DESERT) && eastBiomeId != BiomeGenBase.getIdForBiome(Biomes.DESERT) && westBiomeId != BiomeGenBase.getIdForBiome(Biomes.DESERT) && southBiomeId != BiomeGenBase.getIdForBiome(Biomes.DESERT) && northBiomeId != BiomeGenBase.getIdForBiome(Biomes.COLD_TAIGA) && eastBiomeId != BiomeGenBase.getIdForBiome(Biomes.COLD_TAIGA) && westBiomeId != BiomeGenBase.getIdForBiome(Biomes.COLD_TAIGA) && southBiomeId != BiomeGenBase.getIdForBiome(Biomes.COLD_TAIGA) && northBiomeId != BiomeGenBase.getIdForBiome(Biomes.ICE_PLAINS) && eastBiomeId != BiomeGenBase.getIdForBiome(Biomes.ICE_PLAINS) && westBiomeId != BiomeGenBase.getIdForBiome(Biomes.ICE_PLAINS) && southBiomeId != BiomeGenBase.getIdForBiome(Biomes.ICE_PLAINS))
+                    if (northBiomeId != Biome.getIdForBiome(Biomes.DESERT) && eastBiomeId != Biome.getIdForBiome(Biomes.DESERT) && westBiomeId != Biome.getIdForBiome(Biomes.DESERT) && southBiomeId != Biome.getIdForBiome(Biomes.DESERT) && northBiomeId != Biome.getIdForBiome(Biomes.COLD_TAIGA) && eastBiomeId != Biome.getIdForBiome(Biomes.COLD_TAIGA) && westBiomeId != Biome.getIdForBiome(Biomes.COLD_TAIGA) && southBiomeId != Biome.getIdForBiome(Biomes.COLD_TAIGA) && northBiomeId != Biome.getIdForBiome(Biomes.ICE_PLAINS) && eastBiomeId != Biome.getIdForBiome(Biomes.ICE_PLAINS) && westBiomeId != Biome.getIdForBiome(Biomes.ICE_PLAINS) && southBiomeId != Biome.getIdForBiome(Biomes.ICE_PLAINS))
                     {
-                        if (northBiomeId != BiomeGenBase.getIdForBiome(Biomes.JUNGLE) && southBiomeId != BiomeGenBase.getIdForBiome(Biomes.JUNGLE) && eastBiomeId != BiomeGenBase.getIdForBiome(Biomes.JUNGLE) && westBiomeId != BiomeGenBase.getIdForBiome(Biomes.JUNGLE))
+                        if (northBiomeId != Biome.getIdForBiome(Biomes.JUNGLE) && southBiomeId != Biome.getIdForBiome(Biomes.JUNGLE) && eastBiomeId != Biome.getIdForBiome(Biomes.JUNGLE) && westBiomeId != Biome.getIdForBiome(Biomes.JUNGLE))
                         {
                             out[x + y * areaWidth] = biomeId;
                         }
                         else
                         {
-                            out[x + y * areaWidth] = BiomeGenBase.getIdForBiome(Biomes.JUNGLE_EDGE);
+                            out[x + y * areaWidth] = Biome.getIdForBiome(Biomes.JUNGLE_EDGE);
                         }
                     }
                     else
                     {
-                        out[x + y * areaWidth] = BiomeGenBase.getIdForBiome(Biomes.PLAINS);
+                        out[x + y * areaWidth] = Biome.getIdForBiome(Biomes.PLAINS);
                     }
                 }
                 else
@@ -138,9 +138,9 @@ public class GenLayerBiomeEdgeBOP extends BOPGenLayer
         }
     }
 
-    private boolean replaceBiomeEdge(int[] parentVals, int[] out, int x, int y, int areaWidth, int biomeId, Optional<BiomeGenBase> fromBiome, Optional<BiomeGenBase> toBiome)
+    private boolean replaceBiomeEdge(int[] parentVals, int[] out, int x, int y, int areaWidth, int biomeId, Optional<Biome> fromBiome, Optional<Biome> toBiome)
     {
-        return fromBiome.isPresent() && toBiome.isPresent() && this.replaceBiomeEdge(parentVals, out, x, y, areaWidth, biomeId, BiomeGenBase.getIdForBiome(fromBiome.get()), BiomeGenBase.getIdForBiome(toBiome.get()));
+        return fromBiome.isPresent() && toBiome.isPresent() && this.replaceBiomeEdge(parentVals, out, x, y, areaWidth, biomeId, Biome.getIdForBiome(fromBiome.get()), Biome.getIdForBiome(toBiome.get()));
     }
     
     private boolean replaceBiomeEdge(int[] parentVals, int[] out, int x, int y, int areaWidth, int biomeId, int fromBiomeId, int toBiomeId)
@@ -177,14 +177,14 @@ public class GenLayerBiomeEdgeBOP extends BOPGenLayer
         }
         else
         {
-            BiomeGenBase biomegenbaseA = BiomeGenBase.getBiome(biomeA);
-            BiomeGenBase biomegenbaseB = BiomeGenBase.getBiome(biomeB);
+            Biome BiomeA = Biome.getBiome(biomeA);
+            Biome BiomeB = Biome.getBiome(biomeB);
 
-            if (biomegenbaseA != null && biomegenbaseB != null)
+            if (BiomeA != null && BiomeB != null)
             {
-            	BiomeGenBase.TempCategory tempcategory = biomegenbaseA.getTempCategory();
-                BiomeGenBase.TempCategory tempcategory1 = biomegenbaseB.getTempCategory();
-                return tempcategory == tempcategory1 || tempcategory == BiomeGenBase.TempCategory.MEDIUM || tempcategory1 == BiomeGenBase.TempCategory.MEDIUM;
+            	Biome.TempCategory tempcategory = BiomeA.getTempCategory();
+                Biome.TempCategory tempcategory1 = BiomeB.getTempCategory();
+                return tempcategory == tempcategory1 || tempcategory == Biome.TempCategory.MEDIUM || tempcategory1 == Biome.TempCategory.MEDIUM;
             }
             else
             {

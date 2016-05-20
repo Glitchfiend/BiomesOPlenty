@@ -8,10 +8,112 @@
 
 package biomesoplenty.common.init;
 
+import static biomesoplenty.api.item.BOPItems.ambrosia;
+import static biomesoplenty.api.item.BOPItems.amethyst_axe;
+import static biomesoplenty.api.item.BOPItems.amethyst_boots;
+import static biomesoplenty.api.item.BOPItems.amethyst_chestplate;
+import static biomesoplenty.api.item.BOPItems.amethyst_helmet;
+import static biomesoplenty.api.item.BOPItems.amethyst_hoe;
+import static biomesoplenty.api.item.BOPItems.amethyst_leggings;
+import static biomesoplenty.api.item.BOPItems.amethyst_pickaxe;
+import static biomesoplenty.api.item.BOPItems.amethyst_scythe;
+import static biomesoplenty.api.item.BOPItems.amethyst_shovel;
+import static biomesoplenty.api.item.BOPItems.amethyst_sword;
+import static biomesoplenty.api.item.BOPItems.ash;
+import static biomesoplenty.api.item.BOPItems.berries;
+import static biomesoplenty.api.item.BOPItems.biome_essence;
+import static biomesoplenty.api.item.BOPItems.biome_finder;
+import static biomesoplenty.api.item.BOPItems.black_dye;
+import static biomesoplenty.api.item.BOPItems.blue_dye;
+import static biomesoplenty.api.item.BOPItems.brown_dye;
+import static biomesoplenty.api.item.BOPItems.crystal_shard;
+import static biomesoplenty.api.item.BOPItems.dart;
+import static biomesoplenty.api.item.BOPItems.dart_blower;
+import static biomesoplenty.api.item.BOPItems.diamond_scythe;
+import static biomesoplenty.api.item.BOPItems.dull_flower_band;
+import static biomesoplenty.api.item.BOPItems.earth;
+import static biomesoplenty.api.item.BOPItems.enderporter;
+import static biomesoplenty.api.item.BOPItems.exotic_flower_band;
+import static biomesoplenty.api.item.BOPItems.filled_honeycomb;
+import static biomesoplenty.api.item.BOPItems.flax_string;
+import static biomesoplenty.api.item.BOPItems.fleshchunk;
+import static biomesoplenty.api.item.BOPItems.flippers;
+import static biomesoplenty.api.item.BOPItems.flower_basket;
+import static biomesoplenty.api.item.BOPItems.gem;
+import static biomesoplenty.api.item.BOPItems.gold_scythe;
+import static biomesoplenty.api.item.BOPItems.green_dye;
+import static biomesoplenty.api.item.BOPItems.honeycomb;
+import static biomesoplenty.api.item.BOPItems.ichor;
+import static biomesoplenty.api.item.BOPItems.iron_scythe;
+import static biomesoplenty.api.item.BOPItems.jar_empty;
+import static biomesoplenty.api.item.BOPItems.jar_filled;
+import static biomesoplenty.api.item.BOPItems.lush_flower_band;
+import static biomesoplenty.api.item.BOPItems.mud_axe;
+import static biomesoplenty.api.item.BOPItems.mud_boots;
+import static biomesoplenty.api.item.BOPItems.mud_brick;
+import static biomesoplenty.api.item.BOPItems.mud_chestplate;
+import static biomesoplenty.api.item.BOPItems.mud_helmet;
+import static biomesoplenty.api.item.BOPItems.mud_hoe;
+import static biomesoplenty.api.item.BOPItems.mud_leggings;
+import static biomesoplenty.api.item.BOPItems.mud_pickaxe;
+import static biomesoplenty.api.item.BOPItems.mud_scythe;
+import static biomesoplenty.api.item.BOPItems.mud_shovel;
+import static biomesoplenty.api.item.BOPItems.mud_sword;
+import static biomesoplenty.api.item.BOPItems.mudball;
+import static biomesoplenty.api.item.BOPItems.peach;
+import static biomesoplenty.api.item.BOPItems.pear;
+import static biomesoplenty.api.item.BOPItems.persimmon;
+import static biomesoplenty.api.item.BOPItems.pinecone;
+import static biomesoplenty.api.item.BOPItems.pixie_dust;
+import static biomesoplenty.api.item.BOPItems.plain_flower_band;
+import static biomesoplenty.api.item.BOPItems.record_corruption;
+import static biomesoplenty.api.item.BOPItems.record_wanderer;
+import static biomesoplenty.api.item.BOPItems.ricebowl;
+import static biomesoplenty.api.item.BOPItems.saladfruit;
+import static biomesoplenty.api.item.BOPItems.saladshroom;
+import static biomesoplenty.api.item.BOPItems.saladveggie;
+import static biomesoplenty.api.item.BOPItems.shroompowder;
+import static biomesoplenty.api.item.BOPItems.soul;
+import static biomesoplenty.api.item.BOPItems.spawn_egg;
+import static biomesoplenty.api.item.BOPItems.stone_scythe;
+import static biomesoplenty.api.item.BOPItems.terrestrial_artifact;
+import static biomesoplenty.api.item.BOPItems.turnip;
+import static biomesoplenty.api.item.BOPItems.turnip_seeds;
+import static biomesoplenty.api.item.BOPItems.wading_boots;
+import static biomesoplenty.api.item.BOPItems.white_dye;
+import static biomesoplenty.api.item.BOPItems.wood_scythe;
+import static biomesoplenty.api.item.BOPMaterials.amethyst_armor_material;
+import static biomesoplenty.api.item.BOPMaterials.amethyst_tool_material;
+import static biomesoplenty.api.item.BOPMaterials.dull_flower_band_material;
+import static biomesoplenty.api.item.BOPMaterials.exotic_flower_band_material;
+import static biomesoplenty.api.item.BOPMaterials.flippers_material;
+import static biomesoplenty.api.item.BOPMaterials.lush_flower_band_material;
+import static biomesoplenty.api.item.BOPMaterials.mud_armor_material;
+import static biomesoplenty.api.item.BOPMaterials.mud_tool_material;
+import static biomesoplenty.api.item.BOPMaterials.plain_flower_band_material;
+import static biomesoplenty.api.item.BOPMaterials.wading_boots_material;
+
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.sound.BOPSounds;
 import biomesoplenty.common.command.BOPCommand;
-import biomesoplenty.common.item.*;
+import biomesoplenty.common.item.ItemAmbrosia;
+import biomesoplenty.common.item.ItemBOPFood;
+import biomesoplenty.common.item.ItemBOPRecord;
+import biomesoplenty.common.item.ItemBOPScythe;
+import biomesoplenty.common.item.ItemBOPSpawnEgg;
+import biomesoplenty.common.item.ItemBiomeEssence;
+import biomesoplenty.common.item.ItemBiomeFinder;
+import biomesoplenty.common.item.ItemDart;
+import biomesoplenty.common.item.ItemDartBlower;
+import biomesoplenty.common.item.ItemEnderporter;
+import biomesoplenty.common.item.ItemFlippers;
+import biomesoplenty.common.item.ItemFlowerBand;
+import biomesoplenty.common.item.ItemFlowerBasket;
+import biomesoplenty.common.item.ItemGem;
+import biomesoplenty.common.item.ItemJarEmpty;
+import biomesoplenty.common.item.ItemJarFilled;
+import biomesoplenty.common.item.ItemMudball;
+import biomesoplenty.common.item.ItemWadingBoots;
 import biomesoplenty.common.util.BOPReflectionHelper;
 import biomesoplenty.common.util.inventory.CreativeTabBOP;
 import biomesoplenty.core.BiomesOPlenty;
@@ -20,16 +122,25 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.*;
+import net.minecraft.item.EnumAction;
+import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemAxe;
+import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemHoe;
+import net.minecraft.item.ItemPickaxe;
+import net.minecraft.item.ItemSeeds;
+import net.minecraft.item.ItemSoup;
+import net.minecraft.item.ItemSpade;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-
-import static biomesoplenty.api.item.BOPMaterials.*;
-import static biomesoplenty.api.item.BOPItems.*;
 
 public class ModItems
 {    
@@ -97,16 +208,16 @@ public class ModItems
         // DIAMOND("diamond", 33, new int[]{3, 8, 6, 3}, 10);
         
         // TODO: do we really want durability of -1 for these unprotective armor items?  does that mean it lasts forever?
-        wading_boots_material = addArmorMaterial("WADING_BOOTS", "biomesoplenty:wading_boots", -1, new int[]{0,0,0,0}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC);
-        flippers_material = addArmorMaterial("FLIPPERS", "biomesoplenty:flippers", -1, new int[]{0,0,0,0}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC);
-        plain_flower_band_material = addArmorMaterial("PLAIN_FLOWER_BAND", "biomesoplenty:plain_flower_band", -1, new int[]{0,0,0,0}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC);
-        lush_flower_band_material = addArmorMaterial("LUSH_FLOWER_BAND", "biomesoplenty:lush_flower_band", -1, new int[]{0,0,0,0}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC);
-        exotic_flower_band_material = addArmorMaterial("EXOTIC_FLOWER_BAND", "biomesoplenty:exotic_flower_band", -1, new int[]{0,0,0,0}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC);
-        dull_flower_band_material = addArmorMaterial("DULL_FLOWER_BAND", "biomesoplenty:dull_flower_band", -1, new int[]{0,0,0,0}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC);
+        wading_boots_material = addArmorMaterial("WADING_BOOTS", "biomesoplenty:wading_boots", -1, new int[]{0,0,0,0}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
+        flippers_material = addArmorMaterial("FLIPPERS", "biomesoplenty:flippers", -1, new int[]{0,0,0,0}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
+        plain_flower_band_material = addArmorMaterial("PLAIN_FLOWER_BAND", "biomesoplenty:plain_flower_band", -1, new int[]{0,0,0,0}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
+        lush_flower_band_material = addArmorMaterial("LUSH_FLOWER_BAND", "biomesoplenty:lush_flower_band", -1, new int[]{0,0,0,0}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
+        exotic_flower_band_material = addArmorMaterial("EXOTIC_FLOWER_BAND", "biomesoplenty:exotic_flower_band", -1, new int[]{0,0,0,0}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
+        dull_flower_band_material = addArmorMaterial("DULL_FLOWER_BAND", "biomesoplenty:dull_flower_band", -1, new int[]{0,0,0,0}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
         
-        mud_armor_material = addArmorMaterial("MUD", "biomesoplenty:mud_armor", 2, new int[]{1,1,1,1}, 5, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC);
+        mud_armor_material = addArmorMaterial("MUD", "biomesoplenty:mud_armor", 2, new int[]{1,1,1,1}, 5, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
         mud_armor_material.customCraftingMaterial = mudball;
-        amethyst_armor_material = addArmorMaterial("AMETHYST", "biomesoplenty:amethyst_armor", 40, new int[]{3,8,8,3}, 20, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC);
+        amethyst_armor_material = addArmorMaterial("AMETHYST", "biomesoplenty:amethyst_armor", 40, new int[]{3,8,8,3}, 20, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
         
         wading_boots = registerItem(new ItemWadingBoots(wading_boots_material, 0), "wading_boots");
         flippers = registerItem(new ItemFlippers(flippers_material, 0), "flippers");
@@ -200,9 +311,14 @@ public class ModItems
         return item;   
     }
 
-    private static ItemArmor.ArmorMaterial addArmorMaterial(String name, String textureName, int durability, int[] reductionAmounts, int enchantability, SoundEvent soundOnEquip)
+    private static Class<?>[][] enumTypes =
     {
-        return EnumHelper.addArmorMaterial(name, textureName, durability, reductionAmounts, enchantability, soundOnEquip);
+        {ArmorMaterial.class, String.class, int.class, int[].class, int.class, SoundEvent.class, float.class}
+    };
+
+    private static ItemArmor.ArmorMaterial addArmorMaterial(String name, String textureName, int durability, int[] reductionAmounts, int enchantability, SoundEvent soundOnEquip, float toughness)
+    {
+        return EnumHelper.addEnum(enumTypes, ItemArmor.ArmorMaterial.class, name, textureName, durability, reductionAmounts, enchantability, soundOnEquip, toughness);
     }
     
     private static void setAxeDamageAndSpeed(ToolMaterial material, float damage, float speed)

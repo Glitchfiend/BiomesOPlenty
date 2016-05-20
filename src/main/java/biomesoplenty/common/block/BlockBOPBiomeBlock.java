@@ -25,7 +25,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 
 public class BlockBOPBiomeBlock extends BlockBOPGeneric
 {   
@@ -37,17 +37,17 @@ public class BlockBOPBiomeBlock extends BlockBOPGeneric
     }
     
     // list of biomes which have an associated essence (possible drops when this block is broken)
-    private static List<BiomeGenBase> biomesWithEssence;
+    private static List<Biome> biomesWithEssence;
     
     // generate the list of biomes which have an associated essence
-    public List<BiomeGenBase> getBiomesWithEssence()
+    public List<Biome> getBiomesWithEssence()
     {
         if (biomesWithEssence != null) {return biomesWithEssence;}
         
-        biomesWithEssence = new ArrayList<BiomeGenBase>();
+        biomesWithEssence = new ArrayList<Biome>();
         
-        List<BiomeGenBase> vanillaBiomesToExclude = Arrays.asList(
-            new BiomeGenBase[] {
+        List<Biome> vanillaBiomesToExclude = Arrays.asList(
+            new Biome[] {
                 Biomes.SKY,
                 Biomes.HELL,
                 Biomes.BEACH,
@@ -61,7 +61,7 @@ public class BlockBOPBiomeBlock extends BlockBOPGeneric
             }
         );
         
-        for (BiomeGenBase biome : BiomeUtils.getRegisteredBiomes())
+        for (Biome biome : BiomeUtils.getRegisteredBiomes())
         {
             if (biome == null) {continue;}
             if (biome instanceof BOPBiome)
@@ -84,17 +84,17 @@ public class BlockBOPBiomeBlock extends BlockBOPGeneric
         List<ItemStack> ret = new ArrayList<ItemStack>();
         Random rand = world instanceof World ? ((World)world).rand : RANDOM;
 
-        List<BiomeGenBase> biomes = this.getBiomesWithEssence();
+        List<Biome> biomes = this.getBiomesWithEssence();
         int numToDrop = rand.nextInt(fortune + 2) + 1;
         int numChoices = biomes.size();
-        BiomeGenBase biome;
+        Biome biome;
         
         for (int i = 0; i < numToDrop; i++)
         {
             biome = biomes.get(rand.nextInt(numChoices));
             ItemStack biome_essence = new ItemStack(BOPItems.biome_essence);
             biome_essence.setTagCompound(new NBTTagCompound());
-            biome_essence.getTagCompound().setInteger("biomeID", BiomeGenBase.getIdForBiome(biome));
+            biome_essence.getTagCompound().setInteger("biomeID", Biome.getIdForBiome(biome));
             ret.add(biome_essence);              
         }
 

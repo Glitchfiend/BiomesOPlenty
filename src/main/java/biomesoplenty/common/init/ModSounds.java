@@ -7,11 +7,16 @@
  ******************************************************************************/
 package biomesoplenty.common.init;
 
+import static biomesoplenty.api.sound.BOPSounds.pixie_ambient;
+import static biomesoplenty.api.sound.BOPSounds.pixie_hurt;
+import static biomesoplenty.api.sound.BOPSounds.records_corruption;
+import static biomesoplenty.api.sound.BOPSounds.records_wanderer;
+import static biomesoplenty.api.sound.BOPSounds.wasp_ambient;
+import static biomesoplenty.api.sound.BOPSounds.wasp_hurt;
+
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-
-import static biomesoplenty.api.sound.BOPSounds.*;
 
 public class ModSounds 
 {

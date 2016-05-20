@@ -13,7 +13,7 @@ import biomesoplenty.api.generation.BOPGenLayer;
 import biomesoplenty.common.init.ModBiomes;
 import biomesoplenty.common.world.BOPWorldSettings;
 import net.minecraft.init.Biomes;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 import net.minecraftforge.common.BiomeManager.BiomeType;
@@ -54,22 +54,22 @@ public class GenLayerBiomeBOP extends BOPGenLayer
                 BOPClimates climate = BOPClimates.lookup(climateValues[index]);
                 
                 // At this point, oceans and land have been assigned, and so have mushroom islands
-                if (landSeaVal == BiomeGenBase.getIdForBiome(Biomes.DEEP_OCEAN))
+                if (landSeaVal == Biome.getIdForBiome(Biomes.DEEP_OCEAN))
                 {
-                    out[index] = BiomeGenBase.getIdForBiome(climate.getRandomOceanBiome(this, true));
+                    out[index] = Biome.getIdForBiome(climate.getRandomOceanBiome(this, true));
                 }
-                else if ((landSeaVal == BiomeGenBase.getIdForBiome(Biomes.MUSHROOM_ISLAND) || ModBiomes.islandBiomesMap.containsKey(landSeaVal)) && climate.biomeType != BiomeType.ICY)
+                else if ((landSeaVal == Biome.getIdForBiome(Biomes.MUSHROOM_ISLAND) || ModBiomes.islandBiomesMap.containsKey(landSeaVal)) && climate.biomeType != BiomeType.ICY)
                 {
                     // keep islands, unless it's in an icy climate in which case, replace
                     out[index] = landSeaVal;
                 }
                 else if (landSeaVal == 0)
                 {
-                    out[index] = BiomeGenBase.getIdForBiome(climate.getRandomOceanBiome(this, false));
+                    out[index] = Biome.getIdForBiome(climate.getRandomOceanBiome(this, false));
                 }
                 else
                 {
-                    out[index] = BiomeGenBase.getIdForBiome(climate.getRandomLandBiome(this));
+                    out[index] = Biome.getIdForBiome(climate.getRandomLandBiome(this));
                 }
             }
         }

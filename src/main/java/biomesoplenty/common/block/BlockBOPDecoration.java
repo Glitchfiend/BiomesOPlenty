@@ -108,10 +108,9 @@ public class BlockBOPDecoration extends Block implements IBOPBlock
     
     // check this block is still able to remain after neighbor change
     @Override
-    public void onNeighborBlockChange(World worldIn, BlockPos pos, IBlockState state, Block neighborBlock)
+    public void neighborChanged(IBlockState state, World world, BlockPos pos, Block neighborBlock)
     {
-        super.onNeighborBlockChange(worldIn, pos, state, neighborBlock);
-        this.checkAndDropBlock(worldIn, pos, state);
+        this.checkAndDropBlock(world, pos, state);
     }
 
     // check this block is still able to remain on update ticks

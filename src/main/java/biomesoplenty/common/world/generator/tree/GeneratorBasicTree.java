@@ -8,12 +8,19 @@
 
 package biomesoplenty.common.world.generator.tree;
 
+import java.util.Random;
+
+import org.apache.commons.lang3.tuple.Pair;
+
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.api.config.IConfigObj;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.util.block.BlockQuery;
-import biomesoplenty.common.util.block.BlockQuery.*;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryBlock;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryParseException;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryState;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCocoa;
 import net.minecraft.block.BlockSapling;
@@ -24,9 +31,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import org.apache.commons.lang3.tuple.Pair;
-
-import java.util.Random;
 
 public class GeneratorBasicTree extends GeneratorTreeBase
 {

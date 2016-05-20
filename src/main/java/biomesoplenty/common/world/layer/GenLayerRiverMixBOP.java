@@ -12,7 +12,7 @@ import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.generation.BOPGenLayer;
 import biomesoplenty.common.biome.overworld.BOPBiome;
 import net.minecraft.init.Biomes;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
@@ -45,21 +45,21 @@ public class GenLayerRiverMixBOP extends BOPGenLayer
 
         for (int i = 0; i < areaWidth * areaHeight; ++i)
         {
-            if (biomeIds[i] != BiomeGenBase.getIdForBiome(Biomes.FROZEN_OCEAN) && biomeIds[i] != BiomeGenBase.getIdForBiome(Biomes.OCEAN) && biomeIds[i] != BiomeGenBase.getIdForBiome(Biomes.DEEP_OCEAN) && biomeSupportsRivers(biomeIds[i]))
+            if (biomeIds[i] != Biome.getIdForBiome(Biomes.FROZEN_OCEAN) && biomeIds[i] != Biome.getIdForBiome(Biomes.OCEAN) && biomeIds[i] != Biome.getIdForBiome(Biomes.DEEP_OCEAN) && biomeSupportsRivers(biomeIds[i]))
             {
-                if (riverValues[i] == BiomeGenBase.getIdForBiome(Biomes.RIVER))
+                if (riverValues[i] == Biome.getIdForBiome(Biomes.RIVER))
                 {
-                    if (biomeIds[i] == BiomeGenBase.getIdForBiome(Biomes.ICE_PLAINS) || (BOPBiomes.snowy_forest.isPresent() && biomeIds[i] == BiomeGenBase.getIdForBiome(BOPBiomes.snowy_forest.get())) || (BOPBiomes.alps.isPresent() && biomeIds[i] == BiomeGenBase.getIdForBiome(BOPBiomes.alps.get())))
+                    if (biomeIds[i] == Biome.getIdForBiome(Biomes.ICE_PLAINS) || (BOPBiomes.snowy_forest.isPresent() && biomeIds[i] == Biome.getIdForBiome(BOPBiomes.snowy_forest.get())) || (BOPBiomes.alps.isPresent() && biomeIds[i] == Biome.getIdForBiome(BOPBiomes.alps.get())))
                     {
-                        out[i] = BiomeGenBase.getIdForBiome(Biomes.FROZEN_RIVER);
+                        out[i] = Biome.getIdForBiome(Biomes.FROZEN_RIVER);
                     }
-                    else if (biomeIds[i] != BiomeGenBase.getIdForBiome(Biomes.MUSHROOM_ISLAND) && biomeIds[i] != BiomeGenBase.getIdForBiome(Biomes.MUSHROOM_ISLAND_SHORE))
+                    else if (biomeIds[i] != Biome.getIdForBiome(Biomes.MUSHROOM_ISLAND) && biomeIds[i] != Biome.getIdForBiome(Biomes.MUSHROOM_ISLAND_SHORE))
                     {
                         out[i] = riverValues[i] & 255;
                     }
                     else
                     {
-                        out[i] = BiomeGenBase.getIdForBiome(Biomes.MUSHROOM_ISLAND_SHORE);
+                        out[i] = Biome.getIdForBiome(Biomes.MUSHROOM_ISLAND_SHORE);
                     }
                 }
                 else
@@ -78,7 +78,7 @@ public class GenLayerRiverMixBOP extends BOPGenLayer
     
     private boolean biomeSupportsRivers(int biomeId)
     {
-    	BiomeGenBase biome = BiomeGenBase.getBiome(biomeId);
+    	Biome biome = Biome.getBiome(biomeId);
 
     	if (biome != null && biome instanceof BOPBiome)
     	{

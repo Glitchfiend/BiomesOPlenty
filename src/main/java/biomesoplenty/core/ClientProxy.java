@@ -8,6 +8,12 @@
 
 package biomesoplenty.core;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import com.google.common.collect.Lists;
+
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.api.particle.BOPParticleTypes;
 import biomesoplenty.client.particle.EntityPixieTrailFX;
@@ -15,20 +21,26 @@ import biomesoplenty.client.particle.EntityTrailFX;
 import biomesoplenty.client.texture.ForgeRedirectedResourcePack;
 import biomesoplenty.common.block.IBOPBlock;
 import biomesoplenty.common.config.MiscConfigurationHandler;
-import biomesoplenty.common.entities.*;
+import biomesoplenty.common.entities.EntityButterfly;
+import biomesoplenty.common.entities.EntityPixie;
+import biomesoplenty.common.entities.EntitySnail;
+import biomesoplenty.common.entities.EntityWasp;
+import biomesoplenty.common.entities.RenderButterfly;
+import biomesoplenty.common.entities.RenderPixie;
+import biomesoplenty.common.entities.RenderSnail;
+import biomesoplenty.common.entities.RenderWasp;
 import biomesoplenty.common.entities.projectiles.EntityDart;
 import biomesoplenty.common.entities.projectiles.EntityMudball;
 import biomesoplenty.common.entities.projectiles.RenderDart;
 import biomesoplenty.common.entities.projectiles.RenderMudball;
 import biomesoplenty.common.item.IColoredItem;
 import biomesoplenty.common.util.inventory.CreativeTabBOP;
-import com.google.common.collect.Lists;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiMainMenu;
-import net.minecraft.client.particle.EntityFX;
+import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.IStateMapper;
@@ -51,10 +63,6 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 public class ClientProxy extends CommonProxy
 {
@@ -182,7 +190,7 @@ public class ClientProxy extends CommonProxy
     public void spawnParticle(BOPParticleTypes type, double x, double y, double z, Object... info)
     {
         Minecraft minecraft = Minecraft.getMinecraft();
-        EntityFX entityFx = null;
+        Particle entityFx = null;
         switch (type)
         {
         case PIXIETRAIL:

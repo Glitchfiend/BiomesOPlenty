@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 import biomesoplenty.api.generation.BOPGenLayer;
 import net.minecraft.init.Biomes;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeManager.BiomeType;
 
 public enum BOPClimates {
@@ -34,7 +34,7 @@ public enum BOPClimates {
         this.biomeType = biomeType;
     }
     
-    public BOPClimates addLandBiome(int weight, BiomeGenBase biome)
+    public BOPClimates addLandBiome(int weight, Biome biome)
     {
         return this.addLandBiome(new WeightedBiomeEntry(weight, biome));
     }
@@ -46,7 +46,7 @@ public enum BOPClimates {
         return this;
     }
     
-    public BiomeGenBase getRandomLandBiome(BOPGenLayer layer)
+    public Biome getRandomLandBiome(BOPGenLayer layer)
     {
         int weight = layer.nextInt(this.totalLandBiomesWeight);
         Iterator<WeightedBiomeEntry> iterator = this.landBiomes.iterator();
@@ -60,7 +60,7 @@ public enum BOPClimates {
         return item.biome;
     }
     
-    public BiomeGenBase getRandomOceanBiome(BOPGenLayer layer, boolean deep)
+    public Biome getRandomOceanBiome(BOPGenLayer layer, boolean deep)
     {
         switch (this)
         {
@@ -131,9 +131,9 @@ public enum BOPClimates {
     public static class WeightedBiomeEntry
     {
         public final int weight;
-        public final BiomeGenBase biome;
+        public final Biome biome;
         
-        public WeightedBiomeEntry(int weight, BiomeGenBase biome)
+        public WeightedBiomeEntry(int weight, Biome biome)
         {
             this.weight = weight;
             this.biome = biome;

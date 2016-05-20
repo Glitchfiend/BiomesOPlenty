@@ -13,27 +13,24 @@ import java.util.List;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraft.world.biome.Biome;
 
 public class ItemBiomeEssence extends Item
 {
     public ItemBiomeEssence() {}
     
-    public BiomeGenBase getBiome(ItemStack itemStack)
+    public Biome getBiome(ItemStack itemStack)
     {
         if (itemStack.hasTagCompound() && itemStack.getTagCompound().hasKey("biomeID"))
         {
-            return BiomeGenBase.getBiome(itemStack.getTagCompound().getInteger("biomeID"));
+            return Biome.getBiome(itemStack.getTagCompound().getInteger("biomeID"));
         }
         return null;
     }
     
     @Override
     public void addInformation(ItemStack itemStack, EntityPlayer player, List infoList, boolean advancedItemTooltips) {
-        BiomeGenBase biome = this.getBiome(itemStack);
+        Biome biome = this.getBiome(itemStack);
         if (biome != null) {
             infoList.add(biome.getBiomeName());
         }

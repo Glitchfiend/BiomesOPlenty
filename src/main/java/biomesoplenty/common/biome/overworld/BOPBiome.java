@@ -48,10 +48,10 @@ import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
 
-public class BOPBiome extends BiomeGenBase implements IExtendedBiome
+public class BOPBiome extends Biome implements IExtendedBiome
 {
     private GenerationManager generationManager = new GenerationManager();
     private Map<BOPClimates, Integer> weightMap = new HashMap<BOPClimates, Integer>();
@@ -406,7 +406,7 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
     }
 
     @Override
-    public BiomeGenBase getBaseBiome()
+    public Biome getBaseBiome()
     {
         return this;
     }
@@ -450,7 +450,7 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         }
     }
     
-    private static class BiomeProps extends BiomeGenBase.BiomeProperties
+    private static class BiomeProps extends Biome.BiomeProperties
     {
         /**The colour of this biome as seen in guis**/
         private int guiColour = 0xffffff;

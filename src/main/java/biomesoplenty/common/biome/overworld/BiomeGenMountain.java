@@ -43,7 +43,7 @@ import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
 
 public class BiomeGenMountain extends BOPBiome
@@ -92,8 +92,8 @@ public class BiomeGenMountain extends BOPBiome
             
             // only sheep and wolves on the peaks
             this.spawnableCreatureList.clear();
-            this.spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntitySheep.class, 12, 4, 6));
-            this.spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityWolf.class, 4, 4, 4));
+            this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntitySheep.class, 12, 4, 6));
+            this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 4, 4, 4));
         }        
         
         this.topBlock = Blocks.GRASS.getDefaultState();

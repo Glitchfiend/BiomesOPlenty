@@ -30,7 +30,7 @@ import biomesoplenty.common.world.layer.GenLayerTemperatureNoise;
 import biomesoplenty.common.world.layer.GenLayerTemperatureRandom;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeProvider;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.GenLayerAddMushroomIsland;
@@ -62,7 +62,7 @@ public class BiomeProviderBOP extends BiomeProvider
         BOPWorldSettings settings = new BOPWorldSettings(chunkProviderSettings);        
         
         // loop through the biomes and apply the settings
-        for (BiomeGenBase biome : BiomeUtils.getRegisteredBiomes())
+        for (Biome biome : BiomeUtils.getRegisteredBiomes())
         {
             if (biome == null) {continue;}
             
@@ -77,7 +77,7 @@ public class BiomeProviderBOP extends BiomeProvider
         
         // set up all the gen layers
         GenLayer[] agenlayer = setupBOPGenLayers(seed, settings);
-        agenlayer = getModdedBiomeGenerators(worldType, seed, agenlayer);
+        agenlayer = getModdedBiomeerators(worldType, seed, agenlayer);
         this.genBiomes = Generators.biomeGenLayer = agenlayer[0];
         this.biomeIndexLayer = Generators.biomeIndexLayer = agenlayer[1];
     }

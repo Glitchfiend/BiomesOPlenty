@@ -227,7 +227,7 @@ public class GuiBOPPageTable extends GuiBOPPageList
         }
 
         guilabel.visible = field.isVisible();
-        guilabel.func_175202_a(field.getLabelText()); // setText
+        guilabel.addLine(field.getLabelText());
         guilabel.setCentered();
         return guilabel;
     }

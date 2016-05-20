@@ -8,7 +8,7 @@ import com.google.common.collect.Lists;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.integration.ThaumcraftCompat;
 import biomesoplenty.core.BiomesOPlenty;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
 import net.minecraftforge.common.BiomeManager.BiomeType;
@@ -66,7 +66,7 @@ public class ModCompatibility
     }
     
     //TODO: Make this more accurate, possibly analyze heights, temps, rainfall and/or biome dictionary tags
-    private static void remapBiomeToBoP(BiomeGenBase biome, BiomeType type, int weight)
+    private static void remapBiomeToBoP(Biome biome, BiomeType type, int weight)
     {
         for (BOPClimates climate : BOPClimates.values())
         {

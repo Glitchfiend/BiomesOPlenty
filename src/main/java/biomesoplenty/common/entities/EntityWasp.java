@@ -8,6 +8,11 @@
 
 package biomesoplenty.common.entities;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
+
 import biomesoplenty.api.sound.BOPSounds;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityFlying;
@@ -23,11 +28,6 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
 
 public class EntityWasp extends EntityFlying implements IMob {
     

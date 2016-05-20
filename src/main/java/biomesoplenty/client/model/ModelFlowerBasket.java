@@ -8,12 +8,12 @@
 
 package biomesoplenty.client.model;
 
-import biomesoplenty.common.inventory.InventoryFlowerBasket;
 import com.google.common.collect.ImmutableList;
+
+import biomesoplenty.common.inventory.InventoryFlowerBasket;
 import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.client.renderer.block.model.ItemOverride;
 import net.minecraft.client.renderer.block.model.ItemOverrideList;
-import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;

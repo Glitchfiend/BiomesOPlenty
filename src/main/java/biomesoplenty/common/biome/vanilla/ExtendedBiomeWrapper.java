@@ -16,17 +16,17 @@ import biomesoplenty.common.world.GenerationManager;
 import biomesoplenty.common.world.generator.GeneratorFlora;
 import net.minecraft.init.Biomes;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 
 public class ExtendedBiomeWrapper implements IExtendedBiome
 {
-    public final BiomeGenBase biome;
+    public final Biome biome;
     private GenerationManager generationManager = new GenerationManager();
     private Map<BOPClimates, Integer> weightMap = new HashMap<BOPClimates, Integer>();
     
     public ResourceLocation beachBiomeLocation = BiomeUtils.getLocForBiome(Biomes.BEACH);
     
-    public ExtendedBiomeWrapper(BiomeGenBase biome)
+    public ExtendedBiomeWrapper(Biome biome)
     {
         this.biome = biome;
         
@@ -112,7 +112,7 @@ public class ExtendedBiomeWrapper implements IExtendedBiome
     }
 
     @Override
-    public BiomeGenBase getBaseBiome() 
+    public Biome getBaseBiome() 
     {
         return this.biome;
     }

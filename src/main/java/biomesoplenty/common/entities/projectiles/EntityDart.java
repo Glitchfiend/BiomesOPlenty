@@ -8,6 +8,8 @@
 
 package biomesoplenty.common.entities.projectiles;
 
+import java.util.List;
+
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.api.potion.BOPPotions;
 import biomesoplenty.common.item.ItemDart;
@@ -31,8 +33,6 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-
-import java.util.List;
 
 public class EntityDart extends EntityArrow
 {
@@ -122,7 +122,7 @@ public class EntityDart extends EntityArrow
                 // TODO: what is all this?  Something about informing the other player in a multiplayer game that he got hit or something?
                 if (this.shootingEntity != null && entityHit != this.shootingEntity && entityHit instanceof EntityPlayer && this.shootingEntity instanceof EntityPlayerMP)
                 {
-                    ((EntityPlayerMP)this.shootingEntity).playerNetServerHandler.sendPacket(new SPacketChangeGameState(6, 0.0F));
+                    ((EntityPlayerMP)this.shootingEntity).connection.sendPacket(new SPacketChangeGameState(6, 0.0F));
                 }
             }
 

@@ -15,7 +15,7 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
 
 import net.minecraft.world.WorldType;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 
 public class BOPBiomes
 {
@@ -25,71 +25,71 @@ public class BOPBiomes
     public static List<WorldType> excludedDecoratedWorldTypes = Lists.newArrayList();
     
     // normal biomes which have weights
-    public static Optional<BiomeGenBase> alps = Optional.absent();
-    public static Optional<BiomeGenBase> bamboo_forest = Optional.absent();
-    public static Optional<BiomeGenBase> bayou = Optional.absent();
-    public static Optional<BiomeGenBase> bog = Optional.absent();
-    public static Optional<BiomeGenBase> boreal_forest = Optional.absent();
-    public static Optional<BiomeGenBase> brushland = Optional.absent();
-    public static Optional<BiomeGenBase> chaparral = Optional.absent();
-    public static Optional<BiomeGenBase> cherry_blossom_grove = Optional.absent();
-    public static Optional<BiomeGenBase> cold_desert = Optional.absent();
-    public static Optional<BiomeGenBase> coniferous_forest = Optional.absent();
-    public static Optional<BiomeGenBase> crag = Optional.absent();
-    public static Optional<BiomeGenBase> dead_forest = Optional.absent();
-    public static Optional<BiomeGenBase> dead_swamp = Optional.absent();
-    public static Optional<BiomeGenBase> eucalyptus_forest = Optional.absent();
-    public static Optional<BiomeGenBase> fen = Optional.absent();
-    public static Optional<BiomeGenBase> flower_field = Optional.absent();
-    public static Optional<BiomeGenBase> grassland = Optional.absent();    
-    public static Optional<BiomeGenBase> grove = Optional.absent();
-    public static Optional<BiomeGenBase> heathland = Optional.absent();    
-    public static Optional<BiomeGenBase> highland = Optional.absent();
-    public static Optional<BiomeGenBase> land_of_lakes = Optional.absent();
-    public static Optional<BiomeGenBase> lavender_fields = Optional.absent();
-    public static Optional<BiomeGenBase> lush_desert = Optional.absent();
-    public static Optional<BiomeGenBase> lush_swamp = Optional.absent();
-    public static Optional<BiomeGenBase> maple_woods = Optional.absent();
-    public static Optional<BiomeGenBase> marsh = Optional.absent();
-    public static Optional<BiomeGenBase> meadow = Optional.absent();
-    public static Optional<BiomeGenBase> moor = Optional.absent();
-    public static Optional<BiomeGenBase> mountain = Optional.absent();
-    public static Optional<BiomeGenBase> mystic_grove = Optional.absent();
-    public static Optional<BiomeGenBase> ominous_woods = Optional.absent();
-    public static Optional<BiomeGenBase> orchard = Optional.absent();
-    public static Optional<BiomeGenBase> outback = Optional.absent();
-    public static Optional<BiomeGenBase> overgrown_cliffs = Optional.absent();
-    public static Optional<BiomeGenBase> prairie = Optional.absent();
-    public static Optional<BiomeGenBase> quagmire = Optional.absent();
-    public static Optional<BiomeGenBase> rainforest = Optional.absent();
-    public static Optional<BiomeGenBase> redwood_forest = Optional.absent();
-    public static Optional<BiomeGenBase> sacred_springs = Optional.absent();
-    public static Optional<BiomeGenBase> seasonal_forest = Optional.absent();
-    public static Optional<BiomeGenBase> shield = Optional.absent();
-    public static Optional<BiomeGenBase> shrubland = Optional.absent();
-    public static Optional<BiomeGenBase> snowy_coniferous_forest = Optional.absent();
-    public static Optional<BiomeGenBase> snowy_forest = Optional.absent();
-    public static Optional<BiomeGenBase> steppe = Optional.absent();
-    public static Optional<BiomeGenBase> temperate_rainforest = Optional.absent();
-    public static Optional<BiomeGenBase> tropical_rainforest = Optional.absent();
-    public static Optional<BiomeGenBase> tundra = Optional.absent();
-    public static Optional<BiomeGenBase> wasteland = Optional.absent();
-    public static Optional<BiomeGenBase> wetland = Optional.absent();
-    public static Optional<BiomeGenBase> woodland = Optional.absent();
-    public static Optional<BiomeGenBase> xeric_shrubland = Optional.absent();
+    public static Optional<Biome> alps = Optional.absent();
+    public static Optional<Biome> bamboo_forest = Optional.absent();
+    public static Optional<Biome> bayou = Optional.absent();
+    public static Optional<Biome> bog = Optional.absent();
+    public static Optional<Biome> boreal_forest = Optional.absent();
+    public static Optional<Biome> brushland = Optional.absent();
+    public static Optional<Biome> chaparral = Optional.absent();
+    public static Optional<Biome> cherry_blossom_grove = Optional.absent();
+    public static Optional<Biome> cold_desert = Optional.absent();
+    public static Optional<Biome> coniferous_forest = Optional.absent();
+    public static Optional<Biome> crag = Optional.absent();
+    public static Optional<Biome> dead_forest = Optional.absent();
+    public static Optional<Biome> dead_swamp = Optional.absent();
+    public static Optional<Biome> eucalyptus_forest = Optional.absent();
+    public static Optional<Biome> fen = Optional.absent();
+    public static Optional<Biome> flower_field = Optional.absent();
+    public static Optional<Biome> grassland = Optional.absent();    
+    public static Optional<Biome> grove = Optional.absent();
+    public static Optional<Biome> heathland = Optional.absent();    
+    public static Optional<Biome> highland = Optional.absent();
+    public static Optional<Biome> land_of_lakes = Optional.absent();
+    public static Optional<Biome> lavender_fields = Optional.absent();
+    public static Optional<Biome> lush_desert = Optional.absent();
+    public static Optional<Biome> lush_swamp = Optional.absent();
+    public static Optional<Biome> maple_woods = Optional.absent();
+    public static Optional<Biome> marsh = Optional.absent();
+    public static Optional<Biome> meadow = Optional.absent();
+    public static Optional<Biome> moor = Optional.absent();
+    public static Optional<Biome> mountain = Optional.absent();
+    public static Optional<Biome> mystic_grove = Optional.absent();
+    public static Optional<Biome> ominous_woods = Optional.absent();
+    public static Optional<Biome> orchard = Optional.absent();
+    public static Optional<Biome> outback = Optional.absent();
+    public static Optional<Biome> overgrown_cliffs = Optional.absent();
+    public static Optional<Biome> prairie = Optional.absent();
+    public static Optional<Biome> quagmire = Optional.absent();
+    public static Optional<Biome> rainforest = Optional.absent();
+    public static Optional<Biome> redwood_forest = Optional.absent();
+    public static Optional<Biome> sacred_springs = Optional.absent();
+    public static Optional<Biome> seasonal_forest = Optional.absent();
+    public static Optional<Biome> shield = Optional.absent();
+    public static Optional<Biome> shrubland = Optional.absent();
+    public static Optional<Biome> snowy_coniferous_forest = Optional.absent();
+    public static Optional<Biome> snowy_forest = Optional.absent();
+    public static Optional<Biome> steppe = Optional.absent();
+    public static Optional<Biome> temperate_rainforest = Optional.absent();
+    public static Optional<Biome> tropical_rainforest = Optional.absent();
+    public static Optional<Biome> tundra = Optional.absent();
+    public static Optional<Biome> wasteland = Optional.absent();
+    public static Optional<Biome> wetland = Optional.absent();
+    public static Optional<Biome> woodland = Optional.absent();
+    public static Optional<Biome> xeric_shrubland = Optional.absent();
     
     // edge-biomes, sub-biomes and mutated-biomes
-    public static Optional<BiomeGenBase> mountain_foothills = Optional.absent();
-    public static Optional<BiomeGenBase> glacier = Optional.absent();
-    public static Optional<BiomeGenBase> oasis = Optional.absent();
-    public static Optional<BiomeGenBase> coral_reef = Optional.absent();
-    public static Optional<BiomeGenBase> kelp_forest = Optional.absent();
-    public static Optional<BiomeGenBase> mangrove = Optional.absent();
-    public static Optional<BiomeGenBase> origin_island = Optional.absent();
-    public static Optional<BiomeGenBase> tropical_island = Optional.absent();
-    public static Optional<BiomeGenBase> volcanic_island = Optional.absent();
-    public static Optional<BiomeGenBase> flower_island = Optional.absent();
-    public static Optional<BiomeGenBase> gravel_beach = Optional.absent();
+    public static Optional<Biome> mountain_foothills = Optional.absent();
+    public static Optional<Biome> glacier = Optional.absent();
+    public static Optional<Biome> oasis = Optional.absent();
+    public static Optional<Biome> coral_reef = Optional.absent();
+    public static Optional<Biome> kelp_forest = Optional.absent();
+    public static Optional<Biome> mangrove = Optional.absent();
+    public static Optional<Biome> origin_island = Optional.absent();
+    public static Optional<Biome> tropical_island = Optional.absent();
+    public static Optional<Biome> volcanic_island = Optional.absent();
+    public static Optional<Biome> flower_island = Optional.absent();
+    public static Optional<Biome> gravel_beach = Optional.absent();
 
     //Biome extensions
     public static IExtendedBiome end_extension;
@@ -140,7 +140,7 @@ public class BOPBiomes
     public static interface IBiomeRegistry
     {
         public IExtendedBiome registerBiome(IExtendedBiome biome, String idName);
-        public IExtendedBiome getExtendedBiome(BiomeGenBase biome);
-        public ImmutableSet<BiomeGenBase> getPresentBiomes();
+        public IExtendedBiome getExtendedBiome(Biome biome);
+        public ImmutableSet<Biome> getPresentBiomes();
     }
 }

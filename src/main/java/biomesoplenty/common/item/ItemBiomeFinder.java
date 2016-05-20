@@ -8,6 +8,8 @@
 
 package biomesoplenty.common.item;
 
+import java.util.List;
+
 import biomesoplenty.common.util.biome.BiomeUtils;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.EntityLivingBase;
@@ -24,11 +26,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.util.List;
 
 public class ItemBiomeFinder extends Item
 {    
@@ -111,7 +111,7 @@ public class ItemBiomeFinder extends Item
         {
             return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);
         }
-        BiomeGenBase biomeToFind = BiomeGenBase.getBiome(nbt.getInteger("biomeIDToFind")); // returns ocean if biomeIDToFind is out of bounds
+        Biome biomeToFind = Biome.getBiome(nbt.getInteger("biomeIDToFind")); // returns ocean if biomeIDToFind is out of bounds
         
         // both client and server set the 'searching' tag - client to update the rendering, server so it can't be used again too quickly
         writeNBTSearching(nbt, world);
@@ -189,7 +189,7 @@ public class ItemBiomeFinder extends Item
         NBTTagCompound nbt = itemStack.getTagCompound();
         if (nbt.hasKey("biomeIDToFind"))
         {
-            BiomeGenBase biomeToFind = BiomeGenBase.getBiome(nbt.getInteger("biomeIDToFind")); // returns ocean if biomeIDToFind is out of bounds
+            Biome biomeToFind = Biome.getBiome(nbt.getInteger("biomeIDToFind")); // returns ocean if biomeIDToFind is out of bounds
             infoList.add(biomeToFind.getBiomeName());
         }
     }

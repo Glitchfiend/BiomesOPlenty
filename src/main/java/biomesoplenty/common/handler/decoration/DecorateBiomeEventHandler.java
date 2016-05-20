@@ -15,10 +15,9 @@ import biomesoplenty.api.biome.IExtendedBiome;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.api.generation.IGenerationManager;
 import biomesoplenty.api.generation.IGenerator;
-import biomesoplenty.common.world.GenerationManager;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate;
 import net.minecraftforge.event.terraingen.OreGenEvent;
@@ -79,7 +78,7 @@ public class DecorateBiomeEventHandler
     
     private static boolean runGeneratorStage(World world, Random random, BlockPos pos, GeneratorStage stage)
     {
-        BiomeGenBase biome = world.getBiomeGenForCoords(pos.add(16, 0, 16));
+        Biome biome = world.getBiomeGenForCoords(pos.add(16, 0, 16));
         IExtendedBiome extendedBiome = BOPBiomes.REG_INSTANCE.getExtendedBiome(biome);
         
         if (extendedBiome != null)

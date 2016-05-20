@@ -1,36 +1,5 @@
 package biomesoplenty.common.integration;
 
-import com.sun.jna.platform.unix.X11.XSizeHints.Aspect;
-
-import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.common.block.BlockBOPBones;
-import biomesoplenty.common.block.BlockBOPBones.BoneType;
-import biomesoplenty.common.block.BlockBOPFlower;
-import biomesoplenty.common.block.BlockBOPGem;
-import biomesoplenty.common.block.BlockBOPGrass;
-import biomesoplenty.common.block.BlockBOPGrass.BOPGrassType;
-import biomesoplenty.common.block.BlockBOPLeaves;
-import biomesoplenty.common.block.BlockBOPLog;
-import biomesoplenty.common.block.BlockBOPMushroom;
-import biomesoplenty.common.block.BlockBOPMushroom.MushroomType;
-import biomesoplenty.common.block.BlockBOPPlanks;
-import biomesoplenty.common.block.BlockBOPPlant;
-import biomesoplenty.common.block.BlockBOPSand;
-import biomesoplenty.common.block.BlockBOPSapling;
-import biomesoplenty.common.block.BlockBOPSeaweed;
-import biomesoplenty.common.block.BlockBOPSeaweed.SeaweedType;
-import biomesoplenty.common.enums.BOPFlowers;
-import biomesoplenty.common.enums.BOPGems;
-import biomesoplenty.common.enums.BOPPlants;
-import biomesoplenty.common.enums.BOPTrees;
-import biomesoplenty.common.enums.BOPWoods;
-import net.minecraft.block.Block;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.common.event.FMLInterModComms;
-
 //TODO: Re-add this
 public class ThaumcraftCompat 
 {

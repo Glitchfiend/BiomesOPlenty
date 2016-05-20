@@ -8,32 +8,218 @@
 
 package biomesoplenty.common.init;
 
+import static biomesoplenty.api.biome.BOPBiomes.alps;
+import static biomesoplenty.api.biome.BOPBiomes.bamboo_forest;
+import static biomesoplenty.api.biome.BOPBiomes.bayou;
+import static biomesoplenty.api.biome.BOPBiomes.birch_forest_extension;
+import static biomesoplenty.api.biome.BOPBiomes.birch_forest_hills_extension;
+import static biomesoplenty.api.biome.BOPBiomes.bog;
+import static biomesoplenty.api.biome.BOPBiomes.boreal_forest;
+import static biomesoplenty.api.biome.BOPBiomes.brushland;
+import static biomesoplenty.api.biome.BOPBiomes.chaparral;
+import static biomesoplenty.api.biome.BOPBiomes.cherry_blossom_grove;
+import static biomesoplenty.api.biome.BOPBiomes.cold_desert;
+import static biomesoplenty.api.biome.BOPBiomes.cold_taiga_extension;
+import static biomesoplenty.api.biome.BOPBiomes.cold_taiga_hills_extension;
+import static biomesoplenty.api.biome.BOPBiomes.coniferous_forest;
+import static biomesoplenty.api.biome.BOPBiomes.coral_reef;
+import static biomesoplenty.api.biome.BOPBiomes.crag;
+import static biomesoplenty.api.biome.BOPBiomes.dead_forest;
+import static biomesoplenty.api.biome.BOPBiomes.dead_swamp;
+import static biomesoplenty.api.biome.BOPBiomes.desert_extension;
+import static biomesoplenty.api.biome.BOPBiomes.desert_hills_extension;
+import static biomesoplenty.api.biome.BOPBiomes.end_extension;
+import static biomesoplenty.api.biome.BOPBiomes.eucalyptus_forest;
+import static biomesoplenty.api.biome.BOPBiomes.excludedDecoratedWorldTypes;
+import static biomesoplenty.api.biome.BOPBiomes.extreme_hills_extension;
+import static biomesoplenty.api.biome.BOPBiomes.extreme_hills_plus_extension;
+import static biomesoplenty.api.biome.BOPBiomes.fen;
+import static biomesoplenty.api.biome.BOPBiomes.flower_field;
+import static biomesoplenty.api.biome.BOPBiomes.flower_island;
+import static biomesoplenty.api.biome.BOPBiomes.forest_extension;
+import static biomesoplenty.api.biome.BOPBiomes.forest_hills_extension;
+import static biomesoplenty.api.biome.BOPBiomes.glacier;
+import static biomesoplenty.api.biome.BOPBiomes.grassland;
+import static biomesoplenty.api.biome.BOPBiomes.gravel_beach;
+import static biomesoplenty.api.biome.BOPBiomes.grove;
+import static biomesoplenty.api.biome.BOPBiomes.heathland;
+import static biomesoplenty.api.biome.BOPBiomes.highland;
+import static biomesoplenty.api.biome.BOPBiomes.ice_mountains_extension;
+import static biomesoplenty.api.biome.BOPBiomes.ice_plains_extension;
+import static biomesoplenty.api.biome.BOPBiomes.jungle_extension;
+import static biomesoplenty.api.biome.BOPBiomes.jungle_hills_extension;
+import static biomesoplenty.api.biome.BOPBiomes.kelp_forest;
+import static biomesoplenty.api.biome.BOPBiomes.land_of_lakes;
+import static biomesoplenty.api.biome.BOPBiomes.lavender_fields;
+import static biomesoplenty.api.biome.BOPBiomes.lush_desert;
+import static biomesoplenty.api.biome.BOPBiomes.lush_swamp;
+import static biomesoplenty.api.biome.BOPBiomes.mangrove;
+import static biomesoplenty.api.biome.BOPBiomes.maple_woods;
+import static biomesoplenty.api.biome.BOPBiomes.marsh;
+import static biomesoplenty.api.biome.BOPBiomes.meadow;
+import static biomesoplenty.api.biome.BOPBiomes.mega_taiga_extension;
+import static biomesoplenty.api.biome.BOPBiomes.mega_taiga_hills_extension;
+import static biomesoplenty.api.biome.BOPBiomes.mesa_extension;
+import static biomesoplenty.api.biome.BOPBiomes.mesa_plateau_extension;
+import static biomesoplenty.api.biome.BOPBiomes.moor;
+import static biomesoplenty.api.biome.BOPBiomes.mountain;
+import static biomesoplenty.api.biome.BOPBiomes.mountain_foothills;
+import static biomesoplenty.api.biome.BOPBiomes.mushroom_island_extension;
+import static biomesoplenty.api.biome.BOPBiomes.mystic_grove;
+import static biomesoplenty.api.biome.BOPBiomes.oasis;
+import static biomesoplenty.api.biome.BOPBiomes.ocean_extension;
+import static biomesoplenty.api.biome.BOPBiomes.ominous_woods;
+import static biomesoplenty.api.biome.BOPBiomes.orchard;
+import static biomesoplenty.api.biome.BOPBiomes.origin_island;
+import static biomesoplenty.api.biome.BOPBiomes.outback;
+import static biomesoplenty.api.biome.BOPBiomes.overgrown_cliffs;
+import static biomesoplenty.api.biome.BOPBiomes.plains_extension;
+import static biomesoplenty.api.biome.BOPBiomes.prairie;
+import static biomesoplenty.api.biome.BOPBiomes.quagmire;
+import static biomesoplenty.api.biome.BOPBiomes.rainforest;
+import static biomesoplenty.api.biome.BOPBiomes.redwood_forest;
+import static biomesoplenty.api.biome.BOPBiomes.roofed_forest_extension;
+import static biomesoplenty.api.biome.BOPBiomes.sacred_springs;
+import static biomesoplenty.api.biome.BOPBiomes.savanna_extension;
+import static biomesoplenty.api.biome.BOPBiomes.savanna_plateau_extension;
+import static biomesoplenty.api.biome.BOPBiomes.seasonal_forest;
+import static biomesoplenty.api.biome.BOPBiomes.shield;
+import static biomesoplenty.api.biome.BOPBiomes.shrubland;
+import static biomesoplenty.api.biome.BOPBiomes.snowy_coniferous_forest;
+import static biomesoplenty.api.biome.BOPBiomes.snowy_forest;
+import static biomesoplenty.api.biome.BOPBiomes.steppe;
+import static biomesoplenty.api.biome.BOPBiomes.swampland_extension;
+import static biomesoplenty.api.biome.BOPBiomes.taiga_extension;
+import static biomesoplenty.api.biome.BOPBiomes.taiga_hills_extension;
+import static biomesoplenty.api.biome.BOPBiomes.temperate_rainforest;
+import static biomesoplenty.api.biome.BOPBiomes.tropical_island;
+import static biomesoplenty.api.biome.BOPBiomes.tropical_rainforest;
+import static biomesoplenty.api.biome.BOPBiomes.tundra;
+import static biomesoplenty.api.biome.BOPBiomes.volcanic_island;
+import static biomesoplenty.api.biome.BOPBiomes.wasteland;
+import static biomesoplenty.api.biome.BOPBiomes.wetland;
+import static biomesoplenty.api.biome.BOPBiomes.woodland;
+import static biomesoplenty.api.biome.BOPBiomes.xeric_shrubland;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import com.google.common.base.Optional;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Sets;
+
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.biome.IExtendedBiome;
 import biomesoplenty.api.config.IConfigObj;
 import biomesoplenty.api.enums.BOPClimates;
-import biomesoplenty.common.biome.overworld.*;
-import biomesoplenty.common.biome.vanilla.*;
+import biomesoplenty.common.biome.overworld.BOPBiome;
+import biomesoplenty.common.biome.overworld.BiomeGenAlps;
+import biomesoplenty.common.biome.overworld.BiomeGenBambooForest;
+import biomesoplenty.common.biome.overworld.BiomeGenBayou;
+import biomesoplenty.common.biome.overworld.BiomeGenBog;
+import biomesoplenty.common.biome.overworld.BiomeGenBorealForest;
+import biomesoplenty.common.biome.overworld.BiomeGenBrushland;
+import biomesoplenty.common.biome.overworld.BiomeGenChaparral;
+import biomesoplenty.common.biome.overworld.BiomeGenCherryBlossomGrove;
+import biomesoplenty.common.biome.overworld.BiomeGenColdDesert;
+import biomesoplenty.common.biome.overworld.BiomeGenConiferousForest;
+import biomesoplenty.common.biome.overworld.BiomeGenCoralReef;
+import biomesoplenty.common.biome.overworld.BiomeGenCrag;
+import biomesoplenty.common.biome.overworld.BiomeGenDeadForest;
+import biomesoplenty.common.biome.overworld.BiomeGenDeadSwamp;
+import biomesoplenty.common.biome.overworld.BiomeGenEucalyptusForest;
+import biomesoplenty.common.biome.overworld.BiomeGenFen;
+import biomesoplenty.common.biome.overworld.BiomeGenFlowerField;
+import biomesoplenty.common.biome.overworld.BiomeGenFlowerIsland;
+import biomesoplenty.common.biome.overworld.BiomeGenGlacier;
+import biomesoplenty.common.biome.overworld.BiomeGenGrassland;
+import biomesoplenty.common.biome.overworld.BiomeGenGravelBeach;
+import biomesoplenty.common.biome.overworld.BiomeGenGrove;
+import biomesoplenty.common.biome.overworld.BiomeGenHeathland;
+import biomesoplenty.common.biome.overworld.BiomeGenHighland;
+import biomesoplenty.common.biome.overworld.BiomeGenKelpForest;
+import biomesoplenty.common.biome.overworld.BiomeGenLandOfLakes;
+import biomesoplenty.common.biome.overworld.BiomeGenLavenderFields;
+import biomesoplenty.common.biome.overworld.BiomeGenLushDesert;
+import biomesoplenty.common.biome.overworld.BiomeGenLushSwamp;
+import biomesoplenty.common.biome.overworld.BiomeGenMangrove;
+import biomesoplenty.common.biome.overworld.BiomeGenMapleWoods;
+import biomesoplenty.common.biome.overworld.BiomeGenMarsh;
+import biomesoplenty.common.biome.overworld.BiomeGenMeadow;
+import biomesoplenty.common.biome.overworld.BiomeGenMoor;
+import biomesoplenty.common.biome.overworld.BiomeGenMountain;
+import biomesoplenty.common.biome.overworld.BiomeGenMysticGrove;
+import biomesoplenty.common.biome.overworld.BiomeGenOasis;
+import biomesoplenty.common.biome.overworld.BiomeGenOminousWoods;
+import biomesoplenty.common.biome.overworld.BiomeGenOrchard;
+import biomesoplenty.common.biome.overworld.BiomeGenOriginIsland;
+import biomesoplenty.common.biome.overworld.BiomeGenOutback;
+import biomesoplenty.common.biome.overworld.BiomeGenOvergrownCliffs;
+import biomesoplenty.common.biome.overworld.BiomeGenPrairie;
+import biomesoplenty.common.biome.overworld.BiomeGenQuagmire;
+import biomesoplenty.common.biome.overworld.BiomeGenRainforest;
+import biomesoplenty.common.biome.overworld.BiomeGenRedwoodForest;
+import biomesoplenty.common.biome.overworld.BiomeGenSacredSprings;
+import biomesoplenty.common.biome.overworld.BiomeGenSeasonalForest;
+import biomesoplenty.common.biome.overworld.BiomeGenShield;
+import biomesoplenty.common.biome.overworld.BiomeGenShrubland;
+import biomesoplenty.common.biome.overworld.BiomeGenSnowyConiferousForest;
+import biomesoplenty.common.biome.overworld.BiomeGenSnowyForest;
+import biomesoplenty.common.biome.overworld.BiomeGenSteppe;
+import biomesoplenty.common.biome.overworld.BiomeGenTemperateRainforest;
+import biomesoplenty.common.biome.overworld.BiomeGenTropicalIsland;
+import biomesoplenty.common.biome.overworld.BiomeGenTropicalRainforest;
+import biomesoplenty.common.biome.overworld.BiomeGenTundra;
+import biomesoplenty.common.biome.overworld.BiomeGenVolcanicIsland;
+import biomesoplenty.common.biome.overworld.BiomeGenWasteland;
+import biomesoplenty.common.biome.overworld.BiomeGenWetland;
+import biomesoplenty.common.biome.overworld.BiomeGenWoodland;
+import biomesoplenty.common.biome.overworld.BiomeGenXericShrubland;
+import biomesoplenty.common.biome.vanilla.BiomeExtBirchForest;
+import biomesoplenty.common.biome.vanilla.BiomeExtBirchForestHills;
+import biomesoplenty.common.biome.vanilla.BiomeExtColdTaiga;
+import biomesoplenty.common.biome.vanilla.BiomeExtColdTaigaHills;
+import biomesoplenty.common.biome.vanilla.BiomeExtDesert;
+import biomesoplenty.common.biome.vanilla.BiomeExtDesertHills;
+import biomesoplenty.common.biome.vanilla.BiomeExtEnd;
+import biomesoplenty.common.biome.vanilla.BiomeExtExtremeHills;
+import biomesoplenty.common.biome.vanilla.BiomeExtExtremeHillsPlus;
+import biomesoplenty.common.biome.vanilla.BiomeExtForest;
+import biomesoplenty.common.biome.vanilla.BiomeExtForestHills;
+import biomesoplenty.common.biome.vanilla.BiomeExtIceMountains;
+import biomesoplenty.common.biome.vanilla.BiomeExtIcePlains;
+import biomesoplenty.common.biome.vanilla.BiomeExtJungle;
+import biomesoplenty.common.biome.vanilla.BiomeExtJungleHills;
+import biomesoplenty.common.biome.vanilla.BiomeExtMegaTaiga;
+import biomesoplenty.common.biome.vanilla.BiomeExtMegaTaigaHills;
+import biomesoplenty.common.biome.vanilla.BiomeExtMesa;
+import biomesoplenty.common.biome.vanilla.BiomeExtMesaPlateau;
+import biomesoplenty.common.biome.vanilla.BiomeExtMushroomIsland;
+import biomesoplenty.common.biome.vanilla.BiomeExtOcean;
+import biomesoplenty.common.biome.vanilla.BiomeExtPlains;
+import biomesoplenty.common.biome.vanilla.BiomeExtRoofedForest;
+import biomesoplenty.common.biome.vanilla.BiomeExtSavanna;
+import biomesoplenty.common.biome.vanilla.BiomeExtSavannaPlateau;
+import biomesoplenty.common.biome.vanilla.BiomeExtSwampland;
+import biomesoplenty.common.biome.vanilla.BiomeExtTaiga;
+import biomesoplenty.common.biome.vanilla.BiomeExtTaigaHills;
 import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.util.config.BOPConfig;
 import biomesoplenty.common.world.WorldTypeBOP;
 import biomesoplenty.core.BiomesOPlenty;
-import com.google.common.base.Optional;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Sets;
 import net.minecraft.init.Biomes;
 import net.minecraft.world.WorldType;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.BiomeManager;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.*;
-import java.util.Map.Entry;
-
-import static biomesoplenty.api.biome.BOPBiomes.*;
 
 public class ModBiomes implements BOPBiomes.IBiomeRegistry
 {
@@ -46,7 +232,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
     private static Set<Integer> idsReservedInConfig;
     private static Map<Integer, IExtendedBiome> biomeWrapperMap;
     
-    public static Set<BiomeGenBase> presentBiomes;
+    public static Set<Biome> presentBiomes;
     public static Map<Integer, List<Integer>> subBiomesMap;
     
     public static Map<Integer, Integer> islandBiomesMap = new HashMap<Integer, Integer>();
@@ -338,7 +524,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         presentBiomes.add(extendedBiome.getBaseBiome());
         
         //Extra functionality builtin, such as with BOPBiome
-        if (extendedBiome instanceof BiomeGenBase)
+        if (extendedBiome instanceof Biome)
         {
             for (Entry<BOPClimates, Integer> entry : extendedBiome.getWeightMap().entrySet())
             {
@@ -352,14 +538,14 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         }
         else //extendedBiome is a wrapper
         {
-            biomeWrapperMap.put(BiomeGenBase.getIdForBiome(extendedBiome.getBaseBiome()), extendedBiome);
+            biomeWrapperMap.put(Biome.getIdForBiome(extendedBiome.getBaseBiome()), extendedBiome);
         }
         
         return extendedBiome;
     }
     
     @Override
-    public IExtendedBiome getExtendedBiome(BiomeGenBase biome) 
+    public IExtendedBiome getExtendedBiome(Biome biome) 
     {
         //Extra functionality builtin, such as with BOPBiome
         if (biome instanceof IExtendedBiome)
@@ -368,7 +554,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         }
         else
         {
-            IExtendedBiome wrapper = biomeWrapperMap.get(BiomeGenBase.getIdForBiome(biome));
+            IExtendedBiome wrapper = biomeWrapperMap.get(Biome.getIdForBiome(biome));
             
             //This biome may not have a wrapper
             if (wrapper != null)
@@ -382,7 +568,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
     }
     
     @Override
-    public ImmutableSet<BiomeGenBase> getPresentBiomes()
+    public ImmutableSet<Biome> getPresentBiomes()
     {
         return ImmutableSet.copyOf(presentBiomes);
     }
@@ -398,11 +584,11 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         return conf;
     }
     
-    private static void setSubBiome(Optional<BiomeGenBase> parent, Optional<BiomeGenBase>... subBiomes)
+    private static void setSubBiome(Optional<Biome> parent, Optional<Biome>... subBiomes)
     {
         if (parent.isPresent())
         {
-            for (Optional<BiomeGenBase> subBiome : subBiomes)
+            for (Optional<Biome> subBiome : subBiomes)
             {
                 if (subBiome.isPresent())
                 {
@@ -412,26 +598,26 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         }
     }
     
-    private static void setSubBiome(BiomeGenBase parent, BiomeGenBase... subBiomes)
+    private static void setSubBiome(Biome parent, Biome... subBiomes)
     {
         Map<Integer, List<Integer>> map = subBiomesMap;
-        int parentId = BiomeGenBase.getIdForBiome(parent);
+        int parentId = Biome.getIdForBiome(parent);
         if (!map.containsKey(parentId))
         {
             map.put(parentId, new ArrayList<Integer>());
         }
-        for (BiomeGenBase subBiome : subBiomes)
+        for (Biome subBiome : subBiomes)
         {
-            map.get(parentId).add(BiomeGenBase.getIdForBiome(subBiome));
+            map.get(parentId).add(Biome.getIdForBiome(subBiome));
         }
     }
     
-    private static void addIslandBiome(Optional<BiomeGenBase> biome, int weight)
+    private static void addIslandBiome(Optional<Biome> biome, int weight)
     {
         if (biome.isPresent())
         {
             totalIslandBiomesWeight += weight;
-            islandBiomesMap.put(BiomeGenBase.getIdForBiome(biome.get()), weight);
+            islandBiomesMap.put(Biome.getIdForBiome(biome.get()), weight);
         }
     }
     
@@ -444,7 +630,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         return BOPBiomes.REG_INSTANCE.registerBiome(extendedBiome, idName);
     }
     
-    private static Optional<BiomeGenBase> registerBOPBiome(BOPBiome biome)
+    private static Optional<Biome> registerBOPBiome(BOPBiome biome)
     {
         String idName = biome.getResourceLocation().getResourcePath();
         Integer id = biomeIdMapConf.getInt(idName, null);
@@ -455,7 +641,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
             BOPCommand.biomeCount++;
 
             BOPBiomes.REG_INSTANCE.registerBiome(biome, idName);
-            BiomeGenBase.registerBiome(id, biome.getResourceLocation().toString(), biome);
+            Biome.registerBiome(id, biome.getResourceLocation().toString(), biome);
             
             //Enable spwning and village generation in the biome
             if (biome.canSpawnInBiome)
@@ -464,14 +650,14 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
             if (biome.canGenerateVillages)
                 BiomeManager.addVillageBiome(biome, true);
             
-            return Optional.of((BiomeGenBase)biome);
+            return Optional.of((Biome)biome);
             
         } else {
             return Optional.absent();
         }
     }
     
-    private static void registerBiomeToDictionary(Optional<BiomeGenBase> biome, Type...types)
+    private static void registerBiomeToDictionary(Optional<Biome> biome, Type...types)
     {
         if (biome.isPresent())
         {
@@ -483,7 +669,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
     {
         for (int i = nextBiomeId; i < 256; i++)
         {
-            if (BiomeGenBase.getBiome(i) != null) 
+            if (Biome.getBiome(i) != null) 
             {
                 if (i == 255) throw new IllegalArgumentException("There are no more biome ids avaliable!");
                 continue;

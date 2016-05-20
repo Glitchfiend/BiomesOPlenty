@@ -8,21 +8,24 @@
 
 package biomesoplenty.common.util.biome;
 
+import java.util.List;
+
+import javax.annotation.Nullable;
+
+import org.apache.commons.lang3.tuple.Pair;
+
+import com.google.common.base.Function;
+import com.google.common.collect.Lists;
+
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.WorldTypeBOP;
 import biomesoplenty.core.BiomesOPlenty;
-import com.google.common.base.Function;
-import com.google.common.collect.Lists;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeProvider;
 import net.minecraft.world.gen.ChunkProviderSettings;
-import org.apache.commons.lang3.tuple.Pair;
-
-import javax.annotation.Nullable;
-import java.util.List;
 
 public class BiomeUtils
 {
@@ -41,32 +44,32 @@ public class BiomeUtils
     
     /**Use getRegistryName() instead**/
     @Deprecated
-    public static ResourceLocation getLocForBiome(BiomeGenBase biome)
+    public static ResourceLocation getLocForBiome(Biome biome)
     {
-        return BiomeGenBase.REGISTRY.getNameForObject(biome);
+        return Biome.REGISTRY.getNameForObject(biome);
     }
     
-    public static BiomeGenBase getBiomeForLoc(ResourceLocation location)
+    public static Biome getBiomeForLoc(ResourceLocation location)
     {
-        return BiomeGenBase.REGISTRY.getObject(location);
+        return Biome.REGISTRY.getObject(location);
     }
 
-    private static final Function<ResourceLocation, Pair<ResourceLocation, BiomeGenBase>> MAPPING_FOR_LOCATION = new Function<ResourceLocation, Pair<ResourceLocation, BiomeGenBase>>()
+    private static final Function<ResourceLocation, Pair<ResourceLocation, Biome>> MAPPING_FOR_LOCATION = new Function<ResourceLocation, Pair<ResourceLocation, Biome>>()
     {
         @Nullable
         @Override
-        public Pair<ResourceLocation, BiomeGenBase> apply(@Nullable ResourceLocation input)
+        public Pair<ResourceLocation, Biome> apply(@Nullable ResourceLocation input)
         {
-            return Pair.of(input, BiomeGenBase.REGISTRY.getObject(input));
+            return Pair.of(input, Biome.REGISTRY.getObject(input));
         }
     };
 
-    public static List<BiomeGenBase> getRegisteredBiomes()
+    public static List<Biome> getRegisteredBiomes()
     {
-        return Lists.newArrayList(BiomeGenBase.REGISTRY.iterator());
+        return Lists.newArrayList(Biome.REGISTRY.iterator());
     }
     
-    public static BlockPos spiralOutwardsLookingForBiome(World world, BiomeGenBase biomeToFind, double startX, double startZ)
+    public static BlockPos spiralOutwardsLookingForBiome(World world, Biome biomeToFind, double startX, double startZ)
     {
         int sampleSpacing = 4 << BiomeUtils.getBiomeSize(world);
         int maxDist = sampleSpacing * 100;
@@ -75,7 +78,7 @@ public class BiomeUtils
     
     // sample points in an archimedean spiral starting from startX,startY each one sampleSpace apart
     // stop when the specified biome is found (and return the position it was found at) or when we reach maxDistance (and return null)
-    public static BlockPos spiralOutwardsLookingForBiome(World world, BiomeGenBase biomeToFind, double startX, double startZ, int maxDist, int sampleSpace)
+    public static BlockPos spiralOutwardsLookingForBiome(World world, Biome biomeToFind, double startX, double startZ, int maxDist, int sampleSpace)
     {
         
         if (maxDist <= 0 || sampleSpace <= 0) {throw new IllegalArgumentException("maxDist and sampleSpace must be positive");}
@@ -95,7 +98,7 @@ public class BiomeUtils
             // chunkManager.genBiomes is the first layer returned from initializeAllBiomeGenerators()
             // chunkManager.biomeIndexLayer is the second layer returned from initializeAllBiomeGenerators(), it's zoomed twice from genBiomes (>> 2) this one is actual size
             // chunkManager.getBiomeGenAt uses biomeIndexLayer to get the biome
-            BiomeGenBase[] biomesAtSample = chunkManager.getBiomeGenAt(null, (int)x, (int)z, 1, 1, false);
+            Biome[] biomesAtSample = chunkManager.getBiomeGenAt(null, (int)x, (int)z, 1, 1, false);
             if (biomesAtSample[0] == biomeToFind)
             {
                 BiomesOPlenty.logger.info("Found "+biomeToFind.getBiomeName()+" after "+n+" samples, spaced "+sampleSpace+" blocks apart at ("+((int)x)+","+((int)z)+") distance "+((int)dist));

@@ -1,13 +1,22 @@
 package biomesoplenty.client.gui;
 
+import java.io.IOException;
+
+import com.google.common.base.Predicate;
+import com.google.common.primitives.Floats;
+
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.BOPWorldSettings.BiomeSize;
 import biomesoplenty.common.world.BOPWorldSettings.LandMassScheme;
 import biomesoplenty.common.world.BOPWorldSettings.RainfallVariationScheme;
 import biomesoplenty.common.world.BOPWorldSettings.TemperatureVariationScheme;
-import com.google.common.base.Predicate;
-import com.google.common.primitives.Floats;
-import net.minecraft.client.gui.*;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.client.gui.GuiButton;
+import net.minecraft.client.gui.GuiCreateWorld;
+import net.minecraft.client.gui.GuiListButton;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.gui.GuiSlider;
+import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.VertexBuffer;
@@ -15,8 +24,6 @@ import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.resources.I18n;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.io.IOException;
 
 @SideOnly(Side.CLIENT)
 public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatHelper, GuiBOPPageList.GuiResponder
@@ -448,11 +455,11 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
     
     // These 3 are the original functions required by GuiPageButtonList.GuiResponder - just pass off to the better named functions
     @Override
-    public void func_175319_a(int fieldId, String value) {this.handleStringSelection(fieldId, value);}
+    public void setEntryValue(int fieldId, String value) {this.handleStringSelection(fieldId, value);}
     @Override
-    public void onTick(int fieldId, float value) {this.handleFloatSelection(fieldId, value);}
+    public void setEntryValue(int fieldId, float value) {this.handleFloatSelection(fieldId, value);}
     @Override 
-    public void func_175321_a(int fieldId, boolean value) {this.handleBooleanSelection(fieldId, value);}
+    public void setEntryValue(int fieldId, boolean value) {this.handleBooleanSelection(fieldId, value);}
     
 
     
@@ -605,7 +612,7 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
                 int i = guitextfield.getId();
                 String s = this.stringFormatFloat(guitextfield.getId(), f2.floatValue());
                 guitextfield.setText(s);
-                this.func_175319_a(i, s);
+                this.setEntryValue(i, s);
             }
         }
     }

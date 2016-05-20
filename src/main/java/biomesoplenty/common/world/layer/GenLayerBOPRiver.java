@@ -2,7 +2,7 @@ package biomesoplenty.common.world.layer;
 
 import biomesoplenty.api.generation.BOPGenLayer;
 import net.minecraft.init.Biomes;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
@@ -40,7 +40,7 @@ public class GenLayerBOPRiver extends BOPGenLayer
                 }
                 else
                 {
-                    out[x + y * areaWidth] = BiomeGenBase.getIdForBiome(Biomes.RIVER);
+                    out[x + y * areaWidth] = Biome.getIdForBiome(Biomes.RIVER);
                 }
             }
         }

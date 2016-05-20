@@ -17,7 +17,7 @@ import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.api.generation.IGenerationManager;
 import biomesoplenty.api.generation.IGenerator;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 
 public interface IExtendedBiome
 {
@@ -34,6 +34,6 @@ public interface IExtendedBiome
     public ResourceLocation getBeachLocation();
     
     /**Get the base biome associated with this extension**/
-    public BiomeGenBase getBaseBiome();
+    public Biome getBaseBiome();
     public ResourceLocation getResourceLocation();
 }

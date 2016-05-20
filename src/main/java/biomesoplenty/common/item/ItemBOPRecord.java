@@ -8,7 +8,6 @@
 
 package biomesoplenty.common.item;
 
-import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemRecord;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;

@@ -8,6 +8,8 @@
 
 package biomesoplenty.common.world.generator;
 
+import java.util.Random;
+
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.api.config.IConfigObj;
@@ -23,8 +25,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GeneratorBigMushroom extends BOPGeneratorBase
 {       

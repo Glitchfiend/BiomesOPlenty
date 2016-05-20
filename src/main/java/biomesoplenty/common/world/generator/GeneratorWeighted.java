@@ -16,7 +16,6 @@ import biomesoplenty.api.config.IConfigObj;
 import biomesoplenty.api.generation.BOPGeneratorBase;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.api.generation.IGenerator;
-import biomesoplenty.api.generation.IGenerator.IGeneratorBuilder;
 import biomesoplenty.common.world.GeneratorRegistry;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;

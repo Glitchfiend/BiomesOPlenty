@@ -86,7 +86,7 @@ public class BiomeGenMangrove extends BOPBiome
     @Override
     public void genTerrainBlocks(World world, Random rand, ChunkPrimer primer, int x, int z, double noise)
     {
-        double d0 = GRASS_COLOR_NOISE.func_151601_a((double)x * 0.25D, (double)z * 0.25D);
+        double d0 = GRASS_COLOR_NOISE.getValue((double)x * 0.25D, (double)z * 0.25D);
 
         if (d0 > 0.0D)
         {

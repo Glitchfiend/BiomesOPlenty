@@ -137,14 +137,14 @@ public class BiomeGenHeathland extends BOPBiome
     @Override
     public int getGrassColorAtPos(BlockPos pos)
     {
-        double noise = GRASS_COLOR_NOISE.func_151601_a((double)pos.getX() * 0.0225D, (double)pos.getZ() * 0.0225D);
+        double noise = GRASS_COLOR_NOISE.getValue((double)pos.getX() * 0.0225D, (double)pos.getZ() * 0.0225D);
         return noise < -0.1D ? 0xAD9D68 : 0xADAE68;
     }
 
     @Override
     public int getFoliageColorAtPos(BlockPos pos)
     {
-        double noise = GRASS_COLOR_NOISE.func_151601_a((double)pos.getX() * 0.0225D, (double)pos.getZ() * 0.0225D);
+        double noise = GRASS_COLOR_NOISE.getValue((double)pos.getX() * 0.0225D, (double)pos.getZ() * 0.0225D);
         return noise < -0.1D ? 0xB6A763 : 0xB6C663;
     }
     

@@ -8,14 +8,14 @@
 
 package biomesoplenty.client.particle;
 
-import net.minecraft.client.particle.EntityFX;
+import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.VertexBuffer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.client.FMLClientHandler;
 
-public class EntityTrailFX extends EntityFX
+public class EntityTrailFX extends Particle
 {
 	private ResourceLocation trailResource;
     /**The index of the flower to be spawned, values are 0-3*/
@@ -27,7 +27,7 @@ public class EntityTrailFX extends EntityFX
 		super(world, x, y, z);
 		
 		this.trailResource = new ResourceLocation("biomesoplenty:textures/particles/" + trailName + ".png");
-        this.xSpeed = this.ySpeed = this.zSpeed = 0.0D; //Trail particles should not move
+        this.motionX = this.motionY = this.motionZ = 0.0D; //Trail particles should not move
 		this.particleMaxAge = 550;
 		this.particleIndex = this.rand.nextInt(4); //Choose a random index on creation
 		this.startY = y; //Where y coordinate where this particle has started (before it moves downwards with time)

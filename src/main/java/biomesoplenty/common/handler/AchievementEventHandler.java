@@ -7,6 +7,11 @@
  ******************************************************************************/
 package biomesoplenty.common.handler;
 
+import java.util.Iterator;
+import java.util.Set;
+
+import com.google.common.collect.Sets;
+
 import biomesoplenty.api.achievement.BOPAchievements;
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.block.BOPBlocks;
@@ -19,7 +24,6 @@ import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.item.ItemJarFilled;
-import com.google.common.collect.Sets;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -31,7 +35,7 @@ import net.minecraft.stats.AchievementList;
 import net.minecraft.util.JsonSerializableSet;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -40,12 +44,9 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.ItemCraftedEvent;
 
-import java.util.Iterator;
-import java.util.Set;
-
 public class AchievementEventHandler 
 {
-    private static final Set<BiomeGenBase> BOP_BIOMES_TO_EXPLORE = Sets.union(BOPBiomes.REG_INSTANCE.getPresentBiomes(), BiomeGenBase.EXPLORATION_BIOMES_LIST);
+    private static final Set<Biome> BOP_BIOMES_TO_EXPLORE = Sets.union(BOPBiomes.REG_INSTANCE.getPresentBiomes(), Biome.EXPLORATION_BIOMES_LIST);
 
     @SubscribeEvent
     public void onItemPickup(PlayerEvent.ItemPickupEvent event)
@@ -269,7 +270,7 @@ public class AchievementEventHandler
 
     private void updateBiomeRadarExplore(EntityPlayerMP player)
     {
-        BiomeGenBase currentBiome = player.worldObj.getBiomeGenForCoords(new BlockPos(MathHelper.floor_double(player.posX), 0, MathHelper.floor_double(player.posZ)));
+        Biome currentBiome = player.worldObj.getBiomeGenForCoords(new BlockPos(MathHelper.floor_double(player.posX), 0, MathHelper.floor_double(player.posZ)));
 
         //Search every item in the player's main inventory for a biome radar
         for (ItemStack stack : player.inventory.mainInventory)
@@ -283,7 +284,7 @@ public class AchievementEventHandler
                 int biomeIdToFind = stack.getTagCompound().getInteger("biomeIDToFind");
 
                 //If the current biome id is the id on the radar, award the achievement and stop searching
-                if (biomeIdToFind == BiomeGenBase.getIdForBiome(currentBiome)) 
+                if (biomeIdToFind == Biome.getIdForBiome(currentBiome)) 
                 {
                     player.addStat(BOPAchievements.use_biome_finder);
                     return;
@@ -294,15 +295,15 @@ public class AchievementEventHandler
     
     private void updateBiomesExplored(EntityPlayerMP player)
     {
-        BiomeGenBase currentBiome = player.worldObj.getBiomeGenForCoords(new BlockPos(MathHelper.floor_double(player.posX), 0, MathHelper.floor_double(player.posZ)));
+        Biome currentBiome = player.worldObj.getBiomeGenForCoords(new BlockPos(MathHelper.floor_double(player.posX), 0, MathHelper.floor_double(player.posZ)));
         String biomeName = currentBiome.getBiomeName();
         //Get a list of the current explored biomes
-        JsonSerializableSet exploredBiomeNames = (JsonSerializableSet)player.getStatFile().func_150870_b(BOPAchievements.explore_all_biomes);
+        JsonSerializableSet exploredBiomeNames = (JsonSerializableSet)player.getStatFile().getProgress(BOPAchievements.explore_all_biomes);
 
         if (exploredBiomeNames == null)
         {
             //Set the stat data
-            exploredBiomeNames = (JsonSerializableSet)player.getStatFile().func_150872_a(BOPAchievements.explore_all_biomes, new JsonSerializableSet());
+            exploredBiomeNames = (JsonSerializableSet)player.getStatFile().setProgress(BOPAchievements.explore_all_biomes, new JsonSerializableSet());
         }
 
         //Add the current biome to the set of biomes that the player has explored
@@ -311,17 +312,17 @@ public class AchievementEventHandler
         if (player.getStatFile().canUnlockAchievement(BOPAchievements.explore_all_biomes) && exploredBiomeNames.size() >= BOP_BIOMES_TO_EXPLORE.size())
         {
             //Create a copy of the set of biomes that need to be explored to fulfil the achievement
-            Set<BiomeGenBase> set = Sets.newHashSet(BOP_BIOMES_TO_EXPLORE);
+            Set<Biome> set = Sets.newHashSet(BOP_BIOMES_TO_EXPLORE);
 
             //Iterate over the names of all the biomes the player has explored
             for (String exploredBiomeName : exploredBiomeNames)
             {
-                Iterator<BiomeGenBase> iterator = set.iterator();
+                Iterator<Biome> iterator = set.iterator();
 
                 //Iterate over the set of biomes required to be explored and remove those that already have been explored
                 while (iterator.hasNext())
                 {
-                    BiomeGenBase biome = (BiomeGenBase)iterator.next();
+                    Biome biome = (Biome)iterator.next();
 
                     if (biome.getBiomeName().equals(exploredBiomeName))
                     {

@@ -8,6 +8,37 @@
 
 package biomesoplenty.common.init;
 
+import static biomesoplenty.api.block.BlockQueries.air;
+import static biomesoplenty.api.block.BlockQueries.airAbove;
+import static biomesoplenty.api.block.BlockQueries.airBelow;
+import static biomesoplenty.api.block.BlockQueries.airOrLeaves;
+import static biomesoplenty.api.block.BlockQueries.anything;
+import static biomesoplenty.api.block.BlockQueries.breakable;
+import static biomesoplenty.api.block.BlockQueries.endish;
+import static biomesoplenty.api.block.BlockQueries.fertile;
+import static biomesoplenty.api.block.BlockQueries.fertileOrNetherrack;
+import static biomesoplenty.api.block.BlockQueries.fertileSeaBed;
+import static biomesoplenty.api.block.BlockQueries.groundBlocks;
+import static biomesoplenty.api.block.BlockQueries.hasWater;
+import static biomesoplenty.api.block.BlockQueries.hellish;
+import static biomesoplenty.api.block.BlockQueries.litBeach;
+import static biomesoplenty.api.block.BlockQueries.litDry;
+import static biomesoplenty.api.block.BlockQueries.litFertile;
+import static biomesoplenty.api.block.BlockQueries.litFertileOrDry;
+import static biomesoplenty.api.block.BlockQueries.litFertileWaterside;
+import static biomesoplenty.api.block.BlockQueries.litSand;
+import static biomesoplenty.api.block.BlockQueries.nothing;
+import static biomesoplenty.api.block.BlockQueries.replaceable;
+import static biomesoplenty.api.block.BlockQueries.rootsCanDigThrough;
+import static biomesoplenty.api.block.BlockQueries.solid;
+import static biomesoplenty.api.block.BlockQueries.spectralMoss;
+import static biomesoplenty.api.block.BlockQueries.suitableForReed;
+import static biomesoplenty.api.block.BlockQueries.surfaceBlocks;
+import static biomesoplenty.api.block.BlockQueries.sustainsCave;
+import static biomesoplenty.api.block.BlockQueries.sustainsNether;
+import static biomesoplenty.api.block.BlockQueries.underwater;
+import static biomesoplenty.api.block.BlockQueries.waterCovered;
+
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.common.block.BlockBOPGrass;
@@ -21,8 +52,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
-
-import static biomesoplenty.api.block.BlockQueries.*;
 
 public class ModBlockQueries
 {

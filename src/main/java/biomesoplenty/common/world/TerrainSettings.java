@@ -9,7 +9,7 @@
 package biomesoplenty.common.world;
 
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
     
 public class TerrainSettings
 {
@@ -99,7 +99,7 @@ public class TerrainSettings
         return this;
     }
     
-    public static TerrainSettings forVanillaBiome(BiomeGenBase biome)
+    public static TerrainSettings forVanillaBiome(Biome biome)
     {
         // Transform vanilla height parameters into equivalent BOP terrain parameters
         // Note they're named appallingly - minHeight and maxHeight in the vanilla biomes should be called baseHeight and scale
