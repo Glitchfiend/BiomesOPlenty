@@ -9,6 +9,7 @@
 package biomesoplenty.core;
 
 import java.io.File;
+import java.util.Locale;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -61,6 +62,9 @@ public class BiomesOPlenty
     public void preInit(FMLPreInitializationEvent event)
     {
         configDirectory = new File(event.getModConfigurationDirectory(), "biomesoplenty");
+
+        //Fixes the Turkish dotless I bug
+        Locale.setDefault(Locale.ENGLISH);
 
         TrailManager.retrieveTrails();
         ModConfiguration.init(configDirectory);
