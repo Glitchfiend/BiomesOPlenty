@@ -122,7 +122,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
@@ -311,14 +310,9 @@ public class ModItems
         return item;   
     }
 
-    private static Class<?>[][] enumTypes =
+    private static ArmorMaterial addArmorMaterial(String name, String textureName, int durability, int[] reductionAmounts, int enchantability, SoundEvent soundOnEquip, float toughness)
     {
-        {ArmorMaterial.class, String.class, int.class, int[].class, int.class, SoundEvent.class, float.class}
-    };
-
-    private static ItemArmor.ArmorMaterial addArmorMaterial(String name, String textureName, int durability, int[] reductionAmounts, int enchantability, SoundEvent soundOnEquip, float toughness)
-    {
-        return EnumHelper.addEnum(enumTypes, ItemArmor.ArmorMaterial.class, name, textureName, durability, reductionAmounts, enchantability, soundOnEquip, toughness);
+        return EnumHelper.addArmorMaterial(name, textureName, durability, reductionAmounts, enchantability, soundOnEquip, toughness);
     }
     
     private static void setAxeDamageAndSpeed(ToolMaterial material, float damage, float speed)
