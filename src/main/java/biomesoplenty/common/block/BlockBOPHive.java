@@ -27,6 +27,8 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockBOPHive extends Block implements IBOPBlock
 {
@@ -64,8 +66,10 @@ public class BlockBOPHive extends Block implements IBOPBlock
         return ((HiveType) state.getValue(VARIANT)).getName() + "_block";
     }
     @Override
+    @SideOnly(Side.CLIENT)
     public IBlockColor getBlockColor() { return null; }
     @Override
+    @SideOnly(Side.CLIENT)
     public IItemColor getItemColor() { return null; }
     
     public BlockBOPHive()

@@ -88,6 +88,7 @@ public class BlockBOPLilypad extends BlockLilyPad implements IBOPBlock
         };
     }
     @Override
+    @SideOnly(Side.CLIENT)
     public IItemColor getItemColor() { return null; }
     
     public BlockBOPLilypad()

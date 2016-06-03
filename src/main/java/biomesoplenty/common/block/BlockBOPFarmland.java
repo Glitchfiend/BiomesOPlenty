@@ -37,6 +37,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockBOPFarmland extends BlockFarmland implements IBOPBlock
 {
@@ -78,8 +80,10 @@ public class BlockBOPFarmland extends BlockFarmland implements IBOPBlock
         return ((BlockBOPDirt.BOPDirtType) state.getValue(this.variantProperty)).getName() + "_farmland";
     }
     @Override
+    @SideOnly(Side.CLIENT)
     public IBlockColor getBlockColor() { return null; }
     @Override
+    @SideOnly(Side.CLIENT)
     public IItemColor getItemColor() { return null; }
     
     public BlockBOPFarmland()

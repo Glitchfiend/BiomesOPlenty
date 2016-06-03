@@ -24,6 +24,8 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.EnumPlantType;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockBOPGeneric extends Block implements IBOPBlock, ISustainsPlantType
 {
@@ -38,8 +40,10 @@ public class BlockBOPGeneric extends Block implements IBOPBlock, ISustainsPlantT
     @Override
     public String getStateName(IBlockState state) {return "";}
     @Override
+    @SideOnly(Side.CLIENT)
     public IBlockColor getBlockColor() { return null; }
     @Override
+    @SideOnly(Side.CLIENT)
     public IItemColor getItemColor() { return null; }
     
     public BlockBOPGeneric() {

@@ -85,8 +85,10 @@ public class BlockBOPHalfWoodSlab extends BlockSlab implements IBOPBlock
         return ((BOPWoods) state.getValue(this.variantProperty)).getName() + "_wood_slab";
     }
     @Override
+    @SideOnly(Side.CLIENT)
     public IBlockColor getBlockColor() { return null; }
     @Override
+    @SideOnly(Side.CLIENT)
     public IItemColor getItemColor() { return null; }
     
     private BlockBOPHalfWoodSlab()

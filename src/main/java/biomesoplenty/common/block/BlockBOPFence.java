@@ -26,6 +26,8 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockBOPFence extends BlockFence implements IBOPBlock
 {
@@ -40,8 +42,10 @@ public class BlockBOPFence extends BlockFence implements IBOPBlock
     @Override
     public String getStateName(IBlockState state) {return "";}
     @Override
+    @SideOnly(Side.CLIENT)
     public IBlockColor getBlockColor() { return null; }
     @Override
+    @SideOnly(Side.CLIENT)
     public IItemColor getItemColor() { return null; }
     
     // Map from woods to BlockBOPFence instance and back

@@ -27,6 +27,8 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockBOPBones extends Block implements IBOPBlock
 {
@@ -51,8 +53,10 @@ public class BlockBOPBones extends Block implements IBOPBlock
     @Override
     protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, new IProperty[] { AXIS, VARIANT });}
     @Override
+    @SideOnly(Side.CLIENT)
     public IBlockColor getBlockColor() { return null; }
     @Override
+    @SideOnly(Side.CLIENT)
     public IItemColor getItemColor() { return null; }
     
     // implement IBOPBlock
