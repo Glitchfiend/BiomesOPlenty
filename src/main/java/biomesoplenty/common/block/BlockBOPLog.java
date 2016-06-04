@@ -22,6 +22,8 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockBOPLog extends BlockLog implements IBOPBlock
 {
@@ -79,8 +81,10 @@ public class BlockBOPLog extends BlockLog implements IBOPBlock
         }
     }
     @Override
+    @SideOnly(Side.CLIENT)
     public IBlockColor getBlockColor() { return null; }
     @Override
+    @SideOnly(Side.CLIENT)
     public IItemColor getItemColor() { return null; }
     
     private BlockBOPLog()

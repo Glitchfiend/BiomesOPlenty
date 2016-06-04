@@ -85,8 +85,10 @@ public class BlockBOPHalfOtherSlab extends BlockSlab implements IBOPBlock
         return ((SlabType) state.getValue(VARIANT)).getName() + "_slab";
     }
     @Override
+    @SideOnly(Side.CLIENT)
     public IBlockColor getBlockColor() { return null; }
     @Override
+    @SideOnly(Side.CLIENT)
     public IItemColor getItemColor() { return null; }
     
     public IBlockState getFullBlockVariantState(SlabType type)

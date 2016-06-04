@@ -86,8 +86,8 @@ public class ItemBOPSpawnEgg extends Item implements IColoredItem
         return super.getUnlocalizedName(stack)+"_"+entityName;
     }
     
-    @SideOnly(Side.CLIENT)
     @Override
+    @SideOnly(Side.CLIENT)
     public IItemColor getItemColor()
     {
         return new IItemColor()

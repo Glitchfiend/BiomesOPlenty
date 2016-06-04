@@ -25,6 +25,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockBOPCrystal extends Block implements IBOPBlock
 {
@@ -39,8 +41,10 @@ public class BlockBOPCrystal extends Block implements IBOPBlock
     @Override
     public String getStateName(IBlockState state) {return "";}
     @Override
+    @SideOnly(Side.CLIENT)
     public IBlockColor getBlockColor() { return null; }
     @Override
+    @SideOnly(Side.CLIENT)
     public IItemColor getItemColor() { return null; }
     
     public BlockBOPCrystal() {

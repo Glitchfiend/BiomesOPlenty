@@ -20,6 +20,8 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockBOPVine extends BlockVine implements IBOPBlock
 {  
@@ -34,8 +36,10 @@ public class BlockBOPVine extends BlockVine implements IBOPBlock
     @Override
     public String getStateName(IBlockState state) {return "";}
     @Override
+    @SideOnly(Side.CLIENT)
     public IBlockColor getBlockColor() { return useGreyScaleTextures ? BlockColoring.FOLIAGE_COLORING : null; }
     @Override
+    @SideOnly(Side.CLIENT)
     public IItemColor getItemColor() { return BlockColoring.BLOCK_ITEM_COLORING; }
     
     // if set to true, (the default), use BlockVine getBlockColor(), getRenderColor() and colorMultiplier() functions to color the texture based on biome

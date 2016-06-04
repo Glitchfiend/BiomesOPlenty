@@ -25,6 +25,8 @@ import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockBOPStone extends Block implements IBOPBlock
 {
@@ -63,8 +65,10 @@ public class BlockBOPStone extends Block implements IBOPBlock
         return (Boolean.TRUE.equals(state.getValue(POLISHED)) ? "polished_" : "") + ((StoneType) state.getValue(VARIANT)).getName();
     }
     @Override
+    @SideOnly(Side.CLIENT)
     public IBlockColor getBlockColor() { return null; }
     @Override
+    @SideOnly(Side.CLIENT)
     public IItemColor getItemColor() { return null; }
     
     public BlockBOPStone()

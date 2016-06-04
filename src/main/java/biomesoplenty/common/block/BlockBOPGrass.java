@@ -84,8 +84,10 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
         }
     }
     @Override
+    @SideOnly(Side.CLIENT)
     public IBlockColor getBlockColor() { return BlockColoring.GRASS_COLORING; }
     @Override
+    @SideOnly(Side.CLIENT)
     public IItemColor getItemColor() { return BlockColoring.BLOCK_ITEM_COLORING; }
     
     public BlockBOPGrass()

@@ -27,6 +27,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockBOPSand extends BlockFalling implements IBOPBlock, ISustainsPlantType
 {
@@ -64,8 +66,10 @@ public class BlockBOPSand extends BlockFalling implements IBOPBlock, ISustainsPl
         return ((SandType) state.getValue(VARIANT)).getName();
     }
     @Override
+    @SideOnly(Side.CLIENT)
     public IBlockColor getBlockColor() { return null; }
     @Override
+    @SideOnly(Side.CLIENT)
     public IItemColor getItemColor() { return null; }
     
     public BlockBOPSand() {

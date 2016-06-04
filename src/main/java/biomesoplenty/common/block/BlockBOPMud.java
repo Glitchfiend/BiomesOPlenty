@@ -33,6 +33,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockBOPMud extends Block implements IBOPBlock, ISustainsPlantType
 {
@@ -71,8 +73,10 @@ public class BlockBOPMud extends Block implements IBOPBlock, ISustainsPlantType
         return ((MudType) state.getValue(VARIANT)).getName();
     }
     @Override
+    @SideOnly(Side.CLIENT)
     public IBlockColor getBlockColor() { return null; }
     @Override
+    @SideOnly(Side.CLIENT)
     public IItemColor getItemColor() { return null; }
     
     public BlockBOPMud() {

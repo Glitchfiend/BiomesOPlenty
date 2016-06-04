@@ -20,6 +20,8 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.item.ItemBlock;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockBOPGem extends Block implements IBOPBlock
 {
@@ -42,8 +44,10 @@ public class BlockBOPGem extends Block implements IBOPBlock
         return ((BOPGems) state.getValue(VARIANT)).getName() + "_block";
     }
     @Override
+    @SideOnly(Side.CLIENT)
     public IBlockColor getBlockColor() { return null; }
     @Override
+    @SideOnly(Side.CLIENT)
     public IItemColor getItemColor() { return null; }
     
     public BlockBOPGem()

@@ -24,6 +24,8 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockBOPPlanks extends Block implements IBOPBlock
 {
@@ -75,8 +77,10 @@ public class BlockBOPPlanks extends Block implements IBOPBlock
         return ((BOPWoods) state.getValue(this.variantProperty)).getName() + "_planks";
     }
     @Override
+    @SideOnly(Side.CLIENT)
     public IBlockColor getBlockColor() { return null; }
     @Override
+    @SideOnly(Side.CLIENT)
     public IItemColor getItemColor() { return null; }
     
     public BlockBOPPlanks()
