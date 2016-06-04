@@ -77,7 +77,7 @@ public class BiomeProviderBOP extends BiomeProvider
         
         // set up all the gen layers
         GenLayer[] agenlayer = setupBOPGenLayers(seed, settings);
-        agenlayer = getModdedBiomeerators(worldType, seed, agenlayer);
+        agenlayer = getModdedBiomeGenerators(worldType, seed, agenlayer);
         this.genBiomes = Generators.biomeGenLayer = agenlayer[0];
         this.biomeIndexLayer = Generators.biomeIndexLayer = agenlayer[1];
     }
