@@ -45,6 +45,7 @@ public class BlockBOPNewFarmland extends BlockFarmland implements ISubLocalizati
 	public String getUnlocalizedName(String baseName, ItemStack itemStack) 
 	{
 		int meta = itemStack.getItemDamage();
+		if (meta > BlockBOPNewGrass.grassTypes.length-1) meta = 0;
 		return baseName + "." + BlockBOPNewGrass.grassTypes[meta / 2];
 	}
 
@@ -72,6 +73,8 @@ public class BlockBOPNewFarmland extends BlockFarmland implements ISubLocalizati
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta)
 	{
+		if (meta > BlockBOPNewGrass.grassTypes.length-1) meta = 0;
+
 		return side == 1 ? ((meta & 1) == 0 ? dry[meta / 2] : wet[meta / 2]) : dirts[meta / 2];
 	}
 
