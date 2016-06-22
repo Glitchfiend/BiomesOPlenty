@@ -1,0 +1,9 @@
+{
+    "parent": "block/grass_path",
+    "textures": {
+        "particle": "biomesoplenty:blocks/dirt_loamy",
+        "top": "blocks/grass_path_top",
+        "side": "biomesoplenty:blocks/grass_loamy_path_side",
+        "bottom": "biomesoplenty:blocks/dirt_loamy"
+    }
+}

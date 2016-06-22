@@ -12,6 +12,7 @@ import biomesoplenty.common.handler.AchievementEventHandler;
 import biomesoplenty.common.handler.BucketEventHandler;
 import biomesoplenty.common.handler.DyeEventHandler;
 import biomesoplenty.common.handler.FlippersEventHandler;
+import biomesoplenty.common.handler.GrassPathEventHandler;
 import biomesoplenty.common.handler.GuiEventHandler;
 import biomesoplenty.common.handler.ItemEventHandler;
 import biomesoplenty.common.handler.TrailsEventHandler;
@@ -43,6 +44,7 @@ public class ModHandlers
         MinecraftForge.EVENT_BUS.register(new ItemEventHandler());
         MinecraftForge.EVENT_BUS.register(new UseHoeEventHandler());
         MinecraftForge.EVENT_BUS.register(new AchievementEventHandler());
+        MinecraftForge.EVENT_BUS.register(new GrassPathEventHandler());
         
         if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
         {

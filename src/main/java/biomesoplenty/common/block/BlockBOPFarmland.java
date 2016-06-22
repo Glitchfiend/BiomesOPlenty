@@ -99,11 +99,13 @@ public class BlockBOPFarmland extends BlockFarmland implements IBOPBlock
         this.setDefaultState(this.blockState.getBaseState().withProperty(MOISTURE, Integer.valueOf(0)));
     }
 
+    @Override
     public IBlockState getStateFromMeta(int meta)
     {
         return this.getDefaultState().withProperty(this.variantProperty, paging.getVariant(this, meta & 1)).withProperty(MOISTURE, Integer.valueOf(meta >> 1));
     }
 
+    @Override
     public int getMetaFromState(IBlockState state)
     {
         BlockBOPDirt.BOPDirtType dirt = (BlockBOPDirt.BOPDirtType) state.getValue(this.variantProperty);

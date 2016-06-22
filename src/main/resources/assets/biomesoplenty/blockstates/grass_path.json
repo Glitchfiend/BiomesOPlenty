@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "variant=loamy": { "model": "biomesoplenty:grass_loamy_path" },
+        "variant=sandy": { "model": "biomesoplenty:grass_sandy_path" },
+        "variant=silty": { "model": "biomesoplenty:grass_silty_path" }
+    }
+}

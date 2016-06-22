@@ -14,50 +14,10 @@ import static biomesoplenty.api.item.BOPItems.honey_bucket;
 import static biomesoplenty.api.item.BOPItems.hot_spring_water_bucket;
 import static biomesoplenty.api.item.BOPItems.poison_bucket;
 
+import biomesoplenty.common.block.*;
 import com.google.common.collect.ImmutableSet;
 
 import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.common.block.BlockBOPAsh;
-import biomesoplenty.common.block.BlockBOPBamboo;
-import biomesoplenty.common.block.BlockBOPBiomeBlock;
-import biomesoplenty.common.block.BlockBOPBones;
-import biomesoplenty.common.block.BlockBOPCoral;
-import biomesoplenty.common.block.BlockBOPCrystal;
-import biomesoplenty.common.block.BlockBOPDirt;
-import biomesoplenty.common.block.BlockBOPDoor;
-import biomesoplenty.common.block.BlockBOPDoubleOtherSlab;
-import biomesoplenty.common.block.BlockBOPDoublePlant;
-import biomesoplenty.common.block.BlockBOPDoubleWoodSlab;
-import biomesoplenty.common.block.BlockBOPFarmland;
-import biomesoplenty.common.block.BlockBOPFence;
-import biomesoplenty.common.block.BlockBOPFenceGate;
-import biomesoplenty.common.block.BlockBOPFlesh;
-import biomesoplenty.common.block.BlockBOPFlower;
-import biomesoplenty.common.block.BlockBOPGem;
-import biomesoplenty.common.block.BlockBOPGemOre;
-import biomesoplenty.common.block.BlockBOPGeneric;
-import biomesoplenty.common.block.BlockBOPGrass;
-import biomesoplenty.common.block.BlockBOPHalfOtherSlab;
-import biomesoplenty.common.block.BlockBOPHalfWoodSlab;
-import biomesoplenty.common.block.BlockBOPHive;
-import biomesoplenty.common.block.BlockBOPHoney;
-import biomesoplenty.common.block.BlockBOPLeaves;
-import biomesoplenty.common.block.BlockBOPLilypad;
-import biomesoplenty.common.block.BlockBOPLog;
-import biomesoplenty.common.block.BlockBOPMud;
-import biomesoplenty.common.block.BlockBOPMushroom;
-import biomesoplenty.common.block.BlockBOPPlanks;
-import biomesoplenty.common.block.BlockBOPPlant;
-import biomesoplenty.common.block.BlockBOPSand;
-import biomesoplenty.common.block.BlockBOPSapling;
-import biomesoplenty.common.block.BlockBOPSeaweed;
-import biomesoplenty.common.block.BlockBOPStone;
-import biomesoplenty.common.block.BlockBOPStoneFormations;
-import biomesoplenty.common.block.BlockBOPTerrarium;
-import biomesoplenty.common.block.BlockBOPTurnip;
-import biomesoplenty.common.block.BlockBOPVine;
-import biomesoplenty.common.block.BlockBOPWoodStairs;
-import biomesoplenty.common.block.IBOPBlock;
 import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.fluids.BloodFluid;
@@ -106,10 +66,13 @@ public class ModBlocks
     	//Terrain Blocks
         grass =                 registerBlock( new BlockBOPGrass(), "grass" );
         dirt =                  registerBlock( new BlockBOPDirt(), "dirt" );
+
+        BlockBOPGrassPath.createAllPages();
+        grass_path =            registerBlock( BlockBOPGrassPath.paging.getBlock(0), "grass_path", null);
         
         BlockBOPFarmland.createAllPages();
-        farmland_0 =              registerBlock( BlockBOPFarmland.paging.getBlock(0), "farmland_0", null);
-        farmland_1 =              registerBlock( BlockBOPFarmland.paging.getBlock(1), "farmland_1", null);
+        farmland_0 =            registerBlock( BlockBOPFarmland.paging.getBlock(0), "farmland_0", null);
+        farmland_1 =            registerBlock( BlockBOPFarmland.paging.getBlock(1), "farmland_1", null);
         
         stone =                 registerBlock( new BlockBOPStone(), "stone" );
         crag_rock =             registerBlock( (new BlockBOPGeneric()), "crag_rock" );
@@ -126,7 +89,7 @@ public class ModBlocks
         gem_ore =               registerBlock( new BlockBOPGemOre(), "gem_ore" );
         gem_block =             registerBlock( new BlockBOPGem(), "gem_block" );
         hive =                  registerBlock( new BlockBOPHive(), "hive" );
-        honey_block =       registerBlock( new BlockBOPHoney(), "honey_block" );
+        honey_block =           registerBlock( new BlockBOPHoney(), "honey_block" );
         bone_segment =          registerBlock( new BlockBOPBones(), "bone_segment" );
         
         //Material Blocks

@@ -119,6 +119,7 @@ public class BOPBlocks
     public static Block turnip_block;
     public static Block flesh;
     public static Block grass;
+    public static Block grass_path;
     public static Block waterlily;
     public static Block dirt;
     public static Block farmland_0;
