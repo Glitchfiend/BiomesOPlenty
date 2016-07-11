@@ -68,9 +68,6 @@ public class ThaumcraftCompat
         addAspectsToState(BOPBlocks.gem_block.getDefaultState().withProperty(BlockBOPGem.VARIANT, BOPGems.AMETHYST), new Aspect[] { Aspect.DESIRE, Aspect.ORDER, Aspect.CRYSTAL }, new int[] { 5, 5, 8 });
         addAspectsToState(BlockBOPLeaves.paging.getVariantState(BOPTrees.RED_BIG_FLOWER), new Aspect[] { Aspect.PLANT }, new int[] { 4 });
         addAspectsToState(BlockBOPLeaves.paging.getVariantState(BOPTrees.YELLOW_BIG_FLOWER), new Aspect[] { Aspect.PLANT }, new int[] { 4 });
-        addAspectsToState(BOPBlocks.bone_segment.getDefaultState().withProperty(BlockBOPBones.VARIANT, BoneType.SMALL), new Aspect[] { Aspect.DEATH }, new int[] { 3 });
-        addAspectsToState(BOPBlocks.bone_segment.getDefaultState().withProperty(BlockBOPBones.VARIANT, BoneType.MEDIUM), new Aspect[] { Aspect.DEATH }, new int[] { 5 });
-        addAspectsToState(BOPBlocks.bone_segment.getDefaultState().withProperty(BlockBOPBones.VARIANT, BoneType.LARGE), new Aspect[] { Aspect.DEATH }, new int[] { 7 });
         addAspectsToState(BlockBOPPlant.paging.getVariantState(BOPPlants.POISONIVY), new Aspect[] { Aspect.PLANT }, new int[] { 2 });
 
         //Plants

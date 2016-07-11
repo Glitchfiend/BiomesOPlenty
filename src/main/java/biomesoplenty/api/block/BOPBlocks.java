@@ -16,7 +16,6 @@ public class BOPBlocks
     public static Block bamboo_thatching;
     public static Block ash_block;
     public static Block bamboo;
-    public static Block bone_segment;
     public static Block coral;
     public static Block seaweed;
     public static Block gem_block;

@@ -12,7 +12,6 @@ import com.google.common.base.CaseFormat;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.common.block.BlockBOPBones;
 import biomesoplenty.common.block.BlockBOPDirt;
 import biomesoplenty.common.block.BlockBOPDoor;
 import biomesoplenty.common.block.BlockBOPDoublePlant;
@@ -264,11 +263,6 @@ public class ModCrafting
         
         // Rotten Flesh
         GameRegistry.addShapedRecipe(new ItemStack(Items.ROTTEN_FLESH), new Object[] {"FFF", "FPF", "FFF", 'F', new ItemStack(BOPItems.fleshchunk), 'P', new ItemStack(BOPItems.jar_filled, 1, ItemJarFilled.JarContents.POISON.ordinal())});
-
-        // Bone Segments > Bonemeal
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 3, EnumDyeColor.WHITE.getDyeDamage()), new Object[] {((BlockBOPBones)BOPBlocks.bone_segment).getVariantItem(BlockBOPBones.BoneType.SMALL)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 6, EnumDyeColor.WHITE.getDyeDamage()), new Object[] {((BlockBOPBones)BOPBlocks.bone_segment).getVariantItem(BlockBOPBones.BoneType.MEDIUM)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 12, EnumDyeColor.WHITE.getDyeDamage()), new Object[] {((BlockBOPBones)BOPBlocks.bone_segment).getVariantItem(BlockBOPBones.BoneType.LARGE)});
         
         // Honeycombs
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.hive, 1, BlockBOPHive.HiveType.HONEYCOMB.ordinal()), new Object [] {"##", "##", '#', new ItemStack(BOPItems.honeycomb)});
