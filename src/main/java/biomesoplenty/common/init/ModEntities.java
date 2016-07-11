@@ -17,7 +17,6 @@ import biomesoplenty.common.entities.EntityButterfly;
 import biomesoplenty.common.entities.EntityPixie;
 import biomesoplenty.common.entities.EntitySnail;
 import biomesoplenty.common.entities.EntityWasp;
-import biomesoplenty.common.entities.projectiles.EntityDart;
 import biomesoplenty.common.entities.projectiles.EntityMudball;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.entity.Entity;
@@ -40,7 +39,6 @@ public class ModEntities
     public static void init()
     {
         // projectiles
-        registerBOPEntity(EntityDart.class, "dart", 80, 3, true);
         registerBOPEntity(EntityMudball.class, "mudball", 80, 3, true);
 
         // mobs

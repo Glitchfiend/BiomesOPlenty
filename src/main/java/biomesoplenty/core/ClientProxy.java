@@ -29,9 +29,7 @@ import biomesoplenty.common.entities.RenderButterfly;
 import biomesoplenty.common.entities.RenderPixie;
 import biomesoplenty.common.entities.RenderSnail;
 import biomesoplenty.common.entities.RenderWasp;
-import biomesoplenty.common.entities.projectiles.EntityDart;
 import biomesoplenty.common.entities.projectiles.EntityMudball;
-import biomesoplenty.common.entities.projectiles.RenderDart;
 import biomesoplenty.common.entities.projectiles.RenderMudball;
 import biomesoplenty.common.item.IColoredItem;
 import biomesoplenty.common.util.inventory.CreativeTabBOP;
@@ -79,7 +77,6 @@ public class ClientProxy extends CommonProxy
             GuiMainMenu.TITLE_PANORAMA_PATHS = bopTitlePanoramaPaths;
 
         //Entity rendering and other stuff will go here in future
-        registerEntityRenderer(EntityDart.class, RenderDart.class);
         registerEntityRenderer(EntityWasp.class, RenderWasp.class);
         registerEntityRenderer(EntityPixie.class, RenderPixie.class);
         registerEntityRenderer(EntitySnail.class, RenderSnail.class);

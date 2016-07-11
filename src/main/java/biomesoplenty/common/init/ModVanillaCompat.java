@@ -1,7 +1,6 @@
 package biomesoplenty.common.init;
 
 import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.common.entities.projectiles.dispenser.DispenserBehaviorDart;
 import biomesoplenty.common.entities.projectiles.dispenser.DispenserBehaviorMudball;
 import net.minecraft.block.BlockDispenser;
 
@@ -16,7 +15,6 @@ public class ModVanillaCompat
     private static void registerDispenserBehaviors()
     {
     	BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(BOPItems.mudball, new DispenserBehaviorMudball());
-    	BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(BOPItems.dart, new DispenserBehaviorDart());
     }
     
 	private static void addDungeonLoot()

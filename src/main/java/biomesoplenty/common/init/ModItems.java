@@ -27,8 +27,6 @@ import static biomesoplenty.api.item.BOPItems.black_dye;
 import static biomesoplenty.api.item.BOPItems.blue_dye;
 import static biomesoplenty.api.item.BOPItems.brown_dye;
 import static biomesoplenty.api.item.BOPItems.crystal_shard;
-import static biomesoplenty.api.item.BOPItems.dart;
-import static biomesoplenty.api.item.BOPItems.dart_blower;
 import static biomesoplenty.api.item.BOPItems.diamond_scythe;
 import static biomesoplenty.api.item.BOPItems.dull_flower_band;
 import static biomesoplenty.api.item.BOPItems.earth;
@@ -103,8 +101,6 @@ import biomesoplenty.common.item.ItemBOPScythe;
 import biomesoplenty.common.item.ItemBOPSpawnEgg;
 import biomesoplenty.common.item.ItemBiomeEssence;
 import biomesoplenty.common.item.ItemBiomeFinder;
-import biomesoplenty.common.item.ItemDart;
-import biomesoplenty.common.item.ItemDartBlower;
 import biomesoplenty.common.item.ItemEnderporter;
 import biomesoplenty.common.item.ItemFlippers;
 import biomesoplenty.common.item.ItemFlowerBand;
@@ -272,9 +268,6 @@ public class ModItems
         gold_scythe = registerItem(new ItemBOPScythe(ToolMaterial.GOLD), "gold_scythe");
         diamond_scythe = registerItem(new ItemBOPScythe(ToolMaterial.DIAMOND), "diamond_scythe");
         amethyst_scythe = registerItem(new ItemBOPScythe(amethyst_tool_material), "amethyst_scythe");
-        
-        dart = registerItem(new ItemDart(), "dart");
-        dart_blower = registerItem(new ItemDartBlower(), "dart_blower");
         
         jar_empty = registerItem(new ItemJarEmpty(), "jar_empty");
         jar_filled = registerItem(new ItemJarFilled(), "jar_filled");

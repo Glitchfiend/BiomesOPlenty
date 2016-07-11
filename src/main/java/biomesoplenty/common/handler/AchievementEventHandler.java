@@ -231,12 +231,6 @@ public class AchievementEventHandler
             player.addStat(BOPAchievements.craft_terrestrial_artifact);
         }
         
-        //Darts and Crafts Achievement
-        if (item != null && item == BOPItems.dart_blower)
-        {
-            player.addStat(BOPAchievements.craft_dart_blower);
-        }
-        
         //Pick Your Poison Achievement
         if (item != null && item == new ItemStack(BOPItems.jar_filled, 1, ItemJarFilled.JarContents.POISON.ordinal()).getItem())
         {

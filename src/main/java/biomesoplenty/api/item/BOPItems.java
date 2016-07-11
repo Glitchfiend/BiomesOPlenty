@@ -48,9 +48,6 @@ public class BOPItems
     public static Item pinecone;
     public static Item other_slab;
     
-    public static Item dart;
-    public static Item dart_blower;
-    
     public static Item sacred_oak_door;
     public static Item cherry_door;
     public static Item umbran_door;

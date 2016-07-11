@@ -23,7 +23,6 @@ public class BOPAchievements
     public static Achievement craft_muddy_pickaxe;
     public static Achievement craft_amethyst_sword;
     public static Achievement obtain_deathbloom;
-    public static Achievement craft_dart_blower;
     public static Achievement obtain_turnip;
     public static Achievement grow_sacred_oak;
     public static Achievement obtain_honeycomb;

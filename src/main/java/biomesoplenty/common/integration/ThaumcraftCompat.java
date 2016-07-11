@@ -139,8 +139,6 @@ public class ThaumcraftCompat
         addAspectsToItem(BOPItems.ash, new Aspect[] { Aspect.ENTROPY, Aspect.EXCHANGE }, new int[] { 1, 1 });
         addAspectsToItem(BOPItems.crystal_shard, new Aspect[] { Aspect.CRYSTAL, Aspect.LIGHT, Aspect.DESIRE }, new int[] { 4, 2, 3 });
         addAspectsToItem(BOPItems.mud_brick, new Aspect[] { Aspect.EARTH, Aspect.FIRE }, new int[] { 2, 1 });
-        addAspectsToItemMeta(BOPItems.dart, 0, new Aspect[] { Aspect.AVERSION }, new int[] { 1 });
-        addAspectsToItemMeta(BOPItems.dart, 1, new Aspect[] { Aspect.AVERSION }, new int[] { 1 });
     }
 
     //Allows Thaumcraft golems to harvest BoP crops

@@ -40,7 +40,6 @@ import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.handler.FurnaceFuelHandler;
-import biomesoplenty.common.item.ItemDart;
 import biomesoplenty.common.item.ItemJarFilled;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -188,12 +187,6 @@ public class ModCrafting
         GameRegistry.addShapedRecipe(new ItemStack(BOPItems.dull_flower_band), new Object [] {"CCC", "C C", "CCC", 'C', BlockBOPFlower.paging.getVariantItem(BOPFlowers.CLOVER)});
         GameRegistry.addShapedRecipe(new ItemStack(BOPItems.plain_flower_band), new Object [] {"CDC", "D D", "CDC", 'C', BlockBOPFlower.paging.getVariantItem(BOPFlowers.CLOVER), 'D', BlockBOPFlower.paging.getVariantItem(BOPFlowers.ORANGE_COSMOS)});
         GameRegistry.addShapedRecipe(new ItemStack(BOPItems.exotic_flower_band), new Object [] {"CDC", "V V", "CDC", 'C', BlockBOPFlower.paging.getVariantItem(BOPFlowers.CLOVER),'D', BlockBOPFlower.paging.getVariantItem(BOPFlowers.ORANGE_COSMOS), 'V', BlockBOPFlower.paging.getVariantItem(BOPFlowers.VIOLET)});
-        
-        // Dart Blower
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.dart_blower), new Object[] {"R R", "R R", "R R", 'R', BlockBOPPlant.paging.getVariantItem(BOPPlants.RIVERCANE)});
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.dart, 4, ItemDart.DartType.DART.ordinal()), new Object[] {"T", "R", "F", 'T', BlockBOPPlant.paging.getVariantItem(BOPPlants.THORN), 'R', BlockBOPPlant.paging.getVariantItem(BOPPlants.RIVERCANE), 'F', Items.FEATHER});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.dart, 1, ItemDart.DartType.POISONDART.ordinal()), new Object[] {new ItemStack(BOPItems.jar_filled, 1, ItemJarFilled.JarContents.POISON.ordinal()), new ItemStack(BOPItems.dart, 1, ItemDart.DartType.DART.ordinal())});        
-        
         
         /*** Biome Finder ***/
         
