@@ -47,7 +47,7 @@ public class BiomeGenOasis extends BOPBiome
 	
     public BiomeGenOasis()
     {
-        super("oasis", new PropsBuilder("Oasis").withGuiColour(7712283).withTemperature(2.0F).withRainfall(0.5F));
+        super("oasis", new PropsBuilder("Oasis").withGuiColour(7712283).withTemperature(2.0F).withRainfall(0.5F).withRainDisabled());
 
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(5, 3);

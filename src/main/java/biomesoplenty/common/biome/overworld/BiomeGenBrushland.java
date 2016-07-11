@@ -33,7 +33,7 @@ public class BiomeGenBrushland extends BOPBiome
     
     public BiomeGenBrushland()
     {
-        super("brushland", new PropsBuilder("Brushland").withGuiColour(0xC6C19B).withTemperature(1.5F).withRainfall(0.1F));
+        super("brushland", new PropsBuilder("Brushland").withGuiColour(0xC6C19B).withTemperature(1.5F).withRainfall(0.1F).withRainDisabled());
         
         // terrain
         this.terrainSettings.avgHeight(66).heightVariation(3, 20);
