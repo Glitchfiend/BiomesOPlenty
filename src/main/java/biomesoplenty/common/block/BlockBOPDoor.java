@@ -14,6 +14,7 @@ import java.util.Random;
 
 import biomesoplenty.common.enums.BOPWoods;
 import net.minecraft.block.BlockDoor;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
@@ -71,6 +72,7 @@ public class BlockBOPDoor extends BlockDoor implements IBOPBlock
         super(Material.WOOD);
         this.setHardness(3.0F);
         this.setHarvestLevel("axe", 0);
+        this.setSoundType(SoundType.WOOD);
         
         this.wood = wood;
         variantToBlock.put(wood, this);
