@@ -212,14 +212,17 @@ import biomesoplenty.common.biome.vanilla.BiomeExtTaiga;
 import biomesoplenty.common.biome.vanilla.BiomeExtTaigaHills;
 import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.util.config.BOPConfig;
+import biomesoplenty.common.world.WorldProviderHellBOP;
 import biomesoplenty.common.world.WorldTypeBOP;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.init.Biomes;
+import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.BiomeManager;
+import net.minecraftforge.common.DimensionManager;
 
 public class ModBiomes implements BOPBiomes.IBiomeRegistry
 {
@@ -280,6 +283,8 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         
         //After normal biomes to account for adding custom beaches
         initExtendedBiomes();
+        
+        //registerNetherOverride();
         
         // save the biome ids to the config file (creating it if it doesn't exist)
         BOPConfig.writeFile(biomeIdMapFile, biomeIdMap);
@@ -512,6 +517,16 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         registerBiomeToDictionary(BOPBiomes.flower_island, Type.WATER, Type.OCEAN, Type.PLAINS, Type.LUSH, Type.DENSE, Type.MAGICAL);
         registerBiomeToDictionary(BOPBiomes.gravel_beach, Type.BEACH);   
         
+    }
+    
+    public static void registerNetherOverride()
+    {
+    	//Unregister vanilla Nether dimension
+    	DimensionManager.unregisterDimension(-1);
+    	
+    	//Add override
+        DimensionType netherBOP = DimensionType.register("Nether", "_nether", -1, WorldProviderHellBOP.class, false);
+        DimensionManager.registerDimension(-1, netherBOP);
     }
     
     @Override
