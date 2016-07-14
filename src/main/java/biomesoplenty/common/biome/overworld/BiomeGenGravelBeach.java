@@ -21,7 +21,6 @@ public class BiomeGenGravelBeach extends BOPBiome
     
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
-        this.canGenerateRivers = false;
         
         this.spawnableCreatureList.clear();
         
