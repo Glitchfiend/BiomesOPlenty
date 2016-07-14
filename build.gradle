@@ -161,6 +161,7 @@ curseforge {
         releaseType = 'beta'
         
         addGameVersion(1.10)
+		addGameVersion(1.10.2)
     }
 }
 
