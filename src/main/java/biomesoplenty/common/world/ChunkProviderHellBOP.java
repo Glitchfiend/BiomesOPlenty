@@ -10,6 +10,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
@@ -171,7 +172,7 @@ public class ChunkProviderHellBOP implements IChunkGenerator
         }
     }
 
-    public void buildSurfaces(int p_185937_1_, int p_185937_2_, ChunkPrimer primer)
+    public void buildSurfaces(int p_185937_1_, int p_185937_2_, ChunkPrimer primer, Biome biome)
     {
         if (!net.minecraftforge.event.ForgeEventFactory.onReplaceBiomeBlocks(this, p_185937_1_, p_185937_2_, primer, this.world)) return;
         int i = this.world.getSeaLevel() + 1;
@@ -188,8 +189,8 @@ public class ChunkProviderHellBOP implements IChunkGenerator
                 boolean flag1 = this.gravelNoise[j + k * 16] + this.rand.nextDouble() * 0.2D > 0.0D;
                 int l = (int)(this.depthBuffer[j + k * 16] / 3.0D + 3.0D + this.rand.nextDouble() * 0.25D);
                 int i1 = -1;
-                IBlockState iblockstate = NETHERRACK;
-                IBlockState iblockstate1 = NETHERRACK;
+                IBlockState iblockstate = biome.topBlock;
+                IBlockState iblockstate1 = biome.fillerBlock;
 
                 for (int j1 = 127; j1 >= 0; --j1)
                 {
@@ -268,7 +269,8 @@ public class ChunkProviderHellBOP implements IChunkGenerator
         this.rand.setSeed((long)x * 341873128712L + (long)z * 132897987541L);
         ChunkPrimer chunkprimer = new ChunkPrimer();
         this.prepareHeights(x, z, chunkprimer);
-        this.buildSurfaces(x, z, chunkprimer);
+        Biome biome = this.world.getBiomeForCoordsBody(new BlockPos(x, 0, z));
+        this.buildSurfaces(x, z, chunkprimer, biome);
         this.genNetherCaves.generate(this.world, x, z, chunkprimer);
 
         if (this.generateStructures)
