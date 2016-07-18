@@ -33,7 +33,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockBOPFlesh extends Block implements IBOPBlock
 {
-    
+	protected static final AxisAlignedBB FLESH_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.875D, 1.0D);
+	
     // implement IBOPBlock
     @Override
     public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
@@ -56,12 +57,9 @@ public class BlockBOPFlesh extends Block implements IBOPBlock
         this.setSoundType(SoundType.GROUND);
     }
     
-    @Override
-    public AxisAlignedBB getCollisionBoundingBox(IBlockState state, World world, BlockPos pos)
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World worldIn, BlockPos pos)
     {
-        // 7/8 height
-        float heightOffset = 0.125F;
-        return new AxisAlignedBB((double) pos.getX(), (double) pos.getY(), (double) pos.getZ(), (double) (pos.getX() + 1), (double) ((float) (pos.getY() + 1) - heightOffset), (double) (pos.getZ() + 1));
+        return FLESH_AABB;
     }
    
     @Override

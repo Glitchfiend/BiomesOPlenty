@@ -142,6 +142,7 @@ public class BOPBlocks
     public static Block double_plant;
     
     public static Block honey_block;
+    public static Block jelled_poison;
     public static Block terrarium;
     
     public static Block sand;

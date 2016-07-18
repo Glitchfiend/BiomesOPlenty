@@ -42,6 +42,7 @@ import biomesoplenty.common.block.BlockBOPHalfOtherSlab;
 import biomesoplenty.common.block.BlockBOPHalfWoodSlab;
 import biomesoplenty.common.block.BlockBOPHive;
 import biomesoplenty.common.block.BlockBOPHoney;
+import biomesoplenty.common.block.BlockBOPJelledPoison;
 import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.block.BlockBOPLog;
@@ -131,6 +132,7 @@ public class ModBlocks
         gem_block =             registerBlock( new BlockBOPGem(), "gem_block" );
         hive =                  registerBlock( new BlockBOPHive(), "hive" );
         honey_block =           registerBlock( new BlockBOPHoney(), "honey_block" );
+        jelled_poison =           registerBlock( new BlockBOPJelledPoison(), "jelled_poison" );
         
         //Material Blocks
         bamboo_thatching =      registerBlock( (new BlockBOPGeneric(Material.WOOD, SoundType.WOOD)).setHardness(2.0F), "bamboo_thatching"); bamboo_thatching.setHarvestLevel("axe", 0);
