@@ -94,8 +94,15 @@ public class GeneratorColumns extends GeneratorReplacing
 		                // keep placing blocks upwards (if there's room)
 		                for (int height = targetHeight; height >= 0 && replace.matches(world, genPos); height--)
 		                {
-		                    world.setBlockState(genPos, this.with);
-		                    genPos = genPos.up();
+		                	if (this.with.getBlock().canPlaceBlockAt(world, genPos))
+		                	{
+			                    world.setBlockState(genPos, this.with);
+			                    genPos = genPos.up();
+		                	}
+		                	else
+		                	{
+		                		return false;
+		                	}
 		                }
 		            }
             	}
@@ -110,8 +117,15 @@ public class GeneratorColumns extends GeneratorReplacing
     	                // keep placing blocks upwards (if there's room)
     	                for (int height = targetHeight; height >= 0 && replace.matches(world, genPos); height++)
     	                {
-    	                    world.setBlockState(genPos, this.with);
-    	                    genPos = genPos.down();
+    	                	if (this.with.getBlock().canPlaceBlockAt(world, genPos))
+		                	{
+	    	                    world.setBlockState(genPos, this.with);
+	    	                    genPos = genPos.down();
+		                	}
+    	                	else
+    	                	{
+    	                		return false;
+    	                	}
     	                }
     	            }
             	}
@@ -127,8 +141,15 @@ public class GeneratorColumns extends GeneratorReplacing
 	                // keep placing blocks upwards (if there's room)
 	                for (int height = targetHeight; height >= 0 && replace.matches(world, genPos); height--)
 	                {
-	                    world.setBlockState(genPos, this.with);
-	                    genPos = genPos.up();
+	                	if (this.with.getBlock().canPlaceBlockAt(world, genPos))
+	                	{
+		                    world.setBlockState(genPos, this.with);
+		                    genPos = genPos.up();
+	                	}
+	                	else
+	                	{
+	                		return false;
+	                	}
 	                }
 	            }
             }

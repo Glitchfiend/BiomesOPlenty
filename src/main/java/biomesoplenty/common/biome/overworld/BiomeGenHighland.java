@@ -41,8 +41,7 @@ public class BiomeGenHighland extends BOPBiome
         this.beachBiomeLocation = null;
         
         // boulders
-        this.addGenerator("boulders", GeneratorStage.SAND, (new GeneratorBlobs.Builder()).amountPerChunk(0.5F).placeOn(Blocks.GRASS).with(Blocks.COBBLESTONE.getDefaultState()).minRadius(0.3F).maxRadius(1.2F).numBalls(1).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
-        this.addGenerator("big_boulders", GeneratorStage.SAND, (new GeneratorBlobs.Builder()).amountPerChunk(0.1F).placeOn(Blocks.GRASS).with(Blocks.COBBLESTONE.getDefaultState()).minRadius(0.3F).maxRadius(4.0F).numBalls(3).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
+        this.addGenerator("boulders", GeneratorStage.SAND, (new GeneratorBlobs.Builder()).amountPerChunk(0.5F).placeOn(Blocks.GRASS).with(Blocks.COBBLESTONE.getDefaultState()).minRadius(0.0F).maxRadius(3.0F).numBalls(3).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
 
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(10);

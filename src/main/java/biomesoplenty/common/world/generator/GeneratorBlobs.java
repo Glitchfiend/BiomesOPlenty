@@ -45,8 +45,8 @@ public class GeneratorBlobs extends GeneratorReplacing
             this.replace = BlockQueries.breakable;
             this.with = Blocks.COBBLESTONE.getDefaultState();
             this.scatterYMethod = ScatterYMethod.BELOW_SURFACE;
-            this.minRadius = 2.0F;
-            this.maxRadius = 5.0F;
+            this.minRadius = 0.0F;
+            this.maxRadius = 3.0F;
             this.radiusFalloff = 0.5F;
             this.numBalls = 3;
         }
