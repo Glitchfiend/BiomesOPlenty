@@ -1,6 +1,10 @@
 {
     "forge_marker": 1,
     "variants": {
+		"sand": {
+            "model": "forge:fluid",
+            "custom": { "fluid": "sand" }
+        },
         "honey": {
             "model": "forge:fluid",
             "custom": { "fluid": "honey" }

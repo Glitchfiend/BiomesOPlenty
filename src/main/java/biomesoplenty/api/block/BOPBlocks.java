@@ -114,7 +114,6 @@ public class BOPBlocks
     public static Block eucalyptus_door;
     
     public static Block mud;
-    public static Block sand;
     public static Block turnip_block;
     public static Block flesh;
     public static Block grass;
@@ -145,6 +144,8 @@ public class BOPBlocks
     public static Block honey_block;
     public static Block terrarium;
     
+    public static Block sand;
+    public static Fluid sand_fluid;
     public static Block honey;
     public static Fluid honey_fluid;
     public static Block blood;

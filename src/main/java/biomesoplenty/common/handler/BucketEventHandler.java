@@ -14,6 +14,7 @@ import biomesoplenty.common.fluids.blocks.BlockBloodFluid;
 import biomesoplenty.common.fluids.blocks.BlockHoneyFluid;
 import biomesoplenty.common.fluids.blocks.BlockHotSpringWaterFluid;
 import biomesoplenty.common.fluids.blocks.BlockPoisonFluid;
+import biomesoplenty.common.fluids.blocks.BlockQuicksandFluid;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -40,7 +41,11 @@ public class BucketEventHandler
         // determine if the block is one of our BOP fluids
         IBlockState iblockstate = event.getWorld().getBlockState(blockpos);
         Item filled_bucket = null;
-        if (iblockstate.getBlock() == BOPBlocks.honey && ((Integer)iblockstate.getValue(BlockHoneyFluid.LEVEL)).intValue() == 0)
+        if (iblockstate.getBlock() == BOPBlocks.sand && ((Integer)iblockstate.getValue(BlockQuicksandFluid.LEVEL)).intValue() == 0)
+        {
+            filled_bucket = BOPItems.sand_bucket;
+        }
+        else if (iblockstate.getBlock() == BOPBlocks.honey && ((Integer)iblockstate.getValue(BlockHoneyFluid.LEVEL)).intValue() == 0)
         {
             filled_bucket = BOPItems.honey_bucket;
         }
