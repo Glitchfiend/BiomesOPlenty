@@ -68,7 +68,6 @@ public class BiomesOPlenty
         //fixes turkish locale bug
         Locale.setDefault(Locale.ENGLISH);
 
-
         TrailManager.retrieveTrails();
         ModConfiguration.init(configDirectory);
         
