@@ -65,6 +65,10 @@ public class BiomesOPlenty
     {
         configDirectory = new File(event.getModConfigurationDirectory(), "biomesoplenty");
 
+        //fixes turkish locale bug
+        Locale.setDefault(Locale.ENGLISH);
+
+
         TrailManager.retrieveTrails();
         ModConfiguration.init(configDirectory);
         
