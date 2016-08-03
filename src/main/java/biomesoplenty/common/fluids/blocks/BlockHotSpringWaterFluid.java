@@ -89,7 +89,7 @@ public class BlockHotSpringWaterFluid extends BlockFluidClassic
 
         for (EnumFacing enumfacing : EnumFacing.values())
         {
-            if (enumfacing != EnumFacing.DOWN && (worldIn.getBlockState(pos.offset(enumfacing)).getMaterial() == Material.WATER || worldIn.getBlockState(pos.offset(enumfacing)).getMaterial() == Material.LAVA))
+            if (enumfacing != EnumFacing.DOWN && (worldIn.getBlockState(pos.offset(enumfacing)).getMaterial().isLiquid() == true))
             {
             	if (worldIn.getBlockState(pos.offset(enumfacing)).getBlock() != this.getBlockState().getBlock())
             	{

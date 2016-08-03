@@ -13,8 +13,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -29,6 +27,7 @@ public class BlockQuicksandFluid extends BlockFluidClassic
     public BlockQuicksandFluid(Fluid fluid)
     {
         super(fluid, Material.WATER);
+        
         this.quantaPerBlock = 3;
         this.renderLayer = BlockRenderLayer.SOLID;
     }
@@ -65,7 +64,7 @@ public class BlockQuicksandFluid extends BlockFluidClassic
 
         for (EnumFacing enumfacing : EnumFacing.values())
         {
-            if (enumfacing != EnumFacing.DOWN && (worldIn.getBlockState(pos.offset(enumfacing)).getMaterial() == Material.WATER || worldIn.getBlockState(pos.offset(enumfacing)).getMaterial() == Material.LAVA))
+            if (enumfacing != EnumFacing.DOWN && (worldIn.getBlockState(pos.offset(enumfacing)).getMaterial().isLiquid() == true))
             {
             	if (worldIn.getBlockState(pos.offset(enumfacing)).getBlock() != this.getBlockState().getBlock())
             	{
