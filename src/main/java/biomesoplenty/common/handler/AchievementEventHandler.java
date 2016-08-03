@@ -213,12 +213,6 @@ public class AchievementEventHandler
             player.addStat(BOPAchievements.craft_flax_string);
         }
         
-        //True Swordsman Achievement
-        if (item != null && item == BOPItems.amethyst_sword)
-        {
-            player.addStat(BOPAchievements.craft_amethyst_sword);
-        }
-        
         //Getting a Downgrade Achievement
         if (item != null && item == BOPItems.mud_pickaxe)
         {

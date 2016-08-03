@@ -88,11 +88,6 @@ public class ItemBOPScythe extends Item
             radius = 5;
             height = 5;
         }
-        else if (toolMaterial == BOPMaterials.amethyst_tool_material)
-        {
-            radius = 6;
-            height = 6;
-        }
         
         // automatically damage the item once - for the block originally destroyed
         stack.damageItem(1, entityLiving);

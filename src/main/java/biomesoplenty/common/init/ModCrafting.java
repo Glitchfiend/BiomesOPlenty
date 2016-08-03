@@ -168,19 +168,6 @@ public class ModCrafting
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.mud_scythe), new Object [] {" MM", "M S", "  S", 'M', BOPItems.mudball, 'S', "stickWood" }));   
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.mud_scythe), new Object [] {"MM ", "S M", "S  ", 'M', BOPItems.mudball, 'S', "stickWood" }));
 
-        // Amethyst Tools and Armor
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.amethyst_pickaxe), new Object [] {"###", " X ", " X ", '#', new ItemStack(BOPItems.gem, 1, BOPGems.AMETHYST.ordinal()), 'X', Items.IRON_INGOT});
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.amethyst_shovel), new Object [] {"#", "X", "X", '#', new ItemStack(BOPItems.gem, 1, BOPGems.AMETHYST.ordinal()), 'X', Items.IRON_INGOT});
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.amethyst_sword), new Object [] {"#", "#", "X", '#', new ItemStack(BOPItems.gem, 1, BOPGems.AMETHYST.ordinal()), 'X', Items.IRON_INGOT});
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.amethyst_axe), new Object [] {"##", "#X", " X", '#', new ItemStack(BOPItems.gem, 1, BOPGems.AMETHYST.ordinal()), 'X', Items.IRON_INGOT});
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.amethyst_hoe), new Object [] {"##", " X", " X", '#', new ItemStack(BOPItems.gem, 1, BOPGems.AMETHYST.ordinal()), 'X', Items.IRON_INGOT});
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.amethyst_helmet), new Object [] {"###", "# #", '#', new ItemStack(BOPItems.gem, 1, BOPGems.AMETHYST.ordinal())});
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.amethyst_chestplate), new Object [] {"# #", "###", "###", '#', new ItemStack(BOPItems.gem, 1, BOPGems.AMETHYST.ordinal())});
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.amethyst_leggings), new Object [] {"###", "# #", "# #", '#', new ItemStack(BOPItems.gem, 1, BOPGems.AMETHYST.ordinal())});
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.amethyst_boots), new Object [] {"# #", "# #", '#', new ItemStack(BOPItems.gem, 1, BOPGems.AMETHYST.ordinal())});
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.amethyst_scythe), new Object [] {" MM", "M S", "  S", 'M', new ItemStack(BOPItems.gem, 1, BOPGems.AMETHYST.ordinal()), 'S', Items.IRON_INGOT}));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.amethyst_scythe), new Object [] {"MM ", "S M", "S  ", 'M', new ItemStack(BOPItems.gem, 1, BOPGems.AMETHYST.ordinal()), 'S', Items.IRON_INGOT}));
-
         // Flower Bands
         GameRegistry.addShapedRecipe(new ItemStack(BOPItems.dull_flower_band), new Object [] {"CCC", "C C", "CCC", 'C', BlockBOPFlower.paging.getVariantItem(BOPFlowers.CLOVER)});
         GameRegistry.addShapedRecipe(new ItemStack(BOPItems.plain_flower_band), new Object [] {"CDC", "D D", "CDC", 'C', BlockBOPFlower.paging.getVariantItem(BOPFlowers.CLOVER), 'D', BlockBOPFlower.paging.getVariantItem(BOPFlowers.ORANGE_COSMOS)});

@@ -21,7 +21,6 @@ public class BOPAchievements
     public static Achievement craft_poison_jar;
     public static Achievement craft_flax_string;
     public static Achievement craft_muddy_pickaxe;
-    public static Achievement craft_amethyst_sword;
     public static Achievement obtain_deathbloom;
     public static Achievement obtain_turnip;
     public static Achievement grow_sacred_oak;

@@ -46,7 +46,7 @@ public class BiomeGenBayou extends BOPBiome
     
     public BiomeGenBayou()
     {
-        super("bayou", new PropsBuilder("Bayou").withGuiColour(0x8BAF6B).withTemperature(0.85F).withRainfall(0.9F).withWaterColor(0xFFD932));
+        super("bayou", new PropsBuilder("Bayou").withGuiColour(0x7DAD51).withTemperature(0.85F).withRainfall(0.9F).withWaterColor(0xFFD932));
         
         // terrain
         this.terrainSettings.avgHeight(62).heightVariation(6, 3).octaves(1, 1, 1, 1, 0, 0).sidewaysNoise(0.0F);
@@ -141,13 +141,13 @@ public class BiomeGenBayou extends BOPBiome
     @Override
     public int getGrassColorAtPos(BlockPos pos)
     {
-        return 0x8BAF6B;
+        return 0x7DAD51;
     }
     
     @Override
     public int getFoliageColorAtPos(BlockPos pos)
     {
-        return 0xB0E088;
+        return 0x9DDD66;
     }
     
     // TODO: These 2 are copied from 1.7 - but are they used ever?

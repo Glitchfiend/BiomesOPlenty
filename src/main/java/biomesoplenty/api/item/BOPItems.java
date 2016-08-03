@@ -79,21 +79,12 @@ public class BOPItems
     public static Item mud_chestplate;
     public static Item mud_leggings;
     public static Item mud_boots;
-    public static Item amethyst_helmet;
-    public static Item amethyst_chestplate;
-    public static Item amethyst_leggings;
-    public static Item amethyst_boots;
     
     public static Item mud_axe;
     public static Item mud_hoe;
     public static Item mud_pickaxe;
     public static Item mud_shovel;
     public static Item mud_sword;
-    public static Item amethyst_axe;
-    public static Item amethyst_hoe;
-    public static Item amethyst_pickaxe;
-    public static Item amethyst_shovel;
-    public static Item amethyst_sword;
     
     public static Item mud_scythe;
     public static Item wood_scythe;
@@ -101,7 +92,6 @@ public class BOPItems
     public static Item iron_scythe;
     public static Item gold_scythe;
     public static Item diamond_scythe;
-    public static Item amethyst_scythe;
     
     public static Item biome_finder;
     public static Item biome_essence;

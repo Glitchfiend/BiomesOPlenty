@@ -21,7 +21,5 @@ public class BOPMaterials
     public static ArmorMaterial dull_flower_band_material;
     
     public static ArmorMaterial mud_armor_material;
-    public static ArmorMaterial amethyst_armor_material;
     public static ToolMaterial mud_tool_material;
-    public static ToolMaterial amethyst_tool_material;
 }

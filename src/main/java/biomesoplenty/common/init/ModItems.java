@@ -9,16 +9,6 @@
 package biomesoplenty.common.init;
 
 import static biomesoplenty.api.item.BOPItems.ambrosia;
-import static biomesoplenty.api.item.BOPItems.amethyst_axe;
-import static biomesoplenty.api.item.BOPItems.amethyst_boots;
-import static biomesoplenty.api.item.BOPItems.amethyst_chestplate;
-import static biomesoplenty.api.item.BOPItems.amethyst_helmet;
-import static biomesoplenty.api.item.BOPItems.amethyst_hoe;
-import static biomesoplenty.api.item.BOPItems.amethyst_leggings;
-import static biomesoplenty.api.item.BOPItems.amethyst_pickaxe;
-import static biomesoplenty.api.item.BOPItems.amethyst_scythe;
-import static biomesoplenty.api.item.BOPItems.amethyst_shovel;
-import static biomesoplenty.api.item.BOPItems.amethyst_sword;
 import static biomesoplenty.api.item.BOPItems.ash;
 import static biomesoplenty.api.item.BOPItems.berries;
 import static biomesoplenty.api.item.BOPItems.biome_essence;
@@ -80,8 +70,6 @@ import static biomesoplenty.api.item.BOPItems.turnip_seeds;
 import static biomesoplenty.api.item.BOPItems.wading_boots;
 import static biomesoplenty.api.item.BOPItems.white_dye;
 import static biomesoplenty.api.item.BOPItems.wood_scythe;
-import static biomesoplenty.api.item.BOPMaterials.amethyst_armor_material;
-import static biomesoplenty.api.item.BOPMaterials.amethyst_tool_material;
 import static biomesoplenty.api.item.BOPMaterials.dull_flower_band_material;
 import static biomesoplenty.api.item.BOPMaterials.exotic_flower_band_material;
 import static biomesoplenty.api.item.BOPMaterials.flippers_material;
@@ -212,7 +200,6 @@ public class ModItems
         
         mud_armor_material = addArmorMaterial("MUD", "biomesoplenty:mud_armor", 2, new int[]{1,1,1,1}, 5, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
         mud_armor_material.customCraftingMaterial = mudball;
-        amethyst_armor_material = addArmorMaterial("AMETHYST", "biomesoplenty:amethyst_armor", 40, new int[]{3,8,8,3}, 20, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
         
         wading_boots = registerItem(new ItemWadingBoots(wading_boots_material, 0), "wading_boots");
         flippers = registerItem(new ItemFlippers(flippers_material, 0), "flippers");
@@ -225,10 +212,6 @@ public class ModItems
         mud_chestplate = registerItem(new ItemArmor(mud_armor_material, 0, EntityEquipmentSlot.CHEST), "mud_chestplate");
         mud_leggings = registerItem(new ItemArmor(mud_armor_material, 0, EntityEquipmentSlot.LEGS), "mud_leggings");
         mud_boots = registerItem(new ItemArmor(mud_armor_material, 0, EntityEquipmentSlot.FEET), "mud_boots");
-        amethyst_helmet = registerItem(new ItemArmor(amethyst_armor_material, 0, EntityEquipmentSlot.HEAD), "amethyst_helmet");
-        amethyst_chestplate = registerItem(new ItemArmor(amethyst_armor_material, 0, EntityEquipmentSlot.CHEST), "amethyst_chestplate");
-        amethyst_leggings = registerItem(new ItemArmor(amethyst_armor_material, 0, EntityEquipmentSlot.LEGS), "amethyst_leggings");
-        amethyst_boots = registerItem(new ItemArmor(amethyst_armor_material, 0, EntityEquipmentSlot.FEET), "amethyst_boots");
         
         // tools
 
@@ -242,24 +225,16 @@ public class ModItems
         // GOLD(0, 32, 12.0F, 0.0F, 22);
         mud_tool_material = EnumHelper.addToolMaterial("MUD", 0, 32, 0.5F, 0.0F, 1);
         mud_tool_material.setRepairItem(new ItemStack(mudball));
-        amethyst_tool_material = EnumHelper.addToolMaterial("AMETHYST", 4, 2013, 15.0F, 5.0F, 16);
-        // no repair item for amethyst tool - they can't be repaired
         setAxeDamageAndSpeed(mud_tool_material, 3.0F, -3.3F);
-        setAxeDamageAndSpeed(amethyst_tool_material, 8.0F, -2.8F);
 
         // ItemAxe and ItemPickaxe have protected constructors - use reflection to construct
         mud_axe = registerItem(BOPReflectionHelper.construct(ItemAxe.class, mud_tool_material), "mud_axe");
         mud_pickaxe = registerItem(BOPReflectionHelper.construct(ItemPickaxe.class, mud_tool_material), "mud_pickaxe");
-        amethyst_axe = registerItem(BOPReflectionHelper.construct(ItemAxe.class, amethyst_tool_material), "amethyst_axe");
-        amethyst_pickaxe = registerItem(BOPReflectionHelper.construct(ItemPickaxe.class, amethyst_tool_material), "amethyst_pickaxe");
                 
         // the other tools have public constructors, so we create instances in the normal way
         mud_hoe = registerItem(new ItemHoe(mud_tool_material), "mud_hoe");
         mud_shovel = registerItem(new ItemSpade(mud_tool_material), "mud_shovel");
         mud_sword = registerItem(new ItemSword(mud_tool_material), "mud_sword");
-        amethyst_hoe = registerItem(new ItemHoe(amethyst_tool_material), "amethyst_hoe");
-        amethyst_shovel = registerItem(new ItemSpade(amethyst_tool_material), "amethyst_shovel");
-        amethyst_sword = registerItem(new ItemSword(amethyst_tool_material), "amethyst_sword");
         
         mud_scythe = registerItem(new ItemBOPScythe(mud_tool_material), "mud_scythe");
         wood_scythe = registerItem(new ItemBOPScythe(ToolMaterial.WOOD), "wood_scythe");
@@ -267,7 +242,6 @@ public class ModItems
         iron_scythe = registerItem(new ItemBOPScythe(ToolMaterial.IRON), "iron_scythe");
         gold_scythe = registerItem(new ItemBOPScythe(ToolMaterial.GOLD), "gold_scythe");
         diamond_scythe = registerItem(new ItemBOPScythe(ToolMaterial.DIAMOND), "diamond_scythe");
-        amethyst_scythe = registerItem(new ItemBOPScythe(amethyst_tool_material), "amethyst_scythe");
         
         jar_empty = registerItem(new ItemJarEmpty(), "jar_empty");
         jar_filled = registerItem(new ItemJarFilled(), "jar_filled");
