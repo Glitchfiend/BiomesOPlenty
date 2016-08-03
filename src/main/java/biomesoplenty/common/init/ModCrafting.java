@@ -222,7 +222,7 @@ public class ModCrafting
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.dirt, 4, BOPBlocks.dirt.getMetaFromState(BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY).withProperty(BlockBOPDirt.COARSE, true))), new Object[] {"DG", "GD", 'G', Blocks.GRAVEL, 'D', new ItemStack(BOPBlocks.dirt, 4, BlockBOPDirt.BOPDirtType.SILTY.ordinal())});
         
         // Enderporter
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.enderporter), new Object[] {"IOI", "OTO", "IOI", 'I', Items.ENDER_EYE, 'O', BOPItems.soul, 'T', BOPItems.terrestrial_artifact});
+        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.enderporter), new Object[] {"IAI", "ATA", "IAI", 'I', Items.ENDER_EYE, 'A', new ItemStack(BOPItems.gem, 1, BOPGems.AMETHYST.ordinal()), 'T', BOPItems.terrestrial_artifact});
         
         // Records
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.record_wanderer), new Object [] {"TTT", "TRT", "TTT", 'T', BOPItems.terrestrial_artifact, 'R', "record"}));     
