@@ -165,7 +165,7 @@ public class ModItems
         pinecone = registerItem(new Item(), "pinecone");
         shroompowder =      registerItem(new ItemFood(1, 0.1F, false), "shroompowder");
         ((ItemFood)shroompowder).setAlwaysEdible();
-        ((ItemFood)shroompowder).setPotionEffect(new PotionEffect(MobEffects.NAUSEA, 225, 0), 0.6F);
+        ((ItemFood)shroompowder).setPotionEffect(new PotionEffect(MobEffects.NAUSEA, 225, 0), 1.0F);
         ambrosia =          registerItem(new ItemAmbrosia(), "ambrosia");
         
         earth = registerItem(new Item(), "earth");

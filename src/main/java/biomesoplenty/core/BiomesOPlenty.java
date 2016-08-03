@@ -9,6 +9,7 @@
 package biomesoplenty.core;
 
 import java.io.File;
+import java.util.Locale;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -30,9 +31,6 @@ import biomesoplenty.common.init.ModPotions;
 import biomesoplenty.common.init.ModSounds;
 import biomesoplenty.common.init.ModVanillaCompat;
 import biomesoplenty.common.remote.TrailManager;
-import biomesoplenty.common.world.WorldProviderHellBOP;
-import net.minecraft.world.DimensionType;
-import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
