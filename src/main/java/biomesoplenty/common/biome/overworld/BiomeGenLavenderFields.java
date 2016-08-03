@@ -8,10 +8,13 @@
 
 package biomesoplenty.common.biome.overworld;
 
+import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.config.IBOPWorldSettings;
 import biomesoplenty.api.config.IBOPWorldSettings.GeneratorType;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.generation.GeneratorStage;
+import biomesoplenty.common.block.BlockBOPDirt;
+import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.entities.EntityButterfly;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
@@ -25,6 +28,7 @@ import biomesoplenty.common.world.generator.GeneratorWeighted;
 import biomesoplenty.common.world.generator.tree.GeneratorBasicTree;
 import biomesoplenty.common.world.generator.tree.GeneratorBigTree;
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
  
 public class BiomeGenLavenderFields extends BOPBiome
@@ -35,6 +39,9 @@ public class BiomeGenLavenderFields extends BOPBiome
 
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(4, 12);
+        
+        this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SILTY);
+        this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY);
     
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
@@ -68,6 +75,8 @@ public class BiomeGenLavenderFields extends BOPBiome
     public void applySettings(IBOPWorldSettings settings)
     {
         if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("peridot");}
+        
+        if (!settings.isEnabled(GeneratorType.SOILS)) {this.topBlock = Blocks.GRASS.getDefaultState(); this.fillerBlock = Blocks.DIRT.getDefaultState();}
         
         if (!settings.isEnabled(GeneratorType.PLANTS)) {this.removeGenerator("cattail"); this.removeGenerator("double_cattail"); this.removeGenerator("river_cane"); this.removeGenerator("tiny_cacti"); this.removeGenerator("roots"); this.removeGenerator("rafflesia"); this.removeGenerator("desert_sprouts");}
         

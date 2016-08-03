@@ -8,10 +8,13 @@
 
 package biomesoplenty.common.biome.overworld;
 
+import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.config.IBOPWorldSettings;
 import biomesoplenty.api.config.IBOPWorldSettings.GeneratorType;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.generation.GeneratorStage;
+import biomesoplenty.common.block.BlockBOPDirt;
+import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
@@ -24,6 +27,7 @@ import biomesoplenty.common.world.generator.tree.GeneratorBasicTree;
 import biomesoplenty.common.world.generator.tree.GeneratorBigTree;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 
 
@@ -36,6 +40,9 @@ public class BiomeGenSnowyForest extends BOPBiome
 
         // terrain
         this.terrainSettings.avgHeight(66).heightVariation(6, 21);
+        
+        this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SILTY);
+        this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY);
         
         this.canGenerateVillages = false;
 
@@ -73,6 +80,8 @@ public class BiomeGenSnowyForest extends BOPBiome
     public void applySettings(IBOPWorldSettings settings)
     {
         if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("tanzanite");}
+        
+        if (!settings.isEnabled(GeneratorType.SOILS)) {this.topBlock = Blocks.GRASS.getDefaultState(); this.fillerBlock = Blocks.DIRT.getDefaultState();}
 
         if (!settings.isEnabled(GeneratorType.FOLIAGE)) {this.removeGenerator("bushes"); this.removeGenerator("koru"); this.removeGenerator("shrubs"); this.removeGenerator("leaf_piles"); this.removeGenerator("dead_leaf_piles"); this.removeGenerator("clover_patches"); this.removeGenerator("sprouts");}
         

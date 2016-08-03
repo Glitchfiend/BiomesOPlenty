@@ -9,10 +9,13 @@
 package biomesoplenty.common.biome.overworld;
 
 import biomesoplenty.api.biome.BOPBiomes;
+import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.config.IBOPWorldSettings;
 import biomesoplenty.api.config.IBOPWorldSettings.GeneratorType;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.generation.GeneratorStage;
+import biomesoplenty.common.block.BlockBOPDirt;
+import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.enums.BOPFlowers;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.enums.BOPPlants;
@@ -37,6 +40,9 @@ public class BiomeGenTundra extends BOPBiome
 
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(5, 10).minHeight(59).octaves(2, 2, 1, 0, 1, 1);
+        
+        this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SILTY);
+        this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY);
         
         this.addWeight(BOPClimates.TUNDRA, 10);
         
@@ -92,6 +98,8 @@ public class BiomeGenTundra extends BOPBiome
     public void applySettings(IBOPWorldSettings settings)
     {
         if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("tanzanite");}
+        
+        if (!settings.isEnabled(GeneratorType.SOILS)) {this.topBlock = Blocks.GRASS.getDefaultState(); this.fillerBlock = Blocks.DIRT.getDefaultState();}
         
         if (!settings.isEnabled(GeneratorType.FOLIAGE)) {this.removeGenerator("bushes"); this.removeGenerator("koru"); this.removeGenerator("shrubs"); this.removeGenerator("leaf_piles"); this.removeGenerator("dead_leaf_piles"); this.removeGenerator("clover_patches"); this.removeGenerator("sprouts");}
         

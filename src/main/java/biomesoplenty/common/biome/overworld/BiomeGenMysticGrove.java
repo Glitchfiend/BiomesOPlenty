@@ -14,6 +14,8 @@ import biomesoplenty.api.config.IBOPWorldSettings.GeneratorType;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.block.BlockBOPCoral;
+import biomesoplenty.common.block.BlockBOPDirt;
+import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.entities.EntityButterfly;
@@ -51,6 +53,9 @@ public class BiomeGenMysticGrove extends BOPBiome
 
         // terrain
         this.terrainSettings.avgHeight(63).heightVariation(5, 25);
+        
+        this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SILTY);
+        this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY);
 
         this.skyColor = 0x88E8D0;
 
@@ -138,6 +143,8 @@ public class BiomeGenMysticGrove extends BOPBiome
         if (!settings.isEnabled(GeneratorType.HOT_SPRINGS)) {this.removeGenerator("hot_springs");}
         
     	if (!settings.isEnabled(GeneratorType.LIQUID_POISON)) {this.removeGenerator("poison_lakes");}
+    	
+    	if (!settings.isEnabled(GeneratorType.SOILS)) {this.topBlock = Blocks.GRASS.getDefaultState(); this.fillerBlock = Blocks.DIRT.getDefaultState();}
         
         if (!settings.isEnabled(GeneratorType.FOLIAGE)) {this.removeGenerator("bushes"); this.removeGenerator("koru"); this.removeGenerator("shrubs"); this.removeGenerator("leaf_piles"); this.removeGenerator("dead_leaf_piles"); this.removeGenerator("clover_patches"); this.removeGenerator("sprouts");}
         

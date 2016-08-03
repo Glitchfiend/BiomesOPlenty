@@ -8,11 +8,14 @@
 
 package biomesoplenty.common.biome.overworld;
 
+import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.config.IBOPWorldSettings;
 import biomesoplenty.api.config.IBOPWorldSettings.GeneratorType;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.generation.GeneratorStage;
+import biomesoplenty.common.block.BlockBOPDirt;
 import biomesoplenty.common.block.BlockBOPDoublePlant;
+import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.entities.EntityButterfly;
 import biomesoplenty.common.entities.EntitySnail;
@@ -42,6 +45,9 @@ public class BiomeGenCherryBlossomGrove extends BOPBiome
         
         // terrain
         this.terrainSettings.avgHeight(63).heightVariation(5, 25).sidewaysNoise(0.8F);
+        
+        this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SILTY);
+        this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY);
         
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
@@ -102,6 +108,8 @@ public class BiomeGenCherryBlossomGrove extends BOPBiome
     {
         if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("topaz");}
         if (!settings.isEnabled(GeneratorType.FLAX)) {this.removeGenerator("flax");}
+        
+        if (!settings.isEnabled(GeneratorType.SOILS)) {this.topBlock = Blocks.GRASS.getDefaultState(); this.fillerBlock = Blocks.DIRT.getDefaultState();}
         
         if (!settings.isEnabled(GeneratorType.FOLIAGE)) {this.removeGenerator("bushes"); this.removeGenerator("koru"); this.removeGenerator("shrubs"); this.removeGenerator("leaf_piles"); this.removeGenerator("dead_leaf_piles"); this.removeGenerator("clover_patches"); this.removeGenerator("sprouts");}
         
