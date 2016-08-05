@@ -1,5 +1,7 @@
 package biomesoplenty.common.handler;
 
+import java.util.Collections;
+
 import biomesoplenty.common.block.BlockBOPDirt;
 import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.block.BlockBOPGrassPath;
@@ -28,7 +30,7 @@ public class GrassPathEventHandler
         EnumFacing facing = event.getFace();
         IBlockState state = world.getBlockState(pos);
 
-        if (state.getBlock() instanceof BlockBOPGrass && stack != null && stack.getItem() instanceof ItemSpade)
+        if (state.getBlock() instanceof BlockBOPGrass && stack != null && (stack.getItem() instanceof ItemSpade || stack.getItem().getToolClasses(stack) == Collections.singleton("shovel")))
         {
             Block dirtBlock = BlockBOPGrass.getDirtBlockState(state).getBlock();
             if (dirtBlock instanceof BlockBOPDirt)
