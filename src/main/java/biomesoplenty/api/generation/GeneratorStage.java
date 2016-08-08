@@ -8,9 +8,12 @@
 
 package biomesoplenty.api.generation;
 
+import com.google.common.collect.Maps;
 import com.google.gson.annotations.SerializedName;
 
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate;
+
+import java.util.EnumMap;
 
 public enum GeneratorStage
 {
@@ -66,10 +69,29 @@ public enum GeneratorStage
     {
         return this.decorateType;
     }
-    
+
+    private static final EnumMap<Decorate.EventType, GeneratorStage> decorateTypeMapper = Maps.newEnumMap(Decorate.EventType.class);
+    static
+    {
+        decorateTypeMapper.put(Decorate.EventType.BIG_SHROOM, BIG_SHROOM);
+        decorateTypeMapper.put(Decorate.EventType.CACTUS, CACTUS);
+        decorateTypeMapper.put(Decorate.EventType.CLAY, CLAY);
+        decorateTypeMapper.put(Decorate.EventType.DEAD_BUSH, DEAD_BUSH);
+        decorateTypeMapper.put(Decorate.EventType.LILYPAD, LILYPAD);
+        decorateTypeMapper.put(Decorate.EventType.FLOWERS, FLOWERS);
+        decorateTypeMapper.put(Decorate.EventType.GRASS, GRASS);
+        decorateTypeMapper.put(Decorate.EventType.LAKE_WATER, LAKE_WATER);
+        decorateTypeMapper.put(Decorate.EventType.LAKE_LAVA, LAKE_LAVA);
+        decorateTypeMapper.put(Decorate.EventType.PUMPKIN, PUMPKIN);
+        decorateTypeMapper.put(Decorate.EventType.REED, REED);
+        decorateTypeMapper.put(Decorate.EventType.SAND, SAND);
+        decorateTypeMapper.put(Decorate.EventType.SAND_PASS2, SAND_PASS2);
+        decorateTypeMapper.put(Decorate.EventType.SHROOM, SHROOM);
+        decorateTypeMapper.put(Decorate.EventType.TREE, TREE);
+    }
+
     public static GeneratorStage mapDecorateType(Decorate.EventType decorateType)
     {
-        //Somewhat of a hack, requires the ordering of our enum to be the same as the decorate event
-        return decorateType != Decorate.EventType.CUSTOM ? GeneratorStage.values()[decorateType.ordinal() + 1] : null;
+        return decorateType != Decorate.EventType.CUSTOM ? decorateTypeMapper.get(decorateType) : null;
     }
 }
