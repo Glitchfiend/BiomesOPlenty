@@ -14,7 +14,9 @@ import biomesoplenty.api.config.IBOPWorldSettings.GeneratorType;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.world.generator.GeneratorOreSingle;
+import net.minecraft.entity.monster.EntityPolarBear;
 import net.minecraft.init.Blocks;
+import net.minecraft.world.biome.Biome;
 
 public class BiomeGenGlacier extends BOPBiome
 {    
@@ -36,6 +38,7 @@ public class BiomeGenGlacier extends BOPBiome
         this.canGenerateRivers = false;
         
         this.spawnableCreatureList.clear();
+        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityPolarBear.class, 1, 1, 2));
         
         clearWeights();
           
