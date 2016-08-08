@@ -98,7 +98,7 @@ public class BiomeUtils
             // chunkManager.genBiomes is the first layer returned from initializeAllBiomeGenerators()
             // chunkManager.biomeIndexLayer is the second layer returned from initializeAllBiomeGenerators(), it's zoomed twice from genBiomes (>> 2) this one is actual size
             // chunkManager.getBiomeGenAt uses biomeIndexLayer to get the biome
-            Biome[] biomesAtSample = chunkManager.getBiomeGenAt(null, (int)x, (int)z, 1, 1, false);
+            Biome[] biomesAtSample = chunkManager.getBiomes(null, (int)x, (int)z, 1, 1, false);
             if (biomesAtSample[0] == biomeToFind)
             {
                 BiomesOPlenty.logger.info("Found "+biomeToFind.getBiomeName()+" after "+n+" samples, spaced "+sampleSpace+" blocks apart at ("+((int)x)+","+((int)z)+") distance "+((int)dist));

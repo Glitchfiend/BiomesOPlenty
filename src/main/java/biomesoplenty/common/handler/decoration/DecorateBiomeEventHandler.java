@@ -78,7 +78,7 @@ public class DecorateBiomeEventHandler
     
     private static boolean runGeneratorStage(World world, Random random, BlockPos pos, GeneratorStage stage)
     {
-        Biome biome = world.getBiomeGenForCoords(pos.add(16, 0, 16));
+        Biome biome = world.getBiome(pos.add(16, 0, 16));
         IExtendedBiome extendedBiome = BOPBiomes.REG_INSTANCE.getExtendedBiome(biome);
         
         if (extendedBiome != null)

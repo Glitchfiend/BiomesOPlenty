@@ -144,7 +144,7 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
         this.setChunkAirStoneWater(chunkX, chunkZ, chunkprimer);
         
         // hand over to the biomes for them to set bedrock grass and dirt
-        Biome[] biomes = this.worldObj.getBiomeProvider().loadBlockGeneratorData(null, chunkX * 16, chunkZ * 16, 16, 16);
+        Biome[] biomes = this.worldObj.getBiomeProvider().getBiomes(null, chunkX * 16, chunkZ * 16, 16, 16);
         this.replaceBlocksForBiome(chunkX, chunkZ, chunkprimer, biomes);
 
         // add structures
@@ -470,7 +470,7 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
         
         BlockPos blockpos = new BlockPos(x, 0, z);
         
-        Biome Biome = this.worldObj.getBiomeGenForCoords(blockpos.add(16, 0, 16));
+        Biome Biome = this.worldObj.getBiome(blockpos.add(16, 0, 16));
         
         this.rand.setSeed(this.worldObj.getSeed());
         long l0 = this.rand.nextLong() / 2L * 2L + 1L;
@@ -550,7 +550,7 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
                 for (int j = 0; j < 16; ++j)
                 {
                     target = this.worldObj.getPrecipitationHeight(decorateStart.add(i, 0, j));
-                    Biome biome = this.worldObj.getBiomeGenForCoords(target);
+                    Biome biome = this.worldObj.getBiome(target);
                     // if it's cold enough for ice, and there's exposed water, then freeze it
                     if (this.worldObj.canBlockFreezeWater(target.down()))
                     {
@@ -586,7 +586,7 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
     @Override
     public List<Biome.SpawnListEntry> getPossibleCreatures(EnumCreatureType creatureType, BlockPos pos)
     {
-        Biome Biome = this.worldObj.getBiomeGenForCoords(pos);
+        Biome Biome = this.worldObj.getBiome(pos);
 
         if (this.mapFeaturesEnabled)
         {

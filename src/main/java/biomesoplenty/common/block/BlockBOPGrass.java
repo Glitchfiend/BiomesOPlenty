@@ -351,7 +351,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
             if (walkOk && worldIn.isAirBlock(currPos)) {
                 if (rand.nextInt(8)==0) {
                     // with 1/8 probability, plant a flower
-                    worldIn.getBiomeGenForCoords(currPos).plantFlower(worldIn, rand, currPos);
+                    worldIn.getBiome(currPos).plantFlower(worldIn, rand, currPos);
                 }
                 else
                 {

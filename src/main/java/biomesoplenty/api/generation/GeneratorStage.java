@@ -24,12 +24,18 @@ public enum GeneratorStage
     CLAY(Decorate.EventType.CLAY), 
     @SerializedName("dead_bush")
     DEAD_BUSH(Decorate.EventType.DEAD_BUSH), 
+    @SerializedName("desert_well")
+    DESERT_WELL(Decorate.EventType.DESERT_WELL), 
     @SerializedName("lilypad")
     LILYPAD(Decorate.EventType.LILYPAD), 
     @SerializedName("flowers")
     FLOWERS(Decorate.EventType.FLOWERS), 
+    @SerializedName("fossil")
+    FOSSIL(Decorate.EventType.FOSSIL), 
     @SerializedName("grass")
     GRASS(Decorate.EventType.GRASS), 
+    @SerializedName("ice")
+    ICE(Decorate.EventType.ICE), 
     @SerializedName("lake_water")
     LAKE_WATER(Decorate.EventType.LAKE_WATER), 
     @SerializedName("lake_lava")
@@ -38,6 +44,8 @@ public enum GeneratorStage
     PUMPKIN(Decorate.EventType.PUMPKIN), 
     @SerializedName("reed")
     REED(Decorate.EventType.REED), 
+    @SerializedName("rock")
+    ROCK(Decorate.EventType.ROCK), 
     @SerializedName("sand")
     SAND(Decorate.EventType.SAND), 
     @SerializedName("sand_pass_2")
