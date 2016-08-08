@@ -8,15 +8,7 @@
 
 package biomesoplenty.common.init;
 
-import biomesoplenty.common.handler.AchievementEventHandler;
-import biomesoplenty.common.handler.BucketEventHandler;
-import biomesoplenty.common.handler.DyeEventHandler;
-import biomesoplenty.common.handler.FlippersEventHandler;
-import biomesoplenty.common.handler.GrassPathEventHandler;
-import biomesoplenty.common.handler.GuiEventHandler;
-import biomesoplenty.common.handler.ItemEventHandler;
-import biomesoplenty.common.handler.TrailsEventHandler;
-import biomesoplenty.common.handler.UseHoeEventHandler;
+import biomesoplenty.common.handler.*;
 import biomesoplenty.common.handler.decoration.DecorateBiomeEventHandler;
 import biomesoplenty.common.handler.potion.PotionParalysisEventHandler;
 import biomesoplenty.common.handler.potion.PotionPossessionEventHandler;
@@ -45,7 +37,8 @@ public class ModHandlers
         MinecraftForge.EVENT_BUS.register(new UseHoeEventHandler());
         MinecraftForge.EVENT_BUS.register(new AchievementEventHandler());
         MinecraftForge.EVENT_BUS.register(new GrassPathEventHandler());
-        
+        MinecraftForge.EVENT_BUS.register(new SheepEventHandler());
+
         if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
         {
             registerClientEvents();
