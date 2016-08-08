@@ -163,6 +163,11 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
     @Override
     public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
     {   
+    	if (plantable == Blocks.MELON_STEM || plantable == Blocks.PUMPKIN_STEM)
+    	{
+    		return true;
+    	}
+    	
         return this.canSustainPlantType(world, pos, plantable.getPlantType(world, pos));
     }
     
@@ -188,19 +193,6 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
         IBlockState state = this.getStateFromMeta(meta);
         switch ((BOPGrassType) state.getValue(VARIANT))
         {
-            // spectral moss makes a hideous noise and throws a big fuss of particles around when placed in the nether
-            case SPECTRAL_MOSS:
-                if (world.provider instanceof net.minecraft.world.WorldProviderHell)
-                {
-                    //TODO: 1.9 world.playSound(pos.getX(), pos.getY(), pos.getZ(), "mob.ghast.death", 20.0F, (float)Math.random() * 0.1F, true);
-                    for (int l = 0; l < 8; ++l)
-                    {
-                        world.spawnParticle(EnumParticleTypes.FLAME, (double)pos.getX() + Math.random(), (double)pos.getY() + 0.5D + Math.random(), (double)pos.getZ() + Math.random(), 0.0D, 0.0D, 0.0D);
-                        world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, (double)pos.getX() + Math.random(), (double)pos.getY() + 0.5D + Math.random(), (double)pos.getZ() + Math.random(), 0.0D, 0.0D, 0.0D);
-                    }
-                }
-                break;
-            
             default:
                 break;
         }
@@ -236,16 +228,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
     @Override
     public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
         switch ((BOPGrassType) state.getValue(VARIANT))
-        {
-            case SPECTRAL_MOSS:
-                // spectral moss in the nether catches on fire and turns to smoldering grass
-                if (world.provider instanceof net.minecraft.world.WorldProviderHell)
-                {
-                    world.setBlockState(pos.up(), Blocks.FIRE.getDefaultState()); // might need to set fire AGE value... not sure
-                    world.setBlockState(pos, this.getDefaultState().withProperty(VARIANT, BOPGrassType.SMOLDERING));
-                }
-                break;
-            
+        {   
             case SMOLDERING:
                 // smoldering grass melts snow
                 IBlockState stateAbove = world.getBlockState(pos.up());
@@ -260,7 +243,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
         }
         switch ((BOPGrassType) state.getValue(VARIANT))
         {
-            case SMOLDERING:
+            case SMOLDERING: case SPECTRAL_MOSS: case OVERGROWN_NETHERRACK:
                 // smoldering grass doesn't spread to nearby dirt
                 break;
                 

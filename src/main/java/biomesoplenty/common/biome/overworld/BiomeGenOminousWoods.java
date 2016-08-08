@@ -44,7 +44,7 @@ public class BiomeGenOminousWoods extends BOPBiome
         super("ominous_woods", new PropsBuilder("Ominous Woods").withGuiColour(0x3F4151).withTemperature(0.45F).withRainfall(0.6F).withWaterColor(0x1E1B26));
 
         // terrain
-        this.terrainSettings.avgHeight(70).heightVariation(5, 25);
+        this.terrainSettings.avgHeight(68).heightVariation(5, 15);
 
         this.skyColor = 0x34333D;
 
@@ -66,7 +66,7 @@ public class BiomeGenOminousWoods extends BOPBiome
         this.addGenerator("poison_lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.1F).waterLakeForBiome(this).liquid(BOPBlocks.poison).frozenLiquid((IBlockState)null).create());
         
         // trees & logs
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(9);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(12);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("umbran_moss", 4, (new GeneratorBasicTree.Builder()).log(BOPWoods.UMBRAN).leaves(BOPTrees.UMBRAN).minHeight(8).maxHeight(12).leaves(BlockBOPLeaves.paging.getVariantState(BOPTrees.UMBRAN).withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).maxLeavesRadius(2).vine(BOPBlocks.tree_moss.getDefaultState()).create());
         treeGenerator.add("umbran_spruce", 5, (new GeneratorTaigaTree.Builder()).log(BOPWoods.UMBRAN).leaves(BOPTrees.UMBRAN).maxHeight(20).create()); // TODO: implement pine cones

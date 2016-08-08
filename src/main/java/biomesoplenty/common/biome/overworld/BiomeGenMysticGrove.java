@@ -52,7 +52,7 @@ public class BiomeGenMysticGrove extends BOPBiome
         super("mystic_grove", new PropsBuilder("Mystic Grove").withGuiColour(0x69CFDB).withTemperature(0.6F).withRainfall(0.8F).withWaterColor(0xFF107A));
 
         // terrain
-        this.terrainSettings.avgHeight(63).heightVariation(5, 25);
+        this.terrainSettings.avgHeight(63).heightVariation(5, 20);
         
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SILTY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY);
@@ -84,10 +84,11 @@ public class BiomeGenMysticGrove extends BOPBiome
         // trees & logs
         GeneratorWeighted treeGenerator = new GeneratorWeighted(10);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("flowering_vine", 2, (new GeneratorBasicTree.Builder()).minHeight(8).maxHeight(12).maxLeavesRadius(2).leaves(Blocks.LEAVES.getDefaultState().withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).vine(BOPBlocks.flower_vine.getDefaultState()).create());
-        treeGenerator.add("magic", 9, (new GeneratorBasicTree.Builder()).log(BOPWoods.MAGIC).leaves(BOPTrees.MAGIC).create());
-        treeGenerator.add("jacaranda", 1, (new GeneratorBasicTree.Builder()).minHeight(4).maxHeight(7).log(BOPWoods.JACARANDA).leaves(BOPTrees.JACARANDA).create());
-        treeGenerator.add("oak_large", 3, (new GeneratorBigTree.Builder()).altLeaves(BOPTrees.FLOWERING).create());
+        treeGenerator.add("flowering_vine", 8, (new GeneratorBasicTree.Builder()).minHeight(8).maxHeight(12).maxLeavesRadius(2).leaves(Blocks.LEAVES.getDefaultState().withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).vine(BOPBlocks.flower_vine.getDefaultState()).create());
+        treeGenerator.add("magic", 15, (new GeneratorBasicTree.Builder()).log(BOPWoods.MAGIC).leaves(BOPTrees.MAGIC).create());
+        treeGenerator.add("jacaranda", 7, (new GeneratorBasicTree.Builder()).minHeight(4).maxHeight(7).log(BOPWoods.JACARANDA).leaves(BOPTrees.JACARANDA).create());
+        treeGenerator.add("oak_large", 9, (new GeneratorBigTree.Builder()).altLeaves(BOPTrees.FLOWERING).create());
+        treeGenerator.add("oak_huge", 1, (new GeneratorBigTree.Builder()).minHeight(20).maxHeight(25).altLeaves(BOPTrees.FLOWERING).create());
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(3.0F);
