@@ -134,6 +134,11 @@ public class BlockBOPDirt extends Block implements IBOPBlock, ISustainsPlantType
     @Override
     public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
     {
+    	if (plantable == Blocks.MELON_STEM || plantable == Blocks.PUMPKIN_STEM)
+    	{
+    		return true;
+    	}
+    	
         return this.canSustainPlantType(world, pos, plantable.getPlantType(world, pos.offset(direction)));
     }
 
