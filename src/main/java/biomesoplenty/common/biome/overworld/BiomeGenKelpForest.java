@@ -45,7 +45,7 @@ public class BiomeGenKelpForest extends BOPBiome
          
         // kelp
         this.addGenerator("kelp", GeneratorStage.LILYPAD, (new GeneratorColumns.Builder()).amountPerChunk(5.0F).replace(BlockQueries.waterCovered).placeOn(BlockQueries.groundBlocks).with(BOPBlocks.seaweed.getDefaultState()).scatterYMethod(ScatterYMethod.AT_GROUND).create());
-        this.addGenerator("kelp_tall", GeneratorStage.LILYPAD, (new GeneratorColumns.Builder()).amountPerChunk(6.0F).replace(BlockQueries.waterCovered).placeOn(BlockQueries.groundBlocks).with(BOPBlocks.seaweed.getDefaultState()).minHeight(8).maxHeight(18).scatterYMethod(ScatterYMethod.AT_GROUND).create());
+        this.addGenerator("kelp_tall", GeneratorStage.LILYPAD, (new GeneratorColumns.Builder()).amountPerChunk(6.0F).replace(BlockQueries.waterCovered).placeOn(BlockQueries.groundBlocks).with(BOPBlocks.seaweed.getDefaultState()).minHeight(6).maxHeight(12).scatterYMethod(ScatterYMethod.AT_GROUND).create());
         
         // gem
         this.addGenerator("sapphire", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.SAPPHIRE).create()); 

@@ -40,7 +40,7 @@ public class UseHoeEventHandler
         Block block = state.getBlock();
         boolean result = false;
 
-        if (block instanceof BlockBOPDirt)
+        if (block instanceof BlockBOPDirt && world.isAirBlock(pos.up()))
         {
             result = true;
             if (state.getValue(BlockBOPDirt.COARSE))
@@ -51,7 +51,7 @@ public class UseHoeEventHandler
                 world.setBlockState(pos, BlockBOPFarmland.paging.getVariantState((BlockBOPDirt.BOPDirtType) state.getValue(BlockBOPDirt.VARIANT)));
             }
         }
-        else if (block instanceof BlockBOPGrass)
+        else if (block instanceof BlockBOPGrass && world.isAirBlock(pos.up()))
         {
             result = true;
             BlockBOPGrass grass = (BlockBOPGrass) state.getBlock();
