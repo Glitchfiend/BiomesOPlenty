@@ -34,7 +34,7 @@ public class BiomeGenCoralReef extends BOPBiome
         this.canGenerateVillages = false;
         this.canGenerateRivers = false;
         
-        this.beachBiomeLocation = BiomeUtils.getLocForBiome(Biomes.BEACH);
+        this.beachBiomeLocation = BiomeUtils.getLocForBiome(Biomes.OCEAN);
         
         clearWeights();
 
