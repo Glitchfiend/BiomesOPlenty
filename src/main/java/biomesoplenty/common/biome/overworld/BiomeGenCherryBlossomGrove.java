@@ -72,15 +72,15 @@ public class BiomeGenCherryBlossomGrove extends BOPBiome
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(3.0F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("pink_cherry", 3, (new GeneratorBasicTree.Builder()).log(BOPWoods.CHERRY).leaves(BOPTrees.PINK_CHERRY).create());
-        treeGenerator.add("white_cherry", 3, (new GeneratorBasicTree.Builder()).log(BOPWoods.CHERRY).leaves(BOPTrees.WHITE_CHERRY).create());
-        treeGenerator.add("large_pink_cherry", 1, (new GeneratorBigTree.Builder()).log(BOPWoods.CHERRY).leaves(BOPTrees.PINK_CHERRY).create());
-        treeGenerator.add("large_white_cherry", 1, (new GeneratorBigTree.Builder()).log(BOPWoods.CHERRY).leaves(BOPTrees.WHITE_CHERRY).create());
+        treeGenerator.add("pink_cherry", 2, (new GeneratorBasicTree.Builder()).log(BOPWoods.CHERRY).leaves(BOPTrees.PINK_CHERRY).create());
+        treeGenerator.add("white_cherry", 1, (new GeneratorBasicTree.Builder()).log(BOPWoods.CHERRY).leaves(BOPTrees.WHITE_CHERRY).create());
+        treeGenerator.add("large_pink_cherry", 4, (new GeneratorBigTree.Builder()).log(BOPWoods.CHERRY).leaves(BOPTrees.PINK_CHERRY).create());
+        treeGenerator.add("large_white_cherry", 3, (new GeneratorBigTree.Builder()).log(BOPWoods.CHERRY).leaves(BOPTrees.WHITE_CHERRY).create());
         
         // other plants
         this.addGenerator("flax", GeneratorStage.FLOWERS,(new GeneratorDoubleFlora.Builder()).amountPerChunk(0.2F).with(BlockBOPDoublePlant.DoublePlantType.FLAX).generationAttempts(6).create());
         this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.5F).with(BOPPlants.LEAFPILE).create());
-        this.addGenerator("clover_patches", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(2.5F).with(BOPPlants.CLOVERPATCH).create());
+        this.addGenerator("clover_patches", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.5F).with(BOPPlants.CLOVERPATCH).create());
         this.addGenerator("sprouts", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.8F).with(BOPPlants.SPROUT).create());
         
         // water plants
@@ -91,7 +91,7 @@ public class BiomeGenCherryBlossomGrove extends BOPBiome
         this.addGenerator("flower_lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.3F).with(BlockBOPLilypad.LilypadType.FLOWER).create());
         
         // grasses
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(2.0F);
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(3.0F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("shortgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
         grassGenerator.add("mediumgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());
@@ -127,7 +127,7 @@ public class BiomeGenCherryBlossomGrove extends BOPBiome
     @Override
     public int getGrassColorAtPos(BlockPos pos)
     {
-        return 0xA3FFAA;
+        return 0x96EA9B;
     }
 
     @Override
