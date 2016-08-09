@@ -38,7 +38,7 @@ public class BiomeGenConiferousForest extends BOPBiome
         // terrain
         this.terrainSettings.avgHeight(68).heightVariation(10, 20);
         
-        this.canGenerateVillages = false;
+        this.canGenerateVillages = true;
         
         if (BOPBiomes.gravel_beach.isPresent())
         {

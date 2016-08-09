@@ -42,7 +42,7 @@ public class BiomeGenWoodland extends BOPBiome
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(6, 25);
         
-        this.canGenerateVillages = false;
+        this.canGenerateVillages = true;
         
         this.addWeight(BOPClimates.WARM_TEMPERATE, 10);
         

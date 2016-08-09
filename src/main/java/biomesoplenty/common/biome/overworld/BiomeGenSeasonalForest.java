@@ -37,7 +37,7 @@ public class BiomeGenSeasonalForest extends BOPBiome
 
         this.addWeight(BOPClimates.COOL_TEMPERATE, 7);
 
-        this.canGenerateVillages = false;
+        this.canGenerateVillages = true;
         
         if (BOPBiomes.gravel_beach.isPresent())
         {

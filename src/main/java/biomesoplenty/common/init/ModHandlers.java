@@ -27,6 +27,7 @@ public class ModHandlers
         DecorateBiomeEventHandler decorateBiomeHandler = new DecorateBiomeEventHandler();
         MinecraftForge.EVENT_BUS.register(decorateBiomeHandler);
         MinecraftForge.TERRAIN_GEN_BUS.register(decorateBiomeHandler);
+        //MinecraftForge.TERRAIN_GEN_BUS.register(new VillageMaterialEventHandler());
         MinecraftForge.ORE_GEN_BUS.register(decorateBiomeHandler);
         MinecraftForge.EVENT_BUS.register(new DyeEventHandler());
         MinecraftForge.EVENT_BUS.register(new FlippersEventHandler());
@@ -38,6 +39,7 @@ public class ModHandlers
         MinecraftForge.EVENT_BUS.register(new AchievementEventHandler());
         MinecraftForge.EVENT_BUS.register(new GrassPathEventHandler());
         MinecraftForge.EVENT_BUS.register(new SheepEventHandler());
+        MinecraftForge.EVENT_BUS.register(new LootTableEventHandler());
 
         if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
         {
