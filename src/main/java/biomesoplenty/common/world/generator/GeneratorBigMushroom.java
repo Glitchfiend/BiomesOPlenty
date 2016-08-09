@@ -49,7 +49,7 @@ public class GeneratorBigMushroom extends BOPGeneratorBase
                 case BROWN:
                     return 1;
                 case RED: default:
-                    return 3;
+                    return 4;
             }
         }
         public int getCapDiameter(int y, int height)
