@@ -80,7 +80,7 @@ public class BiomeGenWasteland extends BOPBiome
         //this.addGenerator("spikes", GeneratorStage.PRE, (new GeneratorSpike.Builder()).amountPerChunk(0.2F).create());
         
         // gem
-        this.addGenerator("malachite", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.MALACHITE).create());
+        this.addGenerator("ruby", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.RUBY).create());
         
     }
     
@@ -93,7 +93,7 @@ public class BiomeGenWasteland extends BOPBiome
         
         if (!settings.isEnabled(GeneratorType.ROCK_FORMATIONS)) {this.removeGenerator("stone_formations");}
         
-        if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("malachite");}
+        if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("ruby");}
         
         if (!settings.isEnabled(GeneratorType.LIQUID_POISON)) {this.removeGenerator("poison_lakes");}
         

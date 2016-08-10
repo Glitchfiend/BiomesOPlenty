@@ -56,7 +56,7 @@ public class BiomeGenGlacier extends BOPBiome
         
         if (!settings.isEnabled(GeneratorType.ROCK_FORMATIONS)) {this.removeGenerator("stone_formations");}
         
-        if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("malachite");}
+        if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("tanzanite");}
     }
     
 }
