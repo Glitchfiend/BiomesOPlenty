@@ -62,7 +62,7 @@ public class UseHoeEventHandler
                 BlockBOPDirt.BOPDirtType dirtType = (BlockBOPDirt.BOPDirtType) grass.getDirtBlockState(state).getValue(BlockBOPDirt.VARIANT);
                 world.setBlockState(pos, BlockBOPFarmland.paging.getVariantState(dirtType));
             }
-            else if (dirtBlock instanceof BlockDirt && state.getValue(BlockBOPGrass.VARIANT) != BlockBOPGrass.BOPGrassType.SMOLDERING)
+            else if (dirtBlock instanceof BlockDirt && state.getValue(BlockBOPGrass.VARIANT) != BlockBOPGrass.BOPGrassType.OVERGROWN_STONE)
             {
                 world.setBlockState(pos, Blocks.FARMLAND.getDefaultState());
             }

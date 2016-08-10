@@ -48,7 +48,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
     // add properties (note we also inherit the SNOWY property from BlockGrass)
     public static enum BOPGrassType implements IStringSerializable
     {
-        SPECTRAL_MOSS, SMOLDERING, LOAMY, SANDY, SILTY, ORIGIN, OVERGROWN_NETHERRACK, DAISY;
+        SPECTRAL_MOSS, OVERGROWN_STONE, LOAMY, SANDY, SILTY, ORIGIN, OVERGROWN_NETHERRACK, DAISY;
         @Override
         public String getName()
         {
@@ -77,7 +77,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
         BOPGrassType grassType = (BOPGrassType)state.getValue(VARIANT);
         switch (grassType)
         {
-            case SPECTRAL_MOSS: case OVERGROWN_NETHERRACK:
+            case SPECTRAL_MOSS: case OVERGROWN_NETHERRACK: case OVERGROWN_STONE:
                 return grassType.getName();
             default:
                 return grassType.getName() + "_grass_block";
@@ -124,14 +124,6 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
         
         switch ((BOPGrassType) state.getValue(VARIANT))
         {
-            // smoldering grass supports no plants
-            case SMOLDERING:
-                return false;
-
-                // origin grass supports all plants (including crop type - no need for hoe)
-            case ORIGIN:
-                return true;
-
                 // overgrown_netherrack supports Nether plants in addition to the defaults
             case OVERGROWN_NETHERRACK:
                 if (plantType == net.minecraftforge.common.EnumPlantType.Nether) {return true;}
@@ -171,22 +163,6 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
         return this.canSustainPlantType(world, pos, plantable.getPlantType(world, pos));
     }
     
-    
-    @Override
-    public boolean isFireSource(World world, BlockPos pos, EnumFacing side)
-    {
-        IBlockState state = world.getBlockState(pos);
-        switch ((BOPGrassType) state.getValue(VARIANT))
-        {   
-            // smoldering grass is a fire source
-            case SMOLDERING:
-                return true;
-            
-            default:
-                return false;
-        }
-    }
-    
     @Override
     public IBlockState onBlockPlaced(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
     {
@@ -198,61 +174,11 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
         }
         return state;
     }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand)
-    {
-        switch ((BOPGrassType) state.getValue(VARIANT))
-        {
-             
-            // smoldering grass throws up random flame and smoke particles
-            case SMOLDERING:
-                if (rand.nextInt(4)==0)
-                {
-                    world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, (double)((float)pos.getX() + rand.nextFloat()), (double)((float)pos.getY() + 1.1F), (double)((float)pos.getZ() + rand.nextFloat()), 0.0D, 0.0D, 0.0D);
-                }
-                if (rand.nextInt(6)==0)
-                {
-                    world.spawnParticle(EnumParticleTypes.FLAME, (double)((float)pos.getX() + rand.nextFloat()), (double)((float)pos.getY() + 1.1F), (double)((float)pos.getZ() + rand.nextFloat()), 0.0D, 0.0D, 0.0D);
-                }
-                break;
-                
-            default:
-                break;
-                    
-        }
-        super.randomDisplayTick(state, world, pos, rand);
-    }
     
     @Override
-    public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
-        switch ((BOPGrassType) state.getValue(VARIANT))
-        {   
-            case SMOLDERING:
-                // smoldering grass melts snow
-                IBlockState stateAbove = world.getBlockState(pos.up());
-                if (stateAbove.getMaterial() == Material.SNOW)
-                {
-                    world.setBlockToAir(pos.up());
-                }
-                break;
-                
-            default:
-                break;
-        }
-        switch ((BOPGrassType) state.getValue(VARIANT))
-        {
-            case SMOLDERING: case SPECTRAL_MOSS: case OVERGROWN_NETHERRACK:
-                // smoldering grass doesn't spread to nearby dirt
-                break;
-                
-            default:
-                // the other BOP grass types all do
-                this.spreadGrass(world, pos, state, rand, 4, 1, 3, 1);
-                break;
-        }       
- 
+    public void updateTick(World world, BlockPos pos, IBlockState state, Random rand)
+    {
+        this.spreadGrass(world, pos, state, rand, 4, 1, 3, 1);
     }
     
     // spread grass to suitable nearby blocks
@@ -299,7 +225,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
     public boolean canGrow(World worldIn, BlockPos pos, IBlockState state, boolean isClient) {
         switch ((BOPGrassType) state.getValue(VARIANT))
         {            
-            case SPECTRAL_MOSS: case SMOLDERING: case OVERGROWN_NETHERRACK:
+            case SPECTRAL_MOSS: case OVERGROWN_STONE: case OVERGROWN_NETHERRACK:
                 return false;
             default:
                 return true;
@@ -310,7 +236,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
     public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state) {
         switch ((BOPGrassType) state.getValue(VARIANT))
         {            
-            case SPECTRAL_MOSS: case SMOLDERING: case OVERGROWN_NETHERRACK:
+            case SPECTRAL_MOSS: case OVERGROWN_STONE: case OVERGROWN_NETHERRACK:
                 return false;
             default:
                 return true;
@@ -364,39 +290,6 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
                 }
             }
         }
-    }
-    
-/*    @Override
-    public AxisAlignedBB getCollisionBoundingBox(World world, BlockPos pos, IBlockState state)
-    {   
-        float heightOffset = 0.0F;
-        switch ((BOPGrassType) state.getValue(VARIANT))
-        {
-             // smoldering grass is a tiny bit lower than usual
-            case SMOLDERING:
-                heightOffset = 0.02F;
-                break;
-            
-            default:
-                break;
-        }
-        return new AxisAlignedBB((double) pos.getX(), (double) pos.getY(), (double) pos.getZ(), (double) (pos.getX() + 1), (double) ((float) (pos.getY() + 1) - heightOffset), (double) (pos.getZ() + 1));
-    }*/
-    
-    @Override
-    public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
-    {
-        switch ((BOPGrassType) state.getValue(VARIANT))
-        {            
-            // smoldering grass sets you on fire for 2 seconds
-            case SMOLDERING:
-                entity.setFire(2);
-                break;
-        
-            default:
-                break;
-
-        }       
     }
 
     @SideOnly(Side.CLIENT)
@@ -458,7 +351,9 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
                 return BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY);
             case OVERGROWN_NETHERRACK:
                 return Blocks.NETHERRACK.getDefaultState();
-            case SMOLDERING: case ORIGIN: case DAISY:  default:
+            case OVERGROWN_STONE:
+                return Blocks.STONE.getDefaultState();
+            case ORIGIN: case DAISY:  default:
                 return Blocks.DIRT.getStateFromMeta(BlockDirt.DirtType.DIRT.getMetadata());
         }
     }
@@ -481,20 +376,8 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
 
         switch ((BOPGrassType) source.getValue(VARIANT))
         {
-            // spectral moss only spreads to end stone
-            case SPECTRAL_MOSS:
-                if (target.getBlock()== Blocks.END_STONE)
-                {
-                    return BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SPECTRAL_MOSS);
-                }
+            case SPECTRAL_MOSS: case OVERGROWN_NETHERRACK: case OVERGROWN_STONE:
                 break;
-             
-            case OVERGROWN_NETHERRACK:
-                if (target.getBlock()== Blocks.NETHERRACK)
-                {
-                    return BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.OVERGROWN_NETHERRACK);
-                }
-                break;                
                 
             // loamy/sandy/silty grasses spread to any kind of dirt
             case LOAMY: case SANDY: case SILTY:
@@ -511,21 +394,20 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
                 break;
             
             // origin grass spreads to any kind of dirt
-            case ORIGIN: case DAISY:
+            case ORIGIN:
                 if ((target.getBlock() == Blocks.DIRT && target.getValue(BlockDirt.VARIANT) == BlockDirt.DirtType.DIRT) || (target.getBlock() == BOPBlocks.dirt && Boolean.FALSE.equals(target.getValue(BlockBOPDirt.COARSE))))
                 {
                     return BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.ORIGIN);
                 }
                 break;
                 
-            // smoldering grass doesn't spread at all
-            case SMOLDERING: default:
+            case DAISY:
+                if ((target.getBlock() == Blocks.DIRT && target.getValue(BlockDirt.VARIANT) == BlockDirt.DirtType.DIRT) || (target.getBlock() == BOPBlocks.dirt && Boolean.FALSE.equals(target.getValue(BlockBOPDirt.COARSE))))
+                {
+                    return BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.DAISY);
+                }
                 break;
         }
         return null;
     }
-    
-    
-  
-    
 }

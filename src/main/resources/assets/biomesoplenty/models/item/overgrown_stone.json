@@ -1,5 +1,5 @@
 {
-    "parent": "biomesoplenty:block/smoldering_grass_block",
+    "parent": "biomesoplenty:block/overgrown_stone",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

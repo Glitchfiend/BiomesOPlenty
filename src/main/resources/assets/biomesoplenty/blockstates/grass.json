@@ -1,16 +1,16 @@
 {
     "variants": {
-        "snowy=false,variant=smoldering": [
-            { "model": "biomesoplenty:smoldering_grass_block" },
-            { "model": "biomesoplenty:smoldering_grass_block", "y": 90 },
-            { "model": "biomesoplenty:smoldering_grass_block", "y": 180 },
-            { "model": "biomesoplenty:smoldering_grass_block", "y": 270 }
+        "snowy=false,variant=overgrown_stone": [
+            { "model": "biomesoplenty:overgrown_stone" },
+            { "model": "biomesoplenty:overgrown_stone", "y": 90 },
+            { "model": "biomesoplenty:overgrown_stone", "y": 180 },
+            { "model": "biomesoplenty:overgrown_stone", "y": 270 }
         	],
-        "snowy=true,variant=smoldering": [
-            { "model": "biomesoplenty:smoldering_grass_block" },
-            { "model": "biomesoplenty:smoldering_grass_block", "y": 90 },
-            { "model": "biomesoplenty:smoldering_grass_block", "y": 180 },
-            { "model": "biomesoplenty:smoldering_grass_block", "y": 270 }
+        "snowy=true,variant=overgrown_stone": [
+            { "model": "biomesoplenty:overgrown_stone_snowed" },
+            { "model": "biomesoplenty:overgrown_stone_snowed", "y": 90 },
+            { "model": "biomesoplenty:overgrown_stone_snowed", "y": 180 },
+            { "model": "biomesoplenty:overgrown_stone_snowed", "y": 270 }
         	],
         	
         "snowy=false,variant=spectral_moss": [

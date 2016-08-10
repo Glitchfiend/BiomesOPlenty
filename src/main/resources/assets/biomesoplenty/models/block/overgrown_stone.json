@@ -1,0 +1,10 @@
+{
+    "parent": "block/grass",
+    "textures": {
+        "particle": "blocks/stone",
+        "bottom": "blocks/stone",
+        "top": "blocks/grass_top",
+        "side": "biomesoplenty:blocks/overgrown_stone_side",
+        "overlay": "biomesoplenty:blocks/overgrown_stone_side_overlay"
+    }
+}
