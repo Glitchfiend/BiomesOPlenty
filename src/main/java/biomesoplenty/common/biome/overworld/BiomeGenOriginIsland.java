@@ -10,6 +10,7 @@ package biomesoplenty.common.biome.overworld;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.config.IBOPWorldSettings;
+import biomesoplenty.api.config.IBOPWorldSettings.GeneratorType;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.block.BlockBOPGrass.BOPGrassType;
@@ -80,6 +81,9 @@ public class BiomeGenOriginIsland extends BOPBiome
     public void applySettings(IBOPWorldSettings settings)
     {
         this.removeGenerator("roots");
+        this.removeGenerator("stone_formations");
+        this.removeGenerator("glowshrooms");
+        this.removeGenerator("miners_delight");
     }
     
     @Override

@@ -43,6 +43,12 @@ public class BiomeExtJungleHills extends ExtendedBiomeWrapper
     @Override
     public void applySettings(IBOPWorldSettings settings)
     {
+        if (!settings.isEnabled(GeneratorType.MUSHROOMS)) {this.removeGenerator("glowshrooms");}
+        
+        if (!settings.isEnabled(GeneratorType.FLOWERS)) {this.removeGenerator("miners_delight");}
+        
+        if (!settings.isEnabled(GeneratorType.ROCK_FORMATIONS)) {this.removeGenerator("stone_formations");}
+        
         if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("topaz");}
         
         if (!settings.isEnabled(GeneratorType.FLOWERS)) {this.removeGenerator("flowers");}

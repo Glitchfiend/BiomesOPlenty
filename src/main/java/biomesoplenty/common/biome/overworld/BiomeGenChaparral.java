@@ -96,6 +96,12 @@ public class BiomeGenChaparral extends BOPBiome
     @Override
     public void applySettings(IBOPWorldSettings settings)
     {
+        if (!settings.isEnabled(GeneratorType.MUSHROOMS)) {this.removeGenerator("glowshrooms");}
+        
+        if (!settings.isEnabled(GeneratorType.FLOWERS)) {this.removeGenerator("miners_delight");}
+        
+        if (!settings.isEnabled(GeneratorType.ROCK_FORMATIONS)) {this.removeGenerator("stone_formations");}
+        
         if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("peridot");}
         if (!settings.isEnabled(GeneratorType.BERRY_BUSHES)) {this.removeGenerator("berry_bushes");}
         

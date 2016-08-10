@@ -36,6 +36,12 @@ public class BiomeExtRoofedForest extends ExtendedBiomeWrapper
     @Override
     public void applySettings(IBOPWorldSettings settings)
     {
+        if (!settings.isEnabled(GeneratorType.MUSHROOMS)) {this.removeGenerator("glowshrooms");}
+        
+        if (!settings.isEnabled(GeneratorType.FLOWERS)) {this.removeGenerator("miners_delight");}
+        
+        if (!settings.isEnabled(GeneratorType.ROCK_FORMATIONS)) {this.removeGenerator("stone_formations");}
+        
         if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("amber");}
         
         if (!settings.isEnabled(GeneratorType.MUSHROOMS)) {this.removeGenerator("toadstools"); this.removeGenerator("flat_mushroom"); this.removeGenerator("blue_milk_caps"); this.removeGenerator("portobellos");}
