@@ -225,12 +225,6 @@ public class AchievementEventHandler
             player.addStat(BOPAchievements.craft_terrestrial_artifact);
         }
         
-        //Pick Your Poison Achievement
-        if (item != null && item == new ItemStack(BOPItems.jar_filled, 1, ItemJarFilled.JarContents.POISON.ordinal()).getItem())
-        {
-            player.addStat(BOPAchievements.craft_poison_jar);
-        }
-        
     }
 
     @SubscribeEvent

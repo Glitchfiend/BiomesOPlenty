@@ -10,6 +10,7 @@ package biomesoplenty.common.item;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.common.entities.EntityButterfly;
 import biomesoplenty.common.entities.EntityPixie;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -54,10 +55,6 @@ public class ItemJarEmpty extends Item
         {
             jarContents = ItemJarFilled.JarContents.HONEY;                
         }
-        else if (state.getBlock() == BOPBlocks.poison)
-        {
-            jarContents = ItemJarFilled.JarContents.POISON;
-        }
         
         // if it was honey or poison, return the corresponding filled jar
         if (jarContents != null)
@@ -97,6 +94,20 @@ public class ItemJarEmpty extends Item
             {
                 player.worldObj.spawnEntityInWorld(pixieJarEntity);
                 if (!(player instanceof FakePlayer)) {pixieJarEntity.onCollideWithPlayer(player);}
+            }
+            return true;
+        }
+        if (target instanceof EntityButterfly)
+        {
+            EntityButterfly butterfly = (EntityButterfly)target;
+            butterfly.setDead();
+            --stack.stackSize;
+            ItemStack butterflyJar = new ItemStack(BOPItems.jar_filled, 1, ItemJarFilled.JarContents.BUTTERFLY.ordinal());
+            EntityItem butterflyJarEntity = new EntityItem(player.worldObj, player.posX, player.posY, player.posZ, butterflyJar);
+            if (!player.worldObj.isRemote)
+            {
+                player.worldObj.spawnEntityInWorld(butterflyJarEntity);
+                if (!(player instanceof FakePlayer)) {butterflyJarEntity.onCollideWithPlayer(player);}
             }
             return true;
         }

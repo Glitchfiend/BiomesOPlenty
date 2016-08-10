@@ -10,7 +10,6 @@ package biomesoplenty.common.init;
 import static biomesoplenty.api.achievement.BOPAchievements.craft_ambrosia;
 import static biomesoplenty.api.achievement.BOPAchievements.craft_flax_string;
 import static biomesoplenty.api.achievement.BOPAchievements.craft_muddy_pickaxe;
-import static biomesoplenty.api.achievement.BOPAchievements.craft_poison_jar;
 import static biomesoplenty.api.achievement.BOPAchievements.craft_terrestrial_artifact;
 import static biomesoplenty.api.achievement.BOPAchievements.eat_shroom_powder;
 import static biomesoplenty.api.achievement.BOPAchievements.explore_all_biomes;
@@ -67,8 +66,8 @@ public class ModAchievements
         //craft_amethyst_sword = addAchievement("achievement.craft_amethyst_sword", "craft_amethyst_sword", -7, 0, new ItemStack(BOPItems.amethyst_sword), craft_flax_string).setSpecial();
 
         obtain_thorn = addAchievement("achievement.obtain_thorn", "obtain_thorn", -3, -1, BlockBOPPlant.paging.getVariantItem(BOPPlants.THORN), obtain_flowers);
-        craft_poison_jar = addAchievement("achievement.craft_poison_jar", "craft_poison_jar", -3, 1, new ItemStack(BOPItems.jar_filled, 1, ItemJarFilled.JarContents.POISON.ordinal()), obtain_thorn);
-        obtain_deathbloom = addAchievement("achievement.obtain_deathbloom", "obtain_deathbloom", -6, 3, BlockBOPFlower.paging.getVariantItem(BOPFlowers.DEATHBLOOM), craft_poison_jar);
+        //craft_poison_jar = addAchievement("achievement.craft_poison_jar", "craft_poison_jar", -3, 1, new ItemStack(BOPItems.jar_filled, 1, ItemJarFilled.JarContents.POISON.ordinal()), obtain_thorn);
+        obtain_deathbloom = addAchievement("achievement.obtain_deathbloom", "obtain_deathbloom", -6, 3, BlockBOPFlower.paging.getVariantItem(BOPFlowers.DEATHBLOOM), obtain_thorn);
         
         obtain_berry = addAchievement("achievement.obtain_berry", "obtain_berry", 2, 1, new ItemStack(BOPItems.berries), obtain_flowers);
         eat_shroom_powder = addAchievement("achievement.eat_shroom_powder", "eat_shroom_powder", 5, -1, new ItemStack(BOPItems.shroompowder), obtain_berry);

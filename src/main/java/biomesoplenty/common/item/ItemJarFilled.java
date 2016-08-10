@@ -10,6 +10,7 @@ package biomesoplenty.common.item;
 
 import java.util.List;
 
+import biomesoplenty.common.entities.EntityButterfly;
 import biomesoplenty.common.entities.EntityPixie;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -34,7 +35,7 @@ public class ItemJarFilled extends Item
     
     public enum JarContents implements IStringSerializable
     {
-        HONEY, POISON, PIXIE;
+        HONEY, BUTTERFLY, PIXIE;
         
         @Override
         public String getName()
@@ -137,6 +138,22 @@ public class ItemJarFilled extends Item
         }
     }
     
+    public boolean releaseButterfly(ItemStack stack, World world, EntityPlayer player, Vec3d releasePoint)
+    {
+        if (world.provider.isSurfaceWorld())
+        {
+            EntityButterfly butterfly = new EntityButterfly(world);                    
+            butterfly.setLocationAndAngles(releasePoint.xCoord, releasePoint.yCoord, releasePoint.zCoord, MathHelper.wrapDegrees(world.rand.nextFloat() * 360.0F), 0.0F);
+            world.spawnEntityInWorld(butterfly);
+            butterfly.playLivingSound();
+            if (stack.hasDisplayName()) {butterfly.setCustomNameTag(stack.getDisplayName());}
+            if (!player.capabilities.isCreativeMode) {--stack.stackSize;}
+            return true;
+        } else {
+            player.addChatComponentMessage(new TextComponentString("\u00a75Butterflies cannot survive in this environment!"));
+            return false;
+        }
+    }
     
     @Override
     public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand)
@@ -154,7 +171,16 @@ public class ItemJarFilled extends Item
                 }
                 return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
                 
-            case HONEY: case POISON: default:
+            case BUTTERFLY:
+                if (this.getContentsType(stack) == JarContents.BUTTERFLY)
+                {
+                    // release pixie into the air in front of the player (target distance 0.8, but will be closer if there's blocks in the way)
+                    Vec3d releasePoint = this.getAirPositionInFrontOfPlayer(world, player, 0.8D);
+                    this.releaseButterfly(stack, world, player, releasePoint);
+                }
+                return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
+                
+            case HONEY: default:
                 return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);
         }
     }
@@ -175,8 +201,16 @@ public class ItemJarFilled extends Item
                 Vec3d releasePoint = new Vec3d(player.posX + a * distX, player.posY + (double)player.getEyeHeight() + a * distY, player.posZ + a * distZ);
                 return this.releasePixie(stack, world, player, releasePoint) ? EnumActionResult.SUCCESS : EnumActionResult.FAIL;
                 
+            case BUTTERFLY:
+                double distX1 = hitX - player.posX;
+                double distY1 = hitY - (player.posY + (double)player.getEyeHeight());
+                double distZ1 = hitZ - player.posZ;                
+                double a1 = 0.9D;
+                Vec3d releasePoint1 = new Vec3d(player.posX + a1 * distX1, player.posY + (double)player.getEyeHeight() + a1 * distY1, player.posZ + a1 * distZ1);
+                return this.releaseButterfly(stack, world, player, releasePoint1) ? EnumActionResult.SUCCESS : EnumActionResult.FAIL;
+                
             // TODO: are you supposed to be able to pour out honey? How much should you get?  Why don't we just use buckets?
-            case HONEY: case POISON: default:
+            case HONEY: default:
                 return EnumActionResult.SUCCESS;
         }
     }
