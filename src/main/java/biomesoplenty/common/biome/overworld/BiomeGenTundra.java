@@ -79,7 +79,7 @@ public class BiomeGenTundra extends BOPBiome
 
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.1F);
-        this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
+        this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
         flowerGenerator.add("violet", 1, (new GeneratorFlora.Builder().with(BOPFlowers.VIOLET).create()));
         
         // grasses

@@ -28,7 +28,7 @@ public class BiomeExtPlains extends ExtendedBiomeWrapper
         
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.5F);
-        this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
+        this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
         flowerGenerator.add("clover", 4, (new GeneratorFlora.Builder().with(BOPFlowers.CLOVER).create()));
         flowerGenerator.add("white_anemones", 2, (new GeneratorFlora.Builder().with(BOPFlowers.WHITE_ANEMONE).create()));
         

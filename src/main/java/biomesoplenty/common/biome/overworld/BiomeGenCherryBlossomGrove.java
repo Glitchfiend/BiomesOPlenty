@@ -59,7 +59,7 @@ public class BiomeGenCherryBlossomGrove extends BOPBiome
         
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(6.0F);
-        this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
+        this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
         flowerGenerator.add("pink_daffodil", 4, (new GeneratorFlora.Builder().with(BOPFlowers.PINK_DAFFODIL).create()));
         flowerGenerator.add("white_anemones", 3, (new GeneratorFlora.Builder().with(BOPFlowers.WHITE_ANEMONE).create()));
         flowerGenerator.add("clover", 2, (new GeneratorFlora.Builder().with(BOPFlowers.CLOVER).create()));

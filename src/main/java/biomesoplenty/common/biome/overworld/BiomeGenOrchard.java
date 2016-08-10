@@ -39,7 +39,7 @@ public class BiomeGenOrchard extends BOPBiome
         this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
         
         // trees
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(4);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(3);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("oak_large", 1, (new GeneratorBigTree.Builder()).altLeaves(BOPTrees.FLOWERING).create());
         
@@ -54,7 +54,7 @@ public class BiomeGenOrchard extends BOPBiome
         
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(1.5F);
-        this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
+        this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
         flowerGenerator.add("white_anemones", 1, (new GeneratorFlora.Builder().with(BOPFlowers.WHITE_ANEMONE).generationAttempts(16).create()));
         flowerGenerator.add("houstonia", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.HOUSTONIA).create()));
         flowerGenerator.add("oxeye_daisy", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.OXEYE_DAISY).create()));
@@ -99,7 +99,7 @@ public class BiomeGenOrchard extends BOPBiome
         GeneratorWeighted treeGen = (GeneratorWeighted)this.getGenerator("trees");
         if (!settings.isEnabled(GeneratorType.TREES)) {this.removeGenerator("trees");
         
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(4);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(3);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("oak_large", 1, (new GeneratorBigTree.Builder()).create());
         }

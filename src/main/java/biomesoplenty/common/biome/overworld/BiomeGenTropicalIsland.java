@@ -77,7 +77,7 @@ public class BiomeGenTropicalIsland extends BOPBiome
         
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(2.0F);
-        this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
+        this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
         flowerGenerator.add("hibiscus", 6, (new GeneratorFlora.Builder().with(BOPFlowers.PINK_HIBISCUS).create()));
         flowerGenerator.add("blue_hydrangeas", 2, (new GeneratorFlora.Builder().with(BOPFlowers.BLUE_HYDRANGEA).create()));
         flowerGenerator.add("white_anemones", 1, (new GeneratorFlora.Builder().with(BOPFlowers.WHITE_ANEMONE).create()));

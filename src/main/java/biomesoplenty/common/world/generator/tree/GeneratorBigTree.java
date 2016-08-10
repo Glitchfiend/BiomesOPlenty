@@ -49,9 +49,9 @@ public class GeneratorBigTree extends GeneratorTreeBase
             // defaults
             this.amountPerChunk = 1.0F;
             this.placeOn = BlockQueries.fertile;
-            this.replace = new BlockQueryMaterial(Material.AIR, Material.LEAVES);
+            this.replace = BlockQueries.airOrLeaves;
             this.log = Blocks.LOG.getDefaultState();
-            this.leaves = Blocks.LEAVES.getDefaultState();
+            this.leaves = Blocks.LEAVES.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
             this.vine = null;
             this.hanging = null;
             this.trunkFruit = null;

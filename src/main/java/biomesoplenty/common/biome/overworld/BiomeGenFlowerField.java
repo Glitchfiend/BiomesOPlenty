@@ -40,7 +40,7 @@ public class BiomeGenFlowerField extends BOPBiome
         
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(50);
-        this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
+        this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
         flowerGenerator.add("pink_tulip", 2, (new GeneratorFlora.Builder().with(EnumFlowerType.PINK_TULIP).create()));
         flowerGenerator.add("white_tulip", 5, (new GeneratorFlora.Builder().with(EnumFlowerType.WHITE_TULIP).create()));
         flowerGenerator.add("orange_tulip", 7, (new GeneratorFlora.Builder().with(EnumFlowerType.ORANGE_TULIP).create()));

@@ -84,7 +84,7 @@ public class BiomeGenFlowerIsland extends BOPBiome
         this.addGenerator("sprouts", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BOPPlants.SPROUT).create());
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(4.0F);
-        this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
+        this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
         flowerGenerator.add("dandelion", 3, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.DANDELION).create()));
         flowerGenerator.add("poppy", 5, (new GeneratorFlora.Builder().with(EnumFlowerType.POPPY).create()));
         flowerGenerator.add("white_anemones", 4, (new GeneratorFlora.Builder().with(BOPFlowers.WHITE_ANEMONE).create()));

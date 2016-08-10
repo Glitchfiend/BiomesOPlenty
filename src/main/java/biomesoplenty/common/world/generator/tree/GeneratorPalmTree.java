@@ -31,7 +31,7 @@ public class GeneratorPalmTree extends GeneratorTreeBase
             this.minHeight = 10;
             this.maxHeight = 14;
             this.placeOn = BlockQueries.fertile;
-            this.replace = BlockQueries.replaceable;
+            this.replace = BlockQueries.airOrLeaves;
             this.log = Blocks.LOG.getDefaultState();
             this.leaves = Blocks.LEAVES.getDefaultState();
             this.vine = null;

@@ -54,7 +54,7 @@ public class BiomeExtSwampland extends ExtendedBiomeWrapper
         
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.6F);
-        this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
+        this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
         flowerGenerator.add("swampflower", 1, (new GeneratorFlora.Builder()).with(BOPFlowers.SWAMPFLOWER).create());
         
         // shrooms

@@ -24,7 +24,7 @@ public class BiomeExtMesa extends ExtendedBiomeWrapper
         
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.2F);
-        this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
+        this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
         flowerGenerator.add("bromeliad", 2, (new GeneratorFlora.Builder().with(BOPFlowers.BROMELIAD).create()));
         
         // gem

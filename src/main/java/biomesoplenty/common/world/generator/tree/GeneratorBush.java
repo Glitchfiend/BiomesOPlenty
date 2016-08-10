@@ -29,7 +29,7 @@ public class GeneratorBush extends GeneratorTreeBase
             this.minHeight = 2;
             this.maxHeight = 4;
             this.placeOn = BlockQueries.fertile;
-            this.replace = BlockQueries.airOrLeaves;
+            this.replace = BlockQueries.replaceable;
             this.log = Blocks.LOG.getDefaultState();
             this.leaves = Blocks.LEAVES.getDefaultState();
             this.vine = null;
@@ -71,6 +71,12 @@ public class GeneratorBush extends GeneratorTreeBase
         //Generate a bush 3 blocks tall, with the bottom block already set to a log
         for (int y = 0; y < height; ++y)
         {
+            // log in the center
+            if (height - y > 1)
+            {
+                this.setLog(world, pos.add(0, y, 0));
+            }  
+            
             //Reduces the radius closer to the top of the bush
             int leavesRadius = (height - y > 1 ? 2 : 1);
 
@@ -98,13 +104,7 @@ public class GeneratorBush extends GeneratorTreeBase
                     	}
                     }
                 }
-            }
-            
-            // log in the center
-            if (height - y > 1)
-            {
-                this.setLog(world, pos.add(0, y, 0));
-            }            
+            }          
         }
 
         return true;
