@@ -174,7 +174,7 @@ public class GeneratorBigTree extends GeneratorTreeBase
         }
     }
 
-    private void crossection(BlockPos pos, float radius, IBlockState leaf, IBlockState altLeaf) 
+    private void crossection(BlockPos pos, float radius) 
     {
         // Create a circular cross section.
         //
@@ -204,16 +204,16 @@ public class GeneratorBigTree extends GeneratorTreeBase
                             
                             if (rand == 0)
                             {
-                                this.setBlockAndNotifyAdequately(world, checkedPos, altLeaf);
+                                this.setBlockAndNotifyAdequately(world, checkedPos, this.altLeaves.withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)));
                             }
                             else
                             {
-                                this.setBlockAndNotifyAdequately(world, checkedPos, leaf);
+                                this.setBlockAndNotifyAdequately(world, checkedPos, this.leaves.withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)));
                             }
                         }
                         else
                         {
-                            this.setBlockAndNotifyAdequately(world, checkedPos, leaf);
+                            this.setBlockAndNotifyAdequately(world, checkedPos, this.leaves.withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)));
                         }
                     }
                 }
@@ -282,7 +282,7 @@ public class GeneratorBigTree extends GeneratorTreeBase
         
         for (int y = 0; y < foliageHeight; y++) 
         {
-        	crossection(blockPos.up(y), foliageShape(y), this.leaves.withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)), this.altLeaves.withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)));
+        	crossection(blockPos.up(y), foliageShape(y));
         }
     }
 
