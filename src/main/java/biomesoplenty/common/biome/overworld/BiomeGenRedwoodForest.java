@@ -19,6 +19,7 @@ import biomesoplenty.common.world.generator.GeneratorWaterside;
 import biomesoplenty.common.world.generator.GeneratorWeighted;
 import biomesoplenty.common.world.generator.tree.GeneratorBush;
 import biomesoplenty.common.world.generator.tree.GeneratorRedwoodTree;
+import biomesoplenty.common.world.generator.tree.GeneratorRedwoodTreeThin;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockFlower.EnumFlowerType;
@@ -56,9 +57,10 @@ public class BiomeGenRedwoodForest extends BOPBiome
         this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.SAND.getDefaultState()).create());
         
         // trees
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(25.0F);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(30.0F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("redwood", 5, (new GeneratorRedwoodTree.Builder()).log(BOPWoods.REDWOOD).leaves(BOPTrees.REDWOOD).create());
+        treeGenerator.add("redwood_thin", 2, (new GeneratorRedwoodTreeThin.Builder()).log(BOPWoods.REDWOOD).leaves(BOPTrees.REDWOOD).create());
         treeGenerator.add("oak_bush", 1, (new GeneratorBush.Builder()).maxHeight(2).create());
         
         // flowers
@@ -122,9 +124,10 @@ public class BiomeGenRedwoodForest extends BOPBiome
         GeneratorWeighted treeGen = (GeneratorWeighted)this.getGenerator("trees");
         if (!settings.isEnabled(GeneratorType.TREES)) {this.removeGenerator("trees");
         
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(25.0F);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(30.0F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("redwood", 5, (new GeneratorRedwoodTree.Builder()).log(BlockPlanks.EnumType.OAK).leaves(BlockPlanks.EnumType.OAK).create());
+        treeGenerator.add("redwood_thin", 2, (new GeneratorRedwoodTreeThin.Builder()).log(BlockPlanks.EnumType.OAK).leaves(BlockPlanks.EnumType.OAK).create());
         treeGenerator.add("oak_bush", 1, (new GeneratorBush.Builder()).maxHeight(2).create());
         }
         

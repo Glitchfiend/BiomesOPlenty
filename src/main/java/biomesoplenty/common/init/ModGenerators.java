@@ -40,6 +40,7 @@ import biomesoplenty.common.world.generator.tree.GeneratorPalmTree;
 import biomesoplenty.common.world.generator.tree.GeneratorPineTree;
 import biomesoplenty.common.world.generator.tree.GeneratorProfileTree;
 import biomesoplenty.common.world.generator.tree.GeneratorRedwoodTree;
+import biomesoplenty.common.world.generator.tree.GeneratorRedwoodTreeThin;
 import biomesoplenty.common.world.generator.tree.GeneratorTaigaTree;
 import biomesoplenty.common.world.generator.tree.GeneratorTwigletTree;
 
@@ -77,6 +78,7 @@ public class ModGenerators
         registerGenerator("crystals", GeneratorCrystals.class, new GeneratorCrystals.Builder());
         registerGenerator("spike", GeneratorSpike.class, new GeneratorSpike.Builder());
         registerGenerator("redwood_tree", GeneratorRedwoodTree.class, new GeneratorRedwoodTree.Builder());
+        registerGenerator("redwood_tree_thin", GeneratorRedwoodTreeThin.class, new GeneratorRedwoodTreeThin.Builder());
         registerGenerator("mahogany_tree", GeneratorMahoganyTree.class, new GeneratorMahoganyTree.Builder());
         registerGenerator("palm_tree", GeneratorPalmTree.class, new GeneratorPalmTree.Builder());
     }
