@@ -40,7 +40,7 @@ public class BiomeGenTropicalIsland extends BOPBiome
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(5, 40).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.2D);
     
-        this.canSpawnInBiome = false;
+        this.canSpawnInBiome = true;
         this.canGenerateVillages = false;
         this.canGenerateRivers = false;
         

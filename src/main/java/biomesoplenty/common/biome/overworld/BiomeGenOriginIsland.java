@@ -42,7 +42,7 @@ public class BiomeGenOriginIsland extends BOPBiome
 
         this.skyColor = 8441086;
         
-        this.canSpawnInBiome = false;
+        this.canSpawnInBiome = true;
         this.canGenerateVillages = false;
         this.canGenerateRivers = false;
         
