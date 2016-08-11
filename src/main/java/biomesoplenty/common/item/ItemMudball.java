@@ -41,8 +41,7 @@ public class ItemMudball extends Item
         if (!world.isRemote)
         {
         	EntityMudball mudball = new EntityMudball(world, player);
-        	//TODO: replace this
-            //mudball.func_184538_a(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
+        	mudball.setHeadingFromThrower(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
             world.spawnEntityInWorld(mudball);
         }
 
