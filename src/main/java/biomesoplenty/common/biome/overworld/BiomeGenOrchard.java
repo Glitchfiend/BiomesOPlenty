@@ -16,6 +16,7 @@ import biomesoplenty.common.world.generator.GeneratorFlora;
 import biomesoplenty.common.world.generator.GeneratorGrass;
 import biomesoplenty.common.world.generator.GeneratorOreSingle;
 import biomesoplenty.common.world.generator.GeneratorWeighted;
+import biomesoplenty.common.world.generator.tree.GeneratorBasicTree;
 import biomesoplenty.common.world.generator.tree.GeneratorBigTree;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockTallGrass;
@@ -39,8 +40,9 @@ public class BiomeGenOrchard extends BOPBiome
         this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
         
         // trees
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(3);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(5);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
+        treeGenerator.add("oak", 2, (new GeneratorBasicTree.Builder()).altLeaves(BOPTrees.FLOWERING).create());
         treeGenerator.add("oak_large", 1, (new GeneratorBigTree.Builder()).altLeaves(BOPTrees.FLOWERING).create());
         
         // grasses
@@ -99,8 +101,9 @@ public class BiomeGenOrchard extends BOPBiome
         GeneratorWeighted treeGen = (GeneratorWeighted)this.getGenerator("trees");
         if (!settings.isEnabled(GeneratorType.TREES)) {this.removeGenerator("trees");
         
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(3);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(5);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
+        treeGenerator.add("oak", 2, (new GeneratorBasicTree.Builder()).create());
         treeGenerator.add("oak_large", 1, (new GeneratorBigTree.Builder()).create());
         }
         

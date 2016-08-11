@@ -174,7 +174,7 @@ public class GeneratorBigTree extends GeneratorTreeBase
         }
     }
 
-    private void crossection(BlockPos pos, float radius, IBlockState state) 
+    private void crossection(BlockPos pos, float radius, IBlockState leaf, IBlockState altLeaf) 
     {
         // Create a circular cross section.
         //
@@ -198,7 +198,23 @@ public class GeneratorBigTree extends GeneratorTreeBase
                     BlockPos checkedPos = pos.add(dx, 0, dz);
                     if (this.replace.matches(world, checkedPos))
                     {
-                        this.setBlockAndNotifyAdequately(world, checkedPos, state);
+                        if (this.altLeaves != null) 
+                        {
+                            int rand = new Random().nextInt(4);
+                            
+                            if (rand == 0)
+                            {
+                                this.setBlockAndNotifyAdequately(world, checkedPos, altLeaf);
+                            }
+                            else
+                            {
+                                this.setBlockAndNotifyAdequately(world, checkedPos, leaf);
+                            }
+                        }
+                        else
+                        {
+                            this.setBlockAndNotifyAdequately(world, checkedPos, leaf);
+                        }
                     }
                 }
             }
@@ -266,26 +282,7 @@ public class GeneratorBigTree extends GeneratorTreeBase
         
         for (int y = 0; y < foliageHeight; y++) 
         {
-        	if (this.altLeaves != null)
-        	{
-	        	IBlockState clusterLeaves = this.leaves;
-	        	int rand = new Random().nextInt(4);
-	        	
-	        	if (rand == 0)
-	        	{
-	        		clusterLeaves = this.altLeaves;
-	        	}
-	        	else
-	        	{
-	        		clusterLeaves = this.leaves;
-	        	}
-	        	
-	        	crossection(blockPos.up(y), foliageShape(y), clusterLeaves.withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)));
-        	}
-        	else
-        	{
-        		crossection(blockPos.up(y), foliageShape(y), this.leaves.withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)));
-        	}
+        	crossection(blockPos.up(y), foliageShape(y), this.leaves.withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)), this.altLeaves.withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)));
         }
     }
 
