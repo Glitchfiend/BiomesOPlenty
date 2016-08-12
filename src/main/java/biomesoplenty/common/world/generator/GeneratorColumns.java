@@ -81,7 +81,7 @@ public class GeneratorColumns extends GeneratorReplacing
                 
             if (this.randomDirection == true)
             {
-            	int randDirection = rand.nextInt(1);
+            	int randDirection = rand.nextInt(3);
             	
             	if (randDirection == 0)
             	{
@@ -115,7 +115,7 @@ public class GeneratorColumns extends GeneratorReplacing
     	                int targetHeight = GeneratorUtils.nextIntBetween(rand, this.minHeight, this.maxHeight);
     	                
     	                // keep placing blocks upwards (if there's room)
-    	                for (int height = targetHeight; height >= 0 && replace.matches(world, genPos); height++)
+    	                for (int height = 0; height <= targetHeight && replace.matches(world, genPos); height++)
     	                {
     	                	if (this.with.getBlock().canPlaceBlockAt(world, genPos))
 		                	{
