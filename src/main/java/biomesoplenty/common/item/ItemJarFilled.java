@@ -8,19 +8,15 @@
 
 package biomesoplenty.common.item;
 
-import java.util.List;
-
+import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.entities.EntityButterfly;
 import biomesoplenty.common.entities.EntityPixie;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.IStringSerializable;
+import net.minecraft.stats.StatList;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
@@ -29,6 +25,8 @@ import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.List;
 
 public class ItemJarFilled extends Item
 {
@@ -130,7 +128,6 @@ public class ItemJarFilled extends Item
             world.spawnEntityInWorld(pixie);
             pixie.playLivingSound();
             if (stack.hasDisplayName()) {pixie.setCustomNameTag(stack.getDisplayName());}
-            if (!player.capabilities.isCreativeMode) {--stack.stackSize;}
             return true;
         } else {
             player.addChatComponentMessage(new TextComponentString("\u00a75Pixies cannot survive in this environment!"));
@@ -147,7 +144,6 @@ public class ItemJarFilled extends Item
             world.spawnEntityInWorld(butterfly);
             butterfly.playLivingSound();
             if (stack.hasDisplayName()) {butterfly.setCustomNameTag(stack.getDisplayName());}
-            if (!player.capabilities.isCreativeMode) {--stack.stackSize;}
             return true;
         } else {
             player.addChatComponentMessage(new TextComponentString("\u00a75Butterflies cannot survive in this environment!"));
@@ -168,21 +164,34 @@ public class ItemJarFilled extends Item
                     // release pixie into the air in front of the player (target distance 0.8, but will be closer if there's blocks in the way)
                     Vec3d releasePoint = this.getAirPositionInFrontOfPlayer(world, player, 0.8D);
                     this.releasePixie(stack, world, player, releasePoint);
+                    this.emptyJar(stack, player, new ItemStack(BOPItems.jar_empty));
+                    return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
                 }
-                return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
-                
+
             case BUTTERFLY:
                 if (this.getContentsType(stack) == JarContents.BUTTERFLY)
                 {
                     // release pixie into the air in front of the player (target distance 0.8, but will be closer if there's blocks in the way)
                     Vec3d releasePoint = this.getAirPositionInFrontOfPlayer(world, player, 0.8D);
                     this.releaseButterfly(stack, world, player, releasePoint);
+                    this.emptyJar(stack, player, new ItemStack(BOPItems.jar_empty));
+                    return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
                 }
-                return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
-                
+
             case HONEY: default:
                 return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);
         }
+    }
+
+    protected ItemStack emptyJar(ItemStack stack, EntityPlayer player, ItemStack emptyJarStack)
+    {
+        if (!player.capabilities.isCreativeMode) { --stack.stackSize; }
+        player.addStat(StatList.getObjectUseStats(this));
+
+        if (!player.inventory.addItemStackToInventory(emptyJarStack)) {
+            player.dropItem(emptyJarStack, false);
+        }
+        return stack;
     }
     
     
@@ -214,10 +223,5 @@ public class ItemJarFilled extends Item
                 return EnumActionResult.SUCCESS;
         }
     }
-    
-    
-    
-    
-    
 }
    

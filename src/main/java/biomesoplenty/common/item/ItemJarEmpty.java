@@ -18,6 +18,7 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.stats.StatList;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
@@ -39,44 +40,61 @@ public class ItemJarEmpty extends Item
     @Override
     public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand)
     {
-        
         RayTraceResult hit = this.rayTrace(world, player, true);
-        if (hit == null) {new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);}
-        if (hit.typeOfHit != RayTraceResult.Type.BLOCK) {new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);}
-        BlockPos pos = hit.getBlockPos();
-        if (!world.isBlockModifiable(player, pos)) {new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);}
-        if (!player.canPlayerEdit(pos, hit.sideHit, stack)) {new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);}
-        
-        // determine if the block is one of our BOP fluids
-        // note - no need to check level - you don't get a hit unless it's full
-        IBlockState state = world.getBlockState(pos);
-        ItemJarFilled.JarContents jarContents = null;
-        if (state.getBlock() == BOPBlocks.honey)
-        {
-            jarContents = ItemJarFilled.JarContents.HONEY;                
-        }
-        
-        // if it was honey or poison, return the corresponding filled jar
-        if (jarContents != null)
-        {
-            world.setBlockToAir(pos);
-            --stack.stackSize;
-            //TODO: 1.9 player.triggerAchievement(StatList.objectUseStats[Item.getIdFromItem(this)]);
-            
-            ItemStack honeyJar = new ItemStack(BOPItems.jar_filled, 1, jarContents.ordinal());
-            // if there was only one empty jar in the stack, replace it, otherwise add the filledJar elsewhere in the inventory
-            if (stack.stackSize <= 0)
+
+        if (hit == null) {
+            return new ActionResult<ItemStack>(EnumActionResult.PASS, stack);
+        } else {
+            if (hit.typeOfHit == RayTraceResult.Type.BLOCK)
             {
-                return new ActionResult<ItemStack>(EnumActionResult.FAIL, honeyJar);
-            }
-            else if (!player.inventory.addItemStackToInventory(honeyJar))
-            {
-                // no room in inventory, so just drop it on the floor
-                player.dropItem(honeyJar, false);
+                BlockPos pos = hit.getBlockPos();
+
+                if (!world.isBlockModifiable(player, pos) || !player.canPlayerEdit(pos.offset(hit.sideHit), hit.sideHit, stack))
+                {
+                    return new ActionResult<ItemStack>(EnumActionResult.PASS, stack);
+                }
+
+                // determine if the block is one of our BOP fluids
+                // note - no need to check level - you don't get a hit unless it's full
+                IBlockState state = world.getBlockState(pos);
+                ItemJarFilled.JarContents jarContents = null;
+                if (state.getBlock() == BOPBlocks.honey)
+                {
+                    jarContents = ItemJarFilled.JarContents.HONEY;
+                }
+
+                // if it was honey, return the corresponding filled jar
+                if (jarContents != null)
+                {
+                    world.setBlockToAir(pos);
+
+                    return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, this.fillJar(stack, player, new ItemStack(BOPItems.jar_filled, 1, jarContents.ordinal())));
+                }
             }
         }
 
-        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
+        player.setActiveHand(hand);
+        return new ActionResult<ItemStack>(EnumActionResult.PASS, stack);
+    }
+
+    private ItemStack fillJar(ItemStack stack, EntityPlayer player, ItemStack jarStack)
+    {
+        --stack.stackSize;
+        player.addStat(StatList.getObjectUseStats(this));
+
+        // if there was only one empty jar in the stack, replace it, otherwise add the filledJar elsewhere in the inventory
+        if (stack.stackSize <= 0)
+        {
+            return jarStack;
+        } else {
+            if (!player.inventory.addItemStackToInventory(jarStack))
+            {
+                // no room in inventory, so just drop it on the floor
+                player.dropItem(jarStack, false);
+            }
+
+            return stack;
+        }
     }
     
     @Override
