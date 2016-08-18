@@ -12,8 +12,8 @@ import java.util.Random;
 
 import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.api.config.IConfigObj;
+import biomesoplenty.api.enums.BOPWoods;
 import biomesoplenty.common.block.BlockBOPLog;
-import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;

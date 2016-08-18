@@ -14,9 +14,9 @@ import org.apache.commons.lang3.tuple.Pair;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.config.IConfigObj;
+import biomesoplenty.api.enums.BOPGems;
 import biomesoplenty.api.generation.BOPGeneratorBase;
 import biomesoplenty.common.block.BlockBOPGem;
-import biomesoplenty.common.enums.BOPGems;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;

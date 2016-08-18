@@ -8,10 +8,10 @@
 
 package biomesoplenty.common.item;
 
+import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.item.BOPMaterials;
 import biomesoplenty.common.block.BlockBOPFlower;
 import biomesoplenty.common.block.BlockBOPPlant;
-import biomesoplenty.common.enums.BOPPlants;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockFlower;

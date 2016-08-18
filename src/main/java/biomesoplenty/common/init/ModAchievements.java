@@ -30,13 +30,13 @@ import static biomesoplenty.api.achievement.BOPAchievements.use_biome_finder;
 import static biomesoplenty.api.achievement.BOPAchievements.use_enderporter;
 
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.enums.BOPFlowers;
+import biomesoplenty.api.enums.BOPPlants;
+import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.block.BlockBOPFlower;
 import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.block.BlockBOPSapling;
-import biomesoplenty.common.enums.BOPFlowers;
-import biomesoplenty.common.enums.BOPPlants;
-import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.item.ItemJarFilled;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;

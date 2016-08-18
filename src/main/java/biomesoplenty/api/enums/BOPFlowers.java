@@ -6,15 +6,14 @@
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  ******************************************************************************/
 
-package biomesoplenty.common.enums;
+package biomesoplenty.api.enums;
 
 import biomesoplenty.common.util.block.VariantPagingHelper.IPagedVariants;
 import net.minecraft.util.IStringSerializable;
 
-public enum BOPPlants implements IStringSerializable, IPagedVariants
+public enum BOPFlowers implements IStringSerializable, IPagedVariants
 {
-    
-    SHORTGRASS, MEDIUMGRASS, BUSH, SPROUT, POISONIVY, BERRYBUSH, SHRUB, WHEATGRASS, DAMPGRASS, KORU, CLOVERPATCH, LEAFPILE, DEADLEAFPILE, DEADGRASS, DESERTGRASS, DESERTSPROUTS, DUNEGRASS, SPECTRALFERN, THORN, WILDRICE, CATTAIL, RIVERCANE, TINYCACTUS, WITHERWART, REED, ROOT, RAFFLESIA;
+    CLOVER, SWAMPFLOWER, DEATHBLOOM, GLOWFLOWER, BLUE_HYDRANGEA, ORANGE_COSMOS, PINK_DAFFODIL, WILDFLOWER, VIOLET, WHITE_ANEMONE, ENDERLOTUS, BROMELIAD, WILTED_LILY, PINK_HIBISCUS, LILY_OF_THE_VALLEY, BURNING_BLOSSOM, LAVENDER, GOLDENROD, BLUEBELLS, MINERS_DELIGHT, ICY_IRIS, ROSE;
     
     @Override
     public String getName() {
@@ -25,4 +24,5 @@ public enum BOPPlants implements IStringSerializable, IPagedVariants
     {
         return this.getName();
     }
+    
 }

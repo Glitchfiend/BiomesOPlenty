@@ -11,7 +11,7 @@ package biomesoplenty.common.block;
 import java.util.HashMap;
 import java.util.Map;
 
-import biomesoplenty.common.enums.BOPWoods;
+import biomesoplenty.api.enums.BOPWoods;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.SoundType;

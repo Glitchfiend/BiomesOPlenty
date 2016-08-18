@@ -11,11 +11,11 @@ package biomesoplenty.common.world.generator.tree;
 import java.util.Random;
 
 import biomesoplenty.api.block.IBlockPosQuery;
+import biomesoplenty.api.enums.BOPTrees;
+import biomesoplenty.api.enums.BOPWoods;
 import biomesoplenty.api.generation.BOPGeneratorBase;
 import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.block.BlockBOPLog;
-import biomesoplenty.common.enums.BOPTrees;
-import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryBlock;

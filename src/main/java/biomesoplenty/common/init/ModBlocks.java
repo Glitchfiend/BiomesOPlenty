@@ -17,6 +17,7 @@ import static biomesoplenty.api.item.BOPItems.sand_bucket;
 
 import com.google.common.collect.ImmutableSet;
 
+import biomesoplenty.api.enums.BOPWoods;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.block.BlockBOPAsh;
 import biomesoplenty.common.block.BlockBOPBamboo;
@@ -60,7 +61,6 @@ import biomesoplenty.common.block.BlockBOPVine;
 import biomesoplenty.common.block.BlockBOPWoodStairs;
 import biomesoplenty.common.block.IBOPBlock;
 import biomesoplenty.common.command.BOPCommand;
-import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.fluids.BloodFluid;
 import biomesoplenty.common.fluids.HoneyFluid;
 import biomesoplenty.common.fluids.HotSpringWaterFluid;

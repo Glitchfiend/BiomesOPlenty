@@ -8,7 +8,7 @@
 
 package biomesoplenty.common.block;
 
-import biomesoplenty.common.enums.BOPWoods;
+import biomesoplenty.api.enums.BOPWoods;
 import biomesoplenty.common.item.ItemBOPBlock;
 import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.Block;

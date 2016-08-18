@@ -12,8 +12,8 @@ import java.util.Random;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
-import biomesoplenty.common.enums.BOPTrees;
-import biomesoplenty.common.enums.BOPWoods;
+import biomesoplenty.api.enums.BOPTrees;
+import biomesoplenty.api.enums.BOPWoods;
 import biomesoplenty.common.item.ItemBOPSapling;
 import biomesoplenty.common.util.block.VariantPagingHelper;
 import biomesoplenty.common.world.generator.tree.GeneratorBasicTree;

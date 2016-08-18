@@ -8,7 +8,7 @@
 
 package biomesoplenty.common.block;
 
-import biomesoplenty.common.enums.BOPGems;
+import biomesoplenty.api.enums.BOPGems;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;

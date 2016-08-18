@@ -1,10 +1,10 @@
 package biomesoplenty.common.handler;
 
 import biomesoplenty.api.biome.BOPBiomes;
+import biomesoplenty.api.enums.BOPWoods;
 import biomesoplenty.common.block.BlockBOPLog;
 import biomesoplenty.common.block.BlockBOPPlanks;
 import biomesoplenty.common.block.BlockBOPWoodStairs;
-import biomesoplenty.common.enums.BOPWoods;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.event.terraingen.BiomeEvent;

@@ -8,8 +8,8 @@
 
 package biomesoplenty.common.item;
 
+import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.common.block.BlockBOPPlant;
-import biomesoplenty.common.enums.BOPPlants;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;

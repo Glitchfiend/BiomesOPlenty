@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-import biomesoplenty.common.enums.BOPWoods;
+import biomesoplenty.api.enums.BOPWoods;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;

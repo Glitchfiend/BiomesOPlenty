@@ -6,7 +6,7 @@
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  ******************************************************************************/
 
-package biomesoplenty.common.enums;
+package biomesoplenty.api.enums;
 
 import com.google.common.base.Predicate;
 

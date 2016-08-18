@@ -10,7 +10,7 @@ package biomesoplenty.common.item;
 
 import java.util.List;
 
-import biomesoplenty.common.enums.BOPGems;
+import biomesoplenty.api.enums.BOPGems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

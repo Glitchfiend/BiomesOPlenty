@@ -2,11 +2,11 @@ package biomesoplenty.common.biome.vanilla;
 
 import biomesoplenty.api.config.IBOPWorldSettings;
 import biomesoplenty.api.config.IBOPWorldSettings.GeneratorType;
+import biomesoplenty.api.enums.BOPFlowers;
+import biomesoplenty.api.enums.BOPPlants;
+import biomesoplenty.api.enums.BOPTrees;
+import biomesoplenty.api.enums.BOPWoods;
 import biomesoplenty.api.generation.GeneratorStage;
-import biomesoplenty.common.enums.BOPFlowers;
-import biomesoplenty.common.enums.BOPPlants;
-import biomesoplenty.common.enums.BOPTrees;
-import biomesoplenty.common.enums.BOPWoods;
 import biomesoplenty.common.world.generator.GeneratorFlora;
 import biomesoplenty.common.world.generator.GeneratorGrass;
 import biomesoplenty.common.world.generator.GeneratorWeighted;

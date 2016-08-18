@@ -2,10 +2,10 @@ package biomesoplenty.common.biome.vanilla;
 
 import biomesoplenty.api.config.IBOPWorldSettings;
 import biomesoplenty.api.config.IBOPWorldSettings.GeneratorType;
+import biomesoplenty.api.enums.BOPFlowers;
+import biomesoplenty.api.enums.BOPGems;
+import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.generation.GeneratorStage;
-import biomesoplenty.common.enums.BOPFlowers;
-import biomesoplenty.common.enums.BOPGems;
-import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.world.generator.GeneratorFlora;
 import biomesoplenty.common.world.generator.GeneratorGrass;
 import biomesoplenty.common.world.generator.GeneratorOreSingle;

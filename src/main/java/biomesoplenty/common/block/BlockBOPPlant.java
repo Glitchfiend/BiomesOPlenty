@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.Random;
 
 import biomesoplenty.api.block.BlockQueries;
+import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.common.enums.BOPPlants;
 import biomesoplenty.common.item.ItemBOPPlant;
 import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.Block;

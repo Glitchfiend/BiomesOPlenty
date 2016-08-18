@@ -14,7 +14,7 @@ import com.google.common.collect.ImmutableSet;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
-import biomesoplenty.common.enums.BOPPlants;
+import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.common.util.block.BlockStateUtils;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;

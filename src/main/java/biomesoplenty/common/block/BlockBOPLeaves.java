@@ -13,8 +13,8 @@ import java.util.Random;
 
 import com.google.common.collect.Lists;
 
+import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.common.enums.BOPTrees;
 import biomesoplenty.common.item.ItemBOPBlock;
 import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.BlockLeaves;

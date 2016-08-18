@@ -13,7 +13,7 @@ import java.util.List;
 
 import com.google.common.collect.ImmutableSet;
 
-import biomesoplenty.common.enums.BOPWoods;
+import biomesoplenty.api.enums.BOPWoods;
 import biomesoplenty.common.util.block.BlockStateUtils;
 import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.BlockSlab;

@@ -8,8 +8,8 @@
 
 package biomesoplenty.common.item;
 
+import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.common.block.BlockBOPSapling;
-import biomesoplenty.common.enums.BOPTrees;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 
