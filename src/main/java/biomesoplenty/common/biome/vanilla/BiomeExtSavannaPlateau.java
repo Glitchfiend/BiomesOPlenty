@@ -26,7 +26,7 @@ public class BiomeExtSavannaPlateau extends ExtendedBiomeWrapper
         
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.8F);
-        this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
+        this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
         flowerGenerator.add("wildflower", 4, (new GeneratorFlora.Builder()).with(BOPFlowers.WILDFLOWER).create());
         flowerGenerator.add("clover", 2, (new GeneratorFlora.Builder().with(BOPFlowers.CLOVER).create()));
         

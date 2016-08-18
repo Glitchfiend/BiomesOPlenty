@@ -84,7 +84,7 @@ public class BiomeGenFlowerIsland extends BOPBiome
         this.addGenerator("sprouts", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BOPPlants.SPROUT).create());
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(4.0F);
-        this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
+        this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
         flowerGenerator.add("dandelion", 3, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.DANDELION).create()));
         flowerGenerator.add("poppy", 5, (new GeneratorFlora.Builder().with(EnumFlowerType.POPPY).create()));
         flowerGenerator.add("white_anemones", 4, (new GeneratorFlora.Builder().with(BOPFlowers.WHITE_ANEMONE).create()));
@@ -94,7 +94,7 @@ public class BiomeGenFlowerIsland extends BOPBiome
         flowerGenerator.add("rose", 2, (new GeneratorDoubleFlora.Builder().with(BlockDoublePlant.EnumPlantType.ROSE).create()));
         
         // gem
-        this.addGenerator("peridot", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.PERIDOT).create());
+        this.addGenerator("topaz", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.TOPAZ).create());
 
         
     }
@@ -108,7 +108,7 @@ public class BiomeGenFlowerIsland extends BOPBiome
         
         if (!settings.isEnabled(GeneratorType.ROCK_FORMATIONS)) {this.removeGenerator("stone_formations");}
         
-        if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("peridot");}
+        if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("topaz");}
         
         if (!settings.isEnabled(GeneratorType.FOLIAGE)) {this.removeGenerator("bushes"); this.removeGenerator("koru"); this.removeGenerator("shrubs"); this.removeGenerator("leaf_piles"); this.removeGenerator("dead_leaf_piles"); this.removeGenerator("clover_patches"); this.removeGenerator("sprouts");}
         

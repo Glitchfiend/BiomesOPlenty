@@ -9,17 +9,25 @@ import net.minecraftforge.fml.relauncher.ReflectionHelper;
 
 import java.lang.reflect.Field;
 
-public class SheepEventHandler {
+public class SheepEventHandler
+{
     @SubscribeEvent
-    public void onEntityConstructEvent(EntityJoinWorldEvent event) {
-        if (event.getEntity() instanceof EntitySheep) {
+    public void onEntityConstructEvent(EntityJoinWorldEvent event)
+    {
+        if (event.getEntity() instanceof EntitySheep)
+        {
             EntitySheep sheep = (EntitySheep)event.getEntity();
             Field eatGrass = ReflectionHelper.findField(EntitySheep.class, new String[]{"entityAIEatGrass", "field_146087_bs"});
-            try {
+            try
+            {
                 eatGrass.set(sheep, new EntityAIEatBOPGrass(sheep));
-            } catch (IllegalArgumentException e) {
+            }
+            catch (IllegalArgumentException e)
+            {
                 e.printStackTrace();
-            } catch (IllegalAccessException e) {
+            }
+            catch (IllegalAccessException e)
+            {
                 e.printStackTrace();
             }
         }

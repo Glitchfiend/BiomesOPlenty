@@ -42,7 +42,7 @@ public class BiomeGenOriginIsland extends BOPBiome
 
         this.skyColor = 8441086;
         
-        this.canSpawnInBiome = false;
+        this.canSpawnInBiome = true;
         this.canGenerateVillages = false;
         this.canGenerateRivers = false;
         
@@ -71,7 +71,7 @@ public class BiomeGenOriginIsland extends BOPBiome
 
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.4F);
-        this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
+        this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
         flowerGenerator.add("rose", 8, (new GeneratorFlora.Builder().with(BOPFlowers.ROSE).create()));
         flowerGenerator.add("yellow_flower", 10, (new GeneratorFlora.Builder().with(EnumFlowerType.DANDELION).create()));
     }

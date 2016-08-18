@@ -40,7 +40,7 @@ public class BiomeGenTropicalIsland extends BOPBiome
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(5, 40).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.2D);
     
-        this.canSpawnInBiome = false;
+        this.canSpawnInBiome = true;
         this.canGenerateVillages = false;
         this.canGenerateRivers = false;
         
@@ -77,7 +77,7 @@ public class BiomeGenTropicalIsland extends BOPBiome
         
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(2.0F);
-        this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
+        this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
         flowerGenerator.add("hibiscus", 6, (new GeneratorFlora.Builder().with(BOPFlowers.PINK_HIBISCUS).create()));
         flowerGenerator.add("blue_hydrangeas", 2, (new GeneratorFlora.Builder().with(BOPFlowers.BLUE_HYDRANGEA).create()));
         flowerGenerator.add("white_anemones", 1, (new GeneratorFlora.Builder().with(BOPFlowers.WHITE_ANEMONE).create()));

@@ -85,10 +85,10 @@ public class BiomeGenMysticGrove extends BOPBiome
         // trees & logs
         GeneratorWeighted treeGenerator = new GeneratorWeighted(10);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("flowering_vine", 8, (new GeneratorBasicTree.Builder()).minHeight(8).maxHeight(12).maxLeavesRadius(2).leaves(Blocks.LEAVES.getDefaultState().withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).vine(BOPBlocks.flower_vine.getDefaultState()).create());
-        treeGenerator.add("magic", 15, (new GeneratorBasicTree.Builder()).log(BOPWoods.MAGIC).leaves(BOPTrees.MAGIC).create());
-        treeGenerator.add("jacaranda", 7, (new GeneratorBasicTree.Builder()).minHeight(4).maxHeight(7).log(BOPWoods.JACARANDA).leaves(BOPTrees.JACARANDA).create());
-        treeGenerator.add("oak_large", 9, (new GeneratorBigTree.Builder()).altLeaves(BOPTrees.FLOWERING).create());
+        treeGenerator.add("flowering_vine", 10, (new GeneratorBasicTree.Builder()).minHeight(8).maxHeight(12).maxLeavesRadius(2).leaves(Blocks.LEAVES.getDefaultState().withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).vine(BOPBlocks.flower_vine.getDefaultState()).create());
+        treeGenerator.add("magic", 17, (new GeneratorBasicTree.Builder()).log(BOPWoods.MAGIC).leaves(BOPTrees.MAGIC).create());
+        treeGenerator.add("jacaranda", 9, (new GeneratorBasicTree.Builder()).minHeight(4).maxHeight(7).log(BOPWoods.JACARANDA).leaves(BOPTrees.JACARANDA).create());
+        treeGenerator.add("oak_large", 11, (new GeneratorBigTree.Builder()).altLeaves(BOPTrees.FLOWERING).create());
         treeGenerator.add("oak_huge", 1, (new GeneratorBigTree.Builder()).minHeight(20).maxHeight(25).altLeaves(BOPTrees.FLOWERING).create());
         
         // grasses
@@ -101,7 +101,7 @@ public class BiomeGenMysticGrove extends BOPBiome
         
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(1.5F);
-        this.addGenerator("flowers", GeneratorStage.GRASS, flowerGenerator);
+        this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
         flowerGenerator.add("clover", 1, (new GeneratorFlora.Builder().with(BOPFlowers.CLOVER).create()));
         flowerGenerator.add("blue_hydrangeas", 2, (new GeneratorFlora.Builder().with(BOPFlowers.BLUE_HYDRANGEA).create()));
         flowerGenerator.add("syringa", 1, (new GeneratorDoubleFlora.Builder().with(BlockDoublePlant.EnumPlantType.SYRINGA).create()));
@@ -169,10 +169,11 @@ public class BiomeGenMysticGrove extends BOPBiome
         
         GeneratorWeighted treeGenerator = new GeneratorWeighted(10);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("flowering_vine", 2, (new GeneratorBasicTree.Builder()).minHeight(8).maxHeight(12).maxLeavesRadius(2).leaves(Blocks.LEAVES.getDefaultState().withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).vine(Blocks.VINE.getDefaultState()).create());
-        treeGenerator.add("magic", 9, (new GeneratorBasicTree.Builder()).create());
-        treeGenerator.add("jacaranda", 1, (new GeneratorBasicTree.Builder()).minHeight(4).maxHeight(7).create());
-        treeGenerator.add("oak_large", 3, (new GeneratorBigTree.Builder()).create());
+        treeGenerator.add("flowering_vine", 10, (new GeneratorBasicTree.Builder()).minHeight(8).maxHeight(12).maxLeavesRadius(2).leaves(Blocks.LEAVES.getDefaultState().withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).vine(Blocks.VINE.getDefaultState()).create());
+        treeGenerator.add("magic", 17, (new GeneratorBasicTree.Builder()).create());
+        treeGenerator.add("jacaranda", 9, (new GeneratorBasicTree.Builder()).minHeight(4).maxHeight(7).create());
+        treeGenerator.add("oak_large", 11, (new GeneratorBigTree.Builder()).create());
+        treeGenerator.add("oak_huge", 1, (new GeneratorBigTree.Builder()).minHeight(20).maxHeight(25).create());
         }
         
         GeneratorWeighted flowerGen = (GeneratorWeighted)this.getGenerator("flowers");

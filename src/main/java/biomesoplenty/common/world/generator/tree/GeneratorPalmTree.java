@@ -31,7 +31,7 @@ public class GeneratorPalmTree extends GeneratorTreeBase
             this.minHeight = 10;
             this.maxHeight = 14;
             this.placeOn = BlockQueries.fertile;
-            this.replace = BlockQueries.replaceable;
+            this.replace = BlockQueries.airOrLeaves;
             this.log = Blocks.LOG.getDefaultState();
             this.leaves = Blocks.LEAVES.getDefaultState();
             this.vine = null;
@@ -68,7 +68,7 @@ public class GeneratorPalmTree extends GeneratorTreeBase
         // Generation settings
         int height = GeneratorUtils.nextIntBetween(random, this.minHeight, this.maxHeight);
         int leavesRadius = 2;
-        int heightMinusTop = height - leavesRadius;
+        int heightMinusTop = height - leavesRadius - 1;
         boolean slant = true;
         EnumFacing direction = EnumFacing.random(random); //The direction the palm tree curves towards
         if (direction == EnumFacing.DOWN || direction == EnumFacing.UP)
