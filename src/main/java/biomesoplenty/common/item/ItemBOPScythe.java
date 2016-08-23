@@ -119,7 +119,8 @@ public class ItemBOPScythe extends Item
         
         // apply to every block in a rectangle around pos
         for (int dx = -radius; dx <= radius; dx++) { for (int dy = -radius; dy <= radius; dy++) { for (int dz = -radius; dz <= radius; dz++) {
-            if (cutCorners && (Math.abs(dx) + Math.abs(dz) >= 2 * radius))
+            if (dx == 0 && dy == 0 && dz == 0
+                    || cutCorners && (Math.abs(dx) + Math.abs(dz) >= 2 * radius))
             {
                 continue;
             }
