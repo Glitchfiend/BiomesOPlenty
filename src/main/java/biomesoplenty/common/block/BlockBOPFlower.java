@@ -44,6 +44,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+@Optional.Interface(iface = "vazkii.botania.api.item.IHornHarvestable", modid = "Botania")
 public class BlockBOPFlower extends BlockBOPDecoration implements IShearable, IHornHarvestable
 {
     

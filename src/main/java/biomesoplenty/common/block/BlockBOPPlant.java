@@ -57,6 +57,7 @@ import java.util.Random;
 
 // TODO: pick block?
 
+@Optional.Interface(iface = "vazkii.botania.api.item.IHornHarvestable", modid = "Botania")
 public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHornHarvestable
 {
     
