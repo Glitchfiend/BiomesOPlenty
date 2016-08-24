@@ -653,6 +653,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         biomeIdMap.put(idName, id);
         
         if (id > -1) {
+            biome.configure(biome.conf);
             BOPCommand.biomeCount++;
 
             BOPBiomes.REG_INSTANCE.registerBiome(biome, idName);

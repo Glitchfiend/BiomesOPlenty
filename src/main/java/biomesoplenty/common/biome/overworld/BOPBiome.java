@@ -72,14 +72,14 @@ public class BOPBiome extends Biome implements IExtendedBiome
     public int avgDirtDepth = 3;
     
     public final ResourceLocation location;
+    public IConfigObj conf;
     
     private BOPBiome(ResourceLocation idLoc, PropsBuilder defaultBuilder, IConfigObj conf)
     {
         super(configureBiomeProps(idLoc, defaultBuilder, conf));
 
-        this.configure(conf);
-
         this.location = idLoc;
+        this.conf = conf;
         this.terrainSettings.setDefaults();
         
         this.theBiomeDecorator.treesPerChunk = -999;
