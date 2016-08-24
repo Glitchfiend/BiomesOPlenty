@@ -85,6 +85,7 @@ public class BlockBOPMud extends Block implements IBOPBlock, ISustainsPlantType
         super(Material.GROUND);
         
         // set some defaults
+        this.setHarvestLevel("shovel", 0);
         this.setHardness(0.6F);
         this.setSoundType(SoundType.SAND);
         this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, MudType.MUD) );
