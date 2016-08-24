@@ -8,9 +8,6 @@
 
 package biomesoplenty.common.block;
 
-import java.util.List;
-import java.util.Random;
-
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.item.BOPItems;
@@ -50,12 +47,17 @@ import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.util.FakePlayer;
+import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import vazkii.botania.api.item.IHornHarvestable;
+
+import java.util.List;
+import java.util.Random;
 
 // TODO: pick block?
 
-public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
+public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHornHarvestable
 {
     
     // setup paged variant property
@@ -569,8 +571,37 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable
                 return Blocks.TALLGRASS.getFireSpreadSpeed(world, pos, face);
         }
     }
-    
-    
-    // TODO: pickblock on carrot?
+
+    @Override
+    @Optional.Method(modid = "Botania")
+    public boolean canHornHarvest(World world, BlockPos pos, ItemStack stack, EnumHornType hornType)
+    {
+        if (hornType != EnumHornType.WILD) return false;
+        BOPPlants plant = ((BOPPlants) world.getBlockState(pos).getValue(this.variantProperty));
+        switch (plant)
+        {
+            case BUSH:
+            case BERRYBUSH:
+            case RIVERCANE:
+            case TINYCACTUS:
+            case WITHERWART:
+                return false;
+            default:
+                return true;
+        }
+    }
+
+    @Override
+    @Optional.Method(modid = "Botania")
+    public boolean hasSpecialHornHarvest(World world, BlockPos pos, ItemStack stack, EnumHornType hornType)
+    {
+        return false;
+    }
+
+    @Override
+    @Optional.Method(modid = "Botania")
+    public void harvestByHorn(World world, BlockPos pos, ItemStack stack, EnumHornType hornType)
+    {
+    }
     
 }

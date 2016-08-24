@@ -8,10 +8,6 @@
 
 package biomesoplenty.common.block;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.enums.BOPFlowers;
 import biomesoplenty.common.config.GameplayConfigurationHandler;
@@ -39,10 +35,16 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
+import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import vazkii.botania.api.item.IHornHarvestable;
 
-public class BlockBOPFlower extends BlockBOPDecoration implements IShearable
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+public class BlockBOPFlower extends BlockBOPDecoration implements IShearable, IHornHarvestable
 {
     
     // setup paged variant property
@@ -342,8 +344,30 @@ public class BlockBOPFlower extends BlockBOPDecoration implements IShearable
 
     @Override
     public List<ItemStack> onSheared(ItemStack item, IBlockAccess world, BlockPos pos, int fortune)  { return new ArrayList<ItemStack>(); }
-    
-    
 
-    
+    @Override
+    @Optional.Method(modid = "Botania")
+    public boolean canHornHarvest(World world, BlockPos pos, ItemStack stack, EnumHornType hornType)
+    {
+        if (hornType != EnumHornType.WILD) return false;
+        BOPFlowers flower = ((BOPFlowers) world.getBlockState(pos).getValue(this.variantProperty));
+        switch (flower)
+        {
+            default:
+                return true;
+        }
+    }
+
+    @Override
+    @Optional.Method(modid = "Botania")
+    public boolean hasSpecialHornHarvest(World world, BlockPos pos, ItemStack stack, EnumHornType hornType)
+    {
+        return false;
+    }
+
+    @Override
+    @Optional.Method(modid = "Botania")
+    public void harvestByHorn(World world, BlockPos pos, ItemStack stack, EnumHornType hornType)
+    {
+    }
 }
