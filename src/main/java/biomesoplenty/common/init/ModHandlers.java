@@ -39,6 +39,7 @@ public class ModHandlers
         MinecraftForge.EVENT_BUS.register(new AchievementEventHandler());
         MinecraftForge.EVENT_BUS.register(new GrassPathEventHandler());
         MinecraftForge.EVENT_BUS.register(new SheepEventHandler());
+        MinecraftForge.EVENT_BUS.register(new SilkTouchEventHandler());
         MinecraftForge.EVENT_BUS.register(new LootTableEventHandler());
 
         if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
