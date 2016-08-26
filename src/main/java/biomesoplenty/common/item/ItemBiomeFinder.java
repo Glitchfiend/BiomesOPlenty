@@ -8,10 +8,7 @@
 
 package biomesoplenty.common.item;
 
-import java.util.List;
-
 import biomesoplenty.common.util.biome.BiomeUtils;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.IItemPropertyGetter;
@@ -25,10 +22,13 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.List;
 
 public class ItemBiomeFinder extends Item
 {    
@@ -125,7 +125,7 @@ public class ItemBiomeFinder extends Item
         else
         {            
             // server notifies player that search is starting
-            sendChatMessage(player, I18n.format("biome_finder.searching",biomeToFind.getBiomeName()), TextFormatting.DARK_PURPLE);
+            sendChatMessage(player, I18n.translateToLocalFormatted("biome_finder.searching",biomeToFind.getBiomeName()), TextFormatting.DARK_PURPLE);
             
             // search for biomeToFind, maximum distance 5000 blocks
             BlockPos pos = BiomeUtils.spiralOutwardsLookingForBiome(world, biomeToFind, player.posX, player.posZ);
@@ -133,14 +133,14 @@ public class ItemBiomeFinder extends Item
             if (pos == null)
             {
                 // server notifies player that search was unsuccessful
-                sendChatMessage(player, I18n.format("biome_finder.not_found",biomeToFind.getBiomeName()), TextFormatting.RED);
+                sendChatMessage(player, I18n.translateToLocalFormatted("biome_finder.not_found",biomeToFind.getBiomeName()), TextFormatting.RED);
                 // write not found tag
                 writeNBTNotFound(nbt);
             }
             else
             {
                 // server notifies player that search was successful
-                sendChatMessage(player, I18n.format("biome_finder.found",biomeToFind.getBiomeName()), TextFormatting.GREEN);
+                sendChatMessage(player, I18n.translateToLocalFormatted("biome_finder.found",biomeToFind.getBiomeName()), TextFormatting.GREEN);
                 // write found tag
                 writeNBTFound(nbt, pos);
             }
@@ -183,6 +183,7 @@ public class ItemBiomeFinder extends Item
     }
     
     @Override
+    @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack itemStack, EntityPlayer player, List infoList, boolean advancedItemTooltips)
     {
         if (!itemStack.hasTagCompound()) {return;}
