@@ -303,7 +303,7 @@ public class ModItems
         
         //Update the values associated with this material
         ItemAxe.ATTACK_DAMAGES[index] = damage;
-        ItemAxe.ATTACK_SPEEDS[index] = damage;
+        ItemAxe.ATTACK_SPEEDS[index] = speed;
     }
     
 }
