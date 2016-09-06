@@ -128,7 +128,7 @@ public class BiomeGenQuagmire extends BOPBiome
         if (!settings.isEnabled(GeneratorType.SOILS)) {this.alternateTopBlock = Blocks.GRASS.getDefaultState(); this.alternateFillerBlock = Blocks.DIRT.getDefaultState();}
         
         IBlockPosQuery emptyMud = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();
-        if (!settings.isEnabled(GeneratorType.SOILS)) {this.removeGenerator("grass_splatter"); this.addGenerator("grass_splatter_new", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(1.0F).generationAttempts(128).replace(emptyMud).with(Blocks.GRASS.getDefaultState()).create());}
+        if (!settings.isEnabled(GeneratorType.SOILS)) {this.removeGenerator("grass_splatter"); this.removeGenerator("grass_splatter_new"); this.addGenerator("grass_splatter_new", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(1.0F).generationAttempts(128).replace(emptyMud).with(Blocks.GRASS.getDefaultState()).create());}
         
         if (!settings.isEnabled(GeneratorType.FOLIAGE)) {this.removeGenerator("bushes"); this.removeGenerator("koru"); this.removeGenerator("shrubs"); this.removeGenerator("leaf_piles"); this.removeGenerator("dead_leaf_piles"); this.removeGenerator("clover_patches"); this.removeGenerator("sprouts");}
         
