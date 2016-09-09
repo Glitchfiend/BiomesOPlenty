@@ -190,7 +190,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     @Override
     public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
     {
-        return new ItemStack(this, 1, this.getMetaFromState(this.getDefaultState().withProperty(this.variantProperty, world.getBlockState(pos).getValue(this.variantProperty))));
+        return new ItemStack(this, 1, this.getMetaFromState(this.getDefaultState().withProperty(this.variantProperty, state.getValue(this.variantProperty))));
     }
     
     // leaves in the inventory should not be decayable

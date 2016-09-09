@@ -317,7 +317,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
     @Override
     public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
     {
-        return new ItemStack(this, 1, this.getMetaFromState(world.getBlockState(pos)));
+        return new ItemStack(this, 1, this.getMetaFromState(state));
     }
     
     // you need a silk touch tool to pick up grass-like blocks - by default they drop the corresponding 'dirt' type 
