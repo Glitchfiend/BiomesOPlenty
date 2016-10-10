@@ -70,10 +70,8 @@ public class UseHoeEventHandler
 
         if (result)
         {
-            if (!event.getEntityPlayer().capabilities.isCreativeMode)
-            {
-                event.setResult(Event.Result.ALLOW);
-            }
+            event.setResult(Event.Result.ALLOW);
+
             world.playSound(event.getEntityPlayer(), pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
             event.getEntityPlayer().swingArm(PlayerUtil.getHandForItemAndMeta(event.getEntityPlayer(), event.getCurrent().getItem(), event.getCurrent().getMetadata()));
         }
