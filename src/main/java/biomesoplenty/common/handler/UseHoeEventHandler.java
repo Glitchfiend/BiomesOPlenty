@@ -16,6 +16,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -45,7 +46,7 @@ public class UseHoeEventHandler
             result = true;
             if (state.getValue(BlockBOPDirt.COARSE))
             {
-                world.setBlockState(pos, state.withProperty(BlockBOPDirt.COARSE, Boolean.valueOf(false)));
+                world.setBlockState(pos, state.withProperty(BlockBOPDirt.COARSE, false));
             } else
             {
                 world.setBlockState(pos, BlockBOPFarmland.paging.getVariantState((BlockBOPDirt.BOPDirtType) state.getValue(BlockBOPDirt.VARIANT)));
@@ -54,12 +55,11 @@ public class UseHoeEventHandler
         else if (block instanceof BlockBOPGrass && world.isAirBlock(pos.up()))
         {
             result = true;
-            BlockBOPGrass grass = (BlockBOPGrass) state.getBlock();
-            Block dirtBlock = grass.getDirtBlockState(state).getBlock();
+            Block dirtBlock = BlockBOPGrass.getDirtBlockState(state).getBlock();
 
             if (dirtBlock instanceof BlockBOPDirt)
             {
-                BlockBOPDirt.BOPDirtType dirtType = (BlockBOPDirt.BOPDirtType) grass.getDirtBlockState(state).getValue(BlockBOPDirt.VARIANT);
+                BlockBOPDirt.BOPDirtType dirtType = (BlockBOPDirt.BOPDirtType) BlockBOPGrass.getDirtBlockState(state).getValue(BlockBOPDirt.VARIANT);
                 world.setBlockState(pos, BlockBOPFarmland.paging.getVariantState(dirtType));
             }
             else if (dirtBlock instanceof BlockDirt && state.getValue(BlockBOPGrass.VARIANT) != BlockBOPGrass.BOPGrassType.OVERGROWN_STONE)
@@ -70,11 +70,9 @@ public class UseHoeEventHandler
 
         if (result)
         {
-            if (!event.getEntityPlayer().capabilities.isCreativeMode)
-            {
-                event.getCurrent().damageItem(1, event.getEntityLiving());
-            }
-            event.getWorld().playSound(event.getEntityPlayer(), (double) ((float) pos.getX() + 0.5F), (double) ((float) pos.getY() + 0.5F), (double) ((float) pos.getZ() + 0.5F), block.getSoundType().getStepSound(), SoundCategory.BLOCKS, (state.getBlock().getSoundType().getVolume() + 1.0F) / 2.0F, state.getBlock().getSoundType().getPitch() * 0.8F);
+            event.setResult(Event.Result.ALLOW);
+
+            world.playSound(event.getEntityPlayer(), pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
             event.getEntityPlayer().swingArm(PlayerUtil.getHandForItemAndMeta(event.getEntityPlayer(), event.getCurrent().getItem(), event.getCurrent().getMetadata()));
         }
     }
