@@ -72,6 +72,7 @@ public class BlockBOPGrassPath extends BlockGrassPath implements IBOPBlock
         this.setHardness(0.65F);
         this.setSoundType(SoundType.PLANT);
         this.disableStats();
+        this.useNeighborBrightness = true;
         this.setHarvestLevel("shovel", 0);
     }
 
