@@ -470,3 +470,8 @@ tile.dried_sand.name=Dried Sand
 tile.crag_rock.name=Crag Rock
 tile.mud_brick.name=Mud Bricks
 tile.crystal.name=Celestial Crystal
+
+entity.BiomesOPlenty.butterfly.name=Butterfly
+entity.BiomesOPlenty.pixie.name=Pixie
+entity.BiomesOPlenty.snail.name=Snail
+entity.BiomesOPlenty.wasp.name=Wasp
