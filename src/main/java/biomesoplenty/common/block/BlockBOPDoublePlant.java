@@ -236,9 +236,9 @@ public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements ISh
     	{
     		case TALL_CATTAIL:
     			return new ItemStack(BOPBlocks.plant_1, 1, BlockBOPPlant.paging.getIndex(BOPPlants.CATTAIL));
-    	
+
     		default:
-    			return new ItemStack(this, 1, this.getMetaFromState(world.getBlockState(pos)));
+    			return new ItemStack(this, 1, ((DoublePlantType) state.getValue(VARIANT)).ordinal());
     	}
     }
     
