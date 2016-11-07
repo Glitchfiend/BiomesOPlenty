@@ -73,13 +73,20 @@ generator.BIOMESOP.info=Hinweis: Biomes O' Plenty 1.8 ist in einem sehr frühen 
 
 itemGroup.tabBiomesOPlenty=Biomes O' Plenty
 
+fluid.blood=Blut
+fluid.honey=Honig
+fluid.hot_spring_water=heißem Quellwasser
+fluid.poison=Gift
+fluid.sand=Treibsand
+
+item.forge.bucketFilled.name=Eimer mit %s
+
 item.ambrosia.name=Ambrosia
 item.ash.name=Asche
 item.berries.name=Beeren
 item.biome_essence.name=Biomessenz
 item.biome_finder.name=Biomfinder
 item.black_dye.name=Schwarzer Farbstoff
-item.blood_bucket.name=Eimer mit Blut
 item.blue_dye.name=Blauer Farbstoff
 item.brown_dye.name=Brauner Farbstoff
 item.cherry_door.name=Kirschholztür
@@ -109,9 +116,7 @@ item.gem_topaz.name=Topas
 item.green_dye.name=Grüner Farbstoff
 item.gold_scythe.name=Goldsense
 item.hellbark_door.name=Höllenborkentür
-item.honey_bucket.name=Eimer mit Honig
 item.honeycomb.name=Leere Honigwabe
-item.hot_spring_water_bucket.name=Eimer mit heißem Quellwasser
 item.ichor.name=Ichor
 item.iron_scythe.name=Eisensense
 item.jacaranda_door.name=Palisanderholztür
@@ -143,7 +148,6 @@ item.pinecone.name=Kiefernzapfen
 item.pine_door.name=Kiefernholztür
 item.pixie_dust.name=Elfenstaub
 item.plain_flower_band.name=Einfaches Blumenband
-item.poison_bucket.name=Eimer mit Gift
 item.record_corruption.name=Schallplatte
 item.record.corruption.desc=???
 item.record_wanderer.name=Schallplatte
@@ -154,7 +158,6 @@ item.sacred_oak_door.name=Himmelseichentür
 item.saladfruit.name=Obstsalat
 item.saladveggie.name=Gemischter Salat
 item.saladshroom.name=Pilzsalat
-item.sand_bucket.name=Eimer mit Treibsand
 item.shroompowder.name=Kahlkopfpilzpulver
 item.soul.name=Seele
 item.spawn_egg_pixie.name=Erschaffe Elfe

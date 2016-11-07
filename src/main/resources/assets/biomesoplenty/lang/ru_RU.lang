@@ -19,6 +19,14 @@ generator.BIOMESOP.info=Примечание: Biomes O' Plenty для Minecraft 
 
 itemGroup.tabBiomesOPlenty=Biomes O' Plenty
 
+fluid.blood=крови
+fluid.honey=мёда
+fluid.hot_spring_water=Горячая минеральная вода
+fluid.poison=яда
+fluid.sand=Плывун
+
+item.forge.bucketFilled.name=Ведро %s
+
 item.ambrosia.name=Амброзия
 item.amethyst_axe.name=Аметистовый топор
 item.amethyst_boots.name=Аметистовые ботинки
@@ -35,7 +43,6 @@ item.berries.name=Ягода
 item.biome_essence.name=Эссенция биомов
 item.biome_finder.name=Радар биомов
 item.black_dye.name=Чёрный краситель
-item.blood_bucket.name=Ведро крови
 item.blue_dye.name=Синий краситель
 item.brown_dye.name=Коричневый краситель
 item.cherry_door.name=Дверь из вишнёвого дерева
@@ -64,7 +71,6 @@ item.ghastly_soul.name=Жуткая душа
 item.green_dye.name=Зелёный краситель
 item.gold_scythe.name=Золотая коса
 item.hellbark_door.name=Дверь из адского дерева
-item.honey_bucket.name=Ведро мёда
 item.honeycomb.name=Пустые медовые соты
 item.ichor.name=Ихор
 item.iron_scythe.name=Железная коса
@@ -97,7 +103,6 @@ item.pinecone.name=Сосновая шишка
 item.pine_door.name=Дверь из сосны
 item.pixie_dust.name=Пыльца феи
 item.plain_flower_band.name=Обычный венок
-item.poison_bucket.name=Ведро яда
 item.poisondart.name=Отравленный дротик
 item.record_corruption.name=Музыкальная пластинка
 item.record.corruption.desc=???

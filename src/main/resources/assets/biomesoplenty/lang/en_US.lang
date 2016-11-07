@@ -73,13 +73,20 @@ generator.BIOMESOP.info=Notice: Biomes O' Plenty 1.8 is in a very early state
 
 itemGroup.tabBiomesOPlenty=Biomes O' Plenty
 
+fluid.blood=Blood
+fluid.honey=Honey
+fluid.hot_spring_water=Hot Spring Water
+fluid.poison=Poison
+fluid.sand=Quicksand
+
+item.forge.bucketFilled.name=%s Bucket
+
 item.ambrosia.name=Ambrosia
 item.ash.name=Pile of Ashes
 item.berries.name=Berry
 item.biome_essence.name=Biome Essence
 item.biome_finder.name=Biome Finder
 item.black_dye.name=Black Dye
-item.blood_bucket.name=Blood Bucket
 item.blue_dye.name=Blue Dye
 item.brown_dye.name=Brown Dye
 item.cherry_door.name=Cherry Door
@@ -109,9 +116,7 @@ item.gem_topaz.name=Topaz
 item.green_dye.name=Green Dye
 item.gold_scythe.name=Golden Scythe
 item.hellbark_door.name=Hellbark Door
-item.honey_bucket.name=Honey Bucket
 item.honeycomb.name=Empty Honeycomb
-item.hot_spring_water_bucket.name=Hot Spring Water Bucket
 item.ichor.name=Ichor
 item.iron_scythe.name=Iron Scythe
 item.jacaranda_door.name=Jacaranda Door
@@ -143,7 +148,6 @@ item.pinecone.name=Pinecone
 item.pine_door.name=Pine Door
 item.pixie_dust.name=Pixie Dust
 item.plain_flower_band.name=Plain Flower Band
-item.poison_bucket.name=Poison Bucket
 item.record_corruption.name=Music Disc
 item.record.corruption.desc=???
 item.record_wanderer.name=Music Disc
@@ -154,7 +158,6 @@ item.sacred_oak_door.name=Sacred Oak Door
 item.saladfruit.name=Fruit Salad
 item.saladveggie.name=Veggie Salad
 item.saladshroom.name=Shroom Salad
-item.sand_bucket.name=Quicksand Bucket
 item.shroompowder.name=Shroom Powder
 item.soul.name=Soul
 item.spawn_egg_pixie.name=Spawn Pixie

@@ -75,13 +75,20 @@ generator.BIOMESOP.info=注意: 1.8版本的超多生物群系仍在开发阶段
 
 itemGroup.tabBiomesOPlenty=超多生物群系
 
+fluid.blood=血
+fluid.honey=蜂蜜
+fluid.hot_spring_water=温泉水
+fluid.poison=毒液
+fluid.sand=流沙
+
+item.forge.bucketFilled.name=%s桶
+
 item.ambrosia.name=仙馔蜜酒
 item.ash.name=灰烬堆
 item.berries.name=浆果
 item.biome_essence.name=生物群系精华
 item.biome_finder.name=生物群系雷达
 item.black_dye.name=黑色染料
-item.blood_bucket.name=血桶
 item.blue_dye.name=蓝色染料
 item.brown_dye.name=棕色染料
 item.cherry_door.name=樱花树门
@@ -111,9 +118,7 @@ item.gem_topaz.name=黄玉
 item.green_dye.name=绿色染料
 item.gold_scythe.name=金镰刀
 item.hellbark_door.name=地狱皮树门
-item.honey_bucket.name=蜂蜜桶
 item.honeycomb.name=空蜂窝
-item.hot_spring_water_bucket.name=温泉水桶
 item.ichor.name=脓血
 item.iron_scythe.name=铁镰刀
 item.jacaranda_door.name=蓝花楹门
@@ -145,7 +150,6 @@ item.pinecone.name=松果
 item.pine_door.name=松木门
 item.pixie_dust.name=精灵之尘
 item.plain_flower_band.name=平原花环
-item.poison_bucket.name=毒液桶
 item.record_corruption.name=音乐唱片
 item.record.corruption.desc=???
 item.record_wanderer.name=音乐唱片
@@ -156,7 +160,6 @@ item.sacred_oak_door.name=神圣橡木门
 item.saladfruit.name=水果沙拉
 item.saladveggie.name=蔬菜沙拉
 item.saladshroom.name=蘑菇沙拉
-item.sand_bucket.name=流沙桶
 item.shroompowder.name=蘑菇粉
 item.soul.name=灵魂
 item.spawn_egg_pixie.name=生成 精灵
