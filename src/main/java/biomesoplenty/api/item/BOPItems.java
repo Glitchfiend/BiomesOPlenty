@@ -106,11 +106,11 @@ public class BOPItems
      *          biomesoplenty.common.fluids.QuicksandFluid.instance
      *      )
      */
-    // public static Item sand_bucket;
-    // public static Item honey_bucket;
-    // public static Item blood_bucket;
-    // public static Item poison_bucket;
-    // public static Item hot_spring_water_bucket;
+    public static Item sand_bucket;
+    public static Item honey_bucket;
+    public static Item blood_bucket;
+    public static Item poison_bucket;
+    public static Item hot_spring_water_bucket;
     
     public static Item record_wanderer;
     public static Item record_corruption;
