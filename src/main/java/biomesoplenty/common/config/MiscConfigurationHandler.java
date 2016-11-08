@@ -31,6 +31,7 @@ public class MiscConfigurationHandler
     public static boolean useBoPWorldTypeDefault;
     public static boolean overrideTitlePanorama;
     public static boolean overrideForgeBuckets;
+    public static boolean useBoPBucketTexture;
 
     //Client-side only
     public static TrailVisibilityMode trailVisbilityMode;
@@ -52,6 +53,7 @@ public class MiscConfigurationHandler
             useBoPWorldTypeDefault = config.getBoolean("Default to BoP World Type", guiSettings, false, "Use the Biomes O' Plenty World Type by default when selecting a world.");
             overrideTitlePanorama = config.getBoolean("Enable Biomes O\' Plenty Main Menu Panorama", textureSettings, true, "Override the main menu panorama and use ours instead (It\'s nicer!)");
             overrideForgeBuckets = config.getBoolean("Enable Biomes O\' Plenty Bucket Textures", textureSettings, true, "Override the Forge bucket texture and use ours instead (It\'s nicer!)");
+            useBoPBucketTexture = config.getBoolean("Use Biomes O\' Plenty Bucket Textures", textureSettings, false, "Use the Biomes O' Plenty bucket texture (Valid only for BOP fluid.)");
 
             //Client-side only options
             if (FMLCommonHandler.instance().getSide() == Side.CLIENT)

@@ -31,6 +31,11 @@ import biomesoplenty.common.entities.RenderSnail;
 import biomesoplenty.common.entities.RenderWasp;
 import biomesoplenty.common.entities.projectiles.EntityMudball;
 import biomesoplenty.common.entities.projectiles.RenderMudball;
+import biomesoplenty.common.fluids.BloodFluid;
+import biomesoplenty.common.fluids.HoneyFluid;
+import biomesoplenty.common.fluids.HotSpringWaterFluid;
+import biomesoplenty.common.fluids.PoisonFluid;
+import biomesoplenty.common.fluids.QuicksandFluid;
 import biomesoplenty.common.item.IColoredItem;
 import biomesoplenty.common.util.inventory.CreativeTabBOP;
 import net.minecraft.block.Block;
@@ -39,6 +44,8 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraft.client.particle.Particle;
+import net.minecraft.client.renderer.ItemMeshDefinition;
+import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.IStateMapper;
@@ -54,8 +61,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
+import net.minecraftforge.client.model.ModelDynBucket;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.ForgeModContainer;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.FluidUtil;
 import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -66,6 +76,7 @@ public class ClientProxy extends CommonProxy
 {
     public static ResourceLocation[] bopTitlePanoramaPaths = new ResourceLocation[] {new ResourceLocation("biomesoplenty:textures/gui/title/background/panorama_0.png"), new ResourceLocation("biomesoplenty:textures/gui/title/background/panorama_1.png"), new ResourceLocation("biomesoplenty:textures/gui/title/background/panorama_2.png"), new ResourceLocation("biomesoplenty:textures/gui/title/background/panorama_3.png"), new ResourceLocation("biomesoplenty:textures/gui/title/background/panorama_4.png"), new ResourceLocation("biomesoplenty:textures/gui/title/background/panorama_5.png")};
     public static ResourceLocation particleTexturesLocation = new ResourceLocation("biomesoplenty:textures/particles/particles.png");
+    public static ModelResourceLocation[] bucketModelLocations = new ModelResourceLocation[] {new ModelResourceLocation(new ResourceLocation("biomesoplenty", "blood_bucket"), "inventory"), new ModelResourceLocation(new ResourceLocation("biomesoplenty", "honey_bucket"), "inventory"), new ModelResourceLocation(new ResourceLocation("biomesoplenty", "hot_spring_water_bucket"), "inventory"), new ModelResourceLocation(new ResourceLocation("biomesoplenty", "poison_bucket"), "inventory"), new ModelResourceLocation(new ResourceLocation("biomesoplenty", "sand_bucket"), "inventory")};
 
     private static List<Block> blocksToColour = Lists.newArrayList();
     private static List<Item> itemsToColor = Lists.newArrayList();
@@ -84,6 +95,8 @@ public class ClientProxy extends CommonProxy
         registerEntityRenderer(EntityMudball.class, RenderMudball.class);
         
         replaceForgeResources();
+        
+        ModelBakery.registerItemVariants(ForgeModContainer.getInstance().universalBucket, bucketModelLocations);
     }
 
     @Override
@@ -208,6 +221,45 @@ public class ClientProxy extends CommonProxy
         }
 
         if (entityFx != null) {minecraft.effectRenderer.addEffect(entityFx);}
+    }
+    
+    @Override
+    public void replaceBOPBucketTexture() {
+    	// Use BOP bucket texture
+    	Map<Item, ItemMeshDefinition> meshMapping = ReflectionHelper.getPrivateValue(ItemModelMesher.class, Minecraft.getMinecraft().getRenderItem().getItemModelMesher(), "field_178092_c", "shapers");
+    	final ItemMeshDefinition meshDefinition = meshMapping.get(ForgeModContainer.getInstance().universalBucket);
+    	Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(ForgeModContainer.getInstance().universalBucket, new ItemMeshDefinition()
+        {
+            @Override
+            public ModelResourceLocation getModelLocation(ItemStack stack)
+            {
+            	FluidStack fluidStack = FluidUtil.getFluidContained(stack);
+            	if (fluidStack != null && MiscConfigurationHandler.useBoPBucketTexture)
+            	{
+            		if (fluidStack.getFluid() == BloodFluid.instance)
+            		{
+            			return bucketModelLocations[0];
+            		}
+            		if (fluidStack.getFluid() == HoneyFluid.instance)
+            		{
+            			return bucketModelLocations[1];
+            		}
+            		if (fluidStack.getFluid() == HotSpringWaterFluid.instance)
+            		{
+            			return bucketModelLocations[2];
+            		}
+            		if (fluidStack.getFluid() == PoisonFluid.instance)
+            		{
+            			return bucketModelLocations[3];
+            		}
+            		if (fluidStack.getFluid() == QuicksandFluid.instance)
+            		{
+            			return bucketModelLocations[4];
+            		}
+            	}
+                return meshDefinition == null ? ModelDynBucket.LOCATION : meshDefinition.getModelLocation(stack);
+            }
+        });
     }
 
     private static void replaceForgeResources()

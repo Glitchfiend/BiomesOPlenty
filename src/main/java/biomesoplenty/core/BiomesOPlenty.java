@@ -38,6 +38,7 @@ import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLConstructionEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
@@ -109,6 +110,11 @@ public class BiomesOPlenty
     public void postInit(FMLPostInitializationEvent event)
     {
         ModCompatibility.postInit();
+    }
+    
+    @EventHandler
+    public void loadComplete(FMLLoadCompleteEvent event) {
+    	BiomesOPlenty.proxy.replaceBOPBucketTexture();
     }
 
     @EventHandler
