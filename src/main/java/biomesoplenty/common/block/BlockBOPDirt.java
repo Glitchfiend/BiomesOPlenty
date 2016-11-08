@@ -112,23 +112,28 @@ public class BlockBOPDirt extends Block implements IBOPBlock, ISustainsPlantType
     @Override
     public boolean canSustainPlantType(IBlockAccess world, BlockPos pos, EnumPlantType plantType)
     {
-        switch (plantType)
+
+        // Note: EnumPlantType will be changed at runtime by other mods using a Forge functionality.
+        //       switch() does NOT work with enums in that case, but will crash when encountering
+        //       a value not known beforehand.
+
+        // support desert, plains and cave plants
+        if (plantType == EnumPlantType.Desert || plantType == EnumPlantType.Plains || plantType == EnumPlantType.Cave)
         {
-            // support desert, plains and cave plants
-            case Desert: case Plains: case Cave:
-                return true;
-            // support beach plants if there's water alongside
-            case Beach:
-                return (
+            return true;
+        }
+        // support beach plants if there's water alongside
+        if (plantType == EnumPlantType.Beach)
+        {
+            return (
                     world.getBlockState(pos.east()).getMaterial() == Material.WATER ||
                     world.getBlockState(pos.west()).getMaterial() == Material.WATER ||
                     world.getBlockState(pos.north()).getMaterial() == Material.WATER ||
                     world.getBlockState(pos.south()).getMaterial() == Material.WATER
                 );
-             // don't support nether plants, water plants, or crops (require farmland), or anything else by default
-            default:
-                return false;
         }
+        // don't support nether plants, water plants, or crops (require farmland), or anything else by default
+        return false;
     }
 
     @Override

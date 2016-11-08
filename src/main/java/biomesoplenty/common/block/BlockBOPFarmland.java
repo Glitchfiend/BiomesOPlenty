@@ -204,15 +204,16 @@ public class BlockBOPFarmland extends BlockFarmland implements IBOPBlock
     {
         EnumPlantType plantType = plantable.getPlantType(world, pos.up());
 
-        switch (plantType)
+        // Note: EnumPlantType will be changed at runtime by other mods using a Forge functionality.
+        //       switch() does NOT work with enums in that case, but will crash when encountering
+        //       a value not known beforehand.
+
+        if (plantType == EnumPlantType.Crop || plantType == EnumPlantType.Plains)
         {
-            case Crop:
-                return true;
-            case Plains:
-            	return true;
-            default:
-                return super.canSustainPlant(state, world, pos, direction, plantable);
+            return true;
         }
+
+        return super.canSustainPlant(state, world, pos, direction, plantable);
     }
 
     public IBlockState getDirtBlockState(IBlockState state)

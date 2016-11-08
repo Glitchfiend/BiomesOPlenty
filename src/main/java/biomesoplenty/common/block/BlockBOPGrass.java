@@ -132,23 +132,27 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
             default: break;
         }
 
-        switch (plantType)
+        // Note: EnumPlantType will be changed at runtime by other mods using a Forge functionality.
+        //       switch() does NOT work with enums in that case, but will crash when encountering
+        //       a value not known beforehand.
+
+        // support desert, plains and cave plants
+        if (plantType == EnumPlantType.Desert || plantType == EnumPlantType.Plains || plantType == EnumPlantType.Cave)
         {
-            // support desert, plains and cave plants
-            case Desert: case Plains: case Cave:
-                return true;
-            // support beach plants if there's water alongside
-            case Beach:
-                return (
-                        (!world.isAirBlock(pos.east()) && world.getBlockState(pos.east()).getMaterial() == Material.WATER) ||
-                        (!world.isAirBlock(pos.west()) && world.getBlockState(pos.west()).getMaterial() == Material.WATER) ||
-                        (!world.isAirBlock(pos.north()) && world.getBlockState(pos.north()).getMaterial() == Material.WATER) ||
-                        (!world.isAirBlock(pos.south()) && world.getBlockState(pos.south()).getMaterial() == Material.WATER)
-                        );
-                // don't support nether plants, water plants, or crops (require farmland), or anything else by default
-            default:
-                return false;
+            return true;
         }
+        if (plantType == EnumPlantType.Beach)
+        {
+            // support beach plants if there's water alongside
+            return (
+                    (!world.isAirBlock(pos.east()) && world.getBlockState(pos.east()).getMaterial() == Material.WATER) ||
+                    (!world.isAirBlock(pos.west()) && world.getBlockState(pos.west()).getMaterial() == Material.WATER) ||
+                    (!world.isAirBlock(pos.north()) && world.getBlockState(pos.north()).getMaterial() == Material.WATER) ||
+                    (!world.isAirBlock(pos.south()) && world.getBlockState(pos.south()).getMaterial() == Material.WATER)
+                    );
+        }
+        // don't support nether plants, water plants, or crops (require farmland), or anything else by default
+        return false;
     }
 
     
