@@ -100,14 +100,6 @@ public class BOPItems
     public static Item jar_empty;
     public static Item jar_filled;
     
-    /*
-     *  public static Item sand_bucket;
-     *  Use net.minecraftforge.fluids.UniversalBucket.getFilledBucket(
-     *          net.minecraftforge.common.ForgeModContainer.getInstance().universalBucket,
-     *          biomesoplenty.common.fluids.QuicksandFluid.instance
-     *      )
-     */
-    
     public static Item record_wanderer;
     public static Item record_corruption;
     
