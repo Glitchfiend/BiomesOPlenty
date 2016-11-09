@@ -99,11 +99,6 @@ public class BOPItems
     public static Item flower_basket;
     public static Item jar_empty;
     public static Item jar_filled;
-    public static Item sand_bucket;
-    public static Item honey_bucket;
-    public static Item blood_bucket;
-    public static Item poison_bucket;
-    public static Item hot_spring_water_bucket;
     
     public static Item record_wanderer;
     public static Item record_corruption;

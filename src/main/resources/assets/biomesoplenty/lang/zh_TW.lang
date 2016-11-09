@@ -73,13 +73,20 @@ generator.BIOMESOP.info=Notice: Biomes O' Plenty 1.8 is in a very early state
 
 itemGroup.tabBiomesOPlenty=Biomes O' Plenty
 
+fluid.blood=血
+fluid.honey=蜂蜜
+fluid.hot_spring_water=溫泉水
+fluid.poison=毒液
+fluid.sand=流沙
+
+item.forge.bucketFilled.name=%s桶
+
 item.ambrosia.name=仙饌酒
 item.ash.name=灰燼
 item.berries.name=莓果
 item.biome_essence.name=生態系精華
 item.biome_finder.name=生態系雷達
 item.black_dye.name=黑色染料
-item.blood_bucket.name=血桶
 item.blue_dye.name=藍色染料
 item.brown_dye.name=棕色染料
 item.cherry_door.name=櫻木門
@@ -109,9 +116,7 @@ item.gem_topaz.name=黃玉
 item.green_dye.name=綠色染料
 item.gold_scythe.name=黃金鐮
 item.hellbark_door.name=獄皮木門
-item.honey_bucket.name=蜂蜜桶
 item.honeycomb.name=空的蜂巢
-item.hot_spring_water_bucket.name=溫泉水桶
 item.ichor.name=膿血
 item.iron_scythe.name=鐵鐮
 item.jacaranda_door.name=藍花楹門
@@ -143,7 +148,6 @@ item.pinecone.name=松果
 item.pine_door.name=松木門
 item.pixie_dust.name=小精靈粉塵
 item.plain_flower_band.name=樸素花環
-item.poison_bucket.name=毒液桶
 item.poisondart.name=塗毒飛鏢
 item.record_corruption.name=唱片
 item.record.corruption.desc=？？？

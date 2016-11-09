@@ -9,11 +9,6 @@
 package biomesoplenty.common.init;
 
 import static biomesoplenty.api.block.BOPBlocks.*;
-import static biomesoplenty.api.item.BOPItems.blood_bucket;
-import static biomesoplenty.api.item.BOPItems.honey_bucket;
-import static biomesoplenty.api.item.BOPItems.hot_spring_water_bucket;
-import static biomesoplenty.api.item.BOPItems.poison_bucket;
-import static biomesoplenty.api.item.BOPItems.sand_bucket;
 
 import com.google.common.collect.ImmutableSet;
 
@@ -82,17 +77,13 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemBucket;
 import net.minecraft.item.ItemDoor;
 import net.minecraft.item.ItemSlab;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -132,7 +123,7 @@ public class ModBlocks
         gem_block =             registerBlock( new BlockBOPGem(), "gem_block" );
         hive =                  registerBlock( new BlockBOPHive(), "hive" );
         honey_block =           registerBlock( new BlockBOPHoney(), "honey_block" );
-        jelled_poison =           registerBlock( new BlockBOPJelledPoison(), "jelled_poison" );
+        jelled_poison =         registerBlock( new BlockBOPJelledPoison(), "jelled_poison" );
         
         //Material Blocks
         bamboo_thatching =      registerBlock( (new BlockBOPGeneric(Material.WOOD, SoundType.WOOD)).setHardness(2.0F), "bamboo_thatching"); bamboo_thatching.setHarvestLevel("axe", 0);
@@ -172,7 +163,7 @@ public class ModBlocks
         // stairs have no variant metadata, use a new BlockBOPStairs instance for each (note there's no giant_flower_stairs or dead_stairs)
         sacred_oak_stairs =     registerBlock( new BlockBOPWoodStairs(BOPWoods.SACRED_OAK), "sacred_oak_stairs" );
         cherry_stairs =         registerBlock( new BlockBOPWoodStairs(BOPWoods.CHERRY), "cherry_stairs" );
-        umbran_stairs =           registerBlock( new BlockBOPWoodStairs(BOPWoods.UMBRAN), "umbran_stairs" );
+        umbran_stairs =         registerBlock( new BlockBOPWoodStairs(BOPWoods.UMBRAN), "umbran_stairs" );
         fir_stairs =            registerBlock( new BlockBOPWoodStairs(BOPWoods.FIR), "fir_stairs" );
         ethereal_stairs =       registerBlock( new BlockBOPWoodStairs(BOPWoods.ETHEREAL), "ethereal_stairs" );
         magic_stairs =          registerBlock( new BlockBOPWoodStairs(BOPWoods.MAGIC), "magic_stairs" );
@@ -202,7 +193,7 @@ public class ModBlocks
         // fences have no variant metadata, use a new BlockBOPFence instance for each (note there's no giant_flower_fence or dead_fence)
         sacred_oak_fence =      registerBlock( new BlockBOPFence(BOPWoods.SACRED_OAK), "sacred_oak_fence" );
         cherry_fence =          registerBlock( new BlockBOPFence(BOPWoods.CHERRY), "cherry_fence" );
-        umbran_fence =            registerBlock( new BlockBOPFence(BOPWoods.UMBRAN), "umbran_fence" );
+        umbran_fence =          registerBlock( new BlockBOPFence(BOPWoods.UMBRAN), "umbran_fence" );
         fir_fence =             registerBlock( new BlockBOPFence(BOPWoods.FIR), "fir_fence" );
         ethereal_fence =        registerBlock( new BlockBOPFence(BOPWoods.ETHEREAL), "ethereal_fence" );
         magic_fence =           registerBlock( new BlockBOPFence(BOPWoods.MAGIC), "magic_fence" );
@@ -220,7 +211,7 @@ public class ModBlocks
         // fence gates have no variant metadata, use a new BlockBOPFenceGate instance for each (note there's no giant_flower_fence_gate or dead_fence_gate)
         sacred_oak_fence_gate = registerBlock( new BlockBOPFenceGate(BOPWoods.SACRED_OAK), "sacred_oak_fence_gate" );
         cherry_fence_gate =     registerBlock( new BlockBOPFenceGate(BOPWoods.CHERRY), "cherry_fence_gate" );
-        umbran_fence_gate =       registerBlock( new BlockBOPFenceGate(BOPWoods.UMBRAN), "umbran_fence_gate" );
+        umbran_fence_gate =     registerBlock( new BlockBOPFenceGate(BOPWoods.UMBRAN), "umbran_fence_gate" );
         fir_fence_gate =        registerBlock( new BlockBOPFenceGate(BOPWoods.FIR), "fir_fence_gate" );
         ethereal_fence_gate =   registerBlock( new BlockBOPFenceGate(BOPWoods.ETHEREAL), "ethereal_fence_gate" );
         magic_fence_gate =      registerBlock( new BlockBOPFenceGate(BOPWoods.MAGIC), "magic_fence_gate" );
@@ -238,7 +229,7 @@ public class ModBlocks
         // doors have no variant metadata, use a new BlockBOPDoor instance for each (note there's no giant_flower_door or dead_door)
         sacred_oak_door =       registerDoor( new BlockBOPDoor(BOPWoods.SACRED_OAK), "sacred_oak_door", BOPItems.sacred_oak_door );
         cherry_door =           registerDoor( new BlockBOPDoor(BOPWoods.CHERRY), "cherry_door", BOPItems.cherry_door );
-        umbran_door =             registerDoor( new BlockBOPDoor(BOPWoods.UMBRAN), "umbran_door", BOPItems.umbran_door );
+        umbran_door =           registerDoor( new BlockBOPDoor(BOPWoods.UMBRAN), "umbran_door", BOPItems.umbran_door );
         fir_door =              registerDoor( new BlockBOPDoor(BOPWoods.FIR), "fir_door", BOPItems.fir_door );
         ethereal_door =         registerDoor( new BlockBOPDoor(BOPWoods.ETHEREAL), "ethereal_door", BOPItems.ethereal_door );
         magic_door =            registerDoor( new BlockBOPDoor(BOPWoods.MAGIC), "magic_door", BOPItems.magic_door );
@@ -255,7 +246,7 @@ public class ModBlocks
         
         // Plants
         
-        stone_formations =                 registerBlock( new BlockBOPStoneFormations(), "stone_formations" );
+        stone_formations =      registerBlock( new BlockBOPStoneFormations(), "stone_formations" );
         
         coral =                 registerBlock( new BlockBOPCoral(), "coral" );
         seaweed =               registerBlock( new BlockBOPSeaweed(), "seaweed" );
@@ -271,9 +262,9 @@ public class ModBlocks
         
         //Plants
         BlockBOPPlant.createAllPages();
-        plant_0 =           registerBlock( BlockBOPPlant.paging.getBlock(0), "plant_0" );
-        plant_1 =           registerBlock( BlockBOPPlant.paging.getBlock(1), "plant_1" );
-        double_plant =      registerBlock( new BlockBOPDoublePlant(), "double_plant" );
+        plant_0 =               registerBlock( BlockBOPPlant.paging.getBlock(0), "plant_0" );
+        plant_1 =               registerBlock( BlockBOPPlant.paging.getBlock(1), "plant_1" );
+        double_plant =          registerBlock( new BlockBOPDoublePlant(), "double_plant" );
         mushroom =              registerBlock( new BlockBOPMushroom(), "mushroom" );
         
         // 22 flower types 16 per BlockBOPFlower instance, needs 2 'pages'
@@ -283,49 +274,36 @@ public class ModBlocks
         
         //vines
         // TODO: special placement rules?
-        flower_vine =       registerBlock( new BlockBOPVine(false), "flower_vine" );
-        ivy =               registerBlock( new BlockBOPVine(true), "ivy" );
-        tree_moss =         registerBlock( new BlockBOPVine(false), "tree_moss" );
+        flower_vine =           registerBlock( new BlockBOPVine(false), "flower_vine" );
+        ivy =                   registerBlock( new BlockBOPVine(true), "ivy" );
+        tree_moss =             registerBlock( new BlockBOPVine(false), "tree_moss" );
         
-        terrarium =        registerBlock( new BlockBOPTerrarium(), "terrarium" );
+        terrarium =             registerBlock( new BlockBOPTerrarium(), "terrarium" );
         
         
         // fluids
-        
         sand_fluid = QuicksandFluid.instance;
         sand_fluid.setViscosity(10000);
         sand_fluid.setDensity(50000);
-        FluidRegistry.registerFluid(sand_fluid);
+        FluidRegistry.addBucketForFluid(sand_fluid);
         sand = registerFluidBlock(sand_fluid, new BlockQuicksandFluid(sand_fluid), "sand");
         
         honey_fluid = HoneyFluid.instance;
         honey_fluid.setViscosity(1500);
-        FluidRegistry.registerFluid(honey_fluid);
+        FluidRegistry.addBucketForFluid(honey_fluid);
         honey = registerFluidBlock(honey_fluid, new BlockHoneyFluid(honey_fluid), "honey");
         
         blood_fluid = BloodFluid.instance;
-        FluidRegistry.registerFluid(blood_fluid);
+        FluidRegistry.addBucketForFluid(blood_fluid);
         blood = registerFluidBlock(blood_fluid, new BlockBloodFluid(blood_fluid), "blood");
         
         poison_fluid = PoisonFluid.instance;
-        FluidRegistry.registerFluid(poison_fluid);
+        FluidRegistry.addBucketForFluid(poison_fluid);
         poison = registerFluidBlock(poison_fluid, new BlockPoisonFluid(poison_fluid), "poison");
         
         hot_spring_water_fluid = HotSpringWaterFluid.instance;
-        FluidRegistry.registerFluid(hot_spring_water_fluid);
+        FluidRegistry.addBucketForFluid(hot_spring_water_fluid);
         hot_spring_water = registerFluidBlock(hot_spring_water_fluid, new BlockHotSpringWaterFluid(hot_spring_water_fluid), "hot_spring_water");
-        
-        sand_bucket = ModItems.registerItem((new ItemBucket(sand)).setContainerItem(Items.BUCKET), "sand_bucket");
-        honey_bucket = ModItems.registerItem((new ItemBucket(honey)).setContainerItem(Items.BUCKET), "honey_bucket");
-        blood_bucket = ModItems.registerItem((new ItemBucket(blood)).setContainerItem(Items.BUCKET), "blood_bucket");
-        poison_bucket = ModItems.registerItem((new ItemBucket(poison)).setContainerItem(Items.BUCKET), "poison_bucket");
-        hot_spring_water_bucket = ModItems.registerItem((new ItemBucket(hot_spring_water)).setContainerItem(Items.BUCKET), "hot_spring_water_bucket");
-    
-        FluidContainerRegistry.registerFluidContainer(sand_fluid, new ItemStack(sand_bucket));
-        FluidContainerRegistry.registerFluidContainer(honey_fluid, new ItemStack(honey_bucket));
-        FluidContainerRegistry.registerFluidContainer(blood_fluid, new ItemStack(blood_bucket));
-        FluidContainerRegistry.registerFluidContainer(poison_fluid, new ItemStack(poison_bucket));
-        FluidContainerRegistry.registerFluidContainer(hot_spring_water_fluid, new ItemStack(hot_spring_water_bucket));
     }
 
     

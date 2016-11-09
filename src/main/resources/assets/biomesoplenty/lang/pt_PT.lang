@@ -79,6 +79,14 @@ generator.BIOMESOP.info=Notice: Biomes O' Plenty 1.8 is in a very early state
 
 itemGroup.tabBiomesOPlenty=Biomes O' Plenty
 
+fluid.blood=Sangue
+fluid.honey=Mel
+fluid.hot_spring_water=Água de Fonte Termal
+fluid.poison=Veneno
+fluid.sand=Areia movediça
+
+item.forge.bucketFilled.name=Balde de %s
+
 item.ambrosia.name=Ambrosia
 item.amethyst_axe.name=Machado de Ametista
 item.amethyst_boots.name=Botas de Ametista
@@ -95,7 +103,6 @@ item.berries.name=Baga
 item.biome_essence.name=Essência de Bioma
 item.biome_finder.name=Localizador de Bioma
 item.black_dye.name=Tinta Preta
-item.blood_bucket.name=Balde de Sangue
 item.blue_dye.name=Tinta Azul
 item.brown_dye.name=Tinta Castanha
 item.cherry_door.name=Porta de Cerejeira
@@ -127,9 +134,7 @@ item.gem_topaz.name=Topázio
 item.green_dye.name=Tinta Verde
 item.gold_scythe.name=Foice de Ouro
 item.hellbark_door.name=Porta de Casca do Inferno
-item.honey_bucket.name=Balde de Mel
 item.honeycomb.name=Favo de Mel Vazio
-item.hot_spring_water_bucket.name=Balde de Água de Fonte Termal
 item.ichor.name=Ichor
 item.iron_scythe.name=Foice de Ferro
 item.jacaranda_door.name=Porta de Jacarandá
@@ -161,7 +166,6 @@ item.pinecone.name=Pinha
 item.pine_door.name=Porta de Pinho
 item.pixie_dust.name=Pó de Pixie
 item.plain_flower_band.name=Coroa de Flores Simples
-item.poison_bucket.name=Balde de Veneno
 item.poisondart.name=Dardo de Veneno
 item.record_corruption.name=Disco de Música
 item.record.corruption.desc=???

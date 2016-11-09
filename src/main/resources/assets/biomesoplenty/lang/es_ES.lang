@@ -110,6 +110,13 @@ generator.BIOMESOP.info=Noticia: Biomes O' Plenty 1.8 esta en una fase muy tempr
 
 itemGroup.tabBiomesOPlenty=Biomes O' Plenty
 
+fluid.blood=sangre
+fluid.honey=miel
+fluid.hot_spring_water=agua de manantial
+fluid.poison=veneno
+fluid.sand=arena movediza
+
+item.forge.bucketFilled.name=Cubo de %s
 
 item.ambrosia.name=Ambrosia
 
@@ -118,7 +125,6 @@ item.berries.name=Baya
 item.biome_essence.name=Esencia de bioma
 item.biome_finder.name=Buscabiomas
 item.black_dye.name=Tinte negro
-item.blood_bucket.name=Cubo de sangre
 item.blue_dye.name=Tinte azul
 item.brown_dye.name=Tinte marrón
 item.cherry_door.name=Puerta de cerezo
@@ -152,9 +158,7 @@ item.gem_topaz.name=Topacio
 item.green_dye.name=Tinte verde
 item.gold_scythe.name=Guadaña de oro
 item.hellbark_door.name=Puerta infernal
-item.honey_bucket.name=Cubo de miel
 item.honeycomb.name=Panal vacío
-item.hot_spring_water_bucket.name=Cubo de agua de manantial
 item.ichor.name=Icor
 
 item.iron_scythe.name=Guadaña de hierro
@@ -190,7 +194,6 @@ item.pinecone.name=Piña
 item.pine_door.name=Puerta de pino
 item.pixie_dust.name=Polvo de hadas
 item.plain_flower_band.name=Banda de flores simple
-item.poison_bucket.name=Cubo de veneno
 item.record_corruption.name=Disco de música
 item.record.corruption.desc=???
 
@@ -203,7 +206,6 @@ item.sacred_oak_door.name=Puerta de roble sagrado
 item.saladfruit.name=Ensalada de frutas
 item.saladveggie.name=Ensalada de verduras
 item.saladshroom.name=Ensalada de setas
-item.sand_bucket.name=Cubo de arena movediza
 item.shroompowder.name=Polvo de seta
 item.soul.name=Alma
 item.spawn_egg_pixie.name=Generar Hada
