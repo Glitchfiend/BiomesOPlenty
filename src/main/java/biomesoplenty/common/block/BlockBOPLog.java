@@ -17,13 +17,18 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.IItemColor;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.List;
 
 public class BlockBOPLog extends BlockLog implements IBOPBlock
 {
@@ -93,6 +98,12 @@ public class BlockBOPLog extends BlockLog implements IBOPBlock
         this.setDefaultState(this.blockState.getBaseState().withProperty(LOG_AXIS, BlockLog.EnumAxis.Y));
         this.setHarvestLevel("axe", 0);
     }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void getSubBlocks(Item item, CreativeTabs tab, List<ItemStack> list)
+    {
+    }
     
     // map from state to meta and vice verca - use high 2 bits for LOG_AXIS, low 2 bits for VARIANT
     @Override
@@ -139,6 +150,4 @@ public class BlockBOPLog extends BlockLog implements IBOPBlock
                 return Blocks.LOG.getFireSpreadSpeed(world, pos, face);
         }
     }
-    
-    
 }
