@@ -57,7 +57,7 @@ public class ItemJarFilled extends Item
     // add all the contents types as separate items in the creative tab
     @Override
     @SideOnly(Side.CLIENT)
-    public void getSubItems(Item itemIn, CreativeTabs tab, List subItems)
+    public void getSubItems(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems)
     {
         for (JarContents contents : JarContents.values())
         {
@@ -130,7 +130,7 @@ public class ItemJarFilled extends Item
             if (stack.hasDisplayName()) {pixie.setCustomNameTag(stack.getDisplayName());}
             return true;
         } else {
-            player.addChatComponentMessage(new TextComponentString("\u00a75Pixies cannot survive in this environment!"));
+            player.addChatComponentMessage(new TextComponentString("\u00a75Pixies cannot survive in this environment!"), false);
             return false;
         }
     }
@@ -146,14 +146,15 @@ public class ItemJarFilled extends Item
             if (stack.hasDisplayName()) {butterfly.setCustomNameTag(stack.getDisplayName());}
             return true;
         } else {
-            player.addChatComponentMessage(new TextComponentString("\u00a75Butterflies cannot survive in this environment!"));
+            player.addChatComponentMessage(new TextComponentString("\u00a75Butterflies cannot survive in this environment!"), false);
             return false;
         }
     }
     
     @Override
-    public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand)
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
     {
+        ItemStack stack = player.getHeldItem(hand);
         if (world.isRemote) {return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);}
         switch (this.getContentsType(stack))
         {
@@ -185,7 +186,7 @@ public class ItemJarFilled extends Item
 
     protected ItemStack emptyJar(ItemStack stack, EntityPlayer player, ItemStack emptyJarStack)
     {
-        if (!player.capabilities.isCreativeMode) { --stack.stackSize; }
+        if (!player.capabilities.isCreativeMode) { stack.func_190920_e(stack.func_190916_E() - 1); }
         player.addStat(StatList.getObjectUseStats(this));
 
         if (!player.inventory.addItemStackToInventory(emptyJarStack)) {
@@ -196,8 +197,9 @@ public class ItemJarFilled extends Item
     
     
     @Override
-    public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
+    public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
+        ItemStack stack = player.getHeldItem(hand);
         if (world.isRemote) {return EnumActionResult.FAIL;}
         switch (this.getContentsType(stack))
         {

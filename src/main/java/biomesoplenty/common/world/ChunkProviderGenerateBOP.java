@@ -89,7 +89,7 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
     public ChunkProviderGenerateBOP(World worldIn, long seed, boolean mapFeaturesEnabled, String chunkProviderSettingsString)
     {
         System.out.println("ChunkProviderGenerateBOP json: "+chunkProviderSettingsString);
-        
+
         this.worldObj = worldIn;
         this.mapFeaturesEnabled = mapFeaturesEnabled;
         this.rand = new Random(seed);
@@ -605,9 +605,9 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
     }
 
     @Override
-    public BlockPos getStrongholdGen(World worldIn, String structureName, BlockPos position)
+    public BlockPos getStrongholdGen(World worldIn, String structureName, BlockPos position, boolean p_180513_4_)
     {
-        return "Stronghold".equals(structureName) && this.strongholdGenerator != null ? this.strongholdGenerator.getClosestStrongholdPos(worldIn, position) : null;
+        return "Stronghold".equals(structureName) && this.strongholdGenerator != null ? this.strongholdGenerator.getClosestStrongholdPos(worldIn, position, p_180513_4_) : null;
     }
 
     @Override

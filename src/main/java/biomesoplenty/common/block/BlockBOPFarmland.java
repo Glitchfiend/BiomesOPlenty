@@ -156,7 +156,7 @@ public class BlockBOPFarmland extends BlockFarmland implements IBOPBlock
     }
 
     @Override
-    public void neighborChanged(IBlockState state, World world, BlockPos pos, Block neighborBlock)
+    public void neighborChanged(IBlockState state, World world, BlockPos pos, Block neighborBlock, BlockPos neighborPos)
     {
         if (world.getBlockState(pos.up()).getMaterial().isSolid())
         {

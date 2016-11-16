@@ -59,6 +59,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.client.model.ModelDynBucket;
@@ -157,7 +158,7 @@ public class ClientProxy extends CommonProxy
         // register sub types if there are any
         if (item.getHasSubtypes())
         {
-            List<ItemStack> subItems = new ArrayList<ItemStack>();
+            NonNullList<ItemStack> subItems = NonNullList.func_191196_a();
             item.getSubItems(item, CreativeTabBOP.instance, subItems);
             for (ItemStack subItem : subItems)
             {
@@ -204,17 +205,17 @@ public class ClientProxy extends CommonProxy
         switch (type)
         {
         case PIXIETRAIL:
-            entityFx = new EntityPixieTrailFX(minecraft.theWorld, x, y, z, MathHelper.getRandomDoubleInRange(minecraft.theWorld.rand, -0.03, 0.03), -0.02D, MathHelper.getRandomDoubleInRange(minecraft.theWorld.rand, -0.03, 0.03));
+            entityFx = new EntityPixieTrailFX(minecraft.world, x, y, z, MathHelper.getRandomDoubleInRange(minecraft.world.rand, -0.03, 0.03), -0.02D, MathHelper.getRandomDoubleInRange(minecraft.world.rand, -0.03, 0.03));
             break;
         case MUD:
             int itemId = Item.getIdFromItem(BOPItems.mudball);
-            minecraft.theWorld.spawnParticle(EnumParticleTypes.ITEM_CRACK, x, y, z, MathHelper.getRandomDoubleInRange(minecraft.theWorld.rand, -0.08D, 0.08D), MathHelper.getRandomDoubleInRange(minecraft.theWorld.rand, -0.08D, 0.08D), MathHelper.getRandomDoubleInRange(minecraft.theWorld.rand, -0.08D, 0.08D), new int[] {itemId});
+            minecraft.world.spawnParticle(EnumParticleTypes.ITEM_CRACK, x, y, z, MathHelper.getRandomDoubleInRange(minecraft.world.rand, -0.08D, 0.08D), MathHelper.getRandomDoubleInRange(minecraft.world.rand, -0.08D, 0.08D), MathHelper.getRandomDoubleInRange(minecraft.world.rand, -0.08D, 0.08D), new int[] {itemId});
             return;
         case PLAYER_TRAIL:
             if (info.length < 1)
                 throw new RuntimeException("Missing argument for trail name!");
 
-            entityFx = new EntityTrailFX(minecraft.theWorld, x, y, z, (String)info[0]);
+            entityFx = new EntityTrailFX(minecraft.world, x, y, z, (String)info[0]);
             break;
         default:
             break;

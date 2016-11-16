@@ -108,7 +108,7 @@ public class BlockBOPGrassPath extends BlockGrassPath implements IBOPBlock
     }
 
     @Override
-    public void neighborChanged(IBlockState state, World world, BlockPos pos, Block blockIn)
+    public void neighborChanged(IBlockState state, World world, BlockPos pos, Block blockIn, BlockPos neighborPos)
     {
         if (world.getBlockState(pos.up()).getMaterial().isSolid())
         {

@@ -46,7 +46,7 @@ public class ItemEventHandler
         ItemStack stack = event.getItem().getEntityItem();
         ItemStack basketStack = ItemFlowerBasket.findBasketStack(player);
         
-        if (!player.worldObj.isRemote)
+        if (!player.world.isRemote)
         {
             //Check if the player has a basket in their inventory, and if the stack is suitable for adding
             //to the basket
@@ -58,7 +58,7 @@ public class ItemEventHandler
                 if (inventory.addItem(stack) == null)
                 {
                     //Set stack size to 0 to cause it to be removed
-                    stack.stackSize = 0;
+                    stack.func_190920_e(0);
                     //Prevent the stack from being added to the player's inventory
                     event.setResult(Result.ALLOW);
                 }

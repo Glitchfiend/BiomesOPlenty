@@ -29,10 +29,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.MobSpawnerBaseLogic;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityMobSpawner;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
@@ -51,7 +48,7 @@ public class ItemBOPSpawnEgg extends Item implements IColoredItem
     
     @Override
     @SideOnly(Side.CLIENT)
-    public void getSubItems(Item itemIn, CreativeTabs tab, List subItems)
+    public void getSubItems(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems)
     {
         for (Entry<Integer, EntityList.EntityEggInfo> entry : ModEntities.entityEggs.entrySet())
         {
@@ -102,8 +99,9 @@ public class ItemBOPSpawnEgg extends Item implements IColoredItem
     }
 
     @Override
-    public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
+    public EnumActionResult onItemUse(EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
+        ItemStack stack = playerIn.getHeldItem(hand);
         if (worldIn.isRemote)
         {
             return EnumActionResult.SUCCESS;
@@ -123,13 +121,13 @@ public class ItemBOPSpawnEgg extends Item implements IColoredItem
                 if (tileentity instanceof TileEntityMobSpawner)
                 {
                     MobSpawnerBaseLogic mobspawnerbaselogic = ((TileEntityMobSpawner)tileentity).getSpawnerBaseLogic();
-                    mobspawnerbaselogic.setEntityName(EntityList.CLASS_TO_NAME.get(EntityList.getClassFromID(stack.getMetadata())));
+                    mobspawnerbaselogic.func_190894_a(EntityList.field_191308_b.getNameForObject(EntityList.getClassFromID(stack.getMetadata())));
                     tileentity.markDirty();
                     worldIn.notifyBlockUpdate(pos, iblockstate, iblockstate, 3);
 
                     if (!playerIn.capabilities.isCreativeMode)
                     {
-                        --stack.stackSize;
+                        stack.func_190920_e(stack.func_190916_E() - 1);
                     }
 
                     return EnumActionResult.SUCCESS;
@@ -155,7 +153,7 @@ public class ItemBOPSpawnEgg extends Item implements IColoredItem
 
                 if (!playerIn.capabilities.isCreativeMode)
                 {
-                    --stack.stackSize;
+                    stack.func_190920_e(stack.func_190916_E() - 1);
                 }
             }
 
@@ -164,8 +162,9 @@ public class ItemBOPSpawnEgg extends Item implements IColoredItem
     }
 
     @Override
-    public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand)
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
     {
+        ItemStack stack = player.getHeldItem(hand);
         if (world.isRemote)
         {
             return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);
@@ -207,7 +206,7 @@ public class ItemBOPSpawnEgg extends Item implements IColoredItem
 
                             if (!player.capabilities.isCreativeMode)
                             {
-                                --stack.stackSize;
+                                stack.func_190920_e(stack.func_190916_E() - 1);
                             }
 
                             //TODO: 1.9 playerIn.triggerAchievement(StatList.objectUseStats[Item.getIdFromItem(this)]);

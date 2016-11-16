@@ -11,6 +11,7 @@ package biomesoplenty.common.util.inventory;
 import biomesoplenty.api.item.BOPItems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 public class CreativeTabBOP extends CreativeTabs
 {
@@ -22,8 +23,8 @@ public class CreativeTabBOP extends CreativeTabs
     }
 
     @Override
-    public Item getTabIconItem()
+    public ItemStack getTabIconItem()
     {
-        return BOPItems.earth;
+        return new ItemStack(BOPItems.earth);
     }
 }

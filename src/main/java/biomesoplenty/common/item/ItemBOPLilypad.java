@@ -32,8 +32,9 @@ public class ItemBOPLilypad extends ItemBOPBlock {
     // (usually when you point the cursor at water the picked block is whatever is underneath the water - when placing lilies the water itself has to be picked)
     // The below is copied from vanille BlockLilyPad
     @Override
-    public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand)
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand)
     {
+        ItemStack itemStackIn = playerIn.getHeldItem(hand);
         RayTraceResult movingobjectposition = this.rayTrace(worldIn, playerIn, true);
         
         if (movingobjectposition == null)
@@ -73,7 +74,7 @@ public class ItemBOPLilypad extends ItemBOPBlock {
 
                     if (!playerIn.capabilities.isCreativeMode)
                     {
-                        --itemStackIn.stackSize;
+                        itemStackIn.func_190920_e(itemStackIn.func_190916_E() - 1);
                     }
 
                     //TODO: playerIn.addStat(StatList.objectUseStats[Item.getIdFromItem(this)]);

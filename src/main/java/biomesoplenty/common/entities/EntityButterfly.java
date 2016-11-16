@@ -110,7 +110,7 @@ public class EntityButterfly extends EntityFlying implements IMob {
     {
     	BlockPos blockpos = new BlockPos(this.posX, this.getEntityBoundingBox().minY, this.posZ);
 
-        if (blockpos.getY() <= this.worldObj.getSeaLevel())
+        if (blockpos.getY() <= this.world.getSeaLevel())
         {
             return false;
         }
@@ -122,7 +122,7 @@ public class EntityButterfly extends EntityFlying implements IMob {
 	        }
         	else
         	{
-	        	int light = this.worldObj.getLightFromNeighbors(blockpos);
+	        	int light = this.world.getLightFromNeighbors(blockpos);
 	        	
 	        	return light > 8 && super.getCanSpawnHere();
         	}
@@ -188,7 +188,7 @@ public class EntityButterfly extends EntityFlying implements IMob {
         
         public boolean isBoxBlocked(AxisAlignedBB box)
         {
-            return !this.butterfly.worldObj.getCollisionBoxes(this.butterfly, box).isEmpty();
+            return !this.butterfly.world.getCollisionBoxes(this.butterfly, box).isEmpty();
         }
         
         // check nothing will collide with the butterfly in the direction of aim, for howFar units (or until the destination - whichever is closer)

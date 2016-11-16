@@ -52,9 +52,9 @@ public class BlockQuicksandFluid extends BlockFluidClassic
     }
 
     @Override
-    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn)
+    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos neighborPos)
     {
-    	super.neighborChanged(state, worldIn, pos, blockIn);
+    	super.neighborChanged(state, worldIn, pos, blockIn, neighborPos);
         this.checkForMixing(worldIn, pos, state);
     }
     

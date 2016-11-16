@@ -130,9 +130,13 @@ public class BlockBOPDoubleDecoration extends BlockBOPDecoration {
 
     // This DoubleDecoration can replace the block at pos if both the block and the one above it are replaceable and the environment is suitable (canBlockStay)
     @Override
-    public boolean canReplace(World world, BlockPos pos, EnumFacing side, ItemStack stack)
+    public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
     {
-       return world.getBlockState(pos).getBlock().isReplaceable(world, pos) && world.getBlockState(pos.up()).getBlock().isReplaceable(world, pos.up()) && this.canBlockStay(world, pos, this.getStateFromMeta(stack.getMetadata()));        
+        if (world.getBlockState(pos).getBlock().isReplaceable(world, pos) && world.getBlockState(pos.up()).getBlock().isReplaceable(world, pos.up()) && this.canBlockStay(world, pos, this.getStateFromMeta(meta))) {
+            return super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer);
+        }
+
+        return world.getBlockState(pos);
     }
     
     // Called by ItemBlock before the block is placed - the placed block must always be Half.LOWER

@@ -68,7 +68,7 @@ public class ContainerFlowerBasket extends Container
     {
         super.onContainerClosed(player);
         
-        if (!player.worldObj.isRemote)
+        if (!player.world.isRemote)
         {
             //Ensure all baskets are closed once the inventory is
             ItemFlowerBasket.clearOpenBaskets(player);
@@ -99,7 +99,7 @@ public class ContainerFlowerBasket extends Container
                 return null;
             }
 
-            if (mergedStack.stackSize == 0)
+            if (mergedStack.func_190916_E() == 0)
             {
                 slot.putStack((ItemStack)null);
             }

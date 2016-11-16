@@ -33,7 +33,7 @@ public class EntityAIEatBOPGrass extends EntityAIEatGrass
     {
         super(entityLiving);
         this.sheep = entityLiving;
-        this.world = entityLiving.worldObj;
+        this.world = entityLiving.world;
         this.setMutexBits(7);
     }
 

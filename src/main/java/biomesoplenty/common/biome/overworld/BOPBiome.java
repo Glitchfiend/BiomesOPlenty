@@ -41,6 +41,7 @@ import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.block.BlockSand;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureType;
@@ -195,26 +196,27 @@ public class BOPBiome extends Biome implements IExtendedBiome
                 // Look for an entity class matching this name
                 // case insensitive, dot used as mod delimiter, no spaces or underscores
                 // eg  'villager', 'Zombie', 'SQUID', 'enderdragon', 'biomesoplenty.wasp' all ok
-                Class <? extends EntityLiving> entityClazz = null;
-                for (Object entry : EntityList.NAME_TO_CLASS.entrySet())
-                {
-                    String entryEntityName = (String)((Entry)entry).getKey();
-                    if (entryEntityName.equalsIgnoreCase(entityName))
-                    {
-                        entityClazz = (Class <? extends EntityLiving>)((Entry)entry).getValue();
-                    }
+                Class <? extends Entity> entityClazz = EntityList.field_191308_b.getObject(new ResourceLocation(entityName));
+                Class <? extends EntityLiving> livingClazz = null;
+                if (!(entityClazz.isAssignableFrom(EntityLiving.class))) {
+                    confEntity.addMessage("Entity " + entityName + " is not of type EntityLiving");
+                    continue;
                 }
-                if (entityClazz == null)
+                else {
+                    livingClazz = (Class <? extends EntityLiving>)entityClazz;
+                }
+
+                if (livingClazz == null)
                 {
                     confEntity.addMessage("No entity registered called " + entityName);
                     continue;
                 }
-                if (!creatureType.getCreatureClass().isAssignableFrom(entityClazz))
+                if (!creatureType.getCreatureClass().isAssignableFrom(livingClazz))
                 {
                     confEntity.addMessage("Entity " + entityName + " is not of type " + creatureType);
                     continue;
                 }
-                
+
                 List<SpawnListEntry> spawns = this.getSpawnableList(creatureType);
                 Integer weight = confEntity.getInt("weight");
                 if (weight != null && weight < 1)
@@ -224,7 +226,7 @@ public class BOPBiome extends Biome implements IExtendedBiome
                     while (spawnIterator.hasNext())
                     {
                         SpawnListEntry entry = spawnIterator.next();
-                        if (entry.entityClass == entityClazz)
+                        if (entry.entityClass == livingClazz)
                         {
                             spawnIterator.remove();
                         }
@@ -248,7 +250,7 @@ public class BOPBiome extends Biome implements IExtendedBiome
                     if (!foundIt)
                     {
                         // the entry does not exist - add it
-                        SpawnListEntry entry = new SpawnListEntry(entityClazz, confEntity.getInt("weight", 10), confEntity.getInt("minGroupCount", 4), confEntity.getInt("maxGroupCount", 4));
+                        SpawnListEntry entry = new SpawnListEntry(livingClazz, confEntity.getInt("weight", 10), confEntity.getInt("minGroupCount", 4), confEntity.getInt("maxGroupCount", 4));
                         spawns.add(entry);
                     }
                 }

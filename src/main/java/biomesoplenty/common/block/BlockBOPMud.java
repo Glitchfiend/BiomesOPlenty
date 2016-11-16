@@ -120,7 +120,7 @@ public class BlockBOPMud extends Block implements IBOPBlock, ISustainsPlantType
             case MUD:
                 if (entity instanceof EntityPlayer) {
                     InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
-                    if (inventory.armorInventory[0] != null && inventory.armorInventory[0].getItem() == BOPItems.wading_boots) {
+                    if (inventory.armorInventory.get(0).getItem() == BOPItems.wading_boots) {
                         break;
                     }
                 }

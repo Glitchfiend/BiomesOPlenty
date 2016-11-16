@@ -4,12 +4,11 @@
 /Mixin/
 /repo/
 /run/
+.idea/*
 /.gradle/
 /.settings/
 /.classpath
 /.project
 # OS generated files
 *.DS_Store
-BiomesOPlenty.iml
-BiomesOPlenty.ipr
-BiomesOPlenty.iws
+*.iml

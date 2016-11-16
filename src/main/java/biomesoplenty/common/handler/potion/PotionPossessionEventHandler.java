@@ -24,7 +24,7 @@ public class PotionPossessionEventHandler
         {
             EntityLivingBase entity = event.getEntityLiving();
             
-            Random rand = entity.worldObj.rand;
+            Random rand = entity.world.rand;
 
             double posX = entity.posX;
             double posY = entity.posY;
@@ -40,7 +40,7 @@ public class PotionPossessionEventHandler
 
             if (rand.nextInt(5) == 0)
             {
-                if (!entity.worldObj.checkBlockCollision(entity.getEntityBoundingBox().offset(randX, randY, randZ)))
+                if (!entity.world.checkBlockCollision(entity.getEntityBoundingBox().offset(randX, randY, randZ)))
                     entity.setPosition(posX + randX, posY + randY, posZ + randZ);
             }
 

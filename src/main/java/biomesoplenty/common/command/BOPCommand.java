@@ -121,7 +121,7 @@ public class BOPCommand extends CommandBase
         }
         
         EntityPlayerMP player = getCommandSenderAsPlayer(sender);
-        World world = player.worldObj;
+        World world = player.world;
         BlockPos closestBiomePos = biomeToFind == null ? null : BiomeUtils.spiralOutwardsLookingForBiome(world, biomeToFind, player.posX, player.posZ);
         
         if (closestBiomePos != null)
@@ -216,7 +216,7 @@ public class BOPCommand extends CommandBase
                                     {
                                         blockStorage.set(x, y, z, Blocks.AIR.getDefaultState());
                                         world.notifyBlockUpdate(pos, state, Blocks.AIR.getDefaultState(), 3);
-                                        world.notifyNeighborsRespectDebug(pos, Blocks.AIR);
+                                        world.notifyNeighborsRespectDebug(pos, Blocks.AIR, false);
                                     }
                                 }
                             }

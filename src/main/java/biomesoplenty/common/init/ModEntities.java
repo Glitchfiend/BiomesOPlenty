@@ -22,6 +22,7 @@ import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityList.EntityEggInfo;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.ModContainer;
@@ -63,7 +64,7 @@ public class ModEntities
     public static int registerBOPEntityWithSpawnEgg(Class<? extends Entity> entityClass, String entityName, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates, int eggBackgroundColor, int eggForegroundColor)
     {
         int bopEntityId = registerBOPEntity(entityClass, entityName, trackingRange, updateFrequency, sendsVelocityUpdates);
-        entityEggs.put(Integer.valueOf(bopEntityId), new EntityList.EntityEggInfo(entityName, eggBackgroundColor, eggForegroundColor));
+        entityEggs.put(Integer.valueOf(bopEntityId), new EntityList.EntityEggInfo(new ResourceLocation(BiomesOPlenty.MOD_ID, entityName), eggBackgroundColor, eggForegroundColor));
         return bopEntityId;
     }
     

@@ -129,7 +129,7 @@ public class EntityWasp extends EntityFlying implements IMob {
         public boolean isBoxBlocked(AxisAlignedBB box)
         {
             //Im assuming this does what getCubes did. If not, im terribly sorry - Topisani
-            return !this.wasp.worldObj.getCollisionBoxes(this.wasp, box).isEmpty();
+            return !this.wasp.world.getCollisionBoxes(this.wasp, box).isEmpty();
         }
         
         // check nothing will collide with the wasp in the direction of aim, for howFar units (or until the destination - whichever is closer)

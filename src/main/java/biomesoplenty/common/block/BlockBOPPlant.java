@@ -439,7 +439,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
                 // poison ivy poisons players who walk into it, unless they're wearing boots and pants
                 if (entity instanceof EntityPlayer) {
                 	InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
-                    if (inventory.armorInventory[0] != null && inventory.armorInventory[1] != null) {
+                    if (inventory.armorInventory.get(0) != ItemStack.field_190927_a && inventory.armorInventory.get(1) != ItemStack.field_190927_a) {
                         break;
                     }
                     ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.POISON, 100));
@@ -449,7 +449,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
             	// thorns and tiny cacti damage players who walk into them, unless they're wearing boots and pants
                 if (entity instanceof EntityPlayer) {
                 	InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
-                    if (inventory.armorInventory[0] != null && inventory.armorInventory[1] != null) {
+                    if (inventory.armorInventory.get(0) != ItemStack.field_190927_a && inventory.armorInventory.get(1) != ItemStack.field_190927_a) {
                         break;
                     }
                     entity.attackEntityFrom(DamageSource.cactus, 1);
@@ -461,7 +461,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
     }
     
     @Override
-    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ)
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ)
     {
         switch ((BOPPlants) state.getValue(this.variantProperty))
         {
@@ -479,7 +479,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
                 }
                 return true;
         }
-        return super.onBlockActivated(worldIn, pos, state, playerIn, hand, heldItem, side, hitX, hitY, hitZ);
+        return super.onBlockActivated(worldIn, pos, state, playerIn, hand, side, hitX, hitY, hitZ);
     }
     
 

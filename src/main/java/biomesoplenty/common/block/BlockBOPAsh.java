@@ -22,6 +22,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -41,7 +42,7 @@ public class BlockBOPAsh extends BlockBOPGeneric
 
     // ash blocks are slightly lower
     @Override
-    public AxisAlignedBB getCollisionBoundingBox(IBlockState state, World world, BlockPos pos)
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos)
     {
         return COLLISION_BOX;
     }
@@ -51,7 +52,7 @@ public class BlockBOPAsh extends BlockBOPGeneric
     {
         if (entity instanceof EntityPlayer) {
             InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
-            if (inventory.armorInventory[0] != null && inventory.armorInventory[0].getItem() == BOPItems.wading_boots) {
+            if (inventory.armorInventory.get(0).getItem() == BOPItems.wading_boots) {
                 return;
             }
         }

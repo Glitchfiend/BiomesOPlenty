@@ -43,7 +43,7 @@ public class DyeEventHandler
             if (dyeColor != wolf.getCollarColor())
             {
                 wolf.setCollarColor(dyeColor);
-                if (!event.getEntityPlayer().capabilities.isCreativeMode) {--stack.stackSize;}
+                if (!event.getEntityPlayer().capabilities.isCreativeMode) {stack.func_190920_e(stack.func_190916_E() - 1);}
                 event.setResult(Result.ALLOW); 
             }
         }
@@ -53,7 +53,7 @@ public class DyeEventHandler
             if (!sheep.getSheared() && dyeColor != sheep.getFleeceColor())
             {
                 sheep.setFleeceColor(dyeColor);
-                if (!event.getEntityPlayer().capabilities.isCreativeMode) {--stack.stackSize;}
+                if (!event.getEntityPlayer().capabilities.isCreativeMode) {stack.func_190920_e(stack.func_190916_E() - 1);}
                 event.setResult(Result.ALLOW);
             }
         }

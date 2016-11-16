@@ -31,8 +31,9 @@ public class ItemEnderporter extends Item {
     }
 
     @Override
-    public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand)
+    public ActionResult<ItemStack> onItemRightClick( World world, EntityPlayer player, EnumHand hand)
     {
+        ItemStack stack = player.getHeldItem(hand);
         if (player.getRidingEntity() != null) {return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);}
         // can only use the enderporter on the surface world
         if (world.provider.isSurfaceWorld())

@@ -32,8 +32,9 @@ public class ItemBOPPlant extends ItemBOPBlock {
     // The code for right clicking needs to be overridden to handle the unique way reeds are placed - on top of the water
     // (usually when you point the cursor at water the picked block is whatever is underneath the water - when placing reeds the water itself has to be picked)
     @Override
-    public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand)
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand)
     {
+        ItemStack itemStackIn = playerIn.getHeldItem(hand);
         if (this.block instanceof BlockBOPPlant)
         {
             BlockBOPPlant block = (BlockBOPPlant)this.block;
@@ -81,7 +82,7 @@ public class ItemBOPPlant extends ItemBOPBlock {
 
                             if (!playerIn.capabilities.isCreativeMode)
                             {
-                                --itemStackIn.stackSize;
+                                itemStackIn.func_190920_e(itemStackIn.func_190916_E() - 1);
                             }
 
                             //TODO: 1.9 playerIn.triggerAchievement(StatList.objectUseStats[Item.getIdFromItem(this)]);
@@ -96,7 +97,7 @@ public class ItemBOPPlant extends ItemBOPBlock {
             
         }
         // in all other cases take the default action
-        return super.onItemRightClick(itemStackIn, worldIn, playerIn, hand);
+        return super.onItemRightClick(worldIn, playerIn, hand);
         
     }
     

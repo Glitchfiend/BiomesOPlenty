@@ -90,7 +90,7 @@ public class BlockBOPTerrarium extends Block implements IBOPBlock
     }
     
     @Override
-    public AxisAlignedBB getCollisionBoundingBox(IBlockState state, World world, BlockPos pos)
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos)
     {
         return BOUNDING_BOX;
     }

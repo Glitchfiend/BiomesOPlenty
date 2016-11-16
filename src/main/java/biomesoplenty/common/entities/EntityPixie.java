@@ -55,7 +55,7 @@ public class EntityPixie extends EntityFlying implements IMob {
     public void onLivingUpdate()
     {
         super.onLivingUpdate();
-        if (this.worldObj.isRemote)
+        if (this.world.isRemote)
         {
             for (int i = 0; i < 7; i++)
             {
@@ -74,22 +74,22 @@ public class EntityPixie extends EntityFlying implements IMob {
     {
         BlockPos blockpos = new BlockPos(this.posX, this.getEntityBoundingBox().minY, this.posZ);
 
-        if (this.worldObj.getLightFor(EnumSkyBlock.SKY, blockpos) > this.rand.nextInt(32))
+        if (this.world.getLightFor(EnumSkyBlock.SKY, blockpos) > this.rand.nextInt(32))
         {
             // TODO: not sure what's going on here...
             return false;
         }
         else
         {
-            int light = this.worldObj.getLightFromNeighbors(blockpos);
+            int light = this.world.getLightFromNeighbors(blockpos);
 
             // if it's thundering, force getSkylightSubtracted to 10 before calculating getLightFromNeighbors, then restore it
-            if (this.worldObj.isThundering())
+            if (this.world.isThundering())
             {
-                int oldSkyLightSubtracted = this.worldObj.getSkylightSubtracted();
-                this.worldObj.setSkylightSubtracted(10);
-                light = this.worldObj.getLightFromNeighbors(blockpos);
-                this.worldObj.setSkylightSubtracted(oldSkyLightSubtracted);
+                int oldSkyLightSubtracted = this.world.getSkylightSubtracted();
+                this.world.setSkylightSubtracted(10);
+                light = this.world.getLightFromNeighbors(blockpos);
+                this.world.setSkylightSubtracted(oldSkyLightSubtracted);
             }
 
             return light <= this.rand.nextInt(8);
@@ -166,7 +166,7 @@ public class EntityPixie extends EntityFlying implements IMob {
         
         public boolean isBoxBlocked(AxisAlignedBB box)
         {
-            return !this.pixie.worldObj.getCollisionBoxes(this.pixie, box).isEmpty();
+            return !this.pixie.world.getCollisionBoxes(this.pixie, box).isEmpty();
         }
         
         // check nothing will collide with the pixie in the direction of aim, for howFar units (or until the destination - whichever is closer)

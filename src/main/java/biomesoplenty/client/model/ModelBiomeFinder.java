@@ -38,7 +38,7 @@ public class ModelBiomeFinder extends ItemOverrideList
     @Override
     public IBakedModel handleItemState(IBakedModel originalModel, ItemStack stack, World world, EntityLivingBase entity)
     {
-        EntityPlayerSP player = Minecraft.getMinecraft().thePlayer;
+        EntityPlayerSP player = Minecraft.getMinecraft().player;
         if (player == null) {return this.frames[0];}
         
         NBTTagCompound nbt = stack.getTagCompound();

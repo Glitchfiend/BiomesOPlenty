@@ -38,8 +38,9 @@ public class ItemJarEmpty extends Item
 
 
     @Override
-    public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand)
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
     {
+        ItemStack stack = player.getHeldItem(hand);
         RayTraceResult hit = this.rayTrace(world, player, true);
 
         if (hit == null) {
@@ -79,11 +80,11 @@ public class ItemJarEmpty extends Item
 
     private ItemStack fillJar(ItemStack stack, EntityPlayer player, ItemStack jarStack)
     {
-        --stack.stackSize;
+        stack.func_190920_e(stack.func_190916_E() - 1);
         player.addStat(StatList.getObjectUseStats(this));
 
         // if there was only one empty jar in the stack, replace it, otherwise add the filledJar elsewhere in the inventory
-        if (stack.stackSize <= 0)
+        if (stack.func_190916_E() <= 0)
         {
             return jarStack;
         } else {
@@ -105,12 +106,12 @@ public class ItemJarEmpty extends Item
         {
             EntityPixie pixie = (EntityPixie)target;
             pixie.setDead();
-            --stack.stackSize;
+            stack.func_190920_e(stack.func_190916_E() - 1);
             ItemStack pixieJar = new ItemStack(BOPItems.jar_filled, 1, ItemJarFilled.JarContents.PIXIE.ordinal());
-            EntityItem pixieJarEntity = new EntityItem(player.worldObj, player.posX, player.posY, player.posZ, pixieJar);
-            if (!player.worldObj.isRemote)
+            EntityItem pixieJarEntity = new EntityItem(player.world, player.posX, player.posY, player.posZ, pixieJar);
+            if (!player.world.isRemote)
             {
-                player.worldObj.spawnEntityInWorld(pixieJarEntity);
+                player.world.spawnEntityInWorld(pixieJarEntity);
                 if (!(player instanceof FakePlayer)) {pixieJarEntity.onCollideWithPlayer(player);}
             }
             return true;
@@ -119,12 +120,12 @@ public class ItemJarEmpty extends Item
         {
             EntityButterfly butterfly = (EntityButterfly)target;
             butterfly.setDead();
-            --stack.stackSize;
+            stack.func_190920_e(stack.func_190916_E() - 1);
             ItemStack butterflyJar = new ItemStack(BOPItems.jar_filled, 1, ItemJarFilled.JarContents.BUTTERFLY.ordinal());
-            EntityItem butterflyJarEntity = new EntityItem(player.worldObj, player.posX, player.posY, player.posZ, butterflyJar);
-            if (!player.worldObj.isRemote)
+            EntityItem butterflyJarEntity = new EntityItem(player.world, player.posX, player.posY, player.posZ, butterflyJar);
+            if (!player.world.isRemote)
             {
-                player.worldObj.spawnEntityInWorld(butterflyJarEntity);
+                player.world.spawnEntityInWorld(butterflyJarEntity);
                 if (!(player instanceof FakePlayer)) {butterflyJarEntity.onCollideWithPlayer(player);}
             }
             return true;

@@ -19,7 +19,7 @@ public class FlippersEventHandler
 
             if (player.isInWater() && !player.capabilities.isFlying)
             {
-                if (inventory.armorInventory[0] != null && inventory.armorInventory[0].getItem() == BOPItems.flippers)
+                if (inventory.armorInventory.get(0).getItem() == BOPItems.flippers)
                 {
                     player.motionX *= 1.125D;
                     player.motionY *= 1.1D;

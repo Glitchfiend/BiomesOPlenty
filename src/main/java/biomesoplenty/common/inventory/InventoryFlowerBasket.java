@@ -81,7 +81,7 @@ public class InventoryFlowerBasket extends InventoryBasic
             //Ensure the slot index is valid
             if (slotIndex >= 0 && slotIndex < this.getSizeInventory())
             {
-                this.setInventorySlotContents(slotIndex, ItemStack.loadItemStackFromNBT(itemTag));
+                this.setInventorySlotContents(slotIndex, new ItemStack(itemTag));
             }
         }
 

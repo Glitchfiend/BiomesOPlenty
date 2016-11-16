@@ -84,7 +84,7 @@ public class BlockBOPFlesh extends Block implements IBOPBlock
         
         if (entity instanceof EntityPlayer) {
             InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
-            if (inventory.armorInventory[0] != null && inventory.armorInventory[0].getItem() == BOPItems.wading_boots) {
+            if (inventory.armorInventory.get(0).getItem() == BOPItems.wading_boots) {
                 return;
             }
         }

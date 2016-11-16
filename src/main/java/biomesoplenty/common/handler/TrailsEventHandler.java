@@ -37,17 +37,17 @@ public class TrailsEventHandler
 			EntityPlayer player = (EntityPlayer)event.player;
 			
 			//Check if the player has a trail
-			if (minecraft.thePlayer != null && TrailManager.trailsMap.containsKey(player.getUniqueID()))
+			if (minecraft.player != null && TrailManager.trailsMap.containsKey(player.getUniqueID()))
 			{
 			    //Don't display if the local player's trail if they have the visibility set to others
-			    if (MiscConfigurationHandler.trailVisbilityMode == TrailVisibilityMode.OTHERS && minecraft.thePlayer.getUniqueID() == player.getUniqueID())
+			    if (MiscConfigurationHandler.trailVisbilityMode == TrailVisibilityMode.OTHERS && minecraft.player.getUniqueID() == player.getUniqueID())
 			    {
 			        return;
 			    }
 			    
 			    String trailName = TrailManager.trailsMap.get(player.getUniqueID());
 			    
-			    World world = player.worldObj;
+			    World world = player.world;
 			    float groundYOffset = 0.015625F; //Prevents particles from z-fighting with the ground
 			    BlockPos playerPos = player.getPosition();
 
@@ -73,7 +73,7 @@ public class TrailsEventHandler
 	public void onPlayerLoggedIn(PlayerLoggedInEvent event)
 	{
 		EntityPlayer player = event.player;
-		World world = player.worldObj;
+		World world = player.world;
 		
 		if (world.isRemote)
 		{

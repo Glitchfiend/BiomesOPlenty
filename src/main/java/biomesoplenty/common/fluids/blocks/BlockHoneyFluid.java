@@ -50,7 +50,7 @@ public class BlockHoneyFluid extends BlockFluidFinite
     }
 
     @Override
-    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World worldIn, BlockPos pos)
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos)
     {
         return NULL_AABB;
     }
@@ -63,9 +63,9 @@ public class BlockHoneyFluid extends BlockFluidFinite
     }
 
     @Override
-    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn)
+    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos neighborPos)
     {
-    	super.neighborChanged(state, worldIn, pos, blockIn);
+    	super.neighborChanged(state, worldIn, pos, blockIn, neighborPos);
         this.checkForMixing(worldIn, pos, state);
     }
     
