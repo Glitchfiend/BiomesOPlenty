@@ -55,7 +55,7 @@ public class AchievementEventHandler
         Item item = stack.getItem();
         
         Block block = Block.getBlockFromItem(item);
-        IBlockState state = block != null ? block.getStateFromMeta(stack.getItemDamage()) : null;
+        IBlockState state = block != null ? block.getStateFromMeta(stack.getMetadata()) : null;
         EntityPlayer player = event.player;
 
         if (block != null && block instanceof BlockBOPLog)
