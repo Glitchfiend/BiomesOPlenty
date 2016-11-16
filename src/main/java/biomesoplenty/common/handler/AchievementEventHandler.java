@@ -30,6 +30,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.AchievementList;
 import net.minecraft.util.JsonSerializableSet;
@@ -55,7 +56,7 @@ public class AchievementEventHandler
         Item item = stack.getItem();
         
         Block block = Block.getBlockFromItem(item);
-        IBlockState state = block != null ? block.getStateFromMeta(stack.getMetadata()) : null;
+        IBlockState state = block != null && item instanceof ItemBlock ? block.getStateFromMeta(((ItemBlock)item).getMetadata(stack.getMetadata())) : null;
         EntityPlayer player = event.player;
 
         if (block != null && block instanceof BlockBOPLog)
@@ -181,7 +182,7 @@ public class AchievementEventHandler
         {
             Item item = stack.getItem();
             Block block = Block.getBlockFromItem(item);
-            IBlockState state = block != null ? block.getStateFromMeta(stack.getItemDamage()) : null;
+            IBlockState state = block != null && item instanceof ItemBlock ? block.getStateFromMeta(((ItemBlock)item).getMetadata(stack.getMetadata())) : null;
 
             try
             {
