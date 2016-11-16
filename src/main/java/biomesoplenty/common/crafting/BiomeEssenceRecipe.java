@@ -20,16 +20,16 @@ import net.minecraftforge.oredict.RecipeSorter;
 public class BiomeEssenceRecipe implements IRecipe
 {
 	static {
-		RecipeSorter.register("BiomesOPlenty:biomeessenceRecipe", BiomeEssenceRecipe.class, RecipeSorter.Category.SHAPELESS, "after:minecraft:shapeless");
+		RecipeSorter.register("biomesoplenty:biomeessenceRecipe", BiomeEssenceRecipe.class, RecipeSorter.Category.SHAPELESS, "after:minecraft:shapeless");
 	}
 
-    private ItemStack recipeOutput;
+    private ItemStack recipeOutput = ItemStack.field_190927_a;
     
     @Override
     public boolean matches(InventoryCrafting inventoryCrafting, World world)
     {
-        ItemStack biomeRadar = null;
-        ItemStack biomeEssence = null;
+        ItemStack biomeRadar = ItemStack.field_190927_a;
+        ItemStack biomeEssence = ItemStack.field_190927_a;
 
         for (int i = 0; i < 3; ++i)
         {
