@@ -12,7 +12,7 @@ import java.util.Random;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.item.ItemBOPBlock;
-import biomesoplenty.common.util.block.VariantPagingHelper.IPagedVariants;
+import biomesoplenty.api.enums.IPagedVariants;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;

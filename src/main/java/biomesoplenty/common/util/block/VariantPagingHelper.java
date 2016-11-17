@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import biomesoplenty.api.enums.IPagedVariants;
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 
@@ -22,13 +23,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
 
 
-public class VariantPagingHelper<B extends Block, V extends Enum<V> & IStringSerializable & VariantPagingHelper.IPagedVariants>
+public class VariantPagingHelper<B extends Block, V extends Enum<V> & IStringSerializable & IPagedVariants>
 {
-    
-    public interface IPagedVariants
-    {
-        
-    }
 
     public class PageIndex
     {
