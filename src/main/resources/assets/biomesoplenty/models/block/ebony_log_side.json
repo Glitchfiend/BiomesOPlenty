@@ -1,7 +1,0 @@
-{
-    "parent": "block/column_side",
-    "textures": {
-        "end": "biomesoplenty:blocks/ebony_log_top",
-        "side": "biomesoplenty:blocks/ebony_log"
-    }
-}
