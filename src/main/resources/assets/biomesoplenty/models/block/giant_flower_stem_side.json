@@ -1,7 +1,0 @@
-{
-    "parent": "block/cube_column",
-    "textures": {
-        "end": "biomesoplenty:blocks/giant_flower_stem_top",
-        "side": "biomesoplenty:blocks/giant_flower_stem"
-    }
-}

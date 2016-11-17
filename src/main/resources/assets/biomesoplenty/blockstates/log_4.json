@@ -1,8 +1,8 @@
 {
     "variants": {
 	    "axis=y,variant=giant_flower":    { "model": "biomesoplenty:giant_flower_stem" },
-        "axis=z,variant=giant_flower":    { "model": "biomesoplenty:giant_flower_stem_side" },
-        "axis=x,variant=giant_flower":    { "model": "biomesoplenty:giant_flower_stem_side", "y": 90 },
+        "axis=z,variant=giant_flower":    { "model": "biomesoplenty:giant_flower_stem", "x": 90 },
+        "axis=x,variant=giant_flower":    { "model": "biomesoplenty:giant_flower_stem", "x": 90, "y": 90 },
         "axis=none,variant=giant_flower": { "model": "biomesoplenty:giant_flower_bark" },
         "axis=y,variant=dead":    { "model": "biomesoplenty:dead_log" },
         "axis=z,variant=dead":    { "model": "biomesoplenty:dead_log", "x": 90 },
