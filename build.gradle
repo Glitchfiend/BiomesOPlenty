@@ -112,14 +112,15 @@ task deobfJar(type: Jar) {
 }
 
 task apiJar(type: Jar) {
-	from(sourceSets.main.allJava) {
-		include 'biomesoplenty/api/**'
-	}
-	from (sourceSets.main.output) {
+    from(sourceSets.main.allJava) {
+        include 'biomesoplenty/api/**'
+    }
+    from (sourceSets.main.output) {
         include 'LICENSE.txt'
+        include 'biomesoplenty/api/**'
     }
 
-	classifier = 'api'
+    classifier = 'api'
 }
 
 task listOutputs << {
