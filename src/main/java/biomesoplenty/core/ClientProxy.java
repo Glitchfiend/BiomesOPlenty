@@ -55,6 +55,7 @@ import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.resources.AbstractResourcePack;
 import net.minecraft.client.resources.IResourcePack;
+import net.minecraft.client.resources.LegacyV2Adapter;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -265,25 +266,24 @@ public class ClientProxy extends CommonProxy
 
     private static void replaceForgeResources()
     {
-        //TODO: Implement models for our buckets
-        if (ForgeModContainer.replaceVanillaBucketModel && MiscConfigurationHandler.overrideForgeBuckets)
+        if (MiscConfigurationHandler.overrideForgeBuckets)
         {
             FMLClientHandler clientHandler = FMLClientHandler.instance();
 
             List<IResourcePack> resourcePackList = ReflectionHelper.getPrivateValue(FMLClientHandler.class, clientHandler, "resourcePackList");
             Map<String, IResourcePack> resourcePackMap = ReflectionHelper.getPrivateValue(FMLClientHandler.class, clientHandler, "resourcePackMap");
-            AbstractResourcePack resourcePack = (AbstractResourcePack)clientHandler.getResourcePackFor("Forge");
+            LegacyV2Adapter resourcePack = (LegacyV2Adapter)clientHandler.getResourcePackFor("forge");
 
             //Remove the old resource pack from the registry
             resourcePackList.remove(resourcePack);
-            resourcePackMap.remove("Forge");
+            resourcePackMap.remove("forge");
 
             //Replace Forge's resource pack with our modified version
-            ForgeRedirectedResourcePack redirectedResourcePack = new ForgeRedirectedResourcePack(FMLCommonHandler.instance().findContainerFor("Forge"));
+            ForgeRedirectedResourcePack redirectedResourcePack = new ForgeRedirectedResourcePack(FMLCommonHandler.instance().findContainerFor("forge"));
 
             //Add our new resource pack in its place
             resourcePackList.add(redirectedResourcePack);
-            resourcePackMap.put("Forge", redirectedResourcePack);
+            resourcePackMap.put("forge", redirectedResourcePack);
         }
     }
     

@@ -3,6 +3,7 @@ package biomesoplenty.client.texture;
 import java.io.IOException;
 import java.io.InputStream;
 
+import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.client.resources.IResourcePack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.FMLClientHandler;
@@ -18,7 +19,7 @@ public class ForgeRedirectedResourcePack extends FMLFileResourcePack
     {
         super(container);
         
-        this.bopResourcePack = (IResourcePack)FMLClientHandler.instance().getResourcePackFor("BiomesOPlenty");
+        this.bopResourcePack = (IResourcePack)FMLClientHandler.instance().getResourcePackFor(BiomesOPlenty.MOD_ID);
     }
 
     @Override

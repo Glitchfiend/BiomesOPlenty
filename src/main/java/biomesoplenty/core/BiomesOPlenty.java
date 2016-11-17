@@ -48,7 +48,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 public class BiomesOPlenty
 {
     public static final String MOD_NAME = "Biomes O' Plenty";
-    public static final String MOD_ID = "BiomesOPlenty";
+    public static final String MOD_ID = "biomesoplenty";
     public static final String MOD_VERSION = "@MOD_VERSION@";
     public static final String GUI_FACTORY = "biomesoplenty.client.gui.GuiFactory";
 
