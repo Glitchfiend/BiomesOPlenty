@@ -15,7 +15,7 @@ public class WorldProviderHellBOP extends WorldProvider
     public void createBiomeProvider()
     {
         this.biomeProvider = new BiomeProviderSingle(Biomes.HELL);
-        this.isHellWorld = true;
+        this.doesWaterVaporize = true;
         this.hasNoSky = true;
     }
 
@@ -38,7 +38,7 @@ public class WorldProviderHellBOP extends WorldProvider
 
     public IChunkGenerator createChunkGenerator()
     {
-        return new ChunkProviderHellBOP(this.worldObj, this.worldObj.getWorldInfo().isMapFeaturesEnabled(), this.worldObj.getSeed());
+        return new ChunkProviderHellBOP(this.world, this.world.getWorldInfo().isMapFeaturesEnabled(), this.world.getSeed());
     }
 
     public boolean isSurfaceWorld()

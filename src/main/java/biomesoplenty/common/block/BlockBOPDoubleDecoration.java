@@ -133,17 +133,10 @@ public class BlockBOPDoubleDecoration extends BlockBOPDecoration {
     public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
     {
         if (world.getBlockState(pos).getBlock().isReplaceable(world, pos) && world.getBlockState(pos.up()).getBlock().isReplaceable(world, pos.up()) && this.canBlockStay(world, pos, this.getStateFromMeta(meta))) {
-            return super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer);
+            return this.getStateFromMeta(meta).withProperty(HALF, Half.LOWER);
         }
 
         return world.getBlockState(pos);
-    }
-    
-    // Called by ItemBlock before the block is placed - the placed block must always be Half.LOWER
-    @Override
-    public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
-    {
-        return this.getStateFromMeta(meta).withProperty(HALF, Half.LOWER);
     }
     
     // Called by ItemBlock after the (lower) block has been placed

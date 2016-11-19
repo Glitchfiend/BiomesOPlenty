@@ -94,12 +94,12 @@ public class GeneratorSplotches extends GeneratorReplacing
     public void replaceInEllipsoid(World world, double centerX, double centerY, double centerZ, double radiusX, double radiusY, double radiusZ)
     {
         
-        int x0 = MathHelper.floor_double(centerX - radiusX + 0.5D);
-        int y0 = MathHelper.floor_double(centerY - radiusY + 0.5D);
-        int z0 = MathHelper.floor_double(centerZ - radiusZ + 0.5D);
-        int x1 = MathHelper.floor_double(centerX + radiusX + 0.5D);
-        int y1 = MathHelper.floor_double(centerY + radiusY + 0.5D);
-        int z1 = MathHelper.floor_double(centerZ + radiusZ + 0.5D);  
+        int x0 = MathHelper.floor(centerX - radiusX + 0.5D);
+        int y0 = MathHelper.floor(centerY - radiusY + 0.5D);
+        int z0 = MathHelper.floor(centerZ - radiusZ + 0.5D);
+        int x1 = MathHelper.floor(centerX + radiusX + 0.5D);
+        int y1 = MathHelper.floor(centerY + radiusY + 0.5D);
+        int z1 = MathHelper.floor(centerZ + radiusZ + 0.5D);
         
         for (int x = x0; x <= x1; ++x)
         {

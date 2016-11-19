@@ -23,13 +23,13 @@ public class BiomeEssenceRecipe implements IRecipe
 		RecipeSorter.register("biomesoplenty:biomeessenceRecipe", BiomeEssenceRecipe.class, RecipeSorter.Category.SHAPELESS, "after:minecraft:shapeless");
 	}
 
-    private ItemStack recipeOutput = ItemStack.field_190927_a;
+    private ItemStack recipeOutput = ItemStack.EMPTY;
     
     @Override
     public boolean matches(InventoryCrafting inventoryCrafting, World world)
     {
-        ItemStack biomeRadar = ItemStack.field_190927_a;
-        ItemStack biomeEssence = ItemStack.field_190927_a;
+        ItemStack biomeRadar = ItemStack.EMPTY;
+        ItemStack biomeEssence = ItemStack.EMPTY;
 
         for (int i = 0; i < 3; ++i)
         {
@@ -87,7 +87,7 @@ public class BiomeEssenceRecipe implements IRecipe
     @Override
     public NonNullList<ItemStack> getRemainingItems(InventoryCrafting inv)
     {
-        NonNullList<ItemStack> itemList = NonNullList.func_191196_a();
+        NonNullList<ItemStack> itemList = NonNullList.create();
 
         for (int i = 0; i < inv.getSizeInventory(); ++i)
         {

@@ -326,7 +326,7 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
         {
             for (int k = -2; k <= 2; ++k)
             {
-                radialFalloff5x5[j + 2 + (k + 2) * 5] = 0.06476162171F / MathHelper.sqrt_float((float)(j * j + k * k) + 0.2F);
+                radialFalloff5x5[j + 2 + (k + 2) * 5] = 0.06476162171F / MathHelper.sqrt((float)(j * j + k * k) + 0.2F);
                 radialStrongFalloff5x5[j + 2 + (k + 2) * 5] = 0.076160519601F / ((float)(j * j + k * k) + 0.2F);
             }
         }
@@ -437,7 +437,7 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
                         double xyzNoiseA = this.xyzNoiseArrayA[xyzCounter] / lowerLimitScale;
                         double xyzNoiseB = this.xyzNoiseArrayB[xyzCounter] / upperLimitScale;
                         double balance = (this.xyzBalanceNoiseArray[xyzCounter] / 10.0D + 1.0D) / 2.0D;
-                        double xyzNoiseValue = MathHelper.denormalizeClamp(xyzNoiseA, xyzNoiseB, balance) / 50.0D;
+                        double xyzNoiseValue = MathHelper.clamp(xyzNoiseA, xyzNoiseB, balance) / 50.0D;
 
                         // calculate the depth
                         double depth = baseLevel - y + (xyzAmplitude * xyzNoiseValue);

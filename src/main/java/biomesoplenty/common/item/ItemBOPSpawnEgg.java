@@ -25,6 +25,7 @@ import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.MobSpawnerBaseLogic;
 import net.minecraft.tileentity.TileEntity;
@@ -34,6 +35,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -68,7 +70,7 @@ public class ItemBOPSpawnEgg extends Item implements IColoredItem
             entityliving.rotationYawHead = entityliving.rotationYaw;
             entityliving.renderYawOffset = entityliving.rotationYaw;
             entityliving.onInitialSpawn(worldIn.getDifficultyForLocation(new BlockPos(entityliving)), (IEntityLivingData)null);
-            worldIn.spawnEntityInWorld(entity);
+            worldIn.spawnEntity(entity);
             entityliving.playLivingSound();
         }
 
@@ -121,13 +123,13 @@ public class ItemBOPSpawnEgg extends Item implements IColoredItem
                 if (tileentity instanceof TileEntityMobSpawner)
                 {
                     MobSpawnerBaseLogic mobspawnerbaselogic = ((TileEntityMobSpawner)tileentity).getSpawnerBaseLogic();
-                    mobspawnerbaselogic.func_190894_a(EntityList.field_191308_b.getNameForObject(EntityList.getClassFromID(stack.getMetadata())));
+                    mobspawnerbaselogic.setEntityId(ItemMonsterPlacer.getNamedIdFrom(stack));
                     tileentity.markDirty();
                     worldIn.notifyBlockUpdate(pos, iblockstate, iblockstate, 3);
 
                     if (!playerIn.capabilities.isCreativeMode)
                     {
-                        stack.func_190920_e(stack.func_190916_E() - 1);
+                        stack.setCount(stack.getCount() - 1);
                     }
 
                     return EnumActionResult.SUCCESS;
@@ -153,7 +155,7 @@ public class ItemBOPSpawnEgg extends Item implements IColoredItem
 
                 if (!playerIn.capabilities.isCreativeMode)
                 {
-                    stack.func_190920_e(stack.func_190916_E() - 1);
+                    stack.setCount(stack.getCount() - 1);
                 }
             }
 
@@ -206,7 +208,7 @@ public class ItemBOPSpawnEgg extends Item implements IColoredItem
 
                             if (!player.capabilities.isCreativeMode)
                             {
-                                stack.func_190920_e(stack.func_190916_E() - 1);
+                                stack.setCount(stack.getCount() - 1);
                             }
 
                             //TODO: 1.9 playerIn.triggerAchievement(StatList.objectUseStats[Item.getIdFromItem(this)]);

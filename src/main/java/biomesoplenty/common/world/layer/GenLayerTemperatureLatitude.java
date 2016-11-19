@@ -51,7 +51,7 @@ public class GenLayerTemperatureLatitude extends BOPGenLayer
                 // set value between 1 and 4 which is periodic in Y (with some random variation)
                 // ocean generally stays as ocean, unless it's ICY when it becomes frozen ocean
                 double Yoffset = Y + this.offset + ((this.nextInt(1001) - 500) * this.offsetVariation / 500.0D);
-                out[x + y * areaWidth] = MathHelper.floor_double(this.amplitude * Math.abs((Math.abs(Yoffset % period) - halfPeriod)));
+                out[x + y * areaWidth] = MathHelper.floor(this.amplitude * Math.abs((Math.abs(Yoffset % period) - halfPeriod)));
             }
         }
 

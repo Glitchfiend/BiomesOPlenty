@@ -159,7 +159,7 @@ public class ClientProxy extends CommonProxy
         // register sub types if there are any
         if (item.getHasSubtypes())
         {
-            NonNullList<ItemStack> subItems = NonNullList.func_191196_a();
+            NonNullList<ItemStack> subItems = NonNullList.create();
             item.getSubItems(item, CreativeTabBOP.instance, subItems);
             for (ItemStack subItem : subItems)
             {
@@ -206,11 +206,11 @@ public class ClientProxy extends CommonProxy
         switch (type)
         {
         case PIXIETRAIL:
-            entityFx = new EntityPixieTrailFX(minecraft.world, x, y, z, MathHelper.getRandomDoubleInRange(minecraft.world.rand, -0.03, 0.03), -0.02D, MathHelper.getRandomDoubleInRange(minecraft.world.rand, -0.03, 0.03));
+            entityFx = new EntityPixieTrailFX(minecraft.world, x, y, z, MathHelper.nextDouble(minecraft.world.rand, -0.03, 0.03), -0.02D, MathHelper.nextDouble(minecraft.world.rand, -0.03, 0.03));
             break;
         case MUD:
             int itemId = Item.getIdFromItem(BOPItems.mudball);
-            minecraft.world.spawnParticle(EnumParticleTypes.ITEM_CRACK, x, y, z, MathHelper.getRandomDoubleInRange(minecraft.world.rand, -0.08D, 0.08D), MathHelper.getRandomDoubleInRange(minecraft.world.rand, -0.08D, 0.08D), MathHelper.getRandomDoubleInRange(minecraft.world.rand, -0.08D, 0.08D), new int[] {itemId});
+            minecraft.world.spawnParticle(EnumParticleTypes.ITEM_CRACK, x, y, z, MathHelper.nextDouble(minecraft.world.rand, -0.08D, 0.08D), MathHelper.nextDouble(minecraft.world.rand, -0.08D, 0.08D), MathHelper.nextDouble(minecraft.world.rand, -0.08D, 0.08D), new int[] {itemId});
             return;
         case PLAYER_TRAIL:
             if (info.length < 1)

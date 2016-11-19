@@ -164,7 +164,7 @@ public class BlockBOPHive extends Block implements IBOPBlock
             case EMPTY_HONEYCOMB:
                 EntityWasp wasp = new EntityWasp(worldIn);
                 wasp.setLocationAndAngles((double)pos.getX() + 0.6D, (double)pos.getY(), (double)pos.getZ() + 0.3D, 0.0F, 0.0F);
-                worldIn.spawnEntityInWorld(wasp);
+                worldIn.spawnEntity(wasp);
                 break;
                 
             default:

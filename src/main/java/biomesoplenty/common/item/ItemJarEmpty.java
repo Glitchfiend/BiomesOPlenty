@@ -80,11 +80,11 @@ public class ItemJarEmpty extends Item
 
     private ItemStack fillJar(ItemStack stack, EntityPlayer player, ItemStack jarStack)
     {
-        stack.func_190920_e(stack.func_190916_E() - 1);
+        stack.setCount(stack.getCount() - 1);
         player.addStat(StatList.getObjectUseStats(this));
 
         // if there was only one empty jar in the stack, replace it, otherwise add the filledJar elsewhere in the inventory
-        if (stack.func_190916_E() <= 0)
+        if (stack.getCount() <= 0)
         {
             return jarStack;
         } else {
@@ -106,12 +106,12 @@ public class ItemJarEmpty extends Item
         {
             EntityPixie pixie = (EntityPixie)target;
             pixie.setDead();
-            stack.func_190920_e(stack.func_190916_E() - 1);
+            stack.setCount(stack.getCount() - 1);
             ItemStack pixieJar = new ItemStack(BOPItems.jar_filled, 1, ItemJarFilled.JarContents.PIXIE.ordinal());
             EntityItem pixieJarEntity = new EntityItem(player.world, player.posX, player.posY, player.posZ, pixieJar);
             if (!player.world.isRemote)
             {
-                player.world.spawnEntityInWorld(pixieJarEntity);
+                player.world.spawnEntity(pixieJarEntity);
                 if (!(player instanceof FakePlayer)) {pixieJarEntity.onCollideWithPlayer(player);}
             }
             return true;
@@ -120,12 +120,12 @@ public class ItemJarEmpty extends Item
         {
             EntityButterfly butterfly = (EntityButterfly)target;
             butterfly.setDead();
-            stack.func_190920_e(stack.func_190916_E() - 1);
+            stack.setCount(stack.getCount() - 1);
             ItemStack butterflyJar = new ItemStack(BOPItems.jar_filled, 1, ItemJarFilled.JarContents.BUTTERFLY.ordinal());
             EntityItem butterflyJarEntity = new EntityItem(player.world, player.posX, player.posY, player.posZ, butterflyJar);
             if (!player.world.isRemote)
             {
-                player.world.spawnEntityInWorld(butterflyJarEntity);
+                player.world.spawnEntity(butterflyJarEntity);
                 if (!(player instanceof FakePlayer)) {butterflyJarEntity.onCollideWithPlayer(player);}
             }
             return true;

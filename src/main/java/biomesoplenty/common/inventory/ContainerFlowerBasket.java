@@ -99,7 +99,7 @@ public class ContainerFlowerBasket extends Container
                 return null;
             }
 
-            if (mergedStack.func_190916_E() == 0)
+            if (mergedStack.getCount() == 0)
             {
                 slot.putStack((ItemStack)null);
             }

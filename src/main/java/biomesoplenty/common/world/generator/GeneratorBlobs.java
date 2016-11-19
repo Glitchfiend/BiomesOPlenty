@@ -116,12 +116,12 @@ public class GeneratorBlobs extends GeneratorReplacing
         float radiusY = minRadius + radiusRand + (rand.nextFloat() * radiusVariation * 0.5F);
         float radiusZ = minRadius + radiusRand + (rand.nextFloat() * radiusVariation * 0.5F);
         
-        int x0 = MathHelper.floor_float(centerX - radiusX + 0.5F);
-        int y0 = MathHelper.floor_float(centerY - radiusY + 0.5F);
-        int z0 = MathHelper.floor_float(centerZ - radiusZ + 0.5F);
-        int x1 = MathHelper.floor_float(centerX + radiusX + 0.5F);
-        int y1 = MathHelper.floor_float(centerY + radiusY + 0.5F);
-        int z1 = MathHelper.floor_float(centerZ + radiusZ + 0.5F);        
+        int x0 = MathHelper.floor(centerX - radiusX + 0.5F);
+        int y0 = MathHelper.floor(centerY - radiusY + 0.5F);
+        int z0 = MathHelper.floor(centerZ - radiusZ + 0.5F);
+        int x1 = MathHelper.floor(centerX + radiusX + 0.5F);
+        int y1 = MathHelper.floor(centerY + radiusY + 0.5F);
+        int z1 = MathHelper.floor(centerZ + radiusZ + 0.5F);
         
         for (int x = x0; x <= x1; ++x)
         {

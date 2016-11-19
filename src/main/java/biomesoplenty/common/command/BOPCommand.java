@@ -40,19 +40,19 @@ public class BOPCommand extends CommandBase
     public static int biomeCount = 0;
     
     @Override
-    public String getCommandName()
+    public String getName()
     {
         return "biomesoplenty";
     }
     
     @Override
-    public List getCommandAliases()
+    public List getAliases()
     {
         return Lists.newArrayList("bop", "biomesop");
     }
 
     @Override
-    public String getCommandUsage(ICommandSender sender)
+    public String getUsage(ICommandSender sender)
     {
         return "commands.biomesoplenty.usage";
     }
@@ -98,7 +98,7 @@ public class BOPCommand extends CommandBase
         int biomeId = parseInt(args[1], 0, 255);
         Biome biome = Biome.getBiome(biomeId);
         
-        sender.addChatMessage(new TextComponentTranslation("commands.biomesoplenty.biomename.success", biomeId, biome == null ? "Undefined" : biome.getBiomeName()));
+        sender.sendMessage(new TextComponentTranslation("commands.biomesoplenty.biomename.success", biomeId, biome == null ? "Undefined" : biome.getBiomeName()));
     }
     
     private void teleportFoundBiome(ICommandSender sender, String[] args) throws CommandException
@@ -131,11 +131,11 @@ public class BOPCommand extends CommandBase
             double z = (double)closestBiomePos.getZ();
             
             player.connection.setPlayerLocation(x, y, z, player.rotationYaw, player.rotationPitch);
-            sender.addChatMessage(new TextComponentTranslation("commands.biomesoplenty.tpbiome.success", player.getName(), biomeToFind.getBiomeName(), x, y, z));
+            sender.sendMessage(new TextComponentTranslation("commands.biomesoplenty.tpbiome.success", player.getName(), biomeToFind.getBiomeName(), x, y, z));
         }
         else
         {
-            sender.addChatMessage(new TextComponentTranslation("commands.biomesoplenty.tpbiome.error", biomeToFind == null ? "Undefined" : biomeToFind.getBiomeName()));
+            sender.sendMessage(new TextComponentTranslation("commands.biomesoplenty.tpbiome.error", biomeToFind == null ? "Undefined" : biomeToFind.getBiomeName()));
         }
     }
     
@@ -144,19 +144,19 @@ public class BOPCommand extends CommandBase
         TextComponentTranslation text = new TextComponentTranslation("commands.biomesoplenty.stats.blocks", blockCount);
         
         text.getStyle().setColor(TextFormatting.GREEN);
-        sender.addChatMessage(text);
+        sender.sendMessage(text);
   
         text = new TextComponentTranslation("commands.biomesoplenty.stats.items", itemCount);
         text.getStyle().setColor(TextFormatting.GREEN);
-        sender.addChatMessage(text);
+        sender.sendMessage(text);
         
         text = new TextComponentTranslation("commands.biomesoplenty.stats.entities", entityCount);
         text.getStyle().setColor(TextFormatting.GREEN);
-        sender.addChatMessage(text);
+        sender.sendMessage(text);
         
         text = new TextComponentTranslation("commands.biomesoplenty.stats.biomes", biomeCount);
         text.getStyle().setColor(TextFormatting.GREEN);
-        sender.addChatMessage(text);
+        sender.sendMessage(text);
     }
     
     private void stripChunk(ICommandSender sender, String[] args) throws CommandException
@@ -230,7 +230,7 @@ public class BOPCommand extends CommandBase
     }
 
     @Override
-    public List<String> getTabCompletionOptions(MinecraftServer server, ICommandSender sender, String[] args, BlockPos pos)
+    public List<String> getTabCompletions(MinecraftServer server, ICommandSender sender, String[] args, BlockPos pos)
     {
         if (args.length == 1)
         {

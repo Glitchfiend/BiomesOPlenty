@@ -24,6 +24,7 @@ import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityList.EntityEggInfo;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.ModContainer;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
@@ -54,7 +55,7 @@ public class ModEntities
     {
         int bopEntityId = nextBOPEntityId;
         nextBOPEntityId++;
-        EntityRegistry.registerModEntity(entityClass, entityName, bopEntityId, BiomesOPlenty.instance, trackingRange, updateFrequency, sendsVelocityUpdates);
+        EntityRegistry.registerModEntity(new ResourceLocation(BiomesOPlenty.MOD_ID, entityName), entityClass, entityName, bopEntityId, BiomesOPlenty.instance, trackingRange, updateFrequency, sendsVelocityUpdates);
         idToBOPEntityName.put(bopEntityId, entityName);
         BOPCommand.entityCount++;
         return bopEntityId;

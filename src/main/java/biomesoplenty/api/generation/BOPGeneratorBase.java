@@ -78,7 +78,7 @@ public abstract class BOPGeneratorBase extends WorldGenerator implements IGenera
     
     public int getAmountToScatter(Random random)
     {
-        int amount = MathHelper.floor_float(this.amountPerChunk);
+        int amount = MathHelper.floor(this.amountPerChunk);
         float remainder = this.amountPerChunk - amount;
         if (random.nextFloat() < remainder) {amount++;}
         return amount;

@@ -69,8 +69,8 @@ public class GeneratorTaigaTree extends GeneratorTreeBase
         {
             
             int trunkWidth = (this.trunkWidth * (height - y) / height) + 1;
-            int trunkStart = MathHelper.ceiling_double_int(0.25D - trunkWidth / 2.0D);
-            int trunkEnd = MathHelper.floor_double(0.25D + trunkWidth / 2.0D);
+            int trunkStart = MathHelper.ceil(0.25D - trunkWidth / 2.0D);
+            int trunkEnd = MathHelper.floor(0.25D + trunkWidth / 2.0D);
             
             // require 3x3 for the leaves, 1x1 for the trunk
             int start = (y <= baseHeight ? trunkStart : trunkStart - 1);
@@ -178,8 +178,8 @@ public class GeneratorTaigaTree extends GeneratorTreeBase
         {
             
             int trunkWidth = (this.trunkWidth * i / height) + 1;
-            int trunkStart = MathHelper.ceiling_double_int(0.25D - trunkWidth / 2.0D);
-            int trunkEnd = MathHelper.floor_double(0.25D + trunkWidth / 2.0D);
+            int trunkStart = MathHelper.ceil(0.25D - trunkWidth / 2.0D);
+            int trunkEnd = MathHelper.floor(0.25D + trunkWidth / 2.0D);
             
             
             int radius = Math.min(Math.min((i + 2) / 3, 3 + (leavesHeight - i)), 6);
@@ -217,8 +217,8 @@ public class GeneratorTaigaTree extends GeneratorTreeBase
         for (int y = 0; y < height - 1; y++)
         {
             int trunkWidth = (this.trunkWidth * (height - y) / height) + 1;
-            int trunkStart = MathHelper.ceiling_double_int(0.25D - trunkWidth / 2.0D);
-            int trunkEnd = MathHelper.floor_double(0.25D + trunkWidth / 2.0D);
+            int trunkStart = MathHelper.ceil(0.25D - trunkWidth / 2.0D);
+            int trunkEnd = MathHelper.floor(0.25D + trunkWidth / 2.0D);
             
             // TODO: Temporary fix for trees generating larger than normal bases when in the sides of hills
             // Should look into doing this properly but i'm busy :P

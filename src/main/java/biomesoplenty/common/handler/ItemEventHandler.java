@@ -58,7 +58,7 @@ public class ItemEventHandler
                 if (inventory.addItem(stack) == null)
                 {
                     //Set stack size to 0 to cause it to be removed
-                    stack.func_190920_e(0);
+                    stack.setCount(0);
                     //Prevent the stack from being added to the player's inventory
                     event.setResult(Result.ALLOW);
                 }

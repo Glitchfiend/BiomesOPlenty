@@ -32,7 +32,7 @@ public class GenLayerClimate extends BOPGenLayer {
 
             // temperature values from 0 (cold) to 8 (hot) and rainfall values from 0 (wet) to 11 (dry), index is (temperatureValue * 12) + rainfallValue
             // index is clamped to account for potential rounding errors due to use of doubles/floats
-            out[i] = this.climateMapping[MathHelper.clamp_int(index, 0, this.climateMapping.length - 1)];
+            out[i] = this.climateMapping[MathHelper.clamp(index, 0, this.climateMapping.length - 1)];
         }
         return out;
     }

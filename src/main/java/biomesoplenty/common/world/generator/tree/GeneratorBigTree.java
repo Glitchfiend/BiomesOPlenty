@@ -237,7 +237,7 @@ public class GeneratorBigTree extends GeneratorTreeBase
         final float radius = height / 2.0f;
         final float adjacent = radius - y;
  
-        float distance = MathHelper.sqrt_float(radius * radius - adjacent * adjacent);
+        float distance = MathHelper.sqrt(radius * radius - adjacent * adjacent);
         
         if (adjacent == 0) {
             distance = radius;
@@ -318,9 +318,9 @@ public class GeneratorBigTree extends GeneratorTreeBase
     
     private int getSteps(BlockPos pos) 
     {
-        final int absX = MathHelper.abs_int(pos.getX());
-        final int absY = MathHelper.abs_int(pos.getY());
-        final int absZ = MathHelper.abs_int(pos.getZ());
+        final int absX = MathHelper.abs(pos.getX());
+        final int absY = MathHelper.abs(pos.getY());
+        final int absZ = MathHelper.abs(pos.getZ());
  
         //Determine which axis has the greatest distance from the origin (0, 0, 0)
         if (absZ > absX && absZ > absY) {
@@ -334,9 +334,9 @@ public class GeneratorBigTree extends GeneratorTreeBase
 
     private int getGreatestDistance(BlockPos posIn)
     {
-        int i = MathHelper.abs_int(posIn.getX());
-        int j = MathHelper.abs_int(posIn.getY());
-        int k = MathHelper.abs_int(posIn.getZ());
+        int i = MathHelper.abs(posIn.getX());
+        int j = MathHelper.abs(posIn.getY());
+        int k = MathHelper.abs(posIn.getZ());
         return k > i && k > j ? k : (j > i ? j : i);
     }
 

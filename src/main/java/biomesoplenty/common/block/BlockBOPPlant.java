@@ -439,7 +439,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
                 // poison ivy poisons players who walk into it, unless they're wearing boots and pants
                 if (entity instanceof EntityPlayer) {
                 	InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
-                    if (inventory.armorInventory.get(0) != ItemStack.field_190927_a && inventory.armorInventory.get(1) != ItemStack.field_190927_a) {
+                    if (inventory.armorInventory.get(0) != ItemStack.EMPTY && inventory.armorInventory.get(1) != ItemStack.EMPTY) {
                         break;
                     }
                     ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.POISON, 100));
@@ -449,7 +449,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
             	// thorns and tiny cacti damage players who walk into them, unless they're wearing boots and pants
                 if (entity instanceof EntityPlayer) {
                 	InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
-                    if (inventory.armorInventory.get(0) != ItemStack.field_190927_a && inventory.armorInventory.get(1) != ItemStack.field_190927_a) {
+                    if (inventory.armorInventory.get(0) != ItemStack.EMPTY && inventory.armorInventory.get(1) != ItemStack.EMPTY) {
                         break;
                     }
                     entity.attackEntityFrom(DamageSource.cactus, 1);
@@ -471,7 +471,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
                 EntityItem berries = new EntityItem(worldIn, (double)pos.getX(), (double)pos.getY(), (double)pos.getZ(), new ItemStack(BOPItems.berries));
                 if (!worldIn.isRemote)
                 {
-                    worldIn.spawnEntityInWorld(berries);
+                    worldIn.spawnEntity(berries);
                     if (!(playerIn instanceof FakePlayer))
                     {
                         berries.onCollideWithPlayer(playerIn);

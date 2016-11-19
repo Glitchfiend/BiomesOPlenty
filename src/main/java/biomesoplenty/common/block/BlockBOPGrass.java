@@ -168,7 +168,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
     }
     
     @Override
-    public IBlockState onBlockPlaced(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
+    public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
     {
         IBlockState state = this.getStateFromMeta(meta);
         switch ((BOPGrassType) state.getValue(VARIANT))

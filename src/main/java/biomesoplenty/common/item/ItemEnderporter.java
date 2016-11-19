@@ -54,7 +54,7 @@ public class ItemEnderporter extends Item {
             {
                 TextComponentTranslation msg = new TextComponentTranslation("enderporter.prevent");
                 msg.getStyle().setColor(TextFormatting.DARK_PURPLE);
-                player.addChatMessage(msg);
+                player.sendMessage(msg);
             }
         }
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);

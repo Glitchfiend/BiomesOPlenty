@@ -169,7 +169,7 @@ public class EntityButterfly extends EntityFlying implements IMob {
             this.distY = this.posY - this.butterfly.posY;
             this.distZ = this.posZ - this.butterfly.posZ;
             
-            this.dist = (double)MathHelper.sqrt_double(this.distX * this.distX + this.distY * this.distY + this.distZ * this.distZ);
+            this.dist = (double)MathHelper.sqrt(this.distX * this.distX + this.distY * this.distY + this.distZ * this.distZ);
             
             // (aimX,aimY,aimZ) is a unit vector in the direction we want to go
             if (this.dist == 0.0D)

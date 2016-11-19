@@ -34,7 +34,7 @@ public class ItemMudball extends Item
         ItemStack stack = player.getHeldItem(hand);
         if (!player.capabilities.isCreativeMode)
         {
-            stack.func_190920_e(stack.func_190916_E() - 1);
+            stack.setCount(stack.getCount() - 1);
         }
 
         world.playSound(player, player.getPosition(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.NEUTRAL, 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
@@ -43,7 +43,7 @@ public class ItemMudball extends Item
         {
         	EntityMudball mudball = new EntityMudball(world, player);
         	mudball.setHeadingFromThrower(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
-            world.spawnEntityInWorld(mudball);
+            world.spawnEntity(mudball);
         }
 
         player.addStat(StatList.getObjectUseStats(this));

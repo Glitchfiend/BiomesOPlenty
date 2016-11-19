@@ -58,7 +58,7 @@ public class TerrainSettings
     
     public TerrainSettings sidewaysNoise(double a)
     {
-        this.sidewaysNoiseAmount = MathHelper.clamp_double(a, 0.0F, 1.0F);
+        this.sidewaysNoiseAmount = MathHelper.clamp(a, 0.0F, 1.0F);
         return this;
     }
     
@@ -76,13 +76,13 @@ public class TerrainSettings
     
     public TerrainSettings minHeight(double minHeight)
     {
-        this.minHeight = MathHelper.clamp_double(minHeight, 0.0D, 255.0D);
+        this.minHeight = MathHelper.clamp(minHeight, 0.0D, 255.0D);
         return this;
     }
     
     public TerrainSettings maxHeight(double maxHeight)
     {
-        this.maxHeight = MathHelper.clamp_double(maxHeight, 0.0D, 255.0D);
+        this.maxHeight = MathHelper.clamp(maxHeight, 0.0D, 255.0D);
         return this;
     }
     

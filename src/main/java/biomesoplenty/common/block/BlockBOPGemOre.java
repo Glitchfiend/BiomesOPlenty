@@ -115,7 +115,7 @@ public class BlockBOPGemOre extends Block implements IBOPBlock
     public int getExpDrop(IBlockState state, IBlockAccess world, BlockPos pos, int fortune)
     {
         Random rand = world instanceof World ? ((World)world).rand : new Random();
-        return MathHelper.getRandomIntegerInRange(rand, 3, 7);
+        return MathHelper.getInt(rand, 3, 7);
     }
     
 }

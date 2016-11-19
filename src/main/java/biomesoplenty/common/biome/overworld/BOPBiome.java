@@ -51,6 +51,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class BOPBiome extends Biome implements IExtendedBiome
 {
@@ -196,7 +197,7 @@ public class BOPBiome extends Biome implements IExtendedBiome
                 // Look for an entity class matching this name
                 // case insensitive, dot used as mod delimiter, no spaces or underscores
                 // eg  'villager', 'Zombie', 'SQUID', 'enderdragon', 'biomesoplenty.wasp' all ok
-                Class <? extends Entity> entityClazz = EntityList.field_191308_b.getObject(new ResourceLocation(entityName));
+                Class <? extends Entity> entityClazz = ForgeRegistries.ENTITIES.getValue(new ResourceLocation(entityName)).getEntityClass();
                 Class <? extends EntityLiving> livingClazz = null;
                 if (!(entityClazz.isAssignableFrom(EntityLiving.class))) {
                     confEntity.addMessage("Entity " + entityName + " is not of type EntityLiving");

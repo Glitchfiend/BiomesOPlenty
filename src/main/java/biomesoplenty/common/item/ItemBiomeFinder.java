@@ -155,7 +155,7 @@ public class ItemBiomeFinder extends Item
     {
         TextComponentTranslation chatComponent = new TextComponentTranslation(msg);
         chatComponent.getStyle().setColor(color);
-        player.addChatMessage(chatComponent);
+        player.sendMessage(chatComponent);
     }
     
     public static void writeNBTSearching(NBTTagCompound nbt, World world)

@@ -253,7 +253,7 @@ public class AchievementEventHandler
 
     private void updateBiomeRadarExplore(EntityPlayerMP player)
     {
-        Biome currentBiome = player.world.getBiome(new BlockPos(MathHelper.floor_double(player.posX), 0, MathHelper.floor_double(player.posZ)));
+        Biome currentBiome = player.world.getBiome(new BlockPos(MathHelper.floor(player.posX), 0, MathHelper.floor(player.posZ)));
 
         //Search every item in the player's main inventory for a biome radar
         for (ItemStack stack : player.inventory.mainInventory)
@@ -278,7 +278,7 @@ public class AchievementEventHandler
     
     private void updateBiomesExplored(EntityPlayerMP player)
     {
-        Biome currentBiome = player.world.getBiome(new BlockPos(MathHelper.floor_double(player.posX), 0, MathHelper.floor_double(player.posZ)));
+        Biome currentBiome = player.world.getBiome(new BlockPos(MathHelper.floor(player.posX), 0, MathHelper.floor(player.posZ)));
         String biomeName = currentBiome.getBiomeName();
         //Get a list of the current explored biomes
         JsonSerializableSet exploredBiomeNames = (JsonSerializableSet)player.getStatFile().getProgress(BOPAchievements.explore_all_biomes);

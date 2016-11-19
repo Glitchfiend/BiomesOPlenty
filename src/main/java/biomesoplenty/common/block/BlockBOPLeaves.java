@@ -187,7 +187,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     
     // blocks that are not placed during generation should not decay
     @Override
-    public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
     {
         return this.getStateFromMeta(meta).withProperty(CHECK_DECAY, Boolean.valueOf(false)).withProperty(DECAYABLE, Boolean.valueOf(false));
     }
@@ -203,11 +203,11 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     // leaves in the inventory should not be decayable
     //TODO REMOVE
     @Override
-    protected ItemStack createStackedBlock(IBlockState state)
+    protected ItemStack getSilkTouchDrop(IBlockState state)
     {
     	IBlockState newState = state.withProperty(CHECK_DECAY, Boolean.valueOf(false)).withProperty(DECAYABLE, Boolean.valueOf(false));
     	
-    	return super.createStackedBlock(newState);
+    	return super.getSilkTouchDrop(newState);
     }
     
     @Override

@@ -74,7 +74,7 @@ public class ItemBOPLilypad extends ItemBOPBlock {
 
                     if (!playerIn.capabilities.isCreativeMode)
                     {
-                        itemStackIn.func_190920_e(itemStackIn.func_190916_E() - 1);
+                        itemStackIn.setCount(itemStackIn.getCount() - 1);
                     }
 
                     //TODO: playerIn.addStat(StatList.objectUseStats[Item.getIdFromItem(this)]);
