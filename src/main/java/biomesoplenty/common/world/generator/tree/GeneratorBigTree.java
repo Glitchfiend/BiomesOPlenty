@@ -575,6 +575,7 @@ public class GeneratorBigTree extends GeneratorTreeBase
         this.minHeight = heights.getLeft();
         this.maxHeight = heights.getRight();
         
+        this.placeOn = conf.getBlockPosQuery("placeOn", this.placeOn);
         this.log = conf.getBlockState("logState", this.log);
         this.leaves = conf.getBlockState("leavesState", this.leaves);
     }
