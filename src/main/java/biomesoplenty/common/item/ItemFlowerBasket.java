@@ -30,6 +30,8 @@ import net.minecraftforge.common.IShearable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nonnull;
+
 public class ItemFlowerBasket extends Item
 {
     public ItemFlowerBasket()
@@ -38,14 +40,14 @@ public class ItemFlowerBasket extends Item
         {
             @Override
             @SideOnly(Side.CLIENT)
-            public float apply(ItemStack stack, World world, EntityLivingBase entity) 
+            public float apply(@Nonnull ItemStack stack, World world, EntityLivingBase entity)
             {
                 InventoryFlowerBasket inventory = new InventoryFlowerBasket(stack, null);
                 boolean filled = false;
                 
                 for (int index = 0; index < inventory.getSizeInventory(); ++index)
                 {
-                    if (inventory.getStackInSlot(index) != null)
+                    if (!inventory.getStackInSlot(index).isEmpty())
                     {
                         filled = true;
                         break;
@@ -78,21 +80,23 @@ public class ItemFlowerBasket extends Item
 
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
     }
-    
+
+    @Nonnull
     public static ItemStack findBasketStack(EntityPlayer player)
     {
         //Search every item in the player's main inventory for a basket
         for (ItemStack stack : player.inventory.mainInventory)
         {
-            if (stack != null && stack.getItem() instanceof ItemFlowerBasket)
+            if (!stack.isEmpty() && stack.getItem() instanceof ItemFlowerBasket)
             {
                 return stack;
             }
         }
         
-        return null;
+        return ItemStack.EMPTY;
     }
-    
+
+    @Nonnull
     public static ItemStack findOpenBasketStack(EntityPlayer player)
     {
         //Search every item in the player's main inventory for a basket
@@ -104,12 +108,12 @@ public class ItemFlowerBasket extends Item
             }
         }
         
-        return null;
+        return ItemStack.EMPTY;
     }
     
-    public static boolean isBasketOpen(ItemStack stack)
+    public static boolean isBasketOpen(@Nonnull ItemStack stack)
     {
-        if (stack != null && stack.getItem() instanceof ItemFlowerBasket && stack.hasTagCompound())
+        if (!stack.isEmpty() && stack.getItem() instanceof ItemFlowerBasket && stack.hasTagCompound())
         {
             NBTTagCompound compound = stack.getTagCompound();
             
@@ -131,7 +135,7 @@ public class ItemFlowerBasket extends Item
         }
     }
     
-    public static void closeIfBasket(ItemStack stack)
+    public static void closeIfBasket(@Nonnull ItemStack stack)
     {
         //Validate to ensure the stack is a basket and it is open
         if (isBasketOpen(stack))
@@ -142,11 +146,11 @@ public class ItemFlowerBasket extends Item
         }
     }
     
-    public static boolean isStackSuitableForBasket(ItemStack stack)
+    public static boolean isStackSuitableForBasket(@Nonnull ItemStack stack)
     {
         Item item = stack.getItem();
         Block block = Block.getBlockFromItem(item);
         
-        return !(item instanceof ItemFlowerBasket) && block != null && (block instanceof IPlantable || block instanceof IGrowable || block instanceof IShearable);
+        return !(item instanceof ItemFlowerBasket) && (block instanceof IPlantable || block instanceof IGrowable || block instanceof IShearable);
     }
 }
