@@ -22,7 +22,8 @@ public interface IGenerator
     public void setStage(GeneratorStage stage);
     public void setName(String name);
     
-    /**A unique name used to classify the purpose of a generator. For example, emeralds and ruby use the
+    /**
+     * A unique name used to classify the purpose of a generator. For example, emeralds and ruby use the
      * same generator (and thus, have the same identifier) but have differing names.
      */
     public String getName();

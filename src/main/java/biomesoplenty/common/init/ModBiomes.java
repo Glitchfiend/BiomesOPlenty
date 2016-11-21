@@ -594,7 +594,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         IConfigObj conf = new BOPConfig.ConfigFileObj(configFile);
         
         // log any warnings from parsing the config file
-        for (String msg : conf.flushMessages()) {BiomesOPlenty.logger.warn(msg);}
+        for (String msg : conf.flushMessages()) {BiomesOPlenty.logger.info(msg);}
         
         return conf;
     }

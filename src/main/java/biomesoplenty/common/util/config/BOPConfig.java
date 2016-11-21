@@ -543,10 +543,11 @@ public class BOPConfig
         
         public ConfigFileObj(File configFile, boolean warnIfMissing)
         {
-            this.prefix = configFile.getAbsolutePath();
+            this.prefix = configFile.getName();
             String jsonString = null;
             if (configFile.exists())
             {
+                this.addMessage("Detected config file ");
                 try
                 {
                     jsonString = FileUtils.readFileToString(configFile);
