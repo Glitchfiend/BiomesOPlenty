@@ -578,6 +578,8 @@ public class GeneratorBigTree extends GeneratorTreeBase
         this.placeOn = conf.getBlockPosQuery("placeOn", this.placeOn);
         this.log = conf.getBlockState("logState", this.log);
         this.leaves = conf.getBlockState("leavesState", this.leaves);
+        this.foliageHeight = conf.getInt("foliageHeight", this.foliageHeight);
+        this.foliageDensity = conf.getFloat("foliageDensity", (float)this.foliageDensity);
     }
     
 }
