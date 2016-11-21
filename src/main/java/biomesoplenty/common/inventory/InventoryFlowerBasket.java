@@ -19,6 +19,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraftforge.common.util.Constants;
 
+import javax.annotation.Nonnull;
+
 public class InventoryFlowerBasket extends InventoryBasic
 {
     public static final int INVENTORY_ROWS = 2;
@@ -26,9 +28,9 @@ public class InventoryFlowerBasket extends InventoryBasic
     
     private EntityPlayer player;
     
-    private ItemStack ownerStack;
+    private ItemStack ownerStack = ItemStack.EMPTY;
     
-    public InventoryFlowerBasket(ItemStack ownerStack, EntityPlayer player) 
+    public InventoryFlowerBasket(@Nonnull ItemStack ownerStack, EntityPlayer player)
     {
         super("container.flower_basket", false, INVENTORY_ROWS * INVENTORY_COLUMNS);
         
@@ -37,7 +39,7 @@ public class InventoryFlowerBasket extends InventoryBasic
         //Load only on the server
         ItemStack basketStack = ownerStack;
 
-        if (basketStack == null) basketStack = player.getHeldItem(PlayerUtil.getHandForItemAndMeta(player, BOPItems.flower_basket, 0));
+        if (basketStack.isEmpty()) basketStack = player.getHeldItem(PlayerUtil.getHandForItemAndMeta(player, BOPItems.flower_basket, 0));
         else this.ownerStack = basketStack;
 
         NBTTagCompound invData = NBTUtil.getOrCreateStackNBT(basketStack);
@@ -46,7 +48,7 @@ public class InventoryFlowerBasket extends InventoryBasic
     
     public InventoryFlowerBasket(EntityPlayer player)
     {
-        this(null, player);
+        this(ItemStack.EMPTY, player);
     }
     
     @Override
@@ -56,7 +58,7 @@ public class InventoryFlowerBasket extends InventoryBasic
         ItemStack basketStack = getBasketStack();
 
         //There's no point continuing if there's nothing to save to
-        if (basketStack != null)
+        if (!basketStack.isEmpty())
         {
             NBTTagCompound currentData = new NBTTagCompound();
             //Overwrite relevant data in the compound with updated data
@@ -99,7 +101,7 @@ public class InventoryFlowerBasket extends InventoryBasic
         //Iterate over all valid slot indexes
         for (int slotIndex = 0; slotIndex < this.getSizeInventory(); ++slotIndex)
         {
-            if (this.getStackInSlot(slotIndex) != null)
+            if (!this.getStackInSlot(slotIndex).isEmpty())
             {
                 //Create a new item tag and populate it with data
                 NBTTagCompound itemTag = new NBTTagCompound();
@@ -121,9 +123,10 @@ public class InventoryFlowerBasket extends InventoryBasic
         //outside of the gui
         compound.setBoolean("BasketOpen", ItemFlowerBasket.isBasketOpen(getBasketStack()));
     }
-    
+
+    @Nonnull
     private ItemStack getBasketStack()
     {
-        return this.ownerStack != null ? this.ownerStack : ItemFlowerBasket.findOpenBasketStack(this.player);
+        return !this.ownerStack.isEmpty() ? this.ownerStack : ItemFlowerBasket.findOpenBasketStack(this.player);
     }
 }

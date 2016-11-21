@@ -26,7 +26,7 @@ public class PlayerUtil
         {
             ItemStack heldStack = player.getHeldItem(hand);
             
-            if (heldStack != null && heldStack.getItem() == item && heldStack.getMetadata() == meta)
+            if (!heldStack.isEmpty() && heldStack.getItem() == item && heldStack.getMetadata() == meta)
                 return hand;
         }
         

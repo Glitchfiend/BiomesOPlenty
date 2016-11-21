@@ -28,7 +28,7 @@ public class ItemEventHandler
             if (ItemFlowerBasket.isBasketOpen(stack))
             {
                 //Remove the itemstack from the inventory now to prevent a loop
-                player.inventory.setItemStack(null);
+                player.inventory.setItemStack(ItemStack.EMPTY);
                 player.closeScreen();
             }
         }
@@ -50,12 +50,12 @@ public class ItemEventHandler
         {
             //Check if the player has a basket in their inventory, and if the stack is suitable for adding
             //to the basket
-            if (basketStack != null && ItemFlowerBasket.isStackSuitableForBasket(stack))
+            if (!basketStack.isEmpty() && ItemFlowerBasket.isStackSuitableForBasket(stack))
             {
                 InventoryFlowerBasket inventory = new InventoryFlowerBasket(basketStack, player);
 
                 //Add the stack to the basket's inventory, if successful, don't add it to the player's regular inventory
-                if (inventory.addItem(stack) == null)
+                if (inventory.addItem(stack).isEmpty())
                 {
                     //Set stack size to 0 to cause it to be removed
                     stack.setCount(0);

@@ -18,6 +18,8 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
+import javax.annotation.Nonnull;
+
 public class ContainerFlowerBasket extends Container
 {
     private static final int PLAYER_ROWS = 3;
@@ -76,9 +78,10 @@ public class ContainerFlowerBasket extends Container
     }
 
     @Override
+    @Nonnull
     public ItemStack transferStackInSlot(EntityPlayer player, int index)
     {
-        ItemStack oldStack = null;
+        ItemStack oldStack = ItemStack.EMPTY;
         Slot slot = (Slot)this.inventorySlots.get(index);
 
         //Ensure there is a slot at this index and it has an item in it
@@ -91,17 +94,17 @@ public class ContainerFlowerBasket extends Container
             {
                 if (!this.mergeItemStack(mergedStack, INVENTORY_ROWS * 9, this.inventorySlots.size(), true))
                 {
-                    return null;
+                    return ItemStack.EMPTY;
                 }
             }
             else if (!this.mergeItemStack(mergedStack, 0, INVENTORY_ROWS * 9, false))
             {
-                return null;
+                return ItemStack.EMPTY;
             }
 
             if (mergedStack.getCount() == 0)
             {
-                slot.putStack((ItemStack)null);
+                slot.putStack(ItemStack.EMPTY);
             }
             else
             {
@@ -120,7 +123,7 @@ public class ContainerFlowerBasket extends Container
         }
         
         @Override
-        public boolean isItemValid(ItemStack stack)
+        public boolean isItemValid(@Nonnull ItemStack stack)
         {
             return ItemFlowerBasket.isStackSuitableForBasket(stack);
         }
