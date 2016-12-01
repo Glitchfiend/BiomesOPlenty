@@ -44,7 +44,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 
-@Mod(modid = BiomesOPlenty.MOD_ID, version = BiomesOPlenty.MOD_VERSION , name = BiomesOPlenty.MOD_NAME, dependencies = "required-after:forge@[13.19.0.2173,)", guiFactory = BiomesOPlenty.GUI_FACTORY)
+@Mod(modid = BiomesOPlenty.MOD_ID, version = BiomesOPlenty.MOD_VERSION , name = BiomesOPlenty.MOD_NAME, dependencies = "required-after:forge@[13.19.0.2175,)", guiFactory = BiomesOPlenty.GUI_FACTORY)
 public class BiomesOPlenty
 {
     public static final String MOD_NAME = "Biomes O' Plenty";
