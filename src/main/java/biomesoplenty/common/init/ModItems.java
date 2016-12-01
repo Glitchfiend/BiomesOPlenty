@@ -199,7 +199,7 @@ public class ModItems
         dull_flower_band_material = addArmorMaterial("DULL_FLOWER_BAND", "biomesoplenty:dull_flower_band", -1, new int[]{0,0,0,0}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
         
         mud_armor_material = addArmorMaterial("MUD", "biomesoplenty:mud_armor", 2, new int[]{1,1,1,1}, 5, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
-        mud_armor_material.customCraftingMaterial = mudball;
+        mud_armor_material.repairMaterial = new ItemStack(mudball);
         
         wading_boots = registerItem(new ItemWadingBoots(wading_boots_material, 0), "wading_boots");
         flippers = registerItem(new ItemFlippers(flippers_material, 0), "flippers");
