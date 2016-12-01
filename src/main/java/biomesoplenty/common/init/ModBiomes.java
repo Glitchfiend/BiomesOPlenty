@@ -677,7 +677,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
     {
         if (biome.isPresent())
         {
-            BiomeDictionary.registerBiomeType(biome.get(), types);
+            BiomeDictionary.addTypes(biome.get(), types);
         }
     }
 

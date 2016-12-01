@@ -271,7 +271,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
             case THORN:
                 if (!usingShears)
                 {
-                    player.attackEntityFrom(DamageSource.cactus, 2);
+                    player.attackEntityFrom(DamageSource.CACTUS, 2);
                 }
                 break;
             
@@ -452,7 +452,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
                     if (inventory.armorInventory.get(0) != ItemStack.EMPTY && inventory.armorInventory.get(1) != ItemStack.EMPTY) {
                         break;
                     }
-                    entity.attackEntityFrom(DamageSource.cactus, 1);
+                    entity.attackEntityFrom(DamageSource.CACTUS, 1);
                 }
                 break;
             default:

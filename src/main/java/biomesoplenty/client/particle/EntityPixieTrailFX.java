@@ -100,7 +100,7 @@ public class EntityPixieTrailFX extends Particle
         motionY *= 0.9599999785423279D;
         motionZ *= 0.9599999785423279D;
 
-        if (isCollided)
+        if (this.onGround)
         {
             motionX *= 0.699999988079071D;
             motionZ *= 0.699999988079071D;
