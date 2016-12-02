@@ -319,7 +319,9 @@ public class ModCrafting
 
         OreDictionary.registerOre("stickWood", new ItemStack(BOPBlocks.bamboo));
         OreDictionary.registerOre("stickWood", BlockBOPPlant.paging.getVariantItem(BOPPlants.RIVERCANE));
-        
+
+        OreDictionary.registerOre("ballMud", new ItemStack(BOPItems.mudball));
+
         OreDictionary.registerOre("blockMeatRaw", new ItemStack(BOPBlocks.flesh, 1, 0));
         
         OreDictionary.registerOre("blockGrass", new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.LOAMY.ordinal()));
@@ -328,7 +330,8 @@ public class ModCrafting
         OreDictionary.registerOre("blockGrass", new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.DAISY.ordinal()));
         OreDictionary.registerOre("blockGrass", new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.ORIGIN.ordinal()));
         OreDictionary.registerOre("blockGrass", new ItemStack(Blocks.GRASS));
-        
+        OreDictionary.registerOre("blockMud", new ItemStack(BOPBlocks.mud));
+
         OreDictionary.registerOre("blockDirt", new ItemStack(Blocks.DIRT));
         
         OreDictionary.registerOre("foodMushroompowder", new ItemStack(BOPItems.shroompowder));
