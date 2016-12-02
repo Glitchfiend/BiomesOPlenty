@@ -39,6 +39,7 @@ import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.passive.EntityLlama;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.init.Blocks;
@@ -94,6 +95,7 @@ public class BiomeGenMountain extends BOPBiome
             this.spawnableCreatureList.clear();
             this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntitySheep.class, 12, 4, 6));
             this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 4, 4, 4));
+            this.spawnableCreatureList.add(new SpawnListEntry(EntityLlama.class, 5, 4, 6));
         }        
         
         this.topBlock = Blocks.GRASS.getDefaultState();

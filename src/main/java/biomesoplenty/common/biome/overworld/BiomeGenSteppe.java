@@ -29,6 +29,7 @@ import biomesoplenty.common.world.generator.GeneratorWeighted;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.passive.EntityHorse;
+import net.minecraft.entity.passive.EntityLlama;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -62,6 +63,7 @@ public class BiomeGenSteppe extends BOPBiome
         }
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityLlama.class, 5, 4, 6));
         
         // should the Steppe not have some splattered gravel and coarse dirt?
         
