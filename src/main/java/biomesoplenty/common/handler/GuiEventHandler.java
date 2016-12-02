@@ -12,6 +12,7 @@ import biomesoplenty.common.config.MiscConfigurationHandler;
 import biomesoplenty.common.init.ModBiomes;
 import net.minecraft.client.gui.GuiCreateWorld;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.world.WorldType;
 import net.minecraftforge.client.event.GuiScreenEvent.InitGuiEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
@@ -24,12 +25,14 @@ public class GuiEventHandler
     public void onPreInitCreateWorld(InitGuiEvent.Pre event)
     {
         GuiScreen screenGui = event.getGui();
-        
+
         if (MiscConfigurationHandler.useBoPWorldTypeDefault && screenGui instanceof GuiCreateWorld)
         {
             GuiCreateWorld createWorldGui = (GuiCreateWorld)screenGui;
-            
-            createWorldGui.selectedIndex = ModBiomes.worldTypeBOP.getWorldTypeID();
+
+            // Do not change back when returning from the 'Customize' screen
+            if (createWorldGui.selectedIndex == WorldType.DEFAULT.getWorldTypeID())
+                createWorldGui.selectedIndex = ModBiomes.worldTypeBOP.getWorldTypeID();
         }
     }
 }
