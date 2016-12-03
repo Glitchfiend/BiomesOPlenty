@@ -48,6 +48,7 @@ import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
@@ -59,7 +60,14 @@ public class BOPBiome extends Biome implements IExtendedBiome
     private Map<BOPClimates, Integer> weightMap = new HashMap<BOPClimates, Integer>();
     
     // defaults
-    public int skyColor = -1; // -1 indicates the default skyColor by temperature will be used
+
+    // -1 indicates the defaults as set by Vanilla will be used for the below fields
+    public int skyColor = -1;
+    public int fogColor = -1;
+
+    /** 1.0 is the lowest possible amount of fog. 0.0 is the greatest.*/
+    public float fogDensity = 1.0F;
+
     public boolean hasBiomeEssence = true;
     public IBlockState seaFloorBlock = Blocks.DIRT.getDefaultState();
     
@@ -147,6 +155,8 @@ public class BOPBiome extends Biome implements IExtendedBiome
         this.seaFloorBlock = conf.getBlockState("seaFloorBlock", this.seaFloorBlock);
         
         this.skyColor = conf.getInt("skyColor", this.skyColor);
+        this.fogColor = conf.getInt("fogColor", this.fogColor);
+        this.fogDensity = conf.getFloat("fogDensity", this.fogDensity);
         this.hasBiomeEssence = conf.getBool("hasBiomeEssence", this.hasBiomeEssence);
         
         this.canSpawnInBiome = conf.getBool("canSpawnInBiome", this.canSpawnInBiome);
@@ -310,7 +320,11 @@ public class BOPBiome extends Biome implements IExtendedBiome
     {
         return this.hasBiomeEssence;
     }
-    
+
+    public int getFogColor(BlockPos pos) { return this.fogColor; }
+
+    public float getFogDensity(BlockPos pos) { return this.fogDensity; }
+
     @Override
     public int getSkyColorByTemp(float temperature)
     {

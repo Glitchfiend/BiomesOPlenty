@@ -28,7 +28,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Map;
 
-public class LeavesModelHandler
+public class LeavesModelEventHandler
 {
     private static final ModelResourceLocation LEAVES_LOC = new ModelResourceLocation("biomesoplenty:leaves_3", "variant=flowering");
 

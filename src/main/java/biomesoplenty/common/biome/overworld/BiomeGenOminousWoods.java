@@ -56,7 +56,10 @@ public class BiomeGenOminousWoods extends BOPBiome
         this.canSpawnInBiome = false;
         
         this.beachBiomeLocation = null;
-        
+
+        this.fogColor = 0x34333D;
+        this.fogDensity = 0.145F;
+
         this.addWeight(BOPClimates.COLD_SWAMP, 1);
         
         this.spawnableCreatureList.clear(); // none of your regular farmyard critters here
@@ -152,16 +155,4 @@ public class BiomeGenOminousWoods extends BOPBiome
     {
         return 0x3F4151;
     }
-    
-    // TODO: These 2 are copied from 1.7 - but are they used ever?
-    public int getFogColour(BlockPos pos)
-    {
-        return 0x34333D;
-    }
-    public float getFogDensity(BlockPos pos)
-    {
-        return 0.145F;
-    }
-    
-   
 }

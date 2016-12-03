@@ -65,7 +65,9 @@ public class BiomeGenFen extends BOPBiome
         {
         	this.beachBiomeLocation = ((BOPBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
         }
-        
+
+        this.fogDensity = 0.8F;
+
         this.addWeight(BOPClimates.COLD_SWAMP, 7);
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntitySnail.class, 8, 1, 2));
@@ -175,21 +177,4 @@ public class BiomeGenFen extends BOPBiome
     {
         return 0xA7C166;
     }
-
-    /* TODO
-    @Override
-    public int getFogColour(int x, int y, int z)
-    {
-        return 12638463;
-    }
-    
-    @Override
-    public float getFogDensity(int x, int y, int z)
-    {
-        // TODO Auto-generated method stub
-        return 0.8F;
-    }
-    */
-    
-    
 }

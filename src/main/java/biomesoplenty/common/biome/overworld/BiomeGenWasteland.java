@@ -50,7 +50,10 @@ public class BiomeGenWasteland extends BOPBiome
         this.canSpawnInBiome = false;
         
         this.beachBiomeLocation = null;
-        
+
+        this.fogColor = 0xB8BC85;
+        this.fogDensity = 0.3F;
+
         this.addWeight(BOPClimates.WASTELAND, 50);
         
         this.spawnableCreatureList.clear();
@@ -127,16 +130,4 @@ public class BiomeGenWasteland extends BOPBiome
     {
         return 0x999E55;
     }
-    
-    // TODO: These 2 are copied from 1.7 - but are they used ever?
-    public int getFogColour(BlockPos pos)
-    {
-        return 0xB8BC85;
-    }
-    public float getFogDensity(BlockPos pos)
-    {
-        return 0.3F;
-    }
-    
-   
 }

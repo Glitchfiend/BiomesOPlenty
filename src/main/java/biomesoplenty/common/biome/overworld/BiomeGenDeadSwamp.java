@@ -58,7 +58,10 @@ public class BiomeGenDeadSwamp extends BOPBiome
         this.canGenerateVillages = false;
         
         this.beachBiomeLocation = null;
-        
+
+        this.fogColor = 0x8CAF99;
+        this.fogDensity = 0.6F;
+
         this.addWeight(BOPClimates.COLD_SWAMP, 3);
         
         this.spawnableCreatureList.clear();
@@ -140,22 +143,4 @@ public class BiomeGenDeadSwamp extends BOPBiome
     {
         return 0x66704C;
     }
-    
-    
-    
-    
-    /* TODO
-    @Override
-    public int getFogColour(int x, int y, int z)
-    {
-        return 9219993;
-    }
-    
-    @Override
-    public float getFogDensity(int x, int y, int z)
-    {
-        // TODO Auto-generated method stub
-        return 0.6F;
-    }
-    */
 }

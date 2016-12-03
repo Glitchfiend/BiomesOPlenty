@@ -53,6 +53,7 @@ public class ModHandlers
     {
         MinecraftForge.EVENT_BUS.register(new GuiEventHandler());
         MinecraftForge.EVENT_BUS.register(new TrailsEventHandler());
-        MinecraftForge.EVENT_BUS.register(new LeavesModelHandler());
+        MinecraftForge.EVENT_BUS.register(new LeavesModelEventHandler());
+        MinecraftForge.EVENT_BUS.register(new FogEventHandler());
     }
 }

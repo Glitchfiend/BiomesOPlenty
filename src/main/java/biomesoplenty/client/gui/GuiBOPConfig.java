@@ -27,9 +27,9 @@ public class GuiBOPConfig extends GuiConfig
         List<IConfigElement> list = new ArrayList<IConfigElement>();
 
         List<IConfigElement> convenienceSettings = new ConfigElement(GameplayConfigurationHandler.config.getCategory(GameplayConfigurationHandler.convenienceSettings.toLowerCase())).getChildElements();
-        List<IConfigElement> guiSettings = new ConfigElement(MiscConfigurationHandler.config.getCategory(MiscConfigurationHandler.guiSettings.toLowerCase())).getChildElements();
-        List<IConfigElement> textureSettings = new ConfigElement(MiscConfigurationHandler.config.getCategory(MiscConfigurationHandler.textureSettings.toLowerCase())).getChildElements();
-        List<IConfigElement> trailSettings = new ConfigElement(MiscConfigurationHandler.config.getCategory(MiscConfigurationHandler.trailSettings.toLowerCase())).getChildElements();
+        List<IConfigElement> guiSettings = new ConfigElement(MiscConfigurationHandler.config.getCategory(MiscConfigurationHandler.GUI_SETTINGS.toLowerCase())).getChildElements();
+        List<IConfigElement> textureSettings = new ConfigElement(MiscConfigurationHandler.config.getCategory(MiscConfigurationHandler.VISUAL_SETTINGS.toLowerCase())).getChildElements();
+        List<IConfigElement> trailSettings = new ConfigElement(MiscConfigurationHandler.config.getCategory(MiscConfigurationHandler.TRAIL_SETTINGS.toLowerCase())).getChildElements();
 
         list.add(new DummyConfigElement.DummyCategoryElement(I18n.translateToLocal("config.category.convenienceSettings.title"), "config.category.convenienceSettings", convenienceSettings));
         list.add(new DummyConfigElement.DummyCategoryElement(I18n.translateToLocal("config.category.guiSettings.title"), "config.category.guiSettings", guiSettings));

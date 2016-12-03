@@ -33,7 +33,6 @@ import net.minecraft.util.math.BlockPos;
 
 public class BiomeGenSnowyForest extends BOPBiome
 {
-
     public BiomeGenSnowyForest()
     {
         super("snowy_forest", new PropsBuilder("Snowy Forest").withGuiColour(0xABD6BC).withSnowEnabled().withTemperature(-0.25F).withRainfall(0.5F));
@@ -45,6 +44,9 @@ public class BiomeGenSnowyForest extends BOPBiome
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY);
         
         this.canGenerateVillages = false;
+
+        this.fogColor = 0xBAC3C6;
+        this.fogDensity = 0.6F;
 
         this.addWeight(BOPClimates.TUNDRA, 7);
          
@@ -119,20 +121,4 @@ public class BiomeGenSnowyForest extends BOPBiome
     {
         return 0xBCA165;
     }
-    
-    /* TODO
-    @Override
-    public int getFogColour(int x, int y, int z)
-    {
-        return 12239814;
-    }
-    
-    @Override
-    public float getFogDensity(int x, int y, int z)
-    {
-        // TODO Auto-generated method stub
-        return 0.6F;
-    }
-    */
-    
 }

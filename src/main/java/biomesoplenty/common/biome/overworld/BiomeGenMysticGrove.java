@@ -59,6 +59,7 @@ public class BiomeGenMysticGrove extends BOPBiome
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY);
 
         this.skyColor = 0x88E8D0;
+        this.fogColor = 0xFFAAC9;
 
         this.canGenerateRivers = false;
         this.canGenerateVillages = false;
@@ -194,15 +195,4 @@ public class BiomeGenMysticGrove extends BOPBiome
     {
         return 0x70E099;
     }
-    
-    // TODO: These 2 are copied from 1.7 - but are they used ever?
-    public int getFogColour(BlockPos pos)
-    {
-        return 0xFFAAC9;
-    }
-    public float getFogDensity(BlockPos pos)
-    {
-        return 0.99F;
-    }
-    
 }

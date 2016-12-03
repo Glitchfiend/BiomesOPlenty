@@ -42,6 +42,9 @@ public class BiomeGenEucalyptusForest extends BOPBiome
         
         this.canGenerateVillages = false;
 
+        this.fogColor = 0xE1E8DC;
+        this.fogDensity = 0.5F;
+
         this.addWeight(BOPClimates.TROPICAL, 5);
         
         this.spawnableMonsterList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
@@ -114,12 +117,4 @@ public class BiomeGenEucalyptusForest extends BOPBiome
         GeneratorWeighted grassGen = (GeneratorWeighted)this.getGenerator("grass");
         if (!settings.isEnabled(GeneratorType.GRASSES)) {grassGen.removeGenerator("shortgrass"); grassGen.removeGenerator("mediumgrass"); grassGen.removeGenerator("wheatgrass"); grassGen.removeGenerator("dampgrass");}
     }
-    
-    /*
-    public int getFogColour(int x, int y, int z)
-    {
-        return 14805212;
-    }
-    */
-    
 }

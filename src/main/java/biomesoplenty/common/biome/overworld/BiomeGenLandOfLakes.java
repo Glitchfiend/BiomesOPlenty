@@ -53,7 +53,9 @@ public class BiomeGenLandOfLakes extends BOPBiome
         this.seaFloorBlock = BOPBlocks.mud.getDefaultState();
         
         this.canGenerateVillages = false;
-        
+
+        this.fogDensity = 0.6F;
+
         this.addWeight(BOPClimates.COLD_SWAMP, 3);
         
         if (BOPBiomes.gravel_beach.isPresent())

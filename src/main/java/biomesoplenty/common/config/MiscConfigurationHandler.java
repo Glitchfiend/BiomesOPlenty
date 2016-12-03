@@ -24,9 +24,9 @@ public class MiscConfigurationHandler
 {
     public static Configuration config;
 
-    public static String guiSettings = "GUI Settings";
-    public static String textureSettings = "Texture Settings";
-    public static String trailSettings = "Trail Settings";
+    public static final String GUI_SETTINGS = "GUI Settings";
+    public static final String VISUAL_SETTINGS = "Visual Settings";
+    public static final String TRAIL_SETTINGS = "Trail Settings";
 
     public static boolean useBoPWorldTypeDefault;
     public static boolean overrideTitlePanorama;
@@ -34,6 +34,7 @@ public class MiscConfigurationHandler
     public static boolean useBoPBucketTexture;
 
     //Client-side only
+    public static boolean enableFogColours;
     public static TrailVisibilityMode trailVisbilityMode;
 
     public static void init(File configFile)
@@ -49,19 +50,20 @@ public class MiscConfigurationHandler
     {
         try
         {
-            //TODO: Make this default to true once all biomes have been implemented
-            useBoPWorldTypeDefault = config.getBoolean("Default to BoP World Type", guiSettings, false, "Use the Biomes O' Plenty World Type by default when selecting a world.");
-            overrideTitlePanorama = config.getBoolean("Enable Biomes O\' Plenty Main Menu Panorama", textureSettings, true, "Override the main menu panorama and use ours instead (It\'s nicer!)");
-            overrideForgeBuckets = config.getBoolean("Enable Biomes O\' Plenty Bucket Textures", textureSettings, true, "Override the Forge bucket texture and use ours instead (It\'s nicer!)");
-            useBoPBucketTexture = config.getBoolean("Use Biomes O\' Plenty Bucket Textures", textureSettings, false, "Use the Biomes O' Plenty bucket texture (Valid only for BOP fluid.)");
+            useBoPWorldTypeDefault = config.getBoolean("Default to BoP World Type", GUI_SETTINGS, false, "Use the Biomes O' Plenty World Type by default when selecting a world.");
+            overrideTitlePanorama = config.getBoolean("Enable Biomes O\' Plenty Main Menu Panorama", VISUAL_SETTINGS, true, "Override the main menu panorama and use ours instead (It\'s nicer!)");
+            overrideForgeBuckets = config.getBoolean("Enable Biomes O\' Plenty Bucket Textures", VISUAL_SETTINGS, true, "Override the Forge bucket texture and use ours instead (It\'s nicer!)");
+            useBoPBucketTexture = config.getBoolean("Use Biomes O\' Plenty Bucket Textures", VISUAL_SETTINGS, false, "Use the Biomes O' Plenty bucket texture (Valid only for BOP fluid).");
 
             //Client-side only options
             if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
             {
+                enableFogColours = config.getBoolean("Enable Fog Colouration", VISUAL_SETTINGS, true, "Enable fog colouring in some biomes.");
+
                 //Check if the player has a trail
                 if (TrailManager.trailsMap.containsKey(PlayerUtil.getClientPlayerUUID()))
                 {
-                    trailVisbilityMode = TrailVisibilityMode.values()[config.getInt("Modify Trail Visibility", trailSettings, 0, 0, 1, "0 = All trails visble, 1 = Others can see your trail but you can't")];
+                    trailVisbilityMode = TrailVisibilityMode.values()[config.getInt("Modify Trail Visibility", TRAIL_SETTINGS, 0, 0, 1, "0 = All trails visble, 1 = Others can see your trail but you can't")];
                 }
             }
         }

@@ -60,6 +60,9 @@ public class BiomeGenBayou extends BOPBiome
         
         this.beachBiomeLocation = null;
 
+        this.fogColor = 0x90AF95;
+        this.fogDensity = 0.99F;
+
         this.addWeight(BOPClimates.HOT_SWAMP, 10);
         
         this.spawnableWaterCreatureList.clear();
@@ -154,16 +157,4 @@ public class BiomeGenBayou extends BOPBiome
     {
         return 0x9DDD66;
     }
-    
-    // TODO: These 2 are copied from 1.7 - but are they used ever?
-    public int getFogColour(BlockPos pos)
-    {
-        return 0x90AF95;
-    }
-    public float getFogDensity(BlockPos pos)
-    {
-        return 0.99F;
-    }
-    
-   
 }

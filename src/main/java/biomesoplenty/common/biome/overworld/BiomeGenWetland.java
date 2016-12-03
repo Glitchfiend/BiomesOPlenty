@@ -61,7 +61,10 @@ public class BiomeGenWetland extends BOPBiome
         this.canGenerateVillages = false;
         
         this.beachBiomeLocation = null;
-        
+
+        this.fogColor = 0x5E71A0;
+        this.fogDensity = 0.8F;
+
         this.addWeight(BOPClimates.WET_TEMPERATE, 7);
         this.addWeight(BOPClimates.COLD_SWAMP, 5);
         

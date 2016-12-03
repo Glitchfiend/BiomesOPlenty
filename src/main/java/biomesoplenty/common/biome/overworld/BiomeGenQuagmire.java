@@ -67,7 +67,10 @@ public class BiomeGenQuagmire extends BOPBiome
         this.canGenerateVillages = false;
         
         this.beachBiomeLocation = null;
-        
+
+        this.fogColor = 0xCACECD;
+        this.fogDensity = 0.6F;
+
         this.addWeight(BOPClimates.COLD_SWAMP, 2);
         
         this.spawnableCreatureList.clear();
@@ -159,16 +162,4 @@ public class BiomeGenQuagmire extends BOPBiome
     {
         return 0x9E8B69;
     }
-    
-    // TODO: These 2 are copied from 1.7 - but are they used ever?
-    public int getFogColour(BlockPos pos)
-    {
-        return 0xCACECD;
-    }
-    public float getFogDensity(BlockPos pos)
-    {
-        return 0.99F;
-    }
-    
-   
 }

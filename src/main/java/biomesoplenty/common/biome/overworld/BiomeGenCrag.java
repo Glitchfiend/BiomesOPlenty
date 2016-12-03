@@ -30,7 +30,9 @@ public class BiomeGenCrag extends BOPBiome
         this.canGenerateRivers = false;
         
         this.beachBiomeLocation = null;
-        
+
+        this.fogColor = 0xA06F45;
+
         this.addWeight(BOPClimates.COLD_SWAMP, 1);
 
         this.spawnableCreatureList.clear();

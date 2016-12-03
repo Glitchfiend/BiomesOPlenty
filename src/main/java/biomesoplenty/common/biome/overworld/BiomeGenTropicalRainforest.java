@@ -41,7 +41,10 @@ public class BiomeGenTropicalRainforest extends BOPBiome
         
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
-    
+
+        this.fogColor = 0xF79F62;
+        this.fogDensity = 0.99F;
+
         this.addWeight(BOPClimates.TROPICAL, 5);
         
         this.spawnableCreatureList.clear();
@@ -148,16 +151,4 @@ public class BiomeGenTropicalRainforest extends BOPBiome
         double noise = GRASS_COLOR_NOISE.getValue((double)pos.getX() * 0.0225D, (double)pos.getZ() * 0.0225D);
         return noise < -0.1D ? 8970560 : 10870849;
     }
-    
-    // TODO: These 2 are copied from 1.7 - but are they used ever?
-    public int getFogColour(BlockPos pos)
-    {
-        return 0x4AD670;
-    }
-    
-    public float getFogDensity(BlockPos pos)
-    {
-        return 0.145F;
-    }
-
 }

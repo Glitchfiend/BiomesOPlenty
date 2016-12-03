@@ -56,6 +56,9 @@ public class BiomeGenBambooForest extends BOPBiome
         this.terrainSettings.avgHeight(68).heightVariation(5, 10);
 
         this.canGenerateVillages = false;
+
+        this.fogColor = 0xCCE874;
+        this.fogDensity = 0.99F;
         
         this.addWeight(BOPClimates.TROPICAL, 3);
         
@@ -152,16 +155,4 @@ if (!settings.isEnabled(GeneratorType.MUSHROOMS)) {this.removeGenerator("glowshr
         double noise = GRASS_COLOR_NOISE.getValue((double)pos.getX() * 0.0225D, (double)pos.getZ() * 0.0225D);
         return noise < -0.7D ? 0xD4DB55 : (noise < -0.3D ? 0xBBDD54 : 0xA3E053);
     }
-    
-    // TODO: These 2 are copied from 1.7 - but are they used ever?
-    public int getFogColour(BlockPos pos)
-    {
-        return 0xCCE874;
-    }
-    public float getFogDensity(BlockPos pos)
-    {
-        return 0.99F;
-    }
-    
-   
 }
