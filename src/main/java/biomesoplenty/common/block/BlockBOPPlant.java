@@ -382,6 +382,8 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
             case ROOT:
                 // roots hang down - check against block above
                 return BlockQueries.fertile.matches(world, pos.up());
+            case LEAFPILE: case DEADLEAFPILE:
+                return BlockQueries.solid.matches(world, pos.down());
             default:
                 return BlockQueries.litFertile.matches(world, pos.down());            
         }
