@@ -8,12 +8,6 @@
 
 package biomesoplenty.core;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-import com.google.common.collect.Lists;
-
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.api.particle.BOPParticleTypes;
 import biomesoplenty.client.particle.EntityPixieTrailFX;
@@ -21,23 +15,13 @@ import biomesoplenty.client.particle.EntityTrailFX;
 import biomesoplenty.client.texture.ForgeRedirectedResourcePack;
 import biomesoplenty.common.block.IBOPBlock;
 import biomesoplenty.common.config.MiscConfigurationHandler;
-import biomesoplenty.common.entities.EntityButterfly;
-import biomesoplenty.common.entities.EntityPixie;
-import biomesoplenty.common.entities.EntitySnail;
-import biomesoplenty.common.entities.EntityWasp;
-import biomesoplenty.common.entities.RenderButterfly;
-import biomesoplenty.common.entities.RenderPixie;
-import biomesoplenty.common.entities.RenderSnail;
-import biomesoplenty.common.entities.RenderWasp;
+import biomesoplenty.common.entities.*;
 import biomesoplenty.common.entities.projectiles.EntityMudball;
 import biomesoplenty.common.entities.projectiles.RenderMudball;
-import biomesoplenty.common.fluids.BloodFluid;
-import biomesoplenty.common.fluids.HoneyFluid;
-import biomesoplenty.common.fluids.HotSpringWaterFluid;
-import biomesoplenty.common.fluids.PoisonFluid;
-import biomesoplenty.common.fluids.QuicksandFluid;
+import biomesoplenty.common.fluids.*;
 import biomesoplenty.common.item.IColoredItem;
 import biomesoplenty.common.util.inventory.CreativeTabBOP;
+import com.google.common.collect.Lists;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
@@ -46,17 +30,16 @@ import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.ItemModelMesher;
-import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.IStateMapper;
 import net.minecraft.client.renderer.block.statemap.StateMap;
 import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.client.resources.AbstractResourcePack;
 import net.minecraft.client.resources.IResourcePack;
 import net.minecraft.client.resources.LegacyV2Adapter;
 import net.minecraft.entity.Entity;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumParticleTypes;
@@ -73,6 +56,9 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
+
+import java.util.List;
+import java.util.Map;
 
 public class ClientProxy extends CommonProxy
 {
@@ -97,8 +83,8 @@ public class ClientProxy extends CommonProxy
         registerEntityRenderer(EntityMudball.class, RenderMudball.class);
         
         replaceForgeResources();
-        
-        ModelBakery.registerItemVariants(ForgeModContainer.getInstance().universalBucket, bucketModelLocations);
+
+        ModelLoader.registerItemVariants(ForgeModContainer.getInstance().universalBucket, bucketModelLocations);
     }
 
     @Override
@@ -121,9 +107,9 @@ public class ClientProxy extends CommonProxy
     @Override
     public void registerItemVariantModel(Item item, String name, int metadata) 
     {
-        if (item != null) 
-        { 
-            ModelBakery.registerItemVariants(item, new ResourceLocation("biomesoplenty:" + name));
+        if (item != null && item != Items.AIR)
+        {
+            ModelLoader.registerItemVariants(item, new ResourceLocation("biomesoplenty:" + name));
             ModelLoader.setCustomModelResourceLocation(item, metadata, new ModelResourceLocation(BiomesOPlenty.MOD_ID + ":" + name, "inventory"));
         }
     }
@@ -166,7 +152,7 @@ public class ClientProxy extends CommonProxy
                 String subItemName = item.getUnlocalizedName(subItem);
                 subItemName =  subItemName.substring(subItemName.indexOf(".") + 1); // remove 'item.' from the front
 
-                ModelBakery.registerItemVariants(item, new ResourceLocation(BiomesOPlenty.MOD_ID, subItemName));
+                ModelLoader.registerItemVariants(item, new ResourceLocation(BiomesOPlenty.MOD_ID, subItemName));
                 ModelLoader.setCustomModelResourceLocation(item, subItem.getMetadata(), new ModelResourceLocation(BiomesOPlenty.MOD_ID + ":" + subItemName, "inventory"));
             }
         }
@@ -178,7 +164,7 @@ public class ClientProxy extends CommonProxy
         //Register colour handlers
         if (item instanceof IColoredItem && ((IColoredItem)item).getItemColor() != null)
         {
-            this.itemsToColor.add(item);
+            itemsToColor.add(item);
         }
     }
 
