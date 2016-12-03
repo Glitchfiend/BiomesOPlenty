@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 
 import biomesoplenty.api.item.BOPItems;
@@ -46,7 +47,6 @@ import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.ItemModelMesher;
-import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.IStateMapper;
 import net.minecraft.client.renderer.block.statemap.StateMap;
@@ -57,6 +57,7 @@ import net.minecraft.client.resources.AbstractResourcePack;
 import net.minecraft.client.resources.IResourcePack;
 import net.minecraft.client.resources.LegacyV2Adapter;
 import net.minecraft.entity.Entity;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumParticleTypes;
@@ -98,7 +99,7 @@ public class ClientProxy extends CommonProxy
         
         replaceForgeResources();
         
-        ModelBakery.registerItemVariants(ForgeModContainer.getInstance().universalBucket, bucketModelLocations);
+        ModelLoader.registerItemVariants(ForgeModContainer.getInstance().universalBucket, bucketModelLocations);
     }
 
     @Override
@@ -119,13 +120,13 @@ public class ClientProxy extends CommonProxy
     }
 
     @Override
-    public void registerItemVariantModel(Item item, String name, int metadata) 
+    public void registerItemVariantModel(Item item, String name, int metadata)
     {
-        if (item != null) 
-        { 
-            ModelBakery.registerItemVariants(item, new ResourceLocation("biomesoplenty:" + name));
-            ModelLoader.setCustomModelResourceLocation(item, metadata, new ModelResourceLocation(BiomesOPlenty.MOD_ID + ":" + name, "inventory"));
-        }
+        Preconditions.checkNotNull(item, "Cannot register models for null item " + name);
+        Preconditions.checkArgument(item != Items.AIR, "Cannot register models for air (" + name + ")");
+
+        ModelLoader.registerItemVariants(item, new ResourceLocation("biomesoplenty:" + name));
+        ModelLoader.setCustomModelResourceLocation(item, metadata, new ModelResourceLocation(BiomesOPlenty.MOD_ID + ":" + name, "inventory"));
     }
 
     @Override
@@ -166,7 +167,7 @@ public class ClientProxy extends CommonProxy
                 String subItemName = item.getUnlocalizedName(subItem);
                 subItemName =  subItemName.substring(subItemName.indexOf(".") + 1); // remove 'item.' from the front
 
-                ModelBakery.registerItemVariants(item, new ResourceLocation(BiomesOPlenty.MOD_ID, subItemName));
+                ModelLoader.registerItemVariants(item, new ResourceLocation(BiomesOPlenty.MOD_ID, subItemName));
                 ModelLoader.setCustomModelResourceLocation(item, subItem.getMetadata(), new ModelResourceLocation(BiomesOPlenty.MOD_ID + ":" + subItemName, "inventory"));
             }
         }

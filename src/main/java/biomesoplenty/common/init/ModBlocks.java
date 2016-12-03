@@ -10,6 +10,7 @@ package biomesoplenty.common.init;
 
 import static biomesoplenty.api.block.BOPBlocks.*;
 
+import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableSet;
 
 import biomesoplenty.api.enums.BOPWoods;
@@ -132,8 +133,8 @@ public class ModBlocks
  
         //Stone Slabs
         // need to register items at the same time really so that they can be mapped to each other - bit messy this
-        other_slab =            registerBlock( new BlockBOPHalfOtherSlab(), "other_slab");
-        double_other_slab =     registerBlock( new BlockBOPDoubleOtherSlab(), "double_other_slab", null ); // no creative tab for double slab
+        other_slab =            registerBlock( new BlockBOPHalfOtherSlab(), "other_slab", CreativeTabBOP.instance, false);
+        double_other_slab =     registerBlock( new BlockBOPDoubleOtherSlab(), "double_other_slab", null, false ); // no creative tab for double slab
         BOPItems.other_slab =   ModItems.registerItem( new ItemSlab(other_slab, (BlockSlab)other_slab, (BlockSlab)double_other_slab), "other_slab");
         
         // Logs
@@ -182,12 +183,12 @@ public class ModBlocks
         // need to register items at the same time really so that they can be mapped to each other - bit messy this
         BlockBOPDoubleWoodSlab.createAllPages();
         BlockBOPHalfWoodSlab.createAllPages();
-        wood_slab_0 =           registerBlock( BlockBOPHalfWoodSlab.paging.getBlock(0), "wood_slab_0");
-        double_wood_slab_0 =    registerBlock( BlockBOPDoubleWoodSlab.paging.getBlock(0), "double_wood_slab_0", null ); // no creative tab for double slab
+        wood_slab_0 =           registerBlock( BlockBOPHalfWoodSlab.paging.getBlock(0), "wood_slab_0", CreativeTabBOP.instance, false);
+        double_wood_slab_0 =    registerBlock( BlockBOPDoubleWoodSlab.paging.getBlock(0), "double_wood_slab_0", null, false ); // no creative tab for double slab
         BOPItems.wood_slab_0 =  ModItems.registerItem( new ItemSlab(wood_slab_0, (BlockSlab)wood_slab_0, (BlockSlab)double_wood_slab_0), "wood_slab_0");
 
-        wood_slab_1 =           registerBlock( BlockBOPHalfWoodSlab.paging.getBlock(1), "wood_slab_1");
-        double_wood_slab_1 =    registerBlock( BlockBOPDoubleWoodSlab.paging.getBlock(1), "double_wood_slab_1", null ); // no creative tab for double slab
+        wood_slab_1 =           registerBlock( BlockBOPHalfWoodSlab.paging.getBlock(1), "wood_slab_1", CreativeTabBOP.instance, false);
+        double_wood_slab_1 =    registerBlock( BlockBOPDoubleWoodSlab.paging.getBlock(1), "double_wood_slab_1", null, false ); // no creative tab for double slab
         BOPItems.wood_slab_1 =  ModItems.registerItem( new ItemSlab(wood_slab_1, (BlockSlab)wood_slab_1, (BlockSlab)double_wood_slab_1), "wood_slab_1"); 
         
         // fences have no variant metadata, use a new BlockBOPFence instance for each (note there's no giant_flower_fence or dead_fence)
@@ -319,14 +320,14 @@ public class ModBlocks
     // use a separate function for registering doors because the door block and item need to be registered together
     public static Block registerDoor(BlockBOPDoor door_block, String name, Item door_item)
     {
-        Block block = registerBlock( door_block, name + "_block", null );
+        Block block = registerBlock( door_block, name + "_block", null, false );
         door_item = ModItems.registerItem( new ItemDoor(block), name );
         door_block.setDoorItem(door_item);
         return block;
     }
     
     
-    public static void registerBlockVariant(Block block, String stateName, int stateMeta)
+    public static void registerBlockItemModel(Block block, String stateName, int stateMeta)
     {
         Item item = Item.getItemFromBlock(block);
         BiomesOPlenty.proxy.registerItemVariantModel(item, stateName, stateMeta);
@@ -339,10 +340,15 @@ public class ModBlocks
         // by default, set the creative tab for all blocks added in BOP to CreativeTabBOP.instance
         return registerBlock(block, blockName, CreativeTabBOP.instance);
     }
-    
-    public static Block registerBlock(Block block, String blockName, CreativeTabs tab)
-    {
 
+    public static Block registerBlock(Block block, String blockName,CreativeTabs tab)
+    {
+        return registerBlock(block, blockName, tab, true);
+    }
+    
+    public static Block registerBlock(Block block, String blockName, CreativeTabs tab, boolean registerItemModels)
+    {
+        Preconditions.checkNotNull(block, "Cannot register a null block");
         block.setUnlocalizedName(blockName);        
         block.setCreativeTab(tab);
         
@@ -359,24 +365,27 @@ public class ModBlocks
             if (defaultState == null)
             {
                 defaultState = block.getBlockState().getBaseState();
-                BiomesOPlenty.logger.error("missing default state for " + block.getUnlocalizedName());
+                BiomesOPlenty.logger.error("Missing default state for " + block.getUnlocalizedName());
             }
             
-            // get the preset blocks variants
-            ImmutableSet<IBlockState> presets = BlockStateUtils.getBlockPresets(block);
-            if (presets.isEmpty())
+            // Some blocks such as doors and slabs register their items after the blocks (getItemClass returns null)
+            if (registerItemModels)
             {
-                // block has no sub-blocks to register
-                registerBlockVariant(block, blockName, 0);
-            }
-            else
-            {
-                // register all the sub-blocks
-                for (IBlockState state : presets)
+                // get the preset blocks variants
+                ImmutableSet<IBlockState> presets = BlockStateUtils.getBlockPresets(block);
+                if (presets.isEmpty())
                 {
-                    String stateName = bopBlock.getStateName(state);
-                    int stateMeta = block.getMetaFromState(state);
-                    registerBlockVariant(block, stateName, stateMeta);
+                    // block has no sub-blocks to register
+                    registerBlockItemModel(block, blockName, 0);
+                } else
+                {
+                    // register all the sub-blocks
+                    for (IBlockState state : presets)
+                    {
+                        String stateName = bopBlock.getStateName(state);
+                        int stateMeta = block.getMetaFromState(state);
+                        registerBlockItemModel(block, stateName, stateMeta);
+                    }
                 }
             }
         }
@@ -384,7 +393,7 @@ public class ModBlocks
         {
             // for vanilla blocks, just register a single variant with meta=0 and assume ItemBlock for the item class
             registerBlockWithItem(block, blockName, ItemBlock.class);
-            registerBlockVariant(block, blockName, 0);
+            registerBlockItemModel(block, blockName, 0);
         }
 
         return block;
