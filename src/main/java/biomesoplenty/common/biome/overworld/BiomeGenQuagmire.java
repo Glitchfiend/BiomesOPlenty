@@ -68,9 +68,6 @@ public class BiomeGenQuagmire extends BOPBiome
         
         this.beachBiomeLocation = null;
 
-        this.fogColor = 0xCACECD;
-        this.fogDensity = 0.6F;
-
         this.addWeight(BOPClimates.COLD_SWAMP, 2);
         
         this.spawnableCreatureList.clear();

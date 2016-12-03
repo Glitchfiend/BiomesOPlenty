@@ -54,8 +54,6 @@ public class BiomeGenMarsh extends BOPBiome
         this.canGenerateVillages = false;
         
         this.beachBiomeLocation = null;
-
-        this.fogDensity = 0.6F;
         
         this.addWeight(BOPClimates.WET_TEMPERATE, 7);
         

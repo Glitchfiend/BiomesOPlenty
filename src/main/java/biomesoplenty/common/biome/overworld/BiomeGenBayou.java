@@ -60,9 +60,6 @@ public class BiomeGenBayou extends BOPBiome
         
         this.beachBiomeLocation = null;
 
-        this.fogColor = 0x90AF95;
-        this.fogDensity = 0.99F;
-
         this.addWeight(BOPClimates.HOT_SWAMP, 10);
         
         this.spawnableWaterCreatureList.clear();

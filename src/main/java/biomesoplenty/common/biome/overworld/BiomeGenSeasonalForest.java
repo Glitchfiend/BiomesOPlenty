@@ -35,8 +35,6 @@ public class BiomeGenSeasonalForest extends BOPBiome
         // terrain
         this.terrainSettings.avgHeight(70).heightVariation(10, 30);
 
-        this.fogColor = 0xFFCE84;
-
         this.addWeight(BOPClimates.COOL_TEMPERATE, 7);
 
         this.canGenerateVillages = true;

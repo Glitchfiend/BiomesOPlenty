@@ -45,9 +45,6 @@ public class BiomeGenSnowyForest extends BOPBiome
         
         this.canGenerateVillages = false;
 
-        this.fogColor = 0xBAC3C6;
-        this.fogDensity = 0.6F;
-
         this.addWeight(BOPClimates.TUNDRA, 7);
          
         // trees

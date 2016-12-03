@@ -59,9 +59,6 @@ public class BiomeGenDeadSwamp extends BOPBiome
         
         this.beachBiomeLocation = null;
 
-        this.fogColor = 0x8CAF99;
-        this.fogDensity = 0.6F;
-
         this.addWeight(BOPClimates.COLD_SWAMP, 3);
         
         this.spawnableCreatureList.clear();

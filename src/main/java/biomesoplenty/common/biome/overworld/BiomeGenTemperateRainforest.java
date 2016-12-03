@@ -46,9 +46,6 @@ public class BiomeGenTemperateRainforest extends BOPBiome
         
         this.canGenerateVillages = false;
 
-        this.fogColor = 0xD1DBCE;
-        this.fogDensity = 0.8F;
-
         this.addWeight(BOPClimates.WET_TEMPERATE, 7);
         
         if (BOPBiomes.gravel_beach.isPresent())

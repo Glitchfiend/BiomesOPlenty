@@ -66,8 +66,6 @@ public class BiomeGenFen extends BOPBiome
         	this.beachBiomeLocation = ((BOPBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
         }
 
-        this.fogDensity = 0.8F;
-
         this.addWeight(BOPClimates.COLD_SWAMP, 7);
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntitySnail.class, 8, 1, 2));

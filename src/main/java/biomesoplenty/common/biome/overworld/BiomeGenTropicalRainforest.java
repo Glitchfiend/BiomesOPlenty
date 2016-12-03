@@ -42,9 +42,6 @@ public class BiomeGenTropicalRainforest extends BOPBiome
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
 
-        this.fogColor = 0xF79F62;
-        this.fogDensity = 0.99F;
-
         this.addWeight(BOPClimates.TROPICAL, 5);
         
         this.spawnableCreatureList.clear();

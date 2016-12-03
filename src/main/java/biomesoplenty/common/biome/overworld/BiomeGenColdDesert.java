@@ -54,8 +54,6 @@ public class BiomeGenColdDesert extends BOPBiome
         
         this.canGenerateRivers = false;
 
-        this.fogDensity = 0.4F;
-
         this.addWeight(BOPClimates.ICE_CAP, 10);
 
         this.spawnableCreatureList.clear();

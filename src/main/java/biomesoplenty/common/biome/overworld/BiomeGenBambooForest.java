@@ -56,9 +56,6 @@ public class BiomeGenBambooForest extends BOPBiome
         this.terrainSettings.avgHeight(68).heightVariation(5, 10);
 
         this.canGenerateVillages = false;
-
-        this.fogColor = 0xCCE874;
-        this.fogDensity = 0.99F;
         
         this.addWeight(BOPClimates.TROPICAL, 3);
         
