@@ -8,37 +8,14 @@
 
 package biomesoplenty.common.init;
 
-import com.google.common.base.CaseFormat;
-
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.api.enums.BOPFlowers;
-import biomesoplenty.api.enums.BOPGems;
-import biomesoplenty.api.enums.BOPPlants;
-import biomesoplenty.api.enums.BOPTrees;
-import biomesoplenty.api.enums.BOPWoods;
+import biomesoplenty.api.enums.*;
 import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.common.block.BlockBOPDirt;
-import biomesoplenty.common.block.BlockBOPDoor;
-import biomesoplenty.common.block.BlockBOPDoublePlant;
-import biomesoplenty.common.block.BlockBOPFence;
-import biomesoplenty.common.block.BlockBOPFenceGate;
-import biomesoplenty.common.block.BlockBOPFlower;
-import biomesoplenty.common.block.BlockBOPGrass;
-import biomesoplenty.common.block.BlockBOPHalfOtherSlab;
-import biomesoplenty.common.block.BlockBOPHalfWoodSlab;
-import biomesoplenty.common.block.BlockBOPHive;
-import biomesoplenty.common.block.BlockBOPLeaves;
-import biomesoplenty.common.block.BlockBOPLog;
-import biomesoplenty.common.block.BlockBOPMushroom;
-import biomesoplenty.common.block.BlockBOPPlanks;
-import biomesoplenty.common.block.BlockBOPPlant;
-import biomesoplenty.common.block.BlockBOPSapling;
-import biomesoplenty.common.block.BlockBOPSeaweed;
-import biomesoplenty.common.block.BlockBOPTerrarium;
-import biomesoplenty.common.block.BlockBOPWoodStairs;
+import biomesoplenty.common.block.*;
 import biomesoplenty.common.crafting.BiomeEssenceRecipe;
 import biomesoplenty.common.handler.FurnaceFuelHandler;
 import biomesoplenty.common.item.ItemJarFilled;
+import com.google.common.base.CaseFormat;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
@@ -65,58 +42,58 @@ public class ModCrafting
         /*** Dyes ***/
         
         // Flower1
-    	GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.SILVER.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.CLOVER)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.CYAN.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.SWAMPFLOWER)});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.black_dye, 2), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.DEATHBLOOM)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.CYAN.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.GLOWFLOWER)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.LIGHT_BLUE.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.BLUE_HYDRANGEA)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.ORANGE.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.ORANGE_COSMOS)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.PINK.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.PINK_DAFFODIL)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.MAGENTA.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.WILDFLOWER)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.PURPLE.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.VIOLET)});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.white_dye, 2), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.WHITE_ANEMONE)});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.black_dye, 2), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.ENDERLOTUS)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.RED.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.BROMELIAD)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.GRAY.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.WILTED_LILY)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.PINK.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.PINK_HIBISCUS)});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.white_dye, 2), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.LILY_OF_THE_VALLEY)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.ORANGE.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.BURNING_BLOSSOM)});
+    	GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.SILVER.getDyeDamage()), BlockBOPFlower.paging.getVariantItem(BOPFlowers.CLOVER));
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.CYAN.getDyeDamage()), BlockBOPFlower.paging.getVariantItem(BOPFlowers.SWAMPFLOWER));
+        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.black_dye, 2), BlockBOPFlower.paging.getVariantItem(BOPFlowers.DEATHBLOOM));
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.CYAN.getDyeDamage()), BlockBOPFlower.paging.getVariantItem(BOPFlowers.GLOWFLOWER));
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.LIGHT_BLUE.getDyeDamage()), BlockBOPFlower.paging.getVariantItem(BOPFlowers.BLUE_HYDRANGEA));
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.ORANGE.getDyeDamage()), BlockBOPFlower.paging.getVariantItem(BOPFlowers.ORANGE_COSMOS));
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.PINK.getDyeDamage()), BlockBOPFlower.paging.getVariantItem(BOPFlowers.PINK_DAFFODIL));
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.MAGENTA.getDyeDamage()), BlockBOPFlower.paging.getVariantItem(BOPFlowers.WILDFLOWER));
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.PURPLE.getDyeDamage()), BlockBOPFlower.paging.getVariantItem(BOPFlowers.VIOLET));
+        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.white_dye, 2), BlockBOPFlower.paging.getVariantItem(BOPFlowers.WHITE_ANEMONE));
+        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.black_dye, 2), BlockBOPFlower.paging.getVariantItem(BOPFlowers.ENDERLOTUS));
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.RED.getDyeDamage()), BlockBOPFlower.paging.getVariantItem(BOPFlowers.BROMELIAD));
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.GRAY.getDyeDamage()), BlockBOPFlower.paging.getVariantItem(BOPFlowers.WILTED_LILY));
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.PINK.getDyeDamage()), BlockBOPFlower.paging.getVariantItem(BOPFlowers.PINK_HIBISCUS));
+        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.white_dye, 2), BlockBOPFlower.paging.getVariantItem(BOPFlowers.LILY_OF_THE_VALLEY));
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.ORANGE.getDyeDamage()), BlockBOPFlower.paging.getVariantItem(BOPFlowers.BURNING_BLOSSOM));
 
         // Flower 2
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.PURPLE.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.LAVENDER)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.YELLOW.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.GOLDENROD)});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.blue_dye, 2), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.BLUEBELLS)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.PINK.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.MINERS_DELIGHT)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.LIGHT_BLUE.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.ICY_IRIS)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.RED.getDyeDamage()), new Object[] {BlockBOPFlower.paging.getVariantItem(BOPFlowers.ROSE)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.PURPLE.getDyeDamage()), BlockBOPFlower.paging.getVariantItem(BOPFlowers.LAVENDER));
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.YELLOW.getDyeDamage()), BlockBOPFlower.paging.getVariantItem(BOPFlowers.GOLDENROD));
+        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.blue_dye, 2), BlockBOPFlower.paging.getVariantItem(BOPFlowers.BLUEBELLS));
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.PINK.getDyeDamage()), BlockBOPFlower.paging.getVariantItem(BOPFlowers.MINERS_DELIGHT));
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.LIGHT_BLUE.getDyeDamage()), BlockBOPFlower.paging.getVariantItem(BOPFlowers.ICY_IRIS));
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.RED.getDyeDamage()), BlockBOPFlower.paging.getVariantItem(BOPFlowers.ROSE));
         
         // Others
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.GRAY.getDyeDamage()), new Object[] {new ItemStack(BOPItems.ash)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.LIME.getDyeDamage()), new Object[] {new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.GLOWSHROOM.ordinal())});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.brown_dye, 2), new Object[] {new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.FLAT_MUSHROOM.ordinal())});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.blue_dye, 2), new Object[] {new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.BLUE_MILK_CAP.ordinal())});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.brown_dye, 2), new Object[] {BlockBOPPlant.paging.getVariantItem(BOPPlants.CATTAIL)});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.brown_dye, 2), new Object[] {((BlockBOPDoublePlant)BOPBlocks.double_plant).getVariantItem(BlockBOPDoublePlant.DoublePlantType.TALL_CATTAIL)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.LIGHT_BLUE.getDyeDamage()), new Object[] {((BlockBOPDoublePlant)BOPBlocks.double_plant).getVariantItem(BlockBOPDoublePlant.DoublePlantType.FLAX)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.RED.getDyeDamage()), new Object[] {BlockBOPPlant.paging.getVariantItem(BOPPlants.RAFFLESIA)});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.brown_dye, 2), new Object[] {new ItemStack(BOPItems.pinecone)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.GRAY.getDyeDamage()), new ItemStack(BOPItems.ash));
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.LIME.getDyeDamage()), new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.GLOWSHROOM.ordinal()));
+        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.brown_dye, 2), new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.FLAT_MUSHROOM.ordinal()));
+        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.blue_dye, 2), new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.BLUE_MILK_CAP.ordinal()));
+        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.brown_dye, 2), BlockBOPPlant.paging.getVariantItem(BOPPlants.CATTAIL));
+        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.brown_dye, 2), ((BlockBOPDoublePlant)BOPBlocks.double_plant).getVariantItem(BlockBOPDoublePlant.DoublePlantType.TALL_CATTAIL));
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.LIGHT_BLUE.getDyeDamage()), ((BlockBOPDoublePlant)BOPBlocks.double_plant).getVariantItem(BlockBOPDoublePlant.DoublePlantType.FLAX));
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 2, EnumDyeColor.RED.getDyeDamage()), BlockBOPPlant.paging.getVariantItem(BOPPlants.RAFFLESIA));
+        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.brown_dye, 2), new ItemStack(BOPItems.pinecone));
         
         /*** BOP brick and stone stairs and slabs ***/
         
         for (BlockBOPHalfOtherSlab.SlabType slabType : BlockBOPHalfOtherSlab.SlabType.values())
         {
             BlockBOPHalfOtherSlab otherSlab = (BlockBOPHalfOtherSlab)BOPBlocks.other_slab;
-            GameRegistry.addShapedRecipe(otherSlab.getVariantItem(slabType, 6), new Object[] {"RRR", 'R', otherSlab.getFullBlockVariantItem(slabType)});
+            GameRegistry.addShapedRecipe(otherSlab.getVariantItem(slabType, 6), "RRR", 'R', otherSlab.getFullBlockVariantItem(slabType));
         }
         
-        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.mud_brick_stairs, 4), new Object[] {"  R", " RR", "RRR", 'R', BOPBlocks.mud_brick_block});
-        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.mud_brick_stairs, 4), new Object[] {"R  ", "RR ", "RRR", 'R', BOPBlocks.mud_brick_block});
+        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.mud_brick_stairs, 4), "  R", " RR", "RRR", 'R', BOPBlocks.mud_brick_block);
+        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.mud_brick_stairs, 4), "R  ", "RR ", "RRR", 'R', BOPBlocks.mud_brick_block);
         
         
         /*** Wood stairs and slabs ***/
         
         // Make sticks from any BOP plank
-        GameRegistry.addShapedRecipe(new ItemStack(Items.STICK, 4), new Object[] {"#", "#", '#', BOPBlocks.planks_0});
+        GameRegistry.addShapedRecipe(new ItemStack(Items.STICK, 4), "#", "#", '#', BOPBlocks.planks_0);
         
         // Note you can't make planks (and therefore doors, fences etc) from GIANT_FLOWER and DEAD logs
         
@@ -124,11 +101,11 @@ public class ModCrafting
         {
             if (!wood.hasPlanks()) {continue;}
             GameRegistry.addShapelessRecipe(BlockBOPPlanks.paging.getVariantItem(wood, 4), BlockBOPLog.paging.getVariantItem(wood));
-            GameRegistry.addShapedRecipe(BlockBOPHalfWoodSlab.paging.getVariantItem(wood, 6), new Object[] {"###", '#', BlockBOPPlanks.paging.getVariantItem(wood)});
-            GameRegistry.addShapedRecipe(new ItemStack(BlockBOPWoodStairs.getBlock(wood), 4), new Object[] {"#  ", "## ", "###", '#', BlockBOPPlanks.paging.getVariantItem(wood)});
-            GameRegistry.addShapedRecipe(new ItemStack(BlockBOPDoor.getBlock(wood).getDoorItem(), 3), new Object[] {"##", "##", "##", '#', BlockBOPPlanks.paging.getVariantItem(wood)});
-            GameRegistry.addShapedRecipe(new ItemStack(BlockBOPFence.getBlock(wood), 3), new Object[] {"W#W", "W#W", '#', Items.STICK, 'W', BlockBOPPlanks.paging.getVariantItem(wood)});
-            GameRegistry.addShapedRecipe(new ItemStack(BlockBOPFenceGate.getBlock(wood), 1), new Object[] {"#W#", "#W#", '#', Items.STICK, 'W', BlockBOPPlanks.paging.getVariantItem(wood)});
+            GameRegistry.addShapedRecipe(BlockBOPHalfWoodSlab.paging.getVariantItem(wood, 6), "###", '#', BlockBOPPlanks.paging.getVariantItem(wood));
+            GameRegistry.addShapedRecipe(new ItemStack(BlockBOPWoodStairs.getBlock(wood), 4), "#  ", "## ", "###", '#', BlockBOPPlanks.paging.getVariantItem(wood));
+            GameRegistry.addShapedRecipe(new ItemStack(BlockBOPDoor.getBlock(wood).getDoorItem(), 3), "##", "##", "##", '#', BlockBOPPlanks.paging.getVariantItem(wood));
+            GameRegistry.addShapedRecipe(new ItemStack(BlockBOPFence.getBlock(wood), 3), "W#W", "W#W", '#', Items.STICK, 'W', BlockBOPPlanks.paging.getVariantItem(wood));
+            GameRegistry.addShapedRecipe(new ItemStack(BlockBOPFenceGate.getBlock(wood), 1), "#W#", "#W#", '#', Items.STICK, 'W', BlockBOPPlanks.paging.getVariantItem(wood));
         }
  
         
@@ -136,152 +113,157 @@ public class ModCrafting
         
         for (BOPGems gem : BOPGems.values())
         {
-            GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.gem, 9, gem.ordinal()), new Object[] {new ItemStack(BOPBlocks.gem_block, 1, gem.ordinal())});
-            GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.gem_block, 1, gem.ordinal()), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(BOPItems.gem, 1, gem.ordinal())});
+            GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.gem, 9, gem.ordinal()), new ItemStack(BOPBlocks.gem_block, 1, gem.ordinal()));
+            GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.gem_block, 1, gem.ordinal()), "AAA", "AAA", "AAA", 'A', new ItemStack(BOPItems.gem, 1, gem.ordinal()));
         }             
         
         /*** Tools, weapons, armor ***/
         
         // Scythes
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.wood_scythe), new Object [] {" MM", "M S", "  S", 'M', "plankWood", 'S', "stickWood" }));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.stone_scythe), new Object [] {" MM", "M S", "  S", 'M', Blocks.COBBLESTONE, 'S', "stickWood" }));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.iron_scythe), new Object [] {" MM", "M S", "  S", 'M', Items.IRON_INGOT, 'S', "stickWood" }));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.gold_scythe), new Object [] {" MM", "M S", "  S", 'M', Items.GOLD_INGOT, 'S', "stickWood" }));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.diamond_scythe), new Object [] {" MM", "M S", "  S", 'M', Items.DIAMOND, 'S', "stickWood" }));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.wood_scythe), " MM", "M S", "  S", 'M', "plankWood", 'S', "stickWood"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.stone_scythe), " MM", "M S", "  S", 'M', Blocks.COBBLESTONE, 'S', "stickWood"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.iron_scythe), " MM", "M S", "  S", 'M', Items.IRON_INGOT, 'S', "stickWood"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.gold_scythe), " MM", "M S", "  S", 'M', Items.GOLD_INGOT, 'S', "stickWood"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.diamond_scythe), " MM", "M S", "  S", 'M', Items.DIAMOND, 'S', "stickWood"));
         // and in reverse..
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.wood_scythe), new Object [] {"MM ", "S M", "S  ", 'M', "plankWood", 'S', "stickWood" }));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.stone_scythe), new Object [] {"MM ", "S M", "S  ", 'M', Blocks.COBBLESTONE, 'S', "stickWood" }));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.iron_scythe), new Object [] {"MM ", "S M", "S  ", 'M', Items.IRON_INGOT, 'S', "stickWood" }));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.gold_scythe), new Object [] {"MM ", "S M", "S  ", 'M', Items.GOLD_INGOT, 'S', "stickWood" }));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.diamond_scythe), new Object [] {"MM ", "S M", "S  ", 'M', Items.DIAMOND, 'S', "stickWood" }));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.wood_scythe), "MM ", "S M", "S  ", 'M', "plankWood", 'S', "stickWood"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.stone_scythe), "MM ", "S M", "S  ", 'M', Blocks.COBBLESTONE, 'S', "stickWood"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.iron_scythe), "MM ", "S M", "S  ", 'M', Items.IRON_INGOT, 'S', "stickWood"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.gold_scythe), "MM ", "S M", "S  ", 'M', Items.GOLD_INGOT, 'S', "stickWood"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.diamond_scythe), "MM ", "S M", "S  ", 'M', Items.DIAMOND, 'S', "stickWood"));
         
         // Mud Tools and Armor
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.mud_pickaxe), new Object [] {"###", " X ", " X ", '#', BOPItems.mudball, 'X', "stickWood" }));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.mud_shovel), new Object [] {"#", "X", "X", '#', BOPItems.mudball, 'X', "stickWood"}));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.mud_sword), new Object [] {"#", "#", "X", '#', BOPItems.mudball, 'X', "stickWood"}));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.mud_axe), new Object [] {"##", "#X", " X", '#', BOPItems.mudball, 'X', "stickWood"}));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.mud_hoe), new Object [] {"##", " X", " X", '#', BOPItems.mudball, 'X', "stickWood"}));
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.mud_helmet), new Object [] {"###", "# #", '#', BOPItems.mudball});
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.mud_chestplate), new Object [] {"# #", "###", "###", '#', BOPItems.mudball});
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.mud_leggings), new Object [] {"###", "# #", "# #", '#', BOPItems.mudball});
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.mud_boots), new Object [] {"# #", "# #", '#', BOPItems.mudball});
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.mud_scythe), new Object [] {" MM", "M S", "  S", 'M', BOPItems.mudball, 'S', "stickWood" }));   
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.mud_scythe), new Object [] {"MM ", "S M", "S  ", 'M', BOPItems.mudball, 'S', "stickWood" }));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.mud_pickaxe), "###", " X ", " X ", '#', "ballMud", 'X', "stickWood"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.mud_shovel), "#", "X", "X", '#', "ballMud", 'X', "stickWood"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.mud_sword), "#", "#", "X", '#', "ballMud", 'X', "stickWood"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.mud_axe), "##", "#X", " X", '#', "ballMud", 'X', "stickWood"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.mud_hoe), "##", " X", " X", '#', "ballMud", 'X', "stickWood"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.mud_helmet), "###", "# #", '#', "ballMud"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.mud_chestplate), "# #", "###", "###", '#', "ballMud"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.mud_leggings), "###", "# #", "# #", '#', "ballMud"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.mud_boots), "# #", "# #", '#', "ballMud"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.mud_scythe), " MM", "M S", "  S", 'M', "ballMud", 'S', "stickWood"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.mud_scythe), "MM ", "S M", "S  ", 'M', "ballMud", 'S', "stickWood"));
 
         // Flower Bands
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.dull_flower_band), new Object [] {"CCC", "C C", "CCC", 'C', BlockBOPFlower.paging.getVariantItem(BOPFlowers.CLOVER)});
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.plain_flower_band), new Object [] {"CDC", "D D", "CDC", 'C', BlockBOPFlower.paging.getVariantItem(BOPFlowers.CLOVER), 'D', BlockBOPFlower.paging.getVariantItem(BOPFlowers.ORANGE_COSMOS)});
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.exotic_flower_band), new Object [] {"CDC", "V V", "CDC", 'C', BlockBOPFlower.paging.getVariantItem(BOPFlowers.CLOVER),'D', BlockBOPFlower.paging.getVariantItem(BOPFlowers.ORANGE_COSMOS), 'V', BlockBOPFlower.paging.getVariantItem(BOPFlowers.VIOLET)});
+        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.dull_flower_band), "CCC", "C C", "CCC", 'C', BlockBOPFlower.paging.getVariantItem(BOPFlowers.CLOVER));
+        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.plain_flower_band), "CDC", "D D", "CDC", 'C', BlockBOPFlower.paging.getVariantItem(BOPFlowers.CLOVER), 'D', BlockBOPFlower.paging.getVariantItem(BOPFlowers.ORANGE_COSMOS));
+        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.exotic_flower_band), "CDC", "V V", "CDC", 'C', BlockBOPFlower.paging.getVariantItem(BOPFlowers.CLOVER),'D', BlockBOPFlower.paging.getVariantItem(BOPFlowers.ORANGE_COSMOS), 'V', BlockBOPFlower.paging.getVariantItem(BOPFlowers.VIOLET));
         
         /*** Biome Finder ***/
         
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.biome_finder), new Object[] {" A ", "AOA", " A ", 'A', new ItemStack(BOPItems.gem, 1, BOPGems.AMETHYST.ordinal()), 'O', new ItemStack(BOPItems.terrestrial_artifact)});
+        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.biome_finder), " A ", "AOA", " A ", 'A', new ItemStack(BOPItems.gem, 1, BOPGems.AMETHYST.ordinal()), 'O', new ItemStack(BOPItems.terrestrial_artifact));
         GameRegistry.addRecipe(new BiomeEssenceRecipe());
         
         /*** Flower Basket ***/
         
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.flower_basket), new Object [] {" S ", "S S", "SSS", 'S', "stickWood" }));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.flower_basket), " S ", "S S", "SSS", 'S', "stickWood"));
         
         /*** Misc Others ***/
         
         // Flax
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.flax_string), new Object[] {"FFF", "FFF", "FFF", 'F', ((BlockBOPDoublePlant)BOPBlocks.double_plant).getVariantItem(BlockBOPDoublePlant.DoublePlantType.FLAX)});
+        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.flax_string), "FFF", "FFF", "FFF", 'F', ((BlockBOPDoublePlant)BOPBlocks.double_plant).getVariantItem(BlockBOPDoublePlant.DoublePlantType.FLAX));
         
         // Flax String
-        GameRegistry.addShapedRecipe(new ItemStack(Items.STRING), new Object[] {"S", "S", "S", 'S', new ItemStack(BOPItems.flax_string)});
+        GameRegistry.addShapedRecipe(new ItemStack(Items.STRING), "S", "S", "S", 'S', new ItemStack(BOPItems.flax_string));
         
         // Overgrown Netherrack
-        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.OVERGROWN_NETHERRACK.ordinal()), new Object[] {"SSS", "SNS", "SSS", 'S', Items.WHEAT_SEEDS, 'N', Blocks.NETHERRACK});
+        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.OVERGROWN_NETHERRACK.ordinal()), "SSS", "SNS", "SSS", 'S', Items.WHEAT_SEEDS, 'N', Blocks.NETHERRACK);
         
         // Cattail Wool
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.WOOL), new Object [] {"CCC", "CCC", "CCC", 'C', "plantCattail"}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.WOOL), "CCC", "CCC", "CCC", 'C', "plantCattail"));
         
         // Ash Coal
-        GameRegistry.addShapedRecipe(new ItemStack(Items.COAL), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(BOPItems.ash)});
+        GameRegistry.addShapedRecipe(new ItemStack(Items.COAL), "AAA", "AAA", "AAA", 'A', new ItemStack(BOPItems.ash));
         
         // Ash Block
-        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.ash_block), new Object[] {"AA", "AA", 'A', new ItemStack(BOPItems.ash)});
+        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.ash_block), "AA", "AA", 'A', new ItemStack(BOPItems.ash));
         
         // Mud Block
-        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.mud, 1), new Object[] {"MM", "MM", 'M', BOPItems.mudball});
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPBlocks.mud, 1), "MM", "MM", 'M', "ballMud"));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.mud), "dirt", new ItemStack(Items.WATER_BUCKET)));
         
         // Mud Brick Blcok
-        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.mud_brick_block), new Object[] {"MM", "MM", 'M', new ItemStack(BOPItems.mud_brick)});        
+        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.mud_brick_block), "MM", "MM", 'M', new ItemStack(BOPItems.mud_brick));
         
         // Celestial Crystal Block
-        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.crystal), new Object[] {"CC", "CC", 'C', new ItemStack(BOPItems.crystal_shard)});
+        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.crystal), "CC", "CC", 'C', new ItemStack(BOPItems.crystal_shard));
         
         //Coarse Dirts
-        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.dirt, 4, BOPBlocks.dirt.getMetaFromState(BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.LOAMY).withProperty(BlockBOPDirt.COARSE, true))), new Object[] {"GD", "DG", 'G', Blocks.GRAVEL, 'D', new ItemStack(BOPBlocks.dirt, 4, BlockBOPDirt.BOPDirtType.LOAMY.ordinal())});
-        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.dirt, 4, BOPBlocks.dirt.getMetaFromState(BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.LOAMY).withProperty(BlockBOPDirt.COARSE, true))), new Object[] {"DG", "GD", 'G', Blocks.GRAVEL, 'D', new ItemStack(BOPBlocks.dirt, 4, BlockBOPDirt.BOPDirtType.LOAMY.ordinal())});
+        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.dirt, 4, BOPBlocks.dirt.getMetaFromState(BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.LOAMY).withProperty(BlockBOPDirt.COARSE, true))), "GD", "DG", 'G', Blocks.GRAVEL, 'D', new ItemStack(BOPBlocks.dirt, 4, BlockBOPDirt.BOPDirtType.LOAMY.ordinal()));
+        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.dirt, 4, BOPBlocks.dirt.getMetaFromState(BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.LOAMY).withProperty(BlockBOPDirt.COARSE, true))), "DG", "GD", 'G', Blocks.GRAVEL, 'D', new ItemStack(BOPBlocks.dirt, 4, BlockBOPDirt.BOPDirtType.LOAMY.ordinal()));
         
-        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.dirt, 4, BOPBlocks.dirt.getMetaFromState(BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SANDY).withProperty(BlockBOPDirt.COARSE, true))), new Object[] {"GD", "DG", 'G', Blocks.GRAVEL, 'D', new ItemStack(BOPBlocks.dirt, 4, BlockBOPDirt.BOPDirtType.SANDY.ordinal())});
-        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.dirt, 4, BOPBlocks.dirt.getMetaFromState(BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SANDY).withProperty(BlockBOPDirt.COARSE, true))), new Object[] {"DG", "GD", 'G', Blocks.GRAVEL, 'D', new ItemStack(BOPBlocks.dirt, 4, BlockBOPDirt.BOPDirtType.SANDY.ordinal())});
+        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.dirt, 4, BOPBlocks.dirt.getMetaFromState(BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SANDY).withProperty(BlockBOPDirt.COARSE, true))), "GD", "DG", 'G', Blocks.GRAVEL, 'D', new ItemStack(BOPBlocks.dirt, 4, BlockBOPDirt.BOPDirtType.SANDY.ordinal()));
+        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.dirt, 4, BOPBlocks.dirt.getMetaFromState(BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SANDY).withProperty(BlockBOPDirt.COARSE, true))), "DG", "GD", 'G', Blocks.GRAVEL, 'D', new ItemStack(BOPBlocks.dirt, 4, BlockBOPDirt.BOPDirtType.SANDY.ordinal()));
         
-        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.dirt, 4, BOPBlocks.dirt.getMetaFromState(BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY).withProperty(BlockBOPDirt.COARSE, true))), new Object[] {"GD", "DG", 'G', Blocks.GRAVEL, 'D', new ItemStack(BOPBlocks.dirt, 4, BlockBOPDirt.BOPDirtType.SILTY.ordinal())});
-        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.dirt, 4, BOPBlocks.dirt.getMetaFromState(BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY).withProperty(BlockBOPDirt.COARSE, true))), new Object[] {"DG", "GD", 'G', Blocks.GRAVEL, 'D', new ItemStack(BOPBlocks.dirt, 4, BlockBOPDirt.BOPDirtType.SILTY.ordinal())});
+        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.dirt, 4, BOPBlocks.dirt.getMetaFromState(BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY).withProperty(BlockBOPDirt.COARSE, true))), "GD", "DG", 'G', Blocks.GRAVEL, 'D', new ItemStack(BOPBlocks.dirt, 4, BlockBOPDirt.BOPDirtType.SILTY.ordinal()));
+        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.dirt, 4, BOPBlocks.dirt.getMetaFromState(BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY).withProperty(BlockBOPDirt.COARSE, true))), "DG", "GD", 'G', Blocks.GRAVEL, 'D', new ItemStack(BOPBlocks.dirt, 4, BlockBOPDirt.BOPDirtType.SILTY.ordinal()));
         
         // Enderporter
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.enderporter), new Object[] {"IAI", "ATA", "IAI", 'I', Items.ENDER_EYE, 'A', new ItemStack(BOPItems.gem, 1, BOPGems.AMETHYST.ordinal()), 'T', BOPItems.terrestrial_artifact});
+        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.enderporter), "IAI", "ATA", "IAI", 'I', Items.ENDER_EYE, 'A', new ItemStack(BOPItems.gem, 1, BOPGems.AMETHYST.ordinal()), 'T', BOPItems.terrestrial_artifact);
         
         // Records
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.record_wanderer), new Object [] {"TTT", "TRT", "TTT", 'T', BOPItems.terrestrial_artifact, 'R', "record"}));     
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.record_corruption), new Object[] {"MMM", "MRM", "MMM", 'M', BOPItems.mudball, 'R', BOPItems.record_wanderer});
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.record_wanderer), "TTT", "TRT", "TTT", 'T', BOPItems.terrestrial_artifact, 'R', "record"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.record_corruption), "MMM", "MRM", "MMM", 'M', "ballMud", 'R', BOPItems.record_wanderer));
         
         // Bamboo Thatching
-        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.bamboo_thatching), new Object[] {"##", "##", '#', BOPBlocks.bamboo});
+        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.bamboo_thatching), "##", "##", '#', BOPBlocks.bamboo);
         
         // Bamboo
-        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.bamboo, 8), new Object [] {" #", "# ", '#', new ItemStack(BOPBlocks.bamboo_thatching)});
-        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.bamboo, 8), new Object [] {"# ", " #", '#', new ItemStack(BOPBlocks.bamboo_thatching)});
+        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.bamboo, 8), " #", "# ", '#', new ItemStack(BOPBlocks.bamboo_thatching));
+        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.bamboo, 8), "# ", " #", '#', new ItemStack(BOPBlocks.bamboo_thatching));
         
         // Empty Jar
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.jar_empty, 3, 0), new Object[] {"# #", "# #", "###", '#', Blocks.GLASS});
+        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.jar_empty, 3, 0), "# #", "# #", "###", '#', Blocks.GLASS);
         
         // Ambrosia
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.ambrosia), new Object[] {new ItemStack(BOPItems.pixie_dust), new ItemStack(Items.POTIONITEM, 1, 0), new ItemStack(BOPItems.ichor), new ItemStack(BOPBlocks.seaweed, 1, BlockBOPSeaweed.SeaweedType.KELP.ordinal()), BlockBOPPlant.paging.getVariantItem(BOPPlants.ROOT), new ItemStack(BOPItems.crystal_shard), new ItemStack(BOPItems.jar_filled, 1, ItemJarFilled.JarContents.HONEY.ordinal()), new ItemStack(BOPItems.berries), Items.SUGAR});
+        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.ambrosia), new ItemStack(BOPItems.pixie_dust), new ItemStack(Items.POTIONITEM, 1, 0), new ItemStack(BOPItems.ichor), new ItemStack(BOPBlocks.seaweed, 1, BlockBOPSeaweed.SeaweedType.KELP.ordinal()), BlockBOPPlant.paging.getVariantItem(BOPPlants.ROOT), new ItemStack(BOPItems.crystal_shard), new ItemStack(BOPItems.jar_filled, 1, ItemJarFilled.JarContents.HONEY.ordinal()), new ItemStack(BOPItems.berries), Items.SUGAR);
         
         // Oranmental Artifact
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.terrestrial_artifact), new Object[] {new ItemStack(BOPItems.gem, 1, BOPGems.RUBY.ordinal()), new ItemStack(BOPItems.gem, 1, BOPGems.TOPAZ.ordinal()), new ItemStack(BOPItems.gem, 1, BOPGems.AMBER.ordinal()), new ItemStack(BOPItems.gem, 1, BOPGems.PERIDOT.ordinal()), new ItemStack(BOPItems.gem, 1, BOPGems.MALACHITE.ordinal()), new ItemStack(BOPItems.gem, 1, BOPGems.SAPPHIRE.ordinal()), new ItemStack(BOPItems.gem, 1, BOPGems.TANZANITE.ordinal()), Items.EMERALD});
+        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.terrestrial_artifact), new ItemStack(BOPItems.gem, 1, BOPGems.RUBY.ordinal()), new ItemStack(BOPItems.gem, 1, BOPGems.TOPAZ.ordinal()), new ItemStack(BOPItems.gem, 1, BOPGems.AMBER.ordinal()), new ItemStack(BOPItems.gem, 1, BOPGems.PERIDOT.ordinal()), new ItemStack(BOPItems.gem, 1, BOPGems.MALACHITE.ordinal()), new ItemStack(BOPItems.gem, 1, BOPGems.SAPPHIRE.ordinal()), new ItemStack(BOPItems.gem, 1, BOPGems.TANZANITE.ordinal()), Items.EMERALD);
         
         // Flesh Block
-        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.flesh), new Object[] {"##", "##", '#', new ItemStack(BOPItems.fleshchunk)});
+        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.flesh), "##", "##", '#', new ItemStack(BOPItems.fleshchunk));
         
         // Honeycombs
-        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.hive, 1, BlockBOPHive.HiveType.HONEYCOMB.ordinal()), new Object [] {"##", "##", '#', new ItemStack(BOPItems.honeycomb)});
-        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.hive, 1, BlockBOPHive.HiveType.FILLED_HONEYCOMB.ordinal()), new Object [] {"##", "##", '#', new ItemStack(BOPItems.filled_honeycomb)});
+        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.hive, 1, BlockBOPHive.HiveType.HONEYCOMB.ordinal()), "##", "##", '#', new ItemStack(BOPItems.honeycomb));
+        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.hive, 1, BlockBOPHive.HiveType.FILLED_HONEYCOMB.ordinal()), "##", "##", '#', new ItemStack(BOPItems.filled_honeycomb));
 
         // Food
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.shroompowder), new Object[] {new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.TOADSTOOL.ordinal())});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.ricebowl), new Object[] {Items.BOWL, BlockBOPPlant.paging.getVariantItem(BOPPlants.WILDRICE)});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.saladfruit), new Object[] {Items.BOWL, BOPItems.peach, Items.APPLE, BOPItems.pear});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.saladveggie), new Object[] {Items.BOWL, BOPItems.turnip, Items.CARROT, Items.POTATO});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.saladshroom), new Object[] {Items.BOWL, new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.TOADSTOOL.ordinal()), new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.PORTOBELLO.ordinal()), new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.BLUE_MILK_CAP.ordinal())});
+        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.shroompowder), new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.TOADSTOOL.ordinal()));
+        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.ricebowl), Items.BOWL, BlockBOPPlant.paging.getVariantItem(BOPPlants.WILDRICE));
+        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.saladfruit), Items.BOWL, BOPItems.peach, Items.APPLE, BOPItems.pear);
+        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.saladveggie), Items.BOWL, BOPItems.turnip, Items.CARROT, Items.POTATO);
+        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.saladshroom), Items.BOWL, new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.TOADSTOOL.ordinal()), new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.PORTOBELLO.ordinal()), new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.BLUE_MILK_CAP.ordinal()));
 
         // Terrariums
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.FERN.ordinal()), new Object[] {"blockGrass", new ItemStack(Blocks.TALLGRASS, 1, 2), new ItemStack(BOPItems.jar_empty)}));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.MUSHROOM.ordinal()), new Object[] {"blockGrass", new ItemStack(Blocks.RED_MUSHROOM), new ItemStack(BOPItems.jar_empty)}));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.CACTUS.ordinal()), new Object[] {"blockGrass", BlockBOPPlant.paging.getVariantItem(BOPPlants.TINYCACTUS), new ItemStack(BOPItems.jar_empty)}));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.FLAX.ordinal()), new Object[] {"blockGrass", ((BlockBOPDoublePlant)BOPBlocks.double_plant).getVariantItem(BlockBOPDoublePlant.DoublePlantType.FLAX), new ItemStack(BOPItems.jar_empty)}));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.SAPLING.ordinal()), new Object[] {"blockGrass", "treeSapling", new ItemStack(BOPItems.jar_empty)}));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.KORU.ordinal()), new Object[] {"blockGrass", BlockBOPPlant.paging.getVariantItem(BOPPlants.KORU), new ItemStack(BOPItems.jar_empty)}));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.FLOWER.ordinal()), new Object[] {"blockGrass", new ItemStack(Blocks.RED_FLOWER), new ItemStack(BOPItems.jar_empty)}));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.FLOWER.ordinal()), new Object[] {"blockGrass", new ItemStack(Blocks.YELLOW_FLOWER), new ItemStack(BOPItems.jar_empty)}));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.FLOWER.ordinal()), new Object[] {"blockGrass", new ItemStack(BOPBlocks.flower_0), new ItemStack(BOPItems.jar_empty)}));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.FLOWER.ordinal()), new Object[] {"blockGrass", new ItemStack(BOPBlocks.flower_1), new ItemStack(BOPItems.jar_empty)}));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.BAMBOO.ordinal()), new Object[] {new ItemStack(Blocks.DIRT, 1, 2), new ItemStack(BOPBlocks.bamboo), new ItemStack(BOPItems.jar_empty)}));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.DEAD.ordinal()), new Object[] {"blockGrass", new ItemStack(Blocks.DEADBUSH), new ItemStack(BOPItems.jar_empty)}));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.GLOWSHROOM.ordinal()), new Object[] {"stone", new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.GLOWSHROOM.ordinal()), new ItemStack(BOPItems.jar_empty)}));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.MYSTIC.ordinal()), new Object[] {"blockGrass", BlockBOPFlower.paging.getVariantItem(BOPFlowers.GLOWFLOWER), new ItemStack(BOPItems.jar_empty)}));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.OMINOUS.ordinal()), new Object[] {"blockGrass", BlockBOPFlower.paging.getVariantItem(BOPFlowers.DEATHBLOOM), new ItemStack(BOPItems.jar_empty)}));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.ORIGIN.ordinal()), new Object[] {new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.ORIGIN.ordinal()), BlockBOPFlower.paging.getVariantItem(BOPFlowers.ROSE), new ItemStack(BOPItems.jar_empty)}));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.WASTELAND.ordinal()), new Object[] {new ItemStack(BOPBlocks.dried_sand), BlockBOPFlower.paging.getVariantItem(BOPFlowers.WILTED_LILY), new ItemStack(BOPItems.jar_empty)}));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.NETHER.ordinal()), new Object[] {new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.OVERGROWN_NETHERRACK.ordinal()), BlockBOPFlower.paging.getVariantItem(BOPFlowers.BURNING_BLOSSOM), new ItemStack(BOPItems.jar_empty)}));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.ENDER.ordinal()), new Object[] {new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.SPECTRAL_MOSS.ordinal()), BlockBOPPlant.paging.getVariantItem(BOPPlants.SPECTRALFERN), new ItemStack(BOPItems.jar_empty)}));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.FERN.ordinal()), "blockGrass", new ItemStack(Blocks.TALLGRASS, 1, 2), new ItemStack(BOPItems.jar_empty)));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.MUSHROOM.ordinal()), "blockGrass", new ItemStack(Blocks.RED_MUSHROOM), new ItemStack(BOPItems.jar_empty)));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.CACTUS.ordinal()), "blockGrass", BlockBOPPlant.paging.getVariantItem(BOPPlants.TINYCACTUS), new ItemStack(BOPItems.jar_empty)));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.FLAX.ordinal()), "blockGrass", ((BlockBOPDoublePlant)BOPBlocks.double_plant).getVariantItem(BlockBOPDoublePlant.DoublePlantType.FLAX), new ItemStack(BOPItems.jar_empty)));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.SAPLING.ordinal()), "blockGrass", "treeSapling", new ItemStack(BOPItems.jar_empty)));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.KORU.ordinal()), "blockGrass", BlockBOPPlant.paging.getVariantItem(BOPPlants.KORU), new ItemStack(BOPItems.jar_empty)));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.FLOWER.ordinal()), "blockGrass", new ItemStack(Blocks.RED_FLOWER), new ItemStack(BOPItems.jar_empty)));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.FLOWER.ordinal()), "blockGrass", new ItemStack(Blocks.YELLOW_FLOWER), new ItemStack(BOPItems.jar_empty)));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.FLOWER.ordinal()), "blockGrass", new ItemStack(BOPBlocks.flower_0), new ItemStack(BOPItems.jar_empty)));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.FLOWER.ordinal()), "blockGrass", new ItemStack(BOPBlocks.flower_1), new ItemStack(BOPItems.jar_empty)));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.BAMBOO.ordinal()), new ItemStack(Blocks.DIRT, 1, 2), new ItemStack(BOPBlocks.bamboo), new ItemStack(BOPItems.jar_empty)));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.DEAD.ordinal()), "blockGrass", new ItemStack(Blocks.DEADBUSH), new ItemStack(BOPItems.jar_empty)));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.GLOWSHROOM.ordinal()), "stone", new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.GLOWSHROOM.ordinal()), new ItemStack(BOPItems.jar_empty)));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.MYSTIC.ordinal()), "blockGrass", BlockBOPFlower.paging.getVariantItem(BOPFlowers.GLOWFLOWER), new ItemStack(BOPItems.jar_empty)));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.OMINOUS.ordinal()), "blockGrass", BlockBOPFlower.paging.getVariantItem(BOPFlowers.DEATHBLOOM), new ItemStack(BOPItems.jar_empty)));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.ORIGIN.ordinal()), new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.ORIGIN.ordinal()), BlockBOPFlower.paging.getVariantItem(BOPFlowers.ROSE), new ItemStack(BOPItems.jar_empty)));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.WASTELAND.ordinal()), new ItemStack(BOPBlocks.dried_sand), BlockBOPFlower.paging.getVariantItem(BOPFlowers.WILTED_LILY), new ItemStack(BOPItems.jar_empty)));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.NETHER.ordinal()), new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.OVERGROWN_NETHERRACK.ordinal()), BlockBOPFlower.paging.getVariantItem(BOPFlowers.BURNING_BLOSSOM), new ItemStack(BOPItems.jar_empty)));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.ENDER.ordinal()), new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.SPECTRAL_MOSS.ordinal()), BlockBOPPlant.paging.getVariantItem(BOPPlants.SPECTRALFERN), new ItemStack(BOPItems.jar_empty)));
+
+        // Vanilla convenience recipes
+        GameRegistry.addShapelessRecipe(new ItemStack(Blocks.SAND), new ItemStack(BOPBlocks.dried_sand), new ItemStack(Items.WATER_BUCKET));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(BOPBlocks.plant_0, 1, BOPPlants.LEAFPILE.ordinal()), "treeLeaves"));
     }
     
     
-    public static void addSmeltingRecipes()
+    private static void addSmeltingRecipes()
     {
         
         // Register smelting recipes
@@ -414,6 +396,4 @@ public class ModCrafting
         }
 
     }
-    
-    
 }
