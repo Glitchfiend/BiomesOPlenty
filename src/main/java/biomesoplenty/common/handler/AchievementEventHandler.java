@@ -53,7 +53,7 @@ public class AchievementEventHandler
         ItemStack stack = event.getItem().getEntityItem();
         Item item = stack.getItem();
         
-        IBlockState state = Block.getBlockFromItem(item).getStateFromMeta(item.getMetadata(stack.getMetadata()));
+        IBlockState state = Block.getBlockFromItem(item).getStateFromMeta(item.getMetadata(stack));
         Block block = state.getBlock();
         EntityPlayer player = event.getEntityPlayer();
 
@@ -174,7 +174,7 @@ public class AchievementEventHandler
         if (stack != null)
         {
             Item item = stack.getItem();
-            IBlockState state = Block.getBlockFromItem(item).getStateFromMeta(item.getMetadata(stack.getMetadata()));
+            IBlockState state = Block.getBlockFromItem(item).getStateFromMeta(item.getMetadata(stack));
 
             try
             {
