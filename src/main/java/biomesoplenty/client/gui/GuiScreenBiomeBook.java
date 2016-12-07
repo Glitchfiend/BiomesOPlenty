@@ -1,4 +1,4 @@
-/*package biomesoplenty.client.gui;
+package biomesoplenty.client.gui;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -278,4 +278,4 @@ public class GuiScreenBiomeBook extends GuiScreenBook
             fontRenderer.drawStringWithShadow(string, x, y, colour);
         }
     }
-}*/
+}
