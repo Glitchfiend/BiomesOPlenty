@@ -126,6 +126,11 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 	@Override
 	public boolean isValidPosition(World world, int x, int y, int z, int metadata)
 	{
+		if (y >= 256)
+		{
+			return false;
+		}
+		
 		Block block = world.getBlock(x, y - 1, z);
 		Block root = world.getBlock(x, y + 1, z);
 		Block reedwater = world.getBlock(x, y - 2, z);
@@ -181,14 +186,18 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 	}
 
 	@Override
-    public boolean canReplace(World world, int x, int y, int z, int side, ItemStack itemStack)
+	public boolean canReplace(World world, int x, int y, int z, int side, ItemStack itemStack)
 	{
+		if (y >= 256)
+		{
+			return false;
+		}
 		int metadata = itemStack != null ? itemStack.getItemDamage() : 0;
 		
-        if (metadata == 5 || metadata == 13 || metadata == 15)
-        	return this.isValidPosition(world, x, y, z, metadata);
-        else
-        	return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.isValidPosition(world, x, y, z, metadata);
+        	if (metadata == 5 || metadata == 13 || metadata == 15)
+        		return this.isValidPosition(world, x, y, z, metadata);
+        	else
+        		return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.isValidPosition(world, x, y, z, metadata);
 	}
 
 	@Override
@@ -253,24 +262,24 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 	}
 	
 	@Override
-    public ItemStack getPickBlock(MovingObjectPosition target, World world, int x, int y, int z)
+    	public ItemStack getPickBlock(MovingObjectPosition target, World world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 
 		switch (meta)
 		{
-		case 9:
-			return new ItemStack(this, 1, 7);
+			case 9:
+				return new ItemStack(this, 1, 7);
 
-		case 10:
-			return new ItemStack(this, 1, 7);
+			case 10:
+				return new ItemStack(this, 1, 7);
 
-		case 11:
-			return new ItemStack(BOPCItems.food, 1, 2);
+			case 11:
+				return new ItemStack(BOPCItems.food, 1, 2);
 		}
 
 		return new ItemStack(this, 1, meta);
-    }
+    	}
 
 	@Override
 	public int getDamageValue(World world, int x, int y, int z) 
@@ -368,31 +377,31 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 		}
 	}
 	
-    @Override
+    	@Override
 	@SideOnly(Side.CLIENT)
-    public boolean addDestroyEffects(World world, int x, int y, int z, int meta, EffectRenderer effectRenderer)
-    {
+    	public boolean addDestroyEffects(World world, int x, int y, int z, int meta, EffectRenderer effectRenderer)
+    	{
 		if (meta == 13)
 		{
-            byte b0 = 3;
+            		byte b0 = 3;
 
-            for (int j1 = 0; j1 < b0; ++j1)
-            {
-                for (int k1 = 0; k1 < b0; ++k1)
-                {
-                    for (int l1 = 0; l1 < b0; ++l1)
-                    {
-                        double d0 = (double)x + ((double)j1 + 0.5D) / (double)b0;
-                        double d1 = (double)y + ((double)k1 + 0.5D) / (double)b0;
-                        double d2 = (double)z + ((double)l1 + 0.5D) / (double)b0;
-                        world.spawnParticle("smoke", d0, d1, d2, d0 - (double)x - 0.5D, d1 - (double)y - 0.5D, d2 - (double)z - 0.5D);
-                    }
-                }
-            }
+            		for (int j1 = 0; j1 < b0; ++j1)
+            		{
+                		for (int k1 = 0; k1 < b0; ++k1)
+                		{
+                    			for (int l1 = 0; l1 < b0; ++l1)
+                    			{
+                        			double d0 = (double)x + ((double)j1 + 0.5D) / (double)b0;
+                        			double d1 = (double)y + ((double)k1 + 0.5D) / (double)b0;
+                        			double d2 = (double)z + ((double)l1 + 0.5D) / (double)b0;
+                        			world.spawnParticle("smoke", d0, d1, d2, d0 - (double)x - 0.5D, d1 - (double)y - 0.5D, d2 - (double)z - 0.5D);
+                    			}
+                		}
+            		}
 		}
 		
 		return false;
-    }
+    	}
 
 	@Override
 	public boolean canPlaceBlockAt(World world, int x, int y, int z)
@@ -410,7 +419,7 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 	    int metadata = world.getBlockMetadata(x, y, z);
 	    
 		if (metadata == 7 || metadata == 8 || metadata == 9 || metadata == 11)
-		    return false;
+			return false;
 		else
 			return true;
 	}
