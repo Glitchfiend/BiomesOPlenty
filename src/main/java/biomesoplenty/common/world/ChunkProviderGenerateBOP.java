@@ -379,13 +379,13 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
         Biome[] biomes = this.worldObj.getBiomeProvider().getBiomesForGeneration(null, chunkX * 4 - 2, chunkZ * 4 - 2, 10, 10);
 
         // values from vanilla
-        float coordinateScale = 684.412F;
-        float heightScale = 684.412F;
-        double upperLimitScale = 512.0D;
-        double lowerLimitScale = 512.0D;
-        float mainNoiseScaleX = 80.0F;
-        float mainNoiseScaleY = 160.0F;
-        float mainNoiseScaleZ = 80.0F;
+        float coordinateScale = this.settings.coordinateScale;
+        float heightScale = this.settings.heightScale;
+        double upperLimitScale = this.settings.upperLimitScale;
+        double lowerLimitScale = this.settings.lowerLimitScale;
+        float mainNoiseScaleX = this.settings.mainNoiseScaleX;
+        float mainNoiseScaleY = this.settings.mainNoiseScaleY;
+        float mainNoiseScaleZ = this.settings.mainNoiseScaleZ;
 
         int subchunkX = chunkX * 4;
         int subchunkY = 0;

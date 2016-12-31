@@ -114,7 +114,14 @@ public class BOPWorldSettings implements IBOPWorldSettings
     public int lavaLakeChance;
     public boolean useLavaOceans;
 
-    
+    public float coordinateScale;
+    public float heightScale;
+    public float upperLimitScale;
+    public float lowerLimitScale;
+    public float mainNoiseScaleX;
+    public float mainNoiseScaleY;
+    public float mainNoiseScaleZ;
+
     public BOPWorldSettings()
     {
         this.setDefault();
@@ -154,7 +161,14 @@ public class BOPWorldSettings implements IBOPWorldSettings
         obj.addProperty("generateNetherHives", this.generateNetherHives);
         obj.addProperty("generateNetherPlants", this.generateNetherPlants);
         obj.addProperty("generateEndFeatures", this.generateEndFeatures);
-        
+        obj.addProperty("mainNoiseScaleX", this.mainNoiseScaleX);
+        obj.addProperty("mainNoiseScaleY", this.mainNoiseScaleY);
+        obj.addProperty("mainNoiseScaleZ", this.mainNoiseScaleZ);
+        obj.addProperty("coordinateScale", this.coordinateScale);
+        obj.addProperty("heightScale", this.heightScale);
+        obj.addProperty("upperLimitScale", this.upperLimitScale);
+        obj.addProperty("lowerLimitScale", this.lowerLimitScale);
+
         return serializer.toJson(obj);
     }
     
@@ -190,6 +204,13 @@ public class BOPWorldSettings implements IBOPWorldSettings
         this.generateNetherHives = worldConfig.getBool("generateNetherHives", this.generateNetherHives);
         this.generateNetherPlants = worldConfig.getBool("generateNetherPlants", this.generateNetherPlants);
         this.generateEndFeatures = worldConfig.getBool("generateEndFeatures", this.generateEndFeatures);
+        this.mainNoiseScaleX = worldConfig.getFloat("mainNoiseScaleX", this.mainNoiseScaleX);
+        this.mainNoiseScaleY = worldConfig.getFloat("mainNoiseScaleY", this.mainNoiseScaleY);
+        this.mainNoiseScaleZ = worldConfig.getFloat("mainNoiseScaleZ", this.mainNoiseScaleZ);
+        this.coordinateScale = worldConfig.getFloat("coordinateScale", this.coordinateScale);
+        this.heightScale = worldConfig.getFloat("heightScale", this.heightScale);
+        this.upperLimitScale = worldConfig.getFloat("upperLimitScale", this.upperLimitScale);
+        this.lowerLimitScale = worldConfig.getFloat("lowerLimitScale", this.lowerLimitScale);
     }
     
     public void setDefault()
@@ -238,8 +259,15 @@ public class BOPWorldSettings implements IBOPWorldSettings
         this.useLavaLakes = true;
         this.lavaLakeChance = 80;
         this.useLavaOceans = false;
-        
-        
+
+        this.mainNoiseScaleX = 80.0F;
+        this.mainNoiseScaleY = 160.0F;
+        this.mainNoiseScaleZ = 80.0F;
+        this.coordinateScale = 684.412F;
+        this.heightScale = 684.412F;
+        this.upperLimitScale = 512.0F;
+        this.lowerLimitScale = 512.0F;
+
         // Allow defaults to be overridden from file
         IConfigObj worldConfig = new BOPConfig.ConfigFileObj(new File(BiomesOPlenty.configDirectory, "world.json"));
         this.fromConfigObj(worldConfig);
