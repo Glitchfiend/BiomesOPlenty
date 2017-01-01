@@ -192,8 +192,15 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
         GENERATE_HOT_SPRINGS (123),
         GENERATE_NETHER_HIVES (124),
         GENERATE_NETHER_PLANTS (125),
-        GENERATE_END_FEATURES (126);
-        
+        GENERATE_END_FEATURES (126),
+        MAIN_NOISE_SCALE_X (127),
+        MAIN_NOISE_SCALE_Y (128),
+        MAIN_NOISE_SCALE_Z (129),
+        COORDINATE_SCALE (130),
+        HEIGHT_SCALE (131),
+        UPPER_LIMIT_SCALE (132),
+        LOWER_LIMIT_SCALE (133);
+
         private int id;
         
         private GuiEntries(int id)
@@ -229,7 +236,14 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
             new GuiBOPPageList.GuiEnumButtonEntry<LandMassScheme>(GuiEntries.LAND_SCHEME.getId(), "Land Mass: %s", true, this.settings.landScheme),
             new GuiBOPPageList.GuiEnumButtonEntry<TemperatureVariationScheme>(GuiEntries.TEMP_SCHEME.getId(), "Temperature: %s", true, this.settings.tempScheme),
             new GuiBOPPageList.GuiEnumButtonEntry<RainfallVariationScheme>(GuiEntries.RAIN_SCHEME.getId(), "Rainfall: %s", true, this.settings.rainScheme),
-            new GuiBOPPageList.GuiSlideEntry(GuiEntries.AMPLITUDE.getId(), "Amplitude", true, this, 0.2F, 3.0F, this.settings.amplitude)
+            new GuiBOPPageList.GuiSlideEntry(GuiEntries.AMPLITUDE.getId(), "Amplitude", true, this, 0.2F, 3.0F, this.settings.amplitude),
+            new GuiBOPPageList.GuiSlideEntry(GuiEntries.MAIN_NOISE_SCALE_X.getId(), "Main Noise Scale X", true, this, 1.0F, 5000.0F, this.settings.mainNoiseScaleX),
+            new GuiBOPPageList.GuiSlideEntry(GuiEntries.MAIN_NOISE_SCALE_Y.getId(), "Main Noise Scale Y", true, this, 1.0F, 5000.0F, this.settings.mainNoiseScaleY),
+            new GuiBOPPageList.GuiSlideEntry(GuiEntries.MAIN_NOISE_SCALE_Z.getId(), "Main Noise Scale Z", true, this, 1.0F, 5000.0F, this.settings.mainNoiseScaleZ),
+            new GuiBOPPageList.GuiSlideEntry(GuiEntries.COORDINATE_SCALE.getId(), "Coordinate Scale", true, this, 1.0F, 6000.0F, this.settings.coordinateScale),
+            new GuiBOPPageList.GuiSlideEntry(GuiEntries.HEIGHT_SCALE.getId(), "Height Scale", true, this, 1.0F, 6000.0F, this.settings.heightScale),
+            new GuiBOPPageList.GuiSlideEntry(GuiEntries.UPPER_LIMIT_SCALE.getId(), "Upper Limit Scale", true, this, 1.0F, 5000.0F, this.settings.upperLimitScale),
+            new GuiBOPPageList.GuiSlideEntry(GuiEntries.LOWER_LIMIT_SCALE.getId(), "Lower Limit Scale", true, this, 1.0F, 5000.0F, this.settings.lowerLimitScale),
         };
         
         this.pageNames[1] = "Biome Settings";
@@ -301,6 +315,13 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
         switch (entry)
         {
             case AMPLITUDE:
+            case MAIN_NOISE_SCALE_X:
+            case MAIN_NOISE_SCALE_Y:
+            case MAIN_NOISE_SCALE_Z:
+            case COORDINATE_SCALE:
+            case HEIGHT_SCALE:
+            case UPPER_LIMIT_SCALE:
+            case LOWER_LIMIT_SCALE:
                 return String.format("%5.3f", new Object[] {Float.valueOf(value)});
             default:
                 return "";
@@ -429,6 +450,27 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
         {
             case AMPLITUDE:
                 this.settings.amplitude = value;
+                break;
+            case MAIN_NOISE_SCALE_X:
+                this.settings.mainNoiseScaleX = value;
+                break;
+            case MAIN_NOISE_SCALE_Y:
+                this.settings.mainNoiseScaleY = value;
+                break;
+            case MAIN_NOISE_SCALE_Z:
+                this.settings.mainNoiseScaleZ = value;
+                break;
+            case COORDINATE_SCALE:
+                this.settings.coordinateScale = value;
+                break;
+            case HEIGHT_SCALE:
+                this.settings.heightScale = value;
+                break;
+            case UPPER_LIMIT_SCALE:
+                this.settings.upperLimitScale = value;
+                break;
+            case LOWER_LIMIT_SCALE:
+                this.settings.lowerLimitScale = value;
                 break;
             default:
                 break;
