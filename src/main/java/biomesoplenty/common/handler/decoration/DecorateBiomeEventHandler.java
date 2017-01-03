@@ -43,9 +43,7 @@ public class DecorateBiomeEventHandler
         
         if (event.getType() != Decorate.EventType.CUSTOM)
         {
-            boolean allow = runGeneratorStage(event.getWorld(), event.getRand(), event.getPos(), GeneratorStage.mapDecorateType(event.getType()));
-            
-            event.setResult(allow ? Result.ALLOW : Result.DENY);
+            runGeneratorStage(event.getWorld(), event.getRand(), event.getPos(), GeneratorStage.mapDecorateType(event.getType()));
         }
     }
     
@@ -89,15 +87,6 @@ public class DecorateBiomeEventHandler
             {
                 generator.scatter(world, random, pos);
             }
-            
-            //Biomes should explicitly allow for the following by defining their own generators
-            /*if (extendedBiome.getBiomeOwner() == BiomeOwner.BIOMESOPLENTY)
-            {
-                if (stage == GeneratorStage.PUMPKIN)
-                {
-                    return false;
-                }
-            }*/
         }
 
         return true;
