@@ -7,11 +7,6 @@
  ******************************************************************************/
 package biomesoplenty.common.handler;
 
-import java.util.Iterator;
-import java.util.Set;
-
-import com.google.common.collect.Sets;
-
 import biomesoplenty.api.achievement.BOPAchievements;
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.block.BOPBlocks;
@@ -19,11 +14,8 @@ import biomesoplenty.api.enums.BOPFlowers;
 import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.common.block.BlockBOPFlower;
-import biomesoplenty.common.block.BlockBOPLog;
-import biomesoplenty.common.block.BlockBOPPlant;
-import biomesoplenty.common.block.BlockBOPSapling;
-import biomesoplenty.common.item.ItemJarFilled;
+import biomesoplenty.common.block.*;
+import com.google.common.collect.Sets;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -45,6 +37,9 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.ItemCraftedEvent;
 
+import java.util.Iterator;
+import java.util.Set;
+
 public class AchievementEventHandler 
 {
     private static final Set<Biome> BOP_BIOMES_TO_EXPLORE = Sets.union(BOPBiomes.REG_INSTANCE.getPresentBiomes(), Biome.EXPLORATION_BIOMES_LIST);
@@ -54,20 +49,49 @@ public class AchievementEventHandler
     {
         ItemStack stack = event.pickedUp.getEntityItem();
         Item item = stack.getItem();
-        
-        Block block = Block.getBlockFromItem(item);
-        IBlockState state = null;
-        EntityPlayer player = event.player;
-        
-        try
-        {
-            state = block != null && item instanceof ItemBlock ? block.getStateFromMeta(((ItemBlock)item).getMetadata(stack.getMetadata())) : null;
-        }
-        catch (Exception e) {}
 
-        if (block != null && block instanceof BlockBOPLog)
+        Block block = Block.getBlockFromItem(item);
+        EntityPlayer player = event.player;
+
+        if (block instanceof IBOPBlock)
         {
-            player.addStat(AchievementList.MINE_WOOD);
+            IBlockState state = block != null && item instanceof ItemBlock ? block.getStateFromMeta(item.getMetadata(stack.getMetadata())) : null;
+
+            if (block instanceof BlockBOPLog)
+            {
+                player.addStat(AchievementList.MINE_WOOD);
+            }
+
+            //Totally Coral Achievement
+            if (block != null && block == BOPBlocks.coral)
+            {
+                player.addStat(BOPAchievements.obtain_coral);
+            }
+
+            //Life Finds a Way Achievement
+            if (block != null && state == BlockBOPFlower.paging.getVariantState(BOPFlowers.MINERS_DELIGHT))
+            {
+                player.addStat(BOPAchievements.obtain_miners_delight);
+            }
+
+
+            //Rather Thorny Achievement
+            if (block != null && state == BlockBOPPlant.paging.getVariantState(BOPPlants.THORN))
+            {
+                player.addStat(BOPAchievements.obtain_thorn);
+            }
+
+            //I am Become Death Achievement
+            if (block != null && state == BlockBOPFlower.paging.getVariantState(BOPFlowers.DEATHBLOOM))
+            {
+                player.addStat(BOPAchievements.obtain_deathbloom);
+            }
+
+            //Godsend Achievement
+            if (block != null && state == BlockBOPFlower.paging.getVariantState(BOPFlowers.WILTED_LILY))
+            {
+                player.addStat(BOPAchievements.obtain_wilted_lily);
+            }
         }
 
         //Flower Child Achievement
@@ -81,44 +105,13 @@ public class AchievementEventHandler
         {
             player.addStat(BOPAchievements.obtain_berry);
         }
-        
-        //Totally Coral Achievement
-        if (block != null && block == BOPBlocks.coral)
-        {
-            player.addStat(BOPAchievements.obtain_coral);
-        }
-        
-        //Life Finds a Way Achievement
-        if (block != null && state == BlockBOPFlower.paging.getVariantState(BOPFlowers.MINERS_DELIGHT))
-        {
-            player.addStat(BOPAchievements.obtain_miners_delight);
-        }
-
-
-        //Rather Thorny Achievement
-        if (block != null && state == BlockBOPPlant.paging.getVariantState(BOPPlants.THORN))
-        {
-            player.addStat(BOPAchievements.obtain_thorn);
-        }
-        
-        //I am Become Death Achievement
-        if (block != null && state == BlockBOPFlower.paging.getVariantState(BOPFlowers.DEATHBLOOM))
-        {
-            player.addStat(BOPAchievements.obtain_deathbloom);
-        }
-        
-        //Godsend Achievement
-        if (block != null && state == BlockBOPFlower.paging.getVariantState(BOPFlowers.WILTED_LILY))
-        {
-            player.addStat(BOPAchievements.obtain_wilted_lily);
-        }
 
         //Stalk Market Achievement
         if (item != null && item == BOPItems.turnip)
         {
             player.addStat(BOPAchievements.obtain_turnip);
         }
-        
+
         //Soul Searching Achievement
         if (item != null && item == BOPItems.soul)
         {
