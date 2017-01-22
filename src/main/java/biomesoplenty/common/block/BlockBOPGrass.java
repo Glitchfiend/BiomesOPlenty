@@ -194,7 +194,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
     {
         
         // if this block is covered, then turn it back to dirt (IE kill the grass)
-       if (world.getLightFromNeighbors(pos.up()) < 4 && world.getBlockState(pos.up()).getBlock().getLightOpacity(world.getBlockState(pos.up())) > 2)
+       if (world.getLightFromNeighbors(pos.up()) < 4 && world.getBlockState(pos.up()).getLightOpacity(world, pos.up()) > 2)
        {
            world.setBlockState(pos, getDirtBlockState(state));
        }
@@ -208,14 +208,14 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
                    // pick a random nearby position, and get the block, block state, and block above
                    BlockPos pos1 = pos.add(rand.nextInt(xzSpread * 2 + 1) - xzSpread, rand.nextInt(downSpread + upSpread + 1) - downSpread, rand.nextInt(xzSpread * 2 + 1) - xzSpread);
                    IBlockState target = world.getBlockState(pos1);
-                   Block blockAboveTarget = world.getBlockState(pos1.up()).getBlock();                   
+                   IBlockState blockAboveTarget = world.getBlockState(pos1.up());
                    
                    // see if this type of grass can spread to the target block
                    IBlockState targetGrass = spreadsToGrass(state, target);
                    if (targetGrass == null) {break;}
                    
                    // if there's enough light, turn the block to the relevant grass block
-                   if (world.getLightFromNeighbors(pos1.up()) >= 4 && blockAboveTarget.getLightOpacity(target) <= 2)
+                   if (world.getLightFromNeighbors(pos1.up()) >= 4 && blockAboveTarget.getLightOpacity(world, pos1.up()) <= 2)
                    {
                        world.setBlockState(pos1, targetGrass);
                    }                      
