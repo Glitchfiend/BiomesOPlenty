@@ -163,7 +163,7 @@ public class BlockBOPDirt extends Block implements IBOPBlock, ISustainsPlantType
     {
         IBlockState upState = world.getBlockState(pos.up());
         // if there's not enough light then there's no chance of this block becoming grassy
-        if (world.getLightFromNeighbors(pos.up()) < 4 || upState.getBlock().getLightOpacity(upState) > 2) {return;}
+        if (world.getLightFromNeighbors(pos.up()) < 4 || upState.getLightOpacity(world, pos.up()) > 2) {return;}
 
         int numNearbyGrassSpreadingBlocks = 0;
         BlockPos pos1;
