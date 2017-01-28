@@ -205,7 +205,7 @@ public class GuiBOPPageTable extends GuiBOPPageList
 
     private GuiTextField createTextField(int xPosition, int yPosition, GuiBOPPageList.EditBoxEntry field)
     {
-        GuiTextField guitextfield = new GuiTextField(field.getFieldId(), this.mc.fontRendererObj, xPosition, yPosition, 150, 20);
+        GuiTextField guitextfield = new GuiTextField(field.getFieldId(), this.mc.fontRenderer, xPosition, yPosition, 150, 20);
         guitextfield.setText(field.getLabelText());
         guitextfield.setGuiResponder(this.responder);
         guitextfield.setVisible(field.isVisible());
@@ -219,11 +219,11 @@ public class GuiBOPPageTable extends GuiBOPPageList
 
         if (hasNoNeighbor)
         {
-            guilabel = new GuiLabel(this.mc.fontRendererObj, field.getFieldId(), xPosition, yPosition, this.width - xPosition * 2, 20, -1);
+            guilabel = new GuiLabel(this.mc.fontRenderer, field.getFieldId(), xPosition, yPosition, this.width - xPosition * 2, 20, -1);
         }
         else
         {
-            guilabel = new GuiLabel(this.mc.fontRendererObj, field.getFieldId(), xPosition, yPosition, 150, 20, -1);
+            guilabel = new GuiLabel(this.mc.fontRenderer, field.getFieldId(), xPosition, yPosition, 150, 20, -1);
         }
 
         guilabel.visible = field.isVisible();

@@ -664,9 +664,9 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
     {
         this.drawDefaultBackground();
         this.pageManager.getActivePage().drawScreen(mouseX, mouseY, partialTicks);
-        this.drawCenteredString(this.fontRendererObj, this.screenTitle, this.width / 2, 2, 16777215);
-        this.drawCenteredString(this.fontRendererObj, this.pageInfo, this.width / 2, 12, 16777215);
-        this.drawCenteredString(this.fontRendererObj, this.page0Title, this.width / 2, 22, 16777215);
+        this.drawCenteredString(this.fontRenderer, this.screenTitle, this.width / 2, 2, 16777215);
+        this.drawCenteredString(this.fontRenderer, this.pageInfo, this.width / 2, 12, 16777215);
+        this.drawCenteredString(this.fontRenderer, this.page0Title, this.width / 2, 22, 16777215);
         super.drawScreen(mouseX, mouseY, partialTicks);
 
         if (this.modalAction != 0)
@@ -688,9 +688,9 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
             worldrenderer.pos((double)(this.width / 2 + 90), 100.0D, 0.0D).tex(5.625D, 0.0D).color(64, 64, 64, 64).endVertex();
             worldrenderer.pos((double)(this.width / 2 - 90), 100.0D, 0.0D).tex(0.0D, 0.0D).color(64, 64, 64, 64).endVertex();
             tessellator.draw();
-            this.drawCenteredString(this.fontRendererObj, I18n.format("createWorld.customize.custom.confirmTitle", new Object[0]), this.width / 2, 105, 16777215);
-            this.drawCenteredString(this.fontRendererObj, I18n.format("createWorld.customize.custom.confirm1", new Object[0]), this.width / 2, 125, 16777215);
-            this.drawCenteredString(this.fontRendererObj, I18n.format("createWorld.customize.custom.confirm2", new Object[0]), this.width / 2, 135, 16777215);
+            this.drawCenteredString(this.fontRenderer, I18n.format("createWorld.customize.custom.confirmTitle", new Object[0]), this.width / 2, 105, 16777215);
+            this.drawCenteredString(this.fontRenderer, I18n.format("createWorld.customize.custom.confirm1", new Object[0]), this.width / 2, 125, 16777215);
+            this.drawCenteredString(this.fontRenderer, I18n.format("createWorld.customize.custom.confirm2", new Object[0]), this.width / 2, 135, 16777215);
             this.yesButton.drawButton(this.mc, mouseX, mouseY);
             this.noButton.drawButton(this.mc, mouseX, mouseY);
         }
