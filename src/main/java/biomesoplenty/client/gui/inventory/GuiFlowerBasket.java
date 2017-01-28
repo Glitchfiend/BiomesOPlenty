@@ -31,8 +31,8 @@ public class GuiFlowerBasket extends GuiContainer
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
     {
         String inventoryName = this.inventory.getDisplayName().getUnformattedText();
-        this.fontRendererObj.drawString(inventoryName, 8, 6, 4210752);
-        this.fontRendererObj.drawString(this.playerInventory.getDisplayName().getUnformattedText(), 8, this.ySize - 96 + 2, 4210752);
+        this.fontRenderer.drawString(inventoryName, 8, 6, 4210752);
+        this.fontRenderer.drawString(this.playerInventory.getDisplayName().getUnformattedText(), 8, this.ySize - 96 + 2, 4210752);
     }
     
     @Override
