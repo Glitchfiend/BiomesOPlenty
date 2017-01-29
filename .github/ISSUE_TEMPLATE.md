@@ -3,7 +3,7 @@ BEFORE SUBMITTING!
 For feature requests, please delete this template and create your own. If this is an issue, ensure the following before reporting:
 
 - [ ] Biomes O' Plenty is updated to the latest available version
-- [ ] This issue occurs with Minecraft 1.11. **WE DO NOT SUPPORT MINECRAFT 1.7.10, 1.8.9, 1.9. 1.10.2 AND ANY VERSIONS BELOW THAT!  YOUR ISSUE WILL AUTOMATICALLY BE CLOSED IF IT IS PERTAINING TO THOSE VERSIONS!**
+- [ ] This issue occurs with Minecraft 1.11. **WE DO NOT SUPPORT MINECRAFT 1.7.10, 1.8.9, 1.9.4, 1.10.2 AND ANY VERSIONS BELOW THAT!  YOUR ISSUE WILL AUTOMATICALLY BE CLOSED IF IT IS PERTAINING TO THOSE VERSIONS!**
 - [ ] Forge is updated to the latest available version
 - [ ] This issue occurs without Optifine, Cauldron or similar mods installed
 - [ ] All other mods which appear to be involved are updated to their latest versions
