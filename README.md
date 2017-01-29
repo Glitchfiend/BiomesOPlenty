@@ -10,7 +10,7 @@ Also, if you want to **disable or add certain world generation features** in cer
 
 -----------------
 
-**Please note that the 1.9 version is still in development.  Whilst it may have many bugs fixed compared to 1.7/1.8.9, there will still be some missing features.**
+**Overworld biomes and our modded blocks/items have been finalised, Nether biomes have not yet been implemented however they are on the TODO list.**
  
  -----------------
 
@@ -20,6 +20,6 @@ Biomes O' Plenty is licensed under a [Creative Commons Attribution-NonCommercial
 
 -----------------
 
-We've partnered with **CreeperHost**, and will be launching an **official Glitchfiend server** soon, with all of our mods installed.  It won't be happening until they're updated to 1.9, but feel free to use this **promo code** when ordering a server of your own!
+We've partnered with **CreeperHost**, and will be launching an **official Glitchfiend server** soon(TM), with all of our mods installed. In the meantime, feel free to use this **promo code** when ordering a server of your own!
 
 <p align="center"><img src="http://i.imgur.com/rjmyjrV.png"></p>
