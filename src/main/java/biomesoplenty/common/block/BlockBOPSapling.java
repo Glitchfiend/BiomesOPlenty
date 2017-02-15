@@ -173,53 +173,53 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable, IP
         switch (treeType)
         {
             case YELLOW_AUTUMN:
-            	return new GeneratorBasicTree.Builder().log(BlockPlanks.EnumType.BIRCH).leaves(BOPTrees.YELLOW_AUTUMN).minHeight(5).maxHeight(8).create();
+            	return new GeneratorBasicTree.Builder().log(BlockPlanks.EnumType.BIRCH).leaves(BOPTrees.YELLOW_AUTUMN).minHeight(5).maxHeight(8).updateNeighbours(true).create();
             case ORANGE_AUTUMN:
-            	return new GeneratorBasicTree.Builder().log(BlockPlanks.EnumType.DARK_OAK).leaves(BOPTrees.ORANGE_AUTUMN).minHeight(5).maxHeight(8).create();
+            	return new GeneratorBasicTree.Builder().log(BlockPlanks.EnumType.DARK_OAK).leaves(BOPTrees.ORANGE_AUTUMN).minHeight(5).maxHeight(8).updateNeighbours(true).create();
             case BAMBOO:
-            	return new GeneratorBulbTree.Builder().minHeight(6).maxHeight(18).log(BOPBlocks.bamboo.getDefaultState()).leaves(BOPTrees.BAMBOO).create();
+            	return new GeneratorBulbTree.Builder().minHeight(6).maxHeight(18).log(BOPBlocks.bamboo.getDefaultState()).leaves(BOPTrees.BAMBOO).updateNeighbours(true).create();
             case MAGIC:
-                return new GeneratorBasicTree.Builder().log(BOPWoods.MAGIC).leaves(BOPTrees.MAGIC).create();
+                return new GeneratorBasicTree.Builder().log(BOPWoods.MAGIC).leaves(BOPTrees.MAGIC).updateNeighbours(true).create();
             case UMBRAN:
-                return new GeneratorTaigaTree.Builder().log(BOPWoods.UMBRAN).leaves(BOPTrees.UMBRAN).maxHeight(20).create();
+                return new GeneratorTaigaTree.Builder().log(BOPWoods.UMBRAN).leaves(BOPTrees.UMBRAN).maxHeight(20).updateNeighbours(true).create();
             case DEAD:
-            	return new GeneratorBasicTree.Builder().log(BlockPlanks.EnumType.OAK).leaves(BOPTrees.DEAD).minHeight(5).maxHeight(8).create();
+            	return new GeneratorBasicTree.Builder().log(BlockPlanks.EnumType.OAK).leaves(BOPTrees.DEAD).minHeight(5).maxHeight(8).updateNeighbours(true).create();
             case FIR:
-            	return new GeneratorTaigaTree.Builder().log(BOPWoods.FIR).leaves(BOPTrees.FIR).minHeight(5).maxHeight(28).create();
+            	return new GeneratorTaigaTree.Builder().log(BOPWoods.FIR).leaves(BOPTrees.FIR).minHeight(5).maxHeight(28).updateNeighbours(true).create();
             case ETHEREAL: //Not implemented
                 return new WorldGenTrees(true);
             case ORIGIN:
-            	return new GeneratorBasicTree.Builder().minHeight(5).maxHeight(8).leaves(BOPTrees.ORIGIN).create();
+            	return new GeneratorBasicTree.Builder().minHeight(5).maxHeight(8).leaves(BOPTrees.ORIGIN).updateNeighbours(true).create();
             case PINK_CHERRY:
-            	return new GeneratorBasicTree.Builder().log(BOPWoods.CHERRY).leaves(BOPTrees.PINK_CHERRY).create();
+            	return new GeneratorBasicTree.Builder().log(BOPWoods.CHERRY).leaves(BOPTrees.PINK_CHERRY).updateNeighbours(true).create();
             case WHITE_CHERRY:
-            	return new GeneratorBasicTree.Builder().log(BOPWoods.CHERRY).leaves(BOPTrees.WHITE_CHERRY).create();
+            	return new GeneratorBasicTree.Builder().log(BOPWoods.CHERRY).leaves(BOPTrees.WHITE_CHERRY).updateNeighbours(true).create();
             case MAPLE:
-                return new GeneratorBasicTree.Builder().log(BlockPlanks.EnumType.OAK).leaves(BOPTrees.MAPLE).minHeight(5).maxHeight(10).create();
+                return new GeneratorBasicTree.Builder().log(BlockPlanks.EnumType.OAK).leaves(BOPTrees.MAPLE).minHeight(5).maxHeight(10).updateNeighbours(true).create();
             case HELLBARK: //Not implemented
                 return new WorldGenTrees(true);
             case FLOWERING:
-                return new GeneratorBasicTree.Builder().altLeaves(BOPTrees.FLOWERING).create();
+                return new GeneratorBasicTree.Builder().altLeaves(BOPTrees.FLOWERING).updateNeighbours(true).create();
             case JACARANDA:
-            	return new GeneratorBasicTree.Builder().minHeight(4).maxHeight(7).log(BOPWoods.JACARANDA).leaves(BOPTrees.JACARANDA).create();
+            	return new GeneratorBasicTree.Builder().minHeight(4).maxHeight(7).log(BOPWoods.JACARANDA).leaves(BOPTrees.JACARANDA).updateNeighbours(true).create();
             case SACRED_OAK:
-                return new GeneratorBigTree.Builder().log(BOPWoods.SACRED_OAK).leaves(BOPTrees.SACRED_OAK).minHeight(35).maxHeight(45).trunkWidth(2).foliageDensity(1.25D).create();
+                return new GeneratorBigTree.Builder().log(BOPWoods.SACRED_OAK).leaves(BOPTrees.SACRED_OAK).minHeight(35).maxHeight(45).trunkWidth(2).foliageDensity(1.25D).updateNeighbours(true).create();
             case MANGROVE: //Not implemented
                 return new GeneratorMangroveTree.Builder().log(BOPWoods.MANGROVE).leaves(BOPTrees.MANGROVE).create();
             case PALM:
-                return new GeneratorPalmTree.Builder().log(BOPWoods.PALM).leaves(BlockBOPLeaves.paging.getVariantState(BOPTrees.PALM).withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).create();
+                return new GeneratorPalmTree.Builder().log(BOPWoods.PALM).leaves(BlockBOPLeaves.paging.getVariantState(BOPTrees.PALM).withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).updateNeighbours(true).create();
             case REDWOOD:
                 return new GeneratorRedwoodTree.Builder().create();
             case WILLOW:
-            	return new GeneratorBasicTree.Builder().log(BOPWoods.WILLOW).leaves(BlockBOPLeaves.paging.getVariantState(BOPTrees.WILLOW).withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).minHeight(8).maxHeight(12).maxLeavesRadius(2).vine(BlockBOPLeaves.paging.getVariantState(BOPTrees.WILLOW).withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).leavesOffset(0).create();
+            	return new GeneratorBasicTree.Builder().log(BOPWoods.WILLOW).leaves(BlockBOPLeaves.paging.getVariantState(BOPTrees.WILLOW).withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).minHeight(8).maxHeight(12).maxLeavesRadius(2).vine(BlockBOPLeaves.paging.getVariantState(BOPTrees.WILLOW).withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).leavesOffset(0).updateNeighbours(true).create();
             case PINE:
-            	return new GeneratorPineTree.Builder().minHeight(6).maxHeight(18).log(BOPWoods.PINE).leaves(BOPTrees.PINE).create();
+            	return new GeneratorPineTree.Builder().minHeight(6).maxHeight(18).log(BOPWoods.PINE).leaves(BOPTrees.PINE).updateNeighbours(true).create();
             case MAHOGANY:
-                return new GeneratorMahoganyTree.Builder().create();
+                return new GeneratorMahoganyTree.Builder().updateNeighbours(true).create();
             case EBONY:
-                return new GeneratorBigTree.Builder().log(BOPWoods.EBONY).leaves(BOPTrees.EBONY).minHeight(4).maxHeight(10).foliageHeight(1).create();
+                return new GeneratorBigTree.Builder().log(BOPWoods.EBONY).leaves(BOPTrees.EBONY).minHeight(4).maxHeight(10).foliageHeight(1).updateNeighbours(true).create();
             case EUCALYPTUS:
-                return new GeneratorBulbTree.Builder().minHeight(15).maxHeight(30).log(BOPWoods.EUCALYPTUS).leaves(BOPTrees.EUCALYPTUS).create();
+                return new GeneratorBulbTree.Builder().minHeight(15).maxHeight(30).log(BOPWoods.EUCALYPTUS).leaves(BOPTrees.EUCALYPTUS).updateNeighbours(true).create();
             default:
             	return null;
         }

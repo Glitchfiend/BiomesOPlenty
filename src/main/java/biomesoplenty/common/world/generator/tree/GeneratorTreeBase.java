@@ -80,6 +80,7 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
         protected IBlockState altLeaves;
         protected int minHeight;
         protected int maxHeight;
+        protected boolean updateNeighbours;
         
         public T placeOn(IBlockPosQuery a) {this.placeOn = a; return this.self();}
         public T placeOn(String a) throws BlockQueryParseException {this.placeOn = BlockQuery.parseQueryString(a); return this.self();}
@@ -148,7 +149,8 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
         
         public T minHeight(int a) {this.minHeight = a; return this.self();}
         public T maxHeight(int a) {this.maxHeight = a; return this.self();}
-    
+
+        public T updateNeighbours(boolean a) {this.updateNeighbours = a; return this.self();}
     }
     
     

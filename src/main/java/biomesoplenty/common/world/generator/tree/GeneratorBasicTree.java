@@ -51,6 +51,7 @@ public class GeneratorBasicTree extends GeneratorTreeBase
             this.altLeaves = null;
             this.minHeight = 4;
             this.maxHeight = 7;
+            this.updateNeighbours = false;
             this.leafLayers = 4;
             this.leavesOffset = 1;
             this.maxLeavesRadius = 1;
@@ -62,7 +63,7 @@ public class GeneratorBasicTree extends GeneratorTreeBase
         @Override
         public GeneratorBasicTree create()
         {
-            return new GeneratorBasicTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.trunkFruit, this.altLeaves, this.minHeight, this.maxHeight, false, this.leafLayers, this.leavesOffset, this.maxLeavesRadius, this.leavesLayerHeight, this.placeVinesOn, this.hangingChance);
+            return new GeneratorBasicTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.trunkFruit, this.altLeaves, this.minHeight, this.maxHeight, this.updateNeighbours, this.leafLayers, this.leavesOffset, this.maxLeavesRadius, this.leavesLayerHeight, this.placeVinesOn, this.hangingChance);
         }
     }
     
