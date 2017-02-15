@@ -641,7 +641,8 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         //Non-wrapped biomes should not be registered this way
         if (extendedBiome.getBaseBiome() instanceof IExtendedBiome)
             throw new IllegalArgumentException("Biome already implements IExtendedBiome, it should be registered appropriately");
-        
+
+        extendedBiome.configure(readConfigFile(idName));
         return BOPBiomes.REG_INSTANCE.registerBiome(extendedBiome, idName);
     }
     
