@@ -113,6 +113,7 @@ public class BOPWorldSettings implements IBOPWorldSettings
     public boolean useLavaLakes;
     public int lavaLakeChance;
     public boolean useLavaOceans;
+    public boolean useMansions;
 
     public float coordinateScale;
     public float heightScale;
@@ -253,6 +254,7 @@ public class BOPWorldSettings implements IBOPWorldSettings
         this.useMineShafts = true;
         this.useTemples = true;
         this.useMonuments = true;
+        this.useMansions = true;
         this.useRavines = true;
         this.useWaterLakes = true;
         this.waterLakeChance = 4;
