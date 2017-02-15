@@ -1,8 +1,8 @@
 /*******************************************************************************
  * Copyright 2014-2016, the Biomes O' Plenty Team
- * 
+ *
  * This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License.
- * 
+ *
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  ******************************************************************************/
 
@@ -10,52 +10,12 @@ package biomesoplenty.common.init;
 
 import static biomesoplenty.api.block.BOPBlocks.*;
 
+import biomesoplenty.common.block.*;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableSet;
 
 import biomesoplenty.api.enums.BOPWoods;
 import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.common.block.BlockBOPAsh;
-import biomesoplenty.common.block.BlockBOPBamboo;
-import biomesoplenty.common.block.BlockBOPBiomeBlock;
-import biomesoplenty.common.block.BlockBOPCoral;
-import biomesoplenty.common.block.BlockBOPCrystal;
-import biomesoplenty.common.block.BlockBOPDirt;
-import biomesoplenty.common.block.BlockBOPDoor;
-import biomesoplenty.common.block.BlockBOPDoubleOtherSlab;
-import biomesoplenty.common.block.BlockBOPDoublePlant;
-import biomesoplenty.common.block.BlockBOPDoubleWoodSlab;
-import biomesoplenty.common.block.BlockBOPFarmland;
-import biomesoplenty.common.block.BlockBOPFence;
-import biomesoplenty.common.block.BlockBOPFenceGate;
-import biomesoplenty.common.block.BlockBOPFlesh;
-import biomesoplenty.common.block.BlockBOPFlower;
-import biomesoplenty.common.block.BlockBOPGem;
-import biomesoplenty.common.block.BlockBOPGemOre;
-import biomesoplenty.common.block.BlockBOPGeneric;
-import biomesoplenty.common.block.BlockBOPGrass;
-import biomesoplenty.common.block.BlockBOPGrassPath;
-import biomesoplenty.common.block.BlockBOPHalfOtherSlab;
-import biomesoplenty.common.block.BlockBOPHalfWoodSlab;
-import biomesoplenty.common.block.BlockBOPHive;
-import biomesoplenty.common.block.BlockBOPHoney;
-import biomesoplenty.common.block.BlockBOPJelledPoison;
-import biomesoplenty.common.block.BlockBOPLeaves;
-import biomesoplenty.common.block.BlockBOPLilypad;
-import biomesoplenty.common.block.BlockBOPLog;
-import biomesoplenty.common.block.BlockBOPMud;
-import biomesoplenty.common.block.BlockBOPMushroom;
-import biomesoplenty.common.block.BlockBOPPlanks;
-import biomesoplenty.common.block.BlockBOPPlant;
-import biomesoplenty.common.block.BlockBOPSapling;
-import biomesoplenty.common.block.BlockBOPSeaweed;
-import biomesoplenty.common.block.BlockBOPStone;
-import biomesoplenty.common.block.BlockBOPStoneFormations;
-import biomesoplenty.common.block.BlockBOPTerrarium;
-import biomesoplenty.common.block.BlockBOPTurnip;
-import biomesoplenty.common.block.BlockBOPVine;
-import biomesoplenty.common.block.BlockBOPWoodStairs;
-import biomesoplenty.common.block.IBOPBlock;
 import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.fluids.BloodFluid;
 import biomesoplenty.common.fluids.HoneyFluid;
@@ -129,14 +89,14 @@ public class ModBlocks
         //Material Blocks
         bamboo_thatching =      registerBlock( (new BlockBOPGeneric(Material.WOOD, SoundType.WOOD)).setHardness(2.0F), "bamboo_thatching"); bamboo_thatching.setHarvestLevel("axe", 0);
         mud_brick_block =       registerBlock( (new BlockBOPGeneric()).setResistance(2.0F), "mud_brick_block" );   
-        mud_brick_stairs =      registerBlock( BOPReflectionHelper.construct(BlockStairs.class, (IBlockState)mud_brick_block.getDefaultState()), "mud_brick_stairs");
- 
+        mud_brick_stairs =      registerBlock(  new BlockBOPStoneStairs(mud_brick_block.getDefaultState()), "mud_brick_stairs");
+
         //Stone Slabs
         // need to register items at the same time really so that they can be mapped to each other - bit messy this
         other_slab =            registerBlock( new BlockBOPHalfOtherSlab(), "other_slab", CreativeTabBOP.instance, false);
         double_other_slab =     registerBlock( new BlockBOPDoubleOtherSlab(), "double_other_slab", null, false ); // no creative tab for double slab
         BOPItems.other_slab =   ModItems.registerItem( new ItemSlab(other_slab, (BlockSlab)other_slab, (BlockSlab)double_other_slab), "other_slab");
-        
+
         // Logs
         // 16 wood types, 4 per BlockBOPLog instance, needs 4 'pages'
         BlockBOPLog.createAllPages();
@@ -144,8 +104,8 @@ public class ModBlocks
         log_1 =                 registerBlock( BlockBOPLog.paging.getBlock(1), "log_1" );
         log_2 =                 registerBlock( BlockBOPLog.paging.getBlock(2), "log_2" );
         log_3 =                 registerBlock( BlockBOPLog.paging.getBlock(3), "log_3" );
-        log_4 =                 registerBlock( BlockBOPLog.paging.getBlock(4), "log_4" );    
-        
+        log_4 =                 registerBlock( BlockBOPLog.paging.getBlock(4), "log_4" );
+
         //Leaves
         // 22 tree types, 4 per BlockBOPLeaves instance, needs 6 'pages'
         BlockBOPLeaves.createAllPages();
