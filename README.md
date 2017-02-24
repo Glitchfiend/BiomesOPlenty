@@ -8,7 +8,8 @@
 
 If you want to **disable or add certain world generation features** in certain biomes, check out our guide for creating **biome configuration files**: https://github.com/Glitchfiend/BiomesOPlenty/wiki/Configuring-Biomes
 
-A list of the gems generated in our biomes may be found here: https://raw.githubusercontent.com/Glitchfiend/BiomesOPlenty/master/MC_BoP_ores_in_bop_biomes.pdf
+A list of the gems generated in our biomes may be found here: 
+https://github.com/Glitchfiend/BiomesOPlenty/wiki/Gem%20Distribution
 
 -----------------
 
