@@ -268,12 +268,12 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
         switch ((BOPPlants) state.getValue(this.variantProperty))
         {
             // suffer cactus damage if you harvest thorn without shears
-            case THORN:
+            /*case THORN:
                 if (!usingShears)
                 {
                     player.attackEntityFrom(DamageSource.CACTUS, 2);
                 }
-                break;
+                break;*/
             
             default:
                 break;
