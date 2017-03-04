@@ -118,9 +118,7 @@ public class BOPBiome extends Biome implements IExtendedBiome
         // If there isn't a valid config file, don't use it to configure the biome
         if (conf.isEmpty())
             return defaultBuilder.build();
-        
-        defaultBuilder.withBaseHeight(conf.getFloat("rootHeight"));
-        defaultBuilder.withHeightVariation(conf.getFloat("variation"));
+
         defaultBuilder.withTemperature(conf.getFloat("temperature"));
         defaultBuilder.withRainfall(conf.getFloat("rainfall"));
         defaultBuilder.withWaterColor(conf.getInt("waterColor"));
@@ -153,7 +151,11 @@ public class BOPBiome extends Biome implements IExtendedBiome
         this.topBlock = conf.getBlockState("topBlock", this.topBlock);
         this.fillerBlock = conf.getBlockState("fillerBlock", this.fillerBlock);
         this.seaFloorBlock = conf.getBlockState("seaFloorBlock", this.seaFloorBlock);
-        
+
+        this.terrainSettings.avgHeight = conf.getFloat("averageHeight", (float)this.terrainSettings.avgHeight);
+        this.terrainSettings.variationBelow = conf.getFloat("variationBelow", (float)this.terrainSettings.variationBelow);
+        this.terrainSettings.variationAbove = conf.getFloat("variationAbove", (float)this.terrainSettings.variationAbove);
+
         this.skyColor = conf.getInt("skyColor", this.skyColor);
         this.fogColor = conf.getInt("fogColor", this.fogColor);
         this.fogDensity = conf.getFloat("fogDensity", this.fogDensity);
