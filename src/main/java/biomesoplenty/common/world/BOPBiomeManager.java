@@ -6,7 +6,6 @@ import java.util.List;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
 import biomesoplenty.api.biome.BOPInheritedBiome;
-import biomesoplenty.common.configuration.BOPConfigurationBiomeGen;
 import biomesoplenty.common.configuration.BOPConfigurationBiomeWeights;
 import biomesoplenty.common.configuration.BOPConfigurationIDs;
 
@@ -28,23 +27,18 @@ public class BOPBiomeManager
 		if (biome != null)
 		{
 			BiomeEntry entry = new BiomeEntry(biome, getConfiguredWeight(biome, biomeType, weight));
-
-			if (BOPConfigurationBiomeGen.config.get(biomeType + " Biomes To Generate", biome.biomeName, true).getBoolean(false))
-			{
-				if (biomeList != null) biomeList.add(entry);
-			}
-
-			return biome;
+			biomeList.add(entry);
 		}
-		
-		return null;
+		return biome;
 	}
 	
 	public static BiomeGenBase createBiome(Class<? extends BiomeGenBase> biomeClass, String biomeName, int biomeId)
 	{
-		if (biomeId == -1) biomeId = BOPConfigurationIDs.config.get("Biome IDs", biomeName + " ID", getNextFreeBiomeId()).getInt();
+		if (biomeId == -2) biomeId = BOPConfigurationIDs.config.get("Biome IDs", biomeName + " ID", getNextFreeBiomeId()).getInt();
+		
+		if (biomeId == -1) return null;
 
-		if (biomeId != -1)
+		if (-1 > biomeId && biomeId < 256)
 		{ 
 			try
 			{
@@ -72,7 +66,7 @@ public class BOPBiomeManager
 	
 	public static BiomeGenBase createBiome(Class<? extends BiomeGenBase> biomeClass, String biomeName)
 	{
-		return createBiome(biomeClass, biomeName, -1);
+		return createBiome(biomeClass, biomeName, -2);
 	}
 	
 	public static int getNextFreeBiomeId()
@@ -81,8 +75,17 @@ public class BOPBiomeManager
 		{
 			if (BiomeGenBase.getBiomeGenArray()[i] != null) 
 			{
-				if (i == 255) throw new IllegalArgumentException("There are no more biome ids avaliable!");
-				continue;
+				if (i == 255)
+				{
+					if(BOPConfigurationIDs.throwIfFull)
+					{
+						throw new IllegalArgumentException("There are no more biome ids avaliable!");
+					} else
+					{
+						nextBiomeId = i;
+						return -1;
+					}
+				}
 			}
 			else
 			{

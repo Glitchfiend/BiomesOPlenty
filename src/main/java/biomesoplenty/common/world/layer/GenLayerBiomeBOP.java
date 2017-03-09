@@ -1,6 +1,5 @@
 package biomesoplenty.common.world.layer;
 
-import biomesoplenty.common.configuration.BOPConfigurationBiomeGen;
 import biomesoplenty.common.core.BOPBiomes;
 import biomesoplenty.common.world.BOPBiomeManager;
 import net.minecraft.util.WeightedRandom;
@@ -90,7 +89,7 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                 {
                     outputBiomeIDs[j1 + i1 * width] = currentBiomeID;
                 }
-                else if (currentBiomeID == BiomeGenBase.mushroomIsland.biomeID && BOPConfigurationBiomeGen.mushroomIslandGen)
+                else if (currentBiomeID == BiomeGenBase.mushroomIsland.biomeID && currentBiomeID != -1)
                 {
                     outputBiomeIDs[j1 + i1 * width] = currentBiomeID;
                 }
@@ -98,11 +97,11 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                 {
                     if (l1 > 0)
                     {
-                        if (this.nextInt(3) == 0 && BOPConfigurationBiomeGen.mesaPlateauGen)
+                        if (this.nextInt(3) == 0 && BiomeGenBase.mesaPlateau.biomeID != -1)
                         {
                             outputBiomeIDs[j1 + i1 * width] = BiomeGenBase.mesaPlateau.biomeID;
                         }
-                        else if (BOPConfigurationBiomeGen.mesaPlateauFGen)
+                        else if (BiomeGenBase.mesaPlateau_F.biomeID != -1)
                         {
                             outputBiomeIDs[j1 + i1 * width] = BiomeGenBase.mesaPlateau_F.biomeID;
                         }
@@ -118,7 +117,7 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                 }
                 else if (currentBiomeID == 2)
                 {
-                    if (l1 > 0 && BOPConfigurationBiomeGen.jungleGen)
+                    if (l1 > 0 && BiomeGenBase.jungle.biomeID != -1)
                     {
                         outputBiomeIDs[j1 + i1 * width] = BiomeGenBase.jungle.biomeID;
                     }
@@ -129,7 +128,7 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                 }
                 else if (currentBiomeID == 3)
                 {
-                    if (l1 > 0 && BOPConfigurationBiomeGen.megaTaigaGen)
+                    if (l1 > 0 && BiomeGenBase.megaTaiga.biomeID != -1)
                     {
                         outputBiomeIDs[j1 + i1 * width] = BiomeGenBase.megaTaiga.biomeID;
                     }
@@ -217,6 +216,6 @@ public class GenLayerBiomeBOP extends GenLayerBiome
     
     private boolean isBiomeOceanicAndEnabled(int biomeId)
     {
-        return (biomeId == BiomeGenBase.ocean.biomeID  && BOPConfigurationBiomeGen.oceanGen)|| (biomeId == BiomeGenBase.deepOcean.biomeID && BOPConfigurationBiomeGen.deepOceanGen) || (biomeId == BiomeGenBase.frozenOcean.biomeID && BOPConfigurationBiomeGen.frozenOceanGen);
+        return biomeId != -1 && (biomeId == BiomeGenBase.ocean.biomeID || biomeId == BiomeGenBase.deepOcean.biomeID || biomeId == BiomeGenBase.frozenOcean.biomeID);
     }
 }

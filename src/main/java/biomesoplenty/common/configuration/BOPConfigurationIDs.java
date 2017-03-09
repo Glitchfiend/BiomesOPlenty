@@ -10,6 +10,7 @@ public class BOPConfigurationIDs
 {
 	public static Configuration config;
 	
+	public static boolean throwIfFull;
 	public static boolean potionAutoAssign;
 	
 	public static int paralysisPotionID;
@@ -22,6 +23,8 @@ public class BOPConfigurationIDs
 		try
 		{
 			config.load();
+			
+			throwIfFull = config.get("Exception on full ID Array", "Exception", true, "Throw if all IDs are taken. If false, ID set to -1.").getBoolean();
 			
 			//Potions IDs
 			potionAutoAssign = config.get("Potion Auto Assign", "Potion Auto Assign", true, "Automatically assign potion ids if false set potion ids manually.").getBoolean();

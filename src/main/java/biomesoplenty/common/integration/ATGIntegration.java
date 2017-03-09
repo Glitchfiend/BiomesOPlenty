@@ -4,8 +4,6 @@ import net.minecraft.world.biome.BiomeGenBase;
 import ttftcuts.atg.api.ATGBiomes;
 import ttftcuts.atg.api.ATGBiomes.BiomeType;
 import biomesoplenty.api.content.BOPCBiomes;
-import biomesoplenty.common.configuration.BOPConfigurationBiomeGen;
-import cpw.mods.fml.common.Loader;
 
 public class ATGIntegration 
 {
@@ -101,7 +99,7 @@ public class ATGIntegration
 	
 	private static void registerATGBiome(BiomeGroup group, BiomeGenBase biome, double weight)
 	{
-		if (BOPConfigurationBiomeGen.config.get("Overworld Biomes To Generate", biome.biomeName, true).getBoolean(false))
+		if (biome != null)
 		{
 			ATGBiomes.addBiome(group.biomeType, group.toString(), biome, weight);
 		}
