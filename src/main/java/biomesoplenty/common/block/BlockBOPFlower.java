@@ -44,7 +44,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-@Optional.Interface(iface = "vazkii.botania.api.item.IHornHarvestable", modid = "Botania")
+@Optional.Interface(iface = "vazkii.botania.api.item.IHornHarvestable", modid = "botania")
 public class BlockBOPFlower extends BlockBOPDecoration implements IShearable, IHornHarvestable
 {
     
@@ -347,7 +347,7 @@ public class BlockBOPFlower extends BlockBOPDecoration implements IShearable, IH
     public List<ItemStack> onSheared(ItemStack item, IBlockAccess world, BlockPos pos, int fortune)  { return new ArrayList<ItemStack>(); }
 
     @Override
-    @Optional.Method(modid = "Botania")
+    @Optional.Method(modid = "botania")
     public boolean canHornHarvest(World world, BlockPos pos, ItemStack stack, EnumHornType hornType)
     {
         if (hornType != EnumHornType.WILD) return false;
@@ -360,14 +360,14 @@ public class BlockBOPFlower extends BlockBOPDecoration implements IShearable, IH
     }
 
     @Override
-    @Optional.Method(modid = "Botania")
+    @Optional.Method(modid = "botania")
     public boolean hasSpecialHornHarvest(World world, BlockPos pos, ItemStack stack, EnumHornType hornType)
     {
         return false;
     }
 
     @Override
-    @Optional.Method(modid = "Botania")
+    @Optional.Method(modid = "botania")
     public void harvestByHorn(World world, BlockPos pos, ItemStack stack, EnumHornType hornType)
     {
     }
