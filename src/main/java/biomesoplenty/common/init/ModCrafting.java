@@ -306,15 +306,17 @@ public class ModCrafting
 
         OreDictionary.registerOre("blockMeatRaw", new ItemStack(BOPBlocks.flesh, 1, 0));
         
-        OreDictionary.registerOre("blockGrass", new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.LOAMY.ordinal()));
-        OreDictionary.registerOre("blockGrass", new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.SILTY.ordinal()));
-        OreDictionary.registerOre("blockGrass", new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.SANDY.ordinal()));
-        OreDictionary.registerOre("blockGrass", new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.DAISY.ordinal()));
-        OreDictionary.registerOre("blockGrass", new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.ORIGIN.ordinal()));
-        OreDictionary.registerOre("blockGrass", new ItemStack(Blocks.GRASS));
-        OreDictionary.registerOre("blockMud", new ItemStack(BOPBlocks.mud));
+        OreDictionary.registerOre("grass", new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.LOAMY.ordinal()));
+        OreDictionary.registerOre("grass", new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.SILTY.ordinal()));
+        OreDictionary.registerOre("grass", new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.SANDY.ordinal()));
+        OreDictionary.registerOre("grass", new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.DAISY.ordinal()));
+        OreDictionary.registerOre("grass", new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.ORIGIN.ordinal()));
 
-        OreDictionary.registerOre("blockDirt", new ItemStack(Blocks.DIRT));
+        OreDictionary.registerOre("dirt", new ItemStack(BOPBlocks.dirt, 1, BlockBOPDirt.BOPDirtType.LOAMY.ordinal()));
+        OreDictionary.registerOre("dirt", new ItemStack(BOPBlocks.dirt, 1, BlockBOPDirt.BOPDirtType.SILTY.ordinal()));
+        OreDictionary.registerOre("dirt", new ItemStack(BOPBlocks.dirt, 1, BlockBOPDirt.BOPDirtType.SANDY.ordinal()));
+        
+        OreDictionary.registerOre("blockMud", new ItemStack(BOPBlocks.mud));
         
         OreDictionary.registerOre("foodMushroompowder", new ItemStack(BOPItems.shroompowder));
         OreDictionary.registerOre("foodFruitsalad", new ItemStack(BOPItems.saladfruit));
