@@ -49,10 +49,10 @@ config.category.convenienceSettings.title=Convenience Settings
 config.category.guiSettings.title=GUI Settings
 config.category.textureSettings.title=Texture Settings
 config.category.trailSettings.title=Trail Settings
-config.category.convenienceSettings.tooltip=Require shears to be used to collect flower drops.
-config.category.guiSettings.tooltip=Use the Biomes O' Plenty World Type by default when selecting a world.
-config.category.textureSettings.tooltip=Override the Forge bucket texture and use ours instead (It's nicer!)
-config.category.trailSettings.tooltip=Modify Trail Visibility
+config.category.convenienceSettings.tooltip=Settings for convenience.
+config.category.guiSettings.tooltip=GUI related settings.
+config.category.textureSettings.tooltip=Texture related settings.
+config.category.trailSettings.tooltip=Settings to modify trail visibility.
 
 commands.biomesoplenty.usage=/biomesoplenty <tpbiome|biomename|stripchunk> [args]
 commands.biomesoplenty.biomename.usage=/biomesoplenty biomename [biomeId]
