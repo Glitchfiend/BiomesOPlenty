@@ -369,7 +369,7 @@ public class ChunkProviderGenerateBOPHell implements IChunkGenerator
             {
                 jy = (double)(sizeY - 1 - iy);
             }
-            
+
             if (jy < 4.0D)
             {
                 jy = 4.0D - jy;

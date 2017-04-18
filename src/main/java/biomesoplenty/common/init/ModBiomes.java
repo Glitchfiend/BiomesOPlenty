@@ -111,6 +111,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import biomesoplenty.common.world.WorldProviderBOPHell;
 import com.google.common.base.Optional;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
@@ -212,7 +213,6 @@ import biomesoplenty.common.biome.vanilla.BiomeExtTaiga;
 import biomesoplenty.common.biome.vanilla.BiomeExtTaigaHills;
 import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.util.config.BOPConfig;
-import biomesoplenty.common.world.WorldProviderHellBOP;
 import biomesoplenty.common.world.WorldTypeBOP;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.init.Biomes;
@@ -525,7 +525,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
     	DimensionManager.unregisterDimension(-1);
     	
     	//Add override
-        DimensionType netherBOP = DimensionType.register("Nether", "_nether", -1, WorldProviderHellBOP.class, false);
+        DimensionType netherBOP = DimensionType.register("Nether", "_nether", -1, WorldProviderBOPHell.class, false);
         DimensionManager.registerDimension(-1, netherBOP);
     }
     
