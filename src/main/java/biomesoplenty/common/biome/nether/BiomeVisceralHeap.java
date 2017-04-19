@@ -48,7 +48,7 @@ public class BiomeVisceralHeap extends BOPHellBiome
     {
         super("visceral_heap", new PropsBuilder("Visceral Heap").withGuiColour(0xA93C3E));
 
-        this.addWeight(BOPClimates.HELL, 50);
+        this.addWeight(BOPClimates.HELL, 20);
 
         this.topBlock = BOPBlocks.flesh.getDefaultState();
         this.fillerBlock = BOPBlocks.flesh.getDefaultState();

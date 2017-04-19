@@ -93,7 +93,7 @@ public enum BOPClimates {
         BOPClimates.SAVANNA.addBiome(20, Biomes.SAVANNA);
         BOPClimates.HOT_DESERT.addBiome(30, Biomes.DESERT).addBiome(10, Biomes.MESA_CLEAR_ROCK);
         BOPClimates.WASTELAND.addBiome(1, Biomes.DESERT);
-        BOPClimates.HELL.addBiome(20, Biomes.HELL);
+        BOPClimates.HELL.addBiome(35, Biomes.HELL);
     }
     
     private static BOPClimates[] values = BOPClimates.values();

@@ -46,7 +46,7 @@ public class BiomeFungiForest extends BOPHellBiome
     {
         super("fungi_forest", new PropsBuilder("Fungi Forest").withGuiColour(0xA93C3E));
 
-        this.addWeight(BOPClimates.HELL, 50);
+        this.addWeight(BOPClimates.HELL, 20);
 
         // shrooms
         this.addGenerator("glowshroom", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BlockBOPMushroom.MushroomType.GLOWSHROOM).scatterYMethod(ScatterYMethod.BELOW_GROUND).create());
