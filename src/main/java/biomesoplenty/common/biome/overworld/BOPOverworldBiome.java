@@ -28,6 +28,7 @@ import biomesoplenty.api.enums.BOPFlowers;
 import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.api.generation.IGenerator;
+import biomesoplenty.common.biome.BOPBiome;
 import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.init.ModBiomes;
 import biomesoplenty.common.util.biome.BiomeUtils;
@@ -54,21 +55,8 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
-public class BOPOverworldBiome extends Biome implements IExtendedBiome
+public class BOPOverworldBiome extends BOPBiome
 {
-    private GenerationManager generationManager = new GenerationManager();
-    private Map<BOPClimates, Integer> weightMap = new HashMap<BOPClimates, Integer>();
-    
-    // defaults
-
-    // -1 indicates the defaults as set by Vanilla will be used for the below fields
-    public int skyColor = -1;
-    public int fogColor = -1;
-
-    /** 1.0 is the lowest possible amount of fog. 0.0 is the greatest.*/
-    public float fogDensity = 1.0F;
-
-    public boolean hasBiomeEssence = true;
     public IBlockState seaFloorBlock = Blocks.DIRT.getDefaultState();
     
     public boolean canSpawnInBiome = true;
@@ -80,59 +68,27 @@ public class BOPOverworldBiome extends Biome implements IExtendedBiome
     public TerrainSettings terrainSettings = new TerrainSettings();
     public boolean noNeighborTerrainInfuence = false;
     public int avgDirtDepth = 3;
-    
-    public final ResourceLocation location;
-    public IConfigObj conf;
-    
-    private BOPOverworldBiome(ResourceLocation idLoc, PropsBuilder defaultBuilder, IConfigObj conf)
-    {
-        super(configureBiomeProps(idLoc, defaultBuilder, conf));
 
-        this.location = idLoc;
-        this.conf = conf;
+    public BOPOverworldBiome(String idName, PropsBuilder defaultBuilder)
+    {
+        super(idName, defaultBuilder);
+
         this.terrainSettings.setDefaults();
-        
+
         this.theBiomeDecorator.treesPerChunk = -999;
         this.theBiomeDecorator.flowersPerChunk = -999;
         this.theBiomeDecorator.grassPerChunk = -999;
         this.theBiomeDecorator.sandPerChunk = -999;
         this.theBiomeDecorator.sandPerChunk2 = -999;
         //this.theBiomeDecorator.generateLakes = false;
-        
+
         // roots
         this.addGenerator("roots", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(4.0F).with(BOPPlants.ROOT).create());
-        
+
         IBlockPosQuery suitableStonePosition = BlockQuery.buildAnd().withAltitudeBetween(0, 55).blocks(Blocks.STONE).create();
         this.addGenerator("miners_delight", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.25F).generationAttempts(64).with(BOPFlowers.MINERS_DELIGHT).placeOn(suitableStonePosition).scatterYMethod(ScatterYMethod.BELOW_GROUND).create());
         this.addGenerator("glowshrooms", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.5F).generationAttempts(64).placeOn(suitableStonePosition).with(BOPBlocks.mushroom.getDefaultState().withProperty(BlockBOPMushroom.VARIANT, BlockBOPMushroom.MushroomType.GLOWSHROOM)).scatterYMethod(ScatterYMethod.BELOW_GROUND).create());
         this.addGenerator("stone_formations", GeneratorStage.FLOWERS,(new GeneratorColumns.Builder()).amountPerChunk(30.0F).generationAttempts(32).placeOn(suitableStonePosition).with(BOPBlocks.stone_formations.getDefaultState()).minHeight(1).maxHeight(5).randomDirection(true).scatterYMethod(ScatterYMethod.BELOW_GROUND).create());
-    }
-    
-    public BOPOverworldBiome(String idName, PropsBuilder defaultBuilder)
-    {
-        this(new ResourceLocation(BiomesOPlenty.MOD_ID, idName), defaultBuilder, ModBiomes.readConfigFile(idName));
-    }
-    
-    public static BiomeProps configureBiomeProps(ResourceLocation idLoc, PropsBuilder defaultBuilder, IConfigObj conf)
-    {
-        // If there isn't a valid config file, don't use it to configure the biome
-        if (conf.isEmpty())
-            return defaultBuilder.build();
-
-        defaultBuilder.withTemperature(conf.getFloat("temperature"));
-        defaultBuilder.withRainfall(conf.getFloat("rainfall"));
-        defaultBuilder.withWaterColor(conf.getInt("waterColor"));
-        
-        Boolean enableRain = conf.getBool("enableRain");
-        if (enableRain != null && !enableRain) defaultBuilder.withRainDisabled();
-
-        Boolean enableSnow = conf.getBool("enableSnow");
-        if (enableSnow != null && enableSnow) defaultBuilder.withSnowEnabled();
-        
-        defaultBuilder.withBaseBiome(conf.getString("baseBiome"));
-        defaultBuilder.withGuiColour(conf.getInt("guiColour"));
-        
-        return defaultBuilder.build();
     }
     
     @Override
@@ -147,190 +103,20 @@ public class BOPOverworldBiome extends Biome implements IExtendedBiome
     @Override
     public void configure(IConfigObj conf)
     {
+        super.configure(conf);
         // Allow basic properties to be overridden
-        this.topBlock = conf.getBlockState("topBlock", this.topBlock);
-        this.fillerBlock = conf.getBlockState("fillerBlock", this.fillerBlock);
+
         this.seaFloorBlock = conf.getBlockState("seaFloorBlock", this.seaFloorBlock);
 
         this.terrainSettings.avgHeight = conf.getFloat("averageHeight", (float)this.terrainSettings.avgHeight);
         this.terrainSettings.variationBelow = conf.getFloat("variationBelow", (float)this.terrainSettings.variationBelow);
         this.terrainSettings.variationAbove = conf.getFloat("variationAbove", (float)this.terrainSettings.variationAbove);
-
-        this.skyColor = conf.getInt("skyColor", this.skyColor);
-        this.fogColor = conf.getInt("fogColor", this.fogColor);
-        this.fogDensity = conf.getFloat("fogDensity", this.fogDensity);
-        this.hasBiomeEssence = conf.getBool("hasBiomeEssence", this.hasBiomeEssence);
         
         this.canSpawnInBiome = conf.getBool("canSpawnInBiome", this.canSpawnInBiome);
         this.canGenerateVillages = conf.getBool("canGenerateVillages", this.canGenerateVillages);
         this.canGenerateRivers = conf.getBool("canGenerateRivers", this.canGenerateRivers);
         
         this.beachBiomeLocation = conf.getResourceLocation("beachBiomeLocation", this.beachBiomeLocation);
-        
-        // Allow weights to be overridden
-        IConfigObj confWeights = conf.getObject("weights");
-        if (confWeights != null)
-        {
-            for (BOPClimates climate : BOPClimates.values())
-            {
-                Integer weight = confWeights.getInt(climate.name().toLowerCase(), null);
-                if (weight == null) {continue;}
-                if (weight.intValue() < 1)
-                {
-                    this.weightMap.remove(climate);
-                }
-                else
-                {
-                    this.weightMap.put(climate, weight);
-                }
-            }
-        }
-        
-        // Allow generators to be configured
-        IConfigObj confGenerators = conf.getObject("generators");
-        if (confGenerators != null)
-        {
-            for (String name : confGenerators.getKeys())
-            {
-                this.generationManager.configureWith(name, confGenerators.getObject(name));
-            }
-        }
-        
-        // Allow spawnable entites to be configured
-        ArrayList<IConfigObj> confEntities = conf.getObjectArray("entities");
-        if (confEntities != null)
-        {
-            for (IConfigObj confEntity : confEntities)
-            {
-                String entityName = confEntity.getString("name");
-                EnumCreatureType creatureType = confEntity.getEnum("creatureType", EnumCreatureType.class);
-                if (entityName == null || creatureType == null) {continue;}
-                
-                // Look for an entity class matching this name
-                // case insensitive, dot used as mod delimiter, no spaces or underscores
-                // eg  'villager', 'Zombie', 'SQUID', 'enderdragon', 'biomesoplenty.wasp' all ok
-                Class <? extends Entity> entityClazz = ForgeRegistries.ENTITIES.getValue(new ResourceLocation(entityName)).getEntityClass();
-                Class <? extends EntityLiving> livingClazz = null;
-                if (!(entityClazz.isAssignableFrom(EntityLiving.class))) {
-                    confEntity.addMessage("Entity " + entityName + " is not of type EntityLiving");
-                    continue;
-                }
-                else {
-                    livingClazz = (Class <? extends EntityLiving>)entityClazz;
-                }
-
-                if (livingClazz == null)
-                {
-                    confEntity.addMessage("No entity registered called " + entityName);
-                    continue;
-                }
-                if (!creatureType.getCreatureClass().isAssignableFrom(livingClazz))
-                {
-                    confEntity.addMessage("Entity " + entityName + " is not of type " + creatureType);
-                    continue;
-                }
-
-                List<SpawnListEntry> spawns = this.getSpawnableList(creatureType);
-                Integer weight = confEntity.getInt("weight");
-                if (weight != null && weight < 1)
-                {
-                    // weight was set to zero (or negative) so find and remove this spawn
-                    Iterator<SpawnListEntry> spawnIterator = spawns.iterator();
-                    while (spawnIterator.hasNext())
-                    {
-                        SpawnListEntry entry = spawnIterator.next();
-                        if (entry.entityClass == livingClazz)
-                        {
-                            spawnIterator.remove();
-                        }
-                    }
-                }
-                else
-                {
-                    // weight was positive, or omitted, so update an existing spawn or add a new spawn
-                    boolean foundIt = false;
-                    for (SpawnListEntry entry : spawns)
-                    {
-                        if (entry.entityClass == entityClazz)
-                        {
-                            // the entry already exists - adjust the params
-                            entry.itemWeight = confEntity.getInt("weight", entry.itemWeight);
-                            entry.minGroupCount = confEntity.getInt("minGroupCount", entry.minGroupCount);
-                            entry.maxGroupCount = confEntity.getInt("maxGroupCount", entry.maxGroupCount);
-                            foundIt = true;
-                        }
-                    }
-                    if (!foundIt)
-                    {
-                        // the entry does not exist - add it
-                        SpawnListEntry entry = new SpawnListEntry(livingClazz, confEntity.getInt("weight", 10), confEntity.getInt("minGroupCount", 4), confEntity.getInt("maxGroupCount", 4));
-                        spawns.add(entry);
-                    }
-                }
-            }
-        }
-    }
-
-    @Override
-    public BiomeOwner getBiomeOwner()
-    {
-        return BiomeOwner.BIOMESOPLENTY;
-    }
-
-    @Override
-    public void addGenerator(String name, GeneratorStage stage, IGenerator generator)
-    {
-        this.generationManager.addGenerator(name, stage, generator);
-    }
-    
-    public IGenerator getGenerator(String name)
-    {
-    	return this.generationManager.getGenerator(name);
-    }
-    
-    public void removeGenerator(String name)
-    {
-        this.generationManager.removeGenerator(name);
-    }
-    
-    @Override
-    public GenerationManager getGenerationManager()
-    {
-        return this.generationManager;
-    }
-
-    @Override
-    public Map<BOPClimates, Integer> getWeightMap()
-    {
-        return this.weightMap;
-    }
-
-    @Override
-    public void addWeight(BOPClimates climate, int weight)
-    {
-        this.weightMap.put(climate, weight);
-    }
-    
-    @Override
-    public void clearWeights()
-    {
-        this.weightMap.clear();
-    }
-    
-    // whether or not a biome essence item corresponding to this biome should be able to drop from biome blocks
-    public boolean hasBiomeEssence()
-    {
-        return this.hasBiomeEssence;
-    }
-
-    public int getFogColor(BlockPos pos) { return this.fogColor; }
-
-    public float getFogDensity(BlockPos pos) { return this.fogDensity; }
-
-    @Override
-    public int getSkyColorByTemp(float temperature)
-    {
-        return (this.skyColor == -1) ? super.getSkyColorByTemp(temperature) : this.skyColor;
     }
     
     @Override
@@ -422,72 +208,5 @@ public class BOPOverworldBiome extends Biome implements IExtendedBiome
     public ResourceLocation getBeachLocation()
     {
         return this.beachBiomeLocation;
-    }
-
-    @Override
-    public Biome getBaseBiome()
-    {
-        return this;
-    }
-    
-    @Override
-    public ResourceLocation getResourceLocation() 
-    {
-        return this.location;
-    }
-    
-    protected static class PropsBuilder
-    {
-        private final String biomeName;
-        
-        /**The colour of this biome as seen in guis**/
-        private int guiColour = 0xffffff;
-        private float baseHeight = 0.1F;
-        private float heightVariation = 0.2F;
-        private float temperature = 0.5F;
-        private float rainfall = 0.5F;
-        private int waterColor = 16777215;
-        private boolean enableSnow = false;
-        private boolean enableRain = true;
-        private String baseBiomeRegName;
-        
-        public PropsBuilder(String name) { this.biomeName = name; }
-        
-        public PropsBuilder withGuiColour(Integer colour) { if (colour != null) this.guiColour = colour; return this; }
-        public PropsBuilder withTemperature(Float temperature) { if (temperature != null) this.temperature = temperature; return this; }
-        public PropsBuilder withRainfall(Float rainfall) { if (rainfall != null) this.rainfall = rainfall; return this; }
-        public PropsBuilder withBaseHeight(Float baseHeight) { if (baseHeight != null) this.baseHeight = baseHeight; return this; }
-        public PropsBuilder withHeightVariation(Float heightVariation) { if (heightVariation != null) this.heightVariation = heightVariation; return this; }
-        public PropsBuilder withRainDisabled() { this.enableRain = false; return this; }
-        public PropsBuilder withSnowEnabled() { this.enableSnow = true; return this; }
-        public PropsBuilder withWaterColor(Integer waterColor) { if (waterColor != null) this.waterColor = waterColor; return this; }
-        public PropsBuilder withBaseBiome(String name) { if (name != null) this.baseBiomeRegName = name; return this; }
-        
-        public BiomeProps build()
-        {
-            return new BiomeProps(this.biomeName, this.temperature, this.rainfall, this.baseHeight, this.heightVariation, this.enableRain, this.enableSnow, this.waterColor, this.baseBiomeRegName, this.guiColour);
-        }
-    }
-    
-    private static class BiomeProps extends Biome.BiomeProperties
-    {
-        /**The colour of this biome as seen in guis**/
-        private int guiColour = 0xffffff;
-        
-        private BiomeProps(String name, float temperature, float rainfall, float baseHeight, float heightVariation, boolean enableRain, boolean enableSnow, int waterColor, String baseBiomeRegName, int guiColour) 
-        { 
-            super(name);
-
-            this.setTemperature(temperature);
-            this.setRainfall(rainfall);
-            this.setBaseHeight(baseHeight);
-            this.setHeightVariation(heightVariation);
-            if (!enableRain) this.setRainDisabled();
-            if (enableSnow) this.setSnowEnabled();
-            this.setWaterColor(waterColor);
-            this.setBaseBiome(baseBiomeRegName);
-            
-            this.guiColour = guiColour;
-        }
     }
 }

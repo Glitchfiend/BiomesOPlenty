@@ -8,98 +8,7 @@
 
 package biomesoplenty.common.init;
 
-import static biomesoplenty.api.biome.BOPBiomes.alps;
-import static biomesoplenty.api.biome.BOPBiomes.bamboo_forest;
-import static biomesoplenty.api.biome.BOPBiomes.bayou;
-import static biomesoplenty.api.biome.BOPBiomes.birch_forest_extension;
-import static biomesoplenty.api.biome.BOPBiomes.birch_forest_hills_extension;
-import static biomesoplenty.api.biome.BOPBiomes.bog;
-import static biomesoplenty.api.biome.BOPBiomes.boreal_forest;
-import static biomesoplenty.api.biome.BOPBiomes.brushland;
-import static biomesoplenty.api.biome.BOPBiomes.chaparral;
-import static biomesoplenty.api.biome.BOPBiomes.cherry_blossom_grove;
-import static biomesoplenty.api.biome.BOPBiomes.cold_desert;
-import static biomesoplenty.api.biome.BOPBiomes.cold_taiga_extension;
-import static biomesoplenty.api.biome.BOPBiomes.cold_taiga_hills_extension;
-import static biomesoplenty.api.biome.BOPBiomes.coniferous_forest;
-import static biomesoplenty.api.biome.BOPBiomes.coral_reef;
-import static biomesoplenty.api.biome.BOPBiomes.crag;
-import static biomesoplenty.api.biome.BOPBiomes.dead_forest;
-import static biomesoplenty.api.biome.BOPBiomes.dead_swamp;
-import static biomesoplenty.api.biome.BOPBiomes.desert_extension;
-import static biomesoplenty.api.biome.BOPBiomes.desert_hills_extension;
-import static biomesoplenty.api.biome.BOPBiomes.end_extension;
-import static biomesoplenty.api.biome.BOPBiomes.eucalyptus_forest;
-import static biomesoplenty.api.biome.BOPBiomes.excludedDecoratedWorldTypes;
-import static biomesoplenty.api.biome.BOPBiomes.extreme_hills_extension;
-import static biomesoplenty.api.biome.BOPBiomes.extreme_hills_plus_extension;
-import static biomesoplenty.api.biome.BOPBiomes.fen;
-import static biomesoplenty.api.biome.BOPBiomes.flower_field;
-import static biomesoplenty.api.biome.BOPBiomes.flower_island;
-import static biomesoplenty.api.biome.BOPBiomes.forest_extension;
-import static biomesoplenty.api.biome.BOPBiomes.forest_hills_extension;
-import static biomesoplenty.api.biome.BOPBiomes.glacier;
-import static biomesoplenty.api.biome.BOPBiomes.grassland;
-import static biomesoplenty.api.biome.BOPBiomes.gravel_beach;
-import static biomesoplenty.api.biome.BOPBiomes.grove;
-import static biomesoplenty.api.biome.BOPBiomes.heathland;
-import static biomesoplenty.api.biome.BOPBiomes.highland;
-import static biomesoplenty.api.biome.BOPBiomes.ice_mountains_extension;
-import static biomesoplenty.api.biome.BOPBiomes.ice_plains_extension;
-import static biomesoplenty.api.biome.BOPBiomes.jungle_extension;
-import static biomesoplenty.api.biome.BOPBiomes.jungle_hills_extension;
-import static biomesoplenty.api.biome.BOPBiomes.kelp_forest;
-import static biomesoplenty.api.biome.BOPBiomes.land_of_lakes;
-import static biomesoplenty.api.biome.BOPBiomes.lavender_fields;
-import static biomesoplenty.api.biome.BOPBiomes.lush_desert;
-import static biomesoplenty.api.biome.BOPBiomes.lush_swamp;
-import static biomesoplenty.api.biome.BOPBiomes.mangrove;
-import static biomesoplenty.api.biome.BOPBiomes.maple_woods;
-import static biomesoplenty.api.biome.BOPBiomes.marsh;
-import static biomesoplenty.api.biome.BOPBiomes.meadow;
-import static biomesoplenty.api.biome.BOPBiomes.mega_taiga_extension;
-import static biomesoplenty.api.biome.BOPBiomes.mega_taiga_hills_extension;
-import static biomesoplenty.api.biome.BOPBiomes.mesa_extension;
-import static biomesoplenty.api.biome.BOPBiomes.mesa_plateau_extension;
-import static biomesoplenty.api.biome.BOPBiomes.moor;
-import static biomesoplenty.api.biome.BOPBiomes.mountain;
-import static biomesoplenty.api.biome.BOPBiomes.mountain_foothills;
-import static biomesoplenty.api.biome.BOPBiomes.mushroom_island_extension;
-import static biomesoplenty.api.biome.BOPBiomes.mystic_grove;
-import static biomesoplenty.api.biome.BOPBiomes.oasis;
-import static biomesoplenty.api.biome.BOPBiomes.ocean_extension;
-import static biomesoplenty.api.biome.BOPBiomes.ominous_woods;
-import static biomesoplenty.api.biome.BOPBiomes.orchard;
-import static biomesoplenty.api.biome.BOPBiomes.origin_island;
-import static biomesoplenty.api.biome.BOPBiomes.outback;
-import static biomesoplenty.api.biome.BOPBiomes.overgrown_cliffs;
-import static biomesoplenty.api.biome.BOPBiomes.plains_extension;
-import static biomesoplenty.api.biome.BOPBiomes.prairie;
-import static biomesoplenty.api.biome.BOPBiomes.quagmire;
-import static biomesoplenty.api.biome.BOPBiomes.rainforest;
-import static biomesoplenty.api.biome.BOPBiomes.redwood_forest;
-import static biomesoplenty.api.biome.BOPBiomes.roofed_forest_extension;
-import static biomesoplenty.api.biome.BOPBiomes.sacred_springs;
-import static biomesoplenty.api.biome.BOPBiomes.savanna_extension;
-import static biomesoplenty.api.biome.BOPBiomes.savanna_plateau_extension;
-import static biomesoplenty.api.biome.BOPBiomes.seasonal_forest;
-import static biomesoplenty.api.biome.BOPBiomes.shield;
-import static biomesoplenty.api.biome.BOPBiomes.shrubland;
-import static biomesoplenty.api.biome.BOPBiomes.snowy_coniferous_forest;
-import static biomesoplenty.api.biome.BOPBiomes.snowy_forest;
-import static biomesoplenty.api.biome.BOPBiomes.steppe;
-import static biomesoplenty.api.biome.BOPBiomes.swampland_extension;
-import static biomesoplenty.api.biome.BOPBiomes.taiga_extension;
-import static biomesoplenty.api.biome.BOPBiomes.taiga_hills_extension;
-import static biomesoplenty.api.biome.BOPBiomes.temperate_rainforest;
-import static biomesoplenty.api.biome.BOPBiomes.tropical_island;
-import static biomesoplenty.api.biome.BOPBiomes.tropical_rainforest;
-import static biomesoplenty.api.biome.BOPBiomes.tundra;
-import static biomesoplenty.api.biome.BOPBiomes.volcanic_island;
-import static biomesoplenty.api.biome.BOPBiomes.wasteland;
-import static biomesoplenty.api.biome.BOPBiomes.wetland;
-import static biomesoplenty.api.biome.BOPBiomes.woodland;
-import static biomesoplenty.api.biome.BOPBiomes.xeric_shrubland;
+import static biomesoplenty.api.biome.BOPBiomes.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -111,6 +20,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import biomesoplenty.common.biome.nether.BOPHellBiome;
+import biomesoplenty.common.biome.nether.BiomePolarChasm;
 import biomesoplenty.common.biome.overworld.*;
 import biomesoplenty.common.world.WorldProviderBOPHell;
 import com.google.common.base.Optional;
@@ -349,6 +260,9 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         addIslandBiome(volcanic_island, 5);
         addIslandBiome(flower_island, 7);
         addIslandBiome(mangrove, 10);
+
+        // nether biomes
+        polar_chasm = registerNetherBiome(new BiomePolarChasm());
     }
     
     public static void initExtendedBiomes()
@@ -608,6 +522,27 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
             
             return Optional.of((Biome)biome);
             
+        } else {
+            return Optional.absent();
+        }
+    }
+
+    private static Optional<Biome> registerNetherBiome(BOPHellBiome biome)
+    {
+        String idName = biome.getResourceLocation().getResourcePath();
+        Integer id = biomeIdMapConf.getInt(idName, null);
+        if (id == null) {id = new Integer(getNextFreeBiomeId());}
+        biomeIdMap.put(idName, id);
+
+        if (id > -1) {
+            biome.configure(biome.conf);
+            BOPCommand.biomeCount++;
+
+            BOPBiomes.REG_INSTANCE.registerBiome(biome, idName);
+            Biome.registerBiome(id, biome.getResourceLocation().toString(), biome);
+
+            return Optional.of((Biome)biome);
+
         } else {
             return Optional.absent();
         }

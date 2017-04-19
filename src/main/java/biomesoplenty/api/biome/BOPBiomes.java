@@ -91,6 +91,9 @@ public class BOPBiomes
     public static Optional<Biome> flower_island = Optional.absent();
     public static Optional<Biome> gravel_beach = Optional.absent();
 
+    // nether biomes
+    public static Optional<Biome> polar_chasm = Optional.absent();
+
     //Biome extensions
     public static IExtendedBiome end_extension;
     public static IExtendedBiome mushroom_island_extension;

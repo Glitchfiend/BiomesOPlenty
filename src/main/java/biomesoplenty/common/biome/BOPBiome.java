@@ -9,6 +9,7 @@ package biomesoplenty.common.biome;
 
 import biomesoplenty.api.biome.BiomeOwner;
 import biomesoplenty.api.biome.IExtendedBiome;
+import biomesoplenty.api.config.IBOPWorldSettings;
 import biomesoplenty.api.config.IConfigObj;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.generation.GeneratorStage;
@@ -87,6 +88,9 @@ public abstract class BOPBiome extends Biome implements IExtendedBiome
 
         return defaultBuilder.build();
     }
+
+    @Override
+    public void applySettings(IBOPWorldSettings settings) {}
 
     @Override
     public void configure(IConfigObj conf)

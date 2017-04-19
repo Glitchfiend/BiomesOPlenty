@@ -31,9 +31,9 @@ public class BiomeProviderBOPHell extends BiomeProvider
         BOPWorldSettings settings = new BOPWorldSettings(chunkProviderSettings);
 
         // set up all the gen layers
-        GenLayer genlayer = setupBOPGenLayers(seed, settings);
-        this.genBiomes = genlayer;
-        this.biomeIndexLayer = genlayer;
+        GenLayer[] genlayers = setupBOPGenLayers(seed, settings);
+        this.genBiomes = genlayers[0];
+        this.biomeIndexLayer = genlayers[1];
     }
 
     public BiomeProviderBOPHell(World world)
@@ -61,7 +61,7 @@ public class BiomeProviderBOPHell extends BiomeProvider
     }
 
 
-    public static GenLayer setupBOPGenLayers(long worldSeed, BOPWorldSettings settings)
+    public static GenLayer[] setupBOPGenLayers(long worldSeed, BOPWorldSettings settings)
     {
         int biomeSize = settings.biomeSize.getValue();
 
@@ -85,7 +85,8 @@ public class BiomeProviderBOPHell extends BiomeProvider
         // finish biomes with Voronoi zoom
         GenLayer biomesFinal = new GenLayerVoronoiZoom(10L, mainBranch);
 
+        mainBranch.initWorldGenSeed(worldSeed);
         biomesFinal.initWorldGenSeed(worldSeed);
-        return biomesFinal;
+        return new GenLayer[] {mainBranch, biomesFinal};
     }
 }

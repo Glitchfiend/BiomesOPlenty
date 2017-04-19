@@ -25,6 +25,7 @@ import net.minecraft.world.chunk.IChunkGenerator;
 import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.MapGenCavesHell;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
+import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.structure.MapGenNetherBridge;
 import net.minecraftforge.common.MinecraftForge;
@@ -58,6 +59,8 @@ public class ChunkProviderGenerateBOPHell implements IChunkGenerator
     private NoiseGeneratorOctaves netherrackExculsivityNoiseGen;
     public NoiseGeneratorOctaves scaleNoise;
     public NoiseGeneratorOctaves depthNoise;
+    private NoiseGeneratorPerlin stoneNoiseGen;
+
     private final WorldGenFire fireFeature = new WorldGenFire();
     private final WorldGenGlowStone1 lightGemGen = new WorldGenGlowStone1();
     private final WorldGenGlowStone2 hellPortalGen = new WorldGenGlowStone2();
@@ -67,13 +70,15 @@ public class ChunkProviderGenerateBOPHell implements IChunkGenerator
     private final WorldGenHellLava hellSpringGen = new WorldGenHellLava(Blocks.FLOWING_LAVA, false);
     private final WorldGenBush brownMushroomFeature = new WorldGenBush(Blocks.BROWN_MUSHROOM);
     private final WorldGenBush redMushroomFeature = new WorldGenBush(Blocks.RED_MUSHROOM);
+
     private MapGenNetherBridge genNetherBridge = new MapGenNetherBridge();
     private MapGenBase genNetherCaves = new MapGenCavesHell();
-    double[] xyzBalanceNoiseArray;
-    double[] xyzNoiseArrayA;
-    double[] xyzNoiseArrayB;
-    double[] noiseData4;
-    double[] depthRegion;
+    private double[] xyzBalanceNoiseArray;
+    private double[] xyzNoiseArrayA;
+    private double[] xyzNoiseArrayB;
+    private double[] noiseData4;
+    private double[] depthRegion;
+    private double[] stoneNoiseArray;
 
     public ChunkProviderGenerateBOPHell(World worldIn, boolean p_i45637_2_, long seed)
     {
@@ -87,6 +92,7 @@ public class ChunkProviderGenerateBOPHell implements IChunkGenerator
         this.netherrackExculsivityNoiseGen = new NoiseGeneratorOctaves(this.rand, 4);
         this.scaleNoise = new NoiseGeneratorOctaves(this.rand, 10);
         this.depthNoise = new NoiseGeneratorOctaves(this.rand, 16);
+        this.stoneNoiseGen = new NoiseGeneratorPerlin(this.rand, 4);
         worldIn.setSeaLevel(63);
 
         net.minecraftforge.event.terraingen.InitNoiseGensEvent.ContextHell ctx =
@@ -99,6 +105,9 @@ public class ChunkProviderGenerateBOPHell implements IChunkGenerator
         this.netherrackExculsivityNoiseGen = ctx.getPerlin3();
         this.scaleNoise = ctx.getScale();
         this.depthNoise = ctx.getDepth();
+
+        this.stoneNoiseArray = new double[256];
+
         this.genNetherBridge = (MapGenNetherBridge)net.minecraftforge.event.terraingen.TerrainGen.getModdedMapGen(genNetherBridge, net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.NETHER_BRIDGE);
         this.genNetherCaves = net.minecraftforge.event.terraingen.TerrainGen.getModdedMapGen(genNetherCaves, net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.NETHER_CAVE);
     }
@@ -206,91 +215,19 @@ public class ChunkProviderGenerateBOPHell implements IChunkGenerator
     // Biomes add their top blocks and filler blocks to the primer here
     public void replaceBlocksForBiome(int chunkX, int chunkZ, ChunkPrimer primer, Biome[] biomes)
     {
-        IBlockState roof = Blocks.SNOW.getDefaultState();
-        IBlockState roofFiller = Blocks.PACKED_ICE.getDefaultState();
-        IBlockState wall = BOPBlocks.hard_ice.getDefaultState();
-        IBlockState floor = Blocks.GRASS.getDefaultState();
-        IBlockState floorFiller = Blocks.PACKED_ICE.getDefaultState();
+        if (!ForgeEventFactory.onReplaceBiomeBlocks(this, chunkX, chunkZ, primer, this.world)) return;
 
-        int roofDepth = 4;
-        int floorDepth = 4;
+        double d0 = 0.03125D;
+        this.stoneNoiseArray = this.stoneNoiseGen.getRegion(this.stoneNoiseArray, (double)(chunkX * 16), (double)(chunkZ * 16), 16, 16, d0 * 2.0D, d0 * 2.0D, 1.0D);
 
-        //TODO: Migrate to soul sand and shit surface
         for (int localX = 0; localX < 16; ++localX)
         {
             for (int localZ = 0; localZ < 16; ++localZ)
             {
-                int x = (chunkX * 16 + localX) & 15;
-                int z = (chunkZ * 16 + localZ) & 15;
-                int localY = 127;
                 Biome biome = biomes[localZ + localX * 16];
-                boolean lastSolid = true;
-
-                while (localY >= 0)
-                {
-                    int y = localY;
-                    int blockSkip = 1;
-                    IBlockState currentState = primer.getBlockState(x, y, z);
-
-                    if (currentState.getBlock() == Blocks.NETHERRACK)
-                    {
-                        // initially set to the wall material. this may be replaced later by a roof
-                        primer.setBlockState(x, y, z, wall);
-
-                        // this must be a floor
-                        if (!lastSolid)
-                        {
-                            primer.setBlockState(x, y, z, floor);
-
-                            // iterate over the next few blocks and replace them with the floor material. skip those
-                            // blocks too as we've already checked and modified them
-                            for (int floorOffset = 1; floorOffset <= floorDepth - 1 && y - floorOffset >= 0; floorOffset++)
-                            {
-                                IBlockState state = primer.getBlockState(x, y - floorOffset, z);
-                                blockSkip = floorOffset + 1;
-
-                                // only replace netherrack, if it's air or anything else then don't continue
-                                if (state.getBlock() == Blocks.NETHERRACK)
-                                {
-                                    primer.setBlockState(x, y - floorOffset, z, floorFiller);
-                                }
-                                else break;
-                            }
-                        }
-
-                        // update lastSolid for next time
-                        lastSolid = true;
-                    }
-                    else if (currentState.getMaterial() == Material.AIR)
-                    {
-                        // previous blocks must be a roof
-                        if (lastSolid)
-                        {
-                            primer.setBlockState(x, y + 1, z, roof);
-
-                            // iterate over the previous few blocks to replace them with the roof material
-                            for (int roofOffset = 2; roofOffset <= roofDepth && y + roofOffset <= 127; roofOffset++)
-                            {
-                                IBlockState state = primer.getBlockState(x, y + roofOffset, z);
-
-                                // only replace netherrack or walls, if it's air or anything else then don't continue
-                                if (state.getBlock() == Blocks.NETHERRACK || state == wall)
-                                {
-                                    primer.setBlockState(x, y + roofOffset, z, roofFiller);
-                                }
-                                else break;
-                            }
-                        }
-
-                        // update lastSolid for next time
-                        lastSolid = false;
-                    }
-
-                    localY -= blockSkip;
-                }
+                biome.genTerrainBlocks(this.world, this.rand, primer, chunkX * 16 + localX, chunkZ * 16 + localZ, this.stoneNoiseArray[localZ + localX * 16]);
             }
         }
-
     }
 
     public void buildSurfaces(int chunkX, int chunkZ, ChunkPrimer primer)
