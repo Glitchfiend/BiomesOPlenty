@@ -50,7 +50,7 @@ public class BiomesOPlenty
     public static final String MOD_NAME = "Biomes O' Plenty";
     public static final String MOD_ID = "biomesoplenty";
     public static final String MOD_VERSION = "@MOD_VERSION@";
-    public static final String GUI_FACTORY = "biomesoplenty.client.gui.GuiFactory";
+    public static final String GUI_FACTORY = "biomesoplenty.client.gui.GuiBOPFactory";
 
     @Instance(MOD_ID)
     public static BiomesOPlenty instance;

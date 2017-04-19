@@ -18,7 +18,7 @@ public class GameplayConfigurationHandler
 {
     public static Configuration config;
 
-    public static String convenienceSettings = "Convenience Settings";
+    public static final String CONVENIENCE_SETTINGS = "Convenience Settings";
 
     public static boolean flowerDropsNeedShears;
 
@@ -35,7 +35,7 @@ public class GameplayConfigurationHandler
     {
         try
         {
-            flowerDropsNeedShears = config.getBoolean("Flower Drops Need Shears", convenienceSettings, false, "Require shears to be used to collect flower drops.");
+            flowerDropsNeedShears = config.getBoolean("Flower Drops Need Shears", CONVENIENCE_SETTINGS, false, "Require shears to be used to collect flower drops.");
         }
         catch (Exception e)
         {
