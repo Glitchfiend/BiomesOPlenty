@@ -125,7 +125,6 @@ public class BOPBlocks
     public static Block stone_formations;
     public static Block hard_ice;
     public static Block dried_sand;
-    public static Block crag_rock;
     public static Block mud_brick_block;
     public static Block crystal;
     public static Block other_slab;

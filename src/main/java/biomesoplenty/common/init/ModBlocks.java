@@ -70,7 +70,6 @@ public class ModBlocks
         farmland_1 =            registerBlock( BlockBOPFarmland.paging.getBlock(1), "farmland_1", null);
         
         stone =                 registerBlock( new BlockBOPStone(), "stone" );
-        crag_rock =             registerBlock( (new BlockBOPGeneric()), "crag_rock" );
         dried_sand =            registerBlock( (new BlockBOPGeneric()).addSupportedPlantType(EnumPlantType.Desert), "dried_sand"); dried_sand.setHarvestLevel("pickaxe",0);
         hard_ice =              registerBlock( (new BlockBOPGeneric(Material.PACKED_ICE, SoundType.STONE)).setHardness(0.75F), "hard_ice" );
         ash_block =             registerBlock( new BlockBOPAsh(), "ash_block" );

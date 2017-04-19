@@ -119,11 +119,11 @@ public class BlockBOPMushroom extends BlockBOPDecoration
             case TOADSTOOL:
                 return BlockQueries.fertileOrNetherrack.matches(world, pos.down());
             case GLOWSHROOM:
-                return (BlockQueries.sustainsCave.matches(world, pos.down()) || world.getBlockState(pos.down()).getBlock() == Blocks.STONE);
+                return (BlockQueries.sustainsCave.matches(world, pos.down()) || BlockQueries.sustainsNether.matches(world, pos.down()) || world.getBlockState(pos.down()).getBlock() == Blocks.STONE);
             case SHADOW_SHROOM:
                 return BlockQueries.endish.matches(world, pos.down());
             default:
-                return BlockQueries.fertile.matches(world, pos.down());
+                return BlockQueries.fertileOrNetherrack.matches(world, pos.down());
         }
     }
     

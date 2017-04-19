@@ -57,6 +57,6 @@ public class BiomeVisceralHeap extends BOPHellBiome
         // blood pools
         this.addGenerator("blood_pools", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.5F).waterLakeForBiome(this).liquid(BOPBlocks.blood).frozenLiquid((IBlockState)null).create());
     
-        this.addGenerator("eyebulbs", GeneratorStage.FLOWERS, (new GeneratorDoubleFlora.Builder()).amountPerChunk(0.7F).with(BlockBOPDoublePlant.DoublePlantType.EYEBULB).scatterYMethod(ScatterYMethod.BELOW_GROUND).create());
+        this.addGenerator("eyebulbs", GeneratorStage.FLOWERS, (new GeneratorDoubleFlora.Builder()).amountPerChunk(1.0F).with(BlockBOPDoublePlant.DoublePlantType.EYEBULB).create());
     }
 }

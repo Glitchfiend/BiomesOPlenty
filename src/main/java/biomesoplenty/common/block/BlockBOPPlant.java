@@ -369,7 +369,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
             case SPECTRALFERN:
                 return BlockQueries.spectralMoss.matches(world, pos.down());
             case THORN:
-                return BlockQueries.litFertileOrDry.matches(world, pos.down());
+                return BlockQueries.fertileOrNetherrack.matches(world, pos.down());
             case CATTAIL:
                 return BlockQueries.litFertileWaterside.matches(world, pos.down());
             case RIVERCANE:
