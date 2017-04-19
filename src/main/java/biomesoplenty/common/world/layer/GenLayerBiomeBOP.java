@@ -69,7 +69,7 @@ public class GenLayerBiomeBOP extends BOPGenLayer
                 }
                 else
                 {
-                    out[index] = Biome.getIdForBiome(climate.getRandomLandBiome(this));
+                    out[index] = Biome.getIdForBiome(climate.getRandomBiome(this));
                 }
             }
         }

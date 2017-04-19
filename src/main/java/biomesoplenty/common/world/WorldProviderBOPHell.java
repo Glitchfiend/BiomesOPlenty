@@ -7,12 +7,24 @@
  ******************************************************************************/
 package biomesoplenty.common.world;
 
+import biomesoplenty.api.biome.BOPBiomes;
+import net.minecraft.init.Biomes;
 import net.minecraft.world.WorldProviderHell;
+import net.minecraft.world.biome.BiomeProvider;
+import net.minecraft.world.biome.BiomeProviderSingle;
 import net.minecraft.world.chunk.IChunkGenerator;
 import net.minecraft.world.gen.ChunkProviderHell;
 
 public class WorldProviderBOPHell extends WorldProviderHell
 {
+    @Override
+    public void init()
+    {
+        this.biomeProvider = new BiomeProviderBOPHell(this.world);
+        this.doesWaterVaporize = true;
+        this.hasNoSky = true;
+    }
+
     @Override
     public IChunkGenerator createChunkGenerator()
     {

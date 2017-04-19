@@ -59,7 +59,7 @@ public class GenLayerBiomeIslands extends BOPGenLayer
                     )
                     {
                         int climateVal = climateVals[x + z * areaWidth];
-                        out[x + z * areaWidth] = Biome.getIdForBiome(BOPClimates.lookup(climateVal).getRandomLandBiome(this));
+                        out[x + z * areaWidth] = Biome.getIdForBiome(BOPClimates.lookup(climateVal).getRandomBiome(this));
                     }
                     else
                     {

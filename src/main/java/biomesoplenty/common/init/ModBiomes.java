@@ -284,7 +284,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         //After normal biomes to account for adding custom beaches
         initExtendedBiomes();
         
-        //registerNetherOverride();
+        registerNetherOverride();
         
         // save the biome ids to the config file (creating it if it doesn't exist)
         BOPConfig.writeFile(biomeIdMapFile, biomeIdMap);
@@ -547,7 +547,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
                 {
                     BOPClimates climate = entry.getKey();
                     int weight = entry.getValue();
-                    climate.addLandBiome(weight, extendedBiome.getBaseBiome());
+                    climate.addBiome(weight, extendedBiome.getBaseBiome());
                 }
             }
         }

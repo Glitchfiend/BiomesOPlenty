@@ -72,7 +72,7 @@ public class ModCompatibility
         {
             if (climate.biomeType == type)
             {
-                climate.addLandBiome(weight, biome);
+                climate.addBiome(weight, biome);
             }
         }
     }

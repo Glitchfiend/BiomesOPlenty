@@ -7,12 +7,14 @@
  ******************************************************************************/
 package biomesoplenty.common.world;
 
+import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
@@ -201,6 +203,96 @@ public class ChunkProviderGenerateBOPHell implements IChunkGenerator
         }
     }
 
+    // Biomes add their top blocks and filler blocks to the primer here
+    public void replaceBlocksForBiome(int chunkX, int chunkZ, ChunkPrimer primer, Biome[] biomes)
+    {
+        IBlockState roof = Blocks.SNOW.getDefaultState();
+        IBlockState roofFiller = Blocks.PACKED_ICE.getDefaultState();
+        IBlockState wall = BOPBlocks.hard_ice.getDefaultState();
+        IBlockState floor = Blocks.GRASS.getDefaultState();
+        IBlockState floorFiller = Blocks.PACKED_ICE.getDefaultState();
+
+        int roofDepth = 4;
+        int floorDepth = 4;
+
+        //TODO: Migrate to soul sand and shit surface
+        for (int localX = 0; localX < 16; ++localX)
+        {
+            for (int localZ = 0; localZ < 16; ++localZ)
+            {
+                int x = (chunkX * 16 + localX) & 15;
+                int z = (chunkZ * 16 + localZ) & 15;
+                int localY = 127;
+                Biome biome = biomes[localZ + localX * 16];
+                boolean lastSolid = true;
+
+                while (localY >= 0)
+                {
+                    int y = localY;
+                    int blockSkip = 1;
+                    IBlockState currentState = primer.getBlockState(x, y, z);
+
+                    if (currentState.getBlock() == Blocks.NETHERRACK)
+                    {
+                        // initially set to the wall material. this may be replaced later by a roof
+                        primer.setBlockState(x, y, z, wall);
+
+                        // this must be a floor
+                        if (!lastSolid)
+                        {
+                            primer.setBlockState(x, y, z, floor);
+
+                            // iterate over the next few blocks and replace them with the floor material. skip those
+                            // blocks too as we've already checked and modified them
+                            for (int floorOffset = 1; floorOffset <= floorDepth - 1 && y - floorOffset >= 0; floorOffset++)
+                            {
+                                IBlockState state = primer.getBlockState(x, y - floorOffset, z);
+                                blockSkip = floorOffset + 1;
+
+                                // only replace netherrack, if it's air or anything else then don't continue
+                                if (state.getBlock() == Blocks.NETHERRACK)
+                                {
+                                    primer.setBlockState(x, y - floorOffset, z, floorFiller);
+                                }
+                                else break;
+                            }
+                        }
+
+                        // update lastSolid for next time
+                        lastSolid = true;
+                    }
+                    else if (currentState.getMaterial() == Material.AIR)
+                    {
+                        // previous blocks must be a roof
+                        if (lastSolid)
+                        {
+                            primer.setBlockState(x, y + 1, z, roof);
+
+                            // iterate over the previous few blocks to replace them with the roof material
+                            for (int roofOffset = 2; roofOffset <= roofDepth && y + roofOffset <= 127; roofOffset++)
+                            {
+                                IBlockState state = primer.getBlockState(x, y + roofOffset, z);
+
+                                // only replace netherrack or walls, if it's air or anything else then don't continue
+                                if (state.getBlock() == Blocks.NETHERRACK || state == wall)
+                                {
+                                    primer.setBlockState(x, y + roofOffset, z, roofFiller);
+                                }
+                                else break;
+                            }
+                        }
+
+                        // update lastSolid for next time
+                        lastSolid = false;
+                    }
+
+                    localY -= blockSkip;
+                }
+            }
+        }
+
+    }
+
     public void buildSurfaces(int chunkX, int chunkZ, ChunkPrimer primer)
     {
         if (!ForgeEventFactory.onReplaceBiomeBlocks(this, chunkX, chunkZ, primer, this.world)) return;
@@ -313,13 +405,15 @@ public class ChunkProviderGenerateBOPHell implements IChunkGenerator
             this.genNetherBridge.generate(this.world, chunkX, chunkZ, chunkprimer);
         }
 
-        Chunk chunk = new Chunk(this.world, chunkprimer, chunkX, chunkZ);
-        Biome[] abiome = this.world.getBiomeProvider().getBiomes((Biome[])null, chunkX * 16, chunkZ * 16, 16, 16);
-        byte[] abyte = chunk.getBiomeArray();
+        Biome[] biomes = this.world.getBiomeProvider().getBiomes((Biome[])null, chunkX * 16, chunkZ * 16, 16, 16);
+        this.replaceBlocksForBiome(chunkX, chunkZ, chunkprimer, biomes);
 
-        for (int i = 0; i < abyte.length; ++i)
+        Chunk chunk = new Chunk(this.world, chunkprimer, chunkX, chunkZ);
+        byte[] chunkBiomes = chunk.getBiomeArray();
+
+        for (int i = 0; i < chunkBiomes.length; ++i)
         {
-            abyte[i] = (byte)Biome.getIdForBiome(abiome[i]);
+            chunkBiomes[i] = (byte)Biome.getIdForBiome(biomes[i]);
         }
 
         chunk.resetRelightChecks();
@@ -426,6 +520,7 @@ public class ChunkProviderGenerateBOPHell implements IChunkGenerator
         return noiseArray;
     }
 
+    @Override
     public void populate(int x, int z)
     {
         BlockFalling.fallInstantly = true;
@@ -505,11 +600,13 @@ public class ChunkProviderGenerateBOPHell implements IChunkGenerator
         BlockFalling.fallInstantly = false;
     }
 
+    @Override
     public boolean generateStructures(Chunk chunkIn, int x, int z)
     {
         return false;
     }
 
+    @Override
     public List<Biome.SpawnListEntry> getPossibleCreatures(EnumCreatureType creatureType, BlockPos pos)
     {
         if (creatureType == EnumCreatureType.MONSTER)
@@ -529,12 +626,14 @@ public class ChunkProviderGenerateBOPHell implements IChunkGenerator
         return biome.getSpawnableList(creatureType);
     }
 
+    @Override
     @Nullable
     public BlockPos getStrongholdGen(World worldIn, String structureName, BlockPos position, boolean p_180513_4_)
     {
         return "Fortress".equals(structureName) && this.genNetherBridge != null ? this.genNetherBridge.getClosestStrongholdPos(worldIn, position, p_180513_4_) : null;
     }
 
+    @Override
     public void recreateStructures(Chunk chunkIn, int x, int z)
     {
         this.genNetherBridge.generate(this.world, x, z, (ChunkPrimer)null);

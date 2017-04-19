@@ -40,7 +40,7 @@ public class GenLayerSubBiomesBOP extends BOPGenLayer
             {
                 this.initChunkSeed((long)(x + areaX), (long)(z + areaY));
                 int biomeID = biomeIds[x + 1 + (z + 1) * (areaWidth + 2)];
-                
+
                 // subBiomeInit comes from an instance of GenLayerRiverInit 
                 // ...which produces random 'oceans' of zeros, and 'continents' of random values between 2 and 300001
                 // when combined with % 29, the result is 'oceans' of zeros and 'continents' of random values between 0 and 28

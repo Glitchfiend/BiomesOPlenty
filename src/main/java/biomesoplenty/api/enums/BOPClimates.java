@@ -23,10 +23,12 @@ public enum BOPClimates {
     MEDITERANEAN (BiomeType.WARM),
     SAVANNA (BiomeType.DESERT),
     HOT_DESERT (BiomeType.DESERT),
-    WASTELAND (BiomeType.DESERT);
+    WASTELAND (BiomeType.DESERT),
+    HELL (null);
     
     public final BiomeType biomeType;
-    private int totalLandBiomesWeight;
+    private int totalBiomesWeight;
+
     private ArrayList<WeightedBiomeEntry> landBiomes = new ArrayList<WeightedBiomeEntry>();
     
     private BOPClimates(BiomeType biomeType)
@@ -34,21 +36,21 @@ public enum BOPClimates {
         this.biomeType = biomeType;
     }
     
-    public BOPClimates addLandBiome(int weight, Biome biome)
+    public BOPClimates addBiome(int weight, Biome biome)
     {
-        return this.addLandBiome(new WeightedBiomeEntry(weight, biome));
+        return this.addBiome(new WeightedBiomeEntry(weight, biome));
     }
     
-    public BOPClimates addLandBiome(WeightedBiomeEntry biomeEntry)
+    public BOPClimates addBiome(WeightedBiomeEntry biomeEntry)
     {
-        this.totalLandBiomesWeight += biomeEntry.weight;
+        this.totalBiomesWeight += biomeEntry.weight;
         this.landBiomes.add(biomeEntry);
         return this;
     }
     
-    public Biome getRandomLandBiome(BOPGenLayer layer)
+    public Biome getRandomBiome(BOPGenLayer layer)
     {
-        int weight = layer.nextInt(this.totalLandBiomesWeight);
+        int weight = layer.nextInt(this.totalBiomesWeight);
         Iterator<WeightedBiomeEntry> iterator = this.landBiomes.iterator();
         WeightedBiomeEntry item;
         do
@@ -65,37 +67,33 @@ public enum BOPClimates {
         switch (this)
         {
             case ICE_CAP:
-                return (layer.nextInt(2)==0) ? this.getRandomLandBiome(layer) : Biomes.FROZEN_OCEAN;
+                return (layer.nextInt(2)==0) ? this.getRandomBiome(layer) : Biomes.FROZEN_OCEAN;
             case TUNDRA: case BOREAL:
                 return (layer.nextInt(3)!=0) ? (deep ? Biomes.DEEP_OCEAN : Biomes.OCEAN) : Biomes.FROZEN_OCEAN;
             default:
                 return (deep ? Biomes.DEEP_OCEAN : Biomes.OCEAN);
         }
     }
-    
+
     static
     {
         // set up vanilla biomes
         
-        BOPClimates.ICE_CAP.addLandBiome(10,Biomes.ICE_PLAINS);
-        BOPClimates.TUNDRA.addLandBiome(10, Biomes.COLD_TAIGA).addLandBiome(10, Biomes.EXTREME_HILLS);
-        BOPClimates.BOREAL.addLandBiome(5, Biomes.REDWOOD_TAIGA).addLandBiome(5, Biomes.EXTREME_HILLS).addLandBiome(20, Biomes.TAIGA);
-        BOPClimates.COLD_SWAMP.addLandBiome(5, Biomes.SWAMPLAND);
-        BOPClimates.WET_TEMPERATE.addLandBiome(20, Biomes.ROOFED_FOREST).addLandBiome(5, Biomes.FOREST);
-        BOPClimates.DRY_TEMPERATE.addLandBiome(5, Biomes.PLAINS);
-        BOPClimates.COOL_TEMPERATE.addLandBiome(15, Biomes.FOREST).addLandBiome(10, Biomes.BIRCH_FOREST);
-        BOPClimates.WARM_TEMPERATE.addLandBiome(20, Biomes.PLAINS).addLandBiome(5, Biomes.BIRCH_FOREST);
-        BOPClimates.HOT_SWAMP.addLandBiome(5, Biomes.SWAMPLAND);
-        BOPClimates.TROPICAL.addLandBiome(15, Biomes.JUNGLE);
-        BOPClimates.MEDITERANEAN.addLandBiome(5, Biomes.PLAINS);
-        BOPClimates.SAVANNA.addLandBiome(20, Biomes.SAVANNA);
-        BOPClimates.HOT_DESERT.addLandBiome(30, Biomes.DESERT).addLandBiome(10, Biomes.MESA_CLEAR_ROCK);
-        BOPClimates.WASTELAND.addLandBiome(1, Biomes.DESERT);
+        BOPClimates.ICE_CAP.addBiome(10,Biomes.ICE_PLAINS);
+        BOPClimates.TUNDRA.addBiome(10, Biomes.COLD_TAIGA).addBiome(10, Biomes.EXTREME_HILLS);
+        BOPClimates.BOREAL.addBiome(5, Biomes.REDWOOD_TAIGA).addBiome(5, Biomes.EXTREME_HILLS).addBiome(20, Biomes.TAIGA);
+        BOPClimates.COLD_SWAMP.addBiome(5, Biomes.SWAMPLAND);
+        BOPClimates.WET_TEMPERATE.addBiome(20, Biomes.ROOFED_FOREST).addBiome(5, Biomes.FOREST);
+        BOPClimates.DRY_TEMPERATE.addBiome(5, Biomes.PLAINS);
+        BOPClimates.COOL_TEMPERATE.addBiome(15, Biomes.FOREST).addBiome(10, Biomes.BIRCH_FOREST);
+        BOPClimates.WARM_TEMPERATE.addBiome(20, Biomes.PLAINS).addBiome(5, Biomes.BIRCH_FOREST);
+        BOPClimates.HOT_SWAMP.addBiome(5, Biomes.SWAMPLAND);
+        BOPClimates.TROPICAL.addBiome(15, Biomes.JUNGLE);
+        BOPClimates.MEDITERANEAN.addBiome(5, Biomes.PLAINS);
+        BOPClimates.SAVANNA.addBiome(20, Biomes.SAVANNA);
+        BOPClimates.HOT_DESERT.addBiome(30, Biomes.DESERT).addBiome(10, Biomes.MESA_CLEAR_ROCK);
+        BOPClimates.WASTELAND.addBiome(1, Biomes.DESERT);
     }
-    
-    
-    
-    
     
     private static BOPClimates[] values = BOPClimates.values();
     
