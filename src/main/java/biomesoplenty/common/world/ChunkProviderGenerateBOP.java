@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import biomesoplenty.common.biome.overworld.BOPBiome;
+import biomesoplenty.common.biome.overworld.BOPOverworldBiome;
 import biomesoplenty.common.util.biome.BiomeUtils;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.state.IBlockState;
@@ -118,7 +118,7 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
         for (Biome biome : BiomeUtils.getRegisteredBiomes())
         {
             if (biome == null) {continue;}
-            this.biomeTerrainSettings.put(biome, (biome instanceof BOPBiome) ? ((BOPBiome)biome).terrainSettings : TerrainSettings.forVanillaBiome(biome));
+            this.biomeTerrainSettings.put(biome, (biome instanceof BOPOverworldBiome) ? ((BOPOverworldBiome)biome).terrainSettings : TerrainSettings.forVanillaBiome(biome));
         }
         
     }
@@ -345,7 +345,7 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
         
         // Rivers shouldn't be influenced by the neighbors
         Biome centerBiome = biomes[localX + 2 + (localZ + 2) * 10];
-        if (centerBiome == Biomes.RIVER || centerBiome == Biomes.FROZEN_RIVER || ((centerBiome instanceof BOPBiome) && ((BOPBiome)centerBiome).noNeighborTerrainInfuence))
+        if (centerBiome == Biomes.RIVER || centerBiome == Biomes.FROZEN_RIVER || ((centerBiome instanceof BOPOverworldBiome) && ((BOPOverworldBiome)centerBiome).noNeighborTerrainInfuence))
         {
             return this.biomeTerrainSettings.get(centerBiome);
         }

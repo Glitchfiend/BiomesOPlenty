@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Random;
 
 import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.common.biome.overworld.BOPBiome;
+import biomesoplenty.common.biome.BOPBiome;
 import biomesoplenty.common.util.biome.BiomeUtils;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;

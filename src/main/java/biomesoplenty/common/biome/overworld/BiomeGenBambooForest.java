@@ -42,7 +42,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
 
-public class BiomeGenBambooForest extends BOPBiome
+public class BiomeGenBambooForest extends BOPOverworldBiome
 {    
     
     public IBlockState usualTopBlock;

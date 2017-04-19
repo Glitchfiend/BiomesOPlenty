@@ -36,7 +36,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 
-public class BiomeGenOminousWoods extends BOPBiome
+public class BiomeGenOminousWoods extends BOPOverworldBiome
 {    
     
     public BiomeGenOminousWoods()

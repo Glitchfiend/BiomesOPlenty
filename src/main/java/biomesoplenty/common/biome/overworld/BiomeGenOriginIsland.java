@@ -31,7 +31,7 @@ import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 
-public class BiomeGenOriginIsland extends BOPBiome
+public class BiomeGenOriginIsland extends BOPOverworldBiome
 {
     public BiomeGenOriginIsland()
     {

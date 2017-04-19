@@ -30,7 +30,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
 
-public class BiomeGenRedwoodForest extends BOPBiome
+public class BiomeGenRedwoodForest extends BOPOverworldBiome
 {
 	
     public IBlockState usualTopBlock;

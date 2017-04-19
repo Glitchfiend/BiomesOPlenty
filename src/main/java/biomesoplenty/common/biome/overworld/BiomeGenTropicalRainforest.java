@@ -29,7 +29,7 @@ import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 
-public class BiomeGenTropicalRainforest extends BOPBiome
+public class BiomeGenTropicalRainforest extends BOPOverworldBiome
 {
     
     public BiomeGenTropicalRainforest()

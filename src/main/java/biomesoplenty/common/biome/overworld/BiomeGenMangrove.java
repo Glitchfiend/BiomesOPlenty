@@ -31,7 +31,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
  
-public class BiomeGenMangrove extends BOPBiome
+public class BiomeGenMangrove extends BOPOverworldBiome
 {
 	public IBlockState usualTopBlock;
     public IBlockState alternateTopBlock;

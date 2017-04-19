@@ -47,7 +47,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
 
-public class BiomeGenMountain extends BOPBiome
+public class BiomeGenMountain extends BOPOverworldBiome
 {
     
     public static enum MountainType {PEAKS, FOOTHILLS}

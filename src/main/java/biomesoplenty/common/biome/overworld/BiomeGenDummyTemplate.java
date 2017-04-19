@@ -40,7 +40,7 @@ import net.minecraft.util.math.BlockPos;
 
 // This class is not intended to be used in the game
 // It just contains one of every common generator, so it can be used as a template when creating new biomes - just delete lines you don't want and adjust weightings
-public class BiomeGenDummyTemplate extends BOPBiome
+public class BiomeGenDummyTemplate extends BOPOverworldBiome
 {
 
     public BiomeGenDummyTemplate()

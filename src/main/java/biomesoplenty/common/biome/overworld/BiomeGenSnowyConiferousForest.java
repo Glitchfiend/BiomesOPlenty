@@ -24,7 +24,7 @@ import net.minecraft.block.BlockTallGrass;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.init.Blocks;
 
-public class BiomeGenSnowyConiferousForest extends BOPBiome
+public class BiomeGenSnowyConiferousForest extends BOPOverworldBiome
 {
     
     public BiomeGenSnowyConiferousForest()

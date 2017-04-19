@@ -32,7 +32,7 @@ import net.minecraft.block.BlockTallGrass;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.init.Blocks;
 
-public class BiomeGenMarsh extends BOPBiome
+public class BiomeGenMarsh extends BOPOverworldBiome
 {
    
     // TODO: fog color / closeness? what's that?

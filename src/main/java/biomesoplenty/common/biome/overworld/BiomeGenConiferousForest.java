@@ -28,7 +28,7 @@ import net.minecraft.block.BlockTallGrass;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.init.Blocks;
 
-public class BiomeGenConiferousForest extends BOPBiome
+public class BiomeGenConiferousForest extends BOPOverworldBiome
 {
     
     public BiomeGenConiferousForest()
@@ -42,7 +42,7 @@ public class BiomeGenConiferousForest extends BOPBiome
         
         if (BOPBiomes.gravel_beach.isPresent())
         {
-        	this.beachBiomeLocation = ((BOPBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
+        	this.beachBiomeLocation = ((BOPOverworldBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
         }
     
         this.addWeight(BOPClimates.BOREAL, 10);

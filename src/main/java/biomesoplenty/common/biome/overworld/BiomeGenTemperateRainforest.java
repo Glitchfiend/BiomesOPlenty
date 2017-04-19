@@ -34,7 +34,7 @@ import net.minecraft.block.BlockTallGrass;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 
-public class BiomeGenTemperateRainforest extends BOPBiome
+public class BiomeGenTemperateRainforest extends BOPOverworldBiome
 {
     
     public BiomeGenTemperateRainforest()
@@ -50,7 +50,7 @@ public class BiomeGenTemperateRainforest extends BOPBiome
         
         if (BOPBiomes.gravel_beach.isPresent())
         {
-        	this.beachBiomeLocation = ((BOPBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
+        	this.beachBiomeLocation = ((BOPOverworldBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
         }
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntitySnail.class, 6, 1, 2));

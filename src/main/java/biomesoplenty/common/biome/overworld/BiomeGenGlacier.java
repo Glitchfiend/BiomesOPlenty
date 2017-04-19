@@ -18,7 +18,7 @@ import net.minecraft.entity.monster.EntityPolarBear;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.Biome;
 
-public class BiomeGenGlacier extends BOPBiome
+public class BiomeGenGlacier extends BOPOverworldBiome
 {    
     
     public BiomeGenGlacier()

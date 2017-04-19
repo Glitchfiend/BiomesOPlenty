@@ -40,7 +40,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
  
-public class BiomeGenOasis extends BOPBiome
+public class BiomeGenOasis extends BOPOverworldBiome
 {
 	public IBlockState usualTopBlock;
     public IBlockState alternateTopBlock;

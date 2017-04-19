@@ -23,7 +23,7 @@ import net.minecraft.block.BlockTallGrass;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.util.math.BlockPos;
 
-public class BiomeGenOrchard extends BOPBiome
+public class BiomeGenOrchard extends BOPOverworldBiome
 {
     public BiomeGenOrchard()
     {

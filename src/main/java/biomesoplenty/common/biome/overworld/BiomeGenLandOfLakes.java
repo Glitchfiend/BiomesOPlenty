@@ -35,7 +35,7 @@ import net.minecraft.block.BlockTallGrass;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 
-public class BiomeGenLandOfLakes extends BOPBiome
+public class BiomeGenLandOfLakes extends BOPOverworldBiome
 {
    
     // TODO: fog color / closeness? what's that?
@@ -58,7 +58,7 @@ public class BiomeGenLandOfLakes extends BOPBiome
         
         if (BOPBiomes.gravel_beach.isPresent())
         {
-        	this.beachBiomeLocation = ((BOPBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
+        	this.beachBiomeLocation = ((BOPOverworldBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
         }
         
         this.spawnableWaterCreatureList.clear();       

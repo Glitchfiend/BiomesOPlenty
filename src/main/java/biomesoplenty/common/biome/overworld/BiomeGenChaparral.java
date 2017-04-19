@@ -33,7 +33,7 @@ import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 
-public class BiomeGenChaparral extends BOPBiome
+public class BiomeGenChaparral extends BOPOverworldBiome
 {    
     public BiomeGenChaparral()
     {

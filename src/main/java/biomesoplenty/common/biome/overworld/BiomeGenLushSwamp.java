@@ -41,7 +41,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.init.Blocks;
 
-public class BiomeGenLushSwamp extends BOPBiome
+public class BiomeGenLushSwamp extends BOPOverworldBiome
 {    
     
     public BiomeGenLushSwamp()

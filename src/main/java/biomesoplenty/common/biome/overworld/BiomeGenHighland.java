@@ -23,7 +23,7 @@ import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.init.Blocks;
 
-public class BiomeGenHighland extends BOPBiome
+public class BiomeGenHighland extends BOPOverworldBiome
 {
         
     public BiomeGenHighland()

@@ -31,7 +31,7 @@ import net.minecraft.block.BlockSand;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.init.Blocks;
 
-public class BiomeGenOutback extends BOPBiome
+public class BiomeGenOutback extends BOPOverworldBiome
 {    
     public BiomeGenOutback()
     {

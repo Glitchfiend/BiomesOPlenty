@@ -23,7 +23,7 @@ import biomesoplenty.common.world.generator.GeneratorOreSingle;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
  
-public class BiomeGenKelpForest extends BOPBiome
+public class BiomeGenKelpForest extends BOPOverworldBiome
 {
     public BiomeGenKelpForest()
     {

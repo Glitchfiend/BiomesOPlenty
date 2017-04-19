@@ -45,7 +45,7 @@ import net.minecraft.entity.monster.EntityWitch;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 
-public class BiomeGenMysticGrove extends BOPBiome
+public class BiomeGenMysticGrove extends BOPOverworldBiome
 {    
     
     public BiomeGenMysticGrove()

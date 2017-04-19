@@ -39,7 +39,7 @@ import net.minecraft.block.BlockTallGrass;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 
-public class BiomeGenDeadSwamp extends BOPBiome
+public class BiomeGenDeadSwamp extends BOPOverworldBiome
 {
     
     public BiomeGenDeadSwamp()

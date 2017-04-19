@@ -36,7 +36,7 @@ import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 
-public class BiomeGenHeathland extends BOPBiome
+public class BiomeGenHeathland extends BOPOverworldBiome
 {    
     public BiomeGenHeathland()
     {

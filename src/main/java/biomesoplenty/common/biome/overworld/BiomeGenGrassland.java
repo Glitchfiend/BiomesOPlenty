@@ -33,7 +33,7 @@ import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 
-public class BiomeGenGrassland extends BOPBiome {
+public class BiomeGenGrassland extends BOPOverworldBiome {
     
     public BiomeGenGrassland() {
 
@@ -47,7 +47,7 @@ public class BiomeGenGrassland extends BOPBiome {
         
         if (BOPBiomes.gravel_beach.isPresent())
         {
-        	this.beachBiomeLocation = ((BOPBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
+        	this.beachBiomeLocation = ((BOPOverworldBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
         }
         
         this.canGenerateVillages = true;

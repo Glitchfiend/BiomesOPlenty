@@ -18,7 +18,7 @@ import biomesoplenty.common.world.generator.GeneratorOreSingle;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 
-public class BiomeGenAlps extends BOPBiome
+public class BiomeGenAlps extends BOPOverworldBiome
 {
     public BiomeGenAlps()
     {

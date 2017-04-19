@@ -39,7 +39,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
 
-public class BiomeGenQuagmire extends BOPBiome
+public class BiomeGenQuagmire extends BOPOverworldBiome
 {    
     public IBlockState usualTopBlock;
     public IBlockState usualFillerBlock;

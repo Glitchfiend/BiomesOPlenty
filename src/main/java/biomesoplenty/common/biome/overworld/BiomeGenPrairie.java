@@ -27,7 +27,7 @@ import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 
-public class BiomeGenPrairie extends BOPBiome
+public class BiomeGenPrairie extends BOPOverworldBiome
 {
     public BiomeGenPrairie()
     {

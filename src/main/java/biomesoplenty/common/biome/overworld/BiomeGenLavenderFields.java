@@ -31,7 +31,7 @@ import net.minecraft.block.BlockTallGrass;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
  
-public class BiomeGenLavenderFields extends BOPBiome
+public class BiomeGenLavenderFields extends BOPOverworldBiome
 {
     public BiomeGenLavenderFields()
     {

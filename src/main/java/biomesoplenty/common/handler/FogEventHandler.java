@@ -1,6 +1,6 @@
 package biomesoplenty.common.handler;
 
-import biomesoplenty.common.biome.overworld.BOPBiome;
+import biomesoplenty.common.biome.BOPBiome;
 import biomesoplenty.common.config.MiscConfigurationHandler;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;

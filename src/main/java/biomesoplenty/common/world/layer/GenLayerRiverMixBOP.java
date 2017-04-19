@@ -10,7 +10,7 @@ package biomesoplenty.common.world.layer;
 
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.generation.BOPGenLayer;
-import biomesoplenty.common.biome.overworld.BOPBiome;
+import biomesoplenty.common.biome.overworld.BOPOverworldBiome;
 import net.minecraft.init.Biomes;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
@@ -80,9 +80,9 @@ public class GenLayerRiverMixBOP extends BOPGenLayer
     {
     	Biome biome = Biome.getBiome(biomeId);
 
-    	if (biome != null && biome instanceof BOPBiome)
+    	if (biome != null && biome instanceof BOPOverworldBiome)
     	{
-    		BOPBiome bopBiome = (BOPBiome)biome;
+    		BOPOverworldBiome bopBiome = (BOPOverworldBiome)biome;
     		return bopBiome.canGenerateRivers;
     	}
 

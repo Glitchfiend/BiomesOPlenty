@@ -31,7 +31,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 
 
-public class BiomeGenSnowyForest extends BOPBiome
+public class BiomeGenSnowyForest extends BOPOverworldBiome
 {
     public BiomeGenSnowyForest()
     {

@@ -21,7 +21,7 @@ import biomesoplenty.common.world.generator.GeneratorOreSingle;
 import biomesoplenty.common.world.generator.GeneratorSplotches;
 import net.minecraft.init.Blocks;
  
-public class BiomeGenVolcanicIsland extends BOPBiome
+public class BiomeGenVolcanicIsland extends BOPOverworldBiome
 {
     public BiomeGenVolcanicIsland()
     {

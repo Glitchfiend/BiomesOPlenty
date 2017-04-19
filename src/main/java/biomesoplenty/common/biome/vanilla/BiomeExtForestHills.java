@@ -8,7 +8,7 @@ import biomesoplenty.api.enums.BOPGems;
 import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.api.generation.GeneratorStage;
-import biomesoplenty.common.biome.overworld.BOPBiome;
+import biomesoplenty.common.biome.overworld.BOPOverworldBiome;
 import biomesoplenty.common.block.BlockBOPDoublePlant;
 import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.world.generator.GeneratorDoubleFlora;
@@ -27,7 +27,7 @@ public class BiomeExtForestHills extends ExtendedBiomeWrapper
         
         if (BOPBiomes.gravel_beach.isPresent())
         {
-            this.beachBiomeLocation = ((BOPBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
+            this.beachBiomeLocation = ((BOPOverworldBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
         }
         
         // trees

@@ -54,7 +54,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
-public class BOPBiome extends Biome implements IExtendedBiome
+public class BOPOverworldBiome extends Biome implements IExtendedBiome
 {
     private GenerationManager generationManager = new GenerationManager();
     private Map<BOPClimates, Integer> weightMap = new HashMap<BOPClimates, Integer>();
@@ -84,7 +84,7 @@ public class BOPBiome extends Biome implements IExtendedBiome
     public final ResourceLocation location;
     public IConfigObj conf;
     
-    private BOPBiome(ResourceLocation idLoc, PropsBuilder defaultBuilder, IConfigObj conf)
+    private BOPOverworldBiome(ResourceLocation idLoc, PropsBuilder defaultBuilder, IConfigObj conf)
     {
         super(configureBiomeProps(idLoc, defaultBuilder, conf));
 
@@ -108,7 +108,7 @@ public class BOPBiome extends Biome implements IExtendedBiome
         this.addGenerator("stone_formations", GeneratorStage.FLOWERS,(new GeneratorColumns.Builder()).amountPerChunk(30.0F).generationAttempts(32).placeOn(suitableStonePosition).with(BOPBlocks.stone_formations.getDefaultState()).minHeight(1).maxHeight(5).randomDirection(true).scatterYMethod(ScatterYMethod.BELOW_GROUND).create());
     }
     
-    public BOPBiome(String idName, PropsBuilder defaultBuilder)
+    public BOPOverworldBiome(String idName, PropsBuilder defaultBuilder)
     {
         this(new ResourceLocation(BiomesOPlenty.MOD_ID, idName), defaultBuilder, ModBiomes.readConfigFile(idName));
     }

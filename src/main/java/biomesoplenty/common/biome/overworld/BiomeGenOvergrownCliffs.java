@@ -27,7 +27,7 @@ import net.minecraft.block.BlockTallGrass;
 import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.init.Blocks;
 
-public class BiomeGenOvergrownCliffs extends BOPBiome
+public class BiomeGenOvergrownCliffs extends BOPOverworldBiome
 {
     public BiomeGenOvergrownCliffs()
     {

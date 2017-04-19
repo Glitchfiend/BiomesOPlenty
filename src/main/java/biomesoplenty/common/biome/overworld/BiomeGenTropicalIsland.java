@@ -31,7 +31,7 @@ import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.init.Blocks;
  
-public class BiomeGenTropicalIsland extends BOPBiome
+public class BiomeGenTropicalIsland extends BOPOverworldBiome
 {
     public BiomeGenTropicalIsland()
     {

@@ -13,7 +13,7 @@ import biomesoplenty.api.config.IBOPWorldSettings.GeneratorType;
 import biomesoplenty.common.world.generator.GeneratorWeighted;
 import net.minecraft.init.Blocks;
  
-public class BiomeGenGravelBeach extends BOPBiome
+public class BiomeGenGravelBeach extends BOPOverworldBiome
 {
     public BiomeGenGravelBeach()
     {

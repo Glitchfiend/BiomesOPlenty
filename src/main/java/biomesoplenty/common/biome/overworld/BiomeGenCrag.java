@@ -16,7 +16,7 @@ import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.world.generator.GeneratorOreSingle;
 import net.minecraft.init.Blocks;
 
-public class BiomeGenCrag extends BOPBiome
+public class BiomeGenCrag extends BOPOverworldBiome
 {    
     public BiomeGenCrag()
     {

@@ -30,7 +30,7 @@ import net.minecraft.block.BlockTallGrass;
 import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.init.Blocks;
 
-public class BiomeGenEucalyptusForest extends BOPBiome
+public class BiomeGenEucalyptusForest extends BOPOverworldBiome
 {
     
     public BiomeGenEucalyptusForest()

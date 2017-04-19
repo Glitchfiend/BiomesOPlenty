@@ -31,7 +31,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
 
-public class BiomeGenColdDesert extends BOPBiome
+public class BiomeGenColdDesert extends BOPOverworldBiome
 {    
     
 	public IBlockState usualTopBlock;

@@ -7,7 +7,7 @@ import biomesoplenty.api.enums.BOPFlowers;
 import biomesoplenty.api.enums.BOPGems;
 import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.generation.GeneratorStage;
-import biomesoplenty.common.biome.overworld.BOPBiome;
+import biomesoplenty.common.biome.overworld.BOPOverworldBiome;
 import biomesoplenty.common.world.generator.GeneratorFlora;
 import biomesoplenty.common.world.generator.GeneratorGrass;
 import biomesoplenty.common.world.generator.GeneratorOreSingle;
@@ -22,7 +22,7 @@ public class BiomeExtMegaTaigaHills extends ExtendedBiomeWrapper
         
         if (BOPBiomes.gravel_beach.isPresent())
         {
-            this.beachBiomeLocation = ((BOPBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
+            this.beachBiomeLocation = ((BOPOverworldBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
         }
         
         // grasses

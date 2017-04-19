@@ -21,7 +21,7 @@ import biomesoplenty.common.world.generator.GeneratorOreSingle;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
  
-public class BiomeGenCoralReef extends BOPBiome
+public class BiomeGenCoralReef extends BOPOverworldBiome
 {
     public BiomeGenCoralReef()
     {

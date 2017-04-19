@@ -41,7 +41,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
 
-public class BiomeGenShield extends BOPBiome
+public class BiomeGenShield extends BOPOverworldBiome
 {    
     public IBlockState usualTopBlock;
     public IBlockState alternateTopBlock;
@@ -61,7 +61,7 @@ public class BiomeGenShield extends BOPBiome
         
         if (BOPBiomes.gravel_beach.isPresent())
         {
-        	this.beachBiomeLocation = ((BOPBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
+        	this.beachBiomeLocation = ((BOPOverworldBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
         }
         
         this.addWeight(BOPClimates.BOREAL, 5);

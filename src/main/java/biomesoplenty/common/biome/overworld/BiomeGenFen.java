@@ -44,7 +44,7 @@ import net.minecraft.block.BlockTallGrass;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 
-public class BiomeGenFen extends BOPBiome
+public class BiomeGenFen extends BOPOverworldBiome
 {
         
     public BiomeGenFen()
@@ -63,7 +63,7 @@ public class BiomeGenFen extends BOPBiome
         
         if (BOPBiomes.gravel_beach.isPresent())
         {
-        	this.beachBiomeLocation = ((BOPBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
+        	this.beachBiomeLocation = ((BOPOverworldBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
         }
 
         this.addWeight(BOPClimates.COLD_SWAMP, 7);

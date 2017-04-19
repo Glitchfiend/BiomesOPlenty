@@ -35,7 +35,7 @@ import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.init.Blocks;
 
-public class BiomeGenLushDesert extends BOPBiome
+public class BiomeGenLushDesert extends BOPOverworldBiome
 {
     public BiomeGenLushDesert()
     {

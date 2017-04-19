@@ -36,7 +36,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
 
-public class BiomeGenXericShrubland extends BOPBiome
+public class BiomeGenXericShrubland extends BOPOverworldBiome
 {
 	public IBlockState usualTopBlock;
     public IBlockState alternateTopBlock;

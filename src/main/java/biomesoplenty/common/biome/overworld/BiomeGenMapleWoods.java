@@ -22,7 +22,7 @@ import net.minecraft.block.BlockTallGrass;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.init.Blocks;
 
-public class BiomeGenMapleWoods extends BOPBiome
+public class BiomeGenMapleWoods extends BOPOverworldBiome
 {    
     public BiomeGenMapleWoods()
     {
@@ -37,7 +37,7 @@ public class BiomeGenMapleWoods extends BOPBiome
         
         if (BOPBiomes.gravel_beach.isPresent())
         {
-        	this.beachBiomeLocation = ((BOPBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
+        	this.beachBiomeLocation = ((BOPOverworldBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
         }
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntityWolf.class, 5, 4, 4));

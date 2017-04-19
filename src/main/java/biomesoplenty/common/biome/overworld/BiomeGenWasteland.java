@@ -30,7 +30,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 
-public class BiomeGenWasteland extends BOPBiome
+public class BiomeGenWasteland extends BOPOverworldBiome
 {    
     
     public BiomeGenWasteland()

@@ -45,7 +45,7 @@ import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 
-public class BiomeGenWetland extends BOPBiome
+public class BiomeGenWetland extends BOPOverworldBiome
 {    
     
     public BiomeGenWetland()

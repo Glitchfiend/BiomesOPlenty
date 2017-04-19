@@ -29,7 +29,7 @@ import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.passive.EntityLlama;
 import net.minecraft.init.Blocks;
 
-public class BiomeGenShrubland extends BOPBiome
+public class BiomeGenShrubland extends BOPOverworldBiome
 {
     
     public BiomeGenShrubland()
@@ -46,7 +46,7 @@ public class BiomeGenShrubland extends BOPBiome
         
         if (BOPBiomes.gravel_beach.isPresent())
         {
-        	this.beachBiomeLocation = ((BOPBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
+        	this.beachBiomeLocation = ((BOPOverworldBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
         }
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));

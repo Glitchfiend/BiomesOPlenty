@@ -27,7 +27,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 
-public class BiomeGenBrushland extends BOPBiome
+public class BiomeGenBrushland extends BOPOverworldBiome
 {   
     
     public BiomeGenBrushland()

@@ -23,7 +23,7 @@ import net.minecraft.block.BlockFlower.EnumFlowerType;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.util.math.BlockPos;
 
-public class BiomeGenFlowerField extends BOPBiome
+public class BiomeGenFlowerField extends BOPOverworldBiome
 {    
     public BiomeGenFlowerField()
     {

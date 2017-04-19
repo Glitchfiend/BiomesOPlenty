@@ -33,7 +33,7 @@ import net.minecraft.block.BlockTallGrass;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 
-public class BiomeGenDeadForest extends BOPBiome
+public class BiomeGenDeadForest extends BOPOverworldBiome
 {    
     public BiomeGenDeadForest()
     {
@@ -50,7 +50,7 @@ public class BiomeGenDeadForest extends BOPBiome
         
         if (BOPBiomes.gravel_beach.isPresent())
         {
-        	this.beachBiomeLocation = ((BOPBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
+        	this.beachBiomeLocation = ((BOPOverworldBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
         }
         
         this.addWeight(BOPClimates.BOREAL, 3);
