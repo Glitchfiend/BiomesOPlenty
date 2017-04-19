@@ -23,10 +23,10 @@ public class BiomePolarChasm extends BOPHellBiome
         this.fogColor = 0x6989AD;
         this.fogDensity = 0.99F;
 
-        this.topBlock = Blocks.SNOW.getDefaultState();
-        this.fillerBlock = Blocks.PACKED_ICE.getDefaultState();
-        this.roofTopBlock = Blocks.SNOW.getDefaultState();
-        this.roofFillerBlock = Blocks.PACKED_ICE.getDefaultState();
+        this.topBlock = BOPBlocks.hard_ice.getDefaultState();
+        this.fillerBlock = BOPBlocks.hard_ice.getDefaultState();
+        this.roofTopBlock = BOPBlocks.hard_ice.getDefaultState();
+        this.roofFillerBlock = BOPBlocks.hard_ice.getDefaultState();
         this.wallBlock = BOPBlocks.hard_ice.getDefaultState();
     }
 }
