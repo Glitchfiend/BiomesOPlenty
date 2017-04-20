@@ -26,6 +26,7 @@ import biomesoplenty.common.world.generator.GeneratorOreSingle;
 import biomesoplenty.common.world.generator.GeneratorSpike;
 import biomesoplenty.common.world.generator.GeneratorSplatter;
 import biomesoplenty.common.world.generator.GeneratorSplotches;
+import biomesoplenty.common.world.generator.GeneratorVines;
 import biomesoplenty.common.world.generator.GeneratorWaterside;
 import biomesoplenty.common.world.generator.GeneratorWeighted;
 import biomesoplenty.common.world.generator.tree.GeneratorBasicTree;
@@ -74,6 +75,7 @@ public class ModGenerators
         registerGenerator("blobs", GeneratorBlobs.class, new GeneratorBlobs.Builder());
         registerGenerator("lakes", GeneratorLakes.class, new GeneratorLakes.Builder());
         registerGenerator("columns", GeneratorColumns.class, new GeneratorColumns.Builder());
+        registerGenerator("vines", GeneratorVines.class, new GeneratorVines.Builder());
         registerGenerator("mixed_lily", GeneratorMixedLily.class, new GeneratorMixedLily.Builder());
         registerGenerator("crystals", GeneratorCrystals.class, new GeneratorCrystals.Builder());
         registerGenerator("spike", GeneratorSpike.class, new GeneratorSpike.Builder());

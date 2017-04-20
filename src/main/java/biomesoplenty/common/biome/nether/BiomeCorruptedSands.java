@@ -30,8 +30,8 @@ public class BiomeCorruptedSands extends BOPHellBiome
         
         // splatter top blocks
         IBlockPosQuery emptyNetherrack = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();
-        this.addGenerator("soulsand_splatter", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(17.0F).generationAttempts(128).scatterYMethod(ScatterYMethod.NETHER_SURFACE).replace(emptyNetherrack).with(Blocks.SOUL_SAND.getDefaultState()).create());
+        this.addGenerator("soulsand_splatter", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(20.0F).generationAttempts(128).scatterYMethod(ScatterYMethod.NETHER_SURFACE).replace(emptyNetherrack).with(Blocks.SOUL_SAND.getDefaultState()).create());
     
-        this.addGenerator("thorns", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(7.0F).with(BOPPlants.THORN).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
+        this.addGenerator("thorns", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(10.0F).with(BOPPlants.THORN).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
     }
 }
