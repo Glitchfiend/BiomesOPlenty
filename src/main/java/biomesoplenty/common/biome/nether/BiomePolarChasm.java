@@ -14,6 +14,7 @@ import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery;
+import biomesoplenty.common.world.generator.GeneratorLakes;
 import biomesoplenty.common.world.generator.GeneratorSplatter;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -35,8 +36,12 @@ public class BiomePolarChasm extends BOPHellBiome
         this.roofFillerBlock = BOPBlocks.hard_ice.getDefaultState();
         this.wallBlock = BOPBlocks.hard_ice.getDefaultState();
         
+        // ice pools
+        this.addGenerator("ice_pools", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(5.0F).liquid(Blocks.ICE.getDefaultState()).frozenLiquid((IBlockState)null).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
+        
+        
         // splatter top blocks
         IBlockPosQuery emptySurface = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();
-        this.addGenerator("ice_splatter", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(2.0F).generationAttempts(128).scatterYMethod(ScatterYMethod.NETHER_SURFACE).replace(emptySurface).with(Blocks.ICE.getDefaultState()).create());
+        this.addGenerator("snow_splatter", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(2.0F).generationAttempts(128).scatterYMethod(ScatterYMethod.NETHER_SURFACE).replace(emptySurface).with(Blocks.SNOW.getDefaultState()).create());
     }
 }

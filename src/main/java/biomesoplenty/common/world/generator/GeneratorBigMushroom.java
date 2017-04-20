@@ -20,6 +20,7 @@ import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryBlock;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryParseException;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryState;
+import biomesoplenty.common.world.generator.GeneratorColumns.Builder;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHugeMushroom;
 import net.minecraft.block.state.IBlockState;
@@ -80,11 +81,15 @@ public class GeneratorBigMushroom extends BOPGeneratorBase
     
     public static class Builder extends BOPGeneratorBase.InnerBuilder<Builder, GeneratorBigMushroom> implements IGeneratorBuilder<GeneratorBigMushroom>
     {
+        protected int minHeight;
+        protected int maxHeight;
         protected BigMushroomType mushroomType;
         protected IBlockPosQuery placeOn;
         protected IBlockPosQuery replace;
         protected ScatterYMethod scatterYMethod;
         
+        public Builder minHeight(int a) {this.minHeight = a; return this.self();}
+        public Builder maxHeight(int a) {this.maxHeight = a; return this.self();}
         public Builder mushroomType(BigMushroomType a) {this.mushroomType = a; return this;}
         public Builder placeOn(IBlockPosQuery a) {this.placeOn = a; return this.self();}
         public Builder placeOn(String a) throws BlockQueryParseException {this.placeOn = BlockQuery.parseQueryString(a); return this.self();}
@@ -98,6 +103,8 @@ public class GeneratorBigMushroom extends BOPGeneratorBase
         
         public Builder()
         {
+            this.minHeight = 5;
+            this.maxHeight = 8;
             this.amountPerChunk = 1.0F;
             this.mushroomType = BigMushroomType.BROWN;
             this.placeOn = BlockQueries.fertile;
@@ -109,19 +116,23 @@ public class GeneratorBigMushroom extends BOPGeneratorBase
         @Override
         public GeneratorBigMushroom create()
         {
-            return new GeneratorBigMushroom(this.amountPerChunk, this.placeOn, this.replace, this.mushroomType, this.scatterYMethod);
+            return new GeneratorBigMushroom(this.amountPerChunk, this.placeOn, this.replace, this.mushroomType, this.scatterYMethod, this.minHeight, this.maxHeight);
         }
     }
     
+    protected int minHeight;
+    protected int maxHeight;
     protected IBlockPosQuery placeOn;
     protected IBlockPosQuery replace;
     protected BigMushroomType mushroomType;
     protected IBlockState mushroomState;
     protected ScatterYMethod scatterYMethod;
     
-    public GeneratorBigMushroom(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, BigMushroomType mushroomType, ScatterYMethod scatterYMethod)
+    public GeneratorBigMushroom(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, BigMushroomType mushroomType, ScatterYMethod scatterYMethod, int minHeight, int maxHeight)
     {
         super(amountPerChunk);
+        this.minHeight = minHeight;
+        this.maxHeight = maxHeight;
         this.placeOn = placeOn;
         this.replace = replace;
         this.setMushroomType(mushroomType);
@@ -177,7 +188,7 @@ public class GeneratorBigMushroom extends BOPGeneratorBase
     public boolean generate(World world, Random rand, BlockPos pos)
     {
 
-        int height = rand.nextInt(3) + 5;
+        int height = rand.nextInt(this.maxHeight - this.minHeight) + this.minHeight;
                 
         // check that there's room
         if (!this.isEnoughSpace(world, pos, height)) {return false;}
@@ -305,6 +316,8 @@ public class GeneratorBigMushroom extends BOPGeneratorBase
     @Override
     public void configure(IConfigObj conf)
     {        
+        this.minHeight = conf.getInt("minHeight", this.minHeight);
+        this.maxHeight = conf.getInt("maxHeight", this.maxHeight);
         this.amountPerChunk = conf.getFloat("amountPerChunk", this.amountPerChunk);
         this.setMushroomType(conf.getEnum("type", this.mushroomType, BigMushroomType.class));
     }

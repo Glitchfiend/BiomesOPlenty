@@ -16,6 +16,7 @@ import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.world.generator.GeneratorFlora;
+import biomesoplenty.common.world.generator.GeneratorLakes;
 import biomesoplenty.common.world.generator.GeneratorSplatter;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -28,10 +29,18 @@ public class BiomeCorruptedSands extends BOPHellBiome
 
         this.addWeight(BOPClimates.HELL, 20);
         
+        this.topBlock = Blocks.SOUL_SAND.getDefaultState();
+        this.fillerBlock = Blocks.SOUL_SAND.getDefaultState();
+        this.wallBlock = Blocks.SOUL_SAND.getDefaultState();
+        
+        // quicksand
+        this.addGenerator("quicksand", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(5.0F).liquid(BOPBlocks.sand).frozenLiquid((IBlockState)null).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
+        
         // splatter top blocks
-        IBlockPosQuery emptyNetherrack = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();
-        this.addGenerator("soulsand_splatter", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(20.0F).generationAttempts(128).scatterYMethod(ScatterYMethod.NETHER_SURFACE).replace(emptyNetherrack).with(Blocks.SOUL_SAND.getDefaultState()).create());
+        IBlockPosQuery emptySoulsand = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();
+        this.addGenerator("netherrack_splatter", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(5.0F).generationAttempts(128).scatterYMethod(ScatterYMethod.NETHER_SURFACE).replace(emptySoulsand).with(Blocks.NETHERRACK.getDefaultState()).create());
     
-        this.addGenerator("thorns", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(10.0F).with(BOPPlants.THORN).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
+        this.addGenerator("dead_grass", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(5.0F).with(BOPPlants.DEADGRASS).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
+        this.addGenerator("thorns", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(20.0F).with(BOPPlants.THORN).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
     }
 }

@@ -363,13 +363,15 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
         switch (plant)
         {
             case DEADGRASS: case DESERTGRASS: case TINYCACTUS:
-                return BlockQueries.litDry.matches(world, pos.down());
+                return BlockQueries.litDry.matches(world, pos.down()) || BlockQueries.sustainsNether.matches(world, pos.down());
             case DESERTSPROUTS: case DUNEGRASS:
                 return BlockQueries.litSand.matches(world, pos.down());
             case SPECTRALFERN:
                 return BlockQueries.spectralMoss.matches(world, pos.down());
             case THORN:
-                return BlockQueries.fertileOrNetherrack.matches(world, pos.down());
+                return BlockQueries.fertileOrNetherrack.matches(world, pos.down()) || BlockQueries.sustainsNether.matches(world, pos.down());
+            case KORU:
+                return BlockQueries.fertile.matches(world, pos.down());
             case CATTAIL:
                 return BlockQueries.litFertileWaterside.matches(world, pos.down());
             case RIVERCANE:
