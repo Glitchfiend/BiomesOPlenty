@@ -34,8 +34,6 @@ import java.util.Random;
 
 public class BOPHellBiome extends BOPBiome
 {
-    public IBlockState topBlock = Blocks.NETHERRACK.getDefaultState();
-    public IBlockState fillerBlock = Blocks.NETHERRACK.getDefaultState();
     public IBlockState wallBlock = Blocks.NETHERRACK.getDefaultState();
     public IBlockState roofTopBlock = Blocks.NETHERRACK.getDefaultState();
     public IBlockState roofFillerBlock = Blocks.NETHERRACK.getDefaultState();
@@ -43,6 +41,9 @@ public class BOPHellBiome extends BOPBiome
     public BOPHellBiome(String idName, PropsBuilder defaultBuilder)
     {
         super(idName, defaultBuilder);
+
+        this.topBlock = Blocks.NETHERRACK.getDefaultState();
+        this.fillerBlock = Blocks.NETHERRACK.getDefaultState();
 
         this.spawnableCaveCreatureList.clear();
         this.spawnableCreatureList.clear();
@@ -61,8 +62,6 @@ public class BOPHellBiome extends BOPBiome
         super.configure(conf);
 
         // Allow basic properties to be overridden
-        this.topBlock = conf.getBlockState("topBlock", this.topBlock);
-        this.fillerBlock = conf.getBlockState("fillerBlock", this.fillerBlock);
         this.wallBlock = conf.getBlockState("wallBlock", this.wallBlock);
         this.roofTopBlock = conf.getBlockState("roofTopBlock", this.roofTopBlock);
         this.roofFillerBlock = conf.getBlockState("roofFillerBlock", this.roofFillerBlock);
