@@ -28,9 +28,10 @@ import net.minecraft.world.gen.NoiseGeneratorOctaves;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.structure.MapGenNetherBridge;
+import net.minecraftforge.common.ForgeModContainer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.ForgeEventFactory;
-import net.minecraftforge.event.terraingen.ChunkGeneratorEvent;
+import net.minecraftforge.event.terraingen.*;
 import net.minecraftforge.fml.common.eventhandler.Event;
 
 import javax.annotation.Nullable;
@@ -458,30 +459,40 @@ public class ChunkProviderGenerateBOPHell implements IChunkGenerator
     }
 
     @Override
-    public void populate(int x, int z)
+    public void populate(int chunkX, int chunkZ)
     {
+        boolean prevLogging = ForgeModContainer.logCascadingWorldGeneration;
+        ForgeModContainer.logCascadingWorldGeneration = false;
+
         BlockFalling.fallInstantly = true;
-        net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(true, this, this.world, this.rand, x, z, false);
-        int i = x * 16;
-        int j = z * 16;
-        BlockPos blockpos = new BlockPos(i, 0, j);
+        net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(true, this, this.world, this.rand, chunkX, chunkZ, false);
+        int x = chunkX * 16;
+        int z = chunkZ * 16;
+        BlockPos blockpos = new BlockPos(x, 0, z);
         Biome biome = this.world.getBiome(blockpos.add(16, 0, 16));
-        ChunkPos chunkpos = new ChunkPos(x, z);
+        ChunkPos chunkpos = new ChunkPos(chunkX, chunkZ);
         this.genNetherBridge.generateStructure(this.world, this.rand, chunkpos);
 
-        if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.rand, x, z, false, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.NETHER_LAVA))
+        if (TerrainGen.populate(this, this.world, this.rand, chunkX, chunkZ, false, PopulateChunkEvent.Populate.EventType.NETHER_LAVA))
             for (int k = 0; k < 8; ++k)
             {
                 this.hellSpringGen.generate(this.world, this.rand, blockpos.add(this.rand.nextInt(16) + 8, this.rand.nextInt(120) + 4, this.rand.nextInt(16) + 8));
             }
 
-        if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.rand, x, z, false, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.FIRE))
+        // don't do this to prevent double-ups
+        //MinecraftForge.EVENT_BUS.post(new DecorateBiomeEvent.Pre(this.world, this.rand, blockpos));
+
+        // note: this was moved earlier to be more similar to overworld biome decoration, however
+        // it's possible that this may cause issues with other mods
+        biome.decorate(this.world, this.rand, new BlockPos(x, 0, z));
+
+        if (TerrainGen.populate(this, this.world, this.rand, chunkX, chunkZ, false, PopulateChunkEvent.Populate.EventType.FIRE))
             for (int i1 = 0; i1 < this.rand.nextInt(this.rand.nextInt(10) + 1) + 1; ++i1)
             {
                 this.fireFeature.generate(this.world, this.rand, blockpos.add(this.rand.nextInt(16) + 8, this.rand.nextInt(120) + 4, this.rand.nextInt(16) + 8));
             }
 
-        if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.rand, x, z, false, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.GLOWSTONE))
+        if (TerrainGen.populate(this, this.world, this.rand, chunkX, chunkZ, false, PopulateChunkEvent.Populate.EventType.GLOWSTONE))
         {
             for (int j1 = 0; j1 < this.rand.nextInt(this.rand.nextInt(10) + 1); ++j1)
             {
@@ -494,10 +505,9 @@ public class ChunkProviderGenerateBOPHell implements IChunkGenerator
             }
         }//Forge: End doGLowstone
 
-        net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(false, this, this.world, this.rand, x, z, false);
-        net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(new net.minecraftforge.event.terraingen.DecorateBiomeEvent.Pre(this.world, this.rand, blockpos));
+        ForgeEventFactory.onChunkPopulate(false, this, this.world, this.rand, chunkX, chunkZ, false);
 
-        if (net.minecraftforge.event.terraingen.TerrainGen.decorate(this.world, this.rand, blockpos, net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.SHROOM))
+        if (TerrainGen.decorate(this.world, this.rand, blockpos, DecorateBiomeEvent.Decorate.EventType.SHROOM))
         {
             if (this.rand.nextBoolean())
             {
@@ -510,7 +520,7 @@ public class ChunkProviderGenerateBOPHell implements IChunkGenerator
             }
         }
 
-        if (net.minecraftforge.event.terraingen.TerrainGen.generateOre(this.world, this.rand, quartzGen, blockpos, net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType.QUARTZ))
+        if (TerrainGen.generateOre(this.world, this.rand, quartzGen, blockpos, OreGenEvent.GenerateMinable.EventType.QUARTZ))
             for (int l1 = 0; l1 < 16; ++l1)
             {
                 this.quartzGen.generate(this.world, this.rand, blockpos.add(this.rand.nextInt(16), this.rand.nextInt(108) + 10, this.rand.nextInt(16)));
@@ -518,23 +528,24 @@ public class ChunkProviderGenerateBOPHell implements IChunkGenerator
 
         int i2 = this.world.getSeaLevel() / 2 + 1;
 
-        if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.rand, x, z, false, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.NETHER_MAGMA))
+        if (TerrainGen.populate(this, this.world, this.rand, chunkX, chunkZ, false, PopulateChunkEvent.Populate.EventType.NETHER_MAGMA))
             for (int l = 0; l < 4; ++l)
             {
                 this.magmaGen.generate(this.world, this.rand, blockpos.add(this.rand.nextInt(16), i2 - 5 + this.rand.nextInt(10), this.rand.nextInt(16)));
             }
 
-        if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.rand, x, z, false, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.NETHER_LAVA2))
+        if (TerrainGen.populate(this, this.world, this.rand, chunkX, chunkZ, false, PopulateChunkEvent.Populate.EventType.NETHER_LAVA2))
             for (int j2 = 0; j2 < 16; ++j2)
             {
                 this.lavaTrapGen.generate(this.world, this.rand, blockpos.add(this.rand.nextInt(16), this.rand.nextInt(108) + 10, this.rand.nextInt(16)));
             }
 
-        biome.decorate(this.world, this.rand, new BlockPos(i, 0, j));
-
-        net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(new net.minecraftforge.event.terraingen.DecorateBiomeEvent.Post(this.world, this.rand, blockpos));
+        // this should already be called during biome decoration (Vanilla doesn't usually call this for the Nether
+        // though, since the decoration method is empty)
+        //MinecraftForge.EVENT_BUS.post(new DecorateBiomeEvent.Post(this.world, this.rand, blockpos));
 
         BlockFalling.fallInstantly = false;
+        ForgeModContainer.logCascadingWorldGeneration = prevLogging;
     }
 
     @Override
