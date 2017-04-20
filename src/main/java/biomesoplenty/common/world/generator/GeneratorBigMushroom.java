@@ -15,6 +15,7 @@ import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.api.config.IConfigObj;
 import biomesoplenty.api.generation.BOPGeneratorBase;
 import biomesoplenty.common.util.biome.GeneratorUtils;
+import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryBlock;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryParseException;
@@ -75,15 +76,14 @@ public class GeneratorBigMushroom extends BOPGeneratorBase
                     return (y < (height - 1));
             }
         }
-    }    
-    
-    
+    }
     
     public static class Builder extends BOPGeneratorBase.InnerBuilder<Builder, GeneratorBigMushroom> implements IGeneratorBuilder<GeneratorBigMushroom>
     {
         protected BigMushroomType mushroomType;
         protected IBlockPosQuery placeOn;
-        protected IBlockPosQuery replace; 
+        protected IBlockPosQuery replace;
+        protected ScatterYMethod scatterYMethod;
         
         public Builder mushroomType(BigMushroomType a) {this.mushroomType = a; return this;}
         public Builder placeOn(IBlockPosQuery a) {this.placeOn = a; return this.self();}
@@ -94,6 +94,7 @@ public class GeneratorBigMushroom extends BOPGeneratorBase
         public Builder replace(String a) throws BlockQueryParseException {this.replace = BlockQuery.parseQueryString(a); return this.self();}
         public Builder replace(Block a) {this.replace = new BlockQueryBlock(a); return this.self();}
         public Builder replace(IBlockState a) {this.replace = new BlockQueryState(a); return this.self();}
+        public Builder scatterYMethod(ScatterYMethod a) {this.scatterYMethod = a; return this.self();}
         
         public Builder()
         {
@@ -101,12 +102,14 @@ public class GeneratorBigMushroom extends BOPGeneratorBase
             this.mushroomType = BigMushroomType.BROWN;
             this.placeOn = BlockQueries.fertile;
             this.replace = BlockQueries.airOrLeaves;
+            // always at world surface
+            this.scatterYMethod = ScatterYMethod.AT_SURFACE;
         }
         
         @Override
         public GeneratorBigMushroom create()
         {
-            return new GeneratorBigMushroom(this.amountPerChunk, this.placeOn, this.replace, this.mushroomType);
+            return new GeneratorBigMushroom(this.amountPerChunk, this.placeOn, this.replace, this.mushroomType, this.scatterYMethod);
         }
     }
     
@@ -114,13 +117,15 @@ public class GeneratorBigMushroom extends BOPGeneratorBase
     protected IBlockPosQuery replace;
     protected BigMushroomType mushroomType;
     protected IBlockState mushroomState;
+    protected ScatterYMethod scatterYMethod;
     
-    public GeneratorBigMushroom(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, BigMushroomType mushroomType)
+    public GeneratorBigMushroom(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, BigMushroomType mushroomType, ScatterYMethod scatterYMethod)
     {
         super(amountPerChunk);
         this.placeOn = placeOn;
         this.replace = replace;
         this.setMushroomType(mushroomType);
+        this.scatterYMethod = scatterYMethod;
     }
     
     public void setMushroomType(BigMushroomType type)
@@ -132,8 +137,7 @@ public class GeneratorBigMushroom extends BOPGeneratorBase
     @Override
     public BlockPos getScatterY(World world, Random random, int x, int z)
     {
-        // always at world surface
-        return GeneratorUtils.ScatterYMethod.AT_SURFACE.getBlockPos(world, random, x, z);
+        return this.scatterYMethod.getBlockPos(world, random, x, z);
     }
     
     protected void replaceWithMushroom(World world, BlockPos pos, BlockHugeMushroom.EnumType side)
