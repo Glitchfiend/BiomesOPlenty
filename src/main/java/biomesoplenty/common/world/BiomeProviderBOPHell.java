@@ -59,7 +59,7 @@ public class BiomeProviderBOPHell extends BiomeProvider
 
     public static GenLayer[] setupBOPGenLayers(long worldSeed, BOPWorldSettings settings)
     {
-        int biomeSize = settings.biomeSize.getValue();
+        int biomeSize = 3;
 
         // the nether doesn't have oceans, so make it all land
         GenLayer mainBranch = new GenLayerIslandBOP(1L, 1);
