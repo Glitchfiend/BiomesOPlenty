@@ -68,6 +68,12 @@ public class EntityWasp extends EntityFlying implements IMob {
     {
         return BOPSounds.wasp_hurt;
     }
+
+    @Override
+    public boolean canBreatheUnderwater()
+    {
+        return true;
+    }
     
     // Helper class representing a point in space that the wasp is targeting for some reason
     class WaspMoveTargetPos

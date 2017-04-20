@@ -18,10 +18,6 @@ public class BiomeProviderBOPHell extends BiomeProvider
     public BiomeProviderBOPHell(long seed, WorldType worldType, String chunkProviderSettings)
     {
         super();
-        if (!(worldType instanceof WorldTypeBOP))
-        {
-            throw new RuntimeException("WorldChunkManagerBOP requires a world of type WorldTypeBOP");
-        }
 
         // load the settings object
         // note on the client side, chunkProviderSettings is an empty string
