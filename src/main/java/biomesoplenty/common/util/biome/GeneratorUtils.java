@@ -11,6 +11,7 @@ package biomesoplenty.common.util.biome;
 import java.util.Collection;
 import java.util.Random;
 
+import biomesoplenty.common.util.block.BlockQuery;
 import org.apache.commons.lang3.tuple.Pair;
 
 import com.google.gson.JsonDeserializationContext;
@@ -82,7 +83,7 @@ public class GeneratorUtils
     
     public static enum ScatterYMethod
     {
-        ANYWHERE, AT_SURFACE, AT_GROUND, BELOW_SURFACE, BELOW_GROUND, ABOVE_SURFACE, ABOVE_GROUND;
+        ANYWHERE, ANY_SURFACE, AT_SURFACE, AT_GROUND, BELOW_SURFACE, BELOW_GROUND, ABOVE_SURFACE, ABOVE_GROUND;
         public BlockPos getBlockPos(World world, Random random, int x, int z)
         {
             int tempY;
@@ -113,6 +114,11 @@ public class GeneratorUtils
                     // random point above ground (but possibly in the sea)
                     tempY = world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z)).getY();
                     return new BlockPos(x, GeneratorUtils.nextIntBetween(random, tempY, 255), z);
+                case ANY_SURFACE:
+                    // random point above any surface (including caves)
+                    tempY = world.getHeight(new BlockPos(x, 0, z)).getY();
+                    pos = getFirstBlockMatching(world, new BlockPos(x, nextIntBetween(random, 1, tempY - 1), z), BlockQuery.buildAnd().add(BlockQueries.solid).withAirAbove().create());
+                    return (pos == null ? new BlockPos(x, 1, z) : pos.up());
                 case ANYWHERE: default:
                     // random y coord
                     return new BlockPos(x, nextIntBetween(random, 1, 255), z);
