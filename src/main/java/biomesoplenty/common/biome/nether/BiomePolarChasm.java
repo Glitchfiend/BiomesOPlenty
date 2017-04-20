@@ -12,6 +12,7 @@ import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.block.BlockBOPGrass;
+import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.world.generator.GeneratorSplatter;
 import net.minecraft.block.state.IBlockState;
@@ -36,6 +37,6 @@ public class BiomePolarChasm extends BOPHellBiome
         
         // splatter top blocks
         IBlockPosQuery emptySurface = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();
-        this.addGenerator("ice_splatter", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(2.0F).generationAttempts(128).replace(emptySurface).with(Blocks.ICE.getDefaultState()).create());
+        this.addGenerator("ice_splatter", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(2.0F).generationAttempts(128).scatterYMethod(ScatterYMethod.NETHER_SURFACE).replace(emptySurface).with(Blocks.ICE.getDefaultState()).create());
     }
 }

@@ -14,6 +14,7 @@ import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.api.config.IConfigObj;
 import biomesoplenty.api.generation.BOPGeneratorBase;
 import biomesoplenty.common.util.biome.GeneratorUtils;
+import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryBlock;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryParseException;
@@ -36,7 +37,8 @@ public class GeneratorLakes extends BOPGeneratorBase
         protected IBlockState frozenLiquid;
         protected IBlockState grassBorderWith;
         protected IBlockPosQuery grassReplace;
-        protected IBlockState lineWith;        
+        protected IBlockState lineWith;
+        protected ScatterYMethod scatterYMethod;
         
         public Builder liquid(IBlockState a) {this.liquid = a; return this.self();}
         public Builder liquid(Block a) {this.liquid = a.getDefaultState(); return this.self();}
@@ -50,6 +52,7 @@ public class GeneratorLakes extends BOPGeneratorBase
         public Builder grassReplace(IBlockState a) {this.grassReplace = new BlockQueryState(a); return this.self();}
         public Builder lineWith(IBlockState a) {this.lineWith = a; return this.self();}
         public Builder lineWith(Block a) {this.lineWith = a.getDefaultState(); return this.self();}
+        public Builder scatterYMethod(ScatterYMethod a) {this.scatterYMethod = a; return this.self();}
         
         public Builder waterLakeForBiome(Biome a)
         {
@@ -79,11 +82,12 @@ public class GeneratorLakes extends BOPGeneratorBase
             this.grassBorderWith = Blocks.GRASS.getDefaultState();
             this.grassReplace = new BlockQueryBlock(Blocks.DIRT);
             this.lineWith = null;
+            this.scatterYMethod = ScatterYMethod.AT_SURFACE;
         }
         
         @Override
         public GeneratorLakes create() {
-            return new GeneratorLakes(this.amountPerChunk, this.liquid, this.frozenLiquid, this.grassBorderWith, this.grassReplace, this.lineWith);
+            return new GeneratorLakes(this.amountPerChunk, this.liquid, this.frozenLiquid, this.grassBorderWith, this.grassReplace, this.lineWith, this.scatterYMethod);
         }
     }
     
@@ -92,9 +96,10 @@ public class GeneratorLakes extends BOPGeneratorBase
     protected IBlockState grassBorderWith;
     protected IBlockPosQuery grassReplace;
     protected IBlockState lineWith;
+    protected GeneratorUtils.ScatterYMethod scatterYMethod;
 
     
-    public GeneratorLakes(float amountPerChunk, IBlockState liquid,  IBlockState frozenLiquid, IBlockState grassBorderWith, IBlockPosQuery grassReplace, IBlockState lineWith)
+    public GeneratorLakes(float amountPerChunk, IBlockState liquid,  IBlockState frozenLiquid, IBlockState grassBorderWith, IBlockPosQuery grassReplace, IBlockState lineWith, ScatterYMethod scatterYMethod)
     {
         super(amountPerChunk);
         this.liquid = liquid;
@@ -102,13 +107,14 @@ public class GeneratorLakes extends BOPGeneratorBase
         this.grassBorderWith = grassBorderWith;
         this.grassReplace = grassReplace;
         this.lineWith = lineWith;
+        this.scatterYMethod = scatterYMethod;
     }
     
     @Override
     public BlockPos getScatterY(World world, Random random, int x, int z)
     {
         // always at world surface
-        return GeneratorUtils.ScatterYMethod.AT_SURFACE.getBlockPos(world, random, x, z);
+        return this.scatterYMethod.getBlockPos(world, random, x, z);
     }
     
     public boolean[] getCavityShape(Random rand)

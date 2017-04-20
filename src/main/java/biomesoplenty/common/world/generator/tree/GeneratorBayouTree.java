@@ -13,6 +13,7 @@ import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.api.config.IConfigObj;
 import biomesoplenty.common.util.biome.GeneratorUtils;
+import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryBlock;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryParseException;
@@ -63,12 +64,13 @@ public class GeneratorBayouTree extends GeneratorTreeBase
             this.leavesGradient = 4;
             this.vineAttempts = 20;
             this.maxVineLength = 20;
+            this.scatterYMethod = ScatterYMethod.AT_SURFACE;
         }
 
         @Override
         public GeneratorBayouTree create()
         {
-            return new GeneratorBayouTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.trunkFruit, this.altLeaves, this.minHeight, this.maxHeight, this.minLeavesRadius, this.leavesGradient, this.vineAttempts, this.maxVineLength, this.rootsReplace);
+            return new GeneratorBayouTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.trunkFruit, this.altLeaves, this.minHeight, this.maxHeight, this.minLeavesRadius, this.leavesGradient, this.vineAttempts, this.maxVineLength, this.rootsReplace, this.scatterYMethod);
         }
     }
     
@@ -79,9 +81,9 @@ public class GeneratorBayouTree extends GeneratorTreeBase
     private int maxVineLength;
     private IBlockPosQuery rootsReplace;
     
-    public GeneratorBayouTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, IBlockState trunkFruit, IBlockState altLeaves, int minHeight, int maxHeight, int minLeavesRadius, int leavesGradient, int vineAttempts, int maxVineLength, IBlockPosQuery rootsReplace)
+    public GeneratorBayouTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, IBlockState trunkFruit, IBlockState altLeaves, int minHeight, int maxHeight, int minLeavesRadius, int leavesGradient, int vineAttempts, int maxVineLength, IBlockPosQuery rootsReplace, ScatterYMethod scatterYMethod)
     {
-        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, trunkFruit, altLeaves, minHeight, maxHeight);
+        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, trunkFruit, altLeaves, minHeight, maxHeight, scatterYMethod);
         this.minLeavesRadius = minLeavesRadius;
         this.leavesGradient = leavesGradient;
         this.vineAttempts = vineAttempts;

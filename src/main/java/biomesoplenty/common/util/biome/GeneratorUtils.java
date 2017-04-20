@@ -83,7 +83,7 @@ public class GeneratorUtils
     
     public static enum ScatterYMethod
     {
-        ANYWHERE, ANY_SURFACE, AT_SURFACE, AT_GROUND, BELOW_SURFACE, BELOW_GROUND, ABOVE_SURFACE, ABOVE_GROUND;
+        ANYWHERE, NETHER_SURFACE, AT_SURFACE, AT_GROUND, BELOW_SURFACE, BELOW_GROUND, ABOVE_SURFACE, ABOVE_GROUND;
         public BlockPos getBlockPos(World world, Random random, int x, int z)
         {
             int tempY;
@@ -114,10 +114,10 @@ public class GeneratorUtils
                     // random point above ground (but possibly in the sea)
                     tempY = world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z)).getY();
                     return new BlockPos(x, GeneratorUtils.nextIntBetween(random, tempY, 255), z);
-                case ANY_SURFACE:
-                    // random point above any surface (including caves)
+                case NETHER_SURFACE:
+                    // random point above the nether surface
                     tempY = world.getHeight(new BlockPos(x, 0, z)).getY();
-                    pos = getFirstBlockMatching(world, new BlockPos(x, nextIntBetween(random, 1, tempY - 1), z), BlockQuery.buildAnd().add(BlockQueries.solid).withAirAbove().create());
+                    pos = getFirstBlockMatching(world, new BlockPos(x, nextIntBetween(random, 1, 127), z), BlockQuery.buildAnd().add(BlockQueries.solid).withAirAbove().create());
                     return (pos == null ? new BlockPos(x, 1, z) : pos.up());
                 case ANYWHERE: default:
                     // random y coord

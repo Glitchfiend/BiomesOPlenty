@@ -13,6 +13,7 @@ import java.util.Random;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.api.config.IConfigObj;
+import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import net.minecraft.block.BlockCocoa;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -46,20 +47,21 @@ public class GeneratorTwigletTree extends GeneratorTreeBase
             this.altLeaves = null;
             this.leafChanceEven = 0.2F;
             this.leafChanceOdd = 0.9F;
+            this.scatterYMethod = ScatterYMethod.AT_SURFACE;
         }
 
         @Override
         public GeneratorTwigletTree create() {
-            return new GeneratorTwigletTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.trunkFruit, this.altLeaves, this.minHeight, this.maxHeight, this.leafChanceEven, this.leafChanceOdd);
+            return new GeneratorTwigletTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.trunkFruit, this.altLeaves, this.minHeight, this.maxHeight, this.leafChanceEven, this.leafChanceOdd, this.scatterYMethod);
         }
     }
     
     private float leafChanceEven;
     private float leafChanceOdd;
     
-    public GeneratorTwigletTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, IBlockState trunkFruit, IBlockState altLeaves, int minHeight, int maxHeight, float leafChanceEven, float leafChanceOdd)
+    public GeneratorTwigletTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, IBlockState trunkFruit, IBlockState altLeaves, int minHeight, int maxHeight, float leafChanceEven, float leafChanceOdd, ScatterYMethod scatterYMethod)
     {
-        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, trunkFruit, altLeaves, minHeight, maxHeight);
+        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, trunkFruit, altLeaves, minHeight, maxHeight, scatterYMethod);
         this.leafChanceEven = leafChanceEven;
         this.leafChanceOdd = leafChanceOdd;
     }

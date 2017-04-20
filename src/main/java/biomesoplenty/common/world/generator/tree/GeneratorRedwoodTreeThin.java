@@ -17,6 +17,7 @@ import biomesoplenty.api.enums.BOPWoods;
 import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.block.BlockBOPLog;
 import biomesoplenty.common.util.biome.GeneratorUtils;
+import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.world.generator.GeneratorSpike;
 import net.minecraft.block.BlockOldLeaf;
 import net.minecraft.block.state.IBlockState;
@@ -41,19 +42,20 @@ public class GeneratorRedwoodTreeThin extends GeneratorTreeBase
             this.hanging = null;
             this.trunkFruit = null;
             this.altLeaves = null;
+            this.scatterYMethod = ScatterYMethod.AT_SURFACE;
         }
 
         @Override
         public GeneratorRedwoodTreeThin create() 
         {
-            return new GeneratorRedwoodTreeThin(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.trunkFruit, this.altLeaves, this.minHeight, this.maxHeight);
+            return new GeneratorRedwoodTreeThin(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.trunkFruit, this.altLeaves, this.minHeight, this.maxHeight, this.scatterYMethod);
         }
         
     }
 
-    protected GeneratorRedwoodTreeThin(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, IBlockState trunkFruit, IBlockState altLeaves, int minHeight, int maxHeight) 
+    protected GeneratorRedwoodTreeThin(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, IBlockState trunkFruit, IBlockState altLeaves, int minHeight, int maxHeight, ScatterYMethod scatterYMethod)
     {
-        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, trunkFruit, altLeaves, minHeight, maxHeight);
+        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, trunkFruit, altLeaves, minHeight, maxHeight, scatterYMethod);
     }
     
     public boolean canPlaceHere(World world, BlockPos pos, int height, int radius)

@@ -17,6 +17,7 @@ import biomesoplenty.api.generation.BOPGeneratorBase;
 import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.block.BlockBOPLog;
 import biomesoplenty.common.util.biome.GeneratorUtils;
+import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryBlock;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
@@ -52,8 +53,9 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
     protected int minHeight;
     protected int maxHeight;
     protected IProperty logAxisProperty;
+    protected ScatterYMethod scatterYMethod;
     
-    protected GeneratorTreeBase(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, IBlockState trunkFruit, IBlockState altLeaves, int minHeight, int maxHeight) {
+    protected GeneratorTreeBase(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, IBlockState trunkFruit, IBlockState altLeaves, int minHeight, int maxHeight, ScatterYMethod scatterYMethod) {
         super(amountPerChunk);
         this.placeOn = placeOn;
         this.replace = replace;
@@ -66,6 +68,7 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
         this.minHeight = minHeight;
         this.maxHeight = maxHeight;
         this.logAxisProperty = GeneratorUtils.getAxisProperty(log);
+        this.scatterYMethod = scatterYMethod;
     }
 
     protected static abstract class InnerBuilder<T extends InnerBuilder<T, G>, G extends GeneratorTreeBase> extends BOPGeneratorBase.InnerBuilder<T, G>
@@ -81,6 +84,7 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
         protected int minHeight;
         protected int maxHeight;
         protected boolean updateNeighbours;
+        protected ScatterYMethod scatterYMethod;
         
         public T placeOn(IBlockPosQuery a) {this.placeOn = a; return this.self();}
         public T placeOn(String a) throws BlockQueryParseException {this.placeOn = BlockQuery.parseQueryString(a); return this.self();}
@@ -151,14 +155,15 @@ public abstract class GeneratorTreeBase extends BOPGeneratorBase
         public T maxHeight(int a) {this.maxHeight = a; return this.self();}
 
         public T updateNeighbours(boolean a) {this.updateNeighbours = a; return this.self();}
+
+        public T scatterYMethod(ScatterYMethod a) {this.scatterYMethod = a; return this.self();}
     }
     
     
     @Override
     public BlockPos getScatterY(World world, Random random, int x, int z)
     {
-        // always at world surface
-        return GeneratorUtils.ScatterYMethod.AT_SURFACE.getBlockPos(world, random, x, z);
+        return this.scatterYMethod.getBlockPos(world, random, x, z);
     }
     
     public boolean setLeaves(World world, BlockPos pos)

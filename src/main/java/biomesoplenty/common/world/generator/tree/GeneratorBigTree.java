@@ -19,6 +19,7 @@ import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.api.config.IConfigObj;
 import biomesoplenty.common.util.biome.GeneratorUtils;
+import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockLog;
@@ -62,7 +63,7 @@ public class GeneratorBigTree extends GeneratorTreeBase
             this.trunkWidth = 1;
             this.foliageHeight = 4;
             this.foliageDensity = 1.0F;
-            
+            this.scatterYMethod = ScatterYMethod.AT_SURFACE;
         }
         
         public Builder trunkWidth(int a) {this.trunkWidth = a; return this.self();}
@@ -73,7 +74,7 @@ public class GeneratorBigTree extends GeneratorTreeBase
         @Override
         public GeneratorBigTree create()
         {
-            return new GeneratorBigTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.trunkFruit, this.altLeaves, this.minHeight, this.maxHeight, this.trunkWidth, this.foliageHeight, this.foliageDensity, false);
+            return new GeneratorBigTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.trunkFruit, this.altLeaves, this.minHeight, this.maxHeight, this.trunkWidth, this.foliageHeight, this.foliageDensity, false, this.scatterYMethod);
         }
     }
     
@@ -98,9 +99,9 @@ public class GeneratorBigTree extends GeneratorTreeBase
     private List<FoliageCoords> foliageCoords;
 
     
-    public GeneratorBigTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, IBlockState trunkFruit, IBlockState altLeaves, int minHeight, int maxHeight, int trunkWidth, int foliageHeight, double foliageDensity, boolean updateNeighbours)
+    public GeneratorBigTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, IBlockState trunkFruit, IBlockState altLeaves, int minHeight, int maxHeight, int trunkWidth, int foliageHeight, double foliageDensity, boolean updateNeighbours, ScatterYMethod scatterYMethod)
     {
-        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, trunkFruit, altLeaves, minHeight, maxHeight);
+        super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, trunkFruit, altLeaves, minHeight, maxHeight, scatterYMethod);
         this.foliageHeight = foliageHeight;
         this.foliageDensity = foliageDensity;
         this.trunkWidth = trunkWidth;
