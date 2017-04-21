@@ -54,28 +54,12 @@ public class BlockBOPFlesh extends Block implements IBOPBlock
     public BlockBOPFlesh() {
         super(Material.SPONGE);
         this.setHardness(0.4F);
-        this.setSoundType(SoundType.GROUND);
+        this.setSoundType(SoundType.SLIME);
     }
     
     public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World worldIn, BlockPos pos)
     {
         return FLESH_AABB;
-    }
-   
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand)
-    {
-        // randomly throw up some particles so it looks like the flesh is bubbling
-        super.randomDisplayTick(state, world, pos, rand);
-        if (rand.nextInt(4)==0)
-        {           
-            world.spawnParticle(EnumParticleTypes.BLOCK_CRACK, (double)((float)pos.getX() + rand.nextFloat()), (double)((float)pos.getY() + 1.1F), (double)((float)pos.getZ() + rand.nextFloat()), 0.0D, 0.0D, 0.0D, new int[] {Block.getStateId(state)});
-        }
-        if (rand.nextInt(12)==0)
-        {
-            world.spawnParticle(EnumParticleTypes.BLOCK_CRACK, (double)((float)pos.getX() + rand.nextFloat()), (double)((float)pos.getY() + 1.1F), (double)((float)pos.getZ() + rand.nextFloat()), 0.0D, 0.0D, 0.0D, new int[] {Block.getStateId(state)});
-        }
     }
     
     @Override
