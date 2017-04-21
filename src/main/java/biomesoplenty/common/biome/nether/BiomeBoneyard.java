@@ -13,6 +13,7 @@ import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.util.block.BlockQuery;
+import biomesoplenty.common.world.generator.GeneratorHellFossils;
 import biomesoplenty.common.world.generator.GeneratorSplatter;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -24,5 +25,7 @@ public class BiomeBoneyard extends BOPHellBiome
         super("boneyard", new PropsBuilder("Boneyard").withGuiColour(0xA93C3E).withTemperature(2.0F).withRainfall(0.0F).withRainDisabled());
 
         this.addWeight(BOPClimates.HELL, 20);
+
+        this.addGenerator("hell_fossils", GeneratorStage.PRE, (new GeneratorHellFossils.Builder()).amountPerChunk(9.0F).create());
     }
 }
