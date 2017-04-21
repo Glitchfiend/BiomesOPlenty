@@ -58,7 +58,7 @@ public class BOPHellBiome extends BOPBiome
         this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntityMagmaCube.class, 2, 4, 4));
         this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntityEnderman.class, 1, 4, 4));
 
-        this.addGenerator("hive", GeneratorStage.PRE, (new GeneratorHive.Builder()).amountPerChunk(8.0F).create());
+        this.addGenerator("hive", GeneratorStage.PRE, (new GeneratorHive.Builder()).amountPerChunk(0.3F).create());
     }
 
     @Override

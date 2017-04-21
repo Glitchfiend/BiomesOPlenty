@@ -31,7 +31,7 @@ public class BiomeExtHell extends ExtendedBiomeWrapper
         Biomes.HELL.theBiomeDecorator.sandPerChunk2 = -999;
         //this.theBiomeDecorator.generateLakes = false;
 
-        this.addGenerator("hive", GeneratorStage.PRE, (new GeneratorHive.Builder()).amountPerChunk(4.0F).create());
+        this.addGenerator("hive", GeneratorStage.PRE, (new GeneratorHive.Builder()).amountPerChunk(0.3F).create());
     }
 }
 

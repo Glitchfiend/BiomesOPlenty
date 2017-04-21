@@ -88,7 +88,7 @@ public class GeneratorHive extends GeneratorReplacing
     public boolean generate(World world, Random rand, BlockPos position)
     {
         // check that there's room and if the blocks below are suitable
-        if (!this.canPlaceHere(world, position, this.halfHeight * 2 + this.bottomExtra, this.maxRadius)) {return false;}
+        if (!this.canPlaceHere(world, position)) {return false;}
 
         boolean empty = rand.nextFloat() <= this.emptyChance;
 
@@ -111,6 +111,7 @@ public class GeneratorHive extends GeneratorReplacing
                     // check to fill the top and bottom of the two layers
                     boolean outerCap = yOffset == -this.halfHeight - this.bottomExtra || yOffset == this.halfHeight;
                     boolean innerCap = yOffset == -this.halfHeight - this.bottomExtra + 1 || yOffset == this.halfHeight - 1;
+                    BlockPos realPos = position.add(xOffset, yOffset - this.halfHeight, zOffset);
 
                     // create a circular outline for the hive. the bottom and top layers should be filled.
                     // add a bit extra (1) to make the circles nicer too
@@ -138,7 +139,7 @@ public class GeneratorHive extends GeneratorReplacing
                         }
 
                         // offset so we're placing the hive underneath the initial y coordinate
-                        world.setBlockState(position.add(xOffset, yOffset - this.halfHeight, zOffset), honeyComb);
+                        world.setBlockState(realPos, honeyComb, 2);
                     }
 
                     // inner fill
@@ -146,16 +147,19 @@ public class GeneratorHive extends GeneratorReplacing
                     {
                         // fill the centre of the hive with honey blocks honey
                         IBlockState fillBlock = yOffset == 0 ?  BOPBlocks.honey_block.getDefaultState() : BOPBlocks.honey.getDefaultState();
-                        world.setBlockState(position.add(xOffset, yOffset - this.halfHeight, zOffset), fillBlock);
+
+                        // only replace air blocks, not the hive layers
+                        if (world.getBlockState(realPos).getMaterial() == Material.AIR)
+                        {
+                            world.setBlockState(realPos, fillBlock, 2);
+                        }
                     }
 
                     // place a wasp spawner in the middle of the hive
                     if (!empty && yOffset == 0 && xOffset == 0 && zOffset == 0)
                     {
-                        BlockPos spawnerPos = position.add(xOffset, yOffset - this.halfHeight, zOffset);
-
-                        world.setBlockState(spawnerPos, Blocks.MOB_SPAWNER.getDefaultState(), 2);
-                        TileEntity tileentity = world.getTileEntity(spawnerPos);
+                        world.setBlockState(realPos, Blocks.MOB_SPAWNER.getDefaultState(), 2);
+                        TileEntity tileentity = world.getTileEntity(realPos);
 
                         if (tileentity instanceof TileEntityMobSpawner)
                         {
@@ -173,7 +177,7 @@ public class GeneratorHive extends GeneratorReplacing
                         }
                         else
                         {
-                            BiomesOPlenty.logger.error("Failed to fetch mob spawner entity at ({}, {}, {})", new Object[] {Integer.valueOf(spawnerPos.getX()), Integer.valueOf(spawnerPos.getY()), Integer.valueOf(spawnerPos.getZ())});
+                            BiomesOPlenty.logger.error("Failed to fetch mob spawner entity at ({}, {}, {})", new Object[] {Integer.valueOf(realPos.getX()), Integer.valueOf(realPos.getY()), Integer.valueOf(realPos.getZ())});
                         }
                     }
 
@@ -181,7 +185,7 @@ public class GeneratorHive extends GeneratorReplacing
                     if (x2_z2 <= radius * radius + 1 && (x2_z2 >= (radius - 1) * (radius - 1) || outerCap))
                     {
                         // offset so we're placing the hive underneath the initial y coordinate
-                        world.setBlockState(position.add(xOffset, yOffset - halfHeight, zOffset), BOPBlocks.hive.getDefaultState());
+                        world.setBlockState(realPos, BOPBlocks.hive.getDefaultState(), 2);
                     }
                 }
             }
@@ -190,31 +194,27 @@ public class GeneratorHive extends GeneratorReplacing
         return true;
     }
 
-    public boolean canPlaceHere(World world, BlockPos pos, int height, int radius)
+    public boolean canPlaceHere(World world, BlockPos pos)
     {
-
-
-        if (world.getBiome(pos) == Biomes.HELL)
-        {
-            System.out.println(world.getBlockState(pos).getBlock() == Blocks.NETHERRACK);
-        }
-
         if (pos.getY() <= 1 || pos.getY() > 255)
         {
             return false;
         }
-        for (int y = pos.getY(); y >= pos.getY() - height; --y)
+        for (int y = this.halfHeight; y >= -this.halfHeight - this.bottomExtra; y--)
         {
-            for (int x = pos.getX() - radius; x <= pos.getX() + radius; ++x)
+            // y is already negative, so add it rather than subtract
+            int radius = this.maxRadius + (y / this.layerSize) * (y >= 0 ? -1 : 1);
+
+            for (int x = -radius; x <= radius; x++)
             {
-                for (int z = pos.getZ() - radius; z <= pos.getZ() + radius; ++z)
+                for (int z = -radius; z <= radius; z++)
                 {
-                    if (y == pos.getY() && !this.placeOn.matches(world, new BlockPos(x, y + 1, z)))
+                    if (x == 0 && z == 0 && y == this.halfHeight && !this.placeOn.matches(world,  pos.add(x, y - this.halfHeight + 1, z)))
                     {
                         return false;
                     }
 
-                    if (!this.replace.matches(world, new BlockPos(x, y, z)))
+                    if (!this.replace.matches(world, pos.add(x, y - this.halfHeight, z)))
                     {
                         return false;
                     }
