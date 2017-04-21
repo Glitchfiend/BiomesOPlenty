@@ -191,7 +191,6 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
         GENERATE_LIQUID_POISON (122),
         GENERATE_HOT_SPRINGS (123),
         GENERATE_NETHER_HIVES (124),
-        GENERATE_NETHER_PLANTS (125),
         GENERATE_END_FEATURES (126),
         MAIN_NOISE_SCALE_X (127),
         MAIN_NOISE_SCALE_Y (128),
@@ -271,7 +270,6 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_LIQUID_POISON.getId(), "Liquid Poison Pools", true, this.settings.generateLiquidPoison),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_HOT_SPRINGS.getId(), "Hot Spring Pools", true, this.settings.generateHotSprings),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_NETHER_HIVES.getId(), "Nether Hives", true, this.settings.generateNetherHives),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_NETHER_PLANTS.getId(), "Nether Plants", true, this.settings.generateNetherPlants),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_END_FEATURES.getId(), "End Features", true, this.settings.generateEndFeatures)
         };
         
@@ -424,9 +422,6 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
                 break;
             case GENERATE_NETHER_HIVES:
                 this.settings.generateNetherHives = value;
-                break;
-            case GENERATE_NETHER_PLANTS:
-                this.settings.generateNetherPlants = value;
                 break;
             case GENERATE_END_FEATURES:
                 this.settings.generateEndFeatures = value;

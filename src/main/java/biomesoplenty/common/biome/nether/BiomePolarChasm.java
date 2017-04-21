@@ -9,6 +9,8 @@ package biomesoplenty.common.biome.nether;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.IBlockPosQuery;
+import biomesoplenty.api.config.IBOPWorldSettings;
+import biomesoplenty.api.config.IBOPWorldSettings.GeneratorType;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.block.BlockBOPGrass;
@@ -41,11 +43,18 @@ public class BiomePolarChasm extends BOPHellBiome
         this.addGenerator("ice_pools", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(5.0F).liquid(Blocks.ICE.getDefaultState()).frozenLiquid((IBlockState)null).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
         
         //ice crystals
-        IBlockPosQuery emptyHardIce = BlockQuery.buildAnd().withAltitudeBetween(90, 120).withAirBelow().states(BOPBlocks.hard_ice.getDefaultState()).create();
-        this.addGenerator("ice_crystals", GeneratorStage.ORE_PRE, (new GeneratorCrystals.Builder()).amountPerChunk(20.0F).placeOn(emptyHardIce).with(Blocks.ICE.getDefaultState()).create());
+        IBlockPosQuery emptyHardIce = BlockQuery.buildAnd().withAltitudeBetween(60, 120).withAirBelow().states(BOPBlocks.hard_ice.getDefaultState()).create();
+        this.addGenerator("ice_crystals", GeneratorStage.ORE_PRE, (new GeneratorCrystals.Builder()).amountPerChunk(25.0F).placeOn(emptyHardIce).with(Blocks.ICE.getDefaultState()).create());
+        this.addGenerator("glowstone_crystals", GeneratorStage.ORE_PRE, (new GeneratorCrystals.Builder()).amountPerChunk(10.0F).placeOn(emptyHardIce).with(Blocks.GLOWSTONE.getDefaultState()).create());
         
         // splatter top blocks
         IBlockPosQuery emptySurface = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();
-        this.addGenerator("snow_splatter", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(2.0F).generationAttempts(128).scatterYMethod(ScatterYMethod.NETHER_SURFACE).replace(emptySurface).with(Blocks.SNOW.getDefaultState()).create());
+        this.addGenerator("snow_splatter", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(5.0F).generationAttempts(128).scatterYMethod(ScatterYMethod.NETHER_SURFACE).replace(emptySurface).with(Blocks.SNOW.getDefaultState()).create());
+    }
+    
+    @Override
+    public void applySettings(IBOPWorldSettings settings)
+    {
+        if (!settings.isEnabled(GeneratorType.NETHER_HIVES)) {this.removeGenerator("hive");}
     }
 }

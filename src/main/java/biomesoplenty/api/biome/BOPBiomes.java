@@ -92,7 +92,6 @@ public class BOPBiomes
     public static Optional<Biome> gravel_beach = Optional.absent();
 
     // nether biomes
-    public static Optional<Biome> boneyard = Optional.absent();
     public static Optional<Biome> corrupted_sands = Optional.absent();
     public static Optional<Biome> fungi_forest = Optional.absent();
     public static Optional<Biome> phantasmagoric_inferno = Optional.absent();

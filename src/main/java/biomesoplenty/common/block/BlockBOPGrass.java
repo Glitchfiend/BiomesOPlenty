@@ -10,7 +10,10 @@ package biomesoplenty.common.block;
 
 import java.util.Random;
 
+import javax.annotation.Nullable;
+
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.common.block.BlockBOPStone.StoneType;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
@@ -37,6 +40,7 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
@@ -95,9 +99,6 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
         super();
         
         // set some defaults
-        this.setHardness(0.6F);
-        this.setHarvestLevel("shovel", 0);
-        this.setSoundType(SoundType.PLANT);
         this.setDefaultState(this.blockState.getBaseState().withProperty(SNOWY, Boolean.valueOf(false)).withProperty(VARIANT, BOPGrassType.LOAMY));
         
     }
@@ -114,6 +115,114 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
     {
         // only one property in meta to worry about, the variant, so just map according to integer index in BOPGrassType
         return ((BOPGrassType) state.getValue(VARIANT)).ordinal();
+    }
+    
+    @Override
+    public SoundType getSoundType(IBlockState state, World world, BlockPos pos, @Nullable Entity entity)
+    {
+        switch ((BOPGrassType) state.getValue(VARIANT))
+        {
+                // overgrown_netherrack supports Nether plants in addition to the defaults
+            case OVERGROWN_NETHERRACK:
+                return SoundType.STONE;
+                
+            case OVERGROWN_STONE:
+                return SoundType.STONE;
+                
+            case SPECTRAL_MOSS:
+                return SoundType.STONE;
+
+            default:
+                return SoundType.PLANT;
+        }
+    }
+    
+    @Override
+    public Material getMaterial(IBlockState state)
+    {
+        switch ((BOPGrassType) state.getValue(VARIANT))
+        {
+                // overgrown_netherrack supports Nether plants in addition to the defaults
+            case OVERGROWN_NETHERRACK:
+                return Material.ROCK;
+                
+            case OVERGROWN_STONE:
+                return Material.ROCK;
+                
+            case SPECTRAL_MOSS:
+                return Material.ROCK;
+
+            default:
+                return Material.GRASS;
+        }
+    }
+    
+    @Override
+    public int getHarvestLevel(IBlockState state)
+    {
+        return 0;
+    }
+    
+    @Override
+    public String getHarvestTool(IBlockState state)
+    {
+        switch ((BOPGrassType) state.getValue(VARIANT))
+        {
+                // overgrown_netherrack supports Nether plants in addition to the defaults
+            case OVERGROWN_NETHERRACK:
+                return "pickaxe";
+                
+            case OVERGROWN_STONE:
+                return "pickaxe";
+                
+            case SPECTRAL_MOSS:
+                return "pickaxe";
+
+            default:
+                return "shovel";
+        }
+    }
+    
+    @Override
+    public float getBlockHardness(IBlockState state, World world, BlockPos pos)
+    {
+        switch ((BOPGrassType) state.getValue(VARIANT))
+        {
+                // overgrown_netherrack supports Nether plants in addition to the defaults
+            case OVERGROWN_NETHERRACK:
+                return 0.4F;
+                
+            case OVERGROWN_STONE:
+                return 1.5F;
+                
+            case SPECTRAL_MOSS:
+                return 3.0F;
+
+            default:
+                return 0.6F;
+        }
+    }
+    
+    @Override
+    public float getExplosionResistance(World world, BlockPos pos, Entity exploder, Explosion explosion)
+    {
+        IBlockState state = world.getBlockState(pos);
+        
+        switch ((BOPGrassType) state.getValue(VARIANT))
+        {
+                // overgrown_netherrack supports Nether plants in addition to the defaults
+            case OVERGROWN_NETHERRACK:
+                return 0.1F;
+                
+            case OVERGROWN_STONE:
+                return 2.0F;
+                
+            case SPECTRAL_MOSS:
+                return 3.0F;
+
+            default:
+                return 0.12F;
+        }      
     }
     
     @Override
@@ -356,7 +465,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
             case OVERGROWN_NETHERRACK:
                 return Blocks.NETHERRACK.getDefaultState();
             case OVERGROWN_STONE:
-                return Blocks.STONE.getDefaultState();
+                return Blocks.COBBLESTONE.getDefaultState();
             case ORIGIN: case DAISY:  default:
                 return Blocks.DIRT.getStateFromMeta(BlockDirt.DirtType.DIRT.getMetadata());
         }
