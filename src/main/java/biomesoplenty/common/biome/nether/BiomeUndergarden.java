@@ -44,8 +44,8 @@ public class BiomeUndergarden extends BOPHellBiome
         IBlockState overgrownNetherrack = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.OVERGROWN_NETHERRACK);
         this.addGenerator("overgrown_netherrack_splatter", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(20.0F).generationAttempts(128).scatterYMethod(ScatterYMethod.NETHER_SURFACE).replace(emptyNetherrack).with(overgrownNetherrack).create());
     
-        IBlockPosQuery suitableNetherrackPosition = BlockQuery.buildAnd().withAltitudeBetween(80, 130).blocks(Blocks.NETHERRACK).create();
-        this.addGenerator("ivy", GeneratorStage.FLOWERS,(new GeneratorVines.Builder()).amountPerChunk(30.0F).generationAttempts(128).placeOn(suitableNetherrackPosition).with(BOPBlocks.ivy.getDefaultState().withProperty(BlockBOPVine.UP, Boolean.valueOf(true)).withProperty(BlockBOPVine.EAST, Boolean.valueOf(true)).withProperty(BlockBOPVine.WEST, Boolean.valueOf(true)).withProperty(BlockBOPVine.SOUTH, Boolean.valueOf(true)).withProperty(BlockBOPVine.NORTH, Boolean.valueOf(true))).minHeight(8).maxHeight(20).create());
+        IBlockPosQuery suitableNetherrackPosition = BlockQuery.buildAnd().withAltitudeBetween(80, 130).states(Blocks.NETHERRACK.getDefaultState()).create();
+        this.addGenerator("ivy", GeneratorStage.FLOWERS,(new GeneratorVines.Builder()).amountPerChunk(30.0F).generationAttempts(128).placeOn(suitableNetherrackPosition).with(BOPBlocks.ivy.getDefaultState()).minHeight(8).maxHeight(20).create());
         
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(1.0F);

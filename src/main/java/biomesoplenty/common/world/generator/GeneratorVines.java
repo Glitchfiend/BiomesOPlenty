@@ -8,23 +8,29 @@
 
 package biomesoplenty.common.world.generator;
 
+import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.api.config.IConfigObj;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
+import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
+import net.minecraft.block.BlockVine;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class GeneratorVines extends GeneratorReplacing
 {
-    
     public static class Builder extends GeneratorReplacing.InnerBuilder<Builder, GeneratorVines> implements IGeneratorBuilder<GeneratorVines>
     {
         protected int minHeight;
@@ -40,9 +46,9 @@ public class GeneratorVines extends GeneratorReplacing
             // defaults
             this.amountPerChunk = 1.0F;
             this.placeOn = new BlockQueryMaterial(Material.GROUND, Material.GRASS);
-            this.replace = BlockQueries.airOrLeaves;
-            this.with = Blocks.COBBLESTONE.getDefaultState();
-            this.scatterYMethod = ScatterYMethod.AT_SURFACE;
+            this.replace = BlockQueries.air;
+            this.with = Blocks.VINE.getDefaultState();
+            this.scatterYMethod = ScatterYMethod.NETHER_ROOF;
             this.minHeight = 2;
             this.maxHeight = 4;
             this.generationAttempts = 12;
@@ -58,7 +64,6 @@ public class GeneratorVines extends GeneratorReplacing
     protected int minHeight;
     protected int maxHeight;
     protected int generationAttempts;
-    protected boolean randomDirection;
 
     public GeneratorVines(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState with, ScatterYMethod scatterYMethod, int minHeight, int maxHeight, int generationAttempts)
     {
@@ -71,33 +76,52 @@ public class GeneratorVines extends GeneratorReplacing
     @Override
     public boolean generate(World world, Random rand, BlockPos pos)
     {
+        boolean ret = true;
+
         for (int i = 0; i < this.generationAttempts; ++i)
         {
             BlockPos genPos = pos.add(rand.nextInt(4) - rand.nextInt(4), rand.nextInt(3) - rand.nextInt(3), rand.nextInt(4) - rand.nextInt(4));
-                
 
-    		// see if we can place the column
-            if (this.placeOn.matches(world, genPos.up()) && this.replace.matches(world, genPos))
+            if (!this.replace.matches(world, genPos) || !this.placeOn.matches(world, genPos.up())) continue;
+
+            IBlockState vineState = this.with;
+
+            // make sure there is an adjacent block for the vine to attach to
+            List<EnumFacing> validDirections = Lists.newArrayList();
+
+            for (EnumFacing facing : EnumFacing.values()) {
+                if (facing == EnumFacing.UP || facing == EnumFacing.DOWN) continue;
+                if (this.placeOn.matches(world, genPos.offset(facing))) validDirections.add(facing);
+            }
+
+            if (validDirections.isEmpty()) continue;
+
+            if (this.with.getBlock() instanceof BlockVine)
             {
-                // choose random target height
-                int targetHeight = GeneratorUtils.nextIntBetween(rand, this.minHeight, this.maxHeight);
-                
-                // keep placing blocks upwards (if there's room)
-                for (int height = 0; height <= targetHeight && replace.matches(world, genPos); height++)
+                EnumFacing direction = validDirections.get(rand.nextInt(validDirections.size()));
+                vineState = this.with.withProperty(BlockVine.getPropertyFor(direction), Boolean.valueOf(true));
+            }
+
+            // choose random target height
+            int targetHeight = GeneratorUtils.nextIntBetween(rand, this.minHeight, this.maxHeight);
+
+            // keep placing blocks upwards (if there's room)
+            for (int height = 0; height <= targetHeight; height++)
+            {
+                BlockPos offsetPos = genPos.down(height);
+
+                if (replace.matches(world, offsetPos) && vineState.getBlock().canPlaceBlockAt(world, offsetPos))
                 {
-                	if (this.with.getBlock().canPlaceBlockAt(world, genPos))
-                	{
-	                    world.setBlockState(genPos, this.with);
-	                    genPos = genPos.down();
-                	}
-                	else
-                	{
-                		return false;
-                	}
+                    world.setBlockState(offsetPos, vineState);
+                }
+                else
+                {
+                    ret = false;
+                    break;
                 }
             }
         }
-        return true;
+        return ret;
     }
     
     @Override
@@ -110,6 +134,4 @@ public class GeneratorVines extends GeneratorReplacing
         this.generationAttempts = conf.getInt("generationAttempts", this.generationAttempts);
         this.placeOn = conf.getBlockPosQuery("placeOn", this.placeOn);
     }
-    
-
 }
