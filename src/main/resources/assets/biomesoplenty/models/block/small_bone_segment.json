@@ -1,0 +1,21 @@
+{
+    "parent": "block/block",
+    "textures": {
+        "end": "blocks/bone_block_top",
+        "side": "blocks/bone_block_side",
+        "particle": "blocks/bone_block_side"
+    },
+    "elements": [
+        {   "from": [ 4, 0, 4 ],
+            "to": [ 12, 16, 12 ],
+            "faces": {
+                "down":  { "uv": [ 6, 6, 10, 10 ], "texture": "#end", "cullface": "down" },
+                "up":    { "uv": [ 6, 6, 10, 10 ], "texture": "#end" },
+                "north": { "uv": [ 4, 4, 12, 12 ], "texture": "#side", "cullface": "north" },
+                "south": { "uv": [ 4, 4, 12, 12 ], "texture": "#side", "cullface": "south" },
+                "west":  { "uv": [ 4, 4, 12, 12 ], "texture": "#side", "cullface": "west" },
+                "east":  { "uv": [ 4, 4, 12, 12 ], "texture": "#side", "cullface": "east" }
+            }
+        }
+    ]
+}
