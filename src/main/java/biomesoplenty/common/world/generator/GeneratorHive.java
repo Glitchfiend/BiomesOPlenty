@@ -167,10 +167,10 @@ public class GeneratorHive extends GeneratorReplacing
 
                             NBTTagCompound spawnerConfig = new NBTTagCompound();
                             spawnerConfig.setShort("MinSpawnDelay", (short)100);
-                            spawnerConfig.setShort("MaxSpawnDelay", (short)400);
-                            spawnerConfig.setShort("SpawnCount", (short)6);
-                            spawnerConfig.setShort("MaxNearbyEntities", (short)16);
-                            spawnerConfig.setShort("RequiredPlayerRange", (short)24);
+                            spawnerConfig.setShort("MaxSpawnDelay", (short)250);
+                            spawnerConfig.setShort("SpawnCount", (short)2);
+                            spawnerConfig.setShort("MaxNearbyEntities", (short)10);
+                            spawnerConfig.setShort("RequiredPlayerRange", (short)48);
 
                             spawnerLogic.readFromNBT(spawnerConfig);
                             spawnerLogic.setEntityId(new ResourceLocation(BiomesOPlenty.MOD_ID, "wasp"));

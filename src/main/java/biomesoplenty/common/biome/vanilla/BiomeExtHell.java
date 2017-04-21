@@ -7,6 +7,8 @@
  ******************************************************************************/
 package biomesoplenty.common.biome.vanilla;
 
+import biomesoplenty.api.config.IBOPWorldSettings;
+import biomesoplenty.api.config.IBOPWorldSettings.GeneratorType;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.world.generator.GeneratorHive;
 import net.minecraft.init.Biomes;
@@ -32,6 +34,12 @@ public class BiomeExtHell extends ExtendedBiomeWrapper
         //this.theBiomeDecorator.generateLakes = false;
 
         this.addGenerator("hive", GeneratorStage.PRE, (new GeneratorHive.Builder()).amountPerChunk(0.3F).create());
+    }
+    
+    @Override
+    public void applySettings(IBOPWorldSettings settings)
+    {
+        if (!settings.isEnabled(GeneratorType.NETHER_HIVES)) {this.removeGenerator("hive");}
     }
 }
 
