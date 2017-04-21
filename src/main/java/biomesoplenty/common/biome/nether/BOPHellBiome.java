@@ -17,6 +17,9 @@ import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.api.generation.IGenerationManager;
 import biomesoplenty.api.generation.IGenerator;
 import biomesoplenty.common.biome.BOPBiome;
+import biomesoplenty.common.util.biome.GeneratorUtils;
+import biomesoplenty.common.world.generator.GeneratorHive;
+import biomesoplenty.common.world.generator.GeneratorSplatter;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.monster.EntityEnderman;
@@ -54,6 +57,8 @@ public class BOPHellBiome extends BOPBiome
         this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntityPigZombie.class, 100, 4, 4));
         this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntityMagmaCube.class, 2, 4, 4));
         this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntityEnderman.class, 1, 4, 4));
+
+        this.addGenerator("hive", GeneratorStage.PRE, (new GeneratorHive.Builder()).amountPerChunk(4.0F).create());
     }
 
     @Override

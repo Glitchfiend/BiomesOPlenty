@@ -10,25 +10,7 @@ package biomesoplenty.common.init;
 
 import static biomesoplenty.common.world.GeneratorRegistry.registerGenerator;
 
-import biomesoplenty.common.world.generator.GeneratorBigFlower;
-import biomesoplenty.common.world.generator.GeneratorBigMushroom;
-import biomesoplenty.common.world.generator.GeneratorBlobs;
-import biomesoplenty.common.world.generator.GeneratorColumns;
-import biomesoplenty.common.world.generator.GeneratorCrystals;
-import biomesoplenty.common.world.generator.GeneratorDoubleFlora;
-import biomesoplenty.common.world.generator.GeneratorFlora;
-import biomesoplenty.common.world.generator.GeneratorGrass;
-import biomesoplenty.common.world.generator.GeneratorLakes;
-import biomesoplenty.common.world.generator.GeneratorLogs;
-import biomesoplenty.common.world.generator.GeneratorMixedLily;
-import biomesoplenty.common.world.generator.GeneratorOreCluster;
-import biomesoplenty.common.world.generator.GeneratorOreSingle;
-import biomesoplenty.common.world.generator.GeneratorSpike;
-import biomesoplenty.common.world.generator.GeneratorSplatter;
-import biomesoplenty.common.world.generator.GeneratorSplotches;
-import biomesoplenty.common.world.generator.GeneratorVines;
-import biomesoplenty.common.world.generator.GeneratorWaterside;
-import biomesoplenty.common.world.generator.GeneratorWeighted;
+import biomesoplenty.common.world.generator.*;
 import biomesoplenty.common.world.generator.tree.GeneratorBasicTree;
 import biomesoplenty.common.world.generator.tree.GeneratorBayouTree;
 import biomesoplenty.common.world.generator.tree.GeneratorBigTree;
@@ -79,6 +61,7 @@ public class ModGenerators
         registerGenerator("mixed_lily", GeneratorMixedLily.class, new GeneratorMixedLily.Builder());
         registerGenerator("crystals", GeneratorCrystals.class, new GeneratorCrystals.Builder());
         registerGenerator("spike", GeneratorSpike.class, new GeneratorSpike.Builder());
+        registerGenerator("hive", GeneratorHive.class, new GeneratorHive.Builder());
         registerGenerator("redwood_tree", GeneratorRedwoodTree.class, new GeneratorRedwoodTree.Builder());
         registerGenerator("redwood_tree_thin", GeneratorRedwoodTreeThin.class, new GeneratorRedwoodTreeThin.Builder());
         registerGenerator("mahogany_tree", GeneratorMahoganyTree.class, new GeneratorMahoganyTree.Builder());

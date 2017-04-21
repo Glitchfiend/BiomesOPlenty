@@ -129,6 +129,7 @@ public class BOPBiomes
     public static IExtendedBiome cold_taiga_hills_extension;
     public static IExtendedBiome mega_taiga_extension;
     public static IExtendedBiome mega_taiga_hills_extension;
+    public static IExtendedBiome hell_extension;
     
     private static IBiomeRegistry createRegistry()
     {
