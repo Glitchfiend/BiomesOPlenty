@@ -32,8 +32,6 @@ import net.minecraft.init.Blocks;
 
 public class BiomeUndergarden extends BOPHellBiome
 {
-    public IBlockState usualTopBlock;
-    public IBlockState alternateTopBlock;
     
     public BiomeUndergarden()
     {

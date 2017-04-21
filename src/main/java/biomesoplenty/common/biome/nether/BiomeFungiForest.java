@@ -41,8 +41,6 @@ import net.minecraft.world.chunk.ChunkPrimer;
 
 public class BiomeFungiForest extends BOPHellBiome
 {
-    public IBlockState usualTopBlock;
-    public IBlockState alternateTopBlock;
     
     public BiomeFungiForest()
     {

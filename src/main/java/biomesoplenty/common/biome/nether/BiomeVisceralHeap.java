@@ -41,8 +41,6 @@ import net.minecraft.world.chunk.ChunkPrimer;
 
 public class BiomeVisceralHeap extends BOPHellBiome
 {
-    public IBlockState usualTopBlock;
-    public IBlockState alternateTopBlock;
     
     public BiomeVisceralHeap()
     {
