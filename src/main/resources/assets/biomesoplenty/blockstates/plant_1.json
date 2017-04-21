@@ -7,7 +7,7 @@
         "variant=cattail": { "model": "biomesoplenty:cattail" },
         "variant=rivercane": { "model": "biomesoplenty:rivercane" },
         "variant=tinycactus": { "model": "biomesoplenty:tinycactus" },
-        "variant=witherwart": { "model": "biomesoplenty:witherwart" },
+        "variant=devilweed": { "model": "biomesoplenty:devilweed" },
         "variant=reed": { "model": "biomesoplenty:reed" },
         "variant=root": { "model": "biomesoplenty:root" },
 		"variant=rafflesia": { "model": "biomesoplenty:rafflesia" }

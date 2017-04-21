@@ -21,7 +21,7 @@ public class BiomeBoneyard extends BOPHellBiome
 {
     public BiomeBoneyard()
     {
-        super("boneyard", new PropsBuilder("Boneyard").withGuiColour(0xA93C3E));
+        super("boneyard", new PropsBuilder("Boneyard").withGuiColour(0xA93C3E).withTemperature(2.0F).withRainfall(0.0F).withRainDisabled());
 
         this.addWeight(BOPClimates.HELL, 20);
     }

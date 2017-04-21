@@ -23,6 +23,7 @@ import biomesoplenty.common.block.BlockBOPVine;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.world.generator.GeneratorFlora;
+import biomesoplenty.common.world.generator.GeneratorGrass;
 import biomesoplenty.common.world.generator.GeneratorSplatter;
 import biomesoplenty.common.world.generator.GeneratorVines;
 import biomesoplenty.common.world.generator.GeneratorWeighted;
@@ -35,17 +36,18 @@ public class BiomeUndergarden extends BOPHellBiome
     
     public BiomeUndergarden()
     {
-        super("undergarden", new PropsBuilder("Undergarden").withGuiColour(0xA93C3E));
+        super("undergarden", new PropsBuilder("Undergarden").withGuiColour(0xA93C3E).withTemperature(2.0F).withRainfall(0.0F).withRainDisabled());
 
         this.addWeight(BOPClimates.HELL, 15);
         
+        this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.OVERGROWN_NETHERRACK);
+        
         // splatter top blocks
-        IBlockPosQuery emptyNetherrack = BlockQuery.buildAnd().states(this.topBlock).withAirAbove().create();
-        IBlockState overgrownNetherrack = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.OVERGROWN_NETHERRACK);
-        this.addGenerator("overgrown_netherrack_splatter", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(20.0F).generationAttempts(128).scatterYMethod(ScatterYMethod.NETHER_SURFACE).replace(emptyNetherrack).with(overgrownNetherrack).create());
+        IBlockPosQuery emptyOvergrownNetherrack = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();
+        this.addGenerator("netherrack_splatter", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(7.0F).generationAttempts(128).scatterYMethod(ScatterYMethod.NETHER_SURFACE).replace(emptyOvergrownNetherrack).with(Blocks.NETHERRACK.getDefaultState()).create());
     
-        IBlockPosQuery suitableNetherrackPosition = BlockQuery.buildAnd().withAltitudeBetween(80, 130).states(Blocks.NETHERRACK.getDefaultState()).create();
-        this.addGenerator("ivy", GeneratorStage.FLOWERS,(new GeneratorVines.Builder()).amountPerChunk(30.0F).generationAttempts(128).placeOn(suitableNetherrackPosition).with(BOPBlocks.ivy.getDefaultState()).minHeight(8).maxHeight(20).create());
+        IBlockPosQuery suitableNetherrackPosition = BlockQuery.buildAnd().withAltitudeBetween(70, 120).states(Blocks.NETHERRACK.getDefaultState()).create();
+        this.addGenerator("ivy", GeneratorStage.FLOWERS,(new GeneratorVines.Builder()).amountPerChunk(25.0F).generationAttempts(128).placeOn(suitableNetherrackPosition).with(BOPBlocks.ivy.getDefaultState()).minHeight(8).maxHeight(20).create());
         
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(1.0F);
@@ -53,12 +55,15 @@ public class BiomeUndergarden extends BOPHellBiome
         flowerGenerator.add("burning_blossom", 4, (new GeneratorFlora.Builder().scatterYMethod(ScatterYMethod.NETHER_SURFACE).with(BOPFlowers.BURNING_BLOSSOM).create()));
         
         // trees
-        IBlockPosQuery surfaceBlocks = BlockQuery.buildOr().states(this.topBlock, overgrownNetherrack).create();
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(12.0F);
+        IBlockPosQuery surfaceBlocks = BlockQuery.buildOr().states(this.topBlock, BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.OVERGROWN_NETHERRACK)).create();
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(15.0F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("twiglet", 3, (new GeneratorTwigletTree.Builder()).scatterYMethod(ScatterYMethod.NETHER_SURFACE).placeOn(surfaceBlocks).minHeight(2).maxHeight(2).log(BlockBOPLog.paging.getVariantState(BOPWoods.HELLBARK)).leaves(BlockBOPLeaves.paging.getVariantState(BOPTrees.HELLBARK)).create());
+        treeGenerator.add("twiglet", 5, (new GeneratorTwigletTree.Builder()).scatterYMethod(ScatterYMethod.NETHER_SURFACE).placeOn(surfaceBlocks).minHeight(2).maxHeight(2).log(BlockBOPLog.paging.getVariantState(BOPWoods.HELLBARK)).leaves(BlockBOPLeaves.paging.getVariantState(BOPTrees.HELLBARK)).create());
     
-        this.addGenerator("koru", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(5.0F).with(BOPPlants.KORU).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
+        // grasses
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(15.0F);
+        this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
+        grassGenerator.add("devilweed", 5, (new GeneratorGrass.Builder()).with(BOPPlants.DEVILWEED).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
         
         // shrooms
         this.addGenerator("flat_mushroom", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).scatterYMethod(ScatterYMethod.NETHER_SURFACE).with(BlockBOPMushroom.MushroomType.FLAT_MUSHROOM).create());

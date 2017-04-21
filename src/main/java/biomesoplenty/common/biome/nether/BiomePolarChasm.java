@@ -24,7 +24,7 @@ public class BiomePolarChasm extends BOPHellBiome
 {
     public BiomePolarChasm()
     {
-        super("polar_chasm", new PropsBuilder("Polar Chasm").withGuiColour(0xA93C3E));
+        super("polar_chasm", new PropsBuilder("Polar Chasm").withGuiColour(0xA93C3E).withTemperature(0.25F).withRainfall(0.0F).withRainDisabled());
 
         this.addWeight(BOPClimates.HELL, 1);
 

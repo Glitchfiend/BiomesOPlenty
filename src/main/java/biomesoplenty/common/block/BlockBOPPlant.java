@@ -122,7 +122,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
         {
             case SHRUB: case LEAFPILE: case POISONIVY: case BUSH: case BERRYBUSH:
             return ColoringType.LIKE_LEAVES;
-            case SHORTGRASS: case MEDIUMGRASS: case SPROUT: case KORU: case CLOVERPATCH: case WHEATGRASS: case DAMPGRASS:
+            case SHORTGRASS: case MEDIUMGRASS: case SPROUT: case KORU: case CLOVERPATCH: case WHEATGRASS: case DAMPGRASS: case DEVILWEED:
             return ColoringType.LIKE_GRASS;
             default:
                 return ColoringType.PLAIN;
@@ -247,7 +247,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
                 }
                 break;
                 
-            case CATTAIL: case RIVERCANE: case TINYCACTUS: case WITHERWART: case REED: case ROOT: case RAFFLESIA:
+            case CATTAIL: case RIVERCANE: case TINYCACTUS: case REED: case ROOT: case RAFFLESIA:
                 // these variants drop themselves as items
                 ret.add(paging.getVariantItem(plant));
                 break;
@@ -288,47 +288,12 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
         
         switch (plant)
         {
-            case THORN: case WILDRICE: case CATTAIL: case RIVERCANE: case TINYCACTUS: case WITHERWART: case RAFFLESIA:
+            case THORN: case WILDRICE: case CATTAIL: case RIVERCANE: case TINYCACTUS: case RAFFLESIA:
                 return false;
             
             default:
                 return true;
         }
-    }
-    
-    @Override
-    @SideOnly(Side.CLIENT)
-    public boolean addDestroyEffects(World world, BlockPos pos, ParticleManager effectRenderer)
-    {
-        IBlockState state = world.getBlockState(pos);
-        Block block = state.getBlock();
-        // make sure the block at pos is actually this block (according to the comments in Block.addDestroyEffects, it might not be...)
-        if (block != this) {return false;}
-        switch ((BOPPlants) state.getValue(this.variantProperty))
-        {
-            case WITHERWART:
-                byte n = 3;
-                for (byte i = 0; i < n; i++)
-                {
-                    for (byte j = 0; j < n; j++)
-                    {
-                        for (byte k = 0; k < n; k++)
-                        {
-                            double x = pos.getX() + (i + 0.5D) / n;
-                            double y = pos.getY() + (j + 0.5D) / n;
-                            double z = pos.getZ() + (k + 0.5D) / n;                            
-                            world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x, y, z, 0.0D, 0.0D, 0.0D);
-                        }
-                    }
-                }
-                break;
-            
-            default:
-                break;
-                
-                
-        }
-        return false;
     }
     
     // different variants have different sizes
@@ -370,15 +335,13 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
                 return BlockQueries.spectralMoss.matches(world, pos.down());
             case THORN:
                 return BlockQueries.fertileOrNetherrack.matches(world, pos.down()) || BlockQueries.sustainsNether.matches(world, pos.down());
-            case KORU:
-                return BlockQueries.fertile.matches(world, pos.down());
             case CATTAIL:
                 return BlockQueries.litFertileWaterside.matches(world, pos.down());
             case RIVERCANE:
                 // river cane can also be placed on top of itself
                 return BlockQueries.litFertileWaterside.matches(world, pos.down()) || (world.getBlockState(pos.down()) == state);
-            case WITHERWART:
-                return BlockQueries.sustainsNether.matches(world, pos.down());
+            case DEVILWEED:
+                return BlockQueries.fertile.matches(world, pos.down());
             case REED:
                 return BlockQueries.suitableForReed.matches(world, pos.down());
             case ROOT:
@@ -509,7 +472,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
         BOPPlants plant = ((BOPPlants) world.getBlockState(pos).getValue(this.variantProperty));
         switch (plant)
         {
-            case CATTAIL: case RIVERCANE: case TINYCACTUS: case WITHERWART: case REED: case ROOT:
+            case CATTAIL: case RIVERCANE: case TINYCACTUS: case REED: case ROOT:
                 // these items drop themselves as items when the block is broken (from getDrops), so we don't want to add anything else for using shears
                 break;
                 
@@ -539,7 +502,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
                 return 0;
             case RIVERCANE:
                 return 0;
-            case WITHERWART:
+            case DEVILWEED:
                 return 0;
             case REED:
                 return 0;
@@ -564,7 +527,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
                 return 0;
             case RIVERCANE:
                 return 0;
-            case WITHERWART:
+            case DEVILWEED:
                 return 0;
             case REED:
                 return 0;
@@ -589,7 +552,6 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
             case BERRYBUSH:
             case RIVERCANE:
             case TINYCACTUS:
-            case WITHERWART:
                 return false;
             default:
                 return true;

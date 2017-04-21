@@ -25,7 +25,7 @@ public class BiomeCorruptedSands extends BOPHellBiome
 {
     public BiomeCorruptedSands()
     {
-        super("corrupted_sands", new PropsBuilder("Corrupted Sands").withGuiColour(0xA93C3E));
+        super("corrupted_sands", new PropsBuilder("Corrupted Sands").withGuiColour(0xA93C3E).withTemperature(2.0F).withRainfall(0.0F).withRainDisabled());
 
         this.addWeight(BOPClimates.HELL, 20);
         

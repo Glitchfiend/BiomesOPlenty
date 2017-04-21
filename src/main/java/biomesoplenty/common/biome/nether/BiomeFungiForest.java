@@ -44,7 +44,7 @@ public class BiomeFungiForest extends BOPHellBiome
     
     public BiomeFungiForest()
     {
-        super("fungi_forest", new PropsBuilder("Fungi Forest").withGuiColour(0xA93C3E));
+        super("fungi_forest", new PropsBuilder("Fungi Forest").withGuiColour(0xA93C3E).withTemperature(2.0F).withRainfall(0.0F).withRainDisabled());
 
         this.addWeight(BOPClimates.HELL, 15);
 
