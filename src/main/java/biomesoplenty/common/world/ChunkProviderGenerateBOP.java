@@ -46,6 +46,7 @@ import net.minecraft.world.gen.*;
 import net.minecraft.world.gen.feature.WorldGenDungeons;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.structure.*;
+import net.minecraftforge.common.ForgeModContainer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
@@ -471,6 +472,9 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
     @Override
     public void populate(int chunkX, int chunkZ)
     {
+        boolean prevLogging = ForgeModContainer.logCascadingWorldGeneration;
+        ForgeModContainer.logCascadingWorldGeneration = false;
+
         BlockFalling.fallInstantly = true;
         int x = chunkX * 16;
         int z = chunkZ * 16;
@@ -587,6 +591,7 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
         MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Post(this, world, rand, chunkX, chunkZ, hasVillageGenerated));
 
         BlockFalling.fallInstantly = false;
+        ForgeModContainer.logCascadingWorldGeneration = prevLogging;
     }
 
     @Override
