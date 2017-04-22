@@ -437,14 +437,26 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return Item.getItemFromBlock(getDirtBlock(state));
+        switch ((BOPGrassType) state.getValue(VARIANT))
+        {
+            case OVERGROWN_STONE:
+                return Item.getItemFromBlock(Blocks.COBBLESTONE.getDefaultState().getBlock());
+            default:
+                return Item.getItemFromBlock(getDirtBlock(state));
+        }
     }
     
     // goes hand in hand with getItemDropped() above to determine precisely what is dropped
     @Override
     public int damageDropped(IBlockState state)
     {
-        return getDirtBlockMeta(state);
+        switch ((BOPGrassType) state.getValue(VARIANT))
+        {
+            case OVERGROWN_STONE:
+                return 0;
+            default:
+                return getDirtBlockMeta(state);
+        }
     }
  
     
@@ -465,7 +477,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
             case OVERGROWN_NETHERRACK:
                 return Blocks.NETHERRACK.getDefaultState();
             case OVERGROWN_STONE:
-                return Blocks.COBBLESTONE.getDefaultState();
+                return Blocks.STONE.getDefaultState();
             case ORIGIN: case DAISY:  default:
                 return Blocks.DIRT.getStateFromMeta(BlockDirt.DirtType.DIRT.getMetadata());
         }
