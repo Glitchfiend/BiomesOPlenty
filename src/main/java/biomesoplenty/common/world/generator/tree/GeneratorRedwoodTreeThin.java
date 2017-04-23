@@ -147,7 +147,7 @@ public class GeneratorRedwoodTreeThin extends GeneratorTreeBase
         // Move up to space above ground
         pos = pos.up();
         
-        GeneratorSpike spikeGenerator = (new GeneratorSpike.Builder().with(this.log).replace(BlockQueries.anything).minRadius(2).maxRadius(2).minHeight(3).maxHeight(6).create());
+        GeneratorSpike spikeGenerator = (new GeneratorSpike.Builder().with(this.log).replace(BlockQueries.anything).minRadius(2).maxRadius(2).minHeight(2).maxHeight(4).create());
         
         // check that there's room and if the blocks below are suitable
         if (!spikeGenerator.canPlaceHere(world, pos, height, 2)) {return false;}
