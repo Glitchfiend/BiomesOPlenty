@@ -209,4 +209,20 @@ public class BOPOverworldBiome extends BOPBiome
     {
         return this.beachBiomeLocation;
     }
+
+    // the below two methods convert between our values and Vanilla.
+    // they're mostly used for mods like Pioneer rather than .
+
+    @Override
+    public float getBaseHeight()
+    {
+        return ((float)this.terrainSettings.avgHeight - 65.0F) / 17.0F;
+    }
+
+    @Override
+    public float getHeightVariation()
+    {
+        // average the heightVariation values for above and below
+        return (((float)this.terrainSettings.variationAbove - 7.0F) / (20.0F * 4.0F) + ((float)this.terrainSettings.variationBelow - 4.0F) / 20.0F) / 2.0F;
+    }
 }
