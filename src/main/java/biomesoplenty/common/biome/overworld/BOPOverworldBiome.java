@@ -211,7 +211,7 @@ public class BOPOverworldBiome extends BOPBiome
     }
 
     // the below two methods convert between our values and Vanilla.
-    // they're mostly used for mods like Pioneer rather than .
+    // they're mostly used for mods like Pioneer rather than us.
 
     @Override
     public float getBaseHeight()
