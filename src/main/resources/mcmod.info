@@ -6,6 +6,6 @@
     "mcversion": "${minecraft_version}",
     "url": "http://mods.curse.com/mc-mods/minecraft/220318-biomes-o-plenty",
     "authorList": ["Adubbz", "Amnet", "Cheeserolls", "Forstride", "ted80"],
-    "credits": "Tim Rurkowski, gamax92, and many more",
+    "credits": "Tim Rurkowski, gamax92, GridMonkey, and many more",
     "logoFile": "assets/biomesoplenty/textures/gui/logo.png"
 }]
