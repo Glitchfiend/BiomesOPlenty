@@ -8,6 +8,7 @@
 
 package biomesoplenty.common.block;
 
+import biomesoplenty.api.enums.BOPFlowers;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -93,6 +94,25 @@ public class BlockBOPTerrarium extends Block implements IBOPBlock
     public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos)
     {
         return BOUNDING_BOX;
+    }
+    
+    @Override
+    public int getLightValue(IBlockState state)
+    {
+        switch ((TerrariumType) state.getValue(this.VARIANT))
+        {
+            case GLOWSHROOM:
+                return 5;
+
+            case MYSTIC:
+                return 8;
+
+            case NETHER:
+                return 8;
+
+            default:
+                return 0;
+        }
     }
     
     @Override
