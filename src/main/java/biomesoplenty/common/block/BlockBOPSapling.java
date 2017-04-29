@@ -15,6 +15,7 @@ import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.api.enums.BOPWoods;
 import biomesoplenty.common.item.ItemBOPSapling;
+import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.VariantPagingHelper;
 import biomesoplenty.common.world.generator.tree.GeneratorBasicTree;
 import biomesoplenty.common.world.generator.tree.GeneratorBigTree;
@@ -25,6 +26,7 @@ import biomesoplenty.common.world.generator.tree.GeneratorPalmTree;
 import biomesoplenty.common.world.generator.tree.GeneratorPineTree;
 import biomesoplenty.common.world.generator.tree.GeneratorRedwoodTree;
 import biomesoplenty.common.world.generator.tree.GeneratorTaigaTree;
+import biomesoplenty.common.world.generator.tree.GeneratorTwigletTree;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockOldLeaf;
 import net.minecraft.block.BlockPlanks;
@@ -197,7 +199,7 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable, IP
             case MAPLE:
                 return new GeneratorBasicTree.Builder().log(BlockPlanks.EnumType.OAK).leaves(BOPTrees.MAPLE).minHeight(5).maxHeight(10).updateNeighbours(true).create();
             case HELLBARK: //Not implemented
-                return new WorldGenTrees(true);
+                return new GeneratorTwigletTree.Builder().scatterYMethod(ScatterYMethod.NETHER_SURFACE).minHeight(2).maxHeight(2).log(BlockBOPLog.paging.getVariantState(BOPWoods.HELLBARK)).leaves(BlockBOPLeaves.paging.getVariantState(BOPTrees.HELLBARK)).create();
             case FLOWERING:
                 return new GeneratorBasicTree.Builder().altLeaves(BOPTrees.FLOWERING).updateNeighbours(true).create();
             case JACARANDA:
