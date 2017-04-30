@@ -12,10 +12,6 @@ A list of the gems generated in our biomes may be found here: https://raw.github
 
 -----------------
 
-**Overworld biomes and our modded blocks/items have been finalised, Nether biomes have not yet been implemented however they are on the TODO list.**
- 
- -----------------
-
  [<img src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png">](http://creativecommons.org/licenses/by-nc-nd/4.0/deed.en_US)
 
 Biomes O' Plenty is licensed under a [Creative Commons Attribution-NonCommercial-NoDerivs 4.0 Unported License](http://creativecommons.org/licenses/by-nc-nd/4.0/deed.en_US).
