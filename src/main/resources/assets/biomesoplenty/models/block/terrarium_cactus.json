@@ -2,7 +2,7 @@
     "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
 	"ambientocclusion": false,
     "textures": {
-		"particle": "biomesoplenty:items/terrarium_bamboo",
+		"particle": "biomesoplenty:items/terrarium_cactus",
         "0": "biomesoplenty:blocks/jar_main_side",
         "1": "biomesoplenty:blocks/jar_main_top",
         "2": "biomesoplenty:blocks/jar_main_bottom",
@@ -12,7 +12,10 @@
         "6": "biomesoplenty:blocks/jar_bottom",
         "7": "biomesoplenty:blocks/jar_stopper_side",
         "8": "biomesoplenty:blocks/jar_stopper_top",
-        "9": "biomesoplenty:blocks/jar_cactus_inside"
+		"9": "biomesoplenty:blocks/jar_cactus_grass_side",
+        "10": "biomesoplenty:blocks/jar_cactus_grass_top",
+        "11": "biomesoplenty:blocks/jar_cactus_grass_bottom",
+		"12": "biomesoplenty:blocks/jar_cactus"
     },
     "elements": [
         {
@@ -65,27 +68,27 @@
                 "down": { "texture": "#8", "uv": [ 6.0, 5.0, 11.0, 10.0 ] }
             }
         },
-        {
+		{
             "name": "Plant Base",
             "from": [ 5.0, 1.0, 5.0 ], 
             "to": [ 12.0, 5.0, 12.0 ], 
             "faces": {
-                "north": { "texture": "#9", "uv": [ 0.0, 12.0, 7.0, 16.0 ] },
-                "east": { "texture": "#9", "uv": [ 0.0, 12.0, 7.0, 16.0 ] },
-                "south": { "texture": "#9", "uv": [ 0.0, 12.0, 7.0, 16.0 ] },
-                "west": { "texture": "#9", "uv": [ 0.0, 12.0, 7.0, 16.0 ] },
-                "up": { "texture": "#9", "uv": [ 9.0, 9.0, 16.0, 16.0 ] },
-                "down": { "texture": "#9", "uv": [ 9.0, 0.0, 16.0, 7.0 ] }
+                "north": { "texture": "#9", "uv": [ 5.0, 10.0, 12.0, 14.0 ] },
+                "east": { "texture": "#9", "uv": [ 5.0, 10.0, 12.0, 14.0 ] },
+                "south": { "texture": "#9", "uv": [ 5.0, 10.0, 12.0, 14.0 ] },
+                "west": { "texture": "#9", "uv": [ 5.0, 10.0, 12.0, 14.0 ] },
+                "up": { "texture": "#10", "uv": [ 5.0, 5.0, 12.0, 12.0 ] },
+                "down": { "texture": "#11", "uv": [ 5.0, 5.0, 12.0, 12.0 ] }
             }
         },
-        {
+		{
             "name": "Plant Cross 1",
             "from": [ 5.0, 5.0, 8.0 ], 
             "to": [ 12.0, 10.0, 8.0 ], 
             "rotation": { "origin": [ 8.0, 8.0, 8.0 ], "axis": "y", "angle": -45.0 },
             "faces": {
-                "north": { "texture": "#9", "uv": [ 0.0, 2.0, 7.0, 7.0 ] },
-                "south": { "texture": "#9", "uv": [ 0.0, 2.0, 7.0, 7.0 ] }
+                "north": { "texture": "#12", "uv": [ 5.0, 5.0, 12.0, 10.0 ] },
+                "south": { "texture": "#12", "uv": [ 5.0, 5.0, 12.0, 10.0 ] }
             }
         },
         {
@@ -94,8 +97,8 @@
             "to": [ 12.0, 10.0, 8.0 ], 
             "rotation": { "origin": [ 8.0, 8.0, 8.0 ], "axis": "y", "angle": 45.0 },
             "faces": {
-                "north": { "texture": "#9", "uv": [ 0.0, 2.0, 7.0, 7.0 ] },
-                "south": { "texture": "#9", "uv": [ 0.0, 2.0, 7.0, 7.0 ] }
+                "north": { "texture": "#12", "uv": [ 5.0, 5.0, 12.0, 10.0 ] },
+                "south": { "texture": "#12", "uv": [ 5.0, 5.0, 12.0, 10.0 ] }
             }
         }
     ]
