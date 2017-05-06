@@ -64,15 +64,7 @@ public enum BOPClimates {
     
     public Biome getRandomOceanBiome(BOPGenLayer layer, boolean deep)
     {
-        switch (this)
-        {
-            case ICE_CAP:
-                return (layer.nextInt(2)==0) ? this.getRandomBiome(layer) : Biomes.FROZEN_OCEAN;
-            case TUNDRA: case BOREAL:
-                return (layer.nextInt(3)!=0) ? (deep ? Biomes.DEEP_OCEAN : Biomes.OCEAN) : Biomes.FROZEN_OCEAN;
-            default:
-                return (deep ? Biomes.DEEP_OCEAN : Biomes.OCEAN);
-        }
+        return (deep ? Biomes.DEEP_OCEAN : Biomes.OCEAN);
     }
 
     static
