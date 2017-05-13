@@ -144,11 +144,11 @@ public class ModBlockQueries
         groundBlocks = new BlockQueryMaterial(Material.BARRIER, Material.CLAY, Material.GRASS, Material.GROUND, Material.PACKED_ICE, Material.ROCK, Material.SAND);
         
         fertile = BlockQuery.buildAnd().sustainsPlant(EnumPlantType.Plains).create();
-        fertileOrNetherrack = BlockQuery.buildOr().sustainsPlant(EnumPlantType.Plains).blocks(Blocks.NETHERRACK).states(BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.OVERGROWN_NETHERRACK)).create();
+        fertileOrNetherrack = BlockQuery.buildOr().sustainsPlant(EnumPlantType.Plains).blocks(Blocks.NETHERRACK).states(BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.OVERGROWN_NETHERRACK), BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.MYCELIAL_NETHERRACK)).create();
         sustainsCave = BlockQuery.buildAnd().sustainsPlant(EnumPlantType.Cave).create();
         sustainsNether = BlockQuery.buildAnd().sustainsPlant(EnumPlantType.Nether).create();
         endish = BlockQuery.buildOr().blocks(Blocks.END_STONE).states(BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SPECTRAL_MOSS)).create();
-        hellish = BlockQuery.buildOr().blocks(Blocks.NETHERRACK, BOPBlocks.flesh).states(BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.OVERGROWN_NETHERRACK)).create();
+        hellish = BlockQuery.buildOr().blocks(Blocks.NETHERRACK, BOPBlocks.flesh).states(BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.OVERGROWN_NETHERRACK), BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.MYCELIAL_NETHERRACK)).create();
         litBeach = BlockQuery.buildAnd().sustainsPlant(EnumPlantType.Beach).withLightAboveAtLeast(8).create();
         litFertileWaterside = BlockQuery.buildAnd().sustainsPlant(EnumPlantType.Plains).byWater().create();
         litFertile = BlockQuery.buildAnd().sustainsPlant(EnumPlantType.Plains).withLightAboveAtLeast(8).create();

@@ -96,6 +96,18 @@
             { "model": "biomesoplenty:daisy_grass_block_snowed", "y": 90 },
             { "model": "biomesoplenty:daisy_grass_block_snowed", "y": 180 },
             { "model": "biomesoplenty:daisy_grass_block_snowed", "y": 270 }
+        	],
+		"snowy=false,variant=mycelial_netherrack": [
+            { "model": "biomesoplenty:mycelial_netherrack" },
+            { "model": "biomesoplenty:mycelial_netherrack", "y": 90 },
+            { "model": "biomesoplenty:mycelial_netherrack", "y": 180 },
+            { "model": "biomesoplenty:mycelial_netherrack", "y": 270 }
+        	],
+        "snowy=true,variant=mycelial_netherrack":  [
+            { "model": "biomesoplenty:mycelial_netherrack" },
+            { "model": "biomesoplenty:mycelial_netherrack", "y": 90 },
+            { "model": "biomesoplenty:mycelial_netherrack", "y": 180 },
+            { "model": "biomesoplenty:mycelial_netherrack", "y": 270 }
         	]
     }
 }

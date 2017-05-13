@@ -19,6 +19,7 @@ import biomesoplenty.api.enums.BOPFlowers;
 import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.api.generation.GeneratorStage;
+import biomesoplenty.common.block.BlockBOPDirt;
 import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.block.BlockBOPMushroom;
@@ -28,6 +29,7 @@ import biomesoplenty.common.world.generator.GeneratorBigMushroom;
 import biomesoplenty.common.world.generator.GeneratorDoubleFlora;
 import biomesoplenty.common.world.generator.GeneratorFlora;
 import biomesoplenty.common.world.generator.GeneratorGrass;
+import biomesoplenty.common.world.generator.GeneratorSplotches;
 import biomesoplenty.common.world.generator.GeneratorWeighted;
 import biomesoplenty.common.world.generator.tree.GeneratorTwigletTree;
 import net.minecraft.block.BlockDirt;
@@ -43,22 +45,43 @@ import net.minecraft.world.chunk.ChunkPrimer;
 
 public class BiomeFungiForest extends BOPHellBiome
 {
+    public IBlockState usualTopBlock;
+    public IBlockState alternateTopBlock;
     
     public BiomeFungiForest()
     {
         super("fungi_forest", new PropsBuilder("Fungi Forest").withGuiColour(0xA93C3E).withTemperature(2.0F).withRainfall(0.0F).withRainDisabled());
 
-        this.addWeight(BOPClimates.HELL, 15);
+        this.addWeight(BOPClimates.HELL, 75);
+        
+        this.usualTopBlock = this.topBlock;
+        this.alternateTopBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.MYCELIAL_NETHERRACK);
 
         // shrooms
         IBlockPosQuery surfaceBlocks = BlockQuery.buildOr().states(this.topBlock).create();
-        this.addGenerator("glowshroom", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(1.25F).scatterYMethod(ScatterYMethod.NETHER_SURFACE).with(BlockBOPMushroom.MushroomType.GLOWSHROOM).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
-        this.addGenerator("flat_mushroom", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).scatterYMethod(ScatterYMethod.NETHER_SURFACE).with(BlockBOPMushroom.MushroomType.FLAT_MUSHROOM).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
-        this.addGenerator("toadstools", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).scatterYMethod(ScatterYMethod.NETHER_SURFACE).with(BlockBOPMushroom.MushroomType.TOADSTOOL).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
-        this.addGenerator("red_mushrooms", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(5.0F).scatterYMethod(ScatterYMethod.NETHER_SURFACE).with(Blocks.RED_MUSHROOM.getDefaultState()).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
-        this.addGenerator("brown_mushrooms", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(2.0F).scatterYMethod(ScatterYMethod.NETHER_SURFACE).with(Blocks.BROWN_MUSHROOM.getDefaultState()).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
+        this.addGenerator("glowshroom", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(1.25F).with(BlockBOPMushroom.MushroomType.GLOWSHROOM).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
+        this.addGenerator("flat_mushroom", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).with(BlockBOPMushroom.MushroomType.FLAT_MUSHROOM).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
+        this.addGenerator("toadstools", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).with(BlockBOPMushroom.MushroomType.TOADSTOOL).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
+        this.addGenerator("red_mushrooms", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(5.0F).with(Blocks.RED_MUSHROOM.getDefaultState()).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
+        this.addGenerator("brown_mushrooms", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(2.0F).with(Blocks.BROWN_MUSHROOM.getDefaultState()).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
         this.addGenerator("big_brown_mushroom", GeneratorStage.BIG_SHROOM,(new GeneratorBigMushroom.Builder()).amountPerChunk(2.0F).mushroomType(GeneratorBigMushroom.BigMushroomType.BROWN).scatterYMethod(ScatterYMethod.NETHER_SURFACE).placeOn(surfaceBlocks).create());
-        this.addGenerator("big_red_mushroom", GeneratorStage.BIG_SHROOM,(new GeneratorBigMushroom.Builder()).amountPerChunk(15.0F).mushroomType(GeneratorBigMushroom.BigMushroomType.RED).scatterYMethod(ScatterYMethod.NETHER_SURFACE).minHeight(5).maxHeight(15).placeOn(surfaceBlocks).create());
+        this.addGenerator("big_red_mushroom", GeneratorStage.BIG_SHROOM,(new GeneratorBigMushroom.Builder()).amountPerChunk(25.0F).mushroomType(GeneratorBigMushroom.BigMushroomType.RED).scatterYMethod(ScatterYMethod.NETHER_SURFACE).minHeight(5).maxHeight(25).placeOn(surfaceBlocks).create());
+    }
+    
+    @Override
+    public void configure(IConfigObj conf)
+    {
+        super.configure(conf);
+        
+        this.usualTopBlock = this.topBlock;
+        this.alternateTopBlock = conf.getBlockState("alternateTopBlock", this.alternateTopBlock);
+    }
+    
+    @Override
+    public void genTerrainBlocks(World world, Random rand, ChunkPrimer primer, int x, int z, double noise)
+    {
+        this.topBlock = (noise + rand.nextDouble() * 1.0D > 1.8D) ? this.alternateTopBlock : this.usualTopBlock;
+        super.genTerrainBlocks(world, rand, primer, x, z, noise);
     }
     
     @Override

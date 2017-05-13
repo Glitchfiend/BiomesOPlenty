@@ -15,6 +15,7 @@ import java.util.Random;
 
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.api.particle.BOPParticleTypes;
+import biomesoplenty.api.sound.BOPSounds;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.entity.EntityFlying;
 import net.minecraft.entity.ai.EntityAIBase;
@@ -22,6 +23,7 @@ import net.minecraft.entity.ai.EntityMoveHelper;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.item.Item;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -43,6 +45,18 @@ public class EntityPixie extends EntityFlying implements IMob {
     {
         super.applyEntityAttributes();
         // TODO: get right value here   this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(10.0D); 
+    }
+    
+    @Override
+    protected SoundEvent getAmbientSound()
+    {
+        return BOPSounds.pixie_ambient;
+    }
+    
+    @Override
+    protected SoundEvent getHurtSound()
+    {
+        return BOPSounds.pixie_hurt;
     }
     
     @Override

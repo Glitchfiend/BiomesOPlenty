@@ -265,6 +265,9 @@ public class BlockBOPFlower extends BlockBOPDecoration implements IShearable, IH
                     onFertile = true;
                     onNetherrack = true;
                     break;
+                case MYCELIAL_NETHERRACK:
+                    onNetherrack = true;
+                    break;
                 case LOAMY: case SANDY: case SILTY: case ORIGIN: default:
                     onFertile = true;
                     break;

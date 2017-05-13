@@ -29,7 +29,7 @@ public class BiomePhantasmagoricInferno extends BOPHellBiome
     {
         super("phantasmagoric_inferno", new PropsBuilder("Phantasmagoric Inferno").withGuiColour(0xA93C3E).withTemperature(2.0F).withRainfall(0.0F).withRainDisabled());
 
-        this.addWeight(BOPClimates.HELL, 20);
+        this.addWeight(BOPClimates.HELL, 75);
         
         this.topBlock = BOPBlocks.ash_block.getDefaultState();
         this.fillerBlock = BOPBlocks.ash_block.getDefaultState();

@@ -52,7 +52,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
     // add properties (note we also inherit the SNOWY property from BlockGrass)
     public static enum BOPGrassType implements IStringSerializable
     {
-        SPECTRAL_MOSS, OVERGROWN_STONE, LOAMY, SANDY, SILTY, ORIGIN, OVERGROWN_NETHERRACK, DAISY;
+        SPECTRAL_MOSS, OVERGROWN_STONE, LOAMY, SANDY, SILTY, ORIGIN, OVERGROWN_NETHERRACK, DAISY, MYCELIAL_NETHERRACK;
         @Override
         public String getName()
         {
@@ -81,7 +81,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
         BOPGrassType grassType = (BOPGrassType)state.getValue(VARIANT);
         switch (grassType)
         {
-            case SPECTRAL_MOSS: case OVERGROWN_NETHERRACK: case OVERGROWN_STONE:
+            case SPECTRAL_MOSS: case OVERGROWN_NETHERRACK: case OVERGROWN_STONE: case MYCELIAL_NETHERRACK:
                 return grassType.getName();
             default:
                 return grassType.getName() + "_grass_block";
@@ -124,12 +124,9 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
         {
                 // overgrown_netherrack supports Nether plants in addition to the defaults
             case OVERGROWN_NETHERRACK:
-                return SoundType.STONE;
-                
             case OVERGROWN_STONE:
-                return SoundType.STONE;
-                
             case SPECTRAL_MOSS:
+            case MYCELIAL_NETHERRACK:
                 return SoundType.STONE;
 
             default:
@@ -144,12 +141,9 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
         {
                 // overgrown_netherrack supports Nether plants in addition to the defaults
             case OVERGROWN_NETHERRACK:
-                return Material.ROCK;
-                
             case OVERGROWN_STONE:
-                return Material.ROCK;
-                
             case SPECTRAL_MOSS:
+            case MYCELIAL_NETHERRACK:
                 return Material.ROCK;
 
             default:
@@ -169,13 +163,10 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
         switch ((BOPGrassType) state.getValue(VARIANT))
         {
                 // overgrown_netherrack supports Nether plants in addition to the defaults
-            case OVERGROWN_NETHERRACK:
-                return "pickaxe";
-                
+            case OVERGROWN_NETHERRACK: 
             case OVERGROWN_STONE:
-                return "pickaxe";
-                
             case SPECTRAL_MOSS:
+            case MYCELIAL_NETHERRACK:
                 return "pickaxe";
 
             default:
@@ -190,6 +181,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
         {
                 // overgrown_netherrack supports Nether plants in addition to the defaults
             case OVERGROWN_NETHERRACK:
+            case MYCELIAL_NETHERRACK:
                 return 0.4F;
                 
             case OVERGROWN_STONE:
@@ -212,6 +204,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
         {
                 // overgrown_netherrack supports Nether plants in addition to the defaults
             case OVERGROWN_NETHERRACK:
+            case MYCELIAL_NETHERRACK:
                 return 0.1F;
                 
             case OVERGROWN_STONE:
@@ -235,6 +228,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
         {
                 // overgrown_netherrack supports Nether plants in addition to the defaults
             case OVERGROWN_NETHERRACK:
+            case MYCELIAL_NETHERRACK:
                 if (plantType == net.minecraftforge.common.EnumPlantType.Nether) {return true;}
                 break;
 
@@ -338,8 +332,10 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
     public boolean canGrow(World worldIn, BlockPos pos, IBlockState state, boolean isClient) {
         switch ((BOPGrassType) state.getValue(VARIANT))
         {            
-            case SPECTRAL_MOSS: case OVERGROWN_STONE: case OVERGROWN_NETHERRACK:
+            case SPECTRAL_MOSS:
+            case MYCELIAL_NETHERRACK:
                 return false;
+                
             default:
                 return true;
         }
@@ -349,8 +345,10 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
     public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state) {
         switch ((BOPGrassType) state.getValue(VARIANT))
         {            
-            case SPECTRAL_MOSS: case OVERGROWN_STONE: case OVERGROWN_NETHERRACK:
+            case SPECTRAL_MOSS:
+            case MYCELIAL_NETHERRACK:
                 return false;
+                
             default:
                 return true;
         }
@@ -475,6 +473,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
             case SILTY:
                 return BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY);
             case OVERGROWN_NETHERRACK:
+            case MYCELIAL_NETHERRACK:
                 return Blocks.NETHERRACK.getDefaultState();
             case OVERGROWN_STONE:
                 return Blocks.STONE.getDefaultState();
@@ -501,7 +500,10 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
 
         switch ((BOPGrassType) source.getValue(VARIANT))
         {
-            case SPECTRAL_MOSS: case OVERGROWN_NETHERRACK: case OVERGROWN_STONE:
+            case SPECTRAL_MOSS:
+            case OVERGROWN_NETHERRACK:
+            case OVERGROWN_STONE:
+            case MYCELIAL_NETHERRACK:
                 break;
                 
             // loamy/sandy/silty grasses spread to any kind of dirt

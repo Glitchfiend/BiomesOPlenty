@@ -33,7 +33,7 @@ public class BiomeCorruptedSands extends BOPHellBiome
     {
         super("corrupted_sands", new PropsBuilder("Corrupted Sands").withGuiColour(0xA93C3E).withTemperature(2.0F).withRainfall(0.0F).withRainDisabled());
 
-        this.addWeight(BOPClimates.HELL, 20);
+        this.addWeight(BOPClimates.HELL, 75);
         
         this.topBlock = Blocks.SOUL_SAND.getDefaultState();
         this.fillerBlock = Blocks.SOUL_SAND.getDefaultState();
