@@ -30,6 +30,6 @@ public class PlayerUtil
                 return hand;
         }
         
-        return null;
+        return EnumHand.MAIN_HAND;
     }
 }
