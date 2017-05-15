@@ -89,15 +89,17 @@ public class FogEventHandler
 
         float fpDistanceBiomeFog = 0F;
         float weightBiomeFog = 0;
+        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(0, 0, 0);
 
         for (int x = -distance; x <= distance; ++x)
         {
             for (int z = -distance; z <= distance; ++z)
             {
-                Biome biome = world.getBiome(new BlockPos(playerX + x, 0, playerZ + z));
+                pos.setPos(playerX + x, 0, playerZ + z);
+                Biome biome = world.getBiome(pos);
                 if (biome instanceof BOPBiome)
                 {
-                    float distancePart = ((BOPBiome) biome).getFogDensity(new BlockPos(playerX + x, 0, playerZ + z));
+                    float distancePart = ((BOPBiome) biome).getFogDensity(pos);
                     float weightPart = 1;
 
                     // Check if fog density is enabled for this biome
@@ -219,12 +221,14 @@ public class FogEventHandler
         float rBiomeFog = 0;
         float gBiomeFog = 0;
         float bBiomeFog = 0;
+        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(0, 0, 0);
 
         for (int x = -distance; x <= distance; ++x)
         {
             for (int z = -distance; z <= distance; ++z)
             {
-                Biome biome = world.getBiome(new BlockPos(playerX + x, 0, playerZ + z));
+                pos.setPos(playerX + x, 0, playerZ + z);
+                Biome biome = world.getBiome(pos);
                 int waterColorMult = biome.getWaterColor();
 
                 float rPart = (waterColorMult & 0xFF0000) >> 16;
@@ -295,14 +299,17 @@ public class FogEventHandler
         double gBiomeFog = 0;
         double bBiomeFog = 0;
         double weightBiomeFog = 0;
+        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(0, 0, 0);
 
         for (int x = -distance; x <= distance; ++x)
         {
-            for (int z = -distance; z <= distance; ++z) {
-                Biome biome = world.getBiome(new BlockPos(playerX + x, 0, playerZ + z));
+            for (int z = -distance; z <= distance; ++z)
+            {
+                pos.setPos(playerX + x, 0, playerZ + z);
+                Biome biome = world.getBiome(pos);
 
                 if (biome instanceof BOPBiome) {
-                    int fogColour = ((BOPBiome) biome).getFogColor(new BlockPos(playerX + x, 0, playerZ + z));
+                    int fogColour = ((BOPBiome) biome).getFogColor(pos);
 
                     // Ensure fog colouring is enabled for this biome
                     if (fogColour >= 0)
