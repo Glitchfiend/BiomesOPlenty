@@ -456,7 +456,21 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
                 return getDirtBlockMeta(state);
         }
     }
- 
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand)
+    {
+        super.randomDisplayTick(state, world, pos, rand);
+
+        if (state.getValue(VARIANT) == BOPGrassType.MYCELIAL_NETHERRACK)
+        {
+            if (rand.nextInt(10) == 0)
+            {
+                world.spawnParticle(EnumParticleTypes.TOWN_AURA, (double)((float)pos.getX() + rand.nextFloat()), (double)((float)pos.getY() + 1.1F), (double)((float)pos.getZ() + rand.nextFloat()), 0.0D, 0.0D, 0.0D, new int[0]);
+            }
+        }
+    }
     
     // get the blockstate which corresponds to the type of dirt which this grass variant grows on
     // this is used to determine what drops when you break the grass block, and the type of dirt it reverts to when covered
