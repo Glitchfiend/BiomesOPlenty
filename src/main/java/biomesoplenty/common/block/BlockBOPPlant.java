@@ -167,7 +167,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
                 
                 switch ((BOPPlants) state.getValue(BlockBOPPlant.this.variantProperty))
                 {
-                    case BERRYBUSH: case SHRUB:
+                    case BUSH: case BERRYBUSH: case SHRUB:
                         return 0xFFFFFF;
                     
                     default:
