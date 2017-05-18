@@ -128,7 +128,7 @@ public class BiomeProviderBOP extends BiomeProvider
     }
         
     // superimpose hot and cold regions an a land and sea layer
-    public static GenLayer climateLayer(BOPWorldSettings settings, long worldSeed)
+    public static GenLayerClimate climateLayer(BOPWorldSettings settings, long worldSeed)
     {
         GenLayer temperature;
         switch(settings.tempScheme)
@@ -167,12 +167,12 @@ public class BiomeProviderBOP extends BiomeProvider
                 break;
         }
 
-        GenLayer climate = new GenLayerClimate(103L, temperature, rainfall);        
+        GenLayerClimate climate = new GenLayerClimate(103L, temperature, rainfall);
         // stack = new GenLayerEdge(3L, stack, GenLayerEdge.Mode.SPECIAL);
         return climate;
     }    
     
-    public static GenLayer allocateBiomes(long worldSeed, BOPWorldSettings settings, GenLayer mainBranch, GenLayer subBiomesInit, GenLayer climateLayer)
+    public static GenLayer allocateBiomes(long worldSeed, BOPWorldSettings settings, GenLayer mainBranch, GenLayer subBiomesInit, GenLayerClimate climateLayer)
     {        
         // allocate the basic biomes        
         GenLayer biomesLayer = new GenLayerBiomeBOP(200L, mainBranch, climateLayer, settings);
@@ -180,16 +180,16 @@ public class BiomeProviderBOP extends BiomeProvider
         // magnify everything (using the same seed)
         biomesLayer = new GenLayerZoom(1000L, biomesLayer);
         subBiomesInit = new GenLayerZoom(1000L, subBiomesInit);
-        climateLayer = new GenLayerZoom(1000L, climateLayer);
+        GenLayer climateLayerZoomed = new GenLayerZoom(1000L, climateLayer);
         
         // add medium islands
         switch(settings.landScheme)
         {
             case ARCHIPELAGO:
-                biomesLayer = new GenLayerBiomeIslands(15L, biomesLayer, climateLayer, 4);
+                biomesLayer = new GenLayerBiomeIslands(15L, biomesLayer, climateLayerZoomed, 4);
                 break;
             case CONTINENTS:
-                biomesLayer = new GenLayerBiomeIslands(15L, biomesLayer, climateLayer, 60);
+                biomesLayer = new GenLayerBiomeIslands(15L, biomesLayer, climateLayerZoomed, 60);
                 break;
             case VANILLA: default:
                 break;
@@ -198,7 +198,7 @@ public class BiomeProviderBOP extends BiomeProvider
         // magnify everything again (using the same seed)
         biomesLayer = new GenLayerZoom(1000L, biomesLayer);
         subBiomesInit = new GenLayerZoom(1000L, subBiomesInit);
-        climateLayer = new GenLayerZoom(1000L, climateLayer);
+        climateLayerZoomed = new GenLayerZoom(1000L, climateLayerZoomed);
         
         // add edge biomes
         biomesLayer = new GenLayerBiomeEdgeBOP(1000L, biomesLayer);
@@ -210,13 +210,13 @@ public class BiomeProviderBOP extends BiomeProvider
         switch(settings.landScheme)
         {
             case ARCHIPELAGO:
-                biomesLayer = new GenLayerBiomeIslands(15L, biomesLayer, climateLayer, 8);
+                biomesLayer = new GenLayerBiomeIslands(15L, biomesLayer, climateLayerZoomed, 8);
                 break;
             case CONTINENTS:
-                biomesLayer = new GenLayerBiomeIslands(15L, biomesLayer, climateLayer, 60);
+                biomesLayer = new GenLayerBiomeIslands(15L, biomesLayer, climateLayerZoomed, 60);
                 break;
             case VANILLA: default:
-                biomesLayer = new GenLayerBiomeIslands(15L, biomesLayer, climateLayer, 12);
+                biomesLayer = new GenLayerBiomeIslands(15L, biomesLayer, climateLayerZoomed, 12);
                 break;
         }
         
@@ -242,7 +242,7 @@ public class BiomeProviderBOP extends BiomeProvider
         GenLayer riversAndSubBiomesInit = new GenLayerRiverInit(100L, mainBranch);
          
         // create climate layer
-        GenLayer climateLayer = climateLayer(settings, worldSeed);
+        GenLayerClimate climateLayer = climateLayer(settings, worldSeed);
         
         // allocate the biomes
         mainBranch = allocateBiomes(worldSeed, settings, mainBranch, riversAndSubBiomesInit, climateLayer);

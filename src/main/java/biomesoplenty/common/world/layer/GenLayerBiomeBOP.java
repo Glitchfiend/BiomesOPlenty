@@ -23,9 +23,9 @@ public class GenLayerBiomeBOP extends BOPGenLayer
     
     private BOPWorldSettings settings;
     private GenLayer landMassLayer;
-    private GenLayer climateLayer;
+    private GenLayerClimate climateLayer;
     
-    public GenLayerBiomeBOP(long seed, GenLayer landMassLayer, GenLayer climateLayer, BOPWorldSettings settings)
+    public GenLayerBiomeBOP(long seed, GenLayer landMassLayer, GenLayerClimate climateLayer, BOPWorldSettings settings)
     {
         super(seed);
         this.landMassLayer = landMassLayer;
@@ -51,7 +51,18 @@ public class GenLayerBiomeBOP extends BOPGenLayer
                 int index = z + x * areaWidth;
                 this.initChunkSeed((long)(z + areaX), (long)(x + areaY));
                 int landSeaVal = landSeaValues[index];
-                BOPClimates climate = BOPClimates.lookup(climateValues[index]);
+                int climateOrdinal = climateValues[index];
+                
+                BOPClimates climate;
+                try {
+                    climate = BOPClimates.lookup(climateOrdinal);
+                } catch (java.lang.ArrayIndexOutOfBoundsException e) {
+                    // This shouldn't happen - but apparently it (rarely) does (https://github.com/Glitchfiend/BiomesOPlenty/issues/983)
+                    // If it does it means that something weird happened with the climate layer / lookup
+                    // Rethrow with hopefully a more useful message
+                    String msg = "Climate lookup failed climateOrdinal: " + climateOrdinal + " climate layer mapping: " + climateLayer.debugClimateMappingInts();
+                    throw new java.lang.RuntimeException(msg,e);
+                }
                 
                 // At this point, oceans and land have been assigned, and so have mushroom islands
                 if (landSeaVal == Biome.getIdForBiome(Biomes.DEEP_OCEAN))

@@ -1,5 +1,7 @@
 package biomesoplenty.common.world.layer;
 
+import java.util.Arrays;
+
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.generation.BOPGenLayer;
 import net.minecraft.util.math.MathHelper;
@@ -28,13 +30,20 @@ public class GenLayerClimate extends BOPGenLayer {
 
         for (int i = 0; i < areaWidth * areaHeight; ++i)
         {
-            int index = (temperatureValues[i] * 12) + rainfallValues[i];
-
             // temperature values from 0 (cold) to 8 (hot) and rainfall values from 0 (wet) to 11 (dry), index is (temperatureValue * 12) + rainfallValue
-            // index is clamped to account for potential rounding errors due to use of doubles/floats
-            out[i] = this.climateMapping[MathHelper.clamp(index, 0, this.climateMapping.length - 1)];
+            // clamp as a precaution against potential rounding errors due to use of doubles/floats in noise calculations
+            // this guarantees index is between 0 and 108 (= 9 * 12), the range of indexes in BOPClimates.getClimateMappingInts()
+            int index = ( MathHelper.clamp(temperatureValues[i], 0, 8) * 12 ) + MathHelper.clamp(rainfallValues[i], 0, 11);
+            
+            out[i] = this.climateMapping[index];
         }
         return out;
+    }
+    
+    // debug method added to assist in troubleshooting a specific bug (https://github.com/Glitchfiend/BiomesOPlenty/issues/983)
+    public String debugClimateMappingInts()
+    {
+        return Arrays.toString(this.climateMapping);
     }
 
 }
