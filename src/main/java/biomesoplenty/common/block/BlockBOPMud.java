@@ -10,6 +10,8 @@ package biomesoplenty.common.block;
 
 import java.util.Random;
 
+import javax.annotation.Nullable;
+
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
@@ -87,7 +89,7 @@ public class BlockBOPMud extends Block implements IBOPBlock, ISustainsPlantType
         // set some defaults
         this.setHarvestLevel("shovel", 0);
         this.setHardness(0.6F);
-        this.setSoundType(SoundType.SAND);
+        this.setSoundType(SoundType.SLIME);
         this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, MudType.MUD) );
         
     }    
@@ -104,7 +106,6 @@ public class BlockBOPMud extends Block implements IBOPBlock, ISustainsPlantType
         return ((MudType) state.getValue(VARIANT)).ordinal();
     }
     
-    
     public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World worldIn, BlockPos pos)
     {
         return MUD_AABB;
@@ -118,14 +119,17 @@ public class BlockBOPMud extends Block implements IBOPBlock, ISustainsPlantType
         {
             // mud slows you greatly unless you're wearing wading boots
             case MUD:
-                if (entity instanceof EntityPlayer) {
+                if (entity instanceof EntityPlayer)
+                {
                     InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
-                    if (inventory.armorInventory.get(0).getItem() == BOPItems.wading_boots) {
+                    if (inventory.armorInventory.get(0).getItem() == BOPItems.wading_boots)
+                    {
                         break;
                     }
                 }
-                entity.motionX *= 0.1D;
-                entity.motionZ *= 0.1D;
+                
+                entity.motionX *= 0.2D;
+                entity.motionZ *= 0.2D;
                 break;
             
             default:

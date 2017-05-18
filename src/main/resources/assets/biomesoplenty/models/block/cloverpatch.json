@@ -1,5 +1,4 @@
 {
-    "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
 	"ambientocclusion": false,
     "textures": {
 		"particle": "biomesoplenty:items/cloverpatch",
@@ -50,6 +49,7 @@
             "name": "Stem 1",
             "from": [ 4.0, 0.0, 4.0 ], 
             "to": [ 5.0, 8.0, 5.0 ], 
+			"shade": false,
             "faces": {
                 "north": { "texture": "#4", "uv": [ 7.0, 8.0, 8.0, 16.0 ], "tintindex": 0 },
                 "east": { "texture": "#4", "uv": [ 7.0, 8.0, 8.0, 16.0 ], "tintindex": 0 },
@@ -61,6 +61,7 @@
             "name": "Stem 2",
             "from": [ 12.0, 0.0, 3.0 ], 
             "to": [ 13.0, 6.0, 4.0 ], 
+			"shade": false,
             "faces": {
                 "north": { "texture": "#4", "uv": [ 7.0, 10.0, 8.0, 16.0 ], "tintindex": 0 },
                 "east": { "texture": "#4", "uv": [ 7.0, 10.0, 8.0, 16.0 ], "tintindex": 0 },
@@ -72,6 +73,7 @@
             "name": "Stem 3",
             "from": [ 3.0, 0.0, 12.0 ], 
             "to": [ 4.0, 4.0, 13.0 ], 
+			"shade": false,
             "faces": {
                 "north": { "texture": "#4", "uv": [ 7.0, 12.0, 8.0, 16.0 ], "tintindex": 0 },
                 "east": { "texture": "#4", "uv": [ 7.0, 12.0, 8.0, 16.0 ], "tintindex": 0 },
@@ -83,6 +85,7 @@
             "name": "Stem 4",
             "from": [ 11.0, 0.0, 11.0 ], 
             "to": [ 12.0, 2.0, 12.0 ], 
+			"shade": false,
             "faces": {
                 "north": { "texture": "#4", "uv": [ 7.0, 14.0, 8.0, 16.0 ], "tintindex": 0 },
                 "east": { "texture": "#4", "uv": [ 7.0, 14.0, 8.0, 16.0 ], "tintindex": 0 },
