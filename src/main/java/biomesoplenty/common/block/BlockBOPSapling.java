@@ -198,7 +198,7 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable, IP
             	return new GeneratorBasicTree.Builder().log(BOPWoods.CHERRY).leaves(BOPTrees.WHITE_CHERRY).updateNeighbours(true).create();
             case MAPLE:
                 return new GeneratorBasicTree.Builder().log(BlockPlanks.EnumType.OAK).leaves(BOPTrees.MAPLE).minHeight(5).maxHeight(10).updateNeighbours(true).create();
-            case HELLBARK: //Not implemented
+            case HELLBARK:
                 return new GeneratorTwigletTree.Builder().scatterYMethod(ScatterYMethod.NETHER_SURFACE).minHeight(2).maxHeight(2).log(BlockBOPLog.paging.getVariantState(BOPWoods.HELLBARK)).leaves(BlockBOPLeaves.paging.getVariantState(BOPTrees.HELLBARK)).create();
             case FLOWERING:
                 return new GeneratorBasicTree.Builder().altLeaves(BOPTrees.FLOWERING).updateNeighbours(true).create();
@@ -206,7 +206,7 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable, IP
             	return new GeneratorBasicTree.Builder().minHeight(4).maxHeight(7).log(BOPWoods.JACARANDA).leaves(BOPTrees.JACARANDA).updateNeighbours(true).create();
             case SACRED_OAK:
                 return new GeneratorBigTree.Builder().log(BOPWoods.SACRED_OAK).leaves(BOPTrees.SACRED_OAK).minHeight(35).maxHeight(45).trunkWidth(2).foliageDensity(1.25D).updateNeighbours(true).create();
-            case MANGROVE: //Not implemented
+            case MANGROVE:
                 return new GeneratorMangroveTree.Builder().log(BOPWoods.MANGROVE).leaves(BOPTrees.MANGROVE).create();
             case PALM:
                 return new GeneratorPalmTree.Builder().log(BOPWoods.PALM).leaves(BlockBOPLeaves.paging.getVariantState(BOPTrees.PALM).withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).updateNeighbours(true).create();

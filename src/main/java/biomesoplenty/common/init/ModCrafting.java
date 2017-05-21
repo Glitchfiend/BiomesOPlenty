@@ -148,7 +148,8 @@ public class ModCrafting
         // Flower Bands
         GameRegistry.addShapedRecipe(new ItemStack(BOPItems.dull_flower_band), "CCC", "C C", "CCC", 'C', BlockBOPFlower.paging.getVariantItem(BOPFlowers.CLOVER));
         GameRegistry.addShapedRecipe(new ItemStack(BOPItems.plain_flower_band), "CDC", "D D", "CDC", 'C', BlockBOPFlower.paging.getVariantItem(BOPFlowers.CLOVER), 'D', BlockBOPFlower.paging.getVariantItem(BOPFlowers.ORANGE_COSMOS));
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.exotic_flower_band), "CDC", "V V", "CDC", 'C', BlockBOPFlower.paging.getVariantItem(BOPFlowers.CLOVER),'D', BlockBOPFlower.paging.getVariantItem(BOPFlowers.ORANGE_COSMOS), 'V', BlockBOPFlower.paging.getVariantItem(BOPFlowers.VIOLET));
+        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.lush_flower_band), "CDC", "V V", "CDC", 'C', BlockBOPFlower.paging.getVariantItem(BOPFlowers.CLOVER),'D', BlockBOPFlower.paging.getVariantItem(BOPFlowers.ORANGE_COSMOS), 'V', BlockBOPFlower.paging.getVariantItem(BOPFlowers.VIOLET));
+        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.exotic_flower_band), "CDT", "V V", "TDC", 'C', BlockBOPFlower.paging.getVariantItem(BOPFlowers.CLOVER),'D', BlockBOPFlower.paging.getVariantItem(BOPFlowers.ORANGE_COSMOS), 'V', BlockBOPFlower.paging.getVariantItem(BOPFlowers.VIOLET), 'T', BlockBOPFlower.paging.getVariantItem(BOPFlowers.PINK_DAFFODIL));
         
         /*** Biome Finder ***/
         
