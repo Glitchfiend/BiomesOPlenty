@@ -13,7 +13,6 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.common.block.BlockBOPStone.StoneType;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;

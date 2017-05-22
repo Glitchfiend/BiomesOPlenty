@@ -8,7 +8,6 @@
 package biomesoplenty.common.init;
 
 import static biomesoplenty.api.achievement.BOPAchievements.craft_ambrosia;
-import static biomesoplenty.api.achievement.BOPAchievements.craft_flax_string;
 import static biomesoplenty.api.achievement.BOPAchievements.craft_muddy_pickaxe;
 import static biomesoplenty.api.achievement.BOPAchievements.craft_terrestrial_artifact;
 import static biomesoplenty.api.achievement.BOPAchievements.eat_shroom_powder;
@@ -61,7 +60,6 @@ public class ModAchievements
         craft_muddy_pickaxe = addAchievement("achievement.craft_muddy_pickaxe", "craft_muddy_pickaxe", -1, -4, new ItemStack(BOPItems.mud_pickaxe), obtain_flowers);
         obtain_turnip = addAchievement("achievement.obtain_turnip", "obtain_turnip", -1, -6, new ItemStack(BOPItems.turnip), craft_muddy_pickaxe);
         grow_sacred_oak = addAchievement("achievement.grow_sacred_oak", "grow_sacred_oak", -5, -6, BlockBOPSapling.paging.getVariantItem(BOPTrees.SACRED_OAK), obtain_turnip).setSpecial();
-        craft_flax_string = addAchievement("achievement.craft_flax_string", "craft_flax_string", -4, -4, new ItemStack(BOPItems.flax_string), craft_muddy_pickaxe);
         //craft_dart_blower = addAchievement("achievement.craft_dart_blower", "craft_dart_blower", -6, -3, new ItemStack(BOPItems.dart_blower), craft_flax_string);
         //craft_amethyst_sword = addAchievement("achievement.craft_amethyst_sword", "craft_amethyst_sword", -7, 0, new ItemStack(BOPItems.amethyst_sword), craft_flax_string).setSpecial();
 

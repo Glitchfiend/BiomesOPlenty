@@ -162,12 +162,6 @@ public class ModCrafting
         
         /*** Misc Others ***/
         
-        // Flax
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.flax_string), "FFF", "FFF", "FFF", 'F', ((BlockBOPDoublePlant)BOPBlocks.double_plant).getVariantItem(BlockBOPDoublePlant.DoublePlantType.FLAX));
-        
-        // Flax String
-        GameRegistry.addShapedRecipe(new ItemStack(Items.STRING), "S", "S", "S", 'S', new ItemStack(BOPItems.flax_string));
-        
         // Overgrown Netherrack
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.OVERGROWN_NETHERRACK.ordinal()), "SSS", "SNS", "SSS", 'S', Items.WHEAT_SEEDS, 'N', Blocks.NETHERRACK);
         

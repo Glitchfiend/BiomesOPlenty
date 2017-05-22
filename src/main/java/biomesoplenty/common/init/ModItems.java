@@ -158,7 +158,6 @@ public class ModItems
         
         earth = registerItem(new Item(), "earth");
         earth.setCreativeTab(null);
-        flax_string = registerItem(new Item(), "flax_string");
         mudball = registerItem(new ItemMudball(), "mudball");
         mud_brick = registerItem(new Item(), "mud_brick");
         ash = registerItem(new Item(), "ash");
@@ -169,9 +168,7 @@ public class ModItems
         crystal_shard = registerItem(new Item(), "crystal_shard");
         biome_essence = registerItem(new ItemBiomeEssence(), "biome_essence");
         pixie_dust = registerItem(new Item(), "pixie_dust");
-        ichor = registerItem(new Item(), "ichor");
-        soul = registerItem(new Item(), "soul");
-        soul.setMaxStackSize(1);
+        
         // TODO: move dyes to their own class?
         blue_dye = registerItem(new Item(), "blue_dye");
         brown_dye = registerItem(new Item(), "brown_dye");
@@ -203,10 +200,11 @@ public class ModItems
         
         wading_boots = registerItem(new ItemWadingBoots(wading_boots_material, 0), "wading_boots");
         flippers = registerItem(new ItemFlippers(flippers_material, 0), "flippers");
+        
+        dull_flower_band = registerItem(new ItemFlowerBand(dull_flower_band_material, 0), "dull_flower_band");
         plain_flower_band = registerItem(new ItemFlowerBand(plain_flower_band_material, 0), "plain_flower_band");
         lush_flower_band = registerItem(new ItemFlowerBand(lush_flower_band_material, 0), "lush_flower_band");
         exotic_flower_band = registerItem(new ItemFlowerBand(exotic_flower_band_material, 0), "exotic_flower_band");
-        dull_flower_band = registerItem(new ItemFlowerBand(dull_flower_band_material, 0), "dull_flower_band");
         
         mud_helmet = registerItem(new ItemArmor(mud_armor_material, 0, EntityEquipmentSlot.HEAD), "mud_helmet");
         mud_chestplate = registerItem(new ItemArmor(mud_armor_material, 0, EntityEquipmentSlot.CHEST), "mud_chestplate");

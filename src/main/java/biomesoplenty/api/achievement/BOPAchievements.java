@@ -18,7 +18,6 @@ public class BOPAchievements
     public static Achievement obtain_wilted_lily;
     public static Achievement eat_shroom_powder;
     public static Achievement obtain_thorn;
-    public static Achievement craft_flax_string;
     public static Achievement craft_muddy_pickaxe;
     public static Achievement obtain_deathbloom;
     public static Achievement obtain_turnip;

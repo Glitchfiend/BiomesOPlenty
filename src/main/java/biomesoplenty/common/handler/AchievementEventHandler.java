@@ -200,12 +200,6 @@ public class AchievementEventHandler
             player.addStat(BOPAchievements.craft_ambrosia);
         }
         
-        //Flaxen Fun Achievement
-        if (item == BOPItems.flax_string)
-        {
-            player.addStat(BOPAchievements.craft_flax_string);
-        }
-        
         //Getting a Downgrade Achievement
         if (item == BOPItems.mud_pickaxe)
         {

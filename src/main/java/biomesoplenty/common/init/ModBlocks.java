@@ -49,7 +49,6 @@ import biomesoplenty.common.block.BlockBOPPlanks;
 import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.block.BlockBOPSapling;
 import biomesoplenty.common.block.BlockBOPSeaweed;
-import biomesoplenty.common.block.BlockBOPStone;
 import biomesoplenty.common.block.BlockBOPStoneFormations;
 import biomesoplenty.common.block.BlockBOPStoneStairs;
 import biomesoplenty.common.block.BlockBOPTerrarium;
@@ -108,7 +107,6 @@ public class ModBlocks
         farmland_0 =            registerBlock( BlockBOPFarmland.paging.getBlock(0), "farmland_0", null);
         farmland_1 =            registerBlock( BlockBOPFarmland.paging.getBlock(1), "farmland_1", null);
         
-        stone =                 registerBlock( new BlockBOPStone(), "stone" );
         dried_sand =            registerBlock( (new BlockBOPGeneric()).addSupportedPlantType(EnumPlantType.Desert), "dried_sand"); dried_sand.setHarvestLevel("pickaxe",0);
         hard_ice =              registerBlock( (new BlockBOPGeneric(Material.PACKED_ICE, SoundType.STONE)).setHardness(0.75F), "hard_ice" );
         ash_block =             registerBlock( new BlockBOPAsh(), "ash_block" );
