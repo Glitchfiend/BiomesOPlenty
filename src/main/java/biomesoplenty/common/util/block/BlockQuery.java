@@ -23,6 +23,7 @@ import com.google.common.collect.Sets;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.block.IBlockPosQuery;
+import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.block.ISustainsPlantType;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
@@ -290,14 +291,14 @@ public class BlockQuery
                 // Otherwise fall back to the vanilla code
                 switch (this.plantType)
                 {
-                    case Desert: return block == Blocks.SAND || block == Blocks.HARDENED_CLAY || block == Blocks.STAINED_HARDENED_CLAY || block == Blocks.DIRT;
-                    case Nether: return block == Blocks.SOUL_SAND;
+                    case Desert: return block == Blocks.SAND || block == Blocks.HARDENED_CLAY || block == Blocks.STAINED_HARDENED_CLAY || block == Blocks.DIRT || block == BOPBlocks.dirt;
+                    case Nether: return block == Blocks.SOUL_SAND || state == BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.OVERGROWN_NETHERRACK);
                     case Crop:   return block == Blocks.FARMLAND || block == BOPBlocks.farmland_0 || block == BOPBlocks.farmland_1;
                     case Cave:   return block.isSideSolid(state, world, pos, EnumFacing.UP);
-                    case Plains: return block == Blocks.GRASS || block == Blocks.DIRT || block == Blocks.FARMLAND || block == BOPBlocks.farmland_0 || block == BOPBlocks.farmland_1 || block == Blocks.MYCELIUM;
+                    case Plains: return block == Blocks.GRASS || state == BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.LOAMY) || state == BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SILTY) || state == BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SANDY) || state == BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.DAISY) || block == Blocks.DIRT || block == BOPBlocks.dirt || block == Blocks.FARMLAND || block == BOPBlocks.farmland_0 || block == BOPBlocks.farmland_1 || block == Blocks.MYCELIUM;
                     case Water:  return state.getMaterial() == Material.WATER && ((Integer)state.getValue(BlockLiquid.LEVEL)) == 0;
                     case Beach:
-                        boolean isBeach = block == Blocks.GRASS || block == Blocks.DIRT || block == Blocks.SAND || block == Blocks.MYCELIUM;
+                        boolean isBeach = block == Blocks.GRASS || state == BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.LOAMY) || state == BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SILTY) || state == BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SANDY) || state == BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.DAISY) ||  block == Blocks.DIRT || block == BOPBlocks.dirt || block == Blocks.SAND || block == Blocks.MYCELIUM;
                         boolean hasWater = (world.getBlockState(pos.east()).getMaterial() == Material.WATER ||
                                             world.getBlockState(pos.west()).getMaterial() == Material.WATER ||
                                             world.getBlockState(pos.north()).getMaterial() == Material.WATER ||

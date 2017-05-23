@@ -26,6 +26,7 @@ public class BlockQueries
     
     public static IBlockPosQuery fertile;
     public static IBlockPosQuery fertileOrNetherrack;
+    public static IBlockPosQuery fertileOrSand;
     public static IBlockPosQuery sustainsCave;
     public static IBlockPosQuery sustainsNether;
     public static IBlockPosQuery endish;

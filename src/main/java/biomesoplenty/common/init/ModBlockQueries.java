@@ -17,6 +17,7 @@ import static biomesoplenty.api.block.BlockQueries.breakable;
 import static biomesoplenty.api.block.BlockQueries.endish;
 import static biomesoplenty.api.block.BlockQueries.fertile;
 import static biomesoplenty.api.block.BlockQueries.fertileOrNetherrack;
+import static biomesoplenty.api.block.BlockQueries.fertileOrSand;
 import static biomesoplenty.api.block.BlockQueries.fertileSeaBed;
 import static biomesoplenty.api.block.BlockQueries.groundBlocks;
 import static biomesoplenty.api.block.BlockQueries.hasWater;
@@ -145,6 +146,7 @@ public class ModBlockQueries
         
         fertile = BlockQuery.buildAnd().sustainsPlant(EnumPlantType.Plains).create();
         fertileOrNetherrack = BlockQuery.buildOr().sustainsPlant(EnumPlantType.Plains).blocks(Blocks.NETHERRACK).states(BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.OVERGROWN_NETHERRACK), BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.MYCELIAL_NETHERRACK)).create();
+        fertileOrSand = BlockQuery.buildOr().sustainsPlant(EnumPlantType.Plains).blocks(Blocks.SAND).create();
         sustainsCave = BlockQuery.buildAnd().sustainsPlant(EnumPlantType.Cave).create();
         sustainsNether = BlockQuery.buildAnd().sustainsPlant(EnumPlantType.Nether).create();
         endish = BlockQuery.buildOr().blocks(Blocks.END_STONE).states(BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SPECTRAL_MOSS)).create();

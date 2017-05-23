@@ -14,6 +14,7 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.api.enums.BOPWoods;
+import biomesoplenty.common.block.BlockBOPMushroom.MushroomType;
 import biomesoplenty.common.item.ItemBOPSapling;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.VariantPagingHelper;
@@ -123,12 +124,18 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable, IP
         BOPTrees tree = (BOPTrees)state.getValue(this.variantProperty);
         return ((Integer)state.getValue(STAGE)).intValue() * 8 + paging.getIndex(tree);
     }
-        
-    // TODO: override for loftwood - what is that?
+    
+    // which types of mushroom can live on which types of block
     @Override
     public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
-    {
-        return BlockQueries.fertile.matches(world, pos.down());
+    {        
+        switch ((BOPTrees) state.getValue(this.variantProperty))
+        {
+            case PALM: case MANGROVE:
+                return BlockQueries.fertileOrSand.matches(world, pos.down());
+            default:
+                return BlockQueries.fertile.matches(world, pos.down());
+        }
     }
     
     @Override
@@ -209,7 +216,7 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable, IP
             case MANGROVE:
                 return new GeneratorMangroveTree.Builder().log(BOPWoods.MANGROVE).leaves(BOPTrees.MANGROVE).create();
             case PALM:
-                return new GeneratorPalmTree.Builder().log(BOPWoods.PALM).leaves(BlockBOPLeaves.paging.getVariantState(BOPTrees.PALM).withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).updateNeighbours(true).create();
+                return new GeneratorPalmTree.Builder().log(BOPWoods.PALM).leaves(BlockBOPLeaves.paging.getVariantState(BOPTrees.PALM).withProperty(BlockOldLeaf.DECAYABLE, Boolean.valueOf(false))).updateNeighbours(true).create();
             case REDWOOD:
                 return new GeneratorRedwoodTree.Builder().create();
             case WILLOW:

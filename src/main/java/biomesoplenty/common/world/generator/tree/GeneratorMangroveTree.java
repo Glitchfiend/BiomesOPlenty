@@ -49,7 +49,7 @@ public class GeneratorMangroveTree extends GeneratorTreeBase
         {
             // defaults
             this.amountPerChunk = 1.0F;
-            this.placeOn = BlockQueries.fertile;
+            this.placeOn = BlockQueries.fertileOrSand;
             this.replace = BlockQueries.airOrLeaves;
             this.rootsReplace = BlockQueries.rootsCanDigThrough;
             this.log = Blocks.LOG.getDefaultState();

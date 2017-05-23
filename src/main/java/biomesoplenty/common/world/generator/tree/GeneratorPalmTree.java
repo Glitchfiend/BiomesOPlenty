@@ -31,7 +31,7 @@ public class GeneratorPalmTree extends GeneratorTreeBase
             this.amountPerChunk = 1.0F;
             this.minHeight = 10;
             this.maxHeight = 14;
-            this.placeOn = BlockQueries.fertile;
+            this.placeOn = BlockQueries.fertileOrSand;
             this.replace = BlockQueries.airOrLeaves;
             this.log = Blocks.LOG.getDefaultState();
             this.leaves = Blocks.LEAVES.getDefaultState();
@@ -106,6 +106,7 @@ public class GeneratorPalmTree extends GeneratorTreeBase
             if (step == heightMinusTop)
             {
                 // Generate top of tree
+                this.setLog(world, offsetPos);
                 generateLeavesTop(world, offsetPos, leavesRadius);
                 break;
             }
