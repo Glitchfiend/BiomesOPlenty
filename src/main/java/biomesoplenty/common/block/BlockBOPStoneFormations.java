@@ -175,12 +175,6 @@ public class BlockBOPStoneFormations extends BlockBOPDecoration implements IBOPB
     }
     
     @Override
-    public int quantityDropped(Random random)
-    {
-        return 0;
-    }
-    
-    @Override
     @SideOnly(Side.CLIENT)
     public Block.EnumOffsetType getOffsetType()
     {
