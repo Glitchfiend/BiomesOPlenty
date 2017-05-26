@@ -40,7 +40,7 @@ public class BiomePolarChasm extends BOPHellBiome
         this.wallBlock = BOPBlocks.hard_ice.getDefaultState();
         
         // ice pools
-        this.addGenerator("ice_pools", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(5.0F).waterLakeForBiome(this).liquid(Blocks.ICE.getDefaultState()).frozenLiquid((IBlockState)null).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
+        this.addGenerator("ice_pools", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(5.0F).liquid(Blocks.ICE.getDefaultState()).frozenLiquid((IBlockState)null).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
         
         // hot springs
         this.addGenerator("hot_springs", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(8.0F).liquid(BOPBlocks.hot_spring_water).frozenLiquid((IBlockState)null).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());

@@ -86,7 +86,7 @@ public class BiomeGenFen extends BOPOverworldBiome
         treeGenerator.add("dead", 1, (new GeneratorBigTree.Builder()).log(BOPWoods.DEAD).leaves(Blocks.AIR.getDefaultState()).maxHeight(14).create());
         
         // grasses
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(2.5F);
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(1.5F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("shortgrass", 4, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
         grassGenerator.add("mediumgrass", 2, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());        

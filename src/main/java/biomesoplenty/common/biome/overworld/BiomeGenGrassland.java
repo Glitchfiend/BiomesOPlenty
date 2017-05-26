@@ -56,7 +56,7 @@ public class BiomeGenGrassland extends BOPOverworldBiome {
         this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
         
         // lakes
-        this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.2F).waterLakeForBiome(this).create());
+        this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).waterLakeForBiome(this).amountPerChunk(0.2F).create());
         
         // sand and gravel
         this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.SAND.getDefaultState()).create());

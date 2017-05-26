@@ -75,7 +75,7 @@ public class BiomeGenSteppe extends BOPOverworldBiome
         this.addGenerator("desertgrass", GeneratorStage.GRASS, (new GeneratorGrass.Builder()).amountPerChunk(12.0F).with(BOPPlants.DESERTGRASS).generationAttempts(8).create());
         
         // grasses
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(7.0F);
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(1.9F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("shortgrass", 7, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
         grassGenerator.add("mediumgrass", 3, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());

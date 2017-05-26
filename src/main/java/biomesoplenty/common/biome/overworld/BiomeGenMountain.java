@@ -120,7 +120,7 @@ public class BiomeGenMountain extends BOPOverworldBiome
         treeGenerator.add("oak", 1, (new GeneratorBasicTree.Builder()).create());
 
         // grasses
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(5.0F);
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(1.5F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("tallgrass", 2, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).generationAttempts(128).create());
         grassGenerator.add("mediumgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).generationAttempts(128).create());

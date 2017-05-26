@@ -53,7 +53,7 @@ public class BiomeGenPrairie extends BOPOverworldBiome
         this.addGenerator("trees", GeneratorStage.TREE, (new GeneratorTaigaTree.Builder()).amountPerChunk(1).minHeight(6).maxHeight(8).log(EnumType.OAK).leaves(EnumType.OAK).create()); // TODO: implement pine cones
         
         // grasses
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(100);
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(10);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("shortgrass", 2, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
         grassGenerator.add("mediumgrass", 3, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());        

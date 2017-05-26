@@ -19,7 +19,7 @@ public class BiomeExtColdTaiga extends ExtendedBiomeWrapper
         super(Biomes.COLD_TAIGA);
         
         // grasses
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(0.5F);
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(0.2F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("shortgrass", 2, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
         grassGenerator.add("mediumgrass", 3, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());        
