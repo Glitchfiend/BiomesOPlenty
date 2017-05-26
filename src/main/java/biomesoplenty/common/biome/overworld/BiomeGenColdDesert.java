@@ -62,7 +62,7 @@ public class BiomeGenColdDesert extends BOPOverworldBiome
         // gravel, stone and boulders
         IBlockPosQuery surface = new BlockQueryBlock(Blocks.STONE, Blocks.GRAVEL);
         this.addGenerator("stone_patches", GeneratorStage.SAND, (new GeneratorSplotches.Builder()).amountPerChunk(6).splotchSize(24).placeOn(surface).replace(surface).with(Blocks.STONE.getDefaultState()).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
-        this.addGenerator("boulders", GeneratorStage.SAND_PASS2, (new GeneratorBlobs.Builder()).amountPerChunk(0.2F).placeOn(surface).with(Blocks.COBBLESTONE.getDefaultState()).minRadius(0.0F).maxRadius(3.0F).numBalls(4).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
+        this.addGenerator("boulders", GeneratorStage.SAND_PASS2, (new GeneratorBlobs.Builder()).amountPerChunk(0.2F).placeOn(surface).with(Blocks.COBBLESTONE.getDefaultState()).minRadius(1.0F).maxRadius(3.0F).numBalls(4).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
         this.addGenerator("hard_ice_splatter", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(1.0F).replace(surface).with(BOPBlocks.hard_ice.getDefaultState()).create());
         
         // gem

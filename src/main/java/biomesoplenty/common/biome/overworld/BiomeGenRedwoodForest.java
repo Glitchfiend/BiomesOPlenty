@@ -124,11 +124,11 @@ public class BiomeGenRedwoodForest extends BOPOverworldBiome
         GeneratorWeighted treeGen = (GeneratorWeighted)this.getGenerator("trees");
         if (!settings.isEnabled(GeneratorType.TREES)) {this.removeGenerator("trees");
         
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(30.0F);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(8.0F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("redwood", 5, (new GeneratorRedwoodTree.Builder()).log(BlockPlanks.EnumType.OAK).leaves(BlockPlanks.EnumType.OAK).create());
+        treeGenerator.add("redwood", 1, (new GeneratorRedwoodTree.Builder()).log(BlockPlanks.EnumType.OAK).leaves(BlockPlanks.EnumType.OAK).create());
         treeGenerator.add("redwood_thin", 2, (new GeneratorRedwoodTreeThin.Builder()).log(BlockPlanks.EnumType.OAK).leaves(BlockPlanks.EnumType.OAK).create());
-        treeGenerator.add("oak_bush", 1, (new GeneratorBush.Builder()).maxHeight(2).create());
+        treeGenerator.add("oak_bush", 3, (new GeneratorBush.Builder()).maxHeight(2).create());
         }
         
         GeneratorWeighted flowerGen = (GeneratorWeighted)this.getGenerator("flowers");

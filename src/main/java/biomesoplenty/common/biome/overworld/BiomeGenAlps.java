@@ -31,6 +31,8 @@ public class BiomeGenAlps extends BOPOverworldBiome
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
         
+        this.beachBiomeLocation = null;
+        
         this.addWeight(BOPClimates.TUNDRA, 3);
         this.addWeight(BOPClimates.ICE_CAP, 5);
         
