@@ -80,7 +80,7 @@ public class BiomeGenBambooForest extends BOPOverworldBiome
         //treeGenerator.add("oak_bush", 1, (new GeneratorBush.Builder()).maxHeight(2).create());
 
         // grasses
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(1.8F);
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(2.6F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("shortgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
         grassGenerator.add("mediumgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());

@@ -49,7 +49,7 @@ public class BiomeGenRainforest extends BOPOverworldBiome
         this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.SAND.getDefaultState()).create());
         
         // trees & logs
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(20);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(15);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("birch", 4, (new GeneratorBasicTree.Builder()).log(BlockPlanks.EnumType.BIRCH).leaves(BlockPlanks.EnumType.BIRCH).minHeight(5).maxHeight(8).create());
         treeGenerator.add("oak", 7, (new GeneratorBasicTree.Builder()).minHeight(8).maxHeight(12).altLeaves(BOPTrees.FLOWERING).create());
@@ -76,10 +76,10 @@ public class BiomeGenRainforest extends BOPOverworldBiome
         flowerGenerator.add("poppy", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.POPPY).create()));
         
         // other plants
-        this.addGenerator("shrubs", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.6F).with(BOPPlants.SHRUB).create());
-        this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.5F).with(BOPPlants.LEAFPILE).generationAttempts(64).create());
-        this.addGenerator("clover_patches", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).generationAttempts(128).with(BOPPlants.CLOVERPATCH).create());
-        this.addGenerator("rafflesia", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.3F).with(BOPPlants.RAFFLESIA).create());
+        this.addGenerator("shrubs", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.4F).with(BOPPlants.SHRUB).create());
+        this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).with(BOPPlants.LEAFPILE).generationAttempts(64).create());
+        this.addGenerator("clover_patches", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).generationAttempts(128).with(BOPPlants.CLOVERPATCH).create());
+        this.addGenerator("rafflesia", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(BOPPlants.RAFFLESIA).create());
         this.addGenerator("melons", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(0.015625F).placeOn(this.topBlock).with(Blocks.MELON_BLOCK.getDefaultState()).create());
         
         // water plants

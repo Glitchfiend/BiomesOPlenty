@@ -45,6 +45,7 @@ public class BiomeGenTropicalIsland extends BOPOverworldBiome
         this.canGenerateRivers = false;
         
         this.skyColor = 507391;
+        this.fogColor = 0xB5F8FF;
         
         this.spawnableCreatureList.clear();
         this.spawnableMonsterList.clear();
@@ -62,7 +63,7 @@ public class BiomeGenTropicalIsland extends BOPOverworldBiome
         treeGenerator.add("jungle_twiglet", 2, (new GeneratorTwigletTree.Builder()).minHeight(2).maxHeight(2).log(BlockPlanks.EnumType.JUNGLE).leaves(BlockPlanks.EnumType.JUNGLE).trunkFruit(Blocks.COCOA.getDefaultState()).create());
         
         // grasses
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(2.5F);
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(3.5F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("shortgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
         grassGenerator.add("mediumgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());
