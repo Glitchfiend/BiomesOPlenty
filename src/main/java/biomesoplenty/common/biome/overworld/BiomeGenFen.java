@@ -70,8 +70,6 @@ public class BiomeGenFen extends BOPOverworldBiome
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntitySnail.class, 8, 1, 2));
 
-        // TODO: this.theBiomeDecorator.bopFeatures.waterSpringsPerChunk = 99;
-        
         // gravel
         this.addGenerator("gravel", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(4).maxRadius(7).with(Blocks.GRAVEL.getDefaultState()).create());
         

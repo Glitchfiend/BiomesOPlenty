@@ -11,6 +11,7 @@ package biomesoplenty.common.handler;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.fluids.BloodFluid;
 import biomesoplenty.common.fluids.HoneyFluid;
+import biomesoplenty.common.fluids.HotSpringWaterFluid;
 import biomesoplenty.common.fluids.PoisonFluid;
 import biomesoplenty.common.fluids.QuicksandFluid;
 import biomesoplenty.common.fluids.blocks.BlockBloodFluid;
@@ -64,7 +65,7 @@ public class BucketEventHandler
         }
         else if (iblockstate.getBlock() == BOPBlocks.hot_spring_water && ((Integer)iblockstate.getValue(BlockHotSpringWaterFluid.LEVEL)).intValue() == 0)
         {
-            filled_fluid = FluidRegistry.WATER;
+            filled_fluid = HotSpringWaterFluid.instance;
         }
         else
         {

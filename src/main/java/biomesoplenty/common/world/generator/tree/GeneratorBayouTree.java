@@ -9,6 +9,7 @@
 package biomesoplenty.common.world.generator.tree;
 import java.util.Random;
 
+import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.api.config.IConfigObj;
@@ -54,7 +55,7 @@ public class GeneratorBayouTree extends GeneratorTreeBase
             this.rootsReplace = BlockQueries.rootsCanDigThrough;
             this.log = Blocks.LOG.getDefaultState();
             this.leaves = Blocks.LEAVES.getDefaultState();
-            this.vine = Blocks.VINE.getDefaultState();
+            this.vine = BOPBlocks.willow_vine.getDefaultState();
             this.hanging = null;
             this.trunkFruit = null;
             this.altLeaves = null;

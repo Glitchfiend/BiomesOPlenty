@@ -344,8 +344,6 @@ public class ModCrafting
         
         for (BOPGems gem : BOPGems.values())
         {
-            // TODO: for some reason, Amethyst was not included in these sections in the 1.7 code - check this is correct, deliberate behavior
-            if (gem == BOPGems.AMETHYST) {continue;}
             String gemName = CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, gem.name());
             OreDictionary.registerOre("gem"+gemName, new ItemStack(BOPItems.gem, 1, gem.ordinal()));
             OreDictionary.registerOre("ore"+gemName, new ItemStack(BOPBlocks.gem_ore , 1, gem.ordinal()));
