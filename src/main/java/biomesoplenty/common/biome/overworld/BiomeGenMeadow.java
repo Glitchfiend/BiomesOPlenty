@@ -62,7 +62,7 @@ public class BiomeGenMeadow extends BOPOverworldBiome
         treeGenerator.add("spruce", 4, (new GeneratorTaigaTree.Builder()).maxHeight(13).create()); // TODO: implement pine cones
  
         // grasses
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(1.6F);
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(1.8F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("shortgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
         grassGenerator.add("mediumgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());
