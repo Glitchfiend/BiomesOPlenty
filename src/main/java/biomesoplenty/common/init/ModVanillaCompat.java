@@ -2,7 +2,9 @@ package biomesoplenty.common.init;
 
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.entities.projectiles.dispenser.DispenserBehaviorMudball;
+import biomesoplenty.common.world.BOPMapGenScatteredFeature;
 import net.minecraft.block.BlockDispenser;
+import net.minecraft.world.gen.structure.MapGenStructureIO;
 
 public class ModVanillaCompat
 {
@@ -10,6 +12,8 @@ public class ModVanillaCompat
     {
     	registerDispenserBehaviors();
     	addDungeonLoot();
+    	
+    	MapGenStructureIO.registerStructure(BOPMapGenScatteredFeature.Start.class, "BOPTemple");
     }
     
     private static void registerDispenserBehaviors()
