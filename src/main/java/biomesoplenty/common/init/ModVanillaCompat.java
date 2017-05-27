@@ -1,10 +1,16 @@
 package biomesoplenty.common.init;
 
+import java.util.Arrays;
+
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.entities.projectiles.dispenser.DispenserBehaviorMudball;
 import biomesoplenty.common.world.BOPMapGenScatteredFeature;
 import net.minecraft.block.BlockDispenser;
+import net.minecraft.init.Biomes;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.structure.MapGenStructureIO;
+import net.minecraft.world.gen.structure.WoodlandMansion;
 
 public class ModVanillaCompat
 {
@@ -14,6 +20,7 @@ public class ModVanillaCompat
     	addDungeonLoot();
     	
     	MapGenStructureIO.registerStructure(BOPMapGenScatteredFeature.Start.class, "BOPTemple");
+    	WoodlandMansion.ALLOWED_BIOMES = Arrays.<Biome>asList(new Biome[] {Biomes.ROOFED_FOREST, Biomes.MUTATED_ROOFED_FOREST, BOPBiomes.coniferous_forest.get(), BOPBiomes.dead_forest.get(), BOPBiomes.ominous_woods.get(), BOPBiomes.snowy_coniferous_forest.get(), BOPBiomes.woodland.get()});
     }
     
     private static void registerDispenserBehaviors()
