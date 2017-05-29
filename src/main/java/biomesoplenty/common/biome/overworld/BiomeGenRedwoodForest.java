@@ -18,6 +18,7 @@ import biomesoplenty.common.world.generator.GeneratorGrass;
 import biomesoplenty.common.world.generator.GeneratorOreSingle;
 import biomesoplenty.common.world.generator.GeneratorWaterside;
 import biomesoplenty.common.world.generator.GeneratorWeighted;
+import biomesoplenty.common.world.generator.tree.GeneratorBasicTree;
 import biomesoplenty.common.world.generator.tree.GeneratorBush;
 import biomesoplenty.common.world.generator.tree.GeneratorRedwoodTree;
 import biomesoplenty.common.world.generator.tree.GeneratorRedwoodTreeThin;
@@ -42,7 +43,7 @@ public class BiomeGenRedwoodForest extends BOPOverworldBiome
         super("redwood_forest", new PropsBuilder("Redwood Forest").withGuiColour(0x6DAA3C).withTemperature(0.7F).withRainfall(0.7F));
 
         // terrain
-        this.terrainSettings.avgHeight(64).heightVariation(3, 7).octaves(0, 1, 2, 2, 1, 0);
+        this.terrainSettings.avgHeight(70).heightVariation(1, 1);
         
         this.topBlock = Blocks.GRASS.getDefaultState();
         this.usualTopBlock = this.topBlock;
@@ -58,11 +59,11 @@ public class BiomeGenRedwoodForest extends BOPOverworldBiome
         this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.SAND.getDefaultState()).create());
         
         // trees
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(8.0F);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(15.0F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("redwood", 1, (new GeneratorRedwoodTree.Builder()).log(BOPWoods.REDWOOD).leaves(BOPTrees.REDWOOD).create());
-        treeGenerator.add("redwood_thin", 2, (new GeneratorRedwoodTreeThin.Builder()).log(BOPWoods.REDWOOD).leaves(BOPTrees.REDWOOD).create());
-        treeGenerator.add("oak_bush", 3, (new GeneratorBush.Builder()).maxHeight(2).create());
+        treeGenerator.add("redwood", 3, (new GeneratorRedwoodTree.Builder()).log(BOPWoods.REDWOOD).leaves(BOPTrees.REDWOOD).create());
+        treeGenerator.add("redwood_thin", 1, (new GeneratorRedwoodTreeThin.Builder()).log(BOPWoods.REDWOOD).leaves(BOPTrees.REDWOOD).create());
+        treeGenerator.add("oak_bush", 2, (new GeneratorBush.Builder()).maxHeight(2).create());
         
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.5F);
