@@ -12,6 +12,7 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.enums.*;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.block.*;
+import biomesoplenty.common.block.BlockBOPWhiteSandstone.StoneType;
 import biomesoplenty.common.crafting.BiomeEssenceRecipe;
 import biomesoplenty.common.handler.FurnaceFuelHandler;
 import biomesoplenty.common.item.ItemJarFilled;
@@ -89,6 +90,15 @@ public class ModCrafting
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.mud_brick_stairs, 4), "  R", " RR", "RRR", 'R', BOPBlocks.mud_brick_block);
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.mud_brick_stairs, 4), "R  ", "RR ", "RRR", 'R', BOPBlocks.mud_brick_block);
         
+        GameRegistry.addShapedRecipe(new ItemStack(Blocks.TNT, 1), "GSG", "SGS", "GSG", 'S', BOPBlocks.white_sand, 'G', Items.GUNPOWDER);
+        
+        // White Sandstone
+        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.white_sandstone_stairs, 4), "  R", " RR", "RRR", 'R', BOPBlocks.white_sandstone);
+        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.white_sandstone_stairs, 4), "R  ", "RR ", "RRR", 'R', BOPBlocks.white_sandstone);
+
+        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.white_sandstone, 1), "RR", "RR", 'R', BOPBlocks.white_sand);
+        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.white_sandstone, 4, BlockBOPWhiteSandstone.StoneType.SMOOTH.ordinal()), "RR", "RR", 'R', BOPBlocks.white_sandstone);
+        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.white_sandstone, 1, BlockBOPWhiteSandstone.StoneType.CHISELED.ordinal()), "R", "R", 'R', new ItemStack(BOPBlocks.other_slab, 1, BlockBOPHalfOtherSlab.SlabType.WHITE_SANDSTONE.ordinal()));
         
         /*** Wood stairs and slabs ***/
         
@@ -260,9 +270,10 @@ public class ModCrafting
     {
         
         // Register smelting recipes
-        GameRegistry.addSmelting(new ItemStack(BOPBlocks.mud), new ItemStack(Blocks.DIRT), 0F);
+        GameRegistry.addSmelting(new ItemStack(BOPBlocks.mud), new ItemStack(Blocks.DIRT), 0.1F);
+        GameRegistry.addSmelting(new ItemStack(BOPBlocks.white_sand), new ItemStack(Blocks.GLASS), 0.1F);
         GameRegistry.addSmelting(BlockBOPPlant.paging.getVariantItem(BOPPlants.TINYCACTUS), new ItemStack(Items.DYE, 1, EnumDyeColor.GREEN.getDyeDamage()), 0.2F);
-        GameRegistry.addSmelting(BOPItems.mudball, new ItemStack(BOPItems.mud_brick), 0F);
+        GameRegistry.addSmelting(BOPItems.mudball, new ItemStack(BOPItems.mud_brick), 0.1F);
         for (BOPWoods wood : BOPWoods.values())
         {
             if (wood.canMakeCharcoal())
@@ -310,6 +321,9 @@ public class ModCrafting
         OreDictionary.registerOre("dirt", new ItemStack(BOPBlocks.dirt, 1, BlockBOPDirt.BOPDirtType.SANDY.ordinal()));
         
         OreDictionary.registerOre("blockMud", new ItemStack(BOPBlocks.mud));
+        
+        OreDictionary.registerOre("sand", new ItemStack(BOPBlocks.white_sand));
+        OreDictionary.registerOre("sandstone", new ItemStack(BOPBlocks.white_sandstone, 1, OreDictionary.WILDCARD_VALUE));
         
         OreDictionary.registerOre("foodMushroompowder", new ItemStack(BOPItems.shroompowder));
         OreDictionary.registerOre("foodFruitsalad", new ItemStack(BOPItems.saladfruit));

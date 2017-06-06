@@ -13,6 +13,7 @@ import java.util.List;
 import com.google.common.collect.ImmutableSet;
 
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.common.block.BlockBOPWhiteSandstone.StoneType;
 import biomesoplenty.common.util.block.BlockStateUtils;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.SoundType;
@@ -39,7 +40,7 @@ public class BlockBOPHalfOtherSlab extends BlockSlab implements IBOPBlock
     // add properties
     public static enum SlabType implements IStringSerializable
     {
-        MUD_BRICK;
+        MUD_BRICK, WHITE_SANDSTONE;
         @Override
         public String getName()
         {
@@ -59,6 +60,9 @@ public class BlockBOPHalfOtherSlab extends BlockSlab implements IBOPBlock
             {
                 case MUD_BRICK:
                     state = BOPBlocks.mud_brick_block.getDefaultState();
+                    break;
+                case WHITE_SANDSTONE:
+                    state = BOPBlocks.white_sandstone.getDefaultState().withProperty(BlockBOPWhiteSandstone.VARIANT, StoneType.SMOOTH);
                     break;
                 default:
                     throw new RuntimeException("No full block state defined for SlabType " + this.name());

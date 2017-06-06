@@ -15,6 +15,7 @@ public class BOPBlocks
 {
     public static Block bamboo_thatching;
     public static Block ash_block;
+    public static Block white_sand;
     public static Block bamboo;
     public static Block coral;
     public static Block seaweed;
@@ -23,6 +24,7 @@ public class BOPBlocks
     public static Block hive;
     public static Block mushroom;
     public static Block stone;
+    public static Block white_sandstone;
     public static Block biome_block;
     
     public static Block flower_0;
@@ -131,6 +133,7 @@ public class BOPBlocks
     public static Block double_other_slab;
     
     public static Block mud_brick_stairs;
+    public static Block white_sandstone_stairs;
     
     public static Block flower_vine;
     public static Block ivy;

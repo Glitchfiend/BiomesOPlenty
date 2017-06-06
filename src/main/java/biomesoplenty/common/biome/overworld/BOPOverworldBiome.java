@@ -199,6 +199,11 @@ public class BOPOverworldBiome extends BOPBiome
                         dirtBlocksToFill = rand.nextInt(4) + Math.max(0, y - 63);
                         fillerBlock = fillerBlock.getValue(BlockSand.VARIANT) == BlockSand.EnumType.RED_SAND ? Blocks.RED_SANDSTONE.getDefaultState() : Blocks.SANDSTONE.getDefaultState();
                     }
+                    if (dirtBlocksToFill == 0 && fillerBlock.getBlock() == BOPBlocks.white_sand)
+                    {
+                        dirtBlocksToFill = rand.nextInt(4) + Math.max(0, y - 63);
+                        fillerBlock = BOPBlocks.white_sandstone.getDefaultState();
+                    }
                 }
             }
         }

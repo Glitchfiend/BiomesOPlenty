@@ -54,8 +54,11 @@ import biomesoplenty.common.block.BlockBOPStoneStairs;
 import biomesoplenty.common.block.BlockBOPTerrarium;
 import biomesoplenty.common.block.BlockBOPTurnip;
 import biomesoplenty.common.block.BlockBOPVine;
+import biomesoplenty.common.block.BlockBOPWhiteSand;
+import biomesoplenty.common.block.BlockBOPWhiteSandstone;
 import biomesoplenty.common.block.BlockBOPWoodStairs;
 import biomesoplenty.common.block.IBOPBlock;
+import biomesoplenty.common.block.BlockBOPWhiteSandstone.StoneType;
 import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.fluids.BloodFluid;
 import biomesoplenty.common.fluids.HoneyFluid;
@@ -107,6 +110,10 @@ public class ModBlocks
         farmland_0 =            registerBlock( BlockBOPFarmland.paging.getBlock(0), "farmland_0", null);
         farmland_1 =            registerBlock( BlockBOPFarmland.paging.getBlock(1), "farmland_1", null);
         
+        white_sand =            registerBlock( new BlockBOPWhiteSand(), "white_sand" );
+        white_sandstone =       registerBlock( new BlockBOPWhiteSandstone(), "white_sandstone" );
+        white_sandstone_stairs =registerBlock(  new BlockBOPStoneStairs(white_sandstone.getDefaultState().withProperty(BlockBOPWhiteSandstone.VARIANT, StoneType.SMOOTH)), "white_sandstone_stairs");
+        
         dried_sand =            registerBlock( (new BlockBOPGeneric()).addSupportedPlantType(EnumPlantType.Desert), "dried_sand"); dried_sand.setHarvestLevel("pickaxe",0);
         hard_ice =              registerBlock( (new BlockBOPGeneric(Material.PACKED_ICE, SoundType.STONE)).setHardness(0.75F), "hard_ice" );
         ash_block =             registerBlock( new BlockBOPAsh(), "ash_block" );
@@ -126,7 +133,7 @@ public class ModBlocks
         bamboo_thatching =      registerBlock( (new BlockBOPGeneric(Material.WOOD, SoundType.WOOD)).setHardness(2.0F), "bamboo_thatching"); bamboo_thatching.setHarvestLevel("axe", 0);
         mud_brick_block =       registerBlock( (new BlockBOPGeneric()).setResistance(2.0F), "mud_brick_block" );   
         mud_brick_stairs =      registerBlock(  new BlockBOPStoneStairs(mud_brick_block.getDefaultState()), "mud_brick_stairs");
-
+        
         //Stone Slabs
         // need to register items at the same time really so that they can be mapped to each other - bit messy this
         other_slab =            registerBlock( new BlockBOPHalfOtherSlab(), "other_slab", CreativeTabBOP.instance, false);

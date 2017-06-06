@@ -212,7 +212,7 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable, IP
             case JACARANDA:
             	return new GeneratorBasicTree.Builder().minHeight(4).maxHeight(7).log(BOPWoods.JACARANDA).leaves(BOPTrees.JACARANDA).updateNeighbours(true).create();
             case SACRED_OAK:
-                return new GeneratorBigTree.Builder().log(BOPWoods.SACRED_OAK).leaves(BOPTrees.SACRED_OAK).minHeight(35).maxHeight(45).trunkWidth(2).foliageDensity(1.25D).updateNeighbours(true).create();
+                return new GeneratorBigTree.Builder().log(BOPWoods.SACRED_OAK).leaves(BlockBOPLeaves.paging.getVariantState(BOPTrees.SACRED_OAK).withProperty(BlockOldLeaf.DECAYABLE, Boolean.valueOf(false))).minHeight(35).maxHeight(45).trunkWidth(2).foliageDensity(1.25D).updateNeighbours(true).create();
             case MANGROVE:
                 return new GeneratorMangroveTree.Builder().log(BOPWoods.MANGROVE).leaves(BOPTrees.MANGROVE).create();
             case PALM:

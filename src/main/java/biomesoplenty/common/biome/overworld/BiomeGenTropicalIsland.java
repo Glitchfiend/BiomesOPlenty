@@ -8,6 +8,7 @@
 
 package biomesoplenty.common.biome.overworld;
 
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.config.IBOPWorldSettings;
@@ -43,6 +44,11 @@ public class BiomeGenTropicalIsland extends BOPOverworldBiome
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(5, 40).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.2D);
     
+        if (BOPBiomes.white_beach.isPresent())
+        {
+            this.beachBiomeLocation = ((BOPOverworldBiome)BOPBiomes.white_beach.get()).getResourceLocation();
+        }
+        
         this.canSpawnInBiome = true;
         this.canGenerateVillages = false;
         this.canGenerateRivers = false;
@@ -57,7 +63,7 @@ public class BiomeGenTropicalIsland extends BOPOverworldBiome
         clearWeights();
         
         // sand
-        this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(10).maxRadius(7).with(Blocks.SAND.getDefaultState()).create());
+        this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(10).maxRadius(7).with(BOPBlocks.white_sand.getDefaultState()).create());
         
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(25.0F);

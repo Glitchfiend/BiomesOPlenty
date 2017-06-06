@@ -11,6 +11,7 @@ import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.api.enums.BOPWoods;
 import biomesoplenty.api.generation.GeneratorStage;
+import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.world.generator.GeneratorDoubleFlora;
 import biomesoplenty.common.world.generator.GeneratorFlora;
@@ -22,6 +23,7 @@ import biomesoplenty.common.world.generator.tree.GeneratorBigTree;
 import biomesoplenty.common.world.generator.tree.GeneratorBush;
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockFlower;
+import net.minecraft.block.BlockOldLeaf;
 import net.minecraft.block.BlockFlower.EnumFlowerType;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
@@ -53,7 +55,7 @@ public class BiomeGenSacredSprings extends BOPOverworldBiome
         this.addGenerator("hot_springs", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.5F).liquid(BOPBlocks.hot_spring_water).frozenLiquid((IBlockState)null).create());
         
         // trees
-        this.addGenerator("sacred_oak_trees", GeneratorStage.POST, (new GeneratorBigTree.Builder()).amountPerChunk(0.2F).log(BOPWoods.SACRED_OAK).leaves(BOPTrees.SACRED_OAK).minHeight(35).maxHeight(40).trunkWidth(2).foliageDensity(2.0D).create());
+        this.addGenerator("sacred_oak_trees", GeneratorStage.POST, (new GeneratorBigTree.Builder()).amountPerChunk(0.2F).log(BOPWoods.SACRED_OAK).leaves(BlockBOPLeaves.paging.getVariantState(BOPTrees.SACRED_OAK).withProperty(BlockOldLeaf.DECAYABLE, Boolean.valueOf(false))).minHeight(35).maxHeight(40).trunkWidth(2).foliageDensity(2.0D).create());
         this.addGenerator("leaves_clusters", GeneratorStage.TREE, (new GeneratorBush.Builder()).amountPerChunk(12.5F).maxHeight(2).create());
         this.addGenerator("large_oak", GeneratorStage.TREE, (new GeneratorBigTree.Builder()).amountPerChunk(3.0F).log(BlockPlanks.EnumType.OAK).leaves(BlockPlanks.EnumType.OAK).altLeaves(BOPTrees.FLOWERING).create());
         

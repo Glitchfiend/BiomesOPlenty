@@ -146,7 +146,7 @@ public class ModBlockQueries
         
         fertile = BlockQuery.buildAnd().sustainsPlant(EnumPlantType.Plains).create();
         fertileOrNetherrack = BlockQuery.buildOr().sustainsPlant(EnumPlantType.Plains).blocks(Blocks.NETHERRACK).states(BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.OVERGROWN_NETHERRACK), BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.MYCELIAL_NETHERRACK)).create();
-        fertileOrSand = BlockQuery.buildOr().sustainsPlant(EnumPlantType.Plains).blocks(Blocks.SAND).create();
+        fertileOrSand = BlockQuery.buildOr().sustainsPlant(EnumPlantType.Plains).blocks(Blocks.SAND, BOPBlocks.white_sand).create();
         sustainsCave = BlockQuery.buildAnd().sustainsPlant(EnumPlantType.Cave).create();
         sustainsNether = BlockQuery.buildAnd().sustainsPlant(EnumPlantType.Nether).create();
         endish = BlockQuery.buildOr().blocks(Blocks.END_STONE).states(BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SPECTRAL_MOSS)).create();

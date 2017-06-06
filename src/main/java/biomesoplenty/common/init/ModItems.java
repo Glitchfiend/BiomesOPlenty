@@ -219,11 +219,11 @@ public class ModItems
         // WOOD(0, 59, 2.0F, 0.0F, 15),
         // STONE(1, 131, 4.0F, 1.0F, 5),
         // IRON(2, 250, 6.0F, 2.0F, 14),
-        // EMERALD(3, 1561, 8.0F, 3.0F, 10),
+        // DIAMOND(3, 1561, 8.0F, 3.0F, 10),
         // GOLD(0, 32, 12.0F, 0.0F, 22);
-        mud_tool_material = EnumHelper.addToolMaterial("MUD", 0, 32, 0.5F, 0.0F, 1);
+        mud_tool_material = EnumHelper.addToolMaterial("MUD", 0, 3, 0.25F, 0.0F, 1);
         mud_tool_material.setRepairItem(new ItemStack(mudball));
-        setAxeDamageAndSpeed(mud_tool_material, 3.0F, -3.3F);
+        setAxeDamageAndSpeed(mud_tool_material, 1.0F, -3.3F);
 
         // ItemAxe and ItemPickaxe have protected constructors - use reflection to construct
         mud_axe = registerItem(BOPReflectionHelper.construct(ItemAxe.class, mud_tool_material), "mud_axe");

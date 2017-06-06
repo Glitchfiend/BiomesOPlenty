@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "normal": { "model": "biomesoplenty:white_sandstone_normal" },
+        "all":    { "model": "biomesoplenty:white_sandstone_all" }
+    }
+}

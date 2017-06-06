@@ -96,6 +96,7 @@ import biomesoplenty.common.biome.overworld.BiomeGenTundra;
 import biomesoplenty.common.biome.overworld.BiomeGenVolcanicIsland;
 import biomesoplenty.common.biome.overworld.BiomeGenWasteland;
 import biomesoplenty.common.biome.overworld.BiomeGenWetland;
+import biomesoplenty.common.biome.overworld.BiomeGenWhiteBeach;
 import biomesoplenty.common.biome.overworld.BiomeGenWoodland;
 import biomesoplenty.common.biome.overworld.BiomeGenXericShrubland;
 import biomesoplenty.common.biome.vanilla.BiomeExtBirchForest;
@@ -246,6 +247,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         // beach biomes (normal biomes rely on these being registered first)
         
         gravel_beach = registerOverworldBiome(new BiomeGenGravelBeach());
+        white_beach = registerOverworldBiome(new BiomeGenWhiteBeach());
         
         // normal biomes which have weights
         alps = registerOverworldBiome(new BiomeGenAlps());
@@ -442,6 +444,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         registerBiomeToDictionary(BOPBiomes.flower_island, Type.WATER, Type.OCEAN, Type.PLAINS, Type.LUSH, Type.DENSE, Type.MAGICAL);
         registerBiomeToDictionary(BOPBiomes.origin_island, Type.OCEAN, Type.FOREST, Type.RARE);
         registerBiomeToDictionary(BOPBiomes.gravel_beach, Type.BEACH);
+        registerBiomeToDictionary(BOPBiomes.white_beach, Type.BEACH);
         
         registerBiomeToDictionary(BOPBiomes.corrupted_sands, Type.NETHER, Type.HOT, Type.DRY, Type.SANDY, Type.SPOOKY);
         registerBiomeToDictionary(BOPBiomes.fungi_forest, Type.NETHER, Type.HOT, Type.MUSHROOM, Type.DENSE);
