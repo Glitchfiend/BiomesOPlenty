@@ -323,7 +323,7 @@ public class ModCrafting
         OreDictionary.registerOre("blockMud", new ItemStack(BOPBlocks.mud));
         
         OreDictionary.registerOre("sand", new ItemStack(BOPBlocks.white_sand));
-        OreDictionary.registerOre("sandstone", new ItemStack(BOPBlocks.white_sandstone, 1, OreDictionary.WILDCARD_VALUE));
+        OreDictionary.registerOre("sandstone", new ItemStack(BOPBlocks.white_sandstone));
         
         OreDictionary.registerOre("foodMushroompowder", new ItemStack(BOPItems.shroompowder));
         OreDictionary.registerOre("foodFruitsalad", new ItemStack(BOPItems.saladfruit));
