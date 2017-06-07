@@ -1,4 +1,4 @@
-<p align="center"><img src="http://i.imgur.com/wdIIbNr.png"></p>
+<p align="center"><img src="http://i.imgur.com/uP9GBEb.png"></p>
 
 **Biomes O' Plenty** is a **Minecraft mod** that adds **over 50 new biomes** to the overworld and Nether. From coral reefs to bamboo forests, all of our biomes are decorated with a slew of **new plants, trees, flowers, and more!**
 
