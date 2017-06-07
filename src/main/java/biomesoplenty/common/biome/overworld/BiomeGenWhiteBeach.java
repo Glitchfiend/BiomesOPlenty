@@ -25,6 +25,7 @@ public class BiomeGenWhiteBeach extends BOPOverworldBiome
     
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
+        this.hasBiomeEssence = false;
         
         this.spawnableMonsterList.clear();
         this.spawnableCreatureList.clear();

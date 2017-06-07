@@ -39,6 +39,8 @@ public class BiomeCorruptedSands extends BOPHellBiome
         this.fillerBlock = Blocks.SOUL_SAND.getDefaultState();
         this.wallBlock = Blocks.SOUL_SAND.getDefaultState();
         
+        this.hasBiomeEssence = false;
+        
         // quicksand
         this.addGenerator("quicksand", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(5.0F).liquid(BOPBlocks.sand).frozenLiquid((IBlockState)null).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
         

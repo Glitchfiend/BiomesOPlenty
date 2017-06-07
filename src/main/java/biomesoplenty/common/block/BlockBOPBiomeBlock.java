@@ -13,6 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.biome.BOPBiome;
 import biomesoplenty.common.util.biome.BiomeUtils;
@@ -48,6 +49,7 @@ public class BlockBOPBiomeBlock extends BlockBOPGeneric
         
         List<Biome> vanillaBiomesToExclude = Arrays.asList(
             new Biome[] {
+                Biomes.DEFAULT,
                 Biomes.SKY,
                 Biomes.HELL,
                 Biomes.BEACH,
@@ -57,7 +59,44 @@ public class BlockBOPBiomeBlock extends BlockBOPGeneric
                 Biomes.FROZEN_OCEAN,
                 Biomes.DEEP_OCEAN,
                 Biomes.RIVER,
-                Biomes.FROZEN_RIVER
+                Biomes.FROZEN_RIVER,
+                Biomes.VOID,
+                Biomes.MUSHROOM_ISLAND_SHORE,
+                Biomes.DESERT_HILLS,
+                Biomes.BIRCH_FOREST_HILLS,
+                Biomes.COLD_TAIGA_HILLS,
+                Biomes.EXTREME_HILLS_EDGE,
+                Biomes.EXTREME_HILLS_WITH_TREES,
+                Biomes.FOREST_HILLS,
+                Biomes.ICE_MOUNTAINS,
+                Biomes.JUNGLE_EDGE,
+                Biomes.JUNGLE_HILLS,
+                Biomes.MESA_CLEAR_ROCK,
+                Biomes.MESA_ROCK,
+                Biomes.MUTATED_BIRCH_FOREST,
+                Biomes.MUTATED_BIRCH_FOREST_HILLS,
+                Biomes.MUTATED_DESERT,
+                Biomes.MUTATED_EXTREME_HILLS,
+                Biomes.MUTATED_EXTREME_HILLS_WITH_TREES,
+                Biomes.MUTATED_FOREST,
+                Biomes.MUTATED_ICE_FLATS,
+                Biomes.MUTATED_JUNGLE,
+                Biomes.MUTATED_JUNGLE_EDGE,
+                Biomes.MUTATED_MESA,
+                Biomes.MUTATED_MESA_CLEAR_ROCK,
+                Biomes.MUTATED_MESA_ROCK,
+                Biomes.MUTATED_PLAINS,
+                Biomes.MUTATED_REDWOOD_TAIGA,
+                Biomes.MUTATED_REDWOOD_TAIGA_HILLS,
+                Biomes.MUTATED_ROOFED_FOREST,
+                Biomes.MUTATED_SAVANNA,
+                Biomes.MUTATED_SAVANNA_ROCK,
+                Biomes.MUTATED_SWAMPLAND,
+                Biomes.MUTATED_TAIGA,
+                Biomes.MUTATED_TAIGA_COLD,
+                Biomes.REDWOOD_TAIGA_HILLS,
+                Biomes.SAVANNA_PLATEAU,
+                Biomes.TAIGA_HILLS
             }
         );
         
@@ -85,7 +124,7 @@ public class BlockBOPBiomeBlock extends BlockBOPGeneric
         Random rand = world instanceof World ? ((World)world).rand : RANDOM;
 
         List<Biome> biomes = this.getBiomesWithEssence();
-        int numToDrop = rand.nextInt(fortune + 2) + 1;
+        int numToDrop = rand.nextInt(fortune + 1) + 1;
         int numChoices = biomes.size();
         Biome biome;
         

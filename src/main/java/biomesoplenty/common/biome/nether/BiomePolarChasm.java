@@ -32,6 +32,8 @@ public class BiomePolarChasm extends BOPHellBiome
 
         this.fogColor = 0x86C9EF;
         this.fogDensity = 0.4F;
+        
+        this.hasBiomeEssence = false;
 
         this.topBlock = BOPBlocks.hard_ice.getDefaultState();
         this.fillerBlock = BOPBlocks.hard_ice.getDefaultState();

@@ -31,6 +31,8 @@ public class BiomePhantasmagoricInferno extends BOPHellBiome
 
         this.addWeight(BOPClimates.HELL, 75);
         
+        this.hasBiomeEssence = false;
+        
         this.topBlock = BOPBlocks.ash_block.getDefaultState();
         this.fillerBlock = BOPBlocks.ash_block.getDefaultState();
         

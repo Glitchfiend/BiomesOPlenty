@@ -76,6 +76,7 @@ public class BiomeGenMountain extends BOPOverworldBiome
                 
             case FOOTHILLS:
                 this.terrainSettings.avgHeight(100).heightVariation(15, 30).octaves(0, 1, 1, 3, 1, 0).sidewaysNoise(0.1D); 
+                this.hasBiomeEssence = false;
                 break;
         }
         

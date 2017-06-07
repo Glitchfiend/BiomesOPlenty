@@ -42,6 +42,8 @@ public class BiomeUndergarden extends BOPHellBiome
 
         this.addWeight(BOPClimates.HELL, 75);
         
+        this.hasBiomeEssence = false;
+        
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.OVERGROWN_NETHERRACK);
         
         // splatter top blocks

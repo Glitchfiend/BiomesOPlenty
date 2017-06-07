@@ -55,6 +55,7 @@ public class BiomeGenOasis extends BOPOverworldBiome
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
         this.canGenerateRivers = false;
+        this.hasBiomeEssence = false;
         
         this.topBlock = Blocks.SAND.getDefaultState();
         this.fillerBlock = Blocks.SAND.getDefaultState();
