@@ -16,6 +16,7 @@ import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.api.generation.IGenerator;
 import biomesoplenty.common.block.BlockBOPMushroom;
+import biomesoplenty.common.init.ModBiomes;
 import biomesoplenty.common.util.biome.BiomeUtils;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery;
@@ -64,13 +65,10 @@ public class ExtendedBiomeWrapper implements IExtendedBiome
         
         // Allow generators to be configured
         IConfigObj confGenerators = conf.getObject("generators");
-        if (confGenerators != null)
-        {
-            for (String name : confGenerators.getKeys())
-            {
-                this.generationManager.configureWith(name, confGenerators.getObject(name));
-            }
-        }
+        this.generationManager.configure(confGenerators);
+
+        // write default values to a file
+        ModBiomes.writeDefaultConfigFile(ModBiomes.VANILLA_DEFAULTS_DIR, this.getResourceLocation().getResourcePath(), conf);
     }
     
     @Override

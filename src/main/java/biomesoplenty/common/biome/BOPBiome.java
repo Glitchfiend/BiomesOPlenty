@@ -14,7 +14,6 @@ import biomesoplenty.api.config.IConfigObj;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.api.generation.IGenerator;
-import biomesoplenty.common.biome.overworld.BOPOverworldBiome;
 import biomesoplenty.common.init.ModBiomes;
 import biomesoplenty.common.world.GenerationManager;
 import biomesoplenty.core.BiomesOPlenty;
@@ -105,32 +104,23 @@ public abstract class BOPBiome extends Biome implements IExtendedBiome
 
         // Allow weights to be overridden
         IConfigObj confWeights = conf.getObject("weights");
-        if (confWeights != null)
+        for (BOPClimates climate : BOPClimates.values())
         {
-            for (BOPClimates climate : BOPClimates.values())
+            Integer weight = confWeights.getInt(climate.name().toLowerCase(), this.weightMap.get(climate));
+            if (weight == null) {continue;}
+            if (weight.intValue() < 1)
             {
-                Integer weight = confWeights.getInt(climate.name().toLowerCase(), null);
-                if (weight == null) {continue;}
-                if (weight.intValue() < 1)
-                {
-                    this.weightMap.remove(climate);
-                }
-                else
-                {
-                    this.weightMap.put(climate, weight);
-                }
+                this.weightMap.remove(climate);
+            }
+            else
+            {
+                this.weightMap.put(climate, weight);
             }
         }
 
         // Allow generators to be configured
         IConfigObj confGenerators = conf.getObject("generators");
-        if (confGenerators != null)
-        {
-            for (String name : confGenerators.getKeys())
-            {
-                this.generationManager.configureWith(name, confGenerators.getObject(name));
-            }
-        }
+        this.generationManager.configure(confGenerators);
 
         // Allow spawnable entites to be configured
         ArrayList<IConfigObj> confEntities = conf.getObjectArray("entities");

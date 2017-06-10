@@ -141,9 +141,15 @@ import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.DimensionManager;
+import org.apache.commons.io.FileUtils;
 
 public class ModBiomes implements BOPBiomes.IBiomeRegistry
 {
+    public static final File BIOMES_DIR = new File(BiomesOPlenty.configDirectory, "biomes");
+    public static final File DEFAULTS_DIR = new File(BIOMES_DIR, "defaults");
+    public static final File BOP_DEFAULTS_DIR = new File(DEFAULTS_DIR, "biomesoplenty");
+    public static final File VANILLA_DEFAULTS_DIR = new File(DEFAULTS_DIR, "vanilla");
+
     public static WorldTypeBOP worldTypeBOP;
 
     private static int nextBiomeId = 40;
@@ -181,19 +187,27 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         }
         
         //Create a folder and temp file to show people where to put biome config files
-        File biomesDir = new File(BiomesOPlenty.configDirectory, "biomes");
-        
-        if (!biomesDir.exists())
+        if (!BIOMES_DIR.exists())
         {
-        	biomesDir.mkdir();
+            BIOMES_DIR.mkdir();
         	
         	try 
         	{
-				(new File(biomesDir, "Put biome config files here")).createNewFile();
+				(new File(BIOMES_DIR, "Put biome config files here")).createNewFile();
 			} 
         	catch (IOException e) {}
         }
-        
+
+        // remove any existing default files and recreate the directory
+        try {
+            FileUtils.deleteDirectory(DEFAULTS_DIR);
+        }
+        catch (Exception e)
+        {
+            BiomesOPlenty.logger.error("Could not delete default biome config directory!");
+        }
+        DEFAULTS_DIR.mkdir();
+
         initSubBiomes();
 
         registerBiomes();
@@ -528,11 +542,25 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
     {
         File configFile = new File(new File(BiomesOPlenty.configDirectory, "biomes"), idName + ".json");
         IConfigObj conf = new BOPConfig.ConfigFileObj(configFile);
-        
+
         // log any warnings from parsing the config file
         for (String msg : conf.flushMessages()) {BiomesOPlenty.logger.info(msg);}
         
         return conf;
+    }
+
+    public static void writeDefaultConfigFile(File basePath, String idName, IConfigObj conf)
+    {
+        File defaultFile = new File(basePath, idName + ".json");
+        String json = BOPConfig.serializer.toJson(conf.serializeDefaults());
+
+        try {
+            FileUtils.write(defaultFile, json);
+        }
+        catch (Exception e)
+        {
+            BiomesOPlenty.logger.error("Could not write default biome config file " + defaultFile.getName());
+        }
     }
     
     private static void setSubBiome(Optional<Biome> parent, Optional<Biome>... subBiomes)

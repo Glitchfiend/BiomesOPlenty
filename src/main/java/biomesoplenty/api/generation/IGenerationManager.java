@@ -17,5 +17,5 @@ public interface IGenerationManager
     ImmutableCollection<IGenerator> getGeneratorsForStage(GeneratorStage stage);
     void removeGenerator(String name);
     IGenerator getGenerator(String name);
-    void configureWith(String name, IConfigObj conf);
+    void configure(IConfigObj conf);
 }

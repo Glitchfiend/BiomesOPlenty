@@ -58,28 +58,29 @@ public class GenerationManager implements IGenerationManager
         return this.generators.get(name);
     }
 
-    public void configureWith(String name, IConfigObj conf)
+    public void configure(IConfigObj generatorsObj)
     {
-        if (this.generators.containsKey(name))
+        // iterate over all registered generators
+        for (String name : generators.keySet())
         {
-            if (conf.getBool("enable", true))
+            IConfigObj currentObj = generatorsObj.getObject(name);
+
+            // there was previously no generator of this name - attempt to add it
+            if (generatorsObj.has(name))
             {
-                // configure the existing generator
-                this.generators.get(name).configure(conf);
+                IGenerator generator = GeneratorRegistry.createGenerator(currentObj);
+                if (generator != null) {
+                    this.generators.put(name, generator);
+                }
             }
-            else
-            {
+
+            // configure the generator
+            // always attempt to do this so defaults are generated
+            if (currentObj.getBool("enable", true)) {
+                this.generators.get(name).configure(currentObj);
+            } else {
                 // remove this generator
                 this.generators.remove(name);
-            }
-        }
-        else
-        {
-            // there was previously no generator of this name - attempt to add it
-            IGenerator generator = GeneratorRegistry.createGenerator(conf);
-            if (generator != null)
-            {
-                this.generators.put(name, generator);
             }
         }
     }

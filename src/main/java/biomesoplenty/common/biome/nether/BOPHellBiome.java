@@ -17,6 +17,7 @@ import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.api.generation.IGenerationManager;
 import biomesoplenty.api.generation.IGenerator;
 import biomesoplenty.common.biome.BOPBiome;
+import biomesoplenty.common.init.ModBiomes;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.world.generator.GeneratorHive;
 import biomesoplenty.common.world.generator.GeneratorSplatter;
@@ -70,6 +71,9 @@ public class BOPHellBiome extends BOPBiome
         this.wallBlock = conf.getBlockState("wallBlock", this.wallBlock);
         this.roofTopBlock = conf.getBlockState("roofTopBlock", this.roofTopBlock);
         this.roofFillerBlock = conf.getBlockState("roofFillerBlock", this.roofFillerBlock);
+
+        // write default values to a file
+        ModBiomes.writeDefaultConfigFile(ModBiomes.BOP_DEFAULTS_DIR, this.getResourceLocation().getResourcePath(), conf);
     }
 
     @Override

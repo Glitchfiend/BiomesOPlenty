@@ -34,6 +34,7 @@ import biomesoplenty.common.init.ModBiomes;
 import biomesoplenty.common.util.biome.BiomeUtils;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery;
+import biomesoplenty.common.util.config.BOPConfig;
 import biomesoplenty.common.world.GenerationManager;
 import biomesoplenty.common.world.TerrainSettings;
 import biomesoplenty.common.world.generator.GeneratorColumns;
@@ -117,12 +118,14 @@ public class BOPOverworldBiome extends BOPBiome
         this.canGenerateRivers = conf.getBool("canGenerateRivers", this.canGenerateRivers);
         
         this.beachBiomeLocation = conf.getResourceLocation("beachBiomeLocation", this.beachBiomeLocation);
+
+        // write default values to a file
+        ModBiomes.writeDefaultConfigFile(ModBiomes.BOP_DEFAULTS_DIR, this.getResourceLocation().getResourcePath(), conf);
     }
     
     @Override
     public void genTerrainBlocks(World world, Random rand, ChunkPrimer primer, int x, int z, double stoneNoiseVal)
     {
-
         IBlockState topBlock = this.topBlock;
         IBlockState fillerBlock = this.fillerBlock;
         IBlockState seaFloorBlock = this.seaFloorBlock;

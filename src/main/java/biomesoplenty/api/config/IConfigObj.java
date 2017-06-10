@@ -12,11 +12,13 @@ import java.util.List;
 import java.util.Set;
 
 import biomesoplenty.api.block.IBlockPosQuery;
+import com.google.gson.JsonElement;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.ResourceLocation;
 
 public interface IConfigObj
 {
+    public JsonElement serializeDefaults();
     public void addMessage(String message);
     public void addMessage(String extraPrefix, String message);
     public List<String> flushMessages();

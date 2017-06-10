@@ -17,14 +17,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.google.common.collect.Maps;
+import com.google.gson.*;
 import org.apache.commons.io.FileUtils;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.api.config.IConfigObj;
@@ -59,9 +54,17 @@ public class BOPConfig
     public static abstract class ConfigObjBase implements IConfigObj
     {
         protected Map<String,JsonElement> members;
+        protected Map<String, JsonElement> defaults;
+        protected Map<String, ConfigChildObj> childObjs;
         protected List<String> messages = new ArrayList<String>();
         protected String prefix = "";
-        
+
+        private ConfigObjBase()
+        {
+            this.defaults = Maps.newHashMap();
+            this.childObjs = Maps.newHashMap();
+        }
+
         public void parse(String jsonString)
         {
             this.members = new HashMap<String, JsonElement>();
@@ -86,8 +89,31 @@ public class BOPConfig
                 this.addMessage("Error parsing config: "+e.getMessage());
             }
         }
-        
-        
+
+        @Override
+        public JsonElement serializeDefaults()
+        {
+            if (this.defaults.isEmpty())
+            {
+                this.addMessage("No defaults found!");
+            }
+
+            // add top-level properties
+            JsonObject rootObject = new JsonObject();
+            for (Entry<String, JsonElement> entry : defaults.entrySet())
+            {
+                rootObject.add(entry.getKey(), entry.getValue());
+            }
+
+            // serialize children
+            for (Entry<String, ConfigChildObj> entry : this.childObjs.entrySet())
+            {
+                rootObject.add(entry.getKey(), entry.getValue().serializeDefaults());
+            }
+
+            return rootObject;
+        }
+
         @Override
         public void addMessage(String message)
         {
@@ -135,16 +161,27 @@ public class BOPConfig
                 {
                     this.addMessage(name, "Error - missing value");
                 }
-                return null;
             }
+
+            // attempt to return cached child first
+            if (this.childObjs.containsKey(name))
+            {
+                return this.childObjs.get(name);
+            }
+
+            JsonObject obj = new JsonObject();
+
             try
             {
-                JsonObject obj = this.members.get(name).getAsJsonObject();
-                return new ConfigChildObj(this.prefix + "." + name, obj);
+                obj = this.members.get(name).getAsJsonObject();
             } catch (Exception e) {
                 this.addMessage("Error fetching object " + name + ": " + e.getMessage());
-                return null;       
             }
+
+            ConfigChildObj childObj = new ConfigChildObj(this.prefix + "." + name, obj);
+            // store the child for later serialization
+            this.childObjs.put(name, childObj);
+            return childObj;
         }
  
         @Override
@@ -255,9 +292,9 @@ public class BOPConfig
         @Override
         public <E extends Enum> ArrayList<E> getEnumArray(String name, Class<E> clazz) {return this.getEnumArray(name, null, true, clazz);}
 
-        
-        
-        
+
+
+
         protected <E extends Enum> ArrayList<E> getEnumArray(String name, ArrayList<E> defaultVal, boolean warnIfMissing, Class<E> clazz)
         {
             if (!this.has(name))
@@ -299,6 +336,14 @@ public class BOPConfig
         
         private <T> T get(String name, T defaultVal, boolean warnIfMissing, Types type)
         {
+            // if a default value is set, store it for later use
+            if (defaultVal != null)
+            {
+                JsonElement element = this.from(defaultVal, type);
+                // don't store if conversion to a JsonElement failed
+                if (element != null) this.defaults.put(name, element);
+            }
+            // check if the property exists, if not, use the default
             if (!this.has(name))
             {
                 if (warnIfMissing)
@@ -308,6 +353,11 @@ public class BOPConfig
                 return defaultVal;
             }
             T out = this.<T>as(this.members.get(name), type, name);
+            // prevent people from trying to copy-paste default configs
+            if (out != null && out.equals(defaultVal))
+            {
+                throw new RuntimeException("NOTE: This is YOUR fault, DO NOT report this to any developers.\n You can't set a property to its  default value, only changed properties can be included in config files. \n Property: " + name + " Value: " + out + " Location: " + this.prefix);
+            }
             return out == null ? defaultVal : out;    
         }
         
@@ -351,11 +401,12 @@ public class BOPConfig
                     return (T)this.asBlockState(ele, extraPrefix);
                 case BLOCKPOSQUERY:
                     return (T)this.asBlockPosQuery(ele, extraPrefix);
+                case RESOURCELOCATION:
+                    return (T)this.asResourceLocation(ele, extraPrefix);
                 default:
                     return null;
             }
         }
-        
         
         protected <E extends Enum> E asEnum(JsonElement ele, Class<E>clazz, String extraPrefix)
         {
@@ -449,7 +500,7 @@ public class BOPConfig
             try {
                 
                 JsonObject obj = ele.getAsJsonObject();
-                
+
                 // attempt to load the specified block
                 if (!obj.has("block"))
                 {
@@ -521,7 +572,52 @@ public class BOPConfig
                 return null;
             }
         }
-        
+
+        private JsonElement from(Object value, Types type)
+        {
+            switch (type) {
+                case BOOLEAN:
+                    return new JsonPrimitive((Boolean)value);
+                case STRING:
+                    return new JsonPrimitive((String)value);
+                case INTEGER:
+                    return new JsonPrimitive((Integer)value);
+                case FLOAT:
+                    return new JsonPrimitive((Float)value);
+                case BLOCKSTATE:
+                    return fromState((IBlockState)value);
+                case BLOCKPOSQUERY:
+                    return null; // ignore for now
+                case RESOURCELOCATION:
+                    return fromResourceLocation((ResourceLocation)value);
+                default:
+                    BiomesOPlenty.logger.error("Undefined type " + type);
+                    return null;
+            }
+        }
+
+        private JsonElement fromState(IBlockState state)
+        {
+            JsonObject root = new JsonObject();
+
+            // add block name
+            root.add("block", new JsonPrimitive(state.getBlock().getRegistryName().toString()));
+            JsonObject properties = new JsonObject();
+            root.add("properties", properties);
+
+            // add all property values
+            for (Entry<IProperty<?>, Comparable<?>> entry : state.getProperties().entrySet())
+            {
+                properties.add(entry.getKey().getName(), new JsonPrimitive(entry.getValue().toString()));
+            }
+
+            return root;
+        }
+
+        private JsonElement fromResourceLocation(ResourceLocation location)
+        {
+            return new JsonPrimitive(location.toString());
+        }
     }
     
     // Concrete class for a config object created by supplying the JSON in a string
