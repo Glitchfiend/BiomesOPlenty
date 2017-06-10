@@ -8,9 +8,12 @@ import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityMudball extends EntityThrowable
 {
@@ -34,27 +37,31 @@ public class EntityMudball extends EntityThrowable
     {
         EntityThrowable.registerFixesThrowable(fixer, "mudball");
     }
+    
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void handleStatusUpdate(byte id)
+    {
+        if (id == 3)
+        {
+            for (int i = 0; i < 8; ++i)
+            {
+                BiomesOPlenty.proxy.spawnParticle(BOPParticleTypes.MUD, this.posX, this.posY, this.posZ);
+            }
+        }
+    }
 
     @Override
     protected void onImpact(RayTraceResult hit)
     {
         if (hit.entityHit != null)
         {
-            // entity hit isn't damaged
             hit.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 0.0F);
-            if (hit.entityHit instanceof EntityLivingBase)
-            {
-                ((EntityLivingBase)hit.entityHit).addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 400, 2));
-            }
-        }
-
-        for (int i = 0; i < 16; ++i)
-        {
-            BiomesOPlenty.proxy.spawnParticle(BOPParticleTypes.MUD, this.posX, this.posY, this.posZ);
         }
 
         if (!this.world.isRemote)
         {
+            this.world.setEntityState(this, (byte)3);
             this.setDead();
         }
     }

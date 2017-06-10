@@ -41,7 +41,7 @@ public class ModEntities
     public static void init()
     {
         // projectiles
-        registerBOPEntity(EntityMudball.class, "mudball", 80, 3, true);
+        registerBOPEntity(EntityMudball.class, "mudball", 64, 10, true);
 
         // mobs
         registerBOPEntityWithSpawnEgg(EntityWasp.class, "wasp", 80, 3, true, 0xE5B013, 0x333234);

@@ -70,28 +70,7 @@ public class BOPItems
     
     public static Item wading_boots;
     public static Item flippers;
-    public static Item plain_flower_band;
-    public static Item lush_flower_band;
-    public static Item exotic_flower_band;
-    public static Item dull_flower_band;
-    
-    public static Item mud_helmet;
-    public static Item mud_chestplate;
-    public static Item mud_leggings;
-    public static Item mud_boots;
-    
-    public static Item mud_axe;
-    public static Item mud_hoe;
-    public static Item mud_pickaxe;
-    public static Item mud_shovel;
-    public static Item mud_sword;
-    
-    public static Item mud_scythe;
-    public static Item wood_scythe;
-    public static Item stone_scythe;
-    public static Item iron_scythe;
-    public static Item gold_scythe;
-    public static Item diamond_scythe;
+    public static Item flower_band;
     
     public static Item biome_finder;
     public static Item biome_essence;

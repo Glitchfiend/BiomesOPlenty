@@ -128,38 +128,9 @@ public class ModCrafting
         }             
         
         /*** Tools, weapons, armor ***/
-        
-        // Scythes
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.wood_scythe), " MM", "M S", "  S", 'M', "plankWood", 'S', "stickWood"));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.stone_scythe), " MM", "M S", "  S", 'M', Blocks.COBBLESTONE, 'S', "stickWood"));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.iron_scythe), " MM", "M S", "  S", 'M', Items.IRON_INGOT, 'S', "stickWood"));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.gold_scythe), " MM", "M S", "  S", 'M', Items.GOLD_INGOT, 'S', "stickWood"));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.diamond_scythe), " MM", "M S", "  S", 'M', Items.DIAMOND, 'S', "stickWood"));
-        // and in reverse..
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.wood_scythe), "MM ", "S M", "S  ", 'M', "plankWood", 'S', "stickWood"));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.stone_scythe), "MM ", "S M", "S  ", 'M', Blocks.COBBLESTONE, 'S', "stickWood"));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.iron_scythe), "MM ", "S M", "S  ", 'M', Items.IRON_INGOT, 'S', "stickWood"));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.gold_scythe), "MM ", "S M", "S  ", 'M', Items.GOLD_INGOT, 'S', "stickWood"));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.diamond_scythe), "MM ", "S M", "S  ", 'M', Items.DIAMOND, 'S', "stickWood"));
-        
-        // Mud Tools and Armor
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.mud_pickaxe), "###", " X ", " X ", '#', "ballMud", 'X', "stickWood"));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.mud_shovel), "#", "X", "X", '#', "ballMud", 'X', "stickWood"));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.mud_sword), "#", "#", "X", '#', "ballMud", 'X', "stickWood"));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.mud_axe), "##", "#X", " X", '#', "ballMud", 'X', "stickWood"));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.mud_hoe), "##", " X", " X", '#', "ballMud", 'X', "stickWood"));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.mud_helmet), "###", "# #", '#', "ballMud"));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.mud_chestplate), "# #", "###", "###", '#', "ballMud"));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.mud_leggings), "###", "# #", "# #", '#', "ballMud"));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.mud_boots), "# #", "# #", '#', "ballMud"));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.mud_scythe), " MM", "M S", "  S", 'M', "ballMud", 'S', "stickWood"));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.mud_scythe), "MM ", "S M", "S  ", 'M', "ballMud", 'S', "stickWood"));
 
         // Flower Bands
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.dull_flower_band), "CCC", "C C", "CCC", 'C', BlockBOPFlower.paging.getVariantItem(BOPFlowers.CLOVER));
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.plain_flower_band), "CDC", "D D", "CDC", 'C', BlockBOPFlower.paging.getVariantItem(BOPFlowers.CLOVER), 'D', BlockBOPFlower.paging.getVariantItem(BOPFlowers.ORANGE_COSMOS));
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.lush_flower_band), "CDC", "V V", "CDC", 'C', BlockBOPFlower.paging.getVariantItem(BOPFlowers.CLOVER),'D', BlockBOPFlower.paging.getVariantItem(BOPFlowers.ORANGE_COSMOS), 'V', BlockBOPFlower.paging.getVariantItem(BOPFlowers.VIOLET));
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.exotic_flower_band), "CDT", "V V", "TDC", 'C', BlockBOPFlower.paging.getVariantItem(BOPFlowers.CLOVER),'D', BlockBOPFlower.paging.getVariantItem(BOPFlowers.ORANGE_COSMOS), 'V', BlockBOPFlower.paging.getVariantItem(BOPFlowers.VIOLET), 'T', BlockBOPFlower.paging.getVariantItem(BOPFlowers.PINK_DAFFODIL));
+        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.flower_band), "CCC", "C C", "CCC", 'C', BlockBOPFlower.paging.getVariantItem(BOPFlowers.CLOVER));
         
         /*** Biome Finder ***/
         
