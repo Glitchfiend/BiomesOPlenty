@@ -353,11 +353,6 @@ public class BOPConfig
                 return defaultVal;
             }
             T out = this.<T>as(this.members.get(name), type, name);
-            // prevent people from trying to copy-paste default configs
-            if (out != null && out.equals(defaultVal))
-            {
-                throw new RuntimeException("NOTE: This is YOUR fault, DO NOT report this to any developers.\n You can't set a property to its  default value, only changed properties can be included in config files. \n Property: " + name + " Value: " + out + " Location: " + this.prefix);
-            }
             return out == null ? defaultVal : out;    
         }
         
