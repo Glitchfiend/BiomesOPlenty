@@ -6,9 +6,12 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Random;
 
+import biomesoplenty.common.util.biome.BiomeUtils;
+import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
 
 import biomesoplenty.api.biome.BOPBiomes;
+import com.google.common.collect.Sets;
 import net.minecraft.entity.monster.EntityWitch;
 import net.minecraft.init.Biomes;
 import net.minecraft.util.math.BlockPos;
@@ -22,20 +25,22 @@ import net.minecraft.world.gen.structure.StructureStart;
 
 public class BOPMapGenScatteredFeature extends MapGenScatteredFeature
 {
-    private static final List<Biome> BIOMELIST = Arrays.<Biome>asList(new Biome[] {
-            
-            Biomes.DESERT, Biomes.DESERT_HILLS, Biomes.JUNGLE, Biomes.JUNGLE_HILLS, Biomes.SWAMPLAND,
-            Biomes.ICE_PLAINS, Biomes.COLD_TAIGA, BOPBiomes.bamboo_forest.get(), BOPBiomes.eucalyptus_forest.get(),
-            BOPBiomes.overgrown_cliffs.get(), BOPBiomes.rainforest.get(), BOPBiomes.sacred_springs.get(),
-            BOPBiomes.tropical_rainforest.get(), BOPBiomes.bayou.get(), BOPBiomes.bog.get(), BOPBiomes.dead_swamp.get(),
-            BOPBiomes.fen.get(), BOPBiomes.lush_swamp.get(), BOPBiomes.moor.get(), BOPBiomes.ominous_woods.get(),
-            BOPBiomes.quagmire.get(), BOPBiomes.wetland.get(), BOPBiomes.lush_desert.get(), BOPBiomes.outback.get(),
-            BOPBiomes.oasis.get(), BOPBiomes.xeric_shrubland.get(), BOPBiomes.alps.get(), BOPBiomes.cold_desert.get(),
-            BOPBiomes.snowy_coniferous_forest.get(), BOPBiomes.snowy_forest.get()
-    });
+    private static final List<Biome> JUNGLE_BIOMES = Lists.newArrayList(Biomes.JUNGLE, Biomes.JUNGLE_HILLS);
+    private static final List<Biome> SWAMP_BIOMES = Lists.newArrayList(Biomes.SWAMPLAND);
+    private static final List<Biome> DESERT_BIOMES = Lists.newArrayList( Biomes.DESERT, Biomes.DESERT_HILLS);
+    private static final List<Biome> ICE_BIOMES = Lists.newArrayList(Biomes.ICE_PLAINS, Biomes.COLD_TAIGA);
+
     private final List<Biome.SpawnListEntry> scatteredFeatureSpawnList;
     private int maxDistanceBetweenScatteredFeatures;
     private final int minDistanceBetweenScatteredFeatures;
+
+    static
+    {
+        JUNGLE_BIOMES.addAll(BiomeUtils.filterPresentBiomes(BOPBiomes.bamboo_forest, BOPBiomes.eucalyptus_forest, BOPBiomes.overgrown_cliffs, BOPBiomes.rainforest, BOPBiomes.sacred_springs, BOPBiomes.tropical_rainforest));
+        SWAMP_BIOMES.addAll(BiomeUtils.filterPresentBiomes(BOPBiomes.bayou, BOPBiomes.bog, BOPBiomes.dead_swamp, BOPBiomes.fen, BOPBiomes.lush_swamp, BOPBiomes.moor, BOPBiomes.ominous_woods, BOPBiomes.quagmire, BOPBiomes.wetland));
+        DESERT_BIOMES.addAll(BiomeUtils.filterPresentBiomes(BOPBiomes.lush_desert, BOPBiomes.outback, BOPBiomes.oasis, BOPBiomes.xeric_shrubland));
+        ICE_BIOMES.addAll(BiomeUtils.filterPresentBiomes(BOPBiomes.alps, BOPBiomes.cold_desert, BOPBiomes.snowy_coniferous_forest, BOPBiomes.snowy_forest));
+    }
 
     public BOPMapGenScatteredFeature()
     {
@@ -92,17 +97,9 @@ public class BOPMapGenScatteredFeature extends MapGenScatteredFeature
         {
             Biome biome = this.world.getBiomeProvider().getBiome(new BlockPos(i * 16 + 8, 0, j * 16 + 8));
 
-            if (biome == null)
+            if (biome != null && (JUNGLE_BIOMES.contains(biome) || SWAMP_BIOMES.contains(biome) || DESERT_BIOMES.contains(biome) || ICE_BIOMES.contains(biome)))
             {
-                return false;
-            }
-
-            for (Biome biome1 : BIOMELIST)
-            {
-                if (biome == biome1)
-                {
-                    return true;
-                }
+                return true;
             }
         }
 
@@ -145,48 +142,42 @@ public class BOPMapGenScatteredFeature extends MapGenScatteredFeature
     }
 
     public static class Start extends StructureStart
+    {
+        public Start() {}
+
+        public Start(World worldIn, Random random, int chunkX, int chunkZ)
         {
-            public Start()
-            {
-            }
-
-            public Start(World worldIn, Random random, int chunkX, int chunkZ)
-            {
-                this(worldIn, random, chunkX, chunkZ, worldIn.getBiome(new BlockPos(chunkX * 16 + 8, 0, chunkZ * 16 + 8)));
-            }
-
-            public Start(World worldIn, Random random, int chunkX, int chunkZ, Biome biomeIn)
-            {
-                super(chunkX, chunkZ);
-
-                if (biomeIn != Biomes.JUNGLE && biomeIn != Biomes.JUNGLE_HILLS && biomeIn != BOPBiomes.bamboo_forest.get() && biomeIn != BOPBiomes.eucalyptus_forest.get() && biomeIn != BOPBiomes.overgrown_cliffs.get() && biomeIn != BOPBiomes.rainforest.get() && biomeIn != BOPBiomes.sacred_springs.get() && biomeIn != BOPBiomes.tropical_rainforest.get())
-                {
-                    if (biomeIn == Biomes.SWAMPLAND || biomeIn == BOPBiomes.bayou.get() || biomeIn == BOPBiomes.bog.get() || biomeIn == BOPBiomes.dead_swamp.get() || biomeIn == BOPBiomes.fen.get() || biomeIn == BOPBiomes.lush_swamp.get() || biomeIn == BOPBiomes.moor.get() || biomeIn == BOPBiomes.ominous_woods.get() || biomeIn == BOPBiomes.quagmire.get() || biomeIn == BOPBiomes.wetland.get())
-                    {
-                        ComponentScatteredFeaturePieces.SwampHut componentscatteredfeaturepieces$swamphut = new ComponentScatteredFeaturePieces.SwampHut(random, chunkX * 16, chunkZ * 16);
-                        this.components.add(componentscatteredfeaturepieces$swamphut);
-                    }
-                    else if (biomeIn != Biomes.DESERT && biomeIn != Biomes.DESERT_HILLS && biomeIn != BOPBiomes.lush_desert.get() && biomeIn != BOPBiomes.outback.get() && biomeIn != BOPBiomes.oasis.get() && biomeIn != BOPBiomes.xeric_shrubland.get())
-                    {
-                        if (biomeIn == Biomes.ICE_PLAINS || biomeIn == Biomes.COLD_TAIGA || biomeIn == BOPBiomes.alps.get() || biomeIn == BOPBiomes.cold_desert.get() || biomeIn == BOPBiomes.snowy_coniferous_forest.get() || biomeIn == BOPBiomes.snowy_forest.get())
-                        {
-                            ComponentScatteredFeaturePieces.Igloo componentscatteredfeaturepieces$igloo = new ComponentScatteredFeaturePieces.Igloo(random, chunkX * 16, chunkZ * 16);
-                            this.components.add(componentscatteredfeaturepieces$igloo);
-                        }
-                    }
-                    else
-                    {
-                        ComponentScatteredFeaturePieces.DesertPyramid componentscatteredfeaturepieces$desertpyramid = new ComponentScatteredFeaturePieces.DesertPyramid(random, chunkX * 16, chunkZ * 16);
-                        this.components.add(componentscatteredfeaturepieces$desertpyramid);
-                    }
-                }
-                else
-                {
-                    ComponentScatteredFeaturePieces.JunglePyramid componentscatteredfeaturepieces$junglepyramid = new ComponentScatteredFeaturePieces.JunglePyramid(random, chunkX * 16, chunkZ * 16);
-                    this.components.add(componentscatteredfeaturepieces$junglepyramid);
-                }
-
-                this.updateBoundingBox();
-            }
+            this(worldIn, random, chunkX, chunkZ, worldIn.getBiome(new BlockPos(chunkX * 16 + 8, 0, chunkZ * 16 + 8)));
         }
+
+        public Start(World worldIn, Random random, int chunkX, int chunkZ, Biome biome)
+        {
+            super(chunkX, chunkZ);
+
+            if (JUNGLE_BIOMES.contains(biome))
+            {
+                ComponentScatteredFeaturePieces.JunglePyramid componentscatteredfeaturepieces$junglepyramid = new ComponentScatteredFeaturePieces.JunglePyramid(random, chunkX * 16, chunkZ * 16);
+                this.components.add(componentscatteredfeaturepieces$junglepyramid);
+            }
+            else if (SWAMP_BIOMES.contains(biome))
+            {
+                ComponentScatteredFeaturePieces.SwampHut componentscatteredfeaturepieces$swamphut = new ComponentScatteredFeaturePieces.SwampHut(random, chunkX * 16, chunkZ * 16);
+                this.components.add(componentscatteredfeaturepieces$swamphut);
+            }
+            else if (DESERT_BIOMES.contains(biome))
+            {
+                ComponentScatteredFeaturePieces.DesertPyramid componentscatteredfeaturepieces$desertpyramid = new ComponentScatteredFeaturePieces.DesertPyramid(random, chunkX * 16, chunkZ * 16);
+                this.components.add(componentscatteredfeaturepieces$desertpyramid);
+            }
+            else if (ICE_BIOMES.contains(biome))
+            {
+                ComponentScatteredFeaturePieces.Igloo componentscatteredfeaturepieces$igloo = new ComponentScatteredFeaturePieces.Igloo(random, chunkX * 16, chunkZ * 16);
+                this.components.add(componentscatteredfeaturepieces$igloo);
+            }
+
+            this.updateBoundingBox();
+        }
+    }
+
+
 }

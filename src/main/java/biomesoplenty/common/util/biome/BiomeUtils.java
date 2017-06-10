@@ -12,6 +12,8 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.google.common.base.Optional;
+import com.google.common.collect.Sets;
 import org.apache.commons.lang3.tuple.Pair;
 
 import com.google.common.base.Function;
@@ -68,19 +70,21 @@ public class BiomeUtils
     {
         return Lists.newArrayList(Biome.REGISTRY.iterator());
     }
-    
+
     public static BlockPos spiralOutwardsLookingForBiome(World world, Biome biomeToFind, double startX, double startZ)
     {
         int sampleSpacing = 4 << BiomeUtils.getBiomeSize(world);
         int maxDist = sampleSpacing * 100;
         return spiralOutwardsLookingForBiome(world, biomeToFind, startX, startZ, maxDist, sampleSpacing);
     }
-    
+
+    public static List<Biome> filterPresentBiomes(Optional<Biome>... biomes) { return Lists.newArrayList(Optional.presentInstances(Sets.newHashSet(biomes)));}
+
     // sample points in an archimedean spiral starting from startX,startY each one sampleSpace apart
     // stop when the specified biome is found (and return the position it was found at) or when we reach maxDistance (and return null)
     public static BlockPos spiralOutwardsLookingForBiome(World world, Biome biomeToFind, double startX, double startZ, int maxDist, int sampleSpace)
     {
-        
+
         if (maxDist <= 0 || sampleSpace <= 0) {throw new IllegalArgumentException("maxDist and sampleSpace must be positive");}
         BiomeProvider chunkManager = world.getBiomeProvider();
         double a = sampleSpace / Math.sqrt(Math.PI);
@@ -108,5 +112,5 @@ public class BiomeUtils
         BiomesOPlenty.logger.info("Failed to find "+biomeToFind.getBiomeName()+" gave up after "+n+" samples, spaced "+sampleSpace+" blocks apart distance "+((int)dist));
         return null;
     }
-    
+
 }
