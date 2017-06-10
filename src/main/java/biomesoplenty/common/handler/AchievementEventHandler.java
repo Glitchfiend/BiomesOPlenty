@@ -200,12 +200,6 @@ public class AchievementEventHandler
             player.addStat(BOPAchievements.craft_ambrosia);
         }
         
-        //Getting a Downgrade Achievement
-        if (item == BOPItems.mud_pickaxe)
-        {
-            player.addStat(BOPAchievements.craft_muddy_pickaxe);
-        }
-        
         //By Your Powers Combined Achievement
         if (item == BOPItems.terrestrial_artifact)
         {

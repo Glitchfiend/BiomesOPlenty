@@ -15,11 +15,5 @@ public class BOPMaterials
 {
     public static ArmorMaterial wading_boots_material;
     public static ArmorMaterial flippers_material;
-    public static ArmorMaterial plain_flower_band_material;
-    public static ArmorMaterial lush_flower_band_material;
-    public static ArmorMaterial exotic_flower_band_material;
-    public static ArmorMaterial dull_flower_band_material;
-    
-    public static ArmorMaterial mud_armor_material;
-    public static ToolMaterial mud_tool_material;
+    public static ArmorMaterial flower_band_material;
 }
