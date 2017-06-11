@@ -39,7 +39,7 @@ public class BiomeGenSacredSprings extends BOPOverworldBiome
         super("sacred_springs", new PropsBuilder("Sacred Springs").withGuiColour(39259).withTemperature(0.8F).withRainfall(0.9F));
 
         // terrain
-        this.terrainSettings.avgHeight(62).heightVariation(11, 45);
+        this.terrainSettings.avgHeight(64).heightVariation(10, 10);
         
         this.canSpawnInBiome = false;
         this.canGenerateRivers = false;
@@ -55,7 +55,7 @@ public class BiomeGenSacredSprings extends BOPOverworldBiome
         this.addGenerator("hot_springs", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.5F).liquid(BOPBlocks.hot_spring_water).frozenLiquid((IBlockState)null).create());
         
         // trees
-        this.addGenerator("sacred_oak_trees", GeneratorStage.POST, (new GeneratorBigTree.Builder()).amountPerChunk(0.2F).log(BOPWoods.SACRED_OAK).leaves(BlockBOPLeaves.paging.getVariantState(BOPTrees.SACRED_OAK).withProperty(BlockOldLeaf.DECAYABLE, Boolean.valueOf(false))).minHeight(35).maxHeight(40).trunkWidth(2).foliageDensity(2.0D).create());
+        this.addGenerator("sacred_oak_trees", GeneratorStage.POST, (new GeneratorBigTree.Builder()).amountPerChunk(0.4F).log(BOPWoods.SACRED_OAK).leaves(BlockBOPLeaves.paging.getVariantState(BOPTrees.SACRED_OAK).withProperty(BlockOldLeaf.DECAYABLE, Boolean.valueOf(false))).minHeight(35).maxHeight(40).trunkWidth(2).foliageDensity(2.0D).create());
         this.addGenerator("leaves_clusters", GeneratorStage.TREE, (new GeneratorBush.Builder()).amountPerChunk(12.5F).maxHeight(2).create());
         this.addGenerator("large_oak", GeneratorStage.TREE, (new GeneratorBigTree.Builder()).amountPerChunk(3.0F).log(BlockPlanks.EnumType.OAK).leaves(BlockPlanks.EnumType.OAK).altLeaves(BOPTrees.FLOWERING).create());
         
@@ -126,14 +126,12 @@ public class BiomeGenSacredSprings extends BOPOverworldBiome
     @Override
     public int getGrassColorAtPos(BlockPos pos)
     {
-        double noise = GRASS_COLOR_NOISE.getValue((double)pos.getX() * 0.0225D, (double)pos.getZ() * 0.0225D);
-        return noise < -0.1D ? 39285 : 39259;
+        return 39285;
     }
-
+    
     @Override
     public int getFoliageColorAtPos(BlockPos pos)
     {
-        double noise = GRASS_COLOR_NOISE.getValue((double)pos.getX() * 0.0225D, (double)pos.getZ() * 0.0225D);
-        return noise < -0.1D ? 39285 : 39259;
+        return 39285;
     }
 }

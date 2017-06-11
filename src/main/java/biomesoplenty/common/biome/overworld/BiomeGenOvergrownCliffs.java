@@ -8,12 +8,18 @@
 
 package biomesoplenty.common.biome.overworld;
 
+import java.util.Random;
+
+import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.config.IBOPWorldSettings;
+import biomesoplenty.api.config.IConfigObj;
 import biomesoplenty.api.config.IBOPWorldSettings.GeneratorType;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.enums.BOPFlowers;
 import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.generation.GeneratorStage;
+import biomesoplenty.common.block.BlockBOPDirt;
+import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.world.generator.GeneratorFlora;
 import biomesoplenty.common.world.generator.GeneratorGrass;
 import biomesoplenty.common.world.generator.GeneratorOreSingle;
@@ -24,11 +30,19 @@ import biomesoplenty.common.world.generator.tree.GeneratorTwigletTree;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+import net.minecraft.world.chunk.ChunkPrimer;
 
 public class BiomeGenOvergrownCliffs extends BOPOverworldBiome
 {
+    public IBlockState usualTopBlock;
+    public IBlockState usualFillerBlock;
+    public IBlockState alternateTopBlock;
+    public IBlockState alternateFillerBlock;
+    
     public BiomeGenOvergrownCliffs()
     {
         super("overgrown_cliffs", new PropsBuilder("Overgrown Cliffs").withGuiColour(8373350).withTemperature(0.95F).withRainfall(0.75F));
@@ -39,6 +53,13 @@ public class BiomeGenOvergrownCliffs extends BOPOverworldBiome
         this.canGenerateRivers = false;
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
+        
+        this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.OVERGROWN_STONE);
+        this.fillerBlock = Blocks.STONE.getDefaultState();
+        this.usualTopBlock = this.topBlock;
+        this.usualFillerBlock = this.fillerBlock;
+        this.alternateTopBlock = Blocks.GRASS.getDefaultState();
+        this.alternateFillerBlock = Blocks.DIRT.getDefaultState();
         
         this.addWeight(BOPClimates.TROPICAL, 2);
         
@@ -79,6 +100,17 @@ public class BiomeGenOvergrownCliffs extends BOPOverworldBiome
     }
     
     @Override
+    public void configure(IConfigObj conf)
+    {
+        super.configure(conf);
+        
+        this.usualTopBlock = this.topBlock;
+        this.usualFillerBlock = this.fillerBlock;
+        this.alternateTopBlock = conf.getBlockState("alternateTopBlock", this.alternateTopBlock);
+        this.alternateFillerBlock = conf.getBlockState("alternateFillerBlock", this.alternateFillerBlock);
+    }
+    
+    @Override
     public void applySettings(IBOPWorldSettings settings)
     {
         if (!settings.isEnabled(GeneratorType.MUSHROOMS)) {this.removeGenerator("glowshrooms");}
@@ -106,5 +138,13 @@ public class BiomeGenOvergrownCliffs extends BOPOverworldBiome
         
         GeneratorWeighted grassGen = (GeneratorWeighted)this.getGenerator("grass");
         if (!settings.isEnabled(GeneratorType.GRASSES)) {grassGen.removeGenerator("shortgrass"); grassGen.removeGenerator("mediumgrass"); grassGen.removeGenerator("wheatgrass"); grassGen.removeGenerator("dampgrass");}
+    }
+    
+    @Override
+    public void genTerrainBlocks(World world, Random rand, ChunkPrimer primer, int x, int z, double noise)
+    {
+        this.topBlock = (noise + rand.nextDouble() * 1.0D > 1.8D) ? this.alternateTopBlock : this.usualTopBlock;
+        this.fillerBlock = (noise + rand.nextDouble() * 1.0D > 1.8D) ? this.alternateFillerBlock : this.usualFillerBlock;
+        super.genTerrainBlocks(world, rand, primer, x, z, noise);
     }
 }

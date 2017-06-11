@@ -21,6 +21,7 @@ import biomesoplenty.api.enums.BOPWoods;
 import biomesoplenty.api.config.IConfigObj;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.block.BlockBOPCoral;
+import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.world.generator.GeneratorColumns;
@@ -65,7 +66,7 @@ public class BiomeGenOasis extends BOPOverworldBiome
         clearWeights();
         
         // oases
-        this.addGenerator("oases", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(20).maxRadius(7).replace(Blocks.SAND.getDefaultState()).with(Blocks.GRASS.getDefaultState()).create());
+        this.addGenerator("oases", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(20).maxRadius(7).replace(Blocks.SAND.getDefaultState()).with(BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SANDY)).create());
         
         // lakes
         this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(1.5F).waterLakeForBiome(this).create());

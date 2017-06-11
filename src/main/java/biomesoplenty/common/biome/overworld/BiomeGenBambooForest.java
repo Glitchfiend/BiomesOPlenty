@@ -138,18 +138,15 @@ if (!settings.isEnabled(GeneratorType.MUSHROOMS)) {this.removeGenerator("glowshr
         super.genTerrainBlocks(world, rand, primer, x, z, noise);
     }
     
-    
     @Override
     public int getGrassColorAtPos(BlockPos pos)
     {
-        double noise = GRASS_COLOR_NOISE.getValue((double)pos.getX() * 0.0225D, (double)pos.getZ() * 0.0225D);
-        return noise < -0.7D ? 0xD4DB55 : (noise < -0.3D ? 0xBBDD54 : 0xA3E053);
+        return 0xBBDD54;
     }
     
     @Override
     public int getFoliageColorAtPos(BlockPos pos)
     {
-        double noise = GRASS_COLOR_NOISE.getValue((double)pos.getX() * 0.0225D, (double)pos.getZ() * 0.0225D);
-        return noise < -0.7D ? 0xD4DB55 : (noise < -0.3D ? 0xBBDD54 : 0xA3E053);
+        return 0xBBDD54;
     }
 }

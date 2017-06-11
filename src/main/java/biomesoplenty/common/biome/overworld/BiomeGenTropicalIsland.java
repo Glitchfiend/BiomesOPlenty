@@ -34,6 +34,7 @@ import net.minecraft.block.BlockOldLeaf;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.math.BlockPos;
  
 public class BiomeGenTropicalIsland extends BOPOverworldBiome
 {

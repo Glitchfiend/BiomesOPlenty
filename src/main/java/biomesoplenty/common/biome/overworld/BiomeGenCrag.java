@@ -43,7 +43,7 @@ public class BiomeGenCrag extends BOPOverworldBiome
         
         this.beachBiomeLocation = null;
 
-        this.addWeight(BOPClimates.COLD_SWAMP, 1);
+        this.addWeight(BOPClimates.COLD_SWAMP, 2);
 
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();

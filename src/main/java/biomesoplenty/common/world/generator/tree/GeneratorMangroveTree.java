@@ -60,10 +60,10 @@ public class GeneratorMangroveTree extends GeneratorTreeBase
             this.altLeaves = null;
             this.minHeight = 8;
             this.maxHeight = 10;
-            this.minLeavesRadius = 1;
-            this.leavesGradient = 1;
+            this.minLeavesRadius = 4;
+            this.leavesGradient = 4;
             this.vineAttempts = 20;
-            this.maxVineLength = 20;
+            this.maxVineLength = 2;
             this.scatterYMethod = ScatterYMethod.AT_SURFACE;
         }
 
@@ -136,7 +136,7 @@ public class GeneratorMangroveTree extends GeneratorTreeBase
         for (int y = rootHeight; y <= height; y++)
         {
             // require 1x1 for the trunk, 3x3 for the leaves
-            int radius = (y <= (rootHeight + middleHeight) ? 0 : 1);                        
+            int radius = (y <= (rootHeight + middleHeight) ? 1 : 2);                        
             for (int x = -radius; x <= radius; x++)
             {
                 for (int z = -radius; z <= radius; z++)
@@ -215,7 +215,7 @@ public class GeneratorMangroveTree extends GeneratorTreeBase
         int height = GeneratorUtils.nextIntBetween(random, this.minHeight, this.maxHeight);
         
         int topHeight = Math.min(6, GeneratorUtils.nextIntBetween(random, height / 5, height / 3));
-        int rootHeight = Math.min(5, GeneratorUtils.nextIntBetween(random, height / 4, height / 2));
+        int rootHeight = Math.min(5, GeneratorUtils.nextIntBetween(random, height / 3, height / 2));
         int middleHeight = height - topHeight - rootHeight;
         if (middleHeight < 1) {return false;}
         
@@ -262,7 +262,7 @@ public class GeneratorMangroveTree extends GeneratorTreeBase
             EnumFacing sideways = direction.rotateY();
             
             // choose a random starting point somewhere just outside the boundary of the tree
-            BlockPos pos = startPos.up(GeneratorUtils.nextIntBetween(rand, 2, height)).offset(direction, leavesRadius + 1).offset(sideways, GeneratorUtils.nextIntBetween(rand, -leavesRadius, leavesRadius));
+            BlockPos pos = startPos.up(GeneratorUtils.nextIntBetween(rand, 2, height)).offset(direction, leavesRadius).offset(sideways, GeneratorUtils.nextIntBetween(rand, -leavesRadius, leavesRadius));
             
             // move back towards the center until we meet a leaf or log, then stick a vine on it
             IBlockState state;

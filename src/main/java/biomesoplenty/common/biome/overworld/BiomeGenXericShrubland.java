@@ -56,29 +56,29 @@ public class BiomeGenXericShrubland extends BOPOverworldBiome
         this.canSpawnInBiome = false;
         this.canGenerateVillages = true;
         
-        this.addWeight(BOPClimates.SAVANNA, 1);
+        this.addWeight(BOPClimates.HOT_DESERT, 3);
         
         this.spawnableCreatureList.clear();
         
         // trees & logs
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(5.0F);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(2.0F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);        
-        treeGenerator.add("brush_twiglet", 1, (new GeneratorTwigletTree.Builder()).placeOn(this.topBlock).minHeight(1).maxHeight(2).log(BlockPlanks.EnumType.ACACIA).leaves(BlockPlanks.EnumType.ACACIA).create());        
-        treeGenerator.add("brush_bush", 3, (new GeneratorFlora.Builder()).placeOn(this.topBlock).replace(Material.AIR).withNonDecayingLeaf(BlockPlanks.EnumType.ACACIA).create());
-        treeGenerator.add("oak_bush", 2, (new GeneratorBush.Builder()).maxHeight(2).create());
+        treeGenerator.add("brush_twiglet", 2, (new GeneratorTwigletTree.Builder()).placeOn(this.topBlock).minHeight(1).maxHeight(2).log(BlockPlanks.EnumType.ACACIA).leaves(BlockPlanks.EnumType.ACACIA).create());        
+        treeGenerator.add("brush_bush", 1, (new GeneratorFlora.Builder()).placeOn(this.topBlock).replace(Material.AIR).withNonDecayingLeaf(BlockPlanks.EnumType.ACACIA).create());
+        treeGenerator.add("oak_bush", 3, (new GeneratorBush.Builder()).maxHeight(2).create());
         
         // other plants
-        this.addGenerator("dunegrass", GeneratorStage.GRASS, (new GeneratorGrass.Builder()).amountPerChunk(6.0F).with(BOPPlants.DUNEGRASS).generationAttempts(8).create());
-        this.addGenerator("desertgrass", GeneratorStage.GRASS, (new GeneratorGrass.Builder()).amountPerChunk(12.0F).with(BOPPlants.DESERTGRASS).generationAttempts(8).create());
-        this.addGenerator("desert_sprouts", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.5F).with(BOPPlants.DESERTSPROUTS).generationAttempts(8).create());
+        this.addGenerator("dunegrass", GeneratorStage.GRASS, (new GeneratorGrass.Builder()).amountPerChunk(30.0F).with(BOPPlants.DUNEGRASS).generationAttempts(8).create());
+        this.addGenerator("desertgrass", GeneratorStage.GRASS, (new GeneratorGrass.Builder()).amountPerChunk(1.2F).with(BOPPlants.DESERTGRASS).generationAttempts(8).create());
+        this.addGenerator("desert_sprouts", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(5.5F).with(BOPPlants.DESERTSPROUTS).generationAttempts(8).create());
         this.addGenerator("bromeliad", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder().amountPerChunk(0.5F).with(BOPFlowers.BROMELIAD).generationAttempts(8).create()));
-        this.addGenerator("bushes", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.8F).with(BOPPlants.BUSH).create());
-        this.addGenerator("tiny_cacti", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(0.9F).with(BOPPlants.TINYCACTUS).create());
-        this.addGenerator("dead_bushes", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(1.0F).with(Blocks.DEADBUSH.getDefaultState()).create());
-        this.addGenerator("cacti", GeneratorStage.FLOWERS,(new GeneratorColumns.Builder()).amountPerChunk(1.5F).generationAttempts(3).placeOn(this.topBlock).with(Blocks.CACTUS.getDefaultState()).minHeight(1).maxHeight(2).create());
+        this.addGenerator("bushes", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.8F).with(BOPPlants.BUSH).create());
+        this.addGenerator("tiny_cacti", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BOPPlants.TINYCACTUS).create());
+        this.addGenerator("dead_bushes", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(Blocks.DEADBUSH.getDefaultState()).create());
+        this.addGenerator("cacti", GeneratorStage.FLOWERS,(new GeneratorColumns.Builder()).amountPerChunk(0.5F).generationAttempts(3).placeOn(this.topBlock).with(Blocks.CACTUS.getDefaultState()).minHeight(1).maxHeight(2).create());
         
         // grasses (note weighting must be quite high as the grasses will only grow on the splattered grass blocks)
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(12.0F);
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(1.8F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("shortgrass", 7, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
         grassGenerator.add("mediumgrass", 2, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());
@@ -125,7 +125,7 @@ public class BiomeGenXericShrubland extends BOPOverworldBiome
     @Override
     public void genTerrainBlocks(World world, Random rand, ChunkPrimer primer, int x, int z, double noise)
     {
-        this.topBlock = (noise + rand.nextDouble() * 1.0D > 1.8D) ? this.alternateTopBlock : this.usualTopBlock;
+        this.topBlock = (noise + rand.nextDouble() * 1.0D > 2.5D) ? this.alternateTopBlock : this.usualTopBlock;
         super.genTerrainBlocks(world, rand, primer, x, z, noise);
     }
     

@@ -139,14 +139,12 @@ public class BiomeGenTropicalRainforest extends BOPOverworldBiome
     @Override
     public int getGrassColorAtPos(BlockPos pos)
     {
-        double noise = GRASS_COLOR_NOISE.getValue((double)pos.getX() * 0.0225D, (double)pos.getZ() * 0.0225D);
-        return noise < -0.1D ? 11002176 : 12836929;
+        return 0xA7E140;
     }
-
+    
     @Override
     public int getFoliageColorAtPos(BlockPos pos)
     {
-        double noise = GRASS_COLOR_NOISE.getValue((double)pos.getX() * 0.0225D, (double)pos.getZ() * 0.0225D);
-        return noise < -0.1D ? 8970560 : 10870849;
+        return 0x88E140;
     }
 }

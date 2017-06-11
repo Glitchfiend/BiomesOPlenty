@@ -14,16 +14,18 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.api.config.IBOPWorldSettings;
 import biomesoplenty.api.config.IBOPWorldSettings.GeneratorType;
+import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.enums.BOPGems;
 import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.api.enums.BOPWoods;
-import biomesoplenty.api.config.IConfigObj;
 import biomesoplenty.api.generation.GeneratorStage;
+import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.world.generator.GeneratorLakes;
 import biomesoplenty.common.world.generator.GeneratorOreSingle;
 import biomesoplenty.common.world.generator.GeneratorWeighted;
 import biomesoplenty.common.world.generator.tree.GeneratorMangroveTree;
+import net.minecraft.block.BlockOldLeaf;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -33,22 +35,19 @@ import net.minecraft.world.chunk.ChunkPrimer;
  
 public class BiomeGenMangrove extends BOPOverworldBiome
 {
-	public IBlockState usualTopBlock;
-    public IBlockState alternateTopBlock;
-    
     public BiomeGenMangrove()
     {
         super("mangrove", new PropsBuilder("Mangrove").withTemperature(0.8F).withRainfall(0.3F).withGuiColour(7251289).withWaterColor(0xCDFF51));
 
         // terrain
-        this.terrainSettings.avgHeight(62).heightVariation(2, 4).octaves(0, 1, 2, 2, 1, 0);
+        this.terrainSettings.avgHeight(62).heightVariation(8, 2).octaves(0, 1, 2, 2, 1, 0);
+        
+        this.addWeight(BOPClimates.HOT_SWAMP, 7);
         
         this.seaFloorBlock = BOPBlocks.mud.getDefaultState();
         
         this.topBlock = BOPBlocks.mud.getDefaultState();
         this.fillerBlock = BOPBlocks.mud.getDefaultState();
-        this.usualTopBlock = this.topBlock;
-        this.alternateTopBlock = Blocks.SAND.getDefaultState();
     
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
@@ -58,28 +57,17 @@ public class BiomeGenMangrove extends BOPOverworldBiome
         
         this.beachBiomeLocation = null;
         
-        clearWeights();
-        
         // quicksand
         this.addGenerator("quicksand", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.2F).liquid(BOPBlocks.sand).frozenLiquid((IBlockState)null).create());
         
         // trees & logs
-        IBlockPosQuery emptySandMud = BlockQuery.buildAnd().states(this.usualTopBlock).create();
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(7);
+        IBlockPosQuery emptyMud = BlockQuery.buildAnd().states(this.topBlock).create();
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(5);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("mangrove", 1, (new GeneratorMangroveTree.Builder()).placeOn(emptySandMud).log(BOPWoods.MANGROVE).leaves(BOPTrees.MANGROVE).create());
+        treeGenerator.add("mangrove", 1, (new GeneratorMangroveTree.Builder()).placeOn(emptyMud).log(BOPWoods.MANGROVE).leaves(BOPTrees.MANGROVE).create());
         
         // gem
         this.addGenerator("sapphire", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.SAPPHIRE).create()); 
-    }
-    
-    @Override
-    public void configure(IConfigObj conf)
-    {
-        super.configure(conf);
-        
-        this.usualTopBlock = this.topBlock;
-        this.alternateTopBlock = conf.getBlockState("alternateTopBlock", this.alternateTopBlock);
     }
     
     @Override
@@ -105,8 +93,6 @@ public class BiomeGenMangrove extends BOPOverworldBiome
                 }
             }
         }
-        
-        this.topBlock = (noise + rand.nextDouble() * 1.0D > 1.8D) ? this.alternateTopBlock : this.usualTopBlock;
 
         this.generateBiomeTerrain(world, rand, primer, x, z, noise);
     }
@@ -125,10 +111,10 @@ public class BiomeGenMangrove extends BOPOverworldBiome
         GeneratorWeighted treeGen = (GeneratorWeighted)this.getGenerator("trees");
         if (!settings.isEnabled(GeneratorType.TREES)) {this.removeGenerator("trees");
         
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(7.0F);
-        IBlockPosQuery emptySandMud = BlockQuery.buildAnd().states(this.usualTopBlock).create();
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(5);
+        IBlockPosQuery emptyMud = BlockQuery.buildAnd().states(this.topBlock).create();
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("mangrove", 1, (new GeneratorMangroveTree.Builder()).placeOn(emptySandMud).log(BlockPlanks.EnumType.OAK).leaves(BlockPlanks.EnumType.OAK).create());
+        treeGenerator.add("mangrove", 1, (new GeneratorMangroveTree.Builder()).placeOn(emptyMud).log(BlockPlanks.EnumType.OAK).leaves(BlockPlanks.EnumType.OAK).create());
         }
         
         if (!settings.isEnabled(GeneratorType.FOLIAGE)) {this.removeGenerator("bushes"); this.removeGenerator("koru"); this.removeGenerator("shrubs"); this.removeGenerator("leaf_piles"); this.removeGenerator("dead_leaf_piles"); this.removeGenerator("clover_patches"); this.removeGenerator("sprouts");}

@@ -83,7 +83,7 @@ public enum BOPClimates {
         BOPClimates.TROPICAL.addBiome(15, Biomes.JUNGLE);
         BOPClimates.MEDITERANEAN.addBiome(5, Biomes.PLAINS);
         BOPClimates.SAVANNA.addBiome(20, Biomes.SAVANNA);
-        BOPClimates.HOT_DESERT.addBiome(30, Biomes.DESERT).addBiome(10, Biomes.MESA_CLEAR_ROCK);
+        BOPClimates.HOT_DESERT.addBiome(30, Biomes.DESERT).addBiome(15, Biomes.MESA_CLEAR_ROCK);
         BOPClimates.WASTELAND.addBiome(1, Biomes.DESERT);
         BOPClimates.HELL.addBiome(150, Biomes.HELL);
     }

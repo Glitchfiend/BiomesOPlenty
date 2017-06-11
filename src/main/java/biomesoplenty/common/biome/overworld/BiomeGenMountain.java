@@ -51,7 +51,7 @@ import net.minecraft.world.chunk.ChunkPrimer;
 public class BiomeGenMountain extends BOPOverworldBiome
 {
     
-    public static enum MountainType {PEAKS, FOOTHILLS}
+    public static enum MountainType {MOUNTAIN, MOUNTAIN_FOOTHILLS}
     
     public MountainType type;
     public IBlockState grassBlock;
@@ -61,8 +61,8 @@ public class BiomeGenMountain extends BOPOverworldBiome
         
     public BiomeGenMountain(MountainType type)
     {
-        super("mountain_" + type.name().toLowerCase(), new PropsBuilder("Mountain " + CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, type.toString())).withGuiColour(0x80A355).withTemperature(0.8F).withRainfall(0.1F));
-
+        super(type.name().toLowerCase(), new PropsBuilder(CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, type.toString())).withGuiColour(0x80A355).withTemperature(0.5F).withRainfall(0.1F));
+        
         this.type = type;
         
         this.canSpawnInBiome = false;
@@ -70,11 +70,11 @@ public class BiomeGenMountain extends BOPOverworldBiome
         // terrain
         switch (type)
         {
-            case PEAKS:
+            case MOUNTAIN:
                 this.terrainSettings.avgHeight(140).heightVariation(30, 60).octaves(1, 1, 2, 2, 3, 3).sidewaysNoise(0.1D); 
                 break;
                 
-            case FOOTHILLS:
+            case MOUNTAIN_FOOTHILLS:
                 this.terrainSettings.avgHeight(100).heightVariation(15, 30).octaves(0, 1, 1, 3, 1, 0).sidewaysNoise(0.1D); 
                 this.hasBiomeEssence = false;
                 break;
@@ -86,7 +86,7 @@ public class BiomeGenMountain extends BOPOverworldBiome
         
         this.beachBiomeLocation = null;
         
-        if (type == MountainType.PEAKS)
+        if (type == MountainType.MOUNTAIN)
         {
             this.canGenerateVillages = false;
             
@@ -102,14 +102,9 @@ public class BiomeGenMountain extends BOPOverworldBiome
         
         this.topBlock = Blocks.GRASS.getDefaultState();
         this.fillerBlock = Blocks.DIRT.getDefaultState();
-        this.grassBlock = this.topBlock;
-        this.dirtBlock = this.fillerBlock;
-        this.coarseDirtBlock = Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.COARSE_DIRT);
-        this.stoneBlock = Blocks.STONE.getDefaultState();
         
         // gravel
         this.addGenerator("gravel", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(6).maxRadius(7).with(Blocks.GRAVEL.getDefaultState()).create());
-        this.addGenerator("gravel_patches", GeneratorStage.SAND_PASS2, (new GeneratorSplotches.Builder()).amountPerChunk(2).splotchSize(16).replace(this.topBlock).with(Blocks.GRAVEL.getDefaultState()).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
       
         // lakes
         this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(1.8F).waterLakeForBiome(this).create());        
@@ -131,15 +126,14 @@ public class BiomeGenMountain extends BOPOverworldBiome
         grassGenerator.add("dampgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.DAMPGRASS).generationAttempts(128).create());
 
         // other plants
-        this.addGenerator("shrubs", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).with(BOPPlants.SHRUB).generationAttempts(type == MountainType.FOOTHILLS ? 64 : 32).create());
-        this.addGenerator("ferns", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(2.0F).with(BlockTallGrass.EnumType.FERN).generationAttempts(type == MountainType.FOOTHILLS ? 64 : 32).create());
+        this.addGenerator("shrubs", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).with(BOPPlants.SHRUB).generationAttempts(type == MountainType.MOUNTAIN_FOOTHILLS ? 64 : 32).create());
         this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.8F).placeOn(BlockQueries.fertile).with(BOPPlants.LEAFPILE).create());
         this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.2F).placeOn(BlockQueries.fertile).with(BOPPlants.DEADLEAFPILE).create());
         
-        if (type == MountainType.FOOTHILLS)
+        if (type == MountainType.MOUNTAIN_FOOTHILLS)
         {
             this.addGenerator("flax", GeneratorStage.FLOWERS, (new GeneratorDoubleFlora.Builder()).amountPerChunk(0.1F).with(BlockBOPDoublePlant.DoublePlantType.FLAX).create());
-            this.addGenerator("berry_bushes", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.3F).with(BOPPlants.BERRYBUSH).create());
+            this.addGenerator("berry_bushes", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(BOPPlants.BERRYBUSH).create());
             this.addGenerator("water_reeds", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.4F).with(BOPPlants.REED).generationAttempts(32).create());
         }
         
@@ -148,19 +142,6 @@ public class BiomeGenMountain extends BOPOverworldBiome
         // gem
         this.addGenerator("emeralds", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(Blocks.EMERALD_ORE.getDefaultState()).create());
    
-    }
-    
-    @Override
-    public void configure(IConfigObj conf)
-    {
-        super.configure(conf);
-        
-        this.grassBlock = this.topBlock;
-        this.dirtBlock = this.fillerBlock;        
-        this.coarseDirtBlock = conf.getBlockState("coarseDirtBlock", this.coarseDirtBlock);
-        this.stoneBlock = conf.getBlockState("stoneBlock", this.stoneBlock);
-        //this.snowBlock = conf.getBlockState("snowBlock", this.snowBlock);
-        //this.packedSnowBlock = conf.getBlockState("packedSnowBlock", this.packedSnowBlock);
     }
     
     @Override
@@ -194,50 +175,4 @@ public class BiomeGenMountain extends BOPOverworldBiome
         GeneratorWeighted grassGen = (GeneratorWeighted)this.getGenerator("grass");
         if (!settings.isEnabled(GeneratorType.GRASSES)) {grassGen.removeGenerator("shortgrass"); grassGen.removeGenerator("mediumgrass"); grassGen.removeGenerator("wheatgrass"); grassGen.removeGenerator("dampgrass");}
     }
-    
-    
-    
-    @Override
-    public void genTerrainBlocks(World world, Random rand, ChunkPrimer primer, int x, int z, double noise)
-    {
-        int localX = x & 15;
-        int localZ = z & 15;
-        int height = 255;
-        while (height > 0 && primer.getBlockState(localX, height, localZ).getMaterial() == Material.AIR) {height--;}
-        int peakLine = 140 + (int)(noise * 5);
-        
-        if (height > peakLine)
-        {
-            if (noise > 1.7D)
-            {
-                this.topBlock = this.stoneBlock;
-                this.fillerBlock = this.stoneBlock;
-            }
-            else
-            {
-                this.topBlock = this.grassBlock;
-                this.fillerBlock = this.dirtBlock;
-            }
-        }
-        else
-        {
-            if (noise < -1.4D) 
-            {
-                this.topBlock = this.coarseDirtBlock;
-                this.fillerBlock = this.coarseDirtBlock;
-            }
-            else if (this.type == MountainType.PEAKS && noise > 1.7D)
-            {
-                this.topBlock = this.stoneBlock;
-                this.fillerBlock = this.stoneBlock;
-            }
-            else
-            {
-                this.topBlock = this.grassBlock;
-                this.fillerBlock = this.dirtBlock;
-            }
-        }
-        super.genTerrainBlocks(world, rand, primer, x, z, noise);
-    }
-    
 }

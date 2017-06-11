@@ -43,12 +43,12 @@ public class BOPBiomes
     public static Optional<Biome> flower_field = Optional.absent();
     public static Optional<Biome> grassland = Optional.absent();    
     public static Optional<Biome> grove = Optional.absent();
-    public static Optional<Biome> heathland = Optional.absent();    
     public static Optional<Biome> highland = Optional.absent();
     public static Optional<Biome> land_of_lakes = Optional.absent();
     public static Optional<Biome> lavender_fields = Optional.absent();
     public static Optional<Biome> lush_desert = Optional.absent();
     public static Optional<Biome> lush_swamp = Optional.absent();
+    public static Optional<Biome> mangrove = Optional.absent();
     public static Optional<Biome> maple_woods = Optional.absent();
     public static Optional<Biome> marsh = Optional.absent();
     public static Optional<Biome> meadow = Optional.absent();
@@ -79,12 +79,12 @@ public class BOPBiomes
     public static Optional<Biome> xeric_shrubland = Optional.absent();
     
     // edge-biomes, sub-biomes and mutated-biomes
+    public static Optional<Biome> alps_foothills = Optional.absent();
     public static Optional<Biome> mountain_foothills = Optional.absent();
     public static Optional<Biome> glacier = Optional.absent();
     public static Optional<Biome> oasis = Optional.absent();
     public static Optional<Biome> coral_reef = Optional.absent();
     public static Optional<Biome> kelp_forest = Optional.absent();
-    public static Optional<Biome> mangrove = Optional.absent();
     public static Optional<Biome> origin_island = Optional.absent();
     public static Optional<Biome> tropical_island = Optional.absent();
     public static Optional<Biome> volcanic_island = Optional.absent();

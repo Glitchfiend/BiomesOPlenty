@@ -48,10 +48,10 @@ public class BiomeGenMapleWoods extends BOPOverworldBiome
         this.addGenerator("gravel", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(6).maxRadius(7).with(Blocks.GRAVEL.getDefaultState()).create());
         
         // trees & logs
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(20);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(15);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("maple", 4, (new GeneratorBasicTree.Builder()).log(BlockPlanks.EnumType.OAK).leaves(BOPTrees.MAPLE).minHeight(5).maxHeight(10).create());
-        treeGenerator.add("spruce", 2, (new GeneratorTaigaTree.Builder()).minHeight(10).maxHeight(19).create()); // TODO: implement pine cones
+        treeGenerator.add("maple", 5, (new GeneratorBasicTree.Builder()).log(BlockPlanks.EnumType.OAK).leaves(BOPTrees.MAPLE).minHeight(5).maxHeight(10).create());
+        treeGenerator.add("spruce", 1, (new GeneratorTaigaTree.Builder()).minHeight(10).maxHeight(19).create()); // TODO: implement pine cones
  
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(1.2F);

@@ -31,7 +31,7 @@ public class BiomeGenHighland extends BOPOverworldBiome
         super("highland", new PropsBuilder("Highland").withGuiColour(0x7CAD66).withTemperature(0.55F).withRainfall(0.8F));
 
         // terrain
-        this.terrainSettings.avgHeight(120).heightVariation(25, 25);
+        this.terrainSettings.avgHeight(100).heightVariation(35, 35).octaves(0, 1, 1, 3, 1, 0);
         
         this.canGenerateRivers = false;
         this.canGenerateVillages = false;

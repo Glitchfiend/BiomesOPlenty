@@ -59,7 +59,7 @@ public class BiomeGenRedwoodForest extends BOPOverworldBiome
         this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.SAND.getDefaultState()).create());
         
         // trees
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(15.0F);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(17.0F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("redwood", 3, (new GeneratorRedwoodTree.Builder()).log(BOPWoods.REDWOOD).leaves(BOPTrees.REDWOOD).create());
         treeGenerator.add("redwood_thin", 1, (new GeneratorRedwoodTreeThin.Builder()).log(BOPWoods.REDWOOD).leaves(BOPTrees.REDWOOD).create());

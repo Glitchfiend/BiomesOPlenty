@@ -20,6 +20,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.apache.commons.io.FileUtils;
+
 import com.google.common.base.Optional;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
@@ -58,7 +60,6 @@ import biomesoplenty.common.biome.overworld.BiomeGenGlacier;
 import biomesoplenty.common.biome.overworld.BiomeGenGrassland;
 import biomesoplenty.common.biome.overworld.BiomeGenGravelBeach;
 import biomesoplenty.common.biome.overworld.BiomeGenGrove;
-import biomesoplenty.common.biome.overworld.BiomeGenHeathland;
 import biomesoplenty.common.biome.overworld.BiomeGenHighland;
 import biomesoplenty.common.biome.overworld.BiomeGenKelpForest;
 import biomesoplenty.common.biome.overworld.BiomeGenLandOfLakes;
@@ -141,7 +142,6 @@ import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.DimensionManager;
-import org.apache.commons.io.FileUtils;
 
 public class ModBiomes implements BOPBiomes.IBiomeRegistry
 {
@@ -264,7 +264,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         white_beach = registerOverworldBiome(new BiomeGenWhiteBeach());
         
         // normal biomes which have weights
-        alps = registerOverworldBiome(new BiomeGenAlps());
+        alps = registerOverworldBiome(new BiomeGenAlps(BiomeGenAlps.AlpsType.ALPS));
         bamboo_forest = registerOverworldBiome(new BiomeGenBambooForest());
         bayou = registerOverworldBiome(new BiomeGenBayou());
         bog = registerOverworldBiome(new BiomeGenBog());
@@ -282,17 +282,17 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         flower_field = registerOverworldBiome(new BiomeGenFlowerField());
         grassland = registerOverworldBiome(new BiomeGenGrassland());
         grove = registerOverworldBiome(new BiomeGenGrove());
-        heathland = registerOverworldBiome(new BiomeGenHeathland());
         highland = registerOverworldBiome(new BiomeGenHighland());
         land_of_lakes = registerOverworldBiome(new BiomeGenLandOfLakes());
         lavender_fields = registerOverworldBiome(new BiomeGenLavenderFields());
         lush_desert = registerOverworldBiome(new BiomeGenLushDesert());
         lush_swamp = registerOverworldBiome(new BiomeGenLushSwamp());
+        mangrove = registerOverworldBiome(new BiomeGenMangrove());
         maple_woods = registerOverworldBiome(new BiomeGenMapleWoods());
         marsh = registerOverworldBiome(new BiomeGenMarsh());
         meadow = registerOverworldBiome(new BiomeGenMeadow());
         moor = registerOverworldBiome(new BiomeGenMoor());
-        mountain = registerOverworldBiome(new BiomeGenMountain(BiomeGenMountain.MountainType.PEAKS));
+        mountain = registerOverworldBiome(new BiomeGenMountain(BiomeGenMountain.MountainType.MOUNTAIN));
         mystic_grove = registerOverworldBiome(new BiomeGenMysticGrove());
         ominous_woods = registerOverworldBiome(new BiomeGenOminousWoods());
         orchard = registerOverworldBiome(new BiomeGenOrchard());
@@ -319,7 +319,8 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         
         // edge-biomes, sub-biomes and mutated-biomes
         
-        mountain_foothills = registerOverworldBiome(new BiomeGenMountain(BiomeGenMountain.MountainType.FOOTHILLS));
+        alps_foothills = registerOverworldBiome(new BiomeGenAlps(BiomeGenAlps.AlpsType.ALPS_FOOTHILLS));
+        mountain_foothills = registerOverworldBiome(new BiomeGenMountain(BiomeGenMountain.MountainType.MOUNTAIN_FOOTHILLS));
         glacier = registerOverworldBiome(new BiomeGenGlacier());
         oasis = registerOverworldBiome(new BiomeGenOasis());
         coral_reef = registerOverworldBiome(new BiomeGenCoralReef());
@@ -332,7 +333,6 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
 
         // island biomes
         
-        mangrove = registerOverworldBiome(new BiomeGenMangrove());
         origin_island = registerOverworldBiome(new BiomeGenOriginIsland());
         tropical_island = registerOverworldBiome(new BiomeGenTropicalIsland());
         volcanic_island = registerOverworldBiome(new BiomeGenVolcanicIsland());
@@ -342,7 +342,6 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         addIslandBiome(tropical_island, 3);
         addIslandBiome(volcanic_island, 5);
         addIslandBiome(flower_island, 7);
-        addIslandBiome(mangrove, 10);
 
         // nether biomes
         corrupted_sands = registerNetherBiome(new BiomeCorruptedSands());
@@ -409,13 +408,13 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         registerBiomeToDictionary(BOPBiomes.fen, Type.SWAMP, Type.FOREST, Type.COLD, Type.DEAD, Type.WET, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.flower_field, Type.PLAINS, Type.LUSH);
         registerBiomeToDictionary(BOPBiomes.grassland, Type.PLAINS, Type.HILLS, Type.WET);    
-        registerBiomeToDictionary(BOPBiomes.grove, Type.FOREST, Type.PLAINS, Type.LUSH, Type.WET, Type.SPARSE);
-        registerBiomeToDictionary(BOPBiomes.heathland, Type.PLAINS, Type.FOREST, Type.DRY, Type.SPARSE);    
+        registerBiomeToDictionary(BOPBiomes.grove, Type.FOREST, Type.PLAINS, Type.LUSH, Type.WET, Type.SPARSE);   
         registerBiomeToDictionary(BOPBiomes.highland, Type.MOUNTAIN, Type.HILLS, Type.WET);
         registerBiomeToDictionary(BOPBiomes.land_of_lakes, Type.FOREST, Type.SWAMP, Type.WET, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.lavender_fields, Type.PLAINS, Type.MAGICAL, Type.LUSH);
         registerBiomeToDictionary(BOPBiomes.lush_desert, Type.SANDY, Type.HOT, Type.SAVANNA, Type.LUSH, Type.DRY, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.lush_swamp, Type.SWAMP, Type.LUSH, Type.WET, Type.DENSE);
+        registerBiomeToDictionary(BOPBiomes.mangrove, Type.WATER, Type.SWAMP, Type.LUSH, Type.WET, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.maple_woods, Type.FOREST, Type.CONIFEROUS, Type.COLD, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.marsh, Type.SWAMP, Type.WET, Type.LUSH);
         registerBiomeToDictionary(BOPBiomes.meadow, Type.PLAINS, Type.FOREST, Type.LUSH, Type.COLD, Type.WET, Type.SPARSE);
@@ -451,12 +450,12 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         registerBiomeToDictionary(BOPBiomes.oasis, Type.SANDY, Type.LUSH, Type.JUNGLE, Type.HOT, Type.WET, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.coral_reef, Type.WATER, Type.OCEAN);
         registerBiomeToDictionary(BOPBiomes.kelp_forest, Type.WATER, Type.OCEAN);
-        registerBiomeToDictionary(BOPBiomes.mangrove, Type.WATER, Type.OCEAN, Type.FOREST, Type.LUSH, Type.WET, Type.DENSE);
+
         //Origin Island not tagged purposely
-        registerBiomeToDictionary(BOPBiomes.tropical_island, Type.WATER, Type.OCEAN, Type.JUNGLE, Type.LUSH, Type.WET, Type.DENSE);
-        registerBiomeToDictionary(BOPBiomes.volcanic_island, Type.WATER, Type.OCEAN, Type.DEAD, Type.WASTELAND, Type.MOUNTAIN, Type.HOT, Type.DRY);
-        registerBiomeToDictionary(BOPBiomes.flower_island, Type.WATER, Type.OCEAN, Type.PLAINS, Type.LUSH, Type.DENSE, Type.MAGICAL);
-        registerBiomeToDictionary(BOPBiomes.origin_island, Type.OCEAN, Type.FOREST, Type.RARE);
+        registerBiomeToDictionary(BOPBiomes.tropical_island, Type.WATER, Type.JUNGLE, Type.LUSH, Type.WET, Type.DENSE);
+        registerBiomeToDictionary(BOPBiomes.volcanic_island, Type.WATER, Type.DEAD, Type.WASTELAND, Type.MOUNTAIN, Type.HOT, Type.DRY);
+        registerBiomeToDictionary(BOPBiomes.flower_island, Type.WATER, Type.PLAINS, Type.LUSH, Type.DENSE, Type.MAGICAL);
+        registerBiomeToDictionary(BOPBiomes.origin_island, Type.WATER, Type.FOREST, Type.RARE);
         registerBiomeToDictionary(BOPBiomes.gravel_beach, Type.BEACH);
         registerBiomeToDictionary(BOPBiomes.white_beach, Type.BEACH);
         
