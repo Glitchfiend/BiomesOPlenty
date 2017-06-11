@@ -8,11 +8,12 @@
 
 package biomesoplenty.common.init;
 
+import static biomesoplenty.common.util.inventory.CraftingUtil.*;
+
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.enums.*;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.block.*;
-import biomesoplenty.common.block.BlockBOPWhiteSandstone.StoneType;
 import biomesoplenty.common.crafting.BiomeEssenceRecipe;
 import biomesoplenty.common.handler.FurnaceFuelHandler;
 import biomesoplenty.common.item.ItemJarFilled;
@@ -21,13 +22,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
-import net.minecraftforge.oredict.ShapedOreRecipe;
-import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 public class ModCrafting
 {
@@ -135,7 +131,7 @@ public class ModCrafting
         /*** Biome Finder ***/
         
         addShapedRecipe(new ItemStack(BOPItems.biome_finder), " A ", "AOA", " A ", 'A', new ItemStack(BOPItems.gem, 1, BOPGems.AMETHYST.ordinal()), 'O', new ItemStack(BOPItems.terrestrial_artifact));
-        //addRecipe(new BiomeEssenceRecipe());
+        addRecipe("biome_essence", new BiomeEssenceRecipe());
         
         /*** Flower Basket ***/
         
@@ -367,21 +363,6 @@ public class ModCrafting
                 OreDictionary.registerOre("fenceGateWood", new ItemStack(BlockBOPFenceGate.getBlock(wood)));
             }
         }
-
-    }
-
-    private static void addShapelessRecipe(ItemStack output, Object... input)
-    {
-        
-    }
-
-    private static void addShapedRecipe(ItemStack output, Object... input)
-    {
-
-    }
-
-    private static void addRecipe(IRecipe recipe)
-    {
 
     }
 }
