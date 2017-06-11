@@ -129,9 +129,6 @@ public class ModCrafting
         
         /*** Tools, weapons, armor ***/
 
-        // Flower Bands
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.flower_band), "CCC", "C C", "CCC", 'C', BlockBOPFlower.paging.getVariantItem(BOPFlowers.CLOVER));
-        
         /*** Biome Finder ***/
         
         GameRegistry.addShapedRecipe(new ItemStack(BOPItems.biome_finder), " A ", "AOA", " A ", 'A', new ItemStack(BOPItems.gem, 1, BOPGems.AMETHYST.ordinal()), 'O', new ItemStack(BOPItems.terrestrial_artifact));
@@ -174,14 +171,10 @@ public class ModCrafting
         
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.dirt, 4, BOPBlocks.dirt.getMetaFromState(BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY).withProperty(BlockBOPDirt.COARSE, true))), "GD", "DG", 'G', Blocks.GRAVEL, 'D', new ItemStack(BOPBlocks.dirt, 4, BlockBOPDirt.BOPDirtType.SILTY.ordinal()));
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.dirt, 4, BOPBlocks.dirt.getMetaFromState(BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY).withProperty(BlockBOPDirt.COARSE, true))), "DG", "GD", 'G', Blocks.GRAVEL, 'D', new ItemStack(BOPBlocks.dirt, 4, BlockBOPDirt.BOPDirtType.SILTY.ordinal()));
-        
-        // Enderporter
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.enderporter), "IAI", "ATA", "IAI", 'I', Items.ENDER_EYE, 'A', new ItemStack(BOPItems.gem, 1, BOPGems.AMETHYST.ordinal()), 'T', BOPItems.terrestrial_artifact);
-        
+
         // Records
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.record_wanderer), "TTT", "TRT", "TTT", 'T', BOPItems.terrestrial_artifact, 'R', "record"));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BOPItems.record_corruption), "MMM", "MRM", "MMM", 'M', "ballMud", 'R', BOPItems.record_wanderer));
-        
+
         // Bamboo Thatching
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.bamboo_thatching), "##", "##", '#', BOPBlocks.bamboo);
         
@@ -324,7 +317,6 @@ public class ModCrafting
         OreDictionary.registerOre("dyeWhite", new ItemStack(BOPItems.white_dye));
         OreDictionary.registerOre("dyeBlack", new ItemStack(BOPItems.black_dye));
         
-        OreDictionary.registerOre("record", new ItemStack(BOPItems.record_corruption));
         OreDictionary.registerOre("record", new ItemStack(BOPItems.record_wanderer));
         
         for (BOPGems gem : BOPGems.values())

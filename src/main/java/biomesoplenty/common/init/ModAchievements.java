@@ -71,7 +71,6 @@ public class ModAchievements
         obtain_honeycomb = addAchievement("achievement.obtain_honeycomb", "obtain_honeycomb", 4, 1, new ItemStack(BOPItems.filled_honeycomb), eat_shroom_powder);
         obtain_soul = addAchievement("achievement.obtain_soul", "obtain_soul", 3, 4, new ItemStack(BOPItems.soul), obtain_honeycomb);
         obtain_celestial_crystal = addAchievement("achievement.obtain_celestial_crystal", "obtain_celestial_crystal", 6, 3, new ItemStack(BOPItems.crystal_shard), obtain_honeycomb);
-        use_enderporter = addAchievement("achievement.use_enderporter", "use_enderporter", 1, 7, new ItemStack(BOPItems.enderporter), obtain_soul).setSpecial();
         craft_ambrosia = addAchievement("achievement.craft_ambrosia", "craft_ambrosia", 7, 5, new ItemStack(BOPItems.ambrosia), obtain_celestial_crystal).setSpecial();
         
         obtain_coral = addAchievement("achievement.obtain_coral", "obtain_coral", 2, -2, new ItemStack(BOPBlocks.coral), obtain_flowers);

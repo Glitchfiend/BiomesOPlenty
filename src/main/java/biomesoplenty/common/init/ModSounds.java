@@ -9,7 +9,6 @@ package biomesoplenty.common.init;
 
 import static biomesoplenty.api.sound.BOPSounds.pixie_ambient;
 import static biomesoplenty.api.sound.BOPSounds.pixie_hurt;
-import static biomesoplenty.api.sound.BOPSounds.records_corruption;
 import static biomesoplenty.api.sound.BOPSounds.records_wanderer;
 import static biomesoplenty.api.sound.BOPSounds.wasp_ambient;
 import static biomesoplenty.api.sound.BOPSounds.wasp_hurt;
@@ -26,7 +25,6 @@ public class ModSounds
         pixie_hurt = registerSound("entity.pixie.hurt");
         wasp_ambient = registerSound("entity.wasp.ambient");
         wasp_hurt = registerSound("entity.wasp.hurt");
-        records_corruption = registerSound("records.corruption");
         records_wanderer = registerSound("records.wanderer");
     }
     

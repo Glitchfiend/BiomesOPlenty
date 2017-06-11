@@ -15,6 +15,5 @@ public class BOPSounds
     public static SoundEvent pixie_hurt;
     public static SoundEvent wasp_ambient;
     public static SoundEvent wasp_hurt;
-    public static SoundEvent records_corruption;
     public static SoundEvent records_wanderer;
 }

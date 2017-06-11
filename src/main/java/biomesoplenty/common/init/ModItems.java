@@ -18,11 +18,8 @@ import static biomesoplenty.api.item.BOPItems.blue_dye;
 import static biomesoplenty.api.item.BOPItems.brown_dye;
 import static biomesoplenty.api.item.BOPItems.crystal_shard;
 import static biomesoplenty.api.item.BOPItems.earth;
-import static biomesoplenty.api.item.BOPItems.enderporter;
 import static biomesoplenty.api.item.BOPItems.filled_honeycomb;
 import static biomesoplenty.api.item.BOPItems.fleshchunk;
-import static biomesoplenty.api.item.BOPItems.flippers;
-import static biomesoplenty.api.item.BOPItems.flower_band;
 import static biomesoplenty.api.item.BOPItems.flower_basket;
 import static biomesoplenty.api.item.BOPItems.gem;
 import static biomesoplenty.api.item.BOPItems.green_dye;
@@ -36,7 +33,6 @@ import static biomesoplenty.api.item.BOPItems.pear;
 import static biomesoplenty.api.item.BOPItems.persimmon;
 import static biomesoplenty.api.item.BOPItems.pinecone;
 import static biomesoplenty.api.item.BOPItems.pixie_dust;
-import static biomesoplenty.api.item.BOPItems.record_corruption;
 import static biomesoplenty.api.item.BOPItems.record_wanderer;
 import static biomesoplenty.api.item.BOPItems.ricebowl;
 import static biomesoplenty.api.item.BOPItems.saladfruit;
@@ -47,11 +43,7 @@ import static biomesoplenty.api.item.BOPItems.spawn_egg;
 import static biomesoplenty.api.item.BOPItems.terrestrial_artifact;
 import static biomesoplenty.api.item.BOPItems.turnip;
 import static biomesoplenty.api.item.BOPItems.turnip_seeds;
-import static biomesoplenty.api.item.BOPItems.wading_boots;
 import static biomesoplenty.api.item.BOPItems.white_dye;
-import static biomesoplenty.api.item.BOPMaterials.flippers_material;
-import static biomesoplenty.api.item.BOPMaterials.flower_band_material;
-import static biomesoplenty.api.item.BOPMaterials.wading_boots_material;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.sound.BOPSounds;
@@ -62,21 +54,16 @@ import biomesoplenty.common.item.ItemBOPRecord;
 import biomesoplenty.common.item.ItemBOPSpawnEgg;
 import biomesoplenty.common.item.ItemBiomeEssence;
 import biomesoplenty.common.item.ItemBiomeFinder;
-import biomesoplenty.common.item.ItemEnderporter;
-import biomesoplenty.common.item.ItemFlippers;
-import biomesoplenty.common.item.ItemFlowerBand;
 import biomesoplenty.common.item.ItemFlowerBasket;
 import biomesoplenty.common.item.ItemGem;
 import biomesoplenty.common.item.ItemJarEmpty;
 import biomesoplenty.common.item.ItemJarFilled;
 import biomesoplenty.common.item.ItemMudball;
-import biomesoplenty.common.item.ItemWadingBoots;
 import biomesoplenty.common.util.inventory.CreativeTabBOP;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
@@ -140,36 +127,13 @@ public class ModItems
         green_dye = registerItem(new Item(), "green_dye");
         white_dye = registerItem(new Item(), "white_dye");
         black_dye = registerItem(new Item(), "black_dye");
-    
-        // armor
-        
-        // addArmorMaterial arguments:
-        // (String name, String textureName, int durability, int[] reductionAmounts, int enchantability)
-        // Vanilla armor material values for comparison:
-        // LEATHER("leather", 5, new int[]{1, 3, 2, 1}, 15),
-        // CHAIN("chainmail", 15, new int[]{2, 5, 4, 1}, 12),
-        // IRON("iron", 15, new int[]{2, 6, 5, 2}, 9),
-        // GOLD("gold", 7, new int[]{2, 5, 3, 1}, 25),
-        // DIAMOND("diamond", 33, new int[]{3, 8, 6, 3}, 10);
-        
-        // TODO: do we really want durability of -1 for these unprotective armor items?  does that mean it lasts forever?
-        wading_boots_material = addArmorMaterial("WADING_BOOTS", "biomesoplenty:wading_boots", -1, new int[]{0,0,0,0}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
-        flippers_material = addArmorMaterial("FLIPPERS", "biomesoplenty:flippers", -1, new int[]{0,0,0,0}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
-        flower_band_material = addArmorMaterial("FLOWER_BAND", "biomesoplenty:flower_band", -1, new int[]{0,0,0,0}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
-        
-        wading_boots = registerItem(new ItemWadingBoots(wading_boots_material, 0), "wading_boots");
-        flippers = registerItem(new ItemFlippers(flippers_material, 0), "flippers");
-        
-        flower_band = registerItem(new ItemFlowerBand(flower_band_material, 0), "flower_band");
         
         jar_empty = registerItem(new ItemJarEmpty(), "jar_empty");
         jar_filled = registerItem(new ItemJarFilled(), "jar_filled");
         flower_basket = registerItem(new ItemFlowerBasket(), "flower_basket");
         biome_finder = registerItem(new ItemBiomeFinder(), "biome_finder");
-        enderporter = registerItem(new ItemEnderporter(), "enderporter");
         
         record_wanderer = registerItem(new ItemBOPRecord("wanderer", BOPSounds.records_wanderer), "record_wanderer");
-        record_corruption = registerItem(new ItemBOPRecord("corruption", BOPSounds.records_corruption), "record_corruption");
         
         // TODO: use Forge for eggs now?  https://github.com/MinecraftForge/MinecraftForge/commit/c158af902f2a689f612fd20427b5a1590fc2f1ba
         spawn_egg = registerItem(new ItemBOPSpawnEgg(), "spawn_egg");

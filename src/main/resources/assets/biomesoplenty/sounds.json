@@ -26,13 +26,5 @@
         "stream": true
       }
     ]
-  },
-  "records.corruption": {
-    "sounds": [
-      {
-        "name": "biomesoplenty:records/corruption",
-        "stream": true
-      }
-    ]
   }
 }

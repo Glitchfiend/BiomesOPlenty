@@ -118,16 +118,7 @@ public class BlockBOPMud extends Block implements IBOPBlock, ISustainsPlantType
         switch ((MudType) state.getValue(VARIANT))
         {
             // mud slows you greatly unless you're wearing wading boots
-            case MUD:
-                if (entity instanceof EntityPlayer)
-                {
-                    InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
-                    if (inventory.armorInventory.get(0).getItem() == BOPItems.wading_boots)
-                    {
-                        break;
-                    }
-                }
-                
+            case MUD:          
                 entity.motionX *= 0.2D;
                 entity.motionZ *= 0.2D;
                 break;

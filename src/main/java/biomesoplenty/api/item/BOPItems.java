@@ -68,19 +68,13 @@ public class BOPItems
     public static Item wood_slab_0;
     public static Item wood_slab_1;
     
-    public static Item wading_boots;
-    public static Item flippers;
-    public static Item flower_band;
-    
     public static Item biome_finder;
     public static Item biome_essence;
-    public static Item enderporter;
     public static Item flower_basket;
     public static Item jar_empty;
     public static Item jar_filled;
     
     public static Item record_wanderer;
-    public static Item record_corruption;
     
     public static Item spawn_egg;
     

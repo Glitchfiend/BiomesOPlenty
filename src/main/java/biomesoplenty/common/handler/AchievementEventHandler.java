@@ -141,11 +141,6 @@ public class AchievementEventHandler
     {
         ItemStack stack = event.getItemStack();
         EntityPlayer player = event.getEntityPlayer();
-
-        //Gone Home
-        if (!stack.isEmpty() && stack.getItem() == BOPItems.enderporter) {
-            player.addStat(BOPAchievements.use_enderporter);
-        }
     }
     
     @SubscribeEvent

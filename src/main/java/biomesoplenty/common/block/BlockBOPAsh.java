@@ -50,12 +50,6 @@ public class BlockBOPAsh extends BlockBOPGeneric
     @Override
     public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
     {
-        if (entity instanceof EntityPlayer) {
-            InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
-            if (inventory.armorInventory.get(0).getItem() == BOPItems.wading_boots) {
-                return;
-            }
-        }
         entity.motionX *= 0.8D;
         entity.motionZ *= 0.8D;
     }

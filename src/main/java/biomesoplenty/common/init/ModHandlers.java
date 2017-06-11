@@ -30,7 +30,6 @@ public class ModHandlers
         //MinecraftForge.TERRAIN_GEN_BUS.register(new VillageMaterialEventHandler());
         MinecraftForge.ORE_GEN_BUS.register(decorateBiomeHandler);
         MinecraftForge.EVENT_BUS.register(new DyeEventHandler());
-        MinecraftForge.EVENT_BUS.register(new FlippersEventHandler());
         MinecraftForge.EVENT_BUS.register(new BucketEventHandler());
         MinecraftForge.EVENT_BUS.register(new PotionParalysisEventHandler());
         MinecraftForge.EVENT_BUS.register(new PotionPossessionEventHandler());

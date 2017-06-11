@@ -65,14 +65,6 @@ public class BlockBOPFlesh extends Block implements IBOPBlock
     @Override
     public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
     {
-        
-        if (entity instanceof EntityPlayer) {
-            InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
-            if (inventory.armorInventory.get(0).getItem() == BOPItems.wading_boots) {
-                return;
-            }
-        }
-        
         // slow you slightly
         entity.motionX *= 0.9D;
         entity.motionZ *= 0.9D;

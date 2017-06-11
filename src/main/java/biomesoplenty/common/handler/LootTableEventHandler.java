@@ -36,15 +36,6 @@ public class LootTableEventHandler
             	main.addEntry(new LootEntryItem(BOPItems.persimmon, 4, 2, new LootFunction[0], new LootCondition[0], "biomesoplenty:persimmon"));
             }
 		}
-		if (event.getName().equals(LootTableList.CHESTS_VILLAGE_BLACKSMITH))
-		{
-            LootPool main = event.getTable().getPool("main");
-            if (main != null)
-            {
-            	main.addEntry(new LootEntryItem(BOPItems.flippers, 3, 1, new LootFunction[0], new LootCondition[0], "biomesoplenty:flippers"));
-            	main.addEntry(new LootEntryItem(BOPItems.wading_boots, 3, 1, new LootFunction[0], new LootCondition[0], "biomesoplenty:wading_boots"));
-            }
-		}
 		if (event.getName().equals(LootTableList.GAMEPLAY_FISHING_JUNK))
         {
             LootPool main = event.getTable().getPool("main");
