@@ -75,9 +75,7 @@ public class BOPItems
     public static Item jar_filled;
     
     public static Item record_wanderer;
-    
-    public static Item spawn_egg;
-    
+
     // TODO: public static Item ancientStaff;
     // TODO: public static Item bop_bucket;
     

@@ -32,10 +32,6 @@ import net.minecraftforge.fml.common.registry.EntityRegistry.EntityRegistration;
 
 public class ModEntities
 {
-    
-    public static final Map<Integer, EntityEggInfo> entityEggs = Maps.<Integer, EntityEggInfo>newLinkedHashMap();
-    public static final Map<Integer, String> idToBOPEntityName = Maps.<Integer, String>newLinkedHashMap();
-
     private static int nextBOPEntityId = 1;
     
     public static void init()
@@ -56,7 +52,6 @@ public class ModEntities
         int bopEntityId = nextBOPEntityId;
         nextBOPEntityId++;
         EntityRegistry.registerModEntity(new ResourceLocation(BiomesOPlenty.MOD_ID, entityName), entityClass, entityName, bopEntityId, BiomesOPlenty.instance, trackingRange, updateFrequency, sendsVelocityUpdates);
-        idToBOPEntityName.put(bopEntityId, entityName);
         BOPCommand.entityCount++;
         return bopEntityId;
     }
@@ -65,7 +60,7 @@ public class ModEntities
     public static int registerBOPEntityWithSpawnEgg(Class<? extends Entity> entityClass, String entityName, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates, int eggBackgroundColor, int eggForegroundColor)
     {
         int bopEntityId = registerBOPEntity(entityClass, entityName, trackingRange, updateFrequency, sendsVelocityUpdates);
-        entityEggs.put(Integer.valueOf(bopEntityId), new EntityList.EntityEggInfo(new ResourceLocation(BiomesOPlenty.MOD_ID, entityName), eggBackgroundColor, eggForegroundColor));
+        EntityRegistry.registerEgg(new ResourceLocation(BiomesOPlenty.MOD_ID, entityName), eggBackgroundColor, eggForegroundColor);
         return bopEntityId;
     }
     

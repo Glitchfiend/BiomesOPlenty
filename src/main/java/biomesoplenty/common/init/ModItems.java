@@ -39,7 +39,6 @@ import static biomesoplenty.api.item.BOPItems.saladfruit;
 import static biomesoplenty.api.item.BOPItems.saladshroom;
 import static biomesoplenty.api.item.BOPItems.saladveggie;
 import static biomesoplenty.api.item.BOPItems.shroompowder;
-import static biomesoplenty.api.item.BOPItems.spawn_egg;
 import static biomesoplenty.api.item.BOPItems.terrestrial_artifact;
 import static biomesoplenty.api.item.BOPItems.turnip;
 import static biomesoplenty.api.item.BOPItems.turnip_seeds;
@@ -51,7 +50,6 @@ import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.item.ItemAmbrosia;
 import biomesoplenty.common.item.ItemBOPFood;
 import biomesoplenty.common.item.ItemBOPRecord;
-import biomesoplenty.common.item.ItemBOPSpawnEgg;
 import biomesoplenty.common.item.ItemBiomeEssence;
 import biomesoplenty.common.item.ItemBiomeFinder;
 import biomesoplenty.common.item.ItemFlowerBasket;
@@ -134,9 +132,6 @@ public class ModItems
         biome_finder = registerItem(new ItemBiomeFinder(), "biome_finder");
         
         record_wanderer = registerItem(new ItemBOPRecord("wanderer", BOPSounds.records_wanderer), "record_wanderer");
-        
-        // TODO: use Forge for eggs now?  https://github.com/MinecraftForge/MinecraftForge/commit/c158af902f2a689f612fd20427b5a1590fc2f1ba
-        spawn_egg = registerItem(new ItemBOPSpawnEgg(), "spawn_egg");
         
     }
     
