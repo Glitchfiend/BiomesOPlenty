@@ -23,8 +23,10 @@ import net.minecraft.block.BlockFlower.EnumFlowerType;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.entity.passive.EntityOcelot;
+import net.minecraft.entity.passive.EntityParrot;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.biome.Biome.SpawnListEntry;
 
 public class BiomeGenRainforest extends BOPOverworldBiome
 {    
@@ -45,6 +47,7 @@ public class BiomeGenRainforest extends BOPOverworldBiome
         
         this.spawnableMonsterList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
         this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityParrot.class, 40, 1, 2));
         
         // aand
         this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.SAND.getDefaultState()).create());

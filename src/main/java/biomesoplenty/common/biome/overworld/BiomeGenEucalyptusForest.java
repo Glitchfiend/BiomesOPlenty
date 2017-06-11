@@ -28,6 +28,7 @@ import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.entity.passive.EntityOcelot;
+import net.minecraft.entity.passive.EntityParrot;
 import net.minecraft.init.Blocks;
 
 public class BiomeGenEucalyptusForest extends BOPOverworldBiome
@@ -46,6 +47,7 @@ public class BiomeGenEucalyptusForest extends BOPOverworldBiome
         
         this.spawnableMonsterList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
         this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityParrot.class, 40, 1, 2));
                             
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(10);

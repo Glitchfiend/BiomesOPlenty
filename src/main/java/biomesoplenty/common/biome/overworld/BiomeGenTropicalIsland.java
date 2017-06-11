@@ -33,8 +33,10 @@ import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockOldLeaf;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.entity.passive.EntityParrot;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.biome.Biome;
  
 public class BiomeGenTropicalIsland extends BOPOverworldBiome
 {
@@ -60,6 +62,7 @@ public class BiomeGenTropicalIsland extends BOPOverworldBiome
         this.spawnableCreatureList.clear();
         this.spawnableMonsterList.clear();
         this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityParrot.class, 40, 1, 2));
         
         clearWeights();
         
