@@ -14,6 +14,7 @@ import javax.annotation.Nullable;
 
 import com.google.common.base.Optional;
 import com.google.common.collect.Sets;
+import net.minecraft.world.gen.ChunkGeneratorSettings;
 import org.apache.commons.lang3.tuple.Pair;
 
 import com.google.common.base.Function;
@@ -27,7 +28,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeProvider;
-import net.minecraft.world.gen.ChunkProviderSettings;
 
 public class BiomeUtils
 {
@@ -40,7 +40,7 @@ public class BiomeUtils
         }
         else
         {
-            return ChunkProviderSettings.Factory.jsonToFactory(generatorSettingsJson).build().biomeSize;
+            return ChunkGeneratorSettings.Factory.jsonToFactory(generatorSettingsJson).build().biomeSize;
         }
     }
     

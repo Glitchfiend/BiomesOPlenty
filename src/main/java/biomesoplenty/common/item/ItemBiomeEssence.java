@@ -10,10 +10,14 @@ package biomesoplenty.common.item;
 
 import java.util.List;
 
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+
+import javax.annotation.Nullable;
 
 public class ItemBiomeEssence extends Item
 {
@@ -29,10 +33,11 @@ public class ItemBiomeEssence extends Item
     }
     
     @Override
-    public void addInformation(ItemStack itemStack, EntityPlayer player, List infoList, boolean advancedItemTooltips) {
-        Biome biome = this.getBiome(itemStack);
+    public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag advanced)
+    {
+        Biome biome = this.getBiome(stack);
         if (biome != null) {
-            infoList.add(biome.getBiomeName());
+            tooltip.add(biome.getBiomeName());
         }
     }
     

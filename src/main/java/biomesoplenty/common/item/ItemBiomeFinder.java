@@ -9,6 +9,7 @@
 package biomesoplenty.common.item;
 
 import biomesoplenty.common.util.biome.BiomeUtils;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.IItemPropertyGetter;
@@ -28,6 +29,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemBiomeFinder extends Item
@@ -184,14 +186,14 @@ public class ItemBiomeFinder extends Item
     
     @Override
     @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack itemStack, EntityPlayer player, List infoList, boolean advancedItemTooltips)
+    public void addInformation(ItemStack itemStack, @Nullable World world, List<String> tooltip, ITooltipFlag advanced)
     {
         if (!itemStack.hasTagCompound()) {return;}
         NBTTagCompound nbt = itemStack.getTagCompound();
         if (nbt.hasKey("biomeIDToFind"))
         {
             Biome biomeToFind = Biome.getBiome(nbt.getInteger("biomeIDToFind")); // returns ocean if biomeIDToFind is out of bounds
-            infoList.add(biomeToFind.getBiomeName());
+            tooltip.add(biomeToFind.getBiomeName());
         }
     }
 

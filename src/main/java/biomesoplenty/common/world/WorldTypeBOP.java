@@ -14,7 +14,7 @@ import net.minecraft.client.gui.GuiCreateWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeProvider;
-import net.minecraft.world.chunk.IChunkGenerator;
+import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -23,7 +23,6 @@ public class WorldTypeBOP extends WorldType
     public WorldTypeBOP()
     {
         super("BIOMESOP");
-
         this.setNotificationData();
     }
     
@@ -36,8 +35,7 @@ public class WorldTypeBOP extends WorldType
     @Override
     public IChunkGenerator getChunkGenerator(World world, String generatorOptions)
     {
-        return new ChunkProviderGenerateBOP(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), generatorOptions);
-        //return new ChunkProviderGenerateVanilla(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), generatorOptions);
+        return new ChunkGeneratorOverworldBOP(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), generatorOptions);
     }
     
     @Override

@@ -7,13 +7,8 @@
  ******************************************************************************/
 package biomesoplenty.common.world;
 
-import biomesoplenty.api.biome.BOPBiomes;
-import net.minecraft.init.Biomes;
 import net.minecraft.world.WorldProviderHell;
-import net.minecraft.world.biome.BiomeProvider;
-import net.minecraft.world.biome.BiomeProviderSingle;
-import net.minecraft.world.chunk.IChunkGenerator;
-import net.minecraft.world.gen.ChunkProviderHell;
+import net.minecraft.world.gen.IChunkGenerator;
 
 public class WorldProviderBOPHell extends WorldProviderHell
 {

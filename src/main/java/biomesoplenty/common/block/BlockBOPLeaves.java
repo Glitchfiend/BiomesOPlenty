@@ -158,7 +158,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void getSubBlocks(Item item, CreativeTabs tab, NonNullList<ItemStack> list) {}
+    public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> list) {}
     
     // map from meta to state and vice verca.  Use the same scheme as for the vanilla leaf blocks
     // highest bit is for CHECK_DECAY  true=>1 false=>0

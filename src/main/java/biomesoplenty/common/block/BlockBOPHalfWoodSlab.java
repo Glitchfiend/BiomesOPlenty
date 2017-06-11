@@ -147,14 +147,14 @@ public class BlockBOPHalfWoodSlab extends BlockSlab implements IBOPBlock
     
     @Override
     @SideOnly(Side.CLIENT)
-    public void getSubBlocks(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> list)
+    public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> list)
     {
         // get the preset blocks variants
         ImmutableSet<IBlockState> presets = BlockStateUtils.getBlockPresets(this);
         // register all the sub-blocks
         for (IBlockState state : presets)
         {
-            list.add(new ItemStack(itemIn, 1, this.getMetaFromState(state)));
+            list.add(new ItemStack(this, 1, this.getMetaFromState(state)));
         }
     }
     

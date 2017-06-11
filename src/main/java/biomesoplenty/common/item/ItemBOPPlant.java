@@ -74,7 +74,7 @@ public class ItemBOPPlant extends ItemBOPBlock {
                             net.minecraftforge.common.util.BlockSnapshot blocksnapshot = net.minecraftforge.common.util.BlockSnapshot.getBlockSnapshot(worldIn, blockpos1);
                                                 
                             worldIn.setBlockState(blockpos1, BlockBOPPlant.paging.getVariantState(BOPPlants.REED));
-                            if (net.minecraftforge.event.ForgeEventFactory.onPlayerBlockPlace(playerIn, blocksnapshot, net.minecraft.util.EnumFacing.UP).isCanceled())
+                            if (net.minecraftforge.event.ForgeEventFactory.onPlayerBlockPlace(playerIn, blocksnapshot, net.minecraft.util.EnumFacing.UP, hand).isCanceled())
                             {
                                 blocksnapshot.restore(true, false);
                                 return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemStackIn);

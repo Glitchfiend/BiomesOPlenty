@@ -67,12 +67,6 @@ public class BiomeEssenceRecipe implements IRecipe
     }
     
     @Override
-    public int getRecipeSize()
-    {
-        return 2;
-    }
-    
-    @Override
     public ItemStack getCraftingResult(InventoryCrafting var1)
     {
         return recipeOutput.copy();
@@ -96,5 +90,19 @@ public class BiomeEssenceRecipe implements IRecipe
         }
 
         return itemList;
+    }
+
+    // hideInRecipeBook?
+    @Override
+    public boolean func_192399_d()
+    {
+        return true;
+    }
+
+    // canCraftWithSize
+    @Override
+    public boolean func_194133_a(int width, int height)
+    {
+        return width * height >= 1;
     }
 }

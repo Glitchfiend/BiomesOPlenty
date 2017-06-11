@@ -7,45 +7,9 @@
  ******************************************************************************/
 package biomesoplenty.common.handler;
 
-import biomesoplenty.api.achievement.BOPAchievements;
-import biomesoplenty.api.biome.BOPBiomes;
-import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.api.enums.BOPFlowers;
-import biomesoplenty.api.enums.BOPPlants;
-import biomesoplenty.api.enums.BOPTrees;
-import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.common.block.BlockBOPFlower;
-import biomesoplenty.common.block.BlockBOPLog;
-import biomesoplenty.common.block.BlockBOPPlant;
-import biomesoplenty.common.block.BlockBOPSapling;
-import com.google.common.collect.Sets;
-import net.minecraft.block.Block;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.stats.AchievementList;
-import net.minecraft.util.JsonSerializableSet;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.biome.Biome;
-import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
-import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
-import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.event.world.BlockEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.PlayerEvent.ItemCraftedEvent;
-
-import java.util.Iterator;
-import java.util.Set;
-
-public class AchievementEventHandler 
+public class AchievementEventHandler
 {
-    private static final Set<Biome> BOP_BIOMES_TO_EXPLORE = Sets.union(BOPBiomes.REG_INSTANCE.getPresentBiomes(), Biome.EXPLORATION_BIOMES_LIST);
+    /*private static final Set<Biome> BOP_BIOMES_TO_EXPLORE = Sets.union(BOPBiomes.REG_INSTANCE.getPresentBiomes(), Biome.EXPLORATION_BIOMES_LIST);
 
     @SubscribeEvent
     public void onItemPickup(EntityItemPickupEvent event)
@@ -303,5 +267,5 @@ public class AchievementEventHandler
                 player.addStat(BOPAchievements.explore_all_biomes);
             }
         }
-    }
+    }*/
 }

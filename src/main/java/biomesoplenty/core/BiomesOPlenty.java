@@ -16,7 +16,6 @@ import org.apache.logging.log4j.Logger;
 
 import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.handler.GuiHandler;
-import biomesoplenty.common.init.ModAchievements;
 import biomesoplenty.common.init.ModBiomes;
 import biomesoplenty.common.init.ModBlockQueries;
 import biomesoplenty.common.init.ModBlocks;
@@ -93,7 +92,6 @@ public class BiomesOPlenty
         ModHandlers.init();
         
         ModCrafting.init();
-        ModAchievements.init();
         
         proxy.registerRenderers();
     }

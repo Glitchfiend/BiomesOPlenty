@@ -9,7 +9,7 @@
 package biomesoplenty.client.particle;
 
 import net.minecraft.client.particle.Particle;
-import net.minecraft.client.renderer.VertexBuffer;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
@@ -34,7 +34,7 @@ public class EntityTrailFX extends Particle
 	}
     
     @Override
-    public void renderParticle(VertexBuffer renderer, Entity entity, float partialTicks, float rotX, float rotXZ, float rotZ, float rotYZ, float rotXY)
+    public void renderParticle(BufferBuilder builder, Entity entity, float partialTicks, float rotX, float rotXZ, float rotZ, float rotYZ, float rotXY)
     {
         // EffectRenderer will by default bind the vanilla particles texture, override with our own
         FMLClientHandler.instance().getClient().renderEngine.bindTexture(this.trailResource);
@@ -56,11 +56,11 @@ public class EntityTrailFX extends Particle
         int i = this.getBrightnessForRender(partialTicks);
         int j = i >> 16 & 65535;
         int k = i & 65535;
-        
-        renderer.pos(x - width, y, z + width).tex(minU, maxV).color(this.particleRed, this.particleGreen, this.particleBlue, alpha).lightmap(j, k).endVertex();
-        renderer.pos(x + width, y, z + width).tex(minU, minV).color(this.particleRed, this.particleGreen, this.particleBlue, alpha).lightmap(j, k).endVertex();
-        renderer.pos(x + width, y, z - width).tex(maxU, minV).color(this.particleRed, this.particleGreen, this.particleBlue, alpha).lightmap(j, k).endVertex();
-        renderer.pos(x - width, y, z - width).tex(maxU, maxV).color(this.particleRed, this.particleGreen, this.particleBlue, alpha).lightmap(j, k).endVertex();
+
+        builder.pos(x - width, y, z + width).tex(minU, maxV).color(this.particleRed, this.particleGreen, this.particleBlue, alpha).lightmap(j, k).endVertex();
+        builder.pos(x + width, y, z + width).tex(minU, minV).color(this.particleRed, this.particleGreen, this.particleBlue, alpha).lightmap(j, k).endVertex();
+        builder.pos(x + width, y, z - width).tex(maxU, minV).color(this.particleRed, this.particleGreen, this.particleBlue, alpha).lightmap(j, k).endVertex();
+        builder.pos(x - width, y, z - width).tex(maxU, maxV).color(this.particleRed, this.particleGreen, this.particleBlue, alpha).lightmap(j, k).endVertex();
     }
 
     @Override

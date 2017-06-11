@@ -161,7 +161,7 @@ public class ClientProxy extends CommonProxy
         if (item.getHasSubtypes())
         {
             NonNullList<ItemStack> subItems = NonNullList.create();
-            item.getSubItems(item, CreativeTabBOP.instance, subItems);
+            item.getSubItems(CreativeTabBOP.instance, subItems);
             for (ItemStack subItem : subItems)
             {
                 String subItemName = item.getUnlocalizedName(subItem);

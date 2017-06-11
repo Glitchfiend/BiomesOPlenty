@@ -102,9 +102,7 @@ public class BlockBOPLog extends BlockLog implements IBOPBlock
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void getSubBlocks(Item item, CreativeTabs tab, NonNullList<ItemStack> list)
-    {
-    }
+    public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> list) {}
     
     // map from state to meta and vice verca - use high 2 bits for LOG_AXIS, low 2 bits for VARIANT
     @Override

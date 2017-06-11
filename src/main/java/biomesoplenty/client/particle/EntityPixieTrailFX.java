@@ -10,8 +10,8 @@ package biomesoplenty.client.particle;
 
 import biomesoplenty.core.ClientProxy;
 import net.minecraft.client.particle.Particle;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.VertexBuffer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -57,9 +57,8 @@ public class EntityPixieTrailFX extends Particle
     }
     
     @Override
-    public void renderParticle(VertexBuffer renderer, Entity entity, float partialTicks, float rotX, float rotXZ, float rotZ, float rotYZ, float rotXY)
+    public void renderParticle(BufferBuilder buffer, Entity entity, float partialTicks, float rotX, float rotXZ, float rotZ, float rotYZ, float rotXY)
     {
-        
         // EffectRenderer will by default bind the vanilla particles texture, override with our own
         FMLClientHandler.instance().getClient().renderEngine.bindTexture(ClientProxy.particleTexturesLocation);
         
@@ -71,7 +70,7 @@ public class EntityPixieTrailFX extends Particle
         GlStateManager.enableBlend();
         GlStateManager.blendFunc(770, 1);
 
-        super.renderParticle(renderer, entity, partialTicks, rotX, rotXZ, rotZ, rotYZ, rotXY);
+        super.renderParticle(buffer, entity, partialTicks, rotX, rotXZ, rotZ, rotYZ, rotXY);
 
         GlStateManager.disableBlend();
         GlStateManager.depthMask(true);

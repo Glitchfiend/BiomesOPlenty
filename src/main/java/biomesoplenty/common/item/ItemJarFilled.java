@@ -57,11 +57,11 @@ public class ItemJarFilled extends Item
     // add all the contents types as separate items in the creative tab
     @Override
     @SideOnly(Side.CLIENT)
-    public void getSubItems(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems)
+    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems)
     {
         for (JarContents contents : JarContents.values())
         {
-            subItems.add(new ItemStack(itemIn, 1, contents.ordinal()));
+            subItems.add(new ItemStack(this, 1, contents.ordinal()));
         }
     }
 

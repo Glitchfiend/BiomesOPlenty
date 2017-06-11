@@ -30,11 +30,11 @@ public class ItemGem extends Item
     // add all the gem types as separate items in the creative tab
     @Override
     @SideOnly(Side.CLIENT)
-    public void getSubItems(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems)
+    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems)
     {
         for (BOPGems gemType : BOPGems.values())
         {
-            subItems.add(new ItemStack(itemIn, 1, gemType.ordinal()));
+            subItems.add(new ItemStack(this, 1, gemType.ordinal()));
         }        
     }
 

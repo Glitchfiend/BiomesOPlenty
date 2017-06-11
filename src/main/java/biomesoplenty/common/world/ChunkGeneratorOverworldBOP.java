@@ -41,13 +41,7 @@ import net.minecraft.world.WorldEntitySpawner;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkPrimer;
-import net.minecraft.world.chunk.IChunkGenerator;
-import net.minecraft.world.gen.ChunkProviderOverworld;
-import net.minecraft.world.gen.MapGenBase;
-import net.minecraft.world.gen.MapGenCaves;
-import net.minecraft.world.gen.MapGenRavine;
-import net.minecraft.world.gen.NoiseGeneratorOctaves;
-import net.minecraft.world.gen.NoiseGeneratorPerlin;
+import net.minecraft.world.gen.*;
 import net.minecraft.world.gen.feature.WorldGenDungeons;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.structure.MapGenMineshaft;
@@ -61,7 +55,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
-public class ChunkProviderGenerateBOP implements IChunkGenerator
+public class ChunkGeneratorOverworldBOP implements IChunkGenerator
 {
     private Random rand;
     private NoiseGeneratorOctaves xyzNoiseGenA;
@@ -89,16 +83,16 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
     private final double[] noiseArray;
     private Map<Biome, TerrainSettings> biomeTerrainSettings;
     
-    public ChunkProviderGenerateBOP(World worldIn, long seed, boolean mapFeaturesEnabled, String chunkProviderSettingsString)
+    public ChunkGeneratorOverworldBOP(World worldIn, long seed, boolean mapFeaturesEnabled, String chunkProviderSettingsString)
     {
-        System.out.println("ChunkProviderGenerateBOP json: "+chunkProviderSettingsString);
+        System.out.println("ChunkGeneratorOverworldBOP json: "+chunkProviderSettingsString);
 
         this.world = worldIn;
         this.mapFeaturesEnabled = mapFeaturesEnabled;
         this.rand = new Random(seed);
         
         this.settings = new BOPWorldSettings(chunkProviderSettingsString);
-        System.out.println("ChunkProviderGenerateBOP settings: "+this.settings.toJson());
+        System.out.println("ChunkGeneratorOverworldBOP settings: "+this.settings.toJson());
                 
         // set up structure generators (overridable by forge)
         this.caveGenerator = TerrainGen.getModdedMapGen(new MapGenCaves(), CAVE);
@@ -681,22 +675,55 @@ public class ChunkProviderGenerateBOP implements IChunkGenerator
         }
     }
 
+    @Override
+    public boolean func_193414_a(World world, String structureName, BlockPos pos)
+    {
+        if (!this.mapFeaturesEnabled)
+        {
+            return false;
+        }
+        else if ("Stronghold".equals(structureName) && this.strongholdGenerator != null)
+        {
+            return this.strongholdGenerator.isInsideStructure(pos);
+        }
+        else if ("Mansion".equals(structureName) && this.woodlandMansionGenerator != null)
+        {
+            return this.woodlandMansionGenerator.isInsideStructure(pos);
+        }
+        else if ("Monument".equals(structureName) && this.oceanMonumentGenerator != null)
+        {
+            return this.oceanMonumentGenerator.isInsideStructure(pos);
+        }
+        else if ("Village".equals(structureName) && this.villageGenerator != null)
+        {
+            return this.villageGenerator.isInsideStructure(pos);
+        }
+        else if ("Mineshaft".equals(structureName) && this.mineshaftGenerator != null)
+        {
+            return this.mineshaftGenerator.isInsideStructure(pos);
+        }
+        else
+        {
+            return "Temple".equals(structureName) && this.scatteredFeatureGenerator != null ? this.scatteredFeatureGenerator.isInsideStructure(pos) : false;
+        }
+    }
+
     /**
      * TODO: Temporary hack for woodland mansion generation
-     * Either adopt ChunkProviderOverworld properly for this class or wait until
+     * Either adopt ChunkGeneratorOverworld properly for this class or wait until
      * Forge patches WoodlandMansion properly
      */
-    private class FakeMansionChunkProvider extends ChunkProviderOverworld
+    private class FakeMansionChunkProvider extends ChunkGeneratorOverworld
     {
         public FakeMansionChunkProvider()
         {
-            super(ChunkProviderGenerateBOP.this.world, 0, true, "");
+            super(ChunkGeneratorOverworldBOP.this.world, 0, true, "");
         }
 
         @Override
         public void setBlocksInChunk(int x, int z, ChunkPrimer primer)
         {
-            ChunkProviderGenerateBOP.this.setChunkAirStoneWater(x, z, primer);
+            ChunkGeneratorOverworldBOP.this.setChunkAirStoneWater(x, z, primer);
         }
     }
 }
