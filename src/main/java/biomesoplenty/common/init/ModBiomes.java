@@ -540,10 +540,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
     public static IConfigObj readConfigFile(String idName)
     {
         File configFile = new File(new File(BiomesOPlenty.configDirectory, "biomes"), idName + ".json");
-        IConfigObj conf = new BOPConfig.ConfigFileObj(configFile);
-
-        // log any warnings from parsing the config file
-        for (String msg : conf.flushMessages()) {BiomesOPlenty.logger.info(msg);}
+        IConfigObj conf = new BOPConfig.ConfigFileObj(configFile, false, true);
         
         return conf;
     }

@@ -119,6 +119,9 @@ public class BOPOverworldBiome extends BOPBiome
         
         this.beachBiomeLocation = conf.getResourceLocation("beachBiomeLocation", this.beachBiomeLocation);
 
+        // log any warnings from parsing the config file
+        for (String msg : conf.flushMessages())
+            BiomesOPlenty.logger.info(msg);
         // write default values to a file
         ModBiomes.writeDefaultConfigFile(ModBiomes.BOP_DEFAULTS_DIR, this.getResourceLocation().getResourcePath(), conf);
     }

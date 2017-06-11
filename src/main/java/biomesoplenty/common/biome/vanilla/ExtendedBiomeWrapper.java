@@ -23,6 +23,7 @@ import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.world.GenerationManager;
 import biomesoplenty.common.world.generator.GeneratorColumns;
 import biomesoplenty.common.world.generator.GeneratorFlora;
+import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
@@ -67,6 +68,9 @@ public class ExtendedBiomeWrapper implements IExtendedBiome
         IConfigObj confGenerators = conf.getObject("generators");
         this.generationManager.configure(confGenerators);
 
+        // log any warnings from parsing the config file
+        for (String msg : conf.flushMessages())
+            BiomesOPlenty.logger.info(msg);
         // write default values to a file
         ModBiomes.writeDefaultConfigFile(ModBiomes.VANILLA_DEFAULTS_DIR, this.getResourceLocation().getResourcePath(), conf);
     }

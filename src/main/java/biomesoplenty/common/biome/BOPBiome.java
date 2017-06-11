@@ -72,18 +72,18 @@ public abstract class BOPBiome extends Biome implements IExtendedBiome
         if (conf.isEmpty())
             return defaultBuilder.build();
 
-        defaultBuilder.withTemperature(conf.getFloat("temperature"));
-        defaultBuilder.withRainfall(conf.getFloat("rainfall"));
-        defaultBuilder.withWaterColor(conf.getInt("waterColor"));
+        defaultBuilder.withTemperature(conf.getFloat("temperature", defaultBuilder.temperature));
+        defaultBuilder.withRainfall(conf.getFloat("rainfall", defaultBuilder.rainfall));
+        defaultBuilder.withWaterColor(conf.getInt("waterColor", defaultBuilder.waterColor));
 
-        Boolean enableRain = conf.getBool("enableRain");
+        Boolean enableRain = conf.getBool("enableRain", defaultBuilder.enableRain);
         if (enableRain != null && !enableRain) defaultBuilder.withRainDisabled();
 
-        Boolean enableSnow = conf.getBool("enableSnow");
+        Boolean enableSnow = conf.getBool("enableSnow", defaultBuilder.enableSnow);
         if (enableSnow != null && enableSnow) defaultBuilder.withSnowEnabled();
 
-        defaultBuilder.withBaseBiome(conf.getString("baseBiome"));
-        defaultBuilder.withGuiColour(conf.getInt("guiColour"));
+        defaultBuilder.withBaseBiome(conf.getString("baseBiome", defaultBuilder.baseBiomeRegName));
+        defaultBuilder.withGuiColour(conf.getInt("guiColour", defaultBuilder.guiColour));
 
         return defaultBuilder.build();
     }

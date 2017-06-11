@@ -58,11 +58,13 @@ public class BOPConfig
         protected Map<String, ConfigChildObj> childObjs;
         protected List<String> messages = new ArrayList<String>();
         protected String prefix = "";
+        protected boolean warnIfDefault;
 
-        private ConfigObjBase()
+        private ConfigObjBase(boolean warnIfDefault)
         {
             this.defaults = Maps.newHashMap();
             this.childObjs = Maps.newHashMap();
+            this.warnIfDefault = warnIfDefault;
         }
 
         public void parse(String jsonString)
@@ -155,13 +157,7 @@ public class BOPConfig
         @Override
         public IConfigObj getObject(String name, boolean warnIfMissing)
         {
-            if (!this.has(name))
-            {
-                if (warnIfMissing)
-                {
-                    this.addMessage(name, "Error - missing value");
-                }
-            }
+            JsonObject obj = new JsonObject();
 
             // attempt to return cached child first
             if (this.childObjs.containsKey(name))
@@ -169,16 +165,25 @@ public class BOPConfig
                 return this.childObjs.get(name);
             }
 
-            JsonObject obj = new JsonObject();
-
-            try
+            // check if the object exists and read it if it does
+            if (!this.has(name))
             {
-                obj = this.members.get(name).getAsJsonObject();
-            } catch (Exception e) {
-                this.addMessage("Error fetching object " + name + ": " + e.getMessage());
+                if (warnIfMissing)
+                {
+                    this.addMessage(name, "Error - missing value");
+                }
+            }
+            else
+            {
+                try
+                {
+                    obj = this.members.get(name).getAsJsonObject();
+                } catch (Exception e) {
+                    this.addMessage("Error fetching object " + name + ": " + e.getMessage());
+                }
             }
 
-            ConfigChildObj childObj = new ConfigChildObj(this.prefix + "." + name, obj);
+            ConfigChildObj childObj = new ConfigChildObj(this.prefix + "." + name, obj, this.warnIfDefault);
             // store the child for later serialization
             this.childObjs.put(name, childObj);
             return childObj;
@@ -353,7 +358,12 @@ public class BOPConfig
                 return defaultVal;
             }
             T out = this.<T>as(this.members.get(name), type, name);
-            return out == null ? defaultVal : out;    
+            // warn people who try to copy-paste default configs
+            if (this.warnIfDefault && out != null && out.equals(defaultVal))
+            {
+                this.addMessage("You can't set a property to its default value, only changed properties can be included in config files. \n Property: " + name + ", Value: " + out);
+            }
+            return out == null ? defaultVal : out;
         }
         
         private <T> ArrayList<T> getArray(String name, ArrayList<T> defaultVal, boolean warnIfMissing, Types type)
@@ -586,7 +596,7 @@ public class BOPConfig
                 case RESOURCELOCATION:
                     return fromResourceLocation((ResourceLocation)value);
                 default:
-                    BiomesOPlenty.logger.error("Undefined type " + type);
+                    this.addMessage("Undefined type " + type);
                     return null;
             }
         }
@@ -620,6 +630,7 @@ public class BOPConfig
     {
         public ConfigObj(String jsonString)
         {
+            super(false);
             this.parse(jsonString);
         }
     }
@@ -629,11 +640,12 @@ public class BOPConfig
     {
         public ConfigFileObj(File configFile)
         {
-            this(configFile, false);
+            this(configFile, false, false);
         }
         
-        public ConfigFileObj(File configFile, boolean warnIfMissing)
+        public ConfigFileObj(File configFile, boolean warnIfMissing, boolean warnIfDefault)
         {
+            super(warnIfDefault);
             this.prefix = configFile.getName();
             String jsonString = null;
             if (configFile.exists())
@@ -658,8 +670,9 @@ public class BOPConfig
     // Concrete class for a config object which is a child of another config object
     public static class ConfigChildObj extends ConfigObjBase
     {
-        protected ConfigChildObj(String prefix, JsonObject obj)
+        protected ConfigChildObj(String prefix, JsonObject obj, boolean warnIfDefault)
         {
+            super(warnIfDefault);
             this.prefix = prefix;
             this.members = new HashMap<String, JsonElement>();
             for (Entry<String, JsonElement> entry : obj.entrySet())
@@ -667,7 +680,10 @@ public class BOPConfig
                 this.members.put(entry.getKey(), entry.getValue());
             }
         }
+
+        protected ConfigChildObj(String prefix, JsonObject obj)
+        {
+            this(prefix, obj, false);
+        }
     }
-    
-    
 }
