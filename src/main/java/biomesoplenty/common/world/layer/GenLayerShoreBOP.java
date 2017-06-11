@@ -75,12 +75,13 @@ public class GenLayerShoreBOP extends BOPGenLayer
                         }
                         else
                         {
-                            if (biome != null && BOPBiomes.REG_INSTANCE.getExtendedBiome(biome) != null)
+                            Biome beachBiome = null;
+                            if (BOPBiomes.REG_INSTANCE.getExtendedBiome(biome) != null)
                             {
                                 IExtendedBiome extBiome = BOPBiomes.REG_INSTANCE.getExtendedBiome(biome);
-                                Biome beachBiome = BiomeUtils.getBiomeForLoc(extBiome.getBeachLocation());
-                                setBiomeWithAdjacent(biomeIds, out, x, z, areaWidth, biomeId, beachBiome == null ? biomeId : Biome.getIdForBiome(Biomes.COLD_BEACH), OCEANIC_PREDICATE);   
+                                beachBiome = BiomeUtils.getBiomeForLoc(extBiome.getBeachLocation());
                             }
+                            setBiomeWithAdjacent(biomeIds, out, x, z, areaWidth, biomeId, beachBiome == null ? biomeId : Biome.getIdForBiome(Biomes.COLD_BEACH), OCEANIC_PREDICATE);
                         }
                     }
                     else if (biomeId != Biome.getIdForBiome(Biomes.MESA) && biomeId != Biome.getIdForBiome(Biomes.MESA_ROCK))
