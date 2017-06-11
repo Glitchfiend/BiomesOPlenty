@@ -63,16 +63,11 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
-import net.minecraft.item.Item.ToolMaterial;
-import net.minecraft.item.ItemArmor.ArmorMaterial;
-import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemSeeds;
 import net.minecraft.item.ItemSoup;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
-import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ModItems
@@ -84,13 +79,47 @@ public class ModItems
     
     public static void registerItems()
     {
+        jar_filled = registerItem(new ItemJarFilled(), "jar_filled");
+        jar_empty = registerItem(new ItemJarEmpty(), "jar_empty");
+        
+        biome_finder = registerItem(new ItemBiomeFinder(), "biome_finder");
+        flower_basket = registerItem(new ItemFlowerBasket(), "flower_basket");
+        
+        record_wanderer = registerItem(new ItemBOPRecord("wanderer", BOPSounds.records_wanderer), "record_wanderer");
+        
+        mudball = registerItem(new ItemMudball(), "mudball");
+        mud_brick = registerItem(new Item(), "mud_brick");
+        ash = registerItem(new Item(), "ash");
+        fleshchunk = registerItem(new Item(), "fleshchunk");
+        
+        pixie_dust = registerItem(new Item(), "pixie_dust");
+        
+        gem = registerItem(new ItemGem(), "gem");
+        
+        terrestrial_artifact = registerItem(new Item(), "terrestrial_artifact");
+        terrestrial_artifact.setMaxStackSize(1);
+        
+        crystal_shard = registerItem(new Item(), "crystal_shard");
+        
+        biome_essence = registerItem(new ItemBiomeEssence(), "biome_essence");
+        
         // food
     	berries =           registerItem(new ItemBOPFood(1, 0.1F, 8), "berries"); 
     	pear =              registerItem(new ItemFood(5, 0.3F, false), "pear");
     	peach =             registerItem(new ItemFood(5, 0.2F, false), "peach");
         persimmon =         registerItem(new ItemFood(5, 0.2F, false), "persimmon");
+        pinecone = registerItem(new Item(), "pinecone");
+        
         turnip_seeds = registerItem(new ItemSeeds(BOPBlocks.turnip_block, Blocks.FARMLAND), "turnip_seeds");
         turnip =            registerItem(new ItemFood(3, 0.4F, false), "turnip");
+        
+        honeycomb = registerItem(new Item(), "honeycomb");
+        filled_honeycomb =  registerItem(new ItemBOPFood(3, 0.4F, 16), "filled_honeycomb");
+        
+        shroompowder =      registerItem(new ItemFood(1, 0.1F, false), "shroompowder");
+        ((ItemFood)shroompowder).setAlwaysEdible();
+        ((ItemFood)shroompowder).setPotionEffect(new PotionEffect(MobEffects.NAUSEA, 225, 0), 1.0F);
+        
         saladfruit =        registerItem(new ItemSoup(6), "saladfruit");
         ((ItemFood)saladfruit).setPotionEffect(new PotionEffect(MobEffects.HASTE, 775, 1), 0.05F);
         saladveggie =       registerItem(new ItemSoup(6), "saladveggie");
@@ -98,26 +127,8 @@ public class ModItems
         saladshroom =       registerItem(new ItemSoup(6), "saladshroom");
         ((ItemFood)saladshroom).setPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 550, 1), 0.05F);
         ricebowl =          registerItem(new ItemSoup(2), "ricebowl");
-        honeycomb = registerItem(new Item(), "honeycomb");
-        filled_honeycomb =  registerItem(new ItemBOPFood(3, 0.4F, 16), "filled_honeycomb");
-        pinecone = registerItem(new Item(), "pinecone");
-        shroompowder =      registerItem(new ItemFood(1, 0.1F, false), "shroompowder");
-        ((ItemFood)shroompowder).setAlwaysEdible();
-        ((ItemFood)shroompowder).setPotionEffect(new PotionEffect(MobEffects.NAUSEA, 225, 0), 1.0F);
-        ambrosia =          registerItem(new ItemAmbrosia(), "ambrosia");
         
-        earth = registerItem(new Item(), "earth");
-        earth.setCreativeTab(null);
-        mudball = registerItem(new ItemMudball(), "mudball");
-        mud_brick = registerItem(new Item(), "mud_brick");
-        ash = registerItem(new Item(), "ash");
-        fleshchunk = registerItem(new Item(), "fleshchunk");
-        gem = registerItem(new ItemGem(), "gem");
-        terrestrial_artifact = registerItem(new Item(), "terrestrial_artifact");
-        terrestrial_artifact.setMaxStackSize(1);
-        crystal_shard = registerItem(new Item(), "crystal_shard");
-        biome_essence = registerItem(new ItemBiomeEssence(), "biome_essence");
-        pixie_dust = registerItem(new Item(), "pixie_dust");
+        ambrosia =          registerItem(new ItemAmbrosia(), "ambrosia");
         
         // TODO: move dyes to their own class?
         blue_dye = registerItem(new Item(), "blue_dye");
@@ -126,13 +137,8 @@ public class ModItems
         white_dye = registerItem(new Item(), "white_dye");
         black_dye = registerItem(new Item(), "black_dye");
         
-        jar_empty = registerItem(new ItemJarEmpty(), "jar_empty");
-        jar_filled = registerItem(new ItemJarFilled(), "jar_filled");
-        flower_basket = registerItem(new ItemFlowerBasket(), "flower_basket");
-        biome_finder = registerItem(new ItemBiomeFinder(), "biome_finder");
-        
-        record_wanderer = registerItem(new ItemBOPRecord("wanderer", BOPSounds.records_wanderer), "record_wanderer");
-        
+        earth = registerItem(new Item(), "earth");
+        earth.setCreativeTab(null);
     }
     
     public static Item registerItem(Item item, String name)
@@ -154,34 +160,4 @@ public class ModItems
         
         return item;   
     }
-
-    private static ArmorMaterial addArmorMaterial(String name, String textureName, int durability, int[] reductionAmounts, int enchantability, SoundEvent soundOnEquip, float toughness)
-    {
-        return EnumHelper.addArmorMaterial(name, textureName, durability, reductionAmounts, enchantability, soundOnEquip, toughness);
-    }
-    
-    private static void setAxeDamageAndSpeed(ToolMaterial material, float damage, float speed)
-    {
-        int index = material.ordinal(); 
-        
-        //Expand the arrays if necessary
-        if (ItemAxe.ATTACK_DAMAGES.length - 1 < index)
-        {
-            float[] attackDamages = new float[index + 1];
-            System.arraycopy(ItemAxe.ATTACK_DAMAGES, 0, attackDamages, 0, ItemAxe.ATTACK_DAMAGES.length);
-            ItemAxe.ATTACK_DAMAGES = attackDamages;
-        }  
-        
-        if (ItemAxe.ATTACK_SPEEDS.length - 1 < index)
-        {
-            float[] attackSpeeds = new float[index + 1];
-            System.arraycopy(ItemAxe.ATTACK_SPEEDS, 0, attackSpeeds, 0, ItemAxe.ATTACK_SPEEDS.length);
-            ItemAxe.ATTACK_SPEEDS = attackSpeeds;
-        }
-        
-        //Update the values associated with this material
-        ItemAxe.ATTACK_DAMAGES[index] = damage;
-        ItemAxe.ATTACK_SPEEDS[index] = speed;
-    }
-    
 }
