@@ -16,11 +16,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.*;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.oredict.OreIngredient;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 public class CraftingUtil
 {
@@ -46,9 +44,49 @@ public class CraftingUtil
         CraftingManager.func_193372_a(unusedLocForOutput(output), recipe);
     }
 
-    public static void addShapedRecipe(ItemStack output, Object... inputs) {
+    public static void addShapedRecipe(ItemStack output, Object... inputs)
+    {
         ArrayList<String> pattern = Lists.newArrayList();
         Map<String, Ingredient> key = Maps.newHashMap();
+
+        parseRecipe(pattern, key, inputs);
+        int width = pattern.get(0).length();
+        int height = pattern.size();
+
+        NonNullList<Ingredient> ingredients = ShapedRecipes.func_192402_a(pattern.toArray(new String[pattern.size()]), key, width, height);
+        ShapedRecipes recipe = new ShapedRecipes("biomesoplenty", width, height, ingredients, output);
+        CraftingManager.func_193372_a(unusedLocForOutput(output), recipe);
+    }
+
+    public static void addRecipe(String name, IRecipe recipe)
+    {
+        CraftingManager.func_193372_a(new ResourceLocation(BiomesOPlenty.MOD_ID, name), recipe);
+    }
+
+    public static Ingredient asIngredient(Object object)
+    {
+        if (object instanceof Item)
+        {
+            return Ingredient.func_193367_a((Item)object);
+        }
+        else if (object instanceof Block)
+        {
+            return Ingredient.func_193369_a(new ItemStack((Block)object));
+        }
+        else if (object instanceof ItemStack)
+        {
+            return Ingredient.func_193369_a((ItemStack)object);
+        }
+        else if (object instanceof String)
+        {
+            return new OreIngredient((String)object);
+        }
+
+        throw new IllegalArgumentException("Cannot convert object of type " + object.getClass().toString() + " to an Ingredient!");
+    }
+
+    private static void parseRecipe(List<String> pattern, Map<String, Ingredient> key, Object... inputs)
+    {
         Iterator itr = Arrays.asList(inputs).iterator();
 
         while (itr.hasNext())
@@ -83,36 +121,7 @@ public class CraftingUtil
             }
         }
 
-        int width = pattern.get(0).length();
-        int height = pattern.size();
-
         key.put(" ", Ingredient.field_193370_a);
-        NonNullList<Ingredient> ingredients = ShapedRecipes.func_192402_a(pattern.toArray(new String[pattern.size()]), key, width, height);
-        ShapedRecipes recipe = new ShapedRecipes("biomesoplenty", width, height, ingredients, output);
-        CraftingManager.func_193372_a(unusedLocForOutput(output), recipe);
-    }
-
-    public static void addRecipe(String name, IRecipe recipe)
-    {
-        CraftingManager.func_193372_a(new ResourceLocation(BiomesOPlenty.MOD_ID, name), recipe);
-    }
-
-    public static Ingredient asIngredient(Object object)
-    {
-        if (object instanceof Item)
-        {
-            return Ingredient.func_193367_a((Item)object);
-        }
-        else if (object instanceof Block)
-        {
-            return Ingredient.func_193369_a(new ItemStack((Block)object));
-        }
-        else if (object instanceof ItemStack)
-        {
-            return Ingredient.func_193369_a((ItemStack)object);
-        }
-
-        throw new IllegalArgumentException("Cannot convert object of type " + object.getClass().toString() + " to an Ingredient!");
     }
 
     private static ResourceLocation unusedLocForOutput(ItemStack output)

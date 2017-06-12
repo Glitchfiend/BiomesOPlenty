@@ -22,8 +22,10 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 
 public class ModCrafting
 {
@@ -134,8 +136,8 @@ public class ModCrafting
         addRecipe("biome_essence", new BiomeEssenceRecipe());
         
         /*** Flower Basket ***/
-        
-        //addRecipe(new ShapedOreRecipe(new ResourceLocation(""), new ItemStack(BOPItems.flower_basket), " S ", "S S", "SSS", 'S', "stickWood"));
+
+        addShapedRecipe(new ItemStack(BOPItems.flower_basket), " S ", "S S", "SSS", 'S', "stickWood");
         
         /*** Misc Others ***/
         
@@ -143,7 +145,7 @@ public class ModCrafting
         addShapedRecipe(new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.OVERGROWN_NETHERRACK.ordinal()), "SSS", "SNS", "SSS", 'S', Items.WHEAT_SEEDS, 'N', Blocks.NETHERRACK);
         
         // Cattail Wool
-        //addRecipe(new ShapedOreRecipe(new ResourceLocation(""), new ItemStack(Blocks.WOOL), "CCC", "CCC", "CCC", 'C', "plantCattail"));
+        addShapedRecipe(new ItemStack(Blocks.WOOL), "CCC", "CCC", "CCC", 'C', "plantCattail");
         
         // Ash Coal
         addShapedRecipe(new ItemStack(Items.COAL), "AAA", "AAA", "AAA", 'A', new ItemStack(BOPItems.ash));
@@ -152,8 +154,8 @@ public class ModCrafting
         addShapedRecipe(new ItemStack(BOPBlocks.ash_block), "AA", "AA", 'A', new ItemStack(BOPItems.ash));
         
         // Mud Block
-        //addRecipe(new ShapedOreRecipe(new ResourceLocation(""), new ItemStack(BOPBlocks.mud, 1), "MM", "MM", 'M', "ballMud"));
-        //addRecipe(new ShapelessOreRecipe(new ResourceLocation(""), new ItemStack(BOPBlocks.mud), "dirt", new ItemStack(Items.WATER_BUCKET)));
+        addShapedRecipe(new ItemStack(BOPBlocks.mud, 1), "MM", "MM", 'M', "ballMud");
+        addShapelessRecipe(new ItemStack(BOPBlocks.mud), "dirt", new ItemStack(Items.WATER_BUCKET));
         
         // Mud Brick Blcok
         addShapedRecipe(new ItemStack(BOPBlocks.mud_brick_block), "MM", "MM", 'M', new ItemStack(BOPItems.mud_brick));
@@ -172,7 +174,7 @@ public class ModCrafting
         addShapedRecipe(new ItemStack(BOPBlocks.dirt, 4, BOPBlocks.dirt.getMetaFromState(BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY).withProperty(BlockBOPDirt.COARSE, true))), "DG", "GD", 'G', Blocks.GRAVEL, 'D', new ItemStack(BOPBlocks.dirt, 4, BlockBOPDirt.BOPDirtType.SILTY.ordinal()));
 
         // Records
-        //addRecipe(new ShapedOreRecipe(new ResourceLocation(""), new ItemStack(BOPItems.record_wanderer), "TTT", "TRT", "TTT", 'T', BOPItems.terrestrial_artifact, 'R', "record"));
+        addShapedRecipe(new ItemStack(BOPItems.record_wanderer), "TTT", "TRT", "TTT", 'T', BOPItems.terrestrial_artifact, 'R', "record");
 
         // Bamboo Thatching
         addShapedRecipe(new ItemStack(BOPBlocks.bamboo_thatching), "##", "##", '#', BOPBlocks.bamboo);
@@ -205,27 +207,27 @@ public class ModCrafting
         addShapelessRecipe(new ItemStack(BOPItems.saladshroom), Items.BOWL, new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.TOADSTOOL.ordinal()), new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.PORTOBELLO.ordinal()), new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.BLUE_MILK_CAP.ordinal()));
 
         // Terrariums
-        //addRecipe(new ShapelessOreRecipe(new ResourceLocation(""), new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.FERN.ordinal()), "grass", new ItemStack(Blocks.TALLGRASS, 1, 2), new ItemStack(BOPItems.jar_empty)));
-        //addRecipe(new ShapelessOreRecipe(new ResourceLocation(""), new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.MUSHROOM.ordinal()), "grass", new ItemStack(Blocks.RED_MUSHROOM), new ItemStack(BOPItems.jar_empty)));
-        //addRecipe(new ShapelessOreRecipe(new ResourceLocation(""), new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.CACTUS.ordinal()), "grass", BlockBOPPlant.paging.getVariantItem(BOPPlants.TINYCACTUS), new ItemStack(BOPItems.jar_empty)));
-        //addRecipe(new ShapelessOreRecipe(new ResourceLocation(""), new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.FLAX.ordinal()), "grass", ((BlockBOPDoublePlant)BOPBlocks.double_plant).getVariantItem(BlockBOPDoublePlant.DoublePlantType.FLAX), new ItemStack(BOPItems.jar_empty)));
-        //addRecipe(new ShapelessOreRecipe(new ResourceLocation(""), new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.SAPLING.ordinal()), "grass", "treeSapling", new ItemStack(BOPItems.jar_empty)));
-        //addRecipe(new ShapelessOreRecipe(new ResourceLocation(""), new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.KORU.ordinal()), "grass", BlockBOPPlant.paging.getVariantItem(BOPPlants.KORU), new ItemStack(BOPItems.jar_empty)));
-        //addRecipe(new ShapelessOreRecipe(new ResourceLocation(""), new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.FLOWER.ordinal()), "grass", new ItemStack(Blocks.RED_FLOWER), new ItemStack(BOPItems.jar_empty)));
-        //addRecipe(new ShapelessOreRecipe(new ResourceLocation(""), new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.FLOWER.ordinal()), "grass", new ItemStack(Blocks.YELLOW_FLOWER), new ItemStack(BOPItems.jar_empty)));
-        //addRecipe(new ShapelessOreRecipe(new ResourceLocation(""), new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.BAMBOO.ordinal()), new ItemStack(Blocks.DIRT, 1, 2), new ItemStack(BOPBlocks.bamboo), new ItemStack(BOPItems.jar_empty)));
-        //addRecipe(new ShapelessOreRecipe(new ResourceLocation(""), new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.DEAD.ordinal()), "grass", new ItemStack(Blocks.DEADBUSH), new ItemStack(BOPItems.jar_empty)));
-        //addRecipe(new ShapelessOreRecipe(new ResourceLocation(""), new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.GLOWSHROOM.ordinal()), new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.OVERGROWN_STONE.ordinal()), new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.GLOWSHROOM.ordinal()), new ItemStack(BOPItems.jar_empty)));
-        //addRecipe(new ShapelessOreRecipe(new ResourceLocation(""), new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.MYSTIC.ordinal()), "grass", BlockBOPFlower.paging.getVariantItem(BOPFlowers.GLOWFLOWER), new ItemStack(BOPItems.jar_empty)));
-        //addRecipe(new ShapelessOreRecipe(new ResourceLocation(""), new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.OMINOUS.ordinal()), "grass", BlockBOPFlower.paging.getVariantItem(BOPFlowers.DEATHBLOOM), new ItemStack(BOPItems.jar_empty)));
-        //addRecipe(new ShapelessOreRecipe(new ResourceLocation(""), new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.ORIGIN.ordinal()), new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.ORIGIN.ordinal()), BlockBOPFlower.paging.getVariantItem(BOPFlowers.ROSE), new ItemStack(BOPItems.jar_empty)));
-        //addRecipe(new ShapelessOreRecipe(new ResourceLocation(""), new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.WASTELAND.ordinal()), new ItemStack(BOPBlocks.dried_sand), BlockBOPFlower.paging.getVariantItem(BOPFlowers.WILTED_LILY), new ItemStack(BOPItems.jar_empty)));
-        //addRecipe(new ShapelessOreRecipe(new ResourceLocation(""), new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.NETHER.ordinal()), new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.OVERGROWN_NETHERRACK.ordinal()), BlockBOPFlower.paging.getVariantItem(BOPFlowers.BURNING_BLOSSOM), new ItemStack(BOPItems.jar_empty)));
-        //addRecipe(new ShapelessOreRecipe(new ResourceLocation(""), new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.ENDER.ordinal()), new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.SPECTRAL_MOSS.ordinal()), BlockBOPPlant.paging.getVariantItem(BOPPlants.SPECTRALFERN), new ItemStack(BOPItems.jar_empty)));
+        addShapelessRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.FERN.ordinal()), "grass", new ItemStack(Blocks.TALLGRASS, 1, 2), new ItemStack(BOPItems.jar_empty));
+        addShapelessRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.MUSHROOM.ordinal()), "grass", new ItemStack(Blocks.RED_MUSHROOM), new ItemStack(BOPItems.jar_empty));
+        addShapelessRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.CACTUS.ordinal()), "grass", BlockBOPPlant.paging.getVariantItem(BOPPlants.TINYCACTUS), new ItemStack(BOPItems.jar_empty));
+        addShapelessRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.FLAX.ordinal()), "grass", ((BlockBOPDoublePlant)BOPBlocks.double_plant).getVariantItem(BlockBOPDoublePlant.DoublePlantType.FLAX), new ItemStack(BOPItems.jar_empty));
+        addShapelessRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.SAPLING.ordinal()), "grass", "treeSapling", new ItemStack(BOPItems.jar_empty));
+        addShapelessRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.KORU.ordinal()), "grass", BlockBOPPlant.paging.getVariantItem(BOPPlants.KORU), new ItemStack(BOPItems.jar_empty));
+        addShapelessRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.FLOWER.ordinal()), "grass", new ItemStack(Blocks.RED_FLOWER), new ItemStack(BOPItems.jar_empty));
+        addShapelessRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.FLOWER.ordinal()), "grass", new ItemStack(Blocks.YELLOW_FLOWER), new ItemStack(BOPItems.jar_empty));
+        addShapelessRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.BAMBOO.ordinal()), new ItemStack(Blocks.DIRT, 1, 2), new ItemStack(BOPBlocks.bamboo), new ItemStack(BOPItems.jar_empty));
+        addShapelessRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.DEAD.ordinal()), "grass", new ItemStack(Blocks.DEADBUSH), new ItemStack(BOPItems.jar_empty));
+        addShapelessRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.GLOWSHROOM.ordinal()), new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.OVERGROWN_STONE.ordinal()), new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.GLOWSHROOM.ordinal()), new ItemStack(BOPItems.jar_empty));
+        addShapelessRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.MYSTIC.ordinal()), "grass", BlockBOPFlower.paging.getVariantItem(BOPFlowers.GLOWFLOWER), new ItemStack(BOPItems.jar_empty));
+        addShapelessRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.OMINOUS.ordinal()), "grass", BlockBOPFlower.paging.getVariantItem(BOPFlowers.DEATHBLOOM), new ItemStack(BOPItems.jar_empty));
+        addShapelessRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.ORIGIN.ordinal()), new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.ORIGIN.ordinal()), BlockBOPFlower.paging.getVariantItem(BOPFlowers.ROSE), new ItemStack(BOPItems.jar_empty));
+        addShapelessRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.WASTELAND.ordinal()), new ItemStack(BOPBlocks.dried_sand), BlockBOPFlower.paging.getVariantItem(BOPFlowers.WILTED_LILY), new ItemStack(BOPItems.jar_empty));
+        addShapelessRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.NETHER.ordinal()), new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.OVERGROWN_NETHERRACK.ordinal()), BlockBOPFlower.paging.getVariantItem(BOPFlowers.BURNING_BLOSSOM), new ItemStack(BOPItems.jar_empty));
+        addShapelessRecipe(new ItemStack(BOPBlocks.terrarium, 1, BlockBOPTerrarium.TerrariumType.ENDER.ordinal()), new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.SPECTRAL_MOSS.ordinal()), BlockBOPPlant.paging.getVariantItem(BOPPlants.SPECTRALFERN), new ItemStack(BOPItems.jar_empty));
 
         // Vanilla convenience recipes
         addShapelessRecipe(new ItemStack(Blocks.SAND), new ItemStack(BOPBlocks.dried_sand), new ItemStack(Items.WATER_BUCKET));
-        //addRecipe(new ShapelessOreRecipe(new ResourceLocation(""), new ItemStack(BOPBlocks.plant_0, 1, BOPPlants.LEAFPILE.ordinal()), "treeLeaves"));
+        addShapelessRecipe(new ItemStack(BOPBlocks.plant_0, 1, BOPPlants.LEAFPILE.ordinal()), "treeLeaves");
     }
     
     
