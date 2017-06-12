@@ -8,6 +8,7 @@
 
 package biomesoplenty.common.block;
 
+import java.util.List;
 import java.util.Random;
 
 import javax.annotation.Nullable;
@@ -24,6 +25,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.Item;
@@ -91,7 +93,6 @@ public class BlockBOPMud extends Block implements IBOPBlock, ISustainsPlantType
         this.setHardness(0.6F);
         this.setSoundType(SoundType.SLIME);
         this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, MudType.MUD) );
-        
     }    
     
     // map from state to meta and vice verca
@@ -106,7 +107,8 @@ public class BlockBOPMud extends Block implements IBOPBlock, ISustainsPlantType
         return ((MudType) state.getValue(VARIANT)).ordinal();
     }
     
-    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World worldIn, BlockPos pos)
+    @Override
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos)
     {
         return MUD_AABB;
     }
@@ -114,18 +116,8 @@ public class BlockBOPMud extends Block implements IBOPBlock, ISustainsPlantType
     @Override
     public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
     {
-        
-        switch ((MudType) state.getValue(VARIANT))
-        {
-            // mud slows you greatly unless you're wearing wading boots
-            case MUD:          
-                entity.motionX *= 0.2D;
-                entity.motionZ *= 0.2D;
-                break;
-            
-            default:
-                break;
-        }
+        entity.motionX *= 0.4D;
+        entity.motionZ *= 0.4D;
     }
     
     // drop 4 balls of mud instead of one block
