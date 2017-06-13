@@ -20,6 +20,7 @@ import net.minecraft.block.BlockSlab;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.color.IBlockColor;
@@ -192,5 +193,9 @@ public class BlockBOPDoubleWoodSlab extends BlockSlab implements IBOPBlock
         }
     }
     
-    
+    @Override
+    public BlockFaceShape func_193383_a(IBlockAccess p_193383_1_, IBlockState p_193383_2_, BlockPos p_193383_3_, EnumFacing p_193383_4_)
+    {
+        return BlockFaceShape.SOLID;
+    }
 }

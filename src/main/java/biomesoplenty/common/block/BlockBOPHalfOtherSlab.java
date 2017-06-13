@@ -20,6 +20,7 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.color.IBlockColor;
@@ -28,8 +29,11 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -201,4 +205,20 @@ public class BlockBOPHalfOtherSlab extends BlockSlab implements IBOPBlock
         }
     }
     
+    @Override
+    public BlockFaceShape func_193383_a(IBlockAccess p_193383_1_, IBlockState p_193383_2_, BlockPos p_193383_3_, EnumFacing p_193383_4_)
+    {
+        if (((BlockSlab)p_193383_2_.getBlock()).isDouble())
+        {
+            return BlockFaceShape.SOLID;
+        }
+        else if (p_193383_4_ == EnumFacing.UP && p_193383_2_.getValue(HALF) == BlockSlab.EnumBlockHalf.TOP)
+        {
+            return BlockFaceShape.SOLID;
+        }
+        else
+        {
+            return p_193383_4_ == EnumFacing.DOWN && p_193383_2_.getValue(HALF) == BlockSlab.EnumBlockHalf.BOTTOM ? BlockFaceShape.SOLID : BlockFaceShape.UNDEFINED;
+        }
+    }
 }

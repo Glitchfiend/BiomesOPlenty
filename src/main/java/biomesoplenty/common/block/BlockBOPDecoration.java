@@ -15,6 +15,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.IItemColor;
@@ -153,6 +154,12 @@ public class BlockBOPDecoration extends Block implements IBOPBlock
     public Block.EnumOffsetType getOffsetType()
     {
         return Block.EnumOffsetType.XZ;
+    }
+    
+    @Override
+    public BlockFaceShape func_193383_a(IBlockAccess p_193383_1_, IBlockState p_193383_2_, BlockPos p_193383_3_, EnumFacing p_193383_4_)
+    {
+        return BlockFaceShape.UNDEFINED;
     }
     
 /*    @Override

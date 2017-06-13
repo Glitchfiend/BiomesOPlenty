@@ -61,7 +61,7 @@ public class BiomeGenOasis extends BOPOverworldBiome
         this.topBlock = Blocks.SAND.getDefaultState();
         this.fillerBlock = Blocks.SAND.getDefaultState();
         this.usualTopBlock = this.topBlock;
-        this.alternateTopBlock = Blocks.GRASS.getDefaultState();
+        this.alternateTopBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SANDY);
         
         clearWeights();
         

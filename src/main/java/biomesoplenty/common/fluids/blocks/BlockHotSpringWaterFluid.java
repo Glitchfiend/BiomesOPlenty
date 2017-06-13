@@ -13,6 +13,7 @@ import java.util.Random;
 import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -117,5 +118,11 @@ public class BlockHotSpringWaterFluid extends BlockFluidClassic
         }
 
         return false;
+    }
+    
+    @Override
+    public BlockFaceShape func_193383_a(IBlockAccess p_193383_1_, IBlockState p_193383_2_, BlockPos p_193383_3_, EnumFacing p_193383_4_)
+    {
+        return BlockFaceShape.UNDEFINED;
     }
 }
