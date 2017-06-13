@@ -48,16 +48,19 @@ public class ItemBOPBlock extends ItemBlock
     @SideOnly(Side.CLIENT)
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems)
     {        
-        ImmutableSet<IBlockState> presets = BlockStateUtils.getBlockPresets(this.block);
-        if (presets.isEmpty())
+        if (this.func_194125_a(tab))
         {
-            subItems.add(new ItemStack(this.block, 1, 0));
-        }
-        else
-        {
-            for (IBlockState state : presets)
+            ImmutableSet<IBlockState> presets = BlockStateUtils.getBlockPresets(this.block);
+            if (presets.isEmpty())
             {
-                subItems.add(new ItemStack(this.block, 1, this.block.getMetaFromState(state)));
+                subItems.add(new ItemStack(this.block, 1, 0));
+            }
+            else
+            {
+                for (IBlockState state : presets)
+                {
+                    subItems.add(new ItemStack(this.block, 1, this.block.getMetaFromState(state)));
+                }
             }
         }
     }

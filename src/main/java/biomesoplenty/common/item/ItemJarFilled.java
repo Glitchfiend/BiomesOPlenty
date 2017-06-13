@@ -59,9 +59,12 @@ public class ItemJarFilled extends Item
     @SideOnly(Side.CLIENT)
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems)
     {
-        for (JarContents contents : JarContents.values())
+        if (this.func_194125_a(tab))
         {
-            subItems.add(new ItemStack(this, 1, contents.ordinal()));
+            for (JarContents contents : JarContents.values())
+            {
+                subItems.add(new ItemStack(this, 1, contents.ordinal()));
+            }
         }
     }
 

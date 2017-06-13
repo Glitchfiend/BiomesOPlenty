@@ -32,10 +32,13 @@ public class ItemGem extends Item
     @SideOnly(Side.CLIENT)
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems)
     {
-        for (BOPGems gemType : BOPGems.values())
+        if (this.func_194125_a(tab))
         {
-            subItems.add(new ItemStack(this, 1, gemType.ordinal()));
-        }        
+            for (BOPGems gemType : BOPGems.values())
+            {
+                subItems.add(new ItemStack(this, 1, gemType.ordinal()));
+            }       
+        }
     }
 
     // default behavior in Item is to return 0, but the meta value is important here because it determines which gem to use
