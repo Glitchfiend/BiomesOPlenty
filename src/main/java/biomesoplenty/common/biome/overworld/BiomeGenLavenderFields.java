@@ -20,6 +20,7 @@ import biomesoplenty.api.enums.BOPWoods;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.block.BlockBOPDirt;
 import biomesoplenty.common.block.BlockBOPGrass;
+import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.entities.EntityButterfly;
 import biomesoplenty.common.world.generator.GeneratorFlora;
 import biomesoplenty.common.world.generator.GeneratorGrass;
@@ -27,6 +28,7 @@ import biomesoplenty.common.world.generator.GeneratorOreSingle;
 import biomesoplenty.common.world.generator.GeneratorWeighted;
 import biomesoplenty.common.world.generator.tree.GeneratorBasicTree;
 import biomesoplenty.common.world.generator.tree.GeneratorBigTree;
+import net.minecraft.block.BlockOldLeaf;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -57,7 +59,7 @@ public class BiomeGenLavenderFields extends BOPOverworldBiome
         GeneratorWeighted treeGenerator = new GeneratorWeighted(1);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("jacaranda", 3, (new GeneratorBasicTree.Builder()).minHeight(4).maxHeight(7).log(BOPWoods.JACARANDA).leaves(BOPTrees.JACARANDA).create());
-        treeGenerator.add("oak", 1, (new GeneratorBigTree.Builder()).altLeaves(BOPTrees.FLOWERING).create());
+        treeGenerator.add("oak", 1, (new GeneratorBigTree.Builder()).altLeaves(BlockBOPLeaves.paging.getVariantState(BOPTrees.FLOWERING).withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).create());
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(15);

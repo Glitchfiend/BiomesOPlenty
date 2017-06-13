@@ -57,7 +57,7 @@ public class BiomeGenSacredSprings extends BOPOverworldBiome
         // trees
         this.addGenerator("sacred_oak_trees", GeneratorStage.POST, (new GeneratorBigTree.Builder()).amountPerChunk(0.4F).log(BOPWoods.SACRED_OAK).leaves(BlockBOPLeaves.paging.getVariantState(BOPTrees.SACRED_OAK).withProperty(BlockOldLeaf.DECAYABLE, Boolean.valueOf(false))).minHeight(35).maxHeight(40).trunkWidth(2).foliageDensity(2.0D).create());
         this.addGenerator("leaves_clusters", GeneratorStage.TREE, (new GeneratorBush.Builder()).amountPerChunk(12.5F).maxHeight(2).create());
-        this.addGenerator("large_oak", GeneratorStage.TREE, (new GeneratorBigTree.Builder()).amountPerChunk(3.0F).log(BlockPlanks.EnumType.OAK).leaves(BlockPlanks.EnumType.OAK).altLeaves(BOPTrees.FLOWERING).create());
+        this.addGenerator("large_oak", GeneratorStage.TREE, (new GeneratorBigTree.Builder()).amountPerChunk(3.0F).altLeaves(BlockBOPLeaves.paging.getVariantState(BOPTrees.FLOWERING).withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).create());
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(2.75F);

@@ -10,11 +10,12 @@ package biomesoplenty.common.world.generator;
 
 import java.util.Random;
 
+import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.api.config.IConfigObj;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
-import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -35,7 +36,7 @@ public class GeneratorWaterside extends GeneratorReplacing
             // defaults
             this.amountPerChunk = 1.0F;
             this.placeOn = BlockQueries.anything;
-            this.replace = new BlockQueryMaterial(Material.GRASS, Material.GROUND);
+            this.replace = new BlockQueryBlock(Blocks.GRASS, Blocks.DIRT, BOPBlocks.grass, BOPBlocks.dirt);
             this.with = Blocks.GRAVEL.getDefaultState();
             this.scatterYMethod = ScatterYMethod.AT_GROUND;
             this.maxRadius = 7;

@@ -46,7 +46,9 @@ public class BiomeGenRedwoodForest extends BOPOverworldBiome
         
         this.topBlock = Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.PODZOL);
         
+        this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
+        this.canGenerateRivers = false;
     
         this.addWeight(BOPClimates.WARM_TEMPERATE, 7);
         

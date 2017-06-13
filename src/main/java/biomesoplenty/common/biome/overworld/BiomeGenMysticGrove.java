@@ -22,6 +22,7 @@ import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.block.BlockBOPCoral;
 import biomesoplenty.common.block.BlockBOPDirt;
 import biomesoplenty.common.block.BlockBOPGrass;
+import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.entities.EntityButterfly;
@@ -90,8 +91,7 @@ public class BiomeGenMysticGrove extends BOPOverworldBiome
         treeGenerator.add("flowering_vine", 10, (new GeneratorBasicTree.Builder()).minHeight(8).maxHeight(12).maxLeavesRadius(2).leaves(Blocks.LEAVES.getDefaultState().withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).vine(BOPBlocks.flower_vine.getDefaultState()).create());
         treeGenerator.add("magic", 17, (new GeneratorBasicTree.Builder()).log(BOPWoods.MAGIC).leaves(BOPTrees.MAGIC).create());
         treeGenerator.add("jacaranda", 9, (new GeneratorBasicTree.Builder()).minHeight(4).maxHeight(7).log(BOPWoods.JACARANDA).leaves(BOPTrees.JACARANDA).create());
-        treeGenerator.add("oak_large", 11, (new GeneratorBigTree.Builder()).altLeaves(BOPTrees.FLOWERING).create());
-        treeGenerator.add("oak_huge", 1, (new GeneratorBigTree.Builder()).minHeight(20).maxHeight(25).altLeaves(BOPTrees.FLOWERING).create());
+        treeGenerator.add("oak_large", 8, (new GeneratorBigTree.Builder()).altLeaves(BlockBOPLeaves.paging.getVariantState(BOPTrees.FLOWERING).withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).create());
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(1.5F);
