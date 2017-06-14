@@ -204,21 +204,4 @@ public class BlockBOPHalfOtherSlab extends BlockSlab implements IBOPBlock
             list.add(new ItemStack(this, 1, this.getMetaFromState(state)));
         }
     }
-    
-    @Override
-    public BlockFaceShape func_193383_a(IBlockAccess p_193383_1_, IBlockState p_193383_2_, BlockPos p_193383_3_, EnumFacing p_193383_4_)
-    {
-        if (((BlockSlab)p_193383_2_.getBlock()).isDouble())
-        {
-            return BlockFaceShape.SOLID;
-        }
-        else if (p_193383_4_ == EnumFacing.UP && p_193383_2_.getValue(HALF) == BlockSlab.EnumBlockHalf.TOP)
-        {
-            return BlockFaceShape.SOLID;
-        }
-        else
-        {
-            return p_193383_4_ == EnumFacing.DOWN && p_193383_2_.getValue(HALF) == BlockSlab.EnumBlockHalf.BOTTOM ? BlockFaceShape.SOLID : BlockFaceShape.UNDEFINED;
-        }
-    }
 }
