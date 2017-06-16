@@ -38,9 +38,9 @@ For feature requests, you may delete this template and create your own.
 
 - [ ] This issue does not occur in a modpack. 
 
-** Issues with modpacks should be reported to the modpack author(s). As noted above, mod compatibility issues must **
-** occur with the latest versions of both Biomes O' Plenty and the affected mod. The issue *MUST* be tested with *ONLY* **
-** Biomes O' Plenty and the affected mod. **
+**Issues with modpacks should be reported to the modpack author(s). As noted above, mod compatibility issues must**
+**occur with the latest versions of both Biomes O' Plenty and the affected mod. The issue *MUST* be tested with *ONLY***
+**Biomes O' Plenty and the affected mod.**
 
 ---
 
