@@ -234,6 +234,6 @@ public class BOPOverworldBiome extends BOPBiome
     public float getHeightVariation()
     {
         // average the heightVariation values for above and below
-        return (((float)this.terrainSettings.variationAbove - 7.0F) / (20.0F * 4.0F) + ((float)this.terrainSettings.variationBelow - 4.0F) / 20.0F) / 2.0F;
+        return Math.abs((((float)this.terrainSettings.variationAbove - 7.0F) / (20.0F * 4.0F) + ((float)this.terrainSettings.variationBelow - 4.0F) / 20.0F) / 2.0F);
     }
 }
