@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:bowl",
+      "data": 32767
+    },
+    {
+      "item": "biomesoplenty:plant_1",
+      "data": 3
+    }
+  ],
+  "result": {
+    "item": "biomesoplenty:ricebowl"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "S#S",
+    "S#S"
+  ],
+  "key": {
+    "#": {
+      "item": "biomesoplenty:planks_0",
+      "data": 9
+    },
+    "S": {
+      "item": "minecraft:stick",
+      "data": 32767
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:willow_fence_gate",
+    "data": 0
+  }
+}

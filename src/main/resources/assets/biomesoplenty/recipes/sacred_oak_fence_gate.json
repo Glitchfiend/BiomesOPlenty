@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "S#S",
+    "S#S"
+  ],
+  "key": {
+    "#": {
+      "item": "biomesoplenty:planks_0",
+      "data": 0
+    },
+    "S": {
+      "item": "minecraft:stick",
+      "data": 32767
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:sacred_oak_fence_gate",
+    "data": 0
+  }
+}

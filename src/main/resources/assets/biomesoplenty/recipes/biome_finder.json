@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "#T#",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "biomesoplenty:gem",
+      "data": 0
+    },
+    "T": {
+      "item": "biomesoplenty:terrestrial_artifact"
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:biome_finder"
+  }
+}

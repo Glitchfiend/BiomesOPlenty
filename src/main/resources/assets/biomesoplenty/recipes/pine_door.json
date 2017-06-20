@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "biomesoplenty:planks_0",
+      "data": 10
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:pine_door",
+    "count": 3
+  }
+}

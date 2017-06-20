@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "biomesoplenty:gem",
+      "data": 7
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:gem_block",
+    "data": 7
+  }
+}

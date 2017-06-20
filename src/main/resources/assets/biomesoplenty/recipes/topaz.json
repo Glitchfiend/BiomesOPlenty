@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "biomesoplenty:gem_block",
+      "data": 3
+    }
+  ],
+  "result": {
+    "item": "biomesoplenty:gem",
+    "count": 9,
+    "data": 3
+  }
+}

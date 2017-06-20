@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "biomesoplenty:grass",
+      "data": 6
+    },
+    {
+      "item": "biomesoplenty:flower_0",
+      "data": 15
+    },
+    {
+      "item": "biomesoplenty:jar_empty"
+    }
+  ],
+  "result": {
+    "item": "biomesoplenty:terrarium",
+    "data": 14
+  }
+}

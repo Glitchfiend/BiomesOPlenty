@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "biomesoplenty:mushroom",
+      "data": 0
+    }
+  ],
+  "result": {
+    "item": "biomesoplenty:shroompowder"
+  }
+}

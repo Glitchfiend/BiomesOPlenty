@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "biomesoplenty:crystal_shard"
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:crystal",
+    "data": 0
+  }
+}

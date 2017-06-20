@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "biomesoplenty:planks_0",
+      "data": 15
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:wood_slab_1",
+    "count": 6,
+    "data": 7
+  }
+}

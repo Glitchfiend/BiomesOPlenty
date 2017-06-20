@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "biomesoplenty:pixie_dust"
+    },
+    {
+      "item": "minecraft:potion"
+    },
+    {
+      "item": "biomesoplenty:seaweed",
+      "data": 0
+    },
+    {
+      "item": "biomesoplenty:plant_1",
+      "data": 9
+    },
+    {
+      "item": "biomesoplenty:crystal_shard"
+    },
+    {
+      "item": "biomesoplenty:jar_filled",
+      "data": 0
+    },
+    {
+      "item": "biomesoplenty:berries"
+    },
+    {
+      "item": "minecraft:sugar",
+      "data": 32767
+    }
+  ],
+  "result": {
+    "item": "biomesoplenty:ambrosia"
+  }
+}

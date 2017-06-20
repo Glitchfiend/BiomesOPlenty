@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#N#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:wheat_seeds",
+      "data": 32767
+    },
+    "N": {
+      "item": "minecraft:netherrack",
+      "data": 32767
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:grass",
+    "data": 6
+  }
+}

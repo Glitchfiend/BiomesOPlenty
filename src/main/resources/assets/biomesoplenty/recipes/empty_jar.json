@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "# #",
+    "# #",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:glass",
+      "data": 32767
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:jar_empty",
+    "count": 3
+  }
+}

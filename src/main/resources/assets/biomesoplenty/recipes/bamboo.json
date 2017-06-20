@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " #",
+    "# "
+  ],
+  "key": {
+    "#": {
+      "item": "biomesoplenty:bamboo_thatching",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:bamboo",
+    "count": 8,
+    "data": 0
+  }
+}

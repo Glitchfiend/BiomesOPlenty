@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#S#",
+    "#S#"
+  ],
+  "key": {
+    "#": {
+      "item": "biomesoplenty:planks_0",
+      "data": 6
+    },
+    "S": {
+      "item": "minecraft:stick",
+      "data": 32767
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:mangrove_fence",
+    "count": 3,
+    "data": 0
+  }
+}

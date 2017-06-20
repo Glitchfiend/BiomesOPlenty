@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "biomesoplenty:planks_0",
+      "data": 10
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:pine_stairs",
+    "count": 4,
+    "data": 0
+  }
+}

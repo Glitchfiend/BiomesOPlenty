@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "biomesoplenty:planks_0",
+      "data": 6
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:mangrove_door",
+    "count": 3
+  }
+}

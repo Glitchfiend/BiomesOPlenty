@@ -1,0 +1,21 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "TTT",
+    "T#T",
+    "TTT"
+  ],
+  "key": {
+    "#": {
+      "type": "forge:ore_dict",
+      "ore": "record"
+    },
+    "T": {
+      "item": "biomesoplenty:terrestrial_artifact",
+      "data": 32767
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:record_wanderer"
+  }
+}

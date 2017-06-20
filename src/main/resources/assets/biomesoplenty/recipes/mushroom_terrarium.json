@@ -1,0 +1,19 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "type": "forge:ore_dict",
+      "ore": "grass"
+    },
+    {
+      "item": "minecraft:red_mushroom"
+    },
+    {
+      "item": "biomesoplenty:jar_empty"
+    }
+  ],
+  "result": {
+    "item": "biomesoplenty:terrarium",
+    "data": 1
+  }
+}

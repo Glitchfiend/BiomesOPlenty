@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "biomesoplenty:plant_1",
+      "data": 4
+    }
+  ],
+  "result": {
+    "item": "biomesoplenty:brown_dye",
+    "count": 2
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "biomesoplenty:mushroom",
+      "data": 2
+    }
+  ],
+  "result": {
+    "item": "biomesoplenty:blue_dye",
+    "count": 2
+  }
+}

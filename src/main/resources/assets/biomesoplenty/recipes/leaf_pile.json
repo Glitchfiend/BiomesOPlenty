@@ -1,0 +1,13 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "type": "forge:ore_dict",
+      "ore": "treeLeaves"
+    }
+  ],
+  "result": {
+    "item": "biomesoplenty:plant_0",
+    "data": 11
+  }
+}
