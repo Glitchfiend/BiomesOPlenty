@@ -13,17 +13,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 
 public class ItemBOPRecord extends ItemRecord
-{    
-    
+{
     public ItemBOPRecord(String name, SoundEvent record)
     {
         super(name, record);
     }
-    
-    @Override
-    public ResourceLocation getRecordResource(String name)
-    {
-        return new ResourceLocation("biomesoplenty:"+name);
-    }
-
 }
