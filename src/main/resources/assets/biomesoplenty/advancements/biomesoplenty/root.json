@@ -1,0 +1,21 @@
+{
+    "display": {
+        "icon": {
+            "item": "biomesoplenty:earth"
+        },
+        "title": {
+            "translate": "advancements.biomesoplenty.root.title"
+        },
+        "description": {
+            "translate": "advancements.biomesoplenty.root.description"
+        },
+        "background": "biomesoplenty:textures/gui/advancements/backgrounds/biomesoplenty.png",
+        "show_toast": false,
+        "announce_to_chat": false
+    },
+    "criteria": {
+        "tick": {
+            "trigger": "minecraft:tick",
+        }
+    }
+}

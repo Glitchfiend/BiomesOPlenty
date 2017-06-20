@@ -30,6 +30,7 @@ public class BlockQuicksandFluid extends BlockFluidClassic
         super(fluid, Material.WATER);
         
         this.quantaPerBlock = 3;
+        this.setLightOpacity(255);
         this.renderLayer = BlockRenderLayer.SOLID;
     }
 

@@ -19,11 +19,11 @@ public class BiomeExtMesa extends ExtendedBiomeWrapper
         super(Biomes.MESA);
         
         // other plants
-        this.addGenerator("desertgrass", GeneratorStage.GRASS, (new GeneratorGrass.Builder()).amountPerChunk(0.5F).with(BOPPlants.DESERTGRASS).generationAttempts(8).create());
-        this.addGenerator("tiny_cacti", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(BOPPlants.TINYCACTUS).create());
+        this.addGenerator("desertgrass", GeneratorStage.GRASS, (new GeneratorGrass.Builder()).amountPerChunk(0.3F).with(BOPPlants.DESERTGRASS).generationAttempts(8).create());
+        this.addGenerator("tiny_cacti", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BOPPlants.TINYCACTUS).generationAttempts(16).create());
         
         // flowers
-        GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.2F);
+        GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.1F);
         this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
         flowerGenerator.add("bromeliad", 2, (new GeneratorFlora.Builder().with(BOPFlowers.BROMELIAD).create()));
         

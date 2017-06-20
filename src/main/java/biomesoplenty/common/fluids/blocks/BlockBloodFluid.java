@@ -26,6 +26,7 @@ public class BlockBloodFluid extends BlockFluidClassic
     public BlockBloodFluid(Fluid fluid)
     {
         super(fluid, Material.WATER);
+        this.setLightOpacity(3);
     }
 
     @Override
