@@ -31,8 +31,8 @@ public class GuiEventHandler
             GuiCreateWorld createWorldGui = (GuiCreateWorld)screenGui;
 
             // Do not change back when returning from the 'Customize' screen
-            if (createWorldGui.selectedIndex == WorldType.DEFAULT.getWorldTypeID())
-                createWorldGui.selectedIndex = ModBiomes.worldTypeBOP.getWorldTypeID();
+            if (createWorldGui.selectedIndex == WorldType.DEFAULT.getId())
+                createWorldGui.selectedIndex = ModBiomes.worldTypeBOP.getId();
         }
     }
 }

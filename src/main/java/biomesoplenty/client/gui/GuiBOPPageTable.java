@@ -271,8 +271,8 @@ public class GuiBOPPageTable extends GuiBOPPageList
                     this.focusedGui = (Gui)this.allTextFieldGuis.get(focusedGuiIndex);
                     guitextfield = (GuiTextField)this.focusedGui;
                     guitextfield.setFocused(true);
-                    int k1 = guitextfield.yPosition + this.slotHeight;
-                    j = guitextfield.yPosition;
+                    int k1 = guitextfield.y + this.slotHeight;
+                    j = guitextfield.y;
 
                     if (k1 > this.bottom)
                     {

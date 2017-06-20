@@ -43,16 +43,15 @@ public abstract class GuiBOPPageList extends GuiBOPPageDelegate
     @Override
     protected void drawBackground() {}
 
-    // drawSlot
     @Override
-    protected void func_192637_a(int entryID, int p_180791_2_, int p_180791_3_, int p_180791_4_, int mouseXIn, int mouseYIn, float partialTicks)
+    protected void drawSlot(int entryID, int p_180791_2_, int p_180791_3_, int p_180791_4_, int mouseXIn, int mouseYIn, float partialTicks)
     {
-        this.getListEntry(entryID).func_192634_a(entryID, p_180791_2_, p_180791_3_, this.getListWidth(), p_180791_4_, mouseXIn, mouseYIn, this.getSlotIndexFromScreenCoords(mouseXIn, mouseYIn) == entryID, partialTicks);
+        this.getListEntry(entryID).drawEntry(entryID, p_180791_2_, p_180791_3_, this.getListWidth(), p_180791_4_, mouseXIn, mouseYIn, this.getSlotIndexFromScreenCoords(mouseXIn, mouseYIn) == entryID, partialTicks);
     }
 
     // updateItemPos
     @Override
-    protected void func_192639_a(int p_178040_1_, int p_178040_2_, int p_178040_3_, float partialTicks)
+    protected void updateItemPos(int p_178040_1_, int p_178040_2_, int p_178040_3_, float partialTicks)
     {
         this.getListEntry(p_178040_1_).func_192633_a(p_178040_1_, p_178040_2_, p_178040_3_, partialTicks);
     }
@@ -212,9 +211,8 @@ public abstract class GuiBOPPageList extends GuiBOPPageDelegate
             return this.guiRight;
         }
 
-        // drawEntry
         @Override
-        public void func_192634_a(int slotIndex, int x, int y, int listWidth, int slotHeight, int mouseX, int mouseY, boolean isVisible, float partialTicks)
+        public void drawEntry(int slotIndex, int x, int y, int listWidth, int slotHeight, int mouseX, int mouseY, boolean isVisible, float partialTicks)
         {
             this.drawGui(this.guiLeft, y, mouseX, mouseY, false, partialTicks);
             this.drawGui(this.guiRight, y, mouseX, mouseY, false, partialTicks);
@@ -241,17 +239,17 @@ public abstract class GuiBOPPageList extends GuiBOPPageDelegate
     
         private void drawGuiButton(GuiButton guiButton, int y, int mouseX, int mouseY, boolean isVisible, float partialTicks)
         {
-            guiButton.yPosition = y;
+            guiButton.y = y;
     
             if (!isVisible)
             {
-                guiButton.func_191745_a(this.minecraft, mouseX, mouseY, partialTicks);
+                guiButton.drawButton(this.minecraft, mouseX, mouseY, partialTicks);
             }
         }
     
         private void drawGuiTextField(GuiTextField guiTextField, int y, boolean isVisible)
         {
-            guiTextField.yPosition = y;
+            guiTextField.y = y;
     
             if (!isVisible)
             {

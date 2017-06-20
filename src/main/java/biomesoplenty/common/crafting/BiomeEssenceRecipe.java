@@ -92,16 +92,14 @@ public class BiomeEssenceRecipe extends net.minecraftforge.fml.common.registry.I
         return itemList;
     }
 
-    // hideInRecipeBook?
     @Override
-    public boolean func_192399_d()
+    public boolean isHidden()
     {
         return true;
     }
 
-    // canCraftWithSize
     @Override
-    public boolean func_194133_a(int width, int height)
+    public boolean canFit(int width, int height)
     {
         return width * height >= 1;
     }

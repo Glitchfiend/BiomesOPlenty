@@ -46,9 +46,6 @@ public class BiomeGenOriginIsland extends BOPOverworldBiome
         this.canGenerateVillages = false;
         this.canGenerateRivers = false;
         
-        this.theBiomeDecorator.grassPerChunk = -999;
-        this.theBiomeDecorator.treesPerChunk = -999;
-        
         clearWeights();
         
         this.spawnableWaterCreatureList.clear();

@@ -10,6 +10,8 @@ package biomesoplenty.common.util.inventory;
 import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -24,6 +26,8 @@ import java.util.*;
 
 public class CraftingUtil
 {
+    private static final Gson SERIALIZER = new GsonBuilder().setPrettyPrinting().create();
+
     public static void addShapelessRecipe(ItemStack output, Object... inputs)
     {
         NonNullList<Ingredient> ingredients = NonNullList.create();
@@ -42,7 +46,7 @@ public class CraftingUtil
             throw new IllegalArgumentException("Too many ingredients for shapeless recipe");
         }
 
-        ShapelessRecipes recipe = new ShapelessRecipes("biomesoplenty", output, ingredients);
+        ShapelessRecipes recipe = new ShapelessRecipes("", output, ingredients);
         registerRecipe(unusedLocForOutput(output), recipe);
     }
 
@@ -55,8 +59,8 @@ public class CraftingUtil
         int width = pattern.get(0).length();
         int height = pattern.size();
 
-        NonNullList<Ingredient> ingredients = ShapedRecipes.func_192402_a(pattern.toArray(new String[pattern.size()]), key, width, height);
-        ShapedRecipes recipe = new ShapedRecipes("biomesoplenty", width, height, ingredients, output);
+        NonNullList<Ingredient> ingredients = ShapedRecipes.deserializeIngredients(pattern.toArray(new String[pattern.size()]), key, width, height);
+        ShapedRecipes recipe = new ShapedRecipes("", width, height, ingredients, output);
         registerRecipe(unusedLocForOutput(output), recipe);
     }
 
@@ -68,13 +72,13 @@ public class CraftingUtil
 
     private static void registerRecipe(ResourceLocation location, IRecipe recipe)
     {
-        if (CraftingManager.field_193380_a.containsKey(location))
+        if (CraftingManager.REGISTRY.containsKey(location))
         {
             throw new IllegalStateException("Duplicate recipe ignored with ID " + location);
         }
         else
         {
-            CraftingManager.field_193380_a.register(CraftingManager.field_193380_a.getKeys().size(), location, recipe);
+            CraftingManager.REGISTRY.register(CraftingManager.REGISTRY.getKeys().size(), location, recipe);
         }
     }
 
@@ -114,7 +118,7 @@ public class CraftingUtil
             }
         }
 
-        key.put(" ", Ingredient.field_193370_a);
+        key.put(" ", Ingredient.EMPTY);
     }
 
     private static ResourceLocation unusedLocForOutput(ItemStack output)
@@ -124,7 +128,7 @@ public class CraftingUtil
         int index = 0;
 
         // find unused recipe name
-        while (CraftingManager.field_193380_a.containsKey(recipeLoc))
+        while (CraftingManager.REGISTRY.containsKey(recipeLoc))
         {
             index++;
             recipeLoc = new ResourceLocation(BiomesOPlenty.MOD_ID, baseLoc.getResourcePath() + "_" + index);

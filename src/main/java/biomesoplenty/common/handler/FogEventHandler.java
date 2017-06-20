@@ -56,9 +56,9 @@ public class FogEventHandler
                 mixedColor = getFogBlendColour(world, player, x, y, z, event.getRed(), event.getGreen(), event.getBlue(), event.getRenderPartialTicks());
             }
 
-            event.setRed((float)mixedColor.xCoord);
-            event.setGreen((float)mixedColor.yCoord);
-            event.setBlue((float)mixedColor.zCoord);
+            event.setRed((float)mixedColor.x);
+            event.setGreen((float)mixedColor.y);
+            event.setBlue((float)mixedColor.z);
         }
     }
 
@@ -397,9 +397,9 @@ public class FogEventHandler
         bBiomeFog *= bScale / weightBiomeFog;
 
         Vec3d processedColor = postProcessColor(world, playerEntity, rBiomeFog, gBiomeFog, bBiomeFog, renderPartialTicks);
-        rBiomeFog = processedColor.xCoord;
-        gBiomeFog = processedColor.yCoord;
-        bBiomeFog = processedColor.zCoord;
+        rBiomeFog = processedColor.x;
+        gBiomeFog = processedColor.y;
+        bBiomeFog = processedColor.z;
 
         // Mix default fog component with BiomeFog component
         double weightMixed = (distance * 2) * (distance * 2);

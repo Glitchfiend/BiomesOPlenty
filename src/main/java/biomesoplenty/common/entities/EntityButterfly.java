@@ -294,7 +294,7 @@ public class EntityButterfly extends EntityFlying implements IMob {
         }
         
         @Override
-        public boolean continueExecuting() {return false;}     
+        public boolean shouldContinueExecuting() {return false;}
         
         // choose a a new random destination for the butterfly to fly to
         @Override

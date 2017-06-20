@@ -107,7 +107,7 @@ public class BOPMapGenScatteredFeature extends MapGenScatteredFeature
     }
 
     @Override
-    public BlockPos getClosestStrongholdPos(World worldIn, BlockPos pos, boolean findUnexplored)
+    public BlockPos getNearestStructurePos(World worldIn, BlockPos pos, boolean findUnexplored)
     {
         this.world = worldIn;
         return findNearestStructurePosBySpacing(worldIn, this, pos, this.maxDistanceBetweenScatteredFeatures, 8, 14357617, false, 100, findUnexplored);

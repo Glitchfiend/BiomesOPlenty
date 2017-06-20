@@ -287,7 +287,7 @@ public class EntityPixie extends EntityFlying implements IMob {
         }
         
         @Override
-        public boolean continueExecuting() {return false;}     
+        public boolean shouldContinueExecuting() {return false;}
         
         // choose a a new random destination for the pixie to fly to
         @Override

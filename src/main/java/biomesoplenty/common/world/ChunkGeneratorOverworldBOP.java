@@ -131,7 +131,7 @@ public class ChunkGeneratorOverworldBOP implements IChunkGenerator
     
     
     @Override
-    public Chunk provideChunk(int chunkX, int chunkZ)
+    public Chunk generateChunk(int chunkX, int chunkZ)
     {
         // initialize the random generator using the chunk coordinates
         this.rand.setSeed((long)chunkX * 341873128712L + (long)chunkZ * 132897987541L);
@@ -633,9 +633,9 @@ public class ChunkGeneratorOverworldBOP implements IChunkGenerator
     }
 
     @Override
-    public BlockPos getStrongholdGen(World world, String structureName, BlockPos pos, boolean findUnexplored)
+    public BlockPos getNearestStructurePos(World world, String structureName, BlockPos pos, boolean findUnexplored)
     {
-        return !this.mapFeaturesEnabled ? null : ("Stronghold".equals(structureName) && this.strongholdGenerator != null ? this.strongholdGenerator.getClosestStrongholdPos(world, pos, findUnexplored) : ("Mansion".equals(structureName) && this.woodlandMansionGenerator != null ? this.woodlandMansionGenerator.getClosestStrongholdPos(world, pos, findUnexplored) : ("Monument".equals(structureName) && this.oceanMonumentGenerator != null ? this.oceanMonumentGenerator.getClosestStrongholdPos(world, pos, findUnexplored) : ("Village".equals(structureName) && this.villageGenerator != null ? this.villageGenerator.getClosestStrongholdPos(world, pos, findUnexplored) : ("Mineshaft".equals(structureName) && this.mineshaftGenerator != null ? this.mineshaftGenerator.getClosestStrongholdPos(world, pos, findUnexplored) : ("Temple".equals(structureName) && this.scatteredFeatureGenerator != null ? this.scatteredFeatureGenerator.getClosestStrongholdPos(world, pos, findUnexplored) : null))))));
+        return !this.mapFeaturesEnabled ? null : ("Stronghold".equals(structureName) && this.strongholdGenerator != null ? this.strongholdGenerator.getNearestStructurePos(world, pos, findUnexplored) : ("Mansion".equals(structureName) && this.woodlandMansionGenerator != null ? this.woodlandMansionGenerator.getNearestStructurePos(world, pos, findUnexplored) : ("Monument".equals(structureName) && this.oceanMonumentGenerator != null ? this.oceanMonumentGenerator.getNearestStructurePos(world, pos, findUnexplored) : ("Village".equals(structureName) && this.villageGenerator != null ? this.villageGenerator.getNearestStructurePos(world, pos, findUnexplored) : ("Mineshaft".equals(structureName) && this.mineshaftGenerator != null ? this.mineshaftGenerator.getNearestStructurePos(world, pos, findUnexplored) : ("Temple".equals(structureName) && this.scatteredFeatureGenerator != null ? this.scatteredFeatureGenerator.getNearestStructurePos(world, pos, findUnexplored) : null))))));
     }
 
     @Override
@@ -676,7 +676,7 @@ public class ChunkGeneratorOverworldBOP implements IChunkGenerator
     }
 
     @Override
-    public boolean func_193414_a(World world, String structureName, BlockPos pos)
+    public boolean isInsideStructure(World world, String structureName, BlockPos pos)
     {
         if (!this.mapFeaturesEnabled)
         {

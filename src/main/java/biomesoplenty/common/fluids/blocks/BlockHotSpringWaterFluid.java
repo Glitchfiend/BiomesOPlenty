@@ -121,7 +121,7 @@ public class BlockHotSpringWaterFluid extends BlockFluidClassic
     }
     
     @Override
-    public BlockFaceShape func_193383_a(IBlockAccess p_193383_1_, IBlockState p_193383_2_, BlockPos p_193383_3_, EnumFacing p_193383_4_)
+    public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing facing)
     {
         return BlockFaceShape.UNDEFINED;
     }

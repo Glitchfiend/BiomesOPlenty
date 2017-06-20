@@ -30,10 +30,10 @@ public class BiomeGenWhiteBeach extends BOPOverworldBiome
         this.spawnableMonsterList.clear();
         this.spawnableCreatureList.clear();
         
-        this.theBiomeDecorator.treesPerChunk = -999;
-        this.theBiomeDecorator.deadBushPerChunk = 0;
-        this.theBiomeDecorator.reedsPerChunk = 0;
-        this.theBiomeDecorator.cactiPerChunk = 0;
+        this.decorator.treesPerChunk = -999;
+        this.decorator.deadBushPerChunk = 0;
+        this.decorator.reedsPerChunk = 0;
+        this.decorator.cactiPerChunk = 0;
         
         this.skyColor = 507391;
         this.fogColor = 0xB5F8FF;

@@ -17,12 +17,12 @@ public class WorldProviderBOPHell extends WorldProviderHell
     {
         this.biomeProvider = new BiomeProviderBOPHell(this.world);
         this.doesWaterVaporize = true;
-        this.hasNoSky = true;
+        this.nether = true;
     }
 
     @Override
     public IChunkGenerator createChunkGenerator()
     {
-        return new ChunkProviderGenerateBOPHell(this.world, this.world.getWorldInfo().isMapFeaturesEnabled(), this.world.getSeed());
+        return new ChunkGeneratorHellBOP(this.world, this.world.getWorldInfo().isMapFeaturesEnabled(), this.world.getSeed());
     }
 }

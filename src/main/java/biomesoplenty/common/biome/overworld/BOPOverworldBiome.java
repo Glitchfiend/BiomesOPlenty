@@ -76,13 +76,6 @@ public class BOPOverworldBiome extends BOPBiome
 
         this.terrainSettings.setDefaults();
 
-        this.theBiomeDecorator.treesPerChunk = -999;
-        this.theBiomeDecorator.flowersPerChunk = -999;
-        this.theBiomeDecorator.grassPerChunk = -999;
-        this.theBiomeDecorator.sandPerChunk = -999;
-        this.theBiomeDecorator.sandPerChunk2 = -999;
-        //this.theBiomeDecorator.generateLakes = false;
-
         // roots
         this.addGenerator("roots", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(4.0F).with(BOPPlants.ROOT).create());
 

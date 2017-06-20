@@ -20,7 +20,7 @@ public class ItemEventHandler
     public void onItemToss(ItemTossEvent event)
     {
         EntityPlayer player = event.getPlayer();
-        ItemStack stack = event.getEntityItem().getEntityItem();
+        ItemStack stack = event.getEntityItem().getItem();
         
         if (player.openContainer instanceof ContainerFlowerBasket)
         {
@@ -43,7 +43,7 @@ public class ItemEventHandler
         EntityPlayer player = event.getEntityPlayer();
         EntityItem entityItem = event.getItem();
         
-        ItemStack stack = event.getItem().getEntityItem();
+        ItemStack stack = event.getItem().getItem();
         ItemStack basketStack = ItemFlowerBasket.findBasketStack(player);
         
         if (!player.world.isRemote)

@@ -59,7 +59,7 @@ public class ItemJarFilled extends Item
     @SideOnly(Side.CLIENT)
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems)
     {
-        if (this.func_194125_a(tab))
+        if (this.isInCreativeTab(tab))
         {
             for (JarContents contents : JarContents.values())
             {
@@ -127,7 +127,7 @@ public class ItemJarFilled extends Item
         if (world.provider.isSurfaceWorld())
         {
             EntityPixie pixie = new EntityPixie(world);                    
-            pixie.setLocationAndAngles(releasePoint.xCoord, releasePoint.yCoord, releasePoint.zCoord, MathHelper.wrapDegrees(world.rand.nextFloat() * 360.0F), 0.0F);
+            pixie.setLocationAndAngles(releasePoint.x, releasePoint.y, releasePoint.z, MathHelper.wrapDegrees(world.rand.nextFloat() * 360.0F), 0.0F);
             world.spawnEntity(pixie);
             pixie.playLivingSound();
             if (stack.hasDisplayName()) {pixie.setCustomNameTag(stack.getDisplayName());}
@@ -143,7 +143,7 @@ public class ItemJarFilled extends Item
         if (world.provider.isSurfaceWorld())
         {
             EntityButterfly butterfly = new EntityButterfly(world);                    
-            butterfly.setLocationAndAngles(releasePoint.xCoord, releasePoint.yCoord, releasePoint.zCoord, MathHelper.wrapDegrees(world.rand.nextFloat() * 360.0F), 0.0F);
+            butterfly.setLocationAndAngles(releasePoint.x, releasePoint.y, releasePoint.z, MathHelper.wrapDegrees(world.rand.nextFloat() * 360.0F), 0.0F);
             world.spawnEntity(butterfly);
             butterfly.playLivingSound();
             if (stack.hasDisplayName()) {butterfly.setCustomNameTag(stack.getDisplayName());}

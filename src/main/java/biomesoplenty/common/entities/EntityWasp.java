@@ -251,7 +251,7 @@ public class EntityWasp extends EntityFlying implements IMob {
         }
         
         @Override
-        public boolean continueExecuting() {return false;}     
+        public boolean shouldContinueExecuting() {return false;}
         
         // choose a a new random destination for the wasp to fly to
         @Override
@@ -345,7 +345,7 @@ public class EntityWasp extends EntityFlying implements IMob {
         }
 
         @Override
-        public boolean continueExecuting()
+        public boolean shouldContinueExecuting()
         {
             // decrement time since last attack
             if (this.attackTick > 0) {--this.attackTick;}

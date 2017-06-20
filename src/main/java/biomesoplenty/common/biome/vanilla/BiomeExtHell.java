@@ -25,12 +25,12 @@ public class BiomeExtHell extends ExtendedBiomeWrapper
         Biomes.HELL.topBlock = Blocks.NETHERRACK.getDefaultState();
         Biomes.HELL.fillerBlock = Blocks.NETHERRACK.getDefaultState();
 
-        Biomes.HELL.theBiomeDecorator = new BiomeDecorator();
-        Biomes.HELL.theBiomeDecorator.treesPerChunk = -999;
-        Biomes.HELL.theBiomeDecorator.flowersPerChunk = -999;
-        Biomes.HELL.theBiomeDecorator.grassPerChunk = -999;
-        Biomes.HELL.theBiomeDecorator.sandPerChunk = -999;
-        Biomes.HELL.theBiomeDecorator.sandPerChunk2 = -999;
+        Biomes.HELL.decorator = new BiomeDecorator();
+        Biomes.HELL.decorator.treesPerChunk = -999;
+        Biomes.HELL.decorator.flowersPerChunk = -999;
+        Biomes.HELL.decorator.grassPerChunk = -999;
+        Biomes.HELL.decorator.gravelPatchesPerChunk = -999;
+        Biomes.HELL.decorator.sandPatchesPerChunk = -999;
         //this.theBiomeDecorator.generateLakes = false;
 
         this.addGenerator("hive", GeneratorStage.PRE, (new GeneratorHive.Builder()).amountPerChunk(0.2F).create());

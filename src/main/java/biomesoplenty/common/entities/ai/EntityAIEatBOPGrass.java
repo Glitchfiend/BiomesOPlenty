@@ -68,7 +68,7 @@ public class EntityAIEatBOPGrass extends EntityAIEatGrass
     }
 
     @Override
-    public boolean continueExecuting()
+    public boolean shouldContinueExecuting()
     {
         return this.bopEatingGrassTimer > 0;
     }

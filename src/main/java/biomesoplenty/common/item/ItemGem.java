@@ -32,7 +32,7 @@ public class ItemGem extends Item
     @SideOnly(Side.CLIENT)
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems)
     {
-        if (this.func_194125_a(tab))
+        if (this.isInCreativeTab(tab))
         {
             for (BOPGems gemType : BOPGems.values())
             {

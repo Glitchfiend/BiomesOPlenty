@@ -32,7 +32,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Random;
 
-public class ChunkProviderGenerateBOPHell implements IChunkGenerator
+public class ChunkGeneratorHellBOP implements IChunkGenerator
 {
     protected static final IBlockState AIR = Blocks.AIR.getDefaultState();
     protected static final IBlockState NETHERRACK = Blocks.NETHERRACK.getDefaultState();
@@ -75,7 +75,7 @@ public class ChunkProviderGenerateBOPHell implements IChunkGenerator
     private double[] depthRegion;
     private double[] stoneNoiseArray;
 
-    public ChunkProviderGenerateBOPHell(World worldIn, boolean p_i45637_2_, long seed)
+    public ChunkGeneratorHellBOP(World worldIn, boolean p_i45637_2_, long seed)
     {
         this.world = worldIn;
         this.generateStructures = p_i45637_2_;
@@ -318,7 +318,7 @@ public class ChunkProviderGenerateBOPHell implements IChunkGenerator
     }
 
     @Override
-    public Chunk provideChunk(int chunkX, int chunkZ)
+    public Chunk generateChunk(int chunkX, int chunkZ)
     {
         // initialize the random generator using the chunk coordinates
         this.rand.setSeed((long)chunkX * 341873128712L + (long)chunkZ * 132897987541L);
@@ -570,13 +570,13 @@ public class ChunkProviderGenerateBOPHell implements IChunkGenerator
 
     @Override
     @Nullable
-    public BlockPos getStrongholdGen(World worldIn, String structureName, BlockPos position, boolean p_180513_4_)
+    public BlockPos getNearestStructurePos(World worldIn, String structureName, BlockPos position, boolean p_180513_4_)
     {
-        return "Fortress".equals(structureName) && this.genNetherBridge != null ? this.genNetherBridge.getClosestStrongholdPos(worldIn, position, p_180513_4_) : null;
+        return "Fortress".equals(structureName) && this.genNetherBridge != null ? this.genNetherBridge.getNearestStructurePos(worldIn, position, p_180513_4_) : null;
     }
 
     @Override
-    public boolean func_193414_a(World world, String structureName, BlockPos pos)
+    public boolean isInsideStructure(World world, String structureName, BlockPos pos)
     {
         return "Fortress".equals(structureName) && this.genNetherBridge != null ? this.genNetherBridge.isInsideStructure(pos) : false;
     }

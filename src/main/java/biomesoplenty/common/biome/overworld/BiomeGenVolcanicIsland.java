@@ -37,7 +37,7 @@ public class BiomeGenVolcanicIsland extends BOPOverworldBiome
         this.canGenerateVillages = false;
         this.canGenerateRivers = false;
         
-        this.theBiomeDecorator.generateLakes = false;
+        this.decorator.generateFalls = false;
         
         this.beachBiomeLocation = null;
         

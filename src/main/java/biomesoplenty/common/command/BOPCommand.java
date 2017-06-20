@@ -209,7 +209,7 @@ public class BOPCommand extends CommandBase
                             {
                                 for (int z = 0; z < 16; z++)
                                 {
-                                    BlockPos pos = new BlockPos(chunk.xPosition * 16 + x, blockStorage.getYLocation() + y, chunk.zPosition * 16 + z);
+                                    BlockPos pos = new BlockPos(chunk.x * 16 + x, blockStorage.getYLocation() + y, chunk.z * 16 + z);
                                     IBlockState state = blockStorage.get(x, y, z);
                                     
                                     if (((!blacklist && stateList.contains(state)) || (blacklist && !stateList.contains(state))) && pos.getY() > 0)

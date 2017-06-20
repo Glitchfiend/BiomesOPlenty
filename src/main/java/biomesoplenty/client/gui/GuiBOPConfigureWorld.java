@@ -686,8 +686,8 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
             this.drawCenteredString(this.fontRenderer, I18n.format("createWorld.customize.custom.confirmTitle", new Object[0]), this.width / 2, 105, 16777215);
             this.drawCenteredString(this.fontRenderer, I18n.format("createWorld.customize.custom.confirm1", new Object[0]), this.width / 2, 125, 16777215);
             this.drawCenteredString(this.fontRenderer, I18n.format("createWorld.customize.custom.confirm2", new Object[0]), this.width / 2, 135, 16777215);
-            this.yesButton.func_191745_a(this.mc, mouseX, mouseY, partialTicks);
-            this.noButton.func_191745_a(this.mc, mouseX, mouseY, partialTicks);
+            this.yesButton.drawButton(this.mc, mouseX, mouseY, partialTicks);
+            this.noButton.drawButton(this.mc, mouseX, mouseY, partialTicks);
         }
     }
 }

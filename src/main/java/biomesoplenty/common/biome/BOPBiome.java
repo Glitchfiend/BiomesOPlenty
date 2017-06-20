@@ -53,11 +53,11 @@ public abstract class BOPBiome extends Biome implements IExtendedBiome
         this.location = idLoc;
         this.conf = conf;
 
-        this.theBiomeDecorator.treesPerChunk = -999;
-        this.theBiomeDecorator.flowersPerChunk = -999;
-        this.theBiomeDecorator.grassPerChunk = -999;
-        this.theBiomeDecorator.sandPerChunk = -999;
-        this.theBiomeDecorator.sandPerChunk2 = -999;
+        this.decorator.treesPerChunk = -999;
+        this.decorator.flowersPerChunk = -999;
+        this.decorator.grassPerChunk = -999;
+        this.decorator.gravelPatchesPerChunk = -999;
+        this.decorator.sandPatchesPerChunk = -999;
         //this.theBiomeDecorator.generateLakes = false;
     }
 
