@@ -1,5 +1,6 @@
 {
   "type": "forge:ore_shapeless",
+  "group": "terrarium",
   "ingredients": [
     {
       "type": "forge:ore_dict",

@@ -1,18 +1,14 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " #",
-    "# "
-  ],
-  "key": {
-    "#": {
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
       "item": "biomesoplenty:bamboo_thatching",
-      "data": 0
+      "data": 7
     }
-  },
+  ],
   "result": {
     "item": "biomesoplenty:bamboo",
-    "count": 8,
+    "count": 4,
     "data": 0
   }
 }

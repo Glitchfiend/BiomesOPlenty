@@ -1,5 +1,6 @@
 {
   "type": "forge:ore_shapeless",
+  "group": "terrarium",
   "ingredients": [
     {
       "type": "forge:ore_dict",
@@ -7,7 +8,7 @@
     },
     {
       "item": "minecraft:red_flower",
-      "data": 0
+      "data": 8
     },
     {
       "item": "biomesoplenty:jar_empty"
