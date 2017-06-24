@@ -16,6 +16,7 @@ import static biomesoplenty.api.sound.BOPSounds.wasp_hurt;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class ModSounds 
 {
@@ -31,7 +32,9 @@ public class ModSounds
     private static SoundEvent registerSound(String soundName)
     {
         ResourceLocation location = new ResourceLocation(BiomesOPlenty.MOD_ID, soundName);
-        SoundEvent.registerSound(location.toString());
-        return SoundEvent.REGISTRY.getObject(location);
+        SoundEvent event = new SoundEvent(location);
+        event.setRegistryName(location);
+        ForgeRegistries.SOUND_EVENTS.register(event);
+        return event;
     }
 }

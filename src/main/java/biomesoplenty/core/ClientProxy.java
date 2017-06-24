@@ -98,13 +98,14 @@ public class ClientProxy extends CommonProxy
         registerEntityRenderer(EntityMudball.class, RenderMudball.class);
         
         replaceForgeResources();
-        
-        ModelLoader.registerItemVariants(ForgeModContainer.getInstance().universalBucket, bucketModelLocations);
     }
 
     @Override
     public void registerColouring()
     {
+        // do this here purely for timing reasons
+        ModelLoader.registerItemVariants(ForgeModContainer.getInstance().universalBucket, bucketModelLocations);
+
         for (Block block : blocksToColour)
         {
             IBOPBlock bopBlock = (IBOPBlock)block;

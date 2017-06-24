@@ -16,6 +16,7 @@ import biomesoplenty.common.potion.PotionPossession;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class ModPotions
 {
@@ -29,23 +30,9 @@ public class ModPotions
     
     public static Potion registerPotion(String name, Potion potion)
     {
-        Potion.REGISTRY.register(getSparePotionId(), new ResourceLocation(BiomesOPlenty.MOD_ID, name), potion);
+        ResourceLocation location = new ResourceLocation(BiomesOPlenty.MOD_ID, name);
+        potion.setRegistryName(location);
+        ForgeRegistries.POTIONS.register(potion);
         return potion;
     }
-    
-
-    // gets the next free potion id
-    // will expand the potions array if necessary
-    // this isn't very efficient, but it only has to run once, right at the start, so clarity and simplicity are more important than speed
-    public static int getSparePotionId()
-    {
-        int nextId = 1;
-        
-        // look for a free slot in the Potions array
-        // (note we start counting from 1 - vanilla MC doens't use ID 0, nor will we)
-        for (; Potion.REGISTRY.getObjectById(nextId) != null; nextId++) {}
-
-        return nextId;
-    }
-    
 }

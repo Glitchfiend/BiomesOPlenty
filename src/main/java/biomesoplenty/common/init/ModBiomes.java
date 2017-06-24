@@ -20,6 +20,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import org.apache.commons.io.FileUtils;
 
 import com.google.common.base.Optional;
@@ -168,13 +169,13 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
     public static void init()
     {
         worldTypeBOP = new WorldTypeBOP();
-        
+
         // get BOP biome ids from the config file (if it exists)
         biomeIdMapFile = new File(BiomesOPlenty.configDirectory, "biome_ids.json");
         biomeIdMapConf = new BOPConfig.ConfigFileObj(biomeIdMapFile);
         biomeIdMap = new HashMap<String, Integer>();
         presentBiomes = Sets.newHashSet();
-        
+
         // make a list of biome ids which are reserved in the config file for a particular biome, to ensure they are not used for a new biome
         idsReservedInConfig = new HashSet<Integer>();
         for (String biomeIdName : biomeIdMapConf.getKeys())
@@ -217,7 +218,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         initExtendedBiomes();
         
         registerNetherOverride();
-        
+
         // save the biome ids to the config file (creating it if it doesn't exist)
         BOPConfig.writeFile(biomeIdMapFile, biomeIdMap);
         
@@ -619,7 +620,8 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
             BOPCommand.biomeCount++;
 
             BOPBiomes.REG_INSTANCE.registerBiome(biome, idName);
-            Biome.registerBiome(id, biome.getResourceLocation().toString(), biome);
+            biome.setRegistryName(biome.getResourceLocation());
+            ForgeRegistries.BIOMES.register(biome);
             
             //Enable spwning and village generation in the biome
             if (biome.canSpawnInBiome)
@@ -647,7 +649,8 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
             BOPCommand.biomeCount++;
 
             BOPBiomes.REG_INSTANCE.registerBiome(biome, idName);
-            Biome.registerBiome(id, biome.getResourceLocation().toString(), biome);
+            biome.setRegistryName(biome.getResourceLocation());
+            ForgeRegistries.BIOMES.register(biome);
 
             return Optional.of((Biome)biome);
 
@@ -668,7 +671,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
     {
         for (int i = nextBiomeId; i < 256; i++)
         {
-            if (Biome.getBiome(i) != null) 
+            if (Biome.getBiome(i) != null)
             {
                 if (i == 255) throw new IllegalArgumentException("There are no more biome ids avaliable!");
                 continue;

@@ -68,6 +68,7 @@ import net.minecraft.item.ItemSeeds;
 import net.minecraft.item.ItemSoup;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ModItems
@@ -154,7 +155,8 @@ public class ModItems
             item.setCreativeTab(CreativeTabBOP.instance);
         }
 
-        GameRegistry.register(item, new ResourceLocation(BiomesOPlenty.MOD_ID, name));
+        item.setRegistryName(new ResourceLocation(BiomesOPlenty.MOD_ID, name));
+        ForgeRegistries.ITEMS.register(item);
         BOPCommand.itemCount++;
         BiomesOPlenty.proxy.registerItemSided(item);
         

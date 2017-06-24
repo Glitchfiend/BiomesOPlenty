@@ -17,7 +17,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.RecipeSorter;
 
-public class BiomeEssenceRecipe extends net.minecraftforge.fml.common.registry.IForgeRegistryEntry.Impl<IRecipe> implements IRecipe
+public class BiomeEssenceRecipe extends net.minecraftforge.registries.IForgeRegistryEntry.Impl<IRecipe> implements IRecipe
 {
 	static {
 		RecipeSorter.register("biomesoplenty:biomeessenceRecipe", BiomeEssenceRecipe.class, RecipeSorter.Category.SHAPELESS, "after:minecraft:shapeless");

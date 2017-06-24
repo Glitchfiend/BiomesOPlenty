@@ -87,6 +87,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ModBlocks
@@ -314,10 +315,11 @@ public class ModBlocks
     
     public static Block registerFluidBlock(Fluid fluid, Block fluidBlock, String name)
     {
-        Block block = GameRegistry.register(fluidBlock, new ResourceLocation(BiomesOPlenty.MOD_ID, name));
-        BiomesOPlenty.proxy.registerFluidBlockRendering(block, name);
+        fluidBlock.setRegistryName(new ResourceLocation(BiomesOPlenty.MOD_ID, name));
+        ForgeRegistries.BLOCKS.register(fluidBlock);
+        BiomesOPlenty.proxy.registerFluidBlockRendering(fluidBlock, name);
         fluid.setBlock(fluidBlock);
-        return block;
+        return fluidBlock;
     }
     
     
@@ -410,12 +412,18 @@ public class ModBlocks
             Item itemBlock = clazz != null ? (Item)clazz.getConstructor(Block.class).newInstance(block) : null;
             ResourceLocation location = new ResourceLocation(BiomesOPlenty.MOD_ID, blockName);
 
-            GameRegistry.register(block, location);
-            if (itemBlock != null) GameRegistry.register(itemBlock, location);
+            block.setRegistryName(new ResourceLocation(BiomesOPlenty.MOD_ID, blockName));
+
+            ForgeRegistries.BLOCKS.register(block);
+            if (itemBlock != null)
+            {
+                itemBlock.setRegistryName(new ResourceLocation(BiomesOPlenty.MOD_ID, blockName));
+                ForgeRegistries.ITEMS.register(itemBlock);
+            }
         }
         catch (Exception e)
         {
-            throw new RuntimeException("An error occurred associating an item block during registration...", e);
+            throw new RuntimeException("An error occurred associating an item block during registration of " + blockName, e);
         }
     }
     
