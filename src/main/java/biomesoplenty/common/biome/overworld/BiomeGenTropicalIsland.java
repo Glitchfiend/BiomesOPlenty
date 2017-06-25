@@ -20,7 +20,6 @@ import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.api.enums.BOPWoods;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.block.BlockBOPLeaves;
-import biomesoplenty.common.entities.EntityButterfly;
 import biomesoplenty.common.world.generator.GeneratorColumns;
 import biomesoplenty.common.world.generator.GeneratorFlora;
 import biomesoplenty.common.world.generator.GeneratorGrass;
@@ -35,8 +34,6 @@ import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.entity.passive.EntityParrot;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.biome.Biome;
  
 public class BiomeGenTropicalIsland extends BOPOverworldBiome
 {
@@ -61,7 +58,6 @@ public class BiomeGenTropicalIsland extends BOPOverworldBiome
         
         this.spawnableCreatureList.clear();
         this.spawnableMonsterList.clear();
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
         this.spawnableCreatureList.add(new SpawnListEntry(EntityParrot.class, 40, 1, 2));
         
         clearWeights();

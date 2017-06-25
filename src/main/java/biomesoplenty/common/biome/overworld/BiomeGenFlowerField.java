@@ -14,7 +14,6 @@ import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.enums.BOPGems;
 import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.generation.GeneratorStage;
-import biomesoplenty.common.entities.EntityButterfly;
 import biomesoplenty.common.world.generator.GeneratorFlora;
 import biomesoplenty.common.world.generator.GeneratorGrass;
 import biomesoplenty.common.world.generator.GeneratorOreSingle;
@@ -35,8 +34,6 @@ public class BiomeGenFlowerField extends BOPOverworldBiome
         this.addWeight(BOPClimates.WARM_TEMPERATE, 2);
         
         this.canGenerateVillages = false;
-        
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
         
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(50);

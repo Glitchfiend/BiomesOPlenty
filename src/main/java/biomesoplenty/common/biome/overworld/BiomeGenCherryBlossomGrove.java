@@ -23,8 +23,6 @@ import biomesoplenty.common.block.BlockBOPDirt;
 import biomesoplenty.common.block.BlockBOPDoublePlant;
 import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.block.BlockBOPLilypad;
-import biomesoplenty.common.entities.EntityButterfly;
-import biomesoplenty.common.entities.EntitySnail;
 import biomesoplenty.common.world.generator.GeneratorDoubleFlora;
 import biomesoplenty.common.world.generator.GeneratorFlora;
 import biomesoplenty.common.world.generator.GeneratorGrass;
@@ -54,9 +52,6 @@ public class BiomeGenCherryBlossomGrove extends BOPOverworldBiome
         this.canGenerateVillages = false;
     
         this.addWeight(BOPClimates.COOL_TEMPERATE, 2);
-        
-        this.spawnableCreatureList.add(new SpawnListEntry(EntitySnail.class, 6, 1, 2));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
         
         // flowers
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(2.3F);

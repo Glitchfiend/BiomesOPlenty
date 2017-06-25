@@ -82,39 +82,28 @@ public class EntityPixie extends EntityFlying implements IMob {
         }
     }
     
-    
-    // Checks to make sure the light is not too bright where the mob is spawning
-    // This is same code as for EntitySkeleton
-    protected boolean isValidLightLevel()
+    @Override
+    public boolean getCanSpawnHere()
     {
         BlockPos blockpos = new BlockPos(this.posX, this.getEntityBoundingBox().minY, this.posZ);
 
-        if (this.world.getLightFor(EnumSkyBlock.SKY, blockpos) > this.rand.nextInt(32))
+        if (blockpos.getY() <= this.world.getSeaLevel())
         {
-            // TODO: not sure what's going on here...
             return false;
         }
         else
         {
-            int light = this.world.getLightFromNeighbors(blockpos);
-
-            // if it's thundering, force getSkylightSubtracted to 10 before calculating getLightFromNeighbors, then restore it
-            if (this.world.isThundering())
+            if (blockpos.getY() >= 90)
             {
-                int oldSkyLightSubtracted = this.world.getSkylightSubtracted();
-                this.world.setSkylightSubtracted(10);
-                light = this.world.getLightFromNeighbors(blockpos);
-                this.world.setSkylightSubtracted(oldSkyLightSubtracted);
+                return false;
             }
-
-            return light <= this.rand.nextInt(8);
+            else
+            {
+                int light = this.world.getLightFromNeighbors(blockpos);
+                
+                return light > 8 && super.getCanSpawnHere();
+            }
         }
-    }
-    
-    @Override
-    public boolean getCanSpawnHere()
-    {
-        return this.isValidLightLevel() && super.getCanSpawnHere();
     }
         
     

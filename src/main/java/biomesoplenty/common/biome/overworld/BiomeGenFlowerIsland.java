@@ -18,8 +18,6 @@ import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.block.BlockBOPGrass;
-import biomesoplenty.common.entities.EntityButterfly;
-import biomesoplenty.common.entities.EntitySnail;
 import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.world.generator.GeneratorBigFlower;
 import biomesoplenty.common.world.generator.GeneratorDoubleFlora;
@@ -56,8 +54,6 @@ public class BiomeGenFlowerIsland extends BOPOverworldBiome
         
         this.spawnableMonsterList.clear();
         this.spawnableCreatureList.clear();
-        this.spawnableCreatureList.add(new SpawnListEntry(EntitySnail.class, 6, 1, 2));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
         // TODO: implement rosester? this.spawnableCreatureList.add(new SpawnListEntry(EntityRosester.class, 10, 4, 4));
         
         // regular grass

@@ -20,7 +20,6 @@ import biomesoplenty.common.block.BlockBOPCoral;
 import biomesoplenty.common.block.BlockBOPDirt;
 import biomesoplenty.common.block.BlockBOPDoublePlant;
 import biomesoplenty.common.block.BlockBOPGrass;
-import biomesoplenty.common.entities.EntitySnail;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.world.generator.GeneratorDoubleFlora;
 import biomesoplenty.common.world.generator.GeneratorFlora;
@@ -55,7 +54,6 @@ public class BiomeGenMoor extends BOPOverworldBiome
         this.addWeight(BOPClimates.COLD_SWAMP, 5);
         
         this.spawnableWaterCreatureList.clear();
-        this.spawnableCreatureList.add(new SpawnListEntry(EntitySnail.class, 8, 1, 2));
           
         // mud
         this.addGenerator("mud", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(1).maxRadius(7).with(BOPBlocks.mud.getDefaultState()).create());

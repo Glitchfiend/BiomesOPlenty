@@ -25,9 +25,7 @@ import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.block.BlockBOPMushroom;
-import biomesoplenty.common.entities.EntityButterfly;
 import biomesoplenty.common.entities.EntityPixie;
-import biomesoplenty.common.entities.EntitySnail;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.world.generator.GeneratorBigMushroom;
 import biomesoplenty.common.world.generator.GeneratorDoubleFlora;
@@ -75,9 +73,7 @@ public class BiomeGenMysticGrove extends BOPOverworldBiome
         this.spawnableWaterCreatureList.clear();
         this.spawnableMonsterList.add(new SpawnListEntry(EntityWitch.class, 10, 4, 4));      
         
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityPixie.class, 4, 1, 1));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntitySnail.class, 6, 1, 2));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
+        this.spawnableCaveCreatureList.add(new SpawnListEntry(EntityPixie.class, 2, 1, 2));
         
         // hot springs
         this.addGenerator("hot_springs", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.5F).liquid(BOPBlocks.hot_spring_water).frozenLiquid((IBlockState)null).create());

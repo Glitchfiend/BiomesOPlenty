@@ -17,7 +17,6 @@ import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.api.enums.BOPWoods;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.block.BlockBOPLilypad;
-import biomesoplenty.common.entities.EntityButterfly;
 import biomesoplenty.common.world.generator.GeneratorFlora;
 import biomesoplenty.common.world.generator.GeneratorGrass;
 import biomesoplenty.common.world.generator.GeneratorOreSingle;
@@ -46,7 +45,6 @@ public class BiomeGenEucalyptusForest extends BOPOverworldBiome
         this.addWeight(BOPClimates.TROPICAL, 5);
         
         this.spawnableMonsterList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
         this.spawnableCreatureList.add(new SpawnListEntry(EntityParrot.class, 40, 1, 2));
                             
         // trees

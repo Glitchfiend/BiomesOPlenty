@@ -9,14 +9,18 @@
 package biomesoplenty.common.item;
 
 import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.common.entities.EntityButterfly;
 import biomesoplenty.common.entities.EntityPixie;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
-import net.minecraft.util.*;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.IStringSerializable;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
@@ -26,14 +30,12 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.util.List;
-
 public class ItemJarFilled extends Item
 {
     
     public enum JarContents implements IStringSerializable
     {
-        HONEY, BUTTERFLY, PIXIE;
+        HONEY, PIXIE;
         
         @Override
         public String getName()
@@ -138,22 +140,6 @@ public class ItemJarFilled extends Item
         }
     }
     
-    public boolean releaseButterfly(ItemStack stack, World world, EntityPlayer player, Vec3d releasePoint)
-    {
-        if (world.provider.isSurfaceWorld())
-        {
-            EntityButterfly butterfly = new EntityButterfly(world);                    
-            butterfly.setLocationAndAngles(releasePoint.x, releasePoint.y, releasePoint.z, MathHelper.wrapDegrees(world.rand.nextFloat() * 360.0F), 0.0F);
-            world.spawnEntity(butterfly);
-            butterfly.playLivingSound();
-            if (stack.hasDisplayName()) {butterfly.setCustomNameTag(stack.getDisplayName());}
-            return true;
-        } else {
-            player.sendMessage(new TextComponentString("\u00a75Butterflies cannot survive in this environment!"));
-            return false;
-        }
-    }
-    
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
     {
@@ -168,16 +154,6 @@ public class ItemJarFilled extends Item
                     // release pixie into the air in front of the player (target distance 0.8, but will be closer if there's blocks in the way)
                     Vec3d releasePoint = this.getAirPositionInFrontOfPlayer(world, player, 0.8D);
                     this.releasePixie(stack, world, player, releasePoint);
-                    this.emptyJar(stack, player, new ItemStack(BOPItems.jar_empty));
-                    return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
-                }
-
-            case BUTTERFLY:
-                if (this.getContentsType(stack) == JarContents.BUTTERFLY)
-                {
-                    // release pixie into the air in front of the player (target distance 0.8, but will be closer if there's blocks in the way)
-                    Vec3d releasePoint = this.getAirPositionInFrontOfPlayer(world, player, 0.8D);
-                    this.releaseButterfly(stack, world, player, releasePoint);
                     this.emptyJar(stack, player, new ItemStack(BOPItems.jar_empty));
                     return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
                 }
@@ -214,14 +190,6 @@ public class ItemJarFilled extends Item
                 double a = 0.9D;
                 Vec3d releasePoint = new Vec3d(player.posX + a * distX, player.posY + (double)player.getEyeHeight() + a * distY, player.posZ + a * distZ);
                 return this.releasePixie(stack, world, player, releasePoint) ? EnumActionResult.SUCCESS : EnumActionResult.FAIL;
-                
-            case BUTTERFLY:
-                double distX1 = hitX - player.posX;
-                double distY1 = hitY - (player.posY + (double)player.getEyeHeight());
-                double distZ1 = hitZ - player.posZ;                
-                double a1 = 0.9D;
-                Vec3d releasePoint1 = new Vec3d(player.posX + a1 * distX1, player.posY + (double)player.getEyeHeight() + a1 * distY1, player.posZ + a1 * distZ1);
-                return this.releaseButterfly(stack, world, player, releasePoint1) ? EnumActionResult.SUCCESS : EnumActionResult.FAIL;
                 
             // TODO: are you supposed to be able to pour out honey? How much should you get?  Why don't we just use buckets?
             case HONEY: default:

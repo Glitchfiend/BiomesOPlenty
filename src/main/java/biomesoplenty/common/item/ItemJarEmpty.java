@@ -10,7 +10,6 @@ package biomesoplenty.common.item;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.common.entities.EntityButterfly;
 import biomesoplenty.common.entities.EntityPixie;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -113,20 +112,6 @@ public class ItemJarEmpty extends Item
             {
                 player.world.spawnEntity(pixieJarEntity);
                 if (!(player instanceof FakePlayer)) {pixieJarEntity.onCollideWithPlayer(player);}
-            }
-            return true;
-        }
-        if (target instanceof EntityButterfly)
-        {
-            EntityButterfly butterfly = (EntityButterfly)target;
-            butterfly.setDead();
-            stack.setCount(stack.getCount() - 1);
-            ItemStack butterflyJar = new ItemStack(BOPItems.jar_filled, 1, ItemJarFilled.JarContents.BUTTERFLY.ordinal());
-            EntityItem butterflyJarEntity = new EntityItem(player.world, player.posX, player.posY, player.posZ, butterflyJar);
-            if (!player.world.isRemote)
-            {
-                player.world.spawnEntity(butterflyJarEntity);
-                if (!(player instanceof FakePlayer)) {butterflyJarEntity.onCollideWithPlayer(player);}
             }
             return true;
         }

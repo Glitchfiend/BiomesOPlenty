@@ -10,7 +10,6 @@ import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.block.BlockBOPLilypad;
-import biomesoplenty.common.entities.EntityButterfly;
 import biomesoplenty.common.world.generator.GeneratorFlora;
 import biomesoplenty.common.world.generator.GeneratorGrass;
 import biomesoplenty.common.world.generator.GeneratorOreSingle;
@@ -26,7 +25,6 @@ import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.entity.passive.EntityParrot;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.biome.Biome.SpawnListEntry;
 
 public class BiomeGenRainforest extends BOPOverworldBiome
 {    
@@ -46,7 +44,6 @@ public class BiomeGenRainforest extends BOPOverworldBiome
         this.beachBiomeLocation = null;
         
         this.spawnableMonsterList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityButterfly.class, 6, 2, 4));
         this.spawnableCreatureList.add(new SpawnListEntry(EntityParrot.class, 40, 1, 2));
         
         // aand

@@ -8,23 +8,14 @@
 
 package biomesoplenty.common.init;
 
-import java.util.Map;
-
-import com.google.common.collect.Maps;
-
 import biomesoplenty.common.command.BOPCommand;
-import biomesoplenty.common.entities.EntityButterfly;
 import biomesoplenty.common.entities.EntityPixie;
-import biomesoplenty.common.entities.EntitySnail;
 import biomesoplenty.common.entities.EntityWasp;
 import biomesoplenty.common.entities.projectiles.EntityMudball;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityList;
-import net.minecraft.entity.EntityList.EntityEggInfo;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.ModContainer;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
@@ -37,13 +28,11 @@ public class ModEntities
     public static void init()
     {
         // projectiles
-        registerBOPEntity(EntityMudball.class, "mudball", 64, 10, true);
+        registerBOPEntity(EntityMudball.class, "biomesoplenty.mudball", 64, 10, true);
 
         // mobs
-        registerBOPEntityWithSpawnEgg(EntityWasp.class, "wasp", 80, 3, true, 0xE5B013, 0x333234);
-        registerBOPEntityWithSpawnEgg(EntityPixie.class, "pixie", 80, 3, true, 0xFF99E9, 0xFFFFFF);     
-        registerBOPEntityWithSpawnEgg(EntitySnail.class, "snail", 80, 3, true, 0xA694BC, 0xCDA26E);
-        registerBOPEntityWithSpawnEgg(EntityButterfly.class, "butterfly", 80, 3, true, 0x282828, 0xEF6F1F);
+        registerBOPEntityWithSpawnEgg(EntityWasp.class, "biomesoplenty.wasp", 80, 3, true, 0xE5B013, 0x333234);
+        registerBOPEntityWithSpawnEgg(EntityPixie.class, "biomesoplenty.pixie", 80, 3, true, 0xFF99E9, 0xFFFFFF);     
     }
     
     // register an entity
