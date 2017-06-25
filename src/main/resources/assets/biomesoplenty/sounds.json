@@ -1,20 +1,20 @@
 {
-  "entity.pixie.hurt": {
+  "entity.biomesoplenty.pixie.hurt": {
     "sounds": [
       "biomesoplenty:entity/pixie/hurt"
     ]
   },
-  "entity.pixie.ambient": {
+  "entity.biomesoplenty.pixie.ambient": {
     "sounds": [
       "biomesoplenty:entity/pixie/ambient"
     ]
   },
-  "entity.wasp.hurt": {
+  "entity.biomesoplenty.wasp.hurt": {
     "sounds": [
       "biomesoplenty:entity/wasp/hurt"
     ]
   },
-  "entity.wasp.ambient": {
+  "entity.biomesoplenty.wasp.ambient": {
     "sounds": [
       "biomesoplenty:entity/wasp/ambient"
     ]

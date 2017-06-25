@@ -22,10 +22,10 @@ public class ModSounds
 {
     public static void init()
     {
-        pixie_ambient = registerSound("entity.pixie.ambient");
-        pixie_hurt = registerSound("entity.pixie.hurt");
-        wasp_ambient = registerSound("entity.wasp.ambient");
-        wasp_hurt = registerSound("entity.wasp.hurt");
+        pixie_ambient = registerSound("entity.biomesoplenty.pixie.ambient");
+        pixie_hurt = registerSound("entity.biomesoplenty.pixie.hurt");
+        wasp_ambient = registerSound("entity.biomesoplenty.wasp.ambient");
+        wasp_hurt = registerSound("entity.biomesoplenty.wasp.hurt");
         records_wanderer = registerSound("records.wanderer");
     }
     
