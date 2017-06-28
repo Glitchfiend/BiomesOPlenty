@@ -1,7 +1,8 @@
 {
     "display": {
         "icon": {
-            "item": "biomesoplenty:earth"
+            "item": "biomesoplenty:grass",
+			"data": 5
         },
         "title": {
             "translate": "advancements.biomesoplenty.all_biomes.title"
@@ -11,7 +12,7 @@
         },
         "frame": "challenge"
     },
-    "parent": "biomesoplenty/root",
+    "parent": "biomesoplenty:biomesoplenty/root",
     "criteria": {
         "alps": {
             "trigger": "minecraft:location",
@@ -396,6 +397,46 @@
             "conditions": {
                 "biome": "biomesoplenty:alps_foothills"
             }
+        },
+		"corrupted_sands": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:corrupted_sands"
+            }
+        },
+		"fungi_forest": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:fungi_forest"
+            }
+        },
+		"phantasmagoric_inferno": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:phantasmagoric_inferno"
+            }
+        },
+		"polar_chasm": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:polar_chasm"
+            }
+        },
+		"undergarden": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:undergarden"
+            }
+        },
+		"visceral_heap": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:visceral_heap"
+            }
         }
-    }
+    },
+	"rewards": {
+		"experience": 1000,
+		"loot": ["biomesoplenty:advancements/all_biomes"]
+	}
 }
