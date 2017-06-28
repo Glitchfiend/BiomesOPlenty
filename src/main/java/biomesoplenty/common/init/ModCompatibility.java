@@ -39,7 +39,7 @@ public class ModCompatibility
         try 
         {
             // An array containing lists of default biome entries for only standard BiomeTypes
-            List<BiomeEntry>[] vanillaBiomes = (List<BiomeEntry>[])ReflectionHelper.findMethod(BiomeManager.class, null, new String[] { "setupBiomes" }).invoke(null);
+            List<BiomeEntry>[] vanillaBiomes = (List<BiomeEntry>[])ReflectionHelper.findMethod(BiomeManager.class, "setupBiomes", "setupBiomes").invoke(null);
             
             for (BiomeType type : BiomeManager.BiomeType.values())
             {                
