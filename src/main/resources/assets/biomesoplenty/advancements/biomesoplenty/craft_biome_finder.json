@@ -1,0 +1,27 @@
+{
+    "display": {
+        "icon": {
+            "item": "biomesoplenty:biome_finder"
+        },
+        "title": {
+            "translate": "advancements.biomesoplenty.craft_biome_finder.title"
+        },
+        "description": {
+            "translate": "advancements.biomesoplenty.craft_biome_finder.description"
+        },
+        "frame": "goal"
+    },
+    "parent": "biomesoplenty:biomesoplenty/root",
+    "criteria": {
+        "biome_finder": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "biomesoplenty:biome_finder"
+                    }
+                ]
+            }
+        }
+    }
+}

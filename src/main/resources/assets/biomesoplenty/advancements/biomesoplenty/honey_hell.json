@@ -1,0 +1,29 @@
+{
+    "display": {
+        "icon": {
+            "item": "biomesoplenty:jar_filled",
+			"data": 0
+        },
+        "title": {
+            "translate": "advancements.biomesoplenty.honey_hell.title"
+        },
+        "description": {
+            "translate": "advancements.biomesoplenty.honey_hell.description"
+        },
+        "frame": "goal"
+    },
+    "parent": "biomesoplenty:biomesoplenty/flesh_and_blood",
+    "criteria": {
+        "honey_jar": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "biomesoplenty:jar_filled",
+						"data": 0
+                    }
+                ]
+            }
+        }
+    }
+}

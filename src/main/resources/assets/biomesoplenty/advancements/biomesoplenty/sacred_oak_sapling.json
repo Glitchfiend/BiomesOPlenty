@@ -1,0 +1,26 @@
+{
+    "display": {
+        "icon": {
+            "item": "biomesoplenty:sapling_1",
+			"data": 7
+        },
+        "title": {
+            "translate": "advancements.biomesoplenty.sacred_oak_sapling.title"
+        },
+        "description": {
+            "translate": "advancements.biomesoplenty.sacred_oak_sapling.description"
+        }
+    },
+    "parent": "biomesoplenty:biomesoplenty/harvest_turnip",
+    "criteria": {
+        "sacred_oak_sapling": {
+            "trigger": "minecraft:placed_block",
+            "conditions": {
+                "block": "biomesoplenty:sapling_1",
+				"state": {
+					"variant": "sacred_oak"
+				}
+            }
+        }
+    }
+}

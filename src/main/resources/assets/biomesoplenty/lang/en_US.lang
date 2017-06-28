@@ -1,6 +1,19 @@
 advancements.biomesoplenty.root.title=Biomes O' Plenty
 advancements.biomesoplenty.root.description=The explorer's dream...
-
+advancements.biomesoplenty.sacred_oak_sapling.title=Yggdrasil
+advancements.biomesoplenty.sacred_oak_sapling.description=Plant a mighty Sacred Oak sapling
+advancements.biomesoplenty.yin_and_yang.title=Yin and Yang
+advancements.biomesoplenty.yin_and_yang.description=Plant a glowflower in the Ominous Woods, and a deathbloom in the Mystic Grove
+advancements.biomesoplenty.miners_delight.title=Life Finds a Way
+advancements.biomesoplenty.miners_delight.description=Find a miner's delight flower deep in a cave
+advancements.biomesoplenty.harvest_turnip.title=Stalk Market
+advancements.biomesoplenty.harvest_turnip.description=Harvest a turnip
+advancements.biomesoplenty.flesh_and_blood.title=Flesh and Blood
+advancements.biomesoplenty.flesh_and_blood.description=Harvest flesh from the Visceral Heap
+advancements.biomesoplenty.honey_hell.title=Honey Hell
+advancements.biomesoplenty.honey_hell.description=Steal some sweet honey from a Nether Wasp hive
+advancements.biomesoplenty.craft_biome_finder.title=Search Party
+advancements.biomesoplenty.craft_biome_finder.description=Craft a Biome Finder to guide your path
 advancements.biomesoplenty.all_biomes.title=Wanderer
 advancements.biomesoplenty.all_biomes.description=Discover every biome in Biomes O' Plenty
 
@@ -408,4 +421,4 @@ tile.crystal.name=Celestial Crystal
 
 entity.biomesoplenty.mudball.name=Mudball
 entity.biomesoplenty.pixie.name=Pixie
-entity.biomesoplenty.wasp.name=Wasp
+entity.biomesoplenty.wasp.name=Nether Wasp
