@@ -1,0 +1,31 @@
+{
+  "rewards": {
+    "recipes": [
+      "biomesoplenty:brown_dye_from_pinecone"
+    ]
+  },
+  "criteria": {
+    "has_flower": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "biomesoplenty:pinecone"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "biomesoplenty:brown_dye_from_pinecone"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_flower",
+      "has_the_recipe"
+    ]
+  ]
+}

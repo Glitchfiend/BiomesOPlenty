@@ -1,0 +1,31 @@
+{
+  "rewards": {
+    "recipes": [
+      "biomesoplenty:mushroom_terrarium"
+    ]
+  },
+  "criteria": {
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "biomesoplenty:mushroom_terrarium"
+      }
+    },
+    "has_jar": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "biomesoplenty:jar_empty"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_jar"
+    ]
+  ]
+}

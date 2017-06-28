@@ -1,0 +1,32 @@
+{
+  "rewards": {
+    "recipes": [
+      "biomesoplenty:light_blue_dye_from_flax"
+    ]
+  },
+  "criteria": {
+    "has_flower": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "biomesoplenty:double_plant",
+            "data": 0
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "biomesoplenty:light_blue_dye_from_flax"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_flower",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "rewards": {
+    "recipes": [
+      "biomesoplenty:white_wool_from_cattails"
+    ]
+  },
+  "criteria": {
+    "has_log": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+			  "type": "forge:ore_dict",
+			  "ore": "plantCattail"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "biomesoplenty:white_wool_from_cattails"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_log",
+      "has_the_recipe"
+    ]
+  ]
+}

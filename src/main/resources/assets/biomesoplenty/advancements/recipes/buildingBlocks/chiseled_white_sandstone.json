@@ -1,0 +1,32 @@
+{
+  "rewards": {
+    "recipes": [
+      "biomesoplenty:chiseled_white_sandstone"
+    ]
+  },
+  "criteria": {
+    "has_stone_slab": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+			  "item": "biomesoplenty:other_slab",
+			  "data": 1
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "biomesoplenty:chiseled_white_sandstone"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_stone_slab",
+      "has_the_recipe"
+    ]
+  ]
+}

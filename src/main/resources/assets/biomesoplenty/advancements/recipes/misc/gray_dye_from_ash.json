@@ -1,0 +1,31 @@
+{
+  "rewards": {
+    "recipes": [
+      "biomesoplenty:gray_dye_from_ash"
+    ]
+  },
+  "criteria": {
+    "has_flower": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "biomesoplenty:ash"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "biomesoplenty:gray_dye_from_ash"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_flower",
+      "has_the_recipe"
+    ]
+  ]
+}
