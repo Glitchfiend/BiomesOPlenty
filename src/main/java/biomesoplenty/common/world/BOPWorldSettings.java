@@ -84,8 +84,7 @@ public class BOPWorldSettings implements IBOPWorldSettings
     public boolean generateBopWaterPlants = true;
     public boolean generateBopMushrooms = true;
     public boolean generateRockFormations = true;
-    public boolean generatePoisonIvy = true;
-    public boolean generateFlax = true;
+    public boolean generatePoisonIvy = false;
     public boolean generateBerryBushes = true;
     public boolean generateThorns = true;
     public boolean generateQuicksand = true;
@@ -152,7 +151,6 @@ public class BOPWorldSettings implements IBOPWorldSettings
         obj.addProperty("generateBopMushrooms", this.generateBopMushrooms);
         obj.addProperty("generateRockFormations", this.generateRockFormations);
         obj.addProperty("generatePoisonIvy", this.generatePoisonIvy);
-        obj.addProperty("generateFlax", this.generateFlax);
         obj.addProperty("generateBerryBushes", this.generateBerryBushes);
         obj.addProperty("generateThorns", this.generateThorns);
         obj.addProperty("generateQuicksand", this.generateQuicksand);
@@ -194,7 +192,6 @@ public class BOPWorldSettings implements IBOPWorldSettings
         this.generateBopMushrooms = worldConfig.getBool("generateBopMushrooms", this.generateBopMushrooms);
         this.generateRockFormations = worldConfig.getBool("generateRockFormations", this.generateRockFormations);
         this.generatePoisonIvy = worldConfig.getBool("generatePoisonIvy", this.generatePoisonIvy);
-        this.generateFlax = worldConfig.getBool("generateFlax", this.generateFlax);
         this.generateBerryBushes = worldConfig.getBool("generateBerryBushes", this.generateBerryBushes);
         this.generateThorns = worldConfig.getBool("generateThorns", this.generateThorns);
         this.generateQuicksand = worldConfig.getBool("generateQuicksand", this.generateQuicksand);
@@ -230,8 +227,7 @@ public class BOPWorldSettings implements IBOPWorldSettings
         this.generateBopWaterPlants = true; 
         this.generateBopMushrooms = true; 
         this.generateRockFormations = true; 
-        this.generatePoisonIvy = true;  
-        this.generateFlax = true;  
+        this.generatePoisonIvy = false;  
         this.generateBerryBushes = true;  
         this.generateThorns = true;  
         this.generateQuicksand = true; 
@@ -299,8 +295,6 @@ public class BOPWorldSettings implements IBOPWorldSettings
             return this.generateRockFormations;
         case POISON_IVY: 
             return this.generatePoisonIvy;
-        case FLAX: 
-            return this.generateFlax;
         case BERRY_BUSHES: 
             return this.generateBerryBushes;
         case THORNS: 

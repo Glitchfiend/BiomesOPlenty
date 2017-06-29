@@ -104,7 +104,6 @@ public class BiomeGenSeasonalForest extends BOPOverworldBiome
         
         if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("amber");}
         if (!settings.isEnabled(GeneratorType.POISON_IVY)) {this.removeGenerator("poison_ivy");}
-        if (!settings.isEnabled(GeneratorType.FLAX)) {this.removeGenerator("flax");}
         
         if (!settings.isEnabled(GeneratorType.FOLIAGE)) {this.removeGenerator("bushes"); this.removeGenerator("koru"); this.removeGenerator("shrubs"); this.removeGenerator("leaf_piles"); this.removeGenerator("dead_leaf_piles"); this.removeGenerator("clover_patches"); this.removeGenerator("sprouts");}
         

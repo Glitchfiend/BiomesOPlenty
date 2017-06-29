@@ -101,7 +101,7 @@ public class BiomeGenAlps extends BOPOverworldBiome
     @Override
     public void applySettings(IBOPWorldSettings settings)
     {
-        if (!settings.isEnabled(GeneratorType.MUSHROOMS)) {this.removeGenerator("glowshrooms");}
+        if (!settings.isEnabled(GeneratorType.MUSHROOMS)) {this.removeGenerator("toadstools"); this.removeGenerator("flat_mushroom"); this.removeGenerator("blue_milk_caps"); this.removeGenerator("portobellos"); this.removeGenerator("glowshrooms");}
         
         if (!settings.isEnabled(GeneratorType.FLOWERS)) {this.removeGenerator("miners_delight");}
         

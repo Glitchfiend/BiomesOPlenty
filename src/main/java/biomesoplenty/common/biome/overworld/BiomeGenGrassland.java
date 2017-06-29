@@ -96,7 +96,6 @@ public class BiomeGenGrassland extends BOPOverworldBiome {
         if (!settings.isEnabled(GeneratorType.ROCK_FORMATIONS)) {this.removeGenerator("stone_formations");}
         
         if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("peridot");}
-        if (!settings.isEnabled(GeneratorType.FLAX)) {this.removeGenerator("flax");}
         
         if (!settings.isEnabled(GeneratorType.MUSHROOMS)) {this.removeGenerator("toadstools"); this.removeGenerator("flat_mushroom"); this.removeGenerator("blue_milk_caps"); this.removeGenerator("portobellos");}
         

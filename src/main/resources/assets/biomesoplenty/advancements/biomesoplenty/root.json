@@ -14,8 +14,53 @@
         "announce_to_chat": false
     },
     "criteria": {
-        "tick": {
-            "trigger": "minecraft:tick"
+        "red_flower": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "minecraft:red_flower"
+                    }
+                ]
+            }
+        },
+		"yellow_flower": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "minecraft:red_flower"
+                    }
+                ]
+            }
+        },
+        "bop_flower_0": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "biomesoplenty:flower_0"
+                    }
+                ]
+            }
+        },
+        "bop_flower_1": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "biomesoplenty:flower_1"
+                    }
+                ]
+            }
         }
-    }
+    },
+	"requirements": [
+        [
+            "red_flower",
+            "yellow_flower",
+            "bop_flower_0",
+            "bop_flower_1"
+        ]
+    ]
 }

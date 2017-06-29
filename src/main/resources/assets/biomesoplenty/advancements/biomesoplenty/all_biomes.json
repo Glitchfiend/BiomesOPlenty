@@ -12,7 +12,7 @@
         },
         "frame": "challenge"
     },
-    "parent": "biomesoplenty:biomesoplenty/craft_biome_finder",
+    "parent": "biomesoplenty:biomesoplenty/terrestrial_artifact",
     "criteria": {
         "alps": {
             "trigger": "minecraft:location",

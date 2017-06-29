@@ -67,7 +67,6 @@ public class BiomeExtBirchForestHills extends ExtendedBiomeWrapper
         
         if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("amber");}
         if (!settings.isEnabled(GeneratorType.POISON_IVY)) {this.removeGenerator("poison_ivy");}
-        if (!settings.isEnabled(GeneratorType.FLAX)) {this.removeGenerator("flax");}
         
         if (!settings.isEnabled(GeneratorType.FLOWERS)) {this.removeGenerator("flowers");}
         

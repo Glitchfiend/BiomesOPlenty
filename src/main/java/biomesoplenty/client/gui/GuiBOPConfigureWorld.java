@@ -184,7 +184,6 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
         GENERATE_BOP_MUSHROOMS (115),
         GENERATE_ROCK_FORMATIONS (116),
         GENERATE_POISON_IVY (117),
-        GENERATE_FLAX (118),
         GENERATE_BERRY_BUSHES (119),
         GENERATE_THORNS (120),
         GENERATE_QUICKSAND (121),
@@ -263,7 +262,6 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_MUSHROOMS.getId(), "BOP Mushrooms", true, this.settings.generateBopMushrooms),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_ROCK_FORMATIONS.getId(), "Rock Formations", true, this.settings.generateRockFormations),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_POISON_IVY.getId(), "Poison Ivy", true, this.settings.generatePoisonIvy),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_FLAX.getId(), "Flax", true, this.settings.generateFlax),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BERRY_BUSHES.getId(), "Berry Bushes", true, this.settings.generateBerryBushes),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_THORNS.getId(), "Thorns", true, this.settings.generateThorns),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_QUICKSAND.getId(), "Quicksand", true, this.settings.generateQuicksand),
@@ -401,9 +399,6 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
                 break;
             case GENERATE_POISON_IVY:
                 this.settings.generatePoisonIvy = value;
-                break;
-            case GENERATE_FLAX:
-                this.settings.generateFlax = value;
                 break;
             case GENERATE_BERRY_BUSHES:
                 this.settings.generateBerryBushes = value;

@@ -108,7 +108,6 @@ public class BiomeGenCherryBlossomGrove extends BOPOverworldBiome
         if (!settings.isEnabled(GeneratorType.ROCK_FORMATIONS)) {this.removeGenerator("stone_formations");}
         
         if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("topaz");}
-        if (!settings.isEnabled(GeneratorType.FLAX)) {this.removeGenerator("flax");}
         
         if (!settings.isEnabled(GeneratorType.SOILS)) {this.topBlock = Blocks.GRASS.getDefaultState(); this.fillerBlock = Blocks.DIRT.getDefaultState();}
         
