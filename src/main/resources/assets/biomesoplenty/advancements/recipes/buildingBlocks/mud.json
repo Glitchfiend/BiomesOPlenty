@@ -16,8 +16,7 @@
       "conditions": {
         "items": [
           {
-            "type": "forge:ore_dict",
-			"ore": "ballMud"
+            "item": "biomesoplenty:mudball"
           }
         ]
       }

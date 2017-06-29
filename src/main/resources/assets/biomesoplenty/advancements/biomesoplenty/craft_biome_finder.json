@@ -11,7 +11,7 @@
         },
         "frame": "goal"
     },
-    "parent": "biomesoplenty:biomesoplenty/root",
+    "parent": "biomesoplenty:biomesoplenty/terrestrial_artifact",
     "criteria": {
         "biome_finder": {
             "trigger": "minecraft:inventory_changed",

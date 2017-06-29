@@ -10,8 +10,8 @@
       "conditions": {
         "items": [
           {
-			  "type": "forge:ore_dict",
-			  "ore": "plantCattail"
+			"item": "biomesoplenty:plant_1",
+			"data": 4
           }
         ]
       }
