@@ -15,6 +15,9 @@ import javax.annotation.Nullable;
 import com.google.common.base.Optional;
 import com.google.common.collect.Sets;
 import net.minecraft.world.gen.ChunkGeneratorSettings;
+import net.minecraftforge.fml.client.FMLClientHandler;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.relauncher.Side;
 import org.apache.commons.lang3.tuple.Pair;
 
 import com.google.common.base.Function;
@@ -93,6 +96,7 @@ public class BiomeUtils
         double z = 0;
         double dist = 0;
         int n = 0;
+        String biomeName = FMLCommonHandler.instance().getSide() == Side.CLIENT ? biomeToFind.getBiomeName() : "biome";
         for (n = 0; dist < maxDist; ++n)
         {
             double rootN = Math.sqrt(n);
@@ -105,11 +109,12 @@ public class BiomeUtils
             Biome[] biomesAtSample = chunkManager.getBiomes(null, (int)x, (int)z, 1, 1, false);
             if (biomesAtSample[0] == biomeToFind)
             {
-                BiomesOPlenty.logger.info("Found "+biomeToFind.getBiomeName()+" after "+n+" samples, spaced "+sampleSpace+" blocks apart at ("+((int)x)+","+((int)z)+") distance "+((int)dist));
+
+                BiomesOPlenty.logger.info("Found "+ biomeName +" after "+n+" samples, spaced "+sampleSpace+" blocks apart at ("+((int)x)+","+((int)z)+") distance "+((int)dist));
                 return new BlockPos((int)x, 0, (int)z);
             }
         }
-        BiomesOPlenty.logger.info("Failed to find "+biomeToFind.getBiomeName()+" gave up after "+n+" samples, spaced "+sampleSpace+" blocks apart distance "+((int)dist));
+        BiomesOPlenty.logger.info("Failed to find "+biomeName+" gave up after "+n+" samples, spaced "+sampleSpace+" blocks apart distance "+((int)dist));
         return null;
     }
 

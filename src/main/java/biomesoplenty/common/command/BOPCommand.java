@@ -31,6 +31,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.storage.ExtendedBlockStorage;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.relauncher.Side;
 
 public class BOPCommand extends CommandBase
 {
@@ -129,9 +131,10 @@ public class BOPCommand extends CommandBase
             double x = (double)closestBiomePos.getX();
             double y = (double)world.getTopSolidOrLiquidBlock(closestBiomePos).getY();
             double z = (double)closestBiomePos.getZ();
+            String biomeName = FMLCommonHandler.instance().getSide() == Side.CLIENT ? biomeToFind.getBiomeName() : "";
             
             player.connection.setPlayerLocation(x, y, z, player.rotationYaw, player.rotationPitch);
-            sender.sendMessage(new TextComponentTranslation("commands.biomesoplenty.tpbiome.success", player.getName(), biomeToFind.getBiomeName(), x, y, z));
+            sender.sendMessage(new TextComponentTranslation("commands.biomesoplenty.tpbiome.success", player.getName(), biomeName, x, y, z));
         }
         else
         {
