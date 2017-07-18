@@ -30,10 +30,13 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemSeeds;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
+import net.minecraftforge.common.IPlantable;
 
 public class BlockQuery
 {
@@ -287,24 +290,18 @@ public class BlockQuery
             }
             else
             {
-                // Otherwise fall back to the vanilla code
-                switch (this.plantType)
-                {
-                    case Desert: return block == Blocks.SAND || block == Blocks.HARDENED_CLAY || block == Blocks.STAINED_HARDENED_CLAY || block == Blocks.DIRT;
-                    case Nether: return block == Blocks.SOUL_SAND;
-                    case Crop:   return block == Blocks.FARMLAND || block == BOPBlocks.farmland_0 || block == BOPBlocks.farmland_1;
-                    case Cave:   return block.isSideSolid(state, world, pos, EnumFacing.UP);
-                    case Plains: return block == Blocks.GRASS || block == Blocks.DIRT || block == Blocks.FARMLAND || block == BOPBlocks.farmland_0 || block == BOPBlocks.farmland_1 || block == Blocks.MYCELIUM;
-                    case Water:  return state.getMaterial() == Material.WATER && ((Integer)state.getValue(BlockLiquid.LEVEL)) == 0;
-                    case Beach:
-                        boolean isBeach = block == Blocks.GRASS || block == Blocks.DIRT || block == Blocks.SAND || block == Blocks.MYCELIUM;
-                        boolean hasWater = (world.getBlockState(pos.east()).getMaterial() == Material.WATER ||
-                                            world.getBlockState(pos.west()).getMaterial() == Material.WATER ||
-                                            world.getBlockState(pos.north()).getMaterial() == Material.WATER ||
-                                            world.getBlockState(pos.south()).getMaterial() == Material.WATER);
-                        return isBeach && hasWater;
-                }
-                return false;  
+                // Otherwise fall back to the Forge's canSustainPlant
+                return block.canSustainPlant(state, world, pos, EnumFacing.UP, new IPlantable() {
+                    @Override
+                    public EnumPlantType getPlantType(IBlockAccess world, BlockPos pos) {
+                        return plantType;
+                    }
+
+                    @Override
+                    public IBlockState getPlant(IBlockAccess world, BlockPos pos) {
+                        return world.getBlockState(pos);
+                    }
+                });
             }
         }
     }
