@@ -43,3 +43,4 @@ build_number.properties
 .classpath
 /bin/
 /build/
+/.nb-gradle/

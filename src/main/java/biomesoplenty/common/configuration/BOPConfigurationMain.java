@@ -20,6 +20,7 @@ public class BOPConfigurationMain
 	public static boolean spawnGlob;
 	public static boolean spawnPhantom;
 	public static boolean spawnPixie;
+        public static boolean trailsEnabled;
 	public static Property trailsVersion;
 
 	public static void init(File configFile)
@@ -31,7 +32,8 @@ public class BOPConfigurationMain
 			config.load();
 
 			debugMode = config.get("Debug Settings", "Debug Mode", false, "Turn debug mode on/off").getBoolean(false);
-			trailsVersion = config.get("Versions", "Trail Version", "");
+                        trailsEnabled = config.get("FlowerTrails", "Flower Trails Enabled", true, "Turn contributor flower trails on/off").getBoolean(true);
+			trailsVersion = config.get("FlowerTrails", "Trail Version", "");
 			mobSpawns = config.get("Mob settings", "Spawn all mobs", true, null).getBoolean();
 			spawnJungleSpider = config.get("Mob settings", "Spawn Jungle Spider", true, null).getBoolean();
 			spawnRosester = config.get("Mob settings", "Spawn Rosester", true, null).getBoolean();

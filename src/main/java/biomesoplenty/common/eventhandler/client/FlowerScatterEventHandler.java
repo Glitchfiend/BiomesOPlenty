@@ -1,6 +1,7 @@
 package biomesoplenty.common.eventhandler.client;
 
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.common.configuration.BOPConfigurationMain;
 import biomesoplenty.common.utils.remote.TrailManager;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
@@ -28,7 +29,7 @@ public class FlowerScatterEventHandler
 			EntityPlayer player = (EntityPlayer)event.player;
 			
 			//Check if the player has a trail
-			if (TrailManager.trailsMap.containsKey(player.getUniqueID()))
+			if (BOPConfigurationMain.trailsEnabled && TrailManager.trailsMap.containsKey(player.getUniqueID()))
 			{
 			    String trailName = TrailManager.trailsMap.get(player.getUniqueID());
 			    
