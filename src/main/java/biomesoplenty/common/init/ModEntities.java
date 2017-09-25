@@ -28,11 +28,11 @@ public class ModEntities
     public static void init()
     {
         // projectiles
-        registerBOPEntity(EntityMudball.class, "biomesoplenty.mudball", 64, 10, true);
+        registerBOPEntity(EntityMudball.class, "mudball", 64, 10, true);
 
         // mobs
-        registerBOPEntityWithSpawnEgg(EntityWasp.class, "biomesoplenty.wasp", 80, 3, true, 0xE5B013, 0x333234);
-        registerBOPEntityWithSpawnEgg(EntityPixie.class, "biomesoplenty.pixie", 80, 3, true, 0xFF99E9, 0xFFFFFF);     
+        registerBOPEntityWithSpawnEgg(EntityWasp.class, "wasp", 80, 3, true, 0xE5B013, 0x333234);
+        registerBOPEntityWithSpawnEgg(EntityPixie.class, "pixie", 80, 3, true, 0xFF99E9, 0xFFFFFF);
     }
     
     // register an entity

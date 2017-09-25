@@ -421,6 +421,6 @@ tile.dried_sand.name=Dried Sand
 tile.mud_brick.name=Mud Bricks
 tile.crystal.name=Celestial Crystal
 
-entity.biomesoplenty.mudball.name=Mudball
-entity.biomesoplenty.pixie.name=Pixie
-entity.biomesoplenty.wasp.name=Nether Wasp
+entity.mudball.name=Mudball
+entity.pixie.name=Pixie
+entity.wasp.name=Nether Wasp
