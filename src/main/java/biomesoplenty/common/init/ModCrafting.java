@@ -18,6 +18,7 @@ import biomesoplenty.common.crafting.BiomeEssenceRecipe;
 import biomesoplenty.common.handler.FurnaceFuelHandler;
 import biomesoplenty.common.item.ItemJarFilled;
 import com.google.common.base.CaseFormat;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
@@ -79,17 +80,10 @@ public class ModCrafting
         OreDictionary.registerOre("ballMud", new ItemStack(BOPItems.mudball));
 
         OreDictionary.registerOre("blockMeatRaw", new ItemStack(BOPBlocks.flesh, 1, 0));
-        
-        OreDictionary.registerOre("grass", new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.LOAMY.ordinal()));
-        OreDictionary.registerOre("grass", new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.SILTY.ordinal()));
-        OreDictionary.registerOre("grass", new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.SANDY.ordinal()));
-        OreDictionary.registerOre("grass", new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.DAISY.ordinal()));
-        OreDictionary.registerOre("grass", new ItemStack(BOPBlocks.grass, 1, BlockBOPGrass.BOPGrassType.ORIGIN.ordinal()));
 
-        OreDictionary.registerOre("dirt", new ItemStack(BOPBlocks.dirt, 1, BlockBOPDirt.BOPDirtType.LOAMY.ordinal()));
-        OreDictionary.registerOre("dirt", new ItemStack(BOPBlocks.dirt, 1, BlockBOPDirt.BOPDirtType.SILTY.ordinal()));
-        OreDictionary.registerOre("dirt", new ItemStack(BOPBlocks.dirt, 1, BlockBOPDirt.BOPDirtType.SANDY.ordinal()));
-        
+        OreDictionary.registerOre("grass", BOPBlocks.grass);
+        OreDictionary.registerOre("dirt", BOPBlocks.dirt);
+
         OreDictionary.registerOre("blockMud", new ItemStack(BOPBlocks.mud));
         
         OreDictionary.registerOre("sand", new ItemStack(BOPBlocks.white_sand));
