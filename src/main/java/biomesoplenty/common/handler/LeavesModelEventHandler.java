@@ -19,6 +19,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.IRegistry;
 import net.minecraftforge.client.event.ModelBakeEvent;
+import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.client.model.IModel;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.client.model.ModelLoaderRegistry;
@@ -33,6 +34,12 @@ public class LeavesModelEventHandler
     private static final ModelResourceLocation LEAVES_LOC = new ModelResourceLocation("biomesoplenty:leaves_3", "variant=flowering");
 
     @SubscribeEvent
+    public void onTextureStitch(TextureStitchEvent event)
+    {
+        event.getMap().registerSprite(new ResourceLocation("biomesoplenty:blocks/leaves_flowering_fast"));
+    }
+
+    @SubscribeEvent
     public void onModelBake(ModelBakeEvent event) throws Exception
     {
         ModelLoader loader = event.getModelLoader();
@@ -42,7 +49,6 @@ public class LeavesModelEventHandler
         // Load and bake the fast flowering leaves model
         IModel fastModel = ModelLoaderRegistry.getModel(new ResourceLocation("biomesoplenty:block/flowering_leaves_fast"));
         IBakedModel bakedFastModel = fastModel.bake(fastModel.getDefaultState(), DefaultVertexFormats.BLOCK, ModelLoader.defaultTextureGetter());
-
         registry.putObject(LEAVES_LOC, new ModelLeaves(originalBakedModel, bakedFastModel));
     }
 
