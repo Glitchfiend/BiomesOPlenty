@@ -55,16 +55,22 @@ public class UseHoeEventHandler
         else if (block instanceof BlockBOPGrass && world.isAirBlock(pos.up()))
         {
             result = true;
-            Block dirtBlock = BlockBOPGrass.getDirtBlockState(state).getBlock();
+            IBlockState dirtState = BlockBOPGrass.getDirtBlockState(state);
 
-            if (dirtBlock instanceof BlockBOPDirt)
+            if (dirtState.getBlock() instanceof BlockBOPDirt)
             {
-                BlockBOPDirt.BOPDirtType dirtType = (BlockBOPDirt.BOPDirtType) BlockBOPGrass.getDirtBlockState(state).getValue(BlockBOPDirt.VARIANT);
+                BlockBOPDirt.BOPDirtType dirtType = (BlockBOPDirt.BOPDirtType) dirtState.getValue(BlockBOPDirt.VARIANT);
                 world.setBlockState(pos, BlockBOPFarmland.paging.getVariantState(dirtType));
             }
-            else if (dirtBlock instanceof BlockDirt && state.getValue(BlockBOPGrass.VARIANT) != BlockBOPGrass.BOPGrassType.OVERGROWN_STONE)
+            else if (dirtState.getBlock() instanceof BlockDirt)
             {
                 world.setBlockState(pos, Blocks.FARMLAND.getDefaultState());
+            }
+            else
+            {
+                // There is no associated farmland, so just turn it to its associated dirt
+                // Mostly useful for overgrown grass turning to stone
+                world.setBlockState(pos, dirtState);
             }
         }
 
