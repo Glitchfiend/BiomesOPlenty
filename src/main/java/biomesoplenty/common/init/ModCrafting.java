@@ -17,13 +17,16 @@ import biomesoplenty.common.block.*;
 import biomesoplenty.common.crafting.BiomeEssenceRecipe;
 import biomesoplenty.common.handler.FurnaceFuelHandler;
 import biomesoplenty.common.item.ItemJarFilled;
+import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.base.CaseFormat;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
@@ -34,7 +37,13 @@ public class ModCrafting
     public static void init()
     {
         addOreRegistration();
+        addCraftingRecipes();
         addSmeltingRecipes();
+    }
+
+    private static void addCraftingRecipes()
+    {
+        registerCustomRecipe(new BiomeEssenceRecipe(), "biome_essence");
     }
     
     private static void addSmeltingRecipes()
@@ -165,5 +174,11 @@ public class ModCrafting
             }
         }
 
+    }
+
+    private static void registerCustomRecipe(IRecipe recipe, String name)
+    {
+        recipe.setRegistryName(new ResourceLocation(BiomesOPlenty.MOD_ID, name));
+        ForgeRegistries.RECIPES.register(recipe);
     }
 }

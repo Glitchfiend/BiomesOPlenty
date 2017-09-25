@@ -20,7 +20,7 @@ import net.minecraftforge.oredict.RecipeSorter;
 public class BiomeEssenceRecipe extends net.minecraftforge.registries.IForgeRegistryEntry.Impl<IRecipe> implements IRecipe
 {
 	static {
-		RecipeSorter.register("biomesoplenty:biomeessenceRecipe", BiomeEssenceRecipe.class, RecipeSorter.Category.SHAPELESS, "after:minecraft:shapeless");
+		RecipeSorter.register("biomesoplenty:biome_essence", BiomeEssenceRecipe.class, RecipeSorter.Category.SHAPELESS, "after:minecraft:shapeless");
 	}
 
     private ItemStack recipeOutput = ItemStack.EMPTY;
