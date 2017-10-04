@@ -74,12 +74,12 @@ public class ItemBiomeFinder extends Item
                 }
             }  
 
-            float getFlashingFrame(EntityLivingBase entity)
+            private float getFlashingFrame(EntityLivingBase entity)
             {
                 return (entity.ticksExisted % 2 == 0 ? 0.10F : 0.11F);
             }
             
-            float getFrameForPositionRelativeToPlayer(EntityLivingBase entity, int biomePosX, int biomePosZ)
+            private float getFrameForPositionRelativeToPlayer(EntityLivingBase entity, int biomePosX, int biomePosZ)
             {
                 double xDiff = (double)biomePosX - entity.posX;
                 double zDiff = (double)biomePosZ - entity.posZ;
