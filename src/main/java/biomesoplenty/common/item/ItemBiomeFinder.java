@@ -23,12 +23,13 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import org.apache.commons.lang3.text.WordUtils;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
 
@@ -41,7 +42,7 @@ public class ItemBiomeFinder extends Item
         {
             @Override
             @SideOnly(Side.CLIENT)
-            public float apply(ItemStack stack, World world, EntityLivingBase entity) 
+            public float apply(@Nonnull ItemStack stack, World world, EntityLivingBase entity)
             {
                 if (entity == null) {return 0.00F;}
                 
@@ -73,12 +74,12 @@ public class ItemBiomeFinder extends Item
                 }
             }  
 
-            public float getFlashingFrame(EntityLivingBase entity)
+            private float getFlashingFrame(EntityLivingBase entity)
             {
                 return (entity.ticksExisted % 2 == 0 ? 0.10F : 0.11F);
             }
             
-            public float getFrameForPositionRelativeToPlayer(EntityLivingBase entity, int biomePosX, int biomePosZ)
+            private float getFrameForPositionRelativeToPlayer(EntityLivingBase entity, int biomePosX, int biomePosZ)
             {
                 double xDiff = (double)biomePosX - entity.posX;
                 double zDiff = (double)biomePosZ - entity.posZ;
@@ -95,90 +96,94 @@ public class ItemBiomeFinder extends Item
         
     
     @Override
-    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
+    @Nonnull
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, @Nonnull EnumHand hand)
     {
         ItemStack stack = player.getHeldItem(hand);
         if (!stack.hasTagCompound()) {stack.setTagCompound(new NBTTagCompound());}
         NBTTagCompound nbt = stack.getTagCompound();
-        
+
+        if (nbt == null) return new ActionResult<>(EnumActionResult.PASS, stack);
+
         if (nbt.getBoolean("found"))
         {
-            return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);
+            return new ActionResult<>(EnumActionResult.FAIL, stack);
         }
         if (nbt.hasKey("searchStarted") && (world.getWorldTime() - nbt.getLong("searchStarted") < 100))
         {
-            return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);
+            return new ActionResult<>(EnumActionResult.FAIL, stack);
         }
         if (!nbt.hasKey("biomeIDToFind"))
         {
-            return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);
+            return new ActionResult<>(EnumActionResult.FAIL, stack);
         }
         Biome biomeToFind = Biome.getBiome(nbt.getInteger("biomeIDToFind")); // returns ocean if biomeIDToFind is out of bounds
-        
+
         // both client and server set the 'searching' tag - client to update the rendering, server so it can't be used again too quickly
         writeNBTSearching(nbt, world);
-        
+
         // carry out the search on the server, not the client
         if (world.isRemote)
         {
             // client functionality stops here
-            return new ActionResult<ItemStack>(EnumActionResult.PASS, stack);
+            return new ActionResult<>(EnumActionResult.PASS, stack);
         }
-        else
-        {            
+        else if (biomeToFind != null && biomeToFind.getRegistryName() != null)
+        {
+            String biomeName = WordUtils.capitalize(biomeToFind.getRegistryName().getResourcePath());
+
             // server notifies player that search is starting
-            sendChatMessage(player, I18n.translateToLocalFormatted("biome_finder.searching",biomeToFind.getBiomeName()), TextFormatting.DARK_PURPLE);
-            
+            sendChatMessage(player, "biome_finder.searching", biomeName, TextFormatting.DARK_PURPLE);
+
             // search for biomeToFind, maximum distance 5000 blocks
             BlockPos pos = BiomeUtils.spiralOutwardsLookingForBiome(world, biomeToFind, player.posX, player.posZ);
-            
+
             if (pos == null)
             {
                 // server notifies player that search was unsuccessful
-                sendChatMessage(player, I18n.translateToLocalFormatted("biome_finder.not_found",biomeToFind.getBiomeName()), TextFormatting.RED);
+                sendChatMessage(player, "biome_finder.not_found", biomeName, TextFormatting.RED);
                 // write not found tag
                 writeNBTNotFound(nbt);
             }
             else
             {
                 // server notifies player that search was successful
-                sendChatMessage(player, I18n.translateToLocalFormatted("biome_finder.found",biomeToFind.getBiomeName()), TextFormatting.GREEN);
+                sendChatMessage(player, "biome_finder.found", biomeName, TextFormatting.GREEN);
                 // write found tag
                 writeNBTFound(nbt, pos);
             }
             // It is necessary for the server to return a copy of the stack to make sure that the client successfully replaces it in the inventory
-            return new ActionResult<ItemStack>(EnumActionResult.PASS, stack.copy());
-            
+            return new ActionResult<>(EnumActionResult.PASS, stack.copy());
         }
-
+        return new ActionResult<>(EnumActionResult.PASS, stack);
     }
-    
-    public static void sendChatMessage(EntityPlayer player, String msg, TextFormatting color)
+
+    private static void sendChatMessage(EntityPlayer player, String msg, Object format, TextFormatting color)
     {
-        TextComponentTranslation chatComponent = new TextComponentTranslation(msg);
+        TextComponentTranslation chatComponent = new TextComponentTranslation(msg, format);
         chatComponent.getStyle().setColor(color);
         player.sendMessage(chatComponent);
     }
     
-    public static void writeNBTSearching(NBTTagCompound nbt, World world)
+    private static void writeNBTSearching(NBTTagCompound nbt, World world)
     {
-        nbt.setBoolean("found",false);
+        nbt.setBoolean("found", false);
         nbt.setLong("searchStarted", world.getWorldTime());
         nbt.removeTag("posX");
         nbt.removeTag("posZ");
     }
     
-    public static void writeNBTFound(NBTTagCompound nbt, BlockPos pos)
+    private static void writeNBTFound(NBTTagCompound nbt, BlockPos pos)
     {
-        nbt.setBoolean("found",true);
+        nbt.setBoolean("found", true);
         nbt.removeTag("searchStarted");
         nbt.setInteger("posX", pos.getX());
         nbt.setInteger("posZ", pos.getZ());
     }
     
-    public static void writeNBTNotFound(NBTTagCompound nbt)
+    private static void writeNBTNotFound(NBTTagCompound nbt)
     {
-        nbt.setBoolean("found",false);
+        nbt.setBoolean("found", false);
         nbt.removeTag("searchStarted");
         nbt.removeTag("posX");
         nbt.removeTag("posZ");
@@ -190,12 +195,13 @@ public class ItemBiomeFinder extends Item
     {
         if (!itemStack.hasTagCompound()) {return;}
         NBTTagCompound nbt = itemStack.getTagCompound();
-        if (nbt.hasKey("biomeIDToFind"))
+        if (nbt != null && nbt.hasKey("biomeIDToFind"))
         {
             Biome biomeToFind = Biome.getBiome(nbt.getInteger("biomeIDToFind")); // returns ocean if biomeIDToFind is out of bounds
-            tooltip.add(biomeToFind.getBiomeName());
+            if (biomeToFind != null)
+            {
+                tooltip.add(biomeToFind.getBiomeName());
+            }
         }
     }
-
-    
 }
