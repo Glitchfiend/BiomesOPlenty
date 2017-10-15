@@ -8,6 +8,8 @@
 
 package biomesoplenty.common.item;
 
+import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.handler.GuiHandler;
 import biomesoplenty.common.inventory.InventoryFlowerBasket;
 import biomesoplenty.common.util.NBTUtil;
@@ -16,9 +18,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.IItemPropertyGetter;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.init.Items;
+import net.minecraft.item.*;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
@@ -78,7 +79,7 @@ public class ItemFlowerBasket extends Item
             player.openGui(BiomesOPlenty.instance, GuiHandler.FLOWER_BASKET_ID, world, 0, 0, 0);
         }
 
-        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
+        return new ActionResult<>(EnumActionResult.SUCCESS, stack);
     }
 
     @Nonnull
@@ -117,7 +118,7 @@ public class ItemFlowerBasket extends Item
         {
             NBTTagCompound compound = stack.getTagCompound();
             
-            if (compound.hasKey("BasketOpen"))
+            if (compound != null && compound.hasKey("BasketOpen"))
             {
                 return compound.getBoolean("BasketOpen");
             }
@@ -142,7 +143,10 @@ public class ItemFlowerBasket extends Item
         {
             NBTTagCompound compound = stack.getTagCompound();
             //Ensure the basket is closed
-            compound.setBoolean("BasketOpen", false);
+            if (compound != null)
+            {
+                compound.setBoolean("BasketOpen", false);
+            }
         }
     }
     
@@ -151,6 +155,8 @@ public class ItemFlowerBasket extends Item
         Item item = stack.getItem();
         Block block = Block.getBlockFromItem(item);
         
-        return !(item instanceof ItemFlowerBasket) && (block instanceof IPlantable || block instanceof IGrowable || block instanceof IShearable);
+        return !(item instanceof ItemFlowerBasket) && (block instanceof IPlantable || block instanceof IGrowable || block instanceof IShearable || block instanceof BlockBOPMushroom
+        || item instanceof ItemSeedFood || item instanceof ItemSeeds || item == Items.REEDS || item == Items.APPLE || item == Items.MELON || item == Items.BEETROOT || item == Items.WHEAT || item == Items.CHORUS_FRUIT
+        || item == BOPItems.berries || item == BOPItems.pear || item == BOPItems.peach || item == BOPItems.persimmon || item == BOPItems.pinecone || item == BOPItems.turnip);
     }
 }
