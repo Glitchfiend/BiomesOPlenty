@@ -355,37 +355,37 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
     
     public static void initExtendedBiomes()
     {
-        biomeWrapperMap = new HashMap<Integer, IExtendedBiome>();
+        biomeWrapperMap = new HashMap<>();
         
-        end_extension = registerWrappedBiome(new BiomeExtEnd(), "end");
-        mushroom_island_extension = registerWrappedBiome(new BiomeExtMushroomIsland(), "mushroom_island");
-        birch_forest_extension = registerWrappedBiome(new BiomeExtBirchForest(), "birch_forest");
-        birch_forest_hills_extension = registerWrappedBiome(new BiomeExtBirchForestHills(), "birch_forest_hills");
-        cold_taiga_extension = registerWrappedBiome(new BiomeExtColdTaiga(), "cold_taiga");
-        cold_taiga_hills_extension = registerWrappedBiome(new BiomeExtColdTaigaHills(), "cold_taiga_hills");
-        desert_extension = registerWrappedBiome(new BiomeExtDesert(), "desert");
-        desert_hills_extension = registerWrappedBiome(new BiomeExtDesertHills(), "desert_hills");
-        extreme_hills_extension = registerWrappedBiome(new BiomeExtExtremeHills(), "extreme_hills");
-        extreme_hills_plus_extension = registerWrappedBiome(new BiomeExtExtremeHillsPlus(), "extreme_hills+");
-        forest_extension = registerWrappedBiome(new BiomeExtForest(), "forest");
-        forest_hills_extension = registerWrappedBiome(new BiomeExtForestHills(), "forest_hills");
-        ice_plains_extension = registerWrappedBiome(new BiomeExtIcePlains(), "ice_plains");
-        ice_mountains_extension = registerWrappedBiome(new BiomeExtIceMountains(), "ice_mountains");
-        jungle_extension = registerWrappedBiome(new BiomeExtJungle(), "jungle");
-        jungle_hills_extension = registerWrappedBiome(new BiomeExtJungleHills(), "jungle_hills");
-        mega_taiga_extension = registerWrappedBiome(new BiomeExtMegaTaiga(), "mega_taiga");
-        mega_taiga_hills_extension = registerWrappedBiome(new BiomeExtMegaTaigaHills(), "mega_taiga_hills");
-        mesa_extension = registerWrappedBiome(new BiomeExtMesa(), "mesa");
-        mesa_plateau_extension = registerWrappedBiome(new BiomeExtMesaPlateau(), "mesa_plateau");
-        ocean_extension = registerWrappedBiome(new BiomeExtOcean(), "ocean");
-        plains_extension = registerWrappedBiome(new BiomeExtPlains(), "plains");
-        roofed_forest_extension = registerWrappedBiome(new BiomeExtRoofedForest(), "roofed_forest");
-        savanna_extension = registerWrappedBiome(new BiomeExtSavanna(), "savanna");
-        savanna_plateau_extension = registerWrappedBiome(new BiomeExtSavannaPlateau(), "savanna_plateau");
-        swampland_extension = registerWrappedBiome(new BiomeExtSwampland(), "swampland");
-        taiga_extension = registerWrappedBiome(new BiomeExtTaiga(), "taiga");
-        taiga_hills_extension = registerWrappedBiome(new BiomeExtTaigaHills(), "taiga_hills");
-        hell_extension = registerWrappedBiome(new BiomeExtHell(), "hell");
+        end_extension = registerWrappedBiome(new BiomeExtEnd());
+        mushroom_island_extension = registerWrappedBiome(new BiomeExtMushroomIsland());
+        birch_forest_extension = registerWrappedBiome(new BiomeExtBirchForest());
+        birch_forest_hills_extension = registerWrappedBiome(new BiomeExtBirchForestHills());
+        cold_taiga_extension = registerWrappedBiome(new BiomeExtColdTaiga());
+        cold_taiga_hills_extension = registerWrappedBiome(new BiomeExtColdTaigaHills());
+        desert_extension = registerWrappedBiome(new BiomeExtDesert());
+        desert_hills_extension = registerWrappedBiome(new BiomeExtDesertHills());
+        extreme_hills_extension = registerWrappedBiome(new BiomeExtExtremeHills());
+        extreme_hills_plus_extension = registerWrappedBiome(new BiomeExtExtremeHillsPlus());
+        forest_extension = registerWrappedBiome(new BiomeExtForest());
+        forest_hills_extension = registerWrappedBiome(new BiomeExtForestHills());
+        ice_plains_extension = registerWrappedBiome(new BiomeExtIcePlains());
+        ice_mountains_extension = registerWrappedBiome(new BiomeExtIceMountains());
+        jungle_extension = registerWrappedBiome(new BiomeExtJungle());
+        jungle_hills_extension = registerWrappedBiome(new BiomeExtJungleHills());
+        mega_taiga_extension = registerWrappedBiome(new BiomeExtMegaTaiga());
+        mega_taiga_hills_extension = registerWrappedBiome(new BiomeExtMegaTaigaHills());
+        mesa_extension = registerWrappedBiome(new BiomeExtMesa());
+        mesa_plateau_extension = registerWrappedBiome(new BiomeExtMesaPlateau());
+        ocean_extension = registerWrappedBiome(new BiomeExtOcean());
+        plains_extension = registerWrappedBiome(new BiomeExtPlains());
+        roofed_forest_extension = registerWrappedBiome(new BiomeExtRoofedForest());
+        savanna_extension = registerWrappedBiome(new BiomeExtSavanna());
+        savanna_plateau_extension = registerWrappedBiome(new BiomeExtSavannaPlateau());
+        swampland_extension = registerWrappedBiome(new BiomeExtSwampland());
+        taiga_extension = registerWrappedBiome(new BiomeExtTaiga());
+        taiga_hills_extension = registerWrappedBiome(new BiomeExtTaigaHills());
+        hell_extension = registerWrappedBiome(new BiomeExtHell());
     }
     
     private static void registerBiomeDictionaryTags()
@@ -598,12 +598,13 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         }
     }
     
-    private static IExtendedBiome registerWrappedBiome(IExtendedBiome extendedBiome, String idName)
+    private static IExtendedBiome registerWrappedBiome(IExtendedBiome extendedBiome)
     {
         //Non-wrapped biomes should not be registered this way
         if (extendedBiome.getBaseBiome() instanceof IExtendedBiome)
             throw new IllegalArgumentException("Biome already implements IExtendedBiome, it should be registered appropriately");
 
+        String idName = extendedBiome.getResourceLocation().getResourcePath();
         extendedBiome.configure(readConfigFile(idName));
         return BOPBiomes.REG_INSTANCE.registerBiome(extendedBiome, idName);
     }
