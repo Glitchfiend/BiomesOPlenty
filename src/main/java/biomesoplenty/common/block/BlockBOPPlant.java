@@ -158,21 +158,16 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
     @SideOnly(Side.CLIENT)
     public IItemColor getItemColor()
     {
-        return new IItemColor()
-        {
-            @Override
-            public int getColorFromItemstack(ItemStack stack, int tintIndex) 
+        return (stack, tintIndex) -> {
+            IBlockState state = ((ItemBlock)stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata());
+
+            switch ((BOPPlants) state.getValue(BlockBOPPlant.this.variantProperty))
             {
-                IBlockState state = ((ItemBlock)stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata());
-                
-                switch ((BOPPlants) state.getValue(BlockBOPPlant.this.variantProperty))
-                {
-                    case BUSH: case BERRYBUSH: case SHRUB:
-                        return 0xFFFFFF;
-                    
-                    default:
-                        return BlockBOPPlant.this.getBlockColor().colorMultiplier(state, null, null, tintIndex);
-                }
+                case BUSH: case BERRYBUSH: case SHRUB:
+                    return 0xFFFFFF;
+
+                default:
+                    return BlockBOPPlant.this.getBlockColor().colorMultiplier(state, null, null, tintIndex);
             }
         };
     }

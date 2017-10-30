@@ -56,7 +56,7 @@ public class BOPMapGenScatteredFeature extends MapGenScatteredFeature
 
         for (Entry<String, String> entry : p_i2061_1_.entrySet())
         {
-            if (((String)entry.getKey()).equals("distance"))
+            if (entry.getKey().equals("distance"))
             {
                 this.maxDistanceBetweenScatteredFeatures = MathHelper.getInt((String)entry.getValue(), this.maxDistanceBetweenScatteredFeatures, 9);
             }
@@ -126,7 +126,7 @@ public class BOPMapGenScatteredFeature extends MapGenScatteredFeature
 
         if (structurestart != null && structurestart instanceof BOPMapGenScatteredFeature.Start && !structurestart.getComponents().isEmpty())
         {
-            StructureComponent structurecomponent = (StructureComponent)structurestart.getComponents().get(0);
+            StructureComponent structurecomponent = structurestart.getComponents().get(0);
             return structurecomponent instanceof ComponentScatteredFeaturePieces.SwampHut;
         }
         else
@@ -136,7 +136,7 @@ public class BOPMapGenScatteredFeature extends MapGenScatteredFeature
     }
 
     @Override
-    public List<Biome.SpawnListEntry> getScatteredFeatureSpawnList()
+    public List<Biome.SpawnListEntry> getMonsters()
     {
         return this.scatteredFeatureSpawnList;
     }

@@ -42,14 +42,9 @@ public class BlockColoring
         }
     };
     
-    public static final IItemColor BLOCK_ITEM_COLORING = new IItemColor()
-    {
-        @Override
-        public int getColorFromItemstack(ItemStack stack, int tintIndex) 
-        {
-            IBlockState state = ((ItemBlock)stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata());
-            IBlockColor blockColor = ((IBOPBlock)state.getBlock()).getBlockColor();
-            return blockColor == null ? 0xFFFFFF : blockColor.colorMultiplier(state, null, null, tintIndex);
-        }
+    public static final IItemColor BLOCK_ITEM_COLORING = (stack, tintIndex) -> {
+        IBlockState state = ((ItemBlock)stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata());
+        IBlockColor blockColor = ((IBOPBlock)state.getBlock()).getBlockColor();
+        return blockColor == null ? 0xFFFFFF : blockColor.colorMultiplier(state, null, null, tintIndex);
     };
 }
