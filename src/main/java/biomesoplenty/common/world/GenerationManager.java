@@ -10,6 +10,7 @@ package biomesoplenty.common.world;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import com.google.common.collect.ImmutableCollection;
@@ -60,9 +61,12 @@ public class GenerationManager implements IGenerationManager
 
     public void configure(IConfigObj generatorsObj)
     {
+        Iterator<String> genKeysItr = generators.keySet().iterator();
+
         // iterate over all registered generators
-        for (String name : generators.keySet())
+        while (genKeysItr.hasNext())
         {
+            String name = genKeysItr.next();
             IConfigObj currentObj = generatorsObj.getObject(name);
 
             // there was previously no generator of this name - attempt to add it
@@ -80,7 +84,7 @@ public class GenerationManager implements IGenerationManager
                 this.generators.get(name).configure(currentObj);
             } else {
                 // remove this generator
-                this.generators.remove(name);
+                genKeysItr.remove();
             }
         }
     }
