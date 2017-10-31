@@ -79,7 +79,7 @@ public class BlockBOPAsh extends BlockBOPGeneric
     {
         if (random.nextInt(2) == 0)
         {
-            world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, pos.getX() + random.nextFloat(), pos.getY() + 1.1F, pos.getZ() + random.nextFloat(), 0.0D, 0.0D, 0.0D, new int[0]);
+            world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, pos.getX() + random.nextFloat(), pos.getY() + 1.1F, pos.getZ() + random.nextFloat(), 0.0D, 0.0D, 0.0D);
         }
     }
 

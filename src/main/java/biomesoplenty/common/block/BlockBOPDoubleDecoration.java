@@ -28,7 +28,7 @@ import net.minecraft.world.World;
 public class BlockBOPDoubleDecoration extends BlockBOPDecoration {
     
     // add half property
-    public static enum Half implements IStringSerializable
+    public enum Half implements IStringSerializable
     {
         LOWER, UPPER;
         @Override
@@ -41,10 +41,11 @@ public class BlockBOPDoubleDecoration extends BlockBOPDecoration {
         {
             return this.getName();
         }
-    };
+    }
+
     public static final PropertyEnum HALF = PropertyEnum.create("half", Half.class);
     @Override
-    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, new IProperty[] { HALF });}
+    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, HALF);}
     @Override
     public IProperty[] getNonRenderingProperties() { return null; }
 

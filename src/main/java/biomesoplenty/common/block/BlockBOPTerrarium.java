@@ -34,7 +34,7 @@ public class BlockBOPTerrarium extends Block implements IBOPBlock
 	protected static final AxisAlignedBB BOUNDING_BOX = new AxisAlignedBB(0.19999998807D, 0.0D, 0.19999998807D, 0.69999998808D, 0.69999998808D, 0.69999998808D);
     
     // add properties
-    public static enum TerrariumType implements IStringSerializable
+    public enum TerrariumType implements IStringSerializable
     {
         FERN, MUSHROOM, CACTUS, FLAX, FLOWER, KORU, BAMBOO, SAPLING, GLOWSHROOM, DEAD, MYSTIC, OMINOUS, WASTELAND, ORIGIN, NETHER, ENDER;
         @Override
@@ -47,10 +47,11 @@ public class BlockBOPTerrarium extends Block implements IBOPBlock
         {
             return this.getName();
         }
-    };
+    }
+
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", TerrariumType.class);
     @Override
-    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, new IProperty[] { VARIANT });}
+    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, VARIANT);}
 
     
     // implement IBOPBlock
@@ -99,7 +100,7 @@ public class BlockBOPTerrarium extends Block implements IBOPBlock
     @Override
     public int getLightValue(IBlockState state)
     {
-        switch ((TerrariumType) state.getValue(this.VARIANT))
+        switch ((TerrariumType) state.getValue(VARIANT))
         {
             case GLOWSHROOM:
                 return 5;

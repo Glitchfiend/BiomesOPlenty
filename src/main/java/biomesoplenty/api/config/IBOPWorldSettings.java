@@ -11,10 +11,10 @@ public interface IBOPWorldSettings
 {
     boolean isEnabled(GeneratorType type);
     
-    public static enum GeneratorType
+    enum GeneratorType
     {
         GEMS, SOILS, TREES, GRASSES, FOLIAGE, FLOWERS, PLANTS, WATER_PLANTS, MUSHROOMS, 
         ROCK_FORMATIONS, POISON_IVY, BERRY_BUSHES, THORNS, QUICKSAND, LIQUID_POISON, HOT_SPRINGS,
-        NETHER_HIVES, END_FEATURES;
+        NETHER_HIVES, END_FEATURES
     }
 }

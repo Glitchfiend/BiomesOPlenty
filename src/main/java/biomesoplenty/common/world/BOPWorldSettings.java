@@ -24,31 +24,31 @@ public class BOPWorldSettings implements IBOPWorldSettings
     
     public static Gson serializer = new GsonBuilder().create();
     
-    public static enum LandMassScheme
+    public enum LandMassScheme
     {
         VANILLA,
         CONTINENTS,
-        ARCHIPELAGO;
+        ARCHIPELAGO
     }
     
-    public static enum TemperatureVariationScheme
+    public enum TemperatureVariationScheme
     {
         LATITUDE,
         SMALL_ZONES,
         MEDIUM_ZONES,
         LARGE_ZONES,
-        RANDOM;
+        RANDOM
     }
     
-    public static enum RainfallVariationScheme
+    public enum RainfallVariationScheme
     {
         SMALL_ZONES,
         MEDIUM_ZONES,
         LARGE_ZONES,
-        RANDOM;
+        RANDOM
     }
     
-    public static enum BiomeSize
+    public enum BiomeSize
     {
         TINY (2),
         SMALL (3),

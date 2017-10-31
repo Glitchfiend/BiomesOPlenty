@@ -88,7 +88,7 @@ public class BlockHoneyFluid extends BlockFluidFinite
 
         if (flag)
         {
-            Integer integer = (Integer)state.getValue(LEVEL);
+            Integer integer = state.getValue(LEVEL);
 
             if (integer.intValue() == 0)
             {

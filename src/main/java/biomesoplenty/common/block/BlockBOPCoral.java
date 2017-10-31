@@ -24,7 +24,7 @@ import net.minecraft.world.World;
 public class BlockBOPCoral extends BlockBOPDecoration
 {
     
-    public static enum CoralType implements IStringSerializable
+    public enum CoralType implements IStringSerializable
     {
         PINK, ORANGE, BLUE, GLOWING, ALGAE;
         @Override
@@ -37,10 +37,11 @@ public class BlockBOPCoral extends BlockBOPDecoration
         {
             return this.getName();
         }
-    };
+    }
+
     public static PropertyEnum VARIANT = PropertyEnum.create("variant", CoralType.class);
     @Override
-    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, new IProperty[] { LEVEL, VARIANT });}  
+    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, LEVEL, VARIANT);}
 
     // implement IBOPBlock
     @Override

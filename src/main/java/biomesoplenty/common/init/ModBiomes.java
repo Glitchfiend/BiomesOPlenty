@@ -631,7 +631,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
             if (biome.canGenerateVillages)
                 BiomeManager.addVillageBiome(biome, true);
             
-            return Optional.of((Biome)biome);
+            return Optional.of(biome);
             
         } else {
             return Optional.absent();
@@ -653,7 +653,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
             biome.setRegistryName(biome.getResourceLocation());
             ForgeRegistries.BIOMES.register(biome);
 
-            return Optional.of((Biome)biome);
+            return Optional.of(biome);
 
         } else {
             return Optional.absent();

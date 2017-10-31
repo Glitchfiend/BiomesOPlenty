@@ -21,19 +21,19 @@ import net.minecraft.world.biome.Biome;
 
 public interface IExtendedBiome
 {
-    public void applySettings(IBOPWorldSettings settings);
-    public void configure(IConfigObj conf);
+    void applySettings(IBOPWorldSettings settings);
+    void configure(IConfigObj conf);
     
-    public BiomeOwner getBiomeOwner();
-    public void addGenerator(String name, GeneratorStage stage, IGenerator generator);
-    public IGenerationManager getGenerationManager();
-    public Map<BOPClimates, Integer> getWeightMap();
-    public void clearWeights();
-    public void addWeight(BOPClimates climate, int weight);
+    BiomeOwner getBiomeOwner();
+    void addGenerator(String name, GeneratorStage stage, IGenerator generator);
+    IGenerationManager getGenerationManager();
+    Map<BOPClimates, Integer> getWeightMap();
+    void clearWeights();
+    void addWeight(BOPClimates climate, int weight);
     
-    public ResourceLocation getBeachLocation();
+    ResourceLocation getBeachLocation();
     
     /**Get the base biome associated with this extension**/
-    public Biome getBaseBiome();
-    public ResourceLocation getResourceLocation();
+    Biome getBaseBiome();
+    ResourceLocation getResourceLocation();
 }

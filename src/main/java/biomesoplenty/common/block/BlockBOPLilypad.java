@@ -32,7 +32,7 @@ public class BlockBOPLilypad extends BlockLilyPad implements IBOPBlock
 {
     
     // add properties
-    public static enum LilypadType implements IStringSerializable
+    public enum LilypadType implements IStringSerializable
     {
         MEDIUM, SMALL, TINY, FLOWER;
         @Override
@@ -45,10 +45,11 @@ public class BlockBOPLilypad extends BlockLilyPad implements IBOPBlock
         {
             return this.getName();
         }
-    };
+    }
+
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", LilypadType.class);
     @Override
-    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, new IProperty[] { VARIANT });}
+    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, VARIANT);}
 
     
     // implement IBOPBlock

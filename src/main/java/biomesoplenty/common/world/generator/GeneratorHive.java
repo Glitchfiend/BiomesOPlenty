@@ -50,7 +50,7 @@ public class GeneratorHive extends GeneratorReplacing
         {
             // defaults
             this.amountPerChunk = 1.0F;
-            this.placeOn = BlockQuery.buildAnd().states(Blocks.NETHERRACK.getDefaultState()).withAirBelow().create();;
+            this.placeOn = BlockQuery.buildAnd().states(Blocks.NETHERRACK.getDefaultState()).withAirBelow().create();
             this.replace = new BlockQuery.BlockQueryMaterial(Material.AIR);
             this.with = null;
             this.scatterYMethod = GeneratorUtils.ScatterYMethod.NETHER_ROOF;
