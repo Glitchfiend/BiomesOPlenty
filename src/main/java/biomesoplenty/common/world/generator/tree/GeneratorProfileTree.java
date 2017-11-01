@@ -61,7 +61,7 @@ public class GeneratorProfileTree extends GeneratorTreeBase
         this.profile = profile;
     }
     
-    public static enum TreeProfile
+    public enum TreeProfile
     {
         POPLAR;
         

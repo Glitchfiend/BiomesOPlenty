@@ -81,7 +81,7 @@ public class GeneratorUtils
         return null;
     }
     
-    public static enum ScatterYMethod
+    public enum ScatterYMethod
     {
         ANYWHERE, NETHER_SURFACE, NETHER_ROOF, AT_SURFACE, AT_GROUND, BELOW_SURFACE, BELOW_GROUND, ABOVE_SURFACE, ABOVE_GROUND;
         public BlockPos getBlockPos(World world, Random random, int x, int z)

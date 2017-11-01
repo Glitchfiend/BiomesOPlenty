@@ -337,7 +337,7 @@ public class ChunkGeneratorHellBOP implements IChunkGenerator
             this.genNetherBridge.generate(this.world, chunkX, chunkZ, chunkprimer);
         }
 
-        Biome[] biomes = this.world.getBiomeProvider().getBiomes((Biome[])null, chunkX * 16, chunkZ * 16, 16, 16);
+        Biome[] biomes = this.world.getBiomeProvider().getBiomes(null, chunkX * 16, chunkZ * 16, 16, 16);
         this.replaceBlocksForBiome(chunkX, chunkZ, chunkprimer, biomes);
 
         Chunk chunk = new Chunk(this.world, chunkprimer, chunkX, chunkZ);
@@ -578,12 +578,12 @@ public class ChunkGeneratorHellBOP implements IChunkGenerator
     @Override
     public boolean isInsideStructure(World world, String structureName, BlockPos pos)
     {
-        return "Fortress".equals(structureName) && this.genNetherBridge != null ? this.genNetherBridge.isInsideStructure(pos) : false;
+        return ("Fortress".equals(structureName) && this.genNetherBridge != null) && this.genNetherBridge.isInsideStructure(pos);
     }
 
     @Override
     public void recreateStructures(Chunk chunkIn, int x, int z)
     {
-        this.genNetherBridge.generate(this.world, x, z, (ChunkPrimer)null);
+        this.genNetherBridge.generate(this.world, x, z, null);
     }
 }

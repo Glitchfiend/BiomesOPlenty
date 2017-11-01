@@ -25,7 +25,7 @@ public class ModVanillaCompat
     	
     	MapGenStructureIO.registerStructure(BOPMapGenScatteredFeature.Start.class, "BOPTemple");
     	List<Biome> mansionBiomes = BiomeUtils.filterPresentBiomes(BOPBiomes.coniferous_forest, BOPBiomes.dead_forest, BOPBiomes.ominous_woods, BOPBiomes.snowy_coniferous_forest, BOPBiomes.woodland);
-    	mansionBiomes.addAll(Lists.<Biome>newArrayList(Biomes.ROOFED_FOREST, Biomes.MUTATED_ROOFED_FOREST));
+    	mansionBiomes.addAll(Lists.newArrayList(Biomes.ROOFED_FOREST, Biomes.MUTATED_ROOFED_FOREST));
     	WoodlandMansion.ALLOWED_BIOMES = mansionBiomes;
     }
     

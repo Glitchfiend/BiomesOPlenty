@@ -51,7 +51,7 @@ import net.minecraft.world.chunk.ChunkPrimer;
 public class BiomeGenMountain extends BOPOverworldBiome
 {
     
-    public static enum MountainType {MOUNTAIN, MOUNTAIN_FOOTHILLS}
+    public enum MountainType {MOUNTAIN, MOUNTAIN_FOOTHILLS}
     
     public MountainType type;
     public IBlockState grassBlock;

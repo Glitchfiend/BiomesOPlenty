@@ -19,7 +19,7 @@ public class ForgeRedirectedResourcePack extends FMLFileResourcePack
     {
         super(container);
         
-        this.bopResourcePack = (IResourcePack)FMLClientHandler.instance().getResourcePackFor(BiomesOPlenty.MOD_ID);
+        this.bopResourcePack = FMLClientHandler.instance().getResourcePackFor(BiomesOPlenty.MOD_ID);
     }
 
     @Override

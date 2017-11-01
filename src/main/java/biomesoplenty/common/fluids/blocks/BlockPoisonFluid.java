@@ -88,7 +88,7 @@ public class BlockPoisonFluid extends BlockFluidClassic
 
         if (flag)
         {
-            Integer integer = (Integer)state.getValue(LEVEL);
+            Integer integer = state.getValue(LEVEL);
 
             if (integer.intValue() == 0)
             {

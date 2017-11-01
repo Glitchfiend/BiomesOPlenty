@@ -43,7 +43,7 @@ public class EntityPixieTrailFX extends Particle
         this.particleScale *= par14;
         this.particleMaxAge = (int)((8.0D / (Math.random() * 0.8D + 0.2D)) * 8);
         this.particleMaxAge = (int)((float)this.particleMaxAge * par14);
-        this.particleAge = (particleMaxAge / 2) + (int)((particleMaxAge / 2) * world.rand.nextInt(7));
+        this.particleAge = (particleMaxAge / 2) + (particleMaxAge / 2) * world.rand.nextInt(7);
         this.particleAlpha = 1.0F;
         this.particleRed = 1.0F;
         this.particleGreen = 1.0F;

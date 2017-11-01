@@ -79,19 +79,19 @@ processResources {
         exclude '**/*.properties'
     }
 }
- 
-import net.minecraftforge.gradle.tasks.JenkinsChangelog
-import net.minecraftforge.gradle.common.Constants
+
+
+import groovy.io.FileType
 
 task changelog(type: JenkinsChangelog) {
     def buildNumber = "${System.getenv().BUILD_NUMBER}"
 
     serverRoot = 'http://ci.jenkins.minecraftforge.net/'
     jobName = 'BiomesOPlenty'
-    authName = 'console_script';
-    authPassword = 'dc6d48ca20a474beeac280a9a16a926e';
-    targetBuild = buildNumber.toString();
-    output = 'build/libs/' + project.getName() + '-' + project.version + '-changelog.txt';
+    authName = 'console_script'
+    authPassword = 'dc6d48ca20a474beeac280a9a16a926e'
+    targetBuild = buildNumber.toString()
+    output = 'build/libs/' + project.getName() + '-' + project.version + '-changelog.txt'
 }
 
 tasks.build.dependsOn('changelog')
@@ -159,12 +159,10 @@ curseforge {
     apiKey = "$System.env.curse_api_key"
     project {
         id = '220318'
-        changelog = file('build/libs/' + project.getName() + '-' + project.version + '-changelog.txt');
+        changelog = file('build/libs/' + project.getName() + '-' + project.version + '-changelog.txt')
         releaseType = 'beta'
     }
 }
-
-import groovy.io.FileType
 
 uploadArchives {
     repositories {

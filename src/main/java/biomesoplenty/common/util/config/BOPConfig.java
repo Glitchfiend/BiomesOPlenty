@@ -37,7 +37,7 @@ public class BOPConfig
     
     public static Gson serializer = new GsonBuilder().setPrettyPrinting().create();
     public static JsonParser parser = new JsonParser();
-    private static enum Types {BOOLEAN, STRING, INTEGER, FLOAT, BLOCKSTATE, BLOCKPOSQUERY, RESOURCELOCATION}
+    private enum Types {BOOLEAN, STRING, INTEGER, FLOAT, BLOCKSTATE, BLOCKPOSQUERY, RESOURCELOCATION}
     
     public static boolean writeFile(File outputFile, Object obj)
     {
@@ -232,68 +232,68 @@ public class BOPConfig
         @Override
         public Boolean getBool(String name, Boolean defaultVal) {return this.<Boolean>get(name, defaultVal, false, Types.BOOLEAN);}
         @Override
-        public String getString(String name, String defaultVal) {return this.<String>get(name, defaultVal, false, Types.STRING);}
+        public String getString(String name, String defaultVal) {return this.get(name, defaultVal, false, Types.STRING);}
         @Override
         public Integer getInt(String name, Integer defaultVal) {return this.<Integer>get(name, defaultVal, false, Types.INTEGER);}
         @Override
         public Float getFloat(String name, Float defaultVal) {return this.<Float>get(name, defaultVal, false, Types.FLOAT);}
         @Override
-        public IBlockState getBlockState(String name, IBlockState defaultVal) {return this.<IBlockState>get(name, defaultVal, false, Types.BLOCKSTATE);}
+        public IBlockState getBlockState(String name, IBlockState defaultVal) {return this.get(name, defaultVal, false, Types.BLOCKSTATE);}
         @Override
-        public IBlockPosQuery getBlockPosQuery(String name, IBlockPosQuery defaultVal) {return this.<IBlockPosQuery>get(name, defaultVal, false, Types.BLOCKPOSQUERY);}
+        public IBlockPosQuery getBlockPosQuery(String name, IBlockPosQuery defaultVal) {return this.get(name, defaultVal, false, Types.BLOCKPOSQUERY);}
         @Override
-        public ResourceLocation getResourceLocation(String name, ResourceLocation defaultVal) {return this.<ResourceLocation>get(name, defaultVal, false, Types.RESOURCELOCATION);}
+        public ResourceLocation getResourceLocation(String name, ResourceLocation defaultVal) {return this.get(name, defaultVal, false, Types.RESOURCELOCATION);}
         @Override
         public <E extends Enum> E getEnum(String name, E defaultVal, Class<E> clazz) {return this.getEnum(name, defaultVal, false, clazz);}
 
         @Override
         public Boolean getBool(String name) {return this.<Boolean>get(name, null, true, Types.BOOLEAN);}
         @Override
-        public String getString(String name) {return this.<String>get(name, null, true, Types.STRING);}
+        public String getString(String name) {return this.get(name, null, true, Types.STRING);}
         @Override
         public Integer getInt(String name) {return this.<Integer>get(name, null, true, Types.INTEGER);}
         @Override
         public Float getFloat(String name) {return this.<Float>get(name, null, true, Types.FLOAT);}
         @Override
-        public IBlockState getBlockState(String name) {return this.<IBlockState>get(name, null, true, Types.BLOCKSTATE);}
+        public IBlockState getBlockState(String name) {return this.get(name, null, true, Types.BLOCKSTATE);}
         @Override
-        public IBlockPosQuery getBlockPosQuery(String name) {return this.<IBlockPosQuery>get(name, null, true, Types.BLOCKPOSQUERY);}
+        public IBlockPosQuery getBlockPosQuery(String name) {return this.get(name, null, true, Types.BLOCKPOSQUERY);}
         @Override
-        public ResourceLocation getResourceLocation(String name) {return this.<ResourceLocation>get(name, null, true, Types.RESOURCELOCATION);}
+        public ResourceLocation getResourceLocation(String name) {return this.get(name, null, true, Types.RESOURCELOCATION);}
         @Override
         public <E extends Enum> E getEnum(String name, Class<E> clazz) {return this.getEnum(name, null, true, clazz);}
         
         @Override
-        public ArrayList<Boolean> getBoolArray(String name, ArrayList<Boolean> defaultVal) {return this.<Boolean>getArray(name, defaultVal, false, Types.BOOLEAN);}
+        public ArrayList<Boolean> getBoolArray(String name, ArrayList<Boolean> defaultVal) {return this.getArray(name, defaultVal, false, Types.BOOLEAN);}
         @Override
-        public ArrayList<String> getStringArray(String name, ArrayList<String> defaultVal) {return this.<String>getArray(name, defaultVal, false, Types.STRING);}
+        public ArrayList<String> getStringArray(String name, ArrayList<String> defaultVal) {return this.getArray(name, defaultVal, false, Types.STRING);}
         @Override
-        public ArrayList<Integer> getIntArray(String name, ArrayList<Integer> defaultVal) {return this.<Integer>getArray(name, defaultVal, false, Types.INTEGER);}
+        public ArrayList<Integer> getIntArray(String name, ArrayList<Integer> defaultVal) {return this.getArray(name, defaultVal, false, Types.INTEGER);}
         @Override
-        public ArrayList<Float> getFloatArray(String name, ArrayList<Float> defaultVal) {return this.<Float>getArray(name, defaultVal, false, Types.FLOAT);}
+        public ArrayList<Float> getFloatArray(String name, ArrayList<Float> defaultVal) {return this.getArray(name, defaultVal, false, Types.FLOAT);}
         @Override
-        public ArrayList<IBlockState> getBlockStateArray(String name, ArrayList<IBlockState> defaultVal) {return this.<IBlockState>getArray(name, defaultVal, false, Types.BLOCKSTATE);}
+        public ArrayList<IBlockState> getBlockStateArray(String name, ArrayList<IBlockState> defaultVal) {return this.getArray(name, defaultVal, false, Types.BLOCKSTATE);}
         @Override
-        public ArrayList<IBlockPosQuery> getBlockPosQueryArray(String name, ArrayList<IBlockPosQuery> defaultVal) {return this.<IBlockPosQuery>getArray(name, defaultVal, false, Types.BLOCKPOSQUERY);}
+        public ArrayList<IBlockPosQuery> getBlockPosQueryArray(String name, ArrayList<IBlockPosQuery> defaultVal) {return this.getArray(name, defaultVal, false, Types.BLOCKPOSQUERY);}
         @Override
-        public ArrayList<ResourceLocation> getResourceLocationArray(String name, ArrayList<ResourceLocation> defaultVal) {return this.<ResourceLocation>getArray(name, defaultVal, false, Types.RESOURCELOCATION);}
+        public ArrayList<ResourceLocation> getResourceLocationArray(String name, ArrayList<ResourceLocation> defaultVal) {return this.getArray(name, defaultVal, false, Types.RESOURCELOCATION);}
         @Override
         public <E extends Enum> ArrayList<E> getEnumArray(String name, ArrayList<E> defaultVal, Class<E> clazz) {return this.getEnumArray(name, defaultVal, false, clazz);}
  
         @Override
-        public ArrayList<Boolean> getBoolArray(String name) {return this.<Boolean>getArray(name, null, true, Types.BOOLEAN);}
+        public ArrayList<Boolean> getBoolArray(String name) {return this.getArray(name, null, true, Types.BOOLEAN);}
         @Override
-        public ArrayList<String> getStringArray(String name) {return this.<String>getArray(name, null, true, Types.STRING);}
+        public ArrayList<String> getStringArray(String name) {return this.getArray(name, null, true, Types.STRING);}
         @Override
-        public ArrayList<Integer> getIntArray(String name) {return this.<Integer>getArray(name, null, true, Types.INTEGER);}
+        public ArrayList<Integer> getIntArray(String name) {return this.getArray(name, null, true, Types.INTEGER);}
         @Override
-        public ArrayList<Float> getFloatArray(String name) {return this.<Float>getArray(name, null, true, Types.FLOAT);}
+        public ArrayList<Float> getFloatArray(String name) {return this.getArray(name, null, true, Types.FLOAT);}
         @Override
-        public ArrayList<IBlockState> getBlockStateArray(String name) {return this.<IBlockState>getArray(name, null, true, Types.BLOCKSTATE);}
+        public ArrayList<IBlockState> getBlockStateArray(String name) {return this.getArray(name, null, true, Types.BLOCKSTATE);}
         @Override
-        public ArrayList<IBlockPosQuery> getBlockPosQueryArray(String name) {return this.<IBlockPosQuery>getArray(name, null, true, Types.BLOCKPOSQUERY);}
+        public ArrayList<IBlockPosQuery> getBlockPosQueryArray(String name) {return this.getArray(name, null, true, Types.BLOCKPOSQUERY);}
         @Override
-        public ArrayList<ResourceLocation> getResourceLocationArray(String name) {return this.<ResourceLocation>getArray(name, null, true, Types.RESOURCELOCATION);}
+        public ArrayList<ResourceLocation> getResourceLocationArray(String name) {return this.getArray(name, null, true, Types.RESOURCELOCATION);}
         @Override
         public <E extends Enum> ArrayList<E> getEnumArray(String name, Class<E> clazz) {return this.getEnumArray(name, null, true, clazz);}
 
@@ -316,7 +316,7 @@ public class BOPConfig
                 JsonArray arr = this.members.get(name).getAsJsonArray();
                 for (int i = 0; i < arr.size(); i++)
                 {
-                    E ele = this.<E>asEnum(arr.get(i), clazz, name + "." + i);
+                    E ele = this.asEnum(arr.get(i), clazz, name + "." + i);
                     if (ele != null) {list.add(ele);}
                 }
             } catch (Exception e) {
@@ -335,7 +335,7 @@ public class BOPConfig
                 }
                 return defaultVal;
             }
-            E out = this.<E>asEnum(this.members.get(name), clazz, name);
+            E out = this.asEnum(this.members.get(name), clazz, name);
             return out == null ? defaultVal : out;
         }
         
@@ -357,7 +357,7 @@ public class BOPConfig
                 }
                 return defaultVal;
             }
-            T out = this.<T>as(this.members.get(name), type, name);
+            T out = this.as(this.members.get(name), type, name);
             // warn people who try to copy-paste default configs
             if (this.warnIfDefault && out != null && out.equals(defaultVal))
             {
@@ -382,7 +382,7 @@ public class BOPConfig
                 JsonArray arr = this.members.get(name).getAsJsonArray();
                 for (int i = 0; i < arr.size(); i++)
                 {
-                    T ele = this.<T>as(arr.get(i), type, name + "." + i);
+                    T ele = this.as(arr.get(i), type, name + "." + i);
                     if (ele != null) {list.add(ele);}
                 }
             } catch (Exception e) {

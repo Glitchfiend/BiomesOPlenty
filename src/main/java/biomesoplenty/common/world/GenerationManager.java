@@ -46,7 +46,7 @@ public class GenerationManager implements IGenerationManager
                 out.add(generator);
             }
         }        
-        return ImmutableList.<IGenerator>copyOf(out);
+        return ImmutableList.copyOf(out);
     }
     
     public void removeGenerator(String name)

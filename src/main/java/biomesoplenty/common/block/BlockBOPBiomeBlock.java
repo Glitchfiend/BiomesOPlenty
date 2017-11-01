@@ -48,7 +48,6 @@ public class BlockBOPBiomeBlock extends BlockBOPGeneric
         biomesWithEssence = new ArrayList<Biome>();
         
         List<Biome> vanillaBiomesToExclude = Arrays.asList(
-            new Biome[] {
                 Biomes.DEFAULT,
                 Biomes.SKY,
                 Biomes.HELL,
@@ -96,9 +95,7 @@ public class BlockBOPBiomeBlock extends BlockBOPGeneric
                 Biomes.MUTATED_TAIGA_COLD,
                 Biomes.REDWOOD_TAIGA_HILLS,
                 Biomes.SAVANNA_PLATEAU,
-                Biomes.TAIGA_HILLS
-            }
-        );
+                Biomes.TAIGA_HILLS);
         
         for (Biome biome : BiomeUtils.getRegisteredBiomes())
         {

@@ -23,4 +23,4 @@ public enum BOPGems implements IStringSerializable
     {
         return this.getName();
     }
-};
+}

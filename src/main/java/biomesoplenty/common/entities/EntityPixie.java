@@ -186,11 +186,7 @@ public class EntityPixie extends EntityFlying implements IMob {
                     return false;
                 }
             }
-            if (this.isBoxBlocked(box.offset(this.aimX * howFar, this.aimY * howFar, this.aimZ * howFar)))
-            {
-                return false;
-            }
-            return true;
+            return !this.isBoxBlocked(box.offset(this.aimX * howFar, this.aimY * howFar, this.aimZ * howFar));
         }
         
     }
