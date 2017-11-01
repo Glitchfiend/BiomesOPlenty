@@ -24,7 +24,7 @@ public class GuiEnumButton<T extends Enum> extends GuiButton
 
     private String buildDisplayString()
     {
-        return I18n.format(this.localizationStr, this.value.toString());
+        return I18n.format(this.localizationStr, new Object[] {this.value.toString()});
     }
 
     public void setValue(T value)

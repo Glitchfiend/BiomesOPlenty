@@ -491,6 +491,7 @@ public class GeneratorBigTree extends GeneratorTreeBase
             makeBranches();
         } catch (RuntimeException e) {
             // TODO: deal with this.
+            ;
         }
         
         this.world = null; //Fix vanilla Mem leak, holds latest world

@@ -82,7 +82,7 @@ public class BlockStateUtils
     // only works on blocks supporting IBOPBlock - returns an empty set for vanilla blocks
     public static ImmutableSet<IBlockState> getBlockPresets(Block block)
     {
-        if (!(block instanceof IBOPBlock)) {return ImmutableSet.of();}
+        if (!(block instanceof IBOPBlock)) {return ImmutableSet.<IBlockState>of();}
         IBlockState defaultState = block.getDefaultState();
         if (defaultState == null) {defaultState = block.getBlockState().getBaseState();}
         return getStatesSet(defaultState, ((IBOPBlock)block).getPresetProperties());        
@@ -141,7 +141,7 @@ public class BlockStateUtils
     
     public static IProperty getPropertyByName(IBlockState blockState, String propertyName)
     {
-        for (IProperty property : blockState.getProperties().keySet())
+        for (IProperty property : (ImmutableSet<IProperty<?>>) blockState.getProperties().keySet())
         {
             if (property.getName().equals(propertyName))
                 return property;

@@ -142,7 +142,8 @@ public class BOPCommand extends CommandBase
         }
     }
     
-    private void printStats(ICommandSender sender, String[] args) {
+    private void printStats(ICommandSender sender, String[] args) throws CommandException
+    {
         TextComponentTranslation text = new TextComponentTranslation("commands.biomesoplenty.stats.blocks", blockCount);
         
         text.getStyle().setColor(TextFormatting.GREEN);

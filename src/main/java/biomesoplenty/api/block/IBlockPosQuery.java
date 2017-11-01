@@ -13,5 +13,5 @@ import net.minecraft.world.World;
 // for queries on a particular block position in the world
 public interface IBlockPosQuery
 {
-    boolean matches(World world, BlockPos pos);
+    public boolean matches(World world, BlockPos pos);
 }

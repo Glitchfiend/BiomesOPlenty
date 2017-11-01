@@ -60,7 +60,7 @@ public class BlockBOPPlanks extends Block implements IBOPBlock
     protected BlockStateContainer createBlockState()
     {
         this.variantProperty = currentVariantProperty; // get from static variable
-        return new BlockStateContainer(this, this.variantProperty);
+        return new BlockStateContainer(this, new IProperty[] { this.variantProperty });
     }
     
     

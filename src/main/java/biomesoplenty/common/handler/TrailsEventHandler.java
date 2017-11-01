@@ -34,7 +34,7 @@ public class TrailsEventHandler
 		if (event.phase == TickEvent.Phase.START)
 		{
 		    Minecraft minecraft = Minecraft.getMinecraft();
-			EntityPlayer player = event.player;
+			EntityPlayer player = (EntityPlayer)event.player;
 			
 			//Check if the player has a trail
 			if (minecraft.player != null && TrailManager.trailsMap.containsKey(player.getUniqueID()))

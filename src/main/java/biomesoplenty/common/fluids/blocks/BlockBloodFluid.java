@@ -73,7 +73,7 @@ public class BlockBloodFluid extends BlockFluidClassic
 
         if (flag)
         {
-            Integer integer = state.getValue(LEVEL);
+            Integer integer = (Integer)state.getValue(LEVEL);
 
             if (integer.intValue() == 0)
             {

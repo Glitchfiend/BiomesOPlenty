@@ -14,5 +14,5 @@ import net.minecraftforge.common.EnumPlantType;
 
 public interface ISustainsPlantType
 {
-    boolean canSustainPlantType(IBlockAccess world, BlockPos pos, EnumPlantType plantType);
+    public boolean canSustainPlantType(IBlockAccess world, BlockPos pos, EnumPlantType plantType);
 }

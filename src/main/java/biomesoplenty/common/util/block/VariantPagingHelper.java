@@ -60,7 +60,7 @@ public class VariantPagingHelper<B extends Block, V extends Enum<V> & IStringSer
     
     public VariantPagingHelper(int variantsPerPage, Class<V> variantsEnumClass)
     {
-        this(variantsPerPage, variantsEnumClass, Predicates.alwaysTrue());
+        this(variantsPerPage, variantsEnumClass, Predicates.<V>alwaysTrue());
     }
     
     public VariantPagingHelper(int variantsPerPage, Class<V> variantsEnumClass, Predicate<V> filter)

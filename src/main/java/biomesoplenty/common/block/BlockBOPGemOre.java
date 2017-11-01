@@ -38,7 +38,7 @@ public class BlockBOPGemOre extends Block implements IBOPBlock
     
     // add properties (note VARIANT is imported statically from the BlockGem class)
     @Override
-    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, VARIANT);}
+    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, new IProperty[] { VARIANT });}
 
     
     // implement IBOPBlock

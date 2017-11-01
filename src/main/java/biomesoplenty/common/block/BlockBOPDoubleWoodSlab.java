@@ -72,7 +72,7 @@ public class BlockBOPDoubleWoodSlab extends BlockSlab implements IBOPBlock
     protected BlockStateContainer createBlockState()
     {
         this.variantProperty = currentVariantProperty; // get from static variable
-        return new BlockStateContainer(this, HALF, this.variantProperty);
+        return new BlockStateContainer(this, new IProperty[] { HALF, this.variantProperty });
     }
 
     // implement IBOPBlock

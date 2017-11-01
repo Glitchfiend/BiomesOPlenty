@@ -30,7 +30,7 @@ public class BlockBOPSeaweed extends BlockBOPDecoration implements IBOPBlock
     
     // TODO: is it supposed to grow?
     
-    public enum SeaweedType implements IStringSerializable
+    public static enum SeaweedType implements IStringSerializable
     {
         KELP;
         @Override
@@ -43,9 +43,9 @@ public class BlockBOPSeaweed extends BlockBOPDecoration implements IBOPBlock
         {
             return this.getName();
         }
-    }
-
-    public enum SeaweedPosition implements IStringSerializable
+    };
+    
+    public static enum SeaweedPosition implements IStringSerializable
     {
         SINGLE, BOTTOM, MIDDLE, TOP;
         @Override
@@ -64,7 +64,7 @@ public class BlockBOPSeaweed extends BlockBOPDecoration implements IBOPBlock
     public static final PropertyEnum POSITION = PropertyEnum.create("position", SeaweedPosition.class);
 
     @Override
-    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, LEVEL, POSITION, VARIANT);}
+    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, new IProperty[] { LEVEL, POSITION, VARIANT });}
     
     
     // implement IBOPBlock

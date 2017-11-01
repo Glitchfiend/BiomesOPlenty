@@ -37,7 +37,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BlockBOPDirt extends Block implements IBOPBlock, ISustainsPlantType
 {
     // add properties
-    public enum BOPDirtType implements IStringSerializable, IPagedVariants
+    public static enum BOPDirtType implements IStringSerializable, IPagedVariants
     {
         LOAMY, SANDY, SILTY;
         @Override
@@ -50,12 +50,11 @@ public class BlockBOPDirt extends Block implements IBOPBlock, ISustainsPlantType
         {
             return this.getName();
         }
-    }
-
+    };
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", BOPDirtType.class);
     public static final PropertyBool COARSE = PropertyBool.create("coarse");
     @Override
-    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, COARSE, VARIANT);}
+    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, new IProperty[] { COARSE, VARIANT });}
 
     // implement IBOPBlock
     @Override

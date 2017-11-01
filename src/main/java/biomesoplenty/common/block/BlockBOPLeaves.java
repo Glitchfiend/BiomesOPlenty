@@ -82,7 +82,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     protected BlockStateContainer createBlockState()
     {
         this.variantProperty = currentVariantProperty; // get from static variable
-        return new BlockStateContainer(this, CHECK_DECAY, DECAYABLE, this.variantProperty);
+        return new BlockStateContainer(this, new IProperty[] { CHECK_DECAY, DECAYABLE, this.variantProperty });
     }
     
     
@@ -106,7 +106,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
         }
     }
 
-    public enum ColoringType {PLAIN, TINTED, OVERLAY}
+    public enum ColoringType {PLAIN, TINTED, OVERLAY};
 
     public static ColoringType getColoringType(BOPTrees tree)
     {
@@ -174,11 +174,11 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     {
         BOPTrees tree = (BOPTrees) state.getValue(this.variantProperty);
         int meta = paging.getIndex(tree);
-        if (!state.getValue(DECAYABLE).booleanValue())
+        if (!((Boolean)state.getValue(DECAYABLE)).booleanValue())
         {
             meta |= 4;
         }
-        if (state.getValue(CHECK_DECAY).booleanValue())
+        if (((Boolean)state.getValue(CHECK_DECAY)).booleanValue())
         {
             meta |= 8;
         }

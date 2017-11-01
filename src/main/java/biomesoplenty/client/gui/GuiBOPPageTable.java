@@ -131,8 +131,8 @@ public class GuiBOPPageTable extends GuiBOPPageList
         {
             GuiBOPPageList.GuiFieldEntry guilistentryLeft = this.fields[i];
             GuiBOPPageList.GuiFieldEntry guilistentryRight = i < this.fields.length - 1 ? this.fields[i + 1] : null;
-            Gui guiLeft = this.fieldIdToGuiMap.get(guilistentryLeft.getFieldId());
-            Gui guiRight = guilistentryRight != null ? this.fieldIdToGuiMap.get(guilistentryRight.getFieldId()) : null;
+            Gui guiLeft = (Gui)this.fieldIdToGuiMap.get(guilistentryLeft.getFieldId());
+            Gui guiRight = guilistentryRight != null ? (Gui)this.fieldIdToGuiMap.get(guilistentryRight.getFieldId()) : null;
             GuiBOPPageList.GuiRowEntry guientry = new GuiBOPPageList.GuiRowEntry(guiLeft, guiRight);
             this.allRows.add(guientry);
         }
@@ -147,7 +147,7 @@ public class GuiBOPPageTable extends GuiBOPPageList
     @Override
     public Gui getGui(int fieldId)
     {
-        return this.fieldIdToGuiMap.get(fieldId);
+        return (Gui)this.fieldIdToGuiMap.get(fieldId);
     }
     
 
@@ -156,23 +156,23 @@ public class GuiBOPPageTable extends GuiBOPPageList
     {
         if (field instanceof GuiBOPPageList.GuiSlideEntry)
         {
-            return this.createSlider(this.width / 2 - 155 + xOffset, 0, (GuiSlideEntry)field);
+            return (Gui)this.createSlider(this.width / 2 - 155 + xOffset, 0, (GuiBOPPageList.GuiSlideEntry)field);
         }
         else if (field instanceof GuiBOPPageList.GuiButtonEntry)
         {
-            return this.createListButton(this.width / 2 - 155 + xOffset, 0, (GuiButtonEntry)field);
+            return (Gui)this.createListButton(this.width / 2 - 155 + xOffset, 0, (GuiBOPPageList.GuiButtonEntry)field);
         }
         else if (field instanceof GuiBOPPageList.EditBoxEntry)
         {
-            return this.createTextField(this.width / 2 - 155 + xOffset, 0, (EditBoxEntry)field);
+            return (Gui)this.createTextField(this.width / 2 - 155 + xOffset, 0, (GuiBOPPageList.EditBoxEntry)field);
         }
         else if (field instanceof GuiBOPPageList.GuiLabelEntry)
         {
-            return this.createLabel(this.width / 2 - 155 + xOffset, 0, (GuiLabelEntry)field, hasNoNeighbor);
+            return (Gui)this.createLabel(this.width / 2 - 155 + xOffset, 0, (GuiBOPPageList.GuiLabelEntry)field, hasNoNeighbor);
         }
         else if (field instanceof GuiBOPPageList.GuiEnumButtonEntry)
         {
-            return this.createEnumButton(this.width / 2 - 155 + xOffset, 0, (GuiEnumButtonEntry)field);
+            return (Gui)this.createEnumButton(this.width / 2 - 155 + xOffset, 0, (GuiBOPPageList.GuiEnumButtonEntry)field);
         }
         else
         {
@@ -268,7 +268,7 @@ public class GuiBOPPageTable extends GuiBOPPageList
                         ++focusedGuiIndex; //Cycle forwards through the text fields
                     }
 
-                    this.focusedGui = this.allTextFieldGuis.get(focusedGuiIndex);
+                    this.focusedGui = (Gui)this.allTextFieldGuis.get(focusedGuiIndex);
                     guitextfield = (GuiTextField)this.focusedGui;
                     guitextfield.setFocused(true);
                     int k1 = guitextfield.y + this.slotHeight;
@@ -300,7 +300,7 @@ public class GuiBOPPageTable extends GuiBOPPageList
                 for (int i1 = 0; i1 < l; ++i1)
                 {
                     String s1 = astring1[i1];
-                    this.allTextFieldGuis.get(k).setText(s1);
+                    ((GuiTextField)this.allTextFieldGuis.get(k)).setText(s1);
 
                     if (k == this.allTextFieldGuis.size() - 1)
                     {
@@ -322,7 +322,7 @@ public class GuiBOPPageTable extends GuiBOPPageList
     
     public GuiBOPPageList.GuiRowEntry getRow(int rowNum)
     {
-        return this.allRows.get(rowNum);
+        return (GuiBOPPageList.GuiRowEntry)this.allRows.get(rowNum);
     }
 
     @Override

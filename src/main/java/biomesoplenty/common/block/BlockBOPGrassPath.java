@@ -47,7 +47,7 @@ public class BlockBOPGrassPath extends BlockGrassPath implements IBOPBlock
     protected BlockStateContainer createBlockState()
     {
         this.variantProperty = currentVariantProperty;
-        return new BlockStateContainer(this, this.variantProperty);
+        return new BlockStateContainer(this, new IProperty[] { this.variantProperty });
     }
 
     @Override

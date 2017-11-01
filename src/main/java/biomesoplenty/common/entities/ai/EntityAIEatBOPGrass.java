@@ -105,14 +105,14 @@ public class EntityAIEatBOPGrass extends EntityAIEatGrass
                 if (stateDown.getBlock() instanceof BlockBOPGrass)
                 {
                     BlockBOPGrass grass = (BlockBOPGrass) stateDown.getBlock();
-                    Block dirtBlock = BlockBOPGrass.getDirtBlockState(stateDown).getBlock();
+                    Block dirtBlock = grass.getDirtBlockState(stateDown).getBlock();
 
                     if (dirtBlock instanceof BlockBOPDirt)
                     {
                         if (this.world.getGameRules().getBoolean("mobGriefing"))
                         {
                             this.world.playEvent(2001, posDown, Block.getIdFromBlock(BOPBlocks.grass));
-                            this.world.setBlockState(posDown, BlockBOPGrass.getDirtBlockState(stateDown), 2);
+                            this.world.setBlockState(posDown, grass.getDirtBlockState(stateDown), 2);
                         }
 
                     } else if (stateDown.getValue(BlockBOPGrass.VARIANT) == BlockBOPGrass.BOPGrassType.DAISY)

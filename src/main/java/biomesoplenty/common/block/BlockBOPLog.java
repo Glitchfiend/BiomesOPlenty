@@ -63,7 +63,7 @@ public class BlockBOPLog extends BlockLog implements IBOPBlock
     protected BlockStateContainer createBlockState()
     {
         this.variantProperty = currentVariantProperty; // get from static variable
-        return new BlockStateContainer(this, LOG_AXIS, this.variantProperty);
+        return new BlockStateContainer(this, new IProperty[] { LOG_AXIS, this.variantProperty });
     }
     
     
@@ -114,7 +114,7 @@ public class BlockBOPLog extends BlockLog implements IBOPBlock
     public int getMetaFromState(IBlockState state)
     {
         BOPWoods wood = (BOPWoods) state.getValue(this.variantProperty);
-        return state.getValue(LOG_AXIS).ordinal() * 4 + paging.getIndex(wood);
+        return ((BlockLog.EnumAxis) state.getValue(LOG_AXIS)).ordinal() * 4 + paging.getIndex(wood);
     }
 
     // discard the axis information - otherwise logs facing different directions would not stack together

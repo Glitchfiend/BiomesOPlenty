@@ -44,7 +44,7 @@ public class BOPMapGenScatteredFeature extends MapGenScatteredFeature
 
     public BOPMapGenScatteredFeature()
     {
-        this.scatteredFeatureSpawnList = Lists.newArrayList();
+        this.scatteredFeatureSpawnList = Lists.<Biome.SpawnListEntry>newArrayList();
         this.maxDistanceBetweenScatteredFeatures = 32;
         this.minDistanceBetweenScatteredFeatures = 8;
         this.scatteredFeatureSpawnList.add(new Biome.SpawnListEntry(EntityWitch.class, 1, 1, 1));
@@ -58,7 +58,7 @@ public class BOPMapGenScatteredFeature extends MapGenScatteredFeature
         {
             if (entry.getKey().equals("distance"))
             {
-                this.maxDistanceBetweenScatteredFeatures = MathHelper.getInt(entry.getValue(), this.maxDistanceBetweenScatteredFeatures, 9);
+                this.maxDistanceBetweenScatteredFeatures = MathHelper.getInt((String)entry.getValue(), this.maxDistanceBetweenScatteredFeatures, 9);
             }
         }
     }
@@ -97,7 +97,10 @@ public class BOPMapGenScatteredFeature extends MapGenScatteredFeature
         {
             Biome biome = this.world.getBiomeProvider().getBiome(new BlockPos(i * 16 + 8, 0, j * 16 + 8));
 
-            return biome != null && (JUNGLE_BIOMES.contains(biome) || SWAMP_BIOMES.contains(biome) || DESERT_BIOMES.contains(biome) || ICE_BIOMES.contains(biome));
+            if (biome != null && (JUNGLE_BIOMES.contains(biome) || SWAMP_BIOMES.contains(biome) || DESERT_BIOMES.contains(biome) || ICE_BIOMES.contains(biome)))
+            {
+                return true;
+            }
         }
 
         return false;

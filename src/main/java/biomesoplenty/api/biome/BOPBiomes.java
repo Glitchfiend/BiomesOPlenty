@@ -147,10 +147,10 @@ public class BOPBiomes
         return instance;
     }
     
-    public interface IBiomeRegistry
+    public static interface IBiomeRegistry
     {
-        IExtendedBiome registerBiome(IExtendedBiome biome, String idName);
-        IExtendedBiome getExtendedBiome(Biome biome);
-        ImmutableSet<Biome> getPresentBiomes();
+        public IExtendedBiome registerBiome(IExtendedBiome biome, String idName);
+        public IExtendedBiome getExtendedBiome(Biome biome);
+        public ImmutableSet<Biome> getPresentBiomes();
     }
 }

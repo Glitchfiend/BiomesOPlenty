@@ -24,7 +24,7 @@ public abstract class BOPGeneratorBase extends WorldGenerator implements IGenera
     
     protected BOPGeneratorBase(float amountPerChunk)
     {
-        this.identifier = Generators.registry.getIdentifier(this.getClass());
+        this.identifier = Generators.registry.getIdentifier((Class<? extends IGenerator>)this.getClass());
         
         if (this.identifier == null)
         {

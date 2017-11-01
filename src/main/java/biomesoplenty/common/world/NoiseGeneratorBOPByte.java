@@ -16,10 +16,10 @@ public class NoiseGeneratorBOPByte
     // TODO: get rid of the interpolater classes - there's only one sensible interpolater
     /*** Interpolation ***/
     
-    public interface IIntInterpolater
+    public static interface IIntInterpolater
     {
         // interpolation between a and b, where t is the fraction (between 0 and 255)
-        int interpolate(int t, int a, int b);
+        public int interpolate(int t, int a, int b);
     }
     
     public static class IntInterpolateLinear implements IIntInterpolater

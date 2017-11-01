@@ -23,22 +23,22 @@ public interface IHornHarvestable {
 	 * Returns true if this block can be uprooted.
 	 * Note that the stack param can be null if it's a drum breaking it.
 	 */
-    boolean canHornHarvest(World world, BlockPos pos, ItemStack stack, EnumHornType hornType);
+	public boolean canHornHarvest(World world, BlockPos pos, ItemStack stack, EnumHornType hornType);
 
 	/**
 	 * Returns true if harvestByHorn() should be called. If false it just uses the normal
 	 * block breaking method.
 	 * Note that the stack param can be null if it's a drum breaking it.
 	 */
-    boolean hasSpecialHornHarvest(World world, BlockPos pos, ItemStack stack, EnumHornType hornType);
+	public boolean hasSpecialHornHarvest(World world, BlockPos pos, ItemStack stack, EnumHornType hornType);
 
 	/**
 	 * Called to harvest by a horn.
 	 * Note that the stack param can be null if it's a drum breaking it.
 	 */
-    void harvestByHorn(World world, BlockPos pos, ItemStack stack, EnumHornType hornType);
+	public void harvestByHorn(World world, BlockPos pos, ItemStack stack, EnumHornType hornType);
 
-	enum EnumHornType {
+	public static enum EnumHornType {
 
 		/**
 		 * Horn of the Wild, for grass and crops
@@ -60,6 +60,6 @@ public interface IHornHarvestable {
 			return values[Math.min(values.length - 1, meta)];
 		}
 
-	}
+	};
 
 }

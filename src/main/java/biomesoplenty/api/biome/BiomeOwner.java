@@ -10,5 +10,5 @@ package biomesoplenty.api.biome;
 
 public enum BiomeOwner
 {
-    BIOMESOPLENTY, OTHER
+    BIOMESOPLENTY, OTHER;
 }

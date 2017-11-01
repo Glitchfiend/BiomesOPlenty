@@ -31,7 +31,7 @@ public enum BOPClimates {
 
     private ArrayList<WeightedBiomeEntry> landBiomes = new ArrayList<WeightedBiomeEntry>();
     
-    BOPClimates(BiomeType biomeType)
+    private BOPClimates(BiomeType biomeType)
     {
         this.biomeType = biomeType;
     }

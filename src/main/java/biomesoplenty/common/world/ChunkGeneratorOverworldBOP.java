@@ -645,32 +645,32 @@ public class ChunkGeneratorOverworldBOP implements IChunkGenerator
         {
             if (this.settings.useMineShafts)
             {
-                this.mineshaftGenerator.generate(this.world, chunkX, chunkZ, null);
+                this.mineshaftGenerator.generate(this.world, chunkX, chunkZ, (ChunkPrimer)null);
             }
 
             if (this.settings.useVillages)
             {
-                this.villageGenerator.generate(this.world, chunkX, chunkZ, null);
+                this.villageGenerator.generate(this.world, chunkX, chunkZ, (ChunkPrimer)null);
             }
 
             if (this.settings.useStrongholds)
             {
-                this.strongholdGenerator.generate(this.world, chunkX, chunkZ, null);
+                this.strongholdGenerator.generate(this.world, chunkX, chunkZ, (ChunkPrimer)null);
             }
 
             if (this.settings.useTemples)
             {
-                this.scatteredFeatureGenerator.generate(this.world, chunkX, chunkZ, null);
+                this.scatteredFeatureGenerator.generate(this.world, chunkX, chunkZ, (ChunkPrimer)null);
             }
 
             if (this.settings.useMonuments)
             {
-                this.oceanMonumentGenerator.generate(this.world, chunkX, chunkZ, null);
+                this.oceanMonumentGenerator.generate(this.world, chunkX, chunkZ, (ChunkPrimer)null);
             }
 
             if (this.settings.useMansions)
             {
-                this.woodlandMansionGenerator.generate(this.world, chunkX, chunkZ, null);
+                this.woodlandMansionGenerator.generate(this.world, chunkX, chunkZ, (ChunkPrimer)null);
             }
         }
     }
@@ -704,7 +704,7 @@ public class ChunkGeneratorOverworldBOP implements IChunkGenerator
         }
         else
         {
-            return ("Temple".equals(structureName) && this.scatteredFeatureGenerator != null) && this.scatteredFeatureGenerator.isInsideStructure(pos);
+            return "Temple".equals(structureName) && this.scatteredFeatureGenerator != null ? this.scatteredFeatureGenerator.isInsideStructure(pos) : false;
         }
     }
 

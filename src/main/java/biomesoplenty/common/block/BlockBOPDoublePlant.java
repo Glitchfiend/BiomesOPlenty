@@ -42,7 +42,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements IShearable
 {
 	// add properties (note we inherit HALF from BlockDoubleDecoration)
-    public enum DoublePlantType implements IStringSerializable
+    public static enum DoublePlantType implements IStringSerializable
     {
         FLAX, TALL_CATTAIL, EYEBULB;
         @Override
@@ -55,11 +55,10 @@ public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements ISh
         {
             return this.getName();
         }
-    }
-
+    };
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", DoublePlantType.class);
     @Override
-    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, HALF, VARIANT);}
+    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, new IProperty[] { HALF, VARIANT });}
     
     
     // implement IBOPBlock
@@ -73,7 +72,7 @@ public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements ISh
         return ((DoublePlantType) state.getValue(VARIANT)).getName();
     }
 
-    public enum ColoringType {PLAIN, LIKE_LEAVES, LIKE_GRASS}
+    public enum ColoringType {PLAIN, LIKE_LEAVES, LIKE_GRASS};
 
     public static ColoringType getColoringType(DoublePlantType plant)
     {

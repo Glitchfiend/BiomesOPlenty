@@ -39,7 +39,7 @@ public class BlockBOPWhiteSandstone extends Block implements IBOPBlock
 {
     
     // add properties
-    public enum StoneType implements IStringSerializable
+    public static enum StoneType implements IStringSerializable
     {
         DEFAULT, CHISELED, SMOOTH;
         @Override
@@ -52,11 +52,10 @@ public class BlockBOPWhiteSandstone extends Block implements IBOPBlock
         {
             return this.getName();
         }
-    }
-
+    };
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", StoneType.class);
     @Override
-    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, VARIANT);}
+    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, new IProperty[] { VARIANT });}
     
     
     // implement IBOPBlock

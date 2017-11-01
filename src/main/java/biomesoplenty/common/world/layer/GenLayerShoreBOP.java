@@ -174,7 +174,7 @@ public class GenLayerShoreBOP extends BOPGenLayer
         @Override
         public boolean apply(Integer input) 
         {
-            return Biome.getBiome(input) != null && Biome.getBiome(input).getBiomeClass() == BiomeJungle.class || (input == Biome.getIdForBiome(Biomes.JUNGLE_EDGE) || input == Biome.getIdForBiome(Biomes.JUNGLE) || input == Biome.getIdForBiome(Biomes.JUNGLE_HILLS) || input == Biome.getIdForBiome(Biomes.FOREST) || input == Biome.getIdForBiome(Biomes.TAIGA) || isBiomeOceanic(input));
+            return Biome.getBiome(input) != null && Biome.getBiome(input).getBiomeClass() == BiomeJungle.class ? true : input == Biome.getIdForBiome(Biomes.JUNGLE_EDGE) || input == Biome.getIdForBiome(Biomes.JUNGLE) || input == Biome.getIdForBiome(Biomes.JUNGLE_HILLS) || input == Biome.getIdForBiome(Biomes.FOREST) || input == Biome.getIdForBiome(Biomes.TAIGA) || isBiomeOceanic(input);
         }
     };
     

@@ -372,7 +372,7 @@ public abstract class GuiBOPPageList extends GuiBOPPageDelegate
         public EditBoxEntry(int fieldId, String labelText, boolean isVisible, Predicate validator)
         {
             super(fieldId, labelText, isVisible);
-            this.validator = MoreObjects.firstNonNull(validator, Predicates.alwaysTrue());
+            this.validator = (Predicate) MoreObjects.firstNonNull(validator, Predicates.alwaysTrue());
         }
     
         public Predicate getValidator()

@@ -16,25 +16,25 @@ import net.minecraft.world.World;
 
 public interface IGenerator
 {
-    void scatter(World world, Random random, BlockPos pos);
-    boolean generate(World world, Random random, BlockPos pos);
+    public void scatter(World world, Random random, BlockPos pos);
+    public boolean generate(World world, Random random, BlockPos pos);
     
-    void setStage(GeneratorStage stage);
-    void setName(String name);
+    public void setStage(GeneratorStage stage);
+    public void setName(String name);
     
     /**
      * A unique name used to classify the purpose of a generator. For example, emeralds and ruby use the
      * same generator (and thus, have the same identifier) but have differing names.
      */
-    String getName();
+    public String getName();
     /**The identifier for this generator should be consistent across all instances of the same type*/
-    String getIdentifier();
-    GeneratorStage getStage();
+    public String getIdentifier();
+    public GeneratorStage getStage();
     
-    interface IGeneratorBuilder<T extends IGenerator>
+    public static interface IGeneratorBuilder<T extends IGenerator>
     {
-        T create();
+        public T create();
     }
     
-    void configure(IConfigObj conf);
+    public void configure(IConfigObj conf);
 }

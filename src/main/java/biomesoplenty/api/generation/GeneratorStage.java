@@ -68,7 +68,7 @@ public enum GeneratorStage
     
     private Decorate.EventType decorateType;
     
-    GeneratorStage(Decorate.EventType decorateType)
+    private GeneratorStage(Decorate.EventType decorateType)
     {
         this.decorateType = decorateType;
     }

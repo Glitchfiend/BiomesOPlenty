@@ -34,9 +34,9 @@ import net.minecraft.world.World;
 public class GeneratorBigFlower extends BOPGeneratorBase
 {
     
-    public enum BigFlowerType
+    public static enum BigFlowerType
     {
-        RED, YELLOW
+        RED, YELLOW;  
     }
     
     protected static IBlockState stem = BlockBOPLog.paging.getVariantState(BOPWoods.GIANT_FLOWER);

@@ -18,13 +18,13 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public interface IBOPBlock {
     
-    Class<? extends ItemBlock> getItemClass();
-    IProperty[] getPresetProperties();
-    IProperty[] getNonRenderingProperties();
-    String getStateName(IBlockState state);
+    public Class<? extends ItemBlock> getItemClass();
+    public IProperty[] getPresetProperties();
+    public IProperty[] getNonRenderingProperties();
+    public String getStateName(IBlockState state);
 
 	@SideOnly(Side.CLIENT)
-    IBlockColor getBlockColor();
+    public IBlockColor getBlockColor();
 	@SideOnly(Side.CLIENT)
-    IItemColor getItemColor();
+    public IItemColor getItemColor();
 }

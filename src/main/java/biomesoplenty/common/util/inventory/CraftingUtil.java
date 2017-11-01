@@ -29,7 +29,7 @@ import java.util.*;
 public class CraftingUtil
 {
     private static final Gson SERIALIZER = new GsonBuilder().setPrettyPrinting().create();
-    public static final File RECIPES_DIR = new File(BiomesOPlenty.configDirectory, "recipes");
+    public static final File RECIPES_DIR = new File(BiomesOPlenty.configDirectory, "recipes");;
 
     // We should no longer need this now we've switched over to JSON, however
     // it might be handy to keep around for future reference

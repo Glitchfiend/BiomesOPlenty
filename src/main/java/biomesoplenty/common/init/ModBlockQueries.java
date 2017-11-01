@@ -164,7 +164,7 @@ public class ModBlockQueries
             // reed needs the ground block to be water, but the block below that to NOT be water
             @Override public boolean matches(World world, BlockPos pos) {
                 BlockPos groundPos = pos.down();
-                return (world.getBlockState(pos).getMaterial() == Material.WATER && world.getBlockState(pos).getValue(BlockLiquid.LEVEL).intValue() == 0 || world.getBlockState(pos).getMaterial() == Material.ICE) &&
+                return (world.getBlockState(pos).getMaterial() == Material.WATER && ((Integer)world.getBlockState(pos).getValue(BlockLiquid.LEVEL)).intValue() == 0 || world.getBlockState(pos).getMaterial() == Material.ICE) &&
                         (world.getBlockState(groundPos).getBlock() != Blocks.WATER && world.getBlockState(groundPos).isSideSolid(world, groundPos, EnumFacing.UP));
             }
         }).withLightAboveAtLeast(8).create();

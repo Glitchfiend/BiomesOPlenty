@@ -31,7 +31,7 @@ import net.minecraft.world.World;
 public class GeneratorBigMushroom extends BOPGeneratorBase
 {       
     
-    public enum BigMushroomType
+    public static enum BigMushroomType
     {
         BROWN, RED;
         public IBlockState getDefaultState()

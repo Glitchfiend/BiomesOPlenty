@@ -62,7 +62,7 @@ public class BlockBOPFarmland extends BlockFarmland implements IBOPBlock
     protected BlockStateContainer createBlockState()
     {
         this.variantProperty = currentVariantProperty;
-        return new BlockStateContainer(this, MOISTURE, this.variantProperty);
+        return new BlockStateContainer(this, new IProperty[] { MOISTURE, this.variantProperty });
     }
 
     @Override

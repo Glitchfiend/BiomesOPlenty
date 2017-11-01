@@ -55,7 +55,7 @@ public class BlockHotSpringWaterFluid extends BlockFluidClassic
         super.randomDisplayTick(state, world, pos, rand);
         if (rand.nextInt(25)==0)
         {           
-        	world.spawnParticle(EnumParticleTypes.CLOUD, pos.getX() + rand.nextFloat(), pos.getY() + 1.0F, pos.getZ() + rand.nextFloat(), 0.0D, 0.0D, 0.0D);
+        	world.spawnParticle(EnumParticleTypes.CLOUD, pos.getX() + rand.nextFloat(), pos.getY() + 1.0F, pos.getZ() + rand.nextFloat(), 0.0D, 0.0D, 0.0D, new int[0]);
         }
     }
 
@@ -103,7 +103,7 @@ public class BlockHotSpringWaterFluid extends BlockFluidClassic
 
         if (flag)
         {
-            Integer integer = state.getValue(LEVEL);
+            Integer integer = (Integer)state.getValue(LEVEL);
 
             if (integer.intValue() == 0)
             {

@@ -45,7 +45,7 @@ public class BlockBOPMud extends Block implements IBOPBlock, ISustainsPlantType
 	protected static final AxisAlignedBB MUD_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.875D, 1.0D);
 
     // add properties
-    public enum MudType implements IStringSerializable
+    public static enum MudType implements IStringSerializable
     {
         MUD;
         @Override
@@ -58,11 +58,10 @@ public class BlockBOPMud extends Block implements IBOPBlock, ISustainsPlantType
         {
             return this.getName();
         }
-    }
-
+    };
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", MudType.class);
     @Override
-    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, VARIANT);}
+    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, new IProperty[] { VARIANT });}
     
     
     // implement IBOPBlock

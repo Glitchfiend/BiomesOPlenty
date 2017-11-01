@@ -49,7 +49,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPlantType
 {
     // add properties (note we also inherit the SNOWY property from BlockGrass)
-    public enum BOPGrassType implements IStringSerializable
+    public static enum BOPGrassType implements IStringSerializable
     {
         SPECTRAL_MOSS, OVERGROWN_STONE, LOAMY, SANDY, SILTY, ORIGIN, OVERGROWN_NETHERRACK, DAISY, MYCELIAL_NETHERRACK;
         @Override
@@ -62,11 +62,10 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
         {
             return this.getName();
         }
-    }
-
+    };
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", BOPGrassType.class);
     @Override
-    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, SNOWY, VARIANT);}
+    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, new IProperty[] { SNOWY, VARIANT });}
     
     
     // implement IBOPBlock
@@ -467,7 +466,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
         {
             if (rand.nextInt(10) == 0)
             {
-                world.spawnParticle(EnumParticleTypes.TOWN_AURA, (double)((float)pos.getX() + rand.nextFloat()), (double)((float)pos.getY() + 1.1F), (double)((float)pos.getZ() + rand.nextFloat()), 0.0D, 0.0D, 0.0D);
+                world.spawnParticle(EnumParticleTypes.TOWN_AURA, (double)((float)pos.getX() + rand.nextFloat()), (double)((float)pos.getY() + 1.1F), (double)((float)pos.getZ() + rand.nextFloat()), 0.0D, 0.0D, 0.0D, new int[0]);
             }
         }
     }

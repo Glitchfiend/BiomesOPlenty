@@ -66,7 +66,7 @@ public class ModEntities
             {
                 if (clazz != null)
                 {
-                    entity = clazz.getConstructor(new Class[] {World.class}).newInstance(new Object[] {worldIn});
+                    entity = (Entity)clazz.getConstructor(new Class[] {World.class}).newInstance(new Object[] {worldIn});
                 }
             }
             catch (Exception exception)

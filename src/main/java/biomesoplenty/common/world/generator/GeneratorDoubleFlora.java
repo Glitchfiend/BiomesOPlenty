@@ -100,7 +100,7 @@ public class GeneratorDoubleFlora extends GeneratorReplacing
                 {
                     canStay = ((BlockBOPDecoration)bottomBlock).canBlockStay(world, genPos, this.with);
                 } else if (bottomBlock instanceof BlockBush) {
-                    canStay = bottomBlock.canPlaceBlockAt(world, genPos);
+                    canStay = ((BlockBush)bottomBlock).canPlaceBlockAt(world, genPos);
                 } else {
                     canStay = bottomBlock.canPlaceBlockAt(world, genPos);
                 }

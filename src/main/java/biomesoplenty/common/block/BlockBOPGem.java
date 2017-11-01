@@ -28,7 +28,7 @@ public class BlockBOPGem extends Block implements IBOPBlock
     // add properties
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", BOPGems.class);
     @Override
-    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, VARIANT);}
+    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, new IProperty[] { VARIANT });}
  
     
     // implement IBOPBlock

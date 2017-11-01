@@ -85,7 +85,7 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable, IP
     protected BlockStateContainer createBlockState()
     {
         this.variantProperty = currentVariantProperty; // get from static variable
-        return new BlockStateContainer(this, STAGE, this.variantProperty);
+        return new BlockStateContainer(this, new IProperty[] { STAGE, this.variantProperty });
     }
        
     
@@ -122,7 +122,7 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable, IP
     public int getMetaFromState(IBlockState state)
     {
         BOPTrees tree = (BOPTrees)state.getValue(this.variantProperty);
-        return state.getValue(STAGE).intValue() * 8 + paging.getIndex(tree);
+        return ((Integer)state.getValue(STAGE)).intValue() * 8 + paging.getIndex(tree);
     }
     
     // which types of mushroom can live on which types of block
@@ -261,7 +261,7 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable, IP
     @Override
     public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state)
     {
-        if (state.getValue(STAGE).intValue() == 0)
+        if (((Integer)state.getValue(STAGE)).intValue() == 0)
         {
             worldIn.setBlockState(pos, state.cycleProperty(STAGE), 4);
         }
@@ -313,7 +313,7 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable, IP
         // otherwise, try to grow a small tree
         if (smallTreeGenerator != null)
         {
-            return this.generateSmallOrBigTree(worldIn, pos, state, rand, smallTreeGenerator);
+            if (this.generateSmallOrBigTree(worldIn, pos, state, rand, smallTreeGenerator)) {return true;}
         }
         return false;
     }

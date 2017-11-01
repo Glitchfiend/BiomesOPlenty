@@ -34,7 +34,7 @@ public class BlockBOPBamboo extends BlockBOPDecoration
     // add properties
     public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 15);
     @Override
-    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, AGE);}
+    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, new IProperty[] { AGE });}
     
     
     public BlockBOPBamboo()
@@ -104,7 +104,7 @@ public class BlockBOPBamboo extends BlockBOPDecoration
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        return state.getValue(AGE).intValue();
+        return ((Integer)state.getValue(AGE)).intValue();
     }
 
     @Override
@@ -128,7 +128,7 @@ public class BlockBOPBamboo extends BlockBOPDecoration
     {
         if (this.checkAndDropBlock(worldIn, pos, state) && worldIn.isAirBlock(pos.up()))
         {
-            int age = state.getValue(AGE).intValue();
+            int age = ((Integer)state.getValue(AGE)).intValue();
             int treeHeight = 1;
             while (worldIn.getBlockState(pos.down(treeHeight)).getBlock() == this) {++treeHeight;}
 

@@ -124,7 +124,7 @@ public class GeneratorFlora extends GeneratorReplacing
                 {
                     canStay = ((BlockBOPDecoration)block).canBlockStay(world, genPos, this.with);
                 } else if (block instanceof BlockBush) {
-                    canStay = block.canPlaceBlockAt(world, genPos);
+                    canStay = ((BlockBush)block).canPlaceBlockAt(world, genPos);
                 } else {
                     canStay = block.canPlaceBlockAt(world, genPos);
                 }

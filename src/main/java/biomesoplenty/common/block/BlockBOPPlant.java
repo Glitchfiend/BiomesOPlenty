@@ -91,7 +91,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
     protected BlockStateContainer createBlockState()
     {
         this.variantProperty = currentVariantProperty; // get from static variable
-        return new BlockStateContainer(this, this.variantProperty);
+        return new BlockStateContainer(this, new IProperty[] { this.variantProperty });
     }
 
     
@@ -114,7 +114,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
         }
     }
 
-    public enum ColoringType {PLAIN, LIKE_LEAVES, LIKE_GRASS}
+    public enum ColoringType {PLAIN, LIKE_LEAVES, LIKE_GRASS};
 
     public static ColoringType getColoringType(BOPPlants plant)
     {

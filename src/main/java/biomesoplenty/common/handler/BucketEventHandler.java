@@ -47,23 +47,23 @@ public class BucketEventHandler
         // determine if the block is one of our BOP fluids
         IBlockState iblockstate = event.getWorld().getBlockState(blockpos);
         Fluid filled_fluid = null;
-        if (iblockstate.getBlock() == BOPBlocks.sand && iblockstate.getValue(BlockQuicksandFluid.LEVEL).intValue() == 0)
+        if (iblockstate.getBlock() == BOPBlocks.sand && ((Integer)iblockstate.getValue(BlockQuicksandFluid.LEVEL)).intValue() == 0)
         {
             filled_fluid = QuicksandFluid.instance;
         }
-        else if (iblockstate.getBlock() == BOPBlocks.honey && iblockstate.getValue(BlockHoneyFluid.LEVEL).intValue() == 0)
+        else if (iblockstate.getBlock() == BOPBlocks.honey && ((Integer)iblockstate.getValue(BlockHoneyFluid.LEVEL)).intValue() == 0)
         {
             filled_fluid = HoneyFluid.instance;
         }
-        else if (iblockstate.getBlock() == BOPBlocks.blood && iblockstate.getValue(BlockBloodFluid.LEVEL).intValue() == 0)
+        else if (iblockstate.getBlock() == BOPBlocks.blood && ((Integer)iblockstate.getValue(BlockBloodFluid.LEVEL)).intValue() == 0)
         {
             filled_fluid = BloodFluid.instance;
         }
-        else if (iblockstate.getBlock() == BOPBlocks.poison && iblockstate.getValue(BlockPoisonFluid.LEVEL).intValue() == 0)
+        else if (iblockstate.getBlock() == BOPBlocks.poison && ((Integer)iblockstate.getValue(BlockPoisonFluid.LEVEL)).intValue() == 0)
         {
             filled_fluid = PoisonFluid.instance;
         }
-        else if (iblockstate.getBlock() == BOPBlocks.hot_spring_water && iblockstate.getValue(BlockHotSpringWaterFluid.LEVEL).intValue() == 0)
+        else if (iblockstate.getBlock() == BOPBlocks.hot_spring_water && ((Integer)iblockstate.getValue(BlockHotSpringWaterFluid.LEVEL)).intValue() == 0)
         {
             filled_fluid = HotSpringWaterFluid.instance;
         }

@@ -76,7 +76,7 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
         }
     }
 
-    private enum Actions
+    private static enum Actions
     {
         PREVIOUS (301),
         NEXT (302),
@@ -87,7 +87,7 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
         
         private int id;
         
-        Actions(int id)
+        private Actions(int id)
         {
             this.id = id;      
         }
@@ -166,7 +166,7 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
     }
 
     
-    private enum GuiEntries
+    private static enum GuiEntries
     {
         TEMP_SCHEME (101),
         GENERATE_BOP_GEMS (102),
@@ -201,7 +201,7 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
 
         private int id;
         
-        GuiEntries(int id)
+        private GuiEntries(int id)
         {
             this.id = id;      
         }
@@ -318,7 +318,7 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
             case HEIGHT_SCALE:
             case UPPER_LIMIT_SCALE:
             case LOWER_LIMIT_SCALE:
-                return String.format("%5.3f", Float.valueOf(value));
+                return String.format("%5.3f", new Object[] {Float.valueOf(value)});
             default:
                 return "";
         }
@@ -474,12 +474,14 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
     @Override
     public void handleStringSelection(int fieldId, String value)
     {
+        ;
     }
     
     
     @Override
     public void handleIntSelection(int fieldId, int value)
     {
+        ;
     }
     
     
@@ -581,7 +583,7 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
     {
         this.prevButton.enabled = this.pageManager.getActivePage().pageNumber != 0;
         this.nextButton.enabled = this.pageManager.getActivePage().pageNumber != this.pageManager.getNumPages() - 1;
-        this.pageInfo = I18n.format("book.pageIndicator", Integer.valueOf(this.pageManager.getActivePage().pageNumber + 1), Integer.valueOf(this.pageManager.getNumPages()));
+        this.pageInfo = I18n.format("book.pageIndicator", new Object[] {Integer.valueOf(this.pageManager.getActivePage().pageNumber + 1), Integer.valueOf(this.pageManager.getNumPages())});
         this.page0Title = this.pageNames[this.pageManager.getActivePage().pageNumber];
     }
 
@@ -676,9 +678,9 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
             bufferBuilder.pos((double)(this.width / 2 + 90), 100.0D, 0.0D).tex(5.625D, 0.0D).color(64, 64, 64, 64).endVertex();
             bufferBuilder.pos((double)(this.width / 2 - 90), 100.0D, 0.0D).tex(0.0D, 0.0D).color(64, 64, 64, 64).endVertex();
             tessellator.draw();
-            this.drawCenteredString(this.fontRenderer, I18n.format("createWorld.customize.custom.confirmTitle"), this.width / 2, 105, 16777215);
-            this.drawCenteredString(this.fontRenderer, I18n.format("createWorld.customize.custom.confirm1"), this.width / 2, 125, 16777215);
-            this.drawCenteredString(this.fontRenderer, I18n.format("createWorld.customize.custom.confirm2"), this.width / 2, 135, 16777215);
+            this.drawCenteredString(this.fontRenderer, I18n.format("createWorld.customize.custom.confirmTitle", new Object[0]), this.width / 2, 105, 16777215);
+            this.drawCenteredString(this.fontRenderer, I18n.format("createWorld.customize.custom.confirm1", new Object[0]), this.width / 2, 125, 16777215);
+            this.drawCenteredString(this.fontRenderer, I18n.format("createWorld.customize.custom.confirm2", new Object[0]), this.width / 2, 135, 16777215);
             this.yesButton.drawButton(this.mc, mouseX, mouseY, partialTicks);
             this.noButton.drawButton(this.mc, mouseX, mouseY, partialTicks);
         }

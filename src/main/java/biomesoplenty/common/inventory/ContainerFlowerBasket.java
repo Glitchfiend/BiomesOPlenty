@@ -82,7 +82,7 @@ public class ContainerFlowerBasket extends Container
     public ItemStack transferStackInSlot(EntityPlayer player, int index)
     {
         ItemStack oldStack = ItemStack.EMPTY;
-        Slot slot = this.inventorySlots.get(index);
+        Slot slot = (Slot)this.inventorySlots.get(index);
 
         //Ensure there is a slot at this index and it has an item in it
         if (slot != null && slot.getHasStack())

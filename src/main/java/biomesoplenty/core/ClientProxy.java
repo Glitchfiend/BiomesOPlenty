@@ -172,7 +172,7 @@ public class ClientProxy extends CommonProxy
         //Register colour handlers
         if (item instanceof IColoredItem && ((IColoredItem)item).getItemColor() != null)
         {
-            itemsToColor.add(item);
+            this.itemsToColor.add(item);
         }
     }
 
@@ -204,7 +204,7 @@ public class ClientProxy extends CommonProxy
             break;
         case MUD:
             int itemId = Item.getIdFromItem(BOPItems.mudball);
-            minecraft.world.spawnParticle(EnumParticleTypes.ITEM_CRACK, x, y, z, MathHelper.nextDouble(minecraft.world.rand, -0.08D, 0.08D), MathHelper.nextDouble(minecraft.world.rand, -0.08D, 0.08D), MathHelper.nextDouble(minecraft.world.rand, -0.08D, 0.08D), itemId);
+            minecraft.world.spawnParticle(EnumParticleTypes.ITEM_CRACK, x, y, z, MathHelper.nextDouble(minecraft.world.rand, -0.08D, 0.08D), MathHelper.nextDouble(minecraft.world.rand, -0.08D, 0.08D), MathHelper.nextDouble(minecraft.world.rand, -0.08D, 0.08D), new int[] {itemId});
             return;
         case PLAYER_TRAIL:
             if (info.length < 1)
