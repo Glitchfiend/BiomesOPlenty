@@ -53,7 +53,7 @@ public abstract class GuiBOPPageList extends GuiBOPPageDelegate
     @Override
     protected void updateItemPos(int p_178040_1_, int p_178040_2_, int p_178040_3_, float partialTicks)
     {
-        this.getListEntry(p_178040_1_).func_192633_a(p_178040_1_, p_178040_2_, p_178040_3_, partialTicks);
+        this.getListEntry(p_178040_1_).updatePosition(p_178040_1_, p_178040_2_, p_178040_3_, partialTicks);
     }
 
     @Override
@@ -268,8 +268,7 @@ public abstract class GuiBOPPageList extends GuiBOPPageDelegate
         }
 
         // setSelected
-        @Override
-        public void func_192633_a(int p_178011_1_, int p_178011_2_, int p_178011_3_, float partialTicks)
+        public void updatePosition(int p_178011_1_, int p_178011_2_, int p_178011_3_, float partialTicks)
         {
             this.drawGui(this.guiLeft, p_178011_3_, 0, 0, true, partialTicks);
             this.drawGui(this.guiRight, p_178011_3_, 0, 0, true, partialTicks);

@@ -58,7 +58,7 @@ public class EntityAIEatBOPGrass extends EntityAIEatGrass
     {
         this.bopEatingGrassTimer = 40;
         this.world.setEntityState(this.sheep, (byte)10);
-        this.sheep.getNavigator().clearPathEntity();
+        this.sheep.getNavigator().clearPath();
     }
 
     @Override

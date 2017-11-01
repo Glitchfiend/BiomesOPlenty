@@ -93,7 +93,7 @@ public class BiomeEssenceRecipe extends net.minecraftforge.registries.IForgeRegi
     }
 
     @Override
-    public boolean isHidden()
+    public boolean isDynamic()
     {
         return true;
     }

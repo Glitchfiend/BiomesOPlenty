@@ -620,12 +620,12 @@ public class ChunkGeneratorOverworldBOP implements IChunkGenerator
         {
             if (creatureType == EnumCreatureType.MONSTER && this.scatteredFeatureGenerator.isSwampHut(pos))
             {
-                return this.scatteredFeatureGenerator.getScatteredFeatureSpawnList();
+                return this.scatteredFeatureGenerator.getMonsters();
             }
 
             if (creatureType == EnumCreatureType.MONSTER && this.settings.useMonuments && this.oceanMonumentGenerator.isPositionInStructure(this.world, pos))
             {
-                return this.oceanMonumentGenerator.getScatteredFeatureSpawnList();
+                return this.oceanMonumentGenerator.getMonsters();
             }
         }
 
