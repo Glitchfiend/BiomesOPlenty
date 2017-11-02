@@ -56,8 +56,8 @@ public class TrailManager
         } 
     }
     
-    public static enum TrailVisibilityMode
+    public enum TrailVisibilityMode
     {
-        ALL, OTHERS, NOBODY; //TODO: Implement NOBODY mode
+        ALL, OTHERS, NOBODY //TODO: Implement NOBODY mode
     }
 }

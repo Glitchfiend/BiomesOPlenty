@@ -13,12 +13,12 @@ import net.minecraft.world.biome.Biome;
     
 public class TerrainSettings
 {
-    public static enum PresetOctaveWeights
+    public enum PresetOctaveWeights
     {
         DEFAULT (new double[] {1 / 24.0D, 2 / 24.0D, 4 / 24.0D, 8 / 24.0D, 6 / 24.0D, 3 / 24.0D});
         
         private final double[] weights;
-        private PresetOctaveWeights(double[] weights)
+        PresetOctaveWeights(double[] weights)
         {
             this.weights = weights;
         }

@@ -36,7 +36,7 @@ import net.minecraft.world.biome.Biome.SpawnListEntry;
 
 public class BiomeGenAlps extends BOPOverworldBiome
 {
-    public static enum AlpsType {ALPS, ALPS_FOOTHILLS}
+    public enum AlpsType {ALPS, ALPS_FOOTHILLS}
     
     public AlpsType type;
     

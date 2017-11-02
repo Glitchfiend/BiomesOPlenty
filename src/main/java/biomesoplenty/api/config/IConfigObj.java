@@ -18,62 +18,62 @@ import net.minecraft.util.ResourceLocation;
 
 public interface IConfigObj
 {
-    public JsonElement serializeDefaults();
-    public void addMessage(String message);
-    public void addMessage(String extraPrefix, String message);
-    public List<String> flushMessages();
-    public boolean isEmpty();
-    public boolean has(String name);
-    public Set<String> getKeys();
+    JsonElement serializeDefaults();
+    void addMessage(String message);
+    void addMessage(String extraPrefix, String message);
+    List<String> flushMessages();
+    boolean isEmpty();
+    boolean has(String name);
+    Set<String> getKeys();
     
-    public IConfigObj getObject(String name);
-    public ArrayList<IConfigObj> getObjectArray(String name);
-    public IConfigObj getObject(String name, boolean warnIfMissing);
-    public ArrayList<IConfigObj> getObjectArray(String name, boolean warnIfMissing);
+    IConfigObj getObject(String name);
+    ArrayList<IConfigObj> getObjectArray(String name);
+    IConfigObj getObject(String name, boolean warnIfMissing);
+    ArrayList<IConfigObj> getObjectArray(String name, boolean warnIfMissing);
     
     // Use the methods below when you want to obtain a value from a config file, if it is present, but you have a default value to use if it isn't
     // No warning messages will be logged using these methods if the value is missing
-    public Boolean getBool(String name, Boolean defaultVal);
-    public String getString(String name, String defaultVal);
-    public Integer getInt(String name, Integer defaultVal);
-    public Float getFloat(String name, Float defaultVal);
-    public IBlockState getBlockState(String name, IBlockState defaultVal);
-    public IBlockPosQuery getBlockPosQuery(String name, IBlockPosQuery defaultVal);
-    public ResourceLocation getResourceLocation(String name, ResourceLocation defaultVal);
-    public <E extends Enum> E getEnum(String name, E defaultVal, Class<E> clazz);
+    Boolean getBool(String name, Boolean defaultVal);
+    String getString(String name, String defaultVal);
+    Integer getInt(String name, Integer defaultVal);
+    Float getFloat(String name, Float defaultVal);
+    IBlockState getBlockState(String name, IBlockState defaultVal);
+    IBlockPosQuery getBlockPosQuery(String name, IBlockPosQuery defaultVal);
+    ResourceLocation getResourceLocation(String name, ResourceLocation defaultVal);
+    <E extends Enum> E getEnum(String name, E defaultVal, Class<E> clazz);
     
     // Use the methods below when you want to obtain a value from a config file which SHOULD be present
     // If the value is missing, a warning message is logged, and null is returned
-    public Boolean getBool(String name);
-    public String getString(String name);
-    public Integer getInt(String name);
-    public Float getFloat(String name);
-    public IBlockState getBlockState(String name);
-    public IBlockPosQuery getBlockPosQuery(String name);
-    public ResourceLocation getResourceLocation(String name);
-    public <E extends Enum> E getEnum(String name, Class<E> clazz);
+    Boolean getBool(String name);
+    String getString(String name);
+    Integer getInt(String name);
+    Float getFloat(String name);
+    IBlockState getBlockState(String name);
+    IBlockPosQuery getBlockPosQuery(String name);
+    ResourceLocation getResourceLocation(String name);
+    <E extends Enum> E getEnum(String name, Class<E> clazz);
 
     // Use the methods below when you want to obtain an array of values from a config file, if it is present, but you have a default value to use if it isn't
     // No warning messages will be logged using these methods if the value is missing
-    public ArrayList<Boolean> getBoolArray(String name, ArrayList<Boolean> defaultVal);
-    public ArrayList<String> getStringArray(String name, ArrayList<String> defaultVal);
-    public ArrayList<Integer> getIntArray(String name, ArrayList<Integer> defaultVal);
-    public ArrayList<Float> getFloatArray(String name, ArrayList<Float> defaultVal);
-    public ArrayList<IBlockState> getBlockStateArray(String name, ArrayList<IBlockState> defaultVal);
-    public ArrayList<IBlockPosQuery> getBlockPosQueryArray(String name, ArrayList<IBlockPosQuery> defaultVal);
-    public ArrayList<ResourceLocation> getResourceLocationArray(String name, ArrayList<ResourceLocation> defaultVal);
-    public <E extends Enum> ArrayList<E> getEnumArray(String name, ArrayList<E> defaultVal, Class<E> clazz);
+    ArrayList<Boolean> getBoolArray(String name, ArrayList<Boolean> defaultVal);
+    ArrayList<String> getStringArray(String name, ArrayList<String> defaultVal);
+    ArrayList<Integer> getIntArray(String name, ArrayList<Integer> defaultVal);
+    ArrayList<Float> getFloatArray(String name, ArrayList<Float> defaultVal);
+    ArrayList<IBlockState> getBlockStateArray(String name, ArrayList<IBlockState> defaultVal);
+    ArrayList<IBlockPosQuery> getBlockPosQueryArray(String name, ArrayList<IBlockPosQuery> defaultVal);
+    ArrayList<ResourceLocation> getResourceLocationArray(String name, ArrayList<ResourceLocation> defaultVal);
+    <E extends Enum> ArrayList<E> getEnumArray(String name, ArrayList<E> defaultVal, Class<E> clazz);
 
     // Use the methods below when you want to obtain an array of values from a config file which SHOULD be present
     // If the value is missing, a warning message is logged, and null is returned
-    public ArrayList<Boolean> getBoolArray(String name);
-    public ArrayList<String> getStringArray(String name);
-    public ArrayList<Integer> getIntArray(String name);
-    public ArrayList<Float> getFloatArray(String name);
-    public ArrayList<IBlockState> getBlockStateArray(String name);
-    public ArrayList<IBlockPosQuery> getBlockPosQueryArray(String name);
-    public ArrayList<ResourceLocation> getResourceLocationArray(String name);
-    public <E extends Enum> ArrayList<E> getEnumArray(String name, Class<E> clazz);
+    ArrayList<Boolean> getBoolArray(String name);
+    ArrayList<String> getStringArray(String name);
+    ArrayList<Integer> getIntArray(String name);
+    ArrayList<Float> getFloatArray(String name);
+    ArrayList<IBlockState> getBlockStateArray(String name);
+    ArrayList<IBlockPosQuery> getBlockPosQueryArray(String name);
+    ArrayList<ResourceLocation> getResourceLocationArray(String name);
+    <E extends Enum> ArrayList<E> getEnumArray(String name, Class<E> clazz);
 
     
 }

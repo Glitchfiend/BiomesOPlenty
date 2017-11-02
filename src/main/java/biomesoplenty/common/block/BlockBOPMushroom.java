@@ -29,7 +29,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BlockBOPMushroom extends BlockBOPDecoration
 {
     // add properties
-    public static enum MushroomType implements IStringSerializable
+    public enum MushroomType implements IStringSerializable
     {
         TOADSTOOL, PORTOBELLO, BLUE_MILK_CAP, GLOWSHROOM, FLAT_MUSHROOM, SHADOW_SHROOM;
         @Override
@@ -42,10 +42,11 @@ public class BlockBOPMushroom extends BlockBOPDecoration
         {
             return this.getName();
         }
-    };
+    }
+
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", MushroomType.class);
     @Override
-    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, new IProperty[] { VARIANT });}  
+    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, VARIANT);}
  
     
     // implement IBOPBlock
@@ -98,7 +99,7 @@ public class BlockBOPMushroom extends BlockBOPDecoration
     @Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
     {   
-    	MushroomType plant = (MushroomType) state.getValue(this.VARIANT);
+    	MushroomType plant = (MushroomType) state.getValue(VARIANT);
         switch (plant)
         {
 	        case GLOWSHROOM: case SHADOW_SHROOM:

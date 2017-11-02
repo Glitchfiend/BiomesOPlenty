@@ -37,7 +37,7 @@ public class BlockBOPHive extends Block implements IBOPBlock
 {
     
     // add properties
-    public static enum HiveType implements IStringSerializable
+    public enum HiveType implements IStringSerializable
     {
         HIVE, HONEYCOMB, EMPTY_HONEYCOMB, FILLED_HONEYCOMB;
         @Override
@@ -50,10 +50,11 @@ public class BlockBOPHive extends Block implements IBOPBlock
         {
             return this.getName();
         }
-    };
+    }
+
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", HiveType.class);
     @Override
-    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, new IProperty[] { VARIANT });}
+    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, VARIANT);}
     
     
     // implement IBOPBlock

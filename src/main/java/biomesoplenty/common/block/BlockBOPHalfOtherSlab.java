@@ -42,7 +42,7 @@ public class BlockBOPHalfOtherSlab extends BlockSlab implements IBOPBlock
 {
     
     // add properties
-    public static enum SlabType implements IStringSerializable
+    public enum SlabType implements IStringSerializable
     {
         MUD_BRICK, WHITE_SANDSTONE;
         @Override
@@ -73,12 +73,12 @@ public class BlockBOPHalfOtherSlab extends BlockSlab implements IBOPBlock
             }
             return state;
         }
-    };
-    
+    }
+
     // add properties (note we inherit HALF property from parent BlockSlab)
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", SlabType.class);
     @Override
-    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, new IProperty[] { HALF, VARIANT });}
+    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, HALF, VARIANT);}
     
     
     // implement IBOPBlock

@@ -39,16 +39,16 @@ import net.minecraftforge.common.EnumPlantType;
 public class BlockQuery
 {
     // for compound queries
-    public static interface ICompoundBlockPosQuery extends IBlockPosQuery
+    public interface ICompoundBlockPosQuery extends IBlockPosQuery
     {
-        public void add(IBlockPosQuery a);
-        public IBlockPosQuery instance();
+        void add(IBlockPosQuery a);
+        IBlockPosQuery instance();
     }
     
     // for queries which depend only on the block state, and not on it's neighbors or position in the world
-    public static interface IBlockQuery extends IBlockPosQuery
+    public interface IBlockQuery extends IBlockPosQuery
     {
-        public boolean matches(IBlockState state);
+        boolean matches(IBlockState state);
     }
     
     
@@ -296,7 +296,7 @@ public class BlockQuery
                     case Crop:   return block == Blocks.FARMLAND || block == BOPBlocks.farmland_0 || block == BOPBlocks.farmland_1;
                     case Cave:   return block.isSideSolid(state, world, pos, EnumFacing.UP);
                     case Plains: return block == Blocks.GRASS || state == BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.LOAMY) || state == BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SILTY) || state == BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SANDY) || state == BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.DAISY) || block == Blocks.DIRT || block == BOPBlocks.dirt || block == Blocks.FARMLAND || block == BOPBlocks.farmland_0 || block == BOPBlocks.farmland_1 || block == Blocks.MYCELIUM;
-                    case Water:  return state.getMaterial() == Material.WATER && ((Integer)state.getValue(BlockLiquid.LEVEL)) == 0;
+                    case Water:  return state.getMaterial() == Material.WATER && state.getValue(BlockLiquid.LEVEL) == 0;
                     case Beach:
                         boolean isBeach = block == Blocks.GRASS || state == BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.LOAMY) || state == BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SILTY) || state == BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SANDY) || state == BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.DAISY) ||  block == Blocks.DIRT || block == BOPBlocks.dirt || block == BOPBlocks.white_sand || block == Blocks.SAND || block == Blocks.MYCELIUM;
                         boolean hasWater = (world.getBlockState(pos.east()).getMaterial() == Material.WATER ||
@@ -448,7 +448,7 @@ public class BlockQuery
             {
                 if (((IProperty)property).getName().equalsIgnoreCase(this.propName))
                 {
-                    String thisPropValue = ((Comparable)properties.get(property)).toString();
+                    String thisPropValue = properties.get(property).toString();
                     for (String value : this.propValues)
                     {
                         if (thisPropValue.equalsIgnoreCase(value))
@@ -501,7 +501,8 @@ public class BlockQuery
                     IBlockQuery bm = new BlockQueryMaterial((Material)mat);
                     return negated ? new BlockQueryNot(bm) : bm;
                 }
-            } catch (Exception e) {;}
+            } catch (Exception e) {
+            }
             throw new BlockQueryParseException("No block material found called "+materialName);
         }
     }    

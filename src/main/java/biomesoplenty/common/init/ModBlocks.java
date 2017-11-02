@@ -409,7 +409,7 @@ public class ModBlocks
     {
         try
         {
-            Item itemBlock = clazz != null ? (Item)clazz.getConstructor(Block.class).newInstance(block) : null;
+            Item itemBlock = clazz != null ? clazz.getConstructor(Block.class).newInstance(block) : null;
             ResourceLocation location = new ResourceLocation(BiomesOPlenty.MOD_ID, blockName);
 
             block.setRegistryName(new ResourceLocation(BiomesOPlenty.MOD_ID, blockName));

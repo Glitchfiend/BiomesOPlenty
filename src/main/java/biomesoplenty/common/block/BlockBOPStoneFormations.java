@@ -31,7 +31,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BlockBOPStoneFormations extends BlockBOPDecoration implements IBOPBlock
 {
     // add properties
-    public static enum FormationType implements IStringSerializable
+    public enum FormationType implements IStringSerializable
     {
         STONE_FORMATION;
         @Override
@@ -44,9 +44,9 @@ public class BlockBOPStoneFormations extends BlockBOPDecoration implements IBOPB
         {
             return this.getName();
         }
-    };
-    
-    public static enum FormationPosition implements IStringSerializable
+    }
+
+    public enum FormationPosition implements IStringSerializable
     {
     	STALAGMITE_SMALL, STALACTITE_SMALL, STAL_SINGLE, STAL_CONNECTOR, STALAGMITE_MEDIUM, STALACTITE_MEDIUM, STALAGMITE_TOP, STALACTITE_BOTTOM;
         @Override
@@ -64,7 +64,7 @@ public class BlockBOPStoneFormations extends BlockBOPDecoration implements IBOPB
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", FormationType.class);
     public static final PropertyEnum POSITION = PropertyEnum.create("position", FormationPosition.class);
     @Override
-    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, new IProperty[] { POSITION, VARIANT });}  
+    protected BlockStateContainer createBlockState() {return new BlockStateContainer(this, POSITION, VARIANT);}
  
     
     // implement IBOPBlock

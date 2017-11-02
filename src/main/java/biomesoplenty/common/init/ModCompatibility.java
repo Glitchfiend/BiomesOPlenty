@@ -46,7 +46,7 @@ public class ModCompatibility
                 // Creates a mutable version of the current biome type's biome array and wraps entries to support .equals()
                 List<WrappedBiomeEntry> entries = Lists.transform(Lists.newArrayList(BiomeManager.getBiomes(type)), WRAP_BIOME_ENTRIES);
                 // Custom types may have been added, we only want the vanilla ones
-                final List<WrappedBiomeEntry> vanillaEntries = type.ordinal() < vanillaBiomes.length ? Lists.transform(vanillaBiomes[type.ordinal()], WRAP_BIOME_ENTRIES) : (List)Lists.newArrayList();
+                final List<WrappedBiomeEntry> vanillaEntries = type.ordinal() < vanillaBiomes.length ? Lists.transform(vanillaBiomes[type.ordinal()], WRAP_BIOME_ENTRIES) : Lists.newArrayList();
                 
                 //Remove all default biomes from the entries list
                 entries.removeAll(vanillaEntries);

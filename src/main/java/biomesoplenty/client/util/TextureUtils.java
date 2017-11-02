@@ -16,6 +16,6 @@ public class TextureUtils
     
     public static ResourceLocation completeResourceLocation(ResourceLocation location, int mode)
     {
-        return mode == 0 ? new ResourceLocation(location.getResourceDomain(), String.format("%s/%s%s", new Object[] {TEXTURES_BASE_PATH, location.getResourcePath(), ".png"})) : new ResourceLocation(location.getResourceDomain(), String.format("%s/mipmaps/%s.%d%s", new Object[] {TEXTURES_BASE_PATH, location.getResourcePath(), Integer.valueOf(mode), ".png"}));
+        return mode == 0 ? new ResourceLocation(location.getResourceDomain(), String.format("%s/%s%s", TEXTURES_BASE_PATH, location.getResourcePath(), ".png")) : new ResourceLocation(location.getResourceDomain(), String.format("%s/mipmaps/%s.%d%s", TEXTURES_BASE_PATH, location.getResourcePath(), Integer.valueOf(mode), ".png"));
     }
 }
