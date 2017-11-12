@@ -8,13 +8,19 @@
 package biomesoplenty.common.world;
 
 import biomesoplenty.common.world.layer.*;
+import net.minecraft.crash.CrashReport;
+import net.minecraft.crash.CrashReportCategory;
+import net.minecraft.init.Biomes;
+import net.minecraft.util.ReportedException;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeProvider;
 import net.minecraft.world.gen.layer.*;
 
 public class BiomeProviderBOPHell extends BiomeProvider
 {
+
     public BiomeProviderBOPHell(long seed, WorldType worldType, String chunkProviderSettings)
     {
         super();
@@ -30,6 +36,40 @@ public class BiomeProviderBOPHell extends BiomeProvider
         GenLayer[] genlayers = setupBOPGenLayers(seed, settings);
         this.genBiomes = genlayers[0];
         this.biomeIndexLayer = genlayers[1];
+    }
+
+    @Override
+    public Biome[] getBiomesForGeneration(Biome[] biomes, int x, int z, int width, int height)
+    {
+        IntCache.resetIntCache();
+
+        if (biomes == null || biomes.length < width * height)
+        {
+            biomes = new Biome[width * height];
+        }
+
+        int[] aint = this.genBiomes.getInts(x, z, width, height);
+
+        try
+        {
+            for (int i = 0; i < width * height; ++i)
+            {
+                biomes[i] = Biome.getBiome(aint[i], Biomes.HELL);
+            }
+
+            return biomes;
+        }
+        catch (Throwable throwable)
+        {
+            CrashReport crashreport = CrashReport.makeCrashReport(throwable, "Invalid Biome id");
+            CrashReportCategory crashreportcategory = crashreport.makeCategory("RawBiomeBlock");
+            crashreportcategory.addCrashSection("biomes[] size", biomes.length);
+            crashreportcategory.addCrashSection("x", x);
+            crashreportcategory.addCrashSection("z", z);
+            crashreportcategory.addCrashSection("w", width);
+            crashreportcategory.addCrashSection("h", height);
+            throw new ReportedException(crashreport);
+        }
     }
 
     public BiomeProviderBOPHell(World world)
