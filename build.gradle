@@ -124,26 +124,28 @@ task apiJar(type: Jar) {
     classifier = 'api'
 }
 
-task listOutputs << {
-    //This is needed by the Groovy Postbuild to append labels for each build used in the changelog.
-    println "Output files:"
-    println "--------------------"
-    def list = []
+task listOutputs  {
+    doLast {
+        //This is needed by the Groovy Postbuild to append labels for each build used in the changelog.
+        println "Output files:"
+        println "--------------------"
+        def list = []
 
-    def dir = new File("build/libs/")
-    
-    if (dir.exists()) {
-        dir.eachFileRecurse (FileType.FILES) { file ->
-            //Add each file to the list
-            list << file
+        def dir = new File("build/libs/")
+
+        if (dir.exists()) {
+            dir.eachFileRecurse (FileType.FILES) { file ->
+                //Add each file to the list
+                list << file
+            }
+
+            //Print the names of all of the output files
+            list.each {
+                println it.getName()
+            }
         }
-    
-        //Print the names of all of the output files
-        list.each {
-            println it.getName()
-        }
+        println "--------------------"
     }
-    println "--------------------"
 }
 
 tasks.build.finalizedBy('listOutputs')
