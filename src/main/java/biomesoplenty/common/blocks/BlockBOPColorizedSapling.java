@@ -60,7 +60,7 @@ public class BlockBOPColorizedSapling extends BlockSapling
     {
 		Block block = world.getBlock(x, y - 1, z);
 
-		switch (metadata)
+		switch (metadata & 7)
 		{
 		case 1: // Mangrove
 			return block == Blocks.sand;
