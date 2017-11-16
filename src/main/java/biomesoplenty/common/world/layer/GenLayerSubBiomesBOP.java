@@ -112,14 +112,16 @@ public class GenLayerSubBiomesBOP extends BOPGenLayer
     // This is usually the 'mutated' version of a biome
     public int getRareSubBiome(int biomeId)
     {
-        return Biome.getIdForBiome(Biome.getMutationForBiome(Biome.getBiome(biomeId)));
+        int subBiomeId = Biome.getIdForBiome(Biome.getMutationForBiome(Biome.getBiome(biomeId)));
+        // If this biome has no mutation -1 will be returned, which is not a valid biome id.
+        // Thus, we swap it for the original biome id
+        return subBiomeId == -1 ? biomeId : subBiomeId;
     }    
     
     // Given a biomeId, return the biomeId of a reasonably common alternative biome which you might expect to find a patch of within the outer biome 
     // For many biomes, this is the 'hills' version
     public int getCommonSubBiome(int biomeId)
     {
-        
         List<Integer> subBiomeIds = ModBiomes.subBiomesMap.get(biomeId);
         if (subBiomeIds == null) {return biomeId;}
         int n = subBiomeIds.size();
