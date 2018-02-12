@@ -125,20 +125,20 @@ public class BOPCommand extends CommandBase
         EntityPlayerMP player = getCommandSenderAsPlayer(sender);
         World world = player.world;
         BlockPos closestBiomePos = biomeToFind == null ? null : BiomeUtils.spiralOutwardsLookingForBiome(world, biomeToFind, player.posX, player.posZ);
+        String biomeName = biomeToFind != null && FMLCommonHandler.instance().getSide() == Side.CLIENT ? biomeToFind.getBiomeName() : "Undefined";
         
         if (closestBiomePos != null)
         {
             double x = (double)closestBiomePos.getX();
             double y = (double)world.getTopSolidOrLiquidBlock(closestBiomePos).getY();
             double z = (double)closestBiomePos.getZ();
-            String biomeName = FMLCommonHandler.instance().getSide() == Side.CLIENT ? biomeToFind.getBiomeName() : "";
             
             player.connection.setPlayerLocation(x, y, z, player.rotationYaw, player.rotationPitch);
             sender.sendMessage(new TextComponentTranslation("commands.biomesoplenty.tpbiome.success", player.getName(), biomeName, x, y, z));
         }
         else
         {
-            sender.sendMessage(new TextComponentTranslation("commands.biomesoplenty.tpbiome.error", biomeToFind == null ? "Undefined" : biomeToFind.getBiomeName()));
+            sender.sendMessage(new TextComponentTranslation("commands.biomesoplenty.tpbiome.error", biomeName));
         }
     }
     
