@@ -29,6 +29,7 @@ import biomesoplenty.common.world.generator.GeneratorBigMushroom;
 import biomesoplenty.common.world.generator.GeneratorDoubleFlora;
 import biomesoplenty.common.world.generator.GeneratorFlora;
 import biomesoplenty.common.world.generator.GeneratorGrass;
+import biomesoplenty.common.world.generator.GeneratorLakes;
 import biomesoplenty.common.world.generator.GeneratorSplotches;
 import biomesoplenty.common.world.generator.GeneratorWeighted;
 import biomesoplenty.common.world.generator.tree.GeneratorTwigletTree;
@@ -58,6 +59,9 @@ public class BiomeFungiForest extends BOPHellBiome
         
         this.usualTopBlock = this.topBlock;
         this.alternateTopBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.MYCELIAL_NETHERRACK);
+
+        // hot springs
+        this.addGenerator("hot_springs", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(2.0F).liquid(BOPBlocks.hot_spring_water).frozenLiquid((IBlockState)null).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
 
         // shrooms
         IBlockPosQuery surfaceBlocks = BlockQuery.buildOr().states(this.topBlock).create();

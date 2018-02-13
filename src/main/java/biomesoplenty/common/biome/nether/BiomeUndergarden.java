@@ -26,6 +26,7 @@ import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.world.generator.GeneratorFlora;
 import biomesoplenty.common.world.generator.GeneratorGrass;
+import biomesoplenty.common.world.generator.GeneratorLakes;
 import biomesoplenty.common.world.generator.GeneratorSplatter;
 import biomesoplenty.common.world.generator.GeneratorVines;
 import biomesoplenty.common.world.generator.GeneratorWeighted;
@@ -45,11 +46,14 @@ public class BiomeUndergarden extends BOPHellBiome
         this.hasBiomeEssence = false;
         
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.OVERGROWN_NETHERRACK);
-        
+
         // splatter top blocks
         IBlockPosQuery emptyOvergrownNetherrack = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();
         this.addGenerator("netherrack_splatter", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(7.0F).generationAttempts(128).scatterYMethod(ScatterYMethod.NETHER_SURFACE).replace(emptyOvergrownNetherrack).with(Blocks.NETHERRACK.getDefaultState()).create());
-    
+
+        // hot springs
+        this.addGenerator("hot_springs", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(5.0F).liquid(BOPBlocks.hot_spring_water).frozenLiquid((IBlockState)null).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
+
         IBlockPosQuery suitableNetherrackPosition = BlockQuery.buildAnd().withAltitudeBetween(70, 120).states(Blocks.NETHERRACK.getDefaultState()).create();
         this.addGenerator("ivy", GeneratorStage.FLOWERS,(new GeneratorVines.Builder()).amountPerChunk(25.0F).generationAttempts(128).placeOn(suitableNetherrackPosition).with(BOPBlocks.ivy.getDefaultState()).minHeight(8).maxHeight(20).create());
         
