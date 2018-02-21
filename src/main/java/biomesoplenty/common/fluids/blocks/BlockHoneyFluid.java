@@ -33,6 +33,7 @@ public class BlockHoneyFluid extends BlockFluidFinite
         this.setLightOpacity(1);
         // default state should be a 'full block' of honey
         this.setDefaultState(this.blockState.getBaseState().withProperty(LEVEL, this.quantaPerBlock - 1));
+        this.setHardness(100.0F);
     }
 
     @Override

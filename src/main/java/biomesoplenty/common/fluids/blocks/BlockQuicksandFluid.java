@@ -32,6 +32,7 @@ public class BlockQuicksandFluid extends BlockFluidClassic
         this.quantaPerBlock = 3;
         this.setLightOpacity(255);
         this.renderLayer = BlockRenderLayer.SOLID;
+        this.setHardness(0.5F);// match the hardness of vanilla sand
     }
 
     @Override

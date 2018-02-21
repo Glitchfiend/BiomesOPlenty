@@ -32,6 +32,7 @@ public class BlockPoisonFluid extends BlockFluidClassic
         super(fluid, Material.WATER);
         this.setLightOpacity(3);
         this.quantaPerBlock = 4;
+        this.setHardness(100.0F);
     }
     
     @Override

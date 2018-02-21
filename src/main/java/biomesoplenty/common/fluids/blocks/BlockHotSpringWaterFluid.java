@@ -37,6 +37,7 @@ public class BlockHotSpringWaterFluid extends BlockFluidClassic
     {
         super(fluid, Material.WATER);
         this.setLightOpacity(3);
+        this.setHardness(100.0F);
     }
 
     @Override
