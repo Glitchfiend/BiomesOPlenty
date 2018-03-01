@@ -60,7 +60,7 @@ public class BiomeExtForestHills extends ExtendedBiomeWrapper
         this.addGenerator("blue_milk_caps", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).generationAttempts(16).with(BlockBOPMushroom.MushroomType.BLUE_MILK_CAP).create());
         
         // flowers
-        GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.2F);
+        GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.15F);
         this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
         flowerGenerator.add("white_anemones", 1, (new GeneratorFlora.Builder().with(BOPFlowers.WHITE_ANEMONE).create()));
         flowerGenerator.add("blue_hydrangeas", 2, (new GeneratorFlora.Builder().with(BOPFlowers.BLUE_HYDRANGEA).create()));
