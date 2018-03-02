@@ -37,7 +37,7 @@ public class BiomeGenMangrove extends BOPOverworldBiome
 {
     public BiomeGenMangrove()
     {
-        super("mangrove", new PropsBuilder("Mangrove").withTemperature(0.8F).withRainfall(0.3F).withGuiColour(7251289).withWaterColor(0xCDFF51));
+        super("mangrove", new PropsBuilder("Mangrove").withTemperature(0.85F).withRainfall(0.3F).withGuiColour(7251289).withWaterColor(0xCDFF51));
 
         // terrain
         this.terrainSettings.avgHeight(62).heightVariation(8, 2).octaves(0, 1, 2, 2, 1, 0);
