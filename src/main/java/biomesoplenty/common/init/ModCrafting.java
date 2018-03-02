@@ -62,6 +62,11 @@ public class ModCrafting
             }
         }
         
+        for (BOPGems gem : BOPGems.values())
+        {
+            GameRegistry.addSmelting(new ItemStack(BOPBlocks.gem_ore, 1, gem.ordinal()), new ItemStack(BOPItems.gem, 1, gem.ordinal()), 1.0F);
+        }
+        
         // Register items which can be used as fuel
         FurnaceFuelHandler bopFuel = new FurnaceFuelHandler();
         GameRegistry.registerFuelHandler(bopFuel);
