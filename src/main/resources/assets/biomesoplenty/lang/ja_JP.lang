@@ -1,5 +1,5 @@
-#Translate by koh
-#version 1.12.2-7.0.1.2315-universal
+# Translate by koh
+# Based on version 1.12.2-7.0.1.2320-universal
 
 advancements.biomesoplenty.root.title=Biomes O' Plenty
 advancements.biomesoplenty.root.description=探検家の夢...
@@ -8,7 +8,7 @@ advancements.biomesoplenty.sacred_oak_sapling.description=神聖なオークの�
 advancements.biomesoplenty.yin_and_yang.title=陰と陽
 advancements.biomesoplenty.yin_and_yang.description=Ominous Woods に光る花を植え、 Mystic Grove に死の新芽を植える
 advancements.biomesoplenty.miners_delight.title=人生は道を見つける
-advancements.biomesoplenty.miners_delight.description=深い洞窟の中で鉱夫の癒やし花を見つける
+advancements.biomesoplenty.miners_delight.description=深い洞窟の奥で鉱夫の癒やし花を見つける
 advancements.biomesoplenty.harvest_turnip.title=カブ式市場
 advancements.biomesoplenty.harvest_turnip.description=カブを収穫する
 advancements.biomesoplenty.flesh_and_blood.title=血肉
@@ -31,7 +31,7 @@ config.category.guiSettings.title=GUI設定
 config.category.textureSettings.title=テクスチャ設定
 config.category.trailSettings.title=足跡設定
 config.category.convenienceSettings.tooltip=花を採取するためにははさみが必要です
-config.category.guiSettings.tooltip= Biomes O' Plenty を有効化してワールドを生成します
+config.category.guiSettings.tooltip=Biomes O' Plenty を有効化してワールドを生成します
 config.category.textureSettings.tooltip=Forge bucketのテクスチャーを代わりに使用します
 config.category.trailSettings.tooltip=足跡の透明度
 
@@ -47,7 +47,7 @@ commands.biomesoplenty.stats.entities=エンティティ: %s
 commands.biomesoplenty.stats.biomes=バイオーム: %s
 commands.biomesoplenty.stripchunk.usage=/biomesoplenty stripchunk [radius] <include|exclude> [block] [metadata]
 
-container.flower_basket=花の冠
+container.flower_basket=フラワーバスケット
 
 generator.BIOMESOP=Biomes O' Plenty
 generator.BIOMESOP.info=注意: Biomes O' Plenty 1.8 は発展途上中です
@@ -418,9 +418,9 @@ tile.willow_fence.name=柳のフェンス
 tile.willow_fence_gate.name=柳のフェンスゲート
 tile.willow_wood_slab.name=柳の木材ハーフブロック
 tile.willow_stairs.name=柳の階段
+tile.willow_vine.name=柳のつる
 tile.hard_ice.name=固い氷
 tile.dried_sand.name=乾燥砂
-tile.crag_rock.name=ごつごつした岩
 tile.mud_brick.name=泥レンガ
 tile.crystal.name=天界のクリスタル
 
