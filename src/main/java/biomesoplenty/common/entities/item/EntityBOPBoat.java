@@ -186,7 +186,7 @@ public class EntityBOPBoat extends EntityBoat
     @Override
     public void applyEntityCollision(Entity entityIn)
     {
-        if (entityIn instanceof EntityBOPBoat)
+        if (entityIn instanceof EntityBoat)
         {
             if (entityIn.getEntityBoundingBox().minY < this.getEntityBoundingBox().maxY)
             {
