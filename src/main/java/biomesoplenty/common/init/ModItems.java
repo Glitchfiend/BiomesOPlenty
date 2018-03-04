@@ -15,6 +15,22 @@ import static biomesoplenty.api.item.BOPItems.biome_essence;
 import static biomesoplenty.api.item.BOPItems.biome_finder;
 import static biomesoplenty.api.item.BOPItems.black_dye;
 import static biomesoplenty.api.item.BOPItems.blue_dye;
+import static biomesoplenty.api.item.BOPItems.boat_cherry;
+import static biomesoplenty.api.item.BOPItems.boat_ebony;
+import static biomesoplenty.api.item.BOPItems.boat_ethereal;
+import static biomesoplenty.api.item.BOPItems.boat_eucalyptus;
+import static biomesoplenty.api.item.BOPItems.boat_fir;
+import static biomesoplenty.api.item.BOPItems.boat_hellbark;
+import static biomesoplenty.api.item.BOPItems.boat_jacaranda;
+import static biomesoplenty.api.item.BOPItems.boat_magic;
+import static biomesoplenty.api.item.BOPItems.boat_mahogany;
+import static biomesoplenty.api.item.BOPItems.boat_mangrove;
+import static biomesoplenty.api.item.BOPItems.boat_palm;
+import static biomesoplenty.api.item.BOPItems.boat_pine;
+import static biomesoplenty.api.item.BOPItems.boat_redwood;
+import static biomesoplenty.api.item.BOPItems.boat_sacred_oak;
+import static biomesoplenty.api.item.BOPItems.boat_umbran;
+import static biomesoplenty.api.item.BOPItems.boat_willow;
 import static biomesoplenty.api.item.BOPItems.brown_dye;
 import static biomesoplenty.api.item.BOPItems.crystal_shard;
 import static biomesoplenty.api.item.BOPItems.earth;
@@ -47,7 +63,9 @@ import static biomesoplenty.api.item.BOPItems.white_dye;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.sound.BOPSounds;
 import biomesoplenty.common.command.BOPCommand;
+import biomesoplenty.common.entities.item.EntityBOPBoat;
 import biomesoplenty.common.item.ItemAmbrosia;
+import biomesoplenty.common.item.ItemBOPBoat;
 import biomesoplenty.common.item.ItemBOPFood;
 import biomesoplenty.common.item.ItemBOPRecord;
 import biomesoplenty.common.item.ItemBiomeEssence;
@@ -69,7 +87,6 @@ import net.minecraft.item.ItemSoup;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ModItems
 {    
@@ -82,6 +99,23 @@ public class ModItems
     {
         jar_filled = registerItem(new ItemJarFilled(), "jar_filled");
         jar_empty = registerItem(new ItemJarEmpty(), "jar_empty");
+        
+    	boat_sacred_oak = registerItem(new ItemBOPBoat(EntityBOPBoat.Type.SACRED_OAK), "boat_sacred_oak");
+    	boat_cherry = registerItem(new ItemBOPBoat(EntityBOPBoat.Type.CHERRY), "boat_cherry");
+    	boat_umbran = registerItem(new ItemBOPBoat(EntityBOPBoat.Type.UMBRAN), "boat_umbran");
+    	boat_fir = registerItem(new ItemBOPBoat(EntityBOPBoat.Type.FIR), "boat_fir");
+    	boat_ethereal = registerItem(new ItemBOPBoat(EntityBOPBoat.Type.ETHEREAL), "boat_ethereal");
+    	boat_magic = registerItem(new ItemBOPBoat(EntityBOPBoat.Type.MAGIC), "boat_magic");
+    	boat_mangrove = registerItem(new ItemBOPBoat(EntityBOPBoat.Type.MANGROVE), "boat_mangrove");
+    	boat_palm = registerItem(new ItemBOPBoat(EntityBOPBoat.Type.PALM), "boat_palm");
+    	boat_redwood = registerItem(new ItemBOPBoat(EntityBOPBoat.Type.REDWOOD), "boat_redwood");
+    	boat_willow = registerItem(new ItemBOPBoat(EntityBOPBoat.Type.WILLOW), "boat_willow");
+    	boat_pine = registerItem(new ItemBOPBoat(EntityBOPBoat.Type.PINE), "boat_pine");
+    	boat_hellbark = registerItem(new ItemBOPBoat(EntityBOPBoat.Type.HELLBARK), "boat_hellbark");
+    	boat_jacaranda = registerItem(new ItemBOPBoat(EntityBOPBoat.Type.JACARANDA), "boat_jacaranda");
+    	boat_mahogany = registerItem(new ItemBOPBoat(EntityBOPBoat.Type.MAHOGANY), "boat_mahogany");
+    	boat_ebony = registerItem(new ItemBOPBoat(EntityBOPBoat.Type.EBONY), "boat_ebony");
+    	boat_eucalyptus = registerItem(new ItemBOPBoat(EntityBOPBoat.Type.EUCALYPTUS), "boat_eucalyptus");
         
         biome_finder = registerItem(new ItemBiomeFinder(), "biome_finder");
         flower_basket = registerItem(new ItemFlowerBasket(), "flower_basket");

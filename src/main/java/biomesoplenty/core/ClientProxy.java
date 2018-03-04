@@ -25,6 +25,8 @@ import biomesoplenty.common.entities.EntityPixie;
 import biomesoplenty.common.entities.EntityWasp;
 import biomesoplenty.common.entities.RenderPixie;
 import biomesoplenty.common.entities.RenderWasp;
+import biomesoplenty.common.entities.item.EntityBOPBoat;
+import biomesoplenty.common.entities.item.RenderBOPBoat;
 import biomesoplenty.common.entities.projectiles.EntityMudball;
 import biomesoplenty.common.entities.projectiles.RenderMudball;
 import biomesoplenty.common.fluids.BloodFluid;
@@ -88,6 +90,7 @@ public class ClientProxy extends CommonProxy
         registerEntityRenderer(EntityWasp.class, RenderWasp.class);
         registerEntityRenderer(EntityPixie.class, RenderPixie.class);
         registerEntityRenderer(EntityMudball.class, RenderMudball.class);
+        registerEntityRenderer(EntityBOPBoat.class, RenderBOPBoat.class);
         
         replaceForgeResources();
     }
