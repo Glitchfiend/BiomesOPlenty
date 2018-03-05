@@ -39,7 +39,7 @@ public class BiomeGenFlowerIsland extends BOPOverworldBiome
 
     public BiomeGenFlowerIsland()
     {
-        super("flower_island", new PropsBuilder("Flower Island").withGuiColour(0x74D374).withTemperature(0.6F).withRainfall(0.8F));
+        super("flower_island", new PropsBuilder("Flower Island").withGuiColour(0x74D374).withTemperature(0.85F).withRainfall(0.8F));
 
         // terrain
         this.terrainSettings.avgHeight(70).heightVariation(10, 15).octaves(0, 0, 1, 1, 2, 2);

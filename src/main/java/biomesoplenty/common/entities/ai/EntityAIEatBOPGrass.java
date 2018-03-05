@@ -111,7 +111,7 @@ public class EntityAIEatBOPGrass extends EntityAIEatGrass
                     {
                         if (this.world.getGameRules().getBoolean("mobGriefing"))
                         {
-                            this.world.playEvent(2001, posDown, Block.getIdFromBlock(BOPBlocks.grass));
+                            this.world.playEvent(2001, posDown, Block.getIdFromBlock(Blocks.GRASS));
                             this.world.setBlockState(posDown, BlockBOPGrass.getDirtBlockState(stateDown), 2);
                         }
 
@@ -119,7 +119,7 @@ public class EntityAIEatBOPGrass extends EntityAIEatGrass
                     {
                         if (this.world.getGameRules().getBoolean("mobGriefing"))
                         {
-                            this.world.playEvent(2001, posDown, Block.getIdFromBlock(BOPBlocks.grass));
+                            this.world.playEvent(2001, posDown, Block.getIdFromBlock(Blocks.GRASS));
                             this.world.setBlockState(posDown, Blocks.DIRT.getDefaultState(), 2);
                         }
                     }

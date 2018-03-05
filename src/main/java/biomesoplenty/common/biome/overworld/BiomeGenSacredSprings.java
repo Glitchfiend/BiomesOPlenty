@@ -36,7 +36,7 @@ public class BiomeGenSacredSprings extends BOPOverworldBiome
 {
     public BiomeGenSacredSprings()
     {
-        super("sacred_springs", new PropsBuilder("Sacred Springs").withGuiColour(39259).withTemperature(0.8F).withRainfall(0.9F));
+        super("sacred_springs", new PropsBuilder("Sacred Springs").withGuiColour(39259).withTemperature(0.85F).withRainfall(0.9F));
 
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(10, 10);

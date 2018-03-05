@@ -62,6 +62,11 @@ public class ModCrafting
             }
         }
         
+        for (BOPGems gem : BOPGems.values())
+        {
+            GameRegistry.addSmelting(new ItemStack(BOPBlocks.gem_ore, 1, gem.ordinal()), new ItemStack(BOPItems.gem, 1, gem.ordinal()), 1.0F);
+        }
+        
         // Register items which can be used as fuel
         FurnaceFuelHandler bopFuel = new FurnaceFuelHandler();
         GameRegistry.registerFuelHandler(bopFuel);
@@ -73,6 +78,23 @@ public class ModCrafting
         bopFuel.addFuel(BOPBlocks.wood_slab_1, 150);
         // Note, we don't have to add all the other wood blocks - by default any block with Material = wood burns with value of 300
         // See TileEntityFurnace.getItemBurnTime()
+        
+        bopFuel.addFuel(BOPItems.boat_sacred_oak, 400);
+        bopFuel.addFuel(BOPItems.boat_cherry, 400);
+        bopFuel.addFuel(BOPItems.boat_umbran, 400);
+        bopFuel.addFuel(BOPItems.boat_fir, 400);
+        bopFuel.addFuel(BOPItems.boat_ethereal, 400);
+        bopFuel.addFuel(BOPItems.boat_magic, 400);
+        bopFuel.addFuel(BOPItems.boat_mangrove, 400);
+        bopFuel.addFuel(BOPItems.boat_palm, 400);
+        bopFuel.addFuel(BOPItems.boat_redwood, 400);
+        bopFuel.addFuel(BOPItems.boat_willow, 400);
+        bopFuel.addFuel(BOPItems.boat_pine, 400);
+        bopFuel.addFuel(BOPItems.boat_hellbark, 400);
+        bopFuel.addFuel(BOPItems.boat_jacaranda, 400);
+        bopFuel.addFuel(BOPItems.boat_mahogany, 400);
+        bopFuel.addFuel(BOPItems.boat_ebony, 400);
+        bopFuel.addFuel(BOPItems.boat_eucalyptus, 400);
 
         bopFuel.addFuel(BOPItems.ash, 400); // TODO: really? 400?  Ash is already burnt but burns better than wooden planks?
         

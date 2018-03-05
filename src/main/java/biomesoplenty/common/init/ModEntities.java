@@ -11,6 +11,7 @@ package biomesoplenty.common.init;
 import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.entities.EntityPixie;
 import biomesoplenty.common.entities.EntityWasp;
+import biomesoplenty.common.entities.item.EntityBOPBoat;
 import biomesoplenty.common.entities.projectiles.EntityMudball;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.entity.Entity;
@@ -29,6 +30,9 @@ public class ModEntities
     {
         // projectiles
         registerBOPEntity(EntityMudball.class, "mudball", 64, 10, true);
+        
+        // item entities
+        registerBOPEntity(EntityBOPBoat.class, "bop_boat", 80, 3, true);
 
         // mobs
         registerBOPEntityWithSpawnEgg(EntityWasp.class, "wasp", 80, 3, true, 0xE5B013, 0x333234);

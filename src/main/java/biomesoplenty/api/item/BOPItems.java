@@ -48,6 +48,23 @@ public class BOPItems
     public static Item pinecone;
     public static Item other_slab;
     
+    public static Item boat_sacred_oak;
+    public static Item boat_cherry;
+    public static Item boat_umbran;
+    public static Item boat_fir;
+    public static Item boat_ethereal;
+    public static Item boat_magic;
+    public static Item boat_mangrove;
+    public static Item boat_palm;
+    public static Item boat_redwood;
+    public static Item boat_willow;
+    public static Item boat_pine;
+    public static Item boat_hellbark;
+    public static Item boat_jacaranda;
+    public static Item boat_mahogany;
+    public static Item boat_ebony;
+    public static Item boat_eucalyptus;
+    
     public static Item sacred_oak_door;
     public static Item cherry_door;
     public static Item umbran_door;
