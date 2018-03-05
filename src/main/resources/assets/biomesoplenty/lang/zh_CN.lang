@@ -21,7 +21,7 @@ advancements.biomesoplenty.all_biomes.description=探索完超多生物群系的
 
 biome_finder.searching=寻找 %s
 biome_finder.found=找到 %s！
-biome_finder.not_found=抱歉无法找到，可能是 %s 是距离太遥远！
+biome_finder.not_found=抱歉无法找到，可能是 %s 距离太遥远！
 
 config.category.convenienceSettings.title=便捷设置
 config.category.guiSettings.title=GUI设置
