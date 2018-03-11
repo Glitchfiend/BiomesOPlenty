@@ -39,7 +39,7 @@ public class BiomeGenColdDesert extends BOPOverworldBiome
     
     public BiomeGenColdDesert()
     {
-        super("cold_desert", new PropsBuilder("Cold Desert").withGuiColour(0xB3AF9B).withTemperature(0.25F).withRainfall(0.0F).withRainDisabled());
+        super("cold_desert", new PropsBuilder("Cold Desert").withGuiColour(0xB3AF9B).withTemperature(0.2F).withRainfall(0.0F).withRainDisabled());
         
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;

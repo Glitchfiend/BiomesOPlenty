@@ -45,7 +45,7 @@ public class BiomeGenBayou extends BOPOverworldBiome
     
     public BiomeGenBayou()
     {
-        super("bayou", new PropsBuilder("Bayou").withGuiColour(0x7DAD51).withTemperature(0.85F).withRainfall(0.9F).withWaterColor(0xFFD932));
+        super("bayou", new PropsBuilder("Bayou").withGuiColour(0x7DAD51).withTemperature(0.95F).withRainfall(0.9F).withWaterColor(0xFFD932));
         
         // terrain
         this.terrainSettings.avgHeight(62).heightVariation(6, 3).octaves(1, 1, 1, 1, 0, 0).sidewaysNoise(0.0F);

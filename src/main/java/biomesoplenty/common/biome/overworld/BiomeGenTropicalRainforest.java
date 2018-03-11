@@ -37,7 +37,7 @@ public class BiomeGenTropicalRainforest extends BOPOverworldBiome
     
     public BiomeGenTropicalRainforest()
     {
-        super("tropical_rainforest", new PropsBuilder("Tropical Rainforest").withGuiColour(0x88E140).withTemperature(1.2F).withRainfall(1.0F).withWaterColor(0x5DFF00));
+        super("tropical_rainforest", new PropsBuilder("Tropical Rainforest").withGuiColour(0x88E140).withTemperature(1.0F).withRainfall(1.0F).withWaterColor(0x5DFF00));
 
         // terrain
         this.terrainSettings.avgHeight(67).heightVariation(10, 25);

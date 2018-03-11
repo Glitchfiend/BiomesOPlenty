@@ -49,7 +49,7 @@ public class BiomeGenShield extends BOPOverworldBiome
     
     public BiomeGenShield()
     {
-        super("shield", new PropsBuilder("Shield").withGuiColour(0x647F38).withTemperature(0.3F).withRainfall(0.8F));
+        super("shield", new PropsBuilder("Shield").withGuiColour(0x647F38).withTemperature(0.4F).withRainfall(0.8F));
 
         // terrain
         this.terrainSettings.avgHeight(63).heightVariation(10, 10).sidewaysNoise(0.1D).octaves(1, 4, 3, 1, 1, 0);

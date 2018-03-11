@@ -39,7 +39,7 @@ public class BiomeGenTropicalIsland extends BOPOverworldBiome
 {
     public BiomeGenTropicalIsland()
     {
-        super("tropical_island", new PropsBuilder("Tropical Island").withTemperature(1.0F).withRainfall(1.0F).withGuiColour(2211330));
+        super("tropical_island", new PropsBuilder("Tropical Island").withTemperature(0.95F).withRainfall(1.0F).withGuiColour(2211330));
 
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(5, 40).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.2D);

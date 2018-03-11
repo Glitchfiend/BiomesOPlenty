@@ -35,7 +35,7 @@ public class BiomeGenOutback extends BOPOverworldBiome
 {    
     public BiomeGenOutback()
     {
-        super("outback", new PropsBuilder("Outback").withGuiColour(0xA57644).withTemperature(1.5F).withRainfall(0.05F).withRainDisabled());
+        super("outback", new PropsBuilder("Outback").withGuiColour(0xA57644).withTemperature(2.0F).withRainfall(0.05F).withRainDisabled());
 
         // terrain
         this.terrainSettings.avgHeight(72).heightVariation(8, 10).octaves(0, 1, 2, 1, 0, 2);

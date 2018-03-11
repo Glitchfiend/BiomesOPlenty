@@ -42,7 +42,7 @@ public class BiomeGenAlps extends BOPOverworldBiome
     
     public BiomeGenAlps(AlpsType type)
     {
-        super(type.name().toLowerCase(), new PropsBuilder(CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, type.toString())).withGuiColour(13421772).withSnowEnabled().withTemperature(-0.5F).withRainfall(0.3F));
+        super(type.name().toLowerCase(), new PropsBuilder(CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, type.toString())).withGuiColour(13421772).withSnowEnabled().withTemperature(-0.25F).withRainfall(0.3F));
         
         this.type = type;
         

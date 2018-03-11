@@ -37,10 +37,10 @@ public class BiomeGenTundra extends BOPOverworldBiome
 {    
     public BiomeGenTundra()
     {
-        super("tundra", new PropsBuilder("Tundra").withGuiColour(0xA09456).withTemperature(0.2F).withRainfall(0.5F));
+        super("tundra", new PropsBuilder("Tundra").withGuiColour(0xA09456).withTemperature(0.25F).withRainfall(0.5F));
 
         // terrain
-        this.terrainSettings.avgHeight(64).heightVariation(5, 10).minHeight(59).octaves(2, 2, 1, 0, 1, 1);
+        this.terrainSettings.avgHeight(64).heightVariation(5, 10).minHeight(59);
         
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SILTY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY);
@@ -77,11 +77,6 @@ public class BiomeGenTundra extends BOPOverworldBiome
  
         // water plants
         this.addGenerator("water_reeds", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(BOPPlants.REED).generationAttempts(32).create());
-
-        // flowers
-        GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.1F);
-        this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
-        flowerGenerator.add("violet", 1, (new GeneratorFlora.Builder().with(BOPFlowers.VIOLET).create()));
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(1.3F);
@@ -113,8 +108,6 @@ public class BiomeGenTundra extends BOPOverworldBiome
         if (!settings.isEnabled(GeneratorType.PLANTS)) {this.removeGenerator("cattail"); this.removeGenerator("double_cattail"); this.removeGenerator("river_cane"); this.removeGenerator("tiny_cacti"); this.removeGenerator("roots"); this.removeGenerator("rafflesia"); this.removeGenerator("desert_sprouts");}
         
         if (!settings.isEnabled(GeneratorType.WATER_PLANTS)) {this.removeGenerator("algae"); this.removeGenerator("water_reeds"); this.removeGenerator("medium_lily"); this.removeGenerator("small_lily"); this.removeGenerator("tiny_lily");}
-        
-        if (!settings.isEnabled(GeneratorType.FLOWERS)) {this.removeGenerator("flowers");}
         
         GeneratorWeighted grassGen = (GeneratorWeighted)this.getGenerator("grass");
         if (!settings.isEnabled(GeneratorType.GRASSES)) {grassGen.removeGenerator("shortgrass"); grassGen.removeGenerator("mediumgrass"); grassGen.removeGenerator("wheatgrass"); grassGen.removeGenerator("dampgrass");}

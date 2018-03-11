@@ -32,7 +32,7 @@ public class BiomeGenMeadow extends BOPOverworldBiome
 {    
     public BiomeGenMeadow()
     {
-        super("meadow", new PropsBuilder("Meadow").withGuiColour(0x63B26D).withTemperature(0.45F).withRainfall(0.7F));
+        super("meadow", new PropsBuilder("Meadow").withGuiColour(0x63B26D).withTemperature(0.4F).withRainfall(0.7F));
 
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(5, 5).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.1D);

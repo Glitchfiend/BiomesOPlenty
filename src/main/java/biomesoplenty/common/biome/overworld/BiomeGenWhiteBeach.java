@@ -18,7 +18,7 @@ public class BiomeGenWhiteBeach extends BOPOverworldBiome
 {
     public BiomeGenWhiteBeach()
     {
-        super("white_beach", new PropsBuilder("White Beach").withTemperature(1.0F).withRainfall(1.0F).withGuiColour(0xF3F1E4));
+        super("white_beach", new PropsBuilder("White Beach").withTemperature(1.0F).withRainfall(0.95F).withGuiColour(0xF3F1E4));
 
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(1, 1);
