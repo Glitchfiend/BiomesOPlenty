@@ -254,109 +254,37 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
         BOPTrees tree = ((BOPTrees) state.getValue(this.variantProperty));
         switch (tree)
         {
-            case RED_BIG_FLOWER: case YELLOW_BIG_FLOWER:
-                break;
-            case YELLOW_AUTUMN:
+	        case FLOWERING: case JACARANDA: case MAHOGANY:
+	        	if (worldIn.rand.nextInt(chance) == 0)
+	            {
+	                fruit = new ItemStack(BOPItems.peach, 1, 0);
+	            }
+	        	break;
+            case MANGROVE: case WILLOW:
             	if (worldIn.rand.nextInt(chance) == 0)
                 {
-                    fruit = new ItemStack(BOPItems.persimmon, 1, 0);
+                    fruit = new ItemStack(BOPItems.pear, 1, 0);
                 }
             	break;
-            case ORANGE_AUTUMN:
-            	if (worldIn.rand.nextInt(chance) == 0)
-                {
-                    fruit = new ItemStack(BOPItems.persimmon, 1, 0);
-                }
-            	break;
-            case BAMBOO:
-            	break;
-            case MAGIC:
-            	break;
-            case UMBRAN:
-            	break;
-            case DEAD:
-            	if (worldIn.rand.nextInt(chance) == 0)
-                {
-                    fruit = new ItemStack(BOPItems.persimmon, 1, 0);
-                }
-            	break;
-            case FIR:
-            	if (worldIn.rand.nextInt(chance) == 0)
-                {
-                    fruit = new ItemStack(BOPItems.pinecone, 1, 0);
-                }
-            	break;
-            case ETHEREAL:
-            	break;
+	        case YELLOW_AUTUMN: case ORANGE_AUTUMN: case MAPLE: case DEAD:
+	        	if (worldIn.rand.nextInt(chance) == 0)
+	            {
+	                fruit = new ItemStack(BOPItems.persimmon, 1, 0);
+	            }
+	        	break;
             case ORIGIN:
             	if (worldIn.rand.nextInt(chance) == 0)
                 {
                     fruit = new ItemStack(Items.APPLE, 1, 0);
                 }
             	break;
-            case PINK_CHERRY:
-            	break;
-            case WHITE_CHERRY:
-            	break;
-            case MAPLE:
-            	if (worldIn.rand.nextInt(chance) == 0)
-                {
-                    fruit = new ItemStack(BOPItems.persimmon, 1, 0);
-                }
-            	break;
-            case HELLBARK:
-            	break;
-            case FLOWERING:
-            	if (worldIn.rand.nextInt(chance) == 0)
-                {
-                    fruit = new ItemStack(BOPItems.peach, 1, 0);
-                }
-            	break;
-            case JACARANDA:
-            	if (worldIn.rand.nextInt(chance) == 0)
-                {
-                    fruit = new ItemStack(BOPItems.peach, 1, 0);
-                }
-            	break;
-            case SACRED_OAK:
-            	break;
-            case MANGROVE:
-            	if (worldIn.rand.nextInt(chance) == 0)
-                {
-                    fruit = new ItemStack(BOPItems.pear, 1, 0);
-                }
-            	break;
-            case PALM:
-            	break;
-            case REDWOOD:
+            case FIR: case REDWOOD: case PINE:
             	if (worldIn.rand.nextInt(chance) == 0)
                 {
                     fruit = new ItemStack(BOPItems.pinecone, 1, 0);
-                }
-            	break;
-            case WILLOW:
-            	if (worldIn.rand.nextInt(chance) == 0)
-                {
-                    fruit = new ItemStack(BOPItems.pear, 1, 0);
-                }
-            	break;
-            case PINE:
-            	if (worldIn.rand.nextInt(chance) == 0)
-                {
-                    fruit = new ItemStack(BOPItems.pinecone, 1, 0);
-                }
-            	break;
-            case MAHOGANY:
-            	if (worldIn.rand.nextInt(chance) == 0)
-                {
-                    fruit = new ItemStack(BOPItems.peach, 1, 0);
                 }
             	break;
             default:
-                if (worldIn.rand.nextInt(chance) == 0)
-                {
-                    fruit = new ItemStack(Items.APPLE, 1, 0);
-                }
                 break;
         }
         

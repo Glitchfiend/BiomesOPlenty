@@ -15,6 +15,7 @@ import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.api.config.IConfigObj;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
+import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -89,8 +90,10 @@ public class GeneratorBush extends GeneratorTreeBase
                     //Randomly prevent the generation of leaves on the corners of each layer
                     if (Math.abs(x) < leavesRadius || Math.abs(z) < leavesRadius || random.nextInt(2) != 0)
                     {
+                    	this.leaves = this.leaves.withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
                     	if (this.altLeaves != null)
                     	{
+                    		this.altLeaves = this.altLeaves.withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
 	                    	if (random.nextInt(4) == 0)
 	                    	{
 	                    		this.setAltLeaves(world, pos.add(x, y, z));

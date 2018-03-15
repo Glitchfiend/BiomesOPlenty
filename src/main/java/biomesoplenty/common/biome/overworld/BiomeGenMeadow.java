@@ -53,7 +53,7 @@ public class BiomeGenMeadow extends BOPOverworldBiome
         // trees & logs
         GeneratorWeighted treeGenerator = new GeneratorWeighted(2);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("spruce_bush", 4, (new GeneratorBush.Builder()).maxHeight(2).log(BlockPlanks.EnumType.SPRUCE).leaves(BlockPlanks.EnumType.SPRUCE).create());
+        treeGenerator.add("oak_bush", 4, (new GeneratorBush.Builder()).maxHeight(2).create());
         treeGenerator.add("spruce", 4, (new GeneratorTaigaTree.Builder()).maxHeight(13).create()); // TODO: implement pine cones
  
         // grasses
