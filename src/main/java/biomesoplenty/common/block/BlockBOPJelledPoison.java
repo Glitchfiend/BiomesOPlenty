@@ -44,6 +44,7 @@ public class BlockBOPJelledPoison extends Block implements IBOPBlock
         super(Material.CLAY);
         this.setHardness(0.4F);
         this.setSoundType(SoundType.SLIME);
+        this.setHarvestLevel("pickaxe", 0);
         this.slipperiness = 0.9F;
     }
     

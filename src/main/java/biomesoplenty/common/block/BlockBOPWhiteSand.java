@@ -37,6 +37,7 @@ public class BlockBOPWhiteSand extends BlockFalling implements IBOPBlock
     {
         super(Material.SAND);
         this.setHardness(0.5F);
+        this.setHarvestLevel("shovel", 0);
         this.setSoundType(SoundType.SAND);
     }
     

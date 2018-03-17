@@ -93,6 +93,7 @@ public class BlockBOPWhiteSandstone extends Block implements IBOPBlock
         // set some defaults
         this.setHardness(0.8F);
         this.setSoundType(SoundType.STONE);
+        this.setHarvestLevel("pickaxe", 0);
         this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, StoneType.DEFAULT) );
     }
     

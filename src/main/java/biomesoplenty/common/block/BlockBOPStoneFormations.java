@@ -87,6 +87,7 @@ public class BlockBOPStoneFormations extends BlockBOPDecoration implements IBOPB
         // set some defaults
     	this.setHardness(1.0F);
     	this.setSoundType(SoundType.STONE);
+    	this.setHarvestLevel("pickaxe", 0);
         this.setDefaultState( this.blockState.getBaseState().withProperty(POSITION, FormationPosition.STALAGMITE_SMALL).withProperty(VARIANT, FormationType.STONE_FORMATION) );        
     }
     

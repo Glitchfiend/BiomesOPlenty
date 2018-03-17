@@ -43,6 +43,7 @@ public class BlockBOPHoney extends Block implements IBOPBlock
     public BlockBOPHoney() {
         super(Material.GLASS);
         this.setHardness(0.5F);
+        this.setHarvestLevel("pickaxe", 0);
         this.setSoundType(SoundType.STONE);
     }
     

@@ -55,6 +55,7 @@ public class BlockBOPFlesh extends Block implements IBOPBlock
     public BlockBOPFlesh() {
         super(Material.SPONGE);
         this.setHardness(0.4F);
+        this.setHarvestLevel("axe", 0);
         this.setSoundType(SoundType.SLIME);
     }
     
@@ -85,6 +86,4 @@ public class BlockBOPFlesh extends Block implements IBOPBlock
     {
         return random.nextInt(3);
     }
-
-    
 }

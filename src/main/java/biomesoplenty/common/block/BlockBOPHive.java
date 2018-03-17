@@ -83,6 +83,7 @@ public class BlockBOPHive extends Block implements IBOPBlock
         // set some defaults
         this.setHardness(0.5F);
         this.setSoundType(SoundType.PLANT);
+        this.setHarvestLevel("axe", 0);
         this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, HiveType.HIVE) );
     }
 
@@ -173,8 +174,4 @@ public class BlockBOPHive extends Block implements IBOPBlock
         }
         super.breakBlock(worldIn, pos, state);
     }
-    
-
-    
-
 }
