@@ -30,7 +30,7 @@ public class BlockQuicksandFluid extends BlockFluidClassic
         super(fluid, Material.WATER);
         
         this.quantaPerBlock = 3;
-        this.setLightOpacity(255);
+        this.setLightOpacity(0); // should be zero to prevent any light from passing through it
         this.renderLayer = BlockRenderLayer.SOLID;
         this.setHardness(0.5F);// match the hardness of vanilla sand
     }
