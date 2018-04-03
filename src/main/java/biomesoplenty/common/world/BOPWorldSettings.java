@@ -227,7 +227,7 @@ public class BOPWorldSettings implements IBOPWorldSettings
         this.generateBopWaterPlants = true; 
         this.generateBopMushrooms = true; 
         this.generateRockFormations = true; 
-        this.generatePoisonIvy = false;  
+        this.generatePoisonIvy = true;  
         this.generateBerryBushes = true;  
         this.generateThorns = true;  
         this.generateQuicksand = true; 
