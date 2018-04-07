@@ -11,6 +11,7 @@ package biomesoplenty.common.biome.overworld;
 import biomesoplenty.api.config.IBOPWorldSettings;
 import biomesoplenty.api.config.IBOPWorldSettings.GeneratorType;
 import biomesoplenty.api.enums.BOPClimates;
+import biomesoplenty.api.enums.BOPFlowers;
 import biomesoplenty.api.enums.BOPGems;
 import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.generation.GeneratorStage;
@@ -36,15 +37,20 @@ public class BiomeGenFlowerField extends BOPOverworldBiome
         this.canGenerateVillages = false;
         
         // flowers
-        GeneratorWeighted flowerGenerator = new GeneratorWeighted(50);
+        GeneratorWeighted flowerGenerator = new GeneratorWeighted(45);
         this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
-        flowerGenerator.add("pink_tulip", 2, (new GeneratorFlora.Builder().with(EnumFlowerType.PINK_TULIP).create()));
-        flowerGenerator.add("white_tulip", 5, (new GeneratorFlora.Builder().with(EnumFlowerType.WHITE_TULIP).create()));
-        flowerGenerator.add("orange_tulip", 7, (new GeneratorFlora.Builder().with(EnumFlowerType.ORANGE_TULIP).create()));
-        flowerGenerator.add("red_tulip", 10, (new GeneratorFlora.Builder().with(EnumFlowerType.RED_TULIP).create()));
+        flowerGenerator.add("pink_tulip", 5, (new GeneratorFlora.Builder().with(EnumFlowerType.PINK_TULIP).create()));
+        flowerGenerator.add("white_tulip", 8, (new GeneratorFlora.Builder().with(EnumFlowerType.WHITE_TULIP).create()));
+        flowerGenerator.add("orange_tulip", 10, (new GeneratorFlora.Builder().with(EnumFlowerType.ORANGE_TULIP).create()));
+        flowerGenerator.add("red_tulip", 13, (new GeneratorFlora.Builder().with(EnumFlowerType.RED_TULIP).create()));
+        flowerGenerator.add("oxeye_daisy", 2, (new GeneratorFlora.Builder().with(EnumFlowerType.OXEYE_DAISY).create()));
+        flowerGenerator.add("dandelion", 2, (new GeneratorFlora.Builder().with(EnumFlowerType.DANDELION).create()));
+        flowerGenerator.add("poppy", 2, (new GeneratorFlora.Builder().with(EnumFlowerType.POPPY).create()));
+        flowerGenerator.add("white_anemone", 1, (new GeneratorFlora.Builder().with(BOPFlowers.WHITE_ANEMONE)).create());
+        flowerGenerator.add("houstonia", 1, (new GeneratorFlora.Builder().with(EnumFlowerType.HOUSTONIA).create()));
         
         // grasses
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(15.0F);
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(25.0F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("shortgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
         grassGenerator.add("mediumgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());
