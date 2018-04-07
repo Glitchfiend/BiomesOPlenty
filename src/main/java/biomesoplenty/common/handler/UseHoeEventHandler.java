@@ -80,6 +80,7 @@ public class UseHoeEventHandler
 
             world.playSound(event.getEntityPlayer(), pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
             event.getEntityPlayer().swingArm(PlayerUtil.getHandForItemAndMeta(event.getEntityPlayer(), event.getCurrent().getItem(), event.getCurrent().getMetadata()));
+            event.getCurrent().damageItem(1, event.getEntityPlayer());
         }
     }
 }
