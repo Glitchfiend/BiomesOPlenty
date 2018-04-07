@@ -60,6 +60,7 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelDynBucket;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.ForgeModContainer;
@@ -194,26 +195,26 @@ public class ClientProxy extends CommonProxy
             }
         });
     }
-
+    
     @Override
-    public void spawnParticle(BOPParticleTypes type, double x, double y, double z, Object... info)
+    public void spawnParticle(BOPParticleTypes type, World parWorld, double x, double y, double z, Object... info)
     {
         Minecraft minecraft = Minecraft.getMinecraft();
         Particle entityFx = null;
         switch (type)
         {
         case PIXIETRAIL:
-            entityFx = new EntityPixieTrailFX(minecraft.world, x, y, z, MathHelper.nextDouble(minecraft.world.rand, -0.03, 0.03), -0.02D, MathHelper.nextDouble(minecraft.world.rand, -0.03, 0.03));
+            entityFx = new EntityPixieTrailFX(parWorld, x, y, z, MathHelper.nextDouble(parWorld.rand, -0.03, 0.03), -0.02D, MathHelper.nextDouble(parWorld.rand, -0.03, 0.03));
             break;
         case MUD:
             int itemId = Item.getIdFromItem(BOPItems.mudball);
-            minecraft.world.spawnParticle(EnumParticleTypes.ITEM_CRACK, x, y, z, MathHelper.nextDouble(minecraft.world.rand, -0.08D, 0.08D), MathHelper.nextDouble(minecraft.world.rand, -0.08D, 0.08D), MathHelper.nextDouble(minecraft.world.rand, -0.08D, 0.08D), itemId);
+            minecraft.world.spawnParticle(EnumParticleTypes.ITEM_CRACK, x, y, z, MathHelper.nextDouble(parWorld.rand, -0.08D, 0.08D), MathHelper.nextDouble(parWorld.rand, -0.08D, 0.08D), MathHelper.nextDouble(parWorld.rand, -0.08D, 0.08D), itemId);
             return;
         case PLAYER_TRAIL:
             if (info.length < 1)
                 throw new RuntimeException("Missing argument for trail name!");
 
-            entityFx = new EntityTrailFX(minecraft.world, x, y, z, (String)info[0]);
+            entityFx = new EntityTrailFX(parWorld, x, y, z, (String)info[0]);
             break;
         default:
             break;

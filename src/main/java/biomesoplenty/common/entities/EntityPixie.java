@@ -17,10 +17,14 @@ import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.api.particle.BOPParticleTypes;
 import biomesoplenty.api.sound.BOPSounds;
 import biomesoplenty.core.BiomesOPlenty;
-import net.minecraft.entity.EntityFlying;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.MoverType;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityMoveHelper;
 import net.minecraft.entity.monster.IMob;
+import net.minecraft.entity.passive.EntityAmbientCreature;
 import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumFacing;
@@ -28,10 +32,9 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 
-public class EntityPixie extends EntityFlying implements IMob {
+public class EntityPixie extends EntityAmbientCreature implements IMob {
     
     public EntityPixie(World worldIn) {
         super(worldIn);
@@ -45,7 +48,7 @@ public class EntityPixie extends EntityFlying implements IMob {
     protected void applyEntityAttributes()
     {
         super.applyEntityAttributes();
-        // TODO: get right value here   this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(10.0D); 
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(0.5D);
     }
     
     @Override
@@ -70,14 +73,12 @@ public class EntityPixie extends EntityFlying implements IMob {
     public void onLivingUpdate()
     {
         super.onLivingUpdate();
+        
         if (this.world.isRemote)
         {
-            for (int i = 0; i < 7; i++)
+            if (world.rand.nextInt(2) == 0)
             {
-                if (this.rand.nextInt(2)==0)
-                {
-                    BiomesOPlenty.proxy.spawnParticle(BOPParticleTypes.PIXIETRAIL, this.posX + (this.rand.nextDouble()) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height - 0.25D, this.posZ + (this.rand.nextDouble()) * (double)this.width);
-                }
+            	BiomesOPlenty.proxy.spawnParticle(BOPParticleTypes.PIXIETRAIL, this.world, this.posX + (this.rand.nextDouble() - 0.5D) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * (double)this.width, 0.0D, 0.0D, 0.0D, new int[0]);
             }
         }
     }
@@ -106,10 +107,110 @@ public class EntityPixie extends EntityFlying implements IMob {
         }
     }
         
-    
-    // TODO - move PixieMoveTargetPos and AIPixieRandomFly outside and implement in a more generic way, to be reused for pixie and wasp 
+    @Override
+    public boolean canBePushed()
+    {
+        return false;
+    }
 
+    @Override
+    protected void collideWithEntity(Entity entityIn)
+    {
+    }
+
+    @Override
+    protected void collideWithNearbyEntities()
+    {
+    }
     
+    @Override
+    protected boolean canTriggerWalking()
+    {
+        return false;
+    }
+    
+    @Override
+    public void fall(float distance, float damageMultiplier)
+    {
+    }
+
+    @Override
+    protected void updateFallState(double y, boolean onGroundIn, IBlockState state, BlockPos pos)
+    {
+    }
+
+    @Override
+    public boolean doesEntityNotTriggerPressurePlate()
+    {
+        return true;
+    }
+    
+    @Override
+    public boolean isOnLadder()
+    {
+        return false;
+    }
+    
+    @Override
+    public void travel(float strafe, float vertical, float forward)
+    {
+        if (this.isInWater())
+        {
+            this.moveRelative(strafe, vertical, forward, 0.02F);
+            this.move(MoverType.SELF, this.motionX, this.motionY, this.motionZ);
+            this.motionX *= 0.800000011920929D;
+            this.motionY *= 0.800000011920929D;
+            this.motionZ *= 0.800000011920929D;
+        }
+        else if (this.isInLava())
+        {
+            this.moveRelative(strafe, vertical, forward, 0.02F);
+            this.move(MoverType.SELF, this.motionX, this.motionY, this.motionZ);
+            this.motionX *= 0.5D;
+            this.motionY *= 0.5D;
+            this.motionZ *= 0.5D;
+        }
+        else
+        {
+            float f = 0.91F;
+
+            if (this.onGround)
+            {
+                BlockPos underPos = new BlockPos(MathHelper.floor(this.posX), MathHelper.floor(this.getEntityBoundingBox().minY) - 1, MathHelper.floor(this.posZ));
+                IBlockState underState = this.world.getBlockState(underPos);
+                f = underState.getBlock().getSlipperiness(underState, this.world, underPos, this) * 0.91F;
+            }
+
+            float f1 = 0.16277136F / (f * f * f);
+            this.moveRelative(strafe, vertical, forward, this.onGround ? 0.1F * f1 : 0.02F);
+            f = 0.91F;
+
+            if (this.onGround)
+            {
+                BlockPos underPos = new BlockPos(MathHelper.floor(this.posX), MathHelper.floor(this.getEntityBoundingBox().minY) - 1, MathHelper.floor(this.posZ));
+                IBlockState underState = this.world.getBlockState(underPos);
+                f = underState.getBlock().getSlipperiness(underState, this.world, underPos, this) * 0.91F;
+            }
+
+            this.move(MoverType.SELF, this.motionX, this.motionY, this.motionZ);
+            this.motionX *= (double)f;
+            this.motionY *= (double)f;
+            this.motionZ *= (double)f;
+        }
+
+        this.prevLimbSwingAmount = this.limbSwingAmount;
+        double d1 = this.posX - this.prevPosX;
+        double d0 = this.posZ - this.prevPosZ;
+        float f2 = MathHelper.sqrt(d1 * d1 + d0 * d0) * 4.0F;
+
+        if (f2 > 1.0F)
+        {
+            f2 = 1.0F;
+        }
+
+        this.limbSwingAmount += (f2 - this.limbSwingAmount) * 0.4F;
+        this.limbSwing += this.limbSwingAmount;
+    }
     
     // Helper class representing a point in space that the pixie is targeting for some reason
     class PixieMoveTargetPos

@@ -19,6 +19,7 @@ import net.minecraftforge.fml.client.FMLClientHandler;
 
 public class EntityPixieTrailFX extends Particle
 {
+	private float defaultParticleScale;
     
     public EntityPixieTrailFX(World world, double xCoordIn, double yCoordIn, double zCoordIn, double motionXIn, double motionYIn, double motionZIn)
     {
@@ -41,13 +42,13 @@ public class EntityPixieTrailFX extends Particle
         this.motionZ += motionZIn;
         this.particleScale *= 0.75F;
         this.particleScale *= par14;
+        this.defaultParticleScale = this.particleScale;
         this.particleMaxAge = (int)((8.0D / (Math.random() * 0.8D + 0.2D)) * 8);
         this.particleMaxAge = (int)((float)this.particleMaxAge * par14);
-        this.particleAge = (particleMaxAge / 2) + (particleMaxAge / 2) * world.rand.nextInt(7);
+        this.particleAge = world.rand.nextInt(3);
         this.particleAlpha = 1.0F;
-        this.particleRed = 1.0F;
-        this.particleGreen = 1.0F;
-        this.particleBlue = 1.0F;
+        this.particleGravity = 0.02F;
+        this.canCollide = false;
     }
     
     @Override
@@ -61,10 +62,10 @@ public class EntityPixieTrailFX extends Particle
     {
         // EffectRenderer will by default bind the vanilla particles texture, override with our own
         FMLClientHandler.instance().getClient().renderEngine.bindTexture(ClientProxy.particleTexturesLocation);
-        
+
         float scaleMultiplier = ((float)this.particleAge + partialTicks) / (float)this.particleMaxAge * 32.0F;
         scaleMultiplier = MathHelper.clamp(scaleMultiplier, 0.0F, 1.0F);
-        this.particleScale = this.particleScale * scaleMultiplier;
+        this.particleScale = this.defaultParticleScale * scaleMultiplier;
         
         GlStateManager.depthMask(false);
         GlStateManager.enableBlend();
@@ -74,13 +75,12 @@ public class EntityPixieTrailFX extends Particle
 
         GlStateManager.disableBlend();
         GlStateManager.depthMask(true);
-
     }
     
     @Override
     public int getBrightnessForRender(float p_189214_1_)
     {
-        float f = ((float)this.particleAge + p_189214_1_) / (float)this.particleMaxAge;
+        float f = (float)this.particleMaxAge - (((float)this.particleAge + p_189214_1_) / (float)this.particleMaxAge);
         f = MathHelper.clamp(f, 0.0F, 1.0F);
         int i = super.getBrightnessForRender(p_189214_1_);
         int j = i & 255;
@@ -107,7 +107,7 @@ public class EntityPixieTrailFX extends Particle
             this.setExpired();
         }
 
-        this.particleTextureIndexX = 7 - particleAge * 8 / particleMaxAge;
+        this.particleTextureIndexX = 7 - this.particleAge * 8 / this.particleMaxAge;
         this.move(motionX, motionY, motionZ);
 
         if (posY == prevPosY)
@@ -120,12 +120,11 @@ public class EntityPixieTrailFX extends Particle
         motionY *= 0.9599999785423279D;
         motionZ *= 0.9599999785423279D;
 
-        if (this.onGround)
+        if (onGround)
         {
             motionX *= 0.699999988079071D;
             motionZ *= 0.699999988079071D;
         }
     }
-    
     
 }

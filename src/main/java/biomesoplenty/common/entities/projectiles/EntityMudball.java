@@ -46,7 +46,7 @@ public class EntityMudball extends EntityThrowable
         {
             for (int i = 0; i < 8; ++i)
             {
-                BiomesOPlenty.proxy.spawnParticle(BOPParticleTypes.MUD, this.posX, this.posY, this.posZ);
+                BiomesOPlenty.proxy.spawnParticle(BOPParticleTypes.MUD, this.world, this.posX, this.posY, this.posZ);
             }
         }
     }
