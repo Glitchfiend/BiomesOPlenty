@@ -14,8 +14,10 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.api.config.IConfigObj;
+import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryBlock;
+import net.minecraft.block.BlockGrass;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -92,7 +94,25 @@ public class GeneratorWaterside extends GeneratorReplacing
                             // If the current block is applicable, replace it
                             if (this.replace.matches(world, posToReplace))
                             {
-                                world.setBlockState(posToReplace, this.with, 2);
+                            	IBlockState dirt = this.with;
+                            	
+                            	if (this.with.getBlock() == Blocks.GRASS)
+                            	{
+                            		dirt = Blocks.DIRT.getDefaultState();
+                            	}
+                            	if (this.with.getBlock() == BOPBlocks.grass)
+                            	{
+                            		dirt = BlockBOPGrass.getDirtBlockState(this.with);
+                            	}
+                            	
+                            	if (world.getBlockState(posToReplace.up()).getBlock() != Blocks.AIR)
+                            	{
+                            		world.setBlockState(posToReplace, dirt, 2);
+                            	}
+                            	else
+                            	{
+                            		world.setBlockState(posToReplace, this.with, 2);
+                            	}
                             }
                         }
                     }
