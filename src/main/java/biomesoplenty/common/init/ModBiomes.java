@@ -80,6 +80,7 @@ import biomesoplenty.common.biome.overworld.BiomeGenOrchard;
 import biomesoplenty.common.biome.overworld.BiomeGenOriginIsland;
 import biomesoplenty.common.biome.overworld.BiomeGenOutback;
 import biomesoplenty.common.biome.overworld.BiomeGenOvergrownCliffs;
+import biomesoplenty.common.biome.overworld.BiomeGenPasture;
 import biomesoplenty.common.biome.overworld.BiomeGenPrairie;
 import biomesoplenty.common.biome.overworld.BiomeGenQuagmire;
 import biomesoplenty.common.biome.overworld.BiomeGenRainforest;
@@ -322,11 +323,13 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         
         alps_foothills = registerOverworldBiome(new BiomeGenAlps(BiomeGenAlps.AlpsType.ALPS_FOOTHILLS));
         mountain_foothills = registerOverworldBiome(new BiomeGenMountain(BiomeGenMountain.MountainType.MOUNTAIN_FOOTHILLS));
+        pasture = registerOverworldBiome(new BiomeGenPasture());
         glacier = registerOverworldBiome(new BiomeGenGlacier());
         oasis = registerOverworldBiome(new BiomeGenOasis());
         coral_reef = registerOverworldBiome(new BiomeGenCoralReef());
         kelp_forest = registerOverworldBiome(new BiomeGenKelpForest());
 
+        setSubBiome(BOPBiomes.prairie, BOPBiomes.pasture);
         setSubBiome(Optional.of(Biomes.ICE_PLAINS), BOPBiomes.glacier);
         setSubBiome(Optional.of(Biomes.DESERT), BOPBiomes.oasis);
         setSubBiome(Optional.of(Biomes.OCEAN), BOPBiomes.coral_reef);
@@ -448,6 +451,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         // edge-biomes, sub-biomes and mutated-biomes
         registerBiomeToDictionary(BOPBiomes.alps_foothills, Type.MOUNTAIN, Type.SNOWY, Type.FOREST, Type.SPARSE, Type.COLD, Type.DRY);
         registerBiomeToDictionary(BOPBiomes.mountain_foothills, Type.HILLS, Type.MOUNTAIN, Type.FOREST, Type.DRY, Type.SPARSE);
+        registerBiomeToDictionary(BOPBiomes.pasture, Type.PLAINS, Type.DRY, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.glacier, Type.SNOWY, Type.WASTELAND, Type.COLD);
         registerBiomeToDictionary(BOPBiomes.oasis, Type.SANDY, Type.LUSH, Type.JUNGLE, Type.HOT, Type.WET, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.coral_reef, Type.WATER, Type.OCEAN);

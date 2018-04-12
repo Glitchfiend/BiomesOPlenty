@@ -31,11 +31,11 @@ import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 
-public class BiomeGenPrairie extends BOPOverworldBiome
+public class BiomeGenPasture extends BOPOverworldBiome
 {
-    public BiomeGenPrairie()
+    public BiomeGenPasture()
     {
-        super("prairie", new PropsBuilder("Prairie").withGuiColour(0xC8E580).withTemperature(0.8F).withRainfall(0.3F));
+        super("pasture", new PropsBuilder("Pasture").withGuiColour(0xC8E580).withTemperature(0.8F).withRainfall(0.3F));
 
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(4, 6);
@@ -43,44 +43,25 @@ public class BiomeGenPrairie extends BOPOverworldBiome
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SILTY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY);
         
-        this.addWeight(BOPClimates.WARM_TEMPERATE, 7);
+        this.canGenerateVillages = false;
+        this.hasBiomeEssence = false;
         
-        this.canGenerateVillages = true;
+        this.spawnableCreatureList.clear();
         
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 1, 2, 6));
-        
-        // sand
-        this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.SAND.getDefaultState()).create());
-        
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(0.3F);
-        this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("oak_tree", 3, (new GeneratorBigTree.Builder()).minHeight(7).maxHeight(12).foliageHeight(1).create());
-        
+        clearWeights();
+
         // grasses
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(10);
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(0.5F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("shortgrass", 2, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
         grassGenerator.add("mediumgrass", 3, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());        
         grassGenerator.add("wheatgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.WHEATGRASS).create());
         grassGenerator.add("tallgrass", 6, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).create());
-        
-        this.addGenerator("doublegrass", GeneratorStage.GRASS,(new GeneratorDoubleFlora.Builder()).amountPerChunk(0.5F).with(BlockDoublePlant.EnumPlantType.GRASS).generationAttempts(128).create());
-        
-        this.addGenerator("goldenrods", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).with(BOPFlowers.GOLDENROD).generationAttempts(64).create());
-        
-        // flowers
-        GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.4F);
-        this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
-        flowerGenerator.add("white_anemones", 1, (new GeneratorFlora.Builder().with(BOPFlowers.WHITE_ANEMONE).generationAttempts(16).create()));
-        flowerGenerator.add("houstonia", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.HOUSTONIA).create()));
-        flowerGenerator.add("oxeye_daisy", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.OXEYE_DAISY).create()));
-        flowerGenerator.add("dandelion", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.DANDELION).create()));
-        flowerGenerator.add("poppy", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.POPPY).create()));
+
+        this.addGenerator("barley", GeneratorStage.GRASS,(new GeneratorFlora.Builder()).amountPerChunk(45.0F).with(BOPPlants.BARLEY).create());
         
         // other plants
-        this.addGenerator("shrubs", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BOPPlants.SHRUB).create());
         this.addGenerator("water_reeds", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(1).with(BOPPlants.REED).generationAttempts(32).create());
-        this.addGenerator("flax", GeneratorStage.FLOWERS, (new GeneratorDoubleFlora.Builder()).amountPerChunk(0.2F).with(BlockBOPDoublePlant.DoublePlantType.FLAX).generationAttempts(8).create());
         
         // gem
         this.addGenerator("peridot", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.PERIDOT).create());

@@ -81,6 +81,7 @@ public class BOPBiomes
     // edge-biomes, sub-biomes and mutated-biomes
     public static Optional<Biome> alps_foothills = Optional.absent();
     public static Optional<Biome> mountain_foothills = Optional.absent();
+    public static Optional<Biome> pasture = Optional.absent();
     public static Optional<Biome> glacier = Optional.absent();
     public static Optional<Biome> oasis = Optional.absent();
     public static Optional<Biome> coral_reef = Optional.absent();

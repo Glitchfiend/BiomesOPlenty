@@ -10,6 +10,7 @@
         "variant=devilweed": { "model": "biomesoplenty:devilweed" },
         "variant=reed": { "model": "biomesoplenty:reed" },
         "variant=root": { "model": "biomesoplenty:root" },
-		"variant=rafflesia": { "model": "biomesoplenty:rafflesia" }
+		"variant=rafflesia": { "model": "biomesoplenty:rafflesia" },
+		"variant=barley": { "model": "biomesoplenty:barley" }
     }
 }
