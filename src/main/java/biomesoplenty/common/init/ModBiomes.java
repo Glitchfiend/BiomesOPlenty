@@ -76,6 +76,7 @@ import biomesoplenty.common.biome.overworld.BiomeGenMysticGrove;
 import biomesoplenty.common.biome.overworld.BiomeGenOasis;
 import biomesoplenty.common.biome.overworld.BiomeGenOminousWoods;
 import biomesoplenty.common.biome.overworld.BiomeGenOrchard;
+import biomesoplenty.common.biome.overworld.BiomeGenOriginBeach;
 import biomesoplenty.common.biome.overworld.BiomeGenOriginIsland;
 import biomesoplenty.common.biome.overworld.BiomeGenOutback;
 import biomesoplenty.common.biome.overworld.BiomeGenOvergrownCliffs;
@@ -265,6 +266,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         
         gravel_beach = registerOverworldBiome(new BiomeGenGravelBeach());
         white_beach = registerOverworldBiome(new BiomeGenWhiteBeach());
+        origin_beach = registerOverworldBiome(new BiomeGenOriginBeach());
         
         // normal biomes which have weights
         alps = registerOverworldBiome(new BiomeGenAlps(BiomeGenAlps.AlpsType.ALPS));
@@ -466,6 +468,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         registerBiomeToDictionary(BOPBiomes.origin_island, Type.WATER, Type.FOREST, Type.RARE);
         registerBiomeToDictionary(BOPBiomes.gravel_beach, Type.BEACH);
         registerBiomeToDictionary(BOPBiomes.white_beach, Type.BEACH);
+        registerBiomeToDictionary(BOPBiomes.origin_beach, Type.BEACH, Type.RARE);
         
         registerBiomeToDictionary(BOPBiomes.corrupted_sands, Type.NETHER, Type.HOT, Type.DRY, Type.SANDY, Type.SPOOKY);
         registerBiomeToDictionary(BOPBiomes.fungi_forest, Type.NETHER, Type.HOT, Type.MUSHROOM, Type.DENSE);

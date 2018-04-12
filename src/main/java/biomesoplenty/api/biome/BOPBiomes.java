@@ -92,6 +92,7 @@ public class BOPBiomes
     public static Optional<Biome> flower_island = Optional.absent();
     public static Optional<Biome> gravel_beach = Optional.absent();
     public static Optional<Biome> white_beach = Optional.absent();
+    public static Optional<Biome> origin_beach = Optional.absent();
 
     // nether biomes
     public static Optional<Biome> corrupted_sands = Optional.absent();

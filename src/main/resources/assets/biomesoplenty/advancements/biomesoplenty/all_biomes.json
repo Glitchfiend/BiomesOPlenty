@@ -362,6 +362,12 @@
                 "biome": "biomesoplenty:kelp_forest"
             }
         },
+		"pasture": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:pasture"
+            }
+        },
 		"glacier": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -384,6 +390,12 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:white_beach"
+            }
+        },
+		"white_beach": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:origin_beach"
             }
         },
 		"mountain_foothills": {
