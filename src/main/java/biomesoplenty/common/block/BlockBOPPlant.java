@@ -242,7 +242,15 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
                 }
                 break;
                 
-            case CATTAIL: case RIVERCANE: case TINYCACTUS: case REED: case ROOT: case RAFFLESIA: case BARLEY:
+            case BARLEY:
+                if (rand.nextInt(3) == 0)
+                {
+                    // 1 in 8 chance of getting a seed from this grass
+                    ret.add(new ItemStack(Items.WHEAT_SEEDS));
+                }
+                break;
+                
+            case CATTAIL: case RIVERCANE: case TINYCACTUS: case REED: case ROOT: case RAFFLESIA:
                 // these variants drop themselves as items
                 ret.add(paging.getVariantItem(plant));
                 break;
