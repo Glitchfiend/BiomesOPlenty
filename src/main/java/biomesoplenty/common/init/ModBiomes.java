@@ -20,7 +20,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import org.apache.commons.io.FileUtils;
 
 import com.google.common.base.Optional;
@@ -102,6 +101,7 @@ import biomesoplenty.common.biome.overworld.BiomeGenWetland;
 import biomesoplenty.common.biome.overworld.BiomeGenWhiteBeach;
 import biomesoplenty.common.biome.overworld.BiomeGenWoodland;
 import biomesoplenty.common.biome.overworld.BiomeGenXericShrubland;
+import biomesoplenty.common.biome.vanilla.BiomeExtBeach;
 import biomesoplenty.common.biome.vanilla.BiomeExtBirchForest;
 import biomesoplenty.common.biome.vanilla.BiomeExtBirchForestHills;
 import biomesoplenty.common.biome.vanilla.BiomeExtColdTaiga;
@@ -144,6 +144,7 @@ import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.DimensionManager;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class ModBiomes implements BOPBiomes.IBiomeRegistry
 {
@@ -389,6 +390,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         taiga_extension = registerWrappedBiome(new BiomeExtTaiga());
         taiga_hills_extension = registerWrappedBiome(new BiomeExtTaigaHills());
         hell_extension = registerWrappedBiome(new BiomeExtHell());
+        beach_extension = registerWrappedBiome(new BiomeExtBeach());
     }
     
     private static void registerBiomeDictionaryTags()

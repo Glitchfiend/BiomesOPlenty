@@ -131,6 +131,7 @@ public class BOPBiomes
     public static IExtendedBiome mega_taiga_extension;
     public static IExtendedBiome mega_taiga_hills_extension;
     public static IExtendedBiome hell_extension;
+    public static IExtendedBiome beach_extension;
     
     private static IBiomeRegistry createRegistry()
     {

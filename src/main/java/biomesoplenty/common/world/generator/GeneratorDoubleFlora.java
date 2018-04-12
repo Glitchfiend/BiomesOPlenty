@@ -22,6 +22,7 @@ import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockDoublePlant;
+import net.minecraft.block.BlockGrass;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -93,6 +94,28 @@ public class GeneratorDoubleFlora extends GeneratorReplacing
         {
             BlockPos genPos = pos.add(random.nextInt(8) - random.nextInt(8), random.nextInt(4) - random.nextInt(4), random.nextInt(8) - random.nextInt(8));
 
+            if (this.with == BOPBlocks.double_plant.getDefaultState().withProperty(BlockBOPDoublePlant.VARIANT, BlockBOPDoublePlant.DoublePlantType.SEA_OATS).withProperty(BlockBOPDoublePlant.HALF, BlockBOPDoubleDecoration.Half.LOWER))
+            {
+            	boolean grassCheck = false;
+            	
+            	for (int x = -4; x < 4; ++x)
+            	{
+	            	for (int y = -4; y < 4; ++y)
+		            {
+	            		for (int z = -4; z < 4; ++z)
+	            		{
+			            	if (world.getBlockState(genPos.down().add(x, y, z)).getBlock() instanceof BlockGrass)
+			            	{
+			            		grassCheck = true;
+			            		break;
+			            	}
+	            		}
+		            }
+            	}
+            	
+            	if (!grassCheck) { return false; }
+            }
+            
             if (this.placeOn.matches(world, genPos.down()) && this.replace.matches(world, genPos) && this.replace.matches(world, genPos.up()) && genPos.getY() < 254)
             {
                 boolean canStay;
