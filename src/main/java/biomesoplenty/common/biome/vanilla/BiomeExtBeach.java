@@ -20,7 +20,7 @@ public class BiomeExtBeach extends ExtendedBiomeWrapper
     {
         super(Biomes.BEACH);
 
-        this.addGenerator("sea_oats", GeneratorStage.FLOWERS,(new GeneratorDoubleFlora.Builder()).amountPerChunk(10.0F).placeOn(Blocks.SAND.getDefaultState()).with(BlockBOPDoublePlant.DoublePlantType.SEA_OATS).generationAttempts(128).create());
+        this.addGenerator("sea_oats", GeneratorStage.FLOWERS,(new GeneratorDoubleFlora.Builder()).amountPerChunk(6.0F).placeOn(Blocks.SAND.getDefaultState()).with(BlockBOPDoublePlant.DoublePlantType.SEA_OATS).generationAttempts(96).create());
     }
 }
 
