@@ -61,13 +61,13 @@ public class BiomeFungiForest extends BOPHellBiome
 
         // shrooms
         IBlockPosQuery surfaceBlocks = BlockQuery.buildOr().states(this.topBlock).create();
-        this.addGenerator("glowshroom", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(1.25F).generationAttempts(16).with(BlockBOPMushroom.MushroomType.GLOWSHROOM).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
+        this.addGenerator("glowshroom", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(2.5F).generationAttempts(16).with(BlockBOPMushroom.MushroomType.GLOWSHROOM).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
         this.addGenerator("flat_mushroom", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).generationAttempts(16).with(BlockBOPMushroom.MushroomType.FLAT_MUSHROOM).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
         this.addGenerator("toadstools", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).generationAttempts(16).with(BlockBOPMushroom.MushroomType.TOADSTOOL).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
         this.addGenerator("red_mushrooms", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(5.0F).generationAttempts(16).with(Blocks.RED_MUSHROOM.getDefaultState()).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
         this.addGenerator("brown_mushrooms", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(2.0F).generationAttempts(16).with(Blocks.BROWN_MUSHROOM.getDefaultState()).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
         this.addGenerator("big_brown_mushroom", GeneratorStage.BIG_SHROOM,(new GeneratorBigMushroom.Builder()).amountPerChunk(2.0F).mushroomType(GeneratorBigMushroom.BigMushroomType.BROWN).scatterYMethod(ScatterYMethod.NETHER_SURFACE).placeOn(surfaceBlocks).create());
-        this.addGenerator("big_red_mushroom", GeneratorStage.BIG_SHROOM,(new GeneratorBigMushroom.Builder()).amountPerChunk(25.0F).mushroomType(GeneratorBigMushroom.BigMushroomType.RED).scatterYMethod(ScatterYMethod.NETHER_SURFACE).minHeight(5).maxHeight(25).placeOn(surfaceBlocks).create());
+        this.addGenerator("big_red_mushroom", GeneratorStage.BIG_SHROOM,(new GeneratorBigMushroom.Builder()).amountPerChunk(30.0F).mushroomType(GeneratorBigMushroom.BigMushroomType.RED).scatterYMethod(ScatterYMethod.NETHER_SURFACE).minHeight(5).maxHeight(10).placeOn(surfaceBlocks).create());
     }
     
     @Override
