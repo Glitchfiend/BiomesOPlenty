@@ -35,7 +35,6 @@ public class ModHandlers
         MinecraftForge.EVENT_BUS.register(new PotionPossessionEventHandler());
         MinecraftForge.EVENT_BUS.register(new ItemEventHandler());
         MinecraftForge.EVENT_BUS.register(new UseHoeEventHandler());
-        MinecraftForge.EVENT_BUS.register(new AchievementEventHandler());
         MinecraftForge.EVENT_BUS.register(new GrassPathEventHandler());
         MinecraftForge.EVENT_BUS.register(new SheepEventHandler());
         MinecraftForge.EVENT_BUS.register(new SilkTouchEventHandler());

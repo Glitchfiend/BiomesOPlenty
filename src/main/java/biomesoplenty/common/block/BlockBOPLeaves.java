@@ -278,12 +278,6 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
                     fruit = new ItemStack(Items.APPLE, 1, 0);
                 }
             	break;
-            case FIR: case REDWOOD: case PINE:
-            	if (worldIn.rand.nextInt(chance) == 0)
-                {
-                    fruit = new ItemStack(BOPItems.pinecone, 1, 0);
-                }
-            	break;
             default:
                 break;
         }

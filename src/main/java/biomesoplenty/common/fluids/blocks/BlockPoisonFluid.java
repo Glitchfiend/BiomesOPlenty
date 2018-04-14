@@ -15,6 +15,7 @@ import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumFacing;
@@ -93,13 +94,13 @@ public class BlockPoisonFluid extends BlockFluidClassic
 
             if (integer.intValue() == 0)
             {
-                worldIn.setBlockState(pos, BOPBlocks.jelled_poison.getDefaultState());
+                worldIn.setBlockState(pos, BOPBlocks.mud.getDefaultState());
                 return true;
             }
 
             if (integer.intValue() <= 4)
             {
-                worldIn.setBlockState(pos, BOPBlocks.jelled_poison.getDefaultState());
+                worldIn.setBlockState(pos, BOPBlocks.mud.getDefaultState());
                 return true;
             }
         }

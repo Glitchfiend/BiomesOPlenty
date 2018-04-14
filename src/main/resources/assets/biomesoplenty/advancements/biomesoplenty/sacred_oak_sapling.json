@@ -11,7 +11,7 @@
             "translate": "advancements.biomesoplenty.sacred_oak_sapling.description"
         }
     },
-    "parent": "biomesoplenty:biomesoplenty/harvest_turnip",
+    "parent": "biomesoplenty:biomesoplenty/miners_delight",
     "criteria": {
         "sacred_oak_sapling": {
             "trigger": "minecraft:placed_block",

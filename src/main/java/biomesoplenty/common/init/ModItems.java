@@ -8,7 +8,6 @@
 
 package biomesoplenty.common.init;
 
-import static biomesoplenty.api.item.BOPItems.ambrosia;
 import static biomesoplenty.api.item.BOPItems.ash;
 import static biomesoplenty.api.item.BOPItems.berries;
 import static biomesoplenty.api.item.BOPItems.biome_essence;
@@ -47,24 +46,16 @@ import static biomesoplenty.api.item.BOPItems.mudball;
 import static biomesoplenty.api.item.BOPItems.peach;
 import static biomesoplenty.api.item.BOPItems.pear;
 import static biomesoplenty.api.item.BOPItems.persimmon;
-import static biomesoplenty.api.item.BOPItems.pinecone;
 import static biomesoplenty.api.item.BOPItems.pixie_dust;
 import static biomesoplenty.api.item.BOPItems.record_wanderer;
 import static biomesoplenty.api.item.BOPItems.ricebowl;
-import static biomesoplenty.api.item.BOPItems.saladfruit;
-import static biomesoplenty.api.item.BOPItems.saladshroom;
-import static biomesoplenty.api.item.BOPItems.saladveggie;
 import static biomesoplenty.api.item.BOPItems.shroompowder;
 import static biomesoplenty.api.item.BOPItems.terrestrial_artifact;
-import static biomesoplenty.api.item.BOPItems.turnip;
-import static biomesoplenty.api.item.BOPItems.turnip_seeds;
 import static biomesoplenty.api.item.BOPItems.white_dye;
 
-import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.sound.BOPSounds;
 import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.entities.item.EntityBOPBoat;
-import biomesoplenty.common.item.ItemAmbrosia;
 import biomesoplenty.common.item.ItemBOPBoat;
 import biomesoplenty.common.item.ItemBOPFood;
 import biomesoplenty.common.item.ItemBOPRecord;
@@ -78,11 +69,9 @@ import biomesoplenty.common.item.ItemMudball;
 import biomesoplenty.common.util.inventory.CreativeTabBOP;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
-import net.minecraft.item.ItemSeeds;
 import net.minecraft.item.ItemSoup;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
@@ -143,10 +132,6 @@ public class ModItems
     	pear =              registerItem(new ItemFood(5, 0.3F, false), "pear");
     	peach =             registerItem(new ItemFood(5, 0.2F, false), "peach");
         persimmon =         registerItem(new ItemFood(5, 0.2F, false), "persimmon");
-        pinecone = registerItem(new Item(), "pinecone");
-        
-        turnip_seeds = registerItem(new ItemSeeds(BOPBlocks.turnip_block, Blocks.FARMLAND), "turnip_seeds");
-        turnip =            registerItem(new ItemFood(3, 0.4F, false), "turnip");
         
         honeycomb = registerItem(new Item(), "honeycomb");
         filled_honeycomb =  registerItem(new ItemBOPFood(3, 0.4F, 16), "filled_honeycomb");
@@ -155,15 +140,7 @@ public class ModItems
         ((ItemFood)shroompowder).setAlwaysEdible();
         ((ItemFood)shroompowder).setPotionEffect(new PotionEffect(MobEffects.NAUSEA, 225, 0), 1.0F);
         
-        saladfruit =        registerItem(new ItemSoup(6), "saladfruit");
-        ((ItemFood)saladfruit).setPotionEffect(new PotionEffect(MobEffects.HASTE, 775, 1), 0.05F);
-        saladveggie =       registerItem(new ItemSoup(6), "saladveggie");
-        ((ItemFood)saladveggie).setPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 1100, 1), 0.05F); // TODO: Is this the right potion effect for veggie salad?
-        saladshroom =       registerItem(new ItemSoup(6), "saladshroom");
-        ((ItemFood)saladshroom).setPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 550, 1), 0.05F);
         ricebowl =          registerItem(new ItemSoup(2), "ricebowl");
-        
-        ambrosia =          registerItem(new ItemAmbrosia(), "ambrosia");
         
         // TODO: move dyes to their own class?
         blue_dye = registerItem(new Item(), "blue_dye");

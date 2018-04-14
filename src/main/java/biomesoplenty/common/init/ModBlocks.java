@@ -40,7 +40,6 @@ import biomesoplenty.common.block.BlockBOPHalfOtherSlab;
 import biomesoplenty.common.block.BlockBOPHalfWoodSlab;
 import biomesoplenty.common.block.BlockBOPHive;
 import biomesoplenty.common.block.BlockBOPHoney;
-import biomesoplenty.common.block.BlockBOPJelledPoison;
 import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.block.BlockBOPLog;
@@ -53,7 +52,6 @@ import biomesoplenty.common.block.BlockBOPSeaweed;
 import biomesoplenty.common.block.BlockBOPStoneFormations;
 import biomesoplenty.common.block.BlockBOPStoneStairs;
 import biomesoplenty.common.block.BlockBOPTerrarium;
-import biomesoplenty.common.block.BlockBOPTurnip;
 import biomesoplenty.common.block.BlockBOPVine;
 import biomesoplenty.common.block.BlockBOPWhiteSand;
 import biomesoplenty.common.block.BlockBOPWhiteSandstone;
@@ -128,7 +126,6 @@ public class ModBlocks
         gem_block =             registerBlock( new BlockBOPGem(), "gem_block" );
         hive =                  registerBlock( new BlockBOPHive(), "hive" );
         honey_block =           registerBlock( new BlockBOPHoney(), "honey_block" );
-        jelled_poison =         registerBlock( new BlockBOPJelledPoison(), "jelled_poison" );
         
         //Material Blocks
         bamboo_thatching =      registerBlock( (new BlockBOPGeneric(Material.WOOD, SoundType.WOOD)).setHardness(2.0F), "bamboo_thatching"); bamboo_thatching.setHarvestLevel("axe", 0);
@@ -257,7 +254,6 @@ public class ModBlocks
         seaweed =               registerBlock( new BlockBOPSeaweed(), "seaweed" );
         waterlily =             registerBlock( new BlockBOPLilypad(), "waterlily" );
         bamboo =                registerBlock( new BlockBOPBamboo(), "bamboo" );
-        turnip_block =          registerBlock( new BlockBOPTurnip(), "turnip_block", null ); // no creative tab
 
         // 22 tree types, 8 per BlockBOPSapling instance, needs 3 'pages'
         BlockBOPSapling.createAllPages();

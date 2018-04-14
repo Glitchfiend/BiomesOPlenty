@@ -23,7 +23,6 @@ public class BOPBlocks
     public static Block gem_ore;
     public static Block hive;
     public static Block mushroom;
-    public static Block stone;
     public static Block white_sandstone;
     public static Block biome_block;
     
@@ -116,7 +115,6 @@ public class BOPBlocks
     public static Block eucalyptus_door;
     
     public static Block mud;
-    public static Block turnip_block;
     public static Block flesh;
     public static Block grass;
     public static Block grass_path;
@@ -147,7 +145,6 @@ public class BOPBlocks
     public static Block bramble_plant;
     
     public static Block honey_block;
-    public static Block jelled_poison;
     public static Block terrarium;
     
     public static Block sand;

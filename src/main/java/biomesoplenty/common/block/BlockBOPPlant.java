@@ -221,14 +221,6 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
                 }
                 break;
                 
-            case KORU:
-                if (rand.nextInt(64) == 0)
-                {
-                    // 1 in 64 change of getting a turnip seed from KORU
-                    ret.add(new ItemStack(BOPItems.turnip_seeds));
-                }
-                break;
-                
             case BERRYBUSH:
                 // BERRYBUSH always drops berries
                 ret.add(new ItemStack(BOPItems.berries));

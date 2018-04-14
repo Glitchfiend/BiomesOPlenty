@@ -16,23 +16,16 @@ public class BOPItems
     public static Item berries;
     public static Item shroompowder;
     public static Item peach;
-    public static Item saladfruit;
-    public static Item saladveggie;
-    public static Item saladshroom;
     public static Item earth;
     public static Item persimmon;
     public static Item filled_honeycomb;
-    public static Item ambrosia;
-    public static Item turnip;
     public static Item pear;
     public static Item ricebowl;
     
     public static Item fleshchunk;
     public static Item mudball;
-    public static Item turnip_seeds;
     public static Item crystal_shard;
     public static Item terrestrial_artifact;
-    public static Item flax_string;
     public static Item honeycomb;
     public static Item gem;
     public static Item ash;
@@ -42,10 +35,7 @@ public class BOPItems
     public static Item green_dye;
     public static Item white_dye;
     public static Item black_dye;
-    public static Item soul;
     public static Item pixie_dust;
-    public static Item ichor;
-    public static Item pinecone;
     public static Item other_slab;
     
     public static Item boat_sacred_oak;

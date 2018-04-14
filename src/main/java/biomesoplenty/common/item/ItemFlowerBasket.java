@@ -157,6 +157,6 @@ public class ItemFlowerBasket extends Item
         
         return !(item instanceof ItemFlowerBasket) && (block instanceof IPlantable || block instanceof IGrowable || block instanceof IShearable || block instanceof BlockBOPMushroom
         || item instanceof ItemSeedFood || item instanceof ItemSeeds || item == Items.REEDS || item == Items.APPLE || item == Items.MELON || item == Items.BEETROOT || item == Items.WHEAT || item == Items.CHORUS_FRUIT
-        || item == BOPItems.berries || item == BOPItems.pear || item == BOPItems.peach || item == BOPItems.persimmon || item == BOPItems.pinecone || item == BOPItems.turnip);
+        || item == BOPItems.berries || item == BOPItems.pear || item == BOPItems.peach || item == BOPItems.persimmon);
     }
 }

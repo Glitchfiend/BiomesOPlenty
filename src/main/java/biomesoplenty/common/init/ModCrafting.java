@@ -121,26 +121,16 @@ public class ModCrafting
         OreDictionary.registerOre("sandstone", new ItemStack(BOPBlocks.white_sandstone));
         
         OreDictionary.registerOre("foodMushroompowder", new ItemStack(BOPItems.shroompowder));
-        OreDictionary.registerOre("foodFruitsalad", new ItemStack(BOPItems.saladfruit));
-        OreDictionary.registerOre("foodVeggiesalad", new ItemStack(BOPItems.saladveggie));
-        OreDictionary.registerOre("foodMushroomsalad", new ItemStack(BOPItems.saladshroom));
         OreDictionary.registerOre("foodFilledhoneycomb", new ItemStack(BOPItems.filled_honeycomb));
-        OreDictionary.registerOre("foodAmbrosia", new ItemStack(BOPItems.ambrosia));
         OreDictionary.registerOre("foodBowlofrice", new ItemStack(BOPItems.ricebowl));
         
         OreDictionary.registerOre("cropPeach", new ItemStack(BOPItems.peach));
         OreDictionary.registerOre("cropPersimmon", new ItemStack(BOPItems.persimmon));
-        OreDictionary.registerOre("cropTurnip", new ItemStack(BOPItems.turnip));
         OreDictionary.registerOre("cropPear", new ItemStack(BOPItems.pear));
         
         OreDictionary.registerOre("listAllfruit", new ItemStack(BOPItems.peach));
         OreDictionary.registerOre("listAllfruit", new ItemStack(BOPItems.persimmon));
-        OreDictionary.registerOre("listAllrootveggie", new ItemStack(BOPItems.turnip));
-        OreDictionary.registerOre("listAllveggie", new ItemStack(BOPItems.turnip));
         OreDictionary.registerOre("listAllfruit", new ItemStack(BOPItems.pear));
-        
-        OreDictionary.registerOre("seedTurnip", new ItemStack(BOPItems.turnip_seeds));
-        OreDictionary.registerOre("listAllseed", new ItemStack(BOPItems.turnip_seeds));
 
         OreDictionary.registerOre("dyeBlue", new ItemStack(BOPItems.blue_dye));
         OreDictionary.registerOre("dyeBrown", new ItemStack(BOPItems.brown_dye));
