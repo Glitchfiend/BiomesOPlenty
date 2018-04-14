@@ -8,8 +8,8 @@ import biomesoplenty.api.biome.IExtendedBiome;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.api.config.IBOPWorldSettings;
-import biomesoplenty.api.config.IConfigObj;
 import biomesoplenty.api.config.IBOPWorldSettings.GeneratorType;
+import biomesoplenty.api.config.IConfigObj;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.enums.BOPFlowers;
 import biomesoplenty.api.enums.BOPPlants;
@@ -53,10 +53,25 @@ public class ExtendedBiomeWrapper implements IExtendedBiome
     @Override
     public void applySettings(IBOPWorldSettings settings)
     {
-        if (!settings.isEnabled(GeneratorType.MUSHROOMS)) {this.removeGenerator("glowshrooms");}
-        if (!settings.isEnabled(GeneratorType.PLANTS)) {this.removeGenerator("roots");}
-        if (!settings.isEnabled(GeneratorType.FLOWERS)) {this.removeGenerator("miners_delight");}
         if (!settings.isEnabled(GeneratorType.ROCK_FORMATIONS)) {this.removeGenerator("stone_formations");}
+        
+        if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("ruby"); this.removeGenerator("topaz");
+        this.removeGenerator("amber"); this.removeGenerator("peridot"); this.removeGenerator("malachite");
+        this.removeGenerator("sapphire"); this.removeGenerator("tanzanite"); this.removeGenerator("amethyst");}
+         
+        if (!settings.isEnabled(GeneratorType.POISON_IVY)) {this.removeGenerator("poison_ivy");}
+        
+        if (!settings.isEnabled(GeneratorType.BERRY_BUSHES)) {this.removeGenerator("berry_bushes");}
+        
+        if (!settings.isEnabled(GeneratorType.NETHER_HIVES)) {this.removeGenerator("hive");}
+        
+        if (!settings.isEnabled(GeneratorType.THORNS)) {this.removeGenerator("thorns");}
+        
+        if (!settings.isEnabled(GeneratorType.QUICKSAND)) {this.removeGenerator("quicksand");}
+        
+        if (!settings.isEnabled(GeneratorType.HOT_SPRINGS)) {this.removeGenerator("hot_springs");}
+        
+        if (!settings.isEnabled(GeneratorType.LIQUID_POISON)) {this.removeGenerator("poison_lakes");}
     }
     
     @Override

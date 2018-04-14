@@ -9,8 +9,6 @@
 package biomesoplenty.common.biome.overworld;
 
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.api.config.IBOPWorldSettings;
-import biomesoplenty.api.config.IBOPWorldSettings.GeneratorType;
 import biomesoplenty.api.enums.BOPGems;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.world.generator.GeneratorOreSingle;
@@ -47,17 +45,4 @@ public class BiomeGenGlacier extends BOPOverworldBiome
         this.addGenerator("tanzanite", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.TANZANITE).create());
         
     }
-    
-    @Override
-    public void applySettings(IBOPWorldSettings settings)
-    {
-        if (!settings.isEnabled(GeneratorType.MUSHROOMS)) {this.removeGenerator("glowshrooms");}
-        
-        if (!settings.isEnabled(GeneratorType.FLOWERS)) {this.removeGenerator("miners_delight");}
-        
-        if (!settings.isEnabled(GeneratorType.ROCK_FORMATIONS)) {this.removeGenerator("stone_formations");}
-        
-        if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("tanzanite");}
-    }
-    
 }

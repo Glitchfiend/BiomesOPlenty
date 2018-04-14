@@ -8,34 +8,22 @@
 
 package biomesoplenty.common.biome.overworld;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Random;
 
-import biomesoplenty.api.biome.BiomeOwner;
-import biomesoplenty.api.biome.IExtendedBiome;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.api.config.IBOPWorldSettings;
 import biomesoplenty.api.config.IBOPWorldSettings.GeneratorType;
 import biomesoplenty.api.config.IConfigObj;
-import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.enums.BOPFlowers;
 import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.generation.GeneratorStage;
-import biomesoplenty.api.generation.IGenerator;
 import biomesoplenty.common.biome.BOPBiome;
 import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.init.ModBiomes;
 import biomesoplenty.common.util.biome.BiomeUtils;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery;
-import biomesoplenty.common.util.config.BOPConfig;
-import biomesoplenty.common.world.GenerationManager;
 import biomesoplenty.common.world.TerrainSettings;
 import biomesoplenty.common.world.generator.GeneratorColumns;
 import biomesoplenty.common.world.generator.GeneratorFlora;
@@ -43,18 +31,11 @@ import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.block.BlockSand;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityList;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class BOPOverworldBiome extends BOPBiome
 {
@@ -88,10 +69,25 @@ public class BOPOverworldBiome extends BOPBiome
     @Override
     public void applySettings(IBOPWorldSettings settings)
     {
-        if (!settings.isEnabled(GeneratorType.MUSHROOMS)) {this.removeGenerator("glowshrooms");}
-        if (!settings.isEnabled(GeneratorType.PLANTS)) {this.removeGenerator("roots");}
-        if (!settings.isEnabled(GeneratorType.FLOWERS)) {this.removeGenerator("miners_delight");}
         if (!settings.isEnabled(GeneratorType.ROCK_FORMATIONS)) {this.removeGenerator("stone_formations");}
+        
+        if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("ruby"); this.removeGenerator("topaz");
+        this.removeGenerator("amber"); this.removeGenerator("peridot"); this.removeGenerator("malachite");
+        this.removeGenerator("sapphire"); this.removeGenerator("tanzanite"); this.removeGenerator("amethyst");}
+         
+        if (!settings.isEnabled(GeneratorType.POISON_IVY)) {this.removeGenerator("poison_ivy");}
+        
+        if (!settings.isEnabled(GeneratorType.BERRY_BUSHES)) {this.removeGenerator("berry_bushes");}
+        
+        if (!settings.isEnabled(GeneratorType.NETHER_HIVES)) {this.removeGenerator("hive");}
+        
+        if (!settings.isEnabled(GeneratorType.THORNS)) {this.removeGenerator("thorns");}
+        
+        if (!settings.isEnabled(GeneratorType.QUICKSAND)) {this.removeGenerator("quicksand");}
+        
+        if (!settings.isEnabled(GeneratorType.HOT_SPRINGS)) {this.removeGenerator("hot_springs");}
+        
+        if (!settings.isEnabled(GeneratorType.LIQUID_POISON)) {this.removeGenerator("poison_lakes");}
     }
     
     @Override

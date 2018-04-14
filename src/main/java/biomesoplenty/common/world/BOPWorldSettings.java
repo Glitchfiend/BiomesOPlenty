@@ -75,14 +75,6 @@ public class BOPWorldSettings implements IBOPWorldSettings
     public BiomeSize biomeSize = BiomeSize.MEDIUM;
     public float amplitude = 1.0F;
     public boolean generateBopGems = true;
-    public boolean generateBopSoils = true;
-    public boolean generateBopTrees = true;
-    public boolean generateBopGrasses = true;
-    public boolean generateBopFoliage = true;
-    public boolean generateBopFlowers = true;
-    public boolean generateBopPlants = true;
-    public boolean generateBopWaterPlants = true;
-    public boolean generateBopMushrooms = true;
     public boolean generateRockFormations = true;
     public boolean generatePoisonIvy = false;
     public boolean generateBerryBushes = true;
@@ -141,14 +133,6 @@ public class BOPWorldSettings implements IBOPWorldSettings
         obj.addProperty("biomeSize", this.biomeSize.name().toLowerCase());
         obj.addProperty("amplitude", this.amplitude);
         obj.addProperty("generateBopOre", this.generateBopGems);
-        obj.addProperty("generateBopSoils", this.generateBopSoils);
-        obj.addProperty("generateBopTrees", this.generateBopTrees);
-        obj.addProperty("generateBopGrasses", this.generateBopGrasses);
-        obj.addProperty("generateBopFoliage", this.generateBopFoliage);
-        obj.addProperty("generateBopFlowers", this.generateBopFlowers);
-        obj.addProperty("generateBopPlants", this.generateBopPlants);
-        obj.addProperty("generateBopWaterPlants", this.generateBopWaterPlants);
-        obj.addProperty("generateBopMushrooms", this.generateBopMushrooms);
         obj.addProperty("generateRockFormations", this.generateRockFormations);
         obj.addProperty("generatePoisonIvy", this.generatePoisonIvy);
         obj.addProperty("generateBerryBushes", this.generateBerryBushes);
@@ -182,14 +166,6 @@ public class BOPWorldSettings implements IBOPWorldSettings
         this.biomeSize = worldConfig.getEnum("biomeSize", this.biomeSize, BiomeSize.class);
         this.amplitude = worldConfig.getFloat("amplitude", this.amplitude);
         this.generateBopGems = worldConfig.getBool("generateBopOre", this.generateBopGems);
-        this.generateBopSoils = worldConfig.getBool("generateBopSoils", this.generateBopSoils);
-        this.generateBopTrees = worldConfig.getBool("generateBopTrees", this.generateBopTrees);
-        this.generateBopGrasses = worldConfig.getBool("generateBopGrasses", this.generateBopGrasses);
-        this.generateBopFoliage = worldConfig.getBool("generateBopFoliage", this.generateBopFoliage);
-        this.generateBopFlowers = worldConfig.getBool("generateBopFlowers", this.generateBopFlowers);
-        this.generateBopPlants = worldConfig.getBool("generateBopPlants", this.generateBopPlants);
-        this.generateBopWaterPlants = worldConfig.getBool("generateBopWaterPlants", this.generateBopWaterPlants);
-        this.generateBopMushrooms = worldConfig.getBool("generateBopMushrooms", this.generateBopMushrooms);
         this.generateRockFormations = worldConfig.getBool("generateRockFormations", this.generateRockFormations);
         this.generatePoisonIvy = worldConfig.getBool("generatePoisonIvy", this.generatePoisonIvy);
         this.generateBerryBushes = worldConfig.getBool("generateBerryBushes", this.generateBerryBushes);
@@ -218,14 +194,6 @@ public class BOPWorldSettings implements IBOPWorldSettings
         this.biomeSize = BiomeSize.MEDIUM;
         this.amplitude = 1.0F;
         this.generateBopGems = true;  
-        this.generateBopSoils = true;  
-        this.generateBopTrees = true;  
-        this.generateBopGrasses = true;  
-        this.generateBopFoliage = true; 
-        this.generateBopFlowers = true;  
-        this.generateBopPlants = true; 
-        this.generateBopWaterPlants = true; 
-        this.generateBopMushrooms = true; 
         this.generateRockFormations = true; 
         this.generatePoisonIvy = false;  
         this.generateBerryBushes = true;  
@@ -275,22 +243,6 @@ public class BOPWorldSettings implements IBOPWorldSettings
         {
         case GEMS: 
             return this.generateBopGems;
-        case SOILS: 
-            return this.generateBopSoils;
-        case TREES: 
-            return this.generateBopTrees;
-        case GRASSES: 
-            return this.generateBopGrasses;
-        case FOLIAGE: 
-            return this.generateBopFoliage;
-        case FLOWERS: 
-            return this.generateBopFlowers;
-        case PLANTS: 
-            return this.generateBopPlants;
-        case WATER_PLANTS: 
-            return this.generateBopWaterPlants;
-        case MUSHROOMS: 
-            return this.generateBopMushrooms;
         case ROCK_FORMATIONS: 
             return this.generateRockFormations;
         case POISON_IVY: 

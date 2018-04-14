@@ -10,10 +10,9 @@ package biomesoplenty.common.biome.overworld;
 
 import java.util.Random;
 
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.IBlockPosQuery;
-import biomesoplenty.api.config.IBOPWorldSettings;
-import biomesoplenty.api.config.IBOPWorldSettings.GeneratorType;
 import biomesoplenty.api.config.IConfigObj;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.enums.BOPGems;
@@ -43,6 +42,11 @@ public class BiomeGenColdDesert extends BOPOverworldBiome
         
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
+        
+        if (BOPBiomes.gravel_beach.isPresent())
+        {
+        	this.beachBiomeLocation = ((BOPOverworldBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
+        }
         
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(5, 10).sidewaysNoise(0.7D);
@@ -79,26 +83,9 @@ public class BiomeGenColdDesert extends BOPOverworldBiome
     }
     
     @Override
-    public void applySettings(IBOPWorldSettings settings)
-    {
-        if (!settings.isEnabled(GeneratorType.MUSHROOMS)) {this.removeGenerator("glowshrooms");}
-        
-        if (!settings.isEnabled(GeneratorType.FLOWERS)) {this.removeGenerator("miners_delight");}
-        
-        if (!settings.isEnabled(GeneratorType.ROCK_FORMATIONS)) {this.removeGenerator("stone_formations");}
-        
-    	if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("tanzanite");}
-    	
-    	if (!settings.isEnabled(GeneratorType.FOLIAGE)) {this.removeGenerator("bushes"); this.removeGenerator("koru"); this.removeGenerator("shrubs"); this.removeGenerator("leaf_piles"); this.removeGenerator("dead_leaf_piles"); this.removeGenerator("clover_patches"); this.removeGenerator("sprouts");}
-        
-        if (!settings.isEnabled(GeneratorType.PLANTS)) {this.removeGenerator("cattail"); this.removeGenerator("double_cattail"); this.removeGenerator("river_cane"); this.removeGenerator("tiny_cacti"); this.removeGenerator("roots"); this.removeGenerator("rafflesia"); this.removeGenerator("desert_sprouts");}
-    }
-    
-    @Override
     public void genTerrainBlocks(World world, Random rand, ChunkPrimer primer, int x, int z, double noise)
     {
         this.topBlock = (noise + rand.nextDouble() * 3.0D > 1.8D) ? this.alternateTopBlock : this.usualTopBlock;
         super.genTerrainBlocks(world, rand, primer, x, z, noise);
     }
-    
 }

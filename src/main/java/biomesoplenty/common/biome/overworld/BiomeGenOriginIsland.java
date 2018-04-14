@@ -79,14 +79,33 @@ public class BiomeGenOriginIsland extends BOPOverworldBiome
         flowerGenerator.add("yellow_flower", 10, (new GeneratorFlora.Builder().with(EnumFlowerType.DANDELION).create()));
     }
     
-    
     @Override
     public void applySettings(IBOPWorldSettings settings)
     {
-        this.removeGenerator("roots");
+    	this.removeGenerator("roots");
         this.removeGenerator("stone_formations");
         this.removeGenerator("glowshrooms");
         this.removeGenerator("miners_delight");
+    	
+        if (!settings.isEnabled(GeneratorType.ROCK_FORMATIONS)) {this.removeGenerator("stone_formations");}
+        
+        if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("ruby"); this.removeGenerator("topaz");
+        this.removeGenerator("amber"); this.removeGenerator("peridot"); this.removeGenerator("malachite");
+        this.removeGenerator("sapphire"); this.removeGenerator("tanzanite"); this.removeGenerator("amethyst");}
+         
+        if (!settings.isEnabled(GeneratorType.POISON_IVY)) {this.removeGenerator("poison_ivy");}
+        
+        if (!settings.isEnabled(GeneratorType.BERRY_BUSHES)) {this.removeGenerator("berry_bushes");}
+        
+        if (!settings.isEnabled(GeneratorType.NETHER_HIVES)) {this.removeGenerator("hive");}
+        
+        if (!settings.isEnabled(GeneratorType.THORNS)) {this.removeGenerator("thorns");}
+        
+        if (!settings.isEnabled(GeneratorType.QUICKSAND)) {this.removeGenerator("quicksand");}
+        
+        if (!settings.isEnabled(GeneratorType.HOT_SPRINGS)) {this.removeGenerator("hot_springs");}
+        
+        if (!settings.isEnabled(GeneratorType.LIQUID_POISON)) {this.removeGenerator("poison_lakes");}
     }
     
     @Override
@@ -100,5 +119,4 @@ public class BiomeGenOriginIsland extends BOPOverworldBiome
     {
         return 3866368;
     }
-    
 }

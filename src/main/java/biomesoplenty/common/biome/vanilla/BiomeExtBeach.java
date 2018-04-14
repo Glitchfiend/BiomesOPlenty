@@ -10,7 +10,6 @@ package biomesoplenty.common.biome.vanilla;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.block.BlockBOPDoublePlant;
 import biomesoplenty.common.world.generator.GeneratorDoubleFlora;
-import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 

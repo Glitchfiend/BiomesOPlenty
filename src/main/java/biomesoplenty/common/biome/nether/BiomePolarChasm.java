@@ -9,11 +9,8 @@ package biomesoplenty.common.biome.nether;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.IBlockPosQuery;
-import biomesoplenty.api.config.IBOPWorldSettings;
-import biomesoplenty.api.config.IBOPWorldSettings.GeneratorType;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.generation.GeneratorStage;
-import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.world.generator.GeneratorCrystals;
@@ -55,11 +52,5 @@ public class BiomePolarChasm extends BOPHellBiome
         // splatter top blocks
         IBlockPosQuery emptySurface = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();
         this.addGenerator("snow_splatter", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(7.0F).generationAttempts(128).scatterYMethod(ScatterYMethod.NETHER_SURFACE).replace(emptySurface).with(Blocks.SNOW.getDefaultState()).create());
-    }
-    
-    @Override
-    public void applySettings(IBOPWorldSettings settings)
-    {
-        if (!settings.isEnabled(GeneratorType.NETHER_HIVES)) {this.removeGenerator("hive");}
     }
 }
