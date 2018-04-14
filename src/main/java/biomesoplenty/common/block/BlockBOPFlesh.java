@@ -69,8 +69,8 @@ public class BlockBOPFlesh extends Block implements IBOPBlock
     public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
     {
         // slow you slightly
-        entity.motionX *= 0.9D;
-        entity.motionZ *= 0.9D;
+        entity.motionX *= 0.95D;
+        entity.motionZ *= 0.95D;
 
     }
     

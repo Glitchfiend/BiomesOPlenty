@@ -48,13 +48,6 @@ public class BlockBOPAsh extends BlockBOPGeneric
     }
 
     @Override
-    public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
-    {
-        entity.motionX *= 0.8D;
-        entity.motionZ *= 0.8D;
-    }
-
-    @Override
     public boolean isFireSource(World world, BlockPos pos, EnumFacing side)
     {
         return (side == EnumFacing.UP);
