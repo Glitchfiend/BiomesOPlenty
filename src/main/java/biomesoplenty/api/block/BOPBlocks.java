@@ -144,6 +144,8 @@ public class BOPBlocks
     public static Block plant_1;
     public static Block double_plant;
     
+    public static Block bramble_plant;
+    
     public static Block honey_block;
     public static Block jelled_poison;
     public static Block terrarium;

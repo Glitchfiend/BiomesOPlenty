@@ -37,13 +37,12 @@ public class BiomePhantasmagoricInferno extends BOPHellBiome
         this.fillerBlock = BOPBlocks.ash_block.getDefaultState();
         
         // lava lakes
-        this.addGenerator("lava_lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(5.0F).liquid(Blocks.LAVA).frozenLiquid((IBlockState)null).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
+        this.addGenerator("lava_lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(3.0F).lineWith(BOPBlocks.ash_block.getDefaultState()).liquid(Blocks.LAVA).frozenLiquid((IBlockState)null).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
         
         // splatter top blocks
         IBlockPosQuery emptyAsh = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();
-        this.addGenerator("magma_splatter", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(2.0F).generationAttempts(128).scatterYMethod(ScatterYMethod.NETHER_SURFACE).replace(emptyAsh).with(Blocks.MAGMA.getDefaultState()).create());
-    
-        this.addGenerator("fire", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(5.0F).with(Blocks.FIRE.getDefaultState()).placeOn(emptyAsh).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
+
+        this.addGenerator("fire", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(6.0F).with(Blocks.FIRE.getDefaultState()).placeOn(emptyAsh).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
     }
     
     @Override

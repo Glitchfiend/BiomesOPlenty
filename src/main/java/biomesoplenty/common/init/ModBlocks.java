@@ -18,6 +18,7 @@ import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.block.BlockBOPAsh;
 import biomesoplenty.common.block.BlockBOPBamboo;
 import biomesoplenty.common.block.BlockBOPBiomeBlock;
+import biomesoplenty.common.block.BlockBOPBramblePlant;
 import biomesoplenty.common.block.BlockBOPCoral;
 import biomesoplenty.common.block.BlockBOPCrystal;
 import biomesoplenty.common.block.BlockBOPDirt;
@@ -56,9 +57,9 @@ import biomesoplenty.common.block.BlockBOPTurnip;
 import biomesoplenty.common.block.BlockBOPVine;
 import biomesoplenty.common.block.BlockBOPWhiteSand;
 import biomesoplenty.common.block.BlockBOPWhiteSandstone;
+import biomesoplenty.common.block.BlockBOPWhiteSandstone.StoneType;
 import biomesoplenty.common.block.BlockBOPWoodStairs;
 import biomesoplenty.common.block.IBOPBlock;
-import biomesoplenty.common.block.BlockBOPWhiteSandstone.StoneType;
 import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.fluids.BloodFluid;
 import biomesoplenty.common.fluids.HoneyFluid;
@@ -88,7 +89,6 @@ import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ModBlocks
 {
@@ -271,6 +271,8 @@ public class ModBlocks
         plant_1 =               registerBlock( BlockBOPPlant.paging.getBlock(1), "plant_1" );
         double_plant =          registerBlock( new BlockBOPDoublePlant(), "double_plant" );
         mushroom =              registerBlock( new BlockBOPMushroom(), "mushroom" );
+        
+        bramble_plant =         registerBlock ( new BlockBOPBramblePlant(), "bramble_plant" );
         
         // 22 flower types 16 per BlockBOPFlower instance, needs 2 'pages'
         BlockBOPFlower.createAllPages();

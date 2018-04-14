@@ -264,26 +264,6 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
     }
     
     @Override
-    public void harvestBlock(World world, EntityPlayer player, BlockPos pos, IBlockState state, TileEntity tileentity, ItemStack stack)
-    {
-        super.harvestBlock(world, player, pos, state, tileentity, stack);
-        boolean usingShears = (stack != null && stack.getItem() instanceof ItemShears);
-        switch ((BOPPlants) state.getValue(this.variantProperty))
-        {
-            // suffer cactus damage if you harvest thorn without shears
-            case THORN:
-                if (!usingShears)
-                {
-                    player.attackEntityFrom(DamageSource.CACTUS, 2);
-                }
-                break;
-            
-            default:
-                break;
-        }
-    }
-    
-    @Override
     public boolean isReplaceable(IBlockAccess world, BlockPos pos)
     {
         IBlockState state = world.getBlockState(pos);
