@@ -6,11 +6,20 @@
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  ******************************************************************************/
 
-package biomesoplenty.api.potion;
+package biomesoplenty.common.potion;
 
-import net.minecraft.potion.Potion;
+import net.minecraft.entity.EntityLivingBase;
 
-public class BOPPotions
+public class PotionCurse extends BOPPotion
 {
-    public static Potion curse;
+    public PotionCurse()
+    {
+        super(true, 0x04A5EA, 0, 0);
+    }
+
+    @Override
+    public boolean isReady(int duration, int amplifier)
+    {
+        return duration >= 3;
+    }
 }

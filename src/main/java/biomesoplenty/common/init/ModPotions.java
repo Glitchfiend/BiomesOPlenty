@@ -8,11 +8,9 @@
 
 package biomesoplenty.common.init;
 
-import static biomesoplenty.api.potion.BOPPotions.paralysis;
-import static biomesoplenty.api.potion.BOPPotions.possession;
+import static biomesoplenty.api.potion.BOPPotions.curse;
 
-import biomesoplenty.common.potion.PotionParalysis;
-import biomesoplenty.common.potion.PotionPossession;
+import biomesoplenty.common.potion.PotionCurse;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.ResourceLocation;
@@ -20,12 +18,9 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class ModPotions
 {
-    
     public static void init()
     {                
-        // create the BOP potions
-        paralysis = registerPotion("paralysis", new PotionParalysis(true, 16767262)).setPotionName("potion.paralysis");
-        possession = registerPotion("possession", new PotionPossession(true, 1280)).setPotionName("potion.possession");   
+        curse = registerPotion("curse", new PotionCurse().setPotionName("potion.curse"));  
     }
     
     public static Potion registerPotion(String name, Potion potion)

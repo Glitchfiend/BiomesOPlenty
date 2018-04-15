@@ -8,10 +8,21 @@
 
 package biomesoplenty.common.init;
 
-import biomesoplenty.common.handler.*;
+import biomesoplenty.common.handler.BucketEventHandler;
+import biomesoplenty.common.handler.DyeEventHandler;
+import biomesoplenty.common.handler.FogEventHandler;
+import biomesoplenty.common.handler.GrassPathEventHandler;
+import biomesoplenty.common.handler.GuiEventHandler;
+import biomesoplenty.common.handler.ItemEventHandler;
+import biomesoplenty.common.handler.LeavesModelEventHandler;
+import biomesoplenty.common.handler.LootTableEventHandler;
+import biomesoplenty.common.handler.PotionCurseHandler;
+import biomesoplenty.common.handler.SheepEventHandler;
+import biomesoplenty.common.handler.SilkTouchEventHandler;
+import biomesoplenty.common.handler.TrailsEventHandler;
+import biomesoplenty.common.handler.UseHoeEventHandler;
+import biomesoplenty.common.handler.VillageMaterialEventHandler;
 import biomesoplenty.common.handler.decoration.DecorateBiomeEventHandler;
-import biomesoplenty.common.handler.potion.PotionParalysisEventHandler;
-import biomesoplenty.common.handler.potion.PotionPossessionEventHandler;
 import biomesoplenty.common.network.BOPPacketHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -31,8 +42,7 @@ public class ModHandlers
         MinecraftForge.ORE_GEN_BUS.register(decorateBiomeHandler);
         MinecraftForge.EVENT_BUS.register(new DyeEventHandler());
         MinecraftForge.EVENT_BUS.register(new BucketEventHandler());
-        MinecraftForge.EVENT_BUS.register(new PotionParalysisEventHandler());
-        MinecraftForge.EVENT_BUS.register(new PotionPossessionEventHandler());
+        MinecraftForge.EVENT_BUS.register(new PotionCurseHandler());
         MinecraftForge.EVENT_BUS.register(new ItemEventHandler());
         MinecraftForge.EVENT_BUS.register(new UseHoeEventHandler());
         MinecraftForge.EVENT_BUS.register(new GrassPathEventHandler());

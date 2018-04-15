@@ -57,6 +57,8 @@ fluid.sand=Quicksand
 
 item.forge.bucketFilled.name=%s Bucket
 
+potion.curse=Curse
+
 item.ash.name=Pile of Ashes
 item.berries.name=Berry
 item.biome_essence.name=Biome Essence

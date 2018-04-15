@@ -16,6 +16,7 @@ import com.google.common.collect.Lists;
 
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.api.particle.BOPParticleTypes;
+import biomesoplenty.client.particle.EntityCurseFX;
 import biomesoplenty.client.particle.EntityPixieTrailFX;
 import biomesoplenty.client.particle.EntityTrailFX;
 import biomesoplenty.client.texture.ForgeRedirectedResourcePack;
@@ -215,6 +216,9 @@ public class ClientProxy extends CommonProxy
                 throw new RuntimeException("Missing argument for trail name!");
 
             entityFx = new EntityTrailFX(parWorld, x, y, z, (String)info[0]);
+            break;
+        case CURSE:
+            entityFx = new EntityCurseFX(parWorld, x, y, z, MathHelper.nextDouble(parWorld.rand, -0.03, 0.03), 0.05D, MathHelper.nextDouble(parWorld.rand, -0.03, 0.03));
             break;
         default:
             break;
