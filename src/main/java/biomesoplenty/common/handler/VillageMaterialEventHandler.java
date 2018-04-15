@@ -23,7 +23,7 @@ public class VillageMaterialEventHandler
 	public void getVillageBlockID(BiomeEvent.GetVillageBlockID event)
 	{
 		//Brushland
-		if (event.getBiome() == BOPBiomes.brushland.get())
+		if (BOPBiomes.brushland.isPresent() && event.getBiome() == BOPBiomes.brushland.get())
 		{
 			if (event.getOriginal().getBlock() == Blocks.PLANKS)
 			{
@@ -55,7 +55,7 @@ public class VillageMaterialEventHandler
 		}
 		
 		//Coniferous Forest
-		if (event.getBiome() == BOPBiomes.coniferous_forest.get())
+		if (BOPBiomes.coniferous_forest.isPresent() && event.getBiome() == BOPBiomes.coniferous_forest.get())
 		{
 			if (event.getOriginal().getBlock() == Blocks.PLANKS)
 			{
@@ -87,7 +87,7 @@ public class VillageMaterialEventHandler
 		}
 		
 		//Grove
-		if (event.getBiome() == BOPBiomes.grove.get())
+		if (BOPBiomes.grove.isPresent() && event.getBiome() == BOPBiomes.grove.get())
 		{
 			if (event.getOriginal().getBlock() == Blocks.PLANKS)
 			{
@@ -119,7 +119,7 @@ public class VillageMaterialEventHandler
 		}
 		
 		//Lush Desert
-		if (event.getBiome() == BOPBiomes.lush_desert.get())
+		if (BOPBiomes.lush_desert.isPresent() && event.getBiome() == BOPBiomes.lush_desert.get())
 		{
 			if (event.getOriginal().getBlock() == Blocks.PLANKS)
 			{
@@ -146,7 +146,7 @@ public class VillageMaterialEventHandler
 		}
 		
 		//Meadow
-		if (event.getBiome() == BOPBiomes.meadow.get())
+		if (BOPBiomes.meadow.isPresent() && event.getBiome() == BOPBiomes.meadow.get())
 		{
 			if (event.getOriginal().getBlock() == Blocks.PLANKS)
 			{
@@ -173,7 +173,7 @@ public class VillageMaterialEventHandler
 		}
 		
 		//Outback
-		if (event.getBiome() == BOPBiomes.outback.get())
+		if (BOPBiomes.outback.isPresent() && event.getBiome() == BOPBiomes.outback.get())
 		{
 			if (event.getOriginal().getBlock() == Blocks.PLANKS)
 			{
