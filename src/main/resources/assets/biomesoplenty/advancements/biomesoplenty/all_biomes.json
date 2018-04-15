@@ -428,12 +428,6 @@
                 "biome": "biomesoplenty:phantasmagoric_inferno"
             }
         },
-		"polar_chasm": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:polar_chasm"
-            }
-        },
 		"undergarden": {
             "trigger": "minecraft:location",
             "conditions": {

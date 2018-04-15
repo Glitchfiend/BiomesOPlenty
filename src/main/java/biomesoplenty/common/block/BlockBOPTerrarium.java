@@ -8,7 +8,6 @@
 
 package biomesoplenty.common.block;
 
-import biomesoplenty.api.enums.BOPFlowers;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -31,7 +30,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockBOPTerrarium extends Block implements IBOPBlock
 {
-	protected static final AxisAlignedBB BOUNDING_BOX = new AxisAlignedBB(0.19999998807D, 0.0D, 0.19999998807D, 0.69999998808D, 0.69999998808D, 0.69999998808D);
+	protected static final AxisAlignedBB BOUNDING_BOX = new AxisAlignedBB(0.25D, 0.0D, 0.25D, 0.75D, 0.75D, 0.75D);
     
     // add properties
     public enum TerrariumType implements IStringSerializable

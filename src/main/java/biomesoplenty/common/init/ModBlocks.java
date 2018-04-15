@@ -18,6 +18,7 @@ import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.block.BlockBOPAsh;
 import biomesoplenty.common.block.BlockBOPBamboo;
 import biomesoplenty.common.block.BlockBOPBiomeBlock;
+import biomesoplenty.common.block.BlockBOPBlueFire;
 import biomesoplenty.common.block.BlockBOPBramblePlant;
 import biomesoplenty.common.block.BlockBOPCoral;
 import biomesoplenty.common.block.BlockBOPCrystal;
@@ -126,6 +127,9 @@ public class ModBlocks
         gem_block =             registerBlock( new BlockBOPGem(), "gem_block" );
         hive =                  registerBlock( new BlockBOPHive(), "hive" );
         honey_block =           registerBlock( new BlockBOPHoney(), "honey_block" );
+        
+        blue_fire =             registerBlock( new BlockBOPBlueFire(), "blue_fire" );
+        blue_fire.setCreativeTab(null);
         
         //Material Blocks
         bamboo_thatching =      registerBlock( (new BlockBOPGeneric(Material.WOOD, SoundType.WOOD)).setHardness(2.0F), "bamboo_thatching"); bamboo_thatching.setHarvestLevel("axe", 0);

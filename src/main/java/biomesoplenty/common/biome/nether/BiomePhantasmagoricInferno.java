@@ -24,7 +24,7 @@ public class BiomePhantasmagoricInferno extends BOPHellBiome
     {
         super("phantasmagoric_inferno", new PropsBuilder("Phantasmagoric Inferno").withGuiColour(0xA93C3E).withTemperature(2.0F).withRainfall(0.0F).withRainDisabled());
 
-        this.addWeight(BOPClimates.HELL, 75);
+        this.addWeight(BOPClimates.HELL, 5);
         
         this.hasBiomeEssence = false;
         
@@ -32,11 +32,12 @@ public class BiomePhantasmagoricInferno extends BOPHellBiome
         this.fillerBlock = BOPBlocks.ash_block.getDefaultState();
         
         // lava lakes
-        this.addGenerator("lava_lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(3.0F).lineWith(BOPBlocks.ash_block.getDefaultState()).liquid(Blocks.LAVA).frozenLiquid((IBlockState)null).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
+        this.addGenerator("lava_lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(4.0F).lineWith(BOPBlocks.ash_block.getDefaultState()).liquid(Blocks.LAVA).frozenLiquid((IBlockState)null).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
         
         // splatter top blocks
         IBlockPosQuery emptyAsh = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();
 
-        this.addGenerator("fire", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(6.0F).with(Blocks.FIRE.getDefaultState()).placeOn(emptyAsh).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
+        this.addGenerator("fire", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(2.5F).with(Blocks.FIRE.getDefaultState()).placeOn(emptyAsh).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
+        this.addGenerator("blue_fire", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(2.5F).with(BOPBlocks.blue_fire.getDefaultState()).placeOn(emptyAsh).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
     }
 }

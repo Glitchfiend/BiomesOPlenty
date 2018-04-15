@@ -8,10 +8,13 @@
 
 package biomesoplenty.common.item;
 
+import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.entities.EntityPixie;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
@@ -21,6 +24,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
@@ -35,7 +39,7 @@ public class ItemJarFilled extends Item
     
     public enum JarContents implements IStringSerializable
     {
-        HONEY, PIXIE;
+        HONEY, PIXIE, BLUE_FIRE;
         
         @Override
         public String getName()
@@ -165,12 +169,21 @@ public class ItemJarFilled extends Item
 
     protected ItemStack emptyJar(ItemStack stack, EntityPlayer player, ItemStack emptyJarStack)
     {
-        if (!player.capabilities.isCreativeMode) { stack.setCount(stack.getCount() - 1); }
+        if (!player.capabilities.isCreativeMode)
+        {
+        	stack.setCount(stack.getCount() - 1);
+        }
+        
         player.addStat(StatList.getObjectUseStats(this));
 
-        if (!player.inventory.addItemStackToInventory(emptyJarStack)) {
-            player.dropItem(emptyJarStack, false);
+        if (!player.capabilities.isCreativeMode)
+        {
+	        if (!player.inventory.addItemStackToInventory(emptyJarStack))
+	        {
+	            player.dropItem(emptyJarStack, false);
+	        }
         }
+        
         return stack;
     }
     
@@ -190,6 +203,24 @@ public class ItemJarFilled extends Item
                 double a = 0.9D;
                 Vec3d releasePoint = new Vec3d(player.posX + a * distX, player.posY + (double)player.getEyeHeight() + a * distY, player.posZ + a * distZ);
                 return this.releasePixie(stack, world, player, releasePoint) ? EnumActionResult.SUCCESS : EnumActionResult.FAIL;
+                
+            case BLUE_FIRE:
+            	pos = pos.offset(facing);
+            	ItemStack itemstack = player.getHeldItem(hand);
+            	
+            	if (!player.canPlayerEdit(pos, facing, itemstack))
+                {
+                    return EnumActionResult.FAIL;
+                }
+                else
+                {
+                    if (world.isAirBlock(pos) && world.getBlockState(pos.down()).isTopSolid())
+                    {
+	            		world.setBlockState(pos, BOPBlocks.blue_fire.getDefaultState());
+	            		this.emptyJar(stack, player, new ItemStack(BOPItems.jar_empty));
+	            		return EnumActionResult.SUCCESS;
+                    }
+            	}
                 
             // TODO: are you supposed to be able to pour out honey? How much should you get?  Why don't we just use buckets?
             case HONEY: default:

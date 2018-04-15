@@ -34,7 +34,6 @@ import biomesoplenty.common.biome.nether.BOPHellBiome;
 import biomesoplenty.common.biome.nether.BiomeCorruptedSands;
 import biomesoplenty.common.biome.nether.BiomeFungiForest;
 import biomesoplenty.common.biome.nether.BiomePhantasmagoricInferno;
-import biomesoplenty.common.biome.nether.BiomePolarChasm;
 import biomesoplenty.common.biome.nether.BiomeUndergarden;
 import biomesoplenty.common.biome.nether.BiomeVisceralHeap;
 import biomesoplenty.common.biome.overworld.BOPOverworldBiome;
@@ -354,7 +353,6 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         corrupted_sands = registerNetherBiome(new BiomeCorruptedSands());
         fungi_forest = registerNetherBiome(new BiomeFungiForest());
         phantasmagoric_inferno = registerNetherBiome(new BiomePhantasmagoricInferno());
-        polar_chasm = registerNetherBiome(new BiomePolarChasm());
         undergarden = registerNetherBiome(new BiomeUndergarden());
         visceral_heap = registerNetherBiome(new BiomeVisceralHeap());
     }
@@ -470,11 +468,10 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         registerBiomeToDictionary(BOPBiomes.white_beach, Type.BEACH);
         registerBiomeToDictionary(BOPBiomes.origin_beach, Type.BEACH, Type.RARE);
         
-        registerBiomeToDictionary(BOPBiomes.corrupted_sands, Type.NETHER, Type.HOT, Type.DRY, Type.SANDY, Type.SPOOKY);
+        registerBiomeToDictionary(BOPBiomes.corrupted_sands, Type.NETHER, Type.HOT, Type.DRY, Type.SANDY, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.fungi_forest, Type.NETHER, Type.HOT, Type.MUSHROOM, Type.DENSE);
-        registerBiomeToDictionary(BOPBiomes.phantasmagoric_inferno, Type.NETHER, Type.HOT, Type.WASTELAND, Type.DRY);
-        registerBiomeToDictionary(BOPBiomes.polar_chasm, Type.NETHER, Type.COLD, Type.SNOWY, Type.DRY);
-        registerBiomeToDictionary(BOPBiomes.undergarden, Type.NETHER, Type.HOT, Type.LUSH, Type.JUNGLE);
+        registerBiomeToDictionary(BOPBiomes.phantasmagoric_inferno, Type.NETHER, Type.HOT, Type.WASTELAND, Type.DRY, Type.MAGICAL, Type.SPOOKY);
+        registerBiomeToDictionary(BOPBiomes.undergarden, Type.NETHER, Type.HOT, Type.LUSH);
         registerBiomeToDictionary(BOPBiomes.visceral_heap, Type.NETHER, Type.HOT, Type.WET);
         
     }

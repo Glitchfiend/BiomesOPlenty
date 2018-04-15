@@ -98,7 +98,6 @@ public class BOPBiomes
     public static Optional<Biome> corrupted_sands = Optional.absent();
     public static Optional<Biome> fungi_forest = Optional.absent();
     public static Optional<Biome> phantasmagoric_inferno = Optional.absent();
-    public static Optional<Biome> polar_chasm = Optional.absent();
     public static Optional<Biome> undergarden = Optional.absent();
     public static Optional<Biome> visceral_heap = Optional.absent();
 

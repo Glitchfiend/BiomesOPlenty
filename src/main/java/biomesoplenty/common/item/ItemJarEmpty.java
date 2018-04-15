@@ -62,6 +62,11 @@ public class ItemJarEmpty extends Item
                 {
                     jarContents = ItemJarFilled.JarContents.HONEY;
                 }
+                
+                if (state.getBlock() == BOPBlocks.blue_fire)
+				{
+                	jarContents = ItemJarFilled.JarContents.BLUE_FIRE;
+				}
 
                 // if it was honey, return the corresponding filled jar
                 if (jarContents != null)

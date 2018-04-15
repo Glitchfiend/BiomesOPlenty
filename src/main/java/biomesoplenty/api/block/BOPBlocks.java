@@ -26,6 +26,8 @@ public class BOPBlocks
     public static Block white_sandstone;
     public static Block biome_block;
     
+    public static Block blue_fire;
+    
     public static Block flower_0;
     public static Block flower_1;
     public static Block log_0;
