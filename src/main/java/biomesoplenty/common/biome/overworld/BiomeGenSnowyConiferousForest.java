@@ -51,7 +51,7 @@ public class BiomeGenSnowyConiferousForest extends BOPOverworldBiome
         treeGenerator.add("mega_fir", 2, (new GeneratorTaigaTree.Builder()).log(BOPWoods.FIR).leaves(BOPTrees.FIR).minHeight(20).maxHeight(40).trunkWidth(2).create());
         
         // other plants
-        this.addGenerator("shrubs", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.05F).with(BOPPlants.SHRUB).create());
+        //this.addGenerator("shrubs", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.05F).with(BOPPlants.SHRUB).create());
         this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(2.0F).placeOn(BlockQueries.fertile).with(BOPPlants.DEADLEAFPILE).create());
         this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).placeOn(BlockQueries.fertile).with(BOPPlants.LEAFPILE).generationAttempts(64).create());
         
