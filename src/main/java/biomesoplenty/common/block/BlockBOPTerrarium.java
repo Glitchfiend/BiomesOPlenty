@@ -35,7 +35,7 @@ public class BlockBOPTerrarium extends Block implements IBOPBlock
     // add properties
     public enum TerrariumType implements IStringSerializable
     {
-        FERN, MUSHROOM, CACTUS, FLAX, FLOWER, KORU, BAMBOO, SAPLING, GLOWSHROOM, DEAD, MYSTIC, OMINOUS, WASTELAND, ORIGIN, NETHER, ENDER;
+        FERN, MUSHROOM, CACTUS, FLAX, FLOWER, KORU, BAMBOO, BEACH, GLOWSHROOM, DEAD, MYSTIC, OMINOUS, WASTELAND, ORIGIN, NETHER, ENDER;
         @Override
         public String getName()
         {

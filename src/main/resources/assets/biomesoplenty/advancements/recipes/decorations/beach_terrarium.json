@@ -1,14 +1,14 @@
 {
   "rewards": {
     "recipes": [
-      "biomesoplenty:sapling_terrarium"
+      "biomesoplenty:beach_terrarium"
     ]
   },
   "criteria": {
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "biomesoplenty:sapling_terrarium"
+        "recipe": "biomesoplenty:beach_terrarium"
       }
     },
     "has_jar": {

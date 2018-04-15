@@ -1,0 +1,8 @@
+{
+	"parent": "biomesoplenty:block/terrarium",
+	"ambientocclusion": false,
+    "textures": {
+        "inside": "biomesoplenty:blocks/terrarium_beach",
+		"particle": "biomesoplenty:items/terrarium_beach"
+    }
+}

@@ -7,7 +7,7 @@
 		"variant=flower": { "model": "biomesoplenty:terrarium_flower" },
 		"variant=koru": { "model": "biomesoplenty:terrarium_koru" },
 		"variant=bamboo": { "model": "biomesoplenty:terrarium_bamboo" },
-		"variant=sapling": { "model": "biomesoplenty:terrarium_sapling" },
+		"variant=beach": { "model": "biomesoplenty:terrarium_beach" },
 		"variant=glowshroom": { "model": "biomesoplenty:terrarium_glowshroom" },
 		"variant=dead": { "model": "biomesoplenty:terrarium_dead" },
 		"variant=mystic": { "model": "biomesoplenty:terrarium_mystic" },

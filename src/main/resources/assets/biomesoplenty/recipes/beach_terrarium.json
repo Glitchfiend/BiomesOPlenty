@@ -3,12 +3,12 @@
   "group": "terrarium",
   "ingredients": [
     {
-      "type": "forge:ore_dict",
-      "ore": "grass"
+      "item": "minecraft:sand",
+	  "data": 0
     },
     {
-      "type": "forge:ore_dict",
-      "ore": "treeSapling"
+      "item": "biomesoplenty:double_plant",
+	  "data": 3
     },
     {
       "item": "biomesoplenty:jar_empty"
