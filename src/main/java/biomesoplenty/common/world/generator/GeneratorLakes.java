@@ -318,6 +318,7 @@ public class GeneratorLakes extends BOPGeneratorBase
         this.grassBorderWith = conf.getBlockState("grassBorderWith", this.grassBorderWith);
         this.frozenLiquid = conf.getBlockState("frozenLiquid", this.frozenLiquid);
         this.grassReplace = conf.getBlockPosQuery("grassReplace", this.grassReplace);
+        this.scatterYMethod = conf.getEnum("scatterYMethod", this.scatterYMethod, ScatterYMethod.class);
     }
     
 }
