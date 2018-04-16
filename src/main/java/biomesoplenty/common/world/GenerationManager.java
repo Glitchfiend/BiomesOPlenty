@@ -69,15 +69,6 @@ public class GenerationManager implements IGenerationManager
             String name = genKeysItr.next();
             IConfigObj currentObj = generatorsObj.getObject(name);
 
-            // there was previously no generator of this name - attempt to add it
-            if (generatorsObj.has(name))
-            {
-                IGenerator generator = GeneratorRegistry.createGenerator(currentObj);
-                if (generator != null) {
-                    this.generators.put(name, generator);
-                }
-            }
-
             // configure the generator
             // always attempt to do this so defaults are generated
             if (currentObj.getBool("enable", true)) {
@@ -85,6 +76,20 @@ public class GenerationManager implements IGenerationManager
             } else {
                 // remove this generator
                 genKeysItr.remove();
+            }
+        }
+
+        // attempt to add generators where there is no existing one present
+        for (String name : generatorsObj.getKeys())
+        {
+            if (generatorsObj.has(name))
+            {
+                IConfigObj currentObj = generatorsObj.getObject(name);
+                IGenerator generator = GeneratorRegistry.createGenerator(currentObj);
+                if (generator != null)
+                {
+                    this.generators.put(name, generator);
+                }
             }
         }
     }
