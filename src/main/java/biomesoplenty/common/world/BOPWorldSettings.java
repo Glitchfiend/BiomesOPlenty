@@ -75,7 +75,6 @@ public class BOPWorldSettings implements IBOPWorldSettings
     public BiomeSize biomeSize = BiomeSize.MEDIUM;
     public float amplitude = 1.0F;
     public boolean generateBopGems = true;
-    public boolean generateRockFormations = true;
     public boolean generatePoisonIvy = false;
     public boolean generateBerryBushes = true;
     public boolean generateThorns = true;
@@ -133,7 +132,6 @@ public class BOPWorldSettings implements IBOPWorldSettings
         obj.addProperty("biomeSize", this.biomeSize.name().toLowerCase());
         obj.addProperty("amplitude", this.amplitude);
         obj.addProperty("generateBopOre", this.generateBopGems);
-        obj.addProperty("generateRockFormations", this.generateRockFormations);
         obj.addProperty("generatePoisonIvy", this.generatePoisonIvy);
         obj.addProperty("generateBerryBushes", this.generateBerryBushes);
         obj.addProperty("generateThorns", this.generateThorns);
@@ -166,7 +164,6 @@ public class BOPWorldSettings implements IBOPWorldSettings
         this.biomeSize = worldConfig.getEnum("biomeSize", this.biomeSize, BiomeSize.class);
         this.amplitude = worldConfig.getFloat("amplitude", this.amplitude);
         this.generateBopGems = worldConfig.getBool("generateBopOre", this.generateBopGems);
-        this.generateRockFormations = worldConfig.getBool("generateRockFormations", this.generateRockFormations);
         this.generatePoisonIvy = worldConfig.getBool("generatePoisonIvy", this.generatePoisonIvy);
         this.generateBerryBushes = worldConfig.getBool("generateBerryBushes", this.generateBerryBushes);
         this.generateThorns = worldConfig.getBool("generateThorns", this.generateThorns);
@@ -194,7 +191,6 @@ public class BOPWorldSettings implements IBOPWorldSettings
         this.biomeSize = BiomeSize.MEDIUM;
         this.amplitude = 1.0F;
         this.generateBopGems = true;  
-        this.generateRockFormations = true; 
         this.generatePoisonIvy = false;  
         this.generateBerryBushes = true;  
         this.generateThorns = true;  
@@ -243,8 +239,6 @@ public class BOPWorldSettings implements IBOPWorldSettings
         {
         case GEMS: 
             return this.generateBopGems;
-        case ROCK_FORMATIONS: 
-            return this.generateRockFormations;
         case POISON_IVY: 
             return this.generatePoisonIvy;
         case BERRY_BUSHES: 

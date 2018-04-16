@@ -63,14 +63,11 @@ public class BOPOverworldBiome extends BOPBiome
         IBlockPosQuery suitableStonePosition = BlockQuery.buildAnd().withAltitudeBetween(0, 55).blocks(Blocks.STONE).create();
         this.addGenerator("miners_delight", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.25F).generationAttempts(64).with(BOPFlowers.MINERS_DELIGHT).placeOn(suitableStonePosition).scatterYMethod(ScatterYMethod.BELOW_GROUND).create());
         this.addGenerator("glowshrooms", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.5F).generationAttempts(64).placeOn(suitableStonePosition).with(BOPBlocks.mushroom.getDefaultState().withProperty(BlockBOPMushroom.VARIANT, BlockBOPMushroom.MushroomType.GLOWSHROOM)).scatterYMethod(ScatterYMethod.BELOW_GROUND).create());
-        this.addGenerator("stone_formations", GeneratorStage.FLOWERS,(new GeneratorColumns.Builder()).amountPerChunk(30.0F).generationAttempts(16).placeOn(suitableStonePosition).with(BOPBlocks.stone_formations.getDefaultState()).minHeight(1).maxHeight(5).randomDirection(true).scatterYMethod(ScatterYMethod.BELOW_GROUND).create());
     }
     
     @Override
     public void applySettings(IBOPWorldSettings settings)
     {
-        if (!settings.isEnabled(GeneratorType.ROCK_FORMATIONS)) {this.removeGenerator("stone_formations");}
-        
         if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("ruby"); this.removeGenerator("topaz");
         this.removeGenerator("amber"); this.removeGenerator("peridot"); this.removeGenerator("malachite");
         this.removeGenerator("sapphire"); this.removeGenerator("tanzanite"); this.removeGenerator("amethyst");}

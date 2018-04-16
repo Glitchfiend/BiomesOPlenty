@@ -83,12 +83,9 @@ public class BiomeGenOriginIsland extends BOPOverworldBiome
     public void applySettings(IBOPWorldSettings settings)
     {
     	this.removeGenerator("roots");
-        this.removeGenerator("stone_formations");
         this.removeGenerator("glowshrooms");
         this.removeGenerator("miners_delight");
     	
-        if (!settings.isEnabled(GeneratorType.ROCK_FORMATIONS)) {this.removeGenerator("stone_formations");}
-        
         if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("ruby"); this.removeGenerator("topaz");
         this.removeGenerator("amber"); this.removeGenerator("peridot"); this.removeGenerator("malachite");
         this.removeGenerator("sapphire"); this.removeGenerator("tanzanite"); this.removeGenerator("amethyst");}

@@ -124,7 +124,6 @@ public class BOPBlocks
     public static Block dirt;
     public static Block farmland_0;
     public static Block farmland_1;
-    public static Block stone_formations;
     public static Block hard_ice;
     public static Block dried_sand;
     public static Block mud_brick_block;

@@ -32,14 +32,11 @@ public class BiomeExtEnd extends ExtendedBiomeWrapper
     @Override
     public void applySettings(IBOPWorldSettings settings)
     {
-        this.removeGenerator("stone_formations");
         this.removeGenerator("glowshrooms");
         this.removeGenerator("miners_delight");
         this.removeGenerator("roots");
         
         if (!settings.isEnabled(GeneratorType.END_FEATURES)) {this.removeGenerator("crystals"); this.removeGenerator("biome_essence");}
-    
-        if (!settings.isEnabled(GeneratorType.ROCK_FORMATIONS)) {this.removeGenerator("stone_formations");}
         
         if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("ruby"); this.removeGenerator("topaz");
         this.removeGenerator("amber"); this.removeGenerator("peridot"); this.removeGenerator("malachite");

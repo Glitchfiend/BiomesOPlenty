@@ -174,7 +174,6 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
         BIOME_SIZE (105),
         LAND_SCHEME (106),
         RAIN_SCHEME (107),
-        GENERATE_ROCK_FORMATIONS (116),
         GENERATE_POISON_IVY (117),
         GENERATE_BERRY_BUSHES (119),
         GENERATE_THORNS (120),
@@ -244,7 +243,6 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
         this.pageNames[2] = "Feature Generation Settings";
         GuiBOPPageList.GuiFieldEntry[] page2Fields = new GuiBOPPageList.GuiFieldEntry[] {
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_GEMS.getId(), "BOP Gems", true, this.settings.generateBopGems),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_ROCK_FORMATIONS.getId(), "Rock Formations", true, this.settings.generateRockFormations),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_POISON_IVY.getId(), "Poison Ivy", true, this.settings.generatePoisonIvy),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BERRY_BUSHES.getId(), "Berry Bushes", true, this.settings.generateBerryBushes),
             new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_THORNS.getId(), "Thorns", true, this.settings.generateThorns),
@@ -353,9 +351,6 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
         {
             case GENERATE_BOP_GEMS:
                 this.settings.generateBopGems = value;
-                break;
-            case GENERATE_ROCK_FORMATIONS:
-                this.settings.generateRockFormations = value;
                 break;
             case GENERATE_POISON_IVY:
                 this.settings.generatePoisonIvy = value;

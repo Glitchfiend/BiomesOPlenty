@@ -50,7 +50,6 @@ import biomesoplenty.common.block.BlockBOPPlanks;
 import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.block.BlockBOPSapling;
 import biomesoplenty.common.block.BlockBOPSeaweed;
-import biomesoplenty.common.block.BlockBOPStoneFormations;
 import biomesoplenty.common.block.BlockBOPStoneStairs;
 import biomesoplenty.common.block.BlockBOPTerrarium;
 import biomesoplenty.common.block.BlockBOPVine;
@@ -251,8 +250,6 @@ public class ModBlocks
         eucalyptus_door =       registerDoor( new BlockBOPDoor(BOPWoods.EUCALYPTUS), "eucalyptus_door", BOPItems.eucalyptus_door );
         
         // Plants
-        
-        stone_formations =      registerBlock( new BlockBOPStoneFormations(), "stone_formations" );
         
         coral =                 registerBlock( new BlockBOPCoral(), "coral" );
         seaweed =               registerBlock( new BlockBOPSeaweed(), "seaweed" );
