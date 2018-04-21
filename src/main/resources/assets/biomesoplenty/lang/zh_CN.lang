@@ -15,7 +15,7 @@ advancements.biomesoplenty.terrestrial_artifact.description=获得到每个生�
 advancements.biomesoplenty.craft_biome_finder.title=搜索派对
 advancements.biomesoplenty.craft_biome_finder.description=制作出一个生物群系雷达来引导你。
 advancements.biomesoplenty.all_biomes.title=环球旅行
-advancements.biomesoplenty.all_biomes.description=探索完Biomes O' Plenty（超多生物群系）的每一个群系。
+advancements.biomesoplenty.all_biomes.description=探索完Bop（超多生物群系）的每一个群系。
 
 biome_finder.searching=寻找 %s
 biome_finder.found=找到 %s！
