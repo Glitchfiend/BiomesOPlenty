@@ -205,7 +205,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
     			return MapColor.ORANGE_STAINED_HARDENED_CLAY;
     			
     		case THORN:
-    			return MapColor.WHITE_STAINED_HARDENED_CLAY;
+    			return MapColor.SILVER_STAINED_HARDENED_CLAY;
     			
     		case BARLEY:
     			return MapColor.YELLOW;

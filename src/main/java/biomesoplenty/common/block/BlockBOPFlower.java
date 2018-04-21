@@ -153,7 +153,7 @@ public class BlockBOPFlower extends BlockBOPDecoration implements IShearable, IH
     			return MapColor.YELLOW;
     	
     		case LAVENDER:
-    			return MapColor.PURPLE;
+    			return MapColor.MAGENTA;
     	
     		default:
     			return this.blockMapColor;

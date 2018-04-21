@@ -13,6 +13,7 @@ import java.util.Random;
 import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
@@ -161,6 +162,11 @@ public class BlockBOPBamboo extends BlockBOPDecoration
         this.setBlockBoundsByRadiusAndHeight(0.2F, 1.0F);
     }*/
     
+    @Override
+    public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos)
+    {
+    	return MapColor.LIME;
+    }
     
     @Override
     public boolean canSustainLeaves(IBlockState state, IBlockAccess world, BlockPos pos)
