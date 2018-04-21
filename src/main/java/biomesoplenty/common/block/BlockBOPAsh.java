@@ -10,8 +10,10 @@ package biomesoplenty.common.block;
 
 import java.util.Random;
 
+import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.api.item.BOPItems;
 import net.minecraft.block.SoundType;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -63,6 +65,12 @@ public class BlockBOPAsh extends BlockBOPGeneric
     public int quantityDropped(Random random)
     {
         return 4;
+    }
+    
+    @Override
+    public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos)
+    {
+    	return MapColor.BLACK;
     }
 
     // randomly show some smoke particles

@@ -14,6 +14,7 @@ import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
@@ -66,6 +67,12 @@ public class BlockBOPCrystal extends Block implements IBOPBlock
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
         return BOPItems.crystal_shard;
+    }
+    
+    @Override
+    public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos)
+    {
+    	return MapColor.PURPLE;
     }
 
     @Override

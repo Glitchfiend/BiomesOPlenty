@@ -14,6 +14,8 @@ import biomesoplenty.common.config.GameplayConfigurationHandler;
 import biomesoplenty.common.item.ItemBOPFlower;
 import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockSand;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -140,6 +142,22 @@ public class BlockBOPFlower extends BlockBOPDecoration implements IShearable, IH
             default:
             	return new AxisAlignedBB(0.30000001192092896D, 0.0D, 0.30000001192092896D, 0.699999988079071D, 0.6000000238418579D, 0.699999988079071D);
         }        
+    }
+    
+    @Override
+    public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos)
+    {
+    	switch ((BOPFlowers) state.getValue(this.variantProperty))
+    	{
+    		case GOLDENROD:
+    			return MapColor.YELLOW;
+    	
+    		case LAVENDER:
+    			return MapColor.PURPLE;
+    	
+    		default:
+    			return this.blockMapColor;
+    	}
     }
     
     // some flowers emit light

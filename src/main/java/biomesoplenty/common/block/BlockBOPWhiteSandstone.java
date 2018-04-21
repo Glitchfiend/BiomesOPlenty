@@ -100,7 +100,7 @@ public class BlockBOPWhiteSandstone extends Block implements IBOPBlock
     @Override
     public MapColor getMapColor(IBlockState state, IBlockAccess world, BlockPos pos)
     {
-        return MapColor.SAND;
+        return MapColor.WHITE_STAINED_HARDENED_CLAY;
     }
 
     // map from state to meta and vice verca

@@ -10,6 +10,7 @@ package biomesoplenty.common.fluids.blocks;
 
 import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
@@ -90,6 +91,12 @@ public class BlockBloodFluid extends BlockFluidClassic
         }
 
         return false;
+    }
+    
+    @Override
+    public MapColor getMapColor(IBlockState state, IBlockAccess world, BlockPos pos)
+    {
+        return MapColor.RED;
     }
     
     @Override

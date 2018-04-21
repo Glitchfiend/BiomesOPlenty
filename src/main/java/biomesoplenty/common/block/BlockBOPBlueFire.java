@@ -167,7 +167,7 @@ public class BlockBOPBlueFire extends Block implements IBOPBlock
 	@Override
 	public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos)
 	{
-	    return MapColor.CYAN;
+	    return MapColor.LIGHT_BLUE;
 	}
 	
 	@Override

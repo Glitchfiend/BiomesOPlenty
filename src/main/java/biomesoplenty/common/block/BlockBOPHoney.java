@@ -11,6 +11,7 @@ package biomesoplenty.common.block;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
@@ -18,6 +19,8 @@ import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -52,6 +55,12 @@ public class BlockBOPHoney extends Block implements IBOPBlock
     public BlockRenderLayer getBlockLayer()
     {
         return BlockRenderLayer.TRANSLUCENT;
+    }
+    
+    @Override
+    public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos)
+    {
+    	return MapColor.YELLOW;
     }
     
     @Override

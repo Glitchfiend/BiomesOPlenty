@@ -9,11 +9,13 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BlockQueries;
+import biomesoplenty.api.enums.BOPFlowers;
 import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.item.ItemBOPPlant;
 import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -191,6 +193,30 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
         return paging.getIndex(plant);
     }
     
+    @Override
+    public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos)
+    {
+    	switch ((BOPPlants) state.getValue(this.variantProperty))
+    	{
+    		case DEADGRASS:
+    			return MapColor.BROWN;
+    	
+    		case DESERTGRASS:
+    			return MapColor.ORANGE_STAINED_HARDENED_CLAY;
+    			
+    		case THORN:
+    			return MapColor.WHITE_STAINED_HARDENED_CLAY;
+    			
+    		case BARLEY:
+    			return MapColor.YELLOW;
+    			
+    		case RAFFLESIA:
+    			return MapColor.RED;
+    	
+    		default:
+    			return this.blockMapColor;
+    	}
+    }
     
     // get the items dropped when you bash the bush
     @Override

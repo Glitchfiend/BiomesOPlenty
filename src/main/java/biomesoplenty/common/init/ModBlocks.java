@@ -113,7 +113,9 @@ public class ModBlocks
         white_sandstone =       registerBlock( new BlockBOPWhiteSandstone(), "white_sandstone" );
         white_sandstone_stairs =registerBlock(  new BlockBOPStoneStairs(white_sandstone.getDefaultState().withProperty(BlockBOPWhiteSandstone.VARIANT, StoneType.SMOOTH)), "white_sandstone_stairs");
         
-        dried_sand =            registerBlock( (new BlockBOPGeneric()).addSupportedPlantType(EnumPlantType.Desert), "dried_sand"); dried_sand.setHarvestLevel("pickaxe",0);
+        dried_sand =            registerBlock( (new BlockBOPGeneric(Material.GROUND, SoundType.STONE)).addSupportedPlantType(EnumPlantType.Desert), "dried_sand");
+        dried_sand.setHarvestLevel("pickaxe",0);
+        
         hard_ice =              registerBlock( (new BlockBOPGeneric(Material.PACKED_ICE, SoundType.STONE)).setHardness(0.75F), "hard_ice" );
         ash_block =             registerBlock( new BlockBOPAsh(), "ash_block" );
         mud =                   registerBlock( new BlockBOPMud(), "mud" );

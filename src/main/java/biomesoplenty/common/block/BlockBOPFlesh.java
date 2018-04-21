@@ -14,6 +14,7 @@ import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
@@ -80,6 +81,11 @@ public class BlockBOPFlesh extends Block implements IBOPBlock
         return BOPItems.fleshchunk;
     }
     
+    @Override
+    public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos)
+    {
+    	return MapColor.RED;
+    }
     
     @Override
     public int quantityDropped(Random random)

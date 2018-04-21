@@ -44,7 +44,7 @@ public class BlockBOPWhiteSand extends BlockFalling implements IBOPBlock
     @Override
     public MapColor getMapColor(IBlockState state, IBlockAccess world, BlockPos pos)
     {
-        return MapColor.SAND;
+        return MapColor.WHITE_STAINED_HARDENED_CLAY;
     }
 
     @SideOnly(Side.CLIENT)

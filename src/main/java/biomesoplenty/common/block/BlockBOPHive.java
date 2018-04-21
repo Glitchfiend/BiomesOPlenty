@@ -15,6 +15,7 @@ import biomesoplenty.common.entities.EntityWasp;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
@@ -29,6 +30,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -156,6 +158,11 @@ public class BlockBOPHive extends Block implements IBOPBlock
         }
     }
     
+    @Override
+    public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos)
+    {
+    	return MapColor.YELLOW_STAINED_HARDENED_CLAY;
+    }
     
     // spawn a wasp when empty honeycomb is broken
     @Override

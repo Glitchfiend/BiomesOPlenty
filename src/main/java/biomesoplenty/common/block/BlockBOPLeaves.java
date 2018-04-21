@@ -8,6 +8,7 @@
 
 package biomesoplenty.common.block;
 
+import biomesoplenty.api.enums.BOPFlowers;
 import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.item.ItemBOPBlock;
@@ -15,6 +16,7 @@ import biomesoplenty.common.util.block.VariantPagingHelper;
 import com.google.common.collect.Lists;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockPlanks;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -228,6 +230,49 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     {
         BOPTrees treeType = ((BOPTrees) state.getValue(this.variantProperty));
         return treeType.hasSapling() ? BlockBOPSapling.paging.getVariantItem(treeType).getItemDamage() : 0;
+    }
+    
+    @Override
+    public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos)
+    {
+    	switch ((BOPTrees) state.getValue(this.variantProperty))
+    	{
+    		case YELLOW_AUTUMN:
+    			return MapColor.YELLOW;
+    			
+    		case ORANGE_AUTUMN:
+    			return MapColor.ADOBE;
+    			
+    		case MAGIC:
+    			return MapColor.LIGHT_BLUE;
+    			
+    		case UMBRAN:
+    			return MapColor.BLUE_STAINED_HARDENED_CLAY;
+    			
+    		case DEAD:
+    			return MapColor.BROWN;
+    			
+    		case PINK_CHERRY:
+    			return MapColor.PINK;
+    			
+    		case WHITE_CHERRY:
+    			return MapColor.WHITE_STAINED_HARDENED_CLAY;
+    			
+    		case MAPLE:
+    			return MapColor.PINK_STAINED_HARDENED_CLAY;
+    			
+    		case RED_BIG_FLOWER:
+    			return MapColor.RED;
+    			
+    		case YELLOW_BIG_FLOWER:
+    			return MapColor.YELLOW;
+    	
+    		case JACARANDA:
+    			return MapColor.PURPLE;
+    	
+    		default:
+    			return this.blockMapColor;
+    	}
     }
     
     @Override
