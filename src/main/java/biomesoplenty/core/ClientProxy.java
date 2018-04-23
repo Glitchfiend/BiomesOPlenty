@@ -9,7 +9,6 @@
 package biomesoplenty.core;
 
 import java.util.List;
-import java.util.Map;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
@@ -19,7 +18,6 @@ import biomesoplenty.api.particle.BOPParticleTypes;
 import biomesoplenty.client.particle.EntityCurseFX;
 import biomesoplenty.client.particle.EntityPixieTrailFX;
 import biomesoplenty.client.particle.EntityTrailFX;
-import biomesoplenty.client.texture.ForgeRedirectedResourcePack;
 import biomesoplenty.common.block.IBOPBlock;
 import biomesoplenty.common.config.MiscConfigurationHandler;
 import biomesoplenty.common.entities.EntityPixie;
@@ -30,11 +28,6 @@ import biomesoplenty.common.entities.item.EntityBOPBoat;
 import biomesoplenty.common.entities.item.RenderBOPBoat;
 import biomesoplenty.common.entities.projectiles.EntityMudball;
 import biomesoplenty.common.entities.projectiles.RenderMudball;
-import biomesoplenty.common.fluids.BloodFluid;
-import biomesoplenty.common.fluids.HoneyFluid;
-import biomesoplenty.common.fluids.HotSpringWaterFluid;
-import biomesoplenty.common.fluids.PoisonFluid;
-import biomesoplenty.common.fluids.QuicksandFluid;
 import biomesoplenty.common.item.IColoredItem;
 import biomesoplenty.common.util.inventory.CreativeTabBOP;
 import net.minecraft.block.Block;
@@ -43,16 +36,12 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraft.client.particle.Particle;
-import net.minecraft.client.renderer.ItemMeshDefinition;
-import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.IStateMapper;
 import net.minecraft.client.renderer.block.statemap.StateMap;
 import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.client.resources.IResourcePack;
-import net.minecraft.client.resources.LegacyV2Adapter;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -62,16 +51,10 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-import net.minecraftforge.client.model.ModelDynBucket;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.ForgeModContainer;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.FluidUtil;
-import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import net.minecraftforge.fml.common.FMLCommonHandler;
-import net.minecraftforge.fml.relauncher.ReflectionHelper;
 
 public class ClientProxy extends CommonProxy
 {
@@ -93,8 +76,6 @@ public class ClientProxy extends CommonProxy
         registerEntityRenderer(EntityPixie.class, RenderPixie.class);
         registerEntityRenderer(EntityMudball.class, RenderMudball.class);
         registerEntityRenderer(EntityBOPBoat.class, RenderBOPBoat.class);
-        
-        replaceForgeResources();
     }
 
     @Override
@@ -225,68 +206,6 @@ public class ClientProxy extends CommonProxy
         }
 
         if (entityFx != null) {minecraft.effectRenderer.addEffect(entityFx);}
-    }
-    
-    @Override
-    public void replaceBOPBucketTexture() {
-    	// Use BOP bucket texture
-    	Map<Item, ItemMeshDefinition> meshMapping = ReflectionHelper.getPrivateValue(ItemModelMesher.class, Minecraft.getMinecraft().getRenderItem().getItemModelMesher(), "field_178092_c", "shapers");
-    	final ItemMeshDefinition meshDefinition = meshMapping.get(ForgeModContainer.getInstance().universalBucket);
-    	Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(ForgeModContainer.getInstance().universalBucket, new ItemMeshDefinition()
-        {
-            @Override
-            public ModelResourceLocation getModelLocation(ItemStack stack)
-            {
-            	FluidStack fluidStack = FluidUtil.getFluidContained(stack);
-            	if (fluidStack != null && MiscConfigurationHandler.useBoPBucketTexture)
-            	{
-            		if (fluidStack.getFluid() == BloodFluid.instance)
-            		{
-            			return bucketModelLocations[0];
-            		}
-            		if (fluidStack.getFluid() == HoneyFluid.instance)
-            		{
-            			return bucketModelLocations[1];
-            		}
-            		if (fluidStack.getFluid() == HotSpringWaterFluid.instance)
-            		{
-            			return bucketModelLocations[2];
-            		}
-            		if (fluidStack.getFluid() == PoisonFluid.instance)
-            		{
-            			return bucketModelLocations[3];
-            		}
-            		if (fluidStack.getFluid() == QuicksandFluid.instance)
-            		{
-            			return bucketModelLocations[4];
-            		}
-            	}
-                return meshDefinition == null ? ModelDynBucket.LOCATION : meshDefinition.getModelLocation(stack);
-            }
-        });
-    }
-
-    private static void replaceForgeResources()
-    {
-        if (MiscConfigurationHandler.overrideForgeBuckets)
-        {
-            FMLClientHandler clientHandler = FMLClientHandler.instance();
-
-            List<IResourcePack> resourcePackList = ReflectionHelper.getPrivateValue(FMLClientHandler.class, clientHandler, "resourcePackList");
-            Map<String, IResourcePack> resourcePackMap = ReflectionHelper.getPrivateValue(FMLClientHandler.class, clientHandler, "resourcePackMap");
-            LegacyV2Adapter resourcePack = (LegacyV2Adapter)clientHandler.getResourcePackFor("forge");
-
-            //Remove the old resource pack from the registry
-            resourcePackList.remove(resourcePack);
-            resourcePackMap.remove("forge");
-
-            //Replace Forge's resource pack with our modified version
-            ForgeRedirectedResourcePack redirectedResourcePack = new ForgeRedirectedResourcePack(FMLCommonHandler.instance().findContainerFor("forge"));
-
-            //Add our new resource pack in its place
-            resourcePackList.add(redirectedResourcePack);
-            resourcePackMap.put("forge", redirectedResourcePack);
-        }
     }
     
     // 

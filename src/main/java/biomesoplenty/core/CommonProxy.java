@@ -22,5 +22,4 @@ public class CommonProxy
     public void registerItemSided(Item item) {}
     public void registerFluidBlockRendering(Block block, String name) {}
     public void spawnParticle(BOPParticleTypes type, World parWorld, double x, double y, double z, Object... info) {}
-    public void replaceBOPBucketTexture() {}
 }

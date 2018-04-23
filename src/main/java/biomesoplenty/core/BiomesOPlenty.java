@@ -109,11 +109,6 @@ public class BiomesOPlenty
     {
         ModCompatibility.postInit();
     }
-    
-    @EventHandler
-    public void loadComplete(FMLLoadCompleteEvent event) {
-    	BiomesOPlenty.proxy.replaceBOPBucketTexture();
-    }
 
     @EventHandler
     public void serverStarting(FMLServerStartingEvent event)
