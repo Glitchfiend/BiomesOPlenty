@@ -12,6 +12,8 @@ import java.util.Map.Entry;
 
 import biomesoplenty.api.generation.BOPGenLayer;
 import biomesoplenty.common.init.ModBiomes;
+import net.minecraft.init.Biomes;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
@@ -59,6 +61,11 @@ public class GenLayerLargeIsland extends BOPGenLayer
     
     public int getRandomIslandBiome()
     {
+    	if (ModBiomes.totalIslandBiomesWeight <= 0)
+    	{
+    		return 0;
+    	}
+    	
         int weight = this.nextInt(ModBiomes.totalIslandBiomesWeight);
         Iterator<Entry<Integer, Integer>> iterator = ModBiomes.islandBiomesMap.entrySet().iterator();
         
