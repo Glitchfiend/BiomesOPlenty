@@ -129,10 +129,15 @@ public class BOPCommand extends CommandBase
         
         if (closestBiomePos != null)
         {
-            double x = (double)closestBiomePos.getX();
-            double y = (double)world.getTopSolidOrLiquidBlock(closestBiomePos).getY();
-            double z = (double)closestBiomePos.getZ();
-            
+        	double x = (double)closestBiomePos.getX();
+        	double y = (double)world.getTopSolidOrLiquidBlock(closestBiomePos).getY();
+        	double z = (double)closestBiomePos.getZ();
+        	
+        	if (!world.provider.isSurfaceWorld())
+        	{
+        		y = (double)getTopBlockNonOverworld(world, closestBiomePos).getY();
+        	}
+
             player.connection.setPlayerLocation(x, y, z, player.rotationYaw, player.rotationPitch);
             sender.sendMessage(new TextComponentTranslation("commands.biomesoplenty.tpbiome.success", player.getName(), biomeName, x, y, z));
         }
@@ -140,6 +145,27 @@ public class BOPCommand extends CommandBase
         {
             sender.sendMessage(new TextComponentTranslation("commands.biomesoplenty.tpbiome.error", biomeName));
         }
+    }
+    
+    public BlockPos getTopBlockNonOverworld(World world, BlockPos pos)
+    {
+        Chunk chunk = world.getChunkFromBlockCoords(pos);
+        BlockPos blockpos;
+        BlockPos blockpos1;
+        BlockPos blockpos2 = new BlockPos(pos.getX(), chunk.getTopFilledSegment() + 16, pos.getZ());
+
+        for (blockpos = blockpos2; blockpos.getY() >= 0; blockpos = blockpos1)
+        {
+            blockpos1 = blockpos.down();
+            IBlockState state = chunk.getBlockState(blockpos1);
+
+            if (!state.getMaterial().blocksMovement() && !world.isAirBlock(blockpos1.down()) && !state.getBlock().isLeaves(state, world, blockpos1) && !state.getBlock().isFoliage(world, blockpos1))
+            {
+                return blockpos1;
+            }
+        }
+
+        return blockpos2;
     }
     
     private void printStats(ICommandSender sender, String[] args) {

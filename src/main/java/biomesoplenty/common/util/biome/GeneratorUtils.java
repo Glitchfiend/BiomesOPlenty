@@ -117,12 +117,12 @@ public class GeneratorUtils
                 case NETHER_SURFACE:
                     // random point above the nether surface
                     tempY = world.getHeight(new BlockPos(x, 0, z)).getY();
-                    pos = getFirstBlockMatching(world, new BlockPos(x, nextIntBetween(random, 1, 127), z), BlockQuery.buildAnd().add(BlockQueries.solid).withAirAbove().create());
+                    pos = getFirstBlockMatching(world, new BlockPos(x, nextIntBetween(random, 1, 122), z), BlockQuery.buildAnd().add(BlockQueries.solid).withAirAbove().create());
                     return (pos == null ? new BlockPos(x, 1, z) : pos.up());
                 case NETHER_ROOF:
                     // random point above the nether surface
                     tempY = world.getHeight(new BlockPos(x, 0, z)).getY();
-                    pos = getFirstBlockMatching(world, new BlockPos(x, nextIntBetween(random, 1, 127), z), BlockQuery.buildAnd().add(BlockQueries.solid).withAirBelow().create());
+                    pos = getFirstBlockMatching(world, new BlockPos(x, nextIntBetween(random, 1, 122), z), BlockQuery.buildAnd().add(BlockQueries.solid).withAirBelow().create());
                     return (pos == null ? new BlockPos(x, 1, z) : pos.down());
                 case ANYWHERE: default:
                     // random y coord
