@@ -17,15 +17,6 @@ public class LootTableEventHandler
 	@SubscribeEvent
     public void onLootTableLoad(LootTableLoadEvent event)
     {
-		if (event.getName().equals(LootTableList.CHESTS_NETHER_BRIDGE))
-		{
-            LootPool main = event.getTable().getPool("main");
-            if (main != null)
-            {
-                main.addEntry(new LootEntryItem(BOPItems.ash, 3, 6, new LootFunction[0], new LootCondition[0], "biomesoplenty:ash"));
-                main.addEntry(new LootEntryItem(BOPItems.fleshchunk, 5, 5, new LootFunction[0], new LootCondition[0], "biomesoplenty:fleshchunk"));
-            }
-		}
 		if (event.getName().equals(LootTableList.CHESTS_SPAWN_BONUS_CHEST))
 		{
             LootPool main = event.getTable().getPool("main");
@@ -36,13 +27,5 @@ public class LootTableEventHandler
             	main.addEntry(new LootEntryItem(BOPItems.persimmon, 4, 2, new LootFunction[0], new LootCondition[0], "biomesoplenty:persimmon"));
             }
 		}
-		if (event.getName().equals(LootTableList.GAMEPLAY_FISHING_JUNK))
-        {
-            LootPool main = event.getTable().getPool("main");
-            if (main != null)
-            {
-                main.addEntry(new LootEntryItem(new ItemStack(BOPBlocks.seaweed).getItem(), 7, 1, new LootFunction[0], new LootCondition[0], "biomesoplenty:seaweed"));
-            }
-        }
     }
 }
