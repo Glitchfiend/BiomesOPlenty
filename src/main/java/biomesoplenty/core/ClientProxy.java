@@ -60,7 +60,6 @@ public class ClientProxy extends CommonProxy
 {
     public static ResourceLocation[] bopTitlePanoramaPaths = new ResourceLocation[] {new ResourceLocation("biomesoplenty:textures/gui/title/background/panorama_0.png"), new ResourceLocation("biomesoplenty:textures/gui/title/background/panorama_1.png"), new ResourceLocation("biomesoplenty:textures/gui/title/background/panorama_2.png"), new ResourceLocation("biomesoplenty:textures/gui/title/background/panorama_3.png"), new ResourceLocation("biomesoplenty:textures/gui/title/background/panorama_4.png"), new ResourceLocation("biomesoplenty:textures/gui/title/background/panorama_5.png")};
     public static ResourceLocation particleTexturesLocation = new ResourceLocation("biomesoplenty:textures/particles/particles.png");
-    public static ModelResourceLocation[] bucketModelLocations = new ModelResourceLocation[] {new ModelResourceLocation(new ResourceLocation("biomesoplenty", "blood_bucket"), "inventory"), new ModelResourceLocation(new ResourceLocation("biomesoplenty", "honey_bucket"), "inventory"), new ModelResourceLocation(new ResourceLocation("biomesoplenty", "hot_spring_water_bucket"), "inventory"), new ModelResourceLocation(new ResourceLocation("biomesoplenty", "poison_bucket"), "inventory"), new ModelResourceLocation(new ResourceLocation("biomesoplenty", "sand_bucket"), "inventory")};
 
     private static List<Block> blocksToColour = Lists.newArrayList();
     private static List<Item> itemsToColor = Lists.newArrayList();
@@ -81,9 +80,6 @@ public class ClientProxy extends CommonProxy
     @Override
     public void registerColouring()
     {
-        // do this here purely for timing reasons
-        ModelLoader.registerItemVariants(ForgeModContainer.getInstance().universalBucket, bucketModelLocations);
-
         for (Block block : blocksToColour)
         {
             IBOPBlock bopBlock = (IBOPBlock)block;
