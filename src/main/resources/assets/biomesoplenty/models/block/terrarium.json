@@ -2,7 +2,7 @@
 	"ambientocclusion": false,
     "textures": {
         "jar": "biomesoplenty:blocks/terrarium",
-		"particle": "biomesoplenty:items/jar_emtpy"
+		"particle": "biomesoplenty:items/jar_empty"
     },
     "elements": [
         {
