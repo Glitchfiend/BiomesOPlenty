@@ -8,6 +8,8 @@
 
 package biomesoplenty.common.util.inventory;
 
+import java.util.Set;
+
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.creativetab.CreativeTabs;
@@ -17,6 +19,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
+import net.minecraftforge.common.ForgeModContainer;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.UniversalBucket;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -40,6 +46,16 @@ public class CreativeTabBOP extends CreativeTabs
     public void displayAllRelevantItems(NonNullList<ItemStack> itemList)
     {
         super.displayAllRelevantItems(itemList);
+        
+        for (Fluid bucketFluid : FluidRegistry.getBucketFluids())
+        {
+            if (bucketFluid.getBlock().getRegistryName().getResourceDomain().equals(BiomesOPlenty.MOD_ID))
+            {
+                ItemStack itemstack = UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, bucketFluid);
+                itemList.add(itemstack);
+            }
+        }
+        
         for (EntityList.EntityEggInfo eggInfo : EntityList.ENTITY_EGGS.values())
         {
             if (eggInfo.spawnedID.getResourceDomain().equals(BiomesOPlenty.MOD_ID))
