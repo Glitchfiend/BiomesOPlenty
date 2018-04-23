@@ -23,6 +23,7 @@ import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumParticleTypes;
@@ -57,7 +58,7 @@ public class BlockBOPFlesh extends Block implements IBOPBlock
         super(Material.SPONGE);
         this.setHardness(0.4F);
         this.setHarvestLevel("axe", 0);
-        this.setSoundType(SoundType.SLIME);
+        this.setSoundType(new SoundType(1.0F, 0.5F, SoundEvents.BLOCK_SLIME_BREAK, SoundEvents.BLOCK_SLIME_STEP, SoundEvents.BLOCK_SLIME_PLACE, SoundEvents.BLOCK_SLIME_HIT, SoundEvents.BLOCK_SLIME_FALL));
     }
     
     @Override

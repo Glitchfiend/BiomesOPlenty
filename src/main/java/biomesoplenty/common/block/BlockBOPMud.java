@@ -28,6 +28,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumFacing;
@@ -92,7 +93,7 @@ public class BlockBOPMud extends Block implements IBOPBlock, ISustainsPlantType
         // set some defaults
         this.setHarvestLevel("shovel", 0);
         this.setHardness(0.6F);
-        this.setSoundType(SoundType.SLIME);
+        this.setSoundType(new SoundType(1.0F, 0.5F, SoundEvents.BLOCK_SLIME_BREAK, SoundEvents.BLOCK_SLIME_STEP, SoundEvents.BLOCK_SLIME_PLACE, SoundEvents.BLOCK_SLIME_HIT, SoundEvents.BLOCK_SLIME_FALL));
         this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, MudType.MUD) );
     }    
     
