@@ -49,7 +49,7 @@ public class CreativeTabBOP extends CreativeTabs
         
         for (Fluid bucketFluid : FluidRegistry.getBucketFluids())
         {
-            if (bucketFluid.getBlock().getRegistryName().getResourceDomain().equals(BiomesOPlenty.MOD_ID))
+            if (bucketFluid.getBlock() != null && bucketFluid.getBlock().getRegistryName().getResourceDomain().equals(BiomesOPlenty.MOD_ID))
             {
                 ItemStack itemstack = UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, bucketFluid);
                 itemList.add(itemstack);
