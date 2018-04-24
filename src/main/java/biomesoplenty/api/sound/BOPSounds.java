@@ -11,8 +11,6 @@ import net.minecraft.util.SoundEvent;
 
 public class BOPSounds 
 {
-    public static SoundEvent pixie_ambient;
-    public static SoundEvent pixie_hurt;
     public static SoundEvent wasp_ambient;
     public static SoundEvent wasp_hurt;
     public static SoundEvent records_wanderer;

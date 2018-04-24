@@ -46,7 +46,6 @@ import static biomesoplenty.api.item.BOPItems.mudball;
 import static biomesoplenty.api.item.BOPItems.peach;
 import static biomesoplenty.api.item.BOPItems.pear;
 import static biomesoplenty.api.item.BOPItems.persimmon;
-import static biomesoplenty.api.item.BOPItems.pixie_dust;
 import static biomesoplenty.api.item.BOPItems.record_wanderer;
 import static biomesoplenty.api.item.BOPItems.ricebowl;
 import static biomesoplenty.api.item.BOPItems.shroompowder;
@@ -115,8 +114,6 @@ public class ModItems
         mud_brick = registerItem(new Item(), "mud_brick");
         ash = registerItem(new Item(), "ash");
         fleshchunk = registerItem(new Item(), "fleshchunk");
-        
-        pixie_dust = registerItem(new Item(), "pixie_dust");
         
         gem = registerItem(new ItemGem(), "gem");
         

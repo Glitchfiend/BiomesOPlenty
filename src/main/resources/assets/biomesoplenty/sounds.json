@@ -1,14 +1,4 @@
 {
-  "entity.biomesoplenty.pixie.hurt": {
-    "sounds": [
-      "biomesoplenty:entity/pixie/hurt"
-    ]
-  },
-  "entity.biomesoplenty.pixie.ambient": {
-    "sounds": [
-      "biomesoplenty:entity/pixie/ambient"
-    ]
-  },
   "entity.biomesoplenty.wasp.hurt": {
     "sounds": [
       "biomesoplenty:entity/wasp/hurt"

@@ -16,13 +16,10 @@ import com.google.common.collect.Lists;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.api.particle.BOPParticleTypes;
 import biomesoplenty.client.particle.EntityCurseFX;
-import biomesoplenty.client.particle.EntityPixieTrailFX;
 import biomesoplenty.client.particle.EntityTrailFX;
 import biomesoplenty.common.block.IBOPBlock;
 import biomesoplenty.common.config.MiscConfigurationHandler;
-import biomesoplenty.common.entities.EntityPixie;
 import biomesoplenty.common.entities.EntityWasp;
-import biomesoplenty.common.entities.RenderPixie;
 import biomesoplenty.common.entities.RenderWasp;
 import biomesoplenty.common.entities.item.EntityBOPBoat;
 import biomesoplenty.common.entities.item.RenderBOPBoat;
@@ -52,7 +49,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.common.ForgeModContainer;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 
@@ -72,7 +68,6 @@ public class ClientProxy extends CommonProxy
 
         //Entity rendering and other stuff will go here in future
         registerEntityRenderer(EntityWasp.class, RenderWasp.class);
-        registerEntityRenderer(EntityPixie.class, RenderPixie.class);
         registerEntityRenderer(EntityMudball.class, RenderMudball.class);
         registerEntityRenderer(EntityBOPBoat.class, RenderBOPBoat.class);
     }
@@ -181,9 +176,6 @@ public class ClientProxy extends CommonProxy
         Particle entityFx = null;
         switch (type)
         {
-        case PIXIETRAIL:
-            entityFx = new EntityPixieTrailFX(parWorld, x, y, z, MathHelper.nextDouble(parWorld.rand, -0.03, 0.03), -0.02D, MathHelper.nextDouble(parWorld.rand, -0.03, 0.03));
-            break;
         case MUD:
             int itemId = Item.getIdFromItem(BOPItems.mudball);
             minecraft.world.spawnParticle(EnumParticleTypes.ITEM_CRACK, x, y, z, MathHelper.nextDouble(parWorld.rand, -0.08D, 0.08D), MathHelper.nextDouble(parWorld.rand, -0.08D, 0.08D), MathHelper.nextDouble(parWorld.rand, -0.08D, 0.08D), itemId);

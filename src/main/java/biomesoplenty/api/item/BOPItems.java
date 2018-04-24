@@ -35,7 +35,6 @@ public class BOPItems
     public static Item green_dye;
     public static Item white_dye;
     public static Item black_dye;
-    public static Item pixie_dust;
     public static Item other_slab;
     
     public static Item boat_sacred_oak;

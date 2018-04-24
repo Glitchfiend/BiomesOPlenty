@@ -30,7 +30,6 @@ public class EntityCurseFX extends Particle
     {
         super(world, xCoordIn, yCoordIn, zCoordIn, 0.0D, 0.0D, 0.0D);
         
-        // pixie trail texture is row from position 0,1 to position 8,1
         this.particleTextureIndexX = 7;
         this.particleTextureIndexY = 5;
         

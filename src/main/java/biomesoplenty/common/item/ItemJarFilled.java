@@ -10,11 +10,8 @@ package biomesoplenty.common.item;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.common.entities.EntityPixie;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
@@ -24,12 +21,10 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -39,7 +34,7 @@ public class ItemJarFilled extends Item
     
     public enum JarContents implements IStringSerializable
     {
-        HONEY, PIXIE, BLUE_FIRE;
+        HONEY, BLUE_FIRE;
         
         @Override
         public String getName()
@@ -127,23 +122,6 @@ public class ItemJarFilled extends Item
         }
     }
     
-    // TODO: should you get back an empty jar?
-    public boolean releasePixie(ItemStack stack, World world, EntityPlayer player, Vec3d releasePoint)
-    {
-        if (world.provider.isSurfaceWorld())
-        {
-            EntityPixie pixie = new EntityPixie(world);                    
-            pixie.setLocationAndAngles(releasePoint.x, releasePoint.y, releasePoint.z, MathHelper.wrapDegrees(world.rand.nextFloat() * 360.0F), 0.0F);
-            world.spawnEntity(pixie);
-            pixie.playLivingSound();
-            if (stack.hasDisplayName()) {pixie.setCustomNameTag(stack.getDisplayName());}
-            return true;
-        } else {
-            player.sendMessage(new TextComponentString("\u00a75Pixies cannot survive in this environment!"));
-            return false;
-        }
-    }
-    
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
     {
@@ -151,17 +129,6 @@ public class ItemJarFilled extends Item
         if (world.isRemote) {return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);}
         switch (this.getContentsType(stack))
         {
-            // right click in air releases pixie
-            case PIXIE:
-                if (this.getContentsType(stack) == JarContents.PIXIE)
-                {
-                    // release pixie into the air in front of the player (target distance 0.8, but will be closer if there's blocks in the way)
-                    Vec3d releasePoint = this.getAirPositionInFrontOfPlayer(world, player, 0.8D);
-                    this.releasePixie(stack, world, player, releasePoint);
-                    this.emptyJar(stack, player, new ItemStack(BOPItems.jar_empty));
-                    return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
-                }
-
             case HONEY: default:
                 return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);
         }
@@ -195,15 +162,6 @@ public class ItemJarFilled extends Item
         if (world.isRemote) {return EnumActionResult.FAIL;}
         switch (this.getContentsType(stack))
         {
-            // right click on block also releases pixie
-            case PIXIE:
-                double distX = hitX - player.posX;
-                double distY = hitY - (player.posY + (double)player.getEyeHeight());
-                double distZ = hitZ - player.posZ;                
-                double a = 0.9D;
-                Vec3d releasePoint = new Vec3d(player.posX + a * distX, player.posY + (double)player.getEyeHeight() + a * distY, player.posZ + a * distZ);
-                return this.releasePixie(stack, world, player, releasePoint) ? EnumActionResult.SUCCESS : EnumActionResult.FAIL;
-                
             case BLUE_FIRE:
             	pos = pos.offset(facing);
             	ItemStack itemstack = player.getHeldItem(hand);
