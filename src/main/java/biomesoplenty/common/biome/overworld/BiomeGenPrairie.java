@@ -19,9 +19,11 @@ import biomesoplenty.common.world.generator.tree.GeneratorBigTree;
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.entity.passive.EntityDonkey;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.biome.Biome;
 
 public class BiomeGenPrairie extends BOPOverworldBiome
 {
@@ -40,6 +42,7 @@ public class BiomeGenPrairie extends BOPOverworldBiome
         this.canGenerateVillages = true;
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 1, 2, 6));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityDonkey.class, 1, 1, 1));
         
         // sand
         this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.SAND.getDefaultState()).create());

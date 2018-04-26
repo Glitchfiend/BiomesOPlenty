@@ -25,7 +25,9 @@ import biomesoplenty.common.world.generator.GeneratorWeighted;
 import biomesoplenty.common.world.generator.tree.GeneratorBasicTree;
 import biomesoplenty.common.world.generator.tree.GeneratorBigTree;
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.entity.passive.EntityRabbit;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.biome.Biome;
 
 
 public class BiomeGenSnowyForest extends BOPOverworldBiome
@@ -39,6 +41,8 @@ public class BiomeGenSnowyForest extends BOPOverworldBiome
         
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SILTY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY);
+        
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityRabbit.class, 4, 2, 3));
         
         this.canGenerateVillages = false;
 

@@ -19,8 +19,10 @@ import biomesoplenty.common.world.generator.GeneratorWeighted;
 import biomesoplenty.common.world.generator.tree.GeneratorTaigaTree;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.entity.passive.EntityRabbit;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.init.Blocks;
+import net.minecraft.world.biome.Biome;
 
 public class BiomeGenSnowyConiferousForest extends BOPOverworldBiome
 {
@@ -40,6 +42,7 @@ public class BiomeGenSnowyConiferousForest extends BOPOverworldBiome
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.LOAMY);
 
         this.spawnableCreatureList.add(new SpawnListEntry(EntityWolf.class, 8, 4, 4));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityRabbit.class, 4, 2, 3));
         
         // gravel
         this.addGenerator("gravel", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(4).maxRadius(7).with(Blocks.GRAVEL.getDefaultState()).create());

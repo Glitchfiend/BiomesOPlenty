@@ -22,8 +22,10 @@ import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.passive.EntityRabbit;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.biome.Biome;
 
 public class BiomeGenBrushland extends BOPOverworldBiome
 {   
@@ -40,6 +42,8 @@ public class BiomeGenBrushland extends BOPOverworldBiome
         this.addWeight(BOPClimates.SAVANNA, 10);
         
         this.canGenerateVillages = true;
+        
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityRabbit.class, 4, 2, 3));
         
         //sand
         this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(4).maxRadius(7).with(Blocks.SAND.getDefaultState()).create());

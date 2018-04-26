@@ -38,10 +38,10 @@ public class BiomeGenOriginBeach extends BOPOverworldBiome
         this.spawnableCaveCreatureList.clear();
         this.spawnableMonsterList.clear();
         this.spawnableCreatureList.clear();
-        this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntitySpider.class, 100, 4, 4));
-        this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntityZombie.class, 100, 4, 4));
-        this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntitySkeleton.class, 100, 4, 4));
-        this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntityCreeper.class, 100, 4, 4));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntitySpider.class, 100, 4, 4));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityZombie.class, 100, 4, 4));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntitySkeleton.class, 100, 4, 4));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityCreeper.class, 100, 4, 4));
         
         this.decorator.treesPerChunk = -999;
         this.decorator.deadBushPerChunk = 0;

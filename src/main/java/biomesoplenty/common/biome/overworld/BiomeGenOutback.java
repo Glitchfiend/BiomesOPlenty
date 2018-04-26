@@ -27,7 +27,9 @@ import biomesoplenty.common.world.generator.tree.GeneratorTwigletTree;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockSand;
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.entity.passive.EntityRabbit;
 import net.minecraft.init.Blocks;
+import net.minecraft.world.biome.Biome;
 
 public class BiomeGenOutback extends BOPOverworldBiome
 {    
@@ -47,6 +49,7 @@ public class BiomeGenOutback extends BOPOverworldBiome
         
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityRabbit.class, 4, 2, 3));
         
         // splatter top blocks
         IBlockPosQuery emptyRedSand = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();

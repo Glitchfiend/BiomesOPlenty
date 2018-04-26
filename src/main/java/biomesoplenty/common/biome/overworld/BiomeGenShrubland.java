@@ -23,9 +23,12 @@ import biomesoplenty.common.world.generator.GeneratorWeighted;
 import biomesoplenty.common.world.generator.tree.GeneratorBush;
 import net.minecraft.block.BlockFlower.EnumFlowerType;
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.entity.passive.EntityDonkey;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.passive.EntityLlama;
+import net.minecraft.entity.passive.EntityRabbit;
 import net.minecraft.init.Blocks;
+import net.minecraft.world.biome.Biome;
 
 public class BiomeGenShrubland extends BOPOverworldBiome
 {
@@ -48,7 +51,9 @@ public class BiomeGenShrubland extends BOPOverworldBiome
         }
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityDonkey.class, 1, 1, 1));
         this.spawnableCreatureList.add(new SpawnListEntry(EntityLlama.class, 5, 4, 6));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityRabbit.class, 4, 2, 3));
         
         // sand and gravel
         this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.SAND.getDefaultState()).create());

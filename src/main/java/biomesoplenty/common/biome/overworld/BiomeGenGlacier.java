@@ -37,7 +37,7 @@ public class BiomeGenGlacier extends BOPOverworldBiome
         this.hasBiomeEssence = false;
         
         this.spawnableCreatureList.clear();
-        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityPolarBear.class, 1, 1, 2));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityPolarBear.class, 1, 1, 2));
         
         clearWeights();
           

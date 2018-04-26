@@ -17,8 +17,10 @@ import biomesoplenty.common.world.generator.tree.GeneratorBasicTree;
 import biomesoplenty.common.world.generator.tree.GeneratorBigTree;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.entity.passive.EntityDonkey;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.biome.Biome;
 
 public class BiomeGenOrchard extends BOPOverworldBiome
 {
@@ -34,6 +36,7 @@ public class BiomeGenOrchard extends BOPOverworldBiome
         this.canGenerateVillages = true;
         
         this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 1, 2, 6));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityDonkey.class, 1, 1, 1));
         
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(5);

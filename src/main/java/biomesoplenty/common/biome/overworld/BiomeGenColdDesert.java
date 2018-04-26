@@ -61,7 +61,7 @@ public class BiomeGenColdDesert extends BOPOverworldBiome
         this.addWeight(BOPClimates.ICE_CAP, 10);
 
         this.spawnableCreatureList.clear();
-        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityPolarBear.class, 1, 1, 2));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityPolarBear.class, 1, 1, 2));
         
         // gravel, stone and boulders
         IBlockPosQuery surface = new BlockQueryBlock(Blocks.STONE, Blocks.GRAVEL);

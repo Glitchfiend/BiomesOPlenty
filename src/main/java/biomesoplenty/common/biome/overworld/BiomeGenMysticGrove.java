@@ -39,8 +39,10 @@ import net.minecraft.block.BlockOldLeaf;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.monster.EntityWitch;
+import net.minecraft.entity.passive.EntityRabbit;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.biome.Biome;
 
 public class BiomeGenMysticGrove extends BOPOverworldBiome
 {    
@@ -66,8 +68,9 @@ public class BiomeGenMysticGrove extends BOPOverworldBiome
         
         this.addWeight(BOPClimates.WET_TEMPERATE, 1);
         
-        this.spawnableCreatureList.clear(); // none of your regular farmyard critters here
+        this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityRabbit.class, 4, 2, 3));
         this.spawnableMonsterList.add(new SpawnListEntry(EntityWitch.class, 10, 4, 4));      
         
         // hot springs

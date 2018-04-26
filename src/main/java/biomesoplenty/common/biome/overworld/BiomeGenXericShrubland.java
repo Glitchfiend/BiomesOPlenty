@@ -27,9 +27,11 @@ import biomesoplenty.common.world.generator.tree.GeneratorTwigletTree;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.passive.EntityRabbit;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
 
 public class BiomeGenXericShrubland extends BOPOverworldBiome
@@ -55,6 +57,7 @@ public class BiomeGenXericShrubland extends BOPOverworldBiome
         this.addWeight(BOPClimates.HOT_DESERT, 3);
         
         this.spawnableCreatureList.clear();
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityRabbit.class, 4, 2, 3));
         
         // trees & logs
         GeneratorWeighted treeGenerator = new GeneratorWeighted(2.0F);

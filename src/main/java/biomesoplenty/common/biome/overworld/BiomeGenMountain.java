@@ -84,8 +84,8 @@ public class BiomeGenMountain extends BOPOverworldBiome
             
             // only sheep and wolves on the peaks
             this.spawnableCreatureList.clear();
-            this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntitySheep.class, 12, 4, 6));
-            this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 4, 4, 4));
+            this.spawnableCreatureList.add(new SpawnListEntry(EntitySheep.class, 12, 4, 6));
+            this.spawnableCreatureList.add(new SpawnListEntry(EntityWolf.class, 4, 4, 4));
             this.spawnableCreatureList.add(new SpawnListEntry(EntityLlama.class, 5, 4, 6));
         }        
         

@@ -35,8 +35,10 @@ import net.minecraft.block.BlockOldLeaf;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.passive.EntityRabbit;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
  
 public class BiomeGenOasis extends BOPOverworldBiome
@@ -60,6 +62,8 @@ public class BiomeGenOasis extends BOPOverworldBiome
         this.fillerBlock = Blocks.SAND.getDefaultState();
         this.usualTopBlock = this.topBlock;
         this.alternateTopBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SANDY);
+        
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityRabbit.class, 4, 2, 3));
         
         clearWeights();
         

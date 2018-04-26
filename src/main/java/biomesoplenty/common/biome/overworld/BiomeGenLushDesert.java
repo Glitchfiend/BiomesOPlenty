@@ -34,7 +34,9 @@ import biomesoplenty.common.world.generator.tree.GeneratorTwigletTree;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.entity.passive.EntityRabbit;
 import net.minecraft.init.Blocks;
+import net.minecraft.world.biome.Biome;
 
 public class BiomeGenLushDesert extends BOPOverworldBiome
 {
@@ -52,6 +54,8 @@ public class BiomeGenLushDesert extends BOPOverworldBiome
         this.canGenerateVillages = true;
         
         this.addWeight(BOPClimates.SAVANNA, 2);
+        
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityRabbit.class, 4, 2, 3));
         
         // trees
         IBlockPosQuery suitableTreePosition = BlockQuery.buildAnd().withAltitudeBetween(62, 68).states(this.topBlock).withAirAbove().create();
