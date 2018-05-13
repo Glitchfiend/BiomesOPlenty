@@ -60,8 +60,7 @@ public class BiomeGenOminousWoods extends BOPOverworldBiome
 
         this.addWeight(BOPClimates.COLD_SWAMP, 1);
         
-        this.spawnableCreatureList.clear(); // none of your regular farmyard critters here
-        this.spawnableWaterCreatureList.clear();
+        this.spawnableCreatureList.clear();
         
         // lakes
         this.addGenerator("poison_lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.1F).liquid(BOPBlocks.poison).frozenLiquid((IBlockState)null).create());

@@ -58,7 +58,6 @@ public class BiomeGenDeadSwamp extends BOPOverworldBiome
         this.addWeight(BOPClimates.COLD_SWAMP, 3);
         
         this.spawnableCreatureList.clear();
-        this.spawnableWaterCreatureList.clear();
 
         // mud
         this.addGenerator("mud", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(8).maxRadius(7).with(BOPBlocks.mud.getDefaultState()).create());

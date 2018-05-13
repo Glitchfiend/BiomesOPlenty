@@ -48,7 +48,6 @@ public class BiomeGenOutback extends BOPOverworldBiome
         this.canGenerateVillages = true;
         
         this.spawnableCreatureList.clear();
-        this.spawnableWaterCreatureList.clear();
         this.spawnableCreatureList.add(new SpawnListEntry(EntityRabbit.class, 4, 2, 3));
         
         // splatter top blocks

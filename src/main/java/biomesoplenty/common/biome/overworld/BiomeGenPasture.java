@@ -28,8 +28,6 @@ public class BiomeGenPasture extends BOPOverworldBiome
         this.canGenerateVillages = false;
         this.hasBiomeEssence = false;
         
-        this.spawnableCreatureList.clear();
-        
         clearWeights();
 
         // grasses

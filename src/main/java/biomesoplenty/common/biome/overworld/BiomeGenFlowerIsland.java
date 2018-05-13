@@ -52,7 +52,6 @@ public class BiomeGenFlowerIsland extends BOPOverworldBiome
         
         this.spawnableMonsterList.clear();
         this.spawnableCreatureList.clear();
-        // TODO: implement rosester? this.spawnableCreatureList.add(new SpawnListEntry(EntityRosester.class, 10, 4, 4));
         
         // regular grass
         IBlockPosQuery emptyGrass = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();

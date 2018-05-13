@@ -69,7 +69,6 @@ public class BiomeGenMysticGrove extends BOPOverworldBiome
         this.addWeight(BOPClimates.WET_TEMPERATE, 1);
         
         this.spawnableCreatureList.clear();
-        this.spawnableWaterCreatureList.clear();
         this.spawnableCreatureList.add(new SpawnListEntry(EntityRabbit.class, 4, 2, 3));
         this.spawnableMonsterList.add(new SpawnListEntry(EntityWitch.class, 10, 4, 4));      
         

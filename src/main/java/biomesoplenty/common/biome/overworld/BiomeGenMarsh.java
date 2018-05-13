@@ -54,8 +54,7 @@ public class BiomeGenMarsh extends BOPOverworldBiome
         
         this.addWeight(BOPClimates.WET_TEMPERATE, 7);
         
-        this.spawnableCreatureList.clear(); // none of your regular farmyard critters here
-        this.spawnableWaterCreatureList.clear();
+        this.spawnableCreatureList.clear();
         this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));
         
         // mud

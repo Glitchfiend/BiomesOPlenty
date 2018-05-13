@@ -69,7 +69,6 @@ public class BiomeGenQuagmire extends BOPOverworldBiome
         this.addWeight(BOPClimates.COLD_SWAMP, 2);
         
         this.spawnableCreatureList.clear();
-        this.spawnableWaterCreatureList.clear();
         this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));
         
         // splatter top blocks

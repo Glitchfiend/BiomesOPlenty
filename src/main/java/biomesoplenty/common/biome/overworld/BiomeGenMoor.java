@@ -50,8 +50,6 @@ public class BiomeGenMoor extends BOPOverworldBiome
         this.beachBiomeLocation = null;
         
         this.addWeight(BOPClimates.COLD_SWAMP, 5);
-        
-        this.spawnableWaterCreatureList.clear();
           
         // mud
         this.addGenerator("mud", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(1).maxRadius(7).with(BOPBlocks.mud.getDefaultState()).create());

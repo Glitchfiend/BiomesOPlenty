@@ -59,7 +59,6 @@ public class BiomeGenBayou extends BOPOverworldBiome
 
         this.addWeight(BOPClimates.HOT_SWAMP, 10);
         
-        this.spawnableWaterCreatureList.clear();
         this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));
         
         // mud

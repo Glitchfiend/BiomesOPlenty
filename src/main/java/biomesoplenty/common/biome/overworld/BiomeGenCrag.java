@@ -42,7 +42,6 @@ public class BiomeGenCrag extends BOPOverworldBiome
         this.addWeight(BOPClimates.COLD_SWAMP, 2);
 
         this.spawnableCreatureList.clear();
-        this.spawnableWaterCreatureList.clear();
         
         this.topBlock = Blocks.GRAVEL.getDefaultState();
         this.fillerBlock = Blocks.STONE.getDefaultState();

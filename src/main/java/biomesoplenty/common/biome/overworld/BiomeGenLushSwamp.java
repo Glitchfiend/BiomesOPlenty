@@ -55,7 +55,6 @@ public class BiomeGenLushSwamp extends BOPOverworldBiome
         
         this.addWeight(BOPClimates.WET_TEMPERATE, 10);
         
-        this.spawnableWaterCreatureList.clear();
         this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));
         
         // mud

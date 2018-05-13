@@ -59,8 +59,6 @@ public class BiomeGenLandOfLakes extends BOPOverworldBiome
         	this.beachBiomeLocation = ((BOPOverworldBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
         }
         
-        this.spawnableWaterCreatureList.clear();
-        
         // gravel
         this.addGenerator("gravel", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(4).maxRadius(7).with(Blocks.GRAVEL.getDefaultState()).create());
         
