@@ -541,7 +541,7 @@ public class ChunkGeneratorOverworldBOP implements IChunkGenerator
         }
 
         // add lava lakes
-        if (TerrainGen.populate(this, world, rand, chunkX, chunkZ, hasVillageGenerated, LAVA) && !hasVillageGenerated && this.rand.nextInt(this.settings.lavaLakeChance / 10) == 0 && this.settings.useLavaLakes)
+        if (!hasVillageGenerated && this.rand.nextInt(this.settings.lavaLakeChance / 10) == 0 && this.settings.useLavaLakes && TerrainGen.populate(this, world, rand, chunkX, chunkZ, hasVillageGenerated, LAVA))
         {
             target = decorateStart.add(this.rand.nextInt(16), this.rand.nextInt(248) + 8, this.rand.nextInt(16));
             if (target.getY() < 63 || this.rand.nextInt(this.settings.lavaLakeChance / 8) == 0)
