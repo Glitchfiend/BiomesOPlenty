@@ -8,12 +8,6 @@
 
 package biomesoplenty.common.block;
 
-import java.util.Random;
-
-import javax.annotation.Nullable;
-
-import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.api.particle.BOPParticleTypes;
 import biomesoplenty.api.potion.BOPPotions;
@@ -32,14 +26,11 @@ import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.BlockRenderLayer;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
@@ -50,6 +41,9 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
+import java.util.Random;
 
 public class BlockBOPBlueFire extends Block implements IBOPBlock
 {
@@ -158,7 +152,6 @@ public class BlockBOPBlueFire extends Block implements IBOPBlock
 	}
 	
     @Override
-    @SideOnly(Side.CLIENT)
     public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
     {
     	return new ItemStack(BOPItems.jar_filled, 1, ItemJarFilled.JarContents.BLUE_FIRE.ordinal());

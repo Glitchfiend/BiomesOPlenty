@@ -89,7 +89,6 @@ public class BlockBOPDoor extends BlockDoor implements IBOPBlock
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
     {
         return new ItemStack(this.getDoorItem(), 1);
