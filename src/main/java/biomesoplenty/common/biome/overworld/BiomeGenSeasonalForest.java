@@ -93,12 +93,12 @@ public class BiomeGenSeasonalForest extends BOPOverworldBiome
     @Override
     public int getGrassColorAtPos(BlockPos pos)
     {
-        return 0xB5B952;
+    	return getModdedBiomeGrassColor(0xB5B952);
     }
     
     @Override
     public int getFoliageColorAtPos(BlockPos pos)
     {
-        return 0xA3A627;
+    	return getModdedBiomeFoliageColor(0xA3A627);
     }
 }

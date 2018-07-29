@@ -98,12 +98,12 @@ public class BiomeGenXericShrubland extends BOPOverworldBiome
     @Override
     public int getGrassColorAtPos(BlockPos pos)
     {
-        return 0xD4E0A6;
+        return getModdedBiomeGrassColor(0xD4E0A6);
     }
     
     @Override
     public int getFoliageColorAtPos(BlockPos pos)
     {
-        return 0xD4E0A6;
+        return getModdedBiomeFoliageColor(0xD4E0A6);
     }
 }

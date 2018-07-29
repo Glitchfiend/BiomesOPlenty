@@ -127,12 +127,12 @@ public class BiomeGenShield extends BOPOverworldBiome
     @Override
     public int getGrassColorAtPos(BlockPos pos)
     {
-        return 0x7C9B45;
+        return getModdedBiomeGrassColor(0x7C9B45);
     }
     
     @Override
     public int getFoliageColorAtPos(BlockPos pos)
     {
-        return 0x8EAF4F;
+        return getModdedBiomeFoliageColor(0x8EAF4F);
     }
 }

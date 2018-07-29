@@ -108,13 +108,13 @@ public class BiomeGenSteppe extends BOPOverworldBiome
     public int getGrassColorAtPos(BlockPos pos)
     {
         double noise = GRASS_COLOR_NOISE.getValue((double)pos.getX() * 0.0225D, (double)pos.getZ() * 0.0225D);
-        return noise < -0.1D ? 13741418 : 13018487;
+        return getModdedBiomeGrassColor(noise < -0.1D ? 13741418 : 13018487);
     }
 
     @Override
     public int getFoliageColorAtPos(BlockPos pos)
     {
         double noise = GRASS_COLOR_NOISE.getValue((double)pos.getX() * 0.0225D, (double)pos.getZ() * 0.0225D);
-        return noise < -0.1D ? 13741418 : 13018487;
+        return getModdedBiomeFoliageColor(noise < -0.1D ? 13741418 : 13018487);
     }
 }
