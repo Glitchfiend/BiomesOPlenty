@@ -70,12 +70,12 @@ public class BiomeGenLavenderFields extends BOPOverworldBiome
     @Override
     public int getGrassColorAtPos(BlockPos pos)
     {
-        return 10601325;
+        return getModdedBiomeGrassColor(10601325);
     }
 
     @Override
     public int getFoliageColorAtPos(BlockPos pos)
     {
-        return 10601325;
+        return getModdedBiomeFoliageColor(10601325);
     }
 }

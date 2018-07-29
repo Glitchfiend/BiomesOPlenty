@@ -182,12 +182,12 @@ public class BiomeGenDummyTemplate extends BOPOverworldBiome
     @Override
     public int getGrassColorAtPos(BlockPos pos)
     {
-        return 0xFFFFFF;
+        return getModdedBiomeGrassColor(0xFFFFFF);
     }
 
     @Override
     public int getFoliageColorAtPos(BlockPos pos)
     {
-        return 0xFFFFFF;
+        return getModdedBiomeFoliageColor(0xFFFFFF);
     }
 }

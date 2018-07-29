@@ -99,12 +99,12 @@ public class BiomeGenCherryBlossomGrove extends BOPOverworldBiome
     @Override
     public int getGrassColorAtPos(BlockPos pos)
     {
-        return 0x96EA9B;
+        return getModdedBiomeGrassColor(0x96EA9B);
     }
 
     @Override
     public int getFoliageColorAtPos(BlockPos pos)
     {
-        return 0xA3FFAA;
+        return getModdedBiomeFoliageColor(0xA3FFAA);
     }
 }

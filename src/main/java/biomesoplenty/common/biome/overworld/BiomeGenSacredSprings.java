@@ -91,12 +91,12 @@ public class BiomeGenSacredSprings extends BOPOverworldBiome
     @Override
     public int getGrassColorAtPos(BlockPos pos)
     {
-        return 39285;
+        return getModdedBiomeGrassColor(39285);
     }
     
     @Override
     public int getFoliageColorAtPos(BlockPos pos)
     {
-        return 39285;
+        return getModdedBiomeFoliageColor(39285);
     }
 }
