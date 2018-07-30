@@ -29,12 +29,6 @@ public class BiomeExtForestHills extends ExtendedBiomeWrapper
             this.beachBiomeLocation = ((BOPOverworldBiome)BOPBiomes.gravel_beach.get()).getResourceLocation();
         }
         
-        // trees
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(0.5F);
-        this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("flowering_oak", 1, (new GeneratorBasicTree.Builder()).altLeaves(BOPTrees.FLOWERING).create());
-        
-        
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(0.2F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
@@ -49,7 +43,6 @@ public class BiomeExtForestHills extends ExtendedBiomeWrapper
         this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).placeOn(BlockQueries.fertile).generationAttempts(16).with(BOPPlants.DEADLEAFPILE).create());
         this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.3F).placeOn(BlockQueries.fertile).with(BOPPlants.LEAFPILE).generationAttempts(64).create());
         this.addGenerator("flax", GeneratorStage.FLOWERS, (new GeneratorDoubleFlora.Builder()).amountPerChunk(0.1F).with(BlockBOPDoublePlant.DoublePlantType.FLAX).create());
-        this.addGenerator("clover_patches", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.152F).generationAttempts(128).with(BOPPlants.CLOVERPATCH).create());
         this.addGenerator("berry_bushes", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BOPPlants.BERRYBUSH).create());
         this.addGenerator("poison_ivy", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.25F).with(BOPPlants.POISONIVY).create());
 
@@ -61,7 +54,7 @@ public class BiomeExtForestHills extends ExtendedBiomeWrapper
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.15F);
         this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
         flowerGenerator.add("white_anemones", 1, (new GeneratorFlora.Builder().with(BOPFlowers.WHITE_ANEMONE).create()));
-        flowerGenerator.add("blue_hydrangeas", 2, (new GeneratorFlora.Builder().with(BOPFlowers.BLUE_HYDRANGEA).create()));
+        flowerGenerator.add("blue_hydrangeas", 1, (new GeneratorFlora.Builder().with(BOPFlowers.BLUE_HYDRANGEA).create()));
         
         // gem
         this.addGenerator("amber", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.AMBER).create());
