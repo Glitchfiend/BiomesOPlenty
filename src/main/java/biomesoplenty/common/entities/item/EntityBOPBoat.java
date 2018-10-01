@@ -10,6 +10,7 @@ package biomesoplenty.common.entities.item;
 
 import java.util.List;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.google.common.collect.Lists;
@@ -42,10 +43,7 @@ import net.minecraft.util.EntitySelectors;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.*;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -144,7 +142,7 @@ public class EntityBOPBoat extends EntityBoat
     }
 
     @Override
-    public boolean attackEntityFrom(DamageSource source, float amount)
+    public boolean attackEntityFrom(@Nonnull DamageSource source, float amount)
     {
         if (this.isEntityInvulnerable(source))
         {
@@ -160,7 +158,7 @@ public class EntityBOPBoat extends EntityBoat
             {
                 this.setForwardDirection(-this.getForwardDirection());
                 this.setTimeSinceHit(10);
-                this.setDamageTaken(this.getDamageTaken() + amount * 10.0F);
+                this.setDamageTaken(this.getDamageTaken() + (amount * 1.5F) * 10.0F);
                 this.markVelocityChanged();
                 boolean flag = source.getTrueSource() instanceof EntityPlayer && ((EntityPlayer)source.getTrueSource()).capabilities.isCreativeMode;
 
@@ -238,6 +236,13 @@ public class EntityBOPBoat extends EntityBoat
             case EUCALYPTUS:
                 return BOPItems.boat_eucalyptus;
         }
+    }
+
+    @Override
+    @Nonnull
+    public ItemStack getPickedResult(RayTraceResult target)
+    {
+        return new ItemStack(this.getItemBoat());
     }
 
     @SideOnly(Side.CLIENT)
