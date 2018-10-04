@@ -94,45 +94,48 @@ public class ItemJarFilled extends Item
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, @Nonnull EnumHand hand)
     {
         ItemStack heldStack = player.getHeldItem(hand);
-        RayTraceResult raytraceresult = this.rayTrace(world, player, false);
-
-        if (raytraceresult == null)
+        if (getContentsType(heldStack) == JarContents.BLUE_FIRE)
         {
-            return new ActionResult<>(EnumActionResult.PASS, heldStack);
-        }
-        else if (raytraceresult.typeOfHit != RayTraceResult.Type.BLOCK)
-        {
-            return new ActionResult<>(EnumActionResult.PASS, heldStack);
-        }
-        else
-        {
-            BlockPos rayPos = raytraceresult.getBlockPos();
-
-            if (!world.isBlockModifiable(player, rayPos))
+            RayTraceResult raytraceresult = this.rayTrace(world, player, false);
+            if (raytraceresult == null)
             {
-                return new ActionResult<>(EnumActionResult.FAIL, heldStack);
+                return new ActionResult<>(EnumActionResult.PASS, heldStack);
+            }
+            else if (raytraceresult.typeOfHit != RayTraceResult.Type.BLOCK)
+            {
+                return new ActionResult<>(EnumActionResult.PASS, heldStack);
             }
             else
             {
-                boolean isReplaceable = world.getBlockState(rayPos).getBlock().isReplaceable(world, rayPos);
-                BlockPos pos = isReplaceable && raytraceresult.sideHit == EnumFacing.UP ? rayPos : rayPos.offset(raytraceresult.sideHit);
+                BlockPos rayPos = raytraceresult.getBlockPos();
 
-                if (!player.canPlayerEdit(pos, raytraceresult.sideHit, heldStack))
+                if (!world.isBlockModifiable(player, rayPos))
                 {
                     return new ActionResult<>(EnumActionResult.FAIL, heldStack);
-                }
-                else if (world.getBlockState(pos).getBlock().isReplaceable(world, pos) && world.getBlockState(pos.down()).isTopSolid())
-                {
-                    world.setBlockState(pos, BOPBlocks.blue_fire.getDefaultState());
-                    this.emptyJar(player, hand);
-                    return new ActionResult<>(EnumActionResult.SUCCESS, heldStack);
                 }
                 else
                 {
-                    return new ActionResult<>(EnumActionResult.FAIL, heldStack);
+                    boolean isReplaceable = world.getBlockState(rayPos).getBlock().isReplaceable(world, rayPos);
+                    BlockPos pos = isReplaceable && raytraceresult.sideHit == EnumFacing.UP ? rayPos : rayPos.offset(raytraceresult.sideHit);
+
+                    if (!player.canPlayerEdit(pos, raytraceresult.sideHit, heldStack))
+                    {
+                        return new ActionResult<>(EnumActionResult.FAIL, heldStack);
+                    }
+                    else if (world.getBlockState(pos).getBlock().isReplaceable(world, pos) && world.getBlockState(pos.down()).isTopSolid())
+                    {
+                        world.setBlockState(pos, BOPBlocks.blue_fire.getDefaultState());
+                        this.emptyJar(player, hand);
+                        return new ActionResult<>(EnumActionResult.SUCCESS, heldStack);
+                    }
+                    else
+                    {
+                        return new ActionResult<>(EnumActionResult.FAIL, heldStack);
+                    }
                 }
             }
         }
+        return new ActionResult<>(EnumActionResult.PASS, heldStack);
     }
 
     private void emptyJar(EntityPlayer player, EnumHand hand)
