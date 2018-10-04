@@ -88,6 +88,8 @@ import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
+import javax.annotation.Nullable;
+
 public class ModBlocks
 {
     // TODO: use getDrops() in classes where the drops are very specific, instead of implementing all 3 of quantityDropped() getItemDropped() and damageDropped()
@@ -129,9 +131,8 @@ public class ModBlocks
         hive =                  registerBlock( new BlockBOPHive(), "hive" );
         honey_block =           registerBlock( new BlockBOPHoney(), "honey_block" );
         
-        blue_fire =             registerBlock( new BlockBOPBlueFire(), "blue_fire" );
-        blue_fire.setCreativeTab(null);
-        
+        blue_fire =             registerBlock( new BlockBOPBlueFire(), "blue_fire", null);
+
         //Material Blocks
         bamboo_thatching =      registerBlock( (new BlockBOPGeneric(Material.WOOD, SoundType.WOOD)).setHardness(2.0F), "bamboo_thatching"); bamboo_thatching.setHarvestLevel("axe", 0);
         mud_brick_block =       registerBlock( (new BlockBOPGeneric()).setResistance(2.0F), "mud_brick_block" );   
@@ -353,11 +354,14 @@ public class ModBlocks
         return registerBlock(block, blockName, tab, true);
     }
     
-    public static Block registerBlock(Block block, String blockName, CreativeTabs tab, boolean registerItemModels)
+    public static Block registerBlock(Block block, String blockName, @Nullable CreativeTabs tab, boolean registerItemModels)
     {
         Preconditions.checkNotNull(block, "Cannot register a null block");
-        block.setUnlocalizedName(blockName);        
-        block.setCreativeTab(tab);
+        block.setUnlocalizedName(blockName);
+        if (tab != null)
+        {
+            block.setCreativeTab(tab);
+        }
         
         if (block instanceof IBOPBlock)
         {

@@ -12,22 +12,17 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.IStringSerializable;
-import net.minecraft.util.NonNullList;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nonnull;
+import java.util.Objects;
 
 public class ItemJarFilled extends Item
 {
@@ -57,8 +52,7 @@ public class ItemJarFilled extends Item
     
     // add all the contents types as separate items in the creative tab
     @Override
-    @SideOnly(Side.CLIENT)
-    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems)
+    public void getSubItems(@Nonnull CreativeTabs tab, @Nonnull NonNullList<ItemStack> subItems)
     {
         if (this.isInCreativeTab(tab))
         {
@@ -89,100 +83,81 @@ public class ItemJarFilled extends Item
     
     // get the correct name for this item by looking up the meta value in the JarContents enum
     @Override
+    @Nonnull
     public String getUnlocalizedName(ItemStack stack)
     {
         return super.getUnlocalizedName() + "_" + this.getContentsType(stack).getName();
     }
     
-    
-    
-    protected Vec3d getAirPositionInFrontOfPlayer(World world, EntityPlayer player, double targetDistance)
-    {
-        float cosYaw = MathHelper.cos(-player.rotationYaw * 0.017453292F - (float)Math.PI);
-        float sinYaw = MathHelper.sin(-player.rotationYaw * 0.017453292F - (float)Math.PI);
-        float cosPitch = -MathHelper.cos(-player.rotationPitch * 0.017453292F);
-        float facingX = sinYaw * cosPitch;
-        float facingY = MathHelper.sin(-player.rotationPitch * 0.017453292F);
-        float facingZ = cosYaw * cosPitch;
-
-        Vec3d playerEyePosition = new Vec3d(player.posX, player.posY + (double)player.getEyeHeight(), player.posZ);
-        Vec3d targetPosition = playerEyePosition.addVector((double)facingX * targetDistance, (double)facingY * targetDistance, (double)facingZ * targetDistance);
-        
-        // see if there's anything in the way
-        RayTraceResult hit = world.rayTraceBlocks(playerEyePosition, targetPosition, true, false, false);
-        if (hit == null)
-        {
-            return targetPosition;
-        }
-        else
-        {
-            // there's something in the way - return the point just before the collision point
-            double distance = playerEyePosition.distanceTo(hit.hitVec) * 0.9;
-            return playerEyePosition.addVector((double)facingX * distance, (double)facingY * distance, (double)facingZ * distance);            
-        }
-    }
-    
     @Override
-    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
+    @Nonnull
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, @Nonnull EnumHand hand)
     {
-        ItemStack stack = player.getHeldItem(hand);
-        if (world.isRemote) {return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);}
-        switch (this.getContentsType(stack))
+        ItemStack heldStack = player.getHeldItem(hand);
+        if (getContentsType(heldStack) == JarContents.BLUE_FIRE)
         {
-            case HONEY: default:
-                return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);
-        }
-    }
+            RayTraceResult raytraceresult = this.rayTrace(world, player, false);
+            if (raytraceresult == null)
+            {
+                return new ActionResult<>(EnumActionResult.PASS, heldStack);
+            }
+            else if (raytraceresult.typeOfHit != RayTraceResult.Type.BLOCK)
+            {
+                return new ActionResult<>(EnumActionResult.PASS, heldStack);
+            }
+            else
+            {
+                BlockPos rayPos = raytraceresult.getBlockPos();
 
-    protected ItemStack emptyJar(ItemStack stack, EntityPlayer player, ItemStack emptyJarStack)
-    {
-        if (!player.capabilities.isCreativeMode)
-        {
-        	stack.setCount(stack.getCount() - 1);
-        }
-        
-        player.addStat(StatList.getObjectUseStats(this));
-
-        if (!player.capabilities.isCreativeMode)
-        {
-	        if (!player.inventory.addItemStackToInventory(emptyJarStack))
-	        {
-	            player.dropItem(emptyJarStack, false);
-	        }
-        }
-        
-        return stack;
-    }
-    
-    
-    @Override
-    public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
-    {
-        ItemStack stack = player.getHeldItem(hand);
-        if (world.isRemote) {return EnumActionResult.FAIL;}
-        switch (this.getContentsType(stack))
-        {
-            case BLUE_FIRE:
-            	pos = pos.offset(facing);
-            	ItemStack itemstack = player.getHeldItem(hand);
-            	
-            	if (!player.canPlayerEdit(pos, facing, itemstack))
+                if (!world.isBlockModifiable(player, rayPos))
                 {
-                    return EnumActionResult.FAIL;
+                    return new ActionResult<>(EnumActionResult.FAIL, heldStack);
                 }
                 else
                 {
-                    if (world.isAirBlock(pos) && world.getBlockState(pos.down()).isTopSolid())
+                    boolean isReplaceable = world.getBlockState(rayPos).getBlock().isReplaceable(world, rayPos);
+                    BlockPos pos = isReplaceable && raytraceresult.sideHit == EnumFacing.UP ? rayPos : rayPos.offset(raytraceresult.sideHit);
+
+                    if (!player.canPlayerEdit(pos, raytraceresult.sideHit, heldStack))
                     {
-	            		world.setBlockState(pos, BOPBlocks.blue_fire.getDefaultState());
-	            		this.emptyJar(stack, player, new ItemStack(BOPItems.jar_empty));
-	            		return EnumActionResult.SUCCESS;
+                        return new ActionResult<>(EnumActionResult.FAIL, heldStack);
                     }
-            	}
-                
-            // TODO: are you supposed to be able to pour out honey? How much should you get?  Why don't we just use buckets?
-            case HONEY: default:
-                return EnumActionResult.SUCCESS;
+                    else if (world.getBlockState(pos).getBlock().isReplaceable(world, pos) && world.getBlockState(pos.down()).isTopSolid())
+                    {
+                        world.setBlockState(pos, BOPBlocks.blue_fire.getDefaultState());
+                        this.emptyJar(player, hand);
+                        return new ActionResult<>(EnumActionResult.SUCCESS, heldStack);
+                    }
+                    else
+                    {
+                        return new ActionResult<>(EnumActionResult.FAIL, heldStack);
+                    }
+                }
+            }
+        }
+        return new ActionResult<>(EnumActionResult.PASS, heldStack);
+    }
+
+    private void emptyJar(EntityPlayer player, EnumHand hand)
+    {
+        ItemStack heldStack = player.getHeldItem(hand);
+        ItemStack emptyJar = new ItemStack(BOPItems.jar_empty);
+        if (!player.capabilities.isCreativeMode)
+        {
+            if (heldStack.isEmpty()) 
+            {
+                player.setHeldItem(hand, emptyJar);
+            } 
+            else if (!player.inventory.addItemStackToInventory(emptyJar)) 
+            {
+                player.dropItem(emptyJar, false);
+            } 
+            else if (player instanceof EntityPlayerMP) 
+            {
+                ((EntityPlayerMP) player).sendContainerToPlayer(player.inventoryContainer);
+            }
+            heldStack.shrink(1);
+            player.addStat(Objects.requireNonNull(StatList.getObjectUseStats(this)));
         }
     }
 }
