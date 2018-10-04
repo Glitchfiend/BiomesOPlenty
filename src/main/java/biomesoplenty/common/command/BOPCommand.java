@@ -8,18 +8,11 @@
 
 package biomesoplenty.common.command;
 
-import java.util.List;
-
-import com.google.common.collect.Lists;
-
 import biomesoplenty.common.util.biome.BiomeUtils;
+import com.google.common.collect.Lists;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.command.CommandBase;
-import net.minecraft.command.CommandException;
-import net.minecraft.command.ICommandSender;
-import net.minecraft.command.NumberInvalidException;
-import net.minecraft.command.WrongUsageException;
+import net.minecraft.command.*;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.server.MinecraftServer;
@@ -33,6 +26,9 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.storage.ExtendedBlockStorage;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
+
+import javax.annotation.Nonnull;
+import java.util.List;
 
 public class BOPCommand extends CommandBase
 {
@@ -66,7 +62,7 @@ public class BOPCommand extends CommandBase
     }
 
     @Override
-    public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException
+    public void execute(@Nonnull MinecraftServer server, @Nonnull ICommandSender sender, @Nonnull String[] args) throws CommandException
     {
         if (args.length < 1)
         {
@@ -258,17 +254,25 @@ public class BOPCommand extends CommandBase
     }
 
     @Override
+    @Nonnull
     public List<String> getTabCompletions(MinecraftServer server, ICommandSender sender, String[] args, BlockPos pos)
     {
         if (args.length == 1)
         {
             return getListOfStringsMatchingLastWord(args, "biomename", "tpbiome", "stats", "stripchunk");
         }
-        else if (args.length == 3)
+
+        for (String command : args)
         {
-            return getListOfStringsMatchingLastWord(args, "include", "exclude");
+            if (command.equals("tpbiome"))
+            {
+                return getListOfStringsMatchingLastWord(args, Biome.REGISTRY.getKeys());
+            }
+            else if (command.equals("stripchunk") && args.length == 3)
+            {
+                return getListOfStringsMatchingLastWord(args, "include", "exclude");
+            }
         }
-        
-        return null;
+        return super.getTabCompletions(server, sender, args, pos);
     }
 }
