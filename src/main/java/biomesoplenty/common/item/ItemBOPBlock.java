@@ -8,21 +8,15 @@
 
 package biomesoplenty.common.item;
 
-import java.util.List;
-
-import com.google.common.collect.ImmutableSet;
-
 import biomesoplenty.common.block.IBOPBlock;
 import biomesoplenty.common.util.block.BlockStateUtils;
+import com.google.common.collect.ImmutableSet;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemBOPBlock extends ItemBlock
 {
@@ -45,7 +39,6 @@ public class ItemBOPBlock extends ItemBlock
     
     // define the items which will appear in the creative tab (called by ItemBlock class)
     @Override
-    @SideOnly(Side.CLIENT)
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems)
     {        
         if (this.isInCreativeTab(tab))

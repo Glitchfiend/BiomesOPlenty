@@ -76,6 +76,8 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
+import javax.annotation.Nullable;
+
 public class ModItems
 {    
     public static void init()
@@ -146,8 +148,7 @@ public class ModItems
         white_dye = registerItem(new Item(), "white_dye");
         black_dye = registerItem(new Item(), "black_dye");
         
-        earth = registerItem(new Item(), "earth");
-        earth.setCreativeTab(null);
+        earth = registerItem(new Item(), "earth", null);
     }
     
     public static Item registerItem(Item item, String name)
@@ -155,7 +156,7 @@ public class ModItems
         return registerItem(item, name, CreativeTabBOP.instance);
     }
     
-    public static Item registerItem(Item item, String name, CreativeTabs tab)
+    public static Item registerItem(Item item, String name, @Nullable CreativeTabs tab)
     {    
         item.setUnlocalizedName(name);
         if (tab != null)

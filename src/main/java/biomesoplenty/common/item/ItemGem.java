@@ -8,15 +8,11 @@
 
 package biomesoplenty.common.item;
 
-import java.util.List;
-
 import biomesoplenty.api.enums.BOPGems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemGem extends Item
 {
@@ -29,7 +25,6 @@ public class ItemGem extends Item
 
     // add all the gem types as separate items in the creative tab
     @Override
-    @SideOnly(Side.CLIENT)
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems)
     {
         if (this.isInCreativeTab(tab))
