@@ -9,9 +9,11 @@
 package biomesoplenty.common.world;
 
 import java.io.File;
+import java.util.ArrayList;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import biomesoplenty.api.config.IBOPWorldSettings;
@@ -112,6 +114,8 @@ public class BOPWorldSettings implements IBOPWorldSettings
     public float mainNoiseScaleY;
     public float mainNoiseScaleZ;
 
+    public float[] depthFunc;
+
     public BOPWorldSettings()
     {
         this.setDefault();
@@ -147,6 +151,9 @@ public class BOPWorldSettings implements IBOPWorldSettings
         obj.addProperty("heightScale", this.heightScale);
         obj.addProperty("upperLimitScale", this.upperLimitScale);
         obj.addProperty("lowerLimitScale", this.lowerLimitScale);
+        JsonArray jsonDepthFunc = new JsonArray();
+        for (float v : depthFunc) jsonDepthFunc.add(v);
+        obj.add("depthFunc", jsonDepthFunc);
 
         return serializer.toJson(obj);
     }
@@ -179,6 +186,12 @@ public class BOPWorldSettings implements IBOPWorldSettings
         this.heightScale = worldConfig.getFloat("heightScale", this.heightScale);
         this.upperLimitScale = worldConfig.getFloat("upperLimitScale", this.upperLimitScale);
         this.lowerLimitScale = worldConfig.getFloat("lowerLimitScale", this.lowerLimitScale);
+        ArrayList<Float> depthFuncVals = worldConfig.getFloatArray("depthFunc", null);
+        if (depthFuncVals != null) {
+            for (int i = 0; i < depthFuncVals.size(); i++) {
+                this.depthFunc[i] = depthFuncVals.get(i);
+            }
+        }
     }
     
     public void setDefault()
@@ -225,6 +238,11 @@ public class BOPWorldSettings implements IBOPWorldSettings
         this.heightScale = 684.412F;
         this.upperLimitScale = 512.0F;
         this.lowerLimitScale = 512.0F;
+
+        this.depthFunc = new float[33];
+        for (int i = -16; i < 17; i++) {
+            this.depthFunc[i + 16] = -i*8;
+        }
 
         // Allow defaults to be overridden from file
         IConfigObj worldConfig = new BOPConfig.ConfigFileObj(new File(BiomesOPlenty.configDirectory, "world.json"));

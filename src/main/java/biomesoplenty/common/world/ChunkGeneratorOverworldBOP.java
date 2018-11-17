@@ -383,7 +383,22 @@ public class ChunkGeneratorOverworldBOP implements IChunkGenerator
         return settings;
     }    
     
+    private class LerpDepthFunc {
+        final double[] points;
 
+        LerpDepthFunc() {
+            points = new double[33];
+        }
+
+        public double eval(double y) {
+            if (y <= -128) return points[0];
+            if (y >= 128) return points[32];
+            double yBlock = y / 8;
+            int j = MathHelper.floor(yBlock);
+            double s = yBlock - j;
+            return MathHelper.clampedLerp(points[j + 16], points[j + 17], s);
+        }
+    }
     
     private void populateNoiseArray(int chunkX, int chunkZ)
     {
@@ -398,6 +413,11 @@ public class ChunkGeneratorOverworldBOP implements IChunkGenerator
         float mainNoiseScaleX = this.settings.mainNoiseScaleX;
         float mainNoiseScaleY = this.settings.mainNoiseScaleY;
         float mainNoiseScaleZ = this.settings.mainNoiseScaleZ;
+
+        LerpDepthFunc depthFunc = new LerpDepthFunc();
+        for (int i = 0; i < 33; i++) {
+            depthFunc.points[i] = this.settings.depthFunc[i];
+        }
 
         int subchunkX = chunkX * 4;
         int subchunkY = 0;
@@ -452,7 +472,7 @@ public class ChunkGeneratorOverworldBOP implements IChunkGenerator
                         double xyzNoiseValue = MathHelper.clamp(xyzNoiseA, xyzNoiseB, balance) / 50.0D;
 
                         // calculate the depth
-                        double depth = baseLevel - y + (xyzAmplitude * xyzNoiseValue);
+                        double depth = depthFunc.eval(y - baseLevel) + xyzNoiseValue * xyzAmplitude;
 
                         // make the noiseVal decrease sharply when we're close to the top of the chunk
                         // guarantees value of -10 at iy=32, so that there is always some air at the top
