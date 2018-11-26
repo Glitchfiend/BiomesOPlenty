@@ -280,10 +280,7 @@ public class ModBlocks
         flower_1 =              registerBlock( BlockBOPFlower.paging.getBlock(1), "flower_1" );
         
         //vines
-        // TODO: special placement rules?
-        flower_vine =           registerBlock( new BlockBOPVine(false), "flower_vine" );
         ivy =                   registerBlock( new BlockBOPVine(true), "ivy" );
-        tree_moss =             registerBlock( new BlockBOPVine(false), "tree_moss" );
         willow_vine =           registerBlock( new BlockBOPVine(true), "willow_vine" );
         
         terrarium =             registerBlock( new BlockBOPTerrarium(), "terrarium" );
