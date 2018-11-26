@@ -86,7 +86,7 @@ import groovy.io.FileType
 task changelog(type: JenkinsChangelog) {
     def buildNumber = "${System.getenv().BUILD_NUMBER}"
 
-    serverRoot = 'https://ci.jenkins.minecraftforge.net/'
+    serverRoot = 'http://ci.jenkins.minecraftforge.net/'
     jobName = 'BiomesOPlenty'
     authName = 'console_script'
     authPassword = 'dc6d48ca20a474beeac280a9a16a926e'
