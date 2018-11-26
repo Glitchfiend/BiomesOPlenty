@@ -42,7 +42,7 @@ public class BiomeGenRedwoodForest extends BOPOverworldBiome
         this.type = type;
         
         // terrain
-        this.terrainSettings.avgHeight(70).heightVariation(2, 4);
+        this.terrainSettings.avgHeight(70).heightVariation(4, 10);
         
         this.topBlock = Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.PODZOL);
         this.usualTopBlock = this.topBlock;
@@ -84,6 +84,7 @@ public class BiomeGenRedwoodForest extends BOPOverworldBiome
         //this.addGenerator("shrubs", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BOPPlants.SHRUB).create());
         this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).placeOn(BlockQueries.fertile).with(BOPPlants.DEADLEAFPILE).create());
         this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).placeOn(BlockQueries.fertile).with(BOPPlants.LEAFPILE).generationAttempts(64).create());
+        this.addGenerator("sprouts", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.25F).with(BOPPlants.SPROUT).create());
         
         // shrooms
         this.addGenerator("brown_mushrooms", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).generationAttempts(16).with(Blocks.BROWN_MUSHROOM.getDefaultState()).create());
@@ -92,7 +93,8 @@ public class BiomeGenRedwoodForest extends BOPOverworldBiome
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(4.0F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
-        grassGenerator.add("fern", 1, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.FERN).create());
+        grassGenerator.add("fern", 8, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.FERN).create());
+        grassGenerator.add("tallgrass", 2, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).generationAttempts(128).create());
         
         // gem
         this.addGenerator("amber", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.AMBER).create());
