@@ -305,7 +305,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         prairie = registerOverworldBiome(new BiomeGenPrairie());
         quagmire = registerOverworldBiome(new BiomeGenQuagmire());
         rainforest = registerOverworldBiome(new BiomeGenRainforest());
-        redwood_forest = registerOverworldBiome(new BiomeGenRedwoodForest());
+        redwood_forest = registerOverworldBiome(new BiomeGenRedwoodForest(BiomeGenRedwoodForest.ForestType.REDWOOD_FOREST));
         sacred_springs = registerOverworldBiome(new BiomeGenSacredSprings());
         seasonal_forest = registerOverworldBiome(new BiomeGenSeasonalForest());
         shield = registerOverworldBiome(new BiomeGenShield());
@@ -325,6 +325,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         
         alps_foothills = registerOverworldBiome(new BiomeGenAlps(BiomeGenAlps.AlpsType.ALPS_FOOTHILLS));
         mountain_foothills = registerOverworldBiome(new BiomeGenMountain(BiomeGenMountain.MountainType.MOUNTAIN_FOOTHILLS));
+        redwood_forest_edge = registerOverworldBiome(new BiomeGenRedwoodForest(BiomeGenRedwoodForest.ForestType.REDWOOD_FOREST_EDGE));
         pasture = registerOverworldBiome(new BiomeGenPasture());
         glacier = registerOverworldBiome(new BiomeGenGlacier());
         oasis = registerOverworldBiome(new BiomeGenOasis());
@@ -453,6 +454,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         // edge-biomes, sub-biomes and mutated-biomes
         registerBiomeToDictionary(BOPBiomes.alps_foothills, Type.MOUNTAIN, Type.SNOWY, Type.FOREST, Type.SPARSE, Type.COLD, Type.DRY);
         registerBiomeToDictionary(BOPBiomes.mountain_foothills, Type.HILLS, Type.MOUNTAIN, Type.FOREST, Type.DRY, Type.SPARSE);
+        registerBiomeToDictionary(BOPBiomes.redwood_forest_edge, Type.FOREST, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.pasture, Type.PLAINS, Type.DRY, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.glacier, Type.SNOWY, Type.WASTELAND, Type.COLD);
         registerBiomeToDictionary(BOPBiomes.oasis, Type.SANDY, Type.LUSH, Type.JUNGLE, Type.HOT, Type.WET, Type.SPARSE);

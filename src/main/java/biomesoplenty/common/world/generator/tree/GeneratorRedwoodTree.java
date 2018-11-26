@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright 2016, the Biomes O' Plenty Team
+ * Copyright 2015-2016, the Biomes O' Plenty Team
  * 
  * This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License.
  * 
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  ******************************************************************************/
-package biomesoplenty.common.world.generator.tree;
 
+package biomesoplenty.common.world.generator.tree;
 import java.util.Random;
 
 import biomesoplenty.api.block.BlockQueries;
@@ -18,180 +18,221 @@ import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.block.BlockBOPLog;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
-import biomesoplenty.common.world.generator.GeneratorSpike;
 import net.minecraft.block.BlockOldLeaf;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class GeneratorRedwoodTree extends GeneratorTreeBase
 {
+    // TODO: fruit
     public static class Builder extends GeneratorTreeBase.InnerBuilder<Builder, GeneratorRedwoodTree> implements IGeneratorBuilder<GeneratorRedwoodTree>
     {
+        protected int trunkWidth;
+        
+        public Builder trunkWidth(int a) {this.trunkWidth = a; return this.self();}
+        
         public Builder()
         {
             this.amountPerChunk = 1.0F;
-            this.minHeight = 40;
-            this.maxHeight = 60;
+            this.minHeight = 10;
+            this.maxHeight = 30;
             this.placeOn = BlockQueries.fertile;
-            this.replace = BlockQueries.replaceable;
+            this.replace = BlockQueries.airOrLeaves;
             this.log = BlockBOPLog.paging.getVariantState(BOPWoods.REDWOOD);
             this.leaves = BlockBOPLeaves.paging.getVariantState(BOPTrees.REDWOOD).withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false));
-            this.vine = null;
+            this.vine = Blocks.VINE.getDefaultState();
             this.hanging = null;
             this.trunkFruit = null;
             this.altLeaves = null;
+            this.trunkWidth = 1;
             this.scatterYMethod = ScatterYMethod.AT_SURFACE;
         }
 
         @Override
-        public GeneratorRedwoodTree create() 
-        {
-            return new GeneratorRedwoodTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.trunkFruit, this.altLeaves, this.minHeight, this.maxHeight, this.scatterYMethod);
+        public GeneratorRedwoodTree create() {
+            return new GeneratorRedwoodTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.trunkFruit, this.altLeaves, this.minHeight, this.maxHeight, this.trunkWidth, this.scatterYMethod);
         }
         
     }
-
-    protected GeneratorRedwoodTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, IBlockState trunkFruit, IBlockState altLeaves, int minHeight, int maxHeight, ScatterYMethod scatterYMethod)
+    
+    private int trunkWidth;
+    
+    public GeneratorRedwoodTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, IBlockState trunkFruit, IBlockState altLeaves, int minHeight, int maxHeight, int trunkWidth, ScatterYMethod scatterYMethod)
     {
         super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, trunkFruit, altLeaves, minHeight, maxHeight, scatterYMethod);
+        this.trunkWidth = trunkWidth;
     }
     
-    public boolean canPlaceHere(World world, BlockPos pos, int height, int radius)
-    {  
-        if (pos.getY() < 1 || pos.getY() + height > 255)
+    public boolean checkSpace(World world, BlockPos pos, int baseHeight, int height)
+    {
+        for (int y = 0; y <= height; y++)
         {
-            return false;
-        }
-        for (int y = pos.getY(); y <= pos.getY() + height; ++y)
-        {
-            for (int x = pos.getX() - radius; x <= pos.getX() + radius; ++x)
+            
+            int trunkWidth = (this.trunkWidth * (height - y) / height) + 1;
+            int trunkStart = MathHelper.ceil(0.25D - trunkWidth / 2.0D);
+            int trunkEnd = MathHelper.floor(0.25D + trunkWidth / 2.0D);
+            
+            // require 3x3 for the leaves, 1x1 for the trunk
+            int start = (y <= baseHeight ? trunkStart : trunkStart - 1);
+            int end = (y <= baseHeight ? trunkEnd : trunkEnd + 1);
+            
+            for (int x = start; x <= end; x++)
             {
-                for (int z = pos.getZ() - radius; z <= pos.getZ() + radius; ++z)
+                for (int z = start; z <= end; z++)
                 {
-                    if (y == pos.getY() && !this.placeOn.matches(world, new BlockPos(x, y - 1, z)))
-                    {
-                        return false;
-                    }
-                    
-                    if (!this.replace.matches(world, new BlockPos(x, y, z)))
+                    BlockPos pos1 = pos.add(x, y, z);
+                    // note, there may be a sapling on the first layer - make sure this.replace matches it!
+                    if (pos1.getY() >= 255 || !this.replace.matches(world, pos1))
                     {
                         return false;
                     }
                 }
             }
         }
-        return true;
+        return true;     
     }
     
-    public void generateTrunk(World world, Random random, BlockPos pos, int trunkHeight)
+    // generates a layer of leafs
+    public void generateLeafLayer(World world, Random rand, BlockPos pos, int leavesRadius, int trunkStart, int trunkEnd)
     {
-        for (int i = 0; i < trunkHeight; i++)
+        int start = trunkStart - leavesRadius;
+        int end = trunkEnd + leavesRadius;
+        
+        for (int x = start; x <= end; x++)
         {
-            this.setLog(world, pos);
-            this.setLog(world, pos.north());
-            this.setLog(world, pos.east());
-            this.setLog(world, pos.south());
-            this.setLog(world, pos.west());
-            pos = pos.up();
+            for (int z = start; z <= end; z++)
+            {
+                // skip corners
+                if ((leavesRadius > 0 ) && (x == start || x == end) && (z == start || z == end)) {continue;}
+                int distFromTrunk = (x < 0 ? trunkStart - x : x - trunkEnd) + (z < 0 ? trunkStart - z : z - trunkEnd);
+                
+                // set leaves as long as it's not too far from the trunk to survive
+                if (distFromTrunk < 4 || (distFromTrunk == 4 && rand.nextInt(2) == 0))
+                {
+                    this.setLeaves(world, pos.add(x, 0, z));
+                }
+            }
         }
     }
     
-    public void generateBranches(World world, Random rand, BlockPos pos, int length)
+    public void generateBranch(World world, Random rand, BlockPos pos, EnumFacing direction, int length)
     {
-        //Iterate over the possible directions
-        for (EnumFacing direction = EnumFacing.NORTH; direction.ordinal() < 5; direction = EnumFacing.values()[direction.ordinal() + 1])
+        EnumFacing.Axis axis = direction.getAxis();
+        EnumFacing sideways = direction.rotateY();
+        for (int i = 1; i <= length; i++)
         {
-            EnumFacing.Axis axis = direction.getAxis();
-            EnumFacing sideways = direction.rotateY();
-            for (int i = 1; i <= length; i++)
+            BlockPos pos1 = pos.offset(direction, i);
+            int r = (i == 1 || i == length) ? 1 : 2;
+            for (int j = -r; j <= r; j++)
             {
-                BlockPos pos1 = pos.offset(direction, i);
+                if (i < length || rand.nextInt(2) == 0)
+                {
+                    this.setLeaves(world, pos1.offset(sideways, j));
+                }
+            }
+            if (length - i > 2)
+            {
+                this.setLeaves(world, pos1.up());
+                this.setLeaves(world, pos1.up().offset(sideways, -1));
+                this.setLeaves(world, pos1.up().offset(sideways, 1));
                 this.setLog(world, pos1, axis);
             }
         }
     }
     
-    public void generateLeafLayer(World world, Random rand, BlockPos pos, int leafLayerNum)
-    {
-        //Repeat in intervals of 6, 2 small radius, 4 large
-        int index = leafLayerNum % 7;
-        int leavesRadius;
-        
-        //Alternate between a smaller radius and a larger radius
-        if (index < 2) leavesRadius = 3;
-        else leavesRadius = 5;
-
-        //This may break for larger radii however it will do for this purpose
-        double increment = 0.05D;
-        
-        for (int radius = leavesRadius; radius >= 0; radius--) 
-        {
-            for (double angle = 0.0F; angle <= Math.PI * 2; angle += increment)
-            {
-                BlockPos leavesPos = pos.add(Math.round(radius * Math.cos(angle)), 0, Math.round(radius * Math.sin(angle)));
-                
-                if (radius < leavesRadius || index < 2 || rand.nextInt(4) == 0)
-                    this.setLeaves(world, leavesPos);
-            }
-        }
-    }
-
+    
     @Override
-    public boolean generate(World world, Random random, BlockPos pos) 
+    public boolean generate(World world, Random random, BlockPos startPos)
     {
+        
         // Move down until we reach the ground
-        while (pos.getY() > 1 && world.isAirBlock(pos) || world.getBlockState(pos).getBlock().isLeaves(world.getBlockState(pos), world, pos)) {pos = pos.down();}
+        while (startPos.getY() > 1 && world.isAirBlock(startPos) || world.getBlockState(startPos).getBlock().isLeaves(world.getBlockState(startPos), world, startPos)) {startPos = startPos.down();}
+        
+        if (!this.placeOn.matches(world, startPos))
+        {
+            // Abandon if we can't place the tree on this block
+            return false;
+        }
         
         // Choose heights
         int height = GeneratorUtils.nextIntBetween(random, this.minHeight, this.maxHeight);
-        if (height < 20) {return false;}
+        int baseHeight = GeneratorUtils.nextIntBetween(random, (int)(height * 0.6F), (int)(height * 0.4F));
+        int leavesHeight = height - baseHeight;
+        if (leavesHeight < 3) {return false;}
         
-        // Move up to space above ground
-        pos = pos.up();
-        
-        GeneratorSpike spikeGenerator = (new GeneratorSpike.Builder().with(this.log).replace(BlockQueries.anything).minRadius(4).maxRadius(4).create());
-        
-        // check that there's room and if the blocks below are suitable
-        if (!this.canPlaceHere(world, pos, height, 1) || !spikeGenerator.canPlaceHere(world, pos, height, 4)) {return false;}
-        
-        //Generate the base of the tree
-        spikeGenerator.generate(world, random, pos);
-        
-        BlockPos trunkTop = pos;
-        //Move upwards until the block above this is air
-        for (; !world.isAirBlock(trunkTop.up()); trunkTop = trunkTop.up())
+        if (!this.checkSpace(world, startPos.up(), baseHeight, height))
         {
-            if (trunkTop.getY() >= 255)
+            // Abandon if there isn't enough room
+            return false;
+        }
+        
+        // Start at the top of the tree
+        BlockPos pos = startPos.up(height);
+        
+        // Leaves at the top
+        this.setLeaves(world, pos);
+        pos.down();
+        
+        // Add layers of leaves
+        for (int i = 0; i < leavesHeight; i++)
+        {
+            
+            int trunkWidth = (this.trunkWidth * i / height) + 1;
+            int trunkStart = MathHelper.ceil(0.25D - trunkWidth / 2.0D);
+            int trunkEnd = MathHelper.floor(0.25D + trunkWidth / 2.0D);
+            
+            
+            int radius = Math.min(Math.min((i + 2) / 4, 2 + (leavesHeight - i)), 4);
+            if (radius == 0)
             {
-                return false;
+                this.setLeaves(world, pos);
             }
+            else if (radius < 2)
+            {
+                this.generateLeafLayer(world, random, pos, radius, trunkStart, trunkEnd);
+            }
+            else
+            {
+                this.generateBranch(world, random, pos.add(trunkStart, 0, trunkStart), EnumFacing.NORTH, radius);
+                this.generateBranch(world, random, pos.add(trunkEnd, 0, trunkStart), EnumFacing.EAST, radius);
+                this.generateBranch(world, random, pos.add(trunkEnd, 0, trunkEnd), EnumFacing.SOUTH, radius);
+                this.generateBranch(world, random, pos.add(trunkStart, 0, trunkEnd), EnumFacing.WEST, radius);
+            }
+            pos = pos.down();
         }
         
-        int baseHeight = trunkTop.getY() - pos.getY();
-        int trunkHeight = height - baseHeight;
-        
-        //Generate the trunk to 1 block below the height
-        this.generateTrunk(world, random, pos, height - 1);
-        
-        //Generate the layers of leaves
-        for (int i = 0; i < trunkHeight * 0.75F; i++)
+        // Generate the trunk
+        for (int y = 0; y < height - 1; y++)
         {
-            this.generateLeafLayer(world, random, pos.up(height - i), i);
-        }
-        
-        GeneratorBush bushGenerator = new GeneratorBush.Builder().amountPerChunk(2F).log(this.log).leaves(this.leaves).placeOn(this.log).maxHeight(2).create();
-        
-        //Add bushes around the base
-        for (int i = 0; i < 10; i++)
-        {
-            bushGenerator.generate(world, random, pos.add(random.nextInt(10) - 5, baseHeight, random.nextInt(10) - 5));
+        	int trunkWidth = (this.trunkWidth * (height - y) / height) + 1;
+            int trunkStart = MathHelper.ceil(0.25D - trunkWidth / 2.0D);
+            int trunkEnd = MathHelper.floor(0.25D + trunkWidth / 2.0D);
+            
+            // TODO: Temporary fix for trees generating larger than normal bases when in the sides of hills
+            // Should look into doing this properly but i'm busy :P
+            if (this.trunkWidth <= 1)
+            {
+                trunkStart = 0; 
+                trunkEnd = 0;
+            }
+            
+            for (int x = trunkStart; x <= trunkEnd; x++)
+            {
+                for (int z = trunkStart; z <= trunkEnd; z++)
+                {
+                    this.setLog(world, startPos.add(x, y, z));
+                }
+            }
         }
         
         return true;
     }
-
+    
+    
     @Override
     public void configure(IConfigObj conf)
     {
@@ -202,5 +243,8 @@ public class GeneratorRedwoodTree extends GeneratorTreeBase
         this.replace = conf.getBlockPosQuery("replace", this.replace);
         this.log = conf.getBlockState("logState", this.log);
         this.leaves = conf.getBlockState("leavesState", this.leaves);
+        this.vine = conf.getBlockState("vinesState", this.vine);
+        this.trunkWidth = conf.getInt("trunkWidth", this.trunkWidth);
     }
+
 }

@@ -56,7 +56,7 @@ public class BiomeGenOminousWoods extends BOPOverworldBiome
         this.beachBiomeLocation = null;
 
         this.fogColor = 0x34333D;
-        this.fogDensity = 0.145F;
+        this.fogDensity = 0.3F;
 
         this.addWeight(BOPClimates.COLD_SWAMP, 1);
         
