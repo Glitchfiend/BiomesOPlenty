@@ -76,7 +76,6 @@ public class BOPItems
     
     public static Item biome_finder;
     public static Item biome_essence;
-    public static Item flower_basket;
     public static Item jar_empty;
     public static Item jar_filled;
     

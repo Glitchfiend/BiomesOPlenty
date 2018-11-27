@@ -13,7 +13,6 @@ import biomesoplenty.common.handler.DyeEventHandler;
 import biomesoplenty.common.handler.FogEventHandler;
 import biomesoplenty.common.handler.GrassPathEventHandler;
 import biomesoplenty.common.handler.GuiEventHandler;
-import biomesoplenty.common.handler.ItemEventHandler;
 import biomesoplenty.common.handler.LeavesModelEventHandler;
 import biomesoplenty.common.handler.LootTableEventHandler;
 import biomesoplenty.common.handler.PotionCurseHandler;
@@ -43,7 +42,6 @@ public class ModHandlers
         MinecraftForge.EVENT_BUS.register(new DyeEventHandler());
         MinecraftForge.EVENT_BUS.register(new BucketEventHandler());
         MinecraftForge.EVENT_BUS.register(new PotionCurseHandler());
-        MinecraftForge.EVENT_BUS.register(new ItemEventHandler());
         MinecraftForge.EVENT_BUS.register(new UseHoeEventHandler());
         MinecraftForge.EVENT_BUS.register(new GrassPathEventHandler());
         MinecraftForge.EVENT_BUS.register(new SheepEventHandler());

@@ -15,7 +15,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import biomesoplenty.common.command.BOPCommand;
-import biomesoplenty.common.handler.GuiHandler;
 import biomesoplenty.common.init.ModBiomes;
 import biomesoplenty.common.init.ModBlockQueries;
 import biomesoplenty.common.init.ModBlocks;
@@ -100,8 +99,6 @@ public class BiomesOPlenty
     public void init(FMLInitializationEvent event) 
     {
         BiomesOPlenty.proxy.registerColouring();
-
-        NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
     }
     
     @EventHandler

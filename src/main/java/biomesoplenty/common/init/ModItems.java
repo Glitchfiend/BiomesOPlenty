@@ -35,7 +35,6 @@ import static biomesoplenty.api.item.BOPItems.crystal_shard;
 import static biomesoplenty.api.item.BOPItems.earth;
 import static biomesoplenty.api.item.BOPItems.filled_honeycomb;
 import static biomesoplenty.api.item.BOPItems.fleshchunk;
-import static biomesoplenty.api.item.BOPItems.flower_basket;
 import static biomesoplenty.api.item.BOPItems.gem;
 import static biomesoplenty.api.item.BOPItems.green_dye;
 import static biomesoplenty.api.item.BOPItems.honeycomb;
@@ -60,7 +59,6 @@ import biomesoplenty.common.item.ItemBOPFood;
 import biomesoplenty.common.item.ItemBOPRecord;
 import biomesoplenty.common.item.ItemBiomeEssence;
 import biomesoplenty.common.item.ItemBiomeFinder;
-import biomesoplenty.common.item.ItemFlowerBasket;
 import biomesoplenty.common.item.ItemGem;
 import biomesoplenty.common.item.ItemJarEmpty;
 import biomesoplenty.common.item.ItemJarFilled;
@@ -108,7 +106,6 @@ public class ModItems
     	boat_eucalyptus = registerItem(new ItemBOPBoat(EntityBOPBoat.Type.EUCALYPTUS), "boat_eucalyptus");
         
         biome_finder = registerItem(new ItemBiomeFinder(), "biome_finder");
-        flower_basket = registerItem(new ItemFlowerBasket(), "flower_basket");
         
         record_wanderer = registerItem(new ItemBOPRecord("wanderer", BOPSounds.records_wanderer), "record_wanderer");
         
