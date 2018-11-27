@@ -17,6 +17,7 @@ import biomesoplenty.common.world.generator.GeneratorFlora;
 import biomesoplenty.common.world.generator.GeneratorGrass;
 import biomesoplenty.common.world.generator.GeneratorOreSingle;
 import biomesoplenty.common.world.generator.GeneratorWeighted;
+import biomesoplenty.common.world.generator.tree.GeneratorBigTree;
 import biomesoplenty.common.world.generator.tree.GeneratorBush;
 import biomesoplenty.common.world.generator.tree.GeneratorRedwoodTree;
 import net.minecraft.block.BlockDirt;
@@ -57,13 +58,14 @@ public class BiomeGenRedwoodForest extends BOPOverworldBiome
         	this.addWeight(BOPClimates.WARM_TEMPERATE, 7);
         	
         	//trees
-        	GeneratorWeighted treeGenerator = new GeneratorWeighted(10.0F);
+        	GeneratorWeighted treeGenerator = new GeneratorWeighted(15.0F);
             this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
             treeGenerator.add("redwood", 6, (new GeneratorRedwoodTree.Builder()).log(BOPWoods.REDWOOD).leaves(BOPTrees.REDWOOD).minHeight(45).maxHeight(60).trunkWidth(3).create());
-            treeGenerator.add("redwood_medium", 3, (new GeneratorRedwoodTree.Builder()).log(BOPWoods.REDWOOD).leaves(BOPTrees.REDWOOD).minHeight(25).maxHeight(40).trunkWidth(2).create());
+            treeGenerator.add("redwood_medium", 4, (new GeneratorRedwoodTree.Builder()).log(BOPWoods.REDWOOD).leaves(BOPTrees.REDWOOD).minHeight(25).maxHeight(40).trunkWidth(2).create());
             treeGenerator.add("redwood_small", 2, (new GeneratorRedwoodTree.Builder()).log(BOPWoods.REDWOOD).leaves(BOPTrees.REDWOOD).minHeight(10).maxHeight(30).trunkWidth(1).create());
             treeGenerator.add("oak_bush", 1, (new GeneratorBush.Builder()).amountPerChunk(3).maxHeight(2).create());
-        
+            treeGenerator.add("oak_tree", 1, (new GeneratorBigTree.Builder()).amountPerChunk(1.0F).minHeight(4).maxHeight(10).foliageHeight(1).create());
+            
             this.addGenerator("double_fern", GeneratorStage.FLOWERS, (new GeneratorDoubleFlora.Builder()).amountPerChunk(5.0F).with(BlockDoublePlant.EnumPlantType.FERN).create());
         }
 	        	
@@ -73,11 +75,12 @@ public class BiomeGenRedwoodForest extends BOPOverworldBiome
         	this.alternateTopBlock = Blocks.GRASS.getDefaultState();
         	
             // trees
-        	GeneratorWeighted treeGenerator = new GeneratorWeighted(6.0F);
+        	GeneratorWeighted treeGenerator = new GeneratorWeighted(8.0F);
             this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
             treeGenerator.add("redwood_small", 6, (new GeneratorRedwoodTree.Builder()).log(BOPWoods.REDWOOD).leaves(BOPTrees.REDWOOD).minHeight(10).maxHeight(30).trunkWidth(1).create());
             treeGenerator.add("redwood_medium", 1, (new GeneratorRedwoodTree.Builder()).log(BOPWoods.REDWOOD).leaves(BOPTrees.REDWOOD).minHeight(25).maxHeight(40).trunkWidth(2).create());
-            treeGenerator.add("oak_bush", 3, (new GeneratorBush.Builder()).amountPerChunk(3).maxHeight(2).create());
+            treeGenerator.add("oak_bush", 2, (new GeneratorBush.Builder()).amountPerChunk(3).maxHeight(2).create());
+            treeGenerator.add("oak_tree", 1, (new GeneratorBigTree.Builder()).amountPerChunk(1.0F).minHeight(4).maxHeight(10).foliageHeight(1).create());
         }
         
         // other plants
