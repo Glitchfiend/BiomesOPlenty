@@ -46,7 +46,7 @@ public class BiomeGenQuagmire extends BOPOverworldBiome
     
     public BiomeGenQuagmire()
     {
-        super("quagmire", new PropsBuilder("Quagmire").withGuiColour(0x503A2B).withTemperature(0.55F).withRainfall(0.9F).withWaterColor(0xCC5100));
+        super("quagmire", new PropsBuilder("Quagmire").withGuiColour(0x503A2B).withTemperature(0.6F).withRainfall(0.9F).withWaterColor(0xCC5100));
 
         // terrain
         this.terrainSettings.avgHeight(63).heightVariation(5, 10).octaves(1, 1, 1, 1, 0, 0).sidewaysNoise(0.0F);

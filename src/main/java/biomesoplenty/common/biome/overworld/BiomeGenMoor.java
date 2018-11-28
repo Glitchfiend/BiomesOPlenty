@@ -35,7 +35,7 @@ public class BiomeGenMoor extends BOPOverworldBiome
     
     public BiomeGenMoor()
     {
-        super("moor", new PropsBuilder("Moor").withGuiColour(0x619365).withTemperature(0.55F).withRainfall(1.0F).withWaterColor(0x588276));
+        super("moor", new PropsBuilder("Moor").withGuiColour(0x619365).withTemperature(0.6F).withRainfall(1.0F).withWaterColor(0x588276));
 
         // terrain
         this.terrainSettings.avgHeight(88).heightVariation(8, 10).octaves(0, 1, 1, 3, 1, 0);

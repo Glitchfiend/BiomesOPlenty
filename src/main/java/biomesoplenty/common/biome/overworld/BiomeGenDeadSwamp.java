@@ -40,7 +40,7 @@ public class BiomeGenDeadSwamp extends BOPOverworldBiome
     
     public BiomeGenDeadSwamp()
     {
-        super("dead_swamp", new PropsBuilder("Dead Swamp").withGuiColour(0x8BAF48).withTemperature(0.55F).withRainfall(0.9F).withWaterColor(0xA2AD51));
+        super("dead_swamp", new PropsBuilder("Dead Swamp").withGuiColour(0x8BAF48).withTemperature(0.6F).withRainfall(0.9F).withWaterColor(0xA2AD51));
         
         // terrain
         this.terrainSettings.avgHeight(63).heightVariation(6, 3);

@@ -14,7 +14,7 @@ public class BiomeGenGravelBeach extends BOPOverworldBiome
 {
     public BiomeGenGravelBeach()
     {
-        super("gravel_beach", new PropsBuilder("Gravel Beach").withGuiColour(0x908884));
+        super("gravel_beach", new PropsBuilder("Gravel Beach").withGuiColour(0x908884).withTemperature(0.6F).withRainfall(0.5F));
 
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(3, 4);

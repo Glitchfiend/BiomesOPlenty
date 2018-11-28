@@ -39,7 +39,7 @@ public class BiomeGenOminousWoods extends BOPOverworldBiome
     
     public BiomeGenOminousWoods()
     {
-        super("ominous_woods", new PropsBuilder("Ominous Woods").withGuiColour(0x3F4151).withTemperature(0.45F).withRainfall(0.6F).withWaterColor(0x1E1B26));
+        super("ominous_woods", new PropsBuilder("Ominous Woods").withGuiColour(0x3F4151).withTemperature(0.6F).withRainfall(0.6F).withWaterColor(0x1E1B26));
 
         // terrain
         this.terrainSettings.avgHeight(68).heightVariation(5, 15);
