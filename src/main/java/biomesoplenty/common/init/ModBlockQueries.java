@@ -24,6 +24,7 @@ import static biomesoplenty.api.block.BlockQueries.hasWater;
 import static biomesoplenty.api.block.BlockQueries.hellish;
 import static biomesoplenty.api.block.BlockQueries.litBeach;
 import static biomesoplenty.api.block.BlockQueries.litDry;
+import static biomesoplenty.api.block.BlockQueries.litDryWaterside;
 import static biomesoplenty.api.block.BlockQueries.litFertile;
 import static biomesoplenty.api.block.BlockQueries.litFertileOrDry;
 import static biomesoplenty.api.block.BlockQueries.litFertileWaterside;
@@ -156,6 +157,7 @@ public class ModBlockQueries
         litFertile = BlockQuery.buildAnd().sustainsPlant(EnumPlantType.Plains).withLightAboveAtLeast(8).create();
         litSand = BlockQuery.buildAnd().materials(Material.SAND).withLightAboveAtLeast(8).create();
         litDry = BlockQuery.buildAnd().sustainsPlant(EnumPlantType.Desert).withLightAboveAtLeast(8).create();
+        litDryWaterside = BlockQuery.buildAnd().sustainsPlant(EnumPlantType.Desert).byWater().withLightAboveAtLeast(8).create();
         litFertileOrDry = BlockQuery.buildOr().add(litFertile).add(litDry).create();
         spectralMoss = new BlockQueryState(BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SPECTRAL_MOSS));
         underwater = new BlockQueryMaterial(Material.WATER);

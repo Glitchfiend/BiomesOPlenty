@@ -36,6 +36,7 @@ public class BlockQueries
     public static IBlockPosQuery litFertileWaterside;
     public static IBlockPosQuery litSand;
     public static IBlockPosQuery litDry;
+    public static IBlockPosQuery litDryWaterside;
     public static IBlockPosQuery litFertileOrDry;
     public static IBlockPosQuery spectralMoss;
     public static IBlockPosQuery fertileSeaBed;
