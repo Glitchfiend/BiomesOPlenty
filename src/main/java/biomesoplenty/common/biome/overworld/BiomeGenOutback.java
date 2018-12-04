@@ -8,6 +8,8 @@
 
 package biomesoplenty.common.biome.overworld;
 
+import java.util.Random;
+
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.api.enums.BOPClimates;
@@ -29,7 +31,10 @@ import net.minecraft.block.BlockSand;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.entity.passive.EntityRabbit;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.feature.WorldGenFossils;
 
 public class BiomeGenOutback extends BOPOverworldBiome
 {    
@@ -76,5 +81,17 @@ public class BiomeGenOutback extends BOPOverworldBiome
         
         // gem
         this.addGenerator("ruby", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.RUBY).create());        
+    }
+    
+    @Override
+    public void decorate(World worldIn, Random rand, BlockPos pos)
+    {
+        super.decorate(worldIn, rand, pos);
+
+        if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.FOSSIL))
+        if (rand.nextInt(64) == 0)
+        {
+            (new WorldGenFossils()).generate(worldIn, rand, pos);
+        }
     }
 }

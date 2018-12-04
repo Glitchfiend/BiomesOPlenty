@@ -39,13 +39,13 @@ public class BiomeGenOrchard extends BOPOverworldBiome
         this.spawnableCreatureList.add(new SpawnListEntry(EntityDonkey.class, 1, 1, 1));
         
         // trees
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(5);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(3.5F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("oak", 2, (new GeneratorBasicTree.Builder()).altLeaves(BOPTrees.FLOWERING).create());
         treeGenerator.add("oak_large", 1, (new GeneratorBigTree.Builder()).altLeaves(BOPTrees.FLOWERING).create());
         
         // grasses
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(2.0F);
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(1.5F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("shortgrass", 2, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
         grassGenerator.add("mediumgrass", 3, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());        

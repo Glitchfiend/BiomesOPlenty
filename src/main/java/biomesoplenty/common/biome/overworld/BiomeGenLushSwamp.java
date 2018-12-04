@@ -8,6 +8,8 @@
 
 package biomesoplenty.common.biome.overworld;
 
+import java.util.Random;
+
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.enums.BOPClimates;
@@ -32,11 +34,16 @@ import biomesoplenty.common.world.generator.GeneratorWeighted;
 import biomesoplenty.common.world.generator.tree.GeneratorBasicTree;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockFlower.EnumFlowerType;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.BlockOldLeaf;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.minecraft.world.chunk.ChunkPrimer;
+import net.minecraft.world.gen.feature.WorldGenFossils;
 
 public class BiomeGenLushSwamp extends BOPOverworldBiome
 {    
@@ -58,16 +65,16 @@ public class BiomeGenLushSwamp extends BOPOverworldBiome
         this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));
         
         // mud
-        this.addGenerator("mud", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(1).maxRadius(8).with(BOPBlocks.mud.getDefaultState()).create());
+        this.addGenerator("mud", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(0.5F).maxRadius(8).with(BOPBlocks.mud.getDefaultState()).create());
         
         // sand
-        this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(1).maxRadius(7).with(Blocks.SAND.getDefaultState()).create());
+        this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(0.5F).maxRadius(7).with(Blocks.SAND.getDefaultState()).create());
         
         // lakes
         this.addGenerator("poison_lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.1F).liquid(BOPBlocks.poison).frozenLiquid((IBlockState)null).create());
         
         // trees & logs
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(9);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(6);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("swamp", 5, (new GeneratorBasicTree.Builder()).minHeight(8).maxHeight(12).maxLeavesRadius(2).leaves(Blocks.LEAVES.getDefaultState().withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).vine(Blocks.VINE.getDefaultState()).create());
         
@@ -80,7 +87,7 @@ public class BiomeGenLushSwamp extends BOPOverworldBiome
         grassGenerator.add("tallgrass", 2, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).create());
         
         // flowers
-        GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.4F);
+        GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.25F);
         this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
         flowerGenerator.add("blue_hydrangeas", 2, (new GeneratorFlora.Builder().with(BOPFlowers.BLUE_HYDRANGEA).create()));
         flowerGenerator.add("swampflower", 2, (new GeneratorFlora.Builder()).with(BOPFlowers.SWAMPFLOWER).create());
@@ -91,11 +98,11 @@ public class BiomeGenLushSwamp extends BOPOverworldBiome
         
         // other plants
         this.addGenerator("koru", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.3F).with(BOPPlants.KORU).create());
-        this.addGenerator("cattail", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(2.0F).with(BOPPlants.CATTAIL).create());
-        this.addGenerator("double_cattail", GeneratorStage.FLOWERS, (new GeneratorDoubleFlora.Builder()).amountPerChunk(2.0F).with(BlockBOPDoublePlant.DoublePlantType.TALL_CATTAIL).create());
-        this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).placeOn(BlockQueries.fertile).with(BOPPlants.LEAFPILE).create());
-        this.addGenerator("sugar_cane", GeneratorStage.FLOWERS,(new GeneratorColumns.Builder()).amountPerChunk(1.0F).generationAttempts(24).placeOn(BlockQueries.litFertileWaterside).with(Blocks.REEDS.getDefaultState()).minHeight(1).maxHeight(3).create());
-        this.addGenerator("river_cane", GeneratorStage.FLOWERS,(new GeneratorColumns.Builder()).amountPerChunk(1.0F).generationAttempts(24).placeOn(BlockQueries.litFertileWaterside).with(BlockBOPPlant.paging.getVariantState(BOPPlants.RIVERCANE)).minHeight(1).maxHeight(3).create());
+        this.addGenerator("cattail", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(BOPPlants.CATTAIL).create());
+        this.addGenerator("double_cattail", GeneratorStage.FLOWERS, (new GeneratorDoubleFlora.Builder()).amountPerChunk(0.1F).with(BlockBOPDoublePlant.DoublePlantType.TALL_CATTAIL).create());
+        this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).placeOn(BlockQueries.fertile).with(BOPPlants.LEAFPILE).create());
+        this.addGenerator("sugar_cane", GeneratorStage.FLOWERS,(new GeneratorColumns.Builder()).amountPerChunk(0.6F).generationAttempts(24).placeOn(BlockQueries.litFertileWaterside).with(Blocks.REEDS.getDefaultState()).minHeight(1).maxHeight(3).create());
+        this.addGenerator("river_cane", GeneratorStage.FLOWERS,(new GeneratorColumns.Builder()).amountPerChunk(0.3F).generationAttempts(24).placeOn(BlockQueries.litFertileWaterside).with(BlockBOPPlant.paging.getVariantState(BOPPlants.RIVERCANE)).minHeight(1).maxHeight(3).create());
         
         // water plants
         this.addGenerator("lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(Blocks.WATERLILY.getDefaultState()).create());
@@ -114,5 +121,17 @@ public class BiomeGenLushSwamp extends BOPOverworldBiome
 
         // gem
         this.addGenerator("malachite", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.MALACHITE).create());
+    }
+    
+    @Override
+    public void decorate(World worldIn, Random rand, BlockPos pos)
+    {
+        super.decorate(worldIn, rand, pos);
+
+        if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.FOSSIL))
+        if (rand.nextInt(64) == 0)
+        {
+            (new WorldGenFossils()).generate(worldIn, rand, pos);
+        }
     }
 }

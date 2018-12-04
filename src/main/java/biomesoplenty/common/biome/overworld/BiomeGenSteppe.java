@@ -35,12 +35,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
+import net.minecraft.world.gen.feature.WorldGenFossils;
 
 public class BiomeGenSteppe extends BOPOverworldBiome
 {
-    public IBlockState usualTopBlock;
-    public IBlockState alternateTopBlock;
-	
     public BiomeGenSteppe()
     {
         super("steppe", new PropsBuilder("Steppe").withGuiColour(13413215).withTemperature(0.75F).withRainfall(0.1F));
@@ -48,10 +46,8 @@ public class BiomeGenSteppe extends BOPOverworldBiome
         // terrain
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SANDY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SANDY);
-        this.usualTopBlock = this.topBlock;
-        this.alternateTopBlock = BOPBlocks.dried_sand.getDefaultState();
         
-        this.terrainSettings.avgHeight(70).heightVariation(6, 20).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.1D);
+        this.terrainSettings.avgHeight(90).heightVariation(8, 8);
         
         this.canSpawnInBiome = false;
         this.canGenerateVillages = true;
@@ -89,19 +85,15 @@ public class BiomeGenSteppe extends BOPOverworldBiome
     }
     
     @Override
-    public void configure(IConfigObj conf)
+    public void decorate(World worldIn, Random rand, BlockPos pos)
     {
-        super.configure(conf);
-        
-        this.usualTopBlock = this.topBlock;
-        this.alternateTopBlock = conf.getBlockState("alternateTopBlock", this.alternateTopBlock);
-    }
-    
-    @Override
-    public void genTerrainBlocks(World world, Random rand, ChunkPrimer primer, int x, int z, double noise)
-    {
-        this.topBlock = (noise + rand.nextDouble() * 1.0D > 1.8D) ? this.alternateTopBlock : this.usualTopBlock;
-        super.genTerrainBlocks(world, rand, primer, x, z, noise);
+        super.decorate(worldIn, rand, pos);
+
+        if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.FOSSIL))
+        if (rand.nextInt(64) == 0)
+        {
+            (new WorldGenFossils()).generate(worldIn, rand, pos);
+        }
     }
     
     @Override

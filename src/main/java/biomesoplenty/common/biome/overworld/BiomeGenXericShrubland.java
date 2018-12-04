@@ -36,6 +36,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
+import net.minecraft.world.gen.feature.WorldGenFossils;
 
 public class BiomeGenXericShrubland extends BOPOverworldBiome
 {
@@ -100,6 +101,18 @@ public class BiomeGenXericShrubland extends BOPOverworldBiome
     {
         this.topBlock = (noise + rand.nextDouble() * 1.0D > 1.9D) ? this.alternateTopBlock : this.usualTopBlock;
         super.genTerrainBlocks(world, rand, primer, x, z, noise);
+    }
+    
+    @Override
+    public void decorate(World worldIn, Random rand, BlockPos pos)
+    {
+        super.decorate(worldIn, rand, pos);
+
+        if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.FOSSIL))
+        if (rand.nextInt(64) == 0)
+        {
+            (new WorldGenFossils()).generate(worldIn, rand, pos);
+        }
     }
     
     @Override
