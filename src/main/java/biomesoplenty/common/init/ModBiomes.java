@@ -315,7 +315,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         steppe = registerOverworldBiome(new BiomeGenSteppe());
         temperate_rainforest = registerOverworldBiome(new BiomeGenTemperateRainforest());
         tropical_rainforest = registerOverworldBiome(new BiomeGenTropicalRainforest());
-        tundra = registerOverworldBiome(new BiomeGenTundra());
+        tundra = registerOverworldBiome(new BiomeGenTundra(BiomeGenTundra.TundraType.TUNDRA));
         wasteland = registerOverworldBiome(new BiomeGenWasteland());
         wetland = registerOverworldBiome(new BiomeGenWetland());
         woodland = registerOverworldBiome(new BiomeGenWoodland());
@@ -329,10 +329,12 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         pasture = registerOverworldBiome(new BiomeGenPasture());
         glacier = registerOverworldBiome(new BiomeGenGlacier());
         oasis = registerOverworldBiome(new BiomeGenOasis());
+        snowy_tundra = registerOverworldBiome(new BiomeGenTundra(BiomeGenTundra.TundraType.SNOWY_TUNDRA));
         coral_reef = registerOverworldBiome(new BiomeGenCoralReef());
         kelp_forest = registerOverworldBiome(new BiomeGenKelpForest());
 
         setSubBiome(BOPBiomes.prairie, BOPBiomes.pasture);
+        setSubBiome(BOPBiomes.tundra, BOPBiomes.snowy_tundra);
         setSubBiome(Optional.of(Biomes.ICE_PLAINS), BOPBiomes.glacier);
         setSubBiome(Optional.of(Biomes.DESERT), BOPBiomes.oasis);
         setSubBiome(Optional.of(Biomes.OCEAN), BOPBiomes.coral_reef);
@@ -445,7 +447,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         registerBiomeToDictionary(BOPBiomes.steppe, Type.PLAINS, Type.SANDY, Type.DRY);
         registerBiomeToDictionary(BOPBiomes.temperate_rainforest, Type.FOREST, Type.LUSH, Type.WET, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.tropical_rainforest, Type.JUNGLE, Type.LUSH, Type.HOT, Type.WET, Type.DENSE);
-        registerBiomeToDictionary(BOPBiomes.tundra, Type.COLD, Type.WASTELAND, Type.DEAD, Type.DRY, Type.SPARSE);
+        registerBiomeToDictionary(BOPBiomes.tundra, Type.COLD, Type.WASTELAND, Type.DEAD, Type.WET, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.wasteland, Type.WASTELAND, Type.DEAD, Type.DRY, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.wetland, Type.SWAMP, Type.FOREST, Type.LUSH, Type.WET, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.woodland, Type.FOREST, Type.DRY, Type.DENSE);
@@ -458,6 +460,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         registerBiomeToDictionary(BOPBiomes.pasture, Type.PLAINS, Type.DRY, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.glacier, Type.SNOWY, Type.WASTELAND, Type.COLD);
         registerBiomeToDictionary(BOPBiomes.oasis, Type.SANDY, Type.LUSH, Type.JUNGLE, Type.HOT, Type.WET, Type.SPARSE);
+        registerBiomeToDictionary(BOPBiomes.snowy_tundra, Type.SNOWY, Type.COLD, Type.WASTELAND, Type.DEAD, Type.WET, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.coral_reef, Type.WATER, Type.OCEAN);
         registerBiomeToDictionary(BOPBiomes.kelp_forest, Type.WATER, Type.OCEAN);
 

@@ -85,6 +85,7 @@ public class BOPBiomes
     public static Optional<Biome> pasture = Optional.absent();
     public static Optional<Biome> glacier = Optional.absent();
     public static Optional<Biome> oasis = Optional.absent();
+    public static Optional<Biome> snowy_tundra = Optional.absent();
     public static Optional<Biome> coral_reef = Optional.absent();
     public static Optional<Biome> kelp_forest = Optional.absent();
     public static Optional<Biome> origin_island = Optional.absent();

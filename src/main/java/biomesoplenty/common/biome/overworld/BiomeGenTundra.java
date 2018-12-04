@@ -8,13 +8,18 @@
 
 package biomesoplenty.common.biome.overworld;
 
+import com.google.common.base.CaseFormat;
+
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.enums.BOPGems;
 import biomesoplenty.api.enums.BOPPlants;
+import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.api.generation.GeneratorStage;
+import biomesoplenty.common.biome.BOPBiome.PropsBuilder;
+import biomesoplenty.common.biome.overworld.BiomeGenRedwoodForest.ForestType;
 import biomesoplenty.common.block.BlockBOPDirt;
 import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
@@ -26,7 +31,10 @@ import biomesoplenty.common.world.generator.GeneratorOreSingle;
 import biomesoplenty.common.world.generator.GeneratorWaterside;
 import biomesoplenty.common.world.generator.GeneratorWeighted;
 import biomesoplenty.common.world.generator.tree.GeneratorBush;
+import biomesoplenty.common.world.generator.tree.GeneratorTwigletTree;
+import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.passive.EntityRabbit;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -34,17 +42,26 @@ import net.minecraft.world.biome.Biome;
 
 public class BiomeGenTundra extends BOPOverworldBiome
 {    
-    public BiomeGenTundra()
+	public enum TundraType {TUNDRA, SNOWY_TUNDRA}
+	
+	public TundraType type;
+	
+    public BiomeGenTundra(TundraType type)
     {
-        super("tundra", new PropsBuilder("Tundra").withGuiColour(0xA09456).withTemperature(0.25F).withRainfall(0.5F));
+        super(type.name().toLowerCase(), new PropsBuilder(CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, type.toString())).withGuiColour(0xA09456).withTemperature((type == TundraType.TUNDRA) ? 0.2F : 0.0F).withRainfall(0.5F));
 
+        this.type = type;
+        
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(5, 10).minHeight(59);
         
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SILTY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY);
         
-        this.addWeight(BOPClimates.TUNDRA, 10);
+        if (type == TundraType.TUNDRA)
+        {
+        	this.addWeight(BOPClimates.TUNDRA, 10);
+        }
         
         this.canGenerateRivers = false;
         this.canSpawnInBiome = false;
@@ -59,27 +76,29 @@ public class BiomeGenTundra extends BOPOverworldBiome
         this.spawnableCreatureList.add(new SpawnListEntry(EntityRabbit.class, 4, 2, 3));
         
         // boulders
-        this.addGenerator("boulders", GeneratorStage.SAND, (new GeneratorBlobs.Builder()).amountPerChunk(0.5F).placeOn(Blocks.GRASS).with(Blocks.COBBLESTONE.getDefaultState()).minRadius(1.0F).maxRadius(3.0F).numBalls(3).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
+        this.addGenerator("large_boulders", GeneratorStage.SAND, (new GeneratorBlobs.Builder()).amountPerChunk(0.15F).placeOn(this.topBlock).with(Blocks.COBBLESTONE.getDefaultState()).minRadius(1.0F).maxRadius(3.0F).numBalls(3).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
+        this.addGenerator("small_boulders", GeneratorStage.SAND, (new GeneratorFlora.Builder()).amountPerChunk(0.3F).replace(Material.AIR).placeOn(this.topBlock).with(Blocks.COBBLESTONE.getDefaultState()).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
         
         // gravel
         this.addGenerator("gravel", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(12).maxRadius(7).with(Blocks.GRAVEL.getDefaultState()).create());
         
         // lakes
-        this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.3F).waterLakeForBiome(this).create());        
-        
+        this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.1F).waterLakeForBiome(this).create());        
+
         // trees
-        this.addGenerator("trees", GeneratorStage.TREE, (new GeneratorBush.Builder()).amountPerChunk(0.7F).maxHeight(2).create());
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(4.0F);
+        this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
+        treeGenerator.add("twiglet", 1, (new GeneratorTwigletTree.Builder()).minHeight(2).maxHeight(2).log(BlockPlanks.EnumType.OAK).leaves(BOPTrees.MAPLE).create());
+        treeGenerator.add("small_bush", 2, (new GeneratorFlora.Builder()).placeOn(this.topBlock).replace(Material.AIR).withNonDecayingLeaf(BOPTrees.DEAD).create());
         
         // other plants
-        //this.addGenerator("shrubs", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BOPPlants.SHRUB).create());
-        this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).placeOn(BlockQueries.fertile).with(BOPPlants.LEAFPILE).generationAttempts(64).create());
-        this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).placeOn(BlockQueries.fertile).with(BOPPlants.DEADLEAFPILE).generationAttempts(64).create());
+        this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.3F).placeOn(BlockQueries.fertile).with(BOPPlants.DEADLEAFPILE).generationAttempts(64).create());
  
         // water plants
         this.addGenerator("water_reeds", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(BOPPlants.REED).generationAttempts(32).create());
         
         // grasses
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(1.3F);
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(1.5F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("shortgrass", 4, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
         grassGenerator.add("mediumgrass", 2, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());
@@ -92,13 +111,13 @@ public class BiomeGenTundra extends BOPOverworldBiome
     @Override
     public int getGrassColorAtPos(BlockPos pos)
     {
-        return getModdedBiomeGrassColor(0xAD8456);
+        return getModdedBiomeGrassColor(0xB78658);
     }
     
     @Override
     public int getFoliageColorAtPos(BlockPos pos)
     {
-        return getModdedBiomeFoliageColor(0xBF664E);
+        return getModdedBiomeFoliageColor(0xC1954D);
     }
 
 }
