@@ -6,7 +6,9 @@ import biomesoplenty.api.enums.BOPFlowers;
 import biomesoplenty.api.enums.BOPGems;
 import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.enums.BOPTrees;
+import biomesoplenty.api.enums.BOPWoods;
 import biomesoplenty.api.generation.GeneratorStage;
+import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.world.generator.GeneratorFlora;
 import biomesoplenty.common.world.generator.GeneratorGrass;
@@ -15,7 +17,9 @@ import biomesoplenty.common.world.generator.GeneratorWaterside;
 import biomesoplenty.common.world.generator.GeneratorWeighted;
 import biomesoplenty.common.world.generator.tree.GeneratorBasicTree;
 import biomesoplenty.common.world.generator.tree.GeneratorBigTree;
+import biomesoplenty.common.world.generator.tree.GeneratorPalmTree;
 import net.minecraft.block.BlockFlower;
+import net.minecraft.block.BlockOldLeaf;
 import net.minecraft.block.BlockFlower.EnumFlowerType;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
@@ -50,7 +54,7 @@ public class BiomeGenRainforest extends BOPOverworldBiome
         // trees & logs
         GeneratorWeighted treeGenerator = new GeneratorWeighted(15);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("birch", 4, (new GeneratorBasicTree.Builder()).log(BlockPlanks.EnumType.BIRCH).leaves(BlockPlanks.EnumType.BIRCH).minHeight(5).maxHeight(8).create());
+        treeGenerator.add("palm", 3, (new GeneratorPalmTree.Builder()).log(BOPWoods.PALM).minHeight(15).maxHeight(20).leaves(BlockBOPLeaves.paging.getVariantState(BOPTrees.PALM).withProperty(BlockOldLeaf.DECAYABLE, Boolean.valueOf(false))).create());
         treeGenerator.add("oak", 7, (new GeneratorBasicTree.Builder()).minHeight(8).maxHeight(12).altLeaves(BOPTrees.FLOWERING).create());
         treeGenerator.add("jungle", 1, (new GeneratorBasicTree.Builder()).minHeight(8).maxHeight(12).log(BlockPlanks.EnumType.JUNGLE).leaves(BlockPlanks.EnumType.JUNGLE).trunkFruit(Blocks.COCOA.getDefaultState()).create());
         treeGenerator.add("large_oak", 4, (new GeneratorBigTree.Builder()).log(BlockPlanks.EnumType.OAK).leaves(BlockPlanks.EnumType.OAK).create());

@@ -54,9 +54,9 @@ public class BiomeGenOasis extends BOPOverworldBiome
         //this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(1.2F).waterLakeForBiome(this).create());
         
         // trees
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(4.5F);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(4.0F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("palm", 4, (new GeneratorPalmTree.Builder()).placeOn(BlockQueries.litSand).log(BOPWoods.PALM).leaves(BlockBOPLeaves.paging.getVariantState(BOPTrees.PALM).withProperty(BlockOldLeaf.DECAYABLE, Boolean.valueOf(false))).create());
+        treeGenerator.add("palm", 3, (new GeneratorPalmTree.Builder()).placeOn(BlockQueries.litSand).log(BOPWoods.PALM).leaves(BlockBOPLeaves.paging.getVariantState(BOPTrees.PALM).withProperty(BlockOldLeaf.DECAYABLE, Boolean.valueOf(false))).create());
         treeGenerator.add("jungle_twiglet", 2, (new GeneratorTwigletTree.Builder()).placeOn(BlockQueries.litSand).minHeight(2).maxHeight(2).log(BlockPlanks.EnumType.JUNGLE).leaves(BlockPlanks.EnumType.JUNGLE).trunkFruit(Blocks.COCOA.getDefaultState()).create());
         
         // other plants

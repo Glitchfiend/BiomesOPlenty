@@ -71,7 +71,7 @@ public class GeneratorPalmTree extends GeneratorTreeBase
         int height = GeneratorUtils.nextIntBetween(random, this.minHeight, this.maxHeight);
         int leavesRadius = 2;
         int heightMinusTop = height - leavesRadius - 1;
-        boolean slant = true;
+        boolean slant = false;
         EnumFacing direction = EnumFacing.random(random); //The direction the palm tree curves towards
         if (direction == EnumFacing.DOWN || direction == EnumFacing.UP)
         {
