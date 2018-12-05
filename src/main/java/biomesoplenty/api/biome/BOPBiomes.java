@@ -107,6 +107,7 @@ public class BOPBiomes
     public static IExtendedBiome end_extension;
     public static IExtendedBiome mushroom_island_extension;
     public static IExtendedBiome plains_extension;
+    public static IExtendedBiome flower_forest_extension;
     public static IExtendedBiome forest_extension;
     public static IExtendedBiome forest_hills_extension;
     public static IExtendedBiome jungle_extension;

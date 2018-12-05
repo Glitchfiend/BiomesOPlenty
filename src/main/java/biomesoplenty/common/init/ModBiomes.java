@@ -111,6 +111,7 @@ import biomesoplenty.common.biome.vanilla.BiomeExtDesertHills;
 import biomesoplenty.common.biome.vanilla.BiomeExtEnd;
 import biomesoplenty.common.biome.vanilla.BiomeExtExtremeHills;
 import biomesoplenty.common.biome.vanilla.BiomeExtExtremeHillsPlus;
+import biomesoplenty.common.biome.vanilla.BiomeExtFlowerForest;
 import biomesoplenty.common.biome.vanilla.BiomeExtForest;
 import biomesoplenty.common.biome.vanilla.BiomeExtForestHills;
 import biomesoplenty.common.biome.vanilla.BiomeExtHell;
@@ -374,6 +375,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         desert_hills_extension = registerWrappedBiome(new BiomeExtDesertHills());
         extreme_hills_extension = registerWrappedBiome(new BiomeExtExtremeHills());
         extreme_hills_plus_extension = registerWrappedBiome(new BiomeExtExtremeHillsPlus());
+        flower_forest_extension = registerWrappedBiome(new BiomeExtFlowerForest());
         forest_extension = registerWrappedBiome(new BiomeExtForest());
         forest_hills_extension = registerWrappedBiome(new BiomeExtForestHills());
         ice_plains_extension = registerWrappedBiome(new BiomeExtIcePlains());
