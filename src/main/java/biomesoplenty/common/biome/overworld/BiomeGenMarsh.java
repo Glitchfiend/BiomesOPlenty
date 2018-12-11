@@ -45,7 +45,7 @@ public class BiomeGenMarsh extends BOPOverworldBiome
         super("marsh", new PropsBuilder("Marsh").withGuiColour(0x66A06E).withTemperature(0.6F).withRainfall(0.8F));
 
         // terrain
-        this.terrainSettings.avgHeight(62).heightVariation(5, 2).octaves(5, 5, 0, 0, 1, 1).sidewaysNoise(0.1D); 
+        this.terrainSettings.avgHeight(62).heightVariation(5, 3).octaves(5, 5, 0, 0, 1, 1); 
         
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.LOAMY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.LOAMY);
@@ -62,18 +62,15 @@ public class BiomeGenMarsh extends BOPOverworldBiome
         this.spawnableCreatureList.clear();
         this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));
         
-        // mud
-        this.addGenerator("mud", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(1).maxRadius(7).with(BOPBlocks.mud.getDefaultState()).create());
-        
         // lakes
-        this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(4.0F).waterLakeForBiome(this).create());
+        this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.5F).waterLakeForBiome(this).create());
         
         // other plants
         this.addGenerator("koru", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BOPPlants.KORU).create());
         
         // water plants
         this.addGenerator("algae", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(10.0F).replace(Blocks.WATER).with(BOPBlocks.coral.getDefaultState().withProperty(BlockBOPCoral.VARIANT, BlockBOPCoral.CoralType.ALGAE)).generationAttempts(32).scatterYMethod(ScatterYMethod.AT_GROUND).create());
-        this.addGenerator("water_reeds", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(6.0F).with(BOPPlants.REED).generationAttempts(32).create());
+        this.addGenerator("water_reeds", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BOPPlants.REED).generationAttempts(32).create());
 
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(20.0F);

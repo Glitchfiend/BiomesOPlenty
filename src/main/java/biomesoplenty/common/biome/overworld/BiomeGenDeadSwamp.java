@@ -52,6 +52,7 @@ public class BiomeGenDeadSwamp extends BOPOverworldBiome
         //this.skyColor = 0x627268;
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.LOAMY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.LOAMY);
+        this.seaFloorBlock = BOPBlocks.mud.getDefaultState();
         
         this.canSpawnInBiome = false;
         this.canGenerateRivers = false;

@@ -427,7 +427,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         registerBiomeToDictionary(BOPBiomes.lush_swamp, Type.SWAMP, Type.LUSH, Type.WET, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.mangrove, Type.WATER, Type.SWAMP, Type.LUSH, Type.WET, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.maple_woods, Type.FOREST, Type.CONIFEROUS, Type.COLD, Type.DENSE);
-        registerBiomeToDictionary(BOPBiomes.marsh, Type.SWAMP, Type.WET, Type.LUSH);
+        registerBiomeToDictionary(BOPBiomes.marsh, Type.WET, Type.LUSH);
         registerBiomeToDictionary(BOPBiomes.meadow, Type.PLAINS, Type.FOREST, Type.LUSH, Type.COLD, Type.WET, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.moor, Type.SWAMP, Type.HILLS, Type.WET);
         registerBiomeToDictionary(BOPBiomes.mountain, Type.MOUNTAIN, Type.FOREST, Type.DRY, Type.SPARSE);
