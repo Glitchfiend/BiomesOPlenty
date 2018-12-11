@@ -57,7 +57,7 @@ public class BiomeGenDeadForest extends BOPOverworldBiome
         this.addGenerator("gravel", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(4).maxRadius(7).with(Blocks.GRAVEL.getDefaultState()).create());
 
         // trees
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(3);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(2.5F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("spruce", 3, (new GeneratorTaigaTree.Builder()).minHeight(6).maxHeight(16).create()); // TODO: implement pine cones
         treeGenerator.add("dying_tree", 5, (new GeneratorBigTree.Builder()).minHeight(5).maxHeight(12).foliageHeight(2).leaves(BOPTrees.DEAD).create());
@@ -75,7 +75,6 @@ public class BiomeGenDeadForest extends BOPOverworldBiome
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("shortgrass", 4, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
         grassGenerator.add("mediumgrass", 3, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());
-        grassGenerator.add("tallgrass", 2, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).create());
         grassGenerator.add("dead_bushes", 1, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.DEAD_BUSH).create());
         
         // gem

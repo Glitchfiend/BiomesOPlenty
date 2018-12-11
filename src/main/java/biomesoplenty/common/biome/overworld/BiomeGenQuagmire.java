@@ -30,6 +30,7 @@ import biomesoplenty.common.world.generator.GeneratorSplatter;
 import biomesoplenty.common.world.generator.GeneratorWaterside;
 import biomesoplenty.common.world.generator.GeneratorWeighted;
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.init.Blocks;
@@ -77,7 +78,7 @@ public class BiomeGenQuagmire extends BOPOverworldBiome
         this.addGenerator("grass_splatter", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(1.0F).generationAttempts(128).replace(emptyMud).with(BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.LOAMY)).create());
         
         // mud
-        this.addGenerator("mud", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(6).maxRadius(8).with(BOPBlocks.mud.getDefaultState()).create());
+        this.addGenerator("mud", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(10).maxRadius(8).with(BOPBlocks.mud.getDefaultState()).create());
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(1.4F);
@@ -95,7 +96,7 @@ public class BiomeGenQuagmire extends BOPOverworldBiome
         this.addGenerator("small_lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(BlockBOPLilypad.LilypadType.SMALL).create());
         this.addGenerator("tiny_lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.3F).with(BlockBOPLilypad.LilypadType.TINY).create());
         this.addGenerator("algae", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.1F).replace(Blocks.WATER).with(BOPBlocks.coral.getDefaultState().withProperty(BlockBOPCoral.VARIANT, BlockBOPCoral.CoralType.ALGAE)).scatterYMethod(ScatterYMethod.AT_GROUND).create());
-        this.addGenerator("water_reeds", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(2.0F).with(BOPPlants.REED).generationAttempts(32).create());
+        this.addGenerator("water_reeds", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BOPPlants.REED).generationAttempts(32).create());
         
         // gem
         this.addGenerator("malachite", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.MALACHITE).create());
@@ -117,6 +118,28 @@ public class BiomeGenQuagmire extends BOPOverworldBiome
     {
         this.topBlock = (noise + rand.nextDouble() * 1.0D > 1.8D) ? this.alternateTopBlock : this.usualTopBlock;
         this.fillerBlock = (noise + rand.nextDouble() * 1.0D > 1.8D) ? this.alternateFillerBlock : this.usualFillerBlock;
+        
+        double d0 = GRASS_COLOR_NOISE.getValue((double)x * 0.2D, (double)z * 0.2D);
+
+        if (d0 > 0.0D)
+        {
+            int i = x & 15;
+            int j = z & 15;
+
+            for (int k = 255; k >= 0; --k)
+            {
+                if (primer.getBlockState(j, k, i).getMaterial() != Material.AIR)
+                {
+                    if (k == 62 && primer.getBlockState(j, k, i).getBlock() != Blocks.WATER)
+                    {
+                    	primer.setBlockState(j, k, i, WATER);
+                    }
+
+                    break;
+                }
+            }
+        }
+        
         super.genTerrainBlocks(world, rand, primer, x, z, noise);
     }
     
@@ -135,12 +158,12 @@ public class BiomeGenQuagmire extends BOPOverworldBiome
     @Override
     public int getGrassColorAtPos(BlockPos pos)
     {
-        return getModdedBiomeGrassColor(0x9E8B69);
+        return getModdedBiomeGrassColor(0x938060);
     }
     
     @Override
     public int getFoliageColorAtPos(BlockPos pos)
     {
-        return getModdedBiomeFoliageColor(0x9E8B69);
+        return getModdedBiomeFoliageColor(0xAAA072);
     }
 }

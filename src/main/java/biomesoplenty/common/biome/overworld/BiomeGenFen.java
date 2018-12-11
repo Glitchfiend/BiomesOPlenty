@@ -54,7 +54,7 @@ public class BiomeGenFen extends BOPOverworldBiome
         super("fen", new PropsBuilder("Fen").withGuiColour(0xBAC481).withTemperature(0.4F).withRainfall(0.4F));
 
         // terrain
-        this.terrainSettings.avgHeight(63).heightVariation(7, 6).octaves(1, 4, 3, 1, 1, 0);
+        this.terrainSettings.avgHeight(63).heightVariation(8, 6).octaves(1, 4, 3, 1, 1, 0);
         
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.LOAMY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.LOAMY);
@@ -76,9 +76,9 @@ public class BiomeGenFen extends BOPOverworldBiome
         // trees and logs
         GeneratorWeighted treeGenerator = new GeneratorWeighted(6);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("dying_tree", 5, (new GeneratorBigTree.Builder()).log(BOPWoods.DEAD).leaves(BOPTrees.DEAD).foliageHeight(1).maxHeight(12).create());
-        treeGenerator.add("dark_oak_tree", 7, (new GeneratorBigTree.Builder()).log(BlockPlanks.EnumType.DARK_OAK).leaves(BlockPlanks.EnumType.DARK_OAK).foliageHeight(1).maxHeight(12).create());
-        treeGenerator.add("birch_twiglet", 1, (new GeneratorTwigletTree.Builder()).log(BlockPlanks.EnumType.BIRCH).leaves(BlockPlanks.EnumType.BIRCH).minHeight(3).maxHeight(6).leafChance(0.3F, 0.9F).create());
+        treeGenerator.add("oak_tree", 1, (new GeneratorTwigletTree.Builder()).leaves(BOPTrees.DEAD).minHeight(5).maxHeight(10).leafChance(0.3F, 0.9F).create());
+        treeGenerator.add("dark_oak_tree", 7, (new GeneratorBigTree.Builder()).log(BlockPlanks.EnumType.DARK_OAK).leaves(BlockPlanks.EnumType.DARK_OAK).foliageHeight(2).maxHeight(12).create());
+        treeGenerator.add("birch_twiglet", 1, (new GeneratorTwigletTree.Builder()).log(BlockPlanks.EnumType.BIRCH).leaves(BlockPlanks.EnumType.BIRCH).minHeight(2).maxHeight(4).leafChance(0.3F, 0.9F).create());
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(5.0F);

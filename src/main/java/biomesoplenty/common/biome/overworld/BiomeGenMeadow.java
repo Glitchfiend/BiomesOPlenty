@@ -70,7 +70,6 @@ public class BiomeGenMeadow extends BOPOverworldBiome
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.5F);
         this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
         flowerGenerator.add("clover", 2, (new GeneratorFlora.Builder().with(BOPFlowers.CLOVER).create()));
-        flowerGenerator.add("blue_hydrangeas", 3, (new GeneratorFlora.Builder().with(BOPFlowers.BLUE_HYDRANGEA).create()));
         flowerGenerator.add("syringa", 1, (new GeneratorDoubleFlora.Builder().with(BlockDoublePlant.EnumPlantType.SYRINGA).create()));
         flowerGenerator.add("sunflower", 2, (new GeneratorDoubleFlora.Builder().with(BlockDoublePlant.EnumPlantType.SUNFLOWER).create()));
         flowerGenerator.add("rose", 1, (new GeneratorDoubleFlora.Builder().with(BlockDoublePlant.EnumPlantType.ROSE).create()));
