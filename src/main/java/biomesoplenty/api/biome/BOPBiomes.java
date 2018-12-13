@@ -46,7 +46,6 @@ public class BOPBiomes
     public static Optional<Biome> maple_woods = Optional.absent();
     public static Optional<Biome> marsh = Optional.absent();
     public static Optional<Biome> meadow = Optional.absent();
-    public static Optional<Biome> moor = Optional.absent();
     public static Optional<Biome> mystic_grove = Optional.absent();
     public static Optional<Biome> ominous_woods = Optional.absent();
     public static Optional<Biome> orchard = Optional.absent();
@@ -56,6 +55,7 @@ public class BOPBiomes
     public static Optional<Biome> rainforest = Optional.absent();
     public static Optional<Biome> redwood_forest = Optional.absent();
     public static Optional<Biome> seasonal_forest = Optional.absent();
+    public static Optional<Biome> scrubland = Optional.absent();
     public static Optional<Biome> shield = Optional.absent();
     public static Optional<Biome> shrubland = Optional.absent();
     public static Optional<Biome> snowy_coniferous_forest = Optional.absent();
@@ -74,6 +74,7 @@ public class BOPBiomes
     public static Optional<Biome> redwood_forest_edge = Optional.absent();
     
     public static Optional<Biome> flower_meadow = Optional.absent();
+    public static Optional<Biome> highland_moor = Optional.absent();
     public static Optional<Biome> mire = Optional.absent();
     public static Optional<Biome> oasis = Optional.absent();
     public static Optional<Biome> pasture = Optional.absent();

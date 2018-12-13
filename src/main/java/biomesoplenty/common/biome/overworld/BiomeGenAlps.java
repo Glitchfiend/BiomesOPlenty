@@ -20,6 +20,7 @@ import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.world.generator.GeneratorLakes;
+import biomesoplenty.common.world.generator.GeneratorOreSingle;
 import biomesoplenty.common.world.generator.GeneratorWeighted;
 import biomesoplenty.common.world.generator.tree.GeneratorTaigaTree;
 import net.minecraft.block.state.IBlockState;
@@ -85,5 +86,7 @@ public class BiomeGenAlps extends BOPOverworldBiome
             this.addGenerator("hot_springs", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.5F).liquid(BOPBlocks.hot_spring_water).frozenLiquid((IBlockState)null).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
         }
         
+        // gem
+        this.addGenerator("emerald", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(Blocks.EMERALD_ORE.getDefaultState()).create());
     }
 }

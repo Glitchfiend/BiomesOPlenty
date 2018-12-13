@@ -10,6 +10,7 @@ import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.world.generator.GeneratorFlora;
 import biomesoplenty.common.world.generator.GeneratorGrass;
+import biomesoplenty.common.world.generator.GeneratorOreSingle;
 import biomesoplenty.common.world.generator.GeneratorWaterside;
 import biomesoplenty.common.world.generator.GeneratorWeighted;
 import biomesoplenty.common.world.generator.tree.GeneratorBasicTree;
@@ -81,6 +82,9 @@ public class BiomeGenRainforest extends BOPOverworldBiome
         
         // water plants
         this.addGenerator("lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(Blocks.WATERLILY.getDefaultState()).create());
+    
+        // gem
+        this.addGenerator("emerald", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(Blocks.EMERALD_ORE.getDefaultState()).create());
     }
     
     @Override

@@ -18,6 +18,7 @@ import biomesoplenty.common.world.generator.GeneratorDoubleFlora;
 import biomesoplenty.common.world.generator.GeneratorFlora;
 import biomesoplenty.common.world.generator.GeneratorGrass;
 import biomesoplenty.common.world.generator.GeneratorWeighted;
+import biomesoplenty.common.world.generator.tree.GeneratorBigTree;
 import biomesoplenty.common.world.generator.tree.GeneratorBush;
 import biomesoplenty.common.world.generator.tree.GeneratorProfileTree;
 import net.minecraft.block.BlockDoublePlant;
@@ -31,14 +32,16 @@ public class BiomeGenGrove extends BOPOverworldBiome
     
     public BiomeGenGrove()
     {
-        super("grove", new PropsBuilder("Grove").withGuiColour(0x517F51).withTemperature(0.6F).withRainfall(0.8F));
+        super("grove", new PropsBuilder("Grove").withGuiColour(0x517F51).withTemperature(0.75F).withRainfall(0.3F));
 
         // terrain
-        this.terrainSettings.avgHeight(66).heightVariation(8, 20).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.1D);
+        this.terrainSettings.avgHeight(85).heightVariation(20, 20);
         
         this.addWeight(BOPClimates.MEDITERRANEAN, 10);
         
         this.canGenerateVillages = true;
+        
+        this.beachBiomeLocation = null;
                  
         // other plants
         this.addGenerator("berry_bushes", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BOPPlants.BERRYBUSH).create());
@@ -46,37 +49,26 @@ public class BiomeGenGrove extends BOPOverworldBiome
         this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).placeOn(BlockQueries.fertile).with(BOPPlants.LEAFPILE).create());
         
         // trees
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(3);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(3.5F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("dark_poplar", 1, (new GeneratorProfileTree.Builder()).minHeight(6).maxHeight(14).log(BlockPlanks.EnumType.DARK_OAK).leaves(BlockPlanks.EnumType.DARK_OAK).profile(GeneratorProfileTree.TreeProfile.POPLAR).create());
-        treeGenerator.add("poplar", 1, (new GeneratorProfileTree.Builder()).minHeight(8).maxHeight(18).log(BlockPlanks.EnumType.BIRCH).leaves(BlockPlanks.EnumType.BIRCH).profile(GeneratorProfileTree.TreeProfile.POPLAR).create());
-        treeGenerator.add("bush", 1, (new GeneratorBush.Builder()).maxHeight(2).altLeaves(BOPTrees.FLOWERING).create());
-
+        treeGenerator.add("oak_tree", 1, (new GeneratorBigTree.Builder()).minHeight(11).maxHeight(15).foliageHeight(1).create());
+        treeGenerator.add("dark_poplar", 4, (new GeneratorProfileTree.Builder()).minHeight(9).maxHeight(15).log(BlockPlanks.EnumType.DARK_OAK).leaves(BlockPlanks.EnumType.DARK_OAK).profile(GeneratorProfileTree.TreeProfile.POPLAR).create());
+        treeGenerator.add("poplar", 4, (new GeneratorProfileTree.Builder()).minHeight(9).maxHeight(18).log(BlockPlanks.EnumType.BIRCH).leaves(BlockPlanks.EnumType.BIRCH).profile(GeneratorProfileTree.TreeProfile.POPLAR).create());
+        treeGenerator.add("bush", 7, (new GeneratorBush.Builder()).maxHeight(2).create());
         
         // flowers
-        GeneratorWeighted flowerGenerator = new GeneratorWeighted(2.0F);
+        GeneratorWeighted flowerGenerator = new GeneratorWeighted(1.75F);
         this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
-        flowerGenerator.add("paeonias", 1, (new GeneratorDoubleFlora.Builder()).with(BlockDoublePlant.EnumPlantType.PAEONIA).create());
+        flowerGenerator.add("syringa", 3, (new GeneratorDoubleFlora.Builder().with(BlockDoublePlant.EnumPlantType.SYRINGA).create()));
+        flowerGenerator.add("paeonias", 2, (new GeneratorDoubleFlora.Builder()).with(BlockDoublePlant.EnumPlantType.PAEONIA).create());
         flowerGenerator.add("oxeye_daisy", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.OXEYE_DAISY).create()));
-        flowerGenerator.add("dandelion", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.DANDELION).create()));
-        flowerGenerator.add("poppy", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.POPPY).create()));
+        flowerGenerator.add("dandelion", 2, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.DANDELION).create()));
+        flowerGenerator.add("poppy", 3, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.POPPY).create()));
         
         // grasses
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(1.3F);
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(2.5F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("shortgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
-        grassGenerator.add("tallgrass", 1, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).create());
-    }
-    
-    @Override
-    public int getGrassColorAtPos(BlockPos pos)
-    {
-        return getModdedBiomeGrassColor(0x639966);
-    }
-    
-    @Override
-    public int getFoliageColorAtPos(BlockPos pos)
-    {
-    	return getModdedBiomeFoliageColor(0x6CB070);
+        grassGenerator.add("tallgrass", 2, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).create());
     }
 }

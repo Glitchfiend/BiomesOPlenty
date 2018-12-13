@@ -37,7 +37,7 @@ public class BOPMapGenScatteredFeature extends MapGenScatteredFeature
     static
     {
         JUNGLE_BIOMES.addAll(BiomeUtils.filterPresentBiomes(BOPBiomes.overgrown_cliffs, BOPBiomes.tropical_rainforest));
-        SWAMP_BIOMES.addAll(BiomeUtils.filterPresentBiomes(BOPBiomes.bayou, BOPBiomes.bog, BOPBiomes.dead_swamp, BOPBiomes.fen, BOPBiomes.lush_swamp, BOPBiomes.mire, BOPBiomes.moor, BOPBiomes.ominous_woods, BOPBiomes.wetland));
+        SWAMP_BIOMES.addAll(BiomeUtils.filterPresentBiomes(BOPBiomes.bayou, BOPBiomes.bog, BOPBiomes.dead_swamp, BOPBiomes.fen, BOPBiomes.lush_swamp, BOPBiomes.mire, BOPBiomes.ominous_woods, BOPBiomes.wetland));
         DESERT_BIOMES.addAll(BiomeUtils.filterPresentBiomes(BOPBiomes.brushland, BOPBiomes.outback, BOPBiomes.oasis));
         ICE_BIOMES.addAll(BiomeUtils.filterPresentBiomes(BOPBiomes.alps, BOPBiomes.cold_desert, BOPBiomes.snowy_coniferous_forest, BOPBiomes.snowy_forest));
     }

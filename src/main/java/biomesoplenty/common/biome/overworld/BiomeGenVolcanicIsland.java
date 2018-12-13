@@ -54,6 +54,9 @@ public class BiomeGenVolcanicIsland extends BOPOverworldBiome
         IBlockPosQuery emptyAshBlock = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();
         this.addGenerator("lava_flows", GeneratorStage.FLOWERS,(new GeneratorSplotches.Builder()).placeOn(emptyAshBlock).replace(BOPBlocks.ash_block).amountPerChunk(0.1F).splotchSize(12).scatterYMethod(ScatterYMethod.AT_SURFACE).with(Blocks.FLOWING_LAVA.getDefaultState()).create());
         this.addGenerator("lava_lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(2.5F).lavaLake().create());    
+    
+        // gem
+        this.addGenerator("emerald", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(Blocks.EMERALD_ORE.getDefaultState()).create());
     }
     
     @Override

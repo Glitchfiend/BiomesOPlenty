@@ -18,14 +18,16 @@ import biomesoplenty.api.enums.BOPFlowers;
 import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.block.BlockBOPDirt;
+import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.world.generator.GeneratorColumns;
+import biomesoplenty.common.world.generator.GeneratorDoubleFlora;
 import biomesoplenty.common.world.generator.GeneratorFlora;
 import biomesoplenty.common.world.generator.GeneratorGrass;
 import biomesoplenty.common.world.generator.GeneratorOreSingle;
 import biomesoplenty.common.world.generator.GeneratorWeighted;
 import biomesoplenty.common.world.generator.tree.GeneratorBush;
 import biomesoplenty.common.world.generator.tree.GeneratorTwigletTree;
-import net.minecraft.block.BlockFlower;
+import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.material.Material;
@@ -38,54 +40,50 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.feature.WorldGenFossils;
 
-public class BiomeGenXericShrubland extends BOPOverworldBiome
+public class BiomeGenScrubland extends BOPOverworldBiome
 {
     public IBlockState usualTopBlock;
     public IBlockState alternateTopBlock;
+    public IBlockState usualFillerBlock;
+    public IBlockState alternateFillerBlock;
 	
-    public BiomeGenXericShrubland()
+    public BiomeGenScrubland()
     {
-        super("xeric_shrubland", new PropsBuilder("Xeric Shrubland").withGuiColour(0xE2CDA5).withTemperature(1.75F).withRainfall(0.1F).withRainDisabled());
+        super("scrubland", new PropsBuilder("Scrubland").withGuiColour(0xE2CDA5).withTemperature(1.1F).withRainfall(0.1F).withRainDisabled());
 
         // terrain
-        this.terrainSettings.avgHeight(64).heightVariation(1, 5);
+        this.terrainSettings.avgHeight(68).heightVariation(10, 15);
 
-        this.topBlock = Blocks.SAND.getDefaultState();
-        this.fillerBlock = Blocks.SAND.getDefaultState();
         this.usualTopBlock = this.topBlock;
-        this.alternateTopBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SANDY).withProperty(BlockBOPDirt.COARSE, true);
+        this.usualFillerBlock = this.fillerBlock;
+        this.alternateTopBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SANDY);
+        this.alternateFillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SANDY);
         
-        this.canSpawnInBiome = false;
         this.canGenerateVillages = true;
         
-        this.addWeight(BOPClimates.SAVANNA, 3);
-        
-        this.spawnableCreatureList.clear();
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityRabbit.class, 4, 2, 3));
+        this.addWeight(BOPClimates.SAVANNA, 10);
         
         // trees & logs
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(1.0F);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(4.0F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);        
-        treeGenerator.add("brush_twiglet", 2, (new GeneratorTwigletTree.Builder()).placeOn(BlockQueries.litDry).minHeight(1).maxHeight(2).log(BlockPlanks.EnumType.ACACIA).leaves(BlockPlanks.EnumType.ACACIA).create());        
-        treeGenerator.add("brush_bush", 3, (new GeneratorFlora.Builder()).placeOn(BlockQueries.litDry).replace(Material.AIR).withNonDecayingLeaf(BlockPlanks.EnumType.ACACIA).create());
+        treeGenerator.add("brush_twiglet", 5, (new GeneratorTwigletTree.Builder()).placeOn(BlockQueries.litFertileOrDry).minHeight(1).maxHeight(3).log(BlockPlanks.EnumType.ACACIA).leaves(BlockPlanks.EnumType.ACACIA).create());        
+        treeGenerator.add("jungle_twiglet", 1, (new GeneratorTwigletTree.Builder()).minHeight(2).maxHeight(2).log(BlockPlanks.EnumType.JUNGLE).leaves(BlockPlanks.EnumType.JUNGLE).trunkFruit(Blocks.COCOA.getDefaultState()).create());
+        treeGenerator.add("brush_bush", 2, (new GeneratorFlora.Builder()).placeOn(BlockQueries.litFertileOrDry).replace(Material.AIR).withNonDecayingLeaf(BlockPlanks.EnumType.SPRUCE).create());
         
         // grasses
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(1.0F);
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(4.0F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
-        grassGenerator.add("shortgrass", 7, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
-        grassGenerator.add("tallgrass", 1, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).create()); 
+        grassGenerator.add("shortgrass", 3, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
+        grassGenerator.add("tallgrass", 2, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).create()); 
+        grassGenerator.add("doublegrass", 1, (new GeneratorDoubleFlora.Builder()).with(BlockDoublePlant.EnumPlantType.GRASS).create());
         
         // flowers
-        GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.1F);
+        GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.3F);
         this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
-        flowerGenerator.add("houstonia", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.HOUSTONIA).create()));
         flowerGenerator.add("wildflower", 4, (new GeneratorFlora.Builder()).with(BOPFlowers.WILDFLOWER).create());
         
         // other plants
-        this.addGenerator("dunegrass", GeneratorStage.GRASS, (new GeneratorGrass.Builder()).amountPerChunk(10.0F).with(BOPPlants.DUNEGRASS).placeOn(this.topBlock).generationAttempts(8).create());
-        this.addGenerator("desertgrass", GeneratorStage.GRASS, (new GeneratorGrass.Builder()).amountPerChunk(2.0F).with(BOPPlants.DESERTGRASS).generationAttempts(8).create());
-        this.addGenerator("desert_sprouts", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(4.0F).with(BOPPlants.DESERTSPROUTS).generationAttempts(8).create());
-        this.addGenerator("dead_bushes", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(0.75F).with(Blocks.DEADBUSH.getDefaultState()).create());
+        this.addGenerator("dead_bushes", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(2.0F).with(Blocks.DEADBUSH.getDefaultState()).create());
     }
     
     @Override
@@ -95,12 +93,15 @@ public class BiomeGenXericShrubland extends BOPOverworldBiome
         
         this.usualTopBlock = this.topBlock;
         this.alternateTopBlock = conf.getBlockState("alternateTopBlock", this.alternateTopBlock);
+        this.usualFillerBlock = this.fillerBlock;
+        this.alternateFillerBlock = conf.getBlockState("alternateFillerBlock", this.alternateFillerBlock);
     }
     
     @Override
     public void genTerrainBlocks(World world, Random rand, ChunkPrimer primer, int x, int z, double noise)
     {
         this.topBlock = (noise + rand.nextDouble() * 1.0D > 1.9D) ? this.alternateTopBlock : this.usualTopBlock;
+        this.fillerBlock = (noise + rand.nextDouble() * 1.0D > 1.9D) ? this.alternateFillerBlock : this.usualFillerBlock;
         super.genTerrainBlocks(world, rand, primer, x, z, noise);
     }
     
@@ -114,17 +115,5 @@ public class BiomeGenXericShrubland extends BOPOverworldBiome
         {
             (new WorldGenFossils()).generate(worldIn, rand, pos);
         }
-    }
-    
-    @Override
-    public int getGrassColorAtPos(BlockPos pos)
-    {
-        return getModdedBiomeGrassColor(0xD3CC96);
-    }
-    
-    @Override
-    public int getFoliageColorAtPos(BlockPos pos)
-    {
-        return getModdedBiomeFoliageColor(0xD9DDA6);
     }
 }

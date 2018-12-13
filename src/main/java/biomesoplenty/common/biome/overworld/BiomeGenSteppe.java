@@ -19,6 +19,7 @@ import biomesoplenty.common.block.BlockBOPDirt;
 import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.world.generator.GeneratorFlora;
 import biomesoplenty.common.world.generator.GeneratorGrass;
+import biomesoplenty.common.world.generator.GeneratorOreSingle;
 import biomesoplenty.common.world.generator.GeneratorWaterside;
 import biomesoplenty.common.world.generator.GeneratorWeighted;
 import net.minecraft.entity.passive.EntityDonkey;
@@ -68,6 +69,9 @@ public class BiomeGenSteppe extends BOPOverworldBiome
         GeneratorWeighted grassGenerator = new GeneratorWeighted(1.9F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("shortgrass", 7, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
+        
+        // gem
+        this.addGenerator("emerald", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(Blocks.EMERALD_ORE.getDefaultState()).create());
     }
     
     @Override
