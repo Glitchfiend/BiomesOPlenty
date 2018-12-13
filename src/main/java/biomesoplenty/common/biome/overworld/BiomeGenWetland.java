@@ -59,7 +59,7 @@ public class BiomeGenWetland extends BOPOverworldBiome
         
         this.beachBiomeLocation = null;
 
-        this.addWeight(BOPClimates.WET_TEMPERATE, 5);
+        this.addWeight(BOPClimates.WET_TEMPERATE, 3);
         this.addWeight(BOPClimates.COLD_SWAMP, 7);
         
         this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));

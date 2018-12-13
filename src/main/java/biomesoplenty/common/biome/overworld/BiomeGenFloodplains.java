@@ -41,6 +41,7 @@ public class BiomeGenFloodplains extends BOPOverworldBiome
         this.terrainSettings.avgHeight(61).heightVariation(3, 3).octaves(5, 5, 0, 0, 1, 1);
         
         this.canSpawnInBiome = false;
+        this.canGenerateRivers = false;
         this.canGenerateVillages = false;
 
         this.addWeight(BOPClimates.TROPICAL, 5);

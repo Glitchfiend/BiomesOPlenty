@@ -16,6 +16,7 @@ import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.api.config.IConfigObj;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.enums.BOPPlants;
+import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
@@ -26,6 +27,7 @@ import biomesoplenty.common.world.generator.GeneratorGrass;
 import biomesoplenty.common.world.generator.GeneratorSplotches;
 import biomesoplenty.common.world.generator.GeneratorWaterside;
 import biomesoplenty.common.world.generator.GeneratorWeighted;
+import biomesoplenty.common.world.generator.tree.GeneratorBush;
 import biomesoplenty.common.world.generator.tree.GeneratorTwigletTree;
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockFlower;
@@ -50,12 +52,13 @@ public class BiomeGenChaparral extends BOPOverworldBiome
     
     public BiomeGenChaparral()
     {
-        super("chaparral", new PropsBuilder("Chaparral").withGuiColour(0xC4D675).withTemperature(0.8F).withRainfall(0.4F));
+        super("chaparral", new PropsBuilder("Chaparral").withGuiColour(0xC4D675).withTemperature(0.75F).withRainfall(0.15F));
         
         // terrain
-        this.terrainSettings.avgHeight(80).heightVariation(10, 20);
+        this.terrainSettings.avgHeight(80).heightVariation(10, 30);
         
-        this.addWeight(BOPClimates.WARM_TEMPERATE, 7);
+        this.addWeight(BOPClimates.WARM_TEMPERATE, 3);
+        this.addWeight(BOPClimates.DRY_TEMPERATE, 7);
         
         this.usualTopBlock = this.topBlock;
         this.usualFillerBlock = this.fillerBlock;
@@ -73,14 +76,12 @@ public class BiomeGenChaparral extends BOPOverworldBiome
         
         // stone patches
         IBlockPosQuery emptyStoneOrGrass = BlockQuery.buildAnd().withAirAbove().states(this.topBlock, Blocks.STONE.getDefaultState()).create();
-        this.addGenerator("stone_patches", GeneratorStage.SAND, (new GeneratorSplotches.Builder()).amountPerChunk(4).splotchSize(15).replace(emptyStoneOrGrass).with(BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.OVERGROWN_STONE)).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
+        this.addGenerator("stone_patches", GeneratorStage.SAND, (new GeneratorSplotches.Builder()).amountPerChunk(5).splotchSize(15).replace(emptyStoneOrGrass).with(BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.OVERGROWN_STONE)).scatterYMethod(ScatterYMethod.AT_SURFACE).create());
         
         // flowers
-        GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.5F);
+        GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.6F);
         this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
-        flowerGenerator.add("rose", 8, (new GeneratorDoubleFlora.Builder()).amountPerChunk(1).with(BlockDoublePlant.EnumPlantType.ROSE).create());
-        flowerGenerator.add("syringa", 4, (new GeneratorDoubleFlora.Builder()).amountPerChunk(1).with(BlockDoublePlant.EnumPlantType.SYRINGA).create());
-        flowerGenerator.add("dandelion", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.DANDELION).create()));
+        flowerGenerator.add("dandelion", 7, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.DANDELION).create()));
         flowerGenerator.add("poppy", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.POPPY).create()));
         
         // grasses
@@ -90,19 +91,14 @@ public class BiomeGenChaparral extends BOPOverworldBiome
         grassGenerator.add("shortgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
         
         // trees
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(7.0F);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(8.5F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("twiglet", 3, (new GeneratorTwigletTree.Builder()).minHeight(2).maxHeight(2).log(BlockPlanks.EnumType.OAK).leaves(BlockPlanks.EnumType.OAK).create());
-        treeGenerator.add("small_bush", 1, (new GeneratorFlora.Builder()).placeOn(this.topBlock).replace(Material.AIR).withNonDecayingLeaf(BlockPlanks.EnumType.OAK).create());
+        treeGenerator.add("twiglet", 2, (new GeneratorTwigletTree.Builder()).minHeight(2).maxHeight(2).log(BlockPlanks.EnumType.OAK).leaves(BlockPlanks.EnumType.OAK).create());
+        treeGenerator.add("oak_bush", 4, (new GeneratorBush.Builder()).maxHeight(2).create());
+        treeGenerator.add("small_bush", 1, (new GeneratorFlora.Builder()).placeOn(this.topBlock).replace(Material.AIR).withNonDecayingLeaf(BOPTrees.DEAD).create());
         
         // other plants
-        this.addGenerator("berry_bushes", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BOPPlants.BERRYBUSH).create());
-        this.addGenerator("bushes", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.75F).with(BOPPlants.BUSH).create());
-        this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).placeOn(BlockQueries.fertile).with(BOPPlants.LEAFPILE).create());
-        this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).placeOn(BlockQueries.fertile).with(BOPPlants.DEADLEAFPILE).create());
-
-        // water plants
-        this.addGenerator("water_reeds", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(BOPPlants.REED).generationAttempts(32).create());
+        this.addGenerator("bushes", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.5F).with(BOPPlants.BUSH).create());
     }
     
     @Override
@@ -122,12 +118,5 @@ public class BiomeGenChaparral extends BOPOverworldBiome
         this.topBlock = (noise + rand.nextDouble() * 1.0D > 2.0D) ? this.alternateTopBlock : this.usualTopBlock;
         this.fillerBlock = (noise + rand.nextDouble() * 1.0D > 2.0D) ? this.alternateFillerBlock : this.usualFillerBlock;
         super.genTerrainBlocks(world, rand, primer, x, z, noise);
-    }
-    
-    
-    @Override
-    public int getGrassColorAtPos(BlockPos pos)
-    {
-        return getModdedBiomeGrassColor(0xC4D675);
     }
 }

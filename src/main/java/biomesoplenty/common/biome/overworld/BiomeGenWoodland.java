@@ -40,7 +40,7 @@ public class BiomeGenWoodland extends BOPOverworldBiome
         
         this.canGenerateVillages = true;
         
-        this.addWeight(BOPClimates.DRY_TEMPERATE, 5);
+        this.addWeight(BOPClimates.WARM_TEMPERATE, 5);
         this.addWeight(BOPClimates.MEDITERRANEAN, 7);
         
         if (BOPBiomes.gravel_beach.isPresent())

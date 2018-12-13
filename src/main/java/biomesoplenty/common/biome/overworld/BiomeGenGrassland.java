@@ -33,7 +33,7 @@ public class BiomeGenGrassland extends BOPOverworldBiome {
     
     public BiomeGenGrassland() {
 
-        super("grassland", new PropsBuilder("Grassland").withGuiColour(0x7FDB7D).withTemperature(0.6F).withRainfall(0.7F));
+        super("grassland", new PropsBuilder("Grassland").withGuiColour(0x8DD882).withTemperature(0.6F).withRainfall(0.7F));
 
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(6, 25).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.1D);
@@ -75,12 +75,12 @@ public class BiomeGenGrassland extends BOPOverworldBiome {
     @Override
     public int getGrassColorAtPos(BlockPos pos)
     {
-        return getModdedBiomeGrassColor(0x7FDB7D);
+        return getModdedBiomeGrassColor(0x8DD882);
     }
     
     @Override
     public int getFoliageColorAtPos(BlockPos pos)
     {
-        return getModdedBiomeFoliageColor(0x7FDB7D);
+        return getModdedBiomeFoliageColor(0x85CC6E);
     }
 }
