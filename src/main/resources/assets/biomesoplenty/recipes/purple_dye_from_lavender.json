@@ -2,8 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "biomesoplenty:flower_1",
-      "data": 0
+      "item": "biomesoplenty:flower_0",
+      "data": 10
     }
   ],
   "result": {

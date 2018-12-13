@@ -10,7 +10,24 @@ package biomesoplenty.common.init;
 
 import static biomesoplenty.common.world.GeneratorRegistry.registerGenerator;
 
-import biomesoplenty.common.world.generator.*;
+import biomesoplenty.common.world.generator.GeneratorBigMushroom;
+import biomesoplenty.common.world.generator.GeneratorBlobs;
+import biomesoplenty.common.world.generator.GeneratorBramble;
+import biomesoplenty.common.world.generator.GeneratorColumns;
+import biomesoplenty.common.world.generator.GeneratorCrystals;
+import biomesoplenty.common.world.generator.GeneratorDoubleFlora;
+import biomesoplenty.common.world.generator.GeneratorFlora;
+import biomesoplenty.common.world.generator.GeneratorGrass;
+import biomesoplenty.common.world.generator.GeneratorLakes;
+import biomesoplenty.common.world.generator.GeneratorLogs;
+import biomesoplenty.common.world.generator.GeneratorOreCluster;
+import biomesoplenty.common.world.generator.GeneratorOreSingle;
+import biomesoplenty.common.world.generator.GeneratorSpike;
+import biomesoplenty.common.world.generator.GeneratorSplatter;
+import biomesoplenty.common.world.generator.GeneratorSplotches;
+import biomesoplenty.common.world.generator.GeneratorVines;
+import biomesoplenty.common.world.generator.GeneratorWaterside;
+import biomesoplenty.common.world.generator.GeneratorWeighted;
 import biomesoplenty.common.world.generator.tree.GeneratorBasicTree;
 import biomesoplenty.common.world.generator.tree.GeneratorBayouTree;
 import biomesoplenty.common.world.generator.tree.GeneratorBigTree;
@@ -50,7 +67,6 @@ public class ModGenerators
         registerGenerator("grass", GeneratorGrass.class, new GeneratorGrass.Builder());
         registerGenerator("logs", GeneratorLogs.class, new GeneratorLogs.Builder());
         registerGenerator("big_mushrooms", GeneratorBigMushroom.class, new GeneratorBigMushroom.Builder());
-        registerGenerator("big_flowers", GeneratorBigFlower.class, new GeneratorBigFlower.Builder());
         registerGenerator("waterside", GeneratorWaterside.class, new GeneratorWaterside.Builder());
         registerGenerator("splatter", GeneratorSplatter.class, new GeneratorSplatter.Builder());
         registerGenerator("splotches", GeneratorSplotches.class, new GeneratorSplotches.Builder());
@@ -59,10 +75,8 @@ public class ModGenerators
         registerGenerator("columns", GeneratorColumns.class, new GeneratorColumns.Builder());
         registerGenerator("bramble", GeneratorBramble.class, new GeneratorBramble.Builder());
         registerGenerator("vines", GeneratorVines.class, new GeneratorVines.Builder());
-        registerGenerator("mixed_lily", GeneratorMixedLily.class, new GeneratorMixedLily.Builder());
         registerGenerator("crystals", GeneratorCrystals.class, new GeneratorCrystals.Builder());
         registerGenerator("spike", GeneratorSpike.class, new GeneratorSpike.Builder());
-        registerGenerator("hive", GeneratorHive.class, new GeneratorHive.Builder());
         registerGenerator("redwood_tree", GeneratorRedwoodTree.class, new GeneratorRedwoodTree.Builder());
         registerGenerator("redwood_tree_thin", GeneratorRedwoodTreeThin.class, new GeneratorRedwoodTreeThin.Builder());
         registerGenerator("mahogany_tree", GeneratorMahoganyTree.class, new GeneratorMahoganyTree.Builder());

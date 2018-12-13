@@ -31,7 +31,7 @@ import java.util.Map;
 
 public class LeavesModelEventHandler
 {
-    private static final ModelResourceLocation LEAVES_LOC = new ModelResourceLocation("biomesoplenty:leaves_3", "variant=flowering");
+    private static final ModelResourceLocation LEAVES_LOC = new ModelResourceLocation("biomesoplenty:leaves_0", "variant=flowering");
 
     @SubscribeEvent
     public void onTextureStitch(TextureStitchEvent event)

@@ -12,11 +12,8 @@ import java.util.Random;
 
 import org.apache.commons.lang3.tuple.Pair;
 
-import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.config.IConfigObj;
-import biomesoplenty.api.enums.BOPGems;
 import biomesoplenty.api.generation.BOPGeneratorBase;
-import biomesoplenty.common.block.BlockBOPGem;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
@@ -32,7 +29,6 @@ public abstract class GeneratorOreBase extends BOPGeneratorBase
         protected int maxHeight;
 
         public T with(IBlockState a) {this.with = a; return this.self();}
-        public T with(BOPGems a) {this.with = BOPBlocks.gem_ore.getDefaultState().withProperty(BlockBOPGem.VARIANT, a); return this.self();}
         public T minHeight(int a) {this.minHeight = a; return this.self();}
         public T maxHeight(int a) {this.maxHeight = a; return this.self();}
     

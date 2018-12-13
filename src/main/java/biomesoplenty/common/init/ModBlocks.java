@@ -10,18 +10,17 @@ package biomesoplenty.common.init;
 
 import static biomesoplenty.api.block.BOPBlocks.*;
 
+import javax.annotation.Nullable;
+
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableSet;
 
 import biomesoplenty.api.enums.BOPWoods;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.block.BlockBOPAsh;
-import biomesoplenty.common.block.BlockBOPBamboo;
-import biomesoplenty.common.block.BlockBOPBiomeBlock;
 import biomesoplenty.common.block.BlockBOPBlueFire;
 import biomesoplenty.common.block.BlockBOPBramblePlant;
 import biomesoplenty.common.block.BlockBOPCoral;
-import biomesoplenty.common.block.BlockBOPCrystal;
 import biomesoplenty.common.block.BlockBOPDirt;
 import biomesoplenty.common.block.BlockBOPDoor;
 import biomesoplenty.common.block.BlockBOPDoubleOtherSlab;
@@ -32,17 +31,12 @@ import biomesoplenty.common.block.BlockBOPFence;
 import biomesoplenty.common.block.BlockBOPFenceGate;
 import biomesoplenty.common.block.BlockBOPFlesh;
 import biomesoplenty.common.block.BlockBOPFlower;
-import biomesoplenty.common.block.BlockBOPGem;
-import biomesoplenty.common.block.BlockBOPGemOre;
 import biomesoplenty.common.block.BlockBOPGeneric;
 import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.block.BlockBOPGrassPath;
 import biomesoplenty.common.block.BlockBOPHalfOtherSlab;
 import biomesoplenty.common.block.BlockBOPHalfWoodSlab;
-import biomesoplenty.common.block.BlockBOPHive;
-import biomesoplenty.common.block.BlockBOPHoney;
 import biomesoplenty.common.block.BlockBOPLeaves;
-import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.block.BlockBOPLog;
 import biomesoplenty.common.block.BlockBOPMud;
 import biomesoplenty.common.block.BlockBOPMushroom;
@@ -51,7 +45,6 @@ import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.block.BlockBOPSapling;
 import biomesoplenty.common.block.BlockBOPSeaweed;
 import biomesoplenty.common.block.BlockBOPStoneStairs;
-import biomesoplenty.common.block.BlockBOPTerrarium;
 import biomesoplenty.common.block.BlockBOPVine;
 import biomesoplenty.common.block.BlockBOPWhiteSand;
 import biomesoplenty.common.block.BlockBOPWhiteSandstone;
@@ -60,15 +53,9 @@ import biomesoplenty.common.block.BlockBOPWoodStairs;
 import biomesoplenty.common.block.IBOPBlock;
 import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.fluids.BloodFluid;
-import biomesoplenty.common.fluids.HoneyFluid;
 import biomesoplenty.common.fluids.HotSpringWaterFluid;
-import biomesoplenty.common.fluids.PoisonFluid;
-import biomesoplenty.common.fluids.QuicksandFluid;
 import biomesoplenty.common.fluids.blocks.BlockBloodFluid;
-import biomesoplenty.common.fluids.blocks.BlockHoneyFluid;
 import biomesoplenty.common.fluids.blocks.BlockHotSpringWaterFluid;
-import biomesoplenty.common.fluids.blocks.BlockPoisonFluid;
-import biomesoplenty.common.fluids.blocks.BlockQuicksandFluid;
 import biomesoplenty.common.util.block.BlockStateUtils;
 import biomesoplenty.common.util.inventory.CreativeTabBOP;
 import biomesoplenty.core.BiomesOPlenty;
@@ -87,8 +74,6 @@ import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
-
-import javax.annotation.Nullable;
 
 public class ModBlocks
 {
@@ -115,26 +100,7 @@ public class ModBlocks
         white_sandstone =       registerBlock( new BlockBOPWhiteSandstone(), "white_sandstone" );
         white_sandstone_stairs =registerBlock(  new BlockBOPStoneStairs(white_sandstone.getDefaultState().withProperty(BlockBOPWhiteSandstone.VARIANT, StoneType.SMOOTH)), "white_sandstone_stairs");
         
-        dried_sand =            registerBlock( (new BlockBOPGeneric(Material.GROUND, SoundType.STONE)).addSupportedPlantType(EnumPlantType.Desert), "dried_sand");
-        dried_sand.setHarvestLevel("pickaxe",0);
-        
-        hard_ice =              registerBlock( (new BlockBOPGeneric(Material.PACKED_ICE, SoundType.STONE)).setHardness(0.75F), "hard_ice" );
-        ash_block =             registerBlock( new BlockBOPAsh(), "ash_block" );
         mud =                   registerBlock( new BlockBOPMud(), "mud" );
-        flesh =                 registerBlock( new BlockBOPFlesh(), "flesh" );
-        
-        //Building Blocks
-        crystal =               registerBlock( new BlockBOPCrystal(), "crystal" );
-        biome_block =           registerBlock( new BlockBOPBiomeBlock(), "biome_block" );
-        gem_ore =               registerBlock( new BlockBOPGemOre(), "gem_ore" );
-        gem_block =             registerBlock( new BlockBOPGem(), "gem_block" );
-        hive =                  registerBlock( new BlockBOPHive(), "hive" );
-        honey_block =           registerBlock( new BlockBOPHoney(), "honey_block" );
-        
-        blue_fire =             registerBlock( new BlockBOPBlueFire(), "blue_fire", null);
-
-        //Material Blocks
-        bamboo_thatching =      registerBlock( (new BlockBOPGeneric(Material.WOOD, SoundType.WOOD)).setHardness(2.0F), "bamboo_thatching"); bamboo_thatching.setHarvestLevel("axe", 0);
         mud_brick_block =       registerBlock( (new BlockBOPGeneric()).setResistance(2.0F), "mud_brick_block" );   
         mud_brick_stairs =      registerBlock(  new BlockBOPStoneStairs(mud_brick_block.getDefaultState()), "mud_brick_stairs");
         
@@ -143,6 +109,13 @@ public class ModBlocks
         other_slab =            registerBlock( new BlockBOPHalfOtherSlab(), "other_slab", CreativeTabBOP.instance, false);
         double_other_slab =     registerBlock( new BlockBOPDoubleOtherSlab(), "double_other_slab", null, false ); // no creative tab for double slab
         BOPItems.other_slab =   ModItems.registerItem( new ItemSlab(other_slab, (BlockSlab)other_slab, (BlockSlab)double_other_slab), "other_slab");
+        
+        dried_sand =            registerBlock( (new BlockBOPGeneric(Material.GROUND, SoundType.STONE)).addSupportedPlantType(EnumPlantType.Desert), "dried_sand");
+        dried_sand.setHarvestLevel("pickaxe",0);
+        ash_block =             registerBlock( new BlockBOPAsh(), "ash_block" );
+        flesh =                 registerBlock( new BlockBOPFlesh(), "flesh" );
+        
+        blue_fire =             registerBlock( new BlockBOPBlueFire(), "blue_fire", null);
 
         // Logs
         // 16 wood types, 4 per BlockBOPLog instance, needs 4 'pages'
@@ -151,7 +124,6 @@ public class ModBlocks
         log_1 =                 registerBlock( BlockBOPLog.paging.getBlock(1), "log_1" );
         log_2 =                 registerBlock( BlockBOPLog.paging.getBlock(2), "log_2" );
         log_3 =                 registerBlock( BlockBOPLog.paging.getBlock(3), "log_3" );
-        log_4 =                 registerBlock( BlockBOPLog.paging.getBlock(4), "log_4" );
 
         //Leaves
         // 22 tree types, 4 per BlockBOPLeaves instance, needs 6 'pages'
@@ -161,30 +133,24 @@ public class ModBlocks
         leaves_2 =              registerBlock( BlockBOPLeaves.paging.getBlock(2), "leaves_2" );
         leaves_3 =              registerBlock( BlockBOPLeaves.paging.getBlock(3), "leaves_3" );
         leaves_4 =              registerBlock( BlockBOPLeaves.paging.getBlock(4), "leaves_4" );
-        leaves_5 =              registerBlock( BlockBOPLeaves.paging.getBlock(5), "leaves_5" );
-        leaves_6 =              registerBlock( BlockBOPLeaves.paging.getBlock(6), "leaves_6" );
         
         // 16 wood types, 16 per BlockBOPPlanks instance, needs 1 'pages'
         BlockBOPPlanks.createAllPages();
         planks_0 =              registerBlock( BlockBOPPlanks.paging.getBlock(0), "planks_0");
         
         // stairs have no variant metadata, use a new BlockBOPStairs instance for each (note there's no giant_flower_stairs or dead_stairs)
-        sacred_oak_stairs =     registerBlock( new BlockBOPWoodStairs(BOPWoods.SACRED_OAK), "sacred_oak_stairs" );
-        cherry_stairs =         registerBlock( new BlockBOPWoodStairs(BOPWoods.CHERRY), "cherry_stairs" );
-        umbran_stairs =         registerBlock( new BlockBOPWoodStairs(BOPWoods.UMBRAN), "umbran_stairs" );
         fir_stairs =            registerBlock( new BlockBOPWoodStairs(BOPWoods.FIR), "fir_stairs" );
-        ethereal_stairs =       registerBlock( new BlockBOPWoodStairs(BOPWoods.ETHEREAL), "ethereal_stairs" );
-        magic_stairs =          registerBlock( new BlockBOPWoodStairs(BOPWoods.MAGIC), "magic_stairs" );
-        mangrove_stairs =       registerBlock( new BlockBOPWoodStairs(BOPWoods.MANGROVE), "mangrove_stairs" );
-        palm_stairs =           registerBlock( new BlockBOPWoodStairs(BOPWoods.PALM), "palm_stairs" );
         redwood_stairs =        registerBlock( new BlockBOPWoodStairs(BOPWoods.REDWOOD), "redwood_stairs" );
-        willow_stairs =         registerBlock( new BlockBOPWoodStairs(BOPWoods.WILLOW), "willow_stairs" );
-        pine_stairs =           registerBlock( new BlockBOPWoodStairs(BOPWoods.PINE), "pine_stairs" );
-        hellbark_stairs =       registerBlock( new BlockBOPWoodStairs(BOPWoods.HELLBARK), "hellbark_stairs" );
-        jacaranda_stairs =      registerBlock( new BlockBOPWoodStairs(BOPWoods.JACARANDA), "jacaranda_stairs" );
+        cherry_stairs =         registerBlock( new BlockBOPWoodStairs(BOPWoods.CHERRY), "cherry_stairs" );
         mahogany_stairs =       registerBlock( new BlockBOPWoodStairs(BOPWoods.MAHOGANY), "mahogany_stairs" );
+        jacaranda_stairs =      registerBlock( new BlockBOPWoodStairs(BOPWoods.JACARANDA), "jacaranda_stairs" );
+        palm_stairs =           registerBlock( new BlockBOPWoodStairs(BOPWoods.PALM), "palm_stairs" );
+        willow_stairs =         registerBlock( new BlockBOPWoodStairs(BOPWoods.WILLOW), "willow_stairs" );
         ebony_stairs =       	registerBlock( new BlockBOPWoodStairs(BOPWoods.EBONY), "ebony_stairs" );
-        eucalyptus_stairs =     registerBlock( new BlockBOPWoodStairs(BOPWoods.EUCALYPTUS), "eucalyptus_stairs" );
+        magic_stairs =          registerBlock( new BlockBOPWoodStairs(BOPWoods.MAGIC), "magic_stairs" );
+        umbran_stairs =         registerBlock( new BlockBOPWoodStairs(BOPWoods.UMBRAN), "umbran_stairs" );
+        hellbark_stairs =       registerBlock( new BlockBOPWoodStairs(BOPWoods.HELLBARK), "hellbark_stairs" );
+        ethereal_stairs =       registerBlock( new BlockBOPWoodStairs(BOPWoods.ETHEREAL), "ethereal_stairs" );
         
         // 16 wood types, 8 per BlockBOPHalfWoodSlab and BlockBOPDoubleWoodSlab intance, needs 2 'pages'
         // need to register items at the same time really so that they can be mapped to each other - bit messy this
@@ -199,71 +165,64 @@ public class ModBlocks
         BOPItems.wood_slab_1 =  ModItems.registerItem( new ItemSlab(wood_slab_1, (BlockSlab)wood_slab_1, (BlockSlab)double_wood_slab_1), "wood_slab_1"); 
         
         // fences have no variant metadata, use a new BlockBOPFence instance for each (note there's no giant_flower_fence or dead_fence)
-        sacred_oak_fence =      registerBlock( new BlockBOPFence(BOPWoods.SACRED_OAK), "sacred_oak_fence" );
-        cherry_fence =          registerBlock( new BlockBOPFence(BOPWoods.CHERRY), "cherry_fence" );
-        umbran_fence =          registerBlock( new BlockBOPFence(BOPWoods.UMBRAN), "umbran_fence" );
         fir_fence =             registerBlock( new BlockBOPFence(BOPWoods.FIR), "fir_fence" );
-        ethereal_fence =        registerBlock( new BlockBOPFence(BOPWoods.ETHEREAL), "ethereal_fence" );
-        magic_fence =           registerBlock( new BlockBOPFence(BOPWoods.MAGIC), "magic_fence" );
-        mangrove_fence =        registerBlock( new BlockBOPFence(BOPWoods.MANGROVE), "mangrove_fence" );
-        palm_fence =            registerBlock( new BlockBOPFence(BOPWoods.PALM), "palm_fence" );
         redwood_fence =         registerBlock( new BlockBOPFence(BOPWoods.REDWOOD), "redwood_fence" );
-        willow_fence =          registerBlock( new BlockBOPFence(BOPWoods.WILLOW), "willow_fence" );
-        pine_fence =            registerBlock( new BlockBOPFence(BOPWoods.PINE), "pine_fence" );
-        hellbark_fence =        registerBlock( new BlockBOPFence(BOPWoods.HELLBARK), "hellbark_fence" );
-        jacaranda_fence =       registerBlock( new BlockBOPFence(BOPWoods.JACARANDA), "jacaranda_fence" );
+        cherry_fence =          registerBlock( new BlockBOPFence(BOPWoods.CHERRY), "cherry_fence" );
         mahogany_fence =        registerBlock( new BlockBOPFence(BOPWoods.MAHOGANY), "mahogany_fence" );
+        jacaranda_fence =       registerBlock( new BlockBOPFence(BOPWoods.JACARANDA), "jacaranda_fence" );
+        palm_fence =            registerBlock( new BlockBOPFence(BOPWoods.PALM), "palm_fence" );
+        willow_fence =          registerBlock( new BlockBOPFence(BOPWoods.WILLOW), "willow_fence" );
         ebony_fence =        	registerBlock( new BlockBOPFence(BOPWoods.EBONY), "ebony_fence" );
-        eucalyptus_fence =      registerBlock( new BlockBOPFence(BOPWoods.EUCALYPTUS), "eucalyptus_fence" );
+        magic_fence =           registerBlock( new BlockBOPFence(BOPWoods.MAGIC), "magic_fence" );
+        umbran_fence =          registerBlock( new BlockBOPFence(BOPWoods.UMBRAN), "umbran_fence" );
+        hellbark_fence =        registerBlock( new BlockBOPFence(BOPWoods.HELLBARK), "hellbark_fence" );
+        ethereal_fence =        registerBlock( new BlockBOPFence(BOPWoods.ETHEREAL), "ethereal_fence" );
         
         // fence gates have no variant metadata, use a new BlockBOPFenceGate instance for each (note there's no giant_flower_fence_gate or dead_fence_gate)
-        sacred_oak_fence_gate = registerBlock( new BlockBOPFenceGate(BOPWoods.SACRED_OAK), "sacred_oak_fence_gate" );
-        cherry_fence_gate =     registerBlock( new BlockBOPFenceGate(BOPWoods.CHERRY), "cherry_fence_gate" );
-        umbran_fence_gate =     registerBlock( new BlockBOPFenceGate(BOPWoods.UMBRAN), "umbran_fence_gate" );
         fir_fence_gate =        registerBlock( new BlockBOPFenceGate(BOPWoods.FIR), "fir_fence_gate" );
-        ethereal_fence_gate =   registerBlock( new BlockBOPFenceGate(BOPWoods.ETHEREAL), "ethereal_fence_gate" );
-        magic_fence_gate =      registerBlock( new BlockBOPFenceGate(BOPWoods.MAGIC), "magic_fence_gate" );
-        mangrove_fence_gate =   registerBlock( new BlockBOPFenceGate(BOPWoods.MANGROVE), "mangrove_fence_gate" );
-        palm_fence_gate =       registerBlock( new BlockBOPFenceGate(BOPWoods.PALM), "palm_fence_gate" );
         redwood_fence_gate =    registerBlock( new BlockBOPFenceGate(BOPWoods.REDWOOD), "redwood_fence_gate" );
-        willow_fence_gate =     registerBlock( new BlockBOPFenceGate(BOPWoods.WILLOW), "willow_fence_gate" );
-        pine_fence_gate =       registerBlock( new BlockBOPFenceGate(BOPWoods.PINE), "pine_fence_gate" );
-        hellbark_fence_gate =   registerBlock( new BlockBOPFenceGate(BOPWoods.HELLBARK), "hellbark_fence_gate" );
-        jacaranda_fence_gate =  registerBlock( new BlockBOPFenceGate(BOPWoods.JACARANDA), "jacaranda_fence_gate" );
+        cherry_fence_gate =     registerBlock( new BlockBOPFenceGate(BOPWoods.CHERRY), "cherry_fence_gate" );
         mahogany_fence_gate =   registerBlock( new BlockBOPFenceGate(BOPWoods.MAHOGANY), "mahogany_fence_gate" );
+        jacaranda_fence_gate =  registerBlock( new BlockBOPFenceGate(BOPWoods.JACARANDA), "jacaranda_fence_gate" );
+        palm_fence_gate =       registerBlock( new BlockBOPFenceGate(BOPWoods.PALM), "palm_fence_gate" );
+        willow_fence_gate =     registerBlock( new BlockBOPFenceGate(BOPWoods.WILLOW), "willow_fence_gate" );
         ebony_fence_gate =   	registerBlock( new BlockBOPFenceGate(BOPWoods.EBONY), "ebony_fence_gate" );
-        eucalyptus_fence_gate = registerBlock( new BlockBOPFenceGate(BOPWoods.EUCALYPTUS), "eucalyptus_fence_gate" );
+        magic_fence_gate =      registerBlock( new BlockBOPFenceGate(BOPWoods.MAGIC), "magic_fence_gate" );
+        umbran_fence_gate =     registerBlock( new BlockBOPFenceGate(BOPWoods.UMBRAN), "umbran_fence_gate" );
+        hellbark_fence_gate =   registerBlock( new BlockBOPFenceGate(BOPWoods.HELLBARK), "hellbark_fence_gate" );
+        ethereal_fence_gate =   registerBlock( new BlockBOPFenceGate(BOPWoods.ETHEREAL), "ethereal_fence_gate" );
         
         // doors have no variant metadata, use a new BlockBOPDoor instance for each (note there's no giant_flower_door or dead_door)
-        sacred_oak_door =       registerDoor( new BlockBOPDoor(BOPWoods.SACRED_OAK), "sacred_oak_door", BOPItems.sacred_oak_door );
-        cherry_door =           registerDoor( new BlockBOPDoor(BOPWoods.CHERRY), "cherry_door", BOPItems.cherry_door );
-        umbran_door =           registerDoor( new BlockBOPDoor(BOPWoods.UMBRAN), "umbran_door", BOPItems.umbran_door );
         fir_door =              registerDoor( new BlockBOPDoor(BOPWoods.FIR), "fir_door", BOPItems.fir_door );
-        ethereal_door =         registerDoor( new BlockBOPDoor(BOPWoods.ETHEREAL), "ethereal_door", BOPItems.ethereal_door );
-        magic_door =            registerDoor( new BlockBOPDoor(BOPWoods.MAGIC), "magic_door", BOPItems.magic_door );
-        mangrove_door =         registerDoor( new BlockBOPDoor(BOPWoods.MANGROVE), "mangrove_door", BOPItems.mangrove_door );
-        palm_door =             registerDoor( new BlockBOPDoor(BOPWoods.PALM), "palm_door", BOPItems.palm_door );
         redwood_door =          registerDoor( new BlockBOPDoor(BOPWoods.REDWOOD), "redwood_door", BOPItems.redwood_door );
-        willow_door =           registerDoor( new BlockBOPDoor(BOPWoods.WILLOW), "willow_door", BOPItems.willow_door );
-        pine_door =             registerDoor( new BlockBOPDoor(BOPWoods.PINE), "pine_door", BOPItems.pine_door );
-        hellbark_door =         registerDoor( new BlockBOPDoor(BOPWoods.HELLBARK), "hellbark_door", BOPItems.hellbark_door );
-        jacaranda_door =        registerDoor( new BlockBOPDoor(BOPWoods.JACARANDA), "jacaranda_door", BOPItems.jacaranda_door );
+        cherry_door =           registerDoor( new BlockBOPDoor(BOPWoods.CHERRY), "cherry_door", BOPItems.cherry_door );
         mahogany_door =         registerDoor( new BlockBOPDoor(BOPWoods.MAHOGANY), "mahogany_door", BOPItems.mahogany_door );
+        jacaranda_door =        registerDoor( new BlockBOPDoor(BOPWoods.JACARANDA), "jacaranda_door", BOPItems.jacaranda_door );
+        palm_door =             registerDoor( new BlockBOPDoor(BOPWoods.PALM), "palm_door", BOPItems.palm_door );
+        willow_door =           registerDoor( new BlockBOPDoor(BOPWoods.WILLOW), "willow_door", BOPItems.willow_door );
         ebony_door =         	registerDoor( new BlockBOPDoor(BOPWoods.EBONY), "ebony_door", BOPItems.ebony_door );
-        eucalyptus_door =       registerDoor( new BlockBOPDoor(BOPWoods.EUCALYPTUS), "eucalyptus_door", BOPItems.eucalyptus_door );
+        magic_door =            registerDoor( new BlockBOPDoor(BOPWoods.MAGIC), "magic_door", BOPItems.magic_door );
+        umbran_door =           registerDoor( new BlockBOPDoor(BOPWoods.UMBRAN), "umbran_door", BOPItems.umbran_door );
+        hellbark_door =         registerDoor( new BlockBOPDoor(BOPWoods.HELLBARK), "hellbark_door", BOPItems.hellbark_door );
+        ethereal_door =         registerDoor( new BlockBOPDoor(BOPWoods.ETHEREAL), "ethereal_door", BOPItems.ethereal_door );
         
         // Plants
-        
         coral =                 registerBlock( new BlockBOPCoral(), "coral" );
         seaweed =               registerBlock( new BlockBOPSeaweed(), "seaweed" );
-        waterlily =             registerBlock( new BlockBOPLilypad(), "waterlily" );
-        bamboo =                registerBlock( new BlockBOPBamboo(), "bamboo" );
 
         // 22 tree types, 8 per BlockBOPSapling instance, needs 3 'pages'
         BlockBOPSapling.createAllPages();
         sapling_0 =             registerBlock( BlockBOPSapling.paging.getBlock(0), "sapling_0");
         sapling_1 =             registerBlock( BlockBOPSapling.paging.getBlock(1), "sapling_1");
         sapling_2 =             registerBlock( BlockBOPSapling.paging.getBlock(2), "sapling_2");
+        
+        // 22 flower types 16 per BlockBOPFlower instance, needs 2 'pages'
+        BlockBOPFlower.createAllPages();
+        flower_0 =              registerBlock( BlockBOPFlower.paging.getBlock(0), "flower_0" );
+        
+        //vines
+        ivy =                   registerBlock( new BlockBOPVine(true), "ivy" );
+        willow_vine =           registerBlock( new BlockBOPVine(true), "willow_vine" );
         
         //Plants
         BlockBOPPlant.createAllPages();
@@ -274,38 +233,11 @@ public class ModBlocks
         
         bramble_plant =         registerBlock ( new BlockBOPBramblePlant(), "bramble_plant" );
         
-        // 22 flower types 16 per BlockBOPFlower instance, needs 2 'pages'
-        BlockBOPFlower.createAllPages();
-        flower_0 =              registerBlock( BlockBOPFlower.paging.getBlock(0), "flower_0" );
-        flower_1 =              registerBlock( BlockBOPFlower.paging.getBlock(1), "flower_1" );
-        
-        //vines
-        ivy =                   registerBlock( new BlockBOPVine(true), "ivy" );
-        willow_vine =           registerBlock( new BlockBOPVine(true), "willow_vine" );
-        
-        terrarium =             registerBlock( new BlockBOPTerrarium(), "terrarium" );
-        
-        
         // fluids
-        sand_fluid = QuicksandFluid.instance;
-        sand_fluid.setViscosity(10000);
-        sand_fluid.setDensity(50000);
-        FluidRegistry.addBucketForFluid(sand_fluid);
-        sand = registerFluidBlock(sand_fluid, new BlockQuicksandFluid(sand_fluid), "sand");
-        
-        honey_fluid = HoneyFluid.instance;
-        honey_fluid.setViscosity(1500);
-        FluidRegistry.addBucketForFluid(honey_fluid);
-        honey = registerFluidBlock(honey_fluid, new BlockHoneyFluid(honey_fluid), "honey");
-        
         blood_fluid = BloodFluid.instance;
         FluidRegistry.addBucketForFluid(blood_fluid);
         blood = registerFluidBlock(blood_fluid, new BlockBloodFluid(blood_fluid), "blood");
-        
-        poison_fluid = PoisonFluid.instance;
-        FluidRegistry.addBucketForFluid(poison_fluid);
-        poison = registerFluidBlock(poison_fluid, new BlockPoisonFluid(poison_fluid), "poison");
-        
+
         hot_spring_water_fluid = HotSpringWaterFluid.instance;
         FluidRegistry.addBucketForFluid(hot_spring_water_fluid);
         hot_spring_water = registerFluidBlock(hot_spring_water_fluid, new BlockHotSpringWaterFluid(hot_spring_water_fluid), "hot_spring_water");

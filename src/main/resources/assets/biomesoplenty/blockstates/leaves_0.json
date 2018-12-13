@@ -1,8 +1,8 @@
 {
     "variants": {
-        "variant=yellow_autumn": { "model": "biomesoplenty:yellow_autumn_leaves" },
-        "variant=orange_autumn": { "model": "biomesoplenty:orange_autumn_leaves" },
-        "variant=bamboo": { "model": "biomesoplenty:bamboo_leaves" },
-        "variant=magic": { "model": "biomesoplenty:magic_leaves" }
+		"variant=origin": { "model": "biomesoplenty:origin_leaves" },
+		"variant=flowering": { "model": "biomesoplenty:flowering_leaves" },
+		"variant=orange_autumn": { "model": "biomesoplenty:orange_autumn_leaves" },
+        "variant=yellow_autumn": { "model": "biomesoplenty:yellow_autumn_leaves" }
     }
 }

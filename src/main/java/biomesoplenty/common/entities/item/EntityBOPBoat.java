@@ -107,7 +107,7 @@ public class EntityBOPBoat extends EntityBoat
         this.dataManager.register(TIME_SINCE_HIT, Integer.valueOf(0));
         this.dataManager.register(FORWARD_DIRECTION, Integer.valueOf(1));
         this.dataManager.register(DAMAGE_TAKEN, Float.valueOf(0.0F));
-        this.dataManager.register(BOAT_TYPE, Integer.valueOf(EntityBOPBoat.Type.SACRED_OAK.ordinal()));
+        this.dataManager.register(BOAT_TYPE, Integer.valueOf(EntityBOPBoat.Type.CHERRY.ordinal()));
 
         for (DataParameter<Boolean> dataparameter : DATA_ID_PADDLE)
         {
@@ -202,10 +202,8 @@ public class EntityBOPBoat extends EntityBoat
     {
         switch (this.getBOPBoatType())
         {
-            case SACRED_OAK:
-            default:
-                return BOPItems.boat_sacred_oak;
             case CHERRY:
+            default:
                 return BOPItems.boat_cherry;
             case UMBRAN:
                 return BOPItems.boat_umbran;
@@ -215,16 +213,12 @@ public class EntityBOPBoat extends EntityBoat
                 return BOPItems.boat_ethereal;
             case MAGIC:
                 return BOPItems.boat_magic;
-            case MANGROVE:
-                return BOPItems.boat_mangrove;
             case PALM:
                 return BOPItems.boat_palm;
             case REDWOOD:
                 return BOPItems.boat_redwood;
             case WILLOW:
                 return BOPItems.boat_willow;
-            case PINE:
-                return BOPItems.boat_pine;
             case HELLBARK:
                 return BOPItems.boat_hellbark;
             case JACARANDA:
@@ -233,8 +227,6 @@ public class EntityBOPBoat extends EntityBoat
                 return BOPItems.boat_mahogany;
             case EBONY:
                 return BOPItems.boat_ebony;
-            case EUCALYPTUS:
-                return BOPItems.boat_eucalyptus;
         }
     }
 
@@ -1005,22 +997,18 @@ public class EntityBOPBoat extends EntityBoat
 
     public static enum Type
     {
-        SACRED_OAK(BOPWoods.SACRED_OAK.ordinal(), "sacred_oak"),
         CHERRY(BOPWoods.CHERRY.ordinal(), "cherry"),
         UMBRAN(BOPWoods.UMBRAN.ordinal(), "umbran"),
         FIR(BOPWoods.FIR.ordinal(), "fir"),
         ETHEREAL(BOPWoods.ETHEREAL.ordinal(), "ethereal"),
         MAGIC(BOPWoods.MAGIC.ordinal(), "magic"),
-        MANGROVE(BOPWoods.MAGIC.ordinal(), "mangrove"),
         PALM(BOPWoods.MAGIC.ordinal(), "palm"),
         REDWOOD(BOPWoods.MAGIC.ordinal(), "redwood"),
         WILLOW(BOPWoods.MAGIC.ordinal(), "willow"),
-        PINE(BOPWoods.MAGIC.ordinal(), "pine"),
         HELLBARK(BOPWoods.MAGIC.ordinal(), "hellbark"),
         JACARANDA(BOPWoods.MAGIC.ordinal(), "jacaranda"),
         MAHOGANY(BOPWoods.MAGIC.ordinal(), "mahogany"),
-       	EBONY(BOPWoods.MAGIC.ordinal(), "ebony"),
-        EUCALYPTUS(BOPWoods.MAGIC.ordinal(), "eucalyptus");
+       	EBONY(BOPWoods.MAGIC.ordinal(), "ebony");
 
         private final String name;
         private final int metadata;

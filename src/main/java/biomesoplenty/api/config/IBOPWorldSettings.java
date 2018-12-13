@@ -13,7 +13,5 @@ public interface IBOPWorldSettings
     
     enum GeneratorType
     {
-        GEMS, POISON_IVY, BERRY_BUSHES, THORNS, QUICKSAND, LIQUID_POISON, HOT_SPRINGS,
-        NETHER_HIVES, END_FEATURES
     }
 }

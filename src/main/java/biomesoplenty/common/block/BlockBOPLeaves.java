@@ -99,13 +99,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     public String getStateName(IBlockState state)
     {
         BOPTrees tree = ((BOPTrees) state.getValue(this.variantProperty));
-        switch (tree)
-        {
-            case RED_BIG_FLOWER: case YELLOW_BIG_FLOWER:
-                return tree.getName() + "_petal";
-            default:
-                return tree.getName() + "_leaves";
-        }
+        return tree.getName() + "_leaves";
     }
 
     public enum ColoringType {PLAIN, TINTED, OVERLAY}
@@ -114,11 +108,11 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     {
         switch (tree)
         {
-            case BAMBOO: case UMBRAN: case DEAD: case ETHEREAL: case FIR: case HELLBARK: case JACARANDA: case MAGIC: case MAPLE: case ORANGE_AUTUMN: case ORIGIN: case PINK_CHERRY: case REDWOOD: case WHITE_CHERRY: case YELLOW_AUTUMN: case RED_BIG_FLOWER: case YELLOW_BIG_FLOWER:
+            case UMBRAN: case DEAD: case ETHEREAL: case FIR: case HELLBARK: case JACARANDA: case MAGIC: case MAPLE: case ORANGE_AUTUMN: case ORIGIN: case PINK_CHERRY: case REDWOOD: case WHITE_CHERRY: case YELLOW_AUTUMN:
             return ColoringType.PLAIN;
             case FLOWERING:
                 return ColoringType.OVERLAY;
-            case MAHOGANY: case MANGROVE: case PALM: case PINE: case SACRED_OAK: case WILLOW: case EBONY: case EUCALYPTUS: default:
+            case MAHOGANY: case PALM: case WILLOW: case EBONY: default:
             return ColoringType.TINTED;
         }
     }
@@ -260,12 +254,6 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     			
     		case MAPLE:
     			return MapColor.PINK_STAINED_HARDENED_CLAY;
-    			
-    		case RED_BIG_FLOWER:
-    			return MapColor.RED;
-    			
-    		case YELLOW_BIG_FLOWER:
-    			return MapColor.YELLOW;
     	
     		case JACARANDA:
     			return MapColor.PURPLE;
@@ -305,7 +293,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
 	                fruit = new ItemStack(BOPItems.peach, 1, 0);
 	            }
 	        	break;
-            case MANGROVE: case WILLOW:
+            case WILLOW:
             	if (worldIn.rand.nextInt(chance) == 0)
                 {
                     fruit = new ItemStack(BOPItems.pear, 1, 0);

@@ -78,13 +78,7 @@ public class BlockBOPLog extends BlockLog implements IBOPBlock
     public String getStateName(IBlockState state)
     {
         BOPWoods wood = (BOPWoods) state.getValue(this.variantProperty);
-        switch (wood)
-        {
-            case GIANT_FLOWER:
-                return wood.getName() + "_stem";
-            default:
-                return wood.getName() + "_log";
-        }
+        return wood.getName() + "_log";
     }
     @Override
     @SideOnly(Side.CLIENT)

@@ -22,9 +22,6 @@ public class EntityAIEatBOPGrass extends EntityAIEatGrass
 {
     private static final Predicate<IBlockState> IS_TALL_GRASS = BlockStateMatcher.forBlock(Blocks.TALLGRASS).where(BlockTallGrass.TYPE, Predicates.equalTo(BlockTallGrass.EnumType.GRASS));
     private static final Predicate<IBlockState> IS_SHORT_GRASS = forBoPPlant(BOPPlants.SHORTGRASS);
-    private static final Predicate<IBlockState> IS_MEDIUM_GRASS = forBoPPlant(BOPPlants.MEDIUMGRASS);
-    private static final Predicate<IBlockState> IS_WHEAT_GRASS = forBoPPlant(BOPPlants.WHEATGRASS);
-    private static final Predicate<IBlockState> IS_DAMP_GRASS = forBoPPlant(BOPPlants.DAMPGRASS);
     private EntityLiving sheep;
     private World world;
     int bopEatingGrassTimer;
@@ -48,8 +45,7 @@ public class EntityAIEatBOPGrass extends EntityAIEatGrass
         {
             BlockPos pos = new BlockPos(this.sheep.posX, this.sheep.posY, this.sheep.posZ);
             IBlockState state = this.world.getBlockState(pos);
-            return IS_TALL_GRASS.apply(state) || IS_SHORT_GRASS.apply(state) || IS_MEDIUM_GRASS.apply(state) || IS_WHEAT_GRASS.apply(state) || IS_DAMP_GRASS.apply(state)
-                    || this.world.getBlockState(pos.down()).getBlock() instanceof BlockGrass;
+            return IS_TALL_GRASS.apply(state) || IS_SHORT_GRASS.apply(state) || this.world.getBlockState(pos.down()).getBlock() instanceof BlockGrass;
         }
     }
 
@@ -89,7 +85,7 @@ public class EntityAIEatBOPGrass extends EntityAIEatGrass
             BlockPos pos = new BlockPos(this.sheep.posX, this.sheep.posY, this.sheep.posZ);
             IBlockState state = this.world.getBlockState(pos);
 
-            if (IS_TALL_GRASS.apply(state) || IS_SHORT_GRASS.apply(state) || IS_MEDIUM_GRASS.apply(state) || IS_WHEAT_GRASS.apply(state) || IS_DAMP_GRASS.apply(state))
+            if (IS_TALL_GRASS.apply(state) || IS_SHORT_GRASS.apply(state))
             {
                 if (this.world.getGameRules().getBoolean("mobGriefing"))
                 {
@@ -115,13 +111,6 @@ public class EntityAIEatBOPGrass extends EntityAIEatGrass
                             this.world.setBlockState(posDown, BlockBOPGrass.getDirtBlockState(stateDown), 2);
                         }
 
-                    } else if (stateDown.getValue(BlockBOPGrass.VARIANT) == BlockBOPGrass.BOPGrassType.DAISY)
-                    {
-                        if (this.world.getGameRules().getBoolean("mobGriefing"))
-                        {
-                            this.world.playEvent(2001, posDown, Block.getIdFromBlock(Blocks.GRASS));
-                            this.world.setBlockState(posDown, Blocks.DIRT.getDefaultState(), 2);
-                        }
                     }
 
                     this.sheep.eatGrassBonus();

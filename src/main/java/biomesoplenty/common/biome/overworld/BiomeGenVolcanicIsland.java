@@ -12,7 +12,6 @@ import java.util.Random;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.IBlockPosQuery;
-import biomesoplenty.api.enums.BOPGems;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery;
@@ -54,10 +53,7 @@ public class BiomeGenVolcanicIsland extends BOPOverworldBiome
         // lava
         IBlockPosQuery emptyAshBlock = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();
         this.addGenerator("lava_flows", GeneratorStage.FLOWERS,(new GeneratorSplotches.Builder()).placeOn(emptyAshBlock).replace(BOPBlocks.ash_block).amountPerChunk(0.1F).splotchSize(12).scatterYMethod(ScatterYMethod.AT_SURFACE).with(Blocks.FLOWING_LAVA.getDefaultState()).create());
-        this.addGenerator("lava_lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(2.5F).lavaLake().create());
-        
-        // gem
-        this.addGenerator("ruby", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.RUBY).create());        
+        this.addGenerator("lava_lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(2.5F).lavaLake().create());    
     }
     
     @Override

@@ -1,14 +1,4 @@
 {
-  "entity.biomesoplenty.wasp.hurt": {
-    "sounds": [
-      "biomesoplenty:entity/wasp/hurt"
-    ]
-  },
-  "entity.biomesoplenty.wasp.ambient": {
-    "sounds": [
-      "biomesoplenty:entity/wasp/ambient"
-    ]
-  },
   "records.wanderer": {
     "sounds": [
       {

@@ -14,7 +14,6 @@ import biomesoplenty.api.config.IBOPWorldSettings;
 import biomesoplenty.api.config.IBOPWorldSettings.GeneratorType;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.enums.BOPFlowers;
-import biomesoplenty.api.enums.BOPGems;
 import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.block.BlockBOPCoral;
@@ -27,8 +26,6 @@ import biomesoplenty.common.world.generator.GeneratorColumns;
 import biomesoplenty.common.world.generator.GeneratorDoubleFlora;
 import biomesoplenty.common.world.generator.GeneratorFlora;
 import biomesoplenty.common.world.generator.GeneratorGrass;
-import biomesoplenty.common.world.generator.GeneratorMixedLily;
-import biomesoplenty.common.world.generator.GeneratorOreSingle;
 import biomesoplenty.common.world.generator.GeneratorWaterside;
 import biomesoplenty.common.world.generator.GeneratorWeighted;
 import net.minecraft.block.BlockDoublePlant;
@@ -73,41 +70,30 @@ public class BiomeGenDummyTemplate extends BOPOverworldBiome
         grassGenerator.add("desertgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.DESERTGRASS).create());
         grassGenerator.add("dunegrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.DUNEGRASS).create());        
         grassGenerator.add("shortgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
-        grassGenerator.add("mediumgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());
         grassGenerator.add("tallgrass", 1, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).create());
         grassGenerator.add("ferns", 1, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.FERN).create());
-        grassGenerator.add("wheatgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.WHEATGRASS).create());
-        grassGenerator.add("dampgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.DAMPGRASS).create());
         grassGenerator.add("doublegrass", 1, (new GeneratorDoubleFlora.Builder()).with(BlockDoublePlant.EnumPlantType.GRASS).create());
 
         // other plants
         this.addGenerator("berry_bushes", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BOPPlants.BERRYBUSH).create());
         this.addGenerator("bushes", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BOPPlants.BUSH).create());
         this.addGenerator("cattails", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BOPPlants.CATTAIL).create());
-        this.addGenerator("clover_patches", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BOPPlants.CLOVERPATCH).create());
         this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BOPPlants.DEADLEAFPILE).create());
         this.addGenerator("desert_sprouts", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BOPPlants.DESERTSPROUTS).create());
         this.addGenerator("koru", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BOPPlants.KORU).create());
         this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BOPPlants.LEAFPILE).create());
-        this.addGenerator("poison_ivy", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BOPPlants.POISONIVY).create());
-        this.addGenerator("shrubs", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BOPPlants.SHRUB).create());
         this.addGenerator("spectral_ferns", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BOPPlants.SPECTRALFERN).create());
-        this.addGenerator("sprouts", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BOPPlants.SPROUT).create());
         this.addGenerator("thorns", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BOPPlants.THORN).create());
         this.addGenerator("tiny_cacti", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BOPPlants.TINYCACTUS).create());
-        this.addGenerator("wild_rice", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BOPPlants.WILDRICE).create());
         this.addGenerator("dead_bushes", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BlockTallGrass.EnumType.DEAD_BUSH).create());
-        this.addGenerator("eyebulbs", GeneratorStage.FLOWERS, (new GeneratorDoubleFlora.Builder()).amountPerChunk(0.5F).with(BlockBOPDoublePlant.DoublePlantType.EYEBULB).create());
         this.addGenerator("flax", GeneratorStage.FLOWERS, (new GeneratorDoubleFlora.Builder()).amountPerChunk(0.5F).with(BlockBOPDoublePlant.DoublePlantType.FLAX).create());
         this.addGenerator("tall_cattails", GeneratorStage.FLOWERS, (new GeneratorDoubleFlora.Builder()).amountPerChunk(0.5F).with(BlockBOPDoublePlant.DoublePlantType.TALL_CATTAIL).create());
         this.addGenerator("tall_ferns", GeneratorStage.FLOWERS, (new GeneratorDoubleFlora.Builder()).amountPerChunk(0.5F).with(BlockDoublePlant.EnumPlantType.FERN).create());
-        this.addGenerator("river_cane", GeneratorStage.FLOWERS,(new GeneratorColumns.Builder()).amountPerChunk(0.5F).placeOn(BlockQueries.litFertileWaterside).with(BlockBOPPlant.paging.getVariantState(BOPPlants.RIVERCANE)).minHeight(1).maxHeight(3).create());
         this.addGenerator("sugar_cane", GeneratorStage.FLOWERS,(new GeneratorColumns.Builder()).amountPerChunk(0.5F).placeOn(BlockQueries.litFertileWaterside).with(Blocks.REEDS.getDefaultState()).minHeight(1).maxHeight(3).create());
         // TODO root
         
         // water plants
         this.addGenerator("water_reeds", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).with(BOPPlants.REED).generationAttempts(32).create());
-        this.addGenerator("mixed_lily", GeneratorStage.LILYPAD, (new GeneratorMixedLily.Builder()).amountPerChunk(0.5F).create());
         this.addGenerator("algae", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.5F).replace(Blocks.WATER).with(BOPBlocks.coral.getDefaultState().withProperty(BlockBOPCoral.VARIANT, BlockBOPCoral.CoralType.ALGAE)).scatterYMethod(ScatterYMethod.AT_GROUND).create());
         
         // flowers
@@ -124,26 +110,17 @@ public class BiomeGenDummyTemplate extends BOPOverworldBiome
         flowerGenerator.add("red_tulips", 1, (new GeneratorFlora.Builder().with(EnumFlowerType.RED_TULIP).create()));
         flowerGenerator.add("white_tulips", 1, (new GeneratorFlora.Builder().with(EnumFlowerType.WHITE_TULIP).create()));
         flowerGenerator.add("blue_hydrangeas", 1, (new GeneratorFlora.Builder().with(BOPFlowers.BLUE_HYDRANGEA).create()));
-        flowerGenerator.add("bluebells", 1, (new GeneratorFlora.Builder().with(BOPFlowers.BLUEBELLS).create()));
-        flowerGenerator.add("bromeliads", 1, (new GeneratorFlora.Builder().with(BOPFlowers.BROMELIAD).create()));
         flowerGenerator.add("burning_blossoms", 1, (new GeneratorFlora.Builder().with(BOPFlowers.BURNING_BLOSSOM).create()));
-        flowerGenerator.add("clover", 1, (new GeneratorFlora.Builder().with(BOPFlowers.CLOVER).create()));
         flowerGenerator.add("wilted_lily", 1, (new GeneratorFlora.Builder().with(BOPFlowers.WILTED_LILY).create()));
         flowerGenerator.add("deathbloom", 1, (new GeneratorFlora.Builder().with(BOPFlowers.DEATHBLOOM).create()));
-        flowerGenerator.add("enterlotus", 1, (new GeneratorFlora.Builder().with(BOPFlowers.ENDERLOTUS).create()));
         flowerGenerator.add("glowflower", 1, (new GeneratorFlora.Builder().with(BOPFlowers.GLOWFLOWER).create()));
         flowerGenerator.add("goldenrods", 1, (new GeneratorFlora.Builder().with(BOPFlowers.GOLDENROD).create()));
-        flowerGenerator.add("icy_irises", 1, (new GeneratorFlora.Builder().with(BOPFlowers.ICY_IRIS).create()));
         flowerGenerator.add("lavender", 1, (new GeneratorFlora.Builder().with(BOPFlowers.LAVENDER).create()));
-        flowerGenerator.add("lily_of_the_valley", 1, (new GeneratorFlora.Builder().with(BOPFlowers.LILY_OF_THE_VALLEY).create()));
-        flowerGenerator.add("miners_delight", 1, (new GeneratorFlora.Builder().with(BOPFlowers.MINERS_DELIGHT).create()));
         flowerGenerator.add("orange_cosmos", 1, (new GeneratorFlora.Builder().with(BOPFlowers.ORANGE_COSMOS).create()));
         flowerGenerator.add("pink_daffodil", 1, (new GeneratorFlora.Builder().with(BOPFlowers.PINK_DAFFODIL).create()));
         flowerGenerator.add("hibiscus", 1, (new GeneratorFlora.Builder().with(BOPFlowers.PINK_HIBISCUS).create()));
         flowerGenerator.add("roses", 1, (new GeneratorFlora.Builder().with(BOPFlowers.ROSE).create()));
-        flowerGenerator.add("swampflower", 1, (new GeneratorFlora.Builder().with(BOPFlowers.SWAMPFLOWER).create()));
         flowerGenerator.add("violet", 1, (new GeneratorFlora.Builder().with(BOPFlowers.VIOLET).create()));
-        flowerGenerator.add("white_anemones", 1, (new GeneratorFlora.Builder().with(BOPFlowers.WHITE_ANEMONE).create()));
         flowerGenerator.add("wildflowers", 1, (new GeneratorFlora.Builder().with(BOPFlowers.WILDFLOWER).create()));
         flowerGenerator.add("paeonias", 1, (new GeneratorDoubleFlora.Builder()).with(BlockDoublePlant.EnumPlantType.PAEONIA).create());
         flowerGenerator.add("tall_roses", 1, (new GeneratorDoubleFlora.Builder()).with(BlockDoublePlant.EnumPlantType.ROSE).create());
@@ -153,11 +130,7 @@ public class BiomeGenDummyTemplate extends BOPOverworldBiome
         // shrooms
         this.addGenerator("brown_mushrooms", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(Blocks.BROWN_MUSHROOM.getDefaultState()).create());
         this.addGenerator("red_mushrooms", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(Blocks.RED_MUSHROOM.getDefaultState()).create());
-        this.addGenerator("blue_milk_caps", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(BlockBOPMushroom.MushroomType.BLUE_MILK_CAP).create());
-        this.addGenerator("flat_mushrooms", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(BlockBOPMushroom.MushroomType.FLAT_MUSHROOM).create());
         this.addGenerator("glowshrooms", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(BlockBOPMushroom.MushroomType.GLOWSHROOM).create());
-        this.addGenerator("portobellos", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(BlockBOPMushroom.MushroomType.PORTOBELLO).create());
-        this.addGenerator("shadow_shrooms", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(BlockBOPMushroom.MushroomType.SHADOW_SHROOM).create());
         this.addGenerator("toadstools", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(BlockBOPMushroom.MushroomType.TOADSTOOL).create());
 
         // big mushrooms
@@ -165,20 +138,8 @@ public class BiomeGenDummyTemplate extends BOPOverworldBiome
         this.addGenerator("big_mushrooms", GeneratorStage.BIG_SHROOM, mushroomGenerator);
         mushroomGenerator.add("brown_mushroom", 1, (new GeneratorBigMushroom.Builder()).mushroomType(GeneratorBigMushroom.BigMushroomType.BROWN).create());
         mushroomGenerator.add("red_mushroom", 1, (new GeneratorBigMushroom.Builder()).mushroomType(GeneratorBigMushroom.BigMushroomType.RED).create());
-        
-        
-        // gem
-        this.addGenerator("amber", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.AMBER).create());
+    }
 
-        
-    }
-    
-    @Override
-    public void applySettings(IBOPWorldSettings settings)
-    {
-        if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("amber");}
-    }
-    
     @Override
     public int getGrassColorAtPos(BlockPos pos)
     {

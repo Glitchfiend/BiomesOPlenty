@@ -14,7 +14,6 @@ import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.enums.BOPClimates;
-import biomesoplenty.api.enums.BOPGems;
 import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.api.generation.GeneratorStage;
@@ -60,7 +59,7 @@ public class BiomeGenTundra extends BOPOverworldBiome
         
         if (type == TundraType.TUNDRA)
         {
-        	this.addWeight(BOPClimates.TUNDRA, 10);
+        	this.addWeight(BOPClimates.TUNDRA, 7);
         }
         
         this.canGenerateRivers = false;
@@ -101,11 +100,7 @@ public class BiomeGenTundra extends BOPOverworldBiome
         GeneratorWeighted grassGenerator = new GeneratorWeighted(1.5F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("shortgrass", 4, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
-        grassGenerator.add("mediumgrass", 2, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());
         grassGenerator.add("tallgrass", 1, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).create());
-
-        // gem
-        this.addGenerator("tanzanite", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.TANZANITE).create());
     }
     
     @Override

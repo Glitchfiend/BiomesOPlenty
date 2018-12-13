@@ -118,33 +118,6 @@ public class VillageMaterialEventHandler
 			}
 		}
 		
-		//Lush Desert
-		if (BOPBiomes.lush_desert.isPresent() && event.getBiome() == BOPBiomes.lush_desert.get())
-		{
-			if (event.getOriginal().getBlock() == Blocks.PLANKS)
-			{
-				event.setReplacement(Blocks.PLANKS.getDefaultState().withProperty(BlockPlanks.VARIANT, BlockPlanks.EnumType.ACACIA));
-				event.setResult(Result.DENY);
-			}
-			if (event.getOriginal().getBlock() == Blocks.LOG || event.getOriginal().getBlock() == Blocks.LOG2)
-			{
-				EnumAxis axis = event.getOriginal().getValue(BlockLog.LOG_AXIS);
-				event.setReplacement(Blocks.LOG2.getDefaultState().withProperty(BlockNewLog.VARIANT, BlockPlanks.EnumType.ACACIA).withProperty(BlockLog.LOG_AXIS, axis));
-				event.setResult(Result.DENY);
-			}
-			if (event.getOriginal().getBlock() == Blocks.OAK_STAIRS)
-			{
-				EnumFacing facing = event.getOriginal().getValue(BlockStairs.FACING);
-				event.setReplacement(Blocks.ACACIA_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, facing));
-				event.setResult(Result.DENY);
-			}
-			if (event.getOriginal().getBlock() == Blocks.OAK_FENCE)
-			{
-				event.setReplacement(Blocks.ACACIA_FENCE.getDefaultState());
-				event.setResult(Result.DENY);
-			}
-		}
-		
 		//Meadow
 		if (BOPBiomes.meadow.isPresent() && event.getBiome() == BOPBiomes.meadow.get())
 		{

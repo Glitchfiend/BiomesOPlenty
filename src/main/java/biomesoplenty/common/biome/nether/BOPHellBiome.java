@@ -9,13 +9,9 @@ package biomesoplenty.common.biome.nether;
 
 import java.util.Random;
 
-import biomesoplenty.api.config.IBOPWorldSettings;
-import biomesoplenty.api.config.IBOPWorldSettings.GeneratorType;
 import biomesoplenty.api.config.IConfigObj;
-import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.biome.BOPBiome;
 import biomesoplenty.common.init.ModBiomes;
-import biomesoplenty.common.world.generator.GeneratorHive;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -26,7 +22,6 @@ import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
 
 public class BOPHellBiome extends BOPBiome
@@ -51,8 +46,6 @@ public class BOPHellBiome extends BOPBiome
         this.spawnableMonsterList.add(new SpawnListEntry(EntityPigZombie.class, 100, 4, 4));
         this.spawnableMonsterList.add(new SpawnListEntry(EntityMagmaCube.class, 2, 4, 4));
         this.spawnableMonsterList.add(new SpawnListEntry(EntityEnderman.class, 1, 4, 4));
-
-        this.addGenerator("hive", GeneratorStage.PRE, (new GeneratorHive.Builder()).amountPerChunk(0.2F).create());
     }
 
     @Override
@@ -70,28 +63,6 @@ public class BOPHellBiome extends BOPBiome
             BiomesOPlenty.logger.info(msg);
         // write default values to a file
         ModBiomes.writeDefaultConfigFile(ModBiomes.BOP_DEFAULTS_DIR, this.getResourceLocation().getResourcePath(), conf);
-    }
-    
-    @Override
-    public void applySettings(IBOPWorldSettings settings)
-    {
-        if (!settings.isEnabled(GeneratorType.GEMS)) {this.removeGenerator("ruby"); this.removeGenerator("topaz");
-        this.removeGenerator("amber"); this.removeGenerator("peridot"); this.removeGenerator("malachite");
-        this.removeGenerator("sapphire"); this.removeGenerator("tanzanite"); this.removeGenerator("amethyst");}
-         
-        if (!settings.isEnabled(GeneratorType.POISON_IVY)) {this.removeGenerator("poison_ivy");}
-        
-        if (!settings.isEnabled(GeneratorType.BERRY_BUSHES)) {this.removeGenerator("berry_bushes");}
-        
-        if (!settings.isEnabled(GeneratorType.NETHER_HIVES)) {this.removeGenerator("hive");}
-        
-        if (!settings.isEnabled(GeneratorType.THORNS)) {this.removeGenerator("thorns");}
-        
-        if (!settings.isEnabled(GeneratorType.QUICKSAND)) {this.removeGenerator("quicksand");}
-        
-        if (!settings.isEnabled(GeneratorType.HOT_SPRINGS)) {this.removeGenerator("hot_springs");}
-        
-        if (!settings.isEnabled(GeneratorType.LIQUID_POISON)) {this.removeGenerator("poison_lakes");}
     }
 
     @Override

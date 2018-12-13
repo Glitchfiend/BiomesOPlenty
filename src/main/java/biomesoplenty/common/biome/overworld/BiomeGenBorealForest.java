@@ -3,22 +3,16 @@ package biomesoplenty.common.biome.overworld;
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.enums.BOPClimates;
-import biomesoplenty.api.enums.BOPGems;
 import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.api.generation.GeneratorStage;
-import biomesoplenty.common.block.BlockBOPDoublePlant;
-import biomesoplenty.common.world.generator.GeneratorDoubleFlora;
 import biomesoplenty.common.world.generator.GeneratorFlora;
 import biomesoplenty.common.world.generator.GeneratorGrass;
-import biomesoplenty.common.world.generator.GeneratorOreSingle;
 import biomesoplenty.common.world.generator.GeneratorWaterside;
 import biomesoplenty.common.world.generator.GeneratorWeighted;
 import biomesoplenty.common.world.generator.tree.GeneratorBasicTree;
 import biomesoplenty.common.world.generator.tree.GeneratorBigTree;
-import biomesoplenty.common.world.generator.tree.GeneratorBush;
 import biomesoplenty.common.world.generator.tree.GeneratorTaigaTree;
-import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
@@ -26,7 +20,6 @@ import net.minecraft.entity.passive.EntityRabbit;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.biome.Biome;
 
 public class BiomeGenBorealForest extends BOPOverworldBiome
 {    
@@ -37,7 +30,7 @@ public class BiomeGenBorealForest extends BOPOverworldBiome
         // terrain
         this.terrainSettings.avgHeight(70).heightVariation(15, 30);
 
-        this.addWeight(BOPClimates.BOREAL, 5);
+        this.addWeight(BOPClimates.BOREAL, 7);
 
         this.canGenerateVillages = false;
         
@@ -57,13 +50,12 @@ public class BiomeGenBorealForest extends BOPOverworldBiome
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("oak", 3, (new GeneratorBasicTree.Builder()).create());
         treeGenerator.add("yellow_autumn", 4, (new GeneratorBigTree.Builder()).log(BlockPlanks.EnumType.BIRCH).leaves(BOPTrees.YELLOW_AUTUMN).foliageHeight(2).maxHeight(13).create());
-        treeGenerator.add("spruce", 5, (new GeneratorTaigaTree.Builder()).minHeight(10).maxHeight(19).create()); // TODO: implement pine cones
+        treeGenerator.add("spruce", 5, (new GeneratorTaigaTree.Builder()).minHeight(10).maxHeight(19).create());
  
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(1.75F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("shortgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
-        grassGenerator.add("mediumgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());
         grassGenerator.add("tallgrass", 2, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).create());
         grassGenerator.add("fern", 4, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.FERN).create());
         
@@ -74,17 +66,11 @@ public class BiomeGenBorealForest extends BOPOverworldBiome
         flowerGenerator.add("poppy", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.POPPY).create()));
         
         // other plants
-        //this.addGenerator("shrubs", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(BOPPlants.SHRUB).create());
         this.addGenerator("bushes", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.75F).with(BOPPlants.BUSH).create());
         this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).placeOn(BlockQueries.fertile).with(BOPPlants.DEADLEAFPILE).create());
-        this.addGenerator("poison_ivy", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).generationAttempts(16).with(BOPPlants.POISONIVY).create());
         
         // water plants
         this.addGenerator("water_reeds", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.25F).with(BOPPlants.REED).generationAttempts(32).create());
-
-        // gem
-        this.addGenerator("amber", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.AMBER).create());
- 
     }
     
     @Override

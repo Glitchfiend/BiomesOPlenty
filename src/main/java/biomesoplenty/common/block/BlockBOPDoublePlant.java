@@ -44,7 +44,7 @@ public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements ISh
 	// add properties (note we inherit HALF from BlockDoubleDecoration)
     public enum DoublePlantType implements IStringSerializable
     {
-        FLAX, TALL_CATTAIL, EYEBULB, SEA_OATS;
+        FLAX, TALL_CATTAIL;
         @Override
         public String getName()
         {
@@ -147,10 +147,6 @@ public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements ISh
         {
             case TALL_CATTAIL:
                 return BlockQueries.litFertileWaterside.matches(world, lowerPos.down());
-            case EYEBULB:
-                return BlockQueries.hellish.matches(world, lowerPos.down());
-            case SEA_OATS:
-            	return BlockQueries.fertileOrSand.matches(world, lowerPos.down());
             case FLAX: default:
                 return BlockQueries.litFertile.matches(world, lowerPos.down());
         }
@@ -186,7 +182,7 @@ public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements ISh
         DoublePlantType type = (DoublePlantType) lowerState.getValue(VARIANT);
         switch (type)
         {
-            case FLAX: case SEA_OATS:
+            case FLAX:
                 break;
             case TALL_CATTAIL:
                 ret.add(BlockBOPPlant.paging.getVariantItem(BOPPlants.CATTAIL));
@@ -220,7 +216,7 @@ public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements ISh
         DoublePlantType type = (DoublePlantType) lowerState.getValue(VARIANT);
         switch (type)
         {
-            case FLAX: case SEA_OATS:
+            case FLAX:
                 ret.add(this.getVariantItem(type));
             default:
                 break;

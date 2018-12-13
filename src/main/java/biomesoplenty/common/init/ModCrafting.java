@@ -8,18 +8,27 @@
 
 package biomesoplenty.common.init;
 
-import static biomesoplenty.common.util.inventory.CraftingUtil.*;
+import com.google.common.base.CaseFormat;
 
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.api.enums.*;
+import biomesoplenty.api.enums.BOPFlowers;
+import biomesoplenty.api.enums.BOPPlants;
+import biomesoplenty.api.enums.BOPTrees;
+import biomesoplenty.api.enums.BOPWoods;
 import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.common.block.*;
-import biomesoplenty.common.crafting.BiomeEssenceRecipe;
+import biomesoplenty.common.block.BlockBOPDoublePlant;
+import biomesoplenty.common.block.BlockBOPFence;
+import biomesoplenty.common.block.BlockBOPFenceGate;
+import biomesoplenty.common.block.BlockBOPFlower;
+import biomesoplenty.common.block.BlockBOPHalfWoodSlab;
+import biomesoplenty.common.block.BlockBOPLeaves;
+import biomesoplenty.common.block.BlockBOPLog;
+import biomesoplenty.common.block.BlockBOPPlanks;
+import biomesoplenty.common.block.BlockBOPPlant;
+import biomesoplenty.common.block.BlockBOPSapling;
+import biomesoplenty.common.block.BlockBOPWoodStairs;
 import biomesoplenty.common.handler.FurnaceFuelHandler;
-import biomesoplenty.common.item.ItemJarFilled;
 import biomesoplenty.core.BiomesOPlenty;
-import com.google.common.base.CaseFormat;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
@@ -29,7 +38,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
-import net.minecraftforge.oredict.ShapedOreRecipe;
 
 public class ModCrafting
 {
@@ -37,13 +45,7 @@ public class ModCrafting
     public static void init()
     {
         addOreRegistration();
-        addCraftingRecipes();
         addSmeltingRecipes();
-    }
-
-    private static void addCraftingRecipes()
-    {
-        registerCustomRecipe(new BiomeEssenceRecipe(), "biome_essence");
     }
     
     private static void addSmeltingRecipes()
@@ -62,11 +64,6 @@ public class ModCrafting
             }
         }
         
-        for (BOPGems gem : BOPGems.values())
-        {
-            GameRegistry.addSmelting(new ItemStack(BOPBlocks.gem_ore, 1, gem.ordinal()), new ItemStack(BOPItems.gem, 1, gem.ordinal()), 1.0F);
-        }
-        
         // Register items which can be used as fuel
         FurnaceFuelHandler bopFuel = new FurnaceFuelHandler();
         GameRegistry.registerFuelHandler(bopFuel);
@@ -79,24 +76,20 @@ public class ModCrafting
         // Note, we don't have to add all the other wood blocks - by default any block with Material = wood burns with value of 300
         // See TileEntityFurnace.getItemBurnTime()
         
-        bopFuel.addFuel(BOPItems.boat_sacred_oak, 400);
         bopFuel.addFuel(BOPItems.boat_cherry, 400);
         bopFuel.addFuel(BOPItems.boat_umbran, 400);
         bopFuel.addFuel(BOPItems.boat_fir, 400);
         bopFuel.addFuel(BOPItems.boat_ethereal, 400);
         bopFuel.addFuel(BOPItems.boat_magic, 400);
-        bopFuel.addFuel(BOPItems.boat_mangrove, 400);
         bopFuel.addFuel(BOPItems.boat_palm, 400);
         bopFuel.addFuel(BOPItems.boat_redwood, 400);
         bopFuel.addFuel(BOPItems.boat_willow, 400);
-        bopFuel.addFuel(BOPItems.boat_pine, 400);
         bopFuel.addFuel(BOPItems.boat_hellbark, 400);
         bopFuel.addFuel(BOPItems.boat_jacaranda, 400);
         bopFuel.addFuel(BOPItems.boat_mahogany, 400);
         bopFuel.addFuel(BOPItems.boat_ebony, 400);
-        bopFuel.addFuel(BOPItems.boat_eucalyptus, 400);
 
-        bopFuel.addFuel(BOPItems.ash, 400); // TODO: really? 400?  Ash is already burnt but burns better than wooden planks?
+        bopFuel.addFuel(BOPItems.ash, 400);
         
     }
     
@@ -104,10 +97,6 @@ public class ModCrafting
     private static void addOreRegistration()
     {
         //Registration in Ore Dictionary
-
-        OreDictionary.registerOre("stickWood", new ItemStack(BOPBlocks.bamboo));
-        OreDictionary.registerOre("stickWood", BlockBOPPlant.paging.getVariantItem(BOPPlants.RIVERCANE));
-
         OreDictionary.registerOre("ballMud", new ItemStack(BOPItems.mudball));
 
         OreDictionary.registerOre("blockMeatRaw", new ItemStack(BOPBlocks.flesh, 1, 0));
@@ -120,10 +109,6 @@ public class ModCrafting
         OreDictionary.registerOre("sand", new ItemStack(BOPBlocks.white_sand));
         OreDictionary.registerOre("sandstone", new ItemStack(BOPBlocks.white_sandstone));
         
-        OreDictionary.registerOre("foodMushroompowder", new ItemStack(BOPItems.shroompowder));
-        OreDictionary.registerOre("foodFilledhoneycomb", new ItemStack(BOPItems.filled_honeycomb));
-        OreDictionary.registerOre("foodBowlofrice", new ItemStack(BOPItems.ricebowl));
-        
         OreDictionary.registerOre("cropPeach", new ItemStack(BOPItems.peach));
         OreDictionary.registerOre("cropPersimmon", new ItemStack(BOPItems.persimmon));
         OreDictionary.registerOre("cropPear", new ItemStack(BOPItems.pear));
@@ -131,21 +116,8 @@ public class ModCrafting
         OreDictionary.registerOre("listAllfruit", new ItemStack(BOPItems.peach));
         OreDictionary.registerOre("listAllfruit", new ItemStack(BOPItems.persimmon));
         OreDictionary.registerOre("listAllfruit", new ItemStack(BOPItems.pear));
-
-        OreDictionary.registerOre("dyeBlue", new ItemStack(BOPItems.blue_dye));
-        OreDictionary.registerOre("dyeBrown", new ItemStack(BOPItems.brown_dye));
-        OreDictionary.registerOre("dyeGreen", new ItemStack(BOPItems.green_dye));
-        OreDictionary.registerOre("dyeWhite", new ItemStack(BOPItems.white_dye));
-        OreDictionary.registerOre("dyeBlack", new ItemStack(BOPItems.black_dye));
         
         OreDictionary.registerOre("record", new ItemStack(BOPItems.record_wanderer));
-        
-        for (BOPGems gem : BOPGems.values())
-        {
-            String gemName = CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, gem.name());
-            OreDictionary.registerOre("gem"+gemName, new ItemStack(BOPItems.gem, 1, gem.ordinal()));
-            OreDictionary.registerOre("ore"+gemName, new ItemStack(BOPBlocks.gem_ore , 1, gem.ordinal()));
-        }
         
         for (BOPFlowers flower : BOPFlowers.values())
         {

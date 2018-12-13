@@ -31,7 +31,7 @@ public class BlockBOPMushroom extends BlockBOPDecoration
     // add properties
     public enum MushroomType implements IStringSerializable
     {
-        TOADSTOOL, PORTOBELLO, BLUE_MILK_CAP, GLOWSHROOM, FLAT_MUSHROOM, SHADOW_SHROOM;
+        TOADSTOOL, GLOWSHROOM;
         @Override
         public String getName()
         {
@@ -102,9 +102,9 @@ public class BlockBOPMushroom extends BlockBOPDecoration
     	MushroomType plant = (MushroomType) state.getValue(VARIANT);
         switch (plant)
         {
-	        case GLOWSHROOM: case SHADOW_SHROOM:
+	        case GLOWSHROOM:
 	        	return new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);
-	        case TOADSTOOL: case FLAT_MUSHROOM:
+	        case TOADSTOOL:
             	return new AxisAlignedBB(0.20000001788D, 0.0D, 0.20000001788D, 0.79999998211D, 0.6000000238418579D, 0.79999998211D);
 	        default:
             	return new AxisAlignedBB(0.30000001192092896D, 0.0D, 0.30000001192092896D, 0.699999988079071D, 0.4000000059604645D, 0.699999988079071D);
@@ -121,8 +121,6 @@ public class BlockBOPMushroom extends BlockBOPDecoration
                 return BlockQueries.fertileOrNetherrack.matches(world, pos.down());
             case GLOWSHROOM:
                 return (BlockQueries.sustainsCave.matches(world, pos.down()) || BlockQueries.sustainsNether.matches(world, pos.down()) || world.getBlockState(pos.down()).getBlock() == Blocks.STONE);
-            case SHADOW_SHROOM:
-                return BlockQueries.endish.matches(world, pos.down());
             default:
                 return BlockQueries.fertileOrNetherrack.matches(world, pos.down());
         }

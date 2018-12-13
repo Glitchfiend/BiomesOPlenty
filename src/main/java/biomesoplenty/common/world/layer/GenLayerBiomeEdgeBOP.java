@@ -39,9 +39,6 @@ public class GenLayerBiomeEdgeBOP extends BOPGenLayer
                 this.initChunkSeed((long)(x + areaX), (long)(y + areaY));
                 int biomeId = parentVals[x + 1 + (y + 1) * (areaWidth + 2)];
                 
-                // line BOP mountain peaks with BOP mountain foothills
-                if (this.replaceBiomeEdge(parentVals, out, x, y, areaWidth, biomeId, BOPBiomes.mountain, BOPBiomes.mountain_foothills)) {continue;}
-                
                 // line BOP alps peaks with BOP alps foothills
                 if (this.replaceBiomeEdge(parentVals, out, x, y, areaWidth, biomeId, BOPBiomes.alps, BOPBiomes.alps_foothills)) {continue;}
                 

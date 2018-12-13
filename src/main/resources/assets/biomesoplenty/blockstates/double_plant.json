@@ -3,10 +3,6 @@
         "half=upper,variant=flax": { "model": "biomesoplenty:flax_upper" },
         "half=lower,variant=flax": { "model": "biomesoplenty:flax_lower" },
         "half=upper,variant=tall_cattail": { "model": "biomesoplenty:tall_cattail_upper" },
-        "half=lower,variant=tall_cattail": { "model": "biomesoplenty:tall_cattail_lower" },
-        "half=upper,variant=eyebulb": { "model": "biomesoplenty:eyebulb_upper" },
-        "half=lower,variant=eyebulb": { "model": "biomesoplenty:eyebulb_lower" },
-		"half=upper,variant=sea_oats": { "model": "biomesoplenty:sea_oats_upper" },
-        "half=lower,variant=sea_oats": { "model": "biomesoplenty:sea_oats_lower" }
+        "half=lower,variant=tall_cattail": { "model": "biomesoplenty:tall_cattail_lower" }
     }
 }

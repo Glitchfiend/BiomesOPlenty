@@ -131,13 +131,11 @@ public class BlockBOPFlower extends BlockBOPDecoration implements IShearable, IH
     	BOPFlowers flower = (BOPFlowers) state.getValue(this.variantProperty);
         switch (flower)
         {
-        	case CLOVER:
-        		return new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.09375D, 0.9375D);
-        	case SWAMPFLOWER: case VIOLET: case WHITE_ANEMONE: case BLUEBELLS:
+        	case VIOLET:
         		return new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.4000000357627869D, 0.9375D);
         	case BLUE_HYDRANGEA: case BURNING_BLOSSOM:
         		return new AxisAlignedBB(0.20000001788D, 0.0D, 0.20000001788D, 0.79999998211D, 0.6000000238418579D, 0.79999998211D);
-        	case ENDERLOTUS: case BROMELIAD: case PINK_HIBISCUS: case LILY_OF_THE_VALLEY: case LAVENDER:
+        	case PINK_HIBISCUS: case LAVENDER:
             	return new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);
             default:
             	return new AxisAlignedBB(0.30000001192092896D, 0.0D, 0.30000001192092896D, 0.699999988079071D, 0.6000000238418579D, 0.699999988079071D);
@@ -168,9 +166,6 @@ public class BlockBOPFlower extends BlockBOPDecoration implements IShearable, IH
         {
             case GLOWFLOWER:
                 return 9;
-
-            case ENDERLOTUS:
-                return 5;
 
             case BURNING_BLOSSOM:
                 return 9;
@@ -265,7 +260,7 @@ public class BlockBOPFlower extends BlockBOPDecoration implements IShearable, IH
         Block groundBlock = groundState.getBlock();
         
         boolean onFertile = (groundBlock == Blocks.DIRT || groundBlock == Blocks.FARMLAND || groundBlock == BOPBlocks.farmland_0 || groundBlock == BOPBlocks.farmland_1 || groundBlock == BOPBlocks.dirt || groundBlock == Blocks.GRASS);
-        boolean onDry = (groundBlock == Blocks.HARDENED_CLAY || groundBlock == BOPBlocks.sand || groundBlock == Blocks.SAND || groundBlock == BOPBlocks.white_sand);
+        boolean onDry = (groundBlock == Blocks.HARDENED_CLAY || groundBlock == Blocks.SAND || groundBlock == BOPBlocks.white_sand);
         boolean onNetherrack = (groundBlock == Blocks.NETHERRACK);
         boolean onStone = (groundBlock == Blocks.STONE);
         boolean onDriedSand = (groundBlock == BOPBlocks.dried_sand);
@@ -294,16 +289,10 @@ public class BlockBOPFlower extends BlockBOPDecoration implements IShearable, IH
         
         switch ((BOPFlowers) state.getValue(this.variantProperty))
         {
-            case ENDERLOTUS:
-                return onSpectralMoss;
-            case BROMELIAD:
-                return onDry;
             case WILTED_LILY:
                 return onDriedSand;
             case BURNING_BLOSSOM:
                 return onNetherrack;
-            case MINERS_DELIGHT:
-                return onStone;
             default:
                 return onFertile;
         }

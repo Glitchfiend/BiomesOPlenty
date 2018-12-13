@@ -69,10 +69,6 @@ public class BiomeProviderBOP extends BiomeProvider
             IExtendedBiome extBiome = BOPBiomes.REG_INSTANCE.getExtendedBiome(biome);
             
             if (extBiome == null) {continue;}
-            else
-            {
-                extBiome.applySettings(settings);
-            }
         }
         
         // set up all the gen layers

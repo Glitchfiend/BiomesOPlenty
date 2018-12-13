@@ -9,7 +9,6 @@
 package biomesoplenty.common.init;
 
 import biomesoplenty.common.handler.BucketEventHandler;
-import biomesoplenty.common.handler.DyeEventHandler;
 import biomesoplenty.common.handler.FogEventHandler;
 import biomesoplenty.common.handler.GrassPathEventHandler;
 import biomesoplenty.common.handler.GuiEventHandler;
@@ -39,7 +38,6 @@ public class ModHandlers
         MinecraftForge.TERRAIN_GEN_BUS.register(decorateBiomeHandler);
         MinecraftForge.TERRAIN_GEN_BUS.register(new VillageMaterialEventHandler());
         MinecraftForge.ORE_GEN_BUS.register(decorateBiomeHandler);
-        MinecraftForge.EVENT_BUS.register(new DyeEventHandler());
         MinecraftForge.EVENT_BUS.register(new BucketEventHandler());
         MinecraftForge.EVENT_BUS.register(new PotionCurseHandler());
         MinecraftForge.EVENT_BUS.register(new UseHoeEventHandler());

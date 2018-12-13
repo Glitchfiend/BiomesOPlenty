@@ -14,7 +14,6 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.enums.BOPFlowers;
-import biomesoplenty.api.enums.BOPGems;
 import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.api.enums.BOPWoods;
@@ -78,13 +77,6 @@ public class BiomeGenWasteland extends BOPOverworldBiome
         
         // lakes
         this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.05F).waterLakeForBiome(this).create());
-        this.addGenerator("poison_lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.05F).liquid(BOPBlocks.poison).frozenLiquid((IBlockState)null).create());
-        
-        // spikes
-        //this.addGenerator("spikes", GeneratorStage.PRE, (new GeneratorSpike.Builder()).amountPerChunk(0.2F).create());
-        
-        // gem
-        this.addGenerator("ruby", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.RUBY).create());
     }
     
     @Override

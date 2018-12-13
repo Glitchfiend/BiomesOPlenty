@@ -1,8 +1,0 @@
-{
-	"parent": "biomesoplenty:block/terrarium",
-	"ambientocclusion": false,
-    "textures": {
-        "inside": "biomesoplenty:blocks/terrarium_cactus",
-		"particle": "biomesoplenty:items/terrarium_cactus"
-    }
-}

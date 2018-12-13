@@ -33,21 +33,17 @@ public class ModVanillaCompat
     {
     	BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(BOPItems.mudball, new DispenserBehaviorMudball());
     	
-    	BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(BOPItems.boat_sacred_oak, new DispenserBehaviorBOPBoat(EntityBOPBoat.Type.SACRED_OAK));
     	BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(BOPItems.boat_cherry, new DispenserBehaviorBOPBoat(EntityBOPBoat.Type.CHERRY));
     	BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(BOPItems.boat_umbran, new DispenserBehaviorBOPBoat(EntityBOPBoat.Type.UMBRAN));
     	BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(BOPItems.boat_fir, new DispenserBehaviorBOPBoat(EntityBOPBoat.Type.FIR));
     	BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(BOPItems.boat_ethereal, new DispenserBehaviorBOPBoat(EntityBOPBoat.Type.ETHEREAL));
     	BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(BOPItems.boat_magic, new DispenserBehaviorBOPBoat(EntityBOPBoat.Type.MAGIC));
-    	BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(BOPItems.boat_mangrove, new DispenserBehaviorBOPBoat(EntityBOPBoat.Type.MANGROVE));
     	BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(BOPItems.boat_palm, new DispenserBehaviorBOPBoat(EntityBOPBoat.Type.PALM));
     	BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(BOPItems.boat_redwood, new DispenserBehaviorBOPBoat(EntityBOPBoat.Type.REDWOOD));
     	BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(BOPItems.boat_willow, new DispenserBehaviorBOPBoat(EntityBOPBoat.Type.WILLOW));
-    	BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(BOPItems.boat_pine, new DispenserBehaviorBOPBoat(EntityBOPBoat.Type.PINE));
     	BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(BOPItems.boat_hellbark, new DispenserBehaviorBOPBoat(EntityBOPBoat.Type.HELLBARK));
     	BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(BOPItems.boat_jacaranda, new DispenserBehaviorBOPBoat(EntityBOPBoat.Type.JACARANDA));
     	BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(BOPItems.boat_mahogany, new DispenserBehaviorBOPBoat(EntityBOPBoat.Type.MAHOGANY));
     	BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(BOPItems.boat_ebony, new DispenserBehaviorBOPBoat(EntityBOPBoat.Type.EBONY));
-    	BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(BOPItems.boat_eucalyptus, new DispenserBehaviorBOPBoat(EntityBOPBoat.Type.EUCALYPTUS));
     }
 }

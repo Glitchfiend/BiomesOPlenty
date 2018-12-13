@@ -1,7 +1,7 @@
 {
   "rewards": {
     "recipes": [
-      "biomesoplenty:red_dye_from_rose"
+      "biomesoplenty:grey_dye_from_deathbloom"
     ]
   },
   "criteria": {
@@ -11,7 +11,7 @@
         "items": [
           {
             "item": "biomesoplenty:flower_0",
-            "data": 12
+			"data": 2
           }
         ]
       }
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "biomesoplenty:red_dye_from_rose"
+        "recipe": "biomesoplenty:grey_dye_from_deathbloom"
       }
     }
   },

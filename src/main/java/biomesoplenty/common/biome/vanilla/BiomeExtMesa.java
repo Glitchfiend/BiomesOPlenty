@@ -1,13 +1,9 @@
 package biomesoplenty.common.biome.vanilla;
 
-import biomesoplenty.api.enums.BOPFlowers;
-import biomesoplenty.api.enums.BOPGems;
 import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.world.generator.GeneratorFlora;
 import biomesoplenty.common.world.generator.GeneratorGrass;
-import biomesoplenty.common.world.generator.GeneratorOreSingle;
-import biomesoplenty.common.world.generator.GeneratorWeighted;
 import net.minecraft.init.Biomes;
 
 public class BiomeExtMesa extends ExtendedBiomeWrapper
@@ -18,9 +14,6 @@ public class BiomeExtMesa extends ExtendedBiomeWrapper
         
         // other plants
         this.addGenerator("desertgrass", GeneratorStage.GRASS, (new GeneratorGrass.Builder()).amountPerChunk(0.3F).with(BOPPlants.DESERTGRASS).generationAttempts(8).create());
-        this.addGenerator("tiny_cacti", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BOPPlants.TINYCACTUS).generationAttempts(16).create());
-        
-        // gem
-        this.addGenerator("ruby", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.RUBY).create());    
+        this.addGenerator("tiny_cacti", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BOPPlants.TINYCACTUS).generationAttempts(16).create());   
     }
 }

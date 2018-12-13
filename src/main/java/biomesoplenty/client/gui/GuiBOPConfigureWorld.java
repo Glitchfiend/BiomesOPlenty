@@ -169,19 +169,10 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
     private enum GuiEntries
     {
         TEMP_SCHEME (101),
-        GENERATE_BOP_GEMS (102),
         AMPLITUDE (104),
         BIOME_SIZE (105),
         LAND_SCHEME (106),
         RAIN_SCHEME (107),
-        GENERATE_POISON_IVY (117),
-        GENERATE_BERRY_BUSHES (119),
-        GENERATE_THORNS (120),
-        GENERATE_QUICKSAND (121),
-        GENERATE_LIQUID_POISON (122),
-        GENERATE_HOT_SPRINGS (123),
-        GENERATE_NETHER_HIVES (124),
-        GENERATE_END_FEATURES (126),
         MAIN_NOISE_SCALE_X (127),
         MAIN_NOISE_SCALE_Y (128),
         MAIN_NOISE_SCALE_Z (129),
@@ -235,25 +226,7 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
             new GuiBOPPageList.GuiSlideEntry(GuiEntries.LOWER_LIMIT_SCALE.getId(), "Lower Limit Scale", true, this, 1.0F, 5000.0F, this.settings.lowerLimitScale),
         };
         
-        this.pageNames[1] = "Biome Settings";
-        GuiBOPPageList.GuiFieldEntry[] page1Fields = new GuiBOPPageList.GuiFieldEntry[] {
-
-        };
-        
-        this.pageNames[2] = "Feature Generation Settings";
-        GuiBOPPageList.GuiFieldEntry[] page2Fields = new GuiBOPPageList.GuiFieldEntry[] {
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BOP_GEMS.getId(), "BOP Gems", true, this.settings.generateBopGems),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_POISON_IVY.getId(), "Poison Ivy", true, this.settings.generatePoisonIvy),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_BERRY_BUSHES.getId(), "Berry Bushes", true, this.settings.generateBerryBushes),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_THORNS.getId(), "Thorns", true, this.settings.generateThorns),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_QUICKSAND.getId(), "Quicksand", true, this.settings.generateQuicksand),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_LIQUID_POISON.getId(), "Liquid Poison Pools", true, this.settings.generateLiquidPoison),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_HOT_SPRINGS.getId(), "Hot Spring Pools", true, this.settings.generateHotSprings),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_NETHER_HIVES.getId(), "Nether Hives", true, this.settings.generateNetherHives),
-            new GuiBOPPageList.GuiButtonEntry(GuiEntries.GENERATE_END_FEATURES.getId(), "End Features", true, this.settings.generateEndFeatures)
-        };
-        
-        this.pageManager = new GuiBOPPageManager(createTableForFields(page0Fields, page1Fields, page2Fields));
+        this.pageManager = new GuiBOPPageManager(createTableForFields(page0Fields));
         this.pageManager.setup();
         
         this.showNewPage();
@@ -346,39 +319,6 @@ public class GuiBOPConfigureWorld extends GuiScreen implements GuiSlider.FormatH
     {
         GuiEntries entry = GuiEntries.fromId(fieldId);
         if (entry == null) {return;}
-        
-        switch (entry)
-        {
-            case GENERATE_BOP_GEMS:
-                this.settings.generateBopGems = value;
-                break;
-            case GENERATE_POISON_IVY:
-                this.settings.generatePoisonIvy = value;
-                break;
-            case GENERATE_BERRY_BUSHES:
-                this.settings.generateBerryBushes = value;
-                break;
-            case GENERATE_THORNS:
-                this.settings.generateThorns = value;
-                break;
-            case GENERATE_QUICKSAND:
-                this.settings.generateQuicksand = value;
-                break;
-            case GENERATE_LIQUID_POISON:
-                this.settings.generateLiquidPoison = value;
-                break;
-            case GENERATE_HOT_SPRINGS:
-                this.settings.generateHotSprings = value;
-                break;
-            case GENERATE_NETHER_HIVES:
-                this.settings.generateNetherHives = value;
-                break;
-            case GENERATE_END_FEATURES:
-                this.settings.generateEndFeatures = value;
-                break;
-            default:
-                break;
-        }
         
         System.out.println("settings currently: "+this.settings.toJson());
 

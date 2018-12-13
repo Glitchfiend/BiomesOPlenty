@@ -1,8 +1,0 @@
-{
-    "variants": {
-        "variant=pine": { "model": "biomesoplenty:pine_leaves" },
-        "variant=mahogany": { "model": "biomesoplenty:mahogany_leaves" },
-		"variant=ebony": { "model": "biomesoplenty:ebony_leaves" },
-        "variant=eucalyptus": { "model": "biomesoplenty:eucalyptus_leaves" }
-    }
-}

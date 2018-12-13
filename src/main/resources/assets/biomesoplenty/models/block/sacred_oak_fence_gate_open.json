@@ -1,6 +1,0 @@
-{
-    "parent": "block/fence_gate_open",
-    "textures": {
-        "texture": "biomesoplenty:blocks/sacred_oak_planks"
-    }
-}

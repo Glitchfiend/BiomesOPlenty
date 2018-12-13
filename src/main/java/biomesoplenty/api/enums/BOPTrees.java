@@ -14,8 +14,7 @@ import net.minecraft.util.IStringSerializable;
 
 public enum BOPTrees implements IStringSerializable, IPagedVariants
 {
-    
-    YELLOW_AUTUMN, ORANGE_AUTUMN, BAMBOO, MAGIC, UMBRAN, DEAD, FIR, ETHEREAL, ORIGIN, PINK_CHERRY, WHITE_CHERRY, MAPLE, HELLBARK, FLOWERING, JACARANDA, SACRED_OAK, MANGROVE, PALM, REDWOOD, WILLOW, PINE, MAHOGANY, EBONY, EUCALYPTUS, RED_BIG_FLOWER, YELLOW_BIG_FLOWER;
+	ORIGIN, FLOWERING, ORANGE_AUTUMN, YELLOW_AUTUMN, FIR, REDWOOD, WHITE_CHERRY, PINK_CHERRY, MAPLE, MAHOGANY, JACARANDA, PALM, WILLOW, EBONY, DEAD, MAGIC, UMBRAN, HELLBARK, ETHEREAL;
     
     @Override
     public String getName() {
@@ -29,13 +28,7 @@ public enum BOPTrees implements IStringSerializable, IPagedVariants
     
     public boolean hasSapling()
     {
-        switch(this)
-        {
-            case YELLOW_BIG_FLOWER: case RED_BIG_FLOWER:
-                return false;
-            default:
-                return true;
-        }
+        return true;
     }
     
     public static Predicate withSaplings = new Predicate<BOPTrees>()

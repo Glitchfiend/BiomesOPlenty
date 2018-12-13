@@ -1,8 +1,0 @@
-{
-    "parent": "block/upper_slab",
-    "textures": {
-        "bottom": "biomesoplenty:blocks/mangrove_planks",
-        "top": "biomesoplenty:blocks/mangrove_planks",
-        "side": "biomesoplenty:blocks/mangrove_planks"
-    }
-}

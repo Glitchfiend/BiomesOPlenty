@@ -8,8 +8,6 @@
 package biomesoplenty.common.init;
 
 import static biomesoplenty.api.sound.BOPSounds.records_wanderer;
-import static biomesoplenty.api.sound.BOPSounds.wasp_ambient;
-import static biomesoplenty.api.sound.BOPSounds.wasp_hurt;
 
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.util.ResourceLocation;
@@ -20,8 +18,6 @@ public class ModSounds
 {
     public static void init()
     {
-        wasp_ambient = registerSound("entity.biomesoplenty.wasp.ambient");
-        wasp_hurt = registerSound("entity.biomesoplenty.wasp.hurt");
         records_wanderer = registerSound("records.wanderer");
     }
     

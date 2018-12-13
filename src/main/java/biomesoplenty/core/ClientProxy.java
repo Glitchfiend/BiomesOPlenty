@@ -19,8 +19,6 @@ import biomesoplenty.client.particle.EntityCurseFX;
 import biomesoplenty.client.particle.EntityTrailFX;
 import biomesoplenty.common.block.IBOPBlock;
 import biomesoplenty.common.config.MiscConfigurationHandler;
-import biomesoplenty.common.entities.EntityWasp;
-import biomesoplenty.common.entities.RenderWasp;
 import biomesoplenty.common.entities.item.EntityBOPBoat;
 import biomesoplenty.common.entities.item.RenderBOPBoat;
 import biomesoplenty.common.entities.projectiles.EntityMudball;
@@ -67,7 +65,6 @@ public class ClientProxy extends CommonProxy
             GuiMainMenu.TITLE_PANORAMA_PATHS = bopTitlePanoramaPaths;
 
         //Entity rendering and other stuff will go here in future
-        registerEntityRenderer(EntityWasp.class, RenderWasp.class);
         registerEntityRenderer(EntityMudball.class, RenderMudball.class);
         registerEntityRenderer(EntityBOPBoat.class, RenderBOPBoat.class);
     }

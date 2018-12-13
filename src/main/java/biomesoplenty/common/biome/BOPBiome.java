@@ -134,7 +134,7 @@ public abstract class BOPBiome extends Biome implements IExtendedBiome
 
                 // Look for an entity class matching this name
                 // case insensitive, dot used as mod delimiter, no spaces or underscores
-                // eg  'villager', 'Zombie', 'SQUID', 'enderdragon', 'biomesoplenty.wasp' all ok
+                // eg  'villager', 'Zombie', 'SQUID', 'enderdragon' all ok
                 Class <? extends Entity> entityClazz = ForgeRegistries.ENTITIES.getValue(new ResourceLocation(entityName)).getEntityClass();
                 Class <? extends EntityLiving> livingClazz = null;
                 if (!(entityClazz.isAssignableFrom(EntityLiving.class))) {

@@ -15,7 +15,6 @@ import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.config.IConfigObj;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.enums.BOPFlowers;
-import biomesoplenty.api.enums.BOPGems;
 import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.block.BlockBOPDirt;
@@ -58,7 +57,7 @@ public class BiomeGenXericShrubland extends BOPOverworldBiome
         this.canSpawnInBiome = false;
         this.canGenerateVillages = true;
         
-        this.addWeight(BOPClimates.HOT_DESERT, 3);
+        this.addWeight(BOPClimates.SAVANNA, 2);
         
         this.spawnableCreatureList.clear();
         this.spawnableCreatureList.add(new SpawnListEntry(EntityRabbit.class, 4, 2, 3));
@@ -73,18 +72,13 @@ public class BiomeGenXericShrubland extends BOPOverworldBiome
         this.addGenerator("dunegrass", GeneratorStage.GRASS, (new GeneratorGrass.Builder()).amountPerChunk(10.0F).with(BOPPlants.DUNEGRASS).placeOn(this.topBlock).generationAttempts(8).create());
         this.addGenerator("desertgrass", GeneratorStage.GRASS, (new GeneratorGrass.Builder()).amountPerChunk(2.0F).with(BOPPlants.DESERTGRASS).generationAttempts(8).create());
         this.addGenerator("desert_sprouts", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(4.0F).with(BOPPlants.DESERTSPROUTS).generationAttempts(8).create());
-        this.addGenerator("bromeliad", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder().amountPerChunk(0.2F).with(BOPFlowers.BROMELIAD).generationAttempts(8).create()));
         this.addGenerator("dead_bushes", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(1.0F).with(Blocks.DEADBUSH.getDefaultState()).create());
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(1.0F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("shortgrass", 7, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
-        grassGenerator.add("mediumgrass", 3, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());
-        grassGenerator.add("tallgrass", 1, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).create());
-        
-        // gem
-        this.addGenerator("ruby", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.RUBY).create());    
+        grassGenerator.add("tallgrass", 1, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).create()); 
     }
     
     @Override

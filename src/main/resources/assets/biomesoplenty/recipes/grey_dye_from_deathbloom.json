@@ -3,12 +3,12 @@
   "ingredients": [
     {
       "item": "biomesoplenty:flower_0",
-      "data": 11
+      "data": 2
     }
   ],
   "result": {
     "item": "minecraft:dye",
     "count": 2,
-    "data": 11
+    "data": 8
   }
 }

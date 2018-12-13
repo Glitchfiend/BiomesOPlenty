@@ -12,20 +12,15 @@ import java.util.Random;
 
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.api.config.IConfigObj;
 import biomesoplenty.api.enums.BOPClimates;
-import biomesoplenty.api.enums.BOPGems;
 import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.block.BlockBOPDirt;
 import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.world.generator.GeneratorFlora;
 import biomesoplenty.common.world.generator.GeneratorGrass;
-import biomesoplenty.common.world.generator.GeneratorOreSingle;
 import biomesoplenty.common.world.generator.GeneratorWaterside;
 import biomesoplenty.common.world.generator.GeneratorWeighted;
-import net.minecraft.block.BlockTallGrass;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.passive.EntityDonkey;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.passive.EntityLlama;
@@ -33,8 +28,6 @@ import net.minecraft.entity.passive.EntityRabbit;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.feature.WorldGenFossils;
 
 public class BiomeGenSteppe extends BOPOverworldBiome
@@ -52,7 +45,7 @@ public class BiomeGenSteppe extends BOPOverworldBiome
         this.canSpawnInBiome = false;
         this.canGenerateVillages = true;
         
-        this.addWeight(BOPClimates.DRY_TEMPERATE, 5);
+        this.addWeight(BOPClimates.DRY_TEMPERATE, 7);
         
         if (BOPBiomes.gravel_beach.isPresent())
         {
@@ -63,9 +56,7 @@ public class BiomeGenSteppe extends BOPOverworldBiome
         this.spawnableCreatureList.add(new SpawnListEntry(EntityDonkey.class, 1, 1, 1));
         this.spawnableCreatureList.add(new SpawnListEntry(EntityLlama.class, 5, 4, 6));
         this.spawnableCreatureList.add(new SpawnListEntry(EntityRabbit.class, 4, 2, 3));
-        
-        // should the Steppe not have some splattered gravel and coarse dirt?
-        
+
         // sand
         this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.SAND.getDefaultState()).create());
 
@@ -77,10 +68,6 @@ public class BiomeGenSteppe extends BOPOverworldBiome
         GeneratorWeighted grassGenerator = new GeneratorWeighted(1.9F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("shortgrass", 7, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
-        grassGenerator.add("mediumgrass", 2, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());
-
-        // gem
-        this.addGenerator("ruby", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.RUBY).create());
     }
     
     @Override

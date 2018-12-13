@@ -14,8 +14,7 @@ import net.minecraft.util.IStringSerializable;
 
 public enum BOPWoods implements IStringSerializable, IPagedVariants
 {
-    
-    SACRED_OAK, CHERRY, UMBRAN, FIR, ETHEREAL, MAGIC, MANGROVE, PALM, REDWOOD, WILLOW, PINE, HELLBARK, JACARANDA, MAHOGANY, EBONY, EUCALYPTUS, GIANT_FLOWER, DEAD;
+	FIR, REDWOOD, CHERRY, MAHOGANY, JACARANDA, PALM, WILLOW, EBONY, DEAD, MAGIC, UMBRAN, HELLBARK, ETHEREAL;
     
     @Override
     public String getName() {
@@ -29,7 +28,7 @@ public enum BOPWoods implements IStringSerializable, IPagedVariants
     public boolean hasPlanks()
     {
         switch (this) {
-            case GIANT_FLOWER: case DEAD:
+            case DEAD:
                 return false;
             default:
                 return true;
@@ -37,12 +36,7 @@ public enum BOPWoods implements IStringSerializable, IPagedVariants
     }
     public boolean canMakeCharcoal()
     {
-        switch (this) {
-            case GIANT_FLOWER:
-                return false;
-            default:
-                return true;
-        }
+        return true;
     }
     
     public static Predicate withPlanks = new Predicate<BOPWoods>()

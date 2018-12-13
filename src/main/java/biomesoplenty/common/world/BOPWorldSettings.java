@@ -74,15 +74,6 @@ public class BOPWorldSettings implements IBOPWorldSettings
     public RainfallVariationScheme rainScheme = RainfallVariationScheme.MEDIUM_ZONES;
     public BiomeSize biomeSize = BiomeSize.MEDIUM;
     public float amplitude = 1.0F;
-    public boolean generateBopGems = true;
-    public boolean generatePoisonIvy = false;
-    public boolean generateBerryBushes = true;
-    public boolean generateThorns = true;
-    public boolean generateQuicksand = true;
-    public boolean generateLiquidPoison = true;
-    public boolean generateHotSprings = true;
-    public boolean generateNetherHives = true;
-    public boolean generateEndFeatures = true;
     
     
     // Vanilla properties - not configurable (yet) but included for consistency with vanilla ChunkProviderSettings
@@ -131,15 +122,6 @@ public class BOPWorldSettings implements IBOPWorldSettings
         obj.addProperty("rainScheme", this.rainScheme.name().toLowerCase());
         obj.addProperty("biomeSize", this.biomeSize.name().toLowerCase());
         obj.addProperty("amplitude", this.amplitude);
-        obj.addProperty("generateBopOre", this.generateBopGems);
-        obj.addProperty("generatePoisonIvy", this.generatePoisonIvy);
-        obj.addProperty("generateBerryBushes", this.generateBerryBushes);
-        obj.addProperty("generateThorns", this.generateThorns);
-        obj.addProperty("generateQuicksand", this.generateQuicksand);
-        obj.addProperty("generateLiquidPoison", this.generateLiquidPoison);
-        obj.addProperty("generateHotSprings", this.generateHotSprings);
-        obj.addProperty("generateNetherHives", this.generateNetherHives);
-        obj.addProperty("generateEndFeatures", this.generateEndFeatures);
         obj.addProperty("mainNoiseScaleX", this.mainNoiseScaleX);
         obj.addProperty("mainNoiseScaleY", this.mainNoiseScaleY);
         obj.addProperty("mainNoiseScaleZ", this.mainNoiseScaleZ);
@@ -163,15 +145,6 @@ public class BOPWorldSettings implements IBOPWorldSettings
         this.rainScheme = worldConfig.getEnum("rainScheme", this.rainScheme, RainfallVariationScheme.class);
         this.biomeSize = worldConfig.getEnum("biomeSize", this.biomeSize, BiomeSize.class);
         this.amplitude = worldConfig.getFloat("amplitude", this.amplitude);
-        this.generateBopGems = worldConfig.getBool("generateBopOre", this.generateBopGems);
-        this.generatePoisonIvy = worldConfig.getBool("generatePoisonIvy", this.generatePoisonIvy);
-        this.generateBerryBushes = worldConfig.getBool("generateBerryBushes", this.generateBerryBushes);
-        this.generateThorns = worldConfig.getBool("generateThorns", this.generateThorns);
-        this.generateQuicksand = worldConfig.getBool("generateQuicksand", this.generateQuicksand);
-        this.generateLiquidPoison = worldConfig.getBool("generateLiquidPoison", this.generateLiquidPoison);
-        this.generateHotSprings = worldConfig.getBool("generateHotSprings", this.generateHotSprings);
-        this.generateNetherHives = worldConfig.getBool("generateNetherHives", this.generateNetherHives);
-        this.generateEndFeatures = worldConfig.getBool("generateEndFeatures", this.generateEndFeatures);
         this.mainNoiseScaleX = worldConfig.getFloat("mainNoiseScaleX", this.mainNoiseScaleX);
         this.mainNoiseScaleY = worldConfig.getFloat("mainNoiseScaleY", this.mainNoiseScaleY);
         this.mainNoiseScaleZ = worldConfig.getFloat("mainNoiseScaleZ", this.mainNoiseScaleZ);
@@ -190,15 +163,6 @@ public class BOPWorldSettings implements IBOPWorldSettings
         this.rainScheme = RainfallVariationScheme.MEDIUM_ZONES;
         this.biomeSize = BiomeSize.MEDIUM;
         this.amplitude = 1.0F;
-        this.generateBopGems = true;  
-        this.generatePoisonIvy = false;  
-        this.generateBerryBushes = true;  
-        this.generateThorns = true;  
-        this.generateQuicksand = true; 
-        this.generateLiquidPoison = true; 
-        this.generateHotSprings = true;
-        this.generateNetherHives = true;
-        this.generateEndFeatures = true;
         
         // Vanilla default values
         this.seaLevel = 63;
@@ -235,29 +199,6 @@ public class BOPWorldSettings implements IBOPWorldSettings
     @Override
     public boolean isEnabled(GeneratorType type)
     {
-        switch (type)
-        {
-        case GEMS: 
-            return this.generateBopGems;
-        case POISON_IVY: 
-            return this.generatePoisonIvy;
-        case BERRY_BUSHES: 
-            return this.generateBerryBushes;
-        case THORNS: 
-            return this.generateThorns;
-        case QUICKSAND: 
-            return this.generateQuicksand;
-        case LIQUID_POISON: 
-            return this.generateLiquidPoison;
-        case HOT_SPRINGS: 
-            return this.generateHotSprings;
-        case NETHER_HIVES: 
-            return this.generateNetherHives;
-        case END_FEATURES:
-            return this.generateEndFeatures;
-
-        default:
-            return true;
-        }
+        return true;
     }    
 }

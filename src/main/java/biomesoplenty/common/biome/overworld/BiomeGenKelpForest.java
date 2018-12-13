@@ -10,14 +10,12 @@ package biomesoplenty.common.biome.overworld;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
-import biomesoplenty.api.enums.BOPGems;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.block.BlockBOPCoral;
 import biomesoplenty.common.util.biome.BiomeUtils;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.world.generator.GeneratorColumns;
 import biomesoplenty.common.world.generator.GeneratorFlora;
-import biomesoplenty.common.world.generator.GeneratorOreSingle;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
  
@@ -45,8 +43,5 @@ public class BiomeGenKelpForest extends BOPOverworldBiome
         // kelp
         this.addGenerator("kelp", GeneratorStage.LILYPAD, (new GeneratorColumns.Builder()).amountPerChunk(5.0F).replace(BlockQueries.waterCovered).placeOn(BlockQueries.groundBlocks).with(BOPBlocks.seaweed.getDefaultState()).scatterYMethod(ScatterYMethod.AT_GROUND).create());
         this.addGenerator("kelp_tall", GeneratorStage.LILYPAD, (new GeneratorColumns.Builder()).amountPerChunk(6.0F).replace(BlockQueries.waterCovered).placeOn(BlockQueries.groundBlocks).with(BOPBlocks.seaweed.getDefaultState()).minHeight(6).maxHeight(12).scatterYMethod(ScatterYMethod.AT_GROUND).create());
-        
-        // gem
-        this.addGenerator("sapphire", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.SAPPHIRE).create()); 
     }
 }

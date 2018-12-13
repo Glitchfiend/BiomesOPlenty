@@ -13,17 +13,13 @@ import java.util.Random;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.api.enums.BOPClimates;
-import biomesoplenty.api.enums.BOPGems;
 import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.api.enums.BOPWoods;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.util.block.BlockQuery;
-import biomesoplenty.common.world.generator.GeneratorLakes;
-import biomesoplenty.common.world.generator.GeneratorOreSingle;
 import biomesoplenty.common.world.generator.GeneratorWeighted;
 import biomesoplenty.common.world.generator.tree.GeneratorMangroveTree;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -38,8 +34,8 @@ public class BiomeGenMangrove extends BOPOverworldBiome
 
         // terrain
         this.terrainSettings.avgHeight(62).heightVariation(8, 2).octaves(0, 1, 2, 2, 1, 0);
-        
-        this.addWeight(BOPClimates.HOT_SWAMP, 7);
+
+        this.clearWeights();
         
         this.seaFloorBlock = BOPBlocks.mud.getDefaultState();
         
@@ -53,18 +49,6 @@ public class BiomeGenMangrove extends BOPOverworldBiome
         this.spawnableCreatureList.clear();
         
         this.beachBiomeLocation = null;
-        
-        // quicksand
-        this.addGenerator("quicksand", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.2F).liquid(BOPBlocks.sand).frozenLiquid((IBlockState)null).create());
-        
-        // trees & logs
-        IBlockPosQuery emptyMud = BlockQuery.buildAnd().states(this.topBlock).create();
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(5);
-        this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("mangrove", 1, (new GeneratorMangroveTree.Builder()).placeOn(emptyMud).log(BOPWoods.MANGROVE).leaves(BOPTrees.MANGROVE).create());
-        
-        // gem
-        this.addGenerator("sapphire", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.SAPPHIRE).create()); 
     }
     
     @Override

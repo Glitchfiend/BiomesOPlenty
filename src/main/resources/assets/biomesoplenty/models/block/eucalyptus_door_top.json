@@ -1,7 +1,0 @@
-{
-    "parent": "block/door_top",
-    "textures": {
-        "bottom": "biomesoplenty:blocks/door_eucalyptus_lower",
-        "top": "biomesoplenty:blocks/door_eucalyptus_upper"
-    }
-}

@@ -1,6 +1,0 @@
-{
-    "parent": "block/cross",
-    "textures": {
-        "cross": "biomesoplenty:blocks/lily_of_the_valley"
-    }
-}

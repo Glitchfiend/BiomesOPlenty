@@ -42,6 +42,5 @@ public class BiomeVisceralHeap extends BOPHellBiome
     
         IBlockPosQuery emptyFlesh = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();
         this.addGenerator("bones", GeneratorStage.FLOWERS,(new GeneratorColumns.Builder()).amountPerChunk(1.5F).placeOn(emptyFlesh).scatterYMethod(ScatterYMethod.NETHER_SURFACE).with(Blocks.BONE_BLOCK.getDefaultState().withProperty(BlockBone.AXIS, EnumFacing.Axis.Y)).minHeight(1).maxHeight(4).create());
-        this.addGenerator("eyebulbs", GeneratorStage.FLOWERS, (new GeneratorDoubleFlora.Builder()).generationAttempts(16).amountPerChunk(1.0F).scatterYMethod(ScatterYMethod.NETHER_SURFACE).with(BlockBOPDoublePlant.DoublePlantType.EYEBULB).create());
     }
 }

@@ -122,9 +122,9 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
     {
         switch (plant)
         {
-            case SHRUB: case LEAFPILE: case POISONIVY: case BUSH: case BERRYBUSH:
+            case LEAFPILE: case BUSH: case BERRYBUSH:
             return ColoringType.LIKE_LEAVES;
-            case SHORTGRASS: case MEDIUMGRASS: case SPROUT: case KORU: case CLOVERPATCH: case WHEATGRASS: case DAMPGRASS: case DEVILWEED:
+            case SHORTGRASS: case KORU: case DEVILWEED:
             return ColoringType.LIKE_GRASS;
             default:
                 return ColoringType.PLAIN;
@@ -165,7 +165,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
 
             switch ((BOPPlants) state.getValue(BlockBOPPlant.this.variantProperty))
             {
-                case BUSH: case BERRYBUSH: case SHRUB:
+                case BUSH: case BERRYBUSH:
                     return 0xFFFFFF;
 
                 default:
@@ -231,7 +231,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
         BOPPlants plant = (BOPPlants) state.getValue(this.variantProperty);
         switch (plant)
         {
-            case SHORTGRASS: case MEDIUMGRASS: case WHEATGRASS: case DAMPGRASS:
+            case SHORTGRASS:
                 if (rand.nextInt(8) == 0)
                 {
                     // 1 in 8 chance of getting a seed from this grass
@@ -239,27 +239,11 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
                 }
                 break;
                 
-            case SPROUT:
-                if (rand.nextInt(50) == 0)
-                {
-                    // in in 50 chance of getting a carrot or potato from SPROUT
-                    ret.add(new ItemStack(rand.nextInt(2) == 0 ? Items.CARROT : Items.POTATO));
-                }
-                break;
-                
             case BERRYBUSH:
                 // BERRYBUSH always drops berries
                 ret.add(new ItemStack(BOPItems.berries));
                 break;
-                
-            case WILDRICE:
-                // wildrice drops itself only 1 in 5 times
-                if (rand.nextInt(5) == 0)
-                {
-                    ret.add(paging.getVariantItem(plant));
-                }
-                break;
-                
+
             case BARLEY:
                 if (rand.nextInt(3) == 0)
                 {
@@ -268,7 +252,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
                 }
                 break;
                 
-            case CATTAIL: case RIVERCANE: case TINYCACTUS: case REED: case ROOT: case RAFFLESIA:
+            case CATTAIL: case TINYCACTUS: case REED: case ROOT: case RAFFLESIA:
                 // these variants drop themselves as items
                 ret.add(paging.getVariantItem(plant));
                 break;
@@ -289,7 +273,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
         
         switch (plant)
         {
-            case THORN: case WILDRICE: case CATTAIL: case RIVERCANE: case TINYCACTUS: case RAFFLESIA:
+            case THORN: case CATTAIL: case TINYCACTUS: case RAFFLESIA:
                 return false;
             
             default:
@@ -304,7 +288,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
     	BOPPlants plant = (BOPPlants) state.getValue(this.variantProperty);
         switch (plant)
         {
-	        case CLOVERPATCH: case RAFFLESIA:
+	        case RAFFLESIA:
 	        	return new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.4000000357627869D, 0.9375D);
             case LEAFPILE: case DEADLEAFPILE:
             	return new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.09375D, 0.9375D);
@@ -340,9 +324,6 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
                 return BlockQueries.fertileOrNetherrack.matches(world, pos.down()) || BlockQueries.sustainsNether.matches(world, pos.down());
             case CATTAIL:
                 return BlockQueries.litFertileWaterside.matches(world, pos.down());
-            case RIVERCANE:
-                // river cane can also be placed on top of itself
-                return BlockQueries.litFertileWaterside.matches(world, pos.down()) || (world.getBlockState(pos.down()) == state);
             case DEVILWEED:
                 return BlockQueries.fertile.matches(world, pos.down());
             case REED:
@@ -356,29 +337,6 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
                 return BlockQueries.litFertile.matches(world, pos.down());            
         }
     }
-    
-    
-    
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) 
-    {
-        switch ((BOPPlants) state.getValue(this.variantProperty))
-        {
-            // poison ivy throws up occasional spell particles
-            case POISONIVY:
-                if (rand.nextInt(32)==0)
-                {           
-                    world.spawnParticle(EnumParticleTypes.SPELL_MOB, (double)((float)pos.getX() + rand.nextFloat()), (double)((float)pos.getY() + 1.1F), (double)((float)pos.getZ() + rand.nextFloat()), 0.0D, 0.0D, 0.0D);
-                }
-                break;
-                
-            default:
-                break;
-        }
-        super.randomDisplayTick(state, world, pos, rand);
-    }
-    
     
     @Override
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
@@ -405,16 +363,6 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
     {
         switch ((BOPPlants) state.getValue(this.variantProperty))
         {
-            case POISONIVY:
-                // poison ivy poisons players who walk into it, unless they're wearing boots and pants
-                if (entity instanceof EntityPlayer) {
-                	InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
-                    if (inventory.armorInventory.get(0) != ItemStack.EMPTY && inventory.armorInventory.get(1) != ItemStack.EMPTY) {
-                        break;
-                    }
-                    ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.POISON, 100));
-                }
-                break;
             case THORN: case TINYCACTUS:
             	// thorns and tiny cacti damage players who walk into them, unless they're wearing boots and pants
                 if (entity instanceof EntityPlayer) {
@@ -425,6 +373,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
                     entity.attackEntityFrom(DamageSource.CACTUS, 1);
                 }
                 break;
+                
             default:
                 break;
         }
@@ -458,7 +407,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
         IBlockState state = world.getBlockState(pos);
         switch ((BOPPlants) state.getValue(this.variantProperty))
         {
-            case CATTAIL: case RIVERCANE:
+            case CATTAIL:
                 return false;
             default:
                 return true;
@@ -475,7 +424,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
         BOPPlants plant = ((BOPPlants) world.getBlockState(pos).getValue(this.variantProperty));
         switch (plant)
         {
-            case CATTAIL: case RIVERCANE: case TINYCACTUS: case REED: case ROOT:
+            case CATTAIL: case TINYCACTUS: case REED: case ROOT:
                 // these items drop themselves as items when the block is broken (from getDrops), so we don't want to add anything else for using shears
                 break;
                 
@@ -499,11 +448,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
         BOPPlants plant = ((BOPPlants) world.getBlockState(pos).getValue(this.variantProperty));
         switch (plant)
         {
-            case WILDRICE:
-                return 0;
             case CATTAIL:
-                return 0;
-            case RIVERCANE:
                 return 0;
             case DEVILWEED:
                 return 0;
@@ -524,11 +469,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
     	BOPPlants plant = ((BOPPlants) world.getBlockState(pos).getValue(this.variantProperty));
         switch (plant)
         {
-            case WILDRICE:
-                return 0;
             case CATTAIL:
-                return 0;
-            case RIVERCANE:
                 return 0;
             case DEVILWEED:
                 return 0;
@@ -553,7 +494,6 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
         {
             case BUSH:
             case BERRYBUSH:
-            case RIVERCANE:
             case TINYCACTUS:
                 return false;
             default:

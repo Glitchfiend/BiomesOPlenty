@@ -8,10 +8,8 @@
 
 package biomesoplenty.common.item;
 
-import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.common.block.BlockBOPSapling;
 import net.minecraft.block.Block;
-import net.minecraft.item.ItemStack;
 
 public class ItemBOPSapling extends ItemBOPBlock
 {
@@ -26,18 +24,4 @@ public class ItemBOPSapling extends ItemBOPBlock
         }
         this.saplingBlock = (BlockBOPSapling)block;
     }
-    
-    @Override
-    public boolean hasEffect(ItemStack stack)
-    {
-        BOPTrees tree = BlockBOPSapling.paging.getVariant(this.saplingBlock, stack.getMetadata());
-        switch (tree)
-        {
-            case SACRED_OAK:
-                return true;
-            default:
-                return super.hasEffect(stack); 
-        }
-    }
-    
 }

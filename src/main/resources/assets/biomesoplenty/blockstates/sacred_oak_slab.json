@@ -1,6 +1,0 @@
-{
-    "variants": {
-        "half=bottom": { "model": "biomesoplenty:half_slab_sacred_oak" },
-        "half=top": { "model": "biomesoplenty:upper_slab_sacred_oak" }
-    }
-}

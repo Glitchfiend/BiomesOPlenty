@@ -12,7 +12,6 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.enums.BOPFlowers;
-import biomesoplenty.api.enums.BOPGems;
 import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.api.generation.GeneratorStage;
@@ -20,14 +19,12 @@ import biomesoplenty.common.block.BlockBOPDirt;
 import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.world.generator.GeneratorFlora;
 import biomesoplenty.common.world.generator.GeneratorGrass;
-import biomesoplenty.common.world.generator.GeneratorOreSingle;
 import biomesoplenty.common.world.generator.GeneratorWeighted;
 import biomesoplenty.common.world.generator.tree.GeneratorBasicTree;
 import biomesoplenty.common.world.generator.tree.GeneratorBigTree;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.entity.passive.EntityRabbit;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.biome.Biome;
 
 
 public class BiomeGenSnowyForest extends BOPOverworldBiome
@@ -46,7 +43,7 @@ public class BiomeGenSnowyForest extends BOPOverworldBiome
         
         this.canGenerateVillages = false;
 
-        this.addWeight(BOPClimates.TUNDRA, 7);
+        this.addWeight(BOPClimates.TUNDRA, 5);
          
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(3);
@@ -58,11 +55,9 @@ public class BiomeGenSnowyForest extends BOPOverworldBiome
         GeneratorWeighted grassGenerator = new GeneratorWeighted(1.0F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("shortgrass", 2, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
-        grassGenerator.add("mediumgrass", 2, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());
         grassGenerator.add("tallgrass", 1, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).create());
 
         // other plants
-        //this.addGenerator("shrubs", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.05F).with(BOPPlants.SHRUB).create());
         this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).placeOn(BlockQueries.fertile).with(BOPPlants.LEAFPILE).create());
         this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.4F).placeOn(BlockQueries.fertile).with(BOPPlants.DEADLEAFPILE).create());
         
@@ -70,9 +65,6 @@ public class BiomeGenSnowyForest extends BOPOverworldBiome
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.3F);
         this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
         flowerGenerator.add("violets", 1, (new GeneratorFlora.Builder().with(BOPFlowers.VIOLET).create()));
-        
-        // gem
-        this.addGenerator("tanzanite", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(BOPGems.TANZANITE).create());
     }
     
     @Override

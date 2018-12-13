@@ -20,7 +20,6 @@ import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.common.block.BlockBOPDecoration;
 import biomesoplenty.common.block.BlockBOPFlower;
 import biomesoplenty.common.block.BlockBOPLeaves;
-import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
@@ -49,7 +48,6 @@ public class GeneratorFlora extends GeneratorReplacing
         public T with(BOPPlants a) {this.with = BlockBOPPlant.paging.getVariantState(a); return this.self();}
         public T with(BOPFlowers a) {this.with = BlockBOPFlower.paging.getVariantState(a); return this.self();}
         public T with(BlockBOPMushroom.MushroomType a) {this.with = BOPBlocks.mushroom.getDefaultState().withProperty(BlockBOPMushroom.VARIANT, a); return this.self();}
-        public T with(BlockBOPLilypad.LilypadType a) {this.with = BOPBlocks.waterlily.getDefaultState().withProperty(BlockBOPLilypad.VARIANT, a); return this.self();}
         public T with(BlockFlower.EnumFlowerType a)
         {
             BlockFlower flowerBlock = a.getBlockType().getBlock();

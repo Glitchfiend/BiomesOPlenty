@@ -22,14 +22,13 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RenderBOPBoat extends Render<EntityBOPBoat>
 {
-    private static final ResourceLocation[] BOAT_TEXTURES = new ResourceLocation[] {new ResourceLocation("biomesoplenty:textures/entity/boats/boat_sacred_oak.png"), new ResourceLocation("biomesoplenty:textures/entity/boats/boat_cherry.png"),
+    private static final ResourceLocation[] BOAT_TEXTURES = new ResourceLocation[] {new ResourceLocation("biomesoplenty:textures/entity/boats/boat_cherry.png"),
     		new ResourceLocation("biomesoplenty:textures/entity/boats/boat_umbran.png"), new ResourceLocation("biomesoplenty:textures/entity/boats/boat_fir.png"),
     		new ResourceLocation("biomesoplenty:textures/entity/boats/boat_ethereal.png"), new ResourceLocation("biomesoplenty:textures/entity/boats/boat_magic.png"),
-    		new ResourceLocation("biomesoplenty:textures/entity/boats/boat_mangrove.png"), new ResourceLocation("biomesoplenty:textures/entity/boats/boat_palm.png"),
-    		new ResourceLocation("biomesoplenty:textures/entity/boats/boat_redwood.png"), new ResourceLocation("biomesoplenty:textures/entity/boats/boat_willow.png"),
-    		new ResourceLocation("biomesoplenty:textures/entity/boats/boat_pine.png"), new ResourceLocation("biomesoplenty:textures/entity/boats/boat_hellbark.png"),
+    		new ResourceLocation("biomesoplenty:textures/entity/boats/boat_palm.png"), new ResourceLocation("biomesoplenty:textures/entity/boats/boat_redwood.png"),
+    		new ResourceLocation("biomesoplenty:textures/entity/boats/boat_willow.png"), new ResourceLocation("biomesoplenty:textures/entity/boats/boat_hellbark.png"),
     		new ResourceLocation("biomesoplenty:textures/entity/boats/boat_jacaranda.png"), new ResourceLocation("biomesoplenty:textures/entity/boats/boat_mahogany.png"),
-    		new ResourceLocation("biomesoplenty:textures/entity/boats/boat_ebony.png"), new ResourceLocation("biomesoplenty:textures/entity/boats/boat_eucalyptus.png")};
+    		new ResourceLocation("biomesoplenty:textures/entity/boats/boat_ebony.png")};
     protected ModelBase modelBOPBoat = new ModelBOPBoat();
 
     public RenderBOPBoat(RenderManager renderManagerIn)
