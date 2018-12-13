@@ -14,6 +14,7 @@
 		"variant=thorn": { "model": "biomesoplenty:thorn" },
 		"variant=tinycactus": { "model": "biomesoplenty:tinycactus" },
 		"variant=cattail": { "model": "biomesoplenty:cattail" },
-		"variant=reed": { "model": "biomesoplenty:reed" }
+		"variant=reed": { "model": "biomesoplenty:reed" },
+		"variant=watergrass": { "model": "biomesoplenty:watergrass" }
     }
 }

@@ -124,7 +124,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
         {
             case LEAFPILE: case BUSH: case BERRYBUSH:
             return ColoringType.LIKE_LEAVES;
-            case SHORTGRASS: case KORU: case DEVILWEED:
+            case SHORTGRASS: case KORU: case DEVILWEED: case WATERGRASS:
             return ColoringType.LIKE_GRASS;
             default:
                 return ColoringType.PLAIN;
@@ -252,7 +252,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
                 }
                 break;
                 
-            case CATTAIL: case TINYCACTUS: case REED: case ROOT: case RAFFLESIA:
+            case CATTAIL: case TINYCACTUS: case REED: case WATERGRASS: case ROOT: case RAFFLESIA:
                 // these variants drop themselves as items
                 ret.add(paging.getVariantItem(plant));
                 break;
@@ -326,7 +326,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
                 return BlockQueries.litFertileWaterside.matches(world, pos.down());
             case DEVILWEED:
                 return BlockQueries.fertile.matches(world, pos.down());
-            case REED:
+            case REED: case WATERGRASS:
                 return BlockQueries.suitableForReed.matches(world, pos.down());
             case ROOT:
                 // roots hang down - check against block above
@@ -424,7 +424,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
         BOPPlants plant = ((BOPPlants) world.getBlockState(pos).getValue(this.variantProperty));
         switch (plant)
         {
-            case CATTAIL: case TINYCACTUS: case REED: case ROOT:
+            case CATTAIL: case TINYCACTUS: case REED: case WATERGRASS: case ROOT:
                 // these items drop themselves as items when the block is broken (from getDrops), so we don't want to add anything else for using shears
                 break;
                 
@@ -449,13 +449,10 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
         switch (plant)
         {
             case CATTAIL:
-                return 0;
             case DEVILWEED:
-                return 0;
             case REED:
-                return 0;
+            case WATERGRASS:
             case ROOT:
-                return 0;
             case RAFFLESIA:
                 return 0;
             default:
@@ -470,13 +467,10 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
         switch (plant)
         {
             case CATTAIL:
-                return 0;
             case DEVILWEED:
-                return 0;
             case REED:
-                return 0;
+            case WATERGRASS:
             case ROOT:
-                return 0;
             case RAFFLESIA:
                 return 0;
             default:

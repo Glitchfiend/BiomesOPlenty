@@ -107,7 +107,7 @@ public class BiomeGenBog extends BOPOverworldBiome
         this.addGenerator("red_mushrooms", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).generationAttempts(16).with(Blocks.RED_MUSHROOM.getDefaultState()).create());
         this.addGenerator("toadstools", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).generationAttempts(16).with(BlockBOPMushroom.MushroomType.TOADSTOOL).create());
         
-        this.addGenerator("big_brown_mushroom", GeneratorStage.BIG_SHROOM,(new GeneratorBigMushroom.Builder()).amountPerChunk(0.2F).minHeight(4).maxHeight(5).mushroomType(GeneratorBigMushroom.BigMushroomType.BROWN).create());
+        this.addGenerator("big_brown_mushroom", GeneratorStage.BIG_SHROOM,(new GeneratorBigMushroom.Builder()).amountPerChunk(0.2F).minHeight(5).maxHeight(7).mushroomType(GeneratorBigMushroom.BigMushroomType.BROWN).create());
     }
     
     @Override

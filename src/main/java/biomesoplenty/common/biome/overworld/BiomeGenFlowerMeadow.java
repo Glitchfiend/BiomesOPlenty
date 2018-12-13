@@ -45,13 +45,13 @@ public class BiomeGenFlowerMeadow extends BOPOverworldBiome
         }
         
         // trees & logs
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(1.0F);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(1.5F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("oak_bush", 5, (new GeneratorBush.Builder()).maxHeight(2).create());
         treeGenerator.add("spruce", 1, (new GeneratorTaigaTree.Builder()).maxHeight(13).create());
        
         // flowers
-        GeneratorWeighted flowerGenerator = new GeneratorWeighted(16.0F);
+        GeneratorWeighted flowerGenerator = new GeneratorWeighted(15.0F);
         this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
         flowerGenerator.add("pink_tulip", 6, (new GeneratorFlora.Builder().with(EnumFlowerType.PINK_TULIP).create()));
         flowerGenerator.add("white_tulip", 9, (new GeneratorFlora.Builder().with(EnumFlowerType.WHITE_TULIP).create()));
@@ -66,14 +66,14 @@ public class BiomeGenFlowerMeadow extends BOPOverworldBiome
         flowerGenerator.add("sunflower", 2, (new GeneratorDoubleFlora.Builder().with(BlockDoublePlant.EnumPlantType.SUNFLOWER).create()));
         
         // grasses
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(2.0F);
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(3.0F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("shortgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
         grassGenerator.add("tallgrass", 2, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).create());
         
         // other plants
         this.addGenerator("bushes", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BOPPlants.BUSH).create());
-        this.addGenerator("flax", GeneratorStage.FLOWERS,(new GeneratorDoubleFlora.Builder()).amountPerChunk(0.2F).with(BlockBOPDoublePlant.DoublePlantType.FLAX).generationAttempts(6).create());
+        this.addGenerator("flax", GeneratorStage.FLOWERS,(new GeneratorDoubleFlora.Builder()).amountPerChunk(0.3F).with(BlockBOPDoublePlant.DoublePlantType.FLAX).generationAttempts(6).create());
     }
     
     @Override

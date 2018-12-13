@@ -40,7 +40,7 @@ public class ItemBOPPlant extends ItemBOPBlock {
             BlockBOPPlant block = (BlockBOPPlant)this.block;
             IBlockState state = block.getStateFromMeta( itemStackIn.getMetadata() );
             BOPPlants plant = ((BOPPlants) state.getValue(block.variantProperty));
-            if (plant == BOPPlants.REED)
+            if (plant == BOPPlants.REED || plant == BOPPlants.WATERGRASS)
             {
                 
                 RayTraceResult movingobjectposition = this.rayTrace(worldIn, playerIn, true);
@@ -73,7 +73,7 @@ public class ItemBOPPlant extends ItemBOPBlock {
                             // special case for handling block placement with reeds
                             net.minecraftforge.common.util.BlockSnapshot blocksnapshot = net.minecraftforge.common.util.BlockSnapshot.getBlockSnapshot(worldIn, blockpos1);
                                                 
-                            worldIn.setBlockState(blockpos1, BlockBOPPlant.paging.getVariantState(BOPPlants.REED));
+                            worldIn.setBlockState(blockpos1, BlockBOPPlant.paging.getVariantState(plant));
                             if (net.minecraftforge.event.ForgeEventFactory.onPlayerBlockPlace(playerIn, blocksnapshot, net.minecraft.util.EnumFacing.UP, hand).isCanceled())
                             {
                                 blocksnapshot.restore(true, false);

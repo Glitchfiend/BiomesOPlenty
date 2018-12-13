@@ -39,10 +39,10 @@ public class BiomeGenMarsh extends BOPOverworldBiome
         
     public BiomeGenMarsh()
     {
-        super("marsh", new PropsBuilder("Marsh").withGuiColour(0x66A06E).withTemperature(0.6F).withRainfall(0.8F));
+        super("marsh", new PropsBuilder("Marsh").withGuiColour(0x66A06E).withTemperature(0.65F).withRainfall(0.85F));
 
         // terrain
-        this.terrainSettings.avgHeight(62).heightVariation(5, 3).octaves(5, 5, 0, 0, 1, 1); 
+        this.terrainSettings.avgHeight(61).heightVariation(4, 3).octaves(5, 5, 0, 0, 1, 1); 
         
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.LOAMY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.LOAMY);
@@ -65,7 +65,8 @@ public class BiomeGenMarsh extends BOPOverworldBiome
         // water plants
         this.addGenerator("algae", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(10.0F).replace(Blocks.WATER).with(BOPBlocks.coral.getDefaultState().withProperty(BlockBOPCoral.VARIANT, BlockBOPCoral.CoralType.ALGAE)).generationAttempts(32).scatterYMethod(ScatterYMethod.AT_GROUND).create());
         this.addGenerator("water_reeds", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BOPPlants.REED).generationAttempts(32).create());
-
+        this.addGenerator("watergrass", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(40.0F).with(BOPPlants.WATERGRASS).generationAttempts(32).create());
+        
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(20.0F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
