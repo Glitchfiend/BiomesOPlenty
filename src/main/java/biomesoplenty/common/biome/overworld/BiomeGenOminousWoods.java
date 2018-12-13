@@ -50,7 +50,7 @@ public class BiomeGenOminousWoods extends BOPOverworldBiome
         // terrain
         this.terrainSettings.avgHeight(66).heightVariation(5, 10);
 
-        this.skyColor = 0x545B82;
+        this.skyColor = 0x384460;
 
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.LOAMY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.LOAMY);
@@ -61,8 +61,8 @@ public class BiomeGenOminousWoods extends BOPOverworldBiome
         
         this.beachBiomeLocation = null;
 
-        this.fogColor = 0x403C4F;
-        this.fogDensity = 0.2F;
+        this.fogColor = 0x3B3D4C;
+        this.fogDensity = 0.175F;
 
         this.addWeight(BOPClimates.COLD_SWAMP, 1);
         
@@ -83,8 +83,8 @@ public class BiomeGenOminousWoods extends BOPOverworldBiome
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(3.0F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
-        grassGenerator.add("shortgrass", 2, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
-        grassGenerator.add("mediumgrass", 3, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());
+        grassGenerator.add("shortgrass", 3, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
+        grassGenerator.add("mediumgrass", 2, (new GeneratorGrass.Builder()).with(BOPPlants.MEDIUMGRASS).create());
         grassGenerator.add("tallgrass", 1, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).create());
         
         // flowers
@@ -93,7 +93,7 @@ public class BiomeGenOminousWoods extends BOPOverworldBiome
         flowerGenerator.add("deathbloom", 2, (new GeneratorFlora.Builder()).with(BOPFlowers.DEATHBLOOM).create());
         
         // other plants
-        this.addGenerator("bramble", GeneratorStage.FLOWERS,(new GeneratorBramble.Builder()).maxHeight(5).minLength(10).maxLength(20).amountPerChunk(1.0F).create());
+        this.addGenerator("bramble", GeneratorStage.FLOWERS,(new GeneratorBramble.Builder()).maxHeight(4).minLength(5).maxLength(15).amountPerChunk(0.75F).create());
         this.addGenerator("poison_ivy", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).generationAttempts(16).with(BOPPlants.POISONIVY).create());
         this.addGenerator("thorns", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.3F).with(BOPPlants.THORN).create());
         this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.3F).placeOn(BlockQueries.fertile).with(BOPPlants.DEADLEAFPILE).create());
@@ -127,6 +127,6 @@ public class BiomeGenOminousWoods extends BOPOverworldBiome
     @Override
     public int getFoliageColorAtPos(BlockPos pos)
     {
-        return getModdedBiomeFoliageColor(0x604268);
+        return getModdedBiomeFoliageColor(0x5A4166);
     }
 }
