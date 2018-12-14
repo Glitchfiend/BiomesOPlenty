@@ -11,7 +11,7 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.enums.BOPFlowers;
-import biomesoplenty.api.enums.BOPPlants;
+import biomesoplenty.api.enums.BOPFoliage;
 import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.api.enums.BOPWoods;
 import biomesoplenty.api.generation.GeneratorStage;
@@ -63,7 +63,7 @@ public class BiomeUndergarden extends BOPHellBiome
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(15.0F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
-        grassGenerator.add("devilweed", 5, (new GeneratorGrass.Builder()).with(BOPPlants.DEVILWEED).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
+        grassGenerator.add("devilweed", 5, (new GeneratorGrass.Builder()).with(BOPFoliage.DEVILWEED).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
         
         // shrooms
         this.addGenerator("toadstools", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(1.5F).generationAttempts(16).scatterYMethod(ScatterYMethod.NETHER_SURFACE).with(BlockBOPMushroom.MushroomType.TOADSTOOL).create());

@@ -15,15 +15,12 @@ import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.config.IConfigObj;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.enums.BOPFlowers;
-import biomesoplenty.api.enums.BOPPlants;
+import biomesoplenty.api.enums.BOPFoliage;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.block.BlockBOPDirt;
-import biomesoplenty.common.world.generator.GeneratorColumns;
 import biomesoplenty.common.world.generator.GeneratorFlora;
 import biomesoplenty.common.world.generator.GeneratorGrass;
-import biomesoplenty.common.world.generator.GeneratorOreSingle;
 import biomesoplenty.common.world.generator.GeneratorWeighted;
-import biomesoplenty.common.world.generator.tree.GeneratorBush;
 import biomesoplenty.common.world.generator.tree.GeneratorTwigletTree;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockPlanks;
@@ -34,7 +31,6 @@ import net.minecraft.entity.passive.EntityRabbit;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.feature.WorldGenFossils;
 
@@ -72,7 +68,7 @@ public class BiomeGenXericShrubland extends BOPOverworldBiome
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(1.0F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
-        grassGenerator.add("shortgrass", 7, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
+        grassGenerator.add("shortgrass", 7, (new GeneratorGrass.Builder()).with(BOPFoliage.SHORTGRASS).create());
         grassGenerator.add("tallgrass", 1, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).create()); 
         
         // flowers
@@ -82,9 +78,9 @@ public class BiomeGenXericShrubland extends BOPOverworldBiome
         flowerGenerator.add("wildflower", 4, (new GeneratorFlora.Builder()).with(BOPFlowers.WILDFLOWER).create());
         
         // other plants
-        this.addGenerator("dunegrass", GeneratorStage.GRASS, (new GeneratorGrass.Builder()).amountPerChunk(10.0F).with(BOPPlants.DUNEGRASS).placeOn(this.topBlock).generationAttempts(8).create());
-        this.addGenerator("desertgrass", GeneratorStage.GRASS, (new GeneratorGrass.Builder()).amountPerChunk(2.0F).with(BOPPlants.DESERTGRASS).generationAttempts(8).create());
-        this.addGenerator("desert_sprouts", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(4.0F).with(BOPPlants.DESERTSPROUTS).generationAttempts(8).create());
+        this.addGenerator("dunegrass", GeneratorStage.GRASS, (new GeneratorGrass.Builder()).amountPerChunk(10.0F).with(BOPFoliage.DUNEGRASS).placeOn(this.topBlock).generationAttempts(8).create());
+        this.addGenerator("desertgrass", GeneratorStage.GRASS, (new GeneratorGrass.Builder()).amountPerChunk(2.0F).with(BOPFoliage.DESERTGRASS).generationAttempts(8).create());
+        this.addGenerator("desert_sprouts", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(4.0F).with(BOPFoliage.DESERTSPROUTS).generationAttempts(8).create());
         this.addGenerator("dead_bushes", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(0.75F).with(Blocks.DEADBUSH.getDefaultState()).create());
     }
     

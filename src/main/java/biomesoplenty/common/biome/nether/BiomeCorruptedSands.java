@@ -9,6 +9,7 @@ package biomesoplenty.common.biome.nether;
 
 import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.api.enums.BOPClimates;
+import biomesoplenty.api.enums.BOPFoliage;
 import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
@@ -36,7 +37,7 @@ public class BiomeCorruptedSands extends BOPHellBiome
         
         // splatter top blocks
         //this.addGenerator("netherrack_splatter", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(5.0F).generationAttempts(128).scatterYMethod(ScatterYMethod.NETHER_SURFACE).replace(emptySoulsand).with(Blocks.NETHERRACK.getDefaultState()).create());
-        this.addGenerator("dead_grass", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(5.0F).with(BOPPlants.DEADGRASS).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
+        this.addGenerator("dead_grass", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(5.0F).with(BOPFoliage.DEADGRASS).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
         this.addGenerator("thorns", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(3.0F).placeOn(emptySoulsand).with(BOPPlants.THORN).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
     }
 }

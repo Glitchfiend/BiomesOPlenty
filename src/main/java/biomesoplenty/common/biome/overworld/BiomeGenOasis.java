@@ -11,7 +11,7 @@ package biomesoplenty.common.biome.overworld;
 import java.util.Random;
 
 import biomesoplenty.api.block.BlockQueries;
-import biomesoplenty.api.enums.BOPFlowers;
+import biomesoplenty.api.enums.BOPFoliage;
 import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.api.enums.BOPWoods;
@@ -59,9 +59,9 @@ public class BiomeGenOasis extends BOPOverworldBiome
         treeGenerator.add("jungle_twiglet", 2, (new GeneratorTwigletTree.Builder()).placeOn(BlockQueries.litSand).minHeight(2).maxHeight(2).log(BlockPlanks.EnumType.JUNGLE).leaves(BlockPlanks.EnumType.JUNGLE).trunkFruit(Blocks.COCOA.getDefaultState()).create());
         
         // other plants
-        this.addGenerator("dunegrass", GeneratorStage.GRASS, (new GeneratorGrass.Builder()).amountPerChunk(10.0F).with(BOPPlants.DUNEGRASS).placeOn(BlockQueries.litDry).generationAttempts(8).create());
-        this.addGenerator("desert_sprouts", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(5.0F).with(BOPPlants.DESERTSPROUTS).generationAttempts(8).create());
-        this.addGenerator("desertgrass", GeneratorStage.GRASS, (new GeneratorGrass.Builder()).amountPerChunk(1.0F).with(BOPPlants.DESERTGRASS).generationAttempts(8).create());
+        this.addGenerator("dunegrass", GeneratorStage.GRASS, (new GeneratorGrass.Builder()).amountPerChunk(10.0F).with(BOPFoliage.DUNEGRASS).placeOn(BlockQueries.litDry).generationAttempts(8).create());
+        this.addGenerator("desert_sprouts", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(5.0F).with(BOPFoliage.DESERTSPROUTS).generationAttempts(8).create());
+        this.addGenerator("desertgrass", GeneratorStage.GRASS, (new GeneratorGrass.Builder()).amountPerChunk(1.0F).with(BOPFoliage.DESERTGRASS).generationAttempts(8).create());
         this.addGenerator("tiny_cacti", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(BOPPlants.TINYCACTUS).generationAttempts(8).create());
         this.addGenerator("sugar_cane", GeneratorStage.FLOWERS,(new GeneratorColumns.Builder()).amountPerChunk(2.0F).generationAttempts(24).placeOn(BlockQueries.litDryWaterside).with(Blocks.REEDS.getDefaultState()).minHeight(1).maxHeight(3).create());
     }

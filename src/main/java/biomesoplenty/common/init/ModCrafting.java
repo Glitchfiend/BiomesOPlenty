@@ -12,6 +12,7 @@ import com.google.common.base.CaseFormat;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.enums.BOPFlowers;
+import biomesoplenty.api.enums.BOPFoliage;
 import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.api.enums.BOPWoods;
@@ -20,6 +21,7 @@ import biomesoplenty.common.block.BlockBOPDoublePlant;
 import biomesoplenty.common.block.BlockBOPFence;
 import biomesoplenty.common.block.BlockBOPFenceGate;
 import biomesoplenty.common.block.BlockBOPFlower;
+import biomesoplenty.common.block.BlockBOPFoliage;
 import biomesoplenty.common.block.BlockBOPHalfWoodSlab;
 import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.block.BlockBOPLog;
@@ -123,6 +125,12 @@ public class ModCrafting
         {
             String flowerName = CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, flower.name());
             OreDictionary.registerOre("flower"+flowerName, BlockBOPFlower.paging.getVariantItem(flower));
+        }
+        
+        for (BOPFoliage plant : BOPFoliage.values())
+        {
+            String plantName = CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, plant.name());
+            OreDictionary.registerOre("plant"+plantName, BlockBOPFoliage.paging.getVariantItem(plant));
         }
         
         for (BOPPlants plant : BOPPlants.values())

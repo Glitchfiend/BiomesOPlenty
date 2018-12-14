@@ -1,12 +1,13 @@
 package biomesoplenty.common.entities.ai;
 
-import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.api.enums.BOPPlants;
-import biomesoplenty.common.block.BlockBOPDirt;
-import biomesoplenty.common.block.BlockBOPGrass;
-import biomesoplenty.common.block.BlockBOPPlant;
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
+
+import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.enums.BOPFoliage;
+import biomesoplenty.common.block.BlockBOPDirt;
+import biomesoplenty.common.block.BlockBOPFoliage;
+import biomesoplenty.common.block.BlockBOPGrass;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockGrass;
 import net.minecraft.block.BlockTallGrass;
@@ -21,7 +22,7 @@ import net.minecraft.world.World;
 public class EntityAIEatBOPGrass extends EntityAIEatGrass
 {
     private static final Predicate<IBlockState> IS_TALL_GRASS = BlockStateMatcher.forBlock(Blocks.TALLGRASS).where(BlockTallGrass.TYPE, Predicates.equalTo(BlockTallGrass.EnumType.GRASS));
-    private static final Predicate<IBlockState> IS_SHORT_GRASS = forBoPPlant(BOPPlants.SHORTGRASS);
+    private static final Predicate<IBlockState> IS_SHORT_GRASS = forBoPPlant(BOPFoliage.SHORTGRASS);
     private EntityLiving sheep;
     private World world;
     int bopEatingGrassTimer;
@@ -119,8 +120,8 @@ public class EntityAIEatBOPGrass extends EntityAIEatGrass
         }
     }
 
-    private static BlockStateMatcher forBoPPlant (BOPPlants plant)
+    private static BlockStateMatcher forBoPPlant (BOPFoliage plant)
     {
-        return BlockStateMatcher.forBlock(BOPBlocks.plant_0).where(BlockBOPPlant.paging.getVariantProperty(BlockBOPPlant.paging.getPageNum(plant)), Predicates.equalTo(plant));
+        return BlockStateMatcher.forBlock(BOPBlocks.foliage_0).where(BlockBOPFoliage.paging.getVariantProperty(BlockBOPFoliage.paging.getPageNum(plant)), Predicates.equalTo(plant));
     }
 }

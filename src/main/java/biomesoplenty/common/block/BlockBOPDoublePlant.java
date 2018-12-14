@@ -235,7 +235,7 @@ public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements ISh
     	switch ((DoublePlantType) state.getValue(VARIANT))
     	{
     		case TALL_CATTAIL:
-    			return new ItemStack(BOPBlocks.plant_1, 1, BlockBOPPlant.paging.getIndex(BOPPlants.CATTAIL));
+    			return new ItemStack(BOPBlocks.plant_0, 1, BlockBOPPlant.paging.getIndex(BOPPlants.CATTAIL));
 
     		default:
     			return new ItemStack(this, 1, ((DoublePlantType) state.getValue(VARIANT)).ordinal());

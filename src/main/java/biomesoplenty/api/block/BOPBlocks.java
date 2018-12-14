@@ -32,13 +32,8 @@ public class BOPBlocks
     public static Block ash_block;
     public static Block flesh;
     
-    public static Block coral;
-    public static Block seaweed;
-    public static Block mushroom;
-    
     public static Block blue_fire;
     
-    public static Block flower_0;
     public static Block log_0;
     public static Block log_1;
     public static Block log_2;
@@ -106,20 +101,19 @@ public class BOPBlocks
     public static Block mahogany_door;
     public static Block ebony_door;
     
-
-
-
-
-
-    
-
+    public static Block coral;
+    public static Block seaweed;
     
     public static Block ivy;
     public static Block willow_vine;
     
+    public static Block foliage_0;
     public static Block plant_0;
-    public static Block plant_1;
     public static Block double_plant;
+    public static Block flower_0;
+    
+    public static Block flat_plant;
+    public static Block mushroom;
     
     public static Block bramble_plant;
     

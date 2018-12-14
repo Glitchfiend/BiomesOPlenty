@@ -1,7 +1,5 @@
 {
     "variants": {
-        "variant=root": { "model": "biomesoplenty:root" },
-		
 		"variant=leafpile": [
             { "model": "biomesoplenty:leafpile" },
             { "model": "biomesoplenty:leafpile", "y": 90 },
@@ -14,8 +12,6 @@
             { "model": "biomesoplenty:deadleafpile", "y": 90 },
             { "model": "biomesoplenty:deadleafpile", "y": 180 },
             { "model": "biomesoplenty:deadleafpile", "y": 270 }
-        	],
-			
-		"variant=rafflesia": { "model": "biomesoplenty:rafflesia" }
+        	]
     }
 }

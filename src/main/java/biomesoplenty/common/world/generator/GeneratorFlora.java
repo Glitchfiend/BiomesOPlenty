@@ -15,10 +15,13 @@ import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.api.config.IConfigObj;
 import biomesoplenty.api.enums.BOPFlowers;
+import biomesoplenty.api.enums.BOPFoliage;
 import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.common.block.BlockBOPDecoration;
+import biomesoplenty.common.block.BlockBOPFlatPlant;
 import biomesoplenty.common.block.BlockBOPFlower;
+import biomesoplenty.common.block.BlockBOPFoliage;
 import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.block.BlockBOPPlant;
@@ -45,9 +48,11 @@ public class GeneratorFlora extends GeneratorReplacing
     {
         protected int generationAttempts;
 
+        public T with(BOPFoliage a) {this.with = BlockBOPFoliage.paging.getVariantState(a); return this.self();}
         public T with(BOPPlants a) {this.with = BlockBOPPlant.paging.getVariantState(a); return this.self();}
         public T with(BOPFlowers a) {this.with = BlockBOPFlower.paging.getVariantState(a); return this.self();}
         public T with(BlockBOPMushroom.MushroomType a) {this.with = BOPBlocks.mushroom.getDefaultState().withProperty(BlockBOPMushroom.VARIANT, a); return this.self();}
+        public T with(BlockBOPFlatPlant.PlantType a) {this.with = BOPBlocks.flat_plant.getDefaultState().withProperty(BlockBOPFlatPlant.VARIANT, a); return this.self();}
         public T with(BlockFlower.EnumFlowerType a)
         {
             BlockFlower flowerBlock = a.getBlockType().getBlock();

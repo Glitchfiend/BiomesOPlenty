@@ -12,8 +12,9 @@ import java.util.List;
 import java.util.Random;
 
 import biomesoplenty.api.block.BlockQueries;
-import biomesoplenty.api.enums.BOPPlants;
-import biomesoplenty.common.item.ItemBOPPlant;
+import biomesoplenty.api.enums.BOPFoliage;
+import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.common.item.ItemBOPBlock;
 import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
@@ -22,14 +23,14 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.IItemColor;
-import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ColorizerFoliage;
@@ -37,7 +38,9 @@ import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeColorHelper;
+import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.IShearable;
+import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -46,13 +49,13 @@ import vazkii.botania.api.item.IHornHarvestable;
 // TODO: pick block?
 
 @Optional.Interface(iface = "vazkii.botania.api.item.IHornHarvestable", modid = "botania")
-public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHornHarvestable
+public class BlockBOPFoliage extends BlockBOPDecoration implements IShearable, IHornHarvestable
 {
     
     // setup paged variant property
     
     // All 4 meta bits available for VARIANT which means we can have sixteen per instance
-    public static VariantPagingHelper<BlockBOPPlant, BOPPlants> paging = new VariantPagingHelper<BlockBOPPlant, BOPPlants>(16, BOPPlants.class);
+    public static VariantPagingHelper<BlockBOPFoliage, BOPFoliage> paging = new VariantPagingHelper<BlockBOPFoliage, BOPFoliage>(16, BOPFoliage.class);
     
     // Slightly naughty hackery here
     // The constructor of Block() calls createBlockState() which needs to know the particular instance's variant property
@@ -67,7 +70,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
         for (int i = 0; i < numPages; ++i)
         {
             currentVariantProperty = paging.getVariantProperty(i);
-            paging.addBlock(i, new BlockBOPPlant());
+            paging.addBlock(i, new BlockBOPFoliage());
         }
         
     }
@@ -86,7 +89,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
     
     // implement IBOPBlock
     @Override
-    public Class<? extends ItemBlock> getItemClass() { return ItemBOPPlant.class; }
+    public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
     @Override
     public IProperty[] getPresetProperties() { return new IProperty[] { this.variantProperty }; }
     @Override
@@ -94,7 +97,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
     @Override
     public String getStateName(IBlockState state)
     {
-        BOPPlants plant = (BOPPlants) state.getValue(this.variantProperty);
+        BOPFoliage plant = (BOPFoliage) state.getValue(this.variantProperty);
         switch (plant)
         {
             default:
@@ -104,11 +107,13 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
 
     public enum ColoringType {PLAIN, LIKE_LEAVES, LIKE_GRASS}
 
-    public static ColoringType getColoringType(BOPPlants plant)
+    public static ColoringType getColoringType(BOPFoliage plant)
     {
         switch (plant)
         {
-            case WATERGRASS:
+            case BUSH: case BERRYBUSH:
+            return ColoringType.LIKE_LEAVES;
+            case SHORTGRASS: case KORU: case DEVILWEED:
             return ColoringType.LIKE_GRASS;
             default:
                 return ColoringType.PLAIN;
@@ -126,7 +131,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
             {
                 boolean inWorld = world != null && pos != null;
 
-                switch (getColoringType((BOPPlants) state.getValue(BlockBOPPlant.this.variantProperty)))
+                switch (getColoringType((BOPFoliage) state.getValue(BlockBOPFoliage.this.variantProperty)))
                 {
                     case LIKE_LEAVES:
                         return inWorld ? BiomeColorHelper.getFoliageColorAtPos(world, pos) : ColorizerFoliage.getFoliageColorBasic();
@@ -147,11 +152,18 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
         return (stack, tintIndex) -> {
             IBlockState state = ((ItemBlock)stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata());
 
-            return BlockBOPPlant.this.getBlockColor().colorMultiplier(state, null, null, tintIndex);
+            switch ((BOPFoliage) state.getValue(BlockBOPFoliage.this.variantProperty))
+            {
+                case BUSH: case BERRYBUSH:
+                    return 0xFFFFFF;
+
+                default:
+                    return BlockBOPFoliage.this.getBlockColor().colorMultiplier(state, null, null, tintIndex);
+            }
         };
     }
     
-    private BlockBOPPlant()
+    private BlockBOPFoliage()
     {
         super();
         this.setDefaultState( this.blockState.getBaseState() );        
@@ -166,17 +178,23 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        BOPPlants plant = (BOPPlants) state.getValue(this.variantProperty);
+        BOPFoliage plant = (BOPFoliage) state.getValue(this.variantProperty);
         return paging.getIndex(plant);
     }
     
     @Override
     public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos)
     {
-    	switch ((BOPPlants) state.getValue(this.variantProperty))
+    	switch ((BOPFoliage) state.getValue(this.variantProperty))
     	{
-    		case THORN:
-    			return MapColor.SILVER_STAINED_HARDENED_CLAY;
+    		case DEADGRASS:
+    			return MapColor.BROWN;
+    	
+    		case DESERTGRASS:
+    			return MapColor.ORANGE_STAINED_HARDENED_CLAY;
+    			
+    		case BARLEY:
+    			return MapColor.YELLOW;
     	
     		default:
     			return this.blockMapColor;
@@ -193,12 +211,28 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
         List<ItemStack> ret = new java.util.ArrayList<ItemStack>();
         
         // add items based on the VARIANT
-        BOPPlants plant = (BOPPlants) state.getValue(this.variantProperty);
+        BOPFoliage plant = (BOPFoliage) state.getValue(this.variantProperty);
         switch (plant)
         {
-            case CATTAIL: case TINYCACTUS: case REED: case WATERGRASS: case ROOT:
-                // these variants drop themselves as items
-                ret.add(paging.getVariantItem(plant));
+            case SHORTGRASS:
+                if (rand.nextInt(8) == 0)
+                {
+                    // 1 in 8 chance of getting a seed from this grass
+                    ret.add(ForgeHooks.getGrassSeed(rand, fortune));
+                }
+                break;
+                
+            case BERRYBUSH:
+                // BERRYBUSH always drops berries
+                ret.add(new ItemStack(BOPItems.berries));
+                break;
+
+            case BARLEY:
+                if (rand.nextInt(3) == 0)
+                {
+                    // 1 in 8 chance of getting a seed from this grass
+                    ret.add(new ItemStack(Items.WHEAT_SEEDS));
+                }
                 break;
                 
             default:
@@ -212,30 +246,18 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
     @Override
     public boolean isReplaceable(IBlockAccess world, BlockPos pos)
     {
-        IBlockState state = world.getBlockState(pos);
-        BOPPlants plant = (BOPPlants) state.getValue(this.variantProperty);
-        
-        switch (plant)
-        {
-            case THORN: case CATTAIL: case TINYCACTUS:
-                return false;
-            
-            default:
-                return true;
-        }
+    	return true;
     }
     
     // different variants have different sizes
     @Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
     {   
-    	BOPPlants plant = (BOPPlants) state.getValue(this.variantProperty);
+    	BOPFoliage plant = (BOPFoliage) state.getValue(this.variantProperty);
         switch (plant)
         {
-            case TINYCACTUS:
-            	return new AxisAlignedBB(0.30000001192092896D, 0.0D, 0.30000001192092896D, 0.699999988079071D, 0.6000000238418579D, 0.699999988079071D);
-            case ROOT:
-            	return new AxisAlignedBB(0.09999999403953552D, 0.199999988079071D, 0.09999999403953552D, 0.8999999761581421D, 1.0D, 0.8999999761581421D);
+            case SHORTGRASS: case DESERTGRASS: case DESERTSPROUTS:
+            	return new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.4000000357627869D, 0.8999999761581421D);
             default:
             	return new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);
         }        
@@ -245,40 +267,36 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
     @Override
     public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
     {
-        BOPPlants plant = ((BOPPlants) state.getValue(this.variantProperty));
-        Block blockAbove = world.getBlockState(pos.up()).getBlock();
+        BOPFoliage plant = ((BOPFoliage) state.getValue(this.variantProperty));
       
         switch (plant)
         {
-            case TINYCACTUS:
+            case DEADGRASS: case DESERTGRASS:
+                return BlockQueries.litDry.matches(world, pos.down()) || BlockQueries.sustainsNether.matches(world, pos.down());
+            case DESERTSPROUTS:
                 return BlockQueries.litDry.matches(world, pos.down()) || BlockQueries.litFertile.matches(world, pos.down());
-            case THORN:
-                return BlockQueries.fertileOrNetherrack.matches(world, pos.down()) || BlockQueries.sustainsNether.matches(world, pos.down());
-            case CATTAIL:
-                return BlockQueries.litFertileWaterside.matches(world, pos.down());
-            case REED: case WATERGRASS:
-                return BlockQueries.suitableForReed.matches(world, pos.down());
-            case ROOT:
-                // roots hang down - check against block above
-                return BlockQueries.fertile.matches(world, pos.up());
+            case DUNEGRASS:
+                return BlockQueries.litSand.matches(world, pos.down());
+            case SPECTRALFERN:
+                return BlockQueries.spectralMoss.matches(world, pos.down());
+            case DEVILWEED:
+                return BlockQueries.fertile.matches(world, pos.down());
             default:
                 return BlockQueries.litFertile.matches(world, pos.down());            
         }
     }
     
     @Override
-    public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
+    public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
     {
-        switch ((BOPPlants) state.getValue(this.variantProperty))
+        super.updateTick(worldIn, pos, state, rand);
+        switch ((BOPFoliage) state.getValue(this.variantProperty))
         {
-            case THORN: case TINYCACTUS:
-            	// thorns and tiny cacti damage players who walk into them, unless they're wearing boots and pants
-                if (entity instanceof EntityPlayer) {
-                	InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
-                    if (inventory.armorInventory.get(0) != ItemStack.EMPTY && inventory.armorInventory.get(1) != ItemStack.EMPTY) {
-                        break;
-                    }
-                    entity.attackEntityFrom(DamageSource.CACTUS, 1);
+            case BUSH:
+                // every now and then berries grow on a bush
+                if (rand.nextInt(80) == 0 && worldIn.getLightFromNeighbors(pos.up()) >= 9)
+                {
+                    worldIn.setBlockState(pos, paging.getVariantState(BOPFoliage.BERRYBUSH));
                 }
                 break;
                 
@@ -286,17 +304,34 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
                 break;
         }
     }
-
+    
     @Override
-    public boolean isShearable(ItemStack item, IBlockAccess world, BlockPos pos) {
-        IBlockState state = world.getBlockState(pos);
-        switch ((BOPPlants) state.getValue(this.variantProperty))
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ)
+    {
+        switch ((BOPFoliage) state.getValue(this.variantProperty))
         {
-            case CATTAIL:
-                return false;
-            default:
+            case BERRYBUSH:
+                // an activated berry bush turns into a regular bush and drops a berry
+                worldIn.setBlockState(pos, paging.getVariantState(BOPFoliage.BUSH));
+                EntityItem berries = new EntityItem(worldIn, (double)pos.getX(), (double)pos.getY(), (double)pos.getZ(), new ItemStack(BOPItems.berries));
+                if (!worldIn.isRemote)
+                {
+                    worldIn.spawnEntity(berries);
+                    if (!(playerIn instanceof FakePlayer))
+                    {
+                        berries.onCollideWithPlayer(playerIn);
+                    }
+                }
                 return true;
         }
+        return super.onBlockActivated(worldIn, pos, state, playerIn, hand, side, hitX, hitY, hitZ);
+    }
+    
+
+    @Override
+    public boolean isShearable(ItemStack item, IBlockAccess world, BlockPos pos)
+    {
+    	return true;
     }
 
     @Override
@@ -306,13 +341,15 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
         List<ItemStack> ret = new java.util.ArrayList<ItemStack>();
         
         // add items based on the VARIANT
-        BOPPlants plant = ((BOPPlants) world.getBlockState(pos).getValue(this.variantProperty));
+        BOPFoliage plant = ((BOPFoliage) world.getBlockState(pos).getValue(this.variantProperty));
         switch (plant)
         {
-            case CATTAIL: case TINYCACTUS: case REED: case WATERGRASS: case ROOT:
-                // these items drop themselves as items when the block is broken (from getDrops), so we don't want to add anything else for using shears
+            case BERRYBUSH:
+                // BERRYBUSH gives a regular bush when sheared (note this is in addition to the berry from getDrops)
+                ret.add(paging.getVariantItem(BOPFoliage.BUSH));
+                // ret.add(new ItemStack(BOPItems.berries, 1));
                 break;
-
+                
             default:
                 // for everything else, get the block as an item
                 ret.add(paging.getVariantItem(plant));
@@ -324,13 +361,10 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
     @Override
     public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
     {
-        BOPPlants plant = ((BOPPlants) world.getBlockState(pos).getValue(this.variantProperty));
+        BOPFoliage plant = ((BOPFoliage) world.getBlockState(pos).getValue(this.variantProperty));
         switch (plant)
         {
-            case CATTAIL:
-            case REED:
-            case WATERGRASS:
-            case ROOT:
+            case DEVILWEED:
                 return 0;
             default:
                 return Blocks.TALLGRASS.getFlammability(world, pos, face);
@@ -340,17 +374,21 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
     @Override
     public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face)
     {
-    	BOPPlants plant = ((BOPPlants) world.getBlockState(pos).getValue(this.variantProperty));
+    	BOPFoliage plant = ((BOPFoliage) world.getBlockState(pos).getValue(this.variantProperty));
         switch (plant)
         {
-            case CATTAIL:
-            case REED:
-            case WATERGRASS:
-            case ROOT:
+            case DEVILWEED:
                 return 0;
             default:
                 return Blocks.TALLGRASS.getFireSpreadSpeed(world, pos, face);
         }
+    }
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public Block.EnumOffsetType getOffsetType()
+    {
+        return Block.EnumOffsetType.XYZ;
     }
 
     @Override
@@ -358,10 +396,11 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
     public boolean canHornHarvest(World world, BlockPos pos, ItemStack stack, EnumHornType hornType)
     {
         if (hornType != EnumHornType.WILD) return false;
-        BOPPlants plant = ((BOPPlants) world.getBlockState(pos).getValue(this.variantProperty));
+        BOPFoliage plant = ((BOPFoliage) world.getBlockState(pos).getValue(this.variantProperty));
         switch (plant)
         {
-            case TINYCACTUS:
+            case BUSH:
+            case BERRYBUSH:
                 return false;
             default:
                 return true;

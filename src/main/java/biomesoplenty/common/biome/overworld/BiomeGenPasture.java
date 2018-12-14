@@ -1,6 +1,7 @@
 package biomesoplenty.common.biome.overworld;
 
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.enums.BOPFoliage;
 import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.block.BlockBOPDirt;
@@ -31,10 +32,10 @@ public class BiomeGenPasture extends BOPOverworldBiome
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(0.5F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
-        grassGenerator.add("shortgrass", 2, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
+        grassGenerator.add("shortgrass", 2, (new GeneratorGrass.Builder()).with(BOPFoliage.SHORTGRASS).create());
         grassGenerator.add("tallgrass", 6, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).create());
 
-        this.addGenerator("barley", GeneratorStage.GRASS,(new GeneratorFlora.Builder()).amountPerChunk(45.0F).with(BOPPlants.BARLEY).create());
+        this.addGenerator("barley", GeneratorStage.GRASS,(new GeneratorFlora.Builder()).amountPerChunk(45.0F).with(BOPFoliage.BARLEY).create());
         
         // other plants
         this.addGenerator("water_reeds", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(1).with(BOPPlants.REED).generationAttempts(32).create());

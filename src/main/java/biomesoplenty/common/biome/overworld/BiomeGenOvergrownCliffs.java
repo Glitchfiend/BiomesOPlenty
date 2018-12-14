@@ -14,7 +14,7 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.config.IConfigObj;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.enums.BOPFlowers;
-import biomesoplenty.api.enums.BOPPlants;
+import biomesoplenty.api.enums.BOPFoliage;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.world.generator.GeneratorFlora;
@@ -59,7 +59,7 @@ public class BiomeGenOvergrownCliffs extends BOPOverworldBiome
         this.alternateTopBlock = Blocks.GRASS.getDefaultState();
         this.alternateFillerBlock = Blocks.DIRT.getDefaultState();
         
-        this.addWeight(BOPClimates.TROPICAL, 2);
+        this.addWeight(BOPClimates.TROPICAL, 3);
         
         this.beachBiomeLocation = null;
 
@@ -84,7 +84,7 @@ public class BiomeGenOvergrownCliffs extends BOPOverworldBiome
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(2.0F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
-        grassGenerator.add("shortgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
+        grassGenerator.add("shortgrass", 1, (new GeneratorGrass.Builder()).with(BOPFoliage.SHORTGRASS).create());
         grassGenerator.add("tallgrass", 1, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).create());
         
         // gem

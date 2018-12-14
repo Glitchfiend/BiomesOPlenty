@@ -132,5 +132,4 @@ public class BlockBOPMushroom extends BlockBOPDecoration
     {
         return Block.EnumOffsetType.NONE;
     }
-
 }

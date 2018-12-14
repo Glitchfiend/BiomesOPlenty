@@ -29,8 +29,10 @@ import biomesoplenty.common.block.BlockBOPDoubleWoodSlab;
 import biomesoplenty.common.block.BlockBOPFarmland;
 import biomesoplenty.common.block.BlockBOPFence;
 import biomesoplenty.common.block.BlockBOPFenceGate;
+import biomesoplenty.common.block.BlockBOPFlatPlant;
 import biomesoplenty.common.block.BlockBOPFlesh;
 import biomesoplenty.common.block.BlockBOPFlower;
+import biomesoplenty.common.block.BlockBOPFoliage;
 import biomesoplenty.common.block.BlockBOPGeneric;
 import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.block.BlockBOPGrassPath;
@@ -225,9 +227,11 @@ public class ModBlocks
         willow_vine =           registerBlock( new BlockBOPVine(true), "willow_vine" );
         
         //Plants
+        BlockBOPFoliage.createAllPages();
+        foliage_0 =             registerBlock( BlockBOPFoliage.paging.getBlock(0), "foliage_0" );
         BlockBOPPlant.createAllPages();
         plant_0 =               registerBlock( BlockBOPPlant.paging.getBlock(0), "plant_0" );
-        plant_1 =               registerBlock( BlockBOPPlant.paging.getBlock(1), "plant_1" );
+        flat_plant =            registerBlock( new BlockBOPFlatPlant(), "flat_plant" );
         double_plant =          registerBlock( new BlockBOPDoublePlant(), "double_plant" );
         mushroom =              registerBlock( new BlockBOPMushroom(), "mushroom" );
         

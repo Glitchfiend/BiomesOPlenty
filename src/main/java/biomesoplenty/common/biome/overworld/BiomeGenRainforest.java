@@ -3,10 +3,12 @@ package biomesoplenty.common.biome.overworld;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.enums.BOPFlowers;
+import biomesoplenty.api.enums.BOPFoliage;
 import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.api.enums.BOPWoods;
 import biomesoplenty.api.generation.GeneratorStage;
+import biomesoplenty.common.block.BlockBOPFlatPlant;
 import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.world.generator.GeneratorFlora;
 import biomesoplenty.common.world.generator.GeneratorGrass;
@@ -21,19 +23,16 @@ import net.minecraft.block.BlockFlower.EnumFlowerType;
 import net.minecraft.block.BlockOldLeaf;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
-import net.minecraft.entity.passive.EntityOcelot;
-import net.minecraft.entity.passive.EntityParrot;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.math.BlockPos;
 
 public class BiomeGenRainforest extends BOPOverworldBiome
 {    
     public BiomeGenRainforest()
     {
-        super("rainforest", new PropsBuilder("Rainforest").withGuiColour(0x14E26F).withTemperature(0.95F).withRainfall(1.2F));
+        super("rainforest", new PropsBuilder("Rainforest").withGuiColour(0x14E26F).withTemperature(0.85F).withRainfall(1.5F));
 
         // terrain
-        this.terrainSettings.avgHeight(80).heightVariation(50, 50).sidewaysNoise(1.5D);
+        this.terrainSettings.avgHeight(75).heightVariation(45, 60).sidewaysNoise(0.3D);
 
         this.addWeight(BOPClimates.SUBTROPICAL, 7);
         
@@ -42,9 +41,6 @@ public class BiomeGenRainforest extends BOPOverworldBiome
         this.canGenerateRivers = false;
         
         this.beachBiomeLocation = null;
-        
-        this.spawnableMonsterList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityParrot.class, 40, 1, 2));
         
         // aand
         this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.SAND.getDefaultState()).create());
@@ -60,12 +56,12 @@ public class BiomeGenRainforest extends BOPOverworldBiome
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(3.0F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
-        grassGenerator.add("shortgrass", 1, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
+        grassGenerator.add("shortgrass", 1, (new GeneratorGrass.Builder()).with(BOPFoliage.SHORTGRASS).create());
         grassGenerator.add("tallgrass", 2, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).create());
         grassGenerator.add("fern", 4, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.FERN).create());
         
         // flowers
-        GeneratorWeighted flowerGenerator = new GeneratorWeighted(1.5F);
+        GeneratorWeighted flowerGenerator = new GeneratorWeighted(1.0F);
         this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
         flowerGenerator.add("pink_daffodil", 3, (new GeneratorFlora.Builder().with(BOPFlowers.PINK_DAFFODIL).create()));
         flowerGenerator.add("blue_hydrangeas", 2, (new GeneratorFlora.Builder().with(BOPFlowers.BLUE_HYDRANGEA).create()));
@@ -76,23 +72,10 @@ public class BiomeGenRainforest extends BOPOverworldBiome
         flowerGenerator.add("poppy", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.POPPY).create()));
         
         // other plants
-        this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).placeOn(BlockQueries.fertile).with(BOPPlants.LEAFPILE).generationAttempts(64).create());
-        this.addGenerator("rafflesia", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BOPPlants.RAFFLESIA).create());
+        this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).placeOn(BlockQueries.fertile).with(BlockBOPFlatPlant.PlantType.LEAFPILE).generationAttempts(64).create());
         this.addGenerator("melons", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(0.015625F).placeOn(this.topBlock).with(Blocks.MELON_BLOCK.getDefaultState()).create());
         
         // gem
         this.addGenerator("emerald", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(Blocks.EMERALD_ORE.getDefaultState()).create());
-    }
-    
-    @Override
-    public int getGrassColorAtPos(BlockPos pos)
-    {
-        return getModdedBiomeGrassColor(0x1AD86C);
-    }
-    
-    @Override
-    public int getFoliageColorAtPos(BlockPos pos)
-    {
-        return getModdedBiomeFoliageColor(0x14E26F);
     }
 }

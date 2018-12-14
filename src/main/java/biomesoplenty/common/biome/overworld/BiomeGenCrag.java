@@ -11,7 +11,7 @@ package biomesoplenty.common.biome.overworld;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.api.enums.BOPClimates;
-import biomesoplenty.api.enums.BOPPlants;
+import biomesoplenty.api.enums.BOPFoliage;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
@@ -28,10 +28,10 @@ public class BiomeGenCrag extends BOPOverworldBiome
 {    
     public BiomeGenCrag()
     {
-        super("crag", new PropsBuilder("Crag").withGuiColour(5209457).withTemperature(0.5F).withRainfall(0.5F));
+        super("crag", new PropsBuilder("Crag").withGuiColour(0x8AAD9D).withTemperature(0.3F).withRainfall(0.4F));
         
         // terrain
-        this.terrainSettings.avgHeight(100).heightVariation(80, 200).minHeight(40).sidewaysNoise(0.7F);
+        this.terrainSettings.avgHeight(120).heightVariation(20, 50).octaves(0, 1, 2, 1, 1, 0).sidewaysNoise(0.0F);
 
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
@@ -39,7 +39,7 @@ public class BiomeGenCrag extends BOPOverworldBiome
         
         this.beachBiomeLocation = null;
 
-        this.addWeight(BOPClimates.COLD_SWAMP, 2);
+        this.addWeight(BOPClimates.COOL_TEMPERATE, 1);
 
         this.spawnableCreatureList.clear();
         
@@ -56,7 +56,7 @@ public class BiomeGenCrag extends BOPOverworldBiome
         GeneratorWeighted grassGenerator = new GeneratorWeighted(4.0F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("tallgrass", 1, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).generationAttempts(128).create());
-        grassGenerator.add("shortgrass", 2, (new GeneratorGrass.Builder()).with(BOPPlants.SHORTGRASS).create());
+        grassGenerator.add("shortgrass", 2, (new GeneratorGrass.Builder()).with(BOPFoliage.SHORTGRASS).create());
         
         // gem
         this.addGenerator("emeralds", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(Blocks.EMERALD_ORE.getDefaultState()).create());

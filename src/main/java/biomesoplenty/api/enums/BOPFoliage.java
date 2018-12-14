@@ -10,9 +10,9 @@ package biomesoplenty.api.enums;
 
 import net.minecraft.util.IStringSerializable;
 
-public enum BOPPlants implements IStringSerializable, IPagedVariants
+public enum BOPFoliage implements IStringSerializable, IPagedVariants
 {
-	THORN, TINYCACTUS, CATTAIL, REED, WATERGRASS, ROOT;
+	SHORTGRASS, BUSH, BERRYBUSH, KORU, DEVILWEED, DUNEGRASS, DESERTSPROUTS, DESERTGRASS, DEADGRASS, SPECTRALFERN, BARLEY;
 	
     @Override
     public String getName() {
