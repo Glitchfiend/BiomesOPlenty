@@ -30,8 +30,6 @@ public class BiomeCorruptedSands extends BOPHellBiome
         this.fillerBlock = Blocks.SOUL_SAND.getDefaultState();
         this.wallBlock = Blocks.SOUL_SAND.getDefaultState();
         
-        this.hasBiomeEssence = false;
-        
         IBlockPosQuery emptySoulsand = BlockQuery.buildAnd().withAirAbove().states(this.topBlock).create();
         this.addGenerator("bramble", GeneratorStage.FLOWERS,(new GeneratorBramble.Builder()).amountPerChunk(40.0F).placeOn(emptySoulsand).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
         

@@ -14,17 +14,13 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.api.enums.BOPWoods;
-import biomesoplenty.common.block.BlockBOPMushroom.MushroomType;
 import biomesoplenty.common.item.ItemBOPSapling;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.VariantPagingHelper;
 import biomesoplenty.common.world.generator.tree.GeneratorBasicTree;
 import biomesoplenty.common.world.generator.tree.GeneratorBigTree;
-import biomesoplenty.common.world.generator.tree.GeneratorBulbTree;
 import biomesoplenty.common.world.generator.tree.GeneratorMahoganyTree;
-import biomesoplenty.common.world.generator.tree.GeneratorMangroveTree;
 import biomesoplenty.common.world.generator.tree.GeneratorPalmTree;
-import biomesoplenty.common.world.generator.tree.GeneratorPineTree;
 import biomesoplenty.common.world.generator.tree.GeneratorRedwoodTree;
 import biomesoplenty.common.world.generator.tree.GeneratorTaigaTree;
 import biomesoplenty.common.world.generator.tree.GeneratorTwigletTree;
@@ -171,12 +167,7 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable, IP
         return Block.EnumOffsetType.NONE;
     }
     
-    
-    
     /***** stuff for growing trees *****/
-    
-    
-    // TODO: specify generator for each sapling
     protected WorldGenerator getSmallTreeGenerator(BOPTrees treeType)
     {
         switch (treeType)
@@ -224,13 +215,11 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable, IP
         }
     }
  
-    // TODO: specify generator for each sapling
     protected WorldGenerator getBigTreeGenerator(BOPTrees treeType)
     {
         return null;
     }
     
-    // TODO: specify generator for each sapling
     protected WorldGenerator getMegaTreeGenerator(BOPTrees treeType)
     {
         return null;

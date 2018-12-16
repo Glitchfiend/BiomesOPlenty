@@ -73,7 +73,7 @@ public class BiomeGenShield extends BOPOverworldBiome
         // trees & logs
         GeneratorWeighted treeGenerator = new GeneratorWeighted(9);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("spruce", 4, (new GeneratorTaigaTree.Builder()).maxHeight(13).create()); // TODO: implement pine cones
+        treeGenerator.add("spruce", 4, (new GeneratorTaigaTree.Builder()).maxHeight(13).create());
         treeGenerator.add("oak_bush", 2, (new GeneratorBush.Builder()).maxHeight(2).create());
         
         // flowers

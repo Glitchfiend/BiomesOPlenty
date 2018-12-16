@@ -46,8 +46,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vazkii.botania.api.item.IHornHarvestable;
 
-// TODO: pick block?
-
 @Optional.Interface(iface = "vazkii.botania.api.item.IHornHarvestable", modid = "botania")
 public class BlockBOPFoliage extends BlockBOPDecoration implements IShearable, IHornHarvestable
 {

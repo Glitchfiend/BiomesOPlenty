@@ -12,7 +12,7 @@ import net.minecraft.util.IStringSerializable;
 
 public enum BOPPlants implements IStringSerializable, IPagedVariants
 {
-	THORN, TINYCACTUS, CATTAIL, REED, WATERGRASS, ROOT;
+	THORN, TINYCACTUS, CATTAIL, ROOT, REED, WATERGRASS;
 	
     @Override
     public String getName() {

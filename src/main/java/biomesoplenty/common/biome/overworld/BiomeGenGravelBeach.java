@@ -21,8 +21,7 @@ public class BiomeGenGravelBeach extends BOPOverworldBiome
     
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
-        this.hasBiomeEssence = false;
-        
+
         this.spawnableCreatureList.clear();
 
         this.decorator.deadBushPerChunk = 0;

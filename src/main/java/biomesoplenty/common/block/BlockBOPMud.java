@@ -85,9 +85,8 @@ public class BlockBOPMud extends Block implements IBOPBlock, ISustainsPlantType
     @SideOnly(Side.CLIENT)
     public IItemColor getItemColor() { return null; }
     
-    public BlockBOPMud() {
-        
-        // TODO: use a custom material and sount type for mud? A squelching sound?
+    public BlockBOPMud()
+    {  
         super(Material.GROUND);
         
         // set some defaults

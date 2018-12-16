@@ -38,7 +38,7 @@ public class BiomeGenGrassland extends BOPOverworldBiome {
         this.terrainSettings.avgHeight(64).heightVariation(6, 25).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.1D);
 
         this.addWeight(BOPClimates.COOL_TEMPERATE, 5);
-        this.addWeight(BOPClimates.WET_TEMPERATE, 5);
+        this.addWeight(BOPClimates.WET_TEMPERATE, 3);
         
         if (BOPBiomes.gravel_beach.isPresent())
         {

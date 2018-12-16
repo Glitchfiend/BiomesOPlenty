@@ -74,12 +74,12 @@ public class BOPBiomes
     public static Optional<Biome> alps_foothills = Optional.absent();
     public static Optional<Biome> redwood_forest_edge = Optional.absent();
     
+    public static Optional<Biome> cold_tundra = Optional.absent();
     public static Optional<Biome> flower_meadow = Optional.absent();
     public static Optional<Biome> highland_moor = Optional.absent();
     public static Optional<Biome> mire = Optional.absent();
     public static Optional<Biome> oasis = Optional.absent();
     public static Optional<Biome> pasture = Optional.absent();
-    public static Optional<Biome> snowy_tundra = Optional.absent();
     
     public static Optional<Biome> coral_reef = Optional.absent();
     public static Optional<Biome> kelp_forest = Optional.absent();
@@ -88,7 +88,7 @@ public class BOPBiomes
     public static Optional<Biome> tropical_island = Optional.absent();
     public static Optional<Biome> volcanic_island = Optional.absent();
     
-    public static Optional<Biome> mangrove = Optional.absent();
+    //public static Optional<Biome> mangrove = Optional.absent();
     public static Optional<Biome> gravel_beach = Optional.absent();
     public static Optional<Biome> white_beach = Optional.absent();
     public static Optional<Biome> origin_beach = Optional.absent();

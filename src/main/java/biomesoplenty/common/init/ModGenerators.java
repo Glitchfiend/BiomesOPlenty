@@ -34,7 +34,6 @@ import biomesoplenty.common.world.generator.tree.GeneratorBigTree;
 import biomesoplenty.common.world.generator.tree.GeneratorBulbTree;
 import biomesoplenty.common.world.generator.tree.GeneratorBush;
 import biomesoplenty.common.world.generator.tree.GeneratorMahoganyTree;
-import biomesoplenty.common.world.generator.tree.GeneratorMangroveTree;
 import biomesoplenty.common.world.generator.tree.GeneratorMegaJungleTree;
 import biomesoplenty.common.world.generator.tree.GeneratorPalmTree;
 import biomesoplenty.common.world.generator.tree.GeneratorPineTree;
@@ -59,7 +58,6 @@ public class ModGenerators
         registerGenerator("bulb_tree", GeneratorBulbTree.class, new GeneratorBulbTree.Builder());
         registerGenerator("mega_jungle_tree", GeneratorMegaJungleTree.class, new GeneratorMegaJungleTree.Builder());
         registerGenerator("bayou_tree", GeneratorBayouTree.class, new GeneratorBayouTree.Builder());
-        registerGenerator("mangrove_tree", GeneratorMangroveTree.class, new GeneratorMangroveTree.Builder());
         registerGenerator("taiga_tree", GeneratorTaigaTree.class, new GeneratorTaigaTree.Builder());
         registerGenerator("profile_tree", GeneratorProfileTree.class, new GeneratorProfileTree.Builder());
         registerGenerator("flora", GeneratorFlora.class, new GeneratorFlora.Builder());

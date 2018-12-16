@@ -52,7 +52,6 @@ public class ModCrafting
     
     private static void addSmeltingRecipes()
     {
-        
         // Register smelting recipes
         GameRegistry.addSmelting(new ItemStack(BOPBlocks.mud), new ItemStack(Blocks.DIRT), 0.1F);
         GameRegistry.addSmelting(new ItemStack(BOPBlocks.white_sand), new ItemStack(Blocks.GLASS), 0.1F);
@@ -75,8 +74,6 @@ public class ModCrafting
         bopFuel.addFuel(BOPBlocks.sapling_2, 100);
         bopFuel.addFuel(BOPBlocks.wood_slab_0, 150);
         bopFuel.addFuel(BOPBlocks.wood_slab_1, 150);
-        // Note, we don't have to add all the other wood blocks - by default any block with Material = wood burns with value of 300
-        // See TileEntityFurnace.getItemBurnTime()
         
         bopFuel.addFuel(BOPItems.boat_cherry, 400);
         bopFuel.addFuel(BOPItems.boat_umbran, 400);
@@ -92,9 +89,7 @@ public class ModCrafting
         bopFuel.addFuel(BOPItems.boat_ebony, 400);
 
         bopFuel.addFuel(BOPItems.ash, 400);
-        
     }
-    
     
     private static void addOreRegistration()
     {
@@ -149,9 +144,6 @@ public class ModCrafting
                 OreDictionary.registerOre("treeSapling", BlockBOPSapling.paging.getVariantItem(tree));
             }
         }
-        // TODO: implement fruit trees
-        // OreDictionary.registerOre("treeLeaves", new ItemStack(BOPCBlocks.appleLeaves, 1, OreDictionary.WILDCARD_VALUE));
-        // OreDictionary.registerOre("treeLeaves", new ItemStack(BOPCBlocks.persimmonLeaves, 1, OreDictionary.WILDCARD_VALUE));
         
         for (BOPWoods wood : BOPWoods.values())
         {

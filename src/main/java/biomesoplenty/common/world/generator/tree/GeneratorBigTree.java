@@ -37,8 +37,6 @@ additional information has been added from http://pastebin.com/XBLdGqXQ. This cl
 against WorldGenBigTree to ensure any subsequent changes from Forge/Mojang have been included.*/
 public class GeneratorBigTree extends GeneratorTreeBase
 {
-    
-    // TODO: update neighbours in builder?
     public static class Builder extends GeneratorTreeBase.InnerBuilder<Builder, GeneratorBigTree> implements IGeneratorBuilder<GeneratorBigTree>
     {        
         private int trunkWidth;

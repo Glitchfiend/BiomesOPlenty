@@ -58,6 +58,6 @@ public class TrailManager
     
     public enum TrailVisibilityMode
     {
-        ALL, OTHERS, NOBODY //TODO: Implement NOBODY mode
+        ALL, OTHERS, NOBODY
     }
 }

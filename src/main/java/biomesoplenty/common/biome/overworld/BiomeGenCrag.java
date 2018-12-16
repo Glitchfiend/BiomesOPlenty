@@ -31,7 +31,7 @@ public class BiomeGenCrag extends BOPOverworldBiome
         super("crag", new PropsBuilder("Crag").withGuiColour(0x8AAD9D).withTemperature(0.3F).withRainfall(0.4F));
         
         // terrain
-        this.terrainSettings.avgHeight(120).heightVariation(20, 50).octaves(0, 1, 2, 1, 1, 0).sidewaysNoise(0.0F);
+        this.terrainSettings.avgHeight(120).heightVariation(25, 60).octaves(0, 1, 2, 1, 1, 0).sidewaysNoise(0.0F);
 
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;

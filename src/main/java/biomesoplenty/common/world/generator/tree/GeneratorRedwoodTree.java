@@ -28,7 +28,6 @@ import net.minecraft.world.World;
 
 public class GeneratorRedwoodTree extends GeneratorTreeBase
 {
-    // TODO: fruit
     public static class Builder extends GeneratorTreeBase.InnerBuilder<Builder, GeneratorRedwoodTree> implements IGeneratorBuilder<GeneratorRedwoodTree>
     {
         protected int trunkWidth;
@@ -213,7 +212,6 @@ public class GeneratorRedwoodTree extends GeneratorTreeBase
             int trunkEnd = MathHelper.floor(0.25D + trunkWidth / 2.0D);
             
             // TODO: Temporary fix for trees generating larger than normal bases when in the sides of hills
-            // Should look into doing this properly but i'm busy :P
             if (this.trunkWidth <= 1)
             {
                 trunkStart = 0; 

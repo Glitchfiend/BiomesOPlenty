@@ -31,7 +31,6 @@ public class BiomeGenOriginBeach extends BOPOverworldBiome
         
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
-        this.hasBiomeEssence = false;
         this.canGenerateRivers = false;
         
         this.spawnableWaterCreatureList.clear();

@@ -37,7 +37,6 @@ import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-// TODO: mushroom spreading? giant mushrooms with bonemeal? mushrooms popping if too bright?
 public class BlockBOPFlatPlant extends BlockBOPDecoration
 {
     // add properties

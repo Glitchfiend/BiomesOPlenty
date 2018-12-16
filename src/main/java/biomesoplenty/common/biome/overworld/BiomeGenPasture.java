@@ -25,7 +25,6 @@ public class BiomeGenPasture extends BOPOverworldBiome
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY);
         
         this.canGenerateVillages = false;
-        this.hasBiomeEssence = false;
         
         clearWeights();
 

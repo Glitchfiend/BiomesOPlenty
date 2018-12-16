@@ -54,7 +54,7 @@ public class BiomeGenColdDesert extends BOPOverworldBiome
         
         this.canGenerateRivers = false;
 
-        this.addWeight(BOPClimates.COLD_DESERT, 10);
+        this.addWeight(BOPClimates.COLD_DESERT, 15);
 
         this.spawnableCreatureList.clear();
         this.spawnableCreatureList.add(new SpawnListEntry(EntityPolarBear.class, 1, 1, 2));

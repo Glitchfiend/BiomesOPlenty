@@ -27,7 +27,7 @@ public class BiomeGenFlowerMeadow extends BOPOverworldBiome
 {    
     public BiomeGenFlowerMeadow()
     {
-        super("flower_meadow", new PropsBuilder("Flower Meadow").withGuiColour(4044093).withTemperature(0.4F).withRainfall(0.7F));
+        super("flower_meadow", new PropsBuilder("Flower Meadow").withGuiColour(0x75D17F).withTemperature(0.4F).withRainfall(0.7F));
 
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(5, 5).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.1D);
@@ -42,13 +42,13 @@ public class BiomeGenFlowerMeadow extends BOPOverworldBiome
         }
         
         // trees & logs
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(1.5F);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(2.0F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("oak_bush", 5, (new GeneratorBush.Builder()).maxHeight(2).create());
+        treeGenerator.add("oak_bush", 3, (new GeneratorBush.Builder()).maxHeight(2).create());
         treeGenerator.add("spruce", 1, (new GeneratorTaigaTree.Builder()).maxHeight(13).create());
        
         // flowers
-        GeneratorWeighted flowerGenerator = new GeneratorWeighted(15.0F);
+        GeneratorWeighted flowerGenerator = new GeneratorWeighted(20.0F);
         this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
         flowerGenerator.add("pink_tulip", 6, (new GeneratorFlora.Builder().with(EnumFlowerType.PINK_TULIP).create()));
         flowerGenerator.add("white_tulip", 9, (new GeneratorFlora.Builder().with(EnumFlowerType.WHITE_TULIP).create()));
@@ -58,12 +58,12 @@ public class BiomeGenFlowerMeadow extends BOPOverworldBiome
         flowerGenerator.add("dandelion", 3, (new GeneratorFlora.Builder().with(EnumFlowerType.DANDELION).create()));
         flowerGenerator.add("poppy", 3, (new GeneratorFlora.Builder().with(EnumFlowerType.POPPY).create()));
         flowerGenerator.add("houstonia", 2, (new GeneratorFlora.Builder().with(EnumFlowerType.HOUSTONIA).create()));
-        flowerGenerator.add("rose", 1, (new GeneratorDoubleFlora.Builder()).amountPerChunk(1).with(BlockDoublePlant.EnumPlantType.ROSE).create());
+        flowerGenerator.add("rose", 3, (new GeneratorDoubleFlora.Builder()).amountPerChunk(1).with(BlockDoublePlant.EnumPlantType.ROSE).create());
         flowerGenerator.add("syringa", 1, (new GeneratorDoubleFlora.Builder()).amountPerChunk(1).with(BlockDoublePlant.EnumPlantType.SYRINGA).create());
         flowerGenerator.add("sunflower", 2, (new GeneratorDoubleFlora.Builder().with(BlockDoublePlant.EnumPlantType.SUNFLOWER).create()));
         
         // grasses
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(3.0F);
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(12.0F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("shortgrass", 1, (new GeneratorGrass.Builder()).with(BOPFoliage.SHORTGRASS).create());
         grassGenerator.add("tallgrass", 2, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).create());

@@ -31,7 +31,7 @@ public class BiomeGenMapleWoods extends BOPOverworldBiome
         // terrain
         this.terrainSettings.avgHeight(70).heightVariation(10, 25);
         
-        this.addWeight(BOPClimates.BOREAL, 7);
+        this.addWeight(BOPClimates.BOREAL, 5);
 
         this.canGenerateVillages = false;
         
@@ -51,7 +51,7 @@ public class BiomeGenMapleWoods extends BOPOverworldBiome
         GeneratorWeighted treeGenerator = new GeneratorWeighted(15);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("maple", 5, (new GeneratorBasicTree.Builder()).log(BlockPlanks.EnumType.OAK).leaves(BOPTrees.MAPLE).minHeight(5).maxHeight(10).create());
-        treeGenerator.add("spruce", 1, (new GeneratorTaigaTree.Builder()).minHeight(10).maxHeight(19).create()); // TODO: implement pine cones
+        treeGenerator.add("spruce", 1, (new GeneratorTaigaTree.Builder()).minHeight(10).maxHeight(19).create());
  
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(1.2F);

@@ -2,6 +2,7 @@ package biomesoplenty.common.biome.overworld;
 
 import java.util.Random;
 
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.enums.BOPClimates;
@@ -45,6 +46,8 @@ public class BiomeGenFloodplains extends BOPOverworldBiome
         this.canGenerateVillages = false;
 
         this.addWeight(BOPClimates.TROPICAL, 5);
+        
+        this.beachBiomeLocation = null;
         
         this.spawnableCreatureList.clear();
 

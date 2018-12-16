@@ -36,8 +36,6 @@ public class BiomeFungiForest extends BOPHellBiome
 
         this.addWeight(BOPClimates.HELL, 5);
         
-        this.hasBiomeEssence = false;
-        
         this.usualTopBlock = this.topBlock;
         this.alternateTopBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.MYCELIAL_NETHERRACK);
 

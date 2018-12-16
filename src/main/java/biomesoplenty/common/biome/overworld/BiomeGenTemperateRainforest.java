@@ -20,6 +20,8 @@ import biomesoplenty.common.world.generator.GeneratorGrass;
 import biomesoplenty.common.world.generator.GeneratorWaterside;
 import biomesoplenty.common.world.generator.GeneratorWeighted;
 import biomesoplenty.common.world.generator.tree.GeneratorBasicTree;
+import biomesoplenty.common.world.generator.tree.GeneratorBigTree;
+import biomesoplenty.common.world.generator.tree.GeneratorBush;
 import biomesoplenty.common.world.generator.tree.GeneratorTaigaTree;
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockFlower;
@@ -34,14 +36,14 @@ public class BiomeGenTemperateRainforest extends BOPOverworldBiome
     
     public BiomeGenTemperateRainforest()
     {
-        super("temperate_rainforest", new PropsBuilder("Temperate Rainforest").withGuiColour(0xBBDD63).withTemperature(0.75F).withRainfall(1.2F));
+        super("temperate_rainforest", new PropsBuilder("Temperate Rainforest").withGuiColour(0x95D660).withTemperature(0.65F).withRainfall(1.2F));
         
         // terrain
         this.terrainSettings.avgHeight(67).heightVariation(25, 55);
         
         this.canGenerateVillages = false;
 
-        this.addWeight(BOPClimates.WET_TEMPERATE, 7);
+        this.addWeight(BOPClimates.WET_TEMPERATE, 3);
         
         if (BOPBiomes.gravel_beach.isPresent())
         {
@@ -55,14 +57,14 @@ public class BiomeGenTemperateRainforest extends BOPOverworldBiome
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(30.0F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("small_redwood", 4, (new GeneratorTaigaTree.Builder()).log(BOPWoods.REDWOOD).leaves(BOPTrees.REDWOOD).minHeight(5).maxHeight(15).create());
-        treeGenerator.add("redwood", 5, (new GeneratorTaigaTree.Builder()).log(BOPWoods.REDWOOD).leaves(BOPTrees.REDWOOD).minHeight(20).maxHeight(35).create());
-        treeGenerator.add("swamp_tree", 6, (new GeneratorBasicTree.Builder()).log(BlockPlanks.EnumType.OAK).leaves(Blocks.LEAVES.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false))).minHeight(5).maxHeight(15).vine(Blocks.VINE.getDefaultState()).leavesOffset(0).create());
+        treeGenerator.add("small_redwood", 3, (new GeneratorTaigaTree.Builder()).log(BOPWoods.REDWOOD).leaves(BOPTrees.REDWOOD).minHeight(5).maxHeight(15).create());
+        treeGenerator.add("redwood", 2, (new GeneratorTaigaTree.Builder()).log(BOPWoods.REDWOOD).leaves(BOPTrees.REDWOOD).minHeight(20).maxHeight(35).create());
+        treeGenerator.add("swamp_tree", 5, (new GeneratorBasicTree.Builder()).log(BlockPlanks.EnumType.OAK).leaves(Blocks.LEAVES.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false))).minHeight(7).maxHeight(14).vine(Blocks.VINE.getDefaultState()).leavesOffset(0).create());
+        treeGenerator.add("oak_tree", 1, (new GeneratorBigTree.Builder()).foliageHeight(3).minHeight(10).maxHeight(17).create());
         
         // other plants
         this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).placeOn(BlockQueries.fertile).with(BlockBOPFlatPlant.PlantType.DEADLEAFPILE).create());
         this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).placeOn(BlockQueries.fertile).with(BlockBOPFlatPlant.PlantType.LEAFPILE).generationAttempts(64).create());
-        this.addGenerator("flax", GeneratorStage.FLOWERS, (new GeneratorDoubleFlora.Builder()).amountPerChunk(0.2F).with(BlockBOPDoublePlant.DoublePlantType.FLAX).create());
         this.addGenerator("double_fern", GeneratorStage.FLOWERS, (new GeneratorDoubleFlora.Builder()).amountPerChunk(7.0F).with(BlockDoublePlant.EnumPlantType.FERN).create());
         this.addGenerator("cattail", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).with(BOPPlants.CATTAIL).create());
         this.addGenerator("double_cattail", GeneratorStage.FLOWERS, (new GeneratorDoubleFlora.Builder()).amountPerChunk(0.5F).with(BlockBOPDoublePlant.DoublePlantType.TALL_CATTAIL).create());
@@ -100,6 +102,6 @@ public class BiomeGenTemperateRainforest extends BOPOverworldBiome
     @Override
     public int getFoliageColorAtPos(BlockPos pos)
     {
-        return getModdedBiomeFoliageColor(0xBBDD63);
+        return getModdedBiomeFoliageColor(0x95D660);
     }
 }

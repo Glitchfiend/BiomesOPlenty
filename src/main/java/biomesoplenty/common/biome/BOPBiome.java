@@ -41,8 +41,6 @@ public abstract class BOPBiome extends Biome implements IExtendedBiome
     /** 1.0 is the lowest possible amount of fog. 0.0 is the greatest.*/
     public float fogDensity = 1.0F;
 
-    public boolean hasBiomeEssence = true;
-
     public final ResourceLocation location;
     public IConfigObj conf;
 
@@ -100,7 +98,6 @@ public abstract class BOPBiome extends Biome implements IExtendedBiome
         this.skyColor = conf.getInt("skyColor", this.skyColor);
         this.fogColor = conf.getInt("fogColor", this.fogColor);
         this.fogDensity = conf.getFloat("fogDensity", this.fogDensity);
-        this.hasBiomeEssence = conf.getBool("hasBiomeEssence", this.hasBiomeEssence);
 
         // Allow weights to be overridden
         IConfigObj confWeights = conf.getObject("weights");
@@ -241,12 +238,6 @@ public abstract class BOPBiome extends Biome implements IExtendedBiome
     public void clearWeights()
     {
         this.weightMap.clear();
-    }
-
-    // whether or not a biome essence item corresponding to this biome should be able to drop from biome blocks
-    public boolean hasBiomeEssence()
-    {
-        return this.hasBiomeEssence;
     }
 
     public int getFogColor(BlockPos pos) { return this.fogColor; }

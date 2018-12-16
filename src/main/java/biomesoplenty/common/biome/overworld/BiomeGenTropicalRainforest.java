@@ -2,6 +2,7 @@ package biomesoplenty.common.biome.overworld;
 
 import java.util.Random;
 
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.enums.BOPClimates;
@@ -43,6 +44,8 @@ public class BiomeGenTropicalRainforest extends BOPOverworldBiome
         this.canGenerateVillages = false;
 
         this.addWeight(BOPClimates.TROPICAL, 10);
+        
+        this.beachBiomeLocation = null;
         
         this.spawnableCreatureList.clear();
         this.spawnableMonsterList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));

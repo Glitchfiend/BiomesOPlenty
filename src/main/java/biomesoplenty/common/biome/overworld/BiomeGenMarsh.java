@@ -11,6 +11,7 @@ package biomesoplenty.common.biome.overworld;
 import java.util.Random;
 
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.config.IConfigObj;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.enums.BOPFoliage;
 import biomesoplenty.api.enums.BOPPlants;
@@ -34,10 +35,6 @@ import net.minecraft.world.gen.feature.WorldGenFossils;
 
 public class BiomeGenMarsh extends BOPOverworldBiome
 {
-   
-    // TODO: fog color / closeness? what's that?
-    // TODO: should there be foliage colors / water colors?
-        
     public BiomeGenMarsh()
     {
         super("marsh", new PropsBuilder("Marsh").withGuiColour(0x66A06E).withTemperature(0.65F).withRainfall(0.85F));
@@ -56,6 +53,8 @@ public class BiomeGenMarsh extends BOPOverworldBiome
         this.beachBiomeLocation = null;
         
         this.addWeight(BOPClimates.WET_TEMPERATE, 5);
+        
+        this.decorator.reedsPerChunk = -999;
         
         this.spawnableCreatureList.clear();
         this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));

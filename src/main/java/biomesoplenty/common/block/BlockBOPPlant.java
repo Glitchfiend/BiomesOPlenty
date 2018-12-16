@@ -11,6 +11,7 @@ package biomesoplenty.common.block;
 import java.util.List;
 import java.util.Random;
 
+import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.common.item.ItemBOPPlant;
@@ -42,8 +43,6 @@ import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vazkii.botania.api.item.IHornHarvestable;
-
-// TODO: pick block?
 
 @Optional.Interface(iface = "vazkii.botania.api.item.IHornHarvestable", modid = "botania")
 public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHornHarvestable
@@ -147,7 +146,14 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
         return (stack, tintIndex) -> {
             IBlockState state = ((ItemBlock)stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata());
 
-            return BlockBOPPlant.this.getBlockColor().colorMultiplier(state, null, null, tintIndex);
+            switch ((BOPPlants) state.getValue(BlockBOPPlant.this.variantProperty))
+            {
+                case WATERGRASS:
+                    return 0xFFFFFF;
+
+                default:
+                    return BlockBOPPlant.this.getBlockColor().colorMultiplier(state, null, null, tintIndex);
+            }
         };
     }
     
@@ -196,7 +202,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
         BOPPlants plant = (BOPPlants) state.getValue(this.variantProperty);
         switch (plant)
         {
-            case CATTAIL: case TINYCACTUS: case REED: case WATERGRASS: case ROOT:
+            case CATTAIL: case TINYCACTUS: case ROOT:
                 // these variants drop themselves as items
                 ret.add(paging.getVariantItem(plant));
                 break;
@@ -246,7 +252,6 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
     public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
     {
         BOPPlants plant = ((BOPPlants) state.getValue(this.variantProperty));
-        Block blockAbove = world.getBlockState(pos.up()).getBlock();
       
         switch (plant)
         {
@@ -292,7 +297,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
         IBlockState state = world.getBlockState(pos);
         switch ((BOPPlants) state.getValue(this.variantProperty))
         {
-            case CATTAIL:
+            case CATTAIL: case TINYCACTUS: case ROOT:
                 return false;
             default:
                 return true;
@@ -309,7 +314,7 @@ public class BlockBOPPlant extends BlockBOPDecoration implements IShearable, IHo
         BOPPlants plant = ((BOPPlants) world.getBlockState(pos).getValue(this.variantProperty));
         switch (plant)
         {
-            case CATTAIL: case TINYCACTUS: case REED: case WATERGRASS: case ROOT:
+            case CATTAIL: case TINYCACTUS: case ROOT:
                 // these items drop themselves as items when the block is broken (from getDrops), so we don't want to add anything else for using shears
                 break;
 

@@ -31,8 +31,7 @@ public class BiomeGenKelpForest extends BOPOverworldBiome
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
         this.canGenerateRivers = false;
-        this.hasBiomeEssence = false;
-        
+
         this.beachBiomeLocation = BiomeUtils.getLocForBiome(Biomes.OCEAN);
         
         clearWeights();

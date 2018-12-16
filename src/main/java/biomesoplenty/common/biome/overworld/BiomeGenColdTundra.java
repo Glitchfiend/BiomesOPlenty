@@ -11,7 +11,6 @@ package biomesoplenty.common.biome.overworld;
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BlockQueries;
-import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.enums.BOPFoliage;
 import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.enums.BOPTrees;
@@ -34,19 +33,19 @@ import net.minecraft.entity.passive.EntityRabbit;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 
-public class BiomeGenTundra extends BOPOverworldBiome
+public class BiomeGenColdTundra extends BOPOverworldBiome
 {    
-    public BiomeGenTundra()
+    public BiomeGenColdTundra()
     {
-        super("tundra", new PropsBuilder("Tundra").withGuiColour(0xA09456).withTemperature(0.2F).withRainfall(0.5F));
+        super("cold_tundra", new PropsBuilder("Cold Tundra").withGuiColour(0xA09456).withTemperature(0.0F).withRainfall(0.5F));
 
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(5, 10).minHeight(59);
         
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SILTY);
         this.fillerBlock = BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY);
-        
-        this.addWeight(BOPClimates.TUNDRA, 7);
+
+        this.clearWeights();
         
         this.canGenerateRivers = false;
         this.canSpawnInBiome = false;

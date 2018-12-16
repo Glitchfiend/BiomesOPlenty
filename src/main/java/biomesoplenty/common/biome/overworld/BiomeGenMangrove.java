@@ -11,14 +11,12 @@ package biomesoplenty.common.biome.overworld;
 import java.util.Random;
 
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.api.block.IBlockPosQuery;
+import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.enums.BOPClimates;
-import biomesoplenty.api.enums.BOPTrees;
-import biomesoplenty.api.enums.BOPWoods;
+import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.generation.GeneratorStage;
-import biomesoplenty.common.util.block.BlockQuery;
-import biomesoplenty.common.world.generator.GeneratorWeighted;
-import biomesoplenty.common.world.generator.tree.GeneratorMangroveTree;
+import biomesoplenty.common.block.BlockBOPPlant;
+import biomesoplenty.common.world.generator.GeneratorColumns;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -30,18 +28,17 @@ public class BiomeGenMangrove extends BOPOverworldBiome
 {
     public BiomeGenMangrove()
     {
-        super("mangrove", new PropsBuilder("Mangrove").withTemperature(0.85F).withRainfall(0.3F).withGuiColour(7251289).withWaterColor(0xCDFF51));
+        super("mangrove", new PropsBuilder("Mangrove").withTemperature(0.85F).withRainfall(0.8F).withGuiColour(7251289));
 
         // terrain
-        this.terrainSettings.avgHeight(62).heightVariation(8, 2).octaves(0, 1, 2, 2, 1, 0);
+        this.terrainSettings.avgHeight(61).heightVariation(4, 2).octaves(5, 5, 0, 0, 1, 1);
 
-        this.clearWeights();
-        
-        this.seaFloorBlock = BOPBlocks.mud.getDefaultState();
+        //this.addWeight(BOPClimates.SUBTROPICAL, 3);
         
         this.topBlock = BOPBlocks.mud.getDefaultState();
         this.fillerBlock = BOPBlocks.mud.getDefaultState();
-    
+        this.seaFloorBlock = BOPBlocks.mud.getDefaultState();
+        
         this.canSpawnInBiome = false;
         this.canGenerateVillages = false;
         this.canGenerateRivers = false;
@@ -49,6 +46,8 @@ public class BiomeGenMangrove extends BOPOverworldBiome
         this.spawnableCreatureList.clear();
         
         this.beachBiomeLocation = null;
+        
+        //this.addGenerator("mangrove_tree", GeneratorStage.FLOWERS,(new GeneratorColumns.Builder()).amountPerChunk(20.0F).generationAttempts(24).placeOn(BlockQueries.suitableForReed).with(BlockBOPPlant.paging.getVariantState(BOPPlants.MANGROVE_ROOT)).minHeight(1).maxHeight(2).create());
     }
     
     @Override

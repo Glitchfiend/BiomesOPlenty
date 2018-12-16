@@ -35,7 +35,6 @@ import net.minecraft.world.World;
 
 public class GeneratorBasicTree extends GeneratorTreeBase
 {
-    // TODO: update neighbours in builder?
     public static class Builder extends GeneratorBasicTree.InnerBuilder<Builder, GeneratorBasicTree> implements IGeneratorBuilder<GeneratorBasicTree>
     {        
         public Builder()

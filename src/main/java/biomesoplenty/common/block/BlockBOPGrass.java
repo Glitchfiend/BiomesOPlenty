@@ -356,7 +356,6 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
 
     // This is called when bonemeal is applied on the block
     // The algorithm is functionally equivalent to the vanilla BlockGrass grow function, but has been rewritten to make its behavior clearer
-    // TODO: grows spreads from BOP grass to vanilla grass, need to find a way to make growth on vanilla grass also spread to BOP grass
     @Override
     public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state) {
         

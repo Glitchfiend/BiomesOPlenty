@@ -1,5 +1,6 @@
 package biomesoplenty.common.biome.overworld;
 
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.enums.BOPFlowers;

@@ -54,7 +54,7 @@ public class BiomeGenChaparral extends BOPOverworldBiome
         this.terrainSettings.avgHeight(80).heightVariation(10, 40);
         
         this.addWeight(BOPClimates.WARM_TEMPERATE, 3);
-        this.addWeight(BOPClimates.DRY_TEMPERATE, 7);
+        this.addWeight(BOPClimates.DRY_TEMPERATE, 5);
         
         this.usualTopBlock = this.topBlock;
         this.usualFillerBlock = this.fillerBlock;

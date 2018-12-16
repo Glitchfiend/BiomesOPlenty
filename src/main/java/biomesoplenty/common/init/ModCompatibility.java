@@ -64,8 +64,7 @@ public class ModCompatibility
             return;
         }
     }
-    
-    //TODO: Make this more accurate, possibly analyze heights, temps, rainfall and/or biome dictionary tags
+
     private static void remapBiomeToBoP(Biome biome, BiomeType type, int weight)
     {
         for (BOPClimates climate : BOPClimates.values())

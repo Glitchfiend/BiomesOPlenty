@@ -57,7 +57,6 @@ public class BucketEventHandler
         event.setResult(Result.ALLOW);
         event.setFilledBucket(UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, filled_fluid));
         event.getWorld().setBlockToAir(blockpos);
-        //TODO: event.entityPlayer.triggerAchievement(StatList.objectUseStats[Item.getIdFromItem(event.getEmptyBucket().getItem())]);
     }
         
 }

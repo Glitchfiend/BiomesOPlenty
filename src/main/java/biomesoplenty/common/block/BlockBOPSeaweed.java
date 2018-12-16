@@ -27,9 +27,6 @@ import net.minecraft.world.World;
 
 public class BlockBOPSeaweed extends BlockBOPDecoration implements IBOPBlock
 {
-    
-    // TODO: is it supposed to grow?
-    
     public enum SeaweedType implements IStringSerializable
     {
         KELP;

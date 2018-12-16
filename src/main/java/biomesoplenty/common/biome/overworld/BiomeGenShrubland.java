@@ -38,8 +38,7 @@ public class BiomeGenShrubland extends BOPOverworldBiome
         // terrain
         this.terrainSettings.avgHeight(66).heightVariation(8, 15).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.1D);
         
-        this.addWeight(BOPClimates.DRY_TEMPERATE, 7);
-        this.addWeight(BOPClimates.MEDITERRANEAN, 3);
+        this.addWeight(BOPClimates.DRY_TEMPERATE, 10);
         
         this.canGenerateVillages = true;
         

@@ -24,7 +24,7 @@ public class BiomeGenMeadow extends BOPOverworldBiome
 {    
     public BiomeGenMeadow()
     {
-        super("meadow", new PropsBuilder("Meadow").withGuiColour(0x75D17F).withTemperature(0.4F).withRainfall(0.7F));
+        super("meadow", new PropsBuilder("Meadow").withGuiColour(0x63B26D).withTemperature(0.4F).withRainfall(0.7F));
 
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(5, 5).octaves(0, 1, 2, 2, 1, 0).sidewaysNoise(0.1D);
@@ -44,7 +44,7 @@ public class BiomeGenMeadow extends BOPOverworldBiome
         this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(3).maxRadius(7).with(Blocks.SAND.getDefaultState()).create());
         
         // trees & logs
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(2);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(2.0F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("oak_bush", 4, (new GeneratorBush.Builder()).maxHeight(2).create());
         treeGenerator.add("spruce", 4, (new GeneratorTaigaTree.Builder()).maxHeight(13).create());

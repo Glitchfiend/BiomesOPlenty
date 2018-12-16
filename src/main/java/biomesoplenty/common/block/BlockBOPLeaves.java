@@ -8,12 +8,17 @@
 
 package biomesoplenty.common.block;
 
-import biomesoplenty.api.enums.BOPFlowers;
+import java.util.List;
+import java.util.Random;
+
+import javax.annotation.Nullable;
+
+import com.google.common.collect.Lists;
+
 import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.item.ItemBOPBlock;
 import biomesoplenty.common.util.block.VariantPagingHelper;
-import com.google.common.collect.Lists;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.material.MapColor;
@@ -44,13 +49,6 @@ import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import javax.annotation.Nullable;
-import java.util.List;
-import java.util.Random;
-
-// TODO: using fast graphics - transparent color is always rendered as black - can we override this somehow?
-// TODO: using fast graphics - flowering leaves overlay seems to be tinted green - I think that is because it doesn't use distinct tintindexes on fast graphics
-// In older versions a completely different single texture could be used for fast graphics, but I'm not sure that's an option any more
 public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
 {
     
@@ -197,7 +195,6 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     }
     
     // leaves in the inventory should not be decayable
-    //TODO REMOVE
     @Override
     protected ItemStack getSilkTouchDrop(IBlockState state)
     {
@@ -277,7 +274,6 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
         return Lists.newArrayList();
     }
     
-    // TODO: different fruits for different trees?
     @Override
     protected void dropApple(World worldIn, BlockPos pos, IBlockState state, int chance)
     {
