@@ -7,6 +7,6 @@
 		"variant=jacaranda": { "model": "biomesoplenty:jacaranda_planks" },
 		"variant=palm": { "model": "biomesoplenty:palm_planks" },
 		"variant=willow": { "model": "biomesoplenty:willow_planks" },
-		"variant=ebony": { "model": "biomesoplenty:ebony_planks" }
+		"variant=magic": { "model": "biomesoplenty:magic_planks" }
     }
 }

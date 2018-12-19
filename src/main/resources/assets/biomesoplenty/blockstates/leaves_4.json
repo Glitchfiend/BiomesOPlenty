@@ -1,6 +1,5 @@
 {
     "variants": {
-        "variant=umbran": { "model": "biomesoplenty:umbran_leaves" },
         "variant=hellbark": { "model": "biomesoplenty:hellbark_leaves" },
 		"variant=ethereal": { "model": "biomesoplenty:ethereal_leaves" }
     }

@@ -78,9 +78,6 @@ public class BiomeGenColdTundra extends BOPOverworldBiome
         // other plants
         this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.3F).placeOn(BlockQueries.fertile).with(BlockBOPFlatPlant.PlantType.DEADLEAFPILE).generationAttempts(64).create());
  
-        // water plants
-        this.addGenerator("water_reeds", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(BOPPlants.REED).generationAttempts(32).create());
-        
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(1.5F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);

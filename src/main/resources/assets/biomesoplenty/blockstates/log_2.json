@@ -1,9 +1,5 @@
 {
     "variants": {
-		"axis=y,variant=dead":    { "model": "biomesoplenty:dead_log" },
-        "axis=z,variant=dead":    { "model": "biomesoplenty:dead_log", "x": 90 },
-        "axis=x,variant=dead":    { "model": "biomesoplenty:dead_log", "x": 90, "y": 90 },
-        "axis=none,variant=dead": { "model": "biomesoplenty:dead_bark" },
 	    "axis=y,variant=magic":    { "model": "biomesoplenty:magic_log" },
         "axis=z,variant=magic":    { "model": "biomesoplenty:magic_log", "x": 90 },
         "axis=x,variant=magic":    { "model": "biomesoplenty:magic_log", "x": 90, "y": 90 },
@@ -15,7 +11,11 @@
         "axis=y,variant=hellbark":    { "model": "biomesoplenty:hellbark_log" },
         "axis=z,variant=hellbark":    { "model": "biomesoplenty:hellbark_log", "x": 90 },
         "axis=x,variant=hellbark":    { "model": "biomesoplenty:hellbark_log", "x": 90, "y": 90 },
-        "axis=none,variant=hellbark": { "model": "biomesoplenty:hellbark_bark" }
+        "axis=none,variant=hellbark": { "model": "biomesoplenty:hellbark_bark" },
+		"axis=y,variant=ethereal":    { "model": "biomesoplenty:ethereal_log" },
+        "axis=z,variant=ethereal":    { "model": "biomesoplenty:ethereal_log", "x": 90 },
+        "axis=x,variant=ethereal":    { "model": "biomesoplenty:ethereal_log", "x": 90, "y": 90 },
+        "axis=none,variant=ethereal": { "model": "biomesoplenty:ethereal_bark" }
     }
 }
 

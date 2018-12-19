@@ -12,10 +12,10 @@
         "axis=z,variant=willow":    { "model": "biomesoplenty:willow_log", "x": 90 },
         "axis=x,variant=willow":    { "model": "biomesoplenty:willow_log", "x": 90, "y": 90 },
         "axis=none,variant=willow": { "model": "biomesoplenty:willow_bark" },
-		"axis=y,variant=ebony":    { "model": "biomesoplenty:ebony_log" },
-        "axis=z,variant=ebony":    { "model": "biomesoplenty:ebony_log", "x": 90 },
-        "axis=x,variant=ebony":    { "model": "biomesoplenty:ebony_log", "x": 90, "y": 90 },
-        "axis=none,variant=ebony": { "model": "biomesoplenty:ebony_bark" }
+		"axis=y,variant=dead":    { "model": "biomesoplenty:dead_log" },
+        "axis=z,variant=dead":    { "model": "biomesoplenty:dead_log", "x": 90 },
+        "axis=x,variant=dead":    { "model": "biomesoplenty:dead_log", "x": 90, "y": 90 },
+        "axis=none,variant=dead": { "model": "biomesoplenty:dead_bark" }
     }
 }
 

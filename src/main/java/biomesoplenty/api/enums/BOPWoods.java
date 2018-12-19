@@ -14,7 +14,7 @@ import net.minecraft.util.IStringSerializable;
 
 public enum BOPWoods implements IStringSerializable, IPagedVariants
 {
-	FIR, REDWOOD, CHERRY, MAHOGANY, JACARANDA, PALM, WILLOW, EBONY, DEAD, MAGIC, UMBRAN, HELLBARK, ETHEREAL;
+	FIR, REDWOOD, CHERRY, MAHOGANY, JACARANDA, PALM, WILLOW, DEAD, MAGIC, UMBRAN, HELLBARK, ETHEREAL;
     
     @Override
     public String getName() {

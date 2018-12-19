@@ -1,7 +1,5 @@
 {
     "variants": {
-	    "half=bottom,variant=magic": { "model": "biomesoplenty:half_slab_magic" },
-        "half=top,variant=magic": { "model": "biomesoplenty:upper_slab_magic" },
 	    "half=bottom,variant=umbran": { "model": "biomesoplenty:half_slab_umbran" },
         "half=top,variant=umbran": { "model": "biomesoplenty:upper_slab_umbran" },
 		"half=bottom,variant=hellbark": { "model": "biomesoplenty:half_slab_hellbark" },

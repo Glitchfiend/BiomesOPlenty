@@ -36,6 +36,7 @@ public class BOPBiomes
     public static Optional<Biome> coniferous_forest = Optional.absent();
     public static Optional<Biome> crag = Optional.absent();
     public static Optional<Biome> dead_forest = Optional.absent();
+    public static Optional<Biome> dead_plains = Optional.absent();
     public static Optional<Biome> dead_swamp = Optional.absent();
     public static Optional<Biome> fen = Optional.absent();
     public static Optional<Biome> floodplains = Optional.absent();

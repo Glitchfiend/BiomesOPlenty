@@ -22,38 +22,6 @@ public class VillageMaterialEventHandler
 	@SubscribeEvent
 	public void getVillageBlockID(BiomeEvent.GetVillageBlockID event)
 	{
-		//Brushland
-		if (BOPBiomes.brushland.isPresent() && event.getBiome() == BOPBiomes.brushland.get())
-		{
-			if (event.getOriginal().getBlock() == Blocks.PLANKS)
-			{
-				event.setReplacement(BlockBOPPlanks.paging.getVariantState(BOPWoods.EBONY));
-				event.setResult(Result.DENY);
-			}
-			if (event.getOriginal().getBlock() == Blocks.LOG || event.getOriginal().getBlock() == Blocks.LOG2)
-			{
-				EnumAxis axis = event.getOriginal().getValue(BlockLog.LOG_AXIS);
-				event.setReplacement(BlockBOPLog.paging.getVariantState(BOPWoods.EBONY).withProperty(BlockLog.LOG_AXIS, axis));
-				event.setResult(Result.DENY);
-			}
-			if (event.getOriginal().getBlock() == Blocks.COBBLESTONE)
-			{
-				event.setReplacement(BlockBOPLog.paging.getVariantState(BOPWoods.EBONY).withProperty(BlockLog.LOG_AXIS, BlockLog.EnumAxis.Y));
-				event.setResult(Result.DENY);
-			}
-			if (event.getOriginal().getBlock() == Blocks.OAK_STAIRS)
-			{
-				EnumFacing facing = event.getOriginal().getValue(BlockStairs.FACING);
-				event.setReplacement(BOPBlocks.ebony_stairs.getDefaultState().withProperty(BlockStairs.FACING, facing));
-				event.setResult(Result.DENY);
-			}
-			if (event.getOriginal().getBlock() == Blocks.OAK_FENCE)
-			{
-				event.setReplacement(BOPBlocks.ebony_fence.getDefaultState());
-				event.setResult(Result.DENY);
-			}
-		}
-		
 		//Coniferous Forest
 		if (BOPBiomes.coniferous_forest.isPresent() && event.getBiome() == BOPBiomes.coniferous_forest.get())
 		{

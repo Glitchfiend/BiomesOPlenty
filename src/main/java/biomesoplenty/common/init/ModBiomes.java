@@ -27,6 +27,7 @@ import static biomesoplenty.api.biome.BOPBiomes.coral_reef;
 import static biomesoplenty.api.biome.BOPBiomes.corrupted_sands;
 import static biomesoplenty.api.biome.BOPBiomes.crag;
 import static biomesoplenty.api.biome.BOPBiomes.dead_forest;
+import static biomesoplenty.api.biome.BOPBiomes.dead_plains;
 import static biomesoplenty.api.biome.BOPBiomes.dead_swamp;
 import static biomesoplenty.api.biome.BOPBiomes.desert_extension;
 import static biomesoplenty.api.biome.BOPBiomes.desert_hills_extension;
@@ -143,6 +144,7 @@ import biomesoplenty.common.biome.overworld.BiomeGenConiferousForest;
 import biomesoplenty.common.biome.overworld.BiomeGenCoralReef;
 import biomesoplenty.common.biome.overworld.BiomeGenCrag;
 import biomesoplenty.common.biome.overworld.BiomeGenDeadForest;
+import biomesoplenty.common.biome.overworld.BiomeGenDeadPlains;
 import biomesoplenty.common.biome.overworld.BiomeGenDeadSwamp;
 import biomesoplenty.common.biome.overworld.BiomeGenFen;
 import biomesoplenty.common.biome.overworld.BiomeGenFloodplains;
@@ -403,6 +405,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         redwood_forest_edge = registerOverworldBiome(new BiomeGenRedwoodForestEdge());
         
         cold_tundra = registerOverworldBiome(new BiomeGenColdTundra());
+        dead_plains = registerOverworldBiome(new BiomeGenDeadPlains());
         flower_meadow = registerOverworldBiome(new BiomeGenFlowerMeadow());
         highland_moor = registerOverworldBiome(new BiomeGenHighlandMoor());
         mire = registerOverworldBiome(new BiomeGenMire());
@@ -411,6 +414,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         coral_reef = registerOverworldBiome(new BiomeGenCoralReef());
         kelp_forest = registerOverworldBiome(new BiomeGenKelpForest());
 
+        setSubBiome(BOPBiomes.dead_forest, BOPBiomes.dead_plains);
         setSubBiome(BOPBiomes.dead_swamp, BOPBiomes.mire);
         setSubBiome(BOPBiomes.highland, BOPBiomes.highland_moor);
         setSubBiome(BOPBiomes.meadow, BOPBiomes.flower_meadow);
@@ -523,6 +527,7 @@ public class ModBiomes implements BOPBiomes.IBiomeRegistry
         registerBiomeToDictionary(BOPBiomes.redwood_forest_edge, Type.FOREST, Type.DENSE);
         
         registerBiomeToDictionary(BOPBiomes.cold_tundra, Type.SNOWY, Type.COLD, Type.WASTELAND, Type.DEAD, Type.WET, Type.SPARSE);
+        registerBiomeToDictionary(BOPBiomes.dead_plains, Type.PLAINS, Type.DEAD, Type.COLD, Type.DRY, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.flower_meadow, Type.PLAINS, Type.LUSH);
         registerBiomeToDictionary(BOPBiomes.highland_moor, Type.HILLS, Type.WET);
         registerBiomeToDictionary(BOPBiomes.mire, Type.SWAMP, Type.DEAD, Type.WASTELAND, Type.WET);

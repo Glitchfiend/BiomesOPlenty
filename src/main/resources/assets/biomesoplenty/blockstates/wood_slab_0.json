@@ -14,7 +14,7 @@
         "half=top,variant=palm": { "model": "biomesoplenty:upper_slab_palm" },
 		"half=bottom,variant=willow": { "model": "biomesoplenty:half_slab_willow" },
         "half=top,variant=willow": { "model": "biomesoplenty:upper_slab_willow" },
-		"half=bottom,variant=ebony": { "model": "biomesoplenty:half_slab_ebony" },
-        "half=top,variant=ebony": { "model": "biomesoplenty:upper_slab_ebony" }
+		"half=bottom,variant=magic": { "model": "biomesoplenty:half_slab_magic" },
+        "half=top,variant=magic": { "model": "biomesoplenty:upper_slab_magic" }
     }
 }

@@ -208,8 +208,6 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable, IP
             	return new GeneratorBasicTree.Builder().log(BOPWoods.WILLOW).leaves(BlockBOPLeaves.paging.getVariantState(BOPTrees.WILLOW).withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).minHeight(8).maxHeight(12).maxLeavesRadius(2).vine(BOPBlocks.willow_vine.getDefaultState()).leavesOffset(0).updateNeighbours(true).create();
             case MAHOGANY:
                 return new GeneratorMahoganyTree.Builder().updateNeighbours(true).create();
-            case EBONY:
-                return new GeneratorBigTree.Builder().log(BOPWoods.EBONY).leaves(BOPTrees.EBONY).minHeight(4).maxHeight(10).foliageHeight(1).updateNeighbours(true).create();
             default:
             	return null;
         }

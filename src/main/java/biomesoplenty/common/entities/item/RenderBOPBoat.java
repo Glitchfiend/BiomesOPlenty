@@ -27,8 +27,7 @@ public class RenderBOPBoat extends Render<EntityBOPBoat>
     		new ResourceLocation("biomesoplenty:textures/entity/boats/boat_ethereal.png"), new ResourceLocation("biomesoplenty:textures/entity/boats/boat_magic.png"),
     		new ResourceLocation("biomesoplenty:textures/entity/boats/boat_palm.png"), new ResourceLocation("biomesoplenty:textures/entity/boats/boat_redwood.png"),
     		new ResourceLocation("biomesoplenty:textures/entity/boats/boat_willow.png"), new ResourceLocation("biomesoplenty:textures/entity/boats/boat_hellbark.png"),
-    		new ResourceLocation("biomesoplenty:textures/entity/boats/boat_jacaranda.png"), new ResourceLocation("biomesoplenty:textures/entity/boats/boat_mahogany.png"),
-    		new ResourceLocation("biomesoplenty:textures/entity/boats/boat_ebony.png")};
+    		new ResourceLocation("biomesoplenty:textures/entity/boats/boat_jacaranda.png"), new ResourceLocation("biomesoplenty:textures/entity/boats/boat_mahogany.png")};
     protected ModelBase modelBOPBoat = new ModelBOPBoat();
 
     public RenderBOPBoat(RenderManager renderManagerIn)

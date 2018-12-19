@@ -35,9 +35,6 @@ public class BiomeGenPasture extends BOPOverworldBiome
         grassGenerator.add("tallgrass", 6, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).create());
 
         this.addGenerator("barley", GeneratorStage.GRASS,(new GeneratorFlora.Builder()).amountPerChunk(45.0F).with(BOPFoliage.BARLEY).create());
-        
-        // other plants
-        this.addGenerator("water_reeds", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(1).with(BOPPlants.REED).generationAttempts(32).create());
     }
     
     @Override

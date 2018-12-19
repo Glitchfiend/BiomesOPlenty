@@ -50,12 +50,12 @@ public class BiomeGenCherryBlossomGrove extends BOPOverworldBiome
         this.addWeight(BOPClimates.COOL_TEMPERATE, 2);
         
         // flowers
-        GeneratorWeighted flowerGenerator = new GeneratorWeighted(2.3F);
+        GeneratorWeighted flowerGenerator = new GeneratorWeighted(2.5F);
         this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
-        flowerGenerator.add("pink_daffodil", 4, (new GeneratorFlora.Builder().with(BOPFlowers.PINK_DAFFODIL).create()));
-        flowerGenerator.add("syringa", 2, (new GeneratorDoubleFlora.Builder().with(BlockDoublePlant.EnumPlantType.SYRINGA).create()));
-        flowerGenerator.add("houstonia", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.HOUSTONIA).create()));
-        flowerGenerator.add("oxeye_daisy", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.OXEYE_DAISY).create()));
+        flowerGenerator.add("pink_daffodil", 6, (new GeneratorFlora.Builder().with(BOPFlowers.PINK_DAFFODIL).create()));
+        flowerGenerator.add("syringa", 4, (new GeneratorDoubleFlora.Builder().with(BlockDoublePlant.EnumPlantType.SYRINGA).create()));
+        flowerGenerator.add("houstonia", 3, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.HOUSTONIA).create()));
+        flowerGenerator.add("oxeye_daisy", 3, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.OXEYE_DAISY).create()));
         flowerGenerator.add("dandelion", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.DANDELION).create()));
         flowerGenerator.add("poppy", 1, (new GeneratorFlora.Builder().with(BlockFlower.EnumFlowerType.POPPY).create()));
         
@@ -74,7 +74,7 @@ public class BiomeGenCherryBlossomGrove extends BOPOverworldBiome
         this.addGenerator("lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(Blocks.WATERLILY.getDefaultState()).create());
         
         // grasses
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(1.6F);
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(3.0F);
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         grassGenerator.add("shortgrass", 1, (new GeneratorGrass.Builder()).with(BOPFoliage.SHORTGRASS).create());
         grassGenerator.add("tallgrass", 2, (new GeneratorGrass.Builder()).with(BlockTallGrass.EnumType.GRASS).create());

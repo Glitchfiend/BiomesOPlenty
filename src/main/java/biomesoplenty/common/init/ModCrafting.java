@@ -86,7 +86,6 @@ public class ModCrafting
         bopFuel.addFuel(BOPItems.boat_hellbark, 400);
         bopFuel.addFuel(BOPItems.boat_jacaranda, 400);
         bopFuel.addFuel(BOPItems.boat_mahogany, 400);
-        bopFuel.addFuel(BOPItems.boat_ebony, 400);
 
         bopFuel.addFuel(BOPItems.ash, 400);
     }

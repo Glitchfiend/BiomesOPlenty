@@ -225,8 +225,6 @@ public class EntityBOPBoat extends EntityBoat
                 return BOPItems.boat_jacaranda;
             case MAHOGANY:
                 return BOPItems.boat_mahogany;
-            case EBONY:
-                return BOPItems.boat_ebony;
         }
     }
 
@@ -1007,8 +1005,7 @@ public class EntityBOPBoat extends EntityBoat
         WILLOW(BOPWoods.MAGIC.ordinal(), "willow"),
         HELLBARK(BOPWoods.MAGIC.ordinal(), "hellbark"),
         JACARANDA(BOPWoods.MAGIC.ordinal(), "jacaranda"),
-        MAHOGANY(BOPWoods.MAGIC.ordinal(), "mahogany"),
-       	EBONY(BOPWoods.MAGIC.ordinal(), "ebony");
+        MAHOGANY(BOPWoods.MAGIC.ordinal(), "mahogany");
 
         private final String name;
         private final int metadata;

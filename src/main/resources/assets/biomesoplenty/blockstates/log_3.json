@@ -1,9 +1,0 @@
-{
-    "variants": {
-		"axis=y,variant=ethereal":    { "model": "biomesoplenty:ethereal_log" },
-        "axis=z,variant=ethereal":    { "model": "biomesoplenty:ethereal_log", "x": 90 },
-        "axis=x,variant=ethereal":    { "model": "biomesoplenty:ethereal_log", "x": 90, "y": 90 },
-        "axis=none,variant=ethereal": { "model": "biomesoplenty:ethereal_bark" }
-    }
-}
-

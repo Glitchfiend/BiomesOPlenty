@@ -60,7 +60,7 @@ public class BiomeGenBrushland extends BOPOverworldBiome
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);        
         treeGenerator.add("dead_tree", 1, (new GeneratorBigTree.Builder()).minHeight(7).maxHeight(12).foliageHeight(0).foliageDensity(0.5D).log(BOPWoods.DEAD).leaves(Blocks.AIR.getDefaultState()).create());
         treeGenerator.add("brush_twiglet", 18, (new GeneratorTwigletTree.Builder()).minHeight(1).maxHeight(4).log(BlockPlanks.EnumType.ACACIA).leaves(BOPTrees.DEAD).create());        
-        treeGenerator.add("decaying_tree", 3, (new GeneratorBigTree.Builder()).amountPerChunk(1.0F).log(BOPWoods.EBONY).leaves(BOPTrees.EBONY).minHeight(4).maxHeight(11).foliageHeight(1).create());
+        treeGenerator.add("decaying_tree", 3, (new GeneratorBigTree.Builder()).amountPerChunk(1.0F).minHeight(4).maxHeight(11).foliageHeight(1).create());
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(1.0F);

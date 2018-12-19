@@ -20,6 +20,7 @@ import biomesoplenty.common.block.BlockBOPDirt;
 import biomesoplenty.common.block.BlockBOPFlatPlant;
 import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.block.BlockBOPLeaves;
+import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.world.generator.GeneratorBigMushroom;
 import biomesoplenty.common.world.generator.GeneratorDoubleFlora;
 import biomesoplenty.common.world.generator.GeneratorFlora;
@@ -74,8 +75,8 @@ public class BiomeGenMysticGrove extends BOPOverworldBiome
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         treeGenerator.add("ivy_tree", 7, (new GeneratorBasicTree.Builder()).minHeight(5).maxHeight(9).maxLeavesRadius(2).leaves(Blocks.LEAVES.getDefaultState().withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).vine(BOPBlocks.ivy.getDefaultState()).create());
         treeGenerator.add("magic", 17, (new GeneratorBasicTree.Builder()).log(BOPWoods.MAGIC).leaves(BOPTrees.MAGIC).create());
-        treeGenerator.add("jacaranda", 9, (new GeneratorBasicTree.Builder()).minHeight(4).maxHeight(7).log(BOPWoods.JACARANDA).leaves(BOPTrees.JACARANDA).create());
-        treeGenerator.add("oak_large", 8, (new GeneratorBigTree.Builder()).altLeaves(BlockBOPLeaves.paging.getVariantState(BOPTrees.FLOWERING).withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).create());
+        treeGenerator.add("jacaranda", 9, (new GeneratorBasicTree.Builder()).minHeight(5).maxHeight(7).log(BOPWoods.JACARANDA).leaves(BOPTrees.JACARANDA).create());
+        treeGenerator.add("oak_large", 8, (new GeneratorBigTree.Builder()).minHeight(9).altLeaves(BlockBOPLeaves.paging.getVariantState(BOPTrees.FLOWERING).withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).create());
         
         // grasses
         GeneratorWeighted grassGenerator = new GeneratorWeighted(1.5F);
@@ -102,6 +103,7 @@ public class BiomeGenMysticGrove extends BOPOverworldBiome
         this.addGenerator("lily", GeneratorStage.LILYPAD, (new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(Blocks.WATERLILY.getDefaultState()).create());
         
         // shrooms
+        this.addGenerator("glowshrooms_surface", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).generationAttempts(16).with(BlockBOPMushroom.MushroomType.GLOWSHROOM).create());
         this.addGenerator("red_mushrooms", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.4F).generationAttempts(16).with(Blocks.RED_MUSHROOM.getDefaultState()).create());
         this.addGenerator("brown_mushrooms", GeneratorStage.SHROOM,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).generationAttempts(16).with(Blocks.BROWN_MUSHROOM.getDefaultState()).create());
         this.addGenerator("big_red_mushroom", GeneratorStage.BIG_SHROOM,(new GeneratorBigMushroom.Builder()).amountPerChunk(0.4F).mushroomType(GeneratorBigMushroom.BigMushroomType.RED).create());

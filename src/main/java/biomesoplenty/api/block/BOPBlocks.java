@@ -37,7 +37,6 @@ public class BOPBlocks
     public static Block log_0;
     public static Block log_1;
     public static Block log_2;
-    public static Block log_3;
     public static Block leaves_0;
     public static Block leaves_1;
     public static Block leaves_2;
@@ -63,7 +62,6 @@ public class BOPBlocks
     public static Block hellbark_stairs;
     public static Block jacaranda_stairs;
     public static Block mahogany_stairs;
-    public static Block ebony_stairs;
     public static Block cherry_fence;
     public static Block umbran_fence;
     public static Block fir_fence;
@@ -75,7 +73,6 @@ public class BOPBlocks
     public static Block hellbark_fence;
     public static Block jacaranda_fence;
     public static Block mahogany_fence;
-    public static Block ebony_fence;
     public static Block cherry_fence_gate;
     public static Block umbran_fence_gate;
     public static Block fir_fence_gate;
@@ -87,7 +84,6 @@ public class BOPBlocks
     public static Block hellbark_fence_gate;
     public static Block jacaranda_fence_gate;
     public static Block mahogany_fence_gate;
-    public static Block ebony_fence_gate;
     public static Block cherry_door;
     public static Block umbran_door;
     public static Block fir_door;
@@ -99,7 +95,6 @@ public class BOPBlocks
     public static Block hellbark_door;
     public static Block jacaranda_door;
     public static Block mahogany_door;
-    public static Block ebony_door;
     
     public static Block coral;
     public static Block seaweed;

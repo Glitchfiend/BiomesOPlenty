@@ -44,6 +44,5 @@ public class ModVanillaCompat
     	BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(BOPItems.boat_hellbark, new DispenserBehaviorBOPBoat(EntityBOPBoat.Type.HELLBARK));
     	BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(BOPItems.boat_jacaranda, new DispenserBehaviorBOPBoat(EntityBOPBoat.Type.JACARANDA));
     	BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(BOPItems.boat_mahogany, new DispenserBehaviorBOPBoat(EntityBOPBoat.Type.MAHOGANY));
-    	BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(BOPItems.boat_ebony, new DispenserBehaviorBOPBoat(EntityBOPBoat.Type.EBONY));
     }
 }

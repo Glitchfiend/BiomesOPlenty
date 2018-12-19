@@ -11,7 +11,6 @@ package biomesoplenty.common.init;
 import static biomesoplenty.api.item.BOPItems.ash;
 import static biomesoplenty.api.item.BOPItems.berries;
 import static biomesoplenty.api.item.BOPItems.boat_cherry;
-import static biomesoplenty.api.item.BOPItems.boat_ebony;
 import static biomesoplenty.api.item.BOPItems.boat_ethereal;
 import static biomesoplenty.api.item.BOPItems.boat_fir;
 import static biomesoplenty.api.item.BOPItems.boat_hellbark;
@@ -57,6 +56,18 @@ public class ModItems
     
     public static void registerItems()
     {
+    	berries =           registerItem(new ItemBOPFood(1, 0.1F, 8), "berries"); 
+    	pear =              registerItem(new ItemFood(5, 0.3F, false), "pear");
+    	peach =             registerItem(new ItemFood(5, 0.2F, false), "peach");
+        persimmon =         registerItem(new ItemFood(5, 0.2F, false), "persimmon");
+    	
+        mudball = registerItem(new ItemMudball(), "mudball");
+        mud_brick = registerItem(new Item(), "mud_brick");
+        ash = registerItem(new Item(), "ash");
+        fleshchunk = registerItem(new Item(), "fleshchunk");
+        
+        record_wanderer = registerItem(new ItemBOPRecord("wanderer", BOPSounds.records_wanderer), "record_wanderer");
+        
     	boat_fir = registerItem(new ItemBOPBoat(EntityBOPBoat.Type.FIR), "boat_fir");
     	boat_redwood = registerItem(new ItemBOPBoat(EntityBOPBoat.Type.REDWOOD), "boat_redwood");
     	boat_cherry = registerItem(new ItemBOPBoat(EntityBOPBoat.Type.CHERRY), "boat_cherry");
@@ -64,24 +75,10 @@ public class ModItems
     	boat_jacaranda = registerItem(new ItemBOPBoat(EntityBOPBoat.Type.JACARANDA), "boat_jacaranda");
     	boat_palm = registerItem(new ItemBOPBoat(EntityBOPBoat.Type.PALM), "boat_palm");
     	boat_willow = registerItem(new ItemBOPBoat(EntityBOPBoat.Type.WILLOW), "boat_willow");
-    	boat_ebony = registerItem(new ItemBOPBoat(EntityBOPBoat.Type.EBONY), "boat_ebony");
     	boat_magic = registerItem(new ItemBOPBoat(EntityBOPBoat.Type.MAGIC), "boat_magic");
     	boat_umbran = registerItem(new ItemBOPBoat(EntityBOPBoat.Type.UMBRAN), "boat_umbran");
     	boat_hellbark = registerItem(new ItemBOPBoat(EntityBOPBoat.Type.HELLBARK), "boat_hellbark");
     	boat_ethereal = registerItem(new ItemBOPBoat(EntityBOPBoat.Type.ETHEREAL), "boat_ethereal");
-        
-        mudball = registerItem(new ItemMudball(), "mudball");
-        mud_brick = registerItem(new Item(), "mud_brick");
-        ash = registerItem(new Item(), "ash");
-        fleshchunk = registerItem(new Item(), "fleshchunk");
-        
-        // food
-    	berries =           registerItem(new ItemBOPFood(1, 0.1F, 8), "berries"); 
-    	pear =              registerItem(new ItemFood(5, 0.3F, false), "pear");
-    	peach =             registerItem(new ItemFood(5, 0.2F, false), "peach");
-        persimmon =         registerItem(new ItemFood(5, 0.2F, false), "persimmon");
-        
-        record_wanderer = registerItem(new ItemBOPRecord("wanderer", BOPSounds.records_wanderer), "record_wanderer");
         
         bop_icon = registerItem(new Item(), "bop_icon", null);
     }

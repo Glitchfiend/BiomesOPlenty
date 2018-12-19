@@ -114,12 +114,11 @@ public class ModBlocks
         blue_fire =             registerBlock( new BlockBOPBlueFire(), "blue_fire", null);
 
         // Logs
-        // 16 wood types, 4 per BlockBOPLog instance, needs 4 'pages'
+        // 16 wood types, 4 per BlockBOPLog instance, needs 3 'pages'
         BlockBOPLog.createAllPages();
         log_0 =                 registerBlock( BlockBOPLog.paging.getBlock(0), "log_0" );
         log_1 =                 registerBlock( BlockBOPLog.paging.getBlock(1), "log_1" );
         log_2 =                 registerBlock( BlockBOPLog.paging.getBlock(2), "log_2" );
-        log_3 =                 registerBlock( BlockBOPLog.paging.getBlock(3), "log_3" );
 
         //Leaves
         // 22 tree types, 4 per BlockBOPLeaves instance, needs 6 'pages'
@@ -142,7 +141,6 @@ public class ModBlocks
         jacaranda_stairs =      registerBlock( new BlockBOPWoodStairs(BOPWoods.JACARANDA), "jacaranda_stairs" );
         palm_stairs =           registerBlock( new BlockBOPWoodStairs(BOPWoods.PALM), "palm_stairs" );
         willow_stairs =         registerBlock( new BlockBOPWoodStairs(BOPWoods.WILLOW), "willow_stairs" );
-        ebony_stairs =       	registerBlock( new BlockBOPWoodStairs(BOPWoods.EBONY), "ebony_stairs" );
         magic_stairs =          registerBlock( new BlockBOPWoodStairs(BOPWoods.MAGIC), "magic_stairs" );
         umbran_stairs =         registerBlock( new BlockBOPWoodStairs(BOPWoods.UMBRAN), "umbran_stairs" );
         hellbark_stairs =       registerBlock( new BlockBOPWoodStairs(BOPWoods.HELLBARK), "hellbark_stairs" );
@@ -168,7 +166,6 @@ public class ModBlocks
         jacaranda_fence =       registerBlock( new BlockBOPFence(BOPWoods.JACARANDA), "jacaranda_fence" );
         palm_fence =            registerBlock( new BlockBOPFence(BOPWoods.PALM), "palm_fence" );
         willow_fence =          registerBlock( new BlockBOPFence(BOPWoods.WILLOW), "willow_fence" );
-        ebony_fence =        	registerBlock( new BlockBOPFence(BOPWoods.EBONY), "ebony_fence" );
         magic_fence =           registerBlock( new BlockBOPFence(BOPWoods.MAGIC), "magic_fence" );
         umbran_fence =          registerBlock( new BlockBOPFence(BOPWoods.UMBRAN), "umbran_fence" );
         hellbark_fence =        registerBlock( new BlockBOPFence(BOPWoods.HELLBARK), "hellbark_fence" );
@@ -182,7 +179,6 @@ public class ModBlocks
         jacaranda_fence_gate =  registerBlock( new BlockBOPFenceGate(BOPWoods.JACARANDA), "jacaranda_fence_gate" );
         palm_fence_gate =       registerBlock( new BlockBOPFenceGate(BOPWoods.PALM), "palm_fence_gate" );
         willow_fence_gate =     registerBlock( new BlockBOPFenceGate(BOPWoods.WILLOW), "willow_fence_gate" );
-        ebony_fence_gate =   	registerBlock( new BlockBOPFenceGate(BOPWoods.EBONY), "ebony_fence_gate" );
         magic_fence_gate =      registerBlock( new BlockBOPFenceGate(BOPWoods.MAGIC), "magic_fence_gate" );
         umbran_fence_gate =     registerBlock( new BlockBOPFenceGate(BOPWoods.UMBRAN), "umbran_fence_gate" );
         hellbark_fence_gate =   registerBlock( new BlockBOPFenceGate(BOPWoods.HELLBARK), "hellbark_fence_gate" );
@@ -196,7 +192,6 @@ public class ModBlocks
         jacaranda_door =        registerDoor( new BlockBOPDoor(BOPWoods.JACARANDA), "jacaranda_door", BOPItems.jacaranda_door );
         palm_door =             registerDoor( new BlockBOPDoor(BOPWoods.PALM), "palm_door", BOPItems.palm_door );
         willow_door =           registerDoor( new BlockBOPDoor(BOPWoods.WILLOW), "willow_door", BOPItems.willow_door );
-        ebony_door =         	registerDoor( new BlockBOPDoor(BOPWoods.EBONY), "ebony_door", BOPItems.ebony_door );
         magic_door =            registerDoor( new BlockBOPDoor(BOPWoods.MAGIC), "magic_door", BOPItems.magic_door );
         umbran_door =           registerDoor( new BlockBOPDoor(BOPWoods.UMBRAN), "umbran_door", BOPItems.umbran_door );
         hellbark_door =         registerDoor( new BlockBOPDoor(BOPWoods.HELLBARK), "hellbark_door", BOPItems.hellbark_door );

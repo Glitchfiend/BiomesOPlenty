@@ -36,7 +36,6 @@ public class BOPItems
     public static Item boat_hellbark;
     public static Item boat_jacaranda;
     public static Item boat_mahogany;
-    public static Item boat_ebony;
     
     public static Item cherry_door;
     public static Item umbran_door;
@@ -49,7 +48,6 @@ public class BOPItems
     public static Item hellbark_door;
     public static Item jacaranda_door;
     public static Item mahogany_door;
-    public static Item ebony_door;
     
     public static Item wood_slab_0;
     public static Item wood_slab_1;

@@ -5,8 +5,8 @@
 		"variant=jacaranda": { "model": "biomesoplenty:jacaranda_sapling" },
 		"variant=palm": { "model": "biomesoplenty:palm_sapling" },
 		"variant=willow": { "model": "biomesoplenty:willow_sapling" },
-		"variant=ebony": { "model": "biomesoplenty:ebony_sapling" },
 		"variant=dead": { "model": "biomesoplenty:dead_sapling" },
-        "variant=magic": { "model": "biomesoplenty:magic_sapling" }
+        "variant=magic": { "model": "biomesoplenty:magic_sapling" },
+		"variant=umbran": { "model": "biomesoplenty:umbran_sapling" }
     }
 }
