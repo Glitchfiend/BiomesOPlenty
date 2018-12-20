@@ -1,15 +1,7 @@
 advancements.biomesoplenty.root.title=Biomes O' Plenty
 advancements.biomesoplenty.root.description=The explorer's dream...
-advancements.biomesoplenty.yin_and_yang.title=Yin and Yang
-advancements.biomesoplenty.yin_and_yang.description=Plant a glowflower in the Ominous Woods, and a deathbloom in the Mystic Grove
-advancements.biomesoplenty.flesh_and_blood.title=Flesh and Blood
-advancements.biomesoplenty.flesh_and_blood.description=Harvest flesh from the Visceral Heap
 advancements.biomesoplenty.all_biomes.title=Wanderer
 advancements.biomesoplenty.all_biomes.description=Discover every biome in Biomes O' Plenty
-
-biome_finder.searching=Searching for %s
-biome_finder.found=Found %s!
-biome_finder.not_found=Not found, maybe %s is too far away
 
 config.category.convenienceSettings.title=Convenience Settings
 config.category.guiSettings.title=GUI Settings
@@ -33,7 +25,6 @@ commands.biomesoplenty.stats.biomes=Biomes: %s
 commands.biomesoplenty.stripchunk.usage=/biomesoplenty stripchunk [radius] <include|exclude> [block] [metadata]
 
 generator.BIOMESOP=Biomes O' Plenty
-generator.BIOMESOP.info=Notice: Biomes O' Plenty 1.8 is in a very early state
 
 itemGroup.tabBiomesOPlenty=Biomes O' Plenty
 

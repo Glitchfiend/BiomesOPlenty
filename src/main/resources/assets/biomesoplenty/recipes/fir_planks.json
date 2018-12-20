@@ -4,12 +4,12 @@
   "ingredients": [
     {
       "item": "biomesoplenty:log_0",
-      "data": 7
+      "data": 4
     }
   ],
   "result": {
     "item": "biomesoplenty:planks_0",
     "count": 4,
-    "data": 3
+    "data": 0
   }
 }

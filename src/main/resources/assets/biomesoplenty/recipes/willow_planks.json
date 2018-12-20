@@ -3,13 +3,13 @@
   "group": "planks",
   "ingredients": [
     {
-      "item": "biomesoplenty:log_2",
-      "data": 5
+      "item": "biomesoplenty:log_1",
+      "data": 6
     }
   ],
   "result": {
     "item": "biomesoplenty:planks_0",
     "count": 4,
-    "data": 9
+    "data": 6
   }
 }

@@ -7,11 +7,11 @@
   "key": {
     "#": {
       "item": "biomesoplenty:planks_0",
-      "data": 12
+      "data": 4
     }
   },
   "result": {
-    "item": "biomesoplenty:wood_slab_1",
+    "item": "biomesoplenty:wood_slab_0",
     "count": 6,
     "data": 4
   }

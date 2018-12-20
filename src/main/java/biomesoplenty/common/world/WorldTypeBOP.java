@@ -23,7 +23,7 @@ public class WorldTypeBOP extends WorldType
     public WorldTypeBOP()
     {
         super("BIOMESOP");
-        this.enableInfoNotice();
+        //this.enableInfoNotice();
     }
     
     @Override

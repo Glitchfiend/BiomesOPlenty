@@ -1,8 +1,7 @@
 {
     "display": {
         "icon": {
-            "item": "biomesoplenty:grass",
-			"data": 5
+            "item": "biomesoplenty:bop_icon"
         },
         "title": {
             "translate": "advancements.biomesoplenty.all_biomes.title"
@@ -10,20 +9,16 @@
         "description": {
             "translate": "advancements.biomesoplenty.all_biomes.description"
         },
-        "frame": "challenge"
+        "frame": "challenge",
+		"show_toast": true,
+        "announce_to_chat": true
     },
-    "parent": "biomesoplenty:biomesoplenty/terrestrial_artifact",
+    "parent": "biomesoplenty:biomesoplenty/root",
     "criteria": {
         "alps": {
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:alps"
-            }
-        },
-		"bamboo_forest": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:bamboo_forest"
             }
         },
 		"bayou": {
@@ -92,22 +87,16 @@
                 "biome": "biomesoplenty:dead_swamp"
             }
         },
-		"eucalyptus_forest": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:eucalyptus_forest"
-            }
-        },
 		"fen": {
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:fen"
             }
         },
-		"flower_field": {
+		"floodplains": {
             "trigger": "minecraft:location",
             "conditions": {
-                "biome": "biomesoplenty:flower_field"
+                "biome": "biomesoplenty:floodplains"
             }
         },
 		"grassland": {
@@ -128,34 +117,16 @@
                 "biome": "biomesoplenty:highland"
             }
         },
-		"land_of_lakes": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:land_of_lakes"
-            }
-        },
 		"lavender_fields": {
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:lavender_fields"
             }
         },
-		"lush_desert": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:lush_desert"
-            }
-        },
 		"lush_swamp": {
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:lush_swamp"
-            }
-        },
-		"mangrove": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:mangrove"
             }
         },
 		"maple_woods": {
@@ -174,18 +145,6 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:meadow"
-            }
-        },
-		"moor": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:moor"
-            }
-        },
-		"mountain": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:mountain"
             }
         },
 		"mystic_grove": {
@@ -224,12 +183,6 @@
                 "biome": "biomesoplenty:prairie"
             }
         },
-		"quagmire": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:quagmire"
-            }
-        },
 		"rainforest": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -242,10 +195,10 @@
                 "biome": "biomesoplenty:redwood_forest"
             }
         },
-		"sacred_springs": {
+		"scrubland": {
             "trigger": "minecraft:location",
             "conditions": {
-                "biome": "biomesoplenty:sacred_springs"
+                "biome": "biomesoplenty:scrubland"
             }
         },
 		"seasonal_forest": {
@@ -326,12 +279,6 @@
                 "biome": "biomesoplenty:xeric_shrubland"
             }
         },
-		"flower_island": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:flower_island"
-            }
-        },
 		"origin_island": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -362,22 +309,46 @@
                 "biome": "biomesoplenty:kelp_forest"
             }
         },
-		"pasture": {
+		"cold_tundra": {
             "trigger": "minecraft:location",
             "conditions": {
-                "biome": "biomesoplenty:pasture"
+                "biome": "biomesoplenty:cold_tundra"
             }
         },
-		"glacier": {
+		"dead_plains": {
             "trigger": "minecraft:location",
             "conditions": {
-                "biome": "biomesoplenty:glacier"
+                "biome": "biomesoplenty:dead_plains"
+            }
+        },
+		"flower_meadow": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:flower_meadow"
+            }
+        },
+		"highland_moor": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:highland_moor"
+            }
+        },
+		"mire": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:mire"
             }
         },
 		"oasis": {
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:oasis"
+            }
+        },
+		"pasture": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:pasture"
             }
         },
 		"gravel_beach": {
@@ -392,22 +363,22 @@
                 "biome": "biomesoplenty:white_beach"
             }
         },
-		"white_beach": {
+		"origin_beach": {
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:origin_beach"
-            }
-        },
-		"mountain_foothills": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:mountain_foothills"
             }
         },
 		"alps_foothills": {
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:alps_foothills"
+            }
+        },
+		"redwood_forest_edge": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:redwood_forest_edge"
             }
         },
 		"corrupted_sands": {
