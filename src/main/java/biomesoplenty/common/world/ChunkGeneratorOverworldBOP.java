@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.common.biome.overworld.BOPOverworldBiome;
 import biomesoplenty.common.util.biome.BiomeUtils;
 import net.minecraft.block.BlockFalling;
