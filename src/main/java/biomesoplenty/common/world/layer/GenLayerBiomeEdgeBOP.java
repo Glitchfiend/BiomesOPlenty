@@ -41,7 +41,7 @@ public class GenLayerBiomeEdgeBOP extends BOPGenLayer
                 
                 // line BOP alps peaks with BOP alps foothills
                 if (this.replaceBiomeEdge(parentVals, out, x, y, areaWidth, biomeId, BOPBiomes.alps, BOPBiomes.alps_foothills)) {continue;}
-                
+
                 // line BOP redwood forest with BOP redwood forest edge
                 if (this.replaceBiomeEdge(parentVals, out, x, y, areaWidth, biomeId, BOPBiomes.redwood_forest, BOPBiomes.redwood_forest_edge)) {continue;}
                 

@@ -117,6 +117,12 @@
                 "biome": "biomesoplenty:highland"
             }
         },
+		"lake": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:lake"
+            }
+        },
 		"lavender_fields": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -431,6 +437,7 @@
 			"grassland",
 			"grove",
 			"highland",
+			"lake",
 			"lavender_fields",
 			"lush_swamp",
 			"maple_woods",

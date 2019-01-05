@@ -34,7 +34,7 @@ public class BiomeGenWoodland extends BOPOverworldBiome
         
     public BiomeGenWoodland()
     {
-        super("woodland", new PropsBuilder("Woodland").withGuiColour(0x84A92D).withTemperature(0.7F).withRainfall(0.5F));
+        super("woodland", new PropsBuilder("Woodland").withGuiColour(0x84A92D).withTemperature(0.8F).withRainfall(0.5F));
 
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(6, 25);

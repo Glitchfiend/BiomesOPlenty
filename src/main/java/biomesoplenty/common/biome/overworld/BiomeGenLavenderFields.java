@@ -31,7 +31,7 @@ public class BiomeGenLavenderFields extends BOPOverworldBiome
 {
     public BiomeGenLavenderFields()
     {
-        super("lavender_fields", new PropsBuilder("Lavender Fields").withGuiColour(11035852).withTemperature(0.7F).withRainfall(0.7F));
+        super("lavender_fields", new PropsBuilder("Lavender Fields").withGuiColour(11035852).withTemperature(0.8F).withRainfall(0.7F));
 
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(4, 12);

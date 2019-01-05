@@ -42,6 +42,7 @@ public class BOPBiomes
     public static Optional<Biome> grassland = Optional.absent();    
     public static Optional<Biome> grove = Optional.absent();
     public static Optional<Biome> highland = Optional.absent();
+    public static Optional<Biome> lake = Optional.absent();
     public static Optional<Biome> lavender_fields = Optional.absent();
     public static Optional<Biome> lush_swamp = Optional.absent();
     public static Optional<Biome> maple_woods = Optional.absent();

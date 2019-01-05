@@ -48,7 +48,7 @@ public class BiomeGenChaparral extends BOPOverworldBiome
     
     public BiomeGenChaparral()
     {
-        super("chaparral", new PropsBuilder("Chaparral").withGuiColour(0xC4D675).withTemperature(0.75F).withRainfall(0.15F));
+        super("chaparral", new PropsBuilder("Chaparral").withGuiColour(0xC4D675).withTemperature(0.8F).withRainfall(0.15F));
         
         // terrain
         this.terrainSettings.avgHeight(80).heightVariation(10, 40);

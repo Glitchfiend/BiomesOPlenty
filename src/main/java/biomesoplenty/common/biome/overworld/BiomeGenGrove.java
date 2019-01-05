@@ -31,7 +31,7 @@ public class BiomeGenGrove extends BOPOverworldBiome
     
     public BiomeGenGrove()
     {
-        super("grove", new PropsBuilder("Grove").withGuiColour(0x517F51).withTemperature(0.75F).withRainfall(0.3F));
+        super("grove", new PropsBuilder("Grove").withGuiColour(0x517F51).withTemperature(0.8F).withRainfall(0.3F));
 
         // terrain
         this.terrainSettings.avgHeight(85).heightVariation(20, 20);

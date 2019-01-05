@@ -21,7 +21,7 @@ public class BiomeGenOrchard extends BOPOverworldBiome
 {
     public BiomeGenOrchard()
     {
-        super("orchard", new PropsBuilder("Orchard").withGuiColour(0xA9DB69).withTemperature(0.7F).withRainfall(0.7F));
+        super("orchard", new PropsBuilder("Orchard").withGuiColour(0xA9DB69).withTemperature(0.8F).withRainfall(0.7F));
 
         // terrain
         this.terrainSettings.avgHeight(64).heightVariation(4, 15);

@@ -28,7 +28,7 @@ public class BiomeGenRedwoodForestEdge extends BOPOverworldBiome
     
     public BiomeGenRedwoodForestEdge()
     {
-        super("redwood_forest_edge", new PropsBuilder("Redwood Forest Edge").withGuiColour(0x6DAA3C).withTemperature(0.7F).withRainfall(0.7F));
+        super("redwood_forest_edge", new PropsBuilder("Redwood Forest Edge").withGuiColour(0x6DAA3C).withTemperature(0.8F).withRainfall(0.6F));
 
         // terrain
         this.terrainSettings.avgHeight(70).heightVariation(4, 10);
