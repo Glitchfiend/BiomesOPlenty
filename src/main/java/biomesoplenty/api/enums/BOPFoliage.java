@@ -12,7 +12,7 @@ import net.minecraft.util.IStringSerializable;
 
 public enum BOPFoliage implements IStringSerializable, IPagedVariants
 {
-	SHORTGRASS, BUSH, BERRYBUSH, KORU, DEVILWEED, DUNEGRASS, DESERTSPROUTS, DESERTGRASS, DEADGRASS, SPECTRALFERN, BARLEY;
+	SHORTGRASS, BUSH, BERRYBUSH, BARLEY, DUNEGRASS, DESERTGRASS, DEADGRASS, DEVILWEED, SPECTRALFERN;
 	
     @Override
     public String getName() {

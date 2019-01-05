@@ -36,10 +36,8 @@ import biomesoplenty.common.world.generator.tree.GeneratorBush;
 import biomesoplenty.common.world.generator.tree.GeneratorMahoganyTree;
 import biomesoplenty.common.world.generator.tree.GeneratorMegaJungleTree;
 import biomesoplenty.common.world.generator.tree.GeneratorPalmTree;
-import biomesoplenty.common.world.generator.tree.GeneratorPineTree;
 import biomesoplenty.common.world.generator.tree.GeneratorProfileTree;
 import biomesoplenty.common.world.generator.tree.GeneratorRedwoodTree;
-import biomesoplenty.common.world.generator.tree.GeneratorRedwoodTreeThin;
 import biomesoplenty.common.world.generator.tree.GeneratorTaigaTree;
 import biomesoplenty.common.world.generator.tree.GeneratorTwigletTree;
 
@@ -54,7 +52,6 @@ public class ModGenerators
         registerGenerator("big_tree", GeneratorBigTree.class, new GeneratorBigTree.Builder());
         registerGenerator("bush", GeneratorBush.class, new GeneratorBush.Builder());
         registerGenerator("twiglet_tree", GeneratorTwigletTree.class, new GeneratorTwigletTree.Builder());
-        registerGenerator("pine_tree", GeneratorPineTree.class, new GeneratorPineTree.Builder());
         registerGenerator("bulb_tree", GeneratorBulbTree.class, new GeneratorBulbTree.Builder());
         registerGenerator("mega_jungle_tree", GeneratorMegaJungleTree.class, new GeneratorMegaJungleTree.Builder());
         registerGenerator("bayou_tree", GeneratorBayouTree.class, new GeneratorBayouTree.Builder());
@@ -76,7 +73,6 @@ public class ModGenerators
         registerGenerator("crystals", GeneratorCrystals.class, new GeneratorCrystals.Builder());
         registerGenerator("spike", GeneratorSpike.class, new GeneratorSpike.Builder());
         registerGenerator("redwood_tree", GeneratorRedwoodTree.class, new GeneratorRedwoodTree.Builder());
-        registerGenerator("redwood_tree_thin", GeneratorRedwoodTreeThin.class, new GeneratorRedwoodTreeThin.Builder());
         registerGenerator("mahogany_tree", GeneratorMahoganyTree.class, new GeneratorMahoganyTree.Builder());
         registerGenerator("palm_tree", GeneratorPalmTree.class, new GeneratorPalmTree.Builder());
     }

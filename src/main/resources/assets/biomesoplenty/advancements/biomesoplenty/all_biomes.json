@@ -13,7 +13,7 @@
 		"show_toast": true,
         "announce_to_chat": true
     },
-    "parent": "biomesoplenty:biomesoplenty/root",
+	"parent": "biomesoplenty:biomesoplenty/nether_biomes",
     "criteria": {
         "alps": {
             "trigger": "minecraft:location",

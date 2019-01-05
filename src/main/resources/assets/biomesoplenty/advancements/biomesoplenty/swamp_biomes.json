@@ -1,0 +1,74 @@
+{
+    "display": {
+        "icon": {
+            "item": "biomesoplenty:plant_0",
+			"data": 2
+        },
+        "title": {
+            "translate": "advancements.biomesoplenty.swamp_biomes.title"
+        },
+        "description": {
+            "translate": "advancements.biomesoplenty.swamp_biomes.description"
+        },
+		"frame": "goal",
+		"show_toast": true,
+        "announce_to_chat": true
+    },
+	"parent": "biomesoplenty:biomesoplenty/evergreen_biomes",
+    "criteria": {
+		"bayou": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:bayou"
+            }
+        },
+		"bog": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:bog"
+            }
+        },
+		"dead_swamp": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:dead_swamp"
+            }
+        },
+		"fen": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:fen"
+            }
+        },
+		"lush_swamp": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:lush_swamp"
+            }
+        },
+		"marsh": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:marsh"
+            }
+        },
+		"wetland": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:wetland"
+            }
+        },
+		"highland_moor": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:highland_moor"
+            }
+        },
+		"mire": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:mire"
+            }
+        }
+    }
+}

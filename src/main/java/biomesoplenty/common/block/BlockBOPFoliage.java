@@ -111,7 +111,7 @@ public class BlockBOPFoliage extends BlockBOPDecoration implements IShearable, I
         {
             case BUSH: case BERRYBUSH:
             return ColoringType.LIKE_LEAVES;
-            case SHORTGRASS: case KORU: case DEVILWEED:
+            case SHORTGRASS: case DEVILWEED:
             return ColoringType.LIKE_GRASS;
             default:
                 return ColoringType.PLAIN;
@@ -254,7 +254,7 @@ public class BlockBOPFoliage extends BlockBOPDecoration implements IShearable, I
     	BOPFoliage plant = (BOPFoliage) state.getValue(this.variantProperty);
         switch (plant)
         {
-            case SHORTGRASS: case DESERTGRASS: case DESERTSPROUTS:
+            case SHORTGRASS: case DESERTGRASS:
             	return new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.4000000357627869D, 0.8999999761581421D);
             default:
             	return new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);
@@ -271,8 +271,6 @@ public class BlockBOPFoliage extends BlockBOPDecoration implements IShearable, I
         {
             case DEADGRASS: case DESERTGRASS:
                 return BlockQueries.litDry.matches(world, pos.down()) || BlockQueries.sustainsNether.matches(world, pos.down());
-            case DESERTSPROUTS:
-                return BlockQueries.litDry.matches(world, pos.down()) || BlockQueries.litFertile.matches(world, pos.down());
             case DUNEGRASS:
                 return BlockQueries.litSand.matches(world, pos.down());
             case SPECTRALFERN:

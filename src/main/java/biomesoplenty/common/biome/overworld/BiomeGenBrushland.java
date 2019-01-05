@@ -56,7 +56,7 @@ public class BiomeGenBrushland extends BOPOverworldBiome
         this.addGenerator("sand", GeneratorStage.SAND_PASS2, (new GeneratorWaterside.Builder()).amountPerChunk(4).maxRadius(7).with(Blocks.SAND.getDefaultState()).create());
 
         // trees & logs
-        GeneratorWeighted treeGenerator = new GeneratorWeighted(2.5F);
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(3.5F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);        
         treeGenerator.add("dead_tree", 1, (new GeneratorBigTree.Builder()).minHeight(7).maxHeight(12).foliageHeight(0).foliageDensity(0.5D).log(BOPWoods.DEAD).leaves(Blocks.AIR.getDefaultState()).create());
         treeGenerator.add("brush_twiglet", 18, (new GeneratorTwigletTree.Builder()).minHeight(1).maxHeight(4).log(BlockPlanks.EnumType.ACACIA).leaves(BOPTrees.DEAD).create());        
@@ -72,7 +72,6 @@ public class BiomeGenBrushland extends BOPOverworldBiome
         this.addGenerator("cacti", GeneratorStage.FLOWERS,(new GeneratorColumns.Builder()).amountPerChunk(0.2F).generationAttempts(24).placeOn(this.topBlock).with(Blocks.CACTUS.getDefaultState()).minHeight(1).maxHeight(2).create());
         this.addGenerator("tiny_cacti", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.4F).with(BOPPlants.TINYCACTUS).create());
         this.addGenerator("desertgrass", GeneratorStage.GRASS, (new GeneratorGrass.Builder()).amountPerChunk(2.0F).with(BOPFoliage.DESERTGRASS).generationAttempts(8).create());
-        this.addGenerator("desert_sprouts", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.25F).with(BOPFoliage.DESERTSPROUTS).generationAttempts(8).create());
         this.addGenerator("thorns", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(1.0F).with(BOPPlants.THORN).create());
         this.addGenerator("dead_bushes", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(1.75F).with(Blocks.DEADBUSH.getDefaultState()).create());
     }

@@ -1,11 +1,9 @@
 package biomesoplenty.common.biome.overworld;
 
-import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.enums.BOPFlowers;
 import biomesoplenty.api.enums.BOPFoliage;
-import biomesoplenty.api.enums.BOPPlants;
 import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.api.enums.BOPWoods;
 import biomesoplenty.api.generation.GeneratorStage;
@@ -25,12 +23,13 @@ import net.minecraft.block.BlockOldLeaf;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.math.BlockPos;
 
 public class BiomeGenRainforest extends BOPOverworldBiome
 {    
     public BiomeGenRainforest()
     {
-        super("rainforest", new PropsBuilder("Rainforest").withGuiColour(0x14E26F).withTemperature(0.85F).withRainfall(1.2F));
+        super("rainforest", new PropsBuilder("Rainforest").withGuiColour(0x14E26F).withTemperature(0.85F).withRainfall(1.5F));
 
         // terrain
         this.terrainSettings.avgHeight(75).heightVariation(45, 60).sidewaysNoise(0.3D);
@@ -78,5 +77,17 @@ public class BiomeGenRainforest extends BOPOverworldBiome
         
         // gem
         this.addGenerator("emerald", GeneratorStage.SAND, (new GeneratorOreSingle.Builder()).amountPerChunk(12).with(Blocks.EMERALD_ORE.getDefaultState()).create());
+    }
+    
+    @Override
+    public int getGrassColorAtPos(BlockPos pos)
+    {
+        return getModdedBiomeGrassColor(0x21D357);
+    }
+    
+    @Override
+    public int getFoliageColorAtPos(BlockPos pos)
+    {
+        return getModdedBiomeFoliageColor(0x1DE064);
     }
 }

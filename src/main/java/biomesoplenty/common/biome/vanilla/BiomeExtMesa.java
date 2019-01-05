@@ -14,7 +14,6 @@ public class BiomeExtMesa extends ExtendedBiomeWrapper
         super(Biomes.MESA);
         
         // other plants
-        this.addGenerator("desertgrass", GeneratorStage.GRASS, (new GeneratorGrass.Builder()).amountPerChunk(0.3F).with(BOPFoliage.DESERTGRASS).generationAttempts(8).create());
-        this.addGenerator("tiny_cacti", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BOPPlants.TINYCACTUS).generationAttempts(16).create());   
+        this.addGenerator("desertgrass", GeneratorStage.GRASS, (new GeneratorGrass.Builder()).amountPerChunk(0.3F).with(BOPFoliage.DESERTGRASS).generationAttempts(8).create());  
     }
 }

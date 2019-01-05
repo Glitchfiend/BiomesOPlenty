@@ -72,9 +72,6 @@ public class BiomeGenWasteland extends BOPOverworldBiome
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(0.05F);
         this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
         flowerGenerator.add("wilted_lily", 1, (new GeneratorFlora.Builder()).with(BOPFlowers.WILTED_LILY).create());
-        
-        // lakes
-        this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(0.05F).waterLakeForBiome(this).create());
     }
     
     @Override

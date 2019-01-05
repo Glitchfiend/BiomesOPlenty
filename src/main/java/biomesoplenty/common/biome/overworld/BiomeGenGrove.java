@@ -11,6 +11,7 @@ package biomesoplenty.common.biome.overworld;
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.api.enums.BOPFoliage;
+import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.api.generation.GeneratorStage;
 import biomesoplenty.common.block.BlockBOPFlatPlant;
 import biomesoplenty.common.world.generator.GeneratorDoubleFlora;
@@ -49,7 +50,7 @@ public class BiomeGenGrove extends BOPOverworldBiome
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(3.5F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
-        treeGenerator.add("oak_tree", 1, (new GeneratorBigTree.Builder()).minHeight(11).maxHeight(15).foliageHeight(2).create());
+        treeGenerator.add("oak_tree", 1, (new GeneratorBigTree.Builder()).minHeight(11).maxHeight(15).altLeaves(BOPTrees.FLOWERING).foliageHeight(2).create());
         treeGenerator.add("dark_poplar", 5, (new GeneratorProfileTree.Builder()).minHeight(9).maxHeight(15).log(BlockPlanks.EnumType.DARK_OAK).leaves(BlockPlanks.EnumType.DARK_OAK).profile(GeneratorProfileTree.TreeProfile.POPLAR).create());
         treeGenerator.add("poplar", 5, (new GeneratorProfileTree.Builder()).minHeight(9).maxHeight(18).log(BlockPlanks.EnumType.BIRCH).leaves(BlockPlanks.EnumType.BIRCH).profile(GeneratorProfileTree.TreeProfile.POPLAR).create());
         treeGenerator.add("bush", 8, (new GeneratorBush.Builder()).maxHeight(2).create());

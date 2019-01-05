@@ -1,0 +1,32 @@
+{
+    "display": {
+        "icon": {
+            "item": "biomesoplenty:flower_0",
+			"data": 9
+        },
+        "title": {
+            "translate": "advancements.biomesoplenty.magic_biomes.title"
+        },
+        "description": {
+            "translate": "advancements.biomesoplenty.magic_biomes.description"
+        },
+        "frame": "goal",
+		"show_toast": true,
+        "announce_to_chat": true
+    },
+	"parent": "biomesoplenty:biomesoplenty/beach_island_biomes",
+    "criteria": {
+		"mystic_grove": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:mystic_grove"
+            }
+        },
+		"ominous_woods": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:ominous_woods"
+            }
+        }
+    }
+}

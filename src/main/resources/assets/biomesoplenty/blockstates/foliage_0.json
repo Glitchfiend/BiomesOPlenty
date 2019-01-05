@@ -3,13 +3,11 @@
         "variant=shortgrass": { "model": "biomesoplenty:shortgrass" },
         "variant=bush": { "model": "biomesoplenty:bush" },
         "variant=berrybush": { "model": "biomesoplenty:berrybush" },
-        "variant=koru": { "model": "biomesoplenty:koru" },
-		"variant=devilweed": { "model": "biomesoplenty:devilweed" },
+		"variant=barley": { "model": "biomesoplenty:barley" },
 		"variant=dunegrass": { "model": "biomesoplenty:dunegrass" },
-		"variant=desertsprouts": { "model": "biomesoplenty:desertsprouts" },
 		"variant=desertgrass": { "model": "biomesoplenty:desertgrass" },
 		"variant=deadgrass": { "model": "biomesoplenty:deadgrass" },
-        "variant=spectralfern": { "model": "biomesoplenty:spectralfern" },
-		"variant=barley": { "model": "biomesoplenty:barley" }
+		"variant=devilweed": { "model": "biomesoplenty:devilweed" },
+        "variant=spectralfern": { "model": "biomesoplenty:spectralfern" }
     }
 }

@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.common.biome.overworld.BOPOverworldBiome;
 import biomesoplenty.common.util.biome.BiomeUtils;
 import net.minecraft.block.BlockFalling;
@@ -541,7 +542,7 @@ public class ChunkGeneratorOverworldBOP implements IChunkGenerator
         }
 
         // add lava lakes
-        if (!hasVillageGenerated && this.rand.nextInt(this.settings.lavaLakeChance / 10) == 0 && this.settings.useLavaLakes && TerrainGen.populate(this, world, rand, chunkX, chunkZ, hasVillageGenerated, LAVA))
+        if (!hasVillageGenerated && (BOPBiomes.redwood_forest.isPresent() && Biome != BOPBiomes.redwood_forest.get()) && (BOPBiomes.redwood_forest_edge.isPresent() && Biome != BOPBiomes.redwood_forest_edge.get()) && (BOPBiomes.wasteland.isPresent() && Biome != BOPBiomes.wasteland.get()) && this.rand.nextInt(this.settings.lavaLakeChance / 10) == 0 && this.settings.useLavaLakes && TerrainGen.populate(this, world, rand, chunkX, chunkZ, hasVillageGenerated, LAVA))
         {
             target = decorateStart.add(this.rand.nextInt(16), this.rand.nextInt(248) + 8, this.rand.nextInt(16));
             if (target.getY() < 63 || this.rand.nextInt(this.settings.lavaLakeChance / 8) == 0)

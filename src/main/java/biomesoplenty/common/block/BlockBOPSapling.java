@@ -18,7 +18,6 @@ import biomesoplenty.common.item.ItemBOPSapling;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.VariantPagingHelper;
 import biomesoplenty.common.world.generator.tree.GeneratorBasicTree;
-import biomesoplenty.common.world.generator.tree.GeneratorBigTree;
 import biomesoplenty.common.world.generator.tree.GeneratorMahoganyTree;
 import biomesoplenty.common.world.generator.tree.GeneratorPalmTree;
 import biomesoplenty.common.world.generator.tree.GeneratorRedwoodTree;
@@ -203,7 +202,7 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable, IP
             case PALM:
                 return new GeneratorPalmTree.Builder().log(BOPWoods.PALM).leaves(BlockBOPLeaves.paging.getVariantState(BOPTrees.PALM).withProperty(BlockOldLeaf.DECAYABLE, Boolean.valueOf(false))).updateNeighbours(true).create();
             case REDWOOD:
-                return new GeneratorRedwoodTree.Builder().create();
+                return new GeneratorRedwoodTree.Builder().log(BOPWoods.REDWOOD).leaves(BOPTrees.REDWOOD).minHeight(10).maxHeight(30).trunkWidth(1).create();
             case WILLOW:
             	return new GeneratorBasicTree.Builder().log(BOPWoods.WILLOW).leaves(BlockBOPLeaves.paging.getVariantState(BOPTrees.WILLOW).withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false))).minHeight(8).maxHeight(12).maxLeavesRadius(2).vine(BOPBlocks.willow_vine.getDefaultState()).leavesOffset(0).updateNeighbours(true).create();
             case MAHOGANY:

@@ -7,9 +7,11 @@
  ******************************************************************************/
 
 package biomesoplenty.common.world.generator.tree;
+
 import java.util.Random;
 
-import biomesoplenty.api.block.BOPBlocks;
+import org.apache.commons.lang3.tuple.Pair;
+
 import biomesoplenty.api.block.BlockQueries;
 import biomesoplenty.api.block.IBlockPosQuery;
 import biomesoplenty.api.config.IConfigObj;
@@ -17,9 +19,14 @@ import biomesoplenty.common.util.biome.GeneratorUtils;
 import biomesoplenty.common.util.biome.GeneratorUtils.ScatterYMethod;
 import biomesoplenty.common.util.block.BlockQuery;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryBlock;
+import biomesoplenty.common.util.block.BlockQuery.BlockQueryMaterial;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryParseException;
 import biomesoplenty.common.util.block.BlockQuery.BlockQueryState;
+import biomesoplenty.common.world.generator.GeneratorSpike;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockCocoa;
+import net.minecraft.block.BlockVine;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
@@ -28,267 +35,363 @@ import net.minecraft.world.World;
 
 public class GeneratorBayouTree extends GeneratorTreeBase
 {
-    
-    public static class Builder extends GeneratorTreeBase.InnerBuilder<Builder, GeneratorBayouTree> implements IGeneratorBuilder<GeneratorBayouTree>
-    {
-        protected int minLeavesRadius;
-        protected int leavesGradient;
-        protected int vineAttempts;
-        protected int maxVineLength;
-        protected IBlockPosQuery rootsReplace;
-
-        public Builder minLeavesRadius(int a) {this.minLeavesRadius = a; return this.self();}
-        public Builder leavesGradient(int a) {this.leavesGradient = a; return this.self();}
-        public Builder vineAttempts(int a) {this.vineAttempts = a; return this.self();}
-        public Builder maxVineLength(int a) {this.maxVineLength = a; return this.self();}
-        public Builder rootsReplace(IBlockPosQuery a) {this.replace = a; return this.self();}
-        public Builder rootsReplace(String a) throws BlockQueryParseException {this.replace = BlockQuery.parseQueryString(a); return this.self();}
-        public Builder rootsReplace(Block a) {this.replace = new BlockQueryBlock(a); return this.self();}
-        public Builder rootsReplace(IBlockState a) {this.replace = new BlockQueryState(a); return this.self();}
-        
+    public static class Builder extends GeneratorBayouTree.InnerBuilder<Builder, GeneratorBayouTree> implements IGeneratorBuilder<GeneratorBayouTree>
+    {        
         public Builder()
         {
             // defaults
             this.amountPerChunk = 1.0F;
             this.placeOn = BlockQueries.fertile;
-            this.replace = BlockQueries.airOrLeaves;
-            this.rootsReplace = BlockQueries.rootsCanDigThrough;
+            this.replace = new BlockQueryMaterial(Material.AIR, Material.LEAVES, Material.VINE, Material.WATER);
             this.log = Blocks.LOG.getDefaultState();
             this.leaves = Blocks.LEAVES.getDefaultState();
-            this.vine = BOPBlocks.willow_vine.getDefaultState();
+            this.vine = null;
             this.hanging = null;
             this.trunkFruit = null;
             this.altLeaves = null;
-            this.minHeight = 8;
-            this.maxHeight = 18;
-            this.minLeavesRadius = 2;
-            this.leavesGradient = 4;
-            this.vineAttempts = 20;
-            this.maxVineLength = 20;
-            this.scatterYMethod = ScatterYMethod.AT_SURFACE;
+            this.minHeight = 4;
+            this.maxHeight = 7;
+            this.updateNeighbours = false;
+            this.leafLayers = 4;
+            this.leavesOffset = 1;
+            this.maxLeavesRadius = 1;
+            this.leavesLayerHeight = 2;
+            this.placeVinesOn = BlockQueries.air;
+            this.hangingChance = 0.0F;
+            this.scatterYMethod = ScatterYMethod.AT_GROUND;
         }
 
         @Override
         public GeneratorBayouTree create()
         {
-            return new GeneratorBayouTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.trunkFruit, this.altLeaves, this.minHeight, this.maxHeight, this.minLeavesRadius, this.leavesGradient, this.vineAttempts, this.maxVineLength, this.rootsReplace, this.scatterYMethod);
+            return new GeneratorBayouTree(this.amountPerChunk, this.placeOn, this.replace, this.log, this.leaves, this.vine, this.hanging, this.trunkFruit, this.altLeaves, this.minHeight, this.maxHeight, this.updateNeighbours, this.leafLayers, this.leavesOffset, this.maxLeavesRadius, this.leavesLayerHeight, this.placeVinesOn, this.hangingChance, this.scatterYMethod);
         }
     }
     
-
-    private int minLeavesRadius;
-    private int leavesGradient;
-    private int vineAttempts;
-    private int maxVineLength;
-    private IBlockPosQuery rootsReplace;
+    protected static abstract class InnerBuilder<T extends InnerBuilder<T, G>, G extends GeneratorBayouTree> extends GeneratorTreeBase.InnerBuilder<T, G>
+    {
+        protected int leafLayers;
+        protected int leavesOffset;
+        protected int maxLeavesRadius;
+        protected int leavesLayerHeight;
+        protected IBlockPosQuery placeVinesOn;
+        protected float hangingChance;
+        
+        public T leafLayers(int a) {this.leafLayers = a; return this.self();}
+        public T leavesOffset(int a) {this.leavesOffset = a; return this.self();}
+        public T leavesLayerHeight(int a) {this.leavesLayerHeight = a; return this.self();}
+        public T maxLeavesRadius(int a) {this.maxLeavesRadius = a; return this.self();}
+        
+        public T placeVinesOn(IBlockPosQuery a) {this.placeVinesOn = a; return this.self();}
+        public T placeVinesOn(String a) throws BlockQueryParseException {this.placeVinesOn = BlockQuery.parseQueryString(a); return this.self();}
+        public T placeVinesOn(Block a) {this.placeVinesOn = new BlockQueryBlock(a); return this.self();}
+        public T placeVinesOn(IBlockState a) {this.placeVinesOn = new BlockQueryState(a); return this.self();}
+        public T placeVinesOn(Material... a) {this.placeVinesOn = new BlockQueryMaterial(a); return this.self();}
+        
+        public T hangingChance(float a) {this.hangingChance = a; return this.self();}
+    }
     
-    public GeneratorBayouTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, IBlockState trunkFruit, IBlockState altLeaves, int minHeight, int maxHeight, int minLeavesRadius, int leavesGradient, int vineAttempts, int maxVineLength, IBlockPosQuery rootsReplace, ScatterYMethod scatterYMethod)
+    protected boolean updateNeighbours;
+    protected int leafLayers;
+    protected int leavesOffset;
+    protected int maxLeavesRadius;
+    protected int leavesLayerHeight;
+    protected IBlockPosQuery placeVinesOn;
+    protected float hangingChance;
+    
+    public GeneratorBayouTree(float amountPerChunk, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState vine, IBlockState hanging, IBlockState trunkFruit, IBlockState altLeaves, int minHeight, int maxHeight, boolean updateNeighbours, int leafLayers, int leavesOffset, int maxLeavesRadius, int leavesLayerHeight, IBlockPosQuery placeVinesOn, float hangingChance, ScatterYMethod scatterYMethod)
     {
         super(amountPerChunk, placeOn, replace, log, leaves, vine, hanging, trunkFruit, altLeaves, minHeight, maxHeight, scatterYMethod);
-        this.minLeavesRadius = minLeavesRadius;
-        this.leavesGradient = leavesGradient;
-        this.vineAttempts = vineAttempts;
-        this.maxVineLength = maxVineLength;
-        this.rootsReplace = rootsReplace;
+        this.updateNeighbours = updateNeighbours;
+        this.leavesOffset = leavesOffset;
+        this.leafLayers = leafLayers;
+        this.maxLeavesRadius = maxLeavesRadius;
+        this.leavesLayerHeight = leavesLayerHeight;
+        this.placeVinesOn = placeVinesOn;
+        this.hangingChance = hangingChance;
     }
     
     @Override
-    public BlockPos getScatterY(World world, Random random, int x, int z)
+    public boolean generate(World world, Random random, BlockPos pos)
     {
-        // always at ground (sometimes underwater)
-        return GeneratorUtils.ScatterYMethod.AT_GROUND.getBlockPos(world, random, x, z);
-    }
-    
-    public boolean setRoot(World world, BlockPos pos)
-    {
-        if (this.rootsReplace.matches(world, pos))
+        int height = random.nextInt(this.maxHeight - this.minHeight) + this.minHeight;
+        boolean hasSpace = true;
+
+        //Generate only if we are above the lowest bedrock level (1) and reach less than the world height
+        //There must be a gap of 1 between the top leaf block and the world height
+        if (pos.getY() >= 1 && pos.getY() + height + 1 <= 256)
         {
-            world.setBlockState(pos, this.log, 2);
-            return true;
-        }
-        return false;
-    }
-    
-    public boolean checkRootViable(World world, BlockPos pos, int rootHeight, EnumFacing direction)
-    {
-        // a viable root has an path which roots can dig through from trunk to some fertile ground
-        pos = pos.offset(direction).up(rootHeight - 1);
-        for (int i = 0; i < rootHeight; i++)
-        {
-            if (!this.rootsReplace.matches(world, pos)) {return false;}
-            pos = pos.down();
-            if (this.placeOn.matches(world, pos)) {return true;}
-        }
-        return false;
-    }
-    
-    public boolean checkSpace(World world, BlockPos pos, int rootHeight, int middleHeight, int height)
-    {
-        
-        // we want at least 2 of the roots to be viable
-        int rootsOk = 0;
-        for (EnumFacing direction : EnumFacing.Plane.HORIZONTAL)
-        {
-            if (this.checkRootViable(world, pos, rootHeight, direction)) {rootsOk++;}
-        }
-        if (rootsOk < 2) {return false;}
-   
-        // check there's some space for the trunk and leaves too
-        for (int y = rootHeight; y <= height; y++)
-        {
-            // require 1x1 for the trunk, 3x3 for the leaves
-            int radius = (y <= (rootHeight + middleHeight) ? 0 : 1);                        
-            for (int x = -radius; x <= radius; x++)
+            int radius;
+
+            for (int y = pos.getY(); y <= pos.getY() + 1 + height; y++)
             {
-                for (int z = -radius; z <= radius; z++)
+                radius = 1;
+
+                //Don't check for space on the first level, if we are a sapling then there will
+                //already be a block here (the sapling itself)
+                if (y == pos.getY())
                 {
-                    BlockPos pos1 = pos.add(x, y, z);
-                    // note, there may be a sapling on the first layer - make sure this.replace matches it!
-                    if (pos1.getY() >= 255 || !this.replace.matches(world, pos1))
+                    radius = 0;
+                }
+
+                //At and above the top log block, require a radius of 2 to be empty
+                if (y >= pos.getY() + 1 + height - 2)
+                {
+                    radius = 2;
+                }
+
+                for (int x = pos.getX() - radius; x <= pos.getX() + radius && hasSpace; ++x)
+                {
+                    for (int z = pos.getZ() - radius; z <= pos.getZ() + radius && hasSpace; ++z)
                     {
-                        return false;
+                        if (y < 0 || y > 256)
+                        {
+                            hasSpace = false;
+                        }
                     }
                 }
             }
-        }
-        return true;       
-    }
-    
-    public void generateTop(World world, Random random, BlockPos pos, int topHeight)
-    {           
-        
-        for (int y = 0; y < topHeight; y++)
-        {
-            int radius = Math.min(3, this.minLeavesRadius + (topHeight - y) / this.leavesGradient);
-            
-            for (int x = -radius; x <= radius; ++x)
+
+            if (!hasSpace)
             {
-                for (int z = -radius; z <= radius; ++z)
+                return false;
+            }
+            else
+            {
+                BlockPos soilPos = pos.down();
+                Block soil = world.getBlockState(soilPos).getBlock();
+
+                if (this.placeOn.matches(world, soilPos) && pos.getY() < 256 - height - 1)
                 {
-                    // too far away and the leaves will decay
-                    int dist = Math.abs(x) + Math.abs(z);
-                    if (dist < 4 || (dist == 4 && random.nextInt(2) == 0))
+                    soil.onPlantGrow(world.getBlockState(soilPos), world, soilPos, pos);
+                    int leavesLayers = (this.leafLayers - 1);
+                    
+                    //Generates leaves at the top of the tree, going one block above the top log (<= rather than <)
+                    for (int y = pos.getY() + height - leavesLayers; y <= pos.getY() + height; y++)
                     {
-                        this.setLeaves(world, pos.add(x, y, z));
+                        //Determines the distance from the top of the tree as a negative number
+                        int currentLayer = y - (pos.getY() + height);
+                        //Uses integer division truncation (-3 / 2 = -1, -2 / 2 = -1) to reduce
+                        //the radius closer to the top of the tree. (2, 2, 1, 1)
+                        int leavesRadius =  this.maxLeavesRadius - currentLayer / this.leavesLayerHeight;
+
+                        for (int x = pos.getX() - leavesRadius; x <= pos.getX() + leavesRadius; x++)
+                        {
+                            int xDiff = x - pos.getX();
+
+                            for (int z = pos.getZ() - leavesRadius; z <= pos.getZ() + leavesRadius; ++z)
+                            {
+                                int zDiff = z - pos.getZ();
+
+                                //Randomly prevent the generation of leaves on the corners of each layer
+                                //If the layer is the top layer, never generate the corners
+                                if (Math.abs(xDiff) != leavesRadius || Math.abs(zDiff) != leavesRadius || random.nextInt(2) != 0 && currentLayer != 0)
+                                {
+                                    BlockPos leavesPos = new BlockPos(x, y, z);
+                                    if (this.replace.matches(world, leavesPos))
+                                    {
+                                    	if (this.altLeaves != null)
+                                    	{
+                                    		if (random.nextInt(4) == 0)
+                                    		{
+                                    			this.setBlockAndNotifyAdequately(world, leavesPos, this.altLeaves);
+                                    		}
+                                    		else
+                                    		{
+                                    			this.setBlockAndNotifyAdequately(world, leavesPos, this.leaves);
+                                    		}
+                                    	}
+                                    	else
+                                    	{
+                                    		this.setBlockAndNotifyAdequately(world, leavesPos, this.leaves);
+                                    	}
+                                    }
+                                }
+                            }
+                        }
                     }
+                    
+                    this.generateTrunk(world, pos, height);
+
+                    if (this.vine != null)
+                    {
+                        for (int y = pos.getY() - leavesLayers + height; y <= pos.getY() + height; y++)
+                        {
+                            //Determines the distance from the top of the tree as a negative number
+                            int currentLayer = y - (pos.getY() + height);
+                            //Uses integer division truncation (-3 / 2 = -1, -2 / 2 = -1) to reduce
+                            //the radius closer to the top of the tree. (3, 3, 2, 2)
+                            int leavesRadius = (this.maxLeavesRadius + this.leavesOffset) - currentLayer / this.leavesLayerHeight;
+
+                            for (int x = pos.getX() - leavesRadius; x <= pos.getX() + leavesRadius; x++)
+                            {
+                                for (int z = pos.getZ() - leavesRadius; z <= pos.getZ() + leavesRadius; z++)
+                                {
+                                    BlockPos blockpos3 = new BlockPos(x, y, z);
+
+                                    //Surround leaves on the edge of the tree with vines and extend them downwards
+                                    if (world.getBlockState(blockpos3).getBlock().isLeaves(world.getBlockState(blockpos3), world, blockpos3))
+                                    {
+                                        BlockPos westPos = blockpos3.west();
+                                        BlockPos eastPos = blockpos3.east();
+                                        BlockPos northPos = blockpos3.north();
+                                        BlockPos southPos = blockpos3.south();
+
+                                        if (random.nextInt(4) == 0 && this.placeVinesOn.matches(world, westPos))
+                                        {
+                                            this.extendVines(world, westPos, EnumFacing.EAST);
+                                        }
+
+                                        if (random.nextInt(4) == 0 && this.placeVinesOn.matches(world, eastPos))
+                                        {
+                                            this.extendVines(world, eastPos, EnumFacing.WEST);
+                                        }
+
+                                        if (random.nextInt(4) == 0 && this.placeVinesOn.matches(world, northPos))
+                                        {
+                                            this.extendVines(world, northPos, EnumFacing.SOUTH);
+                                        }
+
+                                        if (random.nextInt(4) == 0 && this.placeVinesOn.matches(world, southPos))
+                                        {
+                                            this.extendVines(world, southPos, EnumFacing.NORTH);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    //Generate fruit or any other blocks that may hang off of the tree
+                    if (this.hanging != null) this.generateHanging(world, pos, height);
+                    
+                    if (this.trunkFruit != null)
+                    {
+                        if (random.nextInt(5) == 0 && height > 5)
+                        {
+                            for (int l3 = 0; l3 < 2; ++l3)
+                            {
+                                for (EnumFacing enumfacing : EnumFacing.Plane.HORIZONTAL)
+                                {
+                                    if (random.nextInt(4 - l3) == 0)
+                                    {
+                                        EnumFacing enumfacing1 = enumfacing.getOpposite();
+                                        this.generateTrunkFruit(world, random.nextInt(3), pos.add(enumfacing1.getFrontOffsetX(), height - 5 + l3, enumfacing1.getFrontOffsetZ()), enumfacing);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
             }
-            if (y < topHeight - 1)
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    protected void generateTrunk(World world, BlockPos start, int height)
+    {
+        //Create the trunk from the bottom up, using < to ensure it is covered with one layer of leaves
+        for (int layer = 0; layer < height; ++layer)
+        {
+            BlockPos blockpos2 = start.up(layer);
+            if (this.replace.matches(world, blockpos2))
             {
-                // add the trunk in the middle
-                this.setLog(world, pos.add(0, y, 0));
-            } else {
-                // add leaves on top for certain
-                this.setLeaves(world, pos.add(0, y, 0));
+                this.setBlockAndNotifyAdequately(world, start.up(layer), this.log);
             }
         }
     }
     
-    public void generateRoots(World world, Random random, BlockPos pos, int rootHeight)
+    protected void generateHanging(World world, BlockPos start, int height)
     {
-        for (int i = 0; i < rootHeight; i++)
+        //Generate below the bottom layer of leaves
+        int y = start.getY() + (height - this.leafLayers);
+        
+        for (int x = start.getX() - (maxLeavesRadius + 1); x <= start.getX() + (maxLeavesRadius + 1); x++)
         {
-            this.setRoot(world, pos.north());
-            this.setRoot(world, pos.east());
-            this.setRoot(world, pos.south());
-            this.setRoot(world, pos.west());
-            pos = pos.up();
-        }
-        this.setRoot(world, pos.down());
-    }
-    
-    @Override
-    public boolean generate(World world, Random random, BlockPos startPos)
-    {
+            for (int z = start.getZ() - (maxLeavesRadius + 1); z <= start.getZ() + (maxLeavesRadius + 1); z++)
+            {
+                BlockPos hangingPos = new BlockPos(x, y, z);
                 
-        if (!this.placeOn.matches(world, startPos.down()))
-        {
-            // Abandon if we can't place the tree on this block
-            return false;
-        }
-        
-        // Choose heights
-        int height = GeneratorUtils.nextIntBetween(random, this.minHeight, this.maxHeight);
-        
-        int topHeight = Math.min(6, GeneratorUtils.nextIntBetween(random, height / 5, height / 3));
-        int rootHeight = Math.min(5, GeneratorUtils.nextIntBetween(random, height / 4, height / 2));
-        int middleHeight = height - topHeight - rootHeight;
-        if (middleHeight < 1) {return false;}
-        
-        // Start in the ground block
-        BlockPos pos = startPos.down();
-        
-        if (!this.checkSpace(world, pos, rootHeight, middleHeight, height))
-        {
-            // Abandon if there isn't enough room
-            return false;
-        }
-        
-        // Generate roots
-        this.generateRoots(world, random, pos, rootHeight);
-        pos = pos.up(rootHeight);
-        
-        // Generate middle of tree (trunk only)
-        for(int i = 0; i < middleHeight; i++)
-        {
-            this.setLog(world, pos);
-            pos = pos.up();
-        }
-        
-        // Generate the top of the tree
-        this.generateTop(world, random, pos, topHeight);
-        
-        // Add vines
-        if (this.vine != null)
-        {
-            int maxLeavesRadius = this.minLeavesRadius + topHeight / this.leavesGradient;
-            this.addVines(world, random, startPos, height, maxLeavesRadius, this.vineAttempts);
-        }
-
-        return true;
-    }
-
-    protected void addVines(World world, Random rand, BlockPos startPos, int height, int leavesRadius, int generationAttempts)
-    {
-        for (int i = 0; i < generationAttempts; i++)
-        {
-            // choose a random direction
-            EnumFacing direction = EnumFacing.Plane.HORIZONTAL.random(rand);
-            EnumFacing back = direction.getOpposite();
-            EnumFacing sideways = direction.rotateY();
-            
-            // choose a random starting point somewhere just outside the boundary of the tree
-            BlockPos pos = startPos.up(GeneratorUtils.nextIntBetween(rand, 2, height)).offset(direction, leavesRadius + 1).offset(sideways, GeneratorUtils.nextIntBetween(rand, -leavesRadius, leavesRadius));
-            
-            // move back towards the center until we meet a leaf or log, then stick a vine on it
-            IBlockState state;
-            for (int l = 0; l < leavesRadius; l++)
-            {
-                state = world.getBlockState(pos.offset(back, 1 + l));
-                if (state == this.leaves || state == this.log) {
-                    this.setVine(world, rand, pos.offset(back, l), back, this.maxVineLength);
-                    break;
+                if (!world.isAirBlock(hangingPos.up()) && (world.isAirBlock(hangingPos)) && world.rand.nextFloat() <= this.hangingChance)
+                {
+                    this.setHanging(world, hangingPos);
                 }
             }
         }
     }
     
+    private void generateTrunkFruit(World world, int age, BlockPos pos, EnumFacing direction)
+    {
+        if (this.trunkFruit == Blocks.COCOA.getDefaultState())
+        {
+            this.setBlockAndNotifyAdequately(world, pos, this.trunkFruit.withProperty(BlockCocoa.AGE, Integer.valueOf(age)).withProperty(BlockCocoa.FACING, direction));
+        }
+        else
+        {
+            this.setBlockAndNotifyAdequately(world, pos, this.trunkFruit.withProperty(BlockCocoa.FACING, direction));
+        }
+    }
+    
+    private IBlockState getVineStateForSide(EnumFacing side)
+    {
+        return this.vine.getBlock() instanceof BlockVine ? this.vine.withProperty(BlockVine.getPropertyFor(side), Boolean.valueOf(true)) : this.vine;
+    }
+
+    private void extendVines(World world, BlockPos pos, EnumFacing side)
+    {
+        IBlockState vineState = this.getVineStateForSide(side);
+        this.setBlockAndNotifyAdequately(world, pos, vineState);
+        
+        int length = 4;
+
+        //Extend vine downwards for a maximum of 4 blocks
+        for (pos = pos.down(); this.placeVinesOn.matches(world, pos) && length > 0; length--)
+        {
+            this.setBlockAndNotifyAdequately(world, pos, vineState);
+            pos = pos.down();
+        }
+    }
+    
+    public void setBlockAndNotifyAdequately(World world, BlockPos pos, IBlockState state)
+    {
+        if (this.updateNeighbours)
+        {
+            world.setBlockState(pos, state, 3);
+        }
+        else
+        {
+            world.setBlockState(pos, state, 2);
+        }
+    }
     
     @Override
     public void configure(IConfigObj conf)
-    {        
+    {
         this.amountPerChunk = conf.getFloat("amountPerChunk", this.amountPerChunk);
-        this.minHeight = conf.getInt("minHeight", this.minHeight);
-        this.minLeavesRadius = conf.getInt("minLeavesRadius", this.minLeavesRadius);
-        this.leavesGradient = conf.getInt("leavesGradient", this.leavesGradient);
-        this.vineAttempts = conf.getInt("vineAttempts", this.vineAttempts);
-        this.maxVineLength = conf.getInt("maxVineLength", this.maxVineLength);        
-        this.placeOn = conf.getBlockPosQuery("placeOn", this.placeOn);
-        this.replace = conf.getBlockPosQuery("replace", this.replace);
-        this.rootsReplace = conf.getBlockPosQuery("rootsReplace", this.rootsReplace);
+        this.updateNeighbours = conf.getBool("updateNeighbours", this.updateNeighbours);
+        int minHeight = conf.getInt("minHeight", this.minHeight);
+        int maxHeight = conf.getInt("maxHeight", this.maxHeight);
+        
+        Pair<Integer, Integer> heights = GeneratorUtils.validateMinMaxHeight(minHeight, maxHeight);
+        this.minHeight = heights.getLeft();
+        this.maxHeight = heights.getRight();
+        
         this.log = conf.getBlockState("logState", this.log);
         this.leaves = conf.getBlockState("leavesState", this.leaves);
-        this.vine = conf.getBlockState("vinesState", this.vine);
+        this.vine = conf.getBlockState("vineState", this.vine);
+        this.hanging = conf.getBlockState("hangingState", this.hanging);
         this.trunkFruit = conf.getBlockState("trunkFruitState", this.trunkFruit);
+        this.altLeaves = conf.getBlockState("altLeavesState", this.altLeaves);
+        
+        this.hangingChance = conf.getFloat("hangingChance", this.hangingChance);
     }
 }

@@ -78,9 +78,8 @@ public class BiomeGenXericShrubland extends BOPOverworldBiome
         flowerGenerator.add("wildflower", 4, (new GeneratorFlora.Builder()).with(BOPFlowers.WILDFLOWER).create());
         
         // other plants
-        this.addGenerator("dunegrass", GeneratorStage.GRASS, (new GeneratorGrass.Builder()).amountPerChunk(10.0F).with(BOPFoliage.DUNEGRASS).placeOn(this.topBlock).generationAttempts(8).create());
+        this.addGenerator("dunegrass", GeneratorStage.GRASS, (new GeneratorGrass.Builder()).amountPerChunk(12.5F).with(BOPFoliage.DUNEGRASS).placeOn(this.topBlock).generationAttempts(8).create());
         this.addGenerator("desertgrass", GeneratorStage.GRASS, (new GeneratorGrass.Builder()).amountPerChunk(2.0F).with(BOPFoliage.DESERTGRASS).generationAttempts(8).create());
-        this.addGenerator("desert_sprouts", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(4.0F).with(BOPFoliage.DESERTSPROUTS).generationAttempts(8).create());
         this.addGenerator("dead_bushes", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(0.75F).with(Blocks.DEADBUSH.getDefaultState()).create());
     }
     
