@@ -45,8 +45,7 @@ public class BiomeGenGrove extends BOPOverworldBiome
         // other plants
         this.addGenerator("berry_bushes", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.1F).with(BOPFoliage.BERRYBUSH).create());
         this.addGenerator("bushes", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.2F).with(BOPFoliage.BUSH).create());
-        this.addGenerator("leaf_piles", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(0.5F).placeOn(BlockQueries.fertile).with(BlockBOPFlatPlant.PlantType.LEAFPILE).create());
-        
+
         // trees
         GeneratorWeighted treeGenerator = new GeneratorWeighted(3.5F);
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);

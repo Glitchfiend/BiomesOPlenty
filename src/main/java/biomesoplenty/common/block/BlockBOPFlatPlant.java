@@ -12,18 +12,14 @@ import java.util.List;
 import java.util.Random;
 
 import biomesoplenty.api.block.BlockQueries;
-import biomesoplenty.api.enums.BOPPlants;
-import biomesoplenty.common.block.BlockBOPPlant.ColoringType;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.MapColor;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.IItemColor;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
@@ -42,7 +38,7 @@ public class BlockBOPFlatPlant extends BlockBOPDecoration
     // add properties
     public enum PlantType implements IStringSerializable
     {
-        LEAFPILE, DEADLEAFPILE;
+        DEADLEAFPILE;
         @Override
         public String getName()
         {
@@ -78,7 +74,7 @@ public class BlockBOPFlatPlant extends BlockBOPDecoration
     {
         // set some defaults
         //this.setBlockBoundsByRadiusAndHeight(0.2F, 0.4F);
-        this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, PlantType.LEAFPILE) );        
+        this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, PlantType.DEADLEAFPILE) );        
     }
     
     // map from state to meta and vice verca
@@ -99,8 +95,6 @@ public class BlockBOPFlatPlant extends BlockBOPDecoration
     {
         switch (plant)
         {
-            case LEAFPILE:
-            return ColoringType.LIKE_LEAVES;
             default:
                 return ColoringType.PLAIN;
         }
@@ -181,7 +175,7 @@ public class BlockBOPFlatPlant extends BlockBOPDecoration
     	PlantType plant = (PlantType) state.getValue(VARIANT);
         switch (plant)
         {
-            case LEAFPILE: case DEADLEAFPILE:
+            case DEADLEAFPILE:
             	return new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.09375D, 0.9375D);
             default:
             	return new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);
@@ -193,11 +187,10 @@ public class BlockBOPFlatPlant extends BlockBOPDecoration
     public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
     {
         PlantType plant = ((PlantType) state.getValue(VARIANT));
-        Block blockAbove = world.getBlockState(pos.up()).getBlock();
       
         switch (plant)
         {
-            case LEAFPILE: case DEADLEAFPILE:
+            case DEADLEAFPILE:
                 return BlockQueries.solid.matches(world, pos.down());
             default:
                 return BlockQueries.litFertile.matches(world, pos.down());            

@@ -113,7 +113,6 @@ tile.fir_fence.name=Fir Fence
 tile.fir_fence_gate.name=Fir Fence Gate
 tile.fir_wood_slab.name=Fir Wood Slab
 tile.fir_stairs.name=Fir Wood Stairs
-tile.flat_plant.leafpile.name=Leaf Pile
 tile.flat_plant.deadleafpile.name=Dead Leaf Pile
 tile.flesh.name=Flesh
 tile.flower_0.rose.name=Rose

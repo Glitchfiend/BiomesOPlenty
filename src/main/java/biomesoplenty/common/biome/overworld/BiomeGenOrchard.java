@@ -56,7 +56,6 @@ public class BiomeGenOrchard extends BOPOverworldBiome
         
         // other plants
         this.addGenerator("berry_bushes", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(0.4F).with(BOPFoliage.BERRYBUSH).generationAttempts(8).create());
-        this.addGenerator("leaf_piles", GeneratorStage.FLOWERS, (new GeneratorFlora.Builder()).amountPerChunk(1).placeOn(BlockQueries.fertile).with(BlockBOPFlatPlant.PlantType.LEAFPILE).generationAttempts(32).create());
     }
     
     @Override

@@ -24,7 +24,7 @@ public class ItemMudball extends Item
 {
     public ItemMudball()
     {
-        this.maxStackSize = 16;
+        this.maxStackSize = 64;
     }
 
     // throw a mudball on right click

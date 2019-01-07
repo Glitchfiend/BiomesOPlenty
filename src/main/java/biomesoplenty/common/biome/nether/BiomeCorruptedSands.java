@@ -34,7 +34,6 @@ public class BiomeCorruptedSands extends BOPHellBiome
         this.addGenerator("bramble", GeneratorStage.FLOWERS,(new GeneratorBramble.Builder()).amountPerChunk(40.0F).placeOn(emptySoulsand).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
         
         // splatter top blocks
-        //this.addGenerator("netherrack_splatter", GeneratorStage.SAND, (new GeneratorSplatter.Builder()).amountPerChunk(5.0F).generationAttempts(128).scatterYMethod(ScatterYMethod.NETHER_SURFACE).replace(emptySoulsand).with(Blocks.NETHERRACK.getDefaultState()).create());
         this.addGenerator("dead_grass", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(5.0F).with(BOPFoliage.DEADGRASS).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
         this.addGenerator("thorns", GeneratorStage.FLOWERS,(new GeneratorFlora.Builder()).amountPerChunk(3.0F).placeOn(emptySoulsand).with(BOPPlants.THORN).scatterYMethod(ScatterYMethod.NETHER_SURFACE).create());
     }
