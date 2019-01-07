@@ -1,22 +1,22 @@
 buildscript {
     repositories {
+        mavenLocal()
+        maven { url = 'https://files.minecraftforge.net/maven' }
         jcenter()
-        maven {
-            name = "forge"
-            url = "http://files.minecraftforge.net/maven"
-        }
+        mavenCentral()
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
     }
 }
 
-plugins {
-    id "com.matthewprenger.cursegradle" version "1.0.9"
-}
+/*plugins {
+    id "com.matthewprenger.cursegradle" version "1.1.2"
+}*/
 
-apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'maven'
+apply plugin: 'eclipse'
 
 // define the properties file
 ext.configFile = file "build.properties"
@@ -29,26 +29,54 @@ configFile.withReader {
 }
 
 group = "com.github.glitchfiend.biomesoplenty"
-// why set the version twice?
-version = config.mod_version
 archivesBaseName = "BiomesOPlenty"
 
 // add some stuff to the version
 version = "${config.minecraft_version}-${config.mod_version}.${System.getenv().BUILD_NUMBER}"
-// set this for the version.properties file, or was this broken on purpose?
 config.build_number = (System.getenv().BUILD_NUMBER) ? System.getenv().BUILD_NUMBER : ""
 
+sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+compileJava {
+    sourceCompatibility = targetCompatibility = '1.8'
+}
+
 minecraft {
-    version = config.minecraft_version + "-" + config.forge_version // grab latest forge
-    useDepAts = true
-    mappings = project.config.mappings_version
-    //gradle complains if this isn't set when setting up/using IDEA workspace
-    runDir = "run"
-    //set a full version string with appended build number to be used in mod registration
-    def buildnum = (config.build_number!="") ? '.' + config.build_number : ""
-    replace '@MOD_VERSION@', config.mod_version + buildnum
-    replace '1.0.0.0', config.forge_version
-    replaceIn 'BiomesOPlenty.java'
+    mappings channel: 'snapshot', version: config.mappings_version
+
+    // default run configurations.
+    // these can be tweaked, removed, or duplicated as needed.
+    runConfig {
+        name= "Minecraft Client"
+        main= "net.minecraftforge.userdev.UserdevLauncher"
+        ideaModuleName = "${project.name}_main"
+        workingDirectory = project.file("run").canonicalPath
+        environment "target", "fmluserdevclient"
+        environment "assetDirectory", downloadAssets.output.absolutePath
+        environment "FORGE_VERSION", config.forge_version
+        environment "FORGE_GROUP", config.forge_group
+        environment "MCP_VERSION", config.mappings_version
+        environment "MC_VERSION", config.minecraft_version
+        environment "MOD_CLASSES", "${sourceSets.main.output.resourcesDir}${File.pathSeparator}${sourceSets.main.output.classesDirs.join(File.pathSeparator)}"
+    }
+
+    runConfig {
+        name= "Minecraft Server"
+        main= "net.minecraftforge.userdev.UserdevLauncher"
+        ideaModuleName = "${project.name}_main"
+        workingDirectory = project.file("run").canonicalPath
+        environment "target", "fmluserdevserver"
+        environment "assetDirectory", downloadAssets.output.absolutePath
+        environment "FORGE_VERSION", config.forge_version
+        environment "FORGE_GROUP", config.forge_group
+        environment "MCP_VERSION", config.mappings_version
+        environment "MC_VERSION", config.minecraft_version
+        environment "MOD_CLASSES", "${sourceSets.main.output.resourcesDir}${File.pathSeparator}${sourceSets.main.output.classesDirs.join(File.pathSeparator)}"
+    }
+}
+
+dependencies {
+    minecraft 'net.minecraftforge.test:userdev:' + config.minecraft_version + '-' + config.forge_version
+    compile 'net.minecraftforge.test:forge:' + config.minecraft_version + '-' + config.forge_version + ':launcher'
 }
 
 def commonManifest = {
@@ -79,22 +107,6 @@ processResources {
         exclude '**/*.properties'
     }
 }
-
-
-import groovy.io.FileType
-
-task changelog(type: JenkinsChangelog) {
-    def buildNumber = "${System.getenv().BUILD_NUMBER}"
-
-    serverRoot = 'http://ci.jenkins.minecraftforge.net/'
-    jobName = 'BiomesOPlenty'
-    authName = 'console_script'
-    authPassword = 'dc6d48ca20a474beeac280a9a16a926e'
-    targetBuild = buildNumber.toString()
-    output = 'build/libs/' + project.getName() + '-' + project.version + '-changelog.txt'
-}
-
-tasks.build.dependsOn('changelog')
 
 task sourcesJar(type: Jar) {
     from sourceSets.main.allJava
@@ -149,20 +161,19 @@ task listOutputs << {
 tasks.build.finalizedBy('listOutputs')
 
 artifacts {
-    archives changelog.output
     archives sourcesJar
     archives deobfJar
 	archives apiJar
 }
 
-curseforge {
+/*curseforge {
     apiKey = "$System.env.curse_api_key"
     project {
         id = '220318'
         changelog = file('build/libs/' + project.getName() + '-' + project.version + '-changelog.txt')
         releaseType = 'beta'
     }
-}
+}*/
 
 uploadArchives {
     repositories {
