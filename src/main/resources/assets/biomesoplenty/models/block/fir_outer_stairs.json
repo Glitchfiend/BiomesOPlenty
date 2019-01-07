@@ -1,8 +1,0 @@
-{
-    "parent": "block/outer_stairs",
-    "textures": {
-        "bottom": "biomesoplenty:blocks/fir_planks",
-        "top": "biomesoplenty:blocks/fir_planks",
-        "side": "biomesoplenty:blocks/fir_planks"
-    }
-}

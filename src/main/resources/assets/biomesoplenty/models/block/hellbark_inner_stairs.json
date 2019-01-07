@@ -1,8 +1,0 @@
-{
-    "parent": "block/inner_stairs",
-    "textures": {
-        "bottom": "biomesoplenty:blocks/hellbark_planks",
-        "top": "biomesoplenty:blocks/hellbark_planks",
-        "side": "biomesoplenty:blocks/hellbark_planks"
-    }
-}

@@ -1,9 +1,0 @@
-{
-    "parent": "block/cube_bottom_top",
-    "textures": {
-        "particle": "blocks/end_stone",
-        "bottom": "blocks/end_stone",
-        "top": "biomesoplenty:blocks/spectral_moss_top",
-        "side": "biomesoplenty:blocks/spectral_moss_side"
-    }
-}

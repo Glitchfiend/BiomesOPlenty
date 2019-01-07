@@ -1,8 +1,0 @@
-{
-    "variants": {
-        "variant=yellow_autumn": { "model": "biomesoplenty:yellow_autumn_leaves" },
-        "variant=orange_autumn": { "model": "biomesoplenty:orange_autumn_leaves" },
-        "variant=bamboo": { "model": "biomesoplenty:bamboo_leaves" },
-        "variant=magic": { "model": "biomesoplenty:magic_leaves" }
-    }
-}

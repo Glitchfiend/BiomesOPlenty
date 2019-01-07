@@ -1,9 +1,0 @@
-{
-    "variants": {
-        "variant=pink": { "model": "biomesoplenty:pink_coral" },
-        "variant=orange": { "model": "biomesoplenty:orange_coral" },
-        "variant=blue": { "model": "biomesoplenty:blue_coral" },
-        "variant=glowing": { "model": "biomesoplenty:glowing_coral" },
-        "variant=algae": { "model": "biomesoplenty:algae" }
-    }
-}

@@ -1,6 +1,0 @@
-{
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "biomesoplenty:blocks/filled_honeycomb_block"
-    }
-}

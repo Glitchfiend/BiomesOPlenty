@@ -1,8 +1,0 @@
-{
-    "parent": "block/half_slab",
-    "textures": {
-        "bottom": "biomesoplenty:blocks/jacaranda_planks",
-        "top": "biomesoplenty:blocks/jacaranda_planks",
-        "side": "biomesoplenty:blocks/jacaranda_planks"
-    }
-}

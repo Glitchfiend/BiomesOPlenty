@@ -1,8 +1,0 @@
-{
-    "parent": "block/stairs",
-    "textures": {
-        "bottom": "biomesoplenty:blocks/mahogany_planks",
-        "top": "biomesoplenty:blocks/mahogany_planks",
-        "side": "biomesoplenty:blocks/mahogany_planks"
-    }
-}

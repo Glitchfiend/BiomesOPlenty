@@ -1,6 +1,0 @@
-{
-    "variants": {
-		"variant=red_big_flower": { "model": "biomesoplenty:red_big_flower_petal" },
-        "variant=yellow_big_flower": { "model": "biomesoplenty:yellow_big_flower_petal" }
-    }
-}

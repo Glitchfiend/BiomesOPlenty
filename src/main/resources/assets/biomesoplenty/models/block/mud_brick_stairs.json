@@ -1,8 +1,0 @@
-{
-    "parent": "block/stairs",
-    "textures": {
-        "bottom": "biomesoplenty:blocks/mud_brick_block",
-        "top": "biomesoplenty:blocks/mud_brick_block",
-        "side": "biomesoplenty:blocks/mud_brick_block"
-    }
-}
