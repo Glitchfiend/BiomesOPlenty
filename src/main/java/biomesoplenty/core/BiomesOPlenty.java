@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright 2014-2016, the Biomes O' Plenty Team
+ * Copyright 2014-2019, the Biomes O' Plenty Team
  * 
  * This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License.
  * 
@@ -8,7 +8,10 @@
 
 package biomesoplenty.core;
 
+import biomesoplenty.init.ModBlocks;
+import net.minecraft.init.Bootstrap;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.javafmlmod.FMLModLoadingContext;
 
@@ -22,11 +25,19 @@ public class BiomesOPlenty
     public BiomesOPlenty()
     {
     	instance = this;
+
     	FMLModLoadingContext.get().getModEventBus().addListener(this::preInit);
+        FMLModLoadingContext.get().getModEventBus().addListener(this::init);
+
+        // As of right now registry events are fired after construction
+        ModBlocks.init();
     }
     
     private void preInit(final FMLPreInitializationEvent event)
     {
-        System.out.println("Here we go again...");
+    }
+
+    private void init(final FMLInitializationEvent event)
+    {
     }
 }
