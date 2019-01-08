@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#D",
+    "D#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:gravel",
+      "data": 32767
+    },
+    "D": {
+      "item": "biomesoplenty:dirt",
+      "count": 4,
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:dirt",
+    "count": 4,
+    "data": 8
+  }
+}

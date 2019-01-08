@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "coarse=false,variant=loamy": { "model": "biomesoplenty:loamy_dirt" },
+        "coarse=false,variant=sandy": { "model": "biomesoplenty:sandy_dirt" },
+        "coarse=false,variant=silty": { "model": "biomesoplenty:silty_dirt" },
+        "coarse=true,variant=loamy": { "model": "biomesoplenty:coarse_loamy_dirt" },
+        "coarse=true,variant=sandy": { "model": "biomesoplenty:coarse_sandy_dirt" },
+        "coarse=true,variant=silty": { "model": "biomesoplenty:coarse_silty_dirt" }
+    }
+}

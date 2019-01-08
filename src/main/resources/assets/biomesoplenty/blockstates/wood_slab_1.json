@@ -1,0 +1,10 @@
+{
+    "variants": {
+	    "half=bottom,variant=umbran": { "model": "biomesoplenty:half_slab_umbran" },
+        "half=top,variant=umbran": { "model": "biomesoplenty:upper_slab_umbran" },
+		"half=bottom,variant=hellbark": { "model": "biomesoplenty:half_slab_hellbark" },
+        "half=top,variant=hellbark": { "model": "biomesoplenty:upper_slab_hellbark" },
+        "half=bottom,variant=ethereal": { "model": "biomesoplenty:half_slab_ethereal" },
+        "half=top,variant=ethereal": { "model": "biomesoplenty:upper_slab_ethereal" }
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "variants": {
+		"normal": [
+            { "model": "biomesoplenty:dried_sand" },
+            { "model": "biomesoplenty:dried_sand", "y": 90 },
+            { "model": "biomesoplenty:dried_sand", "y": 180 },
+            { "model": "biomesoplenty:dried_sand", "y": 270 }
+        	]
+    }
+}

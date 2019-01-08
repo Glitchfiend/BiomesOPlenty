@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "variant=hellbark": { "model": "biomesoplenty:hellbark_leaves" },
+		"variant=ethereal": { "model": "biomesoplenty:ethereal_leaves" }
+    }
+}

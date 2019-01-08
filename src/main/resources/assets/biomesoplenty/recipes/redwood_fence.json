@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_fence",
+  "pattern": [
+    "P#P",
+    "P#P"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick",
+      "data": 32767
+    },
+    "P": {
+      "item": "biomesoplenty:planks_0",
+      "data": 1
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:redwood_fence",
+    "count": 3,
+    "data": 0
+  }
+}

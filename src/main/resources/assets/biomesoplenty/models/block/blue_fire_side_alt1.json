@@ -1,0 +1,7 @@
+{
+    "parent": "block/fire_side_alt",
+    "textures": {
+        "particle": "biomesoplenty:blocks/blue_fire_layer_1",
+        "fire": "biomesoplenty:blocks/blue_fire_layer_1"
+    }
+}

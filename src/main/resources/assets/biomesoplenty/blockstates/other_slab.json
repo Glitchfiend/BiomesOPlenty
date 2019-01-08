@@ -1,0 +1,8 @@
+{
+    "variants": {    
+        "half=bottom,variant=mud_brick": { "model": "biomesoplenty:half_slab_mud_brick" },
+        "half=top,variant=mud_brick": { "model": "biomesoplenty:upper_slab_mud_brick" },
+		"half=bottom,variant=white_sandstone": { "model": "biomesoplenty:half_slab_white_sandstone" },
+        "half=top,variant=white_sandstone": { "model": "biomesoplenty:upper_slab_white_sandstone" }
+    }
+}

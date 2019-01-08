@@ -1,0 +1,28 @@
+{
+    "variants": {
+        "variant=medium": [
+            { "model": "biomesoplenty:lily_medium" },
+            { "model": "biomesoplenty:lily_medium", "y": 90 },
+            { "model": "biomesoplenty:lily_medium", "y": 180 },
+            { "model": "biomesoplenty:lily_medium", "y": 270 }
+        ],
+        "variant=small": [
+            { "model": "biomesoplenty:lily_small" },
+            { "model": "biomesoplenty:lily_small", "y": 90 },
+            { "model": "biomesoplenty:lily_small", "y": 180 },
+            { "model": "biomesoplenty:lily_small", "y": 270 }
+        ],
+        "variant=tiny": [
+            { "model": "biomesoplenty:lily_tiny" },
+            { "model": "biomesoplenty:lily_tiny", "y": 90 },
+            { "model": "biomesoplenty:lily_tiny", "y": 180 },
+            { "model": "biomesoplenty:lily_tiny", "y": 270 }
+        ],
+		"variant=flower": [
+            { "model": "biomesoplenty:lily_flower" },
+            { "model": "biomesoplenty:lily_flower", "y": 90 },
+            { "model": "biomesoplenty:lily_flower", "y": 180 },
+            { "model": "biomesoplenty:lily_flower", "y": 270 }
+        ]
+    }
+}

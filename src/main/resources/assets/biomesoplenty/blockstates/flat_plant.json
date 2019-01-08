@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "variant=deadleafpile": [
+            { "model": "biomesoplenty:deadleafpile" },
+            { "model": "biomesoplenty:deadleafpile", "y": 90 },
+            { "model": "biomesoplenty:deadleafpile", "y": 180 },
+            { "model": "biomesoplenty:deadleafpile", "y": 270 }
+        	]
+    }
+}

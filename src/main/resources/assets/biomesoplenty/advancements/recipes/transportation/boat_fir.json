@@ -1,0 +1,27 @@
+{
+  "rewards": {
+    "recipes": [
+      "biomesoplenty:boat_fir"
+    ]
+  },
+  "criteria": {
+    "entered_water": {
+      "trigger": "minecraft:enter_block",
+      "conditions": {
+        "block": "minecraft:water"
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "biomesoplenty:boat_fir"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "entered_water",
+      "has_the_recipe"
+    ]
+  ]
+}

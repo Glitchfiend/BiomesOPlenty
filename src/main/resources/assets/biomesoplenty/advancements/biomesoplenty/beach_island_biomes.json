@@ -1,0 +1,56 @@
+{
+    "display": {
+        "icon": {
+            "item": "biomesoplenty:sapling_1",
+			"data": 3
+        },
+        "title": {
+            "translate": "advancements.biomesoplenty.beach_island_biomes.title"
+        },
+        "description": {
+            "translate": "advancements.biomesoplenty.beach_island_biomes.description"
+        },
+        "frame": "goal",
+		"show_toast": true,
+        "announce_to_chat": true
+    },
+	"parent": "biomesoplenty:biomesoplenty/root",
+    "criteria": {
+		"origin_island": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:origin_island"
+            }
+        },
+		"tropical_island": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:tropical_island"
+            }
+        },
+		"volcanic_island": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:volcanic_island"
+            }
+        },
+		"gravel_beach": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:gravel_beach"
+            }
+        },
+		"white_beach": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:white_beach"
+            }
+        },
+		"origin_beach": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:origin_beach"
+            }
+        }
+    }
+}

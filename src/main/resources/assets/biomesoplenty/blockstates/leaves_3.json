@@ -1,0 +1,8 @@
+{
+    "variants": {
+		"variant=willow": { "model": "biomesoplenty:willow_leaves" },
+		"variant=dead": { "model": "biomesoplenty:dead_leaves" },
+		"variant=magic": { "model": "biomesoplenty:magic_leaves" },
+		"variant=umbran": { "model": "biomesoplenty:umbran_leaves" }
+    }
+}

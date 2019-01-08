@@ -1,0 +1,8 @@
+{
+    "parent": "biomesoplenty:block/cross_with_overlay",
+    "textures": {
+        "colored": "biomesoplenty:blocks/bush_branch",
+        "greyscale": "biomesoplenty:blocks/bush",
+        "particle": "biomesoplenty:blocks/bush"
+    }
+}

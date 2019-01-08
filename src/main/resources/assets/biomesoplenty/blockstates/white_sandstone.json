@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "variant=default": { "model": "biomesoplenty:white_sandstone_normal" },
+		"variant=chiseled": { "model": "biomesoplenty:white_sandstone_chiseled" },
+		"variant=smooth": { "model": "biomesoplenty:white_sandstone_smooth" }
+    }
+}

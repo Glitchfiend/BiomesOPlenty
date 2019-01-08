@@ -1,0 +1,20 @@
+{
+    "variants": {
+	    "half=bottom,variant=fir": { "model": "biomesoplenty:half_slab_fir" },
+        "half=top,variant=fir": { "model": "biomesoplenty:upper_slab_fir" },
+		"half=bottom,variant=redwood": { "model": "biomesoplenty:half_slab_redwood" },
+        "half=top,variant=redwood": { "model": "biomesoplenty:upper_slab_redwood" },
+        "half=bottom,variant=cherry": { "model": "biomesoplenty:half_slab_cherry" },
+        "half=top,variant=cherry": { "model": "biomesoplenty:upper_slab_cherry" },
+		"half=bottom,variant=mahogany": { "model": "biomesoplenty:half_slab_mahogany" },
+        "half=top,variant=mahogany": { "model": "biomesoplenty:upper_slab_mahogany" },
+		"half=bottom,variant=jacaranda": { "model": "biomesoplenty:half_slab_jacaranda" },
+        "half=top,variant=jacaranda": { "model": "biomesoplenty:upper_slab_jacaranda" },
+		"half=bottom,variant=palm": { "model": "biomesoplenty:half_slab_palm" },
+        "half=top,variant=palm": { "model": "biomesoplenty:upper_slab_palm" },
+		"half=bottom,variant=willow": { "model": "biomesoplenty:half_slab_willow" },
+        "half=top,variant=willow": { "model": "biomesoplenty:upper_slab_willow" },
+		"half=bottom,variant=magic": { "model": "biomesoplenty:half_slab_magic" },
+        "half=top,variant=magic": { "model": "biomesoplenty:upper_slab_magic" }
+    }
+}

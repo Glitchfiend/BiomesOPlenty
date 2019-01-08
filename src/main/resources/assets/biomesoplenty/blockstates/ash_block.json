@@ -1,0 +1,10 @@
+{
+    "variants": {
+		"normal": [
+            { "model": "biomesoplenty:ash_block" },
+            { "model": "biomesoplenty:ash_block", "y": 90 },
+            { "model": "biomesoplenty:ash_block", "y": 180 },
+            { "model": "biomesoplenty:ash_block", "y": 270 }
+        	]
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "forge_marker": 1,
+    "variants": {
+        "blood": {
+            "model": "forge:fluid",
+            "custom": { "fluid": "blood" }
+        },
+		"hot_spring_water": {
+            "model": "forge:fluid",
+            "custom": { "fluid": "hot_spring_water" }
+		}
+    }
+}

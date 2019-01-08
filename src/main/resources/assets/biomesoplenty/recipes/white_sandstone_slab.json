@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "biomesoplenty:white_sandstone",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:other_slab",
+    "count": 6,
+    "data": 1
+  }
+}

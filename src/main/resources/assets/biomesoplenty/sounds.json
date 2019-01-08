@@ -1,0 +1,10 @@
+{
+  "records.wanderer": {
+    "sounds": [
+      {
+        "name": "biomesoplenty:records/wanderer",
+        "stream": true
+      }
+    ]
+  }
+}
