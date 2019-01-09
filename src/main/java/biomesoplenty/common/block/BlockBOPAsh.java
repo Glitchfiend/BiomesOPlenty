@@ -7,7 +7,6 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
-import javafx.geometry.Side;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
