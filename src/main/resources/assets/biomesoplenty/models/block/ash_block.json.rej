@@ -1,0 +1,9 @@
+diff a/src/main/resources/assets/biomesoplenty/models/block/ash_block.json b/src/main/resources/assets/biomesoplenty/models/block/ash_block.json	(rejected hunks)
+@@ -1,6 +1,6 @@
+ {
+     "parent": "block/cube_all",
+     "textures": {
+-        "all": "biomesoplenty:blocks/ash_block"
++        "all": "biomesoplenty:block/ash_block"
+     }
+ }

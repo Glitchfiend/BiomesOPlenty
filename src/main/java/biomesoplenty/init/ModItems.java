@@ -35,7 +35,7 @@ public class ModItems
         fleshchunk = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "fleshchunk");
 
         // TODO: This needs to be ItemBOPRecord and/or registered with its sounds
-        //record_wanderer = registerItem(new ItemBOPRecord(BOPSounds.records_wanderer), "record_wanderer");
+        record_wanderer = registerItem(new ItemBOPRecord(BOPSounds.records_wanderer), "record_wanderer");
 
         // TODO: These all need to be associated with their entities
         boat_fir = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "boat_fir");
