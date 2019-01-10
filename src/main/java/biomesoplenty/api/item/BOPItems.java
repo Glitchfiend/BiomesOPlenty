@@ -13,11 +13,6 @@ public class BOPItems
 {
     public static Item bop_icon;
 
-    public static Item berries;
-    public static Item peach;
-    public static Item persimmon;
-    public static Item pear;
-
     public static Item fleshchunk;
     public static Item mudball;
     public static Item ash;

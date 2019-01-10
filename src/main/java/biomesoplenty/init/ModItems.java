@@ -7,27 +7,34 @@
  ******************************************************************************/
 package biomesoplenty.init;
 
-import static biomesoplenty.api.item.BOPItems.*;
+import static biomesoplenty.api.item.BOPItems.ash;
+import static biomesoplenty.api.item.BOPItems.boat_cherry;
+import static biomesoplenty.api.item.BOPItems.boat_ethereal;
+import static biomesoplenty.api.item.BOPItems.boat_fir;
+import static biomesoplenty.api.item.BOPItems.boat_hellbark;
+import static biomesoplenty.api.item.BOPItems.boat_jacaranda;
+import static biomesoplenty.api.item.BOPItems.boat_magic;
+import static biomesoplenty.api.item.BOPItems.boat_mahogany;
+import static biomesoplenty.api.item.BOPItems.boat_palm;
+import static biomesoplenty.api.item.BOPItems.boat_redwood;
+import static biomesoplenty.api.item.BOPItems.boat_umbran;
+import static biomesoplenty.api.item.BOPItems.boat_willow;
+import static biomesoplenty.api.item.BOPItems.bop_icon;
+import static biomesoplenty.api.item.BOPItems.fleshchunk;
+import static biomesoplenty.api.item.BOPItems.mud_brick;
+import static biomesoplenty.api.item.BOPItems.mudball;
+import static biomesoplenty.api.item.BOPItems.record_wanderer;
 
 import biomesoplenty.api.sound.BOPSounds;
-import biomesoplenty.common.item.ItemBOPFood;
 import biomesoplenty.common.item.ItemBOPRecord;
 import biomesoplenty.common.util.inventory.ItemGroupBOP;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemFood;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemRecord;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModItems
 {
 	public static void init()
 	{
-		berries = registerItem(new ItemBOPFood(1, 0.1F, 8), "berries");
-		pear = registerItem(new ItemFood(5, 0.3F, false, new Item.Builder().group(ItemGroupBOP.instance)), "pear");
-        peach = registerItem(new ItemFood(5, 0.2F, false, new Item.Builder().group(ItemGroupBOP.instance)), "peach");
-        persimmon = registerItem(new ItemFood(5, 0.2F, false, new Item.Builder().group(ItemGroupBOP.instance)), "persimmon");
-
         // TODO: This should be ItemMudball
         mudball = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "mudball");
         mud_brick = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "mud_brick");

@@ -32,8 +32,8 @@ public class BiomesOPlenty
         FMLModLoadingContext.get().getModEventBus().addListener(this::init);
 
         ModSounds.init();
-        ModItems.init();
         ModBlocks.init();
+        ModItems.init();
     }
     
     private void preInit(final FMLPreInitializationEvent event)
