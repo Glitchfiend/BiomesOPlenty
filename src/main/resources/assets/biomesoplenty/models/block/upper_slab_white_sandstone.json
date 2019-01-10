@@ -1,8 +1,0 @@
-{
-    "parent": "block/upper_slab",
-    "textures": {
-        "bottom": "biomesoplenty:blocks/white_sandstone_bottom",
-        "top": "biomesoplenty:blocks/white_sandstone_top",
-        "side": "biomesoplenty:blocks/white_sandstone_normal"
-    }
-}

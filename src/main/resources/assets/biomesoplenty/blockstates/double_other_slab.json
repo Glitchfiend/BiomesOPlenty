@@ -1,6 +1,0 @@
-{
-    "variants": {    
-        "variant=mud_brick": { "model": "biomesoplenty:mud_brick_block" },
-		"variant=white_sandstone": { "model": "biomesoplenty:white_sandstone_normal" }
-    }
-}

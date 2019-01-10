@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "": [
+            { "model": "biomesoplenty:block/dead_leaf_pile" },
+            { "model": "biomesoplenty:block/dead_leaf_pile", "y": 90 },
+            { "model": "biomesoplenty:block/dead_leaf_pile", "y": 180 },
+            { "model": "biomesoplenty:block/dead_leaf_pile", "y": 270 }
+        ]
+    }
+}

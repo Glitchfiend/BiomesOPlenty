@@ -1,8 +1,0 @@
-{
-    "parent": "block/stairs",
-    "textures": {
-        "bottom": "biomesoplenty:blocks/redwood_planks",
-        "top": "biomesoplenty:blocks/redwood_planks",
-        "side": "biomesoplenty:blocks/redwood_planks"
-    }
-}

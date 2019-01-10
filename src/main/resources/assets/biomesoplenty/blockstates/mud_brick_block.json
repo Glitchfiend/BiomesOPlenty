@@ -1,5 +1,5 @@
 {
     "variants": {
-        "normal": { "model": "biomesoplenty:mud_brick_block" }
+        "": { "model": "biomesoplenty:block/mud_brick_block" }
     }
 }

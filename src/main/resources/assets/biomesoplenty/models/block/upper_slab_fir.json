@@ -1,8 +1,0 @@
-{
-    "parent": "block/upper_slab",
-    "textures": {
-        "bottom": "biomesoplenty:blocks/fir_planks",
-        "top": "biomesoplenty:blocks/fir_planks",
-        "side": "biomesoplenty:blocks/fir_planks"
-    }
-}
