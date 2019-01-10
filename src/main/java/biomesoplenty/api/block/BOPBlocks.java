@@ -12,6 +12,8 @@ import net.minecraft.block.Block;
 public class BOPBlocks
 {
     public static Block ash_block;
+    
+    public static Block mud;
 
     /*public static Block grass;
     public static Block dirt;
@@ -22,7 +24,6 @@ public class BOPBlocks
     public static Block white_sand;
     public static Block white_sandstone;
     public static Block white_sandstone_stairs;
-    public static Block mud;
     public static Block mud_brick_block;
     public static Block mud_brick_stairs;
     public static Block other_slab;

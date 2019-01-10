@@ -7,23 +7,23 @@
  ******************************************************************************/
 package biomesoplenty.init;
 
-import biomesoplenty.common.block.BlockBOPAsh;
+import static biomesoplenty.api.block.BOPBlocks.ash_block;
+import static biomesoplenty.api.block.BOPBlocks.mud;
+
+import biomesoplenty.common.block.BlockAsh;
+import biomesoplenty.common.block.BlockMud;
 import biomesoplenty.common.util.inventory.ItemGroupBOP;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemGroup;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.IForgeRegistry;
-
-import static biomesoplenty.api.block.BOPBlocks.*;
 
 public class ModBlocks
 {
     public static void init()
     {
-        ash_block = registerBlock(new BlockBOPAsh(), "ash_block");
+        ash_block = registerBlock(new BlockAsh(), "ash_block");
+        mud = registerBlock(new BlockMud(), "mud");
     }
 
     public static Block registerBlock(Block block, String name)
