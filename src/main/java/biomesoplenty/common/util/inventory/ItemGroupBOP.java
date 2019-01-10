@@ -1,0 +1,58 @@
+/*******************************************************************************
+ * Copyright 2014-2019, the Biomes O' Plenty Team
+ *
+ * This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License.
+ *
+ * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
+ ******************************************************************************/
+package biomesoplenty.common.util.inventory;
+
+import biomesoplenty.api.item.BOPItems;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+
+public class ItemGroupBOP extends ItemGroup
+{
+    public static final ItemGroupBOP instance = new ItemGroupBOP(ItemGroup.GROUPS.length, "biomesoplenty");
+
+    private ItemGroupBOP(int index, String label)
+    {
+        super(index, label);
+    }
+
+    @Override
+    public ItemStack createIcon()
+    {
+        return new ItemStack(BOPItems.bop_icon);
+    }
+
+    @Override
+    @OnlyIn(Dist.CLIENT)
+    public void fill(NonNullList<ItemStack> items)
+    {
+        super.fill(items);
+
+        // FIXME
+        /*for (Fluid bucketFluid : FluidRegistry.getBucketFluids())
+        {
+            if (bucketFluid.getBlock() != null && bucketFluid.getBlock().getRegistryName().getResourceDomain().equals(BiomesOPlenty.MOD_ID))
+            {
+                ItemStack itemstack = UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, bucketFluid);
+                itemList.add(itemstack);
+            }
+        }
+
+        for (EntityList.EntityEggInfo eggInfo : EntityList.ENTITY_EGGS.values())
+        {
+            if (eggInfo.spawnedID.getResourceDomain().equals(BiomesOPlenty.MOD_ID))
+            {
+                ItemStack itemstack = new ItemStack(Items.SPAWN_EGG, 1);
+                ItemMonsterPlacer.applyEntityIdToItemStack(itemstack, eggInfo.spawnedID);
+                itemList.add(itemstack);
+            }
+        }*/
+    }
+}

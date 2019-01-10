@@ -8,6 +8,7 @@
 package biomesoplenty.init;
 
 import biomesoplenty.common.block.BlockBOPAsh;
+import biomesoplenty.common.util.inventory.ItemGroupBOP;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -27,7 +28,7 @@ public class ModBlocks
 
     public static Block registerBlock(Block block, String name)
     {
-        ItemBlock itemBlock = new ItemBlock(block, new Item.Builder().group(ItemGroup.MISC));
+        ItemBlock itemBlock = new ItemBlock(block, new Item.Builder().group(ItemGroupBOP.instance));
         block.setRegistryName(name);
         itemBlock.setRegistryName(name);
         ForgeRegistries.BLOCKS.register(block);

@@ -9,6 +9,7 @@
 package biomesoplenty.core;
 
 import biomesoplenty.init.ModBlocks;
+import biomesoplenty.init.ModItems;
 import net.minecraft.init.Bootstrap;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -29,7 +30,7 @@ public class BiomesOPlenty
     	FMLModLoadingContext.get().getModEventBus().addListener(this::preInit);
         FMLModLoadingContext.get().getModEventBus().addListener(this::init);
 
-        // As of right now registry events are fired after construction
+        ModItems.init();
         ModBlocks.init();
     }
     
