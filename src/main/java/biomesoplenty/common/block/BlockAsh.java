@@ -29,7 +29,7 @@ public class BlockAsh extends Block
 
     public BlockAsh()
     {
-        // TODO: Sound and Harvest Level
+        // TODO: Sound and Harvest Tool
         super(Builder.create(Material.SAND, MapColor.BLACK).hardnessAndResistance(0.4F, 0.1F));
         //this.setHarvestLevel("shovel", 0);
     }

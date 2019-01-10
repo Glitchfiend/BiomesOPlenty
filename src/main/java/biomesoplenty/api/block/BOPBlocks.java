@@ -12,8 +12,43 @@ import net.minecraft.block.Block;
 public class BOPBlocks
 {
     public static Block ash_block;
-    
     public static Block mud;
+    
+    public static Block ivy;
+    public static Block willow_vine;
+    
+    public static Block short_grass;
+    public static Block bush;
+    public static Block barley;
+    public static Block dune_grass;
+    public static Block desert_grass;
+    public static Block dead_grass;
+    public static Block devilweed;
+    public static Block spectral_fern;
+    
+    public static Block thorn;
+    public static Block tiny_cactus;
+    public static Block cattail;
+    public static Block root;
+    public static Block reed;
+    public static Block watergrass;
+    
+    public static Block rose;
+    public static Block blue_hydrangea;
+    public static Block violet;
+    public static Block lavender;
+    public static Block goldenrod;
+    public static Block wildflower;
+    public static Block orange_cosmos;
+    public static Block pink_daffodil;
+    public static Block pink_hibiscus;
+    public static Block glowflower;
+    public static Block deathbloom;
+    public static Block wilted_lily;
+    public static Block burning_blossom;
+    
+    public static Block toadstool;
+    public static Block glowshroom;
 
     /*public static Block grass;
     public static Block dirt;
@@ -96,20 +131,8 @@ public class BOPBlocks
     public static Block jacaranda_door;
     public static Block mahogany_door;
 
-    public static Block coral;
-    public static Block seaweed;
-
-    public static Block ivy;
-    public static Block willow_vine;
-
-    public static Block foliage_0;
-    public static Block plant_0;
     public static Block double_plant;
-    public static Block flower_0;
-
     public static Block flat_plant;
-    public static Block mushroom;
-
     public static Block bramble_plant;
 
     public static Block blood;

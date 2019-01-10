@@ -1,7 +1,7 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "biomesoplenty:blocks/tinycactus"
+        "layer0": "biomesoplenty:blocks/tiny_cactus"
     },
     "display": {
         "thirdperson": {

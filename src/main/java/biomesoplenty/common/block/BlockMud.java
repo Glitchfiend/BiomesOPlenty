@@ -31,7 +31,7 @@ public class BlockMud extends Block
 
     public BlockMud()
     {
-        // TODO: Sound and Harvest Level
+        // TODO: Sound and Harvest Tool
         super(Builder.create(Material.GROUND, MapColor.BROWN).hardnessAndResistance(0.6F, 0.1F));
         //this.setHarvestLevel("shovel", 0);
     }

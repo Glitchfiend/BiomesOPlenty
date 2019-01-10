@@ -1,6 +1,6 @@
 {
     "parent": "block/tinted_cross",
     "textures": {
-        "cross": "biomesoplenty:blocks/shortgrass"
+        "cross": "biomesoplenty:blocks/short_grass"
     }
 }

@@ -1,6 +1,6 @@
 {
     "parent": "block/cross",
     "textures": {
-        "cross": "biomesoplenty:blocks/spectralfern"
+        "cross": "biomesoplenty:blocks/dead_grass"
     }
 }

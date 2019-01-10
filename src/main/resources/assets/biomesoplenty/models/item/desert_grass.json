@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "biomesoplenty:blocks/spectralfern"
+        "layer0": "biomesoplenty:blocks/desert_grass"
     }
 }
