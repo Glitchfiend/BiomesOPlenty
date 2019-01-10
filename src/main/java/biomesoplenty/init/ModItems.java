@@ -9,7 +9,9 @@ package biomesoplenty.init;
 
 import static biomesoplenty.api.item.BOPItems.*;
 
+import biomesoplenty.api.sound.BOPSounds;
 import biomesoplenty.common.item.ItemBOPFood;
+import biomesoplenty.common.item.ItemBOPRecord;
 import biomesoplenty.common.util.inventory.ItemGroupBOP;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
@@ -33,7 +35,7 @@ public class ModItems
         fleshchunk = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "fleshchunk");
 
         // TODO: This needs to be ItemBOPRecord and/or registered with its sounds
-        record_wanderer = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "record_wanderer");
+        //record_wanderer = registerItem(new ItemBOPRecord(BOPSounds.records_wanderer), "record_wanderer");
 
         // TODO: These all need to be associated with their entities
         boat_fir = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "boat_fir");

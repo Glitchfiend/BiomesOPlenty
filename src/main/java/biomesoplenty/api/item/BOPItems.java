@@ -22,7 +22,6 @@ public class BOPItems
     public static Item mudball;
     public static Item ash;
     public static Item mud_brick;
-    public static Item other_slab;
 
     public static Item boat_cherry;
     public static Item boat_umbran;
@@ -47,9 +46,6 @@ public class BOPItems
     public static Item hellbark_door;
     public static Item jacaranda_door;
     public static Item mahogany_door;
-
-    public static Item wood_slab_0;
-    public static Item wood_slab_1;
 
     public static Item record_wanderer;
 }
