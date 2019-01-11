@@ -1,0 +1,16 @@
+{
+  "type": "crafting_shaped",
+  "group": "boat",
+  "pattern": [
+    "# #",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "biomesoplenty:jacaranda_planks"
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:jacaranda_boat"
+  }
+}

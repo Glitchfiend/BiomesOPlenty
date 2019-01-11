@@ -1,0 +1,17 @@
+{
+  "type": "crafting_shaped",
+  "group": "bark",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "biomesoplenty:mahogany_log"
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:mahogany_wood",
+    "count": 3
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "biomesoplenty:ethereal_logs"
+    }
+  ],
+  "result": {
+    "item": "biomesoplenty:ethereal_planks",
+    "count": 4
+  }
+}

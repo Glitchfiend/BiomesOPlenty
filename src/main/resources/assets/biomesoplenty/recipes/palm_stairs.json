@@ -1,0 +1,18 @@
+{
+  "type": "crafting_shaped",
+  "group": "wooden_stairs",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "biomesoplenty:palm_planks"
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:palm_stairs",
+    "count": 4
+  }
+}

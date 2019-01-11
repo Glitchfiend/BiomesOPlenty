@@ -1,0 +1,17 @@
+{
+  "type": "crafting_shaped",
+  "group": "bark",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "biomesoplenty:magic_log"
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:magic_wood",
+    "count": 3
+  }
+}

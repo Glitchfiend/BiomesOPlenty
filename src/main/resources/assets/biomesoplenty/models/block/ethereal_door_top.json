@@ -1,0 +1,7 @@
+{
+    "parent": "block/door_top",
+    "textures": {
+        "bottom": "biomesoplenty:blocks/ethereal_door_bottom",
+        "top": "biomesoplenty:blocks/ethereal_door_top"
+    }
+}

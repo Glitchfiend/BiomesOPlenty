@@ -1,0 +1,15 @@
+{
+  "type": "crafting_shaped",
+  "group": "wooden_pressure_plate",
+  "pattern": [
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "biomesoplenty:willow_planks"
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:willow_pressure_plate"
+  }
+}

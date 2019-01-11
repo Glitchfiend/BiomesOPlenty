@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "biomesoplenty:jacaranda_log",
+    "biomesoplenty:jacaranda_wood",
+    "biomesoplenty:stripped_jacaranda_log",
+    "biomesoplenty:stripped_jacaranda_wood"
+  ]
+}

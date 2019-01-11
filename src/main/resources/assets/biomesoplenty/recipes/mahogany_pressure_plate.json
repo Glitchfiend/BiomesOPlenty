@@ -1,0 +1,15 @@
+{
+  "type": "crafting_shaped",
+  "group": "wooden_pressure_plate",
+  "pattern": [
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "biomesoplenty:mahogany_planks"
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:mahogany_pressure_plate"
+  }
+}

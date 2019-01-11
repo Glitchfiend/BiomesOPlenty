@@ -1,0 +1,17 @@
+{
+  "type": "crafting_shaped",
+  "group": "bark",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "biomesoplenty:willow_log"
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:willow_wood",
+    "count": 3
+  }
+}
