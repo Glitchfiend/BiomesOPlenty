@@ -13,10 +13,9 @@ import net.minecraft.block.material.Material;
 
 public class BlockFoliageBOP extends BlockBush
 {
-    public BlockFoliageBOP()
+    public BlockFoliageBOP(Block.Builder properties)
     {
-    	// TODO: Sound
-        super(Builder.create(Material.PLANTS).doesNotBlockMovement().hardnessAndResistance(0.0F, 0.0F));
+        super(properties);
     }
     
     @Override

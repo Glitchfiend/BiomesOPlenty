@@ -18,29 +18,17 @@ public class BOPItems
     public static Item ash;
     public static Item mud_brick;
 
-    public static Item boat_cherry;
-    public static Item boat_umbran;
-    public static Item boat_fir;
-    public static Item boat_ethereal;
-    public static Item boat_magic;
-    public static Item boat_palm;
-    public static Item boat_redwood;
-    public static Item boat_willow;
-    public static Item boat_hellbark;
-    public static Item boat_jacaranda;
-    public static Item boat_mahogany;
-
-    public static Item cherry_door;
-    public static Item umbran_door;
-    public static Item fir_door;
-    public static Item ethereal_door;
-    public static Item magic_door;
-    public static Item palm_door;
-    public static Item redwood_door;
-    public static Item willow_door;
-    public static Item hellbark_door;
-    public static Item jacaranda_door;
-    public static Item mahogany_door;
+    public static Item fir_boat;
+    public static Item redwood_boat;
+    public static Item cherry_boat;
+    public static Item mahogany_boat;
+    public static Item jacaranda_boat;
+    public static Item palm_boat;
+    public static Item willow_boat;
+    public static Item magic_boat;
+    public static Item umbran_boat;
+    public static Item hellbark_boat;
+    public static Item ethereal_boat;
 
     public static Item record_wanderer;
 }

@@ -8,25 +8,23 @@
 package biomesoplenty.common.block;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockLog;
-import net.minecraft.block.material.MapColor;
+import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.IItemProvider;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockReader;
+import net.minecraft.world.World;
 
-public class BlockLogBOP extends BlockLog
+public class BlockLeavesBOP extends BlockLeaves
 {
-	private final MapColor field_196504_b;
-	   
-    public BlockLogBOP(MapColor p_i48367_1_, Block.Builder p_i48367_2_)
+    public BlockLeavesBOP(Block.Builder properties)
     {
-        super(p_i48367_1_, p_i48367_2_);
-        this.field_196504_b = p_i48367_1_;
+        super(properties);
     }
     
     @Override
-    public MapColor getMapColor(IBlockState state, IBlockReader worldIn, BlockPos pos) {
-        return state.get(AXIS) == EnumFacing.Axis.Y ? this.field_196504_b : this.materialColor;
-     }
+    public IItemProvider getItemDropped(IBlockState state, World worldIn, BlockPos pos, int fortune)
+    {
+    	return Blocks.OAK_SAPLING;
+    }
 }

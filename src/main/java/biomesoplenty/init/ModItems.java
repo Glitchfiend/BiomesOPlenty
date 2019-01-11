@@ -7,23 +7,7 @@
  ******************************************************************************/
 package biomesoplenty.init;
 
-import static biomesoplenty.api.item.BOPItems.ash;
-import static biomesoplenty.api.item.BOPItems.boat_cherry;
-import static biomesoplenty.api.item.BOPItems.boat_ethereal;
-import static biomesoplenty.api.item.BOPItems.boat_fir;
-import static biomesoplenty.api.item.BOPItems.boat_hellbark;
-import static biomesoplenty.api.item.BOPItems.boat_jacaranda;
-import static biomesoplenty.api.item.BOPItems.boat_magic;
-import static biomesoplenty.api.item.BOPItems.boat_mahogany;
-import static biomesoplenty.api.item.BOPItems.boat_palm;
-import static biomesoplenty.api.item.BOPItems.boat_redwood;
-import static biomesoplenty.api.item.BOPItems.boat_umbran;
-import static biomesoplenty.api.item.BOPItems.boat_willow;
-import static biomesoplenty.api.item.BOPItems.bop_icon;
-import static biomesoplenty.api.item.BOPItems.fleshchunk;
-import static biomesoplenty.api.item.BOPItems.mud_brick;
-import static biomesoplenty.api.item.BOPItems.mudball;
-import static biomesoplenty.api.item.BOPItems.record_wanderer;
+import static biomesoplenty.api.item.BOPItems.*;
 
 import biomesoplenty.api.sound.BOPSounds;
 import biomesoplenty.common.item.ItemBOPRecord;
@@ -44,17 +28,17 @@ public class ModItems
         record_wanderer = registerItem(new ItemBOPRecord(BOPSounds.records_wanderer), "record_wanderer");
 
         // TODO: These all need to be associated with their entities
-        boat_fir = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "boat_fir");
-        boat_redwood = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "boat_redwood");
-        boat_cherry = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "boat_cherry");
-        boat_mahogany = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "boat_mahogany");
-        boat_jacaranda = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "boat_jacaranda");
-        boat_palm = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "boat_palm");
-        boat_willow = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "boat_willow");
-        boat_magic = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "boat_magic");
-        boat_umbran = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "boat_umbran");
-        boat_hellbark = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "boat_hellbark");
-        boat_ethereal = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "boat_ethereal");
+        fir_boat = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "fir_boat");
+        redwood_boat = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "redwood_boat");
+        cherry_boat = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "cherry_boat");
+        mahogany_boat = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "mahogany_boat");
+        jacaranda_boat = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "jacaranda_boat");
+        palm_boat = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "palm_boat");
+        willow_boat = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "willow_boat");
+        magic_boat = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "magic_boat");
+        umbran_boat = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "umbran_boat");
+        hellbark_boat = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "hellbark_boat");
+        ethereal_boat = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "ethereal_boat");
 
         bop_icon = registerItem(new Item(new Item.Builder()), "bop_icon");
 	}

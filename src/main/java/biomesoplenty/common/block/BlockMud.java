@@ -29,11 +29,9 @@ public class BlockMud extends Block
 {
 	protected static final VoxelShape SHAPE = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 16.0D);
 
-    public BlockMud()
+    public BlockMud(Block.Builder properties)
     {
-        // TODO: Sound and Harvest Tool
-        super(Builder.create(Material.GROUND, MapColor.BROWN).hardnessAndResistance(0.6F, 0.1F));
-        //this.setHarvestLevel("shovel", 0);
+        super(properties);
     }
 
     @Override

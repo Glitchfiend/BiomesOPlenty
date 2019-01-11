@@ -7,14 +7,14 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.material.Material;
 
 public class BlockPlantBOP extends BlockBush
 {
-    public BlockPlantBOP()
+    public BlockPlantBOP(Block.Builder properties)
     {
-    	// TODO: Sound
-        super(Builder.create(Material.PLANTS).doesNotBlockMovement().hardnessAndResistance(0.0F, 0.0F));
+        super(properties);
     }
 }

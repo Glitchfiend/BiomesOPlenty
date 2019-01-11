@@ -34,72 +34,22 @@ public class BOPBlocks
     
     //public static Block blue_fire;
     
+    public static Block fir_leaves;
+    public static Block fir_planks;
+
     public static Block fir_log;
     public static Block stripped_fir_log;
     public static Block fir_wood;
     public static Block stripped_fir_wood;
     
-    /*public static Block log_0;
-    public static Block log_1;
-    public static Block log_2;
-    public static Block leaves_0;
-    public static Block leaves_1;
-    public static Block leaves_2;
-    public static Block leaves_3;
-    public static Block leaves_4;
-    public static Block sapling_0;
-    public static Block sapling_1;
-    public static Block sapling_2;
-
-    public static Block planks_0;
-    public static Block wood_slab_0;
-    public static Block wood_slab_1;
-    public static Block double_wood_slab_0;
-    public static Block double_wood_slab_1;
-    public static Block cherry_stairs;
-    public static Block umbran_stairs;
     public static Block fir_stairs;
-    public static Block ethereal_stairs;
-    public static Block magic_stairs;
-    public static Block palm_stairs;
-    public static Block redwood_stairs;
-    public static Block willow_stairs;
-    public static Block hellbark_stairs;
-    public static Block jacaranda_stairs;
-    public static Block mahogany_stairs;
-    public static Block cherry_fence;
-    public static Block umbran_fence;
+    public static Block fir_slab;
     public static Block fir_fence;
-    public static Block ethereal_fence;
-    public static Block magic_fence;
-    public static Block palm_fence;
-    public static Block redwood_fence;
-    public static Block willow_fence;
-    public static Block hellbark_fence;
-    public static Block jacaranda_fence;
-    public static Block mahogany_fence;
-    public static Block cherry_fence_gate;
-    public static Block umbran_fence_gate;
     public static Block fir_fence_gate;
-    public static Block ethereal_fence_gate;
-    public static Block magic_fence_gate;
-    public static Block palm_fence_gate;
-    public static Block redwood_fence_gate;
-    public static Block willow_fence_gate;
-    public static Block hellbark_fence_gate;
-    public static Block jacaranda_fence_gate;
-    public static Block mahogany_fence_gate;
-    public static Block cherry_door;
-    public static Block umbran_door;
     public static Block fir_door;
-    public static Block ethereal_door;
-    public static Block magic_door;
-    public static Block palm_door;
-    public static Block redwood_door;
-    public static Block willow_door;
-    public static Block hellbark_door;
-    public static Block jacaranda_door;
-    public static Block mahogany_door;*/
+    public static Block fir_trapdoor;
+    public static Block fir_button;
+    public static Block fir_pressure_plate;
     
     public static Block rose;
     public static Block blue_hydrangea;

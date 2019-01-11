@@ -9,6 +9,7 @@ package biomesoplenty.common.block;
 
 import java.util.Random;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockMushroom;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -20,10 +21,9 @@ import net.minecraft.world.World;
 
 public class BlockMushroomBOP extends BlockMushroom
 {
-    public BlockMushroomBOP()
+    public BlockMushroomBOP(Block.Builder properties)
     {
-    	// TODO: Sound and Random Tick
-        super(Builder.create(Material.PLANTS).doesNotBlockMovement().hardnessAndResistance(0.0F, 0.0F));
+        super(properties);
     }
 
     @Override
