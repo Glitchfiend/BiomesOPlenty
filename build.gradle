@@ -44,6 +44,8 @@ compileJava {
 minecraft {
     mappings channel: 'snapshot', version: config.mappings_version
 
+    accessTransformer = file('src/main/resources/META-INF/biomesoplenty_at.cfg')
+
     runs {
         client = {
             main "net.minecraftforge.userdev.UserdevLauncher"
