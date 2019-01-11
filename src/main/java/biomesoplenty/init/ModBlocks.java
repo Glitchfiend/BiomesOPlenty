@@ -57,13 +57,13 @@ public class ModBlocks
         fir_slab = registerBlock(new BlockSlab(Block.Builder.create(Material.WOOD, MapColor.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "fir_slab");
         
         // TODO: Make required fields visible?
-        //fir_stairs = registerBlock(new BlockStairs(fir_planks.getDefaultState(), Block.Builder.from(fir_planks)), "fir_stairs");
-        //fir_fence = registerBlock(new BlockFence(Block.Builder.create(Material.WOOD, fir_planks.materialColor).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "fir_fence");
-        //fir_fence_gate = registerBlock(new BlockFenceGate(Block.Builder.create(Material.WOOD, fir_planks.materialColor).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "fir_fence_gate");
-        //fir_door = registerBlock(new BlockDoor(Block.Builder.create(Material.WOOD, fir_planks.materialColor).hardnessAndResistance(3.0F).sound(SoundType.WOOD)), "fir_door");
-        //fir_trapdoor = registerBlock(new BlockTrapDoor(Block.Builder.create(Material.WOOD, MapColor.WOOD).hardnessAndResistance(3.0F).sound(SoundType.WOOD)), "fir_trapdoor");
-        //fir_button = registerBlock(new BlockButtonWood(Block.Builder.create(Material.CIRCUITS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "fir_button");
-        //fir_pressure_plate = registerBlock(new BlockPressurePlate(BlockPressurePlate.Sensitivity.EVERYTHING, Block.Builder.create(Material.WOOD, fir_planks.materialColor).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "fir_pressure_plate");
+        fir_stairs = registerBlock(new BlockStairs(fir_planks.getDefaultState(), Block.Builder.from(fir_planks)), "fir_stairs");
+        fir_fence = registerBlock(new BlockFence(Block.Builder.create(Material.WOOD, fir_planks.materialColor).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "fir_fence");
+        fir_fence_gate = registerBlock(new BlockFenceGate(Block.Builder.create(Material.WOOD, fir_planks.materialColor).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "fir_fence_gate");
+        fir_door = registerBlock(new BlockDoor(Block.Builder.create(Material.WOOD, fir_planks.materialColor).hardnessAndResistance(3.0F).sound(SoundType.WOOD)), "fir_door");
+        fir_trapdoor = registerBlock(new BlockTrapDoor(Block.Builder.create(Material.WOOD, MapColor.WOOD).hardnessAndResistance(3.0F).sound(SoundType.WOOD)), "fir_trapdoor");
+        fir_button = registerBlock(new BlockButtonWood(Block.Builder.create(Material.CIRCUITS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "fir_button");
+        fir_pressure_plate = registerBlock(new BlockPressurePlate(BlockPressurePlate.Sensitivity.EVERYTHING, Block.Builder.create(Material.WOOD, fir_planks.materialColor).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "fir_pressure_plate");
         
         rose = registerBlock(new BlockFlowerBOP(Block.Builder.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "rose");
         blue_hydrangea = registerBlock(new BlockFlowerBOP(Block.Builder.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "blue_hydrangea");
