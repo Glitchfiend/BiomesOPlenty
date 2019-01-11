@@ -10,12 +10,7 @@ buildscript {
     }
 }
 
-/*plugins {
-    id "com.matthewprenger.cursegradle" version "1.1.2"
-}*/
-
 apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'maven'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 
@@ -36,11 +31,6 @@ archivesBaseName = "BiomesOPlenty"
 version = "${config.minecraft_version}-${config.mod_version}.${System.getenv().BUILD_NUMBER}"
 config.build_number = (System.getenv().BUILD_NUMBER) ? System.getenv().BUILD_NUMBER : ""
 
-sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
-compileJava {
-    sourceCompatibility = targetCompatibility = '1.8'
-}
-
 minecraft {
     mappings channel: 'snapshot', version: config.mappings_version
 
@@ -48,199 +38,16 @@ minecraft {
 
     runs {
         client = {
-            main "net.minecraftforge.userdev.UserdevLauncher"
             workingDirectory = project.file("run").canonicalPath
-            environment "target", "fmluserdevclient"
-            environment "assetDirectory", downloadAssets.output.absolutePath
-            environment "FORGE_VERSION", config.forge_version
-            environment "FORGE_GROUP", config.forge_group
-            environment "MCP_VERSION", config.mappings_version
-            environment "MC_VERSION", config.minecraft_version
-            environment "MOD_CLASSES", "${sourceSets.main.output.resourcesDir}${File.pathSeparator}${sourceSets.main.output.classesDirs.join(File.pathSeparator)}"
+            source sourceSets.main
         }
         server = {
-            main "net.minecraftforge.userdev.UserdevLauncher"
             workingDirectory = project.file("run").canonicalPath
-            environment "target", "fmluserdevserver"
-            environment "assetDirectory", downloadAssets.output.absolutePath
-            environment "FORGE_VERSION", config.forge_version
-            environment "FORGE_GROUP", config.forge_group
-            environment "MCP_VERSION", config.mappings_version
-            environment "MC_VERSION", config.minecraft_version
-            environment "MOD_CLASSES", "${sourceSets.main.output.resourcesDir}${File.pathSeparator}${sourceSets.main.output.classesDirs.join(File.pathSeparator)}"
+            source sourceSets.main
         }
     }
 }
 
 dependencies {
     minecraft 'net.minecraftforge.test:forge:' + config.minecraft_version + '-' + config.forge_version
-    compile 'net.minecraftforge.test:forge:' + config.minecraft_version + '-' + config.forge_version + ':launcher'
-}
-
-def commonManifest = {
-    attributes 'FMLAT': 'biomesoplenty_at.cfg'
-}
-
-jar {
-    manifest commonManifest
-    classifier = 'universal'
-}
-
-processResources {
-    from(sourceSets.main.resources.srcDirs) {
-        include '**/*.info'
-        include '**/*.properties'
-
-        // replaces
-        expand ([
-            'modid': project.archivesBaseName,
-            'mod_version': project.config.mod_version,
-            'minecraft_version': project.config.minecraft_version,
-            'build_number': project.config.build_number
-        ])
-    }
-
-    from(sourceSets.main.resources.srcDirs) {
-        exclude '**/*.info'
-        exclude '**/*.properties'
-    }
-}
-
-task sourcesJar(type: Jar) {
-    from sourceSets.main.allJava
-    from (sourceSets.main.output) {
-        include 'LICENSE.txt'
-    }
-
-    classifier = 'sources'
-}
-
-task deobfJar(type: Jar) {
-    from sourceSets.main.output
-
-    manifest commonManifest
-    classifier = 'deobf'
-}
-
-task apiJar(type: Jar) {
-    from(sourceSets.main.allJava) {
-        include 'biomesoplenty/api/**'
-    }
-    from (sourceSets.main.output) {
-        include 'LICENSE.txt'
-        include 'biomesoplenty/api/**'
-    }
-
-    classifier = 'api'
-}
-
-task listOutputs << {
-    //This is needed by the Groovy Postbuild to append labels for each build used in the changelog.
-    println "Output files:"
-    println "--------------------"
-    def list = []
-
-    def dir = new File("build/libs/")
-    
-    if (dir.exists()) {
-        dir.eachFileRecurse (FileType.FILES) { file ->
-            //Add each file to the list
-            list << file
-        }
-    
-        //Print the names of all of the output files
-        list.each {
-            println it.getName()
-        }
-    }
-    println "--------------------"
-}
-
-tasks.build.finalizedBy('listOutputs')
-
-artifacts {
-    archives sourcesJar
-    archives deobfJar
-	archives apiJar
-}
-
-/*curseforge {
-    apiKey = "$System.env.curse_api_key"
-    project {
-        id = '220318'
-        changelog = file('build/libs/' + project.getName() + '-' + project.version + '-changelog.txt')
-        releaseType = 'beta'
-    }
-}*/
-
-uploadArchives {
-    repositories {
-        mavenDeployer {
-			if (project.hasProperty('forgeMavenPassword'))
-			{
-				repository(url: "https://files.minecraftforge.net/maven/manage/upload") {
-					authentication(userName: project.getProperty('forgeMavenUsername'), password: project.getProperty('forgeMavenPassword'))
-				}
-			}
-			else
-			{
-				// local repo folder. Might wanna juset use  gradle install   if you wanans end it to maven-local
-				repository(url: 'file://localhost/' + project.file('repo').getAbsolutePath())
-			}
-
-            pom {
-                groupId = project.group
-                version = project.version
-                artifactId = project.archivesBaseName
-                project {
-                    name project.archivesBaseName
-                    packaging 'jar'
-                    description 'Biomes O Plenty'
-                    url 'https://github.com/Glitchfiend/BiomesOPlenty'
-                
-                    scm {
-                        url 'https://github.com/Glitchfiend/BiomesOPlenty'
-                        connection 'scm:git:git://github.com/Glitchfiend/BiomesOPlenty.git'
-                        developerConnection 'scm:git:git@github.com:Glitchfiend/BiomesOPlenty.git'
-                    }
-                
-                    issueManagement {
-                        system 'github'
-                        url 'https://github.com/Glitchfiend/BiomesOPlenty/issues'
-                    }
-                
-                    licenses {
-                        license {
-                            name 'Creative Commons Attribution-NonCommercial-NoDerivs 4.0 International Public License'
-                            url 'http://creativecommons.org/licenses/by-nc-nd/4.0/'
-                            distribution 'repo'
-                        }
-                    }
-                
-                    developers {
-                        developer {
-                            id 'Adubbz'
-                            name 'Adubbz'
-                            roles { role 'developer' }
-                        }
-                        developer {
-                            id 'Amnet'
-                            name 'Amnet'
-                            roles { role 'developer' }
-                        }
-                        developer {
-                            id 'Forstride'
-                            name 'Forstride'
-                            roles { role 'developer' }
-                        }
-                        developer {
-                            id 'ted80'
-                            name 'ted80'
-                            roles { role 'developer' }
-                        }
-                    }
-                }
-            }
-        }
-    }
 }

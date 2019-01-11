@@ -11,6 +11,7 @@ import java.util.Random;
 
 import biomesoplenty.api.item.BOPItems;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -30,7 +31,7 @@ public class BlockAsh extends Block
     public BlockAsh()
     {
         // TODO: Sound and Harvest Tool
-        super(Builder.create(Material.SAND, MapColor.BLACK).hardnessAndResistance(0.4F, 0.1F));
+        super(Builder.create(Material.SAND, MapColor.BLACK).hardnessAndResistance(0.4F, 0.1F).sound(SoundType.SAND));
         //this.setHarvestLevel("shovel", 0);
     }
 
