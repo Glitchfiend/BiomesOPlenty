@@ -1,6 +1,6 @@
 {
     "parent": "block/leaves",
     "textures": {
-        "all": "biomesoplenty:blocks/leaves_flowering_fast"
+        "all": "biomesoplenty:blocks/flowering_leaves_fast"
     }
 }
