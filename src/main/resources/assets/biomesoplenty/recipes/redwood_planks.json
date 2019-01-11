@@ -1,0 +1,13 @@
+{
+  "type": "crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "biomesoplenty:redwood_logs"
+    }
+  ],
+  "result": {
+    "item": "biomesoplenty:redwood_planks",
+    "count": 4
+  }
+}

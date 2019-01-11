@@ -19,13 +19,16 @@ public class BOPBlocks
 	
     public static Block white_sand;
     public static Block white_sandstone;
+    public static Block smooth_white_sandstone;
+    public static Block cut_white_sandstone;
+    public static Block chiseled_white_sandstone;
+    public static Block white_sandstone_slab;
     public static Block white_sandstone_stairs;
+    
     public static Block mud;
     public static Block mud_brick_block;
+    public static Block mud_brick_slab;
     public static Block mud_brick_stairs;
-    
-    //public static Block other_slab;
-    //public static Block double_other_slab;
     
     public static Block dried_sand;
     
@@ -34,22 +37,205 @@ public class BOPBlocks
     
     //public static Block blue_fire;
     
+    //public static Block origin_sapling;
+    public static Block origin_leaves;
+    
+    //public static Block flowering_sapling;
+    public static Block flowering_leaves;
+    
+    //public static Block yellow_autumn_sapling;
+    public static Block yellow_autumn_leaves;
+    
+    //public static Block orange_autumn_sapling;
+    public static Block orange_autumn_leaves;
+    
+    //public static Block maple_sapling;
+    public static Block maple_leaves;
+    
+    //public static Block fir_sapling;
     public static Block fir_leaves;
-    public static Block fir_planks;
-
     public static Block fir_log;
     public static Block stripped_fir_log;
     public static Block fir_wood;
     public static Block stripped_fir_wood;
-    
-    public static Block fir_stairs;
+    public static Block fir_planks;
     public static Block fir_slab;
+    public static Block fir_stairs;
     public static Block fir_fence;
     public static Block fir_fence_gate;
     public static Block fir_door;
     public static Block fir_trapdoor;
-    public static Block fir_button;
     public static Block fir_pressure_plate;
+    public static Block fir_button;
+    
+    //public static Block redwood_sapling;
+    public static Block redwood_leaves;
+    public static Block redwood_log;
+    public static Block stripped_redwood_log;
+    public static Block redwood_wood;
+    public static Block stripped_redwood_wood;
+    public static Block redwood_planks;
+    public static Block redwood_slab;
+    public static Block redwood_stairs;
+    public static Block redwood_fence;
+    public static Block redwood_fence_gate;
+    public static Block redwood_door;
+    public static Block redwood_trapdoor;
+    public static Block redwood_pressure_plate;
+    public static Block redwood_button;
+    
+    //public static Block white_cherry_sapling;
+    public static Block white_cherry_leaves;
+    //public static Block pink_cherry_sapling;
+    public static Block pink_cherry_leaves;
+    public static Block cherry_log;
+    public static Block stripped_cherry_log;
+    public static Block cherry_wood;
+    public static Block stripped_cherry_wood;
+    public static Block cherry_planks;
+    public static Block cherry_slab;
+    public static Block cherry_stairs;
+    public static Block cherry_fence;
+    public static Block cherry_fence_gate;
+    public static Block cherry_door;
+    public static Block cherry_trapdoor;
+    public static Block cherry_pressure_plate;
+    public static Block cherry_button;
+    
+    //public static Block mahogany_sapling;
+    public static Block mahogany_leaves;
+    public static Block mahogany_log;
+    public static Block stripped_mahogany_log;
+    public static Block mahogany_wood;
+    public static Block stripped_mahogany_wood;
+    public static Block mahogany_planks;
+    public static Block mahogany_slab;
+    public static Block mahogany_stairs;
+    public static Block mahogany_fence;
+    public static Block mahogany_fence_gate;
+    public static Block mahogany_door;
+    public static Block mahogany_trapdoor;
+    public static Block mahogany_pressure_plate;
+    public static Block mahogany_button;
+    
+    //public static Block jacaranda_sapling;
+    public static Block jacaranda_leaves;
+    public static Block jacaranda_log;
+    public static Block stripped_jacaranda_log;
+    public static Block jacaranda_wood;
+    public static Block stripped_jacaranda_wood;
+    public static Block jacaranda_planks;
+    public static Block jacaranda_slab;
+    public static Block jacaranda_stairs;
+    public static Block jacaranda_fence;
+    public static Block jacaranda_fence_gate;
+    public static Block jacaranda_door;
+    public static Block jacaranda_trapdoor;
+    public static Block jacaranda_pressure_plate;
+    public static Block jacaranda_button;
+    
+    //public static Block palm_sapling;
+    public static Block palm_leaves;
+    public static Block palm_log;
+    public static Block stripped_palm_log;
+    public static Block palm_wood;
+    public static Block stripped_palm_wood;
+    public static Block palm_planks;
+    public static Block palm_slab;
+    public static Block palm_stairs;
+    public static Block palm_fence;
+    public static Block palm_fence_gate;
+    public static Block palm_door;
+    public static Block palm_trapdoor;
+    public static Block palm_pressure_plate;
+    public static Block palm_button;
+    
+    //public static Block willow_sapling;
+    public static Block willow_leaves;
+    public static Block willow_log;
+    public static Block stripped_willow_log;
+    public static Block willow_wood;
+    public static Block stripped_willow_wood;
+    public static Block willow_planks;
+    public static Block willow_slab;
+    public static Block willow_stairs;
+    public static Block willow_fence;
+    public static Block willow_fence_gate;
+    public static Block willow_door;
+    public static Block willow_trapdoor;
+    public static Block willow_pressure_plate;
+    public static Block willow_button;
+    
+    //public static Block dead_sapling;
+    public static Block dead_leaves;
+    public static Block dead_log;
+    public static Block stripped_dead_log;
+    public static Block dead_wood;
+    public static Block stripped_dead_wood;
+    
+    //public static Block magic_sapling;
+    public static Block magic_leaves;
+    public static Block magic_log;
+    public static Block stripped_magic_log;
+    public static Block magic_wood;
+    public static Block stripped_magic_wood;
+    public static Block magic_planks;
+    public static Block magic_slab;
+    public static Block magic_stairs;
+    public static Block magic_fence;
+    public static Block magic_fence_gate;
+    public static Block magic_door;
+    public static Block magic_trapdoor;
+    public static Block magic_pressure_plate;
+    public static Block magic_button;
+    
+    //public static Block umbran_sapling;
+    public static Block umbran_leaves;
+    public static Block umbran_log;
+    public static Block stripped_umbran_log;
+    public static Block umbran_wood;
+    public static Block stripped_umbran_wood;
+    public static Block umbran_planks;
+    public static Block umbran_slab;
+    public static Block umbran_stairs;
+    public static Block umbran_fence;
+    public static Block umbran_fence_gate;
+    public static Block umbran_door;
+    public static Block umbran_trapdoor;
+    public static Block umbran_pressure_plate;
+    public static Block umbran_button;
+    
+    //public static Block hellbark_sapling;
+    public static Block hellbark_leaves;
+    public static Block hellbark_log;
+    public static Block stripped_hellbark_log;
+    public static Block hellbark_wood;
+    public static Block stripped_hellbark_wood;
+    public static Block hellbark_planks;
+    public static Block hellbark_slab;
+    public static Block hellbark_stairs;
+    public static Block hellbark_fence;
+    public static Block hellbark_fence_gate;
+    public static Block hellbark_door;
+    public static Block hellbark_trapdoor;
+    public static Block hellbark_pressure_plate;
+    public static Block hellbark_button;
+    
+    //public static Block ethereal_sapling;
+    public static Block ethereal_leaves;
+    public static Block ethereal_log;
+    public static Block stripped_ethereal_log;
+    public static Block ethereal_wood;
+    public static Block stripped_ethereal_wood;
+    public static Block ethereal_planks;
+    public static Block ethereal_slab;
+    public static Block ethereal_stairs;
+    public static Block ethereal_fence;
+    public static Block ethereal_fence_gate;
+    public static Block ethereal_door;
+    public static Block ethereal_trapdoor;
+    public static Block ethereal_pressure_plate;
+    public static Block ethereal_button;
     
     public static Block rose;
     public static Block blue_hydrangea;

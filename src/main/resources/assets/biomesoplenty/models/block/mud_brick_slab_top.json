@@ -1,0 +1,8 @@
+{
+    "parent": "block/slab_top",
+    "textures": {
+        "bottom": "biomesoplenty:block/mud_brick_bottom",
+        "top": "biomesoplenty:block/mud_brick_top",
+        "side": "biomesoplenty:block/mud_brick_block"
+    }
+}

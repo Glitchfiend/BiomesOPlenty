@@ -1,6 +1,7 @@
 {
     "variants": {
-        "half=bottom": { "model": "biomesoplenty:half_slab_white_sandstone" },
-        "half=top": { "model": "biomesoplenty:upper_slab_white_sandstone" }
+        "type=bottom": { "model": "biomesoplenty:block/white_sandstone_slab" },
+        "type=top": { "model": "biomesoplenty:block/white_sandstone_slab_top" },
+        "type=double": { "model": "biomesoplenty:block/white_sandstone" }
     }
 }
