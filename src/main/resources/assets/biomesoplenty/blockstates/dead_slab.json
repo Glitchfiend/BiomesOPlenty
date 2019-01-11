@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "type=bottom": { "model": "biomesoplenty:block/dead_slab" },
-        "type=top": { "model": "biomesoplenty:block/dead_slab_top" },
-        "type=double": { "model": "biomesoplenty:block/dead_planks" }
-    }
-}
