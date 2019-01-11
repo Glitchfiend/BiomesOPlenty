@@ -44,9 +44,9 @@ public class ModBlocks
     {
     	white_sand = registerBlock(new BlockSand(0xF3F1E4, Block.Builder.create(Material.SAND, MapColor.QUARTZ).hardnessAndResistance(0.5F).sound(SoundType.SAND)), "white_sand");
     	white_sandstone = registerBlock(new Block(Block.Builder.create(Material.ROCK, MapColor.QUARTZ).hardnessAndResistance(0.8F)), "white_sandstone");
-    	smooth_white_sandstone = registerBlock(new Block(Block.Builder.create(Material.ROCK, MapColor.QUARTZ).hardnessAndResistance(2.0F, 6.0F)), "smooth_white_sandstone");
     	chiseled_white_sandstone = registerBlock(new Block(Block.Builder.create(Material.ROCK, MapColor.QUARTZ).hardnessAndResistance(0.8F)), "chiseled_white_sandstone");
     	cut_white_sandstone = registerBlock(new Block(Block.Builder.create(Material.ROCK, MapColor.QUARTZ).hardnessAndResistance(0.8F)), "cut_white_sandstone");
+    	smooth_white_sandstone = registerBlock(new Block(Block.Builder.create(Material.ROCK, MapColor.QUARTZ).hardnessAndResistance(2.0F, 6.0F)), "smooth_white_sandstone");
     	white_sandstone_slab = registerBlock(new BlockSlab(Block.Builder.create(Material.ROCK, MapColor.QUARTZ).hardnessAndResistance(2.0F, 6.0F)), "white_sandstone_slab");
         white_sandstone_stairs = registerBlock(new BlockStairs(white_sandstone.getDefaultState(), Block.Builder.from(white_sandstone)), "white_sandstone_stairs");
     	
@@ -68,7 +68,7 @@ public class ModBlocks
         orange_autumn_leaves = registerBlock(new BlockLeavesBOP(Block.Builder.create(Material.LEAVES).hardnessAndResistance(0.2F).needsRandomTick().sound(SoundType.PLANT)), "orange_autumn_leaves");
         //maple_sapling
         maple_leaves = registerBlock(new BlockLeavesBOP(Block.Builder.create(Material.LEAVES).hardnessAndResistance(0.2F).needsRandomTick().sound(SoundType.PLANT)), "maple_leaves");
-        
+
         //fir_sapling
         fir_leaves = registerBlock(new BlockLeavesBOP(Block.Builder.create(Material.LEAVES).hardnessAndResistance(0.2F).needsRandomTick().sound(SoundType.PLANT)), "fir_leaves");
         fir_log = registerBlock(new BlockLog(MapColor.WOOD, Block.Builder.create(Material.WOOD, MapColor.OBSIDIAN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "fir_log");

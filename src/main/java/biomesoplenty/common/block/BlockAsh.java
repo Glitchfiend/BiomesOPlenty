@@ -42,7 +42,7 @@ public class BlockAsh extends Block
     @Override
     public IItemProvider getItemDropped(IBlockState state, World worldIn, BlockPos pos, int fortune)
     {
-        return BOPItems.ash;
+        return BOPItems.pile_of_ashes;
     }
     
     @Override

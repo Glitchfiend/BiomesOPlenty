@@ -22,12 +22,11 @@
 
   "effect.biomesoplenty.curse": "Curse",
 
-  "item.biomesoplenty.ash": "Pile of Ashes",
   "item.biomesoplenty.bop_icon": "BOP Icon",
   "item.biomesoplenty.cherry_boat": "Cherry Boat",
+  "item.biomesoplenty.chunk_of_flesh": "Chunk of Flesh",
   "item.biomesoplenty.ethereal_boat": "Ethereal Boat",
   "item.biomesoplenty.fir_boat": "Fir Boat",
-  "item.biomesoplenty.fleshchunk": "Chunk of Flesh",
   "item.biomesoplenty.hellbark_boat": "Hellbark Boat",
   "item.biomesoplenty.jacaranda_boat": "Jacaranda Boat",
   "item.biomesoplenty.magic_boat": "Magic Boat",
@@ -35,6 +34,7 @@
   "item.biomesoplenty.mud_brick": "Mud Brick",
   "item.biomesoplenty.mudball": "Mud Ball",
   "item.biomesoplenty.palm_boat": "Palm Boat",
+  "item.biomesoplenty.pile_of_ashes": "Pile of Ashes",
   "item.biomesoplenty.record_wanderer": "Music Disc",
   "item.biomesoplenty.record_wanderer.desc": "Tim Rurkowski - Wanderer",
   "item.biomesoplenty.redwood_boat": "Redwood Boat",

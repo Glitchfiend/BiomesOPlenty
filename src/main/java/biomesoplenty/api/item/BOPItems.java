@@ -13,10 +13,11 @@ public class BOPItems
 {
     public static Item bop_icon;
 
-    public static Item fleshchunk;
     public static Item mudball;
-    public static Item ash;
     public static Item mud_brick;
+    
+    public static Item pile_of_ashes;
+    public static Item chunk_of_flesh;
 
     public static Item fir_boat;
     public static Item redwood_boat;

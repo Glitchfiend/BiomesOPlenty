@@ -22,8 +22,8 @@ public class ModItems
         // TODO: This should be ItemMudball
         mudball = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "mudball");
         mud_brick = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "mud_brick");
-        ash = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "ash");
-        fleshchunk = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "fleshchunk");
+        pile_of_ashes = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "pile_of_ashes");
+        chunk_of_flesh = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "chunk_of_flesh");
         
         record_wanderer = registerItem(new ItemBOPRecord(BOPSounds.records_wanderer), "record_wanderer");
 

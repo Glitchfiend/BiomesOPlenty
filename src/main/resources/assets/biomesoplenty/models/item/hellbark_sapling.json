@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "biomesoplenty:block/hellbark_sapling"
+        "layer0": "biomesoplenty:blocks/hellbark_sapling"
     }
 }

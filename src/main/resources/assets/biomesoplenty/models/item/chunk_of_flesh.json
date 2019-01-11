@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "biomesoplenty:items/ash"
+        "layer0": "biomesoplenty:items/chunk_of_flesh"
     }
 }

@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "biomesoplenty:block/ethereal_sapling"
+        "layer0": "biomesoplenty:blocks/ethereal_sapling"
     }
 }
