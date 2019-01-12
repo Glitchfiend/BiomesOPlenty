@@ -11,6 +11,7 @@ import static biomesoplenty.api.item.BOPItems.*;
 
 import biomesoplenty.api.sound.BOPSounds;
 import biomesoplenty.common.item.ItemBOPRecord;
+import biomesoplenty.common.item.ItemMudball;
 import biomesoplenty.common.util.inventory.ItemGroupBOP;
 import net.minecraft.item.Item;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -19,8 +20,7 @@ public class ModItems
 {
 	public static void init()
 	{
-        // TODO: This should be ItemMudball
-        mudball = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "mudball");
+        mudball = registerItem(new ItemMudball(), "mudball");
         mud_brick = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "mud_brick");
         pile_of_ashes = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "pile_of_ashes");
         chunk_of_flesh = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "chunk_of_flesh");

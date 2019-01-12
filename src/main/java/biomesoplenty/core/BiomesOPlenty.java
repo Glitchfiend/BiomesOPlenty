@@ -9,9 +9,11 @@
 package biomesoplenty.core;
 
 import biomesoplenty.init.ModBlocks;
+import biomesoplenty.init.ModEntities;
 import biomesoplenty.init.ModItems;
 import biomesoplenty.init.ModSounds;
 import net.minecraft.init.Bootstrap;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -23,6 +25,7 @@ public class BiomesOPlenty
     public static final String MOD_ID = "biomesoplenty";
 
     public static BiomesOPlenty instance;
+    public static CommonProxy proxy = DistExecutor.runForDist(() -> ClientProxy::new, () -> CommonProxy::new);
 
     public BiomesOPlenty()
     {
@@ -32,12 +35,14 @@ public class BiomesOPlenty
         FMLModLoadingContext.get().getModEventBus().addListener(this::init);
 
         ModSounds.init();
+        ModEntities.init();
         ModBlocks.init();
         ModItems.init();
     }
     
     private void preInit(final FMLPreInitializationEvent event)
     {
+        proxy.preInit();
     }
 
     private void init(final FMLInitializationEvent event)
