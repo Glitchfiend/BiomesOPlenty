@@ -26,6 +26,7 @@ public class BOPItems
     public static Item jacaranda_boat;
     public static Item palm_boat;
     public static Item willow_boat;
+    public static Item dead_boat;
     public static Item magic_boat;
     public static Item umbran_boat;
     public static Item hellbark_boat;

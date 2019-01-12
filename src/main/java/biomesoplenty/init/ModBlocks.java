@@ -58,18 +58,18 @@ public class ModBlocks
         dried_sand = registerBlock(new Block(Builder.create(Material.GROUND, MapColor.BROWN_TERRACOTTA).hardnessAndResistance(1.0F)), "dried_sand");
         ash_block = registerBlock(new BlockAsh(Builder.create(Material.SAND, MapColor.BLACK).hardnessAndResistance(0.4F).sound(SoundType.SAND)), "ash_block");
         
-        //origin_sapling
+        origin_sapling = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "origin_sapling");
         origin_leaves = registerBlock(new BlockLeavesBOP(Block.Builder.create(Material.LEAVES).hardnessAndResistance(0.2F).needsRandomTick().sound(SoundType.PLANT)), "origin_leaves");
-        //flowering_sapling
+        flowering_sapling = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "flowering_sapling");
         flowering_leaves = registerBlock(new BlockLeavesBOP(Block.Builder.create(Material.LEAVES).hardnessAndResistance(0.2F).needsRandomTick().sound(SoundType.PLANT)), "flowering_leaves");
-        //yellow_autumn_sapling
+        yellow_autumn_sapling = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "yellow_autumn_sapling");
         yellow_autumn_leaves = registerBlock(new BlockLeavesBOP(Block.Builder.create(Material.LEAVES).hardnessAndResistance(0.2F).needsRandomTick().sound(SoundType.PLANT)), "yellow_autumn_leaves");
-        //orange_autumn_sapling
+        orange_autumn_sapling = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "orange_autumn_sapling");
         orange_autumn_leaves = registerBlock(new BlockLeavesBOP(Block.Builder.create(Material.LEAVES).hardnessAndResistance(0.2F).needsRandomTick().sound(SoundType.PLANT)), "orange_autumn_leaves");
-        //maple_sapling
+        maple_sapling = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "maple_sapling");
         maple_leaves = registerBlock(new BlockLeavesBOP(Block.Builder.create(Material.LEAVES).hardnessAndResistance(0.2F).needsRandomTick().sound(SoundType.PLANT)), "maple_leaves");
 
-        //fir_sapling
+        fir_sapling = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "fir_sapling");
         fir_leaves = registerBlock(new BlockLeavesBOP(Block.Builder.create(Material.LEAVES).hardnessAndResistance(0.2F).needsRandomTick().sound(SoundType.PLANT)), "fir_leaves");
         fir_log = registerBlock(new BlockLog(MapColor.WOOD, Block.Builder.create(Material.WOOD, MapColor.OBSIDIAN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "fir_log");
         fir_wood = registerBlock(new BlockRotatedPillar(Block.Builder.create(Material.WOOD, MapColor.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "fir_wood");
@@ -85,7 +85,7 @@ public class ModBlocks
         fir_pressure_plate = registerBlock(new BlockPressurePlate(BlockPressurePlate.Sensitivity.EVERYTHING, Block.Builder.create(Material.WOOD, fir_planks.materialColor).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "fir_pressure_plate");
         fir_button = registerBlock(new BlockButtonWood(Block.Builder.create(Material.CIRCUITS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "fir_button");
         
-        //redwood_sapling
+        redwood_sapling = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "redwood_sapling");
         redwood_leaves = registerBlock(new BlockLeavesBOP(Block.Builder.create(Material.LEAVES).hardnessAndResistance(0.2F).needsRandomTick().sound(SoundType.PLANT)), "redwood_leaves");
         redwood_log = registerBlock(new BlockLog(MapColor.WOOD, Block.Builder.create(Material.WOOD, MapColor.OBSIDIAN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "redwood_log");
         redwood_wood = registerBlock(new BlockRotatedPillar(Block.Builder.create(Material.WOOD, MapColor.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "redwood_wood");
@@ -101,9 +101,9 @@ public class ModBlocks
         redwood_pressure_plate = registerBlock(new BlockPressurePlate(BlockPressurePlate.Sensitivity.EVERYTHING, Block.Builder.create(Material.WOOD, redwood_planks.materialColor).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "redwood_pressure_plate");
         redwood_button = registerBlock(new BlockButtonWood(Block.Builder.create(Material.CIRCUITS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "redwood_button");
         
-        //white_cherry_sapling
+        white_cherry_sapling = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "white_cherry_sapling");
         white_cherry_leaves = registerBlock(new BlockLeavesBOP(Block.Builder.create(Material.LEAVES).hardnessAndResistance(0.2F).needsRandomTick().sound(SoundType.PLANT)), "white_cherry_leaves");
-        //pink_cherry_sapling
+        pink_cherry_sapling = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "pink_cherry_sapling");
         pink_cherry_leaves = registerBlock(new BlockLeavesBOP(Block.Builder.create(Material.LEAVES).hardnessAndResistance(0.2F).needsRandomTick().sound(SoundType.PLANT)), "pink_cherry_leaves");
         cherry_log = registerBlock(new BlockLog(MapColor.WOOD, Block.Builder.create(Material.WOOD, MapColor.OBSIDIAN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "cherry_log");
         cherry_wood = registerBlock(new BlockRotatedPillar(Block.Builder.create(Material.WOOD, MapColor.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "cherry_wood");
@@ -119,7 +119,7 @@ public class ModBlocks
         cherry_pressure_plate = registerBlock(new BlockPressurePlate(BlockPressurePlate.Sensitivity.EVERYTHING, Block.Builder.create(Material.WOOD, cherry_planks.materialColor).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "cherry_pressure_plate");
         cherry_button = registerBlock(new BlockButtonWood(Block.Builder.create(Material.CIRCUITS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "cherry_button");
         
-        //mahogany_sapling
+        mahogany_sapling = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "mahogany_sapling");
         mahogany_leaves = registerBlock(new BlockLeavesBOP(Block.Builder.create(Material.LEAVES).hardnessAndResistance(0.2F).needsRandomTick().sound(SoundType.PLANT)), "mahogany_leaves");
         mahogany_log = registerBlock(new BlockLog(MapColor.WOOD, Block.Builder.create(Material.WOOD, MapColor.OBSIDIAN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "mahogany_log");
         mahogany_wood = registerBlock(new BlockRotatedPillar(Block.Builder.create(Material.WOOD, MapColor.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "mahogany_wood");
@@ -135,7 +135,7 @@ public class ModBlocks
         mahogany_pressure_plate = registerBlock(new BlockPressurePlate(BlockPressurePlate.Sensitivity.EVERYTHING, Block.Builder.create(Material.WOOD, mahogany_planks.materialColor).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "mahogany_pressure_plate");
         mahogany_button = registerBlock(new BlockButtonWood(Block.Builder.create(Material.CIRCUITS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "mahogany_button");
         
-        //jacaranda_sapling
+        jacaranda_sapling = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "jacaranda_sapling");
         jacaranda_leaves = registerBlock(new BlockLeavesBOP(Block.Builder.create(Material.LEAVES).hardnessAndResistance(0.2F).needsRandomTick().sound(SoundType.PLANT)), "jacaranda_leaves");
         jacaranda_log = registerBlock(new BlockLog(MapColor.WOOD, Block.Builder.create(Material.WOOD, MapColor.OBSIDIAN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "jacaranda_log");
         jacaranda_wood = registerBlock(new BlockRotatedPillar(Block.Builder.create(Material.WOOD, MapColor.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "jacaranda_wood");
@@ -151,7 +151,7 @@ public class ModBlocks
         jacaranda_pressure_plate = registerBlock(new BlockPressurePlate(BlockPressurePlate.Sensitivity.EVERYTHING, Block.Builder.create(Material.WOOD, jacaranda_planks.materialColor).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "jacaranda_pressure_plate");
         jacaranda_button = registerBlock(new BlockButtonWood(Block.Builder.create(Material.CIRCUITS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "jacaranda_button");
         
-        //palm_sapling
+        palm_sapling = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "palm_sapling");
         palm_leaves = registerBlock(new BlockLeavesBOP(Block.Builder.create(Material.LEAVES).hardnessAndResistance(0.2F).needsRandomTick().sound(SoundType.PLANT)), "palm_leaves");
         palm_log = registerBlock(new BlockLog(MapColor.WOOD, Block.Builder.create(Material.WOOD, MapColor.OBSIDIAN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "palm_log");
         palm_wood = registerBlock(new BlockRotatedPillar(Block.Builder.create(Material.WOOD, MapColor.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "palm_wood");
@@ -167,7 +167,7 @@ public class ModBlocks
         palm_pressure_plate = registerBlock(new BlockPressurePlate(BlockPressurePlate.Sensitivity.EVERYTHING, Block.Builder.create(Material.WOOD, palm_planks.materialColor).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "palm_pressure_plate");
         palm_button = registerBlock(new BlockButtonWood(Block.Builder.create(Material.CIRCUITS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "palm_button");
         
-        //willow_sapling
+        willow_sapling = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "willow_sapling");
         willow_leaves = registerBlock(new BlockLeavesBOP(Block.Builder.create(Material.LEAVES).hardnessAndResistance(0.2F).needsRandomTick().sound(SoundType.PLANT)), "willow_leaves");
         willow_log = registerBlock(new BlockLog(MapColor.WOOD, Block.Builder.create(Material.WOOD, MapColor.OBSIDIAN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "willow_log");
         willow_wood = registerBlock(new BlockRotatedPillar(Block.Builder.create(Material.WOOD, MapColor.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "willow_wood");
@@ -183,14 +183,23 @@ public class ModBlocks
         willow_pressure_plate = registerBlock(new BlockPressurePlate(BlockPressurePlate.Sensitivity.EVERYTHING, Block.Builder.create(Material.WOOD, willow_planks.materialColor).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "willow_pressure_plate");
         willow_button = registerBlock(new BlockButtonWood(Block.Builder.create(Material.CIRCUITS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "willow_button");
         
-        //dead_sapling
+        dead_sapling = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "dead_sapling");
         dead_leaves = registerBlock(new BlockLeavesBOP(Block.Builder.create(Material.LEAVES).hardnessAndResistance(0.2F).needsRandomTick().sound(SoundType.PLANT)), "dead_leaves");
         dead_log = registerBlock(new BlockLog(MapColor.WOOD, Block.Builder.create(Material.WOOD, MapColor.OBSIDIAN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "dead_log");
         dead_wood = registerBlock(new BlockRotatedPillar(Block.Builder.create(Material.WOOD, MapColor.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "dead_wood");
         stripped_dead_log = registerBlock(new BlockLog(MapColor.WOOD, Block.Builder.create(Material.WOOD, MapColor.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_dead_log");
         stripped_dead_wood = registerBlock(new BlockRotatedPillar(Block.Builder.create(Material.WOOD, MapColor.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_dead_wood");
+        dead_planks = registerBlock(new Block(Builder.create(Material.WOOD, MapColor.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "dead_planks");
+        dead_slab = registerBlock(new BlockSlab(Block.Builder.create(Material.WOOD, MapColor.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "dead_slab");
+        dead_stairs = registerBlock(new BlockStairs(dead_planks.getDefaultState(), Block.Builder.from(dead_planks)), "dead_stairs");
+        dead_fence = registerBlock(new BlockFence(Block.Builder.create(Material.WOOD, dead_planks.materialColor).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "dead_fence");
+        dead_fence_gate = registerBlock(new BlockFenceGate(Block.Builder.create(Material.WOOD, dead_planks.materialColor).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "dead_fence_gate");
+        dead_door = registerBlock(new BlockDoor(Block.Builder.create(Material.WOOD, dead_planks.materialColor).hardnessAndResistance(3.0F).sound(SoundType.WOOD)), "dead_door");
+        dead_trapdoor = registerBlock(new BlockTrapDoor(Block.Builder.create(Material.WOOD, MapColor.WOOD).hardnessAndResistance(3.0F).sound(SoundType.WOOD)), "dead_trapdoor");
+        dead_pressure_plate = registerBlock(new BlockPressurePlate(BlockPressurePlate.Sensitivity.EVERYTHING, Block.Builder.create(Material.WOOD, dead_planks.materialColor).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "dead_pressure_plate");
+        dead_button = registerBlock(new BlockButtonWood(Block.Builder.create(Material.CIRCUITS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "dead_button");
         
-        //magic_sapling
+        magic_sapling = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "magic_sapling");
         magic_leaves = registerBlock(new BlockLeavesBOP(Block.Builder.create(Material.LEAVES).hardnessAndResistance(0.2F).needsRandomTick().sound(SoundType.PLANT)), "magic_leaves");
         magic_log = registerBlock(new BlockLog(MapColor.WOOD, Block.Builder.create(Material.WOOD, MapColor.OBSIDIAN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "magic_log");
         magic_wood = registerBlock(new BlockRotatedPillar(Block.Builder.create(Material.WOOD, MapColor.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "magic_wood");
@@ -206,7 +215,7 @@ public class ModBlocks
         magic_pressure_plate = registerBlock(new BlockPressurePlate(BlockPressurePlate.Sensitivity.EVERYTHING, Block.Builder.create(Material.WOOD, magic_planks.materialColor).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "magic_pressure_plate");
         magic_button = registerBlock(new BlockButtonWood(Block.Builder.create(Material.CIRCUITS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "magic_button");
         
-        //umbran_sapling
+        umbran_sapling = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "umbran_sapling");
         umbran_leaves = registerBlock(new BlockLeavesBOP(Block.Builder.create(Material.LEAVES).hardnessAndResistance(0.2F).needsRandomTick().sound(SoundType.PLANT)), "umbran_leaves");
         umbran_log = registerBlock(new BlockLog(MapColor.WOOD, Block.Builder.create(Material.WOOD, MapColor.OBSIDIAN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "umbran_log");
         umbran_wood = registerBlock(new BlockRotatedPillar(Block.Builder.create(Material.WOOD, MapColor.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "umbran_wood");
@@ -222,7 +231,7 @@ public class ModBlocks
         umbran_pressure_plate = registerBlock(new BlockPressurePlate(BlockPressurePlate.Sensitivity.EVERYTHING, Block.Builder.create(Material.WOOD, umbran_planks.materialColor).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "umbran_pressure_plate");
         umbran_button = registerBlock(new BlockButtonWood(Block.Builder.create(Material.CIRCUITS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "umbran_button");
         
-        //hellbark_sapling
+        hellbark_sapling = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "hellbark_sapling");
         hellbark_leaves = registerBlock(new BlockLeavesBOP(Block.Builder.create(Material.LEAVES).hardnessAndResistance(0.2F).needsRandomTick().sound(SoundType.PLANT)), "hellbark_leaves");
         hellbark_log = registerBlock(new BlockLog(MapColor.WOOD, Block.Builder.create(Material.WOOD, MapColor.OBSIDIAN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "hellbark_log");
         hellbark_wood = registerBlock(new BlockRotatedPillar(Block.Builder.create(Material.WOOD, MapColor.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "hellbark_wood");
@@ -238,7 +247,7 @@ public class ModBlocks
         hellbark_pressure_plate = registerBlock(new BlockPressurePlate(BlockPressurePlate.Sensitivity.EVERYTHING, Block.Builder.create(Material.WOOD, hellbark_planks.materialColor).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "hellbark_pressure_plate");
         hellbark_button = registerBlock(new BlockButtonWood(Block.Builder.create(Material.CIRCUITS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "hellbark_button");
         
-        //ethereal_sapling
+        ethereal_sapling = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "ethereal_sapling");
         ethereal_leaves = registerBlock(new BlockLeavesBOP(Block.Builder.create(Material.LEAVES).hardnessAndResistance(0.2F).needsRandomTick().sound(SoundType.PLANT)), "ethereal_leaves");
         ethereal_log = registerBlock(new BlockLog(MapColor.WOOD, Block.Builder.create(Material.WOOD, MapColor.OBSIDIAN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "ethereal_log");
         ethereal_wood = registerBlock(new BlockRotatedPillar(Block.Builder.create(Material.WOOD, MapColor.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "ethereal_wood");

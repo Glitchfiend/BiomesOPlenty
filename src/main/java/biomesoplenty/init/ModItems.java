@@ -35,6 +35,7 @@ public class ModItems
         jacaranda_boat = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "jacaranda_boat");
         palm_boat = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "palm_boat");
         willow_boat = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "willow_boat");
+        dead_boat = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "dead_boat");
         magic_boat = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "magic_boat");
         umbran_boat = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "umbran_boat");
         hellbark_boat = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "hellbark_boat");
