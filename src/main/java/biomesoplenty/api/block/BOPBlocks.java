@@ -297,7 +297,7 @@ public class BOPBlocks
     public static Block toadstool;
     public static Block glowshroom;
 
-    //public static Block bramble_plant;
+    public static Block bramble;
 
     //public static Block blue_fire;
     

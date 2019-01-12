@@ -10,6 +10,7 @@ package biomesoplenty.init;
 import static biomesoplenty.api.block.BOPBlocks.*;
 
 import biomesoplenty.common.block.BlockAsh;
+import biomesoplenty.common.block.BlockBramble;
 import biomesoplenty.common.block.BlockDoublePlantBOP;
 import biomesoplenty.common.block.BlockFlatPlantBOP;
 import biomesoplenty.common.block.BlockFlesh;
@@ -326,6 +327,7 @@ public class ModBlocks
         watergrass = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "watergrass");
         
         dead_leaf_pile = registerBlock(new BlockFlatPlantBOP(Block.Builder.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "dead_leaf_pile");
+        bramble = registerBlock(new BlockBramble(Block.Builder.create(Material.PLANTS, MapColor.RED).hardnessAndResistance(0.4F).sound(SoundType.WOOD)), "bramble");
         
         toadstool = registerBlock(new BlockMushroomBOP(Block.Builder.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "toadstool");
         glowshroom = registerBlock(new BlockMushroomBOP(Block.Builder.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT).lightValue(6)), "glowshroom");
