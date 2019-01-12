@@ -11,12 +11,12 @@ import java.util.Random;
 
 import biomesoplenty.api.item.BOPItems;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Particles;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.VoxelShape;
@@ -25,11 +25,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class BlockMud extends Block
+public class BlockFlesh extends Block
 {
 	protected static final VoxelShape SHAPE = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 16.0D);
 
-    public BlockMud(Block.Builder properties)
+    public BlockFlesh(Block.Builder properties)
     {
         super(properties);
     }
@@ -43,25 +43,19 @@ public class BlockMud extends Block
     @Override
     public IItemProvider getItemDropped(IBlockState state, World worldIn, BlockPos pos, int fortune)
     {
-        return BOPItems.mudball;
+        return BOPItems.chunk_of_flesh;
     }
     
     @Override
     public int quantityDropped(IBlockState state, Random random)
     {
-        return 4;
+        return random.nextInt(3);
     }
     
     @Override
     public void onEntityCollision(IBlockState state, World worldIn, BlockPos pos, Entity entityIn)
     {
-        entityIn.motionX *= 0.4D;
-        entityIn.motionZ *= 0.4D;
-    }
-    
-    @Override
-    public boolean canSustainPlant(IBlockState state, IBlockReader world, BlockPos pos, EnumFacing facing, net.minecraftforge.common.IPlantable plantable)
-    {
-    	return false;
+        entityIn.motionX *= 0.95D;
+        entityIn.motionZ *= 0.95D;
     }
 }

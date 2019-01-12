@@ -7,14 +7,54 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
+import java.util.Random;
+
+import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
-import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Particles;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class BlockFlowerBOP extends BlockFlower
 {
     public BlockFlowerBOP(Block.Builder properties)
     {
         super(properties);
+    }
+    
+    @Override
+    @OnlyIn(Dist.CLIENT)
+    public void animateTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand)
+    {
+       super.animateTick(stateIn, worldIn, pos, rand);
+       Block block = stateIn.getBlock();
+       
+       if (block == BOPBlocks.deathbloom)
+       {
+	       if (rand.nextInt(4) == 0)
+	       {
+	    	   worldIn.addParticle(Particles.MYCELIUM, (double)((float)pos.getX() + rand.nextFloat()), (double)((float)pos.getY() + rand.nextFloat()), (double)((float)pos.getZ() + rand.nextFloat()), 0.0D, 0.0D, 0.0D);
+	       }
+	       if (rand.nextInt(4) == 0)
+	       {
+	    	   worldIn.addParticle(Particles.SMOKE, (double)((float)pos.getX() + rand.nextFloat()), (double)((float)pos.getY() + rand.nextFloat()), (double)((float)pos.getZ() + rand.nextFloat()), 0.0D, 0.0D, 0.0D);
+	       }
+	   }
+       
+       if (block == BOPBlocks.burning_blossom)
+       {
+	       if (rand.nextInt(4) == 0)
+	       {
+	    	   worldIn.addParticle(Particles.FLAME, (double)((float)pos.getX() + rand.nextFloat()), (double)((float)pos.getY() + rand.nextFloat()), (double)((float)pos.getZ() + rand.nextFloat()), 0.0D, 0.0D, 0.0D);
+	       }
+	       if (rand.nextInt(2) == 0)
+	       {
+	    	   worldIn.addParticle(Particles.SMOKE, (double)((float)pos.getX() + rand.nextFloat()), (double)((float)pos.getY() + rand.nextFloat()), (double)((float)pos.getZ() + rand.nextFloat()), 0.0D, 0.0D, 0.0D);
+	       }
+	   }
     }
 }

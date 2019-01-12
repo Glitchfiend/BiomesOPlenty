@@ -10,6 +10,7 @@ package biomesoplenty.init;
 import static biomesoplenty.api.block.BOPBlocks.*;
 
 import biomesoplenty.common.block.BlockAsh;
+import biomesoplenty.common.block.BlockFlesh;
 import biomesoplenty.common.block.BlockFlowerBOP;
 import biomesoplenty.common.block.BlockFoliageBOP;
 import biomesoplenty.common.block.BlockLeavesBOP;
@@ -57,6 +58,7 @@ public class ModBlocks
         
         dried_sand = registerBlock(new Block(Builder.create(Material.GROUND, MapColor.BROWN_TERRACOTTA).hardnessAndResistance(1.0F)), "dried_sand");
         ash_block = registerBlock(new BlockAsh(Builder.create(Material.SAND, MapColor.BLACK).hardnessAndResistance(0.4F).sound(SoundType.SAND)), "ash_block");
+        flesh = registerBlock(new BlockFlesh(Builder.create(Material.SPONGE, MapColor.RED).hardnessAndResistance(0.4F).sound(SoundType.SLIME)), "flesh");
         
         origin_sapling = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "origin_sapling");
         origin_leaves = registerBlock(new BlockLeavesBOP(Block.Builder.create(Material.LEAVES).hardnessAndResistance(0.2F).needsRandomTick().sound(SoundType.PLANT)), "origin_leaves");
