@@ -2,13 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "biomesoplenty:flower_0",
-      "data": 7
+      "item": "biomesoplenty:pink_daffodil"
     }
   ],
   "result": {
-    "item": "minecraft:dye",
-    "count": 2,
-    "data": 9
+    "item": "minecraft:pink_dye",
+    "count": 2
   }
 }

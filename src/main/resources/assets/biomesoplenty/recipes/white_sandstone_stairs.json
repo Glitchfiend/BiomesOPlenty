@@ -1,19 +1,25 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "crafting_shaped",
   "pattern": [
-    "  #",
-    " ##",
+    "#  ",
+    "## ",
     "###"
   ],
   "key": {
-    "#": {
-      "item": "biomesoplenty:white_sandstone",
-      "data": 32767
-    }
+    "#": [
+      {
+        "item": "biomesoplenty:white_sandstone"
+      },
+      {
+        "item": "biomesoplenty:chiseled_white_sandstone"
+      },
+      {
+        "item": "biomesoplenty:cut_white_sandstone"
+      }
+    ]
   },
   "result": {
     "item": "biomesoplenty:white_sandstone_stairs",
-    "count": 4,
-    "data": 0
+    "count": 4
   }
 }

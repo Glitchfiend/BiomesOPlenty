@@ -6,11 +6,10 @@
   ],
   "key": {
     "#": {
-      "item": "biomesoplenty:fleshchunk"
+      "item": "biomesoplenty:chunk_of_flesh"
     }
   },
   "result": {
-    "item": "biomesoplenty:flesh",
-    "data": 0
+    "item": "biomesoplenty:flesh"
   }
 }

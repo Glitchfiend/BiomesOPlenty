@@ -2,13 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "biomesoplenty:flower_0",
-      "data": 6
+      "item": "biomesoplenty:orange_cosmos"
     }
   ],
   "result": {
-    "item": "minecraft:dye",
-    "count": 2,
-    "data": 14
+    "item": "minecraft:orange_dye",
+    "count": 2
   }
 }

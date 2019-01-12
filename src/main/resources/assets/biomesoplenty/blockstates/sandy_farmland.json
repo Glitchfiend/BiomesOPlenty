@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "moisture=0": { "model": "biomesoplenty:block/sandy_farmland" },
+        "moisture=1": { "model": "biomesoplenty:block/sandy_farmland" },
+        "moisture=2": { "model": "biomesoplenty:block/sandy_farmland" },
+        "moisture=3": { "model": "biomesoplenty:block/sandy_farmland" },
+        "moisture=4": { "model": "biomesoplenty:block/sandy_farmland" },
+        "moisture=5": { "model": "biomesoplenty:block/sandy_farmland" },
+        "moisture=6": { "model": "biomesoplenty:block/sandy_farmland" },
+        "moisture=7": { "model": "biomesoplenty:block/sandy_farmland_moist" }
+    }
+}

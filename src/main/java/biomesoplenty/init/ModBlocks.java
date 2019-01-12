@@ -10,9 +10,12 @@ package biomesoplenty.init;
 import static biomesoplenty.api.block.BOPBlocks.*;
 
 import biomesoplenty.common.block.BlockAsh;
+import biomesoplenty.common.block.BlockDoublePlantBOP;
+import biomesoplenty.common.block.BlockFlatPlantBOP;
 import biomesoplenty.common.block.BlockFlesh;
 import biomesoplenty.common.block.BlockFlowerBOP;
 import biomesoplenty.common.block.BlockFoliageBOP;
+import biomesoplenty.common.block.BlockGrassBOP;
 import biomesoplenty.common.block.BlockLeavesBOP;
 import biomesoplenty.common.block.BlockMud;
 import biomesoplenty.common.block.BlockMushroomBOP;
@@ -21,8 +24,11 @@ import biomesoplenty.common.util.inventory.ItemGroupBOP;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockButtonWood;
 import net.minecraft.block.BlockDoor;
+import net.minecraft.block.BlockFarmland;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.BlockFenceGate;
+import net.minecraft.block.BlockGrass;
+import net.minecraft.block.BlockGrassPath;
 import net.minecraft.block.Block.Builder;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.BlockPressurePlate;
@@ -43,6 +49,26 @@ public class ModBlocks
 {
     public static void init()
     {
+    	origin_grass_block = registerBlock(new BlockGrassBOP(Block.Builder.create(Material.GRASS).needsRandomTick().hardnessAndResistance(0.6F).sound(SoundType.PLANT)), "origin_grass_block");
+    	
+    	loamy_grass_block = registerBlock(new BlockGrassBOP(Block.Builder.create(Material.GRASS).needsRandomTick().hardnessAndResistance(0.6F).sound(SoundType.PLANT)), "loamy_grass_block");
+    	loamy_dirt = registerBlock(new Block(Block.Builder.create(Material.GROUND, MapColor.DIRT).hardnessAndResistance(0.5F).sound(SoundType.GROUND)), "loamy_dirt");
+    	coarse_loamy_dirt = registerBlock(new Block(Block.Builder.create(Material.GROUND, MapColor.DIRT).hardnessAndResistance(0.5F).sound(SoundType.GROUND)), "coarse_loamy_dirt");
+    	//loamy_grass_path = registerBlock(new BlockGrassPath(Block.Builder.create(Material.GROUND).hardnessAndResistance(0.65F).sound(SoundType.PLANT)), "loamy_grass_path");
+    	//loamy_farmland = registerBlock(new BlockFarmland(Block.Builder.create(Material.GROUND).needsRandomTick().hardnessAndResistance(0.6F).sound(SoundType.GROUND)), "loamy_farmland");
+    	
+    	sandy_grass_block = registerBlock(new BlockGrassBOP(Block.Builder.create(Material.GRASS).needsRandomTick().hardnessAndResistance(0.6F).sound(SoundType.PLANT)), "sandy_grass_block");
+    	sandy_dirt = registerBlock(new Block(Block.Builder.create(Material.GROUND, MapColor.DIRT).hardnessAndResistance(0.5F).sound(SoundType.GROUND)), "sandy_dirt");
+    	coarse_sandy_dirt = registerBlock(new Block(Block.Builder.create(Material.GROUND, MapColor.DIRT).hardnessAndResistance(0.5F).sound(SoundType.GROUND)), "coarse_sandy_dirt");
+    	//sandy_grass_path = registerBlock(new BlockGrassPath(Block.Builder.create(Material.GROUND).hardnessAndResistance(0.65F).sound(SoundType.PLANT)), "sandy_grass_path");
+    	//sandy_farmland = registerBlock(new BlockFarmland(Block.Builder.create(Material.GROUND).needsRandomTick().hardnessAndResistance(0.6F).sound(SoundType.GROUND)), "sandy_farmland");
+    	
+    	silty_grass_block = registerBlock(new BlockGrassBOP(Block.Builder.create(Material.GRASS).needsRandomTick().hardnessAndResistance(0.6F).sound(SoundType.PLANT)), "silty_grass_block");
+    	silty_dirt = registerBlock(new Block(Block.Builder.create(Material.GROUND, MapColor.DIRT).hardnessAndResistance(0.5F).sound(SoundType.GROUND)), "silty_dirt");
+    	coarse_silty_dirt = registerBlock(new Block(Block.Builder.create(Material.GROUND, MapColor.DIRT).hardnessAndResistance(0.5F).sound(SoundType.GROUND)), "coarse_silty_dirt");
+    	//silty_grass_path = registerBlock(new BlockGrassPath(Block.Builder.create(Material.GROUND).hardnessAndResistance(0.65F).sound(SoundType.PLANT)), "silty_grass_path");
+    	//silty_farmland = registerBlock(new BlockFarmland(Block.Builder.create(Material.GROUND).needsRandomTick().hardnessAndResistance(0.6F).sound(SoundType.GROUND)), "silty_farmland");
+    	
     	white_sand = registerBlock(new BlockSand(0xF3F1E4, Block.Builder.create(Material.SAND, MapColor.QUARTZ).hardnessAndResistance(0.5F).sound(SoundType.SAND)), "white_sand");
     	white_sandstone = registerBlock(new Block(Block.Builder.create(Material.ROCK, MapColor.QUARTZ).hardnessAndResistance(0.8F)), "white_sandstone");
     	chiseled_white_sandstone = registerBlock(new Block(Block.Builder.create(Material.ROCK, MapColor.QUARTZ).hardnessAndResistance(0.8F)), "chiseled_white_sandstone");
@@ -291,12 +317,15 @@ public class ModBlocks
         devilweed = registerBlock(new BlockFoliageBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "devilweed");
         spectral_fern = registerBlock(new BlockFoliageBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "spectral_fern");
         
-        thorn = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "thorn");
-        tiny_cactus = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "tiny_cactus");
-        cattail = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "cattail");
-        root = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "root");
-        reed = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "reed");
+        thorn = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "thorn");
+        tiny_cactus = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "tiny_cactus");
+        cattail = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "cattail");
+        tall_cattail = registerBlock(new BlockDoublePlantBOP(cattail, Block.Builder.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "tall_cattail");
+        root = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "root");
+        reed = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "reed");
         watergrass = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "watergrass");
+        
+        dead_leaf_pile = registerBlock(new BlockFlatPlantBOP(Block.Builder.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "dead_leaf_pile");
         
         toadstool = registerBlock(new BlockMushroomBOP(Block.Builder.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "toadstool");
         glowshroom = registerBlock(new BlockMushroomBOP(Block.Builder.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT).lightValue(6)), "glowshroom");

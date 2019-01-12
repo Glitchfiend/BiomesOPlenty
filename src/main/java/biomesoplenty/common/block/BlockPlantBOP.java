@@ -17,4 +17,10 @@ public class BlockPlantBOP extends BlockBush
     {
         super(properties);
     }
+    
+    @Override
+    public Block.EnumOffsetType getOffsetType()
+    {
+        return Block.EnumOffsetType.XZ;
+    }
 }

@@ -5,13 +5,11 @@
   ],
   "key": {
     "#": {
-      "item": "biomesoplenty:mud_brick_block",
-      "data": 0
+      "item": "biomesoplenty:mud_brick_block"
     }
   },
   "result": {
-    "item": "biomesoplenty:other_slab",
-    "count": 6,
-    "data": 0
+    "item": "biomesoplenty:mud_brick_slab",
+    "count": 6
   }
 }

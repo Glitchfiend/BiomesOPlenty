@@ -2,13 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "biomesoplenty:flower_0",
-      "data": 4
+      "item": "biomesoplenty:goldenrod"
     }
   ],
   "result": {
-    "item": "minecraft:dye",
-    "count": 2,
-    "data": 11
+    "item": "minecraft:yellow_dye",
+    "count": 2
   }
 }

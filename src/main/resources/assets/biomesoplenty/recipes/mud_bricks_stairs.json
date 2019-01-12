@@ -7,13 +7,11 @@
   ],
   "key": {
     "#": {
-      "item": "biomesoplenty:mud_brick_block",
-      "data": 32767
+      "item": "biomesoplenty:mud_brick_block"
     }
   },
   "result": {
     "item": "biomesoplenty:mud_brick_stairs",
-    "count": 4,
-    "data": 0
+    "count": 4
   }
 }

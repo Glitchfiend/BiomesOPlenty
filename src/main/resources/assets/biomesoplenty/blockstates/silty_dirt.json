@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "": [
+            { "model": "biomesoplenty:block/silty_dirt" },
+            { "model": "biomesoplenty:block/silty_dirt", "y": 90 },
+            { "model": "biomesoplenty:block/silty_dirt", "y": 180 },
+            { "model": "biomesoplenty:block/silty_dirt", "y": 270 }
+        ]
+    }
+}

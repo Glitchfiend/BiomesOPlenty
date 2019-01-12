@@ -6,11 +6,10 @@
   ],
   "key": {
     "#": {
-      "item": "biomesoplenty:ash"
+      "item": "biomesoplenty:pile_of_ashes"
     }
   },
   "result": {
-    "item": "biomesoplenty:ash_block",
-    "data": 0
+    "item": "biomesoplenty:ash_block"
   }
 }

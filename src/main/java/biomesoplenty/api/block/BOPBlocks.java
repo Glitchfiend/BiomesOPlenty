@@ -11,11 +11,30 @@ import net.minecraft.block.Block;
 
 public class BOPBlocks
 {
-    //public static Block grass;
-    //public static Block dirt;
-    //public static Block grass_path;
-    //public static Block farmland_0;
-    //public static Block farmland_1;
+	public static Block origin_grass_block;
+	
+	public static Block loamy_grass_block;
+	public static Block loamy_dirt;
+	public static Block coarse_loamy_dirt;
+	public static Block loamy_grass_path;
+	public static Block loamy_farmland;
+	
+	public static Block sandy_grass_block;
+	public static Block sandy_dirt;
+	public static Block coarse_sandy_dirt;
+	public static Block sandy_grass_path;
+	public static Block sandy_farmland;
+	
+	public static Block silty_grass_block;
+	public static Block silty_dirt;
+	public static Block coarse_silty_dirt;
+	public static Block silty_grass_path;
+	public static Block silty_farmland;
+	
+	//public static Block overgrown_stone;
+	//public static Block overgrown_netherrack;
+	//public static Block mycelial_netherrack;
+	//public static Block spectral_moss;
 	
     public static Block white_sand;
     public static Block white_sandstone;
@@ -31,11 +50,8 @@ public class BOPBlocks
     public static Block mud_brick_stairs;
     
     public static Block dried_sand;
-    
     public static Block ash_block;
     public static Block flesh;
-    
-    public static Block blue_fire;
     
     public static Block origin_sapling;
     public static Block origin_leaves;
@@ -271,18 +287,20 @@ public class BOPBlocks
     public static Block thorn;
     public static Block tiny_cactus;
     public static Block cattail;
+    public static Block tall_cattail;
     public static Block root;
     public static Block reed;
     public static Block watergrass;
     
-    //public static Block flat_plant;
-    //public static Block double_plant;
+    public static Block dead_leaf_pile;
     
     public static Block toadstool;
     public static Block glowshroom;
 
     //public static Block bramble_plant;
 
+    //public static Block blue_fire;
+    
     //public static Block blood;
     //public static Block hot_spring_water;
 }

@@ -2,13 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "biomesoplenty:flower_0",
-      "data": 1
+      "item": "biomesoplenty:blue_hydrangea"
     }
   ],
   "result": {
-    "item": "minecraft:dye",
-    "count": 2,
-    "data": 12
+    "item": "minecraft:light_blue_dye",
+    "count": 2
   }
 }

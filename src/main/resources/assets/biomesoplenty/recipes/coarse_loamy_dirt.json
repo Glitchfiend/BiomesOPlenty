@@ -1,23 +1,19 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "crafting_shaped",
   "pattern": [
-    "#D",
-    "D#"
+    "DG",
+    "GD"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:gravel",
-      "data": 32767
-    },
     "D": {
-      "item": "biomesoplenty:dirt",
-      "count": 4,
-      "data": 0
+      "item": "biomesplenty:loamy_dirt"
+    },
+    "G": {
+      "item": "minecraft:gravel"
     }
   },
   "result": {
-    "item": "biomesoplenty:dirt",
-    "count": 4,
-    "data": 8
+    "item": "biomesoplenty:coarse_loamy_dirt",
+    "count": 4
   }
 }

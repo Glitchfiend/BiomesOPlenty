@@ -2,13 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "biomesoplenty:flower_0",
-      "data": 5
+      "item": "biomesoplenty:wildflower"
     }
   ],
   "result": {
-    "item": "minecraft:dye",
-    "count": 2,
-    "data": 13
+    "item": "minecraft:magenta_dye",
+    "count": 2
   }
 }

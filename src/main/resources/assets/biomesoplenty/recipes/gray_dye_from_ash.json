@@ -2,12 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "biomesoplenty:ash"
+      "item": "biomesoplenty:pile_of_ashes"
     }
   ],
   "result": {
-    "item": "minecraft:dye",
-    "count": 2,
-    "data": 8
+    "item": "minecraft:gray_dye",
+    "count": 2
   }
 }
