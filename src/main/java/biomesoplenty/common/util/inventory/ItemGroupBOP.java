@@ -43,16 +43,6 @@ public class ItemGroupBOP extends ItemGroup
                 ItemStack itemstack = UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, bucketFluid);
                 itemList.add(itemstack);
             }
-        }
-
-        for (EntityList.EntityEggInfo eggInfo : EntityList.ENTITY_EGGS.values())
-        {
-            if (eggInfo.spawnedID.getResourceDomain().equals(BiomesOPlenty.MOD_ID))
-            {
-                ItemStack itemstack = new ItemStack(Items.SPAWN_EGG, 1);
-                ItemMonsterPlacer.applyEntityIdToItemStack(itemstack, eggInfo.spawnedID);
-                itemList.add(itemstack);
-            }
         }*/
     }
 }

@@ -8,6 +8,8 @@
 package biomesoplenty.common.entity.projectile;
 
 import biomesoplenty.api.entity.BOPEntities;
+import biomesoplenty.api.particle.BOPParticleTypes;
+import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;
@@ -23,7 +25,7 @@ public class EntityMudball extends EntityThrowable
         super(BOPEntities.mudball, world);
     }
 
-    public EntityMudball(double x, double y, double z, World world)
+    public EntityMudball(World world, double x, double y, double z)
     {
         super(BOPEntities.mudball, x, y, z, world);
     }
@@ -41,7 +43,7 @@ public class EntityMudball extends EntityThrowable
         {
             for (int i = 0; i < 8; ++i)
             {
-                //BiomesOPlenty.proxy.spawnParticle(BOPParticleTypes.MUD, this.world, this.posX, this.posY, this.posZ);
+                BiomesOPlenty.proxy.spawnParticle(BOPParticleTypes.MUD, this.world, this.posX, this.posY, this.posZ);
             }
         }
     }
