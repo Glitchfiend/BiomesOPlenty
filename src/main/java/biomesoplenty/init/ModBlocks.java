@@ -55,20 +55,20 @@ public class ModBlocks
     	loamy_grass_block = registerBlock(new BlockGrassBOP(Block.Builder.create(Material.GRASS).needsRandomTick().hardnessAndResistance(0.6F).sound(SoundType.PLANT)), "loamy_grass_block");
     	loamy_dirt = registerBlock(new Block(Block.Builder.create(Material.GROUND, MapColor.DIRT).hardnessAndResistance(0.5F).sound(SoundType.GROUND)), "loamy_dirt");
     	coarse_loamy_dirt = registerBlock(new Block(Block.Builder.create(Material.GROUND, MapColor.DIRT).hardnessAndResistance(0.5F).sound(SoundType.GROUND)), "coarse_loamy_dirt");
-    	//loamy_grass_path = registerBlock(new BlockGrassPath(Block.Builder.create(Material.GROUND).hardnessAndResistance(0.65F).sound(SoundType.PLANT)), "loamy_grass_path");
-    	//loamy_farmland = registerBlock(new BlockFarmland(Block.Builder.create(Material.GROUND).needsRandomTick().hardnessAndResistance(0.6F).sound(SoundType.GROUND)), "loamy_farmland");
+    	loamy_grass_path = registerBlock(new BlockGrassPath(Block.Builder.create(Material.GROUND).hardnessAndResistance(0.65F).sound(SoundType.PLANT)), "loamy_grass_path");
+    	loamy_farmland = registerBlock(new BlockFarmland(Block.Builder.create(Material.GROUND).needsRandomTick().hardnessAndResistance(0.6F).sound(SoundType.GROUND)), "loamy_farmland");
     	
     	sandy_grass_block = registerBlock(new BlockGrassBOP(Block.Builder.create(Material.GRASS).needsRandomTick().hardnessAndResistance(0.6F).sound(SoundType.PLANT)), "sandy_grass_block");
     	sandy_dirt = registerBlock(new Block(Block.Builder.create(Material.GROUND, MapColor.DIRT).hardnessAndResistance(0.5F).sound(SoundType.GROUND)), "sandy_dirt");
     	coarse_sandy_dirt = registerBlock(new Block(Block.Builder.create(Material.GROUND, MapColor.DIRT).hardnessAndResistance(0.5F).sound(SoundType.GROUND)), "coarse_sandy_dirt");
-    	//sandy_grass_path = registerBlock(new BlockGrassPath(Block.Builder.create(Material.GROUND).hardnessAndResistance(0.65F).sound(SoundType.PLANT)), "sandy_grass_path");
-    	//sandy_farmland = registerBlock(new BlockFarmland(Block.Builder.create(Material.GROUND).needsRandomTick().hardnessAndResistance(0.6F).sound(SoundType.GROUND)), "sandy_farmland");
+    	sandy_grass_path = registerBlock(new BlockGrassPath(Block.Builder.create(Material.GROUND).hardnessAndResistance(0.65F).sound(SoundType.PLANT)), "sandy_grass_path");
+    	sandy_farmland = registerBlock(new BlockFarmland(Block.Builder.create(Material.GROUND).needsRandomTick().hardnessAndResistance(0.6F).sound(SoundType.GROUND)), "sandy_farmland");
     	
     	silty_grass_block = registerBlock(new BlockGrassBOP(Block.Builder.create(Material.GRASS).needsRandomTick().hardnessAndResistance(0.6F).sound(SoundType.PLANT)), "silty_grass_block");
     	silty_dirt = registerBlock(new Block(Block.Builder.create(Material.GROUND, MapColor.DIRT).hardnessAndResistance(0.5F).sound(SoundType.GROUND)), "silty_dirt");
     	coarse_silty_dirt = registerBlock(new Block(Block.Builder.create(Material.GROUND, MapColor.DIRT).hardnessAndResistance(0.5F).sound(SoundType.GROUND)), "coarse_silty_dirt");
-    	//silty_grass_path = registerBlock(new BlockGrassPath(Block.Builder.create(Material.GROUND).hardnessAndResistance(0.65F).sound(SoundType.PLANT)), "silty_grass_path");
-    	//silty_farmland = registerBlock(new BlockFarmland(Block.Builder.create(Material.GROUND).needsRandomTick().hardnessAndResistance(0.6F).sound(SoundType.GROUND)), "silty_farmland");
+    	silty_grass_path = registerBlock(new BlockGrassPath(Block.Builder.create(Material.GROUND).hardnessAndResistance(0.65F).sound(SoundType.PLANT)), "silty_grass_path");
+    	silty_farmland = registerBlock(new BlockFarmland(Block.Builder.create(Material.GROUND).needsRandomTick().hardnessAndResistance(0.6F).sound(SoundType.GROUND)), "silty_farmland");
     	
     	white_sand = registerBlock(new BlockSand(0xF3F1E4, Block.Builder.create(Material.SAND, MapColor.QUARTZ).hardnessAndResistance(0.5F).sound(SoundType.SAND)), "white_sand");
     	white_sandstone = registerBlock(new Block(Block.Builder.create(Material.ROCK, MapColor.QUARTZ).hardnessAndResistance(0.8F)), "white_sandstone");
