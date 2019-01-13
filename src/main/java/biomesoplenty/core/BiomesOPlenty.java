@@ -8,11 +8,7 @@
 
 package biomesoplenty.core;
 
-import biomesoplenty.init.ModBlocks;
-import biomesoplenty.init.ModEntities;
-import biomesoplenty.init.ModItems;
-import biomesoplenty.init.ModSounds;
-import net.minecraft.init.Bootstrap;
+import biomesoplenty.init.*;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -38,6 +34,7 @@ public class BiomesOPlenty
         ModEntities.init();
         ModBlocks.init();
         ModItems.init();
+        ModBiomes.init();
     }
     
     private void preInit(final FMLPreInitializationEvent event)
