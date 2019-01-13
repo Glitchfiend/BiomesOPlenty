@@ -7,34 +7,30 @@
  ******************************************************************************/
 package biomesoplenty.client.util;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Biomes;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.provider.BiomeProviderType;
-import net.minecraft.world.biome.provider.OverworldBiomeProvider;
 import net.minecraft.world.biome.provider.OverworldBiomeProviderSettings;
 import net.minecraft.world.gen.OverworldGenSettings;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.LayerUtil;
-import net.minecraft.world.storage.WorldInfo;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWVidMode;
-import org.lwjgl.opengl.*;
+import org.lwjgl.opengl.GL;
+import org.lwjgl.opengl.GL11;
 import org.lwjgl.system.MemoryStack;
 
-import javax.swing.*;
-import java.awt.*;
 import java.nio.IntBuffer;
 
 import static org.lwjgl.opengl.GL11.*;
-import static org.lwjgl.opengl.GL13.*;
+import static org.lwjgl.opengl.GL13.GL_TEXTURE0;
+import static org.lwjgl.opengl.GL13.glActiveTexture;
 import static org.lwjgl.opengl.GL15.*;
 import static org.lwjgl.opengl.GL20.*;
-import static org.lwjgl.opengl.GL30.*;
+import static org.lwjgl.opengl.GL30.glBindVertexArray;
+import static org.lwjgl.opengl.GL30.glGenVertexArrays;
 import static org.lwjgl.system.MemoryStack.stackPush;
 
 public class GenLayerVisualizer
@@ -51,8 +47,8 @@ public class GenLayerVisualizer
     {
         private static final int WINDOW_WIDTH = 1000;
         private static final int WINDOW_HEIGHT = 1000;
-        private static final int CANVAS_WIDTH = 800;
-        private static final int CANVAS_HEIGHT = 800;
+        private static final int CANVAS_WIDTH = 1000;
+        private static final int CANVAS_HEIGHT = 1000;
 
         private static final String VERTEX_SHADER_SRC =
         "#version 330\n" +
@@ -89,7 +85,6 @@ public class GenLayerVisualizer
             int programId = glCreateProgram();
 
             glBindVertexArray(vertexArray);
-
             int vertexShader = makeShader(GL_VERTEX_SHADER, VERTEX_SHADER_SRC);
             int fragmentShader = makeShader(GL_FRAGMENT_SHADER, FRAGMENT_SHADER_SRC);
 
@@ -171,14 +166,15 @@ public class GenLayerVisualizer
 
         private int getColourForBiome(Biome biome, BlockPos pos)
         {
-            IBlockState topBlock = biome.getSurfaceBuilder().getConfig().getTop();
+            return BiomeMapColours.getBiomeMapColour(biome);
+            /*IBlockState topBlock = biome.getSurfaceBuilder().getConfig().getTop();
 
             if (topBlock.getBlock() == Blocks.GRASS)
                 return biome.getGrassColor(pos);
             else if (topBlock.getBlock() == Blocks.WATER || isOcean(biome) || biome == Biomes.RIVER || biome == Biomes.SWAMP)
                 return biome.getWaterColor();
 
-            return topBlock.getMapColor(null, pos).colorValue;
+            return topBlock.getMapColor(null, pos).colorValue;*/
         }
 
         private void genTexture()

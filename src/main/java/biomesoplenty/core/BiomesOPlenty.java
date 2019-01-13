@@ -36,8 +36,6 @@ public class BiomesOPlenty
         ModBlocks.init();
         ModItems.init();
         ModBiomes.init();
-
-        GenLayerVisualizer.run();
     }
     
     private void preInit(final FMLPreInitializationEvent event)
@@ -47,5 +45,6 @@ public class BiomesOPlenty
 
     private void init(final FMLInitializationEvent event)
     {
+        GenLayerVisualizer.run();
     }
 }
