@@ -7,6 +7,7 @@
  ******************************************************************************/
 package biomesoplenty.client.util;
 
+import javafx.scene.paint.Color;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockModelShapes;
@@ -20,6 +21,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 
+import java.nio.ByteBuffer;
+import java.security.MessageDigest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,6 +32,7 @@ import java.util.Random;
 // https://github.com/TTFTCUTS/Pioneer/blob/master/src/main/java/ttftcuts/pioneer/map/MapColours.java
 public class BiomeMapColours
 {
+    public static final boolean RANDOM_COLOURS = false;
     public static Map<Biome, Integer> biomeColours = new HashMap<Biome, Integer>();
     public static Random rand = new Random(50);
 
@@ -39,6 +43,23 @@ public class BiomeMapColours
 
     public static int getBiomeMapColour(Biome biome)
     {
+        if (RANDOM_COLOURS)
+        {
+            // Who can be bothered coming up with colours manually?
+            try
+            {
+                MessageDigest digest = MessageDigest.getInstance("SHA-256");
+                return ByteBuffer.wrap(digest.digest(ByteBuffer.allocate(4).putInt(Biome.func_185362_a(biome)).array())).getInt() & 0xFFFFFF;
+            }
+            catch (Exception e)
+            {
+                return 0;
+            }
+        }
+
+        if (biome == null)
+            return 0xFFFF0000;
+
         if (biomeColours.containsKey(biome)) {
             return biomeColours.get(biome);
         }
@@ -107,11 +128,14 @@ public class BiomeMapColours
         IBlockState topBlock = biome.getSurfaceBuilder().getConfig().getTop();
         int colour;
 
-        if (topBlock == Blocks.GRASS.getDefaultState()) { // uuuugh
+        if (topBlock == Blocks.GRASS.getDefaultState())
+        { // uuuugh
             colour = topBlock.getMapColor(null, pos).colorValue | 0xFF000000;
             int tint = biome.getGrassColor(pos) | 0xFF000000;
-            colour = blend(colour,tint, 0.75);
-        } else {
+            colour = blend(colour, tint, 0.75);
+        }
+        else
+        {
             colour = getBlockColourRaw(topBlock);
         }
 

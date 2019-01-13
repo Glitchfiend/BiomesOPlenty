@@ -7,6 +7,7 @@
  ******************************************************************************/
 package biomesoplenty.client.util;
 
+import biomesoplenty.common.world.BOPLayerUtil;
 import net.minecraft.init.Biomes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.WorldType;
@@ -47,8 +48,8 @@ public class GenLayerVisualizer
     {
         private static final int WINDOW_WIDTH = 1000;
         private static final int WINDOW_HEIGHT = 1000;
-        private static final int CANVAS_WIDTH = 1000;
-        private static final int CANVAS_HEIGHT = 1000;
+        private static final int CANVAS_WIDTH = 100;
+        private static final int CANVAS_HEIGHT = 100;
 
         private static final String VERTEX_SHADER_SRC =
         "#version 330\n" +
@@ -154,7 +155,7 @@ public class GenLayerVisualizer
         {
             OverworldBiomeProviderSettings settingsProvider = BiomeProviderType.VANILLA_LAYERED.createSettings();
             OverworldGenSettings overworldgensettings = settingsProvider.getGeneratorSettings();
-            GenLayer biomeGenLayer = LayerUtil.buildOverworldProcedure(0, WorldType.DEFAULT, overworldgensettings)[0];
+            GenLayer biomeGenLayer = BOPLayerUtil.buildOverworldProcedure(0, WorldType.DEFAULT, overworldgensettings)[0];
 
             Biome[] biomes = biomeGenLayer.generateBiomes(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT, null);
 
