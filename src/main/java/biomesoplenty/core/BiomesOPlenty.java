@@ -8,6 +8,7 @@
 
 package biomesoplenty.core;
 
+import biomesoplenty.client.util.GenLayerVisualizer;
 import biomesoplenty.init.*;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
@@ -35,6 +36,8 @@ public class BiomesOPlenty
         ModBlocks.init();
         ModItems.init();
         ModBiomes.init();
+
+        GenLayerVisualizer.run();
     }
     
     private void preInit(final FMLPreInitializationEvent event)
