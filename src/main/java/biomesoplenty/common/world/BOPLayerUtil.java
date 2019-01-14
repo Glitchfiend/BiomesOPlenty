@@ -81,16 +81,11 @@ public class BOPLayerUtil
         biomesFactory = GenLayerRareBiome.INSTANCE.apply(contextFactory.apply(1001L), biomesFactory);
 
         // Zoom more based on the biome size
-        for (int k = 0; k < biomeSize; ++k)
+        for (int i = 0; i < biomeSize; ++i)
         {
-            biomesFactory = GenLayerZoom.NORMAL.apply(contextFactory.apply((long)(1000 + k)), biomesFactory);
-            if (k == 0) {
-                biomesFactory = GenLayerAddIsland.INSTANCE.apply(contextFactory.apply(3L), biomesFactory);
-            }
-
-            if (k == 1 || biomeSize == 1) {
-                biomesFactory = GenLayerShore.INSTANCE.apply(contextFactory.apply(1000L), biomesFactory);
-            }
+            biomesFactory = GenLayerZoom.NORMAL.apply(contextFactory.apply((long)(1000 + i)), biomesFactory);
+            if (i == 0) biomesFactory = GenLayerAddIsland.INSTANCE.apply(contextFactory.apply(3L), biomesFactory);
+            if (i == 1 || biomeSize == 1) biomesFactory = GenLayerShore.INSTANCE.apply(contextFactory.apply(1000L), biomesFactory);
         }
 
         biomesFactory = GenLayerSmooth.INSTANCE.apply(contextFactory.apply(1000L), biomesFactory);
