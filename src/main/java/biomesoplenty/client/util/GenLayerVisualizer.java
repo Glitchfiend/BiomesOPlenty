@@ -20,8 +20,6 @@ import net.minecraft.world.gen.OverworldGenSettings;
 import net.minecraft.world.gen.area.AreaDimension;
 import net.minecraft.world.gen.area.IAreaFactory;
 import net.minecraft.world.gen.area.LazyArea;
-import net.minecraft.world.gen.layer.GenLayer;
-import net.minecraft.world.gen.layer.LayerUtil;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.opengl.GL;
@@ -162,7 +160,7 @@ public class GenLayerVisualizer
             OverworldGenSettings settings = settingsProvider.getGeneratorSettings();
 
             int[] aint = new int[1];
-            ImmutableList<IAreaFactory<LazyArea>> factoryList = BOPLayerUtil.buildOverworldProcedure(WorldType.DEFAULT, settings, (seedModifier) -> {
+            ImmutableList<IAreaFactory<LazyArea>> factoryList = BOPLayerUtil.createAreaFactories(WorldType.DEFAULT, settings, (seedModifier) -> {
                 ++aint[0];
                 return new LazyAreaLayerContext(1, aint[0], 0, seedModifier);
             });

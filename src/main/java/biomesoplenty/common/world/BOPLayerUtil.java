@@ -16,7 +16,6 @@ import net.minecraft.world.gen.area.IArea;
 import net.minecraft.world.gen.area.IAreaFactory;
 import net.minecraft.world.gen.area.LazyArea;
 import net.minecraft.world.gen.layer.*;
-import net.minecraft.world.gen.layer.traits.IAreaTransformer1;
 
 import java.util.function.LongFunction;
 
@@ -46,7 +45,7 @@ public class BOPLayerUtil
         return factory;
     }
 
-    public static <T extends IArea, C extends IContextExtended<T>> ImmutableList<IAreaFactory<T>> buildOverworldProcedure(WorldType worldTypeIn, OverworldGenSettings settings, LongFunction<C> contextFactory)
+    public static <T extends IArea, C extends IContextExtended<T>> ImmutableList<IAreaFactory<T>> createAreaFactories(WorldType worldTypeIn, OverworldGenSettings settings, LongFunction<C> contextFactory)
     {
         // Create the initial land and sea layer. Is also responsible for adding deep oceans
         // and mushroom islands
@@ -65,9 +64,11 @@ public class BOPLayerUtil
 
         biomeSize = LayerUtil.getModdedBiomeSize(worldTypeIn, biomeSize);
 
+        // Fork off a new branch as a seed for rivers and sub biomes
         IAreaFactory<T> riverAndSubBiomesInitFactory = GenLayerRiverInit.INSTANCE.apply(contextFactory.apply(100L), landSeaFactory);
         riverAndSubBiomesInitFactory = LayerUtil.repeat(1000L, GenLayerZoom.NORMAL, riverAndSubBiomesInitFactory, 2, contextFactory);
 
+        // Allocate the biomes
         IAreaFactory<T> biomesFactory = worldTypeIn.getBiomeLayer(landSeaFactory, settings, contextFactory);
         biomesFactory = GenLayerHills.INSTANCE.apply(contextFactory.apply(1000L), biomesFactory, riverAndSubBiomesInitFactory);
 
@@ -76,16 +77,19 @@ public class BOPLayerUtil
         riversInitFactory = GenLayerRiver.INSTANCE.apply(contextFactory.apply(1L), riversInitFactory);
         riversInitFactory = GenLayerSmooth.INSTANCE.apply(contextFactory.apply(1000L), riversInitFactory);
 
+        // Mix in rare biomes into biomes branch
         biomesFactory = GenLayerRareBiome.INSTANCE.apply(contextFactory.apply(1001L), biomesFactory);
 
-        for(int k = 0; k < biomeSize; ++k) {
-            biomesFactory = GenLayerZoom.NORMAL.apply((IContextExtended)contextFactory.apply((long)(1000 + k)), biomesFactory);
+        // Zoom more based on the biome size
+        for (int k = 0; k < biomeSize; ++k)
+        {
+            biomesFactory = GenLayerZoom.NORMAL.apply(contextFactory.apply((long)(1000 + k)), biomesFactory);
             if (k == 0) {
-                biomesFactory = GenLayerAddIsland.INSTANCE.apply((IContextExtended)contextFactory.apply(3L), biomesFactory);
+                biomesFactory = GenLayerAddIsland.INSTANCE.apply(contextFactory.apply(3L), biomesFactory);
             }
 
             if (k == 1 || biomeSize == 1) {
-                biomesFactory = GenLayerShore.INSTANCE.apply((IContextExtended)contextFactory.apply(1000L), biomesFactory);
+                biomesFactory = GenLayerShore.INSTANCE.apply(contextFactory.apply(1000L), biomesFactory);
             }
         }
 
@@ -96,21 +100,22 @@ public class BOPLayerUtil
         biomesFactory = GenLayerMixOceans.INSTANCE.apply(contextFactory.apply(100L), biomesFactory, oceanBiomeFactory);
 
         // Finish biomes with Voroni zoom
-        IAreaFactory<T> biomesFinal = GenLayerVoronoiZoom.INSTANCE.apply(contextFactory.apply(10L), biomesFactory);
+        IAreaFactory<T> voroniZoomBiomesFactory = GenLayerVoronoiZoom.INSTANCE.apply(contextFactory.apply(10L), biomesFactory);
 
-        return ImmutableList.of(biomesFactory, biomesFinal, biomesFactory);
+        return ImmutableList.of(biomesFactory, voroniZoomBiomesFactory, biomesFactory);
     }
 
-    public static GenLayer[] buildOverworldProcedure(long seed, WorldType typeIn, OverworldGenSettings settings)
+    public static GenLayer[] createGenLayers(long seed, WorldType worldType, OverworldGenSettings settings)
     {
         int[] layerCount = new int[1]; // Do this as an array to enable incrementing it in the lambda
-        ImmutableList<IAreaFactory<LazyArea>> immutablelist = buildOverworldProcedure(typeIn, settings, (p_202825_3_) -> {
+        ImmutableList<IAreaFactory<LazyArea>> factoryList = createAreaFactories(worldType, settings, (seedModifier) ->
+        {
             ++layerCount[0];
-            return new LazyAreaLayerContext(1, layerCount[0], seed, p_202825_3_);
+            return new LazyAreaLayerContext(1, layerCount[0], seed, seedModifier);
         });
-        GenLayer genlayer = new GenLayer(immutablelist.get(0));
-        GenLayer genlayer1 = new GenLayer(immutablelist.get(1));
-        GenLayer genlayer2 = new GenLayer(immutablelist.get(2));
-        return new GenLayer[]{genlayer, genlayer1, genlayer2};
+        GenLayer biomesLayer = new GenLayer(factoryList.get(0));
+        GenLayer voroniZoomBiomesLayer = new GenLayer(factoryList.get(1));
+        GenLayer biomesLayer2 = new GenLayer(factoryList.get(2));
+        return new GenLayer[]{biomesLayer, voroniZoomBiomesLayer, biomesLayer2};
     }
 }
