@@ -12,7 +12,11 @@ import net.minecraft.world.gen.area.AreaDimension;
 import net.minecraft.world.gen.area.IArea;
 import net.minecraft.world.gen.area.IAreaFactory;
 
-public interface IBOPAreaTransformer
+/***
+ * An area transformer that takes 0 existing AreaDimensions. Classes implementing
+ * this interface are not required to implement any further Transformer interfaces.
+ */
+public interface IBOPAreaTransformer0
 {
     default <R extends IArea> IAreaFactory<R> apply(IContextExtended<R> context)
     {

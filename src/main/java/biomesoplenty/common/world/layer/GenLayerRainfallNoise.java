@@ -12,7 +12,7 @@ import biomesoplenty.common.world.layer.traits.IBOPAreaTransformer0;
 import biomesoplenty.common.world.layer.traits.IBOPContextExtended;
 import net.minecraft.world.gen.area.AreaDimension;
 
-public enum GenLayerTemperatureNoise implements IBOPAreaTransformer0
+public enum GenLayerRainfallNoise implements IBOPAreaTransformer0
 {
     SMALL_ZONES(0.14D),
     MEDIUM_ZONES(0.08D),
@@ -20,7 +20,7 @@ public enum GenLayerTemperatureNoise implements IBOPAreaTransformer0
 
     private final double scale;
 
-    GenLayerTemperatureNoise(double scale)
+    GenLayerRainfallNoise(double scale)
     {
         this.scale = scale;
     }
@@ -28,19 +28,22 @@ public enum GenLayerTemperatureNoise implements IBOPAreaTransformer0
     @Override
     public int apply(IBOPContextExtended context, AreaDimension areaDimension, int x, int z)
     {
-        double xOffset = (double)(context.getWorldSeed() & 0xFFFFFF) * 0.000001D;
-        double zOffset = (double)(context.getWorldSeed() & 0xFFFFFF) * 0.000002D;
+        double xOffset = (double)(context.getWorldSeed() & 0xFFFFFF) * 0.000003D;
+        double zOffset = (double)(context.getWorldSeed() & 0xFFFFFF) * 0.000004D;
         double noiseVal = SimplexNoise.noise((x + xOffset) * this.scale, (z + zOffset) * this.scale);
 
-        // boundaries were determined empirically by analyzing statistically output from the SimplexNoise function, and splitting into 9 equally likely groups
-        if (noiseVal < -0.619D) return 0;
-        else if (noiseVal < -0.503D) return 1;
-        else if (noiseVal < -0.293D) return 2;
-        else if (noiseVal < -0.120D) return 3;
-        else if (noiseVal < 0.085D) return 4;
-        else if (noiseVal < 0.252D) return 5;
-        else if (noiseVal < 0.467D) return 6;
-        else if (noiseVal < 0.619D) return 7;
-        else return 8;
+        // boundaries were determined empirically by analyzing statistically output from the SimplexNoise function, and splitting into 12 equally likely groups
+        if (noiseVal < -0.637D) return 0;
+        else if (noiseVal < -0.575D) return 1;
+        else if (noiseVal < -0.465D) return 2;
+        else if (noiseVal < -0.295D) return 3;
+        else if (noiseVal < -0.148D) return 4;
+        else if (noiseVal < -0.034D) return 5;
+        else if (noiseVal < 0.132D) return 6;
+        else if (noiseVal < 0.246D) return 7;
+        else if (noiseVal < 0.400D) return 8;
+        else if (noiseVal < 0.551D) return 9;
+        else if (noiseVal < 0.634D) return 10;
+        else return 11;
     }
 }

@@ -7,7 +7,7 @@
  ******************************************************************************/
 package biomesoplenty.common.world;
 
-import biomesoplenty.common.world.layer.GenLayerTemperatureNoise;
+import biomesoplenty.common.world.layer.*;
 import biomesoplenty.common.world.layer.traits.LazyAreaLayerContextBOP;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.world.WorldType;
@@ -47,48 +47,43 @@ public class BOPLayerUtil
     {
         IAreaFactory<T> temperatureFactory;
 
-        temperatureFactory = GenLayerTemperatureNoise.LARGE_ZONES.apply(contextFactory.apply(3L));
-        /*switch (settings.tempScheme)
+        switch (settings.tempScheme)
         {
             case LATITUDE: default:
-                temperature = new GenLayerTemperatureLatitude(2L, 16, worldSeed);
+                temperatureFactory = GenLayerTemperatureLatitude.INSTANCE.apply(contextFactory.apply(2L));
                 break;
             case SMALL_ZONES:
-                temperature = new GenLayerTemperatureNoise(3L, worldSeed, 0.14D);
+                temperatureFactory = GenLayerTemperatureNoise.SMALL_ZONES.apply(contextFactory.apply(3L));
                 break;
             case MEDIUM_ZONES:
-                temperature = new GenLayerTemperatureNoise(4L, worldSeed, 0.08D);
+                temperatureFactory = GenLayerTemperatureNoise.MEDIUM_ZONES.apply(contextFactory.apply(4L));
                 break;
             case LARGE_ZONES:
-                temperature = new GenLayerTemperatureNoise(5L, worldSeed, 0.04D);
+                temperatureFactory = GenLayerTemperatureNoise.LARGE_ZONES.apply(contextFactory.apply(5L));
                 break;
             case RANDOM:
-                temperature = new GenLayerTemperatureRandom(6L);
-                break;
-        }*/
-
-        /*GenLayer rainfall;
-        switch(settings.rainScheme)
-        {
-            case SMALL_ZONES:
-                rainfall = new GenLayerRainfallNoise(7L, worldSeed, 0.14D);
-                break;
-            case MEDIUM_ZONES: default:
-                rainfall = new GenLayerRainfallNoise(8L, worldSeed, 0.08D);
-                break;
-            case LARGE_ZONES:
-                rainfall = new GenLayerRainfallNoise(9L, worldSeed, 0.04D);
-                break;
-            case RANDOM:
-                rainfall = new GenLayerRainfallRandom(10L);
+                temperatureFactory = GenLayerTemperatureRandom.INSTANCE.apply(contextFactory.apply(6L));
                 break;
         }
 
-        GenLayerClimate climate = new GenLayerClimate(103L, temperature, rainfall);
-        // stack = new GenLayerEdge(3L, stack, GenLayerEdge.Mode.SPECIAL);
-        return climate;*/
+        IAreaFactory<T> rainfallFactory;
+        switch(settings.rainScheme)
+        {
+            case SMALL_ZONES:
+                rainfallFactory = GenLayerRainfallNoise.SMALL_ZONES.apply(contextFactory.apply(7L));
+                break;
+            case MEDIUM_ZONES: default:
+                rainfallFactory = GenLayerRainfallNoise.MEDIUM_ZONES.apply(contextFactory.apply(8L));
+                break;
+            case LARGE_ZONES:
+                rainfallFactory = GenLayerRainfallNoise.LARGE_ZONES.apply(contextFactory.apply(9L));
+                break;
+            case RANDOM:
+                rainfallFactory = GenLayerRainfallRandom.INSTANCE.apply(contextFactory.apply(10L));
+                break;
+        }
 
-        return temperatureFactory;
+        return GenLayerMixOceans.INSTANCE.apply(contextFactory.apply(103L), temperatureFactory, rainfallFactory);
     }
 
     public static <T extends IArea, C extends IContextExtended<T>> ImmutableList<IAreaFactory<T>> createAreaFactories(WorldType worldType, OverworldGenSettings settings, LongFunction<C> contextFactory)
