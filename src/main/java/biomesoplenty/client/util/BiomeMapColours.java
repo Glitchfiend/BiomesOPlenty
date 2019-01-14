@@ -66,7 +66,7 @@ public class BiomeMapColours
         biomeColours.put(11, 0xFFCCAA);*/
 
         // Climate colours. See the values in BOPClimates
-        biomeColours.put(0, 0xF3F3F3);
+        /*biomeColours.put(0, 0xF3F3F3);
         biomeColours.put(1, 0xCFE2F3);
         biomeColours.put(2, 0xA2C4C9);
         biomeColours.put(3, 0x45818E);
@@ -79,7 +79,7 @@ public class BiomeMapColours
         biomeColours.put(10, 0xEDFFB7);
         biomeColours.put(11, 0xFCE39D);
         biomeColours.put(12, 0xFFFBE0);
-        biomeColours.put(13, 0xA6947F);
+        biomeColours.put(13, 0xA6947F);*/
     }
 
     public static int getBiomeMapColour(int biomeId)

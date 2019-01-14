@@ -9,6 +9,7 @@ package biomesoplenty.client.util;
 
 import biomesoplenty.common.world.BOPLayerUtil;
 import biomesoplenty.common.world.BOPWorldSettings;
+import biomesoplenty.common.world.layer.traits.IBOPContextExtended;
 import biomesoplenty.common.world.layer.traits.LazyAreaLayerContextBOP;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.init.Biomes;
@@ -17,6 +18,7 @@ import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.provider.BiomeProviderType;
 import net.minecraft.world.biome.provider.OverworldBiomeProviderSettings;
+import net.minecraft.world.gen.IContextExtended;
 import net.minecraft.world.gen.LazyAreaLayerContext;
 import net.minecraft.world.gen.OverworldGenSettings;
 import net.minecraft.world.gen.area.AreaDimension;
@@ -29,6 +31,7 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.system.MemoryStack;
 
 import java.nio.IntBuffer;
+import java.util.function.LongFunction;
 
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL13.GL_TEXTURE0;
@@ -162,15 +165,15 @@ public class GenLayerVisualizer
             OverworldGenSettings settings = settingsProvider.getGeneratorSettings();
 
             int[] aint = new int[1];
-            ImmutableList<IAreaFactory<LazyArea>> factoryList = BOPLayerUtil.createAreaFactories(WorldType.DEFAULT, settings, (seedModifier) -> {
+            LongFunction<IBOPContextExtended<LazyArea>> contextFactory = (seedModifier) -> {
                 ++aint[0];
                 return new LazyAreaLayerContextBOP(1, aint[0], 0, seedModifier);
-            });
+            };
 
-            IAreaFactory<LazyArea> biomeAreaFactory = BOPLayerUtil.createClimateFactory((seedModifier) -> {
-                ++aint[0];
-                return new LazyAreaLayerContextBOP(1, aint[0], 348234231, seedModifier);
-            }, new BOPWorldSettings());
+            IAreaFactory<LazyArea> landAreaFactory = BOPLayerUtil.createInitialLandAndSeaFactory(contextFactory);
+            //IAreaFactory<LazyArea> biomeAreaFactory = BOPLayerUtil.createBiomeFactory(landAreaFactory, WorldType.DEFAULT, settings, new BOPWorldSettings(), contextFactory);
+
+            IAreaFactory<LazyArea> biomeAreaFactory = BOPLayerUtil.createAreaFactories(WorldType.DEFAULT, settings, contextFactory).get(0);
 
             AreaDimension areaDimension = new AreaDimension(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
             LazyArea area = biomeAreaFactory.make(areaDimension);
