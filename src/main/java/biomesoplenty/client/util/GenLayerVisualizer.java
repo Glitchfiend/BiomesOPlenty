@@ -8,13 +8,18 @@
 package biomesoplenty.client.util;
 
 import biomesoplenty.common.world.BOPLayerUtil;
+import com.google.common.collect.ImmutableList;
 import net.minecraft.init.Biomes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.provider.BiomeProviderType;
 import net.minecraft.world.biome.provider.OverworldBiomeProviderSettings;
+import net.minecraft.world.gen.LazyAreaLayerContext;
 import net.minecraft.world.gen.OverworldGenSettings;
+import net.minecraft.world.gen.area.AreaDimension;
+import net.minecraft.world.gen.area.IAreaFactory;
+import net.minecraft.world.gen.area.LazyArea;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.LayerUtil;
 import org.lwjgl.glfw.GLFW;
@@ -73,7 +78,7 @@ public class GenLayerVisualizer
         "   color = texture(sampler, uv).rgb;\n" +
         "}";
 
-        Biome[] biomes = new Biome[CANVAS_WIDTH * CANVAS_HEIGHT];
+        int[] biomeIds = new int[CANVAS_WIDTH * CANVAS_HEIGHT];
         private int vertexBuffer = 0;
         private int textureId = 0;
 
@@ -154,19 +159,34 @@ public class GenLayerVisualizer
         private void populateBiomeIds()
         {
             OverworldBiomeProviderSettings settingsProvider = BiomeProviderType.VANILLA_LAYERED.createSettings();
-            OverworldGenSettings overworldgensettings = settingsProvider.getGeneratorSettings();
-            GenLayer biomeGenLayer = BOPLayerUtil.buildOverworldProcedure(0, WorldType.DEFAULT, overworldgensettings)[0];
+            OverworldGenSettings settings = settingsProvider.getGeneratorSettings();
 
-            Biome[] biomes = biomeGenLayer.generateBiomes(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT, null);
+            int[] aint = new int[1];
+            ImmutableList<IAreaFactory<LazyArea>> factoryList = BOPLayerUtil.buildOverworldProcedure(WorldType.DEFAULT, settings, (seedModifier) -> {
+                ++aint[0];
+                return new LazyAreaLayerContext(1, aint[0], 0, seedModifier);
+            });
 
-            if (biomes.length > (CANVAS_WIDTH * CANVAS_HEIGHT))
-                throw new RuntimeException("Too many biomes! " + biomes.length);
+            IAreaFactory<LazyArea> biomeAreaFactory = factoryList.get(0);
+            AreaDimension areaDimension = new AreaDimension(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+            LazyArea area = biomeAreaFactory.make(areaDimension);
 
-            System.arraycopy(biomes, 0, this.biomes, 0, CANVAS_WIDTH * CANVAS_HEIGHT);
+            for (int i = 0; i < CANVAS_HEIGHT; ++i)
+            {
+                for (int j = 0; j < CANVAS_WIDTH; ++j)
+                {
+                    this.biomeIds[j + i * CANVAS_WIDTH] = area.getValue(j, i);
+                }
+            }
         }
 
-        private int getColourForBiome(Biome biome, BlockPos pos)
+        private int getColourForBiomeId(int biomeId, BlockPos pos)
         {
+            Biome biome = Biome.getBiome(biomeId, null);
+
+            if (biome == null)
+                return 0xFFFF0000;
+
             return BiomeMapColours.getBiomeMapColour(biome);
             /*IBlockState topBlock = biome.getSurfaceBuilder().getConfig().getTop();
 
@@ -187,7 +207,7 @@ public class GenLayerVisualizer
             {
                 for (int y = 0; y < CANVAS_HEIGHT; y++)
                 {
-                    int color = getColourForBiome(this.biomes[x + y * CANVAS_WIDTH], new BlockPos(x, 0, y));
+                    int color = getColourForBiomeId(this.biomeIds[x + y * CANVAS_WIDTH], new BlockPos(x, 0, y));
 
                     color = ((color >> 16) & 0xFF | color & 0xFF00 | (color << 16) & 0xFF0000);
 

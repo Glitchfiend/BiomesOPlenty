@@ -57,9 +57,6 @@ public class BiomeMapColours
             }
         }
 
-        if (biome == null)
-            return 0xFFFF0000;
-
         if (biomeColours.containsKey(biome)) {
             return biomeColours.get(biome);
         }
