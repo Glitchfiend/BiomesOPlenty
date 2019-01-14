@@ -83,7 +83,7 @@ public class BOPLayerUtil
                 break;
         }
 
-        return GenLayerMixOceans.INSTANCE.apply(contextFactory.apply(103L), temperatureFactory, rainfallFactory);
+        return GenLayerClimate.INSTANCE.apply(contextFactory.apply(103L), temperatureFactory, rainfallFactory);
     }
 
     public static <T extends IArea, C extends IContextExtended<T>> ImmutableList<IAreaFactory<T>> createAreaFactories(WorldType worldType, OverworldGenSettings settings, LongFunction<C> contextFactory)

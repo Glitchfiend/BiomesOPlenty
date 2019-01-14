@@ -32,16 +32,57 @@ import java.util.Random;
 // https://github.com/TTFTCUTS/Pioneer/blob/master/src/main/java/ttftcuts/pioneer/map/MapColours.java
 public class BiomeMapColours
 {
-    public static final boolean RANDOM_COLOURS = true;
-    public static Map<Biome, Integer> biomeColours = new HashMap<Biome, Integer>();
+    public static final boolean RANDOM_COLOURS = false;
+    public static Map<Integer, Integer> biomeColours = new HashMap<Integer, Integer>();
     public static Random rand = new Random(50);
 
     static
     {
         // Hardcoded colours
+
+        // Temperature layer colours. 0 is cold, 8 is hot
+        /*biomeColours.put(0, 0x91CDFF);
+        biomeColours.put(1, 0x93DBFD);
+        biomeColours.put(2, 0x9CE3E9);
+        biomeColours.put(3, 0xA5EBD5);
+        biomeColours.put(4, 0xAEF3C1);
+        biomeColours.put(5, 0xCCF4A2);
+        biomeColours.put(6, 0xE8E9A0);
+        biomeColours.put(7, 0xF3D09D);
+        biomeColours.put(8, 0xFDB69B);
+
+        // Rainfall layer colours. 0 is wet, 11 is dry.
+        biomeColours.put(0, 0x82FFE3);
+        biomeColours.put(1, 0x99FFD9);
+        biomeColours.put(2, 0xB1FFCE);
+        biomeColours.put(3, 0xC8FFC4);
+        biomeColours.put(4, 0xD7FDBE);
+        biomeColours.put(5, 0xDDF6BB);
+        biomeColours.put(6, 0xE3EEB8);
+        biomeColours.put(7, 0xE8E7B5);
+        biomeColours.put(8, 0xEEE0B2);
+        biomeColours.put(9, 0xF4D9AF);
+        biomeColours.put(10, 0xFAD1AC);
+        biomeColours.put(11, 0xFFCCAA);*/
+
+        // Climate colours. See the values in BOPClimates
+        biomeColours.put(0, 0xF3F3F3);
+        biomeColours.put(1, 0xCFE2F3);
+        biomeColours.put(2, 0xA2C4C9);
+        biomeColours.put(3, 0x45818E);
+        biomeColours.put(4, 0xD9EAD3);
+        biomeColours.put(5, 0xE6B8AF);
+        biomeColours.put(6, 0xD2EA98);
+        biomeColours.put(7, 0xA8EAB6);
+        biomeColours.put(8, 0x6AA84F);
+        biomeColours.put(9, 0x69EE79);
+        biomeColours.put(10, 0xEDFFB7);
+        biomeColours.put(11, 0xFCE39D);
+        biomeColours.put(12, 0xFFFBE0);
+        biomeColours.put(13, 0xA6947F);
     }
 
-    public static int getBiomeMapColour(Biome biome)
+    public static int getBiomeMapColour(int biomeId)
     {
         if (RANDOM_COLOURS)
         {
@@ -49,7 +90,7 @@ public class BiomeMapColours
             try
             {
                 MessageDigest digest = MessageDigest.getInstance("SHA-256");
-                return ByteBuffer.wrap(digest.digest(ByteBuffer.allocate(4).putInt(Biome.func_185362_a(biome)).array())).getInt() & 0xFFFFFF;
+                return ByteBuffer.wrap(digest.digest(ByteBuffer.allocate(4).putInt(biomeId).array())).getInt() & 0xFFFFFF;
             }
             catch (Exception e)
             {
@@ -57,12 +98,12 @@ public class BiomeMapColours
             }
         }
 
-        if (biomeColours.containsKey(biome)) {
-            return biomeColours.get(biome);
+        if (biomeColours.containsKey(biomeId)) {
+            return biomeColours.get(biomeId);
         }
 
-        int colour = getBiomeMapColourRaw(biome);
-        biomeColours.put(biome, colour);
+        int colour = getBiomeMapColourRaw(Biome.getBiome(biomeId, null));
+        biomeColours.put(biomeId, colour);
         return colour;
     }
 

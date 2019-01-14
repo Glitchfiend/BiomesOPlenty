@@ -186,12 +186,7 @@ public class GenLayerVisualizer
 
         private int getColourForBiomeId(int biomeId, BlockPos pos)
         {
-            Biome biome = Biome.getBiome(biomeId, null);
-
-            if (biome == null)
-                return 0xFFFF0000;
-
-            return BiomeMapColours.getBiomeMapColour(biome);
+            return BiomeMapColours.getBiomeMapColour(biomeId);
             /*IBlockState topBlock = biome.getSurfaceBuilder().getConfig().getTop();
 
             if (topBlock.getBlock() == Blocks.GRASS)
