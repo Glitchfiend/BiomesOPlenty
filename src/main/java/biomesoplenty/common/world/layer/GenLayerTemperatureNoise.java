@@ -1,0 +1,46 @@
+/*******************************************************************************
+ * Copyright 2014-2019, the Biomes O' Plenty Team
+ *
+ * This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License.
+ *
+ * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
+ ******************************************************************************/
+package biomesoplenty.common.world.layer;
+
+import biomesoplenty.common.world.SimplexNoise;
+import biomesoplenty.common.world.layer.traits.IBOPAreaTransformer;
+import biomesoplenty.common.world.layer.traits.IBOPContextExtended;
+import net.minecraft.world.gen.area.AreaDimension;
+
+public enum GenLayerTemperatureNoise implements IBOPAreaTransformer
+{
+    SMALL_ZONES(0.14D),
+    MEDIUM_ZONES(0.08D),
+    LARGE_ZONES(0.04D);
+
+    private final double scale;
+
+    GenLayerTemperatureNoise(double scale)
+    {
+        this.scale = scale;
+    }
+
+    @Override
+    public int apply(IBOPContextExtended context, AreaDimension areaDimension, int x, int z)
+    {
+        double xOffset = (double)(context.getWorldSeed() & 0xFFFFFF) * 0.000001D;
+        double zOffset = (double)(context.getWorldSeed() & 0xFFFFFF) * 0.000002D;
+        double noiseVal = SimplexNoise.noise((x + xOffset) * this.scale, (z + zOffset) * this.scale);
+
+        // boundaries were determined empirically by analyzing statistically output from the SimplexNoise function, and splitting into 9 equally likely groups
+        if (noiseVal < -0.619D) return 0;
+        else if (noiseVal < -0.503D) return 1;
+        else if (noiseVal < -0.293D) return 2;
+        else if (noiseVal < -0.120D) return 3;
+        else if (noiseVal < 0.085D) return 4;
+        else if (noiseVal < 0.252D) return 5;
+        else if (noiseVal < 0.467D) return 6;
+        else if (noiseVal < 0.619D) return 7;
+        else return 8;
+    }
+}

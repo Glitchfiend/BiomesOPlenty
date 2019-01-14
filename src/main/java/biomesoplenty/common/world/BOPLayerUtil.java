@@ -7,10 +7,11 @@
  ******************************************************************************/
 package biomesoplenty.common.world;
 
+import biomesoplenty.common.world.layer.GenLayerTemperatureNoise;
+import biomesoplenty.common.world.layer.traits.LazyAreaLayerContextBOP;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.gen.IContextExtended;
-import net.minecraft.world.gen.LazyAreaLayerContext;
 import net.minecraft.world.gen.OverworldGenSettings;
 import net.minecraft.world.gen.area.IArea;
 import net.minecraft.world.gen.area.IAreaFactory;
@@ -21,7 +22,7 @@ import java.util.function.LongFunction;
 
 public class BOPLayerUtil
 {
-    public static <T extends IArea, C extends IContextExtended<T>> IAreaFactory<T> createInitialLandAndSeaProcedure(LongFunction<C> contextFactory)
+    public static <T extends IArea, C extends IContextExtended<T>> IAreaFactory<T> createInitialLandAndSeaFactory(LongFunction<C> contextFactory)
     {
         // NOTE: Normally AddSnow, CoolWarm, HeatIce and Special GenLayers occur here, but we handle those ourselves
         IAreaFactory<T> factory = GenLayerIsland.INSTANCE.apply(contextFactory.apply(1L));
@@ -32,11 +33,7 @@ public class BOPLayerUtil
         factory = GenLayerAddIsland.INSTANCE.apply(contextFactory.apply(50L), factory);
         factory = GenLayerAddIsland.INSTANCE.apply(contextFactory.apply(70L), factory);
         factory = GenLayerRemoveTooMuchOcean.INSTANCE.apply(contextFactory.apply(2L), factory);
-        factory = GenLayerAddSnow.INSTANCE.apply(contextFactory.apply(2L), factory);
         factory = GenLayerAddIsland.INSTANCE.apply(contextFactory.apply(3L), factory);
-        factory = GenLayerEdge.CoolWarm.INSTANCE.apply(contextFactory.apply(2L), factory);
-        factory = GenLayerEdge.HeatIce.INSTANCE.apply(contextFactory.apply(2L), factory);
-        factory = GenLayerEdge.Special.INSTANCE.apply(contextFactory.apply(3L), factory);
         factory = GenLayerZoom.NORMAL.apply(contextFactory.apply(2002L), factory);
         factory = GenLayerZoom.NORMAL.apply(contextFactory.apply(2003L), factory);
         factory = GenLayerAddIsland.INSTANCE.apply(contextFactory.apply(4L), factory);
@@ -45,11 +42,60 @@ public class BOPLayerUtil
         return factory;
     }
 
-    public static <T extends IArea, C extends IContextExtended<T>> ImmutableList<IAreaFactory<T>> createAreaFactories(WorldType worldTypeIn, OverworldGenSettings settings, LongFunction<C> contextFactory)
+    // superimpose hot and cold regions an a land and sea layer
+    public static <T extends IArea, C extends IContextExtended<T>> IAreaFactory<T> createClimateFactory(LongFunction<C> contextFactory, BOPWorldSettings settings)
+    {
+        IAreaFactory<T> temperatureFactory;
+
+        temperatureFactory = GenLayerTemperatureNoise.LARGE_ZONES.apply(contextFactory.apply(3L));
+        /*switch (settings.tempScheme)
+        {
+            case LATITUDE: default:
+                temperature = new GenLayerTemperatureLatitude(2L, 16, worldSeed);
+                break;
+            case SMALL_ZONES:
+                temperature = new GenLayerTemperatureNoise(3L, worldSeed, 0.14D);
+                break;
+            case MEDIUM_ZONES:
+                temperature = new GenLayerTemperatureNoise(4L, worldSeed, 0.08D);
+                break;
+            case LARGE_ZONES:
+                temperature = new GenLayerTemperatureNoise(5L, worldSeed, 0.04D);
+                break;
+            case RANDOM:
+                temperature = new GenLayerTemperatureRandom(6L);
+                break;
+        }*/
+
+        /*GenLayer rainfall;
+        switch(settings.rainScheme)
+        {
+            case SMALL_ZONES:
+                rainfall = new GenLayerRainfallNoise(7L, worldSeed, 0.14D);
+                break;
+            case MEDIUM_ZONES: default:
+                rainfall = new GenLayerRainfallNoise(8L, worldSeed, 0.08D);
+                break;
+            case LARGE_ZONES:
+                rainfall = new GenLayerRainfallNoise(9L, worldSeed, 0.04D);
+                break;
+            case RANDOM:
+                rainfall = new GenLayerRainfallRandom(10L);
+                break;
+        }
+
+        GenLayerClimate climate = new GenLayerClimate(103L, temperature, rainfall);
+        // stack = new GenLayerEdge(3L, stack, GenLayerEdge.Mode.SPECIAL);
+        return climate;*/
+
+        return temperatureFactory;
+    }
+
+    public static <T extends IArea, C extends IContextExtended<T>> ImmutableList<IAreaFactory<T>> createAreaFactories(WorldType worldType, OverworldGenSettings settings, LongFunction<C> contextFactory)
     {
         // Create the initial land and sea layer. Is also responsible for adding deep oceans
         // and mushroom islands
-        IAreaFactory<T> landSeaFactory = createInitialLandAndSeaProcedure(contextFactory);
+        IAreaFactory<T> landSeaFactory = createInitialLandAndSeaFactory(contextFactory);
 
         // Determines positions for all of the new ocean subbiomes added in 1.13
         IAreaFactory<T> oceanBiomeFactory = OceanLayer.INSTANCE.apply(contextFactory.apply(2L));
@@ -62,14 +108,14 @@ public class BOPLayerUtil
             riverSize = settings.getRiverSize();
         }
 
-        biomeSize = LayerUtil.getModdedBiomeSize(worldTypeIn, biomeSize);
+        biomeSize = LayerUtil.getModdedBiomeSize(worldType, biomeSize);
 
         // Fork off a new branch as a seed for rivers and sub biomes
         IAreaFactory<T> riverAndSubBiomesInitFactory = GenLayerRiverInit.INSTANCE.apply(contextFactory.apply(100L), landSeaFactory);
         riverAndSubBiomesInitFactory = LayerUtil.repeat(1000L, GenLayerZoom.NORMAL, riverAndSubBiomesInitFactory, 2, contextFactory);
 
         // Allocate the biomes
-        IAreaFactory<T> biomesFactory = worldTypeIn.getBiomeLayer(landSeaFactory, settings, contextFactory);
+        IAreaFactory<T> biomesFactory = worldType.getBiomeLayer(landSeaFactory, settings, contextFactory);
         biomesFactory = GenLayerHills.INSTANCE.apply(contextFactory.apply(1000L), biomesFactory, riverAndSubBiomesInitFactory);
 
         // Develop the rivers branch
@@ -106,7 +152,7 @@ public class BOPLayerUtil
         ImmutableList<IAreaFactory<LazyArea>> factoryList = createAreaFactories(worldType, settings, (seedModifier) ->
         {
             ++layerCount[0];
-            return new LazyAreaLayerContext(1, layerCount[0], seed, seedModifier);
+            return new LazyAreaLayerContextBOP(1, layerCount[0], seed, seedModifier);
         });
         GenLayer biomesLayer = new GenLayer(factoryList.get(0));
         GenLayer voroniZoomBiomesLayer = new GenLayer(factoryList.get(1));

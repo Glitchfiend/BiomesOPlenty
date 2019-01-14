@@ -8,6 +8,8 @@
 package biomesoplenty.client.util;
 
 import biomesoplenty.common.world.BOPLayerUtil;
+import biomesoplenty.common.world.BOPWorldSettings;
+import biomesoplenty.common.world.layer.traits.LazyAreaLayerContextBOP;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.init.Biomes;
 import net.minecraft.util.math.BlockPos;
@@ -162,10 +164,14 @@ public class GenLayerVisualizer
             int[] aint = new int[1];
             ImmutableList<IAreaFactory<LazyArea>> factoryList = BOPLayerUtil.createAreaFactories(WorldType.DEFAULT, settings, (seedModifier) -> {
                 ++aint[0];
-                return new LazyAreaLayerContext(1, aint[0], 0, seedModifier);
+                return new LazyAreaLayerContextBOP(1, aint[0], 0, seedModifier);
             });
 
-            IAreaFactory<LazyArea> biomeAreaFactory = factoryList.get(0);
+            IAreaFactory<LazyArea> biomeAreaFactory = BOPLayerUtil.createClimateFactory((seedModifier) -> {
+                ++aint[0];
+                return new LazyAreaLayerContextBOP(1, aint[0], 348234231, seedModifier);
+            }, new BOPWorldSettings());
+
             AreaDimension areaDimension = new AreaDimension(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
             LazyArea area = biomeAreaFactory.make(areaDimension);
 

@@ -32,7 +32,7 @@ import java.util.Random;
 // https://github.com/TTFTCUTS/Pioneer/blob/master/src/main/java/ttftcuts/pioneer/map/MapColours.java
 public class BiomeMapColours
 {
-    public static final boolean RANDOM_COLOURS = false;
+    public static final boolean RANDOM_COLOURS = true;
     public static Map<Biome, Integer> biomeColours = new HashMap<Biome, Integer>();
     public static Random rand = new Random(50);
 
