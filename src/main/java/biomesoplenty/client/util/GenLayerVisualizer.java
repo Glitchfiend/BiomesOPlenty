@@ -171,9 +171,10 @@ public class GenLayerVisualizer
             };
 
             IAreaFactory<LazyArea> landAreaFactory = BOPLayerUtil.createInitialLandAndSeaFactory(contextFactory);
-            //IAreaFactory<LazyArea> biomeAreaFactory = BOPLayerUtil.createBiomeFactory(landAreaFactory, WorldType.DEFAULT, settings, new BOPWorldSettings(), contextFactory);
+            IAreaFactory<LazyArea> climateFactory = BOPLayerUtil.createClimateFactory(contextFactory, new BOPWorldSettings());
+            IAreaFactory<LazyArea> biomeAreaFactory = BOPLayerUtil.createBiomeFactory(landAreaFactory, climateFactory, contextFactory);
 
-            IAreaFactory<LazyArea> biomeAreaFactory = BOPLayerUtil.createAreaFactories(WorldType.DEFAULT, settings, contextFactory).get(0);
+            //IAreaFactory<LazyArea> biomeAreaFactory = BOPLayerUtil.createAreaFactories(WorldType.DEFAULT, settings, contextFactory).get(0);
 
             AreaDimension areaDimension = new AreaDimension(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
             LazyArea area = biomeAreaFactory.make(areaDimension);

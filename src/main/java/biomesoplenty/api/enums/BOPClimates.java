@@ -10,6 +10,7 @@ package biomesoplenty.api.enums;
 import biomesoplenty.common.world.layer.traits.IBOPContextExtended;
 import net.minecraft.init.Biomes;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.IContext;
 import net.minecraftforge.common.BiomeManager.BiomeType;
 
 import java.util.ArrayList;
@@ -55,7 +56,7 @@ public enum BOPClimates
         return this;
     }
 
-    public Biome getRandomBiome(IBOPContextExtended context)
+    public Biome getRandomBiome(IContext context)
     {
         int weight = context.random(this.totalBiomesWeight);
         Iterator<WeightedBiomeEntry> iterator = this.landBiomes.iterator();
@@ -69,7 +70,7 @@ public enum BOPClimates
         return item.biome;
     }
 
-    public Biome getRandomOceanBiome(IBOPContextExtended context, boolean deep)
+    public Biome getRandomOceanBiome(IContext context, boolean deep)
     {
         return (deep ? Biomes.DEEP_OCEAN : Biomes.OCEAN);
     }
