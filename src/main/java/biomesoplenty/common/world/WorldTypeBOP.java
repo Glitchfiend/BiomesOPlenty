@@ -17,7 +17,7 @@ public class WorldTypeBOP extends WorldType
 {
     public WorldTypeBOP()
     {
-        super("BIOMESOP");
+        super("biomesoplenty");
     }
 
     @Override

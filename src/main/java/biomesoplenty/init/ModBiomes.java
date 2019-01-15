@@ -10,8 +10,8 @@ package biomesoplenty.init;
 import static biomesoplenty.api.biome.BOPBiomes.*;
 
 import biomesoplenty.api.enums.BOPClimates;
-import biomesoplenty.common.biome.BOPBiome;
-import biomesoplenty.common.biome.overworld.BiomeConiferousForest;
+import biomesoplenty.common.biome.BiomeBOP;
+import biomesoplenty.common.biome.overworld.ConiferousForestBiome;
 import biomesoplenty.common.world.WorldTypeBOP;
 import net.minecraft.item.Item;
 import net.minecraft.world.biome.Biome;
@@ -33,10 +33,10 @@ public class ModBiomes
 
     private static void registerBiomes()
     {
-        coniferous_forest = registerBiome(new BiomeConiferousForest(), "coniferous_forest");
+        coniferous_forest = registerBiome(new ConiferousForestBiome(), "coniferous_forest");
     }
 
-    public static Optional<Biome> registerBiome(BOPBiome biome, String name)
+    public static Optional<Biome> registerBiome(BiomeBOP biome, String name)
     {
         biome.setRegistryName(name);
         ForgeRegistries.BIOMES.register(biome);

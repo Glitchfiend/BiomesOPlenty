@@ -13,11 +13,11 @@ import net.minecraft.world.biome.Biome;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BOPBiome extends Biome
+public class BiomeBOP extends Biome
 {
     protected Map<BOPClimates, Integer> weightMap = new HashMap<BOPClimates, Integer>();
 
-    public BOPBiome(BiomeBuilder builder)
+    public BiomeBOP(BiomeBuilder builder)
     {
         super(builder);
     }

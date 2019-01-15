@@ -7,7 +7,6 @@
  ******************************************************************************/
 package biomesoplenty.client.util;
 
-import javafx.scene.paint.Color;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockModelShapes;
