@@ -121,7 +121,7 @@ public class BOPCommand extends CommandBase
         EntityPlayerMP player = getCommandSenderAsPlayer(sender);
         World world = player.world;
         BlockPos closestBiomePos = biomeToFind == null ? null : BiomeUtils.spiralOutwardsLookingForBiome(world, biomeToFind, player.posX, player.posZ);
-        String biomeName = biomeToFind != null && FMLCommonHandler.instance().getSide() == Side.CLIENT ? biomeToFind.getBiomeName() : "Undefined";
+        String biomeName = biomeToFind != null && FMLCommonHandler.instance().getSide() == Side.CLIENT ? biomeToFind.getBiomeName() : biomeToFind.getRegistryName().toString();
         
         if (closestBiomePos != null)
         {
