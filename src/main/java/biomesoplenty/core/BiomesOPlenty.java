@@ -45,6 +45,7 @@ public class BiomesOPlenty
 
     private void init(final FMLInitializationEvent event)
     {
+        proxy.init();
         GenLayerVisualizer.run();
     }
 }

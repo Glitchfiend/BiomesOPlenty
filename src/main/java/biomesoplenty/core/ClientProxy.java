@@ -7,6 +7,7 @@
  ******************************************************************************/
 package biomesoplenty.core;
 
+import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.api.particle.BOPParticleTypes;
 import biomesoplenty.common.entity.projectile.EntityMudball;
@@ -14,13 +15,16 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.entity.RenderSprite;
 import net.minecraft.entity.Entity;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.Particles;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particles.ItemParticleData;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy
@@ -34,6 +38,14 @@ public class ClientProxy extends CommonProxy
     public void preInit()
     {
         RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, manager -> new RenderSprite<Entity>(manager, BOPItems.mudball, Minecraft.getInstance().getItemRenderer()));
+    }
+
+    @Override
+    public void init()
+    {
+        Minecraft.getInstance().getBlockColors().register((state, world, pos, tintIndex) ->
+                        world != null && pos != null ? BiomeColorHelper.getGrassColor(world, pos) : ColorizerGrass.get(0.5D, 1.0D)
+                , BOPBlocks.sandy_grass_block, BOPBlocks.loamy_grass_block);
     }
 
     @Override

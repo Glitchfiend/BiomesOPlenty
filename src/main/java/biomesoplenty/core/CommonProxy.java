@@ -18,6 +18,7 @@ public class CommonProxy
     }
 
     public void preInit() {}
+    public void init() {}
 
     public void spawnParticle(BOPParticleTypes type, World parWorld, double x, double y, double z, Object... info) {}
 }
