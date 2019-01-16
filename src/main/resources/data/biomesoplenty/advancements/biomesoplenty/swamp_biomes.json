@@ -1,8 +1,7 @@
 {
     "display": {
         "icon": {
-            "item": "biomesoplenty:plant_0",
-			"data": 2
+            "item": "biomesoplenty:cattail"
         },
         "title": {
             "translate": "advancements.biomesoplenty.swamp_biomes.title"

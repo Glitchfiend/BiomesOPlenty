@@ -5,13 +5,32 @@
     ]
   },
   "criteria": {
-    "has_stone_slab": {
+    "has_white_sandstone": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-			  "item": "biomesoplenty:other_slab",
-			  "data": 1
+            "item": "biomesoplenty:white_sandstone"
+          }
+        ]
+      }
+    },
+    "has_chiseled_white_sandstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "biomesoplenty:chiseled_white_sandstone"
+          }
+        ]
+      }
+    },
+    "has_cut_white_sandstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "biomesoplenty:cut_white_sandstone"
           }
         ]
       }
@@ -25,7 +44,9 @@
   },
   "requirements": [
     [
-      "has_stone_slab",
+      "has_white_sandstone",
+      "has_chiseled_white_sandstone",
+      "has_cut_white_sandstone",
       "has_the_recipe"
     ]
   ]

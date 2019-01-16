@@ -62,7 +62,7 @@ public class ClientProxy extends CommonProxy
         //Foliage Coloring
         blockColors.register((state, world, pos, tintIndex) ->
 	        world != null && pos != null ? BiomeColorHelper.getFoliageColor(world, pos) : ColorizerFoliage.getDefault(),
-	        BOPBlocks.flowering_leaves, BOPBlocks.mahogany_leaves, BOPBlocks.palm_leaves, BOPBlocks.willow_leaves,
+	        BOPBlocks.flowering_oak_leaves, BOPBlocks.mahogany_leaves, BOPBlocks.palm_leaves, BOPBlocks.willow_leaves,
 	        BOPBlocks.ivy, BOPBlocks.willow_vine, BOPBlocks.bush);
         
         //Item Coloring
@@ -70,7 +70,7 @@ public class ClientProxy extends CommonProxy
             IBlockState iblockstate = ((ItemBlock)stack.getItem()).getBlock().getDefaultState();
             return blockColors.getColor(iblockstate, null, null, tintIndex); }, 
         	BOPBlocks.loamy_grass_block, BOPBlocks.sandy_grass_block, BOPBlocks.silty_grass_block, BOPBlocks.short_grass,
-        	BOPBlocks.devilweed, BOPBlocks.flowering_leaves, BOPBlocks.mahogany_leaves, BOPBlocks.palm_leaves,
+        	BOPBlocks.devilweed, BOPBlocks.flowering_oak_leaves, BOPBlocks.mahogany_leaves, BOPBlocks.palm_leaves,
         	BOPBlocks.willow_leaves, BOPBlocks.ivy, BOPBlocks.willow_vine);
     }
 

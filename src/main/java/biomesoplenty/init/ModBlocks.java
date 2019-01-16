@@ -89,8 +89,8 @@ public class ModBlocks
         
         origin_sapling = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "origin_sapling");
         origin_leaves = registerBlock(new BlockLeavesBOP(Block.Builder.create(Material.LEAVES, MapColor.EMERALD).hardnessAndResistance(0.2F).needsRandomTick().sound(SoundType.PLANT)), "origin_leaves");
-        flowering_sapling = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "flowering_sapling");
-        flowering_leaves = registerBlock(new BlockLeavesBOP(Block.Builder.create(Material.LEAVES).hardnessAndResistance(0.2F).needsRandomTick().sound(SoundType.PLANT)), "flowering_leaves");
+        flowering_oak_sapling = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "flowering_oak_sapling");
+        flowering_oak_leaves = registerBlock(new BlockLeavesBOP(Block.Builder.create(Material.LEAVES).hardnessAndResistance(0.2F).needsRandomTick().sound(SoundType.PLANT)), "flowering_oak_leaves");
         yellow_autumn_sapling = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "yellow_autumn_sapling");
         yellow_autumn_leaves = registerBlock(new BlockLeavesBOP(Block.Builder.create(Material.LEAVES, MapColor.YELLOW_TERRACOTTA).hardnessAndResistance(0.2F).needsRandomTick().sound(SoundType.PLANT)), "yellow_autumn_leaves");
         orange_autumn_sapling = registerBlock(new BlockPlantBOP(Block.Builder.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "orange_autumn_sapling");

@@ -1,22 +1,22 @@
 {
   "rewards": {
     "recipes": [
-      "minecraft:crafting_table"
+      "biomesoplenty:flesh"
     ]
   },
   "criteria": {
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "minecraft:crafting_table"
+        "recipe": "biomesoplenty:flesh"
       }
     },
-    "has_planks": {
+    "has_item": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "biomesoplenty:planks_0"
+            "item": "biomesoplenty:chunk_of_flesh"
           }
         ]
       }
@@ -25,7 +25,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_planks"
+      "has_item"
     ]
   ]
 }

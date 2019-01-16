@@ -1,8 +1,7 @@
 {
     "display": {
         "icon": {
-            "item": "biomesoplenty:flower_0",
-			"data": 9
+            "item": "biomesoplenty:glowflower"
         },
         "title": {
             "translate": "advancements.biomesoplenty.magic_biomes.title"

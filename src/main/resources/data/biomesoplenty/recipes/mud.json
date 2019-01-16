@@ -1,13 +1,12 @@
 {
-  "type": "forge:ore_shaped",
+  "type": "crafting_shaped",
   "pattern": [
     "##",
     "##"
   ],
   "key": {
     "#": {
-      "type": "forge:ore_dict",
-      "ore": "ballMud"
+      "item": "biomesoplenty:mudball"
     }
   },
   "result": {

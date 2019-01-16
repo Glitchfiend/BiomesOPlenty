@@ -1,0 +1,6 @@
+{
+    "parent": "block/leaves",
+    "textures": {
+        "all": "biomesoplenty:blocks/flowering_oak_leaves_fast"
+    }
+}

@@ -1,8 +1,7 @@
 {
     "display": {
         "icon": {
-            "item": "biomesoplenty:grass",
-			"data": 0
+            "item": "biomesoplenty:origin_grass_block"
         },
         "title": {
             "translate": "advancements.biomesoplenty.root.title"

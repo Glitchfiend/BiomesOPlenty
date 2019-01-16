@@ -1,5 +1,5 @@
 {
-    "parent": "biomesoplenty:block/flowering_leaves",
+    "parent": "biomesoplenty:block/flowering_oak_leaves",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

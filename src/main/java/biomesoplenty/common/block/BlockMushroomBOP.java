@@ -25,6 +25,11 @@ public class BlockMushroomBOP extends BlockMushroom
     {
         super(properties);
     }
+    
+    @Override
+    public void tick(IBlockState state, World worldIn, BlockPos pos, Random random)
+    {
+    }
 
     @Override
     public boolean isValidPosition(IBlockState state, IWorldReaderBase worldIn, BlockPos pos)

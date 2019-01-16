@@ -10,8 +10,7 @@
       "conditions": {
         "items": [
           {
-            "item": "biomesoplenty:flower_0",
-			"data": 10
+            "item": "biomesoplenty:deathbloom"
           }
         ]
       }

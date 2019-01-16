@@ -1,8 +1,7 @@
 {
     "display": {
         "icon": {
-            "item": "biomesoplenty:bramble_plant",
-			"data": 0
+            "item": "biomesoplenty:bramble"
         },
         "title": {
             "translate": "advancements.biomesoplenty.nether_biomes.title"

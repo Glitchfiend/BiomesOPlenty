@@ -1,8 +1,7 @@
 {
     "display": {
         "icon": {
-            "item": "biomesoplenty:sapling_1",
-			"data": 3
+            "item": "biomesoplenty:palm_sapling"
         },
         "title": {
             "translate": "advancements.biomesoplenty.beach_island_biomes.title"

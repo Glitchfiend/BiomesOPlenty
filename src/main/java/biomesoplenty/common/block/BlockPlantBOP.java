@@ -7,11 +7,25 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
+import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
+import net.minecraft.fluid.IFluidState;
+import net.minecraft.init.Blocks;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockReader;
+import net.minecraft.world.IWorldReaderBase;
+import net.minecraft.world.World;
+import net.minecraftforge.common.EnumPlantType;
+import net.minecraftforge.common.IPlantable;
 
-public class BlockPlantBOP extends BlockBush
+public class BlockPlantBOP extends BlockBush implements IPlantable
 {
     public BlockPlantBOP(Block.Builder properties)
     {
@@ -22,5 +36,37 @@ public class BlockPlantBOP extends BlockBush
     public Block.EnumOffsetType getOffsetType()
     {
         return Block.EnumOffsetType.XZ;
+    }
+    
+    @Override
+    public EnumPlantType getPlantType(IBlockReader world, BlockPos pos)
+    {
+    	Block block = world.getBlockState(pos).getBlock();
+    	
+    	if (block == BOPBlocks.cattail)
+    	{
+    		return EnumPlantType.Beach;
+    	}
+    	if (block == BOPBlocks.watergrass)
+    	{
+    		return EnumPlantType.Water;
+    	}
+    	
+    	return EnumPlantType.Plains;
+    }
+    
+    @Override
+    public void onEntityCollision(IBlockState stateIn, World worldIn, BlockPos pos, Entity entityIn)
+    {
+    	Block block = stateIn.getBlock();
+    	
+    	if (block == BOPBlocks.thorn)
+    	{
+    		entityIn.attackEntityFrom(DamageSource.CACTUS, 1.0F);
+    	}
+    	if (block == BOPBlocks.tiny_cactus)
+    	{
+    		entityIn.attackEntityFrom(DamageSource.CACTUS, 1.0F);
+    	}
     }
 }

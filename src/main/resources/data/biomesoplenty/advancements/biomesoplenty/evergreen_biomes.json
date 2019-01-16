@@ -1,8 +1,7 @@
 {
     "display": {
         "icon": {
-            "item": "biomesoplenty:sapling_0",
-			"data": 4
+            "item": "biomesoplenty:fir_sapling"
         },
         "title": {
             "translate": "advancements.biomesoplenty.evergreen_biomes.title"

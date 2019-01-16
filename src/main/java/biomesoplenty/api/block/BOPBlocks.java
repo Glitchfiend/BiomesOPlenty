@@ -55,8 +55,8 @@ public class BOPBlocks
     
     public static Block origin_sapling;
     public static Block origin_leaves;
-    public static Block flowering_sapling;
-    public static Block flowering_leaves;
+    public static Block flowering_oak_sapling;
+    public static Block flowering_oak_leaves;
     public static Block yellow_autumn_sapling;
     public static Block yellow_autumn_leaves;
     public static Block orange_autumn_sapling;

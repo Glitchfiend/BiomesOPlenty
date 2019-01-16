@@ -13,7 +13,12 @@ import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.MobEffects;
 import net.minecraft.init.Particles;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
@@ -24,6 +29,24 @@ public class BlockFlowerBOP extends BlockFlower
     public BlockFlowerBOP(Block.Builder properties)
     {
         super(properties);
+    }
+    
+    @Override
+    public void onEntityCollision(IBlockState stateIn, World worldIn, BlockPos pos, Entity entityIn)
+    {
+    	Block block = stateIn.getBlock();
+    	
+    	if (entityIn instanceof EntityLivingBase)
+    	{
+	    	if (block == BOPBlocks.deathbloom)
+	    	{
+	    		((EntityLivingBase) entityIn).addPotionEffect(new PotionEffect(MobEffects.WITHER, 200));
+	    	}
+	    	if (block == BOPBlocks.burning_blossom)
+	    	{
+	    		((EntityLivingBase) entityIn).setFire(1);
+	    	}
+    	}
     }
     
     @Override
