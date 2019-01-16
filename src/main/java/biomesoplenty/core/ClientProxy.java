@@ -27,6 +27,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.particles.ItemParticleData;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IWorldReaderBase;
 import net.minecraft.world.World;
@@ -52,15 +53,25 @@ public class ClientProxy extends CommonProxy
         BlockColors blockColors = Minecraft.getInstance().getBlockColors();
         ItemColors itemColors = Minecraft.getInstance().getItemColors();
 
+        //Grass Coloring
         blockColors.register((state, world, pos, tintIndex) ->
-            world != null && pos != null ? BiomeColorHelper.getGrassColor(world, pos) : ColorizerGrass.get(0.5D, 1.0D)
-        , BOPBlocks.sandy_grass_block, BOPBlocks.loamy_grass_block);
-
-        itemColors.register((stack, tintIndex) ->
-        {
+            world != null && pos != null ? BiomeColorHelper.getGrassColor(world, pos) : ColorizerGrass.get(0.5D, 1.0D),
+            BOPBlocks.loamy_grass_block, BOPBlocks.sandy_grass_block, BOPBlocks.silty_grass_block, BOPBlocks.short_grass,
+            BOPBlocks.devilweed, BOPBlocks.watergrass);
+        
+        //Foliage Coloring
+        blockColors.register((state, world, pos, tintIndex) ->
+	        world != null && pos != null ? BiomeColorHelper.getFoliageColor(world, pos) : ColorizerFoliage.getDefault(),
+	        BOPBlocks.flowering_leaves, BOPBlocks.mahogany_leaves, BOPBlocks.palm_leaves, BOPBlocks.willow_leaves,
+	        BOPBlocks.ivy, BOPBlocks.willow_vine, BOPBlocks.bush);
+        
+        //Item Coloring
+        itemColors.register((stack, tintIndex) -> {
             IBlockState iblockstate = ((ItemBlock)stack.getItem()).getBlock().getDefaultState();
-            return blockColors.getColor(iblockstate, null, null, tintIndex);
-        }, BOPBlocks.sandy_grass_block, BOPBlocks.loamy_grass_block);
+            return blockColors.getColor(iblockstate, null, null, tintIndex); }, 
+        	BOPBlocks.loamy_grass_block, BOPBlocks.sandy_grass_block, BOPBlocks.silty_grass_block, BOPBlocks.short_grass,
+        	BOPBlocks.devilweed, BOPBlocks.flowering_leaves, BOPBlocks.mahogany_leaves, BOPBlocks.palm_leaves,
+        	BOPBlocks.willow_leaves, BOPBlocks.ivy, BOPBlocks.willow_vine);
     }
 
     @Override
