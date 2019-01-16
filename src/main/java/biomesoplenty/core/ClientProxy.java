@@ -11,18 +11,24 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.api.particle.BOPParticleTypes;
 import biomesoplenty.common.entity.projectile.EntityMudball;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.Particle;
+import net.minecraft.client.renderer.color.BlockColors;
+import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.client.renderer.entity.RenderSprite;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.Particles;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particles.ItemParticleData;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.ColorizerGrass;
+import net.minecraft.world.IWorldReaderBase;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -43,9 +49,18 @@ public class ClientProxy extends CommonProxy
     @Override
     public void init()
     {
-        Minecraft.getInstance().getBlockColors().register((state, world, pos, tintIndex) ->
-                        world != null && pos != null ? BiomeColorHelper.getGrassColor(world, pos) : ColorizerGrass.get(0.5D, 1.0D)
-                , BOPBlocks.sandy_grass_block, BOPBlocks.loamy_grass_block);
+        BlockColors blockColors = Minecraft.getInstance().getBlockColors();
+        ItemColors itemColors = Minecraft.getInstance().getItemColors();
+
+        blockColors.register((state, world, pos, tintIndex) ->
+            world != null && pos != null ? BiomeColorHelper.getGrassColor(world, pos) : ColorizerGrass.get(0.5D, 1.0D)
+        , BOPBlocks.sandy_grass_block, BOPBlocks.loamy_grass_block);
+
+        itemColors.register((stack, tintIndex) ->
+        {
+            IBlockState iblockstate = ((ItemBlock)stack.getItem()).getBlock().getDefaultState();
+            return blockColors.getColor(iblockstate, null, null, tintIndex);
+        }, BOPBlocks.sandy_grass_block, BOPBlocks.loamy_grass_block);
     }
 
     @Override
