@@ -85,8 +85,6 @@ public class BiomesOPlenty
         ModPotions.init();
         ModBlockQueries.init();
         
-        ModGenerators.init();
-        ModBiomes.init();
         ModVanillaCompat.init();
         ModHandlers.init();
         
@@ -104,6 +102,8 @@ public class BiomesOPlenty
     @EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
+        ModGenerators.init();
+        ModBiomes.init();
         ModCompatibility.postInit();
     }
 
