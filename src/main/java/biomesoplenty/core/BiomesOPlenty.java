@@ -12,8 +12,8 @@ import biomesoplenty.client.util.GenLayerVisualizer;
 import biomesoplenty.init.*;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLModLoadingContext;
 
 @Mod(value = BiomesOPlenty.MOD_ID)
@@ -28,8 +28,8 @@ public class BiomesOPlenty
     {
     	instance = this;
 
-    	FMLModLoadingContext.get().getModEventBus().addListener(this::preInit);
-        FMLModLoadingContext.get().getModEventBus().addListener(this::init);
+    	FMLModLoadingContext.get().getModEventBus().addListener(this::setup);
+        FMLModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
 
         ModSounds.init();
         ModEntities.init();
@@ -38,12 +38,12 @@ public class BiomesOPlenty
         ModBiomes.init();
     }
     
-    private void preInit(final FMLPreInitializationEvent event)
+    private void setup(final FMLCommonSetupEvent event)
     {
         proxy.preInit();
     }
 
-    private void init(final FMLInitializationEvent event)
+    private void loadComplete(final FMLLoadCompleteEvent event) // PostRegistrationEven
     {
         proxy.init();
         GenLayerVisualizer.run();
