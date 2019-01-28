@@ -20,15 +20,33 @@ import net.minecraft.init.Particles;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class BlockFlowerBOP extends BlockFlower
 {
+	protected static final VoxelShape NORMAL = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
+	protected static final VoxelShape LARGE = Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 14.0D, 15.0D);
+	
     public BlockFlowerBOP(Block.Builder properties)
     {
         super(properties);
+    }
+
+    @Override
+    public VoxelShape getShape(IBlockState state, IBlockReader worldIn, BlockPos pos)
+    {
+    	Block block = state.getBlock();
+        
+        if (block == BOPBlocks.lavender || block == BOPBlocks.pink_hibiscus)
+        {
+        	return LARGE;
+        }
+        
+        return NORMAL;
     }
     
     @Override
