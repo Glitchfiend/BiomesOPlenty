@@ -7,10 +7,10 @@
  ******************************************************************************/
 package biomesoplenty.common.world.gen.feature.tree;
 
+import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCocoa;
-import net.minecraft.block.BlockSapling;
 import net.minecraft.block.BlockVine;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -18,14 +18,13 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
-import net.minecraft.world.World;
 
 import java.util.Random;
 import java.util.Set;
 
-public class BasicTreeFeature extends TreeFeatureBase
+public class BayouTreeFeature extends TreeFeatureBase
 {
-    public static class Builder extends BuilderBase<BasicTreeFeature.Builder, BasicTreeFeature>
+    public static class Builder extends BuilderBase<BayouTreeFeature.Builder, BayouTreeFeature>
     {
         protected int leafLayers;
         protected int leavesOffset;
@@ -52,13 +51,16 @@ public class BasicTreeFeature extends TreeFeatureBase
             this.replace = (world, pos) ->
             {
                 Material mat = world.getBlockState(pos).getMaterial();
-                return mat == Material.AIR || mat == Material.LEAVES;
+                return mat == Material.AIR || mat == Material.LEAVES || mat == Material.VINE || mat == Material.WATER;
             };
-            this.minHeight = 4;
-            this.maxHeight = 7;
+            this.log = BOPBlocks.willow_log.getDefaultState();
+            this.leaves = BOPBlocks.willow_leaves.getDefaultState();
+            this.vine = BOPBlocks.willow_vine.getDefaultState();
+            this.minHeight = 12;
+            this.maxHeight = 20;
             this.updateNeighbours = false;
             this.leafLayers = 4;
-            this.leavesOffset = 1;
+            this.leavesOffset = 0;
             this.maxLeavesRadius = 1;
             this.leavesLayerHeight = 2;
             this.placeVinesOn = (world, pos) ->
@@ -70,9 +72,9 @@ public class BasicTreeFeature extends TreeFeatureBase
         }
 
         @Override
-        public BasicTreeFeature create()
+        public BayouTreeFeature create()
         {
-            return new BasicTreeFeature(this.updateNeighbours, this.placeOn, this.replace, this.log, this.leaves, this.altLeaves, this.vine, this.hanging, this.trunkFruit, this.minHeight, this.maxHeight, this.leafLayers, this.leavesOffset, this.maxLeavesRadius, this.leavesLayerHeight, this.placeVinesOn, this.hangingChance);
+            return new BayouTreeFeature(this.updateNeighbours, this.placeOn, this.replace, this.log, this.leaves, this.altLeaves, this.vine, this.hanging, this.trunkFruit, this.minHeight, this.maxHeight, this.leafLayers, this.leavesOffset, this.maxLeavesRadius, this.leavesLayerHeight, this.placeVinesOn, this.hangingChance);
         }
     }
 
@@ -83,10 +85,10 @@ public class BasicTreeFeature extends TreeFeatureBase
     private IBlockPosQuery placeVinesOn;
     private float hangingChance;
 
-    protected BasicTreeFeature(boolean notify, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log,
-        IBlockState leaves, IBlockState altLeaves, IBlockState vine, IBlockState hanging, IBlockState trunkFruit,
-        int minHeight, int maxHeight, int leafLayers, int leavesOffset, int maxLeavesRadius, int leavesLayerHeight,
-        IBlockPosQuery placeVinesOn, float hangingChance)
+    protected BayouTreeFeature(boolean notify, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log,
+                               IBlockState leaves, IBlockState altLeaves, IBlockState vine, IBlockState hanging, IBlockState trunkFruit,
+                               int minHeight, int maxHeight, int leafLayers, int leavesOffset, int maxLeavesRadius, int leavesLayerHeight,
+                               IBlockPosQuery placeVinesOn, float hangingChance)
     {
         super(notify, placeOn, replace, log, leaves, altLeaves, vine, hanging, trunkFruit, minHeight, maxHeight);
 
@@ -131,14 +133,7 @@ public class BasicTreeFeature extends TreeFeatureBase
                 {
                     for (int z = pos.getZ() - radius; z <= pos.getZ() + radius && hasSpace; ++z)
                     {
-                        if (y >= 0 && y < 256)
-                        {
-                            if (!this.replace.matches(world, new BlockPos(x, y, z)))
-                            {
-                                hasSpace = false;
-                            }
-                        }
-                        else
+                        if (y < 0 || y > 256)
                         {
                             hasSpace = false;
                         }
@@ -154,9 +149,8 @@ public class BasicTreeFeature extends TreeFeatureBase
             {
                 BlockPos soilPos = pos.down();
                 Block soil = world.getBlockState(soilPos).getBlock();
-                boolean isSoil = soil.canSustainPlant(world.getBlockState(soilPos), world, soilPos, EnumFacing.UP, (BlockSapling) Blocks.OAK_SAPLING);
 
-                if (this.placeOn.matches(world, soilPos) && isSoil && pos.getY() < 256 - height - 1)
+                if (this.placeOn.matches(world, soilPos) && pos.getY() < 256 - height - 1)
                 {
                     soil.onPlantGrow(world.getBlockState(soilPos), world, soilPos, pos);
                     int leavesLayers = (this.leafLayers - 1);
