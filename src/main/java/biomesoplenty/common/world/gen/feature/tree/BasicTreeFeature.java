@@ -25,7 +25,16 @@ import java.util.Set;
 
 public class BasicTreeFeature extends TreeFeatureBase
 {
-    public static class Builder extends BuilderBase<BasicTreeFeature.Builder, BasicTreeFeature>
+    public static class Builder extends InnerBuilder<Builder, BasicTreeFeature>
+    {
+        @Override
+        public BasicTreeFeature create()
+        {
+            return new BasicTreeFeature(this.updateNeighbours, this.placeOn, this.replace, this.log, this.leaves, this.altLeaves, this.vine, this.hanging, this.trunkFruit, this.minHeight, this.maxHeight, this.leafLayers, this.leavesOffset, this.maxLeavesRadius, this.leavesLayerHeight, this.placeVinesOn, this.hangingChance);
+        }
+    }
+
+    protected static abstract class InnerBuilder<T extends BuilderBase, F extends TreeFeatureBase> extends BuilderBase<T, F>
     {
         protected int leafLayers;
         protected int leavesOffset;
@@ -34,16 +43,16 @@ public class BasicTreeFeature extends TreeFeatureBase
         protected IBlockPosQuery placeVinesOn;
         protected float hangingChance;
 
-        public Builder leafLayers(int a) {this.leafLayers = a; return this;}
-        public Builder leavesOffset(int a) {this.leavesOffset = a; return this;}
-        public Builder leavesLayerHeight(int a) {this.leavesLayerHeight = a; return this;}
-        public Builder maxLeavesRadius(int a) {this.maxLeavesRadius = a; return this;}
+        public T leafLayers(int a) {this.leafLayers = a; return (T)this;}
+        public T leavesOffset(int a) {this.leavesOffset = a; return (T)this;}
+        public T leavesLayerHeight(int a) {this.leavesLayerHeight = a; return (T)this;}
+        public T maxLeavesRadius(int a) {this.maxLeavesRadius = a; return (T)this;}
 
-        public Builder placeVinesOn(IBlockPosQuery a) {this.placeVinesOn = a; return this;}
+        public T placeVinesOn(IBlockPosQuery a) {this.placeVinesOn = a; return (T)this;}
 
-        public Builder hangingChance(float a) {this.hangingChance = a; return this;}
+        public T hangingChance(float a) {this.hangingChance = a; return (T)this;}
 
-        public Builder()
+        public InnerBuilder()
         {
             this.placeOn = (world, pos) ->
             {
@@ -68,20 +77,14 @@ public class BasicTreeFeature extends TreeFeatureBase
             };
             this.hangingChance = 0.0F;
         }
-
-        @Override
-        public BasicTreeFeature create()
-        {
-            return new BasicTreeFeature(this.updateNeighbours, this.placeOn, this.replace, this.log, this.leaves, this.altLeaves, this.vine, this.hanging, this.trunkFruit, this.minHeight, this.maxHeight, this.leafLayers, this.leavesOffset, this.maxLeavesRadius, this.leavesLayerHeight, this.placeVinesOn, this.hangingChance);
-        }
     }
 
-    private int leafLayers;
-    private int leavesOffset;
-    private int maxLeavesRadius;
-    private int leavesLayerHeight;
-    private IBlockPosQuery placeVinesOn;
-    private float hangingChance;
+    protected int leafLayers;
+    protected int leavesOffset;
+    protected int maxLeavesRadius;
+    protected int leavesLayerHeight;
+    protected IBlockPosQuery placeVinesOn;
+    protected float hangingChance;
 
     protected BasicTreeFeature(boolean notify, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log,
         IBlockState leaves, IBlockState altLeaves, IBlockState vine, IBlockState hanging, IBlockState trunkFruit,
