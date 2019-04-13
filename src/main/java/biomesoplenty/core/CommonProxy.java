@@ -11,7 +11,6 @@ package biomesoplenty.core;
 import biomesoplenty.api.particle.BOPParticleTypes;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraft.world.World;
 
 public class CommonProxy
 {
@@ -21,5 +20,5 @@ public class CommonProxy
     public void registerBlockSided(Block block) {}
     public void registerItemSided(Item item) {}
     public void registerFluidBlockRendering(Block block, String name) {}
-    public void spawnParticle(BOPParticleTypes type, World parWorld, double x, double y, double z, Object... info) {}
+    public void spawnParticle(BOPParticleTypes type, double x, double y, double z, Object... info) {}
 }

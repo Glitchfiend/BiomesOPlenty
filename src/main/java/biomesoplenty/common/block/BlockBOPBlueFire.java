@@ -91,7 +91,7 @@ public class BlockBOPBlueFire extends Block implements IBOPBlock
             	double d0 = (double)pos.getX() + world.rand.nextDouble();
 	            double d1 = (double)pos.getY() + world.rand.nextDouble() * 0.5D + 0.5D;
 	            double d2 = (double)pos.getZ() + world.rand.nextDouble();
-	            BiomesOPlenty.proxy.spawnParticle(BOPParticleTypes.CURSE, world, d0, d1, d2, 0.0D, 0.0D, 0.0D, new int[0]);
+	            BiomesOPlenty.proxy.spawnParticle(BOPParticleTypes.CURSE, d0, d1, d2, 0.0D, 0.0D, 0.0D, new int[0]);
             }
         }
     }
@@ -185,7 +185,7 @@ public class BlockBOPBlueFire extends Block implements IBOPBlock
             double d0 = (double)pos.getX() + rand.nextDouble();
             double d1 = (double)pos.getY() + rand.nextDouble() * 0.5D + 0.5D;
             double d2 = (double)pos.getZ() + rand.nextDouble();
-            BiomesOPlenty.proxy.spawnParticle(BOPParticleTypes.CURSE, worldIn, d0, d1, d2, 0.0D, 0.0D, 0.0D, new int[0]);
+            BiomesOPlenty.proxy.spawnParticle(BOPParticleTypes.CURSE, d0, d1, d2, 0.0D, 0.0D, 0.0D, new int[0]);
         }
 	}
 

@@ -3,12 +3,8 @@ package biomesoplenty.common.entities.projectiles;
 import biomesoplenty.api.particle.BOPParticleTypes;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.IProjectile;
 import net.minecraft.entity.projectile.EntityThrowable;
-import net.minecraft.init.MobEffects;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
@@ -46,7 +42,7 @@ public class EntityMudball extends EntityThrowable
         {
             for (int i = 0; i < 8; ++i)
             {
-                BiomesOPlenty.proxy.spawnParticle(BOPParticleTypes.MUD, this.world, this.posX, this.posY, this.posZ);
+                BiomesOPlenty.proxy.spawnParticle(BOPParticleTypes.MUD, this.posX, this.posY, this.posZ);
             }
         }
     }

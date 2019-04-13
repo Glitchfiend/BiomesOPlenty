@@ -62,7 +62,7 @@ public class TrailsEventHandler
 			        if (player.posX != player.prevPosX || player.posZ != player.prevPosZ) //Particles should only spawn if the player is moving
 			        {
 			            //Move the particle up by 0.01 on spawn to prevent z-fighting (the trail particles move down with time)
-			            BiomesOPlenty.proxy.spawnParticle(BOPParticleTypes.PLAYER_TRAIL, world, player.posX + offsetX, ((int)player.posY) + groundYOffset + 0.01, player.posZ + offsetZ, trailName);	
+			            BiomesOPlenty.proxy.spawnParticle(BOPParticleTypes.PLAYER_TRAIL, player.posX + offsetX, ((int)player.posY) + groundYOffset + 0.01, player.posZ + offsetZ, trailName);
 			        }
 			    }
 			}
