@@ -170,24 +170,31 @@ public class ClientProxy extends CommonProxy
     }
     
     @Override
-    public void spawnParticle(BOPParticleTypes type, World parWorld, double x, double y, double z, Object... info)
+    public void spawnParticle(BOPParticleTypes type, double x, double y, double z, Object... info)
     {
         Minecraft minecraft = Minecraft.getMinecraft();
+        World world = minecraft.world;
+
+        if (world == null)
+        {
+            return;
+        }
+
         Particle entityFx = null;
         switch (type)
         {
         case MUD:
             int itemId = Item.getIdFromItem(BOPItems.mudball);
-            minecraft.world.spawnParticle(EnumParticleTypes.ITEM_CRACK, x, y, z, MathHelper.nextDouble(parWorld.rand, -0.08D, 0.08D), MathHelper.nextDouble(parWorld.rand, -0.08D, 0.08D), MathHelper.nextDouble(parWorld.rand, -0.08D, 0.08D), itemId);
+            minecraft.world.spawnParticle(EnumParticleTypes.ITEM_CRACK, x, y, z, MathHelper.nextDouble(world.rand, -0.08D, 0.08D), MathHelper.nextDouble(world.rand, -0.08D, 0.08D), MathHelper.nextDouble(world.rand, -0.08D, 0.08D), itemId);
             return;
         case PLAYER_TRAIL:
             if (info.length < 1)
                 throw new RuntimeException("Missing argument for trail name!");
 
-            entityFx = new EntityTrailFX(parWorld, x, y, z, (String)info[0]);
+            entityFx = new EntityTrailFX(world, x, y, z, (String)info[0]);
             break;
         case CURSE:
-            entityFx = new EntityCurseFX(parWorld, x, y, z, MathHelper.nextDouble(parWorld.rand, -0.03, 0.03), 0.05D, MathHelper.nextDouble(parWorld.rand, -0.03, 0.03));
+            entityFx = new EntityCurseFX(world, x, y, z, MathHelper.nextDouble(world.rand, -0.03, 0.03), 0.05D, MathHelper.nextDouble(world.rand, -0.03, 0.03));
             break;
         default:
             break;
