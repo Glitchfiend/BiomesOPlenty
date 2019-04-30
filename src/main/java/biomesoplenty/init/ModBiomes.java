@@ -13,6 +13,7 @@ import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.BiomeBOP;
 import biomesoplenty.common.biome.overworld.CherryBlossomGroveBiome;
 import biomesoplenty.common.biome.overworld.ConiferousForestBiome;
+import biomesoplenty.common.biome.overworld.GrasslandBiome;
 import biomesoplenty.common.biome.overworld.ShrublandBiome;
 import biomesoplenty.common.biome.overworld.WetlandBiome;
 import biomesoplenty.common.world.WorldTypeBOP;
@@ -38,6 +39,7 @@ public class ModBiomes
     {
     	cherry_blossom_grove = registerBiome(new CherryBlossomGroveBiome(), "cherry_blossom_grove");
         coniferous_forest = registerBiome(new ConiferousForestBiome(), "coniferous_forest");
+        grassland = registerBiome(new GrasslandBiome(), "grassland");
         shrubland = registerBiome(new ShrublandBiome(), "shrubland");
         wetland = registerBiome(new WetlandBiome(), "wetland");
     }
