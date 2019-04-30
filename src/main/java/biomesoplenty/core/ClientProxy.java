@@ -18,20 +18,16 @@ import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.client.renderer.entity.RenderSprite;
 import net.minecraft.entity.Entity;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.init.Particles;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particles.ItemParticleData;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.ColorizerFoliage;
-import net.minecraft.world.ColorizerGrass;
-import net.minecraft.world.IWorldReaderBase;
+import net.minecraft.world.FoliageColors;
+import net.minecraft.world.GrassColors;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeColorHelper;
+import net.minecraft.world.biome.BiomeColors;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy
@@ -55,13 +51,13 @@ public class ClientProxy extends CommonProxy
 
         //Grass Coloring
         blockColors.register((state, world, pos, tintIndex) ->
-            world != null && pos != null ? BiomeColorHelper.getGrassColor(world, pos) : ColorizerGrass.get(0.5D, 1.0D),
+            world != null && pos != null ? BiomeColors.getGrassColor(world, pos) : GrassColors.get(0.5D, 1.0D),
             BOPBlocks.loamy_grass_block, BOPBlocks.sandy_grass_block, BOPBlocks.silty_grass_block, BOPBlocks.short_grass,
             BOPBlocks.devilweed, BOPBlocks.watergrass);
         
         //Foliage Coloring
         blockColors.register((state, world, pos, tintIndex) ->
-	        world != null && pos != null ? BiomeColorHelper.getFoliageColor(world, pos) : ColorizerFoliage.getDefault(),
+	        world != null && pos != null ? BiomeColors.getFoliageColor(world, pos) : FoliageColors.getDefault(),
 	        BOPBlocks.flowering_oak_leaves, BOPBlocks.mahogany_leaves, BOPBlocks.palm_leaves, BOPBlocks.willow_leaves,
 	        BOPBlocks.ivy, BOPBlocks.willow_vine, BOPBlocks.bush);
         

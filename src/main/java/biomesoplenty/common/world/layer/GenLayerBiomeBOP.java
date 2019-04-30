@@ -10,6 +10,7 @@ package biomesoplenty.common.world.layer;
 import biomesoplenty.api.enums.BOPClimates;
 import net.minecraft.init.Biomes;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.registry.IRegistry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.IContext;
 import net.minecraft.world.gen.area.AreaDimension;
@@ -22,8 +23,8 @@ public enum GenLayerBiomeBOP implements IAreaTransformer2, IDimOffset0Transforme
 {
     INSTANCE;
 
-    private static final int DEEP_OCEAN = Biome.func_185362_a(Biomes.DEEP_OCEAN);
-    private static final int MUSHROOM_FIELDS = Biome.func_185362_a(Biomes.MUSHROOM_FIELDS);
+    private static final int DEEP_OCEAN = IRegistry.BIOME.getId(Biomes.DEEP_OCEAN);
+    private static final int MUSHROOM_FIELDS = IRegistry.BIOME.getId(Biomes.MUSHROOM_FIELDS);
 
     @Override
     public int apply(IContext context, AreaDimension dimension, IArea area1, IArea area2, int x, int z)
@@ -48,7 +49,7 @@ public enum GenLayerBiomeBOP implements IAreaTransformer2, IDimOffset0Transforme
         // At this point, oceans and land have been assigned, and so have mushroom islands
         if (landSeaVal == DEEP_OCEAN)
         {
-            return Biome.func_185362_a(climate.getRandomOceanBiome(context, true));
+            return IRegistry.BIOME.getId(climate.getRandomOceanBiome(context, true));
         }
         else if ((landSeaVal == MUSHROOM_FIELDS /*|| ModBiomes.islandBiomesMap.containsKey(landSeaVal)*/) && climate.biomeType != BiomeManager.BiomeType.ICY) // TODO
         {
@@ -57,11 +58,11 @@ public enum GenLayerBiomeBOP implements IAreaTransformer2, IDimOffset0Transforme
         }
         else if (landSeaVal == 0)
         {
-            return Biome.func_185362_a(climate.getRandomOceanBiome(context, false));
+            return IRegistry.BIOME.getId(climate.getRandomOceanBiome(context, false));
         }
         else
         {
-            return Biome.func_185362_a(climate.getRandomBiome(context));
+            return IRegistry.BIOME.getId(climate.getRandomBiome(context));
         }
     }
 }

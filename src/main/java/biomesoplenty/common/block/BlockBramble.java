@@ -25,7 +25,7 @@ import net.minecraft.world.World;
 
 public class BlockBramble extends BlockSixWay
 {
-    public BlockBramble(Block.Builder builder)
+    public BlockBramble(Block.Properties builder)
     {
         super(0.25F, builder);
         this.setDefaultState((IBlockState)((IBlockState)((IBlockState)((IBlockState)((IBlockState)((IBlockState)(this.stateContainer.getBaseState()).with(NORTH, Boolean.valueOf(false))).with(EAST, Boolean.valueOf(false))).with(SOUTH, Boolean.valueOf(false))).with(WEST, Boolean.valueOf(false))).with(UP, Boolean.valueOf(false))).with(DOWN, Boolean.valueOf(false)));

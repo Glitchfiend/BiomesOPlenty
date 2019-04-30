@@ -24,7 +24,7 @@ public class ItemMudball extends Item
 {
     public ItemMudball()
     {
-        super(new Item.Builder().group(ItemGroupBOP.instance).maxStackSize(16));
+        super(new Item.Properties().group(ItemGroupBOP.instance).maxStackSize(16));
     }
 
     @Override

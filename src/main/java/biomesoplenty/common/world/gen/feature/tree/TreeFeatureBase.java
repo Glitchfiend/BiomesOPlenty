@@ -141,7 +141,7 @@ public abstract class TreeFeatureBase extends AbstractTreeFeature<NoFeatureConfi
         {
             // Logs must be added to the "changedBlocks" so that the leaves have their distance property updated,
             // preventing incorrect decay
-            this.func_208520_a(changedBlocks, world, pos, directedLog);
+            this.setLogState(changedBlocks, world, pos, directedLog);
             return true;
         }
         return false;

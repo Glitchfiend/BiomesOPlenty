@@ -14,7 +14,7 @@ import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
-import net.minecraftforge.fml.javafmlmod.FMLModLoadingContext;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod(value = BiomesOPlenty.MOD_ID)
 public class BiomesOPlenty
@@ -28,8 +28,8 @@ public class BiomesOPlenty
     {
     	instance = this;
 
-    	FMLModLoadingContext.get().getModEventBus().addListener(this::setup);
-        FMLModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
 
         ModSounds.init();
         ModEntities.init();

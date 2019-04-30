@@ -7,14 +7,9 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
-import java.util.Random;
-
-import javax.annotation.Nullable;
-
 import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -28,12 +23,15 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
+import javax.annotation.Nullable;
+import java.util.Random;
+
 public class BlockFoliageBOP extends BlockBush
 {
 	protected static final VoxelShape NORMAL = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
 	protected static final VoxelShape SHORT = Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 7.0D, 15.0D);
 	
-    public BlockFoliageBOP(Block.Builder properties)
+    public BlockFoliageBOP(Block.Properties properties)
     {
         super(properties);
     }

@@ -27,7 +27,7 @@ public class BlockDoublePlantBOP extends BlockDoublePlant
    public static final EnumProperty<DoubleBlockHalf> field_208063_b = BlockDoublePlant.HALF;
    private final Block field_196392_b;
 	   
-    public BlockDoublePlantBOP(Block p_i48335_1_, Block.Builder properties)
+    public BlockDoublePlantBOP(Block p_i48335_1_, Block.Properties properties)
     {
         super(properties);
         this.field_196392_b = p_i48335_1_;

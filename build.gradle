@@ -14,25 +14,15 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 
-// define the properties file
-ext.configFile = file "build.properties"
-
-configFile.withReader {
-    // read config.  it shall from now on be referenced as simply config or as project.config
-    def prop = new Properties()
-    prop.load(it)
-    project.ext.config = new ConfigSlurper().parse prop
-}
-
 group = "com.github.glitchfiend.biomesoplenty"
 archivesBaseName = "BiomesOPlenty"
 
 // add some stuff to the version
-version = "${config.minecraft_version}-${config.mod_version}.${System.getenv().BUILD_NUMBER}"
-config.build_number = (System.getenv().BUILD_NUMBER) ? System.getenv().BUILD_NUMBER : ""
+version = "${minecraft_version}-${mod_version}.${System.getenv().BUILD_NUMBER}"
+def build_number = (System.getenv().BUILD_NUMBER) ? System.getenv().BUILD_NUMBER : ""
 
 minecraft {
-    mappings channel: 'snapshot', version: config.mappings_version
+    mappings channel: 'snapshot', version: mappings_version
 
     accessTransformer = file('src/main/resources/META-INF/biomesoplenty_at.cfg')
 
@@ -49,5 +39,5 @@ minecraft {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge.test:forge:' + config.minecraft_version + '-' + config.forge_version
+    minecraft 'net.minecraftforge:forge:' + minecraft_version + '-' + forge_version
 }

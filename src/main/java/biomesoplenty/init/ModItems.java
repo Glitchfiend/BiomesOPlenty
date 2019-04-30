@@ -21,27 +21,27 @@ public class ModItems
 	public static void init()
 	{
         mudball = registerItem(new ItemMudball(), "mudball");
-        mud_brick = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "mud_brick");
-        pile_of_ashes = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "pile_of_ashes");
-        chunk_of_flesh = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "chunk_of_flesh");
+        mud_brick = registerItem(new Item(new Item.Properties().group(ItemGroupBOP.instance)), "mud_brick");
+        pile_of_ashes = registerItem(new Item(new Item.Properties().group(ItemGroupBOP.instance)), "pile_of_ashes");
+        chunk_of_flesh = registerItem(new Item(new Item.Properties().group(ItemGroupBOP.instance)), "chunk_of_flesh");
         
         record_wanderer = registerItem(new ItemBOPRecord(BOPSounds.records_wanderer), "record_wanderer");
 
         // TODO: These all need to be associated with their entities
-        fir_boat = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "fir_boat");
-        redwood_boat = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "redwood_boat");
-        cherry_boat = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "cherry_boat");
-        mahogany_boat = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "mahogany_boat");
-        jacaranda_boat = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "jacaranda_boat");
-        palm_boat = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "palm_boat");
-        willow_boat = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "willow_boat");
-        dead_boat = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "dead_boat");
-        magic_boat = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "magic_boat");
-        umbran_boat = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "umbran_boat");
-        hellbark_boat = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "hellbark_boat");
-        ethereal_boat = registerItem(new Item(new Item.Builder().group(ItemGroupBOP.instance)), "ethereal_boat");
+        fir_boat = registerItem(new Item(new Item.Properties().group(ItemGroupBOP.instance)), "fir_boat");
+        redwood_boat = registerItem(new Item(new Item.Properties().group(ItemGroupBOP.instance)), "redwood_boat");
+        cherry_boat = registerItem(new Item(new Item.Properties().group(ItemGroupBOP.instance)), "cherry_boat");
+        mahogany_boat = registerItem(new Item(new Item.Properties().group(ItemGroupBOP.instance)), "mahogany_boat");
+        jacaranda_boat = registerItem(new Item(new Item.Properties().group(ItemGroupBOP.instance)), "jacaranda_boat");
+        palm_boat = registerItem(new Item(new Item.Properties().group(ItemGroupBOP.instance)), "palm_boat");
+        willow_boat = registerItem(new Item(new Item.Properties().group(ItemGroupBOP.instance)), "willow_boat");
+        dead_boat = registerItem(new Item(new Item.Properties().group(ItemGroupBOP.instance)), "dead_boat");
+        magic_boat = registerItem(new Item(new Item.Properties().group(ItemGroupBOP.instance)), "magic_boat");
+        umbran_boat = registerItem(new Item(new Item.Properties().group(ItemGroupBOP.instance)), "umbran_boat");
+        hellbark_boat = registerItem(new Item(new Item.Properties().group(ItemGroupBOP.instance)), "hellbark_boat");
+        ethereal_boat = registerItem(new Item(new Item.Properties().group(ItemGroupBOP.instance)), "ethereal_boat");
 
-        bop_icon = registerItem(new Item(new Item.Builder()), "bop_icon");
+        bop_icon = registerItem(new Item(new Item.Properties()), "bop_icon");
 	}
 
     public static Item registerItem(Item item, String name)

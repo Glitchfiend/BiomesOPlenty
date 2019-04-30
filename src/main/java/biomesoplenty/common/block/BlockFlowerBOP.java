@@ -31,7 +31,7 @@ public class BlockFlowerBOP extends BlockFlower
 	protected static final VoxelShape NORMAL = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
 	protected static final VoxelShape LARGE = Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 14.0D, 15.0D);
 	
-    public BlockFlowerBOP(Block.Builder properties)
+    public BlockFlowerBOP(Block.Properties properties)
     {
         super(properties);
     }

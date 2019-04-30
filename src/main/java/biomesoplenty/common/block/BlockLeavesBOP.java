@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 
 public class BlockLeavesBOP extends BlockLeaves
 {
-    public BlockLeavesBOP(Block.Builder properties)
+    public BlockLeavesBOP(Block.Properties properties)
     {
         super(properties);
     }

@@ -16,6 +16,6 @@ public class ItemBOPRecord extends ItemRecord
 {
     public ItemBOPRecord(SoundEvent record)
     {
-        super(0, record, new Item.Builder().group(ItemGroupBOP.instance));
+        super(0, record, new Item.Properties().group(ItemGroupBOP.instance));
     }
 }

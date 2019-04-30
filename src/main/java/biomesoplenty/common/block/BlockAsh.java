@@ -7,13 +7,8 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
-import java.util.Random;
-
 import biomesoplenty.api.item.BOPItems;
 import net.minecraft.block.Block;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.MapColor;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Particles;
 import net.minecraft.util.IItemProvider;
@@ -24,11 +19,13 @@ import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
+import java.util.Random;
+
 public class BlockAsh extends Block
 {
 	protected static final VoxelShape SHAPE = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 16.0D);
 
-    public BlockAsh(Block.Builder properties)
+    public BlockAsh(Block.Properties properties)
     {
         super(properties);
     }
