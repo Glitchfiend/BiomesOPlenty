@@ -13,5 +13,6 @@ import java.util.Optional;
 
 public class BOPBiomes
 {
+	public static Optional<Biome> cherry_blossom_grove = Optional.empty();
     public static Optional<Biome> coniferous_forest = Optional.empty();
 }

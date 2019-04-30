@@ -11,6 +11,7 @@ import static biomesoplenty.api.biome.BOPBiomes.*;
 
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.BiomeBOP;
+import biomesoplenty.common.biome.overworld.CherryBlossomGroveBiome;
 import biomesoplenty.common.biome.overworld.ConiferousForestBiome;
 import biomesoplenty.common.world.WorldTypeBOP;
 import net.minecraft.item.Item;
@@ -33,6 +34,7 @@ public class ModBiomes
 
     private static void registerBiomes()
     {
+    	cherry_blossom_grove = registerBiome(new CherryBlossomGroveBiome(), "cherry_blossom_grove");
         coniferous_forest = registerBiome(new ConiferousForestBiome(), "coniferous_forest");
     }
 
