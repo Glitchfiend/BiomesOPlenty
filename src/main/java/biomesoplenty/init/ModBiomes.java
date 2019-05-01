@@ -14,8 +14,11 @@ import biomesoplenty.common.biome.BiomeBOP;
 import biomesoplenty.common.biome.overworld.CherryBlossomGroveBiome;
 import biomesoplenty.common.biome.overworld.ConiferousForestBiome;
 import biomesoplenty.common.biome.overworld.GrasslandBiome;
+import biomesoplenty.common.biome.overworld.MeadowBiome;
 import biomesoplenty.common.biome.overworld.ShrublandBiome;
+import biomesoplenty.common.biome.overworld.SnowyConiferousForestBiome;
 import biomesoplenty.common.biome.overworld.WetlandBiome;
+import biomesoplenty.common.biome.overworld.WoodlandBiome;
 import biomesoplenty.common.world.WorldTypeBOP;
 import net.minecraft.item.Item;
 import net.minecraft.world.biome.Biome;
@@ -40,8 +43,11 @@ public class ModBiomes
     	cherry_blossom_grove = registerBiome(new CherryBlossomGroveBiome(), "cherry_blossom_grove");
         coniferous_forest = registerBiome(new ConiferousForestBiome(), "coniferous_forest");
         grassland = registerBiome(new GrasslandBiome(), "grassland");
+        meadow = registerBiome(new MeadowBiome(), "meadow");
         shrubland = registerBiome(new ShrublandBiome(), "shrubland");
+        snowy_coniferous_forest = registerBiome(new SnowyConiferousForestBiome(), "snowy_coniferous_forest");
         wetland = registerBiome(new WetlandBiome(), "wetland");
+        woodland = registerBiome(new WoodlandBiome(), "woodland");
     }
 
     public static Optional<Biome> registerBiome(BiomeBOP biome, String name)

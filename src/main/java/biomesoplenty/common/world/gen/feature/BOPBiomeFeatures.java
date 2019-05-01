@@ -35,7 +35,10 @@ public class BOPBiomeFeatures
 	public static final AbstractTreeFeature<NoFeatureConfig> BUSH = new BushTreeFeature.Builder().maxHeight(2).create();
 
 	public static final AbstractFlowersFeature CHERRY_BLOSSOM_GROVE_FLOWERS = new CherryBlossomGroveFlowersFeature();
+	public static final AbstractFlowersFeature EXTENDED_FLOWERS = new ExtendedFlowersFeature();
+	public static final AbstractFlowersFeature MEADOW_FLOWERS = new MeadowFlowersFeature();
 	public static final AbstractFlowersFeature SHRUBLAND_FLOWERS = new ShrublandFlowersFeature();
+	public static final AbstractFlowersFeature SNOWY_FLOWERS = new SnowyFlowersFeature();
 	public static final AbstractFlowersFeature WETLAND_FLOWERS = new WetlandFlowersFeature();
 	
 	public static final SurfaceBuilderConfig LOAMY_GRASS_DIRT_GRAVEL_SURFACE = new SurfaceBuilderConfig(BOPBlocks.loamy_grass_block.getDefaultState(), BOPBlocks.loamy_dirt.getDefaultState(), Blocks.GRAVEL.getDefaultState());

@@ -16,6 +16,9 @@ public class BOPBiomes
 	public static Optional<Biome> cherry_blossom_grove = Optional.empty();
     public static Optional<Biome> coniferous_forest = Optional.empty();
     public static Optional<Biome> grassland = Optional.empty();
+    public static Optional<Biome> meadow = Optional.empty();
     public static Optional<Biome> shrubland = Optional.empty();
+    public static Optional<Biome> snowy_coniferous_forest = Optional.empty();
     public static Optional<Biome> wetland = Optional.empty();
+    public static Optional<Biome> woodland = Optional.empty();
 }
