@@ -54,7 +54,7 @@ public class BiomesOPlenty
     private void loadComplete(final FMLLoadCompleteEvent event) // PostRegistrationEven
     {
         proxy.init();
-        GenLayerVisualizer.run();
+        //GenLayerVisualizer.run();
     }
 
     public void serverStarting(FMLServerStartingEvent evt)
