@@ -292,8 +292,6 @@ public class BOPBlocks
     public static Block reed;
     public static Block watergrass;
     
-    public static Block dead_leaf_pile;
-    
     public static Block toadstool;
     public static Block glowshroom;
 

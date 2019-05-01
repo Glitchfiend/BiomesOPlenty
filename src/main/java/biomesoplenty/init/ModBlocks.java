@@ -12,7 +12,6 @@ import static biomesoplenty.api.block.BOPBlocks.*;
 import biomesoplenty.common.block.BlockAsh;
 import biomesoplenty.common.block.BlockBramble;
 import biomesoplenty.common.block.BlockDoublePlantBOP;
-import biomesoplenty.common.block.BlockFlatPlantBOP;
 import biomesoplenty.common.block.BlockFlesh;
 import biomesoplenty.common.block.BlockFlowerBOP;
 import biomesoplenty.common.block.BlockFoliageBOP;
@@ -28,7 +27,6 @@ import net.minecraft.block.BlockDoor;
 import net.minecraft.block.BlockFarmland;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.BlockFenceGate;
-import net.minecraft.block.BlockGrass;
 import net.minecraft.block.BlockGrassPath;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.BlockPressurePlate;
@@ -325,7 +323,6 @@ public class ModBlocks
         reed = registerBlock(new BlockPlantBOP(Block.Properties.create(Material.PLANTS, MaterialColor.DIRT).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "reed");
         watergrass = registerBlock(new BlockPlantBOP(Block.Properties.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "watergrass");
         
-        dead_leaf_pile = registerBlock(new BlockFlatPlantBOP(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "dead_leaf_pile");
         bramble = registerBlock(new BlockBramble(Block.Properties.create(Material.PLANTS, MaterialColor.NETHERRACK).hardnessAndResistance(0.4F).sound(SoundType.WOOD)), "bramble");
         
         toadstool = registerBlock(new BlockMushroomBOP(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "toadstool");

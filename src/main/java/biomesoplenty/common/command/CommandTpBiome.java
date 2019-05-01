@@ -7,10 +7,10 @@
  ******************************************************************************/
 package biomesoplenty.common.command;
 
+import com.mojang.brigadier.builder.ArgumentBuilder;
+
 import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.common.util.block.BlockUtil;
-import com.mojang.brigadier.builder.ArgumentBuilder;
-import javafx.geometry.Side;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.command.CommandSource;
@@ -21,9 +21,6 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
-import net.minecraft.world.dimension.DimensionType;
-
-import java.util.Collections;
 
 public class CommandTpBiome
 {
