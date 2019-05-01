@@ -8,9 +8,17 @@
 package biomesoplenty.common.util.block;
 
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntitySpawnPlacementRegistry;
+import net.minecraft.entity.EntityType;
+import net.minecraft.pathfinding.PathType;
 import net.minecraft.state.IProperty;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IWorld;
+import net.minecraft.world.gen.Heightmap;
 
+import javax.annotation.Nullable;
 import java.util.Collection;
 
 public class BlockUtil
@@ -27,5 +35,12 @@ public class BlockUtil
             }
         }
         return null;
+    }
+
+    public static BlockPos getTopSolidOrLiquidBlock(IWorld world, int x, int z)
+    {
+        BlockPos blockpos = new BlockPos(x, world.getHeight(Heightmap.Type.WORLD_SURFACE, x, z), z);
+        BlockPos blockpos1 = blockpos.down();
+        return world.getBlockState(blockpos1).allowsMovement(world, blockpos1, PathType.LAND) ? blockpos1 : blockpos;
     }
 }
