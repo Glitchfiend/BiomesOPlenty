@@ -12,6 +12,7 @@ import static biomesoplenty.api.block.BOPBlocks.*;
 import biomesoplenty.common.block.BlockAsh;
 import biomesoplenty.common.block.BlockBramble;
 import biomesoplenty.common.block.BlockDoublePlantBOP;
+import biomesoplenty.common.block.BlockDriedSand;
 import biomesoplenty.common.block.BlockFlesh;
 import biomesoplenty.common.block.BlockFlowerBOP;
 import biomesoplenty.common.block.BlockFoliageBOP;
@@ -80,7 +81,7 @@ public class ModBlocks
         mud_brick_slab = registerBlock(new BlockSlab(Block.Properties.create(Material.ROCK, MaterialColor.BROWN_TERRACOTTA).hardnessAndResistance(2.0F, 6.0F)), "mud_brick_slab");
         mud_brick_stairs = registerBlock(new BlockStairs(mud_brick_block.getDefaultState(), Block.Properties.from(mud_brick_block)), "mud_brick_stairs");
         
-        dried_sand = registerBlock(new Block(Block.Properties.create(Material.GROUND, MaterialColor.WOOD).hardnessAndResistance(1.0F)), "dried_sand");
+        dried_sand = registerBlock(new BlockDriedSand(Block.Properties.create(Material.GROUND, MaterialColor.WOOD).hardnessAndResistance(1.0F)), "dried_sand");
         ash_block = registerBlock(new BlockAsh(Block.Properties.create(Material.SAND, MaterialColor.BLACK_TERRACOTTA).hardnessAndResistance(0.4F).sound(SoundType.SAND)), "ash_block");
         flesh = registerBlock(new BlockFlesh(Block.Properties.create(Material.SPONGE, MaterialColor.RED_TERRACOTTA).hardnessAndResistance(0.4F).sound(SoundType.SLIME)), "flesh");
         

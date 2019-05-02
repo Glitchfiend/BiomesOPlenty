@@ -22,6 +22,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraftforge.common.EnumPlantType;
 
 import javax.annotation.Nullable;
 import java.util.Random;
@@ -101,5 +102,30 @@ public class BlockFoliageBOP extends BlockBush
     public Block.EnumOffsetType getOffsetType()
     {
         return Block.EnumOffsetType.XYZ;
+    }
+    
+    @Override
+    public EnumPlantType getPlantType(IBlockReader world, BlockPos pos)
+    {
+    	Block block = world.getBlockState(pos).getBlock();
+    	
+    	if (block == BOPBlocks.dead_grass)
+    	{
+    		return EnumPlantType.Desert;
+    	}
+    	if (block == BOPBlocks.desert_grass)
+    	{
+    		return EnumPlantType.Desert;
+    	}
+    	if (block == BOPBlocks.dune_grass)
+    	{
+    		return EnumPlantType.Desert;
+    	}
+    	if (block == BOPBlocks.devilweed)
+    	{
+    		return EnumPlantType.Nether;
+    	}
+    	
+    	return EnumPlantType.Plains;
     }
 }
