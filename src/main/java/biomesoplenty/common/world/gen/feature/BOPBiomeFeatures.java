@@ -8,13 +8,7 @@
 package biomesoplenty.common.world.gen.feature;
 
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.common.world.gen.feature.tree.BasicTreeFeature;
-import biomesoplenty.common.world.gen.feature.tree.BayouTreeFeature;
-import biomesoplenty.common.world.gen.feature.tree.BulbTreeFeature;
-import biomesoplenty.common.world.gen.feature.tree.BushTreeFeature;
-import biomesoplenty.common.world.gen.feature.tree.MahoganyTreeFeature;
-import biomesoplenty.common.world.gen.feature.tree.RedwoodTreeFeature;
-import biomesoplenty.common.world.gen.feature.tree.TaigaTreeFeature;
+import biomesoplenty.common.world.gen.feature.tree.*;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.gen.feature.AbstractFlowersFeature;
 import net.minecraft.world.gen.feature.AbstractTreeFeature;
@@ -26,6 +20,7 @@ public class BOPBiomeFeatures
 	public static final AbstractTreeFeature<NoFeatureConfig> CONIFEROUS_TREE = new TaigaTreeFeature.Builder().log(BOPBlocks.fir_log.getDefaultState()).leaves(BOPBlocks.fir_leaves.getDefaultState()).minHeight(5).maxHeight(28).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> CONIFEROUS_TREE_LARGE = new TaigaTreeFeature.Builder().log(BOPBlocks.fir_log.getDefaultState()).leaves(BOPBlocks.fir_leaves.getDefaultState()).minHeight(20).maxHeight(40).trunkWidth(2).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> OAK_TREE = new BasicTreeFeature.Builder().create();
+	public static final AbstractTreeFeature<NoFeatureConfig> OAK_BIG_TREE = new BigTreeFeature.Builder().create();
 	public static final AbstractTreeFeature<NoFeatureConfig> MAPLE_TREE = new BasicTreeFeature.Builder().leaves(BOPBlocks.maple_leaves.getDefaultState()).minHeight(5).maxHeight(10).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> PINK_CHERRY_TREE = new BasicTreeFeature.Builder().log(BOPBlocks.cherry_log.getDefaultState()).leaves(BOPBlocks.pink_cherry_leaves.getDefaultState()).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> WHITE_CHERRY_TREE = new BasicTreeFeature.Builder().log(BOPBlocks.cherry_log.getDefaultState()).leaves(BOPBlocks.white_cherry_leaves.getDefaultState()).create();
