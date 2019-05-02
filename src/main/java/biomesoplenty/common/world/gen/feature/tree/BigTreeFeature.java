@@ -42,7 +42,7 @@ public class BigTreeFeature extends TreeFeatureBase
             this.minHeight = 5;
             this.maxHeight = 17;
             this.trunkWidth = 1;
-            this.foliageHeight = 5;
+            this.foliageHeight = 4;
             this.foliageDensity = 1.0F;
 
             this.replace = (world, pos) ->
@@ -237,12 +237,21 @@ public class BigTreeFeature extends TreeFeatureBase
 
     protected float foliageShape(int y)
     {
-        if (y >= 0 && y < 5)
+    	if (y < 0 || y >= foliageHeight) 
         {
-            return y != 0 && y != 4 ? 3.0F : 2.0F;
+            return -1f;
+        } 
+        //The following has been replaced as recommended by
+        //http://www.reddit.com/r/Minecraft/comments/1m97cw/while_you_are_all_crying_over_the_name_change_of/ccfgc3k
+        //The change should fix the decaying leaves
+        else if (y == 0 || y == foliageHeight - 1) 
+        {
+            return 2f;
         }
-        else
-            return -1.0F;
+        else 
+        {
+            return 3f;
+        }
     }
 
     private void foliageCluster(BlockPos blockPos)

@@ -18,6 +18,7 @@ import biomesoplenty.common.biome.overworld.GrasslandBiome;
 import biomesoplenty.common.biome.overworld.MapleWoodsBiome;
 import biomesoplenty.common.biome.overworld.MeadowBiome;
 import biomesoplenty.common.biome.overworld.RedwoodForestBiome;
+import biomesoplenty.common.biome.overworld.SeasonalForestBiome;
 import biomesoplenty.common.biome.overworld.ShrublandBiome;
 import biomesoplenty.common.biome.overworld.SnowyConiferousForestBiome;
 import biomesoplenty.common.biome.overworld.SteppeBiome;
@@ -53,6 +54,7 @@ public class ModBiomes
         maple_woods = registerBiome(new MapleWoodsBiome(), "maple_woods");
         meadow = registerBiome(new MeadowBiome(), "meadow");
         redwood_forest = registerBiome(new RedwoodForestBiome(), "redwood_forest");
+        seasonal_forest = registerBiome(new SeasonalForestBiome(), "seasonal_forest");
         shrubland = registerBiome(new ShrublandBiome(), "shrubland");
         snowy_coniferous_forest = registerBiome(new SnowyConiferousForestBiome(), "snowy_coniferous_forest");
         steppe = registerBiome(new SteppeBiome(), "steppe");
