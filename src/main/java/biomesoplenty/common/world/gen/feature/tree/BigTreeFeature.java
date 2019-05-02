@@ -33,6 +33,10 @@ public class BigTreeFeature extends TreeFeatureBase
         private int foliageHeight;
         private double foliageDensity;
 
+        public Builder trunkWidth(int a) {this.trunkWidth = a; return this;}
+        public Builder foliageHeight(int a) {this.foliageHeight = a; return this;}
+        public Builder foliageDensity(int a) {this.foliageDensity = a; return this;}
+
         public Builder()
         {
             this.minHeight = 5;
@@ -174,7 +178,7 @@ public class BigTreeFeature extends TreeFeatureBase
                     BlockPos checkedPos = pos.add(dx, 0, dz);
                     if (this.replace.matches(world, checkedPos))
                     {
-                        if (this.altLeaves != null)
+                        if (this.altLeaves != Blocks.AIR.getDefaultState())
                         {
                             int rand = new Random().nextInt(4);
 
