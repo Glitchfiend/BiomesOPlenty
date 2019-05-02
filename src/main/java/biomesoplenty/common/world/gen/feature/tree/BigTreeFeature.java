@@ -40,7 +40,7 @@ public class BigTreeFeature extends TreeFeatureBase
         public Builder()
         {
             this.minHeight = 5;
-            this.maxHeight = 7;
+            this.maxHeight = 17;
             this.trunkWidth = 1;
             this.foliageHeight = 5;
             this.foliageDensity = 1.0F;

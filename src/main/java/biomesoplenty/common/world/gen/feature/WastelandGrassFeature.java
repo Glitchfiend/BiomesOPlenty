@@ -20,11 +20,11 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 
-public class StandardGrassFeature extends Feature<NoFeatureConfig>
+public class WastelandGrassFeature extends Feature<NoFeatureConfig>
 {
 	   public IBlockState chooseGrassState(Random rand)
 	   {
-	      return rand.nextInt(3) == 0 ? BOPBlocks.short_grass.getDefaultState() : Blocks.GRASS.getDefaultState();
+	      return rand.nextInt(3) == 0 ? BOPBlocks.desert_grass.getDefaultState() : BOPBlocks.dead_grass.getDefaultState();
 	   }
 
 	   @Override

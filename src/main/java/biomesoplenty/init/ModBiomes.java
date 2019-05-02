@@ -22,6 +22,7 @@ import biomesoplenty.common.biome.overworld.ShrublandBiome;
 import biomesoplenty.common.biome.overworld.SnowyConiferousForestBiome;
 import biomesoplenty.common.biome.overworld.SteppeBiome;
 import biomesoplenty.common.biome.overworld.TropicalRainforestBiome;
+import biomesoplenty.common.biome.overworld.WastelandBiome;
 import biomesoplenty.common.biome.overworld.WetlandBiome;
 import biomesoplenty.common.biome.overworld.WoodlandBiome;
 import biomesoplenty.common.world.WorldTypeBOP;
@@ -56,6 +57,7 @@ public class ModBiomes
         snowy_coniferous_forest = registerBiome(new SnowyConiferousForestBiome(), "snowy_coniferous_forest");
         steppe = registerBiome(new SteppeBiome(), "steppe");
         tropical_rainforest = registerBiome(new TropicalRainforestBiome(), "tropical_rainforest");
+        wasteland = registerBiome(new WastelandBiome(), "wasteland");
         wetland = registerBiome(new WetlandBiome(), "wetland");
         woodland = registerBiome(new WoodlandBiome(), "woodland");
     }
