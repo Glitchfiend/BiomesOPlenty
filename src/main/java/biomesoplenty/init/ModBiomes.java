@@ -15,6 +15,7 @@ import biomesoplenty.common.biome.overworld.AlpsBiome;
 import biomesoplenty.common.biome.overworld.CherryBlossomGroveBiome;
 import biomesoplenty.common.biome.overworld.ConiferousForestBiome;
 import biomesoplenty.common.biome.overworld.GrasslandBiome;
+import biomesoplenty.common.biome.overworld.MapleWoodsBiome;
 import biomesoplenty.common.biome.overworld.MeadowBiome;
 import biomesoplenty.common.biome.overworld.RedwoodForestBiome;
 import biomesoplenty.common.biome.overworld.ShrublandBiome;
@@ -48,6 +49,7 @@ public class ModBiomes
     	cherry_blossom_grove = registerBiome(new CherryBlossomGroveBiome(), "cherry_blossom_grove");
         coniferous_forest = registerBiome(new ConiferousForestBiome(), "coniferous_forest");
         grassland = registerBiome(new GrasslandBiome(), "grassland");
+        maple_woods = registerBiome(new MapleWoodsBiome(), "maple_woods");
         meadow = registerBiome(new MeadowBiome(), "meadow");
         redwood_forest = registerBiome(new RedwoodForestBiome(), "redwood_forest");
         shrubland = registerBiome(new ShrublandBiome(), "shrubland");
