@@ -308,7 +308,6 @@ public class ModBlocks
         willow_vine = registerBlock(new BlockVine(Block.Properties.create(Material.VINE).doesNotBlockMovement().needsRandomTick().hardnessAndResistance(0.2F).sound(SoundType.PLANT)), "willow_vine");
         
         short_grass = registerBlock(new BlockFoliageBOP(Block.Properties.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "short_grass");
-        bush = registerBlock(new BlockFoliageBOP(Block.Properties.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "bush");
         barley = registerBlock(new BlockFoliageBOP(Block.Properties.create(Material.VINE, MaterialColor.YELLOW_TERRACOTTA).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "barley");
         dune_grass = registerBlock(new BlockFoliageBOP(Block.Properties.create(Material.VINE, MaterialColor.LIME_TERRACOTTA).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "dune_grass");
         desert_grass = registerBlock(new BlockFoliageBOP(Block.Properties.create(Material.VINE, MaterialColor.ORANGE_TERRACOTTA).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "desert_grass");
@@ -320,10 +319,7 @@ public class ModBlocks
         tiny_cactus = registerBlock(new BlockPlantBOP(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "tiny_cactus");
         cattail = registerBlock(new BlockPlantBOP(Block.Properties.create(Material.PLANTS, MaterialColor.DIRT).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "cattail");
         tall_cattail = registerBlock(new BlockDoublePlantBOP(cattail, Block.Properties.create(Material.PLANTS, MaterialColor.DIRT).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "tall_cattail");
-        root = registerBlock(new BlockPlantBOP(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "root");
-        reed = registerBlock(new BlockPlantBOP(Block.Properties.create(Material.PLANTS, MaterialColor.DIRT).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "reed");
-        watergrass = registerBlock(new BlockPlantBOP(Block.Properties.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "watergrass");
-        
+
         bramble = registerBlock(new BlockBramble(Block.Properties.create(Material.PLANTS, MaterialColor.NETHERRACK).hardnessAndResistance(0.4F).sound(SoundType.WOOD)), "bramble");
         
         toadstool = registerBlock(new BlockMushroomBOP(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "toadstool");

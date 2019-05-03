@@ -19,6 +19,7 @@ import biomesoplenty.common.biome.overworld.GrasslandBiome;
 import biomesoplenty.common.biome.overworld.LavenderFieldsBiome;
 import biomesoplenty.common.biome.overworld.MapleWoodsBiome;
 import biomesoplenty.common.biome.overworld.MeadowBiome;
+import biomesoplenty.common.biome.overworld.OrchardBiome;
 import biomesoplenty.common.biome.overworld.RedwoodForestBiome;
 import biomesoplenty.common.biome.overworld.SeasonalForestBiome;
 import biomesoplenty.common.biome.overworld.ShrublandBiome;
@@ -57,6 +58,7 @@ public class ModBiomes
         lavender_fields = registerBiome(new LavenderFieldsBiome(), "lavender_fields");
         maple_woods = registerBiome(new MapleWoodsBiome(), "maple_woods");
         meadow = registerBiome(new MeadowBiome(), "meadow");
+        orchard = registerBiome(new OrchardBiome(), "orchard");
         redwood_forest = registerBiome(new RedwoodForestBiome(), "redwood_forest");
         seasonal_forest = registerBiome(new SeasonalForestBiome(), "seasonal_forest");
         shrubland = registerBiome(new ShrublandBiome(), "shrubland");

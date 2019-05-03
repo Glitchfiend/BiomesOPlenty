@@ -7,6 +7,7 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
+import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockDoublePlant;
@@ -20,9 +21,12 @@ import net.minecraft.state.EnumProperty;
 import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraftforge.common.EnumPlantType;
+import net.minecraftforge.common.IPlantable;
 
-public class BlockDoublePlantBOP extends BlockDoublePlant
+public class BlockDoublePlantBOP extends BlockDoublePlant implements IPlantable
 {
    public static final EnumProperty<DoubleBlockHalf> field_208063_b = BlockDoublePlant.HALF;
    private final Block field_196392_b;
@@ -56,5 +60,18 @@ public class BlockDoublePlantBOP extends BlockDoublePlant
      public java.util.List<ItemStack> onSheared(ItemStack item, net.minecraft.world.IWorld world, BlockPos pos, int fortune) {
         world.setBlockState(pos, Blocks.AIR.getDefaultState(), 11);
         return java.util.Arrays.asList(new ItemStack(this.field_196392_b, 2));
+     }
+     
+     @Override
+     public EnumPlantType getPlantType(IBlockReader world, BlockPos pos)
+     {
+     	Block block = world.getBlockState(pos).getBlock();
+     	
+     	if (block == BOPBlocks.tall_cattail)
+     	{
+     		return EnumPlantType.Beach;
+     	}
+     	
+     	return EnumPlantType.Plains;
      }
 }

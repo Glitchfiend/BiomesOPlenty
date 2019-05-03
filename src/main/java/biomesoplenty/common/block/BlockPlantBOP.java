@@ -10,8 +10,10 @@ package biomesoplenty.common.block;
 import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
+import net.minecraft.block.BlockGrass;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.VoxelShape;
@@ -23,7 +25,6 @@ import net.minecraftforge.common.IPlantable;
 public class BlockPlantBOP extends BlockBush implements IPlantable
 {
 	protected static final VoxelShape NORMAL = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
-	protected static final VoxelShape ROOT = Block.makeCuboidShape(2.0D, 2.0D, 2.0D, 14.0D, 16.0D, 14.0D);
 	
     public BlockPlantBOP(Block.Properties properties)
     {
@@ -34,11 +35,6 @@ public class BlockPlantBOP extends BlockBush implements IPlantable
     public VoxelShape getShape(IBlockState state, IBlockReader worldIn, BlockPos pos)
     {
     	Block block = state.getBlock();
-        
-        if (block == BOPBlocks.root)
-        {
-        	return ROOT;
-        }
         
         return NORMAL;
     }
@@ -58,9 +54,9 @@ public class BlockPlantBOP extends BlockBush implements IPlantable
     	{
     		return EnumPlantType.Beach;
     	}
-    	if (block == BOPBlocks.watergrass)
+    	if (block == BOPBlocks.tiny_cactus)
     	{
-    		return EnumPlantType.Water;
+    		return EnumPlantType.Desert;
     	}
     	
     	return EnumPlantType.Plains;

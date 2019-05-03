@@ -18,7 +18,6 @@
 
   "generator.biomesoplenty": "Biomes O' Plenty",
   "itemGroup.biomesoplenty": "Biomes O' Plenty",
-  "item.forge.bucketFilled": "%s Bucket",
   
   "biome.biomesoplenty.alps": "Alps",
   "biome.biomesoplenty.alps_foothills": "Alps Foothills",
@@ -87,8 +86,6 @@
   "biome.biomesoplenty.woodland": "Woodland",
   "biome.biomesoplenty.xeric_shrubland": "Xeric Shrubland",
 
-  "effect.biomesoplenty.curse": "Curse",
-
   "item.biomesoplenty.bop_icon": "BOP Icon",
   "item.biomesoplenty.cherry_boat": "Cherry Boat",
   "item.biomesoplenty.chunk_of_flesh": "Chunk of Flesh",
@@ -111,11 +108,9 @@
 
   "block.biomesoplenty.ash_block": "Ash Block",
   "block.biomesoplenty.barley": "Barley",
-  "block.biomesoplenty.blue_fire": "Blue Fire",
   "block.biomesoplenty.blue_hydrangea": "Blue Hydrangea",
   "block.biomesoplenty.bramble": "Bramble",
   "block.biomesoplenty.burning_blossom": "Burning Blossom",
-  "block.biomesoplenty.bush": "Bush",
   "block.biomesoplenty.cattail": "Cattail",
   "block.biomesoplenty.cherry_button": "Cherry Button",
   "block.biomesoplenty.cherry_door": "Cherry Door",
@@ -294,8 +289,6 @@
   "block.biomesoplenty.redwood_trapdoor": "Redwood Trapdoor",
   "block.biomesoplenty.redwood_wood": "Redwood Wood",
   "block.biomesoplenty.redwood_wood_slab": "Redwood Slab",
-  "block.biomesoplenty.reed": "Reed",
-  "block.biomesoplenty.root": "Root",
   "block.biomesoplenty.rose": "Rose",
   "block.biomesoplenty.sandy_dirt": "Sandy Dirt",
   "block.biomesoplenty.sandy_farmland": "Sandy Farmland",
@@ -351,7 +344,6 @@
   "block.biomesoplenty.umbran_wood": "Umbran Wood",
   "block.biomesoplenty.umbran_wood_slab": "Umbran Slab",
   "block.biomesoplenty.violet": "Violet",
-  "block.biomesoplenty.watergrass": "Watergrass",
   "block.biomesoplenty.white_cherry_leaves": "White Cherry Leaves",
   "block.biomesoplenty.white_cherry_sapling": "White Cherry Sapling",
   "block.biomesoplenty.white_sand": "White Sand",

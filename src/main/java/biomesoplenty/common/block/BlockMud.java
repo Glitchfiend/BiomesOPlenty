@@ -55,8 +55,18 @@ public class BlockMud extends Block
     }
     
     @Override
-    public boolean canSustainPlant(IBlockState state, IBlockReader world, BlockPos pos, EnumFacing facing, net.minecraftforge.common.IPlantable plantable)
-    {
-    	return false;
+    public boolean canSustainPlant(IBlockState state, IBlockReader world, BlockPos pos, EnumFacing facing, net.minecraftforge.common.IPlantable plantable) {
+        net.minecraftforge.common.EnumPlantType type = plantable.getPlantType(world, pos.offset(facing));
+
+        switch (type) {
+            case Desert: return false;
+            case Nether: return false;
+            case Crop: return false;
+            case Cave: return false;
+            case Plains: return false;
+            case Water: return true;
+            case Beach: return false;
+        }
+        return false;
     }
 }

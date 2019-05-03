@@ -21,6 +21,7 @@ public class BOPBiomes
     public static Optional<Biome> lavender_fields = Optional.empty();
     public static Optional<Biome> maple_woods = Optional.empty();
     public static Optional<Biome> meadow = Optional.empty();
+    public static Optional<Biome> orchard = Optional.empty();
     public static Optional<Biome> redwood_forest = Optional.empty();
     public static Optional<Biome> seasonal_forest = Optional.empty();
     public static Optional<Biome> shrubland = Optional.empty();

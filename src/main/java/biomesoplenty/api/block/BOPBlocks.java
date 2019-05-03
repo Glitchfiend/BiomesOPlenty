@@ -276,7 +276,6 @@ public class BOPBlocks
     public static Block willow_vine;
     
     public static Block short_grass;
-    public static Block bush;
     public static Block barley;
     public static Block dune_grass;
     public static Block desert_grass;
@@ -288,9 +287,6 @@ public class BOPBlocks
     public static Block tiny_cactus;
     public static Block cattail;
     public static Block tall_cattail;
-    public static Block root;
-    public static Block reed;
-    public static Block watergrass;
     
     public static Block toadstool;
     public static Block glowshroom;

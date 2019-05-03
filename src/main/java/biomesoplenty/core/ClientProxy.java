@@ -53,13 +53,13 @@ public class ClientProxy extends CommonProxy
         blockColors.register((state, world, pos, tintIndex) ->
             world != null && pos != null ? BiomeColors.getGrassColor(world, pos) : GrassColors.get(0.5D, 1.0D),
             BOPBlocks.loamy_grass_block, BOPBlocks.sandy_grass_block, BOPBlocks.silty_grass_block, BOPBlocks.short_grass,
-            BOPBlocks.devilweed, BOPBlocks.watergrass);
+            BOPBlocks.devilweed);
         
         //Foliage Coloring
         blockColors.register((state, world, pos, tintIndex) ->
 	        world != null && pos != null ? BiomeColors.getFoliageColor(world, pos) : FoliageColors.getDefault(),
 	        BOPBlocks.flowering_oak_leaves, BOPBlocks.mahogany_leaves, BOPBlocks.palm_leaves, BOPBlocks.willow_leaves,
-	        BOPBlocks.ivy, BOPBlocks.willow_vine, BOPBlocks.bush);
+	        BOPBlocks.ivy, BOPBlocks.willow_vine);
         
         //Item Coloring
         itemColors.register((stack, tintIndex) -> {
