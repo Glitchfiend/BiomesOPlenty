@@ -20,6 +20,8 @@ import biomesoplenty.common.biome.overworld.LavenderFieldsBiome;
 import biomesoplenty.common.biome.overworld.LushSwampBiome;
 import biomesoplenty.common.biome.overworld.MapleWoodsBiome;
 import biomesoplenty.common.biome.overworld.MeadowBiome;
+import biomesoplenty.common.biome.overworld.MysticGroveBiome;
+import biomesoplenty.common.biome.overworld.OminousWoodsBiome;
 import biomesoplenty.common.biome.overworld.OrchardBiome;
 import biomesoplenty.common.biome.overworld.RedwoodForestBiome;
 import biomesoplenty.common.biome.overworld.SeasonalForestBiome;
@@ -60,6 +62,8 @@ public class ModBiomes
         lush_swamp = registerBiome(new LushSwampBiome(), "lush_swamp");
         maple_woods = registerBiome(new MapleWoodsBiome(), "maple_woods");
         meadow = registerBiome(new MeadowBiome(), "meadow");
+        mystic_grove = registerBiome(new MysticGroveBiome(), "mystic_grove");
+        ominous_woods = registerBiome(new OminousWoodsBiome(), "ominous_woods");
         orchard = registerBiome(new OrchardBiome(), "orchard");
         redwood_forest = registerBiome(new RedwoodForestBiome(), "redwood_forest");
         seasonal_forest = registerBiome(new SeasonalForestBiome(), "seasonal_forest");
