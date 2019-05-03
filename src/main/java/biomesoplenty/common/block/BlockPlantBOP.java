@@ -15,9 +15,11 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.IWorldReaderBase;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
@@ -44,7 +46,20 @@ public class BlockPlantBOP extends BlockBush implements IPlantable
     {
         return Block.EnumOffsetType.XZ;
     }
-    
+
+    @Override
+    public boolean isValidPosition(IBlockState state, IWorldReaderBase worldIn, BlockPos pos)
+    {
+        Block ground = worldIn.getBlockState(pos.down()).getBlock();
+
+        if (this == BOPBlocks.tiny_cactus)
+        {
+            return ground == Blocks.SAND;
+        }
+
+        return super.isValidPosition(state, worldIn, pos);
+    }
+
     @Override
     public EnumPlantType getPlantType(IBlockReader world, BlockPos pos)
     {
