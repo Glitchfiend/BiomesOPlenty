@@ -17,6 +17,7 @@ import biomesoplenty.common.biome.overworld.ConiferousForestBiome;
 import biomesoplenty.common.biome.overworld.DeadSwampBiome;
 import biomesoplenty.common.biome.overworld.GrasslandBiome;
 import biomesoplenty.common.biome.overworld.LavenderFieldsBiome;
+import biomesoplenty.common.biome.overworld.LushSwampBiome;
 import biomesoplenty.common.biome.overworld.MapleWoodsBiome;
 import biomesoplenty.common.biome.overworld.MeadowBiome;
 import biomesoplenty.common.biome.overworld.OrchardBiome;
@@ -56,6 +57,7 @@ public class ModBiomes
         dead_swamp = registerBiome(new DeadSwampBiome(), "dead_swamp");
         grassland = registerBiome(new GrasslandBiome(), "grassland");
         lavender_fields = registerBiome(new LavenderFieldsBiome(), "lavender_fields");
+        lush_swamp = registerBiome(new LushSwampBiome(), "lush_swamp");
         maple_woods = registerBiome(new MapleWoodsBiome(), "maple_woods");
         meadow = registerBiome(new MeadowBiome(), "meadow");
         orchard = registerBiome(new OrchardBiome(), "orchard");

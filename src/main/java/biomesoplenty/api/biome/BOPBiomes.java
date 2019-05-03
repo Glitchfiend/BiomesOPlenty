@@ -19,6 +19,7 @@ public class BOPBiomes
     public static Optional<Biome> dead_swamp = Optional.empty();
     public static Optional<Biome> grassland = Optional.empty();
     public static Optional<Biome> lavender_fields = Optional.empty();
+    public static Optional<Biome> lush_swamp = Optional.empty();
     public static Optional<Biome> maple_woods = Optional.empty();
     public static Optional<Biome> meadow = Optional.empty();
     public static Optional<Biome> orchard = Optional.empty();
