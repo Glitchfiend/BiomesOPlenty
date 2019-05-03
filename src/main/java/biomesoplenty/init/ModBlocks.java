@@ -9,18 +9,7 @@ package biomesoplenty.init;
 
 import static biomesoplenty.api.block.BOPBlocks.*;
 
-import biomesoplenty.common.block.BlockAsh;
-import biomesoplenty.common.block.BlockBramble;
-import biomesoplenty.common.block.BlockDoublePlantBOP;
-import biomesoplenty.common.block.BlockDriedSand;
-import biomesoplenty.common.block.BlockFlesh;
-import biomesoplenty.common.block.BlockFlowerBOP;
-import biomesoplenty.common.block.BlockFoliageBOP;
-import biomesoplenty.common.block.BlockGrassBOP;
-import biomesoplenty.common.block.BlockLeavesBOP;
-import biomesoplenty.common.block.BlockMud;
-import biomesoplenty.common.block.BlockMushroomBOP;
-import biomesoplenty.common.block.BlockPlantBOP;
+import biomesoplenty.common.block.*;
 import biomesoplenty.common.util.inventory.ItemGroupBOP;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockButtonWood;
@@ -317,8 +306,8 @@ public class ModBlocks
         
         thorn = registerBlock(new BlockPlantBOP(Block.Properties.create(Material.PLANTS, MaterialColor.LIGHT_GRAY_TERRACOTTA).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "thorn");
         tiny_cactus = registerBlock(new BlockPlantBOP(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "tiny_cactus");
-        cattail = registerBlock(new BlockPlantBOP(Block.Properties.create(Material.PLANTS, MaterialColor.DIRT).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "cattail");
-        tall_cattail = registerBlock(new BlockDoublePlantBOP(cattail, Block.Properties.create(Material.PLANTS, MaterialColor.DIRT).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "tall_cattail");
+        cattail = registerBlock(new BlockWaterPlant(Block.Properties.create(Material.PLANTS, MaterialColor.DIRT).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "cattail");
+        tall_cattail = registerBlock(new BlockDoubleWaterPlant(cattail, Block.Properties.create(Material.PLANTS, MaterialColor.DIRT).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "tall_cattail");
 
         bramble = registerBlock(new BlockBramble(Block.Properties.create(Material.PLANTS, MaterialColor.NETHERRACK).hardnessAndResistance(0.4F).sound(SoundType.WOOD)), "bramble");
         

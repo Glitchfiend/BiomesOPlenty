@@ -59,6 +59,7 @@ public class BiomesOPlenty
 
     public void serverStarting(FMLServerStartingEvent evt)
     {
+        logger.info("Registering BoP commands...");
         new BOPCommand(evt.getCommandDispatcher());
     }
 }
