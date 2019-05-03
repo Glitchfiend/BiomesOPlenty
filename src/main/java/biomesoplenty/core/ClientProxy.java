@@ -52,8 +52,7 @@ public class ClientProxy extends CommonProxy
         //Grass Coloring
         blockColors.register((state, world, pos, tintIndex) ->
             world != null && pos != null ? BiomeColors.getGrassColor(world, pos) : GrassColors.get(0.5D, 1.0D),
-            BOPBlocks.loamy_grass_block, BOPBlocks.sandy_grass_block, BOPBlocks.silty_grass_block, BOPBlocks.short_grass,
-            BOPBlocks.devilweed);
+            BOPBlocks.short_grass, BOPBlocks.devilweed);
         
         //Foliage Coloring
         blockColors.register((state, world, pos, tintIndex) ->
@@ -65,9 +64,8 @@ public class ClientProxy extends CommonProxy
         itemColors.register((stack, tintIndex) -> {
             IBlockState iblockstate = ((ItemBlock)stack.getItem()).getBlock().getDefaultState();
             return blockColors.getColor(iblockstate, null, null, tintIndex); }, 
-        	BOPBlocks.loamy_grass_block, BOPBlocks.sandy_grass_block, BOPBlocks.silty_grass_block, BOPBlocks.short_grass,
-        	BOPBlocks.devilweed, BOPBlocks.flowering_oak_leaves, BOPBlocks.mahogany_leaves, BOPBlocks.palm_leaves,
-        	BOPBlocks.willow_leaves, BOPBlocks.ivy, BOPBlocks.willow_vine);
+        	BOPBlocks.short_grass, BOPBlocks.devilweed, BOPBlocks.flowering_oak_leaves, BOPBlocks.mahogany_leaves,
+        	BOPBlocks.palm_leaves, BOPBlocks.willow_leaves, BOPBlocks.ivy, BOPBlocks.willow_vine);
     }
 
     @Override

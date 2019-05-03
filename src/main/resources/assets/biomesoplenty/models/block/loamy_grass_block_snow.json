@@ -1,9 +1,0 @@
-{
-    "parent": "block/cube_bottom_top",
-    "textures": {
-        "particle": "biomesoplenty:blocks/loamy_dirt",
-        "bottom": "biomesoplenty:blocks/loamy_dirt",
-        "top": "block/grass_block_top",
-        "side": "biomesoplenty:blocks/loamy_grass_block_snow"
-    }
-}

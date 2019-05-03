@@ -37,26 +37,6 @@ public class ModBlocks
 {
     public static void init()
     {
-    	origin_grass_block = registerBlock(new BlockGrassBOP(Block.Properties.create(Material.GRASS).needsRandomTick().hardnessAndResistance(0.6F).sound(SoundType.PLANT)), "origin_grass_block");
-    	
-    	loamy_grass_block = registerBlock(new BlockGrassBOP(Block.Properties.create(Material.GRASS).needsRandomTick().hardnessAndResistance(0.6F).sound(SoundType.PLANT)), "loamy_grass_block");
-    	loamy_dirt = registerBlock(new Block(Block.Properties.create(Material.GROUND, MaterialColor.GRAY_TERRACOTTA).hardnessAndResistance(0.5F).sound(SoundType.GROUND)), "loamy_dirt");
-    	coarse_loamy_dirt = registerBlock(new Block(Block.Properties.create(Material.GROUND, MaterialColor.GRAY_TERRACOTTA).hardnessAndResistance(0.5F).sound(SoundType.GROUND)), "coarse_loamy_dirt");
-    	loamy_grass_path = registerBlock(new BlockGrassPath(Block.Properties.create(Material.GROUND).hardnessAndResistance(0.65F).sound(SoundType.PLANT)), "loamy_grass_path");
-    	loamy_farmland = registerBlock(new BlockFarmland(Block.Properties.create(Material.GROUND, MaterialColor.GRAY_TERRACOTTA).needsRandomTick().hardnessAndResistance(0.6F).sound(SoundType.GROUND)), "loamy_farmland");
-    	
-    	sandy_grass_block = registerBlock(new BlockGrassBOP(Block.Properties.create(Material.GRASS).needsRandomTick().hardnessAndResistance(0.6F).sound(SoundType.PLANT)), "sandy_grass_block");
-    	sandy_dirt = registerBlock(new Block(Block.Properties.create(Material.GROUND, MaterialColor.WOOD).hardnessAndResistance(0.5F).sound(SoundType.GROUND)), "sandy_dirt");
-    	coarse_sandy_dirt = registerBlock(new Block(Block.Properties.create(Material.GROUND, MaterialColor.WOOD).hardnessAndResistance(0.5F).sound(SoundType.GROUND)), "coarse_sandy_dirt");
-    	sandy_grass_path = registerBlock(new BlockGrassPath(Block.Properties.create(Material.GROUND).hardnessAndResistance(0.65F).sound(SoundType.PLANT)), "sandy_grass_path");
-    	sandy_farmland = registerBlock(new BlockFarmland(Block.Properties.create(Material.GROUND, MaterialColor.WOOD).needsRandomTick().hardnessAndResistance(0.6F).sound(SoundType.GROUND)), "sandy_farmland");
-    	
-    	silty_grass_block = registerBlock(new BlockGrassBOP(Block.Properties.create(Material.GRASS).needsRandomTick().hardnessAndResistance(0.6F).sound(SoundType.PLANT)), "silty_grass_block");
-    	silty_dirt = registerBlock(new Block(Block.Properties.create(Material.GROUND, MaterialColor.LIGHT_GRAY_TERRACOTTA).hardnessAndResistance(0.5F).sound(SoundType.GROUND)), "silty_dirt");
-    	coarse_silty_dirt = registerBlock(new Block(Block.Properties.create(Material.GROUND, MaterialColor.LIGHT_GRAY_TERRACOTTA).hardnessAndResistance(0.5F).sound(SoundType.GROUND)), "coarse_silty_dirt");
-    	silty_grass_path = registerBlock(new BlockGrassPath(Block.Properties.create(Material.GROUND).hardnessAndResistance(0.65F).sound(SoundType.PLANT)), "silty_grass_path");
-    	silty_farmland = registerBlock(new BlockFarmland(Block.Properties.create(Material.GROUND, MaterialColor.LIGHT_GRAY_TERRACOTTA).needsRandomTick().hardnessAndResistance(0.6F).sound(SoundType.GROUND)), "silty_farmland");
-    	
     	white_sand = registerBlock(new BlockSand(0xF3F1E4, Block.Properties.create(Material.SAND, MaterialColor.QUARTZ).hardnessAndResistance(0.5F).sound(SoundType.SAND)), "white_sand");
     	white_sandstone = registerBlock(new Block(Block.Properties.create(Material.ROCK, MaterialColor.QUARTZ).hardnessAndResistance(0.8F)), "white_sandstone");
     	chiseled_white_sandstone = registerBlock(new Block(Block.Properties.create(Material.ROCK, MaterialColor.QUARTZ).hardnessAndResistance(0.8F)), "chiseled_white_sandstone");

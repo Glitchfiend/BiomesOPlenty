@@ -51,7 +51,7 @@ public class BogBiome extends BiomeBOP
 {
     public BogBiome()
     {
-        super((new Biome.BiomeBuilder()).surfaceBuilder(new CompositeSurfaceBuilder(BOPBiomeFeatures.BOG_SURFACE_BUILDER, BOPBiomeFeatures.LOAMY_GRASS_DIRT_GRAVEL_SURFACE)).precipitation(Biome.RainType.RAIN).category(Biome.Category.SWAMP).depth(-0.1F).scale(0.05F).temperature(0.55F).downfall(0.9F).waterColor(0x354762).waterFogColor(0x040511).parent((String)null));
+        super((new Biome.BiomeBuilder()).surfaceBuilder(new CompositeSurfaceBuilder(BOPBiomeFeatures.BOG_SURFACE_BUILDER, GRASS_DIRT_GRAVEL_SURFACE)).precipitation(Biome.RainType.RAIN).category(Biome.Category.SWAMP).depth(-0.1F).scale(0.05F).temperature(0.55F).downfall(0.9F).waterColor(0x354762).waterFogColor(0x040511).parent((String)null));
 
         // Mineshafts and Strongholds
         this.addStructure(Feature.SWAMP_HUT, new SwampHutConfig());
@@ -82,8 +82,8 @@ public class BogBiome extends BiomeBOP
         this.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, createCompositeFeature(Feature.MINABLE, new MinableConfig(MinableConfig.IS_ROCK, Blocks.REDSTONE_ORE.getDefaultState(), 8), COUNT_RANGE, new CountRangeConfig(8, 0, 0, 16)));
         this.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, createCompositeFeature(Feature.MINABLE, new MinableConfig(MinableConfig.IS_ROCK, Blocks.DIAMOND_ORE.getDefaultState(), 8), COUNT_RANGE, new CountRangeConfig(1, 0, 0, 16)));
         this.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, createCompositeFeature(Feature.MINABLE, new MinableConfig(MinableConfig.IS_ROCK, Blocks.LAPIS_ORE.getDefaultState(), 7), DEPTH_AVERAGE, new DepthAverageConfig(1, 16, 16)));
-        this.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, createCompositeFeature(Feature.SPHERE_REPLACE, new SphereReplaceConfig(BOPBlocks.mud, 8, 2, Lists.newArrayList(BOPBlocks.loamy_dirt, BOPBlocks.loamy_grass_block)), TOP_SOLID, new FrequencyConfig(6)));
-        this.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, createCompositeFeature(Feature.SPHERE_REPLACE, new SphereReplaceConfig(Blocks.CLAY, 4, 1, Lists.newArrayList(BOPBlocks.loamy_dirt, Blocks.CLAY)), TOP_SOLID, new FrequencyConfig(1)));
+        this.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, createCompositeFeature(Feature.SPHERE_REPLACE, new SphereReplaceConfig(BOPBlocks.mud, 8, 2, Lists.newArrayList(Blocks.DIRT, Blocks.GRASS_BLOCK)), TOP_SOLID, new FrequencyConfig(6)));
+        this.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, createCompositeFeature(Feature.SPHERE_REPLACE, new SphereReplaceConfig(Blocks.CLAY, 4, 1, Lists.newArrayList(Blocks.DIRT, Blocks.CLAY)), TOP_SOLID, new FrequencyConfig(1)));
 
         // Vegetation
         this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, createCompositeFeature(Feature.RANDOM_FEATURE_LIST, new RandomDefaultFeatureListConfig(new Feature[]{BOPBiomeFeatures.DARK_OAK_TWIGLET_TREE, BOPBiomeFeatures.TALL_TWIGLET_TREE, BOPBiomeFeatures.DEAD_TREE}, new IFeatureConfig[]{IFeatureConfig.NO_FEATURE_CONFIG, IFeatureConfig.NO_FEATURE_CONFIG, IFeatureConfig.NO_FEATURE_CONFIG}, new float[]{0.8F, 0.4F, 0.1F}, BOPBiomeFeatures.DYING_TREE, IFeatureConfig.NO_FEATURE_CONFIG), AT_SURFACE_WITH_EXTRA, new AtSurfaceWithExtraConfig(4, 0.2F, 1)));

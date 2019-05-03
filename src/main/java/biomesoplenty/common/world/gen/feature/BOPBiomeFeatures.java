@@ -72,10 +72,6 @@ public class BOPBiomeFeatures
 	
 	public static final ISurfaceBuilder<SurfaceBuilderConfig> BOG_SURFACE_BUILDER = new BogSurfaceBuilder();
 	
-	public static final SurfaceBuilderConfig LOAMY_GRASS_DIRT_GRAVEL_SURFACE = new SurfaceBuilderConfig(BOPBlocks.loamy_grass_block.getDefaultState(), BOPBlocks.loamy_dirt.getDefaultState(), Blocks.GRAVEL.getDefaultState());
-	public static final SurfaceBuilderConfig SILTY_GRASS_DIRT_GRAVEL_SURFACE = new SurfaceBuilderConfig(BOPBlocks.silty_grass_block.getDefaultState(), BOPBlocks.silty_dirt.getDefaultState(), Blocks.GRAVEL.getDefaultState());
-	public static final SurfaceBuilderConfig SANDY_GRASS_DIRT_GRAVEL_SURFACE = new SurfaceBuilderConfig(BOPBlocks.sandy_grass_block.getDefaultState(), BOPBlocks.sandy_dirt.getDefaultState(), Blocks.GRAVEL.getDefaultState());
-	public static final SurfaceBuilderConfig COARSE_LOAMY_DIRT_GRAVEL_SURFACE = new SurfaceBuilderConfig(BOPBlocks.coarse_loamy_dirt.getDefaultState(), BOPBlocks.coarse_loamy_dirt.getDefaultState(), Blocks.GRAVEL.getDefaultState());
 	public static final SurfaceBuilderConfig SNOW_SNOW_GRAVEL_SURFACE = new SurfaceBuilderConfig(Blocks.SNOW_BLOCK.getDefaultState(), Blocks.SNOW_BLOCK.getDefaultState(), Blocks.GRAVEL.getDefaultState());
 	public static final SurfaceBuilderConfig DRIED_SAND_GRAVEL_SURFACE = new SurfaceBuilderConfig(BOPBlocks.dried_sand.getDefaultState(), BOPBlocks.dried_sand.getDefaultState(), Blocks.GRAVEL.getDefaultState());
 }

@@ -11,31 +11,6 @@ import net.minecraft.block.Block;
 
 public class BOPBlocks
 {
-	public static Block origin_grass_block;
-	
-	public static Block loamy_grass_block;
-	public static Block loamy_dirt;
-	public static Block coarse_loamy_dirt;
-	public static Block loamy_grass_path;
-	public static Block loamy_farmland;
-	
-	public static Block sandy_grass_block;
-	public static Block sandy_dirt;
-	public static Block coarse_sandy_dirt;
-	public static Block sandy_grass_path;
-	public static Block sandy_farmland;
-	
-	public static Block silty_grass_block;
-	public static Block silty_dirt;
-	public static Block coarse_silty_dirt;
-	public static Block silty_grass_path;
-	public static Block silty_farmland;
-	
-	//public static Block overgrown_stone;
-	//public static Block overgrown_netherrack;
-	//public static Block mycelial_netherrack;
-	//public static Block spectral_moss;
-	
     public static Block white_sand;
     public static Block white_sandstone;
     public static Block cut_white_sandstone;

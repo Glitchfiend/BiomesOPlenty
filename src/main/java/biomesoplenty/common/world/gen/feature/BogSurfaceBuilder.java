@@ -30,9 +30,9 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 public class BogSurfaceBuilder implements ISurfaceBuilder<SurfaceBuilderConfig> {
 	   public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, IBlockState defaultBlock, IBlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
 	      if (noise > 1.9D) {
-	         Biome.DEFAULT_SURFACE_BUILDER.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BOPBiomeFeatures.COARSE_LOAMY_DIRT_GRAVEL_SURFACE);
+	         Biome.DEFAULT_SURFACE_BUILDER.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, Biome.COARSE_DIRT_DIRT_GRAVEL_SURFACE);
 	      } else {
-	         Biome.DEFAULT_SURFACE_BUILDER.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BOPBiomeFeatures.LOAMY_GRASS_DIRT_GRAVEL_SURFACE);
+	         Biome.DEFAULT_SURFACE_BUILDER.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, Biome.GRASS_DIRT_GRAVEL_SURFACE);
 	      }
 
 	   }

@@ -1,8 +1,0 @@
-{
-    "parent": "block/template_farmland",
-    "textures": {
-        "particle": "biomesoplenty:blocks/sandy_dirt",
-        "dirt": "biomesoplenty:blocks/sandy_dirt",
-        "top": "biomesoplenty:blocks/sandy_farmland_moist"
-    }
-}

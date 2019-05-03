@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "biomesoplenty:loamy_grass_block",
-	"biomesoplenty:sandy_grass_block",
-	"biomesoplenty:silty_grass_block",
-	"biomesoplenty:origin_grass_block"
-  ]
-}
