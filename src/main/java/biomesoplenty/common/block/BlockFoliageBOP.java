@@ -23,11 +23,12 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
+import net.minecraftforge.common.IPlantable;
 
 import javax.annotation.Nullable;
 import java.util.Random;
 
-public class BlockFoliageBOP extends BlockBush
+public class BlockFoliageBOP extends BlockBush implements IPlantable
 {
 	protected static final VoxelShape NORMAL = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
 	protected static final VoxelShape SHORT = Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 7.0D, 15.0D);
@@ -107,25 +108,6 @@ public class BlockFoliageBOP extends BlockBush
     @Override
     public EnumPlantType getPlantType(IBlockReader world, BlockPos pos)
     {
-    	Block block = world.getBlockState(pos).getBlock();
-    	
-    	if (block == BOPBlocks.dead_grass)
-    	{
-    		return EnumPlantType.Desert;
-    	}
-    	if (block == BOPBlocks.desert_grass)
-    	{
-    		return EnumPlantType.Desert;
-    	}
-    	if (block == BOPBlocks.dune_grass)
-    	{
-    		return EnumPlantType.Desert;
-    	}
-    	if (block == BOPBlocks.devilweed)
-    	{
-    		return EnumPlantType.Nether;
-    	}
-    	
     	return EnumPlantType.Plains;
     }
 }

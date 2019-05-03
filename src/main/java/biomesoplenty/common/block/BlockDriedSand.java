@@ -30,7 +30,7 @@ public class BlockDriedSand extends Block
             case Nether: return true;
             case Crop: return false;
             case Cave: return true;
-            case Plains: return false;
+            case Plains: return true;
             case Water: return false;
             case Beach: return false;
         }
