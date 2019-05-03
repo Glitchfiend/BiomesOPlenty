@@ -25,11 +25,14 @@ public class BOPBiomes
     public static Optional<Biome> mystic_grove = Optional.empty();
     public static Optional<Biome> ominous_woods = Optional.empty();
     public static Optional<Biome> orchard = Optional.empty();
+    public static Optional<Biome> origin_hills = Optional.empty();
     public static Optional<Biome> redwood_forest = Optional.empty();
     public static Optional<Biome> seasonal_forest = Optional.empty();
     public static Optional<Biome> shrubland = Optional.empty();
     public static Optional<Biome> snowy_coniferous_forest = Optional.empty();
+    public static Optional<Biome> snowy_forest = Optional.empty();
     public static Optional<Biome> steppe = Optional.empty();
+    public static Optional<Biome> temperate_rainforest = Optional.empty();
     public static Optional<Biome> tropical_rainforest = Optional.empty();
     public static Optional<Biome> wasteland = Optional.empty();
     public static Optional<Biome> wetland = Optional.empty();
