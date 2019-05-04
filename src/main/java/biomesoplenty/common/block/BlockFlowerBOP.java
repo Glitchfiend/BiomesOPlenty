@@ -56,10 +56,6 @@ public class BlockFlowerBOP extends BlockFlower
     	
     	if (entityIn instanceof EntityLivingBase)
     	{
-	    	if (block == BOPBlocks.deathbloom)
-	    	{
-	    		((EntityLivingBase) entityIn).addPotionEffect(new PotionEffect(MobEffects.WITHER, 200));
-	    	}
 	    	if (block == BOPBlocks.burning_blossom)
 	    	{
 	    		((EntityLivingBase) entityIn).setFire(1);
@@ -73,18 +69,6 @@ public class BlockFlowerBOP extends BlockFlower
     {
        super.animateTick(stateIn, worldIn, pos, rand);
        Block block = stateIn.getBlock();
-       
-       if (block == BOPBlocks.deathbloom)
-       {
-	       if (rand.nextInt(4) == 0)
-	       {
-	    	   worldIn.addParticle(Particles.MYCELIUM, (double)((float)pos.getX() + rand.nextFloat()), (double)((float)pos.getY() + rand.nextFloat()), (double)((float)pos.getZ() + rand.nextFloat()), 0.0D, 0.0D, 0.0D);
-	       }
-	       if (rand.nextInt(4) == 0)
-	       {
-	    	   worldIn.addParticle(Particles.SMOKE, (double)((float)pos.getX() + rand.nextFloat()), (double)((float)pos.getY() + rand.nextFloat()), (double)((float)pos.getZ() + rand.nextFloat()), 0.0D, 0.0D, 0.0D);
-	       }
-	   }
        
        if (block == BOPBlocks.burning_blossom)
        {

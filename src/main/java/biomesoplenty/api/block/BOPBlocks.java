@@ -243,7 +243,6 @@ public class BOPBlocks
     public static Block pink_daffodil;
     public static Block pink_hibiscus;
     public static Block glowflower;
-    public static Block deathbloom;
     public static Block wilted_lily;
     public static Block burning_blossom;
     
@@ -255,7 +254,6 @@ public class BOPBlocks
     public static Block dune_grass;
     public static Block desert_grass;
     public static Block dead_grass;
-    public static Block devilweed;
     public static Block spectral_fern;
     
     public static Block thorn;
