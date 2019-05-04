@@ -31,7 +31,7 @@ def getGitHash = {
     return stdout.toString().trim()
 }
 
-version = "${minecraft_version}-${mod_version}.${$getGitHash()}"
+version = "${minecraft_version}-${mod_version}.${getGitHash()}"
 
 minecraft {
     mappings channel: 'snapshot', version: mappings_version
