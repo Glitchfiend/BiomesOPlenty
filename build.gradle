@@ -22,9 +22,16 @@ apply plugin: 'maven'
 group = "com.github.glitchfiend.biomesoplenty"
 archivesBaseName = "BiomesOPlenty"
 
-version = "${minecraft_version}-${mod_version}.${System.getenv().BUILD_NUMBER}"
-// set this for the version.properties file, or was this broken on purpose?
-def build_number = (System.getenv().BUILD_NUMBER) ? System.getenv().BUILD_NUMBER : ""
+def getGitHash = {
+    def stdout = new ByteArrayOutputStream()
+    exec {
+        commandLine 'git', 'rev-parse', '--short', 'HEAD'
+        standardOutput = stdout
+    }
+    return stdout.toString().trim()
+}
+
+version = "${minecraft_version}-${mod_version}.${$getGitHash()}"
 
 minecraft {
     mappings channel: 'snapshot', version: mappings_version
@@ -41,6 +48,10 @@ minecraft {
             source sourceSets.main
         }
     }
+}
+
+jar {
+    classifier = 'universal'
 }
 
 dependencies {
