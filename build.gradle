@@ -80,6 +80,23 @@ processResources {
     }
 }
 
+
+import groovy.io.FileType
+
+task changelog(type: JenkinsChangelog) {
+    outputs.upToDateWhen { false } // Refresh changelog for every build
+    def buildNumber = "${System.getenv().BUILD_NUMBER}"
+
+    serverRoot = 'http://ci.jenkins.minecraftforge.net/'
+    jobName = 'BiomesOPlenty'
+    authName = project.getProperty('forgeJenkinsUsername')
+    authPassword = project.getProperty('forgeJenkinsPassword')
+    targetBuild = buildNumber.toString()
+    output = 'build/libs/' + project.getName() + '-' + project.version + '-changelog.txt'
+}
+
+uploadArchives.dependsOn 'changelog'
+
 task sourcesJar(type: Jar) {
     from sourceSets.main.allJava
     from (sourceSets.main.output) {
@@ -132,37 +149,33 @@ task listOutputs << {
 
 tasks.build.finalizedBy('listOutputs')
 
-curseforge {
-    if (project.hasProperty('curseApiKey')) {
-        apiKey = project.getProperty('curseApiKey')
-        project {
-            id = '220318'
-            changelog = file('build/changelog.txt')
-            releaseType = 'beta'
-        }
-    }
-}
-
-def changelog = rootProject.file('build/changelog.txt')
-
 artifacts {
-    if (changelog.exists()) {
-        archives changelog
-    }
+    archives changelog.output
     archives sourcesJar
     archives deobfJar
     archives apiJar
 }
 
+curseforge {
+    apiKey = project.getProperty('curseApiKey')
+    project {
+        id = '220318'
+        changelog = file('build/libs/' + project.getName() + '-' + project.version + '-changelog.txt')
+        releaseType = 'beta'
+    }
+}
+
 uploadArchives {
     repositories {
         mavenDeployer {
-			if (project.hasProperty('forgeMavenPassword')) {
+			if (project.hasProperty('forgeMavenPassword'))
+			{
 				repository(url: "https://files.minecraftforge.net/maven/manage/upload") {
 					authentication(userName: project.getProperty('forgeMavenUsername'), password: project.getProperty('forgeMavenPassword'))
 				}
 			}
-			else {
+			else
+			{
 				// local repo folder. Might wanna juset use  gradle install   if you wanans end it to maven-local
 				repository(url: 'file://localhost/' + project.file('repo').getAbsolutePath())
 			}
