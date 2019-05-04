@@ -95,7 +95,7 @@ task changelog(type: JenkinsChangelog) {
     output = 'build/libs/' + project.getName() + '-' + project.version + '-changelog.txt'
 }
 
-tasks.build.dependsOn('changelog')
+uploadArchives.dependsOn 'changelog'
 
 task sourcesJar(type: Jar) {
     from sourceSets.main.allJava
@@ -153,7 +153,7 @@ artifacts {
     archives changelog.output
     archives sourcesJar
     archives deobfJar
-	archives apiJar
+    archives apiJar
 }
 
 curseforge {
