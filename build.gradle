@@ -157,7 +157,7 @@ artifacts {
 }
 
 curseforge {
-    apiKey = "$System.env.curse_api_key"
+    apiKey = project.getProperty('curseApiKey')
     project {
         id = '220318'
         changelog = file('build/libs/' + project.getName() + '-' + project.version + '-changelog.txt')
