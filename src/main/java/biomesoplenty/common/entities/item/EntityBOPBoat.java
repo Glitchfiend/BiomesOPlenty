@@ -916,7 +916,7 @@ public class EntityBOPBoat extends EntityBoat
     @Override
     public boolean getPaddleState(int side)
     {
-        return ((Boolean)this.dataManager.get(DATA_ID_PADDLE[side])).booleanValue() && this.getControllingPassenger() != null;
+        return this.dataManager.get(DATA_ID_PADDLE[side]) && this.getControllingPassenger() != null;
     }
 
     @Override
@@ -928,7 +928,7 @@ public class EntityBOPBoat extends EntityBoat
     @Override
     public float getDamageTaken()
     {
-        return ((Float)this.dataManager.get(DAMAGE_TAKEN)).floatValue();
+        return this.dataManager.get(DAMAGE_TAKEN);
     }
 
     @Override
@@ -940,7 +940,7 @@ public class EntityBOPBoat extends EntityBoat
     @Override
     public int getTimeSinceHit()
     {
-        return ((Integer)this.dataManager.get(TIME_SINCE_HIT)).intValue();
+        return this.dataManager.get(TIME_SINCE_HIT);
     }
 
     @Override
@@ -952,7 +952,7 @@ public class EntityBOPBoat extends EntityBoat
     @Override
     public int getForwardDirection()
     {
-        return ((Integer)this.dataManager.get(FORWARD_DIRECTION)).intValue();
+        return this.dataManager.get(FORWARD_DIRECTION);
     }
 
     public void setBoatType(EntityBOPBoat.Type boatType)
@@ -967,7 +967,7 @@ public class EntityBOPBoat extends EntityBoat
 
     public EntityBOPBoat.Type getBOPBoatType()
     {
-        return EntityBOPBoat.Type.byId(((Integer)this.dataManager.get(BOAT_TYPE)).intValue());
+        return EntityBOPBoat.Type.byId(this.dataManager.get(BOAT_TYPE));
     }
 
     @Override
