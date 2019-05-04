@@ -25,7 +25,7 @@ pipeline {
             steps {
                 sh './gradlew ${GRADLE_ARGS} --refresh-dependencies'
                 script {
-                    env.MYVERSION = sh(returnStdout: true, script: './gradlew :properties -q | grep "version:" | awk \'{print $2}\'').trim()
+                    env.MYVERSION = sh(returnStdout: true, script: './gradlew :properties -q | grep "^version:" | awk \'{print $2}\'').trim()
                 }
             }
         }
