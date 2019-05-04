@@ -84,7 +84,7 @@ task apiJar(type: Jar) {
     classifier = 'api'
 }
 
-def changelog_file = rootProject.file('build/BiomesOPlenty-${version}-changelog.txt')
+def changelog_file = rootProject.file("build/BiomesOPlenty-${version}-changelog.txt")
 
 curseforge {
     if (project.hasProperty('curseApiKey')) {
