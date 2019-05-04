@@ -15,6 +15,7 @@ import net.minecraft.block.BlockFlower;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.Particles;
 import net.minecraft.potion.PotionEffect;
@@ -22,6 +23,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.IWorldReaderBase;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -47,6 +49,19 @@ public class BlockFlowerBOP extends BlockFlower
         }
         
         return NORMAL;
+    }
+    
+    @Override
+    public boolean isValidPosition(IBlockState state, IWorldReaderBase worldIn, BlockPos pos)
+    {
+        Block ground = worldIn.getBlockState(pos.down()).getBlock();
+
+        if (this == BOPBlocks.wildflower)
+        {
+            return ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.white_sand || super.isValidPosition(state, worldIn, pos);
+        }
+
+        return super.isValidPosition(state, worldIn, pos);
     }
     
     @Override

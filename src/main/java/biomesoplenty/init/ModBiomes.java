@@ -24,6 +24,7 @@ import biomesoplenty.common.biome.overworld.MysticGroveBiome;
 import biomesoplenty.common.biome.overworld.OminousWoodsBiome;
 import biomesoplenty.common.biome.overworld.OrchardBiome;
 import biomesoplenty.common.biome.overworld.OriginHillsBiome;
+import biomesoplenty.common.biome.overworld.OutbackBiome;
 import biomesoplenty.common.biome.overworld.RedwoodForestBiome;
 import biomesoplenty.common.biome.overworld.SeasonalForestBiome;
 import biomesoplenty.common.biome.overworld.ShrublandBiome;
@@ -35,6 +36,7 @@ import biomesoplenty.common.biome.overworld.TropicalRainforestBiome;
 import biomesoplenty.common.biome.overworld.WastelandBiome;
 import biomesoplenty.common.biome.overworld.WetlandBiome;
 import biomesoplenty.common.biome.overworld.WoodlandBiome;
+import biomesoplenty.common.biome.overworld.XericShrublandBiome;
 import biomesoplenty.common.world.WorldTypeBOP;
 import net.minecraft.item.Item;
 import net.minecraft.world.biome.Biome;
@@ -69,6 +71,7 @@ public class ModBiomes
         ominous_woods = registerBiome(new OminousWoodsBiome(), "ominous_woods");
         orchard = registerBiome(new OrchardBiome(), "orchard");
         origin_hills = registerBiome(new OriginHillsBiome(), "origin_hills");
+        outback = registerBiome(new OutbackBiome(), "outback");
         redwood_forest = registerBiome(new RedwoodForestBiome(), "redwood_forest");
         seasonal_forest = registerBiome(new SeasonalForestBiome(), "seasonal_forest");
         shrubland = registerBiome(new ShrublandBiome(), "shrubland");
@@ -80,6 +83,7 @@ public class ModBiomes
         wasteland = registerBiome(new WastelandBiome(), "wasteland");
         wetland = registerBiome(new WetlandBiome(), "wetland");
         woodland = registerBiome(new WoodlandBiome(), "woodland");
+        xeric_shrubland = registerBiome(new XericShrublandBiome(), "xeric_shrubland");
     }
 
     public static Optional<Biome> registerBiome(BiomeBOP biome, String name)

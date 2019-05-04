@@ -54,7 +54,7 @@ public class BlockPlantBOP extends BlockBush implements IPlantable
 
         if (this == BOPBlocks.tiny_cactus)
         {
-            return ground == Blocks.SAND;
+            return ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.white_sand || super.isValidPosition(state, worldIn, pos);
         }
 
         return super.isValidPosition(state, worldIn, pos);

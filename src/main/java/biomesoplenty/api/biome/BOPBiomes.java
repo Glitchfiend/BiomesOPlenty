@@ -26,6 +26,7 @@ public class BOPBiomes
     public static Optional<Biome> ominous_woods = Optional.empty();
     public static Optional<Biome> orchard = Optional.empty();
     public static Optional<Biome> origin_hills = Optional.empty();
+    public static Optional<Biome> outback = Optional.empty();
     public static Optional<Biome> redwood_forest = Optional.empty();
     public static Optional<Biome> seasonal_forest = Optional.empty();
     public static Optional<Biome> shrubland = Optional.empty();
@@ -37,4 +38,5 @@ public class BOPBiomes
     public static Optional<Biome> wasteland = Optional.empty();
     public static Optional<Biome> wetland = Optional.empty();
     public static Optional<Biome> woodland = Optional.empty();
+    public static Optional<Biome> xeric_shrubland = Optional.empty();
 }

@@ -21,6 +21,7 @@ import net.minecraft.util.IItemProvider;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.IWorldReaderBase;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
@@ -97,6 +98,19 @@ public class BlockFoliageBOP extends BlockBush implements IPlantable
 	       if (!seed.isEmpty())
 	          drops.add(seed);
 	   }
+    }
+    
+    @Override
+    public boolean isValidPosition(IBlockState state, IWorldReaderBase worldIn, BlockPos pos)
+    {
+        Block ground = worldIn.getBlockState(pos.down()).getBlock();
+
+        if (this == BOPBlocks.dune_grass || this == BOPBlocks.desert_grass || this == BOPBlocks.dead_grass)
+        {
+            return ground == BOPBlocks.dried_sand || ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.white_sand || super.isValidPosition(state, worldIn, pos);
+        }
+
+        return super.isValidPosition(state, worldIn, pos);
     }
     
     @Override
