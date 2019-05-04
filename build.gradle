@@ -89,8 +89,8 @@ task changelog(type: JenkinsChangelog) {
 
     serverRoot = 'http://ci.jenkins.minecraftforge.net/'
     jobName = 'BiomesOPlenty'
-    authName = project.getProperty('forgeMavenUsername')
-    authPassword = project.getProperty('forgeMavenPassword')
+    authName = project.getProperty('forgeJenkinsUsername')
+    authPassword = project.getProperty('forgeJenkinsPassword')
     targetBuild = buildNumber.toString()
     output = 'build/libs/' + project.getName() + '-' + project.version + '-changelog.txt'
 }
