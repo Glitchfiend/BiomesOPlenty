@@ -58,7 +58,7 @@ pipeline {
     post {
         always {
             script {
-                archiveArtifacts artifacts: '${WORKSPACE}/build/libs/**/*.*', fingerprint: true, onlyIfSuccessful: true, allowEmptyArchive: true
+                archiveArtifacts artifacts: 'build/libs/**/*.*', fingerprint: true, onlyIfSuccessful: true, allowEmptyArchive: true
             }
         }
     }

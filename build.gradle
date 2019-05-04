@@ -31,7 +31,7 @@ def getGitHash = {
     return stdout.toString().trim()
 }
 
-version = "${minecraft_version}-${mod_version}.${getGitHash()}"
+version = "${minecraft_version}-${mod_version}.${System.getenv().BUILD_NUMBER}"
 
 minecraft {
     mappings channel: 'snapshot', version: mappings_version
@@ -99,7 +99,9 @@ def changelog = rootProject.file('build/changelog.txt')
 
 artifacts {
     if (changelog.exists()) {
-        archives changelog
+        archives changelog {
+            classifier = 'changelog'
+        }
     }
     archives sourcesJar
     archives deobfJar
