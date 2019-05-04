@@ -15,6 +15,7 @@ import biomesoplenty.common.biome.overworld.AlpsBiome;
 import biomesoplenty.common.biome.overworld.CherryBlossomGroveBiome;
 import biomesoplenty.common.biome.overworld.ConiferousForestBiome;
 import biomesoplenty.common.biome.overworld.BogBiome;
+import biomesoplenty.common.biome.overworld.ChaparralBiome;
 import biomesoplenty.common.biome.overworld.GrasslandBiome;
 import biomesoplenty.common.biome.overworld.LavenderFieldsBiome;
 import biomesoplenty.common.biome.overworld.LushSwampBiome;
@@ -60,6 +61,7 @@ public class ModBiomes
     {
     	alps = registerBiome(new AlpsBiome(), "alps");
         bog = registerBiome(new BogBiome(), "bog");
+        chaparral = registerBiome(new ChaparralBiome(), "chaparral");
     	cherry_blossom_grove = registerBiome(new CherryBlossomGroveBiome(), "cherry_blossom_grove");
         coniferous_forest = registerBiome(new ConiferousForestBiome(), "coniferous_forest");
         grassland = registerBiome(new GrasslandBiome(), "grassland");
