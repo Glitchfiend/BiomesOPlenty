@@ -36,7 +36,7 @@ pipeline {
                 }
             }
             steps {
-                writeChangelog(currentBuild, 'build/changelog.txt')
+                writeChangelog(currentBuild, 'build/BiomesOPlenty-${MYVERSION}-changelog.txt')
             }
         }
         stage('publish') {

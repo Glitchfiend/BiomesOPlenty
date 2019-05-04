@@ -95,13 +95,11 @@ curseforge {
     }
 }
 
-def changelog = rootProject.file('build/changelog.txt')
+def changelog = rootProject.file('build/BiomesOPlenty-${version}-changelog.txt')
 
 artifacts {
     if (changelog.exists()) {
-        archives changelog {
-            classifier = 'changelog'
-        }
+        archives changelog
     }
     archives sourcesJar
     archives deobfJar
