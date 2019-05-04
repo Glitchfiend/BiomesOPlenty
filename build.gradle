@@ -84,22 +84,28 @@ task apiJar(type: Jar) {
     classifier = 'api'
 }
 
+def changelog_file = rootProject.file('build/BiomesOPlenty-${version}-changelog.txt')
+
 curseforge {
     if (project.hasProperty('curseApiKey')) {
         apiKey = project.getProperty('curseApiKey')
         project {
             id = '220318'
-            changelog = file('build/changelog.txt')
+
+            if (changelog.exists()) {
+                changelog = changelog_file
+            }
+
             releaseType = 'beta'
         }
     }
 }
 
-def changelog = rootProject.file('build/BiomesOPlenty-${version}-changelog.txt')
+
 
 artifacts {
-    if (changelog.exists()) {
-        archives changelog
+    if (changelog_file.exists()) {
+        archives changelog_file
     }
     archives sourcesJar
     archives deobfJar
