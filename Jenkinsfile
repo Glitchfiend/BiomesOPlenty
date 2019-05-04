@@ -23,7 +23,7 @@ pipeline {
         }
         stage('setup') {
             steps {
-                sh './gradlew ${GRADLE_ARGS} --refresh-dependencies --continue setup'
+                sh './gradlew ${GRADLE_ARGS} --refresh-dependencies'
                 script {
                     env.MYVERSION = sh(returnStdout: true, script: './gradlew :properties -q | grep "version:" | awk \'{print $2}\'').trim()
                 }
@@ -50,7 +50,7 @@ pipeline {
                 FORGE_MAVEN_PSW = credentials('forge-maven-password')
             }
             steps {
-                sh './gradlew ${GRADLE_ARGS} :publish -PforgeMavenUser=${FORGE_MAVEN_USR} -PforgeMavenPassword=${FORGE_MAVEN_PSW}'
+                sh './gradlew ${GRADLE_ARGS} :uploadArchives -PforgeMavenUser=${FORGE_MAVEN_USR} -PforgeMavenPassword=${FORGE_MAVEN_PSW}'
                 sh 'curl --user ${FORGE_MAVEN_USR} http://files.minecraftforge.net/maven/manage/promote/latest/net.minecraftforge.forge/${MYVERSION}'
             }
         }

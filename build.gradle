@@ -144,18 +144,8 @@ uploadArchives {
                             roles { role 'developer' }
                         }
                         developer {
-                            id 'Amnet'
-                            name 'Amnet'
-                            roles { role 'developer' }
-                        }
-                        developer {
                             id 'Forstride'
                             name 'Forstride'
-                            roles { role 'developer' }
-                        }
-                        developer {
-                            id 'ted80'
-                            name 'ted80'
                             roles { role 'developer' }
                         }
                     }
