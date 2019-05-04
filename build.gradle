@@ -84,6 +84,7 @@ processResources {
 import groovy.io.FileType
 
 task changelog(type: JenkinsChangelog) {
+    outputs.upToDateWhen { false } // Refresh changelog for every build
     def buildNumber = "${System.getenv().BUILD_NUMBER}"
 
     serverRoot = 'http://ci.jenkins.minecraftforge.net/'
