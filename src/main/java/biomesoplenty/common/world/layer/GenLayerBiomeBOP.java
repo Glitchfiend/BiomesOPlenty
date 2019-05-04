@@ -46,23 +46,25 @@ public enum GenLayerBiomeBOP implements IAreaTransformer2, IDimOffset0Transforme
             throw new RuntimeException(msg,e);
         }
 
-        // At this point, oceans and land have been assigned, and so have mushroom islands
-        if (landSeaVal == DEEP_OCEAN)
+        // Don't allow oceans to generate in extreme climates or the biomes immediately surrounding them
+        if (climate.ordinal() > BOPClimates.TUNDRA.ordinal() && climate.ordinal() < BOPClimates.HOT_DESERT.ordinal())
         {
-            return IRegistry.BIOME.getId(climate.getRandomOceanBiome(context, true));
+            // At this point, oceans and land have been assigned, and so have mushroom islands
+            if (landSeaVal == DEEP_OCEAN)
+            {
+                return IRegistry.BIOME.getId(climate.getRandomOceanBiome(context, true));
+            }
+            else if ((landSeaVal == MUSHROOM_FIELDS /*|| ModBiomes.islandBiomesMap.containsKey(landSeaVal)*/) && climate.biomeType != BiomeManager.BiomeType.ICY) // TODO
+            {
+                // keep islands, unless it's in an icy climate in which case, replace
+                return landSeaVal;
+            }
+            else if (landSeaVal == 0)
+            {
+                return IRegistry.BIOME.getId(climate.getRandomOceanBiome(context, false));
+            }
         }
-        else if ((landSeaVal == MUSHROOM_FIELDS /*|| ModBiomes.islandBiomesMap.containsKey(landSeaVal)*/) && climate.biomeType != BiomeManager.BiomeType.ICY) // TODO
-        {
-            // keep islands, unless it's in an icy climate in which case, replace
-            return landSeaVal;
-        }
-        else if (landSeaVal == 0)
-        {
-            return IRegistry.BIOME.getId(climate.getRandomOceanBiome(context, false));
-        }
-        else
-        {
-            return IRegistry.BIOME.getId(climate.getRandomBiome(context));
-        }
+
+        return IRegistry.BIOME.getId(climate.getRandomBiome(context));
     }
 }
