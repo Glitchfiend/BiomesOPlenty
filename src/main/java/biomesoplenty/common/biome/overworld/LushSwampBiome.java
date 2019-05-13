@@ -48,7 +48,7 @@ public class LushSwampBiome extends BiomeBOP
 {
     public LushSwampBiome()
     {
-        super((new Biome.BiomeBuilder()).surfaceBuilder(new CompositeSurfaceBuilder(DEFAULT_SURFACE_BUILDER, GRASS_DIRT_GRAVEL_SURFACE)).precipitation(Biome.RainType.RAIN).category(Biome.Category.SWAMP).depth(0.0F).scale(0.1F).temperature(0.7F).downfall(1.0F).waterColor(4159204).waterFogColor(329011).parent((String)null));
+        super((new Biome.BiomeBuilder()).surfaceBuilder(new CompositeSurfaceBuilder(DEFAULT_SURFACE_BUILDER, GRASS_DIRT_GRAVEL_SURFACE)).precipitation(Biome.RainType.RAIN).category(Biome.Category.SWAMP).depth(-0.05F).scale(0.1F).temperature(0.7F).downfall(1.0F).waterColor(4159204).waterFogColor(329011).parent((String)null));
 
         // Mineshafts and Strongholds
         this.addStructure(Feature.SWAMP_HUT, new SwampHutConfig());

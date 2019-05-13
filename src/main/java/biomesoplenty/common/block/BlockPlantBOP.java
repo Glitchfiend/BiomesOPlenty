@@ -82,10 +82,6 @@ public class BlockPlantBOP extends BlockBush implements IPlantable
     {
     	Block block = stateIn.getBlock();
     	
-    	if (block == BOPBlocks.thorn)
-    	{
-    		entityIn.attackEntityFrom(DamageSource.CACTUS, 1.0F);
-    	}
     	if (block == BOPBlocks.tiny_cactus)
     	{
     		entityIn.attackEntityFrom(DamageSource.CACTUS, 1.0F);

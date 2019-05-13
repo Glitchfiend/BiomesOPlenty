@@ -246,7 +246,6 @@ public class BOPBlocks
     public static Block wilted_lily;
     public static Block burning_blossom;
     
-    public static Block ivy;
     public static Block willow_vine;
     
     public static Block short_grass;
@@ -257,7 +256,6 @@ public class BOPBlocks
     public static Block dead_grass;
     public static Block spectral_fern;
     
-    public static Block thorn;
     public static Block tiny_cactus;
     public static Block cattail;
     public static Block tall_cattail;

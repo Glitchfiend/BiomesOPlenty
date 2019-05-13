@@ -272,7 +272,6 @@ public class ModBlocks
         wilted_lily = registerBlock(new BlockFlowerBOP(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "wilted_lily");
         burning_blossom = registerBlock(new BlockFlowerBOP(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT).lightValue(8)), "burning_blossom");
         
-        ivy = registerBlock(new BlockVine(Block.Properties.create(Material.VINE).doesNotBlockMovement().needsRandomTick().hardnessAndResistance(0.2F).sound(SoundType.PLANT)), "ivy");
         willow_vine = registerBlock(new BlockVine(Block.Properties.create(Material.VINE).doesNotBlockMovement().needsRandomTick().hardnessAndResistance(0.2F).sound(SoundType.PLANT)), "willow_vine");
         
         short_grass = registerBlock(new BlockFoliageBOP(Block.Properties.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "short_grass");
@@ -283,7 +282,6 @@ public class ModBlocks
         dead_grass = registerBlock(new BlockFoliageBOP(Block.Properties.create(Material.VINE, MaterialColor.WOOD).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "dead_grass");
         spectral_fern = registerBlock(new BlockFoliageBOP(Block.Properties.create(Material.VINE, MaterialColor.RED).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "spectral_fern");
         
-        thorn = registerBlock(new BlockPlantBOP(Block.Properties.create(Material.PLANTS, MaterialColor.LIGHT_GRAY_TERRACOTTA).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "thorn");
         tiny_cactus = registerBlock(new BlockPlantBOP(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "tiny_cactus");
         cattail = registerBlock(new BlockWaterPlant(Block.Properties.create(Material.PLANTS, MaterialColor.DIRT).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "cattail");
         tall_cattail = registerBlock(new BlockDoubleWaterPlant(cattail, Block.Properties.create(Material.PLANTS, MaterialColor.DIRT).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "tall_cattail");

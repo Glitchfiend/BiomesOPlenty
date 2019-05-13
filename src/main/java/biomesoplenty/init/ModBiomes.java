@@ -31,6 +31,7 @@ import biomesoplenty.common.biome.overworld.PastureBiome;
 import biomesoplenty.common.biome.overworld.PrairieBiome;
 import biomesoplenty.common.biome.overworld.RedwoodForestBiome;
 import biomesoplenty.common.biome.overworld.SeasonalForestBiome;
+import biomesoplenty.common.biome.overworld.ShieldBiome;
 import biomesoplenty.common.biome.overworld.ShrublandBiome;
 import biomesoplenty.common.biome.overworld.SnowyConiferousForestBiome;
 import biomesoplenty.common.biome.overworld.SnowyForestBiome;
@@ -82,6 +83,7 @@ public class ModBiomes
         prairie = registerBiome(new PrairieBiome(), "prairie");
         redwood_forest = registerBiome(new RedwoodForestBiome(), "redwood_forest");
         seasonal_forest = registerBiome(new SeasonalForestBiome(), "seasonal_forest");
+        shield = registerBiome(new ShieldBiome(), "shield");
         shrubland = registerBiome(new ShrublandBiome(), "shrubland");
         snowy_coniferous_forest = registerBiome(new SnowyConiferousForestBiome(), "snowy_coniferous_forest");
         snowy_forest = registerBiome(new SnowyForestBiome(), "snowy_forest");
