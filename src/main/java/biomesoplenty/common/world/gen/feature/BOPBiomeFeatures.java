@@ -43,9 +43,11 @@ public class BOPBiomeFeatures
 	public static final AbstractTreeFeature<NoFeatureConfig> BIG_FLOWERING_OAK_TREE = new BigTreeFeature.Builder().altLeaves(BOPBlocks.flowering_oak_leaves.getDefaultState()).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> DEAD_TREE = new BigTreeFeature.Builder().maxHeight(12).log(BOPBlocks.dead_log.getDefaultState()).leaves(Blocks.AIR.getDefaultState()).foliageHeight(0).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> DYING_TREE = new BigTreeFeature.Builder().maxHeight(12).log(BOPBlocks.dead_log.getDefaultState()).leaves(BOPBlocks.dead_leaves.getDefaultState()).foliageHeight(1).create();
+	public static final AbstractTreeFeature<NoFeatureConfig> SPARSE_OAK_TREE = new BigTreeFeature.Builder().minHeight(7).maxHeight(12).foliageHeight(1).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> DEAD_TREE_WASTELAND = new BigTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == BOPBlocks.dried_sand).maxHeight(12).log(BOPBlocks.dead_log.getDefaultState()).leaves(Blocks.AIR.getDefaultState()).foliageHeight(0).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> DYING_TREE_WASTELAND = new BigTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == BOPBlocks.dried_sand).maxHeight(12).log(BOPBlocks.dead_log.getDefaultState()).leaves(BOPBlocks.dead_leaves.getDefaultState()).foliageHeight(1).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> YELLOW_AUTUMN_TREE = new BasicTreeFeature.Builder().log(Blocks.BIRCH_LOG.getDefaultState()).leaves(BOPBlocks.yellow_autumn_leaves.getDefaultState()).minHeight(5).maxHeight(8).create();
+	public static final AbstractTreeFeature<NoFeatureConfig> BIG_YELLOW_AUTUMN_TREE = new BigTreeFeature.Builder().log(Blocks.BIRCH_LOG.getDefaultState()).leaves(BOPBlocks.yellow_autumn_leaves.getDefaultState()).maxHeight(13).foliageHeight(3).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> ORANGE_AUTUMN_TREE = new BasicTreeFeature.Builder().log(Blocks.DARK_OAK_LOG.getDefaultState()).leaves(BOPBlocks.orange_autumn_leaves.getDefaultState()).minHeight(5).maxHeight(8).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> MAPLE_TREE = new BasicTreeFeature.Builder().leaves(BOPBlocks.maple_leaves.getDefaultState()).minHeight(5).maxHeight(10).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> PINK_CHERRY_TREE = new BasicTreeFeature.Builder().log(BOPBlocks.cherry_log.getDefaultState()).leaves(BOPBlocks.pink_cherry_leaves.getDefaultState()).create();
@@ -79,6 +81,7 @@ public class BOPBiomeFeatures
 	public static final AbstractFlowersFeature MEADOW_FLOWERS = new MeadowFlowersFeature();
 	public static final AbstractFlowersFeature MYSTIC_GROVE_FLOWERS = new MysticGroveFlowersFeature();
 	public static final AbstractFlowersFeature ORIGIN_FLOWERS = new OriginFlowersFeature();
+	public static final AbstractFlowersFeature PRAIRIE_FLOWERS = new PrairieFlowersFeature();
 	public static final AbstractFlowersFeature SHRUBLAND_FLOWERS = new ShrublandFlowersFeature();
 	public static final AbstractFlowersFeature SNOWY_FLOWERS = new SnowyFlowersFeature();
 	public static final AbstractFlowersFeature WASTELAND_FLOWERS = new WastelandFlowersFeature();

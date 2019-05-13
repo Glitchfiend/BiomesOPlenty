@@ -57,14 +57,14 @@ public class ClientProxy extends CommonProxy
         //Foliage Coloring
         blockColors.register((state, world, pos, tintIndex) ->
 	        world != null && pos != null ? BiomeColors.getFoliageColor(world, pos) : FoliageColors.getDefault(),
-	        BOPBlocks.flowering_oak_leaves, BOPBlocks.mahogany_leaves, BOPBlocks.palm_leaves, BOPBlocks.willow_leaves,
+	        BOPBlocks.bush, BOPBlocks.flowering_oak_leaves, BOPBlocks.mahogany_leaves, BOPBlocks.palm_leaves, BOPBlocks.willow_leaves,
 	        BOPBlocks.ivy, BOPBlocks.willow_vine);
         
         //Item Coloring
         itemColors.register((stack, tintIndex) -> {
             IBlockState iblockstate = ((ItemBlock)stack.getItem()).getBlock().getDefaultState();
             return blockColors.getColor(iblockstate, null, null, tintIndex); }, 
-        	BOPBlocks.short_grass, BOPBlocks.flowering_oak_leaves, BOPBlocks.mahogany_leaves,
+        	BOPBlocks.short_grass, BOPBlocks.bush, BOPBlocks.flowering_oak_leaves, BOPBlocks.mahogany_leaves,
         	BOPBlocks.palm_leaves, BOPBlocks.willow_leaves, BOPBlocks.ivy, BOPBlocks.willow_vine);
     }
 

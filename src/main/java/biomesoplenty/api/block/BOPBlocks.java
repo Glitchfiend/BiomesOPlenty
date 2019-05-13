@@ -250,6 +250,7 @@ public class BOPBlocks
     public static Block willow_vine;
     
     public static Block short_grass;
+    public static Block bush;
     public static Block barley;
     public static Block dune_grass;
     public static Block desert_grass;

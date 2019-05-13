@@ -15,6 +15,7 @@ import biomesoplenty.common.biome.overworld.AlpsBiome;
 import biomesoplenty.common.biome.overworld.CherryBlossomGroveBiome;
 import biomesoplenty.common.biome.overworld.ConiferousForestBiome;
 import biomesoplenty.common.biome.overworld.BogBiome;
+import biomesoplenty.common.biome.overworld.BorealForestBiome;
 import biomesoplenty.common.biome.overworld.ChaparralBiome;
 import biomesoplenty.common.biome.overworld.GrasslandBiome;
 import biomesoplenty.common.biome.overworld.LavenderFieldsBiome;
@@ -26,6 +27,8 @@ import biomesoplenty.common.biome.overworld.OminousWoodsBiome;
 import biomesoplenty.common.biome.overworld.OrchardBiome;
 import biomesoplenty.common.biome.overworld.OriginHillsBiome;
 import biomesoplenty.common.biome.overworld.OutbackBiome;
+import biomesoplenty.common.biome.overworld.PastureBiome;
+import biomesoplenty.common.biome.overworld.PrairieBiome;
 import biomesoplenty.common.biome.overworld.RedwoodForestBiome;
 import biomesoplenty.common.biome.overworld.SeasonalForestBiome;
 import biomesoplenty.common.biome.overworld.ShrublandBiome;
@@ -61,6 +64,7 @@ public class ModBiomes
     {
     	alps = registerBiome(new AlpsBiome(), "alps");
         bog = registerBiome(new BogBiome(), "bog");
+        boreal_forest = registerBiome(new BorealForestBiome(), "boreal_forest");
         chaparral = registerBiome(new ChaparralBiome(), "chaparral");
     	cherry_blossom_grove = registerBiome(new CherryBlossomGroveBiome(), "cherry_blossom_grove");
         coniferous_forest = registerBiome(new ConiferousForestBiome(), "coniferous_forest");
@@ -74,6 +78,8 @@ public class ModBiomes
         orchard = registerBiome(new OrchardBiome(), "orchard");
         origin_hills = registerBiome(new OriginHillsBiome(), "origin_hills");
         outback = registerBiome(new OutbackBiome(), "outback");
+        pasture = registerBiome(new PastureBiome(), "pasture");
+        prairie = registerBiome(new PrairieBiome(), "prairie");
         redwood_forest = registerBiome(new RedwoodForestBiome(), "redwood_forest");
         seasonal_forest = registerBiome(new SeasonalForestBiome(), "seasonal_forest");
         shrubland = registerBiome(new ShrublandBiome(), "shrubland");
