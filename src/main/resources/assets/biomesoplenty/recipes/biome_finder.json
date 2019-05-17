@@ -7,8 +7,8 @@
   ],
   "key": {
     "#": {
-      "item": "biomesoplenty:gem",
-      "data": 0
+      "type": "forge:ore_dict",
+      "ore": "gemAmethyst"
     },
     "T": {
       "item": "biomesoplenty:terrestrial_artifact"

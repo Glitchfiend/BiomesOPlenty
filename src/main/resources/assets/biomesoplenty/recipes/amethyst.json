@@ -2,8 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "biomesoplenty:gem_block",
-      "data": 0
+      "type": "forge:ore_dict",
+      "ore": "blockAmethyst"
     }
   ],
   "result": {

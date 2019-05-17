@@ -7,8 +7,8 @@
   ],
   "key": {
     "#": {
-      "item": "biomesoplenty:gem",
-      "data": 5
+      "type": "forge:ore_dict",
+      "ore": "gemMalachite"
     }
   },
   "result": {

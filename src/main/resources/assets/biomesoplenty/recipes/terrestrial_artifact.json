@@ -2,36 +2,36 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "biomesoplenty:gem",
-      "data": 1
+      "type": "forge:ore_dict",
+      "ore": "gemRuby"
     },
     {
-      "item": "biomesoplenty:gem",
-      "data": 3
+      "type": "forge:ore_dict",
+      "ore": "gemTopaz"
     },
     {
-      "item": "biomesoplenty:gem",
-      "data": 7
+      "type": "forge:ore_dict",
+      "ore": "gemAmber"
     },
     {
-      "item": "biomesoplenty:gem",
-      "data": 2
+      "type": "forge:ore_dict",
+      "ore": "gemPeridot"
     },
     {
-      "item": "biomesoplenty:gem",
-      "data": 5
+      "type": "forge:ore_dict",
+      "ore": "gemMalachite"
     },
     {
-      "item": "biomesoplenty:gem",
-      "data": 6
+      "type": "forge:ore_dict",
+      "ore": "gemSapphire"
     },
     {
-      "item": "biomesoplenty:gem",
-      "data": 4
+      "type": "forge:ore_dict",
+      "ore": "gemTanzanite"
     },
     {
-      "item": "minecraft:emerald",
-      "data": 32767
+      "type": "forge:ore_dict",
+      "ore": "gemEmerald"
     }
   ],
   "result": {
