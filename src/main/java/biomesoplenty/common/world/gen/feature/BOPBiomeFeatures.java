@@ -10,9 +10,9 @@ package biomesoplenty.common.world.gen.feature;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.world.gen.feature.tree.BasicTreeFeature;
 import biomesoplenty.common.world.gen.feature.tree.BigTreeFeature;
-import biomesoplenty.common.world.gen.feature.tree.BulbTreeFeature;
 import biomesoplenty.common.world.gen.feature.tree.BushTreeFeature;
 import biomesoplenty.common.world.gen.feature.tree.MahoganyTreeFeature;
+import biomesoplenty.common.world.gen.feature.tree.PoplarTreeFeature;
 import biomesoplenty.common.world.gen.feature.tree.RedwoodTreeFeature;
 import biomesoplenty.common.world.gen.feature.tree.TaigaTreeFeature;
 import biomesoplenty.common.world.gen.feature.tree.TwigletTreeFeature;
@@ -20,7 +20,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.gen.feature.AbstractFlowersFeature;
 import net.minecraft.world.gen.feature.AbstractTreeFeature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.surfacebuilders.ExtremeHillsSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.ISurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
@@ -61,7 +60,8 @@ public class BOPBiomeFeatures
 	public static final AbstractTreeFeature<NoFeatureConfig> ACACIA_TWIGLET_SMALL = new TwigletTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.SAND).log(Blocks.ACACIA_LOG.getDefaultState()).leaves(Blocks.ACACIA_LEAVES.getDefaultState()).minHeight(1).maxHeight(2).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> DARK_OAK_TWIGLET_TREE = new TwigletTreeFeature.Builder().log(Blocks.DARK_OAK_LOG.getDefaultState()).leaves(Blocks.DARK_OAK_LEAVES.getDefaultState()).minHeight(1).maxHeight(2).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> TALL_TWIGLET_TREE = new TwigletTreeFeature.Builder().minHeight(2).maxHeight(4).create();
-	public static final AbstractTreeFeature<NoFeatureConfig> BULB_TREE = new BulbTreeFeature.Builder().create();
+	public static final AbstractTreeFeature<NoFeatureConfig> SPRUCE_POPLAR = new PoplarTreeFeature.Builder().log(Blocks.SPRUCE_LOG.getDefaultState()).leaves(Blocks.SPRUCE_LEAVES.getDefaultState()).create();
+	public static final AbstractTreeFeature<NoFeatureConfig> BIRCH_POPLAR = new PoplarTreeFeature.Builder().log(Blocks.BIRCH_LOG.getDefaultState()).leaves(Blocks.BIRCH_LEAVES.getDefaultState()).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> MAHOGANY_TREE = new MahoganyTreeFeature.Builder().create();
 	public static final AbstractTreeFeature<NoFeatureConfig> TALL_SPRUCE_TREE = new TaigaTreeFeature.Builder().log(Blocks.SPRUCE_LOG.getDefaultState()).leaves(Blocks.SPRUCE_LEAVES.getDefaultState()).maxHeight(13).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> SWAMP_TREE = new BasicTreeFeature.Builder().vine(Blocks.VINE.getDefaultState()).minHeight(8).maxHeight(12).maxLeavesRadius(2).leavesOffset(0).create();
