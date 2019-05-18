@@ -109,6 +109,6 @@ public class ShrublandBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.ENDERMAN, 10, 1, 4));
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
         
-        this.addWeight(BOPClimates.DRY_TEMPERATE, 10);
+        this.addWeight(BOPClimates.DRY_TEMPERATE, 7);
     }
 }

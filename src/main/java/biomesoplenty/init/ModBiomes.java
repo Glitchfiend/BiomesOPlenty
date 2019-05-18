@@ -13,9 +13,11 @@ import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.BiomeBOP;
 import biomesoplenty.common.biome.overworld.AlpsBiome;
 import biomesoplenty.common.biome.overworld.CherryBlossomGroveBiome;
+import biomesoplenty.common.biome.overworld.ColdDesertBiome;
 import biomesoplenty.common.biome.overworld.ConiferousForestBiome;
 import biomesoplenty.common.biome.overworld.FlowerMeadowBiome;
 import biomesoplenty.common.biome.overworld.BogBiome;
+import biomesoplenty.common.biome.overworld.BogMireBiome;
 import biomesoplenty.common.biome.overworld.BorealForestBiome;
 import biomesoplenty.common.biome.overworld.BrushlandBiome;
 import biomesoplenty.common.biome.overworld.ChaparralBiome;
@@ -68,10 +70,12 @@ public class ModBiomes
     {
     	alps = registerBiome(new AlpsBiome(), "alps");
         bog = registerBiome(new BogBiome(), "bog");
+        bog_mire = registerBiome(new BogMireBiome(), "bog_mire");
         boreal_forest = registerBiome(new BorealForestBiome(), "boreal_forest");
     	brushland = registerBiome(new BrushlandBiome(), "brushland");
         chaparral = registerBiome(new ChaparralBiome(), "chaparral");
     	cherry_blossom_grove = registerBiome(new CherryBlossomGroveBiome(), "cherry_blossom_grove");
+    	cold_desert = registerBiome(new ColdDesertBiome(), "cold_desert");
         coniferous_forest = registerBiome(new ConiferousForestBiome(), "coniferous_forest");
         flower_meadow = registerBiome(new FlowerMeadowBiome(), "flower_meadow");
         grassland = registerBiome(new GrasslandBiome(), "grassland");

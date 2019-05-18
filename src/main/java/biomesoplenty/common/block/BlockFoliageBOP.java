@@ -111,7 +111,7 @@ public class BlockFoliageBOP extends BlockBush implements IPlantable
         }
         if (this == BOPBlocks.desert_grass || this == BOPBlocks.dead_grass)
         {
-            return ground == BOPBlocks.dried_sand || ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.white_sand || super.isValidPosition(state, worldIn, pos);
+            return ground == BOPBlocks.dried_sand || ground == Blocks.GRAVEL || ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.white_sand || super.isValidPosition(state, worldIn, pos);
         }
 
         return super.isValidPosition(state, worldIn, pos);
