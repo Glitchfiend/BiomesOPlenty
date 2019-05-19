@@ -30,7 +30,7 @@ public enum GenLayerTemperatureNoise implements IBOPAreaTransformer0
     {
         double xOffset = (double)(context.getWorldSeed() & 0xFFFFFF) * 0.000001D;
         double zOffset = (double)(context.getWorldSeed() & 0xFFFFFF) * 0.000002D;
-        double noiseVal = SimplexNoise.noise((x + xOffset) * this.scale, (z + zOffset) * this.scale);
+        double noiseVal = SimplexNoise.noise((x + areaDimension.getStartX() + xOffset) * this.scale, (z + areaDimension.getStartZ() + zOffset) * this.scale);
 
         // boundaries were determined empirically by analyzing statistically output from the SimplexNoise function, and splitting into 9 equally likely groups
         if (noiseVal < -0.619D) return 0;

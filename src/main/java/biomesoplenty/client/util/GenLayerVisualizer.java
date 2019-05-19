@@ -179,11 +179,14 @@ public class GenLayerVisualizer
             AreaDimension areaDimension = new AreaDimension(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
             LazyArea area = biomeAreaFactory.make(areaDimension);
 
-            for (int i = 0; i < CANVAS_HEIGHT; ++i)
+            int startX = 5000;
+            int startZ = 10000;
+
+            for (int i = 0; i < CANVAS_HEIGHT ; ++i)
             {
-                for (int j = 0; j < CANVAS_WIDTH; ++j)
+                for (int j = 0; j < CANVAS_WIDTH ; ++j)
                 {
-                    this.biomeIds[j + i * CANVAS_WIDTH] = area.getValue(j, i);
+                    this.biomeIds[j + i * CANVAS_WIDTH] = area.getValue(startX + j, startZ + i);
                 }
             }
         }
