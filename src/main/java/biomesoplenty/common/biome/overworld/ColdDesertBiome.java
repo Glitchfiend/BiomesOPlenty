@@ -17,6 +17,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Fluids;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Feature;
@@ -37,6 +38,8 @@ import net.minecraft.world.gen.placement.FrequencyConfig;
 import net.minecraft.world.gen.placement.IPlacementConfig;
 import net.minecraft.world.gen.placement.LakeChanceConfig;
 import net.minecraft.world.gen.surfacebuilders.CompositeSurfaceBuilder;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class ColdDesertBiome extends BiomeBOP
 {
@@ -93,5 +96,17 @@ public class ColdDesertBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
         
         this.addWeight(BOPClimates.ICE_CAP, 10);
+    }
+    
+    @OnlyIn(Dist.CLIENT)
+    public int getGrassColor(BlockPos pos)
+    {
+    	return 0xB78658;
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    public int getFoliageColor(BlockPos pos)
+    {
+    	return 0xC1954D;
     }
 }

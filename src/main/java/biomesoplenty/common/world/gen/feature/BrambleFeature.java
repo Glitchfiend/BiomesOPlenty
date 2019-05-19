@@ -7,13 +7,15 @@
  ******************************************************************************/
 package biomesoplenty.common.world.gen.feature;
 
+import java.util.List;
 import java.util.Random;
+
+import com.google.common.collect.Lists;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.BlockBramble;
 import biomesoplenty.common.util.biome.GeneratorUtil;
 import biomesoplenty.common.util.block.IBlockPosQuery;
-import net.minecraft.block.BlockChorusPlant;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.block.material.Material;
@@ -54,7 +56,15 @@ public class BrambleFeature extends Feature<NoFeatureConfig>
                 {  
                 	//if (BlockBramble.canPlaceBlockAt(world, genPos))
                 	//{
-	                    world.setBlockState(genPos, ((BlockBramble)BOPBlocks.bramble).makeConnections(world, genPos), 2);
+                		world.setBlockState(genPos, ((BlockBramble)BOPBlocks.bramble).makeConnections(world, genPos), 2);
+
+                		for (EnumFacing face : EnumFacing.values())
+                		{
+                			if (world.getBlockState(genPos.offset(face)).getBlock() == BOPBlocks.bramble)
+                			{
+                				world.setBlockState(genPos.offset(face), ((BlockBramble)BOPBlocks.bramble).makeConnections(world, genPos.offset(face)), 2);
+                			}
+                		}
 	                    
 	                    if (rand.nextInt(2) == 0)
 	                	{
@@ -64,16 +74,24 @@ public class BrambleFeature extends Feature<NoFeatureConfig>
 	                    if (rand.nextInt(2) == 0)
 	                    {
 	                    	int leafDirection = rand.nextInt(6);
-	                    	if (world.isAirBlock(genPos.offset(EnumFacing.values()[leafDirection])))
+	                    	BlockPos leafPos = genPos.offset(EnumFacing.values()[leafDirection]);
+	                    	if (world.isAirBlock(leafPos))
 	                    	{
-	                    		world.setBlockState(genPos.offset(EnumFacing.values()[leafDirection]), Blocks.OAK_LEAVES.getDefaultState().with(BlockLeaves.PERSISTENT, true), 19);
+	                    		world.setBlockState(leafPos, Blocks.OAK_LEAVES.getDefaultState().with(BlockLeaves.PERSISTENT, true), 19);
+	                    		for (EnumFacing face : EnumFacing.values())
+	                    		{
+	                    			if (world.getBlockState(leafPos.offset(face)).getBlock() == BOPBlocks.bramble)
+	                    			{
+	                    				world.setBlockState(leafPos.offset(face), ((BlockBramble)BOPBlocks.bramble).makeConnections(world, leafPos.offset(face)), 2);
+	                    			}
+	                    		}
 	                    	}
 	                    }
 	                	
             	    	switch (rand.nextInt(6))
             	    	{
             	    		case 0: case 1:
-            	    			if (height <= 6)
+            	    			if (height <= 8)
             	    			{
 	            	    			genPos = genPos.up();
 	            	    			height++;

@@ -58,6 +58,7 @@ public class BOPBiomes
     public static Optional<Biome> snowy_forest = Optional.empty();
     public static Optional<Biome> steppe = Optional.empty();
     public static Optional<Biome> temperate_rainforest = Optional.empty();
+    public static Optional<Biome> thicket = Optional.empty();
     public static Optional<Biome> tropical_rainforest = Optional.empty();
     public static Optional<Biome> tropics = Optional.empty();
     public static Optional<Biome> tundra = Optional.empty();

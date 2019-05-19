@@ -56,6 +56,7 @@ import biomesoplenty.common.biome.overworld.SnowyConiferousForestBiome;
 import biomesoplenty.common.biome.overworld.SnowyForestBiome;
 import biomesoplenty.common.biome.overworld.SteppeBiome;
 import biomesoplenty.common.biome.overworld.TemperateRainforestBiome;
+import biomesoplenty.common.biome.overworld.ThicketBiome;
 import biomesoplenty.common.biome.overworld.TropicalRainforestBiome;
 import biomesoplenty.common.biome.overworld.TropicsBiome;
 import biomesoplenty.common.biome.overworld.TundraBiome;
@@ -136,6 +137,7 @@ public class ModBiomes
         snowy_forest = registerBiome(new SnowyForestBiome(), "snowy_forest");
         steppe = registerBiome(new SteppeBiome(), "steppe");
         temperate_rainforest = registerBiome(new TemperateRainforestBiome(), "temperate_rainforest");
+        thicket = registerBiome(new ThicketBiome(), "thicket");
         tropical_rainforest = registerBiome(new TropicalRainforestBiome(), "tropical_rainforest");
         tropics = registerBiome(new TropicsBiome(), "tropics");
         tundra = registerBiome(new TundraBiome(), "tundra");

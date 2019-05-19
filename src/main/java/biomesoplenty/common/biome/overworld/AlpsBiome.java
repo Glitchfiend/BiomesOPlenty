@@ -42,7 +42,7 @@ public class AlpsBiome extends BiomeBOP
 {
     public AlpsBiome()
     {
-        super((new Biome.BiomeBuilder()).surfaceBuilder(new CompositeSurfaceBuilder(DEFAULT_SURFACE_BUILDER, BOPBiomeFeatures.SNOW_SNOW_GRAVEL_SURFACE)).precipitation(Biome.RainType.SNOW).category(Biome.Category.ICY).depth(6.0F).scale(0.2F).temperature(-0.25F).downfall(0.3F).waterColor(4159204).waterFogColor(329011).parent((String)null));
+        super((new Biome.BiomeBuilder()).surfaceBuilder(new CompositeSurfaceBuilder(DEFAULT_SURFACE_BUILDER, BOPBiomeFeatures.SNOW_SNOW_GRAVEL_SURFACE)).precipitation(Biome.RainType.SNOW).category(Biome.Category.ICY).depth(7.5F).scale(0.2F).temperature(-0.25F).downfall(0.3F).waterColor(4159204).waterFogColor(329011).parent((String)null));
 
         // Mineshafts and Strongholds
         this.addStructure(Feature.MINESHAFT, new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL));

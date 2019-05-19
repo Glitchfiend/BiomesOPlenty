@@ -82,9 +82,9 @@ public enum BOPClimates
         BOPClimates.TUNDRA.addBiome(10, Biomes.SNOWY_TAIGA).addBiome(7, Biomes.MOUNTAINS);
         BOPClimates.WET_BOREAL.addBiome(10, Biomes.TAIGA);
         BOPClimates.DRY_BOREAL.addBiome(5, Biomes.GIANT_TREE_TAIGA);
-        BOPClimates.WET_TEMPERATE.addBiome(3, Biomes.DARK_FOREST);
-        BOPClimates.DRY_TEMPERATE.addBiome(1, Biomes.PLAINS);
-        BOPClimates.COOL_TEMPERATE.addBiome(10, Biomes.FOREST).addBiome(7, Biomes.BIRCH_FOREST);
+        BOPClimates.WET_TEMPERATE.addBiome(5, Biomes.DARK_FOREST);
+        BOPClimates.DRY_TEMPERATE.addBiome(7, Biomes.BIRCH_FOREST);
+        BOPClimates.COOL_TEMPERATE.addBiome(10, Biomes.FOREST);
         BOPClimates.WARM_TEMPERATE.addBiome(10, Biomes.PLAINS);
         BOPClimates.SUBTROPICAL.addBiome(10, Biomes.SWAMP);
         BOPClimates.TROPICAL.addBiome(15, Biomes.JUNGLE);
@@ -103,7 +103,7 @@ public enum BOPClimates
     // we will contrive to make any combination equally likely, so the overall rarity of each climate is in proportion to the number of times it appears in the array
     private static final BOPClimates[] climateMapping = new BOPClimates[]
     {
-    	TUNDRA,			TUNDRA,			ICE_CAP,		ICE_CAP,		ICE_CAP,		ICE_CAP,		ICE_CAP,		ICE_CAP,		ICE_CAP,		ICE_CAP,		TUNDRA,			TUNDRA,
+    	WET_BOREAL,		TUNDRA,			ICE_CAP,		ICE_CAP,		ICE_CAP,		ICE_CAP,		ICE_CAP,		ICE_CAP,		ICE_CAP,		ICE_CAP,		TUNDRA,			DRY_BOREAL,
     	WET_BOREAL,		WET_BOREAL,		TUNDRA,			TUNDRA,			TUNDRA,			TUNDRA,			TUNDRA,			TUNDRA,			TUNDRA,			TUNDRA,			DRY_BOREAL,		DRY_BOREAL,
     	WET_TEMPERATE,	WET_BOREAL,		WET_BOREAL,		WET_BOREAL,		WET_BOREAL,		WET_BOREAL,		DRY_BOREAL,		DRY_BOREAL,		DRY_BOREAL,		DRY_BOREAL,		DRY_BOREAL,		DRY_TEMPERATE,
     	WET_TEMPERATE,	WET_TEMPERATE,	WET_TEMPERATE,	COOL_TEMPERATE,	COOL_TEMPERATE,	COOL_TEMPERATE,	COOL_TEMPERATE,	COOL_TEMPERATE,	COOL_TEMPERATE,	DRY_TEMPERATE,	DRY_TEMPERATE,	DRY_TEMPERATE,
