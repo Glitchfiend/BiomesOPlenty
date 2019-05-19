@@ -28,7 +28,7 @@ public class BlockBramble extends BlockSixWay
     public BlockBramble(Block.Properties builder)
     {
         super(0.25F, builder);
-        this.setDefaultState((IBlockState)((IBlockState)((IBlockState)((IBlockState)((IBlockState)((IBlockState)(this.stateContainer.getBaseState()).with(NORTH, Boolean.valueOf(false))).with(EAST, Boolean.valueOf(false))).with(SOUTH, Boolean.valueOf(false))).with(WEST, Boolean.valueOf(false))).with(UP, Boolean.valueOf(false))).with(DOWN, Boolean.valueOf(false)));
+        this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, Boolean.valueOf(false)).with(EAST, Boolean.valueOf(false)).with(SOUTH, Boolean.valueOf(false)).with(WEST, Boolean.valueOf(false)).with(UP, Boolean.valueOf(false)).with(DOWN, Boolean.valueOf(false)));
     }
     
     @Override
@@ -45,7 +45,7 @@ public class BlockBramble extends BlockSixWay
         Block block3 = p_196497_1_.getBlockState(p_196497_2_.east()).getBlock();
         Block block4 = p_196497_1_.getBlockState(p_196497_2_.south()).getBlock();
         Block block5 = p_196497_1_.getBlockState(p_196497_2_.west()).getBlock();
-        return (IBlockState)((IBlockState)((IBlockState)((IBlockState)((IBlockState)((IBlockState)this.getDefaultState().with(DOWN, Boolean.valueOf(block == this || block.isFullCube(block.getDefaultState())))).with(UP, Boolean.valueOf(block1 == this || block1.isFullCube(block.getDefaultState())))).with(NORTH, Boolean.valueOf(block2 == this || block2.isFullCube(block.getDefaultState())))).with(EAST, Boolean.valueOf(block3 == this || block3.isFullCube(block.getDefaultState())))).with(SOUTH, Boolean.valueOf(block4 == this || block4.isFullCube(block.getDefaultState())))).with(WEST, Boolean.valueOf(block5 == this || block5.isFullCube(block.getDefaultState())));
+        return this.getDefaultState().with(DOWN, Boolean.valueOf(block == this || block.isFullCube(block.getDefaultState()))).with(UP, Boolean.valueOf(block1 == this || block1.isFullCube(block.getDefaultState()))).with(NORTH, Boolean.valueOf(block2 == this || block2.isFullCube(block.getDefaultState()))).with(EAST, Boolean.valueOf(block3 == this || block3.isFullCube(block.getDefaultState()))).with(SOUTH, Boolean.valueOf(block4 == this || block4.isFullCube(block.getDefaultState()))).with(WEST, Boolean.valueOf(block5 == this || block5.isFullCube(block.getDefaultState())));
     }
 
      /**

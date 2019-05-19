@@ -146,7 +146,14 @@ public class ModBiomes
         xeric_shrubland = registerBiome(new XericShrublandBiome(), "xeric_shrubland");
 
         // Note: Rarity supports two decimal places
-        registerSubBiome(Biomes.PLAINS, overgrown_cliffs, 1.00f, 100);
+        registerSubBiome(Biomes.DESERT, oasis, 0.25F, 100);
+        registerSubBiome(bog, bog_mire, 0.75F, 100);
+        registerSubBiome(brushland, xeric_shrubland, 1.5F, 100);
+        registerSubBiome(dead_forest, dead_plains, 1.0F, 100);
+        registerSubBiome(grove, grove_orchard, 0.75F, 100);
+        registerSubBiome(highland, highland_moor, 1.0F, 100);
+        registerSubBiome(meadow, flower_meadow, 0.75F, 100);
+        registerSubBiome(prairie, pasture, 2.0F, 100);
     }
 
     public static Optional<Biome> registerBiome(BiomeBOP biome, String name)
@@ -173,6 +180,17 @@ public class ModBiomes
             return;
 
         subBiomes.put(IRegistry.BIOME.getId(parent), new WeightedSubBiome(child.get(), rarity, weight));
+    }
+    
+    public static void registerSubBiome(Optional<Biome> parent, Optional<Biome> child, float rarity, int weight)
+    {
+    	if (!parent.isPresent())
+            return;
+    	
+        if (!child.isPresent())
+            return;
+
+        subBiomes.put(IRegistry.BIOME.getId(parent.get()), new WeightedSubBiome(child.get(), rarity, weight));
     }
 
     public static class WeightedSubBiome

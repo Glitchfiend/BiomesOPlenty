@@ -20,6 +20,7 @@ import biomesoplenty.common.world.gen.feature.tree.TwigletTreeFeature;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.gen.feature.AbstractFlowersFeature;
 import net.minecraft.world.gen.feature.AbstractTreeFeature;
+import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.surfacebuilders.ISurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
@@ -56,7 +57,7 @@ public class BOPBiomeFeatures
 	public static final AbstractTreeFeature<NoFeatureConfig> TWIGLET_TREE = new TwigletTreeFeature.Builder().minHeight(1).maxHeight(2).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> DEAD_TWIGLET_TREE = new TwigletTreeFeature.Builder().minHeight(1).maxHeight(1).leaves(BOPBlocks.dead_leaves.getDefaultState()).log(BOPBlocks.dead_log.getDefaultState()).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> MAPLE_TWIGLET_TREE = new TwigletTreeFeature.Builder().minHeight(1).maxHeight(2).leaves(BOPBlocks.maple_leaves.getDefaultState()).create();
-	public static final AbstractTreeFeature<NoFeatureConfig> JACARANDA_BUSH = new BushTreeFeature.Builder().maxHeight(2).leaves(BOPBlocks.jacaranda_leaves.getDefaultState()).log(BOPBlocks.jacaranda_log.getDefaultState()).create();
+	public static final AbstractTreeFeature<NoFeatureConfig> JACARANDA_TWIGLET_TREE = new TwigletTreeFeature.Builder().minHeight(1).maxHeight(2).leaves(BOPBlocks.jacaranda_leaves.getDefaultState()).log(BOPBlocks.jacaranda_log.getDefaultState()).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> ACACIA_BUSH = new BushTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.RED_SAND).log(Blocks.ACACIA_LOG.getDefaultState()).leaves(Blocks.ACACIA_LEAVES.getDefaultState()).maxHeight(2).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> ACACIA_TWIGLET_TREE = new TwigletTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.RED_SAND).log(Blocks.ACACIA_LOG.getDefaultState()).leaves(Blocks.ACACIA_LEAVES.getDefaultState()).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> ACACIA_TWIGLET_SMALL = new TwigletTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.SAND).log(Blocks.ACACIA_LOG.getDefaultState()).leaves(Blocks.ACACIA_LEAVES.getDefaultState()).minHeight(1).maxHeight(2).create();
@@ -80,6 +81,8 @@ public class BOPBiomeFeatures
 	public static final AbstractTreeFeature<NoFeatureConfig> REDWOOD_TREE_MEDIUM = new RedwoodTreeFeature.Builder().minHeight(25).maxHeight(40).trunkWidth(2).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> REDWOOD_TREE_LARGE = new RedwoodTreeFeature.Builder().minHeight(45).maxHeight(60).trunkWidth(3).create();
 	
+	public static final Feature<NoFeatureConfig> BRAMBLE = new BrambleFeature();
+	
 	public static final AbstractFlowersFeature CHERRY_BLOSSOM_GROVE_FLOWERS = new CherryBlossomGroveFlowersFeature();
 	public static final AbstractFlowersFeature EXTENDED_FLOWERS = new ExtendedFlowersFeature();
 	public static final AbstractFlowersFeature FLOWER_MEADOW_FLOWERS = new FlowerMeadowFlowersFeature();
@@ -87,6 +90,7 @@ public class BOPBiomeFeatures
 	public static final AbstractFlowersFeature LAVENDER_FLOWERS = new LavenderFlowersFeature();
 	public static final AbstractFlowersFeature LUSH_SWAMP_FLOWERS = new LushSwampFlowersFeature();
 	public static final AbstractFlowersFeature MEADOW_FLOWERS = new MeadowFlowersFeature();
+	public static final AbstractFlowersFeature MOOR_FLOWERS = new MoorFlowersFeature();
 	public static final AbstractFlowersFeature MYSTIC_GROVE_FLOWERS = new MysticGroveFlowersFeature();
 	public static final AbstractFlowersFeature ORIGIN_FLOWERS = new OriginFlowersFeature();
 	public static final AbstractFlowersFeature PRAIRIE_FLOWERS = new PrairieFlowersFeature();
