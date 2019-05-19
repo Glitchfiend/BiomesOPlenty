@@ -10,6 +10,8 @@ package biomesoplenty.common.world;
 import biomesoplenty.common.world.layer.*;
 import biomesoplenty.common.world.layer.traits.LazyAreaLayerContextBOP;
 import com.google.common.collect.ImmutableList;
+import net.minecraft.init.Biomes;
+import net.minecraft.util.registry.IRegistry;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.gen.IContextExtended;
 import net.minecraft.world.gen.OverworldGenSettings;
@@ -22,6 +24,17 @@ import java.util.function.LongFunction;
 
 public class BOPLayerUtil
 {
+    public static final int WARM_OCEAN = IRegistry.BIOME.getId(Biomes.WARM_OCEAN);
+    public static final int LUKEWARM_OCEAN = IRegistry.BIOME.getId(Biomes.LUKEWARM_OCEAN);
+    public static final int OCEAN = IRegistry.BIOME.getId(Biomes.OCEAN);
+    public static final int COLD_OCEAN = IRegistry.BIOME.getId(Biomes.COLD_OCEAN);
+    public static final int FROZEN_OCEAN = IRegistry.BIOME.getId(Biomes.FROZEN_OCEAN);
+    public static final int DEEP_WARM_OCEAN = IRegistry.BIOME.getId(Biomes.DEEP_WARM_OCEAN);
+    public static final int DEEP_LUKEWARM_OCEAN = IRegistry.BIOME.getId(Biomes.DEEP_LUKEWARM_OCEAN);
+    public static final int DEEP_OCEAN = IRegistry.BIOME.getId(Biomes.DEEP_OCEAN);
+    public static final int DEEP_COLD_OCEAN = IRegistry.BIOME.getId(Biomes.DEEP_COLD_OCEAN);
+    public static final int DEEP_FROZEN_OCEAN = IRegistry.BIOME.getId(Biomes.DEEP_FROZEN_OCEAN);
+
     public static <T extends IArea, C extends IContextExtended<T>> IAreaFactory<T> createInitialLandAndSeaFactory(LongFunction<C> contextFactory)
     {
         // NOTE: Normally AddSnow, CoolWarm, HeatIce and Special GenLayers occur here, but we handle those ourselves
@@ -124,7 +137,7 @@ public class BOPLayerUtil
         // Allocate the biomes
         IAreaFactory<T> climateFactory = createClimateFactory(contextFactory, new BOPWorldSettings());
         IAreaFactory<T> biomesFactory = createBiomeFactory(landSeaFactory, climateFactory, contextFactory);
-        biomesFactory = GenLayerHills.INSTANCE.apply(contextFactory.apply(1000L), biomesFactory, riverAndSubBiomesInitFactory);
+        biomesFactory = GenLayerSubBiome.INSTANCE.apply(contextFactory.apply(1000L), biomesFactory, riverAndSubBiomesInitFactory);
 
         // Develop the rivers branch
         IAreaFactory<T> riversInitFactory = LayerUtil.repeat(1000L, GenLayerZoom.NORMAL, riverAndSubBiomesInitFactory, riverSize, contextFactory);
@@ -166,5 +179,15 @@ public class BOPLayerUtil
         GenLayer voroniZoomBiomesLayer = new GenLayer(factoryList.get(1));
         GenLayer biomesLayer2 = new GenLayer(factoryList.get(2));
         return new GenLayer[]{biomesLayer, voroniZoomBiomesLayer, biomesLayer2};
+    }
+
+    public static boolean isOcean(int biomeIn)
+    {
+        return biomeIn == WARM_OCEAN || biomeIn == LUKEWARM_OCEAN || biomeIn == OCEAN || biomeIn == COLD_OCEAN || biomeIn == FROZEN_OCEAN || biomeIn == DEEP_WARM_OCEAN || biomeIn == DEEP_LUKEWARM_OCEAN || biomeIn == DEEP_OCEAN || biomeIn == DEEP_COLD_OCEAN || biomeIn == DEEP_FROZEN_OCEAN;
+    }
+
+    public static boolean isShallowOcean(int biomeIn)
+    {
+        return biomeIn == WARM_OCEAN || biomeIn == LUKEWARM_OCEAN || biomeIn == OCEAN || biomeIn == COLD_OCEAN || biomeIn == FROZEN_OCEAN;
     }
 }

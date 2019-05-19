@@ -65,7 +65,11 @@ import biomesoplenty.common.biome.overworld.WhiteBeachBiome;
 import biomesoplenty.common.biome.overworld.WoodlandBiome;
 import biomesoplenty.common.biome.overworld.XericShrublandBiome;
 import biomesoplenty.common.world.WorldTypeBOP;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
+import net.minecraft.init.Biomes;
 import net.minecraft.item.Item;
+import net.minecraft.util.registry.IRegistry;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -75,6 +79,8 @@ import java.util.Optional;
 public class ModBiomes
 {
     public static WorldTypeBOP worldType;
+
+    public static Multimap<Integer, WeightedSubBiome> subBiomes = HashMultimap.create();
 
     public static void init()
     {
@@ -138,6 +144,9 @@ public class ModBiomes
         white_beach = registerBiome(new WhiteBeachBiome(), "white_beach");
         woodland = registerBiome(new WoodlandBiome(), "woodland");
         xeric_shrubland = registerBiome(new XericShrublandBiome(), "xeric_shrubland");
+
+        // Note: Rarity supports two decimal places
+        registerSubBiome(Biomes.PLAINS, overgrown_cliffs, 1.00f, 100);
     }
 
     public static Optional<Biome> registerBiome(BiomeBOP biome, String name)
@@ -156,5 +165,27 @@ public class ModBiomes
         }
 
         return Optional.of(biome);
+    }
+
+    public static void registerSubBiome(Biome parent, Optional<Biome> child, float rarity, int weight)
+    {
+        if (!child.isPresent())
+            return;
+
+        subBiomes.put(IRegistry.BIOME.getId(parent), new WeightedSubBiome(child.get(), rarity, weight));
+    }
+
+    public static class WeightedSubBiome
+    {
+        public final Biome biome;
+        public final float rarity;
+        public final int weight;
+
+        public WeightedSubBiome(Biome biome, float rarity, int weight)
+        {
+            this.biome = biome;
+            this.rarity = rarity;
+            this.weight = weight;
+        }
     }
 }
