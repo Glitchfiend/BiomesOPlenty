@@ -14,6 +14,7 @@ import java.util.Optional;
 public class BOPBiomes
 {
 	public static Optional<Biome> alps = Optional.empty();
+	public static Optional<Biome> alps_foothills = Optional.empty();
     public static Optional<Biome> bog = Optional.empty();
     public static Optional<Biome> bog_mire = Optional.empty();
     public static Optional<Biome> boreal_forest = Optional.empty();
@@ -24,21 +25,32 @@ public class BOPBiomes
     public static Optional<Biome> coniferous_forest = Optional.empty();
     public static Optional<Biome> dead_forest = Optional.empty();
     public static Optional<Biome> dead_plains = Optional.empty();
+    public static Optional<Biome> floodplains = Optional.empty();
     public static Optional<Biome> flower_meadow = Optional.empty();
     public static Optional<Biome> grassland = Optional.empty();
+    public static Optional<Biome> gravel_beach = Optional.empty();
     public static Optional<Biome> grove = Optional.empty();
     public static Optional<Biome> grove_orchard = Optional.empty();
+    public static Optional<Biome> highland = Optional.empty();
+    public static Optional<Biome> highland_moor = Optional.empty();
     public static Optional<Biome> lavender_fields = Optional.empty();
     public static Optional<Biome> lush_swamp = Optional.empty();
     public static Optional<Biome> maple_woods = Optional.empty();
+    public static Optional<Biome> marsh = Optional.empty();
     public static Optional<Biome> meadow = Optional.empty();
     public static Optional<Biome> mystic_grove = Optional.empty();
+    public static Optional<Biome> oasis = Optional.empty();
     public static Optional<Biome> ominous_woods = Optional.empty();
+    public static Optional<Biome> origin_beach = Optional.empty();
     public static Optional<Biome> origin_hills = Optional.empty();
     public static Optional<Biome> outback = Optional.empty();
+    public static Optional<Biome> overgrown_cliffs = Optional.empty();
     public static Optional<Biome> pasture = Optional.empty();
     public static Optional<Biome> prairie = Optional.empty();
+    public static Optional<Biome> rainforest = Optional.empty();
     public static Optional<Biome> redwood_forest = Optional.empty();
+    public static Optional<Biome> redwood_forest_edge = Optional.empty();
+    public static Optional<Biome> scrubland = Optional.empty();
     public static Optional<Biome> seasonal_forest = Optional.empty();
     public static Optional<Biome> shield = Optional.empty();
     public static Optional<Biome> shrubland = Optional.empty();
@@ -47,9 +59,11 @@ public class BOPBiomes
     public static Optional<Biome> steppe = Optional.empty();
     public static Optional<Biome> temperate_rainforest = Optional.empty();
     public static Optional<Biome> tropical_rainforest = Optional.empty();
+    public static Optional<Biome> tropics = Optional.empty();
     public static Optional<Biome> tundra = Optional.empty();
     public static Optional<Biome> wasteland = Optional.empty();
     public static Optional<Biome> wetland = Optional.empty();
+    public static Optional<Biome> white_beach = Optional.empty();
     public static Optional<Biome> woodland = Optional.empty();
     public static Optional<Biome> xeric_shrubland = Optional.empty();
 }

@@ -18,10 +18,10 @@ import java.util.Iterator;
 
 public enum BOPClimates
 {
-    COLD_DESERT (BiomeType.ICY),
+    ICE_CAP (BiomeType.ICY),
     TUNDRA (BiomeType.ICY),
-    BOREAL (BiomeType.COOL),
-    COLD_SWAMP (BiomeType.COOL),
+    WET_BOREAL (BiomeType.COOL),
+    DRY_BOREAL (BiomeType.COOL),
     WET_TEMPERATE (BiomeType.WARM),
     DRY_TEMPERATE (BiomeType.WARM),
     COOL_TEMPERATE (BiomeType.COOL),
@@ -31,7 +31,6 @@ public enum BOPClimates
     MEDITERRANEAN (BiomeType.WARM),
     SAVANNA (BiomeType.DESERT),
     HOT_DESERT (BiomeType.DESERT),
-    WASTELAND (BiomeType.DESERT),
     HELL (null);
 
     public final BiomeType biomeType;
@@ -79,20 +78,19 @@ public enum BOPClimates
     {
         // set up vanilla biomes
 
-        BOPClimates.COLD_DESERT.addBiome(10, Biomes.SNOWY_TUNDRA);
-        BOPClimates.TUNDRA.addBiome(10, Biomes.SNOWY_TAIGA).addBiome(5, Biomes.MOUNTAINS);
-        BOPClimates.BOREAL.addBiome(7, Biomes.GIANT_TREE_TAIGA).addBiome(5, Biomes.MOUNTAINS).addBiome(15, Biomes.TAIGA);
-        BOPClimates.COLD_SWAMP.addBiome(2, Biomes.DARK_FOREST);
-        BOPClimates.WET_TEMPERATE.addBiome(3, Biomes.DARK_FOREST).addBiome(5, Biomes.FOREST);
-        BOPClimates.DRY_TEMPERATE.addBiome(3, Biomes.PLAINS);
-        BOPClimates.COOL_TEMPERATE.addBiome(7, Biomes.FOREST).addBiome(10, Biomes.BIRCH_FOREST);
-        BOPClimates.WARM_TEMPERATE.addBiome(7, Biomes.PLAINS);
+        BOPClimates.ICE_CAP.addBiome(10, Biomes.SNOWY_TUNDRA);
+        BOPClimates.TUNDRA.addBiome(10, Biomes.SNOWY_TAIGA).addBiome(7, Biomes.MOUNTAINS);
+        BOPClimates.WET_BOREAL.addBiome(10, Biomes.TAIGA);
+        BOPClimates.DRY_BOREAL.addBiome(5, Biomes.GIANT_TREE_TAIGA);
+        BOPClimates.WET_TEMPERATE.addBiome(3, Biomes.DARK_FOREST);
+        BOPClimates.DRY_TEMPERATE.addBiome(1, Biomes.PLAINS);
+        BOPClimates.COOL_TEMPERATE.addBiome(10, Biomes.FOREST).addBiome(7, Biomes.BIRCH_FOREST);
+        BOPClimates.WARM_TEMPERATE.addBiome(10, Biomes.PLAINS);
         BOPClimates.SUBTROPICAL.addBiome(10, Biomes.SWAMP);
         BOPClimates.TROPICAL.addBiome(15, Biomes.JUNGLE);
-        BOPClimates.MEDITERRANEAN.addBiome(5, Biomes.PLAINS);
-        BOPClimates.SAVANNA.addBiome(20, Biomes.SAVANNA);
-        BOPClimates.HOT_DESERT.addBiome(30, Biomes.DESERT).addBiome(15, Biomes.BADLANDS_PLATEAU);
-        BOPClimates.WASTELAND.addBiome(1, Biomes.DESERT);
+        BOPClimates.MEDITERRANEAN.addBiome(1, Biomes.PLAINS);
+        BOPClimates.SAVANNA.addBiome(10, Biomes.SAVANNA);
+        BOPClimates.HOT_DESERT.addBiome(15, Biomes.DESERT).addBiome(10, Biomes.BADLANDS_PLATEAU);
         BOPClimates.HELL.addBiome(30, Biomes.NETHER);
     }
 
@@ -103,17 +101,17 @@ public enum BOPClimates
     // map temperature and rainfall to climates
     // temperature values from 0 (cold) to 8 (hot) and rainfall values from 0 (wet) to 11 (dry), index is (temperatureValue * 12) + rainfallValue
     // we will contrive to make any combination equally likely, so the overall rarity of each climate is in proportion to the number of times it appears in the array
-    private static final BOPClimates[] climateMapping = new BOPClimates[] {
-            //  0               1               2               3               4               5               6               7               8               9               10              11
-            TUNDRA,        	TUNDRA,        	TUNDRA,        	COLD_DESERT,    COLD_DESERT,    COLD_DESERT,    COLD_DESERT,    COLD_DESERT,    COLD_DESERT,    COLD_DESERT,    COLD_DESERT,  	COLD_DESERT,    // 0
-            BOREAL,			BOREAL,			BOREAL,			TUNDRA,			TUNDRA,			TUNDRA,			TUNDRA,			TUNDRA,			TUNDRA,			TUNDRA,			TUNDRA,			TUNDRA,			// 1
-            COLD_SWAMP,		COLD_SWAMP,		COLD_SWAMP,		BOREAL,			BOREAL,			BOREAL,			BOREAL,			BOREAL,			BOREAL,			BOREAL,			BOREAL,			BOREAL,			// 2
-            COLD_SWAMP,		COLD_SWAMP,		COLD_SWAMP,		COLD_SWAMP,		COOL_TEMPERATE,	COOL_TEMPERATE,	COOL_TEMPERATE,	COOL_TEMPERATE,	COOL_TEMPERATE,	DRY_TEMPERATE,	DRY_TEMPERATE,	DRY_TEMPERATE,	// 3
-            WET_TEMPERATE,	WET_TEMPERATE,	WET_TEMPERATE,	COOL_TEMPERATE,	COOL_TEMPERATE,	COOL_TEMPERATE,	COOL_TEMPERATE,	COOL_TEMPERATE,	DRY_TEMPERATE,	DRY_TEMPERATE,	DRY_TEMPERATE,	DRY_TEMPERATE,	// 4
-            SUBTROPICAL,	SUBTROPICAL,	WET_TEMPERATE,	WARM_TEMPERATE,	WARM_TEMPERATE,	WARM_TEMPERATE,	WARM_TEMPERATE,	WARM_TEMPERATE,	WARM_TEMPERATE,	MEDITERRANEAN,	SAVANNA,		SAVANNA,		// 5
-            TROPICAL,		SUBTROPICAL,	SUBTROPICAL,	WET_TEMPERATE,	WARM_TEMPERATE,	WARM_TEMPERATE,	WARM_TEMPERATE,	WARM_TEMPERATE,	MEDITERRANEAN,	SAVANNA,		SAVANNA,		HOT_DESERT,		// 6
-            TROPICAL,		TROPICAL,		SUBTROPICAL,	SUBTROPICAL,	WET_TEMPERATE,	MEDITERRANEAN,	MEDITERRANEAN,	MEDITERRANEAN,	SAVANNA,		SAVANNA,		HOT_DESERT,		HOT_DESERT,		// 7
-            TROPICAL,		TROPICAL,		TROPICAL,		SUBTROPICAL,	WET_TEMPERATE,	MEDITERRANEAN,	MEDITERRANEAN,	MEDITERRANEAN,	SAVANNA,		HOT_DESERT,		HOT_DESERT,		WASTELAND		// 8
+    private static final BOPClimates[] climateMapping = new BOPClimates[]
+    {
+    	TUNDRA,			TUNDRA,			ICE_CAP,		ICE_CAP,		ICE_CAP,		ICE_CAP,		ICE_CAP,		ICE_CAP,		ICE_CAP,		ICE_CAP,		TUNDRA,			TUNDRA,
+    	WET_BOREAL,		WET_BOREAL,		TUNDRA,			TUNDRA,			TUNDRA,			TUNDRA,			TUNDRA,			TUNDRA,			TUNDRA,			TUNDRA,			DRY_BOREAL,		DRY_BOREAL,
+    	WET_TEMPERATE,	WET_BOREAL,		WET_BOREAL,		WET_BOREAL,		WET_BOREAL,		WET_BOREAL,		DRY_BOREAL,		DRY_BOREAL,		DRY_BOREAL,		DRY_BOREAL,		DRY_BOREAL,		DRY_TEMPERATE,
+    	WET_TEMPERATE,	WET_TEMPERATE,	WET_TEMPERATE,	COOL_TEMPERATE,	COOL_TEMPERATE,	COOL_TEMPERATE,	COOL_TEMPERATE,	COOL_TEMPERATE,	COOL_TEMPERATE,	DRY_TEMPERATE,	DRY_TEMPERATE,	DRY_TEMPERATE,
+    	WET_TEMPERATE,	WET_TEMPERATE,	WET_TEMPERATE,	COOL_TEMPERATE,	COOL_TEMPERATE,	COOL_TEMPERATE,	COOL_TEMPERATE,	COOL_TEMPERATE,	COOL_TEMPERATE,	DRY_TEMPERATE,	DRY_TEMPERATE,	DRY_TEMPERATE,
+    	SUBTROPICAL,	SUBTROPICAL,	SUBTROPICAL,	WARM_TEMPERATE, WARM_TEMPERATE,	WARM_TEMPERATE,	WARM_TEMPERATE,	WARM_TEMPERATE,	WARM_TEMPERATE,	SAVANNA,		SAVANNA,		SAVANNA,
+    	TROPICAL,		TROPICAL,		SUBTROPICAL,	WARM_TEMPERATE,	WARM_TEMPERATE,	WARM_TEMPERATE,	WARM_TEMPERATE,	WARM_TEMPERATE,	WARM_TEMPERATE,	SAVANNA,		HOT_DESERT,		HOT_DESERT,
+    	TROPICAL,		TROPICAL,		SUBTROPICAL,	SUBTROPICAL,	MEDITERRANEAN,	MEDITERRANEAN,	MEDITERRANEAN,	MEDITERRANEAN,	SAVANNA,		SAVANNA,		HOT_DESERT,		HOT_DESERT,
+    	TROPICAL,		TROPICAL,		TROPICAL,		SUBTROPICAL,	MEDITERRANEAN,	MEDITERRANEAN,	MEDITERRANEAN,	MEDITERRANEAN,	SAVANNA,		HOT_DESERT,		HOT_DESERT,		HOT_DESERT
     };
 
     public static int[] getClimateMappingInts()

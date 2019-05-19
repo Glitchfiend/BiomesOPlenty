@@ -113,7 +113,7 @@ public class BogBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.SLIME, 1, 1, 1));
         
-        this.addWeight(BOPClimates.COLD_SWAMP, 5);
+        this.addWeight(BOPClimates.WET_TEMPERATE, 3);
     }
     
     @OnlyIn(Dist.CLIENT)

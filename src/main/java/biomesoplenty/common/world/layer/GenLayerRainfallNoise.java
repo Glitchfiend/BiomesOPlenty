@@ -14,9 +14,9 @@ import net.minecraft.world.gen.area.AreaDimension;
 
 public enum GenLayerRainfallNoise implements IBOPAreaTransformer0
 {
-    SMALL_ZONES(0.14D),
-    MEDIUM_ZONES(0.08D),
-    LARGE_ZONES(0.04D);
+    SMALL_ZONES(0.20D),
+    MEDIUM_ZONES(0.10D),
+    LARGE_ZONES(0.05D);
 
     private final double scale;
 

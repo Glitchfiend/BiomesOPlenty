@@ -110,7 +110,7 @@ public class BrushlandBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.HUSK, 80, 4, 4));
         
-        this.addWeight(BOPClimates.SAVANNA, 3);
+        this.addWeight(BOPClimates.SAVANNA, 5);
     }
     
     @OnlyIn(Dist.CLIENT)

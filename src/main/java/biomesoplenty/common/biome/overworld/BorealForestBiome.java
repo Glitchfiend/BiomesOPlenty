@@ -109,7 +109,7 @@ public class BorealForestBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.ENDERMAN, 10, 1, 4));
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
         
-        this.addWeight(BOPClimates.BOREAL, 7);
+        this.addWeight(BOPClimates.DRY_BOREAL, 7);
     }
     
     @OnlyIn(Dist.CLIENT)
