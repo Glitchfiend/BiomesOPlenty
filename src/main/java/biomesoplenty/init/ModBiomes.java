@@ -13,11 +13,11 @@ import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.BiomeBOP;
 import biomesoplenty.common.biome.overworld.AlpsBiome;
 import biomesoplenty.common.biome.overworld.AlpsFoothillsBiome;
+import biomesoplenty.common.biome.overworld.BayouBiome;
 import biomesoplenty.common.biome.overworld.CherryBlossomGroveBiome;
 import biomesoplenty.common.biome.overworld.ColdDesertBiome;
 import biomesoplenty.common.biome.overworld.ConiferousForestBiome;
 import biomesoplenty.common.biome.overworld.DeadForestBiome;
-import biomesoplenty.common.biome.overworld.DeadPlainsBiome;
 import biomesoplenty.common.biome.overworld.FloodplainsBiome;
 import biomesoplenty.common.biome.overworld.FlowerMeadowBiome;
 import biomesoplenty.common.biome.overworld.BogBiome;
@@ -56,7 +56,6 @@ import biomesoplenty.common.biome.overworld.SnowyConiferousForestBiome;
 import biomesoplenty.common.biome.overworld.SnowyForestBiome;
 import biomesoplenty.common.biome.overworld.SteppeBiome;
 import biomesoplenty.common.biome.overworld.TemperateRainforestBiome;
-import biomesoplenty.common.biome.overworld.ThicketBiome;
 import biomesoplenty.common.biome.overworld.TropicalRainforestBiome;
 import biomesoplenty.common.biome.overworld.TropicsBiome;
 import biomesoplenty.common.biome.overworld.TundraBiome;
@@ -94,6 +93,7 @@ public class ModBiomes
     {
     	alps = registerBiome(new AlpsBiome(), "alps");
     	alps_foothills = registerBiome(new AlpsFoothillsBiome(), "alps_foothills");
+    	bayou = registerBiome(new BayouBiome(), "bayou");
         bog = registerBiome(new BogBiome(), "bog");
         bog_mire = registerBiome(new BogMireBiome(), "bog_mire");
         boreal_forest = registerBiome(new BorealForestBiome(), "boreal_forest");
@@ -103,7 +103,6 @@ public class ModBiomes
     	cold_desert = registerBiome(new ColdDesertBiome(), "cold_desert");
         coniferous_forest = registerBiome(new ConiferousForestBiome(), "coniferous_forest");
         dead_forest = registerBiome(new DeadForestBiome(), "dead_forest");
-        dead_plains = registerBiome(new DeadPlainsBiome(), "dead_plains");
         floodplains = registerBiome(new FloodplainsBiome(), "floodplains");
         flower_meadow = registerBiome(new FlowerMeadowBiome(), "flower_meadow");
         grassland = registerBiome(new GrasslandBiome(), "grassland");
@@ -137,7 +136,6 @@ public class ModBiomes
         snowy_forest = registerBiome(new SnowyForestBiome(), "snowy_forest");
         steppe = registerBiome(new SteppeBiome(), "steppe");
         temperate_rainforest = registerBiome(new TemperateRainforestBiome(), "temperate_rainforest");
-        thicket = registerBiome(new ThicketBiome(), "thicket");
         tropical_rainforest = registerBiome(new TropicalRainforestBiome(), "tropical_rainforest");
         tropics = registerBiome(new TropicsBiome(), "tropics");
         tundra = registerBiome(new TundraBiome(), "tundra");
@@ -149,9 +147,8 @@ public class ModBiomes
 
         // Note: Rarity supports two decimal places
         registerSubBiome(Biomes.DESERT, oasis, 0.25F, 100);
-        registerSubBiome(bog, bog_mire, 0.75F, 100);
+        registerSubBiome(bog, bog_mire, 0.5F, 100);
         registerSubBiome(brushland, xeric_shrubland, 1.5F, 100);
-        registerSubBiome(dead_forest, dead_plains, 1.0F, 100);
         registerSubBiome(grove, grove_orchard, 0.75F, 100);
         registerSubBiome(highland, highland_moor, 1.0F, 100);
         registerSubBiome(meadow, flower_meadow, 0.75F, 100);

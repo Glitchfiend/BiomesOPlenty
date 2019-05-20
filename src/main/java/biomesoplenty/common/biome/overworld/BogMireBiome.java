@@ -108,12 +108,12 @@ public class BogMireBiome extends BiomeBOP
     @OnlyIn(Dist.CLIENT)
     public int getGrassColor(BlockPos pos)
     {
-    	return 0x68584A;
+    	return 0x5E5C3E;
     }
 
     @OnlyIn(Dist.CLIENT)
     public int getFoliageColor(BlockPos pos)
     {
-    	return 0x938060;
+    	return 0x776F4F;
     }
 }

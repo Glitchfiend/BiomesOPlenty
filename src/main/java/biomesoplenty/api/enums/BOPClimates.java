@@ -82,11 +82,11 @@ public enum BOPClimates
         BOPClimates.TUNDRA.addBiome(10, Biomes.SNOWY_TAIGA).addBiome(7, Biomes.MOUNTAINS);
         BOPClimates.WET_BOREAL.addBiome(10, Biomes.TAIGA);
         BOPClimates.DRY_BOREAL.addBiome(5, Biomes.GIANT_TREE_TAIGA);
-        BOPClimates.WET_TEMPERATE.addBiome(5, Biomes.DARK_FOREST);
+        BOPClimates.WET_TEMPERATE.addBiome(5, Biomes.DARK_FOREST).addBiome(7, Biomes.SWAMP);
         BOPClimates.DRY_TEMPERATE.addBiome(7, Biomes.BIRCH_FOREST);
         BOPClimates.COOL_TEMPERATE.addBiome(10, Biomes.FOREST);
         BOPClimates.WARM_TEMPERATE.addBiome(10, Biomes.PLAINS);
-        BOPClimates.SUBTROPICAL.addBiome(10, Biomes.SWAMP);
+        BOPClimates.SUBTROPICAL.addBiome(1, Biomes.LUKEWARM_OCEAN);
         BOPClimates.TROPICAL.addBiome(15, Biomes.JUNGLE);
         BOPClimates.MEDITERRANEAN.addBiome(1, Biomes.PLAINS);
         BOPClimates.SAVANNA.addBiome(10, Biomes.SAVANNA);
