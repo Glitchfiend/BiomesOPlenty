@@ -43,7 +43,7 @@ public class FloodplainsBiome extends BiomeBOP
 {
     public FloodplainsBiome()
     {
-        super((new Biome.BiomeBuilder()).surfaceBuilder(new CompositeSurfaceBuilder(SWAMP_SURFACE_BUILDER, GRASS_DIRT_GRAVEL_SURFACE)).precipitation(Biome.RainType.RAIN).category(Biome.Category.SWAMP).depth(-0.25F).scale(-0.05F).temperature(0.85F).downfall(1.2F).waterColor(4566514).waterFogColor(267827).parent((String)null));
+        super((new Biome.BiomeBuilder()).surfaceBuilder(new CompositeSurfaceBuilder(SWAMP_SURFACE_BUILDER, GRASS_DIRT_GRAVEL_SURFACE)).precipitation(Biome.RainType.RAIN).category(Biome.Category.SWAMP).depth(-0.225F).scale(-0.025F).temperature(0.85F).downfall(1.2F).waterColor(4566514).waterFogColor(267827).parent((String)null));
 
         // Mineshafts and Strongholds
         this.addStructure(Feature.JUNGLE_PYRAMID, new JunglePyramidConfig());

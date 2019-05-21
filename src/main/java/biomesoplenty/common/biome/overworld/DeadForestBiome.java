@@ -103,7 +103,7 @@ public class DeadForestBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.ENDERMAN, 10, 1, 4));
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
         
-        this.addWeight(BOPClimates.DRY_BOREAL, 3);
+        this.addWeight(BOPClimates.DRY_BOREAL, 1);
     }
     
     @OnlyIn(Dist.CLIENT)

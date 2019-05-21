@@ -9,6 +9,7 @@ package biomesoplenty.init;
 
 import static biomesoplenty.api.biome.BOPBiomes.*;
 
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.BiomeBOP;
 import biomesoplenty.common.biome.overworld.AlpsBiome;
@@ -59,6 +60,7 @@ import biomesoplenty.common.biome.overworld.TemperateRainforestBiome;
 import biomesoplenty.common.biome.overworld.TropicalRainforestBiome;
 import biomesoplenty.common.biome.overworld.TropicsBiome;
 import biomesoplenty.common.biome.overworld.TundraBiome;
+import biomesoplenty.common.biome.overworld.VolcanoBiome;
 import biomesoplenty.common.biome.overworld.WastelandBiome;
 import biomesoplenty.common.biome.overworld.WetlandBiome;
 import biomesoplenty.common.biome.overworld.WhiteBeachBiome;
@@ -71,6 +73,8 @@ import net.minecraft.init.Biomes;
 import net.minecraft.item.Item;
 import net.minecraft.util.registry.IRegistry;
 import net.minecraft.world.biome.Biome;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Map;
@@ -139,6 +143,7 @@ public class ModBiomes
         tropical_rainforest = registerBiome(new TropicalRainforestBiome(), "tropical_rainforest");
         tropics = registerBiome(new TropicsBiome(), "tropics");
         tundra = registerBiome(new TundraBiome(), "tundra");
+        volcano = registerBiome(new VolcanoBiome(), "volcano");
         wasteland = registerBiome(new WastelandBiome(), "wasteland");
         wetland = registerBiome(new WetlandBiome(), "wetland");
         white_beach = registerBiome(new WhiteBeachBiome(), "white_beach");
@@ -153,6 +158,79 @@ public class ModBiomes
         registerSubBiome(highland, highland_moor, 1.0F, 100);
         registerSubBiome(meadow, flower_meadow, 0.75F, 100);
         registerSubBiome(prairie, pasture, 2.0F, 100);
+    }
+    
+    private static void registerBiomeDictionaryTags()
+    {
+    	registerBiomeToDictionary(BOPBiomes.alps_foothills, Type.MOUNTAIN, Type.SNOWY, Type.FOREST, Type.SPARSE, Type.COLD, Type.DRY);
+        registerBiomeToDictionary(BOPBiomes.alps, Type.MOUNTAIN, Type.SNOWY, Type.COLD, Type.DRY);
+        registerBiomeToDictionary(BOPBiomes.bayou, Type.SWAMP, Type.HOT, Type.WET, Type.DENSE);
+        registerBiomeToDictionary(BOPBiomes.bog, Type.SWAMP, Type.DEAD, Type.WET);
+        registerBiomeToDictionary(BOPBiomes.bog_mire, Type.SWAMP, Type.DEAD, Type.WASTELAND, Type.WET);
+        registerBiomeToDictionary(BOPBiomes.boreal_forest, Type.FOREST, Type.CONIFEROUS, Type.HILLS, Type.COLD, Type.DENSE);
+        registerBiomeToDictionary(BOPBiomes.brushland, Type.SAVANNA, Type.HOT, Type.DRY, Type.SPARSE);
+        registerBiomeToDictionary(BOPBiomes.chaparral, Type.PLAINS, Type.DRY);
+        registerBiomeToDictionary(BOPBiomes.cherry_blossom_grove, Type.FOREST, Type.MAGICAL, Type.LUSH, Type.WET, Type.DENSE);
+        registerBiomeToDictionary(BOPBiomes.cold_desert, Type.SNOWY, Type.DRY, Type.COLD);
+        registerBiomeToDictionary(BOPBiomes.coniferous_forest, Type.CONIFEROUS, Type.FOREST, Type.COLD, Type.DENSE);
+        registerBiomeToDictionary(BOPBiomes.dead_forest, Type.FOREST, Type.DEAD, Type.COLD, Type.DRY, Type.SPARSE);
+        registerBiomeToDictionary(BOPBiomes.floodplains, Type.JUNGLE, Type.WATER, Type.HOT, Type.WET);
+        registerBiomeToDictionary(BOPBiomes.flower_meadow, Type.PLAINS, Type.LUSH);
+        registerBiomeToDictionary(BOPBiomes.grassland, Type.PLAINS, Type.HILLS, Type.WET);    
+        registerBiomeToDictionary(BOPBiomes.gravel_beach, Type.BEACH);
+        registerBiomeToDictionary(BOPBiomes.grove, Type.FOREST, Type.PLAINS, Type.LUSH, Type.SPARSE);   
+        registerBiomeToDictionary(BOPBiomes.grove_orchard, Type.FOREST, Type.PLAINS, Type.DENSE, Type.LUSH);
+        registerBiomeToDictionary(BOPBiomes.highland, Type.MOUNTAIN, Type.HILLS, Type.WET);
+        registerBiomeToDictionary(BOPBiomes.highland_moor, Type.HILLS, Type.WET);
+        registerBiomeToDictionary(BOPBiomes.lavender_fields, Type.PLAINS, Type.MAGICAL, Type.LUSH);
+        registerBiomeToDictionary(BOPBiomes.lush_swamp, Type.SWAMP, Type.LUSH, Type.WET, Type.DENSE);
+        registerBiomeToDictionary(BOPBiomes.maple_woods, Type.FOREST, Type.CONIFEROUS, Type.COLD, Type.DENSE);
+        registerBiomeToDictionary(BOPBiomes.marsh, Type.WATER, Type.WET, Type.LUSH);
+        registerBiomeToDictionary(BOPBiomes.meadow, Type.PLAINS, Type.FOREST, Type.LUSH, Type.COLD, Type.WET, Type.SPARSE);
+        registerBiomeToDictionary(BOPBiomes.mystic_grove, Type.MAGICAL, Type.FOREST, Type.LUSH, Type.WET, Type.DENSE, Type.RARE);
+        registerBiomeToDictionary(BOPBiomes.oasis, Type.SANDY, Type.LUSH, Type.JUNGLE, Type.HOT, Type.WET, Type.SPARSE);
+        registerBiomeToDictionary(BOPBiomes.ominous_woods, Type.MAGICAL, Type.FOREST, Type.SPOOKY, Type.DEAD, Type.WET, Type.DENSE, Type.RARE);
+        registerBiomeToDictionary(BOPBiomes.origin_beach, Type.BEACH, Type.RARE);
+        registerBiomeToDictionary(BOPBiomes.origin_hills, Type.WATER, Type.FOREST, Type.RARE);
+        registerBiomeToDictionary(BOPBiomes.outback, Type.SANDY, Type.SAVANNA, Type.HOT, Type.DRY, Type.SPARSE);
+        registerBiomeToDictionary(BOPBiomes.overgrown_cliffs, Type.MOUNTAIN, Type.HILLS, Type.LUSH, Type.JUNGLE, Type.WET, Type.DENSE);
+        registerBiomeToDictionary(BOPBiomes.pasture, Type.PLAINS, Type.DRY, Type.SPARSE);
+        registerBiomeToDictionary(BOPBiomes.prairie, Type.PLAINS, Type.DRY, Type.SPARSE);
+        registerBiomeToDictionary(BOPBiomes.rainforest, Type.JUNGLE, Type.FOREST, Type.LUSH, Type.HILLS, Type.WET, Type.DENSE);
+        registerBiomeToDictionary(BOPBiomes.redwood_forest, Type.FOREST, Type.DENSE);
+        registerBiomeToDictionary(BOPBiomes.redwood_forest_edge, Type.FOREST, Type.DENSE);
+        registerBiomeToDictionary(BOPBiomes.scrubland, Type.SAVANNA, Type.SPARSE, Type.DRY);
+        registerBiomeToDictionary(BOPBiomes.seasonal_forest, Type.FOREST, Type.COLD, Type.DENSE);
+        registerBiomeToDictionary(BOPBiomes.shield, Type.FOREST, Type.COLD, Type.WET, Type.DENSE);
+        registerBiomeToDictionary(BOPBiomes.shrubland, Type.PLAINS, Type.DRY, Type.SPARSE);
+        registerBiomeToDictionary(BOPBiomes.snowy_coniferous_forest, Type.FOREST, Type.CONIFEROUS, Type.SNOWY, Type.COLD, Type.DENSE);
+        registerBiomeToDictionary(BOPBiomes.snowy_forest, Type.SNOWY, Type.FOREST, Type.COLD, Type.WET, Type.SPARSE);
+        registerBiomeToDictionary(BOPBiomes.steppe, Type.PLAINS, Type.SANDY, Type.DRY);
+        registerBiomeToDictionary(BOPBiomes.temperate_rainforest, Type.FOREST, Type.LUSH, Type.WET, Type.DENSE);
+        registerBiomeToDictionary(BOPBiomes.tropical_rainforest, Type.JUNGLE, Type.LUSH, Type.HOT, Type.WET, Type.DENSE);
+        registerBiomeToDictionary(BOPBiomes.tropics, Type.WATER, Type.JUNGLE, Type.LUSH, Type.WET, Type.DENSE);
+        registerBiomeToDictionary(BOPBiomes.tundra, Type.COLD, Type.WASTELAND, Type.DEAD, Type.WET, Type.SPARSE);
+        registerBiomeToDictionary(BOPBiomes.volcano, Type.WATER, Type.DEAD, Type.WASTELAND, Type.MOUNTAIN, Type.HOT, Type.DRY);
+        registerBiomeToDictionary(BOPBiomes.wasteland, Type.WASTELAND, Type.DEAD, Type.DRY, Type.SPARSE);
+        registerBiomeToDictionary(BOPBiomes.wetland, Type.SWAMP, Type.FOREST, Type.LUSH, Type.WET, Type.DENSE);
+        registerBiomeToDictionary(BOPBiomes.white_beach, Type.BEACH);
+        registerBiomeToDictionary(BOPBiomes.woodland, Type.FOREST, Type.DRY, Type.DENSE);
+        registerBiomeToDictionary(BOPBiomes.xeric_shrubland, Type.SANDY, Type.SAVANNA, Type.LUSH, Type.HOT, Type.DRY, Type.SPARSE);
+        
+        //registerBiomeToDictionary(BOPBiomes.corrupted_sands, Type.NETHER, Type.HOT, Type.DRY, Type.SANDY, Type.DENSE);
+        //registerBiomeToDictionary(BOPBiomes.fungi_forest, Type.NETHER, Type.HOT, Type.MUSHROOM, Type.DENSE);
+        //registerBiomeToDictionary(BOPBiomes.phantasmagoric_inferno, Type.NETHER, Type.HOT, Type.WASTELAND, Type.DRY, Type.MAGICAL, Type.SPOOKY);
+        //registerBiomeToDictionary(BOPBiomes.undergarden, Type.NETHER, Type.HOT, Type.LUSH);
+        //registerBiomeToDictionary(BOPBiomes.visceral_heap, Type.NETHER, Type.HOT, Type.WET);
+        
+    }
+    
+    private static void registerBiomeToDictionary(Optional<Biome> biome, Type...types)
+    {
+        if (biome.isPresent())
+        {
+            BiomeDictionary.addTypes(biome.get(), types);
+        }
     }
 
     public static Optional<Biome> registerBiome(BiomeBOP biome, String name)

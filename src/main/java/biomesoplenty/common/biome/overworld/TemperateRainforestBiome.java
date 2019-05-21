@@ -112,7 +112,7 @@ public class TemperateRainforestBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.ENDERMAN, 10, 1, 4));
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
         
-        this.addWeight(BOPClimates.WET_TEMPERATE, 4);
+        this.addWeight(BOPClimates.WET_TEMPERATE, 3);
     }
     
     @OnlyIn(Dist.CLIENT)

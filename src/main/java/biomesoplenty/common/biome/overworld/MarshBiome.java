@@ -9,6 +9,7 @@ package biomesoplenty.common.biome.overworld;
 
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.BiomeBOP;
+import biomesoplenty.common.world.gen.feature.BOPBiomeFeatures;
 import biomesoplenty.common.world.gen.feature.StandardGrassFeature;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EnumCreatureType;
@@ -41,7 +42,7 @@ public class MarshBiome extends BiomeBOP
 {
     public MarshBiome()
     {
-        super((new Biome.BiomeBuilder()).surfaceBuilder(new CompositeSurfaceBuilder(SWAMP_SURFACE_BUILDER, GRASS_DIRT_GRAVEL_SURFACE)).precipitation(Biome.RainType.RAIN).category(Biome.Category.SWAMP).depth(-0.225F).scale(-0.025F).temperature(0.65F).downfall(0.85F).waterColor(4159204).waterFogColor(329011).parent((String)null));
+        super((new Biome.BiomeBuilder()).surfaceBuilder(new CompositeSurfaceBuilder(BOPBiomeFeatures.MARSH_SURFACE_BUILDER, GRASS_DIRT_GRAVEL_SURFACE)).precipitation(Biome.RainType.RAIN).category(Biome.Category.SWAMP).depth(-0.225F).scale(-0.025F).temperature(0.65F).downfall(0.85F).waterColor(4159204).waterFogColor(329011).parent((String)null));
 
         // Mineshafts and Strongholds
         this.addStructure(Feature.SWAMP_HUT, new SwampHutConfig());
