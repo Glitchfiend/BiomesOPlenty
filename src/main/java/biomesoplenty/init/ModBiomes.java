@@ -53,6 +53,7 @@ import biomesoplenty.common.biome.overworld.ScrublandBiome;
 import biomesoplenty.common.biome.overworld.SeasonalForestBiome;
 import biomesoplenty.common.biome.overworld.ShieldBiome;
 import biomesoplenty.common.biome.overworld.ShrublandBiome;
+import biomesoplenty.common.biome.overworld.SilkgladeBiome;
 import biomesoplenty.common.biome.overworld.SnowyConiferousForestBiome;
 import biomesoplenty.common.biome.overworld.SnowyForestBiome;
 import biomesoplenty.common.biome.overworld.SteppeBiome;
@@ -136,6 +137,7 @@ public class ModBiomes
         seasonal_forest = registerBiome(new SeasonalForestBiome(), "seasonal_forest");
         shield = registerBiome(new ShieldBiome(), "shield");
         shrubland = registerBiome(new ShrublandBiome(), "shrubland");
+        silkglade = registerBiome(new SilkgladeBiome(), "silkglade");
         snowy_coniferous_forest = registerBiome(new SnowyConiferousForestBiome(), "snowy_coniferous_forest");
         snowy_forest = registerBiome(new SnowyForestBiome(), "snowy_forest");
         steppe = registerBiome(new SteppeBiome(), "steppe");
@@ -203,6 +205,7 @@ public class ModBiomes
         registerBiomeToDictionary(BOPBiomes.seasonal_forest, Type.FOREST, Type.COLD, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.shield, Type.FOREST, Type.COLD, Type.WET, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.shrubland, Type.PLAINS, Type.DRY, Type.SPARSE);
+        registerBiomeToDictionary(BOPBiomes.silkglade, Type.FOREST, Type.DEAD, Type.SPOOKY, Type.DRY, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.snowy_coniferous_forest, Type.FOREST, Type.CONIFEROUS, Type.SNOWY, Type.COLD, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.snowy_forest, Type.SNOWY, Type.FOREST, Type.COLD, Type.WET, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.steppe, Type.PLAINS, Type.SANDY, Type.DRY);

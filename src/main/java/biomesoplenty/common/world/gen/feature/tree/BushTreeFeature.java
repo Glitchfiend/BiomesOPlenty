@@ -40,10 +40,10 @@ public class BushTreeFeature extends TreeFeatureBase
         {
             // Bushes shouldn't check for decay
             if (this.leaves != Blocks.AIR.getDefaultState())
-                this.leaves = this.leaves.with(BlockLeaves.PERSISTENT, Boolean.valueOf(true));
+                this.leaves = this.leaves;
 
             if (this.altLeaves != Blocks.AIR.getDefaultState())
-                this.altLeaves = this.altLeaves.with(BlockLeaves.PERSISTENT, Boolean.valueOf(true));
+                this.altLeaves = this.altLeaves;
 
             return new BushTreeFeature(this.updateNeighbours, this.placeOn, this.replace, this.log, this.leaves, this.altLeaves, this.vine, this.hanging, this.trunkFruit, this.minHeight, this.maxHeight);
         }

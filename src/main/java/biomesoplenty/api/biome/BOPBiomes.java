@@ -54,6 +54,7 @@ public class BOPBiomes
     public static Optional<Biome> seasonal_forest = Optional.empty();
     public static Optional<Biome> shield = Optional.empty();
     public static Optional<Biome> shrubland = Optional.empty();
+    public static Optional<Biome> silkglade = Optional.empty();
     public static Optional<Biome> snowy_coniferous_forest = Optional.empty();
     public static Optional<Biome> snowy_forest = Optional.empty();
     public static Optional<Biome> steppe = Optional.empty();
