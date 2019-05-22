@@ -350,5 +350,5 @@
   "commands.biomesoplenty.tpbiome.error": "Couldn't find biome %s!",
 
   "entity.biomesoplenty.mudball": "Mudball",
-  "entity.biomesoplenty.bop_boat": "Boat"
+  "entity.biomesoplenty.boat_bop": "Boat"
 }

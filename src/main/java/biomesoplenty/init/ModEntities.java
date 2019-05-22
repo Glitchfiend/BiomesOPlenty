@@ -7,28 +7,28 @@
  ******************************************************************************/
 package biomesoplenty.init;
 
-import biomesoplenty.common.entity.projectile.EntityMudball;
+import static biomesoplenty.api.entity.BOPEntities.*;
+
+import java.util.function.Function;
+
 import com.mojang.datafixers.DataFixUtils;
 import com.mojang.datafixers.types.Type;
+
+import biomesoplenty.common.entity.item.EntityBoatBOP;
+import biomesoplenty.common.entity.projectile.EntityMudball;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.monster.EntitySpider;
-import net.minecraft.item.Item;
-import net.minecraft.util.SharedConstants;
 import net.minecraft.util.datafix.DataFixesManager;
 import net.minecraft.util.datafix.TypeReferences;
 import net.minecraft.world.World;
 import net.minecraftforge.registries.ForgeRegistries;
-
-import java.util.function.Function;
-
-import static biomesoplenty.api.entity.BOPEntities.*;
 
 public class ModEntities
 {
     public static void init()
     {
         mudball = registerEntity(FixedEntityTypeBuilder.create(EntityMudball.class, EntityMudball::new), "mudball");
+        boat_bop = registerEntity(FixedEntityTypeBuilder.create(EntityBoatBOP.class, EntityBoatBOP::new), "boat_bop");
     }
 
     public static <T extends Entity> EntityType<T> registerEntity(FixedEntityTypeBuilder<T> typeBuilder, String name)

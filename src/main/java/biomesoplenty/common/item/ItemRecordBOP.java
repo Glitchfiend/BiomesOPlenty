@@ -12,9 +12,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemRecord;
 import net.minecraft.util.SoundEvent;
 
-public class ItemBOPRecord extends ItemRecord
+public class ItemRecordBOP extends ItemRecord
 {
-    public ItemBOPRecord(SoundEvent record)
+    public ItemRecordBOP(SoundEvent record)
     {
         super(0, record, new Item.Properties().group(ItemGroupBOP.instance));
     }
