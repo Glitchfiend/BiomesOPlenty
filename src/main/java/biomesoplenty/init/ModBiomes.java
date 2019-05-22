@@ -19,7 +19,7 @@ import biomesoplenty.common.biome.overworld.CherryBlossomGroveBiome;
 import biomesoplenty.common.biome.overworld.ColdDesertBiome;
 import biomesoplenty.common.biome.overworld.ConiferousForestBiome;
 import biomesoplenty.common.biome.overworld.DeadForestBiome;
-import biomesoplenty.common.biome.overworld.FloodplainsBiome;
+import biomesoplenty.common.biome.overworld.FloodplainBiome;
 import biomesoplenty.common.biome.overworld.FlowerMeadowBiome;
 import biomesoplenty.common.biome.overworld.BogBiome;
 import biomesoplenty.common.biome.overworld.BogMireBiome;
@@ -29,7 +29,7 @@ import biomesoplenty.common.biome.overworld.ChaparralBiome;
 import biomesoplenty.common.biome.overworld.GrasslandBiome;
 import biomesoplenty.common.biome.overworld.GravelBeachBiome;
 import biomesoplenty.common.biome.overworld.GroveBiome;
-import biomesoplenty.common.biome.overworld.LavenderFieldsBiome;
+import biomesoplenty.common.biome.overworld.LavenderFieldBiome;
 import biomesoplenty.common.biome.overworld.LushSwampBiome;
 import biomesoplenty.common.biome.overworld.MapleWoodsBiome;
 import biomesoplenty.common.biome.overworld.MarshBiome;
@@ -93,6 +93,7 @@ public class ModBiomes
         worldType = new WorldTypeBOP();
 
         registerBiomes();
+        registerBiomeDictionaryTags();
     }
 
     private static void registerBiomes()
@@ -109,7 +110,7 @@ public class ModBiomes
     	cold_desert = registerBiome(new ColdDesertBiome(), "cold_desert");
         coniferous_forest = registerBiome(new ConiferousForestBiome(), "coniferous_forest");
         dead_forest = registerBiome(new DeadForestBiome(), "dead_forest");
-        floodplains = registerBiome(new FloodplainsBiome(), "floodplains");
+        floodplain = registerBiome(new FloodplainBiome(), "floodplain");
         flower_meadow = registerBiome(new FlowerMeadowBiome(), "flower_meadow");
         grassland = registerBiome(new GrasslandBiome(), "grassland");
         gravel_beach = registerBiome(new GravelBeachBiome(), "gravel_beach");
@@ -117,7 +118,7 @@ public class ModBiomes
         grove_orchard = registerBiome(new GroveOrchardBiome(), "grove_orchard");
         highland = registerBiome(new HighlandBiome(), "highland");
         highland_moor = registerBiome(new HighlandMoorBiome(), "highland_moor");
-        lavender_fields = registerBiome(new LavenderFieldsBiome(), "lavender_fields");
+        lavender_field = registerBiome(new LavenderFieldBiome(), "lavender_field");
         lush_swamp = registerBiome(new LushSwampBiome(), "lush_swamp");
         maple_woods = registerBiome(new MapleWoodsBiome(), "maple_woods");
         marsh = registerBiome(new MarshBiome(), "marsh");
@@ -154,12 +155,12 @@ public class ModBiomes
         xeric_shrubland = registerBiome(new XericShrublandBiome(), "xeric_shrubland");
 
         // Note: Rarity supports two decimal places
-        registerSubBiome(Biomes.DESERT, oasis, 0.25F, 100);
+        registerSubBiome(Biomes.DESERT, oasis, 0.1F, 100);
         registerSubBiome(bog, bog_mire, 0.5F, 100);
         registerSubBiome(brushland, xeric_shrubland, 1.0F, 100);
         registerSubBiome(grove, grove_orchard, 0.75F, 100);
-        registerSubBiome(highland, highland_moor, 1.0F, 100);
-        registerSubBiome(meadow, flower_meadow, 0.75F, 100);
+        registerSubBiome(highland, highland_moor, 0.75F, 100);
+        registerSubBiome(meadow, flower_meadow, 0.5F, 100);
         registerSubBiome(prairie, pasture, 1.0F, 100);
     }
     
@@ -177,7 +178,7 @@ public class ModBiomes
         registerBiomeToDictionary(BOPBiomes.cold_desert, Type.SNOWY, Type.DRY, Type.COLD);
         registerBiomeToDictionary(BOPBiomes.coniferous_forest, Type.CONIFEROUS, Type.FOREST, Type.COLD, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.dead_forest, Type.FOREST, Type.DEAD, Type.COLD, Type.DRY, Type.SPARSE);
-        registerBiomeToDictionary(BOPBiomes.floodplains, Type.JUNGLE, Type.WATER, Type.HOT, Type.WET);
+        registerBiomeToDictionary(BOPBiomes.floodplain, Type.JUNGLE, Type.WATER, Type.HOT, Type.WET);
         registerBiomeToDictionary(BOPBiomes.flower_meadow, Type.PLAINS, Type.LUSH);
         registerBiomeToDictionary(BOPBiomes.grassland, Type.PLAINS, Type.HILLS, Type.WET);    
         registerBiomeToDictionary(BOPBiomes.gravel_beach, Type.BEACH);
@@ -185,7 +186,7 @@ public class ModBiomes
         registerBiomeToDictionary(BOPBiomes.grove_orchard, Type.FOREST, Type.PLAINS, Type.DENSE, Type.LUSH);
         registerBiomeToDictionary(BOPBiomes.highland, Type.MOUNTAIN, Type.HILLS, Type.WET);
         registerBiomeToDictionary(BOPBiomes.highland_moor, Type.HILLS, Type.WET);
-        registerBiomeToDictionary(BOPBiomes.lavender_fields, Type.PLAINS, Type.MAGICAL, Type.LUSH);
+        registerBiomeToDictionary(BOPBiomes.lavender_field, Type.PLAINS, Type.MAGICAL, Type.LUSH);
         registerBiomeToDictionary(BOPBiomes.lush_swamp, Type.SWAMP, Type.LUSH, Type.WET, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.maple_woods, Type.FOREST, Type.CONIFEROUS, Type.COLD, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.marsh, Type.WATER, Type.WET, Type.LUSH);
