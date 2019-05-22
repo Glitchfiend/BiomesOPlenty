@@ -155,11 +155,11 @@ public class ModBiomes
         // Note: Rarity supports two decimal places
         registerSubBiome(Biomes.DESERT, oasis, 0.25F, 100);
         registerSubBiome(bog, bog_mire, 0.5F, 100);
-        registerSubBiome(brushland, xeric_shrubland, 1.5F, 100);
+        registerSubBiome(brushland, xeric_shrubland, 1.0F, 100);
         registerSubBiome(grove, grove_orchard, 0.75F, 100);
         registerSubBiome(highland, highland_moor, 1.0F, 100);
         registerSubBiome(meadow, flower_meadow, 0.75F, 100);
-        registerSubBiome(prairie, pasture, 2.0F, 100);
+        registerSubBiome(prairie, pasture, 1.0F, 100);
     }
     
     private static void registerBiomeDictionaryTags()

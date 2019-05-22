@@ -11,9 +11,9 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 
 public class OriginTree extends AbstractTree
 {
-   @Nullable
-   protected AbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random)
-   {
-      return BOPBiomeFeatures.ORIGIN_TREE;
-   }
+	   @Nullable
+	   protected AbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random)
+	   {
+	      return (AbstractTreeFeature<NoFeatureConfig>)(random.nextInt(10) == 0 ? BOPBiomeFeatures.BIG_ORIGIN_TREE : BOPBiomeFeatures.ORIGIN_TREE);
+	   }
 }
