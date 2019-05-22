@@ -28,12 +28,6 @@ public class BulbTreeFeature extends TreeFeatureBase
         {
             this.minHeight = 6;
             this.maxHeight = 12;
-
-            this.replace = (world, pos) ->
-            {
-                Material mat = world.getBlockState(pos).getMaterial();
-                return mat == Material.AIR || mat == Material.LEAVES;
-            };
         }
 
         @Override

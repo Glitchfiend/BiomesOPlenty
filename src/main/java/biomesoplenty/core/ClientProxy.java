@@ -50,9 +50,9 @@ public class ClientProxy extends CommonProxy
         ItemColors itemColors = Minecraft.getInstance().getItemColors();
 
         //Grass Coloring
-        blockColors.register((state, world, pos, tintIndex) ->
+        /*blockColors.register((state, world, pos, tintIndex) ->
             world != null && pos != null ? BiomeColors.getGrassColor(world, pos) : GrassColors.get(0.5D, 1.0D),
-            BOPBlocks.short_grass);
+            BOPBlocks.short_grass);*/
         
         //Foliage Coloring
         blockColors.register((state, world, pos, tintIndex) ->
@@ -64,7 +64,7 @@ public class ClientProxy extends CommonProxy
         itemColors.register((stack, tintIndex) -> {
             IBlockState iblockstate = ((ItemBlock)stack.getItem()).getBlock().getDefaultState();
             return blockColors.getColor(iblockstate, null, null, tintIndex); }, 
-        	BOPBlocks.short_grass, BOPBlocks.bush, BOPBlocks.flowering_oak_leaves, BOPBlocks.mahogany_leaves,
+        	BOPBlocks.bush, BOPBlocks.flowering_oak_leaves, BOPBlocks.mahogany_leaves,
         	BOPBlocks.palm_leaves, BOPBlocks.willow_leaves, BOPBlocks.willow_vine);
     }
 

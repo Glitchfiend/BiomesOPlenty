@@ -24,7 +24,7 @@ public class StandardGrassFeature extends Feature<NoFeatureConfig>
 {
 	   public IBlockState chooseGrassState(Random rand)
 	   {
-	      return rand.nextInt(3) == 0 ? BOPBlocks.short_grass.getDefaultState() : Blocks.GRASS.getDefaultState();
+	      return Blocks.GRASS.getDefaultState();
 	   }
 
 	   @Override

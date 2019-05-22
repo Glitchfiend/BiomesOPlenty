@@ -33,11 +33,6 @@ public class RedwoodTreeFeature extends TreeFeatureBase
         {
             this.minHeight = 10;
             this.maxHeight = 30;
-            this.replace = (world, pos) ->
-            {
-                Material mat = world.getBlockState(pos).getMaterial();
-                return mat == Material.AIR || mat == Material.LEAVES;
-            };
             this.log = BOPBlocks.redwood_log.getDefaultState();
             this.leaves = BOPBlocks.redwood_leaves.getDefaultState();
             this.vine = Blocks.VINE.getDefaultState();

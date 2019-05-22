@@ -27,12 +27,6 @@ public class BushTreeFeature extends TreeFeatureBase
         {
             this.minHeight = 2;
             this.maxHeight = 4;
-
-            this.replace = (world, pos) ->
-            {
-                Material mat = world.getBlockState(pos).getMaterial();
-                return mat == Material.AIR || mat == Material.LEAVES;
-            };
         }
 
         @Override

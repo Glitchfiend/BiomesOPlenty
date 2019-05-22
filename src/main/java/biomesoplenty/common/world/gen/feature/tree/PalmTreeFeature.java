@@ -34,12 +34,6 @@ public class PalmTreeFeature extends TreeFeatureBase
             this.maxHeight = 14;
             this.log = BOPBlocks.palm_log.getDefaultState();
             this.leaves = BOPBlocks.palm_leaves.getDefaultState().with(BlockLeaves.PERSISTENT, true);
-
-            this.replace = (world, pos) ->
-            {
-                Material mat = world.getBlockState(pos).getMaterial();
-                return mat == Material.AIR || mat == Material.LEAVES;
-            };
         }
 
         @Override

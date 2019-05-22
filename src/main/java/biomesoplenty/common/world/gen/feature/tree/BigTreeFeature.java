@@ -44,12 +44,6 @@ public class BigTreeFeature extends TreeFeatureBase
             this.trunkWidth = 1;
             this.foliageHeight = 4;
             this.foliageDensity = 1.0F;
-
-            this.replace = (world, pos) ->
-            {
-                Material mat = world.getBlockState(pos).getMaterial();
-                return mat == Material.AIR || mat == Material.LEAVES;
-            };
         }
 
         @Override

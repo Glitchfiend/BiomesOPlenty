@@ -32,11 +32,6 @@ public class TaigaTreeFeature extends TreeFeatureBase
         {
             this.minHeight = 6;
             this.maxHeight = 12;
-            this.replace = (world, pos) ->
-            {
-                Material mat = world.getBlockState(pos).getMaterial();
-                return mat == Material.AIR || mat == Material.LEAVES;
-            };
             this.log = Blocks.SPRUCE_LOG.getDefaultState();
             this.leaves = Blocks.SPRUCE_LEAVES.getDefaultState();
             this.vine = Blocks.VINE.getDefaultState();

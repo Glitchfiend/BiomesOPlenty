@@ -110,13 +110,13 @@ public class SilkgladeBiome extends BiomeBOP
     @OnlyIn(Dist.CLIENT)
     public int getGrassColor(BlockPos pos) {
        double d0 = INFO_NOISE.getValue((double)pos.getX() * 0.0225D, (double)pos.getZ() * 0.0225D);
-       return d0 < -0.1D ? 0x8D8E77 : 0x84935F;
+       return d0 < -0.1D ? 0xB2B39F : 0x939F76;
     }
 
     @OnlyIn(Dist.CLIENT)
     public int getFoliageColor(BlockPos pos)
     {
         double d0 = INFO_NOISE.getValue((double)pos.getX() * 0.0225D, (double)pos.getZ() * 0.0225D);
-        return d0 < -0.1D ? 0xB8BB9D : 0xACC27F;
+        return d0 < -0.1D ? 0xDEE1C6 : 0xBCCD98;
     }
 }

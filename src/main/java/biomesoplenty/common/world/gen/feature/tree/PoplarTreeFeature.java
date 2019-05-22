@@ -28,12 +28,6 @@ public class PoplarTreeFeature extends TreeFeatureBase
         {
             this.minHeight = 9;
             this.maxHeight = 17;
-
-            this.replace = (world, pos) ->
-            {
-                Material mat = world.getBlockState(pos).getMaterial();
-                return mat == Material.AIR || mat == Material.LEAVES;
-            };
         }
 
         @Override

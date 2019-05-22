@@ -50,12 +50,6 @@ public class TwigletTreeFeature extends TreeFeatureBase
             this.maxHeight = 6;
             this.leafChanceEven = 0.2F;
             this.leafChanceOdd = 0.9F;
-
-            this.replace = (world, pos) ->
-            {
-                Material mat = world.getBlockState(pos).getMaterial();
-                return mat == Material.AIR || mat == Material.LEAVES;
-            };
         }
 
         @Override

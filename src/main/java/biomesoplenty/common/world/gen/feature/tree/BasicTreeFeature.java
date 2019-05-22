@@ -58,11 +58,6 @@ public class BasicTreeFeature extends TreeFeatureBase
             {
                 return world.getBlockState(pos).isSolid();
             };
-            this.replace = (world, pos) ->
-            {
-                Material mat = world.getBlockState(pos).getMaterial();
-                return mat == Material.AIR || mat == Material.LEAVES;
-            };
             this.minHeight = 4;
             this.maxHeight = 7;
             this.updateNeighbours = false;

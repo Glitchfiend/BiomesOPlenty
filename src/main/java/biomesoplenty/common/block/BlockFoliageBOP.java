@@ -44,7 +44,7 @@ public class BlockFoliageBOP extends BlockBush implements IPlantable
     {
     	Block block = state.getBlock();
         
-        if (block == BOPBlocks.short_grass || block == BOPBlocks.desert_grass)
+        if (block == BOPBlocks.desert_grass)
         {
         	return SHORT;
         }
@@ -90,7 +90,7 @@ public class BlockFoliageBOP extends BlockBush implements IPlantable
     {
 	   Block block = state.getBlock();
 	    
-	   if (block == BOPBlocks.short_grass || block == BOPBlocks.barley)
+	   if (block == BOPBlocks.barley)
 	   {
 	       if (world.rand.nextInt(8) != 0) return;
 	       ItemStack seed = net.minecraftforge.common.ForgeHooks.getGrassSeed(world.rand, fortune);

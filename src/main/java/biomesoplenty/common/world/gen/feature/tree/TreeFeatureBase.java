@@ -43,7 +43,7 @@ public abstract class TreeFeatureBase extends AbstractTreeFeature<NoFeatureConfi
         public BuilderBase()
         {
             this.placeOn = (world, pos) -> world.getBlockState(pos).canSustainPlant(world, pos, EnumFacing.UP, (BlockSapling)Blocks.OAK_SAPLING);
-            this.replace = (world, pos) -> world.getBlockState(pos).getMaterial() == Material.AIR;
+            this.replace = (world, pos) -> world.getBlockState(pos).canBeReplacedByLeaves(world, pos);
             this.log = Blocks.OAK_LOG.getDefaultState();
             this.leaves = Blocks.OAK_LEAVES.getDefaultState();
             this.vine = Blocks.AIR.getDefaultState();
