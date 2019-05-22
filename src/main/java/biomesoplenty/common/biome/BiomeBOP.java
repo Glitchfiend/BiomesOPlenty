@@ -16,10 +16,12 @@ import java.util.Map;
 public class BiomeBOP extends Biome
 {
     protected Map<BOPClimates, Integer> weightMap = new HashMap<BOPClimates, Integer>();
+	public boolean canSpawnInBiome;
 
     public BiomeBOP(BiomeBuilder builder)
     {
         super(builder);
+        this.canSpawnInBiome = true;
     }
 
     public void addWeight(BOPClimates climate, int weight)

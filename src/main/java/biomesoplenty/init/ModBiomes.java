@@ -76,6 +76,7 @@ import net.minecraft.util.registry.IRegistry;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
+import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Map;
@@ -240,6 +241,11 @@ public class ModBiomes
     {
         biome.setRegistryName(name);
         ForgeRegistries.BIOMES.register(biome);
+        
+        if (biome.canSpawnInBiome)
+        {
+        	BiomeManager.addSpawnBiome(biome);
+        }
 
         for (Map.Entry<BOPClimates, Integer> entry : biome.getWeightMap().entrySet())
         {

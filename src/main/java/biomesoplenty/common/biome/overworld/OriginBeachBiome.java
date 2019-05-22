@@ -77,6 +77,8 @@ public class OriginBeachBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.SKELETON, 100, 4, 4));
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.CREEPER, 100, 4, 4));
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.SLIME, 100, 4, 4));
+        
+        this.canSpawnInBiome = false;
     }
     
     @OnlyIn(Dist.CLIENT)

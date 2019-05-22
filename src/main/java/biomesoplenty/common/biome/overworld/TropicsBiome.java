@@ -90,6 +90,8 @@ public class TropicsBiome extends BiomeBOP
         // Entity spawning
         this.addSpawn(EnumCreatureType.CREATURE, new Biome.SpawnListEntry(EntityType.PIG, 10, 4, 4));
         this.addSpawn(EnumCreatureType.CREATURE, new Biome.SpawnListEntry(EntityType.PARROT, 40, 1, 2));
+        
+        this.canSpawnInBiome = false;
     }
     
     @OnlyIn(Dist.CLIENT)
