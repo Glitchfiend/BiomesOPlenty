@@ -109,5 +109,6 @@ public class OvergrownCliffsBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.OCELOT, 2, 1, 1));
         
         this.addWeight(BOPClimates.TROPICAL, 3);
+        this.canSpawnInBiome = false;
     }
 }

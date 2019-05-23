@@ -104,5 +104,6 @@ public class RedwoodForestBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
         
         this.addWeight(BOPClimates.WARM_TEMPERATE, 3);
+        this.canSpawnInBiome = false;
     }
 }

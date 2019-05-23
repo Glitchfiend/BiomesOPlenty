@@ -95,5 +95,6 @@ public class AlpsBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
         
         this.addWeight(BOPClimates.ICE_CAP, 5);
+        this.canSpawnInBiome = false;
     }
 }

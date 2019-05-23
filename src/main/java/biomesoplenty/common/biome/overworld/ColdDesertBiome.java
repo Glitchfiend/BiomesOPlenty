@@ -96,6 +96,7 @@ public class ColdDesertBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
         
         this.addWeight(BOPClimates.ICE_CAP, 10);
+        this.canSpawnInBiome = false;
     }
     
     @OnlyIn(Dist.CLIENT)

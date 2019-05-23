@@ -101,5 +101,6 @@ public class ScrublandBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
         
         this.addWeight(BOPClimates.SAVANNA, 7);
+        this.canSpawnInBiome = false;
     }
 }

@@ -33,18 +33,6 @@ public class BlockFlesh extends Block
     {
         return SHAPE;
     }
-
-    @Override
-    public IItemProvider getItemDropped(IBlockState state, World worldIn, BlockPos pos, int fortune)
-    {
-        return BOPItems.chunk_of_flesh;
-    }
-    
-    @Override
-    public int quantityDropped(IBlockState state, Random random)
-    {
-        return random.nextInt(3);
-    }
     
     @Override
     public void onEntityCollision(IBlockState state, World worldIn, BlockPos pos, Entity entityIn)

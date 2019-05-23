@@ -104,6 +104,7 @@ public class LavenderFieldBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
         
         this.addWeight(BOPClimates.MEDITERRANEAN, 5);
+        this.canSpawnInBiome = false;
     }
     
     @OnlyIn(Dist.CLIENT)

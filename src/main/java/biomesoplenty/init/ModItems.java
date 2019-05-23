@@ -9,7 +9,6 @@ package biomesoplenty.init;
 
 import static biomesoplenty.api.item.BOPItems.bop_icon;
 import static biomesoplenty.api.item.BOPItems.cherry_boat;
-import static biomesoplenty.api.item.BOPItems.chunk_of_flesh;
 import static biomesoplenty.api.item.BOPItems.dead_boat;
 import static biomesoplenty.api.item.BOPItems.ethereal_boat;
 import static biomesoplenty.api.item.BOPItems.fir_boat;
@@ -20,7 +19,6 @@ import static biomesoplenty.api.item.BOPItems.mahogany_boat;
 import static biomesoplenty.api.item.BOPItems.mud_brick;
 import static biomesoplenty.api.item.BOPItems.mudball;
 import static biomesoplenty.api.item.BOPItems.palm_boat;
-import static biomesoplenty.api.item.BOPItems.pile_of_ashes;
 import static biomesoplenty.api.item.BOPItems.record_wanderer;
 import static biomesoplenty.api.item.BOPItems.redwood_boat;
 import static biomesoplenty.api.item.BOPItems.umbran_boat;
@@ -28,9 +26,9 @@ import static biomesoplenty.api.item.BOPItems.willow_boat;
 
 import biomesoplenty.api.sound.BOPSounds;
 import biomesoplenty.common.entity.item.EntityBoatBOP;
-import biomesoplenty.common.item.ItemRecordBOP;
 import biomesoplenty.common.item.ItemBoatBOP;
 import biomesoplenty.common.item.ItemMudball;
+import biomesoplenty.common.item.ItemRecordBOP;
 import biomesoplenty.common.util.inventory.ItemGroupBOP;
 import net.minecraft.item.Item;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -41,8 +39,6 @@ public class ModItems
 	{
         mudball = registerItem(new ItemMudball(), "mudball");
         mud_brick = registerItem(new Item(new Item.Properties().group(ItemGroupBOP.instance)), "mud_brick");
-        pile_of_ashes = registerItem(new Item(new Item.Properties().group(ItemGroupBOP.instance)), "pile_of_ashes");
-        chunk_of_flesh = registerItem(new Item(new Item.Properties().group(ItemGroupBOP.instance)), "chunk_of_flesh");
         
         record_wanderer = registerItem(new ItemRecordBOP(BOPSounds.records_wanderer), "record_wanderer");
 

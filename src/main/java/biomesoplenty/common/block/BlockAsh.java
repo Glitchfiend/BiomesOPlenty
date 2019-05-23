@@ -35,18 +35,6 @@ public class BlockAsh extends Block
     {
         return SHAPE;
     }
-
-    @Override
-    public IItemProvider getItemDropped(IBlockState state, World worldIn, BlockPos pos, int fortune)
-    {
-        return BOPItems.pile_of_ashes;
-    }
-    
-    @Override
-    public int quantityDropped(IBlockState state, Random random)
-    {
-        return 4;
-    }
     
     @Override
     @OnlyIn(Dist.CLIENT)
