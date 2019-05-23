@@ -259,6 +259,10 @@ public class BOPBlocks
     public static Block cattail;
     public static Block tall_cattail;
     
+    public static Block reed;
+    public static Block watergrass;
+    public static Block mangrove_root;
+    
     public static Block toadstool;
     public static Block glowshroom;
 

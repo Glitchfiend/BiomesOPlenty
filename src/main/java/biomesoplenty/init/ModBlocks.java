@@ -9,6 +9,7 @@ package biomesoplenty.init;
 
 import static biomesoplenty.api.block.BOPBlocks.*;
 
+import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.BlockAsh;
 import biomesoplenty.common.block.BlockBramble;
 import biomesoplenty.common.block.BlockDoubleWaterPlant;
@@ -22,6 +23,7 @@ import biomesoplenty.common.block.BlockMushroomBOP;
 import biomesoplenty.common.block.BlockPlantBOP;
 import biomesoplenty.common.block.BlockSaplingBOP;
 import biomesoplenty.common.block.BlockWaterPlant;
+import biomesoplenty.common.block.BlockWaterTopPlant;
 import biomesoplenty.common.block.trees.DeadTree;
 import biomesoplenty.common.block.trees.EtherealTree;
 import biomesoplenty.common.block.trees.FirTree;
@@ -40,6 +42,7 @@ import biomesoplenty.common.block.trees.UmbranTree;
 import biomesoplenty.common.block.trees.WhiteCherryTree;
 import biomesoplenty.common.block.trees.WillowTree;
 import biomesoplenty.common.block.trees.YellowAutumnTree;
+import biomesoplenty.common.item.ItemWaterTopPlant;
 import biomesoplenty.common.util.inventory.ItemGroupBOP;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockButtonWood;
@@ -57,8 +60,10 @@ import net.minecraft.block.BlockVine;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemGroup;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModBlocks
@@ -313,6 +318,10 @@ public class ModBlocks
         cattail = registerBlock(new BlockWaterPlant(Block.Properties.create(Material.PLANTS, MaterialColor.DIRT).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "cattail");
         tall_cattail = registerBlock(new BlockDoubleWaterPlant(cattail, Block.Properties.create(Material.PLANTS, MaterialColor.DIRT).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "tall_cattail");
 
+        //reed = registerBlock(new BlockWaterTopPlant(Block.Properties.create(Material.PLANTS, MaterialColor.DIRT).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), new ItemWaterTopPlant(BOPBlocks.reed, new Item.Properties().group(ItemGroupBOP.instance)), "reed");
+        reed = registerBlock(new BlockWaterTopPlant(Block.Properties.create(Material.PLANTS, MaterialColor.DIRT).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "reed");
+        watergrass = registerBlock(new BlockWaterTopPlant(Block.Properties.create(Material.PLANTS, MaterialColor.GRASS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "watergrass");
+        
         bramble = registerBlock(new BlockBramble(Block.Properties.create(Material.PLANTS, MaterialColor.NETHERRACK).hardnessAndResistance(0.4F).sound(SoundType.WOOD)), "bramble");
         
         toadstool = registerBlock(new BlockMushroomBOP(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "toadstool");
@@ -326,6 +335,20 @@ public class ModBlocks
         itemBlock.setRegistryName(name);
         ForgeRegistries.BLOCKS.register(block);
         ForgeRegistries.ITEMS.register(itemBlock);
+        return block;
+    }
+    
+    public static Block registerBlock(Block block, ItemBlock itemBlock, String name)
+    {
+        block.setRegistryName(name);
+        ForgeRegistries.BLOCKS.register(block);
+        
+        if (itemBlock != null)
+        {
+            itemBlock.setRegistryName(name);
+        	ForgeRegistries.ITEMS.register(itemBlock);
+        }
+        
         return block;
     }
 }

@@ -1,0 +1,7 @@
+{
+    "parent": "biomesoplenty:block/water_plant",
+    "textures": {
+    	"cross_top": "biomesoplenty:blocks/mangrove_root_top",
+		"cross_bottom": "biomesoplenty:blocks/mangrove_root_bottom"
+    }
+}

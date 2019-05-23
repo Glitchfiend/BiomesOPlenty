@@ -1,0 +1,7 @@
+{
+    "parent": "biomesoplenty:block/tinted_water_plant",
+    "textures": {
+    	"cross_top": "biomesoplenty:blocks/watergrass_top",
+		"cross_bottom": "biomesoplenty:blocks/watergrass_bottom"
+    }
+}

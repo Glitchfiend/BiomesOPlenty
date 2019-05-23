@@ -50,9 +50,9 @@ public class ClientProxy extends CommonProxy
         ItemColors itemColors = Minecraft.getInstance().getItemColors();
 
         //Grass Coloring
-        /*blockColors.register((state, world, pos, tintIndex) ->
+        blockColors.register((state, world, pos, tintIndex) ->
             world != null && pos != null ? BiomeColors.getGrassColor(world, pos) : GrassColors.get(0.5D, 1.0D),
-            BOPBlocks.short_grass);*/
+            BOPBlocks.watergrass);
         
         //Foliage Coloring
         blockColors.register((state, world, pos, tintIndex) ->
