@@ -9,6 +9,7 @@ package biomesoplenty.common.biome.overworld;
 
 import com.google.common.collect.Lists;
 
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.biome.BiomeBOP;
 import biomesoplenty.common.world.gen.feature.BOPBiomeFeatures;
@@ -79,7 +80,7 @@ public class TropicsBiome extends BiomeBOP
 
         // Vegetation
         this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, createCompositeFeature(Feature.RANDOM_FEATURE_LIST, new RandomDefaultFeatureListConfig(new Feature[]{BOPBiomeFeatures.JUNGLE_TWIGLET_TREE}, new IFeatureConfig[]{IFeatureConfig.NO_FEATURE_CONFIG}, new float[]{0.3F}, BOPBiomeFeatures.PALM_TREE, IFeatureConfig.NO_FEATURE_CONFIG), AT_SURFACE_WITH_EXTRA, new AtSurfaceWithExtraConfig(11, 0.2F, 1)));
-        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, createCompositeFlowerFeature(BOPBiomeFeatures.TROPICS_FLOWERS, SURFACE_PLUS_32, new FrequencyConfig(10)));
+        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, createCompositeFlowerFeature(BOPBiomeFeatures.TROPICS_FLOWERS, SURFACE_PLUS_32, new FrequencyConfig(15)));
         this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, createCompositeFeature(new StandardGrassFeature(), IFeatureConfig.NO_FEATURE_CONFIG, TWICE_SURFACE, new FrequencyConfig(12)));
         this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, createCompositeFeature(Feature.REED, IFeatureConfig.NO_FEATURE_CONFIG, TWICE_SURFACE, new FrequencyConfig(5)));
         this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, createCompositeFeature(Feature.MELON, IFeatureConfig.NO_FEATURE_CONFIG, TWICE_SURFACE, new FrequencyConfig(3)));
@@ -92,6 +93,8 @@ public class TropicsBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.CREATURE, new Biome.SpawnListEntry(EntityType.PARROT, 40, 1, 2));
         
         this.canSpawnInBiome = false;
+        this.setBeachBiome(BOPBiomes.white_beach);
+        this.setRiverBiome((Biome)null);
     }
     
     @OnlyIn(Dist.CLIENT)

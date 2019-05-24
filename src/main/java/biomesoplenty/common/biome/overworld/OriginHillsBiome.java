@@ -84,6 +84,7 @@ public class OriginHillsBiome extends BiomeBOP
         
         this.canSpawnInBiome = false;
         this.setBeachBiome(BOPBiomes.origin_beach);
+        this.setRiverBiome((Biome)null);
     }
     
     @OnlyIn(Dist.CLIENT)
