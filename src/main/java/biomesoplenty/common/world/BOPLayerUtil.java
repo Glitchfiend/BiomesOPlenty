@@ -107,7 +107,7 @@ public class BOPLayerUtil
     {
         IAreaFactory<T> biomeFactory = GenLayerBiomeBOP.INSTANCE.apply(contextFactory.apply(200L), landSeaAreaFactory, climateAreaFactory);
         biomeFactory = LayerUtil.repeat(1000L, GenLayerZoom.NORMAL, biomeFactory, 2, contextFactory);
-        biomeFactory = GenLayerBiomeEdge.INSTANCE.apply(contextFactory.apply(1000L), biomeFactory);
+        biomeFactory = GenLayerBiomeEdgeBOP.INSTANCE.apply(contextFactory.apply(1000L), biomeFactory);
         return biomeFactory;
     }
 
