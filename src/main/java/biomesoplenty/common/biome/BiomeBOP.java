@@ -8,15 +8,18 @@
 package biomesoplenty.common.biome;
 
 import biomesoplenty.api.enums.BOPClimates;
+import net.minecraft.util.registry.IRegistry;
 import net.minecraft.world.biome.Biome;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public class BiomeBOP extends Biome
 {
     protected Map<BOPClimates, Integer> weightMap = new HashMap<BOPClimates, Integer>();
 	public boolean canSpawnInBiome;
+	public int beachBiomeId = -1;
 
     public BiomeBOP(BiomeBuilder builder)
     {
@@ -27,6 +30,19 @@ public class BiomeBOP extends Biome
     public void addWeight(BOPClimates climate, int weight)
     {
         this.weightMap.put(climate, weight);
+    }
+
+    public void setBeachBiome(Optional<Biome> biome)
+    {
+        if (biome.isPresent())
+            this.beachBiomeId = IRegistry.BIOME.getId(biome.get());
+        else
+            this.beachBiomeId = -1;
+    }
+
+    public void setBeachBiome(Biome biome)
+    {
+        this.beachBiomeId = IRegistry.BIOME.getId(biome);
     }
 
     public Map<BOPClimates, Integer> getWeightMap()

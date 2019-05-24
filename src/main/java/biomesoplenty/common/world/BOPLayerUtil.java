@@ -152,7 +152,7 @@ public class BOPLayerUtil
         {
             biomesFactory = GenLayerZoom.NORMAL.apply(contextFactory.apply((long)(1000 + i)), biomesFactory);
             if (i == 0) biomesFactory = GenLayerAddIsland.INSTANCE.apply(contextFactory.apply(3L), biomesFactory);
-            if (i == 1 || biomeSize == 1) biomesFactory = GenLayerShore.INSTANCE.apply(contextFactory.apply(1000L), biomesFactory);
+            if (i == 1 || biomeSize == 1) biomesFactory = GenLayerShoreBOP.INSTANCE.apply(contextFactory.apply(1000L), biomesFactory);
         }
 
         biomesFactory = GenLayerSmooth.INSTANCE.apply(contextFactory.apply(1000L), biomesFactory);
