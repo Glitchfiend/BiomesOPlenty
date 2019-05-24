@@ -167,7 +167,7 @@ public class ModBiomes
         registerSubBiome(meadow, flower_meadow, 0.5F, 100);
         registerSubBiome(prairie, pasture, 1.0F, 100);
 
-        registerIslandBiome(origin_hills, BOPClimates.TROPICAL, 100);
+        registerIslandBiome(origin_hills, BOPClimates.TROPICAL, 1);
     }
     
     private static void registerBiomeDictionaryTags()
@@ -289,7 +289,7 @@ public class ModBiomes
     public static void registerIslandBiome(Biome biome, BOPClimates climate, int weight)
     {
         islandBiomes.add(IRegistry.BIOME.getId(biome));
-        climate.addBiome(weight, biome);
+        climate.addIslandBiome(weight, biome);
     }
 
     public static void registerIslandBiome(Optional<Biome> biome, BOPClimates climate, int weight)
