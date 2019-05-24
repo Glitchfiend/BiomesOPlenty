@@ -38,12 +38,15 @@ public class BiomeBOP extends Biome
         if (biome.isPresent())
             this.beachBiomeId = IRegistry.BIOME.getId(biome.get());
         else
-            this.beachBiomeId =  IRegistry.BIOME.getId(Biomes.BEACH);
+            this.beachBiomeId = -1;
     }
 
     public void setBeachBiome(Biome biome)
     {
-        this.beachBiomeId = IRegistry.BIOME.getId(biome);
+        if (biome != null)
+            this.beachBiomeId = IRegistry.BIOME.getId(biome);
+        else
+            this.beachBiomeId = -1;
     }
 
     public Map<BOPClimates, Integer> getWeightMap()
