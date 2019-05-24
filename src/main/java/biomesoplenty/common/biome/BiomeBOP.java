@@ -38,7 +38,7 @@ public class BiomeBOP extends Biome
         if (biome.isPresent())
             this.beachBiomeId = IRegistry.BIOME.getId(biome.get());
         else
-            this.beachBiomeId = -1;
+            this.beachBiomeId =  IRegistry.BIOME.getId(Biomes.BEACH);
     }
 
     public void setBeachBiome(Biome biome)
