@@ -91,5 +91,6 @@ public class VolcanoBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
         
         this.canSpawnInBiome = false;
+        this.setRiverBiome((Biome)null);
     }
 }

@@ -94,6 +94,7 @@ public class WastelandBiome extends BiomeBOP
         
         this.addWeight(BOPClimates.HOT_DESERT, 1);
         this.setBeachBiome((Biome)null);
+        this.setRiverBiome((Biome)null);
         this.canSpawnInBiome = false;
     }
     

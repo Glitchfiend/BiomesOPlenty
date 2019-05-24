@@ -98,5 +98,6 @@ public class AlpsFoothillsBiome extends BiomeBOP
 
         this.canSpawnInBiome = false;
         this.setBeachBiome((Biome)null);
+        this.setRiverBiome((Biome)null);
     }
 }

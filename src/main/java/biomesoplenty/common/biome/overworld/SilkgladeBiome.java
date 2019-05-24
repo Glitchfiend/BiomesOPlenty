@@ -105,7 +105,8 @@ public class SilkgladeBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.SLIME, 100, 4, 4));
         
         this.addWeight(BOPClimates.DRY_TEMPERATE, 1);
-        this.setBeachBiome(BOPBiomes.gravel_beach);
+        this.setBeachBiome((Biome)null);
+        this.setRiverBiome((Biome)null);
         this.canSpawnInBiome = false;
     }
     

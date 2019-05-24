@@ -101,9 +101,10 @@ public class ModBiomes
         gravel_beach = registerBiome(new GravelBeachBiome(), "gravel_beach");
         origin_beach = registerBiome(new OriginBeachBiome(), "origin_beach");
         white_beach = registerBiome(new WhiteBeachBiome(), "white_beach");
+    	alps_foothills = registerBiome(new AlpsFoothillsBiome(), "alps_foothills");
+        redwood_forest_edge = registerBiome(new RedwoodForestEdgeBiome(), "redwood_forest_edge");
     	
     	alps = registerBiome(new AlpsBiome(), "alps");
-    	alps_foothills = registerBiome(new AlpsFoothillsBiome(), "alps_foothills");
     	bayou = registerBiome(new BayouBiome(), "bayou");
         bog = registerBiome(new BogBiome(), "bog");
         bog_mire = registerBiome(new BogMireBiome(), "bog_mire");
@@ -136,7 +137,6 @@ public class ModBiomes
         prairie = registerBiome(new PrairieBiome(), "prairie");
         rainforest = registerBiome(new RainforestBiome(), "rainforest");
         redwood_forest = registerBiome(new RedwoodForestBiome(), "redwood_forest");
-        redwood_forest_edge = registerBiome(new RedwoodForestEdgeBiome(), "redwood_forest_edge");
         scrubland = registerBiome(new ScrublandBiome(), "scrubland");
         seasonal_forest = registerBiome(new SeasonalForestBiome(), "seasonal_forest");
         shield = registerBiome(new ShieldBiome(), "shield");

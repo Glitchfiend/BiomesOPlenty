@@ -15,6 +15,7 @@ import biomesoplenty.common.world.gen.feature.BOPBiomeFeatures;
 import biomesoplenty.common.world.gen.feature.WastelandGrassFeature;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Fluids;
 import net.minecraft.util.math.BlockPos;
@@ -96,6 +97,7 @@ public class ColdDesertBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
         
         this.addWeight(BOPClimates.ICE_CAP, 10);
+        this.setRiverBiome(Biomes.FROZEN_RIVER);
         this.canSpawnInBiome = false;
     }
     

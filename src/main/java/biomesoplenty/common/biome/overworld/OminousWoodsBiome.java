@@ -104,6 +104,7 @@ public class OminousWoodsBiome extends BiomeBOP
         
         this.addWeight(BOPClimates.WET_BOREAL, 1);
         this.setBeachBiome((Biome)null);
+        this.setRiverBiome((Biome)null);
         this.canSpawnInBiome = false;
     }
     

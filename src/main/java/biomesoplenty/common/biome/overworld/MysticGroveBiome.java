@@ -111,6 +111,7 @@ public class MysticGroveBiome extends BiomeBOP
         
         this.addWeight(BOPClimates.WET_TEMPERATE, 1);
         this.setBeachBiome((Biome)null);
+        this.setRiverBiome((Biome)null);
         this.canSpawnInBiome = false;
     }
     
