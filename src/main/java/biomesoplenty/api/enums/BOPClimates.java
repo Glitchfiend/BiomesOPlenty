@@ -8,6 +8,7 @@
 package biomesoplenty.api.enums;
 
 import biomesoplenty.common.world.layer.traits.IBOPContextExtended;
+import com.google.common.collect.Lists;
 import net.minecraft.init.Biomes;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.IContext;
@@ -35,8 +36,10 @@ public enum BOPClimates
 
     public final BiomeType biomeType;
     private int totalBiomesWeight;
+    private int totalIslandBiomesWeight;
 
-    private ArrayList<WeightedBiomeEntry> landBiomes = new ArrayList<WeightedBiomeEntry>();
+    private ArrayList<WeightedBiomeEntry> landBiomes = Lists.newArrayList();
+    private ArrayList<WeightedBiomeEntry> islandBiomes = Lists.newArrayList();
 
     BOPClimates(BiomeType biomeType)
     {
@@ -55,10 +58,42 @@ public enum BOPClimates
         return this;
     }
 
-    public Biome getRandomBiome(IContext context)
+    public BOPClimates addIslandBiome(int weight, Biome biome)
     {
+        return this.addIslandBiome(new WeightedBiomeEntry(weight, biome));
+    }
+
+    public BOPClimates addIslandBiome(WeightedBiomeEntry biomeEntry)
+    {
+        this.totalIslandBiomesWeight += biomeEntry.weight;
+        this.islandBiomes.add(biomeEntry);
+        return this;
+    }
+
+    public Biome getRandomBiome(IContext context, Biome fallback)
+    {
+        if (this.totalBiomesWeight == 0)
+            return fallback;
+
         int weight = context.random(this.totalBiomesWeight);
         Iterator<WeightedBiomeEntry> iterator = this.landBiomes.iterator();
+        WeightedBiomeEntry item;
+        do
+        {
+            item = iterator.next();
+            weight -= item.weight;
+        }
+        while (weight >= 0);
+        return item.biome;
+    }
+
+    public Biome getRandomIslandBiome(IContext context, Biome fallback)
+    {
+        if (this.totalIslandBiomesWeight == 0)
+            return fallback;
+
+        int weight = context.random(this.totalIslandBiomesWeight);
+        Iterator<WeightedBiomeEntry> iterator = this.islandBiomes.iterator();
         WeightedBiomeEntry item;
         do
         {

@@ -69,6 +69,7 @@ import biomesoplenty.common.biome.overworld.WoodlandBiome;
 import biomesoplenty.common.biome.overworld.XericShrublandBiome;
 import biomesoplenty.common.world.WorldTypeBOP;
 import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
 import net.minecraft.init.Biomes;
 import net.minecraft.item.Item;
@@ -79,6 +80,7 @@ import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -87,6 +89,7 @@ public class ModBiomes
     public static WorldTypeBOP worldType;
 
     public static Multimap<Integer, WeightedSubBiome> subBiomes = HashMultimap.create();
+    public static List<Integer> islandBiomes = Lists.newArrayList();
 
     public static void init()
     {
@@ -163,6 +166,8 @@ public class ModBiomes
         registerSubBiome(highland, highland_moor, 0.75F, 100);
         registerSubBiome(meadow, flower_meadow, 0.5F, 100);
         registerSubBiome(prairie, pasture, 1.0F, 100);
+
+        registerIslandBiome(origin_hills, BOPClimates.TROPICAL, 100);
     }
     
     private static void registerBiomeDictionaryTags()
@@ -279,6 +284,20 @@ public class ModBiomes
             return;
 
         subBiomes.put(IRegistry.BIOME.getId(parent.get()), new WeightedSubBiome(child.get(), rarity, weight));
+    }
+
+    public static void registerIslandBiome(Biome biome, BOPClimates climate, int weight)
+    {
+        islandBiomes.add(IRegistry.BIOME.getId(biome));
+        climate.addBiome(weight, biome);
+    }
+
+    public static void registerIslandBiome(Optional<Biome> biome, BOPClimates climate, int weight)
+    {
+        if (!biome.isPresent())
+            return;
+
+        registerIslandBiome(biome.get(), climate, weight);
     }
 
     public static class WeightedSubBiome

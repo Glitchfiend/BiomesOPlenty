@@ -8,30 +8,27 @@
 package biomesoplenty.common.world.layer;
 
 import biomesoplenty.api.enums.BOPClimates;
-import biomesoplenty.init.ModBiomes;
-import net.minecraft.init.Biomes;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.registry.IRegistry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.IContext;
 import net.minecraft.world.gen.area.AreaDimension;
 import net.minecraft.world.gen.area.IArea;
 import net.minecraft.world.gen.layer.traits.IAreaTransformer2;
-import net.minecraft.world.gen.layer.traits.IDimOffset0Transformer;
-import net.minecraftforge.common.BiomeManager;
+import net.minecraft.world.gen.layer.traits.IDimOffset1Transformer;
 
-public enum GenLayerBiomeBOP implements IAreaTransformer2, IDimOffset0Transformer
+public enum GenLayerLargeIsland implements IAreaTransformer2, IDimOffset1Transformer
 {
     INSTANCE;
 
-    private static final int DEEP_OCEAN = IRegistry.BIOME.getId(Biomes.DEEP_OCEAN);
-    private static final int MUSHROOM_FIELDS = IRegistry.BIOME.getId(Biomes.MUSHROOM_FIELDS);
-
     @Override
-    public int apply(IContext context, AreaDimension dimension, IArea area1, IArea area2, int x, int z)
+    public int apply(IContext context, AreaDimension dimension, IArea landSeaArea, IArea climateArea, int x, int z)
     {
-        int landSeaVal = area1.getValue(x, z);
-        int climateVal = area2.getValue(x, z);
+        int northVal = landSeaArea.getValue(x + 1, z + 0);
+        int eastVal = landSeaArea.getValue(x + 2, z + 1);
+        int southVal = landSeaArea.getValue(x + 1, z + 2);
+        int westVal = landSeaArea.getValue(x + 0, z + 1);
+        int centerVal = landSeaArea.getValue(x + 1, z + 1);
+        int climateVal = climateArea.getValue(x, z);
 
         BOPClimates climate;
         try
@@ -47,23 +44,15 @@ public enum GenLayerBiomeBOP implements IAreaTransformer2, IDimOffset0Transforme
             throw new RuntimeException(msg,e);
         }
 
-        // At this point, oceans and land have been assigned, and so have mushroom islands
-        if (landSeaVal == DEEP_OCEAN)
+        if (centerVal == 0 && northVal == 0 && eastVal == 0 && southVal == 0 && westVal == 0 && context.random(50) == 0)
         {
-            return IRegistry.BIOME.getId(climate.getRandomOceanBiome(context, true));
+            Biome islandBiome = climate.getRandomIslandBiome(context, null);
+
+            if (islandBiome == null)
+                return centerVal;
+            else
+                return IRegistry.BIOME.getId(islandBiome);
         }
-        else if ((landSeaVal == MUSHROOM_FIELDS || ModBiomes.islandBiomes.contains(landSeaVal)) && climate.biomeType != BiomeManager.BiomeType.ICY) // TODO
-        {
-            // keep islands, unless it's in an icy climate in which case, replace
-            return landSeaVal;
-        }
-        else if (landSeaVal == 0)
-        {
-            return IRegistry.BIOME.getId(climate.getRandomOceanBiome(context, false));
-        }
-        else
-        {
-        	return IRegistry.BIOME.getId(climate.getRandomBiome(context, Biomes.PLAINS));
-        }
+        else return centerVal;
     }
 }
