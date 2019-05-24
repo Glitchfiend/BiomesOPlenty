@@ -21,6 +21,7 @@ public class BiomeBOP extends Biome
     protected Map<BOPClimates, Integer> weightMap = new HashMap<BOPClimates, Integer>();
 	public boolean canSpawnInBiome;
 	public int beachBiomeId = IRegistry.BIOME.getId(Biomes.BEACH);
+	public int riverBiomeId = IRegistry.BIOME.getId(Biomes.RIVER);
 
     public BiomeBOP(BiomeBuilder builder)
     {
@@ -47,6 +48,22 @@ public class BiomeBOP extends Biome
             this.beachBiomeId = IRegistry.BIOME.getId(biome);
         else
             this.beachBiomeId = -1;
+    }
+
+    public void setRiverBiome(Optional<Biome> biome)
+    {
+        if (biome.isPresent())
+            this.riverBiomeId = IRegistry.BIOME.getId(biome.get());
+        else
+            this.riverBiomeId = -1;
+    }
+
+    public void setRiverBiome(Biome biome)
+    {
+        if (biome != null)
+            this.riverBiomeId = IRegistry.BIOME.getId(biome);
+        else
+            this.riverBiomeId = -1;
     }
 
     public Map<BOPClimates, Integer> getWeightMap()

@@ -158,7 +158,7 @@ public class BOPLayerUtil
         biomesFactory = GenLayerSmooth.INSTANCE.apply(contextFactory.apply(1000L), biomesFactory);
 
         // Mix rivers into the biomes branch
-        biomesFactory = GenLayerRiverMix.INSTANCE.apply(contextFactory.apply(100L), biomesFactory, riversInitFactory);
+        biomesFactory = GenLayerRiverMixBOP.INSTANCE.apply(contextFactory.apply(100L), biomesFactory, riversInitFactory);
 
         climateFactory = LayerUtil.repeat(2001L, GenLayerZoom.NORMAL, climateFactory, 6, contextFactory);
         biomesFactory = GenLayerMixOceansBOP.INSTANCE.apply(contextFactory.apply(100L), biomesFactory, oceanBiomeFactory, climateFactory);
