@@ -43,6 +43,7 @@ public enum GenLayerShoreBOP implements ICastleTransformer
     private static final int SWAMP = IRegistry.BIOME.getId(Biomes.SWAMP);
     private static final int TAIGA = IRegistry.BIOME.getId(Biomes.TAIGA);
 
+    @Override
     public int apply(IContext context, int northBiomeId, int eastBiomeId, int southBiomeId, int westBiomeId, int biomeId)
     {
         Biome biome = IRegistry.BIOME.get(biomeId);
@@ -92,7 +93,7 @@ public enum GenLayerShoreBOP implements ICastleTransformer
                     return BEACH;
                 }
             }
-            else if (!BOPLayerUtil.isOcean(northBiomeId) && !BOPLayerUtil.isOcean(eastBiomeId) && !BOPLayerUtil.isOcean(southBiomeId) && !BOPLayerUtil.isOcean(westBiomeId) && (!this.isMesa(northBiomeId) || !this.isMesa(eastBiomeId) || !this.isMesa(southBiomeId) || !this.isMesa(westBiomeId)))
+            else if (!BOPLayerUtil.isOcean(northBiomeId) && !BOPLayerUtil.isOcean(eastBiomeId) && !BOPLayerUtil.isOcean(southBiomeId) && !BOPLayerUtil.isOcean(westBiomeId) && (!isMesa(northBiomeId) || !isMesa(eastBiomeId) || !isMesa(southBiomeId) || !isMesa(westBiomeId)))
             {
                 return DESERT;
             }
@@ -117,7 +118,7 @@ public enum GenLayerShoreBOP implements ICastleTransformer
         }
     }
 
-    private boolean isMesa(int biomeId)
+    private static boolean isMesa(int biomeId)
     {
         return biomeId == BADLANDS || biomeId == WOODED_BADLANDS_PLATEAU || biomeId == BADLANDS_PLATEAU || biomeId == ERODED_BADLANDS || biomeId == MODIFIED_WOODED_BADLANDS_PLATEAU || biomeId == MODIFIED_BADLANDS_PLATEAU;
     }
