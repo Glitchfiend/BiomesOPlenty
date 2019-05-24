@@ -160,7 +160,7 @@ public class BOPLayerUtil
         // Mix rivers into the biomes branch
         biomesFactory = GenLayerRiverMix.INSTANCE.apply(contextFactory.apply(100L), biomesFactory, riversInitFactory);
 
-        climateFactory = LayerUtil.repeat(2001L, GenLayerZoom.NORMAL, oceanBiomeFactory, 6, contextFactory);
+        climateFactory = LayerUtil.repeat(2001L, GenLayerZoom.NORMAL, climateFactory, 6, contextFactory);
         biomesFactory = GenLayerMixOceansBOP.INSTANCE.apply(contextFactory.apply(100L), biomesFactory, oceanBiomeFactory, climateFactory);
 
         // Finish biomes with Voroni zoom
