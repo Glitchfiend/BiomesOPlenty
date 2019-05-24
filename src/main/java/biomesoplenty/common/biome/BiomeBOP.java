@@ -8,6 +8,7 @@
 package biomesoplenty.common.biome;
 
 import biomesoplenty.api.enums.BOPClimates;
+import net.minecraft.init.Biomes;
 import net.minecraft.util.registry.IRegistry;
 import net.minecraft.world.biome.Biome;
 
@@ -19,7 +20,7 @@ public class BiomeBOP extends Biome
 {
     protected Map<BOPClimates, Integer> weightMap = new HashMap<BOPClimates, Integer>();
 	public boolean canSpawnInBiome;
-	public int beachBiomeId = -1;
+	public int beachBiomeId = IRegistry.BIOME.getId(Biomes.BEACH);
 
     public BiomeBOP(BiomeBuilder builder)
     {
