@@ -91,6 +91,10 @@ public class TropicsBiome extends BiomeBOP
         // Entity spawning
         this.addSpawn(EnumCreatureType.CREATURE, new Biome.SpawnListEntry(EntityType.PIG, 10, 4, 4));
         this.addSpawn(EnumCreatureType.CREATURE, new Biome.SpawnListEntry(EntityType.PARROT, 40, 1, 2));
+        this.addSpawn(EnumCreatureType.WATER_CREATURE, new Biome.SpawnListEntry(EntityType.SQUID, 10, 4, 4));
+        this.addSpawn(EnumCreatureType.WATER_CREATURE, new Biome.SpawnListEntry(EntityType.PUFFERFISH, 15, 1, 3));
+        this.addSpawn(EnumCreatureType.WATER_CREATURE, new Biome.SpawnListEntry(EntityType.TROPICAL_FISH, 25, 8, 8));
+        this.addSpawn(EnumCreatureType.WATER_CREATURE, new Biome.SpawnListEntry(EntityType.DOLPHIN, 2, 1, 2));
         
         this.canSpawnInBiome = false;
         this.setBeachBiome(BOPBiomes.white_beach);

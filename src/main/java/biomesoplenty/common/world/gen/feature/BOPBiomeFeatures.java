@@ -95,6 +95,7 @@ public class BOPBiomeFeatures
 	
 	public static final Feature<SplotchConfig> SPLOTCH = new SplotchFeature();
 	public static final Feature<NoFeatureConfig> BRAMBLE = new BrambleFeature();
+	public static final Feature<NoFeatureConfig> MANGROVE = new MangroveFeature();
 	
 	public static final AbstractFlowersFeature CHERRY_BLOSSOM_GROVE_FLOWERS = new CherryBlossomGroveFlowersFeature();
 	public static final AbstractFlowersFeature EXTENDED_FLOWERS = new ExtendedFlowersFeature();
@@ -120,7 +121,7 @@ public class BOPBiomeFeatures
 	public static final ISurfaceBuilder<SurfaceBuilderConfig> COLD_DESERT_SURFACE_BUILDER = new ColdDesertSurfaceBuilder();
 	public static final ISurfaceBuilder<SurfaceBuilderConfig> GRANITE_SURFACE_BUILDER = new GraniteSurfaceBuilder();
 	public static final ISurfaceBuilder<SurfaceBuilderConfig> MARSH_SURFACE_BUILDER = new MarshSurfaceBuilder();
-	public static final ISurfaceBuilder<SurfaceBuilderConfig> MUD_SURFACE_BUILDER = new MudSurfaceBuilder();
+	public static final ISurfaceBuilder<SurfaceBuilderConfig> MANGROVE_SURFACE_BUILDER = new MangroveSurfaceBuilder();
 	public static final ISurfaceBuilder<SurfaceBuilderConfig> PODZOL_SURFACE_BUILDER = new PodzolSurfaceBuilder();
 	public static final ISurfaceBuilder<SurfaceBuilderConfig> VOLCANO_SURFACE_BUILDER = new VolcanoSurfaceBuilder();
 	public static final ISurfaceBuilder<SurfaceBuilderConfig> VOLCANO_EDGE_SURFACE_BUILDER = new VolcanoEdgeSurfaceBuilder();

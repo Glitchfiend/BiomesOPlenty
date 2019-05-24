@@ -31,6 +31,7 @@ import biomesoplenty.common.biome.overworld.GravelBeachBiome;
 import biomesoplenty.common.biome.overworld.GroveBiome;
 import biomesoplenty.common.biome.overworld.LavenderFieldBiome;
 import biomesoplenty.common.biome.overworld.LushSwampBiome;
+import biomesoplenty.common.biome.overworld.MangroveBiome;
 import biomesoplenty.common.biome.overworld.MapleWoodsBiome;
 import biomesoplenty.common.biome.overworld.MarshBiome;
 import biomesoplenty.common.biome.overworld.MeadowBiome;
@@ -129,6 +130,7 @@ public class ModBiomes
         highland_moor = registerBiome(new HighlandMoorBiome(), "highland_moor");
         lavender_field = registerBiome(new LavenderFieldBiome(), "lavender_field");
         lush_swamp = registerBiome(new LushSwampBiome(), "lush_swamp");
+        mangrove = registerBiome(new MangroveBiome(), "mangrove");
         maple_woods = registerBiome(new MapleWoodsBiome(), "maple_woods");
         marsh = registerBiome(new MarshBiome(), "marsh");
         meadow = registerBiome(new MeadowBiome(), "meadow");
@@ -184,8 +186,8 @@ public class ModBiomes
     
     private static void registerBiomeDictionaryTags()
     {
-    	registerBiomeToDictionary(BOPBiomes.alps_foothills, Type.MOUNTAIN, Type.SNOWY, Type.FOREST, Type.SPARSE, Type.COLD, Type.DRY);
         registerBiomeToDictionary(BOPBiomes.alps, Type.MOUNTAIN, Type.SNOWY, Type.COLD, Type.DRY);
+        registerBiomeToDictionary(BOPBiomes.alps_foothills, Type.MOUNTAIN, Type.SNOWY, Type.FOREST, Type.SPARSE, Type.COLD, Type.DRY);
         registerBiomeToDictionary(BOPBiomes.bayou, Type.SWAMP, Type.HOT, Type.WET, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.bog, Type.SWAMP, Type.DEAD, Type.WET);
         registerBiomeToDictionary(BOPBiomes.bog_mire, Type.SWAMP, Type.DEAD, Type.WASTELAND, Type.WET);
@@ -206,6 +208,7 @@ public class ModBiomes
         registerBiomeToDictionary(BOPBiomes.highland_moor, Type.HILLS, Type.WET);
         registerBiomeToDictionary(BOPBiomes.lavender_field, Type.PLAINS, Type.MAGICAL, Type.LUSH);
         registerBiomeToDictionary(BOPBiomes.lush_swamp, Type.SWAMP, Type.LUSH, Type.WET, Type.DENSE);
+        registerBiomeToDictionary(BOPBiomes.mangrove, Type.WATER, Type.SWAMP, Type.WET, Type.DENSE, Type.LUSH);
         registerBiomeToDictionary(BOPBiomes.maple_woods, Type.FOREST, Type.CONIFEROUS, Type.COLD, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.marsh, Type.WATER, Type.WET, Type.LUSH);
         registerBiomeToDictionary(BOPBiomes.meadow, Type.PLAINS, Type.FOREST, Type.LUSH, Type.COLD, Type.WET, Type.SPARSE);

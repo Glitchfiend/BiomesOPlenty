@@ -322,6 +322,8 @@ public class ModBlocks
         registerBlock(reed, new ItemWaterPlant(BOPBlocks.reed, new Item.Properties().group(ItemGroupBOP.instance)), "reed");
         watergrass = new BlockWaterPlant(Block.Properties.create(Material.PLANTS, MaterialColor.GRASS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT));
         registerBlock(watergrass, new ItemWaterPlant(BOPBlocks.watergrass, new Item.Properties().group(ItemGroupBOP.instance)), "watergrass");
+        mangrove_root = new BlockWaterPlant(Block.Properties.create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.WOOD));
+        registerBlock(mangrove_root, new ItemWaterPlant(BOPBlocks.mangrove_root, new Item.Properties().group(ItemGroupBOP.instance)), "mangrove_root");
         
         bramble = registerBlock(new BlockBramble(Block.Properties.create(Material.PLANTS, MaterialColor.NETHERRACK).hardnessAndResistance(0.4F).sound(SoundType.WOOD)), "bramble");
         

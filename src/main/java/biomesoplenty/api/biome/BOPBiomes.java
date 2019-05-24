@@ -35,6 +35,7 @@ public class BOPBiomes
     public static Optional<Biome> highland_moor = Optional.empty();
     public static Optional<Biome> lavender_field = Optional.empty();
     public static Optional<Biome> lush_swamp = Optional.empty();
+    public static Optional<Biome> mangrove = Optional.empty();
     public static Optional<Biome> maple_woods = Optional.empty();
     public static Optional<Biome> marsh = Optional.empty();
     public static Optional<Biome> meadow = Optional.empty();
