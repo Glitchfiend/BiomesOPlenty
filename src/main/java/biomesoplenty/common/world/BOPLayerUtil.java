@@ -115,10 +115,6 @@ public class BOPLayerUtil
         // and mushroom islands
         IAreaFactory<T> landSeaFactory = createInitialLandAndSeaFactory(contextFactory);
 
-        // Add mushroom islands and deep oceans
-        landSeaFactory = GenLayerAddMushroomIsland.INSTANCE.apply(contextFactory.apply(5L), landSeaFactory);
-        landSeaFactory = GenLayerDeepOcean.INSTANCE.apply(contextFactory.apply(4L), landSeaFactory);
-
         // Determines positions for all of the new ocean subbiomes added in 1.13
         IAreaFactory<T> oceanBiomeFactory = OceanLayer.INSTANCE.apply(contextFactory.apply(2L));
         oceanBiomeFactory = LayerUtil.repeat(2001L, GenLayerZoom.NORMAL, oceanBiomeFactory, 6, contextFactory);
@@ -134,7 +130,11 @@ public class BOPLayerUtil
 
         // Create the climates
         IAreaFactory<T> climateFactory = createClimateFactory(contextFactory, new BOPWorldSettings());
+
+        // Add islands and deep oceans
+        landSeaFactory = GenLayerAddMushroomIsland.INSTANCE.apply(contextFactory.apply(5L), landSeaFactory);
         landSeaFactory = GenLayerLargeIsland.INSTANCE.apply(contextFactory.apply(5L), landSeaFactory, climateFactory);
+        landSeaFactory = GenLayerDeepOcean.INSTANCE.apply(contextFactory.apply(4L), landSeaFactory);
 
         // Allocate the biomes
         IAreaFactory<T> biomesFactory = createBiomeFactory(landSeaFactory, climateFactory, contextFactory);

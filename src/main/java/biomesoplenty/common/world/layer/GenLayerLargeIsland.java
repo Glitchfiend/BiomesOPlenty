@@ -8,6 +8,7 @@
 package biomesoplenty.common.world.layer;
 
 import biomesoplenty.api.enums.BOPClimates;
+import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.util.registry.IRegistry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.IContext;
@@ -48,10 +49,17 @@ public enum GenLayerLargeIsland implements IAreaTransformer2, IDimOffset1Transfo
         {
             Biome islandBiome = climate.getRandomIslandBiome(context, null);
 
+            BiomesOPlenty.logger.info("Helloooooo");
+
             if (islandBiome == null)
+            {
                 return centerVal;
+            }
             else
+            {
+                BiomesOPlenty.logger.info("Setting " + x + " " + z + " to " + islandBiome.getRegistryName());
                 return IRegistry.BIOME.getId(islandBiome);
+            }
         }
         else return centerVal;
     }
