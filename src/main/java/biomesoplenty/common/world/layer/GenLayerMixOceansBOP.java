@@ -63,7 +63,7 @@ public enum GenLayerMixOceansBOP implements IAreaTransformer3, IDimOffset0Transf
             }
         	
             // When far from land, warm oceans should become lukewarm and frozen oceans should become cold
-            for (int xOff = -8; xOff <= 8; xOff += 4)
+            /*for (int xOff = -8; xOff <= 8; xOff += 4)
             {
                 for (int zOff = -8; zOff <= 8; zOff += 4)
                 {
@@ -82,7 +82,7 @@ public enum GenLayerMixOceansBOP implements IAreaTransformer3, IDimOffset0Transf
                         }
                     }
                 }
-            }
+            }*/
 
             if (biomeId == BOPLayerUtil.DEEP_OCEAN)
             {

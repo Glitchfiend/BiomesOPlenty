@@ -167,7 +167,13 @@ public class ModBiomes
         registerSubBiome(meadow, flower_meadow, 0.5F, 100);
         registerSubBiome(prairie, pasture, 1.0F, 100);
 
-        registerIslandBiome(origin_hills, BOPClimates.TROPICAL, 1);
+        registerIslandBiome(origin_hills, BOPClimates.COOL_TEMPERATE, 10);
+        registerIslandBiome(origin_hills, BOPClimates.DRY_TEMPERATE, 10);
+        registerIslandBiome(origin_hills, BOPClimates.WET_TEMPERATE, 10);
+        
+        registerIslandBiome(tropics, BOPClimates.SUBTROPICAL, 500);
+        registerIslandBiome(tropics, BOPClimates.TROPICAL, 500);
+        registerIslandBiome(tropics, BOPClimates.HOT_DESERT, 500);
     }
     
     private static void registerBiomeDictionaryTags()
