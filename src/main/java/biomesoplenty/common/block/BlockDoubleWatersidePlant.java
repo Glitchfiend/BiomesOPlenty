@@ -18,9 +18,9 @@ import net.minecraft.world.IWorldReaderBase;
 
 import java.util.Iterator;
 
-public class BlockDoubleWaterPlant extends BlockDoublePlantBOP
+public class BlockDoubleWatersidePlant extends BlockDoublePlantBOP
 {
-    public BlockDoubleWaterPlant(Block droppedBlock, Block.Properties properties)
+    public BlockDoubleWatersidePlant(Block droppedBlock, Block.Properties properties)
     {
         super(droppedBlock, properties);
     }

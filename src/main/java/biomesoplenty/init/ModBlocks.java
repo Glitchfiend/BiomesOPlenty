@@ -12,7 +12,7 @@ import static biomesoplenty.api.block.BOPBlocks.*;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.BlockAsh;
 import biomesoplenty.common.block.BlockBramble;
-import biomesoplenty.common.block.BlockDoubleWaterPlant;
+import biomesoplenty.common.block.BlockDoubleWatersidePlant;
 import biomesoplenty.common.block.BlockDriedSand;
 import biomesoplenty.common.block.BlockFlesh;
 import biomesoplenty.common.block.BlockFlowerBOP;
@@ -22,8 +22,8 @@ import biomesoplenty.common.block.BlockMud;
 import biomesoplenty.common.block.BlockMushroomBOP;
 import biomesoplenty.common.block.BlockPlantBOP;
 import biomesoplenty.common.block.BlockSaplingBOP;
+import biomesoplenty.common.block.BlockWatersidePlant;
 import biomesoplenty.common.block.BlockWaterPlant;
-import biomesoplenty.common.block.BlockWaterTopPlant;
 import biomesoplenty.common.block.trees.DeadTree;
 import biomesoplenty.common.block.trees.EtherealTree;
 import biomesoplenty.common.block.trees.FirTree;
@@ -42,7 +42,7 @@ import biomesoplenty.common.block.trees.UmbranTree;
 import biomesoplenty.common.block.trees.WhiteCherryTree;
 import biomesoplenty.common.block.trees.WillowTree;
 import biomesoplenty.common.block.trees.YellowAutumnTree;
-import biomesoplenty.common.item.ItemWaterTopPlant;
+import biomesoplenty.common.item.ItemWaterPlant;
 import biomesoplenty.common.util.inventory.ItemGroupBOP;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockButtonWood;
@@ -315,12 +315,13 @@ public class ModBlocks
         spectral_fern = registerBlock(new BlockFoliageBOP(Block.Properties.create(Material.VINE, MaterialColor.RED).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "spectral_fern");
         
         tiny_cactus = registerBlock(new BlockPlantBOP(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "tiny_cactus");
-        cattail = registerBlock(new BlockWaterPlant(Block.Properties.create(Material.PLANTS, MaterialColor.DIRT).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "cattail");
-        tall_cattail = registerBlock(new BlockDoubleWaterPlant(cattail, Block.Properties.create(Material.PLANTS, MaterialColor.DIRT).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "tall_cattail");
+        cattail = registerBlock(new BlockWatersidePlant(Block.Properties.create(Material.PLANTS, MaterialColor.DIRT).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "cattail");
+        tall_cattail = registerBlock(new BlockDoubleWatersidePlant(cattail, Block.Properties.create(Material.PLANTS, MaterialColor.DIRT).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "tall_cattail");
 
-        reed = new BlockWaterTopPlant(Block.Properties.create(Material.PLANTS, MaterialColor.DIRT).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT));
-        registerBlock(reed, new ItemWaterTopPlant(BOPBlocks.reed, new Item.Properties().group(ItemGroupBOP.instance)), "reed");
-        watergrass = registerBlock(new BlockWaterTopPlant(Block.Properties.create(Material.PLANTS, MaterialColor.GRASS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "watergrass");
+        reed = new BlockWaterPlant(Block.Properties.create(Material.PLANTS, MaterialColor.DIRT).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT));
+        registerBlock(reed, new ItemWaterPlant(BOPBlocks.reed, new Item.Properties().group(ItemGroupBOP.instance)), "reed");
+        watergrass = new BlockWaterPlant(Block.Properties.create(Material.PLANTS, MaterialColor.GRASS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT));
+        registerBlock(watergrass, new ItemWaterPlant(BOPBlocks.watergrass, new Item.Properties().group(ItemGroupBOP.instance)), "watergrass");
         
         bramble = registerBlock(new BlockBramble(Block.Properties.create(Material.PLANTS, MaterialColor.NETHERRACK).hardnessAndResistance(0.4F).sound(SoundType.WOOD)), "bramble");
         

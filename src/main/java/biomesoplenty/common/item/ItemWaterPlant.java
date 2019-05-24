@@ -24,11 +24,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-public class ItemWaterTopPlant extends ItemBlock
+public class ItemWaterPlant extends ItemBlock
 {
 	private Block block;
 
-	public ItemWaterTopPlant(Block blockIn, Item.Properties builder)
+	public ItemWaterPlant(Block blockIn, Item.Properties builder)
 	   {
 	      super(blockIn, builder);
 	      this.block = blockIn;
