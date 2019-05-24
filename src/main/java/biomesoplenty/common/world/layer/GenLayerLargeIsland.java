@@ -49,15 +49,12 @@ public enum GenLayerLargeIsland implements IAreaTransformer2, IDimOffset1Transfo
         {
             Biome islandBiome = climate.getRandomIslandBiome(context, null);
 
-            BiomesOPlenty.logger.info("Helloooooo");
-
             if (islandBiome == null)
             {
                 return centerVal;
             }
             else
             {
-                BiomesOPlenty.logger.info("Setting " + x + " " + z + " to " + islandBiome.getRegistryName());
                 return IRegistry.BIOME.getId(islandBiome);
             }
         }
