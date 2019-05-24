@@ -9,6 +9,7 @@ package biomesoplenty.common.biome.overworld;
 
 import com.google.common.collect.Lists;
 
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.BiomeBOP;
@@ -104,6 +105,7 @@ public class SilkgladeBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.SLIME, 100, 4, 4));
         
         this.addWeight(BOPClimates.DRY_TEMPERATE, 1);
+        this.setBeachBiome(BOPBiomes.gravel_beach);
         this.canSpawnInBiome = false;
     }
     

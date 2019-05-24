@@ -9,6 +9,7 @@ package biomesoplenty.common.biome.overworld;
 
 import com.google.common.collect.Lists;
 
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.common.biome.BiomeBOP;
 import biomesoplenty.common.world.gen.feature.BOPBiomeFeatures;
 import net.minecraft.entity.EntityType;
@@ -79,6 +80,7 @@ public class OriginBeachBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.SLIME, 100, 4, 4));
         
         this.canSpawnInBiome = false;
+        this.setBeachBiome((Biome)null);
     }
     
     @OnlyIn(Dist.CLIENT)

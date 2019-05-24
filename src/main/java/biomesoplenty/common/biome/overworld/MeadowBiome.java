@@ -9,6 +9,7 @@ package biomesoplenty.common.biome.overworld;
 
 import com.google.common.collect.Lists;
 
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.BiomeBOP;
 import biomesoplenty.common.world.gen.feature.BOPBiomeFeatures;
@@ -117,6 +118,7 @@ public class MeadowBiome extends BiomeBOP
         
         this.addWeight(BOPClimates.WET_BOREAL, 3);
         this.addWeight(BOPClimates.COOL_TEMPERATE, 3);
+        this.setBeachBiome(BOPBiomes.gravel_beach);
     }
     
     @OnlyIn(Dist.CLIENT)

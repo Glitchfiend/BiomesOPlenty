@@ -103,5 +103,6 @@ public class HighlandBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
         
         this.addWeight(BOPClimates.COOL_TEMPERATE, 3);
+        this.setBeachBiome((Biome)null);
     }
 }

@@ -110,6 +110,7 @@ public class MysticGroveBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
         
         this.addWeight(BOPClimates.WET_TEMPERATE, 1);
+        this.setBeachBiome((Biome)null);
         this.canSpawnInBiome = false;
     }
     

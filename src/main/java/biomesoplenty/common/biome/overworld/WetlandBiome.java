@@ -123,6 +123,7 @@ public class WetlandBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.SLIME, 1, 1, 1));
         
         this.addWeight(BOPClimates.WET_TEMPERATE, 7);
+        this.setBeachBiome((Biome)null);
     }
     
     @OnlyIn(Dist.CLIENT)

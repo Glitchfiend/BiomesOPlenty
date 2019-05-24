@@ -97,5 +97,6 @@ public class AlpsFoothillsBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
 
         this.canSpawnInBiome = false;
+        this.setBeachBiome((Biome)null);
     }
 }

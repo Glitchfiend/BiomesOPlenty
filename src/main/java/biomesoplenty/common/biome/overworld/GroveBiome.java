@@ -111,6 +111,7 @@ public class GroveBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
         
         this.addWeight(BOPClimates.MEDITERRANEAN, 7);
+        this.setBeachBiome((Biome)null);
     }
     
     @OnlyIn(Dist.CLIENT)

@@ -93,6 +93,7 @@ public class WastelandBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
         
         this.addWeight(BOPClimates.HOT_DESERT, 1);
+        this.setBeachBiome((Biome)null);
         this.canSpawnInBiome = false;
     }
     

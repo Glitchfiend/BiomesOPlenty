@@ -97,5 +97,6 @@ public class FloodplainBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
         
         this.addWeight(BOPClimates.TROPICAL, 5);
+        this.setBeachBiome((Biome)null);
     }
 }

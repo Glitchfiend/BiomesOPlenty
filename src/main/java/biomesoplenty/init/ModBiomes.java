@@ -98,6 +98,10 @@ public class ModBiomes
 
     private static void registerBiomes()
     {
+        gravel_beach = registerBiome(new GravelBeachBiome(), "gravel_beach");
+        origin_beach = registerBiome(new OriginBeachBiome(), "origin_beach");
+        white_beach = registerBiome(new WhiteBeachBiome(), "white_beach");
+    	
     	alps = registerBiome(new AlpsBiome(), "alps");
     	alps_foothills = registerBiome(new AlpsFoothillsBiome(), "alps_foothills");
     	bayou = registerBiome(new BayouBiome(), "bayou");
@@ -113,7 +117,6 @@ public class ModBiomes
         floodplain = registerBiome(new FloodplainBiome(), "floodplain");
         flower_meadow = registerBiome(new FlowerMeadowBiome(), "flower_meadow");
         grassland = registerBiome(new GrasslandBiome(), "grassland");
-        gravel_beach = registerBiome(new GravelBeachBiome(), "gravel_beach");
         grove = registerBiome(new GroveBiome(), "grove");
         grove_orchard = registerBiome(new GroveOrchardBiome(), "grove_orchard");
         highland = registerBiome(new HighlandBiome(), "highland");
@@ -126,7 +129,6 @@ public class ModBiomes
         mystic_grove = registerBiome(new MysticGroveBiome(), "mystic_grove");
         oasis = registerBiome(new OasisBiome(), "oasis");
         ominous_woods = registerBiome(new OminousWoodsBiome(), "ominous_woods");
-        origin_beach = registerBiome(new OriginBeachBiome(), "origin_beach");
         origin_hills = registerBiome(new OriginHillsBiome(), "origin_hills");
         outback = registerBiome(new OutbackBiome(), "outback");
         overgrown_cliffs = registerBiome(new OvergrownCliffsBiome(), "overgrown_cliffs");
@@ -150,7 +152,6 @@ public class ModBiomes
         volcano = registerBiome(new VolcanoBiome(), "volcano");
         wasteland = registerBiome(new WastelandBiome(), "wasteland");
         wetland = registerBiome(new WetlandBiome(), "wetland");
-        white_beach = registerBiome(new WhiteBeachBiome(), "white_beach");
         woodland = registerBiome(new WoodlandBiome(), "woodland");
         xeric_shrubland = registerBiome(new XericShrublandBiome(), "xeric_shrubland");
 

@@ -118,6 +118,7 @@ public class BayouBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.SLIME, 1, 1, 1));
         
         this.addWeight(BOPClimates.SUBTROPICAL, 10);
+        this.setBeachBiome((Biome)null);
     }
     
     @OnlyIn(Dist.CLIENT)

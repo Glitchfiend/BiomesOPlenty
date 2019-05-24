@@ -33,6 +33,35 @@ public enum GenLayerMixOceansBOP implements IAreaTransformer3, IDimOffset0Transf
         }
         else
         {
+        	switch (climate)
+            {
+                case ICE_CAP:
+                    oceanId = BOPLayerUtil.FROZEN_OCEAN;
+                    break;
+
+                case TUNDRA:
+                case WET_BOREAL:
+                case DRY_BOREAL:
+                    oceanId = BOPLayerUtil.COLD_OCEAN;
+                    break;
+
+                case WARM_TEMPERATE:
+                case SUBTROPICAL:
+                case MEDITERRANEAN:
+                case SAVANNA:
+                    oceanId = BOPLayerUtil.LUKEWARM_OCEAN;
+                    break;
+
+                case TROPICAL:
+                case HOT_DESERT:
+                    oceanId = BOPLayerUtil.WARM_OCEAN;
+                    break;
+
+                default:
+                    oceanId = BOPLayerUtil.OCEAN;
+                    break;
+            }
+        	
             // When far from land, warm oceans should become lukewarm and frozen oceans should become cold
             for (int xOff = -8; xOff <= 8; xOff += 4)
             {

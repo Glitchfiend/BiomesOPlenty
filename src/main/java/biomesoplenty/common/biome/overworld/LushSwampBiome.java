@@ -119,5 +119,6 @@ public class LushSwampBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.SLIME, 1, 1, 1));
 
         this.addWeight(BOPClimates.SUBTROPICAL, 3);
+        this.setBeachBiome((Biome)null);
     }
 }
