@@ -10,10 +10,9 @@ package biomesoplenty.common.biome.overworld;
 import com.google.common.collect.Lists;
 
 import biomesoplenty.api.biome.BOPBiomes;
-import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.BiomeBOP;
 import biomesoplenty.common.world.gen.feature.BOPBiomeFeatures;
-import biomesoplenty.common.world.gen.feature.SplotchConfig;
 import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EnumCreatureType;
@@ -40,11 +39,11 @@ import net.minecraft.world.gen.placement.IPlacementConfig;
 import net.minecraft.world.gen.placement.LakeChanceConfig;
 import net.minecraft.world.gen.surfacebuilders.CompositeSurfaceBuilder;
 
-public class VolcanoBiome extends BiomeBOP
+public class VolcanoEdgeBiome extends BiomeBOP
 {
-    public VolcanoBiome()
+    public VolcanoEdgeBiome()
     {
-        super((new Biome.BiomeBuilder()).surfaceBuilder(new CompositeSurfaceBuilder(BOPBiomeFeatures.VOLCANO_SURFACE_BUILDER, BOPBiomeFeatures.ASH_SURFACE)).precipitation(Biome.RainType.RAIN).category(Biome.Category.NONE).depth(4.5F).scale(0.0F).temperature(0.95F).downfall(0.3F).waterColor(4566514).waterFogColor(267827).parent((String)null));
+        super((new Biome.BiomeBuilder()).surfaceBuilder(new CompositeSurfaceBuilder(BOPBiomeFeatures.VOLCANO_EDGE_SURFACE_BUILDER, STONE_STONE_GRAVEL_SURFACE)).precipitation(Biome.RainType.RAIN).category(Biome.Category.NONE).depth(1.25F).scale(0.4F).temperature(0.95F).downfall(0.3F).waterColor(4566514).waterFogColor(267827).parent((String)null));
 
         // Mineshafts and Strongholds
         this.addStructure(Feature.MINESHAFT, new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL));
@@ -72,7 +71,6 @@ public class VolcanoBiome extends BiomeBOP
         this.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, createCompositeFeature(Feature.MINABLE, new MinableConfig(MinableConfig.IS_ROCK, Blocks.DIAMOND_ORE.getDefaultState(), 8), COUNT_RANGE, new CountRangeConfig(1, 0, 0, 16)));
         this.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, createCompositeFeature(Feature.MINABLE, new MinableConfig(MinableConfig.IS_ROCK, Blocks.LAPIS_ORE.getDefaultState(), 7), DEPTH_AVERAGE, new DepthAverageConfig(1, 16, 16)));
         this.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, createCompositeFeature(Feature.SPHERE_REPLACE, new SphereReplaceConfig(Blocks.GRAVEL, 6, 2, Lists.newArrayList(Blocks.DIRT, Blocks.GRASS_BLOCK)), TOP_SOLID, new FrequencyConfig(1)));
-        this.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, createCompositeFeature(BOPBiomeFeatures.SPLOTCH, new SplotchConfig(Blocks.LAVA, 8, 2, Lists.newArrayList(Blocks.LAVA, Blocks.STONE, Blocks.GRANITE, Blocks.DIORITE, Blocks.ANDESITE, Blocks.GRAVEL, Blocks.MAGMA_BLOCK, BOPBlocks.ash_block)), TOP_SOLID, new FrequencyConfig(2)));
         
         this.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, createCompositeFeature(Feature.REPLACE_BLOCK, new ReplaceBlockConfig(BlockMatcher.forBlock(Blocks.STONE), Blocks.EMERALD_ORE.getDefaultState()), HEIGHT_4_TO_32, IPlacementConfig.NO_PLACEMENT_CONFIG));
         this.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, createCompositeFeature(Feature.MINABLE, new MinableConfig(MinableConfig.IS_ROCK, Blocks.INFESTED_STONE.getDefaultState(), 9), COUNT_RANGE, new CountRangeConfig(7, 0, 0, 64)));
@@ -93,6 +91,6 @@ public class VolcanoBiome extends BiomeBOP
         
         this.canSpawnInBiome = false;
         this.setRiverBiome((Biome)null);
-        this.setBeachBiome(BOPBiomes.volcano_edge);
+        this.setBeachBiome((Biome)null);
     }
 }

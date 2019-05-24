@@ -62,6 +62,7 @@ import biomesoplenty.common.biome.overworld.TropicalRainforestBiome;
 import biomesoplenty.common.biome.overworld.TropicsBiome;
 import biomesoplenty.common.biome.overworld.TundraBiome;
 import biomesoplenty.common.biome.overworld.VolcanoBiome;
+import biomesoplenty.common.biome.overworld.VolcanoEdgeBiome;
 import biomesoplenty.common.biome.overworld.WastelandBiome;
 import biomesoplenty.common.biome.overworld.WetlandBiome;
 import biomesoplenty.common.biome.overworld.WhiteBeachBiome;
@@ -106,6 +107,7 @@ public class ModBiomes
         white_beach = registerBiome(new WhiteBeachBiome(), "white_beach");
     	alps_foothills = registerBiome(new AlpsFoothillsBiome(), "alps_foothills");
         redwood_forest_edge = registerBiome(new RedwoodForestEdgeBiome(), "redwood_forest_edge");
+        volcano_edge = registerBiome(new VolcanoEdgeBiome(), "volcano_edge");
     	
     	alps = registerBiome(new AlpsBiome(), "alps");
     	bayou = registerBiome(new BayouBiome(), "bayou");
@@ -171,6 +173,10 @@ public class ModBiomes
         registerIslandBiome(origin_hills, BOPClimates.DRY_TEMPERATE, 50);
         registerIslandBiome(origin_hills, BOPClimates.WET_TEMPERATE, 50);
         
+        registerIslandBiome(volcano, BOPClimates.WARM_TEMPERATE, 50);
+        registerIslandBiome(volcano, BOPClimates.MEDITERRANEAN, 50);
+        registerIslandBiome(volcano, BOPClimates.SAVANNA, 50);
+        
         registerIslandBiome(tropics, BOPClimates.SUBTROPICAL, 50);
         registerIslandBiome(tropics, BOPClimates.TROPICAL, 50);
         registerIslandBiome(tropics, BOPClimates.HOT_DESERT, 50);
@@ -228,6 +234,7 @@ public class ModBiomes
         registerBiomeToDictionary(BOPBiomes.tropics, Type.WATER, Type.JUNGLE, Type.LUSH, Type.WET, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.tundra, Type.COLD, Type.WASTELAND, Type.DEAD, Type.WET, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.volcano, Type.WATER, Type.DEAD, Type.WASTELAND, Type.MOUNTAIN, Type.HOT, Type.DRY);
+        registerBiomeToDictionary(BOPBiomes.volcano_edge, Type.WATER, Type.DEAD, Type.WASTELAND, Type.MOUNTAIN, Type.HOT, Type.DRY);
         registerBiomeToDictionary(BOPBiomes.wasteland, Type.WASTELAND, Type.DEAD, Type.DRY, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.wetland, Type.SWAMP, Type.FOREST, Type.LUSH, Type.WET, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.white_beach, Type.BEACH);
