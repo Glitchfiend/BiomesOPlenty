@@ -36,7 +36,7 @@ version = "${minecraft_version}-${mod_version}.${System.getenv().BUILD_NUMBER}"
 minecraft {
     mappings channel: 'snapshot', version: mappings_version
 
-    accessTransformer = file('src/main/resources/META-INF/biomesoplenty_at.cfg')
+    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
     runs {
         client = {
