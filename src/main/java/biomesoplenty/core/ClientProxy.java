@@ -38,9 +38,14 @@ public class ClientProxy extends CommonProxy
     }
 
     @Override
-    public void preInit()
+    public void registerRenderers()
     {
-        RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, manager -> new RenderSprite<Entity>(manager, BOPItems.mudball, Minecraft.getInstance().getItemRenderer()));
+        RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, manager ->
+        {
+            BiomesOPlenty.logger.info("Creating sprite renderer");
+            BiomesOPlenty.logger.info(Minecraft.getInstance().getItemRenderer() == null);
+            return new RenderSprite<Entity>(manager, BOPItems.mudball, Minecraft.getInstance().getItemRenderer());
+        });
     }
 
     @Override

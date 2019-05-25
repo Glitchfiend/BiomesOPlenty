@@ -8,13 +8,12 @@
 
 package biomesoplenty.core;
 
-import biomesoplenty.client.util.GenLayerVisualizer;
 import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.init.*;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -35,7 +34,7 @@ public class BiomesOPlenty
     {
     	instance = this;
 
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
         MinecraftForge.EVENT_BUS.addListener(this::serverStarting);
 
@@ -46,9 +45,9 @@ public class BiomesOPlenty
         ModBiomes.init();
     }
     
-    private void setup(final FMLCommonSetupEvent event)
+    private void clientSetup(final FMLClientSetupEvent event)
     {
-        proxy.preInit();
+        proxy.registerRenderers();
     }
 
     private void loadComplete(final FMLLoadCompleteEvent event) // PostRegistrationEven
