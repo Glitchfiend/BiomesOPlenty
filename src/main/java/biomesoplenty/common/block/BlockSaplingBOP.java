@@ -14,9 +14,11 @@ import net.minecraft.block.BlockSapling;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.trees.AbstractTree;
+import net.minecraft.init.Blocks;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
@@ -93,5 +95,17 @@ public class BlockSaplingBOP extends BlockSapling implements IGrowable
    public void fillStateContainer(StateContainer.Builder<Block, IBlockState> builder)
    {
       builder.add(STAGE);
+   }
+   
+   @Override
+   public int getFlammability(IBlockState state, IBlockReader world, BlockPos pos, EnumFacing face)
+   {
+   	return Blocks.OAK_SAPLING.getFlammability(state, world, pos, face);
+   }
+   
+   @Override
+   public int getFireSpreadSpeed(IBlockState state, IBlockReader world, BlockPos pos, EnumFacing face)
+   {
+       return Blocks.OAK_SAPLING.getFireSpreadSpeed(state,world, pos, face);
    }
 }

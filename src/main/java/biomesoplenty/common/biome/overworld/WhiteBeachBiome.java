@@ -88,6 +88,6 @@ public class WhiteBeachBiome extends BiomeBOP
     @OnlyIn(Dist.CLIENT)
     public int getSkyColorByTemp(float currentTemperature)
     {
-       return 0x7BDFF;
+       return 0x66BCFF;
     }
 }

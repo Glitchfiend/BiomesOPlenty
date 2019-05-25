@@ -17,6 +17,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.VoxelShape;
@@ -127,5 +128,17 @@ public class BlockFoliageBOP extends BlockBush implements IPlantable
     public EnumPlantType getPlantType(IBlockReader world, BlockPos pos)
     {
     	return EnumPlantType.Plains;
+    }
+    
+    @Override
+    public int getFlammability(IBlockState state, IBlockReader world, BlockPos pos, EnumFacing face)
+    {
+    	return Blocks.GRASS.getFlammability(state, world, pos, face);
+    }
+    
+    @Override
+    public int getFireSpreadSpeed(IBlockState state, IBlockReader world, BlockPos pos, EnumFacing face)
+    {
+        return Blocks.GRASS.getFireSpreadSpeed(state,world, pos, face);
     }
 }

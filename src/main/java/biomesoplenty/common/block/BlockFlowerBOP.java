@@ -20,6 +20,7 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.init.Particles;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
@@ -96,5 +97,17 @@ public class BlockFlowerBOP extends BlockFlower
 	    	   worldIn.addParticle(Particles.SMOKE, (double)((float)pos.getX() + rand.nextFloat()), (double)((float)pos.getY() + rand.nextFloat()), (double)((float)pos.getZ() + rand.nextFloat()), 0.0D, 0.0D, 0.0D);
 	       }
 	   }
+    }
+    
+    @Override
+    public int getFlammability(IBlockState state, IBlockReader world, BlockPos pos, EnumFacing face)
+    {
+    	return Blocks.POPPY.getFlammability(state, world, pos, face);
+    }
+    
+    @Override
+    public int getFireSpreadSpeed(IBlockState state, IBlockReader world, BlockPos pos, EnumFacing face)
+    {
+        return Blocks.POPPY.getFireSpreadSpeed(state,world, pos, face);
     }
 }
