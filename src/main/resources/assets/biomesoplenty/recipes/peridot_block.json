@@ -7,8 +7,8 @@
   ],
   "key": {
     "#": {
-      "item": "biomesoplenty:gem",
-      "data": 2
+      "type": "forge:ore_dict",
+      "ore": "gemPeridot"
     }
   },
   "result": {

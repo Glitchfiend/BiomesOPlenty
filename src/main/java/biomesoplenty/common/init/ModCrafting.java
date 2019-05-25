@@ -145,6 +145,7 @@ public class ModCrafting
             String gemName = CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, gem.name());
             OreDictionary.registerOre("gem"+gemName, new ItemStack(BOPItems.gem, 1, gem.ordinal()));
             OreDictionary.registerOre("ore"+gemName, new ItemStack(BOPBlocks.gem_ore , 1, gem.ordinal()));
+            OreDictionary.registerOre("block"+gemName, new ItemStack(BOPBlocks.gem_block, 1, gem.ordinal()));
         }
         
         for (BOPFlowers flower : BOPFlowers.values())
