@@ -52,6 +52,7 @@ pipeline {
             steps {
                 sh './gradlew ${GRADLE_ARGS} :uploadArchives -PforgeMavenUsername=${FORGE_MAVEN_USR} -PforgeMavenPassword=${FORGE_MAVEN_PSW}'
                 sh 'curl --user ${FORGE_MAVEN_USR}:${FORGE_MAVEN_PSW} http://files.minecraftforge.net/maven/manage/promote/latest/com.github.glitchfiend.biomesoplenty.BiomesOPlenty/${MYVERSION}'
+                sh './gradlew :curseforge'
             }
         }
     }

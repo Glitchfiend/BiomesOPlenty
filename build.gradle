@@ -96,7 +96,7 @@ curseforge {
                 changelog = changelog_file
             }
 
-            releaseType = 'beta'
+            releaseType = 'alpha'
         }
     }
 }
