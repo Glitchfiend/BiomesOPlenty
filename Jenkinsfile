@@ -48,9 +48,10 @@ pipeline {
             environment {
                 FORGE_MAVEN_USR = credentials('forge-maven-user')
                 FORGE_MAVEN_PSW = credentials('forge-maven-password')
+                CURSE_API_KEY = credentials('curse-api-key')
             }
             steps {
-                sh './gradlew ${GRADLE_ARGS} :uploadArchives -PforgeMavenUsername=${FORGE_MAVEN_USR} -PforgeMavenPassword=${FORGE_MAVEN_PSW}'
+                sh './gradlew ${GRADLE_ARGS} :uploadArchives -PforgeMavenUsername=${FORGE_MAVEN_USR} -PforgeMavenPassword=${FORGE_MAVEN_PSW} -PcurseApiKey=${CURSE_API_KEY}'
                 sh 'curl --user ${FORGE_MAVEN_USR}:${FORGE_MAVEN_PSW} http://files.minecraftforge.net/maven/manage/promote/latest/com.github.glitchfiend.biomesoplenty.BiomesOPlenty/${MYVERSION}'
                 sh './gradlew curseforge'
             }

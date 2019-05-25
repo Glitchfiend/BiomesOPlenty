@@ -101,6 +101,9 @@ curseforge {
             mainArtifact(jar) {
                 displayName = "Biomes O' Plenty ${version}"
             }
+            addArtifact sourcesJar
+            addArtifact deobfJar
+            addArtifact apiJar
         }
     }
 }
