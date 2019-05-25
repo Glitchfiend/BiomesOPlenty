@@ -322,7 +322,7 @@ public class EntityBoatBOP extends EntityBoat {
 	      this.prevPosX = this.posX;
 	      this.prevPosY = this.posY;
 	      this.prevPosZ = this.posZ;
-	      super.tick();
+	      //super.tick();
 	      this.tickLerp();
 	      if (this.canPassengerSteer()) {
 	         if (this.getPassengers().isEmpty() || !(this.getPassengers().get(0) instanceof EntityPlayer)) {
