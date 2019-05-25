@@ -28,6 +28,7 @@ import net.minecraft.world.gen.feature.LiquidsConfig;
 import net.minecraft.world.gen.feature.MinableConfig;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
 import net.minecraft.world.gen.feature.SphereReplaceConfig;
+import net.minecraft.world.gen.feature.structure.IglooConfig;
 import net.minecraft.world.gen.feature.structure.MineshaftConfig;
 import net.minecraft.world.gen.feature.structure.MineshaftStructure;
 import net.minecraft.world.gen.feature.structure.StrongholdConfig;
@@ -49,6 +50,7 @@ public class ColdDesertBiome extends BiomeBOP
         super((new Biome.BiomeBuilder()).surfaceBuilder(new CompositeSurfaceBuilder(BOPBiomeFeatures.COLD_DESERT_SURFACE_BUILDER, GRAVEL_SURFACE)).precipitation(Biome.RainType.NONE).category(Biome.Category.ICY).depth(0.0F).scale(0.0F).temperature(-0.25F).downfall(0.0F).waterColor(4159204).waterFogColor(329011).parent((String)null));
 
         // Mineshafts and Strongholds
+        this.addStructure(Feature.IGLOO, new IglooConfig());
         this.addStructure(Feature.MINESHAFT, new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL));
         this.addStructure(Feature.STRONGHOLD, new StrongholdConfig());
 
