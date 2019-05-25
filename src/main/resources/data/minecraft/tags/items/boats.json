@@ -1,6 +1,12 @@
 {
   "replace": false,
   "values": [
+    "minecraft:oak_boat",
+    "minecraft:spruce_boat",
+    "minecraft:birch_boat",
+    "minecraft:jungle_boat",
+    "minecraft:acacia_boat",
+    "minecraft:dark_oak_boat",
     "biomesoplenty:fir_boat",
 	"biomesoplenty:redwood_boat",
 	"biomesoplenty:cherry_boat",

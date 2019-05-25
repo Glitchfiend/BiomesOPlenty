@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
+    "minecraft:sand",
+    "minecraft:red_sand",
     "biomesoplenty:white_sand"
   ]
 }
