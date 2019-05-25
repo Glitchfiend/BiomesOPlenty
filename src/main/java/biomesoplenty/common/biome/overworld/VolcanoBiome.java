@@ -19,6 +19,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Fluids;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Feature;
@@ -39,6 +40,8 @@ import net.minecraft.world.gen.placement.FrequencyConfig;
 import net.minecraft.world.gen.placement.IPlacementConfig;
 import net.minecraft.world.gen.placement.LakeChanceConfig;
 import net.minecraft.world.gen.surfacebuilders.CompositeSurfaceBuilder;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class VolcanoBiome extends BiomeBOP
 {
@@ -94,5 +97,17 @@ public class VolcanoBiome extends BiomeBOP
         this.canSpawnInBiome = false;
         this.setRiverBiome((Biome)null);
         this.setBeachBiome(BOPBiomes.volcano_edge);
+    }
+    
+    @OnlyIn(Dist.CLIENT)
+    public int getGrassColor(BlockPos pos)
+    {
+    	return 0xAD9364;
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    public int getFoliageColor(BlockPos pos)
+    {
+    	return 0xB7B763;
     }
 }

@@ -28,6 +28,7 @@ import biomesoplenty.common.block.BlockPlantBOP;
 import biomesoplenty.common.block.BlockSaplingBOP;
 import biomesoplenty.common.block.BlockSlabBOP;
 import biomesoplenty.common.block.BlockStairsBOP;
+import biomesoplenty.common.block.BlockVineBOP;
 import biomesoplenty.common.block.BlockWaterPlant;
 import biomesoplenty.common.block.BlockWatersidePlant;
 import biomesoplenty.common.block.BlockWoodBOP;
@@ -57,7 +58,6 @@ import net.minecraft.block.BlockDoor;
 import net.minecraft.block.BlockPressurePlate;
 import net.minecraft.block.BlockSand;
 import net.minecraft.block.BlockTrapDoor;
-import net.minecraft.block.BlockVine;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -304,7 +304,7 @@ public class ModBlocks
         wilted_lily = registerBlock(new BlockFlowerBOP(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "wilted_lily");
         burning_blossom = registerBlock(new BlockFlowerBOP(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT).lightValue(8)), "burning_blossom");
         
-        willow_vine = registerBlock(new BlockVine(Block.Properties.create(Material.VINE).doesNotBlockMovement().needsRandomTick().hardnessAndResistance(0.2F).sound(SoundType.PLANT)), "willow_vine");
+        willow_vine = registerBlock(new BlockVineBOP(Block.Properties.create(Material.VINE).doesNotBlockMovement().needsRandomTick().hardnessAndResistance(0.2F).sound(SoundType.PLANT)), "willow_vine");
         
         bush = registerBlock(new BlockFoliageBOP(Block.Properties.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "bush");
         barley = registerBlock(new BlockFoliageBOP(Block.Properties.create(Material.VINE, MaterialColor.YELLOW_TERRACOTTA).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "barley");

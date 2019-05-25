@@ -101,12 +101,12 @@ public class WastelandBiome extends BiomeBOP
     @OnlyIn(Dist.CLIENT)
     public int getGrassColor(BlockPos pos)
     {
-    	return 0x9DA078;
+    	return 0xAD9364;
     }
 
     @OnlyIn(Dist.CLIENT)
     public int getFoliageColor(BlockPos pos)
     {
-    	return 0x999E55;
+    	return 0xB7B763;
     }
 }

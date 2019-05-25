@@ -99,6 +99,7 @@ public class ColdDesertBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
         
         this.addWeight(BOPClimates.ICE_CAP, 10);
+        this.setBeachBiome(Biomes.SNOWY_BEACH);
         this.setRiverBiome(Biomes.FROZEN_RIVER);
         this.canSpawnInBiome = false;
     }
@@ -106,12 +107,12 @@ public class ColdDesertBiome extends BiomeBOP
     @OnlyIn(Dist.CLIENT)
     public int getGrassColor(BlockPos pos)
     {
-    	return 0xB78658;
+    	return 0xAD9364;
     }
 
     @OnlyIn(Dist.CLIENT)
     public int getFoliageColor(BlockPos pos)
     {
-    	return 0xC1954D;
+    	return 0xB7B763;
     }
 }
