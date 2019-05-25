@@ -7,25 +7,20 @@
  ******************************************************************************/
 package biomesoplenty.init;
 
-import static biomesoplenty.api.entity.BOPEntities.*;
+import static biomesoplenty.api.entity.BOPEntities.boat_bop;
+import static biomesoplenty.api.entity.BOPEntities.mudball;
 
 import java.util.function.Function;
 
 import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.core.BiomesOPlenty;
-import com.mojang.datafixers.DataFixUtils;
-import com.mojang.datafixers.types.Type;
-
 import biomesoplenty.common.entity.item.EntityBoatBOP;
+import biomesoplenty.common.entity.item.RenderBoatBOP;
 import biomesoplenty.common.entity.projectile.EntityMudball;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderSprite;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.init.Items;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.datafix.DataFixesManager;
-import net.minecraft.util.datafix.TypeReferences;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -50,5 +45,6 @@ public class ModEntities
     public static void registerRendering()
     {
         RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, manager -> new RenderSprite<>(manager, BOPItems.mudball, Minecraft.getInstance().getItemRenderer()));
+        RenderingRegistry.registerEntityRenderingHandler(EntityBoatBOP.class, manager -> new RenderBoatBOP(manager));
     }
 }

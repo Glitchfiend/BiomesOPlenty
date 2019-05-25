@@ -1,0 +1,9 @@
+{
+  "type": "smelting",
+  "ingredient": {
+    "item": "biomesoplenty:tiny_cactus"
+  },
+  "result": "minecraft:cactus_green",
+  "experience": 1.0,
+  "cookingtime": 200
+}
