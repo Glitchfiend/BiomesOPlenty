@@ -97,6 +97,10 @@ curseforge {
             }
 
             releaseType = 'alpha'
+
+            mainArtifact(jar) {
+                displayName = "Biomes O' Plenty ${version}"
+            }
         }
     }
 }
