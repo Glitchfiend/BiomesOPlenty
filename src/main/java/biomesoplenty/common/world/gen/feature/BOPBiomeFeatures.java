@@ -88,10 +88,13 @@ public class BOPBiomeFeatures
 	public static final AbstractTreeFeature<NoFeatureConfig> PALM_TREE = new PalmTreeFeature.Builder().create();
 	public static final AbstractTreeFeature<NoFeatureConfig> OASIS_PALM_TREE = new PalmTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.SAND).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> JUNGLE_TWIGLET_TREE = new TwigletTreeFeature.Builder().log(Blocks.JUNGLE_LOG.getDefaultState()).leaves(Blocks.JUNGLE_LEAVES.getDefaultState()).minHeight(1).maxHeight(2).trunkFruit(Blocks.COCOA.getDefaultState()).create();
+	public static final AbstractTreeFeature<NoFeatureConfig> FLOWERING_BUSH = new BushTreeFeature.Builder().altLeaves(BOPBlocks.flowering_oak_leaves.getDefaultState()).maxHeight(2).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> OASIS_JUNGLE_TWIGLET_TREE = new TwigletTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.SAND).log(Blocks.JUNGLE_LOG.getDefaultState()).leaves(Blocks.JUNGLE_LEAVES.getDefaultState()).minHeight(1).maxHeight(2).trunkFruit(Blocks.COCOA.getDefaultState()).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> REDWOOD_TREE = new RedwoodTreeFeature.Builder().create();
 	public static final AbstractTreeFeature<NoFeatureConfig> REDWOOD_TREE_MEDIUM = new RedwoodTreeFeature.Builder().minHeight(25).maxHeight(40).trunkWidth(2).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> REDWOOD_TREE_LARGE = new RedwoodTreeFeature.Builder().minHeight(45).maxHeight(60).trunkWidth(3).create();
+	public static final AbstractTreeFeature<NoFeatureConfig> DEAD_TREE_VOLCANO = new BigTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.GRAVEL).maxHeight(12).log(BOPBlocks.dead_log.getDefaultState()).leaves(Blocks.AIR.getDefaultState()).foliageHeight(0).create();
+	public static final AbstractTreeFeature<NoFeatureConfig> DYING_TREE_VOLCANO = new BigTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.GRAVEL).maxHeight(12).log(BOPBlocks.dead_log.getDefaultState()).leaves(BOPBlocks.dead_leaves.getDefaultState()).foliageHeight(1).create();
 	
 	public static final Feature<SplotchConfig> SPLOTCH = new SplotchFeature();
 	public static final Feature<NoFeatureConfig> BRAMBLE = new BrambleFeature();

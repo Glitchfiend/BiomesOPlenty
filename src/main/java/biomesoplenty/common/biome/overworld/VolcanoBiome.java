@@ -100,6 +100,12 @@ public class VolcanoBiome extends BiomeBOP
     }
     
     @OnlyIn(Dist.CLIENT)
+    public int getSkyColorByTemp(float currentTemperature)
+    {
+       return 0x96A8CA;
+    }
+    
+    @OnlyIn(Dist.CLIENT)
     public int getGrassColor(BlockPos pos)
     {
     	return 0xAD9364;

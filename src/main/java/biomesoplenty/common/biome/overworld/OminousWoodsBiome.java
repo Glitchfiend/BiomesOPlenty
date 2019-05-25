@@ -107,13 +107,12 @@ public class OminousWoodsBiome extends BiomeBOP
         this.addWeight(BOPClimates.WET_BOREAL, 1);
         this.setBeachBiome((Biome)null);
         this.setRiverBiome((Biome)null);
-        this.canSpawnInBiome = false;
     }
     
     @OnlyIn(Dist.CLIENT)
     public int getSkyColorByTemp(float currentTemperature)
     {
-       return 0x384460;
+       return 0x84A1CC;
     }
     
     @OnlyIn(Dist.CLIENT)

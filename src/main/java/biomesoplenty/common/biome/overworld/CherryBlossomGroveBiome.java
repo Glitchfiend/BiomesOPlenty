@@ -110,7 +110,6 @@ public class CherryBlossomGroveBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
         
         this.addWeight(BOPClimates.COOL_TEMPERATE, 1);
-        this.canSpawnInBiome = false;
     }
     
     @OnlyIn(Dist.CLIENT)

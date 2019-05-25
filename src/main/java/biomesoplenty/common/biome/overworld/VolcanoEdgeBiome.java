@@ -10,6 +10,7 @@ package biomesoplenty.common.biome.overworld;
 import com.google.common.collect.Lists;
 
 import biomesoplenty.api.biome.BOPBiomes;
+import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.BiomeBOP;
 import biomesoplenty.common.world.gen.feature.BOPBiomeFeatures;
@@ -21,17 +22,20 @@ import net.minecraft.init.Fluids;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.feature.BushConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.LakesConfig;
 import net.minecraft.world.gen.feature.LiquidsConfig;
 import net.minecraft.world.gen.feature.MinableConfig;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
+import net.minecraft.world.gen.feature.RandomDefaultFeatureListConfig;
 import net.minecraft.world.gen.feature.ReplaceBlockConfig;
 import net.minecraft.world.gen.feature.SphereReplaceConfig;
 import net.minecraft.world.gen.feature.structure.MineshaftConfig;
 import net.minecraft.world.gen.feature.structure.MineshaftStructure;
 import net.minecraft.world.gen.feature.structure.StrongholdConfig;
+import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
 import net.minecraft.world.gen.placement.CountRangeConfig;
 import net.minecraft.world.gen.placement.DepthAverageConfig;
 import net.minecraft.world.gen.placement.DungeonRoomConfig;
@@ -79,6 +83,8 @@ public class VolcanoEdgeBiome extends BiomeBOP
         this.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, createCompositeFeature(Feature.MINABLE, new MinableConfig(MinableConfig.IS_ROCK, Blocks.INFESTED_STONE.getDefaultState(), 9), COUNT_RANGE, new CountRangeConfig(7, 0, 0, 64)));
         
         // Vegetation
+        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, createCompositeFeature(Feature.RANDOM_FEATURE_LIST, new RandomDefaultFeatureListConfig(new Feature[]{BOPBiomeFeatures.DEAD_TREE_VOLCANO}, new IFeatureConfig[]{IFeatureConfig.NO_FEATURE_CONFIG}, new float[]{0.1F}, BOPBiomeFeatures.DYING_TREE_VOLCANO, IFeatureConfig.NO_FEATURE_CONFIG), AT_SURFACE_WITH_EXTRA, new AtSurfaceWithExtraConfig(1, 0.1F, 1)));
+        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, createCompositeFeature(Feature.BUSH, new BushConfig(BOPBlocks.dead_grass), TWICE_SURFACE, new FrequencyConfig(2)));
         this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, createCompositeFeature(Feature.LIQUIDS, new LiquidsConfig(Fluids.LAVA), HEIGHT_BIASED_RANGE, new CountRangeConfig(150, 8, 128, 256)));
         this.addFeature(GenerationStage.Decoration.TOP_LAYER_MODIFICATION, createCompositeFeature(Feature.ICE_AND_SNOW, IFeatureConfig.NO_FEATURE_CONFIG, PASSTHROUGH, IPlacementConfig.NO_PLACEMENT_CONFIG));
 
@@ -95,6 +101,12 @@ public class VolcanoEdgeBiome extends BiomeBOP
         this.canSpawnInBiome = false;
         this.setRiverBiome((Biome)null);
         this.setBeachBiome((Biome)null);
+    }
+    
+    @OnlyIn(Dist.CLIENT)
+    public int getSkyColorByTemp(float currentTemperature)
+    {
+       return 0x96A8CA;
     }
     
     @OnlyIn(Dist.CLIENT)

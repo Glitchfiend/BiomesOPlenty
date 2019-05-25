@@ -87,7 +87,6 @@ public class GravelBeachBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.ENDERMAN, 10, 1, 4));
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
         
-        this.canSpawnInBiome = false;
         this.setBeachBiome((Biome)null);
     }
 }

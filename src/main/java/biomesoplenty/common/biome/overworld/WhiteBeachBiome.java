@@ -80,7 +80,6 @@ public class WhiteBeachBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.WATER_CREATURE, new Biome.SpawnListEntry(EntityType.TROPICAL_FISH, 25, 8, 8));
         this.addSpawn(EnumCreatureType.WATER_CREATURE, new Biome.SpawnListEntry(EntityType.DOLPHIN, 2, 1, 2));
         
-        this.canSpawnInBiome = false;
         this.setBeachBiome((Biome)null);
         this.setRiverBiome((Biome)null);
     }
