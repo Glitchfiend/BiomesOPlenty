@@ -92,7 +92,7 @@ curseforge {
         project {
             id = '220318'
 
-            if (changelog.exists()) {
+            if (changelog_file.exists()) {
                 changelog = changelog_file
             }
 
