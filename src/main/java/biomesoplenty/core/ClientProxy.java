@@ -18,6 +18,7 @@ import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.client.renderer.entity.RenderSprite;
 import net.minecraft.entity.Entity;
+import net.minecraft.init.Items;
 import net.minecraft.init.Particles;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -35,17 +36,6 @@ public class ClientProxy extends CommonProxy
     public ClientProxy()
     {
 
-    }
-
-    @Override
-    public void registerRenderers()
-    {
-        RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, manager ->
-        {
-            BiomesOPlenty.logger.info("Creating sprite renderer");
-            BiomesOPlenty.logger.info(Minecraft.getInstance().getItemRenderer() == null);
-            return new RenderSprite<Entity>(manager, BOPItems.mudball, Minecraft.getInstance().getItemRenderer());
-        });
     }
 
     @Override

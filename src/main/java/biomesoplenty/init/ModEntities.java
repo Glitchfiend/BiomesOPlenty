@@ -11,84 +11,44 @@ import static biomesoplenty.api.entity.BOPEntities.*;
 
 import java.util.function.Function;
 
+import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.core.BiomesOPlenty;
 import com.mojang.datafixers.DataFixUtils;
 import com.mojang.datafixers.types.Type;
 
 import biomesoplenty.common.entity.item.EntityBoatBOP;
 import biomesoplenty.common.entity.projectile.EntityMudball;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.RenderSprite;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.init.Items;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.datafix.DataFixesManager;
 import net.minecraft.util.datafix.TypeReferences;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModEntities
 {
     public static void init()
     {
-        mudball = registerEntity(FixedEntityTypeBuilder.create(EntityMudball.class, EntityMudball::new), "mudball");
-        boat_bop = registerEntity(FixedEntityTypeBuilder.create(EntityBoatBOP.class, EntityBoatBOP::new), "boat_bop");
+        mudball = createEntity(EntityMudball.class, EntityMudball::new, "mudball", 64, 10, true);
+        boat_bop = createEntity(EntityBoatBOP.class, EntityBoatBOP::new, "boat_bop", 80, 3, true);
     }
 
-    public static <T extends Entity> EntityType<T> registerEntity(FixedEntityTypeBuilder<T> typeBuilder, String name)
+    public static <T extends Entity> EntityType<T> createEntity(Class<T> entityClass, Function<? super World, T> entityInstance, String name, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates)
     {
-        EntityType<T> type = typeBuilder.build("biomesoplenty:" + name);
+        ResourceLocation location = new ResourceLocation("biomesoplenty", name);
+        EntityType<T> type = EntityType.Builder.<T>create(entityClass, entityInstance).tracker(trackingRange, updateFrequency, sendsVelocityUpdates).build(location.toString());
         type.setRegistryName(name);
         ForgeRegistries.ENTITIES.register(type);
         return type;
     }
 
-    // TODO: Remove this once Forge has fixed the bugs with calling build in
-    // EntityType.Builder, causing an exception when registering entities
-    public static class FixedEntityTypeBuilder<T extends Entity>
+    public static void registerRendering()
     {
-        private final Class<? extends T> entityClass;
-        private final Function<? super World, ? extends T> factory;
-        private boolean serializable = true;
-        private boolean summonable = true;
-
-        private FixedEntityTypeBuilder(Class<? extends T> entityClassIn, Function<? super World, ? extends T> factoryIn)
-        {
-            this.entityClass = entityClassIn;
-            this.factory = factoryIn;
-        }
-
-        public static <T extends Entity> FixedEntityTypeBuilder<T> create(Class<? extends T> entityClassIn, Function<? super World, ? extends T> factoryIn)
-        {
-            return new FixedEntityTypeBuilder<T>(entityClassIn, factoryIn);
-        }
-
-        public static <T extends Entity> FixedEntityTypeBuilder<T> createNothing(Class<? extends T> entityClassIn)
-        {
-            return new FixedEntityTypeBuilder<T>(entityClassIn, (p_200708_0_) -> {
-                return null;
-            });
-        }
-
-        public FixedEntityTypeBuilder<T> disableSummoning()
-        {
-            this.summonable = false;
-            return this;
-        }
-
-        public FixedEntityTypeBuilder<T> disableSerialization()
-        {
-            this.serializable = false;
-            return this;
-        }
-
-        public EntityType<T> build(String id) {
-            Type<?> type = null;
-            if (this.serializable) {
-                try {
-                    type = DataFixesManager.getDataFixer().getSchema(DataFixUtils.makeKey(1519)).getChoiceType(TypeReferences.ENTITY_TYPE, id);
-                } catch (IllegalArgumentException e) {
-                    // Ignore, we don't care
-                }
-            }
-
-            return new EntityType<T>(this.entityClass, this.factory, this.serializable, this.summonable, type);
-        }
+        RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, manager -> new RenderSprite<>(manager, BOPItems.mudball, Minecraft.getInstance().getItemRenderer()));
     }
 }

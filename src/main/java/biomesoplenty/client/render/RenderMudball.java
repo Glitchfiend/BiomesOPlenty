@@ -5,19 +5,8 @@
  *
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  ******************************************************************************/
-package biomesoplenty.core;
+package biomesoplenty.client.render;
 
-import biomesoplenty.api.particle.BOPParticleTypes;
-import net.minecraft.world.World;
-
-public class CommonProxy
+public class RenderMudball
 {
-    public CommonProxy()
-    {
-
-    }
-
-    public void init() {}
-
-    public void spawnParticle(BOPParticleTypes type, World parWorld, double x, double y, double z, Object... info) {}
 }
