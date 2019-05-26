@@ -52,7 +52,7 @@ public class MeadowBiome extends BiomeBOP
 {
     public MeadowBiome()
     {
-        super((new Biome.BiomeBuilder()).surfaceBuilder(new CompositeSurfaceBuilder(DEFAULT_SURFACE_BUILDER, GRASS_DIRT_GRAVEL_SURFACE)).precipitation(Biome.RainType.RAIN).category(Biome.Category.PLAINS).depth(0.0F).scale(0.05F).temperature(0.4F).downfall(0.7F).waterColor(4159204).waterFogColor(329011).parent((String)null));
+        super((new Biome.BiomeBuilder()).surfaceBuilder(new CompositeSurfaceBuilder(DEFAULT_SURFACE_BUILDER, GRASS_DIRT_GRAVEL_SURFACE)).precipitation(Biome.RainType.RAIN).category(Biome.Category.TAIGA).depth(0.0F).scale(0.05F).temperature(0.4F).downfall(0.7F).waterColor(4159204).waterFogColor(329011).parent((String)null));
 
         // Mineshafts and Strongholds
         this.addStructure(Feature.VILLAGE, new VillageConfig(0, VillagePieces.Type.SPRUCE));

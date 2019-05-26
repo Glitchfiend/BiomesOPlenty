@@ -49,7 +49,7 @@ public class XericShrublandBiome extends BiomeBOP
 {
     public XericShrublandBiome()
     {
-        super((new Biome.BiomeBuilder()).surfaceBuilder(new CompositeSurfaceBuilder(DEFAULT_SURFACE_BUILDER, SAND_SURFACE)).precipitation(Biome.RainType.NONE).category(Biome.Category.DESERT).depth(0.0F).scale(0.0F).temperature(1.75F).downfall(0.1F).waterColor(4159204).waterFogColor(329011).parent((String)null));
+        super((new Biome.BiomeBuilder()).surfaceBuilder(new CompositeSurfaceBuilder(DEFAULT_SURFACE_BUILDER, SAND_SURFACE)).precipitation(Biome.RainType.NONE).category(Biome.Category.SAVANNA).depth(0.0F).scale(0.0F).temperature(1.75F).downfall(0.1F).waterColor(4159204).waterFogColor(329011).parent((String)null));
 
         // Mineshafts and Strongholds
         this.addStructure(Feature.VILLAGE, new VillageConfig(0, VillagePieces.Type.SANDSTONE));

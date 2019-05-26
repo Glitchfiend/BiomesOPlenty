@@ -40,7 +40,7 @@ public class OriginBeachBiome extends BiomeBOP
 {
     public OriginBeachBiome()
     {
-        super((new Biome.BiomeBuilder()).surfaceBuilder(new CompositeSurfaceBuilder(DEFAULT_SURFACE_BUILDER, SAND_SAND_GRAVEL_SURFACE)).precipitation(Biome.RainType.RAIN).category(Biome.Category.BEACH).depth(0.0F).scale(0.025F).temperature(0.6F).downfall(0.6F).waterColor(0x0E31FF).waterFogColor(0x1B005A).parent((String)null));
+        super((new Biome.BiomeBuilder()).surfaceBuilder(new CompositeSurfaceBuilder(DEFAULT_SURFACE_BUILDER, SAND_SAND_GRAVEL_SURFACE)).precipitation(Biome.RainType.RAIN).category(Biome.Category.NONE).depth(0.0F).scale(0.025F).temperature(0.6F).downfall(0.6F).waterColor(0x0E31FF).waterFogColor(0x1B005A).parent((String)null));
 
         // Mineshafts and Strongholds
         this.addCarver(GenerationStage.Carving.AIR, createWorldCarverWrapper(CAVE_WORLD_CARVER, new ProbabilityConfig(0.14285715F)));

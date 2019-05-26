@@ -48,7 +48,7 @@ public class OminousWoodsBiome extends BiomeBOP
 {
     public OminousWoodsBiome()
     {
-        super((new Biome.BiomeBuilder()).surfaceBuilder(new CompositeSurfaceBuilder(DEFAULT_SURFACE_BUILDER, GRASS_DIRT_GRAVEL_SURFACE)).precipitation(Biome.RainType.RAIN).category(Biome.Category.FOREST).depth(0.1F).scale(0.2F).temperature(0.6F).downfall(0.6F).waterColor(0x312346).waterFogColor(0x0A030C).parent((String)null));
+        super((new Biome.BiomeBuilder()).surfaceBuilder(new CompositeSurfaceBuilder(DEFAULT_SURFACE_BUILDER, GRASS_DIRT_GRAVEL_SURFACE)).precipitation(Biome.RainType.RAIN).category(Biome.Category.TAIGA).depth(0.1F).scale(0.2F).temperature(0.6F).downfall(0.6F).waterColor(0x312346).waterFogColor(0x0A030C).parent((String)null));
 
         // Mineshafts and Strongholds
         this.addStructure(Feature.WOODLAND_MANSION, new WoodlandMansionConfig());
