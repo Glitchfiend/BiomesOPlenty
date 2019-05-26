@@ -116,8 +116,7 @@ public class MeadowBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.ENDERMAN, 10, 1, 4));
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
         
-        this.addWeight(BOPClimates.WET_BOREAL, 3);
-        this.addWeight(BOPClimates.COOL_TEMPERATE, 3);
+        this.addWeight(BOPClimates.WET_BOREAL, 5);
         this.setBeachBiome(BOPBiomes.gravel_beach);
     }
     

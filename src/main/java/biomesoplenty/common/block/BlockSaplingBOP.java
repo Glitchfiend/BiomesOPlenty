@@ -9,6 +9,7 @@ package biomesoplenty.common.block;
 
 import java.util.Random;
 
+import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.block.IGrowable;
@@ -23,6 +24,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
+import net.minecraft.world.IWorldReaderBase;
 import net.minecraft.world.World;
 
 public class BlockSaplingBOP extends BlockSapling implements IGrowable
@@ -89,6 +91,27 @@ public class BlockSaplingBOP extends BlockSapling implements IGrowable
    public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state)
    {
       this.grow(worldIn, pos, state, rand);
+   }
+   
+   @Override
+   public boolean isValidPosition(IBlockState state, IWorldReaderBase worldIn, BlockPos pos)
+   {
+       Block ground = worldIn.getBlockState(pos.down()).getBlock();
+
+       if (this == BOPBlocks.palm_sapling)
+       {
+           return ground == BOPBlocks.white_sand || ground == Blocks.RED_SAND || ground == Blocks.SAND || super.isValidPosition(state, worldIn, pos);
+       }
+       if (this == BOPBlocks.hellbark_sapling)
+       {
+           return ground == Blocks.NETHERRACK || super.isValidPosition(state, worldIn, pos);
+       }
+       if (this == BOPBlocks.ethereal_sapling)
+       {
+           return ground == Blocks.END_STONE || super.isValidPosition(state, worldIn, pos);
+       }
+
+       return super.isValidPosition(state, worldIn, pos);
    }
 
    @Override

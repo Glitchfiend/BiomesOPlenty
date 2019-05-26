@@ -7,12 +7,14 @@
  ******************************************************************************/
 package biomesoplenty.common.world.gen.feature.tree;
 
+import java.util.Random;
+import java.util.Set;
+
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.biome.GeneratorUtil;
 import biomesoplenty.common.util.block.IBlockPosQuery;
-import net.minecraft.block.BlockDirectional;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
-import net.minecraft.block.BlockReed;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -21,15 +23,17 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 
-import java.util.Random;
-import java.util.Set;
-
 public class PalmTreeFeature extends TreeFeatureBase
 {
     public static class Builder extends BuilderBase<PalmTreeFeature.Builder, PalmTreeFeature>
     {
         public Builder()
         {
+        	this.placeOn = (world, pos) ->
+        	{
+        		Block ground = world.getBlockState(pos).getBlock();
+        		return (world.getBlockState(pos).canSustainPlant(world, pos, EnumFacing.UP, (BlockSapling)Blocks.OAK_SAPLING) || (ground == BOPBlocks.white_sand || ground == Blocks.RED_SAND || ground == Blocks.SAND));
+        	};
             this.minHeight = 10;
             this.maxHeight = 14;
             this.log = BOPBlocks.palm_log.getDefaultState();

@@ -18,14 +18,10 @@ import biomesoplenty.common.world.gen.feature.tree.RedwoodTreeFeature;
 import biomesoplenty.common.world.gen.feature.tree.TaigaTreeFeature;
 import biomesoplenty.common.world.gen.feature.tree.TwigletTreeFeature;
 import net.minecraft.init.Blocks;
-import net.minecraft.world.gen.carver.WorldCarver;
 import net.minecraft.world.gen.feature.AbstractFlowersFeature;
 import net.minecraft.world.gen.feature.AbstractTreeFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.ProbabilityConfig;
-import net.minecraft.world.gen.feature.SphereReplaceConfig;
-import net.minecraft.world.gen.feature.SphereReplaceFeature;
 import net.minecraft.world.gen.surfacebuilders.ISurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
@@ -86,7 +82,6 @@ public class BOPBiomeFeatures
 	public static final AbstractTreeFeature<NoFeatureConfig> TALL_WILLOW_TREE = new BasicTreeFeature.Builder().log(BOPBlocks.willow_log.getDefaultState()).leaves(BOPBlocks.willow_leaves.getDefaultState()).vine(BOPBlocks.willow_vine.getDefaultState()).minHeight(10).maxHeight(16).maxLeavesRadius(2).leavesOffset(0).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> BUSH = new BushTreeFeature.Builder().maxHeight(2).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> PALM_TREE = new PalmTreeFeature.Builder().create();
-	public static final AbstractTreeFeature<NoFeatureConfig> OASIS_PALM_TREE = new PalmTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.SAND).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> JUNGLE_TWIGLET_TREE = new TwigletTreeFeature.Builder().log(Blocks.JUNGLE_LOG.getDefaultState()).leaves(Blocks.JUNGLE_LEAVES.getDefaultState()).minHeight(1).maxHeight(2).trunkFruit(Blocks.COCOA.getDefaultState()).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> FLOWERING_BUSH = new BushTreeFeature.Builder().altLeaves(BOPBlocks.flowering_oak_leaves.getDefaultState()).maxHeight(2).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> OASIS_JUNGLE_TWIGLET_TREE = new TwigletTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.SAND).log(Blocks.JUNGLE_LOG.getDefaultState()).leaves(Blocks.JUNGLE_LEAVES.getDefaultState()).minHeight(1).maxHeight(2).trunkFruit(Blocks.COCOA.getDefaultState()).create();
