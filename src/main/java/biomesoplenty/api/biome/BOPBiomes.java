@@ -25,6 +25,7 @@ public class BOPBiomes
 	public static Optional<Biome> cold_desert = Optional.empty();
     public static Optional<Biome> coniferous_forest = Optional.empty();
     public static Optional<Biome> dead_forest = Optional.empty();
+    public static Optional<Biome> dry_plains = Optional.empty();
     public static Optional<Biome> floodplain = Optional.empty();
     public static Optional<Biome> flower_meadow = Optional.empty();
     public static Optional<Biome> grassland = Optional.empty();
