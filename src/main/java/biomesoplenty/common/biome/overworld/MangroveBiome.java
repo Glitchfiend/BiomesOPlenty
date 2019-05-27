@@ -45,7 +45,7 @@ public class MangroveBiome extends BiomeBOP
 {
     public MangroveBiome()
     {
-        super((new Biome.BiomeBuilder()).surfaceBuilder(new CompositeSurfaceBuilder(BOPBiomeFeatures.MANGROVE_SURFACE_BUILDER, GRASS_DIRT_GRAVEL_SURFACE)).precipitation(Biome.RainType.RAIN).category(Biome.Category.SWAMP).depth(-0.215F).scale(-0.025F).temperature(0.85F).downfall(0.85F).waterColor(4566514).waterFogColor(267827).parent((String)null));
+        super((new Biome.BiomeBuilder()).surfaceBuilder(new CompositeSurfaceBuilder(BOPBiomeFeatures.MANGROVE_SURFACE_BUILDER, GRASS_DIRT_GRAVEL_SURFACE)).precipitation(Biome.RainType.RAIN).category(Biome.Category.SWAMP).depth(-0.215F).scale(-0.025F).temperature(0.81F).downfall(0.7F).waterColor(4566514).waterFogColor(267827).parent((String)null));
 
         // Mineshafts and Strongholds
         this.addStructure(Feature.SWAMP_HUT, new SwampHutConfig());
