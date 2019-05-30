@@ -2,9 +2,10 @@ package biomesoplenty.common.world.gen.feature;
 
 import java.util.Random;
 
+import net.minecraft.block.BlockCarvedPumpkin;
 import net.minecraft.block.BlockLeaves;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.IChunkGenSettings;
@@ -26,7 +27,20 @@ public class PumpkinPatchFeature extends Feature<NoFeatureConfig>
         	
         	if (p_212245_3_.nextInt(3) == 0)
         	{
-        		p_212245_1_.setBlockState(blockpos, Blocks.PUMPKIN.getDefaultState(), 2);
+        		int rand = p_212245_3_.nextInt(50);
+        		
+        		if (rand > 10)
+        		{
+        			p_212245_1_.setBlockState(blockpos, Blocks.PUMPKIN.getDefaultState(), 2);
+        		}
+        		else if (rand > 1)
+        		{
+        			p_212245_1_.setBlockState(blockpos, Blocks.CARVED_PUMPKIN.getDefaultState().with(BlockCarvedPumpkin.FACING, EnumFacing.byIndex(2 + p_212245_3_.nextInt(4))), 2);
+        		}
+        		else
+        		{
+        			p_212245_1_.setBlockState(blockpos, Blocks.JACK_O_LANTERN.getDefaultState().with(BlockCarvedPumpkin.FACING, EnumFacing.byIndex(2 + p_212245_3_.nextInt(4))), 2);
+        		}
         	}
         	else
         	{
