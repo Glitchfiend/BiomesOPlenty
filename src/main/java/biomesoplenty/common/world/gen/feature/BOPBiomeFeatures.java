@@ -94,6 +94,8 @@ public class BOPBiomeFeatures
 	public static final Feature<SplotchConfig> SPLOTCH = new SplotchFeature();
 	public static final Feature<NoFeatureConfig> BRAMBLE = new BrambleFeature();
 	public static final Feature<NoFeatureConfig> MANGROVE = new MangroveFeature();
+	public static final Feature<NoFeatureConfig> PUMPKIN_PATCH = new PumpkinPatchFeature();
+	public static final Feature<NoFeatureConfig> BIG_PUMPKIN = new BigPumpkinFeature();
 	
 	public static final AbstractFlowersFeature CHERRY_BLOSSOM_GROVE_FLOWERS = new CherryBlossomGroveFlowersFeature();
 	public static final AbstractFlowersFeature EXTENDED_FLOWERS = new ExtendedFlowersFeature();
