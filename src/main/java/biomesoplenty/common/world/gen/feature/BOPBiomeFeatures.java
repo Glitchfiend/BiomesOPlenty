@@ -116,6 +116,7 @@ public class BOPBiomeFeatures
 	public static final AbstractFlowersFeature WETLAND_FLOWERS = new WetlandFlowersFeature();
 	public static final AbstractFlowersFeature XERIC_SHRUBLAND_FLOWERS = new XericShrublandFlowersFeature();
 	
+	public static final ISurfaceBuilder<SurfaceBuilderConfig> BOG_SURFACE_BUILDER = new BogSurfaceBuilder();
 	public static final ISurfaceBuilder<SurfaceBuilderConfig> BRUSHLAND_SURFACE_BUILDER = new BrushlandSurfaceBuilder();
 	public static final ISurfaceBuilder<SurfaceBuilderConfig> CHAPARRAL_SURFACE_BUILDER = new ChaparralSurfaceBuilder();
 	public static final ISurfaceBuilder<SurfaceBuilderConfig> COLD_DESERT_SURFACE_BUILDER = new ColdDesertSurfaceBuilder();
