@@ -114,6 +114,6 @@ public class ColdDesertBiome extends BiomeBOP
     @OnlyIn(Dist.CLIENT)
     public int getFoliageColor(BlockPos pos)
     {
-    	return 0xB7B763;
+    	return 0xB5A76C;
     }
 }

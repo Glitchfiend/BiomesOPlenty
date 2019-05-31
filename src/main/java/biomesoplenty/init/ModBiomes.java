@@ -23,14 +23,14 @@ import biomesoplenty.common.biome.BiomeBOP;
 import biomesoplenty.common.biome.overworld.AlpsBiome;
 import biomesoplenty.common.biome.overworld.AlpsFoothillsBiome;
 import biomesoplenty.common.biome.overworld.BayouBiome;
-import biomesoplenty.common.biome.overworld.BogBiome;
-import biomesoplenty.common.biome.overworld.BogMireBiome;
+import biomesoplenty.common.biome.overworld.DeadSwampBiome;
 import biomesoplenty.common.biome.overworld.BorealForestBiome;
 import biomesoplenty.common.biome.overworld.BrushlandBiome;
 import biomesoplenty.common.biome.overworld.ChaparralBiome;
 import biomesoplenty.common.biome.overworld.CherryBlossomGroveBiome;
 import biomesoplenty.common.biome.overworld.ColdDesertBiome;
 import biomesoplenty.common.biome.overworld.ConiferousForestBiome;
+import biomesoplenty.common.biome.overworld.BogBiome;
 import biomesoplenty.common.biome.overworld.DeadForestBiome;
 import biomesoplenty.common.biome.overworld.DryPlainsBiome;
 import biomesoplenty.common.biome.overworld.FloodplainBiome;
@@ -115,7 +115,6 @@ public class ModBiomes
     	alps = registerBiome(new AlpsBiome(), "alps");
     	bayou = registerBiome(new BayouBiome(), "bayou");
         bog = registerBiome(new BogBiome(), "bog");
-        bog_mire = registerBiome(new BogMireBiome(), "bog_mire");
         boreal_forest = registerBiome(new BorealForestBiome(), "boreal_forest");
     	brushland = registerBiome(new BrushlandBiome(), "brushland");
         chaparral = registerBiome(new ChaparralBiome(), "chaparral");
@@ -123,6 +122,7 @@ public class ModBiomes
     	cold_desert = registerBiome(new ColdDesertBiome(), "cold_desert");
         coniferous_forest = registerBiome(new ConiferousForestBiome(), "coniferous_forest");
         dead_forest = registerBiome(new DeadForestBiome(), "dead_forest");
+        dead_swamp = registerBiome(new DeadSwampBiome(), "dead_swamp");
         dry_plains = registerBiome(new DryPlainsBiome(), "dry_plains");
         floodplain = registerBiome(new FloodplainBiome(), "floodplain");
         flower_meadow = registerBiome(new FlowerMeadowBiome(), "flower_meadow");
@@ -168,7 +168,6 @@ public class ModBiomes
 
         // Note: Rarity supports two decimal places
         registerSubBiome(Biomes.DESERT, oasis, 0.1F, 100);
-        registerSubBiome(bog, bog_mire, 0.5F, 100);
         registerSubBiome(brushland, xeric_shrubland, 1.0F, 100);
         registerSubBiome(grove, grove_orchard, 0.75F, 100);
         registerSubBiome(highland, highland_moor, 0.75F, 100);
@@ -194,8 +193,7 @@ public class ModBiomes
         registerBiomeToDictionary(BOPBiomes.alps, Type.MOUNTAIN, Type.SNOWY, Type.COLD);
         registerBiomeToDictionary(BOPBiomes.alps_foothills, Type.MOUNTAIN, Type.SNOWY, Type.FOREST, Type.SPARSE, Type.COLD);
         registerBiomeToDictionary(BOPBiomes.bayou, Type.SWAMP, Type.HOT, Type.WET, Type.DENSE);
-        registerBiomeToDictionary(BOPBiomes.bog, Type.SWAMP, Type.DEAD, Type.WET);
-        registerBiomeToDictionary(BOPBiomes.bog_mire, Type.SWAMP, Type.DEAD, Type.WASTELAND, Type.WET);
+        registerBiomeToDictionary(BOPBiomes.bog, Type.SWAMP, Type.CONIFEROUS, Type.COLD, Type.LUSH, Type.WET);
         registerBiomeToDictionary(BOPBiomes.boreal_forest, Type.FOREST, Type.CONIFEROUS, Type.HILLS, Type.COLD, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.brushland, Type.SAVANNA, Type.HOT, Type.DRY, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.chaparral, Type.PLAINS, Type.DRY, Type.HILLS);
@@ -203,6 +201,7 @@ public class ModBiomes
         registerBiomeToDictionary(BOPBiomes.cold_desert, Type.SNOWY, Type.DRY, Type.COLD);
         registerBiomeToDictionary(BOPBiomes.coniferous_forest, Type.CONIFEROUS, Type.FOREST, Type.COLD, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.dead_forest, Type.FOREST, Type.DEAD, Type.COLD, Type.DRY, Type.SPARSE);
+        registerBiomeToDictionary(BOPBiomes.dead_swamp, Type.SWAMP, Type.DEAD, Type.WET);
         registerBiomeToDictionary(BOPBiomes.dry_plains, Type.PLAINS, Type.SAVANNA, Type.HOT, Type.DRY);
         registerBiomeToDictionary(BOPBiomes.floodplain, Type.JUNGLE, Type.WATER, Type.HOT, Type.WET);
         registerBiomeToDictionary(BOPBiomes.flower_meadow, Type.PLAINS, Type.LUSH);

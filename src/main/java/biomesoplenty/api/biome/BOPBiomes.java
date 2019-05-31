@@ -17,7 +17,6 @@ public class BOPBiomes
 	public static Optional<Biome> alps_foothills = Optional.empty();
 	public static Optional<Biome> bayou = Optional.empty();
     public static Optional<Biome> bog = Optional.empty();
-    public static Optional<Biome> bog_mire = Optional.empty();
     public static Optional<Biome> boreal_forest = Optional.empty();
 	public static Optional<Biome> brushland = Optional.empty();
     public static Optional<Biome> chaparral = Optional.empty();
@@ -25,6 +24,7 @@ public class BOPBiomes
 	public static Optional<Biome> cold_desert = Optional.empty();
     public static Optional<Biome> coniferous_forest = Optional.empty();
     public static Optional<Biome> dead_forest = Optional.empty();
+    public static Optional<Biome> dead_swamp = Optional.empty();
     public static Optional<Biome> dry_plains = Optional.empty();
     public static Optional<Biome> floodplain = Optional.empty();
     public static Optional<Biome> flower_meadow = Optional.empty();
