@@ -32,29 +32,34 @@ public class BogSurfaceBuilder implements ISurfaceBuilder<SurfaceBuilderConfig>
    public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, IBlockState defaultBlock, IBlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config)
    {
       double d0 = Biome.INFO_NOISE.getValue((double)x * 0.25D, (double)z * 0.25D);
-      if (d0 > 0.2D)
+      if (d0 > 0.1D)
       {
          int i = x & 15;
          int j = z & 15;
          BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
          BlockPos.MutableBlockPos blockposdown$mutableblockpos = new BlockPos.MutableBlockPos();
+         BlockPos.MutableBlockPos blockposup$mutableblockpos = new BlockPos.MutableBlockPos();
 
          for(int k = startHeight; k >= 0; --k)
          {
             blockpos$mutableblockpos.setPos(i, k, j);
             if (!chunkIn.getBlockState(blockpos$mutableblockpos).isAir())
             {
-               if (k == 62 && chunkIn.getBlockState(blockpos$mutableblockpos).getBlock() != defaultFluid.getBlock())
+               if (k == 62)
                {
-                  chunkIn.setBlockState(blockpos$mutableblockpos, defaultFluid, false);
-               }
-               else
-               {
-            	   blockposdown$mutableblockpos.setPos(i, k-1, j);
-            	   if (chunkIn.getBlockState(blockposdown$mutableblockpos).getBlock() != defaultFluid.getBlock())
-            	   {
-            		   chunkIn.setBlockState(blockpos$mutableblockpos, Blocks.GRASS_BLOCK.getDefaultState(), false);
-            	   }
+	               if (chunkIn.getBlockState(blockpos$mutableblockpos).getBlock() != defaultFluid.getBlock())
+	               {
+	                  chunkIn.setBlockState(blockpos$mutableblockpos, defaultFluid, false);
+	               }
+	               else
+	               {
+	            	   blockposup$mutableblockpos.setPos(i, k+1, j);
+	            	   blockposdown$mutableblockpos.setPos(i, k-1, j);
+	            	   if (chunkIn.getBlockState(blockposdown$mutableblockpos).getBlock() != defaultFluid.getBlock())
+	            	   {
+	            		   chunkIn.setBlockState(blockpos$mutableblockpos, Blocks.GRASS_BLOCK.getDefaultState(), false);
+	            	   }
+	               }
                }
                break;
             }
