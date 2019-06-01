@@ -22,6 +22,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -42,6 +44,7 @@ public class ModEntities
         return type;
     }
 
+    @OnlyIn(Dist.CLIENT)
     public static void registerRendering()
     {
         RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, manager -> new RenderSprite<>(manager, BOPItems.mudball, Minecraft.getInstance().getItemRenderer()));

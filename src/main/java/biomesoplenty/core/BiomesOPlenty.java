@@ -9,14 +9,9 @@
 package biomesoplenty.core;
 
 import biomesoplenty.common.command.BOPCommand;
-import biomesoplenty.common.entity.projectile.EntityMudball;
 import biomesoplenty.init.*;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.entity.RenderSprite;
-import net.minecraft.init.Items;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.DistExecutor;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
