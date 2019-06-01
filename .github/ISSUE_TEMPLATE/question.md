@@ -1,7 +1,7 @@
 ---
 name: Question
 about: Please ask general questions in the Glitchfiend Discord, instead of opening a new issue for it: https://discord.gg/0loJvLMgvZi0q596
-title: Please read the text below!
+title: 'Please read the text below!'
 labels: ''
 assignees: ''
 
