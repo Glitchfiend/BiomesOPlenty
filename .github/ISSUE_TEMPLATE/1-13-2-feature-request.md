@@ -1,6 +1,6 @@
 ---
 name: 1.13.2 Feature Request
-about: For Biomes O' Plenty 1.13.2 feature requests.
+about: Feature requests for Biomes O' Plenty for 1.13.2.  We do not support older versions!
 title: ''
 labels: 1.13.2, feature
 assignees: ''
@@ -15,6 +15,6 @@ assignees: ''
 
 [ Provide an overview of the feature being suggested. ]</br>
 
-### Why would it be useful?
+### Why should it be added?
 
 [ Describe the benefits of implementing this feature. ]</br>

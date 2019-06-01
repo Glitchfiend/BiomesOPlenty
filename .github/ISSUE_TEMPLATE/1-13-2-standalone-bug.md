@@ -1,6 +1,6 @@
 ---
 name: 1.13.2 Standalone Bug
-about: For bugs that occur with only Biomes O' Plenty for 1.13.2
+about: For bugs that occur with Biomes O' Plenty for 1.13.2.  We do not support older versions!
 title: ''
 labels: 1.13.2, bug-minor
 assignees: ''
@@ -25,6 +25,3 @@ assignees: ''
 
 ### Mod Version
 [ Please put the version of the mod you were using here. ]</br>
-
-### Minecraft Version
-1.13.2

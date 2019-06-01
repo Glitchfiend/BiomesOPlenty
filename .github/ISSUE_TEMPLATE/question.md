@@ -1,12 +1,12 @@
 ---
 name: Question
-about: Please ask questions in the Glitchfiend Discord, instead of making issues.
+about: Please ask general questions in the Glitchfiend Discord, instead of opening new issues for them.
 title: ''
 labels: ''
 assignees: ''
 
 ---
 
-We would like to use GitHub to keep track of problems/feature requests.  
-If you have a question, please join the Glitchfiend Discord for help. 
-- Discord link: https://discord.gg/0loJvLMgvZi0q596
+We want to keep our issue tracker free of general questions/comments.  
+If you have a question, please join the Glitchfiend Discord and ask it there. 
+- Glitchfiend Discord Server: https://discord.gg/0loJvLMgvZi0q596
