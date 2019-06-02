@@ -7,6 +7,8 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
+import java.util.Iterator;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.fluid.IFluidState;
@@ -14,10 +16,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReaderBase;
-
-import java.util.Iterator;
 
 public class BlockWatersidePlant extends BlockPlantBOP
 {

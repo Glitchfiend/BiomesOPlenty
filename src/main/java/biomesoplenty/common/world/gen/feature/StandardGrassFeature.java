@@ -9,7 +9,6 @@ package biomesoplenty.common.world.gen.feature;
 
 import java.util.Random;
 
-import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.tags.BlockTags;

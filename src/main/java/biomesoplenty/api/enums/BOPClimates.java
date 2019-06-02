@@ -7,15 +7,15 @@
  ******************************************************************************/
 package biomesoplenty.api.enums;
 
-import biomesoplenty.common.world.layer.traits.IBOPContextExtended;
+import java.util.ArrayList;
+import java.util.Iterator;
+
 import com.google.common.collect.Lists;
+
 import net.minecraft.init.Biomes;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.IContext;
 import net.minecraftforge.common.BiomeManager.BiomeType;
-
-import java.util.ArrayList;
-import java.util.Iterator;
 
 public enum BOPClimates
 {

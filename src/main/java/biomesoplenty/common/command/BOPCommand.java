@@ -9,8 +9,8 @@ package biomesoplenty.common.command;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
+
 import net.minecraft.command.CommandSource;
-import net.minecraft.server.MinecraftServer;
 
 public class BOPCommand
 {

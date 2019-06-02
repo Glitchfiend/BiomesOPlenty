@@ -7,6 +7,9 @@
  ******************************************************************************/
 package biomesoplenty.common.world.gen.feature.tree;
 
+import java.util.Random;
+import java.util.Set;
+
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCocoa;
@@ -18,10 +21,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
-import net.minecraft.world.World;
-
-import java.util.Random;
-import java.util.Set;
 
 public class BasicTreeFeature extends TreeFeatureBase
 {

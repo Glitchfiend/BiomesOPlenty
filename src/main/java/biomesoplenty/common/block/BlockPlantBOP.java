@@ -10,12 +10,10 @@ package biomesoplenty.common.block;
 import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
-import net.minecraft.block.BlockGrass;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
@@ -36,8 +34,6 @@ public class BlockPlantBOP extends BlockBush implements IPlantable
     @Override
     public VoxelShape getShape(IBlockState state, IBlockReader worldIn, BlockPos pos)
     {
-    	Block block = state.getBlock();
-        
         return NORMAL;
     }
     

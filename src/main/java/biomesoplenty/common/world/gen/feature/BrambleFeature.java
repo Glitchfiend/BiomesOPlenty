@@ -7,10 +7,7 @@
  ******************************************************************************/
 package biomesoplenty.common.world.gen.feature;
 
-import java.util.List;
 import java.util.Random;
-
-import com.google.common.collect.Lists;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.BlockBramble;

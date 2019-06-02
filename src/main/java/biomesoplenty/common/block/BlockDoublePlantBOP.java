@@ -9,9 +9,7 @@ package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockDoublePlant;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;

@@ -8,10 +8,14 @@
 package biomesoplenty.common.world.layer;
 
 
+import java.util.Iterator;
+import java.util.List;
+
+import com.google.common.collect.Lists;
+
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.world.BOPLayerUtil;
 import biomesoplenty.init.ModBiomes;
-import com.google.common.collect.Lists;
 import net.minecraft.init.Biomes;
 import net.minecraft.util.registry.IRegistry;
 import net.minecraft.world.biome.Biome;
@@ -21,11 +25,6 @@ import net.minecraft.world.gen.area.IArea;
 import net.minecraft.world.gen.layer.LayerUtil;
 import net.minecraft.world.gen.layer.traits.IAreaTransformer2;
 import net.minecraft.world.gen.layer.traits.IDimOffset1Transformer;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import java.util.Iterator;
-import java.util.List;
 
 public enum GenLayerSubBiome implements IAreaTransformer2, IDimOffset1Transformer
 {

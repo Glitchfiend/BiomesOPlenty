@@ -7,21 +7,20 @@
  ******************************************************************************/
 package biomesoplenty.common.world.gen.feature.tree;
 
-import biomesoplenty.common.util.block.IBlockPosQuery;
+import java.util.List;
+import java.util.Random;
+import java.util.Set;
+
 import com.google.common.collect.Lists;
-import net.minecraft.block.BlockLog;
+
+import biomesoplenty.common.util.block.IBlockPosQuery;
 import net.minecraft.block.BlockSapling;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IWorld;
-
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
 
 /*This class is heavily based on https://gist.github.com/grum/62cfdec0537e8db24eb3#file-bigtreefeature-java
 additional information has been added from http://pastebin.com/XBLdGqXQ. This class has been cross-checked*/

@@ -7,8 +7,6 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
-import java.util.Random;
-
 import javax.annotation.Nullable;
 
 import biomesoplenty.api.block.BOPBlocks;

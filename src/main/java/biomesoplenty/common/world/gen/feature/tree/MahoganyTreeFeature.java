@@ -7,15 +7,14 @@
  ******************************************************************************/
 package biomesoplenty.common.world.gen.feature.tree;
 
+import java.util.Set;
+
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.block.IBlockPosQuery;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
-
-import java.util.Set;
 
 public class MahoganyTreeFeature extends BasicTreeFeature
 {

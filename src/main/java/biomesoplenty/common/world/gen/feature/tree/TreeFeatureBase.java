@@ -7,11 +7,13 @@
  ******************************************************************************/
 package biomesoplenty.common.world.gen.feature.tree;
 
+import java.util.Random;
+import java.util.Set;
+
 import biomesoplenty.common.util.block.BlockUtil;
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.block.BlockVine;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.state.IProperty;
@@ -20,9 +22,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.feature.AbstractTreeFeature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-
-import java.util.Random;
-import java.util.Set;
 
 public abstract class TreeFeatureBase extends AbstractTreeFeature<NoFeatureConfig>
 {

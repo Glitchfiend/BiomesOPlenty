@@ -8,7 +8,6 @@
 package biomesoplenty.common.util.biome;
 
 import biomesoplenty.common.world.BOPWorldSettings;
-import biomesoplenty.common.world.WorldTypeBOP;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;

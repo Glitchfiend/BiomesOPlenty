@@ -4,10 +4,8 @@ import java.util.Random;
 
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import net.minecraft.block.BlockLeaves;
-import net.minecraft.block.BlockSapling;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.IChunkGenSettings;
