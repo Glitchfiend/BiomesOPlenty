@@ -51,6 +51,9 @@ public enum GenLayerBiomeEdgeBOP implements ICastleTransformer
         // line BOP redwood forest with BOP redwood forest edge
         if (this.replaceBiomeEdge(outBiomeId, northBiomeId, eastBiomeId, southBiomeId, westBiomeId, biomeId, BOPBiomes.volcano, BOPBiomes.volcano_edge)) { return outBiomeId[0]; }
 
+        // line BOP wasteland with vanilla desert
+        if (this.replaceBiomeEdge(outBiomeId, northBiomeId, eastBiomeId, southBiomeId, westBiomeId, biomeId, BOPBiomes.wasteland, DESERT)) { return outBiomeId[0]; }
+
         
         // line mountains with mountain edges
         if (this.replaceBiomeEdgeIfNecessary(outBiomeId, northBiomeId, eastBiomeId, southBiomeId, westBiomeId, biomeId, MOUNTAINS, MOUNTAIN_EDGE)) { return outBiomeId[0]; }
@@ -109,6 +112,11 @@ public enum GenLayerBiomeEdgeBOP implements ICastleTransformer
     private boolean replaceBiomeEdge(int[] outId, int northBiomeId, int eastBiomeId, int southBiomeId, int westBiomeId, int biomeId, Optional<Biome> fromBiome, Optional<Biome> toBiome)
     {
         return fromBiome.isPresent() && toBiome.isPresent() && this.replaceBiomeEdge(outId, northBiomeId, eastBiomeId, southBiomeId, westBiomeId, biomeId, IRegistry.BIOME.getId(fromBiome.get()), IRegistry.BIOME.getId(toBiome.get()));
+    }
+    
+    private boolean replaceBiomeEdge(int[] outId, int northBiomeId, int eastBiomeId, int southBiomeId, int westBiomeId, int biomeId, Optional<Biome> fromBiome, int toBiome)
+    {
+        return fromBiome.isPresent() && this.replaceBiomeEdge(outId, northBiomeId, eastBiomeId, southBiomeId, westBiomeId, biomeId, IRegistry.BIOME.getId(fromBiome.get()), toBiome);
     }
 
     private boolean replaceBiomeEdge(int[] outId, int northBiomeId, int eastBiomeId, int southBiomeId, int westBiomeId, int biomeId, int fromBiome, int toBiome)

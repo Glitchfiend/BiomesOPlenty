@@ -31,7 +31,6 @@ public class BOPBiomes
     public static Optional<Biome> grassland = Optional.empty();
     public static Optional<Biome> gravel_beach = Optional.empty();
     public static Optional<Biome> grove = Optional.empty();
-    public static Optional<Biome> grove_orchard = Optional.empty();
     public static Optional<Biome> highland = Optional.empty();
     public static Optional<Biome> highland_moor = Optional.empty();
     public static Optional<Biome> lavender_field = Optional.empty();
@@ -43,6 +42,7 @@ public class BOPBiomes
     public static Optional<Biome> mystic_grove = Optional.empty();
     public static Optional<Biome> oasis = Optional.empty();
     public static Optional<Biome> ominous_woods = Optional.empty();
+    public static Optional<Biome> orchard = Optional.empty();
     public static Optional<Biome> origin_beach = Optional.empty();
     public static Optional<Biome> origin_hills = Optional.empty();
     public static Optional<Biome> outback = Optional.empty();
