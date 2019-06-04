@@ -76,9 +76,10 @@ public class CherryBlossomGroveBiome extends BiomeBOP
         this.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, createCompositeFeature(Feature.MINABLE, new MinableConfig(MinableConfig.IS_ROCK, Blocks.LAPIS_ORE.getDefaultState(), 7), DEPTH_AVERAGE, new DepthAverageConfig(1, 16, 16)));
 
         // Vegetation
-        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, createCompositeFeature(Feature.DOUBLE_PLANT, new DoublePlantConfig(Blocks.LILAC.getDefaultState()), SURFACE_PLUS_32, new FrequencyConfig(5)));
+        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, createCompositeFeature(Feature.DOUBLE_PLANT, new DoublePlantConfig(Blocks.PEONY.getDefaultState()), SURFACE_PLUS_32, new FrequencyConfig(2)));
+        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, createCompositeFeature(Feature.DOUBLE_PLANT, new DoublePlantConfig(Blocks.LILAC.getDefaultState()), SURFACE_PLUS_32, new FrequencyConfig(6)));
         this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, createCompositeFeature(Feature.RANDOM_FEATURE_LIST, new RandomDefaultFeatureListConfig(new Feature[]{BOPBiomeFeatures.WHITE_CHERRY_TREE, BOPBiomeFeatures.PINK_CHERRY_TREE, BOPBiomeFeatures.BIG_WHITE_CHERRY_TREE}, new IFeatureConfig[]{IFeatureConfig.NO_FEATURE_CONFIG, IFeatureConfig.NO_FEATURE_CONFIG, IFeatureConfig.NO_FEATURE_CONFIG}, new float[]{0.1F, 0.2F, 0.3F}, BOPBiomeFeatures.BIG_PINK_CHERRY_TREE, IFeatureConfig.NO_FEATURE_CONFIG), AT_SURFACE_WITH_EXTRA, new AtSurfaceWithExtraConfig(4, 0.2F, 1)));
-        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, createCompositeFlowerFeature(BOPBiomeFeatures.CHERRY_BLOSSOM_GROVE_FLOWERS, SURFACE_PLUS_32, new FrequencyConfig(30)));
+        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, createCompositeFlowerFeature(BOPBiomeFeatures.CHERRY_BLOSSOM_GROVE_FLOWERS, SURFACE_PLUS_32, new FrequencyConfig(35)));
         this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, createCompositeFeature(new StandardGrassFeature(), IFeatureConfig.NO_FEATURE_CONFIG, TWICE_SURFACE, new FrequencyConfig(10)));
         this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, createCompositeFeature(Feature.BUSH, new BushConfig(Blocks.BROWN_MUSHROOM), TWICE_SURFACE_WITH_CHANCE, new ChanceConfig(2)));
         this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, createCompositeFeature(Feature.BUSH, new BushConfig(Blocks.RED_MUSHROOM), TWICE_SURFACE_WITH_CHANCE, new ChanceConfig(4)));
@@ -109,12 +110,12 @@ public class CherryBlossomGroveBiome extends BiomeBOP
     @OnlyIn(Dist.CLIENT)
     public int getGrassColor(BlockPos pos)
     {
-    	return 0x88C57F;
+    	return 0x8DC87B;
     }
 
     @OnlyIn(Dist.CLIENT)
     public int getFoliageColor(BlockPos pos)
     {
-    	return 0x6AB66F;
+    	return 0x69B866;
     }
 }
