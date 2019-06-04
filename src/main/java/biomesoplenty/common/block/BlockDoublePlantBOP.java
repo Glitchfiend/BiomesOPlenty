@@ -65,11 +65,6 @@ public class BlockDoublePlantBOP extends BlockDoublePlant implements IPlantable
      {
      	Block block = world.getBlockState(pos).getBlock();
      	
-     	if (block == BOPBlocks.tall_cattail)
-     	{
-     		return EnumPlantType.Beach;
-     	}
-     	
      	return EnumPlantType.Plains;
      }
 }

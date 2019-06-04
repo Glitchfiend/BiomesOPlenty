@@ -139,10 +139,16 @@ public class RedwoodTreeFeature extends TreeFeatureBase
         // Move down until we reach the ground
         while (startPos.getY() > 1 && world.isAirBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES) {startPos = startPos.down();}
 
-        if (!this.placeOn.matches(world, startPos))
+        for (int x = 0; x <= this.trunkWidth - 1; x++)
         {
-            // Abandon if we can't place the tree on this block
-            return false;
+            for (int z = 0; z <= this.trunkWidth - 1; z++)
+            {
+		        if (!this.placeOn.matches(world, startPos.add(x, 0, z)))
+		        {
+		            // Abandon if we can't place the tree on this block
+		            return false;
+		        }
+            }
         }
 
         // Choose heights
@@ -199,8 +205,7 @@ public class RedwoodTreeFeature extends TreeFeatureBase
             int trunkStart = MathHelper.ceil(0.25D - trunkWidth / 2.0D);
             int trunkEnd = MathHelper.floor(0.25D + trunkWidth / 2.0D);
 
-            // TODO: Temporary fix for trees generating larger than normal bases when in the sides of hills
-            if (this.trunkWidth <= 1)
+            if (trunkWidth < 1 || trunkWidth > this.trunkWidth)
             {
                 trunkStart = 0;
                 trunkEnd = 0;

@@ -64,8 +64,8 @@ public class BlockMud extends Block
             case Crop: return false;
             case Cave: return false;
             case Plains: return false;
-            case Water: return true;
-            case Beach: return false;
+            case Water: return false;
+            case Beach: return true;
         }
         return false;
     }

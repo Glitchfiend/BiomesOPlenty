@@ -61,10 +61,6 @@ public class BlockPlantBOP extends BlockBush implements IPlantable
     {
     	Block block = world.getBlockState(pos).getBlock();
     	
-    	if (block == BOPBlocks.cattail)
-    	{
-    		return EnumPlantType.Beach;
-    	}
     	if (block == BOPBlocks.tiny_cactus)
     	{
     		return EnumPlantType.Desert;

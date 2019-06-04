@@ -9,6 +9,7 @@ package biomesoplenty.common.block;
 
 import java.util.Iterator;
 
+import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.fluid.IFluidState;
@@ -16,13 +17,23 @@ import net.minecraft.init.Blocks;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReaderBase;
+import net.minecraftforge.common.EnumPlantType;
 
 public class BlockWatersidePlant extends BlockPlantBOP
 {
     public BlockWatersidePlant(Block.Properties properties)
     {
         super(properties);
+    }
+    
+    @Override
+    public EnumPlantType getPlantType(IBlockReader world, BlockPos pos)
+    {
+    	Block block = world.getBlockState(pos).getBlock();
+    	
+    	return EnumPlantType.Beach;
     }
 
     @Override
