@@ -102,7 +102,7 @@ public class MangroveBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.ENDERMAN, 10, 1, 4));
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
         
-        this.addWeight(BOPClimates.SUBTROPICAL, 5);
+        this.addWeight(BOPClimates.SUBTROPICAL, 7);
         this.setBeachBiome((Biome)null);
     }
 }

@@ -20,7 +20,7 @@ import net.minecraft.world.gen.feature.AbstractFlowersFeature;
 
 public class RainforestFlowersFeature extends AbstractFlowersFeature
 {
-	   private static final Block[] FLOWERS = new Block[]{BOPBlocks.pink_daffodil, BOPBlocks.blue_hydrangea, BOPBlocks.orange_cosmos, Blocks.BLUE_ORCHID, Blocks.OXEYE_DAISY, Blocks.DANDELION, Blocks.POPPY};
+	   private static final Block[] FLOWERS = new Block[]{BOPBlocks.pink_daffodil, BOPBlocks.blue_hydrangea, Blocks.BLUE_ORCHID, Blocks.OXEYE_DAISY, Blocks.DANDELION, Blocks.POPPY};
 
 	   public IBlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_)
 	   {
