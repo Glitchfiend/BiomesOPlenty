@@ -10,6 +10,7 @@ package biomesoplenty.common.world;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.provider.OverworldBiomeProviderSettings;
+import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.OverworldGenSettings;
 
@@ -23,12 +24,19 @@ public class WorldTypeBOP extends WorldType
     @Override
     public IChunkGenerator<?> createChunkGenerator(World world)
     {
-        // Mojang does this through a billion builders. Fuck that.
-        OverworldGenSettings overworldGenSettings = new OverworldGenSettings();
-        OverworldBiomeProviderSettings biomeProviderSettings = new OverworldBiomeProviderSettings();
-        biomeProviderSettings.setWorldInfo(world.getWorldInfo());
-        biomeProviderSettings.setGeneratorSettings(overworldGenSettings);
-
-        return new ChunkGeneratorOverworldBOP(world, new BOPBiomeProvider(biomeProviderSettings), overworldGenSettings);
+    	if (world.getDimension().getType() == DimensionType.OVERWORLD)
+    	{
+	        // Mojang does this through a billion builders. Fuck that.
+	        OverworldGenSettings overworldGenSettings = new OverworldGenSettings();
+	        OverworldBiomeProviderSettings biomeProviderSettings = new OverworldBiomeProviderSettings();
+	        biomeProviderSettings.setWorldInfo(world.getWorldInfo());
+	        biomeProviderSettings.setGeneratorSettings(overworldGenSettings);
+	
+	        return new ChunkGeneratorOverworldBOP(world, new BOPBiomeProvider(biomeProviderSettings), overworldGenSettings);
+    	}
+    	else
+    	{
+    		return super.createChunkGenerator(world);
+    	}
     }
 }
