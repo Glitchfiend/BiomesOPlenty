@@ -20,7 +20,7 @@ import net.minecraft.world.gen.feature.AbstractFlowersFeature;
 
 public class CherryBlossomGroveFlowersFeature extends AbstractFlowersFeature
 {
-	   private static final Block[] FLOWERS = new Block[]{BOPBlocks.pink_daffodil, Blocks.OXEYE_DAISY, Blocks.PINK_TULIP, Blocks.WHITE_TULIP};
+	   private static final Block[] FLOWERS = new Block[]{BOPBlocks.pink_daffodil, Blocks.OXEYE_DAISY};
 
 	   public IBlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_)
 	   {
