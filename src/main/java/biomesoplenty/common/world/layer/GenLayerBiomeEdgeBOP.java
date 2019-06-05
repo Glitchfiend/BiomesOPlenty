@@ -48,7 +48,7 @@ public enum GenLayerBiomeEdgeBOP implements ICastleTransformer
         // line BOP redwood forest with BOP redwood forest edge
         if (this.replaceBiomeEdge(outBiomeId, northBiomeId, eastBiomeId, southBiomeId, westBiomeId, biomeId, BOPBiomes.redwood_forest, BOPBiomes.redwood_forest_edge)) { return outBiomeId[0]; }
 
-        // line BOP redwood forest with BOP redwood forest edge
+        // line BOP volcano with BOP volcano edge
         if (this.replaceBiomeEdge(outBiomeId, northBiomeId, eastBiomeId, southBiomeId, westBiomeId, biomeId, BOPBiomes.volcano, BOPBiomes.volcano_edge)) { return outBiomeId[0]; }
 
         // line BOP wasteland with vanilla desert

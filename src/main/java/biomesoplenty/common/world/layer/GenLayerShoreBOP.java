@@ -72,6 +72,14 @@ public enum GenLayerShoreBOP implements ICastleTransformer
             {
                 if (!BOPLayerUtil.isOcean(biomeId) && (BOPLayerUtil.isOcean(northBiomeId) || BOPLayerUtil.isOcean(eastBiomeId) || BOPLayerUtil.isOcean(southBiomeId) || BOPLayerUtil.isOcean(westBiomeId)))
                 {
+                    if (biome instanceof BiomeBOP)
+                    {
+                        BiomeBOP biomeBOP = (BiomeBOP)biome;
+
+                        if (biomeBOP.beachBiomeId == -1)
+                            return biomeId;
+                    }
+                    
                     return SNOWY_BEACH;
                 }
             }

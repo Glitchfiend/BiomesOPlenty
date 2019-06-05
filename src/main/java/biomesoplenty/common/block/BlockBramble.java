@@ -39,13 +39,19 @@ public class BlockBramble extends BlockSixWay
 
     public IBlockState makeConnections(IBlockReader p_196497_1_, BlockPos p_196497_2_)
     {
-        Block block = p_196497_1_.getBlockState(p_196497_2_.down()).getBlock();
-        Block block1 = p_196497_1_.getBlockState(p_196497_2_.up()).getBlock();
-        Block block2 = p_196497_1_.getBlockState(p_196497_2_.north()).getBlock();
-        Block block3 = p_196497_1_.getBlockState(p_196497_2_.east()).getBlock();
-        Block block4 = p_196497_1_.getBlockState(p_196497_2_.south()).getBlock();
-        Block block5 = p_196497_1_.getBlockState(p_196497_2_.west()).getBlock();
-        return this.getDefaultState().with(DOWN, Boolean.valueOf(block == this || block.isFullCube(block.getDefaultState()))).with(UP, Boolean.valueOf(block1 == this || block1.isFullCube(block.getDefaultState()))).with(NORTH, Boolean.valueOf(block2 == this || block2.isFullCube(block.getDefaultState()))).with(EAST, Boolean.valueOf(block3 == this || block3.isFullCube(block.getDefaultState()))).with(SOUTH, Boolean.valueOf(block4 == this || block4.isFullCube(block.getDefaultState()))).with(WEST, Boolean.valueOf(block5 == this || block5.isFullCube(block.getDefaultState())));
+        IBlockState block = p_196497_1_.getBlockState(p_196497_2_.down());
+        IBlockState block1 = p_196497_1_.getBlockState(p_196497_2_.up());
+        IBlockState block2 = p_196497_1_.getBlockState(p_196497_2_.north());
+        IBlockState block3 = p_196497_1_.getBlockState(p_196497_2_.east());
+        IBlockState block4 = p_196497_1_.getBlockState(p_196497_2_.south());
+        IBlockState block5 = p_196497_1_.getBlockState(p_196497_2_.west());
+        return this.getDefaultState()
+        		.with(DOWN, Boolean.valueOf(block.getBlock() == this || block.isFullCube()))
+        		.with(UP, Boolean.valueOf(block1.getBlock() == this || block1.isFullCube()))
+        		.with(NORTH, Boolean.valueOf(block2.getBlock() == this || block2.isFullCube()))
+        		.with(EAST, Boolean.valueOf(block3.getBlock() == this || block3.isFullCube()))
+        		.with(SOUTH, Boolean.valueOf(block4.getBlock() == this || block4.isFullCube()))
+        		.with(WEST, Boolean.valueOf(block5.getBlock() == this || block5.isFullCube()));
     }
 
      /**
