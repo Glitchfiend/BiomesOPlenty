@@ -106,6 +106,10 @@ public class BlockFoliageBOP extends BlockBush implements IPlantable
     {
         Block ground = worldIn.getBlockState(pos.down()).getBlock();
 
+        if (this == BOPBlocks.spectral_fern)
+        {
+            return ground == Blocks.END_STONE;
+        }
         if (this == BOPBlocks.dune_grass)
         {
             return ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.white_sand;

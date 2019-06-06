@@ -60,6 +60,7 @@ public class BOPBiomes
     public static Optional<Biome> silkglade = Optional.empty();
     public static Optional<Biome> snowy_coniferous_forest = Optional.empty();
     public static Optional<Biome> snowy_forest = Optional.empty();
+    public static Optional<Biome> spectral_garden = Optional.empty();
     public static Optional<Biome> steppe = Optional.empty();
     public static Optional<Biome> temperate_rainforest = Optional.empty();
     public static Optional<Biome> tropical_rainforest = Optional.empty();

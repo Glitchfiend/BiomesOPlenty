@@ -7,10 +7,18 @@
  ******************************************************************************/
 package biomesoplenty.common.world;
 
+import net.minecraft.init.Blocks;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
+import net.minecraft.world.biome.provider.BiomeProviderType;
+import net.minecraft.world.biome.provider.EndBiomeProvider;
+import net.minecraft.world.biome.provider.EndBiomeProviderSettings;
 import net.minecraft.world.biome.provider.OverworldBiomeProviderSettings;
 import net.minecraft.world.dimension.DimensionType;
+import net.minecraft.world.dimension.EndDimension;
+import net.minecraft.world.gen.ChunkGeneratorType;
+import net.minecraft.world.gen.EndGenSettings;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.OverworldGenSettings;
 
@@ -34,6 +42,18 @@ public class WorldTypeBOP extends WorldType
 	
 	        return new ChunkGeneratorOverworldBOP(world, new BOPBiomeProvider(biomeProviderSettings), overworldGenSettings);
     	}
+    	/*else if (world.getDimension().getType() == DimensionType.THE_END)
+    	{
+    		BlockPos SPAWN = new BlockPos(100, 50, 0);
+    		
+    	    EndGenSettings endgensettings = ChunkGeneratorType.FLOATING_ISLANDS.createSettings();
+	        EndBiomeProviderSettings endBiomeProviderSettings = new EndBiomeProviderSettings();
+	        endBiomeProviderSettings.setSeed(world.getSeed());
+    	    endgensettings.setDefautBlock(Blocks.END_STONE.getDefaultState());
+    	    endgensettings.setDefaultFluid(Blocks.AIR.getDefaultState());
+    	    endgensettings.setSpawnPos(SPAWN);
+    	    return ChunkGeneratorType.FLOATING_ISLANDS.create(world, new BOPEndBiomeProvider(endBiomeProviderSettings), endgensettings);
+    	}*/
     	else
     	{
     		return super.createChunkGenerator(world);
