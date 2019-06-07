@@ -377,6 +377,21 @@ public class BigTreeFeature extends TreeFeatureBase
             limb(changedBlocks, start.east().south(), end.east().south(), materialState);
             limb(changedBlocks, start.south(), end.south(), materialState);
         }
+        
+        if (trunkWidth == 4)
+        {
+            limb(changedBlocks, start.east(), end.east(), materialState);
+            limb(changedBlocks, start.east().south(), end.east().south(), materialState);
+            limb(changedBlocks, start.south(), end.south(), materialState);
+            limb(changedBlocks, start.north(), end.north(), materialState);
+            limb(changedBlocks, start.north().east(), end.north().east(), materialState);
+            limb(changedBlocks, start.east().east(), end.east().east(), materialState);
+            limb(changedBlocks, start.south().east().east(), end.south().east().east(), materialState);
+            limb(changedBlocks, start.south().south().east(), end.south().south().east(), materialState);
+            limb(changedBlocks, start.south().south(), end.south().south(), materialState);
+            limb(changedBlocks, start.west().south(), end.west().south(), materialState);
+            limb(changedBlocks, start.west(), end.west(), materialState);
+        }
     }
 
     private void makeBranches(Set<BlockPos> changedBlocks)
@@ -473,20 +488,23 @@ public class BigTreeFeature extends TreeFeatureBase
 
     private boolean checkLocation()
     {
-        BlockPos down = this.origin.down();
-        IBlockState state = this.world.getBlockState(down);
-        boolean isSoil = state.getBlock().canSustainPlant(state, this.world, down, EnumFacing.UP, ((BlockSapling)Blocks.OAK_SAPLING));
+        BlockPos startPos = this.origin.down();
 
-        //Don't grow the tree here if the location can't sustain a sapling
-        if (!isSoil && !this.placeOn.matches(world, down))
+        for (int x = 0; x <= trunkWidth - 1; x++)
         {
-            return false;
+            for (int z = 0; z <= trunkWidth - 1; z++)
+            {
+            	if (!this.placeOn.matches(world, startPos.add(x,0,z)))
+            	{
+            		return false;
+            	}
+            }
         }
 
         // Examine center column for how tall the tree can be.
         int allowedHeight = checkLine(this.origin, this.origin.up(height - 1));
 
-        if (trunkWidth == 2)
+        if (trunkWidth == 2 || trunkWidth == 4)
         {
             allowedHeight = Math.min(checkLine(this.origin.east(), this.origin.east().up(height - 1)), allowedHeight);
             allowedHeight = Math.min(checkLine(this.origin.east().south(), this.origin.east().south().up(height - 1)), allowedHeight);

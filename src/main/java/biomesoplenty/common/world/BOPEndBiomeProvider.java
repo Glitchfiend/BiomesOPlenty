@@ -26,7 +26,7 @@ import net.minecraft.world.gen.feature.structure.Structure;
 public class BOPEndBiomeProvider extends BiomeProvider {
 	   private final NoiseGeneratorSimplex field_201546_a;
 	   private final SharedSeedRandom random;
-	   private final Biome[] field_205009_d = new Biome[]{Biomes.THE_END, Biomes.END_HIGHLANDS, Biomes.END_MIDLANDS, Biomes.SMALL_END_ISLANDS, Biomes.END_BARRENS, BOPBiomes.spectral_garden.get()};
+	   private final Biome[] field_205009_d = new Biome[]{Biomes.THE_END, Biomes.END_HIGHLANDS, Biomes.END_MIDLANDS, Biomes.SMALL_END_ISLANDS, Biomes.END_BARRENS, BOPBiomes.end_plains.get()};
 
 	   public BOPEndBiomeProvider(EndBiomeProviderSettings p_i48970_1_) {
 	      this.random = new SharedSeedRandom(p_i48970_1_.getSeed());
@@ -57,7 +57,7 @@ public class BOPEndBiomeProvider extends BiomeProvider {
 	        	}
 	        	else
 	        	{
-	        		return BOPBiomes.spectral_garden.get();
+	        		return BOPBiomes.end_plains.get();
 	        	}
 	         }
 	         else if (f >= 0.0F)

@@ -20,7 +20,7 @@ import com.google.common.collect.Multimap;
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.BiomeBOP;
-import biomesoplenty.common.biome.end.SpectralGardenBiome;
+import biomesoplenty.common.biome.end.EndPlainsBiome;
 import biomesoplenty.common.biome.overworld.AlpsBiome;
 import biomesoplenty.common.biome.overworld.AlpsFoothillsBiome;
 import biomesoplenty.common.biome.overworld.BayouBiome;
@@ -167,7 +167,7 @@ public class ModBiomes
         woodland = registerBiome(new WoodlandBiome(), "woodland");
         xeric_shrubland = registerBiome(new XericShrublandBiome(), "xeric_shrubland");
         
-        spectral_garden = registerBiome(new SpectralGardenBiome(), "spectral_garden");
+        end_plains = registerBiome(new EndPlainsBiome(), "end_plains");
 
         // Note: Rarity supports two decimal places
         registerSubBiome(Biomes.DESERT, oasis, 0.1F, 100);
