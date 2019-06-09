@@ -18,9 +18,9 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.AbstractFlowersFeature;
 
-public class MysticGroveFlowersFeature extends AbstractFlowersFeature
+public class LushGrasslandFlowersFeature extends AbstractFlowersFeature
 {
-	   private static final Block[] FLOWERS = new Block[]{BOPBlocks.blue_hydrangea, BOPBlocks.glowflower, BOPBlocks.pink_daffodil, Blocks.OXEYE_DAISY, Blocks.ALLIUM};
+	   private static final Block[] FLOWERS = new Block[]{BOPBlocks.orange_cosmos, Blocks.OXEYE_DAISY};
 
 	   public IBlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_)
 	   {

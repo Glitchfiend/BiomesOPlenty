@@ -36,6 +36,7 @@ public class BOPBiomeFeatures
 	public static final AbstractTreeFeature<NoFeatureConfig> SEQUOIA_TREE = new TaigaTreeFeature.Builder().log(BOPBlocks.redwood_log.getDefaultState()).leaves(BOPBlocks.redwood_leaves.getDefaultState()).minHeight(5).maxHeight(15).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> SEQUOIA_TREE_LARGE = new TaigaTreeFeature.Builder().log(BOPBlocks.redwood_log.getDefaultState()).leaves(BOPBlocks.redwood_leaves.getDefaultState()).minHeight(20).maxHeight(35).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> OAK_TREE = new BasicTreeFeature.Builder().create();
+	public static final AbstractTreeFeature<NoFeatureConfig> SMALL_JUNGLE_TREE = new BasicTreeFeature.Builder().maxHeight(9).log(Blocks.JUNGLE_LOG.getDefaultState()).leaves(Blocks.JUNGLE_LEAVES.getDefaultState()).trunkFruit(Blocks.COCOA.getDefaultState()).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> BIG_OAK_TREE = new BigTreeFeature.Builder().create();
 	public static final AbstractTreeFeature<NoFeatureConfig> COBWEB_BUSH = new BushTreeFeature.Builder().maxHeight(2).altLeaves(Blocks.COBWEB.getDefaultState()).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> FULL_COBWEB_BUSH = new BushTreeFeature.Builder().maxHeight(2).leaves(Blocks.COBWEB.getDefaultState()).create();
@@ -106,6 +107,7 @@ public class BOPBiomeFeatures
 	public static final AbstractFlowersFeature FLOWER_MEADOW_FLOWERS = new FlowerMeadowFlowersFeature();
 	public static final AbstractFlowersFeature JUNGLE_FLOWERS = new JungleFlowersFeature();
 	public static final AbstractFlowersFeature LAVENDER_FLOWERS = new LavenderFlowersFeature();
+	public static final AbstractFlowersFeature LUSH_GRASSLAND_FLOWERS = new LushGrasslandFlowersFeature();
 	public static final AbstractFlowersFeature LUSH_SWAMP_FLOWERS = new LushSwampFlowersFeature();
 	public static final AbstractFlowersFeature MEADOW_FLOWERS = new MeadowFlowersFeature();
 	public static final AbstractFlowersFeature MOOR_FLOWERS = new MoorFlowersFeature();
