@@ -20,12 +20,16 @@ import net.minecraft.world.gen.feature.AbstractFlowersFeature;
 
 public class LushGrasslandFlowersFeature extends AbstractFlowersFeature
 {
-	   private static final Block[] FLOWERS = new Block[]{BOPBlocks.orange_cosmos, Blocks.OXEYE_DAISY};
-
-	   public IBlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_)
-	   {
-	      double d0 = MathHelper.clamp((1.0D + Biome.INFO_NOISE.getValue((double)p_202355_2_.getX() / 48.0D, (double)p_202355_2_.getZ() / 48.0D)) / 2.0D, 0.0D, 0.9999D);
-	      Block block = FLOWERS[(int)(d0 * (double)FLOWERS.length)];
-	      return block.getDefaultState();
-	   }
+	public IBlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_)
+	{
+         int j = p_202355_1_.nextInt(2);
+         switch(j)
+         {
+         case 0:
+            return BOPBlocks.orange_cosmos.getDefaultState();
+         case 1:
+         default:
+            return Blocks.OXEYE_DAISY.getDefaultState();
+         }
 	}
+}
