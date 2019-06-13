@@ -19,7 +19,7 @@ import biomesoplenty.common.world.gen.feature.tree.TaigaTreeFeature;
 import biomesoplenty.common.world.gen.feature.tree.TrunkTreeFeature;
 import biomesoplenty.common.world.gen.feature.tree.TwigletTreeFeature;
 import net.minecraft.block.BlockLeaves;
-import net.minecraft.init.Blocks;
+import net.minecraft.block.Blocks;
 import net.minecraft.world.gen.feature.AbstractFlowersFeature;
 import net.minecraft.world.gen.feature.AbstractTreeFeature;
 import net.minecraft.world.gen.feature.Feature;

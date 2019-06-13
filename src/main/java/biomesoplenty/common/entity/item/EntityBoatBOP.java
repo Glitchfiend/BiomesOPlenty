@@ -8,10 +8,11 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLilyPad;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.MoverType;
+import net.minecraft.entity.item.BoatEntity;
 import net.minecraft.entity.item.EntityBoat;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntityWaterMob;
@@ -30,7 +31,7 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSourceIndirect;
 import net.minecraft.util.EntitySelectors;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Direction;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -44,7 +45,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class EntityBoatBOP extends EntityBoat {
+public class EntityBoatBOP extends BoatEntity
+{
 	   private static final DataParameter<Integer> TIME_SINCE_HIT = EntityDataManager.createKey(EntityBoatBOP.class, DataSerializers.VARINT);
 	   private static final DataParameter<Integer> FORWARD_DIRECTION = EntityDataManager.createKey(EntityBoatBOP.class, DataSerializers.VARINT);
 	   private static final DataParameter<Float> DAMAGE_TAKEN = EntityDataManager.createKey(EntityBoatBOP.class, DataSerializers.FLOAT);
@@ -290,7 +292,7 @@ public class EntityBoatBOP extends EntityBoat {
 	    * Gets the horizontal facing direction of this Entity, adjusted to take specially-treated entity types into account.
 	    */
 	   @Override
-	   public EnumFacing getAdjustedHorizontalFacing() {
+	   public Direction getAdjustedHorizontalFacing() {
 	      return this.getHorizontalFacing().rotateY();
 	   }
 
@@ -547,9 +549,9 @@ public class EntityBoatBOP extends EntityBoat {
 	                  for(int k2 = k; k2 < l; ++k2) {
 	                     if (j2 <= 0 || k2 != k && k2 != l - 1) {
 	                        blockpos$pooledmutableblockpos.setPos(l1, k2, i2);
-	                        IBlockState iblockstate = this.world.getBlockState(blockpos$pooledmutableblockpos);
-	                        if (!(iblockstate.getBlock() instanceof BlockLilyPad) && VoxelShapes.compare(iblockstate.getCollisionShape(this.world, blockpos$pooledmutableblockpos).withOffset((double)l1, (double)k2, (double)i2), voxelshape, IBooleanFunction.AND)) {
-	                           f += iblockstate.getSlipperiness(world, blockpos$pooledmutableblockpos, this);
+	                        BlockState BlockState = this.world.getBlockState(blockpos$pooledmutableblockpos);
+	                        if (!(BlockState.getBlock() instanceof BlockLilyPad) && VoxelShapes.compare(BlockState.getCollisionShape(this.world, blockpos$pooledmutableblockpos).withOffset((double)l1, (double)k2, (double)i2), voxelshape, IBooleanFunction.AND)) {
+	                           f += BlockState.getSlipperiness(world, blockpos$pooledmutableblockpos, this);
 	                           ++k1;
 	                        }
 	                     }
@@ -793,7 +795,7 @@ public class EntityBoatBOP extends EntityBoat {
 	   }
 
 	   @Override
-	   protected void updateFallState(double y, boolean onGroundIn, IBlockState state, BlockPos pos) {
+	   protected void updateFallState(double y, boolean onGroundIn, BlockState state, BlockPos pos) {
 	      this.lastYd = this.motionY;
 	      if (!this.isPassenger()) {
 	         if (onGroundIn) {

@@ -8,9 +8,10 @@
 package biomesoplenty.common.block;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
@@ -25,15 +26,14 @@ public class BlockFlesh extends Block
     }
 
     @Override
-    public VoxelShape getCollisionShape(IBlockState state, IBlockReader worldIn, BlockPos pos)
+    public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext selectionContext)
     {
         return SHAPE;
     }
     
     @Override
-    public void onEntityCollision(IBlockState state, World worldIn, BlockPos pos, Entity entityIn)
+    public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn)
     {
-        entityIn.motionX *= 0.95D;
-        entityIn.motionZ *= 0.95D;
+        entityIn.getMotion().mul(0.9D, 1.0D, 0.9D);
     }
 }

@@ -9,9 +9,9 @@ package biomesoplenty.common.util.block;
 
 import java.util.Collection;
 
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.BlockState;
 import net.minecraft.state.IProperty;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.chunk.IChunk;
@@ -20,12 +20,12 @@ import net.minecraft.world.gen.Heightmap;
 public class BlockUtil
 {
     // Given a blockstate for some block which has an axis orientation (such as logs), try to determine the axis property
-    public static IProperty getAxisProperty(IBlockState log)
+    public static IProperty getAxisProperty(BlockState log)
     {
         for (IProperty property : log.getProperties())
         {
             Collection allowedValues = property.getAllowedValues();
-            if (allowedValues.contains(EnumFacing.Axis.X) && allowedValues.contains(EnumFacing.Axis.Y) && allowedValues.contains(EnumFacing.Axis.Z))
+            if (allowedValues.contains(Direction.Axis.X) && allowedValues.contains(Direction.Axis.Y) && allowedValues.contains(Direction.Axis.Z))
             {
                 return property;
             }

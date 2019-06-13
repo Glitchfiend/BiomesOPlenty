@@ -11,7 +11,7 @@ import com.google.common.collect.Sets;
 import biomesoplenty.api.biome.BOPBiomes;
 import it.unimi.dsi.fastutil.longs.Long2ObjectMap;
 import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.BlockState;
 import net.minecraft.init.Biomes;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
@@ -170,7 +170,7 @@ public class BOPEndBiomeProvider extends BiomeProvider {
 	      });
 	   }
 
-	   public Set<IBlockState> getSurfaceBlocks() {
+	   public Set<BlockState> getSurfaceBlocks() {
 	      if (this.topBlocksCache.isEmpty()) {
 	         for(Biome biome : this.field_205009_d) {
 	            this.topBlocksCache.add(biome.getSurfaceBuilderConfig().getTop());

@@ -16,9 +16,9 @@ import net.minecraft.block.BlockCocoa;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.block.BlockVine;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 
@@ -80,8 +80,8 @@ public class BasicTreeFeature extends TreeFeatureBase
     protected IBlockPosQuery placeVinesOn;
     protected float hangingChance;
 
-    protected BasicTreeFeature(boolean notify, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log,
-        IBlockState leaves, IBlockState altLeaves, IBlockState vine, IBlockState hanging, IBlockState trunkFruit,
+    protected BasicTreeFeature(boolean notify, IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log,
+        BlockState leaves, BlockState altLeaves, BlockState vine, BlockState hanging, BlockState trunkFruit,
         int minHeight, int maxHeight, int leafLayers, int leavesOffset, int maxLeavesRadius, int leavesLayerHeight,
         IBlockPosQuery placeVinesOn, float hangingChance)
     {
@@ -151,7 +151,7 @@ public class BasicTreeFeature extends TreeFeatureBase
             {
                 BlockPos soilPos = pos.down();
                 Block soil = world.getBlockState(soilPos).getBlock();
-                boolean isSoil = soil.canSustainPlant(world.getBlockState(soilPos), world, soilPos, EnumFacing.UP, (BlockSapling) Blocks.OAK_SAPLING);
+                boolean isSoil = soil.canSustainPlant(world.getBlockState(soilPos), world, soilPos, Direction.UP, (BlockSapling) Blocks.OAK_SAPLING);
 
                 if (this.placeOn.matches(world, soilPos) && isSoil && pos.getY() < 256 - height - 1)
                 {
@@ -231,22 +231,22 @@ public class BasicTreeFeature extends TreeFeatureBase
 
                                         if (random.nextInt(4) == 0 && this.placeVinesOn.matches(world, westPos))
                                         {
-                                            this.extendVines(world, westPos, EnumFacing.EAST);
+                                            this.extendVines(world, westPos, Direction.EAST);
                                         }
 
                                         if (random.nextInt(4) == 0 && this.placeVinesOn.matches(world, eastPos))
                                         {
-                                            this.extendVines(world, eastPos, EnumFacing.WEST);
+                                            this.extendVines(world, eastPos, Direction.WEST);
                                         }
 
                                         if (random.nextInt(4) == 0 && this.placeVinesOn.matches(world, northPos))
                                         {
-                                            this.extendVines(world, northPos, EnumFacing.SOUTH);
+                                            this.extendVines(world, northPos, Direction.SOUTH);
                                         }
 
                                         if (random.nextInt(4) == 0 && this.placeVinesOn.matches(world, southPos))
                                         {
-                                            this.extendVines(world, southPos, EnumFacing.NORTH);
+                                            this.extendVines(world, southPos, Direction.NORTH);
                                         }
                                     }
                                 }
@@ -263,12 +263,12 @@ public class BasicTreeFeature extends TreeFeatureBase
                         {
                             for (int l3 = 0; l3 < 2; ++l3)
                             {
-                                for (EnumFacing enumfacing : EnumFacing.Plane.HORIZONTAL)
+                                for (Direction Direction : Direction.Plane.HORIZONTAL)
                                 {
                                     if (random.nextInt(4 - l3) == 0)
                                     {
-                                        EnumFacing enumfacing1 = enumfacing.getOpposite();
-                                        this.generateTrunkFruit(world, random.nextInt(3), pos.add(enumfacing1.getXOffset(), height - 5 + l3, enumfacing1.getZOffset()), enumfacing);
+                                        Direction Direction1 = Direction.getOpposite();
+                                        this.generateTrunkFruit(world, random.nextInt(3), pos.add(Direction1.getXOffset(), height - 5 + l3, Direction1.getZOffset()), Direction);
                                     }
                                 }
                             }
@@ -321,7 +321,7 @@ public class BasicTreeFeature extends TreeFeatureBase
         }
     }
 
-    private void generateTrunkFruit(IWorld world, int age, BlockPos pos, EnumFacing direction)
+    private void generateTrunkFruit(IWorld world, int age, BlockPos pos, Direction direction)
     {
         if (this.trunkFruit == Blocks.COCOA.getDefaultState())
         {
@@ -333,14 +333,14 @@ public class BasicTreeFeature extends TreeFeatureBase
         }
     }
 
-    private IBlockState getVineStateForSide(EnumFacing side)
+    private BlockState getVineStateForSide(Direction side)
     {
         return this.vine.getBlock() instanceof BlockVine ? this.vine.with(BlockVine.getPropertyFor(side), Boolean.valueOf(true)) : this.vine;
     }
 
-    private void extendVines(IWorld world, BlockPos pos, EnumFacing side)
+    private void extendVines(IWorld world, BlockPos pos, Direction side)
     {
-        IBlockState vineState = this.getVineStateForSide(side);
+        BlockState vineState = this.getVineStateForSide(side);
         this.setBlockState(world, pos, vineState);
 
         int length = 4;

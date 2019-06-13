@@ -7,33 +7,30 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
-import java.util.Random;
-
 import biomesoplenty.api.block.BOPBlocks;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockSapling;
-import net.minecraft.block.IGrowable;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.block.trees.AbstractTree;
-import net.minecraft.init.Blocks;
+import net.minecraft.block.*;
+import net.minecraft.block.trees.Tree;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
-import net.minecraft.world.IWorldReaderBase;
+import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 
-public class BlockSaplingBOP extends BlockSapling implements IGrowable
+import java.util.Random;
+
+public class BlockSaplingBOP extends SaplingBlock implements IGrowable
 {
    public static final IntegerProperty STAGE = BlockStateProperties.STAGE_0_1;
    public static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
-   private final AbstractTree tree;
+   private final Tree tree;
 
-   public BlockSaplingBOP(AbstractTree tree, Block.Properties properties)
+   public BlockSaplingBOP(Tree tree, Block.Properties properties)
    {
       super(tree, properties);
       this.tree = tree;
@@ -41,13 +38,13 @@ public class BlockSaplingBOP extends BlockSapling implements IGrowable
    }
 
    @Override
-   public VoxelShape getShape(IBlockState state, IBlockReader worldIn, BlockPos pos)
+   public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext selectionContext)
    {
       return SHAPE;
    }
 
    @Override
-   public void tick(IBlockState state, World worldIn, BlockPos pos, Random random)
+   public void tick(BlockState state, World worldIn, BlockPos pos, Random random)
    {
       super.tick(state, worldIn, pos, random);
       if (!worldIn.isAreaLoaded(pos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light
@@ -58,7 +55,7 @@ public class BlockSaplingBOP extends BlockSapling implements IGrowable
    }
 
    @Override
-   public void grow(IWorld worldIn, BlockPos pos, IBlockState state, Random rand)
+   public void grow(IWorld worldIn, BlockPos pos, BlockState state, Random rand)
    {
       if (state.get(STAGE) == 0)
       {
@@ -76,25 +73,25 @@ public class BlockSaplingBOP extends BlockSapling implements IGrowable
     * Whether this IGrowable can grow
     */
    @Override
-   public boolean canGrow(IBlockReader worldIn, BlockPos pos, IBlockState state, boolean isClient)
+   public boolean canGrow(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient)
    {
       return true;
    }
 
    @Override
-   public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state)
+   public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state)
    {
       return (double)worldIn.rand.nextFloat() < 0.45D;
    }
 
    @Override
-   public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state)
+   public void grow(World worldIn, Random rand, BlockPos pos, BlockState state)
    {
       this.grow(worldIn, pos, state, rand);
    }
    
    @Override
-   public boolean isValidPosition(IBlockState state, IWorldReaderBase worldIn, BlockPos pos)
+   public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos)
    {
        Block ground = worldIn.getBlockState(pos.down()).getBlock();
 
@@ -115,19 +112,19 @@ public class BlockSaplingBOP extends BlockSapling implements IGrowable
    }
 
    @Override
-   public void fillStateContainer(StateContainer.Builder<Block, IBlockState> builder)
+   public void fillStateContainer(StateContainer.Builder<Block, BlockState> builder)
    {
       builder.add(STAGE);
    }
    
    @Override
-   public int getFlammability(IBlockState state, IBlockReader world, BlockPos pos, EnumFacing face)
+   public int getFlammability(BlockState state, IBlockReader world, BlockPos pos, Direction face)
    {
    	return Blocks.OAK_SAPLING.getFlammability(state, world, pos, face);
    }
    
    @Override
-   public int getFireSpreadSpeed(IBlockState state, IBlockReader world, BlockPos pos, EnumFacing face)
+   public int getFireSpreadSpeed(BlockState state, IBlockReader world, BlockPos pos, Direction face)
    {
        return Blocks.OAK_SAPLING.getFireSpreadSpeed(state,world, pos, face);
    }

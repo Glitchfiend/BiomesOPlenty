@@ -61,6 +61,7 @@ import net.minecraft.block.BlockTrapDoor;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -332,7 +333,7 @@ public class ModBlocks
 
     public static Block registerBlock(Block block, String name)
     {
-        ItemBlock itemBlock = new ItemBlock(block, new Item.Properties().group(ItemGroupBOP.instance));
+        BlockItem itemBlock = new BlockItem(block, new Item.Properties().group(ItemGroupBOP.instance));
         block.setRegistryName(name);
         itemBlock.setRegistryName(name);
         ForgeRegistries.BLOCKS.register(block);
@@ -340,7 +341,7 @@ public class ModBlocks
         return block;
     }
     
-    public static Block registerBlock(Block block, ItemBlock itemBlock, String name)
+    public static Block registerBlock(Block block, BlockItem itemBlock, String name)
     {
         block.setRegistryName(name);
         ForgeRegistries.BLOCKS.register(block);

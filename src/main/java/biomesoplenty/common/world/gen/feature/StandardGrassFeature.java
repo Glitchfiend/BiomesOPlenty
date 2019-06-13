@@ -9,8 +9,8 @@ package biomesoplenty.common.world.gen.feature;
 
 import java.util.Random;
 
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
@@ -21,7 +21,7 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 
 public class StandardGrassFeature extends Feature<NoFeatureConfig>
 {
-	   public IBlockState chooseGrassState(Random rand)
+	   public BlockState chooseGrassState(Random rand)
 	   {
 	      return Blocks.GRASS.getDefaultState();
 	   }
@@ -29,9 +29,9 @@ public class StandardGrassFeature extends Feature<NoFeatureConfig>
 	   @Override
 	   public boolean place(IWorld world, IChunkGenerator<? extends IChunkGenSettings> generator, Random rand, BlockPos pos, NoFeatureConfig config)
 	   {
-	      IBlockState iblockstate = this.chooseGrassState(rand);
+	      BlockState BlockState = this.chooseGrassState(rand);
 
-	      for (IBlockState iblockstate1 = world.getBlockState(pos); (iblockstate1.isAir(world, pos) || iblockstate1.isIn(BlockTags.LEAVES)) && pos.getY() > 0; iblockstate1 = world.getBlockState(pos))
+	      for (BlockState BlockState1 = world.getBlockState(pos); (BlockState1.isAir(world, pos) || BlockState1.isIn(BlockTags.LEAVES)) && pos.getY() > 0; BlockState1 = world.getBlockState(pos))
 	      {
 	         pos = pos.down();
 	      }
@@ -41,9 +41,9 @@ public class StandardGrassFeature extends Feature<NoFeatureConfig>
 	      for (int j = 0; j < 128; ++j)
 	      {
 	         BlockPos blockpos = pos.add(rand.nextInt(8) - rand.nextInt(8), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(8) - rand.nextInt(8));
-	         if (world.isAirBlock(blockpos) && iblockstate.isValidPosition(world, blockpos))
+	         if (world.isAirBlock(blockpos) && BlockState.isValidPosition(world, blockpos))
 	         {
-	            world.setBlockState(blockpos, iblockstate, 2);
+	            world.setBlockState(blockpos, BlockState, 2);
 	            ++i;
 	         }
 	      }

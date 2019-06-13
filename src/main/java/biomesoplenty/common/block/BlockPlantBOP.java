@@ -9,20 +9,21 @@ package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockBush;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.BushBlock;
 import net.minecraft.entity.Entity;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
-import net.minecraft.world.IWorldReaderBase;
+import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
-import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
+import net.minecraftforge.common.PlantType;
 
-public class BlockPlantBOP extends BlockBush implements IPlantable
+public class BlockPlantBOP extends BushBlock implements IPlantable
 {
 	protected static final VoxelShape NORMAL = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
 	
@@ -32,19 +33,19 @@ public class BlockPlantBOP extends BlockBush implements IPlantable
     }
     
     @Override
-    public VoxelShape getShape(IBlockState state, IBlockReader worldIn, BlockPos pos)
+    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext selectionContext)
     {
         return NORMAL;
     }
     
     @Override
-    public Block.EnumOffsetType getOffsetType()
+    public Block.OffsetType getOffsetType()
     {
-        return Block.EnumOffsetType.XZ;
+        return Block.OffsetType.XZ;
     }
 
     @Override
-    public boolean isValidPosition(IBlockState state, IWorldReaderBase worldIn, BlockPos pos)
+    public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos)
     {
         Block ground = worldIn.getBlockState(pos.down()).getBlock();
 
@@ -57,20 +58,20 @@ public class BlockPlantBOP extends BlockBush implements IPlantable
     }
 
     @Override
-    public EnumPlantType getPlantType(IBlockReader world, BlockPos pos)
+    public PlantType getPlantType(IBlockReader world, BlockPos pos)
     {
     	Block block = world.getBlockState(pos).getBlock();
     	
     	if (block == BOPBlocks.tiny_cactus)
     	{
-    		return EnumPlantType.Desert;
+    		return PlantType.Desert;
     	}
     	
-    	return EnumPlantType.Plains;
+    	return PlantType.Plains;
     }
     
     @Override
-    public void onEntityCollision(IBlockState stateIn, World worldIn, BlockPos pos, Entity entityIn)
+    public void onEntityCollision(BlockState stateIn, World worldIn, BlockPos pos, Entity entityIn)
     {
     	Block block = stateIn.getBlock();
     	

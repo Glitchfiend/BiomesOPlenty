@@ -9,14 +9,16 @@ package biomesoplenty.common.block;
 
 import biomesoplenty.api.item.BOPItems;
 import net.minecraft.block.Block;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Direction;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraftforge.common.PlantType;
 
 import java.util.Random;
 
@@ -30,33 +32,21 @@ public class BlockMud extends Block
     }
 
     @Override
-    public VoxelShape getCollisionShape(IBlockState state, IBlockReader worldIn, BlockPos pos)
+    public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext selectionContext)
     {
         return SHAPE;
     }
 
     @Override
-    public IItemProvider getItemDropped(IBlockState state, World worldIn, BlockPos pos, int fortune)
+    public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn)
     {
-        return BOPItems.mudball;
+        entityIn.getMotion().mul(0.4D, 1.0D, 0.4D);
     }
     
     @Override
-    public int quantityDropped(IBlockState state, Random random)
+    public boolean canSustainPlant(BlockState state, IBlockReader world, BlockPos pos, Direction facing, net.minecraftforge.common.IPlantable plantable)
     {
-        return 4;
-    }
-    
-    @Override
-    public void onEntityCollision(IBlockState state, World worldIn, BlockPos pos, Entity entityIn)
-    {
-        entityIn.motionX *= 0.4D;
-        entityIn.motionZ *= 0.4D;
-    }
-    
-    @Override
-    public boolean canSustainPlant(IBlockState state, IBlockReader world, BlockPos pos, EnumFacing facing, net.minecraftforge.common.IPlantable plantable) {
-        net.minecraftforge.common.EnumPlantType type = plantable.getPlantType(world, pos.offset(facing));
+        PlantType type = plantable.getPlantType(world, pos.offset(facing));
 
         switch (type) {
             case Desert: return false;

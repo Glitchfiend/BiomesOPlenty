@@ -17,9 +17,9 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 
@@ -32,7 +32,7 @@ public class PalmTreeFeature extends TreeFeatureBase
         	this.placeOn = (world, pos) ->
         	{
         		Block ground = world.getBlockState(pos).getBlock();
-        		return (world.getBlockState(pos).canSustainPlant(world, pos, EnumFacing.UP, (BlockSapling)Blocks.OAK_SAPLING) || (ground == BOPBlocks.white_sand || ground == Blocks.RED_SAND || ground == Blocks.SAND));
+        		return (world.getBlockState(pos).canSustainPlant(world, pos, Direction.UP, (BlockSapling)Blocks.OAK_SAPLING) || (ground == BOPBlocks.white_sand || ground == Blocks.RED_SAND || ground == Blocks.SAND));
         	};
             this.minHeight = 10;
             this.maxHeight = 14;
@@ -48,7 +48,7 @@ public class PalmTreeFeature extends TreeFeatureBase
 
     }
 
-    protected PalmTreeFeature(boolean notify, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState altLeaves, IBlockState vine, IBlockState hanging, IBlockState trunkFruit, int minHeight, int maxHeight)
+    protected PalmTreeFeature(boolean notify, IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState altLeaves, BlockState vine, BlockState hanging, BlockState trunkFruit, int minHeight, int maxHeight)
     {
         super(notify, placeOn, replace, log, leaves, altLeaves, vine, hanging, trunkFruit, minHeight, maxHeight);
     }
@@ -70,8 +70,8 @@ public class PalmTreeFeature extends TreeFeatureBase
         int leavesRadius = 2;
         int heightMinusTop = height - leavesRadius - 1;
         boolean slant = false;
-        EnumFacing direction = EnumFacing.random(random); //The direction the palm tree curves towards
-        if (direction == EnumFacing.DOWN || direction == EnumFacing.UP)
+        Direction direction = Direction.random(random); //The direction the palm tree curves towards
+        if (direction == Direction.DOWN || direction == Direction.UP)
         {
         	slant = false;
         }

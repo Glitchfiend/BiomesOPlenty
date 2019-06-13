@@ -12,7 +12,7 @@ import com.mojang.brigadier.builder.ArgumentBuilder;
 import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.common.util.block.BlockUtil;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.BlockState;
 import net.minecraft.command.CommandSource;
 import net.minecraft.command.Commands;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -73,7 +73,7 @@ public class CommandTpBiome
         for (blockpos = blockpos2; blockpos.getY() >= 0; blockpos = blockpos1)
         {
             blockpos1 = blockpos.down();
-            IBlockState state = chunk.getBlockState(blockpos1);
+            BlockState state = chunk.getBlockState(blockpos1);
 
             if (!state.getMaterial().blocksMovement() && !world.isAirBlock(blockpos1.down()) && state.getMaterial() != Material.LEAVES)
             {

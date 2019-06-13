@@ -10,7 +10,7 @@ package biomesoplenty.core;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.api.particle.BOPParticleTypes;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.BlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.color.BlockColors;
@@ -52,8 +52,8 @@ public class ClientProxy extends CommonProxy
         
         //Item Coloring
         itemColors.register((stack, tintIndex) -> {
-            IBlockState iblockstate = ((ItemBlock)stack.getItem()).getBlock().getDefaultState();
-            return blockColors.getColor(iblockstate, null, null, tintIndex); }, 
+            BlockState BlockState = ((ItemBlock)stack.getItem()).getBlock().getDefaultState();
+            return blockColors.getColor(BlockState, null, null, tintIndex); }, 
         	BOPBlocks.bush, BOPBlocks.flowering_oak_leaves, BOPBlocks.mahogany_leaves,
         	BOPBlocks.palm_leaves, BOPBlocks.willow_leaves, BOPBlocks.willow_vine);
     }

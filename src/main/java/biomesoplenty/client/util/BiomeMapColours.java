@@ -7,15 +7,15 @@
  ******************************************************************************/
 package biomesoplenty.client.util;
 
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.BlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockModelShapes;
 import net.minecraft.client.renderer.BlockRendererDispatcher;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.model.BakedQuad;
 import net.minecraft.client.renderer.model.IBakedModel;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.block.Blocks;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
@@ -113,7 +113,7 @@ public class BiomeMapColours
 
         if (BiomeDictionary.hasType(biome, BiomeDictionary.Type.FOREST))
         {
-            colour = blend(biome.getFoliageColor(BlockPos.ORIGIN), 0xff0b7000, 0.35);
+            colour = blend(biome.getFoliageColor(BlockPos.ZERO), 0xff0b7000, 0.35);
             treebased = true;
         }
 
@@ -162,12 +162,12 @@ public class BiomeMapColours
 
     public static int getBiomeBlockColourForCoords(Biome biome, BlockPos pos)
     {
-        IBlockState topBlock = biome.getSurfaceBuilder().getConfig().getTop();
+        BlockState topBlock = biome.getSurfaceBuilder().getConfig().getTop();
         int colour;
 
         if (topBlock == Blocks.GRASS.getDefaultState())
         { // uuuugh
-            colour = topBlock.getMapColor(null, pos).colorValue | 0xFF000000;
+            colour = topBlock.getMaterialColor(null, pos).colorValue | 0xFF000000;
             int tint = biome.getGrassColor(pos) | 0xFF000000;
             colour = blend(colour, tint, 0.75);
         }
@@ -179,14 +179,14 @@ public class BiomeMapColours
         return colour;
     }
 
-    public static int getBlockColourRaw(IBlockState block)
+    public static int getBlockColourRaw(BlockState block)
     {
         Minecraft mc = Minecraft.getInstance();
         BlockRendererDispatcher brd = mc.getBlockRendererDispatcher();
         BlockModelShapes shapes = brd.getBlockModelShapes();
         BlockColors colours = mc.getBlockColors();
 
-        int colour = block.getMapColor(null, null).colorValue | 0xFF000000;
+        int colour = block.getMaterialColor(null, null).colorValue | 0xFF000000;
         int fallback = colour;
 
         if (block == Blocks.GRASS.getDefaultState()) {
@@ -196,11 +196,11 @@ public class BiomeMapColours
             try
             {
                 IBakedModel topmodel = shapes.getModel(block);
-                List<BakedQuad> topquads = topmodel.getQuads(block, EnumFacing.UP, rand);
+                List<BakedQuad> topquads = topmodel.getQuads(block, Direction.UP, rand);
 
                 for (BakedQuad quad : topquads)
                 {
-                    colour = block.getMapColor(null, null).colorValue | 0xFF000000;
+                    colour = block.getMaterialColor(null, null).colorValue | 0xFF000000;
 
                     if (quad.hasTintIndex())
                     {
@@ -215,7 +215,7 @@ public class BiomeMapColours
             }
         }
 
-        return block.getMapColor(null, null).colorValue | 0xFF000000;
+        return block.getMaterialColor(null, null).colorValue | 0xFF000000;
     }
 
     public static int intAverage(int a, int b)

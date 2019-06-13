@@ -11,9 +11,9 @@ import biomesoplenty.common.util.biome.GeneratorUtil;
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import net.minecraft.block.BlockDirectional;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 
@@ -38,14 +38,14 @@ public class BulbTreeFeature extends TreeFeatureBase
 
     }
 
-    protected BulbTreeFeature(boolean notify, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState altLeaves, IBlockState vine, IBlockState hanging, IBlockState trunkFruit, int minHeight, int maxHeight)
+    protected BulbTreeFeature(boolean notify, IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState altLeaves, BlockState vine, BlockState hanging, BlockState trunkFruit, int minHeight, int maxHeight)
     {
         super(notify, placeOn, replace, log, leaves, altLeaves, vine, hanging, trunkFruit, minHeight, maxHeight);
     }
 
-    public boolean setCocoa(IWorld world, BlockPos pos, EnumFacing side)
+    public boolean setCocoa(IWorld world, BlockPos pos, Direction side)
     {
-        IBlockState cocoaState = Blocks.COCOA.getDefaultState().with(BlockDirectional.FACING, side);
+        BlockState cocoaState = Blocks.COCOA.getDefaultState().with(BlockDirectional.FACING, side);
         if (this.replace.matches(world, pos))
         {
             this.setBlockState(world, pos, cocoaState);
@@ -78,9 +78,9 @@ public class BulbTreeFeature extends TreeFeatureBase
     }
 
     // generates a 'branch' of a leaf layer
-    public void generateBranch(IWorld world, Random random, BlockPos pos, EnumFacing direction)
+    public void generateBranch(IWorld world, Random random, BlockPos pos, Direction direction)
     {
-        EnumFacing sideways = direction.rotateY();
+        Direction sideways = direction.rotateY();
         this.setLeaves(world, pos.offset(direction, 1));
         this.setLeaves(world, pos.up().offset(direction, 1));
         if (random.nextInt(3) > 0)
@@ -92,7 +92,7 @@ public class BulbTreeFeature extends TreeFeatureBase
     // generates a layer of leafs (2 blocks high)
     public void generateLeafLayer(Set<BlockPos> changedBlocks, IWorld world, Random random, BlockPos pos)
     {
-        for (EnumFacing direction : EnumFacing.Plane.HORIZONTAL)
+        for (Direction direction : Direction.Plane.HORIZONTAL)
         {
             this.generateBranch(world, random, pos, direction);
         }
@@ -191,9 +191,9 @@ public class BulbTreeFeature extends TreeFeatureBase
         for (int i = 0; i < generationAttempts; i++)
         {
             // choose a random direction
-            EnumFacing direction = EnumFacing.Plane.HORIZONTAL.random(rand);
-            EnumFacing back = direction.getOpposite();
-            EnumFacing sideways = direction.rotateY();
+            Direction direction = Direction.Plane.HORIZONTAL.random(rand);
+            Direction back = direction.getOpposite();
+            Direction sideways = direction.rotateY();
 
             // choose a random starting point somewhere just outside the boundary of the tree leaves
             BlockPos pos = startPos.up(GeneratorUtil.nextIntBetween(rand, baseHeight + 1, height)).offset(direction, leavesRadius + 1).offset(sideways, GeneratorUtil.nextIntBetween(rand, -leavesRadius, leavesRadius));
@@ -214,8 +214,8 @@ public class BulbTreeFeature extends TreeFeatureBase
         for (int i = 0; i < generationAttempts; i++)
         {
             // choose a random direction
-            EnumFacing direction = EnumFacing.Plane.HORIZONTAL.random(rand);
-            EnumFacing back = direction.getOpposite();
+            Direction direction = Direction.Plane.HORIZONTAL.random(rand);
+            Direction back = direction.getOpposite();
 
             // choose a random point next to the trunk
             BlockPos pos = startPos.up(GeneratorUtil.nextIntBetween(rand, 1, baseHeight)).offset(direction, 1);

@@ -3,7 +3,7 @@ package biomesoplenty.common.biome.end;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.biome.EndBiomeBOP;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.entity.EntityClassification;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.BushConfig;
@@ -23,6 +23,6 @@ public class EndPlainsBiome extends EndBiomeBOP
 		
         this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, createCompositeFeature(Feature.BUSH, new BushConfig(BOPBlocks.spectral_fern), TWICE_SURFACE, new FrequencyConfig(400)));
         
-        this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.ENDERMAN, 10, 4, 4));
+        this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.ENDERMAN, 10, 4, 4));
 	}
 }

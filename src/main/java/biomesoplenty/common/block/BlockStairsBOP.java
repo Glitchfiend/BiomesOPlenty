@@ -2,19 +2,19 @@ package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockStairs;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.StairsBlock;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 
-public class BlockStairsBOP extends BlockStairs
+public class BlockStairsBOP extends StairsBlock
 {
-	private IBlockState modelState;
+	private BlockState modelState;
 	private Block modelBlock;
 
-	public BlockStairsBOP(IBlockState state, Block.Properties properties)
+	public BlockStairsBOP(BlockState state, Block.Properties properties)
 	   {
 	      super(state, properties);
 	      this.modelBlock = state.getBlock();
@@ -22,7 +22,7 @@ public class BlockStairsBOP extends BlockStairs
 	   }
    
    @Override
-   public int getFlammability(IBlockState state, IBlockReader world, BlockPos pos, EnumFacing face)
+   public int getFlammability(BlockState state, IBlockReader world, BlockPos pos, Direction face)
    {
 	   Block block = state.getBlock();
 	    
@@ -35,7 +35,7 @@ public class BlockStairsBOP extends BlockStairs
    }
    
    @Override
-   public int getFireSpreadSpeed(IBlockState state, IBlockReader world, BlockPos pos, EnumFacing face)
+   public int getFireSpreadSpeed(BlockState state, IBlockReader world, BlockPos pos, Direction face)
    {
 	   Block block = state.getBlock();
 	    

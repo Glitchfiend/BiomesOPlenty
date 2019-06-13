@@ -13,9 +13,9 @@ import java.util.Set;
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import net.minecraft.block.BlockCocoa;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 
@@ -58,7 +58,7 @@ public class TwigletTreeFeature extends TreeFeatureBase
     private float leafChanceEven;
     private float leafChanceOdd;
 
-    protected TwigletTreeFeature(boolean notify, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState altLeaves, IBlockState vine, IBlockState hanging, IBlockState trunkFruit, int minHeight, int maxHeight, float leafChanceEven, float leafChanceOdd)
+    protected TwigletTreeFeature(boolean notify, IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState altLeaves, BlockState vine, BlockState hanging, BlockState trunkFruit, int minHeight, int maxHeight, float leafChanceEven, float leafChanceOdd)
     {
         super(notify, placeOn, replace, log, leaves, altLeaves, vine, hanging, trunkFruit, minHeight, maxHeight);
         this.leafChanceEven = leafChanceEven;
@@ -126,12 +126,12 @@ public class TwigletTreeFeature extends TreeFeatureBase
                 {
                     for (int l3 = 0; l3 < 2; ++l3)
                     {
-                        for (EnumFacing enumfacing : EnumFacing.Plane.HORIZONTAL)
+                        for (Direction Direction : Direction.Plane.HORIZONTAL)
                         {
                             if (random.nextInt(4 - l3) == 0)
                             {
-                                EnumFacing enumfacing1 = enumfacing.getOpposite();
-                                this.generateTrunkFruit(world, random.nextInt(3), pos.add(enumfacing1.getXOffset(), 0, enumfacing1.getZOffset()), enumfacing);
+                                Direction Direction1 = Direction.getOpposite();
+                                this.generateTrunkFruit(world, random.nextInt(3), pos.add(Direction1.getXOffset(), 0, Direction1.getZOffset()), Direction);
                             }
                         }
                     }
@@ -144,7 +144,7 @@ public class TwigletTreeFeature extends TreeFeatureBase
         return true;
     }
 
-    private void generateTrunkFruit(IWorld world, int age, BlockPos pos, EnumFacing direction)
+    private void generateTrunkFruit(IWorld world, int age, BlockPos pos, Direction direction)
     {
         if (this.trunkFruit == Blocks.COCOA.getDefaultState())
         {

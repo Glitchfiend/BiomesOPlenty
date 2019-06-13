@@ -8,10 +8,11 @@
 package biomesoplenty.common.block;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.block.BlockState;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
+import net.minecraftforge.common.PlantType;
 
 public class BlockDriedSand extends Block
 {
@@ -21,8 +22,8 @@ public class BlockDriedSand extends Block
     }
     
     @Override
-    public boolean canSustainPlant(IBlockState state, IBlockReader world, BlockPos pos, EnumFacing facing, net.minecraftforge.common.IPlantable plantable) {
-        net.minecraftforge.common.EnumPlantType type = plantable.getPlantType(world, pos.offset(facing));
+    public boolean canSustainPlant(BlockState state, IBlockReader world, BlockPos pos, Direction facing, net.minecraftforge.common.IPlantable plantable) {
+        PlantType type = plantable.getPlantType(world, pos.offset(facing));
 
         switch (type) {
             case Desert: return true;

@@ -11,9 +11,9 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.biome.GeneratorUtil;
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IWorld;
@@ -49,7 +49,7 @@ public class RedwoodTreeFeature extends TreeFeatureBase
 
     private int trunkWidth = 1;
 
-    protected RedwoodTreeFeature(boolean notify, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState altLeaves, IBlockState vine, IBlockState hanging, IBlockState trunkFruit, int minHeight, int maxHeight, int trunkWidth)
+    protected RedwoodTreeFeature(boolean notify, IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState altLeaves, BlockState vine, BlockState hanging, BlockState trunkFruit, int minHeight, int maxHeight, int trunkWidth)
     {
         super(notify, placeOn, replace, log, leaves, altLeaves, vine, hanging, trunkFruit, minHeight, maxHeight);
         this.trunkWidth = trunkWidth;
@@ -107,10 +107,10 @@ public class RedwoodTreeFeature extends TreeFeatureBase
         }
     }
 
-    public void generateBranch(Set<BlockPos> changedBlocks, IWorld world, Random rand, BlockPos pos, EnumFacing direction, int length)
+    public void generateBranch(Set<BlockPos> changedBlocks, IWorld world, Random rand, BlockPos pos, Direction direction, int length)
     {
-        EnumFacing.Axis axis = direction.getAxis();
-        EnumFacing sideways = direction.rotateY();
+        Direction.Axis axis = direction.getAxis();
+        Direction sideways = direction.rotateY();
         for (int i = 1; i <= length; i++)
         {
             BlockPos pos1 = pos.offset(direction, i);
@@ -190,10 +190,10 @@ public class RedwoodTreeFeature extends TreeFeatureBase
             }
             else
             {
-	            this.generateBranch(changedBlocks, world, random, pos.add(trunkStart, 0, trunkStart), EnumFacing.NORTH, radius);
-	            this.generateBranch(changedBlocks, world, random, pos.add(trunkEnd, 0, trunkStart), EnumFacing.EAST, radius);
-	            this.generateBranch(changedBlocks, world, random, pos.add(trunkEnd, 0, trunkEnd), EnumFacing.SOUTH, radius);
-	            this.generateBranch(changedBlocks, world, random, pos.add(trunkStart, 0, trunkEnd), EnumFacing.WEST, radius);
+	            this.generateBranch(changedBlocks, world, random, pos.add(trunkStart, 0, trunkStart), Direction.NORTH, radius);
+	            this.generateBranch(changedBlocks, world, random, pos.add(trunkEnd, 0, trunkStart), Direction.EAST, radius);
+	            this.generateBranch(changedBlocks, world, random, pos.add(trunkEnd, 0, trunkEnd), Direction.SOUTH, radius);
+	            this.generateBranch(changedBlocks, world, random, pos.add(trunkStart, 0, trunkEnd), Direction.WEST, radius);
             }
             pos = pos.down();
         }

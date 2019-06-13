@@ -7,19 +7,18 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
-import java.util.Iterator;
-
-import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.Block;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.fluid.IFluidState;
-import net.minecraft.init.Blocks;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
-import net.minecraft.world.IWorldReaderBase;
-import net.minecraftforge.common.EnumPlantType;
+import net.minecraft.world.IWorldReader;
+import net.minecraftforge.common.PlantType;
+
+import java.util.Iterator;
 
 public class BlockWatersidePlant extends BlockPlantBOP
 {
@@ -29,35 +28,35 @@ public class BlockWatersidePlant extends BlockPlantBOP
     }
     
     @Override
-    public EnumPlantType getPlantType(IBlockReader world, BlockPos pos)
+    public PlantType getPlantType(IBlockReader world, BlockPos pos)
     {
     	Block block = world.getBlockState(pos).getBlock();
     	
-    	return EnumPlantType.Beach;
+    	return PlantType.Beach;
     }
 
     @Override
-    public boolean isValidPosition(IBlockState state, IWorldReaderBase worldReader, BlockPos pos)
+    public boolean isValidPosition(BlockState state, IWorldReader worldReader, BlockPos pos)
     {
-        IBlockState soil = worldReader.getBlockState(pos.down());
-        if (soil == this)
+        BlockState soil = worldReader.getBlockState(pos.down());
+        if (soil.getBlock() == this)
             return true;
-        else if (soil.canSustainPlant(worldReader, pos.down(), EnumFacing.UP, this))
+        else if (soil.canSustainPlant(worldReader, pos.down(), Direction.UP, this))
         {
             BlockPos blockpos = pos.down();
-            Iterator var7 = EnumFacing.Plane.HORIZONTAL.iterator();
+            Iterator var7 = Direction.Plane.HORIZONTAL.iterator();
 
-            IBlockState iblockstate;
+            BlockState BlockState;
             IFluidState ifluidstate;
             do {
                 if (!var7.hasNext()) {
                     return false;
                 }
 
-                EnumFacing enumfacing = (EnumFacing)var7.next();
-                iblockstate = worldReader.getBlockState(blockpos.offset(enumfacing));
-                ifluidstate = worldReader.getFluidState(blockpos.offset(enumfacing));
-            } while(!ifluidstate.isTagged(FluidTags.WATER) && iblockstate.getBlock() != Blocks.FROSTED_ICE);
+                Direction Direction = (Direction)var7.next();
+                BlockState = worldReader.getBlockState(blockpos.offset(Direction));
+                ifluidstate = worldReader.getFluidState(blockpos.offset(Direction));
+            } while(!ifluidstate.isTagged(FluidTags.WATER) && BlockState.getBlock() != Blocks.FROSTED_ICE);
 
             return true;
         }

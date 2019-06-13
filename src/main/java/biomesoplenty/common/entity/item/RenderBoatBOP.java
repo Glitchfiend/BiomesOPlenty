@@ -1,22 +1,21 @@
 package biomesoplenty.common.entity.item;
 
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.entity.Render;
-import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.client.renderer.entity.model.IMultipassModel;
-import net.minecraft.client.renderer.entity.model.ModelBase;
+import com.mojang.blaze3d.platform.GlStateManager;
+import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
-public class RenderBoatBOP extends Render<EntityBoatBOP> {
+public class RenderBoatBOP extends EntityRenderer<EntityBoatBOP>
+{
    private static final ResourceLocation[] BOAT_TEXTURES = new ResourceLocation[]{new ResourceLocation("biomesoplenty:textures/entity/boat/fir.png"), new ResourceLocation("biomesoplenty:textures/entity/boat/redwood.png"), new ResourceLocation("biomesoplenty:textures/entity/boat/cherry.png"), new ResourceLocation("biomesoplenty:textures/entity/boat/mahogany.png"), new ResourceLocation("biomesoplenty:textures/entity/boat/jacaranda.png"), new ResourceLocation("biomesoplenty:textures/entity/boat/palm.png"), new ResourceLocation("biomesoplenty:textures/entity/boat/willow.png"), new ResourceLocation("biomesoplenty:textures/entity/boat/dead.png"), new ResourceLocation("biomesoplenty:textures/entity/boat/magic.png"), new ResourceLocation("biomesoplenty:textures/entity/boat/umbran.png"), new ResourceLocation("biomesoplenty:textures/entity/boat/hellbark.png"), new ResourceLocation("biomesoplenty:textures/entity/boat/ethereal.png")};
    /** instance of ModelBoat for rendering */
    protected ModelBase modelBoat = new ModelBoatBOP();
 
-   public RenderBoatBOP(RenderManager renderManagerIn) {
+   public RenderBoatBOP(EntityRendererManager renderManagerIn) {
       super(renderManagerIn);
       this.shadowSize = 0.5F;
    }

@@ -4,8 +4,8 @@ import java.util.Random;
 
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import net.minecraft.block.BlockLeaves;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.IChunkGenSettings;
@@ -88,7 +88,7 @@ public class BigPumpkinFeature extends Feature<NoFeatureConfig>
        return true;
    }
    
-   public boolean setBlock(IWorld world, BlockPos pos, IBlockState state)
+   public boolean setBlock(IWorld world, BlockPos pos, BlockState state)
    {
        if (this.replace.matches(world, pos))
        {

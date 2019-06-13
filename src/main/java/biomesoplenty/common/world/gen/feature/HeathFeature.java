@@ -4,7 +4,7 @@ import java.util.Random;
 
 import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.BlockLeaves;
-import net.minecraft.init.Blocks;
+import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.IChunkGenSettings;

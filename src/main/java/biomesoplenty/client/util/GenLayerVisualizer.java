@@ -190,14 +190,14 @@ public class GenLayerVisualizer
         private int getColourForBiomeId(int biomeId, BlockPos pos)
         {
             return BiomeMapColours.getBiomeMapColour(biomeId);
-            /*IBlockState topBlock = biome.getSurfaceBuilder().getConfig().getTop();
+            /*BlockState topBlock = biome.getSurfaceBuilder().getConfig().getTop();
 
             if (topBlock.getBlock() == Blocks.GRASS)
                 return biome.getGrassColor(pos);
             else if (topBlock.getBlock() == Blocks.WATER || isOcean(biome) || biome == Biomes.RIVER || biome == Biomes.SWAMP)
                 return biome.getWaterColor();
 
-            return topBlock.getMapColor(null, pos).colorValue;*/
+            return topBlock.getMaterialColor(null, pos).colorValue;*/
         }
 
         private void genTexture()

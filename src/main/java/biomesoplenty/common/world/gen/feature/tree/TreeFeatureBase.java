@@ -14,10 +14,10 @@ import biomesoplenty.common.util.block.BlockUtil;
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.block.BlockVine;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.state.IProperty;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.feature.AbstractTreeFeature;
@@ -29,19 +29,19 @@ public abstract class TreeFeatureBase extends AbstractTreeFeature<NoFeatureConfi
     {
         protected IBlockPosQuery placeOn;
         protected IBlockPosQuery replace;
-        protected IBlockState log;
-        protected IBlockState leaves;
-        protected IBlockState vine;
-        protected IBlockState hanging;
-        protected IBlockState trunkFruit;
-        protected IBlockState altLeaves;
+        protected BlockState log;
+        protected BlockState leaves;
+        protected BlockState vine;
+        protected BlockState hanging;
+        protected BlockState trunkFruit;
+        protected BlockState altLeaves;
         protected int minHeight;
         protected int maxHeight;
         protected boolean updateNeighbours;
 
         public BuilderBase()
         {
-            this.placeOn = (world, pos) -> world.getBlockState(pos).canSustainPlant(world, pos, EnumFacing.UP, (BlockSapling)Blocks.OAK_SAPLING);
+            this.placeOn = (world, pos) -> world.getBlockState(pos).canSustainPlant(world, pos, Direction.UP, (BlockSapling)Blocks.OAK_SAPLING);
             this.replace = (world, pos) -> world.getBlockState(pos).canBeReplacedByLeaves(world, pos);
             this.log = Blocks.OAK_LOG.getDefaultState();
             this.leaves = Blocks.OAK_LEAVES.getDefaultState();
@@ -56,27 +56,27 @@ public abstract class TreeFeatureBase extends AbstractTreeFeature<NoFeatureConfi
 
         public T replace(IBlockPosQuery a) {this.replace = a; return (T)this;}
 
-        public T log(IBlockState a) {this.log = a; return (T)this;}
+        public T log(BlockState a) {this.log = a; return (T)this;}
 
-        public T leaves(IBlockState a) {this.leaves = a; return (T)this;}
+        public T leaves(BlockState a) {this.leaves = a; return (T)this;}
 
-        public T vine(IBlockState a)
+        public T vine(BlockState a)
         {
             this.vine = a;
             return (T)this;
         }
-        public T hanging(IBlockState a)
+        public T hanging(BlockState a)
         {
             this.hanging = a;
             return (T)this;
         }
-        public T trunkFruit(IBlockState a)
+        public T trunkFruit(BlockState a)
         {
             this.trunkFruit = a;
             return (T)this;
         }
 
-        public T altLeaves(IBlockState a) {this.altLeaves = a; return (T)this;}
+        public T altLeaves(BlockState a) {this.altLeaves = a; return (T)this;}
 
         public T minHeight(int a) {this.minHeight = a; return (T)this;}
         public T maxHeight(int a) {this.maxHeight = a; return (T)this;}
@@ -89,19 +89,19 @@ public abstract class TreeFeatureBase extends AbstractTreeFeature<NoFeatureConfi
     protected final IBlockPosQuery placeOn;
     protected final IBlockPosQuery replace;
 
-    protected final IBlockState log;
-    protected final IBlockState leaves;
-    protected final IBlockState altLeaves;
-    protected final IBlockState vine;
-    protected final IBlockState hanging;
-    protected final IBlockState trunkFruit;
+    protected final BlockState log;
+    protected final BlockState leaves;
+    protected final BlockState altLeaves;
+    protected final BlockState vine;
+    protected final BlockState hanging;
+    protected final BlockState trunkFruit;
 
     protected final int minHeight;
     protected final int maxHeight;
 
     protected IProperty logAxisProperty;
 
-    protected TreeFeatureBase(boolean notify, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState altLeaves, IBlockState vine, IBlockState hanging, IBlockState trunkFruit, int minHeight, int maxHeight)
+    protected TreeFeatureBase(boolean notify, IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState altLeaves, BlockState vine, BlockState hanging, BlockState trunkFruit, int minHeight, int maxHeight)
     {
         super(notify);
 
@@ -133,9 +133,9 @@ public abstract class TreeFeatureBase extends AbstractTreeFeature<NoFeatureConfi
         return this.setLog(changedBlocks, world, pos, null);
     }
 
-    public boolean setLog(Set<BlockPos> changedBlocks, IWorld world, BlockPos pos, EnumFacing.Axis axis)
+    public boolean setLog(Set<BlockPos> changedBlocks, IWorld world, BlockPos pos, Direction.Axis axis)
     {
-        IBlockState directedLog = (axis != null && this.logAxisProperty != null) ? this.log.with(this.logAxisProperty, axis) : this.log;
+        BlockState directedLog = (axis != null && this.logAxisProperty != null) ? this.log.with(this.logAxisProperty, axis) : this.log;
         if (this.replace.matches(world, pos))
         {
             // Logs must be added to the "changedBlocks" so that the leaves have their distance property updated,
@@ -146,9 +146,9 @@ public abstract class TreeFeatureBase extends AbstractTreeFeature<NoFeatureConfi
         return false;
     }
 
-    public boolean setVine(IWorld world, Random rand, BlockPos pos, EnumFacing side, int length)
+    public boolean setVine(IWorld world, Random rand, BlockPos pos, Direction side, int length)
     {
-        IBlockState vineState = this.vine.getBlock() instanceof BlockVine ? this.vine.with(BlockVine.NORTH, Boolean.valueOf(side == EnumFacing.NORTH)).with(BlockVine.EAST, Boolean.valueOf(side == EnumFacing.EAST)).with(BlockVine.SOUTH, Boolean.valueOf(side == EnumFacing.SOUTH)).with(BlockVine.WEST, Boolean.valueOf(side == EnumFacing.WEST)) : this.vine;
+        BlockState vineState = this.vine.getBlock() instanceof BlockVine ? this.vine.with(BlockVine.NORTH, Boolean.valueOf(side == Direction.NORTH)).with(BlockVine.EAST, Boolean.valueOf(side == Direction.EAST)).with(BlockVine.SOUTH, Boolean.valueOf(side == Direction.SOUTH)).with(BlockVine.WEST, Boolean.valueOf(side == Direction.WEST)) : this.vine;
         boolean setOne = false;
         while (world.getBlockState(pos).getBlock().isAir(world.getBlockState(pos), world, pos) && length > 0 && rand.nextInt(12) > 0)
         {

@@ -10,14 +10,14 @@ package biomesoplenty.common.world.gen.feature;
 import java.util.Random;
 
 import biomesoplenty.api.block.BOPBlocks;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.gen.feature.AbstractFlowersFeature;
 
 public class MoorFlowersFeature extends AbstractFlowersFeature
 {
-	public IBlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_)
+	public BlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_)
 	{
          int j = p_202355_1_.nextInt(2);
          switch(j)

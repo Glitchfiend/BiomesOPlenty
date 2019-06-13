@@ -8,7 +8,7 @@
 package biomesoplenty.common.world;
 
 import com.google.common.collect.Sets;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.BlockState;
 import net.minecraft.init.Biomes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
@@ -123,7 +123,7 @@ public class BOPBiomeProvider extends BiomeProvider
     }
 
     @Override
-    public Set<IBlockState> getSurfaceBlocks()
+    public Set<BlockState> getSurfaceBlocks()
     {
         if (this.topBlocksCache.isEmpty())
         {

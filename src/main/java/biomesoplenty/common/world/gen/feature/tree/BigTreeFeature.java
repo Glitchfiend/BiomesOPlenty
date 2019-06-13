@@ -15,9 +15,9 @@ import com.google.common.collect.Lists;
 
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import net.minecraft.block.BlockSapling;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IWorld;
@@ -72,7 +72,7 @@ public class BigTreeFeature extends TreeFeatureBase
     private List<FoliageCoords> foliageCoords;
 
 
-    protected BigTreeFeature(boolean notify, IBlockPosQuery placeOn, IBlockPosQuery replace, IBlockState log, IBlockState leaves, IBlockState altLeaves, IBlockState vine, IBlockState hanging, IBlockState trunkFruit, int minHeight, int maxHeight, int trunkWidth, int foliageHeight, double foliageDensity)
+    protected BigTreeFeature(boolean notify, IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState altLeaves, BlockState vine, BlockState hanging, BlockState trunkFruit, int minHeight, int maxHeight, int trunkWidth, int foliageHeight, double foliageDensity)
     {
         super(notify, placeOn, replace, log, leaves, altLeaves, vine, hanging, trunkFruit, minHeight, maxHeight);
         this.foliageHeight = foliageHeight;
@@ -259,7 +259,7 @@ public class BigTreeFeature extends TreeFeatureBase
         }
     }
 
-    private void limb(Set<BlockPos> changedBlocks, BlockPos startPos, BlockPos endPos, IBlockState state)
+    private void limb(Set<BlockPos> changedBlocks, BlockPos startPos, BlockPos endPos, BlockState state)
     {
         // Create a limb from the start position to the end position.
         // Used for creating the branches and trunk.
@@ -283,7 +283,7 @@ public class BigTreeFeature extends TreeFeatureBase
             //so that they meet their corresponding values in the end pos when j reaches the greatest distance. 0.5F
             //is added to ensure the final point is reached.
             BlockPos blockPos = startPos.add(.5f + i * dx, .5f + i * dy, .5f + i * dz);
-            EnumFacing.Axis logAxis = getLogAxis(startPos, blockPos);
+            Direction.Axis logAxis = getLogAxis(startPos, blockPos);
 
             this.setLog(changedBlocks, this.world, blockPos, logAxis);
         }
@@ -313,9 +313,9 @@ public class BigTreeFeature extends TreeFeatureBase
         return k > i && k > j ? k : (j > i ? j : i);
     }
 
-    private EnumFacing.Axis getLogAxis(BlockPos startPos, BlockPos endPos)
+    private Direction.Axis getLogAxis(BlockPos startPos, BlockPos endPos)
     {
-        EnumFacing.Axis axis = EnumFacing.Axis.Y;
+        Direction.Axis axis = Direction.Axis.Y;
 
         //Find the difference between the start and end pos
         int xDiff = Math.abs(endPos.getX() - startPos.getX());
@@ -328,11 +328,11 @@ public class BigTreeFeature extends TreeFeatureBase
         {
             if (xDiff == maxDiff)
             {
-                axis = EnumFacing.Axis.X;
+                axis = Direction.Axis.X;
             }
             else if (zDiff == maxDiff)
             {
-                axis = EnumFacing.Axis.Z;
+                axis = Direction.Axis.Z;
             }
         }
 
@@ -367,7 +367,7 @@ public class BigTreeFeature extends TreeFeatureBase
         // Create the trunk of the tree.
         BlockPos start = origin;
         BlockPos end = origin.up(trunkHeight);
-        IBlockState materialState = this.log;
+        BlockState materialState = this.log;
 
         limb(changedBlocks, start, end, materialState);
 
