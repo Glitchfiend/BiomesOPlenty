@@ -11,7 +11,7 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.world.gen.feature.tree.*;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.Blocks;
-import net.minecraft.world.gen.feature.AbstractFlowersFeature;
+import net.minecraft.world.gen.feature.FlowersFeature;
 import net.minecraft.world.gen.feature.AbstractTreeFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
@@ -117,26 +117,26 @@ public class BOPBiomeFeatures
 	public static final Feature<NoFeatureConfig> HEATH = new HeathFeature();
 	
 	//Flowers
-	public static final AbstractFlowersFeature CHAPARRAL_FLOWERS = new ChaparralFlowersFeature();
-	public static final AbstractFlowersFeature CHERRY_BLOSSOM_GROVE_FLOWERS = new CherryBlossomGroveFlowersFeature();
-	public static final AbstractFlowersFeature EXTENDED_FLOWERS = new ExtendedFlowersFeature();
-	public static final AbstractFlowersFeature FLOWER_MEADOW_FLOWERS = new FlowerMeadowFlowersFeature();
-	public static final AbstractFlowersFeature JUNGLE_FLOWERS = new JungleFlowersFeature();
-	public static final AbstractFlowersFeature LAVENDER_FLOWERS = new LavenderFlowersFeature();
-	public static final AbstractFlowersFeature LUSH_GRASSLAND_FLOWERS = new LushGrasslandFlowersFeature();
-	public static final AbstractFlowersFeature LUSH_SWAMP_FLOWERS = new LushSwampFlowersFeature();
-	public static final AbstractFlowersFeature MEADOW_FLOWERS = new MeadowFlowersFeature();
-	public static final AbstractFlowersFeature MOOR_FLOWERS = new MoorFlowersFeature();
-	public static final AbstractFlowersFeature MYSTIC_GROVE_FLOWERS = new MysticGroveFlowersFeature();
-	public static final AbstractFlowersFeature ORIGIN_FLOWERS = new OriginFlowersFeature();
-	public static final AbstractFlowersFeature PRAIRIE_FLOWERS = new PrairieFlowersFeature();
-	public static final AbstractFlowersFeature RAINFOREST_FLOWERS = new RainforestFlowersFeature();
-	public static final AbstractFlowersFeature SHRUBLAND_FLOWERS = new ShrublandFlowersFeature();
-	public static final AbstractFlowersFeature SNOWY_FLOWERS = new SnowyFlowersFeature();
-	public static final AbstractFlowersFeature TROPICS_FLOWERS = new TropicsFlowersFeature();
-	public static final AbstractFlowersFeature WASTELAND_FLOWERS = new WastelandFlowersFeature();
-	public static final AbstractFlowersFeature WETLAND_FLOWERS = new WetlandFlowersFeature();
-	public static final AbstractFlowersFeature XERIC_SHRUBLAND_FLOWERS = new XericShrublandFlowersFeature();
+	public static final FlowersFeature CHAPARRAL_FLOWERS = new ChaparralFlowersFeature();
+	public static final FlowersFeature CHERRY_BLOSSOM_GROVE_FLOWERS = new CherryBlossomGroveFlowersFeature();
+	public static final FlowersFeature EXTENDED_FLOWERS = new ExtendedFlowersFeature();
+	public static final FlowersFeature FLOWER_MEADOW_FLOWERS = new FlowerMeadowFlowersFeature();
+	public static final FlowersFeature JUNGLE_FLOWERS = new JungleFlowersFeature();
+	public static final FlowersFeature LAVENDER_FLOWERS = new LavenderFlowersFeature();
+	public static final FlowersFeature LUSH_GRASSLAND_FLOWERS = new LushGrasslandFlowersFeature();
+	public static final FlowersFeature LUSH_SWAMP_FLOWERS = new LushSwampFlowersFeature();
+	public static final FlowersFeature MEADOW_FLOWERS = new MeadowFlowersFeature();
+	public static final FlowersFeature MOOR_FLOWERS = new MoorFlowersFeature();
+	public static final FlowersFeature MYSTIC_GROVE_FLOWERS = new MysticGroveFlowersFeature();
+	public static final FlowersFeature ORIGIN_FLOWERS = new OriginFlowersFeature();
+	public static final FlowersFeature PRAIRIE_FLOWERS = new PrairieFlowersFeature();
+	public static final FlowersFeature RAINFOREST_FLOWERS = new RainforestFlowersFeature();
+	public static final FlowersFeature SHRUBLAND_FLOWERS = new ShrublandFlowersFeature();
+	public static final FlowersFeature SNOWY_FLOWERS = new SnowyFlowersFeature();
+	public static final FlowersFeature TROPICS_FLOWERS = new TropicsFlowersFeature();
+	public static final FlowersFeature WASTELAND_FLOWERS = new WastelandFlowersFeature();
+	public static final FlowersFeature WETLAND_FLOWERS = new WetlandFlowersFeature();
+	public static final FlowersFeature XERIC_SHRUBLAND_FLOWERS = new XericShrublandFlowersFeature();
 	
 	//Surfaces
 	public static final SurfaceBuilder<SurfaceBuilderConfig> BOG_SURFACE_BUILDER = new BogSurfaceBuilder();

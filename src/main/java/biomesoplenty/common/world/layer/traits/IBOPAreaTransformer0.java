@@ -7,8 +7,7 @@
  ******************************************************************************/
 package biomesoplenty.common.world.layer.traits;
 
-import net.minecraft.world.gen.IContextExtended;
-import net.minecraft.world.gen.area.AreaDimension;
+import net.minecraft.world.gen.IExtendedNoiseRandom;
 import net.minecraft.world.gen.area.IArea;
 import net.minecraft.world.gen.area.IAreaFactory;
 
@@ -18,7 +17,7 @@ import net.minecraft.world.gen.area.IAreaFactory;
  */
 public interface IBOPAreaTransformer0
 {
-    default <R extends IArea> IAreaFactory<R> apply(IContextExtended<R> context)
+    default <R extends IArea> IAreaFactory<R> apply(IExtendedNoiseRandom<R> context)
     {
         if (!(context instanceof IBOPContextExtended))
             throw new IllegalArgumentException("Context must be an IBOPContextExtended");
@@ -26,14 +25,14 @@ public interface IBOPAreaTransformer0
         IBOPContextExtended<R> bopContext = (IBOPContextExtended<R>)context;
 
         // Create a new IAreaFactory
-        return (areaDimension) ->
+        return () ->
             // Return a new IArea, with the below IPixelTransformer
-            context.makeArea(areaDimension, (x, z) ->
+            context.func_212861_a_((x, z) ->
             {
-                context.setPosition((long)(x + areaDimension.getStartX()), (long)(z + areaDimension.getStartZ()));
-                return this.apply(bopContext, areaDimension, x, z);
+                context.setPosition((long)(x), (long)(z));
+                return this.apply(bopContext, x, z);
             });
     }
 
-    int apply(IBOPContextExtended context, AreaDimension areaDimension, int x, int z);
+    int apply(IBOPContextExtended context, int x, int z);
 }

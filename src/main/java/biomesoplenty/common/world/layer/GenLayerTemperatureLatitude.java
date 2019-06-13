@@ -10,7 +10,6 @@ package biomesoplenty.common.world.layer;
 import biomesoplenty.common.world.layer.traits.IBOPAreaTransformer0;
 import biomesoplenty.common.world.layer.traits.IBOPContextExtended;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.gen.area.AreaDimension;
 
 public enum GenLayerTemperatureLatitude implements IBOPAreaTransformer0
 {
@@ -22,11 +21,11 @@ public enum GenLayerTemperatureLatitude implements IBOPAreaTransformer0
     private static final double AMPLITUDE = 8.9999D / HALF_PERIOD;
 
     @Override
-    public int apply(IBOPContextExtended context, AreaDimension areaDimension, int x, int z)
+    public int apply(IBOPContextExtended context, int x, int z)
     {
         int offset = (int) (context.getWorldSeed() % ((int) (PERIOD * 2)));
 
-        double yOffset = z + areaDimension.getStartZ() + offset + ((context.random(1001) - 500) * OFFSET_VARIATION / 500.0D);
+        double yOffset = z + offset + ((context.random(1001) - 500) * OFFSET_VARIATION / 500.0D);
         return MathHelper.floor(AMPLITUDE * Math.abs((Math.abs(yOffset % PERIOD) - HALF_PERIOD)));
     }
 }

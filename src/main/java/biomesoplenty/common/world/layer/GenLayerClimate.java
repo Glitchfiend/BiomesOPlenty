@@ -9,8 +9,7 @@ package biomesoplenty.common.world.layer;
 
 import biomesoplenty.api.enums.BOPClimates;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.gen.IContext;
-import net.minecraft.world.gen.area.AreaDimension;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.area.IArea;
 import net.minecraft.world.gen.layer.traits.IAreaTransformer2;
 import net.minecraft.world.gen.layer.traits.IDimOffset0Transformer;
@@ -27,7 +26,7 @@ public enum GenLayerClimate implements IAreaTransformer2, IDimOffset0Transformer
     }
 
     @Override
-    public int apply(IContext context, AreaDimension dimension, IArea area1, IArea area2, int x, int z)
+    public int func_215723_a(INoiseRandom context, IArea area1, IArea area2, int x, int z)
     {
         int temperature = area1.getValue(x, z);
         int rainfall = area2.getValue(x, z);

@@ -10,8 +10,8 @@ package biomesoplenty.common.world;
 import biomesoplenty.common.world.layer.*;
 import biomesoplenty.common.world.layer.traits.LazyAreaLayerContextBOP;
 import com.google.common.collect.ImmutableList;
-import net.minecraft.init.Biomes;
-import net.minecraft.util.registry.IRegistry;
+import net.minecraft.world.biome.Biomes;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.gen.IContextExtended;
 import net.minecraft.world.gen.OverworldGenSettings;
@@ -24,16 +24,16 @@ import java.util.function.LongFunction;
 
 public class BOPLayerUtil
 {
-    public static final int WARM_OCEAN = IRegistry.BIOME.getId(Biomes.WARM_OCEAN);
-    public static final int LUKEWARM_OCEAN = IRegistry.BIOME.getId(Biomes.LUKEWARM_OCEAN);
-    public static final int OCEAN = IRegistry.BIOME.getId(Biomes.OCEAN);
-    public static final int COLD_OCEAN = IRegistry.BIOME.getId(Biomes.COLD_OCEAN);
-    public static final int FROZEN_OCEAN = IRegistry.BIOME.getId(Biomes.FROZEN_OCEAN);
-    public static final int DEEP_WARM_OCEAN = IRegistry.BIOME.getId(Biomes.DEEP_WARM_OCEAN);
-    public static final int DEEP_LUKEWARM_OCEAN = IRegistry.BIOME.getId(Biomes.DEEP_LUKEWARM_OCEAN);
-    public static final int DEEP_OCEAN = IRegistry.BIOME.getId(Biomes.DEEP_OCEAN);
-    public static final int DEEP_COLD_OCEAN = IRegistry.BIOME.getId(Biomes.DEEP_COLD_OCEAN);
-    public static final int DEEP_FROZEN_OCEAN = IRegistry.BIOME.getId(Biomes.DEEP_FROZEN_OCEAN);
+    public static final int WARM_OCEAN = Registry.BIOME.getId(Biomes.WARM_OCEAN);
+    public static final int LUKEWARM_OCEAN = Registry.BIOME.getId(Biomes.LUKEWARM_OCEAN);
+    public static final int OCEAN = Registry.BIOME.getId(Biomes.OCEAN);
+    public static final int COLD_OCEAN = Registry.BIOME.getId(Biomes.COLD_OCEAN);
+    public static final int FROZEN_OCEAN = Registry.BIOME.getId(Biomes.FROZEN_OCEAN);
+    public static final int DEEP_WARM_OCEAN = Registry.BIOME.getId(Biomes.DEEP_WARM_OCEAN);
+    public static final int DEEP_LUKEWARM_OCEAN = Registry.BIOME.getId(Biomes.DEEP_LUKEWARM_OCEAN);
+    public static final int DEEP_OCEAN = Registry.BIOME.getId(Biomes.DEEP_OCEAN);
+    public static final int DEEP_COLD_OCEAN = Registry.BIOME.getId(Biomes.DEEP_COLD_OCEAN);
+    public static final int DEEP_FROZEN_OCEAN = Registry.BIOME.getId(Biomes.DEEP_FROZEN_OCEAN);
 
     public static <T extends IArea, C extends IContextExtended<T>> IAreaFactory<T> createInitialLandAndSeaFactory(LongFunction<C> contextFactory)
     {

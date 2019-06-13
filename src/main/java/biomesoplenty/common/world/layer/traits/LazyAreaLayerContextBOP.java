@@ -14,9 +14,9 @@ public class LazyAreaLayerContextBOP extends LazyAreaLayerContext implements IBO
 {
     private long worldSeed;
 
-    public LazyAreaLayerContextBOP(int maxCacheSize, int layerCount, long seed, long seedModifier)
+    public LazyAreaLayerContextBOP(int maxCacheSize, long seed, long seedModifier)
     {
-        super(maxCacheSize, layerCount, seed, seedModifier);
+        super(maxCacheSize, seed, seedModifier);
         this.worldSeed = seed;
     }
 

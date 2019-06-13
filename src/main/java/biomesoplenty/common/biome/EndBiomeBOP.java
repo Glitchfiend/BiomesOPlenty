@@ -8,8 +8,8 @@
 package biomesoplenty.common.biome;
 
 import biomesoplenty.api.enums.BOPClimates;
-import net.minecraft.init.Biomes;
-import net.minecraft.util.registry.IRegistry;
+import net.minecraft.world.biome.Biomes;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 
 import java.util.HashMap;

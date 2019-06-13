@@ -7,29 +7,28 @@
  ******************************************************************************/
 package biomesoplenty.common.world.layer.traits;
 
-import net.minecraft.world.gen.IContext;
-import net.minecraft.world.gen.IContextExtended;
-import net.minecraft.world.gen.area.AreaDimension;
+import net.minecraft.world.gen.IExtendedNoiseRandom;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.area.IArea;
 import net.minecraft.world.gen.area.IAreaFactory;
 import net.minecraft.world.gen.layer.traits.IDimTransformer;
 
 public interface IAreaTransformer3 extends IDimTransformer
 {
-    default <R extends IArea> IAreaFactory<R> apply(IContextExtended<R> context, IAreaFactory<R> areaFactory1, IAreaFactory<R> areaFactory2, IAreaFactory<R> areaFactory3)
+    default <R extends IArea> IAreaFactory<R> apply(IExtendedNoiseRandom<R> context, IAreaFactory<R> areaFactory1, IAreaFactory<R> areaFactory2, IAreaFactory<R> areaFactory3)
     {
-        return (areaDimension) ->
+        return () ->
         {
-            R area1 = areaFactory1.make(this.apply(areaDimension));
-            R area2 = areaFactory2.make(this.apply(areaDimension));
-            R area3 = areaFactory3.make(this.apply(areaDimension));
-            return context.makeArea(areaDimension, (x, z) ->
-            {
-                context.setPosition((long)(x + areaDimension.getStartX()), (long)(z + areaDimension.getStartZ()));
-                return this.apply(context, areaDimension, area1, area2, area3, x, z);
+            R area1 = areaFactory1.make();
+            R area2 = areaFactory2.make();
+            R area3 = areaFactory3.make();
+
+            return context.func_212861_a_((x, z) -> {
+                context.setPosition((long)x, (long)z);
+                return this.apply(context, area1, area2, area3, x, z);
             });
         };
     }
 
-    int apply(IContext context, AreaDimension dimension, IArea area1, IArea area2, IArea area3, int x, int z);
+    int apply(INoiseRandom context, IArea area1, IArea area2, IArea area3, int x, int z);
 }

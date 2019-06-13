@@ -8,10 +8,9 @@
 package biomesoplenty.common.world.layer;
 
 import biomesoplenty.api.enums.BOPClimates;
-import net.minecraft.util.registry.IRegistry;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.IContext;
-import net.minecraft.world.gen.area.AreaDimension;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.area.IArea;
 import net.minecraft.world.gen.layer.traits.IAreaTransformer2;
 import net.minecraft.world.gen.layer.traits.IDimOffset1Transformer;
@@ -21,7 +20,7 @@ public enum GenLayerLargeIsland implements IAreaTransformer2, IDimOffset1Transfo
     INSTANCE;
 
     @Override
-    public int apply(IContext context, AreaDimension dimension, IArea landSeaArea, IArea climateArea, int x, int z)
+    public int func_215723_a(INoiseRandom context, IArea landSeaArea, IArea climateArea, int x, int z)
     {
         int northVal = landSeaArea.getValue(x + 1, z + 0);
         int eastVal = landSeaArea.getValue(x + 2, z + 1);
@@ -54,7 +53,7 @@ public enum GenLayerLargeIsland implements IAreaTransformer2, IDimOffset1Transfo
             }
             else
             {
-                return IRegistry.BIOME.getId(islandBiome);
+                return Registry.BIOME.getId(islandBiome);
             }
         }
         else return centerVal;

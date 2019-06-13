@@ -7,15 +7,14 @@
  ******************************************************************************/
 package biomesoplenty.api.enums;
 
+import com.google.common.collect.Lists;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biomes;
+import net.minecraft.world.gen.INoiseRandom;
+import net.minecraftforge.common.BiomeManager.BiomeType;
+
 import java.util.ArrayList;
 import java.util.Iterator;
-
-import com.google.common.collect.Lists;
-
-import net.minecraft.init.Biomes;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.IContext;
-import net.minecraftforge.common.BiomeManager.BiomeType;
 
 public enum BOPClimates
 {
@@ -70,7 +69,7 @@ public enum BOPClimates
         return this;
     }
 
-    public Biome getRandomBiome(IContext context, Biome fallback)
+    public Biome getRandomBiome(INoiseRandom context, Biome fallback)
     {
         if (this.totalBiomesWeight == 0)
             return fallback;
@@ -87,7 +86,7 @@ public enum BOPClimates
         return item.biome;
     }
 
-    public Biome getRandomIslandBiome(IContext context, Biome fallback)
+    public Biome getRandomIslandBiome(INoiseRandom context, Biome fallback)
     {
         if (this.totalIslandBiomesWeight == 0)
             return fallback;
@@ -104,7 +103,7 @@ public enum BOPClimates
         return item.biome;
     }
 
-    public Biome getRandomOceanBiome(IContext context, boolean deep)
+    public Biome getRandomOceanBiome(INoiseRandom context, boolean deep)
     {
         return (deep ? Biomes.DEEP_OCEAN : Biomes.OCEAN);
     }

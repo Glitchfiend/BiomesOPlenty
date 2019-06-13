@@ -10,8 +10,7 @@ package biomesoplenty.common.world.layer;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.world.BOPLayerUtil;
 import biomesoplenty.common.world.layer.traits.IAreaTransformer3;
-import net.minecraft.world.gen.IContext;
-import net.minecraft.world.gen.area.AreaDimension;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.area.IArea;
 import net.minecraft.world.gen.layer.traits.IDimOffset0Transformer;
 
@@ -20,7 +19,7 @@ public enum GenLayerMixOceansBOP implements IAreaTransformer3, IDimOffset0Transf
     INSTANCE;
 
     @Override
-    public int apply(IContext context, AreaDimension dimension, IArea biomeArea, IArea oceanArea, IArea climateArea, int x, int z)
+    public int apply(INoiseRandom context, IArea biomeArea, IArea oceanArea, IArea climateArea, int x, int z)
     {
         int biomeId = biomeArea.getValue(x, z);
         int oceanId = oceanArea.getValue(x, z);

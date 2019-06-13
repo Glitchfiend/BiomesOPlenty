@@ -82,8 +82,8 @@ import biomesoplenty.common.biome.overworld.WhiteBeachBiome;
 import biomesoplenty.common.biome.overworld.WoodlandBiome;
 import biomesoplenty.common.biome.overworld.XericShrublandBiome;
 import biomesoplenty.common.world.WorldTypeBOP;
-import net.minecraft.init.Biomes;
-import net.minecraft.util.registry.IRegistry;
+import net.minecraft.world.biome.Biomes;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
@@ -300,7 +300,7 @@ public class ModBiomes
         if (!child.isPresent())
             return;
 
-        subBiomes.put(IRegistry.BIOME.getId(parent), new WeightedSubBiome(child.get(), rarity, weight));
+        subBiomes.put(Registry.BIOME.getId(parent), new WeightedSubBiome(child.get(), rarity, weight));
     }
     
     public static void registerSubBiome(Optional<Biome> parent, Optional<Biome> child, float rarity, int weight)
@@ -311,12 +311,12 @@ public class ModBiomes
         if (!child.isPresent())
             return;
 
-        subBiomes.put(IRegistry.BIOME.getId(parent.get()), new WeightedSubBiome(child.get(), rarity, weight));
+        subBiomes.put(Registry.BIOME.getId(parent.get()), new WeightedSubBiome(child.get(), rarity, weight));
     }
 
     public static void registerIslandBiome(Biome biome, BOPClimates climate, int weight)
     {
-        islandBiomes.add(IRegistry.BIOME.getId(biome));
+        islandBiomes.add(Registry.BIOME.getId(biome));
         climate.addIslandBiome(weight, biome);
     }
 

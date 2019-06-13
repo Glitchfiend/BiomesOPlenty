@@ -11,7 +11,7 @@ import biomesoplenty.common.world.BOPLayerUtil;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.layer.traits.IBOPContextExtended;
 import biomesoplenty.common.world.layer.traits.LazyAreaLayerContextBOP;
-import net.minecraft.init.Biomes;
+import net.minecraft.world.biome.Biomes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.provider.BiomeProviderType;

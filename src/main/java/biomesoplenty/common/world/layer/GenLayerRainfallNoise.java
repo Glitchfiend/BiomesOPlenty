@@ -10,7 +10,6 @@ package biomesoplenty.common.world.layer;
 import biomesoplenty.common.world.SimplexNoise;
 import biomesoplenty.common.world.layer.traits.IBOPAreaTransformer0;
 import biomesoplenty.common.world.layer.traits.IBOPContextExtended;
-import net.minecraft.world.gen.area.AreaDimension;
 
 public enum GenLayerRainfallNoise implements IBOPAreaTransformer0
 {
@@ -26,11 +25,11 @@ public enum GenLayerRainfallNoise implements IBOPAreaTransformer0
     }
 
     @Override
-    public int apply(IBOPContextExtended context, AreaDimension areaDimension, int x, int z)
+    public int apply(IBOPContextExtended context, int x, int z)
     {
         double xOffset = (double)(context.getWorldSeed() & 0xFFFFFF) * 0.000003D;
         double zOffset = (double)(context.getWorldSeed() & 0xFFFFFF) * 0.000004D;
-        double noiseVal = SimplexNoise.noise((x + areaDimension.getStartX() + xOffset) * this.scale, (z + areaDimension.getStartZ() + zOffset) * this.scale);
+        double noiseVal = SimplexNoise.noise((x + xOffset) * this.scale, (z + zOffset) * this.scale);
 
         // boundaries were determined empirically by analyzing statistically output from the SimplexNoise function, and splitting into 12 equally likely groups
         if (noiseVal < -0.637D) return 0;

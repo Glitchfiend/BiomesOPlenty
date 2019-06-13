@@ -9,11 +9,10 @@ package biomesoplenty.common.world.layer;
 
 import biomesoplenty.common.biome.BiomeBOP;
 import biomesoplenty.common.world.BOPLayerUtil;
-import net.minecraft.init.Biomes;
-import net.minecraft.util.registry.IRegistry;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.IContext;
-import net.minecraft.world.gen.area.AreaDimension;
+import net.minecraft.world.biome.Biomes;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.area.IArea;
 import net.minecraft.world.gen.layer.traits.IAreaTransformer2;
 import net.minecraft.world.gen.layer.traits.IDimOffset0Transformer;
@@ -22,18 +21,18 @@ public enum GenLayerRiverMixBOP implements IAreaTransformer2, IDimOffset0Transfo
 {
     INSTANCE;
 
-    private static final int FROZEN_RIVER = IRegistry.BIOME.getId(Biomes.FROZEN_RIVER);
-    private static final int SNOWY_TUNDRA = IRegistry.BIOME.getId(Biomes.SNOWY_TUNDRA);
-    private static final int MUSHROOM_FIELDS = IRegistry.BIOME.getId(Biomes.MUSHROOM_FIELDS);
-    private static final int MUSHROOM_FIELD_SHORE = IRegistry.BIOME.getId(Biomes.MUSHROOM_FIELD_SHORE);
-    private static final int RIVER = IRegistry.BIOME.getId(Biomes.RIVER);
+    private static final int FROZEN_RIVER = Registry.BIOME.getId(Biomes.FROZEN_RIVER);
+    private static final int SNOWY_TUNDRA = Registry.BIOME.getId(Biomes.SNOWY_TUNDRA);
+    private static final int MUSHROOM_FIELDS = Registry.BIOME.getId(Biomes.MUSHROOM_FIELDS);
+    private static final int MUSHROOM_FIELD_SHORE = Registry.BIOME.getId(Biomes.MUSHROOM_FIELD_SHORE);
+    private static final int RIVER = Registry.BIOME.getId(Biomes.RIVER);
 
     @Override
-    public int apply(IContext context, AreaDimension dimension, IArea biomeArea, IArea riverArea, int x, int z)
+    public int func_215723_a(INoiseRandom context, IArea biomeArea, IArea riverArea, int x, int z)
     {
         int biomeId = biomeArea.getValue(x, z);
         int riverId = riverArea.getValue(x, z);
-        Biome biome = IRegistry.BIOME.get(biomeId);
+        Biome biome = Registry.BIOME.getByValue(biomeId);
 
         if (BOPLayerUtil.isOcean(biomeId))
         {

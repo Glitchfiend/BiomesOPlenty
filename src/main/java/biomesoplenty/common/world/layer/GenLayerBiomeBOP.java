@@ -9,10 +9,9 @@ package biomesoplenty.common.world.layer;
 
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.init.ModBiomes;
-import net.minecraft.init.Biomes;
-import net.minecraft.util.registry.IRegistry;
-import net.minecraft.world.gen.IContext;
-import net.minecraft.world.gen.area.AreaDimension;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.world.biome.Biomes;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.area.IArea;
 import net.minecraft.world.gen.layer.traits.IAreaTransformer2;
 import net.minecraft.world.gen.layer.traits.IDimOffset0Transformer;
@@ -22,11 +21,11 @@ public enum GenLayerBiomeBOP implements IAreaTransformer2, IDimOffset0Transforme
 {
     INSTANCE;
 
-    private static final int DEEP_OCEAN = IRegistry.BIOME.getId(Biomes.DEEP_OCEAN);
-    private static final int MUSHROOM_FIELDS = IRegistry.BIOME.getId(Biomes.MUSHROOM_FIELDS);
+    private static final int DEEP_OCEAN = Registry.BIOME.getId(Biomes.DEEP_OCEAN);
+    private static final int MUSHROOM_FIELDS = Registry.BIOME.getId(Biomes.MUSHROOM_FIELDS);
 
     @Override
-    public int apply(IContext context, AreaDimension dimension, IArea area1, IArea area2, int x, int z)
+    public int func_215723_a(INoiseRandom context, IArea area1, IArea area2, int x, int z)
     {
         int landSeaVal = area1.getValue(x, z);
         int climateVal = area2.getValue(x, z);
@@ -48,7 +47,7 @@ public enum GenLayerBiomeBOP implements IAreaTransformer2, IDimOffset0Transforme
         // At this point, oceans and land have been assigned, and so have mushroom islands
         if (landSeaVal == DEEP_OCEAN)
         {
-            return IRegistry.BIOME.getId(climate.getRandomOceanBiome(context, true));
+            return Registry.BIOME.getId(climate.getRandomOceanBiome(context, true));
         }
         else if ((landSeaVal == MUSHROOM_FIELDS || ModBiomes.islandBiomes.contains(landSeaVal)) && climate.biomeType != BiomeManager.BiomeType.ICY) // TODO
         {
@@ -57,11 +56,11 @@ public enum GenLayerBiomeBOP implements IAreaTransformer2, IDimOffset0Transforme
         }
         else if (landSeaVal == 0)
         {
-            return IRegistry.BIOME.getId(climate.getRandomOceanBiome(context, false));
+            return Registry.BIOME.getId(climate.getRandomOceanBiome(context, false));
         }
         else
         {
-        	return IRegistry.BIOME.getId(climate.getRandomBiome(context, Biomes.PLAINS));
+        	return Registry.BIOME.getId(climate.getRandomBiome(context, Biomes.PLAINS));
         }
     }
 }

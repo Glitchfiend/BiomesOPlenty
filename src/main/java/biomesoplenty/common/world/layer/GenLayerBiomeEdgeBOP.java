@@ -8,10 +8,10 @@
 package biomesoplenty.common.world.layer;
 
 import biomesoplenty.api.biome.BOPBiomes;
-import net.minecraft.init.Biomes;
-import net.minecraft.util.registry.IRegistry;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.IContext;
+import net.minecraft.world.biome.Biomes;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.layer.LayerUtil;
 import net.minecraft.world.gen.layer.traits.ICastleTransformer;
 
@@ -21,24 +21,24 @@ public enum GenLayerBiomeEdgeBOP implements ICastleTransformer
 {
     INSTANCE;
 
-    private static final int DESERT = IRegistry.BIOME.getId(Biomes.DESERT);
-    private static final int MOUNTAINS = IRegistry.BIOME.getId(Biomes.MOUNTAINS);
-    private static final int WOODED_MOUNTAINS = IRegistry.BIOME.getId(Biomes.WOODED_MOUNTAINS);
-    private static final int SNOWY_TUNDRA = IRegistry.BIOME.getId(Biomes.SNOWY_TUNDRA);
-    private static final int JUNGLE = IRegistry.BIOME.getId(Biomes.JUNGLE);
-    private static final int JUNGLE_EDGE = IRegistry.BIOME.getId(Biomes.JUNGLE_EDGE);
-    private static final int BADLANDS = IRegistry.BIOME.getId(Biomes.BADLANDS);
-    private static final int BADLANDS_PLATEAU = IRegistry.BIOME.getId(Biomes.BADLANDS_PLATEAU);
-    private static final int WOODED_BADLANDS_PLATEAU = IRegistry.BIOME.getId(Biomes.WOODED_BADLANDS_PLATEAU);
-    private static final int PLAINS = IRegistry.BIOME.getId(Biomes.PLAINS);
-    private static final int GIANT_TREE_TAIGA = IRegistry.BIOME.getId(Biomes.GIANT_TREE_TAIGA);
-    private static final int MOUNTAIN_EDGE = IRegistry.BIOME.getId(Biomes.MOUNTAIN_EDGE);
-    private static final int SWAMP = IRegistry.BIOME.getId(Biomes.SWAMP);
-    private static final int TAIGA = IRegistry.BIOME.getId(Biomes.TAIGA);
-    private static final int SNOWY_TAIGA = IRegistry.BIOME.getId(Biomes.SNOWY_TAIGA);
+    private static final int DESERT = Registry.BIOME.getId(Biomes.DESERT);
+    private static final int MOUNTAINS = Registry.BIOME.getId(Biomes.MOUNTAINS);
+    private static final int WOODED_MOUNTAINS = Registry.BIOME.getId(Biomes.WOODED_MOUNTAINS);
+    private static final int SNOWY_TUNDRA = Registry.BIOME.getId(Biomes.SNOWY_TUNDRA);
+    private static final int JUNGLE = Registry.BIOME.getId(Biomes.JUNGLE);
+    private static final int JUNGLE_EDGE = Registry.BIOME.getId(Biomes.JUNGLE_EDGE);
+    private static final int BADLANDS = Registry.BIOME.getId(Biomes.BADLANDS);
+    private static final int BADLANDS_PLATEAU = Registry.BIOME.getId(Biomes.BADLANDS_PLATEAU);
+    private static final int WOODED_BADLANDS_PLATEAU = Registry.BIOME.getId(Biomes.WOODED_BADLANDS_PLATEAU);
+    private static final int PLAINS = Registry.BIOME.getId(Biomes.PLAINS);
+    private static final int GIANT_TREE_TAIGA = Registry.BIOME.getId(Biomes.GIANT_TREE_TAIGA);
+    private static final int MOUNTAIN_EDGE = Registry.BIOME.getId(Biomes.MOUNTAIN_EDGE);
+    private static final int SWAMP = Registry.BIOME.getId(Biomes.SWAMP);
+    private static final int TAIGA = Registry.BIOME.getId(Biomes.TAIGA);
+    private static final int SNOWY_TAIGA = Registry.BIOME.getId(Biomes.SNOWY_TAIGA);
 
     @Override
-    public int apply(IContext context, int northBiomeId, int eastBiomeId, int southBiomeId, int westBiomeId, int biomeId)
+    public int apply(INoiseRandom context, int northBiomeId, int eastBiomeId, int southBiomeId, int westBiomeId, int biomeId)
     {
         int[] outBiomeId = new int[1];
 
@@ -111,12 +111,12 @@ public enum GenLayerBiomeEdgeBOP implements ICastleTransformer
 
     private boolean replaceBiomeEdge(int[] outId, int northBiomeId, int eastBiomeId, int southBiomeId, int westBiomeId, int biomeId, Optional<Biome> fromBiome, Optional<Biome> toBiome)
     {
-        return fromBiome.isPresent() && toBiome.isPresent() && this.replaceBiomeEdge(outId, northBiomeId, eastBiomeId, southBiomeId, westBiomeId, biomeId, IRegistry.BIOME.getId(fromBiome.get()), IRegistry.BIOME.getId(toBiome.get()));
+        return fromBiome.isPresent() && toBiome.isPresent() && this.replaceBiomeEdge(outId, northBiomeId, eastBiomeId, southBiomeId, westBiomeId, biomeId, Registry.BIOME.getId(fromBiome.get()), Registry.BIOME.getId(toBiome.get()));
     }
     
     private boolean replaceBiomeEdge(int[] outId, int northBiomeId, int eastBiomeId, int southBiomeId, int westBiomeId, int biomeId, Optional<Biome> fromBiome, int toBiome)
     {
-        return fromBiome.isPresent() && this.replaceBiomeEdge(outId, northBiomeId, eastBiomeId, southBiomeId, westBiomeId, biomeId, IRegistry.BIOME.getId(fromBiome.get()), toBiome);
+        return fromBiome.isPresent() && this.replaceBiomeEdge(outId, northBiomeId, eastBiomeId, southBiomeId, westBiomeId, biomeId, Registry.BIOME.getId(fromBiome.get()), toBiome);
     }
 
     private boolean replaceBiomeEdge(int[] outId, int northBiomeId, int eastBiomeId, int southBiomeId, int westBiomeId, int biomeId, int fromBiome, int toBiome)
@@ -148,8 +148,8 @@ public enum GenLayerBiomeEdgeBOP implements ICastleTransformer
         }
         else
         {
-            Biome biomeA = IRegistry.BIOME.get(biomeIdA);
-            Biome biomeB = IRegistry.BIOME.get(biomeIdB);
+            Biome biomeA = Registry.BIOME.getByValue(biomeIdA);
+            Biome biomeB = Registry.BIOME.getByValue(biomeIdB);
             if (biomeA != null && biomeB != null)
             {
                 Biome.TempCategory catA = biomeA.getTempCategory();

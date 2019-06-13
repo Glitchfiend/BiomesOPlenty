@@ -9,14 +9,13 @@ package biomesoplenty.common.world.layer;
 
 import biomesoplenty.common.world.layer.traits.IBOPAreaTransformer0;
 import biomesoplenty.common.world.layer.traits.IBOPContextExtended;
-import net.minecraft.world.gen.area.AreaDimension;
 
 public enum GenLayerTemperatureRandom implements IBOPAreaTransformer0
 {
     INSTANCE;
 
     @Override
-    public int apply(IBOPContextExtended context, AreaDimension areaDimension, int x, int z)
+    public int apply(IBOPContextExtended context, int x, int z)
     {
         return context.random(9);
     }
