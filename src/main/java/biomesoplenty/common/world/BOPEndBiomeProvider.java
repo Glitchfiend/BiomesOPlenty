@@ -35,6 +35,7 @@ public class BOPEndBiomeProvider extends BiomeProvider {
 	   }
 
 	   @Nullable
+	   @Override
 	   public Biome getBiome(BlockPos pos, @Nullable Biome defaultBiome) {
 	      return this.func_201545_a(pos.getX() >> 4, pos.getZ() >> 4);
 	   }
@@ -71,10 +72,12 @@ public class BOPEndBiomeProvider extends BiomeProvider {
 	      }
 	   }
 
+	   @Override
 	   public Biome[] getBiomes(int startX, int startZ, int xSize, int zSize) {
 	      return this.getBiomeBlock(startX, startZ, xSize, zSize);
 	   }
 
+	   @Override
 	   public Biome[] getBiomes(int x, int z, int width, int length, boolean cacheFlag) {
 	      Biome[] abiome = new Biome[width * length];
 	      Long2ObjectMap<Biome> long2objectmap = new Long2ObjectOpenHashMap<>();
@@ -97,6 +100,7 @@ public class BOPEndBiomeProvider extends BiomeProvider {
 	      return abiome;
 	   }
 
+	   @Override
 	   public Set<Biome> getBiomesInSquare(int centerX, int centerZ, int sideLength) {
 	      int i = centerX - sideLength >> 2;
 	      int j = centerZ - sideLength >> 2;
@@ -108,6 +112,7 @@ public class BOPEndBiomeProvider extends BiomeProvider {
 	   }
 
 	   @Nullable
+	   @Override
 	   public BlockPos findBiomePosition(int x, int z, int range, List<Biome> biomes, Random random) {
 	      int i = x - range >> 2;
 	      int j = z - range >> 2;
@@ -134,6 +139,7 @@ public class BOPEndBiomeProvider extends BiomeProvider {
 	      return blockpos;
 	   }
 
+	   @Override
 	   public float getHeightValue(int p_201536_1_, int p_201536_2_, int p_201536_3_, int p_201536_4_) {
 	      float f = (float)(p_201536_1_ * 2 + p_201536_3_);
 	      float f1 = (float)(p_201536_2_ * 2 + p_201536_4_);
@@ -158,6 +164,7 @@ public class BOPEndBiomeProvider extends BiomeProvider {
 	      return f2;
 	   }
 
+	   @Override
 	   public boolean hasStructure(Structure<?> structureIn) {
 	      return this.hasStructureCache.computeIfAbsent(structureIn, (p_205008_1_) -> {
 	         for(Biome biome : this.field_205009_d) {
@@ -170,7 +177,12 @@ public class BOPEndBiomeProvider extends BiomeProvider {
 	      });
 	   }
 
+<<<<<<< HEAD
 	   public Set<BlockState> getSurfaceBlocks() {
+=======
+	   @Override
+	   public Set<IBlockState> getSurfaceBlocks() {
+>>>>>>> 23ad4b22dd4f1d9f81ff5efa7bc6b9519d4d41af
 	      if (this.topBlocksCache.isEmpty()) {
 	         for(Biome biome : this.field_205009_d) {
 	            this.topBlocksCache.add(biome.getSurfaceBuilderConfig().getTop());

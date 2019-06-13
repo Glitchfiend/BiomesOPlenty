@@ -10,6 +10,7 @@ import java.util.Random;
 public class EtherealTree extends Tree
 {
    @Nullable
+   @Override
    protected AbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random)
    {
       return null;

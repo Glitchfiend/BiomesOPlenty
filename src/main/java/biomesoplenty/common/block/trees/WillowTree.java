@@ -11,6 +11,7 @@ import java.util.Random;
 public class WillowTree extends Tree
 {
    @Nullable
+   @Override
    protected AbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random)
    {
       return BOPBiomeFeatures.WILLOW_TREE;

@@ -11,6 +11,7 @@ import java.util.Random;
 public class OrangeAutumnTree extends Tree
 {
    @Nullable
+   @Override
    protected AbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random)
    {
       return BOPBiomeFeatures.ORANGE_AUTUMN_TREE;

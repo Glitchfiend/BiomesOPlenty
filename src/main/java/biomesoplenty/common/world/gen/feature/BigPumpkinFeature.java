@@ -18,6 +18,7 @@ public class BigPumpkinFeature extends Feature<NoFeatureConfig>
    protected IBlockPosQuery placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK;
    protected IBlockPosQuery replace = (world, pos) -> world.getBlockState(pos).canBeReplacedByLeaves(world, pos);
 	
+   @Override
    public boolean place(IWorld world, IChunkGenerator<? extends IChunkGenSettings> p_212245_2_, Random p_212245_3_, BlockPos startPos, NoFeatureConfig p_212245_5_)
    {
        while (startPos.getY() > 1 && this.replace.matches(world, startPos)) {startPos = startPos.down();}

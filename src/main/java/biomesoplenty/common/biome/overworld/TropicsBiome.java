@@ -87,6 +87,7 @@ public class TropicsBiome extends BiomeBOP
     }
     
     @OnlyIn(Dist.CLIENT)
+    @Override
     public int getSkyColorByTemp(float currentTemperature)
     {
        return 0x66BCFF;

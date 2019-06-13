@@ -11,6 +11,7 @@ import java.util.Random;
 public class DeadTree extends Tree
 {
    @Nullable
+   @Override
    protected AbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random)
    {
       return (AbstractTreeFeature<NoFeatureConfig>)(random.nextInt(10) == 0 ? BOPBiomeFeatures.DYING_TREE : BOPBiomeFeatures.SMALL_DEAD_TREE);
