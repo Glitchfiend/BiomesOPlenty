@@ -8,15 +8,16 @@
 package biomesoplenty.client.util;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockModelShapes;
 import net.minecraft.client.renderer.BlockRendererDispatcher;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.model.BakedQuad;
 import net.minecraft.client.renderer.model.IBakedModel;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 
@@ -101,7 +102,7 @@ public class BiomeMapColours
             return biomeColours.get(biomeId);
         }
 
-        int colour = getBiomeMapColourRaw(Biome.getBiome(biomeId, null));
+        int colour = getBiomeMapColourRaw(Registry.BIOME.getByValue(biomeId));
         biomeColours.put(biomeId, colour);
         return colour;
     }
@@ -162,7 +163,7 @@ public class BiomeMapColours
 
     public static int getBiomeBlockColourForCoords(Biome biome, BlockPos pos)
     {
-        BlockState topBlock = biome.getSurfaceBuilder().getConfig().getTop();
+        BlockState topBlock = biome.getSurfaceBuilder().getConfig().getTopMaterial();
         int colour;
 
         if (topBlock == Blocks.GRASS.getDefaultState())

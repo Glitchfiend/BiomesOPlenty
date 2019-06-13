@@ -11,13 +11,12 @@ import biomesoplenty.common.world.BOPLayerUtil;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.layer.traits.IBOPContextExtended;
 import biomesoplenty.common.world.layer.traits.LazyAreaLayerContextBOP;
-import net.minecraft.world.biome.Biomes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.provider.BiomeProviderType;
 import net.minecraft.world.biome.provider.OverworldBiomeProviderSettings;
 import net.minecraft.world.gen.OverworldGenSettings;
-import net.minecraft.world.gen.area.AreaDimension;
 import net.minecraft.world.gen.area.IAreaFactory;
 import net.minecraft.world.gen.area.LazyArea;
 import org.lwjgl.glfw.GLFW;
@@ -160,10 +159,8 @@ public class GenLayerVisualizer
             OverworldBiomeProviderSettings settingsProvider = BiomeProviderType.VANILLA_LAYERED.createSettings();
             OverworldGenSettings settings = settingsProvider.getGeneratorSettings();
 
-            int[] aint = new int[1];
             LongFunction<IBOPContextExtended<LazyArea>> contextFactory = (seedModifier) -> {
-                ++aint[0];
-                return new LazyAreaLayerContextBOP(1, aint[0], 0, seedModifier);
+                return new LazyAreaLayerContextBOP(1, 0, seedModifier);
             };
 
             IAreaFactory<LazyArea> landAreaFactory = BOPLayerUtil.createInitialLandAndSeaFactory(contextFactory);
@@ -172,8 +169,7 @@ public class GenLayerVisualizer
 
             //IAreaFactory<LazyArea> biomeAreaFactory = BOPLayerUtil.createAreaFactories(WorldType.DEFAULT, settings, contextFactory).get(0);
 
-            AreaDimension areaDimension = new AreaDimension(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-            LazyArea area = biomeAreaFactory.make(areaDimension);
+            LazyArea area = biomeAreaFactory.make();
 
             int startX = 5000;
             int startZ = 10000;

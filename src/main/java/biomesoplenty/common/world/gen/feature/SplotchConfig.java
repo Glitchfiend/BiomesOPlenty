@@ -1,20 +1,33 @@
 package biomesoplenty.common.world.gen.feature;
 
-import java.util.List;
-
-import net.minecraft.block.Block;
+import com.google.common.collect.ImmutableMap;
+import com.mojang.datafixers.Dynamic;
+import com.mojang.datafixers.types.DynamicOps;
+import net.minecraft.block.BlockState;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 
-public class SplotchConfig implements IFeatureConfig {
-	   public final Block block;
-	   public final int radius;
-	   public final int ySize;
-	   public final List<Block> targets;
+import java.util.List;
 
-	   public SplotchConfig(Block p_i48684_1_, int p_i48684_2_, int p_i48684_3_, List<Block> p_i48684_4_) {
-	      this.block = p_i48684_1_;
-	      this.radius = p_i48684_2_;
-	      this.ySize = p_i48684_3_;
-	      this.targets = p_i48684_4_;
-	   }
+public class SplotchConfig implements IFeatureConfig
+{
+	public final BlockState state;
+	public final int radius;
+	public final int ySize;
+	public final List<BlockState> targets;
+
+	public SplotchConfig(BlockState state, int radius, int ySize, List<BlockState> targets)
+	{
+		this.state = state;
+		this.radius = radius;
+		this.ySize = ySize;
+		this.targets = targets;
 	}
+
+	@Override
+	public <T> Dynamic<T> serialize(DynamicOps<T> dynamicOps)
+	{
+		return new Dynamic<>(dynamicOps, dynamicOps.createMap(ImmutableMap.of(dynamicOps.createString("state"), BlockState.serialize(dynamicOps, this.state).getValue(), dynamicOps.createString("radius"), dynamicOps.createInt(this.radius), dynamicOps.createString("y_size"), dynamicOps.createInt(this.ySize), dynamicOps.createString("targets"), dynamicOps.createList(this.targets.stream().map((p_214692_1_) -> {
+			return BlockState.serialize(dynamicOps, p_214692_1_).getValue();
+		})))));
+	}
+}

@@ -11,16 +11,16 @@ import java.util.Random;
 import java.util.Set;
 
 import biomesoplenty.common.util.block.IBlockPosQuery;
-import net.minecraft.block.Block;
+import net.minecraft.block.*;
 import net.minecraft.block.BlockCocoa;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.block.BlockVine;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.IWorld;
+import net.minecraft.world.gen.IWorldGenerationReader;
 
 public class BasicTreeFeature extends TreeFeatureBase
 {
@@ -289,7 +289,7 @@ public class BasicTreeFeature extends TreeFeatureBase
         }
     }
 
-    protected void generateTrunk(Set<BlockPos> changedBlocks, IWorld world, BlockPos start, int height)
+    protected void generateTrunk(Set<BlockPos> changedBlocks, MutableBoundingBox boundingBox, IWorld world, BlockPos start, int height)
     {
         //Create the trunk from the bottom up, using < to ensure it is covered with one layer of leaves
         for (int layer = 0; layer < height; ++layer)
@@ -297,7 +297,7 @@ public class BasicTreeFeature extends TreeFeatureBase
             BlockPos blockpos2 = start.up(layer);
             if (this.replace.matches(world, blockpos2))
             {
-                this.setLog(changedBlocks, world, start.up(layer));
+                this.setLog(changedBlocks, world, start.up(layer), boundingBox);
             }
         }
     }
@@ -325,17 +325,17 @@ public class BasicTreeFeature extends TreeFeatureBase
     {
         if (this.trunkFruit == Blocks.COCOA.getDefaultState())
         {
-            this.setBlockState(world, pos, this.trunkFruit.with(BlockCocoa.AGE, Integer.valueOf(age)).with(BlockCocoa.HORIZONTAL_FACING, direction));
+            this.setBlockState(world, pos, this.trunkFruit.with(CocoaBlock.AGE, Integer.valueOf(age)).with(CocoaBlock.HORIZONTAL_FACING, direction));
         }
         else
         {
-            this.setBlockState(world, pos, this.trunkFruit.with(BlockCocoa.HORIZONTAL_FACING, direction));
+            this.setBlockState(world, pos, this.trunkFruit.with(CocoaBlock.HORIZONTAL_FACING, direction));
         }
     }
 
     private BlockState getVineStateForSide(Direction side)
     {
-        return this.vine.getBlock() instanceof BlockVine ? this.vine.with(BlockVine.getPropertyFor(side), Boolean.valueOf(true)) : this.vine;
+        return this.vine.getBlock() instanceof VineBlock ? this.vine.with(VineBlock.getPropertyFor(side), Boolean.valueOf(true)) : this.vine;
     }
 
     private void extendVines(IWorld world, BlockPos pos, Direction side)

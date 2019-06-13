@@ -9,10 +9,10 @@ package biomesoplenty.common.item;
 
 import biomesoplenty.common.util.inventory.ItemGroupBOP;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemRecord;
+import net.minecraft.item.MusicDiscItem;
 import net.minecraft.util.SoundEvent;
 
-public class ItemRecordBOP extends ItemRecord
+public class ItemRecordBOP extends MusicDiscItem
 {
     public ItemRecordBOP(SoundEvent record)
     {

@@ -7,31 +7,37 @@
  ******************************************************************************/
 package biomesoplenty.common.world.gen.feature;
 
-import java.util.Random;
-
 import biomesoplenty.api.block.BOPBlocks;
-import net.minecraft.block.Block;
+import com.mojang.datafixers.Dynamic;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.feature.AbstractFlowersFeature;
+import net.minecraft.world.gen.feature.FlowersFeature;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 
-public class SnowyFlowersFeature extends AbstractFlowersFeature
+import java.util.Random;
+import java.util.function.Function;
+
+public class SnowyFlowersFeature extends FlowersFeature
 {
-	public BlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_)
-	{
-         int j = p_202355_1_.nextInt(3);
-         switch(j)
-         {
-         case 0:
-            return BOPBlocks.violet.getDefaultState();
-         case 1:
-            return Blocks.POPPY.getDefaultState();
-         case 2:
-         default:
-            return Blocks.DANDELION.getDefaultState();
-         }
-	}
+    public SnowyFlowersFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserializer)
+    {
+        super(deserializer);
+    }
+
+    @Override
+    public BlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_)
+    {
+        int j = p_202355_1_.nextInt(3);
+        switch(j)
+        {
+            case 0:
+                return BOPBlocks.violet.getDefaultState();
+            case 1:
+                return Blocks.POPPY.getDefaultState();
+            case 2:
+            default:
+                return Blocks.DANDELION.getDefaultState();
+        }
+    }
 }

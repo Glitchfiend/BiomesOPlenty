@@ -8,21 +8,26 @@
 package biomesoplenty.common.entity.projectile;
 
 import biomesoplenty.api.entity.BOPEntities;
+import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.api.particle.BOPParticleTypes;
 import biomesoplenty.core.BiomesOPlenty;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.projectile.EntityThrowable;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.projectile.ProjectileItemEntity;
+import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.math.EntityRayTraceResult;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class EntityMudball extends EntityThrowable
+public class EntityMudball extends ProjectileItemEntity
 {
-    public EntityMudball(World world)
+    public EntityMudball(EntityType<? extends EntityMudball> type, World world)
     {
-        super(BOPEntities.mudball, world);
+        super(type, world);
     }
 
     public EntityMudball(World world, double x, double y, double z)
@@ -30,9 +35,15 @@ public class EntityMudball extends EntityThrowable
         super(BOPEntities.mudball, x, y, z, world);
     }
 
-    public EntityMudball(World world, EntityLivingBase thrower)
+    public EntityMudball(World world, LivingEntity thrower)
     {
         super(BOPEntities.mudball, thrower, world);
+    }
+
+    @Override
+    protected Item func_213885_i()
+    {
+        return BOPItems.mudball;
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -51,9 +62,10 @@ public class EntityMudball extends EntityThrowable
     @Override
     protected void onImpact(RayTraceResult hit)
     {
-        if (hit.entity != null)
+        if (hit.getType() == RayTraceResult.Type.ENTITY)
         {
-            hit.entity.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 0.0F);
+            Entity entity = ((EntityRayTraceResult)hit).getEntity();
+            entity.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 0.0F);
         }
 
         if (!this.world.isRemote)

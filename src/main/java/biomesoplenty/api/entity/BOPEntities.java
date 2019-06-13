@@ -8,9 +8,10 @@
 package biomesoplenty.api.entity;
 
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.projectile.ProjectileItemEntity;
 
 public class BOPEntities
 {
-    public static EntityType<?> mudball;
+    public static EntityType<ProjectileItemEntity> mudball;
     public static EntityType<?> boat_bop;
 }

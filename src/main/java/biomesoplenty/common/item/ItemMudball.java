@@ -9,15 +9,11 @@ package biomesoplenty.common.item;
 
 import biomesoplenty.common.entity.projectile.EntityMudball;
 import biomesoplenty.common.util.inventory.ItemGroupBOP;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.SoundEvents;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.stats.StatList;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.stats.Stats;
+import net.minecraft.util.*;
 import net.minecraft.world.World;
 
 public class ItemMudball extends Item
@@ -28,7 +24,7 @@ public class ItemMudball extends Item
     }
 
     @Override
-    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
+    public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, Hand hand)
     {
         ItemStack stack = player.getHeldItem(hand);
         if (!player.abilities.isCreativeMode)
@@ -45,7 +41,7 @@ public class ItemMudball extends Item
             world.spawnEntity(mudball);
         }
 
-        player.addStat(StatList.ITEM_USED.get(this));
-        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
+        player.addStat(Stats.ITEM_USED.get(this));
+        return new ActionResult<ItemStack>(ActionResultType.SUCCESS, stack);
     }
 }

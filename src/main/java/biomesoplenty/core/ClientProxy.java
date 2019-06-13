@@ -15,11 +15,11 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.ItemColors;
-import net.minecraft.init.Particles;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particles.ItemParticleData;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.FoliageColors;
 import net.minecraft.world.GrassColors;
@@ -52,7 +52,7 @@ public class ClientProxy extends CommonProxy
         
         //Item Coloring
         itemColors.register((stack, tintIndex) -> {
-            BlockState BlockState = ((ItemBlock)stack.getItem()).getBlock().getDefaultState();
+            BlockState BlockState = ((BlockItem)stack.getItem()).getBlock().getDefaultState();
             return blockColors.getColor(BlockState, null, null, tintIndex); }, 
         	BOPBlocks.bush, BOPBlocks.flowering_oak_leaves, BOPBlocks.mahogany_leaves,
         	BOPBlocks.palm_leaves, BOPBlocks.willow_leaves, BOPBlocks.willow_vine);
@@ -67,7 +67,7 @@ public class ClientProxy extends CommonProxy
         {
             case MUD:
                 int itemId = Item.getIdFromItem(BOPItems.mudball);
-                minecraft.world.addParticle(new ItemParticleData(Particles.ITEM, new ItemStack(BOPItems.mudball)), x, y, z, MathHelper.nextDouble(parWorld.rand, -0.08D, 0.08D), MathHelper.nextDouble(parWorld.rand, -0.08D, 0.08D), MathHelper.nextDouble(parWorld.rand, -0.08D, 0.08D));
+                minecraft.world.addParticle(new ItemParticleData(ParticleTypes.ITEM, new ItemStack(BOPItems.mudball)), x, y, z, MathHelper.nextDouble(parWorld.rand, -0.08D, 0.08D), MathHelper.nextDouble(parWorld.rand, -0.08D, 0.08D), MathHelper.nextDouble(parWorld.rand, -0.08D, 0.08D));
                 return;
             /*case PLAYER_TRAIL:
                 if (info.length < 1)

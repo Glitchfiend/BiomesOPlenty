@@ -11,14 +11,9 @@ import java.util.Random;
 public class FirTree extends Tree
 {
    @Nullable
+   @Override
    protected AbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random)
    {
       return BOPBiomeFeatures.FIR_TREE;
-   }
-
-   @Nullable
-   protected AbstractTreeFeature<NoFeatureConfig> getBigTreeFeature(Random random)
-   {
-	   return BOPBiomeFeatures.FIR_TREE_LARGE;
    }
 }

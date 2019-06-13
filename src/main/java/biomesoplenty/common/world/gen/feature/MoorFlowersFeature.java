@@ -7,26 +7,35 @@
  ******************************************************************************/
 package biomesoplenty.common.world.gen.feature;
 
-import java.util.Random;
-
 import biomesoplenty.api.block.BOPBlocks;
+import com.mojang.datafixers.Dynamic;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.gen.feature.AbstractFlowersFeature;
+import net.minecraft.world.gen.feature.FlowersFeature;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 
-public class MoorFlowersFeature extends AbstractFlowersFeature
+import java.util.Random;
+import java.util.function.Function;
+
+public class MoorFlowersFeature extends FlowersFeature
 {
-	public BlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_)
-	{
-         int j = p_202355_1_.nextInt(2);
-         switch(j)
-         {
-         case 0:
-            return BOPBlocks.violet.getDefaultState();
-         case 1:
-         default:
-            return Blocks.ALLIUM.getDefaultState();
-         }
-	}
+    public MoorFlowersFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserializer)
+    {
+        super(deserializer);
+    }
+
+    @Override
+    public BlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_)
+    {
+        int j = p_202355_1_.nextInt(2);
+        switch(j)
+        {
+            case 0:
+                return BOPBlocks.violet.getDefaultState();
+            case 1:
+            default:
+                return Blocks.ALLIUM.getDefaultState();
+        }
+    }
 }

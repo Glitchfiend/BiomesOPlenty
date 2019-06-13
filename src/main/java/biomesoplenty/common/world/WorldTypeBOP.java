@@ -7,19 +7,11 @@
  ******************************************************************************/
 package biomesoplenty.common.world;
 
-import net.minecraft.block.Blocks;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
-import net.minecraft.world.biome.provider.BiomeProviderType;
-import net.minecraft.world.biome.provider.EndBiomeProvider;
-import net.minecraft.world.biome.provider.EndBiomeProviderSettings;
 import net.minecraft.world.biome.provider.OverworldBiomeProviderSettings;
 import net.minecraft.world.dimension.DimensionType;
-import net.minecraft.world.dimension.EndDimension;
-import net.minecraft.world.gen.ChunkGeneratorType;
-import net.minecraft.world.gen.EndGenSettings;
-import net.minecraft.world.gen.IChunkGenerator;
+import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.OverworldGenSettings;
 
 public class WorldTypeBOP extends WorldType
@@ -30,7 +22,7 @@ public class WorldTypeBOP extends WorldType
     }
 
     @Override
-    public IChunkGenerator<?> createChunkGenerator(World world)
+    public ChunkGenerator<?> createChunkGenerator(World world)
     {
     	if (world.getDimension().getType() == DimensionType.OVERWORLD)
     	{

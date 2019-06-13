@@ -9,10 +9,10 @@ package biomesoplenty.common.world;
 
 import net.minecraft.world.IWorld;
 import net.minecraft.world.biome.provider.BiomeProvider;
-import net.minecraft.world.gen.ChunkGeneratorOverworld;
+import net.minecraft.world.gen.OverworldChunkGenerator;
 import net.minecraft.world.gen.OverworldGenSettings;
 
-public class ChunkGeneratorOverworldBOP extends ChunkGeneratorOverworld
+public class ChunkGeneratorOverworldBOP extends OverworldChunkGenerator
 {
     public ChunkGeneratorOverworldBOP(IWorld world, BiomeProvider provider, OverworldGenSettings settings)
     {

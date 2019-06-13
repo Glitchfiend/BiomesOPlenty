@@ -7,20 +7,20 @@
  ******************************************************************************/
 package biomesoplenty.common.world.gen.feature.tree;
 
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
-
-import com.google.common.collect.Lists;
-
 import biomesoplenty.common.util.block.IBlockPosQuery;
-import net.minecraft.block.BlockSapling;
+import com.google.common.collect.Lists;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.IWorld;
+import net.minecraft.world.gen.IWorldGenerationReader;
+
+import java.util.List;
+import java.util.Random;
+import java.util.Set;
 
 /*This class is heavily based on https://gist.github.com/grum/62cfdec0537e8db24eb3#file-bigtreefeature-java
 additional information has been added from http://pastebin.com/XBLdGqXQ. This class has been cross-checked*/
@@ -259,7 +259,7 @@ public class BigTreeFeature extends TreeFeatureBase
         }
     }
 
-    private void limb(Set<BlockPos> changedBlocks, BlockPos startPos, BlockPos endPos, BlockState state)
+    private void limb(Set<BlockPos> changedBlocks, MutableBoundingBox boundingBox, BlockPos startPos, BlockPos endPos, BlockState state)
     {
         // Create a limb from the start position to the end position.
         // Used for creating the branches and trunk.
@@ -285,7 +285,7 @@ public class BigTreeFeature extends TreeFeatureBase
             BlockPos blockPos = startPos.add(.5f + i * dx, .5f + i * dy, .5f + i * dz);
             Direction.Axis logAxis = getLogAxis(startPos, blockPos);
 
-            this.setLog(changedBlocks, this.world, blockPos, logAxis);
+            this.setLog(changedBlocks, this.world, blockPos, logAxis, boundingBox);
         }
     }
 
@@ -362,39 +362,39 @@ public class BigTreeFeature extends TreeFeatureBase
         return localY >= height * 0.2;
     }
 
-    private void makeTrunk(Set<BlockPos> changedBlocks)
+    private void makeTrunk(Set<BlockPos> changedBlocks, MutableBoundingBox boundingBox)
     {
         // Create the trunk of the tree.
         BlockPos start = origin;
         BlockPos end = origin.up(trunkHeight);
         BlockState materialState = this.log;
 
-        limb(changedBlocks, start, end, materialState);
+        limb(changedBlocks, boundingBox, start, end, materialState);
 
         if (trunkWidth == 2)
         {
-            limb(changedBlocks, start.east(), end.east(), materialState);
-            limb(changedBlocks, start.east().south(), end.east().south(), materialState);
-            limb(changedBlocks, start.south(), end.south(), materialState);
+            limb(changedBlocks, boundingBox, start.east(), end.east(), materialState);
+            limb(changedBlocks, boundingBox, start.east().south(), end.east().south(), materialState);
+            limb(changedBlocks, boundingBox, start.south(), end.south(), materialState);
         }
         
         if (trunkWidth == 4)
         {
-            limb(changedBlocks, start.east(), end.east(), materialState);
-            limb(changedBlocks, start.east().south(), end.east().south(), materialState);
-            limb(changedBlocks, start.south(), end.south(), materialState);
-            limb(changedBlocks, start.north(), end.north(), materialState);
-            limb(changedBlocks, start.north().east(), end.north().east(), materialState);
-            limb(changedBlocks, start.east().east(), end.east().east(), materialState);
-            limb(changedBlocks, start.south().east().east(), end.south().east().east(), materialState);
-            limb(changedBlocks, start.south().south().east(), end.south().south().east(), materialState);
-            limb(changedBlocks, start.south().south(), end.south().south(), materialState);
-            limb(changedBlocks, start.west().south(), end.west().south(), materialState);
-            limb(changedBlocks, start.west(), end.west(), materialState);
+            limb(changedBlocks, boundingBox, start.east(), end.east(), materialState);
+            limb(changedBlocks, boundingBox, start.east().south(), end.east().south(), materialState);
+            limb(changedBlocks, boundingBox, start.south(), end.south(), materialState);
+            limb(changedBlocks, boundingBox, start.north(), end.north(), materialState);
+            limb(changedBlocks, boundingBox, start.north().east(), end.north().east(), materialState);
+            limb(changedBlocks, boundingBox, start.east().east(), end.east().east(), materialState);
+            limb(changedBlocks, boundingBox, start.south().east().east(), end.south().east().east(), materialState);
+            limb(changedBlocks, boundingBox, start.south().south().east(), end.south().south().east(), materialState);
+            limb(changedBlocks, boundingBox, start.south().south(), end.south().south(), materialState);
+            limb(changedBlocks, boundingBox, start.west().south(), end.west().south(), materialState);
+            limb(changedBlocks, boundingBox, start.west(), end.west(), materialState);
         }
     }
 
-    private void makeBranches(Set<BlockPos> changedBlocks)
+    private void makeBranches(Set<BlockPos> changedBlocks, MutableBoundingBox boundingBox)
     {
         for (FoliageCoords endCoord : foliageCoords)
         {
@@ -403,7 +403,7 @@ public class BigTreeFeature extends TreeFeatureBase
 
             if (this.trimBranches(branchBase - this.origin.getY()))
             {
-                this.limb(changedBlocks, baseCoord, endCoord, this.log);
+                this.limb(changedBlocks, boundingBox, baseCoord, endCoord, this.log);
             }
         }
     }
@@ -453,12 +453,10 @@ public class BigTreeFeature extends TreeFeatureBase
         return -1;
     }
 
-
-
     @Override
-    protected boolean place(Set<BlockPos> changedBlocks, IWorld world, Random random, BlockPos startPos)
+    protected boolean place(Set<BlockPos> changedBlocks, IWorldGenerationReader world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
     {
-        this.world = world;
+        this.world = (IWorld)world; // Fuck this bullshit, we want an IWorld
         this.origin = startPos;
 
         this.random = new Random(random.nextLong());
@@ -474,8 +472,8 @@ public class BigTreeFeature extends TreeFeatureBase
         try {
             prepare();
             makeFoliage();
-            makeTrunk(changedBlocks);
-            makeBranches(changedBlocks);
+            makeTrunk(changedBlocks, boundingBox);
+            makeBranches(changedBlocks, boundingBox);
         } catch (RuntimeException e) {
             // TODO: deal with this.
         }
