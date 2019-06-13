@@ -124,12 +124,14 @@ public class BayouBiome extends BiomeBOP
     }
     
     @OnlyIn(Dist.CLIENT)
+    @Override
     public int getGrassColor(BlockPos pos)
     {
     	return 0x6FAA50;
     }
 
     @OnlyIn(Dist.CLIENT)
+    @Override
     public int getFoliageColor(BlockPos pos)
     {
     	return 0x8BDB67;

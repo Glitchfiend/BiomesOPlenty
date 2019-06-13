@@ -121,12 +121,14 @@ public class ShieldBiome extends BiomeBOP
     }
     
     @OnlyIn(Dist.CLIENT)
+    @Override
     public int getGrassColor(BlockPos pos)
     {
     	return 0x7C9B45;
     }
 
     @OnlyIn(Dist.CLIENT)
+    @Override
     public int getFoliageColor(BlockPos pos)
     {
     	return 0x8EAF4F;

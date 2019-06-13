@@ -111,6 +111,7 @@ public class OrchardBiome extends BiomeBOP
     }
 
     @OnlyIn(Dist.CLIENT)
+    @Override
     public int getFoliageColor(BlockPos pos)
     {
     	return 0xC9F75D;

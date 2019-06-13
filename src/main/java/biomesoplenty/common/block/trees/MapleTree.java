@@ -12,6 +12,7 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 public class MapleTree extends AbstractTree
 {
    @Nullable
+   @Override
    protected AbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random)
    {
       return BOPBiomeFeatures.MAPLE_TREE;

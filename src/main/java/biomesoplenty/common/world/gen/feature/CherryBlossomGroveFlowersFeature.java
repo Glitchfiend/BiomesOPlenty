@@ -17,6 +17,7 @@ import net.minecraft.world.gen.feature.AbstractFlowersFeature;
 
 public class CherryBlossomGroveFlowersFeature extends AbstractFlowersFeature
 {
+	@Override
 	public IBlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_)
 	{
          int j = p_202355_1_.nextInt(2);

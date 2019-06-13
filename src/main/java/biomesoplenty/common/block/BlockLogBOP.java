@@ -24,6 +24,7 @@ public class BlockLogBOP extends BlockLog
     * @deprecated call via {@link IBlockState#getMapColor(IBlockAccess,BlockPos)} whenever possible.
     * Implementing/overriding is fine.
     */
+   @Override
    public MaterialColor getMapColor(IBlockState state, IBlockReader worldIn, BlockPos pos)
    {
       return state.get(AXIS) == EnumFacing.Axis.Y ? this.field_196504_b : this.materialColor;

@@ -111,12 +111,14 @@ public class CherryBlossomGroveBiome extends BiomeBOP
     }
     
     @OnlyIn(Dist.CLIENT)
+    @Override
     public int getGrassColor(BlockPos pos)
     {
     	return 0x8DC87B;
     }
 
     @OnlyIn(Dist.CLIENT)
+    @Override
     public int getFoliageColor(BlockPos pos)
     {
     	return 0x69B866;

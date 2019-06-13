@@ -103,18 +103,21 @@ public class MysticGroveBiome extends BiomeBOP
     }
     
     @OnlyIn(Dist.CLIENT)
+    @Override
     public int getSkyColorByTemp(float currentTemperature)
     {
        return 0x66DBFF;
     }
     
     @OnlyIn(Dist.CLIENT)
+    @Override
     public int getGrassColor(BlockPos pos)
     {
     	return 0x69CFDB;
     }
 
     @OnlyIn(Dist.CLIENT)
+    @Override
     public int getFoliageColor(BlockPos pos)
     {
     	return 0x70E0B5;

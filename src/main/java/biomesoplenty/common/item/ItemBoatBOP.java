@@ -41,6 +41,7 @@ public class ItemBoatBOP extends Item
 	    * Called to trigger the item's "innate" right click behavior. To handle when this item is used on a Block, see
 	    * {@link #onItemUse}.
 	    */
+	   @Override
 	   public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
 	      ItemStack itemstack = playerIn.getHeldItem(handIn);
 	      float f = 1.0F;

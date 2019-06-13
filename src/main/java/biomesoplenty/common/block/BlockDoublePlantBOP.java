@@ -35,11 +35,13 @@ public class BlockDoublePlantBOP extends BlockDoublePlant implements IPlantable
         this.field_196392_b = p_i48335_1_;
     }
     
+    @Override
     public boolean isReplaceable(IBlockState state, BlockItemUseContext useContext) {
         boolean flag = super.isReplaceable(state, useContext);
         return flag && useContext.getItem().getItem() == this.asItem() ? false : flag;
      }
 
+    @Override
      protected void harvest(IBlockState p_196391_1_, World p_196391_2_, BlockPos p_196391_3_, ItemStack p_196391_4_) {
         {
            super.harvest(p_196391_1_, p_196391_2_, p_196391_3_, p_196391_4_);
@@ -47,6 +49,7 @@ public class BlockDoublePlantBOP extends BlockDoublePlant implements IPlantable
 
      }
 
+    @Override
      public IItemProvider getItemDropped(IBlockState state, World worldIn, BlockPos pos, int fortune) {
         return state.get(field_208063_b) == DoubleBlockHalf.LOWER && this == Blocks.TALL_GRASS && worldIn.rand.nextInt(8) == 0 ? Items.WHEAT_SEEDS : Items.AIR;
      }

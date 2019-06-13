@@ -47,7 +47,7 @@ public class ColdDesertBiome extends BiomeBOP
 {
     public ColdDesertBiome()
     {
-        super((new Biome.BiomeBuilder()).surfaceBuilder(new CompositeSurfaceBuilder(BOPBiomeFeatures.COLD_DESERT_SURFACE_BUILDER, GRAVEL_SURFACE)).precipitation(Biome.RainType.NONE).category(Biome.Category.ICY).depth(0.0F).scale(0.0F).temperature(-0.25F).downfall(0.0F).waterColor(4159204).waterFogColor(329011).parent((String)null));
+        super((new Biome.BiomeBuilder()).surfaceBuilder(new CompositeSurfaceBuilder(BOPBiomeFeatures.COLD_DESERT_SURFACE_BUILDER, GRAVEL_SURFACE)).precipitation(Biome.RainType.NONE).category(Biome.Category.ICY).depth(0.05F).scale(0.0F).temperature(0.2F).downfall(0.0F).waterColor(4159204).waterFogColor(329011).parent((String)null));
 
         // Mineshafts and Strongholds
         this.addStructure(Feature.IGLOO, new IglooConfig());
@@ -100,18 +100,20 @@ public class ColdDesertBiome extends BiomeBOP
         this.addSpawn(EnumCreatureType.MONSTER, new Biome.SpawnListEntry(EntityType.STRAY, 80, 4, 4));
         
         this.addWeight(BOPClimates.ICE_CAP, 10);
-        this.setBeachBiome(Biomes.SNOWY_BEACH);
-        this.setRiverBiome(Biomes.FROZEN_RIVER);
+        this.setBeachBiome((Biome)null);
+        this.setRiverBiome((Biome)null);
         this.canSpawnInBiome = false;
     }
     
     @OnlyIn(Dist.CLIENT)
+    @Override
     public int getGrassColor(BlockPos pos)
     {
     	return 0xAD9364;
     }
 
     @OnlyIn(Dist.CLIENT)
+    @Override
     public int getFoliageColor(BlockPos pos)
     {
     	return 0xB5A76C;

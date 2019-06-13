@@ -11,6 +11,7 @@ import net.minecraft.world.gen.feature.Feature;
 
 public class SplotchFeature extends Feature<SplotchConfig>
 {
+   @Override
    public boolean place(IWorld p_212245_1_, IChunkGenerator<? extends IChunkGenSettings> p_212245_2_, Random p_212245_3_, BlockPos p_212245_4_, SplotchConfig p_212245_5_)
    {
      int i = 0;

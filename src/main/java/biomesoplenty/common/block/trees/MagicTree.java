@@ -12,6 +12,7 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 public class MagicTree extends AbstractTree
 {
 	   @Nullable
+	   @Override
 	   protected AbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random)
 	   {
 	      return (AbstractTreeFeature<NoFeatureConfig>)(random.nextInt(10) == 0 ? BOPBiomeFeatures.BIG_MAGIC_TREE : BOPBiomeFeatures.MAGIC_TREE);

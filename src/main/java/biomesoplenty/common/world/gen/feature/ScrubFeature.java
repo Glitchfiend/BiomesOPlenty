@@ -13,6 +13,7 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 
 public class ScrubFeature extends Feature<NoFeatureConfig>
 {
+   @Override
    public boolean place(IWorld p_212245_1_, IChunkGenerator<? extends IChunkGenSettings> p_212245_2_, Random p_212245_3_, BlockPos p_212245_4_, NoFeatureConfig p_212245_5_)
    {
       int i = 0;

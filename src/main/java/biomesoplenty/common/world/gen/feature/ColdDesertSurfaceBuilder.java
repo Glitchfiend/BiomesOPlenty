@@ -17,11 +17,12 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
 public class ColdDesertSurfaceBuilder implements ISurfaceBuilder<SurfaceBuilderConfig>
 {
+	 @Override
 	 public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, IBlockState defaultBlock, IBlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config)
 	 {
 	      if (noise > 2.6D)
 	      {
-	         Biome.DEFAULT_SURFACE_BUILDER.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BOPBiomeFeatures.PACKED_ICE_SURFACE);
+	         Biome.DEFAULT_SURFACE_BUILDER.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BOPBiomeFeatures.SNOW_SNOW_GRAVEL_SURFACE);
 	      }
 	      else
 	      {

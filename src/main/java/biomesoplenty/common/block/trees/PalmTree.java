@@ -12,6 +12,7 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 public class PalmTree extends AbstractTree
 {
    @Nullable
+   @Override
    protected AbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random)
    {
       return BOPBiomeFeatures.PALM_TREE;

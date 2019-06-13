@@ -17,8 +17,9 @@ import net.minecraft.world.gen.feature.AbstractFlowersFeature;
 
 public class OriginFlowersFeature extends AbstractFlowersFeature
 {
-	   public IBlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_)
-	   {
-	      return p_202355_1_.nextFloat() > 0.6666667F ? Blocks.DANDELION.getDefaultState() : BOPBlocks.rose.getDefaultState();
-	   }
+	@Override
+	public IBlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_)
+	{
+	    return p_202355_1_.nextFloat() > 0.6666667F ? Blocks.DANDELION.getDefaultState() : BOPBlocks.rose.getDefaultState();
 	}
+}
