@@ -43,6 +43,7 @@ import biomesoplenty.common.biome.overworld.OrchardBiome;
 import biomesoplenty.common.biome.overworld.HighlandBiome;
 import biomesoplenty.common.biome.overworld.MoorBiome;
 import biomesoplenty.common.biome.overworld.LavenderFieldBiome;
+import biomesoplenty.common.biome.overworld.LushGrasslandBiome;
 import biomesoplenty.common.biome.overworld.LushSwampBiome;
 import biomesoplenty.common.biome.overworld.MangroveBiome;
 import biomesoplenty.common.biome.overworld.MapleWoodsBiome;
@@ -131,6 +132,7 @@ public class ModBiomes
         orchard = registerBiome(new OrchardBiome(), "orchard");
         highland = registerBiome(new HighlandBiome(), "highland");
         lavender_field = registerBiome(new LavenderFieldBiome(), "lavender_field");
+        lush_grassland = registerBiome(new LushGrasslandBiome(), "lush_grassland");
         lush_swamp = registerBiome(new LushSwampBiome(), "lush_swamp");
         mangrove = registerBiome(new MangroveBiome(), "mangrove");
         maple_woods = registerBiome(new MapleWoodsBiome(), "maple_woods");
@@ -212,6 +214,7 @@ public class ModBiomes
         registerBiomeToDictionary(BOPBiomes.grove, Type.FOREST, Type.PLAINS, Type.LUSH, Type.SPARSE);   
         registerBiomeToDictionary(BOPBiomes.highland, Type.MOUNTAIN, Type.HILLS, Type.WET);
         registerBiomeToDictionary(BOPBiomes.lavender_field, Type.PLAINS, Type.MAGICAL, Type.LUSH);
+        registerBiomeToDictionary(BOPBiomes.lush_grassland, Type.JUNGLE, Type.PLAINS, Type.HILLS, Type.WET, Type.HOT, Type.LUSH);    
         registerBiomeToDictionary(BOPBiomes.lush_swamp, Type.SWAMP, Type.LUSH, Type.WET, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.mangrove, Type.WATER, Type.WET, Type.DENSE, Type.LUSH);
         registerBiomeToDictionary(BOPBiomes.maple_woods, Type.FOREST, Type.CONIFEROUS, Type.COLD, Type.DENSE);

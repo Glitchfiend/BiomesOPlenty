@@ -18,20 +18,18 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.AbstractFlowersFeature;
 
-public class SnowyFlowersFeature extends AbstractFlowersFeature
+public class LushGrasslandFlowersFeature extends AbstractFlowersFeature
 {
 	public IBlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_)
 	{
-         int j = p_202355_1_.nextInt(3);
+         int j = p_202355_1_.nextInt(2);
          switch(j)
          {
          case 0:
-            return BOPBlocks.violet.getDefaultState();
+            return BOPBlocks.orange_cosmos.getDefaultState();
          case 1:
-            return Blocks.POPPY.getDefaultState();
-         case 2:
          default:
-            return Blocks.DANDELION.getDefaultState();
+            return Blocks.OXEYE_DAISY.getDefaultState();
          }
 	}
 }

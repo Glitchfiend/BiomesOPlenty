@@ -490,9 +490,18 @@ public class BigTreeFeature extends TreeFeatureBase
     {
         BlockPos startPos = this.origin.down();
 
-        for (int x = 0; x <= trunkWidth - 1; x++)
+        int start = 0;
+        int end = trunkWidth - 1;
+        
+        if (trunkWidth == 4)
         {
-            for (int z = 0; z <= trunkWidth - 1; z++)
+        	start = -1;
+        	end = trunkWidth - 2;
+        }
+        
+        for (int x = start; x <= end; x++)
+        {
+            for (int z = start; z <= end; z++)
             {
             	if (!this.placeOn.matches(world, startPos.add(x,0,z)))
             	{

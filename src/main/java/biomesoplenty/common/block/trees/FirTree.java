@@ -14,12 +14,12 @@ public class FirTree extends AbstractTree
    @Nullable
    protected AbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random)
    {
-      return BOPBiomeFeatures.CONIFEROUS_TREE;
+      return BOPBiomeFeatures.FIR_TREE;
    }
 
    @Nullable
    protected AbstractTreeFeature<NoFeatureConfig> getBigTreeFeature(Random random)
    {
-	   return BOPBiomeFeatures.CONIFEROUS_TREE_LARGE;
+	   return BOPBiomeFeatures.FIR_TREE_LARGE;
    }
 }

@@ -9,27 +9,22 @@ package biomesoplenty.common.world.gen.feature;
 
 import java.util.Random;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.AbstractFlowersFeature;
 
 public class FlowerMeadowFlowersFeature extends AbstractFlowersFeature
 {
-	public IBlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_)
-	{
-         int j = p_202355_1_.nextInt(4);
-         switch(j)
-         {
-         case 0:
-            return Blocks.ORANGE_TULIP.getDefaultState();
-         case 1:
-            return Blocks.RED_TULIP.getDefaultState();
-         case 2:
-            return Blocks.PINK_TULIP.getDefaultState();
-         case 3:
-         default:
-            return Blocks.WHITE_TULIP.getDefaultState();
-         }
-	}
+	   private static final Block[] FLOWERS = new Block[]{Blocks.ORANGE_TULIP, Blocks.WHITE_TULIP, Blocks.PINK_TULIP, Blocks.RED_TULIP};
+
+	   public IBlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_)
+	   {
+	      double d0 = MathHelper.clamp((1.0D + Biome.INFO_NOISE.getValue((double)p_202355_2_.getX() / 48.0D, (double)p_202355_2_.getZ() / 48.0D)) / 2.0D, 0.0D, 0.9999D);
+	      Block block = FLOWERS[(int)(d0 * (double)FLOWERS.length)];
+	      return block.getDefaultState();
+	   }
 }
