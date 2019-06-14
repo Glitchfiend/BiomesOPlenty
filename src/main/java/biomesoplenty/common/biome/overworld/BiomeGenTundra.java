@@ -40,6 +40,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 
+import java.util.Locale;
+
 public class BiomeGenTundra extends BOPOverworldBiome
 {    
 	public enum TundraType {TUNDRA, SNOWY_TUNDRA}
@@ -48,7 +50,7 @@ public class BiomeGenTundra extends BOPOverworldBiome
 	
     public BiomeGenTundra(TundraType type)
     {
-        super(type.name().toLowerCase(), new PropsBuilder(CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, type.toString())).withGuiColour(0xA09456).withTemperature((type == TundraType.TUNDRA) ? 0.2F : 0.0F).withRainfall(0.5F));
+        super(type.name().toLowerCase(Locale.ENGLISH), new PropsBuilder(CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, type.toString())).withGuiColour(0xA09456).withTemperature((type == TundraType.TUNDRA) ? 0.2F : 0.0F).withRainfall(0.5F));
 
         this.type = type;
         

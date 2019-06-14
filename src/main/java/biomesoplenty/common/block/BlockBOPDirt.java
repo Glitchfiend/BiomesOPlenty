@@ -8,6 +8,7 @@
 
 package biomesoplenty.common.block;
 
+import java.util.Locale;
 import java.util.Random;
 
 import biomesoplenty.api.block.BOPBlocks;
@@ -43,7 +44,7 @@ public class BlockBOPDirt extends Block implements IBOPBlock, ISustainsPlantType
         @Override
         public String getName()
         {
-            return this.name().toLowerCase();
+            return this.name().toLowerCase(Locale.ENGLISH);
         }
         @Override
         public String toString()

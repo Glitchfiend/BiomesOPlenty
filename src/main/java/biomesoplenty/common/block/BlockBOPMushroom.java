@@ -25,6 +25,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.util.Locale;
+
 // TODO: mushroom spreading? giant mushrooms with bonemeal? mushrooms popping if too bright?
 public class BlockBOPMushroom extends BlockBOPDecoration
 {
@@ -35,7 +37,7 @@ public class BlockBOPMushroom extends BlockBOPDecoration
         @Override
         public String getName()
         {
-            return this.name().toLowerCase();
+            return this.name().toLowerCase(Locale.ENGLISH);
         }
         @Override
         public String toString()

@@ -10,6 +10,8 @@ package biomesoplenty.api.enums;
 
 import net.minecraft.util.IStringSerializable;
 
+import java.util.Locale;
+
 public enum BOPPlants implements IStringSerializable, IPagedVariants
 {
     
@@ -17,7 +19,7 @@ public enum BOPPlants implements IStringSerializable, IPagedVariants
     
     @Override
     public String getName() {
-        return this.name().toLowerCase();
+        return this.name().toLowerCase(Locale.ENGLISH);
     }
     @Override
     public String toString()

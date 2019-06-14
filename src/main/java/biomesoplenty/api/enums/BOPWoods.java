@@ -12,6 +12,8 @@ import com.google.common.base.Predicate;
 
 import net.minecraft.util.IStringSerializable;
 
+import java.util.Locale;
+
 public enum BOPWoods implements IStringSerializable, IPagedVariants
 {
     
@@ -19,7 +21,7 @@ public enum BOPWoods implements IStringSerializable, IPagedVariants
     
     @Override
     public String getName() {
-        return this.name().toLowerCase();
+        return this.name().toLowerCase(Locale.ENGLISH);
     }
     @Override
     public String toString()

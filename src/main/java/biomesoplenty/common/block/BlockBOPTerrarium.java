@@ -28,6 +28,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.util.Locale;
+
 public class BlockBOPTerrarium extends Block implements IBOPBlock
 {
 	protected static final AxisAlignedBB BOUNDING_BOX = new AxisAlignedBB(0.25D, 0.0D, 0.25D, 0.75D, 0.75D, 0.75D);
@@ -39,7 +41,7 @@ public class BlockBOPTerrarium extends Block implements IBOPBlock
         @Override
         public String getName()
         {
-            return this.name().toLowerCase();
+            return this.name().toLowerCase(Locale.ENGLISH);
         }
         @Override
         public String toString()

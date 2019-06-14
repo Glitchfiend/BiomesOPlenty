@@ -8,6 +8,7 @@
 
 package biomesoplenty.common.block;
 
+import java.util.Locale;
 import java.util.Random;
 
 import javax.annotation.Nullable;
@@ -55,7 +56,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock, ISustainsPla
         @Override
         public String getName()
         {
-            return this.name().toLowerCase();
+            return this.name().toLowerCase(Locale.ENGLISH);
         }
         @Override
         public String toString()

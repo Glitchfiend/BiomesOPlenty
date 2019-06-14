@@ -37,6 +37,8 @@ import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.Biome;
 
+import java.util.Locale;
+
 public class BiomeGenMountain extends BOPOverworldBiome
 {
     
@@ -50,7 +52,7 @@ public class BiomeGenMountain extends BOPOverworldBiome
         
     public BiomeGenMountain(MountainType type)
     {
-        super(type.name().toLowerCase(), new PropsBuilder(CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, type.toString())).withGuiColour(0x80A355).withTemperature(0.5F).withRainfall(0.1F));
+        super(type.name().toLowerCase(Locale.ENGLISH), new PropsBuilder(CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, type.toString())).withGuiColour(0x80A355).withTemperature(0.5F).withRainfall(0.1F));
         
         this.type = type;
         

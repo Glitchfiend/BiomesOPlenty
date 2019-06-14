@@ -9,6 +9,7 @@
 package biomesoplenty.common.block;
 
 import java.util.List;
+import java.util.Locale;
 
 import com.google.common.collect.ImmutableSet;
 
@@ -48,7 +49,7 @@ public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements ISh
         @Override
         public String getName()
         {
-            return this.name().toLowerCase();
+            return this.name().toLowerCase(Locale.ENGLISH);
         }
         @Override
         public String toString()

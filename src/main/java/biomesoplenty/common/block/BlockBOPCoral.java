@@ -21,6 +21,8 @@ import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import java.util.Locale;
+
 public class BlockBOPCoral extends BlockBOPDecoration
 {
     
@@ -30,7 +32,7 @@ public class BlockBOPCoral extends BlockBOPDecoration
         @Override
         public String getName()
         {
-            return this.name().toLowerCase();
+            return this.name().toLowerCase(Locale.ENGLISH);
         }
         @Override
         public String toString()
