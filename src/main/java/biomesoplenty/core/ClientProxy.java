@@ -156,7 +156,7 @@ public class ClientProxy extends CommonProxy
     @Override
     public void registerFluidBlockRendering(Block block, String name) 
     {
-        final ModelResourceLocation fluidLocation = new ModelResourceLocation(BiomesOPlenty.MOD_ID.toLowerCase() + ":fluids", name);
+        final ModelResourceLocation fluidLocation = new ModelResourceLocation(BiomesOPlenty.MOD_ID + ":fluids", name);
 
         // use a custom state mapper which will ignore the LEVEL property
         ModelLoader.setCustomStateMapper(block, new StateMapperBase()

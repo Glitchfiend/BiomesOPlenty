@@ -35,10 +35,10 @@ public class GuiBOPFactory extends DefaultGuiFactory
     {
         List<IConfigElement> list = new ArrayList<IConfigElement>();
 
-        List<IConfigElement> convenience_settings = new ConfigElement(GameplayConfigurationHandler.config.getCategory(CONVENIENCE_SETTINGS.toLowerCase())).getChildElements();
-        List<IConfigElement> gui_settings = new ConfigElement(config.getCategory(GUI_SETTINGS.toLowerCase())).getChildElements();
-        List<IConfigElement> texture_settings = new ConfigElement(config.getCategory(VISUAL_SETTINGS.toLowerCase())).getChildElements();
-        List<IConfigElement> trail_settings = new ConfigElement(config.getCategory(TRAIL_SETTINGS.toLowerCase())).getChildElements();
+        List<IConfigElement> convenience_settings = new ConfigElement(GameplayConfigurationHandler.config.getCategory(CONVENIENCE_SETTINGS)).getChildElements();
+        List<IConfigElement> gui_settings = new ConfigElement(config.getCategory(GUI_SETTINGS)).getChildElements();
+        List<IConfigElement> texture_settings = new ConfigElement(config.getCategory(VISUAL_SETTINGS)).getChildElements();
+        List<IConfigElement> trail_settings = new ConfigElement(config.getCategory(TRAIL_SETTINGS)).getChildElements();
 
         list.add(new DummyCategoryElement(I18n.translateToLocal("config.category.convenienceSettings.title"), "config.category.convenienceSettings", convenience_settings));
         list.add(new DummyCategoryElement(I18n.translateToLocal("config.category.guiSettings.title"), "config.category.guiSettings", gui_settings));
