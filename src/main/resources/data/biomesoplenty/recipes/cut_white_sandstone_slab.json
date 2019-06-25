@@ -5,11 +5,11 @@
   ],
   "key": {
     "#": {
-      "item": "biomesoplenty:mud_brick_block"
+      "item": "biomesoplenty:cut_white_sandstone"
     }
   },
   "result": {
-    "item": "biomesoplenty:mud_brick_slab",
+    "item": "biomesoplenty:cut_white_sandstone_slab",
     "count": 6
   }
 }

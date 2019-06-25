@@ -34,9 +34,9 @@ public class ModBlocks
         white_sandstone_stairs = registerBlock(new BlockStairsBOP(white_sandstone.getDefaultState(), Block.Properties.from(white_sandstone)), "white_sandstone_stairs");
     	
         mud = registerBlock(new BlockMud(Block.Properties.create(Material.EARTH, MaterialColor.BROWN_TERRACOTTA).hardnessAndResistance(0.6F)), "mud");
-        mud_brick_block = registerBlock(new Block(Block.Properties.create(Material.ROCK, MaterialColor.BROWN_TERRACOTTA).hardnessAndResistance(1.0F)), "mud_brick_block");
+        mud_bricks = registerBlock(new Block(Block.Properties.create(Material.ROCK, MaterialColor.BROWN_TERRACOTTA).hardnessAndResistance(1.0F)), "mud_bricks");
         mud_brick_slab = registerBlock(new BlockSlabBOP(Block.Properties.create(Material.ROCK, MaterialColor.BROWN_TERRACOTTA).hardnessAndResistance(2.0F, 6.0F)), "mud_brick_slab");
-        mud_brick_stairs = registerBlock(new BlockStairsBOP(mud_brick_block.getDefaultState(), Block.Properties.from(mud_brick_block)), "mud_brick_stairs");
+        mud_brick_stairs = registerBlock(new BlockStairsBOP(mud_bricks.getDefaultState(), Block.Properties.from(mud_bricks)), "mud_brick_stairs");
         
         dried_sand = registerBlock(new BlockDriedSand(Block.Properties.create(Material.EARTH, MaterialColor.WOOD).hardnessAndResistance(1.0F)), "dried_sand");
         ash_block = registerBlock(new BlockAsh(Block.Properties.create(Material.SAND, MaterialColor.BLACK_TERRACOTTA).hardnessAndResistance(0.4F).sound(SoundType.SAND)), "ash_block");

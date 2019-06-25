@@ -1,12 +1,6 @@
 {
   "replace": false,
   "values": [
-    "minecraft:oak_planks",
-    "minecraft:spruce_planks",
-    "minecraft:birch_planks",
-    "minecraft:jungle_planks",
-    "minecraft:acacia_planks",
-    "minecraft:dark_oak_planks",
     "biomesoplenty:fir_planks",
 	"biomesoplenty:redwood_planks",
 	"biomesoplenty:cherry_planks",

@@ -20,7 +20,7 @@ public class BOPBlocks
     public static Block white_sandstone_stairs;
     
     public static Block mud;
-    public static Block mud_brick_block;
+    public static Block mud_bricks;
     public static Block mud_brick_slab;
     public static Block mud_brick_stairs;
     

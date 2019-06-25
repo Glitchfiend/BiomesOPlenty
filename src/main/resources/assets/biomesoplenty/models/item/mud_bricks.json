@@ -1,5 +1,5 @@
 {
-    "parent": "biomesoplenty:block/mud_brick_block",
+    "parent": "biomesoplenty:block/mud_bricks",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

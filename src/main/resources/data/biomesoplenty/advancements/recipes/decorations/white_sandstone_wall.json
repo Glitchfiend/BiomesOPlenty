@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "biomesoplenty:white_sandstone_wall"
+    ]
+  },
+  "criteria": {
+    "has_white_sandstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "biomesoplenty:white_sandstone"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "biomesoplenty:white_sandstone_wall"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_white_sandstone",
+      "has_the_recipe"
+    ]
+  ]
+}

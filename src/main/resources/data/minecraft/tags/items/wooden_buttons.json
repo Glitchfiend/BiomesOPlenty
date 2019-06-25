@@ -1,12 +1,6 @@
 {
   "replace": false,
   "values": [
-    "minecraft:oak_button",
-    "minecraft:spruce_button",
-    "minecraft:birch_button",
-    "minecraft:jungle_button",
-    "minecraft:acacia_button",
-    "minecraft:dark_oak_button",
     "biomesoplenty:fir_button",
 	"biomesoplenty:redwood_button",
 	"biomesoplenty:cherry_button",

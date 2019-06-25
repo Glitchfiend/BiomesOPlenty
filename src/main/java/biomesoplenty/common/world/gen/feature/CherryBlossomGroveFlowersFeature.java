@@ -35,7 +35,7 @@ public class CherryBlossomGroveFlowersFeature extends FlowersFeature
             return BOPBlocks.pink_daffodil.getDefaultState();
          case 1:
          default:
-            return Blocks.OXEYE_DAISY.getDefaultState();
+            return Blocks.LILY_OF_THE_VALLEY.getDefaultState();
          }
 	}
 }

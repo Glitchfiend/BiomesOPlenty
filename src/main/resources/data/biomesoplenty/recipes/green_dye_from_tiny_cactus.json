@@ -3,7 +3,7 @@
   "ingredient": {
     "item": "biomesoplenty:tiny_cactus"
   },
-  "result": "minecraft:cactus_green",
+  "result": "minecraft:green_dye",
   "experience": 1.0,
   "cookingtime": 200
 }

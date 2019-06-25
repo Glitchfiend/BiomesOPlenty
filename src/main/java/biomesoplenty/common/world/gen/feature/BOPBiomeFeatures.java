@@ -118,6 +118,7 @@ public class BOPBiomeFeatures
 	//Flowers
 	public static final FlowersFeature CHAPARRAL_FLOWERS = new ChaparralFlowersFeature(NoFeatureConfig::deserialize);
 	public static final FlowersFeature CHERRY_BLOSSOM_GROVE_FLOWERS = new CherryBlossomGroveFlowersFeature(NoFeatureConfig::deserialize);
+	public static final FlowersFeature CONIFEROUS_FOREST_FLOWERS = new ConiferousForestFlowersFeature(NoFeatureConfig::deserialize);
 	public static final FlowersFeature EXTENDED_FLOWERS = new ExtendedFlowersFeature(NoFeatureConfig::deserialize);
 	public static final FlowersFeature FLOWER_MEADOW_FLOWERS = new FlowerMeadowFlowersFeature(NoFeatureConfig::deserialize);
 	public static final FlowersFeature JUNGLE_FLOWERS = new JungleFlowersFeature(NoFeatureConfig::deserialize);
@@ -127,6 +128,7 @@ public class BOPBiomeFeatures
 	public static final FlowersFeature MEADOW_FLOWERS = new MeadowFlowersFeature(NoFeatureConfig::deserialize);
 	public static final FlowersFeature MOOR_FLOWERS = new MoorFlowersFeature(NoFeatureConfig::deserialize);
 	public static final FlowersFeature MYSTIC_GROVE_FLOWERS = new MysticGroveFlowersFeature(NoFeatureConfig::deserialize);
+	public static final FlowersFeature OMINOUS_WOODS_FLOWERS = new OminousWoodsFlowersFeature(NoFeatureConfig::deserialize);
 	public static final FlowersFeature ORIGIN_FLOWERS = new OriginFlowersFeature(NoFeatureConfig::deserialize);
 	public static final FlowersFeature PRAIRIE_FLOWERS = new PrairieFlowersFeature(NoFeatureConfig::deserialize);
 	public static final FlowersFeature RAINFOREST_FLOWERS = new RainforestFlowersFeature(NoFeatureConfig::deserialize);

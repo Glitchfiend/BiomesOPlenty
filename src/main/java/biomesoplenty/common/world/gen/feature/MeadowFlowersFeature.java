@@ -22,7 +22,7 @@ import java.util.function.Function;
 
 public class MeadowFlowersFeature extends FlowersFeature
 {
-	private static final Block[] FLOWERS = new Block[]{Blocks.OXEYE_DAISY, Blocks.AZURE_BLUET, Blocks.DANDELION, Blocks.POPPY};
+	private static final Block[] FLOWERS = new Block[]{Blocks.LILY_OF_THE_VALLEY, Blocks.AZURE_BLUET, Blocks.DANDELION, Blocks.POPPY};
 
 	public MeadowFlowersFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserializer)
 	{

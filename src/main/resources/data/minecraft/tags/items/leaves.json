@@ -1,12 +1,6 @@
 {
   "replace": false,
   "values": [
-    "minecraft:jungle_leaves",
-    "minecraft:oak_leaves",
-    "minecraft:spruce_leaves",
-    "minecraft:dark_oak_leaves",
-    "minecraft:acacia_leaves",
-    "minecraft:birch_leaves",
     "biomesoplenty:origin_leaves",
 	"biomesoplenty:flowering_oak_leaves",
 	"biomesoplenty:yellow_autumn_leaves",

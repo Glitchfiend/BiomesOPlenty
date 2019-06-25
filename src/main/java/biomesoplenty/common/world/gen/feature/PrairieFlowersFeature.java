@@ -11,6 +11,7 @@ import biomesoplenty.api.block.BOPBlocks;
 import com.mojang.datafixers.Dynamic;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.biome.Biome;
@@ -22,7 +23,7 @@ import java.util.function.Function;
 
 public class PrairieFlowersFeature extends FlowersFeature
 {
-	private static final Block[] FLOWERS = new Block[]{BOPBlocks.goldenrod};
+	private static final Block[] FLOWERS = new Block[]{Blocks.CORNFLOWER, BOPBlocks.goldenrod};
 
 	public PrairieFlowersFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserializer)
 	{
