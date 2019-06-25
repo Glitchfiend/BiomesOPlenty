@@ -12,13 +12,13 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import static biomesoplenty.api.sound.BOPSounds.records_wanderer;
+import static biomesoplenty.api.sound.BOPSounds.music_disc_wanderer;
 
 public class ModSounds
 {
     public static void init()
     {
-        records_wanderer = registerSound("records.wanderer");
+        music_disc_wanderer = registerSound("music_disc.wanderer");
     }
 
     private static SoundEvent registerSound(String soundName)

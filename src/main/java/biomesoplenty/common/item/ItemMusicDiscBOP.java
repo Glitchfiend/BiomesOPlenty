@@ -10,12 +10,13 @@ package biomesoplenty.common.item;
 import biomesoplenty.common.util.inventory.ItemGroupBOP;
 import net.minecraft.item.Item;
 import net.minecraft.item.MusicDiscItem;
+import net.minecraft.item.Rarity;
 import net.minecraft.util.SoundEvent;
 
-public class ItemRecordBOP extends MusicDiscItem
+public class ItemMusicDiscBOP extends MusicDiscItem
 {
-    public ItemRecordBOP(SoundEvent record)
+    public ItemMusicDiscBOP(SoundEvent record)
     {
-        super(0, record, new Item.Properties().group(ItemGroupBOP.instance));
+        super(0, record, new Item.Properties().group(ItemGroupBOP.instance).rarity(Rarity.RARE));
     }
 }

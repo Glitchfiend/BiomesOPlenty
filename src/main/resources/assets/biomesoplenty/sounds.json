@@ -1,8 +1,8 @@
 {
-  "records.wanderer": {
+  "music_disc.wanderer": {
     "sounds": [
       {
-        "name": "biomesoplenty:records/wanderer",
+        "name": "biomesoplenty:music_disc/wanderer",
         "stream": true
       }
     ]
