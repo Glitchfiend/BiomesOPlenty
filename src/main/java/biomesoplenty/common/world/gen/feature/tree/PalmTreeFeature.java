@@ -7,21 +7,18 @@
  ******************************************************************************/
 package biomesoplenty.common.world.gen.feature.tree;
 
-import java.util.Random;
-import java.util.Set;
-
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.biome.GeneratorUtil;
 import biomesoplenty.common.util.block.IBlockPosQuery;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockLeaves;
-import net.minecraft.block.BlockSapling;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.IWorld;
+
+import java.util.Random;
+import java.util.Set;
 
 public class PalmTreeFeature extends TreeFeatureBase
 {
@@ -32,12 +29,12 @@ public class PalmTreeFeature extends TreeFeatureBase
         	this.placeOn = (world, pos) ->
         	{
         		Block ground = world.getBlockState(pos).getBlock();
-        		return (world.getBlockState(pos).canSustainPlant(world, pos, Direction.UP, (BlockSapling)Blocks.OAK_SAPLING) || (ground == BOPBlocks.white_sand || ground == Blocks.RED_SAND || ground == Blocks.SAND));
+        		return (world.getBlockState(pos).canSustainPlant(world, pos, Direction.UP, (SaplingBlock)Blocks.OAK_SAPLING) || (ground == BOPBlocks.white_sand || ground == Blocks.RED_SAND || ground == Blocks.SAND));
         	};
             this.minHeight = 10;
             this.maxHeight = 14;
             this.log = BOPBlocks.palm_log.getDefaultState();
-            this.leaves = BOPBlocks.palm_leaves.getDefaultState().with(BlockLeaves.PERSISTENT, true);
+            this.leaves = BOPBlocks.palm_leaves.getDefaultState().with(LeavesBlock.PERSISTENT, true);
         }
 
         @Override
@@ -54,7 +51,7 @@ public class PalmTreeFeature extends TreeFeatureBase
     }
 
     @Override
-    protected boolean place(Set<BlockPos> changedBlocks, IWorld world, Random random, BlockPos startPos)
+    protected boolean place(Set<BlockPos> changedBlocks, IWorld world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
     {
         // Move down until we reach the ground
     	while (startPos.getY() > 1 && world.isAirBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES) {startPos = startPos.down();}
@@ -104,12 +101,12 @@ public class PalmTreeFeature extends TreeFeatureBase
             if (step == heightMinusTop)
             {
                 // Generate top of tree
-                this.setLog(changedBlocks, world, offsetPos);
+                this.setLog(changedBlocks, world, offsetPos, boundingBox);
                 generateLeavesTop(world, offsetPos, leavesRadius);
                 break;
             }
             
-            this.setLog(changedBlocks, world, offsetPos);
+            this.setLog(changedBlocks, world, offsetPos, boundingBox);
             
             //As the height increases, slant more drastically
             slantOffset *= slantMultiplier;

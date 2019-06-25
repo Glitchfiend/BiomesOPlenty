@@ -16,6 +16,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.IWorld;
 
 import java.util.Random;
@@ -107,7 +108,7 @@ public class RedwoodTreeFeature extends TreeFeatureBase
         }
     }
 
-    public void generateBranch(Set<BlockPos> changedBlocks, IWorld world, Random rand, BlockPos pos, Direction direction, int length)
+    public void generateBranch(Set<BlockPos> changedBlocks, MutableBoundingBox boundingBox, IWorld world, Random rand, BlockPos pos, Direction direction, int length)
     {
         Direction.Axis axis = direction.getAxis();
         Direction sideways = direction.rotateY();
@@ -127,14 +128,14 @@ public class RedwoodTreeFeature extends TreeFeatureBase
                 this.setLeaves(world, pos1.up());
                 this.setLeaves(world, pos1.up().offset(sideways, -1));
                 this.setLeaves(world, pos1.up().offset(sideways, 1));
-                this.setLog(changedBlocks, world, pos1, axis);
+                this.setLog(changedBlocks, world, pos1, axis, boundingBox);
             }
         }
     }
 
 
     @Override
-    protected boolean place(Set<BlockPos> changedBlocks, IWorld world, Random random, BlockPos startPos)
+    protected boolean place(Set<BlockPos> changedBlocks, IWorld world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
     {
         // Move down until we reach the ground
         while (startPos.getY() > 1 && world.isAirBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES) {startPos = startPos.down();}
@@ -190,10 +191,10 @@ public class RedwoodTreeFeature extends TreeFeatureBase
             }
             else
             {
-	            this.generateBranch(changedBlocks, world, random, pos.add(trunkStart, 0, trunkStart), Direction.NORTH, radius);
-	            this.generateBranch(changedBlocks, world, random, pos.add(trunkEnd, 0, trunkStart), Direction.EAST, radius);
-	            this.generateBranch(changedBlocks, world, random, pos.add(trunkEnd, 0, trunkEnd), Direction.SOUTH, radius);
-	            this.generateBranch(changedBlocks, world, random, pos.add(trunkStart, 0, trunkEnd), Direction.WEST, radius);
+	            this.generateBranch(changedBlocks, boundingBox, world, random, pos.add(trunkStart, 0, trunkStart), Direction.NORTH, radius);
+	            this.generateBranch(changedBlocks, boundingBox, world, random, pos.add(trunkEnd, 0, trunkStart), Direction.EAST, radius);
+	            this.generateBranch(changedBlocks, boundingBox, world, random, pos.add(trunkEnd, 0, trunkEnd), Direction.SOUTH, radius);
+	            this.generateBranch(changedBlocks, boundingBox, world, random, pos.add(trunkStart, 0, trunkEnd), Direction.WEST, radius);
             }
             pos = pos.down();
         }
@@ -215,7 +216,7 @@ public class RedwoodTreeFeature extends TreeFeatureBase
             {
                 for (int z = trunkStart; z <= trunkEnd; z++)
                 {
-                    this.setLog(changedBlocks, world, startPos.add(x, y, z));
+                    this.setLog(changedBlocks, world, startPos.add(x, y, z), boundingBox);
                 }
             }
         }

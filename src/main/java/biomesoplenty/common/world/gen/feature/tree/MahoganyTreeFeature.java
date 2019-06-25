@@ -7,14 +7,15 @@
  ******************************************************************************/
 package biomesoplenty.common.world.gen.feature.tree;
 
-import java.util.Set;
-
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.IWorld;
+
+import java.util.Set;
 
 public class MahoganyTreeFeature extends BasicTreeFeature
 {
@@ -45,7 +46,7 @@ public class MahoganyTreeFeature extends BasicTreeFeature
     }
 
     @Override
-    protected void generateTrunk(Set<BlockPos> changedBlocks, IWorld world, BlockPos start, int height)
+    protected void generateTrunk(Set<BlockPos> changedBlocks, MutableBoundingBox boundingBox, IWorld world, BlockPos start, int height)
     {
         int endHeight = height - this.leafLayers;
 
@@ -55,7 +56,7 @@ public class MahoganyTreeFeature extends BasicTreeFeature
 
             if (this.replace.matches(world, middlePos))
             {
-                this.setLog(changedBlocks, world, middlePos);
+                this.setLog(changedBlocks, world, middlePos, boundingBox);
             }
         }
 
@@ -63,21 +64,21 @@ public class MahoganyTreeFeature extends BasicTreeFeature
         BlockPos branchStartPos = start.up(endHeight - 2);
         int branchHeight = (this.leafLayers - 1) + 1;
 
-        generateBranch(changedBlocks, world, branchStartPos, Direction.NORTH, branchHeight);
-        generateBranch(changedBlocks, world, branchStartPos, Direction.EAST, branchHeight);
-        generateBranch(changedBlocks, world, branchStartPos, Direction.SOUTH, branchHeight);
-        generateBranch(changedBlocks, world, branchStartPos, Direction.WEST, branchHeight);
+        generateBranch(changedBlocks, boundingBox, world, branchStartPos, Direction.NORTH, branchHeight);
+        generateBranch(changedBlocks, boundingBox, world, branchStartPos, Direction.EAST, branchHeight);
+        generateBranch(changedBlocks, boundingBox, world, branchStartPos, Direction.SOUTH, branchHeight);
+        generateBranch(changedBlocks, boundingBox, world, branchStartPos, Direction.WEST, branchHeight);
     }
 
-    private void generateBranch(Set<BlockPos> changedBlocks, IWorld world, BlockPos middle, Direction direction, int height)
+    private void generateBranch(Set<BlockPos> changedBlocks, MutableBoundingBox boundingBox, IWorld world, BlockPos middle, Direction direction, int height)
     {
         BlockPos pos;
 
-        if (replace.matches(world, pos = middle.offset(direction))) this.setLog(changedBlocks, world, pos, direction.getAxis());
+        if (replace.matches(world, pos = middle.offset(direction))) this.setLog(changedBlocks, world, pos, direction.getAxis(), boundingBox);
 
         for (int i = 0; i <= height - 1; i++)
         {
-            if (replace.matches(world, pos = middle.offset(direction, 2).up(i + 1))) this.setLog(changedBlocks, world, pos, Direction.Axis.Y);
+            if (replace.matches(world, pos = middle.offset(direction, 2).up(i + 1))) this.setLog(changedBlocks, world, pos, Direction.Axis.Y, boundingBox);
         }
 
         Direction logDirection = direction.rotateY();
@@ -85,7 +86,7 @@ public class MahoganyTreeFeature extends BasicTreeFeature
         //Extend inner branches outwards to prevent decay
         for (int i = -1; i <= 1; i++)
         {
-            if (replace.matches(world, pos = middle.offset(direction, 3).offset(logDirection, i).up(height - 1))) this.setLog(changedBlocks, world, pos, logDirection.getAxis());
+            if (replace.matches(world, pos = middle.offset(direction, 3).offset(logDirection, i).up(height - 1))) this.setLog(changedBlocks, world, pos, logDirection.getAxis(), boundingBox);
         }
     }
 }

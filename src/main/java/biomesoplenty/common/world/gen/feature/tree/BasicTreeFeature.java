@@ -7,20 +7,16 @@
  ******************************************************************************/
 package biomesoplenty.common.world.gen.feature.tree;
 
-import java.util.Random;
-import java.util.Set;
-
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import net.minecraft.block.*;
-import net.minecraft.block.BlockCocoa;
-import net.minecraft.block.BlockSapling;
-import net.minecraft.block.BlockVine;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.IWorld;
-import net.minecraft.world.gen.IWorldGenerationReader;
+
+import java.util.Random;
+import java.util.Set;
 
 public class BasicTreeFeature extends TreeFeatureBase
 {
@@ -96,7 +92,7 @@ public class BasicTreeFeature extends TreeFeatureBase
     }
 
     @Override
-    protected boolean place(Set<BlockPos> changedBlocks, IWorld world, Random random, BlockPos pos)
+    protected boolean place(Set<BlockPos> changedBlocks, IWorld world, Random random, BlockPos pos, MutableBoundingBox boundingBox)
     {
         int height = random.nextInt(this.maxHeight - this.minHeight) + this.minHeight;
         boolean hasSpace = true;
@@ -151,7 +147,7 @@ public class BasicTreeFeature extends TreeFeatureBase
             {
                 BlockPos soilPos = pos.down();
                 Block soil = world.getBlockState(soilPos).getBlock();
-                boolean isSoil = soil.canSustainPlant(world.getBlockState(soilPos), world, soilPos, Direction.UP, (BlockSapling) Blocks.OAK_SAPLING);
+                boolean isSoil = soil.canSustainPlant(world.getBlockState(soilPos), world, soilPos, Direction.UP, (SaplingBlock) Blocks.OAK_SAPLING);
 
                 if (this.placeOn.matches(world, soilPos) && isSoil && pos.getY() < 256 - height - 1)
                 {
@@ -203,7 +199,7 @@ public class BasicTreeFeature extends TreeFeatureBase
                         }
                     }
 
-                    this.generateTrunk(changedBlocks, world, pos, height);
+                    this.generateTrunk(changedBlocks, boundingBox, world, pos, height);
 
                     if (this.vine != Blocks.AIR.getDefaultState())
                     {

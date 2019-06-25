@@ -7,21 +7,16 @@
  ******************************************************************************/
 package biomesoplenty.common.world.gen.feature.tree;
 
-import java.util.Random;
-import java.util.Set;
-
-import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.biome.GeneratorUtil;
 import biomesoplenty.common.util.block.IBlockPosQuery;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockLeaves;
-import net.minecraft.block.BlockSapling;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.Direction;
+import net.minecraft.block.material.Material;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.IWorld;
+
+import java.util.Random;
+import java.util.Set;
 
 public class TrunkTreeFeature extends TreeFeatureBase
 {
@@ -47,7 +42,7 @@ public class TrunkTreeFeature extends TreeFeatureBase
     }
 
     @Override
-    protected boolean place(Set<BlockPos> changedBlocks, IWorld world, Random random, BlockPos startPos)
+    protected boolean place(Set<BlockPos> changedBlocks, IWorld world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
     {
         // Move down until we reach the ground
     	while (startPos.getY() > 1 && world.isAirBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES) {startPos = startPos.down();}
@@ -80,11 +75,11 @@ public class TrunkTreeFeature extends TreeFeatureBase
             if (step == heightMinusTop)
             {
                 // Generate top of tree
-                this.setLog(changedBlocks, world, offsetPos);
+                this.setLog(changedBlocks, world, offsetPos, boundingBox);
                 break;
             }
             
-            this.setLog(changedBlocks, world, offsetPos);
+            this.setLog(changedBlocks, world, offsetPos, boundingBox);
         }
         
         return true;

@@ -7,17 +7,18 @@
  ******************************************************************************/
 package biomesoplenty.common.world.gen.feature.tree;
 
-import java.util.Random;
-import java.util.Set;
-
 import biomesoplenty.common.util.block.IBlockPosQuery;
-import net.minecraft.block.BlockCocoa;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.CocoaBlock;
+import net.minecraft.block.material.Material;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.IWorld;
+
+import java.util.Random;
+import java.util.Set;
 
 public class TwigletTreeFeature extends TreeFeatureBase
 {
@@ -67,7 +68,7 @@ public class TwigletTreeFeature extends TreeFeatureBase
 
 
     @Override
-    protected boolean place(Set<BlockPos> changedBlocks, IWorld world, Random random, BlockPos startPos)
+    protected boolean place(Set<BlockPos> changedBlocks, IWorld world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
     {
 
         // Move down until we reach the ground
@@ -93,7 +94,7 @@ public class TwigletTreeFeature extends TreeFeatureBase
         float leafChance;
         for (int y = 0; y < height; y++)
         {
-            if (!this.setLog(changedBlocks, world, pos.up(y)))
+            if (!this.setLog(changedBlocks, world, pos.up(y), boundingBox))
             {
                 // abandon if the log can't grow
                 return true;
@@ -148,11 +149,11 @@ public class TwigletTreeFeature extends TreeFeatureBase
     {
         if (this.trunkFruit == Blocks.COCOA.getDefaultState())
         {
-            this.setBlockState(world, pos, this.trunkFruit.with(BlockCocoa.AGE, Integer.valueOf(age)).with(BlockCocoa.HORIZONTAL_FACING, direction));
+            this.setBlockState(world, pos, this.trunkFruit.with(CocoaBlock.AGE, Integer.valueOf(age)).with(CocoaBlock.HORIZONTAL_FACING, direction));
         }
         else
         {
-            this.setBlockState(world, pos, this.trunkFruit.with(BlockCocoa.HORIZONTAL_FACING, direction));
+            this.setBlockState(world, pos, this.trunkFruit.with(CocoaBlock.HORIZONTAL_FACING, direction));
         }
     }
 }

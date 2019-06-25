@@ -7,16 +7,17 @@
  ******************************************************************************/
 package biomesoplenty.common.world.gen.feature.tree;
 
-import java.util.Random;
-import java.util.Set;
-
 import biomesoplenty.common.util.biome.GeneratorUtil;
 import biomesoplenty.common.util.block.IBlockPosQuery;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.material.Material;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.IWorld;
+
+import java.util.Random;
+import java.util.Set;
 
 public class BushTreeFeature extends TreeFeatureBase
 {
@@ -48,7 +49,7 @@ public class BushTreeFeature extends TreeFeatureBase
     }
 
     @Override
-    protected boolean place(Set<BlockPos> changedBlocks, IWorld world, Random random, BlockPos startPos)
+    protected boolean place(Set<BlockPos> changedBlocks, IWorld world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
     {
         // Move down until we reach the ground
         while (startPos.getY() > 1 && world.isAirBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.AIR) {startPos = startPos.down();}
@@ -71,7 +72,7 @@ public class BushTreeFeature extends TreeFeatureBase
             // log in the center
             if (height - y > 1)
             {
-                this.setLog(changedBlocks, world, pos.add(0, y, 0));
+                this.setLog(changedBlocks, world, pos.add(0, y, 0), boundingBox);
             }
 
             //Reduces the radius closer to the top of the bush

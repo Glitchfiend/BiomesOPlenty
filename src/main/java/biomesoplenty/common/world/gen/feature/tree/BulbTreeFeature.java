@@ -9,12 +9,13 @@ package biomesoplenty.common.world.gen.feature.tree;
 
 import biomesoplenty.common.util.biome.GeneratorUtil;
 import biomesoplenty.common.util.block.IBlockPosQuery;
-import net.minecraft.block.BlockDirectional;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.DirectionalBlock;
+import net.minecraft.block.material.Material;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.IWorld;
 
 import java.util.Random;
@@ -45,7 +46,7 @@ public class BulbTreeFeature extends TreeFeatureBase
 
     public boolean setCocoa(IWorld world, BlockPos pos, Direction side)
     {
-        BlockState cocoaState = Blocks.COCOA.getDefaultState().with(BlockDirectional.FACING, side);
+        BlockState cocoaState = Blocks.COCOA.getDefaultState().with(DirectionalBlock.FACING, side);
         if (this.replace.matches(world, pos))
         {
             this.setBlockState(world, pos, cocoaState);
@@ -90,7 +91,7 @@ public class BulbTreeFeature extends TreeFeatureBase
     }
 
     // generates a layer of leafs (2 blocks high)
-    public void generateLeafLayer(Set<BlockPos> changedBlocks, IWorld world, Random random, BlockPos pos)
+    public void generateLeafLayer(Set<BlockPos> changedBlocks, MutableBoundingBox boundingBox, IWorld world, Random random, BlockPos pos)
     {
         for (Direction direction : Direction.Plane.HORIZONTAL)
         {
@@ -98,11 +99,11 @@ public class BulbTreeFeature extends TreeFeatureBase
         }
 
         // add the trunk in the middle
-        this.setLog(changedBlocks, world, pos);
-        this.setLog(changedBlocks, world, pos.up());
+        this.setLog(changedBlocks, world, pos, boundingBox);
+        this.setLog(changedBlocks, world, pos.up(), boundingBox);
     }
 
-    public void generateTop(Set<BlockPos> changedBlocks, IWorld world, Random random, BlockPos pos, int topHeight)
+    public void generateTop(Set<BlockPos> changedBlocks, MutableBoundingBox boundingBox,  IWorld world, Random random, BlockPos pos, int topHeight)
     {
         for (int y = 0; y < topHeight; y++)
         {
@@ -121,7 +122,7 @@ public class BulbTreeFeature extends TreeFeatureBase
             if (y < topHeight - 1)
             {
                 // add the trunk in the middle
-                this.setLog(changedBlocks, world, pos.add(0, y, 0));
+                this.setLog(changedBlocks, world, pos.add(0, y, 0), boundingBox);
             } else {
                 // add leaves on top for certain
                 this.setLeaves(world, pos.add(0, y, 0));
@@ -130,7 +131,7 @@ public class BulbTreeFeature extends TreeFeatureBase
     }
 
     @Override
-    protected boolean place(Set<BlockPos> changedBlocks, IWorld world, Random random, BlockPos startPos)
+    protected boolean place(Set<BlockPos> changedBlocks, IWorld world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
     {
 
         // Move down until we reach the ground
@@ -162,19 +163,19 @@ public class BulbTreeFeature extends TreeFeatureBase
         // Generate bottom of tree (trunk only)
         for(int i = 0; i < baseHeight; i++)
         {
-            this.setLog(changedBlocks, world, pos);
+            this.setLog(changedBlocks, world, pos, boundingBox);
             pos = pos.up();
         }
 
         // Generate middle of the tree - 2 steps at a time (trunk and leaves)
         for (int i = 0; i < numBranches; i++)
         {
-            this.generateLeafLayer(changedBlocks, world, random, pos);
+            this.generateLeafLayer(changedBlocks, boundingBox, world, random, pos);
             pos = pos.up(2);
         }
 
         // Generate the top of the tree
-        this.generateTop(changedBlocks, world, random, pos, topHeight);
+        this.generateTop(changedBlocks, boundingBox, world, random, pos, topHeight);
 
         // Add vines
         this.addVines(world, random, startPos, baseHeight, height, 3, 10);

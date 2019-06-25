@@ -7,15 +7,16 @@
  ******************************************************************************/
 package biomesoplenty.common.world.gen.feature.tree;
 
-import java.util.Random;
-import java.util.Set;
-
 import biomesoplenty.common.util.biome.GeneratorUtil;
 import biomesoplenty.common.util.block.IBlockPosQuery;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.material.Material;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.IWorld;
+
+import java.util.Random;
+import java.util.Set;
 
 public class PoplarTreeFeature extends TreeFeatureBase
 {
@@ -41,7 +42,7 @@ public class PoplarTreeFeature extends TreeFeatureBase
     }
 
     @Override
-    protected boolean place(Set<BlockPos> changedBlocks, IWorld world, Random random, BlockPos startPos)
+    protected boolean place(Set<BlockPos> changedBlocks, IWorld world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
     {
         
         // Move down until we reach the ground
@@ -71,7 +72,7 @@ public class PoplarTreeFeature extends TreeFeatureBase
         // Generate bottom of tree (trunk only)
         for(int i = 0; i < baseHeight; i++)
         {
-            this.setLog(changedBlocks, world, pos);
+            this.setLog(changedBlocks, world, pos, boundingBox);
             pos = pos.up();
         }
         
@@ -80,7 +81,7 @@ public class PoplarTreeFeature extends TreeFeatureBase
         {
             int radius = radius(i, leavesHeight);
             this.generateLeafLayer(world, pos, radius);
-            if (leavesHeight - i > 2) {this.setLog(changedBlocks, world, pos);}
+            if (leavesHeight - i > 2) {this.setLog(changedBlocks, world, pos, boundingBox);}
             pos = pos.up();
         }
         
