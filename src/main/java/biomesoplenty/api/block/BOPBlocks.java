@@ -14,15 +14,20 @@ public class BOPBlocks
     public static Block white_sand;
     public static Block white_sandstone;
     public static Block cut_white_sandstone;
+    public static Block cut_white_sandstone_slab;
     public static Block chiseled_white_sandstone;
     public static Block smooth_white_sandstone;
+    public static Block smooth_white_sandstone_slab;
+    public static Block smooth_white_sandstone_stairs;
     public static Block white_sandstone_slab;
     public static Block white_sandstone_stairs;
+    public static Block white_sandstone_wall;
     
     public static Block mud;
     public static Block mud_bricks;
     public static Block mud_brick_slab;
     public static Block mud_brick_stairs;
+    public static Block mud_brick_wall;
     
     public static Block dried_sand;
     public static Block ash_block;
