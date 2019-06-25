@@ -20,7 +20,7 @@ public enum GenLayerLargeIsland implements IAreaTransformer2, IDimOffset1Transfo
     INSTANCE;
 
     @Override
-    public int func_215723_a(INoiseRandom context, IArea landSeaArea, IArea climateArea, int x, int z)
+    public int apply(INoiseRandom context, IArea landSeaArea, IArea climateArea, int x, int z)
     {
         int northVal = landSeaArea.getValue(x + 1, z + 0);
         int eastVal = landSeaArea.getValue(x + 2, z + 1);

@@ -7,25 +7,33 @@
  ******************************************************************************/
 package biomesoplenty.common.world.gen.feature;
 
-import java.util.Random;
-
+import com.mojang.datafixers.Dynamic;
 import net.minecraft.block.BlockState;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunk;
-import net.minecraft.world.gen.surfacebuilders.ISurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
-public class ColdDesertSurfaceBuilder implements ISurfaceBuilder<SurfaceBuilderConfig>
+import java.util.Random;
+import java.util.function.Function;
+
+public class ColdDesertSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
 {
-	 public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config)
-	 {
-	      if (noise > 2.6D)
-	      {
-	         Biome.DEFAULT_SURFACE_BUILDER.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BOPBiomeFeatures.PACKED_ICE_SURFACE);
-	      }
-	      else
-	      {
-	         Biome.DEFAULT_SURFACE_BUILDER.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, Biome.GRAVEL_SURFACE);
-	      }
-	 }
+	public ColdDesertSurfaceBuilder(Function<Dynamic<?>, ? extends SurfaceBuilderConfig> deserializer)
+	{
+		super(deserializer);
+	}
+
+	@Override
+	public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config)
+	{
+		if (noise > 2.6D)
+		{
+			SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BOPBiomeFeatures.SNOW_SNOW_GRAVEL_SURFACE);
+		}
+		else
+		{
+			SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, SurfaceBuilder.GRAVEL_CONFIG);
+		}
+	}
 }

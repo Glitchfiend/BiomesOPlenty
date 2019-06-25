@@ -7,55 +7,63 @@
  ******************************************************************************/
 package biomesoplenty.common.world.gen.feature;
 
-import java.util.Random;
-
+import com.mojang.datafixers.Dynamic;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunk;
-import net.minecraft.world.gen.surfacebuilders.ISurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
-public class BogSurfaceBuilder implements ISurfaceBuilder<SurfaceBuilderConfig>
+import java.util.Random;
+import java.util.function.Function;
+
+public class BogSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
 {
-   public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config)
-   {
-      double d0 = Biome.INFO_NOISE.getValue((double)x * 0.25D, (double)z * 0.25D);
-      if (d0 > 0.1D)
-      {
-         int i = x & 15;
-         int j = z & 15;
-         BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
-         BlockPos.MutableBlockPos blockposdown$mutableblockpos = new BlockPos.MutableBlockPos();
-         BlockPos.MutableBlockPos blockposup$mutableblockpos = new BlockPos.MutableBlockPos();
+    public BogSurfaceBuilder(Function<Dynamic<?>, ? extends SurfaceBuilderConfig> deserializer)
+    {
+        super(deserializer);
+    }
 
-         for(int k = startHeight; k >= 0; --k)
-         {
-            blockpos$mutableblockpos.setPos(i, k, j);
-            if (!chunkIn.getBlockState(blockpos$mutableblockpos).isAir())
+    @Override
+    public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config)
+    {
+        double d0 = Biome.INFO_NOISE.getValue((double)x * 0.25D, (double)z * 0.25D);
+        if (d0 > 0.1D)
+        {
+            int i = x & 15;
+            int j = z & 15;
+            BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
+            BlockPos.MutableBlockPos blockposdown$mutableblockpos = new BlockPos.MutableBlockPos();
+            BlockPos.MutableBlockPos blockposup$mutableblockpos = new BlockPos.MutableBlockPos();
+
+            for(int k = startHeight; k >= 0; --k)
             {
-               if (k == 62)
-               {
-	               if (chunkIn.getBlockState(blockpos$mutableblockpos).getBlock() != defaultFluid.getBlock())
-	               {
-	                  chunkIn.setBlockState(blockpos$mutableblockpos, defaultFluid, false);
-	               }
-	               else
-	               {
-	            	   blockposup$mutableblockpos.setPos(i, k+1, j);
-	            	   blockposdown$mutableblockpos.setPos(i, k-1, j);
-	            	   if (chunkIn.getBlockState(blockposdown$mutableblockpos).getBlock() != defaultFluid.getBlock())
-	            	   {
-	            		   chunkIn.setBlockState(blockpos$mutableblockpos, Blocks.GRASS_BLOCK.getDefaultState(), false);
-	            	   }
-	               }
-               }
-               break;
+                blockpos$mutableblockpos.setPos(i, k, j);
+                if (!chunkIn.getBlockState(blockpos$mutableblockpos).isAir())
+                {
+                    if (k == 62)
+                    {
+                        if (chunkIn.getBlockState(blockpos$mutableblockpos).getBlock() != defaultFluid.getBlock())
+                        {
+                            chunkIn.setBlockState(blockpos$mutableblockpos, defaultFluid, false);
+                        }
+                        else
+                        {
+                            blockposup$mutableblockpos.setPos(i, k+1, j);
+                            blockposdown$mutableblockpos.setPos(i, k-1, j);
+                            if (chunkIn.getBlockState(blockposdown$mutableblockpos).getBlock() != defaultFluid.getBlock())
+                            {
+                                chunkIn.setBlockState(blockpos$mutableblockpos, Blocks.GRASS_BLOCK.getDefaultState(), false);
+                            }
+                        }
+                    }
+                    break;
+                }
             }
-         }
-      }
+        }
 
-      Biome.DEFAULT_SURFACE_BUILDER.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, config);
-   }
+        SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, config);
+    }
 }

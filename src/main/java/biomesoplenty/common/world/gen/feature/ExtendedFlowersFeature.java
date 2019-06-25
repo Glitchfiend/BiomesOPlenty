@@ -7,15 +7,24 @@
  ******************************************************************************/
 package biomesoplenty.common.world.gen.feature;
 
-import java.util.Random;
-
+import com.mojang.datafixers.Dynamic;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.gen.feature.AbstractFlowersFeature;
+import net.minecraft.world.gen.feature.FlowersFeature;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 
-public class ExtendedFlowersFeature extends AbstractFlowersFeature
+import java.util.Random;
+import java.util.function.Function;
+
+public class ExtendedFlowersFeature extends FlowersFeature
 {
+    public ExtendedFlowersFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserializer)
+    {
+        super(deserializer);
+    }
+
+    @Override
 	public BlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_)
 	{
          int j = p_202355_1_.nextInt(3);

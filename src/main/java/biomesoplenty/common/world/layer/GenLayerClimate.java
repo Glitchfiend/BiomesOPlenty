@@ -26,7 +26,7 @@ public enum GenLayerClimate implements IAreaTransformer2, IDimOffset0Transformer
     }
 
     @Override
-    public int func_215723_a(INoiseRandom context, IArea area1, IArea area2, int x, int z)
+    public int apply(INoiseRandom context, IArea area1, IArea area2, int x, int z)
     {
         int temperature = area1.getValue(x, z);
         int rainfall = area2.getValue(x, z);

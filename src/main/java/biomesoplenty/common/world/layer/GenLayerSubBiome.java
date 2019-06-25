@@ -54,7 +54,7 @@ public enum GenLayerSubBiome implements IAreaTransformer2, IDimOffset1Transforme
     private static final int TAIGA_HILLS = Registry.BIOME.getId(Biomes.TAIGA_HILLS);
 
     @Override
-    public int func_215723_a(INoiseRandom context, IArea biomeArea, IArea riverAndSubBiomesInitArea, int x, int z)
+    public int apply(INoiseRandom context, IArea biomeArea, IArea riverAndSubBiomesInitArea, int x, int z)
     {
         int biomeId = biomeArea.getValue(x + 1, z + 1);
         int initVal = riverAndSubBiomesInitArea.getValue(x + 1, z + 1);

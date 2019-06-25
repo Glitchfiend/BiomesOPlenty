@@ -9,13 +9,12 @@ package biomesoplenty.common.world.gen.feature;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.world.gen.feature.tree.*;
-import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.Blocks;
-import net.minecraft.world.gen.feature.FlowersFeature;
+import net.minecraft.block.LeavesBlock;
 import net.minecraft.world.gen.feature.AbstractTreeFeature;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.FlowersFeature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.surfacebuilders.ISurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
@@ -46,7 +45,7 @@ public class BOPBiomeFeatures
 	public static final AbstractTreeFeature<NoFeatureConfig> BIG_WHITE_CHERRY_TREE = new BigTreeFeature.Builder().log(BOPBlocks.cherry_log.getDefaultState()).leaves(BOPBlocks.white_cherry_leaves.getDefaultState()).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> BIG_MAGIC_TREE = new BigTreeFeature.Builder().log(BOPBlocks.magic_log.getDefaultState()).leaves(BOPBlocks.magic_leaves.getDefaultState()).create();
 	
-	public static final AbstractTreeFeature<NoFeatureConfig> GIANT_TREE = new BigTreeFeature.Builder().log(Blocks.DARK_OAK_LOG.getDefaultState()).leaves(Blocks.DARK_OAK_LEAVES.getDefaultState().with(BlockLeaves.PERSISTENT, true)).minHeight(25).maxHeight(30).trunkWidth(4).create();
+	public static final AbstractTreeFeature<NoFeatureConfig> GIANT_TREE = new BigTreeFeature.Builder().log(Blocks.DARK_OAK_LOG.getDefaultState()).leaves(Blocks.DARK_OAK_LEAVES.getDefaultState().with(LeavesBlock.PERSISTENT, true)).minHeight(25).maxHeight(30).trunkWidth(4).create();
 	
 	//Conifer Trees
 	public static final AbstractTreeFeature<NoFeatureConfig> TALL_SPRUCE_TREE = new TaigaTreeFeature.Builder().log(Blocks.SPRUCE_LOG.getDefaultState()).leaves(Blocks.SPRUCE_LEAVES.getDefaultState()).maxHeight(13).create();
@@ -108,48 +107,48 @@ public class BOPBiomeFeatures
 	/////////////////////////////////////////////////////////////////////////////////
 	
 	//Features
-	public static final Feature<SplotchConfig> SPLOTCH = new SplotchFeature();
-	public static final Feature<NoFeatureConfig> BRAMBLE = new BrambleFeature();
-	public static final Feature<NoFeatureConfig> MANGROVE = new MangroveFeature();
-	public static final Feature<NoFeatureConfig> PUMPKIN_PATCH = new PumpkinPatchFeature();
-	public static final Feature<NoFeatureConfig> BIG_PUMPKIN = new BigPumpkinFeature();
-	public static final Feature<NoFeatureConfig> SCRUB = new ScrubFeature();
-	public static final Feature<NoFeatureConfig> HEATH = new HeathFeature();
+	public static final Feature<SplotchConfig> SPLOTCH = new SplotchFeature(SplotchConfig::deserialize);
+	public static final Feature<NoFeatureConfig> BRAMBLE = new BrambleFeature(NoFeatureConfig::deserialize);
+	public static final Feature<NoFeatureConfig> MANGROVE = new MangroveFeature(NoFeatureConfig::deserialize);
+	public static final Feature<NoFeatureConfig> PUMPKIN_PATCH = new PumpkinPatchFeature(NoFeatureConfig::deserialize);
+	public static final Feature<NoFeatureConfig> BIG_PUMPKIN = new BigPumpkinFeature(NoFeatureConfig::deserialize);
+	public static final Feature<NoFeatureConfig> SCRUB = new ScrubFeature(NoFeatureConfig::deserialize);
+	public static final Feature<NoFeatureConfig> HEATH = new HeathFeature(NoFeatureConfig::deserialize);
 	
 	//Flowers
-	public static final FlowersFeature CHAPARRAL_FLOWERS = new ChaparralFlowersFeature();
-	public static final FlowersFeature CHERRY_BLOSSOM_GROVE_FLOWERS = new CherryBlossomGroveFlowersFeature();
-	public static final FlowersFeature EXTENDED_FLOWERS = new ExtendedFlowersFeature();
-	public static final FlowersFeature FLOWER_MEADOW_FLOWERS = new FlowerMeadowFlowersFeature();
-	public static final FlowersFeature JUNGLE_FLOWERS = new JungleFlowersFeature();
-	public static final FlowersFeature LAVENDER_FLOWERS = new LavenderFlowersFeature();
-	public static final FlowersFeature LUSH_GRASSLAND_FLOWERS = new LushGrasslandFlowersFeature();
-	public static final FlowersFeature LUSH_SWAMP_FLOWERS = new LushSwampFlowersFeature();
-	public static final FlowersFeature MEADOW_FLOWERS = new MeadowFlowersFeature();
-	public static final FlowersFeature MOOR_FLOWERS = new MoorFlowersFeature();
-	public static final FlowersFeature MYSTIC_GROVE_FLOWERS = new MysticGroveFlowersFeature();
-	public static final FlowersFeature ORIGIN_FLOWERS = new OriginFlowersFeature();
-	public static final FlowersFeature PRAIRIE_FLOWERS = new PrairieFlowersFeature();
-	public static final FlowersFeature RAINFOREST_FLOWERS = new RainforestFlowersFeature();
-	public static final FlowersFeature SHRUBLAND_FLOWERS = new ShrublandFlowersFeature();
-	public static final FlowersFeature SNOWY_FLOWERS = new SnowyFlowersFeature();
-	public static final FlowersFeature TROPICS_FLOWERS = new TropicsFlowersFeature();
-	public static final FlowersFeature WASTELAND_FLOWERS = new WastelandFlowersFeature();
-	public static final FlowersFeature WETLAND_FLOWERS = new WetlandFlowersFeature();
-	public static final FlowersFeature XERIC_SHRUBLAND_FLOWERS = new XericShrublandFlowersFeature();
+	public static final FlowersFeature CHAPARRAL_FLOWERS = new ChaparralFlowersFeature(NoFeatureConfig::deserialize);
+	public static final FlowersFeature CHERRY_BLOSSOM_GROVE_FLOWERS = new CherryBlossomGroveFlowersFeature(NoFeatureConfig::deserialize);
+	public static final FlowersFeature EXTENDED_FLOWERS = new ExtendedFlowersFeature(NoFeatureConfig::deserialize);
+	public static final FlowersFeature FLOWER_MEADOW_FLOWERS = new FlowerMeadowFlowersFeature(NoFeatureConfig::deserialize);
+	public static final FlowersFeature JUNGLE_FLOWERS = new JungleFlowersFeature(NoFeatureConfig::deserialize);
+	public static final FlowersFeature LAVENDER_FLOWERS = new LavenderFlowersFeature(NoFeatureConfig::deserialize);
+	public static final FlowersFeature LUSH_GRASSLAND_FLOWERS = new LushGrasslandFlowersFeature(NoFeatureConfig::deserialize);
+	public static final FlowersFeature LUSH_SWAMP_FLOWERS = new LushSwampFlowersFeature(NoFeatureConfig::deserialize);
+	public static final FlowersFeature MEADOW_FLOWERS = new MeadowFlowersFeature(NoFeatureConfig::deserialize);
+	public static final FlowersFeature MOOR_FLOWERS = new MoorFlowersFeature(NoFeatureConfig::deserialize);
+	public static final FlowersFeature MYSTIC_GROVE_FLOWERS = new MysticGroveFlowersFeature(NoFeatureConfig::deserialize);
+	public static final FlowersFeature ORIGIN_FLOWERS = new OriginFlowersFeature(NoFeatureConfig::deserialize);
+	public static final FlowersFeature PRAIRIE_FLOWERS = new PrairieFlowersFeature(NoFeatureConfig::deserialize);
+	public static final FlowersFeature RAINFOREST_FLOWERS = new RainforestFlowersFeature(NoFeatureConfig::deserialize);
+	public static final FlowersFeature SHRUBLAND_FLOWERS = new ShrublandFlowersFeature(NoFeatureConfig::deserialize);
+	public static final FlowersFeature SNOWY_FLOWERS = new SnowyFlowersFeature(NoFeatureConfig::deserialize);
+	public static final FlowersFeature TROPICS_FLOWERS = new TropicsFlowersFeature(NoFeatureConfig::deserialize);
+	public static final FlowersFeature WASTELAND_FLOWERS = new WastelandFlowersFeature(NoFeatureConfig::deserialize);
+	public static final FlowersFeature WETLAND_FLOWERS = new WetlandFlowersFeature(NoFeatureConfig::deserialize);
+	public static final FlowersFeature XERIC_SHRUBLAND_FLOWERS = new XericShrublandFlowersFeature(NoFeatureConfig::deserialize);
 	
 	//Surfaces
-	public static final SurfaceBuilder<SurfaceBuilderConfig> BOG_SURFACE_BUILDER = new BogSurfaceBuilder();
-	public static final SurfaceBuilder<SurfaceBuilderConfig> BRUSHLAND_SURFACE_BUILDER = new BrushlandSurfaceBuilder();
-	public static final SurfaceBuilder<SurfaceBuilderConfig> CHAPARRAL_SURFACE_BUILDER = new ChaparralSurfaceBuilder();
-	public static final SurfaceBuilder<SurfaceBuilderConfig> COLD_DESERT_SURFACE_BUILDER = new ColdDesertSurfaceBuilder();
-	public static final SurfaceBuilder<SurfaceBuilderConfig> GRANITE_SURFACE_BUILDER = new GraniteSurfaceBuilder();
-	public static final SurfaceBuilder<SurfaceBuilderConfig> MARSH_SURFACE_BUILDER = new MarshSurfaceBuilder();
-	public static final SurfaceBuilder<SurfaceBuilderConfig> MANGROVE_SURFACE_BUILDER = new MangroveSurfaceBuilder();
-	public static final SurfaceBuilder<SurfaceBuilderConfig> MUD_SURFACE_BUILDER = new MudSurfaceBuilder();
-	public static final SurfaceBuilder<SurfaceBuilderConfig> PODZOL_SURFACE_BUILDER = new PodzolSurfaceBuilder();
-	public static final SurfaceBuilder<SurfaceBuilderConfig> VOLCANO_SURFACE_BUILDER = new VolcanoSurfaceBuilder();
-	public static final SurfaceBuilder<SurfaceBuilderConfig> VOLCANO_EDGE_SURFACE_BUILDER = new VolcanoEdgeSurfaceBuilder();
+	public static final SurfaceBuilder<SurfaceBuilderConfig> BOG_SURFACE_BUILDER = new BogSurfaceBuilder(SurfaceBuilderConfig::deserialize);
+	public static final SurfaceBuilder<SurfaceBuilderConfig> BRUSHLAND_SURFACE_BUILDER = new BrushlandSurfaceBuilder(SurfaceBuilderConfig::deserialize);
+	public static final SurfaceBuilder<SurfaceBuilderConfig> CHAPARRAL_SURFACE_BUILDER = new ChaparralSurfaceBuilder(SurfaceBuilderConfig::deserialize);
+	public static final SurfaceBuilder<SurfaceBuilderConfig> COLD_DESERT_SURFACE_BUILDER = new ColdDesertSurfaceBuilder(SurfaceBuilderConfig::deserialize);
+	public static final SurfaceBuilder<SurfaceBuilderConfig> GRANITE_SURFACE_BUILDER = new GraniteSurfaceBuilder(SurfaceBuilderConfig::deserialize);
+	public static final SurfaceBuilder<SurfaceBuilderConfig> MARSH_SURFACE_BUILDER = new MarshSurfaceBuilder(SurfaceBuilderConfig::deserialize);
+	public static final SurfaceBuilder<SurfaceBuilderConfig> MANGROVE_SURFACE_BUILDER = new MangroveSurfaceBuilder(SurfaceBuilderConfig::deserialize);
+	public static final SurfaceBuilder<SurfaceBuilderConfig> MUD_SURFACE_BUILDER = new MudSurfaceBuilder(SurfaceBuilderConfig::deserialize);
+	public static final SurfaceBuilder<SurfaceBuilderConfig> PODZOL_SURFACE_BUILDER = new PodzolSurfaceBuilder(SurfaceBuilderConfig::deserialize);
+	public static final SurfaceBuilder<SurfaceBuilderConfig> VOLCANO_SURFACE_BUILDER = new VolcanoSurfaceBuilder(SurfaceBuilderConfig::deserialize);
+	public static final SurfaceBuilder<SurfaceBuilderConfig> VOLCANO_EDGE_SURFACE_BUILDER = new VolcanoEdgeSurfaceBuilder(SurfaceBuilderConfig::deserialize);
 	
 	public static final SurfaceBuilderConfig ASH_SURFACE = new SurfaceBuilderConfig(BOPBlocks.ash_block.getDefaultState(), BOPBlocks.ash_block.getDefaultState(), Blocks.GRAVEL.getDefaultState());
 	public static final SurfaceBuilderConfig GRANITE_SURFACE = new SurfaceBuilderConfig(Blocks.GRANITE.getDefaultState(), Blocks.GRANITE.getDefaultState(), Blocks.GRAVEL.getDefaultState());

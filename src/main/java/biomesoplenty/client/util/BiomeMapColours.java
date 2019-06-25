@@ -163,7 +163,7 @@ public class BiomeMapColours
 
     public static int getBiomeBlockColourForCoords(Biome biome, BlockPos pos)
     {
-        BlockState topBlock = biome.getSurfaceBuilder().getConfig().getTopMaterial();
+        BlockState topBlock = biome.getSurfaceBuilder().getConfig().getTop();
         int colour;
 
         if (topBlock == Blocks.GRASS.getDefaultState())

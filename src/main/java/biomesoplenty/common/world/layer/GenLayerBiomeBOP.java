@@ -25,7 +25,7 @@ public enum GenLayerBiomeBOP implements IAreaTransformer2, IDimOffset0Transforme
     private static final int MUSHROOM_FIELDS = Registry.BIOME.getId(Biomes.MUSHROOM_FIELDS);
 
     @Override
-    public int func_215723_a(INoiseRandom context, IArea area1, IArea area2, int x, int z)
+    public int apply(INoiseRandom context, IArea area1, IArea area2, int x, int z)
     {
         int landSeaVal = area1.getValue(x, z);
         int climateVal = area2.getValue(x, z);

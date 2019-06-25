@@ -28,7 +28,7 @@ public enum GenLayerRiverMixBOP implements IAreaTransformer2, IDimOffset0Transfo
     private static final int RIVER = Registry.BIOME.getId(Biomes.RIVER);
 
     @Override
-    public int func_215723_a(INoiseRandom context, IArea biomeArea, IArea riverArea, int x, int z)
+    public int apply(INoiseRandom context, IArea biomeArea, IArea riverArea, int x, int z)
     {
         int biomeId = biomeArea.getValue(x, z);
         int riverId = riverArea.getValue(x, z);
