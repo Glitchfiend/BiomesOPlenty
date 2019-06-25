@@ -21,7 +21,7 @@ public class EndPlainsBiome extends EndBiomeBOP
 	    
         this.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Biome.createDecoratedFeature(Feature.END_CITY, new EndCityConfig(), Placement.NOPE, IPlacementConfig.NO_PLACEMENT_CONFIG));
 		
-        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(Feature.BUSH, new BushConfig(BOPBlocks.spectral_fern), Placement.CHANCE_HEIGHTMAP_DOUBLE, new FrequencyConfig(400)));
+        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(Feature.BUSH, new BushConfig(BOPBlocks.spectral_fern), Placement.COUNT_HEIGHTMAP_DOUBLE, new FrequencyConfig(400)));
         
         this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.ENDERMAN, 10, 4, 4));
 	}
