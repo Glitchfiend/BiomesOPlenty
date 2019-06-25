@@ -33,12 +33,12 @@ public class ModBlocks
     	white_sandstone_slab = registerBlock(new BlockSlabBOP(Block.Properties.create(Material.ROCK, MaterialColor.QUARTZ).hardnessAndResistance(2.0F, 6.0F)), "white_sandstone_slab");
         white_sandstone_stairs = registerBlock(new BlockStairsBOP(white_sandstone.getDefaultState(), Block.Properties.from(white_sandstone)), "white_sandstone_stairs");
     	
-        mud = registerBlock(new BlockMud(Block.Properties.create(Material.GROUND, MaterialColor.BROWN_TERRACOTTA).hardnessAndResistance(0.6F)), "mud");
+        mud = registerBlock(new BlockMud(Block.Properties.create(Material.EARTH, MaterialColor.BROWN_TERRACOTTA).hardnessAndResistance(0.6F)), "mud");
         mud_brick_block = registerBlock(new Block(Block.Properties.create(Material.ROCK, MaterialColor.BROWN_TERRACOTTA).hardnessAndResistance(1.0F)), "mud_brick_block");
         mud_brick_slab = registerBlock(new BlockSlabBOP(Block.Properties.create(Material.ROCK, MaterialColor.BROWN_TERRACOTTA).hardnessAndResistance(2.0F, 6.0F)), "mud_brick_slab");
         mud_brick_stairs = registerBlock(new BlockStairsBOP(mud_brick_block.getDefaultState(), Block.Properties.from(mud_brick_block)), "mud_brick_stairs");
         
-        dried_sand = registerBlock(new BlockDriedSand(Block.Properties.create(Material.GROUND, MaterialColor.WOOD).hardnessAndResistance(1.0F)), "dried_sand");
+        dried_sand = registerBlock(new BlockDriedSand(Block.Properties.create(Material.EARTH, MaterialColor.WOOD).hardnessAndResistance(1.0F)), "dried_sand");
         ash_block = registerBlock(new BlockAsh(Block.Properties.create(Material.SAND, MaterialColor.BLACK_TERRACOTTA).hardnessAndResistance(0.4F).sound(SoundType.SAND)), "ash_block");
         flesh = registerBlock(new BlockFlesh(Block.Properties.create(Material.SPONGE, MaterialColor.RED_TERRACOTTA).hardnessAndResistance(0.4F).sound(SoundType.SLIME)), "flesh");
         
@@ -260,14 +260,14 @@ public class ModBlocks
         wilted_lily = registerBlock(new BlockFlowerBOP(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "wilted_lily");
         burning_blossom = registerBlock(new BlockFlowerBOP(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT).lightValue(8)), "burning_blossom");
         
-        willow_vine = registerBlock(new BlockVineBOP(Block.Properties.create(Material.VINE).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0.2F).sound(SoundType.PLANT)), "willow_vine");
+        willow_vine = registerBlock(new BlockVineBOP(Block.Properties.create(Material.TALL_PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0.2F).sound(SoundType.PLANT)), "willow_vine");
         
-        bush = registerBlock(new BlockFoliageBOP(Block.Properties.create(Material.VINE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "bush");
-        barley = registerBlock(new BlockFoliageBOP(Block.Properties.create(Material.VINE, MaterialColor.YELLOW_TERRACOTTA).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "barley");
-        dune_grass = registerBlock(new BlockFoliageBOP(Block.Properties.create(Material.VINE, MaterialColor.LIME_TERRACOTTA).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "dune_grass");
-        desert_grass = registerBlock(new BlockFoliageBOP(Block.Properties.create(Material.VINE, MaterialColor.ORANGE_TERRACOTTA).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "desert_grass");
-        dead_grass = registerBlock(new BlockFoliageBOP(Block.Properties.create(Material.VINE, MaterialColor.WOOD).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "dead_grass");
-        spectral_fern = registerBlock(new BlockFoliageBOP(Block.Properties.create(Material.VINE, MaterialColor.RED).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "spectral_fern");
+        bush = registerBlock(new BlockFoliageBOP(Block.Properties.create(Material.TALL_PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "bush");
+        barley = registerBlock(new BlockFoliageBOP(Block.Properties.create(Material.TALL_PLANTS, MaterialColor.YELLOW_TERRACOTTA).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "barley");
+        dune_grass = registerBlock(new BlockFoliageBOP(Block.Properties.create(Material.TALL_PLANTS, MaterialColor.LIME_TERRACOTTA).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "dune_grass");
+        desert_grass = registerBlock(new BlockFoliageBOP(Block.Properties.create(Material.TALL_PLANTS, MaterialColor.ORANGE_TERRACOTTA).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "desert_grass");
+        dead_grass = registerBlock(new BlockFoliageBOP(Block.Properties.create(Material.TALL_PLANTS, MaterialColor.WOOD).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "dead_grass");
+        spectral_fern = registerBlock(new BlockFoliageBOP(Block.Properties.create(Material.TALL_PLANTS, MaterialColor.RED).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "spectral_fern");
         
         tiny_cactus = registerBlock(new BlockPlantBOP(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "tiny_cactus");
         cattail = registerBlock(new BlockWatersidePlant(Block.Properties.create(Material.PLANTS, MaterialColor.DIRT).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "cattail");

@@ -7,8 +7,7 @@
  ******************************************************************************/
 package biomesoplenty.init;
 
-import biomesoplenty.common.entity.item.EntityBoatBOP;
-import biomesoplenty.common.entity.item.RenderBoatBOP;
+import biomesoplenty.api.entity.BOPEntities;
 import biomesoplenty.common.entity.projectile.EntityMudball;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.SpriteRenderer;
@@ -21,21 +20,21 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import static biomesoplenty.api.entity.BOPEntities.boat_bop;
-import static biomesoplenty.api.entity.BOPEntities.mudball;
-
 public class ModEntities
 {
     public static void init()
     {
-        mudball = createEntity(EntityMudball::new, EntityClassification.MISC, "mudball", 64, 10, true);
-        boat_bop = createEntity(EntityBoatBOP::new, EntityClassification.MISC, "boat_bop", 80, 3, true);
+        EntityType<EntityMudball> mudball = createEntity(EntityMudball::new, EntityClassification.MISC, "mudball", 64, 10, true);
+        //EntityType<EntityBoatBOP> boat_bop = createEntity(EntityBoatBOP::new, EntityClassification.MISC, "boat_bop", 80, 3, true);
+
+        BOPEntities.mudball = mudball;
+        //BOPEntities.boat_bop = boat_bop;
     }
 
     public static <T extends Entity> EntityType<T> createEntity(EntityType.IFactory<T> factory, EntityClassification classification, String name, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates)
     {
         ResourceLocation location = new ResourceLocation("biomesoplenty", name);
-        EntityType<T> type = EntityType.Builder.create(factory, classification).setTrackingRange(trackingRange).setUpdateInterval(updateFrequency).setShouldReceiveVelocityUpdates(sendsVelocityUpdates).build(location.toString());
+        EntityType<T> type = EntityType.Builder.<T>create(factory, classification).setTrackingRange(trackingRange).setUpdateInterval(updateFrequency).setShouldReceiveVelocityUpdates(sendsVelocityUpdates).build(location.toString());
         type.setRegistryName(name);
         ForgeRegistries.ENTITIES.register(type);
         return type;
@@ -45,6 +44,6 @@ public class ModEntities
     public static void registerRendering()
     {
         RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, manager -> new SpriteRenderer<>(manager, Minecraft.getInstance().getItemRenderer()));
-        RenderingRegistry.registerEntityRenderingHandler(EntityBoatBOP.class, manager -> new RenderBoatBOP(manager));
+        //RenderingRegistry.registerEntityRenderingHandler(EntityBoatBOP.class, manager -> new RenderBoatBOP(manager));
     }
 }

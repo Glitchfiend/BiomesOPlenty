@@ -26,7 +26,6 @@ import static biomesoplenty.api.item.BOPItems.willow_boat;
 
 import biomesoplenty.api.sound.BOPSounds;
 import biomesoplenty.common.entity.item.EntityBoatBOP;
-import biomesoplenty.common.item.ItemBoatBOP;
 import biomesoplenty.common.item.ItemMudball;
 import biomesoplenty.common.item.ItemRecordBOP;
 import biomesoplenty.common.util.inventory.ItemGroupBOP;

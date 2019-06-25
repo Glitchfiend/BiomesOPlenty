@@ -1,103 +1,77 @@
 package biomesoplenty.common.world;
 
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
-
-import javax.annotation.Nullable;
-
-import com.google.common.collect.Sets;
-
 import biomesoplenty.api.biome.BOPBiomes;
+import com.google.common.collect.Sets;
 import it.unimi.dsi.fastutil.longs.Long2ObjectMap;
 import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
 import net.minecraft.block.BlockState;
-import net.minecraft.world.biome.Biomes;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.biome.provider.EndBiomeProviderSettings;
-import net.minecraft.world.gen.NoiseGeneratorSimplex;
+import net.minecraft.world.gen.SimplexNoiseGenerator;
 import net.minecraft.world.gen.feature.structure.Structure;
 
+import javax.annotation.Nullable;
+import java.util.List;
+import java.util.Random;
+import java.util.Set;
+
 public class BOPEndBiomeProvider extends BiomeProvider {
-	private final NoiseGeneratorSimplex field_201546_a;
+	private final SimplexNoiseGenerator generator;
 	private final SharedSeedRandom random;
 	private final Biome[] field_205009_d = new Biome[]{Biomes.THE_END, Biomes.END_HIGHLANDS, Biomes.END_MIDLANDS, Biomes.SMALL_END_ISLANDS, Biomes.END_BARRENS, BOPBiomes.end_plains.get()};
 
 	public BOPEndBiomeProvider(EndBiomeProviderSettings p_i48970_1_) {
 		this.random = new SharedSeedRandom(p_i48970_1_.getSeed());
 		this.random.skip(17292);
-		this.field_201546_a = new NoiseGeneratorSimplex(this.random);
+		this.generator = new SimplexNoiseGenerator(this.random);
 	}
 
-	@Nullable
 	@Override
-	public Biome getBiome(BlockPos pos, @Nullable Biome defaultBiome) {
-		return this.func_201545_a(pos.getX() >> 4, pos.getZ() >> 4);
-	}
-
-	private Biome func_201545_a(int p_201545_1_, int p_201545_2_) {
-		if ((long)p_201545_1_ * (long)p_201545_1_ + (long)p_201545_2_ * (long)p_201545_2_ <= 4096L)
-		{
+	public Biome getBiome(int p_201545_1_, int p_201545_2_)
+	{
+		int lvt_3_1_ = p_201545_1_ >> 4;
+		int lvt_4_1_ = p_201545_2_ >> 4;
+		if ((long)lvt_3_1_ * (long)lvt_3_1_ + (long)lvt_4_1_ * (long)lvt_4_1_ <= 4096L) {
 			return Biomes.THE_END;
-		}
-		else
-		{
-			float f = this.getHeightValue(p_201545_1_, p_201545_2_, 1, 1);
-			double d0 = Biome.INFO_NOISE.getValue((double)p_201545_1_ * 0.005D, (double)p_201545_2_ * 0.005D);
-
-			if (f > 40.0F)
-			{
-				if (d0 > 0.01D)
-				{
-					return Biomes.END_HIGHLANDS;
-				}
-				else
-				{
-					return BOPBiomes.end_plains.get();
-				}
-			}
-			else if (f >= 0.0F)
-			{
+		} else {
+			float lvt_5_1_ = this.func_222365_c(lvt_3_1_ * 2 + 1, lvt_4_1_ * 2 + 1);
+			if (lvt_5_1_ > 40.0F) {
+				return Biomes.END_HIGHLANDS;
+			} else if (lvt_5_1_ >= 0.0F) {
 				return Biomes.END_MIDLANDS;
-			}
-			else
-			{
-				return f < -20.0F ? Biomes.SMALL_END_ISLANDS : Biomes.END_BARRENS;
+			} else {
+				return lvt_5_1_ < -20.0F ? Biomes.SMALL_END_ISLANDS : Biomes.END_BARRENS;
 			}
 		}
 	}
 
 	@Override
-	public Biome[] getBiomes(int startX, int startZ, int xSize, int zSize) {
-		return this.getBiomeBlock(startX, startZ, xSize, zSize);
-	}
+	public Biome[] getBiomes(int p_201537_1_, int p_201537_2_, int p_201537_3_, int p_201537_4_, boolean p_201537_5_) {
+		Biome[] lvt_6_1_ = new Biome[p_201537_3_ * p_201537_4_];
+		Long2ObjectMap<Biome> lvt_7_1_ = new Long2ObjectOpenHashMap();
 
-	@Override
-	public Biome[] getBiomes(int x, int z, int width, int length, boolean cacheFlag) {
-		Biome[] abiome = new Biome[width * length];
-		Long2ObjectMap<Biome> long2objectmap = new Long2ObjectOpenHashMap<>();
-
-		for(int i = 0; i < width; ++i) {
-			for(int j = 0; j < length; ++j) {
-				int k = i + x >> 4;
-				int l = j + z >> 4;
-				long i1 = ChunkPos.asLong(k, l);
-				Biome biome = long2objectmap.get(i1);
-				if (biome == null) {
-					biome = this.func_201545_a(k, l);
-					long2objectmap.put(i1, biome);
+		for(int lvt_8_1_ = 0; lvt_8_1_ < p_201537_3_; ++lvt_8_1_) {
+			for(int lvt_9_1_ = 0; lvt_9_1_ < p_201537_4_; ++lvt_9_1_) {
+				int lvt_10_1_ = lvt_8_1_ + p_201537_1_;
+				int lvt_11_1_ = lvt_9_1_ + p_201537_2_;
+				long lvt_12_1_ = ChunkPos.asLong(lvt_10_1_, lvt_11_1_);
+				Biome lvt_14_1_ = lvt_7_1_.get(lvt_12_1_);
+				if (lvt_14_1_ == null) {
+					lvt_14_1_ = this.getBiome(lvt_10_1_, lvt_11_1_);
+					lvt_7_1_.put(lvt_12_1_, lvt_14_1_);
 				}
 
-				abiome[i + j * width] = biome;
+				lvt_6_1_[lvt_8_1_ + lvt_9_1_ * p_201537_3_] = lvt_14_1_;
 			}
 		}
 
-		return abiome;
+		return lvt_6_1_;
 	}
 
 	@Override
@@ -140,28 +114,30 @@ public class BOPEndBiomeProvider extends BiomeProvider {
 	}
 
 	@Override
-	public float getHeightValue(int p_201536_1_, int p_201536_2_, int p_201536_3_, int p_201536_4_) {
-		float f = (float)(p_201536_1_ * 2 + p_201536_3_);
-		float f1 = (float)(p_201536_2_ * 2 + p_201536_4_);
-		float f2 = 100.0F - MathHelper.sqrt(f * f + f1 * f1) * 8.0F;
-		f2 = MathHelper.clamp(f2, -100.0F, 80.0F);
+	public float func_222365_c(int p_222365_1_, int p_222365_2_) {
+		int lvt_3_1_ = p_222365_1_ / 2;
+		int lvt_4_1_ = p_222365_2_ / 2;
+		int lvt_5_1_ = p_222365_1_ % 2;
+		int lvt_6_1_ = p_222365_2_ % 2;
+		float lvt_7_1_ = 100.0F - MathHelper.sqrt((float)(p_222365_1_ * p_222365_1_ + p_222365_2_ * p_222365_2_)) * 8.0F;
+		lvt_7_1_ = MathHelper.clamp(lvt_7_1_, -100.0F, 80.0F);
 
-		for(int i = -12; i <= 12; ++i) {
-			for(int j = -12; j <= 12; ++j) {
-				long k = (long)(p_201536_1_ + i);
-				long l = (long)(p_201536_2_ + j);
-				if (k * k + l * l > 4096L && this.field_201546_a.getValue((double)k, (double)l) < (double)-0.9F) {
-					float f3 = (MathHelper.abs((float)k) * 3439.0F + MathHelper.abs((float)l) * 147.0F) % 13.0F + 9.0F;
-					f = (float)(p_201536_3_ - i * 2);
-					f1 = (float)(p_201536_4_ - j * 2);
-					float f4 = 100.0F - MathHelper.sqrt(f * f + f1 * f1) * f3;
-					f4 = MathHelper.clamp(f4, -100.0F, 80.0F);
-					f2 = Math.max(f2, f4);
+		for(int lvt_8_1_ = -12; lvt_8_1_ <= 12; ++lvt_8_1_) {
+			for(int lvt_9_1_ = -12; lvt_9_1_ <= 12; ++lvt_9_1_) {
+				long lvt_10_1_ = (long)(lvt_3_1_ + lvt_8_1_);
+				long lvt_12_1_ = (long)(lvt_4_1_ + lvt_9_1_);
+				if (lvt_10_1_ * lvt_10_1_ + lvt_12_1_ * lvt_12_1_ > 4096L && this.generator.getValue((double)lvt_10_1_, (double)lvt_12_1_) < -0.8999999761581421D) {
+					float lvt_14_1_ = (MathHelper.abs((float)lvt_10_1_) * 3439.0F + MathHelper.abs((float)lvt_12_1_) * 147.0F) % 13.0F + 9.0F;
+					float lvt_15_1_ = (float)(lvt_5_1_ - lvt_8_1_ * 2);
+					float lvt_16_1_ = (float)(lvt_6_1_ - lvt_9_1_ * 2);
+					float lvt_17_1_ = 100.0F - MathHelper.sqrt(lvt_15_1_ * lvt_15_1_ + lvt_16_1_ * lvt_16_1_) * lvt_14_1_;
+					lvt_17_1_ = MathHelper.clamp(lvt_17_1_, -100.0F, 80.0F);
+					lvt_7_1_ = Math.max(lvt_7_1_, lvt_17_1_);
 				}
 			}
 		}
 
-		return f2;
+		return lvt_7_1_;
 	}
 
 	@Override
