@@ -12,7 +12,6 @@ import biomesoplenty.common.world.gen.feature.BOPBiomeFeatures;
 import com.google.common.collect.Lists;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.fluid.Fluids;

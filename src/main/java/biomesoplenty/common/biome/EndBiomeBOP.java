@@ -8,13 +8,10 @@
 package biomesoplenty.common.biome;
 
 import biomesoplenty.api.enums.BOPClimates;
-import net.minecraft.world.biome.Biomes;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 public class EndBiomeBOP extends BiomeBOP
 {
@@ -23,7 +20,7 @@ public class EndBiomeBOP extends BiomeBOP
 	public int beachBiomeId = -1;
 	public int riverBiomeId = -1;
 
-    public EndBiomeBOP(BiomeBuilder builder)
+    public EndBiomeBOP(Biome.Builder builder)
     {
         super(builder);
         this.canSpawnInBiome = false;
