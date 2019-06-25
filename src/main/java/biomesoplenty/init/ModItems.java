@@ -7,30 +7,14 @@
  ******************************************************************************/
 package biomesoplenty.init;
 
-import static biomesoplenty.api.item.BOPItems.bop_icon;
-import static biomesoplenty.api.item.BOPItems.cherry_boat;
-import static biomesoplenty.api.item.BOPItems.dead_boat;
-import static biomesoplenty.api.item.BOPItems.ethereal_boat;
-import static biomesoplenty.api.item.BOPItems.fir_boat;
-import static biomesoplenty.api.item.BOPItems.hellbark_boat;
-import static biomesoplenty.api.item.BOPItems.jacaranda_boat;
-import static biomesoplenty.api.item.BOPItems.magic_boat;
-import static biomesoplenty.api.item.BOPItems.mahogany_boat;
-import static biomesoplenty.api.item.BOPItems.mud_brick;
-import static biomesoplenty.api.item.BOPItems.mudball;
-import static biomesoplenty.api.item.BOPItems.palm_boat;
-import static biomesoplenty.api.item.BOPItems.record_wanderer;
-import static biomesoplenty.api.item.BOPItems.redwood_boat;
-import static biomesoplenty.api.item.BOPItems.umbran_boat;
-import static biomesoplenty.api.item.BOPItems.willow_boat;
-
 import biomesoplenty.api.sound.BOPSounds;
-import biomesoplenty.common.entity.item.EntityBoatBOP;
 import biomesoplenty.common.item.ItemMudball;
 import biomesoplenty.common.item.ItemRecordBOP;
 import biomesoplenty.common.util.inventory.ItemGroupBOP;
 import net.minecraft.item.Item;
 import net.minecraftforge.registries.ForgeRegistries;
+
+import static biomesoplenty.api.item.BOPItems.*;
 
 public class ModItems
 {
@@ -41,7 +25,7 @@ public class ModItems
         
         record_wanderer = registerItem(new ItemRecordBOP(BOPSounds.records_wanderer), "record_wanderer");
 
-        fir_boat = registerItem(new ItemBoatBOP(EntityBoatBOP.Type.FIR, (new Item.Properties()).maxStackSize(1).group(ItemGroupBOP.instance)), "fir_boat");
+        /*fir_boat = registerItem(new ItemBoatBOP(EntityBoatBOP.Type.FIR, (new Item.Properties()).maxStackSize(1).group(ItemGroupBOP.instance)), "fir_boat");
         redwood_boat = registerItem(new ItemBoatBOP(EntityBoatBOP.Type.REDWOOD, (new Item.Properties()).maxStackSize(1).group(ItemGroupBOP.instance)), "redwood_boat");
         cherry_boat = registerItem(new ItemBoatBOP(EntityBoatBOP.Type.CHERRY, (new Item.Properties()).maxStackSize(1).group(ItemGroupBOP.instance)), "cherry_boat");
         mahogany_boat = registerItem(new ItemBoatBOP(EntityBoatBOP.Type.MAHOGANY, (new Item.Properties()).maxStackSize(1).group(ItemGroupBOP.instance)), "mahogany_boat");
@@ -52,7 +36,7 @@ public class ModItems
         magic_boat = registerItem(new ItemBoatBOP(EntityBoatBOP.Type.MAGIC, (new Item.Properties()).maxStackSize(1).group(ItemGroupBOP.instance)), "magic_boat");
         umbran_boat = registerItem(new ItemBoatBOP(EntityBoatBOP.Type.UMBRAN, (new Item.Properties()).maxStackSize(1).group(ItemGroupBOP.instance)), "umbran_boat");
         hellbark_boat = registerItem(new ItemBoatBOP(EntityBoatBOP.Type.HELLBARK, (new Item.Properties()).maxStackSize(1).group(ItemGroupBOP.instance)), "hellbark_boat");
-        ethereal_boat = registerItem(new ItemBoatBOP(EntityBoatBOP.Type.ETHEREAL, (new Item.Properties()).maxStackSize(1).group(ItemGroupBOP.instance)), "ethereal_boat");
+        ethereal_boat = registerItem(new ItemBoatBOP(EntityBoatBOP.Type.ETHEREAL, (new Item.Properties()).maxStackSize(1).group(ItemGroupBOP.instance)), "ethereal_boat");*/
 
         bop_icon = registerItem(new Item(new Item.Properties()), "bop_icon");
 	}

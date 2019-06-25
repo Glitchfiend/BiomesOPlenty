@@ -32,12 +32,12 @@ public class EntityMudball extends ProjectileItemEntity
 
     public EntityMudball(World world, double x, double y, double z)
     {
-        super(BOPEntities.mudball, x, y, z, world);
+        super((EntityType<? extends EntityMudball>)BOPEntities.mudball, x, y, z, world);
     }
 
     public EntityMudball(World world, LivingEntity thrower)
     {
-        super(BOPEntities.mudball, thrower, world);
+        super((EntityType<? extends EntityMudball>)BOPEntities.mudball, thrower, world);
     }
 
     @Override

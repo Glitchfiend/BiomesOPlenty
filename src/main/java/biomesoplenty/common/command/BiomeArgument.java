@@ -7,11 +7,6 @@
  ******************************************************************************/
 package biomesoplenty.common.command;
 
-import java.util.Collection;
-import java.util.concurrent.CompletableFuture;
-import java.util.stream.Collectors;
-
-import com.google.common.collect.Streams;
 import com.mojang.brigadier.StringReader;
 import com.mojang.brigadier.arguments.ArgumentType;
 import com.mojang.brigadier.context.CommandContext;
@@ -19,62 +14,44 @@ import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.exceptions.DynamicCommandExceptionType;
 import com.mojang.brigadier.suggestion.Suggestions;
 import com.mojang.brigadier.suggestion.SuggestionsBuilder;
-
 import net.minecraft.command.CommandSource;
 import net.minecraft.command.ISuggestionProvider;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.biome.Biome;
+
+import java.util.concurrent.CompletableFuture;
 
 public class BiomeArgument implements ArgumentType<Biome>
 {
-    private static final Collection<String> EXAMPLES;
-    public static final DynamicCommandExceptionType INVALID_BIOME_EXCEPTION;
-
-    public BiomeArgument()
-    {
-    }
-
-    @Override
-    public <S> Biome parse(StringReader reader) throws CommandSyntaxException
-    {
-        ResourceLocation location = ResourceLocation.read(reader);
-        Biome biome = Registry.BIOME.getByValue(location);
-        if (biome == null)
-            throw INVALID_BIOME_EXCEPTION.create(location);
-        else return biome;
-    }
-
-    @Override
-    public <S> CompletableFuture<Suggestions> listSuggestions(CommandContext<S> context, SuggestionsBuilder suggestionsBuilder)
-    {
-        return ISuggestionProvider.func_212476_a(Streams.stream(Registry.BIOME).map(biome -> Registry.BIOME.getByValueKey((Biome)biome)), suggestionsBuilder);
-    }
-
-    @Override
-    public Collection<String> getExamples()
-    {
-        return EXAMPLES;
-    }
+    public static final DynamicCommandExceptionType INVALID_BIOME_EXCEPTION = new DynamicCommandExceptionType((biome) -> {
+        return new TranslationTextComponent("argument.biomesoplenty.biome.invalid", new Object[]{biome});
+    });
 
     public static BiomeArgument createArgument()
     {
         return new BiomeArgument();
     }
 
-    public static Biome getValue(CommandContext<CommandSource> context, String name)
+    public static Biome getValue(CommandContext<CommandSource> context, String name) throws CommandSyntaxException
     {
         return context.getArgument(name, Biome.class);
     }
 
-    static
+    @Override
+    public Biome parse(StringReader reader) throws CommandSyntaxException
     {
-        EXAMPLES = (Collection)Streams.stream(Registry.BIOME).map(biome -> {
-            return Registry.BIOME.getByValueKey((Biome)biome).toString();
-        }).collect(Collectors.toList());
-        INVALID_BIOME_EXCEPTION = new DynamicCommandExceptionType((biome) -> {
-            return new TextComponentTranslation("argument.biomesoplenty.biome.invalid", new Object[]{biome});
+        ResourceLocation location = ResourceLocation.read(reader);
+        return Registry.BIOME.getValue(location).orElseThrow(() ->
+        {
+            return INVALID_BIOME_EXCEPTION.create(location);
         });
+    }
+
+    @Override
+    public <S> CompletableFuture<Suggestions> listSuggestions(CommandContext<S> context, SuggestionsBuilder suggestionsBuilder)
+    {
+        return ISuggestionProvider.suggestIterable(Registry.BIOME.keySet(), suggestionsBuilder);
     }
 }

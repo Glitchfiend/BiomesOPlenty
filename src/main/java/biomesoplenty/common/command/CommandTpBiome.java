@@ -7,20 +7,19 @@
  ******************************************************************************/
 package biomesoplenty.common.command;
 
-import com.mojang.brigadier.builder.ArgumentBuilder;
-
 import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.common.util.block.BlockUtil;
-import net.minecraft.block.material.Material;
+import com.mojang.brigadier.builder.ArgumentBuilder;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.material.Material;
 import net.minecraft.command.CommandSource;
 import net.minecraft.command.Commands;
-import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.chunk.Chunk;
+import net.minecraft.world.chunk.IChunk;
 
 public class CommandTpBiome
 {
@@ -30,12 +29,13 @@ public class CommandTpBiome
                 .requires(cs->cs.hasPermissionLevel(0)) //permission
                 .then(Commands.argument("biome", BiomeArgument.createArgument())
                 .executes(ctx -> {
-                    EntityPlayerMP player = ctx.getSource().asPlayer();
+                    ServerPlayerEntity player = ctx.getSource().asPlayer();
                     return findTeleportBiome(ctx.getSource(), player, BiomeArgument.getValue(ctx, "biome"));
                 }));
+
     }
 
-    private static int findTeleportBiome(CommandSource cs, EntityPlayerMP player, Biome biome)
+    private static int findTeleportBiome(CommandSource cs, ServerPlayerEntity player, Biome biome)
     {
         World world = player.world;
         BlockPos closestBiomePos = biome == null ? null : BiomeUtil.spiralOutwardsLookingForBiome(world, biome, player.posX, player.posZ);
@@ -53,11 +53,11 @@ public class CommandTpBiome
             }
 
             player.connection.setPlayerLocation(x, y, z, player.rotationYaw, player.rotationPitch);
-            cs.sendFeedback(new TextComponentTranslation("commands.biomesoplenty.tpbiome.success", player.getName(), biomeName, x, y, z), true);
+            cs.sendFeedback(new TranslationTextComponent("commands.biomesoplenty.tpbiome.success", player.getName(), biomeName, x, y, z), true);
         }
         else
         {
-            cs.sendFeedback(new TextComponentTranslation("commands.biomesoplenty.tpbiome.error", biomeName), true);
+            cs.sendFeedback(new TranslationTextComponent("commands.biomesoplenty.tpbiome.error", biomeName), true);
         }
 
         return 1;
@@ -65,7 +65,7 @@ public class CommandTpBiome
 
     public static BlockPos getTopBlockNonOverworld(World world, BlockPos pos)
     {
-        Chunk chunk = world.getChunk(pos);
+        IChunk chunk = world.getChunk(pos);
         BlockPos blockpos;
         BlockPos blockpos1;
         BlockPos blockpos2 = new BlockPos(pos.getX(), chunk.getTopFilledSegment() + 16, pos.getZ());
