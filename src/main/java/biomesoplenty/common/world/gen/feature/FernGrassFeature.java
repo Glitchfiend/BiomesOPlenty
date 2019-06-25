@@ -34,7 +34,7 @@ public class FernGrassFeature extends Feature<NoFeatureConfig>
 	}
 
 	@Override
-	public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, NoFeatureConfig config)
+	public boolean func_212245_a(IWorld world, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, NoFeatureConfig config)
 	{
 		BlockState BlockState = this.chooseGrassState(rand);
 

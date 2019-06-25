@@ -194,7 +194,7 @@ public abstract class TreeFeatureBase extends AbstractTreeFeature<NoFeatureConfi
     @Override
     protected boolean place(Set<BlockPos> changedBlocks, IWorldGenerationReader world, Random rand, BlockPos position, MutableBoundingBox boundingBox)
     {
-        return place(changedBlocks, world, rand, position, boundingBox);
+        return place(changedBlocks, (IWorld)world, rand, position, boundingBox);
     }
 
     protected boolean place(Set<BlockPos> changedBlocks, IWorld world, Random rand, BlockPos position, MutableBoundingBox boundingBox)

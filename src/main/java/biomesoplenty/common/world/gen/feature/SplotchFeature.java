@@ -19,7 +19,7 @@ public class SplotchFeature extends Feature<SplotchConfig>
    }
 
    @Override
-   public boolean place(IWorld p_212245_1_, ChunkGenerator<? extends GenerationSettings> p_212245_2_, Random p_212245_3_, BlockPos p_212245_4_, SplotchConfig p_212245_5_)
+   public boolean func_212245_a(IWorld p_212245_1_, ChunkGenerator<? extends GenerationSettings> p_212245_2_, Random p_212245_3_, BlockPos p_212245_4_, SplotchConfig p_212245_5_)
    {
       int i = 0;
       int j = p_212245_3_.nextInt(p_212245_5_.radius - 2) + 2;

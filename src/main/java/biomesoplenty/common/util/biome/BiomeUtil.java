@@ -35,7 +35,7 @@ public class BiomeUtil
     {
 
         if (maxDist <= 0 || sampleSpace <= 0) {throw new IllegalArgumentException("maxDist and sampleSpace must be positive");}
-        BiomeProvider chunkManager = world.getChunkProvider().getChunkGenerator().getBiomeProvider();
+        BiomeProvider chunkManager = world.func_72863_F().getChunkGenerator().getBiomeProvider();
         double a = sampleSpace / Math.sqrt(Math.PI);
         double b = 2 * Math.sqrt(Math.PI);
         double x = 0;
