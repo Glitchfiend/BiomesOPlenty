@@ -13,7 +13,7 @@ public class BOPItems
 {
     public static Item bop_icon;
 
-    public static Item mudball;
+    public static Item mud_ball;
     public static Item mud_brick;
 
     public static Item fir_boat;

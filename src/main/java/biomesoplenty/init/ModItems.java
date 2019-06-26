@@ -8,7 +8,7 @@
 package biomesoplenty.init;
 
 import biomesoplenty.api.sound.BOPSounds;
-import biomesoplenty.common.item.ItemMudball;
+import biomesoplenty.common.item.ItemMudBall;
 import biomesoplenty.common.item.ItemMusicDiscBOP;
 import biomesoplenty.common.util.inventory.ItemGroupBOP;
 import net.minecraft.item.Item;
@@ -20,7 +20,7 @@ public class ModItems
 {
 	public static void init()
 	{
-        mudball = registerItem(new ItemMudball(), "mudball");
+        mud_ball = registerItem(new ItemMudBall(), "mud_ball");
         mud_brick = registerItem(new Item(new Item.Properties().group(ItemGroupBOP.instance)), "mud_brick");
         
         music_disc_wanderer = registerItem(new ItemMusicDiscBOP(BOPSounds.music_disc_wanderer), "music_disc_wanderer");

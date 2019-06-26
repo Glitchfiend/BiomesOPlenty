@@ -66,8 +66,8 @@ public class ClientProxy extends CommonProxy
         switch (type)
         {
             case MUD:
-                int itemId = Item.getIdFromItem(BOPItems.mudball);
-                minecraft.world.addParticle(new ItemParticleData(ParticleTypes.ITEM, new ItemStack(BOPItems.mudball)), x, y, z, MathHelper.nextDouble(parWorld.rand, -0.08D, 0.08D), MathHelper.nextDouble(parWorld.rand, -0.08D, 0.08D), MathHelper.nextDouble(parWorld.rand, -0.08D, 0.08D));
+                int itemId = Item.getIdFromItem(BOPItems.mud_ball);
+                minecraft.world.addParticle(new ItemParticleData(ParticleTypes.ITEM, new ItemStack(BOPItems.mud_ball)), x, y, z, MathHelper.nextDouble(parWorld.rand, -0.08D, 0.08D), MathHelper.nextDouble(parWorld.rand, -0.08D, 0.08D), MathHelper.nextDouble(parWorld.rand, -0.08D, 0.08D));
                 return;
             /*case PLAYER_TRAIL:
                 if (info.length < 1)

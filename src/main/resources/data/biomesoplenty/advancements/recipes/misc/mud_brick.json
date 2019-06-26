@@ -6,12 +6,12 @@
     ]
   },
   "criteria": {
-    "has_mudball": {
+    "has_mud_ball": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "biomesoplenty:mudball"
+            "item": "biomesoplenty:mud_ball"
           }
         ]
       }
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_mudball",
+      "has_mud_ball",
       "has_the_recipe"
     ]
   ]

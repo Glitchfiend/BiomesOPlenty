@@ -99,7 +99,7 @@
   "item.biomesoplenty.magic_boat": "Magic Boat",
   "item.biomesoplenty.mahogany_boat": "Mahogany Boat",
   "item.biomesoplenty.mud_brick": "Mud Brick",
-  "item.biomesoplenty.mudball": "Mud Ball",
+  "item.biomesoplenty.mud_ball": "Mud Ball",
   "item.biomesoplenty.music_disc_wanderer": "Music Disc",
   "item.biomesoplenty.music_disc_wanderer.desc": "Tim Rurkowski - Wanderer",
   "item.biomesoplenty.palm_boat": "Palm Boat",
@@ -387,6 +387,6 @@
   "commands.biomesoplenty.tpbiome.success": "Teleported %s to biome %s at (%s, %s, %s)",
   "commands.biomesoplenty.tpbiome.error": "Couldn't find biome %s!",
 
-  "entity.biomesoplenty.mudball": "Mudball",
+  "entity.biomesoplenty.mud_ball": "Mud Ball",
   "entity.biomesoplenty.boat_bop": "Boat"
 }
