@@ -28,21 +28,4 @@ public class ItemGroupBOP extends ItemGroup
     {
         return new ItemStack(BOPItems.bop_icon);
     }
-
-    @Override
-    @OnlyIn(Dist.CLIENT)
-    public void fill(NonNullList<ItemStack> items)
-    {
-        super.fill(items);
-
-        // FIXME
-        /*for (Fluid bucketFluid : FluidRegistry.getBucketFluids())
-        {
-            if (bucketFluid.getBlock() != null && bucketFluid.getBlock().getRegistryName().getResourceDomain().equals(BiomesOPlenty.MOD_ID))
-            {
-                ItemStack itemstack = UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, bucketFluid);
-                itemList.add(itemstack);
-            }
-        }*/
-    }
 }
