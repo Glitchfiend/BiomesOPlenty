@@ -1,8 +1,8 @@
 ---
-name: 1.13.2 Standalone Bug
-about: For bugs that occur with Biomes O' Plenty for 1.13.2.  We do not support older versions!
+name: 1.14.3 Standalone Bug
+about: For bugs that occur with Biomes O' Plenty for 1.14.3.  We do not support older versions!
 title: ''
-labels: 1.13.2, bug-minor
+labels: 1.14.3, bug-minor
 assignees: ''
 
 ---
