@@ -40,6 +40,8 @@ public enum GenLayerSubBiome implements IAreaTransformer2, IDimOffset1Transforme
     private static final int SNOWY_MOUNTAINS = Registry.BIOME.getId(Biomes.SNOWY_MOUNTAINS);
     private static final int JUNGLE = Registry.BIOME.getId(Biomes.JUNGLE);
     private static final int JUNGLE_HILLS = Registry.BIOME.getId(Biomes.JUNGLE_HILLS);
+    private static final int BAMBOO_JUNGLE = Registry.BIOME.getId(Biomes.BAMBOO_JUNGLE);
+    private static final int BAMBOO_JUNGLE_HILLS = Registry.BIOME.getId(Biomes.BAMBOO_JUNGLE_HILLS);
     private static final int BADLANDS = Registry.BIOME.getId(Biomes.BADLANDS);
     private static final int WOODED_BADLANDS_PLATEAU = Registry.BIOME.getId(Biomes.WOODED_BADLANDS_PLATEAU);
     private static final int PLAINS = Registry.BIOME.getId(Biomes.PLAINS);
@@ -155,6 +157,7 @@ public enum GenLayerSubBiome implements IAreaTransformer2, IDimOffset1Transforme
         //else if (originalBiomeId == PLAINS) mutatedBiomeId = context.random(3) == 0 ? WOODED_HILLS : FOREST;
         else if (originalBiomeId == SNOWY_TUNDRA) mutatedBiomeId = SNOWY_MOUNTAINS;
         else if (originalBiomeId == JUNGLE) mutatedBiomeId = JUNGLE_HILLS;
+        else if (originalBiomeId == BAMBOO_JUNGLE) mutatedBiomeId = BAMBOO_JUNGLE_HILLS;
         else if (originalBiomeId == BOPLayerUtil.OCEAN) mutatedBiomeId = BOPLayerUtil.DEEP_OCEAN;
         else if (originalBiomeId == BOPLayerUtil.LUKEWARM_OCEAN) mutatedBiomeId = BOPLayerUtil.DEEP_LUKEWARM_OCEAN;
         else if (originalBiomeId == BOPLayerUtil.COLD_OCEAN) mutatedBiomeId = BOPLayerUtil.DEEP_COLD_OCEAN;

@@ -104,6 +104,7 @@ public class BOPLayerUtil
     public static <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> createBiomeFactory(IAreaFactory<T> landSeaAreaFactory, IAreaFactory<T> climateAreaFactory, LongFunction<C> contextFactory)
     {
         IAreaFactory<T> biomeFactory = GenLayerBiomeBOP.INSTANCE.apply(contextFactory.apply(200L), landSeaAreaFactory, climateAreaFactory);
+        biomeFactory = AddBambooForestLayer.INSTANCE.apply(contextFactory.apply(1001L), biomeFactory);
         biomeFactory = LayerUtil.repeat(1000L, ZoomLayer.NORMAL, biomeFactory, 2, contextFactory);
         biomeFactory = GenLayerBiomeEdgeBOP.INSTANCE.apply(contextFactory.apply(1000L), biomeFactory);
         return biomeFactory;
