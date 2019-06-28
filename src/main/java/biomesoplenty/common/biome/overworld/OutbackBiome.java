@@ -24,6 +24,8 @@ import net.minecraft.world.gen.carver.WorldCarver;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.structure.MineshaftConfig;
 import net.minecraft.world.gen.feature.structure.MineshaftStructure;
+import net.minecraft.world.gen.feature.structure.PillagerOutpostConfig;
+import net.minecraft.world.gen.feature.structure.VillageConfig;
 import net.minecraft.world.gen.placement.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
@@ -35,6 +37,8 @@ public class OutbackBiome extends BiomeBOP
         super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, BOPBiomeFeatures.RED_SAND_SURFACE)).precipitation(Biome.RainType.NONE).category(Biome.Category.DESERT).depth(0.05F).scale(0.0F).temperature(2.0F).downfall(0.05F).waterColor(4159204).waterFogColor(329011).parent((String)null));
 
         // Structures
+        this.addStructure(Feature.VILLAGE, new VillageConfig("village/savanna/town_centers", 6));
+        this.addStructure(Feature.PILLAGER_OUTPOST, new PillagerOutpostConfig(0.004D));
         this.addStructure(Feature.MINESHAFT, new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL));
         this.addStructure(Feature.STRONGHOLD, IFeatureConfig.NO_FEATURE_CONFIG);
 

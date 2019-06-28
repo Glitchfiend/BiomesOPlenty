@@ -24,6 +24,8 @@ import net.minecraft.world.gen.carver.WorldCarver;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.structure.MineshaftConfig;
 import net.minecraft.world.gen.feature.structure.MineshaftStructure;
+import net.minecraft.world.gen.feature.structure.PillagerOutpostConfig;
+import net.minecraft.world.gen.feature.structure.VillageConfig;
 import net.minecraft.world.gen.placement.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
@@ -37,6 +39,8 @@ public class XericShrublandBiome extends BiomeBOP
         super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.SAND_CONFIG)).precipitation(Biome.RainType.NONE).category(Biome.Category.SAVANNA).depth(0.0F).scale(0.0F).temperature(1.75F).downfall(0.1F).waterColor(4159204).waterFogColor(329011).parent((String)null));
 
         // Structures
+        this.addStructure(Feature.VILLAGE, new VillageConfig("village/desert/town_centers", 6));
+        this.addStructure(Feature.PILLAGER_OUTPOST, new PillagerOutpostConfig(0.004D));
         this.addStructure(Feature.DESERT_PYRAMID, IFeatureConfig.NO_FEATURE_CONFIG);
         this.addStructure(Feature.MINESHAFT, new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL));
         this.addStructure(Feature.STRONGHOLD, IFeatureConfig.NO_FEATURE_CONFIG);
