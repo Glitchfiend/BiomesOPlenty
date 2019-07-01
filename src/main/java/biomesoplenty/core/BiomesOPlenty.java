@@ -10,10 +10,12 @@ package biomesoplenty.core;
 
 import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.init.*;
+import net.minecraft.server.dedicated.ServerProperties;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLDedicatedServerSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -35,16 +37,34 @@ public class BiomesOPlenty
     	instance = this;
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::dedicatedServerSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
         MinecraftForge.EVENT_BUS.addListener(this::serverStarting);
 
+        ModConfig.init();
         ModSounds.init();
         ModEntities.init();
         ModBlocks.init();
         ModItems.init();
         ModBiomes.init();
     }
-    
+
+    public void dedicatedServerSetup(FMLDedicatedServerSetupEvent event)
+    {
+        ServerProperties serverProperties = event.getServerSupplier().get().getServerProperties();
+
+        if (ModConfig.ServerConfig.useWorldType.get())
+        {
+            logger.info(String.format("Injecting biomesoplenty world type into server.properties. Original value: %s", serverProperties.worldType.getName()));
+            serverProperties.serverProperties.setProperty("level-type", "biomesoplenty");
+            serverProperties.worldType = ModBiomes.worldType;
+        }
+        else
+        {
+            logger.info("Biomes O' Plenty is installed on this server but generation is disabled.");
+        }
+    }
+
     private void clientSetup(final FMLClientSetupEvent event)
     {
         ModEntities.registerRendering();
