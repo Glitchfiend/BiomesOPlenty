@@ -10,13 +10,15 @@ package biomesoplenty.api.enums;
 
 import net.minecraft.util.IStringSerializable;
 
+import java.util.Locale;
+
 public enum BOPFlowers implements IStringSerializable, IPagedVariants
 {
     CLOVER, SWAMPFLOWER, DEATHBLOOM, GLOWFLOWER, BLUE_HYDRANGEA, ORANGE_COSMOS, PINK_DAFFODIL, WILDFLOWER, VIOLET, WHITE_ANEMONE, ENDERLOTUS, BROMELIAD, WILTED_LILY, PINK_HIBISCUS, LILY_OF_THE_VALLEY, BURNING_BLOSSOM, LAVENDER, GOLDENROD, BLUEBELLS, MINERS_DELIGHT, ICY_IRIS, ROSE;
     
     @Override
     public String getName() {
-        return this.name().toLowerCase();
+        return this.name().toLowerCase(Locale.ENGLISH);
     }
     @Override
     public String toString()

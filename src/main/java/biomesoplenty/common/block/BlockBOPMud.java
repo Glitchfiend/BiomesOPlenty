@@ -9,6 +9,7 @@
 package biomesoplenty.common.block;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 import javax.annotation.Nullable;
@@ -52,7 +53,7 @@ public class BlockBOPMud extends Block implements IBOPBlock, ISustainsPlantType
         @Override
         public String getName()
         {
-            return this.name().toLowerCase();
+            return this.name().toLowerCase(Locale.ENGLISH);
         }
         @Override
         public String toString()

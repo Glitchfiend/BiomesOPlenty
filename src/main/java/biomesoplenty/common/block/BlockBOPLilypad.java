@@ -28,6 +28,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.util.Locale;
+
 public class BlockBOPLilypad extends BlockLilyPad implements IBOPBlock
 {
     
@@ -38,7 +40,7 @@ public class BlockBOPLilypad extends BlockLilyPad implements IBOPBlock
         @Override
         public String getName()
         {
-            return this.name().toLowerCase();
+            return this.name().toLowerCase(Locale.ENGLISH);
         }
         @Override
         public String toString()

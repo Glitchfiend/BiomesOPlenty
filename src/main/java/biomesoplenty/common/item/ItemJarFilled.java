@@ -22,6 +22,7 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
+import java.util.Locale;
 import java.util.Objects;
 
 public class ItemJarFilled extends Item
@@ -34,7 +35,7 @@ public class ItemJarFilled extends Item
         @Override
         public String getName()
         {
-            return this.name().toLowerCase();
+            return this.name().toLowerCase(Locale.ENGLISH);
         }
         @Override
         public String toString()

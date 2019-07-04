@@ -1,5 +1,6 @@
 package biomesoplenty.common.biome.overworld;
 
+import java.util.Locale;
 import java.util.Random;
 
 import com.google.common.base.CaseFormat;
@@ -38,7 +39,7 @@ public class BiomeGenRedwoodForest extends BOPOverworldBiome
 	
     public BiomeGenRedwoodForest(ForestType type)
     {
-        super(type.name().toLowerCase(), new PropsBuilder(CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, type.toString())).withGuiColour(0x6DAA3C).withTemperature(0.7F).withRainfall(0.7F));
+        super(type.name().toLowerCase(Locale.ENGLISH), new PropsBuilder(CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, type.toString())).withGuiColour(0x6DAA3C).withTemperature(0.7F).withRainfall(0.7F));
 
         this.type = type;
         

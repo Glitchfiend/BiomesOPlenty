@@ -106,7 +106,7 @@ public abstract class BOPBiome extends Biome implements IExtendedBiome
         IConfigObj confWeights = conf.getObject("weights");
         for (BOPClimates climate : BOPClimates.values())
         {
-            Integer weight = confWeights.getInt(climate.name().toLowerCase(), this.weightMap.get(climate));
+            Integer weight = confWeights.getInt(climate.name().toLowerCase(Locale.ENGLISH), this.weightMap.get(climate));
             if (weight == null) {continue;}
             if (weight.intValue() < 1)
             {

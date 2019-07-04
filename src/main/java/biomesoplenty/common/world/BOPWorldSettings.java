@@ -9,6 +9,7 @@
 package biomesoplenty.common.world;
 
 import java.io.File;
+import java.util.Locale;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -126,10 +127,10 @@ public class BOPWorldSettings implements IBOPWorldSettings
     public String toJson()
     {
         JsonObject obj = new JsonObject();
-        obj.addProperty("landScheme", this.landScheme.name().toLowerCase());
-        obj.addProperty("tempScheme", this.tempScheme.name().toLowerCase());
-        obj.addProperty("rainScheme", this.rainScheme.name().toLowerCase());
-        obj.addProperty("biomeSize", this.biomeSize.name().toLowerCase());
+        obj.addProperty("landScheme", this.landScheme.name().toLowerCase(Locale.ENGLISH));
+        obj.addProperty("tempScheme", this.tempScheme.name().toLowerCase(Locale.ENGLISH));
+        obj.addProperty("rainScheme", this.rainScheme.name().toLowerCase(Locale.ENGLISH));
+        obj.addProperty("biomeSize", this.biomeSize.name().toLowerCase(Locale.ENGLISH));
         obj.addProperty("amplitude", this.amplitude);
         obj.addProperty("generateBopOre", this.generateBopGems);
         obj.addProperty("generatePoisonIvy", this.generatePoisonIvy);

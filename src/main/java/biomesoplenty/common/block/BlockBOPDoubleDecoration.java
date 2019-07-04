@@ -9,6 +9,7 @@
 package biomesoplenty.common.block;
 
 import java.util.List;
+import java.util.Locale;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -34,7 +35,7 @@ public class BlockBOPDoubleDecoration extends BlockBOPDecoration {
         @Override
         public String getName()
         {
-            return this.name().toLowerCase();
+            return this.name().toLowerCase(Locale.ENGLISH);
         }
         @Override
         public String toString()

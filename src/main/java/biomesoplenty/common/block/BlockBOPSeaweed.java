@@ -25,6 +25,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
+import java.util.Locale;
+
 public class BlockBOPSeaweed extends BlockBOPDecoration implements IBOPBlock
 {
     
@@ -36,7 +38,7 @@ public class BlockBOPSeaweed extends BlockBOPDecoration implements IBOPBlock
         @Override
         public String getName()
         {
-            return this.name().toLowerCase();
+            return this.name().toLowerCase(Locale.ENGLISH);
         }
         @Override
         public String toString()
@@ -51,7 +53,7 @@ public class BlockBOPSeaweed extends BlockBOPDecoration implements IBOPBlock
         @Override
         public String getName()
         {
-            return this.name().toLowerCase();
+            return this.name().toLowerCase(Locale.ENGLISH);
         }
         @Override
         public String toString()

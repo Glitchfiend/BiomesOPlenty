@@ -27,6 +27,8 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.passive.EntityLlama;
 import net.minecraft.init.Blocks;
 
+import java.util.Locale;
+
 public class BiomeGenAlps extends BOPOverworldBiome
 {
     public enum AlpsType {ALPS, ALPS_FOOTHILLS}
@@ -35,7 +37,7 @@ public class BiomeGenAlps extends BOPOverworldBiome
     
     public BiomeGenAlps(AlpsType type)
     {
-        super(type.name().toLowerCase(), new PropsBuilder(CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, type.toString())).withGuiColour(13421772).withSnowEnabled().withTemperature(-0.25F).withRainfall(0.3F));
+        super(type.name().toLowerCase(Locale.ENGLISH), new PropsBuilder(CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, type.toString())).withGuiColour(13421772).withSnowEnabled().withTemperature(-0.25F).withRainfall(0.3F));
         
         this.type = type;
         
