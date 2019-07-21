@@ -63,8 +63,8 @@ public class ScrublandBiome extends BiomeBOP
 
         // Other Features
         DefaultBiomeFeatures.addSprings(this);
-        DefaultBiomeFeatures.func_222317_ag(this);
-        DefaultBiomeFeatures.func_222297_ap(this);
+        DefaultBiomeFeatures.addFossils(this);
+        DefaultBiomeFeatures.addFreezeTopLayer(this);
 
         // Entity spawning
         this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.SHEEP, 12, 4, 4));

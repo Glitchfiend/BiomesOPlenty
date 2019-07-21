@@ -44,7 +44,7 @@ public class BrambleFeature extends Feature<NoFeatureConfig>
     protected IBlockPosQuery replace = (world, pos) -> world.getBlockState(pos).getMaterial() == Material.AIR;
 
 	@Override
-	public boolean func_212245_a(IWorld world, ChunkGenerator<? extends GenerationSettings> p_212245_2, Random rand, BlockPos startPos, NoFeatureConfig p_212245_5_)
+	public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> p_212245_2, Random rand, BlockPos startPos, NoFeatureConfig p_212245_5_)
     {
         for (int i = 0; i < 128; ++i)
         {

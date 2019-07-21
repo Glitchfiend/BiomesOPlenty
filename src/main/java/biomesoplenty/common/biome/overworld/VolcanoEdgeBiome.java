@@ -64,8 +64,8 @@ public class VolcanoEdgeBiome extends BiomeBOP
         DefaultBiomeFeatures.addSprings(this);
         DefaultBiomeFeatures.addExtraEmeraldOre(this);
         DefaultBiomeFeatures.addInfestedStone(this);
-        DefaultBiomeFeatures.func_222317_ag(this);
-        DefaultBiomeFeatures.func_222297_ap(this);
+        DefaultBiomeFeatures.addFossils(this);
+        DefaultBiomeFeatures.addFreezeTopLayer(this);
 
         // Entities
         this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.SPIDER, 100, 4, 4));

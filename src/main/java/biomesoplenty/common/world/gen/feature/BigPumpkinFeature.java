@@ -26,7 +26,7 @@ public class BigPumpkinFeature extends Feature<NoFeatureConfig>
     }
 
     @Override
-    public boolean func_212245_a(IWorld world, ChunkGenerator<? extends GenerationSettings> p_212245_2_, Random p_212245_3_, BlockPos startPos, NoFeatureConfig p_212245_5_)
+    public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> p_212245_2_, Random p_212245_3_, BlockPos startPos, NoFeatureConfig p_212245_5_)
     {
         while (startPos.getY() > 1 && this.replace.matches(world, startPos)) {startPos = startPos.down();}
 
