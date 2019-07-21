@@ -44,7 +44,7 @@ public class GravelBeachBiome extends BiomeBOP
         DefaultBiomeFeatures.addOres(this);
         DefaultBiomeFeatures.addSedimentDisks(this);
         DefaultBiomeFeatures.addSprings(this);
-        DefaultBiomeFeatures.func_222297_ap(this);
+        DefaultBiomeFeatures.addFreezeTopLayer(this);
 
         // Entities
         this.addSpawn(EntityClassification.AMBIENT, new Biome.SpawnListEntry(EntityType.BAT, 10, 8, 8));

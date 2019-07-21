@@ -66,8 +66,8 @@ public class SilkgladeBiome extends BiomeBOP
 
         // Other Features
         DefaultBiomeFeatures.addSprings(this);
-        DefaultBiomeFeatures.func_222317_ag(this);
-        DefaultBiomeFeatures.func_222297_ap(this);
+        DefaultBiomeFeatures.addFossils(this);
+        DefaultBiomeFeatures.addFreezeTopLayer(this);
 
         // Entities
         this.addSpawn(EntityClassification.AMBIENT, new Biome.SpawnListEntry(EntityType.BAT, 10, 8, 8));

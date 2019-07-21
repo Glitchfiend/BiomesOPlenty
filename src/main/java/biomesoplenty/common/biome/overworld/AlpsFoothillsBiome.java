@@ -56,7 +56,7 @@ public class AlpsFoothillsBiome extends BiomeBOP
         DefaultBiomeFeatures.addSprings(this);
         DefaultBiomeFeatures.addExtraEmeraldOre(this);
         DefaultBiomeFeatures.addInfestedStone(this);
-        DefaultBiomeFeatures.func_222297_ap(this);
+        DefaultBiomeFeatures.addFreezeTopLayer(this);
 
         // Entities
         this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.LLAMA, 5, 4, 6));

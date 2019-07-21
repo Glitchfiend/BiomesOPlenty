@@ -66,7 +66,7 @@ public class DryPlainsBiome extends BiomeBOP
 
         // Other Features
         DefaultBiomeFeatures.addSprings(this);
-        DefaultBiomeFeatures.func_222297_ap(this);
+        DefaultBiomeFeatures.addFreezeTopLayer(this);
 
         // Entities
         this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.RABBIT, 4, 2, 3));

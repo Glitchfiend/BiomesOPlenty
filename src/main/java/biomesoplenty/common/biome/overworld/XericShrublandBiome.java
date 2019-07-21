@@ -72,8 +72,8 @@ public class XericShrublandBiome extends BiomeBOP
 
         // Other Features
         DefaultBiomeFeatures.addSprings(this);
-        DefaultBiomeFeatures.func_222317_ag(this);
-        DefaultBiomeFeatures.func_222297_ap(this);
+        DefaultBiomeFeatures.addFossils(this);
+        DefaultBiomeFeatures.addFreezeTopLayer(this);
 
         // Entities
         this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.RABBIT, 4, 2, 3));

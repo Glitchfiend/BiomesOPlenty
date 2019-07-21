@@ -60,7 +60,7 @@ public class FlowerMeadowBiome extends BiomeBOP
 
         // Other Features
         DefaultBiomeFeatures.addSprings(this);
-        DefaultBiomeFeatures.func_222297_ap(this);
+        DefaultBiomeFeatures.addFreezeTopLayer(this);
 
         // Entities
         this.addSpawn(EntityClassification.AMBIENT, new Biome.SpawnListEntry(EntityType.BAT, 10, 8, 8));
