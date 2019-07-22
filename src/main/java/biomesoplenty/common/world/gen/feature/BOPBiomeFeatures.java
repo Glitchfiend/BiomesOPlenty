@@ -112,6 +112,7 @@ public class BOPBiomeFeatures
 	public static final Feature<NoFeatureConfig> MANGROVE = new MangroveFeature(NoFeatureConfig::deserialize);
 	public static final Feature<NoFeatureConfig> PUMPKIN_PATCH = new PumpkinPatchFeature(NoFeatureConfig::deserialize);
 	public static final Feature<NoFeatureConfig> BIG_PUMPKIN = new BigPumpkinFeature(NoFeatureConfig::deserialize);
+	public static final Feature<NoFeatureConfig> SHORT_BAMBOO = new ShortBambooFeature(NoFeatureConfig::deserialize);
 	public static final Feature<NoFeatureConfig> SCRUB = new ScrubFeature(NoFeatureConfig::deserialize);
 	public static final Feature<NoFeatureConfig> HEATH = new HeathFeature(NoFeatureConfig::deserialize);
 	
