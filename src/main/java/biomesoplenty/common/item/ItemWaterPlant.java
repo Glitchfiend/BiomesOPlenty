@@ -1,5 +1,6 @@
 package biomesoplenty.common.item;
 
+import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -54,11 +55,13 @@ public class ItemWaterPlant extends BlockItem
 				BlockState blockstate = worldIn.getBlockState(blockpos);
 				Material material = blockstate.getMaterial();
 				IFluidState ifluidstate = worldIn.getFluidState(blockpos);
-				if ((ifluidstate.getFluid() == Fluids.WATER || material == Material.ICE) && worldIn.isAirBlock(blockpos1)) {
 
+				Block ground = worldIn.getBlockState(blockpos.down()).getBlock();
+				if ((ifluidstate.getFluid() == Fluids.WATER || material == Material.ICE) && worldIn.isAirBlock(blockpos1) && (ground == Blocks.DIORITE || ground == Blocks.GRANITE || ground == Blocks.ANDESITE || ground == Blocks.STONE || ground == Blocks.DIRT || ground == Blocks.COARSE_DIRT || ground == Blocks.GRASS_BLOCK || ground == Blocks.GRAVEL || ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.white_sand || ground == BOPBlocks.mud || ground == BOPBlocks.dried_sand))
+				{
 					// special case for handling block placement with water lilies
 					net.minecraftforge.common.util.BlockSnapshot blocksnapshot = net.minecraftforge.common.util.BlockSnapshot.getBlockSnapshot(worldIn, blockpos1);
-					worldIn.setBlockState(blockpos1, Blocks.LILY_PAD.getDefaultState(), 11);
+					worldIn.setBlockState(blockpos1, this.getBlock().getDefaultState(), 11);
 					if (net.minecraftforge.event.ForgeEventFactory.onBlockPlace(playerIn, blocksnapshot, net.minecraft.util.Direction.UP)) {
 						blocksnapshot.restore(true, false);
 						return new ActionResult<ItemStack>(ActionResultType.FAIL, itemstack);
