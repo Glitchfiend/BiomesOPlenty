@@ -1,6 +1,6 @@
 {
   "advancements.biomesoplenty.root.title": "Biomes O' Plenty",
-  "advancements.biomesoplenty.root.description": "The explorer's dream...",
+  "advancements.biomesoplenty.root.description": "Explore the world around you",
   "advancements.biomesoplenty.all_biomes.title": "Wanderer",
   "advancements.biomesoplenty.all_biomes.description": "Discover every biome in Biomes O' Plenty",
 
@@ -313,7 +313,6 @@
   "block.biomesoplenty.stripped_willow_log": "Stripped Willow Log",
   "block.biomesoplenty.stripped_willow_wood": "Stripped Willow Wood",
   "block.biomesoplenty.tall_cattail": "Tall Cattail",
-  "block.biomesoplenty.tiny_cactus": "Tiny Cactus",
   "block.biomesoplenty.toadstool": "Toadstool",
   "block.biomesoplenty.umbran_button": "Umbran Button",
   "block.biomesoplenty.umbran_door": "Umbran Door",
@@ -366,6 +365,5 @@
   "commands.biomesoplenty.tpbiome.success": "Teleported %s to biome %s at (%s, %s, %s)",
   "commands.biomesoplenty.tpbiome.error": "Couldn't find biome %s!",
 
-  "entity.biomesoplenty.mud_ball": "Mud Ball",
   "entity.biomesoplenty.boat_bop": "Boat"
 }

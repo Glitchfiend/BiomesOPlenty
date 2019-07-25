@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "biomesoplenty:cactus_green_from_tiny_cactus"
+      "biomesoplenty:mud_brick_from_smelting"
     ]
   },
   "criteria": {
-    "has_tiny_cactus": {
+    "has_mud_ball": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "biomesoplenty:tiny_cactus"
+            "item": "biomesoplenty:mud_ball"
           }
         ]
       }
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "biomesoplenty:cactus_green_from_tiny_cactus"
+        "recipe": "biomesoplenty:mud_brick_from_smelting"
       }
     }
   },
   "requirements": [
     [
-      "has_tiny_cactus",
+      "has_mud_ball",
       "has_the_recipe"
     ]
   ]

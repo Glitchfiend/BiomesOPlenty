@@ -7,27 +7,20 @@
  ******************************************************************************/
 package biomesoplenty.init;
 
-import biomesoplenty.api.entity.BOPEntities;
-import biomesoplenty.common.entity.projectile.EntityMudBall;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.entity.SpriteRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModEntities
 {
     public static void init()
     {
-        EntityType<EntityMudBall> mud_ball = createEntity(EntityMudBall::new, EntityClassification.MISC, "mud_ball", 64, 10, true);
         //EntityType<EntityBoatBOP> boat_bop = createEntity(EntityBoatBOP::new, EntityClassification.MISC, "boat_bop", 80, 3, true);
 
-        BOPEntities.mud_ball = mud_ball;
         //BOPEntities.boat_bop = boat_bop;
     }
 
@@ -43,7 +36,6 @@ public class ModEntities
     @OnlyIn(Dist.CLIENT)
     public static void registerRendering()
     {
-        RenderingRegistry.registerEntityRenderingHandler(EntityMudBall.class, manager -> new SpriteRenderer<>(manager, Minecraft.getInstance().getItemRenderer()));
         //RenderingRegistry.registerEntityRenderingHandler(EntityBoatBOP.class, manager -> new RenderBoatBOP(manager));
     }
 }

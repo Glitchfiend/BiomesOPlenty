@@ -57,31 +57,4 @@ public class ClientProxy extends CommonProxy
         	BOPBlocks.bush, BOPBlocks.flowering_oak_leaves, BOPBlocks.mahogany_leaves,
         	BOPBlocks.palm_leaves, BOPBlocks.willow_leaves, BOPBlocks.willow_vine);
     }
-
-    @Override
-    public void spawnParticle(BOPParticleTypes type, World parWorld, double x, double y, double z, Object... info)
-    {
-        Minecraft minecraft = Minecraft.getInstance();
-        Particle entityFx = null;
-        switch (type)
-        {
-            case MUD:
-                int itemId = Item.getIdFromItem(BOPItems.mud_ball);
-                minecraft.world.addParticle(new ItemParticleData(ParticleTypes.ITEM, new ItemStack(BOPItems.mud_ball)), x, y, z, MathHelper.nextDouble(parWorld.rand, -0.08D, 0.08D), MathHelper.nextDouble(parWorld.rand, -0.08D, 0.08D), MathHelper.nextDouble(parWorld.rand, -0.08D, 0.08D));
-                return;
-            /*case PLAYER_TRAIL:
-                if (info.length < 1)
-                    throw new RuntimeException("Missing argument for trail name!");
-
-                entityFx = new EntityTrailFX(parWorld, x, y, z, (String)info[0]);
-                break;
-            case CURSE:
-                entityFx = new EntityCurseFX(parWorld, x, y, z, MathHelper.nextDouble(parWorld.rand, -0.03, 0.03), 0.05D, MathHelper.nextDouble(parWorld.rand, -0.03, 0.03));
-                break;*/
-            default:
-                break;
-        }
-
-        //if (entityFx != null) {minecraft.effectRenderer.addEffect(entityFx);}
-    }
 }

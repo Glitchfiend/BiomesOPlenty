@@ -259,8 +259,7 @@ public class BOPBlocks
     public static Block desert_grass;
     public static Block dead_grass;
     public static Block spectral_fern;
-    
-    public static Block tiny_cactus;
+
     public static Block cattail;
     public static Block tall_cattail;
     

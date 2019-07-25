@@ -17,6 +17,6 @@ public class ItemMusicDiscBOP extends MusicDiscItem
 {
     public ItemMusicDiscBOP(SoundEvent record)
     {
-        super(0, record, new Item.Properties().group(ItemGroupBOP.instance).rarity(Rarity.RARE));
+        super(0, record, new Item.Properties().group(ItemGroupBOP.instance).rarity(Rarity.RARE).maxStackSize(1));
     }
 }

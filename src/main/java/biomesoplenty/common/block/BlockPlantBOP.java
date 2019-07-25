@@ -49,11 +49,6 @@ public class BlockPlantBOP extends BushBlock implements IPlantable
     {
         Block ground = worldIn.getBlockState(pos.down()).getBlock();
 
-        if (this == BOPBlocks.tiny_cactus)
-        {
-            return ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.white_sand || super.isValidPosition(state, worldIn, pos);
-        }
-
         return super.isValidPosition(state, worldIn, pos);
     }
 
@@ -62,22 +57,6 @@ public class BlockPlantBOP extends BushBlock implements IPlantable
     {
     	Block block = world.getBlockState(pos).getBlock();
     	
-    	if (block == BOPBlocks.tiny_cactus)
-    	{
-    		return PlantType.Desert;
-    	}
-    	
     	return PlantType.Plains;
-    }
-    
-    @Override
-    public void onEntityCollision(BlockState stateIn, World worldIn, BlockPos pos, Entity entityIn)
-    {
-    	Block block = stateIn.getBlock();
-    	
-    	if (block == BOPBlocks.tiny_cactus)
-    	{
-    		entityIn.attackEntityFrom(DamageSource.CACTUS, 1.0F);
-    	}
     }
 }

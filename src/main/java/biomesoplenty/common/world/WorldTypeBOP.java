@@ -26,7 +26,7 @@ public class WorldTypeBOP extends WorldType
     {
     	if (world.getDimension().getType() == DimensionType.OVERWORLD)
     	{
-	        // Mojang does this through a billion builders. Fuck that.
+	        // Mojang does this through a billion builders.
 	        OverworldGenSettings overworldGenSettings = new OverworldGenSettings();
 	        OverworldBiomeProviderSettings biomeProviderSettings = new OverworldBiomeProviderSettings();
 	        biomeProviderSettings.setWorldInfo(world.getWorldInfo());

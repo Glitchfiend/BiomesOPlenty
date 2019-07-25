@@ -11,6 +11,5 @@ import net.minecraft.entity.EntityType;
 
 public class BOPEntities
 {
-    public static EntityType<?> mud_ball;
     public static EntityType<?> boat_bop;
 }

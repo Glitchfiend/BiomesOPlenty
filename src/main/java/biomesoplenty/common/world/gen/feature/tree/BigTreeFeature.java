@@ -456,7 +456,7 @@ public class BigTreeFeature extends TreeFeatureBase
     @Override
     protected boolean place(Set<BlockPos> changedBlocks, IWorldGenerationReader world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
     {
-        this.world = (IWorld)world; // Fuck this bullshit, we want an IWorld
+        this.world = (IWorld)world; // We want an IWorld
         this.origin = startPos;
 
         this.random = new Random(random.nextLong());
