@@ -3,16 +3,26 @@ package biomesoplenty.common.block;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.FenceBlock;
+import net.minecraft.block.LogBlock;
+import net.minecraft.block.material.MaterialColor;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 
-public class BlockFenceBOP extends FenceBlock
+public class LogBlockBOP extends LogBlock
 {
-   public BlockFenceBOP(Block.Properties p_i48367_2_)
+   private final MaterialColor field_196504_b;
+
+   public LogBlockBOP(MaterialColor p_i48367_1_, Block.Properties p_i48367_2_)
    {
-      super(p_i48367_2_);
+      super(p_i48367_1_, p_i48367_2_);
+      this.field_196504_b = p_i48367_1_;
+   }
+
+   @Override
+   public MaterialColor getMaterialColor(BlockState state, IBlockReader worldIn, BlockPos pos)
+   {
+      return state.get(AXIS) == Direction.Axis.Y ? this.field_196504_b : this.materialColor;
    }
    
    @Override

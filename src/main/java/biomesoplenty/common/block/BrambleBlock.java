@@ -22,9 +22,9 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 
-public class BlockBramble extends SixWayBlock
+public class BrambleBlock extends SixWayBlock
 {
-    public BlockBramble(Block.Properties builder)
+    public BrambleBlock(Block.Properties builder)
     {
         super(0.25F, builder);
         this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, Boolean.valueOf(false)).with(EAST, Boolean.valueOf(false)).with(SOUTH, Boolean.valueOf(false)).with(WEST, Boolean.valueOf(false)).with(UP, Boolean.valueOf(false)).with(DOWN, Boolean.valueOf(false)));

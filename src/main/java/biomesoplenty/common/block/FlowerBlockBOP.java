@@ -28,12 +28,12 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.Random;
 
-public class BlockFlowerBOP extends FlowerBlock
+public class FlowerBlockBOP extends FlowerBlock
 {
 	protected static final VoxelShape NORMAL = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
 	protected static final VoxelShape LARGE = Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 14.0D, 15.0D);
 	
-    public BlockFlowerBOP(Block.Properties properties)
+    public FlowerBlockBOP(Block.Properties properties)
     {
         super(Effects.SLOWNESS, 0, properties);
     }

@@ -22,9 +22,9 @@ import net.minecraft.util.math.RayTraceContext;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-public class ItemWaterPlant extends BlockItem
+public class WaterPlantItem extends BlockItem
 {
-	public ItemWaterPlant(Block blockIn, Item.Properties builder)
+	public WaterPlantItem(Block blockIn, Item.Properties builder)
 	{
 		super(blockIn, builder);
 	}

@@ -18,12 +18,12 @@ import net.minecraft.world.IBlockReader;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.PlantType;
 
-public class BlockDoublePlantBOP extends DoublePlantBlock implements IPlantable
+public class DoublePlantBlockBOP extends DoublePlantBlock implements IPlantable
 {
     public static final EnumProperty<DoubleBlockHalf> field_208063_b = DoublePlantBlock.HALF;
     private final Block field_196392_b;
 
-    public BlockDoublePlantBOP(Block p_i48335_1_, Block.Properties properties)
+    public DoublePlantBlockBOP(Block p_i48335_1_, Block.Properties properties)
     {
         super(properties);
         this.field_196392_b = p_i48335_1_;

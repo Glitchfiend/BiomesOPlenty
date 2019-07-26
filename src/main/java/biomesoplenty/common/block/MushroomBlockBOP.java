@@ -18,9 +18,9 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class BlockMushroomBOP extends MushroomBlock
+public class MushroomBlockBOP extends MushroomBlock
 {
-    public BlockMushroomBOP(Block.Properties properties)
+    public MushroomBlockBOP(Block.Properties properties)
     {
         super(properties);
     }

@@ -13,9 +13,9 @@ import net.minecraft.item.MusicDiscItem;
 import net.minecraft.item.Rarity;
 import net.minecraft.util.SoundEvent;
 
-public class ItemMusicDiscBOP extends MusicDiscItem
+public class MusicDiscItemBOP extends MusicDiscItem
 {
-    public ItemMusicDiscBOP(SoundEvent record)
+    public MusicDiscItemBOP(SoundEvent record)
     {
         super(0, record, new Item.Properties().group(ItemGroupBOP.instance).rarity(Rarity.RARE).maxStackSize(1));
     }

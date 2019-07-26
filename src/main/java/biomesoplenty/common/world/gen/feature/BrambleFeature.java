@@ -8,7 +8,7 @@
 package biomesoplenty.common.world.gen.feature;
 
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.common.block.BlockBramble;
+import biomesoplenty.common.block.BrambleBlock;
 import biomesoplenty.common.util.biome.GeneratorUtil;
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import com.mojang.datafixers.Dynamic;
@@ -58,15 +58,15 @@ public class BrambleFeature extends Feature<NoFeatureConfig>
                 
                 for (int length = 0; length <= targetLength && replace.matches(world, genPos); length++)
                 {  
-                	//if (BlockBramble.canPlaceBlockAt(world, genPos))
+                	//if (BrambleBlock.canPlaceBlockAt(world, genPos))
                 	//{
-                		world.setBlockState(genPos, ((BlockBramble)BOPBlocks.bramble).makeConnections(world, genPos), 2);
+                		world.setBlockState(genPos, ((BrambleBlock)BOPBlocks.bramble).makeConnections(world, genPos), 2);
 
                 		for (Direction face : Direction.values())
                 		{
                 			if (world.getBlockState(genPos.offset(face)).getBlock() == BOPBlocks.bramble)
                 			{
-                				world.setBlockState(genPos.offset(face), ((BlockBramble)BOPBlocks.bramble).makeConnections(world, genPos.offset(face)), 2);
+                				world.setBlockState(genPos.offset(face), ((BrambleBlock)BOPBlocks.bramble).makeConnections(world, genPos.offset(face)), 2);
                 			}
                 		}
 	                    
@@ -86,7 +86,7 @@ public class BrambleFeature extends Feature<NoFeatureConfig>
 	                    		{
 	                    			if (world.getBlockState(leafPos.offset(face)).getBlock() == BOPBlocks.bramble)
 	                    			{
-	                    				world.setBlockState(leafPos.offset(face), ((BlockBramble)BOPBlocks.bramble).makeConnections(world, leafPos.offset(face)), 2);
+	                    				world.setBlockState(leafPos.offset(face), ((BrambleBlock)BOPBlocks.bramble).makeConnections(world, leafPos.offset(face)), 2);
 	                    			}
 	                    		}
 	                    	}

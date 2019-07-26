@@ -15,9 +15,9 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 
-public class BlockLeavesBOP extends LeavesBlock
+public class LeavesBlockBOP extends LeavesBlock
 {
-    public BlockLeavesBOP(Block.Properties properties)
+    public LeavesBlockBOP(Block.Properties properties)
     {
         super(properties);
     }

@@ -9,6 +9,7 @@ package biomesoplenty.common.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -20,11 +21,11 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.Random;
 
-public class BlockAsh extends Block
+public class AshBlock extends Block
 {
 	protected static final VoxelShape SHAPE = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 16.0D);
 
-    public BlockAsh(Block.Properties properties)
+    public AshBlock(Block.Properties properties)
     {
         super(properties);
     }
@@ -33,6 +34,12 @@ public class BlockAsh extends Block
     public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext selectionContext)
     {
         return SHAPE;
+    }
+
+    @Override
+    public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn)
+    {
+        entityIn.setMotion(entityIn.getMotion().mul(0.75D, 1.0D, 0.75D));
     }
     
     @Override

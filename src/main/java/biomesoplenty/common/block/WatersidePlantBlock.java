@@ -20,9 +20,9 @@ import net.minecraftforge.common.PlantType;
 
 import java.util.Iterator;
 
-public class BlockWatersidePlant extends BlockPlantBOP
+public class WatersidePlantBlock extends PlantBlockBOP
 {
-    public BlockWatersidePlant(Block.Properties properties)
+    public WatersidePlantBlock(Block.Properties properties)
     {
         super(properties);
     }

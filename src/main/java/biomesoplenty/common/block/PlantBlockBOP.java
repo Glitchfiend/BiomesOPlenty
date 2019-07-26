@@ -23,11 +23,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.PlantType;
 
-public class BlockPlantBOP extends BushBlock implements IPlantable
+public class PlantBlockBOP extends BushBlock implements IPlantable
 {
 	protected static final VoxelShape NORMAL = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
 	
-    public BlockPlantBOP(Block.Properties properties)
+    public PlantBlockBOP(Block.Properties properties)
     {
         super(properties);
     }

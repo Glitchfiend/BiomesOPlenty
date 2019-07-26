@@ -3,14 +3,14 @@ package biomesoplenty.common.block;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.FenceGateBlock;
+import net.minecraft.block.FenceBlock;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 
-public class BlockFenceGateBOP extends FenceGateBlock
+public class FenceBlockBOP extends FenceBlock
 {
-   public BlockFenceGateBOP(Block.Properties p_i48367_2_)
+   public FenceBlockBOP(Block.Properties p_i48367_2_)
    {
       super(p_i48367_2_);
    }

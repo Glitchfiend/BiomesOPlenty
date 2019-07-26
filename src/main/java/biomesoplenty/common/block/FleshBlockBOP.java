@@ -7,26 +7,20 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
-import biomesoplenty.api.item.BOPItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.Direction;
-import net.minecraft.util.IItemProvider;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
-import net.minecraftforge.common.PlantType;
 
-import java.util.Random;
-
-public class BlockMud extends Block
+public class FleshBlockBOP extends Block
 {
 	protected static final VoxelShape SHAPE = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 16.0D);
 
-    public BlockMud(Block.Properties properties)
+    public FleshBlockBOP(Block.Properties properties)
     {
         super(properties);
     }
@@ -36,27 +30,10 @@ public class BlockMud extends Block
     {
         return SHAPE;
     }
-
+    
     @Override
     public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn)
     {
-        entityIn.getMotion().mul(0.4D, 1.0D, 0.4D);
-    }
-    
-    @Override
-    public boolean canSustainPlant(BlockState state, IBlockReader world, BlockPos pos, Direction facing, net.minecraftforge.common.IPlantable plantable)
-    {
-        PlantType type = plantable.getPlantType(world, pos.offset(facing));
-
-        switch (type) {
-            case Desert: return false;
-            case Nether: return false;
-            case Crop: return false;
-            case Cave: return false;
-            case Plains: return false;
-            case Water: return false;
-            case Beach: return true;
-        }
-        return false;
+        entityIn.setMotion(entityIn.getMotion().mul(0.9D, 1.0D, 0.9D));
     }
 }

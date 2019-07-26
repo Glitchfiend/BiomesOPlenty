@@ -8,7 +8,7 @@
 package biomesoplenty.init;
 
 import biomesoplenty.api.sound.BOPSounds;
-import biomesoplenty.common.item.ItemMusicDiscBOP;
+import biomesoplenty.common.item.MusicDiscItemBOP;
 import biomesoplenty.common.util.inventory.ItemGroupBOP;
 import net.minecraft.item.Item;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -22,7 +22,7 @@ public class ModItems
         mud_ball = registerItem(new Item(new Item.Properties().group(ItemGroupBOP.instance)), "mud_ball");
         mud_brick = registerItem(new Item(new Item.Properties().group(ItemGroupBOP.instance)), "mud_brick");
         
-        music_disc_wanderer = registerItem(new ItemMusicDiscBOP(BOPSounds.music_disc_wanderer), "music_disc_wanderer");
+        music_disc_wanderer = registerItem(new MusicDiscItemBOP(BOPSounds.music_disc_wanderer), "music_disc_wanderer");
 
         /*fir_boat = registerItem(new ItemBoatBOP(EntityBoatBOP.Type.FIR, (new Item.Properties()).maxStackSize(1).group(ItemGroupBOP.instance)), "fir_boat");
         redwood_boat = registerItem(new ItemBoatBOP(EntityBoatBOP.Type.REDWOOD, (new Item.Properties()).maxStackSize(1).group(ItemGroupBOP.instance)), "redwood_boat");

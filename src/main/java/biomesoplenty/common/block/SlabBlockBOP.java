@@ -9,9 +9,9 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 
-public class BlockSlabBOP extends SlabBlock
+public class SlabBlockBOP extends SlabBlock
 {
-	public BlockSlabBOP(Block.Properties properties)
+	public SlabBlockBOP(Block.Properties properties)
 	   {
 	      super(properties);
 	   }

@@ -8,9 +8,9 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 
-public class BlockWoodBOP extends RotatedPillarBlock
+public class WoodBlockBOP extends RotatedPillarBlock
 {
-   public BlockWoodBOP(Block.Properties p_i48367_2_)
+   public WoodBlockBOP(Block.Properties p_i48367_2_)
    {
       super(p_i48367_2_);
    }

@@ -21,9 +21,9 @@ import net.minecraftforge.common.PlantType;
 
 import java.util.Iterator;
 
-public class BlockDoubleWatersidePlant extends BlockDoublePlantBOP
+public class DoubleWatersidePlantBlock extends DoublePlantBlockBOP
 {
-    public BlockDoubleWatersidePlant(Block droppedBlock, Block.Properties properties)
+    public DoubleWatersidePlantBlock(Block droppedBlock, Block.Properties properties)
     {
         super(droppedBlock, properties);
     }

@@ -24,13 +24,13 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class BlockSaplingBOP extends SaplingBlock implements IGrowable
+public class SaplingBlockBOP extends SaplingBlock implements IGrowable
 {
    public static final IntegerProperty STAGE = BlockStateProperties.STAGE_0_1;
    public static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
    private final Tree tree;
 
-   public BlockSaplingBOP(Tree tree, Block.Properties properties)
+   public SaplingBlockBOP(Tree tree, Block.Properties properties)
    {
       super(tree, properties);
       this.tree = tree;

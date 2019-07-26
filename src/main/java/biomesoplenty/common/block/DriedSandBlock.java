@@ -14,9 +14,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 import net.minecraftforge.common.PlantType;
 
-public class BlockDriedSand extends Block
+public class DriedSandBlock extends Block
 {
-    public BlockDriedSand(Block.Properties properties)
+    public DriedSandBlock(Block.Properties properties)
     {
         super(properties);
     }

@@ -9,12 +9,12 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 
-public class BlockStairsBOP extends StairsBlock
+public class StairsBlockBOP extends StairsBlock
 {
 	private BlockState modelState;
 	private Block modelBlock;
 
-	public BlockStairsBOP(BlockState state, Block.Properties properties)
+	public StairsBlockBOP(BlockState state, Block.Properties properties)
 	   {
 	      super(state, properties);
 	      this.modelBlock = state.getBlock();

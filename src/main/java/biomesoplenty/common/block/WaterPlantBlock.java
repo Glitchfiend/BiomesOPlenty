@@ -28,11 +28,11 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class BlockWaterPlant extends BlockPlantBOP
+public class WaterPlantBlock extends PlantBlockBOP
 {
 	protected static final VoxelShape NORMAL = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
 	
-    public BlockWaterPlant(Block.Properties properties)
+    public WaterPlantBlock(Block.Properties properties)
     {
         super(properties);
     }

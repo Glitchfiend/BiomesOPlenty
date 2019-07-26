@@ -8,9 +8,9 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 
-public class BlockVineBOP extends VineBlock
+public class VineBlockBOP extends VineBlock
 {
-   public BlockVineBOP(Block.Properties p_i48367_2_)
+   public VineBlockBOP(Block.Properties p_i48367_2_)
    {
       super(p_i48367_2_);
    }
