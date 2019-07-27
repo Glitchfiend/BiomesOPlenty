@@ -7,9 +7,11 @@
  ******************************************************************************/
 package biomesoplenty.init;
 
+import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.sound.BOPSounds;
 import biomesoplenty.common.item.MusicDiscItemBOP;
 import biomesoplenty.common.util.inventory.ItemGroupBOP;
+import net.minecraft.item.AxeItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.registries.ForgeRegistries;
 

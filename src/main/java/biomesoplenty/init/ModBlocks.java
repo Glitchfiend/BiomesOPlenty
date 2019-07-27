@@ -17,6 +17,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.util.IItemProvider;
 import net.minecraft.util.SoundEvents;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -290,6 +291,8 @@ public class ModBlocks
         
         toadstool = registerBlock(new MushroomBlockBOP(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "toadstool");
         glowshroom = registerBlock(new MushroomBlockBOP(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT).lightValue(6)), "glowshroom");
+
+
     }
 
     public static Block registerBlock(Block block, String name)
@@ -302,17 +305,15 @@ public class ModBlocks
         return block;
     }
     
-    public static Block registerBlock(Block block, BlockItem itemBlock, String name)
-    {
+    public static Block registerBlock(Block block, BlockItem itemBlock, String name) {
         block.setRegistryName(name);
         ForgeRegistries.BLOCKS.register(block);
-        
-        if (itemBlock != null)
-        {
+
+        if (itemBlock != null) {
             itemBlock.setRegistryName(name);
-        	ForgeRegistries.ITEMS.register(itemBlock);
+            ForgeRegistries.ITEMS.register(itemBlock);
         }
-        
+
         return block;
     }
 }

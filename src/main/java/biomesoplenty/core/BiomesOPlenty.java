@@ -47,6 +47,7 @@ public class BiomesOPlenty
         ModBlocks.init();
         ModItems.init();
         ModBiomes.init();
+        ModVanillaCompat.init();
     }
 
     public void dedicatedServerSetup(FMLDedicatedServerSetupEvent event)
