@@ -17,6 +17,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.potion.Effects;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.SoundEvents;
 import net.minecraftforge.common.ToolType;
@@ -28,6 +29,7 @@ public class ModBlocks
 {
     public static void init()
     {
+        //Terrain
     	white_sand = registerBlock(new SandBlock(0xF3F1E4, Block.Properties.create(Material.SAND, MaterialColor.QUARTZ).hardnessAndResistance(0.5F).sound(SoundType.SAND).harvestLevel(0).harvestTool(ToolType.SHOVEL)), "white_sand");
     	white_sandstone = registerBlock(new Block(Block.Properties.create(Material.ROCK, MaterialColor.QUARTZ).hardnessAndResistance(0.8F)), "white_sandstone");
     	chiseled_white_sandstone = registerBlock(new Block(Block.Properties.create(Material.ROCK, MaterialColor.QUARTZ).hardnessAndResistance(0.8F)), "chiseled_white_sandstone");
@@ -49,7 +51,8 @@ public class ModBlocks
         dried_sand = registerBlock(new DriedSandBlock(Block.Properties.create(Material.EARTH, MaterialColor.WOOD).hardnessAndResistance(1.0F).harvestLevel(0).harvestTool(ToolType.PICKAXE).sound(new SoundType(1.0F, 0.5F, SoundEvents.BLOCK_GRAVEL_BREAK, SoundEvents.BLOCK_GRAVEL_STEP, SoundEvents.BLOCK_GRAVEL_PLACE, SoundEvents.BLOCK_GRAVEL_HIT, SoundEvents.BLOCK_GRAVEL_FALL))), "dried_sand");
         ash_block = registerBlock(new AshBlock(Block.Properties.create(Material.SAND, MaterialColor.BLACK_TERRACOTTA).hardnessAndResistance(0.4F).harvestLevel(0).harvestTool(ToolType.SHOVEL).sound(SoundType.SAND)), "ash_block");
         flesh = registerBlock(new FleshBlockBOP(Block.Properties.create(Material.SPONGE, MaterialColor.RED_TERRACOTTA).hardnessAndResistance(0.4F).sound(SoundType.SLIME).harvestLevel(0).harvestTool(ToolType.AXE)), "flesh");
-        
+
+        //Trees
         origin_sapling = registerBlock(new SaplingBlockBOP(new OriginTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.PLANT)), "origin_sapling");
         origin_leaves = registerBlock(new LeavesBlockBOP(Block.Properties.create(Material.LEAVES, MaterialColor.EMERALD).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), "origin_leaves");
         flowering_oak_sapling = registerBlock(new SaplingBlockBOP(new FloweringOakTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.PLANT)), "flowering_oak_sapling");
@@ -254,29 +257,31 @@ public class ModBlocks
         ethereal_trapdoor = registerBlock(new TrapDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.CYAN).hardnessAndResistance(3.0F).sound(SoundType.WOOD)), "ethereal_trapdoor");
         ethereal_pressure_plate = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.create(Material.WOOD, ethereal_planks.materialColor).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "ethereal_pressure_plate");
         ethereal_button = registerBlock(new WoodButtonBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "ethereal_button");
-        
-        rose = registerBlock(new FlowerBlockBOP(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "rose");
-        blue_hydrangea = registerBlock(new FlowerBlockBOP(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "blue_hydrangea");
-        violet = registerBlock(new FlowerBlockBOP(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "violet");
-        lavender = registerBlock(new FlowerBlockBOP(Block.Properties.create(Material.PLANTS, MaterialColor.MAGENTA).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "lavender");
-        goldenrod = registerBlock(new FlowerBlockBOP(Block.Properties.create(Material.PLANTS, MaterialColor.YELLOW_TERRACOTTA).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "goldenrod");
-        wildflower = registerBlock(new FlowerBlockBOP(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "wildflower");
-        orange_cosmos = registerBlock(new FlowerBlockBOP(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "orange_cosmos");
-        pink_daffodil = registerBlock(new FlowerBlockBOP(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "pink_daffodil");
-        pink_hibiscus = registerBlock(new FlowerBlockBOP(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "pink_hibiscus");
-        glowflower = registerBlock(new FlowerBlockBOP(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT).lightValue(9)), "glowflower");
-        wilted_lily = registerBlock(new FlowerBlockBOP(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "wilted_lily");
-        burning_blossom = registerBlock(new FlowerBlockBOP(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT).lightValue(8)), "burning_blossom");
-        
+
+        //Flowers
+        rose = registerBlock(new FlowerBlockBOP(Effects.SPEED, 7, Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "rose");
+        blue_hydrangea = registerBlock(new FlowerBlockBOP(Effects.WATER_BREATHING, 7, Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "blue_hydrangea");
+        violet = registerBlock(new FlowerBlockBOP(Effects.NAUSEA, 10, Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "violet");
+        lavender = registerBlock(new FlowerBlockBOP(Effects.HEALTH_BOOST, 5, Block.Properties.create(Material.PLANTS, MaterialColor.MAGENTA).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "lavender");
+        goldenrod = registerBlock(new FlowerBlockBOP(Effects.LUCK, 5, Block.Properties.create(Material.PLANTS, MaterialColor.YELLOW_TERRACOTTA).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "goldenrod");
+        wildflower = registerBlock(new FlowerBlockBOP(Effects.HUNGER, 10, Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "wildflower");
+        orange_cosmos = registerBlock(new FlowerBlockBOP(Effects.ABSORPTION, 7, Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "orange_cosmos");
+        pink_daffodil = registerBlock(new FlowerBlockBOP(Effects.INVISIBILITY, 7, Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "pink_daffodil");
+        pink_hibiscus = registerBlock(new FlowerBlockBOP(Effects.REGENERATION, 5, Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "pink_hibiscus");
+        glowflower = registerBlock(new FlowerBlockBOP(Effects.GLOWING, 10, Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT).lightValue(9)), "glowflower");
+        wilted_lily = registerBlock(new FlowerBlockBOP(Effects.UNLUCK, 5, Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "wilted_lily");
+        burning_blossom = registerBlock(new FlowerBlockBOP(Effects.FIRE_RESISTANCE, 7, Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT).lightValue(7)), "burning_blossom");
+
+        //Vines
         willow_vine = registerBlock(new VineBlockBOP(Block.Properties.create(Material.TALL_PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0.2F).sound(SoundType.PLANT)), "willow_vine");
-        
+
+        //Plants
         bush = registerBlock(new FoliageBlockBOP(Block.Properties.create(Material.TALL_PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "bush");
         barley = registerBlock(new FoliageBlockBOP(Block.Properties.create(Material.TALL_PLANTS, MaterialColor.YELLOW_TERRACOTTA).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "barley");
         dune_grass = registerBlock(new FoliageBlockBOP(Block.Properties.create(Material.TALL_PLANTS, MaterialColor.LIME_TERRACOTTA).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "dune_grass");
         desert_grass = registerBlock(new FoliageBlockBOP(Block.Properties.create(Material.TALL_PLANTS, MaterialColor.ORANGE_TERRACOTTA).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "desert_grass");
         dead_grass = registerBlock(new FoliageBlockBOP(Block.Properties.create(Material.TALL_PLANTS, MaterialColor.WOOD).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "dead_grass");
         spectral_fern = registerBlock(new FoliageBlockBOP(Block.Properties.create(Material.TALL_PLANTS, MaterialColor.RED).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "spectral_fern");
-
         cattail = registerBlock(new WatersidePlantBlock(Block.Properties.create(Material.PLANTS, MaterialColor.DIRT).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "cattail");
         tall_cattail = registerBlock(new DoubleWatersidePlantBlock(cattail, Block.Properties.create(Material.PLANTS, MaterialColor.DIRT).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "tall_cattail");
 
@@ -286,18 +291,59 @@ public class ModBlocks
         registerBlock(watergrass, new WaterPlantItem(BOPBlocks.watergrass, new Item.Properties().group(ItemGroupBOP.instance)), "watergrass");
         mangrove_root = new WaterPlantBlock(Block.Properties.create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.WOOD));
         registerBlock(mangrove_root, new WaterPlantItem(BOPBlocks.mangrove_root, new Item.Properties().group(ItemGroupBOP.instance)), "mangrove_root");
-        
+
         bramble = registerBlock(new BrambleBlock(Block.Properties.create(Material.PLANTS, MaterialColor.NETHERRACK).hardnessAndResistance(0.4F).harvestLevel(0).harvestTool(ToolType.AXE).sound(SoundType.WOOD)), "bramble");
-        
         toadstool = registerBlock(new MushroomBlockBOP(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "toadstool");
         glowshroom = registerBlock(new MushroomBlockBOP(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT).lightValue(6)), "glowshroom");
 
-
+        //Potted Plants
+        potted_origin_sapling = registerBlockNoGroup(new FlowerPotBlock(origin_sapling, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_origin_sapling");
+        potted_flowering_oak_sapling = registerBlockNoGroup(new FlowerPotBlock(flowering_oak_sapling, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_flowering_oak_sapling");
+        potted_yellow_autumn_sapling = registerBlockNoGroup(new FlowerPotBlock(yellow_autumn_sapling, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_yellow_autumn_sapling");
+        potted_orange_autumn_sapling = registerBlockNoGroup(new FlowerPotBlock(orange_autumn_sapling, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_orange_autumn_sapling");
+        potted_maple_sapling = registerBlockNoGroup(new FlowerPotBlock(maple_sapling, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_maple_sapling");
+        potted_fir_sapling = registerBlockNoGroup(new FlowerPotBlock(fir_sapling, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_fir_sapling");
+        potted_redwood_sapling = registerBlockNoGroup(new FlowerPotBlock(redwood_sapling, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_redwood_sapling");
+        potted_white_cherry_sapling = registerBlockNoGroup(new FlowerPotBlock(white_cherry_sapling, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_white_cherry_sapling");
+        potted_pink_cherry_sapling = registerBlockNoGroup(new FlowerPotBlock(pink_cherry_sapling, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_pink_cherry_sapling");
+        potted_mahogany_sapling = registerBlockNoGroup(new FlowerPotBlock(mahogany_sapling, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_mahogany_sapling");
+        potted_jacaranda_sapling = registerBlockNoGroup(new FlowerPotBlock(jacaranda_sapling, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_jacaranda_sapling");
+        potted_palm_sapling = registerBlockNoGroup(new FlowerPotBlock(palm_sapling, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_palm_sapling");
+        potted_willow_sapling = registerBlockNoGroup(new FlowerPotBlock(willow_sapling, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_willow_sapling");
+        potted_dead_sapling = registerBlockNoGroup(new FlowerPotBlock(dead_sapling, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_dead_sapling");
+        potted_magic_sapling = registerBlockNoGroup(new FlowerPotBlock(magic_sapling, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_magic_sapling");
+        potted_umbran_sapling = registerBlockNoGroup(new FlowerPotBlock(umbran_sapling, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_umbran_sapling");
+        potted_hellbark_sapling = registerBlockNoGroup(new FlowerPotBlock(hellbark_sapling, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_hellbark_sapling");
+        potted_ethereal_sapling = registerBlockNoGroup(new FlowerPotBlock(ethereal_sapling, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_ethereal_sapling");
+        potted_rose = registerBlockNoGroup(new FlowerPotBlock(rose, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_rose");
+        potted_blue_hydrangea = registerBlockNoGroup(new FlowerPotBlock(blue_hydrangea, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_blue_hydrangea");
+        potted_violet = registerBlockNoGroup(new FlowerPotBlock(violet, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_violet");
+        potted_lavender = registerBlockNoGroup(new FlowerPotBlock(lavender, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_lavender");
+        potted_goldenrod = registerBlockNoGroup(new FlowerPotBlock(goldenrod, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_goldenrod");
+        potted_wildflower = registerBlockNoGroup(new FlowerPotBlock(wildflower, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_wildflower");
+        potted_orange_cosmos = registerBlockNoGroup(new FlowerPotBlock(orange_cosmos, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_orange_cosmos");
+        potted_pink_daffodil = registerBlockNoGroup(new FlowerPotBlock(pink_daffodil, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_pink_daffodil");
+        potted_pink_hibiscus = registerBlockNoGroup(new FlowerPotBlock(pink_hibiscus, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_pink_hibiscus");
+        potted_glowflower = registerBlockNoGroup(new FlowerPotBlock(glowflower, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().lightValue(9)), "potted_glowflower");
+        potted_wilted_lily = registerBlockNoGroup(new FlowerPotBlock(wilted_lily, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_wilted_lily");
+        potted_burning_blossom = registerBlockNoGroup(new FlowerPotBlock(burning_blossom, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().lightValue(7)), "potted_burning_blossom");
+        potted_toadstool = registerBlockNoGroup(new FlowerPotBlock(toadstool, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_toadstool");
+        potted_glowshroom = registerBlockNoGroup(new FlowerPotBlock(glowshroom, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().lightValue(6)), "potted_glowshroom");
     }
 
     public static Block registerBlock(Block block, String name)
     {
         BlockItem itemBlock = new BlockItem(block, new Item.Properties().group(ItemGroupBOP.instance));
+        block.setRegistryName(name);
+        itemBlock.setRegistryName(name);
+        ForgeRegistries.BLOCKS.register(block);
+        ForgeRegistries.ITEMS.register(itemBlock);
+        return block;
+    }
+
+    public static Block registerBlockNoGroup(Block block, String name)
+    {
+        BlockItem itemBlock = new BlockItem(block, new Item.Properties().group(null));
         block.setRegistryName(name);
         itemBlock.setRegistryName(name);
         ForgeRegistries.BLOCKS.register(block);

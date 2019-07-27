@@ -259,21 +259,45 @@ public class BOPBlocks
     public static Block desert_grass;
     public static Block dead_grass;
     public static Block spectral_fern;
-
     public static Block cattail;
     public static Block tall_cattail;
-    
     public static Block reed;
     public static Block watergrass;
     public static Block mangrove_root;
-    
     public static Block toadstool;
     public static Block glowshroom;
-
     public static Block bramble;
 
-    //public static Block blue_fire;
-    
-    //public static Block blood;
-    //public static Block hot_spring_water;
+    public static Block potted_origin_sapling;
+    public static Block potted_flowering_oak_sapling;
+    public static Block potted_yellow_autumn_sapling;
+    public static Block potted_orange_autumn_sapling;
+    public static Block potted_maple_sapling;
+    public static Block potted_fir_sapling;
+    public static Block potted_redwood_sapling;
+    public static Block potted_white_cherry_sapling;
+    public static Block potted_pink_cherry_sapling;
+    public static Block potted_mahogany_sapling;
+    public static Block potted_jacaranda_sapling;
+    public static Block potted_palm_sapling;
+    public static Block potted_willow_sapling;
+    public static Block potted_dead_sapling;
+    public static Block potted_magic_sapling;
+    public static Block potted_umbran_sapling;
+    public static Block potted_hellbark_sapling;
+    public static Block potted_ethereal_sapling;
+    public static Block potted_rose;
+    public static Block potted_blue_hydrangea;
+    public static Block potted_violet;
+    public static Block potted_lavender;
+    public static Block potted_goldenrod;
+    public static Block potted_wildflower;
+    public static Block potted_orange_cosmos;
+    public static Block potted_pink_daffodil;
+    public static Block potted_pink_hibiscus;
+    public static Block potted_glowflower;
+    public static Block potted_wilted_lily;
+    public static Block potted_burning_blossom;
+    public static Block potted_toadstool;
+    public static Block potted_glowshroom;
 }

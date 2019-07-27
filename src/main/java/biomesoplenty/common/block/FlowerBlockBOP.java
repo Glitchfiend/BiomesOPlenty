@@ -15,6 +15,7 @@ import net.minecraft.block.FlowerBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.particles.ParticleTypes;
+import net.minecraft.potion.Effect;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
@@ -32,10 +33,18 @@ public class FlowerBlockBOP extends FlowerBlock
 {
 	protected static final VoxelShape NORMAL = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
 	protected static final VoxelShape LARGE = Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 14.0D, 15.0D);
+    private final Effect stewEffect;
+    private final int stewEffectDuration;
 	
-    public FlowerBlockBOP(Block.Properties properties)
+    public FlowerBlockBOP(Effect p_i49984_1_, int effectDuration, Block.Properties properties)
     {
         super(Effects.SLOWNESS, 0, properties);
+        this.stewEffect = p_i49984_1_;
+        if (p_i49984_1_.isInstant()) {
+            this.stewEffectDuration = effectDuration;
+        } else {
+            this.stewEffectDuration = effectDuration * 20;
+        }
     }
 
     @Override
@@ -96,6 +105,16 @@ public class FlowerBlockBOP extends FlowerBlock
 	    	   worldIn.addParticle(ParticleTypes.SMOKE, (double)((float)pos.getX() + rand.nextFloat()), (double)((float)pos.getY() + rand.nextFloat()), (double)((float)pos.getZ() + rand.nextFloat()), 0.0D, 0.0D, 0.0D);
 	       }
 	   }
+    }
+
+    @Override
+    public Effect getStewEffect() {
+        return this.stewEffect;
+    }
+
+    @Override
+    public int getStewEffectDuration() {
+        return this.stewEffectDuration;
     }
     
     @Override
