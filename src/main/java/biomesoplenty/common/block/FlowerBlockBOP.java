@@ -69,6 +69,10 @@ public class FlowerBlockBOP extends FlowerBlock
         {
             return ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.white_sand || super.isValidPosition(state, worldIn, pos);
         }
+        if (this == BOPBlocks.burning_blossom)
+        {
+            return ground == Blocks.NETHERRACK || ground == Blocks.SOUL_SAND || super.isValidPosition(state, worldIn, pos);
+        }
 
         return super.isValidPosition(state, worldIn, pos);
     }
@@ -96,11 +100,11 @@ public class FlowerBlockBOP extends FlowerBlock
        
        if (block == BOPBlocks.burning_blossom)
        {
-	       if (rand.nextInt(4) == 0)
+	       if (rand.nextInt(8) == 0)
 	       {
 	    	   worldIn.addParticle(ParticleTypes.FLAME, (double)((float)pos.getX() + rand.nextFloat()), (double)((float)pos.getY() + rand.nextFloat()), (double)((float)pos.getZ() + rand.nextFloat()), 0.0D, 0.0D, 0.0D);
 	       }
-	       if (rand.nextInt(2) == 0)
+	       if (rand.nextInt(4) == 0)
 	       {
 	    	   worldIn.addParticle(ParticleTypes.SMOKE, (double)((float)pos.getX() + rand.nextFloat()), (double)((float)pos.getY() + rand.nextFloat()), (double)((float)pos.getZ() + rand.nextFloat()), 0.0D, 0.0D, 0.0D);
 	       }

@@ -73,6 +73,8 @@ public class BOPBiomes
     public static Optional<Biome> white_beach = Optional.empty();
     public static Optional<Biome> woodland = Optional.empty();
     public static Optional<Biome> xeric_shrubland = Optional.empty();
-    
+
+    public static Optional<Biome> undergarden = Optional.empty();
+
     public static Optional<Biome> end_plains = Optional.empty();
 }

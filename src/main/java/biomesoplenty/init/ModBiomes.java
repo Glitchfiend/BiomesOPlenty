@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import biomesoplenty.common.biome.nether.UndergardenBiome;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
@@ -107,13 +108,15 @@ public class ModBiomes
 
     private static void registerBiomes()
     {
+        //Technical Biomes (Need to be registered before main biomes that use them)
         gravel_beach = registerBiome(new GravelBeachBiome(), "gravel_beach");
         origin_beach = registerBiome(new OriginBeachBiome(), "origin_beach");
         white_beach = registerBiome(new WhiteBeachBiome(), "white_beach");
     	alps_foothills = registerBiome(new AlpsFoothillsBiome(), "alps_foothills");
         redwood_forest_edge = registerBiome(new RedwoodForestEdgeBiome(), "redwood_forest_edge");
         volcano_edge = registerBiome(new VolcanoEdgeBiome(), "volcano_edge");
-    	
+
+        //Overworld Biomes
     	alps = registerBiome(new AlpsBiome(), "alps");
     	bayou = registerBiome(new BayouBiome(), "bayou");
         bog = registerBiome(new BogBiome(), "bog");
@@ -168,10 +171,14 @@ public class ModBiomes
         wetland = registerBiome(new WetlandBiome(), "wetland");
         woodland = registerBiome(new WoodlandBiome(), "woodland");
         xeric_shrubland = registerBiome(new XericShrublandBiome(), "xeric_shrubland");
-        
+
+        //Nether Biomes
+        undergarden = registerBiome(new UndergardenBiome(), "undergarden");
+
+        //End Biomes
         end_plains = registerBiome(new EndPlainsBiome(), "end_plains");
 
-        // Note: Rarity supports two decimal places
+        //Sub/Island Biomes (Note: Rarity supports two decimal places)
         registerSubBiome(Biomes.DESERT, oasis, 0.1F, 100);
         registerSubBiome(Biomes.PLAINS, orchard, 0.5F, 100);
         registerSubBiome(brushland, xeric_shrubland, 1.0F, 100);
@@ -195,6 +202,7 @@ public class ModBiomes
     
     private static void registerBiomeDictionaryTags()
     {
+        //Overworld Biomes
         registerBiomeToDictionary(BOPBiomes.alps, Type.MOUNTAIN, Type.SNOWY, Type.COLD);
         registerBiomeToDictionary(BOPBiomes.alps_foothills, Type.MOUNTAIN, Type.SNOWY, Type.FOREST, Type.SPARSE, Type.COLD);
         registerBiomeToDictionary(BOPBiomes.bayou, Type.SWAMP, Type.HOT, Type.WET, Type.DENSE);
@@ -255,12 +263,12 @@ public class ModBiomes
         registerBiomeToDictionary(BOPBiomes.white_beach, Type.BEACH);
         registerBiomeToDictionary(BOPBiomes.woodland, Type.FOREST, Type.DENSE);
         registerBiomeToDictionary(BOPBiomes.xeric_shrubland, Type.SANDY, Type.SAVANNA, Type.LUSH, Type.HOT, Type.DRY, Type.SPARSE);
-        
-        //registerBiomeToDictionary(BOPBiomes.corrupted_sands, Type.NETHER, Type.HOT, Type.DRY, Type.SANDY, Type.DENSE);
-        //registerBiomeToDictionary(BOPBiomes.fungi_forest, Type.NETHER, Type.HOT, Type.MUSHROOM, Type.DENSE);
-        //registerBiomeToDictionary(BOPBiomes.phantasmagoric_inferno, Type.NETHER, Type.HOT, Type.WASTELAND, Type.DRY, Type.MAGICAL, Type.SPOOKY);
-        //registerBiomeToDictionary(BOPBiomes.undergarden, Type.NETHER, Type.HOT, Type.LUSH);
-        //registerBiomeToDictionary(BOPBiomes.visceral_heap, Type.NETHER, Type.HOT, Type.WET);
+
+        //Nether Biomes
+        registerBiomeToDictionary(BOPBiomes.undergarden, Type.NETHER, Type.HOT);
+
+        //End Biomes
+        registerBiomeToDictionary(BOPBiomes.end_plains, Type.END);
         
     }
     
