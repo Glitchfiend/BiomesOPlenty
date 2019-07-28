@@ -10,6 +10,7 @@ package biomesoplenty.common.block;
 import biomesoplenty.api.item.BOPItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.IItemProvider;
@@ -55,7 +56,12 @@ public class MudBlock extends Block
             case Cave: return false;
             case Plains: return false;
             case Water: return false;
-            case Beach: return true;
+            case Beach:
+                boolean hasWater = (world.getBlockState(pos.east()).getMaterial() == Material.WATER ||
+                        world.getBlockState(pos.west()).getMaterial() == Material.WATER ||
+                        world.getBlockState(pos.north()).getMaterial() == Material.WATER ||
+                        world.getBlockState(pos.south()).getMaterial() == Material.WATER);
+                return hasWater;
         }
         return false;
     }

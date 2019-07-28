@@ -39,9 +39,7 @@ public class WatersidePlantBlock extends PlantBlockBOP
     public boolean isValidPosition(BlockState state, IWorldReader worldReader, BlockPos pos)
     {
         BlockState soil = worldReader.getBlockState(pos.down());
-        if (soil.getBlock() == this)
-            return true;
-        else if (soil.canSustainPlant(worldReader, pos.down(), Direction.UP, this))
+        if (soil.canSustainPlant(worldReader, pos.down(), Direction.UP, this))
         {
             BlockPos blockpos = pos.down();
             Iterator var7 = Direction.Plane.HORIZONTAL.iterator();
