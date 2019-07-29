@@ -1,6 +1,7 @@
 package biomesoplenty.common.entity.item;
 
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.entity.BOPEntities;
 import biomesoplenty.api.item.BOPItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -22,7 +23,6 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.network.play.client.CSteerBoatPacket;
-import net.minecraft.network.play.server.SSpawnObjectPacket;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.*;
@@ -37,6 +37,8 @@ import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.fml.network.FMLPlayMessages;
+import net.minecraftforge.fml.network.NetworkHooks;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -74,18 +76,22 @@ public class BoatEntityBOP extends Entity {
     private float rockingAngle;
     private float prevRockingAngle;
 
-    public BoatEntityBOP(EntityType p_i50129_1_, World p_i50129_2_) {
+    public BoatEntityBOP(EntityType<BoatEntityBOP> p_i50129_1_, World p_i50129_2_) {
         super(p_i50129_1_, p_i50129_2_);
         this.preventEntitySpawning = true;
     }
 
     public BoatEntityBOP(World worldIn, double x, double y, double z) {
-        this(EntityType.BOAT, worldIn);
+        this(BOPEntities.boat_bop, worldIn);
         this.setPosition(x, y, z);
         this.setMotion(Vec3d.ZERO);
         this.prevPosX = x;
         this.prevPosY = y;
         this.prevPosZ = z;
+    }
+
+    public BoatEntityBOP(FMLPlayMessages.SpawnEntity spawnEntity, World world) {
+        this(BOPEntities.boat_bop, world);
     }
 
     /**
@@ -865,8 +871,9 @@ public class BoatEntityBOP extends Entity {
         this.backInputDown = p_184442_4_;
     }
 
+    @Override
     public IPacket<?> createSpawnPacket() {
-        return new SSpawnObjectPacket(this);
+        return NetworkHooks.getEntitySpawningPacket(this);
     }
 
     // Forge: Fix MC-119811 by instantly completing lerp on board

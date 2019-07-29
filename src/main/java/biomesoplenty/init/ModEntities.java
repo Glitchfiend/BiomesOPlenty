@@ -19,13 +19,15 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import static biomesoplenty.core.BiomesOPlenty.MOD_ID;
+
 public class ModEntities
 {
     public static void init()
     {
-        EntityType<BoatEntityBOP> boat_bop = createEntity(BoatEntityBOP::new, EntityClassification.MISC, "boat_bop", 80, 3, true);
-
-        BOPEntities.boat_bop = boat_bop;
+        BOPEntities.boat_bop = EntityType.Builder.<BoatEntityBOP>create(BoatEntityBOP::new, EntityClassification.MISC).setTrackingRange(80).setUpdateInterval(3).setShouldReceiveVelocityUpdates(true).size(1.375f, 0.5625f).setCustomClientFactory(BoatEntityBOP::new).build(MOD_ID + ":boat_bop");
+        BOPEntities.boat_bop.setRegistryName("boat_bop");
+        ForgeRegistries.ENTITIES.register(BOPEntities.boat_bop);
     }
 
     public static <T extends Entity> EntityType<T> createEntity(EntityType.IFactory<T> factory, EntityClassification classification, String name, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates)
@@ -40,6 +42,6 @@ public class ModEntities
     @OnlyIn(Dist.CLIENT)
     public static void registerRendering()
     {
-        RenderingRegistry.registerEntityRenderingHandler(BoatEntityBOP.class, manager -> new BoatRendererBOP(manager));
+        RenderingRegistry.registerEntityRenderingHandler(BoatEntityBOP.class, BoatRendererBOP::new);
     }
 }
