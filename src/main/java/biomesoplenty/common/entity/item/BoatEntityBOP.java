@@ -6,6 +6,7 @@ import biomesoplenty.api.item.BOPItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LilyPadBlock;
+import net.minecraft.client.entity.player.ClientPlayerEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -37,12 +38,19 @@ import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.LogicalSide;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.network.FMLPlayMessages;
 import net.minecraftforge.fml.network.NetworkHooks;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
+import static biomesoplenty.core.BiomesOPlenty.MOD_ID;
+
+@Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class BoatEntityBOP extends Entity {
     private static final DataParameter<Integer> TIME_SINCE_HIT = EntityDataManager.createKey(BoatEntityBOP.class, DataSerializers.VARINT);
     private static final DataParameter<Integer> FORWARD_DIRECTION = EntityDataManager.createKey(BoatEntityBOP.class, DataSerializers.VARINT);
@@ -76,7 +84,7 @@ public class BoatEntityBOP extends Entity {
     private float rockingAngle;
     private float prevRockingAngle;
 
-    public BoatEntityBOP(EntityType<BoatEntityBOP> p_i50129_1_, World p_i50129_2_) {
+    public BoatEntityBOP(EntityType<?> p_i50129_1_, World p_i50129_2_) {
         super(p_i50129_1_, p_i50129_2_);
         this.preventEntitySpawning = true;
     }
@@ -92,6 +100,15 @@ public class BoatEntityBOP extends Entity {
 
     public BoatEntityBOP(FMLPlayMessages.SpawnEntity spawnEntity, World world) {
         this(BOPEntities.boat_bop, world);
+    }
+
+    @SubscribeEvent
+    public static void onRidden(TickEvent.PlayerTickEvent event) {
+        if (event.side == LogicalSide.CLIENT && event.phase == TickEvent.Phase.START && event.player.getRidingEntity() instanceof BoatEntityBOP) {
+            ClientPlayerEntity player = (ClientPlayerEntity) event.player;
+            ((BoatEntityBOP)event.player.getRidingEntity()).updateInputs(player.movementInput.leftKeyDown, player.movementInput.rightKeyDown, player.movementInput.forwardKeyDown, player.movementInput.backKeyDown);
+            player.rowingBoat |= player.movementInput.leftKeyDown || player.movementInput.rightKeyDown || player.movementInput.forwardKeyDown || player.movementInput.backKeyDown;
+        }
     }
 
     /**
