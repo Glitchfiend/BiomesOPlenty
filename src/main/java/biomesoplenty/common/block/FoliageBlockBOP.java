@@ -105,16 +105,4 @@ public class FoliageBlockBOP extends BushBlock implements IPlantable
     {
     	return PlantType.Plains;
     }
-    
-    @Override
-    public int getFlammability(BlockState state, IBlockReader world, BlockPos pos, Direction face)
-    {
-    	return Blocks.GRASS.getFlammability(state, world, pos, face);
-    }
-    
-    @Override
-    public int getFireSpreadSpeed(BlockState state, IBlockReader world, BlockPos pos, Direction face)
-    {
-        return Blocks.GRASS.getFireSpreadSpeed(state,world, pos, face);
-    }
 }

@@ -120,16 +120,4 @@ public class FlowerBlockBOP extends FlowerBlock
     public int getStewEffectDuration() {
         return this.stewEffectDuration;
     }
-    
-    @Override
-    public int getFlammability(BlockState state, IBlockReader world, BlockPos pos, Direction face)
-    {
-    	return Blocks.POPPY.getFlammability(state, world, pos, face);
-    }
-    
-    @Override
-    public int getFireSpreadSpeed(BlockState state, IBlockReader world, BlockPos pos, Direction face)
-    {
-        return Blocks.POPPY.getFireSpreadSpeed(state,world, pos, face);
-    }
 }

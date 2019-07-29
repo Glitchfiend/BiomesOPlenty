@@ -3,7 +3,9 @@ package biomesoplenty.init;
 import biomesoplenty.api.block.BOPBlocks;
 import com.google.common.collect.Maps;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.ComposterBlock;
+import net.minecraft.block.FireBlock;
 import net.minecraft.item.AxeItem;
 import net.minecraft.util.IItemProvider;
 
@@ -11,6 +13,141 @@ public class ModVanillaCompat
 {
     public static void init()
     {
+        //Flammability
+        registerFlammable(BOPBlocks.origin_leaves, 30, 60);
+        registerFlammable(BOPBlocks.flowering_oak_leaves, 30, 60);
+        registerFlammable(BOPBlocks.yellow_autumn_leaves, 30, 60);
+        registerFlammable(BOPBlocks.orange_autumn_leaves, 30, 60);
+        registerFlammable(BOPBlocks.maple_leaves, 30, 60);
+        registerFlammable(BOPBlocks.fir_leaves, 30, 60);
+        registerFlammable(BOPBlocks.fir_log, 5, 5);
+        registerFlammable(BOPBlocks.fir_wood, 5, 5);
+        registerFlammable(BOPBlocks.stripped_fir_log, 5, 5);
+        registerFlammable(BOPBlocks.stripped_fir_wood, 5, 5);
+        registerFlammable(BOPBlocks.fir_planks, 5, 20);
+        registerFlammable(BOPBlocks.fir_slab, 5, 20);
+        registerFlammable(BOPBlocks.fir_stairs, 5, 20);
+        registerFlammable(BOPBlocks.fir_fence, 5, 20);
+        registerFlammable(BOPBlocks.fir_fence_gate, 5, 20);
+        registerFlammable(BOPBlocks.redwood_leaves, 30, 60);
+        registerFlammable(BOPBlocks.redwood_log, 5, 5);
+        registerFlammable(BOPBlocks.redwood_wood, 5, 5);
+        registerFlammable(BOPBlocks.stripped_redwood_log, 5, 5);
+        registerFlammable(BOPBlocks.stripped_redwood_wood, 5, 5);
+        registerFlammable(BOPBlocks.redwood_planks, 5, 20);
+        registerFlammable(BOPBlocks.redwood_slab, 5, 20);
+        registerFlammable(BOPBlocks.redwood_stairs, 5, 20);
+        registerFlammable(BOPBlocks.redwood_fence, 5, 20);
+        registerFlammable(BOPBlocks.redwood_fence_gate, 5, 20);
+        registerFlammable(BOPBlocks.white_cherry_leaves, 30, 60);
+        registerFlammable(BOPBlocks.pink_cherry_leaves, 30, 60);
+        registerFlammable(BOPBlocks.cherry_log, 5, 5);
+        registerFlammable(BOPBlocks.cherry_wood, 5, 5);
+        registerFlammable(BOPBlocks.stripped_cherry_log, 5, 5);
+        registerFlammable(BOPBlocks.stripped_cherry_wood, 5, 5);
+        registerFlammable(BOPBlocks.cherry_planks, 5, 20);
+        registerFlammable(BOPBlocks.cherry_slab, 5, 20);
+        registerFlammable(BOPBlocks.cherry_stairs, 5, 20);
+        registerFlammable(BOPBlocks.cherry_fence, 5, 20);
+        registerFlammable(BOPBlocks.cherry_fence_gate, 5, 20);
+        registerFlammable(BOPBlocks.mahogany_leaves, 30, 60);
+        registerFlammable(BOPBlocks.mahogany_log, 5, 5);
+        registerFlammable(BOPBlocks.mahogany_wood, 5, 5);
+        registerFlammable(BOPBlocks.stripped_mahogany_log, 5, 5);
+        registerFlammable(BOPBlocks.stripped_mahogany_wood, 5, 5);
+        registerFlammable(BOPBlocks.mahogany_planks, 5, 20);
+        registerFlammable(BOPBlocks.mahogany_slab, 5, 20);
+        registerFlammable(BOPBlocks.mahogany_stairs, 5, 20);
+        registerFlammable(BOPBlocks.mahogany_fence, 5, 20);
+        registerFlammable(BOPBlocks.mahogany_fence_gate, 5, 20);
+        registerFlammable(BOPBlocks.jacaranda_leaves, 30, 60);
+        registerFlammable(BOPBlocks.jacaranda_log, 5, 5);
+        registerFlammable(BOPBlocks.jacaranda_wood, 5, 5);
+        registerFlammable(BOPBlocks.stripped_jacaranda_log, 5, 5);
+        registerFlammable(BOPBlocks.stripped_jacaranda_wood, 5, 5);
+        registerFlammable(BOPBlocks.jacaranda_planks, 5, 20);
+        registerFlammable(BOPBlocks.jacaranda_slab, 5, 20);
+        registerFlammable(BOPBlocks.jacaranda_stairs, 5, 20);
+        registerFlammable(BOPBlocks.jacaranda_fence, 5, 20);
+        registerFlammable(BOPBlocks.jacaranda_fence_gate, 5, 20);
+        registerFlammable(BOPBlocks.palm_leaves, 30, 60);
+        registerFlammable(BOPBlocks.palm_log, 5, 5);
+        registerFlammable(BOPBlocks.palm_wood, 5, 5);
+        registerFlammable(BOPBlocks.stripped_palm_log, 5, 5);
+        registerFlammable(BOPBlocks.stripped_palm_wood, 5, 5);
+        registerFlammable(BOPBlocks.palm_planks, 5, 20);
+        registerFlammable(BOPBlocks.palm_slab, 5, 20);
+        registerFlammable(BOPBlocks.palm_stairs, 5, 20);
+        registerFlammable(BOPBlocks.palm_fence, 5, 20);
+        registerFlammable(BOPBlocks.palm_fence_gate, 5, 20);
+        registerFlammable(BOPBlocks.willow_leaves, 30, 60);
+        registerFlammable(BOPBlocks.willow_log, 5, 5);
+        registerFlammable(BOPBlocks.willow_wood, 5, 5);
+        registerFlammable(BOPBlocks.stripped_willow_log, 5, 5);
+        registerFlammable(BOPBlocks.stripped_willow_wood, 5, 5);
+        registerFlammable(BOPBlocks.willow_planks, 5, 20);
+        registerFlammable(BOPBlocks.willow_slab, 5, 20);
+        registerFlammable(BOPBlocks.willow_stairs, 5, 20);
+        registerFlammable(BOPBlocks.willow_fence, 5, 20);
+        registerFlammable(BOPBlocks.willow_fence_gate, 5, 20);
+        registerFlammable(BOPBlocks.dead_leaves, 30, 60);
+        registerFlammable(BOPBlocks.dead_log, 5, 5);
+        registerFlammable(BOPBlocks.dead_wood, 5, 5);
+        registerFlammable(BOPBlocks.stripped_dead_log, 5, 5);
+        registerFlammable(BOPBlocks.stripped_dead_wood, 5, 5);
+        registerFlammable(BOPBlocks.dead_planks, 5, 20);
+        registerFlammable(BOPBlocks.dead_slab, 5, 20);
+        registerFlammable(BOPBlocks.dead_stairs, 5, 20);
+        registerFlammable(BOPBlocks.dead_fence, 5, 20);
+        registerFlammable(BOPBlocks.dead_fence_gate, 5, 20);
+        registerFlammable(BOPBlocks.magic_leaves, 30, 60);
+        registerFlammable(BOPBlocks.magic_log, 5, 5);
+        registerFlammable(BOPBlocks.magic_wood, 5, 5);
+        registerFlammable(BOPBlocks.stripped_magic_log, 5, 5);
+        registerFlammable(BOPBlocks.stripped_magic_wood, 5, 5);
+        registerFlammable(BOPBlocks.magic_planks, 5, 20);
+        registerFlammable(BOPBlocks.magic_slab, 5, 20);
+        registerFlammable(BOPBlocks.magic_stairs, 5, 20);
+        registerFlammable(BOPBlocks.magic_fence, 5, 20);
+        registerFlammable(BOPBlocks.magic_fence_gate, 5, 20);
+        registerFlammable(BOPBlocks.umbran_leaves, 30, 60);
+        registerFlammable(BOPBlocks.umbran_log, 5, 5);
+        registerFlammable(BOPBlocks.umbran_wood, 5, 5);
+        registerFlammable(BOPBlocks.stripped_umbran_log, 5, 5);
+        registerFlammable(BOPBlocks.stripped_umbran_wood, 5, 5);
+        registerFlammable(BOPBlocks.umbran_planks, 5, 20);
+        registerFlammable(BOPBlocks.umbran_slab, 5, 20);
+        registerFlammable(BOPBlocks.umbran_stairs, 5, 20);
+        registerFlammable(BOPBlocks.umbran_fence, 5, 20);
+        registerFlammable(BOPBlocks.umbran_fence_gate, 5, 20);
+        registerFlammable(BOPBlocks.ethereal_leaves, 30, 60);
+        registerFlammable(BOPBlocks.ethereal_log, 5, 5);
+        registerFlammable(BOPBlocks.ethereal_wood, 5, 5);
+        registerFlammable(BOPBlocks.stripped_ethereal_log, 5, 5);
+        registerFlammable(BOPBlocks.stripped_ethereal_wood, 5, 5);
+        registerFlammable(BOPBlocks.ethereal_planks, 5, 20);
+        registerFlammable(BOPBlocks.ethereal_slab, 5, 20);
+        registerFlammable(BOPBlocks.ethereal_stairs, 5, 20);
+        registerFlammable(BOPBlocks.ethereal_fence, 5, 20);
+        registerFlammable(BOPBlocks.ethereal_fence_gate, 5, 20);
+        registerFlammable(BOPBlocks.rose, 60, 100);
+        registerFlammable(BOPBlocks.blue_hydrangea, 60, 100);
+        registerFlammable(BOPBlocks.violet, 60, 100);
+        registerFlammable(BOPBlocks.lavender, 60, 100);
+        registerFlammable(BOPBlocks.goldenrod, 60, 100);
+        registerFlammable(BOPBlocks.wildflower, 60, 100);
+        registerFlammable(BOPBlocks.pink_daffodil, 60, 100);
+        registerFlammable(BOPBlocks.pink_hibiscus, 60, 100);
+        registerFlammable(BOPBlocks.glowflower, 60, 100);
+        registerFlammable(BOPBlocks.wilted_lily, 60, 100);
+        registerFlammable(BOPBlocks.willow_vine, 15, 100);
+        registerFlammable(BOPBlocks.bush, 60, 100);
+        registerFlammable(BOPBlocks.barley, 60, 100);
+        registerFlammable(BOPBlocks.dune_grass, 60, 100);
+        registerFlammable(BOPBlocks.desert_grass, 60, 100);
+        registerFlammable(BOPBlocks.dead_grass, 60, 100);
+        registerFlammable(BOPBlocks.spectral_fern, 60, 100);
+
         //Log Stripping
         registerStrippable(BOPBlocks.fir_log, BOPBlocks.stripped_fir_log);
         registerStrippable(BOPBlocks.fir_wood, BOPBlocks.stripped_fir_wood);
@@ -110,14 +247,18 @@ public class ModVanillaCompat
         registerCompostable(0.65F, BOPBlocks.glowshroom);
     }
 
-    public static void registerStrippable(Block log, Block stripped_log)
-    {
+    public static void registerStrippable(Block log, Block stripped_log) {
         AxeItem.BLOCK_STRIPPING_MAP = Maps.newHashMap(AxeItem.BLOCK_STRIPPING_MAP);
         AxeItem.BLOCK_STRIPPING_MAP.put(log, stripped_log);
     }
 
-    public static void registerCompostable(float chance, IItemProvider itemIn)
-    {
+    public static void registerCompostable(float chance, IItemProvider itemIn) {
         ComposterBlock.CHANCES.put(itemIn.asItem(), chance);
+    }
+
+    public static void registerFlammable(Block blockIn, int encouragement, int flammability)
+    {
+        FireBlock fireblock = (FireBlock)Blocks.FIRE;
+        fireblock.setFireInfo(blockIn, encouragement, flammability);
     }
 }

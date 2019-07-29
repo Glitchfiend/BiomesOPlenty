@@ -9,28 +9,31 @@ package biomesoplenty.common.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.LeavesBlock;
-import net.minecraft.util.Direction;
+import net.minecraft.entity.Entity;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.shapes.ISelectionContext;
+import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.World;
 
-public class LeavesBlockBOP extends LeavesBlock
+public class FleshBlock extends Block
 {
-    public LeavesBlockBOP(Block.Properties properties)
+	protected static final VoxelShape SHAPE = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 16.0D);
+
+    public FleshBlock(Block.Properties properties)
     {
         super(properties);
     }
 
     @Override
-    public int getFlammability(BlockState state, IBlockReader world, BlockPos pos, Direction face)
+    public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext selectionContext)
     {
-    	return Blocks.OAK_LEAVES.getFlammability(state, world, pos, face);
+        return SHAPE;
     }
     
     @Override
-    public int getFireSpreadSpeed(BlockState state, IBlockReader world, BlockPos pos, Direction face)
+    public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn)
     {
-        return Blocks.OAK_LEAVES.getFireSpreadSpeed(state,world, pos, face);
+        entityIn.setMotion(entityIn.getMotion().mul(0.9D, 1.0D, 0.9D));
     }
 }

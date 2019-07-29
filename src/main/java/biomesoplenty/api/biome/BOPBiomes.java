@@ -76,5 +76,6 @@ public class BOPBiomes
 
     public static Optional<Biome> undergarden = Optional.empty();
 
+    public static Optional<Biome> end_forest = Optional.empty();
     public static Optional<Biome> end_plains = Optional.empty();
 }

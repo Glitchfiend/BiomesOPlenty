@@ -116,16 +116,4 @@ public class SaplingBlockBOP extends SaplingBlock implements IGrowable
    {
       builder.add(STAGE);
    }
-   
-   @Override
-   public int getFlammability(BlockState state, IBlockReader world, BlockPos pos, Direction face)
-   {
-   	return Blocks.OAK_SAPLING.getFlammability(state, world, pos, face);
-   }
-   
-   @Override
-   public int getFireSpreadSpeed(BlockState state, IBlockReader world, BlockPos pos, Direction face)
-   {
-       return Blocks.OAK_SAPLING.getFireSpreadSpeed(state,world, pos, face);
-   }
 }

@@ -35,7 +35,7 @@ public class BOPBiomeFeatures
 	public static final AbstractTreeFeature<NoFeatureConfig> SILK_TREE = new BasicTreeFeature.Builder().log(BOPBlocks.dead_log.getDefaultState()).leaves(BOPBlocks.dead_leaves.getDefaultState()).altLeaves(Blocks.COBWEB.getDefaultState()).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> FULL_SILK_TREE = new BasicTreeFeature.Builder().log(BOPBlocks.dead_log.getDefaultState()).leaves(Blocks.COBWEB.getDefaultState()).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> MAGIC_TREE = new BasicTreeFeature.Builder().log(BOPBlocks.magic_log.getDefaultState()).leaves(BOPBlocks.magic_leaves.getDefaultState()).create();
-	
+
 	
 	//Big Trees
 	public static final AbstractTreeFeature<NoFeatureConfig> BIG_OAK_TREE = new BigTreeFeature.Builder().create();
@@ -44,9 +44,10 @@ public class BOPBiomeFeatures
 	public static final AbstractTreeFeature<NoFeatureConfig> BIG_PINK_CHERRY_TREE = new BigTreeFeature.Builder().log(BOPBlocks.cherry_log.getDefaultState()).leaves(BOPBlocks.pink_cherry_leaves.getDefaultState()).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> BIG_WHITE_CHERRY_TREE = new BigTreeFeature.Builder().log(BOPBlocks.cherry_log.getDefaultState()).leaves(BOPBlocks.white_cherry_leaves.getDefaultState()).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> BIG_MAGIC_TREE = new BigTreeFeature.Builder().log(BOPBlocks.magic_log.getDefaultState()).leaves(BOPBlocks.magic_leaves.getDefaultState()).create();
-	
+
 	public static final AbstractTreeFeature<NoFeatureConfig> GIANT_TREE = new BigTreeFeature.Builder().log(Blocks.DARK_OAK_LOG.getDefaultState()).leaves(Blocks.DARK_OAK_LEAVES.getDefaultState().with(LeavesBlock.PERSISTENT, true)).minHeight(25).maxHeight(30).trunkWidth(4).create();
-	
+	public static final AbstractTreeFeature<NoFeatureConfig> ETHEREAL_TREE = new BigTreeFeature.Builder().log(BOPBlocks.ethereal_log.getDefaultState()).leaves(BOPBlocks.ethereal_leaves.getDefaultState()).placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.END_STONE).minHeight(5).maxHeight(17).foliageHeight(2).create();
+
 	//Conifer Trees
 	public static final AbstractTreeFeature<NoFeatureConfig> TALL_SPRUCE_TREE = new TaigaTreeFeature.Builder().log(Blocks.SPRUCE_LOG.getDefaultState()).leaves(Blocks.SPRUCE_LEAVES.getDefaultState()).maxHeight(13).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> ALPS_SPRUCE_TREE = new TaigaTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.STONE).log(Blocks.SPRUCE_LOG.getDefaultState()).leaves(Blocks.SPRUCE_LEAVES.getDefaultState()).maxHeight(13).create();
@@ -58,7 +59,6 @@ public class BOPBiomeFeatures
 	public static final AbstractTreeFeature<NoFeatureConfig> TALL_UMBRAN_TREE = new TaigaTreeFeature.Builder().log(BOPBlocks.umbran_log.getDefaultState()).leaves(BOPBlocks.umbran_leaves.getDefaultState()).minHeight(20).maxHeight(30).trunkWidth(2).create();
 	
 	//Poplar Trees
-	public static final AbstractTreeFeature<NoFeatureConfig> OAK_POPLAR = new PoplarTreeFeature.Builder().log(Blocks.OAK_LOG.getDefaultState()).leaves(Blocks.OAK_LEAVES.getDefaultState()).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> SPRUCE_POPLAR = new PoplarTreeFeature.Builder().log(Blocks.SPRUCE_LOG.getDefaultState()).leaves(Blocks.SPRUCE_LEAVES.getDefaultState()).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> BIRCH_POPLAR = new PoplarTreeFeature.Builder().log(Blocks.BIRCH_LOG.getDefaultState()).leaves(Blocks.BIRCH_LEAVES.getDefaultState()).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> DARK_OAK_POPLAR = new PoplarTreeFeature.Builder().log(Blocks.DARK_OAK_LOG.getDefaultState()).leaves(Blocks.DARK_OAK_LEAVES.getDefaultState()).create();
@@ -80,7 +80,9 @@ public class BOPBiomeFeatures
 	public static final AbstractTreeFeature<NoFeatureConfig> FLOWERING_BUSH = new BushTreeFeature.Builder().altLeaves(BOPBlocks.flowering_oak_leaves.getDefaultState()).maxHeight(2).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> COBWEB_BUSH = new BushTreeFeature.Builder().maxHeight(2).altLeaves(Blocks.COBWEB.getDefaultState()).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> FULL_COBWEB_BUSH = new BushTreeFeature.Builder().maxHeight(2).leaves(Blocks.COBWEB.getDefaultState()).create();
-	
+	public static final AbstractTreeFeature<NoFeatureConfig> HELLBARK_TREE = new BushTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.NETHERRACK).log(BOPBlocks.hellbark_log.getDefaultState()).leaves(BOPBlocks.hellbark_leaves.getDefaultState()).maxHeight(3).create();
+	public static final AbstractTreeFeature<NoFeatureConfig> ETHEREAL_BUSH = new BushTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.END_STONE).log(BOPBlocks.ethereal_log.getDefaultState()).leaves(BOPBlocks.ethereal_leaves.getDefaultState()).maxHeight(2).create();
+
 	public static final AbstractTreeFeature<NoFeatureConfig> TWIGLET_TREE = new TwigletTreeFeature.Builder().minHeight(1).maxHeight(2).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> TALL_TWIGLET_TREE = new TwigletTreeFeature.Builder().minHeight(2).maxHeight(4).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> SPRUCE_TWIGLET_TREE = new TwigletTreeFeature.Builder().log(Blocks.SPRUCE_LOG.getDefaultState()).leaves(Blocks.SPRUCE_LEAVES.getDefaultState()).minHeight(1).maxHeight(2).create();
