@@ -2,7 +2,6 @@ package biomesoplenty.common.item;
 
 import biomesoplenty.common.entity.item.BoatEntityBOP;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.item.BoatEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -56,12 +55,8 @@ public class BoatItemBOP extends Item {
 
             if (raytraceresult.getType() == RayTraceResult.Type.BLOCK) {
 
-                //TODO: Fix boats and remove temporary vanilla boat spawn
-                BoatEntity boatentity = new BoatEntity(worldIn, raytraceresult.getHitVec().x, raytraceresult.getHitVec().y, raytraceresult.getHitVec().z);
-                boatentity.setBoatType(BoatEntity.Type.OAK);
-
-                //BoatEntityBOP boatentity = new BoatEntityBOP(worldIn, raytraceresult.getHitVec().x, raytraceresult.getHitVec().y, raytraceresult.getHitVec().z);
-                //boatentity.setBoatType(this.type);
+                BoatEntityBOP boatentity = new BoatEntityBOP(worldIn, raytraceresult.getHitVec().x, raytraceresult.getHitVec().y, raytraceresult.getHitVec().z);
+                boatentity.setBoatType(this.type);
                 boatentity.rotationYaw = playerIn.rotationYaw;
                 if (!worldIn.isCollisionBoxesEmpty(boatentity, boatentity.getBoundingBox().grow(-0.1D))) {
                     return new ActionResult<>(ActionResultType.FAIL, itemstack);
