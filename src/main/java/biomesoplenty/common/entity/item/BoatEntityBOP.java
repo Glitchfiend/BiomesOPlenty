@@ -6,6 +6,7 @@ import biomesoplenty.api.item.BOPItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LilyPadBlock;
+import net.minecraft.client.entity.player.ClientPlayerEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -76,7 +77,7 @@ public class BoatEntityBOP extends Entity {
     private float rockingAngle;
     private float prevRockingAngle;
 
-    public BoatEntityBOP(EntityType<BoatEntityBOP> p_i50129_1_, World p_i50129_2_) {
+    public BoatEntityBOP(EntityType<?> p_i50129_1_, World p_i50129_2_) {
         super(p_i50129_1_, p_i50129_2_);
         this.preventEntitySpawning = true;
     }
@@ -272,6 +273,15 @@ public class BoatEntityBOP extends Entity {
      */
     @Override
     public void tick() {
+        if (this.world.isRemote) {
+            Entity rider = getControllingPassenger();
+            if (rider instanceof PlayerEntity) {
+                ClientPlayerEntity player = (ClientPlayerEntity) rider;
+                updateInputs(player.movementInput.leftKeyDown, player.movementInput.rightKeyDown, player.movementInput.forwardKeyDown, player.movementInput.backKeyDown);
+                player.rowingBoat |= player.movementInput.leftKeyDown || player.movementInput.rightKeyDown || player.movementInput.forwardKeyDown || player.movementInput.backKeyDown;
+            }
+        }
+
         this.previousStatus = this.status;
         this.status = this.getBoatStatus();
         if (this.status != BoatEntityBOP.Status.UNDER_WATER && this.status != BoatEntityBOP.Status.UNDER_FLOWING_WATER) {
