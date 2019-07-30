@@ -8,8 +8,9 @@
 package biomesoplenty.api.entity;
 
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.item.BoatEntity;
 
 public class BOPEntities
 {
-    public static EntityType<?> boat_bop;
+    public static EntityType<? extends BoatEntity> boat_bop;
 }
