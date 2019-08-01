@@ -689,7 +689,7 @@ public class BoatEntityBOP extends BoatEntity {
                         this.remove();
                         if (this.world.getGameRules().getBoolean(GameRules.DO_ENTITY_DROPS)) {
                             for (int i = 0; i < 3; ++i) {
-                                this.entityDropItem(this.getBoatType().asPlank());
+                                this.entityDropItem(this.getBoatModel().asPlank());
                             }
 
                             for (int j = 0; j < 2; ++j) {

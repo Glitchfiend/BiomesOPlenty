@@ -280,7 +280,8 @@ public class ModBlocks
         dune_grass = registerBlock(new FoliageBlockBOP(Block.Properties.create(Material.TALL_PLANTS, MaterialColor.LIME_TERRACOTTA).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "dune_grass");
         desert_grass = registerBlock(new FoliageBlockBOP(Block.Properties.create(Material.TALL_PLANTS, MaterialColor.ORANGE_TERRACOTTA).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "desert_grass");
         dead_grass = registerBlock(new FoliageBlockBOP(Block.Properties.create(Material.TALL_PLANTS, MaterialColor.WOOD).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "dead_grass");
-        spectral_fern = registerBlock(new FoliageBlockBOP(Block.Properties.create(Material.TALL_PLANTS, MaterialColor.RED).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "spectral_fern");
+        nether_sprout = registerBlock(new FoliageBlockBOP(Block.Properties.create(Material.TALL_PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "nether_sprout");
+        ender_fern = registerBlock(new FoliageBlockBOP(Block.Properties.create(Material.TALL_PLANTS, MaterialColor.CYAN).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "ender_fern");
         cattail = registerBlock(new WatersidePlantBlock(Block.Properties.create(Material.PLANTS, MaterialColor.DIRT).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "cattail");
         tall_cattail = registerBlock(new DoubleWatersidePlantBlock(cattail, Block.Properties.create(Material.PLANTS, MaterialColor.DIRT).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "tall_cattail");
 
@@ -292,8 +293,9 @@ public class ModBlocks
         registerBlock(mangrove_root, new WaterPlantItem(BOPBlocks.mangrove_root, new Item.Properties().group(ItemGroupBOP.instance)), "mangrove_root");
 
         bramble = registerBlock(new BrambleBlock(Block.Properties.create(Material.PLANTS, MaterialColor.NETHERRACK).hardnessAndResistance(0.4F).harvestLevel(0).harvestTool(ToolType.AXE).sound(SoundType.WOOD)), "bramble");
-        toadstool = registerBlock(new MushroomBlockBOP(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "toadstool");
-        glowshroom = registerBlock(new MushroomBlockBOP(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT).lightValue(6)), "glowshroom");
+        toadstool = registerBlock(new MushroomBlockBOP(Block.Properties.create(Material.PLANTS, MaterialColor.ADOBE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "toadstool");
+        glowshroom = registerBlock(new MushroomBlockBOP(Block.Properties.create(Material.PLANTS, MaterialColor.DIAMOND).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT).lightValue(6)), "glowshroom");
+        poison_puff = registerBlock(new MushroomBlockBOP(Block.Properties.create(Material.PLANTS, MaterialColor.BLUE_TERRACOTTA).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "poison_puff");
 
         //Potted Plants
         potted_origin_sapling = registerBlockNoGroup(new FlowerPotBlock(origin_sapling, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_origin_sapling");
@@ -328,6 +330,7 @@ public class ModBlocks
         potted_burning_blossom = registerBlockNoGroup(new FlowerPotBlock(burning_blossom, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().lightValue(7)), "potted_burning_blossom");
         potted_toadstool = registerBlockNoGroup(new FlowerPotBlock(toadstool, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_toadstool");
         potted_glowshroom = registerBlockNoGroup(new FlowerPotBlock(glowshroom, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().lightValue(6)), "potted_glowshroom");
+        potted_poison_puff = registerBlockNoGroup(new FlowerPotBlock(poison_puff, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_poison_puff");
     }
 
     public static Block registerBlock(Block block, String name)

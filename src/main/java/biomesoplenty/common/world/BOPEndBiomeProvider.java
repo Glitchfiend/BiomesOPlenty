@@ -24,7 +24,7 @@ import java.util.Set;
 public class BOPEndBiomeProvider extends BiomeProvider {
 	private final SimplexNoiseGenerator generator;
 	private final SharedSeedRandom random;
-	private final Biome[] field_205009_d = new Biome[]{Biomes.THE_END, Biomes.END_HIGHLANDS, Biomes.END_MIDLANDS, Biomes.SMALL_END_ISLANDS, Biomes.END_BARRENS, BOPBiomes.end_forest.get(), BOPBiomes.end_plains.get()};
+	private final Biome[] field_205009_d = new Biome[]{Biomes.THE_END, Biomes.END_HIGHLANDS, Biomes.END_MIDLANDS, Biomes.SMALL_END_ISLANDS, Biomes.END_BARRENS, BOPBiomes.coral_deadlands.get(), BOPBiomes.ethereal_garden.get(), BOPBiomes.end_plains.get()};
 
 	public BOPEndBiomeProvider(EndBiomeProviderSettings p_i48970_1_) {
 		this.random = new SharedSeedRandom(p_i48970_1_.getSeed());
@@ -37,16 +37,24 @@ public class BOPEndBiomeProvider extends BiomeProvider {
 	{
 		int lvt_3_1_ = p_201545_1_ >> 4;
 		int lvt_4_1_ = p_201545_2_ >> 4;
-		if ((long)lvt_3_1_ * (long)lvt_3_1_ + (long)lvt_4_1_ * (long)lvt_4_1_ <= 4096L) {
+		if ((long)lvt_3_1_ * (long)lvt_3_1_ + (long)lvt_4_1_ * (long)lvt_4_1_ <= 4096L)
+		{
 			return Biomes.THE_END;
-		} else {
+		}
+		else
+		{
 			float lvt_5_1_ = this.func_222365_c(lvt_3_1_ * 2 + 1, lvt_4_1_ * 2 + 1);
-			if (lvt_5_1_ > 40.0F) {
+			if (lvt_5_1_ > 40.0F)
+			{
 				//return Biomes.END_HIGHLANDS;
-				return BOPBiomes.end_forest.get();
-			} else if (lvt_5_1_ >= 0.0F) {
+				return BOPBiomes.ethereal_garden.get();
+			}
+			else if (lvt_5_1_ >= 0.0F)
+			{
 				return Biomes.END_MIDLANDS;
-			} else {
+			}
+			else
+			{
 				return lvt_5_1_ < -20.0F ? Biomes.SMALL_END_ISLANDS : Biomes.END_BARRENS;
 			}
 		}

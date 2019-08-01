@@ -78,9 +78,13 @@ public class FoliageBlockBOP extends BushBlock implements IPlantable
     {
         Block ground = worldIn.getBlockState(pos.down()).getBlock();
 
-        if (this == BOPBlocks.spectral_fern)
+        if (this == BOPBlocks.nether_sprout)
         {
-            return ground == Blocks.END_STONE;
+            return ground == Blocks.NETHERRACK || super.isValidPosition(state, worldIn, pos);
+        }
+        if (this == BOPBlocks.ender_fern)
+        {
+            return ground == Blocks.END_STONE || super.isValidPosition(state, worldIn, pos);
         }
         if (this == BOPBlocks.dune_grass)
         {
@@ -88,7 +92,7 @@ public class FoliageBlockBOP extends BushBlock implements IPlantable
         }
         if (this == BOPBlocks.desert_grass || this == BOPBlocks.dead_grass)
         {
-            return ground == BOPBlocks.dried_sand || ground == Blocks.GRAVEL || ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.white_sand || super.isValidPosition(state, worldIn, pos);
+            return ground == BOPBlocks.dried_sand || ground == Blocks.GRAVEL || ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.white_sand || ground == Blocks.NETHERRACK || super.isValidPosition(state, worldIn, pos);
         }
 
         return super.isValidPosition(state, worldIn, pos);

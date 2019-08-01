@@ -102,11 +102,11 @@ public class FlowerBlockBOP extends FlowerBlock
        {
 	       if (rand.nextInt(8) == 0)
 	       {
-	    	   worldIn.addParticle(ParticleTypes.FLAME, (double)((float)pos.getX() + rand.nextFloat()), (double)((float)pos.getY() + rand.nextFloat()), (double)((float)pos.getZ() + rand.nextFloat()), 0.0D, 0.0D, 0.0D);
+	    	   worldIn.addParticle(ParticleTypes.FLAME, (double)(pos.getX() + 0.5D), (double)(pos.getY() + 0.5D), (double)(pos.getZ() + 0.5D), 0.0D, 0.0D, 0.0D);
 	       }
 	       if (rand.nextInt(4) == 0)
 	       {
-	    	   worldIn.addParticle(ParticleTypes.SMOKE, (double)((float)pos.getX() + rand.nextFloat()), (double)((float)pos.getY() + rand.nextFloat()), (double)((float)pos.getZ() + rand.nextFloat()), 0.0D, 0.0D, 0.0D);
+	    	   worldIn.addParticle(ParticleTypes.SMOKE, (double)(pos.getX() + 0.5D), (double)(pos.getY() + 0.5D), (double)(pos.getZ() + 0.5D), 0.0D, 0.0D, 0.0D);
 	       }
 	   }
     }

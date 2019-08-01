@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "biomesoplenty:blocks/spectral_fern"
+        "layer0": "minecraft:item/flower_pot"
     }
 }

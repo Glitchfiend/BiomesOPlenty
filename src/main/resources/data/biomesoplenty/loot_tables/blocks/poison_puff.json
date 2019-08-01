@@ -6,15 +6,12 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "biomesoplenty:spectral_fern"
+          "name": "biomesoplenty:poison_puff"
         }
       ],
       "conditions": [
         {
-          "condition": "minecraft:match_tool",
-          "predicate": {
-            "item": "minecraft:shears"
-          }
+          "condition": "minecraft:survives_explosion"
         }
       ]
     }

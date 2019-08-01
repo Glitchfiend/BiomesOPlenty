@@ -13,7 +13,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import biomesoplenty.common.biome.end.EndForestBiome;
+import biomesoplenty.common.biome.end.CoralDeadlandsBiome;
+import biomesoplenty.common.biome.end.EtherealGardenBiome;
 import biomesoplenty.common.biome.nether.UndergardenBiome;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
@@ -177,7 +178,8 @@ public class ModBiomes
         undergarden = registerBiome(new UndergardenBiome(), "undergarden");
 
         //End Biomes
-        end_forest = registerBiome(new EndForestBiome(), "end_forest");
+        coral_deadlands = registerBiome(new CoralDeadlandsBiome(), "coral_deadlands");
+        ethereal_garden = registerBiome(new EtherealGardenBiome(), "ethereal_garden");
         end_plains = registerBiome(new EndPlainsBiome(), "end_plains");
 
         //Sub/Island Biomes (Note: Rarity supports two decimal places)
@@ -270,7 +272,8 @@ public class ModBiomes
         registerBiomeToDictionary(BOPBiomes.undergarden, Type.NETHER, Type.HOT);
 
         //End Biomes
-        registerBiomeToDictionary(BOPBiomes.end_forest, Type.END);
+        registerBiomeToDictionary(BOPBiomes.coral_deadlands, Type.END);
+        registerBiomeToDictionary(BOPBiomes.ethereal_garden, Type.END);
         registerBiomeToDictionary(BOPBiomes.end_plains, Type.END);
     }
     
