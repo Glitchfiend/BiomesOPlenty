@@ -275,12 +275,12 @@ public class ModBlocks
         willow_vine = registerBlock(new VineBlock(Block.Properties.create(Material.TALL_PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0.2F).sound(SoundType.PLANT)), "willow_vine");
 
         //Plants
+        sprout = registerBlock(new FoliageBlockBOP(Block.Properties.create(Material.TALL_PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "sprout");
         bush = registerBlock(new FoliageBlockBOP(Block.Properties.create(Material.TALL_PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "bush");
         barley = registerBlock(new FoliageBlockBOP(Block.Properties.create(Material.TALL_PLANTS, MaterialColor.YELLOW_TERRACOTTA).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "barley");
         dune_grass = registerBlock(new FoliageBlockBOP(Block.Properties.create(Material.TALL_PLANTS, MaterialColor.LIME_TERRACOTTA).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "dune_grass");
         desert_grass = registerBlock(new FoliageBlockBOP(Block.Properties.create(Material.TALL_PLANTS, MaterialColor.ORANGE_TERRACOTTA).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "desert_grass");
         dead_grass = registerBlock(new FoliageBlockBOP(Block.Properties.create(Material.TALL_PLANTS, MaterialColor.WOOD).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "dead_grass");
-        nether_sprout = registerBlock(new FoliageBlockBOP(Block.Properties.create(Material.TALL_PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "nether_sprout");
         ender_fern = registerBlock(new FoliageBlockBOP(Block.Properties.create(Material.TALL_PLANTS, MaterialColor.CYAN).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "ender_fern");
         cattail = registerBlock(new WatersidePlantBlock(Block.Properties.create(Material.PLANTS, MaterialColor.DIRT).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "cattail");
         tall_cattail = registerBlock(new DoubleWatersidePlantBlock(cattail, Block.Properties.create(Material.PLANTS, MaterialColor.DIRT).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "tall_cattail");

@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "biomesoplenty:nether_sprout"
+          "name": "biomesoplenty:sprout"
         }
       ],
       "conditions": [

@@ -141,6 +141,7 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.glowflower, 60, 100);
         registerFlammable(BOPBlocks.wilted_lily, 60, 100);
         registerFlammable(BOPBlocks.willow_vine, 15, 100);
+        registerFlammable(BOPBlocks.sprout, 60, 100);
         registerFlammable(BOPBlocks.bush, 60, 100);
         registerFlammable(BOPBlocks.barley, 60, 100);
         registerFlammable(BOPBlocks.dune_grass, 60, 100);
@@ -227,12 +228,12 @@ public class ModVanillaCompat
 
         registerCompostable(0.5F, BOPBlocks.willow_vine);
 
+        registerCompostable(0.5F, BOPBlocks.sprout);
         registerCompostable(0.5F, BOPBlocks.bush);
         registerCompostable(0.5F, BOPBlocks.barley);
         registerCompostable(0.5F, BOPBlocks.dune_grass);
         registerCompostable(0.5F, BOPBlocks.desert_grass);
         registerCompostable(0.5F, BOPBlocks.dead_grass);
-        registerCompostable(0.5F, BOPBlocks.nether_sprout);
         registerCompostable(0.5F, BOPBlocks.ender_fern);
 
         registerCompostable(0.5F, BOPBlocks.cattail);

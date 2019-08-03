@@ -38,7 +38,7 @@ public class BrambleFeature extends Feature<NoFeatureConfig>
     protected IBlockPosQuery placeOn = (world, pos) ->
     {
         BlockState state = world.getBlockState(pos);
-        return state.canSustainPlant(world, pos, Direction.UP, (SaplingBlock)Blocks.OAK_SAPLING) || state.getBlock() == Blocks.SOUL_SAND;
+        return state.canSustainPlant(world, pos, Direction.UP, (SaplingBlock)Blocks.OAK_SAPLING) || state.getBlock() == Blocks.NETHERRACK;
     };
     
     protected IBlockPosQuery replace = (world, pos) -> world.getBlockState(pos).getMaterial() == Material.AIR;

@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "biomesoplenty:blocks/nether_sprout"
+        "layer0": "biomesoplenty:blocks/sprout"
     }
 }

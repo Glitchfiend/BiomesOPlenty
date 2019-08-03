@@ -252,13 +252,13 @@ public class BOPBlocks
     public static Block burning_blossom;
     
     public static Block willow_vine;
-    
+
+    public static Block sprout;
     public static Block bush;
     public static Block barley;
     public static Block dune_grass;
     public static Block desert_grass;
     public static Block dead_grass;
-    public static Block nether_sprout;
     public static Block ender_fern;
     public static Block cattail;
     public static Block tall_cattail;

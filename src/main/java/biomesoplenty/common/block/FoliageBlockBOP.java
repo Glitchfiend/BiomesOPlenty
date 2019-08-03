@@ -76,11 +76,12 @@ public class FoliageBlockBOP extends BushBlock implements IPlantable
     @Override
     public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos)
     {
-        Block ground = worldIn.getBlockState(pos.down()).getBlock();
+        BlockState groundState = worldIn.getBlockState(pos.down());
+        Block ground = groundState.getBlock();
 
-        if (this == BOPBlocks.nether_sprout)
+        if (this == BOPBlocks.sprout)
         {
-            return ground == Blocks.NETHERRACK || super.isValidPosition(state, worldIn, pos);
+            return ground.hasSolidSide(groundState, worldIn, pos.down(), Direction.UP) || super.isValidPosition(state, worldIn, pos);
         }
         if (this == BOPBlocks.ender_fern)
         {
