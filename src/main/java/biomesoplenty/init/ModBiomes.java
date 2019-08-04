@@ -14,10 +14,8 @@ import java.util.Map;
 import java.util.Optional;
 
 import biomesoplenty.common.biome.end.CoralDeadlandsBiome;
-import biomesoplenty.common.biome.end.EtherealGardenBiome;
-import biomesoplenty.common.biome.nether.InfernalAshlandsBiome;
-import biomesoplenty.common.biome.nether.UndergardenBiome;
-import biomesoplenty.common.biome.nether.VisceralHeapBiome;
+import biomesoplenty.common.biome.end.EtherealForestBiome;
+import biomesoplenty.common.biome.nether.*;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
@@ -176,13 +174,15 @@ public class ModBiomes
         xeric_shrubland = registerBiome(new XericShrublandBiome(), "xeric_shrubland");
 
         //Nether Biomes
-        infernal_ashlands = registerBiome(new InfernalAshlandsBiome(), "infernal_ashlands");
+        ashen_inferno = registerBiome(new AshenInfernoBiome(), "ashen_inferno");
+        fungi_forest = registerBiome(new FungiForestBiome(), "fungi_forest");
+        glowstone_cavern = registerBiome(new GlowstoneCavernBiome(), "glowstone_cavern");
         undergarden = registerBiome(new UndergardenBiome(), "undergarden");
         visceral_heap = registerBiome(new VisceralHeapBiome(), "visceral_heap");
 
         //End Biomes
-        coral_deadlands = registerBiome(new CoralDeadlandsBiome(), "coral_deadlands");
-        ethereal_garden = registerBiome(new EtherealGardenBiome(), "ethereal_garden");
+        coral_deadland = registerBiome(new CoralDeadlandsBiome(), "coral_deadlands");
+        ethereal_forest = registerBiome(new EtherealForestBiome(), "ethereal_forest");
         end_plains = registerBiome(new EndPlainsBiome(), "end_plains");
 
         //Sub/Island Biomes (Note: Rarity supports two decimal places)
@@ -272,13 +272,15 @@ public class ModBiomes
         registerBiomeToDictionary(xeric_shrubland, Type.SANDY, Type.SAVANNA, Type.LUSH, Type.HOT, Type.DRY, Type.SPARSE);
 
         //Nether Biomes
-        registerBiomeToDictionary(infernal_ashlands, Type.NETHER, Type.HOT);
+        registerBiomeToDictionary(ashen_inferno, Type.NETHER, Type.HOT);
+        registerBiomeToDictionary(fungi_forest, Type.NETHER, Type.HOT);
+        registerBiomeToDictionary(glowstone_cavern, Type.NETHER, Type.HOT);
         registerBiomeToDictionary(undergarden, Type.NETHER, Type.HOT);
         registerBiomeToDictionary(visceral_heap, Type.NETHER, Type.HOT);
 
         //End Biomes
-        registerBiomeToDictionary(coral_deadlands, Type.END);
-        registerBiomeToDictionary(ethereal_garden, Type.END);
+        registerBiomeToDictionary(coral_deadland, Type.END);
+        registerBiomeToDictionary(ethereal_forest, Type.END);
         registerBiomeToDictionary(end_plains, Type.END);
     }
     

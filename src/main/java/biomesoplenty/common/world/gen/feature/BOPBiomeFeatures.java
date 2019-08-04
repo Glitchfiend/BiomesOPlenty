@@ -9,12 +9,10 @@ package biomesoplenty.common.world.gen.feature;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.world.gen.feature.tree.*;
+import biomesoplenty.common.world.gen.feature.tree.BigTreeFeature;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.LeavesBlock;
-import net.minecraft.world.gen.feature.AbstractTreeFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.FlowersFeature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
@@ -122,8 +120,12 @@ public class BOPBiomeFeatures
 	public static final Feature<NoFeatureConfig> NETHER_VINES = new NetherVinesFeature(NoFeatureConfig::deserialize);
 	public static final Feature<NoFeatureConfig> FLESH_SPLATTER = new FleshSplatterFeature(NoFeatureConfig::deserialize);
 	public static final Feature<NoFeatureConfig> BONE_SPINE = new BoneSpineFeature(NoFeatureConfig::deserialize);
-	public static final AbstractTreeFeature<NoFeatureConfig> NETHERWART_BUBBLE = new BushTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == BOPBlocks.flesh).log(Blocks.NETHER_WART_BLOCK.getDefaultState()).leaves(Blocks.NETHER_WART_BLOCK.getDefaultState()).maxHeight(2).create();
+	public static final AbstractTreeFeature<NoFeatureConfig> NETHERWART_BUBBLE = new BushTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.NETHERRACK).log(Blocks.NETHER_WART_BLOCK.getDefaultState()).leaves(Blocks.NETHER_WART_BLOCK.getDefaultState()).maxHeight(2).create();
 	public static final Feature<NoFeatureConfig> ASH_SPLATTER = new AshSplatterFeature(NoFeatureConfig::deserialize);
+	public static final Feature<BigMushroomFeatureConfig> HUGE_RED_MUSHROOM_NETHER = new BigRedMushroomNetherFeature(BigMushroomFeatureConfig::deserialize);
+	public static final Feature<BigMushroomFeatureConfig> HUGE_BROWN_MUSHROOM_NETHER = new BigBrownMushroomNetherFeature(BigMushroomFeatureConfig::deserialize);
+	public static final Feature<NoFeatureConfig> SCATTERED_NETHER_WART = new NetherWartFeature(NoFeatureConfig::deserialize);
+	public static final Feature<NoFeatureConfig> GLOWSTONE_SPIKES = new GlowstoneSpikesFeature(NoFeatureConfig::deserialize);
 
 	//Flowers
 	public static final FlowersFeature CHAPARRAL_FLOWERS = new ChaparralFlowersFeature(NoFeatureConfig::deserialize);

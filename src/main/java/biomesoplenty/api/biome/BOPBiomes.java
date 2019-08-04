@@ -74,11 +74,13 @@ public class BOPBiomes
     public static Optional<Biome> woodland = Optional.empty();
     public static Optional<Biome> xeric_shrubland = Optional.empty();
 
-    public static Optional<Biome> infernal_ashlands = Optional.empty();
+    public static Optional<Biome> ashen_inferno = Optional.empty();
+    public static Optional<Biome> fungi_forest = Optional.empty();
+    public static Optional<Biome> glowstone_cavern = Optional.empty();
     public static Optional<Biome> undergarden = Optional.empty();
     public static Optional<Biome> visceral_heap = Optional.empty();
 
-    public static Optional<Biome> coral_deadlands = Optional.empty();
-    public static Optional<Biome> ethereal_garden = Optional.empty();
+    public static Optional<Biome> coral_deadland = Optional.empty();
+    public static Optional<Biome> ethereal_forest = Optional.empty();
     public static Optional<Biome> end_plains = Optional.empty();
 }

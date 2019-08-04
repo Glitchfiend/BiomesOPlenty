@@ -24,7 +24,7 @@ import java.util.Set;
 public class BOPEndBiomeProvider extends BiomeProvider {
 	private final SimplexNoiseGenerator generator;
 	private final SharedSeedRandom random;
-	private final Biome[] field_205009_d = new Biome[]{Biomes.THE_END, Biomes.END_HIGHLANDS, Biomes.END_MIDLANDS, Biomes.SMALL_END_ISLANDS, Biomes.END_BARRENS, BOPBiomes.coral_deadlands.get(), BOPBiomes.ethereal_garden.get(), BOPBiomes.end_plains.get()};
+	private final Biome[] field_205009_d = new Biome[]{Biomes.THE_END, Biomes.END_HIGHLANDS, Biomes.END_MIDLANDS, Biomes.SMALL_END_ISLANDS, Biomes.END_BARRENS, BOPBiomes.coral_deadland.get(), BOPBiomes.ethereal_forest.get(), BOPBiomes.end_plains.get()};
 
 	public BOPEndBiomeProvider(EndBiomeProviderSettings p_i48970_1_) {
 		this.random = new SharedSeedRandom(p_i48970_1_.getSeed());
@@ -47,7 +47,7 @@ public class BOPEndBiomeProvider extends BiomeProvider {
 			if (lvt_5_1_ > 40.0F)
 			{
 				//return Biomes.END_HIGHLANDS;
-				return BOPBiomes.ethereal_garden.get();
+				return BOPBiomes.ethereal_forest.get();
 			}
 			else if (lvt_5_1_ >= 0.0F)
 			{

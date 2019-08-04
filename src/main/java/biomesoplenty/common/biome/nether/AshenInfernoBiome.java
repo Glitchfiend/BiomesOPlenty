@@ -17,9 +17,9 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placement.*;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
-public class InfernalAshlandsBiome extends NetherBiomeBOP
+public class AshenInfernoBiome extends NetherBiomeBOP
 {
-    public InfernalAshlandsBiome()
+    public AshenInfernoBiome()
     {
         super((new Builder()).surfaceBuilder(SurfaceBuilder.NETHER, SurfaceBuilder.NETHERRACK_CONFIG).precipitation(RainType.NONE).category(Category.NETHER).depth(0.1F).scale(0.2F).temperature(2.0F).downfall(0.0F).waterColor(4159204).waterFogColor(329011).parent((String)null));
 
@@ -42,9 +42,9 @@ public class InfernalAshlandsBiome extends NetherBiomeBOP
         this.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, createDecoratedFeature(Feature.NETHER_SPRING, new HellLavaConfig(true), Placement.COUNT_RANGE, new CountRangeConfig(16, 10, 20, 128)));
 
         //Entities
-        this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.GHAST, 50, 4, 4));
-        this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.ZOMBIE_PIGMAN, 100, 4, 4));
-        this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.MAGMA_CUBE, 2, 4, 4));
+        this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.GHAST, 40, 4, 4));
+        this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.ZOMBIE_PIGMAN, 80, 4, 4));
+        this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.MAGMA_CUBE, 20, 4, 4));
         this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.ENDERMAN, 1, 4, 4));
     }
 }
