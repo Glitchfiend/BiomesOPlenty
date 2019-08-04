@@ -15,7 +15,9 @@ import java.util.Optional;
 
 import biomesoplenty.common.biome.end.CoralDeadlandsBiome;
 import biomesoplenty.common.biome.end.EtherealGardenBiome;
+import biomesoplenty.common.biome.nether.InfernalAshlandsBiome;
 import biomesoplenty.common.biome.nether.UndergardenBiome;
+import biomesoplenty.common.biome.nether.VisceralHeapBiome;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
@@ -174,7 +176,9 @@ public class ModBiomes
         xeric_shrubland = registerBiome(new XericShrublandBiome(), "xeric_shrubland");
 
         //Nether Biomes
+        infernal_ashlands = registerBiome(new InfernalAshlandsBiome(), "infernal_ashlands");
         undergarden = registerBiome(new UndergardenBiome(), "undergarden");
+        visceral_heap = registerBiome(new VisceralHeapBiome(), "visceral_heap");
 
         //End Biomes
         coral_deadlands = registerBiome(new CoralDeadlandsBiome(), "coral_deadlands");
@@ -268,7 +272,9 @@ public class ModBiomes
         registerBiomeToDictionary(xeric_shrubland, Type.SANDY, Type.SAVANNA, Type.LUSH, Type.HOT, Type.DRY, Type.SPARSE);
 
         //Nether Biomes
+        registerBiomeToDictionary(infernal_ashlands, Type.NETHER, Type.HOT);
         registerBiomeToDictionary(undergarden, Type.NETHER, Type.HOT);
+        registerBiomeToDictionary(visceral_heap, Type.NETHER, Type.HOT);
 
         //End Biomes
         registerBiomeToDictionary(coral_deadlands, Type.END);

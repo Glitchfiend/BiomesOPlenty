@@ -11,6 +11,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SixWayBlock;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.pathfinding.PathType;
 import net.minecraft.state.StateContainer;
@@ -62,8 +64,13 @@ public class BrambleBlock extends SixWayBlock
      }
 
      @Override
-     public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
-         entityIn.attackEntityFrom(DamageSource.CACTUS, 1.0F);
+     public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn)
+     {
+         if (entityIn instanceof PlayerEntity)
+         {
+             PlayerEntity playerEntity = (PlayerEntity) entityIn;
+             playerEntity.attackEntityFrom(DamageSource.CACTUS, 1.0F);
+         }
       }
 
      @Override

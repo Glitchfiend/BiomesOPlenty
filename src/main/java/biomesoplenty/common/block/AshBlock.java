@@ -35,12 +35,6 @@ public class AshBlock extends Block
     {
         return SHAPE;
     }
-
-    @Override
-    public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn)
-    {
-        entityIn.setMotion(entityIn.getMotion().mul(0.75D, 1.0D, 0.75D));
-    }
     
     @Override
     @OnlyIn(Dist.CLIENT)

@@ -49,7 +49,7 @@ public class ModBlocks
 
         dried_sand = registerBlock(new DriedSandBlock(Block.Properties.create(Material.EARTH, MaterialColor.WOOD).hardnessAndResistance(1.0F).harvestLevel(0).harvestTool(ToolType.PICKAXE).sound(new SoundType(1.0F, 0.5F, SoundEvents.BLOCK_GRAVEL_BREAK, SoundEvents.BLOCK_GRAVEL_STEP, SoundEvents.BLOCK_GRAVEL_PLACE, SoundEvents.BLOCK_GRAVEL_HIT, SoundEvents.BLOCK_GRAVEL_FALL))), "dried_sand");
         ash_block = registerBlock(new AshBlock(Block.Properties.create(Material.SAND, MaterialColor.BLACK_TERRACOTTA).hardnessAndResistance(0.4F).harvestLevel(0).harvestTool(ToolType.SHOVEL).sound(SoundType.SAND)), "ash_block");
-        flesh = registerBlock(new FleshBlock(Block.Properties.create(Material.SPONGE, MaterialColor.RED_TERRACOTTA).hardnessAndResistance(0.4F).sound(SoundType.SLIME).harvestLevel(0).harvestTool(ToolType.AXE)), "flesh");
+        flesh = registerBlock(new FleshBlock(Block.Properties.create(Material.SPONGE, MaterialColor.RED_TERRACOTTA).hardnessAndResistance(0.4F).harvestLevel(0).harvestTool(ToolType.AXE).sound(new SoundType(1.0F, 0.5F, SoundEvents.BLOCK_CORAL_BLOCK_BREAK, SoundEvents.BLOCK_CORAL_BLOCK_STEP, SoundEvents.BLOCK_CORAL_BLOCK_PLACE, SoundEvents.BLOCK_CORAL_BLOCK_HIT, SoundEvents.BLOCK_CORAL_BLOCK_FALL))), "flesh");
 
         //Trees
         origin_sapling = registerBlock(new SaplingBlockBOP(new OriginTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.PLANT)), "origin_sapling");

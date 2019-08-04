@@ -43,7 +43,7 @@ public class WorldTypeBOP extends WorldType
 			NetherGenSettings nethergensettings = ChunkGeneratorType.CAVES.createSettings();
 			nethergensettings.setDefaultBlock(Blocks.NETHERRACK.getDefaultState());
 			nethergensettings.setDefaultFluid(Blocks.LAVA.getDefaultState());
-			return ChunkGeneratorType.CAVES.create(world, BiomeProviderType.FIXED.create(BiomeProviderType.FIXED.createSettings().setBiome(BOPBiomes.undergarden.get())), nethergensettings);
+			return ChunkGeneratorType.CAVES.create(world, BiomeProviderType.FIXED.create(BiomeProviderType.FIXED.createSettings().setBiome(BOPBiomes.visceral_heap.get())), nethergensettings);
 		}
     	else if (world.getDimension().getType() == DimensionType.THE_END)
     	{
