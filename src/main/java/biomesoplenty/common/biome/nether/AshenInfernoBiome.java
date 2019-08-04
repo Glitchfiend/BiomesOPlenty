@@ -1,6 +1,7 @@
 package biomesoplenty.common.biome.nether;
 
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.NetherBiomeBOP;
 import biomesoplenty.common.world.gen.feature.BOPBiomeFeatures;
 import biomesoplenty.common.world.gen.feature.SplotchConfig;
@@ -46,5 +47,7 @@ public class AshenInfernoBiome extends NetherBiomeBOP
         this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.ZOMBIE_PIGMAN, 80, 4, 4));
         this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.MAGMA_CUBE, 20, 4, 4));
         this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.ENDERMAN, 1, 4, 4));
+
+        this.addWeight(BOPClimates.HELL, 3);
     }
 }

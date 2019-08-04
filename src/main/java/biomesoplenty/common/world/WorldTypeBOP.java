@@ -38,14 +38,19 @@ public class WorldTypeBOP extends WorldType
 	
 	        return new ChunkGeneratorOverworldBOP(world, new BOPBiomeProvider(biomeProviderSettings), overworldGenSettings);
     	}
-		/*else if (world.getDimension().getType() == DimensionType.THE_NETHER)
+		else if (world.getDimension().getType() == DimensionType.THE_NETHER)
 		{
 			NetherGenSettings nethergensettings = ChunkGeneratorType.CAVES.createSettings();
 			nethergensettings.setDefaultBlock(Blocks.NETHERRACK.getDefaultState());
 			nethergensettings.setDefaultFluid(Blocks.LAVA.getDefaultState());
-			return ChunkGeneratorType.CAVES.create(world, BiomeProviderType.FIXED.create(BiomeProviderType.FIXED.createSettings().setBiome(BOPBiomes.undergarden.get())), nethergensettings);
+
+			// The nether shares biome provider settings with the overworld
+			OverworldBiomeProviderSettings biomeProviderSettings = new OverworldBiomeProviderSettings();
+			biomeProviderSettings.setWorldInfo(world.getWorldInfo());
+
+			return ChunkGeneratorType.CAVES.create(world, new NetherBiomeProvider(biomeProviderSettings), nethergensettings);
 		}
-    	else if (world.getDimension().getType() == DimensionType.THE_END)
+    	/*else if (world.getDimension().getType() == DimensionType.THE_END)
     	{
     		BlockPos SPAWN = new BlockPos(100, 50, 0);
 
