@@ -91,7 +91,10 @@ public class DeadCoralSpikesFeature extends Feature<NoFeatureConfig>
             {
                 for (int z = radiusStart; z <= radiusEnd; z++)
                 {
-                    this.setBlockState(world, pos.add(x, y, z), block);
+                    if (this.replace.matches(world, pos.add(x, y, z)))
+                    {
+                        this.setBlockState(world, pos.add(x, y, z), block);
+                    }
                 }
             }
         }

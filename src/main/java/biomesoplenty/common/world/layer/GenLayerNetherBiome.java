@@ -26,6 +26,6 @@ public enum GenLayerNetherBiome implements IAreaTransformer0, IDimOffset0Transfo
     @Override
     public int apply(INoiseRandom context, int x, int z)
     {
-        return Registry.BIOME.getId(BOPClimates.HELL.getRandomBiome(context, Biomes.NETHER));
+        return Registry.BIOME.getId(BOPClimates.NETHER.getRandomBiome(context, Biomes.NETHER));
     }
 }

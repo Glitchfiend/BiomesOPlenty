@@ -20,9 +20,9 @@ public class GlowstoneSpikesFeature extends Feature<NoFeatureConfig>
     protected IBlockPosQuery placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.NETHERRACK;
     protected IBlockPosQuery replace = (world, pos) -> world.getBlockState(pos).isAir(world, pos);
     int minRadius = 2;
-    int maxRadius = 4;
-    int minHeight = 5;
-    int maxHeight = 13;
+    int maxRadius = 3;
+    int minHeight = 4;
+    int maxHeight = 11;
 
     public GlowstoneSpikesFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserializer)
     {
@@ -61,7 +61,10 @@ public class GlowstoneSpikesFeature extends Feature<NoFeatureConfig>
             {
                 for (int z = radiusStart; z <= radiusEnd; z++)
                 {
-                    world.setBlockState(pos.add(x, y, z), Blocks.GLOWSTONE.getDefaultState(), 2);
+                    if (this.replace.matches(world, pos.add(x, y, z)))
+                    {
+                        world.setBlockState(pos.add(x, y, z), Blocks.GLOWSTONE.getDefaultState(), 2);
+                    }
                 }
             }
         }

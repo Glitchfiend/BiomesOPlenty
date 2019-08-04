@@ -31,7 +31,7 @@ public enum BOPClimates
     MEDITERRANEAN (BiomeType.WARM),
     SAVANNA (BiomeType.DESERT),
     HOT_DESERT (BiomeType.DESERT),
-    HELL (null);
+    NETHER (null);
 
     public final BiomeType biomeType;
     private int totalBiomesWeight;
@@ -110,8 +110,7 @@ public enum BOPClimates
 
     static
     {
-        // set up vanilla biomes
-
+        // Set up vanilla biomes
         BOPClimates.ICE_CAP.addBiome(10, Biomes.SNOWY_TUNDRA);
         BOPClimates.TUNDRA.addBiome(10, Biomes.SNOWY_TAIGA).addBiome(7, Biomes.MOUNTAINS);
         BOPClimates.WET_BOREAL.addBiome(10, Biomes.TAIGA);
@@ -125,7 +124,8 @@ public enum BOPClimates
         BOPClimates.MEDITERRANEAN.addBiome(1, Biomes.PLAINS);
         BOPClimates.SAVANNA.addBiome(10, Biomes.SAVANNA);
         BOPClimates.HOT_DESERT.addBiome(15, Biomes.DESERT).addBiome(10, Biomes.BADLANDS_PLATEAU);
-        BOPClimates.HELL.addBiome(30, Biomes.NETHER);
+
+        BOPClimates.NETHER.addBiome(10, Biomes.NETHER);
     }
 
     private static BOPClimates[] values = BOPClimates.values();
