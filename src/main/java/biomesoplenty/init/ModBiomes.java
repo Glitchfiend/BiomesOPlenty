@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import biomesoplenty.common.biome.end.CoralDeadlandsBiome;
+import biomesoplenty.common.biome.end.DeadReefBiome;
 import biomesoplenty.common.biome.end.EtherealForestBiome;
 import biomesoplenty.common.biome.nether.*;
 import com.google.common.collect.HashMultimap;
@@ -22,7 +22,6 @@ import com.google.common.collect.Multimap;
 
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.BiomeBOP;
-import biomesoplenty.common.biome.end.EndPlainsBiome;
 import biomesoplenty.common.biome.overworld.AlpsBiome;
 import biomesoplenty.common.biome.overworld.AlpsFoothillsBiome;
 import biomesoplenty.common.biome.overworld.BayouBiome;
@@ -181,9 +180,8 @@ public class ModBiomes
         visceral_heap = registerBiome(new VisceralHeapBiome(), "visceral_heap");
 
         //End Biomes
-        coral_deadland = registerBiome(new CoralDeadlandsBiome(), "coral_deadlands");
+        dead_reef = registerBiome(new DeadReefBiome(), "dead_reef");
         ethereal_forest = registerBiome(new EtherealForestBiome(), "ethereal_forest");
-        end_plains = registerBiome(new EndPlainsBiome(), "end_plains");
 
         //Sub/Island Biomes (Note: Rarity supports two decimal places)
         registerSubBiome(Biomes.DESERT, oasis, 0.1F, 100);
@@ -279,9 +277,8 @@ public class ModBiomes
         registerBiomeToDictionary(visceral_heap, Type.NETHER, Type.HOT);
 
         //End Biomes
-        registerBiomeToDictionary(coral_deadland, Type.END);
+        registerBiomeToDictionary(dead_reef, Type.END);
         registerBiomeToDictionary(ethereal_forest, Type.END);
-        registerBiomeToDictionary(end_plains, Type.END);
     }
     
     private static void registerBiomeToDictionary(Optional<Biome> biome, Type...types)

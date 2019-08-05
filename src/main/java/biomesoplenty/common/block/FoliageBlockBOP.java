@@ -83,10 +83,6 @@ public class FoliageBlockBOP extends BushBlock implements IPlantable
         {
             return ground.hasSolidSide(groundState, worldIn, pos.down(), Direction.UP) || super.isValidPosition(state, worldIn, pos);
         }
-        if (this == BOPBlocks.ender_fern)
-        {
-            return ground == Blocks.END_STONE || super.isValidPosition(state, worldIn, pos);
-        }
         if (this == BOPBlocks.dune_grass)
         {
             return ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.white_sand;

@@ -259,7 +259,6 @@ public class BOPBlocks
     public static Block dune_grass;
     public static Block desert_grass;
     public static Block dead_grass;
-    public static Block ender_fern;
     public static Block cattail;
     public static Block tall_cattail;
     public static Block reed;
