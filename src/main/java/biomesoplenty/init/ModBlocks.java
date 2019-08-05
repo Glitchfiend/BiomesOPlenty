@@ -326,6 +326,7 @@ public class ModBlocks
         potted_glowflower = registerBlockNoGroup(new FlowerPotBlock(glowflower, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().lightValue(9)), "potted_glowflower");
         potted_wilted_lily = registerBlockNoGroup(new FlowerPotBlock(wilted_lily, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_wilted_lily");
         potted_burning_blossom = registerBlockNoGroup(new FlowerPotBlock(burning_blossom, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().lightValue(7)), "potted_burning_blossom");
+        potted_sprout = registerBlockNoGroup(new FlowerPotBlock(sprout, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_sprout");
         potted_toadstool = registerBlockNoGroup(new FlowerPotBlock(toadstool, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_toadstool");
         potted_glowshroom = registerBlockNoGroup(new FlowerPotBlock(glowshroom, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().lightValue(6)), "potted_glowshroom");
     }

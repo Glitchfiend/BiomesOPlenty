@@ -298,6 +298,7 @@ public class BOPBlocks
     public static Block potted_glowflower;
     public static Block potted_wilted_lily;
     public static Block potted_burning_blossom;
+    public static Block potted_sprout;
     public static Block potted_toadstool;
     public static Block potted_glowshroom;
 }

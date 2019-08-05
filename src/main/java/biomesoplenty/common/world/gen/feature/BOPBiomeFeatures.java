@@ -12,6 +12,8 @@ import biomesoplenty.common.world.gen.feature.tree.*;
 import biomesoplenty.common.world.gen.feature.tree.BigTreeFeature;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.LeavesBlock;
+import net.minecraft.block.SaplingBlock;
+import net.minecraft.util.Direction;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
@@ -43,7 +45,7 @@ public class BOPBiomeFeatures
 	public static final AbstractTreeFeature<NoFeatureConfig> BIG_MAGIC_TREE = new BigTreeFeature.Builder().log(BOPBlocks.magic_log.getDefaultState()).leaves(BOPBlocks.magic_leaves.getDefaultState()).create();
 
 	public static final AbstractTreeFeature<NoFeatureConfig> GIANT_TREE = new BigTreeFeature.Builder().log(Blocks.DARK_OAK_LOG.getDefaultState()).leaves(Blocks.DARK_OAK_LEAVES.getDefaultState().with(LeavesBlock.PERSISTENT, true)).minHeight(25).maxHeight(30).trunkWidth(4).create();
-	public static final AbstractTreeFeature<NoFeatureConfig> ETHEREAL_TREE = new BigTreeFeature.Builder().log(BOPBlocks.ethereal_log.getDefaultState()).leaves(BOPBlocks.ethereal_leaves.getDefaultState()).placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.END_STONE).minHeight(10).maxHeight(20).foliageHeight(1).create();
+	public static final AbstractTreeFeature<NoFeatureConfig> ETHEREAL_TREE = new BigTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.END_STONE || world.getBlockState(pos).canSustainPlant(world, pos, Direction.UP, (SaplingBlock)Blocks.OAK_SAPLING)).log(BOPBlocks.ethereal_log.getDefaultState()).leaves(BOPBlocks.ethereal_leaves.getDefaultState()).minHeight(10).maxHeight(20).foliageHeight(1).create();
 
 	//Conifer Trees
 	public static final AbstractTreeFeature<NoFeatureConfig> TALL_SPRUCE_TREE = new TaigaTreeFeature.Builder().log(Blocks.SPRUCE_LOG.getDefaultState()).leaves(Blocks.SPRUCE_LEAVES.getDefaultState()).maxHeight(13).create();
@@ -77,8 +79,8 @@ public class BOPBiomeFeatures
 	public static final AbstractTreeFeature<NoFeatureConfig> FLOWERING_BUSH = new BushTreeFeature.Builder().altLeaves(BOPBlocks.flowering_oak_leaves.getDefaultState()).maxHeight(2).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> COBWEB_BUSH = new BushTreeFeature.Builder().maxHeight(2).altLeaves(Blocks.COBWEB.getDefaultState()).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> FULL_COBWEB_BUSH = new BushTreeFeature.Builder().maxHeight(2).leaves(Blocks.COBWEB.getDefaultState()).create();
-	public static final AbstractTreeFeature<NoFeatureConfig> HELLBARK_TREE = new BushTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.NETHERRACK).log(BOPBlocks.hellbark_log.getDefaultState()).leaves(BOPBlocks.hellbark_leaves.getDefaultState()).maxHeight(2).create();
-	public static final AbstractTreeFeature<NoFeatureConfig> ETHEREAL_BUSH = new BushTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.END_STONE).log(BOPBlocks.ethereal_log.getDefaultState()).leaves(BOPBlocks.ethereal_leaves.getDefaultState()).maxHeight(2).create();
+	public static final AbstractTreeFeature<NoFeatureConfig> HELLBARK_TREE = new BushTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.NETHERRACK || world.getBlockState(pos).canSustainPlant(world, pos, Direction.UP, (SaplingBlock)Blocks.OAK_SAPLING)).log(BOPBlocks.hellbark_log.getDefaultState()).leaves(BOPBlocks.hellbark_leaves.getDefaultState()).maxHeight(2).create();
+	public static final AbstractTreeFeature<NoFeatureConfig> ETHEREAL_BUSH = new BushTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.END_STONE || world.getBlockState(pos).canSustainPlant(world, pos, Direction.UP, (SaplingBlock)Blocks.OAK_SAPLING)).log(BOPBlocks.ethereal_log.getDefaultState()).leaves(BOPBlocks.ethereal_leaves.getDefaultState()).maxHeight(2).create();
 
 	public static final AbstractTreeFeature<NoFeatureConfig> TWIGLET_TREE = new TwigletTreeFeature.Builder().minHeight(1).maxHeight(2).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> TALL_TWIGLET_TREE = new TwigletTreeFeature.Builder().minHeight(2).maxHeight(4).create();
