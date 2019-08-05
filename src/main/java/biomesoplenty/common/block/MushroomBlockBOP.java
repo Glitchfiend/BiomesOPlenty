@@ -43,46 +43,7 @@ public class MushroomBlockBOP extends MushroomBlock
         Block ground = worldIn.getBlockState(pos.down()).getBlock();
         BlockState BlockState = worldIn.getBlockState(pos.down());
 
-        if (this == BOPBlocks.poison_puff)
-        {
-            return ground == Blocks.END_STONE || BlockState.canSustainPlant(worldIn, pos.down(), net.minecraft.util.Direction.UP, this);
-        }
-
         return BlockState.canSustainPlant(worldIn, pos.down(), net.minecraft.util.Direction.UP, this);
-    }
-
-    @Override
-    @OnlyIn(Dist.CLIENT)
-    public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand)
-    {
-        super.animateTick(stateIn, worldIn, pos, rand);
-        Block block = stateIn.getBlock();
-
-        if (block == BOPBlocks.poison_puff)
-        {
-            if (rand.nextInt(8) == 0)
-            {
-                worldIn.addParticle(ParticleTypes.SNEEZE, (double)(pos.getX() + 0.5D), (double)(pos.getY() + 0.5D), (double)(pos.getZ() + 0.5D), (rand.nextDouble() - rand.nextDouble()) / 10.0D, (rand.nextDouble() - rand.nextDouble()) / 10.0D, (rand.nextDouble() - rand.nextDouble()) / 10.0D);
-            }
-        }
-    }
-
-    @Override
-    public void onEntityCollision(BlockState stateIn, World worldIn, BlockPos pos, Entity entityIn)
-    {
-        Block block = stateIn.getBlock();
-
-        if (!worldIn.isRemote && worldIn.getDifficulty() != Difficulty.PEACEFUL)
-        {
-            if (block == BOPBlocks.poison_puff)
-            {
-                if (entityIn instanceof LivingEntity)
-                {
-                    LivingEntity livingentity = (LivingEntity) entityIn;
-                    livingentity.addPotionEffect(new EffectInstance(Effects.POISON, 50));
-                }
-            }
-        }
     }
 
     @Override

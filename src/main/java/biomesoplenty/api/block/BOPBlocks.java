@@ -268,7 +268,6 @@ public class BOPBlocks
     public static Block bramble;
     public static Block toadstool;
     public static Block glowshroom;
-    public static Block poison_puff;
 
     public static Block potted_origin_sapling;
     public static Block potted_flowering_oak_sapling;
@@ -302,5 +301,4 @@ public class BOPBlocks
     public static Block potted_burning_blossom;
     public static Block potted_toadstool;
     public static Block potted_glowshroom;
-    public static Block potted_poison_puff;
 }

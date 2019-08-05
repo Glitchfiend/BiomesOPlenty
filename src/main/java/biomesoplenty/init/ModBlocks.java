@@ -295,7 +295,6 @@ public class ModBlocks
         bramble = registerBlock(new BrambleBlock(Block.Properties.create(Material.PLANTS, MaterialColor.NETHERRACK).hardnessAndResistance(0.4F).harvestLevel(0).harvestTool(ToolType.AXE).sound(SoundType.WOOD)), "bramble");
         toadstool = registerBlock(new MushroomBlockBOP(Block.Properties.create(Material.PLANTS, MaterialColor.ADOBE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "toadstool");
         glowshroom = registerBlock(new MushroomBlockBOP(Block.Properties.create(Material.PLANTS, MaterialColor.DIAMOND).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT).lightValue(6)), "glowshroom");
-        poison_puff = registerBlock(new MushroomBlockBOP(Block.Properties.create(Material.PLANTS, MaterialColor.BLUE_TERRACOTTA).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "poison_puff");
 
         //Potted Plants
         potted_origin_sapling = registerBlockNoGroup(new FlowerPotBlock(origin_sapling, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_origin_sapling");
@@ -330,7 +329,6 @@ public class ModBlocks
         potted_burning_blossom = registerBlockNoGroup(new FlowerPotBlock(burning_blossom, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().lightValue(7)), "potted_burning_blossom");
         potted_toadstool = registerBlockNoGroup(new FlowerPotBlock(toadstool, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_toadstool");
         potted_glowshroom = registerBlockNoGroup(new FlowerPotBlock(glowshroom, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().lightValue(6)), "potted_glowshroom");
-        potted_poison_puff = registerBlockNoGroup(new FlowerPotBlock(poison_puff, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_poison_puff");
     }
 
     public static Block registerBlock(Block block, String name)
