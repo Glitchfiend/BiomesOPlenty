@@ -52,6 +52,8 @@ public class BayouBiome extends BiomeBOP
         DefaultBiomeFeatures.addOres(this);
         DefaultBiomeFeatures.addSwampClayDisks(this);
 
+        this.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.DISK, new SphereReplaceConfig(BOPBlocks.mud.getDefaultState(), 6, 2, Lists.newArrayList(new BlockState[]{Blocks.DIRT.getDefaultState(), Blocks.GRASS_BLOCK.getDefaultState()})), Placement.COUNT_TOP_SOLID, new FrequencyConfig(3)));
+
         ////////////////////////////////////////////////////////////
 
         // Vegetation
