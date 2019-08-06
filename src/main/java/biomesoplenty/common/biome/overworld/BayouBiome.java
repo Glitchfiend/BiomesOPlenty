@@ -7,6 +7,7 @@
  ******************************************************************************/
 package biomesoplenty.common.biome.overworld;
 
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.BiomeBOP;
@@ -98,7 +99,7 @@ public class BayouBiome extends BiomeBOP
         this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.SLIME, 1, 1, 1));
         
         this.addWeight(BOPClimates.SUBTROPICAL, 10);
-        this.setBeachBiome((Biome)null);
+        this.setBeachBiome(BOPBiomes.mangrove);
     }
     
     @OnlyIn(Dist.CLIENT)

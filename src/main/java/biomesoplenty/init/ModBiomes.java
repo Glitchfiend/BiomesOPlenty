@@ -109,6 +109,7 @@ public class ModBiomes
     private static void registerBiomes()
     {
         //Technical Biomes (Need to be registered before main biomes that use them)
+        mangrove = registerBiome(new MangroveBiome(), "mangrove");
         gravel_beach = registerBiome(new GravelBeachBiome(), "gravel_beach");
         origin_beach = registerBiome(new OriginBeachBiome(), "origin_beach");
         white_beach = registerBiome(new WhiteBeachBiome(), "white_beach");
@@ -137,7 +138,6 @@ public class ModBiomes
         lavender_field = registerBiome(new LavenderFieldBiome(), "lavender_field");
         lush_grassland = registerBiome(new LushGrasslandBiome(), "lush_grassland");
         lush_swamp = registerBiome(new LushSwampBiome(), "lush_swamp");
-        mangrove = registerBiome(new MangroveBiome(), "mangrove");
         maple_woods = registerBiome(new MapleWoodsBiome(), "maple_woods");
         marsh = registerBiome(new MarshBiome(), "marsh");
         meadow = registerBiome(new MeadowBiome(), "meadow");

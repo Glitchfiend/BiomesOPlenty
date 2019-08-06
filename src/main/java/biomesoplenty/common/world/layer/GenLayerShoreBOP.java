@@ -7,6 +7,7 @@
  ******************************************************************************/
 package biomesoplenty.common.world.layer;
 
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.common.biome.BiomeBOP;
 import biomesoplenty.common.world.BOPLayerUtil;
 import net.minecraft.util.registry.Registry;
@@ -63,7 +64,7 @@ public enum GenLayerShoreBOP implements ICastleTransformer
 
             if (BOPLayerUtil.isOcean(northBiomeId) || BOPLayerUtil.isOcean(eastBiomeId) || BOPLayerUtil.isOcean(southBiomeId) || BOPLayerUtil.isOcean(westBiomeId))
             {
-                return BEACH;
+                return Registry.BIOME.getId(BOPBiomes.mangrove.get());
             }
         }
         else if (biomeId != MOUNTAINS && biomeId != WOODED_MOUNTAINS && biomeId != MOUNTAIN_EDGE)
@@ -92,9 +93,24 @@ public enum GenLayerShoreBOP implements ICastleTransformer
                         BiomeBOP biomeBOP = (BiomeBOP)biome;
 
                         if (biomeBOP.beachBiomeId != -1)
+                        {
                             return biomeBOP.beachBiomeId;
+                        }
                         else
+                        {
                             return biomeId;
+                        }
+                    }
+                    else
+                    {
+                        if (biome == Biomes.JUNGLE || biome == Biomes.JUNGLE_HILLS || biome == Biomes.JUNGLE_EDGE || biome == Biomes.MODIFIED_JUNGLE || biome == Biomes.BAMBOO_JUNGLE || biome == Biomes.BAMBOO_JUNGLE_HILLS || biome == Biomes.MODIFIED_JUNGLE_EDGE)
+                        {
+                            return Registry.BIOME.getId(BOPBiomes.mangrove.get());
+                        }
+                        if (biome == Biomes.TAIGA || biome == Biomes.TAIGA_MOUNTAINS || biome == Biomes.TAIGA_HILLS || biome == Biomes.GIANT_TREE_TAIGA || biome == Biomes.GIANT_SPRUCE_TAIGA || biome == Biomes.GIANT_TREE_TAIGA_HILLS || biome == Biomes.GIANT_SPRUCE_TAIGA_HILLS || biome == Biomes.BIRCH_FOREST_HILLS || biome == Biomes.BIRCH_FOREST || biome == Biomes.TALL_BIRCH_HILLS || biome == Biomes.TALL_BIRCH_FOREST || biome == Biomes.DARK_FOREST_HILLS || biome == Biomes.DARK_FOREST)
+                        {
+                            return Registry.BIOME.getId(BOPBiomes.gravel_beach.get());
+                        }
                     }
 
                     return BEACH;
