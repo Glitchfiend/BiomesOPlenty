@@ -58,8 +58,8 @@ public enum GenLayerSubBiome implements IAreaTransformer2, IDimOffset1Transforme
     @Override
     public int apply(INoiseRandom context, IArea biomeArea, IArea riverAndSubBiomesInitArea, int x, int z)
     {
-        int biomeId = biomeArea.getValue(x + 1, z + 1);
-        int initVal = riverAndSubBiomesInitArea.getValue(x + 1, z + 1);
+        int biomeId = biomeArea.getValue(this.func_215721_a(x + 1), this.func_215722_b(z + 1));
+        int initVal = riverAndSubBiomesInitArea.getValue(this.func_215721_a(x + 1), this.func_215722_b(z + 1));
 
         int subBiomeType = (initVal - 2) % 29;
         boolean tryRareHillsBiome = subBiomeType == 0;
