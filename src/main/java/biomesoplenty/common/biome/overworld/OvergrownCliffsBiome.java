@@ -84,6 +84,5 @@ public class OvergrownCliffsBiome extends BiomeBOP
         
         this.addWeight(BOPClimates.TROPICAL, 1);
         this.setBeachBiome((Biome)null);
-        this.canSpawnInBiome = false;
     }
 }

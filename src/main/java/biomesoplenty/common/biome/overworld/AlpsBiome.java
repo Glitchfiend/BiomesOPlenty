@@ -67,6 +67,5 @@ public class AlpsBiome extends BiomeBOP
         this.addWeight(BOPClimates.ICE_CAP, 5);
         this.setBeachBiome((Biome)null);
         this.setRiverBiome((Biome)null);
-        this.canSpawnInBiome = false;
     }
 }

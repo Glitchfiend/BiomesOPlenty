@@ -82,6 +82,5 @@ public class OutbackBiome extends BiomeBOP
         this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.HUSK, 80, 4, 4));
         
         this.addWeight(BOPClimates.HOT_DESERT, 7);
-        this.canSpawnInBiome = false;
     }
 }

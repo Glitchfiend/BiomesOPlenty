@@ -70,8 +70,7 @@ public class AlpsFoothillsBiome extends BiomeBOP
         this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.ENDERMAN, 10, 1, 4));
         this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
         this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.STRAY, 80, 4, 4));
-
-        this.canSpawnInBiome = false;
+        
         this.setBeachBiome((Biome)null);
         this.setRiverBiome((Biome)null);
     }

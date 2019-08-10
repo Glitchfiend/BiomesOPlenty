@@ -10,9 +10,11 @@ package biomesoplenty.common.world.gen.feature.tree;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.biome.GeneratorUtil;
 import biomesoplenty.common.util.block.IBlockPosQuery;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.SaplingBlock;
+import net.minecraft.block.SeaGrassBlock;
+import net.minecraft.block.material.Material;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -22,9 +24,9 @@ import net.minecraft.world.IWorld;
 import java.util.Random;
 import java.util.Set;
 
-public class RedwoodTreeFeature extends TreeFeatureBase
+public class CypressTreeFeature extends TreeFeatureBase
 {
-    public static class Builder extends BuilderBase<Builder, RedwoodTreeFeature>
+    public static class Builder extends BuilderBase<Builder, CypressTreeFeature>
     {
         protected int trunkWidth;
 
@@ -32,25 +34,27 @@ public class RedwoodTreeFeature extends TreeFeatureBase
 
         public Builder()
         {
-            this.minHeight = 10;
-            this.maxHeight = 30;
-            this.log = BOPBlocks.redwood_log.getDefaultState();
-            this.leaves = BOPBlocks.redwood_leaves.getDefaultState();
-            this.vine = Blocks.VINE.getDefaultState();
+            this.minHeight = 6;
+            this.maxHeight = 15;
+            this.placeOn = (world, pos) -> world.getBlockState(pos).canSustainPlant(world, pos, Direction.UP, (SaplingBlock)Blocks.OAK_SAPLING);
+            this.replace = (world, pos) -> world.getBlockState(pos).canBeReplacedByLeaves(world, pos) || world.getBlockState(pos).getMaterial() == Material.WATER;
+            this.log = BOPBlocks.willow_log.getDefaultState();
+            this.leaves = BOPBlocks.willow_leaves.getDefaultState();
+            this.vine = BOPBlocks.willow_vine.getDefaultState();
             this.trunkWidth = 1;
         }
 
         @Override
-        public RedwoodTreeFeature create()
+        public CypressTreeFeature create()
         {
-            return new RedwoodTreeFeature(this.updateNeighbours, this.placeOn, this.replace, this.log, this.leaves, this.altLeaves, this.vine, this.hanging, this.trunkFruit, this.minHeight, this.maxHeight, this.trunkWidth);
+            return new CypressTreeFeature(this.updateNeighbours, this.placeOn, this.replace, this.log, this.leaves, this.altLeaves, this.vine, this.hanging, this.trunkFruit, this.minHeight, this.maxHeight, this.trunkWidth);
         }
 
     }
 
     private int trunkWidth = 1;
 
-    protected RedwoodTreeFeature(boolean notify, IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState altLeaves, BlockState vine, BlockState hanging, BlockState trunkFruit, int minHeight, int maxHeight, int trunkWidth)
+    protected CypressTreeFeature(boolean notify, IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState altLeaves, BlockState vine, BlockState hanging, BlockState trunkFruit, int minHeight, int maxHeight, int trunkWidth)
     {
         super(notify, placeOn, replace, log, leaves, altLeaves, vine, hanging, trunkFruit, minHeight, maxHeight);
         this.trunkWidth = trunkWidth;
@@ -60,7 +64,6 @@ public class RedwoodTreeFeature extends TreeFeatureBase
     {
         for (int y = 0; y <= height; y++)
         {
-
             int trunkWidth = (this.trunkWidth * (height - y) / height) + 1;
             int trunkStart = MathHelper.ceil(0.25D - trunkWidth / 2.0D);
             int trunkEnd = MathHelper.floor(0.25D + trunkWidth / 2.0D);
@@ -82,6 +85,13 @@ public class RedwoodTreeFeature extends TreeFeatureBase
                 }
             }
         }
+
+        BlockPos pos2 = pos.add(0, height - 2,0);
+        if (!world.getBlockState(pos2).canBeReplacedByLeaves(world, pos2))
+        {
+            return false;
+        }
+
         return true;
     }
 
@@ -100,7 +110,7 @@ public class RedwoodTreeFeature extends TreeFeatureBase
                 int distFromTrunk = (x < 0 ? trunkStart - x : x - trunkEnd) + (z < 0 ? trunkStart - z : z - trunkEnd);
 
                 // set leaves as long as it's not too far from the trunk to survive
-                if (distFromTrunk < 4 || (distFromTrunk == 4 && rand.nextInt(2) == 0))
+                if (distFromTrunk <= 2)
                 {
                     this.setLeaves(world, pos.add(x, 0, z));
                 }
@@ -138,7 +148,7 @@ public class RedwoodTreeFeature extends TreeFeatureBase
     protected boolean place(Set<BlockPos> changedBlocks, IWorld world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
     {
         // Move down until we reach the ground
-        while (startPos.getY() > 1 && world.isAirBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES) {startPos = startPos.down();}
+        while (startPos.getY() > 1 && this.replace.matches(world, startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES) {startPos = startPos.down();}
 
         for (int x = 0; x <= this.trunkWidth - 1; x++)
         {
@@ -180,7 +190,12 @@ public class RedwoodTreeFeature extends TreeFeatureBase
             int trunkEnd = MathHelper.floor(0.25D + trunkWidth / 2.0D);
 
 
-            int radius = Math.min(Math.min((i + 2) / 4, 2 + (leavesHeight - i)), 4);
+            int radius = MathHelper.clamp(i, 0, 2);
+            if (i == leavesHeight - 1)
+            {
+                radius = 1;
+            }
+
             if (radius == 0)
             {
                 this.setLeaves(world, pos);
@@ -222,5 +237,16 @@ public class RedwoodTreeFeature extends TreeFeatureBase
         }
 
         return true;
+    }
+
+    @Override
+    public boolean setLeaves(IWorld world, BlockPos pos)
+    {
+        if (world.getBlockState(pos).canBeReplacedByLeaves(world, pos))
+        {
+            this.setBlockState(world, pos, this.leaves);
+            return true;
+        }
+        return false;
     }
 }

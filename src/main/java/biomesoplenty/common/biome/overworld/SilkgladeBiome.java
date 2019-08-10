@@ -78,7 +78,6 @@ public class SilkgladeBiome extends BiomeBOP
         this.addWeight(BOPClimates.DRY_TEMPERATE, 1);
         this.setBeachBiome((Biome)null);
         this.setRiverBiome((Biome)null);
-        this.canSpawnInBiome = false;
     }
     
     @OnlyIn(Dist.CLIENT)

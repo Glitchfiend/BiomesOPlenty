@@ -85,7 +85,6 @@ public class ColdDesertBiome extends BiomeBOP
         this.addWeight(BOPClimates.ICE_CAP, 10);
         this.setBeachBiome((Biome)null);
         this.setRiverBiome((Biome)null);
-        this.canSpawnInBiome = false;
     }
     
     @OnlyIn(Dist.CLIENT)
