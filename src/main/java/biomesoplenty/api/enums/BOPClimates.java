@@ -23,7 +23,7 @@ public enum BOPClimates
     TUNDRA (BiomeType.ICY),
     WET_BOREAL (BiomeType.COOL),
     DRY_BOREAL (BiomeType.COOL),
-    WET_TEMPERATE (BiomeType.WARM),
+    WET_TEMPERATE (BiomeType.COOL),
     DRY_TEMPERATE (BiomeType.WARM),
     COOL_TEMPERATE (BiomeType.COOL),
     WARM_TEMPERATE (BiomeType.WARM),
