@@ -1,6 +1,7 @@
 package biomesoplenty.common.item;
 
 import biomesoplenty.common.entity.item.BoatEntityBOP;
+import net.minecraft.block.DispenserBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -26,6 +27,7 @@ public class BoatItemBOP extends Item {
     public BoatItemBOP(BoatEntityBOP.Type typeIn, Item.Properties properties) {
         super(properties);
         this.type = typeIn;
+        DispenserBlock.registerDispenseBehavior(this, new DispenserBoatBehaviorBOP(typeIn));
     }
 
     /**
