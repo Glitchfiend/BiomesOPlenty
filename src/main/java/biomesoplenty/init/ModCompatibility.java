@@ -68,6 +68,23 @@ public class ModCompatibility
     // TODO: Make this more accurate, possibly analyze heights, temps, rainfall and/or biome dictionary tags
     private static void remapBiomeToBoP(Biome biome, BiomeManager.BiomeType type, int weight)
     {
+        /* If any of our climates already have the biome (from a mod using our api), then skip this biome */
+        for (BOPClimates climate : BOPClimates.values())
+        {
+            List<BOPClimates.WeightedBiomeEntry> entries = Lists.newArrayList();
+            entries.addAll(climate.getLandBiomes());
+            entries.addAll(climate.getIslandBiomes());
+
+            for (BOPClimates.WeightedBiomeEntry entry : entries)
+            {
+                if (entry.biome == biome)
+                {
+                    return;
+                }
+            }
+        }
+
+
         for (BOPClimates climate : BOPClimates.values())
         {
             if (climate.biomeType == type)

@@ -66,7 +66,6 @@ public class BiomesOPlenty
     {
         ModBiomes.setup();
         ModVanillaCompat.setup();
-        ModCompatibility.setup();
     }
 
     private void clientSetup(final FMLClientSetupEvent event)
@@ -78,6 +77,7 @@ public class BiomesOPlenty
     {
         proxy.init();
         //GenLayerVisualizer.run();
+        ModCompatibility.setup();
     }
 
     public void serverStarting(FMLServerStartingEvent evt)

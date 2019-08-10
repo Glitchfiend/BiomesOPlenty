@@ -7,6 +7,7 @@
  ******************************************************************************/
 package biomesoplenty.api.enums;
 
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
@@ -106,6 +107,16 @@ public enum BOPClimates
     public Biome getRandomOceanBiome(INoiseRandom context, boolean deep)
     {
         return (deep ? Biomes.DEEP_OCEAN : Biomes.OCEAN);
+    }
+
+    public ImmutableList<WeightedBiomeEntry> getLandBiomes()
+    {
+        return ImmutableList.copyOf(this.landBiomes);
+    }
+
+    public ImmutableList<WeightedBiomeEntry> getIslandBiomes()
+    {
+        return ImmutableList.copyOf(this.islandBiomes);
     }
 
     static
