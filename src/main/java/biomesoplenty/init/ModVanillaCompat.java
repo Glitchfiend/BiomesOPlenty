@@ -19,7 +19,7 @@ import net.minecraft.world.gen.placement.Placement;
 
 public class ModVanillaCompat
 {
-    public static void init()
+    public static void setup()
     {
         //Vanilla Biome Features
         addFeature(Biomes.BADLANDS, GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(Feature.BUSH, new BushConfig(BOPBlocks.desert_grass.getDefaultState()), Placement.COUNT_HEIGHTMAP_DOUBLE, new FrequencyConfig(4)));

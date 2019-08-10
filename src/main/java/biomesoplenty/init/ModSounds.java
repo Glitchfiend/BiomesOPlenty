@@ -8,15 +8,21 @@
 package biomesoplenty.init;
 
 import biomesoplenty.core.BiomesOPlenty;
+import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import static biomesoplenty.api.sound.BOPSounds.music_disc_wanderer;
 
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModSounds
 {
-    public static void init()
+    @SubscribeEvent
+    public static void registerSounds(RegistryEvent.Register<SoundEvent> event)
     {
         music_disc_wanderer = registerSound("music_disc.wanderer");
     }

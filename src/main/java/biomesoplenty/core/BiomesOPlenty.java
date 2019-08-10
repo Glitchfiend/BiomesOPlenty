@@ -15,6 +15,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLDedicatedServerSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
@@ -36,18 +37,11 @@ public class BiomesOPlenty
     {
     	instance = this;
 
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::dedicatedServerSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
         MinecraftForge.EVENT_BUS.addListener(this::serverStarting);
-
-        ModConfig.init();
-        ModSounds.init();
-        ModEntities.init();
-        ModBlocks.init();
-        ModItems.init();
-        ModBiomes.init();
-        ModVanillaCompat.init();
     }
 
     public void dedicatedServerSetup(FMLDedicatedServerSetupEvent event)
@@ -64,6 +58,13 @@ public class BiomesOPlenty
         {
             logger.info("Biomes O' Plenty is installed on this server but generation is disabled.");
         }
+    }
+
+    private void commonSetup(final FMLCommonSetupEvent event)
+    {
+        ModConfig.setup();
+        ModBiomes.setup();
+        ModVanillaCompat.setup();
     }
 
     private void clientSetup(final FMLClientSetupEvent event)

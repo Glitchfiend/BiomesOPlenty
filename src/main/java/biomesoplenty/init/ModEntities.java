@@ -16,14 +16,19 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import static biomesoplenty.core.BiomesOPlenty.MOD_ID;
 
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModEntities
 {
-    public static void init()
+    @SubscribeEvent
+    public static void registerEntities(RegistryEvent.Register<EntityType<?>> event)
     {
         BOPEntities.boat_bop = EntityType.Builder.<BoatEntityBOP>create(BoatEntityBOP::new, EntityClassification.MISC).setTrackingRange(80).setUpdateInterval(3).setShouldReceiveVelocityUpdates(true).size(1.375f, 0.5625f).setCustomClientFactory(BoatEntityBOP::new).build(MOD_ID + ":boat_bop");
         BOPEntities.boat_bop.setRegistryName("boat_bop");

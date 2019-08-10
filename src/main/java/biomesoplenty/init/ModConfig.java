@@ -38,7 +38,7 @@ public class ModConfig
         }
     }
 
-    public static void init()
+    public static void setup()
     {
         Path configPath = FMLPaths.CONFIGDIR.get();
         Path bopConfigPath = Paths.get(configPath.toAbsolutePath().toString(), "biomesoplenty");

@@ -83,14 +83,19 @@ import biomesoplenty.common.biome.overworld.WhiteBeachBiome;
 import biomesoplenty.common.biome.overworld.WoodlandBiome;
 import biomesoplenty.common.biome.overworld.XericShrublandBiome;
 import biomesoplenty.common.world.WorldTypeBOP;
+import net.minecraft.block.Block;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.BiomeManager;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModBiomes
 {
     public static WorldTypeBOP worldType;
@@ -98,15 +103,14 @@ public class ModBiomes
     public static Multimap<Integer, WeightedSubBiome> subBiomes = HashMultimap.create();
     public static List<Integer> islandBiomes = Lists.newArrayList();
 
-    public static void init()
+    public static void setup()
     {
         worldType = new WorldTypeBOP();
-
-        registerBiomes();
         registerBiomeDictionaryTags();
     }
 
-    private static void registerBiomes()
+    @SubscribeEvent
+    public static void registerBiomes(RegistryEvent.Register<Biome> event)
     {
         //Technical Biomes (Need to be registered before main biomes that use them)
         mangrove = registerBiome(new MangroveBiome(), "mangrove");

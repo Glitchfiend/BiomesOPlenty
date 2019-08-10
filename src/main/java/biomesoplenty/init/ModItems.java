@@ -15,13 +15,18 @@ import biomesoplenty.common.item.MusicDiscItemBOP;
 import biomesoplenty.common.util.inventory.ItemGroupBOP;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.Item;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import static biomesoplenty.api.item.BOPItems.*;
 
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModItems
 {
-	public static void init()
+    @SubscribeEvent
+    public static void registerItems(RegistryEvent.Register<Item> event)
 	{
         mud_ball = registerItem(new Item(new Item.Properties().group(ItemGroupBOP.instance)), "mud_ball");
         mud_brick = registerItem(new Item(new Item.Properties().group(ItemGroupBOP.instance)), "mud_brick");
