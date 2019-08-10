@@ -59,12 +59,6 @@ public class BoatEntityBOP extends BoatEntity {
     private float momentum;
     private float outOfControlTicks;
     private float deltaRotation;
-    private int lerpSteps;
-    private double lerpX;
-    private double lerpY;
-    private double lerpZ;
-    private double lerpYaw;
-    private double lerpPitch;
     private boolean leftInputDown;
     private boolean rightInputDown;
     private boolean forwardInputDown;
@@ -80,8 +74,8 @@ public class BoatEntityBOP extends BoatEntity {
     private float rockingAngle;
     private float prevRockingAngle;
 
-    public BoatEntityBOP(EntityType<? extends BoatEntity> p_i50129_1_, World p_i50129_2_) {
-        super(p_i50129_1_, p_i50129_2_);
+    public BoatEntityBOP(EntityType<? extends BoatEntity> entityType, World world) {
+        super(entityType, world);
         this.preventEntitySpawning = true;
     }
 
@@ -231,7 +225,7 @@ public class BoatEntityBOP extends BoatEntity {
         }
         baseTick();
 
-        this.tickLerp();
+        super.tickLerp();
         if (this.canPassengerSteer()) {
             if (this.getPassengers().isEmpty() || !(this.getPassengers().get(0) instanceof PlayerEntity)) {
                 this.setPaddleState(false, false);
@@ -337,20 +331,6 @@ public class BoatEntityBOP extends BoatEntity {
             case IN_AIR:
             default:
                 return null;
-        }
-    }
-
-    private void tickLerp() {
-        if (this.lerpSteps > 0 && !this.canPassengerSteer()) {
-            double d0 = this.posX + (this.lerpX - this.posX) / (double) this.lerpSteps;
-            double d1 = this.posY + (this.lerpY - this.posY) / (double) this.lerpSteps;
-            double d2 = this.posZ + (this.lerpZ - this.posZ) / (double) this.lerpSteps;
-            double d3 = MathHelper.wrapDegrees(this.lerpYaw - (double) this.rotationYaw);
-            this.rotationYaw = (float) ((double) this.rotationYaw + d3 / (double) this.lerpSteps);
-            this.rotationPitch = (float) ((double) this.rotationPitch + (this.lerpPitch - (double) this.rotationPitch) / (double) this.lerpSteps);
-            --this.lerpSteps;
-            this.setPosition(d0, d1, d2);
-            this.setRotation(this.rotationYaw, this.rotationPitch);
         }
     }
 
