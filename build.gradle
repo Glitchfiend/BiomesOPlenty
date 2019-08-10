@@ -50,6 +50,13 @@ minecraft {
     }
 }
 
+processResources {
+    from (sourceSets.main.resources.srcDirs) {
+        include 'META-INF/mods.toml'
+        expand 'version': project.version
+    }
+}
+
 jar {
     classifier = 'universal'
 }
