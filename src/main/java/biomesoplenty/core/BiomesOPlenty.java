@@ -66,6 +66,7 @@ public class BiomesOPlenty
     {
         ModBiomes.setup();
         ModVanillaCompat.setup();
+        ModCompatibility.setup();
     }
 
     private void clientSetup(final FMLClientSetupEvent event)
