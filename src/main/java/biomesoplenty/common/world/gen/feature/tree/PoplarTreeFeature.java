@@ -24,8 +24,8 @@ public class PoplarTreeFeature extends TreeFeatureBase
     {
         public Builder()
         {
-            this.minHeight = 9;
-            this.maxHeight = 17;
+            this.minHeight = 12;
+            this.maxHeight = 15;
         }
 
         @Override
@@ -57,7 +57,7 @@ public class PoplarTreeFeature extends TreeFeatureBase
         // Choose heights and width
         int height = GeneratorUtil.nextIntBetween(random, this.minHeight, this.maxHeight);
         if (height < 4) {return false;}
-        int baseHeight = height / (2 + random.nextInt(3));
+        int baseHeight = height / 3;
         int leavesHeight = height - baseHeight;
         
         // Move up to space above ground
@@ -126,9 +126,26 @@ public class PoplarTreeFeature extends TreeFeatureBase
         {
             for(int z = -radius; z <= radius; z++)
             {
-                if (x*x + z*z <= radius*radius)
+                if (radius < 2)
                 {
+                    if (x*x + z*z <= radius*radius)
+                    {
+                        this.setLeaves(world, pos.add(x, 0, z));
+                    }
+                }
+                else
+                {
+                    if ((x == -radius || x == radius) && (z == -radius || z == radius)) { continue; }
+
                     this.setLeaves(world, pos.add(x, 0, z));
+
+                    for (int i = -1; i < 3; i++)
+                    {
+                        this.setLeaves(world, pos.add(-1, i, -1));
+                        this.setLeaves(world, pos.add(1, i, 1));
+                        this.setLeaves(world, pos.add(-1, i, 1));
+                        this.setLeaves(world, pos.add(1, i, -1));
+                    }
                 }
             }
         }
