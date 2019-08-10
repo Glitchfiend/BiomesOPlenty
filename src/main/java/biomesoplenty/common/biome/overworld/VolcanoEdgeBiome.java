@@ -76,8 +76,7 @@ public class VolcanoEdgeBiome extends BiomeBOP
         this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.SLIME, 100, 4, 4));
         this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.ENDERMAN, 10, 1, 4));
         this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
-        
-        this.canSpawnInBiome = false;
+
         this.setRiverBiome((Biome)null);
         this.setBeachBiome((Biome)null);
     }

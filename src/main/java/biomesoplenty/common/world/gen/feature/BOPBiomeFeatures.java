@@ -62,9 +62,10 @@ public class BOPBiomeFeatures
 	public static final AbstractTreeFeature<NoFeatureConfig> YELLOW_POPLAR_TREE = new PoplarTreeFeature.Builder().log(Blocks.BIRCH_LOG.getDefaultState()).leaves(BOPBlocks.yellow_autumn_leaves.getDefaultState()).minHeight(10).maxHeight(18).create();
 	
 	//Swamp Trees
+	public static final AbstractTreeFeature<NoFeatureConfig> CYPRESS_TREE = new CypressTreeFeature.Builder().create();
+	public static final AbstractTreeFeature<NoFeatureConfig> CYPRESS_TREE_MEDIUM = new CypressTreeFeature.Builder().minHeight(15).maxHeight(25).trunkWidth(2).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> TALL_SWAMP_TREE = new BasicTreeFeature.Builder().vine(Blocks.VINE.getDefaultState()).minHeight(8).maxHeight(12).maxLeavesRadius(2).leavesOffset(0).create();
 	public static final AbstractTreeFeature<NoFeatureConfig> WILLOW_TREE = new BasicTreeFeature.Builder().log(BOPBlocks.willow_log.getDefaultState()).leaves(BOPBlocks.willow_leaves.getDefaultState()).vine(BOPBlocks.willow_vine.getDefaultState()).minHeight(6).maxHeight(10).maxLeavesRadius(2).leavesOffset(0).create();
-	public static final AbstractTreeFeature<NoFeatureConfig> TALL_WILLOW_TREE = new BasicTreeFeature.Builder().log(BOPBlocks.willow_log.getDefaultState()).leaves(BOPBlocks.willow_leaves.getDefaultState()).vine(BOPBlocks.willow_vine.getDefaultState()).minHeight(10).maxHeight(16).maxLeavesRadius(2).leavesOffset(0).create();
 
 	//Sparse Trees
 	public static final AbstractTreeFeature<NoFeatureConfig> SPARSE_OAK_TREE = new BigTreeFeature.Builder().minHeight(7).maxHeight(12).foliageHeight(1).create();
