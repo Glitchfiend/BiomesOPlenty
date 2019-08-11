@@ -217,7 +217,7 @@ public class CypressTreeFeature extends TreeFeatureBase
         // Generate the trunk
         for (int y = 0; y < height - 1; y++)
         {
-            int trunkWidth = (this.trunkWidth * (height - y) / height) + 1;
+            int trunkWidth = (this.trunkWidth * ((baseHeight + 5) - y) / (baseHeight + 5)) + 1;
             int trunkStart = MathHelper.ceil(0.25D - trunkWidth / 2.0D);
             int trunkEnd = MathHelper.floor(0.25D + trunkWidth / 2.0D);
 
