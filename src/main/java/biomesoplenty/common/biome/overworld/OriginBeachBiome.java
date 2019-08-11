@@ -34,7 +34,7 @@ public class OriginBeachBiome extends BiomeBOP
 {
     public OriginBeachBiome()
     {
-        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.SAND_SAND_GRAVEL_CONFIG)).precipitation(Biome.RainType.RAIN).category(Biome.Category.NONE).depth(0.0F).scale(0.025F).temperature(0.6F).downfall(0.6F).waterColor(0x0E31FF).waterFogColor(0x1B005A).parent((String)null));
+        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.SAND_SAND_GRAVEL_CONFIG)).precipitation(Biome.RainType.RAIN).category(Biome.Category.NONE).depth(0.0F).scale(0.025F).temperature(0.6F).downfall(0.6F).waterColor(0x0E31FF).waterFogColor(0x070059).parent((String)null));
 
         // Underground
         this.addCarver(GenerationStage.Carving.AIR, Biome.createCarver(WorldCarver.CAVE, new ProbabilityConfig(0.14285715F)));
