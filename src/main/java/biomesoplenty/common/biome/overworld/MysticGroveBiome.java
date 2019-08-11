@@ -12,6 +12,7 @@ import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.BiomeBOP;
 import biomesoplenty.common.world.gen.feature.BOPBiomeFeatures;
 import biomesoplenty.common.world.gen.feature.StandardGrassFeature;
+import com.google.common.collect.Lists;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -49,7 +50,9 @@ public class MysticGroveBiome extends BiomeBOP
         DefaultBiomeFeatures.addMonsterRooms(this);
         DefaultBiomeFeatures.addStoneVariants(this);
         DefaultBiomeFeatures.addOres(this);
-        DefaultBiomeFeatures.addSedimentDisks(this);
+
+        this.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.DISK, new SphereReplaceConfig(BOPBlocks.white_sand.getDefaultState(), 7, 2, Lists.newArrayList(Blocks.DIRT.getDefaultState(), Blocks.GRASS_BLOCK.getDefaultState())), Placement.COUNT_TOP_SOLID, new FrequencyConfig(3)));
+        this.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.DISK, new SphereReplaceConfig(Blocks.CLAY.getDefaultState(), 4, 1, Lists.newArrayList(Blocks.DIRT.getDefaultState(), Blocks.CLAY.getDefaultState())), Placement.COUNT_TOP_SOLID, new FrequencyConfig(1)));
 
         ////////////////////////////////////////////////////////////
 
