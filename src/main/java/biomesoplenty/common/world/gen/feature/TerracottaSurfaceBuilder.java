@@ -17,9 +17,9 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import java.util.Random;
 import java.util.function.Function;
 
-public class GraniteSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
+public class TerracottaSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
 {
-	public GraniteSurfaceBuilder(Function<Dynamic<?>, ? extends SurfaceBuilderConfig> deserializer)
+	public TerracottaSurfaceBuilder(Function<Dynamic<?>, ? extends SurfaceBuilderConfig> deserializer)
 	{
 		super(deserializer);
 	}
@@ -27,7 +27,7 @@ public class GraniteSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
 	@Override
 	public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
 		if (noise > 1.9D) {
-			SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BOPBiomeFeatures.GRANITE_SURFACE);
+			SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BOPBiomeFeatures.TERRACOTTA_SURFACE);
 		} else {
 			SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);
 		}

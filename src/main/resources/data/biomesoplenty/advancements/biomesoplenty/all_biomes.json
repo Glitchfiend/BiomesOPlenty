@@ -81,6 +81,12 @@
                 "biome": "biomesoplenty:dead_forest"
             }
         },
+		"fir_clearing": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:fir_clearing"
+            }
+        },
 		"floodplain": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -115,6 +121,12 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:highland"
+            }
+        },
+        "highland_moor": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:highland_moor"
             }
         },
 		"lavender_field": {
@@ -163,12 +175,6 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:mire"
-            }
-        },
-        "moor": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:moor"
             }
         },
 		"mystic_grove": {
@@ -291,6 +297,12 @@
                 "biome": "biomesoplenty:snowy_coniferous_forest"
             }
         },
+		"snowy_fir_clearing": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:snowy_fir_clearing"
+            }
+        },
 		"snowy_forest": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -307,6 +319,12 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:temperate_rainforest"
+            }
+        },
+		"temperate_rainforest_hills": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:temperate_rainforest_hills"
             }
         },
 		"tropical_rainforest": {

@@ -80,6 +80,12 @@
                 "biome": "biomesoplenty:dead_forest"
             }
         },
+		"fir_clearing": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:fir_clearing"
+            }
+        },
 		"floodplain": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -114,6 +120,12 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:highland"
+            }
+        },
+	    "highland_moor": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:highland_moor"
             }
         },
 		"lavender_field": {
@@ -162,12 +174,6 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:mire"
-            }
-        },
-        "moor": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:moor"
             }
         },
 		"mystic_grove": {
@@ -290,6 +296,12 @@
                 "biome": "biomesoplenty:snowy_coniferous_forest"
             }
         },
+		"snowy_fir_clearing": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:snowy_fir_clearing"
+            }
+        },
 		"snowy_forest": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -306,6 +318,12 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:temperate_rainforest"
+            }
+        },
+		"temperate_rainforest_hills": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:temperate_rainforest_hills"
             }
         },
 		"tropical_rainforest": {
@@ -412,12 +430,14 @@
 			"cold_desert",
 			"coniferous_forest",
 			"dead_forest",
+			"fir_clearing",
 			"floodplain",
 			"flower_meadow",
 			"grassland",
 			"gravel_beach",
 			"grove",
 			"highland",
+			"highland_moor",
 			"lavender_field",
 			"lush_grassland",
 			"lush_swamp",
@@ -426,7 +446,6 @@
 			"marsh",
 			"meadow",
 			"mire",
-			"moor",
 			"mystic_grove",
 			"oasis",
 			"ominous_woods",
@@ -447,9 +466,11 @@
 			"shrubland",
 			"silkglade",
 			"snowy_coniferous_forest",
+			"snowy_fir_clearing",
 			"snowy_forest",
 			"steppe",
 			"temperate_rainforest",
+			"temperate_rainforest_hills",
 			"tropical_rainforest",
 			"tropics",
 			"tundra",
