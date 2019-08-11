@@ -94,7 +94,7 @@ public class BayouBiome extends BiomeBOP
         this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
         this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.SLIME, 1, 1, 1));
         
-        this.addWeight(BOPClimates.SUBTROPICAL, 10);
+        this.addWeight(BOPClimates.SUBTROPICAL, 7);
         this.setBeachBiome(BOPBiomes.mangrove);
     }
     

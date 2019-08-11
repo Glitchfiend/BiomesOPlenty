@@ -1,8 +1,8 @@
 ---
-name: 1.14.3 Feature Request
-about: Feature requests for Biomes O' Plenty for 1.14.3.  We do not support older versions!
+name: 1.14.4 Feature Request
+about: Feature requests for Biomes O' Plenty for 1.14.4.  We do not support older versions!
 title: ''
-labels: 1.14.3, feature
+labels: feature
 assignees: ''
 
 ---
