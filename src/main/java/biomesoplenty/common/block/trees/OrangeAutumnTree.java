@@ -14,6 +14,6 @@ public class OrangeAutumnTree extends Tree
    @Override
    protected AbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random)
    {
-      return BOPBiomeFeatures.ORANGE_AUTUMN_TREE;
+      return (AbstractTreeFeature<NoFeatureConfig>)(random.nextInt(10) == 0 ? BOPBiomeFeatures.BIG_ORANGE_AUTUMN_TREE : BOPBiomeFeatures.ORANGE_AUTUMN_TREE);
    }
 }

@@ -14,6 +14,6 @@ public class MapleTree extends Tree
    @Override
    protected AbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random)
    {
-      return BOPBiomeFeatures.MAPLE_TREE;
+      return (AbstractTreeFeature<NoFeatureConfig>)(random.nextInt(10) == 0 ? BOPBiomeFeatures.BIG_MAPLE_TREE : BOPBiomeFeatures.MAPLE_TREE);
    }
 }
