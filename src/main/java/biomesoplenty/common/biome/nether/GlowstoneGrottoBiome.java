@@ -16,9 +16,9 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placement.*;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
-public class GlowstoneCavernBiome extends NetherBiomeBOP
+public class GlowstoneGrottoBiome extends NetherBiomeBOP
 {
-    public GlowstoneCavernBiome()
+    public GlowstoneGrottoBiome()
     {
         super((new Builder()).surfaceBuilder(SurfaceBuilder.NETHER, SurfaceBuilder.NETHERRACK_CONFIG).precipitation(RainType.NONE).category(Category.NETHER).depth(0.1F).scale(0.2F).temperature(2.0F).downfall(0.0F).waterColor(4159204).waterFogColor(329011).parent((String)null));
 

@@ -80,12 +80,6 @@
                 "biome": "biomesoplenty:dead_forest"
             }
         },
-		"dry_plains": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:dry_plains"
-            }
-        },
 		"floodplain": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -373,6 +367,36 @@
             "conditions": {
                 "biome": "biomesoplenty:xeric_shrubland"
             }
+        },
+		"ashen_inferno": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:ashen_inferno"
+            }
+        },
+		"fungi_forest": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:fungi_forest"
+            }
+        },
+		"glowstone_grotto": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:glowstone_grotto"
+            }
+        },
+		"undergarden": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:undergarden"
+            }
+        },
+		"visceral_heap": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:visceral_heap"
+            }
         }
 	},
 	"requirements": [
@@ -388,7 +412,6 @@
 			"cold_desert",
 			"coniferous_forest",
 			"dead_forest",
-			"dry_plains",
 			"floodplain",
 			"flower_meadow",
 			"grassland",
@@ -436,7 +459,12 @@
 			"wetland",
 			"white_beach",
 			"woodland",
-			"xeric_shrubland"
+			"xeric_shrubland",
+			"ashen_inferno",
+			"fungi_forest",
+			"glowstone_grotto",
+			"undergarden",
+			"visceral_heap"
         ]
     ]
 }

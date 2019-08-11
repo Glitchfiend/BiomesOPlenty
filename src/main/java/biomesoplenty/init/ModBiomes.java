@@ -34,7 +34,6 @@ import biomesoplenty.common.biome.overworld.ColdDesertBiome;
 import biomesoplenty.common.biome.overworld.ConiferousForestBiome;
 import biomesoplenty.common.biome.overworld.BogBiome;
 import biomesoplenty.common.biome.overworld.DeadForestBiome;
-import biomesoplenty.common.biome.overworld.DryPlainsBiome;
 import biomesoplenty.common.biome.overworld.FloodplainBiome;
 import biomesoplenty.common.biome.overworld.FlowerMeadowBiome;
 import biomesoplenty.common.biome.overworld.GrasslandBiome;
@@ -83,7 +82,6 @@ import biomesoplenty.common.biome.overworld.WhiteBeachBiome;
 import biomesoplenty.common.biome.overworld.WoodlandBiome;
 import biomesoplenty.common.biome.overworld.XericShrublandBiome;
 import biomesoplenty.common.world.WorldTypeBOP;
-import net.minecraft.block.Block;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
@@ -132,7 +130,6 @@ public class ModBiomes
     	cold_desert = registerBiome(new ColdDesertBiome(), "cold_desert");
         coniferous_forest = registerBiome(new ConiferousForestBiome(), "coniferous_forest");
         dead_forest = registerBiome(new DeadForestBiome(), "dead_forest");
-        dry_plains = registerBiome(new DryPlainsBiome(), "dry_plains");
         floodplain = registerBiome(new FloodplainBiome(), "floodplain");
         flower_meadow = registerBiome(new FlowerMeadowBiome(), "flower_meadow");
         grassland = registerBiome(new GrasslandBiome(), "grassland");
@@ -179,7 +176,7 @@ public class ModBiomes
         //Nether Biomes
         ashen_inferno = registerBiome(new AshenInfernoBiome(), "ashen_inferno");
         fungi_forest = registerBiome(new FungiForestBiome(), "fungi_forest");
-        glowstone_cavern = registerBiome(new GlowstoneCavernBiome(), "glowstone_cavern");
+        glowstone_grotto = registerBiome(new GlowstoneGrottoBiome(), "glowstone_grotto");
         undergarden = registerBiome(new UndergardenBiome(), "undergarden");
         visceral_heap = registerBiome(new VisceralHeapBiome(), "visceral_heap");
 
@@ -223,7 +220,6 @@ public class ModBiomes
         registerBiomeToDictionary(cold_desert, Type.SNOWY, Type.DRY, Type.COLD);
         registerBiomeToDictionary(coniferous_forest, Type.CONIFEROUS, Type.FOREST, Type.COLD, Type.DENSE);
         registerBiomeToDictionary(dead_forest, Type.FOREST, Type.DEAD, Type.COLD, Type.DRY, Type.SPARSE);
-        registerBiomeToDictionary(dry_plains, Type.PLAINS, Type.SAVANNA, Type.HOT, Type.DRY);
         registerBiomeToDictionary(floodplain, Type.JUNGLE, Type.WATER, Type.HOT, Type.WET);
         registerBiomeToDictionary(flower_meadow, Type.PLAINS, Type.LUSH);
         registerBiomeToDictionary(grassland, Type.PLAINS, Type.HILLS, Type.WET);
@@ -276,7 +272,7 @@ public class ModBiomes
         //Nether Biomes
         registerBiomeToDictionary(ashen_inferno, Type.NETHER, Type.HOT);
         registerBiomeToDictionary(fungi_forest, Type.NETHER, Type.HOT);
-        registerBiomeToDictionary(glowstone_cavern, Type.NETHER, Type.HOT);
+        registerBiomeToDictionary(glowstone_grotto, Type.NETHER, Type.HOT);
         registerBiomeToDictionary(undergarden, Type.NETHER, Type.HOT);
         registerBiomeToDictionary(visceral_heap, Type.NETHER, Type.HOT);
 
