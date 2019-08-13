@@ -131,7 +131,6 @@ public class ModBiomes
 
         //Sub/Island Biomes (Note: Rarity supports two decimal places)
         registerSubBiome(Biomes.DESERT, oasis, 0.1F, 100);
-        registerSubBiome(Biomes.PLAINS, orchard, 0.5F, 100);
         registerSubBiome(brushland, xeric_shrubland, 1.0F, 100);
         registerSubBiome(coniferous_forest, fir_clearing, 0.38F, 100);
         registerSubBiome(highland, highland_moor, 0.75F, 100);

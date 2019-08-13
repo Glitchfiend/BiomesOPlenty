@@ -8,6 +8,7 @@
 package biomesoplenty.common.world.layer;
 
 
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.world.BOPLayerUtil;
 import biomesoplenty.init.ModBiomes;
@@ -154,7 +155,10 @@ public enum GenLayerSubBiome implements IAreaTransformer2, IDimOffset1Transforme
         else if (originalBiomeId == TAIGA) mutatedBiomeId = TAIGA_HILLS;
         else if (originalBiomeId == GIANT_TREE_TAIGA) mutatedBiomeId = GIANT_TREE_TAIGA_HILLS;
         else if (originalBiomeId == SNOWY_TAIGA) mutatedBiomeId = SNOWY_TAIGA_HILLS;
+        //Use BOP orchard instead of vanilla forest
         //else if (originalBiomeId == PLAINS) mutatedBiomeId = context.random(3) == 0 ? WOODED_HILLS : FOREST;
+        else if (originalBiomeId == PLAINS) mutatedBiomeId = Registry.BIOME.getId(BOPBiomes.orchard.get());
+        //////////
         else if (originalBiomeId == SNOWY_TUNDRA) mutatedBiomeId = SNOWY_MOUNTAINS;
         else if (originalBiomeId == JUNGLE) mutatedBiomeId = JUNGLE_HILLS;
         else if (originalBiomeId == BAMBOO_JUNGLE) mutatedBiomeId = BAMBOO_JUNGLE_HILLS;
