@@ -89,7 +89,7 @@ public class ShieldBiome extends BiomeBOP
         this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.ENDERMAN, 10, 1, 4));
         this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
         
-        this.addWeight(BOPClimates.WET_BOREAL, 3);
+        this.addWeight(BOPClimates.WET_BOREAL, 5);
         this.setBeachBiome(BOPBiomes.gravel_beach);
     }
     

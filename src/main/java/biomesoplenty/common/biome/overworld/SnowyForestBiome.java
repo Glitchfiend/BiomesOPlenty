@@ -88,7 +88,7 @@ public class SnowyForestBiome extends BiomeBOP
         this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.ENDERMAN, 10, 1, 4));
         this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
         
-        this.addWeight(BOPClimates.TUNDRA, 5);
+        this.addWeight(BOPClimates.TUNDRA, 3);
     }
     
     @OnlyIn(Dist.CLIENT)

@@ -82,7 +82,7 @@ public class ColdDesertBiome extends BiomeBOP
         this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
         this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.STRAY, 80, 4, 4));
         
-        this.addWeight(BOPClimates.ICE_CAP, 10);
+        this.addWeight(BOPClimates.ICE_CAP, 7);
         this.setBeachBiome((Biome)null);
         this.setRiverBiome((Biome)null);
     }

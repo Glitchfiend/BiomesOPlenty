@@ -154,7 +154,6 @@ public class BOPBiomeFeatures
 	public static final FlowersFeature TROPICS_FLOWERS = new TropicsFlowersFeature(NoFeatureConfig::deserialize);
 	public static final FlowersFeature WASTELAND_FLOWERS = new WastelandFlowersFeature(NoFeatureConfig::deserialize);
 	public static final FlowersFeature WETLAND_FLOWERS = new WetlandFlowersFeature(NoFeatureConfig::deserialize);
-	public static final FlowersFeature XERIC_SHRUBLAND_FLOWERS = new XericShrublandFlowersFeature(NoFeatureConfig::deserialize);
 	
 	//Surfaces
 	public static final SurfaceBuilder<SurfaceBuilderConfig> BOG_SURFACE_BUILDER = new BogSurfaceBuilder(SurfaceBuilderConfig::deserialize);
