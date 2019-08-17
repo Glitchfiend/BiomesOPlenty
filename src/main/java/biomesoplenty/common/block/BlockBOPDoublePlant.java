@@ -119,7 +119,7 @@ public class BlockBOPDoublePlant extends BlockBOPDoubleDecoration implements ISh
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(HALF, Half.values()[meta >> 3]).withProperty(VARIANT, DoublePlantType.values()[meta & 7]);
+        return this.getDefaultState().withProperty(HALF, Half.values()[(meta >> 3) & 1]).withProperty(VARIANT, DoublePlantType.values()[(meta & 7) & 3]);
     }
     @Override
     public int getMetaFromState(IBlockState state)
