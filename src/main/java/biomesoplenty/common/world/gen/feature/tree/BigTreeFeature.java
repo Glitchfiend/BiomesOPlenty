@@ -10,7 +10,6 @@ package biomesoplenty.common.world.gen.feature.tree;
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import com.google.common.collect.Lists;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -19,6 +18,7 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.IWorldGenerationReader;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 import java.util.Set;
 
@@ -39,9 +39,9 @@ public class BigTreeFeature extends TreeFeatureBase
         public Builder()
         {
             this.minHeight = 5;
-            this.maxHeight = 17;
+            this.maxHeight = 12;
             this.trunkWidth = 1;
-            this.foliageHeight = 4;
+            this.foliageHeight = 5;
             this.foliageDensity = 1.0F;
         }
 
@@ -52,25 +52,14 @@ public class BigTreeFeature extends TreeFeatureBase
         }
     }
 
-    private Random random;
-    private IWorld world;
-    private BlockPos origin;
-
-    private int height;
-    private int trunkHeight;
     private double trunkHeightScale = 0.618;
     private double branchSlope = 0.381;
     private double widthScale = 1;
     private int trunkWidth = 1;
-    //private int heightVariance = 12;
 
     //Configurable fields
-    private boolean updateNeighbours;
     private int foliageHeight;
     private double foliageDensity;
-
-    private List<FoliageCoords> foliageCoords;
-
 
     protected BigTreeFeature(boolean notify, IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState altLeaves, BlockState vine, BlockState hanging, BlockState trunkFruit, int minHeight, int maxHeight, int trunkWidth, int foliageHeight, double foliageDensity)
     {
@@ -80,231 +69,141 @@ public class BigTreeFeature extends TreeFeatureBase
         this.trunkWidth = trunkWidth;
     }
 
-    protected void prepare()
+    // Create a circular cross section.
+    //
+    // Used to nearly everything in the foliage, branches, and trunk.
+    // This is a good target for performance optimization.
+
+    // Passed values:
+    // pos is the center location of the cross section
+    // radius is the radius of the section from the center
+    // direction is the direction the cross section is pointed, 0 for x, 1
+    // for y, 2 for z material is the index number for the material to use
+    private void crossSection(IWorld world, BlockPos pos, float radius, MutableBoundingBox boundingBox, Set<BlockPos> changedBlocks)
     {
-        // Populate the list of foliage cluster locations.
-        // Designed to be overridden in child classes to change basic
-        // tree properties (trunk width, branch angle, foliage density, etc..).
-
-        trunkHeight = (int) (height * trunkHeightScale);
-
-        if (trunkHeight >= height)
-        {
-            trunkHeight = height - 1;
-        }
-
-        // Define foliage clusters per y
-        int clustersPerY = (int) (1.382 + Math.pow(foliageDensity * height / 13.0, 2));
-        if (clustersPerY < 1) {
-            clustersPerY = 1;
-        }
-
-        final int trunkTop = origin.getY() + trunkHeight;
-        int relativeY = height - foliageHeight;
-
-        foliageCoords = Lists.newArrayList();
-        foliageCoords.add(new FoliageCoords(origin.up(relativeY), trunkTop));
-
-        for (; relativeY >= 0; relativeY--)
-        {
-            float treeShape = treeShape(relativeY);
-
-            if (treeShape < 0)
-            {
-                continue;
-            }
-
-            for (int i = 0; i < clustersPerY; i++)
-            {
-                final double radius = widthScale * treeShape * (random.nextFloat() + 0.328);
-                final double angle = random.nextFloat() * 2 * Math.PI;
-
-                final double x = radius * Math.sin(angle) + 0.5;
-                final double z = radius * Math.cos(angle) + 0.5;
-
-                final BlockPos checkStart = origin.add(x, relativeY - 1, z);
-                final BlockPos checkEnd = checkStart.up(foliageHeight);
-
-                // check the center column of the cluster for obstructions.
-                if (checkLine(checkStart, checkEnd) == -1)
-                {
-                    // If the cluster can be created, check the branch path for obstructions.
-                    final int dx = origin.getX() - checkStart.getX();
-                    final int dz = origin.getZ() - checkStart.getZ();
-
-                    final double height = checkStart.getY() - Math.sqrt(dx * dx + dz * dz) * branchSlope;
-                    final int branchTop = height > trunkTop ? trunkTop : (int) height;
-                    final BlockPos checkBranchBase = new BlockPos(origin.getX(), branchTop, origin.getZ());
-
-                    // Now check the branch path
-                    if (checkLine(checkBranchBase, checkStart) == -1)
-                    {
-                        // If the branch path is clear, add the position to the list of foliage positions
-                        foliageCoords.add(new FoliageCoords(checkStart, checkBranchBase.getY()));
-                    }
-                }
-            }
-        }
-    }
-
-    private void crossection(BlockPos pos, float radius)
-    {
-        // Create a circular cross section.
-        //
-        // Used to nearly everything in the foliage, branches, and trunk.
-        // This is a good target for performance optimization.
-
-        // Passed values:
-        // pos is the center location of the cross section
-        // radius is the radius of the section from the center
-        // direction is the direction the cross section is pointed, 0 for x, 1
-        // for y, 2 for z material is the index number for the material to use
-
-        final int r = (int) (radius + 0.618);
+        final int r = (int)((double)radius + trunkHeightScale);
 
         for (int dx = -r; dx <= r; dx++)
         {
             for (int dz = -r; dz <= r; dz++)
             {
-                if (Math.pow(Math.abs(dx) + 0.5, 2) + Math.pow(Math.abs(dz) + 0.5, 2) <= radius * radius)
+                if (Math.pow((double)Math.abs(dx) + 0.5D, 2.0D) + Math.pow((double)Math.abs(dz) + 0.5D, 2.0D) <= (double)(radius * radius))
                 {
-                    BlockPos checkedPos = pos.add(dx, 0, dz);
-                    if (this.replace.matches(world, checkedPos))
+                    BlockPos blockpos = pos.add(dx, 0, dz);
+                    if (this.isAirOrLeaves(world, blockpos))
                     {
-                        if (this.altLeaves != Blocks.AIR.getDefaultState())
-                        {
-                            int rand = new Random().nextInt(4);
-
-                            if (rand == 0)
-                            {
-                                this.setAltLeaves(world, checkedPos);
-                            }
-                            else
-                            {
-                                this.setLeaves(this.world, checkedPos);
-                            }
-                        }
-                        else
-                        {
-                            this.setLeaves(this.world, checkedPos);
-                        }
+                        // Mojang sets leaves via the method used for logs. Probably intentional?
+                        this.setLogState(changedBlocks, world, blockpos, this.leaves, boundingBox);
                     }
                 }
             }
         }
+
     }
 
-    protected float treeShape(int y)
+    // Take the y position relative to the base of the tree.
+    // Return the distance the foliage should be from the trunk axis.
+    // Return a negative number if foliage should not be created at this
+    // height.  This method is intended for overriding in child classes,
+    // allowing different shaped trees.  This method should return a
+    // consistent value for each y (don't randomize).
+    private float treeShape(int height, int y)
     {
-        // Take the y position relative to the base of the tree.
-        // Return the distance the foliage should be from the trunk axis.
-        // Return a negative number if foliage should not be created at this
-        // height.  This method is intended for overriding in child classes,
-        // allowing different shaped trees.  This method should return a
-        // consistent value for each y (don't randomize).
-
-        if (y < height * 0.3f) {
-            return -1f;
+        if ((float)y < (float)height * 0.3F)
+        {
+            return -1.0F;
         }
 
-        final float radius = height / 2.0f;
-        final float adjacent = radius - y;
+        float radius = (float)height / 2.0F;
+        float adjacent = radius - (float)y;
 
         float distance = MathHelper.sqrt(radius * radius - adjacent * adjacent);
 
-        if (adjacent == 0) {
+        if (adjacent == 0.0F)
+        {
             distance = radius;
-        } else if (Math.abs(adjacent) >= radius) {
-            return 0f;
+        }
+        else if (Math.abs(adjacent) >= radius)
+        {
+            return 0.0F;
         }
 
-        // Alter this factor to change the overall width of the tree.
-        return distance * 0.5f;
+        return distance * 0.5F;
     }
+
 
     // Take the y position relative to the base of the foliage cluster.
     // Return the radius of the cluster at this y
     // Return a negative number if no foliage should be created at this
     // level. This method is intended for overriding in child classes,
     // allowing foliage of different sizes and shapes.
-
-    protected float foliageShape(int y)
+    private float foliageShape(int y)
     {
-    	if (y < 0 || y >= foliageHeight) 
+        if (y >= 0 && y < 5)
         {
-            return -1f;
-        } 
-        //The following has been replaced as recommended by
-        //http://www.reddit.com/r/Minecraft/comments/1m97cw/while_you_are_all_crying_over_the_name_change_of/ccfgc3k
-        //The change should fix the decaying leaves
-        else if (y == 0 || y == foliageHeight - 1) 
-        {
-            return 2f;
+            return y != 0 && y != 4 ? 3.0F : 2.0F;
         }
-        else 
+        else
         {
-            return 3f;
+            return -1.0F;
         }
     }
 
-    private void foliageCluster(BlockPos blockPos)
+    // Generate a cluster of foliage, with the base at blockPos
+    // The shape of the cluster is derived from foliageShape
+    // crossection is called to make each level.
+    private void foliageCluster(IWorld world, BlockPos pos, MutableBoundingBox boundingBox, Set<BlockPos> changedBlocks)
     {
-        // Generate a cluster of foliage, with the base at blockPos
-        // The shape of the cluster is derived from foliageShape
-        // crossection is called to make each level.
-
-        for (int y = 0; y < foliageHeight; y++)
+        for (int y = 0; y < 5; y++)
         {
-            crossection(blockPos.up(y), foliageShape(y));
+            this.crossSection(world, pos.up(y), this.foliageShape(y), boundingBox, changedBlocks);
         }
     }
 
-    private void limb(Set<BlockPos> changedBlocks, MutableBoundingBox boundingBox, BlockPos startPos, BlockPos endPos, BlockState state)
+    // Check from coordinates start to end (both inclusive) for blocks
+    // other than air and foliage If a block other than air and foliage is
+    // found, return the number of steps taken.
+    // If no block other than air and foliage is found, return -1.
+    // Examples:
+    // If the third block searched is stone, return 2
+    // If the first block searched is lava, return 0
+    private int checkLineAndOptionallySet(Set<BlockPos> changedBlocks, IWorld world, BlockPos startPos, BlockPos endPos, boolean set, MutableBoundingBox boundingBox)
     {
-        // Create a limb from the start position to the end position.
-        // Used for creating the branches and trunk.
-        // Similar to checkLine, however it is setting rather than checking
+        if (!set && Objects.equals(startPos, endPos)) {
+            return -1;
+        } else {
+            //The distance between the two points, may be negative if the second pos is smaller
+            BlockPos delta = endPos.add(-startPos.getX(), -startPos.getY(), -startPos.getZ());
 
-        //The distance between the two points, may be negative if the second pos is smaller
-        BlockPos delta = endPos.add(-startPos.getX(), -startPos.getY(), -startPos.getZ());
+            int steps = this.getGreatestDistance(delta);
 
-        int steps = getSteps(delta);
+            //How much should be incremented with each iteration relative
+            //to the greatest distance which will have a value of 1.0F.
+            float dx = (float)delta.getX() / (float)steps;
+            float dy = (float)delta.getY() / (float)steps;
+            float dz = (float)delta.getZ() / (float)steps;
 
-        //How much should be incremented with each iteration relative
-        //to the greatest distance which will have a value of 1.0F.
-        float dx = delta.getX() / (float) steps;
-        float dy = delta.getY() / (float) steps;
-        float dz = delta.getZ() / (float) steps;
+            //Iterates over all values between the start pos and end pos
+            for (int j = 0; j <= steps; ++j)
+            {
+                BlockPos deltaPos = startPos.add((double)(0.5F + (float)j * dx), (double)(0.5F + (float)j * dy), (double)(0.5F + (float)j * dz));
+                if (set)
+                {
+                    this.setLog(changedBlocks, world, deltaPos, this.getLogAxis(startPos, deltaPos), boundingBox);
+                }
+                else if (!this.func_214587_a(world, deltaPos))
+                {
+                    return j;
+                }
+            }
 
-        //Iterates over all values between the start pos and end pos
-        for (int i = 0; i <= steps; i++)
-        {
-            //A delta position between the start pos and end pos. Increments are added to the x, y and z coords
-            //so that they meet their corresponding values in the end pos when j reaches the greatest distance. 0.5F
-            //is added to ensure the final point is reached.
-            BlockPos blockPos = startPos.add(.5f + i * dx, .5f + i * dy, .5f + i * dz);
-            Direction.Axis logAxis = getLogAxis(startPos, blockPos);
-
-            this.setLog(changedBlocks, this.world, blockPos, logAxis, boundingBox);
+            return -1;
         }
     }
 
-    private int getSteps(BlockPos pos)
-    {
-        final int absX = MathHelper.abs(pos.getX());
-        final int absY = MathHelper.abs(pos.getY());
-        final int absZ = MathHelper.abs(pos.getZ());
-
-        //Determine which axis has the greatest distance from the origin (0, 0, 0)
-        if (absZ > absX && absZ > absY) {
-            return absZ;
-        } else if (absY > absX) {
-            return absY;
-        }
-
-        return absX;
-    }
-
+    /**
+     * Returns the absolute greatest distance in the BlockPos object.
+     */
     private int getGreatestDistance(BlockPos posIn)
     {
         int i = MathHelper.abs(posIn.getX());
@@ -339,204 +238,143 @@ public class BigTreeFeature extends TreeFeatureBase
         return axis;
     }
 
-    private void makeFoliage()
+    private void makeFoliage(IWorld worldIn, int height, BlockPos pos, List<FoliageCoordinates> coordinates, MutableBoundingBox boundingBox, Set<BlockPos> changedBlocks)
     {
-        // Create the tree foliage.
-        // Call foliageCluster at the correct locations
-
-        for (FoliageCoords foliageCoord : foliageCoords)
+        for (FoliageCoordinates coordinate : coordinates)
         {
-            foliageCluster(foliageCoord);
-        }
-    }
-
-    protected boolean trimBranches(int localY)
-    {
-        // For larger trees, randomly "prune" the branches so there
-        // aren't too many.
-        // Return true if the branch should be created.
-        // This method is intended for overriding in child classes, allowing
-        // decent amounts of branches on very large trees.
-        // Can also be used to disable branches on some tree types, or
-        // make branches more sparse.
-        return localY >= height * 0.2;
-    }
-
-    private void makeTrunk(Set<BlockPos> changedBlocks, MutableBoundingBox boundingBox)
-    {
-        // Create the trunk of the tree.
-        BlockPos start = origin;
-        BlockPos end = origin.up(trunkHeight);
-        BlockState materialState = this.log;
-
-        limb(changedBlocks, boundingBox, start, end, materialState);
-
-        if (trunkWidth == 2)
-        {
-            limb(changedBlocks, boundingBox, start.east(), end.east(), materialState);
-            limb(changedBlocks, boundingBox, start.east().south(), end.east().south(), materialState);
-            limb(changedBlocks, boundingBox, start.south(), end.south(), materialState);
-        }
-        
-        if (trunkWidth == 4)
-        {
-            limb(changedBlocks, boundingBox, start.east(), end.east(), materialState);
-            limb(changedBlocks, boundingBox, start.east().south(), end.east().south(), materialState);
-            limb(changedBlocks, boundingBox, start.south(), end.south(), materialState);
-            limb(changedBlocks, boundingBox, start.north(), end.north(), materialState);
-            limb(changedBlocks, boundingBox, start.north().east(), end.north().east(), materialState);
-            limb(changedBlocks, boundingBox, start.east().east(), end.east().east(), materialState);
-            limb(changedBlocks, boundingBox, start.south().east().east(), end.south().east().east(), materialState);
-            limb(changedBlocks, boundingBox, start.south().south().east(), end.south().south().east(), materialState);
-            limb(changedBlocks, boundingBox, start.south().south(), end.south().south(), materialState);
-            limb(changedBlocks, boundingBox, start.west().south(), end.west().south(), materialState);
-            limb(changedBlocks, boundingBox, start.west(), end.west(), materialState);
-        }
-    }
-
-    private void makeBranches(Set<BlockPos> changedBlocks, MutableBoundingBox boundingBox)
-    {
-        for (FoliageCoords endCoord : foliageCoords)
-        {
-            int branchBase = endCoord.getBranchBase();
-            BlockPos baseCoord = new BlockPos(this.origin.getX(), branchBase, this.origin.getZ());
-
-            if (this.trimBranches(branchBase - this.origin.getY()))
+            if (this.trimBranches(height, coordinate.getBranchBase() - pos.getY()))
             {
-                this.limb(changedBlocks, boundingBox, baseCoord, endCoord, this.log);
+                this.foliageCluster(worldIn, coordinate, boundingBox, changedBlocks);
             }
         }
     }
 
-    private int checkLine(BlockPos startPos, BlockPos endPos)
+    private boolean trimBranches(int height, int localY)
     {
-        // Check from coordinates start to end (both inclusive) for blocks
-        // other than air and foliage If a block other than air and foliage is
-        // found, return the number of steps taken.
-        // If no block other than air and foliage is found, return -1.
-        // Examples:
-        // If the third block searched is stone, return 2
-        // If the first block searched is lava, return 0
+        return (double)localY >= (double)height * 0.2D;
+    }
 
-        //The distance between the two points, may be negative if the second pos is smaller
-        BlockPos delta = endPos.add(-startPos.getX(), -startPos.getY(), -startPos.getZ());
+    private void makeTrunk(Set<BlockPos> changedBlocks, IWorld world, BlockPos pos, int height, MutableBoundingBox boundingBox)
+    {
+        this.checkLineAndOptionallySet(changedBlocks, world, pos, pos.up(height), true, boundingBox);
+    }
 
-        int steps = this.getGreatestDistance(delta);
-
-        //How much should be incremented with each iteration relative
-        //to the greatest distance which will have a value of 1.0F.
-        float dx = (float)delta.getX() / (float)steps;
-        float dy = (float)delta.getY() / (float)steps;
-        float dz = (float)delta.getZ() / (float)steps;
-
-        //Check if both positions are the same
-        if (steps == 0)
+    private void makeBranches(Set<BlockPos> changedBlocks, IWorld world, int height, BlockPos origin, List<FoliageCoordinates> coordinates, MutableBoundingBox boundingBox)
+    {
+        for (FoliageCoordinates coordinate : coordinates)
         {
-            return -1;
-        }
-
-        //Iterates over all values between the start pos and end pos
-        for (int i = 0; i <= steps; i++)
-        {
-            //A delta position between the start pos and end pos. Increments are added to the x, y and z coords
-            //so that they meet their corresponding values in the end pos when j reaches the greatest distance. 0.5F
-            //is added to ensure the final point is reached.
-            BlockPos deltaPos = startPos.add((double)(0.5F + (float)i * dx), (double)(0.5F + (float)i * dy), (double)(0.5F + (float)i * dz));
-
-            if (!this.replace.matches(world, deltaPos))
+            int branchBase = coordinate.getBranchBase();
+            BlockPos baseCoord = new BlockPos(origin.getX(), branchBase, origin.getZ());
+            if (!baseCoord.equals(coordinate) && this.trimBranches(height, branchBase - origin.getY()))
             {
-                return i;
+                this.checkLineAndOptionallySet(changedBlocks, world, baseCoord, coordinate, true, boundingBox);
             }
         }
-
-        //The line is unobstructed
-        return -1;
     }
 
     @Override
-    protected boolean place(Set<BlockPos> changedBlocks, IWorldGenerationReader world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
+    protected boolean place(Set<BlockPos> changedBlocks, IWorld world, Random rand, BlockPos pos, MutableBoundingBox boundingBox)
     {
-        this.world = (IWorld)world; // We want an IWorld
-        this.origin = startPos;
-
-        this.random = new Random(random.nextLong());
-
-        this.height = random.nextInt(this.maxHeight - this.minHeight) + this.minHeight;
-
-        if (!this.checkLocation())
-        {
-            this.world = null; //Fix vanilla Mem leak, holds latest world
+        Random random = new Random(rand.nextLong());
+        int height = this.checkLocation(changedBlocks, world, pos, this.minHeight + random.nextInt(this.maxHeight), boundingBox);
+        if (height == -1) {
             return false;
-        }
+        } else {
+            this.setDirtAt(world, pos.down(), pos);
+            int trunkHeight = (int)((double)height * this.trunkHeightScale);
 
-        try {
-            prepare();
-            makeFoliage();
-            makeTrunk(changedBlocks, boundingBox);
-            makeBranches(changedBlocks, boundingBox);
-        } catch (RuntimeException e) {
-            // TODO: deal with this.
-        }
-
-        this.world = null; //Fix vanilla Mem leak, holds latest world
-
-        return true;
-    }
-
-
-    private boolean checkLocation()
-    {
-        BlockPos startPos = this.origin.down();
-
-        int start = 0;
-        int end = trunkWidth - 1;
-        
-        if (trunkWidth == 4)
-        {
-        	start = -1;
-        	end = trunkWidth - 2;
-        }
-        
-        for (int x = start; x <= end; x++)
-        {
-            for (int z = start; z <= end; z++)
-            {
-            	if (!this.placeOn.matches(world, startPos.add(x,0,z)))
-            	{
-            		return false;
-            	}
+            if (trunkHeight >= height) {
+                trunkHeight = height - 1;
             }
-        }
 
-        // Examine center column for how tall the tree can be.
-        int allowedHeight = checkLine(this.origin, this.origin.up(height - 1));
+            // Define foliage clusters per y
+            int clustersPerY = (int)(1.382D + Math.pow(this.foliageDensity * (double)height / 13.0D, 2.0D));
 
-        if (trunkWidth == 2 || trunkWidth == 4)
-        {
-            allowedHeight = Math.min(checkLine(this.origin.east(), this.origin.east().up(height - 1)), allowedHeight);
-            allowedHeight = Math.min(checkLine(this.origin.east().south(), this.origin.east().south().up(height - 1)), allowedHeight);
-            allowedHeight = Math.min(checkLine(this.origin.south(), this.origin.south().up(height - 1)), allowedHeight);
-        }
+            if (clustersPerY < 1)
+            {
+                clustersPerY = 1;
+            }
 
-        // If the set height is good, go with that
-        if (allowedHeight == -1) {
+            int trunkTop = pos.getY() + trunkHeight;
+            int relativeY = height - this.foliageHeight;
+
+            List<FoliageCoordinates> foliageCoords = Lists.newArrayList();
+            foliageCoords.add(new FoliageCoordinates(pos.up(relativeY), trunkTop));
+
+            for(; relativeY >= 0; --relativeY)
+            {
+                float treeShape = this.treeShape(height, relativeY);
+
+                if (treeShape < 0.0F)
+                {
+                    continue;
+                }
+
+                for (int i = 0; i < clustersPerY; ++i)
+                {
+                    final double radius = 1.0D * treeShape * (random.nextFloat() + 0.328D);
+                    final double angle = random.nextFloat() * 2.0F * Math.PI;
+
+                    final double x = radius * Math.sin(angle) + 0.5D;
+                    final double z = radius * Math.cos(angle) + 0.5D;
+
+                    final BlockPos checkStart = pos.add(x, relativeY - 1, z);
+                    final BlockPos checkEnd = checkStart.up(5);
+
+                    // check the center column of the cluster for obstructions.
+                    if (this.checkLineAndOptionallySet(changedBlocks, world, checkStart, checkEnd, false, boundingBox) == -1)
+                    {
+                        // If the cluster can be created, check the branch path for obstructions.
+                        final int dx = pos.getX() - checkStart.getX();
+                        final int dz = pos.getZ() - checkStart.getZ();
+
+                        final double branchHeight = checkStart.getY() - Math.sqrt(dx * dx + dz * dz) * this.branchSlope;
+                        final int branchTop = branchHeight > trunkTop ? trunkTop : (int)branchHeight;
+                        final BlockPos checkBranchBase = new BlockPos(pos.getX(), branchTop, pos.getZ());
+
+                        // Now check the branch path
+                        if (this.checkLineAndOptionallySet(changedBlocks, world, checkBranchBase, checkStart, false, boundingBox) == -1)
+                        {
+                            // If the branch path is clear, add the position to the list of foliage positions
+                            foliageCoords.add(new FoliageCoordinates(checkStart, checkBranchBase.getY()));
+                        }
+                    }
+                }
+            }
+
+            this.makeFoliage(world, height, pos, foliageCoords, boundingBox, changedBlocks);
+            this.makeTrunk(changedBlocks, world, pos, trunkHeight, boundingBox);
+            this.makeBranches(changedBlocks, world, height, pos, foliageCoords, boundingBox);
             return true;
         }
-
-        // If the space is too short, tell the build to abort
-        if (allowedHeight < this.minHeight) {
-            return false;
-        }
-
-        height = allowedHeight;
-        return true;
     }
 
-    private static class FoliageCoords extends BlockPos
+    private int checkLocation(Set<BlockPos> changedBlocks, IWorld world, BlockPos pos, int height, MutableBoundingBox boundingBox)
+    {
+        if (!this.isSoilOrFarm(world, pos.down(), getSapling()))
+        {
+            return -1;
+        }
+        else
+        {
+            int step = this.checkLineAndOptionallySet(changedBlocks, world, pos, pos.up(height - 1), false, boundingBox);
+
+            if (step == -1)
+            {
+                return height;
+            }
+            else
+            {
+                return step < 6 ? -1 : step;
+            }
+        }
+    }
+
+    static class FoliageCoordinates extends BlockPos
     {
         private final int branchBase;
 
-        public FoliageCoords(BlockPos pos, int branchBase)
+        public FoliageCoordinates(BlockPos pos, int branchBase)
         {
             super(pos.getX(), pos.getY(), pos.getZ());
             this.branchBase = branchBase;
@@ -544,7 +382,7 @@ public class BigTreeFeature extends TreeFeatureBase
 
         public int getBranchBase()
         {
-            return branchBase;
+            return this.branchBase;
         }
     }
 }
