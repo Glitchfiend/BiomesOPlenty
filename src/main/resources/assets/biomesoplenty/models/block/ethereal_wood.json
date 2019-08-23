@@ -1,7 +1,7 @@
 {
     "parent": "block/cube_column",
     "textures": {
-        "end": "biomesoplenty:blocks/ethereal_log",
-        "side": "biomesoplenty:blocks/ethereal_log"
+        "end": "biomesoplenty:block/ethereal_log",
+        "side": "biomesoplenty:block/ethereal_log"
     }
 }

@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "biomesoplenty:items/mangrove_root"
+        "layer0": "biomesoplenty:item/mangrove_root"
     }
 }

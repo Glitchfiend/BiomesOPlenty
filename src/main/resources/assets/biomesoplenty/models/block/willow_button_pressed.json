@@ -1,6 +1,6 @@
 {
     "parent": "block/button_pressed",
     "textures": {
-        "texture": "biomesoplenty:blocks/willow_planks"
+        "texture": "biomesoplenty:block/willow_planks"
     }
 }

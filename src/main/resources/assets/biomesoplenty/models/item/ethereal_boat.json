@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "biomesoplenty:items/ethereal_boat"
+        "layer0": "biomesoplenty:item/ethereal_boat"
     }
 }

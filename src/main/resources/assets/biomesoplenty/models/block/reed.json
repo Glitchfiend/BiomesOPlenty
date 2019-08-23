@@ -1,7 +1,7 @@
 {
     "parent": "biomesoplenty:block/water_plant",
     "textures": {
-    	"cross_top": "biomesoplenty:blocks/reed_top",
-		"cross_bottom": "biomesoplenty:blocks/reed_bottom"
+    	"cross_top": "biomesoplenty:block/reed_top",
+		"cross_bottom": "biomesoplenty:block/reed_bottom"
     }
 }

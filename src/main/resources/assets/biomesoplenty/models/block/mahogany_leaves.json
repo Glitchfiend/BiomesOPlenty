@@ -1,6 +1,6 @@
 {
     "parent": "block/leaves",
     "textures": {
-        "all": "biomesoplenty:blocks/mahogany_leaves"
+        "all": "biomesoplenty:block/mahogany_leaves"
     }
 }

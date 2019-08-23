@@ -1,6 +1,6 @@
 {
     "parent": "block/leaves",
     "textures": {
-        "all": "biomesoplenty:blocks/origin_leaves"
+        "all": "biomesoplenty:block/origin_leaves"
     }
 }

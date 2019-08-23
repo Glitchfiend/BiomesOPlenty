@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "biomesoplenty:blocks/burning_blossom"
+        "layer0": "biomesoplenty:block/burning_blossom"
     }
 }

@@ -1,6 +1,6 @@
 {
     "parent": "minecraft:block/flower_pot_cross",
     "textures": {
-        "plant": "biomesoplenty:blocks/fir_sapling"
+        "plant": "biomesoplenty:block/fir_sapling"
     }
 }

@@ -1,6 +1,6 @@
 {
     "parent": "block/button_inventory",
     "textures": {
-        "texture": "biomesoplenty:blocks/mahogany_planks"
+        "texture": "biomesoplenty:block/mahogany_planks"
     }
 }

@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "biomesoplenty:items/watergrass"
+        "layer0": "biomesoplenty:item/watergrass"
     }
 }

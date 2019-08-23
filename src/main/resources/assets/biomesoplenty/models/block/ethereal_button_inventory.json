@@ -1,6 +1,6 @@
 {
     "parent": "block/button_inventory",
     "textures": {
-        "texture": "biomesoplenty:blocks/ethereal_planks"
+        "texture": "biomesoplenty:block/ethereal_planks"
     }
 }

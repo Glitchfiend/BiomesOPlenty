@@ -1,7 +1,7 @@
 {
     "parent": "block/cube_column",
     "textures": {
-        "end": "biomesoplenty:blocks/palm_log",
-        "side": "biomesoplenty:blocks/palm_log"
+        "end": "biomesoplenty:block/palm_log",
+        "side": "biomesoplenty:block/palm_log"
     }
 }

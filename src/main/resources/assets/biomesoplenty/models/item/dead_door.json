@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "biomesoplenty:items/dead_door"
+        "layer0": "biomesoplenty:item/dead_door"
     }
 }

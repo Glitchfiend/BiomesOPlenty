@@ -1,6 +1,6 @@
 {
     "parent": "block/leaves",
     "textures": {
-        "all": "biomesoplenty:blocks/hellbark_leaves"
+        "all": "biomesoplenty:block/hellbark_leaves"
     }
 }

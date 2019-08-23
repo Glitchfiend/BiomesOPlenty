@@ -1,6 +1,6 @@
 {
     "parent": "block/pressure_plate_down",
     "textures": {
-        "texture": "biomesoplenty:blocks/mahogany_planks"
+        "texture": "biomesoplenty:block/mahogany_planks"
     }
 }

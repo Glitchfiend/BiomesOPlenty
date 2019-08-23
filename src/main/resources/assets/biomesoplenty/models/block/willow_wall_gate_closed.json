@@ -1,6 +1,6 @@
 {
     "parent": "block/wall_gate_closed",
     "textures": {
-        "texture": "biomesoplenty:blocks/willow_planks"
+        "texture": "biomesoplenty:block/willow_planks"
     }
 }

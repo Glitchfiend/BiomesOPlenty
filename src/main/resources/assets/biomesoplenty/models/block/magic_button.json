@@ -1,6 +1,6 @@
 {
     "parent": "block/button",
     "textures": {
-        "texture": "biomesoplenty:blocks/magic_planks"
+        "texture": "biomesoplenty:block/magic_planks"
     }
 }

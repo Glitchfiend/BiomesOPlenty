@@ -1,6 +1,6 @@
 {
     "parent": "block/pressure_plate_up",
     "textures": {
-        "texture": "biomesoplenty:blocks/umbran_planks"
+        "texture": "biomesoplenty:block/umbran_planks"
     }
 }

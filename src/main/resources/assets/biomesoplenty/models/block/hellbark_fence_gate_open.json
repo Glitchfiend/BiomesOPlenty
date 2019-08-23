@@ -1,6 +1,6 @@
 {
     "parent": "block/template_fence_gate_open",
     "textures": {
-        "texture": "biomesoplenty:blocks/hellbark_planks"
+        "texture": "biomesoplenty:block/hellbark_planks"
     }
 }

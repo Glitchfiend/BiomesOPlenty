@@ -1,6 +1,6 @@
 {
     "parent": "block/cross",
     "textures": {
-        "cross": "biomesoplenty:blocks/dead_grass"
+        "cross": "biomesoplenty:block/dead_grass"
     }
 }

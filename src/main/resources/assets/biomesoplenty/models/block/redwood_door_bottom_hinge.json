@@ -1,7 +1,7 @@
 {
     "parent": "block/door_bottom_rh",
     "textures": {
-        "bottom": "biomesoplenty:blocks/redwood_door_bottom",
-        "top": "biomesoplenty:blocks/redwood_door_top"
+        "bottom": "biomesoplenty:block/redwood_door_bottom",
+        "top": "biomesoplenty:block/redwood_door_top"
     }
 }

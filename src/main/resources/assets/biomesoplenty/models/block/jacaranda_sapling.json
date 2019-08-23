@@ -1,6 +1,6 @@
 {
     "parent": "block/cross",
     "textures": {
-        "cross": "biomesoplenty:blocks/jacaranda_sapling"
+        "cross": "biomesoplenty:block/jacaranda_sapling"
     }
 }

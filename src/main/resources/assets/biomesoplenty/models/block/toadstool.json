@@ -1,6 +1,6 @@
 {
     "parent": "block/cross",
     "textures": {
-        "cross": "biomesoplenty:blocks/toadstool"
+        "cross": "biomesoplenty:block/toadstool"
     }
 }

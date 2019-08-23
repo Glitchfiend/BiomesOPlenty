@@ -1,6 +1,6 @@
 {
     "parent": "block/wall_inventory",
     "textures": {
-        "wall": "biomesoplenty:blocks/white_sandstone"
+        "wall": "biomesoplenty:block/white_sandstone"
     }
 }

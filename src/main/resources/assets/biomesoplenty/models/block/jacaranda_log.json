@@ -1,7 +1,7 @@
 {
     "parent": "block/cube_column",
     "textures": {
-        "end": "biomesoplenty:blocks/jacaranda_log_top",
-        "side": "biomesoplenty:blocks/jacaranda_log"
+        "end": "biomesoplenty:block/jacaranda_log_top",
+        "side": "biomesoplenty:block/jacaranda_log"
     }
 }

@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "biomesoplenty:blocks/pink_cherry_sapling"
+        "layer0": "biomesoplenty:block/pink_cherry_sapling"
     }
 }

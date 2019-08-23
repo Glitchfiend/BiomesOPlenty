@@ -1,6 +1,6 @@
 {
     "parent": "block/leaves",
     "textures": {
-        "all": "biomesoplenty:blocks/yellow_autumn_leaves"
+        "all": "biomesoplenty:block/yellow_autumn_leaves"
     }
 }

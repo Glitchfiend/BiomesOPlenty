@@ -1,6 +1,6 @@
 {
     "parent": "block/leaves",
     "textures": {
-        "all": "biomesoplenty:blocks/ethereal_leaves"
+        "all": "biomesoplenty:block/ethereal_leaves"
     }
 }

@@ -1,6 +1,6 @@
 {
     "parent": "block/cross",
     "textures": {
-        "cross": "biomesoplenty:blocks/wilted_lily"
+        "cross": "biomesoplenty:block/wilted_lily"
     }
 }

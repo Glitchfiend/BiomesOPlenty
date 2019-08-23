@@ -1,7 +1,7 @@
 {
     "parent": "block/cube_column",
     "textures": {
-        "end": "biomesoplenty:blocks/stripped_dead_log_top",
-        "side": "biomesoplenty:blocks/stripped_dead_log"
+        "end": "biomesoplenty:block/stripped_dead_log_top",
+        "side": "biomesoplenty:block/stripped_dead_log"
     }
 }

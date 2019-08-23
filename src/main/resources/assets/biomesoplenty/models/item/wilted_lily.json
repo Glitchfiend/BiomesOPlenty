@@ -1,7 +1,7 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "biomesoplenty:blocks/wilted_lily"
+        "layer0": "biomesoplenty:block/wilted_lily"
     },
     "display": {
         "thirdperson": {

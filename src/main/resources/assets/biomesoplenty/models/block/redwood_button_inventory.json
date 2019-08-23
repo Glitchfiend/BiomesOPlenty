@@ -1,6 +1,6 @@
 {
     "parent": "block/button_inventory",
     "textures": {
-        "texture": "biomesoplenty:blocks/redwood_planks"
+        "texture": "biomesoplenty:block/redwood_planks"
     }
 }

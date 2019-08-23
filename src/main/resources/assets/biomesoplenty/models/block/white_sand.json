@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "biomesoplenty:blocks/white_sand"
+        "all": "biomesoplenty:block/white_sand"
     }
 }

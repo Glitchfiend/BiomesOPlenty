@@ -1,6 +1,6 @@
 {
     "parent": "block/cross",
     "textures": {
-        "cross": "biomesoplenty:blocks/mahogany_sapling"
+        "cross": "biomesoplenty:block/mahogany_sapling"
     }
 }

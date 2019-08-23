@@ -1,9 +1,9 @@
 {   "parent": "block/block",
     "ambientocclusion": false,
     "textures": {
-        "plant": "biomesoplenty:blocks/bramble",
-		"thorns": "biomesoplenty:blocks/bramble_thorns",
-        "particle": "biomesoplenty:blocks/bramble"
+        "plant": "biomesoplenty:block/bramble",
+		"thorns": "biomesoplenty:block/bramble_thorns",
+        "particle": "biomesoplenty:block/bramble"
     },
     "elements": [
 	    {   "from": [ 0.8, 0, 8 ],

@@ -1,6 +1,6 @@
 {
     "parent": "block/cross",
     "textures": {
-        "cross": "biomesoplenty:blocks/umbran_sapling"
+        "cross": "biomesoplenty:block/umbran_sapling"
     }
 }

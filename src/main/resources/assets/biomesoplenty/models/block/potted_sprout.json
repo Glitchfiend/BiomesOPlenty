@@ -4,7 +4,7 @@
         "particle": "minecraft:block/flower_pot",
         "flowerpot": "minecraft:block/flower_pot",
         "dirt": "minecraft:block/dirt",
-        "plant": "biomesoplenty:blocks/potted_sprout"
+        "plant": "biomesoplenty:block/potted_sprout"
     },
     "elements": [
         {   "from": [ 5, 0, 5 ],

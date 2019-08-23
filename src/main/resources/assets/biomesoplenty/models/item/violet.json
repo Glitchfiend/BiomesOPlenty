@@ -1,7 +1,7 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "biomesoplenty:blocks/violet"
+        "layer0": "biomesoplenty:block/violet"
     },
     "display": {
         "thirdperson": {

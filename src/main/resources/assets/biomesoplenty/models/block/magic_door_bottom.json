@@ -1,7 +1,7 @@
 {
     "parent": "block/door_bottom",
     "textures": {
-        "bottom": "biomesoplenty:blocks/magic_door_bottom",
-        "top": "biomesoplenty:blocks/magic_door_top"
+        "bottom": "biomesoplenty:block/magic_door_bottom",
+        "top": "biomesoplenty:block/magic_door_top"
     }
 }

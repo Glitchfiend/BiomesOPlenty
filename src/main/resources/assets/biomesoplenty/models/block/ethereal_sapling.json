@@ -1,6 +1,6 @@
 {
     "parent": "block/cross",
     "textures": {
-        "cross": "biomesoplenty:blocks/ethereal_sapling"
+        "cross": "biomesoplenty:block/ethereal_sapling"
     }
 }

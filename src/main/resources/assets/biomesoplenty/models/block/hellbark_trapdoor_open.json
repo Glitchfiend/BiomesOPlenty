@@ -1,6 +1,6 @@
 {
     "parent": "block/template_orientable_trapdoor_open",
     "textures": {
-        "texture": "biomesoplenty:blocks/hellbark_trapdoor"
+        "texture": "biomesoplenty:block/hellbark_trapdoor"
     }
 }

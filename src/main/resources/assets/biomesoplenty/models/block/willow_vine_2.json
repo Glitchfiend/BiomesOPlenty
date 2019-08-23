@@ -1,8 +1,8 @@
 {
     "ambientocclusion": false,
     "textures": {
-        "particle": "biomesoplenty:blocks/willow_vine",
-        "vine": "biomesoplenty:blocks/willow_vine"
+        "particle": "biomesoplenty:block/willow_vine",
+        "vine": "biomesoplenty:block/willow_vine"
     },
     "elements": [
         {   "from": [ 0, 0, 0.8 ],

@@ -1,6 +1,6 @@
 {
     "parent": "block/template_fence_gate_wall_open",
     "textures": {
-        "texture": "biomesoplenty:blocks/dead_planks"
+        "texture": "biomesoplenty:block/dead_planks"
     }
 }

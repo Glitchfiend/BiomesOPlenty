@@ -1,6 +1,6 @@
 {
     "parent": "minecraft:block/flower_pot_cross",
     "textures": {
-        "plant": "biomesoplenty:blocks/blue_hydrangea"
+        "plant": "biomesoplenty:block/blue_hydrangea"
     }
 }

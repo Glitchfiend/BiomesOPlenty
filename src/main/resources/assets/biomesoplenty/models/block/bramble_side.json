@@ -1,8 +1,8 @@
 {
     "ambientocclusion": false,
     "textures": {
-        "texture": "biomesoplenty:blocks/bramble",
-        "particle": "biomesoplenty:blocks/bramble"
+        "texture": "biomesoplenty:block/bramble",
+        "particle": "biomesoplenty:block/bramble"
     },
     "elements": [
         {   "from": [ 4, 4, 0 ],

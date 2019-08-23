@@ -1,6 +1,6 @@
 {
     "parent": "block/pressure_plate_down",
     "textures": {
-        "texture": "biomesoplenty:blocks/ethereal_planks"
+        "texture": "biomesoplenty:block/ethereal_planks"
     }
 }

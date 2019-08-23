@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "biomesoplenty:items/magic_door"
+        "layer0": "biomesoplenty:item/magic_door"
     }
 }

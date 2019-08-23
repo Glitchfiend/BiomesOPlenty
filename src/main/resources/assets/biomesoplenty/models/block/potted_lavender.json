@@ -1,6 +1,6 @@
 {
     "parent": "minecraft:block/flower_pot_cross",
     "textures": {
-        "plant": "biomesoplenty:blocks/potted_lavender"
+        "plant": "biomesoplenty:block/potted_lavender"
     }
 }

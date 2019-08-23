@@ -1,6 +1,6 @@
 {
     "parent": "block/fence_side",
     "textures": {
-        "texture": "biomesoplenty:blocks/mahogany_planks"
+        "texture": "biomesoplenty:block/mahogany_planks"
     }
 }

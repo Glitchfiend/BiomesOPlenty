@@ -1,6 +1,6 @@
 {
     "parent": "block/cross",
     "textures": {
-        "cross": "biomesoplenty:blocks/pink_hibiscus"
+        "cross": "biomesoplenty:block/pink_hibiscus"
     }
 }

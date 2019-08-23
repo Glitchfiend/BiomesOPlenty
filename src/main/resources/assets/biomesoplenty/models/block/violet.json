@@ -1,6 +1,6 @@
 {
     "parent": "block/cross",
     "textures": {
-        "cross": "biomesoplenty:blocks/violet"
+        "cross": "biomesoplenty:block/violet"
     }
 }

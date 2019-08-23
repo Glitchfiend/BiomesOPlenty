@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "biomesoplenty:blocks/bush"
+        "layer0": "biomesoplenty:block/bush"
     }
 }

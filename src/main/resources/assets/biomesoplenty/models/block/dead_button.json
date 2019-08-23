@@ -1,6 +1,6 @@
 {
     "parent": "block/button",
     "textures": {
-        "texture": "biomesoplenty:blocks/dead_planks"
+        "texture": "biomesoplenty:block/dead_planks"
     }
 }
