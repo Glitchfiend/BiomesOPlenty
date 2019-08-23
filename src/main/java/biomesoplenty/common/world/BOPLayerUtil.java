@@ -141,7 +141,7 @@ public class BOPLayerUtil
         IAreaFactory<T> biomesFactory = createBiomeFactory(landSeaFactory, climateFactory, contextFactory);
 
         // Fork off a new branch as a seed for rivers and sub biomes
-        IAreaFactory<T> riverAndSubBiomesInitFactory = RiverLayer.INSTANCE.apply(contextFactory.apply(100L), landSeaFactory);
+        IAreaFactory<T> riverAndSubBiomesInitFactory = StartRiverLayer.INSTANCE.apply(contextFactory.apply(100L), landSeaFactory);
         riverAndSubBiomesInitFactory = LayerUtil.repeat(1000L, ZoomLayer.NORMAL, riverAndSubBiomesInitFactory, 2, contextFactory);
         biomesFactory = GenLayerSubBiome.INSTANCE.apply(contextFactory.apply(1000L), biomesFactory, riverAndSubBiomesInitFactory);
 
