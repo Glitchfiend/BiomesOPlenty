@@ -139,13 +139,27 @@ public class BigTreeFeature extends TreeFeatureBase
     // allowing foliage of different sizes and shapes.
     private float foliageShape(int y)
     {
-        if (y >= 0 && y < 5)
+        /*if (y >= 0 && y < foliageHeight)
         {
             return y != 0 && y != 4 ? 3.0F : 2.0F;
         }
         else
         {
             return -1.0F;
+        }*/
+
+
+        if (y < 0 || y >= foliageHeight)
+        {
+            return -1.0F;
+        }
+        else if (y == 0 || y == foliageHeight - 1)
+        {
+            return 2.0F;
+        }
+        else
+        {
+            return 3.0F;
         }
     }
 
@@ -154,7 +168,7 @@ public class BigTreeFeature extends TreeFeatureBase
     // crossection is called to make each level.
     private void foliageCluster(IWorld world, BlockPos pos, MutableBoundingBox boundingBox, Set<BlockPos> changedBlocks)
     {
-        for (int y = 0; y < 5; y++)
+        for (int y = 0; y < foliageHeight; y++)
         {
             this.crossSection(world, pos.up(y), this.foliageShape(y), boundingBox, changedBlocks);
         }
@@ -257,6 +271,28 @@ public class BigTreeFeature extends TreeFeatureBase
     private void makeTrunk(Set<BlockPos> changedBlocks, IWorld world, BlockPos pos, int height, MutableBoundingBox boundingBox)
     {
         this.checkLineAndOptionallySet(changedBlocks, world, pos, pos.up(height), true, boundingBox);
+
+        if (trunkWidth == 2)
+        {
+            this.checkLineAndOptionallySet(changedBlocks, world, pos.east(), pos.up(height).east(), true, boundingBox);
+            this.checkLineAndOptionallySet(changedBlocks, world, pos.east().south(), pos.up(height).east().south(), true, boundingBox);
+            this.checkLineAndOptionallySet(changedBlocks, world, pos.south(), pos.up(height).south(), true, boundingBox);
+        }
+
+        if (trunkWidth == 4)
+        {
+            this.checkLineAndOptionallySet(changedBlocks, world, pos.east(), pos.up(height).east(), true, boundingBox);
+            this.checkLineAndOptionallySet(changedBlocks, world, pos.east().south(), pos.up(height).east().south(), true, boundingBox);
+            this.checkLineAndOptionallySet(changedBlocks, world, pos.south(), pos.up(height).south(), true, boundingBox);
+            this.checkLineAndOptionallySet(changedBlocks, world, pos.north(), pos.up(height).north(), true, boundingBox);
+            this.checkLineAndOptionallySet(changedBlocks, world, pos.north().east(), pos.up(height).north().east(), true, boundingBox);
+            this.checkLineAndOptionallySet(changedBlocks, world, pos.east().east(), pos.up(height).east().east(), true, boundingBox);
+            this.checkLineAndOptionallySet(changedBlocks, world, pos.south().east().east(), pos.up(height).south().east().east(), true, boundingBox);
+            this.checkLineAndOptionallySet(changedBlocks, world, pos.south().south().east(), pos.up(height).south().south().east(), true, boundingBox);
+            this.checkLineAndOptionallySet(changedBlocks, world, pos.south().south(), pos.up(height).south().south(), true, boundingBox);
+            this.checkLineAndOptionallySet(changedBlocks, world, pos.west().south(), pos.up(height).west().south(), true, boundingBox);
+            this.checkLineAndOptionallySet(changedBlocks, world, pos.west(), pos.up(height).west(), true, boundingBox);
+        }
     }
 
     private void makeBranches(Set<BlockPos> changedBlocks, IWorld world, int height, BlockPos origin, List<FoliageCoordinates> coordinates, MutableBoundingBox boundingBox)
