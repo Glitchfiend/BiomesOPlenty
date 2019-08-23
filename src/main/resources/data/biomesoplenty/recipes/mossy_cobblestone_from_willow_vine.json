@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:cobblestone"
+    },
+    {
+      "item": "biomesoplenty:willow_vine"
+    }
+  ],
+  "result": {
+    "item": "minecraft:mossy_cobblestone"
+  }
+}

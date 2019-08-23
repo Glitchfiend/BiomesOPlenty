@@ -7,13 +7,12 @@
  ******************************************************************************/
 package biomesoplenty.common.world.gen.feature.tree;
 
+import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.block.BlockUtil;
 import biomesoplenty.common.util.block.IBlockPosQuery;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.SaplingBlock;
-import net.minecraft.block.VineBlock;
+import net.minecraft.block.*;
 import net.minecraft.state.IProperty;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
@@ -44,7 +43,7 @@ public abstract class TreeFeatureBase extends AbstractTreeFeature<NoFeatureConfi
         public BuilderBase()
         {
             this.placeOn = (world, pos) -> world.getBlockState(pos).canSustainPlant(world, pos, Direction.UP, (SaplingBlock)Blocks.OAK_SAPLING);
-            this.replace = (world, pos) -> world.getBlockState(pos).canBeReplacedByLeaves(world, pos);
+            this.replace = (world, pos) -> world.getBlockState(pos).canBeReplacedByLeaves(world, pos) || world.getBlockState(pos).getBlock().isIn(BlockTags.SAPLINGS) || world.getBlockState(pos).getBlock() == Blocks.VINE || world.getBlockState(pos).getBlock() == BOPBlocks.willow_vine || world.getBlockState(pos).getBlock() instanceof BushBlock;
             this.log = Blocks.OAK_LOG.getDefaultState();
             this.leaves = Blocks.OAK_LEAVES.getDefaultState();
             this.vine = Blocks.AIR.getDefaultState();
