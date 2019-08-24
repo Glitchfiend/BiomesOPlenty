@@ -26,7 +26,6 @@ public class CommandTpBiome
     static ArgumentBuilder<CommandSource, ?> register()
     {
         return Commands.literal("tpbiome")
-                .requires(cs->cs.hasPermissionLevel(0)) //permission
                 .then(Commands.argument("biome", BiomeArgument.createArgument())
                 .executes(ctx -> {
                     ServerPlayerEntity player = ctx.getSource().asPlayer();
