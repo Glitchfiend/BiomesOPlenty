@@ -10,6 +10,7 @@ package biomesoplenty.common.world.gen.feature.tree;
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import com.google.common.collect.Lists;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -90,10 +91,26 @@ public class BigTreeFeature extends TreeFeatureBase
                 if (Math.pow((double)Math.abs(dx) + 0.5D, 2.0D) + Math.pow((double)Math.abs(dz) + 0.5D, 2.0D) <= (double)(radius * radius))
                 {
                     BlockPos blockpos = pos.add(dx, 0, dz);
-                    if (this.isAirOrLeaves(world, blockpos))
+                    if (this.replace.matches(world, blockpos))
                     {
                         // Mojang sets leaves via the method used for logs. Probably intentional?
-                        this.setLogState(changedBlocks, world, blockpos, this.leaves, boundingBox);
+                        if (this.altLeaves != Blocks.AIR.getDefaultState())
+                        {
+                            int rand = new Random().nextInt(4);
+
+                            if (rand == 0)
+                            {
+                                this.setLogState(changedBlocks, world, blockpos, this.altLeaves, boundingBox);
+                            }
+                            else
+                            {
+                                this.setLogState(changedBlocks, world, blockpos, this.leaves, boundingBox);
+                            }
+                        }
+                        else
+                        {
+                            this.setLogState(changedBlocks, world, blockpos, this.leaves, boundingBox);
+                        }
                     }
                 }
             }
