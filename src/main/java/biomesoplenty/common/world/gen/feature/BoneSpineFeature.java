@@ -51,7 +51,7 @@ public class BoneSpineFeature extends Feature<NoFeatureConfig>
         int height = 2 + p_212245_3_.nextInt(2);
 
         boolean spine = false;
-        if (p_212245_3_.nextInt(4) == 0)
+        if (p_212245_3_.nextInt(3) == 0)
         {
             spine = true;
             height = 2 + p_212245_3_.nextInt(maxHeight + 1);

@@ -26,7 +26,7 @@ public class BushTreeFeature extends TreeFeatureBase
         public Builder()
         {
             this.minHeight = 2;
-            this.maxHeight = 4;
+            this.maxHeight = 2;
         }
 
         @Override

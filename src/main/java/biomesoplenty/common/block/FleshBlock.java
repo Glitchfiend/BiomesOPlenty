@@ -18,21 +18,13 @@ import net.minecraft.world.World;
 
 public class FleshBlock extends Block
 {
-	protected static final VoxelShape SHAPE = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 16.0D);
-
     public FleshBlock(Block.Properties properties)
     {
         super(properties);
     }
 
     @Override
-    public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext selectionContext)
-    {
-        return SHAPE;
-    }
-    
-    @Override
-    public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn)
+    public void onEntityWalk(World worldIn, BlockPos pos, Entity entityIn)
     {
         entityIn.setMotion(entityIn.getMotion().mul(0.95D, 1.0D, 0.95D));
     }

@@ -33,7 +33,7 @@ public class VolcanoSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
 		}
 		else
 		{
-			SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BOPBiomeFeatures.ASH_SURFACE);
+			BOPBiomeFeatures.DEEP_TOP_LAYER.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BOPBiomeFeatures.ASH_SURFACE);
 		}
 	}
 }

@@ -24,8 +24,8 @@ public class TrunkTreeFeature extends TreeFeatureBase
     {
         public Builder()
         {
-            this.minHeight = 6;
-            this.maxHeight = 9;
+            this.minHeight = 7;
+            this.maxHeight = 11;
         }
 
         @Override

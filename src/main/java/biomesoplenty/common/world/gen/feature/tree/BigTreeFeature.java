@@ -387,7 +387,7 @@ public class BigTreeFeature extends TreeFeatureBase
 
     private int checkLocation(Set<BlockPos> changedBlocks, IWorld world, BlockPos pos, int height, MutableBoundingBox boundingBox)
     {
-        if (!this.isSoilOrFarm(world, pos.down(), getSapling()))
+        if (!this.placeOn.matches(world, pos.down()))
         {
             return -1;
         }
