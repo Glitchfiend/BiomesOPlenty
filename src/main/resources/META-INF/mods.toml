@@ -2,13 +2,13 @@ modLoader="javafml"
 loaderVersion="[24,)"
 issueTrackerURL="https://github.com/Glitchfiend/BiomesOPlenty/issues"
 displayURL="https://minecraft.curseforge.com/projects/biomes-o-plenty"
-authors="Adubbz, Forstride"
 logoFile="bop_logo.png"
 
 [[mods]]
     modId="biomesoplenty"
     version="${version}"
     displayName="Biomes O' Plenty"
+	authors="Forstride, Adubbz"
     description='''
     Adds over 50 new biomes, blocks, and more!
     '''

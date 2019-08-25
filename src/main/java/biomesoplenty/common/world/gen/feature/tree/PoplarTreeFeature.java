@@ -75,6 +75,17 @@ public class PoplarTreeFeature extends TreeFeatureBase
             this.setLog(changedBlocks, world, pos, boundingBox);
             pos = pos.up();
         }
+
+        for (int i = 1; i < leavesHeight - 3; i++)
+        {
+            for (int xx = -1; xx < 2; xx++)
+            {
+                for (int zz = -1; zz < 2; zz++)
+                {
+                    this.setLeaves(world, pos.add(xx, i, zz));
+                }
+            }
+        }
         
         // Generate middle of the tree
         for(int i = 0; i < leavesHeight; i++)
@@ -137,14 +148,15 @@ public class PoplarTreeFeature extends TreeFeatureBase
                 {
                     if ((x == -radius || x == radius) && (z == -radius || z == radius)) { continue; }
 
-                    this.setLeaves(world, pos.add(x, 0, z));
-
-                    for (int i = -1; i < 3; i++)
+                    if (x == -radius || x == radius || z == -radius || z == radius)
                     {
-                        this.setLeaves(world, pos.add(-1, i, -1));
-                        this.setLeaves(world, pos.add(1, i, 1));
-                        this.setLeaves(world, pos.add(-1, i, 1));
-                        this.setLeaves(world, pos.add(1, i, -1));
+                        if (world.getRandom().nextInt(3) != 0) {
+                            this.setLeaves(world, pos.add(x, 0, z));
+                        }
+                    }
+                    else
+                    {
+                        this.setLeaves(world, pos.add(x, 0, z));
                     }
                 }
             }
