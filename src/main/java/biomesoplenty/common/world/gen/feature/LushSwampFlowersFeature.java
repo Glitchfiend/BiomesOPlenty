@@ -23,7 +23,7 @@ import java.util.function.Function;
 
 public class LushSwampFlowersFeature extends FlowersFeature
 {
-	private static final Block[] FLOWERS = new Block[]{BOPBlocks.blue_hydrangea, Blocks.BLUE_ORCHID, Blocks.AZURE_BLUET, Blocks.DANDELION, Blocks.POPPY};
+	private static final Block[] FLOWERS = new Block[]{Blocks.BLUE_ORCHID, Blocks.AZURE_BLUET, Blocks.DANDELION, Blocks.POPPY};
 
 	public LushSwampFlowersFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserializer)
 	{

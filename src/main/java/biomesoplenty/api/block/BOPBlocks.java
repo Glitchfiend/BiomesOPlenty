@@ -239,10 +239,9 @@ public class BOPBlocks
     public static Block ethereal_button;
     
     public static Block rose;
-    public static Block blue_hydrangea;
+
     public static Block violet;
     public static Block lavender;
-    public static Block goldenrod;
     public static Block wildflower;
     public static Block orange_cosmos;
     public static Block pink_daffodil;
@@ -250,6 +249,9 @@ public class BOPBlocks
     public static Block glowflower;
     public static Block wilted_lily;
     public static Block burning_blossom;
+
+    public static Block blue_hydrangea;
+    public static Block goldenrod;
     
     public static Block willow_vine;
 
@@ -287,10 +289,8 @@ public class BOPBlocks
     public static Block potted_hellbark_sapling;
     public static Block potted_ethereal_sapling;
     public static Block potted_rose;
-    public static Block potted_blue_hydrangea;
     public static Block potted_violet;
     public static Block potted_lavender;
-    public static Block potted_goldenrod;
     public static Block potted_wildflower;
     public static Block potted_orange_cosmos;
     public static Block potted_pink_daffodil;

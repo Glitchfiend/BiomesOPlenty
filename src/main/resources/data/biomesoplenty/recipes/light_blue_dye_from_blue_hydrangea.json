@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shapeless",
+  "group": "light_blue_dye",
   "ingredients": [
     {
       "item": "biomesoplenty:blue_hydrangea"

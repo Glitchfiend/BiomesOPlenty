@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "biomesoplenty:block/blue_hydrangea_bottom"
+    }
+}

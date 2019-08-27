@@ -23,7 +23,7 @@ import java.util.function.Function;
 
 public class RainforestFlowersFeature extends FlowersFeature
 {
-	private static final Block[] FLOWERS = new Block[]{BOPBlocks.pink_daffodil, BOPBlocks.blue_hydrangea, Blocks.BLUE_ORCHID, Blocks.OXEYE_DAISY, Blocks.DANDELION, Blocks.POPPY};
+	private static final Block[] FLOWERS = new Block[]{BOPBlocks.pink_daffodil, Blocks.BLUE_ORCHID, Blocks.OXEYE_DAISY, Blocks.DANDELION, Blocks.POPPY};
 
 	public RainforestFlowersFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserializer)
 	{

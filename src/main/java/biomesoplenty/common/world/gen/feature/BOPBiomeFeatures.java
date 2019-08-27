@@ -148,7 +148,6 @@ public class BOPBiomeFeatures
 	public static final FlowersFeature MYSTIC_GROVE_FLOWERS = new MysticGroveFlowersFeature(NoFeatureConfig::deserialize);
 	public static final FlowersFeature OMINOUS_WOODS_FLOWERS = new OminousWoodsFlowersFeature(NoFeatureConfig::deserialize);
 	public static final FlowersFeature ORIGIN_FLOWERS = new OriginFlowersFeature(NoFeatureConfig::deserialize);
-	public static final FlowersFeature PRAIRIE_FLOWERS = new PrairieFlowersFeature(NoFeatureConfig::deserialize);
 	public static final FlowersFeature RAINFOREST_FLOWERS = new RainforestFlowersFeature(NoFeatureConfig::deserialize);
 	public static final FlowersFeature SHRUBLAND_FLOWERS = new ShrublandFlowersFeature(NoFeatureConfig::deserialize);
 	public static final FlowersFeature SNOWY_FLOWERS = new SnowyFlowersFeature(NoFeatureConfig::deserialize);
@@ -180,7 +179,6 @@ public class BOPBiomeFeatures
 	public static final SurfaceBuilderConfig DRIED_SAND_GRAVEL_SURFACE = new SurfaceBuilderConfig(BOPBlocks.dried_sand.getDefaultState(), BOPBlocks.dried_sand.getDefaultState(), BOPBlocks.dried_sand.getDefaultState());
 
 	//Vanilla Biomes Features
-	public static final FlowersFeature BLUE_HYDRANGEA_FEATURE = new BlueHydrangeaFeature(NoFeatureConfig::deserialize);
 	public static final FlowersFeature VIOLET_FEATURE = new VioletFeature(NoFeatureConfig::deserialize);
 	public static final FlowersFeature ORANGE_COSMOS_FEATURE = new OrangeCosmosFeature(NoFeatureConfig::deserialize);
 	public static final FlowersFeature WILDFLOWER_FEATURE = new WildflowerFeature(NoFeatureConfig::deserialize);

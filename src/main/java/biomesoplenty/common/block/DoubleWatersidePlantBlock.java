@@ -23,16 +23,14 @@ import java.util.Iterator;
 
 public class DoubleWatersidePlantBlock extends DoublePlantBlockBOP
 {
-    public DoubleWatersidePlantBlock(Block droppedBlock, Block.Properties properties)
+    public DoubleWatersidePlantBlock(Block.Properties properties)
     {
-        super(droppedBlock, properties);
+        super(properties);
     }
     
     @Override
     public PlantType getPlantType(IBlockReader world, BlockPos pos)
     {
-    	Block block = world.getBlockState(pos).getBlock();
-    	
     	return PlantType.Beach;
     }
 

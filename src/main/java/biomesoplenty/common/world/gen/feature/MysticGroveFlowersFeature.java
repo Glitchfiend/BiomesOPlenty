@@ -23,7 +23,7 @@ import java.util.function.Function;
 
 public class MysticGroveFlowersFeature extends FlowersFeature
 {
-	private static final Block[] FLOWERS = new Block[]{BOPBlocks.blue_hydrangea, BOPBlocks.glowflower, BOPBlocks.pink_daffodil, Blocks.OXEYE_DAISY, Blocks.LILY_OF_THE_VALLEY, Blocks.ALLIUM};
+	private static final Block[] FLOWERS = new Block[]{BOPBlocks.glowflower, BOPBlocks.pink_daffodil, Blocks.OXEYE_DAISY, Blocks.LILY_OF_THE_VALLEY, Blocks.ALLIUM};
 
 	public MysticGroveFlowersFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserializer)
 	{

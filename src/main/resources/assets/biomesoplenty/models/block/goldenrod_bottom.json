@@ -1,6 +1,6 @@
 {
     "parent": "block/cross",
     "textures": {
-        "cross": "biomesoplenty:block/blue_hydrangea"
+        "cross": "biomesoplenty:block/goldenrod_bottom"
     }
 }

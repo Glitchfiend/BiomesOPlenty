@@ -6,6 +6,15 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "biomesoplenty:blue_hydrangea",
+              "properties": {
+                "half": "lower"
+              }
+            }
+          ],
           "name": "biomesoplenty:blue_hydrangea"
         }
       ],

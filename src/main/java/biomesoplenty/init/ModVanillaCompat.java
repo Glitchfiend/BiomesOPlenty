@@ -33,10 +33,13 @@ public class ModVanillaCompat
         addFeature(Biomes.DARK_FOREST_HILLS, GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(Feature.BUSH, new BushConfig(BOPBlocks.toadstool.getDefaultState()), Placement.COUNT_HEIGHTMAP_DOUBLE, new FrequencyConfig(3)));
 
         addFeature(Biomes.FOREST, GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(Feature.BUSH, new BushConfig(BOPBlocks.sprout.getDefaultState()), Placement.COUNT_HEIGHTMAP_DOUBLE, new FrequencyConfig(4)));
+        addFeature(Biomes.FOREST, GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(Feature.DOUBLE_PLANT, new DoublePlantConfig(BOPBlocks.blue_hydrangea.getDefaultState()), Placement.COUNT_HEIGHTMAP_32, new FrequencyConfig(1)));
         addFeature(Biomes.WOODED_HILLS, GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(Feature.BUSH, new BushConfig(BOPBlocks.sprout.getDefaultState()), Placement.COUNT_HEIGHTMAP_DOUBLE, new FrequencyConfig(4)));
+        addFeature(Biomes.WOODED_HILLS, GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(Feature.DOUBLE_PLANT, new DoublePlantConfig(BOPBlocks.blue_hydrangea.getDefaultState()), Placement.COUNT_HEIGHTMAP_32, new FrequencyConfig(1)));
 
         addFeature(Biomes.FLOWER_FOREST, GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(Feature.RANDOM_SELECTOR, new MultipleRandomFeatureConfig(new Feature[]{BOPBiomeFeatures.BIG_FLOWERING_OAK_TREE, BOPBiomeFeatures.JACARANDA_TREE, BOPBiomeFeatures.BIG_JACARANDA_TREE}, new IFeatureConfig[]{IFeatureConfig.NO_FEATURE_CONFIG, IFeatureConfig.NO_FEATURE_CONFIG, IFeatureConfig.NO_FEATURE_CONFIG}, new float[]{0.4F, 0.2F, 0.1F}, BOPBiomeFeatures.FLOWERING_OAK_TREE, IFeatureConfig.NO_FEATURE_CONFIG), Placement.COUNT_EXTRA_HEIGHTMAP, new AtSurfaceWithExtraConfig(1, 0.5F, 1)));
-        addFeature(Biomes.FLOWER_FOREST, GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(BOPBiomeFeatures.BLUE_HYDRANGEA_FEATURE, IFeatureConfig.NO_FEATURE_CONFIG, Placement.COUNT_HEIGHTMAP_32, new FrequencyConfig(5)));
+        addFeature(Biomes.FLOWER_FOREST, GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(Feature.DOUBLE_PLANT, new DoublePlantConfig(BOPBlocks.blue_hydrangea.getDefaultState()), Placement.COUNT_HEIGHTMAP_32, new FrequencyConfig(3)));
+        addFeature(Biomes.FLOWER_FOREST, GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(Feature.DOUBLE_PLANT, new DoublePlantConfig(BOPBlocks.goldenrod.getDefaultState()), Placement.COUNT_HEIGHTMAP_32, new FrequencyConfig(1)));
 
         addFeature(Biomes.JUNGLE, GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(BOPBiomeFeatures.ORANGE_COSMOS_FEATURE, IFeatureConfig.NO_FEATURE_CONFIG, Placement.COUNT_HEIGHTMAP_32, new FrequencyConfig(4)));
         addFeature(Biomes.JUNGLE_HILLS, GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(BOPBiomeFeatures.ORANGE_COSMOS_FEATURE, IFeatureConfig.NO_FEATURE_CONFIG, Placement.COUNT_HEIGHTMAP_32, new FrequencyConfig(4)));
@@ -198,15 +201,15 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.ethereal_fence, 5, 20);
         registerFlammable(BOPBlocks.ethereal_fence_gate, 5, 20);
         registerFlammable(BOPBlocks.rose, 60, 100);
-        registerFlammable(BOPBlocks.blue_hydrangea, 60, 100);
         registerFlammable(BOPBlocks.violet, 60, 100);
         registerFlammable(BOPBlocks.lavender, 60, 100);
-        registerFlammable(BOPBlocks.goldenrod, 60, 100);
         registerFlammable(BOPBlocks.wildflower, 60, 100);
         registerFlammable(BOPBlocks.pink_daffodil, 60, 100);
         registerFlammable(BOPBlocks.pink_hibiscus, 60, 100);
         registerFlammable(BOPBlocks.glowflower, 60, 100);
         registerFlammable(BOPBlocks.wilted_lily, 60, 100);
+        registerFlammable(BOPBlocks.blue_hydrangea, 60, 100);
+        registerFlammable(BOPBlocks.goldenrod, 60, 100);
         registerFlammable(BOPBlocks.willow_vine, 15, 100);
         registerFlammable(BOPBlocks.sprout, 60, 100);
         registerFlammable(BOPBlocks.bush, 60, 100);
@@ -280,10 +283,8 @@ public class ModVanillaCompat
         registerCompostable(0.3F, BOPBlocks.ethereal_leaves);
 
         registerCompostable(0.65F, BOPBlocks.rose);
-        registerCompostable(0.65F, BOPBlocks.blue_hydrangea);
         registerCompostable(0.65F, BOPBlocks.violet);
         registerCompostable(0.65F, BOPBlocks.lavender);
-        registerCompostable(0.65F, BOPBlocks.goldenrod);
         registerCompostable(0.65F, BOPBlocks.wildflower);
         registerCompostable(0.65F, BOPBlocks.orange_cosmos);
         registerCompostable(0.65F, BOPBlocks.pink_daffodil);
@@ -291,6 +292,9 @@ public class ModVanillaCompat
         registerCompostable(0.65F, BOPBlocks.glowflower);
         registerCompostable(0.65F, BOPBlocks.wilted_lily);
         registerCompostable(0.65F, BOPBlocks.burning_blossom);
+
+        registerCompostable(0.65F, BOPBlocks.blue_hydrangea);
+        registerCompostable(0.65F, BOPBlocks.goldenrod);
 
         registerCompostable(0.5F, BOPBlocks.willow_vine);
 
