@@ -8,7 +8,6 @@
 package biomesoplenty.init;
 
 import biomesoplenty.core.BiomesOPlenty;
-import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.event.RegistryEvent;

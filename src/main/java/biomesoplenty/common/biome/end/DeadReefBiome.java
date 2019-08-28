@@ -1,6 +1,5 @@
 package biomesoplenty.common.biome.end;
 
-import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.biome.EndBiomeBOP;
 import biomesoplenty.common.world.gen.feature.BOPBiomeFeatures;
 import net.minecraft.block.AbstractCoralPlantBlock;

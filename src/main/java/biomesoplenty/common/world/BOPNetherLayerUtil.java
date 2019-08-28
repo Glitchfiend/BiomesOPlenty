@@ -7,12 +7,12 @@
  ******************************************************************************/
 package biomesoplenty.common.world;
 
-import biomesoplenty.common.world.layer.*;
+import biomesoplenty.common.world.layer.GenLayerLand;
+import biomesoplenty.common.world.layer.GenLayerNetherBiome;
+import biomesoplenty.common.world.layer.GenLayerShoreBOP;
 import biomesoplenty.common.world.layer.traits.LazyAreaLayerContextBOP;
 import com.google.common.collect.ImmutableList;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.WorldType;
-import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.IExtendedNoiseRandom;
 import net.minecraft.world.gen.OverworldGenSettings;
 import net.minecraft.world.gen.area.IArea;

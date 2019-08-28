@@ -7,17 +7,15 @@
  ******************************************************************************/
 package biomesoplenty.common.world;
 
-import biomesoplenty.api.biome.BOPBiomes;
 import net.minecraft.block.Blocks;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
-import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.biome.provider.BiomeProviderType;
-import net.minecraft.world.biome.provider.EndBiomeProviderSettings;
 import net.minecraft.world.biome.provider.OverworldBiomeProviderSettings;
 import net.minecraft.world.dimension.DimensionType;
-import net.minecraft.world.gen.*;
+import net.minecraft.world.gen.ChunkGenerator;
+import net.minecraft.world.gen.ChunkGeneratorType;
+import net.minecraft.world.gen.NetherGenSettings;
+import net.minecraft.world.gen.OverworldGenSettings;
 
 public class WorldTypeBOP extends WorldType
 {

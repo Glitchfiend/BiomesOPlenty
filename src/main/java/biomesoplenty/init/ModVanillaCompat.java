@@ -9,8 +9,6 @@ import net.minecraft.item.AxeItem;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.biome.FlowerForestBiome;
-import net.minecraft.world.biome.TaigaBiome;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;

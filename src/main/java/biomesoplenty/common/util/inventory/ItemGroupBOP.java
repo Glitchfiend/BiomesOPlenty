@@ -10,9 +10,6 @@ package biomesoplenty.common.util.inventory;
 import biomesoplenty.api.item.BOPItems;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class ItemGroupBOP extends ItemGroup
 {

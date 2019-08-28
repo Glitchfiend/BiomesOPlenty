@@ -9,14 +9,12 @@ package biomesoplenty.init;
 
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.core.BiomesOPlenty;
-import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 
 import java.util.List;
-import java.util.function.Function;
 
 public class ModCompatibility
 {

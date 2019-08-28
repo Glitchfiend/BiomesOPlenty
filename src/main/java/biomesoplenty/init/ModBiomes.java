@@ -7,26 +7,19 @@
  ******************************************************************************/
 package biomesoplenty.init;
 
-import static biomesoplenty.api.biome.BOPBiomes.*;
-
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-
+import biomesoplenty.api.enums.BOPClimates;
+import biomesoplenty.common.biome.BiomeBOP;
 import biomesoplenty.common.biome.end.DeadReefBiome;
 import biomesoplenty.common.biome.end.EtherealForestBiome;
 import biomesoplenty.common.biome.nether.*;
 import biomesoplenty.common.biome.overworld.*;
+import biomesoplenty.common.world.WorldTypeBOP;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
-
-import biomesoplenty.api.enums.BOPClimates;
-import biomesoplenty.common.biome.BiomeBOP;
-import biomesoplenty.common.world.WorldTypeBOP;
-import net.minecraft.world.biome.Biomes;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biomes;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.BiomeManager;
@@ -34,6 +27,12 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+
+import static biomesoplenty.api.biome.BOPBiomes.*;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModBiomes

@@ -8,16 +8,11 @@
 package biomesoplenty.common.world.layer;
 
 import biomesoplenty.api.enums.BOPClimates;
-import biomesoplenty.init.ModBiomes;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.INoiseRandom;
-import net.minecraft.world.gen.area.IArea;
 import net.minecraft.world.gen.layer.traits.IAreaTransformer0;
-import net.minecraft.world.gen.layer.traits.IAreaTransformer1;
-import net.minecraft.world.gen.layer.traits.IAreaTransformer2;
 import net.minecraft.world.gen.layer.traits.IDimOffset0Transformer;
-import net.minecraftforge.common.BiomeManager;
 
 public enum GenLayerNetherBiome implements IAreaTransformer0, IDimOffset0Transformer
 {
