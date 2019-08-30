@@ -36,7 +36,6 @@ public class HighlandMoorBiome extends BiomeBOP
         super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG)).precipitation(Biome.RainType.RAIN).category(Biome.Category.PLAINS).depth(1.8F).scale(-0.05F).temperature(0.6F).downfall(0.6F).waterColor(4159204).waterFogColor(329011).parent((String)null));
 
         // Structures
-        this.addStructure(Feature.SWAMP_HUT, IFeatureConfig.NO_FEATURE_CONFIG);
         this.addStructure(Feature.MINESHAFT, new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL));
 
         // Underground

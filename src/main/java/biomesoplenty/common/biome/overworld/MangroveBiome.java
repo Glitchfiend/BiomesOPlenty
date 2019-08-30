@@ -34,7 +34,6 @@ public class MangroveBiome extends BiomeBOP
         super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(BOPBiomeFeatures.MANGROVE_SURFACE_BUILDER, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG)).precipitation(Biome.RainType.RAIN).category(Biome.Category.SWAMP).depth(-0.215F).scale(-0.025F).temperature(0.81F).downfall(0.7F).waterColor(0x448FBD).waterFogColor(0x061326).parent((String)null));
 
         // Structures
-        this.addStructure(Feature.SWAMP_HUT, IFeatureConfig.NO_FEATURE_CONFIG);
         this.addStructure(Feature.MINESHAFT, new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL));
 
         // Underground
