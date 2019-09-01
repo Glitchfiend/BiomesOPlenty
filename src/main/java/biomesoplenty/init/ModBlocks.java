@@ -7,10 +7,8 @@
  ******************************************************************************/
 package biomesoplenty.init;
 
-import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.*;
 import biomesoplenty.common.block.trees.*;
-import biomesoplenty.common.item.WaterPlantItem;
 import biomesoplenty.common.util.inventory.ItemGroupBOP;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
@@ -292,13 +290,9 @@ public class ModBlocks
 
         //Tall Plants
         tall_cattail = registerBlock(new DoubleWatersidePlantBlock(Block.Properties.create(Material.PLANTS, MaterialColor.DIRT).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "tall_cattail");
-
-        reed = new WaterPlantBlock(Block.Properties.create(Material.PLANTS, MaterialColor.DIRT).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT));
-        registerBlock(reed, new WaterPlantItem(BOPBlocks.reed, new Item.Properties().group(ItemGroupBOP.instance)), "reed");
-        watergrass = new WaterPlantBlock(Block.Properties.create(Material.PLANTS, MaterialColor.GRASS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT));
-        registerBlock(watergrass, new WaterPlantItem(BOPBlocks.watergrass, new Item.Properties().group(ItemGroupBOP.instance)), "watergrass");
-        mangrove_root = new WaterPlantBlock(Block.Properties.create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.WOOD));
-        registerBlock(mangrove_root, new WaterPlantItem(BOPBlocks.mangrove_root, new Item.Properties().group(ItemGroupBOP.instance)), "mangrove_root");
+        reed = registerBlock(new DoubleWaterPlantBlock(Block.Properties.create(Material.PLANTS, MaterialColor.DIRT).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "reed");
+        watergrass = registerBlock(new DoubleWaterPlantBlock(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "watergrass");
+        mangrove_root = registerBlock(new DoubleWaterPlantBlock(Block.Properties.create(Material.PLANTS, MaterialColor.WHITE_TERRACOTTA).doesNotBlockMovement().hardnessAndResistance(1.0F, 1.5F).sound(SoundType.WOOD)), "mangrove_root");
 
         bramble = registerBlock(new BrambleBlock(Block.Properties.create(Material.PLANTS, MaterialColor.NETHERRACK).hardnessAndResistance(0.4F).harvestLevel(0).harvestTool(ToolType.AXE).sound(SoundType.WOOD)), "bramble");
         toadstool = registerBlock(new MushroomBlockBOP(Block.Properties.create(Material.PLANTS, MaterialColor.ADOBE).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "toadstool");

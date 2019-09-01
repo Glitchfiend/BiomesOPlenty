@@ -1,7 +1,0 @@
-{
-    "parent": "biomesoplenty:block/tinted_water_plant",
-    "textures": {
-    	"cross_top": "minecraft:block/tall_grass_top",
-		"cross_bottom": "minecraft:block/tall_grass_bottom"
-    }
-}
