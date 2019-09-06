@@ -6,15 +6,21 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "biomesoplenty:mangrove_root",
+              "properties": {
+                "half": "lower"
+              }
+            }
+          ],
           "name": "biomesoplenty:mangrove_root"
         }
       ],
       "conditions": [
         {
-          "condition": "minecraft:match_tool",
-          "predicate": {
-            "item": "minecraft:shears"
-          }
+          "condition": "minecraft:survives_explosion"
         }
       ]
     }
