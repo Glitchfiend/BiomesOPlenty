@@ -45,7 +45,7 @@ public class BiomeEssenceRecipe extends net.minecraftforge.registries.IForgeRegi
             }
         }
         
-        if (biomeRadar != null && biomeEssence != null)
+        if (biomeRadar != ItemStack.EMPTY && biomeEssence != ItemStack.EMPTY)
         {
             if (!biomeEssence.hasTagCompound() || !biomeEssence.getTagCompound().hasKey("biomeID")) return false;
             
