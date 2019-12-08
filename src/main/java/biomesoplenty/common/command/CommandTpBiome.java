@@ -21,16 +21,24 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunk;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class CommandTpBiome
 {
+    private static final ExecutorService TP_BIOME_THREAD = Executors.newFixedThreadPool(1);
+
     static ArgumentBuilder<CommandSource, ?> register()
     {
         return Commands.literal("tpbiome")
                 .then(Commands.argument("biome", BiomeArgument.createArgument())
-                .executes(ctx -> {
-                    ServerPlayerEntity player = ctx.getSource().asPlayer();
-                    return findTeleportBiome(ctx.getSource(), player, BiomeArgument.getValue(ctx, "biome"));
-                }));
+                        .executes(ctx -> {
+                            ServerPlayerEntity player = ctx.getSource().asPlayer();
+                            TP_BIOME_THREAD.execute(() -> {
+                                findTeleportBiome(ctx.getSource(), player, BiomeArgument.getValue(ctx, "biome"));
+                            });
+                            return 1;
+                        }));
 
     }
 
