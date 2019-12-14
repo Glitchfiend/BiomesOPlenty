@@ -10,6 +10,7 @@ package biomesoplenty.common.command;
 import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.common.util.block.BlockUtil;
 import com.mojang.brigadier.builder.ArgumentBuilder;
+import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
 import net.minecraft.command.CommandSource;
@@ -35,7 +36,14 @@ public class CommandTpBiome
                         .executes(ctx -> {
                             ServerPlayerEntity player = ctx.getSource().asPlayer();
                             TP_BIOME_THREAD.execute(() -> {
-                                findTeleportBiome(ctx.getSource(), player, BiomeArgument.getValue(ctx, "biome"));
+                                try
+                                {
+                                    findTeleportBiome(ctx.getSource(), player, BiomeArgument.getValue(ctx, "biome"));
+                                }
+                                catch (CommandSyntaxException e)
+                                {
+                                    e.printStackTrace();
+                                }
                             });
                             return 1;
                         }));
