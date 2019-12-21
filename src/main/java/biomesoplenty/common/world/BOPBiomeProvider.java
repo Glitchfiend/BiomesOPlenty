@@ -48,7 +48,7 @@ public class BOPBiomeProvider extends BiomeProvider
     }
 
     @Override
-    public Biome func_222366_b(int p_222366_1_, int p_222366_2_)
+    public Biome getBiomeAtFactorFour(int p_222366_1_, int p_222366_2_)
     {
         return this.genBiomes.func_215738_a(p_222366_1_, p_222366_2_);
     }
