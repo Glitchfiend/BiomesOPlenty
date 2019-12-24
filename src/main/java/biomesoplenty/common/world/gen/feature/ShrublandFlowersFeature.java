@@ -32,7 +32,7 @@ public class ShrublandFlowersFeature extends FlowersFeature
 	@Override
 	public BlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_)
 	{
-		double d0 = MathHelper.clamp((1.0D + Biome.INFO_NOISE.getValue((double)p_202355_2_.getX() / 48.0D, (double)p_202355_2_.getZ() / 48.0D)) / 2.0D, 0.0D, 0.9999D);
+		double d0 = MathHelper.clamp((1.0D + Biome.INFO_NOISE.noiseAt((double)p_202355_2_.getX() / 48.0D, (double)p_202355_2_.getZ() / 48.0D)) / 2.0D, 0.0D, 0.9999D);
 		Block block = FLOWERS[(int)(d0 * (double)FLOWERS.length)];
 		return block.getDefaultState();
 	}

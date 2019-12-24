@@ -24,7 +24,7 @@ public class DeepTopLayerSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderCon
     protected void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, BlockState top, BlockState middle, BlockState bottom, int sealevel) {
         BlockState blockstate = top;
         BlockState blockstate1 = middle;
-        BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
+        BlockPos.Mutable blockpos$mutableblockpos = new BlockPos.Mutable();
         int i = -1;
         int j = (int)(noise / 3.0D + 8.0D + random.nextDouble() * 0.25D);
         int k = x & 15;

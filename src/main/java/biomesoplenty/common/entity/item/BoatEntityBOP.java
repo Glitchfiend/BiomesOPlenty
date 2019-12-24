@@ -373,7 +373,7 @@ public class BoatEntityBOP extends BoatEntity {
         int i1 = MathHelper.floor(axisalignedbb.minZ);
         int j1 = MathHelper.ceil(axisalignedbb.maxZ);
 
-        try (BlockPos.PooledMutableBlockPos blockpos$pooledmutableblockpos = BlockPos.PooledMutableBlockPos.retain()) {
+        try (BlockPos.PooledMutable blockpos$pooledmutableblockpos = BlockPos.PooledMutable.retain()) {
             label161:
             for (int k1 = k; k1 < l; ++k1) {
                 float f = 0.0F;
@@ -420,7 +420,7 @@ public class BoatEntityBOP extends BoatEntity {
         float f = 0.0F;
         int k1 = 0;
 
-        try (BlockPos.PooledMutableBlockPos blockpos$pooledmutableblockpos = BlockPos.PooledMutableBlockPos.retain()) {
+        try (BlockPos.PooledMutable blockpos$pooledmutableblockpos = BlockPos.PooledMutable.retain()) {
             for (int l1 = i; l1 < j; ++l1) {
                 for (int i2 = i1; i2 < j1; ++i2) {
                     int j2 = (l1 != i && l1 != j - 1 ? 0 : 1) + (i2 != i1 && i2 != j1 - 1 ? 0 : 1);
@@ -454,7 +454,7 @@ public class BoatEntityBOP extends BoatEntity {
         boolean flag = false;
         this.waterLevel = Double.MIN_VALUE;
 
-        try (BlockPos.PooledMutableBlockPos blockpos$pooledmutableblockpos = BlockPos.PooledMutableBlockPos.retain()) {
+        try (BlockPos.PooledMutable blockpos$pooledmutableblockpos = BlockPos.PooledMutable.retain()) {
             for (int k1 = i; k1 < j; ++k1) {
                 for (int l1 = k; l1 < l; ++l1) {
                     for (int i2 = i1; i2 < j1; ++i2) {
@@ -488,7 +488,7 @@ public class BoatEntityBOP extends BoatEntity {
         int j1 = MathHelper.ceil(axisalignedbb.maxZ);
         boolean flag = false;
 
-        try (BlockPos.PooledMutableBlockPos blockpos$pooledmutableblockpos = BlockPos.PooledMutableBlockPos.retain()) {
+        try (BlockPos.PooledMutable blockpos$pooledmutableblockpos = BlockPos.PooledMutable.retain()) {
             for (int k1 = i; k1 < j; ++k1) {
                 for (int l1 = k; l1 < l; ++l1) {
                     for (int i2 = i1; i2 < j1; ++i2) {

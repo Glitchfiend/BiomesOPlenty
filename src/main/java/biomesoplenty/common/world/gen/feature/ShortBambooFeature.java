@@ -44,7 +44,7 @@ public class ShortBambooFeature extends Feature<NoFeatureConfig>
 
         pos = pos.up();
 
-        BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos(pos);
+        BlockPos.Mutable blockpos$mutableblockpos = new BlockPos.Mutable(pos);
         if (world.isAirBlock(blockpos$mutableblockpos))
         {
             if (Blocks.BAMBOO.getDefaultState().isValidPosition(world, blockpos$mutableblockpos))

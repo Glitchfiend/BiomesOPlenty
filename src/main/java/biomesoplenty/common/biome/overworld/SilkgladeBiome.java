@@ -82,7 +82,7 @@ public class SilkgladeBiome extends BiomeBOP
     @OnlyIn(Dist.CLIENT)
     @Override
     public int getGrassColor(BlockPos pos) {
-       double d0 = INFO_NOISE.getValue((double)pos.getX() * 0.0225D, (double)pos.getZ() * 0.0225D);
+       double d0 = INFO_NOISE.noiseAt((double)pos.getX() * 0.0225D, (double)pos.getZ() * 0.0225D);
        return d0 < -0.1D ? 0xB2B39F : 0x939F76;
     }
 
@@ -90,7 +90,7 @@ public class SilkgladeBiome extends BiomeBOP
     @Override
     public int getFoliageColor(BlockPos pos)
     {
-        double d0 = INFO_NOISE.getValue((double)pos.getX() * 0.0225D, (double)pos.getZ() * 0.0225D);
+        double d0 = INFO_NOISE.noiseAt((double)pos.getX() * 0.0225D, (double)pos.getZ() * 0.0225D);
         return d0 < -0.1D ? 0xDEE1C6 : 0xBCCD98;
     }
 }

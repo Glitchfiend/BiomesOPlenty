@@ -2,7 +2,7 @@ apply plugin: 'java'
 apply plugin: 'maven'
  
 ext.channel = 'snapshot'
-ext.dlVersion = '2'
+ext.dlVersion = '3'
 ext.mcVersion = '1.15.1'
  
 group = 'de.oceanlabs.mcp'
@@ -11,7 +11,7 @@ archivesBaseName = 'mcp_' + ext.channel
  
 def downloadCSV(name) {
     mkdir 'mcp'
-    def out = new File('mcp/' + name)
+    def out = new File("$projectDir/mcp/" + name)
     new URL('http://export.mcpbot.bspk.rs/' + name).withInputStream{ i -> out.withOutputStream{ it << i }}
 }
 

@@ -34,7 +34,7 @@ public class BigRedMushroomNetherFeature extends Feature<BigMushroomFeatureConfi
          if (!Block.isDirt(block) && block != Blocks.NETHERRACK && block != Blocks.SOUL_SAND) {
             return false;
          } else {
-            BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
+            BlockPos.Mutable blockpos$mutableblockpos = new BlockPos.Mutable();
 
             for(int k = 0; k <= i; ++k) {
                int l = 0;

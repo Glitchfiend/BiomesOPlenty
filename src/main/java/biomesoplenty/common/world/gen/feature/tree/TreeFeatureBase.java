@@ -19,12 +19,13 @@ import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.IWorldGenerationReader;
 import net.minecraft.world.gen.feature.AbstractTreeFeature;
+import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 
 import java.util.Random;
 import java.util.Set;
 
-public abstract class TreeFeatureBase extends AbstractTreeFeature<NoFeatureConfig>
+public abstract class TreeFeatureBase extends AbstractTreeFeature<BaseTreeFeatureConfig>
 {
     protected static abstract class BuilderBase<T extends BuilderBase, F extends TreeFeatureBase>
     {
@@ -104,7 +105,7 @@ public abstract class TreeFeatureBase extends AbstractTreeFeature<NoFeatureConfi
 
     protected TreeFeatureBase(boolean notify, IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState altLeaves, BlockState vine, BlockState hanging, BlockState trunkFruit, int minHeight, int maxHeight)
     {
-        super(NoFeatureConfig::deserialize, notify);
+        super(BaseTreeFeatureConfig::deserialize, notify);
 
         this.placeOn = placeOn;
         this.replace = replace;

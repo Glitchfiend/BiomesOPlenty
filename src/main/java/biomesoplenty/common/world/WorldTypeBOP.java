@@ -30,8 +30,7 @@ public class WorldTypeBOP extends WorldType
     	if (world.getDimension().getType() == DimensionType.OVERWORLD)
     	{
 	        OverworldGenSettings overworldGenSettings = new OverworldGenSettings();
-	        OverworldBiomeProviderSettings biomeProviderSettings = new OverworldBiomeProviderSettings();
-	        biomeProviderSettings.setWorldInfo(world.getWorldInfo());
+	        OverworldBiomeProviderSettings biomeProviderSettings = new OverworldBiomeProviderSettings(world.getWorldInfo());
 	        biomeProviderSettings.setGeneratorSettings(overworldGenSettings);
 	
 	        return new ChunkGeneratorOverworldBOP(world, new BOPBiomeProvider(biomeProviderSettings), overworldGenSettings);
@@ -43,8 +42,7 @@ public class WorldTypeBOP extends WorldType
 			nethergensettings.setDefaultFluid(Blocks.LAVA.getDefaultState());
 
 			// The nether shares biome provider settings with the overworld
-			OverworldBiomeProviderSettings biomeProviderSettings = new OverworldBiomeProviderSettings();
-			biomeProviderSettings.setWorldInfo(world.getWorldInfo());
+			OverworldBiomeProviderSettings biomeProviderSettings = new OverworldBiomeProviderSettings(world.getWorldInfo());
 
 			return ChunkGeneratorType.CAVES.create(world, new NetherBiomeProvider(biomeProviderSettings), nethergensettings);
 		}

@@ -157,7 +157,7 @@ public class BiomeMapColours
 
     public static int getTopColour(Biome biome)
     {
-        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(0,64,0);
+        BlockPos.Mutable pos = new BlockPos.Mutable(0,64,0);
         return getBiomeBlockColourForCoords(biome, pos);
     }
 
