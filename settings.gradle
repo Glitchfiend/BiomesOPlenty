@@ -1,0 +1,3 @@
+include 'mappings'
+
+gradle.startParameter.taskNames = [":mappings:build", ":mappings:install"] + gradle.startParameter.taskNames

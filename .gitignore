@@ -19,3 +19,7 @@
 *.iws
 
 *.launch
+mappings/.gradle/
+mappings/mcp/
+mappings/build/
+mappings/*.csv
