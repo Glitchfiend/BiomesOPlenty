@@ -14,25 +14,27 @@ import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
+import net.minecraft.world.gen.feature.DefaultFlowersFeature;
 import net.minecraft.world.gen.feature.FlowersFeature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 
 import java.util.Random;
 import java.util.function.Function;
 
-public class WetlandFlowersFeature extends FlowersFeature
+public class WetlandFlowersFeature extends DefaultFlowersFeature
 {
 	private static final Block[] FLOWERS = new Block[]{Blocks.BLUE_ORCHID, Blocks.DANDELION, Blocks.POPPY};
 
-	public WetlandFlowersFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserializer)
+	public WetlandFlowersFeature(Function<Dynamic<?>, ? extends BlockClusterFeatureConfig> deserializer)
 	{
 		super(deserializer);
 	}
 
 	@Override
-	public BlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_)
+	public BlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_, BlockClusterFeatureConfig config)
 	{
-		double d0 = MathHelper.clamp((1.0D + Biome.INFO_NOISE.noiseAt((double)p_202355_2_.getX() / 48.0D, (double)p_202355_2_.getZ() / 48.0D)) / 2.0D, 0.0D, 0.9999D);
+		double d0 = MathHelper.clamp((1.0D + Biome.INFO_NOISE.noiseAt((double)p_202355_2_.getX() / 48.0D, (double)p_202355_2_.getZ() / 48.0D, false)) / 2.0D, 0.0D, 0.9999D);
 		Block block = FLOWERS[(int)(d0 * (double)FLOWERS.length)];
 		return block.getDefaultState();
 	}

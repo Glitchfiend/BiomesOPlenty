@@ -13,6 +13,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.provider.BiomeProvider;
+import net.minecraft.world.server.ServerChunkProvider;
+
+import java.util.Set;
 
 public class BiomeUtil
 {
@@ -33,16 +36,19 @@ public class BiomeUtil
     // stop when the specified biome is found (and return the position it was found at) or when we reach maxDistance (and return null)
     public static BlockPos spiralOutwardsLookingForBiome(World world, Biome biomeToFind, double startX, double startZ, int maxDist, int sampleSpace)
     {
-
         if (maxDist <= 0 || sampleSpace <= 0) {throw new IllegalArgumentException("maxDist and sampleSpace must be positive");}
-        BiomeProvider chunkManager = world.getChunkProvider().getChunkGenerator().getBiomeProvider();
+
+        if (world.isRemote || !(world.getChunkProvider() instanceof ServerChunkProvider))
+            return null;
+
+        BiomeProvider chunkManager = ((ServerChunkProvider)world.getChunkProvider()).getChunkGenerator().getBiomeProvider();
         double a = sampleSpace / Math.sqrt(Math.PI);
         double b = 2 * Math.sqrt(Math.PI);
         double x = 0;
         double z = 0;
         double dist = 0;
         int n = 0;
-        String biomeName = world.isRemote ? biomeToFind.getDisplayName().getString() : "biome";
+        String biomeName = "biome";
         for (n = 0; dist < maxDist; ++n)
         {
             double rootN = Math.sqrt(n);
@@ -52,10 +58,9 @@ public class BiomeUtil
             // chunkManager.genBiomes is the first layer returned from initializeAllBiomeGenerators()
             // chunkManager.biomeIndexLayer is the second layer returned from initializeAllBiomeGenerators(), it's zoomed twice from genBiomes (>> 2) this one is actual size
             // chunkManager.getBiomeGenAt uses biomeIndexLayer to get the biome
-            Biome[] biomesAtSample = chunkManager.getBiomes((int)x, (int)z, 1, 1, false);
-            if (biomesAtSample[0] == biomeToFind)
+            Set<Biome> biomesAtSample = chunkManager.getBiomesWithin((int)x, (int)z, 1, 1);
+            if (biomesAtSample.contains(biomeToFind))
             {
-
                 BiomesOPlenty.logger.info("Found "+ biomeName +" after "+n+" samples, spaced "+sampleSpace+" blocks apart at ("+((int)x)+","+((int)z)+") distance "+((int)dist));
                 return new BlockPos((int)x, 0, (int)z);
             }

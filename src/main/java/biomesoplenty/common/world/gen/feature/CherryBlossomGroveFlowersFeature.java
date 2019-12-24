@@ -12,21 +12,23 @@ import com.mojang.datafixers.Dynamic;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
+import net.minecraft.world.gen.feature.DefaultFlowersFeature;
 import net.minecraft.world.gen.feature.FlowersFeature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 
 import java.util.Random;
 import java.util.function.Function;
 
-public class CherryBlossomGroveFlowersFeature extends FlowersFeature
+public class CherryBlossomGroveFlowersFeature extends DefaultFlowersFeature
 {
-    public CherryBlossomGroveFlowersFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserializer)
+    public CherryBlossomGroveFlowersFeature(Function<Dynamic<?>, ? extends BlockClusterFeatureConfig> deserializer)
     {
         super(deserializer);
     }
 
     @Override
-	public BlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_)
+	public BlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_, BlockClusterFeatureConfig config)
 	{
          int j = p_202355_1_.nextInt(2);
          switch(j)

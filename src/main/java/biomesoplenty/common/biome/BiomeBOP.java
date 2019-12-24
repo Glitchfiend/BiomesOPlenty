@@ -11,6 +11,11 @@ import biomesoplenty.api.enums.BOPClimates;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.IFeatureConfig;
+import net.minecraft.world.gen.placement.IPlacementConfig;
+import net.minecraft.world.gen.placement.Placement;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,6 +32,11 @@ public class BiomeBOP extends Biome
     {
         super(builder);
         this.canSpawnInBiome = true;
+    }
+
+    public static <FC extends IFeatureConfig, F extends Feature<FC>, DC extends IPlacementConfig> ConfiguredFeature<?, ?> createDecoratedFeature(Feature<FC> featureIn, FC config, Placement<DC> placementIn, DC placementConfig)
+    {
+        return featureIn.configured(config).decorated(placementIn.func_227446_a_(placementConfig));
     }
 
     public void addWeight(BOPClimates climate, int weight)

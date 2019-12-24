@@ -53,7 +53,7 @@ public class CommandTpBiome
     private static int findTeleportBiome(CommandSource cs, ServerPlayerEntity player, Biome biome)
     {
         World world = player.world;
-        BlockPos closestBiomePos = biome == null ? null : BiomeUtil.spiralOutwardsLookingForBiome(world, biome, player.posX, player.posZ);
+        BlockPos closestBiomePos = biome == null ? null : BiomeUtil.spiralOutwardsLookingForBiome(world, biome, player.getPosition().getX(), player.getPosition().getZ());
         String biomeName = biome != null && world.isRemote ? biome.getDisplayName().toString() : biome.getRegistryName().toString();
 
         if (closestBiomePos != null)

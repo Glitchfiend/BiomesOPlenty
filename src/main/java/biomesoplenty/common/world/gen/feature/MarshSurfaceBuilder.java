@@ -28,7 +28,7 @@ public class MarshSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
 	@Override
 	public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config)
 	{
-		double d0 = Biome.INFO_NOISE.noiseAt((double)x * 0.25D, (double)z * 0.25D);
+		double d0 = Biome.INFO_NOISE.noiseAt((double)x * 0.25D, (double)z * 0.25D, false);
 		if (d0 > 0.0D) {
 			int i = x & 15;
 			int j = z & 15;
