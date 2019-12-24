@@ -2,7 +2,7 @@ apply plugin: 'java'
 apply plugin: 'maven'
  
 ext.channel = 'snapshot'
-ext.dlVersion = '4'
+ext.dlVersion = '5'
 ext.mcVersion = '1.15.1'
  
 group = 'de.oceanlabs.mcp'
