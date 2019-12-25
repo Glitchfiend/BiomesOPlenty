@@ -39,16 +39,16 @@ public class WastelandBiome extends BiomeBOP
         super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, BOPBiomeFeatures.DRIED_SAND_GRAVEL_SURFACE)).precipitation(Biome.RainType.NONE).category(Biome.Category.DESERT).depth(0.0F).scale(-0.05F).temperature(2.0F).downfall(0.0F).waterColor(0x433721).waterFogColor(0x0C0C03).parent((String)null));
 
         // Structures
-        this.addStructure(Feature.MINESHAFT, new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL));
-        this.addStructure(Feature.STRONGHOLD, IFeatureConfig.NO_FEATURE_CONFIG);
+        this.addStructureStart(Feature.MINESHAFT.configured(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
+        this.addStructureStart(Feature.STRONGHOLD.configured(IFeatureConfig.NO_FEATURE_CONFIG));
 
         // Underground
-        DefaultBiomeFeatures.addCarvers(this);
-        DefaultBiomeFeatures.addStructures(this);
-        DefaultBiomeFeatures.addLakes(this);
-        DefaultBiomeFeatures.addMonsterRooms(this);
-        DefaultBiomeFeatures.addStoneVariants(this);
-        DefaultBiomeFeatures.addOres(this);
+        DefaultBiomeFeatures.addDefaultCarvers(this);
+        DefaultBiomeFeatures.addStructureFeaturePlacement(this);
+        DefaultBiomeFeatures.addDefaultLakes(this);
+        DefaultBiomeFeatures.addDefaultMonsterRoom(this);
+        DefaultBiomeFeatures.addDefaultUndergroundVariety(this);
+        DefaultBiomeFeatures.addDefaultOres(this);
 
         ////////////////////////////////////////////////////////////
 
@@ -60,9 +60,9 @@ public class WastelandBiome extends BiomeBOP
         ////////////////////////////////////////////////////////////
 
         // Other Features
-        DefaultBiomeFeatures.addSprings(this);
-        DefaultBiomeFeatures.addFossils(this);
-        DefaultBiomeFeatures.addFreezeTopLayer(this);
+        DefaultBiomeFeatures.addDefaultSprings(this);
+        DefaultBiomeFeatures.addSwampExtraDecoration(this);
+        DefaultBiomeFeatures.addSurfaceFreezing(this);
 
         // Entities
         this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.SPIDER, 100, 4, 4));
@@ -88,14 +88,14 @@ public class WastelandBiome extends BiomeBOP
     
     @OnlyIn(Dist.CLIENT)
     @Override
-    public int getGrassColor(BlockPos pos)
+    public int getGrassColor(double x, double z)
     {
     	return 0xAD9364;
     }
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public int getFoliageColor(BlockPos pos)
+    public int getFoliageColor()
     {
     	return 0xB5A76C;
     }

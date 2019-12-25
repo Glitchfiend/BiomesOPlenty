@@ -36,7 +36,7 @@ public class BiomeBOP extends Biome
 
     public static <FC extends IFeatureConfig, F extends Feature<FC>, DC extends IPlacementConfig> ConfiguredFeature<?, ?> createDecoratedFeature(Feature<FC> featureIn, FC config, Placement<DC> placementIn, DC placementConfig)
     {
-        return featureIn.configured(config).decorated(placementIn.func_227446_a_(placementConfig));
+        return featureIn.configured(config).decorated(placementIn.configured(placementConfig));
     }
 
     public void addWeight(BOPClimates climate, int weight)

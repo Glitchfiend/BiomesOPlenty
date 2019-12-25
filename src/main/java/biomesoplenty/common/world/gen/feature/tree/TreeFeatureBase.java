@@ -39,7 +39,6 @@ public abstract class TreeFeatureBase extends AbstractTreeFeature<BaseTreeFeatur
         protected BlockState altLeaves;
         protected int minHeight;
         protected int maxHeight;
-        protected boolean updateNeighbours;
 
         public BuilderBase()
         {
@@ -51,7 +50,6 @@ public abstract class TreeFeatureBase extends AbstractTreeFeature<BaseTreeFeatur
             this.hanging = Blocks.AIR.getDefaultState();
             this.trunkFruit = Blocks.AIR.getDefaultState();
             this.altLeaves = Blocks.AIR.getDefaultState();
-            this.updateNeighbours = false;
         }
 
         public T placeOn(IBlockPosQuery a) {this.placeOn = a; return (T)this;}
@@ -83,8 +81,6 @@ public abstract class TreeFeatureBase extends AbstractTreeFeature<BaseTreeFeatur
         public T minHeight(int a) {this.minHeight = a; return (T)this;}
         public T maxHeight(int a) {this.maxHeight = a; return (T)this;}
 
-        public T updateNeighbours(boolean a) {this.updateNeighbours = a; return (T)this;}
-
         abstract F create();
     }
 
@@ -103,9 +99,9 @@ public abstract class TreeFeatureBase extends AbstractTreeFeature<BaseTreeFeatur
 
     protected IProperty logAxisProperty;
 
-    protected TreeFeatureBase(boolean notify, IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState altLeaves, BlockState vine, BlockState hanging, BlockState trunkFruit, int minHeight, int maxHeight)
+    protected TreeFeatureBase(IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState altLeaves, BlockState vine, BlockState hanging, BlockState trunkFruit, int minHeight, int maxHeight)
     {
-        super(BaseTreeFeatureConfig::deserialize, notify);
+        super(BaseTreeFeatureConfig::deserialize);
 
         this.placeOn = placeOn;
         this.replace = replace;
@@ -142,7 +138,8 @@ public abstract class TreeFeatureBase extends AbstractTreeFeature<BaseTreeFeatur
         {
             // Logs must be added to the "changedBlocks" so that the leaves have their distance property updated,
             // preventing incorrect decay
-            this.setLogState(changedBlocks, world, pos, directedLog, boundingBox);
+            this.placeLog(world, world.getRandom(), pos, changedBlocks, boundingBox)
+            this.placeLog(changedBlocks, world, pos, directedLog, boundingBox);
             return true;
         }
         return false;
@@ -195,6 +192,12 @@ public abstract class TreeFeatureBase extends AbstractTreeFeature<BaseTreeFeatur
     protected boolean place(Set<BlockPos> changedBlocks, IWorldGenerationReader world, Random rand, BlockPos position, MutableBoundingBox boundingBox)
     {
         return place(changedBlocks, (IWorld)world, rand, position, boundingBox);
+    }
+
+    @Override
+    protected boolean doPlace(IWorldGenerationReader reader, Random random, BlockPos pos, Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, MutableBoundingBox boundingBox, BaseTreeFeatureConfig config)
+    {
+
     }
 
     protected boolean place(Set<BlockPos> changedBlocks, IWorld world, Random rand, BlockPos position, MutableBoundingBox boundingBox)
