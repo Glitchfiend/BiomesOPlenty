@@ -9,8 +9,6 @@ package biomesoplenty.init;
 
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.BiomeBOP;
-import biomesoplenty.common.biome.end.DeadReefBiome;
-import biomesoplenty.common.biome.end.EtherealForestBiome;
 import biomesoplenty.common.biome.nether.*;
 import biomesoplenty.common.biome.overworld.*;
 import biomesoplenty.common.world.WorldTypeBOP;
@@ -124,10 +122,6 @@ public class ModBiomes
         undergarden = registerBiome(new UndergardenBiome(), "undergarden");
         visceral_heap = registerBiome(new VisceralHeapBiome(), "visceral_heap");
 
-        //End Biomes
-        dead_reef = registerBiome(new DeadReefBiome(), "dead_reef");
-        ethereal_forest = registerBiome(new EtherealForestBiome(), "ethereal_forest");
-
         //Sub/Island Biomes (Note: Rarity supports two decimal places)
         registerSubBiome(Biomes.DESERT, oasis, 0.1F, 100);
         registerSubBiome(brushland, xeric_shrubland, 1.0F, 100);
@@ -224,10 +218,6 @@ public class ModBiomes
         registerBiomeToDictionary(glowstone_grotto, Type.NETHER, Type.HOT);
         registerBiomeToDictionary(undergarden, Type.NETHER, Type.HOT);
         registerBiomeToDictionary(visceral_heap, Type.NETHER, Type.HOT);
-
-        //End Biomes
-        registerBiomeToDictionary(dead_reef, Type.END);
-        registerBiomeToDictionary(ethereal_forest, Type.END);
     }
     
     private static void registerBiomeToDictionary(Optional<Biome> biome, Type...types)

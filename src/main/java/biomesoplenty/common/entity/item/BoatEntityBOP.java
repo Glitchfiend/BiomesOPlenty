@@ -170,8 +170,6 @@ public class BoatEntityBOP extends BoatEntity {
                 return BOPItems.umbran_boat;
             case HELLBARK:
                 return BOPItems.hellbark_boat;
-            case ETHEREAL:
-                return BOPItems.ethereal_boat;
         }
     }
 
@@ -782,8 +780,7 @@ public class BoatEntityBOP extends BoatEntity {
         DEAD(BOPBlocks.dead_planks, "dead"),
         MAGIC(BOPBlocks.magic_planks, "magic"),
         UMBRAN(BOPBlocks.umbran_planks, "umbran"),
-        HELLBARK(BOPBlocks.hellbark_planks, "hellbark"),
-        ETHEREAL(BOPBlocks.ethereal_planks, "ethereal");
+        HELLBARK(BOPBlocks.hellbark_planks, "hellbark");
 
         private final String name;
         private final Block block;
