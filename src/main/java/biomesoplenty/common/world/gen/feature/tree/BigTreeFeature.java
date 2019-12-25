@@ -48,7 +48,7 @@ public class BigTreeFeature extends TreeFeatureBase
         @Override
         public BigTreeFeature create()
         {
-            return new BigTreeFeature(this.updateNeighbours, this.placeOn, this.replace, this.log, this.leaves, this.altLeaves, this.vine, this.hanging, this.trunkFruit, this.minHeight, this.maxHeight, this.trunkWidth, this.foliageHeight, this.foliageDensity);
+            return new BigTreeFeature(this.placeOn, this.replace, this.log, this.leaves, this.altLeaves, this.vine, this.hanging, this.trunkFruit, this.minHeight, this.maxHeight, this.trunkWidth, this.foliageHeight, this.foliageDensity);
         }
     }
 
@@ -61,9 +61,9 @@ public class BigTreeFeature extends TreeFeatureBase
     private int foliageHeight;
     private double foliageDensity;
 
-    protected BigTreeFeature(boolean notify, IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState altLeaves, BlockState vine, BlockState hanging, BlockState trunkFruit, int minHeight, int maxHeight, int trunkWidth, int foliageHeight, double foliageDensity)
+    protected BigTreeFeature(IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState altLeaves, BlockState vine, BlockState hanging, BlockState trunkFruit, int minHeight, int maxHeight, int trunkWidth, int foliageHeight, double foliageDensity)
     {
-        super(notify, placeOn, replace, log, leaves, altLeaves, vine, hanging, trunkFruit, minHeight, maxHeight);
+        super(placeOn, replace, log, leaves, altLeaves, vine, hanging, trunkFruit, minHeight, maxHeight);
         this.foliageHeight = foliageHeight;
         this.foliageDensity = foliageDensity;
         this.trunkWidth = trunkWidth;
@@ -99,16 +99,16 @@ public class BigTreeFeature extends TreeFeatureBase
 
                             if (rand == 0)
                             {
-                                this.setLogState(changedBlocks, world, blockpos, this.altLeaves, boundingBox);
+                                this.setBlock(world, blockpos, this.altLeaves, changedBlocks, boundingBox);
                             }
                             else
                             {
-                                this.setLogState(changedBlocks, world, blockpos, this.leaves, boundingBox);
+                                this.setBlock(world, blockpos, this.leaves, changedBlocks, boundingBox);
                             }
                         }
                         else
                         {
-                            this.setLogState(changedBlocks, world, blockpos, this.leaves, boundingBox);
+                            this.setBlock(world, blockpos, this.leaves, changedBlocks, boundingBox);
                         }
                     }
                 }
@@ -221,7 +221,7 @@ public class BigTreeFeature extends TreeFeatureBase
                 {
                     this.setLog(changedBlocks, world, deltaPos, this.getLogAxis(startPos, deltaPos), boundingBox);
                 }
-                else if (!this.func_214587_a(world, deltaPos))
+                else if (!this.isFree(world, deltaPos))
                 {
                     return j;
                 }
@@ -325,10 +325,10 @@ public class BigTreeFeature extends TreeFeatureBase
     }
 
     @Override
-    protected boolean place(Set<BlockPos> changedBlocks, IWorld world, Random rand, BlockPos pos, MutableBoundingBox boundingBox)
+    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, IWorld world, Random rand, BlockPos pos, MutableBoundingBox boundingBox)
     {
         Random random = new Random(rand.nextLong());
-        int height = this.checkLocation(changedBlocks, world, pos, this.minHeight + random.nextInt(this.maxHeight), boundingBox);
+        int height = this.checkLocation(changedLogs, world, pos, this.minHeight + random.nextInt(this.maxHeight), boundingBox);
         if (height == -1) {
             return false;
         } else {
@@ -374,7 +374,7 @@ public class BigTreeFeature extends TreeFeatureBase
                     final BlockPos checkEnd = checkStart.up(5);
 
                     // check the center column of the cluster for obstructions.
-                    if (this.checkLineAndOptionallySet(changedBlocks, world, checkStart, checkEnd, false, boundingBox) == -1)
+                    if (this.checkLineAndOptionallySet(changedLogs, world, checkStart, checkEnd, false, boundingBox) == -1)
                     {
                         // If the cluster can be created, check the branch path for obstructions.
                         final int dx = pos.getX() - checkStart.getX();
@@ -385,7 +385,7 @@ public class BigTreeFeature extends TreeFeatureBase
                         final BlockPos checkBranchBase = new BlockPos(pos.getX(), branchTop, pos.getZ());
 
                         // Now check the branch path
-                        if (this.checkLineAndOptionallySet(changedBlocks, world, checkBranchBase, checkStart, false, boundingBox) == -1)
+                        if (this.checkLineAndOptionallySet(changedLogs, world, checkBranchBase, checkStart, false, boundingBox) == -1)
                         {
                             // If the branch path is clear, add the position to the list of foliage positions
                             foliageCoords.add(new FoliageCoordinates(checkStart, checkBranchBase.getY()));
@@ -394,9 +394,9 @@ public class BigTreeFeature extends TreeFeatureBase
                 }
             }
 
-            this.makeFoliage(world, height, pos, foliageCoords, boundingBox, changedBlocks);
-            this.makeTrunk(changedBlocks, world, pos, trunkHeight, boundingBox);
-            this.makeBranches(changedBlocks, world, height, pos, foliageCoords, boundingBox);
+            this.makeFoliage(world, height, pos, foliageCoords, boundingBox, changedLeaves);
+            this.makeTrunk(changedLogs, world, pos, trunkHeight, boundingBox);
+            this.makeBranches(changedLogs, world, height, pos, foliageCoords, boundingBox);
             return true;
         }
     }

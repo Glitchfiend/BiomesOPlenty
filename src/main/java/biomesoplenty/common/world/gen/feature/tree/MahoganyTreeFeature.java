@@ -33,16 +33,16 @@ public class MahoganyTreeFeature extends BasicTreeFeature
         @Override
         public MahoganyTreeFeature create()
         {
-            return new MahoganyTreeFeature(this.updateNeighbours, this.placeOn, this.replace, this.log, this.leaves, this.altLeaves, this.vine, this.hanging, this.trunkFruit, this.minHeight, this.maxHeight, this.leafLayers, this.leavesOffset, this.maxLeavesRadius, this.leavesLayerHeight, this.placeVinesOn, this.hangingChance);
+            return new MahoganyTreeFeature(this.placeOn, this.replace, this.log, this.leaves, this.altLeaves, this.vine, this.hanging, this.trunkFruit, this.minHeight, this.maxHeight, this.leafLayers, this.leavesOffset, this.maxLeavesRadius, this.leavesLayerHeight, this.placeVinesOn, this.hangingChance);
         }
     }
 
-    protected MahoganyTreeFeature(boolean notify, IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log,
+    protected MahoganyTreeFeature(IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log,
                                BlockState leaves, BlockState altLeaves, BlockState vine, BlockState hanging, BlockState trunkFruit,
                                int minHeight, int maxHeight, int leafLayers, int leavesOffset, int maxLeavesRadius, int leavesLayerHeight,
                                IBlockPosQuery placeVinesOn, float hangingChance)
     {
-        super(notify, placeOn, replace, log, leaves, altLeaves, vine, hanging, trunkFruit, minHeight, maxHeight, leafLayers, leavesOffset, maxLeavesRadius, leavesLayerHeight, placeVinesOn, hangingChance);
+        super(placeOn, replace, log, leaves, altLeaves, vine, hanging, trunkFruit, minHeight, maxHeight, leafLayers, leavesOffset, maxLeavesRadius, leavesLayerHeight, placeVinesOn, hangingChance);
     }
 
     @Override

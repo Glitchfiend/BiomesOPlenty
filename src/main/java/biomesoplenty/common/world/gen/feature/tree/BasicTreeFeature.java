@@ -25,7 +25,7 @@ public class BasicTreeFeature extends TreeFeatureBase
         @Override
         public BasicTreeFeature create()
         {
-            return new BasicTreeFeature(this.updateNeighbours, this.placeOn, this.replace, this.log, this.leaves, this.altLeaves, this.vine, this.hanging, this.trunkFruit, this.minHeight, this.maxHeight, this.leafLayers, this.leavesOffset, this.maxLeavesRadius, this.leavesLayerHeight, this.placeVinesOn, this.hangingChance);
+            return new BasicTreeFeature(this.placeOn, this.replace, this.log, this.leaves, this.altLeaves, this.vine, this.hanging, this.trunkFruit, this.minHeight, this.maxHeight, this.leafLayers, this.leavesOffset, this.maxLeavesRadius, this.leavesLayerHeight, this.placeVinesOn, this.hangingChance);
         }
     }
 
@@ -55,7 +55,6 @@ public class BasicTreeFeature extends TreeFeatureBase
             };
             this.minHeight = 4;
             this.maxHeight = 7;
-            this.updateNeighbours = false;
             this.leafLayers = 4;
             this.leavesOffset = 1;
             this.maxLeavesRadius = 1;
@@ -76,12 +75,12 @@ public class BasicTreeFeature extends TreeFeatureBase
     protected IBlockPosQuery placeVinesOn;
     protected float hangingChance;
 
-    protected BasicTreeFeature(boolean notify, IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log,
+    protected BasicTreeFeature(IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log,
         BlockState leaves, BlockState altLeaves, BlockState vine, BlockState hanging, BlockState trunkFruit,
         int minHeight, int maxHeight, int leafLayers, int leavesOffset, int maxLeavesRadius, int leavesLayerHeight,
         IBlockPosQuery placeVinesOn, float hangingChance)
     {
-        super(notify, placeOn, replace, log, leaves, altLeaves, vine, hanging, trunkFruit, minHeight, maxHeight);
+        super(placeOn, replace, log, leaves, altLeaves, vine, hanging, trunkFruit, minHeight, maxHeight);
 
         this.leafLayers = leafLayers;
         this.leavesOffset = leavesOffset;
@@ -92,7 +91,7 @@ public class BasicTreeFeature extends TreeFeatureBase
     }
 
     @Override
-    protected boolean place(Set<BlockPos> changedBlocks, IWorld world, Random random, BlockPos pos, MutableBoundingBox boundingBox)
+    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, IWorld world, Random random, BlockPos pos, MutableBoundingBox boundingBox)
     {
         int height = random.nextInt(this.maxHeight - this.minHeight) + this.minHeight;
         boolean hasSpace = true;
@@ -199,7 +198,7 @@ public class BasicTreeFeature extends TreeFeatureBase
                         }
                     }
 
-                    this.generateTrunk(changedBlocks, boundingBox, world, pos, height);
+                    this.generateTrunk(changedLogs, boundingBox, world, pos, height);
 
                     if (this.vine != Blocks.AIR.getDefaultState())
                     {

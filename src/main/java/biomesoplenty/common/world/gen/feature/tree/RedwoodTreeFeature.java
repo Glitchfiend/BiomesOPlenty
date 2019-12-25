@@ -43,16 +43,16 @@ public class RedwoodTreeFeature extends TreeFeatureBase
         @Override
         public RedwoodTreeFeature create()
         {
-            return new RedwoodTreeFeature(this.updateNeighbours, this.placeOn, this.replace, this.log, this.leaves, this.altLeaves, this.vine, this.hanging, this.trunkFruit, this.minHeight, this.maxHeight, this.trunkWidth);
+            return new RedwoodTreeFeature(this.placeOn, this.replace, this.log, this.leaves, this.altLeaves, this.vine, this.hanging, this.trunkFruit, this.minHeight, this.maxHeight, this.trunkWidth);
         }
 
     }
 
     private int trunkWidth = 1;
 
-    protected RedwoodTreeFeature(boolean notify, IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState altLeaves, BlockState vine, BlockState hanging, BlockState trunkFruit, int minHeight, int maxHeight, int trunkWidth)
+    protected RedwoodTreeFeature(IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState altLeaves, BlockState vine, BlockState hanging, BlockState trunkFruit, int minHeight, int maxHeight, int trunkWidth)
     {
-        super(notify, placeOn, replace, log, leaves, altLeaves, vine, hanging, trunkFruit, minHeight, maxHeight);
+        super(placeOn, replace, log, leaves, altLeaves, vine, hanging, trunkFruit, minHeight, maxHeight);
         this.trunkWidth = trunkWidth;
     }
 
@@ -135,7 +135,7 @@ public class RedwoodTreeFeature extends TreeFeatureBase
 
 
     @Override
-    protected boolean place(Set<BlockPos> changedBlocks, IWorld world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
+    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, IWorld world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
     {
         // Move down until we reach the ground
         while (startPos.getY() > 1 && world.isAirBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES) {startPos = startPos.down();}
@@ -191,10 +191,10 @@ public class RedwoodTreeFeature extends TreeFeatureBase
             }
             else
             {
-	            this.generateBranch(changedBlocks, boundingBox, world, random, pos.add(trunkStart, 0, trunkStart), Direction.NORTH, radius);
-	            this.generateBranch(changedBlocks, boundingBox, world, random, pos.add(trunkEnd, 0, trunkStart), Direction.EAST, radius);
-	            this.generateBranch(changedBlocks, boundingBox, world, random, pos.add(trunkEnd, 0, trunkEnd), Direction.SOUTH, radius);
-	            this.generateBranch(changedBlocks, boundingBox, world, random, pos.add(trunkStart, 0, trunkEnd), Direction.WEST, radius);
+	            this.generateBranch(changedLogs, boundingBox, world, random, pos.add(trunkStart, 0, trunkStart), Direction.NORTH, radius);
+	            this.generateBranch(changedLogs, boundingBox, world, random, pos.add(trunkEnd, 0, trunkStart), Direction.EAST, radius);
+	            this.generateBranch(changedLogs, boundingBox, world, random, pos.add(trunkEnd, 0, trunkEnd), Direction.SOUTH, radius);
+	            this.generateBranch(changedLogs, boundingBox, world, random, pos.add(trunkStart, 0, trunkEnd), Direction.WEST, radius);
             }
             pos = pos.down();
         }
@@ -216,7 +216,7 @@ public class RedwoodTreeFeature extends TreeFeatureBase
             {
                 for (int z = trunkStart; z <= trunkEnd; z++)
                 {
-                    this.setLog(changedBlocks, world, startPos.add(x, y, z), boundingBox);
+                    this.setLog(changedLogs, world, startPos.add(x, y, z), boundingBox);
                 }
             }
         }

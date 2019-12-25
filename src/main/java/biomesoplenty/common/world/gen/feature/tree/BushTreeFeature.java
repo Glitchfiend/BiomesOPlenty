@@ -39,17 +39,17 @@ public class BushTreeFeature extends TreeFeatureBase
             if (this.altLeaves != Blocks.AIR.getDefaultState())
                 this.altLeaves = this.altLeaves;
 
-            return new BushTreeFeature(this.updateNeighbours, this.placeOn, this.replace, this.log, this.leaves, this.altLeaves, this.vine, this.hanging, this.trunkFruit, this.minHeight, this.maxHeight);
+            return new BushTreeFeature(this.placeOn, this.replace, this.log, this.leaves, this.altLeaves, this.vine, this.hanging, this.trunkFruit, this.minHeight, this.maxHeight);
         }
     }
 
-    protected BushTreeFeature(boolean notify, IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState altLeaves, BlockState vine, BlockState hanging, BlockState trunkFruit, int minHeight, int maxHeight)
+    protected BushTreeFeature(IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState altLeaves, BlockState vine, BlockState hanging, BlockState trunkFruit, int minHeight, int maxHeight)
     {
-        super(notify, placeOn, replace, log, leaves, altLeaves, vine, hanging, trunkFruit, minHeight, maxHeight);
+        super(placeOn, replace, log, leaves, altLeaves, vine, hanging, trunkFruit, minHeight, maxHeight);
     }
 
     @Override
-    protected boolean place(Set<BlockPos> changedBlocks, IWorld world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
+    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, IWorld world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
     {
         // Move down until we reach the ground
         while (startPos.getY() > 1 && world.isAirBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.AIR) {startPos = startPos.down();}
@@ -72,7 +72,7 @@ public class BushTreeFeature extends TreeFeatureBase
             // log in the center
             if (height - y > 1)
             {
-                this.setLog(changedBlocks, world, pos.add(0, y, 0), boundingBox);
+                this.setLog(changedLogs, world, pos.add(0, y, 0), boundingBox);
             }
 
             //Reduces the radius closer to the top of the bush

@@ -52,25 +52,23 @@ public class TwigletTreeFeature extends TreeFeatureBase
         @Override
         public TwigletTreeFeature create()
         {
-            return new TwigletTreeFeature(this.updateNeighbours, this.placeOn, this.replace, this.log, this.leaves, this.altLeaves, this.vine, this.hanging, this.trunkFruit, this.minHeight, this.maxHeight, this.leafChanceEven, this.leafChanceOdd);
+            return new TwigletTreeFeature(this.placeOn, this.replace, this.log, this.leaves, this.altLeaves, this.vine, this.hanging, this.trunkFruit, this.minHeight, this.maxHeight, this.leafChanceEven, this.leafChanceOdd);
         }
     }
 
     private float leafChanceEven;
     private float leafChanceOdd;
 
-    protected TwigletTreeFeature(boolean notify, IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState altLeaves, BlockState vine, BlockState hanging, BlockState trunkFruit, int minHeight, int maxHeight, float leafChanceEven, float leafChanceOdd)
+    protected TwigletTreeFeature(IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState altLeaves, BlockState vine, BlockState hanging, BlockState trunkFruit, int minHeight, int maxHeight, float leafChanceEven, float leafChanceOdd)
     {
-        super(notify, placeOn, replace, log, leaves, altLeaves, vine, hanging, trunkFruit, minHeight, maxHeight);
+        super(placeOn, replace, log, leaves, altLeaves, vine, hanging, trunkFruit, minHeight, maxHeight);
         this.leafChanceEven = leafChanceEven;
         this.leafChanceOdd = leafChanceOdd;
     }
 
-
     @Override
-    protected boolean place(Set<BlockPos> changedBlocks, IWorld world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
+    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, IWorld world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
     {
-
         // Move down until we reach the ground
         while (startPos.getY() > 1 && world.isAirBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES)
         {
@@ -94,7 +92,7 @@ public class TwigletTreeFeature extends TreeFeatureBase
         float leafChance;
         for (int y = 0; y < height; y++)
         {
-            if (!this.setLog(changedBlocks, world, pos.up(y), boundingBox))
+            if (!this.setLog(changedLogs, world, pos.up(y), boundingBox))
             {
                 // abandon if the log can't grow
                 return true;

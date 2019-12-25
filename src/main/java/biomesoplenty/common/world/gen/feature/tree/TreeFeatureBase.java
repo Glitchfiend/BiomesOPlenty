@@ -17,10 +17,10 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.IWorld;
+import net.minecraft.world.IWorldWriter;
 import net.minecraft.world.gen.IWorldGenerationReader;
 import net.minecraft.world.gen.feature.AbstractTreeFeature;
 import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
 
 import java.util.Random;
 import java.util.Set;
@@ -138,8 +138,7 @@ public abstract class TreeFeatureBase extends AbstractTreeFeature<BaseTreeFeatur
         {
             // Logs must be added to the "changedBlocks" so that the leaves have their distance property updated,
             // preventing incorrect decay
-            this.placeLog(world, world.getRandom(), pos, changedBlocks, boundingBox)
-            this.placeLog(changedBlocks, world, pos, directedLog, boundingBox);
+            this.setBlock(world, pos, directedLog, changedBlocks, boundingBox);
             return true;
         }
         return false;
@@ -189,19 +188,27 @@ public abstract class TreeFeatureBase extends AbstractTreeFeature<BaseTreeFeatur
     }
 
     @Override
-    protected boolean place(Set<BlockPos> changedBlocks, IWorldGenerationReader world, Random rand, BlockPos position, MutableBoundingBox boundingBox)
-    {
-        return place(changedBlocks, (IWorld)world, rand, position, boundingBox);
-    }
-
-    @Override
     protected boolean doPlace(IWorldGenerationReader reader, Random random, BlockPos pos, Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, MutableBoundingBox boundingBox, BaseTreeFeatureConfig config)
     {
-
+        return place(changedLogs, changedLeaves, (IWorld)reader, random, pos, boundingBox);
     }
 
-    protected boolean place(Set<BlockPos> changedBlocks, IWorld world, Random rand, BlockPos position, MutableBoundingBox boundingBox)
+    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, IWorld world, Random rand, BlockPos position, MutableBoundingBox boundingBox)
     {
         return false;
+    }
+
+    protected boolean setBlock(IWorld world, BlockPos pos, BlockState state, Set<BlockPos> changedBlocks, MutableBoundingBox boundingBox)
+    {
+        if (!isAirOrLeaves(world, pos) && !isTallPlants(world, pos) && !isWater(world, pos))
+        {
+            return false;
+        }
+        else
+        {
+            this.setBlock(world, pos, state, boundingBox);
+            changedBlocks.add(pos.toImmutable());
+            return true;
+        }
     }
 }

@@ -31,7 +31,7 @@ public class PoplarTreeFeature extends TreeFeatureBase
         @Override
         public PoplarTreeFeature create()
         {
-            return new PoplarTreeFeature(this.updateNeighbours, this.placeOn, this.replace, this.log, this.leaves, this.altLeaves, this.vine, this.hanging, this.trunkFruit, this.minHeight, this.maxHeight);
+            return new PoplarTreeFeature(this.placeOn, this.replace, this.log, this.leaves, this.altLeaves, this.vine, this.hanging, this.trunkFruit, this.minHeight, this.maxHeight);
         }
 
     }
@@ -42,7 +42,7 @@ public class PoplarTreeFeature extends TreeFeatureBase
     }
 
     @Override
-    protected boolean place(Set<BlockPos> changedBlocks, IWorld world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
+    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, IWorld world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
     {
         
         // Move down until we reach the ground
@@ -72,7 +72,7 @@ public class PoplarTreeFeature extends TreeFeatureBase
         // Generate bottom of tree (trunk only)
         for(int i = 0; i < baseHeight; i++)
         {
-            this.setLog(changedBlocks, world, pos, boundingBox);
+            this.setLog(changedLogs, world, pos, boundingBox);
             pos = pos.up();
         }
 
@@ -92,7 +92,7 @@ public class PoplarTreeFeature extends TreeFeatureBase
         {
             int radius = radius(i, leavesHeight);
             this.generateLeafLayer(world, pos, radius);
-            if (leavesHeight - i > 2) {this.setLog(changedBlocks, world, pos, boundingBox);}
+            if (leavesHeight - i > 2) {this.setLog(changedLogs, world, pos, boundingBox);}
             pos = pos.up();
         }
         

@@ -14,6 +14,8 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.block.SaplingBlock;
 import net.minecraft.util.Direction;
+import net.minecraft.world.gen.blockplacer.DoublePlantBlockPlacer;
+import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
@@ -131,7 +133,6 @@ public class BOPBiomeFeatures
 	public static final Feature<BigMushroomFeatureConfig> HUGE_BROWN_MUSHROOM_NETHER = new BigBrownMushroomNetherFeature(BigMushroomFeatureConfig::deserialize);
 	public static final Feature<NoFeatureConfig> SCATTERED_NETHER_WART = new NetherWartFeature(NoFeatureConfig::deserialize);
 	public static final Feature<NoFeatureConfig> GLOWSTONE_SPIKES = new GlowstoneSpikesFeature(NoFeatureConfig::deserialize);
-	public static final Feature<DoublePlantConfig> DOUBLE_WATER_PLANT = new DoubleWaterPlantFeature(DoublePlantConfig::deserialize);
 
 	//Flowers
 	public static final FlowersFeature CHAPARRAL_FLOWERS = new ChaparralFlowersFeature(NoFeatureConfig::deserialize);

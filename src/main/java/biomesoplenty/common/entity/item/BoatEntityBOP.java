@@ -211,7 +211,7 @@ public class BoatEntityBOP extends BoatEntity {
             this.setDamageTaken(this.getDamageTaken() - 1.0F);
         }
 
-        this.prevPosX = this.posX;
+        this.prevPosX = this.getPositionVector().getX();
         this.prevPosY = this.posY;
         this.prevPosZ = this.posZ;
 

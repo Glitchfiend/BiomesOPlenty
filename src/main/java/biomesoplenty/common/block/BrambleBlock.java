@@ -15,7 +15,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.pathfinding.PathType;
 import net.minecraft.state.StateContainer;
-import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
@@ -71,12 +70,6 @@ public class BrambleBlock extends SixWayBlock
              playerEntity.attackEntityFrom(DamageSource.CACTUS, 1.0F);
          }
       }
-
-     @Override
-     public BlockRenderLayer getRenderLayer()
-     {
-        return BlockRenderLayer.CUTOUT;
-     }
 
      @Override
      protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder)

@@ -114,7 +114,7 @@ public class BiomeMapColours
 
         if (BiomeDictionary.hasType(biome, BiomeDictionary.Type.FOREST))
         {
-            colour = blend(biome.getFoliageColor(BlockPos.ZERO), 0xff0b7000, 0.35);
+            colour = blend(biome.getFoliageColor(), 0xff0b7000, 0.35);
             treebased = true;
         }
 
@@ -169,7 +169,7 @@ public class BiomeMapColours
         if (topBlock == Blocks.GRASS.getDefaultState())
         { // uuuugh
             colour = topBlock.getMaterialColor(null, pos).colorValue | 0xFF000000;
-            int tint = biome.getGrassColor(pos) | 0xFF000000;
+            int tint = biome.getGrassColor(pos.getX(), pos.getZ()) | 0xFF000000;
             colour = blend(colour, tint, 0.75);
         }
         else
