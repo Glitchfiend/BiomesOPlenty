@@ -11,6 +11,7 @@ import net.minecraft.item.AxeItem;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
+import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
@@ -70,13 +71,13 @@ public class ModVanillaCompat
         addFeature(Biomes.SWAMP, GenerationStage.Decoration.VEGETAL_DECORATION, BiomeBOP.createDecoratedFeature(Feature.RANDOM_PATCH, BiomeFeatureHelper.createClusterConfigurationDouble(BOPBlocks.tall_cattail.getDefaultState()), Placement.COUNT_HEIGHTMAP_32, new FrequencyConfig(10)));
         addFeature(Biomes.SWAMP, GenerationStage.Decoration.VEGETAL_DECORATION, BiomeBOP.createDecoratedFeature(Feature.RANDOM_PATCH, BiomeFeatureHelper.createClusterConfigurationDoubleWater(BOPBlocks.reed.getDefaultState()), Placement.COUNT_HEIGHTMAP_DOUBLE, new FrequencyConfig(2)));
         addFeature(Biomes.SWAMP, GenerationStage.Decoration.UNDERGROUND_ORES, BiomeBOP.createDecoratedFeature(Feature.DISK, new SphereReplaceConfig(BOPBlocks.mud.getDefaultState(), 8, 2, Lists.newArrayList(new BlockState[]{Blocks.DIRT.getDefaultState(), Blocks.GRASS_BLOCK.getDefaultState()})), Placement.COUNT_TOP_SOLID, new FrequencyConfig(5)));
-        addFeature(Biomes.SWAMP, GenerationStage.Decoration.VEGETAL_DECORATION, BiomeBOP.createDecoratedFeature(BOPBiomeFeatures.WILLOW_TREE, IFeatureConfig.NO_FEATURE_CONFIG, Placement.COUNT_EXTRA_HEIGHTMAP, new AtSurfaceWithExtraConfig((int)0.75, 0.1F, 1)));
+        addFeature(Biomes.SWAMP, GenerationStage.Decoration.VEGETAL_DECORATION, BiomeBOP.createDecoratedFeature(BOPBiomeFeatures.WILLOW_TREE, DefaultBiomeFeatures.NORMAL_TREE_CONFIG, Placement.COUNT_EXTRA_HEIGHTMAP, new AtSurfaceWithExtraConfig((int)0.75, 0.1F, 1)));
 
         addFeature(Biomes.SWAMP_HILLS, GenerationStage.Decoration.VEGETAL_DECORATION, BiomeBOP.createDecoratedFeature(Feature.RANDOM_PATCH, BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.cattail.getDefaultState()), Placement.COUNT_HEIGHTMAP_DOUBLE, new FrequencyConfig(20)));
         addFeature(Biomes.SWAMP_HILLS, GenerationStage.Decoration.VEGETAL_DECORATION, BiomeBOP.createDecoratedFeature(Feature.RANDOM_PATCH, BiomeFeatureHelper.createClusterConfigurationDouble(BOPBlocks.tall_cattail.getDefaultState()), Placement.COUNT_HEIGHTMAP_32, new FrequencyConfig(10)));
         addFeature(Biomes.SWAMP_HILLS, GenerationStage.Decoration.VEGETAL_DECORATION, BiomeBOP.createDecoratedFeature(Feature.RANDOM_PATCH, BiomeFeatureHelper.createClusterConfigurationDoubleWater(BOPBlocks.reed.getDefaultState()), Placement.COUNT_HEIGHTMAP_DOUBLE, new FrequencyConfig(2)));
         addFeature(Biomes.SWAMP_HILLS, GenerationStage.Decoration.UNDERGROUND_ORES, BiomeBOP.createDecoratedFeature(Feature.DISK, new SphereReplaceConfig(BOPBlocks.mud.getDefaultState(), 8, 2, Lists.newArrayList(new BlockState[]{Blocks.DIRT.getDefaultState(), Blocks.GRASS_BLOCK.getDefaultState()})), Placement.COUNT_TOP_SOLID, new FrequencyConfig(5)));
-        addFeature(Biomes.SWAMP_HILLS, GenerationStage.Decoration.VEGETAL_DECORATION, BiomeBOP.createDecoratedFeature(BOPBiomeFeatures.WILLOW_TREE, IFeatureConfig.NO_FEATURE_CONFIG, Placement.COUNT_EXTRA_HEIGHTMAP, new AtSurfaceWithExtraConfig((int)0.75, 0.1F, 1)));
+        addFeature(Biomes.SWAMP_HILLS, GenerationStage.Decoration.VEGETAL_DECORATION, BiomeBOP.createDecoratedFeature(BOPBiomeFeatures.WILLOW_TREE, DefaultBiomeFeatures.NORMAL_TREE_CONFIG, Placement.COUNT_EXTRA_HEIGHTMAP, new AtSurfaceWithExtraConfig((int)0.75, 0.1F, 1)));
 
         addFeature(Biomes.TAIGA, GenerationStage.Decoration.VEGETAL_DECORATION, BiomeBOP.createDecoratedFeature(BOPBiomeFeatures.VIOLET_FEATURE, IFeatureConfig.NO_FEATURE_CONFIG, Placement.COUNT_HEIGHTMAP_32, new FrequencyConfig(2)));
         addFeature(Biomes.TAIGA_HILLS, GenerationStage.Decoration.VEGETAL_DECORATION, BiomeBOP.createDecoratedFeature(BOPBiomeFeatures.VIOLET_FEATURE, IFeatureConfig.NO_FEATURE_CONFIG, Placement.COUNT_HEIGHTMAP_32, new FrequencyConfig(2)));
@@ -333,7 +334,7 @@ public class ModVanillaCompat
         fireblock.setFireInfo(blockIn, encouragement, flammability);
     }
 
-    public static void addFeature(Biome biome, GenerationStage.Decoration decorationStage, ConfiguredFeature<?> featureIn)
+    public static void addFeature(Biome biome, GenerationStage.Decoration decorationStage, ConfiguredFeature<?, ?> featureIn)
     {
         biome.addFeature(decorationStage, featureIn);
     }

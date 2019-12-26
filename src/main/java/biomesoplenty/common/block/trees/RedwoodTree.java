@@ -2,24 +2,22 @@ package biomesoplenty.common.block.trees;
 
 import biomesoplenty.common.world.gen.feature.BOPBiomeFeatures;
 import net.minecraft.block.trees.BigTree;
-import net.minecraft.world.gen.feature.AbstractTreeFeature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.biome.DefaultBiomeFeatures;
+import net.minecraft.world.gen.feature.*;
 
 import javax.annotation.Nullable;
 import java.util.Random;
 
-public class RedwoodTree extends BigTree
+public class RedwoodTree extends AgnosticBigTree
 {
-   @Nullable
    @Override
-   protected AbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random)
+   protected Feature<?> getFeature(Random random)
    {
       return BOPBiomeFeatures.REDWOOD_TREE;
    }
 
-   @Nullable
    @Override
-   protected AbstractTreeFeature<NoFeatureConfig> getBigTreeFeature(Random random)
+   protected Feature<?> getBigFeature(Random random)
    {
       return BOPBiomeFeatures.REDWOOD_TREE_MEDIUM;
    }

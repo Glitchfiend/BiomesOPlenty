@@ -46,7 +46,7 @@ public class DeepTopLayerSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderCon
                     }
 
                     if (i1 < sealevel && (blockstate == null || blockstate.isAir())) {
-                        if (biomeIn.func_225486_c(blockpos$mutableblockpos.setPos(x, i1, z)) < 0.15F) {
+                        if (biomeIn.getTemperature(blockpos$mutableblockpos.setPos(x, i1, z)) < 0.15F) {
                             blockstate = Blocks.ICE.getDefaultState();
                         } else {
                             blockstate = defaultFluid;

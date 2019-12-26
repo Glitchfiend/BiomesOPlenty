@@ -2,24 +2,22 @@ package biomesoplenty.common.block.trees;
 
 import biomesoplenty.common.world.gen.feature.BOPBiomeFeatures;
 import net.minecraft.block.trees.BigTree;
-import net.minecraft.world.gen.feature.AbstractTreeFeature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.biome.DefaultBiomeFeatures;
+import net.minecraft.world.gen.feature.*;
 
 import javax.annotation.Nullable;
 import java.util.Random;
 
-public class FirTree extends BigTree
+public class FirTree extends AgnosticBigTree
 {
-   @Nullable
    @Override
-   protected AbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random)
+   protected Feature<?> getFeature(Random random)
    {
       return BOPBiomeFeatures.FIR_TREE;
    }
 
-   @Nullable
    @Override
-   protected AbstractTreeFeature<NoFeatureConfig> getBigTreeFeature(Random random)
+   protected Feature<?> getBigFeature(Random random)
    {
       return BOPBiomeFeatures.FIR_TREE_LARGE;
    }

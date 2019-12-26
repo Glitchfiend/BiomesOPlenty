@@ -10,6 +10,7 @@ package biomesoplenty.common.world.gen.feature.tree;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.block.BlockUtil;
 import biomesoplenty.common.util.block.IBlockPosQuery;
+import com.mojang.datafixers.Dynamic;
 import net.minecraft.block.*;
 import net.minecraft.state.IProperty;
 import net.minecraft.tags.BlockTags;
@@ -21,9 +22,11 @@ import net.minecraft.world.IWorldWriter;
 import net.minecraft.world.gen.IWorldGenerationReader;
 import net.minecraft.world.gen.feature.AbstractTreeFeature;
 import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
+import net.minecraft.world.gen.feature.TreeFeatureConfig;
 
 import java.util.Random;
 import java.util.Set;
+import java.util.function.Function;
 
 public abstract class TreeFeatureBase extends AbstractTreeFeature<BaseTreeFeatureConfig>
 {
