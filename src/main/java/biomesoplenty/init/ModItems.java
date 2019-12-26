@@ -42,7 +42,6 @@ public class ModItems
         magic_boat = registerItem(new BoatItemBOP(BoatEntityBOP.Type.MAGIC, (new Item.Properties()).maxStackSize(1).group(ItemGroupBOP.instance)), "magic_boat");
         umbran_boat = registerItem(new BoatItemBOP(BoatEntityBOP.Type.UMBRAN, (new Item.Properties()).maxStackSize(1).group(ItemGroupBOP.instance)), "umbran_boat");
         hellbark_boat = registerItem(new BoatItemBOP(BoatEntityBOP.Type.HELLBARK, (new Item.Properties()).maxStackSize(1).group(ItemGroupBOP.instance)), "hellbark_boat");
-        ethereal_boat = registerItem(new BoatItemBOP(BoatEntityBOP.Type.ETHEREAL, (new Item.Properties()).maxStackSize(1).group(ItemGroupBOP.instance)), "ethereal_boat");
 
         bop_icon = registerItem(new Item(new Item.Properties()), "bop_icon");
 	}

@@ -89,7 +89,7 @@ public class OminousWoodsBiome extends BiomeBOP
     
     @OnlyIn(Dist.CLIENT)
     @Override
-    public int getSkyColorByTemp(float currentTemperature)
+    public int getSkyColor()
     {
        return 0x84A1CC;
     }

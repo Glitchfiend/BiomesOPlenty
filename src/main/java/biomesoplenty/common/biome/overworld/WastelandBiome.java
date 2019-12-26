@@ -83,7 +83,7 @@ public class WastelandBiome extends BiomeBOP
     
     @OnlyIn(Dist.CLIENT)
     @Override
-    public int getSkyColorByTemp(float currentTemperature)
+    public int getSkyColor()
     {
        return 0x70ADEF;
     }

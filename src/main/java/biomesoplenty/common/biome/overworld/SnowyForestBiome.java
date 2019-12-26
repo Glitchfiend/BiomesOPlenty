@@ -41,8 +41,8 @@ public class SnowyForestBiome extends BiomeBOP
         super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG)).precipitation(Biome.RainType.SNOW).category(Biome.Category.ICY).depth(0.2F).scale(0.2F).temperature(-0.25F).downfall(0.5F).waterColor(4159204).waterFogColor(329011).parent((String)null));
 
         // Structures
-        this.addStructure(Feature.VILLAGE, new VillageConfig("village/snowy/town_centers", 6));
-        this.addStructure(Feature.IGLOO, IFeatureConfig.NO_FEATURE_CONFIG);
+        this.addStructureStart(Feature.VILLAGE.configured(new VillageConfig("village/snowy/town_centers", 6)));
+        this.addStructureStart(Feature.IGLOO.configured(IFeatureConfig.NO_FEATURE_CONFIG));
         this.addStructureStart(Feature.MINESHAFT.configured(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
         this.addStructureStart(Feature.STRONGHOLD.configured(IFeatureConfig.NO_FEATURE_CONFIG));
         this.addStructureStart(Feature.PILLAGER_OUTPOST.configured(IFeatureConfig.NO_FEATURE_CONFIG));

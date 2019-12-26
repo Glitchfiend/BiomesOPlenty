@@ -11,7 +11,10 @@ import biomesoplenty.common.world.BOPLayerUtil;
 import biomesoplenty.common.world.BOPWorldSettings;
 import biomesoplenty.common.world.layer.traits.IBOPContextExtended;
 import biomesoplenty.common.world.layer.traits.LazyAreaLayerContextBOP;
+import biomesoplenty.init.ModBiomes;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.GameType;
+import net.minecraft.world.WorldSettings;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.provider.BiomeProviderType;
@@ -19,6 +22,7 @@ import net.minecraft.world.biome.provider.OverworldBiomeProviderSettings;
 import net.minecraft.world.gen.OverworldGenSettings;
 import net.minecraft.world.gen.area.IAreaFactory;
 import net.minecraft.world.gen.area.LazyArea;
+import net.minecraft.world.storage.WorldInfo;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.opengl.GL;
@@ -156,7 +160,7 @@ public class GenLayerVisualizer
 
         private void populateBiomeIds()
         {
-            OverworldBiomeProviderSettings settingsProvider = BiomeProviderType.VANILLA_LAYERED.createSettings();
+            OverworldBiomeProviderSettings settingsProvider = BiomeProviderType.VANILLA_LAYERED.func_226840_a_(new WorldInfo(new WorldSettings(0, GameType.NOT_SET, true, false, ModBiomes.worldType), "MpServer"));
             OverworldGenSettings settings = settingsProvider.getGeneratorSettings();
 
             LongFunction<IBOPContextExtended<LazyArea>> contextFactory = (seedModifier) -> {
