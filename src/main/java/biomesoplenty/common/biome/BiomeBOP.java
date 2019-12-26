@@ -14,6 +14,7 @@ import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.IFeatureConfig;
+import net.minecraft.world.gen.placement.ConfiguredPlacement;
 import net.minecraft.world.gen.placement.IPlacementConfig;
 import net.minecraft.world.gen.placement.Placement;
 
@@ -32,11 +33,6 @@ public class BiomeBOP extends Biome
     {
         super(builder);
         this.canSpawnInBiome = true;
-    }
-
-    public static <FC extends IFeatureConfig, F extends Feature<FC>, DC extends IPlacementConfig> ConfiguredFeature<?, ?> createDecoratedFeature(Feature<FC> featureIn, FC config, Placement<DC> placementIn, DC placementConfig)
-    {
-        return featureIn.configured(config).decorated(placementIn.configured(placementConfig));
     }
 
     public void addWeight(BOPClimates climate, int weight)
