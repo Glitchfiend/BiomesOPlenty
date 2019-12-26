@@ -20,6 +20,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
 
@@ -43,27 +44,27 @@ public class SaplingBlockBOP extends SaplingBlock implements IGrowable
    }
 
    @Override
-   public void tick(BlockState state, World worldIn, BlockPos pos, Random random)
+   public void tick(BlockState state, ServerWorld world, BlockPos pos, Random random)
    {
-      super.tick(state, worldIn, pos, random);
-      if (!worldIn.isAreaLoaded(pos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light
-      if (worldIn.getLight(pos.up()) >= 9 && random.nextInt(7) == 0) {
-         this.grow(worldIn, pos, state, random);
+      super.tick(state, world, pos, random);
+      if (!world.isAreaLoaded(pos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light
+      if (world.getLight(pos.up()) >= 9 && random.nextInt(7) == 0) {
+         this.func_225535_a_(world, random, pos, state);
       }
 
    }
 
    @Override
-   public void grow(IWorld worldIn, BlockPos pos, BlockState state, Random rand)
+   public void func_225535_a_(ServerWorld world, Random rand, BlockPos pos, BlockState state)
    {
       if (state.get(STAGE) == 0)
       {
-         worldIn.setBlockState(pos, state.cycle(STAGE), 4);
+         world.setBlockState(pos, state.cycle(STAGE), 4);
       }
       else
       {
-         if (!net.minecraftforge.event.ForgeEventFactory.saplingGrowTree(worldIn, rand, pos)) return;
-         this.tree.spawn(worldIn, pos, state, rand);
+         if (!net.minecraftforge.event.ForgeEventFactory.saplingGrowTree(world, rand, pos)) return;
+         this.tree.growTree(world, world.getChunkProvider().getChunkGenerator(), pos, state, rand);
       }
 
    }
@@ -84,9 +85,9 @@ public class SaplingBlockBOP extends SaplingBlock implements IGrowable
    }
 
    @Override
-   public void grow(World worldIn, Random rand, BlockPos pos, BlockState state)
+   public void func_226942_a_(ServerWorld world, BlockPos pos, BlockState state, Random rand)
    {
-      this.grow(worldIn, pos, state, rand);
+      this.func_225535_a_(world, rand, pos, state);
    }
    
    @Override

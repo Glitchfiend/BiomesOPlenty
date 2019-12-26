@@ -35,7 +35,7 @@ public class DispenserBoatBehaviorBOP extends DefaultDispenseItemBehavior {
             adjustY = 0d;
         }
         BoatEntityBOP boat = new BoatEntityBOP(world, x, y + adjustY, z);
-        boat.setBoatModel(this.type);
+        boat.setBoatType(this.type);
         boat.rotationYaw = direction.getHorizontalAngle();
         world.addEntity(boat);
         stack.shrink(1);

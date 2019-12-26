@@ -13,6 +13,7 @@ import biomesoplenty.common.entity.item.BoatRendererBOP;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.item.BoatEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -30,7 +31,7 @@ public class ModEntities
     @SubscribeEvent
     public static void registerEntities(RegistryEvent.Register<EntityType<?>> event)
     {
-        BOPEntities.boat_bop = EntityType.Builder.<BoatEntityBOP>create(BoatEntityBOP::new, EntityClassification.MISC).setTrackingRange(80).setUpdateInterval(3).setShouldReceiveVelocityUpdates(true).size(1.375f, 0.5625f).setCustomClientFactory(BoatEntityBOP::new).build(MOD_ID + ":boat_bop");
+        BOPEntities.boat_bop = EntityType.Builder.<BoatEntityBOP>create(BoatEntityBOP::new, EntityClassification.MISC).setTrackingRange(80).setUpdateInterval(3).setShouldReceiveVelocityUpdates(true).size(1.375f, 0.5625f).setCustomClientFactory((spawnEntity, world) -> new BoatEntityBOP(world)).build(MOD_ID + ":boat_bop");
         BOPEntities.boat_bop.setRegistryName("boat_bop");
         ForgeRegistries.ENTITIES.register(BOPEntities.boat_bop);
     }
@@ -47,6 +48,6 @@ public class ModEntities
     @OnlyIn(Dist.CLIENT)
     public static void registerRendering()
     {
-        RenderingRegistry.registerEntityRenderingHandler(BoatEntityBOP.class, BoatRendererBOP::new);
+        RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends BoatEntityBOP>)BOPEntities.boat_bop, BoatRendererBOP::new);
     }
 }

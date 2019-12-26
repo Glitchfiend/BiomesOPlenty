@@ -15,6 +15,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
 
@@ -26,7 +27,7 @@ public class MushroomBlockBOP extends MushroomBlock
     }
     
     @Override
-    public void tick(BlockState state, World worldIn, BlockPos pos, Random random)
+    public void tick(BlockState state, ServerWorld world, BlockPos pos, Random random)
     {
     }
 
@@ -40,7 +41,7 @@ public class MushroomBlockBOP extends MushroomBlock
     }
 
     @Override
-    public boolean generateBigMushroom(IWorld worldIn, BlockPos pos, BlockState state, Random rand)
+    public boolean func_226940_a_(ServerWorld p_226940_1_, BlockPos p_226940_2_, BlockState p_226940_3_, Random p_226940_4_)
     {
     	return false;
     }
