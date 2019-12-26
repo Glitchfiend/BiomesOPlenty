@@ -129,26 +129,26 @@ public class BOPBiomeFeatures
 	public static final Feature<NoFeatureConfig> GLOWSTONE_SPIKES = new GlowstoneSpikesFeature(NoFeatureConfig::deserialize);
 
 	//Flowers
-	public static final FlowersFeature CHAPARRAL_FLOWERS = new ChaparralFlowersFeature(BlockClusterFeatureConfig::deserialize);
-	public static final FlowersFeature CHERRY_BLOSSOM_GROVE_FLOWERS = new CherryBlossomGroveFlowersFeature(BlockClusterFeatureConfig::deserialize);
-	public static final FlowersFeature CONIFEROUS_FOREST_FLOWERS = new ConiferousForestFlowersFeature(BlockClusterFeatureConfig::deserialize);
-	public static final FlowersFeature EXTENDED_FLOWERS = new ExtendedFlowersFeature(BlockClusterFeatureConfig::deserialize);
-	public static final FlowersFeature FLOWER_MEADOW_FLOWERS = new FlowerMeadowFlowersFeature(BlockClusterFeatureConfig::deserialize);
-	public static final FlowersFeature JUNGLE_FLOWERS = new JungleFlowersFeature(BlockClusterFeatureConfig::deserialize);
-	public static final FlowersFeature LAVENDER_FLOWERS = new LavenderFlowersFeature(BlockClusterFeatureConfig::deserialize);
-	public static final FlowersFeature LUSH_GRASSLAND_FLOWERS = new LushGrasslandFlowersFeature(BlockClusterFeatureConfig::deserialize);
-	public static final FlowersFeature LUSH_SWAMP_FLOWERS = new LushSwampFlowersFeature(BlockClusterFeatureConfig::deserialize);
-	public static final FlowersFeature MEADOW_FLOWERS = new MeadowFlowersFeature(BlockClusterFeatureConfig::deserialize);
-	public static final FlowersFeature MOOR_FLOWERS = new MoorFlowersFeature(BlockClusterFeatureConfig::deserialize);
-	public static final FlowersFeature MYSTIC_GROVE_FLOWERS = new MysticGroveFlowersFeature(BlockClusterFeatureConfig::deserialize);
-	public static final FlowersFeature OMINOUS_WOODS_FLOWERS = new OminousWoodsFlowersFeature(BlockClusterFeatureConfig::deserialize);
-	public static final FlowersFeature ORIGIN_FLOWERS = new OriginFlowersFeature(BlockClusterFeatureConfig::deserialize);
-	public static final FlowersFeature RAINFOREST_FLOWERS = new RainforestFlowersFeature(BlockClusterFeatureConfig::deserialize);
-	public static final FlowersFeature SHRUBLAND_FLOWERS = new ShrublandFlowersFeature(BlockClusterFeatureConfig::deserialize);
-	public static final FlowersFeature SNOWY_FLOWERS = new SnowyFlowersFeature(BlockClusterFeatureConfig::deserialize);
-	public static final FlowersFeature TROPICS_FLOWERS = new TropicsFlowersFeature(BlockClusterFeatureConfig::deserialize);
-	public static final FlowersFeature WASTELAND_FLOWERS = new WastelandFlowersFeature(BlockClusterFeatureConfig::deserialize);
-	public static final FlowersFeature WETLAND_FLOWERS = new WetlandFlowersFeature(BlockClusterFeatureConfig::deserialize);
+	public static final FlowersFeature CHAPARRAL_FLOWERS = new ChaparralFlowersFeature();
+	public static final FlowersFeature CHERRY_BLOSSOM_GROVE_FLOWERS = new CherryBlossomGroveFlowersFeature();
+	public static final FlowersFeature CONIFEROUS_FOREST_FLOWERS = new ConiferousForestFlowersFeature();
+	public static final FlowersFeature EXTENDED_FLOWERS = new ExtendedFlowersFeature();
+	public static final FlowersFeature FLOWER_MEADOW_FLOWERS = new FlowerMeadowFlowersFeature();
+	public static final FlowersFeature JUNGLE_FLOWERS = new JungleFlowersFeature();
+	public static final FlowersFeature LAVENDER_FLOWERS = new LavenderFlowersFeature();
+	public static final FlowersFeature LUSH_GRASSLAND_FLOWERS = new LushGrasslandFlowersFeature();
+	public static final FlowersFeature LUSH_SWAMP_FLOWERS = new LushSwampFlowersFeature();
+	public static final FlowersFeature MEADOW_FLOWERS = new MeadowFlowersFeature();
+	public static final FlowersFeature MOOR_FLOWERS = new MoorFlowersFeature();
+	public static final FlowersFeature MYSTIC_GROVE_FLOWERS = new MysticGroveFlowersFeature();
+	public static final FlowersFeature OMINOUS_WOODS_FLOWERS = new OminousWoodsFlowersFeature();
+	public static final FlowersFeature ORIGIN_FLOWERS = new OriginFlowersFeature();
+	public static final FlowersFeature RAINFOREST_FLOWERS = new RainforestFlowersFeature();
+	public static final FlowersFeature SHRUBLAND_FLOWERS = new ShrublandFlowersFeature();
+	public static final FlowersFeature SNOWY_FLOWERS = new SnowyFlowersFeature();
+	public static final FlowersFeature TROPICS_FLOWERS = new TropicsFlowersFeature();
+	public static final FlowersFeature WASTELAND_FLOWERS = new WastelandFlowersFeature();
+	public static final FlowersFeature WETLAND_FLOWERS = new WetlandFlowersFeature();
 	
 	//Surfaces
 	public static final SurfaceBuilder<SurfaceBuilderConfig> BOG_SURFACE_BUILDER = new BogSurfaceBuilder(SurfaceBuilderConfig::deserialize);
@@ -174,7 +174,7 @@ public class BOPBiomeFeatures
 	public static final SurfaceBuilderConfig DRIED_SAND_GRAVEL_SURFACE = new SurfaceBuilderConfig(BOPBlocks.dried_sand.getDefaultState(), BOPBlocks.dried_sand.getDefaultState(), BOPBlocks.dried_sand.getDefaultState());
 
 	//Vanilla Biomes Features
-	public static final FlowersFeature VIOLET_FEATURE = new VioletFeature(BlockClusterFeatureConfig::deserialize);
-	public static final FlowersFeature ORANGE_COSMOS_FEATURE = new OrangeCosmosFeature(BlockClusterFeatureConfig::deserialize);
-	public static final FlowersFeature WILDFLOWER_FEATURE = new WildflowerFeature(BlockClusterFeatureConfig::deserialize);
+	public static final FlowersFeature VIOLET_FEATURE = new VioletFeature();
+	public static final FlowersFeature ORANGE_COSMOS_FEATURE = new OrangeCosmosFeature();
+	public static final FlowersFeature WILDFLOWER_FEATURE = new WildflowerFeature();
 }

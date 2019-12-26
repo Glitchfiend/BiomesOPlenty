@@ -20,15 +20,10 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import java.util.Random;
 import java.util.function.Function;
 
-public class OriginFlowersFeature extends DefaultFlowersFeature
+public class OriginFlowersFeature extends DefaultFlowersFeatureNoConfig
 {
-	public OriginFlowersFeature(Function<Dynamic<?>, ? extends BlockClusterFeatureConfig> deserializer)
-	{
-		super(deserializer);
-	}
-
 	@Override
-	public BlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_, BlockClusterFeatureConfig config)
+	public BlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_, NoFeatureConfig config)
 	{
 		return p_202355_1_.nextFloat() > 0.6666667F ? Blocks.DANDELION.getDefaultState() : BOPBlocks.rose.getDefaultState();
 	}

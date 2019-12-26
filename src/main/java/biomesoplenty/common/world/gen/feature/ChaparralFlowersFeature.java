@@ -23,17 +23,12 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import java.util.Random;
 import java.util.function.Function;
 
-public class ChaparralFlowersFeature extends DefaultFlowersFeature
+public class ChaparralFlowersFeature extends DefaultFlowersFeatureNoConfig
 {
 	private static final Block[] FLOWERS = new Block[]{BOPBlocks.wildflower, Blocks.AZURE_BLUET, Blocks.DANDELION, Blocks.POPPY};
 
-	public ChaparralFlowersFeature(Function<Dynamic<?>, ? extends BlockClusterFeatureConfig> deserializer)
-	{
-		super(deserializer);
-	}
-
 	@Override
-	public BlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_, BlockClusterFeatureConfig config)
+	public BlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_, NoFeatureConfig config)
 	{
 		double d0 = MathHelper.clamp((1.0D + Biome.INFO_NOISE.noiseAt((double)p_202355_2_.getX() / 48.0D, (double)p_202355_2_.getZ() / 48.0D, false)) / 2.0D, 0.0D, 0.9999D);
 		Block block = FLOWERS[(int)(d0 * (double)FLOWERS.length)];

@@ -21,7 +21,7 @@ import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import javax.annotation.Nullable;
 import java.util.Random;
 
-public abstract class AgnosticBigTree extends BigTree
+public abstract class BigTreeNoConfig extends BigTree
 {
     @Override
     @Nullable

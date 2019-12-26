@@ -20,15 +20,10 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import java.util.Random;
 import java.util.function.Function;
 
-public class JungleFlowersFeature extends DefaultFlowersFeature
+public class JungleFlowersFeature extends DefaultFlowersFeatureNoConfig
 {
-    public JungleFlowersFeature(Function<Dynamic<?>, ? extends BlockClusterFeatureConfig> deserializer)
-    {
-        super(deserializer);
-    }
-
     @Override
-	public BlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_, BlockClusterFeatureConfig config)
+	public BlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_, NoFeatureConfig config)
 	{
          int j = p_202355_1_.nextInt(3);
          switch(j)

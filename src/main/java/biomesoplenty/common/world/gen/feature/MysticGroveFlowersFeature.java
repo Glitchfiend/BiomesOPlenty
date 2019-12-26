@@ -23,17 +23,12 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import java.util.Random;
 import java.util.function.Function;
 
-public class MysticGroveFlowersFeature extends DefaultFlowersFeature
+public class MysticGroveFlowersFeature extends DefaultFlowersFeatureNoConfig
 {
 	private static final Block[] FLOWERS = new Block[]{BOPBlocks.glowflower, BOPBlocks.pink_daffodil, Blocks.OXEYE_DAISY, Blocks.LILY_OF_THE_VALLEY, Blocks.ALLIUM};
 
-	public MysticGroveFlowersFeature(Function<Dynamic<?>, ? extends BlockClusterFeatureConfig> deserializer)
-	{
-		super(deserializer);
-	}
-
 	@Override
-	public BlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_, BlockClusterFeatureConfig config)
+	public BlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_, NoFeatureConfig config)
 	{
 		double d0 = MathHelper.clamp((1.0D + Biome.INFO_NOISE.noiseAt((double)p_202355_2_.getX() / 48.0D, (double)p_202355_2_.getZ() / 48.0D, false)) / 2.0D, 0.0D, 0.9999D);
 		Block block = FLOWERS[(int)(d0 * (double)FLOWERS.length)];

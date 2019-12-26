@@ -24,3 +24,4 @@ mappings/mcp/
 mappings/build/
 mappings/*.csv
 mappings/.project
+mappings/last_updated.json

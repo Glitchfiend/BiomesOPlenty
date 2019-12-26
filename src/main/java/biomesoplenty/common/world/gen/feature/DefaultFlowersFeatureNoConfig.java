@@ -7,32 +7,40 @@
  ******************************************************************************/
 package biomesoplenty.common.world.gen.feature;
 
-import biomesoplenty.api.block.BOPBlocks;
 import com.mojang.datafixers.Dynamic;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
-import net.minecraft.world.gen.feature.DefaultFlowersFeature;
 import net.minecraft.world.gen.feature.FlowersFeature;
+import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 
 import java.util.Random;
 import java.util.function.Function;
 
-public class MoorFlowersFeature extends DefaultFlowersFeatureNoConfig
+public abstract class DefaultFlowersFeatureNoConfig extends FlowersFeature<NoFeatureConfig>
 {
-    @Override
-    public BlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_, NoFeatureConfig config)
+    public DefaultFlowersFeatureNoConfig()
     {
-        int j = p_202355_1_.nextInt(2);
-        switch(j)
-        {
-            case 0:
-                return BOPBlocks.violet.getDefaultState();
-            case 1:
-            default:
-                return Blocks.ALLIUM.getDefaultState();
-        }
+        super(NoFeatureConfig::deserialize);
+    }
+
+    @Override
+    public boolean isValid(IWorld world, BlockPos p_225559_2_, NoFeatureConfig config)
+    {
+        return true;
+    }
+
+    @Override
+    public int getCount(NoFeatureConfig config)
+    {
+        return 64;
+    }
+
+    @Override
+    public BlockPos getPos(Random random, BlockPos pos, NoFeatureConfig config)
+    {
+        return pos.add(random.nextInt(7) - random.nextInt(7), random.nextInt(3) - random.nextInt(3), random.nextInt(7) - random.nextInt(7));
     }
 }
