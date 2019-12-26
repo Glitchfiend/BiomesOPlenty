@@ -300,7 +300,6 @@ public class ModBlocks
         potted_magic_sapling = registerBlockNoGroup(new FlowerPotBlock(magic_sapling, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_magic_sapling");
         potted_umbran_sapling = registerBlockNoGroup(new FlowerPotBlock(umbran_sapling, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_umbran_sapling");
         potted_hellbark_sapling = registerBlockNoGroup(new FlowerPotBlock(hellbark_sapling, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_hellbark_sapling");
-        potted_ethereal_sapling = registerBlockNoGroup(new FlowerPotBlock(ethereal_sapling, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_ethereal_sapling");
         potted_rose = registerBlockNoGroup(new FlowerPotBlock(rose, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_rose");
         potted_violet = registerBlockNoGroup(new FlowerPotBlock(violet, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_violet");
         potted_lavender = registerBlockNoGroup(new FlowerPotBlock(lavender, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_lavender");

@@ -192,16 +192,6 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.umbran_stairs, 5, 20);
         registerFlammable(BOPBlocks.umbran_fence, 5, 20);
         registerFlammable(BOPBlocks.umbran_fence_gate, 5, 20);
-        registerFlammable(BOPBlocks.ethereal_leaves, 30, 60);
-        registerFlammable(BOPBlocks.ethereal_log, 5, 5);
-        registerFlammable(BOPBlocks.ethereal_wood, 5, 5);
-        registerFlammable(BOPBlocks.stripped_ethereal_log, 5, 5);
-        registerFlammable(BOPBlocks.stripped_ethereal_wood, 5, 5);
-        registerFlammable(BOPBlocks.ethereal_planks, 5, 20);
-        registerFlammable(BOPBlocks.ethereal_slab, 5, 20);
-        registerFlammable(BOPBlocks.ethereal_stairs, 5, 20);
-        registerFlammable(BOPBlocks.ethereal_fence, 5, 20);
-        registerFlammable(BOPBlocks.ethereal_fence_gate, 5, 20);
         registerFlammable(BOPBlocks.rose, 60, 100);
         registerFlammable(BOPBlocks.violet, 60, 100);
         registerFlammable(BOPBlocks.lavender, 60, 100);
@@ -243,8 +233,6 @@ public class ModVanillaCompat
         registerStrippable(BOPBlocks.umbran_wood, BOPBlocks.stripped_umbran_wood);
         registerStrippable(BOPBlocks.hellbark_log, BOPBlocks.stripped_hellbark_log);
         registerStrippable(BOPBlocks.hellbark_wood, BOPBlocks.stripped_hellbark_wood);
-        registerStrippable(BOPBlocks.ethereal_log, BOPBlocks.stripped_ethereal_log);
-        registerStrippable(BOPBlocks.ethereal_wood, BOPBlocks.stripped_ethereal_wood);
 
         //Compostable Blocks
         registerCompostable(0.3F, BOPBlocks.origin_sapling);
@@ -281,8 +269,6 @@ public class ModVanillaCompat
         registerCompostable(0.3F, BOPBlocks.umbran_leaves);
         registerCompostable(0.3F, BOPBlocks.hellbark_sapling);
         registerCompostable(0.3F, BOPBlocks.hellbark_leaves);
-        registerCompostable(0.3F, BOPBlocks.ethereal_sapling);
-        registerCompostable(0.3F, BOPBlocks.ethereal_leaves);
 
         registerCompostable(0.65F, BOPBlocks.rose);
         registerCompostable(0.65F, BOPBlocks.violet);

@@ -222,22 +222,6 @@ public class BOPBlocks
     public static Block hellbark_pressure_plate;
     public static Block hellbark_button;
     
-    public static Block ethereal_sapling;
-    public static Block ethereal_leaves;
-    public static Block ethereal_log;
-    public static Block stripped_ethereal_log;
-    public static Block ethereal_wood;
-    public static Block stripped_ethereal_wood;
-    public static Block ethereal_planks;
-    public static Block ethereal_slab;
-    public static Block ethereal_stairs;
-    public static Block ethereal_fence;
-    public static Block ethereal_fence_gate;
-    public static Block ethereal_door;
-    public static Block ethereal_trapdoor;
-    public static Block ethereal_pressure_plate;
-    public static Block ethereal_button;
-    
     public static Block rose;
 
     public static Block violet;
@@ -287,7 +271,6 @@ public class BOPBlocks
     public static Block potted_magic_sapling;
     public static Block potted_umbran_sapling;
     public static Block potted_hellbark_sapling;
-    public static Block potted_ethereal_sapling;
     public static Block potted_rose;
     public static Block potted_violet;
     public static Block potted_lavender;
