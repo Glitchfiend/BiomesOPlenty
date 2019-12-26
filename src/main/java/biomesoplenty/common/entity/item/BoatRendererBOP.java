@@ -55,7 +55,7 @@ public class BoatRendererBOP extends EntityRenderer<BoatEntityBOP>
         this.field_76998_a.func_225597_a_(p_225623_1_, p_225623_3_, 0.0F, -0.1F, 0.0F, 0.0F);
         IVertexBuilder ivertexbuilder = p_225623_5_.getBuffer(this.field_76998_a.func_228282_a_(this.getEntityTexture(p_225623_1_)));
         this.field_76998_a.func_225598_a_(p_225623_4_, ivertexbuilder, p_225623_6_, OverlayTexture.field_229196_a_, 1.0F, 1.0F, 1.0F, 1.0F);
-        IVertexBuilder ivertexbuilder1 = p_225623_5_.getBuffer(RenderType.func_228651_i_());
+        IVertexBuilder ivertexbuilder1 = p_225623_5_.getBuffer(RenderType.waterMask());
         this.field_76998_a.func_228245_c_().func_228308_a_(p_225623_4_, ivertexbuilder1, p_225623_6_, OverlayTexture.field_229196_a_);
         p_225623_4_.func_227865_b_();
         super.func_225623_a_(p_225623_1_, p_225623_2_, p_225623_3_, p_225623_4_, p_225623_5_, p_225623_6_);

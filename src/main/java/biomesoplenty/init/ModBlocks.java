@@ -60,18 +60,18 @@ public class ModBlocks
 
         //Trees
         origin_sapling = registerBlock(new SaplingBlockBOP(new OriginTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.PLANT)), "origin_sapling");
-        origin_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES, MaterialColor.EMERALD).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), "origin_leaves");
+        origin_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES, MaterialColor.EMERALD).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).noOcclusion()), "origin_leaves");
         flowering_oak_sapling = registerBlock(new SaplingBlockBOP(new FloweringOakTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.PLANT)), "flowering_oak_sapling");
-        flowering_oak_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), "flowering_oak_leaves");
+        flowering_oak_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).noOcclusion()), "flowering_oak_leaves");
         yellow_autumn_sapling = registerBlock(new SaplingBlockBOP(new YellowAutumnTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.PLANT)), "yellow_autumn_sapling");
-        yellow_autumn_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES, MaterialColor.YELLOW_TERRACOTTA).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), "yellow_autumn_leaves");
+        yellow_autumn_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES, MaterialColor.YELLOW_TERRACOTTA).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).noOcclusion()), "yellow_autumn_leaves");
         orange_autumn_sapling = registerBlock(new SaplingBlockBOP(new OrangeAutumnTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.PLANT)), "orange_autumn_sapling");
-        orange_autumn_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES, MaterialColor.ORANGE_TERRACOTTA).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), "orange_autumn_leaves");
+        orange_autumn_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES, MaterialColor.ORANGE_TERRACOTTA).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).noOcclusion()), "orange_autumn_leaves");
         maple_sapling = registerBlock(new SaplingBlockBOP(new MapleTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.PLANT)), "maple_sapling");
-        maple_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES, MaterialColor.RED).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), "maple_leaves");
+        maple_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES, MaterialColor.RED).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).noOcclusion()), "maple_leaves");
 
         fir_sapling = registerBlock(new SaplingBlockBOP(new FirTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.PLANT)), "fir_sapling");
-        fir_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), "fir_leaves");
+        fir_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).noOcclusion()), "fir_leaves");
         fir_log = registerBlock(new LogBlock(MaterialColor.WHITE_TERRACOTTA, Block.Properties.create(Material.WOOD, MaterialColor.LIGHT_GRAY_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "fir_log");
         fir_wood = registerBlock(new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "fir_wood");
         stripped_fir_log = registerBlock(new LogBlock(MaterialColor.WHITE_TERRACOTTA, Block.Properties.create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_fir_log");
@@ -87,7 +87,7 @@ public class ModBlocks
         fir_button = registerBlock(new WoodButtonBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "fir_button");
         
         redwood_sapling = registerBlock(new SaplingBlockBOP(new RedwoodTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.PLANT)), "redwood_sapling");
-        redwood_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), "redwood_leaves");
+        redwood_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).noOcclusion()), "redwood_leaves");
         redwood_log = registerBlock(new LogBlock(MaterialColor.ORANGE_TERRACOTTA, Block.Properties.create(Material.WOOD, MaterialColor.ORANGE_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "redwood_log");
         redwood_wood = registerBlock(new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.ORANGE_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "redwood_wood");
         stripped_redwood_log = registerBlock(new LogBlock(MaterialColor.ORANGE_TERRACOTTA, Block.Properties.create(Material.WOOD, MaterialColor.ORANGE_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_redwood_log");
@@ -103,9 +103,9 @@ public class ModBlocks
         redwood_button = registerBlock(new WoodButtonBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "redwood_button");
         
         white_cherry_sapling = registerBlock(new SaplingBlockBOP(new WhiteCherryTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.PLANT)), "white_cherry_sapling");
-        white_cherry_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES, MaterialColor.SNOW).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), "white_cherry_leaves");
+        white_cherry_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES, MaterialColor.SNOW).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).noOcclusion()), "white_cherry_leaves");
         pink_cherry_sapling = registerBlock(new SaplingBlockBOP(new PinkCherryTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.PLANT)), "pink_cherry_sapling");
-        pink_cherry_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES, MaterialColor.PINK).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), "pink_cherry_leaves");
+        pink_cherry_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES, MaterialColor.PINK).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).noOcclusion()), "pink_cherry_leaves");
         cherry_log = registerBlock(new LogBlock(MaterialColor.RED, Block.Properties.create(Material.WOOD, MaterialColor.RED_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "cherry_log");
         cherry_wood = registerBlock(new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.RED).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "cherry_wood");
         stripped_cherry_log = registerBlock(new LogBlock(MaterialColor.RED, Block.Properties.create(Material.WOOD, MaterialColor.RED).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_cherry_log");
@@ -121,7 +121,7 @@ public class ModBlocks
         cherry_button = registerBlock(new WoodButtonBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "cherry_button");
         
         mahogany_sapling = registerBlock(new SaplingBlockBOP(new MahoganyTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.PLANT)), "mahogany_sapling");
-        mahogany_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), "mahogany_leaves");
+        mahogany_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).noOcclusion()), "mahogany_leaves");
         mahogany_log = registerBlock(new LogBlock(MaterialColor.PINK_TERRACOTTA, Block.Properties.create(Material.WOOD, MaterialColor.DIRT).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "mahogany_log");
         mahogany_wood = registerBlock(new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.PINK_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "mahogany_wood");
         stripped_mahogany_log = registerBlock(new LogBlock(MaterialColor.PINK_TERRACOTTA, Block.Properties.create(Material.WOOD, MaterialColor.PINK_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_mahogany_log");
@@ -137,7 +137,7 @@ public class ModBlocks
         mahogany_button = registerBlock(new WoodButtonBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "mahogany_button");
         
         jacaranda_sapling = registerBlock(new SaplingBlockBOP(new JacarandaTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.PLANT)), "jacaranda_sapling");
-        jacaranda_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES, MaterialColor.PURPLE).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), "jacaranda_leaves");
+        jacaranda_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES, MaterialColor.PURPLE).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).noOcclusion()), "jacaranda_leaves");
         jacaranda_log = registerBlock(new LogBlock(MaterialColor.WHITE_TERRACOTTA, Block.Properties.create(Material.WOOD, MaterialColor.LIGHT_GRAY_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "jacaranda_log");
         jacaranda_wood = registerBlock(new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "jacaranda_wood");
         stripped_jacaranda_log = registerBlock(new LogBlock(MaterialColor.WHITE_TERRACOTTA, Block.Properties.create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_jacaranda_log");
@@ -153,7 +153,7 @@ public class ModBlocks
         jacaranda_button = registerBlock(new WoodButtonBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "jacaranda_button");
         
         palm_sapling = registerBlock(new SaplingBlockBOP(new PalmTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.PLANT)), "palm_sapling");
-        palm_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), "palm_leaves");
+        palm_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).noOcclusion()), "palm_leaves");
         palm_log = registerBlock(new LogBlock(MaterialColor.YELLOW_TERRACOTTA, Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "palm_log");
         palm_wood = registerBlock(new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.YELLOW_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "palm_wood");
         stripped_palm_log = registerBlock(new LogBlock(MaterialColor.YELLOW_TERRACOTTA, Block.Properties.create(Material.WOOD, MaterialColor.YELLOW_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_palm_log");
@@ -169,7 +169,7 @@ public class ModBlocks
         palm_button = registerBlock(new WoodButtonBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "palm_button");
         
         willow_sapling = registerBlock(new SaplingBlockBOP(new WillowTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.PLANT)), "willow_sapling");
-        willow_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), "willow_leaves");
+        willow_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).noOcclusion()), "willow_leaves");
         willow_log = registerBlock(new LogBlock(MaterialColor.LIME_TERRACOTTA, Block.Properties.create(Material.WOOD, MaterialColor.LIME_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "willow_log");
         willow_wood = registerBlock(new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.LIME_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "willow_wood");
         stripped_willow_log = registerBlock(new LogBlock(MaterialColor.LIME_TERRACOTTA, Block.Properties.create(Material.WOOD, MaterialColor.LIME_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_willow_log");
@@ -185,7 +185,7 @@ public class ModBlocks
         willow_button = registerBlock(new WoodButtonBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "willow_button");
         
         dead_sapling = registerBlock(new SaplingBlockBOP(new DeadTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.PLANT)), "dead_sapling");
-        dead_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES, MaterialColor.WOOD).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), "dead_leaves");
+        dead_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES, MaterialColor.WOOD).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).noOcclusion()), "dead_leaves");
         dead_log = registerBlock(new LogBlock(MaterialColor.STONE, Block.Properties.create(Material.WOOD, MaterialColor.GRAY).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "dead_log");
         dead_wood = registerBlock(new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.STONE).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "dead_wood");
         stripped_dead_log = registerBlock(new LogBlock(MaterialColor.STONE, Block.Properties.create(Material.WOOD, MaterialColor.STONE).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_dead_log");
@@ -201,7 +201,7 @@ public class ModBlocks
         dead_button = registerBlock(new WoodButtonBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "dead_button");
         
         magic_sapling = registerBlock(new SaplingBlockBOP(new MagicTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.PLANT)), "magic_sapling");
-        magic_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES, MaterialColor.CYAN).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), "magic_leaves");
+        magic_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES, MaterialColor.CYAN).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).noOcclusion()), "magic_leaves");
         magic_log = registerBlock(new LogBlock(MaterialColor.BLUE, Block.Properties.create(Material.WOOD, MaterialColor.LIGHT_BLUE_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "magic_log");
         magic_wood = registerBlock(new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.BLUE).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "magic_wood");
         stripped_magic_log = registerBlock(new LogBlock(MaterialColor.BLUE, Block.Properties.create(Material.WOOD, MaterialColor.BLUE).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_magic_log");
@@ -217,7 +217,7 @@ public class ModBlocks
         magic_button = registerBlock(new WoodButtonBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "magic_button");
         
         umbran_sapling = registerBlock(new SaplingBlockBOP(new UmbranTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.PLANT)), "umbran_sapling");
-        umbran_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES, MaterialColor.BLUE_TERRACOTTA).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), "umbran_leaves");
+        umbran_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES, MaterialColor.BLUE_TERRACOTTA).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).noOcclusion()), "umbran_leaves");
         umbran_log = registerBlock(new LogBlock(MaterialColor.BLUE_TERRACOTTA, Block.Properties.create(Material.WOOD, MaterialColor.BLUE_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "umbran_log");
         umbran_wood = registerBlock(new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.BLUE_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "umbran_wood");
         stripped_umbran_log = registerBlock(new LogBlock(MaterialColor.BLUE_TERRACOTTA, Block.Properties.create(Material.WOOD, MaterialColor.BLUE_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_umbran_log");
@@ -233,7 +233,7 @@ public class ModBlocks
         umbran_button = registerBlock(new WoodButtonBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "umbran_button");
         
         hellbark_sapling = registerBlock(new SaplingBlockBOP(new HellbarkTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.PLANT)), "hellbark_sapling");
-        hellbark_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES, MaterialColor.PURPLE_TERRACOTTA).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), "hellbark_leaves");
+        hellbark_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES, MaterialColor.PURPLE_TERRACOTTA).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).noOcclusion()), "hellbark_leaves");
         hellbark_log = registerBlock(new LogBlock(MaterialColor.GRAY_TERRACOTTA, Block.Properties.create(Material.WOOD, MaterialColor.LIGHT_GRAY).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "hellbark_log");
         hellbark_wood = registerBlock(new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.GRAY_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "hellbark_wood");
         stripped_hellbark_log = registerBlock(new LogBlock(MaterialColor.GRAY_TERRACOTTA, Block.Properties.create(Material.WOOD, MaterialColor.GRAY_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_hellbark_log");
@@ -320,9 +320,9 @@ public class ModBlocks
 
         if (FMLEnvironment.dist == Dist.CLIENT)
         {
-            RenderType transparentRenderType = RenderType.func_228641_d_();
-            RenderType cutoutRenderType = RenderType.func_228643_e_();
-            RenderType translucentRenderType = RenderType.func_228645_f_();
+            RenderType transparentRenderType = RenderType.cutoutMipped();
+            RenderType cutoutRenderType = RenderType.cutout();
+            RenderType translucentRenderType = RenderType.translucent();
 
             RenderTypeLookup.setRenderLayer(origin_leaves, transparentRenderType);
             RenderTypeLookup.setRenderLayer(flowering_oak_leaves, transparentRenderType);
