@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "type=bottom": { "model": "biomesoplenty:block/ethereal_slab" },
-        "type=top": { "model": "biomesoplenty:block/ethereal_slab_top" },
-        "type=double": { "model": "biomesoplenty:block/ethereal_planks" }
-    }
-}

@@ -102,10 +102,6 @@ public class SaplingBlockBOP extends SaplingBlock implements IGrowable
        {
            return ground == Blocks.NETHERRACK || super.isValidPosition(state, worldIn, pos);
        }
-       if (this == BOPBlocks.ethereal_sapling)
-       {
-           return ground == Blocks.END_STONE || super.isValidPosition(state, worldIn, pos);
-       }
 
        return super.isValidPosition(state, worldIn, pos);
    }

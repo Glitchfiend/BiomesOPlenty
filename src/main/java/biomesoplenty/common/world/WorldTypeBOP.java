@@ -46,18 +46,6 @@ public class WorldTypeBOP extends WorldType
 
 			return ChunkGeneratorType.CAVES.create(world, new NetherBiomeProvider(biomeProviderSettings), nethergensettings);
 		}
-    	/*else if (world.getDimension().getType() == DimensionType.THE_END)
-    	{
-    		BlockPos SPAWN = new BlockPos(100, 50, 0);
-
-			EndGenerationSettings endgenerationsettings = ChunkGeneratorType.FLOATING_ISLANDS.createSettings();
-			EndBiomeProviderSettings endBiomeProviderSettings = new EndBiomeProviderSettings();
-			endBiomeProviderSettings.setSeed(world.getSeed());
-			endgenerationsettings.setDefaultBlock(Blocks.END_STONE.getDefaultState());
-			endgenerationsettings.setDefaultFluid(Blocks.AIR.getDefaultState());
-			endgenerationsettings.setSpawnPos(SPAWN);
-			return ChunkGeneratorType.FLOATING_ISLANDS.create(world, new BOPEndBiomeProvider(endBiomeProviderSettings), endgenerationsettings);
-    	}*/
     	else
     	{
     		return super.createChunkGenerator(world);

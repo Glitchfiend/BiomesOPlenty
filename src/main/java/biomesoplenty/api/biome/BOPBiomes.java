@@ -81,7 +81,4 @@ public class BOPBiomes
     public static Optional<Biome> glowstone_grotto = Optional.empty();
     public static Optional<Biome> undergarden = Optional.empty();
     public static Optional<Biome> visceral_heap = Optional.empty();
-
-    public static Optional<Biome> dead_reef = Optional.empty();
-    public static Optional<Biome> ethereal_forest = Optional.empty();
 }
