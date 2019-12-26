@@ -7,9 +7,10 @@
  ******************************************************************************/
 package biomesoplenty.common.world;
 
-import biomesoplenty.common.world.layer.GenLayerLand;
-import biomesoplenty.common.world.layer.GenLayerNetherBiome;
-import biomesoplenty.common.world.layer.GenLayerShoreBOP;
+import biomesoplenty.common.world.layer.LandLayer;
+import biomesoplenty.common.world.layer.NetherBiomeLayer;
+import biomesoplenty.common.world.layer.BOPShoreLayer;
+import biomesoplenty.common.world.layer.VoroniZoomLayer;
 import biomesoplenty.common.world.layer.traits.LazyAreaLayerContextBOP;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.world.WorldType;
@@ -26,7 +27,7 @@ public class BOPNetherLayerUtil
 {
     public static <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> createBiomeFactory(IAreaFactory<T> landFactory, LongFunction<C> contextFactory)
     {
-        IAreaFactory<T> biomeFactory = GenLayerNetherBiome.INSTANCE.apply(contextFactory.apply(200L));
+        IAreaFactory<T> biomeFactory = NetherBiomeLayer.INSTANCE.run(contextFactory.apply(200L));
         // magnify the biome layer
         biomeFactory = LayerUtil.repeat(1000L, ZoomLayer.NORMAL, biomeFactory, 2, contextFactory);
         return biomeFactory;
@@ -37,7 +38,7 @@ public class BOPNetherLayerUtil
         int biomeSize = 3;
 
         // The nether has no oceans, only land
-        IAreaFactory<T> landFactory = GenLayerLand.INSTANCE.apply(contextFactory.apply(1L));
+        IAreaFactory<T> landFactory = LandLayer.INSTANCE.run(contextFactory.apply(1L));
 
         // Allocate the biomes
         IAreaFactory<T> biomesFactory = createBiomeFactory(landFactory, contextFactory);
@@ -45,15 +46,15 @@ public class BOPNetherLayerUtil
         // Zoom more based on the biome size
         for (int i = 0; i < biomeSize; ++i)
         {
-            biomesFactory = ZoomLayer.NORMAL.apply(contextFactory.apply((long)(1000 + i)), biomesFactory);
-            if (i == 0) biomesFactory = AddIslandLayer.INSTANCE.apply(contextFactory.apply(3L), biomesFactory);
-            if (i == 1 || biomeSize == 1) biomesFactory = GenLayerShoreBOP.INSTANCE.apply(contextFactory.apply(1000L), biomesFactory);
+            biomesFactory = ZoomLayer.NORMAL.run(contextFactory.apply((long)(1000 + i)), biomesFactory);
+            if (i == 0) biomesFactory = AddIslandLayer.INSTANCE.run(contextFactory.apply(3L), biomesFactory);
+            if (i == 1 || biomeSize == 1) biomesFactory = BOPShoreLayer.INSTANCE.run(contextFactory.apply(1000L), biomesFactory);
         }
 
-        biomesFactory = SmoothLayer.INSTANCE.apply(contextFactory.apply(1000L), biomesFactory);
+        biomesFactory = SmoothLayer.INSTANCE.run(contextFactory.apply(1000L), biomesFactory);
 
         // Finish biomes with Voroni zoom
-        IAreaFactory<T> voroniZoomBiomesFactory = VoroniZoomLayer.INSTANCE.apply(contextFactory.apply(10L), biomesFactory);
+        IAreaFactory<T> voroniZoomBiomesFactory = VoroniZoomLayer.INSTANCE.run(contextFactory.apply(10L), biomesFactory);
         return ImmutableList.of(biomesFactory, voroniZoomBiomesFactory, biomesFactory);
     }
 

@@ -10,12 +10,12 @@ package biomesoplenty.common.world.layer;
 import biomesoplenty.common.world.layer.traits.IBOPAreaTransformer0;
 import biomesoplenty.common.world.layer.traits.IBOPContextExtended;
 
-public enum GenLayerTemperatureRandom implements IBOPAreaTransformer0
+public enum TemperatureRandomLayer implements IBOPAreaTransformer0
 {
     INSTANCE;
 
     @Override
-    public int apply(IBOPContextExtended context, int x, int z)
+    public int applyPixel(IBOPContextExtended context, int x, int z)
     {
         return context.random(9);
     }

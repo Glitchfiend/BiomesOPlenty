@@ -17,7 +17,7 @@ import net.minecraft.world.gen.layer.traits.ICastleTransformer;
 
 import java.util.Optional;
 
-public enum GenLayerBiomeEdgeBOP implements ICastleTransformer
+public enum BOPBiomeEdgeLayer implements ICastleTransformer
 {
     INSTANCE;
 

@@ -17,7 +17,7 @@ import net.minecraft.world.gen.area.IAreaFactory;
  */
 public interface IBOPAreaTransformer0
 {
-    default <R extends IArea> IAreaFactory<R> apply(IExtendedNoiseRandom<R> context)
+    default <R extends IArea> IAreaFactory<R> run(IExtendedNoiseRandom<R> context)
     {
         if (!(context instanceof IBOPContextExtended))
             throw new IllegalArgumentException("Context must be an IBOPContextExtended");
@@ -30,9 +30,9 @@ public interface IBOPAreaTransformer0
             context.func_212861_a_((x, z) ->
             {
                 context.setPosition((long)(x), (long)(z));
-                return this.apply(bopContext, x, z);
+                return this.applyPixel(bopContext, x, z);
             });
     }
 
-    int apply(IBOPContextExtended context, int x, int z);
+    int applyPixel(IBOPContextExtended context, int x, int z);
 }

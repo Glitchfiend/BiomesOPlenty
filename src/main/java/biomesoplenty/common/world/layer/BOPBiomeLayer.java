@@ -17,7 +17,7 @@ import net.minecraft.world.gen.layer.traits.IAreaTransformer2;
 import net.minecraft.world.gen.layer.traits.IDimOffset0Transformer;
 import net.minecraftforge.common.BiomeManager;
 
-public enum GenLayerBiomeBOP implements IAreaTransformer2, IDimOffset0Transformer
+public enum BOPBiomeLayer implements IAreaTransformer2, IDimOffset0Transformer
 {
     INSTANCE;
 
@@ -25,7 +25,7 @@ public enum GenLayerBiomeBOP implements IAreaTransformer2, IDimOffset0Transforme
     private static final int MUSHROOM_FIELDS = Registry.BIOME.getId(Biomes.MUSHROOM_FIELDS);
 
     @Override
-    public int apply(INoiseRandom context, IArea area1, IArea area2, int x, int z)
+    public int applyPixel(INoiseRandom context, IArea area1, IArea area2, int x, int z)
     {
         int landSeaVal = area1.getValue(x, z);
         int climateVal = area2.getValue(x, z);

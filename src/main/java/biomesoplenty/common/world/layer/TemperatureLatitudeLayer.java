@@ -11,7 +11,7 @@ import biomesoplenty.common.world.layer.traits.IBOPAreaTransformer0;
 import biomesoplenty.common.world.layer.traits.IBOPContextExtended;
 import net.minecraft.util.math.MathHelper;
 
-public enum GenLayerTemperatureLatitude implements IBOPAreaTransformer0
+public enum TemperatureLatitudeLayer implements IBOPAreaTransformer0
 {
     INSTANCE;
 
@@ -21,7 +21,7 @@ public enum GenLayerTemperatureLatitude implements IBOPAreaTransformer0
     private static final double AMPLITUDE = 8.9999D / HALF_PERIOD;
 
     @Override
-    public int apply(IBOPContextExtended context, int x, int z)
+    public int applyPixel(IBOPContextExtended context, int x, int z)
     {
         int offset = (int) (context.getWorldSeed() % ((int) (PERIOD * 2)));
 

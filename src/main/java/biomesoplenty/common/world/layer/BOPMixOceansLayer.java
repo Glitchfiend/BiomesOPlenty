@@ -14,12 +14,12 @@ import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.area.IArea;
 import net.minecraft.world.gen.layer.traits.IDimOffset0Transformer;
 
-public enum GenLayerMixOceansBOP implements IAreaTransformer3, IDimOffset0Transformer
+public enum BOPMixOceansLayer implements IAreaTransformer3, IDimOffset0Transformer
 {
     INSTANCE;
 
     @Override
-    public int apply(INoiseRandom context, IArea biomeArea, IArea oceanArea, IArea climateArea, int x, int z)
+    public int applyPixel(INoiseRandom context, IArea biomeArea, IArea oceanArea, IArea climateArea, int x, int z)
     {
         int biomeId = biomeArea.getValue(x, z);
         int oceanId = oceanArea.getValue(x, z);

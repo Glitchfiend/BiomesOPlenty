@@ -11,7 +11,7 @@ import biomesoplenty.common.world.SimplexNoise;
 import biomesoplenty.common.world.layer.traits.IBOPAreaTransformer0;
 import biomesoplenty.common.world.layer.traits.IBOPContextExtended;
 
-public enum GenLayerRainfallNoise implements IBOPAreaTransformer0
+public enum RainfallNoiseLayer implements IBOPAreaTransformer0
 {
     SMALL_ZONES(0.20D),
     MEDIUM_ZONES(0.10D),
@@ -19,13 +19,13 @@ public enum GenLayerRainfallNoise implements IBOPAreaTransformer0
 
     private final double scale;
 
-    GenLayerRainfallNoise(double scale)
+    RainfallNoiseLayer(double scale)
     {
         this.scale = scale;
     }
 
     @Override
-    public int apply(IBOPContextExtended context, int x, int z)
+    public int applyPixel(IBOPContextExtended context, int x, int z)
     {
         double xOffset = (double)(context.getWorldSeed() & 0xFFFFFF) * 0.000003D;
         double zOffset = (double)(context.getWorldSeed() & 0xFFFFFF) * 0.000004D;

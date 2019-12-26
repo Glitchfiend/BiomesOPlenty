@@ -15,7 +15,7 @@ import net.minecraft.world.gen.layer.traits.IDimTransformer;
 
 public interface IAreaTransformer3 extends IDimTransformer
 {
-    default <R extends IArea> IAreaFactory<R> apply(IExtendedNoiseRandom<R> context, IAreaFactory<R> areaFactory1, IAreaFactory<R> areaFactory2, IAreaFactory<R> areaFactory3)
+    default <R extends IArea> IAreaFactory<R> run(IExtendedNoiseRandom<R> context, IAreaFactory<R> areaFactory1, IAreaFactory<R> areaFactory2, IAreaFactory<R> areaFactory3)
     {
         return () ->
         {
@@ -25,10 +25,10 @@ public interface IAreaTransformer3 extends IDimTransformer
 
             return context.func_212861_a_((x, z) -> {
                 context.setPosition((long)x, (long)z);
-                return this.apply(context, area1, area2, area3, x, z);
+                return this.applyPixel(context, area1, area2, area3, x, z);
             });
         };
     }
 
-    int apply(INoiseRandom context, IArea area1, IArea area2, IArea area3, int x, int z);
+    int applyPixel(INoiseRandom context, IArea area1, IArea area2, IArea area3, int x, int z);
 }

@@ -17,7 +17,7 @@ import net.minecraft.world.gen.area.IArea;
 import net.minecraft.world.gen.layer.traits.IAreaTransformer2;
 import net.minecraft.world.gen.layer.traits.IDimOffset0Transformer;
 
-public enum GenLayerRiverMixBOP implements IAreaTransformer2, IDimOffset0Transformer
+public enum BOPRiverMixLayer implements IAreaTransformer2, IDimOffset0Transformer
 {
     INSTANCE;
 
@@ -28,7 +28,7 @@ public enum GenLayerRiverMixBOP implements IAreaTransformer2, IDimOffset0Transfo
     private static final int RIVER = Registry.BIOME.getId(Biomes.RIVER);
 
     @Override
-    public int apply(INoiseRandom context, IArea biomeArea, IArea riverArea, int x, int z)
+    public int applyPixel(INoiseRandom context, IArea biomeArea, IArea riverArea, int x, int z)
     {
         int biomeId = biomeArea.getValue(x, z);
         int riverId = riverArea.getValue(x, z);

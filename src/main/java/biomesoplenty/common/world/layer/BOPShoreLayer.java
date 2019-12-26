@@ -16,7 +16,7 @@ import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.layer.traits.ICastleTransformer;
 
-public enum GenLayerShoreBOP implements ICastleTransformer
+public enum BOPShoreLayer implements ICastleTransformer
 {
     INSTANCE;
 

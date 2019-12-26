@@ -7,14 +7,17 @@
  ******************************************************************************/
 package biomesoplenty.common.world.layer;
 
-import net.minecraft.world.gen.INoiseRandom;
-import net.minecraft.world.gen.layer.traits.IAreaTransformer0;
+import biomesoplenty.common.world.layer.traits.IBOPAreaTransformer0;
+import biomesoplenty.common.world.layer.traits.IBOPContextExtended;
 
-public enum GenLayerLand implements IAreaTransformer0
+public enum RainfallRandomLayer implements IBOPAreaTransformer0
 {
     INSTANCE;
 
-    public int apply(INoiseRandom random, int x, int z) {
-        return 1;
+    @Override
+    public int applyPixel(IBOPContextExtended context, int x, int z)
+    {
+        // Choose a random heat value
+        return context.random(12);
     }
 }

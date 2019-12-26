@@ -25,7 +25,7 @@ import net.minecraft.world.gen.layer.traits.IDimOffset1Transformer;
 import java.util.Iterator;
 import java.util.List;
 
-public enum GenLayerSubBiome implements IAreaTransformer2, IDimOffset1Transformer
+public enum SubBiomeLayer implements IAreaTransformer2, IDimOffset1Transformer
 {
     INSTANCE;
 
@@ -57,10 +57,10 @@ public enum GenLayerSubBiome implements IAreaTransformer2, IDimOffset1Transforme
     private static final int TAIGA_HILLS = Registry.BIOME.getId(Biomes.TAIGA_HILLS);
 
     @Override
-    public int apply(INoiseRandom context, IArea biomeArea, IArea riverAndSubBiomesInitArea, int x, int z)
+    public int applyPixel(INoiseRandom context, IArea biomeArea, IArea riverAndSubBiomesInitArea, int x, int z)
     {
-        int biomeId = biomeArea.getValue(this.func_215721_a(x + 1), this.func_215722_b(z + 1));
-        int initVal = riverAndSubBiomesInitArea.getValue(this.func_215721_a(x + 1), this.func_215722_b(z + 1));
+        int biomeId = biomeArea.getValue(this.getParentX(x + 1), this.getParentY(z + 1));
+        int initVal = riverAndSubBiomesInitArea.getValue(this.getParentX(x + 1), this.getParentY(z + 1));
 
         int subBiomeType = (initVal - 2) % 29;
         boolean tryRareHillsBiome = subBiomeType == 0;

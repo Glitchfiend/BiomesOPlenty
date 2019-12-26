@@ -15,12 +15,12 @@ import net.minecraft.world.gen.area.IArea;
 import net.minecraft.world.gen.layer.traits.IAreaTransformer2;
 import net.minecraft.world.gen.layer.traits.IDimOffset1Transformer;
 
-public enum GenLayerLargeIsland implements IAreaTransformer2, IDimOffset1Transformer
+public enum LargeIslandLayer implements IAreaTransformer2, IDimOffset1Transformer
 {
     INSTANCE;
 
     @Override
-    public int apply(INoiseRandom context, IArea landSeaArea, IArea climateArea, int x, int z)
+    public int applyPixel(INoiseRandom context, IArea landSeaArea, IArea climateArea, int x, int z)
     {
         int northVal = landSeaArea.getValue(x + 1, z + 0);
         int eastVal = landSeaArea.getValue(x + 2, z + 1);
