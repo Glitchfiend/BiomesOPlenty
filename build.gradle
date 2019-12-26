@@ -11,7 +11,7 @@ buildscript {
 }
 
 plugins {
-    id "com.matthewprenger.cursegradle" version "1.2.0"
+    id "com.matthewprenger.cursegradle" version "1.4.0"
 }
 
 apply plugin: 'net.minecraftforge.gradle'
@@ -105,7 +105,7 @@ curseforge {
                 changelog = changelog_file
             }
 
-            releaseType = 'alpha'
+            releaseType = 'beta'
 
             mainArtifact(jar) {
                 displayName = "Biomes O' Plenty ${version}"
