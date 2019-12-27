@@ -7,6 +7,7 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
+import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.LivingEntity;
@@ -43,7 +44,7 @@ public class DoubleWaterPlantBlock extends DoublePlantBlock implements IWaterLog
     public BlockState getStateForPlacement(BlockItemUseContext context) {
         IFluidState ifluidstate = context.getWorld().getFluidState(context.getPos());
         BlockPos blockpos = context.getPos();
-        return blockpos.getY() < context.getWorld().getDimension().getHeight() - 1 && context.getWorld().getBlockState(blockpos.up()).isReplaceable(context) ? super.getStateForPlacement(context).with(WATERLOGGED, Boolean.valueOf(ifluidstate.isTagged(FluidTags.WATER) && ifluidstate.getLevel() == 8)) : null;
+        return blockpos.getY() < context.getWorld().getDimension().getHeight() - 1 && context.getWorld().getBlockState(blockpos.up()).isReplaceable(context) ? this.getDefaultState().with(WATERLOGGED, Boolean.valueOf(ifluidstate.isTagged(FluidTags.WATER) && ifluidstate.getLevel() == 8)) : null;
     }
 
     @Override
@@ -66,12 +67,13 @@ public class DoubleWaterPlantBlock extends DoublePlantBlock implements IWaterLog
         if (state.get(HALF) != DoubleBlockHalf.UPPER)
         {
             BlockPos blockpos = pos.down();
-            return worldIn.getBlockState(blockpos).func_224755_d(worldIn, blockpos, Direction.UP);
+            Block existingBlock = worldIn.getBlockState(pos).getBlock();
+            return (existingBlock == this || existingBlock.getMaterial(state) == Material.WATER) && worldIn.getBlockState(blockpos).func_224755_d(worldIn, blockpos, Direction.UP);
         }
         else
         {
             BlockState blockstate = worldIn.getBlockState(pos.down());
-            if (state.getBlock() != this) return super.isValidPosition(state, worldIn, pos); //Forge: This function is called during world gen and placement, before this block is set, so if we are not 'here' then assume it's the pre-check.
+            if (state.getBlock() != this) return worldIn.isAirBlock(pos); // This function is called during world gen and placement, before this block is set, so if we are not 'here' then assume it's the pre-check.
             return blockstate.getBlock() == this && blockstate.get(HALF) == DoubleBlockHalf.LOWER && blockstate.get(WATERLOGGED);
         }
     }
