@@ -5,10 +5,10 @@ import net.minecraft.world.gen.feature.*;
 
 import java.util.Random;
 
-public class PinkCherryTree extends TreeNoConfig
+public class PinkCherryTree extends TreeDefaultConfig
 {
    @Override
-   protected Feature<?> getFeature(Random random)
+   protected Feature<? extends BaseTreeFeatureConfig> getFeature(Random random)
    {
       return (random.nextInt(10) == 0 ? BOPBiomeFeatures.BIG_PINK_CHERRY_TREE : BOPBiomeFeatures.PINK_CHERRY_TREE);
    }

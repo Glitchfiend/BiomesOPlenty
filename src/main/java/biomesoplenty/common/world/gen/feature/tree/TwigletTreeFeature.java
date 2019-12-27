@@ -92,7 +92,7 @@ public class TwigletTreeFeature extends TreeFeatureBase
         float leafChance;
         for (int y = 0; y < height; y++)
         {
-            if (!this.setLog(changedLogs, world, pos.up(y), boundingBox))
+            if (!this.placeLog(world, pos.up(y), changedLogs, boundingBox))
             {
                 // abandon if the log can't grow
                 return true;
@@ -104,19 +104,19 @@ public class TwigletTreeFeature extends TreeFeatureBase
             } // no leaves below base height
             if (random.nextFloat() < leafChance)
             {
-                this.setLeaves(world, pos.add(1, y, 0));
+                this.placeLeaves(world, pos.add(1, y, 0), changedLeaves, boundingBox);
             }
             if (random.nextFloat() < leafChance)
             {
-                this.setLeaves(world, pos.add(-1, y, 0));
+                this.placeLeaves(world, pos.add(-1, y, 0), changedLeaves, boundingBox);
             }
             if (random.nextFloat() < leafChance)
             {
-                this.setLeaves(world, pos.add(0, y, 1));
+                this.placeLeaves(world, pos.add(0, y, 1), changedLeaves, boundingBox);
             }
             if (random.nextFloat() < leafChance)
             {
-                this.setLeaves(world, pos.add(0, y, -1));
+                this.placeLeaves(world, pos.add(0, y, -1), changedLeaves, boundingBox);
             }
 
             if (this.trunkFruit != Blocks.AIR.getDefaultState())
@@ -138,7 +138,7 @@ public class TwigletTreeFeature extends TreeFeatureBase
             }
         }
         // finish with leaves on top
-        this.setLeaves(world, pos.add(0, height, 0));
+        this.placeLeaves(world, pos.add(0, height, 0), changedLeaves, boundingBox);
 
         return true;
     }

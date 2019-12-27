@@ -79,31 +79,31 @@ public class BulbTreeFeature extends TreeFeatureBase
     }
 
     // generates a 'branch' of a leaf layer
-    public void generateBranch(IWorld world, Random random, BlockPos pos, Direction direction)
+    public void generateBranch(IWorld world, Random random, BlockPos pos, Direction direction, Set<BlockPos> changedLeaves, MutableBoundingBox boundingBox)
     {
         Direction sideways = direction.rotateY();
-        this.setLeaves(world, pos.offset(direction, 1));
-        this.setLeaves(world, pos.up().offset(direction, 1));
+        this.placeLeaves(world, pos.offset(direction, 1), changedLeaves, boundingBox);
+        this.placeLeaves(world, pos.up().offset(direction, 1), changedLeaves, boundingBox);
         if (random.nextInt(3) > 0)
         {
-            this.setLeaves(world, pos.up().offset(direction, 1).offset(sideways, 1));
+            this.placeLeaves(world, pos.up().offset(direction, 1).offset(sideways, 1), changedLeaves, boundingBox);
         }
     }
 
     // generates a layer of leafs (2 blocks high)
-    public void generateLeafLayer(Set<BlockPos> changedBlocks, MutableBoundingBox boundingBox, IWorld world, Random random, BlockPos pos)
+    public void generateLeafLayer(IWorld world, Random random, BlockPos pos, Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, MutableBoundingBox boundingBox)
     {
         for (Direction direction : Direction.Plane.HORIZONTAL)
         {
-            this.generateBranch(world, random, pos, direction);
+            this.generateBranch(world, random, pos, direction, changedLeaves, boundingBox);
         }
 
         // add the trunk in the middle
-        this.setLog(changedBlocks, world, pos, boundingBox);
-        this.setLog(changedBlocks, world, pos.up(), boundingBox);
+        this.placeLog(world, pos, changedLogs, boundingBox);
+        this.placeLog(world, pos.up(), changedLogs, boundingBox);
     }
 
-    public void generateTop(Set<BlockPos> changedBlocks, MutableBoundingBox boundingBox,  IWorld world, Random random, BlockPos pos, int topHeight)
+    public void generateTop(IWorld world, Random random, BlockPos pos, int topHeight, Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, MutableBoundingBox boundingBox)
     {
         for (int y = 0; y < topHeight; y++)
         {
@@ -115,17 +115,17 @@ public class BulbTreeFeature extends TreeFeatureBase
                 {
                     if (Math.abs(x) < radius || Math.abs(z) < radius || random.nextInt(2) == 0)
                     {
-                        this.setLeaves(world, pos.add(x, y, z));
+                        this.placeLeaves(world, pos.add(x, y, z), changedLeaves, boundingBox);
                     }
                 }
             }
             if (y < topHeight - 1)
             {
                 // add the trunk in the middle
-                this.setLog(changedBlocks, world, pos.add(0, y, 0), boundingBox);
+                this.placeLog(world, pos.add(0, y, 0), changedLogs, boundingBox);
             } else {
                 // add leaves on top for certain
-                this.setLeaves(world, pos.add(0, y, 0));
+                this.placeLeaves(world, pos.add(0, y, 0), changedLeaves, boundingBox);
             }
         }
     }
@@ -133,7 +133,6 @@ public class BulbTreeFeature extends TreeFeatureBase
     @Override
     protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, IWorld world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
     {
-
         // Move down until we reach the ground
         while (startPos.getY() > 1 && world.isAirBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES) {startPos = startPos.down();}
 
@@ -163,19 +162,19 @@ public class BulbTreeFeature extends TreeFeatureBase
         // Generate bottom of tree (trunk only)
         for(int i = 0; i < baseHeight; i++)
         {
-            this.setLog(changedLogs, world, pos, boundingBox);
+            this.placeLog(world, pos, changedLogs, boundingBox);
             pos = pos.up();
         }
 
         // Generate middle of the tree - 2 steps at a time (trunk and leaves)
         for (int i = 0; i < numBranches; i++)
         {
-            this.generateLeafLayer(changedLogs, boundingBox, world, random, pos);
+            this.generateLeafLayer(world, random, pos, changedLogs, changedLeaves, boundingBox);
             pos = pos.up(2);
         }
 
         // Generate the top of the tree
-        this.generateTop(changedLogs, boundingBox, world, random, pos, topHeight);
+        this.generateTop(world, random, pos, topHeight, changedLogs, changedLeaves, boundingBox);
 
         // Add vines
         this.addVines(world, random, startPos, baseHeight, height, 3, 10);

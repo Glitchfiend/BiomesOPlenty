@@ -5,16 +5,16 @@ import net.minecraft.world.gen.feature.*;
 
 import java.util.Random;
 
-public class RedwoodTree extends BigTreeNoConfig
+public class RedwoodTree extends BigTreeDefaultConfig
 {
    @Override
-   protected Feature<?> getFeature(Random random)
+   protected Feature<? extends BaseTreeFeatureConfig> getFeature(Random random)
    {
       return BOPBiomeFeatures.REDWOOD_TREE;
    }
 
    @Override
-   protected Feature<?> getBigFeature(Random random)
+   protected Feature<? extends BaseTreeFeatureConfig> getBigFeature(Random random)
    {
       return BOPBiomeFeatures.REDWOOD_TREE_MEDIUM;
    }

@@ -5,10 +5,10 @@ import net.minecraft.world.gen.feature.*;
 
 import java.util.Random;
 
-public class OriginTree extends TreeNoConfig
+public class OriginTree extends TreeDefaultConfig
 {
 	@Override
-	protected Feature<?> getFeature(Random random)
+	protected Feature<? extends BaseTreeFeatureConfig> getFeature(Random random)
 	{
 		return (random.nextInt(10) == 0 ? BOPBiomeFeatures.BIG_ORIGIN_TREE : BOPBiomeFeatures.ORIGIN_TREE);
 	}

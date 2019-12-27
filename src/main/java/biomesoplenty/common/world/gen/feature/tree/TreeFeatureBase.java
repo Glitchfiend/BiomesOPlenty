@@ -10,7 +10,6 @@ package biomesoplenty.common.world.gen.feature.tree;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.block.BlockUtil;
 import biomesoplenty.common.util.block.IBlockPosQuery;
-import com.mojang.datafixers.Dynamic;
 import net.minecraft.block.*;
 import net.minecraft.state.IProperty;
 import net.minecraft.tags.BlockTags;
@@ -18,15 +17,12 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.IWorld;
-import net.minecraft.world.IWorldWriter;
 import net.minecraft.world.gen.IWorldGenerationReader;
 import net.minecraft.world.gen.feature.AbstractTreeFeature;
 import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
-import net.minecraft.world.gen.feature.TreeFeatureConfig;
 
 import java.util.Random;
 import java.util.Set;
-import java.util.function.Function;
 
 public abstract class TreeFeatureBase extends AbstractTreeFeature<BaseTreeFeatureConfig>
 {
@@ -119,29 +115,30 @@ public abstract class TreeFeatureBase extends AbstractTreeFeature<BaseTreeFeatur
         this.maxHeight = maxHeight;
     }
 
-    public boolean setLeaves(IWorld world, BlockPos pos)
+    public boolean placeLeaves(IWorld world, BlockPos pos, Set<BlockPos> changedBlocks, MutableBoundingBox boundingBox)
     {
         if (this.replace.matches(world, pos))
         {
             this.setBlockState(world, pos, this.leaves);
+            this.placeBlock(world, pos, this.leaves, changedBlocks, boundingBox);
             return true;
         }
         return false;
     }
 
-    public boolean setLog(Set<BlockPos> changedBlocks, IWorld world, BlockPos pos, MutableBoundingBox boundingBox)
+    public boolean placeLog(IWorld world, BlockPos pos, Set<BlockPos> changedBlocks, MutableBoundingBox boundingBox)
     {
-        return this.setLog(changedBlocks, world, pos, null, boundingBox);
+        return this.placeLog(world, pos, null, changedBlocks, boundingBox);
     }
 
-    public boolean setLog(Set<BlockPos> changedBlocks, IWorld world, BlockPos pos, Direction.Axis axis, MutableBoundingBox boundingBox)
+    public boolean placeLog(IWorld world, BlockPos pos, Direction.Axis axis, Set<BlockPos> changedBlocks, MutableBoundingBox boundingBox)
     {
         BlockState directedLog = (axis != null && this.logAxisProperty != null) ? this.log.with(this.logAxisProperty, axis) : this.log;
         if (this.replace.matches(world, pos))
         {
             // Logs must be added to the "changedBlocks" so that the leaves have their distance property updated,
             // preventing incorrect decay
-            this.setBlock(world, pos, directedLog, changedBlocks, boundingBox);
+            this.placeBlock(world, pos, directedLog, changedBlocks, boundingBox);
             return true;
         }
         return false;
@@ -201,7 +198,7 @@ public abstract class TreeFeatureBase extends AbstractTreeFeature<BaseTreeFeatur
         return false;
     }
 
-    protected boolean setBlock(IWorld world, BlockPos pos, BlockState state, Set<BlockPos> changedBlocks, MutableBoundingBox boundingBox)
+    protected boolean placeBlock(IWorld world, BlockPos pos, BlockState state, Set<BlockPos> changedBlocks, MutableBoundingBox boundingBox)
     {
         if (!isAirOrLeaves(world, pos) && !isTallPlants(world, pos) && !isWater(world, pos))
         {

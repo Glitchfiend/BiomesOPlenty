@@ -72,7 +72,7 @@ public class BushTreeFeature extends TreeFeatureBase
             // log in the center
             if (height - y > 1)
             {
-                this.setLog(changedLogs, world, pos.add(0, y, 0), boundingBox);
+                this.placeLog(world, pos.add(0, y, 0), changedLogs, boundingBox);
             }
 
             //Reduces the radius closer to the top of the bush
@@ -93,12 +93,12 @@ public class BushTreeFeature extends TreeFeatureBase
                             }
                             else
                             {
-                                this.setLeaves(world, pos.add(x, y, z));
+                                this.placeLeaves(world, pos.add(x, y, z), changedLeaves, boundingBox);
                             }
                         }
                         else
                         {
-                            this.setLeaves(world, pos.add(x, y, z));
+                            this.placeLeaves(world, pos.add(x, y, z), changedLeaves, boundingBox);
                         }
                     }
                 }

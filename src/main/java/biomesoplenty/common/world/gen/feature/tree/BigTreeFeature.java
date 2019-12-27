@@ -99,16 +99,16 @@ public class BigTreeFeature extends TreeFeatureBase
 
                             if (rand == 0)
                             {
-                                this.setBlock(world, blockpos, this.altLeaves, changedBlocks, boundingBox);
+                                this.placeBlock(world, blockpos, this.altLeaves, changedBlocks, boundingBox);
                             }
                             else
                             {
-                                this.setBlock(world, blockpos, this.leaves, changedBlocks, boundingBox);
+                                this.placeBlock(world, blockpos, this.leaves, changedBlocks, boundingBox);
                             }
                         }
                         else
                         {
-                            this.setBlock(world, blockpos, this.leaves, changedBlocks, boundingBox);
+                            this.placeBlock(world, blockpos, this.leaves, changedBlocks, boundingBox);
                         }
                     }
                 }
@@ -219,7 +219,7 @@ public class BigTreeFeature extends TreeFeatureBase
                 BlockPos deltaPos = startPos.add((double)(0.5F + (float)j * dx), (double)(0.5F + (float)j * dy), (double)(0.5F + (float)j * dz));
                 if (set)
                 {
-                    this.setLog(changedBlocks, world, deltaPos, this.getLogAxis(startPos, deltaPos), boundingBox);
+                    this.placeLog(world, deltaPos, this.getLogAxis(startPos, deltaPos), changedBlocks, boundingBox);
                 }
                 else if (!this.isFree(world, deltaPos))
                 {

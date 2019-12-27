@@ -56,7 +56,7 @@ public class MahoganyTreeFeature extends BasicTreeFeature
 
             if (this.replace.matches(world, middlePos))
             {
-                this.setLog(changedBlocks, world, middlePos, boundingBox);
+                this.placeLog(world, middlePos, changedBlocks, boundingBox);
             }
         }
 
@@ -74,11 +74,11 @@ public class MahoganyTreeFeature extends BasicTreeFeature
     {
         BlockPos pos;
 
-        if (replace.matches(world, pos = middle.offset(direction))) this.setLog(changedBlocks, world, pos, direction.getAxis(), boundingBox);
+        if (replace.matches(world, pos = middle.offset(direction))) this.placeLog(world, pos, direction.getAxis(), changedBlocks, boundingBox);
 
         for (int i = 0; i <= height - 1; i++)
         {
-            if (replace.matches(world, pos = middle.offset(direction, 2).up(i + 1))) this.setLog(changedBlocks, world, pos, Direction.Axis.Y, boundingBox);
+            if (replace.matches(world, pos = middle.offset(direction, 2).up(i + 1))) this.placeLog(world, pos, Direction.Axis.Y, changedBlocks, boundingBox);
         }
 
         Direction logDirection = direction.rotateY();
@@ -86,7 +86,7 @@ public class MahoganyTreeFeature extends BasicTreeFeature
         //Extend inner branches outwards to prevent decay
         for (int i = -1; i <= 1; i++)
         {
-            if (replace.matches(world, pos = middle.offset(direction, 3).offset(logDirection, i).up(height - 1))) this.setLog(changedBlocks, world, pos, logDirection.getAxis(), boundingBox);
+            if (replace.matches(world, pos = middle.offset(direction, 3).offset(logDirection, i).up(height - 1))) this.placeLog(world, pos, logDirection.getAxis(), changedBlocks, boundingBox);
         }
     }
 }

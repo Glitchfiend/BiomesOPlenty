@@ -5,10 +5,10 @@ import net.minecraft.world.gen.feature.*;
 
 import java.util.Random;
 
-public class PalmTree extends TreeNoConfig
+public class PalmTree extends TreeDefaultConfig
 {
    @Override
-   protected Feature<?> getFeature(Random random)
+   protected Feature<? extends BaseTreeFeatureConfig> getFeature(Random random)
    {
       return BOPBiomeFeatures.PALM_TREE;
    }

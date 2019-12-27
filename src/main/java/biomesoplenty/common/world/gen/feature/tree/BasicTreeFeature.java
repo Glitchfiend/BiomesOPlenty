@@ -185,12 +185,12 @@ public class BasicTreeFeature extends TreeFeatureBase
                                             }
                                             else
                                             {
-                                                this.setLeaves(world, leavesPos);
+                                                this.placeLeaves(world, leavesPos, changedLeaves, boundingBox);
                                             }
                                         }
                                         else
                                         {
-                                            this.setLeaves(world, leavesPos);
+                                            this.placeLeaves(world, leavesPos, changedLeaves, boundingBox);
                                         }
                                     }
                                 }
@@ -292,7 +292,7 @@ public class BasicTreeFeature extends TreeFeatureBase
             BlockPos blockpos2 = start.up(layer);
             if (this.replace.matches(world, blockpos2))
             {
-                this.setLog(changedBlocks, world, start.up(layer), boundingBox);
+                this.placeLog(world, start.up(layer), changedBlocks, boundingBox);
             }
         }
     }

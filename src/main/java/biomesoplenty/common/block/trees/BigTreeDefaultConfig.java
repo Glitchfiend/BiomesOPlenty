@@ -12,16 +12,14 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.trees.BigTree;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
+import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.HugeTreeFeatureConfig;
-import net.minecraft.world.gen.feature.TreeFeatureConfig;
+import net.minecraft.world.gen.feature.*;
 
 import javax.annotation.Nullable;
 import java.util.Random;
 
-public abstract class BigTreeNoConfig extends BigTree
+public abstract class BigTreeDefaultConfig extends BigTree
 {
     @Override
     @Nullable
@@ -37,8 +35,8 @@ public abstract class BigTreeNoConfig extends BigTree
         return null;
     }
 
-    protected abstract Feature<?> getFeature(Random random);
-    protected abstract Feature<?> getBigFeature(Random random);
+    protected abstract Feature<? extends BaseTreeFeatureConfig> getFeature(Random random);
+    protected abstract Feature<? extends BaseTreeFeatureConfig> getBigFeature(Random random);
 
     @Override
     public boolean growTree(IWorld world, ChunkGenerator<?> generator, BlockPos pos, BlockState state, Random random)
@@ -54,7 +52,7 @@ public abstract class BigTreeNoConfig extends BigTree
             }
         }
 
-        Feature<?> feature = this.getFeature(random);
+        Feature<BaseTreeFeatureConfig> feature = (Feature<BaseTreeFeatureConfig>)this.getFeature(random);
 
         if (feature == null)
         {
@@ -63,7 +61,7 @@ public abstract class BigTreeNoConfig extends BigTree
         else
         {
             world.setBlockState(pos, Blocks.AIR.getDefaultState(), 4);
-            if (feature.place(world, generator, random, pos, null))
+            if (feature.place(world, generator, random, pos, DefaultBiomeFeatures.NORMAL_TREE_CONFIG))
             {
                 return true;
             }
@@ -78,7 +76,7 @@ public abstract class BigTreeNoConfig extends BigTree
     @Override
     public boolean placeMega(IWorld world, ChunkGenerator<?> generator, BlockPos pos, BlockState state, Random random, int x, int z)
     {
-        Feature<?> feature = this.getBigFeature(random);
+        Feature<BaseTreeFeatureConfig> feature = (Feature<BaseTreeFeatureConfig>)this.getBigFeature(random);
         if (feature == null)
         {
             return false;
@@ -90,7 +88,7 @@ public abstract class BigTreeNoConfig extends BigTree
             world.setBlockState(pos.add(x + 1, 0, z), blockstate, 4);
             world.setBlockState(pos.add(x, 0, z + 1), blockstate, 4);
             world.setBlockState(pos.add(x + 1, 0, z + 1), blockstate, 4);
-            if (feature.place(world, generator, random, pos.add(x, 0, z), null))
+            if (feature.place(world, generator, random, pos.add(x, 0, z), DefaultBiomeFeatures.NORMAL_TREE_CONFIG))
             {
                 return true;
             }

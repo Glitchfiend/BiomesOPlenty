@@ -12,13 +12,14 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.trees.Tree;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
+import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.*;
 
 import javax.annotation.Nullable;
 import java.util.Random;
 
-public abstract class TreeNoConfig extends Tree
+public abstract class TreeDefaultConfig extends Tree
 {
     @Override
     @Nullable
@@ -27,12 +28,12 @@ public abstract class TreeNoConfig extends Tree
         return null;
     }
 
-    protected abstract Feature<?> getFeature(Random random);
+    protected abstract Feature<? extends BaseTreeFeatureConfig> getFeature(Random random);
 
     @Override
     public boolean growTree(IWorld world, ChunkGenerator<?> generator, BlockPos pos, BlockState state, Random random)
     {
-        Feature<?> feature = this.getFeature(random);
+        Feature<BaseTreeFeatureConfig> feature = (Feature<BaseTreeFeatureConfig>)this.getFeature(random);
         if (feature == null)
         {
             return false;
@@ -40,7 +41,7 @@ public abstract class TreeNoConfig extends Tree
         else
         {
             world.setBlockState(pos, Blocks.AIR.getDefaultState(), 4);
-            if (feature.place(world, generator, random, pos, null))
+            if (feature.place(world, generator, random, pos, DefaultBiomeFeatures.NORMAL_TREE_CONFIG))
             {
                 return true;
             }

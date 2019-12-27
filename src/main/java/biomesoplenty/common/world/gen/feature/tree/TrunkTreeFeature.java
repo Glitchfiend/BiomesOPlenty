@@ -75,11 +75,11 @@ public class TrunkTreeFeature extends TreeFeatureBase
             if (step == heightMinusTop)
             {
                 // Generate top of tree
-                this.setLog(changedLogs, world, offsetPos, boundingBox);
+                this.placeLog(world, offsetPos, changedLogs, boundingBox);
                 break;
             }
             
-            this.setLog(changedLogs, world, offsetPos, boundingBox);
+            this.placeLog(world, offsetPos, changedLogs, boundingBox);
         }
         
         return true;
