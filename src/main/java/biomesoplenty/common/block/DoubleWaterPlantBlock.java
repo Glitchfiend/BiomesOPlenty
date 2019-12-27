@@ -8,6 +8,7 @@
 package biomesoplenty.common.block;
 
 import net.minecraft.block.*;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.fluid.IFluidState;
