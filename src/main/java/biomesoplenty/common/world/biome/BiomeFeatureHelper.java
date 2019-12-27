@@ -30,7 +30,7 @@ public class BiomeFeatureHelper
 
     public static BlockClusterFeatureConfig createClusterConfigurationDoubleWater(BlockState state)
     {
-        return (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(state), new DoublePlantBlockPlacer())).whitelist(ImmutableSet.of(Blocks.WATER)).tries(64).noProjection().build();
+        return (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(state), new DoublePlantBlockPlacer())).canReplace().tries(64).noProjection().build();
     }
 
 }
