@@ -52,7 +52,7 @@ public class FlowerMeadowBiome extends BiomeBOP
         ////////////////////////////////////////////////////////////
 
         // Vegetation
-        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(BOPBiomeFeatures.TALL_SPRUCE_TREE.configured(DefaultBiomeFeatures.NORMAL_TREE_CONFIG).weighted(0.1F)), BOPBiomeFeatures.BUSH.configured(DefaultBiomeFeatures.NORMAL_TREE_CONFIG))).decorated(Placement.COUNT_EXTRA_HEIGHTMAP.configured(new AtSurfaceWithExtraConfig(2, 0.3F, 1))));
+        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(BOPBiomeFeatures.TALL_SPRUCE_TREE.configured(DefaultBiomeFeatures.NORMAL_TREE_WITH_BEES_005_CONFIG).weighted(0.1F)), BOPBiomeFeatures.BUSH.configured(DefaultBiomeFeatures.NORMAL_TREE_CONFIG))).decorated(Placement.COUNT_EXTRA_HEIGHTMAP.configured(new AtSurfaceWithExtraConfig(2, 0.3F, 1))));
 
         this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfigurationDouble(Blocks.LILAC.getDefaultState())).decorated(Placement.COUNT_HEIGHTMAP_32.configured(new FrequencyConfig(2))));
         this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfigurationDouble(Blocks.ROSE_BUSH.getDefaultState())).decorated(Placement.COUNT_HEIGHTMAP_32.configured(new FrequencyConfig(2))));
