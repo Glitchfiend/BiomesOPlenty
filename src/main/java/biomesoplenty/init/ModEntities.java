@@ -31,7 +31,7 @@ public class ModEntities
     @SubscribeEvent
     public static void registerEntities(RegistryEvent.Register<EntityType<?>> event)
     {
-        BOPEntities.boat_bop = EntityType.Builder.<BoatEntityBOP>create(BoatEntityBOP::new, EntityClassification.MISC).setTrackingRange(80).setUpdateInterval(3).setShouldReceiveVelocityUpdates(true).size(1.375f, 0.5625f).setCustomClientFactory((spawnEntity, world) -> new BoatEntityBOP(world)).build(MOD_ID + ":boat_bop");
+        BOPEntities.boat_bop = EntityType.Builder.<BoatEntityBOP>create(BoatEntityBOP::new, EntityClassification.MISC).setTrackingRange(80).setUpdateInterval(3).setShouldReceiveVelocityUpdates(true).size(1.375f, 0.5625f).setCustomClientFactory(BoatEntityBOP::new).build(MOD_ID + ":boat_bop");
         BOPEntities.boat_bop.setRegistryName("boat_bop");
         ForgeRegistries.ENTITIES.register(BOPEntities.boat_bop);
     }

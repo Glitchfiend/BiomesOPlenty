@@ -62,6 +62,6 @@ public class BoatRendererBOP extends EntityRenderer<BoatEntityBOP>
     }
 
     public ResourceLocation getEntityTexture(BoatEntityBOP entity) {
-        return BOAT_TEXTURES[entity.getBoatType().ordinal()];
+        return BOAT_TEXTURES[entity.getBoatModel().ordinal()];
     }
 }

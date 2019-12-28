@@ -58,7 +58,7 @@ public class BoatItemBOP extends Item {
             if (raytraceresult.getType() == RayTraceResult.Type.BLOCK) {
 
                 BoatEntityBOP boatentity = new BoatEntityBOP(worldIn, raytraceresult.getHitVec().x, raytraceresult.getHitVec().y, raytraceresult.getHitVec().z);
-                boatentity.setBoatType(this.type);
+                boatentity.setBoatModel(this.type);
                 boatentity.rotationYaw = playerIn.rotationYaw;
                 if (!worldIn.func_226665_a__(boatentity, boatentity.getBoundingBox().grow(-0.1D))) {
                     return new ActionResult<>(ActionResultType.FAIL, itemstack);
