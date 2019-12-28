@@ -66,15 +66,15 @@ public class DoubleWaterPlantBlock extends DoublePlantBlock implements IWaterLog
     {
         if (state.get(HALF) != DoubleBlockHalf.UPPER)
         {
-            BlockPos blockpos = pos.down();
+            BlockPos posBelow = pos.down();
             Block existingBlock = worldIn.getBlockState(pos).getBlock();
-            return (existingBlock == this || existingBlock.getMaterial(state) == Material.WATER) && worldIn.getBlockState(blockpos).func_224755_d(worldIn, blockpos, Direction.UP);
+            return (existingBlock == this || existingBlock.getMaterial(state) == Material.WATER) && this.isExposed(worldIn, pos.up()) && worldIn.getBlockState(posBelow).func_224755_d(worldIn, posBelow, Direction.UP);
         }
         else
         {
             BlockState blockstate = worldIn.getBlockState(pos.down());
             if (state.getBlock() != this) return worldIn.isAirBlock(pos); // This function is called during world gen and placement, before this block is set, so if we are not 'here' then assume it's the pre-check.
-            return blockstate.getBlock() == this && blockstate.get(HALF) == DoubleBlockHalf.LOWER && blockstate.get(WATERLOGGED);
+            return this.isExposed(worldIn, pos) && blockstate.getBlock() == this && blockstate.get(HALF) == DoubleBlockHalf.LOWER && blockstate.get(WATERLOGGED);
         }
     }
 
@@ -98,5 +98,11 @@ public class DoubleWaterPlantBlock extends DoublePlantBlock implements IWaterLog
     @Override
     public IFluidState getFluidState(BlockState state) {
         return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
+    }
+
+    protected boolean isExposed(IWorldReader world, BlockPos pos)
+    {
+        BlockState state = world.getBlockState(pos);
+        return state.getBlock() == this ? !state.get(WATERLOGGED) : world.isAirBlock(pos);
     }
 }
