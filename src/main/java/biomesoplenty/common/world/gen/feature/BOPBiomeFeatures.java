@@ -38,6 +38,7 @@ public class BOPBiomeFeatures
 	public static final Feature<BaseTreeFeatureConfig> MAGIC_TREE = new BasicTreeFeature.Builder().log(BOPBlocks.magic_log.getDefaultState()).leaves(BOPBlocks.magic_leaves.getDefaultState()).create();
 	
 	//Big Trees
+	public static final Feature<BaseTreeFeatureConfig> BIG_OAK_TREE = new BigTreeFeature.Builder().create();
 	public static final Feature<BaseTreeFeatureConfig> BIG_ORIGIN_TREE = new BigTreeFeature.Builder().leaves(BOPBlocks.origin_leaves.getDefaultState()).create();
 	public static final Feature<BaseTreeFeatureConfig> BIG_FLOWERING_OAK_TREE = new BigTreeFeature.Builder().altLeaves(BOPBlocks.flowering_oak_leaves.getDefaultState()).create();
 	public static final Feature<BaseTreeFeatureConfig> BIG_YELLOW_AUTUMN_TREE = new BigTreeFeature.Builder().log(Blocks.BIRCH_LOG.getDefaultState()).leaves(BOPBlocks.yellow_autumn_leaves.getDefaultState()).create();
