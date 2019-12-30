@@ -26,6 +26,7 @@ public class BOPBiomeFeatures
 	public static final Feature<BaseTreeFeatureConfig> SMALL_JUNGLE_TREE = new BasicTreeFeature.Builder().maxHeight(9).log(Blocks.JUNGLE_LOG.getDefaultState()).leaves(Blocks.JUNGLE_LEAVES.getDefaultState()).trunkFruit(Blocks.COCOA.getDefaultState()).create();
 	public static final Feature<BaseTreeFeatureConfig> ORIGIN_TREE = new BasicTreeFeature.Builder().leaves(BOPBlocks.origin_leaves.getDefaultState()).minHeight(5).maxHeight(8).create();
 	public static final Feature<BaseTreeFeatureConfig> FLOWERING_OAK_TREE = new BasicTreeFeature.Builder().altLeaves(BOPBlocks.flowering_oak_leaves.getDefaultState()).create();
+	public static final Feature<BaseTreeFeatureConfig> RAINBOW_BIRCH_TREE = new BasicTreeFeature.Builder().log(Blocks.BIRCH_LOG.getDefaultState()).leaves(BOPBlocks.rainbow_birch_leaves.getDefaultState()).create();
 	public static final Feature<BaseTreeFeatureConfig> YELLOW_AUTUMN_TREE = new BasicTreeFeature.Builder().log(Blocks.BIRCH_LOG.getDefaultState()).leaves(BOPBlocks.yellow_autumn_leaves.getDefaultState()).minHeight(5).maxHeight(8).create();
 	public static final Feature<BaseTreeFeatureConfig> ORANGE_AUTUMN_TREE = new BasicTreeFeature.Builder().log(Blocks.DARK_OAK_LOG.getDefaultState()).leaves(BOPBlocks.orange_autumn_leaves.getDefaultState()).minHeight(5).maxHeight(8).create();
 	public static final Feature<BaseTreeFeatureConfig> MAPLE_TREE = new BasicTreeFeature.Builder().leaves(BOPBlocks.maple_leaves.getDefaultState()).minHeight(5).maxHeight(10).create();
@@ -41,6 +42,7 @@ public class BOPBiomeFeatures
 	public static final Feature<BaseTreeFeatureConfig> BIG_OAK_TREE = new BigTreeFeature.Builder().create();
 	public static final Feature<BaseTreeFeatureConfig> BIG_ORIGIN_TREE = new BigTreeFeature.Builder().leaves(BOPBlocks.origin_leaves.getDefaultState()).create();
 	public static final Feature<BaseTreeFeatureConfig> BIG_FLOWERING_OAK_TREE = new BigTreeFeature.Builder().altLeaves(BOPBlocks.flowering_oak_leaves.getDefaultState()).create();
+	public static final Feature<BaseTreeFeatureConfig> BIG_RAINBOW_BIRCH_TREE = new BigTreeFeature.Builder().log(Blocks.BIRCH_LOG.getDefaultState()).leaves(BOPBlocks.rainbow_birch_leaves.getDefaultState()).create();
 	public static final Feature<BaseTreeFeatureConfig> BIG_YELLOW_AUTUMN_TREE = new BigTreeFeature.Builder().log(Blocks.BIRCH_LOG.getDefaultState()).leaves(BOPBlocks.yellow_autumn_leaves.getDefaultState()).create();
 	public static final Feature<BaseTreeFeatureConfig> BIG_ORANGE_AUTUMN_TREE = new BigTreeFeature.Builder().log(Blocks.DARK_OAK_LOG.getDefaultState()).leaves(BOPBlocks.orange_autumn_leaves.getDefaultState()).create();
 	public static final Feature<BaseTreeFeatureConfig> BIG_MAPLE_TREE = new BigTreeFeature.Builder().leaves(BOPBlocks.maple_leaves.getDefaultState()).create();
@@ -143,6 +145,7 @@ public class BOPBiomeFeatures
 	public static final FlowersFeature MYSTIC_GROVE_FLOWERS = new MysticGroveFlowersFeature();
 	public static final FlowersFeature OMINOUS_WOODS_FLOWERS = new OminousWoodsFlowersFeature();
 	public static final FlowersFeature ORIGIN_FLOWERS = new OriginFlowersFeature();
+	public static final FlowersFeature RAINBOW_VALLEY_FLOWERS = new RainbowValleyFlowersFeature();
 	public static final FlowersFeature RAINFOREST_FLOWERS = new RainforestFlowersFeature();
 	public static final FlowersFeature SHRUBLAND_FLOWERS = new ShrublandFlowersFeature();
 	public static final FlowersFeature SNOWY_FLOWERS = new SnowyFlowersFeature();

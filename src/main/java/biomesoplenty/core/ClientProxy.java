@@ -13,9 +13,13 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.item.BlockItem;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.FoliageColors;
 import net.minecraft.world.GrassColors;
+import net.minecraft.world.ILightReader;
 import net.minecraft.world.biome.BiomeColors;
+
+import java.awt.*;
 
 public class ClientProxy extends CommonProxy
 {
@@ -40,6 +44,11 @@ public class ClientProxy extends CommonProxy
 	        world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColors.getDefault(),
 	        BOPBlocks.bush, BOPBlocks.flowering_oak_leaves, BOPBlocks.mahogany_leaves, BOPBlocks.palm_leaves,
 	        BOPBlocks.willow_leaves, BOPBlocks.willow_vine);
+
+        //Rainbow Birch Leaf Coloring
+        blockColors.register((state, world, pos, tintIndex) ->
+                        world != null && pos != null ? getRainbowBirchColor(world, pos) : FoliageColors.getDefault(),
+                BOPBlocks.rainbow_birch_leaves);
         
         //Item Coloring
         itemColors.register((stack, tintIndex) -> {
@@ -47,5 +56,11 @@ public class ClientProxy extends CommonProxy
             return blockColors.getColor(BlockState, null, null, tintIndex); }, 
         	BOPBlocks.sprout, BOPBlocks.bush, BOPBlocks.flowering_oak_leaves, BOPBlocks.mahogany_leaves,
         	BOPBlocks.palm_leaves, BOPBlocks.willow_leaves, BOPBlocks.willow_vine);
+    }
+
+    public static int getRainbowBirchColor(ILightReader world, BlockPos pos)
+    {
+        Color foliage = Color.getHSBColor((((float)pos.getX() + (float)pos.getZ()) % 100) / 100, 0.6F, 1.0F);
+        return foliage.getRGB();
     }
 }

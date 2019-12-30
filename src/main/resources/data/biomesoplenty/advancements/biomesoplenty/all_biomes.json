@@ -243,6 +243,12 @@
                 "biome": "biomesoplenty:pumpkin_patch"
             }
         },
+		"rainbow_valley": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:rainbow_valley"
+            }
+        },
 		"rainforest": {
             "trigger": "minecraft:location",
             "conditions": {

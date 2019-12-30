@@ -63,6 +63,8 @@ public class ModBlocks
         origin_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES, MaterialColor.EMERALD).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).noOcclusion()), "origin_leaves");
         flowering_oak_sapling = registerBlock(new SaplingBlockBOP(new FloweringOakTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.PLANT)), "flowering_oak_sapling");
         flowering_oak_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).noOcclusion()), "flowering_oak_leaves");
+        rainbow_birch_sapling = registerBlock(new SaplingBlockBOP(new RainbowBirchTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.PLANT)), "rainbow_birch_sapling");
+        rainbow_birch_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).noOcclusion()), "rainbow_birch_leaves");
         yellow_autumn_sapling = registerBlock(new SaplingBlockBOP(new YellowAutumnTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.PLANT)), "yellow_autumn_sapling");
         yellow_autumn_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES, MaterialColor.YELLOW_TERRACOTTA).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).noOcclusion()), "yellow_autumn_leaves");
         orange_autumn_sapling = registerBlock(new SaplingBlockBOP(new OrangeAutumnTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.PLANT)), "orange_autumn_sapling");
@@ -289,6 +291,7 @@ public class ModBlocks
         //Potted Plants
         potted_origin_sapling = registerBlockNoGroup(new FlowerPotBlock(origin_sapling, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_origin_sapling");
         potted_flowering_oak_sapling = registerBlockNoGroup(new FlowerPotBlock(flowering_oak_sapling, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_flowering_oak_sapling");
+        potted_rainbow_birch_sapling = registerBlockNoGroup(new FlowerPotBlock(rainbow_birch_sapling, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_rainbow_birch_sapling");
         potted_yellow_autumn_sapling = registerBlockNoGroup(new FlowerPotBlock(yellow_autumn_sapling, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_yellow_autumn_sapling");
         potted_orange_autumn_sapling = registerBlockNoGroup(new FlowerPotBlock(orange_autumn_sapling, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_orange_autumn_sapling");
         potted_maple_sapling = registerBlockNoGroup(new FlowerPotBlock(maple_sapling, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance()), "potted_maple_sapling");
@@ -326,6 +329,7 @@ public class ModBlocks
 
             RenderTypeLookup.setRenderLayer(origin_leaves, transparentRenderType);
             RenderTypeLookup.setRenderLayer(flowering_oak_leaves, transparentRenderType);
+            RenderTypeLookup.setRenderLayer(rainbow_birch_leaves, transparentRenderType);
             RenderTypeLookup.setRenderLayer(yellow_autumn_leaves, transparentRenderType);
             RenderTypeLookup.setRenderLayer(orange_autumn_leaves, transparentRenderType);
             RenderTypeLookup.setRenderLayer(maple_leaves, transparentRenderType);
@@ -344,6 +348,7 @@ public class ModBlocks
 
             RenderTypeLookup.setRenderLayer(origin_sapling, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(flowering_oak_sapling, cutoutRenderType);
+            RenderTypeLookup.setRenderLayer(rainbow_birch_sapling, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(yellow_autumn_sapling, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(orange_autumn_sapling, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(maple_sapling, cutoutRenderType);
@@ -389,6 +394,7 @@ public class ModBlocks
 
             RenderTypeLookup.setRenderLayer(potted_origin_sapling, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(potted_flowering_oak_sapling, cutoutRenderType);
+            RenderTypeLookup.setRenderLayer(potted_rainbow_birch_sapling, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(potted_yellow_autumn_sapling, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(potted_orange_autumn_sapling, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(potted_maple_sapling, cutoutRenderType);

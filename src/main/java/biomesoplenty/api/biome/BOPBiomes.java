@@ -51,6 +51,7 @@ public class BOPBiomes
     public static Optional<Biome> pasture = Optional.empty();
     public static Optional<Biome> prairie = Optional.empty();
     public static Optional<Biome> pumpkin_patch = Optional.empty();
+    public static Optional<Biome> rainbow_valley = Optional.empty();
     public static Optional<Biome> rainforest = Optional.empty();
     public static Optional<Biome> redwood_forest = Optional.empty();
     public static Optional<Biome> redwood_forest_edge = Optional.empty();

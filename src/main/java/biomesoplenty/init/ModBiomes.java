@@ -93,6 +93,7 @@ public class ModBiomes
         pasture = registerBiome(new PastureBiome(), "pasture");
         prairie = registerBiome(new PrairieBiome(), "prairie");
         pumpkin_patch = registerBiome(new PumpkinPatchBiome(), "pumpkin_patch");
+        rainbow_valley = registerBiome(new RainbowValleyBiome(), "rainbow_valley");
         rainforest = registerBiome(new RainforestBiome(), "rainforest");
         redwood_forest = registerBiome(new RedwoodForestBiome(), "redwood_forest");
         scrubland = registerBiome(new ScrublandBiome(), "scrubland");
@@ -135,13 +136,17 @@ public class ModBiomes
 
         registerIslandBiome(origin_hills, BOPClimates.COOL_TEMPERATE, 50);
         registerIslandBiome(origin_hills, BOPClimates.DRY_TEMPERATE, 50);
-        registerIslandBiome(origin_hills, BOPClimates.WET_TEMPERATE, 50);
+        registerIslandBiome(origin_hills, BOPClimates.WET_TEMPERATE, 75);
         
-        registerIslandBiome(volcano, BOPClimates.WARM_TEMPERATE, 50);
-        registerIslandBiome(volcano, BOPClimates.MEDITERRANEAN, 50);
+        registerIslandBiome(volcano, BOPClimates.WARM_TEMPERATE, 75);
+        registerIslandBiome(volcano, BOPClimates.MEDITERRANEAN, 75);
         registerIslandBiome(volcano, BOPClimates.SAVANNA, 50);
-        
-        registerIslandBiome(tropics, BOPClimates.SUBTROPICAL, 50);
+
+        registerIslandBiome(rainbow_valley, BOPClimates.WET_TEMPERATE, 25);
+        registerIslandBiome(rainbow_valley, BOPClimates.WARM_TEMPERATE, 25);
+        registerIslandBiome(rainbow_valley, BOPClimates.MEDITERRANEAN, 25);
+
+        registerIslandBiome(tropics, BOPClimates.SUBTROPICAL, 75);
         registerIslandBiome(tropics, BOPClimates.TROPICAL, 50);
         registerIslandBiome(tropics, BOPClimates.HOT_DESERT, 50);
     }
@@ -187,6 +192,7 @@ public class ModBiomes
         registerBiomeToDictionary(pasture, Type.PLAINS, Type.DRY);
         registerBiomeToDictionary(prairie, Type.PLAINS, Type.DRY, Type.SPARSE);
         registerBiomeToDictionary(pumpkin_patch, Type.FOREST, Type.COLD, Type.DENSE);
+        registerBiomeToDictionary(rainbow_valley, Type.WATER, Type.FOREST, Type.LUSH, Type.DENSE, Type.MAGICAL, Type.RARE);
         registerBiomeToDictionary(rainforest, Type.JUNGLE, Type.FOREST, Type.LUSH, Type.HILLS, Type.WET, Type.DENSE);
         registerBiomeToDictionary(redwood_forest, Type.FOREST, Type.DENSE);
         registerBiomeToDictionary(redwood_forest_edge, Type.FOREST, Type.DENSE);
