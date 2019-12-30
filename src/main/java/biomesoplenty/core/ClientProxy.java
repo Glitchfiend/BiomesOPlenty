@@ -14,6 +14,7 @@ import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.item.BlockItem;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.FoliageColors;
 import net.minecraft.world.GrassColors;
 import net.minecraft.world.ILightReader;
@@ -60,7 +61,7 @@ public class ClientProxy extends CommonProxy
 
     public static int getRainbowBirchColor(ILightReader world, BlockPos pos)
     {
-        Color foliage = Color.getHSBColor((((float)pos.getX() + (float)pos.getZ()) % 100) / 100, 0.6F, 1.0F);
+        Color foliage = Color.getHSBColor((((float)pos.getX() + MathHelper.sin(((float)pos.getZ() + (float)pos.getX()) / 35) * 35) % 150) / 150, 0.6F, 1.0F);
         return foliage.getRGB();
     }
 }
