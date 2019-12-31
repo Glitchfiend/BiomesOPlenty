@@ -88,7 +88,7 @@ public class NetherVinesFeature extends Feature<NoFeatureConfig>
     {
         if (this.replace.matches(world, pos))
         {
-            this.setBlock(world, pos, state);
+            super.setBlock(world, pos, state);
             return true;
         }
         return false;
