@@ -60,14 +60,14 @@ public abstract class BigTreeDefaultConfig extends BigTree
         }
         else
         {
-            world.setBlockState(pos, Blocks.AIR.getDefaultState(), 4);
+            world.setBlock(pos, Blocks.AIR.defaultBlockState(), 4);
             if (feature.place(world, generator, random, pos, DefaultBiomeFeatures.NORMAL_TREE_CONFIG))
             {
                 return true;
             }
             else
             {
-                world.setBlockState(pos, state, 4);
+                world.setBlock(pos, state, 4);
                 return false;
             }
         }
@@ -83,21 +83,21 @@ public abstract class BigTreeDefaultConfig extends BigTree
         }
         else
         {
-            BlockState blockstate = Blocks.AIR.getDefaultState();
-            world.setBlockState(pos.add(x, 0, z), blockstate, 4);
-            world.setBlockState(pos.add(x + 1, 0, z), blockstate, 4);
-            world.setBlockState(pos.add(x, 0, z + 1), blockstate, 4);
-            world.setBlockState(pos.add(x + 1, 0, z + 1), blockstate, 4);
-            if (feature.place(world, generator, random, pos.add(x, 0, z), DefaultBiomeFeatures.NORMAL_TREE_CONFIG))
+            BlockState blockstate = Blocks.AIR.defaultBlockState();
+            world.setBlock(pos.offset(x, 0, z), blockstate, 4);
+            world.setBlock(pos.offset(x + 1, 0, z), blockstate, 4);
+            world.setBlock(pos.offset(x, 0, z + 1), blockstate, 4);
+            world.setBlock(pos.offset(x + 1, 0, z + 1), blockstate, 4);
+            if (feature.place(world, generator, random, pos.offset(x, 0, z), DefaultBiomeFeatures.NORMAL_TREE_CONFIG))
             {
                 return true;
             }
             else
             {
-                world.setBlockState(pos.add(x, 0, z), state, 4);
-                world.setBlockState(pos.add(x + 1, 0, z), state, 4);
-                world.setBlockState(pos.add(x, 0, z + 1), state, 4);
-                world.setBlockState(pos.add(x + 1, 0, z + 1), state, 4);
+                world.setBlock(pos.offset(x, 0, z), state, 4);
+                world.setBlock(pos.offset(x + 1, 0, z), state, 4);
+                world.setBlock(pos.offset(x, 0, z + 1), state, 4);
+                world.setBlock(pos.offset(x + 1, 0, z + 1), state, 4);
                 return false;
             }
         }

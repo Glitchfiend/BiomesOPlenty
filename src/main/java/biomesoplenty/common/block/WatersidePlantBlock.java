@@ -36,12 +36,12 @@ public class WatersidePlantBlock extends PlantBlockBOP
     }
 
     @Override
-    public boolean isValidPosition(BlockState state, IWorldReader worldReader, BlockPos pos)
+    public boolean canSurvive(BlockState state, IWorldReader worldReader, BlockPos pos)
     {
-        BlockState soil = worldReader.getBlockState(pos.down());
-        if (soil.canSustainPlant(worldReader, pos.down(), Direction.UP, this))
+        BlockState soil = worldReader.getBlockState(pos.below());
+        if (soil.canSustainPlant(worldReader, pos.below(), Direction.UP, this))
         {
-            BlockPos blockpos = pos.down();
+            BlockPos blockpos = pos.below();
             Iterator var7 = Direction.Plane.HORIZONTAL.iterator();
 
             BlockState BlockState;
@@ -52,9 +52,9 @@ public class WatersidePlantBlock extends PlantBlockBOP
                 }
 
                 Direction Direction = (Direction)var7.next();
-                BlockState = worldReader.getBlockState(blockpos.offset(Direction));
-                ifluidstate = worldReader.getFluidState(blockpos.offset(Direction));
-            } while(!ifluidstate.isTagged(FluidTags.WATER) && BlockState.getBlock() != Blocks.FROSTED_ICE);
+                BlockState = worldReader.getBlockState(blockpos.relative(Direction));
+                ifluidstate = worldReader.getFluidState(blockpos.relative(Direction));
+            } while(!ifluidstate.is(FluidTags.WATER) && BlockState.getBlock() != Blocks.FROSTED_ICE);
 
             return true;
         }

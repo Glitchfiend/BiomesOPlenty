@@ -38,7 +38,7 @@ public class BiomeUtil
     {
         if (maxDist <= 0 || sampleSpace <= 0) {throw new IllegalArgumentException("maxDist and sampleSpace must be positive");}
 
-        if (world.isRemote)
+        if (world.isClientSide)
             return null;
 
         double a = sampleSpace / Math.sqrt(Math.PI);
@@ -57,7 +57,7 @@ public class BiomeUtil
             // chunkManager.genBiomes is the first layer returned from initializeAllBiomeGenerators()
             // chunkManager.biomeIndexLayer is the second layer returned from initializeAllBiomeGenerators(), it's zoomed twice from genBiomes (>> 2) this one is actual size
             // chunkManager.getBiomeGenAt uses biomeIndexLayer to get the biome
-            Biome biomeAtSample = world.func_225523_d_().getBiome(new BlockPos(x, 0, z));
+            Biome biomeAtSample = world.getBiomeManager().getBiome(new BlockPos(x, 0, z));
             if (biomeAtSample == biomeToFind)
             {
                 BiomesOPlenty.logger.info("Found "+ biomeName +" after "+n+" samples, spaced "+sampleSpace+" blocks apart at ("+((int)x)+","+((int)z)+") distance "+((int)dist));

@@ -28,14 +28,14 @@ public class ConiferousForestFlowersFeature extends DefaultFlowersFeatureNoConfi
          switch(j)
          {
          case 0:
-             return Blocks.CORNFLOWER.getDefaultState();
+             return Blocks.CORNFLOWER.defaultBlockState();
          case 1:
-            return Blocks.OXEYE_DAISY.getDefaultState();
+            return Blocks.OXEYE_DAISY.defaultBlockState();
          case 2:
-            return Blocks.POPPY.getDefaultState();
+            return Blocks.POPPY.defaultBlockState();
          case 3:
          default:
-            return Blocks.DANDELION.getDefaultState();
+            return Blocks.DANDELION.defaultBlockState();
          }
 	}
 }

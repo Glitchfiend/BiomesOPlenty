@@ -22,12 +22,12 @@ public enum LargeIslandLayer implements IAreaTransformer2, IDimOffset1Transforme
     @Override
     public int applyPixel(INoiseRandom context, IArea landSeaArea, IArea climateArea, int x, int z)
     {
-        int northVal = landSeaArea.getValue(x + 1, z + 0);
-        int eastVal = landSeaArea.getValue(x + 2, z + 1);
-        int southVal = landSeaArea.getValue(x + 1, z + 2);
-        int westVal = landSeaArea.getValue(x + 0, z + 1);
-        int centerVal = landSeaArea.getValue(x + 1, z + 1);
-        int climateVal = climateArea.getValue(x, z);
+        int northVal = landSeaArea.get(x + 1, z + 0);
+        int eastVal = landSeaArea.get(x + 2, z + 1);
+        int southVal = landSeaArea.get(x + 1, z + 2);
+        int westVal = landSeaArea.get(x + 0, z + 1);
+        int centerVal = landSeaArea.get(x + 1, z + 1);
+        int climateVal = climateArea.get(x, z);
 
         BOPClimates climate;
         try
@@ -43,7 +43,7 @@ public enum LargeIslandLayer implements IAreaTransformer2, IDimOffset1Transforme
             throw new RuntimeException(msg,e);
         }
 
-        if (centerVal == 0 && northVal == 0 && eastVal == 0 && southVal == 0 && westVal == 0 && context.random(50) == 0)
+        if (centerVal == 0 && northVal == 0 && eastVal == 0 && southVal == 0 && westVal == 0 && context.nextRandom(50) == 0)
         {
             Biome islandBiome = climate.getRandomIslandBiome(context, null);
 

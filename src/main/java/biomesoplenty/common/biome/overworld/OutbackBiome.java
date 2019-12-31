@@ -34,19 +34,19 @@ public class OutbackBiome extends BiomeBOP
 {
     public OutbackBiome()
     {
-        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, BOPBiomeFeatures.RED_SAND_SURFACE)).precipitation(Biome.RainType.NONE).category(Biome.Category.DESERT).depth(0.05F).scale(0.0F).temperature(2.0F).downfall(0.05F).waterColor(4159204).waterFogColor(329011).parent((String)null));
+        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, BOPBiomeFeatures.RED_SAND_SURFACE)).precipitation(Biome.RainType.NONE).biomeCategory(Biome.Category.DESERT).depth(0.05F).scale(0.0F).temperature(2.0F).downfall(0.05F).waterColor(4159204).waterFogColor(329011).parent((String)null));
 
         // Structures
         this.addStructureStart(Feature.VILLAGE.configured(new VillageConfig("village/savanna/town_centers", 6)));
-        this.addStructureStart(Feature.PILLAGER_OUTPOST.configured(IFeatureConfig.NO_FEATURE_CONFIG));
+        this.addStructureStart(Feature.PILLAGER_OUTPOST.configured(IFeatureConfig.NONE));
         this.addStructureStart(Feature.MINESHAFT.configured(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
-        this.addStructureStart(Feature.STRONGHOLD.configured(IFeatureConfig.NO_FEATURE_CONFIG));
+        this.addStructureStart(Feature.STRONGHOLD.configured(IFeatureConfig.NONE));
 
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(this);
         DefaultBiomeFeatures.addStructureFeaturePlacement(this);
 
-        this.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Feature.LAKE.configured(new BlockStateFeatureConfig(Blocks.LAVA.getDefaultState())).decorated(Placement.LAVA_LAKE.configured(new ChanceConfig(80))));
+        this.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Feature.LAKE.configured(new BlockStateFeatureConfig(Blocks.LAVA.defaultBlockState())).decorated(Placement.LAVA_LAKE.configured(new ChanceConfig(80))));
 
         DefaultBiomeFeatures.addDefaultMonsterRoom(this);
         DefaultBiomeFeatures.addDefaultUndergroundVariety(this);
@@ -60,7 +60,7 @@ public class OutbackBiome extends BiomeBOP
 
         this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(DefaultBiomeFeatures.DEAD_BUSH_CONFIG).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(3))));
         this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(DefaultBiomeFeatures.CACTUS_CONFIG).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(25))));
-        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.desert_grass.getDefaultState())).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(5))));
+        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.desert_grass.defaultBlockState())).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(5))));
 
         ////////////////////////////////////////////////////////////
 

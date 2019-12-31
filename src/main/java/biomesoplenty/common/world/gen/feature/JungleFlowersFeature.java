@@ -29,12 +29,12 @@ public class JungleFlowersFeature extends DefaultFlowersFeatureNoConfig
          switch(j)
          {
          case 0:
-            return BOPBlocks.orange_cosmos.getDefaultState();
+            return BOPBlocks.orange_cosmos.defaultBlockState();
          case 1:
-            return Blocks.POPPY.getDefaultState();
+            return Blocks.POPPY.defaultBlockState();
          case 2:
          default:
-            return Blocks.DANDELION.getDefaultState();
+            return Blocks.DANDELION.defaultBlockState();
          }
 	}
 }

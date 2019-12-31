@@ -27,9 +27,9 @@ public class BogSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
     }
 
     @Override
-    public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config)
+    public void apply(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config)
     {
-        double d0 = Biome.INFO_NOISE.noiseAt((double)x * 0.25D, (double)z * 0.25D, false);
+        double d0 = Biome.BIOME_INFO_NOISE.getValue((double)x * 0.25D, (double)z * 0.25D, false);
         if (d0 > 0.1D)
         {
             int i = x & 15;
@@ -40,7 +40,7 @@ public class BogSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
 
             for(int k = startHeight; k >= 0; --k)
             {
-                blockpos$mutableblockpos.setPos(i, k, j);
+                blockpos$mutableblockpos.set(i, k, j);
                 if (!chunkIn.getBlockState(blockpos$mutableblockpos).isAir())
                 {
                     if (k == 62)
@@ -51,11 +51,11 @@ public class BogSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
                         }
                         else
                         {
-                            blockposup$mutableblockpos.setPos(i, k+1, j);
-                            blockposdown$mutableblockpos.setPos(i, k-1, j);
+                            blockposup$mutableblockpos.set(i, k+1, j);
+                            blockposdown$mutableblockpos.set(i, k-1, j);
                             if (chunkIn.getBlockState(blockposdown$mutableblockpos).getBlock() != defaultFluid.getBlock())
                             {
-                                chunkIn.setBlockState(blockpos$mutableblockpos, Blocks.GRASS_BLOCK.getDefaultState(), false);
+                                chunkIn.setBlockState(blockpos$mutableblockpos, Blocks.GRASS_BLOCK.defaultBlockState(), false);
                             }
                         }
                     }
@@ -64,6 +64,6 @@ public class BogSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
             }
         }
 
-        SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, config);
+        SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, config);
     }
 }

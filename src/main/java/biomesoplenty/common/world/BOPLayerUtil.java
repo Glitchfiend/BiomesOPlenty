@@ -105,7 +105,7 @@ public class BOPLayerUtil
     {
         IAreaFactory<T> biomeFactory = BOPBiomeLayer.INSTANCE.run(contextFactory.apply(200L), landSeaAreaFactory, climateAreaFactory);
         biomeFactory = AddBambooForestLayer.INSTANCE.run(contextFactory.apply(1001L), biomeFactory);
-        biomeFactory = LayerUtil.repeat(1000L, ZoomLayer.NORMAL, biomeFactory, 2, contextFactory);
+        biomeFactory = LayerUtil.zoom(1000L, ZoomLayer.NORMAL, biomeFactory, 2, contextFactory);
         biomeFactory = BOPBiomeEdgeLayer.INSTANCE.run(contextFactory.apply(1000L), biomeFactory);
         return biomeFactory;
     }
@@ -118,7 +118,7 @@ public class BOPLayerUtil
 
         // Determines positions for all of the new ocean subbiomes added in 1.13
         IAreaFactory<T> oceanBiomeFactory = OceanLayer.INSTANCE.run(contextFactory.apply(2L));
-        oceanBiomeFactory = LayerUtil.repeat(2001L, ZoomLayer.NORMAL, oceanBiomeFactory, 6, contextFactory);
+        oceanBiomeFactory = LayerUtil.zoom(2001L, ZoomLayer.NORMAL, oceanBiomeFactory, 6, contextFactory);
 
         int biomeSize = 4;
         int riverSize = biomeSize;
@@ -142,11 +142,11 @@ public class BOPLayerUtil
 
         // Fork off a new branch as a seed for rivers and sub biomes
         IAreaFactory<T> riverAndSubBiomesInitFactory = StartRiverLayer.INSTANCE.run(contextFactory.apply(100L), landSeaFactory);
-        riverAndSubBiomesInitFactory = LayerUtil.repeat(1000L, ZoomLayer.NORMAL, riverAndSubBiomesInitFactory, 2, contextFactory);
+        riverAndSubBiomesInitFactory = LayerUtil.zoom(1000L, ZoomLayer.NORMAL, riverAndSubBiomesInitFactory, 2, contextFactory);
         biomesFactory = SubBiomeLayer.INSTANCE.run(contextFactory.apply(1000L), biomesFactory, riverAndSubBiomesInitFactory);
 
         // Develop the rivers branch
-        IAreaFactory<T> riversInitFactory = LayerUtil.repeat(1000L, ZoomLayer.NORMAL, riverAndSubBiomesInitFactory, riverSize, contextFactory);
+        IAreaFactory<T> riversInitFactory = LayerUtil.zoom(1000L, ZoomLayer.NORMAL, riverAndSubBiomesInitFactory, riverSize, contextFactory);
         riversInitFactory = RiverLayer.INSTANCE.run(contextFactory.apply(1L), riversInitFactory);
         riversInitFactory = SmoothLayer.INSTANCE.run(contextFactory.apply(1000L), riversInitFactory);
 
@@ -166,7 +166,7 @@ public class BOPLayerUtil
         // Mix rivers into the biomes branch
         biomesFactory = BOPRiverMixLayer.INSTANCE.run(contextFactory.apply(100L), biomesFactory, riversInitFactory);
 
-        climateFactory = LayerUtil.repeat(2001L, ZoomLayer.NORMAL, climateFactory, 6, contextFactory);
+        climateFactory = LayerUtil.zoom(2001L, ZoomLayer.NORMAL, climateFactory, 6, contextFactory);
         biomesFactory = BOPMixOceansLayer.INSTANCE.run(contextFactory.apply(100L), biomesFactory, oceanBiomeFactory, climateFactory);
 
         // Finish biomes with Voroni zoom

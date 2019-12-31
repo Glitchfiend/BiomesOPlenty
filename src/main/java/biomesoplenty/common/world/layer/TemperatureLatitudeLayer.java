@@ -25,7 +25,7 @@ public enum TemperatureLatitudeLayer implements IBOPAreaTransformer0
     {
         int offset = (int) (context.getWorldSeed() % ((int) (PERIOD * 2)));
 
-        double yOffset = z + offset + ((context.random(1001) - 500) * OFFSET_VARIATION / 500.0D);
+        double yOffset = z + offset + ((context.nextRandom(1001) - 500) * OFFSET_VARIATION / 500.0D);
         return MathHelper.floor(AMPLITUDE * Math.abs((Math.abs(yOffset % PERIOD) - HALF_PERIOD)));
     }
 }

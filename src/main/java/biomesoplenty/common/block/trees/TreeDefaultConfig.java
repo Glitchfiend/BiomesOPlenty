@@ -40,14 +40,14 @@ public abstract class TreeDefaultConfig extends Tree
         }
         else
         {
-            world.setBlockState(pos, Blocks.AIR.getDefaultState(), 4);
+            world.setBlock(pos, Blocks.AIR.defaultBlockState(), 4);
             if (feature.place(world, generator, random, pos, DefaultBiomeFeatures.NORMAL_TREE_CONFIG))
             {
                 return true;
             }
             else
             {
-                world.setBlockState(pos, state, 4);
+                world.setBlock(pos, state, 4);
                 return false;
             }
         }

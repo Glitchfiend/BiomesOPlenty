@@ -33,9 +33,9 @@ public class NetherVinesFeature extends Feature<NoFeatureConfig>
     @Override
     public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> p_212245_2_, Random rand, BlockPos startPos, NoFeatureConfig p_212245_5_)
     {
-        while (startPos.getY() > 1 && this.replace.matches(world, startPos)) {startPos = startPos.down();}
+        while (startPos.getY() > 1 && this.replace.matches(world, startPos)) {startPos = startPos.below();}
 
-        if (!this.placeOn.matches(world, startPos.add(2, 0, 2)))
+        if (!this.placeOn.matches(world, startPos.offset(2, 0, 2)))
         {
             // Abandon if we can't place the tree on this block
             return false;
@@ -43,24 +43,24 @@ public class NetherVinesFeature extends Feature<NoFeatureConfig>
 
         for (int i = 0; i < 128; ++i)
         {
-            BlockPos genPos = startPos.add(rand.nextInt(4) - rand.nextInt(4), rand.nextInt(3) - rand.nextInt(3), rand.nextInt(4) - rand.nextInt(4));
+            BlockPos genPos = startPos.offset(rand.nextInt(4) - rand.nextInt(4), rand.nextInt(3) - rand.nextInt(3), rand.nextInt(4) - rand.nextInt(4));
 
-            if (!this.replace.matches(world, genPos) || !this.placeOn.matches(world, genPos.up())) continue;
+            if (!this.replace.matches(world, genPos) || !this.placeOn.matches(world, genPos.above())) continue;
 
-            BlockState vineState = Blocks.VINE.getDefaultState();
+            BlockState vineState = Blocks.VINE.defaultBlockState();
 
             // make sure there is an adjacent block for the vine to attach to
             List<Direction> validDirections = Lists.newArrayList();
 
             for (Direction facing : Direction.values()) {
                 if (facing == Direction.UP || facing == Direction.DOWN) continue;
-                if (this.placeOn.matches(world, genPos.offset(facing))) validDirections.add(facing);
+                if (this.placeOn.matches(world, genPos.relative(facing))) validDirections.add(facing);
             }
 
             if (validDirections.isEmpty()) continue;
 
             Direction direction = validDirections.get(rand.nextInt(validDirections.size()));
-            vineState = vineState.with(VineBlock.getPropertyFor(direction), Boolean.valueOf(true));
+            vineState = vineState.setValue(VineBlock.getPropertyForFace(direction), Boolean.valueOf(true));
 
             // choose random target height
             int targetHeight = minHeight + rand.nextInt(maxHeight);
@@ -68,11 +68,11 @@ public class NetherVinesFeature extends Feature<NoFeatureConfig>
             // keep placing blocks upwards (if there's room)
             for (int height = 0; height <= targetHeight; height++)
             {
-                BlockPos offsetPos = genPos.down(height);
+                BlockPos offsetPos = genPos.below(height);
 
-                if (replace.matches(world, offsetPos) && vineState.getBlock().isValidPosition(vineState, world, offsetPos))
+                if (replace.matches(world, offsetPos) && vineState.getBlock().canSurvive(vineState, world, offsetPos))
                 {
-                    world.setBlockState(offsetPos, vineState, 2);
+                    world.setBlock(offsetPos, vineState, 2);
                 }
                 else
                 {
@@ -88,7 +88,7 @@ public class NetherVinesFeature extends Feature<NoFeatureConfig>
     {
         if (this.replace.matches(world, pos))
         {
-            this.setBlockState(world, pos, state);
+            this.setBlock(world, pos, state);
             return true;
         }
         return false;

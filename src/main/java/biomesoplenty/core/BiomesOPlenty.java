@@ -48,13 +48,13 @@ public class BiomesOPlenty
 
     public void dedicatedServerSetup(FMLDedicatedServerSetupEvent event)
     {
-        ServerProperties serverProperties = event.getServerSupplier().get().getServerProperties();
+        ServerProperties serverProperties = event.getServerSupplier().get().getProperties();
 
         if (ModConfig.ServerConfig.useWorldType.get())
         {
-            logger.info(String.format("Injecting biomesoplenty world type into server.properties. Original value: %s", serverProperties.worldType.getName()));
-            serverProperties.serverProperties.setProperty("level-type", "biomesoplenty");
-            serverProperties.worldType = ModBiomes.worldType;
+            logger.info(String.format("Injecting biomesoplenty world type into server.properties. Original value: %s", serverProperties.levelType.getName()));
+            serverProperties.properties.setProperty("level-type", "biomesoplenty");
+            serverProperties.levelType = ModBiomes.worldType;
         }
         else
         {

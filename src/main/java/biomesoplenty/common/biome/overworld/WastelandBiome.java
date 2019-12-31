@@ -37,11 +37,11 @@ public class WastelandBiome extends BiomeBOP
 {
     public WastelandBiome()
     {
-        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, BOPBiomeFeatures.DRIED_SAND_GRAVEL_SURFACE)).precipitation(Biome.RainType.NONE).category(Biome.Category.DESERT).depth(0.0F).scale(-0.05F).temperature(2.0F).downfall(0.0F).waterColor(0x433721).waterFogColor(0x0C0C03).parent((String)null));
+        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, BOPBiomeFeatures.DRIED_SAND_GRAVEL_SURFACE)).precipitation(Biome.RainType.NONE).biomeCategory(Biome.Category.DESERT).depth(0.0F).scale(-0.05F).temperature(2.0F).downfall(0.0F).waterColor(0x433721).waterFogColor(0x0C0C03).parent((String)null));
 
         // Structures
         this.addStructureStart(Feature.MINESHAFT.configured(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
-        this.addStructureStart(Feature.STRONGHOLD.configured(IFeatureConfig.NO_FEATURE_CONFIG));
+        this.addStructureStart(Feature.STRONGHOLD.configured(IFeatureConfig.NONE));
 
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(this);
@@ -56,8 +56,8 @@ public class WastelandBiome extends BiomeBOP
         // Vegetation
         this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(BOPBiomeFeatures.DEAD_TREE_WASTELAND.configured(DefaultBiomeFeatures.NORMAL_TREE_CONFIG).weighted(0.2F)), BOPBiomeFeatures.DYING_TREE_WASTELAND.configured(DefaultBiomeFeatures.NORMAL_TREE_CONFIG))).decorated(Placement.COUNT_EXTRA_HEIGHTMAP.configured(new AtSurfaceWithExtraConfig((int)0.75F, 0.1F, 1))));
 
-        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.WASTELAND_FLOWERS.configured(IFeatureConfig.NO_FEATURE_CONFIG).decorated(Placement.COUNT_HEIGHTMAP_32.configured(new FrequencyConfig(1))));
-        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, new WastelandGrassFeature(NoFeatureConfig::deserialize).configured(IFeatureConfig.NO_FEATURE_CONFIG).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(2))));
+        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.WASTELAND_FLOWERS.configured(IFeatureConfig.NONE).decorated(Placement.COUNT_HEIGHTMAP_32.configured(new FrequencyConfig(1))));
+        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, new WastelandGrassFeature(NoFeatureConfig::deserialize).configured(IFeatureConfig.NONE).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(2))));
 
         ////////////////////////////////////////////////////////////
 

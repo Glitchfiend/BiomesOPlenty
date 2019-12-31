@@ -34,20 +34,20 @@ public class GlowstoneSpikesFeature extends Feature<NoFeatureConfig>
         int randRadius = this.minRadius + rand.nextInt(this.maxRadius - this.minRadius);
         int height = this.minHeight + rand.nextInt(this.maxHeight - this.minHeight);
 
-        while (startPos.getY() > 1 && this.replace.matches(world, startPos)) {startPos = startPos.down();}
+        while (startPos.getY() > 1 && this.replace.matches(world, startPos)) {startPos = startPos.below();}
 
         for (int x = 0; x <= randRadius - 1; x++)
         {
             for (int z = 0; z <= randRadius - 1; z++)
             {
-                if (!this.placeOn.matches(world, startPos.add(x, 0, z)))
+                if (!this.placeOn.matches(world, startPos.offset(x, 0, z)))
                 {
                     return false;
                 }
             }
         }
 
-        BlockPos pos = startPos.up();
+        BlockPos pos = startPos.above();
 
         // Generate
         for (int y = 0; y < height - 1; y++)
@@ -60,9 +60,9 @@ public class GlowstoneSpikesFeature extends Feature<NoFeatureConfig>
             {
                 for (int z = radiusStart; z <= radiusEnd; z++)
                 {
-                    if (this.replace.matches(world, pos.add(x, y, z)))
+                    if (this.replace.matches(world, pos.offset(x, y, z)))
                     {
-                        world.setBlockState(pos.add(x, y, z), Blocks.GLOWSTONE.getDefaultState(), 2);
+                        world.setBlock(pos.offset(x, y, z), Blocks.GLOWSTONE.defaultBlockState(), 2);
                     }
                 }
             }

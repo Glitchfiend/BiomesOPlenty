@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 
 public class ItemGroupBOP extends ItemGroup
 {
-    public static final ItemGroupBOP instance = new ItemGroupBOP(ItemGroup.GROUPS.length, "biomesoplenty");
+    public static final ItemGroupBOP instance = new ItemGroupBOP(ItemGroup.TABS.length, "biomesoplenty");
 
     private ItemGroupBOP(int index, String label)
     {
@@ -21,7 +21,7 @@ public class ItemGroupBOP extends ItemGroup
     }
 
     @Override
-    public ItemStack createIcon()
+    public ItemStack makeIcon()
     {
         return new ItemStack(BOPItems.bop_icon);
     }

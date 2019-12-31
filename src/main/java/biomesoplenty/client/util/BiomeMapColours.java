@@ -102,7 +102,7 @@ public class BiomeMapColours
             return biomeColours.get(biomeId);
         }
 
-        int colour = getBiomeMapColourRaw(Registry.BIOME.getByValue(biomeId));
+        int colour = getBiomeMapColourRaw(Registry.BIOME.byId(biomeId));
         biomeColours.put(biomeId, colour);
         return colour;
     }
@@ -145,7 +145,7 @@ public class BiomeMapColours
             colour = temptint(colour, biome.getTemperature(new BlockPos(0, 64, 0)));
         }
 
-        if (biome.getDefaultTemperature() < 0.15F)
+        if (biome.getTemperature() < 0.15F)
         {
             colour = blend(colour, 0xffffffff, 0.5); // icy pale cyan
             //colour = blend(colour, 0xffc9e4ff, 0.25);
@@ -163,12 +163,12 @@ public class BiomeMapColours
 
     public static int getBiomeBlockColourForCoords(Biome biome, BlockPos pos)
     {
-        BlockState topBlock = biome.getSurfaceBuilder().getConfig().getTop();
+        BlockState topBlock = biome.getSurfaceBuilder().getSurfaceBuilderConfiguration().getTopMaterial();
         int colour;
 
-        if (topBlock == Blocks.GRASS.getDefaultState())
+        if (topBlock == Blocks.GRASS.defaultBlockState())
         { // uuuugh
-            colour = topBlock.getMaterialColor(null, pos).colorValue | 0xFF000000;
+            colour = topBlock.getMapColor(null, pos).col | 0xFF000000;
             int tint = biome.getGrassColor(pos.getX(), pos.getZ()) | 0xFF000000;
             colour = blend(colour, tint, 0.75);
         }
@@ -183,27 +183,27 @@ public class BiomeMapColours
     public static int getBlockColourRaw(BlockState block)
     {
         Minecraft mc = Minecraft.getInstance();
-        BlockRendererDispatcher brd = mc.getBlockRendererDispatcher();
-        BlockModelShapes shapes = brd.getBlockModelShapes();
+        BlockRendererDispatcher brd = mc.getBlockRenderer();
+        BlockModelShapes shapes = brd.getBlockModelShaper();
         BlockColors colours = mc.getBlockColors();
 
-        int colour = block.getMaterialColor(null, null).colorValue | 0xFF000000;
+        int colour = block.getMapColor(null, null).col | 0xFF000000;
         int fallback = colour;
 
-        if (block == Blocks.GRASS.getDefaultState()) {
+        if (block == Blocks.GRASS.defaultBlockState()) {
         }
         else
         {
             try
             {
-                IBakedModel topmodel = shapes.getModel(block);
+                IBakedModel topmodel = shapes.getBlockModel(block);
                 List<BakedQuad> topquads = topmodel.getQuads(block, Direction.UP, rand);
 
                 for (BakedQuad quad : topquads)
                 {
-                    colour = block.getMaterialColor(null, null).colorValue | 0xFF000000;
+                    colour = block.getMapColor(null, null).col | 0xFF000000;
 
-                    if (quad.hasTintIndex())
+                    if (quad.isTinted())
                     {
                         int tint = colours.getColor(block, null, null, quad.getTintIndex()) | 0xFF000000;
                         colour = blend(colour, tint, 0.75);
@@ -216,7 +216,7 @@ public class BiomeMapColours
             }
         }
 
-        return block.getMaterialColor(null, null).colorValue | 0xFF000000;
+        return block.getMapColor(null, null).col | 0xFF000000;
     }
 
     public static int intAverage(int a, int b)

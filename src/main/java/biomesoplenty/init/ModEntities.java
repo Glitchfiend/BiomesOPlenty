@@ -31,7 +31,7 @@ public class ModEntities
     @SubscribeEvent
     public static void registerEntities(RegistryEvent.Register<EntityType<?>> event)
     {
-        BOPEntities.boat_bop = EntityType.Builder.<BoatEntityBOP>create(BoatEntityBOP::new, EntityClassification.MISC).setTrackingRange(80).setUpdateInterval(3).setShouldReceiveVelocityUpdates(true).size(1.375f, 0.5625f).setCustomClientFactory(BoatEntityBOP::new).build(MOD_ID + ":boat_bop");
+        BOPEntities.boat_bop = EntityType.Builder.<BoatEntityBOP>of(BoatEntityBOP::new, EntityClassification.MISC).setTrackingRange(80).setUpdateInterval(3).setShouldReceiveVelocityUpdates(true).sized(1.375f, 0.5625f).setCustomClientFactory(BoatEntityBOP::new).build(MOD_ID + ":boat_bop");
         BOPEntities.boat_bop.setRegistryName("boat_bop");
         ForgeRegistries.ENTITIES.register(BOPEntities.boat_bop);
     }
@@ -39,7 +39,7 @@ public class ModEntities
     public static <T extends Entity> EntityType<T> createEntity(EntityType.IFactory<T> factory, EntityClassification classification, String name, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates)
     {
         ResourceLocation location = new ResourceLocation("biomesoplenty", name);
-        EntityType<T> type = EntityType.Builder.<T>create(factory, classification).setTrackingRange(trackingRange).setUpdateInterval(updateFrequency).setShouldReceiveVelocityUpdates(sendsVelocityUpdates).build(location.toString());
+        EntityType<T> type = EntityType.Builder.<T>of(factory, classification).setTrackingRange(trackingRange).setUpdateInterval(updateFrequency).setShouldReceiveVelocityUpdates(sendsVelocityUpdates).build(location.toString());
         type.setRegistryName(name);
         ForgeRegistries.ENTITIES.register(type);
         return type;

@@ -46,10 +46,10 @@ public class BulbTreeFeature extends TreeFeatureBase
 
     public boolean setCocoa(IWorld world, BlockPos pos, Direction side)
     {
-        BlockState cocoaState = Blocks.COCOA.getDefaultState().with(DirectionalBlock.FACING, side);
+        BlockState cocoaState = Blocks.COCOA.defaultBlockState().setValue(DirectionalBlock.FACING, side);
         if (this.replace.matches(world, pos))
         {
-            this.setBlockState(world, pos, cocoaState);
+            this.setBlock(world, pos, cocoaState);
             return true;
         }
         return false;
@@ -66,7 +66,7 @@ public class BulbTreeFeature extends TreeFeatureBase
             {
                 for (int z = -radius; z <= radius; z++)
                 {
-                    BlockPos pos1 = pos.add(x, y, z);
+                    BlockPos pos1 = pos.offset(x, y, z);
                     // note, there may be a sapling on the first layer - make sure this.replace matches it!
                     if (pos1.getY() >= 255 || !this.replace.matches(world, pos1))
                     {
@@ -81,12 +81,12 @@ public class BulbTreeFeature extends TreeFeatureBase
     // generates a 'branch' of a leaf layer
     public void generateBranch(IWorld world, Random random, BlockPos pos, Direction direction, Set<BlockPos> changedLeaves, MutableBoundingBox boundingBox)
     {
-        Direction sideways = direction.rotateY();
-        this.placeLeaves(world, pos.offset(direction, 1), changedLeaves, boundingBox);
-        this.placeLeaves(world, pos.up().offset(direction, 1), changedLeaves, boundingBox);
+        Direction sideways = direction.getClockWise();
+        this.placeLeaves(world, pos.relative(direction, 1), changedLeaves, boundingBox);
+        this.placeLeaves(world, pos.above().relative(direction, 1), changedLeaves, boundingBox);
         if (random.nextInt(3) > 0)
         {
-            this.placeLeaves(world, pos.up().offset(direction, 1).offset(sideways, 1), changedLeaves, boundingBox);
+            this.placeLeaves(world, pos.above().relative(direction, 1).relative(sideways, 1), changedLeaves, boundingBox);
         }
     }
 
@@ -100,7 +100,7 @@ public class BulbTreeFeature extends TreeFeatureBase
 
         // add the trunk in the middle
         this.placeLog(world, pos, changedLogs, boundingBox);
-        this.placeLog(world, pos.up(), changedLogs, boundingBox);
+        this.placeLog(world, pos.above(), changedLogs, boundingBox);
     }
 
     public void generateTop(IWorld world, Random random, BlockPos pos, int topHeight, Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, MutableBoundingBox boundingBox)
@@ -115,17 +115,17 @@ public class BulbTreeFeature extends TreeFeatureBase
                 {
                     if (Math.abs(x) < radius || Math.abs(z) < radius || random.nextInt(2) == 0)
                     {
-                        this.placeLeaves(world, pos.add(x, y, z), changedLeaves, boundingBox);
+                        this.placeLeaves(world, pos.offset(x, y, z), changedLeaves, boundingBox);
                     }
                 }
             }
             if (y < topHeight - 1)
             {
                 // add the trunk in the middle
-                this.placeLog(world, pos.add(0, y, 0), changedLogs, boundingBox);
+                this.placeLog(world, pos.offset(0, y, 0), changedLogs, boundingBox);
             } else {
                 // add leaves on top for certain
-                this.placeLeaves(world, pos.add(0, y, 0), changedLeaves, boundingBox);
+                this.placeLeaves(world, pos.offset(0, y, 0), changedLeaves, boundingBox);
             }
         }
     }
@@ -134,7 +134,7 @@ public class BulbTreeFeature extends TreeFeatureBase
     protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, IWorld world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
     {
         // Move down until we reach the ground
-        while (startPos.getY() > 1 && world.isAirBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES) {startPos = startPos.down();}
+        while (startPos.getY() > 1 && world.isEmptyBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES) {startPos = startPos.below();}
 
         if (!this.placeOn.matches(world, startPos))
         {
@@ -151,7 +151,7 @@ public class BulbTreeFeature extends TreeFeatureBase
         int baseHeight = heightMinusTop - (numBranches * 2);
 
         // Start on the space above ground
-        BlockPos pos = startPos.up();
+        BlockPos pos = startPos.above();
 
         if (!this.checkSpace(world, pos, baseHeight, height))
         {
@@ -163,14 +163,14 @@ public class BulbTreeFeature extends TreeFeatureBase
         for(int i = 0; i < baseHeight; i++)
         {
             this.placeLog(world, pos, changedLogs, boundingBox);
-            pos = pos.up();
+            pos = pos.above();
         }
 
         // Generate middle of the tree - 2 steps at a time (trunk and leaves)
         for (int i = 0; i < numBranches; i++)
         {
             this.generateLeafLayer(world, random, pos, changedLogs, changedLeaves, boundingBox);
-            pos = pos.up(2);
+            pos = pos.above(2);
         }
 
         // Generate the top of the tree
@@ -191,18 +191,18 @@ public class BulbTreeFeature extends TreeFeatureBase
         for (int i = 0; i < generationAttempts; i++)
         {
             // choose a random direction
-            Direction direction = Direction.Plane.HORIZONTAL.random(rand);
+            Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
             Direction back = direction.getOpposite();
-            Direction sideways = direction.rotateY();
+            Direction sideways = direction.getClockWise();
 
             // choose a random starting point somewhere just outside the boundary of the tree leaves
-            BlockPos pos = startPos.up(GeneratorUtil.nextIntBetween(rand, baseHeight + 1, height)).offset(direction, leavesRadius + 1).offset(sideways, GeneratorUtil.nextIntBetween(rand, -leavesRadius, leavesRadius));
+            BlockPos pos = startPos.above(GeneratorUtil.nextIntBetween(rand, baseHeight + 1, height)).relative(direction, leavesRadius + 1).relative(sideways, GeneratorUtil.nextIntBetween(rand, -leavesRadius, leavesRadius));
 
             // move back towards the center until we meet a leaf, then stick a vine on it
             for (int l = 0; l < leavesRadius; l++)
             {
-                if (world.getBlockState(pos.offset(back, 1 + l)) == this.leaves) {
-                    this.setVine(world, rand, pos.offset(back, l), back, 4);
+                if (world.getBlockState(pos.relative(back, 1 + l)) == this.leaves) {
+                    this.setVine(world, rand, pos.relative(back, l), back, 4);
                     break;
                 }
             }
@@ -214,11 +214,11 @@ public class BulbTreeFeature extends TreeFeatureBase
         for (int i = 0; i < generationAttempts; i++)
         {
             // choose a random direction
-            Direction direction = Direction.Plane.HORIZONTAL.random(rand);
+            Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
             Direction back = direction.getOpposite();
 
             // choose a random point next to the trunk
-            BlockPos pos = startPos.up(GeneratorUtil.nextIntBetween(rand, 1, baseHeight)).offset(direction, 1);
+            BlockPos pos = startPos.above(GeneratorUtil.nextIntBetween(rand, 1, baseHeight)).relative(direction, 1);
 
             // stick a cocoa pod on it
             this.setCocoa(world, pos, back);

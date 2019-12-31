@@ -28,21 +28,21 @@ public class BigPumpkinFeature extends Feature<NoFeatureConfig>
     @Override
     public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> p_212245_2_, Random p_212245_3_, BlockPos startPos, NoFeatureConfig p_212245_5_)
     {
-        while (startPos.getY() > 1 && this.replace.matches(world, startPos)) {startPos = startPos.down();}
+        while (startPos.getY() > 1 && this.replace.matches(world, startPos)) {startPos = startPos.below();}
 
-        if (!this.placeOn.matches(world, startPos.add(2, 0, 2)))
+        if (!this.placeOn.matches(world, startPos.offset(2, 0, 2)))
         {
             // Abandon if we can't place the tree on this block
             return false;
         }
 
-        if (!this.checkSpace(world, startPos.up()))
+        if (!this.checkSpace(world, startPos.above()))
         {
             // Abandon if there isn't enough room
             return false;
         }
 
-        BlockPos pos = startPos.up();
+        BlockPos pos = startPos.above();
 
         for (int x = 1; x < 4; x++)
         {
@@ -50,7 +50,7 @@ public class BigPumpkinFeature extends Feature<NoFeatureConfig>
             {
                 for (int z = 1; z < 4; z++)
                 {
-                    this.setBlock(world, pos.add(x,y,z), Blocks.PUMPKIN.getDefaultState());
+                    this.setBlock(world, pos.offset(x,y,z), Blocks.PUMPKIN.defaultBlockState());
                 }
             }
         }
@@ -61,7 +61,7 @@ public class BigPumpkinFeature extends Feature<NoFeatureConfig>
             {
                 for (int z = 1; z < 4; z++)
                 {
-                    this.setBlock(world, pos.add(x,y,z), Blocks.PUMPKIN.getDefaultState());
+                    this.setBlock(world, pos.offset(x,y,z), Blocks.PUMPKIN.defaultBlockState());
                 }
             }
         }
@@ -72,26 +72,26 @@ public class BigPumpkinFeature extends Feature<NoFeatureConfig>
             {
                 for (int z = 0; z < 5; z++)
                 {
-                    this.setBlock(world, pos.add(x,y,z), Blocks.PUMPKIN.getDefaultState());
+                    this.setBlock(world, pos.offset(x,y,z), Blocks.PUMPKIN.defaultBlockState());
                 }
             }
         }
 
-        this.setBlock(world, pos.add(2,5,2), Blocks.OAK_LOG.getDefaultState());
+        this.setBlock(world, pos.offset(2,5,2), Blocks.OAK_LOG.defaultBlockState());
 
-        this.setBlock(world, pos.add(1,5,2), Blocks.OAK_LEAVES.getDefaultState().with(LeavesBlock.PERSISTENT, true));
-        this.setBlock(world, pos.add(0,4,1), Blocks.OAK_LEAVES.getDefaultState().with(LeavesBlock.PERSISTENT, true));
+        this.setBlock(world, pos.offset(1,5,2), Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true));
+        this.setBlock(world, pos.offset(0,4,1), Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true));
 
-        this.setBlock(world, pos.add(2,5,3), Blocks.OAK_LEAVES.getDefaultState().with(LeavesBlock.PERSISTENT, true));
-        this.setBlock(world, pos.add(3,5,3), Blocks.OAK_LEAVES.getDefaultState().with(LeavesBlock.PERSISTENT, true));
-        this.setBlock(world, pos.add(2,4,4), Blocks.OAK_LEAVES.getDefaultState().with(LeavesBlock.PERSISTENT, true));
-        this.setBlock(world, pos.add(3,4,4), Blocks.OAK_LEAVES.getDefaultState().with(LeavesBlock.PERSISTENT, true));
+        this.setBlock(world, pos.offset(2,5,3), Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true));
+        this.setBlock(world, pos.offset(3,5,3), Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true));
+        this.setBlock(world, pos.offset(2,4,4), Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true));
+        this.setBlock(world, pos.offset(3,4,4), Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true));
 
-        this.setBlock(world, pos.add(3,5,1), Blocks.OAK_LEAVES.getDefaultState().with(LeavesBlock.PERSISTENT, true));
-        this.setBlock(world, pos.add(3,4,0), Blocks.OAK_LEAVES.getDefaultState().with(LeavesBlock.PERSISTENT, true));
-        this.setBlock(world, pos.add(4,4,2), Blocks.OAK_LEAVES.getDefaultState().with(LeavesBlock.PERSISTENT, true));
-        this.setBlock(world, pos.add(4,3,0), Blocks.OAK_LEAVES.getDefaultState().with(LeavesBlock.PERSISTENT, true));
-        this.setBlock(world, pos.add(4,2,0), Blocks.OAK_LEAVES.getDefaultState().with(LeavesBlock.PERSISTENT, true));
+        this.setBlock(world, pos.offset(3,5,1), Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true));
+        this.setBlock(world, pos.offset(3,4,0), Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true));
+        this.setBlock(world, pos.offset(4,4,2), Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true));
+        this.setBlock(world, pos.offset(4,3,0), Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true));
+        this.setBlock(world, pos.offset(4,2,0), Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true));
 
         return true;
     }
@@ -100,7 +100,7 @@ public class BigPumpkinFeature extends Feature<NoFeatureConfig>
     {
         if (this.replace.matches(world, pos))
         {
-            this.setBlockState(world, pos, state);
+            this.setBlock(world, pos, state);
             return true;
         }
         return false;
@@ -114,7 +114,7 @@ public class BigPumpkinFeature extends Feature<NoFeatureConfig>
             {
                 for (int z = 0; z <= 5; z++)
                 {
-                    BlockPos pos1 = pos.add(x, y, z);
+                    BlockPos pos1 = pos.offset(x, y, z);
                     if (pos1.getY() >= 255 || !this.replace.matches(world, pos1))
                     {
                         return false;

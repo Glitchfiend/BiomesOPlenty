@@ -33,10 +33,10 @@ public class BushTreeFeature extends TreeFeatureBase
         public BushTreeFeature create()
         {
             // Bushes shouldn't check for decay
-            if (this.leaves != Blocks.AIR.getDefaultState())
+            if (this.leaves != Blocks.AIR.defaultBlockState())
                 this.leaves = this.leaves;
 
-            if (this.altLeaves != Blocks.AIR.getDefaultState())
+            if (this.altLeaves != Blocks.AIR.defaultBlockState())
                 this.altLeaves = this.altLeaves;
 
             return new BushTreeFeature(this.placeOn, this.replace, this.log, this.leaves, this.altLeaves, this.vine, this.hanging, this.trunkFruit, this.minHeight, this.maxHeight);
@@ -52,7 +52,7 @@ public class BushTreeFeature extends TreeFeatureBase
     protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, IWorld world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
     {
         // Move down until we reach the ground
-        while (startPos.getY() > 1 && world.isAirBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.AIR) {startPos = startPos.down();}
+        while (startPos.getY() > 1 && world.isEmptyBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.AIR) {startPos = startPos.below();}
 
         if (!this.placeOn.matches(world, startPos))
         {
@@ -64,7 +64,7 @@ public class BushTreeFeature extends TreeFeatureBase
         int height = GeneratorUtil.nextIntBetween(random, this.minHeight, this.maxHeight);
 
         // start from the block above the ground block
-        BlockPos pos = startPos.up();
+        BlockPos pos = startPos.above();
 
         //Generate a bush 3 blocks tall, with the bottom block already set to a log
         for (int y = 0; y < height; ++y)
@@ -72,7 +72,7 @@ public class BushTreeFeature extends TreeFeatureBase
             // log in the center
             if (height - y > 1)
             {
-                this.placeLog(world, pos.add(0, y, 0), changedLogs, boundingBox);
+                this.placeLog(world, pos.offset(0, y, 0), changedLogs, boundingBox);
             }
 
             //Reduces the radius closer to the top of the bush
@@ -85,20 +85,20 @@ public class BushTreeFeature extends TreeFeatureBase
                     //Randomly prevent the generation of leaves on the corners of each layer
                     if (Math.abs(x) < leavesRadius || Math.abs(z) < leavesRadius || random.nextInt(2) != 0)
                     {
-                        if (this.altLeaves != Blocks.AIR.getDefaultState())
+                        if (this.altLeaves != Blocks.AIR.defaultBlockState())
                         {
                             if (random.nextInt(4) == 0)
                             {
-                                this.setAltLeaves(world, pos.add(x, y, z));
+                                this.setAltLeaves(world, pos.offset(x, y, z));
                             }
                             else
                             {
-                                this.placeLeaves(world, pos.add(x, y, z), changedLeaves, boundingBox);
+                                this.placeLeaves(world, pos.offset(x, y, z), changedLeaves, boundingBox);
                             }
                         }
                         else
                         {
-                            this.placeLeaves(world, pos.add(x, y, z), changedLeaves, boundingBox);
+                            this.placeLeaves(world, pos.offset(x, y, z), changedLeaves, boundingBox);
                         }
                     }
                 }

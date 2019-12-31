@@ -45,7 +45,7 @@ public class PoplarTreeFeature extends TreeFeatureBase
     protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, IWorld world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
     {
         // Move down until we reach the ground
-    	while (startPos.getY() > 1 && world.isAirBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES) {startPos = startPos.down();}
+    	while (startPos.getY() > 1 && world.isEmptyBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES) {startPos = startPos.below();}
         
         if (!this.placeOn.matches(world, startPos))
         {
@@ -60,7 +60,7 @@ public class PoplarTreeFeature extends TreeFeatureBase
         int leavesHeight = height - baseHeight;
         
         // Move up to space above ground
-        BlockPos pos = startPos.up();
+        BlockPos pos = startPos.above();
         
         if (!this.checkSpace(world, pos, baseHeight, height))
         {
@@ -72,7 +72,7 @@ public class PoplarTreeFeature extends TreeFeatureBase
         for(int i = 0; i < baseHeight; i++)
         {
             this.placeLog(world, pos, changedLogs, boundingBox);
-            pos = pos.up();
+            pos = pos.above();
         }
 
         for (int i = 1; i < leavesHeight - 3; i++)
@@ -81,7 +81,7 @@ public class PoplarTreeFeature extends TreeFeatureBase
             {
                 for (int zz = -1; zz < 2; zz++)
                 {
-                    this.placeLeaves(world, pos.add(xx, i, zz), changedLeaves, boundingBox);
+                    this.placeLeaves(world, pos.offset(xx, i, zz), changedLeaves, boundingBox);
                 }
             }
         }
@@ -92,7 +92,7 @@ public class PoplarTreeFeature extends TreeFeatureBase
             int radius = radius(i, leavesHeight);
             this.generateLeafLayer(world, pos, radius, changedLeaves, boundingBox);
             if (leavesHeight - i > 2) {this.placeLog(world, pos, changedLogs, boundingBox);}
-            pos = pos.up();
+            pos = pos.above();
         }
         
         return true;
@@ -117,7 +117,7 @@ public class PoplarTreeFeature extends TreeFeatureBase
             {
                 for (int z = -radius; z <= radius; z++)
                 {
-                    BlockPos pos1 = pos.add(x, y, z);
+                    BlockPos pos1 = pos.offset(x, y, z);
                     // note, there may be a sapling on the first layer - make sure this.replace matches it!
                     if (pos1.getY() >= 255 || !this.replace.matches(world, pos1))
                     {
@@ -140,7 +140,7 @@ public class PoplarTreeFeature extends TreeFeatureBase
                 {
                     if (x*x + z*z <= radius*radius)
                     {
-                        this.placeLeaves(world, pos.add(x, 0, z), changedLeaves, boundingBox);
+                        this.placeLeaves(world, pos.offset(x, 0, z), changedLeaves, boundingBox);
                     }
                 }
                 else
@@ -150,12 +150,12 @@ public class PoplarTreeFeature extends TreeFeatureBase
                     if (x == -radius || x == radius || z == -radius || z == radius)
                     {
                         if (world.getRandom().nextInt(3) != 0) {
-                            this.placeLeaves(world, pos.add(x, 0, z), changedLeaves, boundingBox);
+                            this.placeLeaves(world, pos.offset(x, 0, z), changedLeaves, boundingBox);
                         }
                     }
                     else
                     {
-                        this.placeLeaves(world, pos.add(x, 0, z), changedLeaves, boundingBox);
+                        this.placeLeaves(world, pos.offset(x, 0, z), changedLeaves, boundingBox);
                     }
                 }
             }

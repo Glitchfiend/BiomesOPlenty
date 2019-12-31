@@ -35,7 +35,7 @@ public class WhiteBeachBiome extends BiomeBOP
 {
     public WhiteBeachBiome()
     {
-        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, BOPBiomeFeatures.WHITE_SAND_SURFACE)).precipitation(Biome.RainType.RAIN).category(Biome.Category.BEACH).depth(0.0F).scale(0.025F).temperature(0.95F).downfall(1.0F).waterColor(4445678).waterFogColor(270131).parent((String)null));
+        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, BOPBiomeFeatures.WHITE_SAND_SURFACE)).precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.BEACH).depth(0.0F).scale(0.025F).temperature(0.95F).downfall(1.0F).waterColor(4445678).waterFogColor(270131).parent((String)null));
 
 
         // Structures
@@ -52,9 +52,9 @@ public class WhiteBeachBiome extends BiomeBOP
         DefaultBiomeFeatures.addDefaultOres(this);
 
         // Vegetation
-        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SIMPLE_RANDOM_SELECTOR.configured(new SingleRandomFeature(ImmutableList.of(Feature.CORAL_TREE.configured(IFeatureConfig.NO_FEATURE_CONFIG), Feature.CORAL_CLAW.configured(IFeatureConfig.NO_FEATURE_CONFIG), Feature.CORAL_MUSHROOM.configured(IFeatureConfig.NO_FEATURE_CONFIG)))).decorated(Placement.TOP_SOLID_HEIGHTMAP_NOISE_BIASED.configured(new TopSolidWithNoiseConfig(20, 400.0D, 0.0D, Heightmap.Type.OCEAN_FLOOR_WG))));
-        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.TROPICS_FLOWERS.configured(IFeatureConfig.NO_FEATURE_CONFIG).decorated(Placement.COUNT_HEIGHTMAP_32.configured(new FrequencyConfig(15))));
-        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, new StandardGrassFeature(NoFeatureConfig::deserialize).configured(IFeatureConfig.NO_FEATURE_CONFIG).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(12))));
+        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SIMPLE_RANDOM_SELECTOR.configured(new SingleRandomFeature(ImmutableList.of(Feature.CORAL_TREE.configured(IFeatureConfig.NONE), Feature.CORAL_CLAW.configured(IFeatureConfig.NONE), Feature.CORAL_MUSHROOM.configured(IFeatureConfig.NONE)))).decorated(Placement.TOP_SOLID_HEIGHTMAP_NOISE_BIASED.configured(new TopSolidWithNoiseConfig(20, 400.0D, 0.0D, Heightmap.Type.OCEAN_FLOOR_WG))));
+        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.TROPICS_FLOWERS.configured(IFeatureConfig.NONE).decorated(Placement.COUNT_HEIGHTMAP_32.configured(new FrequencyConfig(15))));
+        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, new StandardGrassFeature(NoFeatureConfig::deserialize).configured(IFeatureConfig.NONE).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(12))));
         this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SEA_PICKLE.configured(new CountConfig(20)).decorated(Placement.CHANCE_TOP_SOLID_HEIGHTMAP.configured(new ChanceConfig(16))));
 
         ////////////////////////////////////////////////////////////

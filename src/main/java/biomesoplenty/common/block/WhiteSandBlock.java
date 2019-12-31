@@ -19,7 +19,7 @@ public class WhiteSandBlock extends SandBlock
     @Override
     public boolean canSustainPlant(BlockState state, IBlockReader world, BlockPos pos, Direction facing, net.minecraftforge.common.IPlantable plantable)
     {
-        PlantType type = plantable.getPlantType(world, pos.offset(facing));
+        PlantType type = plantable.getPlantType(world, pos.relative(facing));
 
         switch (type) {
             case Desert: return true;

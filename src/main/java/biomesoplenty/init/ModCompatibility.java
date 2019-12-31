@@ -51,7 +51,7 @@ public class ModCompatibility
 
                 for (WrappedBiomeEntry wrappedEntry : entries)
                 {
-                    remapBiomeToBoP(wrappedEntry.biomeEntry.biome, type, wrappedEntry.biomeEntry.itemWeight);
+                    remapBiomeToBoP(wrappedEntry.biomeEntry.biome, type, wrappedEntry.biomeEntry.weight);
                 }
             }
         }
@@ -113,7 +113,7 @@ public class ModCompatibility
 
             WrappedBiomeEntry other = (WrappedBiomeEntry)input;
 
-            return other.biomeEntry.itemWeight == this.biomeEntry.itemWeight && other.biomeEntry.biome == this.biomeEntry.biome;
+            return other.biomeEntry.weight == this.biomeEntry.weight && other.biomeEntry.biome == this.biomeEntry.biome;
         }
     }
 }

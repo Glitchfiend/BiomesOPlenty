@@ -25,15 +25,15 @@ public class MudBlock extends Block
     }
 
     @Override
-    public void onEntityWalk(World worldIn, BlockPos pos, Entity entityIn)
+    public void stepOn(World worldIn, BlockPos pos, Entity entityIn)
     {
-        entityIn.setMotion(entityIn.getMotion().mul(0.5D, 1.0D, 0.5D));
+        entityIn.setDeltaMovement(entityIn.getDeltaMovement().multiply(0.5D, 1.0D, 0.5D));
     }
 
     @Override
     public boolean canSustainPlant(BlockState state, IBlockReader world, BlockPos pos, Direction facing, net.minecraftforge.common.IPlantable plantable)
     {
-        PlantType type = plantable.getPlantType(world, pos.offset(facing));
+        PlantType type = plantable.getPlantType(world, pos.relative(facing));
 
         switch (type) {
             case Desert: return false;

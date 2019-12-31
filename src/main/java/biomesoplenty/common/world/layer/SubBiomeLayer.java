@@ -59,8 +59,8 @@ public enum SubBiomeLayer implements IAreaTransformer2, IDimOffset1Transformer
     @Override
     public int applyPixel(INoiseRandom context, IArea biomeArea, IArea riverAndSubBiomesInitArea, int x, int z)
     {
-        int biomeId = biomeArea.getValue(this.getParentX(x + 1), this.getParentY(z + 1));
-        int initVal = riverAndSubBiomesInitArea.getValue(this.getParentX(x + 1), this.getParentY(z + 1));
+        int biomeId = biomeArea.get(this.getParentX(x + 1), this.getParentY(z + 1));
+        int initVal = riverAndSubBiomesInitArea.get(this.getParentX(x + 1), this.getParentY(z + 1));
 
         int subBiomeType = (initVal - 2) % 29;
         boolean tryRareHillsBiome = subBiomeType == 0;
@@ -69,14 +69,14 @@ public enum SubBiomeLayer implements IAreaTransformer2, IDimOffset1Transformer
         Biome mutatedBiome;
         if (!BOPLayerUtil.isShallowOcean(biomeId) && initVal >= 2 && tryRareBiome)
         {
-            Biome biome = Registry.BIOME.getByValue(biomeId);
-            if (biome == null || !biome.isMutation()) {
-                mutatedBiome = Biome.getMutationForBiome(biome);
+            Biome biome = Registry.BIOME.byId(biomeId);
+            if (biome == null || !biome.isMutated()) {
+                mutatedBiome = Biome.getMutatedVariant(biome);
                 return mutatedBiome == null ? biomeId : Registry.BIOME.getId(mutatedBiome);
             }
         }
 
-        if (context.random(3) == 0 || tryRareHillsBiome)
+        if (context.nextRandom(3) == 0 || tryRareHillsBiome)
         {
             int mutatedBiomeId = this.getCommonSubBiomeId(context, biomeId);
 
@@ -87,20 +87,20 @@ public enum SubBiomeLayer implements IAreaTransformer2, IDimOffset1Transformer
 
             if (subBiomeType == 0 && mutatedBiomeId != biomeId)
             {
-                mutatedBiome = Biome.getMutationForBiome(Registry.BIOME.getByValue(mutatedBiomeId));
+                mutatedBiome = Biome.getMutatedVariant(Registry.BIOME.byId(mutatedBiomeId));
                 mutatedBiomeId = mutatedBiome == null ? biomeId : Registry.BIOME.getId(mutatedBiome);
             }
 
             if (mutatedBiomeId != biomeId)
             {
                 int surroundingSimilarCount = 0;
-                if (LayerUtil.areBiomesSimilar(biomeArea.getValue(x + 1, z + 0), biomeId))
+                if (LayerUtil.isSame(biomeArea.get(x + 1, z + 0), biomeId))
                     ++surroundingSimilarCount;
-                if (LayerUtil.areBiomesSimilar(biomeArea.getValue(x + 2, z + 1), biomeId))
+                if (LayerUtil.isSame(biomeArea.get(x + 2, z + 1), biomeId))
                     ++surroundingSimilarCount;
-                if (LayerUtil.areBiomesSimilar(biomeArea.getValue(x + 0, z + 1), biomeId))
+                if (LayerUtil.isSame(biomeArea.get(x + 0, z + 1), biomeId))
                     ++surroundingSimilarCount;
-                if (LayerUtil.areBiomesSimilar(biomeArea.getValue(x + 1, z + 2), biomeId))
+                if (LayerUtil.isSame(biomeArea.get(x + 1, z + 2), biomeId))
                     ++surroundingSimilarCount;
 
                 if (surroundingSimilarCount >= 3)
@@ -113,7 +113,7 @@ public enum SubBiomeLayer implements IAreaTransformer2, IDimOffset1Transformer
 
     public int getCommonSubBiomeId(INoiseRandom context, int originalBiomeId)
     {
-        float rarity = (float)context.random(100) / 100.0f;
+        float rarity = (float)context.nextRandom(100) / 100.0f;
         List<BOPClimates.WeightedBiomeEntry> weightedBiomeEntryList = Lists.newArrayList();
         int selectedBiomeId = originalBiomeId;
         int totalWeight = 0;
@@ -131,7 +131,7 @@ public enum SubBiomeLayer implements IAreaTransformer2, IDimOffset1Transformer
         if (totalWeight <= 0)
             return selectedBiomeId;
 
-        int weight = context.random(totalWeight);
+        int weight = context.nextRandom(totalWeight);
         Iterator<BOPClimates.WeightedBiomeEntry> iterator = weightedBiomeEntryList.iterator();
         BOPClimates.WeightedBiomeEntry item;
         do
@@ -168,7 +168,7 @@ public enum SubBiomeLayer implements IAreaTransformer2, IDimOffset1Transformer
         else if (originalBiomeId == BOPLayerUtil.FROZEN_OCEAN) mutatedBiomeId = BOPLayerUtil.DEEP_FROZEN_OCEAN;
         else if (originalBiomeId == MOUNTAINS) mutatedBiomeId = WOODED_MOUNTAINS;
         else if (originalBiomeId == SAVANNA) mutatedBiomeId = SAVANA_PLATEAU;
-        else if (LayerUtil.areBiomesSimilar(originalBiomeId, WOODED_BADLANDS_PLATEAU)) mutatedBiomeId = BADLANDS;
+        else if (LayerUtil.isSame(originalBiomeId, WOODED_BADLANDS_PLATEAU)) mutatedBiomeId = BADLANDS;
         /*else if ((originalBiomeId == BOPLayerUtil.DEEP_OCEAN || originalBiomeId == BOPLayerUtil.DEEP_LUKEWARM_OCEAN || originalBiomeId == BOPLayerUtil.DEEP_COLD_OCEAN || originalBiomeId == BOPLayerUtil.DEEP_FROZEN_OCEAN) && context.random(3) == 0)
         {
             mutatedBiomeId = context.random(2) == 0 ? PLAINS : FOREST;

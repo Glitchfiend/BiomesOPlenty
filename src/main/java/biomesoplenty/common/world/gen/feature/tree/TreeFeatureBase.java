@@ -42,13 +42,13 @@ public abstract class TreeFeatureBase extends AbstractTreeFeature<BaseTreeFeatur
         public BuilderBase()
         {
             this.placeOn = (world, pos) -> world.getBlockState(pos).canSustainPlant(world, pos, Direction.UP, (SaplingBlock)Blocks.OAK_SAPLING);
-            this.replace = (world, pos) -> world.getBlockState(pos).canBeReplacedByLeaves(world, pos) || world.getBlockState(pos).getBlock().isIn(BlockTags.SAPLINGS) || world.getBlockState(pos).getBlock() == Blocks.VINE || world.getBlockState(pos).getBlock() == BOPBlocks.willow_vine || world.getBlockState(pos).getBlock() instanceof BushBlock;
-            this.log = Blocks.OAK_LOG.getDefaultState();
-            this.leaves = Blocks.OAK_LEAVES.getDefaultState();
-            this.vine = Blocks.AIR.getDefaultState();
-            this.hanging = Blocks.AIR.getDefaultState();
-            this.trunkFruit = Blocks.AIR.getDefaultState();
-            this.altLeaves = Blocks.AIR.getDefaultState();
+            this.replace = (world, pos) -> world.getBlockState(pos).canBeReplacedByLeaves(world, pos) || world.getBlockState(pos).getBlock().is(BlockTags.SAPLINGS) || world.getBlockState(pos).getBlock() == Blocks.VINE || world.getBlockState(pos).getBlock() == BOPBlocks.willow_vine || world.getBlockState(pos).getBlock() instanceof BushBlock;
+            this.log = Blocks.OAK_LOG.defaultBlockState();
+            this.leaves = Blocks.OAK_LEAVES.defaultBlockState();
+            this.vine = Blocks.AIR.defaultBlockState();
+            this.hanging = Blocks.AIR.defaultBlockState();
+            this.trunkFruit = Blocks.AIR.defaultBlockState();
+            this.altLeaves = Blocks.AIR.defaultBlockState();
         }
 
         public T placeOn(IBlockPosQuery a) {this.placeOn = a; return (T)this;}
@@ -119,7 +119,7 @@ public abstract class TreeFeatureBase extends AbstractTreeFeature<BaseTreeFeatur
     {
         if (this.replace.matches(world, pos))
         {
-            this.setBlockState(world, pos, this.leaves);
+            this.setBlock(world, pos, this.leaves);
             this.placeBlock(world, pos, this.leaves, changedBlocks, boundingBox);
             return true;
         }
@@ -133,7 +133,7 @@ public abstract class TreeFeatureBase extends AbstractTreeFeature<BaseTreeFeatur
 
     public boolean placeLog(IWorld world, BlockPos pos, Direction.Axis axis, Set<BlockPos> changedBlocks, MutableBoundingBox boundingBox)
     {
-        BlockState directedLog = (axis != null && this.logAxisProperty != null) ? this.log.with(this.logAxisProperty, axis) : this.log;
+        BlockState directedLog = (axis != null && this.logAxisProperty != null) ? this.log.setValue(this.logAxisProperty, axis) : this.log;
         if (this.replace.matches(world, pos))
         {
             // Logs must be added to the "changedBlocks" so that the leaves have their distance property updated,
@@ -146,14 +146,14 @@ public abstract class TreeFeatureBase extends AbstractTreeFeature<BaseTreeFeatur
 
     public boolean setVine(IWorld world, Random rand, BlockPos pos, Direction side, int length)
     {
-        BlockState vineState = this.vine.getBlock() instanceof VineBlock ? this.vine.with(VineBlock.NORTH, Boolean.valueOf(side == Direction.NORTH)).with(VineBlock.EAST, Boolean.valueOf(side == Direction.EAST)).with(VineBlock.SOUTH, Boolean.valueOf(side == Direction.SOUTH)).with(VineBlock.WEST, Boolean.valueOf(side == Direction.WEST)) : this.vine;
+        BlockState vineState = this.vine.getBlock() instanceof VineBlock ? this.vine.setValue(VineBlock.NORTH, Boolean.valueOf(side == Direction.NORTH)).setValue(VineBlock.EAST, Boolean.valueOf(side == Direction.EAST)).setValue(VineBlock.SOUTH, Boolean.valueOf(side == Direction.SOUTH)).setValue(VineBlock.WEST, Boolean.valueOf(side == Direction.WEST)) : this.vine;
         boolean setOne = false;
         while (world.getBlockState(pos).getBlock().isAir(world.getBlockState(pos), world, pos) && length > 0 && rand.nextInt(12) > 0)
         {
-            this.setBlockState(world, pos, vineState);
+            this.setBlock(world, pos, vineState);
             setOne = true;
             length--;
-            pos = pos.down();
+            pos = pos.below();
         }
         return setOne;
     }
@@ -162,7 +162,7 @@ public abstract class TreeFeatureBase extends AbstractTreeFeature<BaseTreeFeatur
     {
         if (this.replace.matches(world, pos))
         {
-            this.setBlockState(world, pos, this.hanging);
+            this.setBlock(world, pos, this.hanging);
         }
         return false;
     }
@@ -172,7 +172,7 @@ public abstract class TreeFeatureBase extends AbstractTreeFeature<BaseTreeFeatur
         if (this.trunkFruit == null) {return false;}
         if (this.replace.matches(world, pos))
         {
-            this.setBlockState(world, pos, this.trunkFruit);
+            this.setBlock(world, pos, this.trunkFruit);
         }
         return false;
     }
@@ -181,7 +181,7 @@ public abstract class TreeFeatureBase extends AbstractTreeFeature<BaseTreeFeatur
     {
         if (this.replace.matches(world, pos))
         {
-            this.setBlockState(world, pos, this.altLeaves);
+            this.setBlock(world, pos, this.altLeaves);
             return true;
         }
         return false;
@@ -200,14 +200,14 @@ public abstract class TreeFeatureBase extends AbstractTreeFeature<BaseTreeFeatur
 
     protected boolean placeBlock(IWorld world, BlockPos pos, BlockState state, Set<BlockPos> changedBlocks, MutableBoundingBox boundingBox)
     {
-        if (!isAirOrLeaves(world, pos) && !isTallPlants(world, pos) && !isWater(world, pos))
+        if (!isAirOrLeaves(world, pos) && !isReplaceablePlant(world, pos) && !isBlockWater(world, pos))
         {
             return false;
         }
         else
         {
             this.setBlock(world, pos, state, boundingBox);
-            changedBlocks.add(pos.toImmutable());
+            changedBlocks.add(pos.immutable());
             return true;
         }
     }

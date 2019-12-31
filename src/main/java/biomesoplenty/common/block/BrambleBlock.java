@@ -27,58 +27,58 @@ public class BrambleBlock extends SixWayBlock
     public BrambleBlock(Block.Properties builder)
     {
         super(0.25F, builder);
-        this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, Boolean.valueOf(false)).with(EAST, Boolean.valueOf(false)).with(SOUTH, Boolean.valueOf(false)).with(WEST, Boolean.valueOf(false)).with(UP, Boolean.valueOf(false)).with(DOWN, Boolean.valueOf(false)));
+        this.registerDefaultState(this.stateDefinition.any().setValue(NORTH, Boolean.valueOf(false)).setValue(EAST, Boolean.valueOf(false)).setValue(SOUTH, Boolean.valueOf(false)).setValue(WEST, Boolean.valueOf(false)).setValue(UP, Boolean.valueOf(false)).setValue(DOWN, Boolean.valueOf(false)));
     }
     
     @Override
     public BlockState getStateForPlacement(BlockItemUseContext context)
     {
-        return this.makeConnections(context.getWorld(), context.getPos());
+        return this.makeConnections(context.getLevel(), context.getClickedPos());
     }
 
     public BlockState makeConnections(IBlockReader reader, BlockPos pos)
     {
-        BlockState block = reader.getBlockState(pos.down());
-        BlockState block1 = reader.getBlockState(pos.up());
+        BlockState block = reader.getBlockState(pos.below());
+        BlockState block1 = reader.getBlockState(pos.above());
         BlockState block2 = reader.getBlockState(pos.north());
         BlockState block3 = reader.getBlockState(pos.east());
         BlockState block4 = reader.getBlockState(pos.south());
         BlockState block5 = reader.getBlockState(pos.west());
-        return this.getDefaultState()
-        		.with(DOWN, Boolean.valueOf(block.getBlock() == this || Block.isOpaque(block.getCollisionShape(reader, pos.down()))))
-        		.with(UP, Boolean.valueOf(block1.getBlock() == this || Block.isOpaque(block1.getCollisionShape(reader, pos.up()))))
-        		.with(NORTH, Boolean.valueOf(block2.getBlock() == this || Block.isOpaque(block2.getCollisionShape(reader, pos.north()))))
-        		.with(EAST, Boolean.valueOf(block3.getBlock() == this || Block.isOpaque(block3.getCollisionShape(reader, pos.east()))))
-        		.with(SOUTH, Boolean.valueOf(block4.getBlock() == this || Block.isOpaque(block4.getCollisionShape(reader, pos.south()))))
-        		.with(WEST, Boolean.valueOf(block5.getBlock() == this || Block.isOpaque(block5.getCollisionShape(reader, pos.west()))));
+        return this.defaultBlockState()
+        		.setValue(DOWN, Boolean.valueOf(block.getBlock() == this || Block.isShapeFullBlock(block.getCollisionShape(reader, pos.below()))))
+        		.setValue(UP, Boolean.valueOf(block1.getBlock() == this || Block.isShapeFullBlock(block1.getCollisionShape(reader, pos.above()))))
+        		.setValue(NORTH, Boolean.valueOf(block2.getBlock() == this || Block.isShapeFullBlock(block2.getCollisionShape(reader, pos.north()))))
+        		.setValue(EAST, Boolean.valueOf(block3.getBlock() == this || Block.isShapeFullBlock(block3.getCollisionShape(reader, pos.east()))))
+        		.setValue(SOUTH, Boolean.valueOf(block4.getBlock() == this || Block.isShapeFullBlock(block4.getCollisionShape(reader, pos.south()))))
+        		.setValue(WEST, Boolean.valueOf(block5.getBlock() == this || Block.isShapeFullBlock(block5.getCollisionShape(reader, pos.west()))));
     }
 
      @Override
-     public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos)
+     public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos)
      {
     	Block block = facingState.getBlock();
-     	boolean flag = block == this || Block.isOpaque(facingState.getCollisionShape(worldIn, facingPos));
-     	return stateIn.with(FACING_TO_PROPERTY_MAP.get(facing), Boolean.valueOf(flag));
+     	boolean flag = block == this || Block.isShapeFullBlock(facingState.getCollisionShape(worldIn, facingPos));
+     	return stateIn.setValue(PROPERTY_BY_DIRECTION.get(facing), Boolean.valueOf(flag));
      }
 
      @Override
-     public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn)
+     public void entityInside(BlockState state, World worldIn, BlockPos pos, Entity entityIn)
      {
          if (entityIn instanceof PlayerEntity)
          {
              PlayerEntity playerEntity = (PlayerEntity) entityIn;
-             playerEntity.attackEntityFrom(DamageSource.CACTUS, 1.0F);
+             playerEntity.hurt(DamageSource.CACTUS, 1.0F);
          }
       }
 
      @Override
-     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder)
+     protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder)
      {
         builder.add(NORTH, EAST, SOUTH, WEST, UP, DOWN);
      }
 
      @Override
-     public boolean allowsMovement(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type)
+     public boolean isPathfindable(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type)
      {
         return false;
      }

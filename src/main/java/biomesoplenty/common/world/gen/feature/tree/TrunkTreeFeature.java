@@ -45,7 +45,7 @@ public class TrunkTreeFeature extends TreeFeatureBase
     protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, IWorld world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
     {
         // Move down until we reach the ground
-    	while (startPos.getY() > 1 && world.isAirBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES) {startPos = startPos.down();}
+    	while (startPos.getY() > 1 && world.isEmptyBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES) {startPos = startPos.below();}
         
         if (!this.placeOn.matches(world, startPos))
         {
@@ -59,7 +59,7 @@ public class TrunkTreeFeature extends TreeFeatureBase
         int heightMinusTop = height - leavesRadius - 1;
         
         // Move up to space above ground
-        BlockPos pos = startPos.up();
+        BlockPos pos = startPos.above();
         
         if (!this.checkSpace(world, pos, height, 1))
         {
@@ -70,7 +70,7 @@ public class TrunkTreeFeature extends TreeFeatureBase
         // Generate trunk of tree (trunk only)
         for(int step = 0; step <= heightMinusTop; step++)
         {
-        	BlockPos offsetPos = pos.up(step);
+        	BlockPos offsetPos = pos.above(step);
             
             if (step == heightMinusTop)
             {
@@ -93,7 +93,7 @@ public class TrunkTreeFeature extends TreeFeatureBase
             {
                 for (int z = -radius; z <= radius; z++)
                 {
-                    BlockPos pos1 = pos.add(x, y, z);
+                    BlockPos pos1 = pos.offset(x, y, z);
                     // note, there may be a sapling on the first layer - make sure this.replace matches it!
                     if (pos1.getY() >= 255 || !this.replace.matches(world, pos1))
                     {

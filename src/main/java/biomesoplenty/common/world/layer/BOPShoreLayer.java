@@ -46,7 +46,7 @@ public enum BOPShoreLayer implements ICastleTransformer
     @Override
     public int apply(INoiseRandom context, int northBiomeId, int eastBiomeId, int southBiomeId, int westBiomeId, int biomeId)
     {
-        Biome biome = Registry.BIOME.getByValue(biomeId);
+        Biome biome = Registry.BIOME.byId(biomeId);
 
         if (biomeId == MUSHROOM_FIELDS)
         {
@@ -55,7 +55,7 @@ public enum BOPShoreLayer implements ICastleTransformer
                 return MUSHROOM_FIELD_SHORE;
             }
         }
-        else if (biome != null && biome.getCategory() == Biome.Category.JUNGLE)
+        else if (biome != null && biome.getBiomeCategory() == Biome.Category.JUNGLE)
         {
             if (!isJungleCompatible(northBiomeId) || !isJungleCompatible(eastBiomeId) || !isJungleCompatible(southBiomeId) || !isJungleCompatible(westBiomeId))
             {
@@ -131,7 +131,7 @@ public enum BOPShoreLayer implements ICastleTransformer
 
     private static boolean isJungleCompatible(int biomeId)
     {
-        if (Registry.BIOME.getByValue(biomeId) != null && (Registry.BIOME.getByValue(biomeId)).getCategory() == Biome.Category.JUNGLE)
+        if (Registry.BIOME.byId(biomeId) != null && (Registry.BIOME.byId(biomeId)).getBiomeCategory() == Biome.Category.JUNGLE)
         {
             return true;
         }

@@ -36,30 +36,30 @@ public class VolcanoEdgeBiome extends BiomeBOP
 {
     public VolcanoEdgeBiome()
     {
-        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(BOPBiomeFeatures.VOLCANO_EDGE_SURFACE_BUILDER, SurfaceBuilder.STONE_STONE_GRAVEL_CONFIG)).precipitation(Biome.RainType.RAIN).category(Biome.Category.NONE).depth(1.25F).scale(0.4F).temperature(0.95F).downfall(0.3F).waterColor(4566514).waterFogColor(267827).parent((String)null));
+        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(BOPBiomeFeatures.VOLCANO_EDGE_SURFACE_BUILDER, SurfaceBuilder.CONFIG_STONE)).precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.NONE).depth(1.25F).scale(0.4F).temperature(0.95F).downfall(0.3F).waterColor(4566514).waterFogColor(267827).parent((String)null));
 
         // Structures
         this.addStructureStart(Feature.MINESHAFT.configured(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
-        this.addStructureStart(Feature.STRONGHOLD.configured(IFeatureConfig.NO_FEATURE_CONFIG));
+        this.addStructureStart(Feature.STRONGHOLD.configured(IFeatureConfig.NONE));
 
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(this);
         DefaultBiomeFeatures.addStructureFeaturePlacement(this);
 
-        this.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Feature.LAKE.configured(new BlockStateFeatureConfig(Blocks.LAVA.getDefaultState())).decorated(Placement.LAVA_LAKE.configured(new ChanceConfig(10))));
+        this.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Feature.LAKE.configured(new BlockStateFeatureConfig(Blocks.LAVA.defaultBlockState())).decorated(Placement.LAVA_LAKE.configured(new ChanceConfig(10))));
 
         DefaultBiomeFeatures.addDefaultMonsterRoom(this);
         DefaultBiomeFeatures.addDefaultUndergroundVariety(this);
         DefaultBiomeFeatures.addDefaultOres(this);
-        this.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.DISK.configured(new SphereReplaceConfig(Blocks.GRAVEL.getDefaultState(), 6, 2, Lists.newArrayList(new BlockState[]{Blocks.DIRT.getDefaultState(), Blocks.GRASS_BLOCK.getDefaultState()}))).decorated(Placement.COUNT_TOP_SOLID.configured(new FrequencyConfig(1))));
+        this.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.DISK.configured(new SphereReplaceConfig(Blocks.GRAVEL.defaultBlockState(), 6, 2, Lists.newArrayList(new BlockState[]{Blocks.DIRT.defaultBlockState(), Blocks.GRASS_BLOCK.defaultBlockState()}))).decorated(Placement.COUNT_TOP_SOLID.configured(new FrequencyConfig(1))));
 
         ////////////////////////////////////////////////////////////
 
         // Vegetation
         this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(BOPBiomeFeatures.DYING_TREE_VOLCANO.configured(DefaultBiomeFeatures.NORMAL_TREE_CONFIG).weighted(0.1F)), BOPBiomeFeatures.DEAD_TREE_VOLCANO.configured(DefaultBiomeFeatures.NORMAL_TREE_CONFIG))).decorated(Placement.COUNT_EXTRA_HEIGHTMAP.configured(new AtSurfaceWithExtraConfig(1, 0.2F, 1))));
 
-        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.dead_grass.getDefaultState())).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(2))));
-        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.sprout.getDefaultState())).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(2))));
+        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.dead_grass.defaultBlockState())).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(2))));
+        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.sprout.defaultBlockState())).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(2))));
 
         ////////////////////////////////////////////////////////////
 

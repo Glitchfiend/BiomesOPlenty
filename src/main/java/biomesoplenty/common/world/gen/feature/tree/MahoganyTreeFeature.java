@@ -23,8 +23,8 @@ public class MahoganyTreeFeature extends BasicTreeFeature
     {
         public Builder()
         {
-            this.log = BOPBlocks.mahogany_log.getDefaultState();
-            this.leaves = BOPBlocks.mahogany_leaves.getDefaultState();
+            this.log = BOPBlocks.mahogany_log.defaultBlockState();
+            this.leaves = BOPBlocks.mahogany_leaves.defaultBlockState();
             this.minHeight = 10;
             this.maxHeight = 15;
             this.leavesLayerHeight = 1;
@@ -52,7 +52,7 @@ public class MahoganyTreeFeature extends BasicTreeFeature
 
         for (int layer = 0; layer <= endHeight - 3; layer++)
         {
-            BlockPos middlePos = start.up(layer);
+            BlockPos middlePos = start.above(layer);
 
             if (this.replace.matches(world, middlePos))
             {
@@ -61,7 +61,7 @@ public class MahoganyTreeFeature extends BasicTreeFeature
         }
 
         //Generate upper branches
-        BlockPos branchStartPos = start.up(endHeight - 2);
+        BlockPos branchStartPos = start.above(endHeight - 2);
         int branchHeight = (this.leafLayers - 1) + 1;
 
         generateBranch(changedBlocks, boundingBox, world, branchStartPos, Direction.NORTH, branchHeight);
@@ -74,19 +74,19 @@ public class MahoganyTreeFeature extends BasicTreeFeature
     {
         BlockPos pos;
 
-        if (replace.matches(world, pos = middle.offset(direction))) this.placeLog(world, pos, direction.getAxis(), changedBlocks, boundingBox);
+        if (replace.matches(world, pos = middle.relative(direction))) this.placeLog(world, pos, direction.getAxis(), changedBlocks, boundingBox);
 
         for (int i = 0; i <= height - 1; i++)
         {
-            if (replace.matches(world, pos = middle.offset(direction, 2).up(i + 1))) this.placeLog(world, pos, Direction.Axis.Y, changedBlocks, boundingBox);
+            if (replace.matches(world, pos = middle.relative(direction, 2).above(i + 1))) this.placeLog(world, pos, Direction.Axis.Y, changedBlocks, boundingBox);
         }
 
-        Direction logDirection = direction.rotateY();
+        Direction logDirection = direction.getClockWise();
 
         //Extend inner branches outwards to prevent decay
         for (int i = -1; i <= 1; i++)
         {
-            if (replace.matches(world, pos = middle.offset(direction, 3).offset(logDirection, i).up(height - 1))) this.placeLog(world, pos, logDirection.getAxis(), changedBlocks, boundingBox);
+            if (replace.matches(world, pos = middle.relative(direction, 3).relative(logDirection, i).above(height - 1))) this.placeLog(world, pos, logDirection.getAxis(), changedBlocks, boundingBox);
         }
     }
 }

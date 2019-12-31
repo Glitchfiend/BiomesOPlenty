@@ -30,7 +30,7 @@ public class WastelandGrassFeature extends Feature<NoFeatureConfig>
 
 	public BlockState chooseGrassState(Random rand)
 	{
-		return rand.nextInt(3) == 0 ? BOPBlocks.desert_grass.getDefaultState() : BOPBlocks.dead_grass.getDefaultState();
+		return rand.nextInt(3) == 0 ? BOPBlocks.desert_grass.defaultBlockState() : BOPBlocks.dead_grass.defaultBlockState();
 	}
 
 	@Override
@@ -38,19 +38,19 @@ public class WastelandGrassFeature extends Feature<NoFeatureConfig>
 	{
 		BlockState BlockState = this.chooseGrassState(rand);
 
-		for (BlockState BlockState1 = world.getBlockState(pos); (BlockState1.isAir(world, pos) || BlockState1.isIn(BlockTags.LEAVES)) && pos.getY() > 0; BlockState1 = world.getBlockState(pos))
+		for (BlockState BlockState1 = world.getBlockState(pos); (BlockState1.isAir(world, pos) || BlockState1.is(BlockTags.LEAVES)) && pos.getY() > 0; BlockState1 = world.getBlockState(pos))
 		{
-			pos = pos.down();
+			pos = pos.below();
 		}
 
 		int i = 0;
 
 		for (int j = 0; j < 128; ++j)
 		{
-			BlockPos blockpos = pos.add(rand.nextInt(8) - rand.nextInt(8), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(8) - rand.nextInt(8));
-			if (world.isAirBlock(blockpos) && BlockState.isValidPosition(world, blockpos))
+			BlockPos blockpos = pos.offset(rand.nextInt(8) - rand.nextInt(8), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(8) - rand.nextInt(8));
+			if (world.isEmptyBlock(blockpos) && BlockState.canSurvive(world, blockpos))
 			{
-				world.setBlockState(blockpos, BlockState, 2);
+				world.setBlock(blockpos, BlockState, 2);
 				++i;
 			}
 		}

@@ -34,7 +34,7 @@ public class NetherBiomeProvider extends OverworldBiomeProvider
     {
         super(settingsProvider);
 
-        this.topBlocksCache.add(Blocks.NETHERRACK.getDefaultState());
+        this.surfaceBlocks.add(Blocks.NETHERRACK.defaultBlockState());
         this.genBiomes = BOPNetherLayerUtil.createGenLayers(settingsProvider.getSeed(), settingsProvider.getGeneratorType(), settingsProvider.getGeneratorSettings())[0];
     }
 

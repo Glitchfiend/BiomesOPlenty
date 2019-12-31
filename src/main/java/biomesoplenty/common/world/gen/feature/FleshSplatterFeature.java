@@ -39,11 +39,11 @@ public class FleshSplatterFeature extends Feature<NoFeatureConfig>
                {
                   BlockPos blockpos = new BlockPos(k, k1, l);
                   BlockState blockstate = worldIn.getBlockState(blockpos);
-                  BlockState blockstate1 = worldIn.getBlockState(blockpos.up());
+                  BlockState blockstate1 = worldIn.getBlockState(blockpos.above());
 
-                  if (blockstate.getBlock() == Blocks.NETHERRACK && blockstate1.isAir(worldIn, blockpos.up()))
+                  if (blockstate.getBlock() == Blocks.NETHERRACK && blockstate1.isAir(worldIn, blockpos.above()))
                   {
-                     worldIn.setBlockState(blockpos, BOPBlocks.flesh.getDefaultState(), 2);
+                     worldIn.setBlock(blockpos, BOPBlocks.flesh.defaultBlockState(), 2);
                      ++i;
                      break;
                   }

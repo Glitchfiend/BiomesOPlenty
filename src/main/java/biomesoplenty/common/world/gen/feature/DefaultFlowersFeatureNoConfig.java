@@ -41,6 +41,6 @@ public abstract class DefaultFlowersFeatureNoConfig extends FlowersFeature<NoFea
     @Override
     public BlockPos getPos(Random random, BlockPos pos, NoFeatureConfig config)
     {
-        return pos.add(random.nextInt(7) - random.nextInt(7), random.nextInt(3) - random.nextInt(3), random.nextInt(7) - random.nextInt(7));
+        return pos.offset(random.nextInt(7) - random.nextInt(7), random.nextInt(3) - random.nextInt(3), random.nextInt(7) - random.nextInt(7));
     }
 }

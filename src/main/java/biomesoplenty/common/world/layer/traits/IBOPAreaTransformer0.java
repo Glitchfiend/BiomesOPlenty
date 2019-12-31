@@ -27,9 +27,9 @@ public interface IBOPAreaTransformer0
         // Create a new IAreaFactory
         return () ->
             // Return a new IArea, with the below IPixelTransformer
-            context.func_212861_a_((x, z) ->
+            context.createResult((x, z) ->
             {
-                context.setPosition((long)(x), (long)(z));
+                context.initRandom((long)(x), (long)(z));
                 return this.applyPixel(bopContext, x, z);
             });
     }

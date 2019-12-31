@@ -26,16 +26,16 @@ public class MarshSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
 	}
 
 	@Override
-	public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config)
+	public void apply(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config)
 	{
-		double d0 = Biome.INFO_NOISE.noiseAt((double)x * 0.25D, (double)z * 0.25D, false);
+		double d0 = Biome.BIOME_INFO_NOISE.getValue((double)x * 0.25D, (double)z * 0.25D, false);
 		if (d0 > 0.0D) {
 			int i = x & 15;
 			int j = z & 15;
 			BlockPos.Mutable blockpos$mutableblockpos = new BlockPos.Mutable();
 
 			for(int k = startHeight; k >= 0; --k) {
-				blockpos$mutableblockpos.setPos(i, k, j);
+				blockpos$mutableblockpos.set(i, k, j);
 				if (!chunkIn.getBlockState(blockpos$mutableblockpos).isAir()) {
 					if (k == 62 && chunkIn.getBlockState(blockpos$mutableblockpos).getBlock() != defaultFluid.getBlock()) {
 						chunkIn.setBlockState(blockpos$mutableblockpos, defaultFluid, false);
@@ -45,6 +45,6 @@ public class MarshSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
 			}
 		}
 
-		SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, config);
+		SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, config);
 	}
 }

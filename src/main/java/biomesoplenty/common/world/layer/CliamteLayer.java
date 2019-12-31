@@ -28,8 +28,8 @@ public enum CliamteLayer implements IAreaTransformer2, IDimOffset0Transformer
     @Override
     public int applyPixel(INoiseRandom context, IArea area1, IArea area2, int x, int z)
     {
-        int temperature = area1.getValue(x, z);
-        int rainfall = area2.getValue(x, z);
+        int temperature = area1.get(x, z);
+        int rainfall = area2.get(x, z);
 
         // temperature values from 0 (cold) to 8 (hot) and rainfall values from 0 (wet) to 11 (dry), index is (temperatureValue * 12) + rainfallValue
         // clamp as a precaution against potential rounding errors due to use of doubles/floats in noise calculations

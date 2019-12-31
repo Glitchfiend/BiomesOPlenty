@@ -36,20 +36,20 @@ public class XericShrublandBiome extends BiomeBOP
 {
     public XericShrublandBiome()
     {
-        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.SAND_CONFIG)).precipitation(Biome.RainType.NONE).category(Biome.Category.SAVANNA).depth(0.0F).scale(-0.05F).temperature(1.75F).downfall(0.1F).waterColor(4159204).waterFogColor(329011).parent((String)null));
+        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.CONFIG_FULL_SAND)).precipitation(Biome.RainType.NONE).biomeCategory(Biome.Category.SAVANNA).depth(0.0F).scale(-0.05F).temperature(1.75F).downfall(0.1F).waterColor(4159204).waterFogColor(329011).parent((String)null));
 
         // Structures
         this.addStructureStart(Feature.VILLAGE.configured(new VillageConfig("village/desert/town_centers", 6)));
-        this.addStructureStart(Feature.PILLAGER_OUTPOST.configured(IFeatureConfig.NO_FEATURE_CONFIG));
-        this.addStructureStart(Feature.DESERT_PYRAMID.configured(IFeatureConfig.NO_FEATURE_CONFIG));
+        this.addStructureStart(Feature.PILLAGER_OUTPOST.configured(IFeatureConfig.NONE));
+        this.addStructureStart(Feature.DESERT_PYRAMID.configured(IFeatureConfig.NONE));
         this.addStructureStart(Feature.MINESHAFT.configured(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
-        this.addStructureStart(Feature.STRONGHOLD.configured(IFeatureConfig.NO_FEATURE_CONFIG));
+        this.addStructureStart(Feature.STRONGHOLD.configured(IFeatureConfig.NONE));
 
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(this);
         DefaultBiomeFeatures.addStructureFeaturePlacement(this);
 
-        this.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Feature.LAKE.configured(new BlockStateFeatureConfig(Blocks.LAVA.getDefaultState())).decorated(Placement.LAVA_LAKE.configured(new ChanceConfig(80))));
+        this.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Feature.LAKE.configured(new BlockStateFeatureConfig(Blocks.LAVA.defaultBlockState())).decorated(Placement.LAVA_LAKE.configured(new ChanceConfig(80))));
 
         DefaultBiomeFeatures.addDefaultMonsterRoom(this);
         DefaultBiomeFeatures.addDefaultUndergroundVariety(this);
@@ -61,12 +61,12 @@ public class XericShrublandBiome extends BiomeBOP
         // Vegetation
         this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.ACACIA_TWIGLET_SMALL.configured(DefaultBiomeFeatures.NORMAL_TREE_CONFIG).decorated(Placement.COUNT_EXTRA_HEIGHTMAP.configured(new AtSurfaceWithExtraConfig((int)1F, 0.1F, 1))));
 
-        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.WILDFLOWER_FEATURE.configured(IFeatureConfig.NO_FEATURE_CONFIG).decorated(Placement.COUNT_HEIGHTMAP_32.configured(new FrequencyConfig(7))));
+        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.WILDFLOWER_FEATURE.configured(IFeatureConfig.NONE).decorated(Placement.COUNT_HEIGHTMAP_32.configured(new FrequencyConfig(7))));
         this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(DefaultBiomeFeatures.DEAD_BUSH_CONFIG).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(3))));
         this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(DefaultBiomeFeatures.CACTUS_CONFIG).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(2))));
-        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.dune_grass.getDefaultState())).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(250))));
-        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.desert_grass.getDefaultState())).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(50))));
-        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.dead_grass.getDefaultState())).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(5))));
+        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.dune_grass.defaultBlockState())).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(250))));
+        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.desert_grass.defaultBlockState())).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(50))));
+        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.dead_grass.defaultBlockState())).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(5))));
 
         ////////////////////////////////////////////////////////////
 

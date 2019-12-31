@@ -25,6 +25,6 @@ public class OriginFlowersFeature extends DefaultFlowersFeatureNoConfig
 	@Override
 	public BlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_, NoFeatureConfig config)
 	{
-		return p_202355_1_.nextFloat() > 0.6666667F ? Blocks.DANDELION.getDefaultState() : BOPBlocks.rose.getDefaultState();
+		return p_202355_1_.nextFloat() > 0.6666667F ? Blocks.DANDELION.defaultBlockState() : BOPBlocks.rose.defaultBlockState();
 	}
 }

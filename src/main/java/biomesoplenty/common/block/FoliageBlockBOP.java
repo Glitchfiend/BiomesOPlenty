@@ -31,8 +31,8 @@ import javax.annotation.Nullable;
 
 public class FoliageBlockBOP extends BushBlock implements IPlantable
 {
-	protected static final VoxelShape NORMAL = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
-	protected static final VoxelShape SHORT = Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 7.0D, 15.0D);
+	protected static final VoxelShape NORMAL = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
+	protected static final VoxelShape SHORT = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 7.0D, 15.0D);
 	
     public FoliageBlockBOP(Block.Properties properties)
     {
@@ -53,35 +53,35 @@ public class FoliageBlockBOP extends BushBlock implements IPlantable
     }
     
     @Override
-    public void harvestBlock(World worldIn, PlayerEntity player, BlockPos pos, BlockState state, @Nullable TileEntity te, ItemStack stack)
+    public void playerDestroy(World worldIn, PlayerEntity player, BlockPos pos, BlockState state, @Nullable TileEntity te, ItemStack stack)
     {
-        if (!worldIn.isRemote && stack.getItem() == Items.SHEARS)
+        if (!worldIn.isClientSide && stack.getItem() == Items.SHEARS)
         {
-           player.addStat(Stats.BLOCK_MINED.get(this));
-           player.addExhaustion(0.005F);
-           spawnAsEntity(worldIn, pos, new ItemStack(this));
+           player.awardStat(Stats.BLOCK_MINED.get(this));
+           player.causeFoodExhaustion(0.005F);
+           this.popResource(worldIn, pos, new ItemStack(this));
         }
         else
         {
-           super.harvestBlock(worldIn, player, pos, state, te, stack);
+           super.playerDestroy(worldIn, player, pos, state, te, stack);
         }
      }
     
     public java.util.List<ItemStack> onSheared(ItemStack item, net.minecraft.world.IWorld world, BlockPos pos, int fortune)
     {
-       world.setBlockState(pos, Blocks.AIR.getDefaultState(), 11);
+       world.setBlock(pos, Blocks.AIR.defaultBlockState(), 11);
        return java.util.Arrays.asList(new ItemStack(this));
     }
     
     @Override
-    public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos)
+    public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos)
     {
-        BlockState groundState = worldIn.getBlockState(pos.down());
+        BlockState groundState = worldIn.getBlockState(pos.below());
         Block ground = groundState.getBlock();
 
         if (this == BOPBlocks.sprout)
         {
-            return ground.hasSolidSide(groundState, worldIn, pos.down(), Direction.UP) || super.isValidPosition(state, worldIn, pos);
+            return ground.isFaceSturdy(groundState, worldIn, pos.below(), Direction.UP) || super.canSurvive(state, worldIn, pos);
         }
         if (this == BOPBlocks.dune_grass)
         {
@@ -89,10 +89,10 @@ public class FoliageBlockBOP extends BushBlock implements IPlantable
         }
         if (this == BOPBlocks.desert_grass || this == BOPBlocks.dead_grass)
         {
-            return ground == BOPBlocks.dried_sand || ground == Blocks.GRAVEL || ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.white_sand || ground == Blocks.NETHERRACK || super.isValidPosition(state, worldIn, pos);
+            return ground == BOPBlocks.dried_sand || ground == Blocks.GRAVEL || ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.white_sand || ground == Blocks.NETHERRACK || super.canSurvive(state, worldIn, pos);
         }
 
-        return super.isValidPosition(state, worldIn, pos);
+        return super.canSurvive(state, worldIn, pos);
     }
     
     @Override

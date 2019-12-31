@@ -51,7 +51,7 @@ public class BasicTreeFeature extends TreeFeatureBase
         {
             this.placeOn = (world, pos) ->
             {
-                return world.getBlockState(pos).isSolid();
+                return world.getBlockState(pos).canOcclude();
             };
             this.minHeight = 4;
             this.maxHeight = 7;
@@ -144,7 +144,7 @@ public class BasicTreeFeature extends TreeFeatureBase
             }
             else
             {
-                BlockPos soilPos = pos.down();
+                BlockPos soilPos = pos.below();
                 Block soil = world.getBlockState(soilPos).getBlock();
                 boolean isSoil = soil.canSustainPlant(world.getBlockState(soilPos), world, soilPos, Direction.UP, (SaplingBlock) Blocks.OAK_SAPLING);
 
@@ -177,7 +177,7 @@ public class BasicTreeFeature extends TreeFeatureBase
                                     BlockPos leavesPos = new BlockPos(x, y, z);
                                     if (this.replace.matches(world, leavesPos))
                                     {
-                                        if (this.altLeaves != Blocks.AIR.getDefaultState())
+                                        if (this.altLeaves != Blocks.AIR.defaultBlockState())
                                         {
                                             if (random.nextInt(4) == 0)
                                             {
@@ -200,7 +200,7 @@ public class BasicTreeFeature extends TreeFeatureBase
 
                     this.generateTrunk(changedLogs, boundingBox, world, pos, height);
 
-                    if (this.vine != Blocks.AIR.getDefaultState())
+                    if (this.vine != Blocks.AIR.defaultBlockState())
                     {
                         for (int y = pos.getY() - leavesLayers + height; y <= pos.getY() + height; y++)
                         {
@@ -250,9 +250,9 @@ public class BasicTreeFeature extends TreeFeatureBase
                     }
 
                     //Generate fruit or any other blocks that may hang off of the tree
-                    if (this.hanging != Blocks.AIR.getDefaultState()) this.generateHanging(world, pos, random, height);
+                    if (this.hanging != Blocks.AIR.defaultBlockState()) this.generateHanging(world, pos, random, height);
 
-                    if (this.trunkFruit != Blocks.AIR.getDefaultState())
+                    if (this.trunkFruit != Blocks.AIR.defaultBlockState())
                     {
                         if (random.nextInt(5) == 0 && height > 5)
                         {
@@ -263,7 +263,7 @@ public class BasicTreeFeature extends TreeFeatureBase
                                     if (random.nextInt(4 - l3) == 0)
                                     {
                                         Direction Direction1 = Direction.getOpposite();
-                                        this.generateTrunkFruit(world, random.nextInt(3), pos.add(Direction1.getXOffset(), height - 5 + l3, Direction1.getZOffset()), Direction);
+                                        this.generateTrunkFruit(world, random.nextInt(3), pos.offset(Direction1.getStepX(), height - 5 + l3, Direction1.getStepZ()), Direction);
                                     }
                                 }
                             }
@@ -289,10 +289,10 @@ public class BasicTreeFeature extends TreeFeatureBase
         //Create the trunk from the bottom up, using < to ensure it is covered with one layer of leaves
         for (int layer = 0; layer < height; ++layer)
         {
-            BlockPos blockpos2 = start.up(layer);
+            BlockPos blockpos2 = start.above(layer);
             if (this.replace.matches(world, blockpos2))
             {
-                this.placeLog(world, start.up(layer), changedBlocks, boundingBox);
+                this.placeLog(world, start.above(layer), changedBlocks, boundingBox);
             }
         }
     }
@@ -308,7 +308,7 @@ public class BasicTreeFeature extends TreeFeatureBase
             {
                 BlockPos hangingPos = new BlockPos(x, y, z);
 
-                if (!world.isAirBlock(hangingPos.up()) && (world.isAirBlock(hangingPos)) && rand.nextFloat() <= this.hangingChance)
+                if (!world.isEmptyBlock(hangingPos.above()) && (world.isEmptyBlock(hangingPos)) && rand.nextFloat() <= this.hangingChance)
                 {
                     this.setHanging(world, hangingPos);
                 }
@@ -318,33 +318,33 @@ public class BasicTreeFeature extends TreeFeatureBase
 
     private void generateTrunkFruit(IWorld world, int age, BlockPos pos, Direction direction)
     {
-        if (this.trunkFruit == Blocks.COCOA.getDefaultState())
+        if (this.trunkFruit == Blocks.COCOA.defaultBlockState())
         {
-            this.setBlockState(world, pos, this.trunkFruit.with(CocoaBlock.AGE, Integer.valueOf(age)).with(CocoaBlock.HORIZONTAL_FACING, direction));
+            this.setBlock(world, pos, this.trunkFruit.setValue(CocoaBlock.AGE, Integer.valueOf(age)).setValue(CocoaBlock.FACING, direction));
         }
         else
         {
-            this.setBlockState(world, pos, this.trunkFruit.with(CocoaBlock.HORIZONTAL_FACING, direction));
+            this.setBlock(world, pos, this.trunkFruit.setValue(CocoaBlock.FACING, direction));
         }
     }
 
     private BlockState getVineStateForSide(Direction side)
     {
-        return this.vine.getBlock() instanceof VineBlock ? this.vine.with(VineBlock.getPropertyFor(side), Boolean.valueOf(true)) : this.vine;
+        return this.vine.getBlock() instanceof VineBlock ? this.vine.setValue(VineBlock.getPropertyForFace(side), Boolean.valueOf(true)) : this.vine;
     }
 
     private void extendVines(IWorld world, BlockPos pos, Direction side)
     {
         BlockState vineState = this.getVineStateForSide(side);
-        this.setBlockState(world, pos, vineState);
+        this.setBlock(world, pos, vineState);
 
         int length = 4;
 
         //Extend vine downwards for a maximum of 4 blocks
-        for (pos = pos.down(); this.placeVinesOn.matches(world, pos) && length > 0; length--)
+        for (pos = pos.below(); this.placeVinesOn.matches(world, pos) && length > 0; length--)
         {
-            this.setBlockState(world, pos, vineState);
-            pos = pos.down();
+            this.setBlock(world, pos, vineState);
+            pos = pos.below();
         }
     }
 }

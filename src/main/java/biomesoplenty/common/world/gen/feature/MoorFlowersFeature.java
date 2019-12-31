@@ -29,10 +29,10 @@ public class MoorFlowersFeature extends DefaultFlowersFeatureNoConfig
         switch(j)
         {
             case 0:
-                return BOPBlocks.violet.getDefaultState();
+                return BOPBlocks.violet.defaultBlockState();
             case 1:
             default:
-                return Blocks.ALLIUM.getDefaultState();
+                return Blocks.ALLIUM.defaultBlockState();
         }
     }
 }

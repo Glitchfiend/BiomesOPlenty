@@ -76,7 +76,7 @@ public enum BOPClimates
         if (this.totalBiomesWeight == 0)
             return fallback;
 
-        int weight = context.random(this.totalBiomesWeight);
+        int weight = context.nextRandom(this.totalBiomesWeight);
         Iterator<WeightedBiomeEntry> iterator = this.landBiomes.iterator();
         WeightedBiomeEntry item;
         do
@@ -93,7 +93,7 @@ public enum BOPClimates
         if (this.totalIslandBiomesWeight == 0)
             return fallback;
 
-        int weight = context.random(this.totalIslandBiomesWeight);
+        int weight = context.nextRandom(this.totalIslandBiomesWeight);
         Iterator<WeightedBiomeEntry> iterator = this.islandBiomes.iterator();
         WeightedBiomeEntry item;
         do
@@ -191,7 +191,7 @@ public enum BOPClimates
         {
             for (WeightedBiomeEntry entry : climate.landBiomes)
             {
-                System.out.println(climate.name()+" "+entry.biome.getDisplayName()+" "+entry.weight);
+                System.out.println(climate.name()+" "+entry.biome.getName()+" "+entry.weight);
             }
         }
     }

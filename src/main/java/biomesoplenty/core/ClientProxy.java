@@ -42,18 +42,18 @@ public class ClientProxy extends CommonProxy
         
         //Foliage Coloring
         blockColors.register((state, world, pos, tintIndex) ->
-	        world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColors.getDefault(),
+	        world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColors.getDefaultColor(),
 	        BOPBlocks.bush, BOPBlocks.flowering_oak_leaves, BOPBlocks.mahogany_leaves, BOPBlocks.palm_leaves,
 	        BOPBlocks.willow_leaves, BOPBlocks.willow_vine);
 
         //Rainbow Birch Leaf Coloring
         blockColors.register((state, world, pos, tintIndex) ->
-                        world != null && pos != null ? getRainbowBirchColor(world, pos) : FoliageColors.getDefault(),
+                        world != null && pos != null ? getRainbowBirchColor(world, pos) : FoliageColors.getDefaultColor(),
                 BOPBlocks.rainbow_birch_leaves);
         
         //Item Coloring
         itemColors.register((stack, tintIndex) -> {
-            BlockState BlockState = ((BlockItem)stack.getItem()).getBlock().getDefaultState();
+            BlockState BlockState = ((BlockItem)stack.getItem()).getBlock().defaultBlockState();
             return blockColors.getColor(BlockState, null, null, tintIndex); }, 
         	BOPBlocks.sprout, BOPBlocks.bush, BOPBlocks.flowering_oak_leaves, BOPBlocks.mahogany_leaves,
         	BOPBlocks.palm_leaves, BOPBlocks.willow_leaves, BOPBlocks.willow_vine);

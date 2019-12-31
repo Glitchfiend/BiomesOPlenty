@@ -160,7 +160,7 @@ public class GenLayerVisualizer
 
         private void populateBiomeIds()
         {
-            OverworldBiomeProviderSettings settingsProvider = BiomeProviderType.VANILLA_LAYERED.func_226840_a_(new WorldInfo(new WorldSettings(0, GameType.NOT_SET, true, false, ModBiomes.worldType), "MpServer"));
+            OverworldBiomeProviderSettings settingsProvider = BiomeProviderType.VANILLA_LAYERED.createSettings(new WorldInfo(new WorldSettings(0, GameType.NOT_SET, true, false, ModBiomes.worldType), "MpServer"));
             OverworldGenSettings settings = settingsProvider.getGeneratorSettings();
 
             LongFunction<IBOPContextExtended<LazyArea>> contextFactory = (seedModifier) -> {
@@ -182,7 +182,7 @@ public class GenLayerVisualizer
             {
                 for (int j = 0; j < CANVAS_WIDTH ; ++j)
                 {
-                    this.biomeIds[j + i * CANVAS_WIDTH] = area.getValue(startX + j, startZ + i);
+                    this.biomeIds[j + i * CANVAS_WIDTH] = area.get(startX + j, startZ + i);
                 }
             }
         }

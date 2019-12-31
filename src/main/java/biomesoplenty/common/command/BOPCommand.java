@@ -17,7 +17,7 @@ public class BOPCommand
     {
         dispatcher.register(
                 LiteralArgumentBuilder.<CommandSource>literal("bop")
-                        .requires(cs->cs.hasPermissionLevel(2))
+                        .requires(cs->cs.hasPermission(2))
                         .then(CommandTpBiome.register())
         );
     }

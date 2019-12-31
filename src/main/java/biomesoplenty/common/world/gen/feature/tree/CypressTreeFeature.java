@@ -38,10 +38,10 @@ public class CypressTreeFeature extends TreeFeatureBase
             this.minHeight = 6;
             this.maxHeight = 15;
             this.placeOn = (world, pos) -> world.getBlockState(pos).canSustainPlant(world, pos, Direction.UP, (SaplingBlock)Blocks.OAK_SAPLING);
-            this.replace = (world, pos) -> world.getBlockState(pos).canBeReplacedByLeaves(world, pos) || world.getBlockState(pos).getMaterial() == Material.WATER || world.getBlockState(pos).getBlock().isIn(BlockTags.SAPLINGS) || world.getBlockState(pos).getBlock() == Blocks.VINE || world.getBlockState(pos).getBlock() == BOPBlocks.willow_vine || world.getBlockState(pos).getBlock() instanceof BushBlock;
-            this.log = BOPBlocks.willow_log.getDefaultState();
-            this.leaves = BOPBlocks.willow_leaves.getDefaultState();
-            this.vine = BOPBlocks.willow_vine.getDefaultState();
+            this.replace = (world, pos) -> world.getBlockState(pos).canBeReplacedByLeaves(world, pos) || world.getBlockState(pos).getMaterial() == Material.WATER || world.getBlockState(pos).getBlock().is(BlockTags.SAPLINGS) || world.getBlockState(pos).getBlock() == Blocks.VINE || world.getBlockState(pos).getBlock() == BOPBlocks.willow_vine || world.getBlockState(pos).getBlock() instanceof BushBlock;
+            this.log = BOPBlocks.willow_log.defaultBlockState();
+            this.leaves = BOPBlocks.willow_leaves.defaultBlockState();
+            this.vine = BOPBlocks.willow_vine.defaultBlockState();
             this.trunkWidth = 1;
         }
 
@@ -77,7 +77,7 @@ public class CypressTreeFeature extends TreeFeatureBase
             {
                 for (int z = start; z <= end; z++)
                 {
-                    BlockPos pos1 = pos.add(x, y, z);
+                    BlockPos pos1 = pos.offset(x, y, z);
                     // note, there may be a sapling on the first layer - make sure this.replace matches it!
                     if (pos1.getY() >= 255 || !this.replace.matches(world, pos1))
                     {
@@ -87,7 +87,7 @@ public class CypressTreeFeature extends TreeFeatureBase
             }
         }
 
-        BlockPos pos2 = pos.add(0, height - 2,0);
+        BlockPos pos2 = pos.offset(0, height - 2,0);
         if (!world.getBlockState(pos2).canBeReplacedByLeaves(world, pos2))
         {
             return false;
@@ -113,7 +113,7 @@ public class CypressTreeFeature extends TreeFeatureBase
                 // set leaves as long as it's not too far from the trunk to survive
                 if (distFromTrunk <= 2)
                 {
-                    this.placeLeaves(world, pos.add(x, 0, z), changedLeaves, boundingBox);
+                    this.placeLeaves(world, pos.offset(x, 0, z), changedLeaves, boundingBox);
                 }
             }
         }
@@ -122,23 +122,23 @@ public class CypressTreeFeature extends TreeFeatureBase
     public void generateBranch(IWorld world, Random rand, BlockPos pos, Direction direction, int length, Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, MutableBoundingBox boundingBox)
     {
         Direction.Axis axis = direction.getAxis();
-        Direction sideways = direction.rotateY();
+        Direction sideways = direction.getClockWise();
         for (int i = 1; i <= length; i++)
         {
-            BlockPos pos1 = pos.offset(direction, i);
+            BlockPos pos1 = pos.relative(direction, i);
             int r = (i == 1 || i == length) ? 1 : 2;
             for (int j = -r; j <= r; j++)
             {
                 if (i < length || rand.nextInt(2) == 0)
                 {
-                    this.placeLeaves(world, pos1.offset(sideways, j), changedLeaves, boundingBox);
+                    this.placeLeaves(world, pos1.relative(sideways, j), changedLeaves, boundingBox);
                 }
             }
             if (length - i > 2)
             {
-                this.placeLeaves(world, pos1.up(), changedLeaves, boundingBox);
-                this.placeLeaves(world, pos1.up().offset(sideways, -1), changedLeaves, boundingBox);
-                this.placeLeaves(world, pos1.up().offset(sideways, 1), changedLeaves, boundingBox);
+                this.placeLeaves(world, pos1.above(), changedLeaves, boundingBox);
+                this.placeLeaves(world, pos1.above().relative(sideways, -1), changedLeaves, boundingBox);
+                this.placeLeaves(world, pos1.above().relative(sideways, 1), changedLeaves, boundingBox);
                 this.placeLog(world, pos1, axis, changedLogs, boundingBox);
             }
         }
@@ -149,13 +149,13 @@ public class CypressTreeFeature extends TreeFeatureBase
     protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, IWorld world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
     {
         // Move down until we reach the ground
-        while (startPos.getY() > 1 && this.replace.matches(world, startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES) {startPos = startPos.down();}
+        while (startPos.getY() > 1 && this.replace.matches(world, startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES) {startPos = startPos.below();}
 
         for (int x = 0; x <= this.trunkWidth - 1; x++)
         {
             for (int z = 0; z <= this.trunkWidth - 1; z++)
             {
-		        if (!this.placeOn.matches(world, startPos.add(x, 0, z)))
+		        if (!this.placeOn.matches(world, startPos.offset(x, 0, z)))
 		        {
 		            // Abandon if we can't place the tree on this block
 		            return false;
@@ -169,18 +169,18 @@ public class CypressTreeFeature extends TreeFeatureBase
         int leavesHeight = height - baseHeight;
         if (leavesHeight < 3) {return false;}
 
-        if (!this.checkSpace(world, startPos.up(), baseHeight, height))
+        if (!this.checkSpace(world, startPos.above(), baseHeight, height))
         {
             // Abandon if there isn't enough room
             return false;
         }
 
         // Start at the top of the tree
-        BlockPos pos = startPos.up(height);
+        BlockPos pos = startPos.above(height);
 
         // Leaves at the top
         this.placeLeaves(world, pos, changedLeaves, boundingBox);
-        pos.down();
+        pos.below();
 
         // Add layers of leaves
         for (int i = 0; i < leavesHeight; i++)
@@ -207,12 +207,12 @@ public class CypressTreeFeature extends TreeFeatureBase
             }
             else
             {
-	            this.generateBranch(world, random, pos.add(trunkStart, 0, trunkStart), Direction.NORTH, radius, changedLogs, changedLeaves, boundingBox);
-	            this.generateBranch(world, random, pos.add(trunkEnd, 0, trunkStart), Direction.EAST, radius, changedLogs, changedLeaves, boundingBox);
-	            this.generateBranch(world, random, pos.add(trunkEnd, 0, trunkEnd), Direction.SOUTH, radius, changedLogs, changedLeaves, boundingBox);
-	            this.generateBranch(world, random, pos.add(trunkStart, 0, trunkEnd), Direction.WEST, radius, changedLogs, changedLeaves, boundingBox);
+	            this.generateBranch(world, random, pos.offset(trunkStart, 0, trunkStart), Direction.NORTH, radius, changedLogs, changedLeaves, boundingBox);
+	            this.generateBranch(world, random, pos.offset(trunkEnd, 0, trunkStart), Direction.EAST, radius, changedLogs, changedLeaves, boundingBox);
+	            this.generateBranch(world, random, pos.offset(trunkEnd, 0, trunkEnd), Direction.SOUTH, radius, changedLogs, changedLeaves, boundingBox);
+	            this.generateBranch(world, random, pos.offset(trunkStart, 0, trunkEnd), Direction.WEST, radius, changedLogs, changedLeaves, boundingBox);
             }
-            pos = pos.down();
+            pos = pos.below();
         }
 
         // Generate the trunk
@@ -232,7 +232,7 @@ public class CypressTreeFeature extends TreeFeatureBase
             {
                 for (int z = trunkStart; z <= trunkEnd; z++)
                 {
-                    this.placeLog(world, startPos.add(x, y, z), changedLogs, boundingBox);
+                    this.placeLog(world, startPos.offset(x, y, z), changedLogs, boundingBox);
                 }
             }
         }
@@ -245,7 +245,7 @@ public class CypressTreeFeature extends TreeFeatureBase
     {
         if (world.getBlockState(pos).canBeReplacedByLeaves(world, pos))
         {
-            this.setBlockState(world, pos, this.leaves);
+            this.setBlock(world, pos, this.leaves);
             this.placeBlock(world, pos, this.leaves, changedBlocks, boundingBox);
             return true;
         }

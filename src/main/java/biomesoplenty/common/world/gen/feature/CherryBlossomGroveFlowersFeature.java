@@ -29,10 +29,10 @@ public class CherryBlossomGroveFlowersFeature extends DefaultFlowersFeatureNoCon
          switch(j)
          {
          case 0:
-            return BOPBlocks.pink_daffodil.getDefaultState();
+            return BOPBlocks.pink_daffodil.defaultBlockState();
          case 1:
          default:
-            return Blocks.LILY_OF_THE_VALLEY.getDefaultState();
+            return Blocks.LILY_OF_THE_VALLEY.defaultBlockState();
          }
 	}
 }

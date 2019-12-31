@@ -30,9 +30,9 @@ public enum BOPRiverMixLayer implements IAreaTransformer2, IDimOffset0Transforme
     @Override
     public int applyPixel(INoiseRandom context, IArea biomeArea, IArea riverArea, int x, int z)
     {
-        int biomeId = biomeArea.getValue(x, z);
-        int riverId = riverArea.getValue(x, z);
-        Biome biome = Registry.BIOME.getByValue(biomeId);
+        int biomeId = biomeArea.get(x, z);
+        int riverId = riverArea.get(x, z);
+        Biome biome = Registry.BIOME.byId(biomeId);
 
         if (BOPLayerUtil.isOcean(biomeId))
         {

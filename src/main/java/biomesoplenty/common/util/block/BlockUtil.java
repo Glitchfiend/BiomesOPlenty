@@ -25,7 +25,7 @@ public class BlockUtil
     {
         for (IProperty property : log.getProperties())
         {
-            Collection allowedValues = property.getAllowedValues();
+            Collection allowedValues = property.getPossibleValues();
             if (allowedValues.contains(Direction.Axis.X) && allowedValues.contains(Direction.Axis.Y) && allowedValues.contains(Direction.Axis.Z))
             {
                 return property;
@@ -37,6 +37,6 @@ public class BlockUtil
     public static BlockPos getTopSolidOrLiquidBlock(IWorld world, int x, int z)
     {
         IChunk chunk = world.getChunk(x >> 4, z >> 4, ChunkStatus.FULL);
-        return new BlockPos(x, chunk.getTopBlockY(Heightmap.Type.MOTION_BLOCKING, x & 15, z & 15), z);
+        return new BlockPos(x, chunk.getHeight(Heightmap.Type.MOTION_BLOCKING, x & 15, z & 15), z);
     }
 }

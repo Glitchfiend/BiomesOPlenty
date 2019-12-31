@@ -30,16 +30,16 @@ import java.util.Random;
 
 public class FlowerBlockBOP extends FlowerBlock
 {
-	protected static final VoxelShape NORMAL = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
-	protected static final VoxelShape LARGE = Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 14.0D, 15.0D);
+	protected static final VoxelShape NORMAL = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
+	protected static final VoxelShape LARGE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 14.0D, 15.0D);
     private final Effect stewEffect;
     private final int stewEffectDuration;
 	
     public FlowerBlockBOP(Effect p_i49984_1_, int effectDuration, Block.Properties properties)
     {
-        super(Effects.SLOWNESS, 0, properties);
+        super(p_i49984_1_, 0, properties);
         this.stewEffect = p_i49984_1_;
-        if (p_i49984_1_.isInstant()) {
+        if (p_i49984_1_.isInstantenous()) {
             this.stewEffectDuration = effectDuration;
         } else {
             this.stewEffectDuration = effectDuration * 20;
@@ -60,24 +60,24 @@ public class FlowerBlockBOP extends FlowerBlock
     }
     
     @Override
-    public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos)
+    public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos)
     {
-        Block ground = worldIn.getBlockState(pos.down()).getBlock();
+        Block ground = worldIn.getBlockState(pos.below()).getBlock();
 
         if (this == BOPBlocks.wildflower)
         {
-            return ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.white_sand || super.isValidPosition(state, worldIn, pos);
+            return ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.white_sand || super.canSurvive(state, worldIn, pos);
         }
         if (this == BOPBlocks.burning_blossom)
         {
-            return ground == Blocks.NETHERRACK || ground == Blocks.SOUL_SAND || super.isValidPosition(state, worldIn, pos);
+            return ground == Blocks.NETHERRACK || ground == Blocks.SOUL_SAND || super.canSurvive(state, worldIn, pos);
         }
 
-        return super.isValidPosition(state, worldIn, pos);
+        return super.canSurvive(state, worldIn, pos);
     }
     
     @Override
-    public void onEntityCollision(BlockState stateIn, World worldIn, BlockPos pos, Entity entityIn)
+    public void entityInside(BlockState stateIn, World worldIn, BlockPos pos, Entity entityIn)
     {
     	Block block = stateIn.getBlock();
     	
@@ -85,7 +85,7 @@ public class FlowerBlockBOP extends FlowerBlock
     	{
 	    	if (block == BOPBlocks.burning_blossom)
 	    	{
-	    		(entityIn).setFire(1);
+	    		(entityIn).setSecondsOnFire(1);
 	    	}
     	}
     }
@@ -111,12 +111,12 @@ public class FlowerBlockBOP extends FlowerBlock
     }
 
     @Override
-    public Effect getStewEffect() {
+    public Effect getSuspiciousStewEffect() {
         return this.stewEffect;
     }
 
     @Override
-    public int getStewEffectDuration() {
+    public int getEffectDuration() {
         return this.stewEffectDuration;
     }
 }

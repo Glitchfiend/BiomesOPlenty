@@ -21,9 +21,9 @@ public enum BOPMixOceansLayer implements IAreaTransformer3, IDimOffset0Transform
     @Override
     public int applyPixel(INoiseRandom context, IArea biomeArea, IArea oceanArea, IArea climateArea, int x, int z)
     {
-        int biomeId = biomeArea.getValue(x, z);
-        int oceanId = oceanArea.getValue(x, z);
-        int climateVal = climateArea.getValue(x, z);
+        int biomeId = biomeArea.get(x, z);
+        int oceanId = oceanArea.get(x, z);
+        int climateVal = climateArea.get(x, z);
         BOPClimates climate = BOPClimates.lookup(climateVal);
 
         if (!BOPLayerUtil.isOcean(biomeId))
@@ -67,7 +67,7 @@ public enum BOPMixOceansLayer implements IAreaTransformer3, IDimOffset0Transform
             {
                 for (int zOff = -8; zOff <= 8; zOff += 4)
                 {
-                    int offsetBiomeId = biomeArea.getValue(x + xOff, z + zOff);
+                    int offsetBiomeId = biomeArea.get(x + xOff, z + zOff);
 
                     if (!BOPLayerUtil.isOcean(offsetBiomeId))
                     {

@@ -89,11 +89,11 @@ public class BigTreeFeature extends TreeFeatureBase
             {
                 if (Math.pow((double)Math.abs(dx) + 0.5D, 2.0D) + Math.pow((double)Math.abs(dz) + 0.5D, 2.0D) <= (double)(radius * radius))
                 {
-                    BlockPos blockpos = pos.add(dx, 0, dz);
+                    BlockPos blockpos = pos.offset(dx, 0, dz);
                     if (this.replace.matches(world, blockpos))
                     {
                         // Mojang sets leaves via the method used for logs. Probably intentional?
-                        if (this.altLeaves != Blocks.AIR.getDefaultState())
+                        if (this.altLeaves != Blocks.AIR.defaultBlockState())
                         {
                             int rand = new Random().nextInt(4);
 
@@ -186,7 +186,7 @@ public class BigTreeFeature extends TreeFeatureBase
     {
         for (int y = 0; y < foliageHeight; y++)
         {
-            this.crossSection(world, pos.up(y), this.foliageShape(y), boundingBox, changedBlocks);
+            this.crossSection(world, pos.above(y), this.foliageShape(y), boundingBox, changedBlocks);
         }
     }
 
@@ -203,7 +203,7 @@ public class BigTreeFeature extends TreeFeatureBase
             return -1;
         } else {
             //The distance between the two points, may be negative if the second pos is smaller
-            BlockPos delta = endPos.add(-startPos.getX(), -startPos.getY(), -startPos.getZ());
+            BlockPos delta = endPos.offset(-startPos.getX(), -startPos.getY(), -startPos.getZ());
 
             int steps = this.getGreatestDistance(delta);
 
@@ -216,7 +216,7 @@ public class BigTreeFeature extends TreeFeatureBase
             //Iterates over all values between the start pos and end pos
             for (int j = 0; j <= steps; ++j)
             {
-                BlockPos deltaPos = startPos.add((double)(0.5F + (float)j * dx), (double)(0.5F + (float)j * dy), (double)(0.5F + (float)j * dz));
+                BlockPos deltaPos = startPos.offset((double)(0.5F + (float)j * dx), (double)(0.5F + (float)j * dy), (double)(0.5F + (float)j * dz));
                 if (set)
                 {
                     this.placeLog(world, deltaPos, this.getLogAxis(startPos, deltaPos), changedBlocks, boundingBox);
@@ -286,28 +286,28 @@ public class BigTreeFeature extends TreeFeatureBase
 
     private void makeTrunk(Set<BlockPos> changedBlocks, IWorld world, BlockPos pos, int height, MutableBoundingBox boundingBox)
     {
-        this.checkLineAndOptionallySet(changedBlocks, world, pos, pos.up(height), true, boundingBox);
+        this.checkLineAndOptionallySet(changedBlocks, world, pos, pos.above(height), true, boundingBox);
 
         if (trunkWidth == 2)
         {
-            this.checkLineAndOptionallySet(changedBlocks, world, pos.east(), pos.up(height).east(), true, boundingBox);
-            this.checkLineAndOptionallySet(changedBlocks, world, pos.east().south(), pos.up(height).east().south(), true, boundingBox);
-            this.checkLineAndOptionallySet(changedBlocks, world, pos.south(), pos.up(height).south(), true, boundingBox);
+            this.checkLineAndOptionallySet(changedBlocks, world, pos.east(), pos.above(height).east(), true, boundingBox);
+            this.checkLineAndOptionallySet(changedBlocks, world, pos.east().south(), pos.above(height).east().south(), true, boundingBox);
+            this.checkLineAndOptionallySet(changedBlocks, world, pos.south(), pos.above(height).south(), true, boundingBox);
         }
 
         if (trunkWidth == 4)
         {
-            this.checkLineAndOptionallySet(changedBlocks, world, pos.east(), pos.up(height).east(), true, boundingBox);
-            this.checkLineAndOptionallySet(changedBlocks, world, pos.east().south(), pos.up(height).east().south(), true, boundingBox);
-            this.checkLineAndOptionallySet(changedBlocks, world, pos.south(), pos.up(height).south(), true, boundingBox);
-            this.checkLineAndOptionallySet(changedBlocks, world, pos.north(), pos.up(height).north(), true, boundingBox);
-            this.checkLineAndOptionallySet(changedBlocks, world, pos.north().east(), pos.up(height).north().east(), true, boundingBox);
-            this.checkLineAndOptionallySet(changedBlocks, world, pos.east().east(), pos.up(height).east().east(), true, boundingBox);
-            this.checkLineAndOptionallySet(changedBlocks, world, pos.south().east().east(), pos.up(height).south().east().east(), true, boundingBox);
-            this.checkLineAndOptionallySet(changedBlocks, world, pos.south().south().east(), pos.up(height).south().south().east(), true, boundingBox);
-            this.checkLineAndOptionallySet(changedBlocks, world, pos.south().south(), pos.up(height).south().south(), true, boundingBox);
-            this.checkLineAndOptionallySet(changedBlocks, world, pos.west().south(), pos.up(height).west().south(), true, boundingBox);
-            this.checkLineAndOptionallySet(changedBlocks, world, pos.west(), pos.up(height).west(), true, boundingBox);
+            this.checkLineAndOptionallySet(changedBlocks, world, pos.east(), pos.above(height).east(), true, boundingBox);
+            this.checkLineAndOptionallySet(changedBlocks, world, pos.east().south(), pos.above(height).east().south(), true, boundingBox);
+            this.checkLineAndOptionallySet(changedBlocks, world, pos.south(), pos.above(height).south(), true, boundingBox);
+            this.checkLineAndOptionallySet(changedBlocks, world, pos.north(), pos.above(height).north(), true, boundingBox);
+            this.checkLineAndOptionallySet(changedBlocks, world, pos.north().east(), pos.above(height).north().east(), true, boundingBox);
+            this.checkLineAndOptionallySet(changedBlocks, world, pos.east().east(), pos.above(height).east().east(), true, boundingBox);
+            this.checkLineAndOptionallySet(changedBlocks, world, pos.south().east().east(), pos.above(height).south().east().east(), true, boundingBox);
+            this.checkLineAndOptionallySet(changedBlocks, world, pos.south().south().east(), pos.above(height).south().south().east(), true, boundingBox);
+            this.checkLineAndOptionallySet(changedBlocks, world, pos.south().south(), pos.above(height).south().south(), true, boundingBox);
+            this.checkLineAndOptionallySet(changedBlocks, world, pos.west().south(), pos.above(height).west().south(), true, boundingBox);
+            this.checkLineAndOptionallySet(changedBlocks, world, pos.west(), pos.above(height).west(), true, boundingBox);
         }
     }
 
@@ -332,7 +332,7 @@ public class BigTreeFeature extends TreeFeatureBase
         if (height == -1) {
             return false;
         } else {
-            this.setDirtAt(world, pos.down(), pos);
+            this.setDirtAt(world, pos.below(), pos);
             int trunkHeight = (int)((double)height * this.trunkHeightScale);
 
             if (trunkHeight >= height) {
@@ -351,7 +351,7 @@ public class BigTreeFeature extends TreeFeatureBase
             int relativeY = height - this.foliageHeight;
 
             List<FoliageCoordinates> foliageCoords = Lists.newArrayList();
-            foliageCoords.add(new FoliageCoordinates(pos.up(relativeY), trunkTop));
+            foliageCoords.add(new FoliageCoordinates(pos.above(relativeY), trunkTop));
 
             for(; relativeY >= 0; --relativeY)
             {
@@ -370,8 +370,8 @@ public class BigTreeFeature extends TreeFeatureBase
                     final double x = radius * Math.sin(angle) + 0.5D;
                     final double z = radius * Math.cos(angle) + 0.5D;
 
-                    final BlockPos checkStart = pos.add(x, relativeY - 1, z);
-                    final BlockPos checkEnd = checkStart.up(5);
+                    final BlockPos checkStart = pos.offset(x, relativeY - 1, z);
+                    final BlockPos checkEnd = checkStart.above(5);
 
                     // check the center column of the cluster for obstructions.
                     if (this.checkLineAndOptionallySet(changedLogs, world, checkStart, checkEnd, false, boundingBox) == -1)
@@ -403,13 +403,13 @@ public class BigTreeFeature extends TreeFeatureBase
 
     private int checkLocation(Set<BlockPos> changedBlocks, IWorld world, BlockPos pos, int height, MutableBoundingBox boundingBox)
     {
-        if (!this.placeOn.matches(world, pos.down()))
+        if (!this.placeOn.matches(world, pos.below()))
         {
             return -1;
         }
         else
         {
-            int step = this.checkLineAndOptionallySet(changedBlocks, world, pos, pos.up(height - 1), false, boundingBox);
+            int step = this.checkLineAndOptionallySet(changedBlocks, world, pos, pos.above(height - 1), false, boundingBox);
 
             if (step == -1)
             {

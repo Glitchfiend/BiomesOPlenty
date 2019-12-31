@@ -18,6 +18,6 @@ public enum RainfallRandomLayer implements IBOPAreaTransformer0
     public int applyPixel(IBOPContextExtended context, int x, int z)
     {
         // Choose a random heat value
-        return context.random(12);
+        return context.nextRandom(12);
     }
 }

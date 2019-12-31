@@ -20,7 +20,7 @@ import net.minecraftforge.common.PlantType;
 
 public class PlantBlockBOP extends BushBlock implements IPlantable
 {
-	protected static final VoxelShape NORMAL = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
+	protected static final VoxelShape NORMAL = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
 	
     public PlantBlockBOP(Block.Properties properties)
     {
@@ -40,11 +40,11 @@ public class PlantBlockBOP extends BushBlock implements IPlantable
     }
 
     @Override
-    public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos)
+    public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos)
     {
-        Block ground = worldIn.getBlockState(pos.down()).getBlock();
+        Block ground = worldIn.getBlockState(pos.below()).getBlock();
 
-        return super.isValidPosition(state, worldIn, pos);
+        return super.canSurvive(state, worldIn, pos);
     }
 
     @Override

@@ -70,9 +70,9 @@ public class TwigletTreeFeature extends TreeFeatureBase
     protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, IWorld world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
     {
         // Move down until we reach the ground
-        while (startPos.getY() > 1 && world.isAirBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES)
+        while (startPos.getY() > 1 && world.isEmptyBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES)
         {
-            startPos = startPos.down();
+            startPos = startPos.below();
         }
 
         if (!this.placeOn.matches(world, startPos))
@@ -86,13 +86,13 @@ public class TwigletTreeFeature extends TreeFeatureBase
         int baseHeight = height / 3;
 
         // start from the block above the ground block
-        BlockPos pos = startPos.up();
+        BlockPos pos = startPos.above();
 
         // add log and leaves on each level
         float leafChance;
         for (int y = 0; y < height; y++)
         {
-            if (!this.placeLog(world, pos.up(y), changedLogs, boundingBox))
+            if (!this.placeLog(world, pos.above(y), changedLogs, boundingBox))
             {
                 // abandon if the log can't grow
                 return true;
@@ -104,22 +104,22 @@ public class TwigletTreeFeature extends TreeFeatureBase
             } // no leaves below base height
             if (random.nextFloat() < leafChance)
             {
-                this.placeLeaves(world, pos.add(1, y, 0), changedLeaves, boundingBox);
+                this.placeLeaves(world, pos.offset(1, y, 0), changedLeaves, boundingBox);
             }
             if (random.nextFloat() < leafChance)
             {
-                this.placeLeaves(world, pos.add(-1, y, 0), changedLeaves, boundingBox);
+                this.placeLeaves(world, pos.offset(-1, y, 0), changedLeaves, boundingBox);
             }
             if (random.nextFloat() < leafChance)
             {
-                this.placeLeaves(world, pos.add(0, y, 1), changedLeaves, boundingBox);
+                this.placeLeaves(world, pos.offset(0, y, 1), changedLeaves, boundingBox);
             }
             if (random.nextFloat() < leafChance)
             {
-                this.placeLeaves(world, pos.add(0, y, -1), changedLeaves, boundingBox);
+                this.placeLeaves(world, pos.offset(0, y, -1), changedLeaves, boundingBox);
             }
 
-            if (this.trunkFruit != Blocks.AIR.getDefaultState())
+            if (this.trunkFruit != Blocks.AIR.defaultBlockState())
             {
                 if (random.nextInt(3) == 0)
                 {
@@ -130,7 +130,7 @@ public class TwigletTreeFeature extends TreeFeatureBase
                             if (random.nextInt(4 - l3) == 0)
                             {
                                 Direction Direction1 = Direction.getOpposite();
-                                this.generateTrunkFruit(world, random.nextInt(3), pos.add(Direction1.getXOffset(), 0, Direction1.getZOffset()), Direction);
+                                this.generateTrunkFruit(world, random.nextInt(3), pos.offset(Direction1.getStepX(), 0, Direction1.getStepZ()), Direction);
                             }
                         }
                     }
@@ -138,20 +138,20 @@ public class TwigletTreeFeature extends TreeFeatureBase
             }
         }
         // finish with leaves on top
-        this.placeLeaves(world, pos.add(0, height, 0), changedLeaves, boundingBox);
+        this.placeLeaves(world, pos.offset(0, height, 0), changedLeaves, boundingBox);
 
         return true;
     }
 
     private void generateTrunkFruit(IWorld world, int age, BlockPos pos, Direction direction)
     {
-        if (this.trunkFruit == Blocks.COCOA.getDefaultState())
+        if (this.trunkFruit == Blocks.COCOA.defaultBlockState())
         {
-            this.setBlockState(world, pos, this.trunkFruit.with(CocoaBlock.AGE, Integer.valueOf(age)).with(CocoaBlock.HORIZONTAL_FACING, direction));
+            this.setBlock(world, pos, this.trunkFruit.setValue(CocoaBlock.AGE, Integer.valueOf(age)).setValue(CocoaBlock.FACING, direction));
         }
         else
         {
-            this.setBlockState(world, pos, this.trunkFruit.with(CocoaBlock.HORIZONTAL_FACING, direction));
+            this.setBlock(world, pos, this.trunkFruit.setValue(CocoaBlock.FACING, direction));
         }
     }
 }

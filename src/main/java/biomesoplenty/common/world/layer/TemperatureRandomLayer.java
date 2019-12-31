@@ -17,6 +17,6 @@ public enum TemperatureRandomLayer implements IBOPAreaTransformer0
     @Override
     public int applyPixel(IBOPContextExtended context, int x, int z)
     {
-        return context.random(9);
+        return context.nextRandom(9);
     }
 }

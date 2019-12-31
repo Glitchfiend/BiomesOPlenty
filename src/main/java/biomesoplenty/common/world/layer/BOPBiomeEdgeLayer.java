@@ -89,7 +89,7 @@ public enum BOPBiomeEdgeLayer implements ICastleTransformer
 
     private boolean replaceBiomeEdgeIfNecessary(int[] outId, int northBiomeId, int southBiomeId, int eastBiomeId, int westBiomeId, int biomeId, int fromBiome, int toBiome)
     {
-        if (!LayerUtil.areBiomesSimilar(biomeId, fromBiome))
+        if (!LayerUtil.isSame(biomeId, fromBiome))
         {
             return false;
         }
@@ -126,7 +126,7 @@ public enum BOPBiomeEdgeLayer implements ICastleTransformer
         }
         else
         {
-            if (LayerUtil.areBiomesSimilar(northBiomeId, fromBiome) && LayerUtil.areBiomesSimilar(eastBiomeId, fromBiome) && LayerUtil.areBiomesSimilar(westBiomeId, fromBiome) && LayerUtil.areBiomesSimilar(southBiomeId, fromBiome))
+            if (LayerUtil.isSame(northBiomeId, fromBiome) && LayerUtil.isSame(eastBiomeId, fromBiome) && LayerUtil.isSame(westBiomeId, fromBiome) && LayerUtil.isSame(southBiomeId, fromBiome))
             {
                 outId[0] = biomeId;
             }
@@ -141,18 +141,18 @@ public enum BOPBiomeEdgeLayer implements ICastleTransformer
 
     private boolean canBiomesBeNeighbors(int biomeIdA, int biomeIdB)
     {
-        if (LayerUtil.areBiomesSimilar(biomeIdA, biomeIdB))
+        if (LayerUtil.isSame(biomeIdA, biomeIdB))
         {
             return true;
         }
         else
         {
-            Biome biomeA = Registry.BIOME.getByValue(biomeIdA);
-            Biome biomeB = Registry.BIOME.getByValue(biomeIdB);
+            Biome biomeA = Registry.BIOME.byId(biomeIdA);
+            Biome biomeB = Registry.BIOME.byId(biomeIdB);
             if (biomeA != null && biomeB != null)
             {
-                Biome.TempCategory catA = biomeA.getTempCategory();
-                Biome.TempCategory catB = biomeB.getTempCategory();
+                Biome.TempCategory catA = biomeA.getTemperatureCategory();
+                Biome.TempCategory catB = biomeB.getTemperatureCategory();
                 return catA == catB || catA == Biome.TempCategory.MEDIUM || catB == Biome.TempCategory.MEDIUM;
             }
             else

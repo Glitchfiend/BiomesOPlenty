@@ -37,51 +37,51 @@ public class DoubleWaterPlantBlock extends DoublePlantBlock implements IWaterLog
     public DoubleWaterPlantBlock(Properties properties)
     {
         super(properties);
-        this.setDefaultState(this.stateContainer.getBaseState().with(HALF, DoubleBlockHalf.LOWER).with(WATERLOGGED, Boolean.valueOf(true)));
+        this.registerDefaultState(this.stateDefinition.any().setValue(HALF, DoubleBlockHalf.LOWER).setValue(WATERLOGGED, Boolean.valueOf(true)));
     }
 
     @Nullable
     public BlockState getStateForPlacement(BlockItemUseContext context) {
-        IFluidState ifluidstate = context.getWorld().getFluidState(context.getPos());
-        BlockPos blockpos = context.getPos();
-        return blockpos.getY() < context.getWorld().getDimension().getHeight() - 1 && context.getWorld().getBlockState(blockpos.up()).isReplaceable(context) ? this.getDefaultState().with(WATERLOGGED, Boolean.valueOf(ifluidstate.isTagged(FluidTags.WATER) && ifluidstate.getLevel() == 8)) : null;
+        IFluidState ifluidstate = context.getLevel().getFluidState(context.getClickedPos());
+        BlockPos blockpos = context.getClickedPos();
+        return blockpos.getY() < context.getLevel().getDimension().getHeight() - 1 && context.getLevel().getBlockState(blockpos.above()).canBeReplaced(context) ? this.defaultBlockState().setValue(WATERLOGGED, Boolean.valueOf(ifluidstate.is(FluidTags.WATER) && ifluidstate.getAmount() == 8)) : null;
     }
 
     @Override
-    public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
-        if (stateIn.get(WATERLOGGED)) {
-            worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
+    public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+        if (stateIn.getValue(WATERLOGGED)) {
+            worldIn.getLiquidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(worldIn));
         }
 
-        return facing == Direction.DOWN && !this.isValidPosition(stateIn, worldIn, currentPos) ? Blocks.AIR.getDefaultState() : super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+        return facing == Direction.DOWN && !this.canSurvive(stateIn, worldIn, currentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(stateIn, facing, facingState, worldIn, currentPos, facingPos);
     }
 
     @Override
-    public void onBlockPlacedBy(World worldIn, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
-        worldIn.setBlockState(pos.up(), this.getDefaultState().with(HALF, DoubleBlockHalf.UPPER).with(WATERLOGGED, false), 3);
+    public void setPlacedBy(World worldIn, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
+        worldIn.setBlock(pos.above(), this.defaultBlockState().setValue(HALF, DoubleBlockHalf.UPPER).setValue(WATERLOGGED, false), 3);
     }
 
     @Override
-    public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos)
+    public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos)
     {
-        if (state.get(HALF) != DoubleBlockHalf.UPPER)
+        if (state.getValue(HALF) != DoubleBlockHalf.UPPER)
         {
-            BlockPos posBelow = pos.down();
+            BlockPos posBelow = pos.below();
             Block existingBlock = worldIn.getBlockState(pos).getBlock();
-            return (existingBlock == this || existingBlock.getMaterial(state) == Material.WATER) && this.isExposed(worldIn, pos.up()) && worldIn.getBlockState(posBelow).func_224755_d(worldIn, posBelow, Direction.UP);
+            return (existingBlock == this || existingBlock.getMaterial(state) == Material.WATER) && this.isExposed(worldIn, pos.above()) && worldIn.getBlockState(posBelow).isFaceSturdy(worldIn, posBelow, Direction.UP);
         }
         else
         {
-            BlockState blockstate = worldIn.getBlockState(pos.down());
-            if (state.getBlock() != this) return worldIn.isAirBlock(pos); // This function is called during world gen and placement, before this block is set, so if we are not 'here' then assume it's the pre-check.
-            return this.isExposed(worldIn, pos) && blockstate.getBlock() == this && blockstate.get(HALF) == DoubleBlockHalf.LOWER && blockstate.get(WATERLOGGED);
+            BlockState blockstate = worldIn.getBlockState(pos.below());
+            if (state.getBlock() != this) return worldIn.isEmptyBlock(pos); // This function is called during world gen and placement, before this block is set, so if we are not 'here' then assume it's the pre-check.
+            return this.isExposed(worldIn, pos) && blockstate.getBlock() == this && blockstate.getValue(HALF) == DoubleBlockHalf.LOWER && blockstate.getValue(WATERLOGGED);
         }
     }
 
     @Override
     public void placeAt(IWorld worldIn, BlockPos pos, int flags) {
-        worldIn.setBlockState(pos, this.getDefaultState().with(HALF, DoubleBlockHalf.LOWER).with(WATERLOGGED, true), flags);
-        worldIn.setBlockState(pos.up(), this.getDefaultState().with(HALF, DoubleBlockHalf.UPPER).with(WATERLOGGED, false), flags);
+        worldIn.setBlock(pos, this.defaultBlockState().setValue(HALF, DoubleBlockHalf.LOWER).setValue(WATERLOGGED, true), flags);
+        worldIn.setBlock(pos.above(), this.defaultBlockState().setValue(HALF, DoubleBlockHalf.UPPER).setValue(WATERLOGGED, false), flags);
     }
 
     @Override
@@ -91,18 +91,18 @@ public class DoubleWaterPlantBlock extends DoublePlantBlock implements IWaterLog
     }
 
     @Override
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(WATERLOGGED, HALF);
     }
 
     @Override
     public IFluidState getFluidState(BlockState state) {
-        return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
+        return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
     }
 
     protected boolean isExposed(IWorldReader world, BlockPos pos)
     {
         BlockState state = world.getBlockState(pos);
-        return state.getBlock() == this ? !state.get(WATERLOGGED) : world.isAirBlock(pos);
+        return state.getBlock() == this ? !state.getValue(WATERLOGGED) : world.isEmptyBlock(pos);
     }
 }

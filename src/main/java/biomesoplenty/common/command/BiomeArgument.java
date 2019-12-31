@@ -43,7 +43,7 @@ public class BiomeArgument implements ArgumentType<Biome>
     public Biome parse(StringReader reader) throws CommandSyntaxException
     {
         ResourceLocation location = ResourceLocation.read(reader);
-        return Registry.BIOME.getValue(location).orElseThrow(() ->
+        return Registry.BIOME.getOptional(location).orElseThrow(() ->
         {
             return INVALID_BIOME_EXCEPTION.create(location);
         });
@@ -52,6 +52,6 @@ public class BiomeArgument implements ArgumentType<Biome>
     @Override
     public <S> CompletableFuture<Suggestions> listSuggestions(CommandContext<S> context, SuggestionsBuilder suggestionsBuilder)
     {
-        return ISuggestionProvider.suggestIterable(Registry.BIOME.keySet(), suggestionsBuilder);
+        return ISuggestionProvider.suggestResource(Registry.BIOME.keySet(), suggestionsBuilder);
     }
 }

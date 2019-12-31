@@ -28,12 +28,12 @@ public class ExtendedFlowersFeature extends DefaultFlowersFeatureNoConfig
          switch(j)
          {
          case 0:
-            return Blocks.OXEYE_DAISY.getDefaultState();
+            return Blocks.OXEYE_DAISY.defaultBlockState();
          case 1:
-            return Blocks.POPPY.getDefaultState();
+            return Blocks.POPPY.defaultBlockState();
          case 2:
          default:
-            return Blocks.DANDELION.getDefaultState();
+            return Blocks.DANDELION.defaultBlockState();
          }
 	}
 }

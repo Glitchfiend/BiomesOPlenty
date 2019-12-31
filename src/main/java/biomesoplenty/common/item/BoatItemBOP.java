@@ -1,8 +1,10 @@
 package biomesoplenty.common.item;
 
 import biomesoplenty.common.entity.item.BoatEntityBOP;
+import biomesoplenty.common.entity.item.BoatModelBOP;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.BoatEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -21,61 +23,56 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public class BoatItemBOP extends Item {
-    private static final Predicate<Entity> field_219989_a = EntityPredicates.NOT_SPECTATING.and(Entity::canBeCollidedWith);
+    private static final Predicate<Entity> ENTITY_PREDICATE = EntityPredicates.NO_SPECTATORS.and(Entity::isPickable);
     private final BoatEntityBOP.Type type;
 
     public BoatItemBOP(BoatEntityBOP.Type typeIn, Item.Properties properties) {
         super(properties);
         this.type = typeIn;
-        DispenserBlock.registerDispenseBehavior(this, new DispenserBoatBehaviorBOP(typeIn));
+        DispenserBlock.registerBehavior(this, new DispenserBoatBehaviorBOP(typeIn));
     }
 
-    /**
-     * Called to trigger the item's "innate" right click behavior. To handle when this item is used on a Block, see
-     * {@link #onItemUse}.
-     */
     @Override
-    public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
-        ItemStack itemstack = playerIn.getHeldItem(handIn);
-        RayTraceResult raytraceresult = rayTrace(worldIn, playerIn, RayTraceContext.FluidMode.ANY);
+    public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand handIn)
+    {
+        ItemStack itemstack = playerIn.getItemInHand(handIn);
+        RayTraceResult raytraceresult = getPlayerPOVHitResult(worldIn, playerIn, RayTraceContext.FluidMode.ANY);
         if (raytraceresult.getType() == RayTraceResult.Type.MISS) {
-            return new ActionResult<>(ActionResultType.PASS, itemstack);
+            return ActionResult.pass(itemstack);
         } else {
-            Vec3d vec3d = playerIn.getLook(1.0F);
+            Vec3d vec3d = playerIn.getViewVector(1.0F);
             double d0 = 5.0D;
-            List<Entity> list = worldIn.getEntitiesInAABBexcluding(playerIn, playerIn.getBoundingBox().expand(vec3d.scale(5.0D)).grow(1.0D), field_219989_a);
+            List<Entity> list = worldIn.getEntities(playerIn, playerIn.getBoundingBox().expandTowards(vec3d.scale(5.0D)).inflate(1.0D), ENTITY_PREDICATE);
             if (!list.isEmpty()) {
                 Vec3d vec3d1 = playerIn.getEyePosition(1.0F);
 
                 for(Entity entity : list) {
-                    AxisAlignedBB axisalignedbb = entity.getBoundingBox().grow((double)entity.getCollisionBorderSize());
+                    AxisAlignedBB axisalignedbb = entity.getBoundingBox().inflate((double)entity.getPickRadius());
                     if (axisalignedbb.contains(vec3d1)) {
-                        return new ActionResult<>(ActionResultType.PASS, itemstack);
+                        return ActionResult.pass(itemstack);
                     }
                 }
             }
 
             if (raytraceresult.getType() == RayTraceResult.Type.BLOCK) {
-
-                BoatEntityBOP boatentity = new BoatEntityBOP(worldIn, raytraceresult.getHitVec().x, raytraceresult.getHitVec().y, raytraceresult.getHitVec().z);
+                BoatEntityBOP boatentity = new BoatEntityBOP(worldIn, raytraceresult.getLocation().x, raytraceresult.getLocation().y, raytraceresult.getLocation().z);
                 boatentity.setBoatModel(this.type);
-                boatentity.rotationYaw = playerIn.rotationYaw;
-                if (!worldIn.func_226665_a__(boatentity, boatentity.getBoundingBox().grow(-0.1D))) {
-                    return new ActionResult<>(ActionResultType.FAIL, itemstack);
+                boatentity.yRot = playerIn.yRot;
+                if (!worldIn.noCollision(boatentity, boatentity.getBoundingBox().inflate(-0.1D))) {
+                    return ActionResult.fail(itemstack);
                 } else {
-                    if (!worldIn.isRemote) {
-                        worldIn.addEntity(boatentity);
+                    if (!worldIn.isClientSide) {
+                        worldIn.addFreshEntity(boatentity);
+                        if (!playerIn.abilities.instabuild) {
+                            itemstack.shrink(1);
+                        }
                     }
 
-                    if (!playerIn.abilities.isCreativeMode) {
-                        itemstack.shrink(1);
-                    }
-
-                    playerIn.addStat(Stats.ITEM_USED.get(this));
-                    return new ActionResult<>(ActionResultType.SUCCESS, itemstack);
+                    playerIn.awardStat(Stats.ITEM_USED.get(this));
+                    return ActionResult.success(itemstack);
                 }
             } else {
-                return new ActionResult<>(ActionResultType.PASS, itemstack);
+                return ActionResult.pass(itemstack);
             }
         }
     }

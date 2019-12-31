@@ -29,7 +29,7 @@ public class BOPNetherLayerUtil
     {
         IAreaFactory<T> biomeFactory = NetherBiomeLayer.INSTANCE.run(contextFactory.apply(200L));
         // magnify the biome layer
-        biomeFactory = LayerUtil.repeat(1000L, ZoomLayer.NORMAL, biomeFactory, 2, contextFactory);
+        biomeFactory = LayerUtil.zoom(1000L, ZoomLayer.NORMAL, biomeFactory, 2, contextFactory);
         return biomeFactory;
     }
 

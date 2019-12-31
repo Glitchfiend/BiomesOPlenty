@@ -2,7 +2,7 @@ apply plugin: 'java'
 apply plugin: 'maven'
  
 ext.channel = 'snapshot'
-ext.dlVersion = '11'
+ext.dlVersion = '23'
 ext.mcVersion = '1.15.1'
  
 group = 'de.oceanlabs.mcp'
@@ -21,28 +21,11 @@ task downloadCSVs {
     downloadCSV('params.csv')
 }
 
-task patchCSVs {
-    println 'Patching csvs..'
-
-    // Apparently making this an Exec task doesn't work properly? Do this instead.
-    exec {
-        ignoreExitValue true
-        workingDir '.'
-
-        if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
-            commandLine 'cmd', '/c', 'python', 'patch_csvs.py'
-        } else {
-            commandLine 'python', 'patch_csvs.py'
-        }
-    }
-}
-
-patchCSVs.dependsOn(downloadCSVs)
-
 jar {
     extension = 'zip'
-    from '.'
-    include '*.csv'
+    from 'custom/fields.csv'
+    from 'custom/methods.csv'
+    from 'mcp/params.csv'
 }
  
 install {

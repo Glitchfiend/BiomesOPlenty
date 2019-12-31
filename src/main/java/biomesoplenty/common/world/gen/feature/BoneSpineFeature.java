@@ -31,7 +31,7 @@ public class BoneSpineFeature extends Feature<NoFeatureConfig>
     @Override
     public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> p_212245_2_, Random p_212245_3_, BlockPos startPos, NoFeatureConfig p_212245_5_)
     {
-        while (startPos.getY() > 1 && this.replace.matches(world, startPos)) {startPos = startPos.down();}
+        while (startPos.getY() > 1 && this.replace.matches(world, startPos)) {startPos = startPos.below();}
 
         if (!this.placeOn.matches(world, startPos))
         {
@@ -39,13 +39,13 @@ public class BoneSpineFeature extends Feature<NoFeatureConfig>
             return false;
         }
 
-        if (!this.checkSpace(world, startPos.up()))
+        if (!this.checkSpace(world, startPos.above()))
         {
             // Abandon if there isn't enough room
             return false;
         }
 
-        BlockPos pos = startPos.up();
+        BlockPos pos = startPos.above();
 
         int height = 2 + p_212245_3_.nextInt(2);
 
@@ -58,21 +58,21 @@ public class BoneSpineFeature extends Feature<NoFeatureConfig>
 
         for (int y = 0; y < height; y++)
         {
-            this.setBlock(world, pos.add(0, y, 0), Blocks.BONE_BLOCK.getDefaultState());
+            this.setBlock(world, pos.offset(0, y, 0), Blocks.BONE_BLOCK.defaultBlockState());
 
             if (spine == true && y % 2 == 1)
             {
-                this.setBlock(world, pos.add(1, y, 0), Blocks.BONE_BLOCK.getDefaultState().with(RotatedPillarBlock.AXIS, Direction.Axis.X));
-                this.setBlock(world, pos.add(-1, y, 0), Blocks.BONE_BLOCK.getDefaultState().with(RotatedPillarBlock.AXIS, Direction.Axis.X));
-                this.setBlock(world, pos.add(0, y, 1), Blocks.BONE_BLOCK.getDefaultState().with(RotatedPillarBlock.AXIS, Direction.Axis.Z));
-                this.setBlock(world, pos.add(0, y, -1), Blocks.BONE_BLOCK.getDefaultState().with(RotatedPillarBlock.AXIS, Direction.Axis.Z));
+                this.setBlock(world, pos.offset(1, y, 0), Blocks.BONE_BLOCK.defaultBlockState().setValue(RotatedPillarBlock.AXIS, Direction.Axis.X));
+                this.setBlock(world, pos.offset(-1, y, 0), Blocks.BONE_BLOCK.defaultBlockState().setValue(RotatedPillarBlock.AXIS, Direction.Axis.X));
+                this.setBlock(world, pos.offset(0, y, 1), Blocks.BONE_BLOCK.defaultBlockState().setValue(RotatedPillarBlock.AXIS, Direction.Axis.Z));
+                this.setBlock(world, pos.offset(0, y, -1), Blocks.BONE_BLOCK.defaultBlockState().setValue(RotatedPillarBlock.AXIS, Direction.Axis.Z));
             }
         }
 
-        this.setBlock(world, pos.add(0, height, 0), Blocks.BONE_BLOCK.getDefaultState());
+        this.setBlock(world, pos.offset(0, height, 0), Blocks.BONE_BLOCK.defaultBlockState());
         if (height % 2 == 0)
         {
-            this.setBlock(world, pos.add(0, height + 1, 0), Blocks.BONE_BLOCK.getDefaultState());
+            this.setBlock(world, pos.offset(0, height + 1, 0), Blocks.BONE_BLOCK.defaultBlockState());
         }
 
         return true;
@@ -82,7 +82,7 @@ public class BoneSpineFeature extends Feature<NoFeatureConfig>
     {
         if (this.replace.matches(world, pos))
         {
-            this.setBlockState(world, pos, state);
+            this.setBlock(world, pos, state);
             return true;
         }
         return false;
@@ -96,7 +96,7 @@ public class BoneSpineFeature extends Feature<NoFeatureConfig>
             {
                 for (int z = -2; z <= 2; z++)
                 {
-                    BlockPos pos1 = pos.add(x, y, z);
+                    BlockPos pos1 = pos.offset(x, y, z);
                     if (pos1.getY() >= 255 || !this.replace.matches(world, pos1))
                     {
                         return false;

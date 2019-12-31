@@ -26,17 +26,17 @@ public class ScatteredRocksFeature extends Feature<NoFeatureConfig>
 
       for(int j = 0; j < 32; ++j)
       {
-         BlockPos blockpos = p_212245_4_.add(p_212245_3_.nextInt(8) - p_212245_3_.nextInt(8), p_212245_3_.nextInt(4) - p_212245_3_.nextInt(4), p_212245_3_.nextInt(8) - p_212245_3_.nextInt(8));
-         if (p_212245_1_.getBlockState(blockpos).canBeReplacedByLeaves(p_212245_1_, blockpos) && p_212245_1_.getBlockState(blockpos.down()).getBlock() == Blocks.GRASS_BLOCK)
+         BlockPos blockpos = p_212245_4_.offset(p_212245_3_.nextInt(8) - p_212245_3_.nextInt(8), p_212245_3_.nextInt(4) - p_212245_3_.nextInt(4), p_212245_3_.nextInt(8) - p_212245_3_.nextInt(8));
+         if (p_212245_1_.getBlockState(blockpos).canBeReplacedByLeaves(p_212245_1_, blockpos) && p_212245_1_.getBlockState(blockpos.below()).getBlock() == Blocks.GRASS_BLOCK)
          {
 
             if (p_212245_3_.nextInt(3) == 0)
             {
-               p_212245_1_.setBlockState(blockpos, Blocks.MOSSY_COBBLESTONE.getDefaultState(), 2);
+               p_212245_1_.setBlock(blockpos, Blocks.MOSSY_COBBLESTONE.defaultBlockState(), 2);
             }
             else
             {
-               p_212245_1_.setBlockState(blockpos, Blocks.COBBLESTONE.getDefaultState(), 2);
+               p_212245_1_.setBlock(blockpos, Blocks.COBBLESTONE.defaultBlockState(), 2);
             }
             
             ++i;

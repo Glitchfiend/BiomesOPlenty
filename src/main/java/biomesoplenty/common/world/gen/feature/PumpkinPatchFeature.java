@@ -29,8 +29,8 @@ public class PumpkinPatchFeature extends Feature<NoFeatureConfig>
 
 		for(int j = 0; j < 64; ++j)
 		{
-			BlockPos blockpos = p_212245_4_.add(p_212245_3_.nextInt(8) - p_212245_3_.nextInt(8), p_212245_3_.nextInt(4) - p_212245_3_.nextInt(4), p_212245_3_.nextInt(8) - p_212245_3_.nextInt(8));
-			if (p_212245_1_.getBlockState(blockpos).canBeReplacedByLeaves(p_212245_1_, blockpos) && p_212245_1_.getBlockState(blockpos.down()).getBlock() == Blocks.GRASS_BLOCK)
+			BlockPos blockpos = p_212245_4_.offset(p_212245_3_.nextInt(8) - p_212245_3_.nextInt(8), p_212245_3_.nextInt(4) - p_212245_3_.nextInt(4), p_212245_3_.nextInt(8) - p_212245_3_.nextInt(8));
+			if (p_212245_1_.getBlockState(blockpos).canBeReplacedByLeaves(p_212245_1_, blockpos) && p_212245_1_.getBlockState(blockpos.below()).getBlock() == Blocks.GRASS_BLOCK)
 			{
 
 				if (p_212245_3_.nextInt(3) == 0)
@@ -39,20 +39,20 @@ public class PumpkinPatchFeature extends Feature<NoFeatureConfig>
 
 					if (rand > 10)
 					{
-						p_212245_1_.setBlockState(blockpos, Blocks.PUMPKIN.getDefaultState(), 2);
+						p_212245_1_.setBlock(blockpos, Blocks.PUMPKIN.defaultBlockState(), 2);
 					}
 					else if (rand > 1)
 					{
-						p_212245_1_.setBlockState(blockpos, Blocks.CARVED_PUMPKIN.getDefaultState().with(CarvedPumpkinBlock.FACING, Direction.byIndex(2 + p_212245_3_.nextInt(4))), 2);
+						p_212245_1_.setBlock(blockpos, Blocks.CARVED_PUMPKIN.defaultBlockState().setValue(CarvedPumpkinBlock.FACING, Direction.from3DDataValue(2 + p_212245_3_.nextInt(4))), 2);
 					}
 					else
 					{
-						p_212245_1_.setBlockState(blockpos, Blocks.JACK_O_LANTERN.getDefaultState().with(CarvedPumpkinBlock.FACING, Direction.byIndex(2 + p_212245_3_.nextInt(4))), 2);
+						p_212245_1_.setBlock(blockpos, Blocks.JACK_O_LANTERN.defaultBlockState().setValue(CarvedPumpkinBlock.FACING, Direction.from3DDataValue(2 + p_212245_3_.nextInt(4))), 2);
 					}
 				}
 				else
 				{
-					p_212245_1_.setBlockState(blockpos, Blocks.OAK_LEAVES.getDefaultState().with(LeavesBlock.PERSISTENT, true), 2);
+					p_212245_1_.setBlock(blockpos, Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2);
 				}
 
 				++i;

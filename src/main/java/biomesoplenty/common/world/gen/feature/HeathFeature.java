@@ -28,10 +28,10 @@ public class HeathFeature extends Feature<NoFeatureConfig>
 
       for(int j = 0; j < 64; ++j)
       {
-         BlockPos blockpos = p_212245_4_.add(p_212245_3_.nextInt(8) - p_212245_3_.nextInt(8), p_212245_3_.nextInt(4) - p_212245_3_.nextInt(4), p_212245_3_.nextInt(8) - p_212245_3_.nextInt(8));
-         if (p_212245_1_.getBlockState(blockpos).canBeReplacedByLeaves(p_212245_1_, blockpos) && p_212245_1_.getBlockState(blockpos.down()).getBlock() == Blocks.GRASS_BLOCK)
+         BlockPos blockpos = p_212245_4_.offset(p_212245_3_.nextInt(8) - p_212245_3_.nextInt(8), p_212245_3_.nextInt(4) - p_212245_3_.nextInt(4), p_212245_3_.nextInt(8) - p_212245_3_.nextInt(8));
+         if (p_212245_1_.getBlockState(blockpos).canBeReplacedByLeaves(p_212245_1_, blockpos) && p_212245_1_.getBlockState(blockpos.below()).getBlock() == Blocks.GRASS_BLOCK)
          {
-        	p_212245_1_.setBlockState(blockpos, BOPBlocks.jacaranda_leaves.getDefaultState().with(LeavesBlock.PERSISTENT, true), 2);
+        	p_212245_1_.setBlock(blockpos, BOPBlocks.jacaranda_leaves.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2);
             
             ++i;
          }

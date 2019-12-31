@@ -23,8 +23,9 @@ public interface IAreaTransformer3 extends IDimTransformer
             R area2 = areaFactory2.make();
             R area3 = areaFactory3.make();
 
-            return context.func_212861_a_((x, z) -> {
-                context.setPosition((long)x, (long)z);
+            return context.createResult
+                    ((x, z) -> {
+                context.initRandom((long)x, (long)z);
                 return this.applyPixel(context, area1, area2, area3, x, z);
             });
         };

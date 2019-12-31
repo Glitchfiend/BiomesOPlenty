@@ -37,20 +37,20 @@ public class ColdDesertBiome extends BiomeBOP
 {
     public ColdDesertBiome()
     {
-        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(BOPBiomeFeatures.COLD_DESERT_SURFACE_BUILDER, SurfaceBuilder.GRAVEL_CONFIG)).precipitation(Biome.RainType.NONE).category(Biome.Category.ICY).depth(0.0F).scale(0.0F).temperature(0.25F).downfall(0.0F).waterColor(4159204).waterFogColor(329011).parent((String)null));
+        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(BOPBiomeFeatures.COLD_DESERT_SURFACE_BUILDER, SurfaceBuilder.CONFIG_GRAVEL)).precipitation(Biome.RainType.NONE).biomeCategory(Biome.Category.ICY).depth(0.0F).scale(0.0F).temperature(0.25F).downfall(0.0F).waterColor(4159204).waterFogColor(329011).parent((String)null));
 
         // Structures
         this.addStructureStart(Feature.VILLAGE.configured(new VillageConfig("village/snowy/town_centers", 6)));
-        this.addStructureStart(Feature.IGLOO.configured(IFeatureConfig.NO_FEATURE_CONFIG));
+        this.addStructureStart(Feature.IGLOO.configured(IFeatureConfig.NONE));
         this.addStructureStart(Feature.MINESHAFT.configured(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
-        this.addStructureStart(Feature.STRONGHOLD.configured(IFeatureConfig.NO_FEATURE_CONFIG));
-        this.addStructureStart(Feature.PILLAGER_OUTPOST.configured(IFeatureConfig.NO_FEATURE_CONFIG));
+        this.addStructureStart(Feature.STRONGHOLD.configured(IFeatureConfig.NONE));
+        this.addStructureStart(Feature.PILLAGER_OUTPOST.configured(IFeatureConfig.NONE));
 
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(this);
         DefaultBiomeFeatures.addStructureFeaturePlacement(this);
 
-        this.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Feature.LAKE.configured(new BlockStateFeatureConfig(Blocks.LAVA.getDefaultState())).decorated(Placement.LAVA_LAKE.configured(new ChanceConfig(80))));
+        this.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Feature.LAKE.configured(new BlockStateFeatureConfig(Blocks.LAVA.defaultBlockState())).decorated(Placement.LAVA_LAKE.configured(new ChanceConfig(80))));
 
         DefaultBiomeFeatures.addDefaultMonsterRoom(this);
         DefaultBiomeFeatures.addDefaultUndergroundVariety(this);
@@ -60,7 +60,7 @@ public class ColdDesertBiome extends BiomeBOP
         ////////////////////////////////////////////////////////////
 
         // Vegetation
-        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, new WastelandGrassFeature(NoFeatureConfig::deserialize).configured(IFeatureConfig.NO_FEATURE_CONFIG).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(1))));
+        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, new WastelandGrassFeature(NoFeatureConfig::deserialize).configured(IFeatureConfig.NONE).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(1))));
 
         ////////////////////////////////////////////////////////////
 

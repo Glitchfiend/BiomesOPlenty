@@ -26,15 +26,15 @@ import java.util.Random;
 
 public class SaplingBlockBOP extends SaplingBlock implements IGrowable
 {
-   public static final IntegerProperty STAGE = BlockStateProperties.STAGE_0_1;
-   public static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
+   public static final IntegerProperty STAGE = BlockStateProperties.STAGE;
+   public static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
    private final Tree tree;
 
    public SaplingBlockBOP(Tree tree, Block.Properties properties)
    {
       super(tree, properties);
       this.tree = tree;
-      this.setDefaultState(this.stateContainer.getBaseState().with(STAGE, Integer.valueOf(0)));
+      this.registerDefaultState(this.stateDefinition.any().setValue(STAGE, Integer.valueOf(0)));
    }
 
    @Override
@@ -48,23 +48,23 @@ public class SaplingBlockBOP extends SaplingBlock implements IGrowable
    {
       super.tick(state, world, pos, random);
       if (!world.isAreaLoaded(pos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light
-      if (world.getLight(pos.up()) >= 9 && random.nextInt(7) == 0) {
-         this.func_225535_a_(world, random, pos, state);
+      if (world.getMaxLocalRawBrightness(pos.above()) >= 9 && random.nextInt(7) == 0) {
+         this.performBonemeal(world, random, pos, state);
       }
 
    }
 
    @Override
-   public void func_225535_a_(ServerWorld world, Random rand, BlockPos pos, BlockState state)
+   public void performBonemeal(ServerWorld world, Random rand, BlockPos pos, BlockState state)
    {
-      if (state.get(STAGE) == 0)
+      if (state.getValue(STAGE) == 0)
       {
-         world.setBlockState(pos, state.cycle(STAGE), 4);
+         world.setBlock(pos, state.cycle(STAGE), 4);
       }
       else
       {
          if (!net.minecraftforge.event.ForgeEventFactory.saplingGrowTree(world, rand, pos)) return;
-         this.tree.growTree(world, world.getChunkProvider().getChunkGenerator(), pos, state, rand);
+         this.tree.growTree(world, world.getChunkSource().getGenerator(), pos, state, rand);
       }
 
    }
@@ -73,42 +73,42 @@ public class SaplingBlockBOP extends SaplingBlock implements IGrowable
     * Whether this IGrowable can grow
     */
    @Override
-   public boolean canGrow(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient)
+   public boolean isValidBonemealTarget(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient)
    {
       return true;
    }
 
    @Override
-   public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state)
+   public boolean isBonemealSuccess(World worldIn, Random rand, BlockPos pos, BlockState state)
    {
-      return (double)worldIn.rand.nextFloat() < 0.45D;
+      return (double)worldIn.random.nextFloat() < 0.45D;
    }
 
    @Override
-   public void func_226942_a_(ServerWorld world, BlockPos pos, BlockState state, Random rand)
+   public void advanceTree(ServerWorld world, BlockPos pos, BlockState state, Random rand)
    {
-      this.func_225535_a_(world, rand, pos, state);
+      this.performBonemeal(world, rand, pos, state);
    }
    
    @Override
-   public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos)
+   public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos)
    {
-       Block ground = worldIn.getBlockState(pos.down()).getBlock();
+       Block ground = worldIn.getBlockState(pos.below()).getBlock();
 
        if (this == BOPBlocks.palm_sapling)
        {
-           return ground == BOPBlocks.white_sand || ground == Blocks.RED_SAND || ground == Blocks.SAND || super.isValidPosition(state, worldIn, pos);
+           return ground == BOPBlocks.white_sand || ground == Blocks.RED_SAND || ground == Blocks.SAND || super.canSurvive(state, worldIn, pos);
        }
        if (this == BOPBlocks.hellbark_sapling)
        {
-           return ground == Blocks.NETHERRACK || super.isValidPosition(state, worldIn, pos);
+           return ground == Blocks.NETHERRACK || super.canSurvive(state, worldIn, pos);
        }
 
-       return super.isValidPosition(state, worldIn, pos);
+       return super.canSurvive(state, worldIn, pos);
    }
 
    @Override
-   public void fillStateContainer(StateContainer.Builder<Block, BlockState> builder)
+   public void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder)
    {
       builder.add(STAGE);
    }

@@ -24,7 +24,7 @@ public class GravelBeachBiome extends BiomeBOP
 {
     public GravelBeachBiome()
     {
-        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRAVEL_CONFIG)).precipitation(Biome.RainType.RAIN).category(Biome.Category.BEACH).depth(0.0F).scale(0.025F).temperature(0.6F).downfall(0.5F).waterColor(4159204).waterFogColor(329011).parent((String)null));
+        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.CONFIG_GRAVEL)).precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.BEACH).depth(0.0F).scale(0.025F).temperature(0.6F).downfall(0.5F).waterColor(4159204).waterFogColor(329011).parent((String)null));
 
         this.addStructureStart(Feature.MINESHAFT.configured(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
         this.addStructureStart(Feature.BURIED_TREASURE.configured(new BuriedTreasureConfig(0.01F)));

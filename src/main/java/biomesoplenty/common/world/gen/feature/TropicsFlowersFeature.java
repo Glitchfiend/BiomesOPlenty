@@ -30,8 +30,8 @@ public class TropicsFlowersFeature extends DefaultFlowersFeatureNoConfig
 	@Override
 	public BlockState getRandomFlower(Random p_202355_1_, BlockPos p_202355_2_, NoFeatureConfig config)
 	{
-		double d0 = MathHelper.clamp((1.0D + Biome.INFO_NOISE.noiseAt((double)p_202355_2_.getX() / 48.0D, (double)p_202355_2_.getZ() / 48.0D, false)) / 2.0D, 0.0D, 0.9999D);
+		double d0 = MathHelper.clamp((1.0D + Biome.BIOME_INFO_NOISE.getValue((double)p_202355_2_.getX() / 48.0D, (double)p_202355_2_.getZ() / 48.0D, false)) / 2.0D, 0.0D, 0.9999D);
 		Block block = FLOWERS[(int)(d0 * (double)FLOWERS.length)];
-		return block.getDefaultState();
+		return block.defaultBlockState();
 	}
 }

@@ -21,10 +21,10 @@ public class ShortBambooFeature extends Feature<NoFeatureConfig>
 {
     protected IBlockPosQuery placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK;
     protected IBlockPosQuery replace = (world, pos) -> world.getBlockState(pos).canBeReplacedByLeaves(world, pos);
-    private static final BlockState field_214566_a = Blocks.BAMBOO.getDefaultState().with(BambooBlock.PROPERTY_AGE, Integer.valueOf(1)).with(BambooBlock.PROPERTY_BAMBOO_LEAVES, BambooLeaves.NONE).with(BambooBlock.PROPERTY_STAGE, Integer.valueOf(1));
-    private static final BlockState field_214567_aS = field_214566_a.with(BambooBlock.PROPERTY_BAMBOO_LEAVES, BambooLeaves.LARGE).with(BambooBlock.PROPERTY_STAGE, Integer.valueOf(1));
-    private static final BlockState field_214568_aT = field_214566_a.with(BambooBlock.PROPERTY_BAMBOO_LEAVES, BambooLeaves.LARGE).with(BambooBlock.PROPERTY_STAGE, Integer.valueOf(1));
-    private static final BlockState field_214569_aU = field_214566_a.with(BambooBlock.PROPERTY_BAMBOO_LEAVES, BambooLeaves.SMALL).with(BambooBlock.PROPERTY_STAGE, Integer.valueOf(1));
+    private static final BlockState field_214566_a = Blocks.BAMBOO.defaultBlockState().setValue(BambooBlock.AGE, Integer.valueOf(1)).setValue(BambooBlock.LEAVES, BambooLeaves.NONE).setValue(BambooBlock.STAGE, Integer.valueOf(1));
+    private static final BlockState field_214567_aS = field_214566_a.setValue(BambooBlock.LEAVES, BambooLeaves.LARGE).setValue(BambooBlock.STAGE, Integer.valueOf(1));
+    private static final BlockState field_214568_aT = field_214566_a.setValue(BambooBlock.LEAVES, BambooLeaves.LARGE).setValue(BambooBlock.STAGE, Integer.valueOf(1));
+    private static final BlockState field_214569_aU = field_214566_a.setValue(BambooBlock.LEAVES, BambooLeaves.SMALL).setValue(BambooBlock.STAGE, Integer.valueOf(1));
 
     public ShortBambooFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserializer)
     {
@@ -34,34 +34,34 @@ public class ShortBambooFeature extends Feature<NoFeatureConfig>
     @Override
     public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, NoFeatureConfig config)
     {
-        while (pos.getY() > 1 && this.replace.matches(world, pos)) {pos = pos.down();}
+        while (pos.getY() > 1 && this.replace.matches(world, pos)) {pos = pos.below();}
 
-        if (!this.placeOn.matches(world, pos.add(2, 0, 2)))
+        if (!this.placeOn.matches(world, pos.offset(2, 0, 2)))
         {
             // Abandon if we can't place the tree on this block
             return false;
         }
 
-        pos = pos.up();
+        pos = pos.above();
 
         BlockPos.Mutable blockpos$mutableblockpos = new BlockPos.Mutable(pos);
-        if (world.isAirBlock(blockpos$mutableblockpos))
+        if (world.isEmptyBlock(blockpos$mutableblockpos))
         {
-            if (Blocks.BAMBOO.getDefaultState().isValidPosition(world, blockpos$mutableblockpos))
+            if (Blocks.BAMBOO.defaultBlockState().canSurvive(world, blockpos$mutableblockpos))
             {
                 int j = rand.nextInt(2) + 3;
 
-                for(int l1 = 0; l1 < j && world.isAirBlock(blockpos$mutableblockpos); ++l1)
+                for(int l1 = 0; l1 < j && world.isEmptyBlock(blockpos$mutableblockpos); ++l1)
                 {
-                    world.setBlockState(blockpos$mutableblockpos, field_214566_a, 2);
+                    world.setBlock(blockpos$mutableblockpos, field_214566_a, 2);
                     blockpos$mutableblockpos.move(Direction.UP, 1);
                 }
 
                 if (blockpos$mutableblockpos.getY() - pos.getY() >= 3)
                 {
-                    world.setBlockState(blockpos$mutableblockpos, field_214567_aS, 2);
-                    world.setBlockState(blockpos$mutableblockpos.move(Direction.DOWN, 1), field_214568_aT, 2);
-                    world.setBlockState(blockpos$mutableblockpos.move(Direction.DOWN, 1), field_214569_aU, 2);
+                    world.setBlock(blockpos$mutableblockpos, field_214567_aS, 2);
+                    world.setBlock(blockpos$mutableblockpos.move(Direction.DOWN, 1), field_214568_aT, 2);
+                    world.setBlock(blockpos$mutableblockpos.move(Direction.DOWN, 1), field_214569_aU, 2);
                 }
             }
         }

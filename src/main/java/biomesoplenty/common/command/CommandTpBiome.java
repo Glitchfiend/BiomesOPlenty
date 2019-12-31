@@ -34,7 +34,7 @@ public class CommandTpBiome
         return Commands.literal("tpbiome")
                 .then(Commands.argument("biome", BiomeArgument.createArgument())
                         .executes(ctx -> {
-                            ServerPlayerEntity player = ctx.getSource().asPlayer();
+                            ServerPlayerEntity player = ctx.getSource().getPlayerOrException();
                             TP_BIOME_THREAD.execute(() -> {
                                 try
                                 {
@@ -52,9 +52,9 @@ public class CommandTpBiome
 
     private static int findTeleportBiome(CommandSource cs, ServerPlayerEntity player, Biome biome)
     {
-        World world = player.world;
-        BlockPos closestBiomePos = biome == null ? null : BiomeUtil.spiralOutwardsLookingForBiome(world, biome, player.getPosition().getX(), player.getPosition().getZ());
-        String biomeName = biome != null && world.isRemote ? biome.getDisplayName().toString() : biome.getRegistryName().toString();
+        World world = player.level;
+        BlockPos closestBiomePos = biome == null ? null : BiomeUtil.spiralOutwardsLookingForBiome(world, biome, player.getX(), player.getZ());
+        String biomeName = biome != null && world.isClientSide ? biome.getName().toString() : biome.getRegistryName().toString();
 
         if (closestBiomePos != null)
         {
@@ -62,17 +62,17 @@ public class CommandTpBiome
             double y = (double) BlockUtil.getTopSolidOrLiquidBlock(world, closestBiomePos.getX(), closestBiomePos.getZ()).getY();
             double z = (double)closestBiomePos.getZ();
 
-            if (!world.getDimension().isSurfaceWorld())
+            if (!world.getDimension().isNaturalDimension())
             {
                 y = (double)getTopBlockNonOverworld(world, closestBiomePos).getY();
             }
 
-            player.connection.setPlayerLocation(x, y, z, player.rotationYaw, player.rotationPitch);
-            cs.sendFeedback(new TranslationTextComponent("commands.biomesoplenty.tpbiome.success", player.getName(), biomeName, x, y, z), true);
+            player.connection.teleport(x, y, z, player.yRot, player.xRot);
+            cs.sendSuccess(new TranslationTextComponent("commands.biomesoplenty.tpbiome.success", player.getName(), biomeName, x, y, z), true);
         }
         else
         {
-            cs.sendFeedback(new TranslationTextComponent("commands.biomesoplenty.tpbiome.error", biomeName), true);
+            cs.sendSuccess(new TranslationTextComponent("commands.biomesoplenty.tpbiome.error", biomeName), true);
         }
 
         return 1;
@@ -83,14 +83,14 @@ public class CommandTpBiome
         IChunk chunk = world.getChunk(pos);
         BlockPos blockpos;
         BlockPos blockpos1;
-        BlockPos blockpos2 = new BlockPos(pos.getX(), chunk.getTopFilledSegment() + 16, pos.getZ());
+        BlockPos blockpos2 = new BlockPos(pos.getX(), chunk.getHighestSectionPosition() + 16, pos.getZ());
 
         for (blockpos = blockpos2; blockpos.getY() >= 0; blockpos = blockpos1)
         {
-            blockpos1 = blockpos.down();
+            blockpos1 = blockpos.below();
             BlockState state = chunk.getBlockState(blockpos1);
 
-            if (!state.getMaterial().blocksMovement() && !world.isAirBlock(blockpos1.down()) && state.getMaterial() != Material.LEAVES)
+            if (!state.getMaterial().blocksMotion() && !world.isEmptyBlock(blockpos1.below()) && state.getMaterial() != Material.LEAVES)
             {
                 return blockpos1;
             }

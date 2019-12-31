@@ -33,8 +33,8 @@ public class PalmTreeFeature extends TreeFeatureBase
         	};
             this.minHeight = 10;
             this.maxHeight = 14;
-            this.log = BOPBlocks.palm_log.getDefaultState();
-            this.leaves = BOPBlocks.palm_leaves.getDefaultState().with(LeavesBlock.PERSISTENT, true);
+            this.log = BOPBlocks.palm_log.defaultBlockState();
+            this.leaves = BOPBlocks.palm_leaves.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true);
         }
 
         @Override
@@ -54,7 +54,7 @@ public class PalmTreeFeature extends TreeFeatureBase
     protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, IWorld world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
     {
         // Move down until we reach the ground
-    	while (startPos.getY() > 1 && world.isAirBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES) {startPos = startPos.down();}
+    	while (startPos.getY() > 1 && world.isEmptyBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES) {startPos = startPos.below();}
         
         if (!this.placeOn.matches(world, startPos))
         {
@@ -67,7 +67,7 @@ public class PalmTreeFeature extends TreeFeatureBase
         int leavesRadius = 2;
         int heightMinusTop = height - leavesRadius - 1;
         boolean slant = false;
-        Direction direction = Direction.random(random); //The direction the palm tree curves towards
+        Direction direction = Direction.getRandomFace(random); //The direction the palm tree curves towards
         if (direction == Direction.DOWN || direction == Direction.UP)
         {
         	slant = false;
@@ -78,7 +78,7 @@ public class PalmTreeFeature extends TreeFeatureBase
         if (height < 8) {return false;} //Prevent trees from being too small 
         
         // Move up to space above ground
-        BlockPos pos = startPos.up();
+        BlockPos pos = startPos.above();
         
         if (!this.checkSpace(world, pos, height, 1))
         {
@@ -91,11 +91,11 @@ public class PalmTreeFeature extends TreeFeatureBase
         // Generate trunk of tree (trunk only)
         for(int step = 0; step <= heightMinusTop; step++)
         {
-        	BlockPos offsetPos = pos.up(step);
+        	BlockPos offsetPos = pos.above(step);
         	
         	if (slant == true)
         	{
-        		offsetPos = pos.up(step).offset(direction, (int)Math.floor(slantOffset));
+        		offsetPos = pos.above(step).relative(direction, (int)Math.floor(slantOffset));
         	}
             
             if (step == heightMinusTop)
@@ -123,7 +123,7 @@ public class PalmTreeFeature extends TreeFeatureBase
             {
                 for (int z = -radius; z <= radius; z++)
                 {
-                    BlockPos pos1 = pos.add(x, y, z);
+                    BlockPos pos1 = pos.offset(x, y, z);
                     // note, there may be a sapling on the first layer - make sure this.replace matches it!
                     if (pos1.getY() >= 255 || !this.replace.matches(world, pos1))
                     {
@@ -138,29 +138,29 @@ public class PalmTreeFeature extends TreeFeatureBase
     // generate the top of the tree (3 blocks)
     public void generateLeavesTop(IWorld world, BlockPos pos, int maxRadius, Set<BlockPos> changedLeaves, MutableBoundingBox boundingBox)
     {
-        placeLeaves(world, pos.add(2, -1, 0), changedLeaves, boundingBox);
-        placeLeaves(world, pos.add(-2, -1, 0), changedLeaves, boundingBox);
-        placeLeaves(world, pos.add(0, -1, 2), changedLeaves, boundingBox);
-        placeLeaves(world, pos.add(0, -1, -2), changedLeaves, boundingBox);
+        placeLeaves(world, pos.offset(2, -1, 0), changedLeaves, boundingBox);
+        placeLeaves(world, pos.offset(-2, -1, 0), changedLeaves, boundingBox);
+        placeLeaves(world, pos.offset(0, -1, 2), changedLeaves, boundingBox);
+        placeLeaves(world, pos.offset(0, -1, -2), changedLeaves, boundingBox);
 
-        placeLeaves(world, pos.add(1, 0, 0), changedLeaves, boundingBox);
-        placeLeaves(world, pos.add(-1, 0, 0), changedLeaves, boundingBox);
-        placeLeaves(world, pos.add(0, 0, 1), changedLeaves, boundingBox);
-        placeLeaves(world, pos.add(0, 0, -1), changedLeaves, boundingBox);
-        placeLeaves(world, pos.add(2, 0, 2), changedLeaves, boundingBox);
-        placeLeaves(world, pos.add(-2, 0, -2), changedLeaves, boundingBox);
-        placeLeaves(world, pos.add(2, 0, -2), changedLeaves, boundingBox);
-        placeLeaves(world, pos.add(-2, 0, 2), changedLeaves, boundingBox);
+        placeLeaves(world, pos.offset(1, 0, 0), changedLeaves, boundingBox);
+        placeLeaves(world, pos.offset(-1, 0, 0), changedLeaves, boundingBox);
+        placeLeaves(world, pos.offset(0, 0, 1), changedLeaves, boundingBox);
+        placeLeaves(world, pos.offset(0, 0, -1), changedLeaves, boundingBox);
+        placeLeaves(world, pos.offset(2, 0, 2), changedLeaves, boundingBox);
+        placeLeaves(world, pos.offset(-2, 0, -2), changedLeaves, boundingBox);
+        placeLeaves(world, pos.offset(2, 0, -2), changedLeaves, boundingBox);
+        placeLeaves(world, pos.offset(-2, 0, 2), changedLeaves, boundingBox);
 
-        placeLeaves(world, pos.add(1, 1, -1), changedLeaves, boundingBox);
-        placeLeaves(world, pos.add(-1, 1, 1), changedLeaves, boundingBox);
-        placeLeaves(world, pos.add(1, 1, 1), changedLeaves, boundingBox);
-        placeLeaves(world, pos.add(-1, 1, -1), changedLeaves, boundingBox);
-        placeLeaves(world, pos.add(0, 1, 0), changedLeaves, boundingBox);
+        placeLeaves(world, pos.offset(1, 1, -1), changedLeaves, boundingBox);
+        placeLeaves(world, pos.offset(-1, 1, 1), changedLeaves, boundingBox);
+        placeLeaves(world, pos.offset(1, 1, 1), changedLeaves, boundingBox);
+        placeLeaves(world, pos.offset(-1, 1, -1), changedLeaves, boundingBox);
+        placeLeaves(world, pos.offset(0, 1, 0), changedLeaves, boundingBox);
 
-        placeLeaves(world, pos.add(2, 2, 0), changedLeaves, boundingBox);
-        placeLeaves(world, pos.add(-2, 2, 0), changedLeaves, boundingBox);
-        placeLeaves(world, pos.add(0, 2, 2), changedLeaves, boundingBox);
-        placeLeaves(world, pos.add(0, 2, -2), changedLeaves, boundingBox);
+        placeLeaves(world, pos.offset(2, 2, 0), changedLeaves, boundingBox);
+        placeLeaves(world, pos.offset(-2, 2, 0), changedLeaves, boundingBox);
+        placeLeaves(world, pos.offset(0, 2, 2), changedLeaves, boundingBox);
+        placeLeaves(world, pos.offset(0, 2, -2), changedLeaves, boundingBox);
     }
 }

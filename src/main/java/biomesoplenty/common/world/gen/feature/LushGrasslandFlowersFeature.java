@@ -29,10 +29,10 @@ public class LushGrasslandFlowersFeature extends DefaultFlowersFeatureNoConfig
          switch(j)
          {
          case 0:
-            return BOPBlocks.orange_cosmos.getDefaultState();
+            return BOPBlocks.orange_cosmos.defaultBlockState();
          case 1:
          default:
-            return Blocks.OXEYE_DAISY.getDefaultState();
+            return Blocks.OXEYE_DAISY.defaultBlockState();
          }
 	}
 }

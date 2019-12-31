@@ -48,9 +48,9 @@ public class BrambleFeature extends Feature<NoFeatureConfig>
     {
         for (int i = 0; i < 128; ++i)
         {
-            BlockPos genPos = startPos.add(rand.nextInt(4) - rand.nextInt(4), rand.nextInt(3) - rand.nextInt(3), rand.nextInt(4) - rand.nextInt(4));
+            BlockPos genPos = startPos.offset(rand.nextInt(4) - rand.nextInt(4), rand.nextInt(3) - rand.nextInt(3), rand.nextInt(4) - rand.nextInt(4));
                 
-            if (this.placeOn.matches(world, genPos.down()) && this.replace.matches(world, genPos))
+            if (this.placeOn.matches(world, genPos.below()) && this.replace.matches(world, genPos))
             {
                 int targetLength = GeneratorUtil.nextIntBetween(rand, 15, 30);
                 int height = 0;
@@ -60,13 +60,13 @@ public class BrambleFeature extends Feature<NoFeatureConfig>
                 {  
                 	//if (BrambleBlock.canPlaceBlockAt(world, genPos))
                 	//{
-                		world.setBlockState(genPos, ((BrambleBlock)BOPBlocks.bramble).makeConnections(world, genPos), 2);
+                		world.setBlock(genPos, ((BrambleBlock)BOPBlocks.bramble).makeConnections(world, genPos), 2);
 
                 		for (Direction face : Direction.values())
                 		{
-                			if (world.getBlockState(genPos.offset(face)).getBlock() == BOPBlocks.bramble)
+                			if (world.getBlockState(genPos.relative(face)).getBlock() == BOPBlocks.bramble)
                 			{
-                				world.setBlockState(genPos.offset(face), ((BrambleBlock)BOPBlocks.bramble).makeConnections(world, genPos.offset(face)), 2);
+                				world.setBlock(genPos.relative(face), ((BrambleBlock)BOPBlocks.bramble).makeConnections(world, genPos.relative(face)), 2);
                 			}
                 		}
 	                    
@@ -78,15 +78,15 @@ public class BrambleFeature extends Feature<NoFeatureConfig>
 	                    if (rand.nextInt(2) == 0)
 	                    {
 	                    	int leafDirection = rand.nextInt(6);
-	                    	BlockPos leafPos = genPos.offset(Direction.values()[leafDirection]);
-	                    	if (world.isAirBlock(leafPos))
+	                    	BlockPos leafPos = genPos.relative(Direction.values()[leafDirection]);
+	                    	if (world.isEmptyBlock(leafPos))
 	                    	{
-	                    		world.setBlockState(leafPos, Blocks.OAK_LEAVES.getDefaultState().with(LeavesBlock.PERSISTENT, true), 19);
+	                    		world.setBlock(leafPos, Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 19);
 	                    		for (Direction face : Direction.values())
 	                    		{
-	                    			if (world.getBlockState(leafPos.offset(face)).getBlock() == BOPBlocks.bramble)
+	                    			if (world.getBlockState(leafPos.relative(face)).getBlock() == BOPBlocks.bramble)
 	                    			{
-	                    				world.setBlockState(leafPos.offset(face), ((BrambleBlock)BOPBlocks.bramble).makeConnections(world, leafPos.offset(face)), 2);
+	                    				world.setBlock(leafPos.relative(face), ((BrambleBlock)BOPBlocks.bramble).makeConnections(world, leafPos.relative(face)), 2);
 	                    			}
 	                    		}
 	                    	}
@@ -97,19 +97,19 @@ public class BrambleFeature extends Feature<NoFeatureConfig>
             	    		case 0: case 1:
             	    			if (height <= 8)
             	    			{
-	            	    			genPos = genPos.up();
+	            	    			genPos = genPos.above();
 	            	    			height++;
             	    			}
             	    			break;
             	    		case 2:
             	    			if (height >= 0)
             	    			{
-	            	    			genPos = genPos.down();
+	            	    			genPos = genPos.below();
 	            	    			height--;
             	    			}
             	    			break;
             	    		default:
-            	    			genPos = genPos.offset(Direction.values()[direction]);
+            	    			genPos = genPos.relative(Direction.values()[direction]);
             	    			break;
             	    	}
                 	//}

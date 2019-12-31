@@ -32,28 +32,28 @@ public class MushroomBlockBOP extends MushroomBlock
     }
 
     @Override
-    public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos)
+    public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos)
     {
-        Block ground = worldIn.getBlockState(pos.down()).getBlock();
-        BlockState BlockState = worldIn.getBlockState(pos.down());
+        Block ground = worldIn.getBlockState(pos.below()).getBlock();
+        BlockState BlockState = worldIn.getBlockState(pos.below());
 
-        return BlockState.canSustainPlant(worldIn, pos.down(), net.minecraft.util.Direction.UP, this);
+        return BlockState.canSustainPlant(worldIn, pos.below(), net.minecraft.util.Direction.UP, this);
     }
 
     @Override
-    public boolean func_226940_a_(ServerWorld p_226940_1_, BlockPos p_226940_2_, BlockState p_226940_3_, Random p_226940_4_)
-    {
-    	return false;
-    }
-
-    @Override
-    public boolean canGrow(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient)
+    public boolean growMushroom(ServerWorld p_226940_1_, BlockPos p_226940_2_, BlockState p_226940_3_, Random p_226940_4_)
     {
     	return false;
     }
 
     @Override
-    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state)
+    public boolean isValidBonemealTarget(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient)
+    {
+    	return false;
+    }
+
+    @Override
+    public boolean isBonemealSuccess(World worldIn, Random rand, BlockPos pos, BlockState state)
     {
         return false;
     }
