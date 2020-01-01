@@ -8,7 +8,9 @@
 package biomesoplenty.api.enums;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.INoiseRandom;
@@ -16,6 +18,8 @@ import net.minecraftforge.common.BiomeManager.BiomeType;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public enum BOPClimates
 {
@@ -170,6 +174,24 @@ public enum BOPClimates
             out[i] = climateMapping[i].ordinal();
         }
         return out;
+    }
+
+    public static ImmutableSet<Biome> getOverworldBiomes()
+    {
+        Set<Biome> set = Sets.newHashSet();
+
+        for (BOPClimates climate : BOPClimates.values())
+        {
+            if (climate == BOPClimates.NETHER)
+            {
+                continue;
+            }
+
+            set.addAll(climate.getLandBiomes().stream().map(weightedBiomeEntry -> weightedBiomeEntry.biome).collect(Collectors.toSet()));
+            set.addAll(climate.getIslandBiomes().stream().map(weightedBiomeEntry -> weightedBiomeEntry.biome).collect(Collectors.toSet()));
+        }
+
+        return ImmutableSet.copyOf(set);
     }
 
     public static class WeightedBiomeEntry

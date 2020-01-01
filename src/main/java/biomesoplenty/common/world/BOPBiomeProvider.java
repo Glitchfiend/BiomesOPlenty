@@ -7,6 +7,7 @@
  ******************************************************************************/
 package biomesoplenty.common.world;
 
+import biomesoplenty.api.enums.BOPClimates;
 import com.google.common.collect.Sets;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
@@ -26,21 +27,21 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
+import java.util.stream.Collectors;
 
-public class BOPBiomeProvider extends OverworldBiomeProvider
+public class BOPBiomeProvider extends BiomeProvider
 {
-    private final Layer genBiomes;
+    private final Layer noiseBiomeLayer;
 
     public BOPBiomeProvider(OverworldBiomeProviderSettings settingsProvider)
     {
-        super(settingsProvider);
-
-        this.genBiomes = BOPLayerUtil.createGenLayers(settingsProvider.getSeed(), settingsProvider.getGeneratorType(), settingsProvider.getGeneratorSettings())[0];
+        super(BOPClimates.getOverworldBiomes());
+        this.noiseBiomeLayer = BOPLayerUtil.createGenLayers(settingsProvider.getSeed(), settingsProvider.getGeneratorType(), settingsProvider.getGeneratorSettings())[0];
     }
 
     @Override
     public Biome getNoiseBiome(int x, int y, int z)
     {
-        return this.genBiomes.get(x, z);
+        return this.noiseBiomeLayer.get(x, z);
     }
 }
