@@ -15,6 +15,7 @@ import biomesoplenty.common.world.WorldTypeBOP;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
+import net.minecraft.entity.villager.IVillagerType;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
@@ -44,6 +45,7 @@ public class ModBiomes
     {
         worldType = new WorldTypeBOP();
         registerBiomeDictionaryTags();
+        registerVillagerTypes();
     }
 
     @SubscribeEvent
@@ -225,12 +227,39 @@ public class ModBiomes
         registerBiomeToDictionary(undergarden, Type.NETHER, Type.HOT);
         registerBiomeToDictionary(visceral_heap, Type.NETHER, Type.HOT);
     }
+
+    private static void registerVillagerTypes()
+    {
+        registerVillagerType(brushland, IVillagerType.SAVANNA);
+        registerVillagerType(cold_desert, IVillagerType.SNOW);
+        registerVillagerType(coniferous_forest, IVillagerType.TAIGA);
+        registerVillagerType(grassland, IVillagerType.PLAINS);
+        registerVillagerType(grove, IVillagerType.PLAINS);
+        registerVillagerType(maple_woods, IVillagerType.TAIGA);
+        registerVillagerType(meadow, IVillagerType.TAIGA);
+        registerVillagerType(outback, IVillagerType.SAVANNA);
+        registerVillagerType(prairie, IVillagerType.PLAINS);
+        registerVillagerType(scrubland, IVillagerType.SAVANNA);
+        registerVillagerType(shrubland, IVillagerType.PLAINS);
+        registerVillagerType(snowy_forest, IVillagerType.SNOW);
+        registerVillagerType(tundra, IVillagerType.TAIGA);
+        registerVillagerType(woodland, IVillagerType.PLAINS);
+        registerVillagerType(xeric_shrubland, IVillagerType.DESERT);
+    }
     
     private static void registerBiomeToDictionary(Optional<Biome> biome, Type...types)
     {
         if (biome.isPresent())
         {
             BiomeDictionary.addTypes(biome.get(), types);
+        }
+    }
+
+    private static void registerVillagerType(Optional<Biome> biome, IVillagerType type)
+    {
+        if (biome.isPresent())
+        {
+            IVillagerType.BY_BIOME.put(biome.get(), type);
         }
     }
 
