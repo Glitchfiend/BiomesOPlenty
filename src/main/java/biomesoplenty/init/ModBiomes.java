@@ -44,8 +44,6 @@ public class ModBiomes
     public static void setup()
     {
         worldType = new WorldTypeBOP();
-        registerBiomeDictionaryTags();
-        registerVillagerTypes();
     }
 
     @SubscribeEvent
@@ -151,6 +149,9 @@ public class ModBiomes
         registerIslandBiome(tropics, BOPClimates.SUBTROPICAL, 75);
         registerIslandBiome(tropics, BOPClimates.TROPICAL, 50);
         registerIslandBiome(tropics, BOPClimates.HOT_DESERT, 50);
+
+        registerBiomeDictionaryTags();
+        registerVillagerTypes();
     }
     
     private static void registerBiomeDictionaryTags()
