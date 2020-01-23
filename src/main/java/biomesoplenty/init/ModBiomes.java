@@ -91,6 +91,7 @@ public class ModBiomes
         outback = registerBiome(new OutbackBiome(), "outback");
         overgrown_cliffs = registerBiome(new OvergrownCliffsBiome(), "overgrown_cliffs");
         pasture = registerBiome(new PastureBiome(), "pasture");
+        poppy_field = registerBiome(new PoppyFieldBiome(), "poppy_field");
         prairie = registerBiome(new PrairieBiome(), "prairie");
         pumpkin_patch = registerBiome(new PumpkinPatchBiome(), "pumpkin_patch");
         rainbow_valley = registerBiome(new RainbowValleyBiome(), "rainbow_valley");
@@ -193,6 +194,7 @@ public class ModBiomes
         registerBiomeToDictionary(outback, Type.SANDY, Type.SAVANNA, Type.HOT, Type.DRY, Type.SPARSE);
         registerBiomeToDictionary(overgrown_cliffs, Type.MOUNTAIN, Type.HILLS, Type.LUSH, Type.JUNGLE, Type.DENSE, Type.HOT);
         registerBiomeToDictionary(pasture, Type.PLAINS, Type.DRY);
+        registerBiomeToDictionary(poppy_field, Type.PLAINS, Type.DRY, Type.LUSH, Type.SPARSE);
         registerBiomeToDictionary(prairie, Type.PLAINS, Type.DRY, Type.SPARSE);
         registerBiomeToDictionary(pumpkin_patch, Type.FOREST, Type.COLD, Type.DENSE);
         registerBiomeToDictionary(rainbow_valley, Type.WATER, Type.FOREST, Type.LUSH, Type.DENSE, Type.MAGICAL, Type.RARE);
@@ -267,6 +269,7 @@ public class ModBiomes
         registerVillagerType(outback, IVillagerType.SAVANNA);
         registerVillagerType(overgrown_cliffs, IVillagerType.JUNGLE);
         registerVillagerType(pasture, IVillagerType.PLAINS);
+        registerVillagerType(poppy_field, IVillagerType.PLAINS);
         registerVillagerType(prairie, IVillagerType.PLAINS);
         registerVillagerType(pumpkin_patch, IVillagerType.PLAINS);
         registerVillagerType(rainbow_valley, IVillagerType.PLAINS);

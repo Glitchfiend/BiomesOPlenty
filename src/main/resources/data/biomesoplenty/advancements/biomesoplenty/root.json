@@ -230,6 +230,12 @@
                 "biome": "biomesoplenty:pasture"
             }
         },
+        "poppy_field": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:poppy_field"
+            }
+        },
 		"prairie": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -461,6 +467,7 @@
 			"outback",
 			"overgrown_cliffs",
 			"pasture",
+			"poppy_field",
 			"prairie",
 			"pumpkin_patch",
 			"rainbow_valley",

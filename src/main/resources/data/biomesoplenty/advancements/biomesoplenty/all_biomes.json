@@ -231,6 +231,12 @@
                 "biome": "biomesoplenty:pasture"
             }
         },
+        "poppy_field": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:poppy_field"
+            }
+        },
 		"prairie": {
             "trigger": "minecraft:location",
             "conditions": {

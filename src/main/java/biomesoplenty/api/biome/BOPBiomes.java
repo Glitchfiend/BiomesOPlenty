@@ -49,6 +49,7 @@ public class BOPBiomes
     public static Optional<Biome> outback = Optional.empty();
     public static Optional<Biome> overgrown_cliffs = Optional.empty();
     public static Optional<Biome> pasture = Optional.empty();
+    public static Optional<Biome> poppy_field = Optional.empty();
     public static Optional<Biome> prairie = Optional.empty();
     public static Optional<Biome> pumpkin_patch = Optional.empty();
     public static Optional<Biome> rainbow_valley = Optional.empty();

@@ -166,6 +166,7 @@ public class BOPBiomeFeatures
 	public static final SurfaceBuilder<SurfaceBuilderConfig> VOLCANO_SURFACE_BUILDER = new VolcanoSurfaceBuilder(SurfaceBuilderConfig::deserialize);
 	public static final SurfaceBuilder<SurfaceBuilderConfig> VOLCANO_EDGE_SURFACE_BUILDER = new VolcanoEdgeSurfaceBuilder(SurfaceBuilderConfig::deserialize);
 	public static final SurfaceBuilder<SurfaceBuilderConfig> DEEP_TOP_LAYER = new DeepTopLayerSurfaceBuilder(SurfaceBuilderConfig::deserialize);
+	public static final SurfaceBuilder<SurfaceBuilderConfig> POPPY_FIELD_SURFACE_BUILDER = new PoppyFieldSurfaceBuilder(SurfaceBuilderConfig::deserialize);
 
 	public static final SurfaceBuilderConfig ASH_SURFACE = new SurfaceBuilderConfig(BOPBlocks.ash_block.defaultBlockState(), BOPBlocks.ash_block.defaultBlockState(), Blocks.GRAVEL.defaultBlockState());
 	public static final SurfaceBuilderConfig TERRACOTTA_SURFACE = new SurfaceBuilderConfig(Blocks.TERRACOTTA.defaultBlockState(), Blocks.TERRACOTTA.defaultBlockState(), Blocks.GRAVEL.defaultBlockState());
@@ -180,4 +181,5 @@ public class BOPBiomeFeatures
 	public static final FlowersFeature VIOLET_FEATURE = new VioletFeature();
 	public static final FlowersFeature ORANGE_COSMOS_FEATURE = new OrangeCosmosFeature();
 	public static final FlowersFeature WILDFLOWER_FEATURE = new WildflowerFeature();
+	public static final FlowersFeature POPPY_FEATURE = new PoppyFeature();
 }
