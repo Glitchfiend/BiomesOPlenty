@@ -2467,8 +2467,7 @@ func_175023_a,getBlockModelShaper,0,,net/minecraft/client/renderer/BlockRenderer
 func_175030_a,renderGuiItemDecorations,0,,net/minecraft/client/renderer/ItemRenderer
 func_175037_a,getItemModelShaper,0,,net/minecraft/client/renderer/ItemRenderer
 func_175042_a,renderGuiItem,0,,net/minecraft/client/renderer/ItemRenderer
-func_175050_a,isGui3d,0,,net/minecraft/client/renderer/ItemRenderer
-func_175063_a,drawShadow,0,Draws the specified string with a shadow.\n \n@param text displayed text\n@param x horizontal position on the screen\n@param y vertical position on the screen\n@param color Color of the string as an integer color code,net/minecraft/client/gui/FontRenderer
+func_175063_a,drawShadow,0,Draws the specified string with a shadow.,net/minecraft/client/gui/FontRenderer
 func_175066_a,checkEntityPostEffect,0,What shader to use when spectating this entity,net/minecraft/client/renderer/GameRenderer
 func_175069_a,loadEffect,0,,net/minecraft/client/renderer/GameRenderer
 func_175070_n,shouldRenderBlockOutline,0,,net/minecraft/client/renderer/GameRenderer
@@ -2499,11 +2498,8 @@ func_175102_a,getPlayerInfo,0,,net/minecraft/client/network/play/ClientPlayNetHa
 func_175104_a,getPlayerInfo,0,Gets the client's description information about another player on the server.,net/minecraft/client/network/play/ClientPlayNetHandler
 func_175105_e,getLocalGameProfile,0,,net/minecraft/client/network/play/ClientPlayNetHandler
 func_175106_d,getOnlinePlayers,0,,net/minecraft/client/network/play/ClientPlayNetHandler
-func_175109_g,createPatternList,2,Establishes all of the basic properties for the banner. This will also apply the data from the tile entities nbt tag compounds.,net/minecraft/tileentity/BannerTileEntity
-func_175110_d,getColors,2,Retrieves the list of colors for this tile entity. The banner data will be initialized/refreshed before this happens.,net/minecraft/tileentity/BannerTileEntity
 func_175113_c,getPatternCount,2,Retrieves the amount of patterns stored on an ItemStack. If the tag does not exist this value will be 0.,net/minecraft/tileentity/BannerTileEntity
 func_175114_c,getPatterns,2,Retrieves the list of patterns for this tile entity. The banner data will be initialized/refreshed before this happens.,net/minecraft/tileentity/BannerTileEntity
-func_175116_e,getTextureHashName,2,,net/minecraft/tileentity/BannerTileEntity
 func_175117_e,removeLastPattern,2,Removes all the banner related data from a provided instance of ItemStack.,net/minecraft/tileentity/BannerTileEntity
 func_175133_bi,removeEffectParticles,2,Resets the potion effect color and ambience metadata values,net/minecraft/entity/LivingEntity
 func_175134_bD,getJumpPower,2,,net/minecraft/entity/LivingEntity
@@ -3041,19 +3037,19 @@ func_176719_a,getName,2,Like getName but doesn't override the method from Enum.,
 func_176722_c,isHorizontal,2,If this Axis is on the horizontal plane (true for X and Z),net/minecraft/util/Direction$Axis
 func_176730_m,getNormal,2,Get a normalized Vector that points in the direction of this Facing.,net/minecraft/util/Direction
 func_176731_b,from2DDataValue,2,Gets the EnumFacing corresponding to the given horizontal index (0-3). Out of bounds values are wrapped around. The order is S-W-N-E.,net/minecraft/util/Direction
-func_176732_a,getClockWise,2,"Rotate this Facing around the given axis clockwise. If this facing cannot be rotated around the given axis, returns this facing without rotating.",net/minecraft/util/Direction
+func_176732_a,getClockWise,2,,net/minecraft/util/Direction
 func_176733_a,fromYRot,2,"Get the EnumFacing corresponding to the given angle in degrees (0-360). Out of bounds values are wrapped around. An angle of 0 is SOUTH, an angle of 90 would be WEST.",net/minecraft/util/Direction
 func_176734_d,getOpposite,2,Get the opposite Facing (e.g. DOWN => UP),net/minecraft/util/Direction
 func_176735_f,getCounterClockWise,2,Rotate this Facing around the Y axis counter-clockwise (NORTH => WEST => SOUTH => EAST => NORTH),net/minecraft/util/Direction
 func_176736_b,get2DDataValue,2,Get the index of this horizontal facing (0-3). The order is S-W-N-E,net/minecraft/util/Direction
 func_176737_a,getNearest,2,,net/minecraft/util/Direction
-func_176738_p,getClockWiseZ,2,Rotate this Facing around the Z axis (EAST => DOWN => WEST => UP => EAST),net/minecraft/util/Direction
+func_176738_p,getClockWiseZ,2,,net/minecraft/util/Direction
 func_176739_a,byName,2,Get the facing specified by the given name,net/minecraft/util/Direction
 func_176740_k,getAxis,2,,net/minecraft/util/Direction
 func_176741_a,getRandomFace,2,Choose a random Facing using the given Random,net/minecraft/util/Direction
 func_176742_j,getName,2,"Same as getName, but does not override the method from Enum.",net/minecraft/util/Direction
 func_176743_c,getAxisDirection,2,Get the AxisDirection of this Facing.,net/minecraft/util/Direction
-func_176744_n,getClockWiseX,2,Rotate this Facing around the X axis (NORTH => DOWN => SOUTH => UP => NORTH),net/minecraft/util/Direction
+func_176744_n,getClockWiseX,2,,net/minecraft/util/Direction
 func_176745_a,get3DDataValue,2,Get the Index of this Facing (0-5). The order is D-U-N-S-W-E,net/minecraft/util/Direction
 func_176746_e,getClockWise,2,Rotate this Facing around the Y axis clockwise (NORTH => EAST => SOUTH => WEST => NORTH),net/minecraft/util/Direction
 func_176762_d,getName,2,,net/minecraft/item/DyeColor
@@ -3328,13 +3324,13 @@ func_177972_a,relative,2,Offset this BlockPos 1 block in the given direction,net
 func_177973_b,subtract,2,Subtract the given Vector from this BlockPos,net/minecraft/util/math/BlockPos
 func_177974_f,east,2,Offset this BlockPos 1 block in eastern direction,net/minecraft/util/math/BlockPos
 func_177976_e,west,2,Offset this BlockPos 1 block in western direction,net/minecraft/util/math/BlockPos
-func_177977_b,below,2,Offset this BlockPos 1 block down,net/minecraft/util/math/BlockPos
-func_177977_b,below,2,Offset this BlockPos 1 block down,net/minecraft/util/math/BlockPos$Mutable
-func_177977_b,below,2,Offset this BlockPos 1 block down,net/minecraft/util/math/Vec3i
+func_177977_b,below,2,,net/minecraft/util/math/BlockPos
+func_177977_b,below,2,,net/minecraft/util/math/BlockPos$Mutable
+func_177977_b,below,2,,net/minecraft/util/math/Vec3i
 func_177978_c,north,2,Offset this BlockPos 1 block in northern direction,net/minecraft/util/math/BlockPos
-func_177979_c,below,2,Offset this BlockPos n blocks down,net/minecraft/util/math/BlockPos
-func_177979_c,below,2,Offset this BlockPos n blocks down,net/minecraft/util/math/BlockPos$Mutable
-func_177979_c,below,2,Offset this BlockPos n blocks down,net/minecraft/util/math/Vec3i
+func_177979_c,below,2,,net/minecraft/util/math/BlockPos
+func_177979_c,below,2,,net/minecraft/util/math/BlockPos$Mutable
+func_177979_c,below,2,,net/minecraft/util/math/Vec3i
 func_177981_b,above,2,Offset this BlockPos n blocks up,net/minecraft/util/math/BlockPos
 func_177982_a,offset,2,Add the given coordinates to the coordinates of this BlockPos,net/minecraft/util/math/BlockPos
 func_177982_a,offset,2,Add the given coordinates to the coordinates of this BlockPos,net/minecraft/util/math/BlockPos$Mutable
@@ -3390,7 +3386,6 @@ func_178304_d,isTextureReference,0,,net/minecraft/client/renderer/model/BlockMod
 func_178307_a,fromStream,0,,net/minecraft/client/renderer/model/BlockModel
 func_178309_b,hasAmbientOcclusion,0,,net/minecraft/client/renderer/model/BlockModel
 func_178310_f,getRootModel,0,,net/minecraft/client/renderer/model/BlockModel
-func_178311_c,isGui3d,0,,net/minecraft/client/renderer/model/BlockModel
 func_178325_a,getElements,0,,net/minecraft/client/renderer/model/BlockModel$Deserializer
 func_178326_c,getParentName,0,,net/minecraft/client/renderer/model/BlockModel$Deserializer
 func_178328_a,getAmbientOcclusion,0,,net/minecraft/client/renderer/model/BlockModel$Deserializer
@@ -3649,9 +3644,9 @@ func_179679_a,createPathFinder,2,,net/minecraft/pathfinding/PathNavigator
 func_179679_a,createPathFinder,2,,net/minecraft/pathfinding/SwimmerPathNavigator
 func_179679_a,createPathFinder,2,,net/minecraft/entity/passive/TurtleEntity$Navigator
 func_179679_a,createPathFinder,2,,net/minecraft/entity/monster/RavagerEntity$Navigator
-func_179680_a,createPath,2,Returns path to given BlockPos,net/minecraft/pathfinding/GroundPathNavigator
-func_179680_a,createPath,2,Returns path to given BlockPos,net/minecraft/pathfinding/PathNavigator
-func_179680_a,createPath,2,Returns path to given BlockPos,net/minecraft/pathfinding/ClimberPathNavigator
+func_179680_a,createPath,2,,net/minecraft/pathfinding/GroundPathNavigator
+func_179680_a,createPath,2,,net/minecraft/pathfinding/PathNavigator
+func_179680_a,createPath,2,,net/minecraft/pathfinding/ClimberPathNavigator
 func_179683_a,canWalkOn,2,"Returns true when an entity could stand at a position, including solid blocks under the entire entity.",net/minecraft/pathfinding/GroundPathNavigator
 func_179685_e,setAvoidSun,2,,net/minecraft/pathfinding/GroundPathNavigator
 func_179686_g,canOpenDoors,2,,net/minecraft/pathfinding/GroundPathNavigator
@@ -4101,7 +4096,7 @@ func_181545_F,getSeaLevel,2,,net/minecraft/world/IWorldReader
 func_181552_c,getSampleColor,0,,net/minecraft/client/gui/overlay/DebugOverlayGui
 func_181553_a,colorLerp,0,,net/minecraft/client/gui/overlay/DebugOverlayGui
 func_181558_a,startPlaying,0,Plays a music track for the maximum allowable period of time,net/minecraft/client/audio/MusicTicker
-func_181562_a,getRelativeFrom,0,"Returns RenderChunk offset from given RenderChunk in given direction, or null if it can't be seen by player at given BlockPos.",net/minecraft/client/renderer/WorldRenderer
+func_181562_a,getRelativeFrom,0,,net/minecraft/client/renderer/WorldRenderer
 func_181565_a,fillRect,0,Draw with the WorldRenderer,net/minecraft/client/renderer/ItemRenderer
 func_181623_g,isPossibleToRespawnInThis,2,Return true if an entity can be spawned inside the block (used to get the player's bed spawn location),net/minecraft/block/AbstractBannerBlock
 func_181623_g,isPossibleToRespawnInThis,2,Return true if an entity can be spawned inside the block (used to get the player's bed spawn location),net/minecraft/block/AbstractPressurePlateBlock
@@ -5903,8 +5898,8 @@ func_188511_a,getTargetSearchArea,2,,net/minecraft/entity/monster/ShulkerEntity$
 func_188511_a,getTargetSearchArea,2,,net/minecraft/entity/monster/ShulkerEntity$AttackNearestGoal
 func_188514_a,createSkeleton,2,,net/minecraft/entity/ai/goal/TriggerSkeletonTrapGoal
 func_188515_a,createHorse,2,,net/minecraft/entity/ai/goal/TriggerSkeletonTrapGoal
-func_188536_b,getVOffset,0,The opposite of getInterpolatedV. Takes the return value of that method and returns the input to it.,net/minecraft/client/renderer/texture/TextureAtlasSprite
-func_188537_a,getUOffset,0,The opposite of getInterpolatedU. Takes the return value of that method and returns the input to it.,net/minecraft/client/renderer/texture/TextureAtlasSprite
+func_188536_b,getVOffset,0,,net/minecraft/client/renderer/texture/TextureAtlasSprite
+func_188537_a,getUOffset,0,,net/minecraft/client/renderer/texture/TextureAtlasSprite
 func_188547_a,getFile,0,,net/minecraft/client/resources/ResourceIndex
 func_188547_a,getFile,0,,net/minecraft/client/resources/FolderResourceIndex
 func_188553_i,hasDelayedRecomputation,2,Returns true if path can be changed by {@link net.minecraft.pathfinding.PathNavigate#onUpdateNavigation() onUpdateNavigation()},net/minecraft/pathfinding/PathNavigator
@@ -6155,7 +6150,7 @@ func_189518_D_,getUpdatePacket,2,"Retrieves packet to send to the client wheneve
 func_189518_D_,getUpdatePacket,2,"Retrieves packet to send to the client whenever this Tile Entity is resynced via World.notifyBlockUpdate. For modded TE's, this packet comes back to you clientside in {@link #onDataPacket}",net/minecraft/tileentity/MobSpawnerTileEntity
 func_189518_D_,getUpdatePacket,2,"Retrieves packet to send to the client whenever this Tile Entity is resynced via World.notifyBlockUpdate. For modded TE's, this packet comes back to you clientside in {@link #onDataPacket}",net/minecraft/tileentity/StructureBlockTileEntity
 func_189518_D_,getUpdatePacket,2,"Retrieves packet to send to the client whenever this Tile Entity is resynced via World.notifyBlockUpdate. For modded TE's, this packet comes back to you clientside in {@link #onDataPacket}",net/minecraft/tileentity/EndGatewayTileEntity
-func_189529_a,setDetail,2,"Adds an additional section to this crash report category, resolved by calling the given callable.\n \nIf the given callable throws an exception, a detail containing that exception will be created instead.",net/minecraft/crash/CrashReportCategory
+func_189529_a,setDetail,2,,net/minecraft/crash/CrashReportCategory
 func_189530_b,save,2,,net/minecraft/world/spawner/AbstractSpawner
 func_189532_c,set,2,,net/minecraft/util/math/BlockPos$Mutable
 func_189532_c,set,2,,net/minecraft/util/math/BlockPos$PooledMutable
@@ -6710,7 +6705,7 @@ func_191957_ae,makeFlySound,2,,net/minecraft/entity/passive/BeeEntity
 func_191957_ae,makeFlySound,2,,net/minecraft/entity/passive/ParrotEntity
 func_191960_a,getLanguage,0,,net/minecraft/client/resources/LanguageManager
 func_191962_a,renderGuiItem,0,,net/minecraft/client/renderer/ItemRenderer
-func_191971_c,add,2,Adds the stack to the specified slot in the player's inventory. Returns {@code false} if it's not possible to place the entire stack in the inventory.\n \n@param slotIn The slot to insert the stack into. Use {@code -1} to use the an empty slot in the player inventory.,net/minecraft/entity/player/PlayerInventory
+func_191971_c,add,2,Adds the stack to the specified slot in the player's inventory. Returns {@code false} if it's not possible to place the entire stack in the inventory.,net/minecraft/entity/player/PlayerInventory
 func_191973_d,addResource,2,,net/minecraft/entity/player/PlayerInventory
 func_191975_a,placeItemBackInInventory,2,,net/minecraft/entity/player/PlayerInventory
 func_191979_s,getLevels,2,,net/minecraft/tileentity/BeaconTileEntity
@@ -7435,12 +7430,10 @@ func_194328_c,testClearGrid,2,Places the output of the recipe into the player's 
 func_194339_b,popPush,2,,net/minecraft/profiler/Profiler
 func_194339_b,popPush,2,,net/minecraft/profiler/DebugProfiler
 func_194339_b,popPush,2,,net/minecraft/profiler/EmptyProfiler
-func_194339_b,popPush,2,,net/minecraft/profiler/IResultableProfiler
 func_194339_b,popPush,2,,net/minecraft/profiler/IProfiler
 func_194340_a,push,2,,net/minecraft/profiler/Profiler
 func_194340_a,push,2,,net/minecraft/profiler/DebugProfiler
 func_194340_a,push,2,,net/minecraft/profiler/EmptyProfiler
-func_194340_a,push,2,,net/minecraft/profiler/IResultableProfiler
 func_194340_a,push,2,,net/minecraft/profiler/IProfiler
 func_194798_c,renderCrosshair,0,,net/minecraft/client/gui/IngameGui
 func_194799_o,renderVehicleHealth,0,,net/minecraft/client/gui/IngameGui
@@ -8637,10 +8630,10 @@ func_197321_c,serialize,2,,net/minecraft/command/arguments/ItemInput
 func_197325_c,getNbt,2,,net/minecraft/command/arguments/ItemParser
 func_197326_b,getItem,2,,net/minecraft/command/arguments/ItemParser
 func_197327_f,parse,2,,net/minecraft/command/arguments/ItemParser
-func_197328_b,suggestOpenNbt,2,Builds a list of suggestions based on item registry names.\n \n@param builder Builder to create list of suggestions,net/minecraft/command/arguments/ItemParser
-func_197329_a,fillSuggestions,2,Create a list of suggestions for the specified builder.\n \n@param builder Builder to create list of suggestions,net/minecraft/command/arguments/ItemParser
+func_197328_b,suggestOpenNbt,2,Builds a list of suggestions based on item registry names.,net/minecraft/command/arguments/ItemParser
+func_197329_a,fillSuggestions,2,Create a list of suggestions for the specified builder.,net/minecraft/command/arguments/ItemParser
 func_197330_e,readNbt,2,,net/minecraft/command/arguments/ItemParser
-func_197331_c,suggestItemIdOrTag,2,Builds a list of suggestions based on item tags (if the parser is set to allows tags) and item registry names.\n \n@param builder Builder to create list of suggestions,net/minecraft/command/arguments/ItemParser
+func_197331_c,suggestItemIdOrTag,2,Builds a list of suggestions based on item tags (if the parser is set to allows tags) and item registry names.,net/minecraft/command/arguments/ItemParser
 func_197332_d,readItem,2,,net/minecraft/command/arguments/ItemParser
 func_197340_a,findSingleEntity,2,,net/minecraft/command/arguments/EntitySelector
 func_197341_b,findEntities,2,,net/minecraft/command/arguments/EntitySelector
@@ -8648,7 +8641,7 @@ func_197342_d,findPlayers,2,,net/minecraft/command/arguments/EntitySelector
 func_197345_a,sortAndLimit,2,,net/minecraft/command/arguments/EntitySelector
 func_197346_a,getMaxResults,2,,net/minecraft/command/arguments/EntitySelector
 func_197347_c,findSinglePlayer,2,,net/minecraft/command/arguments/EntitySelector
-func_197348_a,addEntities,2,"Gets all entities matching this selector, and adds them to the passed list.",net/minecraft/command/arguments/EntitySelector
+func_197348_a,addEntities,2,,net/minecraft/command/arguments/EntitySelector
 func_197349_a,getPredicate,2,Returns a modified version of the predicate on this selector that also checks the AABB and distance.,net/minecraft/command/arguments/EntitySelector
 func_197350_a,joinNames,2,,net/minecraft/command/arguments/EntitySelector
 func_197351_b,includesEntities,2,,net/minecraft/command/arguments/EntitySelector
@@ -9104,7 +9097,7 @@ func_198712_b,getLength,2,,net/minecraft/command/impl/SpreadPlayersCommand$Posit
 func_198715_a,getNumberOfTeams,2,Gets the number of unique teams for the given list of entities.,net/minecraft/command/impl/SpreadPlayersCommand
 func_198716_a,register,2,,net/minecraft/command/impl/SpreadPlayersCommand
 func_198717_a,spreadPositions,2,,net/minecraft/command/impl/SpreadPlayersCommand
-func_198719_a,setPlayerPositions,2,"Actually spreads the target players. Positions is an array that has a length equal to the number of targets (if respectTeams is false) or else the number of teams (if it is true); if respectTeams is false, then each player gets its own index in positions, and if it's true, each team will get its own index into it as stored in a map.",net/minecraft/command/impl/SpreadPlayersCommand
+func_198719_a,setPlayerPositions,2,,net/minecraft/command/impl/SpreadPlayersCommand
 func_198720_a,createInitialPositions,2,,net/minecraft/command/impl/SpreadPlayersCommand
 func_198722_a,spreadPlayers,2,,net/minecraft/command/impl/SpreadPlayersCommand
 func_198725_a,register,2,,net/minecraft/command/impl/StopCommand
@@ -9136,7 +9129,7 @@ func_198823_a,register,2,,net/minecraft/command/impl/TimeCommand
 func_198824_c,queryTime,2,,net/minecraft/command/impl/TimeCommand
 func_198826_b,addTime,2,,net/minecraft/command/impl/TimeCommand
 func_198829_a,setTime,2,,net/minecraft/command/impl/TimeCommand
-func_198833_a,getDayTime,2,Returns the day time (time wrapped within a day),net/minecraft/command/impl/TimeCommand
+func_198833_a,getDayTime,2,,net/minecraft/command/impl/TimeCommand
 func_198839_a,register,2,,net/minecraft/command/impl/TitleCommand
 func_198840_a,clearTitle,2,,net/minecraft/command/impl/TitleCommand
 func_198844_b,resetTitle,2,,net/minecraft/command/impl/TitleCommand
@@ -9458,11 +9451,11 @@ func_199642_d,getCollections,0,,net/minecraft/client/util/ClientRecipeBook
 func_199644_c,setupCollections,0,,net/minecraft/client/util/ClientRecipeBook
 func_199681_a,createPlayer,0,,net/minecraft/client/multiplayer/PlayerController
 func_199683_a,netherBedExplosion,2,,net/minecraft/util/DamageSource
-func_199685_a_,contains,2,,net/minecraft/tags/BlockTags$Wrapper
-func_199685_a_,contains,2,,net/minecraft/tags/EntityTypeTags$Wrapper
-func_199685_a_,contains,2,,net/minecraft/tags/FluidTags$Wrapper
-func_199685_a_,contains,2,,net/minecraft/tags/ItemTags$Wrapper
-func_199685_a_,contains,2,,net/minecraft/tags/Tag
+func_199685_a_,contains,2,Returns true if this set contains the specified element.,net/minecraft/tags/BlockTags$Wrapper
+func_199685_a_,contains,2,Returns true if this set contains the specified element.,net/minecraft/tags/EntityTypeTags$Wrapper
+func_199685_a_,contains,2,Returns true if this set contains the specified element.,net/minecraft/tags/FluidTags$Wrapper
+func_199685_a_,contains,2,Returns true if this set contains the specified element.,net/minecraft/tags/ItemTags$Wrapper
+func_199685_a_,contains,2,Returns true if this set contains the specified element.,net/minecraft/tags/Tag
 func_199701_a_,spawnAtLocation,2,,net/minecraft/entity/Entity
 func_199702_a,spawnAtLocation,2,,net/minecraft/entity/Entity
 func_199703_a,spawnAtLocation,2,,net/minecraft/entity/Entity
@@ -9798,7 +9791,7 @@ func_200403_a,has,2,Creates a new {@link InventoryChangeTrigger} that checks for
 func_200404_a,buildShapelessRecipes,2,Registers all recipes to the given consumer.,net/minecraft/data/RecipeProvider
 func_200405_a,inventoryTrigger,2,Creates a new {@link InventoryChangeTrigger} that checks for a player having a certain item.,net/minecraft/data/RecipeProvider
 func_200407_a,insideOf,2,Creates a new {@link EnterBlockTrigger} for use with recipe unlock criteria.,net/minecraft/data/RecipeProvider
-func_200408_a,has,2,Creates a new {@link InventoryChangeTrigger} that checks for a player having a certain amount of an item.,net/minecraft/data/RecipeProvider
+func_200408_a,has,2,,net/minecraft/data/RecipeProvider
 func_200409_a,has,2,Creates a new {@link InventoryChangeTrigger} that checks for a player having an item within the given tag.,net/minecraft/data/RecipeProvider
 func_200417_a,getName,2,"Gets the name of the given NBT file, based on its path and the input directory. The result does not have the "".nbt"" extension.",net/minecraft/data/NBTToSNBTConverter
 func_200423_a,getName,2,"Gets the name of the given SNBT file, based on its path and the input directory. The result does not have the "".snbt"" extension.",net/minecraft/data/SNBTToNBTConverter
@@ -10237,7 +10230,7 @@ func_201866_a,addSpawn,2,,net/minecraft/world/biome/Biome
 func_201944_a,getEnchantment,2,,net/minecraft/command/arguments/EnchantmentArgument
 func_201945_a,enchantment,2,,net/minecraft/command/arguments/EnchantmentArgument
 func_201953_j,suggestTag,2,,net/minecraft/command/arguments/BlockStateParser
-func_201955_c,suggestTag,2,Builds a list of suggestions based on item tags.\n \n@param builder Builder to create list of suggestions,net/minecraft/command/arguments/ItemParser
+func_201955_c,suggestTag,2,Builds a list of suggestions based on item tags.,net/minecraft/command/arguments/ItemParser
 func_201958_j,setHasTeamNotEquals,2,,net/minecraft/command/arguments/EntitySelectorParser
 func_201959_d,suggestSelector,2,,net/minecraft/command/arguments/EntitySelectorParser
 func_201960_A,hasTeamEquals,2,,net/minecraft/command/arguments/EntitySelectorParser
@@ -12587,8 +12580,10 @@ func_213164_aw,scheduleExecutables,2,,net/minecraft/util/concurrent/ThreadTaskEx
 func_213164_aw,scheduleExecutables,2,,net/minecraft/util/concurrent/RecursiveEventLoop
 func_213164_aw,scheduleExecutables,2,,net/minecraft/server/MinecraftServer
 func_213165_a,submitAsync,2,,net/minecraft/util/concurrent/ThreadTaskExecutor
+func_213166_h,doRunTask,2,,net/minecraft/world/server/ServerChunkProvider$ChunkExecutor
 func_213166_h,doRunTask,2,,net/minecraft/util/concurrent/ThreadTaskExecutor
 func_213166_h,doRunTask,2,,net/minecraft/util/concurrent/RecursiveEventLoop
+func_213166_h,doRunTask,2,,net/minecraft/server/MinecraftServer
 func_213167_f,executeBlocking,2,,net/minecraft/util/concurrent/ThreadTaskExecutor
 func_213168_p,pollTask,2,,net/minecraft/world/server/ServerChunkProvider$ChunkExecutor
 func_213168_p,pollTask,2,,net/minecraft/util/concurrent/ThreadTaskExecutor
@@ -13451,7 +13446,7 @@ func_214197_f,keyUp,0,Called when the up directional arrow on the keyboard is pr
 func_214198_a,saveChanges,0,,net/minecraft/client/gui/screen/EditBookScreen
 func_214199_a,getNumPages,0,Returns the number of pages in the book,net/minecraft/client/gui/screen/EditBookScreen
 func_214200_d,keyLeft,0,Called when the left directional arrow on the keyboard is pressed,net/minecraft/client/gui/screen/EditBookScreen
-func_214202_k,insertText,0,Inserts text into the current page at the between selectionStart and selectionEnd (erasing any highlighted text)\n \n@param text The text to insert,net/minecraft/client/gui/screen/EditBookScreen
+func_214202_k,insertText,0,Inserts text into the current page at the between selectionStart and selectionEnd (erasing any highlighted text),net/minecraft/client/gui/screen/EditBookScreen
 func_214203_a,getIndexAtPosition,0,,net/minecraft/client/gui/screen/EditBookScreen
 func_214206_a,getWidthAt,0,,net/minecraft/client/gui/screen/EditBookScreen
 func_214207_b,keyBackspace,0,Called when backspace is pressed \nRemoves the character to the left of the cursor (or the entire selection),net/minecraft/client/gui/screen/EditBookScreen
@@ -13467,7 +13462,7 @@ func_214218_e,keyRight,0,Called when the right directional arrow on the keyboard
 func_214219_a,filterText,0,Returns a copy of the input string with character 127 (del) and character 167 (section sign) removed,net/minecraft/client/gui/screen/EditBookScreen
 func_214220_h,keyHome,0,Called when the home button on the keyboard is pressed,net/minecraft/client/gui/screen/EditBookScreen
 func_214221_c,keyDelete,0,Called when delete is pressed \nRemoves the character to the right of the cursor (or the entire selection),net/minecraft/client/gui/screen/EditBookScreen
-func_214222_m,renderSelection,0,Uses drawSelectionBox to draw one or more boxes behind any selected text\n \n@param pageText Text on the current page as a string,net/minecraft/client/gui/screen/EditBookScreen
+func_214222_m,renderSelection,0,Uses drawSelectionBox to draw one or more boxes behind any selected text,net/minecraft/client/gui/screen/EditBookScreen
 func_214223_a,renderHighlight,0,"Draws the blue text selection box, defined by the two point parameters",net/minecraft/client/gui/screen/EditBookScreen
 func_214224_c,convertLocalToScreen,0,,net/minecraft/client/gui/screen/EditBookScreen
 func_214225_l,strWidth,0,Returns the width of text,net/minecraft/client/gui/screen/EditBookScreen
@@ -13923,7 +13918,7 @@ func_215367_a,byKey,2,,net/minecraft/item/crafting/RecipeManager
 func_215369_c,getRemainingItemsFor,2,,net/minecraft/item/crafting/RecipeManager
 func_215370_b,getRecipesFor,2,,net/minecraft/item/crafting/RecipeManager
 func_215371_a,getRecipeFor,2,,net/minecraft/item/crafting/RecipeManager
-func_215377_a,fromJson,2,Deserializes a recipe object from json data.\n \n@param recipeId The identifier for the recipe being read.\n@param json The data from the json file.,net/minecraft/item/crafting/RecipeManager
+func_215377_a,fromJson,2,Deserializes a recipe object from json data.,net/minecraft/item/crafting/RecipeManager
 func_215378_c,getRecipeIds,2,,net/minecraft/item/crafting/RecipeManager
 func_215381_a,filterBlocks,2,,net/minecraft/world/gen/feature/template/Template
 func_215382_a,createEntityIgnoreException,2,,net/minecraft/world/gen/feature/template/Template
@@ -14492,7 +14487,7 @@ func_216399_b,cleanup,0,,net/minecraft/client/audio/SoundSystem$1
 func_216399_b,cleanup,0,,net/minecraft/client/audio/SoundSystem$IHandler
 func_216399_b,cleanup,0,,net/minecraft/client/audio/SoundSystem$HandlerImpl
 func_216402_d,getDebugString,0,,net/minecraft/client/audio/SoundSystem
-func_216403_a,acquireChannel,0,,net/minecraft/client/audio/SoundSystem
+func_216403_a,acquireChannel,0,Gets the source of a sound based on the mode,net/minecraft/client/audio/SoundSystem
 func_216404_a,init,0,,net/minecraft/client/audio/SoundSystem
 func_216405_e,getChannelCount,0,,net/minecraft/client/audio/SoundSystem
 func_216406_f,tryOpenDevice,0,,net/minecraft/client/audio/SoundSystem
@@ -14546,9 +14541,7 @@ func_216480_b,alcErrorToString,0,,net/minecraft/client/audio/ALUtils
 func_216481_a,checkALCError,0,,net/minecraft/client/audio/ALUtils
 func_216482_a,alErrorToString,0,,net/minecraft/client/audio/ALUtils
 func_216483_a,checkALError,0,,net/minecraft/client/audio/ALUtils
-func_216485_a,getStbttFontinfo,0,,net/minecraft/client/gui/fonts/providers/TrueTypeGlyphProvider
 func_216487_a,getClipboard,0,,net/minecraft/client/ClipboardHelper
-func_216488_a,setClipboard,0,,net/minecraft/client/ClipboardHelper
 func_216489_a,setClipboard,0,,net/minecraft/client/ClipboardHelper
 func_216491_a,resize,0,,net/minecraft/client/shader/Framebuffer
 func_216492_b,createBuffers,0,,net/minecraft/client/shader/Framebuffer
@@ -15951,7 +15944,6 @@ func_219894_a,startTick,2,,net/minecraft/profiler/IProfiler
 func_219895_b,popPush,2,,net/minecraft/profiler/Profiler
 func_219895_b,popPush,2,,net/minecraft/profiler/DebugProfiler
 func_219895_b,popPush,2,,net/minecraft/profiler/EmptyProfiler
-func_219895_b,popPush,2,,net/minecraft/profiler/IResultableProfiler
 func_219895_b,popPush,2,,net/minecraft/profiler/IProfiler
 func_219897_b,endTick,2,,net/minecraft/profiler/Profiler
 func_219897_b,endTick,2,,net/minecraft/profiler/DebugProfiler
@@ -16029,7 +16021,7 @@ func_219992_b,lockMap,2,,net/minecraft/item/FilledMapItem
 func_219993_a,makeKey,2,,net/minecraft/item/FilledMapItem
 func_219994_a,getSavedData,2,,net/minecraft/item/FilledMapItem
 func_219995_a,playSound,2,,net/minecraft/item/FireChargeItem
-func_219996_a,canUse,2,Checks if a position is valid for fire to be set.\n \n@param existingState The state that already exists at the position.\n@param worldIn The world instance.\n@param posIn The position being checked.,net/minecraft/item/FlintAndSteelItem
+func_219996_a,canUse,2,Checks if a position is valid for fire to be set.,net/minecraft/item/FlintAndSteelItem
 func_219997_a,canLightCampFire,2,"Checks the passed blockstate for a campfire block, if it is not waterlogged and not lit.",net/minecraft/item/FlintAndSteelItem
 func_220004_b,getAllSupportedProjectiles,2,"Get the predicate to match ammunition when searching the player's inventory, not their main/offhand",net/minecraft/item/BowItem
 func_220004_b,getAllSupportedProjectiles,2,"Get the predicate to match ammunition when searching the player's inventory, not their main/offhand",net/minecraft/item/CrossbowItem
@@ -16165,7 +16157,7 @@ func_220053_a,getShape,2,,net/minecraft/block/MovingPistonBlock
 func_220053_a,getShape,2,,net/minecraft/block/PistonBlock
 func_220053_a,getShape,2,,net/minecraft/block/PistonHeadBlock
 func_220054_a,dropResources,2,,net/minecraft/block/Block
-func_220055_a,canSupportCenter,2,,net/minecraft/block/Block
+func_220055_a,canSupportCenter,2,Returns true if the block can stay on position if attached to given side,net/minecraft/block/Block
 func_220056_d,isFaceSturdy,2,,net/minecraft/block/Block
 func_220059_a,dropResources,2,,net/minecraft/block/Block
 func_220062_a,spawnAfterBreak,2,"Perform side-effects from block dropping, such as creating silverfish",net/minecraft/block/Block
@@ -16173,7 +16165,7 @@ func_220062_a,spawnAfterBreak,2,"Perform side-effects from block dropping, such 
 func_220062_a,spawnAfterBreak,2,"Perform side-effects from block dropping, such as creating silverfish",net/minecraft/block/OreBlock
 func_220062_a,spawnAfterBreak,2,"Perform side-effects from block dropping, such as creating silverfish",net/minecraft/block/RedstoneOreBlock
 func_220062_a,spawnAfterBreak,2,"Perform side-effects from block dropping, such as creating silverfish",net/minecraft/block/SpawnerBlock
-func_220064_c,canSupportRigidBlock,2,,net/minecraft/block/Block
+func_220064_c,canSupportRigidBlock,2,Returns true if the block in given position has a solid top face,net/minecraft/block/Block
 func_220066_a,onProjectileHit,2,,net/minecraft/block/BellBlock
 func_220066_a,onProjectileHit,2,,net/minecraft/block/Block
 func_220066_a,onProjectileHit,2,,net/minecraft/block/CampfireBlock
@@ -16491,7 +16483,7 @@ func_220664_c,rotateHeadIfNecessary,2,,net/minecraft/entity/ai/controller/BodyCo
 func_220665_d,rotateHeadTowardsFront,2,,net/minecraft/entity/ai/controller/BodyController
 func_220673_a,canReach,2,,net/minecraft/entity/monster/GhastEntity$MoveHelperController
 func_220674_a,setLookAt,2,,net/minecraft/entity/ai/controller/LookController
-func_220675_a,rotateTowards,2,Rotate as much as possible from {@code from} to {@code to} within the bounds of {@code maxDelta}\n \n@param maxDelta Only rotate up to this many degrees,net/minecraft/entity/ai/controller/LookController
+func_220675_a,rotateTowards,2,Rotate as much as possible from {@code from} to {@code to} within the bounds of {@code maxDelta},net/minecraft/entity/ai/controller/LookController
 func_220676_b,getWantedY,2,,net/minecraft/entity/ai/controller/LookController
 func_220677_g,getXRotD,2,,net/minecraft/entity/ai/controller/LookController
 func_220678_h,getYRotD,2,,net/minecraft/entity/ai/controller/LookController
@@ -16848,7 +16840,7 @@ func_222147_a,register,2,,net/minecraft/item/crafting/IRecipeType
 func_222148_a,tryMatch,2,,net/minecraft/item/crafting/IRecipeType
 func_222156_a,register,2,,net/minecraft/item/crafting/IRecipeSerializer
 func_222181_a,getSlotItems,2,Gets map of all the entity's currently equipped gear that this enchantment can go on,net/minecraft/enchantment/Enchantment
-func_222189_b,getRandomItemWith,2,Gets an item with a specified enchantment from a living entity. If there are more than one valid items a random one will be returned.\n \n@param targetEnchantment The enchantment to search for.\n@param entityIn The entity to search the items of.,net/minecraft/enchantment/EnchantmentHelper
+func_222189_b,getRandomItemWith,2,Gets an item with a specified enchantment from a living entity. If there are more than one valid items a random one will be returned.,net/minecraft/enchantment/EnchantmentHelper
 func_222191_a,register,2,,net/minecraft/enchantment/Enchantments
 func_222196_a,writeToStream,2,,net/minecraft/item/MerchantOffers
 func_222197_a,getRecipeFor,2,,net/minecraft/item/MerchantOffers
@@ -17132,7 +17124,7 @@ func_222866_a,isTickingChunk,0,,net/minecraft/client/multiplayer/ClientChunkProv
 func_222869_l,clearCache,2,,net/minecraft/world/server/ServerChunkProvider
 func_222872_a,checkChunkFuture,2,,net/minecraft/world/server/ServerChunkProvider
 func_222879_B,unpackTicks,2,Reschedule all serialized scheduled ticks this chunk had,net/minecraft/world/chunk/Chunk
-func_222880_a,packTicks,2,Remove scheduled ticks belonging to this chunk from the world and keep it locally for incoming serialization,net/minecraft/world/chunk/Chunk
+func_222880_a,packTicks,2,,net/minecraft/world/chunk/Chunk
 func_222887_a,isVillage,2,,net/minecraft/world/server/ServerWorld
 func_222895_a,enable,0,,net/minecraft/client/renderer/BlockModelRenderer$Cache
 func_222897_b,disable,0,,net/minecraft/client/renderer/BlockModelRenderer$Cache
@@ -17289,8 +17281,8 @@ func_223459_a,isResourceUrlValid,2,,net/minecraft/resources/VanillaPack
 func_223461_a,value,2,,net/minecraft/util/LongSerializable
 func_223462_a,of,2,,net/minecraft/util/LongSerializable
 func_223463_a,of,2,,net/minecraft/util/LongSerializable
-func_223471_o,setX,2,Sets the X coordinate.\n \n@param xIn The X value to set.,net/minecraft/util/math/BlockPos$Mutable
-func_223472_q,setZ,2,Sets the Z coordinate.\n \n@param zIn The Z value to set.,net/minecraft/util/math/BlockPos$Mutable
+func_223471_o,setX,2,Sets the X coordinate.,net/minecraft/util/math/BlockPos$Mutable
+func_223472_q,setZ,2,Sets the Z coordinate.,net/minecraft/util/math/BlockPos$Mutable
 func_223473_e,getNextType,2,,net/minecraft/util/math/CubeCoordinateIterator
 func_223477_g,canRestock,2,,net/minecraft/network/play/server/SMerchantOffersPacket
 func_223481_a,visit,2,,net/minecraft/command/impl/GameRuleCommand$1
@@ -17461,11 +17453,9 @@ func_223941_d,shouldConfigureButtonBeVisible,0,,com/mojang/realmsclient/RealmsMa
 func_223942_f,newScreen,0,,com/mojang/realmsclient/RealmsMainScreen
 func_223944_n,pingRegions,0,,com/mojang/realmsclient/RealmsMainScreen
 func_223945_d,drawLeave,0,,com/mojang/realmsclient/RealmsMainScreen
-func_223948_g,closePopup,0,,com/mojang/realmsclient/RealmsMainScreen
 func_223949_z,saveListScrollPosition,0,,com/mojang/realmsclient/RealmsMainScreen
 func_223950_b,connectToServer,0,,com/mojang/realmsclient/RealmsMainScreen
 func_223952_o,getOwnedNonExpiredWorldIds,0,,com/mojang/realmsclient/RealmsMainScreen
-func_223954_a,setCreatedTrial,0,,com/mojang/realmsclient/RealmsMainScreen
 func_223955_A,onClosePopup,0,,com/mojang/realmsclient/RealmsMainScreen
 func_223959_e,shouldLeaveButtonBeVisible,0,,com/mojang/realmsclient/RealmsMainScreen
 func_223960_a,drawInvitationPendingIcon,0,,com/mojang/realmsclient/RealmsMainScreen
@@ -17525,8 +17515,6 @@ func_224164_f,drawProgressBar,0,,com/mojang/realmsclient/gui/screens/RealmsDownl
 func_224165_h,downloadSave,0,,com/mojang/realmsclient/gui/screens/RealmsDownloadLatestWorldScreen
 func_224167_a,setConfirmationId,0,,com/mojang/realmsclient/gui/screens/RealmsDownloadLatestWorldScreen
 func_224174_d,backButtonClicked,0,,com/mojang/realmsclient/gui/screens/RealmsDownloadLatestWorldScreen
-func_224202_a,createWorld,0,,com/mojang/realmsclient/gui/screens/RealmsCreateTrialScreen
-func_224203_b,valid,0,,com/mojang/realmsclient/gui/screens/RealmsCreateTrialScreen
 func_224209_a,showError,0,,com/mojang/realmsclient/gui/screens/RealmsInviteScreen
 func_224211_a,onInvite,0,,com/mojang/realmsclient/gui/screens/RealmsInviteScreen
 func_224224_a,errorMessage,0,,com/mojang/realmsclient/gui/screens/RealmsGenericErrorScreen
@@ -17751,7 +17739,6 @@ func_224932_f,close,0,,com/mojang/realmsclient/client/RealmsClient
 func_224933_g,subscriptionFor,0,,com/mojang/realmsclient/client/RealmsClient
 func_224934_h,upload,0,,com/mojang/realmsclient/client/RealmsClient
 func_224935_a,getOwnWorld,0,,com/mojang/realmsclient/client/RealmsClient
-func_224936_a,createTrial,0,,com/mojang/realmsclient/client/RealmsClient
 func_224937_l,agreeToTos,0,,com/mojang/realmsclient/client/RealmsClient
 func_224938_a,execute,0,,com/mojang/realmsclient/client/RealmsClient
 func_224939_i,clientCompatible,0,,com/mojang/realmsclient/client/RealmsClient
@@ -17999,7 +17986,6 @@ func_225509_J__,isPowered,2,,net/minecraft/entity/IChargeableMob
 func_225509_J__,isPowered,2,,net/minecraft/entity/boss/WitherEntity
 func_225509_J__,isPowered,2,,net/minecraft/entity/monster/CreeperEntity
 func_225510_bt_,isGlowing,2,,net/minecraft/entity/Entity
-func_225510_bt_,isGlowing,2,,net/minecraft/entity/item/ArmorStandEntity
 func_225510_bt_,isGlowing,0,,net/minecraft/client/entity/player/ClientPlayerEntity
 func_225511_J_,shouldDespawnInPeaceful,2,,net/minecraft/entity/MobEntity
 func_225511_J_,shouldDespawnInPeaceful,2,,net/minecraft/entity/monster/GhastEntity
@@ -18223,10 +18209,10 @@ func_225539_a_,acceptDouble,0,,net/minecraft/client/renderer/tileentity/DualBrig
 func_225541_a_,canBeReplaced,2,,net/minecraft/block/Block
 func_225541_a_,canBeReplaced,2,,net/minecraft/block/EndGatewayBlock
 func_225541_a_,canBeReplaced,2,,net/minecraft/block/EndPortalBlock
-func_225542_b_,randomTick,2,,net/minecraft/block/Block
-func_225542_b_,randomTick,2,,net/minecraft/block/LeavesBlock
-func_225542_b_,randomTick,2,,net/minecraft/block/FlowingFluidBlock
-func_225542_b_,randomTick,2,,net/minecraft/block/MagmaBlock
+func_225542_b_,randomTick,2,Performs a random tick on a block.,net/minecraft/block/Block
+func_225542_b_,randomTick,2,Performs a random tick on a block.,net/minecraft/block/LeavesBlock
+func_225542_b_,randomTick,2,Performs a random tick on a block.,net/minecraft/block/FlowingFluidBlock
+func_225542_b_,randomTick,2,Performs a random tick on a block.,net/minecraft/block/MagmaBlock
 func_225543_m_,emissiveRendering,2,,net/minecraft/block/Block
 func_225543_m_,emissiveRendering,2,,net/minecraft/block/MagmaBlock
 func_225544_a_,toJson,2,,net/minecraft/advancements/criterion/PlayerPredicate$CriteriaPredicate
@@ -18748,9 +18734,8 @@ func_225621_a_,setupRotations,0,,net/minecraft/client/renderer/entity/SquidRende
 func_225621_a_,setupRotations,0,,net/minecraft/client/renderer/entity/TropicalFishRenderer
 func_225621_a_,setupRotations,0,,net/minecraft/client/renderer/entity/ZombieVillagerRenderer
 func_225621_a_,setupRotations,0,,net/minecraft/client/renderer/entity/PlayerRenderer
-func_225622_a_,isVisible,0,,net/minecraft/client/renderer/entity/ArmorStandRenderer
-func_225622_a_,isVisible,0,,net/minecraft/client/renderer/entity/IllusionerRenderer
-func_225622_a_,isVisible,0,,net/minecraft/client/renderer/entity/LivingRenderer
+func_225622_a_,isBodyVisible,0,,net/minecraft/client/renderer/entity/IllusionerRenderer
+func_225622_a_,isBodyVisible,0,,net/minecraft/client/renderer/entity/LivingRenderer
 func_225623_a_,render,0,,net/minecraft/client/renderer/entity/ArrowRenderer
 func_225623_a_,render,0,,net/minecraft/client/renderer/entity/BoatRenderer
 func_225623_a_,render,0,,net/minecraft/client/renderer/entity/DragonFireballRenderer
@@ -19048,7 +19033,7 @@ func_226260_b_,increaseGroupSizeByOne,2,,net/minecraft/entity/AgeableEntity$Agea
 func_226261_c_,isShouldSpawnBaby,2,,net/minecraft/entity/AgeableEntity$AgeableData
 func_226262_d_,getBabySpawnChance,2,,net/minecraft/entity/AgeableEntity$AgeableData
 func_226263_P_,getTeamColor,2,,net/minecraft/entity/Entity
-func_226264_Z_,reapplyPosition,2,,net/minecraft/entity/Entity
+func_226264_Z_,reapplyPosition,2,Recomputes this entity's bounding box so that it is positioned at this entity's X/Y/Z.,net/minecraft/entity/Entity
 func_226265_a_,repositionDirectPassengers,2,,net/minecraft/entity/Entity
 func_226266_a_,positionRider,2,,net/minecraft/entity/Entity
 func_226268_ag_,getOnPos,2,,net/minecraft/entity/Entity
@@ -19069,9 +19054,9 @@ func_226282_d_,getRandomX,2,,net/minecraft/entity/Entity
 func_226283_e_,getY,2,,net/minecraft/entity/Entity
 func_226284_e_,setShiftKeyDown,2,,net/minecraft/entity/Entity
 func_226285_f_,getZ,2,,net/minecraft/entity/Entity
-func_226286_f_,setPosAndOldPos,2,,net/minecraft/entity/Entity
+func_226286_f_,setPosAndOldPos,2,"Like {@link #setRawPosition}, but also sets {@link #prevPosX}/Y/Z and {@link #lastTickPosX}/Y/Z. {@link #setLocationAndAngles} does the same thing, except it also updates the bounding box.",net/minecraft/entity/Entity
 func_226287_g_,getRandomZ,2,,net/minecraft/entity/Entity
-func_226288_n_,setPosRaw,2,,net/minecraft/entity/Entity
+func_226288_n_,setPosRaw,2,"Directly updates the {@link #posX}, {@link posY}, and {@link posZ} fields, without performing any collision checks, updating the bounding box position, or sending any packets. In general, this is not what you want and {@link #setPosition} is better, as that handles the bounding box.",net/minecraft/entity/Entity
 func_226292_a_,swing,2,,net/minecraft/entity/LivingEntity
 func_226293_b_,triggerItemUseEffects,2,,net/minecraft/entity/LivingEntity
 func_226294_cV_,dropExperience,2,,net/minecraft/entity/LivingEntity
@@ -19199,7 +19184,7 @@ func_226591_a_,setIdentity,2,,net/minecraft/client/renderer/Matrix4f
 func_226592_a_,multiply,2,,net/minecraft/client/renderer/Matrix4f
 func_226593_a_,createScaleMatrix,2,,net/minecraft/client/renderer/Matrix4f
 func_226594_a_,bufferIndex,0,,net/minecraft/client/renderer/Matrix4f
-func_226595_a_,multiply,2,,net/minecraft/client/renderer/Matrix4f
+func_226595_a_,multiply,2,Multiply self on the right by the parameter,net/minecraft/client/renderer/Matrix4f
 func_226596_a_,multiply,0,,net/minecraft/client/renderer/Matrix4f
 func_226597_a_,translate,0,,net/minecraft/client/renderer/Matrix4f
 func_226598_b_,adjugateAndDet,2,,net/minecraft/client/renderer/Matrix4f
@@ -19296,8 +19281,6 @@ func_226942_a_,advanceTree,2,,net/minecraft/block/SaplingBlock
 func_226944_c_,type,2,,net/minecraft/block/AbstractSignBlock
 func_226946_a_,bounceUp,2,,net/minecraft/block/SlimeBlock
 func_226950_a_,deserializeBlock,2,,net/minecraft/advancements/criterion/PlacedBlockTrigger
-func_226954_a_,setOnlyRenderPattern,2,,net/minecraft/tileentity/BannerTileEntity
-func_226955_h_,onlyRenderPattern,2,,net/minecraft/tileentity/BannerTileEntity
 func_226957_a_,location,2,,net/minecraft/tileentity/BannerPattern
 func_226961_a_,addOccupant,2,,net/minecraft/tileentity/BeehiveTileEntity
 func_226962_a_,addOccupantWithPresetTicks,2,,net/minecraft/tileentity/BeehiveTileEntity
@@ -20106,7 +20089,6 @@ func_228826_a_,fillVertex,0,,net/minecraft/client/renderer/model/FaceBakery
 func_228827_a_,bakeVertex,0,,net/minecraft/client/renderer/model/FaceBakery
 func_228830_a_,apply,0,,net/minecraft/client/renderer/model/ItemTransformVec3f
 func_228836_a_,makeFlag,0,,net/minecraft/client/renderer/tileentity/BannerTileEntityRenderer
-func_228837_a_,renderPatterns,0,,net/minecraft/client/renderer/tileentity/BannerTileEntityRenderer
 func_228838_a_,addVertex,0,,net/minecraft/client/renderer/tileentity/BeaconTileEntityRenderer
 func_228839_a_,renderQuad,0,,net/minecraft/client/renderer/tileentity/BeaconTileEntityRenderer
 func_228840_a_,renderPart,0,,net/minecraft/client/renderer/tileentity/BeaconTileEntityRenderer
@@ -20115,7 +20097,7 @@ func_228842_a_,renderBeaconBeam,0,,net/minecraft/client/renderer/tileentity/Beac
 func_228847_a_,renderPiece,0,,net/minecraft/client/renderer/tileentity/BedTileEntityRenderer
 func_228850_a_,render,0,,net/minecraft/client/renderer/tileentity/TileEntityRendererDispatcher
 func_228851_a_,renderItem,0,,net/minecraft/client/renderer/tileentity/TileEntityRendererDispatcher
-func_228852_a_,renderItem,0,,net/minecraft/client/renderer/tileentity/TileEntityRendererDispatcher
+func_228852_a_,renderItem,0,"Returns true if no renderer found, false if render completed",net/minecraft/client/renderer/tileentity/TileEntityRendererDispatcher
 func_228853_a_,tryRender,0,,net/minecraft/client/renderer/tileentity/TileEntityRendererDispatcher
 func_228854_a_,register,0,,net/minecraft/client/renderer/tileentity/TileEntityRendererDispatcher
 func_228855_a_,setupAndRender,0,,net/minecraft/client/renderer/tileentity/TileEntityRendererDispatcher
@@ -20533,6 +20515,68 @@ func_230023_a_,drawChart,0,,net/minecraft/client/gui/overlay/DebugOverlayGui
 func_230024_c_,drawGameInformation,0,,net/minecraft/client/gui/overlay/DebugOverlayGui
 func_230025_d_,drawSystemInformation,0,,net/minecraft/client/gui/overlay/DebugOverlayGui
 func_230028_a,getPack,2,,net/minecraft/resources/SimpleReloadableResourceManager$FailedPackException
+func_230035_c_,incrementCounter,2,,net/minecraft/profiler/Profiler
+func_230035_c_,incrementCounter,2,,net/minecraft/profiler/DebugProfiler
+func_230035_c_,incrementCounter,2,,net/minecraft/profiler/EmptyProfiler
+func_230035_c_,incrementCounter,2,,net/minecraft/profiler/IProfiler
+func_230036_c_,incrementCounter,2,,net/minecraft/profiler/Profiler
+func_230036_c_,incrementCounter,2,,net/minecraft/profiler/DebugProfiler
+func_230036_c_,incrementCounter,2,,net/minecraft/profiler/EmptyProfiler
+func_230036_c_,incrementCounter,2,,net/minecraft/profiler/IProfiler
+func_230037_a_,getDuration,2,,net/minecraft/profiler/Profiler$Section
+func_230037_a_,getDuration,2,,net/minecraft/profiler/FilledProfileResult$1
+func_230037_a_,getDuration,2,,net/minecraft/profiler/IProfilerSection
+func_230038_b_,getCount,2,,net/minecraft/profiler/Profiler$Section
+func_230038_b_,getCount,2,,net/minecraft/profiler/FilledProfileResult$1
+func_230038_b_,getCount,2,,net/minecraft/profiler/IProfilerSection
+func_230039_c_,getCounters,2,,net/minecraft/profiler/Profiler$Section
+func_230039_c_,getCounters,2,,net/minecraft/profiler/FilledProfileResult$1
+func_230039_c_,getCounters,2,,net/minecraft/profiler/IProfilerSection
+func_230041_s_,isOutline,0,,net/minecraft/client/renderer/RenderType
+func_230041_s_,isOutline,0,,net/minecraft/client/renderer/RenderType$Type
+func_230042_a_,getRenderType,0,,net/minecraft/client/renderer/entity/ArmorStandRenderer
+func_230042_a_,getRenderType,0,,net/minecraft/client/renderer/entity/LivingRenderer
+func_230044_c_,usesBlockLight,0,,net/minecraft/client/renderer/model/IBakedModel
+func_230044_c_,usesBlockLight,0,,net/minecraft/client/renderer/model/BuiltInModel
+func_230044_c_,usesBlockLight,0,,net/minecraft/client/renderer/model/MultipartBakedModel
+func_230044_c_,usesBlockLight,0,,net/minecraft/client/renderer/model/SimpleBakedModel
+func_230044_c_,usesBlockLight,0,,net/minecraft/client/renderer/model/WeightedBakedModel
+func_230045_q_,getModdedStatus,2,,net/minecraft/server/dedicated/DedicatedServer
+func_230045_q_,getModdedStatus,0,,net/minecraft/server/integrated/IntegratedServer
+func_230045_q_,getModdedStatus,2,,net/minecraft/server/MinecraftServer
+func_230081_e_,getCurrentEntry,2,,net/minecraft/profiler/Profiler
+func_230095_a_,appendCounterResults,2,,net/minecraft/profiler/FilledProfileResult
+func_230097_a_,isDirectChild,2,,net/minecraft/profiler/FilledProfileResult
+func_230098_a_,indentLine,2,,net/minecraft/profiler/FilledProfileResult
+func_230102_a_,appendCounters,2,,net/minecraft/profiler/FilledProfileResult
+func_230104_c_,getEntry,2,,net/minecraft/profiler/FilledProfileResult
+func_230106_h_,getCounterValues,2,,net/minecraft/profiler/FilledProfileResult
+func_230112_a_,addValue,2,,net/minecraft/profiler/FilledProfileResult$Section
+func_230116_a_,loadSpecifiedEffect,2,,net/minecraft/potion/EffectInstance
+func_230117_a_,setDetailsFrom,2,,net/minecraft/potion/EffectInstance
+func_230119_c_,writeDetailsTo,2,,net/minecraft/potion/EffectInstance
+func_230126_g_,isReachableBedBlock,2,,net/minecraft/entity/player/PlayerEntity
+func_230137_b_,shouldSolidify,2,,net/minecraft/block/ConcretePowderBlock
+func_230138_a_,createPatterns,2,,net/minecraft/tileentity/BannerTileEntity
+func_230139_a_,getItemPatterns,2,,net/minecraft/tileentity/BannerTileEntity
+func_230140_a_,hasFlowers,2,,net/minecraft/block/trees/Tree
+func_230145_a_,setModdedInfo,2,,net/minecraft/world/storage/WorldInfo
+func_230147_a_,pushClipboard,0,,net/minecraft/client/ClipboardHelper
+func_230148_b_,setTitle,0,,net/minecraft/client/MainWindow
+func_230149_ax_,createTitle,0,,net/minecraft/client/Minecraft
+func_230150_b_,updateTitle,0,,net/minecraft/client/Minecraft
+func_230151_c_,isProbablyModded,0,,net/minecraft/client/Minecraft
+func_230154_b_,closeProviders,0,,net/minecraft/client/gui/fonts/Font
+func_230167_a_,entityCutoutNoCull,0,,net/minecraft/client/renderer/RenderType
+func_230168_b_,entityTranslucent,0,,net/minecraft/client/renderer/RenderType
+func_230169_u_,asOptional,0,,net/minecraft/client/renderer/RenderType
+func_230173_a_,createCompositeState,0,,net/minecraft/client/renderer/RenderType$State$Builder
+func_230176_c_,getGuiLight,0,,net/minecraft/client/renderer/model/BlockModel
+func_230178_a_,lightLikeBlock,0,,net/minecraft/client/renderer/model/BlockModel$GuiLight
+func_230179_a_,getByName,0,,net/minecraft/client/renderer/model/BlockModel$GuiLight
+func_230180_a_,renderPatterns,0,,net/minecraft/client/renderer/tileentity/BannerTileEntityRenderer
+func_230183_b_,loadTexture,0,,net/minecraft/client/renderer/texture/TextureManager
+func_230188_h_,preload,2,,net/minecraft/crash/CrashReport
 func_70000_a,populateSnooper,2,,net/minecraft/server/dedicated/DedicatedServer
 func_70000_a,populateSnooper,2,,net/minecraft/profiler/ISnooperInfo
 func_70000_a,populateSnooper,0,,net/minecraft/client/Minecraft
@@ -21670,7 +21714,7 @@ func_71215_F,getPort,0,Gets serverPort.,net/minecraft/server/integrated/Integrat
 func_71215_F,getPort,2,Gets serverPort.,net/minecraft/server/MinecraftServer
 func_71217_p,tickServer,0,Main function called by run() every loop.,net/minecraft/server/integrated/IntegratedServer
 func_71217_p,tickServer,2,Main function called by run() every loop.,net/minecraft/server/MinecraftServer
-func_71218_a,getLevel,2,Gets the worldServer by the given dimension.,net/minecraft/server/MinecraftServer
+func_71218_a,getLevel,2,,net/minecraft/server/MinecraftServer
 func_71219_W,isPvpAllowed,2,,net/minecraft/server/MinecraftServer
 func_71220_V,isNpcsEnabled,2,,net/minecraft/server/MinecraftServer
 func_71221_J,getLevelName,2,,net/minecraft/server/MinecraftServer
@@ -21787,7 +21831,7 @@ func_71503_h,getErrorComment,2,Gets a random witty comment for inclusion in this
 func_71504_g,initDetails,2,Populates this crash report with initial information about the running server and operating system / java environment,net/minecraft/crash/CrashReport
 func_71505_b,getException,2,Returns the Throwable object that is the cause for the crash and Crash Report.,net/minecraft/crash/CrashReport
 func_71506_a,getDetails,2,Gets the various sections of the crash report into the given StringBuilder,net/minecraft/crash/CrashReport
-func_71507_a,setDetail,2,Adds a Crashreport section with the given name with the given value (convered .toString()),net/minecraft/crash/CrashReportCategory
+func_71507_a,setDetail,2,,net/minecraft/crash/CrashReportCategory
 func_71565_a,filterText,2,"Filter a string, keeping only characters for which {@link #isAllowedCharacter(char)} returns true.\n \nNote that this method strips line breaks, as {@link #isAllowedCharacter(char)} returns false for those.\n@return A filtered version of the input string",net/minecraft/util/SharedConstants
 func_71566_a,isAllowedChatCharacter,2,Checks if the given character is allowed to be put into chat.,net/minecraft/util/SharedConstants
 func_71575_a,getReport,2,Gets the CrashReport wrapped by this exception.,net/minecraft/crash/ReportedException
@@ -21798,7 +21842,7 @@ func_72320_b,getSize,2,Returns the average length of the edges of the bounding b
 func_72321_a,expandTowards,2,"Creates a new {@link AxisAlignedBB} that has been expanded by the given amount, with positive changes increasing max values and negative changes decreasing min values.\n\n<h3>Samples:</h3>\n<table>\n<tr><th>Input</th><th>Result</th></tr>\n<tr><td><pre><code>new AxisAlignedBB(0, 0, 0, 1, 1, 1).expand(2, 2, 2)</code></pre></td><td><pre><samp>box[0, 0, 0 -> 3, 3, 3]</samp></pre></td><td>\n<tr><td><pre><code>new AxisAlignedBB(0, 0, 0, 1, 1, 1).expand(-2, -2, -2)</code></pre></td><td><pre><samp>box[-2, -2, -2 -> 1, 1, 1]</samp></pre></td><td>\n<tr><td><pre><code>new AxisAlignedBB(5, 5, 5, 7, 7, 7).expand(0, 1, -1)</code></pre></td><td><pre><samp>box[5, 5, 4, 7, 8, 7]</samp></pre></td><td>\n</table>\n\n<h3>See Also:</h3>\n<ul>\n<li>{@link #contract(double, double, double)} - like this, except for shrinking.</li>\n<li>{@link #grow(double, double, double)} and {@link #grow(double)} - expands in all directions.</li>\n<li>{@link #shrink(double)} - contracts in all directions (like {@link #grow(double)})</li>\n</ul>\n\n@return A modified bounding box that will always be equal or greater in volume to this bounding box.",net/minecraft/util/math/AxisAlignedBB
 func_72326_a,intersects,2,Checks if the bounding box intersects with another.,net/minecraft/util/math/AxisAlignedBB
 func_72352_l,getMaxPlayers,2,Returns the maximum number of players allowed on the server.,net/minecraft/server/management/PlayerList
-func_72354_b,sendLevelInfo,2,Updates the time and weather for the given player to those of the given world,net/minecraft/server/management/PlayerList
+func_72354_b,sendLevelInfo,2,,net/minecraft/server/management/PlayerList
 func_72355_a,placeNewPlayer,2,,net/minecraft/server/management/PlayerList
 func_72363_f,getIpBans,2,,net/minecraft/server/management/PlayerList
 func_72365_p,getServer,2,,net/minecraft/server/dedicated/DedicatedPlayerList
@@ -21947,7 +21991,7 @@ func_73075_a,tick,2,,net/minecraft/server/management/DemoPlayerInteractionManage
 func_73075_a,tick,2,,net/minecraft/server/management/PlayerInteractionManager
 func_73076_a,setGameModeForPlayer,2,,net/minecraft/server/management/PlayerInteractionManager
 func_73077_b,updateGameMode,2,if the gameType is currently NOT_SET then change it to par1,net/minecraft/server/management/PlayerInteractionManager
-func_73080_a,setLevel,2,Sets the world instance.,net/minecraft/server/management/PlayerInteractionManager
+func_73080_a,setLevel,2,,net/minecraft/server/management/PlayerInteractionManager
 func_73081_b,getGameModeForPlayer,2,,net/minecraft/server/management/PlayerInteractionManager
 func_73083_d,isCreative,2,Get if we are in creative game mode.,net/minecraft/server/management/PlayerInteractionManager
 func_73101_e,outputDemoReminder,2,Sends a message to the player reminding them that this is the demo version,net/minecraft/server/management/DemoPlayerInteractionManager
@@ -22092,7 +22136,7 @@ func_74797_a,read,2,,net/minecraft/nbt/CompressedStreamTools
 func_74799_a,writeCompressed,2,"Write the compound, gzipped, to the outputstream.",net/minecraft/nbt/CompressedStreamTools
 func_74800_a,write,2,,net/minecraft/nbt/CompressedStreamTools
 func_74805_b,getElement,2,Translate a key to current language.,net/minecraft/util/text/LanguageMap
-func_74808_a,getInstance,2,Return the StringTranslate singleton instance,net/minecraft/util/text/LanguageMap
+func_74808_a,getInstance,2,,net/minecraft/util/text/LanguageMap
 func_74860_a,edgesLiquid,2,checks the entire StructureBoundingBox for Liquids,net/minecraft/world/gen/feature/structure/StructurePiece
 func_74861_a,addChildren,2,"Initiates construction of the Structure Component picked, at the current Location of StructGen",net/minecraft/world/gen/feature/structure/MineshaftPieces$Corridor
 func_74861_a,addChildren,2,"Initiates construction of the Structure Component picked, at the current Location of StructGen",net/minecraft/world/gen/feature/structure/MineshaftPieces$Cross
@@ -22861,10 +22905,10 @@ func_75493_a,canMoveDirectly,2,Checks if the specified entity can safely walk to
 func_75493_a,canMoveDirectly,2,Checks if the specified entity can safely walk to the specified location.,net/minecraft/pathfinding/GroundPathNavigator
 func_75493_a,canMoveDirectly,2,Checks if the specified entity can safely walk to the specified location.,net/minecraft/pathfinding/PathNavigator
 func_75493_a,canMoveDirectly,2,Checks if the specified entity can safely walk to the specified location.,net/minecraft/pathfinding/SwimmerPathNavigator
-func_75494_a,createPath,2,Returns the path to the given EntityLiving. Args : entity,net/minecraft/pathfinding/FlyingPathNavigator
-func_75494_a,createPath,2,Returns the path to the given EntityLiving. Args : entity,net/minecraft/pathfinding/GroundPathNavigator
-func_75494_a,createPath,2,Returns the path to the given EntityLiving. Args : entity,net/minecraft/pathfinding/PathNavigator
-func_75494_a,createPath,2,Returns the path to the given EntityLiving. Args : entity,net/minecraft/pathfinding/ClimberPathNavigator
+func_75494_a,createPath,2,,net/minecraft/pathfinding/FlyingPathNavigator
+func_75494_a,createPath,2,,net/minecraft/pathfinding/GroundPathNavigator
+func_75494_a,createPath,2,,net/minecraft/pathfinding/PathNavigator
+func_75494_a,createPath,2,,net/minecraft/pathfinding/ClimberPathNavigator
 func_75497_a,moveTo,2,"Try to find and set a path to EntityLiving. Returns true if successful. Args : entity, speed",net/minecraft/pathfinding/PathNavigator
 func_75497_a,moveTo,2,"Try to find and set a path to EntityLiving. Returns true if successful. Args : entity, speed",net/minecraft/pathfinding/ClimberPathNavigator
 func_75499_g,stop,2,sets active PathEntity to null,net/minecraft/pathfinding/PathNavigator
@@ -23092,12 +23136,10 @@ func_76316_a,containerChanged,2,Called by InventoryBasic.onInventoryChanged() on
 func_76319_b,pop,2,End section,net/minecraft/profiler/Profiler
 func_76319_b,pop,2,End section,net/minecraft/profiler/DebugProfiler
 func_76319_b,pop,2,End section,net/minecraft/profiler/EmptyProfiler
-func_76319_b,pop,2,End section,net/minecraft/profiler/IResultableProfiler
 func_76319_b,pop,2,End section,net/minecraft/profiler/IProfiler
 func_76320_a,push,2,Start section,net/minecraft/profiler/Profiler
 func_76320_a,push,2,Start section,net/minecraft/profiler/DebugProfiler
 func_76320_a,push,2,Start section,net/minecraft/profiler/EmptyProfiler
-func_76320_a,push,2,Start section,net/minecraft/profiler/IResultableProfiler
 func_76320_a,push,2,Start section,net/minecraft/profiler/IProfiler
 func_76337_a,formatTickDuration,2,"Returns the time elapsed for the given number of ticks, in ""mm:ss"" format.",net/minecraft/util/StringUtils
 func_76338_a,stripColor,2,,net/minecraft/util/StringUtils
@@ -23638,8 +23680,8 @@ func_78765_e,tick,0,,net/minecraft/client/multiplayer/PlayerController
 func_78766_c,releaseUsingItem,0,,net/minecraft/client/multiplayer/PlayerController
 func_78767_c,stopDestroyBlock,0,Resets current block damage,net/minecraft/client/multiplayer/PlayerController
 func_78784_a,texOffs,0,,net/minecraft/client/renderer/model/ModelRenderer
-func_78787_b,setTexSize,0,Returns the model renderer with the new texture parameters.,net/minecraft/client/renderer/model/ModelRenderer
-func_78792_a,addChild,0,Sets the current box's rotation points and rotation angles to another box.,net/minecraft/client/renderer/model/ModelRenderer
+func_78787_b,setTexSize,0,,net/minecraft/client/renderer/model/ModelRenderer
+func_78792_a,addChild,0,,net/minecraft/client/renderer/model/ModelRenderer
 func_78793_a,setPos,0,,net/minecraft/client/renderer/model/ModelRenderer
 func_78822_a,doPlace,2,,net/minecraft/world/gen/feature/structure/FortressPieces$PieceWeight
 func_78823_a,isValid,2,,net/minecraft/world/gen/feature/structure/FortressPieces$PieceWeight
@@ -23898,6 +23940,7 @@ func_82879_c,broadcastOptions,0,Send a client info packet with settings informat
 func_85029_a,fillCrashReportCategory,2,,net/minecraft/entity/Entity
 func_85029_a,fillCrashReportCategory,2,,net/minecraft/entity/item/FallingBlockEntity
 func_85031_j,skipAttackInteraction,2,Called when a player attacks an entity. If this returns true the attack will not happen.,net/minecraft/entity/Entity
+func_85031_j,skipAttackInteraction,2,Called when a player attacks an entity. If this returns true the attack will not happen.,net/minecraft/entity/item/ArmorStandEntity
 func_85031_j,skipAttackInteraction,2,Called when a player attacks an entity. If this returns true the attack will not happen.,net/minecraft/entity/item/HangingEntity
 func_85033_bc,pushEntities,2,,net/minecraft/entity/LivingEntity
 func_85033_bc,pushEntities,2,,net/minecraft/entity/passive/BatEntity

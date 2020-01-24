@@ -23,7 +23,7 @@ public abstract class TreeDefaultConfig extends Tree
 {
     @Override
     @Nullable
-    protected ConfiguredFeature<TreeFeatureConfig, ?> getConfiguredFeature(Random random)
+    protected ConfiguredFeature<TreeFeatureConfig, ?> getConfiguredFeature(Random random, boolean hasFlowers)
     {
         return null;
     }

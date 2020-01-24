@@ -23,7 +23,7 @@ public abstract class BigTreeDefaultConfig extends BigTree
 {
     @Override
     @Nullable
-    protected ConfiguredFeature<TreeFeatureConfig, ?> getConfiguredFeature(Random random)
+    protected ConfiguredFeature<TreeFeatureConfig, ?> getConfiguredFeature(Random random, boolean hasFlowers)
     {
         return null;
     }
