@@ -3,8 +3,10 @@
   "advancements.biomesoplenty.root.description": "Verken de wereld om je heen",
   "advancements.biomesoplenty.all_biomes.title": "Zwerver",
   "advancements.biomesoplenty.all_biomes.description": "Ontdek elk klimaat in Biomes O' Plenty",
+  
   "generator.biomesoplenty": "Biomes O' Plenty",
   "itemGroup.biomesoplenty": "Biomes O' Plenty",
+  
   "biome.biomesoplenty.alps": "Alpen",
   "biome.biomesoplenty.alps_foothills": "Alpen voorgebergte",
   "biome.biomesoplenty.ashen_inferno": "Essen Inferno",
@@ -44,6 +46,7 @@
   "biome.biomesoplenty.outback": "Binnenland",
   "biome.biomesoplenty.overgrown_cliffs": "Overwoekerde kliffen",
   "biome.biomesoplenty.pasture": "Weide",
+  "biome.biomesoplenty.poppy_field": "Klaproosveld",
   "biome.biomesoplenty.prairie": "Prairie",
   "biome.biomesoplenty.pumpkin_patch": "Pompoen patch",
   "biome.biomesoplenty.rainbow_valley": "Regenboog vallei",
@@ -84,11 +87,13 @@
   "item.biomesoplenty.mud_brick": "Modderbaksteen",
   "item.biomesoplenty.mud_ball": "Modderbal",
   "item.biomesoplenty.music_disc_wanderer": "Muziekschijf",
+  
   "item.biomesoplenty.music_disc_wanderer.desc": "Tim Rurkowski - Wanderer",
   "item.biomesoplenty.palm_boat": "Palmboot",
   "item.biomesoplenty.redwood_boat": "Redwood boot",
   "item.biomesoplenty.umbran_boat": "Umbran boot",
   "item.biomesoplenty.willow_boat": "Wilg boot",
+  
   "block.biomesoplenty.ash_block": "Asblok",
   "block.biomesoplenty.barley": "Gerst",
   "block.biomesoplenty.blue_hydrangea": "Blauwe hortensia",
@@ -367,8 +372,10 @@
   "block.biomesoplenty.wilted_lily": "Veldbloem lelie",
   "block.biomesoplenty.yellow_autumn_leaves": "Gele herfstbladeren",
   "block.biomesoplenty.yellow_autumn_sapling": "Geel herfst boompje",
+  
   "argument.biomesoplenty.biome.invalid": "Ongeldig klimaatargument",
   "commands.biomesoplenty.tpbiome.success": "Geteleporteerd %s naar klimaat %s bij (%s, %s, %s)",
   "commands.biomesoplenty.tpbiome.error": "Kon klimaat niet vinden %s!",
+  
   "entity.biomesoplenty.boat_bop": "Boot"
 }
