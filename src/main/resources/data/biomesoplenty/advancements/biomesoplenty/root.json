@@ -98,6 +98,12 @@
                 "biome": "biomesoplenty:flower_meadow"
             }
         },
+		"ghost_forest": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:ghost_forest"
+            }
+        },
 		"grassland": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -445,6 +451,7 @@
 			"fir_clearing",
 			"floodplain",
 			"flower_meadow",
+			"ghost_forest",
 			"grassland",
 			"gravel_beach",
 			"grove",

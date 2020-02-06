@@ -72,6 +72,7 @@ public class ModBiomes
         fir_clearing = registerBiome(new FirClearingBiome(), "fir_clearing");
         floodplain = registerBiome(new FloodplainBiome(), "floodplain");
         flower_meadow = registerBiome(new FlowerMeadowBiome(), "flower_meadow");
+        ghost_forest = registerBiome(new GhostForestBiome(), "ghost_forest");
         grassland = registerBiome(new GrasslandBiome(), "grassland");
         grove = registerBiome(new GroveBiome(), "grove");
         orchard = registerBiome(new OrchardBiome(), "orchard");
@@ -172,6 +173,7 @@ public class ModBiomes
         registerBiomeToDictionary(fir_clearing, Type.CONIFEROUS, Type.FOREST, Type.COLD, Type.SPARSE);
         registerBiomeToDictionary(floodplain, Type.JUNGLE, Type.WATER, Type.HOT, Type.WET);
         registerBiomeToDictionary(flower_meadow, Type.PLAINS, Type.LUSH);
+        registerBiomeToDictionary(ghost_forest, Type.FOREST, Type.SWAMP, Type.DEAD, Type.WET, Type.DENSE);
         registerBiomeToDictionary(grassland, Type.PLAINS, Type.HILLS, Type.WET);
         registerBiomeToDictionary(gravel_beach, Type.BEACH);
         registerBiomeToDictionary(grove, Type.FOREST, Type.PLAINS, Type.LUSH, Type.SPARSE);
@@ -247,6 +249,7 @@ public class ModBiomes
         registerVillagerType(fir_clearing, IVillagerType.TAIGA);
         registerVillagerType(floodplain, IVillagerType.JUNGLE);
         registerVillagerType(flower_meadow, IVillagerType.TAIGA);
+        registerVillagerType(ghost_forest, IVillagerType.SWAMP);
         registerVillagerType(grassland, IVillagerType.PLAINS);
         registerVillagerType(gravel_beach, IVillagerType.PLAINS);
         registerVillagerType(grove, IVillagerType.PLAINS);

@@ -99,6 +99,12 @@
                 "biome": "biomesoplenty:flower_meadow"
             }
         },
+		"ghost_forest": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:ghost_forest"
+            }
+        },
 		"grassland": {
             "trigger": "minecraft:location",
             "conditions": {
