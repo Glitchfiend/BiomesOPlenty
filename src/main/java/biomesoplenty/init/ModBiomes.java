@@ -134,7 +134,7 @@ public class ModBiomes
         registerSubBiome(prairie, pasture, 1.0F, 100);
         registerSubBiome(seasonal_forest, pumpkin_patch, 0.45F, 100);
         registerSubBiome(snowy_coniferous_forest, snowy_fir_clearing, 0.5F, 100);
-        registerSubBiome(temperate_rainforest, temperate_rainforest_hills, 0.9F, 100);
+        registerSubBiome(temperate_rainforest, temperate_rainforest_hills, 0.8F, 100);
 
         registerIslandBiome(origin_hills, BOPClimates.COOL_TEMPERATE, 50);
         registerIslandBiome(origin_hills, BOPClimates.DRY_TEMPERATE, 50);

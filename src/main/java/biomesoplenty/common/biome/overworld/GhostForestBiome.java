@@ -94,13 +94,13 @@ public class GhostForestBiome extends BiomeBOP
     @Override
     public int getGrassColor(double x, double z)
     {
-    	return 0xA1B262;
+    	return 0x9BAF6B;
     }
 
     @OnlyIn(Dist.CLIENT)
     @Override
     public int getFoliageColor()
     {
-    	return 0xA0B563;
+    	return 0x88AD66;
     }
 }
