@@ -29,7 +29,7 @@ public class BOPBlocks
     public static Block mud_brick_stairs;
     public static Block mud_brick_wall;
     
-    public static Block dried_sand;
+    public static Block dried_salt;
     public static Block ash_block;
     public static Block flesh;
     

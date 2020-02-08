@@ -75,7 +75,6 @@ public class ModBiomes
         ghost_forest = registerBiome(new GhostForestBiome(), "ghost_forest");
         grassland = registerBiome(new GrasslandBiome(), "grassland");
         grove = registerBiome(new GroveBiome(), "grove");
-        orchard = registerBiome(new OrchardBiome(), "orchard");
         highland = registerBiome(new HighlandBiome(), "highland");
         highland_moor = registerBiome(new HighlandMoorBiome(), "highland_moor");
         lavender_field = registerBiome(new LavenderFieldBiome(), "lavender_field");
@@ -88,6 +87,7 @@ public class ModBiomes
         mystic_grove = registerBiome(new MysticGroveBiome(), "mystic_grove");
         oasis = registerBiome(new OasisBiome(), "oasis");
         ominous_woods = registerBiome(new OminousWoodsBiome(), "ominous_woods");
+        orchard = registerBiome(new OrchardBiome(), "orchard");
         origin_hills = registerBiome(new OriginHillsBiome(), "origin_hills");
         outback = registerBiome(new OutbackBiome(), "outback");
         overgrown_cliffs = registerBiome(new OvergrownCliffsBiome(), "overgrown_cliffs");
@@ -295,7 +295,7 @@ public class ModBiomes
         registerVillagerType(tundra, IVillagerType.TAIGA);
         registerVillagerType(volcano, IVillagerType.PLAINS);
         registerVillagerType(volcano_edge, IVillagerType.PLAINS);
-        registerVillagerType(wasteland, IVillagerType.PLAINS);
+        registerVillagerType(wasteland, IVillagerType.DESERT);
         registerVillagerType(wetland, IVillagerType.SWAMP);
         registerVillagerType(white_beach, IVillagerType.JUNGLE);
         registerVillagerType(woodland, IVillagerType.PLAINS);

@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "biomesoplenty:block/dried_sand"
+        "all": "biomesoplenty:block/dried_salt"
     }
 }

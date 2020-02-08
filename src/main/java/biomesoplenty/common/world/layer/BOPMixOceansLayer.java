@@ -7,9 +7,12 @@
  ******************************************************************************/
 package biomesoplenty.common.world.layer;
 
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.world.BOPLayerUtil;
 import biomesoplenty.common.world.layer.traits.IAreaTransformer3;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.area.IArea;
 import net.minecraft.world.gen.layer.traits.IDimOffset0Transformer;
@@ -48,13 +51,16 @@ public enum BOPMixOceansLayer implements IAreaTransformer3, IDimOffset0Transform
                 case SUBTROPICAL:
                 case MEDITERRANEAN:
                 case SAVANNA:
-                case WASTELAND:
                     oceanId = BOPLayerUtil.LUKEWARM_OCEAN;
                     break;
 
                 case TROPICAL:
                 case HOT_DESERT:
                     oceanId = BOPLayerUtil.WARM_OCEAN;
+                    break;
+
+                case WASTELAND:
+                    oceanId = Registry.BIOME.getId(BOPBiomes.wasteland.get());
                     break;
 
                 default:
@@ -109,6 +115,11 @@ public enum BOPMixOceansLayer implements IAreaTransformer3, IDimOffset0Transform
                 if (oceanId == BOPLayerUtil.FROZEN_OCEAN)
                 {
                     return BOPLayerUtil.DEEP_FROZEN_OCEAN;
+                }
+
+                if (oceanId == Registry.BIOME.getId(BOPBiomes.wasteland.get()))
+                {
+                    return Registry.BIOME.getId(BOPBiomes.wasteland.get());
                 }
             }
 

@@ -89,7 +89,7 @@ public class FoliageBlockBOP extends BushBlock implements IPlantable
         }
         if (this == BOPBlocks.desert_grass || this == BOPBlocks.dead_grass)
         {
-            return ground == BOPBlocks.dried_sand || ground == Blocks.GRAVEL || ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.white_sand || ground == Blocks.NETHERRACK || super.canSurvive(state, worldIn, pos);
+            return ground == BOPBlocks.dried_salt || ground == Blocks.GRAVEL || ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.white_sand || ground == Blocks.NETHERRACK || super.canSurvive(state, worldIn, pos);
         }
 
         return super.canSurvive(state, worldIn, pos);

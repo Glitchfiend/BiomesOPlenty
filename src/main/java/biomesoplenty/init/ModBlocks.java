@@ -54,7 +54,7 @@ public class ModBlocks
         mud_brick_slab = registerBlock(new SlabBlock(Block.Properties.copy(mud_bricks)), "mud_brick_slab");
         mud_brick_wall = registerBlock(new WallBlock(Block.Properties.copy(mud_bricks)),"mud_brick_wall");
 
-        dried_sand = registerBlock(new DriedSandBlock(Block.Properties.of(Material.DIRT, MaterialColor.WOOD).strength(1.0F).harvestLevel(0).harvestTool(ToolType.PICKAXE).sound(new SoundType(1.0F, 0.5F, SoundEvents.GRAVEL_BREAK, SoundEvents.GRAVEL_STEP, SoundEvents.GRAVEL_PLACE, SoundEvents.GRAVEL_HIT, SoundEvents.GRAVEL_FALL))), "dried_sand");
+        dried_salt = registerBlock(new DriedSaltBlock(Block.Properties.of(Material.STONE, MaterialColor.WOOD).strength(1.0F).harvestLevel(0).harvestTool(ToolType.PICKAXE).sound(new SoundType(1.0F, 0.5F, SoundEvents.GRAVEL_BREAK, SoundEvents.GRAVEL_STEP, SoundEvents.GRAVEL_PLACE, SoundEvents.GRAVEL_HIT, SoundEvents.GRAVEL_FALL))), "dried_salt");
         ash_block = registerBlock(new AshBlock(Block.Properties.of(Material.SAND, MaterialColor.TERRACOTTA_BLACK).strength(0.4F).harvestLevel(0).harvestTool(ToolType.SHOVEL).sound(SoundType.SAND)), "ash_block");
         flesh = registerBlock(new FleshBlock(Block.Properties.of(Material.SPONGE, MaterialColor.TERRACOTTA_RED).strength(0.4F).harvestLevel(0).harvestTool(ToolType.AXE).sound(new SoundType(1.0F, 0.5F, SoundEvents.CORAL_BLOCK_BREAK, SoundEvents.CORAL_BLOCK_STEP, SoundEvents.CORAL_BLOCK_PLACE, SoundEvents.CORAL_BLOCK_HIT, SoundEvents.CORAL_BLOCK_FALL))), "flesh");
 

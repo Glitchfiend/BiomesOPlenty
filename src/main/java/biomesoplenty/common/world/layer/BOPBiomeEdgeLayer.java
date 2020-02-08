@@ -73,9 +73,6 @@ public enum BOPBiomeEdgeLayer implements ICastleTransformer
         // line BOP volcano with BOP volcano edge
         if (this.replaceBiomeEdge(outBiomeId, northBiomeId, eastBiomeId, southBiomeId, westBiomeId, biomeId, BOPBiomes.volcano, BOPBiomes.volcano_edge)) { return outBiomeId[0]; }
 
-        // line BOP wasteland with vanilla desert
-        if (this.replaceBiomeEdge(outBiomeId, northBiomeId, eastBiomeId, southBiomeId, westBiomeId, biomeId, BOPBiomes.wasteland, DESERT)) { return outBiomeId[0]; }
-        
         // line mountains with mountain edges
         if (this.replaceBiomeEdgeIfNecessary(outBiomeId, northBiomeId, eastBiomeId, southBiomeId, westBiomeId, biomeId, MOUNTAINS, MOUNTAIN_EDGE)) { return outBiomeId[0]; }
 
