@@ -284,6 +284,7 @@ public class ModBlocks
         watergrass = registerBlock(new DoubleWaterPlantBlock(Block.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS)), "watergrass");
         mangrove_root = registerBlock(new DoubleWaterPlantBlock(Block.Properties.of(Material.PLANT, MaterialColor.TERRACOTTA_WHITE).noCollission().strength(1.0F, 1.5F).sound(SoundType.WOOD)), "mangrove_root");
 
+        dead_branch = registerBlock(new DeadBranchBlock(Block.Properties.of(Material.WOOD, MaterialColor.COLOR_GRAY).noCollission().instabreak().sound(SoundType.WOOD)), "dead_branch");
         bramble = registerBlock(new BrambleBlock(Block.Properties.of(Material.PLANT, MaterialColor.NETHER).strength(0.4F).harvestLevel(0).harvestTool(ToolType.AXE).sound(SoundType.WOOD)), "bramble");
         toadstool = registerBlock(new MushroomBlockBOP(Block.Properties.of(Material.PLANT, MaterialColor.COLOR_ORANGE).noCollission().instabreak().sound(SoundType.GRASS)), "toadstool");
         glowshroom = registerBlock(new MushroomBlockBOP(Block.Properties.of(Material.PLANT, MaterialColor.DIAMOND).noCollission().instabreak().sound(SoundType.GRASS).lightLevel(6)), "glowshroom");
@@ -388,6 +389,7 @@ public class ModBlocks
             RenderTypeLookup.setRenderLayer(reed, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(watergrass, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(mangrove_root, cutoutRenderType);
+            RenderTypeLookup.setRenderLayer(dead_branch, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(bramble, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(toadstool, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(glowshroom, cutoutRenderType);

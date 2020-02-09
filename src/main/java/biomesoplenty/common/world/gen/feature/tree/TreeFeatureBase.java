@@ -42,7 +42,7 @@ public abstract class TreeFeatureBase extends AbstractTreeFeature<BaseTreeFeatur
         public BuilderBase()
         {
             this.placeOn = (world, pos) -> world.getBlockState(pos).canSustainPlant(world, pos, Direction.UP, (SaplingBlock)Blocks.OAK_SAPLING);
-            this.replace = (world, pos) -> world.getBlockState(pos).canBeReplacedByLeaves(world, pos) || world.getBlockState(pos).getBlock().is(BlockTags.SAPLINGS) || world.getBlockState(pos).getBlock() == Blocks.VINE || world.getBlockState(pos).getBlock() == BOPBlocks.willow_vine || world.getBlockState(pos).getBlock() instanceof BushBlock;
+            this.replace = (world, pos) -> world.getBlockState(pos).canBeReplacedByLeaves(world, pos) || world.getBlockState(pos).getBlock().is(BlockTags.SAPLINGS) || world.getBlockState(pos).getBlock() == Blocks.VINE || world.getBlockState(pos).getBlock() == BOPBlocks.willow_vine || world.getBlockState(pos).getBlock() == BOPBlocks.dead_branch || world.getBlockState(pos).getBlock() instanceof BushBlock;
             this.log = Blocks.OAK_LOG.defaultBlockState();
             this.leaves = Blocks.OAK_LEAVES.defaultBlockState();
             this.vine = Blocks.AIR.defaultBlockState();

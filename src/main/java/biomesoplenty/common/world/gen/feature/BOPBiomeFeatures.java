@@ -99,8 +99,8 @@ public class BOPBiomeFeatures
 	public static final Feature<BaseTreeFeatureConfig> ACACIA_TWIGLET = new TwigletTreeFeature.Builder().log(Blocks.ACACIA_LOG.defaultBlockState()).leaves(Blocks.ACACIA_LEAVES.defaultBlockState()).minHeight(1).maxHeight(2).create();
 	public static final Feature<BaseTreeFeatureConfig> MAPLE_TWIGLET_TREE = new TwigletTreeFeature.Builder().minHeight(1).maxHeight(2).leaves(BOPBlocks.maple_leaves.defaultBlockState()).create();
 	public static final Feature<BaseTreeFeatureConfig> DEAD_TWIGLET_TREE_SMALL = new TwigletTreeFeature.Builder().minHeight(1).maxHeight(1).leaves(BOPBlocks.dead_leaves.defaultBlockState()).log(BOPBlocks.dead_log.defaultBlockState()).create();
-	public static final Feature<BaseTreeFeatureConfig> DEAD_TWIGLET_TREE = new TwigletTreeFeature.Builder().leafChance(0.05F, 0.25F).leaves(BOPBlocks.dead_leaves.defaultBlockState()).log(BOPBlocks.dead_log.defaultBlockState()).minHeight(4).maxHeight(7).create();
-	public static final Feature<BaseTreeFeatureConfig> DEAD_TWIGLET_TREE_TALL = new TwigletTreeFeature.Builder().leafChance(0.15F, 0.6F).leaves(BOPBlocks.dead_leaves.defaultBlockState()).log(BOPBlocks.dead_log.defaultBlockState()).minHeight(8).maxHeight(11).create();
+	public static final Feature<BaseTreeFeatureConfig> DEAD_TWIGLET_TREE = new TwigletTreeFeature.Builder().trunkFruit(BOPBlocks.dead_branch.defaultBlockState()).leafChance(0.05F, 0.25F).leaves(BOPBlocks.dead_leaves.defaultBlockState()).log(BOPBlocks.dead_log.defaultBlockState()).minHeight(4).maxHeight(7).create();
+	public static final Feature<BaseTreeFeatureConfig> DEAD_TWIGLET_TREE_TALL = new TwigletTreeFeature.Builder().trunkFruit(BOPBlocks.dead_branch.defaultBlockState()).leafChance(0.15F, 0.6F).leaves(BOPBlocks.dead_leaves.defaultBlockState()).log(BOPBlocks.dead_log.defaultBlockState()).minHeight(8).maxHeight(12).create();
 
 	//Special Trees
 	public static final Feature<BaseTreeFeatureConfig> REDWOOD_TREE = new RedwoodTreeFeature.Builder().create();
@@ -108,9 +108,11 @@ public class BOPBiomeFeatures
 	public static final Feature<BaseTreeFeatureConfig> REDWOOD_TREE_LARGE = new RedwoodTreeFeature.Builder().minHeight(45).maxHeight(60).trunkWidth(3).create();
 	public static final Feature<BaseTreeFeatureConfig> MAHOGANY_TREE = new MahoganyTreeFeature.Builder().create();
 	public static final Feature<BaseTreeFeatureConfig> PALM_TREE = new PalmTreeFeature.Builder().create();
-	public static final Feature<BaseTreeFeatureConfig> DEAD_TREE = new TrunkTreeFeature.Builder().log(BOPBlocks.dead_log.defaultBlockState()).leaves(Blocks.AIR.defaultBlockState()).create();
-	public static final Feature<BaseTreeFeatureConfig> DEAD_TREE_WASTELAND = new TrunkTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == BOPBlocks.dried_salt).log(BOPBlocks.dead_log.defaultBlockState()).leaves(Blocks.AIR.defaultBlockState()).create();
-	public static final Feature<BaseTreeFeatureConfig> DEAD_TREE_VOLCANO = new TrunkTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.GRAVEL).log(BOPBlocks.dead_log.defaultBlockState()).leaves(Blocks.AIR.defaultBlockState()).create();
+	public static final Feature<BaseTreeFeatureConfig> DEAD_TREE = new TwigletTreeFeature.Builder().trunkFruit(BOPBlocks.dead_branch.defaultBlockState()).leafChance(0.0F, 0.0F).leaves(Blocks.AIR.defaultBlockState()).log(BOPBlocks.dead_log.defaultBlockState()).minHeight(6).maxHeight(10).create();
+	public static final Feature<BaseTreeFeatureConfig> DEAD_TREE_WASTELAND = new TwigletTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == BOPBlocks.dried_salt).trunkFruit(BOPBlocks.dead_branch.defaultBlockState()).leafChance(0.0F, 0.0F).leaves(Blocks.AIR.defaultBlockState()).log(BOPBlocks.dead_log.defaultBlockState()).minHeight(6).maxHeight(10).create();
+	public static final Feature<BaseTreeFeatureConfig> DEAD_TREE_VOLCANO = new TwigletTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.GRAVEL).trunkFruit(BOPBlocks.dead_branch.defaultBlockState()).leafChance(0.0F, 0.0F).leaves(Blocks.AIR.defaultBlockState()).log(BOPBlocks.dead_log.defaultBlockState()).minHeight(6).maxHeight(10).create();
+
+
 
 	/////////////////////////////////////////////////////////////////////////////////
 	

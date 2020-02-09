@@ -10,6 +10,7 @@ package biomesoplenty.common.world.gen.feature.tree;
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.BushBlock;
 import net.minecraft.block.CocoaBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.Direction;
@@ -121,17 +122,17 @@ public class TwigletTreeFeature extends TreeFeatureBase
 
             if (this.trunkFruit != Blocks.AIR.defaultBlockState())
             {
-                if (random.nextInt(3) == 0)
+                for (Direction Direction : Direction.Plane.HORIZONTAL)
                 {
-                    for (int l3 = 0; l3 < 2; ++l3)
+                    if (random.nextInt(4) == 0)
                     {
-                        for (Direction Direction : Direction.Plane.HORIZONTAL)
+                        if (this.trunkFruit.getBlock() == Blocks.COCOA)
                         {
-                            if (random.nextInt(4 - l3) == 0)
-                            {
-                                Direction Direction1 = Direction.getOpposite();
-                                this.generateTrunkFruit(world, random.nextInt(3), pos.offset(Direction1.getStepX(), 0, Direction1.getStepZ()), Direction);
-                            }
+                            this.generateTrunkFruit(world, random.nextInt(3), pos.offset(Direction.getOpposite().getStepX(), 0, Direction.getOpposite().getStepZ()), Direction);
+                        }
+                        else
+                        {
+                            this.generateTrunkFruit(world, random.nextInt(3), pos.offset(Direction.getStepX(), y, Direction.getStepZ()), Direction);
                         }
                     }
                 }
@@ -147,11 +148,17 @@ public class TwigletTreeFeature extends TreeFeatureBase
     {
         if (this.trunkFruit == Blocks.COCOA.defaultBlockState())
         {
-            this.setBlock(world, pos, this.trunkFruit.setValue(CocoaBlock.AGE, Integer.valueOf(age)).setValue(CocoaBlock.FACING, direction));
+            if (world.getBlockState(pos).getBlock() == Blocks.AIR || world.getBlockState(pos).getBlock() instanceof BushBlock)
+            {
+                this.setBlock(world, pos, this.trunkFruit.setValue(CocoaBlock.AGE, Integer.valueOf(age)).setValue(CocoaBlock.FACING, direction));
+            }
         }
         else
         {
-            this.setBlock(world, pos, this.trunkFruit.setValue(CocoaBlock.FACING, direction));
+            if (world.getBlockState(pos).getBlock() == Blocks.AIR || world.getBlockState(pos).getBlock() instanceof BushBlock)
+            {
+                this.setBlock(world, pos, this.trunkFruit.setValue(CocoaBlock.FACING, direction));
+            }
         }
     }
 }
