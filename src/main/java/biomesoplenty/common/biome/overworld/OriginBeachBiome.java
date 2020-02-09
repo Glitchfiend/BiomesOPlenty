@@ -86,7 +86,7 @@ public class OriginBeachBiome extends BiomeBOP
     @Override
     public int getGrassColor(double x, double z)
     {
-    	return 0xA2FF5F;
+    	return 0x9AFF5F;
     }
 
     @OnlyIn(Dist.CLIENT)
