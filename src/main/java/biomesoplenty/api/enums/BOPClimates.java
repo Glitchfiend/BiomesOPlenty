@@ -139,7 +139,7 @@ public enum BOPClimates
         BOPClimates.TROPICAL.addBiome(15, Biomes.JUNGLE);
         BOPClimates.MEDITERRANEAN.addBiome(1, Biomes.PLAINS);
         BOPClimates.SAVANNA.addBiome(10, Biomes.SAVANNA);
-        BOPClimates.HOT_DESERT.addBiome(15, Biomes.DESERT).addBiome(10, Biomes.BADLANDS_PLATEAU);
+        BOPClimates.HOT_DESERT.addBiome(15, Biomes.DESERT).addBiome(10, Biomes.BADLANDS_PLATEAU).addBiome(3, Biomes.WOODED_BADLANDS_PLATEAU);
         BOPClimates.WASTELAND.addBiome(1, Biomes.DESERT);
 
         BOPClimates.NETHER.addBiome(10, Biomes.NETHER);
