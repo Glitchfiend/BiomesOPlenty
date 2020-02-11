@@ -49,7 +49,7 @@ public enum BOPBiomeLayer implements IAreaTransformer2, IDimOffset0Transformer
         {
             return Registry.BIOME.getId(climate.getRandomOceanBiome(context, true));
         }
-        else if ((landSeaVal == MUSHROOM_FIELDS || ModBiomes.islandBiomes.contains(landSeaVal)) && climate.biomeType != BiomeManager.BiomeType.ICY) // TODO
+        else if ((landSeaVal == MUSHROOM_FIELDS || ModBiomes.islandBiomeIds.contains(landSeaVal)) && climate.biomeType != BiomeManager.BiomeType.ICY) // TODO
         {
             // keep islands, unless it's in an icy climate in which case, replace
             return landSeaVal;

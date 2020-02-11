@@ -9,9 +9,11 @@ package biomesoplenty.init;
 
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.BiomeBOP;
+import biomesoplenty.common.biome.BiomeRegistry;
 import biomesoplenty.common.biome.nether.*;
 import biomesoplenty.common.biome.overworld.*;
 import biomesoplenty.common.world.WorldTypeBOP;
+import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
@@ -21,14 +23,11 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
-import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 import static biomesoplenty.api.biome.BOPBiomes.*;
@@ -39,7 +38,7 @@ public class ModBiomes
     public static WorldTypeBOP worldType;
 
     public static Multimap<Integer, WeightedSubBiome> subBiomes = HashMultimap.create();
-    public static List<Integer> islandBiomes = Lists.newArrayList();
+    public static List<Integer> islandBiomeIds = Lists.newArrayList();
 
     public static void setup()
     {
@@ -50,80 +49,82 @@ public class ModBiomes
     public static void registerBiomes(RegistryEvent.Register<Biome> event)
     {
         //Technical Biomes (Need to be registered before main biomes that use them)
-        mangrove = registerBiome(new MangroveBiome(), "mangrove");
-        gravel_beach = registerBiome(new GravelBeachBiome(), "gravel_beach");
-        origin_beach = registerBiome(new OriginBeachBiome(), "origin_beach");
-        white_beach = registerBiome(new WhiteBeachBiome(), "white_beach");
-    	alps_foothills = registerBiome(new AlpsFoothillsBiome(), "alps_foothills");
-        redwood_forest_edge = registerBiome(new RedwoodForestEdgeBiome(), "redwood_forest_edge");
-        volcano_edge = registerBiome(new VolcanoEdgeBiome(), "volcano_edge");
+        registerBiome(new MangroveBiome(), "mangrove");
+        registerBiome(new GravelBeachBiome(), "gravel_beach");
+        registerBiome(new OriginBeachBiome(), "origin_beach");
+        registerBiome(new WhiteBeachBiome(), "white_beach");
+    	registerBiome(new AlpsFoothillsBiome(), "alps_foothills");
+        registerBiome(new RedwoodForestEdgeBiome(), "redwood_forest_edge");
+        registerBiome(new VolcanoEdgeBiome(), "volcano_edge");
 
         //Overworld Biomes
-    	alps = registerBiome(new AlpsBiome(), "alps");
-    	bayou = registerBiome(new BayouBiome(), "bayou");
-        bog = registerBiome(new BogBiome(), "bog");
-        boreal_forest = registerBiome(new BorealForestBiome(), "boreal_forest");
-    	brushland = registerBiome(new BrushlandBiome(), "brushland");
-        chaparral = registerBiome(new ChaparralBiome(), "chaparral");
-    	cherry_blossom_grove = registerBiome(new CherryBlossomGroveBiome(), "cherry_blossom_grove");
-    	cold_desert = registerBiome(new ColdDesertBiome(), "cold_desert");
-        coniferous_forest = registerBiome(new ConiferousForestBiome(), "coniferous_forest");
-        dead_forest = registerBiome(new DeadForestBiome(), "dead_forest");
-        fir_clearing = registerBiome(new FirClearingBiome(), "fir_clearing");
-        floodplain = registerBiome(new FloodplainBiome(), "floodplain");
-        flower_meadow = registerBiome(new FlowerMeadowBiome(), "flower_meadow");
-        ghost_forest = registerBiome(new GhostForestBiome(), "ghost_forest");
-        grassland = registerBiome(new GrasslandBiome(), "grassland");
-        grove = registerBiome(new GroveBiome(), "grove");
-        highland = registerBiome(new HighlandBiome(), "highland");
-        highland_moor = registerBiome(new HighlandMoorBiome(), "highland_moor");
-        lavender_field = registerBiome(new LavenderFieldBiome(), "lavender_field");
-        lush_grassland = registerBiome(new LushGrasslandBiome(), "lush_grassland");
-        lush_swamp = registerBiome(new LushSwampBiome(), "lush_swamp");
-        maple_woods = registerBiome(new MapleWoodsBiome(), "maple_woods");
-        marsh = registerBiome(new MarshBiome(), "marsh");
-        meadow = registerBiome(new MeadowBiome(), "meadow");
-        mire = registerBiome(new MireBiome(), "mire");
-        mystic_grove = registerBiome(new MysticGroveBiome(), "mystic_grove");
-        oasis = registerBiome(new OasisBiome(), "oasis");
-        ominous_woods = registerBiome(new OminousWoodsBiome(), "ominous_woods");
-        orchard = registerBiome(new OrchardBiome(), "orchard");
-        origin_hills = registerBiome(new OriginHillsBiome(), "origin_hills");
-        outback = registerBiome(new OutbackBiome(), "outback");
-        overgrown_cliffs = registerBiome(new OvergrownCliffsBiome(), "overgrown_cliffs");
-        pasture = registerBiome(new PastureBiome(), "pasture");
-        poppy_field = registerBiome(new PoppyFieldBiome(), "poppy_field");
-        prairie = registerBiome(new PrairieBiome(), "prairie");
-        pumpkin_patch = registerBiome(new PumpkinPatchBiome(), "pumpkin_patch");
-        rainbow_valley = registerBiome(new RainbowValleyBiome(), "rainbow_valley");
-        rainforest = registerBiome(new RainforestBiome(), "rainforest");
-        redwood_forest = registerBiome(new RedwoodForestBiome(), "redwood_forest");
-        scrubland = registerBiome(new ScrublandBiome(), "scrubland");
-        seasonal_forest = registerBiome(new SeasonalForestBiome(), "seasonal_forest");
-        shield = registerBiome(new ShieldBiome(), "shield");
-        shrubland = registerBiome(new ShrublandBiome(), "shrubland");
-        silkglade = registerBiome(new SilkgladeBiome(), "silkglade");
-        snowy_coniferous_forest = registerBiome(new SnowyConiferousForestBiome(), "snowy_coniferous_forest");
-        snowy_fir_clearing = registerBiome(new SnowyFirClearingBiome(), "snowy_fir_clearing");
-        snowy_forest = registerBiome(new SnowyForestBiome(), "snowy_forest");
-        steppe = registerBiome(new SteppeBiome(), "steppe");
-        temperate_rainforest = registerBiome(new TemperateRainforestBiome(), "temperate_rainforest");
-        temperate_rainforest_hills = registerBiome(new TemperateRainforestHillsBiome(), "temperate_rainforest_hills");
-        tropical_rainforest = registerBiome(new TropicalRainforestBiome(), "tropical_rainforest");
-        tropics = registerBiome(new TropicsBiome(), "tropics");
-        tundra = registerBiome(new TundraBiome(), "tundra");
-        volcano = registerBiome(new VolcanoBiome(), "volcano");
-        wasteland = registerBiome(new WastelandBiome(), "wasteland");
-        wetland = registerBiome(new WetlandBiome(), "wetland");
-        woodland = registerBiome(new WoodlandBiome(), "woodland");
-        xeric_shrubland = registerBiome(new XericShrublandBiome(), "xeric_shrubland");
+    	registerBiome(new AlpsBiome(), "alps");
+    	registerBiome(new BayouBiome(), "bayou");
+        registerBiome(new BogBiome(), "bog");
+        registerBiome(new BorealForestBiome(), "boreal_forest");
+    	registerBiome(new BrushlandBiome(), "brushland");
+        registerBiome(new ChaparralBiome(), "chaparral");
+    	registerBiome(new CherryBlossomGroveBiome(), "cherry_blossom_grove");
+    	registerBiome(new ColdDesertBiome(), "cold_desert");
+        registerBiome(new ConiferousForestBiome(), "coniferous_forest");
+        registerBiome(new DeadForestBiome(), "dead_forest");
+        registerBiome(new FirClearingBiome(), "fir_clearing");
+        registerBiome(new FloodplainBiome(), "floodplain");
+        registerBiome(new FlowerMeadowBiome(), "flower_meadow");
+        registerBiome(new GhostForestBiome(), "ghost_forest");
+        registerBiome(new GrasslandBiome(), "grassland");
+        registerBiome(new GroveBiome(), "grove");
+        registerBiome(new HighlandBiome(), "highland");
+        registerBiome(new HighlandMoorBiome(), "highland_moor");
+        registerBiome(new LavenderFieldBiome(), "lavender_field");
+        registerBiome(new LushGrasslandBiome(), "lush_grassland");
+        registerBiome(new LushSwampBiome(), "lush_swamp");
+        registerBiome(new MapleWoodsBiome(), "maple_woods");
+        registerBiome(new MarshBiome(), "marsh");
+        registerBiome(new MeadowBiome(), "meadow");
+        registerBiome(new MireBiome(), "mire");
+        registerBiome(new MysticGroveBiome(), "mystic_grove");
+        registerBiome(new OasisBiome(), "oasis");
+        registerBiome(new OminousWoodsBiome(), "ominous_woods");
+        registerBiome(new OrchardBiome(), "orchard");
+        registerBiome(new OriginHillsBiome(), "origin_hills");
+        registerBiome(new OutbackBiome(), "outback");
+        registerBiome(new OvergrownCliffsBiome(), "overgrown_cliffs");
+        registerBiome(new PastureBiome(), "pasture");
+        registerBiome(new PoppyFieldBiome(), "poppy_field");
+        registerBiome(new PrairieBiome(), "prairie");
+        registerBiome(new PumpkinPatchBiome(), "pumpkin_patch");
+        registerBiome(new RainbowValleyBiome(), "rainbow_valley");
+        registerBiome(new RainforestBiome(), "rainforest");
+        registerBiome(new RedwoodForestBiome(), "redwood_forest");
+        registerBiome(new ScrublandBiome(), "scrubland");
+        registerBiome(new SeasonalForestBiome(), "seasonal_forest");
+        registerBiome(new ShieldBiome(), "shield");
+        registerBiome(new ShrublandBiome(), "shrubland");
+        registerBiome(new SilkgladeBiome(), "silkglade");
+        registerBiome(new SnowyConiferousForestBiome(), "snowy_coniferous_forest");
+        registerBiome(new SnowyFirClearingBiome(), "snowy_fir_clearing");
+        registerBiome(new SnowyForestBiome(), "snowy_forest");
+        registerBiome(new SteppeBiome(), "steppe");
+        registerBiome(new TemperateRainforestBiome(), "temperate_rainforest");
+        registerBiome(new TemperateRainforestHillsBiome(), "temperate_rainforest_hills");
+        registerBiome(new TropicalRainforestBiome(), "tropical_rainforest");
+        registerBiome(new TropicsBiome(), "tropics");
+        registerBiome(new TundraBiome(), "tundra");
+        registerBiome(new VolcanoBiome(), "volcano");
+        registerBiome(new WastelandBiome(), "wasteland");
+        registerBiome(new WetlandBiome(), "wetland");
+        registerBiome(new WoodlandBiome(), "woodland");
+        registerBiome(new XericShrublandBiome(), "xeric_shrubland");
 
         //Nether Biomes
-        ashen_inferno = registerBiome(new AshenInfernoBiome(), "ashen_inferno");
-        fungi_forest = registerBiome(new FungiForestBiome(), "fungi_forest");
-        glowstone_grotto = registerBiome(new GlowstoneGrottoBiome(), "glowstone_grotto");
-        undergarden = registerBiome(new UndergardenBiome(), "undergarden");
-        visceral_heap = registerBiome(new VisceralHeapBiome(), "visceral_heap");
+        registerBiome(new AshenInfernoBiome(), "ashen_inferno");
+        registerBiome(new FungiForestBiome(), "fungi_forest");
+        registerBiome(new GlowstoneGrottoBiome(), "glowstone_grotto");
+        registerBiome(new UndergardenBiome(), "undergarden");
+        registerBiome(new VisceralHeapBiome(), "visceral_heap");
+
+        BiomeRegistry.finalizeRegistrations(BiomeRegistry.RegistrationType.STANDARD_BIOME);
 
         //Sub/Island Biomes (Note: Rarity supports two decimal places)
         registerSubBiome(Biomes.DESERT, oasis, 0.1F, 100);
@@ -135,6 +136,8 @@ public class ModBiomes
         registerSubBiome(seasonal_forest, pumpkin_patch, 0.45F, 100);
         registerSubBiome(snowy_coniferous_forest, snowy_fir_clearing, 0.5F, 100);
         registerSubBiome(temperate_rainforest, temperate_rainforest_hills, 0.8F, 100);
+
+        BiomeRegistry.finalizeRegistrations(BiomeRegistry.RegistrationType.SUB_BIOME);
 
         registerIslandBiome(origin_hills, BOPClimates.COOL_TEMPERATE, 50);
         registerIslandBiome(origin_hills, BOPClimates.DRY_TEMPERATE, 50);
@@ -151,6 +154,8 @@ public class ModBiomes
         registerIslandBiome(tropics, BOPClimates.SUBTROPICAL, 75);
         registerIslandBiome(tropics, BOPClimates.TROPICAL, 50);
         registerIslandBiome(tropics, BOPClimates.HOT_DESERT, 50);
+
+        BiomeRegistry.finalizeRegistrations(BiomeRegistry.RegistrationType.ISLAND_BIOME);
 
         registerBiomeDictionaryTags();
         registerVillagerTypes();
@@ -318,52 +323,34 @@ public class ModBiomes
         }
     }
 
-    public static Optional<Biome> registerBiome(BiomeBOP biome, String name)
+    /*
+     * Biome registration helpers
+     */
+
+    public static void registerBiome(BiomeBOP biome, String name)
     {
-        biome.setRegistryName(name);
-        ForgeRegistries.BIOMES.register(biome);
-        
-        if (biome.canSpawnInBiome)
-        {
-        	BiomeManager.addSpawnBiome(biome);
-        }
-
-        for (Map.Entry<BOPClimates, Integer> entry : biome.getWeightMap().entrySet())
-        {
-            if (entry != null)
-            {
-                BOPClimates climate = entry.getKey();
-                int weight = entry.getValue();
-                climate.addBiome(weight, biome);
-            }
-        }
-
-        return Optional.of(biome);
+        BiomeRegistry.deferStandardRegistration(biome, name);
     }
 
     public static void registerSubBiome(Biome parent, Optional<Biome> child, float rarity, int weight)
     {
-        if (!child.isPresent())
-            return;
-
-        subBiomes.put(Registry.BIOME.getId(parent), new WeightedSubBiome(child.get(), rarity, weight));
+        registerSubBiome(Optional.of(parent), child, rarity, weight);
     }
     
     public static void registerSubBiome(Optional<Biome> parent, Optional<Biome> child, float rarity, int weight)
     {
     	if (!parent.isPresent())
             return;
-    	
+
         if (!child.isPresent())
             return;
 
-        subBiomes.put(Registry.BIOME.getId(parent.get()), new WeightedSubBiome(child.get(), rarity, weight));
+        BiomeRegistry.deferSubBiomeRegistration(parent.get(), child.get(), weight, rarity);
     }
 
     public static void registerIslandBiome(Biome biome, BOPClimates climate, int weight)
     {
-        islandBiomes.add(Registry.BIOME.getId(biome));
-        climate.addIslandBiome(weight, biome);
+        BiomeRegistry.deferIslandBiomeRegistration(biome, climate, weight);
     }
 
     public static void registerIslandBiome(Optional<Biome> biome, BOPClimates climate, int weight)

@@ -43,6 +43,7 @@ public class BiomesOPlenty
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
         MinecraftForge.EVENT_BUS.addListener(this::serverStarting);
 
+        ModBiomes.setup();
         ModConfig.setup();
     }
 
@@ -64,7 +65,6 @@ public class BiomesOPlenty
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-        ModBiomes.setup();
         ModVanillaCompat.setup();
     }
 

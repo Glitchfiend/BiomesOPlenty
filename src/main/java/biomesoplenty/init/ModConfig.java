@@ -7,7 +7,11 @@
  ******************************************************************************/
 package biomesoplenty.init;
 
+import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.core.BiomesOPlenty;
+import com.google.common.collect.Maps;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
@@ -17,6 +21,8 @@ import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
+import java.util.Map;
 
 public class ModConfig
 {
@@ -43,6 +49,7 @@ public class ModConfig
         Path configPath = FMLPaths.CONFIGDIR.get();
         Path bopConfigPath = Paths.get(configPath.toAbsolutePath().toString(), "biomesoplenty");
 
+        // Create the config folder
         try
         {
             Files.createDirectory(bopConfigPath);
