@@ -16,6 +16,7 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.gson.reflect.TypeToken;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeManager;
@@ -65,8 +66,9 @@ public class BiomeRegistry
             // Ignore biomes which don't have any weights set by default
             if (!((BiomeBOP)regData.getBiome()).getWeightMap().isEmpty())
             {
-                defaultStandardBiomeWeights.put(registration.regData.getName(), registration.regData.getWeights());
-                regDataMap.put(registration.regData.getName(), registration.regData);
+                String biomeName = new ResourceLocation(BiomesOPlenty.MOD_ID, regData.getName()).toString();
+                defaultStandardBiomeWeights.put(biomeName, registration.regData.getWeights());
+                regDataMap.put(biomeName, registration.regData);
             }
         }
 

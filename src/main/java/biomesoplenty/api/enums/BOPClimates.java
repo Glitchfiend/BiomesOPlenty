@@ -116,12 +116,17 @@ public enum BOPClimates
 
     public ImmutableList<WeightedBiomeEntry> getLandBiomes()
     {
-        return ImmutableList.copyOf(this.landBiomes);
+        return this.landBiomes.isEmpty() ? ImmutableList.of(this.getDefaultWeightedBiomeEntry()) : ImmutableList.copyOf(this.landBiomes);
     }
 
     public ImmutableList<WeightedBiomeEntry> getIslandBiomes()
     {
-        return ImmutableList.copyOf(this.islandBiomes);
+        return this.islandBiomes.isEmpty() ? ImmutableList.of(this.getDefaultWeightedBiomeEntry()) : ImmutableList.copyOf(this.islandBiomes);
+    }
+
+    private WeightedBiomeEntry getDefaultWeightedBiomeEntry()
+    {
+        return new WeightedBiomeEntry(100, Biomes.OCEAN);
     }
 
     static
