@@ -124,6 +124,7 @@ public class ModBiomes
         registerBiome(new UndergardenBiome(), "undergarden");
         registerBiome(new VisceralHeapBiome(), "visceral_heap");
 
+        BiomeRegistry.configureStandardBiomes();
         BiomeRegistry.finalizeRegistrations(BiomeRegistry.RegistrationType.STANDARD_BIOME);
 
         //Sub/Island Biomes (Note: Rarity supports two decimal places)
@@ -137,6 +138,7 @@ public class ModBiomes
         registerSubBiome(snowy_coniferous_forest, snowy_fir_clearing, 0.5F, 100);
         registerSubBiome(temperate_rainforest, temperate_rainforest_hills, 0.8F, 100);
 
+        BiomeRegistry.configureSubBiomes();
         BiomeRegistry.finalizeRegistrations(BiomeRegistry.RegistrationType.SUB_BIOME);
 
         registerIslandBiome(origin_hills, BOPClimates.COOL_TEMPERATE, 50);
@@ -155,6 +157,7 @@ public class ModBiomes
         registerIslandBiome(tropics, BOPClimates.TROPICAL, 50);
         registerIslandBiome(tropics, BOPClimates.HOT_DESERT, 50);
 
+        //BiomeRegistry.configureIslandBiomes();
         BiomeRegistry.finalizeRegistrations(BiomeRegistry.RegistrationType.ISLAND_BIOME);
 
         registerBiomeDictionaryTags();

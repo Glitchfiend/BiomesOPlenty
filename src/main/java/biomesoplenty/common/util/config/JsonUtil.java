@@ -41,7 +41,7 @@ public class JsonUtil
         return null;
     }
 
-    protected static boolean writeFile(File outputFile, Object obj)
+    public static boolean writeFile(File outputFile, Object obj)
     {
         try
         {
