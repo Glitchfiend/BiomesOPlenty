@@ -53,8 +53,11 @@ public class ModVanillaCompat
         addFeature(Biomes.MODIFIED_GRAVELLY_MOUNTAINS, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.VIOLET_FEATURE.configured(IFeatureConfig.NONE).decorated(Placement.COUNT_HEIGHTMAP_32.configured(new FrequencyConfig(2))));
 
         addFeature(Biomes.MUSHROOM_FIELDS, GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.toadstool.defaultBlockState())).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(3))));
-        addFeature(Biomes.MUSHROOM_FIELDS, GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.glowshroom.defaultBlockState())).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(2))));
-        addFeature(Biomes.MUSHROOM_FIELD_SHORE, GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.toadstool.defaultBlockState())).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(2))));
+        addFeature(Biomes.MUSHROOM_FIELDS, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.HUGE_TOADSTOOL.configured(IFeatureConfig.NONE).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(2))));
+        addFeature(Biomes.MUSHROOM_FIELDS, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.SMALL_TOADSTOOL.configured(IFeatureConfig.NONE).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(1))));
+        addFeature(Biomes.MUSHROOM_FIELD_SHORE, GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.toadstool.defaultBlockState())).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(3))));
+        addFeature(Biomes.MUSHROOM_FIELD_SHORE, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.HUGE_TOADSTOOL.configured(IFeatureConfig.NONE).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(2))));
+        addFeature(Biomes.MUSHROOM_FIELD_SHORE, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.SMALL_TOADSTOOL.configured(IFeatureConfig.NONE).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(1))));
 
         addFeature(Biomes.SAVANNA, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.WILDFLOWER_FEATURE.configured(IFeatureConfig.NONE).decorated(Placement.COUNT_HEIGHTMAP_32.configured(new FrequencyConfig(3))));
         addFeature(Biomes.SAVANNA_PLATEAU, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.WILDFLOWER_FEATURE.configured(IFeatureConfig.NONE).decorated(Placement.COUNT_HEIGHTMAP_32.configured(new FrequencyConfig(3))));
@@ -83,7 +86,6 @@ public class ModVanillaCompat
         addFeature(Biomes.TAIGA, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.VIOLET_FEATURE.configured(IFeatureConfig.NONE).decorated(Placement.COUNT_HEIGHTMAP_32.configured(new FrequencyConfig(2))));
         addFeature(Biomes.TAIGA_HILLS, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.VIOLET_FEATURE.configured(IFeatureConfig.NONE).decorated(Placement.COUNT_HEIGHTMAP_32.configured(new FrequencyConfig(2))));
         addFeature(Biomes.TAIGA_MOUNTAINS, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.VIOLET_FEATURE.configured(IFeatureConfig.NONE).decorated(Placement.COUNT_HEIGHTMAP_32.configured(new FrequencyConfig(2))));
-
 
         //Flammability
         registerFlammable(BOPBlocks.origin_leaves, 30, 60);
@@ -236,6 +238,9 @@ public class ModVanillaCompat
         registerStrippable(BOPBlocks.hellbark_wood, BOPBlocks.stripped_hellbark_wood);
 
         //Compostable Blocks
+        registerCompostable(0.85F, BOPBlocks.glowshroom_block);
+        registerCompostable(0.85F, BOPBlocks.toadstool_block);
+
         registerCompostable(0.3F, BOPBlocks.origin_sapling);
         registerCompostable(0.3F, BOPBlocks.origin_leaves);
         registerCompostable(0.3F, BOPBlocks.flowering_oak_sapling);

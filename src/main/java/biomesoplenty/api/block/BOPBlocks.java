@@ -32,6 +32,9 @@ public class BOPBlocks
     public static Block dried_salt;
     public static Block ash_block;
     public static Block flesh;
+
+    public static Block toadstool_block;
+    public static Block glowshroom_block;
     
     public static Block origin_sapling;
     public static Block origin_leaves;
@@ -254,6 +257,7 @@ public class BOPBlocks
     public static Block mangrove_root;
     public static Block dead_branch;
     public static Block bramble;
+
     public static Block toadstool;
     public static Block glowshroom;
 

@@ -58,6 +58,9 @@ public class ModBlocks
         ash_block = registerBlock(new AshBlock(Block.Properties.of(Material.SAND, MaterialColor.TERRACOTTA_BLACK).strength(0.4F).harvestLevel(0).harvestTool(ToolType.SHOVEL).sound(SoundType.SAND)), "ash_block");
         flesh = registerBlock(new FleshBlock(Block.Properties.of(Material.SPONGE, MaterialColor.TERRACOTTA_RED).strength(0.4F).harvestLevel(0).harvestTool(ToolType.AXE).sound(new SoundType(1.0F, 0.5F, SoundEvents.CORAL_BLOCK_BREAK, SoundEvents.CORAL_BLOCK_STEP, SoundEvents.CORAL_BLOCK_PLACE, SoundEvents.CORAL_BLOCK_HIT, SoundEvents.CORAL_BLOCK_FALL))), "flesh");
 
+        toadstool_block = registerBlock(new HugeMushroomBlock(Block.Properties.of(Material.WOOD, MaterialColor.COLOR_ORANGE).strength(0.2F).sound(SoundType.WOOD)), "toadstool_block");
+        glowshroom_block = registerBlock(new HugeMushroomBlock(Block.Properties.of(Material.WOOD, MaterialColor.DIAMOND).strength(0.2F).sound(SoundType.WOOD).lightLevel(10)), "glowshroom_block");
+
         //Trees
         origin_sapling = registerBlock(new SaplingBlockBOP(new OriginTree(), Block.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "origin_sapling");
         origin_leaves = registerBlock(new LeavesBlock(Block.Properties.of(Material.LEAVES, MaterialColor.EMERALD).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion()), "origin_leaves");

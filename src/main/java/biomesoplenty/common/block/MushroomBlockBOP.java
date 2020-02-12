@@ -7,19 +7,21 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.MushroomBlock;
+import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.common.world.gen.feature.BOPBiomeFeatures;
+import net.minecraft.block.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.DefaultBiomeFeatures;
+import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
 
-public class MushroomBlockBOP extends MushroomBlock
+public class MushroomBlockBOP extends MushroomBlock implements IGrowable
 {
     public MushroomBlockBOP(Block.Properties properties)
     {
@@ -43,18 +45,47 @@ public class MushroomBlockBOP extends MushroomBlock
     @Override
     public boolean growMushroom(ServerWorld p_226940_1_, BlockPos p_226940_2_, BlockState p_226940_3_, Random p_226940_4_)
     {
-    	return false;
+        p_226940_1_.removeBlock(p_226940_2_, false);
+        ConfiguredFeature<NoFeatureConfig, ?> configuredfeature;
+        if (this == BOPBlocks.glowshroom)
+        {
+            configuredfeature = BOPBiomeFeatures.HUGE_GLOWSHROOM.configured(IFeatureConfig.NONE);
+        }
+        else
+        {
+            if (this != BOPBlocks.toadstool)
+            {
+                p_226940_1_.setBlock(p_226940_2_, p_226940_3_, 3);
+                return false;
+            }
+
+            configuredfeature = BOPBiomeFeatures.HUGE_TOADSTOOL.configured(IFeatureConfig.NONE);
+        }
+
+        if (configuredfeature.place(p_226940_1_, p_226940_1_.getChunkSource().getGenerator(), p_226940_4_, p_226940_2_))
+        {
+            return true;
+        }
+        else
+        {
+            p_226940_1_.setBlock(p_226940_2_, p_226940_3_, 3);
+            return false;
+        }
     }
 
-    @Override
-    public boolean isValidBonemealTarget(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient)
-    {
-    	return false;
+    public boolean isValidBonemealTarget(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
+        return true;
     }
 
-    @Override
-    public boolean isBonemealSuccess(World worldIn, Random rand, BlockPos pos, BlockState state)
-    {
-        return false;
+    public boolean isBonemealSuccess(World worldIn, Random rand, BlockPos pos, BlockState state) {
+        return (double)rand.nextFloat() < 0.4D;
+    }
+
+    public void performBonemeal(ServerWorld p_225535_1_, Random p_225535_2_, BlockPos p_225535_3_, BlockState p_225535_4_) {
+        this.growMushroom(p_225535_1_, p_225535_3_, p_225535_4_, p_225535_2_);
+    }
+
+    public boolean hasPostProcess(BlockState state, IBlockReader worldIn, BlockPos pos) {
+        return true;
     }
 }

@@ -112,8 +112,6 @@ public class BOPBiomeFeatures
 	public static final Feature<BaseTreeFeatureConfig> DEAD_TREE_WASTELAND = new TwigletTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == BOPBlocks.dried_salt).trunkFruit(BOPBlocks.dead_branch.defaultBlockState()).leafChance(0.0F, 0.0F).leaves(Blocks.AIR.defaultBlockState()).log(BOPBlocks.dead_log.defaultBlockState()).minHeight(6).maxHeight(10).create();
 	public static final Feature<BaseTreeFeatureConfig> DEAD_TREE_VOLCANO = new TwigletTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.GRAVEL).trunkFruit(BOPBlocks.dead_branch.defaultBlockState()).leafChance(0.0F, 0.0F).leaves(Blocks.AIR.defaultBlockState()).log(BOPBlocks.dead_log.defaultBlockState()).minHeight(6).maxHeight(10).create();
 
-
-
 	/////////////////////////////////////////////////////////////////////////////////
 	
 	//Features
@@ -121,20 +119,22 @@ public class BOPBiomeFeatures
 	public static final Feature<NoFeatureConfig> MANGROVE = new MangroveFeature(NoFeatureConfig::deserialize);
 	public static final Feature<NoFeatureConfig> PUMPKIN_PATCH = new PumpkinPatchFeature(NoFeatureConfig::deserialize);
 	public static final Feature<NoFeatureConfig> BIG_PUMPKIN = new BigPumpkinFeature(NoFeatureConfig::deserialize);
-	public static final Feature<NoFeatureConfig> SMALL_BROWN_MUSHROOM = new SmallBrownMushroomFeature(NoFeatureConfig::deserialize);
 	public static final Feature<NoFeatureConfig> SHORT_BAMBOO = new ShortBambooFeature(NoFeatureConfig::deserialize);
 	public static final Feature<NoFeatureConfig> SCRUB = new ScrubFeature(NoFeatureConfig::deserialize);
 	public static final Feature<NoFeatureConfig> SCATTERED_ROCKS = new ScatteredRocksFeature(NoFeatureConfig::deserialize);
 	public static final Feature<NoFeatureConfig> NETHER_VINES = new NetherVinesFeature(NoFeatureConfig::deserialize);
 	public static final Feature<NoFeatureConfig> FLESH_SPLATTER = new FleshSplatterFeature(NoFeatureConfig::deserialize);
 	public static final Feature<NoFeatureConfig> BONE_SPINE = new BoneSpineFeature(NoFeatureConfig::deserialize);
-	public static final Feature<BigMushroomFeatureConfig> BIG_BROWN_MUSHROOM = new BOPBigBrownMushroomFeature(BigMushroomFeatureConfig::deserialize);
-	public static final Feature<BigMushroomFeatureConfig> BIG_RED_MUSHROOM = new BOPBigRedMushroomFeature(BigMushroomFeatureConfig::deserialize);
-	public static final Feature<BaseTreeFeatureConfig> NETHERWART_BUBBLE = new BushTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.NETHERRACK).log(Blocks.NETHER_WART_BLOCK.defaultBlockState()).leaves(Blocks.NETHER_WART_BLOCK.defaultBlockState()).maxHeight(2).create();
 	public static final Feature<NoFeatureConfig> ASH_SPLATTER = new AshSplatterFeature(NoFeatureConfig::deserialize);
-	public static final Feature<NoFeatureConfig> SCATTERED_NETHER_WART = new NetherWartFeature(NoFeatureConfig::deserialize);
 	public static final Feature<NoFeatureConfig> GLOWSTONE_SPIKES = new GlowstoneSpikesFeature(NoFeatureConfig::deserialize);
 	public static final Feature<NoFeatureConfig> PODZOL_SPLATTER = new PodzolSplatterFeature(NoFeatureConfig::deserialize);
+	public static final Feature<NoFeatureConfig> MYCELIUM_SPLATTER = new MyceliumSplatterFeature(NoFeatureConfig::deserialize);
+	public static final Feature<NoFeatureConfig> SMALL_RED_MUSHROOM = new SmallRedMushroomFeature(NoFeatureConfig::deserialize);
+	public static final Feature<NoFeatureConfig> SMALL_BROWN_MUSHROOM = new SmallBrownMushroomFeature(NoFeatureConfig::deserialize);
+	public static final Feature<NoFeatureConfig> SMALL_GLOWSHROOM = new SmallGlowshroomFeature(NoFeatureConfig::deserialize);
+	public static final Feature<NoFeatureConfig> SMALL_TOADSTOOL = new SmallToadstoolFeature(NoFeatureConfig::deserialize);
+	public static final Feature<NoFeatureConfig> HUGE_GLOWSHROOM = new HugeGlowshroomFeature(NoFeatureConfig::deserialize);
+	public static final Feature<NoFeatureConfig> HUGE_TOADSTOOL = new HugeToadstoolFeature(NoFeatureConfig::deserialize);
 
 	//Flowers
 	public static final FlowersFeature CHAPARRAL_FLOWERS = new ChaparralFlowersFeature();

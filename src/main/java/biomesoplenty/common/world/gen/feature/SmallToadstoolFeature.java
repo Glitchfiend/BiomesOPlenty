@@ -1,8 +1,12 @@
 package biomesoplenty.common.world.gen.feature;
 
+import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import com.mojang.datafixers.Dynamic;
-import net.minecraft.block.*;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.BushBlock;
+import net.minecraft.block.HugeMushroomBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
@@ -13,12 +17,12 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import java.util.Random;
 import java.util.function.Function;
 
-public class SmallBrownMushroomFeature extends Feature<NoFeatureConfig>
+public class SmallToadstoolFeature extends Feature<NoFeatureConfig>
 {
     protected IBlockPosQuery placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK || world.getBlockState(pos).getBlock() == Blocks.MYCELIUM;
     protected IBlockPosQuery replace = (world, pos) -> world.getBlockState(pos).canBeReplacedByLeaves(world, pos) || world.getBlockState(pos).getBlock() instanceof BushBlock;
 
-    public SmallBrownMushroomFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserializer)
+    public SmallToadstoolFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserializer)
     {
         super(deserializer);
     }
@@ -47,22 +51,7 @@ public class SmallBrownMushroomFeature extends Feature<NoFeatureConfig>
             this.setBlock(world, pos.above(y), Blocks.MUSHROOM_STEM.defaultBlockState());
         }
 
-        this.setBlock(world, pos.offset(0, height, 0), Blocks.BROWN_MUSHROOM_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
-        this.setBlock(world, pos.offset(-1, height, 0), Blocks.BROWN_MUSHROOM_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
-        this.setBlock(world, pos.offset(1, height, 0), Blocks.BROWN_MUSHROOM_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
-        this.setBlock(world, pos.offset(0, height, -1), Blocks.BROWN_MUSHROOM_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
-        this.setBlock(world, pos.offset(0, height, 1), Blocks.BROWN_MUSHROOM_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
-
-        if (p_212245_3_.nextInt(2) == 0)
-        {
-            this.setBlock(world, pos.offset(1, height, 1), Blocks.BROWN_MUSHROOM_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
-            this.setBlock(world, pos.offset(-1, height, -1), Blocks.BROWN_MUSHROOM_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
-        }
-        else
-        {
-            this.setBlock(world, pos.offset(-1, height, 1), Blocks.BROWN_MUSHROOM_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
-            this.setBlock(world, pos.offset(1, height, -1), Blocks.BROWN_MUSHROOM_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
-        }
+        this.setBlock(world, pos.offset(0, height, 0), BOPBlocks.toadstool_block.defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
 
         return true;
     }

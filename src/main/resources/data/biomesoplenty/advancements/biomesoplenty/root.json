@@ -98,6 +98,12 @@
                 "biome": "biomesoplenty:flower_meadow"
             }
         },
+		"fungal_jungle": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:fungal_jungle"
+            }
+        },
 		"ghost_forest": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -410,12 +416,6 @@
                 "biome": "biomesoplenty:ashen_inferno"
             }
         },
-		"fungi_forest": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:fungi_forest"
-            }
-        },
 		"glowstone_grotto": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -451,6 +451,7 @@
 			"fir_clearing",
 			"floodplain",
 			"flower_meadow",
+			"fungal_jungle",
 			"ghost_forest",
 			"grassland",
 			"gravel_beach",
@@ -503,7 +504,6 @@
 			"woodland",
 			"xeric_shrubland",
 			"ashen_inferno",
-			"fungi_forest",
 			"glowstone_grotto",
 			"undergarden",
 			"visceral_heap"

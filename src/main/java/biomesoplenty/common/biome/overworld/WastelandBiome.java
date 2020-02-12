@@ -71,7 +71,7 @@ public class WastelandBiome extends BiomeBOP
         this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.SLIME, 100, 4, 4));
         this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.ENDERMAN, 10, 1, 4));
         
-        this.addWeight(BOPClimates.WASTELAND, 500);
+        this.addWeight(BOPClimates.WASTELAND, 10);
         this.setBeachBiome((Biome)null);
         this.setRiverBiome((Biome)null);
     }
