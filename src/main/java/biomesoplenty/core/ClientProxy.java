@@ -21,9 +21,12 @@ import net.minecraft.world.ILightReader;
 import net.minecraft.world.biome.BiomeColors;
 
 import java.awt.*;
+import java.util.Calendar;
 
 public class ClientProxy extends CommonProxy
 {
+    public static boolean isAprilFools = false;
+
     public ClientProxy()
     {
 
@@ -32,6 +35,9 @@ public class ClientProxy extends CommonProxy
     @Override
     public void init()
     {
+        Calendar calendar = Calendar.getInstance();
+        if (calendar.get(2) + 1 == 4 && calendar.get(5) == 1) { isAprilFools = true; }
+
         BlockColors blockColors = Minecraft.getInstance().getBlockColors();
         ItemColors itemColors = Minecraft.getInstance().getItemColors();
 
@@ -48,8 +54,8 @@ public class ClientProxy extends CommonProxy
 
         //Rainbow Birch Leaf Coloring
         blockColors.register((state, world, pos, tintIndex) ->
-                        world != null && pos != null ? getRainbowBirchColor(world, pos) : FoliageColors.getDefaultColor(),
-                BOPBlocks.rainbow_birch_leaves);
+            world != null && pos != null ? getRainbowBirchColor(world, pos) : FoliageColors.getDefaultColor(),
+            BOPBlocks.rainbow_birch_leaves);
         
         //Item Coloring
         itemColors.register((stack, tintIndex) -> {
@@ -62,6 +68,8 @@ public class ClientProxy extends CommonProxy
     public static int getRainbowBirchColor(ILightReader world, BlockPos pos)
     {
         Color foliage = Color.getHSBColor((((float)pos.getX() + MathHelper.sin(((float)pos.getZ() + (float)pos.getX()) / 35) * 35) % 150) / 150, 0.6F, 1.0F);
+        if (isAprilFools) { foliage = Color.WHITE; }
+
         return foliage.getRGB();
     }
 }

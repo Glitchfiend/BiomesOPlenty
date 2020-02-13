@@ -15,6 +15,7 @@ import biomesoplenty.common.world.biome.BiomeFeatureHelper;
 import biomesoplenty.common.world.gen.feature.BOPBiomeFeatures;
 import biomesoplenty.common.world.gen.feature.FernGrassFeature;
 import biomesoplenty.common.world.gen.feature.StandardGrassFeature;
+import biomesoplenty.core.ClientProxy;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
@@ -36,6 +37,9 @@ import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+
+import java.awt.*;
+import java.util.Calendar;
 
 public class RainbowValleyBiome extends BiomeBOP
 {
@@ -91,7 +95,10 @@ public class RainbowValleyBiome extends BiomeBOP
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public int getGrassColor(double x, double z) {
+    public int getGrassColor(double x, double z)
+    {
+        if (ClientProxy.isAprilFools) { return 0xFFFFFF; }
+
         double d0 = Biome.BIOME_INFO_NOISE.getValue(x * 0.0225D, z * 0.0225D, false);
         return d0 < -0.1D ? 0x77CE7F : 0x75CE8D;
     }
@@ -100,6 +107,8 @@ public class RainbowValleyBiome extends BiomeBOP
     @Override
     public int getFoliageColor()
     {
+        if (ClientProxy.isAprilFools) { return 0xFFFFFF; }
+
         return 0x75CE8D;
     }
 }
