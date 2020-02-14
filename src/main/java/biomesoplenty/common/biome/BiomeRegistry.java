@@ -24,16 +24,11 @@ import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.commons.lang3.tuple.Pair;
-import org.lwjgl.system.CallbackI;
-
 
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Consumer;
 
 public class BiomeRegistry
@@ -60,7 +55,7 @@ public class BiomeRegistry
     public static void configureStandardBiomes()
     {
         List<DeferredRegistration> standardRegistrations = deferrances.get(RegistrationType.STANDARD_BIOME);
-        Map<String, BiomeConfigData.StandardBiomeEntry> defaultEntries = Maps.newHashMap();
+        TreeMap<String, BiomeConfigData.StandardBiomeEntry> defaultEntries = Maps.newTreeMap();
         Map<String, StandardBiomeRegistrationData> regDataMap = Maps.newHashMap();
 
         for (DeferredRegistration<StandardBiomeRegistrationData> registration : standardRegistrations)
@@ -77,11 +72,13 @@ public class BiomeRegistry
             }
         }
 
+        BiomesOPlenty.logger.info(defaultEntries.keySet());
+
         BiomeConfigData defaultConfigData = new BiomeConfigData();
         defaultConfigData.standardBiomeWeights = defaultEntries;
         BiomeConfigData configData = getConfigData(defaultConfigData);
 
-        Map<String, BiomeConfigData.StandardBiomeEntry> revisedStandardBiomeWeights = Maps.newHashMap(defaultEntries);
+        TreeMap<String, BiomeConfigData.StandardBiomeEntry> revisedStandardBiomeWeights = Maps.newTreeMap(defaultEntries);
 
         // Merge the config file with the default values
         for (Map.Entry<String, BiomeConfigData.StandardBiomeEntry> biomeEntry : configData.standardBiomeWeights.entrySet())
@@ -113,7 +110,7 @@ public class BiomeRegistry
     public static void configureSubBiomes()
     {
         List<DeferredRegistration> subBiomeRegistrations = deferrances.get(RegistrationType.SUB_BIOME);
-        Map<String, BiomeConfigData.SubBiomeEntry> defaultSubBiomeEntries = Maps.newHashMap();
+        TreeMap<String, BiomeConfigData.SubBiomeEntry> defaultSubBiomeEntries = Maps.newTreeMap();
         Map<String, SubBiomeRegistrationData> regDataMap = Maps.newHashMap();
 
         for (DeferredRegistration<SubBiomeRegistrationData> registration : subBiomeRegistrations)
@@ -128,7 +125,7 @@ public class BiomeRegistry
         defaultConfigData.subBiomeEntries = defaultSubBiomeEntries;
         BiomeConfigData configData = getConfigData(defaultConfigData);
 
-        Map<String, BiomeConfigData.SubBiomeEntry> revisedSubBiomeEntries = Maps.newHashMap(defaultSubBiomeEntries);
+        TreeMap<String, BiomeConfigData.SubBiomeEntry> revisedSubBiomeEntries = Maps.newTreeMap(defaultSubBiomeEntries);
 
         // Merge the config file with the default values
         for (Map.Entry<String, BiomeConfigData.SubBiomeEntry> biomeEntry : configData.subBiomeEntries.entrySet())
@@ -162,7 +159,7 @@ public class BiomeRegistry
     {
         // Island biomes are currently not configurable due to them being registered multiple times for different climates
 //        List<DeferredRegistration> islandBiomeReistrations = deferrances.get(RegistrationType.ISLAND_BIOME);
-//        Map<String, BiomeConfigData.IslandBiomeEntry> defaultIslandBiomeEntries = Maps.newHashMap();
+//        Map<String, BiomeConfigData.IslandBiomeEntry> defaultIslandBiomeEntries = Maps.newTreeMap();
 //        Map<String, IslandBiomeRegistrationData> regDataMap = Maps.newHashMap();
 //
 //        for (DeferredRegistration<IslandBiomeRegistrationData> registration : islandBiomeReistrations)

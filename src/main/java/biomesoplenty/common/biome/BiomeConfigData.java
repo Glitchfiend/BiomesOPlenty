@@ -13,14 +13,15 @@ import com.google.common.collect.Maps;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Map;
+import java.util.TreeMap;
 
 public class BiomeConfigData
 {
     @SerializedName("standard_weights")
-    public Map<String, StandardBiomeEntry> standardBiomeWeights = Maps.newHashMap();
+    public TreeMap<String, StandardBiomeEntry> standardBiomeWeights = Maps.newTreeMap();
 
     @SerializedName("sub_biome_weights")
-    public Map<String, SubBiomeEntry> subBiomeEntries = Maps.newHashMap();
+    public TreeMap<String, SubBiomeEntry> subBiomeEntries = Maps.newTreeMap();
 
     //@SerializedName("island_biome_weights")
     //public Map<String, IslandBiomeEntry> islandBiomeEntries = Maps.newHashMap();
