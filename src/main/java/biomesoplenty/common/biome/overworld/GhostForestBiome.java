@@ -41,7 +41,6 @@ public class GhostForestBiome extends BiomeBOP
         super((new Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.CONFIG_GRASS)).precipitation(RainType.RAIN).biomeCategory(Category.SWAMP).depth(-0.125F).scale(0.0F).temperature(0.5F).downfall(0.6F).waterColor(0x448FBD).waterFogColor(0x061326).parent((String)null));
 
         // Structures
-        this.addStructureStart(Feature.SWAMP_HUT.configured(IFeatureConfig.NONE));
         this.addStructureStart(Feature.MINESHAFT.configured(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
         this.addStructureStart(Feature.STRONGHOLD.configured(IFeatureConfig.NONE));
 
