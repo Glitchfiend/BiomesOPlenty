@@ -14,11 +14,6 @@ import java.util.Map;
 
 public class NetherBiomeBOP extends BiomeBOP
 {
-    protected Map<BOPClimates, Integer> weightMap = new HashMap<BOPClimates, Integer>();
-	public boolean canSpawnInBiome;
-	public int beachBiomeId = -1;
-	public int riverBiomeId = -1;
-
     public NetherBiomeBOP(Builder builder)
     {
         super(builder);

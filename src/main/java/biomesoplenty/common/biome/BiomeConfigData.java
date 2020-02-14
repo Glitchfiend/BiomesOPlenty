@@ -8,6 +8,7 @@
 package biomesoplenty.common.biome;
 
 import biomesoplenty.api.enums.BOPClimates;
+import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.collect.Maps;
 import com.google.gson.annotations.SerializedName;
 
@@ -16,15 +17,25 @@ import java.util.Map;
 public class BiomeConfigData
 {
     @SerializedName("standard_weights")
-    public Map<String, Map<BOPClimates, Integer>> standardBiomeWeights = Maps.newHashMap();
+    public Map<String, StandardBiomeEntry> standardBiomeWeights = Maps.newHashMap();
 
     @SerializedName("sub_biome_weights")
     public Map<String, SubBiomeEntry> subBiomeEntries = Maps.newHashMap();
 
-    @SerializedName("island_biome_weights")
-    public Map<String, IslandBiomeEntry> islandBiomeEntries = Maps.newHashMap();
+    //@SerializedName("island_biome_weights")
+    //public Map<String, IslandBiomeEntry> islandBiomeEntries = Maps.newHashMap();
 
-    static public class SubBiomeEntry
+    public static class StandardBiomeEntry
+    {
+        public int weight;
+
+        public StandardBiomeEntry(int weight)
+        {
+            this.weight = weight;
+        }
+    }
+
+    public static class SubBiomeEntry
     {
         public int weight;
         public float rarity;
@@ -36,7 +47,7 @@ public class BiomeConfigData
         }
     }
 
-    static public class IslandBiomeEntry
+    public static class IslandBiomeEntry
     {
         public int weight;
 

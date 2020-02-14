@@ -76,4 +76,9 @@ public class BiomeBOP extends Biome
     {
         return this.weightMap;
     }
+
+    public boolean hasWeights()
+    {
+        return !this.weightMap.isEmpty() && !this.weightMap.entrySet().stream().allMatch((entry) -> entry.getValue().equals(0));
+    }
 }

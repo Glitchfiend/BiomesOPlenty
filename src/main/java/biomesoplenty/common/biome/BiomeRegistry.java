@@ -15,6 +15,7 @@ import biomesoplenty.init.ModBiomes;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
 import com.google.gson.reflect.TypeToken;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
@@ -22,6 +23,8 @@ import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.apache.commons.lang3.tuple.Pair;
+import org.lwjgl.system.CallbackI;
 
 
 import java.io.File;
@@ -30,6 +33,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.function.Consumer;
 
 public class BiomeRegistry
@@ -56,7 +60,7 @@ public class BiomeRegistry
     public static void configureStandardBiomes()
     {
         List<DeferredRegistration> standardRegistrations = deferrances.get(RegistrationType.STANDARD_BIOME);
-        Map<String, Map<BOPClimates, Integer>> defaultStandardBiomeWeights = Maps.newHashMap();
+        Map<String, BiomeConfigData.StandardBiomeEntry> defaultEntries = Maps.newHashMap();
         Map<String, StandardBiomeRegistrationData> regDataMap = Maps.newHashMap();
 
         for (DeferredRegistration<StandardBiomeRegistrationData> registration : standardRegistrations)
@@ -64,22 +68,23 @@ public class BiomeRegistry
             StandardBiomeRegistrationData regData = registration.regData;
 
             // Ignore biomes which don't have any weights set by default
-            if (!((BiomeBOP)regData.getBiome()).getWeightMap().isEmpty())
+            if (((BiomeBOP)regData.getBiome()).hasWeights())
             {
                 String biomeName = new ResourceLocation(BiomesOPlenty.MOD_ID, regData.getName()).toString();
-                defaultStandardBiomeWeights.put(biomeName, registration.regData.getWeights());
+                Pair<BOPClimates, Integer> primaryWeight = regData.getPrimaryWeight();
+                defaultEntries.put(biomeName, new BiomeConfigData.StandardBiomeEntry(primaryWeight.getValue()));
                 regDataMap.put(biomeName, registration.regData);
             }
         }
 
         BiomeConfigData defaultConfigData = new BiomeConfigData();
-        defaultConfigData.standardBiomeWeights = defaultStandardBiomeWeights;
+        defaultConfigData.standardBiomeWeights = defaultEntries;
         BiomeConfigData configData = getConfigData(defaultConfigData);
 
-        Map<String, Map<BOPClimates, Integer>> revisedStandardBiomeWeights = Maps.newHashMap(defaultStandardBiomeWeights);
+        Map<String, BiomeConfigData.StandardBiomeEntry> revisedStandardBiomeWeights = Maps.newHashMap(defaultEntries);
 
         // Merge the config file with the default values
-        for (Map.Entry<String, Map<BOPClimates, Integer>> biomeEntry : configData.standardBiomeWeights.entrySet())
+        for (Map.Entry<String, BiomeConfigData.StandardBiomeEntry> biomeEntry : configData.standardBiomeWeights.entrySet())
         {
             if (revisedStandardBiomeWeights.containsKey(biomeEntry.getKey()))
             {
@@ -91,16 +96,16 @@ public class BiomeRegistry
         configData.standardBiomeWeights = revisedStandardBiomeWeights;
         JsonUtil.writeFile(getConfigFile(), configData);
 
-        for (Map.Entry<String, Map<BOPClimates, Integer>> biomeEntry : configData.standardBiomeWeights.entrySet())
+        for (Map.Entry<String, BiomeConfigData.StandardBiomeEntry> biomeEntry : configData.standardBiomeWeights.entrySet())
         {
             String name = biomeEntry.getKey();
-            Map<BOPClimates, Integer> weightMap = biomeEntry.getValue();
+            BiomeConfigData.StandardBiomeEntry weight = biomeEntry.getValue();
 
             // Replace the default weight map for this biome with those from the config file
             if (regDataMap.containsKey(name))
             {
                 StandardBiomeRegistrationData registrationData = regDataMap.get(name);
-                registrationData.setWeights(weightMap);
+                registrationData.setPrimaryWeight(weight.weight);
             }
         }
     }
@@ -233,6 +238,20 @@ public class BiomeRegistry
         if (!deferrances.containsKey(type))
             return;
 
+        if (type == RegistrationType.SUB_BIOME)
+        {
+            Set<Biome> children = Sets.newHashSet();
+            deferrances.get(RegistrationType.SUB_BIOME).forEach((reg) -> {
+                Biome biome = ((SubBiomeRegistrationData)reg.regData).getChild();
+                if (children.contains(biome))
+                {
+                    throw new RuntimeException(String.format("Sub biome %s cannot be added to multiple parents", biome.delegate.name().toString()));
+                }
+                children.add(biome);
+            });
+
+        }
+
         for (DeferredRegistration reg : deferrances.get(type))
         {
             reg.register();
@@ -338,6 +357,7 @@ public class BiomeRegistry
             super(biome);
             this.name = name;
             this.weightMap = Maps.newHashMap(biome.getWeightMap());
+            this.ensureSingleWeight();
         }
 
         public String getName()
@@ -350,11 +370,6 @@ public class BiomeRegistry
             return ImmutableMap.copyOf(this.weightMap);
         }
 
-        public void setWeights(Map<BOPClimates, Integer> weights)
-        {
-            this.weightMap = weights;
-        }
-
         public int getWeight(BOPClimates climate)
         {
             return this.weightMap.get(climate);
@@ -363,6 +378,29 @@ public class BiomeRegistry
         public void setWeight(BOPClimates climate, int weight)
         {
             this.weightMap.put(climate, weight);
+            this.ensureSingleWeight();
+        }
+
+        public Pair<BOPClimates, Integer> getPrimaryWeight()
+        {
+            List<Pair<BOPClimates, Integer>> pairs = Lists.newArrayList();
+            this.weightMap.entrySet().forEach((entry) -> pairs.add(Pair.of(entry.getKey(), entry.getValue())));
+            return pairs.get(0);
+        }
+
+        public void setPrimaryWeight(int value)
+        {
+            BOPClimates climate = this.getPrimaryWeight().getKey();
+            this.setWeight(climate, value);
+        }
+
+        // This limitation is enforced for config file simplicity, and because we don't need it at this time
+        private void ensureSingleWeight()
+        {
+            if (this.weightMap.size() > 1)
+            {
+                throw new RuntimeException(String.format("%s cannot be assigned to multiple climates!\n%s", new ResourceLocation(BiomesOPlenty.MOD_ID, name).toString(), this.weightMap));
+            }
         }
     }
 
