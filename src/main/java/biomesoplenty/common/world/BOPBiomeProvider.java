@@ -29,13 +29,16 @@ import java.util.Random;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class BOPBiomeProvider extends BiomeProvider
+public class BOPBiomeProvider extends OverworldBiomeProvider
 {
     private final Layer noiseBiomeLayer;
+    protected final Set<Biome> possibleBiomes;
 
     public BOPBiomeProvider(OverworldBiomeProviderSettings settingsProvider)
     {
-        super(BOPClimates.getOverworldBiomes());
+        super(settingsProvider);
+        this.possibleBiomes = Sets.newHashSet(super.possibleBiomes);
+        this.possibleBiomes.addAll(BOPClimates.getOverworldBiomes());
         this.noiseBiomeLayer = BOPLayerUtil.createGenLayers(settingsProvider.getSeed(), settingsProvider.getGeneratorType(), settingsProvider.getGeneratorSettings())[0];
     }
 
@@ -43,5 +46,25 @@ public class BOPBiomeProvider extends BiomeProvider
     public Biome getNoiseBiome(int x, int y, int z)
     {
         return this.noiseBiomeLayer.get(x, z);
+    }
+
+    @Override
+    public boolean canGenerateStructure(Structure<?> structure)
+    {
+        return this.supportedStructures.computeIfAbsent(structure, (p_226839_1_) -> this.possibleBiomes.stream().anyMatch((biome) -> biome.isValidStart(p_226839_1_)));
+    }
+
+    @Override
+    public Set<BlockState> getSurfaceBlocks()
+    {
+        if (this.surfaceBlocks.isEmpty())
+        {
+            for(Biome biome : this.possibleBiomes)
+            {
+                this.surfaceBlocks.add(biome.getSurfaceBuilderConfig().getTopMaterial());
+            }
+        }
+
+        return this.surfaceBlocks;
     }
 }

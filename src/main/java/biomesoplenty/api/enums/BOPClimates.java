@@ -7,6 +7,8 @@
  ******************************************************************************/
 package biomesoplenty.api.enums;
 
+import biomesoplenty.api.biome.BOPBiomes;
+import biomesoplenty.init.ModBiomes;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
@@ -193,6 +195,7 @@ public enum BOPClimates
             set.addAll(climate.getIslandBiomes().stream().map(weightedBiomeEntry -> weightedBiomeEntry.biome).collect(Collectors.toSet()));
         }
 
+        ModBiomes.subBiomes.values().forEach(weightedSubBiome -> set.add(weightedSubBiome.biome));
         return ImmutableSet.copyOf(set);
     }
 
