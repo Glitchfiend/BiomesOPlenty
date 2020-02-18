@@ -131,24 +131,6 @@ public enum BOPClimates
         return new WeightedBiomeEntry(100, Biomes.OCEAN);
     }
 
-    static
-    {
-        // Set up vanilla biomes
-        BOPClimates.ICE_CAP.addBiome(10, Biomes.SNOWY_TUNDRA);
-        BOPClimates.TUNDRA.addBiome(10, Biomes.SNOWY_TAIGA).addBiome(7, Biomes.MOUNTAINS);
-        BOPClimates.WET_BOREAL.addBiome(10, Biomes.TAIGA);
-        BOPClimates.DRY_BOREAL.addBiome(5, Biomes.GIANT_TREE_TAIGA);
-        BOPClimates.WET_TEMPERATE.addBiome(5, Biomes.DARK_FOREST).addBiome(7, Biomes.SWAMP);
-        BOPClimates.DRY_TEMPERATE.addBiome(7, Biomes.BIRCH_FOREST);
-        BOPClimates.COOL_TEMPERATE.addBiome(10, Biomes.FOREST);
-        BOPClimates.WARM_TEMPERATE.addBiome(10, Biomes.PLAINS);
-        BOPClimates.TROPICAL.addBiome(15, Biomes.JUNGLE);
-        BOPClimates.SAVANNA.addBiome(10, Biomes.SAVANNA);
-        BOPClimates.HOT_DESERT.addBiome(15, Biomes.DESERT).addBiome(10, Biomes.BADLANDS_PLATEAU).addBiome(3, Biomes.WOODED_BADLANDS_PLATEAU);
-
-        BOPClimates.NETHER.addBiome(10, Biomes.NETHER);
-    }
-
     private static BOPClimates[] values = BOPClimates.values();
 
     public static BOPClimates lookup(int i) {return values[i];}

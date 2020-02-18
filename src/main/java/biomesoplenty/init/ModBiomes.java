@@ -158,6 +158,27 @@ public class ModBiomes
         //BiomeRegistry.configureIslandBiomes();
         BiomeRegistry.finalizeRegistrations(BiomeRegistry.RegistrationType.ISLAND_BIOME);
 
+        // Set up vanilla biomes
+        registerVanillaBiome(Biomes.SNOWY_TUNDRA, BOPClimates.ICE_CAP, 10);
+        registerVanillaBiome(Biomes.MOUNTAINS, BOPClimates.TUNDRA, 7);
+        registerVanillaBiome(Biomes.TAIGA, BOPClimates.WET_BOREAL, 10);
+        registerVanillaBiome(Biomes.GIANT_TREE_TAIGA, BOPClimates.DRY_BOREAL, 5);
+        registerVanillaBiome(Biomes.DARK_FOREST, BOPClimates.WET_TEMPERATE, 5);
+        registerVanillaBiome(Biomes.SWAMP, BOPClimates.WET_TEMPERATE, 7);
+        registerVanillaBiome(Biomes.BIRCH_FOREST, BOPClimates.DRY_TEMPERATE, 7);
+        registerVanillaBiome(Biomes.FOREST, BOPClimates.COOL_TEMPERATE, 10);
+        registerVanillaBiome(Biomes.PLAINS, BOPClimates.WARM_TEMPERATE, 10);
+        registerVanillaBiome(Biomes.JUNGLE, BOPClimates.TROPICAL, 15);
+        registerVanillaBiome(Biomes.SAVANNA, BOPClimates.SAVANNA, 10);
+        registerVanillaBiome(Biomes.DESERT, BOPClimates.HOT_DESERT, 15);
+        registerVanillaBiome(Biomes.BADLANDS_PLATEAU, BOPClimates.HOT_DESERT, 10);
+        registerVanillaBiome(Biomes.WOODED_BADLANDS_PLATEAU, BOPClimates.HOT_DESERT, 3);
+
+        registerVanillaBiome(Biomes.NETHER, BOPClimates.NETHER, 10);
+
+        BiomeRegistry.configureVanillaBiomes();
+        BiomeRegistry.finalizeRegistrations(BiomeRegistry.RegistrationType.VANILLA_BIOME);
+
         registerBiomeDictionaryTags();
         registerVillagerTypes();
     }
@@ -361,6 +382,11 @@ public class ModBiomes
             return;
 
         registerIslandBiome(biome.get(), climate, weight);
+    }
+
+    private static void registerVanillaBiome(Biome biome, BOPClimates climate, int weight)
+    {
+        BiomeRegistry.deferVanillaBiomeRegistration(biome, climate, weight);
     }
 
     public static class WeightedSubBiome
