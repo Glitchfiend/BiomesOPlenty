@@ -21,7 +21,7 @@ public class BoneSpineFeature extends Feature<NoFeatureConfig>
 {
     protected IBlockPosQuery placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == BOPBlocks.flesh;
     protected IBlockPosQuery replace = (world, pos) -> world.getBlockState(pos).isAir(world, pos);
-    private int maxHeight = 8;
+    private int maxHeight = 5;
 
     public BoneSpineFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserializer)
     {
@@ -47,32 +47,11 @@ public class BoneSpineFeature extends Feature<NoFeatureConfig>
 
         BlockPos pos = startPos.above();
 
-        int height = 2 + p_212245_3_.nextInt(2);
+        int height = 1 + p_212245_3_.nextInt(maxHeight - 1);
 
-        boolean spine = false;
-        if (p_212245_3_.nextInt(3) == 0)
-        {
-            spine = true;
-            height = 2 + p_212245_3_.nextInt(maxHeight + 1);
-        }
-
-        for (int y = 0; y < height; y++)
+        for (int y = 0; y <= height; y++)
         {
             this.setBlock(world, pos.offset(0, y, 0), Blocks.BONE_BLOCK.defaultBlockState());
-
-            if (spine == true && y % 2 == 1)
-            {
-                this.setBlock(world, pos.offset(1, y, 0), Blocks.BONE_BLOCK.defaultBlockState().setValue(RotatedPillarBlock.AXIS, Direction.Axis.X));
-                this.setBlock(world, pos.offset(-1, y, 0), Blocks.BONE_BLOCK.defaultBlockState().setValue(RotatedPillarBlock.AXIS, Direction.Axis.X));
-                this.setBlock(world, pos.offset(0, y, 1), Blocks.BONE_BLOCK.defaultBlockState().setValue(RotatedPillarBlock.AXIS, Direction.Axis.Z));
-                this.setBlock(world, pos.offset(0, y, -1), Blocks.BONE_BLOCK.defaultBlockState().setValue(RotatedPillarBlock.AXIS, Direction.Axis.Z));
-            }
-        }
-
-        this.setBlock(world, pos.offset(0, height, 0), Blocks.BONE_BLOCK.defaultBlockState());
-        if (height % 2 == 0)
-        {
-            this.setBlock(world, pos.offset(0, height + 1, 0), Blocks.BONE_BLOCK.defaultBlockState());
         }
 
         return true;

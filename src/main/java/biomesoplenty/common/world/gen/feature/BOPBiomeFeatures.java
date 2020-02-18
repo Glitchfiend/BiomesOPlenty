@@ -126,7 +126,6 @@ public class BOPBiomeFeatures
 	public static final Feature<NoFeatureConfig> FLESH_SPLATTER = new FleshSplatterFeature(NoFeatureConfig::deserialize);
 	public static final Feature<NoFeatureConfig> BONE_SPINE = new BoneSpineFeature(NoFeatureConfig::deserialize);
 	public static final Feature<NoFeatureConfig> ASH_SPLATTER = new AshSplatterFeature(NoFeatureConfig::deserialize);
-	public static final Feature<NoFeatureConfig> GLOWSTONE_SPIKES = new GlowstoneSpikesFeature(NoFeatureConfig::deserialize);
 	public static final Feature<NoFeatureConfig> PODZOL_SPLATTER = new PodzolSplatterFeature(NoFeatureConfig::deserialize);
 	public static final Feature<NoFeatureConfig> MYCELIUM_SPLATTER = new MyceliumSplatterFeature(NoFeatureConfig::deserialize);
 	public static final Feature<NoFeatureConfig> SMALL_RED_MUSHROOM = new SmallRedMushroomFeature(NoFeatureConfig::deserialize);

@@ -27,6 +27,12 @@
                 "biome": "biomesoplenty:alps_foothills"
             }
         },
+		"ashen_inferno": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:ashen_inferno"
+            }
+        },
 		"bayou": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -369,6 +375,18 @@
                 "biome": "biomesoplenty:tundra"
             }
         },
+		"undergarden": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:undergarden"
+            }
+        },
+		"visceral_heap": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:visceral_heap"
+            }
+        },
         "volcano": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -409,30 +427,6 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:xeric_shrubland"
-            }
-        },
-		"ashen_inferno": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:ashen_inferno"
-            }
-        },
-		"glowstone_grotto": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:glowstone_grotto"
-            }
-        },
-		"undergarden": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:undergarden"
-            }
-        },
-		"visceral_heap": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:visceral_heap"
             }
         }
     },

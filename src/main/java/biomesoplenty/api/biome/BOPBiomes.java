@@ -81,7 +81,6 @@ public class BOPBiomes
     public static Optional<Biome> xeric_shrubland = Optional.empty();
 
     public static Optional<Biome> ashen_inferno = Optional.empty();
-    public static Optional<Biome> glowstone_grotto = Optional.empty();
     public static Optional<Biome> undergarden = Optional.empty();
     public static Optional<Biome> visceral_heap = Optional.empty();
 }

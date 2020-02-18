@@ -118,7 +118,6 @@ public class ModBiomes
 
         //Nether Biomes
         registerBiome(new AshenInfernoBiome(), "ashen_inferno");
-        registerBiome(new GlowstoneGrottoBiome(), "glowstone_grotto");
         registerBiome(new UndergardenBiome(), "undergarden");
         registerBiome(new VisceralHeapBiome(), "visceral_heap");
 
@@ -255,7 +254,6 @@ public class ModBiomes
 
         //Nether Biomes
         registerBiomeToDictionary(ashen_inferno, Type.NETHER, Type.HOT);
-        registerBiomeToDictionary(glowstone_grotto, Type.NETHER, Type.HOT);
         registerBiomeToDictionary(undergarden, Type.NETHER, Type.HOT);
         registerBiomeToDictionary(visceral_heap, Type.NETHER, Type.HOT);
     }
