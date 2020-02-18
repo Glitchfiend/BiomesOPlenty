@@ -38,27 +38,6 @@ public enum BOPBiomeEdgeLayer implements ICastleTransformer
     private static final int TAIGA = Registry.BIOME.getId(Biomes.TAIGA);
     private static final int SNOWY_TAIGA = Registry.BIOME.getId(Biomes.SNOWY_TAIGA);
 
-    private static final int DARK_FOREST = Registry.BIOME.getId(Biomes.DARK_FOREST);
-    private static final int DARK_FOREST_HILLS = Registry.BIOME.getId(Biomes.DARK_FOREST_HILLS);
-    private static final int BAMBOO_JUNGLE = Registry.BIOME.getId(Biomes.BAMBOO_JUNGLE);
-    private static final int BAMBOO_JUNGLE_HILLS = Registry.BIOME.getId(Biomes.BAMBOO_JUNGLE_HILLS);
-    private static final int LUKEWARM_OCEAN = Registry.BIOME.getId(Biomes.LUKEWARM_OCEAN);
-
-    private static final int BAYOU = Registry.BIOME.getId(BOPBiomes.bayou.get());
-    private static final int GHOST_FOREST = Registry.BIOME.getId(BOPBiomes.ghost_forest.get());
-    private static final int WETLAND = Registry.BIOME.getId(BOPBiomes.wetland.get());
-    private static final int MIRE = Registry.BIOME.getId(BOPBiomes.mire.get());
-    private static final int MARSH = Registry.BIOME.getId(BOPBiomes.marsh.get());
-    private static final int TEMPERATE_RAINFOREST = Registry.BIOME.getId(BOPBiomes.temperate_rainforest.get());
-
-    private static final int MANGROVE = Registry.BIOME.getId(BOPBiomes.mangrove.get());
-    private static final int SHRUBLAND = Registry.BIOME.getId(BOPBiomes.shrubland.get());
-    private static final int FLOODPLAIN = Registry.BIOME.getId(BOPBiomes.floodplain.get());
-    private static final int LUSH_GRASSLAND = Registry.BIOME.getId(BOPBiomes.lush_grassland.get());
-    private static final int TROPICAL_RAINFOREST = Registry.BIOME.getId(BOPBiomes.tropical_rainforest.get());
-    private static final int RAINFOREST = Registry.BIOME.getId(BOPBiomes.rainforest.get());
-    private static final int OVERGROWN_CLIFFS = Registry.BIOME.getId(BOPBiomes.overgrown_cliffs.get());
-
     @Override
     public int apply(INoiseRandom context, int northBiomeId, int eastBiomeId, int southBiomeId, int westBiomeId, int biomeId)
     {
@@ -99,34 +78,6 @@ public enum BOPBiomeEdgeLayer implements ICastleTransformer
                 if (northBiomeId == JUNGLE || southBiomeId == JUNGLE || eastBiomeId == JUNGLE || westBiomeId == JUNGLE || northBiomeId == JUNGLE_HILLS || southBiomeId == JUNGLE_HILLS || eastBiomeId == JUNGLE_HILLS || westBiomeId == JUNGLE_HILLS)
                 {
                     return JUNGLE_EDGE;
-                }
-
-                if (northBiomeId == FLOODPLAIN || southBiomeId == FLOODPLAIN || eastBiomeId == FLOODPLAIN || westBiomeId == FLOODPLAIN || northBiomeId == TROPICAL_RAINFOREST || southBiomeId == TROPICAL_RAINFOREST || eastBiomeId == TROPICAL_RAINFOREST || westBiomeId == TROPICAL_RAINFOREST || northBiomeId == LUSH_GRASSLAND || southBiomeId == LUSH_GRASSLAND || eastBiomeId == LUSH_GRASSLAND || westBiomeId == LUSH_GRASSLAND)
-                {
-                    return MANGROVE;
-                }
-
-                if (northBiomeId == RAINFOREST || southBiomeId == RAINFOREST || eastBiomeId == RAINFOREST || westBiomeId == RAINFOREST || northBiomeId == OVERGROWN_CLIFFS || southBiomeId == OVERGROWN_CLIFFS || eastBiomeId == OVERGROWN_CLIFFS || westBiomeId == OVERGROWN_CLIFFS)
-                {
-                    return LUKEWARM_OCEAN;
-                }
-            }
-
-            if (biomeId == BAYOU || biomeId == GHOST_FOREST || biomeId == MARSH || biomeId == MIRE || biomeId == TEMPERATE_RAINFOREST || biomeId == WETLAND || biomeId == DARK_FOREST || biomeId == DARK_FOREST_HILLS)
-            {
-                if (northBiomeId == DESERT || eastBiomeId == DESERT || westBiomeId == DESERT || southBiomeId == DESERT || northBiomeId == SNOWY_TAIGA || eastBiomeId == SNOWY_TAIGA || westBiomeId == SNOWY_TAIGA || southBiomeId == SNOWY_TAIGA || northBiomeId == SNOWY_TUNDRA || eastBiomeId == SNOWY_TUNDRA || westBiomeId == SNOWY_TUNDRA || southBiomeId == SNOWY_TUNDRA)
-                {
-                    return SHRUBLAND;
-                }
-
-                if (northBiomeId == FLOODPLAIN || southBiomeId == FLOODPLAIN || eastBiomeId == FLOODPLAIN || westBiomeId == FLOODPLAIN || northBiomeId == LUSH_GRASSLAND || southBiomeId == LUSH_GRASSLAND || eastBiomeId == LUSH_GRASSLAND || westBiomeId == LUSH_GRASSLAND)
-                {
-                    return MANGROVE;
-                }
-
-                if (northBiomeId == BAMBOO_JUNGLE || southBiomeId == BAMBOO_JUNGLE || eastBiomeId == BAMBOO_JUNGLE || westBiomeId == BAMBOO_JUNGLE || northBiomeId == BAMBOO_JUNGLE_HILLS || southBiomeId == BAMBOO_JUNGLE_HILLS || eastBiomeId == BAMBOO_JUNGLE_HILLS || westBiomeId == BAMBOO_JUNGLE_HILLS || northBiomeId == JUNGLE || southBiomeId == JUNGLE || eastBiomeId == JUNGLE || westBiomeId == JUNGLE || northBiomeId == JUNGLE_HILLS || southBiomeId == JUNGLE_HILLS || eastBiomeId == JUNGLE_HILLS || westBiomeId == JUNGLE_HILLS || northBiomeId == RAINFOREST || southBiomeId == RAINFOREST || eastBiomeId == RAINFOREST || westBiomeId == RAINFOREST || northBiomeId == TROPICAL_RAINFOREST || southBiomeId == TROPICAL_RAINFOREST || eastBiomeId == TROPICAL_RAINFOREST || westBiomeId == TROPICAL_RAINFOREST || northBiomeId == OVERGROWN_CLIFFS || southBiomeId == OVERGROWN_CLIFFS || eastBiomeId == OVERGROWN_CLIFFS || westBiomeId == OVERGROWN_CLIFFS)
-                {
-                    return LUKEWARM_OCEAN;
                 }
             }
         }

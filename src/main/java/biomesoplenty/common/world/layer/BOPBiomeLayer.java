@@ -60,7 +60,7 @@ public enum BOPBiomeLayer implements IAreaTransformer2, IDimOffset0Transformer
         }
         else
         {
-        	return Registry.BIOME.getId(climate.getRandomBiome(context, Biomes.PLAINS));
+        	return Registry.BIOME.getId(climate.getRandomBiome(context, Biomes.OCEAN));
         }
     }
 }
