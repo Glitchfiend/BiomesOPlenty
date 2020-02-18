@@ -29,7 +29,7 @@ public class MangroveSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
 	public void apply(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config)
 	{
 		double d0 = Biome.BIOME_INFO_NOISE.getValue((double)x * 0.25D, (double)z * 0.25D, false);
-		if (d0 > 0.2D) {
+		if (d0 < 0.1D) {
 			int i = x & 15;
 			int j = z & 15;
 			BlockPos.Mutable blockpos$mutableblockpos = new BlockPos.Mutable();
