@@ -14,13 +14,13 @@ import net.minecraft.world.gen.area.IArea;
 import net.minecraft.world.gen.layer.traits.IAreaTransformer2;
 import net.minecraft.world.gen.layer.traits.IDimOffset0Transformer;
 
-public enum CliamteLayer implements IAreaTransformer2, IDimOffset0Transformer
+public enum ClimateLayer implements IAreaTransformer2, IDimOffset0Transformer
 {
     INSTANCE;
 
     private final int[] climateMapping;
 
-    CliamteLayer()
+    ClimateLayer()
     {
         this.climateMapping = BOPClimates.getClimateMappingInts();
     }

@@ -98,7 +98,7 @@ public class BOPLayerUtil
                 break;
         }
 
-        return CliamteLayer.INSTANCE.run(contextFactory.apply(103L), temperatureFactory, rainfallFactory);
+        return ClimateLayer.INSTANCE.run(contextFactory.apply(103L), temperatureFactory, rainfallFactory);
     }
 
     public static <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> createBiomeFactory(IAreaFactory<T> landSeaAreaFactory, IAreaFactory<T> climateAreaFactory, LongFunction<C> contextFactory)
