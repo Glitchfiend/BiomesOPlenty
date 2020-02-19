@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "biomesoplenty:block/barley"
+        "layer0": "biomesoplenty:block/tall_wheat_top"
     }
 }

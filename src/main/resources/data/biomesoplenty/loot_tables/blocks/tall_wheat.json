@@ -17,27 +17,24 @@
                   }
                 }
               ],
-              "name": "biomesoplenty:barley"
+              "name": "biomesoplenty:tall_wheat"
             },
             {
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "condition": "minecraft:random_chance",
-                  "chance": 0.125
-                }
-              ],
-              "functions": [
+                  "condition": "minecraft:survives_explosion"
+                },
                 {
-                  "function": "minecraft:apply_bonus",
-                  "enchantment": "minecraft:fortune",
-                  "formula": "minecraft:uniform_bonus_count",
-                  "parameters": {
-                    "bonusMultiplier": 2
+                  "condition": "minecraft:block_state_property",
+                  "block": "biomesoplenty:tall_wheat",
+                  "properties": {
+                    "half": "lower"
                   }
                 },
                 {
-                  "function": "minecraft:explosion_decay"
+                  "condition": "minecraft:random_chance",
+                  "chance": 0.125
                 }
               ],
               "name": "minecraft:wheat_seeds"

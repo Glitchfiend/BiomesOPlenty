@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=lower": { "model": "biomesoplenty:block/tall_wheat_bottom" },
+        "half=upper": { "model": "biomesoplenty:block/tall_wheat_top" }
+    }
+}

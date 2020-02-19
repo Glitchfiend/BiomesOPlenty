@@ -207,11 +207,11 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.willow_vine, 15, 100);
         registerFlammable(BOPBlocks.sprout, 60, 100);
         registerFlammable(BOPBlocks.bush, 60, 100);
-        registerFlammable(BOPBlocks.barley, 60, 100);
         registerFlammable(BOPBlocks.dune_grass, 60, 100);
         registerFlammable(BOPBlocks.desert_grass, 60, 100);
         registerFlammable(BOPBlocks.dead_grass, 60, 100);
         registerFlammable(BOPBlocks.dead_branch, 60, 100);
+        registerFlammable(BOPBlocks.tall_wheat, 60, 100);
 
         //Log Stripping
         registerStrippable(BOPBlocks.fir_log, BOPBlocks.stripped_fir_log);
@@ -294,14 +294,13 @@ public class ModVanillaCompat
 
         registerCompostable(0.5F, BOPBlocks.sprout);
         registerCompostable(0.5F, BOPBlocks.bush);
-        registerCompostable(0.5F, BOPBlocks.barley);
         registerCompostable(0.5F, BOPBlocks.dune_grass);
         registerCompostable(0.5F, BOPBlocks.desert_grass);
         registerCompostable(0.5F, BOPBlocks.dead_grass);
 
         registerCompostable(0.5F, BOPBlocks.cattail);
         registerCompostable(0.5F, BOPBlocks.tall_cattail);
-
+        registerCompostable(0.5F, BOPBlocks.tall_wheat);
         registerCompostable(0.5F, BOPBlocks.reed);
         registerCompostable(0.5F, BOPBlocks.watergrass);
         registerCompostable(0.5F, BOPBlocks.mangrove_root);

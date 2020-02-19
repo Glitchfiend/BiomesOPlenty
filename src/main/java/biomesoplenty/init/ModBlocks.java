@@ -275,7 +275,6 @@ public class ModBlocks
         //Plants
         sprout = registerBlock(new FoliageBlockBOP(Block.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS)), "sprout");
         bush = registerBlock(new FoliageBlockBOP(Block.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS)), "bush");
-        barley = registerBlock(new FoliageBlockBOP(Block.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.TERRACOTTA_YELLOW).noCollission().instabreak().sound(SoundType.GRASS)), "barley");
         dune_grass = registerBlock(new FoliageBlockBOP(Block.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.TERRACOTTA_LIGHT_GREEN).noCollission().instabreak().sound(SoundType.GRASS)), "dune_grass");
         desert_grass = registerBlock(new FoliageBlockBOP(Block.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.TERRACOTTA_ORANGE).noCollission().instabreak().sound(SoundType.GRASS)), "desert_grass");
         dead_grass = registerBlock(new FoliageBlockBOP(Block.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.WOOD).noCollission().instabreak().sound(SoundType.GRASS)), "dead_grass");
@@ -283,6 +282,7 @@ public class ModBlocks
 
         //Tall Plants
         tall_cattail = registerBlock(new DoubleWatersidePlantBlock(Block.Properties.of(Material.PLANT, MaterialColor.DIRT).noCollission().instabreak().sound(SoundType.GRASS)), "tall_cattail");
+        tall_wheat = registerBlock(new DoublePlantBlockBOP(Block.Properties.of(Material.PLANT, MaterialColor.TERRACOTTA_YELLOW).noCollission().instabreak().sound(SoundType.GRASS)), "tall_wheat");
         reed = registerBlock(new DoubleWaterPlantBlock(Block.Properties.of(Material.PLANT, MaterialColor.DIRT).noCollission().instabreak().sound(SoundType.GRASS)), "reed");
         watergrass = registerBlock(new DoubleWaterPlantBlock(Block.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS)), "watergrass");
         mangrove_root = registerBlock(new DoubleWaterPlantBlock(Block.Properties.of(Material.PLANT, MaterialColor.TERRACOTTA_WHITE).noCollission().strength(1.0F, 1.5F).sound(SoundType.WOOD)), "mangrove_root");
@@ -383,12 +383,12 @@ public class ModBlocks
             RenderTypeLookup.setRenderLayer(willow_vine, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(sprout, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(bush, cutoutRenderType);
-            RenderTypeLookup.setRenderLayer(barley, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(dune_grass, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(desert_grass, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(dead_grass, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(cattail, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(tall_cattail, cutoutRenderType);
+            RenderTypeLookup.setRenderLayer(tall_wheat, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(reed, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(watergrass, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(mangrove_root, cutoutRenderType);

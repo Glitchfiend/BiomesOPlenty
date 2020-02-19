@@ -95,7 +95,6 @@
   "item.biomesoplenty.willow_boat": "Willow Boat",
 
   "block.biomesoplenty.ash_block": "Ash Block",
-  "block.biomesoplenty.barley": "Barley",
   "block.biomesoplenty.blue_hydrangea": "Blue Hydrangea",
   "block.biomesoplenty.bramble": "Bramble",
   "block.biomesoplenty.burning_blossom": "Burning Blossom",
@@ -329,6 +328,7 @@
   "block.biomesoplenty.stripped_willow_log": "Stripped Willow Log",
   "block.biomesoplenty.stripped_willow_wood": "Stripped Willow Wood",
   "block.biomesoplenty.tall_cattail": "Tall Cattail",
+  "block.biomesoplenty.tall_wheat": "Tall Wheat",
   "block.biomesoplenty.toadstool": "Toadstool",
   "block.biomesoplenty.toadstool_block": "Toadstool Block",
   "block.biomesoplenty.umbran_button": "Umbran Button",
