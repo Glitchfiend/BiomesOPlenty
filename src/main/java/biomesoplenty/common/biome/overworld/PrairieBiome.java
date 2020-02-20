@@ -90,13 +90,13 @@ public class PrairieBiome extends BiomeBOP
     @Override
     public int getGrassColor(double x, double z)
     {
-    	return 0xC8E580;
+    	return 0xDDE580;
     }
 
     @OnlyIn(Dist.CLIENT)
     @Override
     public int getFoliageColor()
     {
-    	return 0xADE07B;
+    	return 0xC2E07B;
     }
 }
