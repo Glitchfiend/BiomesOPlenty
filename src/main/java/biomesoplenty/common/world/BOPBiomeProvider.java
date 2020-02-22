@@ -39,7 +39,7 @@ public class BOPBiomeProvider extends OverworldBiomeProvider
         super(settingsProvider);
         this.possibleBiomes = Sets.newHashSet(super.possibleBiomes);
         this.possibleBiomes.addAll(BOPClimates.getOverworldBiomes());
-        this.noiseBiomeLayer = BOPLayerUtil.createGenLayers(settingsProvider.getSeed(), settingsProvider.getGeneratorType(), settingsProvider.getGeneratorSettings())[0];
+        this.noiseBiomeLayer = BOPLayerUtil.createGenLayers(settingsProvider.getSeed(), settingsProvider.getGeneratorType(), (BOPOverworldGenSettings)settingsProvider.getGeneratorSettings())[0];
     }
 
     @Override

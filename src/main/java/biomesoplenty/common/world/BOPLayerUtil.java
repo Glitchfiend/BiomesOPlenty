@@ -9,6 +9,7 @@ package biomesoplenty.common.world;
 
 import biomesoplenty.common.world.layer.*;
 import biomesoplenty.common.world.layer.traits.LazyAreaLayerContextBOP;
+import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.WorldType;
@@ -58,11 +59,11 @@ public class BOPLayerUtil
     }
 
     // superimpose hot and cold regions an a land and sea layer
-    public static <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> createClimateFactory(LongFunction<C> contextFactory, BOPWorldSettings settings)
+    public static <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> createClimateFactory(LongFunction<C> contextFactory, BOPOverworldGenSettings settings)
     {
         IAreaFactory<T> temperatureFactory;
 
-        switch (settings.tempScheme)
+        switch (settings.getTempScheme())
         {
             case LATITUDE: default:
                 temperatureFactory = TemperatureLatitudeLayer.INSTANCE.run(contextFactory.apply(2L));
@@ -82,7 +83,7 @@ public class BOPLayerUtil
         }
 
         IAreaFactory<T> rainfallFactory;
-        switch(settings.rainScheme)
+        switch(settings.getRainScheme())
         {
             case SMALL_ZONES:
                 rainfallFactory = RainfallNoiseLayer.SMALL_ZONES.run(contextFactory.apply(7L));
@@ -110,7 +111,7 @@ public class BOPLayerUtil
         return biomeFactory;
     }
 
-    public static <T extends IArea, C extends IExtendedNoiseRandom<T>> ImmutableList<IAreaFactory<T>> createAreaFactories(WorldType worldType, OverworldGenSettings settings, LongFunction<C> contextFactory)
+    public static <T extends IArea, C extends IExtendedNoiseRandom<T>> ImmutableList<IAreaFactory<T>> createAreaFactories(WorldType worldType, BOPOverworldGenSettings settings, LongFunction<C> contextFactory)
     {
         // Create the initial land and sea layer. Is also responsible for adding deep oceans
         // and mushroom islands
@@ -130,7 +131,7 @@ public class BOPLayerUtil
         biomeSize = LayerUtil.getModdedBiomeSize(worldType, biomeSize);
 
         // Create the climates
-        IAreaFactory<T> climateFactory = createClimateFactory(contextFactory, new BOPWorldSettings());
+        IAreaFactory<T> climateFactory = createClimateFactory(contextFactory, settings);
 
         // Add islands and deep oceans
         landSeaFactory = AddMushroomIslandLayer.INSTANCE.run(contextFactory.apply(5L), landSeaFactory);
@@ -175,7 +176,7 @@ public class BOPLayerUtil
         return ImmutableList.of(biomesFactory, voroniZoomBiomesFactory, biomesFactory);
     }
 
-    public static Layer[] createGenLayers(long seed, WorldType worldType, OverworldGenSettings settings)
+    public static Layer[] createGenLayers(long seed, WorldType worldType, BOPOverworldGenSettings settings)
     {
         ImmutableList<IAreaFactory<LazyArea>> factoryList = createAreaFactories(worldType, settings, (seedModifier) ->
         {

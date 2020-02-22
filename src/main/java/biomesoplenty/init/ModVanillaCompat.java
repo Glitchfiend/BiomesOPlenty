@@ -329,6 +329,10 @@ public class ModVanillaCompat
 
     public static void addFeature(Biome biome, GenerationStage.Decoration decorationStage, ConfiguredFeature<?, ?> featureIn)
     {
+        // Don't add features if it is disabled in the config
+        if (!ModConfig.GenerationConfig.enhanceVanillaBiomes.get())
+            return;
+
         biome.addFeature(decorationStage, featureIn);
     }
 }

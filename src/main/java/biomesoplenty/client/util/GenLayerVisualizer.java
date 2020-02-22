@@ -8,7 +8,7 @@
 package biomesoplenty.client.util;
 
 import biomesoplenty.common.world.BOPLayerUtil;
-import biomesoplenty.common.world.BOPWorldSettings;
+import biomesoplenty.common.world.BOPOverworldGenSettings;
 import biomesoplenty.common.world.layer.traits.IBOPContextExtended;
 import biomesoplenty.common.world.layer.traits.LazyAreaLayerContextBOP;
 import biomesoplenty.init.ModBiomes;
@@ -168,7 +168,7 @@ public class GenLayerVisualizer
             };
 
             IAreaFactory<LazyArea> landAreaFactory = BOPLayerUtil.createInitialLandAndSeaFactory(contextFactory);
-            IAreaFactory<LazyArea> climateFactory = BOPLayerUtil.createClimateFactory(contextFactory, new BOPWorldSettings());
+            IAreaFactory<LazyArea> climateFactory = BOPLayerUtil.createClimateFactory(contextFactory, new BOPOverworldGenSettings());
             IAreaFactory<LazyArea> biomeAreaFactory = BOPLayerUtil.createBiomeFactory(landAreaFactory, climateFactory, contextFactory);
 
             //IAreaFactory<LazyArea> biomeAreaFactory = BOPLayerUtil.createAreaFactories(WorldType.DEFAULT, settings, contextFactory).get(0);

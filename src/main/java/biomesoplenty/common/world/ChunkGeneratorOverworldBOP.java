@@ -14,7 +14,7 @@ import net.minecraft.world.gen.OverworldGenSettings;
 
 public class ChunkGeneratorOverworldBOP extends OverworldChunkGenerator
 {
-    public ChunkGeneratorOverworldBOP(IWorld world, BiomeProvider provider, OverworldGenSettings settings)
+    public ChunkGeneratorOverworldBOP(IWorld world, BiomeProvider provider, BOPOverworldGenSettings settings)
     {
         super(world, provider, settings);
     }

@@ -29,11 +29,11 @@ public class WorldTypeBOP extends WorldType
     {
     	if (world.getDimension().getType() == DimensionType.OVERWORLD)
     	{
-	        OverworldGenSettings overworldGenSettings = new OverworldGenSettings();
+			BOPOverworldGenSettings genSettings = new BOPOverworldGenSettings();
 	        OverworldBiomeProviderSettings biomeProviderSettings = new OverworldBiomeProviderSettings(world.getLevelData());
-	        biomeProviderSettings.setGeneratorSettings(overworldGenSettings);
+	        biomeProviderSettings.setGeneratorSettings(genSettings);
 	
-	        return new ChunkGeneratorOverworldBOP(world, new BOPBiomeProvider(biomeProviderSettings), overworldGenSettings);
+	        return new ChunkGeneratorOverworldBOP(world, new BOPBiomeProvider(biomeProviderSettings), genSettings);
     	}
 		else if (world.getDimension().getType() == DimensionType.NETHER)
 		{

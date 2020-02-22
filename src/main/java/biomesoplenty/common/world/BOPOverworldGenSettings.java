@@ -7,7 +7,10 @@
  ******************************************************************************/
 package biomesoplenty.common.world;
 
-public class BOPWorldSettings
+import biomesoplenty.init.ModConfig;
+import net.minecraft.world.gen.OverworldGenSettings;
+
+public class BOPOverworldGenSettings extends OverworldGenSettings
 {
     public enum LandMassScheme
     {
@@ -54,9 +57,46 @@ public class BOPWorldSettings
         }
     }
 
-    public LandMassScheme landScheme = LandMassScheme.VANILLA;
-    public TemperatureVariationScheme tempScheme = TemperatureVariationScheme.MEDIUM_ZONES;
-    public RainfallVariationScheme rainScheme = RainfallVariationScheme.MEDIUM_ZONES;
-    public BiomeSize biomeSize = BiomeSize.MEDIUM;
-    public float amplitude = 1.0F;
+    public enum RiverSize
+    {
+        TINY (2),
+        SMALL (3),
+        MEDIUM (4),
+        LARGE (5),
+        HUGE (6);
+
+        private final int value;
+
+        RiverSize(int value)
+        {
+            this.value = value;
+        }
+
+        public int getValue()
+        {
+            return this.value;
+        }
+    }
+
+    @Override
+    public int getBiomeSize()
+    {
+        return ModConfig.GenerationConfig.biomeSize.get().value;
+    }
+
+    @Override
+    public int getRiverSize()
+    {
+        return ModConfig.GenerationConfig.riverSize.get().value;
+    }
+
+    public TemperatureVariationScheme getTempScheme()
+    {
+        return ModConfig.GenerationConfig.temperatureVariationScheme.get();
+    }
+
+    public RainfallVariationScheme getRainScheme()
+    {
+        return ModConfig.GenerationConfig.rainfallVariationScheme.get();
+    }
 }

@@ -7,22 +7,18 @@
  ******************************************************************************/
 package biomesoplenty.common.util.biome;
 
-import biomesoplenty.common.world.BOPWorldSettings;
+import biomesoplenty.common.world.BOPOverworldGenSettings;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.provider.BiomeProvider;
-import net.minecraft.world.server.ServerChunkProvider;
-
-import java.util.Set;
 
 public class BiomeUtil
 {
     public static int getBiomeSize(World world)
     {
         // TODO
-        return BOPWorldSettings.BiomeSize.MEDIUM.getValue();
+        return BOPOverworldGenSettings.BiomeSize.MEDIUM.getValue();
     }
 
     public static BlockPos spiralOutwardsLookingForBiome(World world, Biome biomeToFind, double startX, double startZ)
