@@ -47,16 +47,19 @@ public class ModBiomes
     public static void registerBiomes(RegistryEvent.Register<Biome> event)
     {
         //Technical Biomes (Need to be registered before main biomes that use them)
-        registerTechnicalBiome(new MangroveBiome(), "mangrove");
         registerTechnicalBiome(new GravelBeachBiome(), "gravel_beach");
         registerTechnicalBiome(new OriginBeachBiome(), "origin_beach");
         registerTechnicalBiome(new WhiteBeachBiome(), "white_beach");
         registerTechnicalBiome(new AlpsFoothillsBiome(), "alps_foothills");
         registerTechnicalBiome(new RedwoodForestEdgeBiome(), "redwood_forest_edge");
         registerTechnicalBiome(new VolcanoEdgeBiome(), "volcano_edge");
+        registerTechnicalBiome(new OrchardBiome(), "orchard");
 
         BiomeRegistry.configureTechnicalBiomes();
         BiomeRegistry.finalizeRegistrations(BiomeRegistry.RegistrationType.TECHNICAL_BIOME);
+
+        // Both a standard biome and a technical biome
+        registerBiome(new MangroveBiome(), "mangrove");
 
         //Overworld Biomes
     	registerBiome(new AlpsBiome(), "alps");
@@ -88,7 +91,6 @@ public class ModBiomes
         registerBiome(new MysticGroveBiome(), "mystic_grove");
         registerBiome(new OasisBiome(), "oasis");
         registerBiome(new OminousWoodsBiome(), "ominous_woods");
-        registerBiome(new OrchardBiome(), "orchard");
         registerBiome(new OriginHillsBiome(), "origin_hills");
         registerBiome(new OutbackBiome(), "outback");
         registerBiome(new OvergrownCliffsBiome(), "overgrown_cliffs");
