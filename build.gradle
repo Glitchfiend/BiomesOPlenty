@@ -121,6 +121,7 @@ artifacts {
     if (changelog_file.exists()) {
         archives changelog_file
     }
+    archives jar
     archives sourcesJar
     archives deobfJar
     archives apiJar
