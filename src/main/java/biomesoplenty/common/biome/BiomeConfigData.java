@@ -10,6 +10,7 @@ package biomesoplenty.common.biome;
 import com.google.common.collect.Maps;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Map;
 import java.util.TreeMap;
 
 public class BiomeConfigData
@@ -20,8 +21,8 @@ public class BiomeConfigData
     @SerializedName("sub_biome_weights")
     public TreeMap<String, SubBiomeEntry> subBiomeEntries = Maps.newTreeMap();
 
-    //@SerializedName("island_biome_weights")
-    //public Map<String, IslandBiomeEntry> islandBiomeEntries = Maps.newHashMap();
+    @SerializedName("island_biome_toggles")
+    public Map<String, ToggleableBiomeEntry> islandBiomeEntries = Maps.newHashMap();
 
     @SerializedName("vanilla_biome_weights")
     public TreeMap<String, WeightedBiomeEntry> vanillaBiomeEntries = Maps.newTreeMap();
@@ -33,6 +34,16 @@ public class BiomeConfigData
         public WeightedBiomeEntry(int weight)
         {
             this.weight = weight;
+        }
+    }
+
+    public static class ToggleableBiomeEntry
+    {
+        public boolean enabled;
+
+        public ToggleableBiomeEntry(boolean enabled)
+        {
+            this.enabled = enabled;
         }
     }
 

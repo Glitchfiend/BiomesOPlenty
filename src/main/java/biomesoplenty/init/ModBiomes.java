@@ -154,7 +154,7 @@ public class ModBiomes
         registerIslandBiome(tropics, BOPClimates.TROPICAL, 50);
         registerIslandBiome(tropics, BOPClimates.HOT_DESERT, 50);
 
-        //BiomeRegistry.configureIslandBiomes();
+        BiomeRegistry.configureIslandBiomes();
         BiomeRegistry.finalizeRegistrations(BiomeRegistry.RegistrationType.ISLAND_BIOME);
 
         // Set up vanilla biomes

@@ -33,7 +33,7 @@ import java.util.function.Consumer;
 
 public class BiomeRegistry
 {
-    private static final String CONFIG_FILE_NAME = "biome_weights.json";
+    private static final String CONFIG_FILE_NAME = "biomes.json";
 
     private static Map<RegistrationType, List<DeferredRegistration>> deferrances = Maps.newHashMap();
 
@@ -161,49 +161,50 @@ public class BiomeRegistry
     public static void configureIslandBiomes()
     {
         // Island biomes are currently not configurable due to them being registered multiple times for different climates
-//        List<DeferredRegistration> islandBiomeReistrations = deferrances.get(RegistrationType.ISLAND_BIOME);
-//        Map<String, BiomeConfigData.IslandBiomeEntry> defaultIslandBiomeEntries = Maps.newTreeMap();
-//        Map<String, IslandBiomeRegistrationData> regDataMap = Maps.newHashMap();
-//
-//        for (DeferredRegistration<IslandBiomeRegistrationData> registration : islandBiomeReistrations)
-//        {
-//            IslandBiomeRegistrationData regData = registration.regData;
-//            String biomeName = registration.regData.getBiome().delegate.name().toString();
-//            defaultIslandBiomeEntries.put(biomeName, new BiomeConfigData.IslandBiomeEntry(regData.getWeight()));
-//            regDataMap.put(biomeName, registration.regData);
-//        }
-//
-//        BiomeConfigData defaultConfigData = new BiomeConfigData();
-//        defaultConfigData.islandBiomeEntries = defaultIslandBiomeEntries;
-//        BiomeConfigData configData = getConfigData(defaultConfigData);
-//
-//        Map<String, BiomeConfigData.IslandBiomeEntry> revisedIslandBiomeEntries = Maps.newHashMap(defaultIslandBiomeEntries);
-//
-//        // Merge the config file with the default values
-//        for (Map.Entry<String, BiomeConfigData.IslandBiomeEntry> biomeEntry : configData.islandBiomeEntries.entrySet())
-//        {
-//            if (revisedIslandBiomeEntries.containsKey(biomeEntry.getKey()))
-//            {
-//                revisedIslandBiomeEntries.put(biomeEntry.getKey(), biomeEntry.getValue());
-//            }
-//        }
-//
-//        // Write back to the config file
-//        configData.islandBiomeEntries = revisedIslandBiomeEntries;
-//        JsonUtil.writeFile(getConfigFile(), configData);
-//
-//        for (Map.Entry<String, BiomeConfigData.IslandBiomeEntry> biomeEntry : configData.islandBiomeEntries.entrySet())
-//        {
-//            String name = biomeEntry.getKey();
-//            BiomeConfigData.IslandBiomeEntry islandBiomeEntry = biomeEntry.getValue();
-//
-//            // Replace the default values for this biome with those from the config file
-//            if (regDataMap.containsKey(name))
-//            {
-//                IslandBiomeRegistrationData registrationData = regDataMap.get(name);
-//                registrationData.setWeight(islandBiomeEntry.weight);
-//            }
-//        }
+        List<DeferredRegistration> islandBiomeReistrations = deferrances.get(RegistrationType.ISLAND_BIOME);
+        Map<String, BiomeConfigData.ToggleableBiomeEntry> defaultBiomeEntries = Maps.newTreeMap();
+
+        for (DeferredRegistration<SingleClimateRegistrationData> registration : islandBiomeReistrations)
+        {
+            SingleClimateRegistrationData regData = registration.regData;
+            String biomeName = regData.getBiome().delegate.name().toString();
+            defaultBiomeEntries.put(biomeName, new BiomeConfigData.ToggleableBiomeEntry(true));
+        }
+
+        BiomeConfigData defaultConfigData = new BiomeConfigData();
+        defaultConfigData.islandBiomeEntries = defaultBiomeEntries;
+        BiomeConfigData configData = getConfigData(defaultConfigData);
+
+        Map<String, BiomeConfigData.ToggleableBiomeEntry> revisedBiomeEntries = Maps.newHashMap(defaultBiomeEntries);
+
+        // Merge the config file with the default values
+        for (Map.Entry<String, BiomeConfigData.ToggleableBiomeEntry> biomeEntry : configData.islandBiomeEntries.entrySet())
+        {
+            if (revisedBiomeEntries.containsKey(biomeEntry.getKey()))
+            {
+                revisedBiomeEntries.put(biomeEntry.getKey(), biomeEntry.getValue());
+            }
+        }
+
+        // Write back to the config file
+        configData.islandBiomeEntries = revisedBiomeEntries;
+        JsonUtil.writeFile(getConfigFile(), configData);
+
+        for (DeferredRegistration<SingleClimateRegistrationData> registration : islandBiomeReistrations)
+        {
+            SingleClimateRegistrationData regData = registration.regData;
+            String biomeName = regData.getBiome().delegate.name().toString();
+
+            if (revisedBiomeEntries.containsKey(biomeName))
+            {
+                BiomeConfigData.ToggleableBiomeEntry entry = revisedBiomeEntries.get(biomeName);
+
+                if (!entry.enabled)
+                {
+                    registration.regData.setWeight(0);
+                }
+            }
+        }
     }
 
     public static void configureVanillaBiomes()
