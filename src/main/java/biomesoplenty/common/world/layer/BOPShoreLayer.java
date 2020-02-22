@@ -16,6 +16,8 @@ import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.layer.traits.ICastleTransformer;
 
+import java.util.Optional;
+
 public enum BOPShoreLayer implements ICastleTransformer
 {
     INSTANCE;
@@ -64,7 +66,7 @@ public enum BOPShoreLayer implements ICastleTransformer
 
             if (BOPLayerUtil.isOcean(northBiomeId) || BOPLayerUtil.isOcean(eastBiomeId) || BOPLayerUtil.isOcean(southBiomeId) || BOPLayerUtil.isOcean(westBiomeId))
             {
-                return Registry.BIOME.getId(BOPBiomes.mangrove.get());
+                return getBiomeIdIfPresent(BOPBiomes.mangrove, biomeId);
             }
         }
         else if (biomeId != MOUNTAINS && biomeId != WOODED_MOUNTAINS && biomeId != MOUNTAIN_EDGE)
@@ -105,11 +107,11 @@ public enum BOPShoreLayer implements ICastleTransformer
                     {
                         if (biome == Biomes.JUNGLE || biome == Biomes.JUNGLE_HILLS || biome == Biomes.JUNGLE_EDGE || biome == Biomes.MODIFIED_JUNGLE || biome == Biomes.BAMBOO_JUNGLE || biome == Biomes.BAMBOO_JUNGLE_HILLS || biome == Biomes.MODIFIED_JUNGLE_EDGE)
                         {
-                            return Registry.BIOME.getId(BOPBiomes.mangrove.get());
+                            return getBiomeIdIfPresent(BOPBiomes.mangrove, biomeId);
                         }
                         if (biome == Biomes.TAIGA || biome == Biomes.TAIGA_MOUNTAINS || biome == Biomes.TAIGA_HILLS || biome == Biomes.GIANT_TREE_TAIGA || biome == Biomes.GIANT_SPRUCE_TAIGA || biome == Biomes.GIANT_TREE_TAIGA_HILLS || biome == Biomes.GIANT_SPRUCE_TAIGA_HILLS || biome == Biomes.BIRCH_FOREST_HILLS || biome == Biomes.BIRCH_FOREST || biome == Biomes.TALL_BIRCH_HILLS || biome == Biomes.TALL_BIRCH_FOREST || biome == Biomes.DARK_FOREST_HILLS || biome == Biomes.DARK_FOREST)
                         {
-                            return Registry.BIOME.getId(BOPBiomes.gravel_beach.get());
+                            return getBiomeIdIfPresent(BOPBiomes.gravel_beach, biomeId);
                         }
                     }
 
@@ -127,6 +129,11 @@ public enum BOPShoreLayer implements ICastleTransformer
         }
 
         return biomeId;
+    }
+
+    private static int getBiomeIdIfPresent(Optional<Biome> biome, int fallbackId)
+    {
+        return biome.isPresent() ? Registry.BIOME.getId(biome.get()) : fallbackId;
     }
 
     private static boolean isJungleCompatible(int biomeId)

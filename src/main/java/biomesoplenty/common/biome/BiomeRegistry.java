@@ -42,6 +42,11 @@ public class BiomeRegistry
         defer(RegistrationType.STANDARD_BIOME, new StandardBiomeRegistrationData(biome, name));
     }
 
+    public static void deferTechnicalBiomeRegistration(BiomeBOP biome, String name)
+    {
+        defer(RegistrationType.TECHNICAL_BIOME, new ToggleableStandardBiomeRegistrationData(biome, name, true));
+    }
+
     public static void deferSubBiomeRegistration(Biome parent, Biome child, int weight, float rarity)
     {
         defer(RegistrationType.SUB_BIOME, new SubBiomeRegistrationData(parent, child, weight, rarity));
@@ -110,6 +115,54 @@ public class BiomeRegistry
         }
     }
 
+    public static void configureTechnicalBiomes()
+    {
+        List<DeferredRegistration> biomeRegistrations = deferrances.get(RegistrationType.TECHNICAL_BIOME);
+        TreeMap<String, BiomeConfigData.ToggleableBiomeEntry> defaultBiomeEntries = Maps.newTreeMap();
+
+        for (DeferredRegistration<ToggleableStandardBiomeRegistrationData> registration : biomeRegistrations)
+        {
+            ToggleableStandardBiomeRegistrationData regData = registration.regData;
+            String biomeName = new ResourceLocation(BiomesOPlenty.MOD_ID, regData.getName()).toString();
+            defaultBiomeEntries.put(biomeName, new BiomeConfigData.ToggleableBiomeEntry(true));
+        }
+
+        BiomeConfigData defaultConfigData = new BiomeConfigData();
+        defaultConfigData.technicalBiomeEntries = defaultBiomeEntries;
+        BiomeConfigData configData = getConfigData(defaultConfigData);
+
+        TreeMap<String, BiomeConfigData.ToggleableBiomeEntry> revisedBiomeEntries = Maps.newTreeMap(defaultBiomeEntries);
+
+        // Merge the config file with the default values
+        for (Map.Entry<String, BiomeConfigData.ToggleableBiomeEntry> biomeEntry : configData.technicalBiomeEntries.entrySet())
+        {
+            if (revisedBiomeEntries.containsKey(biomeEntry.getKey()))
+            {
+                revisedBiomeEntries.put(biomeEntry.getKey(), biomeEntry.getValue());
+            }
+        }
+
+        // Write back to the config file
+        configData.technicalBiomeEntries = revisedBiomeEntries;
+        JsonUtil.writeFile(getConfigFile(), configData);
+
+        for (DeferredRegistration<ToggleableStandardBiomeRegistrationData> registration : biomeRegistrations)
+        {
+            ToggleableStandardBiomeRegistrationData regData = registration.regData;
+            String biomeName = new ResourceLocation(BiomesOPlenty.MOD_ID, regData.getName()).toString();
+
+            if (revisedBiomeEntries.containsKey(biomeName))
+            {
+                BiomeConfigData.ToggleableBiomeEntry entry = revisedBiomeEntries.get(biomeName);
+
+                if (!entry.enabled)
+                {
+                    registration.regData.setEnabled(false);
+                }
+            }
+        }
+    }
+
     public static void configureSubBiomes()
     {
         List<DeferredRegistration> subBiomeRegistrations = deferrances.get(RegistrationType.SUB_BIOME);
@@ -160,11 +213,10 @@ public class BiomeRegistry
 
     public static void configureIslandBiomes()
     {
-        // Island biomes are currently not configurable due to them being registered multiple times for different climates
-        List<DeferredRegistration> islandBiomeReistrations = deferrances.get(RegistrationType.ISLAND_BIOME);
-        Map<String, BiomeConfigData.ToggleableBiomeEntry> defaultBiomeEntries = Maps.newTreeMap();
+        List<DeferredRegistration> biomeRegistrations = deferrances.get(RegistrationType.ISLAND_BIOME);
+        TreeMap<String, BiomeConfigData.ToggleableBiomeEntry> defaultBiomeEntries = Maps.newTreeMap();
 
-        for (DeferredRegistration<SingleClimateRegistrationData> registration : islandBiomeReistrations)
+        for (DeferredRegistration<SingleClimateRegistrationData> registration : biomeRegistrations)
         {
             SingleClimateRegistrationData regData = registration.regData;
             String biomeName = regData.getBiome().delegate.name().toString();
@@ -175,7 +227,7 @@ public class BiomeRegistry
         defaultConfigData.islandBiomeEntries = defaultBiomeEntries;
         BiomeConfigData configData = getConfigData(defaultConfigData);
 
-        Map<String, BiomeConfigData.ToggleableBiomeEntry> revisedBiomeEntries = Maps.newHashMap(defaultBiomeEntries);
+        TreeMap<String, BiomeConfigData.ToggleableBiomeEntry> revisedBiomeEntries = Maps.newTreeMap(defaultBiomeEntries);
 
         // Merge the config file with the default values
         for (Map.Entry<String, BiomeConfigData.ToggleableBiomeEntry> biomeEntry : configData.islandBiomeEntries.entrySet())
@@ -190,7 +242,7 @@ public class BiomeRegistry
         configData.islandBiomeEntries = revisedBiomeEntries;
         JsonUtil.writeFile(getConfigFile(), configData);
 
-        for (DeferredRegistration<SingleClimateRegistrationData> registration : islandBiomeReistrations)
+        for (DeferredRegistration<SingleClimateRegistrationData> registration : biomeRegistrations)
         {
             SingleClimateRegistrationData regData = registration.regData;
             String biomeName = regData.getBiome().delegate.name().toString();
@@ -209,11 +261,11 @@ public class BiomeRegistry
 
     public static void configureVanillaBiomes()
     {
-        List<DeferredRegistration> islandBiomeReistrations = deferrances.get(RegistrationType.VANILLA_BIOME);
+        List<DeferredRegistration> biomeRegistrations = deferrances.get(RegistrationType.VANILLA_BIOME);
         TreeMap<String, BiomeConfigData.WeightedBiomeEntry> defaultBiomeEntries = Maps.newTreeMap();
         Map<String, SingleClimateRegistrationData> regDataMap = Maps.newHashMap();
 
-        for (DeferredRegistration<SingleClimateRegistrationData> registration : islandBiomeReistrations)
+        for (DeferredRegistration<SingleClimateRegistrationData> registration : biomeRegistrations)
         {
             SingleClimateRegistrationData regData = registration.regData;
             String biomeName = registration.regData.getBiome().delegate.name().toString();
@@ -336,6 +388,34 @@ public class BiomeRegistry
                     BiomesOPlenty.logger.debug(String.format("%s weight set to %d for climate %s", name, weight, climate.name()));
                     climate.addBiome(weight, biome);
                 }
+            }
+
+            // Set field in BOPBiomes
+            try
+            {
+                BOPBiomes.class.getField(name).set(null, Optional.of(biome));
+            }
+            catch (Exception e)
+            {
+                throw new RuntimeException("Failed to set biome field " + name, e);
+            }
+        }),
+        TECHNICAL_BIOME((ToggleableStandardBiomeRegistrationData data) -> {
+            BiomeBOP biome = (BiomeBOP)data.getBiome();
+            String name = data.getName();
+
+            if (!data.getEnabled())
+            {
+                BiomesOPlenty.logger.debug("Technical biome " + data.getName() + " is disabled.");
+                return;
+            }
+
+            biome.setRegistryName(name);
+            ForgeRegistries.BIOMES.register(biome);
+
+            if (biome.canSpawnInBiome)
+            {
+                BiomeManager.addSpawnBiome(biome);
             }
 
             // Set field in BOPBiomes
@@ -531,6 +611,34 @@ public class BiomeRegistry
         public void setWeight(int weight)
         {
             this.weight = weight;
+        }
+    }
+
+    private static class ToggleableStandardBiomeRegistrationData extends RegistrationData
+    {
+        private final String name;
+        private boolean enabled;
+
+        public ToggleableStandardBiomeRegistrationData(Biome biome, String name, boolean enabled)
+        {
+            super(biome);
+            this.name = name;
+            this.enabled = enabled;
+        }
+
+        public String getName()
+        {
+            return this.name;
+        }
+
+        public boolean getEnabled()
+        {
+            return this.enabled;
+        }
+
+        public void setEnabled(boolean enabled)
+        {
+            this.enabled = enabled;
         }
     }
 

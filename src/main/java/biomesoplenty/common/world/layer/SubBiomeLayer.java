@@ -157,7 +157,7 @@ public enum SubBiomeLayer implements IAreaTransformer2, IDimOffset1Transformer
         else if (originalBiomeId == SNOWY_TAIGA) mutatedBiomeId = SNOWY_TAIGA_HILLS;
         //Use BOP orchard instead of vanilla forest
         //else if (originalBiomeId == PLAINS) mutatedBiomeId = context.random(3) == 0 ? WOODED_HILLS : FOREST;
-        else if (originalBiomeId == PLAINS) mutatedBiomeId = Registry.BIOME.getId(BOPBiomes.orchard.get());
+        else if (originalBiomeId == PLAINS && BOPBiomes.orchard.isPresent()) mutatedBiomeId = Registry.BIOME.getId(BOPBiomes.orchard.get());
         //////////
         else if (originalBiomeId == SNOWY_TUNDRA) mutatedBiomeId = SNOWY_MOUNTAINS;
         else if (originalBiomeId == JUNGLE) mutatedBiomeId = JUNGLE_HILLS;

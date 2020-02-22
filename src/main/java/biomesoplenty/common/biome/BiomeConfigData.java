@@ -18,11 +18,14 @@ public class BiomeConfigData
     @SerializedName("standard_weights")
     public TreeMap<String, WeightedBiomeEntry> standardBiomeWeights = Maps.newTreeMap();
 
+    @SerializedName("technical_biome_toggles")
+    public TreeMap<String, ToggleableBiomeEntry> technicalBiomeEntries = Maps.newTreeMap();
+
     @SerializedName("sub_biome_weights")
     public TreeMap<String, SubBiomeEntry> subBiomeEntries = Maps.newTreeMap();
 
     @SerializedName("island_biome_toggles")
-    public Map<String, ToggleableBiomeEntry> islandBiomeEntries = Maps.newHashMap();
+    public TreeMap<String, ToggleableBiomeEntry> islandBiomeEntries = Maps.newTreeMap();
 
     @SerializedName("vanilla_biome_weights")
     public TreeMap<String, WeightedBiomeEntry> vanillaBiomeEntries = Maps.newTreeMap();

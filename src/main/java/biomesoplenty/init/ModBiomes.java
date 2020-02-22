@@ -47,13 +47,16 @@ public class ModBiomes
     public static void registerBiomes(RegistryEvent.Register<Biome> event)
     {
         //Technical Biomes (Need to be registered before main biomes that use them)
-        registerBiome(new MangroveBiome(), "mangrove");
-        registerBiome(new GravelBeachBiome(), "gravel_beach");
-        registerBiome(new OriginBeachBiome(), "origin_beach");
-        registerBiome(new WhiteBeachBiome(), "white_beach");
-    	registerBiome(new AlpsFoothillsBiome(), "alps_foothills");
-        registerBiome(new RedwoodForestEdgeBiome(), "redwood_forest_edge");
-        registerBiome(new VolcanoEdgeBiome(), "volcano_edge");
+        registerTechnicalBiome(new MangroveBiome(), "mangrove");
+        registerTechnicalBiome(new GravelBeachBiome(), "gravel_beach");
+        registerTechnicalBiome(new OriginBeachBiome(), "origin_beach");
+        registerTechnicalBiome(new WhiteBeachBiome(), "white_beach");
+        registerTechnicalBiome(new AlpsFoothillsBiome(), "alps_foothills");
+        registerTechnicalBiome(new RedwoodForestEdgeBiome(), "redwood_forest_edge");
+        registerTechnicalBiome(new VolcanoEdgeBiome(), "volcano_edge");
+
+        BiomeRegistry.configureTechnicalBiomes();
+        BiomeRegistry.finalizeRegistrations(BiomeRegistry.RegistrationType.TECHNICAL_BIOME);
 
         //Overworld Biomes
     	registerBiome(new AlpsBiome(), "alps");
@@ -351,6 +354,11 @@ public class ModBiomes
     public static void registerBiome(BiomeBOP biome, String name)
     {
         BiomeRegistry.deferStandardRegistration(biome, name);
+    }
+
+    public static void registerTechnicalBiome(BiomeBOP biome, String name)
+    {
+        BiomeRegistry.deferTechnicalBiomeRegistration(biome, name);
     }
 
     public static void registerSubBiome(Biome parent, Optional<Biome> child, float rarity, int weight)
