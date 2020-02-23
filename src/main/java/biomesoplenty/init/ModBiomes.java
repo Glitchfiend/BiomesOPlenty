@@ -165,6 +165,7 @@ public class ModBiomes
         // Set up vanilla biomes
         registerVanillaBiome(Biomes.SNOWY_TUNDRA, BOPClimates.ICE_CAP, 10);
         registerVanillaBiome(Biomes.MOUNTAINS, BOPClimates.TUNDRA, 7);
+        registerVanillaBiome(Biomes.SNOWY_TAIGA, BOPClimates.TUNDRA, 10);
         registerVanillaBiome(Biomes.TAIGA, BOPClimates.WET_BOREAL, 10);
         registerVanillaBiome(Biomes.GIANT_TREE_TAIGA, BOPClimates.DRY_BOREAL, 5);
         registerVanillaBiome(Biomes.DARK_FOREST, BOPClimates.WET_TEMPERATE, 5);
