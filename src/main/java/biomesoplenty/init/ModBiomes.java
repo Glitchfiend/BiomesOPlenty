@@ -223,9 +223,9 @@ public class ModBiomes
         registerBiomeToDictionary(mystic_grove, Type.OVERWORLD, Type.MAGICAL, Type.FOREST, Type.LUSH, Type.DENSE, Type.RARE);
         registerBiomeToDictionary(oasis, Type.OVERWORLD, Type.SANDY, Type.LUSH, Type.JUNGLE, Type.HOT, Type.SPARSE);
         registerBiomeToDictionary(ominous_woods, Type.OVERWORLD, Type.MAGICAL, Type.FOREST, Type.SPOOKY, Type.DEAD, Type.DENSE, Type.RARE);
-        registerBiomeToDictionary(orchard, Type.OVERWORLD, Type.FOREST, Type.PLAINS);
-        registerBiomeToDictionary(origin_beach, Type.OVERWORLD, Type.BEACH, Type.RARE);
-        registerBiomeToDictionary(origin_hills, Type.OVERWORLD, Type.FOREST, Type.RARE);
+        registerBiomeToDictionary(orchard, Type.OVERWORLD, Type.PLAINS);
+        registerBiomeToDictionary(origin_beach, Type.OVERWORLD, Type.RARE);
+        registerBiomeToDictionary(origin_hills, Type.OVERWORLD, Type.RARE);
         registerBiomeToDictionary(outback, Type.OVERWORLD, Type.SANDY, Type.SAVANNA, Type.HOT, Type.DRY, Type.SPARSE);
         registerBiomeToDictionary(overgrown_cliffs, Type.OVERWORLD, Type.MOUNTAIN, Type.HILLS, Type.LUSH, Type.JUNGLE, Type.DENSE, Type.HOT);
         registerBiomeToDictionary(pasture, Type.OVERWORLD, Type.PLAINS, Type.DRY);
