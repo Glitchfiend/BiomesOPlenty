@@ -255,6 +255,7 @@ public class BOPBlocks
     public static Block reed;
     public static Block watergrass;
     public static Block mangrove_root;
+    public static Block root;
     public static Block dead_branch;
     public static Block bramble;
 

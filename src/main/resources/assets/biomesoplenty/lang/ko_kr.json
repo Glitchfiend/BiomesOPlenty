@@ -1,11 +1,11 @@
 {
-  "advancements.biomesoplenty.root.title": "바이옴스 오 플렌티",
+  "advancements.biomesoplenty.root.title": "Biomes O' Plenty",
   "advancements.biomesoplenty.root.description": "세계를 탐험합니다.",
   "advancements.biomesoplenty.all_biomes.title": "방랑자",
   "advancements.biomesoplenty.all_biomes.description": "바이옴스 오 플렌티에 있는 모든 생물군계를 탐험합니다.",
 
-  "generator.biomesoplenty": "바이옴스 오 플렌티",
-  "itemGroup.biomesoplenty": "바이옴스 오 플렌티",
+  "generator.biomesoplenty": "Biomes O' Plenty",
+  "itemGroup.biomesoplenty": "Biomes O' Plenty",
   
   "biome.biomesoplenty.alps": "알프스",
   "biome.biomesoplenty.alps_foothills": "알프스 산기슭",

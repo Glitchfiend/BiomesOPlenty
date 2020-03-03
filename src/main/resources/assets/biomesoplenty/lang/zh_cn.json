@@ -1,5 +1,5 @@
 {
-  "advancements.biomesoplenty.root.title": "超多生物群系",
+  "advancements.biomesoplenty.root.title": "Biomes O' Plenty",
   "advancements.biomesoplenty.root.description": "每个探险家的梦想...",
   "advancements.biomesoplenty.evergreen_biomes.title": "常青之钥",
   "advancements.biomesoplenty.evergreen_biomes.description": "发现Bop(超多生物群系)中的所有常绿树生物群系",
@@ -16,8 +16,8 @@
   "advancements.biomesoplenty.all_biomes.title": "漫游者",
   "advancements.biomesoplenty.all_biomes.description": "发现Bop(超多生物群系)的每一个群系",
  
-  "generator.biomesoplenty": "超多生物群系",
-  "itemGroup.biomesoplenty": "超多生物群系",
+  "generator.biomesoplenty": "Biomes O' Plenty",
+  "itemGroup.biomesoplenty": "Biomes O' Plenty",
  
   "biome.biomesoplenty.alps": "阿尔卑斯山",
   "biome.biomesoplenty.alps_foothills": "阿尔卑斯山麓",

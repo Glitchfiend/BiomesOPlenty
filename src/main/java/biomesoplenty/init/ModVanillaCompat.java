@@ -18,11 +18,17 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
 import net.minecraft.world.gen.placement.FrequencyConfig;
 import net.minecraft.world.gen.placement.Placement;
+import net.minecraftforge.common.BiomeDictionary;
+
+import java.util.List;
 
 public class ModVanillaCompat
 {
     public static void setup()
     {
+        //Roots
+        addBiomeDictionaryFeature(Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.root.defaultBlockState())).decorated(Placement.COUNT_HEIGHTMAP_32.configured(new FrequencyConfig(20))), GenerationStage.Decoration.VEGETAL_DECORATION, Lists.newArrayList(BiomeDictionary.Type.OVERWORLD));
+
         //Vanilla Biome Features
         addFeature(Biomes.BADLANDS, GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.desert_grass.defaultBlockState())).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(4))));
         addFeature(Biomes.BADLANDS_PLATEAU, GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.desert_grass.defaultBlockState())).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(4))));
@@ -305,6 +311,7 @@ public class ModVanillaCompat
         registerCompostable(0.5F, BOPBlocks.watergrass);
         registerCompostable(0.5F, BOPBlocks.mangrove_root);
 
+        registerCompostable(0.3F, BOPBlocks.root);
         registerCompostable(0.3F, BOPBlocks.dead_branch);
         registerCompostable(0.3F, BOPBlocks.bramble);
 
@@ -334,5 +341,19 @@ public class ModVanillaCompat
             return;
 
         biome.addFeature(decorationStage, featureIn);
+    }
+
+    public static void addBiomeDictionaryFeature(ConfiguredFeature<?, ?> featureIn, GenerationStage.Decoration decorationStage, List<BiomeDictionary.Type> includedBiomeTypes)
+    {
+        if (!includedBiomeTypes.isEmpty())
+        {
+            for (BiomeDictionary.Type type : includedBiomeTypes)
+            {
+                for (Biome biome : BiomeDictionary.getBiomes(type))
+                {
+                    biome.addFeature(decorationStage, featureIn);
+                }
+            }
+        }
     }
 }
