@@ -15,9 +15,3 @@
  [<img src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png">](http://creativecommons.org/licenses/by-nc-nd/4.0/deed.en_US)
 
 Biomes O' Plenty is licensed under a [Creative Commons Attribution-NonCommercial-NoDerivs 4.0 Unported License](http://creativecommons.org/licenses/by-nc-nd/4.0/deed.en_US).
-
------------------
-
-We've partnered with **CreeperHost**, and have our very own **promo code** that you can use when ordering a server of your own!
-
-<p align="center"><img src="http://i.imgur.com/rjmyjrV.png"></p>
