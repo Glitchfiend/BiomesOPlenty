@@ -38,7 +38,7 @@ public class NetherBiomeProvider extends BiomeProvider
     public NetherBiomeProvider(OverworldBiomeProviderSettings settingsProvider)
     {
         super(BOPClimates.NETHER.getLandBiomes().stream().map(weightedBiomeEntry -> weightedBiomeEntry.biome).collect(Collectors.toSet()));
-        this.noiseBiomeLayer = BOPNetherLayerUtil.createGenLayers(settingsProvider.getSeed(), settingsProvider.getGeneratorType(), settingsProvider.getGeneratorSettings())[0];
+        this.noiseBiomeLayer = BOPNetherLayerUtil.createGenLayers(settingsProvider.getSeed(), settingsProvider.getGeneratorType(), settingsProvider.getGeneratorSettings());
     }
 
     @Override
