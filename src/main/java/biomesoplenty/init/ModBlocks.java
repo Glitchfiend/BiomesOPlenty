@@ -290,8 +290,8 @@ public class ModBlocks
         root = registerBlock(new PlantBlockBOP(Block.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.DIRT).noCollission().instabreak().sound(SoundType.GRASS)), "root");
         dead_branch = registerBlock(new DeadBranchBlock(Block.Properties.of(Material.WOOD, MaterialColor.COLOR_GRAY).noCollission().instabreak().sound(SoundType.WOOD)), "dead_branch");
         bramble = registerBlock(new BrambleBlock(Block.Properties.of(Material.PLANT, MaterialColor.NETHER).strength(0.4F).harvestLevel(0).harvestTool(ToolType.AXE).sound(SoundType.WOOD)), "bramble");
-        toadstool = registerBlock(new MushroomBlockBOP(Block.Properties.of(Material.PLANT, MaterialColor.COLOR_ORANGE).noCollission().instabreak().sound(SoundType.GRASS)), "toadstool");
-        glowshroom = registerBlock(new MushroomBlockBOP(Block.Properties.of(Material.PLANT, MaterialColor.DIAMOND).noCollission().instabreak().sound(SoundType.GRASS).lightLevel(6)), "glowshroom");
+        toadstool = registerBlock(new MushroomBlockBOP(Block.Properties.of(Material.PLANT, MaterialColor.COLOR_ORANGE).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "toadstool");
+        glowshroom = registerBlock(new MushroomBlockBOP(Block.Properties.of(Material.PLANT, MaterialColor.DIAMOND).noCollission().randomTicks().instabreak().sound(SoundType.GRASS).lightLevel(6)), "glowshroom");
 
         //Potted Plants
         potted_origin_sapling = registerBlockNoGroup(new FlowerPotBlock(origin_sapling, Block.Properties.of(Material.DECORATION).instabreak()), "potted_origin_sapling");
