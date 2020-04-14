@@ -27,11 +27,6 @@ public class MushroomBlockBOP extends MushroomBlock implements IGrowable
     {
         super(properties);
     }
-    
-    @Override
-    public void tick(BlockState state, ServerWorld world, BlockPos pos, Random random)
-    {
-    }
 
     @Override
     public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos)
