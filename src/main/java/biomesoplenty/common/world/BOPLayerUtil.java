@@ -9,13 +9,10 @@ package biomesoplenty.common.world;
 
 import biomesoplenty.common.world.layer.*;
 import biomesoplenty.common.world.layer.traits.LazyAreaLayerContextBOP;
-import biomesoplenty.core.BiomesOPlenty;
-import com.google.common.collect.ImmutableList;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.IExtendedNoiseRandom;
-import net.minecraft.world.gen.OverworldGenSettings;
 import net.minecraft.world.gen.area.IArea;
 import net.minecraft.world.gen.area.IAreaFactory;
 import net.minecraft.world.gen.area.LazyArea;
@@ -111,7 +108,7 @@ public class BOPLayerUtil
         return biomeFactory;
     }
 
-    public static <T extends IArea, C extends IExtendedNoiseRandom<T>> ImmutableList<IAreaFactory<T>> createAreaFactories(WorldType worldType, BOPOverworldGenSettings settings, LongFunction<C> contextFactory)
+    public static <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> createAreaFactories(WorldType worldType, BOPOverworldGenSettings settings, LongFunction<C> contextFactory)
     {
         // Create the initial land and sea layer. Is also responsible for adding deep oceans
         // and mushroom islands
@@ -123,7 +120,8 @@ public class BOPLayerUtil
 
         int biomeSize = 4;
         int riverSize = biomeSize;
-        if (settings != null) {
+        if (settings != null)
+        {
             biomeSize = settings.getBiomeSize();
             riverSize = settings.getRiverSize();
         }
@@ -169,23 +167,16 @@ public class BOPLayerUtil
 
         climateFactory = LayerUtil.zoom(2001L, ZoomLayer.NORMAL, climateFactory, 6, contextFactory);
         biomesFactory = BOPMixOceansLayer.INSTANCE.run(contextFactory.apply(100L), biomesFactory, oceanBiomeFactory, climateFactory);
-
-        // Finish biomes with Voroni zoom
-        IAreaFactory<T> voroniZoomBiomesFactory = VoroniZoomLayer.INSTANCE.run(contextFactory.apply(10L), biomesFactory);
-
-        return ImmutableList.of(biomesFactory, voroniZoomBiomesFactory, biomesFactory);
+        return biomesFactory;
     }
 
-    public static Layer[] createGenLayers(long seed, WorldType worldType, BOPOverworldGenSettings settings)
+    public static Layer createGenLayers(long seed, WorldType worldType, BOPOverworldGenSettings settings)
     {
-        ImmutableList<IAreaFactory<LazyArea>> factoryList = createAreaFactories(worldType, settings, (seedModifier) ->
+        IAreaFactory<LazyArea> factory = createAreaFactories(worldType, settings, (seedModifier) ->
         {
             return new LazyAreaLayerContextBOP(1, seed, seedModifier);
         });
-        Layer biomesLayer = new Layer(factoryList.get(0));
-        Layer voroniZoomBiomesLayer = new Layer(factoryList.get(1));
-        Layer biomesLayer2 = new Layer(factoryList.get(2));
-        return new Layer[]{biomesLayer, voroniZoomBiomesLayer, biomesLayer2};
+        return new Layer(factory);
     }
 
     public static boolean isOcean(int biomeIn)

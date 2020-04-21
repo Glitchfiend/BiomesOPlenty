@@ -10,9 +10,7 @@ package biomesoplenty.common.world;
 import biomesoplenty.common.world.layer.LandLayer;
 import biomesoplenty.common.world.layer.NetherBiomeLayer;
 import biomesoplenty.common.world.layer.BOPShoreLayer;
-import biomesoplenty.common.world.layer.VoroniZoomLayer;
 import biomesoplenty.common.world.layer.traits.LazyAreaLayerContextBOP;
-import com.google.common.collect.ImmutableList;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.gen.IExtendedNoiseRandom;
 import net.minecraft.world.gen.OverworldGenSettings;
@@ -33,7 +31,7 @@ public class BOPNetherLayerUtil
         return biomeFactory;
     }
 
-    public static <T extends IArea, C extends IExtendedNoiseRandom<T>> ImmutableList<IAreaFactory<T>> createAreaFactories(WorldType worldType, OverworldGenSettings settings, LongFunction<C> contextFactory)
+    public static <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> createAreaFactories(WorldType worldType, OverworldGenSettings settings, LongFunction<C> contextFactory)
     {
         int biomeSize = 3;
 
@@ -52,21 +50,16 @@ public class BOPNetherLayerUtil
         }
 
         biomesFactory = SmoothLayer.INSTANCE.run(contextFactory.apply(1000L), biomesFactory);
-
-        // Finish biomes with Voroni zoom
-        IAreaFactory<T> voroniZoomBiomesFactory = VoroniZoomLayer.INSTANCE.run(contextFactory.apply(10L), biomesFactory);
-        return ImmutableList.of(biomesFactory, voroniZoomBiomesFactory, biomesFactory);
+        return biomesFactory;
     }
 
-    public static Layer[] createGenLayers(long seed, WorldType worldType, OverworldGenSettings settings)
+    public static Layer createGenLayers(long seed, WorldType worldType, OverworldGenSettings settings)
     {
-        ImmutableList<IAreaFactory<LazyArea>> factoryList = createAreaFactories(worldType, settings, (seedModifier) ->
+        IAreaFactory<LazyArea> factory = createAreaFactories(worldType, settings, (seedModifier) ->
         {
             return new LazyAreaLayerContextBOP(1, seed, seedModifier);
         });
-        Layer biomesLayer = new Layer(factoryList.get(0));
-        Layer voroniZoomBiomesLayer = new Layer(factoryList.get(1));
-        Layer biomesLayer2 = new Layer(factoryList.get(2));
-        return new Layer[]{biomesLayer, voroniZoomBiomesLayer, biomesLayer2};
+
+        return new Layer(factory);
     }
 }
