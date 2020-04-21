@@ -52,7 +52,7 @@ public class BushTreeFeature extends TreeFeatureBase
     protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, IWorld world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
     {
         // Move down until we reach the ground
-        while (startPos.getY() > 1 && world.isEmptyBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.AIR) {startPos = startPos.below();}
+        while (startPos.getY() > 1 && (world.isEmptyBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.AIR)) {startPos = startPos.below();}
 
         if (!this.placeOn.matches(world, startPos))
         {
