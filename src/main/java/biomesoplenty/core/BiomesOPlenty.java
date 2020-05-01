@@ -39,28 +39,11 @@ public class BiomesOPlenty
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::dedicatedServerSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
         MinecraftForge.EVENT_BUS.addListener(this::serverStarting);
 
         ModBiomes.setup();
         ModConfig.setup();
-    }
-
-    public void dedicatedServerSetup(FMLDedicatedServerSetupEvent event)
-    {
-        ServerProperties serverProperties = event.getServerSupplier().get().getProperties();
-
-        if (ModConfig.ServerConfig.useWorldType.get())
-        {
-            logger.info(String.format("Injecting biomesoplenty world type into server.properties. Original value: %s", serverProperties.levelType.getName()));
-            serverProperties.properties.setProperty("level-type", "biomesoplenty");
-            serverProperties.levelType = ModBiomes.worldType;
-        }
-        else
-        {
-            logger.info("Biomes O' Plenty is installed on this server but generation is disabled.");
-        }
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
