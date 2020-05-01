@@ -21,24 +21,6 @@ import java.nio.file.Paths;
 
 public class ModConfig
 {
-    public static class ServerConfig
-    {
-        public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
-        public static final ForgeConfigSpec SPEC;
-
-        public static final ForgeConfigSpec.BooleanValue useWorldType;
-
-        static
-        {
-            BUILDER.comment("Server-related options. Please ignore this file if you are not running a server.");
-            BUILDER.push("biomes");
-            useWorldType = BUILDER.comment("Use the Biomes O' Plenty world type on a dedicated server.").define("use_world_type", true);
-            BUILDER.pop();
-
-            SPEC = BUILDER.build();
-        }
-    }
-
     public static class ClientConfig
     {
         public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
@@ -105,7 +87,5 @@ public class ModConfig
 
         ModLoadingContext.get().registerConfig(net.minecraftforge.fml.config.ModConfig.Type.COMMON, GenerationConfig.SPEC, "biomesoplenty/generation.toml");
         ModLoadingContext.get().registerConfig(net.minecraftforge.fml.config.ModConfig.Type.CLIENT, ClientConfig.SPEC, "biomesoplenty/client.toml");
-        // The server specific config type seems to load too late. Use common instead.
-        ModLoadingContext.get().registerConfig(net.minecraftforge.fml.config.ModConfig.Type.COMMON, ServerConfig.SPEC, "biomesoplenty/server.toml");
     }
 }
