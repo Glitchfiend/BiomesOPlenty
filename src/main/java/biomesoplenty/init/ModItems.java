@@ -29,7 +29,7 @@ public class ModItems
         mud_ball = registerItem(new Item(new Item.Properties().tab(ItemGroupBOP.instance)), "mud_ball");
         mud_brick = registerItem(new Item(new Item.Properties().tab(ItemGroupBOP.instance)), "mud_brick");
         
-        music_disc_wanderer = registerItem(new MusicDiscItemBOP(BOPSounds.music_disc_wanderer), "music_disc_wanderer");
+        music_disc_wanderer = registerItem(new MusicDiscItemBOP(BOPSounds.MUSIC_WANDERER_NAME), "music_disc_wanderer");
 
         fir_boat = registerItem(new BoatItemBOP(BoatEntityBOP.Type.FIR, (new Item.Properties()).stacksTo(1).tab(ItemGroupBOP.instance)), "fir_boat");
         redwood_boat = registerItem(new BoatItemBOP(BoatEntityBOP.Type.REDWOOD, (new Item.Properties()).stacksTo(1).tab(ItemGroupBOP.instance)), "redwood_boat");
