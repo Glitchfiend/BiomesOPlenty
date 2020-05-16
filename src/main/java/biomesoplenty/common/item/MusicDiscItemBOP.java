@@ -19,17 +19,16 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class MusicDiscItemBOP extends MusicDiscItem
 {
-	
 	//Provide a resource location and the correct registry to retrieve a SoundEvent supplier
-	public static RegistryObject<SoundEvent> soundProvider(String soundName) {
-		return RegistryObject.of(
-			new ResourceLocation(BiomesOPlenty.MOD_ID, soundName),
-			ForgeRegistries.SOUND_EVENTS
-		);
-	};
+    public static RegistryObject<SoundEvent> soundProvider(String soundName) {
+        return RegistryObject.of(
+            new ResourceLocation(BiomesOPlenty.MOD_ID, soundName),
+            ForgeRegistries.SOUND_EVENTS
+        );
+    };
 	
     public MusicDiscItemBOP(String record)
     {
-    	super(0, soundProvider(record), new Item.Properties().tab(ItemGroupBOP.instance).rarity(Rarity.RARE).stacksTo(1));
+        super(0, soundProvider(record), new Item.Properties().tab(ItemGroupBOP.instance).rarity(Rarity.RARE).stacksTo(1));
     }
 }

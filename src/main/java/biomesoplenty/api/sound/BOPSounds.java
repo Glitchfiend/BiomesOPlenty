@@ -11,7 +11,5 @@ import net.minecraft.util.SoundEvent;
 
 public class BOPSounds
 {
-	
 	public static SoundEvent music_disc_wanderer;
-	public static String MUSIC_WANDERER_NAME = "music_disc.wanderer";
 }

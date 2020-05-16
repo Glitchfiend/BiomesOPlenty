@@ -17,18 +17,14 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import static biomesoplenty.api.sound.BOPSounds.music_disc_wanderer;
 
-import biomesoplenty.api.sound.BOPSounds;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModSounds
 {
-	
-
-	
     @SubscribeEvent
     public static void registerSounds(RegistryEvent.Register<SoundEvent> event)
     {
-        music_disc_wanderer = registerSound(BOPSounds.MUSIC_WANDERER_NAME);
+        music_disc_wanderer = registerSound("music_disc.wanderer");
     }
 
     private static SoundEvent registerSound(String soundName)
