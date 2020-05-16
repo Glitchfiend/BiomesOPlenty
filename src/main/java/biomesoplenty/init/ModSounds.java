@@ -17,6 +17,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import static biomesoplenty.api.sound.BOPSounds.music_disc_wanderer;
 
+
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModSounds
 {

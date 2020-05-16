@@ -11,5 +11,5 @@ import net.minecraft.util.SoundEvent;
 
 public class BOPSounds
 {
-    public static SoundEvent music_disc_wanderer;
+	public static SoundEvent music_disc_wanderer;
 }
