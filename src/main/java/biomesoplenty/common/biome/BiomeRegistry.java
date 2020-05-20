@@ -18,12 +18,12 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.gson.reflect.TypeToken;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.commons.lang3.tuple.Pair;
+import biomesoplenty.common.util.biome.BiomeUtil;
 
 import java.io.File;
 import java.nio.file.Path;
@@ -437,7 +437,7 @@ public class BiomeRegistry
 
             String childName = data.getChild().delegate.name().toString();
             BiomesOPlenty.logger.debug(String.format("Sub biome %s weight set to %d", childName, data.getWeight()));
-            ModBiomes.subBiomes.put(Registry.BIOME.getId(data.getParent()), new ModBiomes.WeightedSubBiome(data.getChild(), data.getRarity(), data.getWeight()));
+            ModBiomes.subBiomes.put(BiomeUtil.GetBiomeIDFromRegistry(data.getParent().getRegistryName()), new ModBiomes.WeightedSubBiome(data.getChild(), data.getRarity(), data.getWeight()));
         }),
         ISLAND_BIOME((SingleClimateRegistrationData data) -> {
             if (data.getWeight() == 0)
@@ -448,7 +448,7 @@ public class BiomeRegistry
 
             String biomeName = data.getBiome().delegate.name().toString();
             BiomesOPlenty.logger.debug(String.format("Island biome %s weight set to %d for climate %s", biomeName, data.getWeight(), data.getClimate().name()));
-            ModBiomes.islandBiomeIds.add(Registry.BIOME.getId(data.getBiome()));
+            ModBiomes.islandBiomeIds.add(BiomeUtil.GetBiomeIDFromRegistry(data.getBiome().getRegistryName()));
             data.getClimate().addIslandBiome(data.getWeight(), data.getBiome());
         }),
         VANILLA_BIOME((SingleClimateRegistrationData data) -> {

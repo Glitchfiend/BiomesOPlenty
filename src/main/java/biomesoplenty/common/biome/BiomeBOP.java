@@ -8,6 +8,7 @@
 package biomesoplenty.common.biome;
 
 import biomesoplenty.api.enums.BOPClimates;
+import biomesoplenty.common.util.biome.BiomeUtil;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
@@ -26,8 +27,8 @@ public class BiomeBOP extends Biome
 {
     protected Map<BOPClimates, Integer> weightMap = new HashMap<BOPClimates, Integer>();
 	public boolean canSpawnInBiome;
-	public int beachBiomeId = Registry.BIOME.getId(Biomes.BEACH);
-	public int riverBiomeId = Registry.BIOME.getId(Biomes.RIVER);
+	public int beachBiomeId = BiomeUtil.GetBiomeIDFromRegistry(Biomes.BEACH.getRegistryName());
+	public int riverBiomeId = BiomeUtil.GetBiomeIDFromRegistry(Biomes.RIVER.getRegistryName());
 
     public BiomeBOP(Builder builder)
     {
@@ -43,7 +44,7 @@ public class BiomeBOP extends Biome
     public void setBeachBiome(Optional<Biome> biome)
     {
         if (biome.isPresent())
-            this.beachBiomeId = Registry.BIOME.getId(biome.get());
+            this.beachBiomeId = BiomeUtil.GetBiomeIDFromRegistry(biome.get().getRegistryName());
         else
             this.beachBiomeId = -1;
     }
@@ -51,7 +52,7 @@ public class BiomeBOP extends Biome
     public void setBeachBiome(Biome biome)
     {
         if (biome != null)
-            this.beachBiomeId = Registry.BIOME.getId(biome);
+            this.beachBiomeId = BiomeUtil.GetBiomeIDFromRegistry(biome.getRegistryName());
         else
             this.beachBiomeId = -1;
     }
@@ -59,7 +60,7 @@ public class BiomeBOP extends Biome
     public void setRiverBiome(Optional<Biome> biome)
     {
         if (biome.isPresent())
-            this.riverBiomeId = Registry.BIOME.getId(biome.get());
+            this.riverBiomeId = BiomeUtil.GetBiomeIDFromRegistry(biome.get().getRegistryName());
         else
             this.riverBiomeId = -1;
     }
@@ -67,7 +68,7 @@ public class BiomeBOP extends Biome
     public void setRiverBiome(Biome biome)
     {
         if (biome != null)
-            this.riverBiomeId = Registry.BIOME.getId(biome);
+            this.riverBiomeId = BiomeUtil.GetBiomeIDFromRegistry(biome.getRegistryName());
         else
             this.riverBiomeId = -1;
     }

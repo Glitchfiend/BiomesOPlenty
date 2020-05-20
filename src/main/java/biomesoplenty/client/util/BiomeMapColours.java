@@ -17,9 +17,9 @@ import net.minecraft.client.renderer.model.BakedQuad;
 import net.minecraft.client.renderer.model.IBakedModel;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
+import biomesoplenty.common.util.biome.BiomeUtil;
 
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
@@ -102,7 +102,7 @@ public class BiomeMapColours
             return biomeColours.get(biomeId);
         }
 
-        int colour = getBiomeMapColourRaw(Registry.BIOME.byId(biomeId));
+        int colour = getBiomeMapColourRaw(BiomeUtil.GetBiomeFromID(biomeId));
         biomeColours.put(biomeId, colour);
         return colour;
     }
