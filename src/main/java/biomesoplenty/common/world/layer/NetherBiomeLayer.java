@@ -8,7 +8,7 @@
 package biomesoplenty.common.world.layer;
 
 import biomesoplenty.api.enums.BOPClimates;
-import net.minecraft.util.registry.Registry;
+import biomesoplenty.common.util.biome.BiomeUtil;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.layer.traits.IAreaTransformer0;
@@ -21,6 +21,6 @@ public enum NetherBiomeLayer implements IAreaTransformer0, IDimOffset0Transforme
     @Override
     public int applyPixel(INoiseRandom context, int x, int z)
     {
-        return Registry.BIOME.getId(BOPClimates.NETHER.getRandomBiome(context, Biomes.NETHER));
+        return BiomeUtil.GetBiomeIDFromRegistry(BOPClimates.NETHER.getRandomBiome(context, Biomes.NETHER).getRegistryName());
     }
 }

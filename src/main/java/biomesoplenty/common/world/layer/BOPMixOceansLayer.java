@@ -9,9 +9,9 @@ package biomesoplenty.common.world.layer;
 
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.enums.BOPClimates;
+import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.common.world.BOPLayerUtil;
 import biomesoplenty.common.world.layer.traits.IAreaTransformer3;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.area.IArea;
@@ -62,7 +62,7 @@ public enum BOPMixOceansLayer implements IAreaTransformer3, IDimOffset0Transform
                 case WASTELAND:
                     if (BOPBiomes.wasteland.isPresent())
                     {
-                        oceanId = Registry.BIOME.getId(BOPBiomes.wasteland.get());
+                        oceanId = BiomeUtil.GetBiomeIDFromRegistry(BOPBiomes.wasteland.get().getRegistryName());
                     }
                     // Fallthrough
 
@@ -120,9 +120,9 @@ public enum BOPMixOceansLayer implements IAreaTransformer3, IDimOffset0Transform
                     return BOPLayerUtil.DEEP_FROZEN_OCEAN;
                 }
 
-                if (BOPBiomes.wasteland.isPresent() && oceanId == Registry.BIOME.getId(BOPBiomes.wasteland.get()))
+                if (BOPBiomes.wasteland.isPresent() && oceanId == BiomeUtil.GetBiomeIDFromRegistry(BOPBiomes.wasteland.get().getRegistryName()))
                 {
-                    return Registry.BIOME.getId(BOPBiomes.wasteland.get());
+                    return BiomeUtil.GetBiomeIDFromRegistry(BOPBiomes.wasteland.get().getRegistryName());
                 }
             }
 

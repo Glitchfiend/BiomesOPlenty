@@ -8,8 +8,8 @@
 package biomesoplenty.common.world.layer;
 
 import biomesoplenty.common.biome.BiomeBOP;
+import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.common.world.BOPLayerUtil;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.INoiseRandom;
@@ -21,18 +21,18 @@ public enum BOPRiverMixLayer implements IAreaTransformer2, IDimOffset0Transforme
 {
     INSTANCE;
 
-    private static final int FROZEN_RIVER = Registry.BIOME.getId(Biomes.FROZEN_RIVER);
-    private static final int SNOWY_TUNDRA = Registry.BIOME.getId(Biomes.SNOWY_TUNDRA);
-    private static final int MUSHROOM_FIELDS = Registry.BIOME.getId(Biomes.MUSHROOM_FIELDS);
-    private static final int MUSHROOM_FIELD_SHORE = Registry.BIOME.getId(Biomes.MUSHROOM_FIELD_SHORE);
-    private static final int RIVER = Registry.BIOME.getId(Biomes.RIVER);
+    private static final int FROZEN_RIVER = BiomeUtil.GetBiomeIDFromRegistry(Biomes.FROZEN_RIVER.getRegistryName());
+    private static final int SNOWY_TUNDRA = BiomeUtil.GetBiomeIDFromRegistry(Biomes.SNOWY_TUNDRA.getRegistryName());
+    private static final int MUSHROOM_FIELDS = BiomeUtil.GetBiomeIDFromRegistry(Biomes.MUSHROOM_FIELDS.getRegistryName());
+    private static final int MUSHROOM_FIELD_SHORE = BiomeUtil.GetBiomeIDFromRegistry(Biomes.MUSHROOM_FIELD_SHORE.getRegistryName());
+    private static final int RIVER = BiomeUtil.GetBiomeIDFromRegistry(Biomes.RIVER.getRegistryName());
 
     @Override
     public int applyPixel(INoiseRandom context, IArea biomeArea, IArea riverArea, int x, int z)
     {
         int biomeId = biomeArea.get(x, z);
         int riverId = riverArea.get(x, z);
-        Biome biome = Registry.BIOME.byId(biomeId);
+        Biome biome = BiomeUtil.GetBiomeFromID(biomeId);
 
         if (BOPLayerUtil.isOcean(biomeId))
         {

@@ -8,7 +8,7 @@
 package biomesoplenty.common.world.layer;
 
 import biomesoplenty.api.enums.BOPClimates;
-import net.minecraft.util.registry.Registry;
+import biomesoplenty.common.util.biome.BiomeUtil;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.area.IArea;
@@ -53,7 +53,7 @@ public enum LargeIslandLayer implements IAreaTransformer2, IDimOffset1Transforme
             }
             else
             {
-                return Registry.BIOME.getId(islandBiome);
+                return BiomeUtil.GetBiomeIDFromRegistry(islandBiome.getRegistryName());
             }
         }
         else return centerVal;

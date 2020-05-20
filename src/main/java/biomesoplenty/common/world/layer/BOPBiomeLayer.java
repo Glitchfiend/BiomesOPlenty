@@ -8,8 +8,8 @@
 package biomesoplenty.common.world.layer;
 
 import biomesoplenty.api.enums.BOPClimates;
+import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.init.ModBiomes;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.area.IArea;
@@ -21,8 +21,8 @@ public enum BOPBiomeLayer implements IAreaTransformer2, IDimOffset0Transformer
 {
     INSTANCE;
 
-    private static final int DEEP_OCEAN = Registry.BIOME.getId(Biomes.DEEP_OCEAN);
-    private static final int MUSHROOM_FIELDS = Registry.BIOME.getId(Biomes.MUSHROOM_FIELDS);
+    private static final int DEEP_OCEAN = BiomeUtil.GetBiomeIDFromRegistry(Biomes.DEEP_OCEAN.getRegistryName());
+    private static final int MUSHROOM_FIELDS = BiomeUtil.GetBiomeIDFromRegistry(Biomes.MUSHROOM_FIELDS.getRegistryName());
 
     @Override
     public int applyPixel(INoiseRandom context, IArea area1, IArea area2, int x, int z)
@@ -47,7 +47,7 @@ public enum BOPBiomeLayer implements IAreaTransformer2, IDimOffset0Transformer
         // At this point, oceans and land have been assigned, and so have mushroom islands
         if (landSeaVal == DEEP_OCEAN)
         {
-            return Registry.BIOME.getId(climate.getRandomOceanBiome(context, true));
+            return BiomeUtil.GetBiomeIDFromRegistry(climate.getRandomOceanBiome(context, true).getRegistryName());
         }
         else if ((landSeaVal == MUSHROOM_FIELDS || ModBiomes.islandBiomeIds.contains(landSeaVal)) && climate.biomeType != BiomeManager.BiomeType.ICY) // TODO
         {
@@ -56,11 +56,11 @@ public enum BOPBiomeLayer implements IAreaTransformer2, IDimOffset0Transformer
         }
         else if (landSeaVal == 0)
         {
-            return Registry.BIOME.getId(climate.getRandomOceanBiome(context, false));
+            return BiomeUtil.GetBiomeIDFromRegistry(climate.getRandomOceanBiome(context, false).getRegistryName());
         }
         else
         {
-        	return Registry.BIOME.getId(climate.getRandomBiome(context, Biomes.OCEAN));
+        	return BiomeUtil.GetBiomeIDFromRegistry(climate.getRandomBiome(context, Biomes.OCEAN).getRegistryName());
         }
     }
 }
