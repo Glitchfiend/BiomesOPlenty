@@ -17,10 +17,11 @@ import com.mojang.brigadier.suggestion.SuggestionsBuilder;
 import net.minecraft.command.CommandSource;
 import net.minecraft.command.ISuggestionProvider;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.biome.Biome;
+import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
 public class BiomeArgument implements ArgumentType<Biome>
@@ -43,7 +44,8 @@ public class BiomeArgument implements ArgumentType<Biome>
     public Biome parse(StringReader reader) throws CommandSyntaxException
     {
         ResourceLocation location = ResourceLocation.read(reader);
-        return Registry.BIOME.getOptional(location).orElseThrow(() ->
+        Optional<Biome> optional = Optional.ofNullable(ForgeRegistries.BIOMES.getValue(location));
+        return optional.orElseThrow(() ->
         {
             return INVALID_BIOME_EXCEPTION.create(location);
         });
@@ -52,6 +54,6 @@ public class BiomeArgument implements ArgumentType<Biome>
     @Override
     public <S> CompletableFuture<Suggestions> listSuggestions(CommandContext<S> context, SuggestionsBuilder suggestionsBuilder)
     {
-        return ISuggestionProvider.suggestResource(Registry.BIOME.keySet(), suggestionsBuilder);
+        return ISuggestionProvider.suggestResource(ForgeRegistries.BIOMES.getKeys(), suggestionsBuilder);
     }
 }
