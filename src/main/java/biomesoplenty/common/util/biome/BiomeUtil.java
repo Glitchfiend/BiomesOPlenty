@@ -9,16 +9,27 @@ package biomesoplenty.common.util.biome;
 
 import biomesoplenty.common.world.BOPOverworldGenSettings;
 import biomesoplenty.core.BiomesOPlenty;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraftforge.registries.RegistryManager;
 
 public class BiomeUtil
 {
+    private static ResourceLocation BiomeRegistry = new ResourceLocation("biome");
     public static int getBiomeSize(World world)
     {
         // TODO
         return BOPOverworldGenSettings.BiomeSize.MEDIUM.getValue();
+    }
+    
+    public static int GetBiomeIDFromRegistry(ResourceLocation res) {
+        return RegistryManager.ACTIVE.getRegistry(BiomeRegistry).getID(res);
+    }
+    
+    public static Biome GetBiomeFromID(int id) {
+    	return (Biome)RegistryManager.ACTIVE.getRegistry(BiomeRegistry).getValue(id);
     }
 
     public static BlockPos spiralOutwardsLookingForBiome(World world, Biome biomeToFind, double startX, double startZ)

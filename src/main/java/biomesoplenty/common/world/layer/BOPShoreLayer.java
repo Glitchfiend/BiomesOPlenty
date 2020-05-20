@@ -9,8 +9,8 @@ package biomesoplenty.common.world.layer;
 
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.common.biome.BiomeBOP;
+import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.common.world.BOPLayerUtil;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.INoiseRandom;
@@ -22,33 +22,33 @@ public enum BOPShoreLayer implements ICastleTransformer
 {
     INSTANCE;
 
-    private static final int BEACH = Registry.BIOME.getId(Biomes.BEACH);
-    private static final int SNOWY_BEACH = Registry.BIOME.getId(Biomes.SNOWY_BEACH);
-    private static final int DESERT = Registry.BIOME.getId(Biomes.DESERT);
-    private static final int MOUNTAINS = Registry.BIOME.getId(Biomes.MOUNTAINS);
-    private static final int WOODED_MOUNTAINS = Registry.BIOME.getId(Biomes.WOODED_MOUNTAINS);
-    private static final int FOREST = Registry.BIOME.getId(Biomes.FOREST);
-    private static final int JUNGLE = Registry.BIOME.getId(Biomes.JUNGLE);
-    private static final int JUNGLE_EDGE = Registry.BIOME.getId(Biomes.JUNGLE_EDGE);
-    private static final int JUNGLE_HILLS = Registry.BIOME.getId(Biomes.JUNGLE_HILLS);
-    private static final int BADLANDS = Registry.BIOME.getId(Biomes.BADLANDS);
-    private static final int WOODED_BADLANDS_PLATEAU = Registry.BIOME.getId(Biomes.WOODED_BADLANDS_PLATEAU);
-    private static final int BADLANDS_PLATEAU = Registry.BIOME.getId(Biomes.BADLANDS_PLATEAU);
-    private static final int ERODED_BADLANDS = Registry.BIOME.getId(Biomes.ERODED_BADLANDS);
-    private static final int MODIFIED_WOODED_BADLANDS_PLATEAU = Registry.BIOME.getId(Biomes.MODIFIED_WOODED_BADLANDS_PLATEAU);
-    private static final int MODIFIED_BADLANDS_PLATEAU = Registry.BIOME.getId(Biomes.MODIFIED_BADLANDS_PLATEAU);
-    private static final int MUSHROOM_FIELDS = Registry.BIOME.getId(Biomes.MUSHROOM_FIELDS);
-    private static final int MUSHROOM_FIELD_SHORE = Registry.BIOME.getId(Biomes.MUSHROOM_FIELD_SHORE);
-    private static final int RIVER = Registry.BIOME.getId(Biomes.RIVER);
-    private static final int MOUNTAIN_EDGE = Registry.BIOME.getId(Biomes.MOUNTAIN_EDGE);
-    private static final int STONE_SHORE = Registry.BIOME.getId(Biomes.STONE_SHORE);
-    private static final int SWAMP = Registry.BIOME.getId(Biomes.SWAMP);
-    private static final int TAIGA = Registry.BIOME.getId(Biomes.TAIGA);
+    private static final int BEACH = BiomeUtil.GetBiomeIDFromRegistry(Biomes.BEACH.getRegistryName());
+    private static final int SNOWY_BEACH = BiomeUtil.GetBiomeIDFromRegistry(Biomes.SNOWY_BEACH.getRegistryName());
+    private static final int DESERT = BiomeUtil.GetBiomeIDFromRegistry(Biomes.DESERT.getRegistryName());
+    private static final int MOUNTAINS = BiomeUtil.GetBiomeIDFromRegistry(Biomes.MOUNTAINS.getRegistryName());
+    private static final int WOODED_MOUNTAINS = BiomeUtil.GetBiomeIDFromRegistry(Biomes.WOODED_MOUNTAINS.getRegistryName());
+    private static final int FOREST = BiomeUtil.GetBiomeIDFromRegistry(Biomes.FOREST.getRegistryName());
+    private static final int JUNGLE = BiomeUtil.GetBiomeIDFromRegistry(Biomes.JUNGLE.getRegistryName());
+    private static final int JUNGLE_EDGE = BiomeUtil.GetBiomeIDFromRegistry(Biomes.JUNGLE_EDGE.getRegistryName());
+    private static final int JUNGLE_HILLS = BiomeUtil.GetBiomeIDFromRegistry(Biomes.JUNGLE_HILLS.getRegistryName());
+    private static final int BADLANDS = BiomeUtil.GetBiomeIDFromRegistry(Biomes.BADLANDS.getRegistryName());
+    private static final int WOODED_BADLANDS_PLATEAU = BiomeUtil.GetBiomeIDFromRegistry(Biomes.WOODED_BADLANDS_PLATEAU.getRegistryName());
+    private static final int BADLANDS_PLATEAU = BiomeUtil.GetBiomeIDFromRegistry(Biomes.BADLANDS_PLATEAU.getRegistryName());
+    private static final int ERODED_BADLANDS = BiomeUtil.GetBiomeIDFromRegistry(Biomes.ERODED_BADLANDS.getRegistryName());
+    private static final int MODIFIED_WOODED_BADLANDS_PLATEAU = BiomeUtil.GetBiomeIDFromRegistry(Biomes.MODIFIED_WOODED_BADLANDS_PLATEAU.getRegistryName());
+    private static final int MODIFIED_BADLANDS_PLATEAU = BiomeUtil.GetBiomeIDFromRegistry(Biomes.MODIFIED_BADLANDS_PLATEAU.getRegistryName());
+    private static final int MUSHROOM_FIELDS = BiomeUtil.GetBiomeIDFromRegistry(Biomes.MUSHROOM_FIELDS.getRegistryName());
+    private static final int MUSHROOM_FIELD_SHORE = BiomeUtil.GetBiomeIDFromRegistry(Biomes.MUSHROOM_FIELD_SHORE.getRegistryName());
+    private static final int RIVER = BiomeUtil.GetBiomeIDFromRegistry(Biomes.RIVER.getRegistryName());
+    private static final int MOUNTAIN_EDGE = BiomeUtil.GetBiomeIDFromRegistry(Biomes.MOUNTAIN_EDGE.getRegistryName());
+    private static final int STONE_SHORE = BiomeUtil.GetBiomeIDFromRegistry(Biomes.STONE_SHORE.getRegistryName());
+    private static final int SWAMP = BiomeUtil.GetBiomeIDFromRegistry(Biomes.SWAMP.getRegistryName());
+    private static final int TAIGA = BiomeUtil.GetBiomeIDFromRegistry(Biomes.TAIGA.getRegistryName());
 
     @Override
     public int apply(INoiseRandom context, int northBiomeId, int eastBiomeId, int southBiomeId, int westBiomeId, int biomeId)
     {
-        Biome biome = Registry.BIOME.byId(biomeId);
+        Biome biome = BiomeUtil.GetBiomeFromID(biomeId);
 
         if (biomeId == MUSHROOM_FIELDS)
         {
@@ -133,12 +133,12 @@ public enum BOPShoreLayer implements ICastleTransformer
 
     private static int getBiomeIdIfPresent(Optional<Biome> biome, int fallbackId)
     {
-        return biome.isPresent() ? Registry.BIOME.getId(biome.get()) : fallbackId;
+        return biome.isPresent() ? BiomeUtil.GetBiomeIDFromRegistry(biome.get().getRegistryName()) : fallbackId;
     }
 
     private static boolean isJungleCompatible(int biomeId)
     {
-        if (Registry.BIOME.byId(biomeId) != null && (Registry.BIOME.byId(biomeId)).getBiomeCategory() == Biome.Category.JUNGLE)
+        if (BiomeUtil.GetBiomeFromID(biomeId) != null && (BiomeUtil.GetBiomeFromID(biomeId)).getBiomeCategory() == Biome.Category.JUNGLE)
         {
             return true;
         }
