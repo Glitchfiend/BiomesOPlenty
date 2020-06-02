@@ -8,16 +8,20 @@
 package biomesoplenty.init;
 
 import biomesoplenty.api.enums.BOPClimates;
-import biomesoplenty.core.BiomesOPlenty;
-import com.google.common.collect.Lists;
-import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeManager;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
+import com.google.common.collect.ImmutableList;
 
 public class ModCompatibility
 {
+	
+	// Set containing remapped mod biomes.
+    private static final Set<WrappedBiomeEntry> MOD_BIOMES = new HashSet<>();
+	
     public static void setup()
     {
         copyModBiomeWeights();
@@ -25,71 +29,59 @@ public class ModCompatibility
 
     private static void copyModBiomeWeights()
     {
-        try
+        for (BiomeManager.BiomeType type : BiomeManager.BiomeType.values())
         {
-            // An array containing lists of default biome entries for only standard BiomeTypes
-            List<BiomeManager.BiomeEntry>[] vanillaBiomes = (List<BiomeManager.BiomeEntry>[]) ObfuscationReflectionHelper.findMethod(BiomeManager.class, "setupBiomes").invoke(null);
-
-            for (BiomeManager.BiomeType type : BiomeManager.BiomeType.values())
+            for(BiomeManager.BiomeEntry entry : BiomeManager.getBiomes(type))
             {
-                // Creates a mutable version of the current biome type's biome array and wraps entries to support .equals()
-                List<WrappedBiomeEntry> entries = Lists.newArrayList();
-                List<WrappedBiomeEntry> vanillaEntries = Lists.newArrayList();
-
-                for (BiomeManager.BiomeEntry entry : BiomeManager.getBiomes(type))
-                {
-                    entries.add(new WrappedBiomeEntry(entry));
-                }
-
-                for (BiomeManager.BiomeEntry entry : vanillaBiomes[type.ordinal()])
-                {
-                    vanillaEntries.add(new WrappedBiomeEntry(entry));
-                }
-
-                //Remove all default biomes from the entries list
-                entries.removeAll(vanillaEntries);
-
-                for (WrappedBiomeEntry wrappedEntry : entries)
-                {
-                    remapBiomeToBoP(wrappedEntry.biomeEntry.biome, type, wrappedEntry.biomeEntry.weight);
-                }
+                if(!isMinecraft(entry))
+                    remapBiomeToBoP(entry, type);
             }
-        }
-        catch (Exception e)
-        {
-            BiomesOPlenty.logger.error("An error has occurred whilst copying mod biomes");
-            e.printStackTrace();
-            return;
         }
     }
 
     // TODO: Make this more accurate, possibly analyze heights, temps, rainfall and/or biome dictionary tags
-    private static void remapBiomeToBoP(Biome biome, BiomeManager.BiomeType type, int weight)
+    private static void remapBiomeToBoP(BiomeManager.BiomeEntry entry, BiomeManager.BiomeType type)
     {
-        /* If any of our climates already have the biome (from a mod using our api), then skip this biome */
-        for (BOPClimates climate : BOPClimates.values())
-        {
-            List<BOPClimates.WeightedBiomeEntry> entries = Lists.newArrayList();
-            entries.addAll(climate.getLandBiomes());
-            entries.addAll(climate.getIslandBiomes());
-
-            for (BOPClimates.WeightedBiomeEntry entry : entries)
-            {
-                if (entry.biome == biome)
-                {
-                    return;
-                }
-            }
-        }
-
-
+        if(!mapEntry(entry))
+            return;
+        
         for (BOPClimates climate : BOPClimates.values())
         {
             if (climate.biomeType == type)
             {
-                climate.addBiome(weight, biome);
+                climate.addBiome(entry.weight, entry.biome);
             }
         }
+    }
+    
+    /**
+     * Determines if the entry is a Minecraft entry.
+     * 
+     * Does so by comparing the biomes registry namespace to the minecraft default namespace.
+     * 
+     * @param entry
+     * @return true if the entry belongs to Minecraft, false otherwise
+     */
+    private static Boolean isMinecraft(BiomeManager.BiomeEntry entry)
+    {
+        return entry.biome.getRegistryName().getNamespace() == "minecraft";
+    }
+    
+    // Debugging function to ensure mod biomes are mapped and added
+    public static ImmutableList<WrappedBiomeEntry> getMappedModBiomes() {
+        return ImmutableList.copyOf(MOD_BIOMES);
+    }
+    /**
+     * Attempts to add element to the static Set of WrappeBiomeEntry's
+     * <p>
+     * returns true if successful and false if failure based on java.util.Set.add() behavior.
+     * 
+     * @param entry
+     * @return true if the set did not already contain the element
+     */
+    private static Boolean mapEntry(BiomeManager.BiomeEntry entry)
+    {
+        return MOD_BIOMES.add(new WrappedBiomeEntry(entry));
     }
 
     /**
