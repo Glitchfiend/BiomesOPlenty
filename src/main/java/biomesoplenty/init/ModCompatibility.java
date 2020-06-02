@@ -11,7 +11,6 @@ import biomesoplenty.api.enums.BOPClimates;
 import net.minecraftforge.common.BiomeManager;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import com.google.common.collect.ImmutableList;
