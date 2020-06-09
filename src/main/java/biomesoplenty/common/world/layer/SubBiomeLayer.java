@@ -10,10 +10,10 @@ package biomesoplenty.common.world.layer;
 
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.enums.BOPClimates;
+import biomesoplenty.common.biome.BiomeRegistry;
 import biomesoplenty.common.world.BOPLayerUtil;
 import biomesoplenty.init.ModBiomes;
 import com.google.common.collect.Lists;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.INoiseRandom;
@@ -29,32 +29,32 @@ public enum SubBiomeLayer implements IAreaTransformer2, IDimOffset1Transformer
 {
     INSTANCE;
 
-    private static final int BIRCH_FOREST = Registry.BIOME.getId(Biomes.BIRCH_FOREST);
-    private static final int BIRCH_FOREST_HILLS = Registry.BIOME.getId(Biomes.BIRCH_FOREST_HILLS);
-    private static final int DESERT = Registry.BIOME.getId(Biomes.DESERT);
-    private static final int DESERT_HILLS = Registry.BIOME.getId(Biomes.DESERT_HILLS);
-    private static final int MOUNTAINS = Registry.BIOME.getId(Biomes.MOUNTAINS);
-    private static final int WOODED_MOUNTAINS = Registry.BIOME.getId(Biomes.WOODED_MOUNTAINS);
-    private static final int FOREST = Registry.BIOME.getId(Biomes.FOREST);
-    private static final int WOODED_HILLS = Registry.BIOME.getId(Biomes.WOODED_HILLS);
-    private static final int SNOWY_TUNDRA = Registry.BIOME.getId(Biomes.SNOWY_TUNDRA);
-    private static final int SNOWY_MOUNTAINS = Registry.BIOME.getId(Biomes.SNOWY_MOUNTAINS);
-    private static final int JUNGLE = Registry.BIOME.getId(Biomes.JUNGLE);
-    private static final int JUNGLE_HILLS = Registry.BIOME.getId(Biomes.JUNGLE_HILLS);
-    private static final int BAMBOO_JUNGLE = Registry.BIOME.getId(Biomes.BAMBOO_JUNGLE);
-    private static final int BAMBOO_JUNGLE_HILLS = Registry.BIOME.getId(Biomes.BAMBOO_JUNGLE_HILLS);
-    private static final int BADLANDS = Registry.BIOME.getId(Biomes.BADLANDS);
-    private static final int WOODED_BADLANDS_PLATEAU = Registry.BIOME.getId(Biomes.WOODED_BADLANDS_PLATEAU);
-    private static final int PLAINS = Registry.BIOME.getId(Biomes.PLAINS);
-    private static final int GIANT_TREE_TAIGA = Registry.BIOME.getId(Biomes.GIANT_TREE_TAIGA);
-    private static final int GIANT_TREE_TAIGA_HILLS = Registry.BIOME.getId(Biomes.GIANT_TREE_TAIGA_HILLS);
-    private static final int DARK_FOREST = Registry.BIOME.getId(Biomes.DARK_FOREST);
-    private static final int SAVANNA = Registry.BIOME.getId(Biomes.SAVANNA);
-    private static final int SAVANA_PLATEAU = Registry.BIOME.getId(Biomes.SAVANNA_PLATEAU);
-    private static final int TAIGA = Registry.BIOME.getId(Biomes.TAIGA);
-    private static final int SNOWY_TAIGA = Registry.BIOME.getId(Biomes.SNOWY_TAIGA);
-    private static final int SNOWY_TAIGA_HILLS = Registry.BIOME.getId(Biomes.SNOWY_TAIGA_HILLS);
-    private static final int TAIGA_HILLS = Registry.BIOME.getId(Biomes.TAIGA_HILLS);
+    private static final int BIRCH_FOREST = BiomeRegistry.getId(Biomes.BIRCH_FOREST);
+    private static final int BIRCH_FOREST_HILLS = BiomeRegistry.getId(Biomes.BIRCH_FOREST_HILLS);
+    private static final int DESERT = BiomeRegistry.getId(Biomes.DESERT);
+    private static final int DESERT_HILLS = BiomeRegistry.getId(Biomes.DESERT_HILLS);
+    private static final int MOUNTAINS = BiomeRegistry.getId(Biomes.MOUNTAINS);
+    private static final int WOODED_MOUNTAINS = BiomeRegistry.getId(Biomes.WOODED_MOUNTAINS);
+    private static final int FOREST = BiomeRegistry.getId(Biomes.FOREST);
+    private static final int WOODED_HILLS = BiomeRegistry.getId(Biomes.WOODED_HILLS);
+    private static final int SNOWY_TUNDRA = BiomeRegistry.getId(Biomes.SNOWY_TUNDRA);
+    private static final int SNOWY_MOUNTAINS = BiomeRegistry.getId(Biomes.SNOWY_MOUNTAINS);
+    private static final int JUNGLE = BiomeRegistry.getId(Biomes.JUNGLE);
+    private static final int JUNGLE_HILLS = BiomeRegistry.getId(Biomes.JUNGLE_HILLS);
+    private static final int BAMBOO_JUNGLE = BiomeRegistry.getId(Biomes.BAMBOO_JUNGLE);
+    private static final int BAMBOO_JUNGLE_HILLS = BiomeRegistry.getId(Biomes.BAMBOO_JUNGLE_HILLS);
+    private static final int BADLANDS = BiomeRegistry.getId(Biomes.BADLANDS);
+    private static final int WOODED_BADLANDS_PLATEAU = BiomeRegistry.getId(Biomes.WOODED_BADLANDS_PLATEAU);
+    private static final int PLAINS = BiomeRegistry.getId(Biomes.PLAINS);
+    private static final int GIANT_TREE_TAIGA = BiomeRegistry.getId(Biomes.GIANT_TREE_TAIGA);
+    private static final int GIANT_TREE_TAIGA_HILLS = BiomeRegistry.getId(Biomes.GIANT_TREE_TAIGA_HILLS);
+    private static final int DARK_FOREST = BiomeRegistry.getId(Biomes.DARK_FOREST);
+    private static final int SAVANNA = BiomeRegistry.getId(Biomes.SAVANNA);
+    private static final int SAVANA_PLATEAU = BiomeRegistry.getId(Biomes.SAVANNA_PLATEAU);
+    private static final int TAIGA = BiomeRegistry.getId(Biomes.TAIGA);
+    private static final int SNOWY_TAIGA = BiomeRegistry.getId(Biomes.SNOWY_TAIGA);
+    private static final int SNOWY_TAIGA_HILLS = BiomeRegistry.getId(Biomes.SNOWY_TAIGA_HILLS);
+    private static final int TAIGA_HILLS = BiomeRegistry.getId(Biomes.TAIGA_HILLS);
 
     @Override
     public int applyPixel(INoiseRandom context, IArea biomeArea, IArea riverAndSubBiomesInitArea, int x, int z)
@@ -69,10 +69,10 @@ public enum SubBiomeLayer implements IAreaTransformer2, IDimOffset1Transformer
         Biome mutatedBiome;
         if (!BOPLayerUtil.isShallowOcean(biomeId) && initVal >= 2 && tryRareBiome)
         {
-            Biome biome = Registry.BIOME.byId(biomeId);
+            Biome biome = BiomeRegistry.byId(biomeId);
             if (biome == null || !biome.isMutated()) {
                 mutatedBiome = Biome.getMutatedVariant(biome);
-                return mutatedBiome == null ? biomeId : Registry.BIOME.getId(mutatedBiome);
+                return mutatedBiome == null ? biomeId : BiomeRegistry.getId(mutatedBiome);
             }
         }
 
@@ -87,8 +87,8 @@ public enum SubBiomeLayer implements IAreaTransformer2, IDimOffset1Transformer
 
             if (subBiomeType == 0 && mutatedBiomeId != biomeId)
             {
-                mutatedBiome = Biome.getMutatedVariant(Registry.BIOME.byId(mutatedBiomeId));
-                mutatedBiomeId = mutatedBiome == null ? biomeId : Registry.BIOME.getId(mutatedBiome);
+                mutatedBiome = Biome.getMutatedVariant(BiomeRegistry.byId(mutatedBiomeId));
+                mutatedBiomeId = mutatedBiome == null ? biomeId : BiomeRegistry.getId(mutatedBiome);
             }
 
             if (mutatedBiomeId != biomeId)
@@ -141,7 +141,7 @@ public enum SubBiomeLayer implements IAreaTransformer2, IDimOffset1Transformer
         }
         while (weight >= 0);
 
-        selectedBiomeId = Registry.BIOME.getId(item.biome);
+        selectedBiomeId = BiomeRegistry.getId(item.biome);
         return selectedBiomeId;
     }
 
@@ -157,7 +157,7 @@ public enum SubBiomeLayer implements IAreaTransformer2, IDimOffset1Transformer
         else if (originalBiomeId == SNOWY_TAIGA) mutatedBiomeId = SNOWY_TAIGA_HILLS;
         //Use BOP orchard instead of vanilla forest
         //else if (originalBiomeId == PLAINS) mutatedBiomeId = context.random(3) == 0 ? WOODED_HILLS : FOREST;
-        else if (originalBiomeId == PLAINS && BOPBiomes.orchard.isPresent()) mutatedBiomeId = Registry.BIOME.getId(BOPBiomes.orchard.get());
+        else if (originalBiomeId == PLAINS && BOPBiomes.orchard.isPresent()) mutatedBiomeId = BiomeRegistry.getId(BOPBiomes.orchard.get());
         //////////
         else if (originalBiomeId == SNOWY_TUNDRA) mutatedBiomeId = SNOWY_MOUNTAINS;
         else if (originalBiomeId == JUNGLE) mutatedBiomeId = JUNGLE_HILLS;

@@ -9,46 +9,45 @@ package biomesoplenty.common.world.layer;
 
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.common.biome.BiomeBOP;
+import biomesoplenty.common.biome.BiomeRegistry;
 import biomesoplenty.common.world.BOPLayerUtil;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.layer.traits.ICastleTransformer;
-
-import java.util.Optional;
+import net.minecraftforge.fml.RegistryObject;
 
 public enum BOPShoreLayer implements ICastleTransformer
 {
     INSTANCE;
 
-    private static final int BEACH = Registry.BIOME.getId(Biomes.BEACH);
-    private static final int SNOWY_BEACH = Registry.BIOME.getId(Biomes.SNOWY_BEACH);
-    private static final int DESERT = Registry.BIOME.getId(Biomes.DESERT);
-    private static final int MOUNTAINS = Registry.BIOME.getId(Biomes.MOUNTAINS);
-    private static final int WOODED_MOUNTAINS = Registry.BIOME.getId(Biomes.WOODED_MOUNTAINS);
-    private static final int FOREST = Registry.BIOME.getId(Biomes.FOREST);
-    private static final int JUNGLE = Registry.BIOME.getId(Biomes.JUNGLE);
-    private static final int JUNGLE_EDGE = Registry.BIOME.getId(Biomes.JUNGLE_EDGE);
-    private static final int JUNGLE_HILLS = Registry.BIOME.getId(Biomes.JUNGLE_HILLS);
-    private static final int BADLANDS = Registry.BIOME.getId(Biomes.BADLANDS);
-    private static final int WOODED_BADLANDS_PLATEAU = Registry.BIOME.getId(Biomes.WOODED_BADLANDS_PLATEAU);
-    private static final int BADLANDS_PLATEAU = Registry.BIOME.getId(Biomes.BADLANDS_PLATEAU);
-    private static final int ERODED_BADLANDS = Registry.BIOME.getId(Biomes.ERODED_BADLANDS);
-    private static final int MODIFIED_WOODED_BADLANDS_PLATEAU = Registry.BIOME.getId(Biomes.MODIFIED_WOODED_BADLANDS_PLATEAU);
-    private static final int MODIFIED_BADLANDS_PLATEAU = Registry.BIOME.getId(Biomes.MODIFIED_BADLANDS_PLATEAU);
-    private static final int MUSHROOM_FIELDS = Registry.BIOME.getId(Biomes.MUSHROOM_FIELDS);
-    private static final int MUSHROOM_FIELD_SHORE = Registry.BIOME.getId(Biomes.MUSHROOM_FIELD_SHORE);
-    private static final int RIVER = Registry.BIOME.getId(Biomes.RIVER);
-    private static final int MOUNTAIN_EDGE = Registry.BIOME.getId(Biomes.MOUNTAIN_EDGE);
-    private static final int STONE_SHORE = Registry.BIOME.getId(Biomes.STONE_SHORE);
-    private static final int SWAMP = Registry.BIOME.getId(Biomes.SWAMP);
-    private static final int TAIGA = Registry.BIOME.getId(Biomes.TAIGA);
+    private static final int BEACH = BiomeRegistry.getId(Biomes.BEACH);
+    private static final int SNOWY_BEACH = BiomeRegistry.getId(Biomes.SNOWY_BEACH);
+    private static final int DESERT = BiomeRegistry.getId(Biomes.DESERT);
+    private static final int MOUNTAINS = BiomeRegistry.getId(Biomes.MOUNTAINS);
+    private static final int WOODED_MOUNTAINS = BiomeRegistry.getId(Biomes.WOODED_MOUNTAINS);
+    private static final int FOREST = BiomeRegistry.getId(Biomes.FOREST);
+    private static final int JUNGLE = BiomeRegistry.getId(Biomes.JUNGLE);
+    private static final int JUNGLE_EDGE = BiomeRegistry.getId(Biomes.JUNGLE_EDGE);
+    private static final int JUNGLE_HILLS = BiomeRegistry.getId(Biomes.JUNGLE_HILLS);
+    private static final int BADLANDS = BiomeRegistry.getId(Biomes.BADLANDS);
+    private static final int WOODED_BADLANDS_PLATEAU = BiomeRegistry.getId(Biomes.WOODED_BADLANDS_PLATEAU);
+    private static final int BADLANDS_PLATEAU = BiomeRegistry.getId(Biomes.BADLANDS_PLATEAU);
+    private static final int ERODED_BADLANDS = BiomeRegistry.getId(Biomes.ERODED_BADLANDS);
+    private static final int MODIFIED_WOODED_BADLANDS_PLATEAU = BiomeRegistry.getId(Biomes.MODIFIED_WOODED_BADLANDS_PLATEAU);
+    private static final int MODIFIED_BADLANDS_PLATEAU = BiomeRegistry.getId(Biomes.MODIFIED_BADLANDS_PLATEAU);
+    private static final int MUSHROOM_FIELDS = BiomeRegistry.getId(Biomes.MUSHROOM_FIELDS);
+    private static final int MUSHROOM_FIELD_SHORE = BiomeRegistry.getId(Biomes.MUSHROOM_FIELD_SHORE);
+    private static final int RIVER = BiomeRegistry.getId(Biomes.RIVER);
+    private static final int MOUNTAIN_EDGE = BiomeRegistry.getId(Biomes.MOUNTAIN_EDGE);
+    private static final int STONE_SHORE = BiomeRegistry.getId(Biomes.STONE_SHORE);
+    private static final int SWAMP = BiomeRegistry.getId(Biomes.SWAMP);
+    private static final int TAIGA = BiomeRegistry.getId(Biomes.TAIGA);
 
     @Override
     public int apply(INoiseRandom context, int northBiomeId, int eastBiomeId, int southBiomeId, int westBiomeId, int biomeId)
     {
-        Biome biome = Registry.BIOME.byId(biomeId);
+        Biome biome = BiomeRegistry.byId(biomeId);
 
         if (biomeId == MUSHROOM_FIELDS)
         {
@@ -131,14 +130,14 @@ public enum BOPShoreLayer implements ICastleTransformer
         return biomeId;
     }
 
-    private static int getBiomeIdIfPresent(Optional<Biome> biome, int fallbackId)
+    private static int getBiomeIdIfPresent(RegistryObject<Biome> biome, int fallbackId)
     {
-        return biome.isPresent() ? Registry.BIOME.getId(biome.get()) : fallbackId;
+        return biome.isPresent() ? BiomeRegistry.getId(biome.get()) : fallbackId;
     }
 
     private static boolean isJungleCompatible(int biomeId)
     {
-        if (Registry.BIOME.byId(biomeId) != null && (Registry.BIOME.byId(biomeId)).getBiomeCategory() == Biome.Category.JUNGLE)
+        if (BiomeRegistry.byId(biomeId) != null && (BiomeRegistry.byId(biomeId)).getBiomeCategory() == Biome.Category.JUNGLE)
         {
             return true;
         }

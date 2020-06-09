@@ -8,31 +8,52 @@
 package biomesoplenty.common.biome;
 
 import biomesoplenty.api.enums.BOPClimates;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.IFeatureConfig;
-import net.minecraft.world.gen.placement.ConfiguredPlacement;
-import net.minecraft.world.gen.placement.IPlacementConfig;
-import net.minecraft.world.gen.placement.Placement;
+import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.ForgeRegistry;
+import net.minecraftforge.registries.ObjectHolderRegistry;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.function.Supplier;
 
 public class BiomeBOP extends Biome
 {
     protected Map<BOPClimates, Integer> weightMap = new HashMap<BOPClimates, Integer>();
+    
 	public boolean canSpawnInBiome;
-	public int beachBiomeId = Registry.BIOME.getId(Biomes.BEACH);
-	public int riverBiomeId = Registry.BIOME.getId(Biomes.RIVER);
+	public int beachBiomeId;
+	public int riverBiomeId;
+	
+	private Optional<Supplier<RegistryObject<Biome>>> beachSupplier = Optional.empty();
+	private Optional<Supplier<RegistryObject<Biome>>> riverSupplier = Optional.empty();
 
     public BiomeBOP(Builder builder)
     {
         super(builder);
         this.canSpawnInBiome = true;
+        
+        /*
+         * Attach a handler which is invoked after the Biome registry is updated and injected into the mod.
+         * Done to ensure RegistryObject fields are propagated with biomes prior to access.
+         * Improves mod compatibility as one can pass a non-populated biome or null fields
+         * that will be propagated properly after registry injection.
+         */
+        ObjectHolderRegistry.addHandler(pred -> {
+            if(pred.test(ForgeRegistries.BIOMES.getRegistryName())) {
+                
+                //set defaults here in order to use the forge registry for compatibility concerns
+                beachBiomeId = BiomeRegistry.getId(Biomes.BEACH);
+                riverBiomeId = BiomeRegistry.getId(Biomes.RIVER);
+                
+                //reassign from defaults if suppliers present
+                beachSupplier.ifPresent(this::beachBiomeConsumer);
+                riverSupplier.ifPresent(this::riverBiomeConsumer);
+            }
+        });
     }
 
     public void addWeight(BOPClimates climate, int weight)
@@ -40,36 +61,43 @@ public class BiomeBOP extends Biome
         this.weightMap.put(climate, weight);
     }
 
-    public void setBeachBiome(Optional<Biome> biome)
-    {
-        if (biome.isPresent())
-            this.beachBiomeId = Registry.BIOME.getId(biome.get());
-        else
-            this.beachBiomeId = -1;
+    private void beachBiomeConsumer(Supplier<RegistryObject<Biome>> biomeSupplier) {
+        RegistryObject<Biome> biome = biomeSupplier.get();
+        this.beachBiomeId = BiomeRegistry.getId(biome.orElse((Biome)null)); //returns -1 for null biome
+    }
+    
+    private void riverBiomeConsumer(Supplier<RegistryObject<Biome>> biomeSupplier) {
+        RegistryObject<Biome> biome = biomeSupplier.get();
+        this.riverBiomeId = BiomeRegistry.getId(biome.orElse((Biome)null)); //returns -1 for null biome
     }
 
-    public void setBeachBiome(Biome biome)
-    {
-        if (biome != null)
-            this.beachBiomeId = Registry.BIOME.getId(biome);
-        else
-            this.beachBiomeId = -1;
+
+    /**
+     * sets beachBiomeId to -1, use setBeachBiome( RegistryObject{@literal <}Biome{@literal >} ) instead
+     */
+    @Deprecated
+    public void setBeachBiome(Biome biome) {
+        this.beachBiomeId = -1;
+    }
+    
+    /**
+     * sets riverBiomeId to -1, use setRiverBiome( RegistryObject{@literal <}Biome{@literal >} ) instead
+     */
+    @Deprecated
+    public void setRiverBiome(Biome biome) {
+        this.riverBiomeId = -1;
     }
 
-    public void setRiverBiome(Optional<Biome> biome)
+    // Create an optional biome supplier to defer setting of beachBiomeId until post-biome registration.
+    public void setBeachBiome(RegistryObject<Biome> biome)
     {
-        if (biome.isPresent())
-            this.riverBiomeId = Registry.BIOME.getId(biome.get());
-        else
-            this.riverBiomeId = -1;
+        this.beachSupplier = Optional.of(() -> biome);
     }
-
-    public void setRiverBiome(Biome biome)
+    
+    // Create an optional biome supplier to defer setting of riverBiomeId until post-biome registration.
+    public void setRiverBiome(RegistryObject<Biome> biome)
     {
-        if (biome != null)
-            this.riverBiomeId = Registry.BIOME.getId(biome);
-        else
-            this.riverBiomeId = -1;
+        this.riverSupplier = Optional.of(() -> biome);
     }
 
     public Map<BOPClimates, Integer> getWeightMap()

@@ -16,21 +16,33 @@ import java.util.TreeMap;
 public class BiomeConfigData
 {
     @SerializedName("standard_weights")
-    public TreeMap<String, WeightedBiomeEntry> standardBiomeWeights = Maps.newTreeMap();
+    public TreeMap<String, StandardBiomeEntry> standardBiomeWeights = Maps.newTreeMap();
 
     @SerializedName("technical_biome_toggles")
-    public TreeMap<String, ToggleableBiomeEntry> technicalBiomeEntries = Maps.newTreeMap();
+    public TreeMap<String, TechnicalBiomeEntry> technicalBiomeEntries = Maps.newTreeMap();
 
     @SerializedName("sub_biome_weights")
     public TreeMap<String, SubBiomeEntry> subBiomeEntries = Maps.newTreeMap();
 
     @SerializedName("island_biome_toggles")
-    public TreeMap<String, ToggleableBiomeEntry> islandBiomeEntries = Maps.newTreeMap();
+    public TreeMap<String, IslandBiomeEntry> islandBiomeEntries = Maps.newTreeMap();
 
     @SerializedName("vanilla_biome_weights")
-    public TreeMap<String, WeightedBiomeEntry> vanillaBiomeEntries = Maps.newTreeMap();
+    public TreeMap<String, VanillaBiomeEntry> vanillaBiomeEntries = Maps.newTreeMap();
+    
+    public boolean isEmpty() {
+        return  standardBiomeWeights.isEmpty()
+                    && technicalBiomeEntries.isEmpty()
+                    && subBiomeEntries.isEmpty()
+                    && islandBiomeEntries.isEmpty()
+                    && vanillaBiomeEntries.isEmpty();
+    }
+    
+    public static abstract class BiomeEntry {
+        public abstract boolean shouldRegister();
+    };
 
-    public static class WeightedBiomeEntry
+    public static class WeightedBiomeEntry extends BiomeEntry
     {
         public int weight;
 
@@ -38,9 +50,14 @@ public class BiomeConfigData
         {
             this.weight = weight;
         }
+        
+        @Override
+        public boolean shouldRegister() {
+            return this.weight > 0 ? true : false;
+        }
     }
 
-    public static class ToggleableBiomeEntry
+    public static class ToggleableBiomeEntry extends BiomeEntry
     {
         public boolean enabled;
 
@@ -48,9 +65,14 @@ public class BiomeConfigData
         {
             this.enabled = enabled;
         }
+        
+        @Override
+        public boolean shouldRegister() {
+            return this.enabled;
+        }
     }
 
-    public static class SubBiomeEntry
+    public static class SubBiomeEntry extends BiomeEntry
     {
         public int weight;
         public float rarity;
@@ -59,6 +81,35 @@ public class BiomeConfigData
         {
             this.weight = weight;
             this.rarity = rarity;
+        }
+        
+        @Override
+        public boolean shouldRegister() {
+            return this.weight > 0 ? true : false;
+        }
+    }
+    
+    public static class StandardBiomeEntry extends WeightedBiomeEntry {
+        StandardBiomeEntry(int weight) {
+            super(weight);
+        }
+    }
+    
+    public static class TechnicalBiomeEntry extends ToggleableBiomeEntry {
+        TechnicalBiomeEntry(boolean enabled) {
+            super(enabled);
+        }
+    }
+    
+    public static class IslandBiomeEntry extends ToggleableBiomeEntry {
+        IslandBiomeEntry(boolean enabled) {
+            super(enabled);
+        }
+    }
+    
+    public static class VanillaBiomeEntry extends WeightedBiomeEntry {
+        VanillaBiomeEntry(int weight) {
+            super(weight);
         }
     }
 }

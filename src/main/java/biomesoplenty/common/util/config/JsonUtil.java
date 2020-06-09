@@ -24,7 +24,7 @@ public class JsonUtil
         File configFile = new File(configDir, configName);
 
         //No config file, so create default config:
-        if (!configFile.exists())
+        if (!configFile.isFile())
         {
             writeFile(configFile, defaults);
         }
