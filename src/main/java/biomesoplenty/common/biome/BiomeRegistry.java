@@ -72,7 +72,7 @@ public class BiomeRegistry
     public static Supplier<Biome> getBiomeSupplier(RegistryObject<Biome> regObj) {
         return getBiomeSupplier(regObj.getId());
     }
-    
+
     public static Biome getBiome(ResourceLocation name) {
         return getBiomeSupplier(name).get();
     }
@@ -326,10 +326,8 @@ public class BiomeRegistry
                     .orElse(
                         new BiomeConfigData.TechnicalBiomeEntry(this.canRegister())
                     );
-            
+
             config.technicalBiomeEntries.put(this.name.toString(), entry);
-            
-            BiomeBOP biome = (BiomeBOP)this.getBiome();
 
             if (!entry.shouldRegister())
             {
@@ -337,9 +335,12 @@ public class BiomeRegistry
                 return;
             }
             
+
+            BiomeBOP biome = (BiomeBOP)this.getBiome();
+
             BiomesOPlenty.logger.debug("Registering Technical Biome: " + this.name);
             registerBiome(biome, this.name);
-            
+
             if (biome.canSpawnInBiome)
             {
                 BiomeManager.addSpawnBiome(biome);
@@ -395,6 +396,8 @@ public class BiomeRegistry
                 BiomesOPlenty.logger.debug("Weights absent for island biome" + this.name.toString() + ", disabling...");
                 return;
             }
+
+            registerBiome(this.getBiome(), this.name);
 
             String biomeName = this.name.toString();
             BiomesOPlenty.logger.debug(String.format("Island biome %s weight set to %d for climate %s", biomeName, this.getWeight(), this.getClimate().name()));
