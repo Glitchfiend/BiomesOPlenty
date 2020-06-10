@@ -11,49 +11,22 @@ import biomesoplenty.api.enums.BOPClimates;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraftforge.fml.RegistryObject;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.ForgeRegistry;
-import net.minecraftforge.registries.ObjectHolderRegistry;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
-import java.util.function.Supplier;
 
 public class BiomeBOP extends Biome
 {
     protected Map<BOPClimates, Integer> weightMap = new HashMap<BOPClimates, Integer>();
-    
-	public boolean canSpawnInBiome;
-	public int beachBiomeId;
-	public int riverBiomeId;
-	
-	private Optional<Supplier<RegistryObject<Biome>>> beachSupplier = Optional.empty();
-	private Optional<Supplier<RegistryObject<Biome>>> riverSupplier = Optional.empty();
+
+    public boolean canSpawnInBiome;
+    public int beachBiomeId = BiomeRegistry.getId(Biomes.BEACH);
+    public int riverBiomeId = BiomeRegistry.getId(Biomes.RIVER);
 
     public BiomeBOP(Builder builder)
     {
         super(builder);
         this.canSpawnInBiome = true;
-        
-        /*
-         * Attach a handler which is invoked after the Biome registry is updated and injected into the mod.
-         * Done to ensure RegistryObject fields are propagated with biomes prior to access.
-         * Improves mod compatibility as one can pass a non-populated biome or null fields
-         * that will be propagated properly after registry injection.
-         */
-        ObjectHolderRegistry.addHandler(pred -> {
-            if(pred.test(ForgeRegistries.BIOMES.getRegistryName())) {
-                
-                //set defaults here in order to use the forge registry for compatibility concerns
-                beachBiomeId = BiomeRegistry.getId(Biomes.BEACH);
-                riverBiomeId = BiomeRegistry.getId(Biomes.RIVER);
-                
-                //reassign from defaults if suppliers present
-                beachSupplier.ifPresent(this::beachBiomeConsumer);
-                riverSupplier.ifPresent(this::riverBiomeConsumer);
-            }
-        });
     }
 
     public void addWeight(BOPClimates climate, int weight)
@@ -61,43 +34,24 @@ public class BiomeBOP extends Biome
         this.weightMap.put(climate, weight);
     }
 
-    private void beachBiomeConsumer(Supplier<RegistryObject<Biome>> biomeSupplier) {
-        RegistryObject<Biome> biome = biomeSupplier.get();
-        this.beachBiomeId = BiomeRegistry.getId(biome.orElse((Biome)null)); //returns -1 for null biome
-    }
-    
-    private void riverBiomeConsumer(Supplier<RegistryObject<Biome>> biomeSupplier) {
-        RegistryObject<Biome> biome = biomeSupplier.get();
-        this.riverBiomeId = BiomeRegistry.getId(biome.orElse((Biome)null)); //returns -1 for null biome
-    }
-
-
-    /**
-     * sets beachBiomeId to -1, use setBeachBiome( RegistryObject{@literal <}Biome{@literal >} ) instead
-     */
-    @Deprecated
     public void setBeachBiome(Biome biome) {
-        this.beachBiomeId = -1;
+        this.beachBiomeId = BiomeRegistry.getId(biome);
     }
     
-    /**
-     * sets riverBiomeId to -1, use setRiverBiome( RegistryObject{@literal <}Biome{@literal >} ) instead
-     */
-    @Deprecated
     public void setRiverBiome(Biome biome) {
-        this.riverBiomeId = -1;
+        this.riverBiomeId = BiomeRegistry.getId(biome);
     }
 
-    // Create an optional biome supplier to defer setting of beachBiomeId until post-biome registration.
-    public void setBeachBiome(RegistryObject<Biome> biome)
+    public void setBeachBiome(RegistryObject<Biome> regObj)
     {
-        this.beachSupplier = Optional.of(() -> biome);
+        Biome biome = BiomeRegistry.getBiome(regObj);
+        this.beachBiomeId = BiomeRegistry.getId(biome);
     }
     
-    // Create an optional biome supplier to defer setting of riverBiomeId until post-biome registration.
-    public void setRiverBiome(RegistryObject<Biome> biome)
+    public void setRiverBiome(RegistryObject<Biome> regObj)
     {
-        this.riverSupplier = Optional.of(() -> biome);
+        Biome biome = BiomeRegistry.getBiome(regObj);
+        this.riverBiomeId = BiomeRegistry.getId(biome);
     }
 
     public Map<BOPClimates, Integer> getWeightMap()

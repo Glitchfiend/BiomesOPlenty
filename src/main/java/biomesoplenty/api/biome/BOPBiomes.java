@@ -80,7 +80,7 @@ public class BOPBiomes
     public static final RegistryObject<Biome> white_beach = BiomeRegistry.getBOPRegistryObject("white_beach");
     public static final RegistryObject<Biome> woodland = BiomeRegistry.getBOPRegistryObject("woodland");
     public static final RegistryObject<Biome> xeric_shrubland = BiomeRegistry.getBOPRegistryObject("xeric_shrubland");
-    
+
     public static final RegistryObject<Biome> ashen_inferno = BiomeRegistry.getBOPRegistryObject("ashen_inferno");
     public static final RegistryObject<Biome> undergarden = BiomeRegistry.getBOPRegistryObject("undergarden");
     public static final RegistryObject<Biome> visceral_heap = BiomeRegistry.getBOPRegistryObject("visceral_heap");

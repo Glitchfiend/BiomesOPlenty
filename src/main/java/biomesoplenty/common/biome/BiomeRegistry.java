@@ -15,7 +15,6 @@ import biomesoplenty.init.ModBiomes;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import com.google.common.collect.Sets;
 import com.google.gson.reflect.TypeToken;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
@@ -32,22 +31,18 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.Map.Entry;
-import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class BiomeRegistry
 {
     private static final String CONFIG_FILE_NAME = "biomes.json";
 
-    private static Map<RegistrationType, List<DeferredRegistration>> deferrances = Maps.newHashMap();
     private static Map<ResourceLocation, Supplier<Biome>> BOPBiomeSuppliers = Maps.newHashMap();
-   
-    //get the config file now if it exists, and use it for operations.
+
     private static final BiomeConfigData config = getConfigData(new BiomeConfigData());
-    
+
     private static final ForgeRegistry<Biome> forgeBiomeRegistry = (ForgeRegistry<Biome>) ForgeRegistries.BIOMES;
 
-    
     private static void registerBiome(Biome biome, ResourceLocation name) {
         if(BOPBiomeSuppliers.containsKey(name)) {
             BiomesOPlenty.logger.debug(name.toString() + " has already been registered with BOP");
@@ -55,69 +50,83 @@ public class BiomeRegistry
         }
 
         BOPBiomeSuppliers.put(name, () -> biome);
-
         biome.setRegistryName(name);
         forgeBiomeRegistry.register(biome);
     }
-    
+
+    //Debug function to verify biomes are properly being built.
+    public static void printRegistry() {
+        BiomesOPlenty.logger.debug("Printing Biomes O'Plenty Registry");
+        for(Entry<ResourceLocation, Supplier<Biome>> biomeSupplier : BOPBiomeSuppliers.entrySet()) {
+            BiomeBOP biome = (BiomeBOP) biomeSupplier.getValue().get();
+            BiomesOPlenty.logger.debug("\t"+ "Entry: " + biome.getRegistryName());
+            BiomesOPlenty.logger.debug("\t\t" +"beachBiomeId: " + biome.beachBiomeId);
+            BiomesOPlenty.logger.debug("\t\t" + "riverBiomeId: " + biome.riverBiomeId);
+        }
+    }
+
     public static Supplier<Biome> getBiomeSupplier(ResourceLocation name) {
         return BOPBiomeSuppliers.getOrDefault(name, () -> null);
+    }
+
+    public static Supplier<Biome> getBiomeSupplier(RegistryObject<Biome> regObj) {
+        return getBiomeSupplier(regObj.getId());
     }
     
     public static Biome getBiome(ResourceLocation name) {
         return getBiomeSupplier(name).get();
     }
-    
+
+    public static Biome getBiome(RegistryObject<Biome> regObj) {
+        return getBiome(regObj.getId());
+    }
+
     public static void writeConfig( ) {
         JsonUtil.writeFile(getConfigFile(), config);
     }
-    
+
     public static int getId(Biome biome) {
         return forgeBiomeRegistry.getID(biome);
     }
-    
+
     public static Biome byId(int biomeID) {
         return forgeBiomeRegistry.getValue(biomeID);
     }
-    
+
     public static RegistryObject<Biome> getBiomeRegistryObject(String namespace, String path) {
         ResourceLocation loc = new ResourceLocation(namespace, path);
         return RegistryObject.of(loc, forgeBiomeRegistry);
     }
-    
+
     public static RegistryObject<Biome> getBOPRegistryObject(String name) {
         return getBiomeRegistryObject(BiomesOPlenty.MOD_ID, name);
     }
 
-    public static void deferStandardRegistration(BiomeBOP biome, ResourceLocation name)
+    public static void standardRegistration(BiomeBOP biome, ResourceLocation name)
     {
-        defer(RegistrationType.STANDARD_BIOME, new StandardBiomeRegistrationData(biome, name));
+        new StandardBiomeRegistrationData(biome, name).register();
     }
 
-    public static void deferTechnicalBiomeRegistration(BiomeBOP biome, ResourceLocation name)
+    public static void technicalBiomeRegistration(BiomeBOP biome, ResourceLocation name)
     {
-        defer(RegistrationType.TECHNICAL_BIOME, new ToggleableStandardBiomeRegistrationData(biome, name, true));
+        new ToggleableStandardBiomeRegistrationData(biome, name, true).register();
     }
 
-    public static void deferSubBiomeRegistration(Biome parent, Biome child, ResourceLocation name, int weight, float rarity)
+    public static void subBiomeRegistration(Biome parent, Biome child, ResourceLocation name, int weight, float rarity)
     {
-        defer(RegistrationType.SUB_BIOME, new SubBiomeRegistrationData(parent, child, name, weight, rarity));
+        new SubBiomeRegistrationData(parent, child, name, weight, rarity).register();
     }
 
-    public static void deferIslandBiomeRegistration(Biome biome, ResourceLocation name, BOPClimates climate, int weight)
+    public static void islandBiomeRegistration(Biome biome, ResourceLocation name, BOPClimates climate, int weight)
     {
-        defer(RegistrationType.ISLAND_BIOME, new IslandBiomeRegistrationData(biome, name, climate, weight));
+        new IslandBiomeRegistrationData(biome, name, climate, weight).register();
     }
 
-    public static void deferVanillaBiomeRegistration(Biome biome, ResourceLocation name, BOPClimates climate, int weight)
+    public static void vanillaBiomeRegistration(Biome biome, ResourceLocation name, BOPClimates climate, int weight)
     {
-        defer(RegistrationType.VANILLA_BIOME, new VanillaBiomeRegistrationData(biome, name, climate, weight));
+        new VanillaBiomeRegistrationData(biome, name, climate, weight).register();
     }
-    
-    /* 
-     *  Config File Methods
-     */
-    
+
     private static File getConfigDirFile()
     {
         Path configPath = FMLPaths.CONFIGDIR.get();
@@ -134,66 +143,6 @@ public class BiomeRegistry
     {
         BiomeConfigData configData = JsonUtil.getOrCreateConfigFile(getConfigDirFile(), CONFIG_FILE_NAME, defaultConfigData, new TypeToken<BiomeConfigData>(){}.getType());
         return configData;
-    }
-    
-    private static <T extends RegistrationData> void defer(RegistrationType type, T data)
-    {
-        if (!deferrances.containsKey(type))
-            deferrances.put(type, Lists.newArrayList());
-        
-        List<DeferredRegistration> list = deferrances.get(type);
-        list.add(new DeferredRegistration(type.regFunc, data));
-    }
-
-    public static void finalizeRegistrations(RegistrationType type)
-    {
-        if (!deferrances.containsKey(type))
-            return;
-
-        if (type == RegistrationType.SUB_BIOME)
-        {
-            Set<Biome> children = Sets.newHashSet();
-            deferrances.get(RegistrationType.SUB_BIOME).forEach((reg) -> {
-                Biome biome = ((SubBiomeRegistrationData)reg.regData).getChild();
-                if (children.contains(biome))
-                {
-                    throw new RuntimeException(String.format("Sub biome %s cannot be added to multiple parents", biome.delegate.name().toString()));
-                }
-                children.add(biome);
-            });
-
-        }
-
-        for (DeferredRegistration reg : deferrances.get(type))
-        {
-            reg.register();
-        }
-    }
-
-    public enum RegistrationType
-    {
-        STANDARD_BIOME((StandardBiomeRegistrationData data) -> { 
-            data.register();
-        }),
-        TECHNICAL_BIOME((ToggleableStandardBiomeRegistrationData data) -> {
-            data.register();
-        }),
-        SUB_BIOME((SubBiomeRegistrationData data) -> {
-            data.register();
-        }),
-        ISLAND_BIOME((IslandBiomeRegistrationData data) -> {
-            data.register();
-        }),
-        VANILLA_BIOME((VanillaBiomeRegistrationData data) -> {
-            data.register();
-        });
-
-        public final Consumer<? extends RegistrationData> regFunc;
-
-        RegistrationType(Consumer<? extends RegistrationData> regFunc)
-        {
-            this.regFunc = regFunc;
-        }
     }
 
     private static abstract class RegistrationData
@@ -238,10 +187,6 @@ public class BiomeRegistry
             this.weightMap.entrySet().forEach((entry) -> pairs.add(Pair.of(entry.getKey(), entry.getValue())));
             return pairs.get(0);
         }
-        
-        public boolean canRegister() {
-            return this.weightMap.isEmpty() ? false : getPrimaryWeight().getValue() > 0;
-        }
 
         // This limitation is enforced for config file simplicity, and because we don't need it at this time
         private void ensureSingleWeight()
@@ -250,8 +195,12 @@ public class BiomeRegistry
             {
                 throw new RuntimeException(String.format("%s cannot be assigned to multiple climates!\n%s", this.name.toString(), this.weightMap));
             }
-        }      
-        
+        }
+
+        public boolean canRegister() {
+            return this.weightMap.isEmpty() ? false : getPrimaryWeight().getValue() > 0;
+        }
+
         @Override
         public void register() {
             // Get a config entry if one exists, otherwise make one
@@ -263,20 +212,20 @@ public class BiomeRegistry
                     );
             // override/add the entry
             config.standardBiomeWeights.put(this.name.toString(), entry);
-            
+
             if (!entry.shouldRegister()) {
                 BiomesOPlenty.logger.debug("Weights absent for " + this.name.toString() + ", disabling...");
                 return;
             }
-      
+
             //Actually schedule the biome for registration
             registerBiome(this.getBiome(), this.name);
             BiomeBOP biome = (BiomeBOP) this.getBiome();
-            
+
             if(biome.canSpawnInBiome) {
                 BiomeManager.addSpawnBiome(biome);
             }
-            
+
             for(Entry<BOPClimates, Integer> climates : this.getWeights().entrySet()) {
                 if (climates != null && climates.getValue() > 0)
                 {
@@ -322,7 +271,7 @@ public class BiomeRegistry
         {
             return this.rarity;
         }
-        
+
         public boolean canRegister() {
             return this.getWeight() > 0;
         }
@@ -339,14 +288,14 @@ public class BiomeRegistry
             config.subBiomeEntries.put(this.name.toString(), entry);
 
             String childName = this.name.toString();
-            
+
             if (!entry.shouldRegister())
             {
-                BiomesOPlenty.logger.debug("Weights absent for sub biome" + this.getChild().getRegistryName() + ", disabling...");
+                BiomesOPlenty.logger.debug("Weights absent for sub biome " + this.name.toString() + ", disabling...");
                 return;
             }
             registerBiome(this.getChild(), this.name);
-            
+
             BiomesOPlenty.logger.debug(String.format("Sub biome %s weight set to %d", childName, this.getWeight()));
             ModBiomes.subBiomes.put(BiomeRegistry.getId(this.getParent()), new ModBiomes.WeightedSubBiome(this.getChild(), entry.rarity, entry.weight));
         }
@@ -374,7 +323,7 @@ public class BiomeRegistry
         @Override
         public void register() {
             BiomeConfigData.TechnicalBiomeEntry entry = Optional.ofNullable(config.technicalBiomeEntries.get(this.name.toString()))
-                    .orElse( 
+                    .orElse(
                         new BiomeConfigData.TechnicalBiomeEntry(this.canRegister())
                     );
             
@@ -425,22 +374,22 @@ public class BiomeRegistry
             return this.getWeight() > 0;
         }
     }
-    
+
     private static class IslandBiomeRegistrationData extends SingleClimateRegistrationData {
 
         public IslandBiomeRegistrationData(Biome biome, ResourceLocation name, BOPClimates climate, int weight) {
             super(biome, name, climate, weight);
         }
-        
+
         @Override
         public void register() {
             BiomeConfigData.IslandBiomeEntry entry = Optional.ofNullable(config.islandBiomeEntries.get(this.name.toString()))
                     .orElse(
                         new BiomeConfigData.IslandBiomeEntry(this.canRegister())
                     );
-            
+
             config.islandBiomeEntries.put(this.name.toString(), entry);
-            
+
             if (!entry.shouldRegister())
             {
                 BiomesOPlenty.logger.debug("Weights absent for island biome" + this.name.toString() + ", disabling...");
@@ -453,7 +402,7 @@ public class BiomeRegistry
             this.getClimate().addIslandBiome(this.getWeight(), this.getBiome());
         }
     }
-    
+
     private static class VanillaBiomeRegistrationData extends SingleClimateRegistrationData {
 
         public VanillaBiomeRegistrationData(Biome biome, ResourceLocation name, BOPClimates climate, int weight) {
@@ -465,9 +414,9 @@ public class BiomeRegistry
                     .orElse(
                         new BiomeConfigData.VanillaBiomeEntry(this.getWeight())
                     );
-            
+
             config.vanillaBiomeEntries.put(this.name.toString(), entry);
-            
+
             if (!entry.shouldRegister())
             {
                 BiomesOPlenty.logger.debug("Weights absent for vanilla biome" + this.name + ", disabling...");
@@ -475,23 +424,6 @@ public class BiomeRegistry
             }
 
             this.getClimate().addBiome(this.getWeight(), this.getBiome());
-        }
-    }
-
-    private static class DeferredRegistration<T extends RegistrationData>
-    {
-        private final Consumer<T> regFunc;
-        private final T regData;
-
-        public DeferredRegistration(Consumer<T> regFunc, T regData)
-        {
-            this.regFunc = regFunc;
-            this.regData = regData;
-        }
-
-        public void register()
-        {
-            this.regFunc.accept(this.regData);
         }
     }
 }

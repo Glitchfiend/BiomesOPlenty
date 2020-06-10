@@ -10,7 +10,6 @@ package biomesoplenty.common.biome;
 import com.google.common.collect.Maps;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.Map;
 import java.util.TreeMap;
 
 public class BiomeConfigData
@@ -29,15 +28,7 @@ public class BiomeConfigData
 
     @SerializedName("vanilla_biome_weights")
     public TreeMap<String, VanillaBiomeEntry> vanillaBiomeEntries = Maps.newTreeMap();
-    
-    public boolean isEmpty() {
-        return  standardBiomeWeights.isEmpty()
-                    && technicalBiomeEntries.isEmpty()
-                    && subBiomeEntries.isEmpty()
-                    && islandBiomeEntries.isEmpty()
-                    && vanillaBiomeEntries.isEmpty();
-    }
-    
+
     public static abstract class BiomeEntry {
         public abstract boolean shouldRegister();
     };
@@ -50,7 +41,7 @@ public class BiomeConfigData
         {
             this.weight = weight;
         }
-        
+
         @Override
         public boolean shouldRegister() {
             return this.weight > 0 ? true : false;
@@ -65,7 +56,7 @@ public class BiomeConfigData
         {
             this.enabled = enabled;
         }
-        
+
         @Override
         public boolean shouldRegister() {
             return this.enabled;
@@ -82,31 +73,31 @@ public class BiomeConfigData
             this.weight = weight;
             this.rarity = rarity;
         }
-        
+
         @Override
         public boolean shouldRegister() {
             return this.weight > 0 ? true : false;
         }
     }
-    
+
     public static class StandardBiomeEntry extends WeightedBiomeEntry {
         StandardBiomeEntry(int weight) {
             super(weight);
         }
     }
-    
+
     public static class TechnicalBiomeEntry extends ToggleableBiomeEntry {
         TechnicalBiomeEntry(boolean enabled) {
             super(enabled);
         }
     }
-    
+
     public static class IslandBiomeEntry extends ToggleableBiomeEntry {
         IslandBiomeEntry(boolean enabled) {
             super(enabled);
         }
     }
-    
+
     public static class VanillaBiomeEntry extends WeightedBiomeEntry {
         VanillaBiomeEntry(int weight) {
             super(weight);

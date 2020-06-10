@@ -13,6 +13,7 @@ import biomesoplenty.common.biome.BiomeRegistry;
 import biomesoplenty.common.biome.nether.*;
 import biomesoplenty.common.biome.overworld.*;
 import biomesoplenty.common.world.WorldTypeBOP;
+import biomesoplenty.core.BiomesOPlenty;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
@@ -58,8 +59,6 @@ public class ModBiomes
         registerTechnicalBiome(new RedwoodForestEdgeBiome(), redwood_forest_edge);
         registerTechnicalBiome(new VolcanoEdgeBiome(), volcano_edge);
         registerTechnicalBiome(new OrchardBiome(), orchard);
-
-        BiomeRegistry.finalizeRegistrations(BiomeRegistry.RegistrationType.TECHNICAL_BIOME);
 
         // Both a standard biome and a technical biome
         registerBiome(new MangroveBiome(), mangrove);
@@ -114,10 +113,7 @@ public class ModBiomes
         //Nether Biomes
         registerBiome(new AshenInfernoBiome(), ashen_inferno);
         registerBiome(new UndergardenBiome(), undergarden);
-        registerBiome(new VisceralHeapBiome(), visceral_heap);
-        
-        BiomeRegistry.finalizeRegistrations(BiomeRegistry.RegistrationType.STANDARD_BIOME);
-        
+        registerBiome(new VisceralHeapBiome(), visceral_heap);       
 
         //Sub/Island Biomes (Note: Rarity supports two decimal places)
         registerSubBiome(Biomes.DESERT, new OasisBiome(), oasis, 0.1F, 100);
@@ -129,8 +125,6 @@ public class ModBiomes
         registerSubBiome(seasonal_forest, new PumpkinPatchBiome(), pumpkin_patch, 0.45F, 100);
         registerSubBiome(snowy_coniferous_forest, new SnowyFirClearingBiome(), snowy_fir_clearing, 0.5F, 100);
         registerSubBiome(temperate_rainforest, new TemperateRainforestHillsBiome(), temperate_rainforest_hills, 0.8F, 100);
-
-        BiomeRegistry.finalizeRegistrations(BiomeRegistry.RegistrationType.SUB_BIOME);
 
         BiomeBOP originHillsProvider = new OriginHillsBiome();
         registerIslandBiome(originHillsProvider, origin_hills, BOPClimates.COOL_TEMPERATE, 50);
@@ -152,8 +146,6 @@ public class ModBiomes
         registerIslandBiome(tropicsProvider, tropics, BOPClimates.TROPICAL, 50);
         registerIslandBiome(tropicsProvider, tropics, BOPClimates.HOT_DESERT, 50);
 
-        BiomeRegistry.finalizeRegistrations(BiomeRegistry.RegistrationType.ISLAND_BIOME);
-
         // Set up vanilla biomes
         registerVanillaBiome(Biomes.SNOWY_TUNDRA, BOPClimates.ICE_CAP, 10);
         registerVanillaBiome(Biomes.MOUNTAINS, BOPClimates.TUNDRA, 7);
@@ -173,14 +165,13 @@ public class ModBiomes
 
         registerVanillaBiome(Biomes.NETHER, BOPClimates.NETHER, 10);
 
-        BiomeRegistry.finalizeRegistrations(BiomeRegistry.RegistrationType.VANILLA_BIOME);
-        
         BiomeRegistry.writeConfig();
-        
+        BiomeRegistry.printRegistry();
+
         registerBiomeDictionaryTags();
         registerVillagerTypes();
     }
-    
+
     private static void registerBiomeDictionaryTags()
     {
         //Overworld Biomes
@@ -326,55 +317,54 @@ public class ModBiomes
         registerVillagerType(woodland, IVillagerType.PLAINS);
         registerVillagerType(xeric_shrubland, IVillagerType.DESERT);
     }
-    
+
     private static void registerBiomeToDictionary(RegistryObject<Biome> regObj, Type...types)
     {
-        Optional.ofNullable(BiomeRegistry.getBiome(regObj.getId()))
+        Optional.ofNullable(BiomeRegistry.getBiome(regObj))
                 .ifPresent( (biome) -> {
                     BiomeDictionary.addTypes(biome, types);
                 });
     }
+
     private static void registerVillagerType(RegistryObject<Biome> regObj, IVillagerType type)
     {
-        Optional.ofNullable(BiomeRegistry.getBiome(regObj.getId()))
+        Optional.ofNullable(BiomeRegistry.getBiome(regObj))
                 .ifPresent( biome -> {
                     IVillagerType.BY_BIOME.put(biome, type);
                 });
     }
 
-    /*
-     * Biome registration helpers
-     */
-
     public static void registerBiome(BiomeBOP biome, RegistryObject<Biome> regObj)
     {
-        BiomeRegistry.deferStandardRegistration(biome, regObj.getId());
+        BiomeRegistry.standardRegistration(biome, regObj.getId());
     }
 
     public static void registerTechnicalBiome(BiomeBOP biome, RegistryObject<Biome> regObj)
     {
-        BiomeRegistry.deferTechnicalBiomeRegistration(biome, regObj.getId());
+        BiomeRegistry.technicalBiomeRegistration(biome, regObj.getId());
     }
-    
+
     public static void registerSubBiome(Biome parent, Biome child, RegistryObject<Biome> regObj, float rarity, int weight) {
-        BiomeRegistry.deferSubBiomeRegistration(parent, child, regObj.getId(), weight, rarity);
+        BiomeRegistry.subBiomeRegistration(parent, child, regObj.getId(), weight, rarity);
     }
-    
+
     public static void registerSubBiome(RegistryObject<Biome> parentRegObj, Biome child, RegistryObject<Biome> regObj, float rarity, int weight)
     {
-        Biome parent = BiomeRegistry.getBiome(parentRegObj.getId());
+        Biome parent = BiomeRegistry.getBiome(parentRegObj);
         if(parent != null)
             registerSubBiome(parent, child, regObj, rarity, weight);
+        else
+            BiomesOPlenty.logger.debug("No parent exists for child " + regObj.getId().toString() +", canceling registration...");
     }
 
     public static void registerIslandBiome(Biome biome, RegistryObject<Biome> regObj, BOPClimates climate, int weight)
     {
-        BiomeRegistry.deferIslandBiomeRegistration(biome, regObj.getId(), climate, weight);
+        BiomeRegistry.islandBiomeRegistration(biome, regObj.getId(), climate, weight);
     }
 
     private static void registerVanillaBiome(Biome biome, BOPClimates climate, int weight)
     {
-        BiomeRegistry.deferVanillaBiomeRegistration(biome, biome.getRegistryName(), climate, weight);
+        BiomeRegistry.vanillaBiomeRegistration(biome, biome.getRegistryName(), climate, weight);
     }
 
     public static class WeightedSubBiome
