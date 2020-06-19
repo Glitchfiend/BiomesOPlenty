@@ -9,8 +9,9 @@ package biomesoplenty.common.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
+import net.minecraft.fluid.IFluidState;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
@@ -43,11 +44,12 @@ public class MudBlock extends Block
             case Plains: return false;
             case Water: return false;
             case Beach:
-                boolean hasWater = (world.getBlockState(pos.east()).getMaterial() == Material.WATER ||
-                        world.getBlockState(pos.west()).getMaterial() == Material.WATER ||
-                        world.getBlockState(pos.north()).getMaterial() == Material.WATER ||
-                        world.getBlockState(pos.south()).getMaterial() == Material.WATER);
-                return hasWater;
+                for(Direction direction : Direction.Plane.HORIZONTAL) {
+                    IFluidState fluidState = world.getFluidState(pos.relative(direction));
+                    if (fluidState.is(FluidTags.WATER)) {
+                        return true;
+                    }
+                }
         }
         return false;
     }
