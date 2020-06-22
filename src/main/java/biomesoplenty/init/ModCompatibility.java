@@ -8,13 +8,10 @@
 package biomesoplenty.init;
 
 import biomesoplenty.api.enums.BOPClimates;
-import biomesoplenty.core.BiomesOPlenty;
-import com.google.common.collect.Lists;
 import net.minecraft.world.biome.Biome;
+import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 
-import java.util.List;
 
 public class ModCompatibility
 {
@@ -25,63 +22,44 @@ public class ModCompatibility
 
     private static void copyModBiomeWeights()
     {
-        try
+        for (BiomeManager.BiomeType type : BiomeManager.BiomeType.values())
         {
-            // An array containing lists of default biome entries for only standard BiomeTypes
-            List<BiomeManager.BiomeEntry>[] vanillaBiomes = (List<BiomeManager.BiomeEntry>[]) ObfuscationReflectionHelper.findMethod(BiomeManager.class, "setupBiomes").invoke(null);
-
-            for (BiomeManager.BiomeType type : BiomeManager.BiomeType.values())
-            {
-                // Creates a mutable version of the current biome type's biome array and wraps entries to support .equals()
-                List<WrappedBiomeEntry> entries = Lists.newArrayList();
-                List<WrappedBiomeEntry> vanillaEntries = Lists.newArrayList();
-
-                for (BiomeManager.BiomeEntry entry : BiomeManager.getBiomes(type))
-                {
-                    entries.add(new WrappedBiomeEntry(entry));
-                }
-
-                for (BiomeManager.BiomeEntry entry : vanillaBiomes[type.ordinal()])
-                {
-                    vanillaEntries.add(new WrappedBiomeEntry(entry));
-                }
-
-                //Remove all default biomes from the entries list
-                entries.removeAll(vanillaEntries);
-
-                for (WrappedBiomeEntry wrappedEntry : entries)
-                {
-                    remapBiomeToBoP(wrappedEntry.biomeEntry.biome, type, wrappedEntry.biomeEntry.weight);
-                }
-            }
-        }
-        catch (Exception e)
-        {
-            BiomesOPlenty.logger.error("An error has occurred whilst copying mod biomes");
-            e.printStackTrace();
-            return;
+            /*
+             * Get non-minecraft entries by filtering based on each entries registry namespace value,
+             * then create a wrapped entry to remap to a BOP climate.
+             */
+            BiomeManager
+                .getBiomes(type)
+                .stream()
+                .filter(entry -> entry.biome.getRegistryName().getNamespace() != "minecraft")
+                .forEach(filteredEntry ->
+                    {
+                        final WrappedBiomeEntry wrappedEntry = new WrappedBiomeEntry(filteredEntry);
+                        remapBiomeToBoP(wrappedEntry.biomeEntry.biome, type, wrappedEntry.biomeEntry.weight);
+                    });
         }
     }
 
     // TODO: Make this more accurate, possibly analyze heights, temps, rainfall and/or biome dictionary tags
     private static void remapBiomeToBoP(Biome biome, BiomeManager.BiomeType type, int weight)
     {
-        /* If any of our climates already have the biome (from a mod using our api), then skip this biome */
-        for (BOPClimates climate : BOPClimates.values())
+        /*  If any of our climates already have the biome (from a mod using our api), then skip this biome. */
+        
+        if(BOPClimates.getRegisteredBiomes().contains(biome))
         {
-            List<BOPClimates.WeightedBiomeEntry> entries = Lists.newArrayList();
-            entries.addAll(climate.getLandBiomes());
-            entries.addAll(climate.getIslandBiomes());
-
-            for (BOPClimates.WeightedBiomeEntry entry : entries)
-            {
-                if (entry.biome == biome)
-                {
-                    return;
-                }
-            }
+            return;
         }
 
+        /*
+         * Support for nether biomes as the NETHER climate has a null BiomeType, making it impossible for modded nether biomes
+         * to be added to the climate by comparing BiomeTypes.
+         */
+        
+        if (BiomeDictionary.hasType(biome, BiomeDictionary.Type.NETHER))
+        {
+            BOPClimates.NETHER.addBiome(weight, biome);
+            return;
+        }
 
         for (BOPClimates climate : BOPClimates.values())
         {
