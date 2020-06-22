@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright 2014-2019, the Biomes O' Plenty Team
+ * Copyright 2014-2020, the Biomes O' Plenty Team
  *
  * This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License.
  *
@@ -7,7 +7,6 @@
  ******************************************************************************/
 package biomesoplenty.api.enums;
 
-import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.init.ModBiomes;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
