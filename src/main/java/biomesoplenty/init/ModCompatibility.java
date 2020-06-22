@@ -52,9 +52,9 @@ public class ModCompatibility
 
         /*
          * Support for nether biomes as the NETHER climate has a null BiomeType, making it impossible for modded nether biomes
-         * to be added to the climate by comparing BiomeTypes.
+         * to be added to the climate by comparing BiomeTypes, even if they provide a custom BiomeType for the entry.
          */
-        
+
         if (BiomeDictionary.hasType(biome, BiomeDictionary.Type.NETHER))
         {
             BOPClimates.NETHER.addBiome(weight, biome);
