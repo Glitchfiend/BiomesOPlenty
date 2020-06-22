@@ -41,6 +41,7 @@ public enum BOPClimates
     WASTELAND (null),
     NETHER (null);
 
+    private static Set<Biome> registeredBiomes = Sets.newHashSet();
     public final BiomeType biomeType;
     private int totalBiomesWeight;
     private int totalIslandBiomesWeight;
@@ -53,6 +54,10 @@ public enum BOPClimates
         this.biomeType = biomeType;
     }
 
+    public static ImmutableSet<Biome> getRegisteredBiomes() {
+        return ImmutableSet.copyOf(registeredBiomes);
+    }
+
     public BOPClimates addBiome(int weight, Biome biome)
     {
         return this.addBiome(new WeightedBiomeEntry(weight, biome));
@@ -60,6 +65,7 @@ public enum BOPClimates
 
     public BOPClimates addBiome(WeightedBiomeEntry biomeEntry)
     {
+        registeredBiomes.add(biomeEntry.biome);
         this.totalBiomesWeight += biomeEntry.weight;
         this.landBiomes.add(biomeEntry);
         return this;
@@ -72,6 +78,7 @@ public enum BOPClimates
 
     public BOPClimates addIslandBiome(WeightedBiomeEntry biomeEntry)
     {
+        registeredBiomes.add(biomeEntry.biome);
         this.totalIslandBiomesWeight += biomeEntry.weight;
         this.islandBiomes.add(biomeEntry);
         return this;
