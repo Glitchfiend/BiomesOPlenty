@@ -1,6 +1,6 @@
 {
-    "parent": "block/template_wall_side",
-    "textures": {
-        "wall": "biomesoplenty:block/mud_bricks"
-    }
+  "parent": "minecraft:block/template_wall_side",
+  "textures": {
+    "wall": "biomesoplenty:block/mud_bricks"
+  }
 }
