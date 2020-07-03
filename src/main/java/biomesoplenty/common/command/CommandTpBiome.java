@@ -62,7 +62,7 @@ public class CommandTpBiome
             double y = (double) BlockUtil.getTopSolidOrLiquidBlock(world, closestBiomePos.getX(), closestBiomePos.getZ()).getY();
             double z = (double)closestBiomePos.getZ();
 
-            if (!world.getDimension().isNaturalDimension())
+            if (!world.dimensionType().natural())
             {
                 y = (double)getTopBlockNonOverworld(world, closestBiomePos).getY();
             }

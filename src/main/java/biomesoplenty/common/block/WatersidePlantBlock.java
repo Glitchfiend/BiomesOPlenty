@@ -32,7 +32,7 @@ public class WatersidePlantBlock extends PlantBlockBOP
     {
     	Block block = world.getBlockState(pos).getBlock();
     	
-    	return PlantType.Beach;
+    	return PlantType.BEACH;
     }
 
     @Override

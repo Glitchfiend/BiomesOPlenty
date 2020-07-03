@@ -7,7 +7,6 @@
  ******************************************************************************/
 package biomesoplenty.common.world.gen.feature;
 
-import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;

@@ -7,8 +7,7 @@
  ******************************************************************************/
 package biomesoplenty.common.world.gen.feature;
 
-import biomesoplenty.core.BiomesOPlenty;
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -21,11 +20,10 @@ import net.minecraft.world.gen.feature.BigMushroomFeatureConfig;
 import net.minecraft.world.gen.feature.BigRedMushroomFeature;
 
 import java.util.Random;
-import java.util.function.Function;
 
 public class BOPBigRedMushroomFeature extends BigRedMushroomFeature
 {
-    public BOPBigRedMushroomFeature(Function<Dynamic<?>, ? extends BigMushroomFeatureConfig> deserializer)
+    public BOPBigRedMushroomFeature(Codec<BigMushroomFeatureConfig> deserializer)
     {
         super(deserializer);
     }
@@ -80,7 +78,7 @@ public class BOPBigRedMushroomFeature extends BigRedMushroomFeature
     protected boolean isValidPosition(IWorld world, BlockPos pos, int height, BlockPos.Mutable mutablePos, BigMushroomFeatureConfig config)
     {
         int i = pos.getY();
-        if (i >= 1 && i + height + 1 < world.getMaxHeight())
+        if (i >= 1 && i + height + 1 < world.getMaxBuildHeight())
         {
             Block groundBlock = world.getBlockState(pos.below()).getBlock();
             // Allow growth in the Nether

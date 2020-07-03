@@ -17,7 +17,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.FoliageColors;
 import net.minecraft.world.GrassColors;
-import net.minecraft.world.ILightReader;
+import net.minecraft.world.IBlockDisplayReader;
 import net.minecraft.world.biome.BiomeColors;
 
 import java.awt.*;
@@ -65,7 +65,7 @@ public class ClientProxy extends CommonProxy
         	BOPBlocks.palm_leaves, BOPBlocks.willow_leaves, BOPBlocks.willow_vine);
     }
 
-    public static int getRainbowBirchColor(ILightReader world, BlockPos pos)
+    public static int getRainbowBirchColor(IBlockDisplayReader world, BlockPos pos)
     {
         Color foliage = Color.getHSBColor((((float)pos.getX() + MathHelper.sin(((float)pos.getZ() + (float)pos.getX()) / 35) * 35) % 150) / 150, 0.6F, 1.0F);
         if (isAprilFools) { foliage = Color.WHITE; }

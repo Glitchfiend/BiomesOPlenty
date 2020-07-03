@@ -7,7 +7,7 @@
  ******************************************************************************/
 package biomesoplenty.common.world.gen.feature;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
@@ -16,11 +16,10 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
 import java.util.Random;
-import java.util.function.Function;
 
 public class MangroveSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
 {
-	public MangroveSurfaceBuilder(Function<Dynamic<?>, ? extends SurfaceBuilderConfig> deserializer)
+	public MangroveSurfaceBuilder(Codec<SurfaceBuilderConfig> deserializer)
 	{
 		super(deserializer);
 	}

@@ -2,20 +2,18 @@ package biomesoplenty.common.world.gen.feature;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.block.IBlockPosQuery;
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.RotatedPillarBlock;
-import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.ISeedReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.GenerationSettings;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.structure.StructureManager;
 
 import java.util.Random;
-import java.util.function.Function;
 
 public class BoneSpineFeature extends Feature<NoFeatureConfig>
 {
@@ -29,7 +27,7 @@ public class BoneSpineFeature extends Feature<NoFeatureConfig>
     }
 
     @Override
-    public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> p_212245_2_, Random p_212245_3_, BlockPos startPos, NoFeatureConfig p_212245_5_)
+    public boolean place(ISeedReader world, StructureManager p_230362_2_, ChunkGenerator p_230362_3_, Random rand, BlockPos startPos, NoFeatureConfig p_230362_6_)
     {
         while (startPos.getY() > 1 && this.replace.matches(world, startPos)) {startPos = startPos.below();}
 
@@ -47,7 +45,7 @@ public class BoneSpineFeature extends Feature<NoFeatureConfig>
 
         BlockPos pos = startPos.above();
 
-        int height = 1 + p_212245_3_.nextInt(maxHeight - 1);
+        int height = 1 + rand.nextInt(maxHeight - 1);
 
         for (int y = 0; y <= height; y++)
         {

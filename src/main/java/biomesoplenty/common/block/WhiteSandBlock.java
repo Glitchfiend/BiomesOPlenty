@@ -22,13 +22,13 @@ public class WhiteSandBlock extends SandBlock
         PlantType type = plantable.getPlantType(world, pos.relative(facing));
 
         switch (type) {
-            case Desert: return true;
-            case Nether: return false;
-            case Crop: return false;
-            case Cave: return true;
-            case Plains: return false;
-            case Water: return false;
-            case Beach:
+            case DESERT: return true;
+            case NETHER: return false;
+            case CROP: return false;
+            case CAVE: return true;
+            case PLAINS: return false;
+            case WATER: return false;
+            case BEACH:
             boolean hasWater = (world.getBlockState(pos.east()).getMaterial() == Material.WATER ||
                     world.getBlockState(pos.west()).getMaterial() == Material.WATER ||
                     world.getBlockState(pos.north()).getMaterial() == Material.WATER ||

@@ -31,7 +31,7 @@ public class DoubleWatersidePlantBlock extends DoublePlantBlockBOP
     @Override
     public PlantType getPlantType(IBlockReader world, BlockPos pos)
     {
-    	return PlantType.Beach;
+    	return PlantType.BEACH;
     }
 
     @Override

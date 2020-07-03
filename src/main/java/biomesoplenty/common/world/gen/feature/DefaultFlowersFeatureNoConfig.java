@@ -7,17 +7,12 @@
  ******************************************************************************/
 package biomesoplenty.common.world.gen.feature;
 
-import com.mojang.datafixers.Dynamic;
-import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
-import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
 import net.minecraft.world.gen.feature.FlowersFeature;
-import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 
 import java.util.Random;
-import java.util.function.Function;
 
 public abstract class DefaultFlowersFeatureNoConfig extends FlowersFeature<NoFeatureConfig>
 {

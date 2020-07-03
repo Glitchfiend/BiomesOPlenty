@@ -22,6 +22,6 @@ public class TallFlowerBlockBOP extends TallFlowerBlock
     @Override
     public PlantType getPlantType(IBlockReader world, BlockPos pos)
     {
-        return PlantType.Plains;
+        return PlantType.PLAINS;
     }
 }

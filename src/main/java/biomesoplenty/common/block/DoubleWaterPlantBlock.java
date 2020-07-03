@@ -87,7 +87,7 @@ public class DoubleWaterPlantBlock extends DoublePlantBlock implements IWaterLog
     @Override
     public PlantType getPlantType(IBlockReader world, BlockPos pos)
     {
-        return PlantType.Plains;
+        return PlantType.PLAINS;
     }
 
     @Override

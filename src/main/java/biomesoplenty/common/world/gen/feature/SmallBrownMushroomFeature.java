@@ -1,17 +1,20 @@
 package biomesoplenty.common.world.gen.feature;
 
 import biomesoplenty.common.util.block.IBlockPosQuery;
-import com.mojang.datafixers.Dynamic;
-import net.minecraft.block.*;
+import com.mojang.serialization.Codec;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.BushBlock;
+import net.minecraft.block.HugeMushroomBlock;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.ISeedReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.GenerationSettings;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.structure.StructureManager;
 
 import java.util.Random;
-import java.util.function.Function;
 
 public class SmallBrownMushroomFeature extends Feature<NoFeatureConfig>
 {
@@ -24,7 +27,7 @@ public class SmallBrownMushroomFeature extends Feature<NoFeatureConfig>
     }
 
     @Override
-    public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> p_212245_2_, Random p_212245_3_, BlockPos startPos, NoFeatureConfig p_212245_5_) {
+    public boolean place(ISeedReader world, StructureManager structureManager, ChunkGenerator chunkGenerator, Random rand, BlockPos startPos, NoFeatureConfig config) {
         while (startPos.getY() > 1 && this.replace.matches(world, startPos)) {
             startPos = startPos.below();
         }
@@ -41,7 +44,7 @@ public class SmallBrownMushroomFeature extends Feature<NoFeatureConfig>
 
         BlockPos pos = startPos.above();
 
-        int height = 1 + p_212245_3_.nextInt(2);
+        int height = 1 + rand.nextInt(2);
 
         for (int y = 0; y < height; y++) {
             this.setBlock(world, pos.above(y), Blocks.MUSHROOM_STEM.defaultBlockState());
@@ -53,7 +56,7 @@ public class SmallBrownMushroomFeature extends Feature<NoFeatureConfig>
         this.setBlock(world, pos.offset(0, height, -1), Blocks.BROWN_MUSHROOM_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
         this.setBlock(world, pos.offset(0, height, 1), Blocks.BROWN_MUSHROOM_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
 
-        if (p_212245_3_.nextInt(2) == 0)
+        if (rand.nextInt(2) == 0)
         {
             this.setBlock(world, pos.offset(1, height, 1), Blocks.BROWN_MUSHROOM_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
             this.setBlock(world, pos.offset(-1, height, -1), Blocks.BROWN_MUSHROOM_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));

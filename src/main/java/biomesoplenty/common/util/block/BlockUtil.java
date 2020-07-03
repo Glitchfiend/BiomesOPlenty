@@ -8,7 +8,7 @@
 package biomesoplenty.common.util.block;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.state.IProperty;
+import net.minecraft.state.Property;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
@@ -21,9 +21,9 @@ import java.util.Collection;
 public class BlockUtil
 {
     // Given a blockstate for some block which has an axis orientation (such as logs), try to determine the axis property
-    public static IProperty getAxisProperty(BlockState log)
+    public static Property getAxisProperty(BlockState log)
     {
-        for (IProperty property : log.getProperties())
+        for (Property property : log.getProperties())
         {
             Collection allowedValues = property.getPossibleValues();
             if (allowedValues.contains(Direction.Axis.X) && allowedValues.contains(Direction.Axis.Y) && allowedValues.contains(Direction.Axis.Z))

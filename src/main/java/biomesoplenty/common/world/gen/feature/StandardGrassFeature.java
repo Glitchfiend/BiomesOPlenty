@@ -7,23 +7,21 @@
  ******************************************************************************/
 package biomesoplenty.common.world.gen.feature;
 
-import com.mojang.datafixers.Dynamic;
 import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorld;
+import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.GenerationSettings;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.structure.StructureManager;
 
 import java.util.Random;
-import java.util.function.Function;
 
 public class StandardGrassFeature extends Feature<NoFeatureConfig>
-{Codec<NoFeatureConfig>
+{
 	public StandardGrassFeature(Codec<NoFeatureConfig> deserializer)
 	{
 		super(deserializer);
@@ -35,7 +33,7 @@ public class StandardGrassFeature extends Feature<NoFeatureConfig>
 	}
 
 	@Override
-	public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, NoFeatureConfig config)
+	public boolean place(ISeedReader world, StructureManager structureManager, ChunkGenerator chunkGenerator, Random rand, BlockPos pos, NoFeatureConfig config)
 	{
 		BlockState BlockState = this.chooseGrassState(rand);
 
