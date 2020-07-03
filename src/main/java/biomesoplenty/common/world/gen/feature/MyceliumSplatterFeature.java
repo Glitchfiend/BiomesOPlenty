@@ -15,7 +15,7 @@ import java.util.function.Function;
 
 public class MyceliumSplatterFeature extends Feature<NoFeatureConfig>
 {
-   public MyceliumSplatterFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserializer)
+   public MyceliumSplatterFeature(Codec<NoFeatureConfig> deserializer)
    {
       super(deserializer);
    }

@@ -16,7 +16,7 @@ import java.util.function.Function;
 
 public class HeathFeature extends Feature<NoFeatureConfig>
 {
-   public HeathFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserializer)
+   public HeathFeature(Codec<NoFeatureConfig> deserializer)
    {
       super(deserializer);
    }

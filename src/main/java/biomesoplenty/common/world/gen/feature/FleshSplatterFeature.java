@@ -16,7 +16,7 @@ import java.util.function.Function;
 
 public class FleshSplatterFeature extends Feature<NoFeatureConfig>
 {
-   public FleshSplatterFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserializer)
+   public FleshSplatterFeature(Codec<NoFeatureConfig> deserializer)
    {
       super(deserializer);
    }

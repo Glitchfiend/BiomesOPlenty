@@ -16,7 +16,7 @@ import java.util.function.Function;
 
 public class PodzolSplatterFeature extends Feature<NoFeatureConfig>
 {
-   public PodzolSplatterFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserializer)
+   public PodzolSplatterFeature(Codec<NoFeatureConfig> deserializer)
    {
       super(deserializer);
    }

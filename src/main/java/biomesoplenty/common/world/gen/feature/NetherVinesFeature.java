@@ -25,7 +25,7 @@ public class NetherVinesFeature extends Feature<NoFeatureConfig>
     int minHeight = 8;
     int maxHeight = 20;
 
-    public NetherVinesFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserializer)
+    public NetherVinesFeature(Codec<NoFeatureConfig> deserializer)
     {
         super(deserializer);
     }

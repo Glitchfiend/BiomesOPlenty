@@ -34,12 +34,12 @@ public class OasisBiome extends BiomeBOP
     {
         super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.CONFIG_FULL_SAND)).precipitation(Biome.RainType.NONE).biomeCategory(Biome.Category.DESERT).depth(-0.275F).scale(-0.05F).temperature(2.0F).downfall(0.5F).waterColor(4159204).waterFogColor(329011).parent((String)null));
         // Structures
-        this.addStructureStart(Feature.MINESHAFT.configured(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
-        this.addStructureStart(Feature.STRONGHOLD.configured(IFeatureConfig.NONE));
+        this.addStructureStart(DefaultBiomeFeatures.MINESHAFT);
+        this.addStructureStart(DefaultBiomeFeatures.STRONGHOLD);
 
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(this);
-        DefaultBiomeFeatures.addStructureFeaturePlacement(this);
+        DefaultBiomeFeatures.addDefaultOverworldLandStructures(this);
         DefaultBiomeFeatures.addDefaultLakes(this);
         DefaultBiomeFeatures.addDefaultMonsterRoom(this);
         DefaultBiomeFeatures.addDefaultUndergroundVariety(this);

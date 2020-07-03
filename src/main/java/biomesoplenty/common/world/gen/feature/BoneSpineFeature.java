@@ -23,7 +23,7 @@ public class BoneSpineFeature extends Feature<NoFeatureConfig>
     protected IBlockPosQuery replace = (world, pos) -> world.getBlockState(pos).isAir(world, pos);
     private int maxHeight = 5;
 
-    public BoneSpineFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserializer)
+    public BoneSpineFeature(Codec<NoFeatureConfig> deserializer)
     {
         super(deserializer);
     }

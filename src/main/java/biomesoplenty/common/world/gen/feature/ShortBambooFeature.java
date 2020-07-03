@@ -26,7 +26,7 @@ public class ShortBambooFeature extends Feature<NoFeatureConfig>
     private static final BlockState field_214568_aT = field_214566_a.setValue(BambooBlock.LEAVES, BambooLeaves.LARGE).setValue(BambooBlock.STAGE, Integer.valueOf(1));
     private static final BlockState field_214569_aU = field_214566_a.setValue(BambooBlock.LEAVES, BambooLeaves.SMALL).setValue(BambooBlock.STAGE, Integer.valueOf(1));
 
-    public ShortBambooFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserializer)
+    public ShortBambooFeature(Codec<NoFeatureConfig> deserializer)
     {
         super(deserializer);
     }

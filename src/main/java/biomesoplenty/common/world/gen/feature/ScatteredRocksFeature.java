@@ -14,7 +14,7 @@ import java.util.function.Function;
 
 public class ScatteredRocksFeature extends Feature<NoFeatureConfig>
 {
-   public ScatteredRocksFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserializer)
+   public ScatteredRocksFeature(Codec<NoFeatureConfig> deserializer)
    {
       super(deserializer);
    }

@@ -115,25 +115,25 @@ public class BOPBiomeFeatures
 	/////////////////////////////////////////////////////////////////////////////////
 	
 	//Features
-	public static final Feature<NoFeatureConfig> BRAMBLE = new BrambleFeature(NoFeatureConfig::deserialize);
-	public static final Feature<NoFeatureConfig> MANGROVE = new MangroveFeature(NoFeatureConfig::deserialize);
-	public static final Feature<NoFeatureConfig> PUMPKIN_PATCH = new PumpkinPatchFeature(NoFeatureConfig::deserialize);
-	public static final Feature<NoFeatureConfig> BIG_PUMPKIN = new BigPumpkinFeature(NoFeatureConfig::deserialize);
-	public static final Feature<NoFeatureConfig> SHORT_BAMBOO = new ShortBambooFeature(NoFeatureConfig::deserialize);
-	public static final Feature<NoFeatureConfig> SCRUB = new ScrubFeature(NoFeatureConfig::deserialize);
-	public static final Feature<NoFeatureConfig> SCATTERED_ROCKS = new ScatteredRocksFeature(NoFeatureConfig::deserialize);
-	public static final Feature<NoFeatureConfig> NETHER_VINES = new NetherVinesFeature(NoFeatureConfig::deserialize);
-	public static final Feature<NoFeatureConfig> FLESH_SPLATTER = new FleshSplatterFeature(NoFeatureConfig::deserialize);
-	public static final Feature<NoFeatureConfig> BONE_SPINE = new BoneSpineFeature(NoFeatureConfig::deserialize);
-	public static final Feature<NoFeatureConfig> ASH_SPLATTER = new AshSplatterFeature(NoFeatureConfig::deserialize);
-	public static final Feature<NoFeatureConfig> PODZOL_SPLATTER = new PodzolSplatterFeature(NoFeatureConfig::deserialize);
-	public static final Feature<NoFeatureConfig> MYCELIUM_SPLATTER = new MyceliumSplatterFeature(NoFeatureConfig::deserialize);
-	public static final Feature<NoFeatureConfig> SMALL_RED_MUSHROOM = new SmallRedMushroomFeature(NoFeatureConfig::deserialize);
-	public static final Feature<NoFeatureConfig> SMALL_BROWN_MUSHROOM = new SmallBrownMushroomFeature(NoFeatureConfig::deserialize);
-	public static final Feature<NoFeatureConfig> SMALL_GLOWSHROOM = new SmallGlowshroomFeature(NoFeatureConfig::deserialize);
-	public static final Feature<NoFeatureConfig> SMALL_TOADSTOOL = new SmallToadstoolFeature(NoFeatureConfig::deserialize);
-	public static final Feature<NoFeatureConfig> HUGE_GLOWSHROOM = new HugeGlowshroomFeature(NoFeatureConfig::deserialize);
-	public static final Feature<NoFeatureConfig> HUGE_TOADSTOOL = new HugeToadstoolFeature(NoFeatureConfig::deserialize);
+	public static final Feature<NoFeatureConfig> BRAMBLE = new BrambleFeature(NoFeatureConfig.CODEC);
+	public static final Feature<NoFeatureConfig> MANGROVE = new MangroveFeature(NoFeatureConfig.CODEC);
+	public static final Feature<NoFeatureConfig> PUMPKIN_PATCH = new PumpkinPatchFeature(NoFeatureConfig.CODEC);
+	public static final Feature<NoFeatureConfig> BIG_PUMPKIN = new BigPumpkinFeature(NoFeatureConfig.CODEC);
+	public static final Feature<NoFeatureConfig> SHORT_BAMBOO = new ShortBambooFeature(NoFeatureConfig.CODEC);
+	public static final Feature<NoFeatureConfig> SCRUB = new ScrubFeature(NoFeatureConfig.CODEC);
+	public static final Feature<NoFeatureConfig> SCATTERED_ROCKS = new ScatteredRocksFeature(NoFeatureConfig.CODEC);
+	public static final Feature<NoFeatureConfig> NETHER_VINES = new NetherVinesFeature(NoFeatureConfig.CODEC);
+	public static final Feature<NoFeatureConfig> FLESH_SPLATTER = new FleshSplatterFeature(NoFeatureConfig.CODEC);
+	public static final Feature<NoFeatureConfig> BONE_SPINE = new BoneSpineFeature(NoFeatureConfig.CODEC);
+	public static final Feature<NoFeatureConfig> ASH_SPLATTER = new AshSplatterFeature(NoFeatureConfig.CODEC);
+	public static final Feature<NoFeatureConfig> PODZOL_SPLATTER = new PodzolSplatterFeature(NoFeatureConfig.CODEC);
+	public static final Feature<NoFeatureConfig> MYCELIUM_SPLATTER = new MyceliumSplatterFeature(NoFeatureConfig.CODEC);
+	public static final Feature<NoFeatureConfig> SMALL_RED_MUSHROOM = new SmallRedMushroomFeature(NoFeatureConfig.CODEC);
+	public static final Feature<NoFeatureConfig> SMALL_BROWN_MUSHROOM = new SmallBrownMushroomFeature(NoFeatureConfig.CODEC);
+	public static final Feature<NoFeatureConfig> SMALL_GLOWSHROOM = new SmallGlowshroomFeature(NoFeatureConfig.CODEC);
+	public static final Feature<NoFeatureConfig> SMALL_TOADSTOOL = new SmallToadstoolFeature(NoFeatureConfig.CODEC);
+	public static final Feature<NoFeatureConfig> HUGE_GLOWSHROOM = new HugeGlowshroomFeature(NoFeatureConfig.CODEC);
+	public static final Feature<NoFeatureConfig> HUGE_TOADSTOOL = new HugeToadstoolFeature(NoFeatureConfig.CODEC);
 
 	//Flowers
 	public static final FlowersFeature CHAPARRAL_FLOWERS = new ChaparralFlowersFeature();

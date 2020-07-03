@@ -23,7 +23,7 @@ import java.util.function.Function;
 
 public class WastelandGrassFeature extends Feature<NoFeatureConfig>
 {
-	public WastelandGrassFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserializer)
+	public WastelandGrassFeature(Codec<NoFeatureConfig> deserializer)
 	{
 		super(deserializer);
 	}

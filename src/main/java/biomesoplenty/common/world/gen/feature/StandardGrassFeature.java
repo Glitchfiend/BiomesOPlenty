@@ -8,6 +8,7 @@
 package biomesoplenty.common.world.gen.feature;
 
 import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.tags.BlockTags;
@@ -22,8 +23,8 @@ import java.util.Random;
 import java.util.function.Function;
 
 public class StandardGrassFeature extends Feature<NoFeatureConfig>
-{
-	public StandardGrassFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserializer)
+{Codec<NoFeatureConfig>
+	public StandardGrassFeature(Codec<NoFeatureConfig> deserializer)
 	{
 		super(deserializer);
 	}

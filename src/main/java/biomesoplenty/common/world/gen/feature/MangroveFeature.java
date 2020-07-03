@@ -19,7 +19,7 @@ import java.util.function.Function;
 
 public class MangroveFeature extends Feature<NoFeatureConfig> {
 
-	public MangroveFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserializer)
+	public MangroveFeature(Codec<NoFeatureConfig> deserializer)
 	{
 		super(deserializer);
 	}

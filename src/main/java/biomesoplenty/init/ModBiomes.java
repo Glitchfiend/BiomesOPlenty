@@ -179,7 +179,7 @@ public class ModBiomes
         registerVanillaBiome(Biomes.BADLANDS_PLATEAU, BOPClimates.HOT_DESERT, 10);
         registerVanillaBiome(Biomes.WOODED_BADLANDS_PLATEAU, BOPClimates.HOT_DESERT, 3);
 
-        registerVanillaBiome(Biomes.NETHER, BOPClimates.NETHER, 10);
+        registerVanillaBiome(Biomes.NETHER_WASTES, BOPClimates.NETHER, 10);
 
         BiomeRegistry.configureVanillaBiomes();
         BiomeRegistry.finalizeRegistrations(BiomeRegistry.RegistrationType.VANILLA_BIOME);

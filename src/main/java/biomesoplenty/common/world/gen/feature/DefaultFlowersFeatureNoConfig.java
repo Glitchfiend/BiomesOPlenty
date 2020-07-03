@@ -23,7 +23,7 @@ public abstract class DefaultFlowersFeatureNoConfig extends FlowersFeature<NoFea
 {
     public DefaultFlowersFeatureNoConfig()
     {
-        super(NoFeatureConfig::deserialize);
+        super(NoFeatureConfig.CODEC);
     }
 
     @Override

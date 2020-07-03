@@ -15,7 +15,7 @@ import java.util.function.Function;
 
 public class ScrubFeature extends Feature<NoFeatureConfig>
 {
-   public ScrubFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserializer)
+   public ScrubFeature(Codec<NoFeatureConfig> deserializer)
    {
       super(deserializer);
    }

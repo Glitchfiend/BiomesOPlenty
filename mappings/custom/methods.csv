@@ -21624,7 +21624,7 @@ func_234639_a_,fromJson,2,,net/minecraft/loot/FishingPredicate
 func_234640_a_,inOpenWater,2,,net/minecraft/loot/FishingPredicate
 func_234641_j_,getCraftSlots,2,,net/minecraft/inventory/container/PlayerContainer
 func_234654_d_,shrinkStackInSlot,2,,net/minecraft/inventory/container/SmithingTableContainer
-func_234657_f_,getToughness,2,,net/minecraft/item/ArmorItem
+func_234657_f_,getToughnessVanilla,2,,net/minecraft/item/ArmorItem
 func_234659_a_,matches,2,,net/minecraft/advancements/criterion/FishingRodHookedTrigger$Instance
 func_234667_a_,getLodestoneDimension,2,,net/minecraft/item/CompassItem
 func_234669_a_,addLodestoneTags,2,,net/minecraft/item/CompassItem
@@ -22611,7 +22611,7 @@ func_238476_c_,drawString,0,,net/minecraft/client/gui/AbstractGui
 func_238478_a_,renderList,0,,net/minecraft/client/gui/widget/list/AbstractList
 func_238480_f_,bindEntryToSelf,0,,net/minecraft/client/gui/widget/list/AbstractList
 func_238482_a_,setMessage,0,,net/minecraft/client/gui/widget/Widget
-func_238483_d_,getHeight,0,,net/minecraft/client/gui/widget/Widget
+func_238483_d_,getHeightVanilla,0,,net/minecraft/client/gui/widget/Widget
 func_238484_a_,render,0,,net/minecraft/client/gui/overlay/BossOverlayGui
 func_238485_a_,drawBar,0,,net/minecraft/client/gui/overlay/BossOverlayGui
 func_238491_a_,handleChatQueueClicked,0,,net/minecraft/client/gui/NewChatGui

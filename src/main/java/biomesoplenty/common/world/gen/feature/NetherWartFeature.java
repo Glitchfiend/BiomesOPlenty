@@ -15,7 +15,7 @@ import java.util.function.Function;
 
 public class NetherWartFeature extends Feature<NoFeatureConfig>
 {
-   public NetherWartFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserializer)
+   public NetherWartFeature(Codec<NoFeatureConfig> deserializer)
    {
       super(deserializer);
    }

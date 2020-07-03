@@ -17,7 +17,7 @@ import java.util.function.Function;
 
 public class PumpkinPatchFeature extends Feature<NoFeatureConfig>
 {
-	public PumpkinPatchFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserializer)
+	public PumpkinPatchFeature(Codec<NoFeatureConfig> deserializer)
 	{
 		super(deserializer);
 	}

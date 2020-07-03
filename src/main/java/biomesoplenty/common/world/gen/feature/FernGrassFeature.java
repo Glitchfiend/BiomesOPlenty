@@ -23,7 +23,7 @@ import java.util.function.Function;
 
 public class FernGrassFeature extends Feature<NoFeatureConfig>
 {
-	public FernGrassFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserializer)
+	public FernGrassFeature(Codec<NoFeatureConfig> deserializer)
 	{
 		super(deserializer);
 	}

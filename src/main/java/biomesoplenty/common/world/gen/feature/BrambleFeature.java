@@ -30,7 +30,7 @@ import java.util.function.Function;
 
 public class BrambleFeature extends Feature<NoFeatureConfig>
 {
-	public BrambleFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserializer)
+	public BrambleFeature(Codec<NoFeatureConfig> deserializer)
 	{
 		super(deserializer);
 	}

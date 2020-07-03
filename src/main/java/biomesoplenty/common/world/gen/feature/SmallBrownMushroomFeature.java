@@ -18,7 +18,7 @@ public class SmallBrownMushroomFeature extends Feature<NoFeatureConfig>
     protected IBlockPosQuery placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK || world.getBlockState(pos).getBlock() == Blocks.MYCELIUM;
     protected IBlockPosQuery replace = (world, pos) -> world.getBlockState(pos).canBeReplacedByLeaves(world, pos) || world.getBlockState(pos).getBlock() instanceof BushBlock;
 
-    public SmallBrownMushroomFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserializer)
+    public SmallBrownMushroomFeature(Codec<NoFeatureConfig> deserializer)
     {
         super(deserializer);
     }

@@ -39,13 +39,13 @@ public class WhiteBeachBiome extends BiomeBOP
 
 
         // Structures
-        this.addStructureStart(Feature.MINESHAFT.configured(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
+        this.addStructureStart(DefaultBiomeFeatures.MINESHAFT);
         this.addStructureStart(Feature.BURIED_TREASURE.configured(new BuriedTreasureConfig(0.01F)));
         this.addStructureStart(Feature.SHIPWRECK.configured(new ShipwreckConfig(true)));
 
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(this);
-        DefaultBiomeFeatures.addStructureFeaturePlacement(this);
+        DefaultBiomeFeatures.addDefaultOverworldLandStructures(this);
         DefaultBiomeFeatures.addDefaultLakes(this);
         DefaultBiomeFeatures.addDefaultMonsterRoom(this);
         DefaultBiomeFeatures.addDefaultUndergroundVariety(this);
@@ -54,7 +54,7 @@ public class WhiteBeachBiome extends BiomeBOP
         // Vegetation
         this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SIMPLE_RANDOM_SELECTOR.configured(new SingleRandomFeature(ImmutableList.of(Feature.CORAL_TREE.configured(IFeatureConfig.NONE), Feature.CORAL_CLAW.configured(IFeatureConfig.NONE), Feature.CORAL_MUSHROOM.configured(IFeatureConfig.NONE)))).decorated(Placement.TOP_SOLID_HEIGHTMAP_NOISE_BIASED.configured(new TopSolidWithNoiseConfig(20, 400.0D, 0.0D, Heightmap.Type.OCEAN_FLOOR_WG))));
         this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.TROPICS_FLOWERS.configured(IFeatureConfig.NONE).decorated(Placement.COUNT_HEIGHTMAP_32.configured(new FrequencyConfig(15))));
-        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, new StandardGrassFeature(NoFeatureConfig::deserialize).configured(IFeatureConfig.NONE).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(12))));
+        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, new StandardGrassFeature(NoFeatureConfig.CODEC).configured(IFeatureConfig.NONE).decorated(Placement.COUNT_HEIGHTMAP_DOUBLE.configured(new FrequencyConfig(12))));
         this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SEA_PICKLE.configured(new CountConfig(20)).decorated(Placement.CHANCE_TOP_SOLID_HEIGHTMAP.configured(new ChanceConfig(16))));
 
         ////////////////////////////////////////////////////////////
