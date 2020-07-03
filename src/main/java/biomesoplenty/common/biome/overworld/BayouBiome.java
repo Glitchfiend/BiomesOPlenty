@@ -20,7 +20,9 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeAmbience;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
+import net.minecraft.world.biome.MoodSoundAmbience;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.structure.MineshaftConfig;
@@ -35,15 +37,14 @@ public class BayouBiome extends BiomeBOP
 {
     public BayouBiome()
     {
-        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.CONFIG_GRASS)).precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.SWAMP).depth(-0.315F).scale(-0.05F).temperature(0.95F).downfall(0.9F).waterColor(0x62AF84).waterFogColor(0x0C211C).parent((String)null));
+        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.CONFIG_GRASS)).precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.SWAMP).depth(-0.315F).scale(-0.05F).temperature(0.95F).downfall(0.9F).specialEffects((new BiomeAmbience.Builder()).waterColor(0x62AF84).waterFogColor(0x0C211C).fogColor(12638463).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build()).parent((String)null));
 
         // Structures
-        this.addStructureStart(DefaultBiomeFeatures.SWAMP_HUT);
-        this.addStructureStart(DefaultBiomeFeatures.MINESHAFT);
+        DefaultBiomeFeatures.addDefaultOverworldLandStructures(this);
+        this.addStructureStart(DefaultBiomeFeatures.RUINED_PORTAL_SWAMP);
 
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(this);
-        DefaultBiomeFeatures.addDefaultOverworldLandStructures(this);
         DefaultBiomeFeatures.addDefaultLakes(this);
         DefaultBiomeFeatures.addDefaultMonsterRoom(this);
         DefaultBiomeFeatures.addDefaultUndergroundVariety(this);
@@ -77,7 +78,7 @@ public class BayouBiome extends BiomeBOP
 
         // Other Features
         DefaultBiomeFeatures.addDefaultSprings(this);
-        DefaultBiomeFeatures.addSwampExtraDecoration(this);
+        DefaultBiomeFeatures.addSwampExtraVegetation(this);
         DefaultBiomeFeatures.addSurfaceFreezing(this);
 
         // Entities

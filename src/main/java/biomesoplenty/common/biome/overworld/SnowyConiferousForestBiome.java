@@ -17,7 +17,9 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeAmbience;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
+import net.minecraft.world.biome.MoodSoundAmbience;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.structure.MineshaftConfig;
@@ -30,16 +32,15 @@ public class SnowyConiferousForestBiome extends BiomeBOP
 {
     public SnowyConiferousForestBiome()
     {
-        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.CONFIG_GRASS)).precipitation(Biome.RainType.SNOW).biomeCategory(Biome.Category.ICY).depth(0.2F).scale(0.1F).temperature(-0.25F).downfall(0.5F).waterColor(4159204).waterFogColor(329011).parent((String)null));
+        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.CONFIG_GRASS)).precipitation(Biome.RainType.SNOW).biomeCategory(Biome.Category.ICY).depth(0.2F).scale(0.1F).temperature(-0.25F).downfall(0.5F).specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build()).parent((String)null));
 
         // Structures
-        this.addStructureStart(Feature.IGLOO.configured(IFeatureConfig.NONE));
-        this.addStructureStart(DefaultBiomeFeatures.MINESHAFT);
-        this.addStructureStart(DefaultBiomeFeatures.STRONGHOLD);
+        this.addStructureStart(DefaultBiomeFeatures.IGLOO);
+        DefaultBiomeFeatures.addDefaultOverworldLandStructures(this);
+        this.addStructureStart(DefaultBiomeFeatures.RUINED_PORTAL_STANDARD);
 
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(this);
-        DefaultBiomeFeatures.addDefaultOverworldLandStructures(this);
 
         this.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Feature.LAKE.configured(new BlockStateFeatureConfig(Blocks.WATER.defaultBlockState())).decorated(Placement.WATER_LAKE.configured(new ChanceConfig(4))));
 

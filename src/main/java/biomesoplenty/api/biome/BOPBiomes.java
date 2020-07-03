@@ -70,17 +70,16 @@ public class BOPBiomes
     public static Optional<Biome> temperate_rainforest = Optional.empty();
     public static Optional<Biome> temperate_rainforest_hills = Optional.empty();
     public static Optional<Biome> tropical_rainforest = Optional.empty();
+    public static Optional<Biome> tropic_beach = Optional.empty();
     public static Optional<Biome> tropics = Optional.empty();
     public static Optional<Biome> tundra = Optional.empty();
     public static Optional<Biome> volcano = Optional.empty();
     public static Optional<Biome> volcano_edge = Optional.empty();
     public static Optional<Biome> wasteland = Optional.empty();
     public static Optional<Biome> wetland = Optional.empty();
-    public static Optional<Biome> white_beach = Optional.empty();
     public static Optional<Biome> woodland = Optional.empty();
     public static Optional<Biome> xeric_shrubland = Optional.empty();
 
-    public static Optional<Biome> ashen_inferno = Optional.empty();
     public static Optional<Biome> undergarden = Optional.empty();
     public static Optional<Biome> visceral_heap = Optional.empty();
 }

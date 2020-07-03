@@ -18,7 +18,9 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeAmbience;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
+import net.minecraft.world.biome.MoodSoundAmbience;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.structure.MineshaftConfig;
@@ -31,15 +33,15 @@ public class FloodplainBiome extends BiomeBOP
 {
     public FloodplainBiome()
     {
-        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.SWAMP, SurfaceBuilder.CONFIG_GRASS)).precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.SWAMP).depth(-0.275F).scale(0.0F).temperature(0.9F).downfall(1.2F).waterColor(4566514).waterFogColor(267827).parent((String)null));
+        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.SWAMP, SurfaceBuilder.CONFIG_GRASS)).precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.SWAMP).depth(-0.275F).scale(0.0F).temperature(0.9F).downfall(1.2F).specialEffects((new BiomeAmbience.Builder()).waterColor(4566514).waterFogColor(267827).fogColor(12638463).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build()).parent((String)null));
 
         // Structures
-        this.addStructureStart(Feature.JUNGLE_TEMPLE.configured(IFeatureConfig.NONE));
-        this.addStructureStart(DefaultBiomeFeatures.MINESHAFT);
+        this.addStructureStart(DefaultBiomeFeatures.JUNGLE_TEMPLE);
+        DefaultBiomeFeatures.addDefaultOverworldLandStructures(this);
+        this.addStructureStart(DefaultBiomeFeatures.RUINED_PORTAL_SWAMP);
 
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(this);
-        DefaultBiomeFeatures.addDefaultOverworldLandStructures(this);
 
         this.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Feature.LAKE.configured(new BlockStateFeatureConfig(Blocks.WATER.defaultBlockState())).decorated(Placement.WATER_LAKE.configured(new ChanceConfig(1))));
 

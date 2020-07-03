@@ -19,7 +19,9 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeAmbience;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
+import net.minecraft.world.biome.MoodSoundAmbience;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.structure.MineshaftConfig;
@@ -36,15 +38,14 @@ public class FlowerMeadowBiome extends BiomeBOP
 {
     public FlowerMeadowBiome()
     {
-        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.CONFIG_GRASS)).precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.TAIGA).depth(0.0F).scale(0.0F).temperature(0.4F).downfall(0.7F).waterColor(4159204).waterFogColor(329011).parent((String)null));
+        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.CONFIG_GRASS)).precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.TAIGA).depth(0.0F).scale(0.0F).temperature(0.4F).downfall(0.7F).specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build()).parent((String)null));
 
         // Structures
-        this.addStructureStart(DefaultBiomeFeatures.MINESHAFT);
-        this.addStructureStart(DefaultBiomeFeatures.STRONGHOLD);
+        DefaultBiomeFeatures.addDefaultOverworldLandStructures(this);
+        this.addStructureStart(DefaultBiomeFeatures.RUINED_PORTAL_STANDARD);
 
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(this);
-        DefaultBiomeFeatures.addDefaultOverworldLandStructures(this);
         DefaultBiomeFeatures.addDefaultMonsterRoom(this);
         DefaultBiomeFeatures.addDefaultUndergroundVariety(this);
         DefaultBiomeFeatures.addDefaultOres(this);

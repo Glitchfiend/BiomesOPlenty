@@ -18,7 +18,9 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeAmbience;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
+import net.minecraft.world.biome.MoodSoundAmbience;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.structure.MineshaftConfig;
@@ -37,18 +39,17 @@ public class WoodlandBiome extends BiomeBOP
 {
     public WoodlandBiome()
     {
-        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.CONFIG_GRASS)).precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.FOREST).depth(0.1F).scale(0.1F).temperature(0.8F).downfall(0.5F).waterColor(4159204).waterFogColor(329011).parent((String)null));
+        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.CONFIG_GRASS)).precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.FOREST).depth(0.1F).scale(0.1F).temperature(0.8F).downfall(0.5F).specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build()).parent((String)null));
 
         // Structures
-        this.addStructureStart(Feature.VILLAGE.configured(new VillageConfig("village/plains/town_centers", 6)));
-        this.addStructureStart(Feature.PILLAGER_OUTPOST.configured(IFeatureConfig.NONE));
-        this.addStructureStart(Feature.WOODLAND_MANSION.configured(IFeatureConfig.NONE));
-        this.addStructureStart(DefaultBiomeFeatures.MINESHAFT);
-        this.addStructureStart(DefaultBiomeFeatures.STRONGHOLD);
+        this.addStructureStart(DefaultBiomeFeatures.VILLAGE_PLAINS);
+        this.addStructureStart(DefaultBiomeFeatures.PILLAGER_OUTPOST);
+        this.addStructureStart(DefaultBiomeFeatures.WOODLAND_MANSION);
+        DefaultBiomeFeatures.addDefaultOverworldLandStructures(this);
+        this.addStructureStart(DefaultBiomeFeatures.RUINED_PORTAL_STANDARD);
 
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(this);
-        DefaultBiomeFeatures.addDefaultOverworldLandStructures(this);
         DefaultBiomeFeatures.addDefaultLakes(this);
         DefaultBiomeFeatures.addDefaultMonsterRoom(this);
         DefaultBiomeFeatures.addDefaultUndergroundVariety(this);
@@ -58,7 +59,7 @@ public class WoodlandBiome extends BiomeBOP
         ////////////////////////////////////////////////////////////
 
         // Vegetation
-        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.NORMAL_TREE.configured(DefaultBiomeFeatures.NORMAL_TREE_CONFIG).decorated(Placement.COUNT_EXTRA_HEIGHTMAP.configured(new AtSurfaceWithExtraConfig(7, 0.1F, 1))));
+        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.TREE.configured(DefaultBiomeFeatures.NORMAL_TREE_CONFIG).decorated(Placement.COUNT_EXTRA_HEIGHTMAP.configured(new AtSurfaceWithExtraConfig(7, 0.1F, 1))));
 
         this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfigurationDouble(Blocks.ROSE_BUSH.defaultBlockState())).decorated(Placement.COUNT_HEIGHTMAP_32.configured(new FrequencyConfig(5))));
         this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.EXTENDED_FLOWERS.configured(IFeatureConfig.NONE).decorated(Placement.COUNT_HEIGHTMAP_32.configured(new FrequencyConfig(5))));

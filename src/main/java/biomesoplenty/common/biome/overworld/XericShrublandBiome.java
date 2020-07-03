@@ -15,7 +15,9 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeAmbience;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
+import net.minecraft.world.biome.MoodSoundAmbience;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.BlockStateFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
@@ -36,18 +38,17 @@ public class XericShrublandBiome extends BiomeBOP
 {
     public XericShrublandBiome()
     {
-        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.CONFIG_FULL_SAND)).precipitation(Biome.RainType.NONE).biomeCategory(Biome.Category.SAVANNA).depth(0.0F).scale(-0.05F).temperature(1.75F).downfall(0.1F).waterColor(4159204).waterFogColor(329011).parent((String)null));
+        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.CONFIG_FULL_SAND)).precipitation(Biome.RainType.NONE).biomeCategory(Biome.Category.SAVANNA).depth(0.0F).scale(-0.05F).temperature(1.75F).downfall(0.1F).specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build()).parent((String)null));
 
         // Structures
-        this.addStructureStart(Feature.VILLAGE.configured(new VillageConfig("village/desert/town_centers", 6)));
-        this.addStructureStart(Feature.PILLAGER_OUTPOST.configured(IFeatureConfig.NONE));
-        this.addStructureStart(Feature.DESERT_PYRAMID.configured(IFeatureConfig.NONE));
-        this.addStructureStart(DefaultBiomeFeatures.MINESHAFT);
-        this.addStructureStart(DefaultBiomeFeatures.STRONGHOLD);
+        this.addStructureStart(DefaultBiomeFeatures.VILLAGE_DESERT);
+        this.addStructureStart(DefaultBiomeFeatures.PILLAGER_OUTPOST);
+        this.addStructureStart(DefaultBiomeFeatures.DESERT_PYRAMID);
+        DefaultBiomeFeatures.addDefaultOverworldLandStructures(this);
+        this.addStructureStart(DefaultBiomeFeatures.RUINED_PORTAL_DESERT);
 
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(this);
-        DefaultBiomeFeatures.addDefaultOverworldLandStructures(this);
 
         this.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Feature.LAKE.configured(new BlockStateFeatureConfig(Blocks.LAVA.defaultBlockState())).decorated(Placement.LAVA_LAKE.configured(new ChanceConfig(80))));
 
@@ -71,7 +72,7 @@ public class XericShrublandBiome extends BiomeBOP
 
         // Other Features
         DefaultBiomeFeatures.addDefaultSprings(this);
-        DefaultBiomeFeatures.addSwampExtraDecoration(this);
+        DefaultBiomeFeatures.addDesertExtraDecoration(this);
         DefaultBiomeFeatures.addSurfaceFreezing(this);
 
         // Entities

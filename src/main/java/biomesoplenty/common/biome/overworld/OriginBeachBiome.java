@@ -12,7 +12,9 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeAmbience;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
+import net.minecraft.world.biome.MoodSoundAmbience;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.carver.WorldCarver;
 import net.minecraft.world.gen.feature.Feature;
@@ -32,7 +34,7 @@ public class OriginBeachBiome extends BiomeBOP
 {
     public OriginBeachBiome()
     {
-        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.CONFIG_DESERT)).precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.NONE).depth(0.0F).scale(0.025F).temperature(0.6F).downfall(0.6F).waterColor(0x0E31FF).waterFogColor(0x070059).parent((String)null));
+        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.CONFIG_DESERT)).precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.NONE).depth(0.0F).scale(0.025F).temperature(0.6F).downfall(0.6F).specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build()).parent((String)null));
 
         // Underground
         this.addCarver(GenerationStage.Carving.AIR, Biome.makeCarver(WorldCarver.CAVE, new ProbabilityConfig(0.14285715F)));

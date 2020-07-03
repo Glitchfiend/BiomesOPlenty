@@ -26,13 +26,13 @@ public class DriedSaltBlock extends Block
         PlantType type = plantable.getPlantType(world, pos.relative(facing));
 
         switch (type) {
-            case Desert: return true;
-            case Nether: return true;
-            case Crop: return false;
-            case Cave: return true;
-            case Plains: return true;
-            case Water: return false;
-            case Beach: return false;
+            case PlantType.DESERT: return true;
+            case PlantType.NETHER: return false;
+            case PlantType.CROP: return false;
+            case PlantType.CAVE: return true;
+            case PlantType.PLAINS: return false;
+            case PlantType.WATER: return false;
+            case PlantType.BEACH: return false;
         }
         return false;
     }

@@ -9,7 +9,6 @@
   
   "biome.biomesoplenty.alps": "Alps",
   "biome.biomesoplenty.alps_foothills": "Alps Foothills",
-  "biome.biomesoplenty.ashen_inferno": "Ashen Inferno",
   "biome.biomesoplenty.bayou": "Bayou",
   "biome.biomesoplenty.bog": "Bog",
   "biome.biomesoplenty.boreal_forest": "Boreal Forest",
@@ -65,6 +64,7 @@
   "biome.biomesoplenty.temperate_rainforest": "Temperate Rainforest",
   "biome.biomesoplenty.temperate_rainforest_hills": "Temperate Rainforest Hills",
   "biome.biomesoplenty.tropical_rainforest": "Tropical Rainforest",
+  "biome.biomesoplenty.tropic_beach": "Tropic Beach",
   "biome.biomesoplenty.tropics": "Tropics",
   "biome.biomesoplenty.tundra": "Tundra",
   "biome.biomesoplenty.undergarden": "Undergarden",
@@ -73,7 +73,6 @@
   "biome.biomesoplenty.volcano_edge": "Volcano Edge",
   "biome.biomesoplenty.wasteland": "Wasteland",
   "biome.biomesoplenty.wetland": "Wetland",
-  "biome.biomesoplenty.white_beach": "White Beach",
   "biome.biomesoplenty.woodland": "Woodland",
   "biome.biomesoplenty.xeric_shrubland": "Xeric Shrubland",
 

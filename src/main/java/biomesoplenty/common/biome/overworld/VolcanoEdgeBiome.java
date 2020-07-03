@@ -18,7 +18,9 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeAmbience;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
+import net.minecraft.world.biome.MoodSoundAmbience;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.structure.MineshaftConfig;
@@ -36,15 +38,14 @@ public class VolcanoEdgeBiome extends BiomeBOP
 {
     public VolcanoEdgeBiome()
     {
-        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(BOPBiomeFeatures.VOLCANO_EDGE_SURFACE_BUILDER, SurfaceBuilder.CONFIG_STONE)).precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.NONE).depth(1.25F).scale(0.4F).temperature(0.95F).downfall(0.3F).waterColor(4566514).waterFogColor(267827).parent((String)null));
+        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(BOPBiomeFeatures.VOLCANO_EDGE_SURFACE_BUILDER, SurfaceBuilder.CONFIG_STONE)).precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.NONE).depth(1.25F).scale(0.4F).temperature(0.95F).downfall(0.3F).specialEffects((new BiomeAmbience.Builder()).waterColor(4566514).waterFogColor(267827).fogColor(12638463).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build()).parent((String)null));
 
         // Structures
-        this.addStructureStart(DefaultBiomeFeatures.MINESHAFT);
-        this.addStructureStart(DefaultBiomeFeatures.STRONGHOLD);
+        DefaultBiomeFeatures.addDefaultOverworldLandStructures(this);
+        this.addStructureStart(DefaultBiomeFeatures.RUINED_PORTAL_MOUNTAIN);
 
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(this);
-        DefaultBiomeFeatures.addDefaultOverworldLandStructures(this);
 
         this.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Feature.LAKE.configured(new BlockStateFeatureConfig(Blocks.LAVA.defaultBlockState())).decorated(Placement.LAVA_LAKE.configured(new ChanceConfig(10))));
 
@@ -67,7 +68,6 @@ public class VolcanoEdgeBiome extends BiomeBOP
         DefaultBiomeFeatures.addDefaultSprings(this);
         DefaultBiomeFeatures.addExtraEmeralds(this);
         DefaultBiomeFeatures.addInfestedStone(this);
-        DefaultBiomeFeatures.addSwampExtraDecoration(this);
         DefaultBiomeFeatures.addSurfaceFreezing(this);
 
         // Entities

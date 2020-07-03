@@ -16,7 +16,9 @@ import biomesoplenty.common.world.gen.feature.StandardGrassFeature;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.world.biome.BiomeAmbience;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
+import net.minecraft.world.biome.MoodSoundAmbience;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.BlockStateFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
@@ -34,15 +36,14 @@ public class PoppyFieldBiome extends BiomeBOP
 {
     public PoppyFieldBiome()
     {
-        super((new Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(BOPBiomeFeatures.POPPY_FIELD_SURFACE_BUILDER, SurfaceBuilder.CONFIG_GRASS)).precipitation(RainType.RAIN).biomeCategory(Category.PLAINS).depth(0.1F).scale(0.01F).temperature(0.65F).downfall(0.15F).waterColor(4159204).waterFogColor(329011).parent((String)null));
+        super((new Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(BOPBiomeFeatures.POPPY_FIELD_SURFACE_BUILDER, SurfaceBuilder.CONFIG_GRASS)).precipitation(RainType.RAIN).biomeCategory(Category.PLAINS).depth(0.1F).scale(0.01F).temperature(0.65F).downfall(0.15F).specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build()).parent((String)null));
 
         // Structures
-        this.addStructureStart(DefaultBiomeFeatures.MINESHAFT);
-        this.addStructureStart(DefaultBiomeFeatures.STRONGHOLD);
+        DefaultBiomeFeatures.addDefaultOverworldLandStructures(this);
+        this.addStructureStart(DefaultBiomeFeatures.RUINED_PORTAL_STANDARD);
 
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(this);
-        DefaultBiomeFeatures.addDefaultOverworldLandStructures(this);
         DefaultBiomeFeatures.addDefaultMonsterRoom(this);
         DefaultBiomeFeatures.addDefaultUndergroundVariety(this);
         DefaultBiomeFeatures.addDefaultOres(this);

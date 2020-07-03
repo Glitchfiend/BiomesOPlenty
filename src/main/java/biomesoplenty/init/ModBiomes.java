@@ -49,7 +49,7 @@ public class ModBiomes
         //Technical Biomes (Need to be registered before main biomes that use them)
         registerTechnicalBiome(new GravelBeachBiome(), "gravel_beach");
         registerTechnicalBiome(new OriginBeachBiome(), "origin_beach");
-        registerTechnicalBiome(new WhiteBeachBiome(), "white_beach");
+        registerTechnicalBiome(new TropicBeachBiome(), "tropic_beach");
         registerTechnicalBiome(new AlpsFoothillsBiome(), "alps_foothills");
         registerTechnicalBiome(new RedwoodForestEdgeBiome(), "redwood_forest_edge");
         registerTechnicalBiome(new VolcanoEdgeBiome(), "volcano_edge");
@@ -122,7 +122,6 @@ public class ModBiomes
         registerBiome(new XericShrublandBiome(), "xeric_shrubland");
 
         //Nether Biomes
-        registerBiome(new AshenInfernoBiome(), "ashen_inferno");
         registerBiome(new UndergardenBiome(), "undergarden");
         registerBiome(new VisceralHeapBiome(), "visceral_heap");
 
@@ -248,18 +247,17 @@ public class ModBiomes
         registerBiomeToDictionary(temperate_rainforest, Type.OVERWORLD, Type.FOREST, Type.LUSH, Type.WET);
         registerBiomeToDictionary(temperate_rainforest_hills, Type.OVERWORLD, Type.FOREST, Type.HILLS, Type.LUSH, Type.WET, Type.DENSE);
         registerBiomeToDictionary(tropical_rainforest, Type.OVERWORLD, Type.JUNGLE, Type.LUSH, Type.HOT, Type.WET, Type.DENSE);
+        registerBiomeToDictionary(tropic_beach, Type.OVERWORLD, Type.BEACH, Type.HOT);
         registerBiomeToDictionary(tropics, Type.OVERWORLD, Type.JUNGLE, Type.LUSH, Type.HOT);
         registerBiomeToDictionary(tundra, Type.OVERWORLD, Type.COLD, Type.WASTELAND, Type.DEAD, Type.SPARSE);
         registerBiomeToDictionary(volcano, Type.OVERWORLD, Type.DEAD, Type.WASTELAND, Type.MOUNTAIN, Type.HOT, Type.DRY);
         registerBiomeToDictionary(volcano_edge, Type.OVERWORLD, Type.DEAD, Type.WASTELAND, Type.MOUNTAIN, Type.HOT, Type.DRY);
         registerBiomeToDictionary(wasteland, Type.OVERWORLD, Type.WASTELAND, Type.DEAD, Type.DRY, Type.SPARSE, Type.HOT);
         registerBiomeToDictionary(wetland, Type.OVERWORLD, Type.SWAMP, Type.FOREST, Type.LUSH, Type.WET, Type.DENSE);
-        registerBiomeToDictionary(white_beach, Type.OVERWORLD, Type.BEACH, Type.HOT);
         registerBiomeToDictionary(woodland, Type.OVERWORLD, Type.FOREST);
         registerBiomeToDictionary(xeric_shrubland, Type.OVERWORLD, Type.SANDY, Type.SAVANNA, Type.LUSH, Type.HOT, Type.DRY, Type.SPARSE);
 
         //Nether Biomes
-        registerBiomeToDictionary(ashen_inferno, Type.NETHER, Type.HOT);
         registerBiomeToDictionary(undergarden, Type.NETHER, Type.HOT);
         registerBiomeToDictionary(visceral_heap, Type.NETHER, Type.HOT);
     }
@@ -323,13 +321,13 @@ public class ModBiomes
         registerVillagerType(temperate_rainforest, IVillagerType.PLAINS);
         registerVillagerType(temperate_rainforest_hills, IVillagerType.PLAINS);
         registerVillagerType(tropical_rainforest, IVillagerType.JUNGLE);
+        registerVillagerType(tropic_beach, IVillagerType.JUNGLE);
         registerVillagerType(tropics, IVillagerType.JUNGLE);
         registerVillagerType(tundra, IVillagerType.TAIGA);
         registerVillagerType(volcano, IVillagerType.PLAINS);
         registerVillagerType(volcano_edge, IVillagerType.PLAINS);
         registerVillagerType(wasteland, IVillagerType.DESERT);
         registerVillagerType(wetland, IVillagerType.SWAMP);
-        registerVillagerType(white_beach, IVillagerType.JUNGLE);
         registerVillagerType(woodland, IVillagerType.PLAINS);
         registerVillagerType(xeric_shrubland, IVillagerType.DESERT);
     }

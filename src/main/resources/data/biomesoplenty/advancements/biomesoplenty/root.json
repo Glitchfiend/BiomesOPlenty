@@ -26,12 +26,6 @@
                 "biome": "biomesoplenty:alps_foothills"
             }
         },
-		"ashen_inferno": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:ashen_inferno"
-            }
-        },
 		"bayou": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -362,6 +356,12 @@
                 "biome": "biomesoplenty:tropical_rainforest"
             }
         },
+        "tropic_beach": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:tropic_beach"
+            }
+        },
         "tropics": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -410,12 +410,6 @@
                 "biome": "biomesoplenty:wetland"
             }
         },
-        "white_beach": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:white_beach"
-            }
-        },
 		"woodland": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -433,7 +427,6 @@
         [
 			"alps",
 			"alps_foothills",
-			"ashen_inferno",
 			"bayou",
 			"bog",
 			"boreal_forest",
@@ -489,6 +482,7 @@
 			"temperate_rainforest",
 			"temperate_rainforest_hills",
 			"tropical_rainforest",
+			"tropic_beach",
 			"tropics",
 			"tundra",
 			"undergarden",
@@ -497,7 +491,6 @@
 			"volcano_edge",
 			"wasteland",
 			"wetland",
-			"white_beach",
 			"woodland",
 			"xeric_shrubland"
         ]
