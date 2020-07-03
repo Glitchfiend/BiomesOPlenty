@@ -17463,7 +17463,7 @@ func_226279_cv_,getRandomY,2,,net/minecraft/entity/Entity
 func_226280_cw_,getEyeY,2,,net/minecraft/entity/Entity
 func_226281_cx_,getZ,2,,net/minecraft/entity/Entity
 func_226282_d_,getRandomX,2,,net/minecraft/entity/Entity
-func_226283_e_,getY,2,,net/minecraft/entity/Entity
+func_226283_e_,getYHeight,2,,net/minecraft/entity/Entity
 func_226284_e_,setShiftKeyDown,2,,net/minecraft/entity/Entity
 func_226285_f_,getZ,2,,net/minecraft/entity/Entity
 func_226286_f_,setPosAndOldPos,2,"Like {@link #setRawPosition}, but also sets {@link #prevPosX}/Y/Z and {@link #lastTickPosX}/Y/Z. {@link #setLocationAndAngles} does the same thing, except it also updates the bounding box.",net/minecraft/entity/Entity

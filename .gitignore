@@ -20,7 +20,7 @@
 
 *.launch
 mappings/.gradle/
-mappings/mcp/
+#mappings/mcp/
 mappings/build/
 mappings/*.csv
 mappings/.project

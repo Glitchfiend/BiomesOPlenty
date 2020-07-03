@@ -2,7 +2,7 @@ apply plugin: 'java'
 apply plugin: 'maven'
  
 ext.channel = 'snapshot'
-ext.dlVersion = '1'
+ext.dlVersion = '2'
 ext.mcVersion = '1.16.1'
  
 group = 'de.oceanlabs.mcp'
@@ -16,9 +16,10 @@ def downloadCSV(name) {
 }
 
 task downloadCSVs {
-    downloadCSV('fields.csv')
-    downloadCSV('methods.csv')
-    downloadCSV('params.csv')
+    // Temporarily disabled
+    // downloadCSV('fields.csv')
+    // downloadCSV('methods.csv')
+    // downloadCSV('params.csv')
 }
 
 jar {
