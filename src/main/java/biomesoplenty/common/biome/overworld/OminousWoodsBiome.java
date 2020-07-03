@@ -36,7 +36,7 @@ public class OminousWoodsBiome extends BiomeBOP
 {
     public OminousWoodsBiome()
     {
-        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.CONFIG_GRASS)).precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.TAIGA).depth(0.25F).scale(0.15F).temperature(0.6F).downfall(0.6F).specialEffects((new BiomeAmbience.Builder()).waterColor(0x312346).waterFogColor(0x0A030C).fogColor(12638463).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build()).parent((String)null));
+        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.CONFIG_GRASS)).precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.TAIGA).depth(0.25F).scale(0.15F).temperature(0.6F).downfall(0.6F).specialEffects((new BiomeAmbience.Builder()).waterColor(0x312346).waterFogColor(0x0A030C).fogColor(0x7881A5).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build()).parent((String)null));
 
         // Structures
         this.addStructureStart(DefaultBiomeFeatures.WOODLAND_MANSION);

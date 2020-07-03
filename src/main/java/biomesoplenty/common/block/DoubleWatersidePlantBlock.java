@@ -10,7 +10,7 @@ package biomesoplenty.common.block;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.fluid.IFluidState;
+import net.minecraft.fluid.FluidState;
 import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Direction;
@@ -47,7 +47,7 @@ public class DoubleWatersidePlantBlock extends DoublePlantBlockBOP
                 Iterator var7 = Direction.Plane.HORIZONTAL.iterator();
 
                 BlockState BlockState;
-                IFluidState ifluidstate;
+                FluidState ifluidstate;
                 do {
                     if (!var7.hasNext()) {
                         return false;

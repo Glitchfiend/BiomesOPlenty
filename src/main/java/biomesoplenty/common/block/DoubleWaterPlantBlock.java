@@ -11,8 +11,8 @@ import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.fluid.IFluidState;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.BooleanProperty;
@@ -42,9 +42,9 @@ public class DoubleWaterPlantBlock extends DoublePlantBlock implements IWaterLog
 
     @Nullable
     public BlockState getStateForPlacement(BlockItemUseContext context) {
-        IFluidState ifluidstate = context.getLevel().getFluidState(context.getClickedPos());
+        FluidState ifluidstate = context.getLevel().getFluidState(context.getClickedPos());
         BlockPos blockpos = context.getClickedPos();
-        return blockpos.getY() < context.getLevel().getDimension().getHeight() - 1 && context.getLevel().getBlockState(blockpos.above()).canBeReplaced(context) ? this.defaultBlockState().setValue(WATERLOGGED, Boolean.valueOf(ifluidstate.is(FluidTags.WATER) && ifluidstate.getAmount() == 8)) : null;
+        return blockpos.getY() < 255 && context.getLevel().getBlockState(blockpos.above()).canBeReplaced(context) ? this.defaultBlockState().setValue(WATERLOGGED, Boolean.valueOf(ifluidstate.is(FluidTags.WATER) && ifluidstate.getAmount() == 8)) : null;
     }
 
     @Override
@@ -96,7 +96,7 @@ public class DoubleWaterPlantBlock extends DoublePlantBlock implements IWaterLog
     }
 
     @Override
-    public IFluidState getFluidState(BlockState state) {
+    public FluidState getFluidState(BlockState state) {
         return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
     }
 

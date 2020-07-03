@@ -35,7 +35,7 @@ public class WastelandBiome extends BiomeBOP
 {
     public WastelandBiome()
     {
-        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, BOPBiomeFeatures.DRIED_SALT_SURFACE)).precipitation(Biome.RainType.NONE).biomeCategory(Biome.Category.DESERT).depth(-0.05F).scale(-0.05F).temperature(2.0F).downfall(0.0F).specialEffects((new BiomeAmbience.Builder()).waterColor(0x433721).waterFogColor(0x0C0C03).fogColor(12638463).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build()).parent((String)null));
+        super((new Biome.Builder()).surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, BOPBiomeFeatures.DRIED_SALT_SURFACE)).precipitation(Biome.RainType.NONE).biomeCategory(Biome.Category.DESERT).depth(-0.05F).scale(-0.05F).temperature(2.0F).downfall(0.0F).specialEffects((new BiomeAmbience.Builder()).waterColor(0x433721).waterFogColor(0x0C0C03).fogColor(0xDBDDC1).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build()).parent((String)null));
 
         // Structures
         DefaultBiomeFeatures.addDefaultOverworldLandStructures(this);
