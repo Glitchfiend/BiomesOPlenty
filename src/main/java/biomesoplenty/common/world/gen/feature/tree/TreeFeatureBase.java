@@ -12,6 +12,7 @@ import biomesoplenty.common.util.block.BlockUtil;
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import net.minecraft.block.*;
 import net.minecraft.state.IProperty;
+import net.minecraft.state.Property;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
@@ -20,11 +21,12 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.IWorldGenerationReader;
 import net.minecraft.world.gen.feature.AbstractTreeFeature;
 import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
+import net.minecraft.world.gen.feature.TreeFeature;
 
 import java.util.Random;
 import java.util.Set;
 
-public abstract class TreeFeatureBase extends AbstractTreeFeature<BaseTreeFeatureConfig>
+public abstract class TreeFeatureBase extends TreeFeature
 {
     protected static abstract class BuilderBase<T extends BuilderBase, F extends TreeFeatureBase>
     {
@@ -96,7 +98,7 @@ public abstract class TreeFeatureBase extends AbstractTreeFeature<BaseTreeFeatur
     protected final int minHeight;
     protected final int maxHeight;
 
-    protected IProperty logAxisProperty;
+    protected Property logAxisProperty;
 
     protected TreeFeatureBase(IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState altLeaves, BlockState vine, BlockState hanging, BlockState trunkFruit, int minHeight, int maxHeight)
     {
@@ -206,7 +208,7 @@ public abstract class TreeFeatureBase extends AbstractTreeFeature<BaseTreeFeatur
         }
         else
         {
-            this.setBlock(world, pos, state, boundingBox);
+            this.setBlock(world, pos, state);
             changedBlocks.add(pos.immutable());
             return true;
         }

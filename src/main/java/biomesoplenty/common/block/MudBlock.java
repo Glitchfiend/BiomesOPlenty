@@ -35,20 +35,15 @@ public class MudBlock extends Block
     {
         PlantType type = plantable.getPlantType(world, pos.relative(facing));
 
-        switch (type) {
-            case PlantType.DESERT: return false;
-            case PlantType.NETHER: return false;
-            case PlantType.CROP: return false;
-            case PlantType.CAVE: return false;
-            case PlantType.PLAINS: return false;
-            case PlantType.WATER: return false;
-            case PlantType.BEACH:
-                boolean hasWater = (world.getBlockState(pos.east()).getMaterial() == Material.WATER ||
-                        world.getBlockState(pos.west()).getMaterial() == Material.WATER ||
-                        world.getBlockState(pos.north()).getMaterial() == Material.WATER ||
-                        world.getBlockState(pos.south()).getMaterial() == Material.WATER);
-                return hasWater;
+        if (type == PlantType.BEACH)
+        {
+            boolean hasWater = (world.getBlockState(pos.east()).getMaterial() == Material.WATER ||
+                    world.getBlockState(pos.west()).getMaterial() == Material.WATER ||
+                    world.getBlockState(pos.north()).getMaterial() == Material.WATER ||
+                    world.getBlockState(pos.south()).getMaterial() == Material.WATER);
+            return hasWater;
         }
+
         return false;
     }
 }

@@ -84,11 +84,11 @@ public class ModBlocks
         fir_planks = registerBlock(new Block(Block.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_WHITE).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "fir_planks");
         fir_stairs = registerBlock(new StairsBlock(fir_planks.defaultBlockState(), Block.Properties.copy(fir_planks)), "fir_stairs");
         fir_slab = registerBlock(new SlabBlock(Block.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_WHITE).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "fir_slab");
-        fir_fence = registerBlock(new FenceBlock(Block.Properties.of(Material.WOOD, fir_planks.materialColor).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "fir_fence");
-        fir_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.of(Material.WOOD, fir_planks.materialColor).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "fir_fence_gate");
-        fir_door = registerBlock(new DoorBlock(Block.Properties.of(Material.WOOD, fir_planks.materialColor).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "fir_door");
+        fir_fence = registerBlock(new FenceBlock(Block.Properties.of(Material.WOOD, fir_planks.defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "fir_fence");
+        fir_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.of(Material.WOOD, fir_planks.defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "fir_fence_gate");
+        fir_door = registerBlock(new DoorBlock(Block.Properties.of(Material.WOOD, fir_planks.defaultMaterialColor()).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "fir_door");
         fir_trapdoor = registerBlock(new TrapDoorBlock(Block.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_WHITE).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "fir_trapdoor");
-        fir_pressure_plate = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.of(Material.WOOD, fir_planks.materialColor).noCollission().strength(0.5F).sound(SoundType.WOOD)), "fir_pressure_plate");
+        fir_pressure_plate = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.of(Material.WOOD, fir_planks.defaultMaterialColor()).noCollission().strength(0.5F).sound(SoundType.WOOD)), "fir_pressure_plate");
         fir_button = registerBlock(new WoodButtonBlock(Block.Properties.of(Material.DECORATION).noCollission().strength(0.5F).sound(SoundType.WOOD)), "fir_button");
         
         redwood_sapling = registerBlock(new SaplingBlockBOP(new RedwoodTree(), Block.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "redwood_sapling");
@@ -100,11 +100,11 @@ public class ModBlocks
         redwood_planks = registerBlock(new Block(Block.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_ORANGE).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "redwood_planks");
         redwood_stairs = registerBlock(new StairsBlock(redwood_planks.defaultBlockState(), Block.Properties.copy(redwood_planks)), "redwood_stairs");
         redwood_slab = registerBlock(new SlabBlock(Block.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_ORANGE).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "redwood_slab");
-        redwood_fence = registerBlock(new FenceBlock(Block.Properties.of(Material.WOOD, redwood_planks.materialColor).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "redwood_fence");
-        redwood_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.of(Material.WOOD, redwood_planks.materialColor).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "redwood_fence_gate");
-        redwood_door = registerBlock(new DoorBlock(Block.Properties.of(Material.WOOD, redwood_planks.materialColor).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "redwood_door");
+        redwood_fence = registerBlock(new FenceBlock(Block.Properties.of(Material.WOOD, redwood_planks.defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "redwood_fence");
+        redwood_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.of(Material.WOOD, redwood_planks.defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "redwood_fence_gate");
+        redwood_door = registerBlock(new DoorBlock(Block.Properties.of(Material.WOOD, redwood_planks.defaultMaterialColor()).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "redwood_door");
         redwood_trapdoor = registerBlock(new TrapDoorBlock(Block.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_ORANGE).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "redwood_trapdoor");
-        redwood_pressure_plate = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.of(Material.WOOD, redwood_planks.materialColor).noCollission().strength(0.5F).sound(SoundType.WOOD)), "redwood_pressure_plate");
+        redwood_pressure_plate = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.of(Material.WOOD, redwood_planks.defaultMaterialColor()).noCollission().strength(0.5F).sound(SoundType.WOOD)), "redwood_pressure_plate");
         redwood_button = registerBlock(new WoodButtonBlock(Block.Properties.of(Material.DECORATION).noCollission().strength(0.5F).sound(SoundType.WOOD)), "redwood_button");
         
         white_cherry_sapling = registerBlock(new SaplingBlockBOP(new WhiteCherryTree(), Block.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "white_cherry_sapling");
@@ -118,11 +118,11 @@ public class ModBlocks
         cherry_planks = registerBlock(new Block(Block.Properties.of(Material.WOOD, MaterialColor.COLOR_RED).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "cherry_planks");
         cherry_stairs = registerBlock(new StairsBlock(cherry_planks.defaultBlockState(), Block.Properties.copy(cherry_planks)), "cherry_stairs");
         cherry_slab = registerBlock(new SlabBlock(Block.Properties.of(Material.WOOD, MaterialColor.COLOR_RED).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "cherry_slab");
-        cherry_fence = registerBlock(new FenceBlock(Block.Properties.of(Material.WOOD, cherry_planks.materialColor).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "cherry_fence");
-        cherry_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.of(Material.WOOD, cherry_planks.materialColor).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "cherry_fence_gate");
-        cherry_door = registerBlock(new DoorBlock(Block.Properties.of(Material.WOOD, cherry_planks.materialColor).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "cherry_door");
+        cherry_fence = registerBlock(new FenceBlock(Block.Properties.of(Material.WOOD, cherry_planks.defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "cherry_fence");
+        cherry_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.of(Material.WOOD, cherry_planks.defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "cherry_fence_gate");
+        cherry_door = registerBlock(new DoorBlock(Block.Properties.of(Material.WOOD, cherry_planks.defaultMaterialColor()).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "cherry_door");
         cherry_trapdoor = registerBlock(new TrapDoorBlock(Block.Properties.of(Material.WOOD, MaterialColor.COLOR_RED).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "cherry_trapdoor");
-        cherry_pressure_plate = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.of(Material.WOOD, cherry_planks.materialColor).noCollission().strength(0.5F).sound(SoundType.WOOD)), "cherry_pressure_plate");
+        cherry_pressure_plate = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.of(Material.WOOD, cherry_planks.defaultMaterialColor()).noCollission().strength(0.5F).sound(SoundType.WOOD)), "cherry_pressure_plate");
         cherry_button = registerBlock(new WoodButtonBlock(Block.Properties.of(Material.DECORATION).noCollission().strength(0.5F).sound(SoundType.WOOD)), "cherry_button");
         
         mahogany_sapling = registerBlock(new SaplingBlockBOP(new MahoganyTree(), Block.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "mahogany_sapling");
@@ -134,11 +134,11 @@ public class ModBlocks
         mahogany_planks = registerBlock(new Block(Block.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_PINK).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "mahogany_planks");
         mahogany_stairs = registerBlock(new StairsBlock(mahogany_planks.defaultBlockState(), Block.Properties.copy(mahogany_planks)), "mahogany_stairs");
         mahogany_slab = registerBlock(new SlabBlock(Block.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_PINK).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "mahogany_slab");
-        mahogany_fence = registerBlock(new FenceBlock(Block.Properties.of(Material.WOOD, mahogany_planks.materialColor).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "mahogany_fence");
-        mahogany_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.of(Material.WOOD, mahogany_planks.materialColor).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "mahogany_fence_gate");
-        mahogany_door = registerBlock(new DoorBlock(Block.Properties.of(Material.WOOD, mahogany_planks.materialColor).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "mahogany_door");
+        mahogany_fence = registerBlock(new FenceBlock(Block.Properties.of(Material.WOOD, mahogany_planks.defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "mahogany_fence");
+        mahogany_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.of(Material.WOOD, mahogany_planks.defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "mahogany_fence_gate");
+        mahogany_door = registerBlock(new DoorBlock(Block.Properties.of(Material.WOOD, mahogany_planks.defaultMaterialColor()).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "mahogany_door");
         mahogany_trapdoor = registerBlock(new TrapDoorBlock(Block.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_PINK).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "mahogany_trapdoor");
-        mahogany_pressure_plate = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.of(Material.WOOD, mahogany_planks.materialColor).noCollission().strength(0.5F).sound(SoundType.WOOD)), "mahogany_pressure_plate");
+        mahogany_pressure_plate = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.of(Material.WOOD, mahogany_planks.defaultMaterialColor()).noCollission().strength(0.5F).sound(SoundType.WOOD)), "mahogany_pressure_plate");
         mahogany_button = registerBlock(new WoodButtonBlock(Block.Properties.of(Material.DECORATION).noCollission().strength(0.5F).sound(SoundType.WOOD)), "mahogany_button");
         
         jacaranda_sapling = registerBlock(new SaplingBlockBOP(new JacarandaTree(), Block.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "jacaranda_sapling");
@@ -150,11 +150,11 @@ public class ModBlocks
         jacaranda_planks = registerBlock(new Block(Block.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_WHITE).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "jacaranda_planks");
         jacaranda_stairs = registerBlock(new StairsBlock(jacaranda_planks.defaultBlockState(), Block.Properties.copy(jacaranda_planks)), "jacaranda_stairs");
         jacaranda_slab = registerBlock(new SlabBlock(Block.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_WHITE).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "jacaranda_slab");
-        jacaranda_fence = registerBlock(new FenceBlock(Block.Properties.of(Material.WOOD, jacaranda_planks.materialColor).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "jacaranda_fence");
-        jacaranda_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.of(Material.WOOD, jacaranda_planks.materialColor).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "jacaranda_fence_gate");
-        jacaranda_door = registerBlock(new DoorBlock(Block.Properties.of(Material.WOOD, jacaranda_planks.materialColor).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "jacaranda_door");
+        jacaranda_fence = registerBlock(new FenceBlock(Block.Properties.of(Material.WOOD, jacaranda_planks.defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "jacaranda_fence");
+        jacaranda_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.of(Material.WOOD, jacaranda_planks.defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "jacaranda_fence_gate");
+        jacaranda_door = registerBlock(new DoorBlock(Block.Properties.of(Material.WOOD, jacaranda_planks.defaultMaterialColor()).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "jacaranda_door");
         jacaranda_trapdoor = registerBlock(new TrapDoorBlock(Block.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_WHITE).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "jacaranda_trapdoor");
-        jacaranda_pressure_plate = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.of(Material.WOOD, jacaranda_planks.materialColor).noCollission().strength(0.5F).sound(SoundType.WOOD)), "jacaranda_pressure_plate");
+        jacaranda_pressure_plate = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.of(Material.WOOD, jacaranda_planks.defaultMaterialColor()).noCollission().strength(0.5F).sound(SoundType.WOOD)), "jacaranda_pressure_plate");
         jacaranda_button = registerBlock(new WoodButtonBlock(Block.Properties.of(Material.DECORATION).noCollission().strength(0.5F).sound(SoundType.WOOD)), "jacaranda_button");
         
         palm_sapling = registerBlock(new SaplingBlockBOP(new PalmTree(), Block.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "palm_sapling");
@@ -166,11 +166,11 @@ public class ModBlocks
         palm_planks = registerBlock(new Block(Block.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_YELLOW).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "palm_planks");
         palm_stairs = registerBlock(new StairsBlock(palm_planks.defaultBlockState(), Block.Properties.copy(palm_planks)), "palm_stairs");
         palm_slab = registerBlock(new SlabBlock(Block.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_YELLOW).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "palm_slab");
-        palm_fence = registerBlock(new FenceBlock(Block.Properties.of(Material.WOOD, palm_planks.materialColor).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "palm_fence");
-        palm_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.of(Material.WOOD, palm_planks.materialColor).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "palm_fence_gate");
-        palm_door = registerBlock(new DoorBlock(Block.Properties.of(Material.WOOD, palm_planks.materialColor).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "palm_door");
+        palm_fence = registerBlock(new FenceBlock(Block.Properties.of(Material.WOOD, palm_planks.defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "palm_fence");
+        palm_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.of(Material.WOOD, palm_planks.defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "palm_fence_gate");
+        palm_door = registerBlock(new DoorBlock(Block.Properties.of(Material.WOOD, palm_planks.defaultMaterialColor()).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "palm_door");
         palm_trapdoor = registerBlock(new TrapDoorBlock(Block.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_YELLOW).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "palm_trapdoor");
-        palm_pressure_plate = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.of(Material.WOOD, palm_planks.materialColor).noCollission().strength(0.5F).sound(SoundType.WOOD)), "palm_pressure_plate");
+        palm_pressure_plate = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.of(Material.WOOD, palm_planks.defaultMaterialColor()).noCollission().strength(0.5F).sound(SoundType.WOOD)), "palm_pressure_plate");
         palm_button = registerBlock(new WoodButtonBlock(Block.Properties.of(Material.DECORATION).noCollission().strength(0.5F).sound(SoundType.WOOD)), "palm_button");
         
         willow_sapling = registerBlock(new SaplingBlockBOP(new WillowTree(), Block.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "willow_sapling");
@@ -182,11 +182,11 @@ public class ModBlocks
         willow_planks = registerBlock(new Block(Block.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_LIGHT_GREEN).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "willow_planks");
         willow_stairs = registerBlock(new StairsBlock(willow_planks.defaultBlockState(), Block.Properties.copy(willow_planks)), "willow_stairs");
         willow_slab = registerBlock(new SlabBlock(Block.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_LIGHT_GREEN).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "willow_slab");
-        willow_fence = registerBlock(new FenceBlock(Block.Properties.of(Material.WOOD, willow_planks.materialColor).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "willow_fence");
-        willow_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.of(Material.WOOD, willow_planks.materialColor).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "willow_fence_gate");
-        willow_door = registerBlock(new DoorBlock(Block.Properties.of(Material.WOOD, willow_planks.materialColor).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "willow_door");
+        willow_fence = registerBlock(new FenceBlock(Block.Properties.of(Material.WOOD, willow_planks.defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "willow_fence");
+        willow_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.of(Material.WOOD, willow_planks.defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "willow_fence_gate");
+        willow_door = registerBlock(new DoorBlock(Block.Properties.of(Material.WOOD, willow_planks.defaultMaterialColor()).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "willow_door");
         willow_trapdoor = registerBlock(new TrapDoorBlock(Block.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_LIGHT_GREEN).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "willow_trapdoor");
-        willow_pressure_plate = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.of(Material.WOOD, willow_planks.materialColor).noCollission().strength(0.5F).sound(SoundType.WOOD)), "willow_pressure_plate");
+        willow_pressure_plate = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.of(Material.WOOD, willow_planks.defaultMaterialColor()).noCollission().strength(0.5F).sound(SoundType.WOOD)), "willow_pressure_plate");
         willow_button = registerBlock(new WoodButtonBlock(Block.Properties.of(Material.DECORATION).noCollission().strength(0.5F).sound(SoundType.WOOD)), "willow_button");
         
         dead_sapling = registerBlock(new SaplingBlockBOP(new DeadTree(), Block.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "dead_sapling");
@@ -198,11 +198,11 @@ public class ModBlocks
         dead_planks = registerBlock(new Block(Block.Properties.of(Material.WOOD, MaterialColor.STONE).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "dead_planks");
         dead_stairs = registerBlock(new StairsBlock(dead_planks.defaultBlockState(), Block.Properties.copy(dead_planks)), "dead_stairs");
         dead_slab = registerBlock(new SlabBlock(Block.Properties.of(Material.WOOD, MaterialColor.STONE).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "dead_slab");
-        dead_fence = registerBlock(new FenceBlock(Block.Properties.of(Material.WOOD, dead_planks.materialColor).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "dead_fence");
-        dead_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.of(Material.WOOD, dead_planks.materialColor).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "dead_fence_gate");
-        dead_door = registerBlock(new DoorBlock(Block.Properties.of(Material.WOOD, dead_planks.materialColor).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "dead_door");
+        dead_fence = registerBlock(new FenceBlock(Block.Properties.of(Material.WOOD, dead_planks.defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "dead_fence");
+        dead_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.of(Material.WOOD, dead_planks.defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "dead_fence_gate");
+        dead_door = registerBlock(new DoorBlock(Block.Properties.of(Material.WOOD, dead_planks.defaultMaterialColor()).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "dead_door");
         dead_trapdoor = registerBlock(new TrapDoorBlock(Block.Properties.of(Material.WOOD, MaterialColor.STONE).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "dead_trapdoor");
-        dead_pressure_plate = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.of(Material.WOOD, dead_planks.materialColor).noCollission().strength(0.5F).sound(SoundType.WOOD)), "dead_pressure_plate");
+        dead_pressure_plate = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.of(Material.WOOD, dead_planks.defaultMaterialColor()).noCollission().strength(0.5F).sound(SoundType.WOOD)), "dead_pressure_plate");
         dead_button = registerBlock(new WoodButtonBlock(Block.Properties.of(Material.DECORATION).noCollission().strength(0.5F).sound(SoundType.WOOD)), "dead_button");
         
         magic_sapling = registerBlock(new SaplingBlockBOP(new MagicTree(), Block.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "magic_sapling");
@@ -214,11 +214,11 @@ public class ModBlocks
         magic_planks = registerBlock(new Block(Block.Properties.of(Material.WOOD, MaterialColor.COLOR_BLUE).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "magic_planks");
         magic_stairs = registerBlock(new StairsBlock(magic_planks.defaultBlockState(), Block.Properties.copy(magic_planks)), "magic_stairs");
         magic_slab = registerBlock(new SlabBlock(Block.Properties.of(Material.WOOD, MaterialColor.COLOR_BLUE).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "magic_slab");
-        magic_fence = registerBlock(new FenceBlock(Block.Properties.of(Material.WOOD, magic_planks.materialColor).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "magic_fence");
-        magic_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.of(Material.WOOD, magic_planks.materialColor).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "magic_fence_gate");
-        magic_door = registerBlock(new DoorBlock(Block.Properties.of(Material.WOOD, magic_planks.materialColor).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "magic_door");
+        magic_fence = registerBlock(new FenceBlock(Block.Properties.of(Material.WOOD, magic_planks.defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "magic_fence");
+        magic_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.of(Material.WOOD, magic_planks.defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "magic_fence_gate");
+        magic_door = registerBlock(new DoorBlock(Block.Properties.of(Material.WOOD, magic_planks.defaultMaterialColor()).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "magic_door");
         magic_trapdoor = registerBlock(new TrapDoorBlock(Block.Properties.of(Material.WOOD, MaterialColor.COLOR_BLUE).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "magic_trapdoor");
-        magic_pressure_plate = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.of(Material.WOOD, magic_planks.materialColor).noCollission().strength(0.5F).sound(SoundType.WOOD)), "magic_pressure_plate");
+        magic_pressure_plate = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.of(Material.WOOD, magic_planks.defaultMaterialColor()).noCollission().strength(0.5F).sound(SoundType.WOOD)), "magic_pressure_plate");
         magic_button = registerBlock(new WoodButtonBlock(Block.Properties.of(Material.DECORATION).noCollission().strength(0.5F).sound(SoundType.WOOD)), "magic_button");
         
         umbran_sapling = registerBlock(new SaplingBlockBOP(new UmbranTree(), Block.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "umbran_sapling");
@@ -230,11 +230,11 @@ public class ModBlocks
         umbran_planks = registerBlock(new Block(Block.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_BLUE).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "umbran_planks");
         umbran_stairs = registerBlock(new StairsBlock(umbran_planks.defaultBlockState(), Block.Properties.copy(umbran_planks)), "umbran_stairs");
         umbran_slab = registerBlock(new SlabBlock(Block.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_BLUE).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "umbran_slab");
-        umbran_fence = registerBlock(new FenceBlock(Block.Properties.of(Material.WOOD, umbran_planks.materialColor).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "umbran_fence");
-        umbran_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.of(Material.WOOD, umbran_planks.materialColor).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "umbran_fence_gate");
-        umbran_door = registerBlock(new DoorBlock(Block.Properties.of(Material.WOOD, umbran_planks.materialColor).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "umbran_door");
+        umbran_fence = registerBlock(new FenceBlock(Block.Properties.of(Material.WOOD, umbran_planks.defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "umbran_fence");
+        umbran_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.of(Material.WOOD, umbran_planks.defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "umbran_fence_gate");
+        umbran_door = registerBlock(new DoorBlock(Block.Properties.of(Material.WOOD, umbran_planks.defaultMaterialColor()).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "umbran_door");
         umbran_trapdoor = registerBlock(new TrapDoorBlock(Block.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_BLUE).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "umbran_trapdoor");
-        umbran_pressure_plate = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.of(Material.WOOD, umbran_planks.materialColor).noCollission().strength(0.5F).sound(SoundType.WOOD)), "umbran_pressure_plate");
+        umbran_pressure_plate = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, AbstractBlock.Properties.of(Material.WOOD, umbran_planks.defaultMaterialColor()).noCollission().strength(0.5F).sound(SoundType.WOOD)), "umbran_pressure_plate");
         umbran_button = registerBlock(new WoodButtonBlock(Block.Properties.of(Material.DECORATION).noCollission().strength(0.5F).sound(SoundType.WOOD)), "umbran_button");
         
         hellbark_sapling = registerBlock(new SaplingBlockBOP(new HellbarkTree(), Block.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "hellbark_sapling");
@@ -246,11 +246,11 @@ public class ModBlocks
         hellbark_planks = registerBlock(new Block(Block.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_GRAY).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "hellbark_planks");
         hellbark_stairs = registerBlock(new StairsBlock(hellbark_planks.defaultBlockState(), Block.Properties.copy(hellbark_planks)), "hellbark_stairs");
         hellbark_slab = registerBlock(new SlabBlock(Block.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_GRAY).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "hellbark_slab");
-        hellbark_fence = registerBlock(new FenceBlock(Block.Properties.of(Material.WOOD, hellbark_planks.materialColor).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "hellbark_fence");
-        hellbark_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.of(Material.WOOD, hellbark_planks.materialColor).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "hellbark_fence_gate");
-        hellbark_door = registerBlock(new DoorBlock(Block.Properties.of(Material.WOOD, hellbark_planks.materialColor).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "hellbark_door");
+        hellbark_fence = registerBlock(new FenceBlock(Block.Properties.of(Material.WOOD, hellbark_planks.defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "hellbark_fence");
+        hellbark_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.of(Material.WOOD, hellbark_planks.defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "hellbark_fence_gate");
+        hellbark_door = registerBlock(new DoorBlock(Block.Properties.of(Material.WOOD, hellbark_planks.defaultMaterialColor()).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "hellbark_door");
         hellbark_trapdoor = registerBlock(new TrapDoorBlock(Block.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_GRAY).strength(3.0F).sound(SoundType.WOOD).noOcclusion()), "hellbark_trapdoor");
-        hellbark_pressure_plate = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.of(Material.WOOD, hellbark_planks.materialColor).noCollission().strength(0.5F).sound(SoundType.WOOD)), "hellbark_pressure_plate");
+        hellbark_pressure_plate = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.of(Material.WOOD, hellbark_planks.defaultMaterialColor()).noCollission().strength(0.5F).sound(SoundType.WOOD)), "hellbark_pressure_plate");
         hellbark_button = registerBlock(new WoodButtonBlock(Block.Properties.of(Material.DECORATION).noCollission().strength(0.5F).sound(SoundType.WOOD)), "hellbark_button");
 
         //Flowers

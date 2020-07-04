@@ -7,23 +7,16 @@
  ******************************************************************************/
 package biomesoplenty.init;
 
-import biomesoplenty.api.entity.BOPEntities;
-import biomesoplenty.common.entity.item.BoatEntityBOP;
-import biomesoplenty.common.entity.item.BoatRendererBOP;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.item.BoatEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
-
-import static biomesoplenty.core.BiomesOPlenty.MOD_ID;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModEntities
@@ -31,9 +24,9 @@ public class ModEntities
     @SubscribeEvent
     public static void registerEntities(RegistryEvent.Register<EntityType<?>> event)
     {
-        BOPEntities.boat_bop = EntityType.Builder.<BoatEntityBOP>of(BoatEntityBOP::new, EntityClassification.MISC).setTrackingRange(80).setUpdateInterval(3).setShouldReceiveVelocityUpdates(true).sized(1.375f, 0.5625f).setCustomClientFactory(BoatEntityBOP::new).build(MOD_ID + ":boat_bop");
-        BOPEntities.boat_bop.setRegistryName("boat_bop");
-        ForgeRegistries.ENTITIES.register(BOPEntities.boat_bop);
+//        BOPEntities.boat_bop = EntityType.Builder.<BoatEntityBOP>of(BoatEntityBOP::new, EntityClassification.MISC).setTrackingRange(80).setUpdateInterval(3).setShouldReceiveVelocityUpdates(true).sized(1.375f, 0.5625f).setCustomClientFactory(BoatEntityBOP::new).build(MOD_ID + ":boat_bop");
+//        BOPEntities.boat_bop.setRegistryName("boat_bop");
+//        ForgeRegistries.ENTITIES.register(BOPEntities.boat_bop);
     }
 
     public static <T extends Entity> EntityType<T> createEntity(EntityType.IFactory<T> factory, EntityClassification classification, String name, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates)
@@ -48,6 +41,6 @@ public class ModEntities
     @OnlyIn(Dist.CLIENT)
     public static void registerRendering()
     {
-        RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends BoatEntityBOP>)BOPEntities.boat_bop, BoatRendererBOP::new);
+//        RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends BoatEntityBOP>)BOPEntities.boat_bop, BoatRendererBOP::new);
     }
 }

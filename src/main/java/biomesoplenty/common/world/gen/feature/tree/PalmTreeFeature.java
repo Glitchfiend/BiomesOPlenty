@@ -67,7 +67,7 @@ public class PalmTreeFeature extends TreeFeatureBase
         int leavesRadius = 2;
         int heightMinusTop = height - leavesRadius - 1;
         boolean slant = false;
-        Direction direction = Direction.getRandomFace(random); //The direction the palm tree curves towards
+        Direction direction = Direction.getRandom(random); //The direction the palm tree curves towards
         if (direction == Direction.DOWN || direction == Direction.UP)
         {
         	slant = false;

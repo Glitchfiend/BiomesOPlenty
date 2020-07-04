@@ -25,15 +25,8 @@ public class DriedSaltBlock extends Block
     public boolean canSustainPlant(BlockState state, IBlockReader world, BlockPos pos, Direction facing, net.minecraftforge.common.IPlantable plantable) {
         PlantType type = plantable.getPlantType(world, pos.relative(facing));
 
-        switch (type) {
-            case PlantType.DESERT: return true;
-            case PlantType.NETHER: return false;
-            case PlantType.CROP: return false;
-            case PlantType.CAVE: return true;
-            case PlantType.PLAINS: return false;
-            case PlantType.WATER: return false;
-            case PlantType.BEACH: return false;
-        }
+        if (type == PlantType.DESERT) return true;
+        else if (type == PlantType.CAVE) return true;
         return false;
     }
 }

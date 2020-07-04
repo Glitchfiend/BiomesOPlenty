@@ -8,9 +8,8 @@
 package biomesoplenty.common.world;
 
 import biomesoplenty.init.ModConfig;
-import net.minecraft.world.gen.OverworldGenSettings;
 
-public class BOPOverworldGenSettings extends OverworldGenSettings
+public class BOPOverworldGenSettings
 {
     public enum LandMassScheme
     {
@@ -78,13 +77,10 @@ public class BOPOverworldGenSettings extends OverworldGenSettings
         }
     }
 
-    @Override
     public int getBiomeSize()
     {
         return ModConfig.GenerationConfig.biomeSize.get().value;
     }
-
-    @Override
     public int getRiverSize()
     {
         return ModConfig.GenerationConfig.riverSize.get().value;

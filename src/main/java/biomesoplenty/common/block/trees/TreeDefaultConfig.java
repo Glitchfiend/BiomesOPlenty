@@ -15,6 +15,7 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.server.ServerWorld;
 
 import javax.annotation.Nullable;
 import java.util.Random;
@@ -23,7 +24,7 @@ public abstract class TreeDefaultConfig extends Tree
 {
     @Override
     @Nullable
-    protected ConfiguredFeature<TreeFeatureConfig, ?> getConfiguredFeature(Random random, boolean hasFlowers)
+    protected ConfiguredFeature<BaseTreeFeatureConfig, ?> getConfiguredFeature(Random random, boolean hasFlowers)
     {
         return null;
     }
@@ -31,7 +32,7 @@ public abstract class TreeDefaultConfig extends Tree
     protected abstract Feature<? extends BaseTreeFeatureConfig> getFeature(Random random);
 
     @Override
-    public boolean growTree(IWorld world, ChunkGenerator<?> generator, BlockPos pos, BlockState state, Random random)
+    public boolean growTree(ServerWorld world, ChunkGenerator generator, BlockPos pos, BlockState state, Random random)
     {
         Feature<BaseTreeFeatureConfig> feature = (Feature<BaseTreeFeatureConfig>)this.getFeature(random);
         if (feature == null)
@@ -41,7 +42,7 @@ public abstract class TreeDefaultConfig extends Tree
         else
         {
             world.setBlock(pos, Blocks.AIR.defaultBlockState(), 4);
-            if (feature.place(world, generator, random, pos, DefaultBiomeFeatures.NORMAL_TREE_CONFIG))
+            if (feature.place(world, world.structureFeatureManager(), generator, random, pos, DefaultBiomeFeatures.NORMAL_TREE_CONFIG))
             {
                 return true;
             }

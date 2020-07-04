@@ -332,7 +332,7 @@ public class BigTreeFeature extends TreeFeatureBase
         if (height == -1) {
             return false;
         } else {
-            this.setDirtAt(world, pos.below(), pos);
+            this.setBlock(world, pos.below(), Blocks.DIRT.defaultBlockState());
             int trunkHeight = (int)((double)height * this.trunkHeightScale);
 
             if (trunkHeight >= height) {

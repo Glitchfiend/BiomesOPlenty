@@ -12,7 +12,6 @@ import biomesoplenty.common.biome.BiomeBOP;
 import biomesoplenty.common.biome.BiomeRegistry;
 import biomesoplenty.common.biome.nether.*;
 import biomesoplenty.common.biome.overworld.*;
-import biomesoplenty.common.world.WorldTypeBOP;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;

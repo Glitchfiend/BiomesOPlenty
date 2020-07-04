@@ -67,8 +67,9 @@ public class DoubleWaterPlantBlock extends DoublePlantBlock implements IWaterLog
         if (state.getValue(HALF) != DoubleBlockHalf.UPPER)
         {
             BlockPos posBelow = pos.below();
-            Block existingBlock = worldIn.getBlockState(pos).getBlock();
-            return (existingBlock == this || existingBlock.getMaterial(state) == Material.WATER) && this.isExposed(worldIn, pos.above()) && worldIn.getBlockState(posBelow).isFaceSturdy(worldIn, posBelow, Direction.UP);
+            BlockState existingState = worldIn.getBlockState(pos);
+            Block existingBlock = existingState.getBlock();
+            return (existingBlock == this || existingState.getMaterial() == Material.WATER) && this.isExposed(worldIn, pos.above()) && worldIn.getBlockState(posBelow).isFaceSturdy(worldIn, posBelow, Direction.UP);
         }
         else
         {

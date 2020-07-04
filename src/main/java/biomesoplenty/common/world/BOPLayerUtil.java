@@ -10,7 +10,6 @@ package biomesoplenty.common.world;
 import biomesoplenty.common.world.layer.*;
 import biomesoplenty.common.world.layer.traits.LazyAreaLayerContextBOP;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.IExtendedNoiseRandom;
 import net.minecraft.world.gen.area.IArea;
@@ -108,7 +107,7 @@ public class BOPLayerUtil
         return biomeFactory;
     }
 
-    public static <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> createAreaFactories(WorldType worldType, BOPOverworldGenSettings settings, LongFunction<C> contextFactory)
+    public static <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> createAreaFactories(BOPOverworldGenSettings settings, LongFunction<C> contextFactory)
     {
         // Create the initial land and sea layer. Is also responsible for adding deep oceans
         // and mushroom islands
@@ -125,8 +124,6 @@ public class BOPLayerUtil
             biomeSize = settings.getBiomeSize();
             riverSize = settings.getRiverSize();
         }
-
-        biomeSize = LayerUtil.getModdedBiomeSize(worldType, biomeSize);
 
         // Create the climates
         IAreaFactory<T> climateFactory = createClimateFactory(contextFactory, settings);
@@ -170,9 +167,9 @@ public class BOPLayerUtil
         return biomesFactory;
     }
 
-    public static Layer createGenLayers(long seed, WorldType worldType, BOPOverworldGenSettings settings)
+    public static Layer createGenLayers(long seed, BOPOverworldGenSettings settings)
     {
-        IAreaFactory<LazyArea> factory = createAreaFactories(worldType, settings, (seedModifier) ->
+        IAreaFactory<LazyArea> factory = createAreaFactories(settings, (seedModifier) ->
         {
             return new LazyAreaLayerContextBOP(1, seed, seedModifier);
         });

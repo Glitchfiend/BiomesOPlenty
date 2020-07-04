@@ -7,13 +7,11 @@
  ******************************************************************************/
 package biomesoplenty.common.world;
 
+import biomesoplenty.common.world.layer.BOPShoreLayer;
 import biomesoplenty.common.world.layer.LandLayer;
 import biomesoplenty.common.world.layer.NetherBiomeLayer;
-import biomesoplenty.common.world.layer.BOPShoreLayer;
 import biomesoplenty.common.world.layer.traits.LazyAreaLayerContextBOP;
-import net.minecraft.world.WorldType;
 import net.minecraft.world.gen.IExtendedNoiseRandom;
-import net.minecraft.world.gen.OverworldGenSettings;
 import net.minecraft.world.gen.area.IArea;
 import net.minecraft.world.gen.area.IAreaFactory;
 import net.minecraft.world.gen.area.LazyArea;
@@ -31,7 +29,7 @@ public class BOPNetherLayerUtil
         return biomeFactory;
     }
 
-    public static <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> createAreaFactories(WorldType worldType, OverworldGenSettings settings, LongFunction<C> contextFactory)
+    public static <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> createAreaFactories(LongFunction<C> contextFactory)
     {
         int biomeSize = 3;
 
@@ -53,9 +51,9 @@ public class BOPNetherLayerUtil
         return biomesFactory;
     }
 
-    public static Layer createGenLayers(long seed, WorldType worldType, OverworldGenSettings settings)
+    public static Layer createGenLayers(long seed)
     {
-        IAreaFactory<LazyArea> factory = createAreaFactories(worldType, settings, (seedModifier) ->
+        IAreaFactory<LazyArea> factory = createAreaFactories((seedModifier) ->
         {
             return new LazyAreaLayerContextBOP(1, seed, seedModifier);
         });

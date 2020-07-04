@@ -15,6 +15,7 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.server.ServerWorld;
 
 import javax.annotation.Nullable;
 import java.util.Random;
@@ -23,14 +24,14 @@ public abstract class BigTreeDefaultConfig extends BigTree
 {
     @Override
     @Nullable
-    protected ConfiguredFeature<TreeFeatureConfig, ?> getConfiguredFeature(Random random, boolean hasFlowers)
+    protected ConfiguredFeature<BaseTreeFeatureConfig, ?> getConfiguredFeature(Random random, boolean hasFlowers)
     {
         return null;
     }
 
     @Override
     @Nullable
-    protected ConfiguredFeature<HugeTreeFeatureConfig, ?> getConfiguredMegaFeature(Random random)
+    protected ConfiguredFeature<BaseTreeFeatureConfig, ?> getConfiguredMegaFeature(Random random)
     {
         return null;
     }
@@ -39,7 +40,7 @@ public abstract class BigTreeDefaultConfig extends BigTree
     protected abstract Feature<? extends BaseTreeFeatureConfig> getBigFeature(Random random);
 
     @Override
-    public boolean growTree(IWorld world, ChunkGenerator<?> generator, BlockPos pos, BlockState state, Random random)
+    public boolean growTree(ServerWorld world, ChunkGenerator generator, BlockPos pos, BlockState state, Random random)
     {
         for (int i = 0; i >= -1; --i)
         {
@@ -61,7 +62,7 @@ public abstract class BigTreeDefaultConfig extends BigTree
         else
         {
             world.setBlock(pos, Blocks.AIR.defaultBlockState(), 4);
-            if (feature.place(world, generator, random, pos, DefaultBiomeFeatures.NORMAL_TREE_CONFIG))
+            if (feature.place(world, world.structureFeatureManager(), generator, random, pos, DefaultBiomeFeatures.NORMAL_TREE_CONFIG))
             {
                 return true;
             }
@@ -74,7 +75,7 @@ public abstract class BigTreeDefaultConfig extends BigTree
     }
 
     @Override
-    public boolean placeMega(IWorld world, ChunkGenerator<?> generator, BlockPos pos, BlockState state, Random random, int x, int z)
+    public boolean placeMega(ServerWorld world, ChunkGenerator generator, BlockPos pos, BlockState state, Random random, int x, int z)
     {
         Feature<BaseTreeFeatureConfig> feature = (Feature<BaseTreeFeatureConfig>)this.getBigFeature(random);
         if (feature == null)
@@ -88,7 +89,7 @@ public abstract class BigTreeDefaultConfig extends BigTree
             world.setBlock(pos.offset(x + 1, 0, z), blockstate, 4);
             world.setBlock(pos.offset(x, 0, z + 1), blockstate, 4);
             world.setBlock(pos.offset(x + 1, 0, z + 1), blockstate, 4);
-            if (feature.place(world, generator, random, pos.offset(x, 0, z), DefaultBiomeFeatures.NORMAL_TREE_CONFIG))
+            if (feature.place(world, world.structureFeatureManager(), generator, random, pos.offset(x, 0, z), DefaultBiomeFeatures.NORMAL_TREE_CONFIG))
             {
                 return true;
             }

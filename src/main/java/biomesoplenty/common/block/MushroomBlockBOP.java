@@ -43,9 +43,9 @@ public class MushroomBlockBOP extends MushroomBlock implements IGrowable
     }
 
     @Override
-    public boolean growMushroom(ServerWorld p_226940_1_, BlockPos p_226940_2_, BlockState p_226940_3_, Random p_226940_4_)
+    public boolean growMushroom(ServerWorld world, BlockPos p_226940_2_, BlockState p_226940_3_, Random p_226940_4_)
     {
-        p_226940_1_.removeBlock(p_226940_2_, false);
+        world.removeBlock(p_226940_2_, false);
         ConfiguredFeature<NoFeatureConfig, ?> configuredfeature;
         if (this == BOPBlocks.glowshroom)
         {
@@ -55,20 +55,20 @@ public class MushroomBlockBOP extends MushroomBlock implements IGrowable
         {
             if (this != BOPBlocks.toadstool)
             {
-                p_226940_1_.setBlock(p_226940_2_, p_226940_3_, 3);
+                world.setBlock(p_226940_2_, p_226940_3_, 3);
                 return false;
             }
 
             configuredfeature = BOPBiomeFeatures.HUGE_TOADSTOOL.configured(IFeatureConfig.NONE);
         }
 
-        if (configuredfeature.place(p_226940_1_, p_226940_1_.getChunkSource().getGenerator(), p_226940_4_, p_226940_2_))
+        if (configuredfeature.place(world, world.structureFeatureManager(), world.getChunkSource().getGenerator(), p_226940_4_, p_226940_2_))
         {
             return true;
         }
         else
         {
-            p_226940_1_.setBlock(p_226940_2_, p_226940_3_, 3);
+            world.setBlock(p_226940_2_, p_226940_3_, 3);
             return false;
         }
     }
