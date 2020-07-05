@@ -8,15 +8,12 @@
 
 package biomesoplenty.core;
 
-import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.init.*;
-import net.minecraft.server.dedicated.ServerProperties;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLDedicatedServerSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -40,7 +37,6 @@ public class BiomesOPlenty
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
-        MinecraftForge.EVENT_BUS.addListener(this::serverStarting);
 
         ModBiomes.setup();
         ModConfig.setup();
@@ -61,11 +57,5 @@ public class BiomesOPlenty
         proxy.init();
         //GenLayerVisualizer.run();
         ModCompatibility.setup();
-    }
-
-    public void serverStarting(FMLServerStartingEvent evt)
-    {
-        logger.info("Registering BoP commands...");
-        new BOPCommand(evt.getCommandDispatcher());
     }
 }
