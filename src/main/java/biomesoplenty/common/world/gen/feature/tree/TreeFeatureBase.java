@@ -119,7 +119,6 @@ public abstract class TreeFeatureBase extends TreeFeature
     {
         if (this.replace.matches(world, pos))
         {
-            this.setBlock(world, pos, this.leaves);
             this.placeBlock(world, pos, this.leaves, changedBlocks, boundingBox);
             return true;
         }
@@ -177,11 +176,11 @@ public abstract class TreeFeatureBase extends TreeFeature
         return false;
     }
 
-    public boolean setAltLeaves(IWorld world, BlockPos pos)
+    public boolean setAltLeaves(IWorld world, BlockPos pos, Set<BlockPos> changedBlocks, MutableBoundingBox boundingBox)
     {
         if (this.replace.matches(world, pos))
         {
-            this.setBlock(world, pos, this.altLeaves);
+            this.placeBlock(world, pos, this.altLeaves, changedBlocks, boundingBox);
             return true;
         }
         return false;

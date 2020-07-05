@@ -181,7 +181,7 @@ public class BasicTreeFeature extends TreeFeatureBase
                                         {
                                             if (random.nextInt(4) == 0)
                                             {
-                                                this.setAltLeaves(world, leavesPos);
+                                                this.setAltLeaves(world, leavesPos, changedLeaves, boundingBox);
                                             }
                                             else
                                             {

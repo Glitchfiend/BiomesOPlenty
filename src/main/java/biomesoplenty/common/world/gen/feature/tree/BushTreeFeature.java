@@ -89,7 +89,7 @@ public class BushTreeFeature extends TreeFeatureBase
                         {
                             if (random.nextInt(4) == 0)
                             {
-                                this.setAltLeaves(world, pos.offset(x, y, z));
+                                this.setAltLeaves(world, pos.offset(x, y, z), changedLeaves, boundingBox);
                             }
                             else
                             {

@@ -127,7 +127,6 @@ public class ModFeatures
         registerFeatures(BOPBiomeFeatures.NETHER_VINES, "nether_vines");
         registerFeatures(BOPBiomeFeatures.FLESH_SPLATTER, "flesh_splatter");
         registerFeatures(BOPBiomeFeatures.BONE_SPINE, "bone_spine");
-        registerFeatures(BOPBiomeFeatures.ASH_SPLATTER, "ash_splatter");
         registerFeatures(BOPBiomeFeatures.PODZOL_SPLATTER, "podzol_splatter");
         registerFeatures(BOPBiomeFeatures.MYCELIUM_SPLATTER, "mycelium_splatter");
         registerFeatures(BOPBiomeFeatures.SMALL_RED_MUSHROOM, "small_red_mushroom");

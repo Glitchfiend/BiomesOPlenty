@@ -30,8 +30,9 @@ public class BOPBlocks
     public static Block mud_brick_wall;
     
     public static Block dried_salt;
-    public static Block ash_block;
     public static Block flesh;
+    public static Block nether_crystal_block;
+    public static Block nether_crystal;
 
     public static Block toadstool_block;
     public static Block glowshroom_block;

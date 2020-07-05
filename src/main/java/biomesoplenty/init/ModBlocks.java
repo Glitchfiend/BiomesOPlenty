@@ -55,8 +55,10 @@ public class ModBlocks
         mud_brick_wall = registerBlock(new WallBlock(Block.Properties.copy(mud_bricks)),"mud_brick_wall");
 
         dried_salt = registerBlock(new DriedSaltBlock(AbstractBlock.Properties.of(Material.STONE, MaterialColor.WOOD).strength(1.0F).harvestLevel(0).harvestTool(ToolType.PICKAXE).sound(new SoundType(1.0F, 0.5F, SoundEvents.GRAVEL_BREAK, SoundEvents.GRAVEL_STEP, SoundEvents.GRAVEL_PLACE, SoundEvents.GRAVEL_HIT, SoundEvents.GRAVEL_FALL))), "dried_salt");
-        ash_block = registerBlock(new AshBlock(AbstractBlock.Properties.of(Material.SAND, MaterialColor.TERRACOTTA_BLACK).strength(0.4F).harvestLevel(0).harvestTool(ToolType.SHOVEL).sound(SoundType.SAND)), "ash_block");
         flesh = registerBlock(new FleshBlock(AbstractBlock.Properties.of(Material.SPONGE, MaterialColor.TERRACOTTA_RED).strength(0.4F).harvestLevel(0).harvestTool(ToolType.AXE).sound(new SoundType(1.0F, 0.5F, SoundEvents.CORAL_BLOCK_BREAK, SoundEvents.CORAL_BLOCK_STEP, SoundEvents.CORAL_BLOCK_PLACE, SoundEvents.CORAL_BLOCK_HIT, SoundEvents.CORAL_BLOCK_FALL))), "flesh");
+
+        nether_crystal_block = registerBlock(new Block(AbstractBlock.Properties.of(Material.GLASS, MaterialColor.CRIMSON_STEM).strength(0.4F).harvestLevel(0).harvestTool(ToolType.PICKAXE).sound(new SoundType(1.0F, 0.75F, SoundEvents.GLASS_BREAK, SoundEvents.GLASS_STEP, SoundEvents.GLASS_PLACE, SoundEvents.GLASS_HIT, SoundEvents.GLASS_FALL)).lightLevel((state) -> 10)), "nether_crystal_block");
+        nether_crystal = registerBlock(new NetherCrystalBlock(AbstractBlock.Properties.of(Material.GLASS, MaterialColor.CRIMSON_STEM).noCollission().strength(0.3F).harvestLevel(0).harvestTool(ToolType.PICKAXE).sound(new SoundType(1.0F, 0.75F, SoundEvents.GLASS_BREAK, SoundEvents.GLASS_STEP, SoundEvents.GLASS_PLACE, SoundEvents.GLASS_HIT, SoundEvents.GLASS_FALL)).lightLevel((state) -> 10)), "nether_crystal");
 
         toadstool_block = registerBlock(new HugeMushroomBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_ORANGE).strength(0.2F).sound(SoundType.WOOD)), "toadstool_block");
         glowshroom_block = registerBlock(new HugeMushroomBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.DIAMOND).strength(0.2F).sound(SoundType.WOOD).lightLevel((state) -> 10)), "glowshroom_block");
@@ -351,6 +353,7 @@ public class ModBlocks
             RenderTypeLookup.setRenderLayer(umbran_leaves, transparentRenderType);
             RenderTypeLookup.setRenderLayer(hellbark_leaves, transparentRenderType);
 
+            RenderTypeLookup.setRenderLayer(nether_crystal, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(origin_sapling, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(flowering_oak_sapling, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(rainbow_birch_sapling, cutoutRenderType);
