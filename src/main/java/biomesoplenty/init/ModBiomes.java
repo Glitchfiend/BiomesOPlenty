@@ -124,6 +124,8 @@ public class ModBiomes
         registerBiome(new XericShrublandBiome(), "xeric_shrubland");
 
         //Nether Biomes
+        registerBiome(new CrystallineChasmBiome(), "crystalline_chasm");
+        registerBiome(new ShadowlandsBiome(), "shadowlands");
         registerBiome(new UndergardenBiome(), "undergarden");
         registerBiome(new VisceralHeapBiome(), "visceral_heap");
 
@@ -180,7 +182,11 @@ public class ModBiomes
         registerVanillaBiome(Biomes.BADLANDS_PLATEAU, BOPClimates.HOT_DESERT, 10);
         registerVanillaBiome(Biomes.WOODED_BADLANDS_PLATEAU, BOPClimates.HOT_DESERT, 3);
 
+        registerVanillaBiome(Biomes.BASALT_DELTAS, BOPClimates.NETHER, 10);
+        registerVanillaBiome(Biomes.CRIMSON_FOREST, BOPClimates.NETHER, 10);
         registerVanillaBiome(Biomes.NETHER_WASTES, BOPClimates.NETHER, 10);
+        registerVanillaBiome(Biomes.SOUL_SAND_VALLEY, BOPClimates.NETHER, 10);
+        registerVanillaBiome(Biomes.WARPED_FOREST, BOPClimates.NETHER, 10);
 
         BiomeRegistry.configureVanillaBiomes();
         BiomeRegistry.finalizeRegistrations(BiomeRegistry.RegistrationType.VANILLA_BIOME);
@@ -260,6 +266,8 @@ public class ModBiomes
         registerBiomeToDictionary(xeric_shrubland, Type.OVERWORLD, Type.SANDY, Type.SAVANNA, Type.LUSH, Type.HOT, Type.DRY, Type.SPARSE);
 
         //Nether Biomes
+        registerBiomeToDictionary(crystalline_chasm, Type.NETHER, Type.HOT);
+        registerBiomeToDictionary(shadowlands, Type.NETHER, Type.HOT);
         registerBiomeToDictionary(undergarden, Type.NETHER, Type.HOT);
         registerBiomeToDictionary(visceral_heap, Type.NETHER, Type.HOT);
     }

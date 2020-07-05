@@ -32,10 +32,8 @@ public class NetherCrystalBlock extends HorizontalFaceBlock
 {
     protected static final VoxelShape FLOOR_AABB = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
     protected static final VoxelShape CEILING_AABB = Block.box(2.0D, 3.0D, 2.0D, 14.0D, 16.0D, 14.0D);
-
     protected static final VoxelShape NORTH_AABB = Block.box(2.0D, 2.0D, 3.0D, 14.0D, 14.0D, 16.0D);
     protected static final VoxelShape SOUTH_AABB = Block.box(2.0D, 2.0D, 0.0D, 14.0D, 14.0D, 13.0D);
-
     protected static final VoxelShape EAST_AABB = Block.box(0.0D, 2.0D, 2.0D, 13.0D, 14.0D, 14.0D);
     protected static final VoxelShape WEST_AABB = Block.box(3.0D, 2.0D, 2.0D, 16.0D, 14.0D, 14.0D);
 

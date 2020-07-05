@@ -125,16 +125,19 @@ public class BOPBiomeFeatures
 	public static final Feature<NoFeatureConfig> SCRUB = new ScrubFeature(NoFeatureConfig.CODEC);
 	public static final Feature<NoFeatureConfig> SCATTERED_ROCKS = new ScatteredRocksFeature(NoFeatureConfig.CODEC);
 	public static final Feature<NoFeatureConfig> NETHER_VINES = new NetherVinesFeature(NoFeatureConfig.CODEC);
-	public static final Feature<NoFeatureConfig> FLESH_SPLATTER = new FleshSplatterFeature(NoFeatureConfig.CODEC);
 	public static final Feature<NoFeatureConfig> BONE_SPINE = new BoneSpineFeature(NoFeatureConfig.CODEC);
 	public static final Feature<NoFeatureConfig> PODZOL_SPLATTER = new PodzolSplatterFeature(NoFeatureConfig.CODEC);
 	public static final Feature<NoFeatureConfig> MYCELIUM_SPLATTER = new MyceliumSplatterFeature(NoFeatureConfig.CODEC);
+	public static final Feature<NoFeatureConfig> OBSIDIAN_SPLATTER = new ObsidianSplatterFeature(NoFeatureConfig.CODEC);
 	public static final Feature<NoFeatureConfig> SMALL_RED_MUSHROOM = new SmallRedMushroomFeature(NoFeatureConfig.CODEC);
 	public static final Feature<NoFeatureConfig> SMALL_BROWN_MUSHROOM = new SmallBrownMushroomFeature(NoFeatureConfig.CODEC);
 	public static final Feature<NoFeatureConfig> SMALL_GLOWSHROOM = new SmallGlowshroomFeature(NoFeatureConfig.CODEC);
 	public static final Feature<NoFeatureConfig> SMALL_TOADSTOOL = new SmallToadstoolFeature(NoFeatureConfig.CODEC);
 	public static final Feature<NoFeatureConfig> HUGE_GLOWSHROOM = new HugeGlowshroomFeature(NoFeatureConfig.CODEC);
 	public static final Feature<NoFeatureConfig> HUGE_TOADSTOOL = new HugeToadstoolFeature(NoFeatureConfig.CODEC);
+	public static final Feature<NoFeatureConfig> SHROOMLIGHT_SCATTER = new ShroomlightFeature(NoFeatureConfig.CODEC);
+	public static final Feature<NoFeatureConfig> SMALL_CRYSTAL = new SmallCrystalFeature(NoFeatureConfig.CODEC);
+	public static final Feature<NoFeatureConfig> LARGE_CRYSTAL = new LargeCrystalFeature(NoFeatureConfig.CODEC);
 
 	//Flowers
 	public static final FlowersFeature CHAPARRAL_FLOWERS = new ChaparralFlowersFeature();
@@ -173,7 +176,10 @@ public class BOPBiomeFeatures
 	public static final SurfaceBuilder<SurfaceBuilderConfig> VOLCANO_EDGE_SURFACE_BUILDER = new VolcanoEdgeSurfaceBuilder(SurfaceBuilderConfig.CODEC);
 	public static final SurfaceBuilder<SurfaceBuilderConfig> DEEP_TOP_LAYER = new DeepTopLayerSurfaceBuilder(SurfaceBuilderConfig.CODEC);
 	public static final SurfaceBuilder<SurfaceBuilderConfig> POPPY_FIELD_SURFACE_BUILDER = new PoppyFieldSurfaceBuilder(SurfaceBuilderConfig.CODEC);
+	public static final SurfaceBuilder<SurfaceBuilderConfig> SHADOWLANDS_SURFACE_BUILDER = new ShadowlandsSurfaceBuilder(SurfaceBuilderConfig.CODEC);
+	public static final SurfaceBuilder<SurfaceBuilderConfig> FLESH_SURFACE_BUILDER = new FleshSurfaceBuilder(SurfaceBuilderConfig.CODEC);
 
+	public static final SurfaceBuilderConfig BLACKSTONE_SURFACE = new SurfaceBuilderConfig(Blocks.BLACKSTONE.defaultBlockState(), Blocks.BLACKSTONE.defaultBlockState(), Blocks.BLACKSTONE.defaultBlockState());
 	public static final SurfaceBuilderConfig BASALT_SURFACE = new SurfaceBuilderConfig(Blocks.BASALT.defaultBlockState(), Blocks.BASALT.defaultBlockState(), Blocks.GRAVEL.defaultBlockState());
 	public static final SurfaceBuilderConfig TERRACOTTA_SURFACE = new SurfaceBuilderConfig(Blocks.TERRACOTTA.defaultBlockState(), Blocks.TERRACOTTA.defaultBlockState(), Blocks.GRAVEL.defaultBlockState());
 	public static final SurfaceBuilderConfig MAGMA_SURFACE = new SurfaceBuilderConfig(Blocks.MAGMA_BLOCK.defaultBlockState(), Blocks.MAGMA_BLOCK.defaultBlockState(), Blocks.BASALT.defaultBlockState());

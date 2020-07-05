@@ -80,6 +80,8 @@ public class BOPBiomes
     public static Optional<Biome> woodland = Optional.empty();
     public static Optional<Biome> xeric_shrubland = Optional.empty();
 
+    public static Optional<Biome> crystalline_chasm = Optional.empty();
+    public static Optional<Biome> shadowlands = Optional.empty();
     public static Optional<Biome> undergarden = Optional.empty();
     public static Optional<Biome> visceral_heap = Optional.empty();
 }

@@ -125,16 +125,19 @@ public class ModFeatures
         registerFeatures(BOPBiomeFeatures.SCRUB, "scrub");
         registerFeatures(BOPBiomeFeatures.SCATTERED_ROCKS, "scattered_rocks");
         registerFeatures(BOPBiomeFeatures.NETHER_VINES, "nether_vines");
-        registerFeatures(BOPBiomeFeatures.FLESH_SPLATTER, "flesh_splatter");
         registerFeatures(BOPBiomeFeatures.BONE_SPINE, "bone_spine");
         registerFeatures(BOPBiomeFeatures.PODZOL_SPLATTER, "podzol_splatter");
         registerFeatures(BOPBiomeFeatures.MYCELIUM_SPLATTER, "mycelium_splatter");
+        registerFeatures(BOPBiomeFeatures.OBSIDIAN_SPLATTER, "obsidian_splatter");
         registerFeatures(BOPBiomeFeatures.SMALL_RED_MUSHROOM, "small_red_mushroom");
         registerFeatures(BOPBiomeFeatures.SMALL_BROWN_MUSHROOM, "small_brown_mushroom");
         registerFeatures(BOPBiomeFeatures.SMALL_GLOWSHROOM, "small_glowshroom");
         registerFeatures(BOPBiomeFeatures.SMALL_TOADSTOOL, "small_toadstool");
         registerFeatures(BOPBiomeFeatures.HUGE_GLOWSHROOM, "huge_glowshroom");
         registerFeatures(BOPBiomeFeatures.HUGE_TOADSTOOL, "huge_toadstool");
+        registerFeatures(BOPBiomeFeatures.SHROOMLIGHT_SCATTER, "shroomlight_scatter");
+        registerFeatures(BOPBiomeFeatures.SMALL_CRYSTAL, "small_crystal");
+        registerFeatures(BOPBiomeFeatures.LARGE_CRYSTAL, "large_crystal");
 
         //Flowers
         registerFeatures(BOPBiomeFeatures.CHAPARRAL_FLOWERS, "chaparral_flowers");

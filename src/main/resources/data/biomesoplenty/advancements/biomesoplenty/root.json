@@ -74,6 +74,12 @@
                 "biome": "biomesoplenty:coniferous_forest"
             }
         },
+		"crystalline_chasm": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:crystalline_chasm"
+            }
+        },
 		"dead_forest": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -296,6 +302,12 @@
                 "biome": "biomesoplenty:seasonal_forest"
             }
         },
+		"shadowlands": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:shadowlands"
+            }
+        },
 		"shield": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -435,6 +447,7 @@
 			"cherry_blossom_grove",
 			"cold_desert",
 			"coniferous_forest",
+			"crystalline_chasm",
 			"dead_forest",
 			"fir_clearing",
 			"floodplain",
@@ -472,6 +485,7 @@
 			"redwood_forest_edge",
 			"scrubland",
 			"seasonal_forest",
+			"shadowlands",
 			"shield",
 			"shrubland",
 			"silkglade",

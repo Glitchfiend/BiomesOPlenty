@@ -75,6 +75,12 @@
                 "biome": "biomesoplenty:coniferous_forest"
             }
         },
+		"crystalline_chasm": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:crystalline_chasm"
+            }
+        },
 		"dead_forest": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -295,6 +301,12 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:seasonal_forest"
+            }
+        },
+		"shadowlands": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:shadowlands"
             }
         },
 		"shield": {
