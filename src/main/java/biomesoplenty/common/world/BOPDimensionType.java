@@ -32,7 +32,7 @@ public class BOPDimensionType extends DimensionType
 
     private static ChunkGenerator bopNetherGenerator(long seed)
     {
-        return new NoiseChunkGenerator(BOPNetherBiomeProvider.Preset.NETHER.biomeSource(seed), seed, DimensionSettings.Preset.NETHER.settings());
+        return new NoiseChunkGenerator(new BOPNetherBiomeProvider(seed), seed, DimensionSettings.Preset.NETHER.settings());
     }
 
     public static SimpleRegistry<Dimension> bopDimensions(long seed)
