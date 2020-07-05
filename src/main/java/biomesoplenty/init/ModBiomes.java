@@ -12,7 +12,7 @@ import biomesoplenty.common.biome.BiomeBOP;
 import biomesoplenty.common.biome.BiomeRegistry;
 import biomesoplenty.common.biome.nether.*;
 import biomesoplenty.common.biome.overworld.*;
-import biomesoplenty.common.world.BiomeGeneratorTypeScreenBOP;
+import biomesoplenty.common.world.BOPBiomeGeneratorTypeScreen;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
@@ -34,14 +34,14 @@ import static biomesoplenty.api.biome.BOPBiomes.*;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModBiomes
 {
-    public static BiomeGeneratorTypeScreenBOP biomeGeneratorTypeScreenBOP;
+    public static BOPBiomeGeneratorTypeScreen biomeGeneratorTypeScreenBOP;
 
     public static Multimap<Integer, WeightedSubBiome> subBiomes = HashMultimap.create();
     public static List<Integer> islandBiomeIds = Lists.newArrayList();
 
     public static void setup()
     {
-        biomeGeneratorTypeScreenBOP = new BiomeGeneratorTypeScreenBOP();
+        biomeGeneratorTypeScreenBOP = new BOPBiomeGeneratorTypeScreen();
         BiomeGeneratorTypeScreens.PRESETS.add(biomeGeneratorTypeScreenBOP);
     }
 

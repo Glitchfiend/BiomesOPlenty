@@ -8,14 +8,16 @@
 package biomesoplenty.common.world;
 
 import net.minecraft.client.gui.screen.BiomeGeneratorTypeScreens;
-import net.minecraft.world.biome.provider.OverworldBiomeProvider;
+import net.minecraft.server.IDynamicRegistries;
+import net.minecraft.world.DimensionType;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.DimensionSettings;
 import net.minecraft.world.gen.NoiseChunkGenerator;
+import net.minecraft.world.gen.settings.DimensionGeneratorSettings;
 
-public class BiomeGeneratorTypeScreenBOP extends BiomeGeneratorTypeScreens
+public class BOPBiomeGeneratorTypeScreen extends BiomeGeneratorTypeScreens
 {
-    public BiomeGeneratorTypeScreenBOP()
+    public BOPBiomeGeneratorTypeScreen()
     {
         super("biomesoplenty");
     }
@@ -24,5 +26,11 @@ public class BiomeGeneratorTypeScreenBOP extends BiomeGeneratorTypeScreens
     protected ChunkGenerator generator(long seed)
     {
         return new NoiseChunkGenerator(new BOPBiomeProvider(seed), seed, DimensionSettings.Preset.OVERWORLD.settings());
+    }
+
+    @Override
+    public DimensionGeneratorSettings create(IDynamicRegistries.Impl registries, long seed, boolean generateFeatures, boolean generateBonusChest)
+    {
+        return new DimensionGeneratorSettings(seed, generateFeatures, generateBonusChest, DimensionGeneratorSettings.withOverworld(BOPDimensionType.bopDimensions(seed), this.generator(seed)));
     }
 }
