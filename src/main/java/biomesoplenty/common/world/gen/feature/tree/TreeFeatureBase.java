@@ -17,6 +17,7 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.IWorld;
+import net.minecraft.world.IWorldWriter;
 import net.minecraft.world.gen.IWorldGenerationReader;
 import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
 import net.minecraft.world.gen.feature.TreeFeature;
@@ -149,7 +150,7 @@ public abstract class TreeFeatureBase extends TreeFeature
         boolean setOne = false;
         while (world.getBlockState(pos).getBlock().isAir(world.getBlockState(pos), world, pos) && length > 0 && rand.nextInt(12) > 0)
         {
-            this.setBlock(world, pos, vineState);
+            setBlock(world, pos, vineState);
             setOne = true;
             length--;
             pos = pos.below();
@@ -161,7 +162,7 @@ public abstract class TreeFeatureBase extends TreeFeature
     {
         if (this.replace.matches(world, pos))
         {
-            this.setBlock(world, pos, this.hanging);
+            setBlock(world, pos, this.hanging);
         }
         return false;
     }
@@ -171,7 +172,7 @@ public abstract class TreeFeatureBase extends TreeFeature
         if (this.trunkFruit == null) {return false;}
         if (this.replace.matches(world, pos))
         {
-            this.setBlock(world, pos, this.trunkFruit);
+            setBlock(world, pos, this.trunkFruit);
         }
         return false;
     }
@@ -199,15 +200,21 @@ public abstract class TreeFeatureBase extends TreeFeature
 
     protected boolean placeBlock(IWorld world, BlockPos pos, BlockState state, Set<BlockPos> changedBlocks, MutableBoundingBox boundingBox)
     {
-        if (!isAirOrLeaves(world, pos) && !isReplaceablePlant(world, pos) && !isBlockWater(world, pos))
+        if (!isFree(world, pos))
         {
             return false;
         }
         else
         {
-            this.setBlock(world, pos, state);
+            setBlock(world, pos, state, boundingBox);
             changedBlocks.add(pos.immutable());
             return true;
         }
+    }
+
+    protected static void setBlock(IWorldWriter world, BlockPos pos, BlockState state, MutableBoundingBox boundingBox)
+    {
+        setBlockKnownShape(world, pos, state);
+        boundingBox.expand(new MutableBoundingBox(pos, pos));
     }
 }
