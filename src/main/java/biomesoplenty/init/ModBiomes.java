@@ -12,9 +12,11 @@ import biomesoplenty.common.biome.BiomeBOP;
 import biomesoplenty.common.biome.BiomeRegistry;
 import biomesoplenty.common.biome.nether.*;
 import biomesoplenty.common.biome.overworld.*;
+import biomesoplenty.common.world.BiomeGeneratorTypeScreenBOP;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
+import net.minecraft.client.gui.screen.BiomeGeneratorTypeScreens;
 import net.minecraft.entity.villager.IVillagerType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
@@ -32,14 +34,15 @@ import static biomesoplenty.api.biome.BOPBiomes.*;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModBiomes
 {
-    public static WorldTypeBOP worldType;
+    public static BiomeGeneratorTypeScreenBOP biomeGeneratorTypeScreenBOP;
 
     public static Multimap<Integer, WeightedSubBiome> subBiomes = HashMultimap.create();
     public static List<Integer> islandBiomeIds = Lists.newArrayList();
 
     public static void setup()
     {
-        worldType = new WorldTypeBOP();
+        biomeGeneratorTypeScreenBOP = new BiomeGeneratorTypeScreenBOP();
+        BiomeGeneratorTypeScreens.PRESETS.add(biomeGeneratorTypeScreenBOP);
     }
 
     @SubscribeEvent

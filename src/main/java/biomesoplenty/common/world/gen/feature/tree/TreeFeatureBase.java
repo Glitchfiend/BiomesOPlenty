@@ -11,7 +11,6 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.block.BlockUtil;
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import net.minecraft.block.*;
-import net.minecraft.state.IProperty;
 import net.minecraft.state.Property;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
@@ -19,7 +18,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.IWorldGenerationReader;
-import net.minecraft.world.gen.feature.AbstractTreeFeature;
 import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
 import net.minecraft.world.gen.feature.TreeFeature;
 
@@ -190,7 +188,7 @@ public abstract class TreeFeatureBase extends TreeFeature
     }
 
     @Override
-    protected boolean doPlace(IWorldGenerationReader reader, Random random, BlockPos pos, Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, MutableBoundingBox boundingBox, BaseTreeFeatureConfig config)
+    public boolean doPlace(IWorldGenerationReader reader, Random random, BlockPos pos, Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, MutableBoundingBox boundingBox, BaseTreeFeatureConfig config)
     {
         return place(changedLogs, changedLeaves, (IWorld)reader, random, pos, boundingBox);
     }
