@@ -45,7 +45,7 @@ public class NetherCrystalBlock extends HorizontalFaceBlock
 
     protected static boolean mayPlaceOn(BlockState state, IBlockReader worldIn, BlockPos pos) {
         Block block = state.getBlock();
-        return block == Blocks.NETHERRACK || block == BOPBlocks.nether_crystal_block;
+        return block == Blocks.NETHERRACK || block == Blocks.NETHER_QUARTZ_ORE || block == Blocks.BLACKSTONE || block == BOPBlocks.nether_crystal_block;
     }
 
     @Override

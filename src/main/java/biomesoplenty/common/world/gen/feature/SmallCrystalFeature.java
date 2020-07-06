@@ -28,7 +28,7 @@ public class SmallCrystalFeature extends Feature<NoFeatureConfig>
    {
       int i = 0;
 
-      for(int j = 0; j < 64; ++j)
+      for(int j = 0; j < 128; ++j)
       {
          Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
          AttachFace face;
@@ -49,7 +49,7 @@ public class SmallCrystalFeature extends Feature<NoFeatureConfig>
          }
 
          BlockState state = BOPBlocks.nether_crystal.defaultBlockState().setValue(NetherCrystalBlock.FACING, direction).setValue(NetherCrystalBlock.FACE, face);
-         BlockPos blockpos = pos.offset(rand.nextInt(8) - rand.nextInt(8), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(8) - rand.nextInt(8));
+         BlockPos blockpos = pos.offset(rand.nextInt(4) - rand.nextInt(4), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(4) - rand.nextInt(4));
 
          if (world.isEmptyBlock(blockpos) && state.canSurvive(world, blockpos))
          {
@@ -59,6 +59,6 @@ public class SmallCrystalFeature extends Feature<NoFeatureConfig>
          }
       }
 
-      return i > 0;
+      return i > 10;
    }
 }

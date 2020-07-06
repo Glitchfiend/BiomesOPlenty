@@ -31,7 +31,7 @@ public class BOPNetherLayerUtil
 
     public static <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> createAreaFactories(LongFunction<C> contextFactory)
     {
-        int biomeSize = 3;
+        int biomeSize = 4;
 
         // The nether has no oceans, only land
         IAreaFactory<T> landFactory = LandLayer.INSTANCE.run(contextFactory.apply(1L));

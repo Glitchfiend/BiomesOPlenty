@@ -1,5 +1,6 @@
 package biomesoplenty.common.world.gen.feature;
 
+import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
@@ -47,7 +48,7 @@ public class NetherVinesFeature extends Feature<NoFeatureConfig>
 
             if (!this.replace.matches(world, genPos) || !this.placeOn.matches(world, genPos.above())) continue;
 
-            BlockState vineState = Blocks.VINE.defaultBlockState();
+            BlockState vineState = BOPBlocks.willow_vine.defaultBlockState();
 
             // make sure there is an adjacent block for the vine to attach to
             List<Direction> validDirections = Lists.newArrayList();

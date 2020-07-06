@@ -44,7 +44,7 @@ public class LargeCrystalFeature extends Feature<NoFeatureConfig>
         else
         {
             BlockState blockstate = world.getBlockState(pos.above());
-            if (!blockstate.is(Blocks.NETHERRACK) && !blockstate.is(Blocks.BASALT) && !blockstate.is(Blocks.BLACKSTONE))
+            if (!blockstate.is(Blocks.NETHERRACK) && !blockstate.is(Blocks.BASALT) && !blockstate.is(Blocks.BLACKSTONE) && !blockstate.is(Blocks.NETHER_QUARTZ_ORE))
             {
                 return false;
             }
@@ -77,7 +77,7 @@ public class LargeCrystalFeature extends Feature<NoFeatureConfig>
     {
         int i = 0;
 
-        for(int j = 0; j < 64; ++j)
+        for(int j = 0; j < 48; ++j)
         {
             Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
             AttachFace face;
