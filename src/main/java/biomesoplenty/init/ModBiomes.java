@@ -13,11 +13,14 @@ import biomesoplenty.common.biome.BiomeRegistry;
 import biomesoplenty.common.biome.nether.*;
 import biomesoplenty.common.biome.overworld.*;
 import biomesoplenty.common.world.BOPBiomeGeneratorTypeScreen;
+import biomesoplenty.common.world.BOPBiomeProvider;
+import biomesoplenty.common.world.BOPNetherBiomeProvider;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
 import net.minecraft.client.gui.screen.BiomeGeneratorTypeScreens;
 import net.minecraft.entity.villager.IVillagerType;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraftforge.common.BiomeDictionary;
@@ -43,6 +46,10 @@ public class ModBiomes
     {
         biomeGeneratorTypeScreenBOP = new BOPBiomeGeneratorTypeScreen();
         BiomeGeneratorTypeScreens.PRESETS.add(biomeGeneratorTypeScreenBOP);
+
+        // Register biome providers
+        Registry.register(Registry.BIOME_SOURCE, "biomesoplenty_overworld", BOPBiomeProvider.CODEC);
+        Registry.register(Registry.BIOME_SOURCE, "biomesoplenty_nether", BOPNetherBiomeProvider.CODEC);
     }
 
     @SubscribeEvent
