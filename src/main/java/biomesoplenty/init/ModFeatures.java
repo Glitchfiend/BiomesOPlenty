@@ -138,6 +138,7 @@ public class ModFeatures
         registerFeatures(BOPBiomeFeatures.SHROOMLIGHT_SCATTER, "shroomlight_scatter");
         registerFeatures(BOPBiomeFeatures.SMALL_CRYSTAL, "small_crystal");
         registerFeatures(BOPBiomeFeatures.LARGE_CRYSTAL, "large_crystal");
+        registerFeatures(BOPBiomeFeatures.FLESH_TENDON, "flesh_tendon");
 
         //Flowers
         registerFeatures(BOPBiomeFeatures.CHAPARRAL_FLOWERS, "chaparral_flowers");
