@@ -14,7 +14,10 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.DimensionSettings;
 import net.minecraft.world.gen.NoiseChunkGenerator;
 import net.minecraft.world.gen.settings.DimensionGeneratorSettings;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
+@OnlyIn(Dist.CLIENT)
 public class BOPBiomeGeneratorTypeScreen extends BiomeGeneratorTypeScreens
 {
     public BOPBiomeGeneratorTypeScreen()
@@ -25,12 +28,12 @@ public class BOPBiomeGeneratorTypeScreen extends BiomeGeneratorTypeScreens
     @Override
     protected ChunkGenerator generator(long seed)
     {
-        return new NoiseChunkGenerator(new BOPBiomeProvider(seed), seed, DimensionSettings.Preset.OVERWORLD.settings());
+        return BOPWorldTypeUtil.createChunkGenerator(seed);
     }
 
     @Override
     public DimensionGeneratorSettings create(IDynamicRegistries.Impl registries, long seed, boolean generateFeatures, boolean generateBonusChest)
     {
-        return new DimensionGeneratorSettings(seed, generateFeatures, generateBonusChest, DimensionGeneratorSettings.withOverworld(BOPDimensionType.bopDimensions(seed), this.generator(seed)));
+        return BOPWorldTypeUtil.createDimensionGeneratorSettings(seed, generateFeatures, generateBonusChest);
     }
 }

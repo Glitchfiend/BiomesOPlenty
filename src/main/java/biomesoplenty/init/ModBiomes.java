@@ -23,11 +23,13 @@ import net.minecraft.entity.villager.IVillagerType;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 
 import java.util.List;
 import java.util.Optional;
@@ -44,8 +46,11 @@ public class ModBiomes
 
     public static void setup()
     {
-        biomeGeneratorTypeScreenBOP = new BOPBiomeGeneratorTypeScreen();
-        BiomeGeneratorTypeScreens.PRESETS.add(biomeGeneratorTypeScreenBOP);
+        if (FMLEnvironment.dist == Dist.CLIENT)
+        {
+            biomeGeneratorTypeScreenBOP = new BOPBiomeGeneratorTypeScreen();
+            BiomeGeneratorTypeScreens.PRESETS.add(biomeGeneratorTypeScreenBOP);
+        }
 
         // Register biome providers
         Registry.register(Registry.BIOME_SOURCE, "biomesoplenty_overworld", BOPBiomeProvider.CODEC);
