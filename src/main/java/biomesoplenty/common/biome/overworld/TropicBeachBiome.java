@@ -44,7 +44,7 @@ public class TropicBeachBiome extends BiomeBOP
         this.addStructureStart(DefaultBiomeFeatures.BURIED_TREASURE);
         this.addStructureStart(DefaultBiomeFeatures.SHIPWRECH_BEACHED);
         DefaultBiomeFeatures.addDefaultOverworldLandStructures(this);
-        this.addStructureStart(DefaultBiomeFeatures.RUINED_PORTAL_STANDARD);
+        this.addStructureStart(DefaultBiomeFeatures.RUINED_PORTAL_JUNGLE);
 
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(this);

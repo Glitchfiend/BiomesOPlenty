@@ -27,7 +27,6 @@ public class BOPItems
     public static Item magic_boat;
     public static Item umbran_boat;
     public static Item hellbark_boat;
-    public static Item ethereal_boat;
 
     public static Item music_disc_wanderer;
 }
