@@ -25,7 +25,7 @@ public class FleshTendonFeature extends Feature<NoFeatureConfig>
 {
     private static final int MIN_DISTANCE = 8;
     private static final int MAX_DISTANCE = 16;
-    private static final float MID_POS_MULTIPLIER = 0.1F;
+    private static final float MID_POS_MULTIPLIER = 0.9F;
     private static final float TENDON_STEP = 0.005f;
 
     public FleshTendonFeature(Codec<NoFeatureConfig> deserializer)
@@ -49,9 +49,11 @@ public class FleshTendonFeature extends Feature<NoFeatureConfig>
             return false;
         }
 
+        int xOff = rand.nextInt(MAX_DISTANCE * 2) - MAX_DISTANCE;
+        int zOff = rand.nextInt(MAX_DISTANCE * 2) - MAX_DISTANCE;
         int minX = rand.nextBoolean() ? MIN_DISTANCE : -MIN_DISTANCE;
         int minZ = rand.nextBoolean() ? MIN_DISTANCE : -MIN_DISTANCE;
-        BlockPos endPos = pos.offset(rand.nextInt(MAX_DISTANCE * 2) - MAX_DISTANCE + minX, pos.getY(), rand.nextInt(MAX_DISTANCE * 2) - MAX_DISTANCE + minZ);
+        BlockPos endPos = pos.offset(Math.abs(xOff) < MIN_DISTANCE ? minX : xOff, pos.getY(), Math.abs(zOff) < MIN_DISTANCE ? minZ : zOff);
 
         while (world.isEmptyBlock(endPos) && endPos.getY() < 120)
         {
