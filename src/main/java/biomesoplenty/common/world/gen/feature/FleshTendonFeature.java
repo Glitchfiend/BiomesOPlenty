@@ -23,8 +23,10 @@ import java.util.Random;
 
 public class FleshTendonFeature extends Feature<NoFeatureConfig>
 {
+    protected IBlockPosQuery replace = (world, pos) -> world.getBlockState(pos).canBeReplacedByLeaves(world, pos) || world.getBlockState(pos).getBlock() == BOPBlocks.nether_crystal;
+
     private static final int MIN_DISTANCE = 8;
-    private static final int MAX_DISTANCE = 16;
+    private static final int MAX_DISTANCE = 32;
     private static final float MID_POS_MULTIPLIER = 0.9F;
     private static final float TENDON_STEP = 0.005f;
 
@@ -55,7 +57,7 @@ public class FleshTendonFeature extends Feature<NoFeatureConfig>
         int minZ = rand.nextBoolean() ? MIN_DISTANCE : -MIN_DISTANCE;
         BlockPos endPos = pos.offset(Math.abs(xOff) < MIN_DISTANCE ? minX : xOff, pos.getY(), Math.abs(zOff) < MIN_DISTANCE ? minZ : zOff);
 
-        while (world.isEmptyBlock(endPos) && endPos.getY() < 120)
+        while (world.isEmptyBlock(endPos) && endPos.getY() < 126)
         {
             endPos = endPos.above();
         }
@@ -71,9 +73,68 @@ public class FleshTendonFeature extends Feature<NoFeatureConfig>
         for (float d = 0.0f; d < 1.0f; d += TENDON_STEP)
         {
             BlockPos curPos = quadratic(d, pos, midPos, endPos);
-            this.setBlock(world, curPos, BOPBlocks.flesh.defaultBlockState());
+
+            if (curPos.getY() < 126)
+            {
+                this.setBlock(world, curPos, BOPBlocks.flesh.defaultBlockState());
+                if (rand.nextInt(75) == 0)
+                {
+                    this.generateFleshBall(world, curPos, rand);
+                }
+            }
+            else
+            {
+                break;
+            }
         }
 
         return true;
+    }
+
+    public boolean generateFleshBall(ISeedReader world, BlockPos pos, Random rand)
+    {
+        this.setBlock(world, pos, BOPBlocks.flesh.defaultBlockState());
+        this.setBlock(world, pos.north(), Blocks.SHROOMLIGHT.defaultBlockState(), 2);
+        this.setBlock(world, pos.south(), Blocks.SHROOMLIGHT.defaultBlockState(), 2);
+        this.setBlock(world, pos.east(), Blocks.SHROOMLIGHT.defaultBlockState(), 2);
+        this.setBlock(world, pos.west(), Blocks.SHROOMLIGHT.defaultBlockState(), 2);
+        this.setBlock(world, pos.north().west(), BOPBlocks.flesh.defaultBlockState());
+        this.setBlock(world, pos.south().west(), BOPBlocks.flesh.defaultBlockState());
+        this.setBlock(world, pos.north().east(), BOPBlocks.flesh.defaultBlockState());
+        this.setBlock(world, pos.south().east(), BOPBlocks.flesh.defaultBlockState());
+
+        this.setBlock(world, pos.above(), BOPBlocks.flesh.defaultBlockState());
+        this.setBlock(world, pos.above().north(), BOPBlocks.flesh.defaultBlockState());
+        this.setBlock(world, pos.above().south(), BOPBlocks.flesh.defaultBlockState());
+        this.setBlock(world, pos.above().east(), BOPBlocks.flesh.defaultBlockState());
+        this.setBlock(world, pos.above().west(), BOPBlocks.flesh.defaultBlockState());
+
+        this.setBlock(world, pos.below(), BOPBlocks.flesh.defaultBlockState());
+        this.setBlock(world, pos.below().north(), BOPBlocks.flesh.defaultBlockState());
+        this.setBlock(world, pos.below().south(), BOPBlocks.flesh.defaultBlockState());
+        this.setBlock(world, pos.below().east(), BOPBlocks.flesh.defaultBlockState());
+        this.setBlock(world, pos.below().west(), BOPBlocks.flesh.defaultBlockState());
+
+        return true;
+    }
+
+    public boolean setBlock(IWorld world, BlockPos pos, BlockState state)
+    {
+        if (this.replace.matches(world, pos))
+        {
+            super.setBlock(world, pos, state);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean setBlock(IWorld world, BlockPos pos, BlockState state, int flags)
+    {
+        if (this.replace.matches(world, pos))
+        {
+            world.setBlock(pos, state, flags);
+            return true;
+        }
+        return false;
     }
 }

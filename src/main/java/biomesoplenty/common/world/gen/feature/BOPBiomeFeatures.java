@@ -135,7 +135,6 @@ public class BOPBiomeFeatures
 	public static final Feature<NoFeatureConfig> SMALL_TOADSTOOL = new SmallToadstoolFeature(NoFeatureConfig.CODEC);
 	public static final Feature<NoFeatureConfig> HUGE_GLOWSHROOM = new HugeGlowshroomFeature(NoFeatureConfig.CODEC);
 	public static final Feature<NoFeatureConfig> HUGE_TOADSTOOL = new HugeToadstoolFeature(NoFeatureConfig.CODEC);
-	public static final Feature<NoFeatureConfig> SHROOMLIGHT_SCATTER = new ShroomlightFeature(NoFeatureConfig.CODEC);
 	public static final Feature<NoFeatureConfig> SMALL_CRYSTAL = new SmallCrystalFeature(NoFeatureConfig.CODEC);
 	public static final Feature<NoFeatureConfig> LARGE_CRYSTAL = new LargeCrystalFeature(NoFeatureConfig.CODEC);
 	public static final Feature<NoFeatureConfig> FLESH_TENDON = new FleshTendonFeature(NoFeatureConfig.CODEC);

@@ -135,7 +135,6 @@ public class ModFeatures
         registerFeatures(BOPBiomeFeatures.SMALL_TOADSTOOL, "small_toadstool");
         registerFeatures(BOPBiomeFeatures.HUGE_GLOWSHROOM, "huge_glowshroom");
         registerFeatures(BOPBiomeFeatures.HUGE_TOADSTOOL, "huge_toadstool");
-        registerFeatures(BOPBiomeFeatures.SHROOMLIGHT_SCATTER, "shroomlight_scatter");
         registerFeatures(BOPBiomeFeatures.SMALL_CRYSTAL, "small_crystal");
         registerFeatures(BOPBiomeFeatures.LARGE_CRYSTAL, "large_crystal");
         registerFeatures(BOPBiomeFeatures.FLESH_TENDON, "flesh_tendon");
