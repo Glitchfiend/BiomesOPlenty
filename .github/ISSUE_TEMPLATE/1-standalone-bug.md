@@ -1,6 +1,6 @@
 ---
-name: 1.15.1 Standalone Bug
-about: For bugs that occur with Biomes O' Plenty for 1.15.1.  We do not support older versions!
+name: 1.16.1 Standalone Bug
+about: For bugs that occur with Biomes O' Plenty for 1.16.1.  We do not support older versions!
 title: ''
 labels: bug-minor
 assignees: ''
