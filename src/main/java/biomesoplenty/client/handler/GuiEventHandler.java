@@ -2,6 +2,8 @@ package biomesoplenty.client.handler;
 
 import biomesoplenty.common.world.BOPWorldTypeUtil;
 import biomesoplenty.core.BiomesOPlenty;
+import biomesoplenty.init.ModBiomes;
+import biomesoplenty.init.ModConfig;
 import com.mojang.datafixers.util.Function4;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screen.*;
@@ -68,6 +70,19 @@ public class GuiEventHandler
         else
         {
             cleanupGuiTracking();
+        }
+    }
+
+    @SubscribeEvent
+    public static void onGuiPostInit(GuiScreenEvent.InitGuiEvent.Post event)
+    {
+        Screen gui = event.getGui();
+
+        if (ModConfig.ClientConfig.useWorldType.get() && gui instanceof CreateWorldScreen)
+        {
+            WorldOptionsScreen optionsScreen = ((CreateWorldScreen)gui).worldGenSettingsComponent;
+            optionsScreen.preset = Optional.of(ModBiomes.biomeGeneratorTypeScreenBOP);
+            optionsScreen.settings = optionsScreen.preset.get().create(optionsScreen.registryHolder, optionsScreen.settings.seed(), optionsScreen.settings.generateFeatures(), optionsScreen.settings.generateBonusChest());
         }
     }
 

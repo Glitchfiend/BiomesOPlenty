@@ -26,13 +26,13 @@ public class ModConfig
         public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
         public static final ForgeConfigSpec SPEC;
 
-        // TODO: public static final ForgeConfigSpec.BooleanValue useWorldType;
+        public static final ForgeConfigSpec.BooleanValue useWorldType;
 
         static
         {
             BUILDER.comment("Client-related options.");
             BUILDER.push("gui");
-            // TODO: useWorldType = BUILDER.comment("Select the Biomes O' Plenty world type by default.").define("use_world_type", true);
+            useWorldType = BUILDER.comment("Select the Biomes O' Plenty world type by default.").define("use_world_type", true);
             BUILDER.pop();
 
             SPEC = BUILDER.build();
