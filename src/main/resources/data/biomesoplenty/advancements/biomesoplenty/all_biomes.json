@@ -303,12 +303,6 @@
                 "biome": "biomesoplenty:seasonal_forest"
             }
         },
-		"shadowlands": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:shadowlands"
-            }
-        },
 		"shield": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -387,10 +381,10 @@
                 "biome": "biomesoplenty:tundra"
             }
         },
-		"undergarden": {
+		"undergrowth": {
             "trigger": "minecraft:location",
             "conditions": {
-                "biome": "biomesoplenty:undergarden"
+                "biome": "biomesoplenty:undergrowth"
             }
         },
 		"visceral_heap": {
@@ -421,6 +415,12 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:wetland"
+            }
+        },
+		"withered_abyss": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:withered_abyss"
             }
         },
 		"woodland": {

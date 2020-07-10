@@ -302,12 +302,6 @@
                 "biome": "biomesoplenty:seasonal_forest"
             }
         },
-		"shadowlands": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:shadowlands"
-            }
-        },
 		"shield": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -386,10 +380,10 @@
                 "biome": "biomesoplenty:tundra"
             }
         },
-		"undergarden": {
+		"undergrowth": {
             "trigger": "minecraft:location",
             "conditions": {
-                "biome": "biomesoplenty:undergarden"
+                "biome": "biomesoplenty:undergrowth"
             }
         },
 		"visceral_heap": {
@@ -420,6 +414,12 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:wetland"
+            }
+        },
+		"withered_abyss": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:withered_abyss"
             }
         },
 		"woodland": {
@@ -485,7 +485,6 @@
 			"redwood_forest_edge",
 			"scrubland",
 			"seasonal_forest",
-			"shadowlands",
 			"shield",
 			"shrubland",
 			"silkglade",
@@ -499,12 +498,13 @@
 			"tropic_beach",
 			"tropics",
 			"tundra",
-			"undergarden",
+			"undergrowth",
 			"visceral_heap",
 			"volcano",
 			"volcano_edge",
 			"wasteland",
 			"wetland",
+			"withered_abyss",
 			"woodland",
 			"xeric_shrubland"
         ]

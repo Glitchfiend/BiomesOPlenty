@@ -176,7 +176,7 @@ public class BOPBiomeFeatures
 	public static final SurfaceBuilder<SurfaceBuilderConfig> VOLCANO_EDGE_SURFACE_BUILDER = new VolcanoEdgeSurfaceBuilder(SurfaceBuilderConfig.CODEC);
 	public static final SurfaceBuilder<SurfaceBuilderConfig> DEEP_TOP_LAYER = new DeepTopLayerSurfaceBuilder(SurfaceBuilderConfig.CODEC);
 	public static final SurfaceBuilder<SurfaceBuilderConfig> POPPY_FIELD_SURFACE_BUILDER = new PoppyFieldSurfaceBuilder(SurfaceBuilderConfig.CODEC);
-	public static final SurfaceBuilder<SurfaceBuilderConfig> SHADOWLANDS_SURFACE_BUILDER = new ShadowlandsSurfaceBuilder(SurfaceBuilderConfig.CODEC);
+	public static final SurfaceBuilder<SurfaceBuilderConfig> WITHERED_ABYSS_SURFACE_BUILDER = new WitheredAbyssSurfaceBuilder(SurfaceBuilderConfig.CODEC);
 	public static final SurfaceBuilder<SurfaceBuilderConfig> FLESH_SURFACE_BUILDER = new FleshSurfaceBuilder(SurfaceBuilderConfig.CODEC);
 
 	public static final SurfaceBuilderConfig BLACKSTONE_SURFACE = new SurfaceBuilderConfig(Blocks.BLACKSTONE.defaultBlockState(), Blocks.BLACKSTONE.defaultBlockState(), Blocks.BLACKSTONE.defaultBlockState());

@@ -20,12 +20,12 @@ import net.minecraft.world.gen.surfacebuilders.ValleySurfaceBuilder;
 
 import java.util.Random;
 
-public class ShadowlandsSurfaceBuilder extends ValleySurfaceBuilder {
+public class WitheredAbyssSurfaceBuilder extends ValleySurfaceBuilder {
 	private static final BlockState BLACKSTONE = Blocks.BLACKSTONE.defaultBlockState();
 	private static final BlockState OBSIDIAN = Blocks.OBSIDIAN.defaultBlockState();
 	private static final ImmutableList<BlockState> BLOCK_STATES = ImmutableList.of(BLACKSTONE);
 
-	public ShadowlandsSurfaceBuilder(Codec<SurfaceBuilderConfig> p_i232135_1_) {
+	public WitheredAbyssSurfaceBuilder(Codec<SurfaceBuilderConfig> p_i232135_1_) {
 		super(p_i232135_1_);
 	}
 

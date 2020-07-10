@@ -137,9 +137,9 @@ public class ModBiomes
 
         //Nether Biomes
         registerBiome(new CrystallineChasmBiome(), "crystalline_chasm");
-        registerBiome(new ShadowlandsBiome(), "shadowlands");
-        registerBiome(new UndergardenBiome(), "undergarden");
+        registerBiome(new UndergrowthBiome(), "undergrowth");
         registerBiome(new VisceralHeapBiome(), "visceral_heap");
+        registerBiome(new WitheredAbyssBiome(), "withered_abyss");
 
         BiomeRegistry.configureStandardBiomes();
         BiomeRegistry.finalizeRegistrations(BiomeRegistry.RegistrationType.STANDARD_BIOME);
@@ -279,9 +279,9 @@ public class ModBiomes
 
         //Nether Biomes
         registerBiomeToDictionary(crystalline_chasm, Type.NETHER, Type.HOT);
-        registerBiomeToDictionary(shadowlands, Type.NETHER, Type.HOT);
-        registerBiomeToDictionary(undergarden, Type.NETHER, Type.HOT);
+        registerBiomeToDictionary(undergrowth, Type.NETHER, Type.HOT);
         registerBiomeToDictionary(visceral_heap, Type.NETHER, Type.HOT);
+        registerBiomeToDictionary(withered_abyss, Type.NETHER, Type.HOT);
     }
 
     private static void registerVillagerTypes()
