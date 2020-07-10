@@ -8,26 +8,64 @@
 package biomesoplenty.common.world;
 
 import biomesoplenty.core.BiomesOPlenty;
-import com.google.common.base.MoreObjects;
+import com.google.common.collect.Lists;
 import net.minecraft.server.dedicated.DedicatedServer;
 import net.minecraft.server.dedicated.ServerProperties;
+import net.minecraft.util.RegistryKey;
+import net.minecraft.world.Dimension;
+import net.minecraft.world.DimensionType;
+import net.minecraft.world.biome.provider.EndBiomeProvider;
+import net.minecraft.world.biome.provider.NetherBiomeProvider;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.DimensionSettings;
 import net.minecraft.world.gen.NoiseChunkGenerator;
 import net.minecraft.world.gen.settings.DimensionGeneratorSettings;
 import net.minecraft.world.storage.ServerWorldInfo;
 
+import java.util.List;
 import java.util.Locale;
-import java.util.Objects;
+import java.util.Map;
 import java.util.Optional;
-import java.util.Properties;
 
 public class BOPWorldTypeUtil
 {
-    private static boolean isUsingBopWorldType(DedicatedServer server)
+    private static boolean isServerLevelTypeBop(DedicatedServer server)
     {
         String levelType = Optional.ofNullable((String)server.getProperties().properties.get("level-type")).map((str) -> str.toLowerCase(Locale.ROOT)).orElse("default");
         return levelType.equals("biomesoplenty") || levelType.equals("biomesop");
+    }
+
+    // Derived from Dimension.stable
+    public static boolean isUsingBopWorldType(DimensionGeneratorSettings settings)
+    {
+        List<Map.Entry<RegistryKey<Dimension>, Dimension>> dimensions = Lists.newArrayList(settings.dimensions().entrySet());
+        Map.Entry<RegistryKey<Dimension>, Dimension> dimensionEntry0 = dimensions.get(0);
+        Map.Entry<RegistryKey<Dimension>, Dimension> dimensionEntry1 = dimensions.get(1);
+        Map.Entry<RegistryKey<Dimension>, Dimension> dimensionEntry2 = dimensions.get(2);
+
+        // BoP uses the standard dimension layout
+        if (dimensionEntry0.getKey() != Dimension.OVERWORLD || dimensionEntry1.getKey() != Dimension.NETHER && dimensionEntry2.getKey() != Dimension.END)
+        {
+            return false;
+        }
+
+        Dimension overworld = dimensionEntry0.getValue();
+        Dimension nether = dimensionEntry1.getValue();
+        Dimension end = dimensionEntry2.getValue();
+
+        // Ensure noise chunk generators are used in all dimensions
+        if (!(overworld.generator() instanceof NoiseChunkGenerator) || !(nether.generator() instanceof NoiseChunkGenerator) || !(end.generator() instanceof NoiseChunkGenerator))
+        {
+            return false;
+        }
+
+        // Ensure our nether and overworld biome providers are being used
+        if (!(overworld.generator().getBiomeSource() instanceof BOPBiomeProvider) || !(nether.generator().getBiomeSource() instanceof BOPNetherBiomeProvider))
+        {
+            return false;
+        }
+
+        return true;
     }
 
     public static ChunkGenerator createChunkGenerator(long seed)
@@ -43,7 +81,7 @@ public class BOPWorldTypeUtil
     public static void setupForDedicatedServer(DedicatedServer server)
     {
         // Ensure we are using the bop world type
-        if (!isUsingBopWorldType(server))
+        if (!isServerLevelTypeBop(server))
             return;
 
         ServerProperties properties = server.getProperties();
