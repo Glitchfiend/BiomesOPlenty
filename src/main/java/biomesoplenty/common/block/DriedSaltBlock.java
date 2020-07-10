@@ -26,7 +26,9 @@ public class DriedSaltBlock extends Block
         PlantType type = plantable.getPlantType(world, pos.relative(facing));
 
         if (type == PlantType.DESERT) return true;
+        else if (type == PlantType.NETHER) return true;
         else if (type == PlantType.CAVE) return true;
+        else if (type == PlantType.PLAINS) return true;
         return false;
     }
 }

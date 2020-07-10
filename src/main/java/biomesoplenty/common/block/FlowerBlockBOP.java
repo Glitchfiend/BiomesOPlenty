@@ -70,7 +70,7 @@ public class FlowerBlockBOP extends FlowerBlock
         }
         if (this == BOPBlocks.burning_blossom)
         {
-            return ground == Blocks.NETHERRACK || ground == Blocks.SOUL_SAND || super.canSurvive(state, worldIn, pos);
+            return ground == Blocks.NETHERRACK || ground == Blocks.SOUL_SAND ||  ground == Blocks.SOUL_SOIL ||  ground == Blocks.CRIMSON_NYLIUM ||  ground == Blocks.WARPED_NYLIUM || super.canSurvive(state, worldIn, pos);
         }
 
         return super.canSurvive(state, worldIn, pos);
