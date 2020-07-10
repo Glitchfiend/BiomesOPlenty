@@ -16,6 +16,6 @@ logoFile="bop_logo.png"
 [[dependencies.biomesoplenty]]
     modId="forge"
     mandatory=true
-    versionRange="[31.2.0,)"
+    versionRange="[32.0.61,)"
     ordering="NONE"
     side="BOTH"
