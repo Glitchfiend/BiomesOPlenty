@@ -27,13 +27,13 @@ import net.minecraftforge.fml.common.Mod;
 import java.util.Optional;
 import java.util.function.Function;
 
-@OnlyIn(Dist.CLIENT)
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class GuiEventHandler
 {
     private static String levelId = null;
     private static ConfirmBackupScreen confirmScreen = null;
 
+    @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void onGuiOpened(GuiOpenEvent event)
     {
@@ -73,6 +73,7 @@ public class GuiEventHandler
         }
     }
 
+    @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void onGuiPostInit(GuiScreenEvent.InitGuiEvent.Post event)
     {
@@ -86,6 +87,7 @@ public class GuiEventHandler
         }
     }
 
+    @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void onGuiDraw(GuiScreenEvent.DrawScreenEvent event)
     {
