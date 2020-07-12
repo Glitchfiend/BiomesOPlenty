@@ -28,7 +28,8 @@ public class BOPBlocks
     public static Block mud_brick_slab;
     public static Block mud_brick_stairs;
     public static Block mud_brick_wall;
-    
+
+    public static Block origin_grass_block;
     public static Block dried_salt;
     public static Block flesh;
     public static Block nether_crystal_block;

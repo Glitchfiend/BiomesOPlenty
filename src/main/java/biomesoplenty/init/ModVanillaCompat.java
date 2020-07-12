@@ -1,5 +1,6 @@
 package biomesoplenty.init;
 
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.biome.BiomeBOP;
 import biomesoplenty.common.world.biome.BiomeFeatureHelper;
@@ -9,6 +10,8 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import net.minecraft.block.*;
 import net.minecraft.item.AxeItem;
+import net.minecraft.item.HoeItem;
+import net.minecraft.item.ShovelItem;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
@@ -243,6 +246,10 @@ public class ModVanillaCompat
         registerStrippable(BOPBlocks.hellbark_log, BOPBlocks.stripped_hellbark_log);
         registerStrippable(BOPBlocks.hellbark_wood, BOPBlocks.stripped_hellbark_wood);
 
+        //Tilling and Flattening
+        registerTillable(BOPBlocks.origin_grass_block, Blocks.FARMLAND.defaultBlockState());
+        registerFlattenable(BOPBlocks.origin_grass_block, Blocks.GRASS_PATH.defaultBlockState());
+
         //Compostable Blocks
         registerCompostable(0.85F, BOPBlocks.glowshroom_block);
         registerCompostable(0.85F, BOPBlocks.toadstool_block);
@@ -324,6 +331,16 @@ public class ModVanillaCompat
         AxeItem.STRIPABLES.put(log, stripped_log);
     }
 
+    public static void registerTillable(Block block, BlockState tilled_block) {
+        HoeItem.TILLABLES = Maps.newHashMap(HoeItem.TILLABLES);
+        HoeItem.TILLABLES.put(block, tilled_block);
+    }
+
+    public static void registerFlattenable(Block block, BlockState flattened_block) {
+        ShovelItem.FLATTENABLES = Maps.newHashMap(ShovelItem.FLATTENABLES);
+        ShovelItem.FLATTENABLES.put(block, flattened_block);
+    }
+
     public static void registerCompostable(float chance, IItemProvider itemIn) {
         ComposterBlock.COMPOSTABLES.put(itemIn.asItem(), chance);
     }
@@ -351,7 +368,10 @@ public class ModVanillaCompat
             {
                 for (Biome biome : BiomeDictionary.getBiomes(type))
                 {
-                    biome.addFeature(decorationStage, featureIn);
+                    if (biome != BOPBiomes.origin_beach.get() && biome != BOPBiomes.origin_hills.get())
+                    {
+                        biome.addFeature(decorationStage, featureIn);
+                    }
                 }
             }
         }
