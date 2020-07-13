@@ -37,14 +37,12 @@ public class OriginBeachBiome extends BiomeBOP
 
         // Underground
         this.addCarver(GenerationStage.Carving.AIR, Biome.makeCarver(WorldCarver.CAVE, new ProbabilityConfig(0.14285715F)));
-        DefaultBiomeFeatures.addDefaultLakes(this);
         DefaultBiomeFeatures.addDefaultMonsterRoom(this);
 
         this.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.DISK.configured(new SphereReplaceConfig(Blocks.SAND.defaultBlockState(), 7, 2, Lists.newArrayList(Blocks.DIRT.defaultBlockState(), BOPBlocks.origin_grass_block.defaultBlockState()))).decorated(Placement.COUNT_TOP_SOLID.configured(new FrequencyConfig(3))));
         this.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.DISK.configured(new SphereReplaceConfig(Blocks.CLAY.defaultBlockState(), 4, 1, Lists.newArrayList(Blocks.DIRT.defaultBlockState(), Blocks.CLAY.defaultBlockState()))).decorated(Placement.COUNT_TOP_SOLID.configured(new FrequencyConfig(1))));
         this.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.DISK.configured(new SphereReplaceConfig(Blocks.GRAVEL.defaultBlockState(), 6, 2, Lists.newArrayList(Blocks.DIRT.defaultBlockState(), BOPBlocks.origin_grass_block.defaultBlockState()))).decorated(Placement.COUNT_TOP_SOLID.configured(new FrequencyConfig(1))));
 
-        this.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, Feature.MONSTER_ROOM.configured(IFeatureConfig.NONE).decorated(Placement.DUNGEONS.configured(new ChanceConfig(8))));
         this.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.DIRT.defaultBlockState(), 33)).decorated(Placement.COUNT_RANGE.configured(new CountRangeConfig(10, 0, 0, 256))));
         this.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.GRAVEL.defaultBlockState(), 33)).decorated(Placement.COUNT_RANGE.configured(new CountRangeConfig(8, 0, 0, 256))));
         this.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.COAL_ORE.defaultBlockState(), 17)).decorated(Placement.COUNT_RANGE.configured(new CountRangeConfig(20, 0, 0, 128))));
