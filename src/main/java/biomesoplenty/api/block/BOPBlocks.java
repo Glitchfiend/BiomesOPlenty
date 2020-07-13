@@ -66,6 +66,8 @@ public class BOPBlocks
     public static Block fir_trapdoor;
     public static Block fir_pressure_plate;
     public static Block fir_button;
+    public static Block fir_sign;
+    public static Block fir_wall_sign;
     
     public static Block redwood_sapling;
     public static Block redwood_leaves;
@@ -82,6 +84,8 @@ public class BOPBlocks
     public static Block redwood_trapdoor;
     public static Block redwood_pressure_plate;
     public static Block redwood_button;
+    public static Block redwood_sign;
+    public static Block redwood_wall_sign;
     
     public static Block white_cherry_sapling;
     public static Block white_cherry_leaves;
@@ -100,6 +104,8 @@ public class BOPBlocks
     public static Block cherry_trapdoor;
     public static Block cherry_pressure_plate;
     public static Block cherry_button;
+    public static Block cherry_sign;
+    public static Block cherry_wall_sign;
     
     public static Block mahogany_sapling;
     public static Block mahogany_leaves;
@@ -116,6 +122,8 @@ public class BOPBlocks
     public static Block mahogany_trapdoor;
     public static Block mahogany_pressure_plate;
     public static Block mahogany_button;
+    public static Block mahogany_sign;
+    public static Block mahogany_wall_sign;
     
     public static Block jacaranda_sapling;
     public static Block jacaranda_leaves;
@@ -132,6 +140,8 @@ public class BOPBlocks
     public static Block jacaranda_trapdoor;
     public static Block jacaranda_pressure_plate;
     public static Block jacaranda_button;
+    public static Block jacaranda_sign;
+    public static Block jacaranda_wall_sign;
     
     public static Block palm_sapling;
     public static Block palm_leaves;
@@ -148,6 +158,8 @@ public class BOPBlocks
     public static Block palm_trapdoor;
     public static Block palm_pressure_plate;
     public static Block palm_button;
+    public static Block palm_sign;
+    public static Block palm_wall_sign;
     
     public static Block willow_sapling;
     public static Block willow_leaves;
@@ -164,6 +176,8 @@ public class BOPBlocks
     public static Block willow_trapdoor;
     public static Block willow_pressure_plate;
     public static Block willow_button;
+    public static Block willow_sign;
+    public static Block willow_wall_sign;
     
     public static Block dead_sapling;
     public static Block dead_leaves;
@@ -180,6 +194,8 @@ public class BOPBlocks
     public static Block dead_trapdoor;
     public static Block dead_pressure_plate;
     public static Block dead_button;
+    public static Block dead_sign;
+    public static Block dead_wall_sign;
     
     public static Block magic_sapling;
     public static Block magic_leaves;
@@ -196,6 +212,8 @@ public class BOPBlocks
     public static Block magic_trapdoor;
     public static Block magic_pressure_plate;
     public static Block magic_button;
+    public static Block magic_sign;
+    public static Block magic_wall_sign;
     
     public static Block umbran_sapling;
     public static Block umbran_leaves;
@@ -212,6 +230,8 @@ public class BOPBlocks
     public static Block umbran_trapdoor;
     public static Block umbran_pressure_plate;
     public static Block umbran_button;
+    public static Block umbran_sign;
+    public static Block umbran_wall_sign;
     
     public static Block hellbark_sapling;
     public static Block hellbark_leaves;
@@ -228,9 +248,10 @@ public class BOPBlocks
     public static Block hellbark_trapdoor;
     public static Block hellbark_pressure_plate;
     public static Block hellbark_button;
+    public static Block hellbark_sign;
+    public static Block hellbark_wall_sign;
     
     public static Block rose;
-
     public static Block violet;
     public static Block lavender;
     public static Block wildflower;
