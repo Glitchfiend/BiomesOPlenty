@@ -105,7 +105,7 @@ curseforge {
                 changelog = changelog_file
             }
 
-            releaseType = 'alpha'
+            releaseType = 'beta'
 
             mainArtifact(jar) {
                 displayName = "Biomes O' Plenty ${version}"
