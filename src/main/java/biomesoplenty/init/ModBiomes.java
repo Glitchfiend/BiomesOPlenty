@@ -62,7 +62,6 @@ public class ModBiomes
     {
         //Technical Biomes (Need to be registered before main biomes that use them)
         registerTechnicalBiome(new GravelBeachBiome(), "gravel_beach");
-        registerTechnicalBiome(new OriginBeachBiome(), "origin_beach");
         registerTechnicalBiome(new TropicBeachBiome(), "tropic_beach");
         registerTechnicalBiome(new AlpsFoothillsBiome(), "alps_foothills");
         registerTechnicalBiome(new RedwoodForestEdgeBiome(), "redwood_forest_edge");
@@ -243,7 +242,6 @@ public class ModBiomes
         registerBiomeToDictionary(oasis, Type.OVERWORLD, Type.SANDY, Type.LUSH, Type.JUNGLE, Type.HOT, Type.SPARSE);
         registerBiomeToDictionary(ominous_woods, Type.OVERWORLD, Type.MAGICAL, Type.FOREST, Type.SPOOKY, Type.DEAD, Type.DENSE, Type.RARE);
         registerBiomeToDictionary(orchard, Type.OVERWORLD, Type.PLAINS);
-        registerBiomeToDictionary(origin_beach, Type.OVERWORLD, Type.RARE);
         registerBiomeToDictionary(origin_hills, Type.OVERWORLD, Type.RARE);
         registerBiomeToDictionary(outback, Type.OVERWORLD, Type.SANDY, Type.SAVANNA, Type.HOT, Type.DRY, Type.SPARSE);
         registerBiomeToDictionary(overgrown_cliffs, Type.OVERWORLD, Type.MOUNTAIN, Type.HILLS, Type.LUSH, Type.JUNGLE, Type.DENSE, Type.HOT);
@@ -319,7 +317,6 @@ public class ModBiomes
         registerVillagerType(oasis, IVillagerType.DESERT);
         registerVillagerType(ominous_woods, IVillagerType.SWAMP);
         registerVillagerType(orchard, IVillagerType.PLAINS);
-        registerVillagerType(origin_beach, IVillagerType.PLAINS);
         registerVillagerType(origin_hills, IVillagerType.PLAINS);
         registerVillagerType(outback, IVillagerType.SAVANNA);
         registerVillagerType(overgrown_cliffs, IVillagerType.JUNGLE);

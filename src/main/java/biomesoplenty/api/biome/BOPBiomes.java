@@ -46,7 +46,6 @@ public class BOPBiomes
     public static Optional<Biome> oasis = Optional.empty();
     public static Optional<Biome> ominous_woods = Optional.empty();
     public static Optional<Biome> orchard = Optional.empty();
-    public static Optional<Biome> origin_beach = Optional.empty();
     public static Optional<Biome> origin_hills = Optional.empty();
     public static Optional<Biome> outback = Optional.empty();
     public static Optional<Biome> overgrown_cliffs = Optional.empty();

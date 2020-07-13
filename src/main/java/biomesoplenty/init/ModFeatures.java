@@ -10,7 +10,11 @@ package biomesoplenty.init;
 import biomesoplenty.common.world.gen.feature.BOPBiomeFeatures;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.world.gen.carver.ICarverConfig;
+import net.minecraft.world.gen.carver.WorldCarver;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.ProbabilityConfig;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -19,6 +23,13 @@ import net.minecraftforge.registries.ForgeRegistries;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModFeatures
 {
+    @SubscribeEvent
+    public static void registerCarvers(RegistryEvent.Register<WorldCarver<?>> event)
+    {
+        //Carvers
+        registerCarvers(BOPBiomeFeatures.ORIGIN_CAVE, "origin_cave");
+    }
+
     @SubscribeEvent
     public static void registerFeatures(RegistryEvent.Register<Feature<?>> event)
     {
@@ -169,6 +180,12 @@ public class ModFeatures
         registerFeatures(BOPBiomeFeatures.POPPY_FEATURE, "poppy_feature");
     }
 
+    public static WorldCarver<?> registerCarvers(WorldCarver<?> entry, String name)
+    {
+        entry.setRegistryName(new ResourceLocation(BiomesOPlenty.MOD_ID, name));
+        ForgeRegistries.WORLD_CARVERS.register(entry);
+        return entry;
+    }
 
     public static Feature<?> registerFeatures(Feature<?> entry, String name)
     {

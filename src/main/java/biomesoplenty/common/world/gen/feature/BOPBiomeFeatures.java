@@ -13,10 +13,9 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.block.SaplingBlock;
 import net.minecraft.util.Direction;
-import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.FlowersFeature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.carver.CaveWorldCarver;
+import net.minecraft.world.gen.carver.WorldCarver;
+import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
@@ -178,6 +177,7 @@ public class BOPBiomeFeatures
 	public static final SurfaceBuilder<SurfaceBuilderConfig> POPPY_FIELD_SURFACE_BUILDER = new PoppyFieldSurfaceBuilder(SurfaceBuilderConfig.CODEC);
 	public static final SurfaceBuilder<SurfaceBuilderConfig> WITHERED_ABYSS_SURFACE_BUILDER = new WitheredAbyssSurfaceBuilder(SurfaceBuilderConfig.CODEC);
 	public static final SurfaceBuilder<SurfaceBuilderConfig> FLESH_SURFACE_BUILDER = new FleshSurfaceBuilder(SurfaceBuilderConfig.CODEC);
+	public static final SurfaceBuilder<SurfaceBuilderConfig> ORIGIN_HILLS_SURFACE_BUILDER = new OriginHillsSurfaceBuilder(SurfaceBuilderConfig.CODEC);
 
 	public static final SurfaceBuilderConfig BLACKSTONE_SURFACE = new SurfaceBuilderConfig(Blocks.BLACKSTONE.defaultBlockState(), Blocks.BLACKSTONE.defaultBlockState(), Blocks.BLACKSTONE.defaultBlockState());
 	public static final SurfaceBuilderConfig BASALT_SURFACE = new SurfaceBuilderConfig(Blocks.BASALT.defaultBlockState(), Blocks.BASALT.defaultBlockState(), Blocks.GRAVEL.defaultBlockState());
@@ -195,4 +195,7 @@ public class BOPBiomeFeatures
 	public static final FlowersFeature ORANGE_COSMOS_FEATURE = new OrangeCosmosFeature();
 	public static final FlowersFeature WILDFLOWER_FEATURE = new WildflowerFeature();
 	public static final FlowersFeature POPPY_FEATURE = new PoppyFeature();
+
+	//Carvers
+	public static final WorldCarver<ProbabilityConfig> ORIGIN_CAVE = new OriginCaveWorldCarver(ProbabilityConfig.CODEC, 256);
 }

@@ -368,7 +368,7 @@ public class ModVanillaCompat
             {
                 for (Biome biome : BiomeDictionary.getBiomes(type))
                 {
-                    if (biome != BOPBiomes.origin_beach.get() && biome != BOPBiomes.origin_hills.get())
+                    if (biome != BOPBiomes.origin_hills.get())
                     {
                         biome.addFeature(decorationStage, featureIn);
                     }

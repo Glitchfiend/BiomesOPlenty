@@ -218,12 +218,6 @@
                 "biome": "biomesoplenty:orchard"
             }
         },
-        "origin_beach": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:origin_beach"
-            }
-        },
         "origin_hills": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -471,7 +465,6 @@
 			"oasis",
 			"ominous_woods",
 			"orchard",
-			"origin_beach",
 			"origin_hills",
 			"outback",
 			"overgrown_cliffs",
