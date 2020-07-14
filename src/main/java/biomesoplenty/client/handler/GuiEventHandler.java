@@ -39,12 +39,11 @@ public class GuiEventHandler
     {
         Screen gui = event.getGui();
         Minecraft mc = Minecraft.getInstance();
+        Screen prevScreen = mc.screen;
 
         // Retain the last level that was selected
         if (isDataReadScreen(gui))
         {
-            Screen prevScreen = mc.screen;
-
             if (prevScreen instanceof WorldSelectionScreen)
             {
                 WorldSelectionScreen worldSelectionScreen = (WorldSelectionScreen)prevScreen;
@@ -71,15 +70,9 @@ public class GuiEventHandler
         {
             cleanupGuiTracking();
         }
-    }
 
-    @OnlyIn(Dist.CLIENT)
-    @SubscribeEvent
-    public static void onGuiPostInit(GuiScreenEvent.InitGuiEvent.Post event)
-    {
-        Screen gui = event.getGui();
-
-        if (ModConfig.ClientConfig.useWorldType.get() && gui instanceof CreateWorldScreen)
+        // Default to the bop worldtype
+        if (ModConfig.ClientConfig.useWorldType.get() && gui instanceof CreateWorldScreen && prevScreen instanceof WorldSelectionScreen)
         {
             WorldOptionsScreen optionsScreen = ((CreateWorldScreen)gui).worldGenSettingsComponent;
             optionsScreen.preset = Optional.of(ModBiomes.biomeGeneratorTypeScreenBOP);
