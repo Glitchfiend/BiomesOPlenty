@@ -50,6 +50,7 @@ public class ModConfig
         public static final ForgeConfigSpec.EnumValue<BOPOverworldGenSettings.TemperatureVariationScheme> temperatureVariationScheme;
         public static final ForgeConfigSpec.EnumValue<BOPOverworldGenSettings.RainfallVariationScheme> rainfallVariationScheme;
         public static final ForgeConfigSpec.BooleanValue enhanceVanillaBiomes;
+        public static final ForgeConfigSpec.BooleanValue useBopNether;
 
         static
         {
@@ -60,6 +61,7 @@ public class ModConfig
             temperatureVariationScheme = BUILDER.comment("Type of temperature zones to use during biome placement.").defineEnum("temperature_variation_scheme", BOPOverworldGenSettings.TemperatureVariationScheme.MEDIUM_ZONES);
             rainfallVariationScheme = BUILDER.comment("Type of rainfall zones to use during biome placement.").defineEnum("rainfall_variation_scheme", BOPOverworldGenSettings.RainfallVariationScheme.MEDIUM_ZONES);
             enhanceVanillaBiomes = BUILDER.comment("Enhance vanilla biomes by adding additional decoration.").define("enhance_vanilla_biomes", true);
+            useBopNether = BUILDER.comment("Enable nether generation from Biomes O' Plenty.").define("use_bop_nether", true);
             BUILDER.pop();
 
             SPEC = BUILDER.build();

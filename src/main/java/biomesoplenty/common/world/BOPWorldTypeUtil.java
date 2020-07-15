@@ -60,7 +60,7 @@ public class BOPWorldTypeUtil
         }
 
         // Ensure our nether and overworld biome providers are being used
-        if (!(overworld.generator().getBiomeSource() instanceof BOPBiomeProvider) || !(nether.generator().getBiomeSource() instanceof BOPNetherBiomeProvider))
+        if (!(overworld.generator().getBiomeSource() instanceof BOPBiomeProvider) || !(nether.generator().getBiomeSource() instanceof BOPNetherBiomeProvider || nether.generator().getBiomeSource() instanceof NetherBiomeProvider))
         {
             return false;
         }

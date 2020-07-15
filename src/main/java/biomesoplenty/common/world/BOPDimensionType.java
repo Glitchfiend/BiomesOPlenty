@@ -1,17 +1,24 @@
 package biomesoplenty.common.world;
 
+import biomesoplenty.init.ModConfig;
+import com.google.common.collect.ImmutableList;
+import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Lifecycle;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.SimpleRegistry;
 import net.minecraft.world.Dimension;
 import net.minecraft.world.DimensionType;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biomes;
+import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.biome.provider.EndBiomeProvider;
 import net.minecraft.world.biome.provider.NetherBiomeProvider;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.DimensionSettings;
 import net.minecraft.world.gen.NoiseChunkGenerator;
 
+import java.util.Optional;
 import java.util.OptionalLong;
 
 /***
@@ -32,7 +39,19 @@ public class BOPDimensionType extends DimensionType
 
     private static ChunkGenerator bopNetherGenerator(long seed)
     {
-        return new NoiseChunkGenerator(new BOPNetherBiomeProvider(seed), seed, DimensionSettings.Preset.NETHER.settings());
+        BiomeProvider biomeProvider;
+
+        if (ModConfig.GenerationConfig.useBopNether.get())
+        {
+            biomeProvider = new BOPNetherBiomeProvider(seed);
+        }
+        else
+        {
+            ImmutableList<Biome> netherBiomes = ImmutableList.of(Biomes.NETHER_WASTES, Biomes.SOUL_SAND_VALLEY, Biomes.CRIMSON_FOREST, Biomes.WARPED_FOREST, Biomes.BASALT_DELTAS);
+            biomeProvider = new NetherBiomeProvider(seed, netherBiomes.stream().flatMap((biome) -> biome.optimalParameters().map((parameter) -> Pair.of(parameter, biome))).collect(ImmutableList.toImmutableList()), Optional.of(NetherBiomeProvider.Preset.NETHER));
+        }
+
+        return new NoiseChunkGenerator(biomeProvider, seed, DimensionSettings.Preset.NETHER.settings());
     }
 
     public static SimpleRegistry<Dimension> bopDimensions(long seed)
