@@ -13,7 +13,6 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.block.SaplingBlock;
 import net.minecraft.util.Direction;
-import net.minecraft.world.gen.carver.CaveWorldCarver;
 import net.minecraft.world.gen.carver.WorldCarver;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
@@ -178,6 +177,7 @@ public class BOPBiomeFeatures
 	public static final SurfaceBuilder<SurfaceBuilderConfig> WITHERED_ABYSS_SURFACE_BUILDER = new WitheredAbyssSurfaceBuilder(SurfaceBuilderConfig.CODEC);
 	public static final SurfaceBuilder<SurfaceBuilderConfig> FLESH_SURFACE_BUILDER = new FleshSurfaceBuilder(SurfaceBuilderConfig.CODEC);
 	public static final SurfaceBuilder<SurfaceBuilderConfig> ORIGIN_HILLS_SURFACE_BUILDER = new OriginHillsSurfaceBuilder(SurfaceBuilderConfig.CODEC);
+	public static final SurfaceBuilder<SurfaceBuilderConfig> TROPICS_SURFACE_BUILDER = new TropicsSurfaceBuilder(SurfaceBuilderConfig.CODEC);
 
 	public static final SurfaceBuilderConfig BLACKSTONE_SURFACE = new SurfaceBuilderConfig(Blocks.BLACKSTONE.defaultBlockState(), Blocks.BLACKSTONE.defaultBlockState(), Blocks.BLACKSTONE.defaultBlockState());
 	public static final SurfaceBuilderConfig BASALT_SURFACE = new SurfaceBuilderConfig(Blocks.BASALT.defaultBlockState(), Blocks.BASALT.defaultBlockState(), Blocks.GRAVEL.defaultBlockState());
