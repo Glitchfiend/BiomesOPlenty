@@ -2,8 +2,11 @@ package biomesoplenty.common.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.SandBlock;
 import net.minecraft.block.material.Material;
+import net.minecraft.fluid.FluidState;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
@@ -25,11 +28,13 @@ public class WhiteSandBlock extends SandBlock
         else if (type == PlantType.CAVE)   return true;
         else if (type == PlantType.BEACH)
         {
-            boolean hasWater = (world.getBlockState(pos.east()).getMaterial() == Material.WATER ||
-                    world.getBlockState(pos.west()).getMaterial() == Material.WATER ||
-                    world.getBlockState(pos.north()).getMaterial() == Material.WATER ||
-                    world.getBlockState(pos.south()).getMaterial() == Material.WATER);
-            return hasWater;
+            for(Direction direction : Direction.Plane.HORIZONTAL) {
+                BlockState blockstate1 = world.getBlockState(pos.relative(direction));
+                FluidState fluidstate = world.getFluidState(pos.relative(direction));
+                if (fluidstate.is(FluidTags.WATER) || blockstate1.is(Blocks.FROSTED_ICE)) {
+                    return true;
+                }
+            }
         }
 
         return false;

@@ -88,7 +88,6 @@ public class MuskegBiome extends BiomeBOP
 
         this.addWeight(BOPClimates.TUNDRA, 2);
         this.setBeachBiome((Biome)null);
-        this.setRiverBiome((Biome)null);
     }
 
     @OnlyIn(Dist.CLIENT)
