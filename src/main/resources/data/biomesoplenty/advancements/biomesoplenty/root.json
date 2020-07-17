@@ -110,12 +110,6 @@
                 "biome": "biomesoplenty:fungal_jungle"
             }
         },
-		"ghost_forest": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:ghost_forest"
-            }
-        },
 		"grassland": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -192,6 +186,12 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:mire"
+            }
+        },
+		"muskeg": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:muskeg"
             }
         },
 		"mystic_grove": {
@@ -447,7 +447,6 @@
 			"floodplain",
 			"flower_meadow",
 			"fungal_jungle",
-			"ghost_forest",
 			"grassland",
 			"gravel_beach",
 			"grove",
@@ -461,6 +460,7 @@
 			"marsh",
 			"meadow",
 			"mire",
+			"muskeg",
 			"mystic_grove",
 			"oasis",
 			"ominous_woods",

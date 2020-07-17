@@ -89,7 +89,6 @@ public class ModBiomes
         registerBiome(new FloodplainBiome(), "floodplain");
         registerBiome(new FlowerMeadowBiome(), "flower_meadow");
         registerBiome(new FungalJungleBiome(), "fungal_jungle");
-        registerBiome(new GhostForestBiome(), "ghost_forest");
         registerBiome(new GrasslandBiome(), "grassland");
         registerBiome(new GroveBiome(), "grove");
         registerBiome(new HighlandBiome(), "highland");
@@ -101,6 +100,7 @@ public class ModBiomes
         registerBiome(new MarshBiome(), "marsh");
         registerBiome(new MeadowBiome(), "meadow");
         registerBiome(new MireBiome(), "mire");
+        registerBiome(new MuskegBiome(), "muskeg");
         registerBiome(new MysticGroveBiome(), "mystic_grove");
         registerBiome(new OasisBiome(), "oasis");
         registerBiome(new OminousWoodsBiome(), "ominous_woods");
@@ -224,7 +224,6 @@ public class ModBiomes
         registerBiomeToDictionary(floodplain, Type.OVERWORLD, Type.JUNGLE, Type.WATER, Type.HOT, Type.WET);
         registerBiomeToDictionary(flower_meadow, Type.OVERWORLD, Type.PLAINS);
         registerBiomeToDictionary(fungal_jungle, Type.OVERWORLD, Type.MAGICAL, Type.MUSHROOM, Type.JUNGLE, Type.HOT, Type.LUSH, Type.RARE);
-        registerBiomeToDictionary(ghost_forest, Type.OVERWORLD, Type.FOREST, Type.DEAD, Type.WET);
         registerBiomeToDictionary(grassland, Type.OVERWORLD, Type.PLAINS, Type.HILLS, Type.WET);
         registerBiomeToDictionary(gravel_beach, Type.OVERWORLD, Type.BEACH);
         registerBiomeToDictionary(grove, Type.OVERWORLD, Type.FOREST, Type.PLAINS, Type.SPARSE);
@@ -238,6 +237,7 @@ public class ModBiomes
         registerBiomeToDictionary(marsh, Type.OVERWORLD, Type.WET);
         registerBiomeToDictionary(meadow, Type.OVERWORLD, Type.PLAINS, Type.FOREST);
         registerBiomeToDictionary(mire, Type.OVERWORLD, Type.SWAMP, Type.DEAD, Type.WET);
+        registerBiomeToDictionary(muskeg, Type.OVERWORLD, Type.FOREST, Type.SWAMP, Type.COLD, Type.SNOWY, Type.SPARSE, Type.DEAD, Type.WET);
         registerBiomeToDictionary(mystic_grove, Type.OVERWORLD, Type.MAGICAL, Type.FOREST, Type.LUSH, Type.DENSE, Type.RARE);
         registerBiomeToDictionary(oasis, Type.OVERWORLD, Type.SANDY, Type.LUSH, Type.JUNGLE, Type.HOT, Type.SPARSE);
         registerBiomeToDictionary(ominous_woods, Type.OVERWORLD, Type.MAGICAL, Type.FOREST, Type.SPOOKY, Type.DEAD, Type.DENSE, Type.RARE);
@@ -299,7 +299,6 @@ public class ModBiomes
         registerVillagerType(floodplain, IVillagerType.JUNGLE);
         registerVillagerType(flower_meadow, IVillagerType.TAIGA);
         registerVillagerType(fungal_jungle, IVillagerType.JUNGLE);
-        registerVillagerType(ghost_forest, IVillagerType.SWAMP);
         registerVillagerType(grassland, IVillagerType.PLAINS);
         registerVillagerType(gravel_beach, IVillagerType.PLAINS);
         registerVillagerType(grove, IVillagerType.PLAINS);
@@ -313,6 +312,7 @@ public class ModBiomes
         registerVillagerType(marsh, IVillagerType.SWAMP);
         registerVillagerType(meadow, IVillagerType.TAIGA);
         registerVillagerType(mire, IVillagerType.SWAMP);
+        registerVillagerType(muskeg, IVillagerType.SNOW);
         registerVillagerType(mystic_grove, IVillagerType.PLAINS);
         registerVillagerType(oasis, IVillagerType.DESERT);
         registerVillagerType(ominous_woods, IVillagerType.SWAMP);

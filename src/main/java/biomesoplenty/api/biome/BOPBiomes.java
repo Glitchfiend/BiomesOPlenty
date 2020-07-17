@@ -28,7 +28,6 @@ public class BOPBiomes
     public static Optional<Biome> floodplain = Optional.empty();
     public static Optional<Biome> flower_meadow = Optional.empty();
     public static Optional<Biome> fungal_jungle = Optional.empty();
-    public static Optional<Biome> ghost_forest = Optional.empty();
     public static Optional<Biome> grassland = Optional.empty();
     public static Optional<Biome> gravel_beach = Optional.empty();
     public static Optional<Biome> grove = Optional.empty();
@@ -42,6 +41,7 @@ public class BOPBiomes
     public static Optional<Biome> marsh = Optional.empty();
     public static Optional<Biome> meadow = Optional.empty();
     public static Optional<Biome> mire = Optional.empty();
+    public static Optional<Biome> muskeg = Optional.empty();
     public static Optional<Biome> mystic_grove = Optional.empty();
     public static Optional<Biome> oasis = Optional.empty();
     public static Optional<Biome> ominous_woods = Optional.empty();
