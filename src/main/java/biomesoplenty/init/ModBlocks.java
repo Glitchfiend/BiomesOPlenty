@@ -36,7 +36,7 @@ public class ModBlocks
     public static void registerBlocks(RegistryEvent.Register<Block> event)
     {
         //Terrain
-    	white_sand = registerBlock(new WhiteSandBlock(0xF3F1E4, AbstractBlock.Properties.of(Material.SAND, MaterialColor.QUARTZ).strength(0.5F).sound(SoundType.SAND).harvestLevel(0).harvestTool(ToolType.SHOVEL)), "white_sand");
+    	white_sand = registerBlock(new SandBlockBOP(0xF3F1E4, AbstractBlock.Properties.of(Material.SAND, MaterialColor.QUARTZ).strength(0.5F).sound(SoundType.SAND).harvestLevel(0).harvestTool(ToolType.SHOVEL)), "white_sand");
     	white_sandstone = registerBlock(new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.QUARTZ).strength(0.8F)), "white_sandstone");
         white_sandstone_stairs = registerBlock(new StairsBlock(white_sandstone.defaultBlockState(), Block.Properties.copy(white_sandstone)), "white_sandstone_stairs");
     	white_sandstone_slab = registerBlock(new SlabBlock(Block.Properties.copy(white_sandstone)), "white_sandstone_slab");
@@ -47,6 +47,18 @@ public class ModBlocks
     	cut_white_sandstone = registerBlock(new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.QUARTZ).strength(0.8F)), "cut_white_sandstone");
         cut_white_sandstone_slab = registerBlock(new SlabBlock(Block.Properties.copy(cut_white_sandstone)), "cut_white_sandstone_slab");
         chiseled_white_sandstone = registerBlock(new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.QUARTZ).strength(0.8F)), "chiseled_white_sandstone");
+
+        black_sand = registerBlock(new SandBlockBOP(0x2D2C2F, AbstractBlock.Properties.of(Material.SAND, MaterialColor.COLOR_BLACK).strength(0.5F).sound(SoundType.SAND).harvestLevel(0).harvestTool(ToolType.SHOVEL)), "black_sand");
+        black_sandstone = registerBlock(new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_BLACK).strength(0.8F)), "black_sandstone");
+        black_sandstone_stairs = registerBlock(new StairsBlock(black_sandstone.defaultBlockState(), Block.Properties.copy(black_sandstone)), "black_sandstone_stairs");
+        black_sandstone_slab = registerBlock(new SlabBlock(Block.Properties.copy(black_sandstone)), "black_sandstone_slab");
+        black_sandstone_wall = registerBlock(new WallBlock(Block.Properties.copy(black_sandstone)),"black_sandstone_wall");
+        smooth_black_sandstone = registerBlock(new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_BLACK).strength(2.0F, 6.0F)), "smooth_black_sandstone");
+        smooth_black_sandstone_stairs = registerBlock(new StairsBlock(black_sandstone.defaultBlockState(), Block.Properties.copy(smooth_black_sandstone)), "smooth_black_sandstone_stairs");
+        smooth_black_sandstone_slab = registerBlock(new SlabBlock(Block.Properties.copy(smooth_black_sandstone)), "smooth_black_sandstone_slab");
+        cut_black_sandstone = registerBlock(new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_BLACK).strength(0.8F)), "cut_black_sandstone");
+        cut_black_sandstone_slab = registerBlock(new SlabBlock(Block.Properties.copy(cut_black_sandstone)), "cut_black_sandstone_slab");
+        chiseled_black_sandstone = registerBlock(new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_BLACK).strength(0.8F)), "chiseled_black_sandstone");
 
         mud = registerBlock(new MudBlock(AbstractBlock.Properties.of(Material.DIRT, MaterialColor.TERRACOTTA_BROWN).strength(0.6F).harvestLevel(0).harvestTool(ToolType.SHOVEL).sound(new SoundType(1.0F, 0.5F, SoundEvents.SLIME_BLOCK_BREAK, SoundEvents.SLIME_BLOCK_STEP, SoundEvents.SLIME_BLOCK_PLACE, SoundEvents.SLIME_BLOCK_HIT, SoundEvents.SLIME_BLOCK_FALL))), "mud");
         mud_bricks = registerBlock(new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_BROWN).strength(1.0F)), "mud_bricks");

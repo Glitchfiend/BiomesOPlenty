@@ -9,9 +9,11 @@ package biomesoplenty.common.world.gen.feature;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.world.gen.feature.tree.*;
+import com.google.common.collect.ImmutableSet;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.block.SaplingBlock;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.util.Direction;
 import net.minecraft.world.gen.carver.WorldCarver;
 import net.minecraft.world.gen.feature.*;
@@ -78,7 +80,6 @@ public class BOPBiomeFeatures
 	public static final Feature<BaseTreeFeatureConfig> SPARSE_OAK_TREE = new BigTreeFeature.Builder().maxHeight(10).foliageHeight(2).create();
 	public static final Feature<BaseTreeFeatureConfig> DYING_TREE = new BigTreeFeature.Builder().log(BOPBlocks.dead_log.defaultBlockState()).leaves(BOPBlocks.dead_leaves.defaultBlockState()).maxHeight(10).foliageHeight(2).create();
 	public static final Feature<BaseTreeFeatureConfig> DYING_TREE_WASTELAND = new BigTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == BOPBlocks.dried_salt).log(BOPBlocks.dead_log.defaultBlockState()).leaves(BOPBlocks.dead_leaves.defaultBlockState()).maxHeight(10).foliageHeight(1).create();
-	public static final Feature<BaseTreeFeatureConfig> DYING_TREE_VOLCANO = new BigTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.GRAVEL).log(BOPBlocks.dead_log.defaultBlockState()).leaves(BOPBlocks.dead_leaves.defaultBlockState()).maxHeight(10).foliageHeight(2).create();
 
 	//Bushes/Twiglets
 	public static final Feature<BaseTreeFeatureConfig> BUSH = new BushTreeFeature.Builder().create();
@@ -101,6 +102,7 @@ public class BOPBiomeFeatures
 	public static final Feature<BaseTreeFeatureConfig> DEAD_TWIGLET_TREE_SMALL = new TwigletTreeFeature.Builder().minHeight(1).maxHeight(1).leaves(BOPBlocks.dead_leaves.defaultBlockState()).log(BOPBlocks.dead_log.defaultBlockState()).create();
 	public static final Feature<BaseTreeFeatureConfig> DEAD_TWIGLET_TREE = new TwigletTreeFeature.Builder().trunkFruit(BOPBlocks.dead_branch.defaultBlockState()).leafChance(0.05F, 0.25F).leaves(BOPBlocks.dead_leaves.defaultBlockState()).log(BOPBlocks.dead_log.defaultBlockState()).minHeight(4).maxHeight(7).create();
 	public static final Feature<BaseTreeFeatureConfig> DEAD_TWIGLET_TREE_TALL = new TwigletTreeFeature.Builder().trunkFruit(BOPBlocks.dead_branch.defaultBlockState()).leafChance(0.15F, 0.6F).leaves(BOPBlocks.dead_leaves.defaultBlockState()).log(BOPBlocks.dead_log.defaultBlockState()).minHeight(8).maxHeight(12).create();
+	public static final Feature<BaseTreeFeatureConfig> TWIGLET_TREE_VOLCANO = new TwigletTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == BOPBlocks.black_sand).log(Blocks.DARK_OAK_LOG.defaultBlockState()).leaves(Blocks.DARK_OAK_LEAVES.defaultBlockState()).minHeight(1).maxHeight(2).create();
 
 	//Special Trees
 	public static final Feature<BaseTreeFeatureConfig> REDWOOD_TREE = new RedwoodTreeFeature.Builder().create();
@@ -110,7 +112,6 @@ public class BOPBiomeFeatures
 	public static final Feature<BaseTreeFeatureConfig> PALM_TREE = new PalmTreeFeature.Builder().create();
 	public static final Feature<BaseTreeFeatureConfig> DEAD_TREE = new TwigletTreeFeature.Builder().trunkFruit(BOPBlocks.dead_branch.defaultBlockState()).leafChance(0.0F, 0.0F).leaves(Blocks.AIR.defaultBlockState()).log(BOPBlocks.dead_log.defaultBlockState()).minHeight(6).maxHeight(10).create();
 	public static final Feature<BaseTreeFeatureConfig> DEAD_TREE_WASTELAND = new TwigletTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == BOPBlocks.dried_salt).trunkFruit(BOPBlocks.dead_branch.defaultBlockState()).leafChance(0.0F, 0.0F).leaves(Blocks.AIR.defaultBlockState()).log(BOPBlocks.dead_log.defaultBlockState()).minHeight(6).maxHeight(10).create();
-	public static final Feature<BaseTreeFeatureConfig> DEAD_TREE_VOLCANO = new TwigletTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.GRAVEL).trunkFruit(BOPBlocks.dead_branch.defaultBlockState()).leafChance(0.0F, 0.0F).leaves(Blocks.AIR.defaultBlockState()).log(BOPBlocks.dead_log.defaultBlockState()).minHeight(6).maxHeight(10).create();
 
 	/////////////////////////////////////////////////////////////////////////////////
 	
@@ -136,6 +137,8 @@ public class BOPBiomeFeatures
 	public static final Feature<NoFeatureConfig> SMALL_CRYSTAL = new SmallCrystalFeature(NoFeatureConfig.CODEC);
 	public static final Feature<NoFeatureConfig> LARGE_CRYSTAL = new LargeCrystalFeature(NoFeatureConfig.CODEC);
 	public static final Feature<NoFeatureConfig> FLESH_TENDON = new FleshTendonFeature(NoFeatureConfig.CODEC);
+	public static final Feature<NoFeatureConfig> GRASS_SPLATTER = new GrassSplatterFeature(NoFeatureConfig.CODEC);
+	public static final Feature<ColumnConfig> BLACK_SANDSTONE_COLUMN = new BlackSandstoneColumnFeature(ColumnConfig.CODEC);
 
 	//Flowers
 	public static final FlowersFeature CHAPARRAL_FLOWERS = new ChaparralFlowersFeature();
@@ -170,13 +173,13 @@ public class BOPBiomeFeatures
 	public static final SurfaceBuilder<SurfaceBuilderConfig> MUD_SURFACE_BUILDER = new MudSurfaceBuilder(SurfaceBuilderConfig.CODEC);
 	public static final SurfaceBuilder<SurfaceBuilderConfig> PODZOL_SURFACE_BUILDER = new PodzolSurfaceBuilder(SurfaceBuilderConfig.CODEC);
 	public static final SurfaceBuilder<SurfaceBuilderConfig> VOLCANO_SURFACE_BUILDER = new VolcanoSurfaceBuilder(SurfaceBuilderConfig.CODEC);
-	public static final SurfaceBuilder<SurfaceBuilderConfig> VOLCANO_EDGE_SURFACE_BUILDER = new VolcanoEdgeSurfaceBuilder(SurfaceBuilderConfig.CODEC);
 	public static final SurfaceBuilder<SurfaceBuilderConfig> DEEP_TOP_LAYER = new DeepTopLayerSurfaceBuilder(SurfaceBuilderConfig.CODEC);
 	public static final SurfaceBuilder<SurfaceBuilderConfig> POPPY_FIELD_SURFACE_BUILDER = new PoppyFieldSurfaceBuilder(SurfaceBuilderConfig.CODEC);
 	public static final SurfaceBuilder<SurfaceBuilderConfig> WITHERED_ABYSS_SURFACE_BUILDER = new WitheredAbyssSurfaceBuilder(SurfaceBuilderConfig.CODEC);
 	public static final SurfaceBuilder<SurfaceBuilderConfig> FLESH_SURFACE_BUILDER = new FleshSurfaceBuilder(SurfaceBuilderConfig.CODEC);
 	public static final SurfaceBuilder<SurfaceBuilderConfig> ORIGIN_HILLS_SURFACE_BUILDER = new OriginHillsSurfaceBuilder(SurfaceBuilderConfig.CODEC);
 	public static final SurfaceBuilder<SurfaceBuilderConfig> TROPICS_SURFACE_BUILDER = new TropicsSurfaceBuilder(SurfaceBuilderConfig.CODEC);
+	public static final SurfaceBuilder<SurfaceBuilderConfig> BLACK_SAND_SURFACE_BUILDER = new BlackSandSurfaceBuilder(SurfaceBuilderConfig.CODEC);
 
 	public static final SurfaceBuilderConfig BLACKSTONE_SURFACE = new SurfaceBuilderConfig(Blocks.BLACKSTONE.defaultBlockState(), Blocks.BLACKSTONE.defaultBlockState(), Blocks.BLACKSTONE.defaultBlockState());
 	public static final SurfaceBuilderConfig BASALT_SURFACE = new SurfaceBuilderConfig(Blocks.BASALT.defaultBlockState(), Blocks.BASALT.defaultBlockState(), Blocks.GRAVEL.defaultBlockState());
@@ -186,6 +189,7 @@ public class BOPBiomeFeatures
 	public static final SurfaceBuilderConfig RED_SAND_SURFACE = new SurfaceBuilderConfig(Blocks.RED_SAND.defaultBlockState(), Blocks.RED_SAND.defaultBlockState(), Blocks.RED_SAND.defaultBlockState());
 	public static final SurfaceBuilderConfig SNOW_SNOW_GRAVEL_SURFACE = new SurfaceBuilderConfig(Blocks.SNOW_BLOCK.defaultBlockState(), Blocks.SNOW_BLOCK.defaultBlockState(), Blocks.GRAVEL.defaultBlockState());
 	public static final SurfaceBuilderConfig WHITE_SAND_SURFACE = new SurfaceBuilderConfig(BOPBlocks.white_sand.defaultBlockState(), BOPBlocks.white_sand.defaultBlockState(), BOPBlocks.white_sand.defaultBlockState());
+	public static final SurfaceBuilderConfig BLACK_SAND_SURFACE = new SurfaceBuilderConfig(BOPBlocks.black_sand.defaultBlockState(), BOPBlocks.black_sand.defaultBlockState(), BOPBlocks.black_sand.defaultBlockState());
 	public static final SurfaceBuilderConfig DRIED_SALT_SURFACE = new SurfaceBuilderConfig(BOPBlocks.dried_salt.defaultBlockState(), BOPBlocks.dried_salt.defaultBlockState(), BOPBlocks.dried_salt.defaultBlockState());
 	public static final SurfaceBuilderConfig ORIGIN_GRASS_SURFACE = new SurfaceBuilderConfig(BOPBlocks.origin_grass_block.defaultBlockState(), Blocks.DIRT.defaultBlockState(), Blocks.GRAVEL.defaultBlockState());
 
@@ -197,4 +201,7 @@ public class BOPBiomeFeatures
 
 	//Carvers
 	public static final WorldCarver<ProbabilityConfig> ORIGIN_CAVE = new OriginCaveWorldCarver(ProbabilityConfig.CODEC, 256);
+
+	//Other
+	public static final LiquidsConfig VOLCANO_SPRING_CONFIG = new LiquidsConfig(Fluids.LAVA.defaultFluidState(), true, 4, 1, ImmutableSet.of(Blocks.BASALT, Blocks.MAGMA_BLOCK, BOPBlocks.black_sand, BOPBlocks.black_sandstone, Blocks.STONE, Blocks.GRANITE, Blocks.DIORITE, Blocks.ANDESITE));
 }

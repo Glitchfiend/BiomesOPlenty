@@ -72,8 +72,8 @@ public class BOPBiomes
     public static Optional<Biome> tropic_beach = Optional.empty();
     public static Optional<Biome> tropics = Optional.empty();
     public static Optional<Biome> tundra = Optional.empty();
+    public static Optional<Biome> volcanic_plains = Optional.empty();
     public static Optional<Biome> volcano = Optional.empty();
-    public static Optional<Biome> volcano_edge = Optional.empty();
     public static Optional<Biome> wasteland = Optional.empty();
     public static Optional<Biome> wetland = Optional.empty();
     public static Optional<Biome> woodland = Optional.empty();

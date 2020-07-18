@@ -1,0 +1,25 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": [
+      {
+        "item": "biomesoplenty:black_sandstone"
+      },
+      {
+        "item": "biomesoplenty:chiseled_black_sandstone"
+      },
+      {
+        "item": "biomesoplenty:cut_black_sandstone"
+      }
+    ]
+  },
+  "result": {
+    "item": "biomesoplenty:black_sandstone_stairs",
+    "count": 4
+  }
+}

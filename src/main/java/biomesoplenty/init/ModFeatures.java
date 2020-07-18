@@ -91,7 +91,6 @@ public class ModFeatures
         registerFeatures(BOPBiomeFeatures.SPARSE_OAK_TREE, "sparse_oak_tree");
         registerFeatures(BOPBiomeFeatures.DYING_TREE, "dying_tree");
         registerFeatures(BOPBiomeFeatures.DYING_TREE_WASTELAND, "dying_tree_wasteland");
-        registerFeatures(BOPBiomeFeatures.DYING_TREE_VOLCANO, "dying_tree_volcano");
 
         //Bushes/Twiglets
         registerFeatures(BOPBiomeFeatures.BUSH, "bush");
@@ -114,6 +113,7 @@ public class ModFeatures
         registerFeatures(BOPBiomeFeatures.DEAD_TWIGLET_TREE_SMALL, "dead_twiglet_tree_small");
         registerFeatures(BOPBiomeFeatures.DEAD_TWIGLET_TREE, "dead_twiglet_tree");
         registerFeatures(BOPBiomeFeatures.DEAD_TWIGLET_TREE_TALL, "dead_twiglet_tree_tall");
+        registerFeatures(BOPBiomeFeatures.TWIGLET_TREE_VOLCANO, "twiglet_tree_volcano");
 
         //Special Trees
         registerFeatures(BOPBiomeFeatures.REDWOOD_TREE, "redwood_tree");
@@ -123,7 +123,6 @@ public class ModFeatures
         registerFeatures(BOPBiomeFeatures.PALM_TREE, "palm_tree");
         registerFeatures(BOPBiomeFeatures.DEAD_TREE, "dead_tree");
         registerFeatures(BOPBiomeFeatures.DEAD_TREE_WASTELAND, "dead_tree_wasteland");
-        registerFeatures(BOPBiomeFeatures.DEAD_TREE_VOLCANO, "dead_tree_volcano");
 
         /////////////////////////////////////////////////////////////////////////////////
 
@@ -149,6 +148,8 @@ public class ModFeatures
         registerFeatures(BOPBiomeFeatures.SMALL_CRYSTAL, "small_crystal");
         registerFeatures(BOPBiomeFeatures.LARGE_CRYSTAL, "large_crystal");
         registerFeatures(BOPBiomeFeatures.FLESH_TENDON, "flesh_tendon");
+        registerFeatures(BOPBiomeFeatures.GRASS_SPLATTER, "grass_splatter");
+        registerFeatures(BOPBiomeFeatures.BLACK_SANDSTONE_COLUMN, "black_sandstone_spire");
 
         //Flowers
         registerFeatures(BOPBiomeFeatures.CHAPARRAL_FLOWERS, "chaparral_flowers");

@@ -12,9 +12,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 import net.minecraftforge.common.PlantType;
 
-public class WhiteSandBlock extends SandBlock
+public class SandBlockBOP extends SandBlock
 {
-    public WhiteSandBlock(int p_i48338_1_, Block.Properties properties)
+    public SandBlockBOP(int p_i48338_1_, Block.Properties properties)
     {
         super(p_i48338_1_, properties);
     }

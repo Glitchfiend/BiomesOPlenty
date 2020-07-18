@@ -65,7 +65,7 @@ public class ModBiomes
         registerTechnicalBiome(new TropicBeachBiome(), "tropic_beach");
         registerTechnicalBiome(new AlpsFoothillsBiome(), "alps_foothills");
         registerTechnicalBiome(new RedwoodForestEdgeBiome(), "redwood_forest_edge");
-        registerTechnicalBiome(new VolcanoEdgeBiome(), "volcano_edge");
+        registerTechnicalBiome(new VolcanicPlainsBiome(), "volcanic_plains");
         registerTechnicalBiome(new OrchardBiome(), "orchard");
 
         BiomeRegistry.configureTechnicalBiomes();
@@ -268,8 +268,8 @@ public class ModBiomes
         registerBiomeToDictionary(tropic_beach, Type.OVERWORLD, Type.BEACH, Type.HOT);
         registerBiomeToDictionary(tropics, Type.OVERWORLD, Type.JUNGLE, Type.LUSH, Type.HOT);
         registerBiomeToDictionary(tundra, Type.OVERWORLD, Type.COLD, Type.WASTELAND, Type.DEAD, Type.SPARSE);
+        registerBiomeToDictionary(volcanic_plains, Type.OVERWORLD, Type.DEAD, Type.WASTELAND, Type.MOUNTAIN, Type.HOT, Type.DRY);
         registerBiomeToDictionary(volcano, Type.OVERWORLD, Type.DEAD, Type.WASTELAND, Type.MOUNTAIN, Type.HOT, Type.DRY);
-        registerBiomeToDictionary(volcano_edge, Type.OVERWORLD, Type.DEAD, Type.WASTELAND, Type.MOUNTAIN, Type.HOT, Type.DRY);
         registerBiomeToDictionary(wasteland, Type.OVERWORLD, Type.WASTELAND, Type.DEAD, Type.DRY, Type.SPARSE, Type.HOT);
         registerBiomeToDictionary(wetland, Type.OVERWORLD, Type.SWAMP, Type.FOREST, Type.LUSH, Type.WET, Type.DENSE);
         registerBiomeToDictionary(woodland, Type.OVERWORLD, Type.FOREST);
@@ -343,8 +343,8 @@ public class ModBiomes
         registerVillagerType(tropic_beach, IVillagerType.JUNGLE);
         registerVillagerType(tropics, IVillagerType.JUNGLE);
         registerVillagerType(tundra, IVillagerType.TAIGA);
+        registerVillagerType(volcanic_plains, IVillagerType.PLAINS);
         registerVillagerType(volcano, IVillagerType.PLAINS);
-        registerVillagerType(volcano_edge, IVillagerType.PLAINS);
         registerVillagerType(wasteland, IVillagerType.DESERT);
         registerVillagerType(wetland, IVillagerType.SWAMP);
         registerVillagerType(woodland, IVillagerType.PLAINS);

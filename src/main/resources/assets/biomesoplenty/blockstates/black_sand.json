@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "": [
+            { "model": "biomesoplenty:block/black_sand" },
+            { "model": "biomesoplenty:block/black_sand", "y": 90 },
+            { "model": "biomesoplenty:block/black_sand", "y": 180 },
+            { "model": "biomesoplenty:block/black_sand", "y": 270 }
+        ]
+    }
+}

@@ -386,16 +386,16 @@
                 "biome": "biomesoplenty:visceral_heap"
             }
         },
+        "volcanic_plains": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:volcanic_plains"
+            }
+        },
         "volcano": {
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:volcano"
-            }
-        },
-        "volcano_edge": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:volcano_edge"
             }
         },
 		"wasteland": {
@@ -493,8 +493,8 @@
 			"tundra",
 			"undergrowth",
 			"visceral_heap",
+			"volcanic_plains",
 			"volcano",
-			"volcano_edge",
 			"wasteland",
 			"wetland",
 			"withered_abyss",

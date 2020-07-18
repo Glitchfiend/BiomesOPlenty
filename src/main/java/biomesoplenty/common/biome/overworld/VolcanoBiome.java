@@ -55,6 +55,9 @@ public class VolcanoBiome extends BiomeBOP
 
         // Other Features
         DefaultBiomeFeatures.addDefaultSprings(this);
+
+        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SPRING.configured(BOPBiomeFeatures.VOLCANO_SPRING_CONFIG).decorated(Placement.COUNT_VERY_BIASED_RANGE.configured(new CountRangeConfig(75, 8, 16, 256))));
+
         DefaultBiomeFeatures.addExtraEmeralds(this);
         DefaultBiomeFeatures.addInfestedStone(this);
         DefaultBiomeFeatures.addSurfaceFreezing(this);
@@ -70,27 +73,17 @@ public class VolcanoBiome extends BiomeBOP
         this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
 
         this.setRiverBiome((Biome)null);
-        this.setBeachBiome(BOPBiomes.volcano_edge);
-    }
-    
-    @OnlyIn(Dist.CLIENT)
-    @Override
-    public int getSkyColor()
-    {
-       return 0x96A8CA;
-    }
-    
-    @OnlyIn(Dist.CLIENT)
-    @Override
-    public int getGrassColor(double x, double z)
-    {
-    	return 0xAD9364;
+        this.setBeachBiome(BOPBiomes.volcanic_plains);
     }
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public int getFoliageColor()
+    public int getGrassColor(double x, double z)
     {
-    	return 0xB7B763;
+        return 0x4A703B;
     }
+
+    @OnlyIn(Dist.CLIENT)
+    @Override
+    public int getFoliageColor() { return 0x547D42; }
 }
