@@ -85,23 +85,15 @@ public class BOPWorldTypeUtil
             return;
 
         ServerProperties properties = server.getProperties();
-        DimensionGeneratorSettings oldWorldGenSettings = properties.worldGenSettings;
-
-        // Obtain the original settings
-        long seed = oldWorldGenSettings.seed();
-        boolean generateFeatures = oldWorldGenSettings.generateFeatures();
-        boolean generateBonusChest = oldWorldGenSettings.generateBonusChest();
-
         BiomesOPlenty.logger.info("Setting world generator settings to biomesoplenty");
-        DimensionGeneratorSettings newWorldGenSettings = createDimensionGeneratorSettings(seed, generateFeatures, generateBonusChest);
 
         if (server.getWorldData() instanceof ServerWorldInfo)
         {
             ServerWorldInfo worldInfo  = (ServerWorldInfo)server.getWorldData();
-            worldInfo.worldGenSettings = newWorldGenSettings;
+            worldInfo.worldGenSettings = createDimensionGeneratorSettings(worldInfo.worldGenSettings.seed(), worldInfo.worldGenSettings.generateFeatures(), worldInfo.worldGenSettings.generateBonusChest());
         }
 
         // Replace the world gen settings in server.properties
-        properties.worldGenSettings = newWorldGenSettings;
+        properties.worldGenSettings = createDimensionGeneratorSettings(properties.worldGenSettings.seed(), properties.worldGenSettings.generateFeatures(), properties.worldGenSettings.generateBonusChest());
     }
 }
