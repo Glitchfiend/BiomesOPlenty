@@ -7,12 +7,7 @@
  ******************************************************************************/
 package biomesoplenty.common.biome;
 
-import biomesoplenty.api.enums.BOPClimates;
-
-import java.util.HashMap;
-import java.util.Map;
-
-public class NetherBiomeBOP extends BiomeBOP
+public class NetherBiomeBOP extends BiomeTemplate
 {
     public NetherBiomeBOP(Builder builder)
     {

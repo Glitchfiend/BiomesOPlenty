@@ -8,7 +8,7 @@
 package biomesoplenty.common.world.layer;
 
 import biomesoplenty.api.biome.BOPBiomes;
-import biomesoplenty.common.biome.BiomeBOP;
+import biomesoplenty.common.biome.BiomeTemplate;
 import biomesoplenty.common.world.BOPLayerUtil;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
@@ -75,11 +75,11 @@ public enum BOPShoreLayer implements ICastleTransformer
             {
                 if (!BOPLayerUtil.isOcean(biomeId) && (BOPLayerUtil.isOcean(northBiomeId) || BOPLayerUtil.isOcean(eastBiomeId) || BOPLayerUtil.isOcean(southBiomeId) || BOPLayerUtil.isOcean(westBiomeId)))
                 {
-                    if (biome instanceof BiomeBOP)
+                    if (biome instanceof BiomeTemplate)
                     {
-                        BiomeBOP biomeBOP = (BiomeBOP)biome;
+                        BiomeTemplate biomeTemplate = (BiomeTemplate)biome;
 
-                        if (biomeBOP.beachBiomeId == -1)
+                        if (biomeTemplate.beachBiomeId == -1)
                             return biomeId;
                     }
                     
@@ -90,13 +90,13 @@ public enum BOPShoreLayer implements ICastleTransformer
             {
                 if (!BOPLayerUtil.isOcean(biomeId) && biomeId != RIVER && biomeId != SWAMP && (BOPLayerUtil.isOcean(northBiomeId) || BOPLayerUtil.isOcean(eastBiomeId) || BOPLayerUtil.isOcean(southBiomeId) || BOPLayerUtil.isOcean(westBiomeId)))
                 {
-                    if (biome instanceof BiomeBOP)
+                    if (biome instanceof BiomeTemplate)
                     {
-                        BiomeBOP biomeBOP = (BiomeBOP)biome;
+                        BiomeTemplate biomeTemplate = (BiomeTemplate)biome;
 
-                        if (biomeBOP.beachBiomeId != -1)
+                        if (biomeTemplate.beachBiomeId != -1)
                         {
-                            return biomeBOP.beachBiomeId;
+                            return biomeTemplate.beachBiomeId;
                         }
                         else
                         {

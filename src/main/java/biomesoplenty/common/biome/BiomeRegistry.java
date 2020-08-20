@@ -37,12 +37,12 @@ public class BiomeRegistry
 
     private static Map<RegistrationType, List<DeferredRegistration>> deferrances = Maps.newHashMap();
 
-    public static void deferStandardRegistration(BiomeBOP biome, String name)
+    public static void deferStandardRegistration(BiomeTemplate biome, String name)
     {
         defer(RegistrationType.STANDARD_BIOME, new StandardBiomeRegistrationData(biome, name));
     }
 
-    public static void deferTechnicalBiomeRegistration(BiomeBOP biome, String name)
+    public static void deferTechnicalBiomeRegistration(BiomeTemplate biome, String name)
     {
         defer(RegistrationType.TECHNICAL_BIOME, new ToggleableStandardBiomeRegistrationData(biome, name, true));
     }
@@ -73,7 +73,7 @@ public class BiomeRegistry
             StandardBiomeRegistrationData regData = registration.regData;
 
             // Ignore biomes which don't have any weights set by default
-            if (((BiomeBOP)regData.getBiome()).hasWeights())
+            if (((BiomeTemplate)regData.getBiome()).hasWeights())
             {
                 String biomeName = new ResourceLocation(BiomesOPlenty.MOD_ID, regData.getName()).toString();
                 Pair<BOPClimates, Integer> primaryWeight = regData.getPrimaryWeight();
@@ -361,7 +361,7 @@ public class BiomeRegistry
     public enum RegistrationType
     {
         STANDARD_BIOME((StandardBiomeRegistrationData data) -> {
-            BiomeBOP biome = (BiomeBOP)data.getBiome();
+            BiomeTemplate biome = (BiomeTemplate)data.getBiome();
             String name = data.getName();
 
             // Don't register biomes with their weight set to 0, that normally have weights that are non-zero
@@ -401,7 +401,7 @@ public class BiomeRegistry
             }
         }),
         TECHNICAL_BIOME((ToggleableStandardBiomeRegistrationData data) -> {
-            BiomeBOP biome = (BiomeBOP)data.getBiome();
+            BiomeTemplate biome = (BiomeTemplate)data.getBiome();
             String name = data.getName();
 
             if (!data.getEnabled())
@@ -489,7 +489,7 @@ public class BiomeRegistry
         private final String name;
         private Map<BOPClimates, Integer> weightMap;
 
-        public StandardBiomeRegistrationData(BiomeBOP biome, String name)
+        public StandardBiomeRegistrationData(BiomeTemplate biome, String name)
         {
             super(biome);
             this.name = name;

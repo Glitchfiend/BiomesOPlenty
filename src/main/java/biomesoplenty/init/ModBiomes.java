@@ -8,7 +8,7 @@
 package biomesoplenty.init;
 
 import biomesoplenty.api.enums.BOPClimates;
-import biomesoplenty.common.biome.BiomeBOP;
+import biomesoplenty.common.biome.BiomeTemplate;
 import biomesoplenty.common.biome.BiomeRegistry;
 import biomesoplenty.common.biome.nether.*;
 import biomesoplenty.common.biome.overworld.*;
@@ -202,84 +202,7 @@ public class ModBiomes
         BiomeRegistry.configureVanillaBiomes();
         BiomeRegistry.finalizeRegistrations(BiomeRegistry.RegistrationType.VANILLA_BIOME);
 
-        registerBiomeDictionaryTags();
         registerVillagerTypes();
-    }
-    
-    private static void registerBiomeDictionaryTags()
-    {
-        //Overworld Biomes
-        registerBiomeToDictionary(alps, Type.OVERWORLD, Type.MOUNTAIN, Type.SNOWY, Type.COLD);
-        registerBiomeToDictionary(alps_foothills, Type.OVERWORLD, Type.MOUNTAIN, Type.SNOWY, Type.FOREST, Type.SPARSE, Type.COLD);
-        registerBiomeToDictionary(bayou, Type.OVERWORLD, Type.SWAMP, Type.HOT, Type.WET, Type.DENSE);
-        registerBiomeToDictionary(bog, Type.OVERWORLD, Type.CONIFEROUS, Type.WET);
-        registerBiomeToDictionary(boreal_forest, Type.OVERWORLD, Type.FOREST, Type.CONIFEROUS, Type.HILLS, Type.COLD, Type.DENSE);
-        registerBiomeToDictionary(brushland, Type.OVERWORLD, Type.SAVANNA, Type.HOT, Type.DRY, Type.SPARSE);
-        registerBiomeToDictionary(chaparral, Type.OVERWORLD, Type.PLAINS, Type.DRY, Type.HILLS);
-        registerBiomeToDictionary(cherry_blossom_grove, Type.OVERWORLD, Type.FOREST, Type.MAGICAL, Type.LUSH, Type.DENSE);
-        registerBiomeToDictionary(cold_desert, Type.OVERWORLD, Type.SNOWY, Type.DRY, Type.COLD);
-        registerBiomeToDictionary(coniferous_forest, Type.OVERWORLD, Type.CONIFEROUS, Type.FOREST, Type.DENSE);
-        registerBiomeToDictionary(dead_forest, Type.OVERWORLD, Type.FOREST, Type.DEAD, Type.COLD, Type.DRY, Type.SPARSE);
-        registerBiomeToDictionary(fir_clearing, Type.OVERWORLD, Type.CONIFEROUS, Type.FOREST, Type.SPARSE);
-        registerBiomeToDictionary(floodplain, Type.OVERWORLD, Type.JUNGLE, Type.WATER, Type.HOT, Type.WET);
-        registerBiomeToDictionary(flower_meadow, Type.OVERWORLD, Type.PLAINS);
-        registerBiomeToDictionary(fungal_jungle, Type.OVERWORLD, Type.MAGICAL, Type.MUSHROOM, Type.JUNGLE, Type.HOT, Type.LUSH, Type.RARE);
-        registerBiomeToDictionary(grassland, Type.OVERWORLD, Type.PLAINS, Type.HILLS, Type.WET);
-        registerBiomeToDictionary(gravel_beach, Type.OVERWORLD, Type.BEACH);
-        registerBiomeToDictionary(grove, Type.OVERWORLD, Type.FOREST, Type.PLAINS, Type.SPARSE);
-        registerBiomeToDictionary(highland, Type.OVERWORLD, Type.MOUNTAIN, Type.HILLS, Type.WET);
-        registerBiomeToDictionary(highland_moor, Type.OVERWORLD, Type.HILLS, Type.WET);
-        registerBiomeToDictionary(lavender_field, Type.OVERWORLD, Type.PLAINS, Type.MAGICAL);
-        registerBiomeToDictionary(lush_grassland, Type.OVERWORLD, Type.JUNGLE, Type.PLAINS, Type.HILLS, Type.WET, Type.HOT, Type.LUSH);
-        registerBiomeToDictionary(lush_swamp, Type.OVERWORLD, Type.SWAMP, Type.LUSH, Type.HOT, Type.WET);
-        registerBiomeToDictionary(mangrove, Type.OVERWORLD, Type.WATER, Type.WET, Type.HOT, Type.DENSE, Type.LUSH);
-        registerBiomeToDictionary(maple_woods, Type.OVERWORLD, Type.FOREST, Type.CONIFEROUS, Type.COLD, Type.DENSE);
-        registerBiomeToDictionary(marsh, Type.OVERWORLD, Type.WET);
-        registerBiomeToDictionary(meadow, Type.OVERWORLD, Type.PLAINS, Type.FOREST);
-        registerBiomeToDictionary(mire, Type.OVERWORLD, Type.SWAMP, Type.DEAD, Type.WET);
-        registerBiomeToDictionary(muskeg, Type.OVERWORLD, Type.FOREST, Type.SWAMP, Type.COLD, Type.SNOWY, Type.SPARSE, Type.DEAD, Type.WET);
-        registerBiomeToDictionary(mystic_grove, Type.OVERWORLD, Type.MAGICAL, Type.FOREST, Type.LUSH, Type.DENSE, Type.RARE);
-        registerBiomeToDictionary(oasis, Type.OVERWORLD, Type.SANDY, Type.LUSH, Type.JUNGLE, Type.HOT, Type.SPARSE);
-        registerBiomeToDictionary(ominous_woods, Type.OVERWORLD, Type.MAGICAL, Type.FOREST, Type.SPOOKY, Type.DEAD, Type.DENSE, Type.RARE);
-        registerBiomeToDictionary(orchard, Type.OVERWORLD, Type.PLAINS);
-        registerBiomeToDictionary(origin_hills, Type.OVERWORLD, Type.RARE);
-        registerBiomeToDictionary(outback, Type.OVERWORLD, Type.SANDY, Type.SAVANNA, Type.HOT, Type.DRY, Type.SPARSE);
-        registerBiomeToDictionary(overgrown_cliffs, Type.OVERWORLD, Type.MOUNTAIN, Type.HILLS, Type.LUSH, Type.JUNGLE, Type.DENSE, Type.HOT);
-        registerBiomeToDictionary(pasture, Type.OVERWORLD, Type.PLAINS, Type.DRY);
-        registerBiomeToDictionary(poppy_field, Type.OVERWORLD, Type.PLAINS, Type.DRY, Type.SPARSE);
-        registerBiomeToDictionary(prairie, Type.OVERWORLD, Type.PLAINS, Type.DRY, Type.SPARSE);
-        registerBiomeToDictionary(pumpkin_patch, Type.OVERWORLD, Type.FOREST);
-        registerBiomeToDictionary(rainbow_valley, Type.OVERWORLD, Type.FOREST, Type.LUSH, Type.DENSE, Type.MAGICAL, Type.RARE);
-        registerBiomeToDictionary(rainforest, Type.OVERWORLD, Type.JUNGLE, Type.FOREST, Type.HOT, Type.LUSH, Type.HILLS, Type.WET, Type.DENSE);
-        registerBiomeToDictionary(redwood_forest, Type.OVERWORLD, Type.FOREST, Type.DENSE);
-        registerBiomeToDictionary(redwood_forest_edge, Type.OVERWORLD, Type.FOREST, Type.DENSE);
-        registerBiomeToDictionary(scrubland, Type.OVERWORLD, Type.SAVANNA, Type.HOT, Type.SPARSE, Type.DRY);
-        registerBiomeToDictionary(seasonal_forest, Type.OVERWORLD, Type.FOREST);
-        registerBiomeToDictionary(shield, Type.OVERWORLD, Type.FOREST, Type.COLD, Type.WET);
-        registerBiomeToDictionary(shrubland, Type.OVERWORLD, Type.PLAINS, Type.DRY, Type.SPARSE);
-        registerBiomeToDictionary(silkglade, Type.OVERWORLD, Type.FOREST, Type.DEAD, Type.SPOOKY, Type.DRY);
-        registerBiomeToDictionary(snowy_coniferous_forest, Type.OVERWORLD, Type.FOREST, Type.CONIFEROUS, Type.SNOWY, Type.COLD, Type.DENSE);
-        registerBiomeToDictionary(snowy_fir_clearing, Type.OVERWORLD, Type.FOREST, Type.CONIFEROUS, Type.SNOWY, Type.COLD, Type.SPARSE);
-        registerBiomeToDictionary(snowy_forest, Type.OVERWORLD, Type.SNOWY, Type.FOREST, Type.COLD, Type.SPARSE);
-        registerBiomeToDictionary(steppe, Type.OVERWORLD, Type.PLAINS, Type.HILLS, Type.DRY);
-        registerBiomeToDictionary(temperate_rainforest, Type.OVERWORLD, Type.FOREST, Type.LUSH, Type.WET);
-        registerBiomeToDictionary(temperate_rainforest_hills, Type.OVERWORLD, Type.FOREST, Type.HILLS, Type.LUSH, Type.WET, Type.DENSE);
-        registerBiomeToDictionary(tropical_rainforest, Type.OVERWORLD, Type.JUNGLE, Type.LUSH, Type.HOT, Type.WET, Type.DENSE);
-        registerBiomeToDictionary(tropic_beach, Type.OVERWORLD, Type.BEACH, Type.HOT);
-        registerBiomeToDictionary(tropics, Type.OVERWORLD, Type.JUNGLE, Type.LUSH, Type.HOT);
-        registerBiomeToDictionary(tundra, Type.OVERWORLD, Type.COLD, Type.WASTELAND, Type.DEAD, Type.SPARSE);
-        registerBiomeToDictionary(volcanic_plains, Type.OVERWORLD, Type.DEAD, Type.WASTELAND, Type.MOUNTAIN, Type.HOT, Type.DRY);
-        registerBiomeToDictionary(volcano, Type.OVERWORLD, Type.DEAD, Type.WASTELAND, Type.MOUNTAIN, Type.HOT, Type.DRY);
-        registerBiomeToDictionary(wasteland, Type.OVERWORLD, Type.WASTELAND, Type.DEAD, Type.DRY, Type.SPARSE, Type.HOT);
-        registerBiomeToDictionary(wetland, Type.OVERWORLD, Type.SWAMP, Type.FOREST, Type.LUSH, Type.WET, Type.DENSE);
-        registerBiomeToDictionary(woodland, Type.OVERWORLD, Type.FOREST);
-        registerBiomeToDictionary(xeric_shrubland, Type.OVERWORLD, Type.SANDY, Type.SAVANNA, Type.LUSH, Type.HOT, Type.DRY, Type.SPARSE);
-
-        //Nether Biomes
-        registerBiomeToDictionary(crystalline_chasm, Type.NETHER, Type.HOT);
-        registerBiomeToDictionary(undergrowth, Type.NETHER, Type.HOT);
-        registerBiomeToDictionary(visceral_heap, Type.NETHER, Type.HOT);
-        registerBiomeToDictionary(withered_abyss, Type.NETHER, Type.HOT);
     }
 
     private static void registerVillagerTypes()
@@ -371,12 +294,12 @@ public class ModBiomes
      * Biome registration helpers
      */
 
-    public static void registerBiome(BiomeBOP biome, String name)
+    public static void registerBiome(BiomeTemplate biome, String name)
     {
         BiomeRegistry.deferStandardRegistration(biome, name);
     }
 
-    public static void registerTechnicalBiome(BiomeBOP biome, String name)
+    public static void registerTechnicalBiome(BiomeTemplate biome, String name)
     {
         BiomeRegistry.deferTechnicalBiomeRegistration(biome, name);
     }

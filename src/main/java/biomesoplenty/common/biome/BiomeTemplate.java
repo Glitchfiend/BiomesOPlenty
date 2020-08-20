@@ -8,31 +8,49 @@
 package biomesoplenty.common.biome;
 
 import biomesoplenty.api.enums.BOPClimates;
-import net.minecraft.util.registry.Registry;
+import biomesoplenty.common.util.biome.BiomeUtil;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeGenerationSettings;
 import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.IFeatureConfig;
-import net.minecraft.world.gen.placement.ConfiguredPlacement;
-import net.minecraft.world.gen.placement.IPlacementConfig;
-import net.minecraft.world.gen.placement.Placement;
+import net.minecraft.world.biome.MobSpawnInfo;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-public class BiomeBOP extends Biome
+public class BiomeTemplate
 {
     protected Map<BOPClimates, Integer> weightMap = new HashMap<BOPClimates, Integer>();
 	public boolean canSpawnInBiome;
-	public int beachBiomeId = Registry.BIOME.getId(Biomes.BEACH);
-	public int riverBiomeId = Registry.BIOME.getId(Biomes.RIVER);
+	public int beachBiomeId = BiomeUtil.getBiomeId(Biomes.BEACH);
+	public int riverBiomeId = BiomeUtil.getBiomeId(Biomes.RIVER);
 
-    public BiomeBOP(Builder builder)
+    public BiomeTemplate()
     {
-        super(builder);
         this.canSpawnInBiome = true;
+    }
+
+    protected void configureBiome(Biome.Builder builder) {}
+    protected void configureGeneration(BiomeGenerationSettings.Builder builder) {}
+    protected void configureMobSpawns(MobSpawnInfo.Builder builder) {}
+
+    public final Biome build()
+    {
+        Biome.Builder biomeBuilder = new Biome.Builder();
+
+        // Configure the biome generation
+        BiomeGenerationSettings.Builder biomeGenBuilder = new BiomeGenerationSettings.Builder();
+        this.configureGeneration(biomeGenBuilder);
+        biomeBuilder.generationSettings(biomeGenBuilder.build());
+
+        // Configure mob spawning
+        MobSpawnInfo.Builder mobSpawnBuilder = new MobSpawnInfo.Builder();
+        this.configureMobSpawns(mobSpawnBuilder);
+        biomeBuilder.mobSpawnSettings(mobSpawnBuilder.build());
+
+        // Configure and build the biome
+        this.configureBiome(biomeBuilder);
+        return biomeBuilder.build();
     }
 
     public void addWeight(BOPClimates climate, int weight)
@@ -43,7 +61,7 @@ public class BiomeBOP extends Biome
     public void setBeachBiome(Optional<Biome> biome)
     {
         if (biome.isPresent())
-            this.beachBiomeId = Registry.BIOME.getId(biome.get());
+            this.beachBiomeId = BiomeUtil.getBiomeId(biome.get());
         else
             this.beachBiomeId = -1;
     }
@@ -51,7 +69,7 @@ public class BiomeBOP extends Biome
     public void setBeachBiome(Biome biome)
     {
         if (biome != null)
-            this.beachBiomeId = Registry.BIOME.getId(biome);
+            this.beachBiomeId = BiomeUtil.getBiomeId(biome);
         else
             this.beachBiomeId = -1;
     }
@@ -59,7 +77,7 @@ public class BiomeBOP extends Biome
     public void setRiverBiome(Optional<Biome> biome)
     {
         if (biome.isPresent())
-            this.riverBiomeId = Registry.BIOME.getId(biome.get());
+            this.riverBiomeId = BiomeUtil.getBiomeId(biome.get());
         else
             this.riverBiomeId = -1;
     }
@@ -67,7 +85,7 @@ public class BiomeBOP extends Biome
     public void setRiverBiome(Biome biome)
     {
         if (biome != null)
-            this.riverBiomeId = Registry.BIOME.getId(biome);
+            this.riverBiomeId = BiomeUtil.getBiomeId(biome);
         else
             this.riverBiomeId = -1;
     }

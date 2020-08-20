@@ -7,7 +7,7 @@
  ******************************************************************************/
 package biomesoplenty.common.world.layer;
 
-import biomesoplenty.common.biome.BiomeBOP;
+import biomesoplenty.common.biome.BiomeTemplate;
 import biomesoplenty.common.world.BOPLayerUtil;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
@@ -44,12 +44,12 @@ public enum BOPRiverMixLayer implements IAreaTransformer2, IDimOffset0Transforme
             {
                 return FROZEN_RIVER;
             }
-            else if (biome instanceof BiomeBOP)
+            else if (biome instanceof BiomeTemplate)
             {
-                BiomeBOP biomeBOP = (BiomeBOP)biome;
+                BiomeTemplate biomeTemplate = (BiomeTemplate)biome;
 
-                if (biomeBOP.riverBiomeId != -1)
-                    return biomeBOP.riverBiomeId;
+                if (biomeTemplate.riverBiomeId != -1)
+                    return biomeTemplate.riverBiomeId;
                 else
                     return biomeId;
             }

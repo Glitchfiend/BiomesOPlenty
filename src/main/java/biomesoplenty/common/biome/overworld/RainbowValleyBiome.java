@@ -7,13 +7,10 @@
  ******************************************************************************/
 package biomesoplenty.common.biome.overworld;
 
-import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.api.enums.BOPClimates;
-import biomesoplenty.common.biome.BiomeBOP;
+import biomesoplenty.common.biome.BiomeTemplate;
 import biomesoplenty.common.world.biome.BiomeFeatureHelper;
 import biomesoplenty.common.world.gen.feature.BOPBiomeFeatures;
-import biomesoplenty.common.world.gen.feature.FernGrassFeature;
 import biomesoplenty.common.world.gen.feature.StandardGrassFeature;
 import biomesoplenty.core.ClientProxy;
 import com.google.common.collect.ImmutableList;
@@ -29,8 +26,6 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.MultipleRandomFeatureConfig;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.structure.MineshaftConfig;
-import net.minecraft.world.gen.feature.structure.MineshaftStructure;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
 import net.minecraft.world.gen.placement.ChanceConfig;
 import net.minecraft.world.gen.placement.FrequencyConfig;
@@ -40,10 +35,7 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-import java.awt.*;
-import java.util.Calendar;
-
-public class RainbowValleyBiome extends BiomeBOP
+public class RainbowValleyBiome extends BiomeTemplate
 {
     public RainbowValleyBiome()
     {

@@ -7,7 +7,7 @@
  ******************************************************************************/
 package biomesoplenty.common.biome.overworld;
 
-import biomesoplenty.common.biome.BiomeBOP;
+import biomesoplenty.common.biome.BiomeTemplate;
 import biomesoplenty.common.world.gen.feature.BOPBiomeFeatures;
 import biomesoplenty.common.world.gen.feature.StandardGrassFeature;
 import com.google.common.collect.ImmutableList;
@@ -28,7 +28,7 @@ import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class TropicBeachBiome extends BiomeBOP
+public class TropicBeachBiome extends BiomeTemplate
 {
     public TropicBeachBiome()
     {

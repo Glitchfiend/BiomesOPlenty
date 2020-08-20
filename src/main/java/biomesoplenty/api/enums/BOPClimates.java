@@ -13,10 +13,10 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
+import net.minecraft.util.RegistryKey;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.INoiseRandom;
-import net.minecraftforge.common.BiomeManager.BiomeType;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -25,35 +25,29 @@ import java.util.stream.Collectors;
 
 public enum BOPClimates
 {
-    ICE_CAP (BiomeType.ICY),
-    TUNDRA (BiomeType.ICY),
-    WET_BOREAL (BiomeType.COOL),
-    DRY_BOREAL (BiomeType.COOL),
-    WET_TEMPERATE (BiomeType.COOL),
-    DRY_TEMPERATE (BiomeType.WARM),
-    COOL_TEMPERATE (BiomeType.COOL),
-    WARM_TEMPERATE (BiomeType.WARM),
-    SUBTROPICAL (BiomeType.WARM),
-    TROPICAL (BiomeType.DESERT),
-    MEDITERRANEAN (BiomeType.WARM),
-    SAVANNA (BiomeType.DESERT),
-    HOT_DESERT (BiomeType.DESERT),
-    WASTELAND (null),
-    NETHER (null);
+    ICE_CAP,
+    TUNDRA,
+    WET_BOREAL,
+    DRY_BOREAL,
+    WET_TEMPERATE,
+    DRY_TEMPERATE,
+    COOL_TEMPERATE,
+    WARM_TEMPERATE,
+    SUBTROPICAL,
+    TROPICAL,
+    MEDITERRANEAN,
+    SAVANNA,
+    HOT_DESERT,
+    WASTELAND,
+    NETHER;
 
-    public final BiomeType biomeType;
     private int totalBiomesWeight;
     private int totalIslandBiomesWeight;
 
     private ArrayList<WeightedBiomeEntry> landBiomes = Lists.newArrayList();
     private ArrayList<WeightedBiomeEntry> islandBiomes = Lists.newArrayList();
 
-    BOPClimates(BiomeType biomeType)
-    {
-        this.biomeType = biomeType;
-    }
-
-    public BOPClimates addBiome(int weight, Biome biome)
+    public BOPClimates addBiome(int weight, RegistryKey<Biome> biome)
     {
         return this.addBiome(new WeightedBiomeEntry(weight, biome));
     }
@@ -111,7 +105,7 @@ public enum BOPClimates
         return item.biome;
     }
 
-    public Biome getRandomOceanBiome(INoiseRandom context, boolean deep)
+    public RegistryKey<Biome> getRandomOceanBiome(INoiseRandom context, boolean deep)
     {
         return (deep ? Biomes.DEEP_OCEAN : Biomes.OCEAN);
     }
@@ -184,9 +178,9 @@ public enum BOPClimates
     public static class WeightedBiomeEntry
     {
         public final int weight;
-        public final Biome biome;
+        public final RegistryKey<Biome> biome;
 
-        public WeightedBiomeEntry(int weight, Biome biome)
+        public WeightedBiomeEntry(int weight, RegistryKey<Biome> biome)
         {
             this.weight = weight;
             this.biome = biome;
