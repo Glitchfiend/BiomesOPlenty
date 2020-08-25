@@ -31,22 +31,24 @@ public class BlackSandstoneColumnFeature extends Feature<ColumnConfig> {
         super(p_i231925_1_);
     }
 
-    public boolean place(ISeedReader p_230362_1_, StructureManager p_230362_2_, ChunkGenerator p_230362_3_, Random p_230362_4_, BlockPos p_230362_5_, ColumnConfig p_230362_6_) {
+    @Override
+    public boolean place(ISeedReader p_230362_1_, ChunkGenerator p_230362_3_, Random rand, BlockPos p_230362_5_, ColumnConfig config)
+    {
         int i = p_230362_3_.getSeaLevel();
         BlockPos blockpos = findSurface(p_230362_1_, i, p_230362_5_.mutable().clamp(Direction.Axis.Y, 1, p_230362_1_.getMaxBuildHeight() - 1), Integer.MAX_VALUE);
         if (blockpos == null) {
             return false;
         } else {
-            int j = calculateHeight(p_230362_4_, p_230362_6_);
-            boolean flag = p_230362_4_.nextFloat() < 0.9F;
+            int j = config.height().sample(rand);
+            boolean flag = rand.nextFloat() < 0.9F;
             int k = Math.min(j, flag ? 5 : 8);
             int l = flag ? 50 : 15;
             boolean flag1 = false;
 
-            for(BlockPos blockpos1 : BlockPos.randomBetweenClosed(p_230362_4_, l, blockpos.getX() - k, blockpos.getY(), blockpos.getZ() - k, blockpos.getX() + k, blockpos.getY(), blockpos.getZ() + k)) {
+            for(BlockPos blockpos1 : BlockPos.randomBetweenClosed(rand, l, blockpos.getX() - k, blockpos.getY(), blockpos.getZ() - k, blockpos.getX() + k, blockpos.getY(), blockpos.getZ() + k)) {
                 int i1 = j - blockpos1.distManhattan(blockpos);
                 if (i1 >= 0) {
-                    flag1 |= this.placeColumn(p_230362_1_, i, blockpos1, i1, calculateReach(p_230362_4_, p_230362_6_));
+                    flag1 |= this.placeColumn(p_230362_1_, i, blockpos1, i1, config.reach().sample(rand));
                 }
             }
 
@@ -117,16 +119,8 @@ public class BlackSandstoneColumnFeature extends Feature<ColumnConfig> {
         return null;
     }
 
-    private static int calculateHeight(Random p_236250_0_, ColumnConfig p_236250_1_) {
-        return p_236250_1_.minimumHeight + p_236250_0_.nextInt(p_236250_1_.maximumHeight - p_236250_1_.minimumHeight + 1);
-    }
-
-    private static int calculateReach(Random p_236251_0_, ColumnConfig p_236251_1_) {
-        return p_236251_1_.minimumReach + p_236251_0_.nextInt(p_236251_1_.maximumReach - p_236251_1_.minimumReach + 1);
-    }
-
     private static boolean isAirOrLavaOcean(IWorld p_236247_0_, int p_236247_1_, BlockPos p_236247_2_) {
         BlockState blockstate = p_236247_0_.getBlockState(p_236247_2_);
-        return blockstate.isAir() || blockstate.getBlock() instanceof BushBlock || blockstate.is(Blocks.LAVA) && p_236247_2_.getY() <= p_236247_1_;
+        return blockstate.isAir() || blockstate.is(Blocks.LAVA) && p_236247_2_.getY() <= p_236247_1_;
     }
 }

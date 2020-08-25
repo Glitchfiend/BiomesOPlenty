@@ -35,7 +35,7 @@ public class LargeCrystalFeature extends Feature<NoFeatureConfig>
     }
 
     @Override
-    public boolean place(ISeedReader world, StructureManager p_230362_2_, ChunkGenerator p_230362_3_, Random rand, BlockPos pos, NoFeatureConfig p_230362_6_)
+    public boolean place(ISeedReader world, ChunkGenerator p_230362_3_, Random rand, BlockPos pos, NoFeatureConfig p_230362_6_)
     {
         if (!world.isEmptyBlock(pos))
         {

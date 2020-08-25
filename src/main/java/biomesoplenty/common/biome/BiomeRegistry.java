@@ -9,6 +9,7 @@ package biomesoplenty.common.biome;
 
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.enums.BOPClimates;
+import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.common.util.config.JsonUtil;
 import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.init.ModBiomes;
@@ -437,7 +438,7 @@ public class BiomeRegistry
 
             String childName = data.getChild().delegate.name().toString();
             BiomesOPlenty.logger.debug(String.format("Sub biome %s weight set to %d", childName, data.getWeight()));
-            ModBiomes.subBiomes.put(Registry.BIOME.getId(data.getParent()), new ModBiomes.WeightedSubBiome(data.getChild(), data.getRarity(), data.getWeight()));
+            ModBiomes.subBiomes.put(BiomeUtil.getBiomeId(data.getParent()), new ModBiomes.WeightedSubBiome(data.getChild(), data.getRarity(), data.getWeight()));
         }),
         ISLAND_BIOME((SingleClimateRegistrationData data) -> {
             if (data.getWeight() == 0)
@@ -448,7 +449,7 @@ public class BiomeRegistry
 
             String biomeName = data.getBiome().delegate.name().toString();
             BiomesOPlenty.logger.debug(String.format("Island biome %s weight set to %d for climate %s", biomeName, data.getWeight(), data.getClimate().name()));
-            ModBiomes.islandBiomeIds.add(Registry.BIOME.getId(data.getBiome()));
+            ModBiomes.islandBiomeIds.add(BiomeUtil.getBiomeId(data.getBiome()));
             data.getClimate().addIslandBiome(data.getWeight(), data.getBiome());
         }),
         VANILLA_BIOME((SingleClimateRegistrationData data) -> {

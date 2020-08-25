@@ -19,7 +19,8 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
 import net.minecraft.client.gui.screen.BiomeGeneratorTypeScreens;
-import net.minecraft.entity.villager.IVillagerType;
+import net.minecraft.entity.villager.VillagerType;
+import net.minecraft.entity.villager.VillagerType;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
@@ -207,86 +208,78 @@ public class ModBiomes
 
     private static void registerVillagerTypes()
     {
-        registerVillagerType(alps, IVillagerType.SNOW);
-        registerVillagerType(alps_foothills, IVillagerType.SNOW);
-        registerVillagerType(bayou, IVillagerType.SWAMP);
-        registerVillagerType(bog, IVillagerType.SWAMP);
-        registerVillagerType(boreal_forest, IVillagerType.TAIGA);
-        registerVillagerType(brushland, IVillagerType.SAVANNA);
-        registerVillagerType(chaparral, IVillagerType.PLAINS);
-        registerVillagerType(cherry_blossom_grove, IVillagerType.PLAINS);
-        registerVillagerType(cold_desert, IVillagerType.SNOW);
-        registerVillagerType(coniferous_forest, IVillagerType.TAIGA);
-        registerVillagerType(dead_forest, IVillagerType.TAIGA);
-        registerVillagerType(fir_clearing, IVillagerType.TAIGA);
-        registerVillagerType(floodplain, IVillagerType.JUNGLE);
-        registerVillagerType(flower_meadow, IVillagerType.TAIGA);
-        registerVillagerType(fungal_jungle, IVillagerType.JUNGLE);
-        registerVillagerType(grassland, IVillagerType.PLAINS);
-        registerVillagerType(gravel_beach, IVillagerType.PLAINS);
-        registerVillagerType(grove, IVillagerType.PLAINS);
-        registerVillagerType(highland, IVillagerType.PLAINS);
-        registerVillagerType(highland_moor, IVillagerType.PLAINS);
-        registerVillagerType(lavender_field, IVillagerType.PLAINS);
-        registerVillagerType(lush_grassland, IVillagerType.JUNGLE);
-        registerVillagerType(lush_swamp, IVillagerType.JUNGLE);
-        registerVillagerType(mangrove, IVillagerType.SWAMP);
-        registerVillagerType(maple_woods, IVillagerType.TAIGA);
-        registerVillagerType(marsh, IVillagerType.SWAMP);
-        registerVillagerType(meadow, IVillagerType.TAIGA);
-        registerVillagerType(mire, IVillagerType.SWAMP);
-        registerVillagerType(muskeg, IVillagerType.SNOW);
-        registerVillagerType(mystic_grove, IVillagerType.PLAINS);
-        registerVillagerType(oasis, IVillagerType.DESERT);
-        registerVillagerType(ominous_woods, IVillagerType.SWAMP);
-        registerVillagerType(orchard, IVillagerType.PLAINS);
-        registerVillagerType(origin_hills, IVillagerType.PLAINS);
-        registerVillagerType(outback, IVillagerType.SAVANNA);
-        registerVillagerType(overgrown_cliffs, IVillagerType.JUNGLE);
-        registerVillagerType(pasture, IVillagerType.PLAINS);
-        registerVillagerType(poppy_field, IVillagerType.PLAINS);
-        registerVillagerType(prairie, IVillagerType.PLAINS);
-        registerVillagerType(pumpkin_patch, IVillagerType.PLAINS);
-        registerVillagerType(rainbow_valley, IVillagerType.PLAINS);
-        registerVillagerType(rainforest, IVillagerType.JUNGLE);
-        registerVillagerType(redwood_forest, IVillagerType.PLAINS);
-        registerVillagerType(redwood_forest_edge, IVillagerType.PLAINS);
-        registerVillagerType(scrubland, IVillagerType.SAVANNA);
-        registerVillagerType(seasonal_forest, IVillagerType.PLAINS);
-        registerVillagerType(shield, IVillagerType.TAIGA);
-        registerVillagerType(shrubland, IVillagerType.PLAINS);
-        registerVillagerType(silkglade, IVillagerType.SWAMP);
-        registerVillagerType(snowy_coniferous_forest, IVillagerType.SNOW);
-        registerVillagerType(snowy_fir_clearing, IVillagerType.SNOW);
-        registerVillagerType(snowy_forest, IVillagerType.SNOW);
-        registerVillagerType(steppe, IVillagerType.PLAINS);
-        registerVillagerType(temperate_rainforest, IVillagerType.PLAINS);
-        registerVillagerType(temperate_rainforest_hills, IVillagerType.PLAINS);
-        registerVillagerType(tropical_rainforest, IVillagerType.JUNGLE);
-        registerVillagerType(tropic_beach, IVillagerType.JUNGLE);
-        registerVillagerType(tropics, IVillagerType.JUNGLE);
-        registerVillagerType(tundra, IVillagerType.TAIGA);
-        registerVillagerType(volcanic_plains, IVillagerType.PLAINS);
-        registerVillagerType(volcano, IVillagerType.PLAINS);
-        registerVillagerType(wasteland, IVillagerType.DESERT);
-        registerVillagerType(wetland, IVillagerType.SWAMP);
-        registerVillagerType(woodland, IVillagerType.PLAINS);
-        registerVillagerType(xeric_shrubland, IVillagerType.DESERT);
-    }
-    
-    private static void registerBiomeToDictionary(Optional<Biome> biome, Type...types)
-    {
-        if (biome.isPresent())
-        {
-            BiomeDictionary.addTypes(biome.get(), types);
-        }
+        registerVillagerType(alps, VillagerType.SNOW);
+        registerVillagerType(alps_foothills, VillagerType.SNOW);
+        registerVillagerType(bayou, VillagerType.SWAMP);
+        registerVillagerType(bog, VillagerType.SWAMP);
+        registerVillagerType(boreal_forest, VillagerType.TAIGA);
+        registerVillagerType(brushland, VillagerType.SAVANNA);
+        registerVillagerType(chaparral, VillagerType.PLAINS);
+        registerVillagerType(cherry_blossom_grove, VillagerType.PLAINS);
+        registerVillagerType(cold_desert, VillagerType.SNOW);
+        registerVillagerType(coniferous_forest, VillagerType.TAIGA);
+        registerVillagerType(dead_forest, VillagerType.TAIGA);
+        registerVillagerType(fir_clearing, VillagerType.TAIGA);
+        registerVillagerType(floodplain, VillagerType.JUNGLE);
+        registerVillagerType(flower_meadow, VillagerType.TAIGA);
+        registerVillagerType(fungal_jungle, VillagerType.JUNGLE);
+        registerVillagerType(grassland, VillagerType.PLAINS);
+        registerVillagerType(gravel_beach, VillagerType.PLAINS);
+        registerVillagerType(grove, VillagerType.PLAINS);
+        registerVillagerType(highland, VillagerType.PLAINS);
+        registerVillagerType(highland_moor, VillagerType.PLAINS);
+        registerVillagerType(lavender_field, VillagerType.PLAINS);
+        registerVillagerType(lush_grassland, VillagerType.JUNGLE);
+        registerVillagerType(lush_swamp, VillagerType.JUNGLE);
+        registerVillagerType(mangrove, VillagerType.SWAMP);
+        registerVillagerType(maple_woods, VillagerType.TAIGA);
+        registerVillagerType(marsh, VillagerType.SWAMP);
+        registerVillagerType(meadow, VillagerType.TAIGA);
+        registerVillagerType(mire, VillagerType.SWAMP);
+        registerVillagerType(muskeg, VillagerType.SNOW);
+        registerVillagerType(mystic_grove, VillagerType.PLAINS);
+        registerVillagerType(oasis, VillagerType.DESERT);
+        registerVillagerType(ominous_woods, VillagerType.SWAMP);
+        registerVillagerType(orchard, VillagerType.PLAINS);
+        registerVillagerType(origin_hills, VillagerType.PLAINS);
+        registerVillagerType(outback, VillagerType.SAVANNA);
+        registerVillagerType(overgrown_cliffs, VillagerType.JUNGLE);
+        registerVillagerType(pasture, VillagerType.PLAINS);
+        registerVillagerType(poppy_field, VillagerType.PLAINS);
+        registerVillagerType(prairie, VillagerType.PLAINS);
+        registerVillagerType(pumpkin_patch, VillagerType.PLAINS);
+        registerVillagerType(rainbow_valley, VillagerType.PLAINS);
+        registerVillagerType(rainforest, VillagerType.JUNGLE);
+        registerVillagerType(redwood_forest, VillagerType.PLAINS);
+        registerVillagerType(redwood_forest_edge, VillagerType.PLAINS);
+        registerVillagerType(scrubland, VillagerType.SAVANNA);
+        registerVillagerType(seasonal_forest, VillagerType.PLAINS);
+        registerVillagerType(shield, VillagerType.TAIGA);
+        registerVillagerType(shrubland, VillagerType.PLAINS);
+        registerVillagerType(silkglade, VillagerType.SWAMP);
+        registerVillagerType(snowy_coniferous_forest, VillagerType.SNOW);
+        registerVillagerType(snowy_fir_clearing, VillagerType.SNOW);
+        registerVillagerType(snowy_forest, VillagerType.SNOW);
+        registerVillagerType(steppe, VillagerType.PLAINS);
+        registerVillagerType(temperate_rainforest, VillagerType.PLAINS);
+        registerVillagerType(temperate_rainforest_hills, VillagerType.PLAINS);
+        registerVillagerType(tropical_rainforest, VillagerType.JUNGLE);
+        registerVillagerType(tropic_beach, VillagerType.JUNGLE);
+        registerVillagerType(tropics, VillagerType.JUNGLE);
+        registerVillagerType(tundra, VillagerType.TAIGA);
+        registerVillagerType(volcanic_plains, VillagerType.PLAINS);
+        registerVillagerType(volcano, VillagerType.PLAINS);
+        registerVillagerType(wasteland, VillagerType.DESERT);
+        registerVillagerType(wetland, VillagerType.SWAMP);
+        registerVillagerType(woodland, VillagerType.PLAINS);
+        registerVillagerType(xeric_shrubland, VillagerType.DESERT);
     }
 
-    private static void registerVillagerType(Optional<Biome> biome, IVillagerType type)
+    private static void registerVillagerType(Optional<Biome> biome, VillagerType type)
     {
         if (biome.isPresent())
         {
-            IVillagerType.BY_BIOME.put(biome.get(), type);
+            VillagerType.BY_BIOME.put(biome.get(), type);
         }
     }
 

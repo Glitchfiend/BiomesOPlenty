@@ -27,7 +27,7 @@ public class BoneSpineFeature extends Feature<NoFeatureConfig>
     }
 
     @Override
-    public boolean place(ISeedReader world, StructureManager p_230362_2_, ChunkGenerator p_230362_3_, Random rand, BlockPos startPos, NoFeatureConfig p_230362_6_)
+    public boolean place(ISeedReader world, ChunkGenerator p_230362_3_, Random rand, BlockPos startPos, NoFeatureConfig p_230362_6_)
     {
         while (startPos.getY() > 1 && this.replace.matches(world, startPos)) {startPos = startPos.below();}
 

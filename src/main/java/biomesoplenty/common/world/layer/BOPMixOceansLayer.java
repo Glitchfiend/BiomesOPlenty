@@ -62,7 +62,7 @@ public enum BOPMixOceansLayer implements IAreaTransformer3, IDimOffset0Transform
                 case WASTELAND:
                     if (BOPBiomes.wasteland.isPresent())
                     {
-                        oceanId = Registry.BIOME.getId(BOPBiomes.wasteland.get());
+                        oceanId = BiomeUtil.getBiomeId(BOPBiomes.wasteland.get());
                     }
                     // Fallthrough
 
@@ -120,9 +120,9 @@ public enum BOPMixOceansLayer implements IAreaTransformer3, IDimOffset0Transform
                     return BOPLayerUtil.DEEP_FROZEN_OCEAN;
                 }
 
-                if (BOPBiomes.wasteland.isPresent() && oceanId == Registry.BIOME.getId(BOPBiomes.wasteland.get()))
+                if (BOPBiomes.wasteland.isPresent() && oceanId == BiomeUtil.getBiomeId(BOPBiomes.wasteland.get()))
                 {
-                    return Registry.BIOME.getId(BOPBiomes.wasteland.get());
+                    return BiomeUtil.getBiomeId(BOPBiomes.wasteland.get());
                 }
             }
 

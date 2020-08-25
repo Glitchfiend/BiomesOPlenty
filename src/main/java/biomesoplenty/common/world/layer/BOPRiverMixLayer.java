@@ -21,11 +21,11 @@ public enum BOPRiverMixLayer implements IAreaTransformer2, IDimOffset0Transforme
 {
     INSTANCE;
 
-    private static final int FROZEN_RIVER = Registry.BIOME.getId(Biomes.FROZEN_RIVER);
-    private static final int SNOWY_TUNDRA = Registry.BIOME.getId(Biomes.SNOWY_TUNDRA);
-    private static final int MUSHROOM_FIELDS = Registry.BIOME.getId(Biomes.MUSHROOM_FIELDS);
-    private static final int MUSHROOM_FIELD_SHORE = Registry.BIOME.getId(Biomes.MUSHROOM_FIELD_SHORE);
-    private static final int RIVER = Registry.BIOME.getId(Biomes.RIVER);
+    private static final int FROZEN_RIVER = BiomeUtil.getBiomeId(Biomes.FROZEN_RIVER);
+    private static final int SNOWY_TUNDRA = BiomeUtil.getBiomeId(Biomes.SNOWY_TUNDRA);
+    private static final int MUSHROOM_FIELDS = BiomeUtil.getBiomeId(Biomes.MUSHROOM_FIELDS);
+    private static final int MUSHROOM_FIELD_SHORE = BiomeUtil.getBiomeId(Biomes.MUSHROOM_FIELD_SHORE);
+    private static final int RIVER = BiomeUtil.getBiomeId(Biomes.RIVER);
 
     @Override
     public int applyPixel(INoiseRandom context, IArea biomeArea, IArea riverArea, int x, int z)

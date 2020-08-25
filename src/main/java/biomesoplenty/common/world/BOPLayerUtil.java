@@ -7,6 +7,7 @@
  ******************************************************************************/
 package biomesoplenty.common.world;
 
+import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.common.world.layer.*;
 import biomesoplenty.common.world.layer.traits.LazyAreaLayerContextBOP;
 import net.minecraft.util.registry.Registry;
@@ -21,16 +22,16 @@ import java.util.function.LongFunction;
 
 public class BOPLayerUtil
 {
-    public static final int WARM_OCEAN = Registry.BIOME.getId(Biomes.WARM_OCEAN);
-    public static final int LUKEWARM_OCEAN = Registry.BIOME.getId(Biomes.LUKEWARM_OCEAN);
-    public static final int OCEAN = Registry.BIOME.getId(Biomes.OCEAN);
-    public static final int COLD_OCEAN = Registry.BIOME.getId(Biomes.COLD_OCEAN);
-    public static final int FROZEN_OCEAN = Registry.BIOME.getId(Biomes.FROZEN_OCEAN);
-    public static final int DEEP_WARM_OCEAN = Registry.BIOME.getId(Biomes.DEEP_WARM_OCEAN);
-    public static final int DEEP_LUKEWARM_OCEAN = Registry.BIOME.getId(Biomes.DEEP_LUKEWARM_OCEAN);
-    public static final int DEEP_OCEAN = Registry.BIOME.getId(Biomes.DEEP_OCEAN);
-    public static final int DEEP_COLD_OCEAN = Registry.BIOME.getId(Biomes.DEEP_COLD_OCEAN);
-    public static final int DEEP_FROZEN_OCEAN = Registry.BIOME.getId(Biomes.DEEP_FROZEN_OCEAN);
+    public static final int WARM_OCEAN = BiomeUtil.getBiomeId(Biomes.WARM_OCEAN);
+    public static final int LUKEWARM_OCEAN = BiomeUtil.getBiomeId(Biomes.LUKEWARM_OCEAN);
+    public static final int OCEAN = BiomeUtil.getBiomeId(Biomes.OCEAN);
+    public static final int COLD_OCEAN = BiomeUtil.getBiomeId(Biomes.COLD_OCEAN);
+    public static final int FROZEN_OCEAN = BiomeUtil.getBiomeId(Biomes.FROZEN_OCEAN);
+    public static final int DEEP_WARM_OCEAN = BiomeUtil.getBiomeId(Biomes.DEEP_WARM_OCEAN);
+    public static final int DEEP_LUKEWARM_OCEAN = BiomeUtil.getBiomeId(Biomes.DEEP_LUKEWARM_OCEAN);
+    public static final int DEEP_OCEAN = BiomeUtil.getBiomeId(Biomes.DEEP_OCEAN);
+    public static final int DEEP_COLD_OCEAN = BiomeUtil.getBiomeId(Biomes.DEEP_COLD_OCEAN);
+    public static final int DEEP_FROZEN_OCEAN = BiomeUtil.getBiomeId(Biomes.DEEP_FROZEN_OCEAN);
 
     public static <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> createInitialLandAndSeaFactory(LongFunction<C> contextFactory)
     {

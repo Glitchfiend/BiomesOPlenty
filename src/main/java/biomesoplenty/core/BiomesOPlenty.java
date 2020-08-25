@@ -59,8 +59,6 @@ public class BiomesOPlenty
     private void loadComplete(final FMLLoadCompleteEvent event) // PostRegistrationEven
     {
         proxy.init();
-        //GenLayerVisualizer.run();
-        ModCompatibility.setup();
     }
 
     private void serverStarting(final FMLServerAboutToStartEvent event)

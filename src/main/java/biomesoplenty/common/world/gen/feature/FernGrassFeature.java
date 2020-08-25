@@ -33,7 +33,7 @@ public class FernGrassFeature extends Feature<NoFeatureConfig>
 	}
 
 	@Override
-	public boolean place(ISeedReader world, StructureManager structureManager, ChunkGenerator chunkGenerator, Random rand, BlockPos pos, NoFeatureConfig config)
+	public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random rand, BlockPos pos, NoFeatureConfig config)
 	{
 		BlockState BlockState = this.chooseGrassState(rand);
 

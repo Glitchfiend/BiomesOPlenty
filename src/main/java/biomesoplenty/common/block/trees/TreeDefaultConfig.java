@@ -42,7 +42,7 @@ public abstract class TreeDefaultConfig extends Tree
         else
         {
             world.setBlock(pos, Blocks.AIR.defaultBlockState(), 4);
-            if (feature.place(world, world.structureFeatureManager(), generator, random, pos, Features.OAK.config()))
+            if (feature.place(world, generator, random, pos, Features.OAK.config()))
             {
                 return true;
             }

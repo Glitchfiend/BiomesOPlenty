@@ -178,9 +178,9 @@ public enum BOPClimates
     public static class WeightedBiomeEntry
     {
         public final int weight;
-        public final RegistryKey<Biome> biome;
+        public final Biome biome;
 
-        public WeightedBiomeEntry(int weight, RegistryKey<Biome> biome)
+        public WeightedBiomeEntry(int weight, Biome biome)
         {
             this.weight = weight;
             this.biome = biome;

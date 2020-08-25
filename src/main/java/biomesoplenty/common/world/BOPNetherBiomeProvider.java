@@ -11,6 +11,7 @@ import biomesoplenty.api.enums.BOPClimates;
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.util.RegistryKey;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.provider.BiomeProvider;
@@ -24,7 +25,7 @@ public class BOPNetherBiomeProvider extends BiomeProvider
 {
     public static final Codec<BOPNetherBiomeProvider> CODEC = RecordCodecBuilder.create((builder) -> builder.group(Codec.LONG.fieldOf("seed").stable().forGetter((biomeProvider) -> biomeProvider.seed)).apply(builder, builder.stable(BOPNetherBiomeProvider::new)));
 
-    private static final List<Biome> VANILLA_POSSIBLE_BIOMES = ImmutableList.of(Biomes.NETHER_WASTES, Biomes.SOUL_SAND_VALLEY, Biomes.CRIMSON_FOREST, Biomes.WARPED_FOREST, Biomes.BASALT_DELTAS);
+    private static final List<RegistryKey<Biome>> VANILLA_POSSIBLE_BIOMES = ImmutableList.of(Biomes.NETHER_WASTES, Biomes.SOUL_SAND_VALLEY, Biomes.CRIMSON_FOREST, Biomes.WARPED_FOREST, Biomes.BASALT_DELTAS);
 
     private final long seed;
     private final Layer noiseBiomeLayer;

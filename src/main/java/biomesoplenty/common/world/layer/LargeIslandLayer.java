@@ -53,7 +53,7 @@ public enum LargeIslandLayer implements IAreaTransformer2, IDimOffset1Transforme
             }
             else
             {
-                return Registry.BIOME.getId(islandBiome);
+                return BiomeUtil.getBiomeId(islandBiome);
             }
         }
         else return centerVal;

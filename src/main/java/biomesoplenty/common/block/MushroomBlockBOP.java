@@ -62,7 +62,7 @@ public class MushroomBlockBOP extends MushroomBlock implements IGrowable
             configuredfeature = BOPBiomeFeatures.HUGE_TOADSTOOL.configured(IFeatureConfig.NONE);
         }
 
-        if (configuredfeature.place(world, world.structureFeatureManager(), world.getChunkSource().getGenerator(), p_226940_4_, p_226940_2_))
+        if (configuredfeature.place(world, world.getChunkSource().getGenerator(), p_226940_4_, p_226940_2_))
         {
             return true;
         }

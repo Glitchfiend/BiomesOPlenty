@@ -22,7 +22,7 @@ public class PumpkinPatchFeature extends Feature<NoFeatureConfig>
 	}
 
 	@Override
-	public boolean place(ISeedReader world, StructureManager structureManager, ChunkGenerator chunkGenerator, Random rand, BlockPos pos, NoFeatureConfig config)
+	public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random rand, BlockPos pos, NoFeatureConfig config)
 	{
 		int i = 0;
 

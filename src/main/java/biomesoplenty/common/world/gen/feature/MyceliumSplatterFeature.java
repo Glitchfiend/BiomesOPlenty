@@ -20,7 +20,7 @@ public class MyceliumSplatterFeature extends Feature<NoFeatureConfig>
    }
 
    @Override
-   public boolean place(ISeedReader worldIn, StructureManager structureManager, ChunkGenerator chunkGenerator, Random rand, BlockPos pos, NoFeatureConfig config)
+   public boolean place(ISeedReader worldIn, ChunkGenerator chunkGenerator, Random rand, BlockPos pos, NoFeatureConfig config)
    {
       int i = 0;
       int j = rand.nextInt(8 - 2) + 2;

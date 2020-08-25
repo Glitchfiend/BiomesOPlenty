@@ -21,6 +21,6 @@ public enum NetherBiomeLayer implements IAreaTransformer0, IDimOffset0Transforme
     @Override
     public int applyPixel(INoiseRandom context, int x, int z)
     {
-        return Registry.BIOME.getId(BOPClimates.NETHER.getRandomBiome(context, Biomes.NETHER_WASTES));
+        return BiomeUtil.getBiomeId(BOPClimates.NETHER.getRandomBiome(context, Biomes.NETHER_WASTES));
     }
 }

@@ -28,7 +28,7 @@ public class SmallGlowshroomFeature extends Feature<NoFeatureConfig>
     }
 
     @Override
-    public boolean place(ISeedReader world, StructureManager structureManager, ChunkGenerator chunkGenerator, Random rand, BlockPos startPos, NoFeatureConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random rand, BlockPos startPos, NoFeatureConfig config) {
         while (startPos.getY() > 1 && this.replace.matches(world, startPos)) {
             startPos = startPos.below();
         }

@@ -43,7 +43,7 @@ public class FleshTendonFeature extends Feature<NoFeatureConfig>
     }
 
     @Override
-    public boolean place(ISeedReader world, StructureManager structureManager, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config)
+    public boolean place(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config)
     {
         BlockState below = world.getBlockState(pos.below());
         if (!below.is(BOPBlocks.flesh))

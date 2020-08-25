@@ -81,7 +81,7 @@ public class FoliageBlockBOP extends BushBlock implements IPlantable
 
         if (this == BOPBlocks.sprout)
         {
-            return ground.isFaceSturdy(groundState, worldIn, pos.below(), Direction.UP) || super.canSurvive(state, worldIn, pos);
+            return groundState.isFaceSturdy(worldIn, pos.below(), Direction.UP) || super.canSurvive(state, worldIn, pos);
         }
         if (this == BOPBlocks.dune_grass)
         {
