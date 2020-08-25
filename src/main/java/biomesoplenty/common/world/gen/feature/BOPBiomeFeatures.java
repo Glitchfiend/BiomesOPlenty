@@ -15,6 +15,8 @@ import net.minecraft.block.LeavesBlock;
 import net.minecraft.block.SaplingBlock;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.util.Direction;
+import net.minecraft.world.gen.carver.ConfiguredCarver;
+import net.minecraft.world.gen.carver.ConfiguredCarvers;
 import net.minecraft.world.gen.carver.WorldCarver;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;

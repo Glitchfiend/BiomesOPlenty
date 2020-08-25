@@ -9,6 +9,7 @@ package biomesoplenty.common.biome;
 
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.util.biome.BiomeUtil;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeGenerationSettings;
 import net.minecraft.world.biome.Biomes;
@@ -98,5 +99,12 @@ public class BiomeTemplate
     public boolean hasWeights()
     {
         return !this.weightMap.isEmpty() && !this.weightMap.entrySet().stream().allMatch((entry) -> entry.getValue().equals(0));
+    }
+
+    public static int calculateSkyColor(float temperature)
+    {
+        float lvt_1_1_ = temperature / 3.0F;
+        lvt_1_1_ = MathHelper.clamp(lvt_1_1_, -1.0F, 1.0F);
+        return MathHelper.hsvToRgb(0.62222224F - lvt_1_1_ * 0.05F, 0.5F + lvt_1_1_ * 0.1F, 1.0F);
     }
 }

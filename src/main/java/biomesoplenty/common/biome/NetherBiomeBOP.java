@@ -9,9 +9,8 @@ package biomesoplenty.common.biome;
 
 public class NetherBiomeBOP extends BiomeTemplate
 {
-    public NetherBiomeBOP(Builder builder)
+    public NetherBiomeBOP()
     {
-        super(builder);
         this.canSpawnInBiome = false;
     }
 }

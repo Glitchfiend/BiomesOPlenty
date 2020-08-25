@@ -62,7 +62,7 @@ public abstract class BigTreeDefaultConfig extends BigTree
         else
         {
             world.setBlock(pos, Blocks.AIR.defaultBlockState(), 4);
-            if (feature.place(world, world.structureFeatureManager(), generator, random, pos, DefaultBiomeFeatures.NORMAL_TREE_CONFIG))
+            if (feature.place(world, world.structureFeatureManager(), generator, random, pos, Features.OAK.config()))
             {
                 return true;
             }
@@ -89,7 +89,7 @@ public abstract class BigTreeDefaultConfig extends BigTree
             world.setBlock(pos.offset(x + 1, 0, z), blockstate, 4);
             world.setBlock(pos.offset(x, 0, z + 1), blockstate, 4);
             world.setBlock(pos.offset(x + 1, 0, z + 1), blockstate, 4);
-            if (feature.place(world, world.structureFeatureManager(), generator, random, pos.offset(x, 0, z), DefaultBiomeFeatures.NORMAL_TREE_CONFIG))
+            if (feature.place(world, world.structureFeatureManager(), generator, random, pos.offset(x, 0, z), Features.OAK.config()))
             {
                 return true;
             }
