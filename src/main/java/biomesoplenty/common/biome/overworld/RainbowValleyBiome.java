@@ -12,6 +12,7 @@ import biomesoplenty.common.biome.BiomeTemplate;
 import biomesoplenty.common.world.biome.BiomeFeatureHelper;
 import biomesoplenty.common.world.gen.feature.BOPBiomeFeatures;
 import biomesoplenty.common.world.gen.feature.StandardGrassFeature;
+import biomesoplenty.core.ClientProxy;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
@@ -36,7 +37,7 @@ public class RainbowValleyBiome extends BiomeTemplate
     {
         builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.FOREST).depth(0.5F).scale(0.5F).temperature(0.55F).downfall(1.0F);
 
-        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4566514).waterFogColor(267827).fogColor(12638463).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
+        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4566514).waterFogColor(267827).fogColor(12638463).skyColor(calculateSkyColor(0.55F)).foliageColorOverride(getFoliageColor()).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
 
     @Override
@@ -97,12 +98,12 @@ public class RainbowValleyBiome extends BiomeTemplate
 
         double d0 = Biome.BIOME_INFO_NOISE.getValue(x * 0.0225D, z * 0.0225D, false);
         return d0 < -0.1D ? 0x77CE7F : 0x75CE8D;
-    }
-
+    }*/
+    
     public int getFoliageColor()
     {
         if (ClientProxy.isAprilFools) { return 0xFFFFFF; }
 
         return 0x75CE8D;
-    }*/
+    }
 }

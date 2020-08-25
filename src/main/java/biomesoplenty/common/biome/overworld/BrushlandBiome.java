@@ -39,7 +39,7 @@ public class BrushlandBiome extends BiomeTemplate
     {
         builder.precipitation(Biome.RainType.NONE).biomeCategory(Biome.Category.SAVANNA).depth(0.1F).scale(0.1F).temperature(1.5F).downfall(0.1F);
 
-        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).grassColorOverride(0xE5DFA9).foliageColorOverride(0xDAE0B3).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
+        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(calculateSkyColor(1.5F)).grassColorOverride(0xE5DFA9).foliageColorOverride(0xDAE0B3).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
 
     @Override

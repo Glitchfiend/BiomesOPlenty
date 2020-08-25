@@ -40,7 +40,7 @@ public class ShieldBiome extends BiomeTemplate
     {
         builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.TAIGA).depth(-0.2F).scale(0.15F).temperature(0.4F).downfall(0.8F);
 
-        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).grassColorOverride(0x7C9B45).foliageColorOverride(0x8EAF4F).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
+        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(calculateSkyColor(0.4F)).grassColorOverride(0x7C9B45).foliageColorOverride(0x8EAF4F).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
 
     @Override

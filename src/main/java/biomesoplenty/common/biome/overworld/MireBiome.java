@@ -42,7 +42,7 @@ public class MireBiome extends BiomeTemplate
     {
         builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.SWAMP).depth(-0.125F).scale(-0.05F).temperature(0.55F).downfall(0.9F);
 
-        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(0x354762).waterFogColor(0x040511).fogColor(12638463).grassColorOverride(0x66704C).foliageColorOverride(0x878E61).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
+        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(0x354762).waterFogColor(0x040511).fogColor(12638463).skyColor(calculateSkyColor(0.55F)).grassColorOverride(0x66704C).foliageColorOverride(0x878E61).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
 
     @Override

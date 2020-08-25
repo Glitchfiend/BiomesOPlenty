@@ -40,7 +40,7 @@ public class MangroveBiome extends BiomeTemplate
     {
         builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.SWAMP).depth(-0.25F).scale(-0.025F).temperature(0.81F).downfall(0.7F);
 
-        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(0x448FBD).waterFogColor(0x061326).fogColor(12638463).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
+        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(0x448FBD).waterFogColor(0x061326).fogColor(12638463).skyColor(calculateSkyColor(0.81F)).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
 
     @Override

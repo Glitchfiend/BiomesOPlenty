@@ -43,7 +43,7 @@ public class BayouBiome extends BiomeTemplate
     {
         builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.SWAMP).depth(-0.315F).scale(-0.05F).temperature(0.95F).downfall(0.9F);
 
-        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(0x62AF84).waterFogColor(0x0C211C).fogColor(12638463).grassColorOverride(0x6FAA50).foliageColorOverride(0x8BDB67).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
+        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(0x62AF84).waterFogColor(0x0C211C).fogColor(12638463).skyColor(calculateSkyColor(0.95F)).grassColorOverride(0x6FAA50).foliageColorOverride(0x8BDB67).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
 
     @Override

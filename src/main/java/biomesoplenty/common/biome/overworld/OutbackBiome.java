@@ -41,7 +41,7 @@ public class OutbackBiome extends BiomeTemplate
     {
         builder.precipitation(Biome.RainType.NONE).biomeCategory(Biome.Category.DESERT).depth(0.05F).scale(0.0F).temperature(2.0F).downfall(0.05F);
 
-        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
+        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(calculateSkyColor(2.0F)).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
 
     @Override

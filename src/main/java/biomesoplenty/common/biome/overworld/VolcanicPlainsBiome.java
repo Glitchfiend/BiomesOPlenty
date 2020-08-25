@@ -37,7 +37,7 @@ public class VolcanicPlainsBiome extends BiomeTemplate
     {
         builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.NONE).depth(0.05F).scale(0.0F).temperature(0.95F).downfall(0.3F);
 
-        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4566514).waterFogColor(267827).fogColor(12638463).grassColorOverride(0x4A703B).foliageColorOverride(0x547D42).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
+        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4566514).waterFogColor(267827).fogColor(12638463).skyColor(calculateSkyColor(0.95F)).grassColorOverride(0x4A703B).foliageColorOverride(0x547D42).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
 
     @Override

@@ -37,7 +37,7 @@ public class ColdDesertBiome extends BiomeTemplate
     {
         builder.precipitation(Biome.RainType.NONE).biomeCategory(Biome.Category.ICY).depth(0.0F).scale(0.0F).temperature(0.25F).downfall(0.0F);
 
-        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).grassColorOverride(0xAD9364).foliageColorOverride(0xB5A76C).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
+        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(calculateSkyColor(0.25F)).grassColorOverride(0xAD9364).foliageColorOverride(0xB5A76C).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
 
     @Override

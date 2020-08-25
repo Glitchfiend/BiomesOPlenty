@@ -42,7 +42,7 @@ public class TropicalRainforestBiome extends BiomeTemplate
     {
         builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.JUNGLE).depth(0.1F).scale(0.3F).temperature(1.0F).downfall(1.0F);
 
-        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(0x1FA14A).waterFogColor(0x02271A).fogColor(12638463).grassColorOverride(0xA7E140).foliageColorOverride(0x88E140).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
+        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(0x1FA14A).waterFogColor(0x02271A).fogColor(12638463).skyColor(calculateSkyColor(1.0F)).grassColorOverride(0xA7E140).foliageColorOverride(0x88E140).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
 
     @Override

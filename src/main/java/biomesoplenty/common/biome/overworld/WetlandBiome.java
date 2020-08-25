@@ -42,7 +42,7 @@ public class WetlandBiome extends BiomeTemplate
     {
         builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.SWAMP).depth(0.0F).scale(0.2F).temperature(0.6F).downfall(0.7F);
 
-        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(0x272179).waterFogColor(0x0C031B).fogColor(12638463).grassColorOverride(0x5A935F).foliageColorOverride(0x4F9657).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
+        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(0x272179).waterFogColor(0x0C031B).fogColor(12638463).skyColor(calculateSkyColor(0.6F)).grassColorOverride(0x5A935F).foliageColorOverride(0x4F9657).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
 
     @Override

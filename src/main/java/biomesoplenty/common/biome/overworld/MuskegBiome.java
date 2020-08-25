@@ -42,7 +42,7 @@ public class MuskegBiome extends BiomeTemplate
     {
         builder.precipitation(Biome.RainType.SNOW).biomeCategory(Biome.Category.ICY).depth(-0.175F).scale(-0.05F).temperature(-0.25F).downfall(0.6F);
 
-        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).grassColorOverride(0x94966E).foliageColorOverride(0x8D9B6B).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
+        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(calculateSkyColor(-0.25F)).grassColorOverride(0x94966E).foliageColorOverride(0x8D9B6B).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
 
     @Override
