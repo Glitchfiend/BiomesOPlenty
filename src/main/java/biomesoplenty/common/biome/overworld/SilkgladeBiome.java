@@ -31,8 +31,8 @@ public class SilkgladeBiome extends BiomeTemplate
     public SilkgladeBiome()
     {
         this.addWeight(BOPClimates.DRY_TEMPERATE, 1);
-        this.setBeachBiome((Biome)null);
-        this.setRiverBiome((Biome)null);
+        this.setBeachBiome(null);
+        this.setRiverBiome(null);
     }
 
     @Override

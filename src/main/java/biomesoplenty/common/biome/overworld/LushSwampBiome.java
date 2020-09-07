@@ -31,7 +31,7 @@ public class LushSwampBiome extends BiomeTemplate
     public LushSwampBiome()
     {
         this.addWeight(BOPClimates.SUBTROPICAL, 3);
-        this.setBeachBiome((Biome)null);
+        this.setBeachBiome(null);
     }
 
     @Override

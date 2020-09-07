@@ -26,8 +26,8 @@ public class OriginHillsBiome extends BiomeTemplate
 {
     public OriginHillsBiome()
     {
-        this.setBeachBiome((Biome)null);
-        this.setRiverBiome((Biome)null);
+        this.setBeachBiome(null);
+        this.setRiverBiome(null);
     }
 
     @Override

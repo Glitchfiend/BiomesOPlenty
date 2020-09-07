@@ -32,7 +32,7 @@ public class MangroveBiome extends BiomeTemplate
     public MangroveBiome()
     {
         this.addWeight(BOPClimates.SUBTROPICAL, 10);
-        this.setBeachBiome((Biome)null);
+        this.setBeachBiome(null);
     }
 
     @Override

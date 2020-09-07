@@ -1,7 +1,7 @@
 package biomesoplenty.common.biome.nether;
 
 import biomesoplenty.api.enums.BOPClimates;
-import biomesoplenty.common.biome.NetherBiomeBOP;
+import biomesoplenty.common.biome.NetherBiomeTemplate;
 import biomesoplenty.common.world.gen.feature.BOPBiomeFeatures;
 import net.minecraft.client.audio.BackgroundMusicTracks;
 import net.minecraft.entity.EntityClassification;
@@ -16,7 +16,7 @@ import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 
-public class WitheredAbyssBiome extends NetherBiomeBOP
+public class WitheredAbyssBiome extends NetherBiomeTemplate
 {
     public WitheredAbyssBiome()
     {

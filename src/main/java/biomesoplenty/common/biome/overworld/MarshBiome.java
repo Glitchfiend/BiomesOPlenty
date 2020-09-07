@@ -31,7 +31,7 @@ public class MarshBiome extends BiomeTemplate
     public MarshBiome()
     {
         this.addWeight(BOPClimates.WET_TEMPERATE, 5);
-        this.setBeachBiome((Biome)null);
+        this.setBeachBiome(null);
     }
 
     @Override

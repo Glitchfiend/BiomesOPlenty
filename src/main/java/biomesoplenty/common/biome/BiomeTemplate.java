@@ -9,6 +9,7 @@ package biomesoplenty.common.biome;
 
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.util.biome.BiomeUtil;
+import net.minecraft.util.RegistryKey;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeGenerationSettings;
@@ -21,19 +22,18 @@ import java.util.Optional;
 
 public class BiomeTemplate
 {
-    protected Map<BOPClimates, Integer> weightMap = new HashMap<BOPClimates, Integer>();
-	public boolean canSpawnInBiome;
-	public int beachBiomeId = BiomeUtil.getBiomeId(Biomes.BEACH);
-	public int riverBiomeId = BiomeUtil.getBiomeId(Biomes.RIVER);
-
-    public BiomeTemplate()
-    {
-        this.canSpawnInBiome = true;
-    }
+    private Map<BOPClimates, Integer> weightMap = new HashMap<BOPClimates, Integer>();
+    private RegistryKey<Biome> beachBiome = Biomes.BEACH;
+    private RegistryKey<Biome> riverBiome = Biomes.RIVER;
 
     protected void configureBiome(Biome.Builder builder) {}
     protected void configureGeneration(BiomeGenerationSettings.Builder builder) {}
     protected void configureMobSpawns(MobSpawnInfo.Builder builder) {}
+
+    protected void configureDefaultMobSpawns(MobSpawnInfo.Builder builder)
+    {
+        builder.setPlayerCanSpawn();
+    }
 
     public final Biome build()
     {
@@ -46,6 +46,7 @@ public class BiomeTemplate
 
         // Configure mob spawning
         MobSpawnInfo.Builder mobSpawnBuilder = new MobSpawnInfo.Builder();
+        this.configureDefaultMobSpawns(mobSpawnBuilder);
         this.configureMobSpawns(mobSpawnBuilder);
         biomeBuilder.mobSpawnSettings(mobSpawnBuilder.build());
 
@@ -54,51 +55,24 @@ public class BiomeTemplate
         return biomeBuilder.build();
     }
 
+    public final BiomeMetadata buildMetadata()
+    {
+        return new BiomeMetadata(this.weightMap, this.beachBiome, this.riverBiome);
+    }
+
     public void addWeight(BOPClimates climate, int weight)
     {
         this.weightMap.put(climate, weight);
     }
 
-    public void setBeachBiome(Optional<Biome> biome)
+    public void setBeachBiome(RegistryKey<Biome> biome)
     {
-        if (biome.isPresent())
-            this.beachBiomeId = BiomeUtil.getBiomeId(biome.get());
-        else
-            this.beachBiomeId = -1;
+        this.beachBiome = biome;
     }
 
-    public void setBeachBiome(Biome biome)
+    public void setRiverBiome(RegistryKey<Biome> biome)
     {
-        if (biome != null)
-            this.beachBiomeId = BiomeUtil.getBiomeId(biome);
-        else
-            this.beachBiomeId = -1;
-    }
-
-    public void setRiverBiome(Optional<Biome> biome)
-    {
-        if (biome.isPresent())
-            this.riverBiomeId = BiomeUtil.getBiomeId(biome.get());
-        else
-            this.riverBiomeId = -1;
-    }
-
-    public void setRiverBiome(Biome biome)
-    {
-        if (biome != null)
-            this.riverBiomeId = BiomeUtil.getBiomeId(biome);
-        else
-            this.riverBiomeId = -1;
-    }
-
-    public Map<BOPClimates, Integer> getWeightMap()
-    {
-        return this.weightMap;
-    }
-
-    public boolean hasWeights()
-    {
-        return !this.weightMap.isEmpty() && !this.weightMap.entrySet().stream().allMatch((entry) -> entry.getValue().equals(0));
+        this.riverBiome = biome;
     }
 
     public static int calculateSkyColor(float temperature)

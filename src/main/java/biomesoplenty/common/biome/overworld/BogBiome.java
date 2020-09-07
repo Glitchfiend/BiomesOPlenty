@@ -32,7 +32,7 @@ public class BogBiome extends BiomeTemplate
     public BogBiome()
     {
         this.addWeight(BOPClimates.WET_BOREAL, 3);
-        this.setBeachBiome((Biome) null);
+        this.setBeachBiome(null);
     }
 
     @Override

@@ -27,7 +27,7 @@ public class VolcanoBiome extends BiomeTemplate
 {
     public VolcanoBiome()
     {
-        this.setRiverBiome((Biome) null);
+        this.setRiverBiome(null);
         this.setBeachBiome(BOPBiomes.volcanic_plains);
     }
 

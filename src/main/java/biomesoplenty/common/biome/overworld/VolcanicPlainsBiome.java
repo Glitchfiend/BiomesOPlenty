@@ -28,8 +28,8 @@ public class VolcanicPlainsBiome extends BiomeTemplate
 {
     public VolcanicPlainsBiome()
     {
-        this.setBeachBiome((Biome)null);
-        this.setRiverBiome((Biome)null);
+        this.setBeachBiome(null);
+        this.setRiverBiome(null);
     }
 
     @Override

@@ -7,10 +7,12 @@
  ******************************************************************************/
 package biomesoplenty.common.biome;
 
-public class NetherBiomeBOP extends BiomeTemplate
+import net.minecraft.world.biome.MobSpawnInfo;
+
+public class NetherBiomeTemplate extends BiomeTemplate
 {
-    public NetherBiomeBOP()
+    protected void configureDefaultMobSpawns(MobSpawnInfo.Builder builder)
     {
-        this.canSpawnInBiome = false;
+        // Do nothing
     }
 }

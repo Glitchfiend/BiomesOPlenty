@@ -10,13 +10,11 @@ package biomesoplenty.common.world.layer;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.init.ModBiomes;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.area.IArea;
 import net.minecraft.world.gen.layer.traits.IAreaTransformer2;
 import net.minecraft.world.gen.layer.traits.IDimOffset0Transformer;
-import net.minecraftforge.common.BiomeManager;
 
 public enum BOPBiomeLayer implements IAreaTransformer2, IDimOffset0Transformer
 {
@@ -50,7 +48,7 @@ public enum BOPBiomeLayer implements IAreaTransformer2, IDimOffset0Transformer
         {
             return BiomeUtil.getBiomeId(climate.getRandomOceanBiome(context, true));
         }
-        else if ((landSeaVal == MUSHROOM_FIELDS || ModBiomes.islandBiomeIds.contains(landSeaVal)) && climate.biomeType != BiomeManager.BiomeType.ICY) // TODO
+        else if ((landSeaVal == MUSHROOM_FIELDS || ModBiomes.islandBiomeIds.contains(landSeaVal)) && !(climate == BOPClimates.ICE_CAP || climate == BOPClimates.TUNDRA))
         {
             // keep islands, unless it's in an icy climate in which case, replace
             return landSeaVal;

@@ -8,8 +8,11 @@
 package biomesoplenty.common.world.layer;
 
 import biomesoplenty.api.biome.BOPBiomes;
+import biomesoplenty.common.biome.BiomeMetadata;
 import biomesoplenty.common.biome.BiomeTemplate;
+import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.common.world.BOPLayerUtil;
+import net.minecraft.util.RegistryKey;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
@@ -48,7 +51,8 @@ public enum BOPShoreLayer implements ICastleTransformer
     @Override
     public int apply(INoiseRandom context, int northBiomeId, int eastBiomeId, int southBiomeId, int westBiomeId, int biomeId)
     {
-        Biome biome = Registry.BIOME.byId(biomeId);
+        Biome biome = BiomeUtil.getBiome(biomeId);
+        RegistryKey<Biome> key = BiomeUtil.createKey(biome);
 
         if (biomeId == MUSHROOM_FIELDS)
         {
@@ -75,11 +79,11 @@ public enum BOPShoreLayer implements ICastleTransformer
             {
                 if (!BOPLayerUtil.isOcean(biomeId) && (BOPLayerUtil.isOcean(northBiomeId) || BOPLayerUtil.isOcean(eastBiomeId) || BOPLayerUtil.isOcean(southBiomeId) || BOPLayerUtil.isOcean(westBiomeId)))
                 {
-                    if (biome instanceof BiomeTemplate)
+                    if (BiomeUtil.hasMetadata(biome))
                     {
-                        BiomeTemplate biomeTemplate = (BiomeTemplate)biome;
+                        BiomeMetadata meta = BiomeUtil.getMetadata(biome);
 
-                        if (biomeTemplate.beachBiomeId == -1)
+                        if (meta.getBeachBiome() == null)
                             return biomeId;
                     }
                     
@@ -90,26 +94,20 @@ public enum BOPShoreLayer implements ICastleTransformer
             {
                 if (!BOPLayerUtil.isOcean(biomeId) && biomeId != RIVER && biomeId != SWAMP && (BOPLayerUtil.isOcean(northBiomeId) || BOPLayerUtil.isOcean(eastBiomeId) || BOPLayerUtil.isOcean(southBiomeId) || BOPLayerUtil.isOcean(westBiomeId)))
                 {
-                    if (biome instanceof BiomeTemplate)
+                    if (BiomeUtil.hasMetadata(biome))
                     {
-                        BiomeTemplate biomeTemplate = (BiomeTemplate)biome;
+                        BiomeMetadata meta = BiomeUtil.getMetadata(biome);
 
-                        if (biomeTemplate.beachBiomeId != -1)
-                        {
-                            return biomeTemplate.beachBiomeId;
-                        }
-                        else
-                        {
-                            return biomeId;
-                        }
+                        if (meta.getBeachBiome() == null) return biomeId;
+                        else return BiomeUtil.getBiomeId(key);
                     }
                     else
                     {
-                        if (biome == Biomes.JUNGLE || biome == Biomes.JUNGLE_HILLS || biome == Biomes.JUNGLE_EDGE || biome == Biomes.MODIFIED_JUNGLE || biome == Biomes.BAMBOO_JUNGLE || biome == Biomes.BAMBOO_JUNGLE_HILLS || biome == Biomes.MODIFIED_JUNGLE_EDGE)
+                        if (key == Biomes.JUNGLE || key == Biomes.JUNGLE_HILLS || key == Biomes.JUNGLE_EDGE || key == Biomes.MODIFIED_JUNGLE || key == Biomes.BAMBOO_JUNGLE || key == Biomes.BAMBOO_JUNGLE_HILLS || key == Biomes.MODIFIED_JUNGLE_EDGE)
                         {
                             return getBiomeIdIfPresent(BOPBiomes.mangrove, biomeId);
                         }
-                        if (biome == Biomes.TAIGA || biome == Biomes.TAIGA_MOUNTAINS || biome == Biomes.TAIGA_HILLS || biome == Biomes.GIANT_TREE_TAIGA || biome == Biomes.GIANT_SPRUCE_TAIGA || biome == Biomes.GIANT_TREE_TAIGA_HILLS || biome == Biomes.GIANT_SPRUCE_TAIGA_HILLS || biome == Biomes.BIRCH_FOREST_HILLS || biome == Biomes.BIRCH_FOREST || biome == Biomes.TALL_BIRCH_HILLS || biome == Biomes.TALL_BIRCH_FOREST || biome == Biomes.DARK_FOREST_HILLS || biome == Biomes.DARK_FOREST)
+                        if (key == Biomes.TAIGA || key == Biomes.TAIGA_MOUNTAINS || key == Biomes.TAIGA_HILLS || key == Biomes.GIANT_TREE_TAIGA || key == Biomes.GIANT_SPRUCE_TAIGA || key == Biomes.GIANT_TREE_TAIGA_HILLS || key == Biomes.GIANT_SPRUCE_TAIGA_HILLS || key == Biomes.BIRCH_FOREST_HILLS || key == Biomes.BIRCH_FOREST || key == Biomes.TALL_BIRCH_HILLS || key == Biomes.TALL_BIRCH_FOREST || key == Biomes.DARK_FOREST_HILLS || key == Biomes.DARK_FOREST)
                         {
                             return getBiomeIdIfPresent(BOPBiomes.gravel_beach, biomeId);
                         }
@@ -131,14 +129,16 @@ public enum BOPShoreLayer implements ICastleTransformer
         return biomeId;
     }
 
-    private static int getBiomeIdIfPresent(Optional<Biome> biome, int fallbackId)
+    private static int getBiomeIdIfPresent(RegistryKey<Biome> biome, int fallbackId)
     {
-        return biome.isPresent() ? BiomeUtil.getBiomeId(biome.get()) : fallbackId;
+        return BiomeUtil.exists(biome) ? BiomeUtil.getBiomeId(biome) : fallbackId;
     }
 
     private static boolean isJungleCompatible(int biomeId)
     {
-        if (Registry.BIOME.byId(biomeId) != null && (Registry.BIOME.byId(biomeId)).getBiomeCategory() == Biome.Category.JUNGLE)
+        Biome biome = BiomeUtil.getBiome(biomeId);
+
+        if (biome != null && biome.getBiomeCategory() == Biome.Category.JUNGLE)
         {
             return true;
         }

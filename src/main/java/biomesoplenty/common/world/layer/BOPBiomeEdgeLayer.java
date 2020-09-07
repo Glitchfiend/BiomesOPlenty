@@ -9,7 +9,7 @@ package biomesoplenty.common.world.layer;
 
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.common.util.biome.BiomeUtil;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.util.RegistryKey;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.INoiseRandom;
@@ -54,7 +54,7 @@ public enum BOPBiomeEdgeLayer implements ICastleTransformer
         if (this.replaceBiomeEdge(outBiomeId, northBiomeId, eastBiomeId, southBiomeId, westBiomeId, biomeId, BOPBiomes.volcano, BOPBiomes.volcanic_plains)) { return outBiomeId[0]; }
 
         // line mountains with mountain edges
-        if (this.replaceBiomeEdgeIfNecessary(outBiomeId, northBiomeId, eastBiomeId, southBiomeId, westBiomeId, biomeId, MOUNTAINS, MOUNTAIN_EDGE)) { return outBiomeId[0]; }
+        //if (this.replaceBiomeEdgeIfNecessary(outBiomeId, northBiomeId, eastBiomeId, southBiomeId, westBiomeId, biomeId, MOUNTAINS, MOUNTAIN_EDGE)) { return outBiomeId[0]; }
 
         // line special badlands with badlands
         if (this.replaceBiomeEdge(outBiomeId, northBiomeId, eastBiomeId, southBiomeId, westBiomeId, biomeId, WOODED_BADLANDS_PLATEAU, BADLANDS)) { return outBiomeId[0]; }
@@ -86,35 +86,9 @@ public enum BOPBiomeEdgeLayer implements ICastleTransformer
         return biomeId;
     }
 
-    private boolean replaceBiomeEdgeIfNecessary(int[] outId, int northBiomeId, int southBiomeId, int eastBiomeId, int westBiomeId, int biomeId, int fromBiome, int toBiome)
+    private boolean replaceBiomeEdge(int[] outId, int northBiomeId, int eastBiomeId, int southBiomeId, int westBiomeId, int biomeId, RegistryKey<Biome> fromBiome, RegistryKey<Biome> toBiome)
     {
-        if (!LayerUtil.isSame(biomeId, fromBiome))
-        {
-            return false;
-        }
-        else
-        {
-            if (this.canBiomesBeNeighbors(northBiomeId, fromBiome) && this.canBiomesBeNeighbors(southBiomeId, fromBiome) && this.canBiomesBeNeighbors(westBiomeId, fromBiome) && this.canBiomesBeNeighbors(eastBiomeId, fromBiome))
-            {
-                outId[0] = biomeId;
-            }
-            else
-            {
-                outId[0] = toBiome;
-            }
-
-            return true;
-        }
-    }
-
-    private boolean replaceBiomeEdge(int[] outId, int northBiomeId, int eastBiomeId, int southBiomeId, int westBiomeId, int biomeId, Optional<Biome> fromBiome, Optional<Biome> toBiome)
-    {
-        return fromBiome.isPresent() && toBiome.isPresent() && this.replaceBiomeEdge(outId, northBiomeId, eastBiomeId, southBiomeId, westBiomeId, biomeId, BiomeUtil.getBiomeId(fromBiome.get()), BiomeUtil.getBiomeId(toBiome.get()));
-    }
-    
-    private boolean replaceBiomeEdge(int[] outId, int northBiomeId, int eastBiomeId, int southBiomeId, int westBiomeId, int biomeId, Optional<Biome> fromBiome, int toBiome)
-    {
-        return fromBiome.isPresent() && this.replaceBiomeEdge(outId, northBiomeId, eastBiomeId, southBiomeId, westBiomeId, biomeId, BiomeUtil.getBiomeId(fromBiome.get()), toBiome);
+        return BiomeUtil.exists(fromBiome) && BiomeUtil.exists(toBiome) && this.replaceBiomeEdge(outId, northBiomeId, eastBiomeId, southBiomeId, westBiomeId, biomeId, BiomeUtil.getBiomeId(fromBiome), BiomeUtil.getBiomeId(toBiome));
     }
 
     private boolean replaceBiomeEdge(int[] outId, int northBiomeId, int eastBiomeId, int southBiomeId, int westBiomeId, int biomeId, int fromBiome, int toBiome)
@@ -135,29 +109,6 @@ public enum BOPBiomeEdgeLayer implements ICastleTransformer
             }
 
             return true;
-        }
-    }
-
-    private boolean canBiomesBeNeighbors(int biomeIdA, int biomeIdB)
-    {
-        if (LayerUtil.isSame(biomeIdA, biomeIdB))
-        {
-            return true;
-        }
-        else
-        {
-            Biome biomeA = Registry.BIOME.byId(biomeIdA);
-            Biome biomeB = Registry.BIOME.byId(biomeIdB);
-            if (biomeA != null && biomeB != null)
-            {
-                Biome.TempCategory catA = biomeA.getTemperatureCategory();
-                Biome.TempCategory catB = biomeB.getTemperatureCategory();
-                return catA == catB || catA == Biome.TempCategory.MEDIUM || catB == Biome.TempCategory.MEDIUM;
-            }
-            else
-            {
-                return false;
-            }
         }
     }
 }

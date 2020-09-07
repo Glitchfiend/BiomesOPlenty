@@ -29,7 +29,7 @@ public class RainbowValleyBiome extends BiomeTemplate
 {
     public RainbowValleyBiome()
     {
-        this.setBeachBiome((Biome)null);
+        this.setBeachBiome(null);
     }
 
     @Override

@@ -31,7 +31,7 @@ public class GroveBiome extends BiomeTemplate
     public GroveBiome()
     {
         this.addWeight(BOPClimates.MEDITERRANEAN, 7);
-        this.setBeachBiome((Biome)null);
+        this.setBeachBiome(null);
     }
 
     @Override

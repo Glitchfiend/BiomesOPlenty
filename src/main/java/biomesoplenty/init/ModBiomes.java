@@ -8,32 +8,36 @@
 package biomesoplenty.init;
 
 import biomesoplenty.api.enums.BOPClimates;
-import biomesoplenty.common.biome.BiomeTemplate;
+import biomesoplenty.common.biome.BiomeMetadata;
 import biomesoplenty.common.biome.BiomeRegistry;
-import biomesoplenty.common.biome.nether.*;
+import biomesoplenty.common.biome.BiomeTemplate;
+import biomesoplenty.common.biome.nether.CrystallineChasmBiome;
+import biomesoplenty.common.biome.nether.UndergrowthBiome;
+import biomesoplenty.common.biome.nether.VisceralHeapBiome;
+import biomesoplenty.common.biome.nether.WitheredAbyssBiome;
 import biomesoplenty.common.biome.overworld.*;
+import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.common.world.BOPBiomeGeneratorTypeScreen;
 import biomesoplenty.common.world.BOPBiomeProvider;
 import biomesoplenty.common.world.BOPNetherBiomeProvider;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
 import net.minecraft.client.gui.screen.BiomeGeneratorTypeScreens;
 import net.minecraft.entity.villager.VillagerType;
-import net.minecraft.entity.villager.VillagerType;
+import net.minecraft.util.RegistryKey;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.Map;
 
 import static biomesoplenty.api.biome.BOPBiomes.*;
 
@@ -44,6 +48,7 @@ public class ModBiomes
 
     public static Multimap<Integer, WeightedSubBiome> subBiomes = HashMultimap.create();
     public static List<Integer> islandBiomeIds = Lists.newArrayList();
+    public static Map<RegistryKey<Biome>, BiomeMetadata> biomeMetadata = Maps.newHashMap();
 
     public static void setup()
     {
@@ -275,11 +280,14 @@ public class ModBiomes
         registerVillagerType(xeric_shrubland, VillagerType.DESERT);
     }
 
-    private static void registerVillagerType(Optional<Biome> biome, VillagerType type)
+    private static void registerVillagerType(RegistryKey<Biome> key, VillagerType type)
     {
-        if (biome.isPresent())
+        Biome biome = BiomeUtil.getBiome(key);
+
+        if (biome != null)
         {
-            VillagerType.BY_BIOME.put(biome.get(), type);
+            // TODO
+            //VillagerType.BY_BIOME.put(biome, type);
         }
     }
 
@@ -297,47 +305,28 @@ public class ModBiomes
         BiomeRegistry.deferTechnicalBiomeRegistration(biome, name);
     }
 
-    public static void registerSubBiome(Biome parent, Optional<Biome> child, float rarity, int weight)
+    public static void registerSubBiome(RegistryKey<Biome> parent, RegistryKey<Biome> child, float rarity, int weight)
     {
-        registerSubBiome(Optional.of(parent), child, rarity, weight);
-    }
-    
-    public static void registerSubBiome(Optional<Biome> parent, Optional<Biome> child, float rarity, int weight)
-    {
-    	if (!parent.isPresent())
-            return;
-
-        if (!child.isPresent())
-            return;
-
-        BiomeRegistry.deferSubBiomeRegistration(parent.get(), child.get(), weight, rarity);
+        BiomeRegistry.deferSubBiomeRegistration(parent, child, weight, rarity);
     }
 
-    public static void registerIslandBiome(Biome biome, BOPClimates climate, int weight)
+    public static void registerIslandBiome(RegistryKey<Biome> key, BOPClimates climate, int weight)
     {
-        BiomeRegistry.deferIslandBiomeRegistration(biome, climate, weight);
+        BiomeRegistry.deferIslandBiomeRegistration(key, climate, weight);
     }
 
-    public static void registerIslandBiome(Optional<Biome> biome, BOPClimates climate, int weight)
+    private static void registerVanillaBiome(RegistryKey<Biome> key, BOPClimates climate, int weight)
     {
-        if (!biome.isPresent())
-            return;
-
-        registerIslandBiome(biome.get(), climate, weight);
-    }
-
-    private static void registerVanillaBiome(Biome biome, BOPClimates climate, int weight)
-    {
-        BiomeRegistry.deferVanillaBiomeRegistration(biome, climate, weight);
+        BiomeRegistry.deferVanillaBiomeRegistration(key, climate, weight);
     }
 
     public static class WeightedSubBiome
     {
-        public final Biome biome;
+        public final RegistryKey<Biome> biome;
         public final float rarity;
         public final int weight;
 
-        public WeightedSubBiome(Biome biome, float rarity, int weight)
+        public WeightedSubBiome(RegistryKey<Biome> biome, float rarity, int weight)
         {
             this.biome = biome;
             this.rarity = rarity;

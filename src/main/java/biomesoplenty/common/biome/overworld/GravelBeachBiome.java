@@ -19,7 +19,7 @@ public class GravelBeachBiome extends BiomeTemplate
 {
     public GravelBeachBiome()
     {
-        this.setBeachBiome((Biome)null);
+        this.setBeachBiome(null);
     }
 
     @Override

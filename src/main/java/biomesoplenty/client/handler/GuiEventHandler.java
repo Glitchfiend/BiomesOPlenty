@@ -9,8 +9,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screen.*;
 import net.minecraft.command.Commands;
 import net.minecraft.resources.*;
-import net.minecraft.server.IDynamicRegistries;
 import net.minecraft.util.datafix.codec.DatapackCodec;
+import net.minecraft.util.registry.DynamicRegistries;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.gen.settings.DimensionGeneratorSettings;
@@ -135,7 +135,7 @@ public class GuiEventHandler
         try
         (
             SaveFormat.LevelSave save = mc.getLevelSource().createAccess(levelId);
-            Minecraft.PackManager packManager = createPackManager(IDynamicRegistries.builtin(), Minecraft::loadDataPacks, Minecraft::loadWorldData, save);
+            Minecraft.PackManager packManager = createPackManager(DynamicRegistries.builtin(), Minecraft::loadDataPacks, Minecraft::loadWorldData, save);
         )
         {
             DimensionGeneratorSettings settings = packManager.worldData().worldGenSettings();
@@ -148,10 +148,10 @@ public class GuiEventHandler
         }
     }
 
-    private static Minecraft.PackManager createPackManager(IDynamicRegistries.Impl registries, Function<SaveFormat.LevelSave, DatapackCodec> dataPackLoader, Function4<SaveFormat.LevelSave, IDynamicRegistries.Impl, IResourceManager, DatapackCodec, IServerConfiguration> worldDataLoader, SaveFormat.LevelSave save)
+    private static Minecraft.PackManager createPackManager(DynamicRegistries.Impl registries, Function<SaveFormat.LevelSave, DatapackCodec> dataPackLoader, Function4<SaveFormat.LevelSave, DynamicRegistries.Impl, IResourceManager, DatapackCodec, IServerConfiguration> worldDataLoader, SaveFormat.LevelSave save)
     {
         DatapackCodec dataPackCodec = dataPackLoader.apply(save);
-        ResourcePackList<ResourcePackInfo> resourcePackList = new ResourcePackList<>(ResourcePackInfo::new, new ServerPackFinder(), new FolderPackFinder(save.getLevelPath(FolderName.DATAPACK_DIR).toFile(), IPackNameDecorator.WORLD));
+        ResourcePackList resourcePackList = new ResourcePackList(ResourcePackInfo::new, new ServerPackFinder(), new FolderPackFinder(save.getLevelPath(FolderName.DATAPACK_DIR).toFile(), IPackNameDecorator.WORLD));
         DataPackRegistries dataPackRegistries = new DataPackRegistries(Commands.EnvironmentType.INTEGRATED, 2);
         IServerConfiguration serverConfiguration = worldDataLoader.apply(save, registries, dataPackRegistries.getResourceManager(), dataPackCodec);
         return new Minecraft.PackManager(resourcePackList, dataPackRegistries, serverConfiguration);

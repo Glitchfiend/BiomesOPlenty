@@ -14,6 +14,9 @@ import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.common.world.BOPLayerUtil;
 import biomesoplenty.init.ModBiomes;
 import com.google.common.collect.Lists;
+import it.unimi.dsi.fastutil.ints.Int2IntMap;
+import it.unimi.dsi.fastutil.ints.Int2IntOpenHashMap;
+import net.minecraft.util.Util;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
@@ -57,6 +60,30 @@ public enum SubBiomeLayer implements IAreaTransformer2, IDimOffset1Transformer
     private static final int SNOWY_TAIGA_HILLS = BiomeUtil.getBiomeId(Biomes.SNOWY_TAIGA_HILLS);
     private static final int TAIGA_HILLS = BiomeUtil.getBiomeId(Biomes.TAIGA_HILLS);
 
+    private static final Int2IntMap MUTATIONS = Util.make(new Int2IntOpenHashMap(), (map) -> {
+        map.put(1, 129);
+        map.put(2, 130);
+        map.put(3, 131);
+        map.put(4, 132);
+        map.put(5, 133);
+        map.put(6, 134);
+        map.put(12, 140);
+        map.put(21, 149);
+        map.put(23, 151);
+        map.put(27, 155);
+        map.put(28, 156);
+        map.put(29, 157);
+        map.put(30, 158);
+        map.put(32, 160);
+        map.put(33, 161);
+        map.put(34, 162);
+        map.put(35, 163);
+        map.put(36, 164);
+        map.put(37, 165);
+        map.put(38, 166);
+        map.put(39, 167);
+    });
+
     @Override
     public int applyPixel(INoiseRandom context, IArea biomeArea, IArea riverAndSubBiomesInitArea, int x, int z)
     {
@@ -70,11 +97,7 @@ public enum SubBiomeLayer implements IAreaTransformer2, IDimOffset1Transformer
         Biome mutatedBiome;
         if (!BOPLayerUtil.isShallowOcean(biomeId) && initVal >= 2 && tryRareBiome)
         {
-            Biome biome = Registry.BIOME.byId(biomeId);
-            if (biome == null || !biome.isMutated()) {
-                mutatedBiome = Biome.getMutatedVariant(biome);
-                return mutatedBiome == null ? biomeId : BiomeUtil.getBiomeId(mutatedBiome);
-            }
+            return MUTATIONS.getOrDefault(biomeId, biomeId);
         }
 
         if (context.nextRandom(3) == 0 || tryRareHillsBiome)
@@ -88,8 +111,7 @@ public enum SubBiomeLayer implements IAreaTransformer2, IDimOffset1Transformer
 
             if (subBiomeType == 0 && mutatedBiomeId != biomeId)
             {
-                mutatedBiome = Biome.getMutatedVariant(Registry.BIOME.byId(mutatedBiomeId));
-                mutatedBiomeId = mutatedBiome == null ? biomeId : BiomeUtil.getBiomeId(mutatedBiome);
+                mutatedBiomeId = MUTATIONS.getOrDefault(mutatedBiomeId, biomeId);
             }
 
             if (mutatedBiomeId != biomeId)
@@ -158,7 +180,7 @@ public enum SubBiomeLayer implements IAreaTransformer2, IDimOffset1Transformer
         else if (originalBiomeId == SNOWY_TAIGA) mutatedBiomeId = SNOWY_TAIGA_HILLS;
         //Use BOP orchard instead of vanilla forest
         //else if (originalBiomeId == PLAINS) mutatedBiomeId = context.random(3) == 0 ? WOODED_HILLS : FOREST;
-        else if (originalBiomeId == PLAINS && BOPBiomes.orchard.isPresent()) mutatedBiomeId = BiomeUtil.getBiomeId(BOPBiomes.orchard.get());
+        else if (originalBiomeId == PLAINS && BiomeUtil.exists(BOPBiomes.orchard)) mutatedBiomeId = BiomeUtil.getBiomeId(BOPBiomes.orchard);
         //////////
         else if (originalBiomeId == SNOWY_TUNDRA) mutatedBiomeId = SNOWY_MOUNTAINS;
         else if (originalBiomeId == JUNGLE) mutatedBiomeId = JUNGLE_HILLS;

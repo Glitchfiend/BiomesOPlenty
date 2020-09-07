@@ -8,6 +8,8 @@
 package biomesoplenty.common.world.layer;
 
 import biomesoplenty.api.enums.BOPClimates;
+import biomesoplenty.common.util.biome.BiomeUtil;
+import net.minecraft.util.RegistryKey;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.INoiseRandom;
@@ -45,7 +47,7 @@ public enum LargeIslandLayer implements IAreaTransformer2, IDimOffset1Transforme
 
         if (centerVal == 0 && northVal == 0 && eastVal == 0 && southVal == 0 && westVal == 0 && context.nextRandom(50) == 0)
         {
-            Biome islandBiome = climate.getRandomIslandBiome(context, null);
+            RegistryKey<Biome> islandBiome = climate.getRandomIslandBiome(context, null);
 
             if (islandBiome == null)
             {

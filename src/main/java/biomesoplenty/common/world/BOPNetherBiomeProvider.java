@@ -8,14 +8,17 @@
 package biomesoplenty.common.world;
 
 import biomesoplenty.api.enums.BOPClimates;
+import biomesoplenty.common.util.biome.BiomeUtil;
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.util.RegistryKey;
+import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.layer.Layer;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -32,7 +35,7 @@ public class BOPNetherBiomeProvider extends BiomeProvider
 
     public BOPNetherBiomeProvider(long seed)
     {
-        super(Stream.concat(VANILLA_POSSIBLE_BIOMES.stream(), BOPClimates.NETHER.getLandBiomes().stream().map((entry) -> entry.biome)).collect(Collectors.toList()));
+        super(Stream.concat(VANILLA_POSSIBLE_BIOMES.stream(), BOPClimates.NETHER.getLandBiomes().stream().map((entry) -> entry.biome)).map(BiomeUtil::getBiome).collect(Collectors.toList()));
         this.seed = seed;
         this.noiseBiomeLayer = BOPNetherLayerUtil.createGenLayers(seed);
     }
@@ -52,6 +55,6 @@ public class BOPNetherBiomeProvider extends BiomeProvider
     @Override
     public Biome getNoiseBiome(int x, int y, int z)
     {
-        return this.noiseBiomeLayer.get(x, z);
+        return this.noiseBiomeLayer.get(WorldGenRegistries.BIOME, x, z);
     }
 }

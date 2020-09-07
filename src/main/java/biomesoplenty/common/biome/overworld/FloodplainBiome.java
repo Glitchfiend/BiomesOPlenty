@@ -32,7 +32,7 @@ public class FloodplainBiome extends BiomeTemplate
     public FloodplainBiome()
     {
         this.addWeight(BOPClimates.TROPICAL, 5);
-        this.setBeachBiome((Biome)null);
+        this.setBeachBiome(null);
     }
 
     @Override

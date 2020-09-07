@@ -21,8 +21,8 @@ public class AlpsBiome extends BiomeTemplate
     public AlpsBiome()
     {
         this.addWeight(BOPClimates.ICE_CAP, 5);
-        this.setBeachBiome((Biome)null);
-        this.setRiverBiome((Biome)null);
+        this.setBeachBiome(null);
+        this.setRiverBiome(null);
     }
 
     @Override

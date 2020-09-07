@@ -28,8 +28,8 @@ public class ColdDesertBiome extends BiomeTemplate
     public ColdDesertBiome()
     {
         this.addWeight(BOPClimates.ICE_CAP, 7);
-        this.setBeachBiome((Biome) null);
-        this.setRiverBiome((Biome) null);
+        this.setBeachBiome(null);
+        this.setRiverBiome(null);
     }
 
     @Override

@@ -34,8 +34,8 @@ public class OminousWoodsBiome extends BiomeTemplate
     public OminousWoodsBiome()
     {
         this.addWeight(BOPClimates.WET_BOREAL, 1);
-        this.setBeachBiome((Biome)null);
-        this.setRiverBiome((Biome)null);
+        this.setBeachBiome(null);
+        this.setRiverBiome(null);
     }
 
     @Override

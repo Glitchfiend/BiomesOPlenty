@@ -33,8 +33,8 @@ public class MysticGroveBiome extends BiomeTemplate
     public MysticGroveBiome()
     {
         this.addWeight(BOPClimates.WET_TEMPERATE, 1);
-        this.setBeachBiome((Biome)null);
-        this.setRiverBiome((Biome)null);
+        this.setBeachBiome(null);
+        this.setRiverBiome(null);
     }
 
     @Override

@@ -30,7 +30,7 @@ public class SteppeBiome extends BiomeTemplate
     public SteppeBiome()
     {
         this.addWeight(BOPClimates.DRY_TEMPERATE, 3);
-        this.setBeachBiome((Biome)null);
+        this.setBeachBiome(null);
     }
 
     @Override

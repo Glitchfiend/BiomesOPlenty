@@ -8,6 +8,7 @@
 package biomesoplenty.api.enums;
 
 import biomesoplenty.api.biome.BOPBiomes;
+import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.init.ModBiomes;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
@@ -59,7 +60,7 @@ public enum BOPClimates
         return this;
     }
 
-    public BOPClimates addIslandBiome(int weight, Biome biome)
+    public BOPClimates addIslandBiome(int weight, RegistryKey<Biome> biome)
     {
         return this.addIslandBiome(new WeightedBiomeEntry(weight, biome));
     }
@@ -71,7 +72,7 @@ public enum BOPClimates
         return this;
     }
 
-    public Biome getRandomBiome(INoiseRandom context, Biome fallback)
+    public RegistryKey<Biome> getRandomBiome(INoiseRandom context, RegistryKey<Biome> fallback)
     {
         if (this.totalBiomesWeight == 0)
             return fallback;
@@ -88,7 +89,7 @@ public enum BOPClimates
         return item.biome;
     }
 
-    public Biome getRandomIslandBiome(INoiseRandom context, Biome fallback)
+    public RegistryKey<Biome> getRandomIslandBiome(INoiseRandom context, RegistryKey<Biome> fallback)
     {
         if (this.totalIslandBiomesWeight == 0)
             return fallback;
@@ -156,9 +157,9 @@ public enum BOPClimates
         return out;
     }
 
-    public static ImmutableSet<Biome> getOverworldBiomes()
+    public static ImmutableSet<RegistryKey<Biome>> getOverworldBiomes()
     {
-        Set<Biome> set = Sets.newHashSet();
+        Set<RegistryKey<Biome>> set = Sets.newHashSet();
 
         for (BOPClimates climate : BOPClimates.values())
         {
@@ -178,9 +179,9 @@ public enum BOPClimates
     public static class WeightedBiomeEntry
     {
         public final int weight;
-        public final Biome biome;
+        public final RegistryKey<Biome> biome;
 
-        public WeightedBiomeEntry(int weight, Biome biome)
+        public WeightedBiomeEntry(int weight, RegistryKey<Biome> biome)
         {
             this.weight = weight;
             this.biome = biome;
@@ -194,7 +195,7 @@ public enum BOPClimates
         {
             for (WeightedBiomeEntry entry : climate.landBiomes)
             {
-                System.out.println(climate.name()+" "+entry.biome.getName()+" "+entry.weight);
+                System.out.println(climate.name()+" "+entry.biome.getRegistryName()+" "+entry.weight);
             }
         }
     }

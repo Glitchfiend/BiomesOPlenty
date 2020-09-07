@@ -24,8 +24,8 @@ public class TropicBeachBiome extends BiomeTemplate
 {
     public TropicBeachBiome()
     {
-        this.setBeachBiome((Biome)null);
-        this.setRiverBiome((Biome)null);
+        this.setBeachBiome(null);
+        this.setRiverBiome(null);
     }
 
     @Override

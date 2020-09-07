@@ -28,7 +28,7 @@ public class HighlandMoorBiome extends BiomeTemplate
 {
     public HighlandMoorBiome()
     {
-        this.setBeachBiome((Biome)null);
+        this.setBeachBiome(null);
     }
 
     @Override

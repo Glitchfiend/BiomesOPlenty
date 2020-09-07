@@ -1,7 +1,7 @@
 package biomesoplenty.common.biome.nether;
 
 import biomesoplenty.api.enums.BOPClimates;
-import biomesoplenty.common.biome.NetherBiomeBOP;
+import biomesoplenty.common.biome.NetherBiomeTemplate;
 import biomesoplenty.common.world.gen.feature.BOPBiomeFeatures;
 import net.minecraft.client.audio.BackgroundMusicTracks;
 import net.minecraft.entity.EntityClassification;
@@ -17,7 +17,7 @@ import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
-public class CrystallineChasmBiome extends NetherBiomeBOP
+public class CrystallineChasmBiome extends NetherBiomeTemplate
 {
     public CrystallineChasmBiome()
     {

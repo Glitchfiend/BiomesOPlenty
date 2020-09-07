@@ -24,8 +24,8 @@ public class AlpsFoothillsBiome extends BiomeTemplate
 {
     public AlpsFoothillsBiome()
     {
-        this.setBeachBiome((Biome)null);
-        this.setRiverBiome((Biome)null);
+        this.setBeachBiome(null);
+        this.setRiverBiome(null);
     }
 
     @Override

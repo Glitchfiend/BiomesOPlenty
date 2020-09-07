@@ -31,7 +31,7 @@ public class OvergrownCliffsBiome extends BiomeTemplate
     public OvergrownCliffsBiome()
     {
         this.addWeight(BOPClimates.TROPICAL, 3);
-        this.setBeachBiome((Biome)null);
+        this.setBeachBiome(null);
     }
 
     @Override

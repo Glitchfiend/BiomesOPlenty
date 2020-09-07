@@ -34,7 +34,7 @@ public class MireBiome extends BiomeTemplate
     public MireBiome()
     {
         this.addWeight(BOPClimates.WET_TEMPERATE, 3);
-        this.setBeachBiome((Biome)null);
+        this.setBeachBiome(null);
     }
 
     @Override

@@ -7,8 +7,12 @@
  ******************************************************************************/
 package biomesoplenty.common.world.layer;
 
+import biomesoplenty.common.biome.BiomeMetadata;
+import biomesoplenty.common.biome.BiomeRegistry;
 import biomesoplenty.common.biome.BiomeTemplate;
+import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.common.world.BOPLayerUtil;
+import net.minecraft.util.RegistryKey;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
@@ -32,7 +36,7 @@ public enum BOPRiverMixLayer implements IAreaTransformer2, IDimOffset0Transforme
     {
         int biomeId = biomeArea.get(x, z);
         int riverId = riverArea.get(x, z);
-        Biome biome = Registry.BIOME.byId(biomeId);
+        RegistryKey<Biome> biome = BiomeUtil.createKey(biomeId);
 
         if (BOPLayerUtil.isOcean(biomeId))
         {
@@ -44,12 +48,12 @@ public enum BOPRiverMixLayer implements IAreaTransformer2, IDimOffset0Transforme
             {
                 return FROZEN_RIVER;
             }
-            else if (biome instanceof BiomeTemplate)
+            else if (BiomeUtil.hasMetadata(biome))
             {
-                BiomeTemplate biomeTemplate = (BiomeTemplate)biome;
+                BiomeMetadata meta = BiomeUtil.getMetadata(biome);
 
-                if (biomeTemplate.riverBiomeId != -1)
-                    return biomeTemplate.riverBiomeId;
+                if (meta.getRiverBiome() != null)
+                    return BiomeUtil.getBiomeId(meta.getRiverBiome());
                 else
                     return biomeId;
             }

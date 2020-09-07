@@ -39,7 +39,7 @@ public class FungalJungleBiome extends BiomeTemplate
     public FungalJungleBiome()
     {
         this.addWeight(BOPClimates.TROPICAL, 1);
-        this.setBeachBiome((Biome)null);
+        this.setBeachBiome(null);
     }
 
     @Override

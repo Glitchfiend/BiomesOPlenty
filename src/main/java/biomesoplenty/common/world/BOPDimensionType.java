@@ -4,13 +4,16 @@ import biomesoplenty.init.ModConfig;
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Lifecycle;
+import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.registry.MutableRegistry;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.SimpleRegistry;
 import net.minecraft.world.Dimension;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
+import net.minecraft.world.biome.FuzzedBiomeMagnifier;
 import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.biome.provider.EndBiomeProvider;
 import net.minecraft.world.biome.provider.NetherBiomeProvider;
@@ -27,17 +30,17 @@ import java.util.OptionalLong;
  */
 public class BOPDimensionType extends DimensionType
 {
-    protected BOPDimensionType(OptionalLong p_i241242_1_, boolean p_i241242_2_, boolean p_i241242_3_, boolean p_i241242_4_, boolean p_i241242_5_, boolean p_i241242_6_, boolean p_i241242_7_, boolean p_i241242_8_, boolean p_i241242_9_, boolean p_i241242_10_, int p_i241242_11_, ResourceLocation p_i241242_12_, float p_i241242_13_)
+    protected BOPDimensionType(OptionalLong p_i241972_1_, boolean p_i241972_2_, boolean p_i241972_3_, boolean p_i241972_4_, boolean p_i241972_5_, double p_i241972_6_, boolean p_i241972_8_, boolean p_i241972_9_, boolean p_i241972_10_, boolean p_i241972_11_, int p_i241972_12_, ResourceLocation p_i241972_13_, ResourceLocation p_i241972_14_, float p_i241972_15_)
     {
-        super(p_i241242_1_, p_i241242_2_, p_i241242_3_, p_i241242_4_, p_i241242_5_, p_i241242_6_, p_i241242_7_, p_i241242_8_, p_i241242_9_, p_i241242_10_, p_i241242_11_, p_i241242_12_, p_i241242_13_);
+        super(p_i241972_1_, p_i241972_2_, p_i241972_3_, p_i241972_4_, p_i241972_5_, p_i241972_6_, p_i241972_8_, p_i241972_9_, p_i241972_10_, p_i241972_11_, p_i241972_12_, p_i241972_13_, p_i241972_14_, p_i241972_15_);
     }
 
-    private static ChunkGenerator bopEndGenerator(long seed)
+    private static ChunkGenerator bopEndGenerator(Registry<Biome> biomeRegistry, Registry<DimensionSettings> dimensionSettingsRegistry, long seed)
     {
-        return new NoiseChunkGenerator(new EndBiomeProvider(seed), seed, DimensionSettings.Preset.END.settings());
+        return new NoiseChunkGenerator(new EndBiomeProvider(biomeRegistry, seed), seed, () -> dimensionSettingsRegistry.getOrThrow(DimensionSettings.END));
     }
 
-    private static ChunkGenerator bopNetherGenerator(long seed)
+    private static ChunkGenerator bopNetherGenerator(Registry<Biome> biomeRegistry, Registry<DimensionSettings> dimensionSettingsRegistry, long seed)
     {
         BiomeProvider biomeProvider;
 
@@ -47,20 +50,17 @@ public class BOPDimensionType extends DimensionType
         }
         else
         {
-            ImmutableList<Biome> netherBiomes = ImmutableList.of(Biomes.NETHER_WASTES, Biomes.SOUL_SAND_VALLEY, Biomes.CRIMSON_FOREST, Biomes.WARPED_FOREST, Biomes.BASALT_DELTAS);
-            biomeProvider = new NetherBiomeProvider(seed, netherBiomes.stream().flatMap((biome) -> biome.optimalParameters().map((parameter) -> Pair.of(parameter, biome))).collect(ImmutableList.toImmutableList()), Optional.of(NetherBiomeProvider.Preset.NETHER));
+            biomeProvider = NetherBiomeProvider.Preset.NETHER.biomeSource(biomeRegistry, seed);
         }
 
-        return new NoiseChunkGenerator(biomeProvider, seed, DimensionSettings.Preset.NETHER.settings());
+        return new NoiseChunkGenerator(biomeProvider, seed, () -> dimensionSettingsRegistry.getOrThrow(DimensionSettings.NETHER));
     }
 
-    public static SimpleRegistry<Dimension> bopDimensions(long seed)
+    public static SimpleRegistry<Dimension> bopDimensions(Registry<Biome> biomeRegistry, Registry<DimensionSettings> dimensionSettingsRegistry, long seed)
     {
         SimpleRegistry<Dimension> registry = new SimpleRegistry<>(Registry.LEVEL_STEM_REGISTRY, Lifecycle.experimental());
-        registry.register(Dimension.NETHER, new Dimension(() -> DEFAULT_NETHER, bopNetherGenerator(seed)));
-        registry.register(Dimension.END, new Dimension(() -> DEFAULT_END, bopEndGenerator(seed)));
-        registry.setPersistent(Dimension.NETHER);
-        registry.setPersistent(Dimension.END);
+        registry.register(Dimension.NETHER, new Dimension(() -> DEFAULT_NETHER, bopNetherGenerator(biomeRegistry, dimensionSettingsRegistry, seed)), Lifecycle.stable());
+        registry.register(Dimension.END, new Dimension(() -> DEFAULT_END, bopEndGenerator(biomeRegistry, dimensionSettingsRegistry, seed)), Lifecycle.stable());
         return registry;
     }
 }

@@ -34,7 +34,7 @@ public class MuskegBiome extends BiomeTemplate
     public MuskegBiome()
     {
         this.addWeight(BOPClimates.TUNDRA, 2);
-        this.setBeachBiome((Biome)null);
+        this.setBeachBiome(null);
     }
 
     @Override

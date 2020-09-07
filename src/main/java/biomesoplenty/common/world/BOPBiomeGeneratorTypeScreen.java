@@ -8,11 +8,11 @@
 package biomesoplenty.common.world;
 
 import net.minecraft.client.gui.screen.BiomeGeneratorTypeScreens;
-import net.minecraft.server.IDynamicRegistries;
-import net.minecraft.world.DimensionType;
+import net.minecraft.util.registry.DynamicRegistries;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.DimensionSettings;
-import net.minecraft.world.gen.NoiseChunkGenerator;
 import net.minecraft.world.gen.settings.DimensionGeneratorSettings;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -26,14 +26,14 @@ public class BOPBiomeGeneratorTypeScreen extends BiomeGeneratorTypeScreens
     }
 
     @Override
-    protected ChunkGenerator generator(long seed)
+    protected ChunkGenerator generator(Registry<Biome> biomeRegistry, Registry<DimensionSettings> dimensionSettingsRegistry, long seed)
     {
         return BOPWorldTypeUtil.createChunkGenerator(seed);
     }
 
     @Override
-    public DimensionGeneratorSettings create(IDynamicRegistries.Impl registries, long seed, boolean generateFeatures, boolean generateBonusChest)
+    public DimensionGeneratorSettings create(DynamicRegistries.Impl registries, long seed, boolean generateFeatures, boolean generateBonusChest)
     {
-        return BOPWorldTypeUtil.createDimensionGeneratorSettings(seed, generateFeatures, generateBonusChest);
+        return BOPWorldTypeUtil.createDimensionGeneratorSettings(registries, seed, generateFeatures, generateBonusChest);
     }
 }

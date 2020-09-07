@@ -28,8 +28,8 @@ public class WastelandBiome extends BiomeTemplate
     public WastelandBiome()
     {
         this.addWeight(BOPClimates.WASTELAND, 10);
-        this.setBeachBiome((Biome)null);
-        this.setRiverBiome((Biome)null);
+        this.setBeachBiome(null);
+        this.setRiverBiome(null);
     }
 
     @Override

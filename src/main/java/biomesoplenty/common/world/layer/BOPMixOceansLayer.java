@@ -9,6 +9,7 @@ package biomesoplenty.common.world.layer;
 
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.enums.BOPClimates;
+import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.common.world.BOPLayerUtil;
 import biomesoplenty.common.world.layer.traits.IAreaTransformer3;
 import net.minecraft.util.registry.Registry;
@@ -60,9 +61,10 @@ public enum BOPMixOceansLayer implements IAreaTransformer3, IDimOffset0Transform
                     break;
 
                 case WASTELAND:
-                    if (BOPBiomes.wasteland.isPresent())
+                    if (BiomeUtil.exists(BOPBiomes.wasteland))
                     {
-                        oceanId = BiomeUtil.getBiomeId(BOPBiomes.wasteland.get());
+                        oceanId = BiomeUtil.getBiomeId(BOPBiomes.wasteland);
+                        break;
                     }
                     // Fallthrough
 
@@ -120,9 +122,9 @@ public enum BOPMixOceansLayer implements IAreaTransformer3, IDimOffset0Transform
                     return BOPLayerUtil.DEEP_FROZEN_OCEAN;
                 }
 
-                if (BOPBiomes.wasteland.isPresent() && oceanId == BiomeUtil.getBiomeId(BOPBiomes.wasteland.get()))
+                if (BiomeUtil.exists(BOPBiomes.wasteland) && oceanId == BiomeUtil.getBiomeId(BOPBiomes.wasteland))
                 {
-                    return BiomeUtil.getBiomeId(BOPBiomes.wasteland.get());
+                    return BiomeUtil.getBiomeId(BOPBiomes.wasteland);
                 }
             }
 
