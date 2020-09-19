@@ -8,14 +8,12 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.common.world.gen.feature.BOPBiomeFeatures;
+import biomesoplenty.common.world.gen.feature.BOPFeatures;
 import net.minecraft.block.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
-import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.server.ServerWorld;
 
@@ -49,7 +47,7 @@ public class MushroomBlockBOP extends MushroomBlock implements IGrowable
         ConfiguredFeature<NoFeatureConfig, ?> configuredfeature;
         if (this == BOPBlocks.glowshroom)
         {
-            configuredfeature = BOPBiomeFeatures.HUGE_GLOWSHROOM.configured(IFeatureConfig.NONE);
+            configuredfeature = BOPFeatures.HUGE_GLOWSHROOM.configured(IFeatureConfig.NONE);
         }
         else
         {
@@ -59,7 +57,7 @@ public class MushroomBlockBOP extends MushroomBlock implements IGrowable
                 return false;
             }
 
-            configuredfeature = BOPBiomeFeatures.HUGE_TOADSTOOL.configured(IFeatureConfig.NONE);
+            configuredfeature = BOPFeatures.HUGE_TOADSTOOL.configured(IFeatureConfig.NONE);
         }
 
         if (configuredfeature.place(world, world.getChunkSource().getGenerator(), p_226940_4_, p_226940_2_))

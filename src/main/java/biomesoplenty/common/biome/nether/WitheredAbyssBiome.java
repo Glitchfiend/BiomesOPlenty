@@ -2,7 +2,7 @@ package biomesoplenty.common.biome.nether;
 
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.NetherBiomeTemplate;
-import biomesoplenty.common.world.gen.feature.BOPBiomeFeatures;
+import biomesoplenty.common.world.gen.feature.BOPFeatures;
 import biomesoplenty.common.world.gen.surfacebuilders.BOPSurfaceBuilders;
 import net.minecraft.client.audio.BackgroundMusicTracks;
 import net.minecraft.entity.EntityClassification;
@@ -44,7 +44,7 @@ public class WitheredAbyssBiome extends NetherBiomeTemplate
         builder.addCarver(GenerationStage.Carving.AIR, ConfiguredCarvers.NETHER_CAVE);
 
         //Decoration
-        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BOPBiomeFeatures.OBSIDIAN_SPLATTER.configured(IFeatureConfig.NONE).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(12)));
+        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BOPFeatures.OBSIDIAN_SPLATTER.configured(IFeatureConfig.NONE).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(12)));
 
         DefaultBiomeFeatures.addNetherDefaultOres(builder);
     }

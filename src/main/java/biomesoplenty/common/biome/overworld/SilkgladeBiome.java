@@ -11,8 +11,7 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.BiomeTemplate;
 import biomesoplenty.common.world.biome.BiomeFeatureHelper;
-import biomesoplenty.common.world.gen.feature.BOPBiomeFeatures;
-import biomesoplenty.common.world.gen.feature.StandardGrassFeature;
+import biomesoplenty.common.world.gen.feature.BOPFeatures;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
@@ -64,9 +63,9 @@ public class SilkgladeBiome extends BiomeTemplate
         ////////////////////////////////////////////////////////////
 
         // Vegetation
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(Features.SWAMP_TREE.weighted(0.05F), BOPBiomeFeatures.BIRCH_POPLAR.configured(Features.OAK.config()).weighted(0.15F), BOPBiomeFeatures.COBWEB_BUSH.configured(Features.OAK.config()).weighted(0.2F), BOPBiomeFeatures.SMALL_DEAD_TREE.configured(Features.OAK.config()).weighted(0.5F), BOPBiomeFeatures.SILK_TREE.configured(Features.OAK.config()).weighted(0.2F), BOPBiomeFeatures.FULL_COBWEB_BUSH.configured(Features.OAK.config()).weighted(0.05F), BOPBiomeFeatures.FULL_SILK_TREE.configured(Features.OAK.config()).weighted(0.05F)), BOPBiomeFeatures.BUSH.configured(Features.OAK.config()))).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(5, 0.4F, 1))));
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(Features.SWAMP_TREE.weighted(0.05F), BOPFeatures.BIRCH_POPLAR.configured(Features.OAK.config()).weighted(0.15F), BOPFeatures.COBWEB_BUSH.configured(Features.OAK.config()).weighted(0.2F), BOPFeatures.SMALL_DEAD_TREE.configured(Features.OAK.config()).weighted(0.5F), BOPFeatures.SILK_TREE.configured(Features.OAK.config()).weighted(0.2F), BOPFeatures.FULL_COBWEB_BUSH.configured(Features.OAK.config()).weighted(0.05F), BOPFeatures.FULL_SILK_TREE.configured(Features.OAK.config()).weighted(0.05F)), BOPFeatures.BUSH.configured(Features.OAK.config()))).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(5, 0.4F, 1))));
 
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, new StandardGrassFeature(NoFeatureConfig.CODEC).configured(IFeatureConfig.NONE).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(8)));
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPFeatures.STANDARD_GRASS.configured(IFeatureConfig.NONE).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(8)));
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(Blocks.BROWN_MUSHROOM.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.chance(4)));
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(Blocks.RED_MUSHROOM.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.chance(8)));
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.toadstool.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(1)));

@@ -8,7 +8,7 @@
 package biomesoplenty.common.biome.overworld;
 
 import biomesoplenty.common.biome.BiomeTemplate;
-import biomesoplenty.common.world.gen.feature.BOPBiomeFeatures;
+import biomesoplenty.common.world.gen.feature.BOPFeatures;
 import biomesoplenty.common.world.gen.surfacebuilders.BOPSurfaceBuilders;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.block.Blocks;
@@ -43,7 +43,7 @@ public class OriginHillsBiome extends BiomeTemplate
         builder.surfaceBuilder(new ConfiguredSurfaceBuilder(BOPSurfaceBuilders.ORIGIN_HILLS, BOPSurfaceBuilders.ORIGIN_GRASS_SURFACE));
 
         // Underground
-        builder.addCarver(GenerationStage.Carving.AIR, BOPBiomeFeatures.ORIGIN_CAVE.configured(new ProbabilityConfig(0.14285715F)));
+        builder.addCarver(GenerationStage.Carving.AIR, BOPFeatures.ORIGIN_CAVE.configured(new ProbabilityConfig(0.14285715F)));
         DefaultBiomeFeatures.addDefaultMonsterRoom(builder);
 
         builder.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.DISK.configured(new SphereReplaceConfig(Blocks.CLAY.defaultBlockState(), FeatureSpread.of(4, 1), 1, ImmutableList.of(Blocks.DIRT.defaultBlockState(), Blocks.CLAY.defaultBlockState()))).decorated(Features.Placements.TOP_SOLID_HEIGHTMAP_SQUARE).count(1));
@@ -59,9 +59,9 @@ public class OriginHillsBiome extends BiomeTemplate
         ////////////////////////////////////////////////////////////
 
         // Vegetation
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(BOPBiomeFeatures.BIG_ORIGIN_TREE.configured(Features.OAK.config()).weighted(0.1F)), BOPBiomeFeatures.ORIGIN_TREE.configured(Features.OAK.config()))).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(3, 0.4F, 1))));
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(BOPFeatures.BIG_ORIGIN_TREE.configured(Features.OAK.config()).weighted(0.1F)), BOPFeatures.ORIGIN_TREE.configured(Features.OAK.config()))).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(3, 0.4F, 1))));
 
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.ORIGIN_FLOWERS.configured(IFeatureConfig.NONE).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(4)));
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPFeatures.ORIGIN_FLOWERS.configured(IFeatureConfig.NONE).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(4)));
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(Features.Configs.SUGAR_CANE_CONFIG).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(15)));
 
         ////////////////////////////////////////////////////////////
