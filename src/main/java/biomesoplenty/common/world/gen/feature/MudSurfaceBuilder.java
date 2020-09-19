@@ -7,6 +7,7 @@
  ******************************************************************************/
 package biomesoplenty.common.world.gen.feature;
 
+import biomesoplenty.common.world.gen.surfacebuilders.BOPSurfaceBuilders;
 import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.world.biome.Biome;
@@ -27,7 +28,7 @@ public class MudSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
 	public void apply(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
 		if (noise > 1.7D)
 		{
-			SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BOPBiomeFeatures.MUD_SURFACE);
+			SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BOPSurfaceBuilders.MUD_SURFACE);
 		}
 		else
 		{

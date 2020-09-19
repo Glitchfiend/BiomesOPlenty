@@ -51,8 +51,9 @@ public class BiomeRegistry
     public static void deferSubBiomeRegistration(RegistryKey<Biome> parent, RegistryKey<Biome> child, int weight, float rarity)
     {
         // Don't register sub biome if the parent or child don't exist
-        if (!BiomeUtil.exists(parent) || !BiomeUtil.exists(child))
+        if (!BiomeUtil.exists(parent) || !BiomeUtil.exists(child)) {
             return;
+        }
 
         defer(RegistrationType.SUB_BIOME, new SubBiomeRegistrationData(parent, child, weight, rarity));
     }

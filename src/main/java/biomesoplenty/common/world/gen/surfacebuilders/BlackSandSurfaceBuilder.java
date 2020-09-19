@@ -1,5 +1,6 @@
-package biomesoplenty.common.world.gen.feature;
+package biomesoplenty.common.world.gen.surfacebuilders;
 
+import biomesoplenty.api.block.BOPBlocks;
 import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -11,10 +12,8 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
 import java.util.Random;
 
-public class OriginHillsSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
-{
-    public OriginHillsSurfaceBuilder(Codec<SurfaceBuilderConfig> p_i232124_1_)
-    {
+public class BlackSandSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
+    public BlackSandSurfaceBuilder(Codec<SurfaceBuilderConfig> p_i232124_1_) {
         super(p_i232124_1_);
     }
 
@@ -26,16 +25,12 @@ public class OriginHillsSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConf
         BlockState blockstate = top;
         BlockState blockstate1 = middle;
         BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
-
         int i = -1;
         int j = (int)(noise / 3.0D + 3.0D + random.nextDouble() * 0.25D);
         int k = x & 15;
         int l = z & 15;
 
-        boolean gravelGen = noise + random.nextDouble() * 0.20000000000000001D < -2.0D;
-        boolean sandGen = noise + random.nextDouble() * 0.20000000000000001D > 1.5D;
-
-        for (int i1 = startHeight; i1 >= 0; --i1)
+        for(int i1 = startHeight; i1 >= 0; --i1)
         {
             blockpos$mutable.set(k, i1, l);
             BlockState blockstate2 = chunkIn.getBlockState(blockpos$mutable);
@@ -56,17 +51,6 @@ public class OriginHillsSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConf
                     {
                         blockstate = top;
                         blockstate1 = middle;
-
-                        if (gravelGen)
-                        {
-                            blockstate = Blocks.AIR.defaultBlockState();
-                            blockstate1 = Blocks.GRAVEL.defaultBlockState();
-                        }
-                        if (sandGen)
-                        {
-                            blockstate = Blocks.SAND.defaultBlockState();
-                            blockstate1 = Blocks.SAND.defaultBlockState();
-                        }
                     }
 
                     if (i1 < sealevel && (blockstate == null || blockstate.isAir()))
@@ -88,6 +72,12 @@ public class OriginHillsSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConf
                     {
                         chunkIn.setBlockState(blockpos$mutable, blockstate, false);
                     }
+                    else if (i1 < sealevel - 7 - j)
+                    {
+                        blockstate = Blocks.AIR.defaultBlockState();
+                        blockstate1 = defaultBlock;
+                        chunkIn.setBlockState(blockpos$mutable, bottom, false);
+                    }
                     else
                     {
                         chunkIn.setBlockState(blockpos$mutable, blockstate1, false);
@@ -97,8 +87,14 @@ public class OriginHillsSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConf
                 {
                     --i;
                     chunkIn.setBlockState(blockpos$mutable, blockstate1, false);
+                    if (i == 0 && blockstate1.is(BOPBlocks.black_sand) && j > 1)
+                    {
+                        i = random.nextInt(4) + Math.max(0, i1 - 63);
+                        blockstate1 = BOPBlocks.black_sandstone.defaultBlockState();
+                    }
                 }
             }
         }
+
     }
 }

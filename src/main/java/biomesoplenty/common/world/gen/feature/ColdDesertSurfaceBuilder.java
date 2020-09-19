@@ -7,6 +7,7 @@
  ******************************************************************************/
 package biomesoplenty.common.world.gen.feature;
 
+import biomesoplenty.common.world.gen.surfacebuilders.BOPSurfaceBuilders;
 import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.world.biome.Biome;
@@ -28,7 +29,7 @@ public class ColdDesertSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfi
 	{
 		if (noise > 2.6D)
 		{
-			SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BOPBiomeFeatures.SNOW_SNOW_GRAVEL_SURFACE);
+			SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BOPSurfaceBuilders.SNOW_SNOW_GRAVEL_SURFACE);
 		}
 		else
 		{

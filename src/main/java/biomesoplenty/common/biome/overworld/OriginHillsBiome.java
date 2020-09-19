@@ -7,11 +7,10 @@
  ******************************************************************************/
 package biomesoplenty.common.biome.overworld;
 
-import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.biome.BiomeTemplate;
 import biomesoplenty.common.world.gen.feature.BOPBiomeFeatures;
+import biomesoplenty.common.world.gen.surfacebuilders.BOPSurfaceBuilders;
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.Lists;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -41,7 +40,7 @@ public class OriginHillsBiome extends BiomeTemplate
     @Override
     protected void configureGeneration(BiomeGenerationSettings.Builder builder)
     {
-        builder.surfaceBuilder(new ConfiguredSurfaceBuilder(BOPBiomeFeatures.ORIGIN_HILLS_SURFACE_BUILDER, BOPBiomeFeatures.ORIGIN_GRASS_SURFACE));
+        builder.surfaceBuilder(new ConfiguredSurfaceBuilder(BOPSurfaceBuilders.ORIGIN_HILLS, BOPSurfaceBuilders.ORIGIN_GRASS_SURFACE));
 
         // Underground
         builder.addCarver(GenerationStage.Carving.AIR, BOPBiomeFeatures.ORIGIN_CAVE.configured(new ProbabilityConfig(0.14285715F)));

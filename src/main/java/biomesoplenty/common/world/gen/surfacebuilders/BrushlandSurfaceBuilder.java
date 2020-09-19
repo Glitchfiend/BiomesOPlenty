@@ -5,7 +5,7 @@
  *
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  ******************************************************************************/
-package biomesoplenty.common.world.gen.feature;
+package biomesoplenty.common.world.gen.surfacebuilders;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
@@ -16,9 +16,9 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
 import java.util.Random;
 
-public class PoppyFieldSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
+public class BrushlandSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
 {
-    public PoppyFieldSurfaceBuilder(Codec<SurfaceBuilderConfig> deserializer)
+    public BrushlandSurfaceBuilder(Codec<SurfaceBuilderConfig> deserializer)
     {
         super(deserializer);
     }
@@ -26,9 +26,9 @@ public class PoppyFieldSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfi
     @Override
     public void apply(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config)
     {
-        if (noise > 2.1D)
+        if (noise > 1.9D)
         {
-            SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, SurfaceBuilder.CONFIG_COARSE_DIRT);
+            SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, SurfaceBuilder.CONFIG_FULL_SAND);
         }
         else
         {

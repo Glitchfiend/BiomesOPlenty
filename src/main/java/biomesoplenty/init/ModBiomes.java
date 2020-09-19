@@ -282,12 +282,9 @@ public class ModBiomes
 
     private static void registerVillagerType(RegistryKey<Biome> key, VillagerType type)
     {
-        Biome biome = BiomeUtil.getBiome(key);
-
-        if (biome != null)
+        if (BiomeUtil.exists(key))
         {
-            // TODO
-            //VillagerType.BY_BIOME.put(biome, type);
+            VillagerType.BY_BIOME.put(key, type);
         }
     }
 

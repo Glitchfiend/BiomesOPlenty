@@ -5,7 +5,7 @@
  *
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  ******************************************************************************/
-package biomesoplenty.common.world.gen.feature;
+package biomesoplenty.common.world.gen.surfacebuilders;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
@@ -16,20 +16,23 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
 import java.util.Random;
 
-public class TerracottaSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
+public class VolcanoSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
 {
-	public TerracottaSurfaceBuilder(Codec<SurfaceBuilderConfig> deserializer)
+	public VolcanoSurfaceBuilder(Codec<SurfaceBuilderConfig> deserializer)
 	{
 		super(deserializer);
 	}
 
 	@Override
-	public void apply(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
-		if (noise > 1.9D) {
-			SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BOPBiomeFeatures.TERRACOTTA_SURFACE);
-		} else {
-			SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, SurfaceBuilder.CONFIG_GRASS);
+	public void apply(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config)
+	{
+		if (noise > 2.7F)
+		{
+			SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BOPSurfaceBuilders.MAGMA_SURFACE);
 		}
-
+		else
+		{
+			BOPSurfaceBuilders.DEEP_TOP_LAYER.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BOPSurfaceBuilders.BASALT_SURFACE);
+		}
 	}
 }

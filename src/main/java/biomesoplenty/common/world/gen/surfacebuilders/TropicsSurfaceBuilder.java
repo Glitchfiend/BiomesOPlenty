@@ -1,4 +1,4 @@
-package biomesoplenty.common.world.gen.feature;
+package biomesoplenty.common.world.gen.surfacebuilders;
 
 import biomesoplenty.api.block.BOPBlocks;
 import com.mojang.serialization.Codec;

@@ -11,6 +11,8 @@ package biomesoplenty.core;
 import biomesoplenty.common.world.BOPWorldTypeUtil;
 import biomesoplenty.init.*;
 import net.minecraft.server.dedicated.DedicatedServer;
+import net.minecraft.util.registry.DynamicRegistries;
+import net.minecraft.util.registry.Registry;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
@@ -20,6 +22,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.event.server.FMLServerAboutToStartEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -59,6 +62,8 @@ public class BiomesOPlenty
     private void loadComplete(final FMLLoadCompleteEvent event) // PostRegistrationEven
     {
         proxy.init();
+        ForgeRegistries.BIOMES.getKeys().forEach(key -> BiomesOPlenty.logger.info("Forge: " + key));
+        DynamicRegistries.builtin().registryOrThrow(Registry.BIOME_REGISTRY).keySet().stream().forEach(key -> BiomesOPlenty.logger.info("Vanilla: " + key));
     }
 
     private void serverStarting(final FMLServerAboutToStartEvent event)

@@ -13,11 +13,14 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.util.RegistryKey;
+import net.minecraft.util.registry.DynamicRegistries;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.layer.Layer;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -34,12 +37,14 @@ public class BOPBiomeProvider extends BiomeProvider
 
     private final long seed;
     private final Layer noiseBiomeLayer;
+    private final Registry<Biome> biomeRegistry;
 
     public BOPBiomeProvider(long seed)
     {
         super(Stream.concat(VANILLA_POSSIBLE_BIOMES.stream(), BOPClimates.getOverworldBiomes().stream()).map(BiomeUtil::getBiome).collect(Collectors.toList()));
         this.seed = seed;
         this.noiseBiomeLayer = BOPLayerUtil.createGenLayers(seed, new BOPOverworldGenSettings());
+        this.biomeRegistry = DynamicRegistries.builtin().registryOrThrow(Registry.BIOME_REGISTRY);
     }
 
     @Override
@@ -57,6 +62,6 @@ public class BOPBiomeProvider extends BiomeProvider
     @Override
     public Biome getNoiseBiome(int x, int y, int z)
     {
-        return this.noiseBiomeLayer.get(WorldGenRegistries.BIOME, x, z);
+        return this.noiseBiomeLayer.get(biomeRegistry, x, z);
     }
 }

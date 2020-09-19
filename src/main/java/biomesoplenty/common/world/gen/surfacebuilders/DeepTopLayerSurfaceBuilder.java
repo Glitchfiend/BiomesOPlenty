@@ -1,4 +1,4 @@
-package biomesoplenty.common.world.gen.feature;
+package biomesoplenty.common.world.gen.surfacebuilders;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
