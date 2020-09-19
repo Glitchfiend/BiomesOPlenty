@@ -28,7 +28,7 @@ public class BOPBiomeGeneratorTypeScreen extends BiomeGeneratorTypeScreens
     @Override
     protected ChunkGenerator generator(Registry<Biome> biomeRegistry, Registry<DimensionSettings> dimensionSettingsRegistry, long seed)
     {
-        return BOPWorldTypeUtil.createChunkGenerator(seed);
+        return BOPWorldTypeUtil.makeOverworld(biomeRegistry, dimensionSettingsRegistry, seed);
     }
 
     @Override

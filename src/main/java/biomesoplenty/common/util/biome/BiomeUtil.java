@@ -8,6 +8,7 @@
 package biomesoplenty.common.util.biome;
 
 import biomesoplenty.common.biome.BiomeMetadata;
+import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.init.ModBiomes;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.registry.DynamicRegistries;
@@ -31,21 +32,21 @@ public class BiomeUtil
     public static Biome getBiome(RegistryKey<Biome> key)
     {
         Biome biome = ForgeRegistries.BIOMES.getValue(key.location());
-        if (biome == null) throw new RuntimeException("Attempted to get unregistered biome " + key);
+        if (biome == null) BiomesOPlenty.logger.error("Attempted to get unregistered biome " + key);
         return biome;
     }
 
     public static Biome getBiome(int id)
     {
-        if (id == -1) throw new RuntimeException("Attempted to get biome with id -1");
+        if (id == -1) BiomesOPlenty.logger.error("Attempted to get biome with id -1");
         return getBiome(((ForgeRegistry<Biome>)ForgeRegistries.BIOMES).getKey(id));
     }
 
     public static int getBiomeId(Biome biome)
     {
-        if (biome == null) throw new RuntimeException("Attempted to get id of null biome");
+        if (biome == null) BiomesOPlenty.logger.error("Attempted to get id of null biome");
         int id = ((ForgeRegistry<Biome>)ForgeRegistries.BIOMES).getID(biome);
-        if (id == -1) throw new RuntimeException("Biome id is -1 for biome " + biome.delegate.name());
+        if (id == -1) BiomesOPlenty.logger.error("Biome id is -1 for biome " + biome.delegate.name());
         return id;
     }
 

@@ -18,15 +18,12 @@ import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.Dimension;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.provider.EndBiomeProvider;
 import net.minecraft.world.biome.provider.NetherBiomeProvider;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.DimensionSettings;
 import net.minecraft.world.gen.NoiseChunkGenerator;
 import net.minecraft.world.gen.settings.DimensionGeneratorSettings;
 import net.minecraft.world.storage.ServerWorldInfo;
-import net.minecraftforge.registries.ForgeRegistries;
-import org.spongepowered.asm.mixin.Dynamic;
 
 import java.util.List;
 import java.util.Locale;
@@ -74,9 +71,9 @@ public class BOPWorldTypeUtil
         return true;
     }
 
-    public static ChunkGenerator createChunkGenerator(long seed)
+    public static ChunkGenerator makeOverworld(Registry<Biome> biomes, Registry<DimensionSettings> noiseGeneratorSettings, long seed)
     {
-        return new NoiseChunkGenerator(new BOPBiomeProvider(seed), seed, () -> WorldGenRegistries.NOISE_GENERATOR_SETTINGS.getOrThrow(DimensionSettings.OVERWORLD));
+        return new NoiseChunkGenerator(new BOPBiomeProvider(seed, biomes), seed, () -> noiseGeneratorSettings.getOrThrow(DimensionSettings.OVERWORLD));
     }
 
     public static DimensionGeneratorSettings createDimensionGeneratorSettings(DynamicRegistries registries, long seed, boolean generateFeatures, boolean generateBonusChest)
@@ -84,7 +81,7 @@ public class BOPWorldTypeUtil
         Registry<Biome> biomeRegistry = registries.registryOrThrow(Registry.BIOME_REGISTRY);
         Registry<DimensionSettings> dimensionSettingsRegistry = registries.registryOrThrow(Registry.NOISE_GENERATOR_SETTINGS_REGISTRY);
         Registry<DimensionType> dimensionTypeRegistry = registries.registryOrThrow(Registry.DIMENSION_TYPE_REGISTRY);
-        return new DimensionGeneratorSettings(seed, generateFeatures, generateBonusChest, DimensionGeneratorSettings.withOverworld(dimensionTypeRegistry, BOPDimensionType.bopDimensions(biomeRegistry, dimensionSettingsRegistry, seed), createChunkGenerator(seed)));
+        return new DimensionGeneratorSettings(seed, generateFeatures, generateBonusChest, DimensionGeneratorSettings.withOverworld(dimensionTypeRegistry, BOPDimensionType.bopDimensions(biomeRegistry, dimensionSettingsRegistry, seed), makeOverworld(biomeRegistry, dimensionSettingsRegistry, seed)));
     }
 
     public static void setupForDedicatedServer(DedicatedServer server)

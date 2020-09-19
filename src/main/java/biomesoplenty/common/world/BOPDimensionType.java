@@ -46,7 +46,7 @@ public class BOPDimensionType extends DimensionType
 
         if (ModConfig.GenerationConfig.useBopNether.get())
         {
-            biomeProvider = new BOPNetherBiomeProvider(seed);
+            biomeProvider = new BOPNetherBiomeProvider(seed, biomeRegistry);
         }
         else
         {
