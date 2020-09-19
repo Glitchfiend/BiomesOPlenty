@@ -10,7 +10,6 @@ package biomesoplenty.common.biome.overworld;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.BiomeTemplate;
 import biomesoplenty.common.world.gen.feature.BOPFeatures;
-import biomesoplenty.common.world.gen.feature.WastelandGrassFeature;
 import biomesoplenty.common.world.gen.surfacebuilders.BOPSurfaceBuilders;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.entity.EntityClassification;
@@ -42,7 +41,7 @@ public class WastelandBiome extends BiomeTemplate
     }
 
     @Override
-    protected void configureGeneration(BiomeGenerationSettings.Builder builder)
+    protected void configureGeneration(BiomeGenerationSettingsRegistryBuilder builder)
     {
         builder.surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, BOPSurfaceBuilders.DRIED_SALT_SURFACE));
 

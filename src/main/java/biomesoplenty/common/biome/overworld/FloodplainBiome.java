@@ -43,7 +43,7 @@ public class FloodplainBiome extends BiomeTemplate
     }
 
     @Override
-    protected void configureGeneration(BiomeGenerationSettings.Builder builder)
+    protected void configureGeneration(BiomeGenerationSettingsRegistryBuilder builder)
     {
         builder.surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.SWAMP, SurfaceBuilder.CONFIG_GRASS));
 

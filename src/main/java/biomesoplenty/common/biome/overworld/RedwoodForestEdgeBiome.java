@@ -36,7 +36,7 @@ public class RedwoodForestEdgeBiome extends BiomeTemplate
     }
 
     @Override
-    protected void configureGeneration(BiomeGenerationSettings.Builder builder)
+    protected void configureGeneration(BiomeGenerationSettingsRegistryBuilder builder)
     {
         builder.surfaceBuilder(new ConfiguredSurfaceBuilder(BOPSurfaceBuilders.PODZOL, SurfaceBuilder.CONFIG_PODZOL));
 

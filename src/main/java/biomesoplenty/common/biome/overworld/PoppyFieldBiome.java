@@ -41,7 +41,7 @@ public class PoppyFieldBiome extends BiomeTemplate
     }
 
     @Override
-    protected void configureGeneration(BiomeGenerationSettings.Builder builder)
+    protected void configureGeneration(BiomeGenerationSettingsRegistryBuilder builder)
     {
         builder.surfaceBuilder(new ConfiguredSurfaceBuilder(BOPSurfaceBuilders.POPPY_FIELD, SurfaceBuilder.CONFIG_GRASS));
 

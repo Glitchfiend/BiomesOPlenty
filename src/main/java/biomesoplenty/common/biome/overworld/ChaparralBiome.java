@@ -41,7 +41,7 @@ public class ChaparralBiome extends BiomeTemplate
     }
 
     @Override
-    protected void configureGeneration(BiomeGenerationSettings.Builder builder)
+    protected void configureGeneration(BiomeGenerationSettingsRegistryBuilder builder)
     {
         builder.surfaceBuilder(new ConfiguredSurfaceBuilder(BOPSurfaceBuilders.CHAPARRAL, SurfaceBuilder.CONFIG_GRASS));
 

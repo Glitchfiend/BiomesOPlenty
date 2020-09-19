@@ -38,7 +38,7 @@ public class OriginHillsBiome extends BiomeTemplate
     }
 
     @Override
-    protected void configureGeneration(BiomeGenerationSettings.Builder builder)
+    protected void configureGeneration(BiomeGenerationSettingsRegistryBuilder builder)
     {
         builder.surfaceBuilder(new ConfiguredSurfaceBuilder(BOPSurfaceBuilders.ORIGIN_HILLS, BOPSurfaceBuilders.ORIGIN_GRASS_SURFACE));
 

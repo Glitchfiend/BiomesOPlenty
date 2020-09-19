@@ -62,8 +62,6 @@ public class BiomesOPlenty
     private void loadComplete(final FMLLoadCompleteEvent event) // PostRegistrationEven
     {
         proxy.init();
-        ForgeRegistries.BIOMES.getKeys().forEach(key -> BiomesOPlenty.logger.info("Forge: " + key));
-        DynamicRegistries.builtin().registryOrThrow(Registry.BIOME_REGISTRY).keySet().stream().forEach(key -> BiomesOPlenty.logger.info("Vanilla: " + key));
     }
 
     private void serverStarting(final FMLServerAboutToStartEvent event)

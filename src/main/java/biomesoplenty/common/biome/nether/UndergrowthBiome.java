@@ -36,7 +36,7 @@ public class UndergrowthBiome extends NetherBiomeTemplate
     }
 
     @Override
-    protected void configureGeneration(BiomeGenerationSettings.Builder builder)
+    protected void configureGeneration(BiomeGenerationSettingsRegistryBuilder builder)
     {
         builder.surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.NETHER, SurfaceBuilder.CONFIG_HELL));
 
