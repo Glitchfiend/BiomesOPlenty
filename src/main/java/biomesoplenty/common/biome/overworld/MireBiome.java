@@ -68,7 +68,7 @@ public class MireBiome extends BiomeTemplate
         ////////////////////////////////////////////////////////////
 
         // Vegetation
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPFeatures.DARK_OAK_TWIGLET_TREE.configured(Features.OAK.config()).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(3, 0.1F, 1))));
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPFeatures.DARK_OAK_TWIGLET_TREE.configured(Features.OAK.config()).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(3, 0.1F, 1))));
 
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPFeatures.PODZOL_SPLATTER.configured(IFeatureConfig.NONE).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(14)));
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.HUGE_BROWN_MUSHROOM.decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(17)));

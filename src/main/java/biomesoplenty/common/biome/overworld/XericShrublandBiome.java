@@ -61,7 +61,7 @@ public class XericShrublandBiome extends BiomeTemplate
         ////////////////////////////////////////////////////////////
 
         // Vegetation
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPFeatures.ACACIA_TWIGLET_SMALL.configured(Features.OAK.config()).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig((int)1F, 0.1F, 1))));
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPFeatures.ACACIA_TWIGLET_SMALL.configured(Features.OAK.config()).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig((int)1F, 0.1F, 1))));
 
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPFeatures.WILDFLOWER_FEATURE.configured(IFeatureConfig.NONE).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(1)));
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(Features.Configs.DEAD_BUSH_CONFIG).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(3)));

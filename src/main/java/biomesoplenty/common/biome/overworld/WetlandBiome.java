@@ -70,7 +70,7 @@ public class WetlandBiome extends BiomeTemplate
 
         // Vegetation
         // Trees
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(BOPFeatures.TALL_SPRUCE_TREE.configured(Features.OAK.config()).weighted(0.5F)), BOPFeatures.WILLOW_TREE.configured(Features.OAK.config()))).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(5, 0.1F, 1))));
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(BOPFeatures.TALL_SPRUCE_TREE.configured(Features.OAK.config()).weighted(0.5F)), BOPFeatures.WILLOW_TREE.configured(Features.OAK.config()))).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(5, 0.1F, 1))));
 
         // Flowers and Foliage
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPFeatures.WETLAND_FLOWERS.configured(IFeatureConfig.NONE).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(3)));

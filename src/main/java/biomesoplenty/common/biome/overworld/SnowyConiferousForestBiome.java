@@ -61,7 +61,7 @@ public class SnowyConiferousForestBiome extends BiomeTemplate
         ////////////////////////////////////////////////////////////
 
         // Vegetation
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(BOPFeatures.FIR_TREE.configured(Features.OAK.config()).weighted(0.33333334F)), BOPFeatures.FIR_TREE_LARGE.configured(Features.OAK.config()))).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(4, 0.1F, 1))));
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(BOPFeatures.FIR_TREE.configured(Features.OAK.config()).weighted(0.33333334F)), BOPFeatures.FIR_TREE_LARGE.configured(Features.OAK.config()))).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(4, 0.1F, 1))));
 
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPFeatures.SNOWY_FLOWERS.configured(IFeatureConfig.NONE).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(2)));
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPFeatures.FERN_GRASS.configured(IFeatureConfig.NONE).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(3)));
