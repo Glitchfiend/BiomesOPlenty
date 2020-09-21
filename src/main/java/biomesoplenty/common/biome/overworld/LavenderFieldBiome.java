@@ -9,6 +9,7 @@ package biomesoplenty.common.biome.overworld;
 
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.BiomeTemplate;
+import biomesoplenty.common.util.biome.FeatureUtil;
 import biomesoplenty.common.world.gen.feature.BOPConfiguredFeatures;
 import biomesoplenty.common.world.gen.feature.BOPFeatures;
 import com.google.common.collect.ImmutableList;
@@ -60,7 +61,7 @@ public class LavenderFieldBiome extends BiomeTemplate
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(BOPFeatures.FLOWERING_OAK_TREE.configured(Features.OAK.config().withDecorators(ImmutableList.of(Features.Placements.BEEHIVE_005))).weighted(0.2F), BOPConfiguredFeatures.BIG_FLOWERING_OAK_TREE.weighted(0.1F), BOPFeatures.BIG_JACARANDA_TREE.configured(Features.OAK.config()).weighted(0.1F)), BOPFeatures.JACARANDA_TREE.configured(Features.OAK.config().withDecorators(ImmutableList.of(Features.Placements.BEEHIVE_002))))).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(1, 0.2F, 1))));
 
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPFeatures.STANDARD_GRASS.configured(IFeatureConfig.NONE).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(12)));
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPFeatures.LAVENDER_FLOWERS.configured(IFeatureConfig.NONE).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(128)));
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPFeatures.LAVENDER_FLOWERS.configured(IFeatureConfig.NONE).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).decorated(FeatureUtil.denseCount(500)));
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(Features.Configs.SUGAR_CANE_CONFIG).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(10)));
 
         ////////////////////////////////////////////////////////////
