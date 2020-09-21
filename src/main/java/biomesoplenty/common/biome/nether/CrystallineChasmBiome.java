@@ -2,6 +2,7 @@ package biomesoplenty.common.biome.nether;
 
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.NetherBiomeTemplate;
+import biomesoplenty.common.world.gen.feature.BOPConfiguredFeatures;
 import biomesoplenty.common.world.gen.feature.BOPFeatures;
 import net.minecraft.client.audio.BackgroundMusicTracks;
 import net.minecraft.entity.EntityClassification;
@@ -46,16 +47,16 @@ public class CrystallineChasmBiome extends NetherBiomeTemplate
         builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.SPRING_OPEN);
         builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.PATCH_FIRE);
         builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.PATCH_SOUL_FIRE);
-        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.GLOWSTONE_EXTRA.count(20));
-        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.GLOWSTONE.count(20));
+        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.GLOWSTONE_EXTRA);
+        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.GLOWSTONE);
         builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.BROWN_MUSHROOM_NETHER);
         builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.RED_MUSHROOM_NETHER);
         builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.ORE_MAGMA);
         builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.SPRING_CLOSED);
 
         //Decoration
-        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BOPFeatures.LARGE_CRYSTAL.configured(IFeatureConfig.NONE).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(128)));
-        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BOPFeatures.SMALL_CRYSTAL.configured(IFeatureConfig.NONE).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(40)));
+        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BOPConfiguredFeatures.LARGE_CRYSTAL);
+        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BOPConfiguredFeatures.SMALL_CRYSTAL);
 
         DefaultBiomeFeatures.addNetherDefaultOres(builder);
     }

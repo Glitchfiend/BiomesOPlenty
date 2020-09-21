@@ -4,6 +4,7 @@
 /Mixin/
 /repo/
 /run/
+/logs/
 .idea/*
 /.gradle/
 /.settings/
