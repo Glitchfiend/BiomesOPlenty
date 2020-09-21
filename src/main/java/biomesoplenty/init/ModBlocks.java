@@ -293,10 +293,9 @@ public class ModBlocks
         dune_grass = registerBlock(new FoliageBlockBOP(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.TERRACOTTA_LIGHT_GREEN).noCollission().instabreak().sound(SoundType.GRASS)), "dune_grass");
         desert_grass = registerBlock(new FoliageBlockBOP(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.TERRACOTTA_ORANGE).noCollission().instabreak().sound(SoundType.GRASS)), "desert_grass");
         dead_grass = registerBlock(new FoliageBlockBOP(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.WOOD).noCollission().instabreak().sound(SoundType.GRASS)), "dead_grass");
-        cattail = registerBlock(new WatersidePlantBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.DIRT).noCollission().instabreak().sound(SoundType.GRASS)), "cattail");
 
         //Tall Plants
-        tall_cattail = registerBlock(new DoubleWatersidePlantBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.DIRT).noCollission().instabreak().sound(SoundType.GRASS)), "tall_cattail");
+        cattail = registerBlock(new DoubleWatersidePlantBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.DIRT).noCollission().instabreak().sound(SoundType.GRASS)), "cattail");
         tall_wheat = registerBlock(new DoublePlantBlockBOP(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.TERRACOTTA_YELLOW).noCollission().instabreak().sound(SoundType.GRASS)), "tall_wheat");
         reed = registerBlock(new DoubleWaterPlantBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.DIRT).noCollission().instabreak().sound(SoundType.GRASS)), "reed");
         watergrass = registerBlock(new DoubleWaterPlantBlock(AbstractBlock.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS)), "watergrass");
@@ -404,7 +403,6 @@ public class ModBlocks
             RenderTypeLookup.setRenderLayer(desert_grass, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(dead_grass, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(cattail, cutoutRenderType);
-            RenderTypeLookup.setRenderLayer(tall_cattail, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(tall_wheat, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(reed, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(watergrass, cutoutRenderType);

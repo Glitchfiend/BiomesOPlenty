@@ -297,7 +297,6 @@ public class ModVanillaCompat
         registerCompostable(0.5F, BOPBlocks.dead_grass);
 
         registerCompostable(0.5F, BOPBlocks.cattail);
-        registerCompostable(0.5F, BOPBlocks.tall_cattail);
         registerCompostable(0.5F, BOPBlocks.tall_wheat);
         registerCompostable(0.5F, BOPBlocks.reed);
         registerCompostable(0.5F, BOPBlocks.watergrass);
