@@ -58,13 +58,12 @@ public class UndergrowthBiome extends NetherBiomeTemplate
         builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.SPRING_CLOSED);
 
         //Vegetation
-        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BOPFeatures.HELLBARK_TREE.configured(Features.OAK.config()).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(35)));
+        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BOPConfiguredFeatures.UNDERGROWTH_TREES);
 
-        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BOPFeatures.BRAMBLE.configured(IFeatureConfig.NONE).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(50)));
-        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.burning_blossom.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(8)));
-        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.sprout.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(75)));
-        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.dead_grass.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(40)));
-        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.root.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(8)));
+        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BOPConfiguredFeatures.NETHER_BRAMBLE);
+        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BOPConfiguredFeatures.UNDERGROWTH_FLOWERS);
+        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BOPConfiguredFeatures.SPROUTS_75);
+        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BOPConfiguredFeatures.DEAD_GRASS_45);
         builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BOPConfiguredFeatures.NETHER_VINES);
 
         DefaultBiomeFeatures.addNetherDefaultOres(builder);

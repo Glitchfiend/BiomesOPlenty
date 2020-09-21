@@ -8,6 +8,7 @@
 package biomesoplenty.common.biome.overworld;
 
 import biomesoplenty.common.biome.BiomeTemplate;
+import biomesoplenty.common.world.gen.feature.BOPConfiguredFeatures;
 import biomesoplenty.common.world.gen.feature.BOPFeatures;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -56,7 +57,7 @@ public class AlpsFoothillsBiome extends BiomeTemplate
 
         // Vegetation
         // Trees
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPFeatures.ALPS_SPRUCE_TREE.configured(Features.OAK.config()).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(2, 0.1F, 1))));
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.ALPS_FOOTHILLS_TREES);
 
         ////////////////////////////////////////////////////////////
 
