@@ -56,7 +56,6 @@ public class AlpsFoothillsBiome extends BiomeTemplate
         ////////////////////////////////////////////////////////////
 
         // Vegetation
-        // Trees
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.ALPS_FOOTHILLS_TREES);
 
         ////////////////////////////////////////////////////////////

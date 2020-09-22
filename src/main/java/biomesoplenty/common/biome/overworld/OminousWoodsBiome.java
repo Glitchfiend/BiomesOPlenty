@@ -63,20 +63,20 @@ public class OminousWoodsBiome extends BiomeTemplate
         DefaultBiomeFeatures.addDefaultUndergroundVariety(builder);
         DefaultBiomeFeatures.addDefaultOres(builder);
 
-        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.DISK.configured(new SphereReplaceConfig(BOPBlocks.black_sand.defaultBlockState(), FeatureSpread.of(4, 2), 1, ImmutableList.of(Blocks.DIRT.defaultBlockState(), Blocks.GRASS_BLOCK.defaultBlockState()))).decorated(Features.Placements.TOP_SOLID_HEIGHTMAP_SQUARE).count(3));
+        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, BOPConfiguredFeatures.BLACK_SAND_DISK);
 
         ////////////////////////////////////////////////////////////
 
         // Vegetation
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(BOPFeatures.DEAD_TREE.configured(Features.OAK.config()).weighted(0.05F), BOPFeatures.DYING_TREE.configured(Features.OAK.config()).weighted(0.15F), BOPFeatures.WILLOW_TREE.configured(Features.OAK.config()).weighted(0.15F), BOPFeatures.TALL_UMBRAN_TREE.configured(Features.OAK.config()).weighted(0.7F)), BOPFeatures.UMBRAN_TREE.configured(Features.OAK.config()))).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(7, 0.5F, 1))));
-
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPFeatures.OMINOUS_WOODS_FLOWERS.configured(IFeatureConfig.NONE).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(3)));
+
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.BRAMBLE);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.DEAD_GRASS_2);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.STANDARD_GRASS_6);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.BROWN_MUSHROOM_NORMAL);
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.RED_MUSHROOM_NORMAL);
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.dead_grass.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(3)));
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.PATCH_PUMPKIN);
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.BRAMBLE);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.RED_MUSHROOM_NORMAL);
 
         ////////////////////////////////////////////////////////////
 

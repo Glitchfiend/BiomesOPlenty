@@ -66,11 +66,11 @@ public class GroveBiome extends BiomeTemplate
 
         // Vegetation
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(BOPFeatures.SPARSE_OAK_TREE.configured(Features.OAK.config()).weighted(0.05F), BOPFeatures.DARK_OAK_POPLAR.configured(Features.OAK.config()).weighted(0.2F), BOPFeatures.SPRUCE_POPLAR.configured(Features.OAK.config()).weighted(0.4F), BOPFeatures.FLOWERING_BUSH.configured(Features.OAK.config()).weighted(0.1F)), BOPFeatures.BUSH.configured(Features.OAK.config()))).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(3, 0.5F, 1))));
-
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.STANDARD_GRASS_3);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPFeatures.EXTENDED_FLOWERS.configured(IFeatureConfig.NONE).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(6)));
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfigurationDouble(Blocks.PEONY.defaultBlockState())).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(1)));
+
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.BUSH_15);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.PEONY_1);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.STANDARD_GRASS_3);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.PATCH_PUMPKIN);
 
         ////////////////////////////////////////////////////////////

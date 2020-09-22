@@ -54,8 +54,7 @@ public class MarshBiome extends BiomeTemplate
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(builder);
 
-        builder.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Feature.LAKE.configured(new BlockStateFeatureConfig(Blocks.WATER.defaultBlockState())).decorated(Placement.WATER_LAKE.configured(new ChanceConfig(1))));
-        builder.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Feature.LAKE.configured(new BlockStateFeatureConfig(Blocks.WATER.defaultBlockState())).decorated(Placement.WATER_LAKE.configured(new ChanceConfig(1))));
+        builder.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, BOPConfiguredFeatures.WATER_LAKE_COMMON);
 
         DefaultBiomeFeatures.addDefaultMonsterRoom(builder);
         DefaultBiomeFeatures.addDefaultUndergroundVariety(builder);
@@ -64,11 +63,11 @@ public class MarshBiome extends BiomeTemplate
         ////////////////////////////////////////////////////////////
 
         // Vegetation
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.REED_5);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.STANDARD_GRASS_12);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.TALL_GRASS_250);
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.SEAGRASS_SWAMP);
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.REED_5);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.WATERGRASS_50);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.SEAGRASS_SWAMP);
 
         ////////////////////////////////////////////////////////////
 

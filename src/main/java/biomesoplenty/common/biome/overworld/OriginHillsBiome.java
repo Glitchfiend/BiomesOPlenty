@@ -61,8 +61,8 @@ public class OriginHillsBiome extends BiomeTemplate
 
         // Vegetation
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.ORIGIN_HILLS_TREES);
-
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.ORIGIN_FLOWERS);
+
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.PATCH_SUGAR_CANE);
 
         ////////////////////////////////////////////////////////////

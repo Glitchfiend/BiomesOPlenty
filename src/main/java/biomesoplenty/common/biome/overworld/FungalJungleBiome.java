@@ -60,19 +60,17 @@ public class FungalJungleBiome extends BiomeTemplate
         ////////////////////////////////////////////////////////////
 
         // Vegetation
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPFeatures.BUSH.configured(Features.OAK.config()).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(2, 0.1F, 1))));
-
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPFeatures.HUGE_GLOWSHROOM.configured(IFeatureConfig.NONE).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(7)));
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPFeatures.SMALL_GLOWSHROOM.configured(IFeatureConfig.NONE).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(3)));
-
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPFeatures.MYCELIUM_SPLATTER.configured(IFeatureConfig.NONE).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(14)));
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.FUNGAL_JUNGLE_TREES);
 
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.FERN_GRASS_16);
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.TALL_GRASS_12);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.GLOWSHROOM_EXTRA);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.HUGE_GLOWSHROOM);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.LARGE_FERN_7);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.MYCELIUM_SPLATTER);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.SMALL_GLOWSHROOM);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.TALL_GRASS_12);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.BROWN_MUSHROOM_NORMAL);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.RED_MUSHROOM_NORMAL);
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.GLOWSHROOM_EXTRA);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.SEAGRASS_SWAMP);
 
         ////////////////////////////////////////////////////////////

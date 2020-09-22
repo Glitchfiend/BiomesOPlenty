@@ -50,7 +50,7 @@ public class HighlandMoorBiome extends BiomeTemplate
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(builder);
 
-        builder.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Feature.LAKE.configured(new BlockStateFeatureConfig(Blocks.WATER.defaultBlockState())).decorated(Placement.WATER_LAKE.configured(new ChanceConfig(1))));
+        builder.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, BOPConfiguredFeatures.WATER_LAKE_COMMON);
 
         DefaultBiomeFeatures.addDefaultMonsterRoom(builder);
         DefaultBiomeFeatures.addDefaultUndergroundVariety(builder);
@@ -60,10 +60,11 @@ public class HighlandMoorBiome extends BiomeTemplate
         ////////////////////////////////////////////////////////////
 
         // Vegetation
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPFeatures.SCRUB.configured(IFeatureConfig.NONE).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(35)));
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.STANDARD_GRASS_12);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPFeatures.MOOR_FLOWERS.configured(IFeatureConfig.NONE).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(5)));
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPFeatures.VIOLET_FEATURE.configured(IFeatureConfig.NONE).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(50)));
+
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.SCRUB_EXTRA);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.STANDARD_GRASS_12);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.TALL_GRASS_6);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.BROWN_MUSHROOM_NORMAL);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.RED_MUSHROOM_NORMAL);

@@ -57,24 +57,25 @@ public class MuskegBiome extends BiomeTemplate
         DefaultBiomeFeatures.addDefaultCarvers(builder);
         DefaultBiomeFeatures.addDefaultLakes(builder);
 
-        builder.addFeature(GenerationStage.Decoration.LAKES, Feature.LAKE.configured(new BlockStateFeatureConfig(Blocks.WATER.defaultBlockState())).decorated(Placement.WATER_LAKE.configured(new ChanceConfig(2))));
+        builder.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, BOPConfiguredFeatures.WATER_LAKE_UNCOMMON);
 
         DefaultBiomeFeatures.addDefaultMonsterRoom(builder);
         DefaultBiomeFeatures.addDefaultUndergroundVariety(builder);
         DefaultBiomeFeatures.addDefaultOres(builder);
 
-        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.DISK.configured(new SphereReplaceConfig(Blocks.CLAY.defaultBlockState(), FeatureSpread.of(4, 2), 1, ImmutableList.of(Blocks.DIRT.defaultBlockState(), Blocks.CLAY.defaultBlockState()))).decorated(Features.Placements.TOP_SOLID_HEIGHTMAP_SQUARE).count(2));
-        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.DISK.configured(new SphereReplaceConfig(Blocks.GRAVEL.defaultBlockState(), FeatureSpread.of(4, 2), 1, ImmutableList.of(Blocks.DIRT.defaultBlockState(), Blocks.GRASS_BLOCK.defaultBlockState()))).decorated(Features.Placements.TOP_SOLID_HEIGHTMAP_SQUARE).count(2));
-        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.DISK.configured(new SphereReplaceConfig(BOPBlocks.mud.defaultBlockState(), FeatureSpread.of(4, 2), 1, ImmutableList.of(Blocks.DIRT.defaultBlockState(), Blocks.GRASS_BLOCK.defaultBlockState()))).decorated(Features.Placements.TOP_SOLID_HEIGHTMAP_SQUARE).count(2));
+        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Features.DISK_CLAY);
+        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Features.DISK_GRAVEL);
+        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, BOPConfiguredFeatures.MUD_DISK);
 
         ////////////////////////////////////////////////////////////
 
         // Vegetation
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(BOPFeatures.DARK_OAK_TWIGLET_TREE.configured(Features.OAK.config()).weighted(0.4F), BOPFeatures.DEAD_TREE.configured(Features.OAK.config()).weighted(0.3F), BOPFeatures.DYING_TREE.configured(Features.OAK.config()).weighted(0.075F), BOPFeatures.DEAD_TWIGLET_TREE_TALL.configured(Features.OAK.config()).weighted(0.1F)), BOPFeatures.DEAD_TWIGLET_TREE.configured(Features.OAK.config()))).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(1, 0.2F, 1))));
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.STANDARD_GRASS_3);
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPFeatures.SCRUB.configured(IFeatureConfig.NONE).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(10)));
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.WATERGRASS_5);
+
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.REED_10);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.SCRUB_NORMAL);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.STANDARD_GRASS_3);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.WATERGRASS_5);
 
         ////////////////////////////////////////////////////////////
 

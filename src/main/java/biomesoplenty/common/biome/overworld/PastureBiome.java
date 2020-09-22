@@ -54,9 +54,9 @@ public class PastureBiome extends BiomeTemplate
         ////////////////////////////////////////////////////////////
 
         // Vegetation
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.PASTURE_TALL_WHEAT);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.STANDARD_GRASS_12);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.TALL_GRASS_6);
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.PASTURE_TALL_WHEAT);
 
         ////////////////////////////////////////////////////////////
 

@@ -54,24 +54,24 @@ public class MangroveBiome extends BiomeTemplate
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(builder);
 
-        builder.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Feature.LAKE.configured(new BlockStateFeatureConfig(Blocks.WATER.defaultBlockState())).decorated(Placement.WATER_LAKE.configured(new ChanceConfig(1))));
+        builder.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, BOPConfiguredFeatures.WATER_LAKE_COMMON);
 
         DefaultBiomeFeatures.addDefaultMonsterRoom(builder);
         DefaultBiomeFeatures.addDefaultUndergroundVariety(builder);
         DefaultBiomeFeatures.addDefaultOres(builder);
 
-        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.DISK.configured(new SphereReplaceConfig(BOPBlocks.mud.defaultBlockState(), FeatureSpread.of(4, 2), 1, ImmutableList.of(Blocks.DIRT.defaultBlockState(), Blocks.GRASS_BLOCK.defaultBlockState()))).decorated(Features.Placements.TOP_SOLID_HEIGHTMAP_SQUARE).count(5));
+        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, BOPConfiguredFeatures.MUD_DISK);
 
         ////////////////////////////////////////////////////////////
 
         // Vegetation
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPFeatures.BUSH.configured(Features.OAK.config()).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(15, 0.3F, 1))));
 
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.MANGROVE_ROOTS);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.STANDARD_GRASS_12);
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPFeatures.MANGROVE.configured(IFeatureConfig.NONE).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(125)));
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.TALL_GRASS_12);
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.SEAGRASS_RIVER);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.WATERGRASS_25);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.SEAGRASS_RIVER);
 
         ////////////////////////////////////////////////////////////
 

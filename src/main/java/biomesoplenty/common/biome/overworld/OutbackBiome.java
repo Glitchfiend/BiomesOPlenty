@@ -11,6 +11,7 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.BiomeTemplate;
 import biomesoplenty.common.world.biome.BiomeFeatureHelper;
+import biomesoplenty.common.world.gen.feature.BOPConfiguredFeatures;
 import biomesoplenty.common.world.gen.feature.BOPFeatures;
 import biomesoplenty.common.world.gen.surfacebuilders.BOPSurfaceBuilders;
 import com.google.common.collect.ImmutableList;
@@ -68,9 +69,9 @@ public class OutbackBiome extends BiomeTemplate
         // Vegetation
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(BOPFeatures.ACACIA_BUSH.configured(Features.OAK.config()).weighted(0.1F)), BOPFeatures.ACACIA_TWIGLET_TREE.configured(Features.OAK.config()))).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig((int)0.5F, 0.3F, 1))));
 
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(Features.Configs.DEAD_BUSH_CONFIG).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(3)));
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.DESERT_GRASS_5);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.PATCH_CACTUS_DESERT);
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.desert_grass.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(5)));
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.PATCH_DEAD_BUSH_2);
 
         ////////////////////////////////////////////////////////////
 
