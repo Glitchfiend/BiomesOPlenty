@@ -61,7 +61,7 @@ public class DeadForestBiome extends BiomeTemplate
         ////////////////////////////////////////////////////////////
 
         // Vegetation
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(BOPFeatures.DYING_TREE.configured(Features.OAK.config()).weighted(0.2F), BOPFeatures.DEAD_TREE.configured(Features.OAK.config()).weighted(0.1F), BOPFeatures.TALL_SPRUCE_TREE.configured(Features.OAK.config()).weighted(0.3F), BOPFeatures.SMALL_DEAD_TREE.configured(Features.OAK.config()).weighted(0.3F)), Feature.TREE.configured(Features.OAK.config()))).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(2, 0.5F, 1))));
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.DEAD_FOREST_TREES);
 
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.STANDARD_GRASS_3);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.PATCH_PUMPKIN);

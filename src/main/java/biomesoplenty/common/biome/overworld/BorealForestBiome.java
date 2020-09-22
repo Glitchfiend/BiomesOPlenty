@@ -65,7 +65,7 @@ public class BorealForestBiome extends BiomeTemplate
         ////////////////////////////////////////////////////////////
 
         // Vegetation
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(BOPFeatures.BIG_OAK_TREE.configured(Features.OAK.config()).weighted(0.075F), Feature.TREE.configured(Features.OAK.config()).weighted(0.15F), BOPFeatures.YELLOW_POPLAR_TREE.configured(Features.OAK.config()).weighted(0.3F), BOPFeatures.YELLOW_AUTUMN_TREE.configured(Features.OAK.config()).weighted(0.15F)), BOPFeatures.TALL_SPRUCE_TREE.configured(Features.OAK.config()))).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(10, 0.4F, 1))));
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.BOREAL_FOREST_TREES);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.FLOWER_DEFAULT);
 
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.BUSH_5);

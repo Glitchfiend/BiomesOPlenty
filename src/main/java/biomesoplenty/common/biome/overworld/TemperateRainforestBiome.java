@@ -67,7 +67,7 @@ public class TemperateRainforestBiome extends BiomeTemplate
         ////////////////////////////////////////////////////////////
 
         // Vegetation
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(BOPConfiguredFeatures.TALL_SWAMP_TREE.weighted(0.15F), BOPFeatures.BIG_OAK_TREE.configured(Features.OAK.config()).weighted(0.1F), BOPFeatures.SEQUOIA_TREE.configured(Features.OAK.config()).weighted(0.5F)), BOPFeatures.SEQUOIA_TREE_LARGE.configured(Features.OAK.config()))).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(4, 0.2F, 1))));
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.TEMPERATE_RAINFOREST_TREES);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.FLOWER_DEFAULT);
 
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.CATTAIL_12);

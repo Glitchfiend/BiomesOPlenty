@@ -70,7 +70,7 @@ public class MuskegBiome extends BiomeTemplate
         ////////////////////////////////////////////////////////////
 
         // Vegetation
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(BOPFeatures.DARK_OAK_TWIGLET_TREE.configured(Features.OAK.config()).weighted(0.4F), BOPFeatures.DEAD_TREE.configured(Features.OAK.config()).weighted(0.3F), BOPFeatures.DYING_TREE.configured(Features.OAK.config()).weighted(0.075F), BOPFeatures.DEAD_TWIGLET_TREE_TALL.configured(Features.OAK.config()).weighted(0.1F)), BOPFeatures.DEAD_TWIGLET_TREE.configured(Features.OAK.config()))).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(1, 0.2F, 1))));
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.MUSKEG_TREES);
 
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.REED_10);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.SCRUB_NORMAL);

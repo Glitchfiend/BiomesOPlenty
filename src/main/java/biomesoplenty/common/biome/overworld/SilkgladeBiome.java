@@ -64,7 +64,7 @@ public class SilkgladeBiome extends BiomeTemplate
         ////////////////////////////////////////////////////////////
 
         // Vegetation
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(Features.SWAMP_TREE.weighted(0.05F), BOPFeatures.BIRCH_POPLAR.configured(Features.OAK.config()).weighted(0.15F), BOPFeatures.COBWEB_BUSH.configured(Features.OAK.config()).weighted(0.2F), BOPFeatures.SMALL_DEAD_TREE.configured(Features.OAK.config()).weighted(0.5F), BOPFeatures.SILK_TREE.configured(Features.OAK.config()).weighted(0.2F), BOPFeatures.FULL_COBWEB_BUSH.configured(Features.OAK.config()).weighted(0.05F), BOPFeatures.FULL_SILK_TREE.configured(Features.OAK.config()).weighted(0.05F)), BOPFeatures.BUSH.configured(Features.OAK.config()))).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(5, 0.4F, 1))));
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.SILKGLADE_TREES);
 
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.STANDARD_GRASS_6);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.TOADSTOOL_NORMAL);
