@@ -15,72 +15,6 @@ public class ModVanillaCompat
         //Roots
         //addBiomeDictionaryFeature(Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.root.defaultBlockState())).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(20))), GenerationStage.Decoration.VEGETAL_DECORATION, Lists.newArrayList(BiomeDictionary.Type.OVERWORLD));
 
-        //Vanilla Biome Features
-        /*
-        addFeature(Biomes.BADLANDS, GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.desert_grass.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(4))));
-        addFeature(Biomes.BADLANDS_PLATEAU, GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.desert_grass.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(4))));
-        addFeature(Biomes.WOODED_BADLANDS_PLATEAU, GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.desert_grass.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(4))));
-        addFeature(Biomes.ERODED_BADLANDS, GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.desert_grass.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(4))));
-        addFeature(Biomes.MODIFIED_BADLANDS_PLATEAU, GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.desert_grass.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(4))));
-        addFeature(Biomes.MODIFIED_WOODED_BADLANDS_PLATEAU, GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.desert_grass.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(4))));
-
-        addFeature(Biomes.DARK_FOREST, GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.toadstool.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(3))));
-        addFeature(Biomes.DARK_FOREST_HILLS, GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.toadstool.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(3))));
-
-        addFeature(Biomes.FOREST, GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.sprout.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(4))));
-        addFeature(Biomes.FOREST, GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfigurationDouble(BOPBlocks.blue_hydrangea.defaultBlockState())).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(1))));
-        addFeature(Biomes.WOODED_HILLS, GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.sprout.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(4))));
-        addFeature(Biomes.WOODED_HILLS, GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfigurationDouble(BOPBlocks.blue_hydrangea.defaultBlockState())).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(1))));
-
-        addFeature(Biomes.FLOWER_FOREST, GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(BOPBiomeFeatures.BIG_FLOWERING_OAK_TREE.configured(Features.OAK.config()).weighted(0.4F), BOPBiomeFeatures.JACARANDA_TREE.configured(Features.OAK.config()).weighted(0.2F), BOPBiomeFeatures.BIG_JACARANDA_TREE.configured(Features.OAK.config()).weighted(0.1F)), BOPBiomeFeatures.FLOWERING_OAK_TREE.configured(Features.OAK.config()))).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(1, 0.5F, 1))));
-        addFeature(Biomes.FLOWER_FOREST, GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfigurationDouble(BOPBlocks.blue_hydrangea.defaultBlockState())).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(3))));
-        addFeature(Biomes.FLOWER_FOREST, GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfigurationDouble(BOPBlocks.goldenrod.defaultBlockState())).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(1))));
-
-        addFeature(Biomes.JUNGLE, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.ORANGE_COSMOS_FEATURE.configured(IFeatureConfig.NONE).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(4))));
-        addFeature(Biomes.JUNGLE_HILLS, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.ORANGE_COSMOS_FEATURE.configured(IFeatureConfig.NONE).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(4))));
-        addFeature(Biomes.MODIFIED_JUNGLE, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.ORANGE_COSMOS_FEATURE.configured(IFeatureConfig.NONE).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(4))));
-
-        addFeature(Biomes.MOUNTAINS, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.VIOLET_FEATURE.configured(IFeatureConfig.NONE).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(2))));
-        addFeature(Biomes.WOODED_MOUNTAINS, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.VIOLET_FEATURE.configured(IFeatureConfig.NONE).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(2))));
-        addFeature(Biomes.GRAVELLY_MOUNTAINS, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.VIOLET_FEATURE.configured(IFeatureConfig.NONE).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(2))));
-        addFeature(Biomes.MODIFIED_GRAVELLY_MOUNTAINS, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.VIOLET_FEATURE.configured(IFeatureConfig.NONE).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(2))));
-
-        addFeature(Biomes.MUSHROOM_FIELDS, GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.toadstool.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(3))));
-        addFeature(Biomes.MUSHROOM_FIELDS, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.HUGE_TOADSTOOL.configured(IFeatureConfig.NONE).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(2))));
-        addFeature(Biomes.MUSHROOM_FIELDS, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.SMALL_TOADSTOOL.configured(IFeatureConfig.NONE).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(1))));
-        addFeature(Biomes.MUSHROOM_FIELD_SHORE, GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.toadstool.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(3))));
-        addFeature(Biomes.MUSHROOM_FIELD_SHORE, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.HUGE_TOADSTOOL.configured(IFeatureConfig.NONE).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(2))));
-        addFeature(Biomes.MUSHROOM_FIELD_SHORE, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.SMALL_TOADSTOOL.configured(IFeatureConfig.NONE).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(1))));
-
-        addFeature(Biomes.SAVANNA, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.WILDFLOWER_FEATURE.configured(IFeatureConfig.NONE).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(3))));
-        addFeature(Biomes.SAVANNA_PLATEAU, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.WILDFLOWER_FEATURE.configured(IFeatureConfig.NONE).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(3))));
-        addFeature(Biomes.SHATTERED_SAVANNA, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.WILDFLOWER_FEATURE.configured(IFeatureConfig.NONE).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(3))));
-        addFeature(Biomes.SHATTERED_SAVANNA_PLATEAU, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.WILDFLOWER_FEATURE.configured(IFeatureConfig.NONE).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(3))));
-
-        addFeature(Biomes.SNOWY_TUNDRA, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.VIOLET_FEATURE.configured(IFeatureConfig.NONE).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(1))));
-        addFeature(Biomes.SNOWY_MOUNTAINS, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.VIOLET_FEATURE.configured(IFeatureConfig.NONE).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(1))));
-
-        addFeature(Biomes.SNOWY_TAIGA, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.VIOLET_FEATURE.configured(IFeatureConfig.NONE).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(2))));
-        addFeature(Biomes.SNOWY_TAIGA_HILLS, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.VIOLET_FEATURE.configured(IFeatureConfig.NONE).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(2))));
-        addFeature(Biomes.SNOWY_TAIGA_MOUNTAINS, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.VIOLET_FEATURE.configured(IFeatureConfig.NONE).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(2))));
-
-        addFeature(Biomes.SWAMP, GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.cattail.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(20))));
-        addFeature(Biomes.SWAMP, GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfigurationDouble(BOPBlocks.tall_cattail.defaultBlockState())).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(10))));
-        addFeature(Biomes.SWAMP, GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfigurationDoubleWater(BOPBlocks.reed.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(2))));
-        addFeature(Biomes.SWAMP, GenerationStage.Decoration.UNDERGROUND_ORES, Feature.DISK.configured(new SphereReplaceConfig(BOPBlocks.mud.defaultBlockState(), 8, 2, Lists.newArrayList(new BlockState[]{Blocks.DIRT.defaultBlockState(), Blocks.GRASS_BLOCK.defaultBlockState()}))).decorated(Placement.COUNT_TOP_SOLID.count(5))));
-        addFeature(Biomes.SWAMP, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.WILLOW_TREE.configured(Features.OAK.config()).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig((int)0.75, 0.1F, 1))));
-
-        addFeature(Biomes.SWAMP_HILLS, GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.cattail.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(20))));
-        addFeature(Biomes.SWAMP_HILLS, GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfigurationDouble(BOPBlocks.tall_cattail.defaultBlockState())).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(10))));
-        addFeature(Biomes.SWAMP_HILLS, GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfigurationDoubleWater(BOPBlocks.reed.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(2))));
-        addFeature(Biomes.SWAMP_HILLS, GenerationStage.Decoration.UNDERGROUND_ORES, Feature.DISK.configured(new SphereReplaceConfig(BOPBlocks.mud.defaultBlockState(), 8, 2, Lists.newArrayList(new BlockState[]{Blocks.DIRT.defaultBlockState(), Blocks.GRASS_BLOCK.defaultBlockState()}))).decorated(Placement.COUNT_TOP_SOLID.count(5))));
-        addFeature(Biomes.SWAMP_HILLS, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.WILLOW_TREE.configured(Features.OAK.config()).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig((int)0.75, 0.1F, 1))));
-
-        addFeature(Biomes.TAIGA, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.VIOLET_FEATURE.configured(IFeatureConfig.NONE).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(2))));
-        addFeature(Biomes.TAIGA_HILLS, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.VIOLET_FEATURE.configured(IFeatureConfig.NONE).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(2))));
-        addFeature(Biomes.TAIGA_MOUNTAINS, GenerationStage.Decoration.VEGETAL_DECORATION, BOPBiomeFeatures.VIOLET_FEATURE.configured(IFeatureConfig.NONE).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(2))));
-        */
-
         //Flammability
         registerFlammable(BOPBlocks.origin_leaves, 30, 60);
         registerFlammable(BOPBlocks.flowering_oak_leaves, 30, 60);
@@ -336,15 +270,6 @@ public class ModVanillaCompat
     }
 
     /*
-    public static void addFeature(Biome biome, GenerationStage.Decoration decorationStage, ConfiguredFeature<?, ?> featureIn)
-    {
-        // Don't add features if it is disabled in the config
-        if (!ModConfig.GenerationConfig.enhanceVanillaBiomes.get())
-            return;
-
-        biome.addFeature(decorationStage, featureIn);
-    }
-
     public static void addBiomeDictionaryFeature(ConfiguredFeature<?, ?> featureIn, GenerationStage.Decoration decorationStage, List<BiomeDictionary.Type> includedBiomeTypes)
     {
         if (!includedBiomeTypes.isEmpty())

@@ -45,7 +45,7 @@ public class SmallToadstoolFeature extends Feature<NoFeatureConfig>
 
         BlockPos pos = startPos.above();
 
-        int height = 1 + rand.nextInt(2);
+        int height = 1 + rand.nextInt(1);
 
         for (int y = 0; y < height; y++) {
             this.setBlock(world, pos.above(y), Blocks.MUSHROOM_STEM.defaultBlockState());

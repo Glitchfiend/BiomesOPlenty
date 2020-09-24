@@ -37,6 +37,6 @@ public class SandBlockBOP extends SandBlock
             }
         }
 
-        return false;
+        return super.canSustainPlant(state, world, pos, facing, plantable);
     }
 }
