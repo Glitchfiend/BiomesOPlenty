@@ -25,12 +25,15 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.BiFunction;
 
 public class BiomeTemplate
 {
     private Map<BOPClimates, Integer> weightMap = new HashMap<BOPClimates, Integer>();
     private RegistryKey<Biome> beachBiome = Biomes.BEACH;
     private RegistryKey<Biome> riverBiome = Biomes.RIVER;
+    private BiFunction<Double, Double, Integer> foliageColorFunction;
+    private BiFunction<Double, Double, Integer> grassColorFunction;
 
     protected void configureBiome(Biome.Builder builder) {}
     protected void configureGeneration(BiomeGenerationSettingsRegistryBuilder builder) {}
@@ -63,7 +66,7 @@ public class BiomeTemplate
 
     public final BiomeMetadata buildMetadata()
     {
-        return new BiomeMetadata(this.weightMap, this.beachBiome, this.riverBiome);
+        return new BiomeMetadata(this.weightMap, this.beachBiome, this.riverBiome, this.foliageColorFunction, this.grassColorFunction);
     }
 
     public void addWeight(BOPClimates climate, int weight)
@@ -79,6 +82,16 @@ public class BiomeTemplate
     public void setRiverBiome(RegistryKey<Biome> biome)
     {
         this.riverBiome = biome;
+    }
+
+    public void setFoliageColorFunction(BiFunction<Double, Double, Integer> func)
+    {
+        this.foliageColorFunction = func;
+    }
+
+    public void setGrassColorFunction(BiFunction<Double, Double, Integer> func)
+    {
+        this.grassColorFunction = func;
     }
 
     public static int calculateSkyColor(float temperature)

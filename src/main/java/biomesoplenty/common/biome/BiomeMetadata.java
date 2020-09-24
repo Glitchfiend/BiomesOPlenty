@@ -17,6 +17,7 @@ import net.minecraft.world.biome.Biomes;
 import javax.annotation.Nullable;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.BiFunction;
 
 public class BiomeMetadata
 {
@@ -28,11 +29,19 @@ public class BiomeMetadata
     @Nullable
     private final RegistryKey<Biome> riverBiome;
 
-    protected BiomeMetadata(Map<BOPClimates, Integer> weights, @Nullable RegistryKey<Biome> beachBiome, @Nullable RegistryKey<Biome> riverBiome)
+    @Nullable
+    private final BiFunction<Double, Double, Integer> foliageColorFunction;
+
+    @Nullable
+    private final BiFunction<Double, Double, Integer> grassColorFunction;
+
+    protected BiomeMetadata(Map<BOPClimates, Integer> weights, @Nullable RegistryKey<Biome> beachBiome, @Nullable RegistryKey<Biome> riverBiome, BiFunction<Double, Double, Integer> foliageColorFunction, BiFunction<Double, Double, Integer> grassColorFunction)
     {
         this.weightMap = ImmutableMap.copyOf(weights);
         this.beachBiome = beachBiome;
         this.riverBiome = riverBiome;
+        this.foliageColorFunction = foliageColorFunction;
+        this.grassColorFunction = grassColorFunction;
     }
 
     public Map<BOPClimates, Integer> getWeightMap()
@@ -50,6 +59,18 @@ public class BiomeMetadata
     public RegistryKey<Biome> getRiverBiome()
     {
         return this.riverBiome;
+    }
+
+    @Nullable
+    public BiFunction<Double, Double, Integer> getFoliageColorFunction()
+    {
+        return this.foliageColorFunction;
+    }
+
+    @Nullable
+    public BiFunction<Double, Double, Integer> getGrassColorFunction()
+    {
+        return this.grassColorFunction;
     }
 
     public boolean hasWeights()

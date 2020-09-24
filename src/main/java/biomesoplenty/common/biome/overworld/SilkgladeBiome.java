@@ -13,6 +13,7 @@ import biomesoplenty.common.biome.BiomeTemplate;
 import biomesoplenty.common.world.biome.BiomeFeatureHelper;
 import biomesoplenty.common.world.gen.feature.BOPConfiguredFeatures;
 import biomesoplenty.common.world.gen.feature.BOPFeatures;
+import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
@@ -33,6 +34,7 @@ public class SilkgladeBiome extends BiomeTemplate
         this.addWeight(BOPClimates.DRY_TEMPERATE, 1);
         this.setBeachBiome(null);
         this.setRiverBiome(null);
+        this.setGrassColorFunction(this::getGrassColor);
     }
 
     @Override
@@ -89,9 +91,10 @@ public class SilkgladeBiome extends BiomeTemplate
         builder.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SLIME, 100, 4, 4));
     }
 
-    //TODO: Change grass color to use new system in special effects
-    /*public int getGrassColor(double x, double z) {
+    private int getGrassColor(double x, double z)
+    {
+        BiomesOPlenty.logger.info("Color!");
        double d0 = Biome.BIOME_INFO_NOISE.getValue(x * 0.0225D, z * 0.0225D, false);
        return d0 < -0.1D ? 0xB2B39F : 0x939F76;
-    }*/
+    }
 }
