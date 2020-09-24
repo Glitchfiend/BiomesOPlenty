@@ -1,4 +1,4 @@
-package biomesoplenty.common.world.gen.feature;
+package biomesoplenty.common.world.gen.carver;
 
 import biomesoplenty.api.block.BOPBlocks;
 import com.google.common.collect.ImmutableSet;

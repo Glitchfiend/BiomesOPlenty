@@ -8,8 +8,8 @@
 package biomesoplenty.common.world.gen.feature;
 
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.common.world.gen.carver.OriginCaveWorldCarver;
 import biomesoplenty.common.world.gen.feature.tree.*;
-import biomesoplenty.common.world.gen.surfacebuilders.*;
 import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.collect.ImmutableSet;
 import net.minecraft.block.Blocks;
@@ -19,11 +19,8 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.carver.WorldCarver;
 import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
 public class BOPFeatures
 {
@@ -176,9 +173,6 @@ public class BOPFeatures
 	public static final FlowersFeature<NoFeatureConfig> ORANGE_COSMOS_FEATURE = register("orange_cosmos_feature", new OrangeCosmosFeature());
 	public static final FlowersFeature<NoFeatureConfig> WILDFLOWER_FEATURE = register("wildflower_feature", new WildflowerFeature());
 	public static final FlowersFeature<NoFeatureConfig> POPPY_FEATURE = register("poppy_feature", new PoppyFeature());
-
-	//Carvers
-	public static final WorldCarver<ProbabilityConfig> ORIGIN_CAVE = new OriginCaveWorldCarver(ProbabilityConfig.CODEC, 256);
 
 	//Other
 	public static final LiquidsConfig VOLCANO_SPRING_CONFIG = new LiquidsConfig(Fluids.LAVA.defaultFluidState(), true, 4, 1, ImmutableSet.of(Blocks.BASALT, Blocks.MAGMA_BLOCK, BOPBlocks.black_sand, BOPBlocks.black_sandstone, Blocks.STONE, Blocks.GRANITE, Blocks.DIORITE, Blocks.ANDESITE));

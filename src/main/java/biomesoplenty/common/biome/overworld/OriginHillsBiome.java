@@ -8,6 +8,7 @@
 package biomesoplenty.common.biome.overworld;
 
 import biomesoplenty.common.biome.BiomeTemplate;
+import biomesoplenty.common.world.gen.carver.BOPWorldCarvers;
 import biomesoplenty.common.world.gen.feature.BOPConfiguredFeatures;
 import biomesoplenty.common.world.gen.feature.BOPFeatures;
 import biomesoplenty.common.world.gen.surfacebuilders.BOPSurfaceBuilders;
@@ -40,7 +41,7 @@ public class OriginHillsBiome extends BiomeTemplate
         builder.surfaceBuilder(new ConfiguredSurfaceBuilder(BOPSurfaceBuilders.ORIGIN_HILLS, BOPSurfaceBuilders.ORIGIN_GRASS_SURFACE));
 
         // Underground
-        builder.addCarver(GenerationStage.Carving.AIR, BOPFeatures.ORIGIN_CAVE.configured(new ProbabilityConfig(0.14285715F)));
+        builder.addCarver(GenerationStage.Carving.AIR, BOPWorldCarvers.ORIGIN_CAVE.configured(new ProbabilityConfig(0.14285715F)));
         DefaultBiomeFeatures.addDefaultMonsterRoom(builder);
 
         builder.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Features.DISK_CLAY);
