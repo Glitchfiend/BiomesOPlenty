@@ -11,15 +11,11 @@ import biomesoplenty.common.biome.BiomeTemplate;
 import biomesoplenty.common.world.gen.feature.BOPConfiguredFeatures;
 import biomesoplenty.common.world.gen.feature.BOPFeatures;
 import biomesoplenty.common.world.gen.surfacebuilders.BOPSurfaceBuilders;
-import com.google.common.collect.ImmutableList;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
-import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 
 public class OriginHillsBiome extends BiomeTemplate
@@ -39,7 +35,7 @@ public class OriginHillsBiome extends BiomeTemplate
     }
 
     @Override
-    protected void configureGeneration(BiomeGenerationSettingsRegistryBuilder builder)
+    protected void configureGeneration(BiomeGenerationSettings.Builder builder)
     {
         builder.surfaceBuilder(new ConfiguredSurfaceBuilder(BOPSurfaceBuilders.ORIGIN_HILLS, BOPSurfaceBuilders.ORIGIN_GRASS_SURFACE));
 

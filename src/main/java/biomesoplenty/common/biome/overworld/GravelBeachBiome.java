@@ -31,7 +31,7 @@ public class GravelBeachBiome extends BiomeTemplate
     }
 
     @Override
-    protected void configureGeneration(BiomeGenerationSettingsRegistryBuilder builder)
+    protected void configureGeneration(BiomeGenerationSettings.Builder builder)
     {
         builder.surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.CONFIG_GRAVEL));
 

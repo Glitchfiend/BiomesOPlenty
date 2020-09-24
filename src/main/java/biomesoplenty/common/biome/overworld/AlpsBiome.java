@@ -34,7 +34,7 @@ public class AlpsBiome extends BiomeTemplate
     }
 
     @Override
-    protected void configureGeneration(BiomeGenerationSettingsRegistryBuilder builder)
+    protected void configureGeneration(BiomeGenerationSettings.Builder builder)
     {
         builder.surfaceBuilder(new ConfiguredSurfaceBuilder(BOPSurfaceBuilders.DEEP_TOP_LAYER, BOPSurfaceBuilders.SNOW_SNOW_GRAVEL_SURFACE));
 

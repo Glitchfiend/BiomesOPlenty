@@ -8,20 +8,12 @@
 package biomesoplenty.common.biome;
 
 import biomesoplenty.api.enums.BOPClimates;
-import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.util.RegistryKey;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.registry.DynamicRegistries;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeGenerationSettings;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.MobSpawnInfo;
-import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -37,7 +29,7 @@ public class BiomeTemplate
     private BiFunction<Double, Double, Integer> waterColorFunction;
 
     protected void configureBiome(Biome.Builder builder) {}
-    protected void configureGeneration(BiomeGenerationSettingsRegistryBuilder builder) {}
+    protected void configureGeneration(BiomeGenerationSettings.Builder builder) {}
     protected void configureMobSpawns(MobSpawnInfo.Builder builder) {}
 
     protected void configureDefaultMobSpawns(MobSpawnInfo.Builder builder)
@@ -50,7 +42,7 @@ public class BiomeTemplate
         Biome.Builder biomeBuilder = new Biome.Builder();
 
         // Configure the biome generation
-        BiomeGenerationSettingsRegistryBuilder biomeGenBuilder = new BiomeGenerationSettingsRegistryBuilder();
+        BiomeGenerationSettings.Builder biomeGenBuilder = new BiomeGenerationSettings.Builder();
         this.configureGeneration(biomeGenBuilder);
         biomeBuilder.generationSettings(biomeGenBuilder.build());
 
@@ -105,20 +97,5 @@ public class BiomeTemplate
         float lvt_1_1_ = temperature / 3.0F;
         lvt_1_1_ = MathHelper.clamp(lvt_1_1_, -1.0F, 1.0F);
         return MathHelper.hsvToRgb(0.62222224F - lvt_1_1_ * 0.05F, 0.5F + lvt_1_1_ * 0.1F, 1.0F);
-    }
-
-    protected static class BiomeGenerationSettingsRegistryBuilder extends BiomeGenerationSettings.Builder
-    {
-        public BiomeGenerationSettings.Builder addFeature(GenerationStage.Decoration stage, ConfiguredFeature<?, ?> feature)
-        {
-            // As a temporary measure, register configured features as we go
-            // Thanks for continuing to fuck us over Mojang.
-            if (!WorldGenRegistries.CONFIGURED_FEATURE.getResourceKey(feature).isPresent())
-            {
-                Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation(BiomesOPlenty.MOD_ID, "" + feature.hashCode()), feature);
-            }
-
-            return super.addFeature(stage, feature);
-        }
     }
 }

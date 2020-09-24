@@ -1,11 +1,8 @@
 package biomesoplenty.common.biome.nether;
 
-import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.NetherBiomeTemplate;
-import biomesoplenty.common.world.biome.BiomeFeatureHelper;
 import biomesoplenty.common.world.gen.feature.BOPConfiguredFeatures;
-import biomesoplenty.common.world.gen.feature.BOPFeatures;
 import net.minecraft.client.audio.BackgroundMusicTracks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -14,9 +11,7 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.carver.ConfiguredCarvers;
-import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.Features;
-import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
@@ -37,7 +32,7 @@ public class UndergrowthBiome extends NetherBiomeTemplate
     }
 
     @Override
-    protected void configureGeneration(BiomeGenerationSettingsRegistryBuilder builder)
+    protected void configureGeneration(BiomeGenerationSettings.Builder builder)
     {
         builder.surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.NETHER, SurfaceBuilder.CONFIG_HELL));
 
