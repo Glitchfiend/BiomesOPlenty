@@ -87,7 +87,7 @@ public class ModBiomes
 
                 if (meta != null && meta.getFoliageColorFunction() != null)
                 {
-                    return meta.getGrassColorFunction().apply(posX, posZ);
+                    return meta.getFoliageColorFunction().apply(posX, posZ);
                 }
 
                 return foliageColorResolver.getColor(biome, posX, posZ);
@@ -98,9 +98,9 @@ public class ModBiomes
                 RegistryKey<Biome> key = BiomeUtil.getClientKey(biome);
                 BiomeMetadata meta = BiomeUtil.getMetadata(key);
 
-                if (meta != null && meta.getGrassColorFunction() != null)
+                if (meta != null && meta.getWaterColorFunction() != null)
                 {
-                    return meta.getGrassColorFunction().apply(posX, posZ);
+                    return meta.getWaterColorFunction().apply(posX, posZ);
                 }
 
                 return waterColorResolver.getColor(biome, posX, posZ);
