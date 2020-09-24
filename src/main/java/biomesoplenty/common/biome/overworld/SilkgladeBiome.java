@@ -93,7 +93,6 @@ public class SilkgladeBiome extends BiomeTemplate
 
     private int getGrassColor(double x, double z)
     {
-        BiomesOPlenty.logger.info("Color!");
        double d0 = Biome.BIOME_INFO_NOISE.getValue(x * 0.0225D, z * 0.0225D, false);
        return d0 < -0.1D ? 0xB2B39F : 0x939F76;
     }

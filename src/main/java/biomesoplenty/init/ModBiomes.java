@@ -7,6 +7,7 @@
  ******************************************************************************/
 package biomesoplenty.init;
 
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.BiomeMetadata;
 import biomesoplenty.common.biome.BiomeRegistry;
@@ -20,16 +21,21 @@ import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.common.world.BOPBiomeGeneratorTypeScreen;
 import biomesoplenty.common.world.BOPBiomeProvider;
 import biomesoplenty.common.world.BOPNetherBiomeProvider;
+import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screen.BiomeGeneratorTypeScreens;
 import net.minecraft.entity.villager.VillagerType;
 import net.minecraft.util.RegistryKey;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeColors;
 import net.minecraft.world.biome.Biomes;
+import net.minecraft.world.level.ColorResolver;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -56,6 +62,49 @@ public class ModBiomes
         {
             biomeGeneratorTypeScreenBOP = new BOPBiomeGeneratorTypeScreen();
             BiomeGeneratorTypeScreens.PRESETS.add(biomeGeneratorTypeScreenBOP);
+
+            ColorResolver grassColorResolver = BiomeColors.GRASS_COLOR_RESOLVER;
+            ColorResolver foliageColorResolver = BiomeColors.FOLIAGE_COLOR_RESOLVER;
+            ColorResolver waterColorResolver = BiomeColors.WATER_COLOR_RESOLVER;
+
+            BiomeColors.GRASS_COLOR_RESOLVER = (biome, posX, posZ) ->
+            {
+                RegistryKey<Biome> key = BiomeUtil.getClientKey(biome);
+                BiomeMetadata meta = BiomeUtil.getMetadata(key);
+
+                if (meta != null && meta.getGrassColorFunction() != null)
+                {
+                    return meta.getGrassColorFunction().apply(posX, posZ);
+                }
+
+                return grassColorResolver.getColor(biome, posX, posZ);
+            };
+
+            BiomeColors.FOLIAGE_COLOR_RESOLVER = (biome, posX, posZ) ->
+            {
+                RegistryKey<Biome> key = BiomeUtil.getClientKey(biome);
+                BiomeMetadata meta = BiomeUtil.getMetadata(key);
+
+                if (meta != null && meta.getFoliageColorFunction() != null)
+                {
+                    return meta.getGrassColorFunction().apply(posX, posZ);
+                }
+
+                return foliageColorResolver.getColor(biome, posX, posZ);
+            };
+
+            BiomeColors.WATER_COLOR_RESOLVER = (biome, posX, posZ) ->
+            {
+                RegistryKey<Biome> key = BiomeUtil.getClientKey(biome);
+                BiomeMetadata meta = BiomeUtil.getMetadata(key);
+
+                if (meta != null && meta.getGrassColorFunction() != null)
+                {
+                    return meta.getGrassColorFunction().apply(posX, posZ);
+                }
+
+                return waterColorResolver.getColor(biome, posX, posZ);
+            };
         }
 
         // Register biome providers

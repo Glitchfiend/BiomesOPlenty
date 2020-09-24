@@ -34,6 +34,7 @@ public class BiomeTemplate
     private RegistryKey<Biome> riverBiome = Biomes.RIVER;
     private BiFunction<Double, Double, Integer> foliageColorFunction;
     private BiFunction<Double, Double, Integer> grassColorFunction;
+    private BiFunction<Double, Double, Integer> waterColorFunction;
 
     protected void configureBiome(Biome.Builder builder) {}
     protected void configureGeneration(BiomeGenerationSettingsRegistryBuilder builder) {}
@@ -66,7 +67,7 @@ public class BiomeTemplate
 
     public final BiomeMetadata buildMetadata()
     {
-        return new BiomeMetadata(this.weightMap, this.beachBiome, this.riverBiome, this.foliageColorFunction, this.grassColorFunction);
+        return new BiomeMetadata(this.weightMap, this.beachBiome, this.riverBiome, this.foliageColorFunction, this.grassColorFunction, this.waterColorFunction);
     }
 
     public void addWeight(BOPClimates climate, int weight)
@@ -92,6 +93,11 @@ public class BiomeTemplate
     public void setGrassColorFunction(BiFunction<Double, Double, Integer> func)
     {
         this.grassColorFunction = func;
+    }
+
+    public void setWaterColorFunction(BiFunction<Double, Double, Integer> func)
+    {
+        this.waterColorFunction = func;
     }
 
     public static int calculateSkyColor(float temperature)

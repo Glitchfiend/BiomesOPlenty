@@ -30,6 +30,7 @@ public class RainbowValleyBiome extends BiomeTemplate
     public RainbowValleyBiome()
     {
         this.setBeachBiome(null);
+        this.setGrassColorFunction(this::getGrassColor);
     }
 
     @Override
@@ -91,14 +92,13 @@ public class RainbowValleyBiome extends BiomeTemplate
         builder.addSpawn(EntityClassification.AMBIENT, new MobSpawnInfo.Spawners(EntityType.BAT, 10, 8, 8));
     }
 
-    //TODO: Change grass/foliage color to use new system in special effects
-    /*public int getGrassColor(double x, double z)
+    public int getGrassColor(double x, double z)
     {
         if (ClientProxy.isAprilFools) { return 0xFFFFFF; }
 
         double d0 = Biome.BIOME_INFO_NOISE.getValue(x * 0.0225D, z * 0.0225D, false);
         return d0 < -0.1D ? 0x77CE7F : 0x75CE8D;
-    }*/
+    }
     
     public int getFoliageColor()
     {

@@ -10,6 +10,7 @@ package biomesoplenty.common.util.biome;
 import biomesoplenty.common.biome.BiomeMetadata;
 import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.init.ModBiomes;
+import net.minecraft.client.Minecraft;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.registry.DynamicRegistries;
 import net.minecraft.util.registry.Registry;
@@ -83,5 +84,10 @@ public class BiomeUtil
     public static boolean exists(int id)
     {
         return getBiome(id) != null;
+    }
+
+    public static RegistryKey<Biome> getClientKey(Biome biome)
+    {
+        return Minecraft.getInstance().level.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY).getResourceKey(biome).get();
     }
 }

@@ -35,13 +35,17 @@ public class BiomeMetadata
     @Nullable
     private final BiFunction<Double, Double, Integer> grassColorFunction;
 
-    protected BiomeMetadata(Map<BOPClimates, Integer> weights, @Nullable RegistryKey<Biome> beachBiome, @Nullable RegistryKey<Biome> riverBiome, BiFunction<Double, Double, Integer> foliageColorFunction, BiFunction<Double, Double, Integer> grassColorFunction)
+    @Nullable
+    private final BiFunction<Double, Double, Integer> waterColorFunction;
+
+    protected BiomeMetadata(Map<BOPClimates, Integer> weights, @Nullable RegistryKey<Biome> beachBiome, @Nullable RegistryKey<Biome> riverBiome, BiFunction<Double, Double, Integer> foliageColorFunction, BiFunction<Double, Double, Integer> grassColorFunction, BiFunction<Double, Double, Integer> waterColorFunction)
     {
         this.weightMap = ImmutableMap.copyOf(weights);
         this.beachBiome = beachBiome;
         this.riverBiome = riverBiome;
         this.foliageColorFunction = foliageColorFunction;
         this.grassColorFunction = grassColorFunction;
+        this.waterColorFunction = waterColorFunction;
     }
 
     public Map<BOPClimates, Integer> getWeightMap()
@@ -71,6 +75,12 @@ public class BiomeMetadata
     public BiFunction<Double, Double, Integer> getGrassColorFunction()
     {
         return this.grassColorFunction;
+    }
+
+    @Nullable
+    public BiFunction<Double, Double, Integer> getWaterColorFunction()
+    {
+        return this.waterColorFunction;
     }
 
     public boolean hasWeights()

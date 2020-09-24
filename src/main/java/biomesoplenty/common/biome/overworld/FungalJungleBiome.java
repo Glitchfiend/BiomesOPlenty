@@ -31,6 +31,7 @@ public class FungalJungleBiome extends BiomeTemplate
     {
         this.addWeight(BOPClimates.TROPICAL, 1);
         this.setBeachBiome(null);
+        this.setGrassColorFunction(this::getGrassColor);
     }
 
     @Override
@@ -96,9 +97,9 @@ public class FungalJungleBiome extends BiomeTemplate
         builder.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.WITCH, 5, 1, 1));
     }
 
-    //TODO: Change grass color to use new system in special effects
-    /*public int getGrassColor(double x, double z) {
+    public int getGrassColor(double x, double z)
+    {
         double d0 = Biome.BIOME_INFO_NOISE.getValue(x * 0.0225D, z * 0.0225D, false);
         return d0 < -0.1D ? 0x4AA2F9 : 0x4DD6CA;
-    }*/
+    }
 }
