@@ -31,9 +31,9 @@ public class OvergrownCliffsBiome extends BiomeTemplate
     @Override
     protected void configureBiome(Biome.Builder builder)
     {
-        builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.JUNGLE).depth(2.2F).scale(0.85F).temperature(0.95F).downfall(0.8F);
+        builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.JUNGLE).depth(2.9F).scale(0.6F).temperature(0.95F).downfall(0.8F);
 
-        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(calculateSkyColor(0.95F)).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
+        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4566514).waterFogColor(267827).fogColor(12638463).skyColor(calculateSkyColor(0.95F)).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
 
     @Override
@@ -60,17 +60,20 @@ public class OvergrownCliffsBiome extends BiomeTemplate
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.OVERGROWN_CLIFFS_TREES);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.JUNGLE_FLOWERS);
 
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.OVERGROWN_CLIFFS_VINES);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.SPROUTS_25);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.STANDARD_GRASS_12);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.TALL_GRASS_24);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.WATERGRASS_50);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.PATCH_SUGAR_CANE);
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.VINES);
 
         ////////////////////////////////////////////////////////////
 
         // Other Features
         DefaultBiomeFeatures.addDefaultSprings(builder);
+
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.OVERGROWN_CLIFFS_SPRING);
+
         DefaultBiomeFeatures.addExtraEmeralds(builder);
         DefaultBiomeFeatures.addInfestedStone(builder);
         DefaultBiomeFeatures.addSurfaceFreezing(builder);

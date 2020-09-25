@@ -141,6 +141,12 @@
                 "biome": "biomesoplenty:highland_moor"
             }
         },
+		"jade_cliffs": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:jade_cliffs"
+            }
+        },
 		"lavender_field": {
             "trigger": "minecraft:location",
             "conditions": {

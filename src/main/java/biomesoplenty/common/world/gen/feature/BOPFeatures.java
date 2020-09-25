@@ -85,6 +85,7 @@ public class BOPFeatures
 
 	//Bushes/Twiglets
 	public static final Feature<BaseTreeFeatureConfig> BUSH = register("bush", new BushTreeFeature.Builder().create());
+	public static final Feature<BaseTreeFeatureConfig> SPRUCE_BUSH = register("spruce_bush", new BushTreeFeature.Builder().log(Blocks.SPRUCE_LOG.defaultBlockState()).leaves(Blocks.SPRUCE_LEAVES.defaultBlockState()).create());
 	public static final Feature<BaseTreeFeatureConfig> ACACIA_BUSH = register("acacia_bush", new BushTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.RED_SAND).log(Blocks.ACACIA_LOG.defaultBlockState()).leaves(Blocks.ACACIA_LEAVES.defaultBlockState()).create());
 	public static final Feature<BaseTreeFeatureConfig> FLOWERING_BUSH = register("flowering_bush", new BushTreeFeature.Builder().altLeaves(BOPBlocks.flowering_oak_leaves.defaultBlockState()).create());
 	public static final Feature<BaseTreeFeatureConfig> COBWEB_BUSH = register("cobweb_bush", new BushTreeFeature.Builder().altLeaves(Blocks.COBWEB.defaultBlockState()).create());
@@ -131,6 +132,7 @@ public class BOPFeatures
 	public static final Feature<NoFeatureConfig> MYCELIUM_SPLATTER = register("mycelium_splatter", new MyceliumSplatterFeature(NoFeatureConfig.CODEC));
 	public static final Feature<NoFeatureConfig> NETHER_VINES = register("nether_vines", new NetherVinesFeature(NoFeatureConfig.CODEC));
 	public static final Feature<NoFeatureConfig> OBSIDIAN_SPLATTER = register("obsidian_splatter", new ObsidianSplatterFeature(NoFeatureConfig.CODEC));
+	public static final Feature<NoFeatureConfig> OVERGROWN_CLIFFS_VINES = register("overgrown_cliffs_vines", new OvergrownCliffsVinesFeature(NoFeatureConfig.CODEC));
 	public static final Feature<NoFeatureConfig> PODZOL_SPLATTER = register("podzol_splatter", new PodzolSplatterFeature(NoFeatureConfig.CODEC));
 	public static final Feature<NoFeatureConfig> PUMPKIN_PATCH = register("pumpkin_patch", new PumpkinPatchFeature(NoFeatureConfig.CODEC));
 	public static final Feature<NoFeatureConfig> SCATTERED_ROCKS = register("scattered_rocks", new ScatteredRocksFeature(NoFeatureConfig.CODEC));
@@ -175,6 +177,7 @@ public class BOPFeatures
 
 	//Other
 	public static final LiquidsConfig VOLCANO_SPRING_CONFIG = new LiquidsConfig(Fluids.LAVA.defaultFluidState(), true, 4, 1, ImmutableSet.of(Blocks.BASALT, Blocks.MAGMA_BLOCK, BOPBlocks.black_sand, BOPBlocks.black_sandstone, Blocks.STONE, Blocks.GRANITE, Blocks.DIORITE, Blocks.ANDESITE));
+	public static final LiquidsConfig OVERGROWN_CLIFFS_SPRING_CONFIG = new LiquidsConfig(Fluids.WATER.defaultFluidState(), true, 4, 1, ImmutableSet.of(Blocks.DIRT, Blocks.TERRACOTTA, Blocks.STONE, Blocks.GRANITE, Blocks.DIORITE, Blocks.ANDESITE));
 
 	private static <C extends IFeatureConfig, F extends Feature<C>> F register(String key, F value)
 	{

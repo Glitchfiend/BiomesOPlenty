@@ -148,6 +148,7 @@ public class ModBiomes
         registerBiome(new GroveBiome(), "grove");
         registerBiome(new HighlandBiome(), "highland");
         registerBiome(new HighlandMoorBiome(), "highland_moor");
+        registerBiome(new JadeCliffsBiome(), "jade_cliffs");
         registerBiome(new LavenderFieldBiome(), "lavender_field");
         registerBiome(new LushGrasslandBiome(), "lush_grassland");
         registerBiome(new LushSwampBiome(), "lush_swamp");
@@ -282,6 +283,7 @@ public class ModBiomes
         registerVillagerType(grove, VillagerType.PLAINS);
         registerVillagerType(highland, VillagerType.PLAINS);
         registerVillagerType(highland_moor, VillagerType.PLAINS);
+        registerVillagerType(jade_cliffs, VillagerType.PLAINS);
         registerVillagerType(lavender_field, VillagerType.PLAINS);
         registerVillagerType(lush_grassland, VillagerType.JUNGLE);
         registerVillagerType(lush_swamp, VillagerType.JUNGLE);

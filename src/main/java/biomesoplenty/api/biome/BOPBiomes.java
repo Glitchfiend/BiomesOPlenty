@@ -37,6 +37,7 @@ public class BOPBiomes
     public static RegistryKey<Biome> grove = register("grove");
     public static RegistryKey<Biome> highland = register("highland");
     public static RegistryKey<Biome> highland_moor = register("highland_moor");
+    public static RegistryKey<Biome> jade_cliffs = register("jade_cliffs");
     public static RegistryKey<Biome> lavender_field = register("lavender_field");
     public static RegistryKey<Biome> lush_grassland = register("lush_grassland");
     public static RegistryKey<Biome> lush_swamp = register("lush_swamp");
