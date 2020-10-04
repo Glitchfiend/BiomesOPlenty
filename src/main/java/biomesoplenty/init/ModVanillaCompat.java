@@ -12,9 +12,6 @@ public class ModVanillaCompat
 {
     public static void setup()
     {
-        //Roots
-        //addBiomeDictionaryFeature(Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.root.defaultBlockState())).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(20))), GenerationStage.Decoration.VEGETAL_DECORATION, Lists.newArrayList(BiomeDictionary.Type.OVERWORLD));
-
         //Flammability
         registerFlammable(BOPBlocks.origin_leaves, 30, 60);
         registerFlammable(BOPBlocks.flowering_oak_leaves, 30, 60);
@@ -236,7 +233,6 @@ public class ModVanillaCompat
         registerCompostable(0.5F, BOPBlocks.watergrass);
         registerCompostable(0.5F, BOPBlocks.mangrove_root);
 
-        registerCompostable(0.3F, BOPBlocks.root);
         registerCompostable(0.3F, BOPBlocks.dead_branch);
         registerCompostable(0.3F, BOPBlocks.bramble);
 
@@ -268,23 +264,4 @@ public class ModVanillaCompat
         FireBlock fireblock = (FireBlock)Blocks.FIRE;
         fireblock.setFlammable(blockIn, encouragement, flammability);
     }
-
-    /*
-    public static void addBiomeDictionaryFeature(ConfiguredFeature<?, ?> featureIn, GenerationStage.Decoration decorationStage, List<BiomeDictionary.Type> includedBiomeTypes)
-    {
-        if (!includedBiomeTypes.isEmpty())
-        {
-            for (BiomeDictionary.Type type : includedBiomeTypes)
-            {
-                for (Biome biome : BiomeDictionary.getBiomes(type))
-                {
-                    if (biome != BOPBiomes.origin_hills.get())
-                    {
-                        biome.addFeature(decorationStage, featureIn);
-                    }
-                }
-            }
-        }
-    }
-    */
 }
