@@ -18,6 +18,7 @@ import net.minecraft.world.gen.placement.*;
 public class BOPPlacements
 {
     public static final Placement<DenseFeatureSpreadConfig> COUNT = register("count", new BOPCountPlacement(DenseFeatureSpreadConfig.CODEC));
+    public static final Placement<NoPlacementConfig> ALPHA_TREE = register("alpha_tree", new AlphaTreePlacement(NoPlacementConfig.CODEC));
 
     private static <T extends IPlacementConfig, G extends Placement<T>> G register(String key, G placement)
     {

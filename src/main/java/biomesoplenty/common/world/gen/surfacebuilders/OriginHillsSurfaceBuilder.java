@@ -1,18 +1,26 @@
 package biomesoplenty.common.world.gen.surfacebuilders;
 
+import biomesoplenty.common.world.AlphaOctavePerlinNoise;
+import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunk;
+import net.minecraft.world.gen.PerlinNoiseGenerator;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
 import java.util.Random;
+import java.util.stream.IntStream;
 
 public class OriginHillsSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
 {
+    protected long seed;
+    protected AlphaOctavePerlinNoise sandNoise;
+    protected AlphaOctavePerlinNoise gravelNoise;
     public OriginHillsSurfaceBuilder(Codec<SurfaceBuilderConfig> p_i232124_1_)
     {
         super(p_i232124_1_);
@@ -23,82 +31,96 @@ public class OriginHillsSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConf
     }
 
     protected void apply(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, BlockState top, BlockState middle, BlockState bottom, int sealevel) {
-        BlockState blockstate = top;
-        BlockState blockstate1 = middle;
-        BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
+        BlockState topState = top;
+        BlockState middleState = middle;
+        BlockPos.Mutable mutable = new BlockPos.Mutable();
 
-        int i = -1;
-        int j = (int)(noise / 3.0D + 3.0D + random.nextDouble() * 0.25D);
-        int k = x & 15;
-        int l = z & 15;
+        int placedDepth = -1;
+        int grassDepth = (int)(noise / 3.0D + 3.0D + random.nextDouble() * 0.25D);
+        int localX = x & 15;
+        int localZ = z & 15;
 
-        boolean gravelGen = noise + random.nextDouble() * 0.20000000000000001D < -2.0D;
-        boolean sandGen = noise + random.nextDouble() * 0.20000000000000001D > 1.5D;
+        boolean gravelGen = gravelNoise.sample(x, 109.0134, z, 0.03125, 1, 0.03125) + random.nextDouble() * 0.2 > 3.0;
+        boolean sandGen = sandNoise.sample(x, z, 0, 0.03125, 0.03125, 1) + random.nextDouble() * 0.2 > 0.0;
 
-        for (int i1 = startHeight; i1 >= 0; --i1)
+        for (int y = startHeight; y >= 0; --y)
         {
-            blockpos$mutable.set(k, i1, l);
-            BlockState blockstate2 = chunkIn.getBlockState(blockpos$mutable);
+            mutable.set(localX, y, localZ);
+            BlockState blockstate2 = chunkIn.getBlockState(mutable);
             if (blockstate2.isAir())
             {
-                i = -1;
+                placedDepth = -1;
             }
             else if (blockstate2.is(defaultBlock.getBlock()))
             {
-                if (i == -1)
+                if (placedDepth == -1)
                 {
-                    if (j <= 0)
+                    if (grassDepth <= 0)
                     {
-                        blockstate = Blocks.AIR.defaultBlockState();
-                        blockstate1 = defaultBlock;
+                        topState = Blocks.AIR.defaultBlockState();
+                        middleState = defaultBlock;
                     }
-                    else if (i1 >= sealevel - 4 && i1 <= sealevel + 1)
+                    else if (y >= sealevel - 4 && y <= sealevel + 1)
                     {
-                        blockstate = top;
-                        blockstate1 = middle;
+                        topState = top;
+                        middleState = middle;
 
                         if (gravelGen)
                         {
-                            blockstate = Blocks.AIR.defaultBlockState();
-                            blockstate1 = Blocks.GRAVEL.defaultBlockState();
+                            topState = Blocks.AIR.defaultBlockState();
+                            middleState = Blocks.GRAVEL.defaultBlockState();
                         }
                         if (sandGen)
                         {
-                            blockstate = Blocks.SAND.defaultBlockState();
-                            blockstate1 = Blocks.SAND.defaultBlockState();
+                            topState = Blocks.SAND.defaultBlockState();
+                            middleState = Blocks.SAND.defaultBlockState();
                         }
                     }
 
-                    if (i1 < sealevel && (blockstate == null || blockstate.isAir()))
+                    if (y < sealevel && (topState == null || topState.isAir()))
                     {
-                        if (biomeIn.getTemperature(blockpos$mutable.set(x, i1, z)) < 0.15F)
+                        if (biomeIn.getTemperature(mutable.set(x, y, z)) < 0.15F)
                         {
-                            blockstate = Blocks.ICE.defaultBlockState();
+                            topState = Blocks.ICE.defaultBlockState();
                         }
                         else
                         {
-                            blockstate = defaultFluid;
+                            topState = defaultFluid;
                         }
 
-                        blockpos$mutable.set(k, i1, l);
+                        mutable.set(localX, y, localZ);
                     }
 
-                    i = j;
-                    if (i1 >= sealevel - 1)
+                    placedDepth = grassDepth;
+                    if (y >= sealevel - 1)
                     {
-                        chunkIn.setBlockState(blockpos$mutable, blockstate, false);
+                        chunkIn.setBlockState(mutable, topState, false);
                     }
                     else
                     {
-                        chunkIn.setBlockState(blockpos$mutable, blockstate1, false);
+                        chunkIn.setBlockState(mutable, middleState, false);
                     }
                 }
-                else if (i > 0)
+                else if (placedDepth > 0)
                 {
-                    --i;
-                    chunkIn.setBlockState(blockpos$mutable, blockstate1, false);
+                    --placedDepth;
+                    chunkIn.setBlockState(mutable, middleState, false);
                 }
             }
         }
+    }
+
+    @Override
+    public void initNoise(long seed)
+    {
+        // If the seed has changed, then re-initialize the noise.
+        if (this.seed != seed || this.sandNoise == null || this.gravelNoise == null)
+        {
+            SharedSeedRandom random = new SharedSeedRandom(seed);
+            this.sandNoise = new AlphaOctavePerlinNoise(random, 4);
+            this.gravelNoise = new AlphaOctavePerlinNoise(random, 4);
+        }
+
+        this.seed = seed;
     }
 }

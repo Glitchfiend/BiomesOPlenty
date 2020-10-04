@@ -10,6 +10,7 @@ package biomesoplenty.common.world.gen.feature;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.biome.FeatureUtil;
 import biomesoplenty.common.world.biome.BiomeFeatureHelper;
+import biomesoplenty.common.world.gen.placement.BOPPlacements;
 import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.block.Blocks;
@@ -22,6 +23,7 @@ import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
 import net.minecraft.world.gen.placement.ChanceConfig;
+import net.minecraft.world.gen.placement.NoPlacementConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.placement.TopSolidRangeConfig;
 
@@ -136,7 +138,7 @@ public class BOPConfiguredFeatures
     public static final ConfiguredFeature<?, ?> OASIS_TREES = register("oasis_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(PALM_TREE.weighted(0.3F)), OASIS_JUNGLE_TWIGLET_TREE)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(5, 0.2F, 1))));
     public static final ConfiguredFeature<?, ?> OMINOUS_WOODS_TREES = register("ominous_woods_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(DEAD_TREE.weighted(0.05F), DYING_TREE.weighted(0.15F), WILLOW_TREE.weighted(0.15F), TALL_UMBRAN_TREE.weighted(0.7F)), UMBRAN_TREE)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(7, 0.5F, 1))));
     public static final ConfiguredFeature<?, ?> ORCHARD_TREES = register("orchard_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(BIG_FLOWERING_OAK_TREE.weighted(0.1F)), FLOWERING_OAK_TREE)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(2, 0.3F, 1))));
-    public static final ConfiguredFeature<?, ?> ORIGIN_HILLS_TREES = register("origin_hills_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(BIG_ORIGIN_TREE.weighted(0.1F)), ORIGIN_TREE)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(3, 0.4F, 1))));
+    public static final ConfiguredFeature<?, ?> ORIGIN_HILLS_TREES = register("origin_hills_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(BIG_ORIGIN_TREE.weighted(0.1F)), ORIGIN_TREE)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(BOPPlacements.ALPHA_TREE.configured(NoPlacementConfig.INSTANCE)));
     public static final ConfiguredFeature<?, ?> OUTBACK_TREES = register("outback_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(ACACIA_BUSH.weighted(0.1F)), ACACIA_TWIGLET_TREE)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig((int)0.5F, 0.3F, 1))));
     public static final ConfiguredFeature<?, ?> OVERGROWN_CLIFFS_TREES = register("overgrown_cliffs_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(JUNGLE_TWIGLET_TREE.weighted(0.3F), MAHOGANY_TREE.weighted(0.1F)), BUSH)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(16, 0.4F, 1))));
     public static final ConfiguredFeature<?, ?> PRAIRIE_TREES = register("prairie_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(BIG_OAK_TREE.weighted(0.1F)), SPARSE_OAK_TREE)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig((int)0.85F, 0.3F, 1))));
