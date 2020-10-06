@@ -8,7 +8,6 @@
 package biomesoplenty.common.world.gen.feature;
 
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.common.world.gen.carver.OriginCaveWorldCarver;
 import biomesoplenty.common.world.gen.feature.tree.*;
 import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.collect.ImmutableSet;
@@ -19,7 +18,6 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.world.gen.carver.WorldCarver;
 import net.minecraft.world.gen.feature.*;
 
 public class BOPFeatures
@@ -79,6 +77,7 @@ public class BOPFeatures
 	public static final Feature<BaseTreeFeatureConfig> WILLOW_TREE = register("willow_tree", new BasicTreeFeature.Builder().log(BOPBlocks.willow_log.defaultBlockState()).leaves(BOPBlocks.willow_leaves.defaultBlockState()).vine(BOPBlocks.willow_vine.defaultBlockState()).minHeight(6).maxHeight(10).maxLeavesRadius(2).leavesOffset(0).create());
 
 	//Sparse Trees
+	public static final Feature<BaseTreeFeatureConfig> SPARSE_ACACIA_TREE = register("sparse_acacia_tree", new BigTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == BOPBlocks.orange_sand).log(Blocks.ACACIA_LOG.defaultBlockState()).leaves(Blocks.ACACIA_LEAVES.defaultBlockState()).maxHeight(8).foliageHeight(1).create());
 	public static final Feature<BaseTreeFeatureConfig> SPARSE_OAK_TREE = register("sparse_oak_tree", new BigTreeFeature.Builder().maxHeight(10).foliageHeight(2).create());
 	public static final Feature<BaseTreeFeatureConfig> DYING_TREE = register("dying_tree", new BigTreeFeature.Builder().log(BOPBlocks.dead_log.defaultBlockState()).leaves(BOPBlocks.dead_leaves.defaultBlockState()).maxHeight(10).foliageHeight(2).create());
 	public static final Feature<BaseTreeFeatureConfig> DYING_TREE_WASTELAND = register("dying_tree_wasteland", new BigTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == BOPBlocks.dried_salt).log(BOPBlocks.dead_log.defaultBlockState()).leaves(BOPBlocks.dead_leaves.defaultBlockState()).maxHeight(10).foliageHeight(1).create());
@@ -86,7 +85,7 @@ public class BOPFeatures
 	//Bushes/Twiglets
 	public static final Feature<BaseTreeFeatureConfig> BUSH = register("bush", new BushTreeFeature.Builder().create());
 	public static final Feature<BaseTreeFeatureConfig> SPRUCE_BUSH = register("spruce_bush", new BushTreeFeature.Builder().log(Blocks.SPRUCE_LOG.defaultBlockState()).leaves(Blocks.SPRUCE_LEAVES.defaultBlockState()).create());
-	public static final Feature<BaseTreeFeatureConfig> ACACIA_BUSH = register("acacia_bush", new BushTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.RED_SAND).log(Blocks.ACACIA_LOG.defaultBlockState()).leaves(Blocks.ACACIA_LEAVES.defaultBlockState()).create());
+	public static final Feature<BaseTreeFeatureConfig> ACACIA_BUSH = register("acacia_bush", new BushTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == BOPBlocks.orange_sand).log(Blocks.ACACIA_LOG.defaultBlockState()).leaves(Blocks.ACACIA_LEAVES.defaultBlockState()).create());
 	public static final Feature<BaseTreeFeatureConfig> FLOWERING_BUSH = register("flowering_bush", new BushTreeFeature.Builder().altLeaves(BOPBlocks.flowering_oak_leaves.defaultBlockState()).create());
 	public static final Feature<BaseTreeFeatureConfig> COBWEB_BUSH = register("cobweb_bush", new BushTreeFeature.Builder().altLeaves(Blocks.COBWEB.defaultBlockState()).create());
 	public static final Feature<BaseTreeFeatureConfig> FULL_COBWEB_BUSH = register("full_cobweb_bush", new BushTreeFeature.Builder().leaves(Blocks.COBWEB.defaultBlockState()).create());
@@ -96,10 +95,9 @@ public class BOPFeatures
 	public static final Feature<BaseTreeFeatureConfig> TALL_TWIGLET_TREE = register("tall_twiglet_tree", new TwigletTreeFeature.Builder().minHeight(2).maxHeight(4).create());
 	public static final Feature<BaseTreeFeatureConfig> SPRUCE_TWIGLET_TREE = register("spruce_twiglet_tree", new TwigletTreeFeature.Builder().log(Blocks.SPRUCE_LOG.defaultBlockState()).leaves(Blocks.SPRUCE_LEAVES.defaultBlockState()).minHeight(1).maxHeight(2).create());
 	public static final Feature<BaseTreeFeatureConfig> JUNGLE_TWIGLET_TREE = register("jungle_twiglet_tree", new TwigletTreeFeature.Builder().log(Blocks.JUNGLE_LOG.defaultBlockState()).leaves(Blocks.JUNGLE_LEAVES.defaultBlockState()).minHeight(1).maxHeight(2).trunkFruit(Blocks.COCOA.defaultBlockState()).create());
-	public static final Feature<BaseTreeFeatureConfig> OASIS_JUNGLE_TWIGLET_TREE = register("oasis_jungle_twiglet_tree", new TwigletTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.SAND).log(Blocks.JUNGLE_LOG.defaultBlockState()).leaves(Blocks.JUNGLE_LEAVES.defaultBlockState()).minHeight(1).maxHeight(2).trunkFruit(Blocks.COCOA.defaultBlockState()).create());
 	public static final Feature<BaseTreeFeatureConfig> DARK_OAK_TWIGLET_TREE = register("dark_oak_twiglet_tree", new TwigletTreeFeature.Builder().log(Blocks.DARK_OAK_LOG.defaultBlockState()).leaves(Blocks.DARK_OAK_LEAVES.defaultBlockState()).minHeight(1).maxHeight(2).create());
 	public static final Feature<BaseTreeFeatureConfig> ACACIA_TWIGLET_TREE = register("acacia_twiglet_tree", new TwigletTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.RED_SAND).log(Blocks.ACACIA_LOG.defaultBlockState()).leaves(Blocks.ACACIA_LEAVES.defaultBlockState()).create());
-	public static final Feature<BaseTreeFeatureConfig> ACACIA_TWIGLET_SMALL = register("acacia_twiglet_small", new TwigletTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.SAND).log(Blocks.ACACIA_LOG.defaultBlockState()).leaves(Blocks.ACACIA_LEAVES.defaultBlockState()).minHeight(1).maxHeight(2).create());
+	public static final Feature<BaseTreeFeatureConfig> ACACIA_TWIGLET_SMALL = register("acacia_twiglet_small", new TwigletTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.SAND || world.getBlockState(pos).getBlock() == BOPBlocks.orange_sand).log(Blocks.ACACIA_LOG.defaultBlockState()).leaves(Blocks.ACACIA_LEAVES.defaultBlockState()).minHeight(1).maxHeight(2).create());
 	public static final Feature<BaseTreeFeatureConfig> ACACIA_TWIGLET = register("acacia_twiglet", new TwigletTreeFeature.Builder().log(Blocks.ACACIA_LOG.defaultBlockState()).leaves(Blocks.ACACIA_LEAVES.defaultBlockState()).minHeight(1).maxHeight(2).create());
 	public static final Feature<BaseTreeFeatureConfig> MAPLE_TWIGLET_TREE = register("maple_twiglet_tree", new TwigletTreeFeature.Builder().minHeight(1).maxHeight(2).leaves(BOPBlocks.maple_leaves.defaultBlockState()).create());
 	public static final Feature<BaseTreeFeatureConfig> DEAD_TWIGLET_TREE_SMALL = register("dead_twiglet_tree_small", new TwigletTreeFeature.Builder().minHeight(1).maxHeight(1).leaves(BOPBlocks.dead_leaves.defaultBlockState()).log(BOPBlocks.dead_log.defaultBlockState()).create());
@@ -162,7 +160,7 @@ public class BOPFeatures
 	public static final FlowersFeature<NoFeatureConfig> MYSTIC_GROVE_FLOWERS = register("mystic_grove_flowers", new MysticGroveFlowersFeature());
 	public static final FlowersFeature<NoFeatureConfig> OMINOUS_WOODS_FLOWERS = register("ominous_woods_flowers", new OminousWoodsFlowersFeature());
 	public static final FlowersFeature<NoFeatureConfig> ORIGIN_FLOWERS = register("origin_flowers", new OriginFlowersFeature());
-	public static final FlowersFeature<NoFeatureConfig> RAINBOW_VALLEY_FLOWERS = register("rainbow_valley_flowers", new RainbowValleyFlowersFeature());
+	public static final FlowersFeature<NoFeatureConfig> RAINBOW_HILLS_FLOWERS = register("rainbow_hills_flowers", new RainbowHillsFlowersFeature());
 	public static final FlowersFeature<NoFeatureConfig> RAINFOREST_FLOWERS = register("rainforest_flowers", new RainforestFlowersFeature());
 	public static final FlowersFeature<NoFeatureConfig> SHRUBLAND_FLOWERS = register("shrubland_flowers", new ShrublandFlowersFeature());
 	public static final FlowersFeature<NoFeatureConfig> SNOWY_FLOWERS = register("snowy_flowers", new SnowyFlowersFeature());
@@ -177,7 +175,7 @@ public class BOPFeatures
 
 	//Other
 	public static final LiquidsConfig VOLCANO_SPRING_CONFIG = new LiquidsConfig(Fluids.LAVA.defaultFluidState(), true, 4, 1, ImmutableSet.of(Blocks.BASALT, Blocks.MAGMA_BLOCK, BOPBlocks.black_sand, BOPBlocks.black_sandstone, Blocks.STONE, Blocks.GRANITE, Blocks.DIORITE, Blocks.ANDESITE));
-	public static final LiquidsConfig OVERGROWN_CLIFFS_SPRING_CONFIG = new LiquidsConfig(Fluids.WATER.defaultFluidState(), true, 4, 1, ImmutableSet.of(Blocks.DIRT, Blocks.TERRACOTTA, Blocks.STONE, Blocks.GRANITE, Blocks.DIORITE, Blocks.ANDESITE));
+	public static final LiquidsConfig OVERGROWN_CLIFFS_SPRING_CONFIG = new LiquidsConfig(Fluids.WATER.defaultFluidState(), true, 4, 1, ImmutableSet.of(Blocks.DIRT, Blocks.TERRACOTTA, Blocks.STONE, Blocks.GRANITE, Blocks.DIORITE, Blocks.ANDESITE, BOPBlocks.orange_sandstone));
 
 	private static <C extends IFeatureConfig, F extends Feature<C>> F register(String key, F value)
 	{

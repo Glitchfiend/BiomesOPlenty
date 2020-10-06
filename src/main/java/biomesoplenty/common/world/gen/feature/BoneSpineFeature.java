@@ -5,6 +5,7 @@ import biomesoplenty.common.util.block.IBlockPosQuery;
 import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.material.Material;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.IWorld;
@@ -17,8 +18,8 @@ import java.util.Random;
 
 public class BoneSpineFeature extends Feature<NoFeatureConfig>
 {
-    protected IBlockPosQuery placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == BOPBlocks.flesh;
-    protected IBlockPosQuery replace = (world, pos) -> world.getBlockState(pos).isAir(world, pos);
+    protected IBlockPosQuery placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == BOPBlocks.flesh || world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK;
+    protected IBlockPosQuery replace = (world, pos) -> world.getBlockState(pos).isAir(world, pos) || world.getBlockState(pos).canBeReplacedByLeaves(world, pos) || world.getBlockState(pos).getMaterial() == Material.WATER;
     private int maxHeight = 3;
 
     public BoneSpineFeature(Codec<NoFeatureConfig> deserializer)

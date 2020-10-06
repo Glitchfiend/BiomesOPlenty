@@ -97,7 +97,7 @@ public class SaplingBlockBOP extends SaplingBlock implements IGrowable
 
        if (this == BOPBlocks.palm_sapling)
        {
-           return ground == BOPBlocks.white_sand || ground == Blocks.RED_SAND || ground == Blocks.SAND || super.canSurvive(state, worldIn, pos);
+           return ground == BOPBlocks.white_sand || ground == BOPBlocks.orange_sand || ground == BOPBlocks.black_sand || ground == Blocks.RED_SAND || ground == Blocks.SAND || super.canSurvive(state, worldIn, pos);
        }
        if (this == BOPBlocks.hellbark_sapling)
        {

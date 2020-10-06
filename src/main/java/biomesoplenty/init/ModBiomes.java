@@ -7,7 +7,6 @@
  ******************************************************************************/
 package biomesoplenty.init;
 
-import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.BiomeMetadata;
 import biomesoplenty.common.biome.BiomeRegistry;
@@ -21,16 +20,13 @@ import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.common.world.BOPBiomeGeneratorTypeScreen;
 import biomesoplenty.common.world.BOPBiomeProvider;
 import biomesoplenty.common.world.BOPNetherBiomeProvider;
-import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screen.BiomeGeneratorTypeScreens;
 import net.minecraft.entity.villager.VillagerType;
 import net.minecraft.util.RegistryKey;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeColors;
@@ -134,12 +130,12 @@ public class ModBiomes
     	registerBiome(new BayouBiome(), "bayou");
         registerBiome(new BogBiome(), "bog");
         registerBiome(new BorealForestBiome(), "boreal_forest");
-    	registerBiome(new BrushlandBiome(), "brushland");
         registerBiome(new ChaparralBiome(), "chaparral");
     	registerBiome(new CherryBlossomGroveBiome(), "cherry_blossom_grove");
     	registerBiome(new ColdDesertBiome(), "cold_desert");
         registerBiome(new ConiferousForestBiome(), "coniferous_forest");
         registerBiome(new DeadForestBiome(), "dead_forest");
+        registerBiome(new DrylandBiome(), "dryland");
         registerBiome(new FirClearingBiome(), "fir_clearing");
         registerBiome(new FloodplainBiome(), "floodplain");
         registerBiome(new FlowerMeadowBiome(), "flower_meadow");
@@ -150,6 +146,7 @@ public class ModBiomes
         registerBiome(new HighlandMoorBiome(), "highland_moor");
         registerBiome(new JadeCliffsBiome(), "jade_cliffs");
         registerBiome(new LavenderFieldBiome(), "lavender_field");
+        registerBiome(new LushDesertBiome(), "lush_desert");
         registerBiome(new LushGrasslandBiome(), "lush_grassland");
         registerBiome(new LushSwampBiome(), "lush_swamp");
         registerBiome(new MapleWoodsBiome(), "maple_woods");
@@ -158,16 +155,15 @@ public class ModBiomes
         registerBiome(new MireBiome(), "mire");
         registerBiome(new MuskegBiome(), "muskeg");
         registerBiome(new MysticGroveBiome(), "mystic_grove");
-        registerBiome(new OasisBiome(), "oasis");
         registerBiome(new OminousWoodsBiome(), "ominous_woods");
-        registerBiome(new OriginHillsBiome(), "origin_hills");
+        registerBiome(new OriginValleyBiome(), "origin_valley");
         registerBiome(new OutbackBiome(), "outback");
         registerBiome(new OvergrownCliffsBiome(), "overgrown_cliffs");
         registerBiome(new PastureBiome(), "pasture");
         registerBiome(new PoppyFieldBiome(), "poppy_field");
         registerBiome(new PrairieBiome(), "prairie");
         registerBiome(new PumpkinPatchBiome(), "pumpkin_patch");
-        registerBiome(new RainbowValleyBiome(), "rainbow_valley");
+        registerBiome(new RainbowHillsBiome(), "rainbow_hills");
         registerBiome(new RainforestBiome(), "rainforest");
         registerBiome(new RedwoodForestBiome(), "redwood_forest");
         registerBiome(new ScrublandBiome(), "scrubland");
@@ -188,7 +184,6 @@ public class ModBiomes
         registerBiome(new WastelandBiome(), "wasteland");
         registerBiome(new WetlandBiome(), "wetland");
         registerBiome(new WoodlandBiome(), "woodland");
-        registerBiome(new XericShrublandBiome(), "xeric_shrubland");
 
         //Nether Biomes
         registerBiome(new CrystallineChasmBiome(), "crystalline_chasm");
@@ -200,8 +195,6 @@ public class ModBiomes
         BiomeRegistry.finalizeRegistrations(BiomeRegistry.RegistrationType.STANDARD_BIOME);
 
         //Sub/Island Biomes (Note: Rarity supports two decimal places)
-        registerSubBiome(Biomes.DESERT, oasis, 0.1F, 100);
-        registerSubBiome(brushland, xeric_shrubland, 1.0F, 100);
         registerSubBiome(coniferous_forest, fir_clearing, 0.38F, 100);
         registerSubBiome(highland, highland_moor, 0.75F, 100);
         registerSubBiome(meadow, flower_meadow, 0.5F, 100);
@@ -213,17 +206,17 @@ public class ModBiomes
         BiomeRegistry.configureSubBiomes();
         BiomeRegistry.finalizeRegistrations(BiomeRegistry.RegistrationType.SUB_BIOME);
 
-        registerIslandBiome(origin_hills, BOPClimates.COOL_TEMPERATE, 50);
-        registerIslandBiome(origin_hills, BOPClimates.DRY_TEMPERATE, 50);
-        registerIslandBiome(origin_hills, BOPClimates.WET_TEMPERATE, 75);
+        registerIslandBiome(origin_valley, BOPClimates.COOL_TEMPERATE, 50);
+        registerIslandBiome(origin_valley, BOPClimates.DRY_TEMPERATE, 50);
+        registerIslandBiome(origin_valley, BOPClimates.WET_TEMPERATE, 75);
         
         registerIslandBiome(volcano, BOPClimates.WARM_TEMPERATE, 75);
         registerIslandBiome(volcano, BOPClimates.MEDITERRANEAN, 75);
         registerIslandBiome(volcano, BOPClimates.SAVANNA, 50);
 
-        registerIslandBiome(rainbow_valley, BOPClimates.WET_TEMPERATE, 25);
-        registerIslandBiome(rainbow_valley, BOPClimates.WARM_TEMPERATE, 25);
-        registerIslandBiome(rainbow_valley, BOPClimates.MEDITERRANEAN, 25);
+        registerIslandBiome(rainbow_hills, BOPClimates.WET_TEMPERATE, 25);
+        registerIslandBiome(rainbow_hills, BOPClimates.WARM_TEMPERATE, 25);
+        registerIslandBiome(rainbow_hills, BOPClimates.MEDITERRANEAN, 25);
 
         registerIslandBiome(tropics, BOPClimates.SUBTROPICAL, 75);
         registerIslandBiome(tropics, BOPClimates.TROPICAL, 50);
@@ -268,12 +261,12 @@ public class ModBiomes
         registerVillagerType(bayou, VillagerType.SWAMP);
         registerVillagerType(bog, VillagerType.SWAMP);
         registerVillagerType(boreal_forest, VillagerType.TAIGA);
-        registerVillagerType(brushland, VillagerType.SAVANNA);
         registerVillagerType(chaparral, VillagerType.PLAINS);
         registerVillagerType(cherry_blossom_grove, VillagerType.PLAINS);
         registerVillagerType(cold_desert, VillagerType.SNOW);
         registerVillagerType(coniferous_forest, VillagerType.TAIGA);
         registerVillagerType(dead_forest, VillagerType.TAIGA);
+        registerVillagerType(dryland, VillagerType.SAVANNA);
         registerVillagerType(fir_clearing, VillagerType.TAIGA);
         registerVillagerType(floodplain, VillagerType.JUNGLE);
         registerVillagerType(flower_meadow, VillagerType.TAIGA);
@@ -285,6 +278,7 @@ public class ModBiomes
         registerVillagerType(highland_moor, VillagerType.PLAINS);
         registerVillagerType(jade_cliffs, VillagerType.PLAINS);
         registerVillagerType(lavender_field, VillagerType.PLAINS);
+        registerVillagerType(lush_desert, VillagerType.DESERT);
         registerVillagerType(lush_grassland, VillagerType.JUNGLE);
         registerVillagerType(lush_swamp, VillagerType.JUNGLE);
         registerVillagerType(mangrove, VillagerType.SWAMP);
@@ -294,17 +288,16 @@ public class ModBiomes
         registerVillagerType(mire, VillagerType.SWAMP);
         registerVillagerType(muskeg, VillagerType.SNOW);
         registerVillagerType(mystic_grove, VillagerType.PLAINS);
-        registerVillagerType(oasis, VillagerType.DESERT);
         registerVillagerType(ominous_woods, VillagerType.SWAMP);
         registerVillagerType(orchard, VillagerType.PLAINS);
-        registerVillagerType(origin_hills, VillagerType.PLAINS);
+        registerVillagerType(origin_valley, VillagerType.PLAINS);
         registerVillagerType(outback, VillagerType.SAVANNA);
         registerVillagerType(overgrown_cliffs, VillagerType.JUNGLE);
         registerVillagerType(pasture, VillagerType.PLAINS);
         registerVillagerType(poppy_field, VillagerType.PLAINS);
         registerVillagerType(prairie, VillagerType.PLAINS);
         registerVillagerType(pumpkin_patch, VillagerType.PLAINS);
-        registerVillagerType(rainbow_valley, VillagerType.PLAINS);
+        registerVillagerType(rainbow_hills, VillagerType.PLAINS);
         registerVillagerType(rainforest, VillagerType.JUNGLE);
         registerVillagerType(redwood_forest, VillagerType.PLAINS);
         registerVillagerType(redwood_forest_edge, VillagerType.PLAINS);
@@ -328,7 +321,6 @@ public class ModBiomes
         registerVillagerType(wasteland, VillagerType.DESERT);
         registerVillagerType(wetland, VillagerType.SWAMP);
         registerVillagerType(woodland, VillagerType.PLAINS);
-        registerVillagerType(xeric_shrubland, VillagerType.DESERT);
     }
 
     private static void registerVillagerType(RegistryKey<Biome> key, VillagerType type)

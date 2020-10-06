@@ -50,7 +50,7 @@ public class MireBiome extends BiomeTemplate
         DefaultBiomeFeatures.addDefaultCarvers(builder);
         DefaultBiomeFeatures.addDefaultLakes(builder);
 
-        builder.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, BOPConfiguredFeatures.MUD_LAKE);
+        builder.addFeature(GenerationStage.Decoration.LAKES, BOPConfiguredFeatures.MUD_LAKE);
 
         DefaultBiomeFeatures.addDefaultMonsterRoom(builder);
         DefaultBiomeFeatures.addDefaultUndergroundVariety(builder);

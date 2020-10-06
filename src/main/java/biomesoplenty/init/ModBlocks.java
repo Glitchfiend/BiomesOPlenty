@@ -48,6 +48,18 @@ public class ModBlocks
         cut_white_sandstone_slab = registerBlock(new SlabBlock(Block.Properties.copy(cut_white_sandstone)), "cut_white_sandstone_slab");
         chiseled_white_sandstone = registerBlock(new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.QUARTZ).strength(0.8F)), "chiseled_white_sandstone");
 
+        orange_sand = registerBlock(new SandBlockBOP(0xCC9A61, AbstractBlock.Properties.of(Material.SAND, MaterialColor.COLOR_ORANGE).strength(0.5F).sound(SoundType.SAND).harvestLevel(0).harvestTool(ToolType.SHOVEL)), "orange_sand");
+        orange_sandstone = registerBlock(new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_ORANGE).strength(0.8F)), "orange_sandstone");
+        orange_sandstone_stairs = registerBlock(new StairsBlock(orange_sandstone.defaultBlockState(), Block.Properties.copy(orange_sandstone)), "orange_sandstone_stairs");
+        orange_sandstone_slab = registerBlock(new SlabBlock(Block.Properties.copy(orange_sandstone)), "orange_sandstone_slab");
+        orange_sandstone_wall = registerBlock(new WallBlock(Block.Properties.copy(orange_sandstone)),"orange_sandstone_wall");
+        smooth_orange_sandstone = registerBlock(new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_ORANGE).strength(2.0F, 6.0F)), "smooth_orange_sandstone");
+        smooth_orange_sandstone_stairs = registerBlock(new StairsBlock(orange_sandstone.defaultBlockState(), Block.Properties.copy(smooth_orange_sandstone)), "smooth_orange_sandstone_stairs");
+        smooth_orange_sandstone_slab = registerBlock(new SlabBlock(Block.Properties.copy(smooth_orange_sandstone)), "smooth_orange_sandstone_slab");
+        cut_orange_sandstone = registerBlock(new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_ORANGE).strength(0.8F)), "cut_orange_sandstone");
+        cut_orange_sandstone_slab = registerBlock(new SlabBlock(Block.Properties.copy(cut_orange_sandstone)), "cut_orange_sandstone_slab");
+        chiseled_orange_sandstone = registerBlock(new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_ORANGE).strength(0.8F)), "chiseled_orange_sandstone");
+
         black_sand = registerBlock(new SandBlockBOP(0x2D2C2F, AbstractBlock.Properties.of(Material.SAND, MaterialColor.COLOR_BLACK).strength(0.5F).sound(SoundType.SAND).harvestLevel(0).harvestTool(ToolType.SHOVEL)), "black_sand");
         black_sandstone = registerBlock(new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_BLACK).strength(0.8F)), "black_sandstone");
         black_sandstone_stairs = registerBlock(new StairsBlock(black_sandstone.defaultBlockState(), Block.Properties.copy(black_sandstone)), "black_sandstone_stairs");

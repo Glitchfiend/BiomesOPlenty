@@ -47,7 +47,7 @@ public class VolcanoBiome extends BiomeTemplate
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(builder);
 
-        builder.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, BOPConfiguredFeatures.LAVA_LAKE_COMMON);
+        builder.addFeature(GenerationStage.Decoration.LAKES, BOPConfiguredFeatures.LAVA_LAKE_COMMON);
 
         DefaultBiomeFeatures.addDefaultMonsterRoom(builder);
         DefaultBiomeFeatures.addDefaultUndergroundVariety(builder);

@@ -1,8 +1,22 @@
 {
   "variants": {
-    "snowy=false": {
-      "model": "biomesoplenty:block/origin_grass_block"
-    },
+    "snowy=false": [
+      {
+        "model": "biomesoplenty:block/origin_grass_block"
+      },
+      {
+        "model": "biomesoplenty:block/origin_grass_block",
+        "y": 90
+      },
+      {
+        "model": "biomesoplenty:block/origin_grass_block",
+        "y": 180
+      },
+      {
+        "model": "biomesoplenty:block/origin_grass_block",
+        "y": 270
+      }
+    ],
     "snowy=true": {
       "model": "biomesoplenty:block/origin_grass_block_snow"
     }

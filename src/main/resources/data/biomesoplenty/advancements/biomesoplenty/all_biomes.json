@@ -45,12 +45,6 @@
                 "biome": "biomesoplenty:boreal_forest"
             }
         },
-		"brushland": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:brushland"
-            }
-        },
 		"chaparral": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -85,6 +79,12 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:dead_forest"
+            }
+        },
+		"dryland": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:dryland"
             }
         },
 		"fir_clearing": {
@@ -153,6 +153,12 @@
                 "biome": "biomesoplenty:lavender_field"
             }
         },
+		"lush_desert": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:lush_desert"
+            }
+        },
         "lush_grassland": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -207,12 +213,6 @@
                 "biome": "biomesoplenty:mystic_grove"
             }
         },
-        "oasis": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:oasis"
-            }
-        },
 		"ominous_woods": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -225,10 +225,10 @@
                 "biome": "biomesoplenty:orchard"
             }
         },
-        "origin_hills": {
+        "origin_valley": {
             "trigger": "minecraft:location",
             "conditions": {
-                "biome": "biomesoplenty:origin_hills"
+                "biome": "biomesoplenty:origin_valley"
             }
         },
 		"outback": {
@@ -267,10 +267,10 @@
                 "biome": "biomesoplenty:pumpkin_patch"
             }
         },
-		"rainbow_valley": {
+		"rainbow_hills": {
             "trigger": "minecraft:location",
             "conditions": {
-                "biome": "biomesoplenty:rainbow_valley"
+                "biome": "biomesoplenty:rainbow_hills"
             }
         },
 		"rainforest": {
@@ -427,12 +427,6 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:woodland"
-            }
-        },
-		"xeric_shrubland": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:xeric_shrubland"
             }
         }
     },

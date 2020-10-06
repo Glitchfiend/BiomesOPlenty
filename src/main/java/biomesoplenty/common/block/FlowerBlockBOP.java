@@ -66,7 +66,7 @@ public class FlowerBlockBOP extends FlowerBlock
 
         if (this == BOPBlocks.wildflower)
         {
-            return ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.white_sand || super.canSurvive(state, worldIn, pos);
+            return ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.white_sand || ground == BOPBlocks.orange_sand || ground == BOPBlocks.black_sand || super.canSurvive(state, worldIn, pos);
         }
         if (this == BOPBlocks.burning_blossom)
         {

@@ -52,7 +52,7 @@ public class ColdDesertBiome extends BiomeTemplate
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(builder);
 
-        builder.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Features.LAKE_LAVA);
+        builder.addFeature(GenerationStage.Decoration.LAKES, Features.LAKE_LAVA);
 
         DefaultBiomeFeatures.addDefaultMonsterRoom(builder);
         DefaultBiomeFeatures.addDefaultUndergroundVariety(builder);

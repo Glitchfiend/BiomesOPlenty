@@ -23,6 +23,18 @@ public class BOPBlocks
     public static Block white_sandstone_stairs;
     public static Block white_sandstone_wall;
 
+    public static Block orange_sand;
+    public static Block orange_sandstone;
+    public static Block cut_orange_sandstone;
+    public static Block cut_orange_sandstone_slab;
+    public static Block chiseled_orange_sandstone;
+    public static Block smooth_orange_sandstone;
+    public static Block smooth_orange_sandstone_slab;
+    public static Block smooth_orange_sandstone_stairs;
+    public static Block orange_sandstone_slab;
+    public static Block orange_sandstone_stairs;
+    public static Block orange_sandstone_wall;
+
     public static Block black_sand;
     public static Block black_sandstone;
     public static Block cut_black_sandstone;
