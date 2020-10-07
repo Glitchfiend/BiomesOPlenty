@@ -26,13 +26,6 @@ public class ModSounds
     public static void registerSounds(RegistryEvent.Register<SoundEvent> event)
     {
         music_disc_wanderer = registerSound("music_disc.wanderer");
-        deer_hurt = registerSound("entity.biomesoplenty.deer.hurt");
-        deer_dead = registerSound("entity.biomesoplenty.deer.dead");
-        deer_step = SoundEvents.LLAMA_STEP;
-        turkey_ambient = registerSound("entity.biomesoplenty.turkey.ambient");
-        turkey_hurt = registerSound("entity.biomesoplenty.turkey.hurt");
-        turkey_dead = registerSound("entity.biomesoplenty.turkey.dead");
-        turkey_step = SoundEvents.CHICKEN_STEP;
     }
 
     private static SoundEvent registerSound(String soundName)

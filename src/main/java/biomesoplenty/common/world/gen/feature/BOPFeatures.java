@@ -116,6 +116,7 @@ public class BOPFeatures
 	public static final Feature<NoFeatureConfig> BIG_PUMPKIN = register("big_pumpkin", new BigPumpkinFeature(NoFeatureConfig.CODEC));
 	public static final Feature<NoFeatureConfig> BONE_SPINE = register("bone_spine", new BoneSpineFeature(NoFeatureConfig.CODEC));
 	public static final Feature<NoFeatureConfig> BRAMBLE = register("bramble", new BrambleFeature(NoFeatureConfig.CODEC));
+	public static final Feature<NoFeatureConfig> CRAG_SPLATTER = register("crag_splatter", new CragSplatterFeature(NoFeatureConfig.CODEC));
 	public static final Feature<NoFeatureConfig> DENSE_BAYOU_VINES = register("dense_bayou_vines", new DenseBayouVinesFeature(NoFeatureConfig.CODEC));
 	public static final Feature<NoFeatureConfig> FERN_GRASS = register("fern_grass", new FernGrassFeature(NoFeatureConfig.CODEC));
 	public static final Feature<NoFeatureConfig> FLESH_TENDON = register("flesh_tendon", new FleshTendonFeature(NoFeatureConfig.CODEC));

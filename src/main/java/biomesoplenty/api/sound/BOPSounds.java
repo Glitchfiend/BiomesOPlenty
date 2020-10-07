@@ -12,11 +12,4 @@ import net.minecraft.util.SoundEvent;
 public class BOPSounds
 {
 	public static SoundEvent music_disc_wanderer;
-	public static SoundEvent deer_hurt;
-	public static SoundEvent deer_dead;
-	public static SoundEvent deer_step;
-	public static SoundEvent turkey_ambient;
-	public static SoundEvent turkey_hurt;
-	public static SoundEvent turkey_dead;
-	public static SoundEvent turkey_step;
 }

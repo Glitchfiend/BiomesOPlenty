@@ -18,6 +18,7 @@ import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
 public class LushSavannaBiome extends BiomeTemplate
 {
@@ -29,15 +30,15 @@ public class LushSavannaBiome extends BiomeTemplate
     @Override
     protected void configureBiome(Biome.Builder builder)
     {
-        builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.DESERT).depth(0.1F).scale(0.01F).temperature(1.8F).downfall(0.15F);
+        builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.DESERT).depth(0.1F).scale(0.01F).temperature(0.9F).downfall(0.5F);
 
-        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4566514).waterFogColor(267827).fogColor(12638463).skyColor(calculateSkyColor(1.8F)).grassColorOverride(0xEFE182).foliageColorOverride(0xD3D156).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
+        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4566514).waterFogColor(267827).fogColor(12638463).skyColor(calculateSkyColor(0.9F)).grassColorOverride(0xEFE182).foliageColorOverride(0xD3D156).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
 
     @Override
     protected void configureGeneration(BiomeGenerationSettings.Builder builder)
     {
-        builder.surfaceBuilder(new ConfiguredSurfaceBuilder(BOPSurfaceBuilders.LUSH_SAVANNA, BOPSurfaceBuilders.ORANGE_SAND_SURFACE));
+        builder.surfaceBuilder(new ConfiguredSurfaceBuilder(BOPSurfaceBuilders.LUSH_SAVANNA, SurfaceBuilder.CONFIG_GRASS));
 
         // Structures
         DefaultBiomeFeatures.addDefaultOverworldLandStructures(builder);
@@ -66,6 +67,9 @@ public class LushSavannaBiome extends BiomeTemplate
 
         // Other Features
         DefaultBiomeFeatures.addDefaultSprings(builder);
+
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.WATER_SPRING_EXTRA);
+
         DefaultBiomeFeatures.addSurfaceFreezing(builder);
     }
 

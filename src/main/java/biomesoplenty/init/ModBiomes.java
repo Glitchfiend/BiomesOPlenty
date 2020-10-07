@@ -142,16 +142,20 @@ public class ModBiomes
         registerBiome(new GoldenPrairieBiome(), "golden_prairie");
         registerBiome(new GroveBiome(), "grove");
         registerBiome(new HighlandBiome(), "highland");
+        registerBiome(new HighlandCragBiome(), "highland_crag");
         registerBiome(new HighlandMoorBiome(), "highland_moor");
         registerBiome(new JadeCliffsBiome(), "jade_cliffs");
+        registerBiome(new JadeGrasslandBiome(), "jade_grassland");
         registerBiome(new LavenderFieldBiome(), "lavender_field");
         registerBiome(new LushDesertBiome(), "lush_desert");
         registerBiome(new LushSavannaBiome(), "lush_savanna");
         registerBiome(new MeadowBiome(), "meadow");
+        registerBiome(new MeadowForestBiome(), "meadow_forest");
         registerBiome(new MuskegBiome(), "muskeg");
         registerBiome(new MysticGroveBiome(), "mystic_grove");
         registerBiome(new MysticPlainsBiome(), "mystic_plains");
         registerBiome(new OminousWoodsBiome(), "ominous_woods");
+        registerBiome(new OminousMireBiome(), "ominous_mire");
         registerBiome(new OriginValleyBiome(), "origin_valley");
         registerBiome(new OvergrownFungalJungleBiome(), "overgrown_fungal_jungle");
         registerBiome(new PrairieBiome(), "prairie");
@@ -160,12 +164,14 @@ public class ModBiomes
         registerBiome(new RainforestClearingBiome(), "rainforest_clearing");
         registerBiome(new RainforestCliffsBiome(), "rainforest_cliffs");
         registerBiome(new RedwoodForestBiome(), "redwood_forest");
+        registerBiome(new RedwoodHillsBiome(), "redwood_hills");
         registerBiome(new SeasonalForestBiome(), "seasonal_forest");
         registerBiome(new SeasonalPumpkinPatchBiome(), "seasonal_pumpkin_patch");
         registerBiome(new ShroomyWetlandBiome(), "shroomy_wetland");
         registerBiome(new ShrublandBiome(), "shrubland");
         registerBiome(new ShrublandHillsBiome(), "shrubland_hills");
         registerBiome(new SilkgladeBiome(), "silkglade");
+        registerBiome(new SilkgladeNestBiome(), "silkglade_nest");
         registerBiome(new SnowyConiferousForestBiome(), "snowy_coniferous_forest");
         registerBiome(new SnowyMapleForestBiome(), "snowy_maple_forest");
         registerBiome(new SnowyFirClearingBiome(), "snowy_fir_clearing");
@@ -200,22 +206,32 @@ public class ModBiomes
 
         registerSubBiome(fungal_jungle, overgrown_fungal_jungle, 0.8F, 100);
 
+        registerSubBiome(highland, highland_crag, 1.25F, 100);
         registerSubBiome(highland, highland_moor, 0.75F, 100);
+
+        registerSubBiome(jade_cliffs, jade_grassland, 0.85F, 100);
 
         registerSubBiome(lush_desert, lush_savanna, 0.65F, 100);
 
-        registerSubBiome(meadow, flower_meadow, 0.5F, 100);
+        registerSubBiome(meadow, flower_meadow, 1.0F, 100);
+        registerSubBiome(meadow, meadow_forest, 1.0F, 100);
 
         registerSubBiome(mystic_grove, mystic_plains, 0.75F, 100);
+
+        registerSubBiome(ominous_woods, ominous_mire, 0.75F, 100);
 
         registerSubBiome(prairie, golden_prairie, 1.0F, 100);
 
         registerSubBiome(rainforest, rainforest_cliffs, 2.0F, 100);
         registerSubBiome(rainforest, rainforest_clearing, 2.0F, 100);
 
+        registerSubBiome(redwood_forest, redwood_hills, 0.75F, 100);
+
         registerSubBiome(seasonal_forest, seasonal_pumpkin_patch, 0.45F, 100);
 
         registerSubBiome(shrubland, shrubland_hills, 0.75F, 100);
+
+        registerSubBiome(silkglade, silkglade_nest, 0.45F, 100);
 
         registerSubBiome(snowy_coniferous_forest, snowy_fir_clearing, 0.75F, 100);
         registerSubBiome(snowy_coniferous_forest, snowy_maple_forest, 1.25F, 100);
@@ -256,8 +272,8 @@ public class ModBiomes
         registerVanillaBiome(Biomes.TAIGA, BOPClimates.WET_BOREAL, 10);
         registerVanillaBiome(Biomes.GIANT_TREE_TAIGA, BOPClimates.DRY_BOREAL, 5);
         registerVanillaBiome(Biomes.DARK_FOREST, BOPClimates.WET_TEMPERATE, 5);
+        registerVanillaBiome(Biomes.BIRCH_FOREST, BOPClimates.DRY_TEMPERATE, 5);
         registerVanillaBiome(Biomes.FOREST, BOPClimates.COOL_TEMPERATE, 10);
-        registerVanillaBiome(Biomes.BIRCH_FOREST, BOPClimates.COOL_TEMPERATE, 7);
         registerVanillaBiome(Biomes.PLAINS, BOPClimates.WARM_TEMPERATE, 10);
         registerVanillaBiome(Biomes.SWAMP, BOPClimates.SUBTROPICAL, 7);
         registerVanillaBiome(Biomes.LUKEWARM_OCEAN, BOPClimates.SUBTROPICAL, 3);
@@ -300,16 +316,19 @@ public class ModBiomes
         registerVillagerType(gravel_beach, VillagerType.PLAINS);
         registerVillagerType(grove, VillagerType.PLAINS);
         registerVillagerType(highland, VillagerType.PLAINS);
+        registerVillagerType(highland_crag, VillagerType.PLAINS);
         registerVillagerType(highland_moor, VillagerType.PLAINS);
         registerVillagerType(jade_cliffs, VillagerType.PLAINS);
         registerVillagerType(lavender_field, VillagerType.PLAINS);
         registerVillagerType(lush_desert, VillagerType.SAVANNA);
         registerVillagerType(lush_savanna, VillagerType.SAVANNA);
         registerVillagerType(meadow, VillagerType.TAIGA);
+        registerVillagerType(meadow_forest, VillagerType.TAIGA);
         registerVillagerType(muskeg, VillagerType.SNOW);
         registerVillagerType(mystic_grove, VillagerType.PLAINS);
         registerVillagerType(mystic_plains, VillagerType.PLAINS);
         registerVillagerType(ominous_woods, VillagerType.SWAMP);
+        registerVillagerType(ominous_mire, VillagerType.SWAMP);
         registerVillagerType(orchard, VillagerType.PLAINS);
         registerVillagerType(origin_valley, VillagerType.PLAINS);
         registerVillagerType(overgrown_fungal_jungle, VillagerType.JUNGLE);
@@ -320,12 +339,14 @@ public class ModBiomes
         registerVillagerType(rainforest_cliffs, VillagerType.JUNGLE);
         registerVillagerType(redwood_forest, VillagerType.PLAINS);
         registerVillagerType(redwood_forest_edge, VillagerType.PLAINS);
+        registerVillagerType(redwood_hills, VillagerType.PLAINS);
         registerVillagerType(seasonal_forest, VillagerType.PLAINS);
         registerVillagerType(seasonal_pumpkin_patch, VillagerType.PLAINS);
         registerVillagerType(shroomy_wetland, VillagerType.SWAMP);
         registerVillagerType(shrubland, VillagerType.PLAINS);
         registerVillagerType(shrubland_hills, VillagerType.PLAINS);
         registerVillagerType(silkglade, VillagerType.SWAMP);
+        registerVillagerType(silkglade_nest, VillagerType.SWAMP);
         registerVillagerType(snowy_coniferous_forest, VillagerType.SNOW);
         registerVillagerType(snowy_fir_clearing, VillagerType.SNOW);
         registerVillagerType(snowy_maple_forest, VillagerType.SNOW);

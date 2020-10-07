@@ -22,7 +22,7 @@ public class HighlandBiome extends BiomeTemplate
 {
     public HighlandBiome()
     {
-        this.addWeight(BOPClimates.COOL_TEMPERATE, 3);
+        this.addWeight(BOPClimates.COOL_TEMPERATE, 5);
         this.setBeachBiome(null);
     }
 

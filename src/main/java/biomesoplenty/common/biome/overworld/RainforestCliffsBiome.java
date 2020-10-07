@@ -30,9 +30,9 @@ public class RainforestCliffsBiome extends BiomeTemplate
     @Override
     protected void configureBiome(Biome.Builder builder)
     {
-        builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.JUNGLE).depth(2.9F).scale(0.6F).temperature(1.0F).downfall(1.0F);
+        builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.JUNGLE).depth(2.9F).scale(0.6F).temperature(1.2F).downfall(2.0F);
 
-        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(0x3FDF99).waterFogColor(0x042F26).fogColor(12638463).skyColor(calculateSkyColor(1.0F)).grassColorOverride(0xA7E140).foliageColorOverride(0x88E140).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
+        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(0x3FDF99).waterFogColor(0x042F26).fogColor(12638463).skyColor(calculateSkyColor(1.2F)).grassColorOverride(0xA7E140).foliageColorOverride(0x88E140).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
 
     @Override

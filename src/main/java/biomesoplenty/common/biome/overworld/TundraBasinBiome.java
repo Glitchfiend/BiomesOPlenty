@@ -54,11 +54,6 @@ public class TundraBasinBiome extends BiomeTemplate
 
         ////////////////////////////////////////////////////////////
 
-        // Vegetation
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.WASTELAND_GRASS_1);
-
-        ////////////////////////////////////////////////////////////
-
         // Other Features
         DefaultBiomeFeatures.addDefaultSprings(builder);
         DefaultBiomeFeatures.addSurfaceFreezing(builder);

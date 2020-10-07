@@ -134,6 +134,12 @@
                 "biome": "biomesoplenty:highland"
             }
         },
+		"highland_crag": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:highland_crag"
+            }
+        },
 	    "highland_moor": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -144,6 +150,12 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:jade_cliffs"
+            }
+        },
+		"jade_grassland": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:jade_grassland"
             }
         },
 		"lavender_field": {
@@ -170,6 +182,12 @@
                 "biome": "biomesoplenty:meadow"
             }
         },
+		"meadow_forest": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:meadow_forest"
+            }
+        },
 		"muskeg": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -192,6 +210,12 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:ominous_woods"
+            }
+        },
+		"ominous_mire": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:ominous_mire"
             }
         },
 		"orchard": {
@@ -254,6 +278,12 @@
                 "biome": "biomesoplenty:redwood_forest_edge"
             }
         },
+		"redwood_hills": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:redwood_hills"
+            }
+        },
 		"seasonal_forest": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -288,6 +318,12 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:silkglade"
+            }
+        },
+        "silkglade_nest": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:silkglade_nest"
             }
         },
 		"snowy_coniferous_forest": {
@@ -409,16 +445,20 @@
 			"gravel_beach",
 			"grove",
 			"highland",
+			"highland_crag",
 			"highland_moor",
 			"jade_cliffs",
+			"jade_grassland",
 			"lavender_field",
 			"lush_desert",
 			"lush_savanna",
 			"meadow",
+			"meadow_forest",
 			"muskeg",
 			"mystic_grove",
 			"mystic_plains",
 			"ominous_woods",
+			"ominous_mire",
 			"orchard",
 			"origin_valley",
 			"overgrown_fungal_jungle",
@@ -429,12 +469,14 @@
 			"rainforest_cliffs",
 			"redwood_forest",
 			"redwood_forest_edge",
+			"redwood_hills",
 			"seasonal_forest",
 			"seasonal_pumpkin_patch",
 			"shroomy_wetland",
 			"shrubland",
 			"shrubland_hills",
 			"silkglade",
+			"silkglade_nest",
 			"snowy_coniferous_forest",
 			"snowy_fir_clearing",
 			"snowy_maple_forest",

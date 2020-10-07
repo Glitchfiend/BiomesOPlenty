@@ -51,13 +51,11 @@ public class BiomesOPlenty
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-        ModEntities.setup();
         ModVanillaCompat.setup();
     }
 
     private void clientSetup(final FMLClientSetupEvent event)
     {
-        ModEntities.registerRendering();
     }
 
     private void loadComplete(final FMLLoadCompleteEvent event) // PostRegistrationEven

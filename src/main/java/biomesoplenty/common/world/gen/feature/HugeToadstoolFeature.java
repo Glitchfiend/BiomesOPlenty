@@ -85,9 +85,9 @@ public class HugeToadstoolFeature extends Feature<NoFeatureConfig>
     {
         for (int y = 0; y <= 8; y++)
         {
-            for (int x = -1; x <= 1; x++)
+            for (int x = -2; x <= 2; x++)
             {
-                for (int z = -1; z <= 1; z++)
+                for (int z = -2; z <= 2; z++)
                 {
                     BlockPos pos1 = pos.offset(x, y, z);
                     if (pos1.getY() >= 255 || !this.replace.matches(world, pos1))

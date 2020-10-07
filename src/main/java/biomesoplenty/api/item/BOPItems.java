@@ -28,10 +28,5 @@ public class BOPItems
     public static Item umbran_boat;
     public static Item hellbark_boat;
 
-    public static Item venison;
-    public static Item cooked_venison;
-    public static Item turkey_leg;
-    public static Item cooked_turkey_leg;
-
     public static Item music_disc_wanderer;
 }

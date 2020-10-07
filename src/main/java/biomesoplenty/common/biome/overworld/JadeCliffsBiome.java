@@ -31,7 +31,7 @@ public class JadeCliffsBiome extends BiomeTemplate
     @Override
     protected void configureBiome(Biome.Builder builder)
     {
-        builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.FOREST).depth(2.0F).scale(1.15F).temperature(0.75F).downfall(0.85F);
+        builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.FOREST).depth(2.0F).scale(1.15F).temperature(0.8F).downfall(0.85F);
 
         builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(0xBBD1D5).skyColor(0xB7CCAD).grassColorOverride(0x7CA568).foliageColorOverride(0x8BB76E).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }

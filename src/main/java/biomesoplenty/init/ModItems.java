@@ -25,10 +25,6 @@ import static biomesoplenty.api.item.BOPItems.*;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModItems
 {
-    public static final Food VENISON = (new Food.Builder()).nutrition(3).saturationMod(0.3F).meat().build();
-    public static final Food COOKED_VENISON = (new Food.Builder()).nutrition(8).saturationMod(0.8F).meat().build();
-    public static final Food TURKEY_LEG = (new Food.Builder()).nutrition(1).saturationMod(0.15F).effect(new EffectInstance(Effects.HUNGER, 600, 0), 0.3F).meat().build();
-    public static final Food COOKED_TURKEY_LEG = (new Food.Builder()).nutrition(3).saturationMod(0.3F).meat().build();
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event)
@@ -49,11 +45,6 @@ public class ModItems
         magic_boat = registerItem(new BoatItem(BoatEntity.Type.OAK, (new Item.Properties()).stacksTo(1).tab(ItemGroupBOP.instance)), "magic_boat");
         umbran_boat = registerItem(new BoatItem(BoatEntity.Type.OAK, (new Item.Properties()).stacksTo(1).tab(ItemGroupBOP.instance)), "umbran_boat");
         hellbark_boat = registerItem(new BoatItem(BoatEntity.Type.OAK, (new Item.Properties()).stacksTo(1).tab(ItemGroupBOP.instance)), "hellbark_boat");
-
-        venison = registerItem(new Item(new Item.Properties().tab(ItemGroupBOP.instance).food(VENISON)), "venison");
-        cooked_venison = registerItem(new Item(new Item.Properties().tab(ItemGroupBOP.instance).food(COOKED_VENISON)), "cooked_venison");
-        turkey_leg = registerItem(new Item(new Item.Properties().tab(ItemGroupBOP.instance).food(TURKEY_LEG)), "turkey_leg");
-        cooked_turkey_leg = registerItem(new Item(new Item.Properties().tab(ItemGroupBOP.instance).food(COOKED_TURKEY_LEG)), "cooked_turkey_leg");
 
         bop_icon = registerItem(new Item(new Item.Properties()), "bop_icon");
 	}
