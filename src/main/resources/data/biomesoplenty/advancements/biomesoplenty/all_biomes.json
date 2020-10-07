@@ -27,6 +27,12 @@
                 "biome": "biomesoplenty:alps_foothills"
             }
         },
+		"bamboo_grove": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:bamboo_grove"
+            }
+        },
 		"bayou": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -105,6 +111,12 @@
                 "biome": "biomesoplenty:fungal_jungle"
             }
         },
+		"golden_prairie": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:golden_prairie"
+            }
+        },
         "gravel_beach": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -147,10 +159,10 @@
                 "biome": "biomesoplenty:lush_desert"
             }
         },
-		"maple_woods": {
+		"lush_savanna": {
             "trigger": "minecraft:location",
             "conditions": {
-                "biome": "biomesoplenty:maple_woods"
+                "biome": "biomesoplenty:lush_savanna"
             }
         },
 		"meadow": {
@@ -195,28 +207,16 @@
                 "biome": "biomesoplenty:origin_valley"
             }
         },
-        "pasture": {
+		"overgrown_fungal_jungle": {
             "trigger": "minecraft:location",
             "conditions": {
-                "biome": "biomesoplenty:pasture"
-            }
-        },
-        "poppy_field": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:poppy_field"
+                "biome": "biomesoplenty:overgrown_fungal_jungle"
             }
         },
 		"prairie": {
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:prairie"
-            }
-        },
-        "pumpkin_patch": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:pumpkin_patch"
             }
         },
 		"rainbow_hills": {
@@ -261,6 +261,12 @@
                 "biome": "biomesoplenty:seasonal_forest"
             }
         },
+        "seasonal_pumpkin_patch": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:seasonal_pumpkin_patch"
+            }
+        },
 		"shroomy_wetland": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -295,6 +301,12 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:snowy_fir_clearing"
+            }
+        },
+		"snowy_maple_forest": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:snowy_maple_forest"
             }
         },
         "tropic_beach": {

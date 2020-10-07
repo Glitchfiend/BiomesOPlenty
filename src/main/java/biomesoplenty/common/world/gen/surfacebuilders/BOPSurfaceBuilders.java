@@ -41,7 +41,7 @@ public class BOPSurfaceBuilders
     public static final SurfaceBuilder<SurfaceBuilderConfig> VOLCANO = register("volcano", new VolcanoSurfaceBuilder(SurfaceBuilderConfig.CODEC));
     public static final SurfaceBuilder<SurfaceBuilderConfig> DEEP_TOP_LAYER = register("deep_top_layer", new DeepTopLayerSurfaceBuilder(SurfaceBuilderConfig.CODEC));
     public static final SurfaceBuilder<SurfaceBuilderConfig> ORANGE_SANDSTONE = register("orange_sandstone", new OrangeSandstoneSurfaceBuilder(SurfaceBuilderConfig.CODEC));
-    public static final SurfaceBuilder<SurfaceBuilderConfig> POPPY_FIELD = register("poppy_field", new PoppyFieldSurfaceBuilder(SurfaceBuilderConfig.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> LUSH_SAVANNA = register("lush_savanna", new LushSavannaSurfaceBuilder(SurfaceBuilderConfig.CODEC));
     public static final SurfaceBuilder<SurfaceBuilderConfig> WITHERED_ABYSS = register("withered_abyss", new WitheredAbyssSurfaceBuilder(SurfaceBuilderConfig.CODEC));
     public static final SurfaceBuilder<SurfaceBuilderConfig> FLESH = register("flesh", new FleshSurfaceBuilder(SurfaceBuilderConfig.CODEC));
     public static final SurfaceBuilder<SurfaceBuilderConfig> ORIGIN_VALLEY = register("origin_valley", new OriginValleySurfaceBuilder(SurfaceBuilderConfig.CODEC));

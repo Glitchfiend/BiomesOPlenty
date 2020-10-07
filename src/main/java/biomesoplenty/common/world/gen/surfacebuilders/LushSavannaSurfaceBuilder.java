@@ -16,9 +16,9 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
 import java.util.Random;
 
-public class PoppyFieldSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
+public class LushSavannaSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
 {
-    public PoppyFieldSurfaceBuilder(Codec<SurfaceBuilderConfig> deserializer)
+    public LushSavannaSurfaceBuilder(Codec<SurfaceBuilderConfig> deserializer)
     {
         super(deserializer);
     }

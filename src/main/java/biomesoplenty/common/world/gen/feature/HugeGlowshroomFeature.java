@@ -109,11 +109,11 @@ public class HugeGlowshroomFeature extends Feature<NoFeatureConfig>
 
     public boolean checkSpace(IWorld world, BlockPos pos)
     {
-        for (int y = 0; y <= 16; y++)
+        for (int y = 0; y <= 6; y++)
         {
-            for (int x = -3; x <= 3; x++)
+            for (int x = -2; x <= 2; x++)
             {
-                for (int z = -3; z <= 3; z++)
+                for (int z = -2; z <= 2; z++)
                 {
                     BlockPos pos1 = pos.offset(x, y, z);
                     if (pos1.getY() >= 255 || !this.replace.matches(world, pos1))
