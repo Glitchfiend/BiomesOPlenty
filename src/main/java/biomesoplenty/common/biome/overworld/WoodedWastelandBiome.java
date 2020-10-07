@@ -19,9 +19,9 @@ import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
-public class WastelandBiome extends BiomeTemplate
+public class WoodedWastelandBiome extends BiomeTemplate
 {
-    public WastelandBiome()
+    public WoodedWastelandBiome()
     {
         this.addWeight(BOPClimates.HOT_DESERT, 1);
         this.setBeachBiome(null);
@@ -47,6 +47,7 @@ public class WastelandBiome extends BiomeTemplate
 
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(builder);
+        DefaultBiomeFeatures.addDefaultLakes(builder);
         DefaultBiomeFeatures.addDefaultMonsterRoom(builder);
         DefaultBiomeFeatures.addDefaultUndergroundVariety(builder);
         DefaultBiomeFeatures.addDefaultOres(builder);
@@ -54,6 +55,9 @@ public class WastelandBiome extends BiomeTemplate
         ////////////////////////////////////////////////////////////
 
         // Vegetation
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.WASTELAND_TREES);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.WASTELAND_FLOWERS);
+        
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.WASTELAND_GRASS_2);
 
         ////////////////////////////////////////////////////////////

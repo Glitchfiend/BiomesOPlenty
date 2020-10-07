@@ -74,10 +74,16 @@
                 "biome": "biomesoplenty:dead_forest"
             }
         },
-		"dense_bayou": {
+		"dead_swamp": {
             "trigger": "minecraft:location",
             "conditions": {
-                "biome": "biomesoplenty:dense_bayou"
+                "biome": "biomesoplenty:dead_swamp"
+            }
+        },
+		"deep_bayou": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:deep_bayou"
             }
         },
 		"dryland": {
@@ -128,6 +134,12 @@
                 "biome": "biomesoplenty:grove"
             }
         },
+		"grove_lakes": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:grove_lakes"
+            }
+        },
 		"highland": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -164,6 +176,12 @@
                 "biome": "biomesoplenty:lavender_field"
             }
         },
+		"lavender_forest": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:lavender_forest"
+            }
+        },
 		"lush_desert": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -186,12 +204,6 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:meadow_forest"
-            }
-        },
-		"muskeg": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:muskeg"
             }
         },
 		"mystic_grove": {
@@ -290,16 +302,16 @@
                 "biome": "biomesoplenty:seasonal_forest"
             }
         },
+		"seasonal_orchard": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:seasonal_orchard"
+            }
+        },
         "seasonal_pumpkin_patch": {
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:seasonal_pumpkin_patch"
-            }
-        },
-		"shroomy_wetland": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:shroomy_wetland"
             }
         },
 		"shrubland": {
@@ -421,6 +433,12 @@
             "conditions": {
                 "biome": "biomesoplenty:withered_abyss"
             }
+        },
+		"wooded_wasteland": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:wooded_wasteland"
+            }
         }
 	},
 	"requirements": [
@@ -435,7 +453,8 @@
 			"coniferous_lakes",
 			"crystalline_chasm",
 			"dead_forest",
-			"dense_bayou",
+			"dead_swamp",
+			"deep_bayou",
 			"dryland",
 			"dry_steppe",
 			"fir_clearing",
@@ -444,17 +463,18 @@
 			"golden_prairie",
 			"gravel_beach",
 			"grove",
+			"grove_lakes",
 			"highland",
 			"highland_crag",
 			"highland_moor",
 			"jade_cliffs",
 			"jade_grassland",
 			"lavender_field",
+			"lavender_forest",
 			"lush_desert",
 			"lush_savanna",
 			"meadow",
 			"meadow_forest",
-			"muskeg",
 			"mystic_grove",
 			"mystic_plains",
 			"ominous_woods",
@@ -471,8 +491,8 @@
 			"redwood_forest_edge",
 			"redwood_hills",
 			"seasonal_forest",
+			"seasonal_orchard",
 			"seasonal_pumpkin_patch",
-			"shroomy_wetland",
 			"shrubland",
 			"shrubland_hills",
 			"silkglade",
@@ -492,7 +512,8 @@
 			"wasteland",
 			"wetland",
 			"wetland_marsh",
-			"withered_abyss"
+			"withered_abyss",
+			"wooded_wasteland"
         ]
     ]
 }

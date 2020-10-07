@@ -133,7 +133,8 @@ public class ModBiomes
         registerBiome(new ConiferousForestBiome(), "coniferous_forest");
         registerBiome(new ConiferousLakesBiome(), "coniferous_lakes");
         registerBiome(new DeadForestBiome(), "dead_forest");
-        registerBiome(new DenseBayouBiome(), "dense_bayou");
+        registerBiome(new DeadSwampBiome(), "dead_swamp");
+        registerBiome(new DeepBayouBiome(), "deep_bayou");
         registerBiome(new DrylandBiome(), "dryland");
         registerBiome(new DrySteppeBiome(), "dry_steppe");
         registerBiome(new FirClearingBiome(), "fir_clearing");
@@ -141,17 +142,18 @@ public class ModBiomes
         registerBiome(new FungalJungleBiome(), "fungal_jungle");
         registerBiome(new GoldenPrairieBiome(), "golden_prairie");
         registerBiome(new GroveBiome(), "grove");
+        registerBiome(new GroveLakesBiome(), "grove_lakes");
         registerBiome(new HighlandBiome(), "highland");
         registerBiome(new HighlandCragBiome(), "highland_crag");
         registerBiome(new HighlandMoorBiome(), "highland_moor");
         registerBiome(new JadeCliffsBiome(), "jade_cliffs");
         registerBiome(new JadeGrasslandBiome(), "jade_grassland");
         registerBiome(new LavenderFieldBiome(), "lavender_field");
+        registerBiome(new LavenderForestBiome(), "lavender_forest");
         registerBiome(new LushDesertBiome(), "lush_desert");
         registerBiome(new LushSavannaBiome(), "lush_savanna");
         registerBiome(new MeadowBiome(), "meadow");
         registerBiome(new MeadowForestBiome(), "meadow_forest");
-        registerBiome(new MuskegBiome(), "muskeg");
         registerBiome(new MysticGroveBiome(), "mystic_grove");
         registerBiome(new MysticPlainsBiome(), "mystic_plains");
         registerBiome(new OminousWoodsBiome(), "ominous_woods");
@@ -166,8 +168,8 @@ public class ModBiomes
         registerBiome(new RedwoodForestBiome(), "redwood_forest");
         registerBiome(new RedwoodHillsBiome(), "redwood_hills");
         registerBiome(new SeasonalForestBiome(), "seasonal_forest");
+        registerBiome(new SeasonalOrchardBiome(), "seasonal_orchard");
         registerBiome(new SeasonalPumpkinPatchBiome(), "seasonal_pumpkin_patch");
-        registerBiome(new ShroomyWetlandBiome(), "shroomy_wetland");
         registerBiome(new ShrublandBiome(), "shrubland");
         registerBiome(new ShrublandHillsBiome(), "shrubland_hills");
         registerBiome(new SilkgladeBiome(), "silkglade");
@@ -183,6 +185,7 @@ public class ModBiomes
         registerBiome(new WastelandBiome(), "wasteland");
         registerBiome(new WetlandBiome(), "wetland");
         registerBiome(new WetlandMarshBiome(), "wetland_marsh");
+        registerBiome(new WoodedWastelandBiome(), "wooded_wasteland");
 
         //Nether Biomes
         registerBiome(new CrystallineChasmBiome(), "crystalline_chasm");
@@ -194,7 +197,7 @@ public class ModBiomes
         BiomeRegistry.finalizeRegistrations(BiomeRegistry.RegistrationType.STANDARD_BIOME);
 
         //Sub/Island Biomes (Note: Rarity supports two decimal places)
-        registerSubBiome(bayou, dense_bayou, 1.0F, 100);
+        registerSubBiome(bayou, deep_bayou, 1.0F, 100);
         registerSubBiome(bayou, bayou_mangrove, 1.0F, 100);
 
         registerSubBiome(cherry_blossom_grove, bamboo_grove, 0.8F, 100);
@@ -202,14 +205,20 @@ public class ModBiomes
         registerSubBiome(coniferous_forest, fir_clearing, 0.75F, 100);
         registerSubBiome(coniferous_forest, coniferous_lakes, 1.0F, 100);
 
+        registerSubBiome(dead_forest, dead_swamp, 0.75F, 100);
+
         registerSubBiome(dryland, dry_steppe, 1.0F, 100);
 
         registerSubBiome(fungal_jungle, overgrown_fungal_jungle, 0.8F, 100);
+
+        registerSubBiome(grove, grove_lakes, 0.75F, 100);
 
         registerSubBiome(highland, highland_crag, 1.25F, 100);
         registerSubBiome(highland, highland_moor, 0.75F, 100);
 
         registerSubBiome(jade_cliffs, jade_grassland, 0.85F, 100);
+
+        registerSubBiome(lavender_field, lavender_forest, 0.6F, 100);
 
         registerSubBiome(lush_desert, lush_savanna, 0.65F, 100);
 
@@ -227,7 +236,8 @@ public class ModBiomes
 
         registerSubBiome(redwood_forest, redwood_hills, 0.75F, 100);
 
-        registerSubBiome(seasonal_forest, seasonal_pumpkin_patch, 0.45F, 100);
+        registerSubBiome(seasonal_forest, seasonal_orchard, 0.75F, 100);
+        registerSubBiome(seasonal_forest, seasonal_pumpkin_patch, 0.75F, 100);
 
         registerSubBiome(shrubland, shrubland_hills, 0.75F, 100);
 
@@ -239,8 +249,9 @@ public class ModBiomes
         registerSubBiome(tundra, tundra_basin, 1.5F, 100);
         registerSubBiome(tundra, tundra_bog, 2.0F, 100);
 
-        registerSubBiome(wetland, wetland_marsh, 1.25F, 100);
-        registerSubBiome(wetland, shroomy_wetland, 1.0F, 100);
+        registerSubBiome(wasteland, wooded_wasteland, 0.85F, 100);
+
+        registerSubBiome(wetland, wetland_marsh, 1.0F, 100);
 
         BiomeRegistry.configureSubBiomes();
         BiomeRegistry.finalizeRegistrations(BiomeRegistry.RegistrationType.SUB_BIOME);
@@ -306,7 +317,8 @@ public class ModBiomes
         registerVillagerType(coniferous_forest, VillagerType.TAIGA);
         registerVillagerType(coniferous_lakes, VillagerType.TAIGA);
         registerVillagerType(dead_forest, VillagerType.TAIGA);
-        registerVillagerType(dense_bayou, VillagerType.SWAMP);
+        registerVillagerType(dead_swamp, VillagerType.TAIGA);
+        registerVillagerType(deep_bayou, VillagerType.SWAMP);
         registerVillagerType(dryland, VillagerType.SAVANNA);
         registerVillagerType(dry_steppe, VillagerType.SAVANNA);
         registerVillagerType(fir_clearing, VillagerType.TAIGA);
@@ -315,16 +327,17 @@ public class ModBiomes
         registerVillagerType(golden_prairie, VillagerType.PLAINS);
         registerVillagerType(gravel_beach, VillagerType.PLAINS);
         registerVillagerType(grove, VillagerType.PLAINS);
+        registerVillagerType(grove_lakes, VillagerType.PLAINS);
         registerVillagerType(highland, VillagerType.PLAINS);
         registerVillagerType(highland_crag, VillagerType.PLAINS);
         registerVillagerType(highland_moor, VillagerType.PLAINS);
         registerVillagerType(jade_cliffs, VillagerType.PLAINS);
         registerVillagerType(lavender_field, VillagerType.PLAINS);
+        registerVillagerType(lavender_forest, VillagerType.PLAINS);
         registerVillagerType(lush_desert, VillagerType.SAVANNA);
         registerVillagerType(lush_savanna, VillagerType.SAVANNA);
         registerVillagerType(meadow, VillagerType.TAIGA);
         registerVillagerType(meadow_forest, VillagerType.TAIGA);
-        registerVillagerType(muskeg, VillagerType.SNOW);
         registerVillagerType(mystic_grove, VillagerType.PLAINS);
         registerVillagerType(mystic_plains, VillagerType.PLAINS);
         registerVillagerType(ominous_woods, VillagerType.SWAMP);
@@ -341,8 +354,8 @@ public class ModBiomes
         registerVillagerType(redwood_forest_edge, VillagerType.PLAINS);
         registerVillagerType(redwood_hills, VillagerType.PLAINS);
         registerVillagerType(seasonal_forest, VillagerType.PLAINS);
+        registerVillagerType(seasonal_orchard, VillagerType.PLAINS);
         registerVillagerType(seasonal_pumpkin_patch, VillagerType.PLAINS);
-        registerVillagerType(shroomy_wetland, VillagerType.SWAMP);
         registerVillagerType(shrubland, VillagerType.PLAINS);
         registerVillagerType(shrubland_hills, VillagerType.PLAINS);
         registerVillagerType(silkglade, VillagerType.SWAMP);
@@ -360,6 +373,7 @@ public class ModBiomes
         registerVillagerType(wasteland, VillagerType.DESERT);
         registerVillagerType(wetland, VillagerType.SWAMP);
         registerVillagerType(wetland_marsh, VillagerType.SWAMP);
+        registerVillagerType(wooded_wasteland, VillagerType.DESERT);
     }
 
     private static void registerVillagerType(RegistryKey<Biome> key, VillagerType type)

@@ -24,7 +24,8 @@ public class BOPBiomes
     public static RegistryKey<Biome> coniferous_forest = register("coniferous_forest");
     public static RegistryKey<Biome> coniferous_lakes = register("coniferous_lakes");
     public static RegistryKey<Biome> dead_forest = register("dead_forest");
-    public static RegistryKey<Biome> dense_bayou = register("dense_bayou");
+    public static RegistryKey<Biome> dead_swamp = register("dead_swamp");
+    public static RegistryKey<Biome> deep_bayou = register("deep_bayou");
     public static RegistryKey<Biome> dryland = register("dryland");
     public static RegistryKey<Biome> dry_steppe = register("dry_steppe");
     public static RegistryKey<Biome> fir_clearing = register("fir_clearing");
@@ -33,17 +34,18 @@ public class BOPBiomes
     public static RegistryKey<Biome> golden_prairie = register("golden_prairie");
     public static RegistryKey<Biome> gravel_beach = register("gravel_beach");
     public static RegistryKey<Biome> grove = register("grove");
+    public static RegistryKey<Biome> grove_lakes = register("grove_lakes");
     public static RegistryKey<Biome> highland = register("highland");
     public static RegistryKey<Biome> highland_crag = register("highland_crag");
     public static RegistryKey<Biome> highland_moor = register("highland_moor");
     public static RegistryKey<Biome> jade_cliffs = register("jade_cliffs");
     public static RegistryKey<Biome> jade_grassland = register("jade_grassland");
     public static RegistryKey<Biome> lavender_field = register("lavender_field");
+    public static RegistryKey<Biome> lavender_forest = register("lavender_forest");
     public static RegistryKey<Biome> lush_desert = register("lush_desert");
     public static RegistryKey<Biome> lush_savanna = register("lush_savanna");
     public static RegistryKey<Biome> meadow = register("meadow");
     public static RegistryKey<Biome> meadow_forest = register("meadow_forest");
-    public static RegistryKey<Biome> muskeg = register("muskeg");
     public static RegistryKey<Biome> mystic_grove = register("mystic_grove");
     public static RegistryKey<Biome> mystic_plains = register("mystic_plains");
     public static RegistryKey<Biome> ominous_woods = register("ominous_woods");
@@ -60,8 +62,8 @@ public class BOPBiomes
     public static RegistryKey<Biome> redwood_forest_edge = register("redwood_forest_edge");
     public static RegistryKey<Biome> redwood_hills = register("redwood_hills");
     public static RegistryKey<Biome> seasonal_forest = register("seasonal_forest");
+    public static RegistryKey<Biome> seasonal_orchard = register("seasonal_orchard");
     public static RegistryKey<Biome> seasonal_pumpkin_patch = register("seasonal_pumpkin_patch");
-    public static RegistryKey<Biome> shroomy_wetland = register("shroomy_wetland");
     public static RegistryKey<Biome> shrubland = register("shrubland");
     public static RegistryKey<Biome> shrubland_hills = register("shrubland_hills");
     public static RegistryKey<Biome> silkglade = register("silkglade");
@@ -79,6 +81,7 @@ public class BOPBiomes
     public static RegistryKey<Biome> wasteland = register("wasteland");
     public static RegistryKey<Biome> wetland = register("wetland");
     public static RegistryKey<Biome> wetland_marsh = register("wetland_marsh");
+    public static RegistryKey<Biome> wooded_wasteland = register("wooded_wasteland");
 
     public static RegistryKey<Biome> crystalline_chasm = register("crystalline_chasm");
     public static RegistryKey<Biome> undergrowth = register("undergrowth");
