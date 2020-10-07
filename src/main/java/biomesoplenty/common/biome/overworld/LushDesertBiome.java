@@ -25,7 +25,7 @@ public class LushDesertBiome extends BiomeTemplate
 {
     public LushDesertBiome()
     {
-        this.addWeight(BOPClimates.HOT_DESERT, 1);
+        this.addWeight(BOPClimates.SAVANNA, 1);
         this.setBeachBiome(null);
     }
 
@@ -71,7 +71,7 @@ public class LushDesertBiome extends BiomeTemplate
         // Other Features
         DefaultBiomeFeatures.addDefaultSprings(builder);
 
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.OVERGROWN_CLIFFS_SPRING);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.WATER_SPRING_EXTRA);
 
         DefaultBiomeFeatures.addSurfaceFreezing(builder);
     }

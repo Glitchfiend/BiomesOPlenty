@@ -24,7 +24,7 @@ public class MuskegBiome extends BiomeTemplate
 {
     public MuskegBiome()
     {
-        this.addWeight(BOPClimates.TUNDRA, 2);
+        this.addWeight(BOPClimates.TUNDRA, 3);
         this.setBeachBiome(null);
     }
 

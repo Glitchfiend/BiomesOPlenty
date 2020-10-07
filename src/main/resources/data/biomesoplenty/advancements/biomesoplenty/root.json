@@ -32,22 +32,10 @@
                 "biome": "biomesoplenty:bayou"
             }
         },
-		"bog": {
+        "bayou_mangrove": {
             "trigger": "minecraft:location",
             "conditions": {
-                "biome": "biomesoplenty:bog"
-            }
-        },
-		"boreal_forest": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:boreal_forest"
-            }
-        },
-		"chaparral": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:chaparral"
+                "biome": "biomesoplenty:bayou_mangrove"
             }
         },
 		"cherry_blossom_grove": {
@@ -56,16 +44,16 @@
                 "biome": "biomesoplenty:cherry_blossom_grove"
             }
         },
-		"cold_desert": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:cold_desert"
-            }
-        },
 		"coniferous_forest": {
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:coniferous_forest"
+            }
+        },
+		"coniferous_lakes": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:coniferous_lakes"
             }
         },
 		"crystalline_chasm": {
@@ -80,22 +68,28 @@
                 "biome": "biomesoplenty:dead_forest"
             }
         },
+		"dense_bayou": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:dense_bayou"
+            }
+        },
 		"dryland": {
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:dryland"
             }
         },
+		"dry_steppe": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:dry_steppe"
+            }
+        },
 		"fir_clearing": {
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:fir_clearing"
-            }
-        },
-		"floodplain": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:floodplain"
             }
         },
         "flower_meadow": {
@@ -108,12 +102,6 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:fungal_jungle"
-            }
-        },
-		"grassland": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:grassland"
             }
         },
         "gravel_beach": {
@@ -158,46 +146,16 @@
                 "biome": "biomesoplenty:lush_desert"
             }
         },
-        "lush_grassland": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:lush_grassland"
-            }
-        },
-		"lush_swamp": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:lush_swamp"
-            }
-        },
-        "mangrove": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:mangrove"
-            }
-        },
 		"maple_woods": {
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:maple_woods"
             }
         },
-		"marsh": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:marsh"
-            }
-        },
 		"meadow": {
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:meadow"
-            }
-        },
-        "mire": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:mire"
             }
         },
 		"muskeg": {
@@ -210,6 +168,12 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:mystic_grove"
+            }
+        },
+		"mystic_plains": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:mystic_plains"
             }
         },
 		"ominous_woods": {
@@ -228,12 +192,6 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:origin_valley"
-            }
-        },
-		"outback": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:outback"
             }
         },
 		"overgrown_cliffs": {
@@ -278,6 +236,18 @@
                 "biome": "biomesoplenty:rainforest"
             }
         },
+		"rainforest_clearing": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:rainforest_clearing"
+            }
+        },
+		"rainforest_cliffs": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:rainforest_cliffs"
+            }
+        },
 		"redwood_forest": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -290,28 +260,28 @@
                 "biome": "biomesoplenty:redwood_forest_edge"
             }
         },
-		"scrubland": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:scrubland"
-            }
-        },
 		"seasonal_forest": {
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:seasonal_forest"
             }
         },
-		"shield": {
+		"shroomy_wetland": {
             "trigger": "minecraft:location",
             "conditions": {
-                "biome": "biomesoplenty:shield"
+                "biome": "biomesoplenty:shroomy_wetland"
             }
         },
 		"shrubland": {
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:shrubland"
+            }
+        },
+		"shrubland_hills": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:shrubland_hills"
             }
         },
         "silkglade": {
@@ -332,36 +302,6 @@
                 "biome": "biomesoplenty:snowy_fir_clearing"
             }
         },
-		"snowy_forest": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:snowy_forest"
-            }
-        },
-		"steppe": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:steppe"
-            }
-        },
-		"temperate_rainforest": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:temperate_rainforest"
-            }
-        },
-		"temperate_rainforest_hills": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:temperate_rainforest_hills"
-            }
-        },
-		"tropical_rainforest": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:tropical_rainforest"
-            }
-        },
         "tropic_beach": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -378,6 +318,18 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:tundra"
+            }
+        },
+		"tundra_basin": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:tundra_basin"
+            }
+        },
+		"tundra_bog": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:tundra_bog"
             }
         },
 		"undergrowth": {
@@ -416,16 +368,16 @@
                 "biome": "biomesoplenty:wetland"
             }
         },
+		"wetland_marsh": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:wetland_marsh"
+            }
+        },
 		"withered_abyss": {
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:withered_abyss"
-            }
-        },
-		"woodland": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:woodland"
             }
         }
 	},
@@ -434,20 +386,18 @@
 			"alps",
 			"alps_foothills",
 			"bayou",
-			"bog",
-			"boreal_forest",
-			"chaparral",
+			"bayou_mangrove",
 			"cherry_blossom_grove",
-			"cold_desert",
 			"coniferous_forest",
+			"coniferous_lakes",
 			"crystalline_chasm",
 			"dead_forest",
+			"dense_bayou",
 			"dryland",
+			"dry_steppe",
 			"fir_clearing",
-			"floodplain",
 			"flower_meadow",
 			"fungal_jungle",
-			"grassland",
 			"gravel_beach",
 			"grove",
 			"highland",
@@ -455,51 +405,44 @@
 			"jade_cliffs",
 			"lavender_field",
 			"lush_desert",
-			"lush_grassland",
-			"lush_swamp",
-			"mangrove",
 			"maple_woods",
-			"marsh",
 			"meadow",
-			"mire",
 			"muskeg",
 			"mystic_grove",
+			"mystic_plains",
 			"ominous_woods",
 			"orchard",
 			"origin_valley",
-			"outback",
-			"overgrown_cliffs",
 			"pasture",
 			"poppy_field",
 			"prairie",
 			"pumpkin_patch",
 			"rainbow_hills",
 			"rainforest",
+			"rainforest_clearing",
+			"rainforest_cliffs",
 			"redwood_forest",
 			"redwood_forest_edge",
-			"scrubland",
 			"seasonal_forest",
-			"shield",
+			"shroomy_wetland",
 			"shrubland",
+			"shrubland_hills",
 			"silkglade",
 			"snowy_coniferous_forest",
 			"snowy_fir_clearing",
-			"snowy_forest",
-			"steppe",
-			"temperate_rainforest",
-			"temperate_rainforest_hills",
-			"tropical_rainforest",
 			"tropic_beach",
 			"tropics",
 			"tundra",
+			"tundra_basin",
+			"tundra_bog",
 			"undergrowth",
 			"visceral_heap",
 			"volcanic_plains",
 			"volcano",
 			"wasteland",
 			"wetland",
-			"withered_abyss",
-			"woodland"
+			"wetland_marsh",
+			"withered_abyss"
         ]
     ]
 }

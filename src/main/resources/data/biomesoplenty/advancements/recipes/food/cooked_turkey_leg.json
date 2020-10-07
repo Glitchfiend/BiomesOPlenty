@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "biomesoplenty:cooked_turkey_leg"
+    ]
+  },
+  "criteria": {
+    "has_turkey_leg": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "biomesoplenty:turkey_leg"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "biomesoplenty:cooked_turkey_leg"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_turkey_leg",
+      "has_the_recipe"
+    ]
+  ]
+}

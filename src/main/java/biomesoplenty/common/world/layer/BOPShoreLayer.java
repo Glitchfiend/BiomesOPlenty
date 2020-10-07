@@ -61,16 +61,11 @@ public enum BOPShoreLayer implements ICastleTransformer
                 return MUSHROOM_FIELD_SHORE;
             }
         }
-        else if (biome != null && biome.getBiomeCategory() == Biome.Category.JUNGLE)
+        else if (biome != null && biome.getBiomeCategory() == Biome.Category.JUNGLE && biomeId != getBiomeIdIfPresent(BOPBiomes.rainforest, biomeId) && biomeId != getBiomeIdIfPresent(BOPBiomes.rainforest_clearing, biomeId) && biomeId != getBiomeIdIfPresent(BOPBiomes.rainforest_cliffs, biomeId))
         {
             if (!isJungleCompatible(northBiomeId) || !isJungleCompatible(eastBiomeId) || !isJungleCompatible(southBiomeId) || !isJungleCompatible(westBiomeId))
             {
                 return JUNGLE_EDGE;
-            }
-
-            if (BOPLayerUtil.isOcean(northBiomeId) || BOPLayerUtil.isOcean(eastBiomeId) || BOPLayerUtil.isOcean(southBiomeId) || BOPLayerUtil.isOcean(westBiomeId))
-            {
-                return getBiomeIdIfPresent(BOPBiomes.mangrove, biomeId);
             }
         }
         else if (biomeId != MOUNTAINS && biomeId != WOODED_MOUNTAINS && biomeId != MOUNTAIN_EDGE)
@@ -103,10 +98,6 @@ public enum BOPShoreLayer implements ICastleTransformer
                     }
                     else
                     {
-                        if (key == Biomes.JUNGLE || key == Biomes.JUNGLE_HILLS || key == Biomes.JUNGLE_EDGE || key == Biomes.MODIFIED_JUNGLE || key == Biomes.BAMBOO_JUNGLE || key == Biomes.BAMBOO_JUNGLE_HILLS || key == Biomes.MODIFIED_JUNGLE_EDGE)
-                        {
-                            return getBiomeIdIfPresent(BOPBiomes.mangrove, biomeId);
-                        }
                         if (key == Biomes.TAIGA || key == Biomes.TAIGA_MOUNTAINS || key == Biomes.TAIGA_HILLS || key == Biomes.GIANT_TREE_TAIGA || key == Biomes.GIANT_SPRUCE_TAIGA || key == Biomes.GIANT_TREE_TAIGA_HILLS || key == Biomes.GIANT_SPRUCE_TAIGA_HILLS || key == Biomes.BIRCH_FOREST_HILLS || key == Biomes.BIRCH_FOREST || key == Biomes.TALL_BIRCH_HILLS || key == Biomes.TALL_BIRCH_FOREST || key == Biomes.DARK_FOREST_HILLS || key == Biomes.DARK_FOREST)
                         {
                             return getBiomeIdIfPresent(BOPBiomes.gravel_beach, biomeId);

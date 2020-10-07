@@ -24,7 +24,6 @@ public class MapleWoodsBiome extends BiomeTemplate
 {
     public MapleWoodsBiome()
     {
-        this.addWeight(BOPClimates.DRY_BOREAL, 3);
         this.setBeachBiome(BOPBiomes.gravel_beach);
     }
 

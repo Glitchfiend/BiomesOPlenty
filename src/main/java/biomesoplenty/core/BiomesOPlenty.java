@@ -51,6 +51,7 @@ public class BiomesOPlenty
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
+        ModEntities.setup();
         ModVanillaCompat.setup();
     }
 

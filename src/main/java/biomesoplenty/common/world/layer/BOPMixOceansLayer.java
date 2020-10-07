@@ -60,14 +60,6 @@ public enum BOPMixOceansLayer implements IAreaTransformer3, IDimOffset0Transform
                     oceanId = BOPLayerUtil.WARM_OCEAN;
                     break;
 
-                case WASTELAND:
-                    if (BiomeUtil.exists(BOPBiomes.wasteland))
-                    {
-                        oceanId = BiomeUtil.getBiomeId(BOPBiomes.wasteland);
-                        break;
-                    }
-                    // Fallthrough
-
                 default:
                     oceanId = BOPLayerUtil.OCEAN;
                     break;

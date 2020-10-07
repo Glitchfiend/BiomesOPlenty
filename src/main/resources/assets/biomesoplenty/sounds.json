@@ -6,5 +6,30 @@
         "stream": true
       }
     ]
+  },
+  "entity.biomesoplenty.turkey.ambient": {
+    "sounds": [
+      "biomesoplenty:entity/turkey/ambient"
+    ]
+  },
+  "entity.biomesoplenty.turkey.hurt": {
+    "sounds": [
+      "biomesoplenty:entity/turkey/hurt"
+    ]
+  },
+  "entity.biomesoplenty.turkey.dead": {
+    "sounds": [
+      "biomesoplenty:entity/turkey/dead"
+    ]
+  },
+  "entity.biomesoplenty.deer.hurt": {
+    "sounds": [
+      "biomesoplenty:entity/deer/hurt"
+    ]
+  },
+  "entity.biomesoplenty.deer.dead": {
+    "sounds": [
+      "biomesoplenty:entity/deer/dead"
+    ]
   }
 }

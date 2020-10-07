@@ -120,6 +120,7 @@ public class BOPFeatures
 	public static final Feature<NoFeatureConfig> BIG_PUMPKIN = register("big_pumpkin", new BigPumpkinFeature(NoFeatureConfig.CODEC));
 	public static final Feature<NoFeatureConfig> BONE_SPINE = register("bone_spine", new BoneSpineFeature(NoFeatureConfig.CODEC));
 	public static final Feature<NoFeatureConfig> BRAMBLE = register("bramble", new BrambleFeature(NoFeatureConfig.CODEC));
+	public static final Feature<NoFeatureConfig> DENSE_BAYOU_VINES = register("dense_bayou_vines", new DenseBayouVinesFeature(NoFeatureConfig.CODEC));
 	public static final Feature<NoFeatureConfig> FERN_GRASS = register("fern_grass", new FernGrassFeature(NoFeatureConfig.CODEC));
 	public static final Feature<NoFeatureConfig> FLESH_TENDON = register("flesh_tendon", new FleshTendonFeature(NoFeatureConfig.CODEC));
 	public static final Feature<NoFeatureConfig> GRASS_SPLATTER = register("grass_splatter", new GrassSplatterFeature(NoFeatureConfig.CODEC));
@@ -130,7 +131,7 @@ public class BOPFeatures
 	public static final Feature<NoFeatureConfig> MYCELIUM_SPLATTER = register("mycelium_splatter", new MyceliumSplatterFeature(NoFeatureConfig.CODEC));
 	public static final Feature<NoFeatureConfig> NETHER_VINES = register("nether_vines", new NetherVinesFeature(NoFeatureConfig.CODEC));
 	public static final Feature<NoFeatureConfig> OBSIDIAN_SPLATTER = register("obsidian_splatter", new ObsidianSplatterFeature(NoFeatureConfig.CODEC));
-	public static final Feature<NoFeatureConfig> OVERGROWN_CLIFFS_VINES = register("overgrown_cliffs_vines", new OvergrownCliffsVinesFeature(NoFeatureConfig.CODEC));
+	public static final Feature<NoFeatureConfig> RAINFOREST_CLIFFS_VINES = register("rainforest_cliffs_vines", new RainforestCliffsVinesFeature(NoFeatureConfig.CODEC));
 	public static final Feature<NoFeatureConfig> PODZOL_SPLATTER = register("podzol_splatter", new PodzolSplatterFeature(NoFeatureConfig.CODEC));
 	public static final Feature<NoFeatureConfig> PUMPKIN_PATCH = register("pumpkin_patch", new PumpkinPatchFeature(NoFeatureConfig.CODEC));
 	public static final Feature<NoFeatureConfig> SCATTERED_ROCKS = register("scattered_rocks", new ScatteredRocksFeature(NoFeatureConfig.CODEC));
@@ -146,15 +147,11 @@ public class BOPFeatures
 	public static final Feature<ColumnConfig> BLACK_SANDSTONE_COLUMN = register("black_sandstone_column", new BlackSandstoneColumnFeature(ColumnConfig.CODEC));
 
 	//Flowers
-	public static final FlowersFeature<NoFeatureConfig> CHAPARRAL_FLOWERS = register("chaparral_flowers", new ChaparralFlowersFeature());
 	public static final FlowersFeature<NoFeatureConfig> CHERRY_BLOSSOM_GROVE_FLOWERS = register("cherry_blossom_grove_flowers", new CherryBlossomGroveFlowersFeature());
 	public static final FlowersFeature<NoFeatureConfig> CONIFEROUS_FOREST_FLOWERS = register("coniferous_forest_flowers", new ConiferousForestFlowersFeature());
 	public static final FlowersFeature<NoFeatureConfig> EXTENDED_FLOWERS = register("extended_flowers", new ExtendedFlowersFeature());
 	public static final FlowersFeature<NoFeatureConfig> FLOWER_MEADOW_FLOWERS = register("flower_meadow_flowers", new FlowerMeadowFlowersFeature());
-	public static final FlowersFeature<NoFeatureConfig> JUNGLE_FLOWERS = register("jungle_flowers", new JungleFlowersFeature());
 	public static final FlowersFeature<NoFeatureConfig> LAVENDER_FLOWERS = register("lavender_flowers", new LavenderFlowersFeature());
-	public static final FlowersFeature<NoFeatureConfig> LUSH_GRASSLAND_FLOWERS = register("lush_grassland_flowers", new LushGrasslandFlowersFeature());
-	public static final FlowersFeature<NoFeatureConfig> LUSH_SWAMP_FLOWERS = register("lush_swamp_flowers", new LushSwampFlowersFeature());
 	public static final FlowersFeature<NoFeatureConfig> MEADOW_FLOWERS = register("meadow_flowers", new MeadowFlowersFeature());
 	public static final FlowersFeature<NoFeatureConfig> MOOR_FLOWERS = register("moor_flowers", new MoorFlowersFeature());
 	public static final FlowersFeature<NoFeatureConfig> MYSTIC_GROVE_FLOWERS = register("mystic_grove_flowers", new MysticGroveFlowersFeature());

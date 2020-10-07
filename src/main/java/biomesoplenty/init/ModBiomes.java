@@ -123,67 +123,58 @@ public class ModBiomes
         BiomeRegistry.finalizeRegistrations(BiomeRegistry.RegistrationType.TECHNICAL_BIOME);
 
         // Both a standard biome and a technical biome
-        registerBiome(new MangroveBiome(), "mangrove");
+        registerBiome(new BayouMangrove(), "bayou_mangrove");
 
         //Overworld Biomes
     	registerBiome(new AlpsBiome(), "alps");
     	registerBiome(new BayouBiome(), "bayou");
-        registerBiome(new BogBiome(), "bog");
-        registerBiome(new BorealForestBiome(), "boreal_forest");
-        registerBiome(new ChaparralBiome(), "chaparral");
     	registerBiome(new CherryBlossomGroveBiome(), "cherry_blossom_grove");
-    	registerBiome(new ColdDesertBiome(), "cold_desert");
         registerBiome(new ConiferousForestBiome(), "coniferous_forest");
+        registerBiome(new ConiferousLakesBiome(), "coniferous_lakes");
         registerBiome(new DeadForestBiome(), "dead_forest");
+        registerBiome(new DenseBayouBiome(), "dense_bayou");
         registerBiome(new DrylandBiome(), "dryland");
+        registerBiome(new DrySteppeBiome(), "dry_steppe");
         registerBiome(new FirClearingBiome(), "fir_clearing");
-        registerBiome(new FloodplainBiome(), "floodplain");
         registerBiome(new FlowerMeadowBiome(), "flower_meadow");
         registerBiome(new FungalJungleBiome(), "fungal_jungle");
-        registerBiome(new GrasslandBiome(), "grassland");
         registerBiome(new GroveBiome(), "grove");
         registerBiome(new HighlandBiome(), "highland");
         registerBiome(new HighlandMoorBiome(), "highland_moor");
         registerBiome(new JadeCliffsBiome(), "jade_cliffs");
         registerBiome(new LavenderFieldBiome(), "lavender_field");
         registerBiome(new LushDesertBiome(), "lush_desert");
-        registerBiome(new LushGrasslandBiome(), "lush_grassland");
-        registerBiome(new LushSwampBiome(), "lush_swamp");
         registerBiome(new MapleWoodsBiome(), "maple_woods");
-        registerBiome(new MarshBiome(), "marsh");
         registerBiome(new MeadowBiome(), "meadow");
-        registerBiome(new MireBiome(), "mire");
         registerBiome(new MuskegBiome(), "muskeg");
         registerBiome(new MysticGroveBiome(), "mystic_grove");
+        registerBiome(new MysticPlainsBiome(), "mystic_plains");
         registerBiome(new OminousWoodsBiome(), "ominous_woods");
         registerBiome(new OriginValleyBiome(), "origin_valley");
-        registerBiome(new OutbackBiome(), "outback");
-        registerBiome(new OvergrownCliffsBiome(), "overgrown_cliffs");
         registerBiome(new PastureBiome(), "pasture");
         registerBiome(new PoppyFieldBiome(), "poppy_field");
         registerBiome(new PrairieBiome(), "prairie");
         registerBiome(new PumpkinPatchBiome(), "pumpkin_patch");
         registerBiome(new RainbowHillsBiome(), "rainbow_hills");
         registerBiome(new RainforestBiome(), "rainforest");
+        registerBiome(new RainforestClearingBiome(), "rainforest_clearing");
+        registerBiome(new RainforestCliffsBiome(), "rainforest_cliffs");
         registerBiome(new RedwoodForestBiome(), "redwood_forest");
-        registerBiome(new ScrublandBiome(), "scrubland");
         registerBiome(new SeasonalForestBiome(), "seasonal_forest");
-        registerBiome(new ShieldBiome(), "shield");
+        registerBiome(new ShroomyWetlandBiome(), "shroomy_wetland");
         registerBiome(new ShrublandBiome(), "shrubland");
+        registerBiome(new ShrublandHillsBiome(), "shrubland_hills");
         registerBiome(new SilkgladeBiome(), "silkglade");
         registerBiome(new SnowyConiferousForestBiome(), "snowy_coniferous_forest");
         registerBiome(new SnowyFirClearingBiome(), "snowy_fir_clearing");
-        registerBiome(new SnowyForestBiome(), "snowy_forest");
-        registerBiome(new SteppeBiome(), "steppe");
-        registerBiome(new TemperateRainforestBiome(), "temperate_rainforest");
-        registerBiome(new TemperateRainforestHillsBiome(), "temperate_rainforest_hills");
-        registerBiome(new TropicalRainforestBiome(), "tropical_rainforest");
         registerBiome(new TropicsBiome(), "tropics");
         registerBiome(new TundraBiome(), "tundra");
+        registerBiome(new TundraBasinBiome(), "tundra_basin");
+        registerBiome(new TundraBogBiome(), "tundra_bog");
         registerBiome(new VolcanoBiome(), "volcano");
         registerBiome(new WastelandBiome(), "wasteland");
         registerBiome(new WetlandBiome(), "wetland");
-        registerBiome(new WoodlandBiome(), "woodland");
+        registerBiome(new WetlandMarshBiome(), "wetland_marsh");
 
         //Nether Biomes
         registerBiome(new CrystallineChasmBiome(), "crystalline_chasm");
@@ -195,13 +186,32 @@ public class ModBiomes
         BiomeRegistry.finalizeRegistrations(BiomeRegistry.RegistrationType.STANDARD_BIOME);
 
         //Sub/Island Biomes (Note: Rarity supports two decimal places)
-        registerSubBiome(coniferous_forest, fir_clearing, 0.38F, 100);
+        registerSubBiome(bayou, dense_bayou, 1.0F, 100);
+        registerSubBiome(bayou, bayou_mangrove, 1.0F, 100);
+
+        registerSubBiome(coniferous_forest, fir_clearing, 0.75F, 100);
+        registerSubBiome(coniferous_forest, coniferous_lakes, 1.0F, 100);
+
         registerSubBiome(highland, highland_moor, 0.75F, 100);
         registerSubBiome(meadow, flower_meadow, 0.5F, 100);
         registerSubBiome(prairie, pasture, 1.0F, 100);
         registerSubBiome(seasonal_forest, pumpkin_patch, 0.45F, 100);
         registerSubBiome(snowy_coniferous_forest, snowy_fir_clearing, 0.5F, 100);
-        registerSubBiome(temperate_rainforest, temperate_rainforest_hills, 0.8F, 100);
+
+        registerSubBiome(dryland, dry_steppe, 1.0F, 100);
+
+        registerSubBiome(mystic_grove, mystic_plains, 0.75F, 100);
+
+        registerSubBiome(rainforest, rainforest_cliffs, 2.0F, 100);
+        registerSubBiome(rainforest, rainforest_clearing, 2.0F, 100);
+
+        registerSubBiome(shrubland, shrubland_hills, 0.75F, 100);
+
+        registerSubBiome(tundra, tundra_basin, 1.5F, 100);
+        registerSubBiome(tundra, tundra_bog, 2.0F, 100);
+
+        registerSubBiome(wetland, wetland_marsh, 1.25F, 100);
+        registerSubBiome(wetland, shroomy_wetland, 1.0F, 100);
 
         BiomeRegistry.configureSubBiomes();
         BiomeRegistry.finalizeRegistrations(BiomeRegistry.RegistrationType.SUB_BIOME);
@@ -227,16 +237,18 @@ public class ModBiomes
 
         // Set up vanilla biomes
         registerVanillaBiome(Biomes.SNOWY_TUNDRA, BOPClimates.ICE_CAP, 10);
-        registerVanillaBiome(Biomes.MOUNTAINS, BOPClimates.TUNDRA, 7);
-        registerVanillaBiome(Biomes.SNOWY_TAIGA, BOPClimates.TUNDRA, 10);
+        registerVanillaBiome(Biomes.FROZEN_OCEAN, BOPClimates.ICE_CAP, 3);
+        registerVanillaBiome(Biomes.MOUNTAINS, BOPClimates.TUNDRA, 10);
+        registerVanillaBiome(Biomes.SNOWY_TAIGA, BOPClimates.TUNDRA, 7);
         registerVanillaBiome(Biomes.TAIGA, BOPClimates.WET_BOREAL, 10);
         registerVanillaBiome(Biomes.GIANT_TREE_TAIGA, BOPClimates.DRY_BOREAL, 5);
         registerVanillaBiome(Biomes.DARK_FOREST, BOPClimates.WET_TEMPERATE, 5);
-        registerVanillaBiome(Biomes.SWAMP, BOPClimates.WET_TEMPERATE, 7);
-        registerVanillaBiome(Biomes.BIRCH_FOREST, BOPClimates.DRY_TEMPERATE, 7);
         registerVanillaBiome(Biomes.FOREST, BOPClimates.COOL_TEMPERATE, 10);
+        registerVanillaBiome(Biomes.BIRCH_FOREST, BOPClimates.COOL_TEMPERATE, 7);
         registerVanillaBiome(Biomes.PLAINS, BOPClimates.WARM_TEMPERATE, 10);
-        registerVanillaBiome(Biomes.JUNGLE, BOPClimates.TROPICAL, 15);
+        registerVanillaBiome(Biomes.SWAMP, BOPClimates.SUBTROPICAL, 7);
+        registerVanillaBiome(Biomes.LUKEWARM_OCEAN, BOPClimates.SUBTROPICAL, 3);
+        registerVanillaBiome(Biomes.JUNGLE, BOPClimates.TROPICAL, 10);
         registerVanillaBiome(Biomes.SAVANNA, BOPClimates.SAVANNA, 10);
         registerVanillaBiome(Biomes.DESERT, BOPClimates.HOT_DESERT, 15);
         registerVanillaBiome(Biomes.BADLANDS_PLATEAU, BOPClimates.HOT_DESERT, 10);
@@ -259,19 +271,17 @@ public class ModBiomes
         registerVillagerType(alps, VillagerType.SNOW);
         registerVillagerType(alps_foothills, VillagerType.SNOW);
         registerVillagerType(bayou, VillagerType.SWAMP);
-        registerVillagerType(bog, VillagerType.SWAMP);
-        registerVillagerType(boreal_forest, VillagerType.TAIGA);
-        registerVillagerType(chaparral, VillagerType.PLAINS);
+        registerVillagerType(bayou_mangrove, VillagerType.SWAMP);
         registerVillagerType(cherry_blossom_grove, VillagerType.PLAINS);
-        registerVillagerType(cold_desert, VillagerType.SNOW);
         registerVillagerType(coniferous_forest, VillagerType.TAIGA);
+        registerVillagerType(coniferous_lakes, VillagerType.TAIGA);
         registerVillagerType(dead_forest, VillagerType.TAIGA);
+        registerVillagerType(dense_bayou, VillagerType.SWAMP);
         registerVillagerType(dryland, VillagerType.SAVANNA);
+        registerVillagerType(dry_steppe, VillagerType.SAVANNA);
         registerVillagerType(fir_clearing, VillagerType.TAIGA);
-        registerVillagerType(floodplain, VillagerType.JUNGLE);
         registerVillagerType(flower_meadow, VillagerType.TAIGA);
         registerVillagerType(fungal_jungle, VillagerType.JUNGLE);
-        registerVillagerType(grassland, VillagerType.PLAINS);
         registerVillagerType(gravel_beach, VillagerType.PLAINS);
         registerVillagerType(grove, VillagerType.PLAINS);
         registerVillagerType(highland, VillagerType.PLAINS);
@@ -279,48 +289,41 @@ public class ModBiomes
         registerVillagerType(jade_cliffs, VillagerType.PLAINS);
         registerVillagerType(lavender_field, VillagerType.PLAINS);
         registerVillagerType(lush_desert, VillagerType.DESERT);
-        registerVillagerType(lush_grassland, VillagerType.JUNGLE);
-        registerVillagerType(lush_swamp, VillagerType.JUNGLE);
-        registerVillagerType(mangrove, VillagerType.SWAMP);
         registerVillagerType(maple_woods, VillagerType.TAIGA);
-        registerVillagerType(marsh, VillagerType.SWAMP);
         registerVillagerType(meadow, VillagerType.TAIGA);
-        registerVillagerType(mire, VillagerType.SWAMP);
         registerVillagerType(muskeg, VillagerType.SNOW);
         registerVillagerType(mystic_grove, VillagerType.PLAINS);
+        registerVillagerType(mystic_plains, VillagerType.PLAINS);
         registerVillagerType(ominous_woods, VillagerType.SWAMP);
         registerVillagerType(orchard, VillagerType.PLAINS);
         registerVillagerType(origin_valley, VillagerType.PLAINS);
-        registerVillagerType(outback, VillagerType.SAVANNA);
-        registerVillagerType(overgrown_cliffs, VillagerType.JUNGLE);
         registerVillagerType(pasture, VillagerType.PLAINS);
         registerVillagerType(poppy_field, VillagerType.PLAINS);
         registerVillagerType(prairie, VillagerType.PLAINS);
         registerVillagerType(pumpkin_patch, VillagerType.PLAINS);
         registerVillagerType(rainbow_hills, VillagerType.PLAINS);
         registerVillagerType(rainforest, VillagerType.JUNGLE);
+        registerVillagerType(rainforest_clearing, VillagerType.JUNGLE);
+        registerVillagerType(rainforest_cliffs, VillagerType.JUNGLE);
         registerVillagerType(redwood_forest, VillagerType.PLAINS);
         registerVillagerType(redwood_forest_edge, VillagerType.PLAINS);
-        registerVillagerType(scrubland, VillagerType.SAVANNA);
         registerVillagerType(seasonal_forest, VillagerType.PLAINS);
-        registerVillagerType(shield, VillagerType.TAIGA);
+        registerVillagerType(shroomy_wetland, VillagerType.SWAMP);
         registerVillagerType(shrubland, VillagerType.PLAINS);
+        registerVillagerType(shrubland_hills, VillagerType.PLAINS);
         registerVillagerType(silkglade, VillagerType.SWAMP);
         registerVillagerType(snowy_coniferous_forest, VillagerType.SNOW);
         registerVillagerType(snowy_fir_clearing, VillagerType.SNOW);
-        registerVillagerType(snowy_forest, VillagerType.SNOW);
-        registerVillagerType(steppe, VillagerType.PLAINS);
-        registerVillagerType(temperate_rainforest, VillagerType.PLAINS);
-        registerVillagerType(temperate_rainforest_hills, VillagerType.PLAINS);
-        registerVillagerType(tropical_rainforest, VillagerType.JUNGLE);
         registerVillagerType(tropic_beach, VillagerType.JUNGLE);
         registerVillagerType(tropics, VillagerType.JUNGLE);
         registerVillagerType(tundra, VillagerType.TAIGA);
+        registerVillagerType(tundra_basin, VillagerType.TAIGA);
+        registerVillagerType(tundra_bog, VillagerType.TAIGA);
         registerVillagerType(volcanic_plains, VillagerType.PLAINS);
         registerVillagerType(volcano, VillagerType.PLAINS);
         registerVillagerType(wasteland, VillagerType.DESERT);
         registerVillagerType(wetland, VillagerType.SWAMP);
-        registerVillagerType(woodland, VillagerType.PLAINS);
+        registerVillagerType(wetland_marsh, VillagerType.SWAMP);
     }
 
     private static void registerVillagerType(RegistryKey<Biome> key, VillagerType type)

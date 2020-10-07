@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "biomesoplenty:venison"
+  },
+  "result": "biomesoplenty:cooked_venison",
+  "experience": 0.35,
+  "cookingtime": 100
+}

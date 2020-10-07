@@ -23,7 +23,7 @@ public class WastelandBiome extends BiomeTemplate
 {
     public WastelandBiome()
     {
-        this.addWeight(BOPClimates.WASTELAND, 10);
+        this.addWeight(BOPClimates.HOT_DESERT, 1);
         this.setBeachBiome(null);
         this.setRiverBiome(null);
     }

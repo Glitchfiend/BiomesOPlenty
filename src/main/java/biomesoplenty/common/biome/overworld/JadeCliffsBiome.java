@@ -24,7 +24,7 @@ public class JadeCliffsBiome extends BiomeTemplate
 {
     public JadeCliffsBiome()
     {
-        this.addWeight(BOPClimates.WET_TEMPERATE, 1);
+        this.addWeight(BOPClimates.WARM_TEMPERATE, 1);
         this.setBeachBiome(null);
     }
 

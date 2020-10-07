@@ -24,7 +24,7 @@ public class DrylandBiome extends BiomeTemplate
 {
     public DrylandBiome()
     {
-        this.addWeight(BOPClimates.SAVANNA, 1);
+        this.addWeight(BOPClimates.SAVANNA, 5);
         this.setRiverBiome(null);
         this.setBeachBiome(null);
     }
@@ -43,8 +43,6 @@ public class DrylandBiome extends BiomeTemplate
         builder.surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.CONFIG_GRASS));
 
         // Structures
-        builder.addStructureStart(StructureFeatures.VILLAGE_DESERT);
-        builder.addStructureStart(StructureFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.addDefaultOverworldLandStructures(builder);
         builder.addStructureStart(StructureFeatures.RUINED_PORTAL_STANDARD);
         builder.addStructureStart(StructureFeatures.NETHER_FOSSIL);
@@ -65,7 +63,8 @@ public class DrylandBiome extends BiomeTemplate
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.DRYLAND_TREES);
 
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.BUSH_10);
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.DEAD_GRASS_5);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.DEAD_GRASS_2);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.DESERT_GRASS_10);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.STANDARD_GRASS_6);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.PATCH_DEAD_BUSH);
 

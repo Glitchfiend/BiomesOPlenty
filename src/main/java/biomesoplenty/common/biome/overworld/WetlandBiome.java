@@ -23,7 +23,7 @@ public class WetlandBiome extends BiomeTemplate
 {
     public WetlandBiome()
     {
-        this.addWeight(BOPClimates.WET_TEMPERATE, 7);
+        this.addWeight(BOPClimates.WET_TEMPERATE, 10);
         this.setBeachBiome(null);
     }
 

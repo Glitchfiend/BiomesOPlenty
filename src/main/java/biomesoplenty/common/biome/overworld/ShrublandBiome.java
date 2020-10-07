@@ -23,7 +23,7 @@ public class ShrublandBiome extends BiomeTemplate
 {
     public ShrublandBiome()
     {
-        this.addWeight(BOPClimates.DRY_TEMPERATE, 5);
+        this.addWeight(BOPClimates.DRY_TEMPERATE, 7);
         this.setBeachBiome(BOPBiomes.gravel_beach);
     }
 

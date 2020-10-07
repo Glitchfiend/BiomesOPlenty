@@ -22,7 +22,7 @@ public class PrairieBiome extends BiomeTemplate
 {
     public PrairieBiome()
     {
-        this.addWeight(BOPClimates.MEDITERRANEAN, 10);
+        this.addWeight(BOPClimates.MEDITERRANEAN, 7);
     }
 
     @Override

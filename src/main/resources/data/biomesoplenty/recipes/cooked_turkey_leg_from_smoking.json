@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "biomesoplenty:turkey_leg"
+  },
+  "result": "biomesoplenty:cooked_turkey_leg",
+  "experience": 0.35,
+  "cookingtime": 100
+}
