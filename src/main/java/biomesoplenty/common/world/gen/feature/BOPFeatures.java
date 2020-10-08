@@ -113,36 +113,36 @@ public class BOPFeatures
 	/////////////////////////////////////////////////////////////////////////////////
 
 	//Features
-	public static final Feature<NoFeatureConfig> BIG_PUMPKIN = register("big_pumpkin", new BigPumpkinFeature(NoFeatureConfig.CODEC));
-	public static final Feature<NoFeatureConfig> BONE_SPINE = register("bone_spine", new BoneSpineFeature(NoFeatureConfig.CODEC));
-	public static final Feature<NoFeatureConfig> BRAMBLE = register("bramble", new BrambleFeature(NoFeatureConfig.CODEC));
-	public static final Feature<NoFeatureConfig> CRAG_SPLATTER = register("crag_splatter", new CragSplatterFeature(NoFeatureConfig.CODEC));
-	public static final Feature<NoFeatureConfig> DENSE_BAYOU_VINES = register("dense_bayou_vines", new DenseBayouVinesFeature(NoFeatureConfig.CODEC));
-	public static final Feature<NoFeatureConfig> FERN = register("fern", new FernFeature(NoFeatureConfig.CODEC));
-	public static final Feature<NoFeatureConfig> FERN_GRASS = register("fern_grass", new FernGrassFeature(NoFeatureConfig.CODEC));
-	public static final Feature<NoFeatureConfig> FLESH_TENDON = register("flesh_tendon", new FleshTendonFeature(NoFeatureConfig.CODEC));
-	public static final Feature<NoFeatureConfig> GRASS_SPLATTER = register("grass_splatter", new GrassSplatterFeature(NoFeatureConfig.CODEC));
-	public static final Feature<NoFeatureConfig> HUGE_GLOWSHROOM = register("huge_glowshroom", new HugeGlowshroomFeature(NoFeatureConfig.CODEC));
-	public static final Feature<NoFeatureConfig> HUGE_TOADSTOOL = register("huge_toadstool", new HugeToadstoolFeature(NoFeatureConfig.CODEC));
-	public static final Feature<NoFeatureConfig> LARGE_CRYSTAL = register("large_crystal", new LargeCrystalFeature(NoFeatureConfig.CODEC));
-	public static final Feature<NoFeatureConfig> MANGROVE = register("mangrove", new MangroveFeature(NoFeatureConfig.CODEC));
-	public static final Feature<NoFeatureConfig> MYCELIUM_SPLATTER = register("mycelium_splatter", new MyceliumSplatterFeature(NoFeatureConfig.CODEC));
-	public static final Feature<NoFeatureConfig> NETHER_VINES = register("nether_vines", new NetherVinesFeature(NoFeatureConfig.CODEC));
-	public static final Feature<NoFeatureConfig> OBSIDIAN_SPLATTER = register("obsidian_splatter", new ObsidianSplatterFeature(NoFeatureConfig.CODEC));
-	public static final Feature<NoFeatureConfig> RAINFOREST_CLIFFS_VINES = register("rainforest_cliffs_vines", new RainforestCliffsVinesFeature(NoFeatureConfig.CODEC));
-	public static final Feature<NoFeatureConfig> PODZOL_SPLATTER = register("podzol_splatter", new PodzolSplatterFeature(NoFeatureConfig.CODEC));
-	public static final Feature<NoFeatureConfig> PUMPKIN_PATCH = register("pumpkin_patch", new PumpkinPatchFeature(NoFeatureConfig.CODEC));
-	public static final Feature<NoFeatureConfig> SCATTERED_ROCKS = register("scattered_rocks", new ScatteredRocksFeature(NoFeatureConfig.CODEC));
-	public static final Feature<NoFeatureConfig> SCRUB = register("scrub", new ScrubFeature(NoFeatureConfig.CODEC));
-	public static final Feature<NoFeatureConfig> SHORT_BAMBOO = register("short_bamboo", new ShortBambooFeature(NoFeatureConfig.CODEC));
-	public static final Feature<NoFeatureConfig> SMALL_BROWN_MUSHROOM = register("small_brown_mushroom", new SmallBrownMushroomFeature(NoFeatureConfig.CODEC));
-	public static final Feature<NoFeatureConfig> SMALL_CRYSTAL = register("small_crystal", new SmallCrystalFeature(NoFeatureConfig.CODEC));
-	public static final Feature<NoFeatureConfig> SMALL_GLOWSHROOM = register("small_glowshroom", new SmallGlowshroomFeature(NoFeatureConfig.CODEC));
-	public static final Feature<NoFeatureConfig> SMALL_RED_MUSHROOM = register("small_red_mushroom", new SmallRedMushroomFeature(NoFeatureConfig.CODEC));
-	public static final Feature<NoFeatureConfig> SMALL_TOADSTOOL = register("small_toadstool", new SmallToadstoolFeature(NoFeatureConfig.CODEC));
-	public static final Feature<NoFeatureConfig> STANDARD_GRASS = register("standard_grass", new StandardGrassFeature(NoFeatureConfig.CODEC));
-	public static final Feature<NoFeatureConfig> WASTELAND_GRASS = register("wasteland_grass", new WastelandGrassFeature(NoFeatureConfig.CODEC));
-	public static final Feature<ColumnConfig> BLACK_SANDSTONE_COLUMN = register("black_sandstone_column", new BlackSandstoneColumnFeature(ColumnConfig.CODEC));
+	public static final Feature<NoFeatureConfig> BIG_PUMPKIN = register("big_pumpkin", new BigPumpkinFeature(NoFeatureConfig.CODEC.stable()));
+	public static final Feature<NoFeatureConfig> BONE_SPINE = register("bone_spine", new BoneSpineFeature(NoFeatureConfig.CODEC.stable()));
+	public static final Feature<NoFeatureConfig> BRAMBLE = register("bramble", new BrambleFeature(NoFeatureConfig.CODEC.stable()));
+	public static final Feature<NoFeatureConfig> CRAG_SPLATTER = register("crag_splatter", new CragSplatterFeature(NoFeatureConfig.CODEC.stable()));
+	public static final Feature<NoFeatureConfig> DEEP_BAYOU_VINES = register("deep_bayou_vines", new DeepBayouVinesFeature(NoFeatureConfig.CODEC.stable()));
+	public static final Feature<NoFeatureConfig> FERN = register("fern", new FernFeature(NoFeatureConfig.CODEC.stable()));
+	public static final Feature<NoFeatureConfig> FERN_GRASS = register("fern_grass", new FernGrassFeature(NoFeatureConfig.CODEC.stable()));
+	public static final Feature<NoFeatureConfig> FLESH_TENDON = register("flesh_tendon", new FleshTendonFeature(NoFeatureConfig.CODEC.stable()));
+	public static final Feature<NoFeatureConfig> GRASS_SPLATTER = register("grass_splatter", new GrassSplatterFeature(NoFeatureConfig.CODEC.stable()));
+	public static final Feature<NoFeatureConfig> HUGE_GLOWSHROOM = register("huge_glowshroom", new HugeGlowshroomFeature(NoFeatureConfig.CODEC.stable()));
+	public static final Feature<NoFeatureConfig> HUGE_TOADSTOOL = register("huge_toadstool", new HugeToadstoolFeature(NoFeatureConfig.CODEC.stable()));
+	public static final Feature<NoFeatureConfig> LARGE_CRYSTAL = register("large_crystal", new LargeCrystalFeature(NoFeatureConfig.CODEC.stable()));
+	public static final Feature<NoFeatureConfig> MANGROVE = register("mangrove", new MangroveFeature(NoFeatureConfig.CODEC.stable()));
+	public static final Feature<NoFeatureConfig> MYCELIUM_SPLATTER = register("mycelium_splatter", new MyceliumSplatterFeature(NoFeatureConfig.CODEC.stable()));
+	public static final Feature<NoFeatureConfig> NETHER_VINES = register("nether_vines", new NetherVinesFeature(NoFeatureConfig.CODEC.stable()));
+	public static final Feature<NoFeatureConfig> OBSIDIAN_SPLATTER = register("obsidian_splatter", new ObsidianSplatterFeature(NoFeatureConfig.CODEC.stable()));
+	public static final Feature<NoFeatureConfig> RAINFOREST_CLIFFS_VINES = register("rainforest_cliffs_vines", new RainforestCliffsVinesFeature(NoFeatureConfig.CODEC.stable()));
+	public static final Feature<NoFeatureConfig> PODZOL_SPLATTER = register("podzol_splatter", new PodzolSplatterFeature(NoFeatureConfig.CODEC.stable()));
+	public static final Feature<NoFeatureConfig> PUMPKIN_PATCH = register("pumpkin_patch", new PumpkinPatchFeature(NoFeatureConfig.CODEC.stable()));
+	public static final Feature<NoFeatureConfig> SCATTERED_ROCKS = register("scattered_rocks", new ScatteredRocksFeature(NoFeatureConfig.CODEC.stable()));
+	public static final Feature<NoFeatureConfig> SCRUB = register("scrub", new ScrubFeature(NoFeatureConfig.CODEC.stable()));
+	public static final Feature<NoFeatureConfig> SHORT_BAMBOO = register("short_bamboo", new ShortBambooFeature(NoFeatureConfig.CODEC.stable()));
+	public static final Feature<NoFeatureConfig> SMALL_BROWN_MUSHROOM = register("small_brown_mushroom", new SmallBrownMushroomFeature(NoFeatureConfig.CODEC.stable()));
+	public static final Feature<NoFeatureConfig> SMALL_CRYSTAL = register("small_crystal", new SmallCrystalFeature(NoFeatureConfig.CODEC.stable()));
+	public static final Feature<NoFeatureConfig> SMALL_GLOWSHROOM = register("small_glowshroom", new SmallGlowshroomFeature(NoFeatureConfig.CODEC.stable()));
+	public static final Feature<NoFeatureConfig> SMALL_RED_MUSHROOM = register("small_red_mushroom", new SmallRedMushroomFeature(NoFeatureConfig.CODEC.stable()));
+	public static final Feature<NoFeatureConfig> SMALL_TOADSTOOL = register("small_toadstool", new SmallToadstoolFeature(NoFeatureConfig.CODEC.stable()));
+	public static final Feature<NoFeatureConfig> STANDARD_GRASS = register("standard_grass", new StandardGrassFeature(NoFeatureConfig.CODEC.stable()));
+	public static final Feature<NoFeatureConfig> WASTELAND_GRASS = register("wasteland_grass", new WastelandGrassFeature(NoFeatureConfig.CODEC.stable()));
+	public static final Feature<ColumnConfig> BLACK_SANDSTONE_COLUMN = register("black_sandstone_column", new BlackSandstoneColumnFeature(ColumnConfig.CODEC.stable()));
 
 	//Flowers
 	public static final FlowersFeature<NoFeatureConfig> CHERRY_BLOSSOM_GROVE_FLOWERS = register("cherry_blossom_grove_flowers", new CherryBlossomGroveFlowersFeature());

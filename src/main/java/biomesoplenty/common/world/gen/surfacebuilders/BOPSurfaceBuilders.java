@@ -31,22 +31,22 @@ public class BOPSurfaceBuilders
     public static final SurfaceBuilderConfig DRIED_SALT_SURFACE = new SurfaceBuilderConfig(BOPBlocks.dried_salt.defaultBlockState(), BOPBlocks.dried_salt.defaultBlockState(), BOPBlocks.dried_salt.defaultBlockState());
     public static final SurfaceBuilderConfig ORIGIN_GRASS_SURFACE = new SurfaceBuilderConfig(BOPBlocks.origin_grass_block.defaultBlockState(), Blocks.DIRT.defaultBlockState(), Blocks.GRAVEL.defaultBlockState());
 
-    public static final SurfaceBuilder<SurfaceBuilderConfig> HIGHLAND_CRAG = register("highland_crag", new HighlandCragSurfaceBuilder(SurfaceBuilderConfig.CODEC));
-    public static final SurfaceBuilder<SurfaceBuilderConfig> EXPOSED_STONE = register("exposed_stone", new ExposedStoneSurfaceBuilder(SurfaceBuilderConfig.CODEC));
-    public static final SurfaceBuilder<SurfaceBuilderConfig> TERRACOTTA = register("terracotta", new TerracottaSurfaceBuilder(SurfaceBuilderConfig.CODEC));
-    public static final SurfaceBuilder<SurfaceBuilderConfig> MARSH = register("marsh", new MarshSurfaceBuilder(SurfaceBuilderConfig.CODEC));
-    public static final SurfaceBuilder<SurfaceBuilderConfig> MANGROVE = register("mangrove", new MangroveSurfaceBuilder(SurfaceBuilderConfig.CODEC));
-    public static final SurfaceBuilder<SurfaceBuilderConfig> PODZOL = register("podzol", new PodzolSurfaceBuilder(SurfaceBuilderConfig.CODEC));
-    public static final SurfaceBuilder<SurfaceBuilderConfig> VOLCANO = register("volcano", new VolcanoSurfaceBuilder(SurfaceBuilderConfig.CODEC));
-    public static final SurfaceBuilder<SurfaceBuilderConfig> DEEP_TOP_LAYER = register("deep_top_layer", new DeepTopLayerSurfaceBuilder(SurfaceBuilderConfig.CODEC));
-    public static final SurfaceBuilder<SurfaceBuilderConfig> ORANGE_SANDSTONE = register("orange_sandstone", new OrangeSandstoneSurfaceBuilder(SurfaceBuilderConfig.CODEC));
-    public static final SurfaceBuilder<SurfaceBuilderConfig> LUSH_SAVANNA = register("lush_savanna", new LushSavannaSurfaceBuilder(SurfaceBuilderConfig.CODEC));
-    public static final SurfaceBuilder<SurfaceBuilderConfig> WITHERED_ABYSS = register("withered_abyss", new WitheredAbyssSurfaceBuilder(SurfaceBuilderConfig.CODEC));
-    public static final SurfaceBuilder<SurfaceBuilderConfig> FLESH = register("flesh", new FleshSurfaceBuilder(SurfaceBuilderConfig.CODEC));
-    public static final SurfaceBuilder<SurfaceBuilderConfig> ORIGIN_VALLEY = register("origin_valley", new OriginValleySurfaceBuilder(SurfaceBuilderConfig.CODEC));
-    public static final SurfaceBuilder<SurfaceBuilderConfig> TROPICS = register("tropics", new TropicsSurfaceBuilder(SurfaceBuilderConfig.CODEC));
-    public static final SurfaceBuilder<SurfaceBuilderConfig> LUSH_DESERT = register("lush_desert", new LushDesertSurfaceBuilder(SurfaceBuilderConfig.CODEC));
-    public static final SurfaceBuilder<SurfaceBuilderConfig> BLACK_SAND = register("black_sand", new BlackSandSurfaceBuilder(SurfaceBuilderConfig.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> HIGHLAND_CRAG = register("highland_crag", new HighlandCragSurfaceBuilder(SurfaceBuilderConfig.CODEC.stable()));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> EXPOSED_STONE = register("exposed_stone", new ExposedStoneSurfaceBuilder(SurfaceBuilderConfig.CODEC.stable()));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> TERRACOTTA = register("terracotta", new TerracottaSurfaceBuilder(SurfaceBuilderConfig.CODEC.stable()));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> MARSH = register("marsh", new MarshSurfaceBuilder(SurfaceBuilderConfig.CODEC.stable()));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> MANGROVE = register("mangrove", new MangroveSurfaceBuilder(SurfaceBuilderConfig.CODEC.stable()));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> PODZOL = register("podzol", new PodzolSurfaceBuilder(SurfaceBuilderConfig.CODEC.stable()));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> VOLCANO = register("volcano", new VolcanoSurfaceBuilder(SurfaceBuilderConfig.CODEC.stable()));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> DEEP_TOP_LAYER = register("deep_top_layer", new DeepTopLayerSurfaceBuilder(SurfaceBuilderConfig.CODEC.stable()));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> ORANGE_SANDSTONE = register("orange_sandstone", new OrangeSandstoneSurfaceBuilder(SurfaceBuilderConfig.CODEC.stable()));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> LUSH_SAVANNA = register("lush_savanna", new LushSavannaSurfaceBuilder(SurfaceBuilderConfig.CODEC.stable()));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> WITHERED_ABYSS = register("withered_abyss", new WitheredAbyssSurfaceBuilder(SurfaceBuilderConfig.CODEC.stable()));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> FLESH = register("flesh", new FleshSurfaceBuilder(SurfaceBuilderConfig.CODEC.stable()));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> ORIGIN_VALLEY = register("origin_valley", new OriginValleySurfaceBuilder(SurfaceBuilderConfig.CODEC.stable()));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> TROPICS = register("tropics", new TropicsSurfaceBuilder(SurfaceBuilderConfig.CODEC.stable()));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> LUSH_DESERT = register("lush_desert", new LushDesertSurfaceBuilder(SurfaceBuilderConfig.CODEC.stable()));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> BLACK_SAND = register("black_sand", new BlackSandSurfaceBuilder(SurfaceBuilderConfig.CODEC.stable()));
 
     private static <C extends ISurfaceBuilderConfig, F extends SurfaceBuilder<C>> F register(String key, F builder)
     {

@@ -18,14 +18,14 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import java.util.List;
 import java.util.Random;
 
-public class DenseBayouVinesFeature extends Feature<NoFeatureConfig>
+public class DeepBayouVinesFeature extends Feature<NoFeatureConfig>
 {
     protected IBlockPosQuery placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == BOPBlocks.willow_log || world.getBlockState(pos).getBlock() == BOPBlocks.willow_leaves || world.getBlockState(pos).getBlock() == Blocks.OAK_LEAVES || world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK || world.getBlockState(pos).getBlock() == Blocks.DIRT;
     protected IBlockPosQuery replace = (world, pos) -> world.getBlockState(pos).isAir(world, pos);
     int minHeight = 2;
     int maxHeight = 6;
 
-    public DenseBayouVinesFeature(Codec<NoFeatureConfig> deserializer)
+    public DeepBayouVinesFeature(Codec<NoFeatureConfig> deserializer)
     {
         super(deserializer);
     }

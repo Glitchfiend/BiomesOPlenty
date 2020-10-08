@@ -52,7 +52,7 @@ public class BOPNetherBiomeProvider extends BiomeProvider
     @Override
     protected Codec<? extends BiomeProvider> codec()
     {
-        return CODEC;
+        return CODEC.stable();
     }
 
     @Override

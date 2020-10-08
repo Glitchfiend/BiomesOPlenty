@@ -18,7 +18,7 @@ public abstract class DefaultFlowersFeatureNoConfig extends FlowersFeature<NoFea
 {
     public DefaultFlowersFeatureNoConfig()
     {
-        super(NoFeatureConfig.CODEC);
+        super(NoFeatureConfig.CODEC.stable());
     }
 
     @Override

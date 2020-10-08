@@ -101,7 +101,7 @@ public abstract class TreeFeatureBase extends TreeFeature
 
     protected TreeFeatureBase(IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState altLeaves, BlockState vine, BlockState hanging, BlockState trunkFruit, int minHeight, int maxHeight)
     {
-        super(BaseTreeFeatureConfig.CODEC);
+        super(BaseTreeFeatureConfig.CODEC.stable());
 
         this.placeOn = placeOn;
         this.replace = replace;
