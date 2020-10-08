@@ -15,8 +15,8 @@ import biomesoplenty.common.world.layer.traits.IBOPContextExtended;
 
 public enum TemperatureNoiseLayer implements IBOPAreaTransformer0
 {
-    SMALL_ZONES(0.20D),
-    MEDIUM_ZONES(0.05D),
+    SMALL_ZONES(0.16D),
+    MEDIUM_ZONES(0.06D),
     LARGE_ZONES(0.01D);
 
     private final double scale;
