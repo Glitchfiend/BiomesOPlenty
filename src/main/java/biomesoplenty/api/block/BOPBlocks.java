@@ -297,7 +297,7 @@ public class BOPBlocks
     public static Block desert_grass;
     public static Block dead_grass;
     public static Block cattail;
-    public static Block tall_wheat;
+    public static Block barley;
     public static Block reed;
     public static Block watergrass;
     public static Block mangrove_root;

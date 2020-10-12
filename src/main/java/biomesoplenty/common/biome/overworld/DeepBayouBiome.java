@@ -52,6 +52,8 @@ public class DeepBayouBiome extends BiomeTemplate
         DefaultBiomeFeatures.addDefaultOres(builder);
         DefaultBiomeFeatures.addSwampClayDisk(builder);
 
+        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, BOPConfiguredFeatures.MUD_DISK);
+
         ////////////////////////////////////////////////////////////
 
         // Vegetation

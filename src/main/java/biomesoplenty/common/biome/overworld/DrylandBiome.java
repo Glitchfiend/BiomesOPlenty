@@ -7,15 +7,14 @@
  ******************************************************************************/
 package biomesoplenty.common.biome.overworld;
 
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.BiomeTemplate;
 import biomesoplenty.common.world.gen.feature.BOPConfiguredFeatures;
-import biomesoplenty.common.world.gen.surfacebuilders.BOPSurfaceBuilders;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
@@ -24,17 +23,16 @@ public class DrylandBiome extends BiomeTemplate
 {
     public DrylandBiome()
     {
-        this.addWeight(BOPClimates.SAVANNA, 5);
+        this.addWeight(BOPClimates.SAVANNA, 3);
         this.setRiverBiome(null);
-        this.setBeachBiome(null);
     }
 
     @Override
     protected void configureBiome(Biome.Builder builder)
     {
-        builder.precipitation(Biome.RainType.NONE).biomeCategory(Biome.Category.SAVANNA).depth(0.1F).scale(0.1F).temperature(1.5F).downfall(0.1F);
+        builder.precipitation(Biome.RainType.NONE).biomeCategory(Biome.Category.PLAINS).depth(0.1F).scale(0.1F).temperature(0.7F).downfall(0.05F);
 
-        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(0x9E9DFF).grassColorOverride(0xDBBA9F).foliageColorOverride(0xD6C7A8).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
+        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(0x9E9DFF).grassColorOverride(0xE5DFA9).foliageColorOverride(0xDAE0B3).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
 
     @Override
@@ -45,17 +43,12 @@ public class DrylandBiome extends BiomeTemplate
         // Structures
         DefaultBiomeFeatures.addDefaultOverworldLandStructures(builder);
         builder.addStructureStart(StructureFeatures.RUINED_PORTAL_STANDARD);
-        builder.addStructureStart(StructureFeatures.NETHER_FOSSIL);
 
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(builder);
-
-        builder.addFeature(GenerationStage.Decoration.LAKES, Features.LAKE_LAVA);
-
         DefaultBiomeFeatures.addDefaultMonsterRoom(builder);
         DefaultBiomeFeatures.addDefaultUndergroundVariety(builder);
         DefaultBiomeFeatures.addDefaultOres(builder);
-        DefaultBiomeFeatures.addDefaultSoftDisks(builder);
 
         ////////////////////////////////////////////////////////////
 
@@ -63,10 +56,7 @@ public class DrylandBiome extends BiomeTemplate
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.DRYLAND_TREES);
 
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.BUSH_10);
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.DEAD_GRASS_2);
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.DESERT_GRASS_10);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.STANDARD_GRASS_6);
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.PATCH_DEAD_BUSH);
 
         ////////////////////////////////////////////////////////////
 
@@ -79,7 +69,6 @@ public class DrylandBiome extends BiomeTemplate
     protected void configureMobSpawns(MobSpawnInfo.Builder builder)
     {
         // Entities
-        builder.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.RABBIT, 4, 2, 3));
         builder.addSpawn(EntityClassification.AMBIENT, new MobSpawnInfo.Spawners(EntityType.BAT, 10, 8, 8));
         builder.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SPIDER, 100, 4, 4));
         builder.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIE, 95, 4, 4));

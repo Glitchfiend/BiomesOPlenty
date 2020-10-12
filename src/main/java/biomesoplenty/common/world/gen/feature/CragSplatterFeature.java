@@ -33,7 +33,7 @@ public class CragSplatterFeature extends Feature<NoFeatureConfig>
             int j1 = l - pos.getZ();
             if (i1 * i1 + j1 * j1 <= j * j)
             {
-               for (int k1 = pos.getY() - 2; k1 <= pos.getY() + 2; ++k1)
+               for (int k1 = pos.getY() - 6; k1 <= pos.getY() + 6; ++k1)
                {
                   BlockPos blockpos = new BlockPos(k, k1, l);
                   BlockState blockstate = worldIn.getBlockState(blockpos);

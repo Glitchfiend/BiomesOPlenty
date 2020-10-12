@@ -96,10 +96,10 @@ public class BOPWorldTypeUtil
         if (server.getWorldData() instanceof ServerWorldInfo)
         {
             ServerWorldInfo worldInfo  = (ServerWorldInfo)server.getWorldData();
-            worldInfo.worldGenSettings = createDimensionGeneratorSettings(DynamicRegistries.builtin(), worldInfo.worldGenSettings.seed(), worldInfo.worldGenSettings.generateFeatures(), worldInfo.worldGenSettings.generateBonusChest());
+            worldInfo.worldGenSettings = createDimensionGeneratorSettings(server.registryAccess(), worldInfo.worldGenSettings.seed(), worldInfo.worldGenSettings.generateFeatures(), worldInfo.worldGenSettings.generateBonusChest());
         }
 
         // Replace the world gen settings in server.properties
-        properties.worldGenSettings = createDimensionGeneratorSettings(DynamicRegistries.builtin(), properties.worldGenSettings.seed(), properties.worldGenSettings.generateFeatures(), properties.worldGenSettings.generateBonusChest());
+        properties.worldGenSettings = createDimensionGeneratorSettings(server.registryAccess(), properties.worldGenSettings.seed(), properties.worldGenSettings.generateFeatures(), properties.worldGenSettings.generateBonusChest());
     }
 }

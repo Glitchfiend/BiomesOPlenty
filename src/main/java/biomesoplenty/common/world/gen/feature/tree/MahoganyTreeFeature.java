@@ -163,7 +163,7 @@ public class MahoganyTreeFeature extends TreeFeatureBase
             }
         }
 
-        int height = world.getRandom().nextInt(3);
+        int height = 1 + world.getRandom().nextInt(2);
         for (int i = 0; i <= height; i++)
         {
             if (replace.matches(world, pos.relative(direction, length+1).above(i+1)))

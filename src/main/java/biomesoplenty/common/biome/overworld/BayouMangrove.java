@@ -47,9 +47,7 @@ public class BayouMangrove extends BiomeTemplate
 
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(builder);
-
-        builder.addFeature(GenerationStage.Decoration.LAKES, BOPConfiguredFeatures.WATER_LAKE_COMMON);
-
+        DefaultBiomeFeatures.addDefaultLakes(builder);
         DefaultBiomeFeatures.addDefaultMonsterRoom(builder);
         DefaultBiomeFeatures.addDefaultUndergroundVariety(builder);
         DefaultBiomeFeatures.addDefaultOres(builder);

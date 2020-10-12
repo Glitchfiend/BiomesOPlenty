@@ -1,6 +1,6 @@
 {
     "parent": "block/cross",
     "textures": {
-        "cross": "biomesoplenty:block/tall_wheat_top"
+        "cross": "biomesoplenty:block/barley_bottom"
     }
 }

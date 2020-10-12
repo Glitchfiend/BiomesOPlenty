@@ -30,7 +30,7 @@ public class PrairieBiome extends BiomeTemplate
     {
         builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.PLAINS).depth(0.05F).scale(0.0F).temperature(0.8F).downfall(0.3F);
 
-        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(calculateSkyColor(0.8F)).grassColorOverride(0xDDE580).foliageColorOverride(0xC2E07B).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
+        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(calculateSkyColor(0.8F)).grassColorOverride(0xEAE177).foliageColorOverride(0xD6E672).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
 
     @Override

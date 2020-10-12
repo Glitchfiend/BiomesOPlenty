@@ -93,10 +93,10 @@
                 "biome": "biomesoplenty:dryland"
             }
         },
-		"dry_steppe": {
+		"dry_boneyard": {
             "trigger": "minecraft:location",
             "conditions": {
-                "biome": "biomesoplenty:dry_steppe"
+                "biome": "biomesoplenty:dry_boneyard"
             }
         },
 		"fir_clearing": {
@@ -297,6 +297,12 @@
                 "biome": "biomesoplenty:redwood_hills"
             }
         },
+		"scrubland": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:scrubland"
+            }
+        },
 		"seasonal_forest": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -433,6 +439,12 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:withered_abyss"
+            }
+        },
+		"wooded_scrubland": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:wooded_scrubland"
             }
         },
 		"wooded_wasteland": {

@@ -25,6 +25,7 @@ public class SilkgladeNestBiome extends BiomeTemplate
     {
         this.setBeachBiome(null);
         this.setRiverBiome(null);
+        this.setGrassColorFunction(this::getGrassColor);
     }
 
     @Override
@@ -32,7 +33,7 @@ public class SilkgladeNestBiome extends BiomeTemplate
     {
         builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.FOREST).depth(0.5F).scale(0.2F).temperature(0.75F).downfall(0.2F);
 
-        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(0x82826A).waterFogColor(0x0D0F09).fogColor(12638463).skyColor(calculateSkyColor(0.75F)).grassColorOverride(0xB2B39F).foliageColorOverride(0xDEE1C6).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
+        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(0x82826A).waterFogColor(0x0D0F09).fogColor(12638463).skyColor(calculateSkyColor(0.75F)).grassColorOverride(0x939F76).foliageColorOverride(0xDEE1C6).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
 
     @Override
@@ -79,5 +80,11 @@ public class SilkgladeNestBiome extends BiomeTemplate
         builder.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SPIDER, 100, 4, 4));
         builder.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.CAVE_SPIDER, 50, 4, 4));
         builder.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SLIME, 100, 4, 4));
+    }
+
+    private int getGrassColor(double x, double z)
+    {
+        double d0 = Biome.BIOME_INFO_NOISE.getValue(x * 0.0225D, z * 0.0225D, false);
+        return d0 < -0.1D ? 0xB2B39F : 0x939F76;
     }
 }

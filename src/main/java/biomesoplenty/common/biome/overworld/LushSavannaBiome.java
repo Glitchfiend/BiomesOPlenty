@@ -30,7 +30,7 @@ public class LushSavannaBiome extends BiomeTemplate
     @Override
     protected void configureBiome(Biome.Builder builder)
     {
-        builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.DESERT).depth(0.1F).scale(0.01F).temperature(0.9F).downfall(0.5F);
+        builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.DESERT).depth(0.25F).scale(0.1F).temperature(0.9F).downfall(0.5F);
 
         builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4566514).waterFogColor(267827).fogColor(12638463).skyColor(calculateSkyColor(0.9F)).grassColorOverride(0xEFE182).foliageColorOverride(0xD3D156).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }

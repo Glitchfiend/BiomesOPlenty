@@ -104,8 +104,8 @@ public class ModBiomes
         }
 
         // Register biome providers
-        Registry.register(Registry.BIOME_SOURCE, "biomesoplenty_overworld", BOPBiomeProvider.CODEC.stable());
-        Registry.register(Registry.BIOME_SOURCE, "biomesoplenty_nether", BOPNetherBiomeProvider.CODEC.stable());
+        Registry.register(Registry.BIOME_SOURCE, "biomesoplenty_overworld", BOPBiomeProvider.CODEC);
+        Registry.register(Registry.BIOME_SOURCE, "biomesoplenty_nether", BOPNetherBiomeProvider.CODEC);
     }
 
     @SubscribeEvent
@@ -136,7 +136,7 @@ public class ModBiomes
         registerBiome(new DeadSwampBiome(), "dead_swamp");
         registerBiome(new DeepBayouBiome(), "deep_bayou");
         registerBiome(new DrylandBiome(), "dryland");
-        registerBiome(new DrySteppeBiome(), "dry_steppe");
+        registerBiome(new DryBoneyardBiome(), "dry_boneyard");
         registerBiome(new FirClearingBiome(), "fir_clearing");
         registerBiome(new FlowerMeadowBiome(), "flower_meadow");
         registerBiome(new FungalJungleBiome(), "fungal_jungle");
@@ -167,6 +167,7 @@ public class ModBiomes
         registerBiome(new RainforestCliffsBiome(), "rainforest_cliffs");
         registerBiome(new RedwoodForestBiome(), "redwood_forest");
         registerBiome(new RedwoodHillsBiome(), "redwood_hills");
+        registerBiome(new ScrublandBiome(), "scrubland");
         registerBiome(new SeasonalForestBiome(), "seasonal_forest");
         registerBiome(new SeasonalOrchardBiome(), "seasonal_orchard");
         registerBiome(new SeasonalPumpkinPatchBiome(), "seasonal_pumpkin_patch");
@@ -185,6 +186,7 @@ public class ModBiomes
         registerBiome(new WastelandBiome(), "wasteland");
         registerBiome(new WetlandBiome(), "wetland");
         registerBiome(new WetlandMarshBiome(), "wetland_marsh");
+        registerBiome(new WoodedScrublandBiome(), "wooded_scrubland");
         registerBiome(new WoodedWastelandBiome(), "wooded_wasteland");
 
         //Nether Biomes
@@ -207,7 +209,7 @@ public class ModBiomes
 
         registerSubBiome(dead_forest, dead_swamp, 0.75F, 100);
 
-        registerSubBiome(dryland, dry_steppe, 1.0F, 100);
+        registerSubBiome(dryland, dry_boneyard, 0.75F, 100);
 
         registerSubBiome(fungal_jungle, overgrown_fungal_jungle, 0.8F, 100);
 
@@ -236,8 +238,10 @@ public class ModBiomes
 
         registerSubBiome(redwood_forest, redwood_hills, 0.75F, 100);
 
-        registerSubBiome(seasonal_forest, seasonal_orchard, 0.75F, 100);
-        registerSubBiome(seasonal_forest, seasonal_pumpkin_patch, 0.75F, 100);
+        registerSubBiome(scrubland, wooded_scrubland, 1.0F, 100);
+
+        registerSubBiome(seasonal_forest, seasonal_orchard, 1.0F, 100);
+        registerSubBiome(seasonal_forest, seasonal_pumpkin_patch, 1.0F, 100);
 
         registerSubBiome(shrubland, shrubland_hills, 0.75F, 100);
 
@@ -282,7 +286,7 @@ public class ModBiomes
         registerVanillaBiome(Biomes.SNOWY_TAIGA, BOPClimates.TUNDRA, 7);
         registerVanillaBiome(Biomes.TAIGA, BOPClimates.WET_BOREAL, 10);
         registerVanillaBiome(Biomes.GIANT_TREE_TAIGA, BOPClimates.DRY_BOREAL, 5);
-        registerVanillaBiome(Biomes.DARK_FOREST, BOPClimates.WET_TEMPERATE, 5);
+        registerVanillaBiome(Biomes.DARK_FOREST, BOPClimates.WET_TEMPERATE, 7);
         registerVanillaBiome(Biomes.BIRCH_FOREST, BOPClimates.DRY_TEMPERATE, 5);
         registerVanillaBiome(Biomes.FOREST, BOPClimates.COOL_TEMPERATE, 10);
         registerVanillaBiome(Biomes.PLAINS, BOPClimates.WARM_TEMPERATE, 10);
@@ -319,8 +323,8 @@ public class ModBiomes
         registerVillagerType(dead_forest, VillagerType.TAIGA);
         registerVillagerType(dead_swamp, VillagerType.TAIGA);
         registerVillagerType(deep_bayou, VillagerType.SWAMP);
-        registerVillagerType(dryland, VillagerType.SAVANNA);
-        registerVillagerType(dry_steppe, VillagerType.SAVANNA);
+        registerVillagerType(dryland, VillagerType.PLAINS);
+        registerVillagerType(dry_boneyard, VillagerType.PLAINS);
         registerVillagerType(fir_clearing, VillagerType.TAIGA);
         registerVillagerType(flower_meadow, VillagerType.TAIGA);
         registerVillagerType(fungal_jungle, VillagerType.JUNGLE);
@@ -353,6 +357,7 @@ public class ModBiomes
         registerVillagerType(redwood_forest, VillagerType.PLAINS);
         registerVillagerType(redwood_forest_edge, VillagerType.PLAINS);
         registerVillagerType(redwood_hills, VillagerType.PLAINS);
+        registerVillagerType(scrubland, VillagerType.SAVANNA);
         registerVillagerType(seasonal_forest, VillagerType.PLAINS);
         registerVillagerType(seasonal_orchard, VillagerType.PLAINS);
         registerVillagerType(seasonal_pumpkin_patch, VillagerType.PLAINS);
@@ -373,6 +378,7 @@ public class ModBiomes
         registerVillagerType(wasteland, VillagerType.DESERT);
         registerVillagerType(wetland, VillagerType.SWAMP);
         registerVillagerType(wetland_marsh, VillagerType.SWAMP);
+        registerVillagerType(wooded_scrubland, VillagerType.SAVANNA);
         registerVillagerType(wooded_wasteland, VillagerType.DESERT);
     }
 

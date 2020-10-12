@@ -46,7 +46,7 @@ public class BOPBiomeProvider extends BiomeProvider
 
     public BOPBiomeProvider(long seed, Registry<Biome> biomes)
     {
-        super(Stream.concat(VANILLA_POSSIBLE_BIOMES.stream(), BOPClimates.getOverworldBiomes().stream()).map(BiomeUtil::getBiome).collect(Collectors.toList()));
+        super(Stream.concat(VANILLA_POSSIBLE_BIOMES.stream(), BOPClimates.getOverworldBiomes().stream()).map(biomes::get).collect(Collectors.toList()));
         this.seed = seed;
         this.noiseBiomeLayer = BOPLayerUtil.createGenLayers(seed, new BOPOverworldGenSettings());
         this.biomes = biomes;

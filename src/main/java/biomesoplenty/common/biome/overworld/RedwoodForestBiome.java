@@ -31,7 +31,7 @@ public class RedwoodForestBiome extends BiomeTemplate
     {
         builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.FOREST).depth(0.25F).scale(0.05F).temperature(0.8F).downfall(0.6F);
 
-        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(calculateSkyColor(0.8F)).grassColorOverride(0xB6D367).foliageColorOverride(0x97BF4E).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
+        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(calculateSkyColor(0.8F)).grassColorOverride(0xB5D55C).foliageColorOverride(0x8EBF42).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
 
     @Override

@@ -18,6 +18,8 @@ import net.minecraft.world.biome.Biome;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.ForgeRegistry;
 
+import javax.annotation.Nullable;
+
 public class BiomeUtil
 {
     public static RegistryKey<Biome> createKey(Biome biome)
@@ -86,8 +88,9 @@ public class BiomeUtil
         return getBiome(id) != null;
     }
 
+    @Nullable
     public static RegistryKey<Biome> getClientKey(Biome biome)
     {
-        return Minecraft.getInstance().level.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY).getResourceKey(biome).get();
+        return Minecraft.getInstance().level.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY).getResourceKey(biome).orElse(null);
     }
 }

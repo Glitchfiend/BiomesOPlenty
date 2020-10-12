@@ -17,7 +17,7 @@
                   }
                 }
               ],
-              "name": "biomesoplenty:tall_wheat"
+              "name": "biomesoplenty:barley"
             },
             {
               "type": "minecraft:item",
@@ -27,7 +27,7 @@
                 },
                 {
                   "condition": "minecraft:block_state_property",
-                  "block": "biomesoplenty:tall_wheat",
+                  "block": "biomesoplenty:barley",
                   "properties": {
                     "half": "lower"
                   }

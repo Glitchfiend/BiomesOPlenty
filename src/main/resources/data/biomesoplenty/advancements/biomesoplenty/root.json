@@ -92,10 +92,10 @@
                 "biome": "biomesoplenty:dryland"
             }
         },
-		"dry_steppe": {
+		"dry_boneyard": {
             "trigger": "minecraft:location",
             "conditions": {
-                "biome": "biomesoplenty:dry_steppe"
+                "biome": "biomesoplenty:dry_boneyard"
             }
         },
 		"fir_clearing": {
@@ -296,6 +296,12 @@
                 "biome": "biomesoplenty:redwood_hills"
             }
         },
+		"scrubland": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:scrubland"
+            }
+        },
 		"seasonal_forest": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -434,6 +440,12 @@
                 "biome": "biomesoplenty:withered_abyss"
             }
         },
+		"wooded_scrubland": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:wooded_scrubland"
+            }
+        },
 		"wooded_wasteland": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -456,7 +468,7 @@
 			"dead_swamp",
 			"deep_bayou",
 			"dryland",
-			"dry_steppe",
+			"dry_boneyard",
 			"fir_clearing",
 			"flower_meadow",
 			"fungal_jungle",
@@ -490,6 +502,7 @@
 			"redwood_forest",
 			"redwood_forest_edge",
 			"redwood_hills",
+			"scrubland",
 			"seasonal_forest",
 			"seasonal_orchard",
 			"seasonal_pumpkin_patch",
@@ -513,6 +526,7 @@
 			"wetland",
 			"wetland_marsh",
 			"withered_abyss",
+			"wooded_scrubland",
 			"wooded_wasteland"
         ]
     ]

@@ -47,7 +47,7 @@ public class GoldenPrairieBiome extends BiomeTemplate
         ////////////////////////////////////////////////////////////
 
         // Vegetation
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.GOLDEN_PRAIRIE_TALL_WHEAT);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.BARLEY);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.STANDARD_GRASS_24);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.TALL_GRASS_64);
 

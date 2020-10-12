@@ -30,7 +30,7 @@ public class HighlandMoorBiome extends BiomeTemplate
     {
         builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.PLAINS).depth(1.8F).scale(-0.05F).temperature(0.6F).downfall(0.6F);
 
-        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(calculateSkyColor(0.6F)).grassColorOverride(0x71AA70).foliageColorOverride(0x78C46D).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
+        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(calculateSkyColor(0.6F)).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
 
     @Override

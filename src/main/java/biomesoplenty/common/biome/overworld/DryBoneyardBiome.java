@@ -19,20 +19,19 @@ import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
-public class DrySteppeBiome extends BiomeTemplate
+public class DryBoneyardBiome extends BiomeTemplate
 {
-    public DrySteppeBiome()
+    public DryBoneyardBiome()
     {
         this.setRiverBiome(null);
-        this.setBeachBiome(null);
     }
 
     @Override
     protected void configureBiome(Biome.Builder builder)
     {
-        builder.precipitation(Biome.RainType.NONE).biomeCategory(Biome.Category.SAVANNA).depth(1.4F).scale(0.3F).temperature(1.5F).downfall(0.1F);
+        builder.precipitation(Biome.RainType.NONE).biomeCategory(Biome.Category.PLAINS).depth(0.1F).scale(0.1F).temperature(0.7F).downfall(0.05F);
 
-        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(0x9E9DFF).grassColorOverride(0xDBBA9F).foliageColorOverride(0xD6C7A8).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
+        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(0x9E9DFF).grassColorOverride(0xE5DFA9).foliageColorOverride(0xDAE0B3).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
 
     @Override
@@ -43,31 +42,28 @@ public class DrySteppeBiome extends BiomeTemplate
         // Structures
         DefaultBiomeFeatures.addDefaultOverworldLandStructures(builder);
         builder.addStructureStart(StructureFeatures.RUINED_PORTAL_STANDARD);
+        builder.addStructureStart(StructureFeatures.NETHER_FOSSIL);
 
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(builder);
-
-        builder.addFeature(GenerationStage.Decoration.LAKES, Features.LAKE_LAVA);
-
         DefaultBiomeFeatures.addDefaultMonsterRoom(builder);
         DefaultBiomeFeatures.addDefaultUndergroundVariety(builder);
         DefaultBiomeFeatures.addDefaultOres(builder);
-        DefaultBiomeFeatures.addDefaultSoftDisks(builder);
 
         ////////////////////////////////////////////////////////////
 
         // Vegetation
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.DESERT_GRASS_20);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.DRY_BONEYARD_TREES);
+
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.BONE_SPINE);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.BUSH_5);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.DEAD_GRASS_5);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.STANDARD_GRASS_6);
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.PATCH_DEAD_BUSH);
 
         ////////////////////////////////////////////////////////////
 
         // Other Features
         DefaultBiomeFeatures.addDefaultSprings(builder);
-        DefaultBiomeFeatures.addExtraEmeralds(builder);
-        DefaultBiomeFeatures.addInfestedStone(builder);
         DefaultBiomeFeatures.addSurfaceFreezing(builder);
     }
 
@@ -75,8 +71,6 @@ public class DrySteppeBiome extends BiomeTemplate
     protected void configureMobSpawns(MobSpawnInfo.Builder builder)
     {
         // Entities
-        builder.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.RABBIT, 4, 2, 3));
-        builder.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.LLAMA, 5, 4, 6));
         builder.addSpawn(EntityClassification.AMBIENT, new MobSpawnInfo.Spawners(EntityType.BAT, 10, 8, 8));
         builder.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SPIDER, 100, 4, 4));
         builder.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIE, 95, 4, 4));

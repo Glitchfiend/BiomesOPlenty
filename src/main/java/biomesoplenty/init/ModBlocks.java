@@ -308,10 +308,10 @@ public class ModBlocks
 
         //Tall Plants
         cattail = registerBlock(new DoubleWatersidePlantBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.DIRT).noCollission().instabreak().sound(SoundType.GRASS)), "cattail");
-        tall_wheat = registerBlock(new DoublePlantBlockBOP(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.TERRACOTTA_YELLOW).noCollission().instabreak().sound(SoundType.GRASS)), "tall_wheat");
-        reed = registerBlock(new DoubleWaterPlantBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.DIRT).noCollission().instabreak().sound(SoundType.GRASS)), "reed");
-        watergrass = registerBlock(new DoubleWaterPlantBlock(AbstractBlock.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS)), "watergrass");
-        mangrove_root = registerBlock(new DoubleWaterPlantBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.TERRACOTTA_WHITE).noCollission().strength(1.0F, 1.5F).sound(SoundType.WOOD)), "mangrove_root");
+        barley = registerBlock(new DoublePlantBlockBOP(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.TERRACOTTA_YELLOW).noCollission().instabreak().sound(SoundType.GRASS)), "barley");
+        reed = registerBlock(new DoubleWaterPlantBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_WATER_PLANT, MaterialColor.DIRT).noCollission().instabreak().sound(SoundType.GRASS)), "reed");
+        watergrass = registerBlock(new DoubleWaterPlantBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_WATER_PLANT).noCollission().instabreak().sound(SoundType.GRASS)), "watergrass");
+        mangrove_root = registerBlock(new DoubleWaterPlantBlock(AbstractBlock.Properties.of(Material.WATER_PLANT, MaterialColor.TERRACOTTA_WHITE).noCollission().strength(1.0F, 1.5F).sound(SoundType.WOOD)), "mangrove_root");
 
         dead_branch = registerBlock(new DeadBranchBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_GRAY).noCollission().instabreak().sound(SoundType.WOOD)), "dead_branch");
         bramble = registerBlock(new BrambleBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.NETHER).strength(0.4F).harvestLevel(0).harvestTool(ToolType.AXE).sound(SoundType.WOOD)), "bramble");
@@ -414,7 +414,7 @@ public class ModBlocks
             RenderTypeLookup.setRenderLayer(desert_grass, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(dead_grass, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(cattail, cutoutRenderType);
-            RenderTypeLookup.setRenderLayer(tall_wheat, cutoutRenderType);
+            RenderTypeLookup.setRenderLayer(barley, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(reed, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(watergrass, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(mangrove_root, cutoutRenderType);

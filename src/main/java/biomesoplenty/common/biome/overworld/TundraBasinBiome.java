@@ -33,7 +33,7 @@ public class TundraBasinBiome extends BiomeTemplate
     {
         builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.TAIGA).depth(0.0F).scale(-0.1F).temperature(0.2F).downfall(0.5F);
 
-        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(calculateSkyColor(0.2F)).grassColorOverride(0xAD9364).foliageColorOverride(0xB5A76C).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
+        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(calculateSkyColor(0.2F)).grassColorOverride(0xC08359).foliageColorOverride(0xC5975C).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
 
     @Override
