@@ -11,6 +11,7 @@ import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.util.biome.BiomeUtil;
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.Lifecycle;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.registry.DynamicRegistries;
@@ -20,6 +21,7 @@ import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.provider.BiomeProvider;
+import net.minecraft.world.biome.provider.OverworldBiomeProvider;
 import net.minecraft.world.gen.layer.Layer;
 import net.minecraft.world.gen.layer.LayerUtil;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -46,7 +48,7 @@ public class BOPBiomeProvider extends BiomeProvider
 
     public BOPBiomeProvider(long seed, Registry<Biome> biomes)
     {
-        super(Stream.concat(VANILLA_POSSIBLE_BIOMES.stream(), BOPClimates.getOverworldBiomes().stream()).map(BiomeUtil::getBiome).collect(Collectors.toList()));
+        super(Stream.concat(VANILLA_POSSIBLE_BIOMES.stream(), BOPClimates.getOverworldBiomes().stream()).map(biomes::get).collect(Collectors.toList()));
         this.seed = seed;
         this.noiseBiomeLayer = BOPLayerUtil.createGenLayers(seed, new BOPOverworldGenSettings());
         this.biomes = biomes;
