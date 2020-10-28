@@ -13,6 +13,7 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.carver.ICarverConfig;
 import net.minecraft.world.gen.carver.WorldCarver;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class BOPWorldCarvers
 {
@@ -21,6 +22,8 @@ public class BOPWorldCarvers
 
     private static <C extends ICarverConfig, F extends WorldCarver<C>> F register(String key, F carver)
     {
-        return Registry.register(Registry.CARVER, new ResourceLocation(BiomesOPlenty.MOD_ID, key), carver);
+        carver.setRegistryName(new ResourceLocation(BiomesOPlenty.MOD_ID, key));
+        ForgeRegistries.WORLD_CARVERS.register(carver);
+        return carver;
     }
 }

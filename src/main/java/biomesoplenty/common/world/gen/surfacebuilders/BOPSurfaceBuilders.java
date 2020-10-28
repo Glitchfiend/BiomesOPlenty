@@ -15,6 +15,7 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.surfacebuilders.ISurfaceBuilderConfig;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class BOPSurfaceBuilders
 {
@@ -52,6 +53,8 @@ public class BOPSurfaceBuilders
 
     private static <C extends ISurfaceBuilderConfig, F extends SurfaceBuilder<C>> F register(String key, F builder)
     {
-        return Registry.register(Registry.SURFACE_BUILDER, new ResourceLocation(BiomesOPlenty.MOD_ID, key), builder);
+        builder.setRegistryName(new ResourceLocation(BiomesOPlenty.MOD_ID, key));
+        ForgeRegistries.SURFACE_BUILDERS.register(builder);
+        return builder;
     }
 }
