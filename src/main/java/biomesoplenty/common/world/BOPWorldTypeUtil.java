@@ -95,11 +95,19 @@ public class BOPWorldTypeUtil
 
         if (server.getWorldData() instanceof ServerWorldInfo)
         {
-            ServerWorldInfo worldInfo  = (ServerWorldInfo)server.getWorldData();
-            worldInfo.worldGenSettings = createDimensionGeneratorSettings(server.registryAccess(), worldInfo.worldGenSettings.seed(), worldInfo.worldGenSettings.generateFeatures(), worldInfo.worldGenSettings.generateBonusChest());
+            ServerWorldInfo worldInfo = (ServerWorldInfo) server.getWorldData();
+
+            // Only replace the worldGenSettings if it doesn't appear to already be the bop world type
+            if (!isUsingBopWorldType(worldInfo.worldGenSettings))
+            {
+                worldInfo.worldGenSettings = createDimensionGeneratorSettings(server.registryAccess(), worldInfo.worldGenSettings.seed(), worldInfo.worldGenSettings.generateFeatures(), worldInfo.worldGenSettings.generateBonusChest());
+            }
         }
 
-        // Replace the world gen settings in server.properties
-        properties.worldGenSettings = createDimensionGeneratorSettings(server.registryAccess(), properties.worldGenSettings.seed(), properties.worldGenSettings.generateFeatures(), properties.worldGenSettings.generateBonusChest());
+        // Replace the world gen settings in server.properties if it doesn't already appear to be the bop world type
+        if (!isUsingBopWorldType(properties.worldGenSettings))
+        {
+            properties.worldGenSettings = createDimensionGeneratorSettings(server.registryAccess(), properties.worldGenSettings.seed(), properties.worldGenSettings.generateFeatures(), properties.worldGenSettings.generateBonusChest());
+        }
     }
 }
