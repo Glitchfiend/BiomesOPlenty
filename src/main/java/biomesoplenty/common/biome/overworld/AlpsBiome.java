@@ -9,6 +9,7 @@ package biomesoplenty.common.biome.overworld;
 
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.BiomeTemplate;
+import biomesoplenty.common.world.gen.surfacebuilders.BOPConfiguredSurfaceBuilders;
 import biomesoplenty.common.world.gen.surfacebuilders.BOPSurfaceBuilders;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -36,7 +37,7 @@ public class AlpsBiome extends BiomeTemplate
     @Override
     protected void configureGeneration(BiomeGenerationSettings.Builder builder)
     {
-        builder.surfaceBuilder(new ConfiguredSurfaceBuilder(BOPSurfaceBuilders.DEEP_TOP_LAYER, BOPSurfaceBuilders.SNOW_SNOW_GRAVEL_SURFACE));
+        builder.surfaceBuilder(BOPConfiguredSurfaceBuilders.ALPS);
 
         // Structures
         DefaultBiomeFeatures.addDefaultOverworldLandStructures(builder);

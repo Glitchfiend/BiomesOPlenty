@@ -10,6 +10,7 @@ package biomesoplenty.common.biome.overworld;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.BiomeTemplate;
 import biomesoplenty.common.world.gen.feature.BOPConfiguredFeatures;
+import biomesoplenty.common.world.gen.surfacebuilders.BOPConfiguredSurfaceBuilders;
 import biomesoplenty.common.world.gen.surfacebuilders.BOPSurfaceBuilders;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -38,7 +39,7 @@ public class PoppyFieldBiome extends BiomeTemplate
     @Override
     protected void configureGeneration(BiomeGenerationSettings.Builder builder)
     {
-        builder.surfaceBuilder(new ConfiguredSurfaceBuilder(BOPSurfaceBuilders.POPPY_FIELD, SurfaceBuilder.CONFIG_GRASS));
+        builder.surfaceBuilder(BOPConfiguredSurfaceBuilders.POPPY_FIELD);
 
         // Structures
         DefaultBiomeFeatures.addDefaultOverworldLandStructures(builder);

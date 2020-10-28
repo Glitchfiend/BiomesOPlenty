@@ -14,6 +14,7 @@ import net.minecraft.world.gen.carver.ConfiguredCarvers;
 import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilders;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
 public class UndergrowthBiome extends NetherBiomeTemplate
@@ -34,7 +35,7 @@ public class UndergrowthBiome extends NetherBiomeTemplate
     @Override
     protected void configureGeneration(BiomeGenerationSettings.Builder builder)
     {
-        builder.surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.NETHER, SurfaceBuilder.CONFIG_HELL));
+        builder.surfaceBuilder(ConfiguredSurfaceBuilders.NETHER);
 
         //Terrain
         builder.addStructureStart(StructureFeatures.RUINED_PORTAL_NETHER);

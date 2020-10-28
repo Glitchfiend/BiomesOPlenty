@@ -3,6 +3,7 @@ package biomesoplenty.common.biome.nether;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.NetherBiomeTemplate;
 import biomesoplenty.common.world.gen.feature.BOPConfiguredFeatures;
+import biomesoplenty.common.world.gen.surfacebuilders.BOPConfiguredSurfaceBuilders;
 import biomesoplenty.common.world.gen.surfacebuilders.BOPSurfaceBuilders;
 import net.minecraft.client.audio.BackgroundMusicTracks;
 import net.minecraft.entity.EntityClassification;
@@ -35,7 +36,7 @@ public class VisceralHeapBiome extends NetherBiomeTemplate
     @Override
     protected void configureGeneration(BiomeGenerationSettings.Builder builder)
     {
-        builder.surfaceBuilder(new ConfiguredSurfaceBuilder(BOPSurfaceBuilders.FLESH, SurfaceBuilder.CONFIG_HELL));
+        builder.surfaceBuilder(BOPConfiguredSurfaceBuilders.VISCERAL_HEAP);
 
         //Terrain
         builder.addStructureStart(StructureFeatures.RUINED_PORTAL_NETHER);

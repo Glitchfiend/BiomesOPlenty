@@ -12,6 +12,7 @@ import biomesoplenty.common.world.gen.carver.BOPConfiguredCarvers;
 import biomesoplenty.common.world.gen.carver.BOPWorldCarvers;
 import biomesoplenty.common.world.gen.feature.BOPConfiguredFeatures;
 import biomesoplenty.common.world.gen.feature.BOPFeatures;
+import biomesoplenty.common.world.gen.surfacebuilders.BOPConfiguredSurfaceBuilders;
 import biomesoplenty.common.world.gen.surfacebuilders.BOPSurfaceBuilders;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -39,7 +40,7 @@ public class OriginValleyBiome extends BiomeTemplate
     @Override
     protected void configureGeneration(BiomeGenerationSettings.Builder builder)
     {
-        builder.surfaceBuilder(new ConfiguredSurfaceBuilder(BOPSurfaceBuilders.ORIGIN_VALLEY, BOPSurfaceBuilders.ORIGIN_GRASS_SURFACE));
+        builder.surfaceBuilder(BOPConfiguredSurfaceBuilders.ORIGIN_VALLEY);
 
         // Underground
         builder.addCarver(GenerationStage.Carving.AIR, BOPConfiguredCarvers.ORIGIN_CAVE);

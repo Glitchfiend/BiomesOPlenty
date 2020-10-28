@@ -9,6 +9,7 @@ package biomesoplenty.common.biome.overworld;
 
 import biomesoplenty.common.biome.BiomeTemplate;
 import biomesoplenty.common.world.gen.feature.BOPConfiguredFeatures;
+import biomesoplenty.common.world.gen.surfacebuilders.BOPConfiguredSurfaceBuilders;
 import biomesoplenty.common.world.gen.surfacebuilders.BOPSurfaceBuilders;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -37,8 +38,7 @@ public class TropicBeachBiome extends BiomeTemplate
     @Override
     protected void configureGeneration(BiomeGenerationSettings.Builder builder)
     {
-        builder.surfaceBuilder(new ConfiguredSurfaceBuilder(BOPSurfaceBuilders.TROPICS, BOPSurfaceBuilders.WHITE_SAND_SURFACE));
-
+        builder.surfaceBuilder(BOPConfiguredSurfaceBuilders.TROPIC_BEACH);
 
         // Structures
         builder.addStructureStart(StructureFeatures.BURIED_TREASURE);

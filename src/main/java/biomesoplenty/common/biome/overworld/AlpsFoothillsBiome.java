@@ -9,6 +9,7 @@ package biomesoplenty.common.biome.overworld;
 
 import biomesoplenty.common.biome.BiomeTemplate;
 import biomesoplenty.common.world.gen.feature.BOPConfiguredFeatures;
+import biomesoplenty.common.world.gen.surfacebuilders.BOPConfiguredSurfaceBuilders;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
@@ -36,7 +37,7 @@ public class AlpsFoothillsBiome extends BiomeTemplate
     @Override
     protected void configureGeneration(BiomeGenerationSettings.Builder builder)
     {
-        builder.surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.CONFIG_STONE));
+        builder.surfaceBuilder(BOPConfiguredSurfaceBuilders.ALPS_FOOTHILLS);
 
         // Structures
         DefaultBiomeFeatures.addDefaultOverworldLandStructures(builder);
