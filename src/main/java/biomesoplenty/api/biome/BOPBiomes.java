@@ -30,10 +30,13 @@ public class BOPBiomes
     public static RegistryKey<Biome> dry_boneyard = register("dry_boneyard");
     public static RegistryKey<Biome> fir_clearing = register("fir_clearing");
     public static RegistryKey<Biome> flower_meadow = register("flower_meadow");
+    public static RegistryKey<Biome> frozen_glacier = register("frozen_glacier");
+    public static RegistryKey<Biome> frozen_wonderland = register("frozen_wonderland");
     public static RegistryKey<Biome> fungal_jungle = register("fungal_jungle");
     public static RegistryKey<Biome> golden_prairie = register("golden_prairie");
     public static RegistryKey<Biome> gravel_beach = register("gravel_beach");
     public static RegistryKey<Biome> grove = register("grove");
+    public static RegistryKey<Biome> grove_clearing = register("grove_clearing");
     public static RegistryKey<Biome> grove_lakes = register("grove_lakes");
     public static RegistryKey<Biome> highland = register("highland");
     public static RegistryKey<Biome> highland_crag = register("highland_crag");
@@ -56,8 +59,8 @@ public class BOPBiomes
     public static RegistryKey<Biome> prairie = register("prairie");
     public static RegistryKey<Biome> rainbow_hills = register("rainbow_hills");
     public static RegistryKey<Biome> rainforest = register("rainforest");
-    public static RegistryKey<Biome> rainforest_clearing = register("rainforest_clearing");
     public static RegistryKey<Biome> rainforest_cliffs = register("rainforest_cliffs");
+    public static RegistryKey<Biome> rainforest_floodplain = register("rainforest_floodplain");
     public static RegistryKey<Biome> redwood_forest = register("redwood_forest");
     public static RegistryKey<Biome> redwood_forest_edge = register("redwood_forest_edge");
     public static RegistryKey<Biome> redwood_hills = register("redwood_hills");

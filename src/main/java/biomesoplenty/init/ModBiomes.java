@@ -139,9 +139,12 @@ public class ModBiomes
         registerBiome(new DryBoneyardBiome(), "dry_boneyard");
         registerBiome(new FirClearingBiome(), "fir_clearing");
         registerBiome(new FlowerMeadowBiome(), "flower_meadow");
+        registerBiome(new FrozenGlacierBiome(), "frozen_glacier");
+        registerBiome(new FrozenWonderlandBiome(), "frozen_wonderland");
         registerBiome(new FungalJungleBiome(), "fungal_jungle");
         registerBiome(new GoldenPrairieBiome(), "golden_prairie");
         registerBiome(new GroveBiome(), "grove");
+        registerBiome(new GroveClearingBiome(), "grove_clearing");
         registerBiome(new GroveLakesBiome(), "grove_lakes");
         registerBiome(new HighlandBiome(), "highland");
         registerBiome(new HighlandCragBiome(), "highland_crag");
@@ -163,8 +166,8 @@ public class ModBiomes
         registerBiome(new PrairieBiome(), "prairie");
         registerBiome(new RainbowHillsBiome(), "rainbow_hills");
         registerBiome(new RainforestBiome(), "rainforest");
-        registerBiome(new RainforestClearingBiome(), "rainforest_clearing");
         registerBiome(new RainforestCliffsBiome(), "rainforest_cliffs");
+        registerBiome(new RainforestFloodplainBiome(), "rainforest_floodplain");
         registerBiome(new RedwoodForestBiome(), "redwood_forest");
         registerBiome(new RedwoodHillsBiome(), "redwood_hills");
         registerBiome(new ScrublandBiome(), "scrubland");
@@ -211,9 +214,12 @@ public class ModBiomes
 
         registerSubBiome(dryland, dry_boneyard, 0.75F, 100);
 
-        registerSubBiome(fungal_jungle, overgrown_fungal_jungle, 0.8F, 100);
+        registerSubBiome(frozen_wonderland, frozen_glacier, 0.55F, 100);
 
-        registerSubBiome(grove, grove_lakes, 0.75F, 100);
+        registerSubBiome(fungal_jungle, overgrown_fungal_jungle, 0.65F, 100);
+
+        registerSubBiome(grove, grove_clearing, 1.0F, 100);
+        registerSubBiome(grove, grove_lakes, 1.0F, 100);
 
         registerSubBiome(highland, highland_crag, 1.25F, 100);
         registerSubBiome(highland, highland_moor, 0.75F, 100);
@@ -234,7 +240,7 @@ public class ModBiomes
         registerSubBiome(prairie, golden_prairie, 1.0F, 100);
 
         registerSubBiome(rainforest, rainforest_cliffs, 2.0F, 100);
-        registerSubBiome(rainforest, rainforest_clearing, 2.0F, 100);
+        registerSubBiome(rainforest, rainforest_floodplain, 2.0F, 100);
 
         registerSubBiome(redwood_forest, redwood_hills, 0.75F, 100);
 
@@ -327,10 +333,13 @@ public class ModBiomes
         registerVillagerType(dry_boneyard, VillagerType.PLAINS);
         registerVillagerType(fir_clearing, VillagerType.TAIGA);
         registerVillagerType(flower_meadow, VillagerType.TAIGA);
+        registerVillagerType(frozen_glacier, VillagerType.SNOW);
+        registerVillagerType(frozen_wonderland, VillagerType.SNOW);
         registerVillagerType(fungal_jungle, VillagerType.JUNGLE);
         registerVillagerType(golden_prairie, VillagerType.PLAINS);
         registerVillagerType(gravel_beach, VillagerType.PLAINS);
         registerVillagerType(grove, VillagerType.PLAINS);
+        registerVillagerType(grove_clearing, VillagerType.PLAINS);
         registerVillagerType(grove_lakes, VillagerType.PLAINS);
         registerVillagerType(highland, VillagerType.PLAINS);
         registerVillagerType(highland_crag, VillagerType.PLAINS);
@@ -352,8 +361,8 @@ public class ModBiomes
         registerVillagerType(prairie, VillagerType.PLAINS);
         registerVillagerType(rainbow_hills, VillagerType.PLAINS);
         registerVillagerType(rainforest, VillagerType.JUNGLE);
-        registerVillagerType(rainforest_clearing, VillagerType.JUNGLE);
         registerVillagerType(rainforest_cliffs, VillagerType.JUNGLE);
+        registerVillagerType(rainforest_floodplain, VillagerType.JUNGLE);
         registerVillagerType(redwood_forest, VillagerType.PLAINS);
         registerVillagerType(redwood_forest_edge, VillagerType.PLAINS);
         registerVillagerType(redwood_hills, VillagerType.PLAINS);

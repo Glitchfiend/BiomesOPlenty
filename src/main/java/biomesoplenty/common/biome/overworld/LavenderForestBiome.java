@@ -40,7 +40,6 @@ public class LavenderForestBiome extends BiomeTemplate
 
         // Structures
         DefaultBiomeFeatures.addDefaultOverworldLandStructures(builder);
-        builder.addStructureStart(StructureFeatures.RUINED_PORTAL_STANDARD);
 
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(builder);

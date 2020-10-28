@@ -142,7 +142,6 @@ public class BOPFeatures
 	public static final Feature<NoFeatureConfig> SMALL_TOADSTOOL = register("small_toadstool", new SmallToadstoolFeature(NoFeatureConfig.CODEC.stable()));
 	public static final Feature<NoFeatureConfig> STANDARD_GRASS = register("standard_grass", new StandardGrassFeature(NoFeatureConfig.CODEC.stable()));
 	public static final Feature<NoFeatureConfig> WASTELAND_GRASS = register("wasteland_grass", new WastelandGrassFeature(NoFeatureConfig.CODEC.stable()));
-	public static final Feature<ColumnConfig> BLACK_SANDSTONE_COLUMN = register("black_sandstone_column", new BlackSandstoneColumnFeature(ColumnConfig.CODEC.stable()));
 
 	//Flowers
 	public static final FlowersFeature<NoFeatureConfig> CHERRY_BLOSSOM_GROVE_FLOWERS = register("cherry_blossom_grove_flowers", new CherryBlossomGroveFlowersFeature());
@@ -170,7 +169,7 @@ public class BOPFeatures
 
 	//Other
 	public static final LiquidsConfig VOLCANO_SPRING_CONFIG = new LiquidsConfig(Fluids.LAVA.defaultFluidState(), true, 4, 1, ImmutableSet.of(Blocks.BASALT, Blocks.MAGMA_BLOCK, BOPBlocks.black_sand, BOPBlocks.black_sandstone, Blocks.STONE, Blocks.GRANITE, Blocks.DIORITE, Blocks.ANDESITE));
-	public static final LiquidsConfig OVERGROWN_CLIFFS_SPRING_CONFIG = new LiquidsConfig(Fluids.WATER.defaultFluidState(), true, 4, 1, ImmutableSet.of(Blocks.DIRT, Blocks.TERRACOTTA, Blocks.STONE, Blocks.GRANITE, Blocks.DIORITE, Blocks.ANDESITE, BOPBlocks.orange_sandstone));
+	public static final LiquidsConfig WATER_SPRING_EXTRA_CONFIG = new LiquidsConfig(Fluids.WATER.defaultFluidState(), true, 4, 1, ImmutableSet.of(Blocks.DIRT, Blocks.TERRACOTTA, Blocks.STONE, Blocks.GRANITE, Blocks.DIORITE, Blocks.ANDESITE, BOPBlocks.orange_sandstone));
 
 	private static <C extends IFeatureConfig, F extends Feature<C>> F register(String key, F value)
 	{

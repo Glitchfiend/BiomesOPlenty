@@ -10,6 +10,7 @@ package biomesoplenty.common.biome.overworld;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.BiomeTemplate;
 import biomesoplenty.common.world.gen.feature.BOPConfiguredFeatures;
+import biomesoplenty.common.world.gen.surfacebuilders.BOPSurfaceBuilders;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
@@ -29,7 +30,7 @@ public class DryBoneyardBiome extends BiomeTemplate
     @Override
     protected void configureBiome(Biome.Builder builder)
     {
-        builder.precipitation(Biome.RainType.NONE).biomeCategory(Biome.Category.PLAINS).depth(0.1F).scale(0.1F).temperature(0.7F).downfall(0.05F);
+        builder.precipitation(Biome.RainType.NONE).biomeCategory(Biome.Category.SAVANNA).depth(0.1F).scale(0.1F).temperature(0.7F).downfall(0.05F);
 
         builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(0x9E9DFF).grassColorOverride(0xE5DFA9).foliageColorOverride(0xDAE0B3).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
@@ -37,7 +38,7 @@ public class DryBoneyardBiome extends BiomeTemplate
     @Override
     protected void configureGeneration(BiomeGenerationSettings.Builder builder)
     {
-        builder.surfaceBuilder(new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.CONFIG_GRASS));
+        builder.surfaceBuilder(new ConfiguredSurfaceBuilder(BOPSurfaceBuilders.DRYLAND, SurfaceBuilder.CONFIG_GRASS));
 
         // Structures
         DefaultBiomeFeatures.addDefaultOverworldLandStructures(builder);

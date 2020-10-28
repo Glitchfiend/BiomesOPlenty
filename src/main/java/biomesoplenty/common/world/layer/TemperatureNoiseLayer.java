@@ -38,8 +38,8 @@ public enum TemperatureNoiseLayer implements IBOPAreaTransformer0
         // If the seed has changed, re-initialize offsets
         if (this.seed != seed) {
             Random random = new Random(seed + 123);
-            this.xOffset = random.nextDouble() * 128;
-            this.zOffset = random.nextDouble() * 128;
+            this.xOffset = (random.nextDouble() - 0.5) * 8192;
+            this.zOffset = (random.nextDouble() - 0.5) * 8192;
             this.seed = seed;
         }
 

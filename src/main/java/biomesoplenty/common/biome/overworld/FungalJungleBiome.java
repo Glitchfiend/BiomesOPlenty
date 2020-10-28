@@ -31,9 +31,9 @@ public class FungalJungleBiome extends BiomeTemplate
     @Override
     protected void configureBiome(Biome.Builder builder)
     {
-        builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.FOREST).depth(0.15F).scale(0.1F).temperature(0.85F).downfall(0.8F);
+        builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.JUNGLE).depth(0.15F).scale(0.1F).temperature(0.9F).downfall(0.9F);
 
-        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4445678).waterFogColor(270131).fogColor(12638463).skyColor(calculateSkyColor(0.85F)).grassColorOverride(0x4AA2F9).foliageColorOverride(0x4ADCF9).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
+        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4445678).waterFogColor(270131).fogColor(12638463).skyColor(calculateSkyColor(0.9F)).grassColorOverride(0x4AA2F9).foliageColorOverride(0x4ADCF9).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
 
     @Override
@@ -43,7 +43,6 @@ public class FungalJungleBiome extends BiomeTemplate
 
         // Structures
         DefaultBiomeFeatures.addDefaultOverworldLandStructures(builder);
-        builder.addStructureStart(StructureFeatures.RUINED_PORTAL_JUNGLE);
 
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(builder);

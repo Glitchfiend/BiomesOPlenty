@@ -110,6 +110,18 @@
                 "biome": "biomesoplenty:flower_meadow"
             }
         },
+		"frozen_glacier": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:frozen_glacier"
+            }
+        },
+		"frozen_wonderland": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:frozen_wonderland"
+            }
+        },
 		"fungal_jungle": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -132,6 +144,12 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:grove"
+            }
+        },
+		"grove_clearing": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:grove_clearing"
             }
         },
 		"grove_lakes": {
@@ -266,16 +284,16 @@
                 "biome": "biomesoplenty:rainforest"
             }
         },
-		"rainforest_clearing": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:rainforest_clearing"
-            }
-        },
 		"rainforest_cliffs": {
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:rainforest_cliffs"
+            }
+        },
+		"rainforest_floodplain": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:rainforest_floodplain"
             }
         },
 		"redwood_forest": {
@@ -471,10 +489,13 @@
 			"dry_boneyard",
 			"fir_clearing",
 			"flower_meadow",
+			"frozen_glacier",
+			"frozen_wonderland",
 			"fungal_jungle",
 			"golden_prairie",
 			"gravel_beach",
 			"grove",
+			"grove_clearing",
 			"grove_lakes",
 			"highland",
 			"highland_crag",
@@ -497,8 +518,8 @@
 			"prairie",
 			"rainbow_hills",
 			"rainforest",
-			"rainforest_clearing",
 			"rainforest_cliffs",
+			"rainforest_floodplain",
 			"redwood_forest",
 			"redwood_forest_edge",
 			"redwood_hills",

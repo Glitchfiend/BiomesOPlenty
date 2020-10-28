@@ -21,7 +21,7 @@ public class VisceralHeapBiome extends NetherBiomeTemplate
 {
     public VisceralHeapBiome()
     {
-        this.addWeight(BOPClimates.NETHER, 9);
+        this.addWeight(BOPClimates.NETHER, 7);
     }
 
     @Override

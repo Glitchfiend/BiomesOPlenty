@@ -42,7 +42,6 @@ public class LushSavannaBiome extends BiomeTemplate
 
         // Structures
         DefaultBiomeFeatures.addDefaultOverworldLandStructures(builder);
-        builder.addStructureStart(StructureFeatures.RUINED_PORTAL_DESERT);
 
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(builder);

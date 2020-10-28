@@ -19,7 +19,7 @@ public class WitheredAbyssBiome extends NetherBiomeTemplate
 {
     public WitheredAbyssBiome()
     {
-        this.addWeight(BOPClimates.NETHER, 7);
+        this.addWeight(BOPClimates.NETHER, 3);
     }
 
     @Override
@@ -36,7 +36,6 @@ public class WitheredAbyssBiome extends NetherBiomeTemplate
         builder.surfaceBuilder(new ConfiguredSurfaceBuilder(BOPSurfaceBuilders.WITHERED_ABYSS, BOPSurfaceBuilders.BLACKSTONE_SURFACE));
 
         //Terrain
-        builder.addStructureStart(StructureFeatures.RUINED_PORTAL_NETHER);
         builder.addStructureStart(StructureFeatures.NETHER_BRIDGE);
         builder.addStructureStart(StructureFeatures.BASTION_REMNANT);
         builder.addCarver(GenerationStage.Carving.AIR, ConfiguredCarvers.NETHER_CAVE);
@@ -52,6 +51,7 @@ public class WitheredAbyssBiome extends NetherBiomeTemplate
     {
         //Entities
         builder.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 1, 4, 4));
+        builder.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMITE, 1, 1, 1));
         builder.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.WITHER_SKELETON, 1, 1, 1));
     }
 }

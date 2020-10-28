@@ -30,7 +30,9 @@ public class BOPSurfaceBuilders
     public static final SurfaceBuilderConfig BLACK_SAND_SURFACE = new SurfaceBuilderConfig(BOPBlocks.black_sand.defaultBlockState(), BOPBlocks.black_sand.defaultBlockState(), BOPBlocks.black_sand.defaultBlockState());
     public static final SurfaceBuilderConfig DRIED_SALT_SURFACE = new SurfaceBuilderConfig(BOPBlocks.dried_salt.defaultBlockState(), BOPBlocks.dried_salt.defaultBlockState(), BOPBlocks.dried_salt.defaultBlockState());
     public static final SurfaceBuilderConfig ORIGIN_GRASS_SURFACE = new SurfaceBuilderConfig(BOPBlocks.origin_grass_block.defaultBlockState(), Blocks.DIRT.defaultBlockState(), Blocks.GRAVEL.defaultBlockState());
+    public static final SurfaceBuilderConfig GLACIER_SURFACE = new SurfaceBuilderConfig(Blocks.ICE.defaultBlockState(), Blocks.PACKED_ICE.defaultBlockState(), Blocks.PACKED_ICE.defaultBlockState());
 
+    public static final SurfaceBuilder<SurfaceBuilderConfig> DRYLAND = register("dryland", new DrylandSurfaceBuilder(SurfaceBuilderConfig.CODEC.stable()));
     public static final SurfaceBuilder<SurfaceBuilderConfig> HIGHLAND_CRAG = register("highland_crag", new HighlandCragSurfaceBuilder(SurfaceBuilderConfig.CODEC.stable()));
     public static final SurfaceBuilder<SurfaceBuilderConfig> EXPOSED_STONE = register("exposed_stone", new ExposedStoneSurfaceBuilder(SurfaceBuilderConfig.CODEC.stable()));
     public static final SurfaceBuilder<SurfaceBuilderConfig> TERRACOTTA = register("terracotta", new TerracottaSurfaceBuilder(SurfaceBuilderConfig.CODEC.stable()));

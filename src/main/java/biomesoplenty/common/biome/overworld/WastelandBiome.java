@@ -31,7 +31,7 @@ public class WastelandBiome extends BiomeTemplate
     @Override
     protected void configureBiome(Biome.Builder builder)
     {
-        builder.precipitation(Biome.RainType.NONE).biomeCategory(Biome.Category.DESERT).depth(0.0F).scale(-0.1F).temperature(2.0F).downfall(0.0F);
+        builder.precipitation(Biome.RainType.NONE).biomeCategory(Biome.Category.DESERT).depth(0.0F).scale(-0.11F).temperature(2.0F).downfall(0.0F);
 
         builder.specialEffects((new BiomeAmbience.Builder()).waterColor(0x433721).waterFogColor(0x0C0C03).fogColor(0xDBDDC1).skyColor(0x70ADEF).grassColorOverride(0xAD9364).foliageColorOverride(0xB5A76C).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
