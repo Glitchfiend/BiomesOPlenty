@@ -43,7 +43,7 @@ public class BOPNetherBiomeProvider extends BiomeProvider
 
     public BOPNetherBiomeProvider(long seed, Registry<Biome> biomes)
     {
-        super(Stream.concat(VANILLA_POSSIBLE_BIOMES.stream(), BOPClimates.NETHER.getLandBiomes().stream().map((entry) -> entry.biome)).map(BiomeUtil::getBiome).collect(Collectors.toList()));
+        super(Stream.concat(VANILLA_POSSIBLE_BIOMES.stream(), BOPClimates.NETHER.getLandBiomes().stream().map((entry) -> entry.biome)).map(biomes::get).collect(Collectors.toList()));
         this.seed = seed;
         this.noiseBiomeLayer = BOPNetherLayerUtil.createGenLayers(seed);
         this.biomes = biomes;

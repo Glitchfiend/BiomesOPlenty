@@ -92,7 +92,14 @@ public class GuiEventHandler
         if (isDataReadScreen(gui) && levelId != null && confirmScreen != null)
         {
             // Skip the confirm screen if this is the bop world type
-            if (isBopWorldType(mc, levelId))
+            //
+            // isBopWorldType is commented out because worldDataLoader.apply in createPackManager
+            // will break when any mod or datapack is on that uses json dimensiontypes. Why?
+            // I don't know. Might be due to being on the client thread instead of server? Maybe it
+            // is because this is being run before the server is made? Nevertheless, it may be best
+            // to just cancel the confirm screen completely or recommend people to use a different mod
+            // to always remove the confirm screen.
+            if (true) // isBopWorldType(mc, levelId))
             {
                 confirmScreen.listener.proceed(false, false);
             }
