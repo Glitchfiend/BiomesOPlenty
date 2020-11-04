@@ -19,6 +19,7 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.feature.*;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class BOPFeatures
 {
@@ -173,6 +174,8 @@ public class BOPFeatures
 
 	private static <C extends IFeatureConfig, F extends Feature<C>> F register(String key, F value)
 	{
-		return Registry.register(Registry.FEATURE, new ResourceLocation(BiomesOPlenty.MOD_ID, key), value);
+		value.setRegistryName(new ResourceLocation(BiomesOPlenty.MOD_ID, key));
+		ForgeRegistries.FEATURES.register(value);
+		return value;
 	}
 }

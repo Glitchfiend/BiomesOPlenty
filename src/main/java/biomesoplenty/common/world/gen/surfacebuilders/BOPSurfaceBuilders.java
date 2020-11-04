@@ -15,6 +15,7 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.surfacebuilders.ISurfaceBuilderConfig;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class BOPSurfaceBuilders
 {
@@ -24,13 +25,13 @@ public class BOPSurfaceBuilders
     public static final SurfaceBuilderConfig DIORITE_SURFACE = new SurfaceBuilderConfig(Blocks.DIORITE.defaultBlockState(), Blocks.DIORITE.defaultBlockState(), Blocks.DIORITE.defaultBlockState());
     public static final SurfaceBuilderConfig MAGMA_SURFACE = new SurfaceBuilderConfig(Blocks.MAGMA_BLOCK.defaultBlockState(), Blocks.MAGMA_BLOCK.defaultBlockState(), Blocks.BASALT.defaultBlockState());
     public static final SurfaceBuilderConfig SNOW_SNOW_GRAVEL_SURFACE = new SurfaceBuilderConfig(Blocks.SNOW_BLOCK.defaultBlockState(), Blocks.SNOW_BLOCK.defaultBlockState(), Blocks.GRAVEL.defaultBlockState());
+    public static final SurfaceBuilderConfig MUD_SURFACE = new SurfaceBuilderConfig(BOPBlocks.mud.defaultBlockState(), BOPBlocks.mud.defaultBlockState(), BOPBlocks.mud.defaultBlockState());
     public static final SurfaceBuilderConfig WHITE_SAND_SURFACE = new SurfaceBuilderConfig(BOPBlocks.white_sand.defaultBlockState(), BOPBlocks.white_sand.defaultBlockState(), BOPBlocks.white_sand.defaultBlockState());
     public static final SurfaceBuilderConfig ORANGE_SAND_SURFACE = new SurfaceBuilderConfig(BOPBlocks.orange_sand.defaultBlockState(), BOPBlocks.orange_sand.defaultBlockState(), BOPBlocks.orange_sand.defaultBlockState());
     public static final SurfaceBuilderConfig ORANGE_SANDSTONE_SURFACE = new SurfaceBuilderConfig(BOPBlocks.orange_sandstone.defaultBlockState(), BOPBlocks.orange_sandstone.defaultBlockState(), BOPBlocks.orange_sandstone.defaultBlockState());
     public static final SurfaceBuilderConfig BLACK_SAND_SURFACE = new SurfaceBuilderConfig(BOPBlocks.black_sand.defaultBlockState(), BOPBlocks.black_sand.defaultBlockState(), BOPBlocks.black_sand.defaultBlockState());
     public static final SurfaceBuilderConfig DRIED_SALT_SURFACE = new SurfaceBuilderConfig(BOPBlocks.dried_salt.defaultBlockState(), BOPBlocks.dried_salt.defaultBlockState(), BOPBlocks.dried_salt.defaultBlockState());
     public static final SurfaceBuilderConfig ORIGIN_GRASS_SURFACE = new SurfaceBuilderConfig(BOPBlocks.origin_grass_block.defaultBlockState(), Blocks.DIRT.defaultBlockState(), Blocks.GRAVEL.defaultBlockState());
-    public static final SurfaceBuilderConfig GLACIER_SURFACE = new SurfaceBuilderConfig(Blocks.ICE.defaultBlockState(), Blocks.PACKED_ICE.defaultBlockState(), Blocks.PACKED_ICE.defaultBlockState());
 
     public static final SurfaceBuilder<SurfaceBuilderConfig> DRYLAND = register("dryland", new DrylandSurfaceBuilder(SurfaceBuilderConfig.CODEC.stable()));
     public static final SurfaceBuilder<SurfaceBuilderConfig> HIGHLAND_CRAG = register("highland_crag", new HighlandCragSurfaceBuilder(SurfaceBuilderConfig.CODEC.stable()));
@@ -52,6 +53,8 @@ public class BOPSurfaceBuilders
 
     private static <C extends ISurfaceBuilderConfig, F extends SurfaceBuilder<C>> F register(String key, F builder)
     {
-        return Registry.register(Registry.SURFACE_BUILDER, new ResourceLocation(BiomesOPlenty.MOD_ID, key), builder);
+        builder.setRegistryName(new ResourceLocation(BiomesOPlenty.MOD_ID, key));
+        ForgeRegistries.SURFACE_BUILDERS.register(builder);
+        return builder;
     }
 }

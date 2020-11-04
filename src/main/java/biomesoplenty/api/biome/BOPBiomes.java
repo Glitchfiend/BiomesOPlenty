@@ -30,8 +30,7 @@ public class BOPBiomes
     public static RegistryKey<Biome> dry_boneyard = register("dry_boneyard");
     public static RegistryKey<Biome> fir_clearing = register("fir_clearing");
     public static RegistryKey<Biome> flower_meadow = register("flower_meadow");
-    public static RegistryKey<Biome> frozen_glacier = register("frozen_glacier");
-    public static RegistryKey<Biome> frozen_wonderland = register("frozen_wonderland");
+    public static RegistryKey<Biome> fungal_field = register("fungal_field");
     public static RegistryKey<Biome> fungal_jungle = register("fungal_jungle");
     public static RegistryKey<Biome> golden_prairie = register("golden_prairie");
     public static RegistryKey<Biome> gravel_beach = register("gravel_beach");

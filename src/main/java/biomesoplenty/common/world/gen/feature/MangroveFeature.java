@@ -35,39 +35,42 @@ public class MangroveFeature extends Feature<NoFeatureConfig> {
 				world.setBlock(blockpos, blockstate, 2);
 				((DoublePlantBlock)blockstate.getBlock()).placeAt(world, blockpos, 2);
 
-				BlockPos leaves1 = blockpos.above().above();
-				BlockPos leaves2 = leaves1.north();
-				BlockPos leaves3 = leaves1.south();
-				BlockPos leaves4 = leaves1.east();
-				BlockPos leaves5 = leaves1.west();
-				BlockPos leaves6 = leaves1.above();
-
-				if (world.getBlockState(leaves1).canBeReplacedByLeaves(world, leaves1))
+				if (rand.nextInt(5) != 0)
 				{
-					world.setBlock(leaves1, Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2);
-				}
+					BlockPos leaves1 = blockpos.above().above();
+					BlockPos leaves2 = leaves1.north();
+					BlockPos leaves3 = leaves1.south();
+					BlockPos leaves4 = leaves1.east();
+					BlockPos leaves5 = leaves1.west();
+					BlockPos leaves6 = leaves1.above();
 
-				if (rand.nextInt(2) == 0)
-				{
-					if (world.getBlockState(leaves2).canBeReplacedByLeaves(world, leaves2))
+					if (world.getBlockState(leaves1).canBeReplacedByLeaves(world, leaves1))
 					{
-						world.setBlock(leaves2, Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2);
+						world.setBlock(leaves1, Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2);
 					}
-					if (world.getBlockState(leaves3).canBeReplacedByLeaves(world, leaves3))
+
+					if (rand.nextInt(2) == 0)
 					{
-						world.setBlock(leaves3, Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2);
-					}
-					if (world.getBlockState(leaves4).canBeReplacedByLeaves(world, leaves4))
-					{
-						world.setBlock(leaves4, Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2);
-					}
-					if (world.getBlockState(leaves5).canBeReplacedByLeaves(world, leaves5))
-					{
-						world.setBlock(leaves5, Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2);
-					}
-					if (world.getBlockState(leaves6).canBeReplacedByLeaves(world, leaves6))
-					{
-						world.setBlock(leaves6, Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2);
+						if (world.getBlockState(leaves2).canBeReplacedByLeaves(world, leaves2))
+						{
+							world.setBlock(leaves2, Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2);
+						}
+						if (world.getBlockState(leaves3).canBeReplacedByLeaves(world, leaves3))
+						{
+							world.setBlock(leaves3, Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2);
+						}
+						if (world.getBlockState(leaves4).canBeReplacedByLeaves(world, leaves4))
+						{
+							world.setBlock(leaves4, Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2);
+						}
+						if (world.getBlockState(leaves5).canBeReplacedByLeaves(world, leaves5))
+						{
+							world.setBlock(leaves5, Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2);
+						}
+						if (world.getBlockState(leaves6).canBeReplacedByLeaves(world, leaves6))
+						{
+							world.setBlock(leaves6, Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2);
+						}
 					}
 				}
 				++i;

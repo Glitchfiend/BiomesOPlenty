@@ -11,6 +11,7 @@ import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.BiomeTemplate;
 import biomesoplenty.common.world.gen.feature.BOPConfiguredFeatures;
+import biomesoplenty.common.world.gen.surfacebuilders.BOPConfiguredSurfaceBuilders;
 import biomesoplenty.common.world.gen.surfacebuilders.BOPSurfaceBuilders;
 import biomesoplenty.init.ModEntities;
 import net.minecraft.entity.EntityClassification;
@@ -40,7 +41,7 @@ public class ConiferousLakesBiome extends BiomeTemplate
     @Override
     protected void configureGeneration(BiomeGenerationSettings.Builder builder)
     {
-        builder.surfaceBuilder(new ConfiguredSurfaceBuilder(BOPSurfaceBuilders.EXPOSED_STONE, SurfaceBuilder.CONFIG_GRASS));
+        builder.surfaceBuilder(BOPConfiguredSurfaceBuilders.EXPOSED_STONE);
 
         // Structures
         DefaultBiomeFeatures.addDefaultOverworldLandStructures(builder);

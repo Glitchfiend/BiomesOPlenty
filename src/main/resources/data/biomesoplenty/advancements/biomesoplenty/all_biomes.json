@@ -111,16 +111,10 @@
                 "biome": "biomesoplenty:flower_meadow"
             }
         },
-		"frozen_glacier": {
+		"fungal_field": {
             "trigger": "minecraft:location",
             "conditions": {
-                "biome": "biomesoplenty:frozen_glacier"
-            }
-        },
-		"frozen_wonderland": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:frozen_wonderland"
+                "biome": "biomesoplenty:fungal_field"
             }
         },
 		"fungal_jungle": {

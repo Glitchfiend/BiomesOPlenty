@@ -123,7 +123,7 @@ public class ModBiomes
         BiomeRegistry.finalizeRegistrations(BiomeRegistry.RegistrationType.TECHNICAL_BIOME);
 
         // Both a standard biome and a technical biome
-        registerBiome(new BayouMangrove(), "bayou_mangrove");
+        registerBiome(new BayouMangroveBiome(), "bayou_mangrove");
 
         //Overworld Biomes
     	registerBiome(new AlpsBiome(), "alps");
@@ -139,8 +139,7 @@ public class ModBiomes
         registerBiome(new DryBoneyardBiome(), "dry_boneyard");
         registerBiome(new FirClearingBiome(), "fir_clearing");
         registerBiome(new FlowerMeadowBiome(), "flower_meadow");
-        registerBiome(new FrozenGlacierBiome(), "frozen_glacier");
-        registerBiome(new FrozenWonderlandBiome(), "frozen_wonderland");
+        registerBiome(new FungalFieldBiome(), "fungal_field");
         registerBiome(new FungalJungleBiome(), "fungal_jungle");
         registerBiome(new GoldenPrairieBiome(), "golden_prairie");
         registerBiome(new GroveBiome(), "grove");
@@ -214,8 +213,7 @@ public class ModBiomes
 
         registerSubBiome(dryland, dry_boneyard, 0.75F, 100);
 
-        registerSubBiome(frozen_wonderland, frozen_glacier, 0.55F, 100);
-
+        registerSubBiome(fungal_jungle, fungal_field, 0.9F, 100);
         registerSubBiome(fungal_jungle, overgrown_fungal_jungle, 0.65F, 100);
 
         registerSubBiome(grove, grove_clearing, 1.0F, 100);
@@ -333,8 +331,7 @@ public class ModBiomes
         registerVillagerType(dry_boneyard, VillagerType.PLAINS);
         registerVillagerType(fir_clearing, VillagerType.TAIGA);
         registerVillagerType(flower_meadow, VillagerType.TAIGA);
-        registerVillagerType(frozen_glacier, VillagerType.SNOW);
-        registerVillagerType(frozen_wonderland, VillagerType.SNOW);
+        registerVillagerType(fungal_field, VillagerType.JUNGLE);
         registerVillagerType(fungal_jungle, VillagerType.JUNGLE);
         registerVillagerType(golden_prairie, VillagerType.PLAINS);
         registerVillagerType(gravel_beach, VillagerType.PLAINS);

@@ -14,6 +14,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.feature.FeatureSpreadConfig;
 import net.minecraft.world.gen.placement.*;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class BOPPlacements
 {
@@ -22,6 +23,8 @@ public class BOPPlacements
 
     private static <T extends IPlacementConfig, G extends Placement<T>> G register(String key, G placement)
     {
-        return Registry.register(Registry.DECORATOR, new ResourceLocation(BiomesOPlenty.MOD_ID, key), placement);
+        placement.setRegistryName(new ResourceLocation(BiomesOPlenty.MOD_ID, key));
+        ForgeRegistries.DECORATORS.register(placement);
+        return placement;
     }
 }
