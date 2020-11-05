@@ -413,7 +413,7 @@ public class BiomeRegistry
                 return;
             }
 
-            biome.setRegistryName(name);
+            biome.setRegistryName(new ResourceLocation(BiomesOPlenty.MOD_ID, name));
             ForgeRegistries.BIOMES.register(biome);
 
             if (data.getMetadata() != null)
