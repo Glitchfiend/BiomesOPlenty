@@ -17,7 +17,7 @@ public class BOPBiomes
 {
     public static RegistryKey<Biome> alps = register("alps");
     public static RegistryKey<Biome> alps_foothills = register("alps_foothills");
-    public static RegistryKey<Biome> bamboo_grove = register("bamboo_grove");
+    public static RegistryKey<Biome> bamboo_blossom_grove = register("bamboo_blossom_grove");
     public static RegistryKey<Biome> bayou = register("bayou");
     public static RegistryKey<Biome> bayou_mangrove = register("bayou_mangrove");
     public static RegistryKey<Biome> cherry_blossom_grove = register("cherry_blossom_grove");

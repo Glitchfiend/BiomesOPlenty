@@ -20,9 +20,9 @@ import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilders;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
-public class BambooGroveBiome extends BiomeTemplate
+public class BambooBlossomGroveBiome extends BiomeTemplate
 {
-    public BambooGroveBiome()
+    public BambooBlossomGroveBiome()
     {
     }
 
@@ -53,7 +53,7 @@ public class BambooGroveBiome extends BiomeTemplate
         ////////////////////////////////////////////////////////////
 
         // Vegetation
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.BAMBOO_GROVE_TREES);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.BAMBOO_BLOSSOM_GROVE_TREES);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.CHERRY_BLOSSOM_GROVE_FLOWERS);
 
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.LILAC_2);

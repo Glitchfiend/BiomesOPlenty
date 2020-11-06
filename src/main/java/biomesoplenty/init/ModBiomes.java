@@ -127,7 +127,7 @@ public class ModBiomes
 
         //Overworld Biomes
     	registerBiome(new AlpsBiome(), "alps");
-        registerBiome(new BambooGroveBiome(), "bamboo_grove");
+        registerBiome(new BambooBlossomGroveBiome(), "bamboo_blossom_grove");
     	registerBiome(new BayouBiome(), "bayou");
     	registerBiome(new CherryBlossomGroveBiome(), "cherry_blossom_grove");
         registerBiome(new ConiferousForestBiome(), "coniferous_forest");
@@ -204,7 +204,7 @@ public class ModBiomes
         registerSubBiome(bayou, deep_bayou, 1.0F, 100);
         registerSubBiome(bayou, bayou_mangrove, 1.0F, 100);
 
-        registerSubBiome(cherry_blossom_grove, bamboo_grove, 0.8F, 100);
+        registerSubBiome(cherry_blossom_grove, bamboo_blossom_grove, 0.8F, 100);
 
         registerSubBiome(coniferous_forest, fir_clearing, 0.75F, 100);
         registerSubBiome(coniferous_forest, coniferous_lakes, 1.0F, 100);
@@ -318,7 +318,7 @@ public class ModBiomes
     {
         registerVillagerType(alps, VillagerType.SNOW);
         registerVillagerType(alps_foothills, VillagerType.SNOW);
-        registerVillagerType(bamboo_grove, VillagerType.PLAINS);
+        registerVillagerType(bamboo_blossom_grove, VillagerType.PLAINS);
         registerVillagerType(bayou, VillagerType.SWAMP);
         registerVillagerType(bayou_mangrove, VillagerType.SWAMP);
         registerVillagerType(cherry_blossom_grove, VillagerType.PLAINS);

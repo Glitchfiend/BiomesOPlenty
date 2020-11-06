@@ -27,10 +27,10 @@
                 "biome": "biomesoplenty:alps_foothills"
             }
         },
-		"bamboo_grove": {
+		"bamboo_blossom_grove": {
             "trigger": "minecraft:location",
             "conditions": {
-                "biome": "biomesoplenty:bamboo_grove"
+                "biome": "biomesoplenty:bamboo_blossom_grove"
             }
         },
 		"bayou": {

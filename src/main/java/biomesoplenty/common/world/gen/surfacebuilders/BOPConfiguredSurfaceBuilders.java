@@ -32,7 +32,7 @@ public class BOPConfiguredSurfaceBuilders
     public static final ConfiguredSurfaceBuilder<SurfaceBuilderConfig> MARSH = register("marsh", new ConfiguredSurfaceBuilder(BOPSurfaceBuilders.MARSH, SurfaceBuilder.CONFIG_GRASS));
     public static final ConfiguredSurfaceBuilder<SurfaceBuilderConfig> VOLCANO = register("volcano", new ConfiguredSurfaceBuilder(BOPSurfaceBuilders.VOLCANO, BOPSurfaceBuilders.BASALT_SURFACE));
     public static final ConfiguredSurfaceBuilder<SurfaceBuilderConfig> VOLCANIC_PLAINS = register("volcanic_plains", new ConfiguredSurfaceBuilder(BOPSurfaceBuilders.BLACK_SAND, BOPSurfaceBuilders.BLACK_SAND_SURFACE));
-    public static final ConfiguredSurfaceBuilder<SurfaceBuilderConfig> GROVE_LAKES = register("grove_lakes", new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, BOPSurfaceBuilders.DIORITE_SURFACE));
+    public static final ConfiguredSurfaceBuilder<SurfaceBuilderConfig> GROVE_LAKES = register("grove_lakes", new ConfiguredSurfaceBuilder(BOPSurfaceBuilders.DEEP_TOP_LAYER, BOPSurfaceBuilders.DIORITE_SURFACE));
     public static final ConfiguredSurfaceBuilder<SurfaceBuilderConfig> DEEP_GRASS = register("deep_grass", new ConfiguredSurfaceBuilder(BOPSurfaceBuilders.DEEP_TOP_LAYER, SurfaceBuilder.CONFIG_GRASS));
     public static final ConfiguredSurfaceBuilder<SurfaceBuilderConfig> RAINFOREST_CLIFFS = register("rainforest_cliffs", new ConfiguredSurfaceBuilder(BOPSurfaceBuilders.TERRACOTTA, SurfaceBuilder.CONFIG_GRASS));
     public static final ConfiguredSurfaceBuilder<SurfaceBuilderConfig> ORIGIN_VALLEY = register("origin_valley", new ConfiguredSurfaceBuilder(BOPSurfaceBuilders.ORIGIN_VALLEY, BOPSurfaceBuilders.ORIGIN_GRASS_SURFACE));
