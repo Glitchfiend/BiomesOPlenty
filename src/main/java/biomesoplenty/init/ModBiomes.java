@@ -180,10 +180,12 @@ public class ModBiomes
         registerBiome(new SnowyConiferousForestBiome(), "snowy_coniferous_forest");
         registerBiome(new SnowyMapleForestBiome(), "snowy_maple_forest");
         registerBiome(new SnowyFirClearingBiome(), "snowy_fir_clearing");
+        registerBiome(new TropicPlainsBiome(), "tropic_plains");
         registerBiome(new TropicsBiome(), "tropics");
         registerBiome(new TundraBiome(), "tundra");
         registerBiome(new TundraBasinBiome(), "tundra_basin");
         registerBiome(new TundraBogBiome(), "tundra_bog");
+        registerBiome(new VolcanicForestBiome(), "volcanic_forest");
         registerBiome(new VolcanoBiome(), "volcano");
         registerBiome(new WastelandBiome(), "wasteland");
         registerBiome(new WetlandBiome(), "wetland");
@@ -254,8 +256,12 @@ public class ModBiomes
         registerSubBiome(snowy_coniferous_forest, snowy_fir_clearing, 0.75F, 100);
         registerSubBiome(snowy_coniferous_forest, snowy_maple_forest, 1.25F, 100);
 
+        registerSubBiome(tropics, tropic_plains, 0.75F, 100);
+
         registerSubBiome(tundra, tundra_basin, 1.5F, 100);
         registerSubBiome(tundra, tundra_bog, 2.0F, 100);
+
+        registerSubBiome(volcano, volcanic_forest, 0.75F, 100);
 
         registerSubBiome(wasteland, wooded_wasteland, 0.85F, 100);
 
@@ -375,10 +381,12 @@ public class ModBiomes
         registerVillagerType(snowy_fir_clearing, VillagerType.SNOW);
         registerVillagerType(snowy_maple_forest, VillagerType.SNOW);
         registerVillagerType(tropic_beach, VillagerType.JUNGLE);
+        registerVillagerType(tropic_plains, VillagerType.JUNGLE);
         registerVillagerType(tropics, VillagerType.JUNGLE);
         registerVillagerType(tundra, VillagerType.TAIGA);
         registerVillagerType(tundra_basin, VillagerType.TAIGA);
         registerVillagerType(tundra_bog, VillagerType.TAIGA);
+        registerVillagerType(volcanic_forest, VillagerType.PLAINS);
         registerVillagerType(volcanic_plains, VillagerType.PLAINS);
         registerVillagerType(volcano, VillagerType.PLAINS);
         registerVillagerType(wasteland, VillagerType.DESERT);

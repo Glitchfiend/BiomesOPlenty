@@ -110,6 +110,7 @@ public class BOPFeatures
 	public static final Feature<BaseTreeFeatureConfig> PALM_TREE = register("palm_tree", new PalmTreeFeature.Builder().create());
 	public static final Feature<BaseTreeFeatureConfig> DEAD_TREE = register("dead_tree", new TwigletTreeFeature.Builder().trunkFruit(BOPBlocks.dead_branch.defaultBlockState()).leafChance(0.0F, 0.0F).leaves(Blocks.AIR.defaultBlockState()).log(BOPBlocks.dead_log.defaultBlockState()).minHeight(6).maxHeight(10).create());
 	public static final Feature<BaseTreeFeatureConfig> DEAD_TREE_WASTELAND = register("dead_tree_wasteland", new TwigletTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == BOPBlocks.dried_salt).trunkFruit(BOPBlocks.dead_branch.defaultBlockState()).leafChance(0.0F, 0.0F).leaves(Blocks.AIR.defaultBlockState()).log(BOPBlocks.dead_log.defaultBlockState()).minHeight(6).maxHeight(10).create());
+	public static final Feature<BaseTreeFeatureConfig> BURNT_TREE = register("burnt_tree", new TwigletTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == BOPBlocks.black_sand).leafChance(0.0F, 0.0F).leaves(Blocks.AIR.defaultBlockState()).log(BOPBlocks.stripped_hellbark_log.defaultBlockState()).minHeight(4).maxHeight(8).create());
 
 	/////////////////////////////////////////////////////////////////////////////////
 
@@ -126,6 +127,7 @@ public class BOPFeatures
 	public static final Feature<NoFeatureConfig> HUGE_GLOWSHROOM = register("huge_glowshroom", new HugeGlowshroomFeature(NoFeatureConfig.CODEC.stable()));
 	public static final Feature<NoFeatureConfig> HUGE_TOADSTOOL = register("huge_toadstool", new HugeToadstoolFeature(NoFeatureConfig.CODEC.stable()));
 	public static final Feature<NoFeatureConfig> LARGE_CRYSTAL = register("large_crystal", new LargeCrystalFeature(NoFeatureConfig.CODEC.stable()));
+	public static final Feature<NoFeatureConfig> MAGMA_SPLATTER = register("magma_splatter", new MagmaSplatterFeature(NoFeatureConfig.CODEC.stable()));
 	public static final Feature<NoFeatureConfig> MANGROVE = register("mangrove", new MangroveFeature(NoFeatureConfig.CODEC.stable()));
 	public static final Feature<NoFeatureConfig> MYCELIUM_SPLATTER = register("mycelium_splatter", new MyceliumSplatterFeature(NoFeatureConfig.CODEC.stable()));
 	public static final Feature<NoFeatureConfig> NETHER_VINES = register("nether_vines", new NetherVinesFeature(NoFeatureConfig.CODEC.stable()));

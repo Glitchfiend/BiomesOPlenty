@@ -381,6 +381,12 @@
                 "biome": "biomesoplenty:tropic_beach"
             }
         },
+        "tropic_plains": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:tropic_plains"
+            }
+        },
         "tropics": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -415,6 +421,12 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:visceral_heap"
+            }
+        },
+        "volcanic_forest": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:volcanic_forest"
             }
         },
         "volcanic_plains": {

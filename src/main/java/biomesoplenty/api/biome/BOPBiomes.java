@@ -75,10 +75,12 @@ public class BOPBiomes
     public static RegistryKey<Biome> snowy_fir_clearing = register("snowy_fir_clearing");
     public static RegistryKey<Biome> snowy_maple_forest = register("snowy_maple_forest");
     public static RegistryKey<Biome> tropic_beach = register("tropic_beach");
+    public static RegistryKey<Biome> tropic_plains = register("tropic_plains");
     public static RegistryKey<Biome> tropics = register("tropics");
     public static RegistryKey<Biome> tundra = register("tundra");
     public static RegistryKey<Biome> tundra_basin = register("tundra_basin");
     public static RegistryKey<Biome> tundra_bog = register("tundra_bog");
+    public static RegistryKey<Biome> volcanic_forest = register("volcanic_forest");
     public static RegistryKey<Biome> volcanic_plains = register("volcanic_plains");
     public static RegistryKey<Biome> volcano = register("volcano");
     public static RegistryKey<Biome> wasteland = register("wasteland");
