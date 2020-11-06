@@ -14,6 +14,7 @@ import biomesoplenty.common.world.gen.surfacebuilders.BOPConfiguredSurfaceBuilde
 import biomesoplenty.common.world.gen.surfacebuilders.BOPSurfaceBuilders;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.*;
@@ -33,7 +34,7 @@ public class VolcanoBiome extends BiomeTemplate
     {
         builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.NONE).depth(4.5F).scale(0.0F).temperature(0.95F).downfall(0.3F);
 
-        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4566514).waterFogColor(267827).fogColor(12638463).skyColor(calculateSkyColor(0.95F)).grassColorOverride(0x4A703B).foliageColorOverride(0x547D42).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
+        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4566514).waterFogColor(267827).fogColor(0x7F7F7F).skyColor(calculateSkyColor(0.95F)).grassColorOverride(0x4A703B).foliageColorOverride(0x547D42).ambientParticle(new ParticleEffectAmbience(ParticleTypes.WHITE_ASH, 0.059046667F)).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
 
     @Override
