@@ -129,6 +129,7 @@ public class ModBiomes
     	registerBiome(new AlpsBiome(), "alps");
         registerBiome(new BambooBlossomGroveBiome(), "bamboo_blossom_grove");
     	registerBiome(new BayouBiome(), "bayou");
+        registerBiome(new BurntForestBiome(), "burnt_forest");
     	registerBiome(new CherryBlossomGroveBiome(), "cherry_blossom_grove");
         registerBiome(new ConiferousForestBiome(), "coniferous_forest");
         registerBiome(new ConiferousLakesBiome(), "coniferous_lakes");
@@ -185,7 +186,6 @@ public class ModBiomes
         registerBiome(new TundraBiome(), "tundra");
         registerBiome(new TundraBasinBiome(), "tundra_basin");
         registerBiome(new TundraBogBiome(), "tundra_bog");
-        registerBiome(new VolcanicForestBiome(), "volcanic_forest");
         registerBiome(new VolcanoBiome(), "volcano");
         registerBiome(new WastelandBiome(), "wasteland");
         registerBiome(new WetlandBiome(), "wetland");
@@ -212,6 +212,7 @@ public class ModBiomes
         registerSubBiome(coniferous_forest, coniferous_lakes, 1.0F, 100);
 
         registerSubBiome(dead_forest, dead_swamp, 0.75F, 100);
+        registerSubBiome(dead_forest, burnt_forest, 0.75F, 100);
 
         registerSubBiome(dryland, dry_boneyard, 0.75F, 100);
 
@@ -260,8 +261,6 @@ public class ModBiomes
 
         registerSubBiome(tundra, tundra_basin, 1.5F, 100);
         registerSubBiome(tundra, tundra_bog, 2.0F, 100);
-
-        registerSubBiome(volcano, volcanic_forest, 0.75F, 100);
 
         registerSubBiome(wasteland, wooded_wasteland, 0.85F, 100);
 
@@ -327,6 +326,7 @@ public class ModBiomes
         registerVillagerType(bamboo_blossom_grove, VillagerType.PLAINS);
         registerVillagerType(bayou, VillagerType.SWAMP);
         registerVillagerType(bayou_mangrove, VillagerType.SWAMP);
+        registerVillagerType(burnt_forest, VillagerType.TAIGA);
         registerVillagerType(cherry_blossom_grove, VillagerType.PLAINS);
         registerVillagerType(coniferous_forest, VillagerType.TAIGA);
         registerVillagerType(coniferous_lakes, VillagerType.TAIGA);
@@ -386,7 +386,6 @@ public class ModBiomes
         registerVillagerType(tundra, VillagerType.TAIGA);
         registerVillagerType(tundra_basin, VillagerType.TAIGA);
         registerVillagerType(tundra_bog, VillagerType.TAIGA);
-        registerVillagerType(volcanic_forest, VillagerType.PLAINS);
         registerVillagerType(volcanic_plains, VillagerType.PLAINS);
         registerVillagerType(volcano, VillagerType.PLAINS);
         registerVillagerType(wasteland, VillagerType.DESERT);

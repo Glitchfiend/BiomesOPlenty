@@ -8,6 +8,7 @@
 package biomesoplenty.common.biome.overworld;
 
 import biomesoplenty.api.biome.BOPBiomes;
+import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.BiomeTemplate;
 import biomesoplenty.common.world.gen.feature.BOPConfiguredFeatures;
 import biomesoplenty.common.world.gen.surfacebuilders.BOPConfiguredSurfaceBuilders;
@@ -18,27 +19,28 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
+import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilders;
 
-public class VolcanicForestBiome extends BiomeTemplate
+public class BurntForestBiome extends BiomeTemplate
 {
-    public VolcanicForestBiome()
+    public BurntForestBiome()
     {
-        this.setRiverBiome(null);
-        this.setBeachBiome(BOPBiomes.volcanic_plains);
+        this.setBeachBiome(BOPBiomes.gravel_beach);
+        this.setGrassColorFunction(this::getGrassColor);
     }
 
     @Override
     protected void configureBiome(Biome.Builder builder)
     {
-        builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.NONE).depth(1.5F).scale(0.2F).temperature(0.95F).downfall(0.3F);
+        builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.TAIGA).depth(0.1F).scale(0.1F).temperature(0.3F).downfall(0.3F);
 
-        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4566514).waterFogColor(267827).fogColor(0xA0A0A0).skyColor(calculateSkyColor(0.95F)).grassColorOverride(0x4A703B).foliageColorOverride(0x547D42).ambientParticle(new ParticleEffectAmbience(ParticleTypes.WHITE_ASH, 0.0295233335F)).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
+        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(calculateSkyColor(0.3F)).grassColorOverride(0xBAAD64).foliageColorOverride(0xB7B763).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
 
     @Override
     protected void configureGeneration(BiomeGenerationSettings.Builder builder)
     {
-        builder.surfaceBuilder(BOPConfiguredSurfaceBuilders.VOLCANIC_PLAINS);
+        builder.surfaceBuilder(ConfiguredSurfaceBuilders.GRASS);
 
         // Structures
         DefaultBiomeFeatures.addDefaultOverworldLandStructures(builder);
@@ -56,13 +58,12 @@ public class VolcanicForestBiome extends BiomeTemplate
         ////////////////////////////////////////////////////////////
 
         // Vegetation
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.VOLCANIC_FOREST_TREES);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.BURNT_FOREST_TREES);
 
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.BLACK_SAND_SPLATTER);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.DEAD_GRASS_25);
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.SPROUTS_10);
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.VOLCANO_MAGMA_SPLATTER);
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.VOLCANO_SPRING);
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.PATCH_DEAD_BUSH_2);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.STANDARD_GRASS_3);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.MAGMA_SPLATTER);
 
         ////////////////////////////////////////////////////////////
 
@@ -83,5 +84,11 @@ public class VolcanicForestBiome extends BiomeTemplate
         builder.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SLIME, 100, 4, 4));
         builder.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 10, 1, 4));
         builder.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.WITCH, 5, 1, 1));
+    }
+
+    public int getGrassColor(double x, double z)
+    {
+        double d0 = Biome.BIOME_INFO_NOISE.getValue(x * 0.0225D, z * 0.0225D, false);
+        return d0 < -0.2D ? 0xBAAD64 : 0x3F3D36;
     }
 }

@@ -14,6 +14,7 @@ import biomesoplenty.common.world.gen.surfacebuilders.BOPConfiguredSurfaceBuilde
 import biomesoplenty.common.world.gen.surfacebuilders.BOPSurfaceBuilders;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
@@ -34,7 +35,7 @@ public class WastelandBiome extends BiomeTemplate
     {
         builder.precipitation(Biome.RainType.NONE).biomeCategory(Biome.Category.DESERT).depth(0.0F).scale(-0.11F).temperature(2.0F).downfall(0.0F);
 
-        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(0x433721).waterFogColor(0x0C0C03).fogColor(0xDBDDC1).skyColor(0x70ADEF).grassColorOverride(0xAD9364).foliageColorOverride(0xB5A76C).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
+        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(0x433721).waterFogColor(0x0C0C03).fogColor(0xDBDDC1).skyColor(0x70ADEF).grassColorOverride(0xAD9364).foliageColorOverride(0xB5A76C).ambientParticle(new ParticleEffectAmbience(ParticleTypes.MYCELIUM, 0.00357F)).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
 
     @Override

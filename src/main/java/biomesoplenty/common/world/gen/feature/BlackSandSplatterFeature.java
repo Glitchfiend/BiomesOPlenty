@@ -4,7 +4,6 @@ import biomesoplenty.api.block.BOPBlocks;
 import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.BushBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
@@ -13,9 +12,9 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 
 import java.util.Random;
 
-public class MagmaSplatterFeature extends Feature<NoFeatureConfig>
+public class BlackSandSplatterFeature extends Feature<NoFeatureConfig>
 {
-   public MagmaSplatterFeature(Codec<NoFeatureConfig> deserializer)
+   public BlackSandSplatterFeature(Codec<NoFeatureConfig> deserializer)
    {
       super(deserializer);
    }
@@ -40,12 +39,12 @@ public class MagmaSplatterFeature extends Feature<NoFeatureConfig>
                   BlockState blockstate = worldIn.getBlockState(blockpos);
                   BlockState blockstate1 = worldIn.getBlockState(blockpos.above());
 
-                  if (rand.nextInt(6) != 0)
+                  if (blockstate.getBlock() == Blocks.GRASS_BLOCK && blockstate1.isAir(worldIn, blockpos.above()))
                   {
-                     if (blockstate.getBlock() == Blocks.GRASS_BLOCK && (blockstate1.canBeReplacedByLeaves(worldIn, blockpos.above()) || blockstate1.getBlock() instanceof BushBlock))
+                     worldIn.setBlock(blockpos, BOPBlocks.black_sand.defaultBlockState(), 2);
+                     if (rand.nextInt(4) == 0)
                      {
-                        worldIn.setBlock(blockpos, Blocks.MAGMA_BLOCK.defaultBlockState(), 2);
-                        worldIn.setBlock(blockpos.above(), Blocks.FIRE.defaultBlockState(), 2);
+                        worldIn.setBlock(blockpos.above(), Blocks.DEAD_BUSH.defaultBlockState(), 2);
                      }
 
                      ++i;

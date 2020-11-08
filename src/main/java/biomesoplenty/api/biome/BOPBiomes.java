@@ -20,6 +20,7 @@ public class BOPBiomes
     public static RegistryKey<Biome> bamboo_blossom_grove = register("bamboo_blossom_grove");
     public static RegistryKey<Biome> bayou = register("bayou");
     public static RegistryKey<Biome> bayou_mangrove = register("bayou_mangrove");
+    public static RegistryKey<Biome> burnt_forest = register("burnt_forest");
     public static RegistryKey<Biome> cherry_blossom_grove = register("cherry_blossom_grove");
     public static RegistryKey<Biome> coniferous_forest = register("coniferous_forest");
     public static RegistryKey<Biome> coniferous_lakes = register("coniferous_lakes");
@@ -80,7 +81,6 @@ public class BOPBiomes
     public static RegistryKey<Biome> tundra = register("tundra");
     public static RegistryKey<Biome> tundra_basin = register("tundra_basin");
     public static RegistryKey<Biome> tundra_bog = register("tundra_bog");
-    public static RegistryKey<Biome> volcanic_forest = register("volcanic_forest");
     public static RegistryKey<Biome> volcanic_plains = register("volcanic_plains");
     public static RegistryKey<Biome> volcano = register("volcano");
     public static RegistryKey<Biome> wasteland = register("wasteland");

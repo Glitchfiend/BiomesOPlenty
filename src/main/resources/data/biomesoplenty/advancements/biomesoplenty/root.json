@@ -44,6 +44,12 @@
                 "biome": "biomesoplenty:bayou_mangrove"
             }
         },
+        "burnt_forest": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:burnt_forest"
+            }
+        },
 		"cherry_blossom_grove": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -422,12 +428,6 @@
                 "biome": "biomesoplenty:visceral_heap"
             }
         },
-        "volcanic_forest": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:volcanic_forest"
-            }
-        },
         "volcanic_plains": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -484,6 +484,7 @@
 			"bamboo_blossom_grove",
 			"bayou",
 			"bayou_mangrove",
+			"burnt_forest",
 			"cherry_blossom_grove",
 			"coniferous_forest",
 			"coniferous_lakes",
@@ -547,7 +548,6 @@
 			"tundra_bog",
 			"undergrowth",
 			"visceral_heap",
-			"volcanic_forest",
 			"volcanic_plains",
 			"volcano",
 			"wasteland",

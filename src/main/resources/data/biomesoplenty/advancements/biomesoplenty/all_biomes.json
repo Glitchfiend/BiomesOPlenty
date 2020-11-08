@@ -45,6 +45,12 @@
                 "biome": "biomesoplenty:bayou_mangrove"
             }
         },
+        "burnt_forest": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:burnt_forest"
+            }
+        },
 		"cherry_blossom_grove": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -421,12 +427,6 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:visceral_heap"
-            }
-        },
-        "volcanic_forest": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:volcanic_forest"
             }
         },
         "volcanic_plains": {
