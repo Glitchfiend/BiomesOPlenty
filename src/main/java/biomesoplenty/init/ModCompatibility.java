@@ -32,7 +32,7 @@ public class ModCompatibility
             // Removes vanilla entries by checking if the biome namespace is not "minecraft"
             // If a mod makes their biome with minecraft namespace, they need a bug report as that's a big no-no.
             List<BiomeManager.BiomeEntry> moddedBiomesInType = BiomeManager.getBiomes(type).stream()
-                    .filter(biomeEntry -> !biomeEntry.getKey().getRegistryName().getNamespace().equals("minecraft"))
+                    .filter(biomeEntry -> !biomeEntry.getKey().location().getNamespace().equals("minecraft"))
                     .collect(Collectors.toList());
 
             // calls remapBiomeToBoP on each modded biome and its weight.

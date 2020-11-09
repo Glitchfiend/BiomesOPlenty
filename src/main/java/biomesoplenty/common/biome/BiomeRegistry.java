@@ -184,7 +184,7 @@ public class BiomeRegistry
         for (DeferredRegistration<SubBiomeRegistrationData> registration : subBiomeRegistrations)
         {
             SubBiomeRegistrationData regData = registration.regData;
-            String biomeName = registration.regData.getChild().getRegistryName().toString();
+            String biomeName = registration.regData.getChild().location().toString();
             defaultSubBiomeEntries.put(biomeName, new BiomeConfigData.SubBiomeEntry(regData.getWeight(), regData.getRarity()));
             regDataMap.put(biomeName, registration.regData);
         }
@@ -231,7 +231,7 @@ public class BiomeRegistry
         for (DeferredRegistration<SingleClimateRegistrationData> registration : biomeRegistrations)
         {
             SingleClimateRegistrationData regData = registration.regData;
-            String biomeName = regData.getBiome().getRegistryName().toString();
+            String biomeName = regData.getBiome().location().toString();
             defaultBiomeEntries.put(biomeName, new BiomeConfigData.ToggleableBiomeEntry(true));
         }
 
@@ -257,7 +257,7 @@ public class BiomeRegistry
         for (DeferredRegistration<SingleClimateRegistrationData> registration : biomeRegistrations)
         {
             SingleClimateRegistrationData regData = registration.regData;
-            String biomeName = regData.getBiome().getRegistryName().toString();
+            String biomeName = regData.getBiome().location().toString();
 
             if (revisedBiomeEntries.containsKey(biomeName))
             {
@@ -280,7 +280,7 @@ public class BiomeRegistry
         for (DeferredRegistration<SingleClimateRegistrationData> registration : biomeRegistrations)
         {
             SingleClimateRegistrationData regData = registration.regData;
-            String biomeName = registration.regData.getBiome().getRegistryName().toString();
+            String biomeName = registration.regData.getBiome().location().toString();
             defaultBiomeEntries.put(biomeName, new BiomeConfigData.WeightedBiomeEntry(regData.getWeight()));
             regDataMap.put(biomeName, registration.regData);
         }
@@ -357,7 +357,7 @@ public class BiomeRegistry
                 RegistryKey<Biome> biome = ((SubBiomeRegistrationData)reg.regData).getChild();
                 if (children.contains(biome))
                 {
-                    throw new RuntimeException(String.format("Sub biome %s cannot be added to multiple parents", biome.getRegistryName().toString()));
+                    throw new RuntimeException(String.format("Sub biome %s cannot be added to multiple parents", biome.location().toString()));
                 }
                 children.add(biome);
             });
@@ -424,22 +424,22 @@ public class BiomeRegistry
         SUB_BIOME((SubBiomeRegistrationData data) -> {
             if (data.getWeight() == 0)
             {
-                BiomesOPlenty.logger.debug("Weights absent for sub biome" + data.getChild().getRegistryName().toString() + ", disabling...");
+                BiomesOPlenty.logger.debug("Weights absent for sub biome" + data.getChild().location().toString() + ", disabling...");
                 return;
             }
 
-            String childName = data.getChild().getRegistryName().toString();
+            String childName = data.getChild().location().toString();
             BiomesOPlenty.logger.debug(String.format("Sub biome %s weight set to %d", childName, data.getWeight()));
             ModBiomes.subBiomes.put(BiomeUtil.getBiomeId(data.getParent()), new ModBiomes.WeightedSubBiome(data.getChild(), data.getRarity(), data.getWeight()));
         }),
         ISLAND_BIOME((SingleClimateRegistrationData data) -> {
             if (data.getWeight() == 0)
             {
-                BiomesOPlenty.logger.debug("Weights absent for island biome" + data.getBiome().getRegistryName().toString() + ", disabling...");
+                BiomesOPlenty.logger.debug("Weights absent for island biome" + data.getBiome().location().toString() + ", disabling...");
                 return;
             }
 
-            String biomeName = data.getBiome().getRegistryName().toString();
+            String biomeName = data.getBiome().location().toString();
             BiomesOPlenty.logger.debug(String.format("Island biome %s weight set to %d for climate %s", biomeName, data.getWeight(), data.getClimate().name()));
             ModBiomes.islandBiomeIds.add(BiomeUtil.getBiomeId(data.getBiome()));
             data.getClimate().addIslandBiome(data.getWeight(), data.getBiome());
@@ -447,7 +447,7 @@ public class BiomeRegistry
         VANILLA_BIOME((SingleClimateRegistrationData data) -> {
             if (data.getWeight() == 0)
             {
-                BiomesOPlenty.logger.debug("Weights absent for vanilla biome" + data.getBiome().getRegistryName().toString() + ", disabling...");
+                BiomesOPlenty.logger.debug("Weights absent for vanilla biome" + data.getBiome().location().toString() + ", disabling...");
                 return;
             }
 

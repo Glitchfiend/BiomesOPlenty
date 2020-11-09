@@ -203,7 +203,7 @@ public enum BOPClimates
         {
             for (WeightedBiomeEntry entry : climate.landBiomes)
             {
-                System.out.println(climate.name()+" "+entry.biome.getRegistryName()+" "+entry.weight);
+                System.out.println(climate.name()+" "+entry.biome.location()+" "+entry.weight);
             }
         }
     }
