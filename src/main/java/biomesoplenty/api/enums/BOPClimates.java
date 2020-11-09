@@ -18,6 +18,8 @@ import net.minecraft.util.RegistryKey;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.INoiseRandom;
+import net.minecraftforge.common.BiomeManager;
+import net.minecraftforge.common.BiomeManager.BiomeType;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -26,26 +28,33 @@ import java.util.stream.Collectors;
 
 public enum BOPClimates
 {
-    ICE_CAP,
-    TUNDRA,
-    WET_BOREAL,
-    DRY_BOREAL,
-    WET_TEMPERATE,
-    DRY_TEMPERATE,
-    COOL_TEMPERATE,
-    WARM_TEMPERATE,
-    SUBTROPICAL,
-    TROPICAL,
-    MEDITERRANEAN,
-    SAVANNA,
-    HOT_DESERT,
-    NETHER;
+    ICE_CAP (BiomeType.ICY),
+    TUNDRA (BiomeType.ICY),
+    WET_BOREAL (BiomeType.COOL),
+    DRY_BOREAL (BiomeType.COOL),
+    WET_TEMPERATE (BiomeType.COOL),
+    DRY_TEMPERATE (BiomeType.WARM),
+    COOL_TEMPERATE (BiomeType.COOL),
+    WARM_TEMPERATE (BiomeType.WARM),
+    SUBTROPICAL (BiomeType.WARM),
+    TROPICAL (BiomeType.DESERT),
+    MEDITERRANEAN (BiomeType.WARM),
+    SAVANNA (BiomeType.DESERT),
+    HOT_DESERT (BiomeType.DESERT),
+    WASTELAND (null),
+    NETHER (null);
 
+    public final BiomeType biomeType;
     private int totalBiomesWeight;
     private int totalIslandBiomesWeight;
 
     private ArrayList<WeightedBiomeEntry> landBiomes = Lists.newArrayList();
     private ArrayList<WeightedBiomeEntry> islandBiomes = Lists.newArrayList();
+
+    BOPClimates(BiomeType biomeType)
+    {
+        this.biomeType = biomeType;
+    }
 
     public BOPClimates addBiome(int weight, RegistryKey<Biome> biome)
     {
