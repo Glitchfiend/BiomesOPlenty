@@ -189,6 +189,7 @@ public class BOPConfiguredFeatures
     public static final ConfiguredFeature<?, ?> UNDERGROWTH_FLOWERS = register("undergrowth_flowers", Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.burning_blossom.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE.count(8)));
     public static final ConfiguredFeature<?, ?> WASTELAND_FLOWERS = register("wasteland_flowers", BOPFeatures.WASTELAND_FLOWERS.configured(IFeatureConfig.NONE).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(1)));
     public static final ConfiguredFeature<?, ?> WETLAND_FLOWERS = register("wetland_flowers", BOPFeatures.WETLAND_FLOWERS.configured(IFeatureConfig.NONE).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(3)));
+    public static final ConfiguredFeature<?, ?> SCRUBLAND_FLOWERS = register("scrubland_flowers", BOPFeatures.WILDFLOWER_FEATURE.configured(IFeatureConfig.NONE).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE.count(2)));
 
     /////////////////////////////////////////////////////////////////////
 
