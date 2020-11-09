@@ -163,7 +163,7 @@ public class BOPLayerUtil
         // Mix rivers into the biomes branch
         biomesFactory = BOPRiverMixLayer.INSTANCE.run(contextFactory.apply(100L), biomesFactory, riversInitFactory);
 
-        climateFactory = LayerUtil.zoom(2001L, ZoomLayer.NORMAL, climateFactory, 6, contextFactory);
+        climateFactory = LayerUtil.zoom(2001L, ZoomLayer.NORMAL, climateFactory, biomeSize + 2, contextFactory);
         biomesFactory = BOPMixOceansLayer.INSTANCE.run(contextFactory.apply(100L), biomesFactory, oceanBiomeFactory, climateFactory);
         return biomesFactory;
     }
