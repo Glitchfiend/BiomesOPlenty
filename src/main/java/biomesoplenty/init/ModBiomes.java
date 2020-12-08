@@ -17,16 +17,17 @@ import biomesoplenty.common.biome.nether.VisceralHeapBiome;
 import biomesoplenty.common.biome.nether.WitheredAbyssBiome;
 import biomesoplenty.common.biome.overworld.*;
 import biomesoplenty.common.util.biome.BiomeUtil;
-import biomesoplenty.common.world.BOPBiomeGeneratorTypeScreen;
 import biomesoplenty.common.world.BOPBiomeProvider;
 import biomesoplenty.common.world.BOPNetherBiomeProvider;
+import biomesoplenty.common.world.BOPWorldType;
+import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
-import net.minecraft.client.gui.screen.BiomeGeneratorTypeScreens;
 import net.minecraft.entity.villager.VillagerType;
 import net.minecraft.util.RegistryKey;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeColors;
@@ -39,6 +40,11 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.loading.FMLEnvironment;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.GameData;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.core.Logger;
 
 import java.util.List;
 import java.util.Map;
@@ -48,7 +54,7 @@ import static biomesoplenty.api.biome.BOPBiomes.*;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModBiomes
 {
-    public static BOPBiomeGeneratorTypeScreen biomeGeneratorTypeScreenBOP;
+    public static BOPWorldType bopWorldType = new BOPWorldType();
 
     public static Multimap<Integer, WeightedSubBiome> subBiomes = HashMultimap.create();
     public static List<Integer> islandBiomeIds = Lists.newArrayList();
@@ -58,9 +64,6 @@ public class ModBiomes
     {
         if (FMLEnvironment.dist == Dist.CLIENT)
         {
-            biomeGeneratorTypeScreenBOP = new BOPBiomeGeneratorTypeScreen();
-            BiomeGeneratorTypeScreens.PRESETS.add(biomeGeneratorTypeScreenBOP);
-
             ColorResolver grassColorResolver = BiomeColors.GRASS_COLOR_RESOLVER;
             ColorResolver foliageColorResolver = BiomeColors.FOLIAGE_COLOR_RESOLVER;
             ColorResolver waterColorResolver = BiomeColors.WATER_COLOR_RESOLVER;
@@ -104,6 +107,21 @@ public class ModBiomes
                 return waterColorResolver.getColor(biome, posX, posZ);
             };
         }
+
+        // Obtain the game data logger and disable it temporarily
+        Logger gameDataLogger = (Logger)LogManager.getLogger(GameData.class);
+        Level oldLevel = gameDataLogger.getLevel();
+        gameDataLogger.setLevel(Level.OFF);
+
+        // Register our world type
+        // We intentionally use the minecraft namespace so we continue using "biomesoplenty" in server.properties
+        // This is markedly better than the alternative of biomesoplenty:biomesoplenty.
+        // We do this with GameData logging disabled to prevent people whining at us.
+        bopWorldType.setRegistryName(new ResourceLocation("biomesoplenty"));
+        ForgeRegistries.WORLD_TYPES.register(bopWorldType);
+
+        // Re-enable the game data logger
+        gameDataLogger.setLevel(oldLevel);
 
         // Register biome providers
         Registry.register(Registry.BIOME_SOURCE, "biomesoplenty_overworld", BOPBiomeProvider.CODEC);

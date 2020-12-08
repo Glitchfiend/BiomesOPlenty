@@ -3,10 +3,8 @@ package biomesoplenty.client.handler;
 import biomesoplenty.init.ModBiomes;
 import biomesoplenty.init.ModConfig;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screen.CreateWorldScreen;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.screen.WorldOptionsScreen;
-import net.minecraft.client.gui.screen.WorldSelectionScreen;
+import net.minecraft.client.gui.screen.*;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.GuiOpenEvent;
@@ -30,8 +28,23 @@ public class GuiEventHandler
         if (ModConfig.ClientConfig.useWorldType.get() && gui instanceof CreateWorldScreen && prevScreen instanceof WorldSelectionScreen)
         {
             WorldOptionsScreen optionsScreen = ((CreateWorldScreen)gui).worldGenSettingsComponent;
-            optionsScreen.preset = Optional.of(ModBiomes.biomeGeneratorTypeScreenBOP);
+            optionsScreen.preset = Optional.of(findBopBiomeGeneratorTypeScreen());
             optionsScreen.settings = optionsScreen.preset.get().create(optionsScreen.registryHolder, optionsScreen.settings.seed(), optionsScreen.settings.generateFeatures(), optionsScreen.settings.generateBonusChest());
         }
+    }
+
+    private static BiomeGeneratorTypeScreens findBopBiomeGeneratorTypeScreen()
+    {
+        for (BiomeGeneratorTypeScreens screen : BiomeGeneratorTypeScreens.PRESETS)
+        {
+            TranslationTextComponent desc = (TranslationTextComponent)screen.description;
+
+            if (desc.getKey().equals("generator.minecraft.biomesoplenty"))
+            {
+                return screen;
+            }
+        }
+
+        throw new RuntimeException("Failed to locate biomesoplenty biome generator type screen!");
     }
 }
