@@ -29,9 +29,9 @@ public class PrairieBiome extends BiomeTemplate
     @Override
     protected void configureBiome(Biome.Builder builder)
     {
-        builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.PLAINS).depth(0.05F).scale(0.0F).temperature(0.8F).downfall(0.3F);
+        builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.PLAINS).depth(0.05F).scale(0.0F).temperature(0.81F).downfall(0.3F);
 
-        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(calculateSkyColor(0.8F)).grassColorOverride(0xE4EA77).foliageColorOverride(0xC7E672).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
+        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(calculateSkyColor(0.81F)).grassColorOverride(0xE4EA77).foliageColorOverride(0xC7E672).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
 
     @Override

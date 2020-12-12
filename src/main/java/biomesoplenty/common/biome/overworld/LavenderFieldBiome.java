@@ -30,9 +30,9 @@ public class LavenderFieldBiome extends BiomeTemplate
     @Override
     protected void configureBiome(Biome.Builder builder)
     {
-        builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.PLAINS).depth(0.0F).scale(0.05F).temperature(0.8F).downfall(0.7F);
+        builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.PLAINS).depth(0.0F).scale(0.05F).temperature(0.81F).downfall(0.7F);
 
-        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(calculateSkyColor(0.8F)).grassColorOverride(0xA1C36D).foliageColorOverride(0xA1C36D).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
+        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(calculateSkyColor(0.81F)).grassColorOverride(0xA1C36D).foliageColorOverride(0xA1C36D).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
 
     @Override

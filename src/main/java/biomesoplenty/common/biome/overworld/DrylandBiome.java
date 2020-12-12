@@ -32,7 +32,7 @@ public class DrylandBiome extends BiomeTemplate
     @Override
     protected void configureBiome(Biome.Builder builder)
     {
-        builder.precipitation(Biome.RainType.NONE).biomeCategory(Biome.Category.SAVANNA).depth(0.1F).scale(0.1F).temperature(0.7F).downfall(0.05F);
+        builder.precipitation(Biome.RainType.NONE).biomeCategory(Biome.Category.SAVANNA).depth(0.1F).scale(0.1F).temperature(0.85F).downfall(0.05F);
 
         builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(0x9E9DFF).grassColorOverride(0xE5DFA9).foliageColorOverride(0xDAE0B3).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
