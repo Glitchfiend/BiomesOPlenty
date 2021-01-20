@@ -42,7 +42,10 @@ public class BiomesOPlenty
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-        ModVanillaCompat.setup();
+        event.enqueueWork(() ->
+        {
+            ModVanillaCompat.setup();
+        });
     }
 
     private void clientSetup(final FMLClientSetupEvent event)
