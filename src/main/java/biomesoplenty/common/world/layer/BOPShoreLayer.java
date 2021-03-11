@@ -94,7 +94,7 @@ public enum BOPShoreLayer implements ICastleTransformer
                         BiomeMetadata meta = BiomeUtil.getMetadata(biome);
 
                         if (meta.getBeachBiome() == null) return biomeId;
-                        else return BiomeUtil.getBiomeId(key);
+                        else return BiomeUtil.getBiomeId(meta.getBeachBiome());
                     }
                     else
                     {
