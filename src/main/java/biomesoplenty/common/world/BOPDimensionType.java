@@ -35,32 +35,16 @@ public class BOPDimensionType extends DimensionType
         super(p_i241972_1_, p_i241972_2_, p_i241972_3_, p_i241972_4_, p_i241972_5_, p_i241972_6_, p_i241972_8_, p_i241972_9_, p_i241972_10_, p_i241972_11_, p_i241972_12_, p_i241972_13_, p_i241972_14_, p_i241972_15_);
     }
 
-    private static ChunkGenerator bopEndGenerator(Registry<Biome> biomeRegistry, Registry<DimensionSettings> dimensionSettingsRegistry, long seed)
-    {
-        return new NoiseChunkGenerator(new EndBiomeProvider(biomeRegistry, seed), seed, () -> dimensionSettingsRegistry.getOrThrow(DimensionSettings.END));
-    }
-
     private static ChunkGenerator bopNetherGenerator(Registry<Biome> biomeRegistry, Registry<DimensionSettings> dimensionSettingsRegistry, long seed)
     {
-        BiomeProvider biomeProvider;
-
-        if (ModConfig.GenerationConfig.useBopNether.get())
-        {
-            biomeProvider = new BOPNetherBiomeProvider(seed, biomeRegistry);
-        }
-        else
-        {
-            biomeProvider = NetherBiomeProvider.Preset.NETHER.biomeSource(biomeRegistry, seed);
-        }
-
-        return new NoiseChunkGenerator(biomeProvider, seed, () -> dimensionSettingsRegistry.getOrThrow(DimensionSettings.NETHER));
+        return new NoiseChunkGenerator(new BOPNetherBiomeProvider(seed, biomeRegistry), seed, () -> dimensionSettingsRegistry.getOrThrow(DimensionSettings.NETHER));
     }
 
     public static SimpleRegistry<Dimension> bopDimensions(Registry<Biome> biomeRegistry, Registry<DimensionSettings> dimensionSettingsRegistry, long seed)
     {
         SimpleRegistry<Dimension> registry = new SimpleRegistry<>(Registry.LEVEL_STEM_REGISTRY, Lifecycle.experimental());
-        registry.register(Dimension.NETHER, new Dimension(() -> DEFAULT_NETHER, bopNetherGenerator(biomeRegistry, dimensionSettingsRegistry, seed)), Lifecycle.stable());
-        registry.register(Dimension.END, new Dimension(() -> DEFAULT_END, bopEndGenerator(biomeRegistry, dimensionSettingsRegistry, seed)), Lifecycle.stable());
+        registry.register(Dimension.NETHER, new Dimension(() -> DEFAULT_NETHER, ModConfig.GenerationConfig.useBopNether.get() ? bopNetherGenerator(biomeRegistry, dimensionSettingsRegistry, seed) : DimensionType.defaultNetherGenerator(biomeRegistry, dimensionSettingsRegistry, seed)), Lifecycle.stable());
+        registry.register(Dimension.END, new Dimension(() -> DEFAULT_END, DimensionType.defaultEndGenerator(biomeRegistry, dimensionSettingsRegistry, seed)), Lifecycle.stable());
         return registry;
     }
 }
