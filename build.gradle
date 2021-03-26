@@ -33,6 +33,15 @@ repositories {
         name 'Forge FS legacy'
         artifactPattern "http://files.minecraftforge.net/[module]/[module]-dev-[revision].[ext]"
     }
+maven {
+        url 'https://jitpack.io'
+    }
+}
+
+dependencies {
+    compile ("com.github.SinTh0r4s:HydroEnergy:master-SNAPSHOT:api") {
+        transitive = false
+    }
 }
 
 // define the properties file

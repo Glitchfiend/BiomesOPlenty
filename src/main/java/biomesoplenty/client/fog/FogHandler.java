@@ -1,6 +1,7 @@
 package biomesoplenty.client.fog;
 
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
+import com.sinthoras.hydroenergy.api.HEGetMaterialUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
@@ -49,7 +50,7 @@ public class FogHandler
 			}
 
 			Vec3 mixedColor;
-			if (blockAtEyes.getMaterial() == Material.water)
+			if (HEGetMaterialUtil.getMaterialWrapper(blockAtEyes, event.entity.posY + event.entity.getEyeHeight()) == Material.water)
 			{
 				mixedColor = getFogBlendColorWater(world, player, x, y, z, event.renderPartialTicks);
 			}
