@@ -237,7 +237,13 @@ public class BlockBOPSapling extends BlockBOPDecoration implements IGrowable, IP
     // TODO: specify generator for each sapling
     protected WorldGenerator getBigTreeGenerator(BOPTrees treeType)
     {
-        return null;
+        switch (treeType)
+        {
+            case REDWOOD:
+                return (new GeneratorRedwoodTree.Builder()).log(BOPWoods.REDWOOD).leaves(BOPTrees.REDWOOD).minHeight(25).maxHeight(40).trunkWidth(2).create();
+            default:
+                return null;
+        }
     }
     
     // TODO: specify generator for each sapling
