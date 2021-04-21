@@ -3,8 +3,10 @@
     "advancements.biomesoplenty.root.description": "Marzenie odkrywcy...",
     "advancements.biomesoplenty.all_biomes.title": "Wędrowiec",
     "advancements.biomesoplenty.all_biomes.description": "Odkryj wszystkie biomy w Biomes O' Plenty",
+
     "generator.minecraft.biomesoplenty": "Biomes O' Plenty",
     "itemGroup.biomesoplenty": "Biomes O' Plenty",
+
     "biome.biomesoplenty.alps": "Alpy",
     "biome.biomesoplenty.alps_foothills": "Pogórza alp",
     "biome.biomesoplenty.bamboo_blossom_grove": "Zagajnik kwitnących bambusów",
@@ -83,6 +85,7 @@
     "biome.biomesoplenty.withered_abyss": "Witherowe czeluści",
     "biome.biomesoplenty.wooded_scrubland": "Zalesiony busz",
     "biome.biomesoplenty.wooded_wasteland": "Zalesione pustkowia",
+
     "item.biomesoplenty.bop_icon": "Ikona BOP",
     "item.biomesoplenty.cherry_boat": "Wiśniowa łódka",
     "item.biomesoplenty.dead_boat": "Martwa łódka",
@@ -99,6 +102,7 @@
     "item.biomesoplenty.redwood_boat": "Sekwojowa łódka",
     "item.biomesoplenty.umbran_boat": "Mroczna łódka",
     "item.biomesoplenty.willow_boat": "Wierzbowa łódka",
+
     "block.biomesoplenty.barley": "Jęczmień",
     "block.biomesoplenty.black_sand": "Czarny piasek",
     "block.biomesoplenty.black_sandstone": "Czarny piaskowiec",
@@ -403,8 +407,10 @@
     "block.biomesoplenty.wilted_lily": "Zwiędła lilia",
     "block.biomesoplenty.yellow_autumn_leaves": "Żółte jesienne liście",
     "block.biomesoplenty.yellow_autumn_sapling": "Żółta jesienna sadzonka",
+
     "argument.biomesoplenty.biome.invalid": "Nieprawidłowy argument biomu",
     "commands.biomesoplenty.tpbiome.success": "Teleportowano %s do biomu %s na (%s, %s, %s)",
     "commands.biomesoplenty.tpbiome.error": "Nie można znaleźć biomu %s!",
+
     "entity.biomesoplenty.boat_bop": "Łódka"
 }
