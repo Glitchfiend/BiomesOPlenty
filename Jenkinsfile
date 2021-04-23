@@ -6,8 +6,8 @@ pipeline {
     }
     agent {
         docker {
-            image 'gradlewrapper:latest'
-            args '-v gradlecache:/gradlecache'
+            image 'gradle:jdk8'
+            args '-v forgegc:/home/gradle/.gradle/'
         }
     }
     environment {
