@@ -23,7 +23,9 @@ pipeline {
         }
         stage('setup') {
             steps {
-                sh './gradlew ${GRADLE_ARGS} --refresh-dependencies'
+                withGradle {
+                    sh './gradlew ${GRADLE_ARGS} --refresh-dependencies --continue setup'
+                }
                 script {
                     env.MYVERSION = sh(returnStdout: true, script: './gradlew :properties -q | grep "^version:" | awk \'{print $2}\'').trim()
                 }
@@ -51,7 +53,10 @@ pipeline {
                 CURSE_API_KEY = credentials('curse-api-key')
             }
             steps {
-                sh './gradlew ${GRADLE_ARGS} :uploadArchives curseforge -PforgeMavenUsername=${FORGE_MAVEN_USR} -PforgeMavenPassword=${FORGE_MAVEN_PSW} -PcurseApiKey=${CURSE_API_KEY}'
+                withGradle {
+                    sh './gradlew ${GRADLE_ARGS} :uploadArchives curseforge -PforgeMavenUsername=${FORGE_MAVEN_USR} -PforgeMavenPassword=${FORGE_MAVEN_PSW} -PcurseApiKey=${CURSE_API_KEY}'
+                }
+                
                 sh 'curl --user ${FORGE_MAVEN_USR}:${FORGE_MAVEN_PSW} http://files.minecraftforge.net/maven/manage/promote/latest/com.github.glitchfiend.biomesoplenty.BiomesOPlenty/${MYVERSION}'
             }
         }
