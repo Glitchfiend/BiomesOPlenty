@@ -36,7 +36,7 @@ def getGitHash = {
 version = "${minecraft_version}-${mod_version}.${System.getenv().BUILD_NUMBER}"
 
 minecraft {
-    mappings channel: 'snapshot', version: mappings_version
+    mappings channel: 'official', version: minecraft_version
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
