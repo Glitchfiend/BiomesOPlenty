@@ -136,6 +136,7 @@ public class BOPFeatures
 	public static final Feature<NoFeatureConfig> RAINFOREST_CLIFFS_VINES = register("rainforest_cliffs_vines", new RainforestCliffsVinesFeature(NoFeatureConfig.CODEC.stable()));
 	public static final Feature<NoFeatureConfig> PODZOL_SPLATTER = register("podzol_splatter", new PodzolSplatterFeature(NoFeatureConfig.CODEC.stable()));
 	public static final Feature<NoFeatureConfig> PUMPKIN_PATCH = register("pumpkin_patch", new PumpkinPatchFeature(NoFeatureConfig.CODEC.stable()));
+	public static final Feature<BlockClusterFeatureConfig> RANDOM_PATCH_ABOVE_GROUND = register("random_patch_above_ground", new RandomPatchAboveGroundFeature(BlockClusterFeatureConfig.CODEC));
 	public static final Feature<NoFeatureConfig> SCATTERED_ROCKS = register("scattered_rocks", new ScatteredRocksFeature(NoFeatureConfig.CODEC.stable()));
 	public static final Feature<NoFeatureConfig> SCRUB = register("scrub", new ScrubFeature(NoFeatureConfig.CODEC.stable()));
 	public static final Feature<NoFeatureConfig> SHORT_BAMBOO = register("short_bamboo", new ShortBambooFeature(NoFeatureConfig.CODEC.stable()));

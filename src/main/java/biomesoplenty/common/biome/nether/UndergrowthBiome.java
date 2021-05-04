@@ -58,7 +58,7 @@ public class UndergrowthBiome extends NetherBiomeTemplate
 
         builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BOPConfiguredFeatures.NETHER_BRAMBLE);
         builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BOPConfiguredFeatures.UNDERGROWTH_FLOWERS);
-        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BOPConfiguredFeatures.SPROUTS_75);
+        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BOPConfiguredFeatures.SPROUTS_UNDERGROWTH);
         builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BOPConfiguredFeatures.DEAD_GRASS_45);
         builder.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BOPConfiguredFeatures.NETHER_VINES);
 
