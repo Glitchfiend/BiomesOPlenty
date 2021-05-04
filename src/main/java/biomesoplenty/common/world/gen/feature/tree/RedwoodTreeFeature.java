@@ -174,7 +174,6 @@ public class RedwoodTreeFeature extends TreeFeatureBase
         // Add layers of leaves
         for (int i = 0; i < leavesHeight; i++)
         {
-
             int trunkWidth = (this.trunkWidth * i / height) + 1;
             int trunkStart = MathHelper.ceil(0.25D - trunkWidth / 2.0D);
             int trunkEnd = MathHelper.floor(0.25D + trunkWidth / 2.0D);
@@ -217,6 +216,59 @@ public class RedwoodTreeFeature extends TreeFeatureBase
                 for (int z = trunkStart; z <= trunkEnd; z++)
                 {
                     this.placeLog(world, startPos.offset(x, y, z), changedLogs, boundingBox);
+                }
+            }
+
+            if (trunkWidth > 1 && y > 2 && y < (baseHeight - 2))
+            {
+                if (random.nextInt(5) == 0)
+                {
+                    Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
+                    this.generateBush(changedLogs, changedLeaves, world, random, startPos.offset(direction.getStepX()*(trunkWidth-1), y, direction.getStepZ()*(trunkWidth-1)), boundingBox);
+                }
+            }
+        }
+
+        return true;
+    }
+
+    protected boolean generateBush(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, IWorld world, Random random, BlockPos pos, MutableBoundingBox boundingBox)
+    {
+        //Generate a bush 3 blocks tall, with the bottom block already set to a log
+        for (int y = 0; y < 2; ++y)
+        {
+            // log in the center
+            if (2 - y > 1)
+            {
+                this.placeLog(world, pos.offset(0, y, 0), changedLogs, boundingBox);
+            }
+
+            //Reduces the radius closer to the top of the bush
+            int leavesRadius = (2 - y > 1 ? 2 : 1);
+
+            for (int x = -leavesRadius; x <= leavesRadius; ++x)
+            {
+                for (int z = -leavesRadius; z <= leavesRadius; ++z)
+                {
+                    //Randomly prevent the generation of leaves on the corners of each layer
+                    if (Math.abs(x) < leavesRadius || Math.abs(z) < leavesRadius || random.nextInt(2) != 0)
+                    {
+                        if (this.altLeaves != Blocks.AIR.defaultBlockState())
+                        {
+                            if (random.nextInt(4) == 0)
+                            {
+                                this.setAltLeaves(world, pos.offset(x, y, z), changedLeaves, boundingBox);
+                            }
+                            else
+                            {
+                                this.placeLeaves(world, pos.offset(x, y, z), changedLeaves, boundingBox);
+                            }
+                        }
+                        else
+                        {
+                            this.placeLeaves(world, pos.offset(x, y, z), changedLeaves, boundingBox);
+                        }
+                    }
                 }
             }
         }
