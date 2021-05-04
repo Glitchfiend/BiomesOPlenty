@@ -10,6 +10,6 @@ public class HellbarkTree extends TreeDefaultConfig
    @Override
    protected Feature<? extends BaseTreeFeatureConfig> getFeature(Random random)
    {
-      return BOPFeatures.HELLBARK_TREE;
+      return (random.nextInt(10) == 0 ? BOPFeatures.BIG_HELLBARK_TREE : BOPFeatures.HELLBARK_TREE);
    }
 }
