@@ -18,6 +18,8 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
+import net.minecraft.world.gen.blockstateprovider.WeightedBlockStateProvider;
 import net.minecraft.world.gen.feature.*;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -149,28 +151,19 @@ public class BOPFeatures
 	public static final Feature<NoFeatureConfig> WASTELAND_GRASS = register("wasteland_grass", new WastelandGrassFeature(NoFeatureConfig.CODEC.stable()));
 
 	//Flowers
-	public static final FlowersFeature<NoFeatureConfig> CHERRY_BLOSSOM_GROVE_FLOWERS = register("cherry_blossom_grove_flowers", new CherryBlossomGroveFlowersFeature());
-	public static final FlowersFeature<NoFeatureConfig> CONIFEROUS_FOREST_FLOWERS = register("coniferous_forest_flowers", new ConiferousForestFlowersFeature());
-	public static final FlowersFeature<NoFeatureConfig> EXTENDED_FLOWERS = register("extended_flowers", new ExtendedFlowersFeature());
-	public static final FlowersFeature<NoFeatureConfig> FLOWER_MEADOW_FLOWERS = register("flower_meadow_flowers", new FlowerMeadowFlowersFeature());
-	public static final FlowersFeature<NoFeatureConfig> LAVENDER_FLOWERS = register("lavender_flowers", new LavenderFlowersFeature());
-	public static final FlowersFeature<NoFeatureConfig> MEADOW_FLOWERS = register("meadow_flowers", new MeadowFlowersFeature());
-	public static final FlowersFeature<NoFeatureConfig> MOOR_FLOWERS = register("moor_flowers", new MoorFlowersFeature());
-	public static final FlowersFeature<NoFeatureConfig> MYSTIC_GROVE_FLOWERS = register("mystic_grove_flowers", new MysticGroveFlowersFeature());
-	public static final FlowersFeature<NoFeatureConfig> OMINOUS_WOODS_FLOWERS = register("ominous_woods_flowers", new OminousWoodsFlowersFeature());
-	public static final FlowersFeature<NoFeatureConfig> ORIGIN_FLOWERS = register("origin_flowers", new OriginFlowersFeature());
-	public static final FlowersFeature<NoFeatureConfig> RAINBOW_HILLS_FLOWERS = register("rainbow_hills_flowers", new RainbowHillsFlowersFeature());
-	public static final FlowersFeature<NoFeatureConfig> RAINFOREST_FLOWERS = register("rainforest_flowers", new RainforestFlowersFeature());
-	public static final FlowersFeature<NoFeatureConfig> SHRUBLAND_FLOWERS = register("shrubland_flowers", new ShrublandFlowersFeature());
-	public static final FlowersFeature<NoFeatureConfig> SNOWY_FLOWERS = register("snowy_flowers", new SnowyFlowersFeature());
-	public static final FlowersFeature<NoFeatureConfig> TROPICS_FLOWERS = register("tropics_flowers", new TropicsFlowersFeature());
-	public static final FlowersFeature<NoFeatureConfig> WASTELAND_FLOWERS = register("wasteland_flowers", new WastelandFlowersFeature());
-	public static final FlowersFeature<NoFeatureConfig> WETLAND_FLOWERS = register("wetland_flowers", new WetlandFlowersFeature());
-
-	//Vanilla Biomes Features
-	public static final FlowersFeature<NoFeatureConfig> VIOLET_FEATURE = register("violet_feature", new VioletFeature());
-	public static final FlowersFeature<NoFeatureConfig> WILDFLOWER_FEATURE = register("wildflower_feature", new WildflowerFeature());
-	public static final FlowersFeature<NoFeatureConfig> POPPY_FEATURE = register("poppy_feature", new PoppyFeature());
+	public static final BlockClusterFeatureConfig CHERRY_BLOSSOM_GROVE_FLOWER_CONFIG = (new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(BOPBlocks.pink_daffodil.defaultBlockState(), 1).add(Blocks.LILY_OF_THE_VALLEY.defaultBlockState(), 1), SimpleBlockPlacer.INSTANCE)).tries(64).build();
+	public static final BlockClusterFeatureConfig CONIFEROUS_FOREST_FLOWER_CONFIG = (new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(Blocks.CORNFLOWER.defaultBlockState(), 1).add(Blocks.OXEYE_DAISY.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1), SimpleBlockPlacer.INSTANCE)).tries(64).build();
+	public static final BlockClusterFeatureConfig EXTENDED_FLOWER_CONFIG = (new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(Blocks.OXEYE_DAISY.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1), SimpleBlockPlacer.INSTANCE)).tries(64).build();
+	public static final BlockClusterFeatureConfig FLOWER_MEADOW_FLOWER_CONFIG = (new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(Blocks.PINK_TULIP.defaultBlockState(), 1).add(Blocks.RED_TULIP.defaultBlockState(), 1).add(Blocks.WHITE_TULIP.defaultBlockState(), 1).add(Blocks.ORANGE_TULIP.defaultBlockState(), 1), SimpleBlockPlacer.INSTANCE)).tries(64).build();
+	public static final BlockClusterFeatureConfig MEADOW_FLOWER_CONFIG = (new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(Blocks.LILY_OF_THE_VALLEY.defaultBlockState(), 1).add(Blocks.AZURE_BLUET.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1), SimpleBlockPlacer.INSTANCE)).tries(64).build();
+	public static final BlockClusterFeatureConfig MOOR_FLOWER_CONFIG = (new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(Blocks.ALLIUM.defaultBlockState(), 1).add(BOPBlocks.violet.defaultBlockState(), 1), SimpleBlockPlacer.INSTANCE)).tries(64).build();
+	public static final BlockClusterFeatureConfig MYSTIC_GROVE_FLOWER_CONFIG = (new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(BOPBlocks.glowflower.defaultBlockState(), 1).add(BOPBlocks.pink_daffodil.defaultBlockState(), 1).add(Blocks.LILY_OF_THE_VALLEY.defaultBlockState(), 1).add(Blocks.AZURE_BLUET.defaultBlockState(), 1).add(Blocks.ALLIUM.defaultBlockState(), 1), SimpleBlockPlacer.INSTANCE)).tries(64).build();
+	public static final BlockClusterFeatureConfig ORIGIN_VALLEY_FLOWER_CONFIG = (new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(BOPBlocks.rose.defaultBlockState(), 6).add(Blocks.DANDELION.defaultBlockState(), 4), SimpleBlockPlacer.INSTANCE)).tries(64).build();
+	public static final BlockClusterFeatureConfig RAINBOW_HILLS_FLOWER_CONFIG = (new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(BOPBlocks.orange_cosmos.defaultBlockState(), 1).add(BOPBlocks.pink_daffodil.defaultBlockState(), 1).add(Blocks.LILY_OF_THE_VALLEY.defaultBlockState(), 1).add(Blocks.AZURE_BLUET.defaultBlockState(), 1).add(Blocks.ALLIUM.defaultBlockState(), 1).add(Blocks.CORNFLOWER.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1).add(Blocks.BLUE_ORCHID.defaultBlockState(), 1).add(Blocks.PINK_TULIP.defaultBlockState(), 1).add(Blocks.RED_TULIP.defaultBlockState(), 1).add(Blocks.WHITE_TULIP.defaultBlockState(), 1).add(Blocks.ORANGE_TULIP.defaultBlockState(), 1), SimpleBlockPlacer.INSTANCE)).tries(64).build();
+	public static final BlockClusterFeatureConfig RAINFOREST_FLOWER_CONFIG = (new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(BOPBlocks.orange_cosmos.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1), SimpleBlockPlacer.INSTANCE)).tries(64).build();
+	public static final BlockClusterFeatureConfig SNOWY_FLOWER_CONFIG = (new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(BOPBlocks.violet.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1), SimpleBlockPlacer.INSTANCE)).tries(64).build();
+	public static final BlockClusterFeatureConfig TROPICS_FLOWER_CONFIG = (new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(BOPBlocks.pink_hibiscus.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1), SimpleBlockPlacer.INSTANCE)).tries(64).build();
+	public static final BlockClusterFeatureConfig WETLAND_FLOWER_CONFIG = (new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(Blocks.BLUE_ORCHID.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1), SimpleBlockPlacer.INSTANCE)).tries(64).build();
 
 	//Other
 	public static final LiquidsConfig VOLCANO_SPRING_CONFIG = new LiquidsConfig(Fluids.LAVA.defaultFluidState(), true, 4, 1, ImmutableSet.of(Blocks.BASALT, Blocks.MAGMA_BLOCK, BOPBlocks.black_sand, BOPBlocks.black_sandstone, Blocks.STONE, Blocks.GRANITE, Blocks.DIORITE, Blocks.ANDESITE));
