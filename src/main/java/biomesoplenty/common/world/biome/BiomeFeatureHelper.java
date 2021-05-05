@@ -28,6 +28,11 @@ public class BiomeFeatureHelper
         return (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(state), new DoublePlantBlockPlacer())).tries(64).noProjection().build();
     }
 
+    public static BlockClusterFeatureConfig createClusterConfigurationDoubleProjects(BlockState state)
+    {
+        return (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(state), new DoublePlantBlockPlacer())).tries(64).build();
+    }
+
     public static BlockClusterFeatureConfig createClusterConfigurationDoubleWater(BlockState state)
     {
         return (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(state), new DoublePlantBlockPlacer())).canReplace().tries(64).noProjection().build();

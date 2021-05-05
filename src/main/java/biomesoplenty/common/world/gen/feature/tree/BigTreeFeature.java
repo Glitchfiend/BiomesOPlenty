@@ -79,7 +79,7 @@ public class BigTreeFeature extends TreeFeatureBase
     // radius is the radius of the section from the center
     // direction is the direction the cross section is pointed, 0 for x, 1
     // for y, 2 for z material is the index number for the material to use
-    private void crossSection(IWorld world, BlockPos pos, float radius, MutableBoundingBox boundingBox, Set<BlockPos> changedBlocks)
+    private void crossSection(IWorld world, BlockPos pos, float radius, Random random, MutableBoundingBox boundingBox, Set<BlockPos> changedBlocks)
     {
         final int r = (int)((double)radius + trunkHeightScale);
 
@@ -95,7 +95,7 @@ public class BigTreeFeature extends TreeFeatureBase
                         // Mojang sets leaves via the method used for logs. Probably intentional?
                         if (this.altLeaves != Blocks.AIR.defaultBlockState())
                         {
-                            int rand = new Random().nextInt(4);
+                            int rand = random.nextInt(4);
 
                             if (rand == 0)
                             {
@@ -182,11 +182,11 @@ public class BigTreeFeature extends TreeFeatureBase
     // Generate a cluster of foliage, with the base at blockPos
     // The shape of the cluster is derived from foliageShape
     // crossection is called to make each level.
-    private void foliageCluster(IWorld world, BlockPos pos, MutableBoundingBox boundingBox, Set<BlockPos> changedBlocks)
+    private void foliageCluster(IWorld world, BlockPos pos, Random random, MutableBoundingBox boundingBox, Set<BlockPos> changedBlocks)
     {
         for (int y = 0; y < foliageHeight; y++)
         {
-            this.crossSection(world, pos.above(y), this.foliageShape(y), boundingBox, changedBlocks);
+            this.crossSection(world, pos.above(y), this.foliageShape(y), random, boundingBox, changedBlocks);
         }
     }
 
@@ -268,13 +268,13 @@ public class BigTreeFeature extends TreeFeatureBase
         return axis;
     }
 
-    private void makeFoliage(IWorld worldIn, int height, BlockPos pos, List<FoliageCoordinates> coordinates, MutableBoundingBox boundingBox, Set<BlockPos> changedBlocks)
+    private void makeFoliage(IWorld worldIn, int height, BlockPos pos, List<FoliageCoordinates> coordinates, Random random, MutableBoundingBox boundingBox, Set<BlockPos> changedBlocks)
     {
         for (FoliageCoordinates coordinate : coordinates)
         {
             if (this.trimBranches(height, coordinate.getBranchBase() - pos.getY()))
             {
-                this.foliageCluster(worldIn, coordinate, boundingBox, changedBlocks);
+                this.foliageCluster(worldIn, coordinate, random, boundingBox, changedBlocks);
             }
         }
     }
@@ -394,7 +394,7 @@ public class BigTreeFeature extends TreeFeatureBase
                 }
             }
 
-            this.makeFoliage(world, height, pos, foliageCoords, boundingBox, changedLeaves);
+            this.makeFoliage(world, height, pos, foliageCoords, random, boundingBox, changedLeaves);
             this.makeTrunk(changedLogs, world, pos, trunkHeight, boundingBox);
             this.makeBranches(changedLogs, world, height, pos, foliageCoords, boundingBox);
             return true;

@@ -24,40 +24,46 @@ public enum LargeIslandLayer implements IAreaTransformer2, IDimOffset1Transforme
     @Override
     public int applyPixel(INoiseRandom context, IArea landSeaArea, IArea climateArea, int x, int z)
     {
-        int northVal = landSeaArea.get(x + 1, z + 0);
-        int eastVal = landSeaArea.get(x + 2, z + 1);
-        int southVal = landSeaArea.get(x + 1, z + 2);
-        int westVal = landSeaArea.get(x + 0, z + 1);
         int centerVal = landSeaArea.get(x + 1, z + 1);
-        int climateVal = climateArea.get(x, z);
 
-        BOPClimates climate;
-        try
+        if (context.nextRandom(50) == 0)
         {
-            climate = BOPClimates.lookup(climateVal);
-        }
-        catch (ArrayIndexOutOfBoundsException e)
-        {
-            // This shouldn't happen - but apparently it (rarely) does (https://github.com/Glitchfiend/BiomesOPlenty/issues/983)
-            // If it does it means that something weird happened with the climate layer / lookup
-            // Rethrow with hopefully a more useful message
-            String msg = "Climate lookup failed climateOrdinal: " + climateVal;
-            throw new RuntimeException(msg,e);
-        }
+            int northVal = landSeaArea.get(x + 1, z + 0);
+            int eastVal = landSeaArea.get(x + 2, z + 1);
+            int southVal = landSeaArea.get(x + 1, z + 2);
+            int westVal = landSeaArea.get(x + 0, z + 1);
+            int climateVal = climateArea.get(x, z);
 
-        if (centerVal == 0 && northVal == 0 && eastVal == 0 && southVal == 0 && westVal == 0 && context.nextRandom(50) == 0)
-        {
-            RegistryKey<Biome> islandBiome = climate.getRandomIslandBiome(context, null);
-
-            if (islandBiome == null)
+            BOPClimates climate;
+            try
             {
-                return centerVal;
+                climate = BOPClimates.lookup(climateVal);
             }
-            else
+            catch (ArrayIndexOutOfBoundsException e)
             {
-                return BiomeUtil.getBiomeId(islandBiome);
+                // This shouldn't happen - but apparently it (rarely) does (https://github.com/Glitchfiend/BiomesOPlenty/issues/983)
+                // If it does it means that something weird happened with the climate layer / lookup
+                // Rethrow with hopefully a more useful message
+                String msg = "Climate lookup failed climateOrdinal: " + climateVal;
+                throw new RuntimeException(msg,e);
             }
+
+            if (centerVal == 0 && northVal == 0 && eastVal == 0 && southVal == 0 && westVal == 0)
+            {
+                RegistryKey<Biome> islandBiome = climate.getRandomIslandBiome(context, null);
+
+                if (islandBiome == null)
+                {
+                    return centerVal;
+                }
+                else
+                {
+                    return BiomeUtil.getBiomeId(islandBiome);
+                }
+            }
+            else return centerVal;
+        } else {
+            return centerVal;
         }
-        else return centerVal;
     }
 }
