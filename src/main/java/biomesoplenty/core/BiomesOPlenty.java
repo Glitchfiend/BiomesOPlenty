@@ -8,8 +8,10 @@
 
 package biomesoplenty.core;
 
+import biomesoplenty.client.renderer.BoatRendererBOP;
 import biomesoplenty.init.*;
 import net.minecraftforge.fml.DistExecutor;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -50,6 +52,7 @@ public class BiomesOPlenty
 
     private void clientSetup(final FMLClientSetupEvent event)
     {
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.boat, BoatRendererBOP::new);
     }
 
     private void loadComplete(final FMLLoadCompleteEvent event) // PostRegistrationEven
