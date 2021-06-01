@@ -80,16 +80,22 @@
                 "biome": "biomesoplenty:dead_forest"
             }
         },
-		"dead_swamp": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:dead_swamp"
-            }
-        },
 		"deep_bayou": {
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:deep_bayou"
+            }
+        },
+		"dense_marsh": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:dense_marsh"
+            }
+        },
+		"dense_woodland": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:dense_woodland"
             }
         },
 		"dryland": {
@@ -212,6 +218,12 @@
                 "biome": "biomesoplenty:lush_savanna"
             }
         },
+		"marsh": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:marsh"
+            }
+        },
 		"meadow": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -222,6 +234,18 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:meadow_forest"
+            }
+        },
+		"muskeg": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:muskeg"
+            }
+        },
+		"mushroomy_muskeg": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:mushroomy_muskeg"
             }
         },
 		"mystic_grove": {
@@ -452,10 +476,10 @@
                 "biome": "biomesoplenty:wetland"
             }
         },
-		"wetland_marsh": {
+		"wetland_forest": {
             "trigger": "minecraft:location",
             "conditions": {
-                "biome": "biomesoplenty:wetland_marsh"
+                "biome": "biomesoplenty:wetland_forest"
             }
         },
 		"withered_abyss": {
@@ -475,6 +499,12 @@
             "conditions": {
                 "biome": "biomesoplenty:wooded_wasteland"
             }
+        },
+		"woodland": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:woodland"
+            }
         }
 	},
 	"requirements": [
@@ -490,8 +520,9 @@
 			"coniferous_lakes",
 			"crystalline_chasm",
 			"dead_forest",
-			"dead_swamp",
 			"deep_bayou",
+			"dense_marsh",
+			"dense_woodland",
 			"dryland",
 			"dry_boneyard",
 			"fir_clearing",
@@ -512,8 +543,11 @@
 			"lavender_forest",
 			"lush_desert",
 			"lush_savanna",
+			"marsh",
 			"meadow",
 			"meadow_forest",
+			"muskeg",
+			"mushroomy_muskeg",
 			"mystic_grove",
 			"mystic_plains",
 			"ominous_woods",
@@ -552,10 +586,11 @@
 			"volcano",
 			"wasteland",
 			"wetland",
-			"wetland_marsh",
+			"wetland_forest",
 			"withered_abyss",
 			"wooded_scrubland",
-			"wooded_wasteland"
+			"wooded_wasteland",
+			"woodland"
         ]
     ]
 }

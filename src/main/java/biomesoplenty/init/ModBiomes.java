@@ -20,7 +20,6 @@ import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.common.world.BOPBiomeProvider;
 import biomesoplenty.common.world.BOPNetherBiomeProvider;
 import biomesoplenty.common.world.BOPWorldType;
-import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -154,8 +153,9 @@ public class ModBiomes
         registerBiome(new ConiferousForestBiome(), "coniferous_forest");
         registerBiome(new ConiferousLakesBiome(), "coniferous_lakes");
         registerBiome(new DeadForestBiome(), "dead_forest");
-        registerBiome(new DeadSwampBiome(), "dead_swamp");
         registerBiome(new DeepBayouBiome(), "deep_bayou");
+        registerBiome(new DenseMarshBiome(), "dense_marsh");
+        registerBiome(new DenseWoodlandBiome(), "dense_woodland");
         registerBiome(new DrylandBiome(), "dryland");
         registerBiome(new DryBoneyardBiome(), "dry_boneyard");
         registerBiome(new FirClearingBiome(), "fir_clearing");
@@ -175,8 +175,11 @@ public class ModBiomes
         registerBiome(new LavenderForestBiome(), "lavender_forest");
         registerBiome(new LushDesertBiome(), "lush_desert");
         registerBiome(new LushSavannaBiome(), "lush_savanna");
+        registerBiome(new MarshBiome(), "marsh");
         registerBiome(new MeadowBiome(), "meadow");
         registerBiome(new MeadowForestBiome(), "meadow_forest");
+        registerBiome(new MuskegBiome(), "muskeg");
+        registerBiome(new MushroomyMuskegBiome(), "mushroomy_muskeg");
         registerBiome(new MysticGroveBiome(), "mystic_grove");
         registerBiome(new MysticPlainsBiome(), "mystic_plains");
         registerBiome(new OminousWoodsBiome(), "ominous_woods");
@@ -209,9 +212,10 @@ public class ModBiomes
         registerBiome(new VolcanoBiome(), "volcano");
         registerBiome(new WastelandBiome(), "wasteland");
         registerBiome(new WetlandBiome(), "wetland");
-        registerBiome(new WetlandMarshBiome(), "wetland_marsh");
+        registerBiome(new WetlandForestBiome(), "wetland_forest");
         registerBiome(new WoodedScrublandBiome(), "wooded_scrubland");
         registerBiome(new WoodedWastelandBiome(), "wooded_wasteland");
+        registerBiome(new WoodlandBiome(), "woodland");
 
         //Nether Biomes
         registerBiome(new CrystallineChasmBiome(), "crystalline_chasm");
@@ -231,8 +235,7 @@ public class ModBiomes
         registerSubBiome(coniferous_forest, fir_clearing, 0.75F, 100);
         registerSubBiome(coniferous_forest, coniferous_lakes, 1.0F, 100);
 
-        registerSubBiome(dead_forest, dead_swamp, 0.75F, 100);
-        registerSubBiome(dead_forest, burnt_forest, 0.75F, 100);
+        registerSubBiome(dead_forest, burnt_forest, 0.6F, 100);
 
         registerSubBiome(dryland, dry_boneyard, 0.75F, 100);
 
@@ -251,8 +254,12 @@ public class ModBiomes
 
         registerSubBiome(lush_desert, lush_savanna, 0.65F, 100);
 
+        registerSubBiome(marsh, dense_marsh, 1.0F, 100);
+
         registerSubBiome(meadow, flower_meadow, 1.0F, 100);
         registerSubBiome(meadow, meadow_forest, 1.0F, 100);
+
+        registerSubBiome(muskeg, mushroomy_muskeg, 0.75F, 100);
 
         registerSubBiome(mystic_grove, mystic_plains, 0.75F, 100);
 
@@ -284,7 +291,9 @@ public class ModBiomes
 
         registerSubBiome(wasteland, wooded_wasteland, 0.85F, 100);
 
-        registerSubBiome(wetland, wetland_marsh, 1.0F, 100);
+        registerSubBiome(wetland, wetland_forest, 1.0F, 100);
+
+        registerSubBiome(woodland, dense_woodland, 0.9F, 100);
 
         BiomeRegistry.configureSubBiomes();
         BiomeRegistry.finalizeRegistrations(BiomeRegistry.RegistrationType.SUB_BIOME);
@@ -353,8 +362,9 @@ public class ModBiomes
         registerBiomeToDictionary(coniferous_forest, Type.OVERWORLD, Type.DENSE, Type.CONIFEROUS, Type.FOREST);
         registerBiomeToDictionary(coniferous_lakes, Type.OVERWORLD, Type.SPARSE, Type.CONIFEROUS, Type.FOREST);
         registerBiomeToDictionary(dead_forest, Type.OVERWORLD, Type.COLD, Type.SPARSE, Type.DEAD, Type.RARE, Type.FOREST);
-        registerBiomeToDictionary(dead_swamp, Type.OVERWORLD, Type.COLD, Type.SPARSE, Type.WET, Type.DEAD, Type.RARE, Type.SWAMP);
         registerBiomeToDictionary(deep_bayou, Type.OVERWORLD, Type.HOT, Type.DENSE, Type.WET, Type.SWAMP);
+        registerBiomeToDictionary(dense_marsh, Type.OVERWORLD, Type.DENSE, Type.WET, Type.SWAMP);
+        registerBiomeToDictionary(dense_woodland, Type.OVERWORLD, Type.DENSE, Type.FOREST);
         registerBiomeToDictionary(dryland, Type.OVERWORLD, Type.HOT, Type.SPARSE, Type.DRY, Type.SAVANNA, Type.SANDY);
         registerBiomeToDictionary(dry_boneyard, Type.OVERWORLD, Type.HOT, Type.SPARSE, Type.DRY, Type.SAVANNA, Type.DEAD, Type.SANDY, Type.WASTELAND);
         registerBiomeToDictionary(fir_clearing, Type.OVERWORLD, Type.SPARSE, Type.CONIFEROUS, Type.FOREST);
@@ -375,8 +385,11 @@ public class ModBiomes
         registerBiomeToDictionary(lavender_forest, Type.OVERWORLD, Type.DENSE, Type.LUSH, Type.FOREST);
         registerBiomeToDictionary(lush_desert, Type.OVERWORLD, Type.HOT, Type.SPARSE, Type.SAVANNA, Type.LUSH, Type.RARE, Type.SANDY);
         registerBiomeToDictionary(lush_savanna, Type.OVERWORLD, Type.HOT, Type.SPARSE, Type.SAVANNA, Type.LUSH, Type.RARE, Type.PLAINS);
+        registerBiomeToDictionary(marsh, Type.OVERWORLD, Type.SPARSE, Type.WET, Type.SWAMP);
         registerBiomeToDictionary(meadow, Type.OVERWORLD, Type.WET, Type.CONIFEROUS, Type.FOREST);
         registerBiomeToDictionary(meadow_forest, Type.OVERWORLD, Type.WET, Type.CONIFEROUS, Type.FOREST);
+        registerBiomeToDictionary(muskeg, Type.OVERWORLD, Type.COLD, Type.SPARSE, Type.WET, Type.DEAD, Type.RARE, Type.SWAMP, Type.SNOWY);
+        registerBiomeToDictionary(mushroomy_muskeg, Type.OVERWORLD, Type.COLD, Type.SPARSE, Type.WET, Type.DEAD, Type.RARE, Type.MUSHROOM, Type.SWAMP, Type.SNOWY);
         registerBiomeToDictionary(mystic_grove, Type.OVERWORLD, Type.WET, Type.LUSH, Type.MAGICAL, Type.RARE, Type.FOREST);
         registerBiomeToDictionary(mystic_plains, Type.OVERWORLD, Type.SPARSE, Type.WET, Type.LUSH, Type.MAGICAL, Type.RARE, Type.PLAINS);
         registerBiomeToDictionary(ominous_mire, Type.OVERWORLD, Type.COLD, Type.WET, Type.CONIFEROUS, Type.SPOOKY, Type.RARE, Type.FOREST, Type.SWAMP);
@@ -413,9 +426,10 @@ public class ModBiomes
         registerBiomeToDictionary(volcano, Type.OVERWORLD, Type.HOT, Type.SPARSE, Type.DRY, Type.DEAD, Type.RARE, Type.MOUNTAIN, Type.WASTELAND);
         registerBiomeToDictionary(wasteland, Type.OVERWORLD, Type.HOT, Type.SPARSE, Type.DRY, Type.SAVANNA, Type.DEAD, Type.RARE, Type.WASTELAND);
         registerBiomeToDictionary(wetland, Type.OVERWORLD, Type.WET, Type.FOREST, Type.SWAMP);
-        registerBiomeToDictionary(wetland_marsh, Type.OVERWORLD, Type.SPARSE, Type.WET, Type.SWAMP);
+        registerBiomeToDictionary(wetland_forest, Type.OVERWORLD, Type.WET, Type.DENSE, Type.FOREST, Type.SWAMP);
         registerBiomeToDictionary(wooded_scrubland, Type.OVERWORLD, Type.HOT, Type.SPARSE, Type.SAVANNA);
         registerBiomeToDictionary(wooded_wasteland, Type.OVERWORLD, Type.HOT, Type.SPARSE, Type.DRY, Type.SAVANNA, Type.DEAD, Type.RARE, Type.WASTELAND);
+        registerBiomeToDictionary(woodland, Type.OVERWORLD, Type.FOREST);
 
         //Nether Biomes
         registerBiomeToDictionary(crystalline_chasm, Type.NETHER, Type.HOT, Type.DRY, Type.MAGICAL);
@@ -436,8 +450,9 @@ public class ModBiomes
         registerVillagerType(coniferous_forest, VillagerType.TAIGA);
         registerVillagerType(coniferous_lakes, VillagerType.TAIGA);
         registerVillagerType(dead_forest, VillagerType.TAIGA);
-        registerVillagerType(dead_swamp, VillagerType.TAIGA);
         registerVillagerType(deep_bayou, VillagerType.SWAMP);
+        registerVillagerType(dense_marsh, VillagerType.SWAMP);
+        registerVillagerType(dense_woodland, VillagerType.PLAINS);
         registerVillagerType(dryland, VillagerType.PLAINS);
         registerVillagerType(dry_boneyard, VillagerType.PLAINS);
         registerVillagerType(fir_clearing, VillagerType.TAIGA);
@@ -458,8 +473,11 @@ public class ModBiomes
         registerVillagerType(lavender_forest, VillagerType.PLAINS);
         registerVillagerType(lush_desert, VillagerType.SAVANNA);
         registerVillagerType(lush_savanna, VillagerType.SAVANNA);
+        registerVillagerType(marsh, VillagerType.SWAMP);
         registerVillagerType(meadow, VillagerType.TAIGA);
         registerVillagerType(meadow_forest, VillagerType.TAIGA);
+        registerVillagerType(muskeg, VillagerType.SNOW);
+        registerVillagerType(mushroomy_muskeg, VillagerType.SNOW);
         registerVillagerType(mystic_grove, VillagerType.PLAINS);
         registerVillagerType(mystic_plains, VillagerType.PLAINS);
         registerVillagerType(ominous_mire, VillagerType.SWAMP);
@@ -496,9 +514,10 @@ public class ModBiomes
         registerVillagerType(volcano, VillagerType.PLAINS);
         registerVillagerType(wasteland, VillagerType.DESERT);
         registerVillagerType(wetland, VillagerType.SWAMP);
-        registerVillagerType(wetland_marsh, VillagerType.SWAMP);
+        registerVillagerType(wetland_forest, VillagerType.SWAMP);
         registerVillagerType(wooded_scrubland, VillagerType.SAVANNA);
         registerVillagerType(wooded_wasteland, VillagerType.DESERT);
+        registerVillagerType(woodland, VillagerType.PLAINS);
     }
 
     private static void registerBiomeToDictionary(RegistryKey<Biome> key, Type...type)

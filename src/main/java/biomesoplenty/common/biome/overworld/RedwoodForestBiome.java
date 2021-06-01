@@ -24,7 +24,7 @@ public class RedwoodForestBiome extends BiomeTemplate
 {
     public RedwoodForestBiome()
     {
-        this.addWeight(BOPClimates.WARM_TEMPERATE, 7);
+        this.addWeight(BOPClimates.WARM_TEMPERATE, 5);
     }
 
     @Override

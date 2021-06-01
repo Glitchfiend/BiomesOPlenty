@@ -25,7 +25,7 @@ public class DeadForestBiome extends BiomeTemplate
 {
     public DeadForestBiome()
     {
-        this.addWeight(BOPClimates.DRY_BOREAL, 1);
+        this.addWeight(BOPClimates.DRY_BOREAL, 3);
         this.setBeachBiome(BOPBiomes.gravel_beach);
     }
 
