@@ -88,16 +88,12 @@ public class RainbowHillsBiome extends BiomeTemplate
 
     public int getGrassColor(double x, double z)
     {
-        if (ClientProxy.isAprilFools) { return 0xFFFFFF; }
-
         double d0 = Biome.BIOME_INFO_NOISE.getValue(x * 0.0225D, z * 0.0225D, false);
         return d0 < -0.1D ? 0x77CE7F : 0x75CE8D;
     }
     
     public int getFoliageColor()
     {
-        if (ClientProxy.isAprilFools) { return 0xFFFFFF; }
-
         return 0x75CE8D;
     }
 }

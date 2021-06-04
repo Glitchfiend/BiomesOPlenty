@@ -8,25 +8,27 @@
 package biomesoplenty.core;
 
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.client.BOPClassicPack;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.item.BlockItem;
+import net.minecraft.resources.ResourcePackInfo;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.FoliageColors;
 import net.minecraft.world.GrassColors;
 import net.minecraft.world.IBlockDisplayReader;
 import net.minecraft.world.biome.BiomeColors;
+import net.minecraftforge.fml.ModList;
 
 import java.awt.*;
 import java.util.Calendar;
 
 public class ClientProxy extends CommonProxy
 {
-    public static boolean isAprilFools = false;
-
     public ClientProxy()
     {
 
@@ -35,8 +37,7 @@ public class ClientProxy extends CommonProxy
     @Override
     public void init()
     {
-        Calendar calendar = Calendar.getInstance();
-        if (calendar.get(2) + 1 == 4 && calendar.get(5) == 1) { isAprilFools = true; }
+        addClassicPack();
 
         BlockColors blockColors = Minecraft.getInstance().getBlockColors();
         ItemColors itemColors = Minecraft.getInstance().getItemColors();
@@ -65,10 +66,15 @@ public class ClientProxy extends CommonProxy
         	BOPBlocks.palm_leaves, BOPBlocks.willow_leaves, BOPBlocks.willow_vine);
     }
 
+    public static void addClassicPack()
+    {
+        if (Minecraft.getInstance() == null) { return; }
+        Minecraft.getInstance().getResourcePackRepository().addPackFinder((consumer, iFactory) -> consumer.accept(ResourcePackInfo.create(new ResourceLocation(BiomesOPlenty.MOD_ID, "classic_textures").toString(), false, () -> new BOPClassicPack(ModList.get().getModFileById(BiomesOPlenty.MOD_ID).getFile()), iFactory, ResourcePackInfo.Priority.TOP, iTextComponent -> iTextComponent)));
+    }
+
     public static int getRainbowBirchColor(IBlockDisplayReader world, BlockPos pos)
     {
         Color foliage = Color.getHSBColor((((float)pos.getX() + MathHelper.sin(((float)pos.getZ() + (float)pos.getX()) / 35) * 35) % 150) / 150, 0.6F, 1.0F);
-        if (isAprilFools) { foliage = Color.WHITE; }
 
         return foliage.getRGB();
     }
