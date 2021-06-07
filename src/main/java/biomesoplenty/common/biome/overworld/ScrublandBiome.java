@@ -54,7 +54,10 @@ public class ScrublandBiome extends BiomeTemplate
         ////////////////////////////////////////////////////////////
 
         // Vegetation
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.SCRUBLAND_FLOWERS);
+
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.DESERT_GRASS_10);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.SCRUB_NORMAL);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.STANDARD_GRASS_6);
 
         ////////////////////////////////////////////////////////////

@@ -57,6 +57,12 @@
                 "biome": "biomesoplenty:cherry_blossom_grove"
             }
         },
+        "cold_desert": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:cold_desert"
+            }
+        },
 		"coniferous_forest": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -141,6 +147,18 @@
                 "biome": "biomesoplenty:golden_prairie"
             }
         },
+		"grassland": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:grassland"
+            }
+        },
+		"grassland_clover_patch": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:grassland_clover_patch"
+            }
+        },
         "gravel_beach": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -187,12 +205,6 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:jade_cliffs"
-            }
-        },
-		"jade_grassland": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:jade_grassland"
             }
         },
 		"lavender_field": {
@@ -243,12 +255,6 @@
                 "biome": "biomesoplenty:muskeg"
             }
         },
-		"mushroomy_muskeg": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:mushroomy_muskeg"
-            }
-        },
 		"mystic_grove": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -283,12 +289,6 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:origin_valley"
-            }
-        },
-		"overgrown_fungal_jungle": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:overgrown_fungal_jungle"
             }
         },
 		"prairie": {
@@ -363,6 +363,12 @@
                 "biome": "biomesoplenty:seasonal_pumpkin_patch"
             }
         },
+		"shroomy_wetland": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:shroomy_wetland"
+            }
+        },
 		"shrubland": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -373,18 +379,6 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:shrubland_hills"
-            }
-        },
-        "silkglade": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:silkglade"
-            }
-        },
-        "silkglade_nest": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:silkglade_nest"
             }
         },
 		"snowy_coniferous_forest": {
@@ -405,16 +399,16 @@
                 "biome": "biomesoplenty:snowy_maple_forest"
             }
         },
+		"tall_dead_forest": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:tall_dead_forest"
+            }
+        },
         "tropic_beach": {
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:tropic_beach"
-            }
-        },
-        "tropic_plains": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:tropic_plains"
             }
         },
         "tropics": {
@@ -493,12 +487,6 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:wooded_scrubland"
-            }
-        },
-		"wooded_wasteland": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:wooded_wasteland"
             }
         },
 		"woodland": {

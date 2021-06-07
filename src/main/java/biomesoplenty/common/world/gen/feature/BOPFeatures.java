@@ -36,8 +36,6 @@ public class BOPFeatures
 	public static final Feature<BaseTreeFeatureConfig> WHITE_CHERRY_TREE = register("white_cherry_tree", new BasicTreeFeature.Builder().log(BOPBlocks.cherry_log.defaultBlockState()).leaves(BOPBlocks.white_cherry_leaves.defaultBlockState()).create());
 	public static final Feature<BaseTreeFeatureConfig> JACARANDA_TREE = register("jacaranda_tree", new BasicTreeFeature.Builder().log(BOPBlocks.jacaranda_log.defaultBlockState()).leaves(BOPBlocks.jacaranda_leaves.defaultBlockState()).create());
 	public static final Feature<BaseTreeFeatureConfig> SMALL_DEAD_TREE = register("small_dead_tree", new BasicTreeFeature.Builder().log(BOPBlocks.dead_log.defaultBlockState()).leaves(BOPBlocks.dead_leaves.defaultBlockState()).create());
-	public static final Feature<BaseTreeFeatureConfig> SILK_TREE = register("silk_tree", new BasicTreeFeature.Builder().log(BOPBlocks.dead_log.defaultBlockState()).leaves(BOPBlocks.dead_leaves.defaultBlockState()).altLeaves(Blocks.COBWEB.defaultBlockState()).create());
-	public static final Feature<BaseTreeFeatureConfig> FULL_SILK_TREE = register("full_silk_tree", new BasicTreeFeature.Builder().log(BOPBlocks.dead_log.defaultBlockState()).leaves(Blocks.COBWEB.defaultBlockState()).create());
 	public static final Feature<BaseTreeFeatureConfig> MAGIC_TREE = register("magic_tree", new PoplarTreeFeature.Builder().log(BOPBlocks.magic_log.defaultBlockState()).leaves(BOPBlocks.magic_leaves.defaultBlockState()).minHeight(8).maxHeight(12).create());
 
 	//Big Trees
@@ -53,7 +51,7 @@ public class BOPFeatures
 	public static final Feature<BaseTreeFeatureConfig> BIG_JACARANDA_TREE = register("big_jacaranda_tree", new BigTreeFeature.Builder().log(BOPBlocks.jacaranda_log.defaultBlockState()).leaves(BOPBlocks.jacaranda_leaves.defaultBlockState()).create());
 	public static final Feature<BaseTreeFeatureConfig> BIG_MAGIC_TREE = register("big_magic_tree", new PoplarTreeFeature.Builder().log(BOPBlocks.magic_log.defaultBlockState()).leaves(BOPBlocks.magic_leaves.defaultBlockState()).minHeight(16).maxHeight(20).create());
 
-	public static final Feature<BaseTreeFeatureConfig> GIANT_TREE = register("giant_tree", new BigTreeFeature.Builder().log(Blocks.DARK_OAK_LOG.defaultBlockState()).leaves(Blocks.DARK_OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true)).minHeight(12).maxHeight(18).trunkWidth(4).create());
+	public static final Feature<BaseTreeFeatureConfig> GIANT_TREE = register("giant_tree", new BigTreeFeature.Builder().log(Blocks.DARK_OAK_LOG.defaultBlockState()).leaves(Blocks.DARK_OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true)).minHeight(15).maxHeight(20).trunkWidth(4).create());
 
 	//Conifer Trees
 	public static final Feature<BaseTreeFeatureConfig> TALL_SPRUCE_TREE = register("tall_spruce_tree", new TaigaTreeFeature.Builder().log(Blocks.SPRUCE_LOG.defaultBlockState()).leaves(Blocks.SPRUCE_LEAVES.defaultBlockState()).maxHeight(13).create());
@@ -66,7 +64,6 @@ public class BOPFeatures
 
 	//Poplar Trees
 	public static final Feature<BaseTreeFeatureConfig> SPRUCE_POPLAR = register("spruce_poplar", new PoplarTreeFeature.Builder().log(Blocks.SPRUCE_LOG.defaultBlockState()).leaves(Blocks.SPRUCE_LEAVES.defaultBlockState()).create());
-	public static final Feature<BaseTreeFeatureConfig> BIRCH_POPLAR = register("birch_poplar", new PoplarTreeFeature.Builder().log(Blocks.BIRCH_LOG.defaultBlockState()).leaves(Blocks.BIRCH_LEAVES.defaultBlockState()).create());
 	public static final Feature<BaseTreeFeatureConfig> DARK_OAK_POPLAR = register("dark_oak_poplar", new PoplarTreeFeature.Builder().log(Blocks.DARK_OAK_LOG.defaultBlockState()).leaves(Blocks.DARK_OAK_LEAVES.defaultBlockState()).create());
 
 	//Swamp Trees
@@ -86,8 +83,6 @@ public class BOPFeatures
 	public static final Feature<BaseTreeFeatureConfig> SPRUCE_BUSH = register("spruce_bush", new BushTreeFeature.Builder().log(Blocks.SPRUCE_LOG.defaultBlockState()).leaves(Blocks.SPRUCE_LEAVES.defaultBlockState()).create());
 	public static final Feature<BaseTreeFeatureConfig> ACACIA_BUSH = register("acacia_bush", new BushTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == BOPBlocks.orange_sand).log(Blocks.ACACIA_LOG.defaultBlockState()).leaves(Blocks.ACACIA_LEAVES.defaultBlockState()).create());
 	public static final Feature<BaseTreeFeatureConfig> FLOWERING_BUSH = register("flowering_bush", new BushTreeFeature.Builder().altLeaves(BOPBlocks.flowering_oak_leaves.defaultBlockState()).create());
-	public static final Feature<BaseTreeFeatureConfig> COBWEB_BUSH = register("cobweb_bush", new BushTreeFeature.Builder().altLeaves(Blocks.COBWEB.defaultBlockState()).create());
-	public static final Feature<BaseTreeFeatureConfig> FULL_COBWEB_BUSH = register("full_cobweb_bush", new BushTreeFeature.Builder().leaves(Blocks.COBWEB.defaultBlockState()).create());
 	public static final Feature<BaseTreeFeatureConfig> HELLBARK_TREE = register("hellbark_tree", new BushTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.NETHERRACK || world.getBlockState(pos).canSustainPlant(world, pos, Direction.UP, (SaplingBlock)Blocks.OAK_SAPLING)).log(BOPBlocks.hellbark_log.defaultBlockState()).leaves(BOPBlocks.hellbark_leaves.defaultBlockState()).create());
 
 	public static final Feature<BaseTreeFeatureConfig> TWIGLET_TREE = register("twiglet_tree", new TwigletTreeFeature.Builder().minHeight(1).maxHeight(2).create());
@@ -100,8 +95,8 @@ public class BOPFeatures
 	public static final Feature<BaseTreeFeatureConfig> ACACIA_TWIGLET = register("acacia_twiglet", new TwigletTreeFeature.Builder().log(Blocks.ACACIA_LOG.defaultBlockState()).leaves(Blocks.ACACIA_LEAVES.defaultBlockState()).minHeight(1).maxHeight(2).create());
 	public static final Feature<BaseTreeFeatureConfig> MAPLE_TWIGLET_TREE = register("maple_twiglet_tree", new TwigletTreeFeature.Builder().minHeight(1).maxHeight(2).leaves(BOPBlocks.maple_leaves.defaultBlockState()).create());
 	public static final Feature<BaseTreeFeatureConfig> DEAD_TWIGLET_TREE_SMALL = register("dead_twiglet_tree_small", new TwigletTreeFeature.Builder().minHeight(1).maxHeight(1).leaves(BOPBlocks.dead_leaves.defaultBlockState()).log(BOPBlocks.dead_log.defaultBlockState()).create());
-	public static final Feature<BaseTreeFeatureConfig> DEAD_TWIGLET_TREE = register("dead_twiglet_tree", new TwigletTreeFeature.Builder().trunkFruit(BOPBlocks.dead_branch.defaultBlockState()).leafChance(0.05F, 0.25F).leaves(BOPBlocks.dead_leaves.defaultBlockState()).log(BOPBlocks.dead_log.defaultBlockState()).minHeight(4).maxHeight(7).create());
-	public static final Feature<BaseTreeFeatureConfig> DEAD_TWIGLET_TREE_TALL = register("dead_twiglet_tree_tall", new TwigletTreeFeature.Builder().trunkFruit(BOPBlocks.dead_branch.defaultBlockState()).leafChance(0.15F, 0.6F).leaves(BOPBlocks.dead_leaves.defaultBlockState()).log(BOPBlocks.dead_log.defaultBlockState()).minHeight(8).maxHeight(12).create());
+	public static final Feature<BaseTreeFeatureConfig> DEAD_TWIGLET_TREE = register("dead_twiglet_tree", new TwigletTreeFeature.Builder().trunkFruit(BOPBlocks.dead_branch.defaultBlockState()).leafChance(0.05F, 0.25F).leaves(BOPBlocks.dead_leaves.defaultBlockState()).log(BOPBlocks.dead_log.defaultBlockState()).minHeight(6).maxHeight(10).create());
+	public static final Feature<BaseTreeFeatureConfig> DEAD_TWIGLET_TREE_TALL = register("dead_twiglet_tree_tall", new TwigletTreeFeature.Builder().trunkFruit(BOPBlocks.dead_branch.defaultBlockState()).leafChance(0.15F, 0.6F).leaves(BOPBlocks.dead_leaves.defaultBlockState()).log(BOPBlocks.dead_log.defaultBlockState()).minHeight(12).maxHeight(18).create());
 	public static final Feature<BaseTreeFeatureConfig> TWIGLET_TREE_VOLCANO = register("twiglet_tree_volcano", new TwigletTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == BOPBlocks.black_sand).log(Blocks.DARK_OAK_LOG.defaultBlockState()).leaves(Blocks.DARK_OAK_LEAVES.defaultBlockState()).minHeight(1).maxHeight(2).create());
 	public static final Feature<BaseTreeFeatureConfig> BIG_HELLBARK_TREE = register("big_hellbark_tree", new TwigletTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == Blocks.NETHERRACK || world.getBlockState(pos).canSustainPlant(world, pos, Direction.UP, (SaplingBlock)Blocks.OAK_SAPLING)).log(BOPBlocks.hellbark_log.defaultBlockState()).leaves(BOPBlocks.hellbark_leaves.defaultBlockState()).minHeight(3).maxHeight(7).create());
 
@@ -112,8 +107,9 @@ public class BOPFeatures
 	public static final Feature<BaseTreeFeatureConfig> MAHOGANY_TREE = register("mahogany_tree", new MahoganyTreeFeature.Builder().create());
 	public static final Feature<BaseTreeFeatureConfig> PALM_TREE = register("palm_tree", new PalmTreeFeature.Builder().create());
 	public static final Feature<BaseTreeFeatureConfig> DEAD_TREE = register("dead_tree", new TwigletTreeFeature.Builder().trunkFruit(BOPBlocks.dead_branch.defaultBlockState()).leafChance(0.0F, 0.0F).leaves(Blocks.AIR.defaultBlockState()).log(BOPBlocks.dead_log.defaultBlockState()).minHeight(6).maxHeight(10).create());
+	public static final Feature<BaseTreeFeatureConfig> TALL_DEAD_TREE = register("tall_dead_tree", new TwigletTreeFeature.Builder().trunkFruit(BOPBlocks.dead_branch.defaultBlockState()).leafChance(0.0F, 0.0F).leaves(Blocks.AIR.defaultBlockState()).log(BOPBlocks.dead_log.defaultBlockState()).minHeight(8).maxHeight(12).create());
 	public static final Feature<BaseTreeFeatureConfig> DEAD_TREE_WASTELAND = register("dead_tree_wasteland", new TwigletTreeFeature.Builder().placeOn((world, pos) -> world.getBlockState(pos).getBlock() == BOPBlocks.dried_salt).trunkFruit(BOPBlocks.dead_branch.defaultBlockState()).leafChance(0.0F, 0.0F).leaves(Blocks.AIR.defaultBlockState()).log(BOPBlocks.dead_log.defaultBlockState()).minHeight(6).maxHeight(10).create());
-	public static final Feature<BaseTreeFeatureConfig> BURNT_TREE = register("burnt_tree", new TwigletTreeFeature.Builder().leafChance(0.0F, 0.0F).leaves(Blocks.AIR.defaultBlockState()).log(BOPBlocks.stripped_hellbark_log.defaultBlockState()).minHeight(4).maxHeight(8).create());
+	public static final Feature<BaseTreeFeatureConfig> BURNT_TREE = register("burnt_tree", new TwigletTreeFeature.Builder().leafChance(0.0F, 0.0F).leaves(Blocks.AIR.defaultBlockState()).log(BOPBlocks.stripped_hellbark_log.defaultBlockState()).minHeight(3).maxHeight(5).create());
 
 	/////////////////////////////////////////////////////////////////////////////////
 
@@ -128,6 +124,7 @@ public class BOPFeatures
 	public static final Feature<NoFeatureConfig> FERN_GRASS = register("fern_grass", new FernGrassFeature(NoFeatureConfig.CODEC.stable()));
 	public static final Feature<NoFeatureConfig> FLESH_TENDON = register("flesh_tendon", new FleshTendonFeature(NoFeatureConfig.CODEC.stable()));
 	public static final Feature<NoFeatureConfig> GRASS_SPLATTER = register("grass_splatter", new GrassSplatterFeature(NoFeatureConfig.CODEC.stable()));
+	public static final Feature<NoFeatureConfig> HUGE_CLOVER = register("huge_clover", new HugeCloverFeature(NoFeatureConfig.CODEC.stable()));
 	public static final Feature<NoFeatureConfig> HUGE_GLOWSHROOM = register("huge_glowshroom", new HugeGlowshroomFeature(NoFeatureConfig.CODEC.stable()));
 	public static final Feature<NoFeatureConfig> HUGE_TOADSTOOL = register("huge_toadstool", new HugeToadstoolFeature(NoFeatureConfig.CODEC.stable()));
 	public static final Feature<NoFeatureConfig> LARGE_CRYSTAL = register("large_crystal", new LargeCrystalFeature(NoFeatureConfig.CODEC.stable()));
@@ -162,7 +159,6 @@ public class BOPFeatures
 	public static final BlockClusterFeatureConfig RAINBOW_HILLS_FLOWER_CONFIG = (new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(BOPBlocks.orange_cosmos.defaultBlockState(), 1).add(BOPBlocks.pink_daffodil.defaultBlockState(), 1).add(Blocks.LILY_OF_THE_VALLEY.defaultBlockState(), 1).add(Blocks.AZURE_BLUET.defaultBlockState(), 1).add(Blocks.ALLIUM.defaultBlockState(), 1).add(Blocks.CORNFLOWER.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1).add(Blocks.BLUE_ORCHID.defaultBlockState(), 1).add(Blocks.PINK_TULIP.defaultBlockState(), 1).add(Blocks.RED_TULIP.defaultBlockState(), 1).add(Blocks.WHITE_TULIP.defaultBlockState(), 1).add(Blocks.ORANGE_TULIP.defaultBlockState(), 1), SimpleBlockPlacer.INSTANCE)).tries(64).build();
 	public static final BlockClusterFeatureConfig RAINFOREST_FLOWER_CONFIG = (new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(BOPBlocks.orange_cosmos.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1), SimpleBlockPlacer.INSTANCE)).tries(64).build();
 	public static final BlockClusterFeatureConfig SNOWY_FLOWER_CONFIG = (new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(BOPBlocks.violet.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1), SimpleBlockPlacer.INSTANCE)).tries(64).build();
-	public static final BlockClusterFeatureConfig TROPICAL_PLAINS_FLOWER_CONFIG = (new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(BOPBlocks.orange_cosmos.defaultBlockState(), 1).add(Blocks.OXEYE_DAISY.defaultBlockState(), 1), SimpleBlockPlacer.INSTANCE)).tries(64).build();
 	public static final BlockClusterFeatureConfig TROPICS_FLOWER_CONFIG = (new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(BOPBlocks.pink_hibiscus.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1), SimpleBlockPlacer.INSTANCE)).tries(64).build();
 	public static final BlockClusterFeatureConfig WETLAND_FLOWER_CONFIG = (new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(Blocks.BLUE_ORCHID.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1), SimpleBlockPlacer.INSTANCE)).tries(64).build();
 

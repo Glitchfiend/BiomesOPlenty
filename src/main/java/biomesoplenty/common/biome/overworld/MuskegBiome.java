@@ -25,7 +25,7 @@ public class MuskegBiome extends BiomeTemplate
 {
     public MuskegBiome()
     {
-        this.addWeight(BOPClimates.TUNDRA, 1);
+        this.addWeight(BOPClimates.ICE_CAP, 1);
         this.setBeachBiome(null);
     }
 
@@ -66,7 +66,7 @@ public class MuskegBiome extends BiomeTemplate
         // Vegetation
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.MUSKEG_TREES);
 
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.STANDARD_GRASS_3);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.STANDARD_GRASS_1);
 
         ////////////////////////////////////////////////////////////
 

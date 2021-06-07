@@ -297,11 +297,15 @@ public class ModBlocks
         goldenrod = registerBlock(new TallFlowerBlockBOP(AbstractBlock.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS)), "goldenrod");
 
         //Vines
-        willow_vine = registerBlock(new VineBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT).noCollission().randomTicks().strength(0.2F).sound(SoundType.GRASS)), "willow_vine");
+        willow_vine = registerBlock(new VineBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT).randomTicks().noCollission().strength(0.2F).sound(SoundType.GRASS)), "willow_vine");
+        spanish_moss = registerBlock(new SpanishMossBottomBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT).randomTicks().noCollission().instabreak().sound(SoundType.GRASS)), "spanish_moss");
+        spanish_moss_plant = registerBlockNoGroup(new SpanishMossBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS)), "spanish_moss_plant");
 
         //Plants
         sprout = registerBlock(new FoliageBlockBOP(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS)), "sprout");
         bush = registerBlock(new FoliageBlockBOP(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS)), "bush");
+        clover = registerBlock(new FoliageBlockBOP(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS)), "clover");
+        huge_clover_petal = registerBlock(new HugeCloverPetalBlock(AbstractBlock.Properties.of(Material.PLANT).strength(0.2F).sound(SoundType.GRASS)), "huge_clover_petal");
         dune_grass = registerBlock(new FoliageBlockBOP(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.TERRACOTTA_LIGHT_GREEN).noCollission().instabreak().sound(SoundType.GRASS)), "dune_grass");
         desert_grass = registerBlock(new FoliageBlockBOP(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.TERRACOTTA_ORANGE).noCollission().instabreak().sound(SoundType.GRASS)), "desert_grass");
         dead_grass = registerBlock(new FoliageBlockBOP(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.WOOD).noCollission().instabreak().sound(SoundType.GRASS)), "dead_grass");
@@ -348,6 +352,7 @@ public class ModBlocks
         potted_wilted_lily = registerBlockNoGroup(new FlowerPotBlock(wilted_lily, AbstractBlock.Properties.of(Material.DECORATION).instabreak()), "potted_wilted_lily");
         potted_burning_blossom = registerBlockNoGroup(new FlowerPotBlock(burning_blossom, AbstractBlock.Properties.of(Material.DECORATION).instabreak().lightLevel((state) -> 7)), "potted_burning_blossom");
         potted_sprout = registerBlockNoGroup(new FlowerPotBlock(sprout, AbstractBlock.Properties.of(Material.DECORATION).instabreak()), "potted_sprout");
+        potted_clover = registerBlockNoGroup(new FlowerPotBlock(clover, AbstractBlock.Properties.of(Material.DECORATION).instabreak()), "potted_clover");
         potted_toadstool = registerBlockNoGroup(new FlowerPotBlock(toadstool, AbstractBlock.Properties.of(Material.DECORATION).instabreak()), "potted_toadstool");
         potted_glowshroom = registerBlockNoGroup(new FlowerPotBlock(glowshroom, AbstractBlock.Properties.of(Material.DECORATION).instabreak().lightLevel((state) -> 6)), "potted_glowshroom");
 
@@ -408,8 +413,12 @@ public class ModBlocks
             RenderTypeLookup.setRenderLayer(blue_hydrangea, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(goldenrod, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(willow_vine, cutoutRenderType);
+            RenderTypeLookup.setRenderLayer(spanish_moss, cutoutRenderType);
+            RenderTypeLookup.setRenderLayer(spanish_moss_plant, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(sprout, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(bush, cutoutRenderType);
+            RenderTypeLookup.setRenderLayer(clover, cutoutRenderType);
+            RenderTypeLookup.setRenderLayer(huge_clover_petal, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(dune_grass, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(desert_grass, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(dead_grass, cutoutRenderType);
@@ -452,6 +461,7 @@ public class ModBlocks
             RenderTypeLookup.setRenderLayer(potted_wilted_lily, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(potted_burning_blossom, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(potted_sprout, cutoutRenderType);
+            RenderTypeLookup.setRenderLayer(potted_clover, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(potted_toadstool, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(potted_glowshroom, cutoutRenderType);
 

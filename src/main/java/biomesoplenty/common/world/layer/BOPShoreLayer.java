@@ -61,7 +61,7 @@ public enum BOPShoreLayer implements ICastleTransformer
                 return MUSHROOM_FIELD_SHORE;
             }
         }
-        else if (biome != null && biome.getBiomeCategory() == Biome.Category.JUNGLE && biomeId != getBiomeIdIfPresent(BOPBiomes.rainforest, biomeId) && biomeId != getBiomeIdIfPresent(BOPBiomes.rainforest_floodplain, biomeId) && biomeId != getBiomeIdIfPresent(BOPBiomes.rainforest_cliffs, biomeId) && biomeId != getBiomeIdIfPresent(BOPBiomes.fungal_jungle, biomeId) && biomeId != getBiomeIdIfPresent(BOPBiomes.fungal_field, biomeId) && biomeId != getBiomeIdIfPresent(BOPBiomes.overgrown_fungal_jungle, biomeId))
+        else if (biome != null && biome.getBiomeCategory() == Biome.Category.JUNGLE && biomeId != getBiomeIdIfPresent(BOPBiomes.rainforest, biomeId) && biomeId != getBiomeIdIfPresent(BOPBiomes.rainforest_floodplain, biomeId) && biomeId != getBiomeIdIfPresent(BOPBiomes.rainforest_cliffs, biomeId) && biomeId != getBiomeIdIfPresent(BOPBiomes.fungal_jungle, biomeId) && biomeId != getBiomeIdIfPresent(BOPBiomes.fungal_field, biomeId))
         {
             if (!isJungleCompatible(northBiomeId) || !isJungleCompatible(eastBiomeId) || !isJungleCompatible(southBiomeId) || !isJungleCompatible(westBiomeId))
             {

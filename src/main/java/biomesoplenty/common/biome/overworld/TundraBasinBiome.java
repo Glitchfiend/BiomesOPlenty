@@ -32,7 +32,7 @@ public class TundraBasinBiome extends BiomeTemplate
     @Override
     protected void configureBiome(Biome.Builder builder)
     {
-        builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.TAIGA).depth(0.0F).scale(-0.075F).temperature(0.2F).downfall(0.5F);
+        builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.TAIGA).depth(0.0F).scale(0.0F).temperature(0.2F).downfall(0.5F);
 
         builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(calculateSkyColor(0.2F)).grassColorOverride(0xC08359).foliageColorOverride(0xC5975C).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
@@ -40,7 +40,7 @@ public class TundraBasinBiome extends BiomeTemplate
     @Override
     protected void configureGeneration(BiomeGenerationSettings.Builder builder)
     {
-        builder.surfaceBuilder(BOPConfiguredSurfaceBuilders.GRAVEL_FULL);
+        builder.surfaceBuilder(BOPConfiguredSurfaceBuilders.STONE_BASIN);
 
         // Structures
         DefaultBiomeFeatures.addDefaultOverworldLandStructures(builder);
@@ -49,7 +49,9 @@ public class TundraBasinBiome extends BiomeTemplate
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(builder);
         DefaultBiomeFeatures.addDefaultMonsterRoom(builder);
-        DefaultBiomeFeatures.addDefaultUndergroundVariety(builder);
+
+        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Features.ORE_GRAVEL);
+
         DefaultBiomeFeatures.addDefaultOres(builder);
         DefaultBiomeFeatures.addDefaultSoftDisks(builder);
 

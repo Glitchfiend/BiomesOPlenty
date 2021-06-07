@@ -130,8 +130,12 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.blue_hydrangea, 60, 100);
         registerFlammable(BOPBlocks.goldenrod, 60, 100);
         registerFlammable(BOPBlocks.willow_vine, 15, 100);
+        registerFlammable(BOPBlocks.spanish_moss, 60, 100);
+        registerFlammable(BOPBlocks.spanish_moss_plant, 60, 100);
         registerFlammable(BOPBlocks.sprout, 60, 100);
         registerFlammable(BOPBlocks.bush, 60, 100);
+        registerFlammable(BOPBlocks.clover, 60, 100);
+        registerFlammable(BOPBlocks.huge_clover_petal, 60, 100);
         registerFlammable(BOPBlocks.dune_grass, 60, 100);
         registerFlammable(BOPBlocks.desert_grass, 60, 100);
         registerFlammable(BOPBlocks.dead_grass, 60, 100);
@@ -220,9 +224,13 @@ public class ModVanillaCompat
         registerCompostable(0.65F, BOPBlocks.goldenrod);
 
         registerCompostable(0.5F, BOPBlocks.willow_vine);
+        registerCompostable(0.5F, BOPBlocks.spanish_moss);
+        registerCompostable(0.5F, BOPBlocks.spanish_moss_plant);
 
         registerCompostable(0.5F, BOPBlocks.sprout);
         registerCompostable(0.5F, BOPBlocks.bush);
+        registerCompostable(0.5F, BOPBlocks.clover);
+        registerCompostable(0.5F, BOPBlocks.huge_clover_petal);
         registerCompostable(0.5F, BOPBlocks.dune_grass);
         registerCompostable(0.5F, BOPBlocks.desert_grass);
         registerCompostable(0.5F, BOPBlocks.dead_grass);

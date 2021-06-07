@@ -32,6 +32,7 @@ public class BOPSurfaceBuilders
     public static final SurfaceBuilderConfig BLACK_SAND_SURFACE = new SurfaceBuilderConfig(BOPBlocks.black_sand.defaultBlockState(), BOPBlocks.black_sand.defaultBlockState(), BOPBlocks.black_sand.defaultBlockState());
     public static final SurfaceBuilderConfig DRIED_SALT_SURFACE = new SurfaceBuilderConfig(BOPBlocks.dried_salt.defaultBlockState(), BOPBlocks.dried_salt.defaultBlockState(), BOPBlocks.dried_salt.defaultBlockState());
     public static final SurfaceBuilderConfig ORIGIN_GRASS_SURFACE = new SurfaceBuilderConfig(BOPBlocks.origin_grass_block.defaultBlockState(), Blocks.DIRT.defaultBlockState(), Blocks.GRAVEL.defaultBlockState());
+    public static final SurfaceBuilderConfig BASIN_SURFACE = new SurfaceBuilderConfig(Blocks.AIR.defaultBlockState(), Blocks.STONE.defaultBlockState(), Blocks.GRAVEL.defaultBlockState());
 
     public static final SurfaceBuilder<SurfaceBuilderConfig> DRYLAND = register("dryland", new DrylandSurfaceBuilder(SurfaceBuilderConfig.CODEC.stable()));
     public static final SurfaceBuilder<SurfaceBuilderConfig> HIGHLAND_CRAG = register("highland_crag", new HighlandCragSurfaceBuilder(SurfaceBuilderConfig.CODEC.stable()));
@@ -50,6 +51,7 @@ public class BOPSurfaceBuilders
     public static final SurfaceBuilder<SurfaceBuilderConfig> TROPICS = register("tropics", new TropicsSurfaceBuilder(SurfaceBuilderConfig.CODEC.stable()));
     public static final SurfaceBuilder<SurfaceBuilderConfig> LUSH_DESERT = register("lush_desert", new LushDesertSurfaceBuilder(SurfaceBuilderConfig.CODEC.stable()));
     public static final SurfaceBuilder<SurfaceBuilderConfig> BLACK_SAND = register("black_sand", new BlackSandSurfaceBuilder(SurfaceBuilderConfig.CODEC.stable()));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> COLD_DESERT = register("cold_desert", new ColdDesertSurfaceBuilder(SurfaceBuilderConfig.CODEC.stable()));
 
     private static <C extends ISurfaceBuilderConfig, F extends SurfaceBuilder<C>> F register(String key, F builder)
     {

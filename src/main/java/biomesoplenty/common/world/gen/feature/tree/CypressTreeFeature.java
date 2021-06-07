@@ -10,10 +10,7 @@ package biomesoplenty.common.world.gen.feature.tree;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.biome.GeneratorUtil;
 import biomesoplenty.common.util.block.IBlockPosQuery;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.BushBlock;
-import net.minecraft.block.SaplingBlock;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
@@ -38,7 +35,7 @@ public class CypressTreeFeature extends TreeFeatureBase
             this.minHeight = 6;
             this.maxHeight = 15;
             this.placeOn = (world, pos) -> world.getBlockState(pos).canSustainPlant(world, pos, Direction.UP, (SaplingBlock)Blocks.OAK_SAPLING);
-            this.replace = (world, pos) -> world.getBlockState(pos).canBeReplacedByLeaves(world, pos) || world.getBlockState(pos).getMaterial() == Material.WATER || world.getBlockState(pos).getBlock().is(BlockTags.SAPLINGS) || world.getBlockState(pos).getBlock() == Blocks.VINE || world.getBlockState(pos).getBlock() == BOPBlocks.willow_vine || world.getBlockState(pos).getBlock() instanceof BushBlock;
+            this.replace = (world, pos) -> world.getBlockState(pos).canBeReplacedByLeaves(world, pos) || world.getBlockState(pos).getMaterial() == Material.WATER || world.getBlockState(pos).getBlock().is(BlockTags.SAPLINGS) || world.getBlockState(pos).getBlock() == Blocks.VINE || world.getBlockState(pos).getBlock() == BOPBlocks.willow_vine || world.getBlockState(pos).getBlock() == BOPBlocks.spanish_moss_plant || world.getBlockState(pos).getBlock() == BOPBlocks.spanish_moss || world.getBlockState(pos).getBlock() instanceof BushBlock;
             this.log = BOPBlocks.willow_log.defaultBlockState();
             this.leaves = BOPBlocks.willow_leaves.defaultBlockState();
             this.vine = BOPBlocks.willow_vine.defaultBlockState();
@@ -65,17 +62,11 @@ public class CypressTreeFeature extends TreeFeatureBase
     {
         for (int y = 0; y <= height; y++)
         {
-            int trunkWidth = (this.trunkWidth * (height - y) / height) + 1;
-            int trunkStart = MathHelper.ceil(0.25D - trunkWidth / 2.0D);
-            int trunkEnd = MathHelper.floor(0.25D + trunkWidth / 2.0D);
+            int radius = this.trunkWidth - 1;
 
-            // require 3x3 for the leaves, 1x1 for the trunk
-            int start = (y <= baseHeight ? trunkStart : trunkStart - 1);
-            int end = (y <= baseHeight ? trunkEnd : trunkEnd + 1);
-
-            for (int x = start; x <= end; x++)
+            for (int x = -radius; x <= radius; x++)
             {
-                for (int z = start; z <= end; z++)
+                for (int z = -radius; z <= radius; z++)
                 {
                     BlockPos pos1 = pos.offset(x, y, z);
                     // note, there may be a sapling on the first layer - make sure this.replace matches it!
@@ -96,25 +87,29 @@ public class CypressTreeFeature extends TreeFeatureBase
         return true;
     }
 
-    // generates a layer of leafs
-    public void generateLeafLayer(IWorld world, Random rand, BlockPos pos, int leavesRadius, int trunkStart, int trunkEnd, Set<BlockPos> changedLeaves, MutableBoundingBox boundingBox)
+    // generates a layer of leaves
+    public void generateLeafLayer(IWorld world, Random rand, BlockPos pos, int leavesRadius, Set<BlockPos> changedLeaves, MutableBoundingBox boundingBox)
     {
-        int start = trunkStart - leavesRadius;
-        int end = trunkEnd + leavesRadius;
+        int start = -leavesRadius;
+        int end = leavesRadius;
 
         for (int x = start; x <= end; x++)
         {
             for (int z = start; z <= end; z++)
             {
                 // skip corners
-                if ((leavesRadius > 0 ) && (x == start || x == end) && (z == start || z == end)) {continue;}
-                int distFromTrunk = (x < 0 ? trunkStart - x : x - trunkEnd) + (z < 0 ? trunkStart - z : z - trunkEnd);
-
-                // set leaves as long as it's not too far from the trunk to survive
-                if (distFromTrunk <= 2)
+                if ((leavesRadius > 0) && (x == start || x == end) && (z == start || z == end))
                 {
-                    this.placeLeaves(world, pos.offset(x, 0, z), changedLeaves, boundingBox);
+                    continue;
                 }
+
+                // Make ends more scraggly
+                if ((leavesRadius > 0) && ((x == start || x == end) || (z == start || z == end)) && rand.nextDouble() < 0.2)
+                {
+                    continue;
+                }
+
+                this.placeLeaves(world, pos.offset(x, 0, z), changedLeaves, boundingBox);
             }
         }
     }
@@ -155,11 +150,11 @@ public class CypressTreeFeature extends TreeFeatureBase
         {
             for (int z = 0; z <= this.trunkWidth - 1; z++)
             {
-		        if (!this.placeOn.matches(world, startPos.offset(x, 0, z)))
-		        {
-		            // Abandon if we can't place the tree on this block
-		            return false;
-		        }
+                if (!this.placeOn.matches(world, startPos.offset(x, 0, z)))
+                {
+                    // Abandon if we can't place the tree on this block
+                    return false;
+                }
             }
         }
 
@@ -167,7 +162,11 @@ public class CypressTreeFeature extends TreeFeatureBase
         int height = GeneratorUtil.nextIntBetween(random, this.minHeight, this.maxHeight);
         int baseHeight = GeneratorUtil.nextIntBetween(random, (int)(height * 0.6F), (int)(height * 0.4F));
         int leavesHeight = height - baseHeight;
+        int baseLeavesHeight = leavesHeight;
         if (leavesHeight < 3) {return false;}
+
+        leavesHeight = MathHelper.clamp(leavesHeight, 3, 5);
+        leavesHeight = MathHelper.clamp(leavesHeight + random.nextInt(3), 0, baseLeavesHeight);
 
         if (!this.checkSpace(world, startPos.above(), baseHeight, height))
         {
@@ -185,54 +184,99 @@ public class CypressTreeFeature extends TreeFeatureBase
         // Add layers of leaves
         for (int i = 0; i < leavesHeight; i++)
         {
-
-            int trunkWidth = (this.trunkWidth * i / height) + 1;
-            int trunkStart = MathHelper.ceil(0.25D - trunkWidth / 2.0D);
-            int trunkEnd = MathHelper.floor(0.25D + trunkWidth / 2.0D);
-
-
-            int radius = MathHelper.clamp(i, 0, 2);
-            if (i == leavesHeight - 1)
+            int radius = 3;
+            if (i == 0)
             {
                 radius = 1;
             }
+            else if (i <= 2)
+            {
+                radius = 2;
+            }
 
-            if (radius == 0)
-            {
-                this.placeLeaves(world, pos, changedLeaves, boundingBox);
-            }
-            else if (radius < 2)
-            {
-                this.generateLeafLayer(world, random, pos, radius, trunkStart, trunkEnd, changedLeaves, boundingBox);
-            }
-            else
-            {
-	            this.generateBranch(world, random, pos.offset(trunkStart, 0, trunkStart), Direction.NORTH, radius, changedLogs, changedLeaves, boundingBox);
-	            this.generateBranch(world, random, pos.offset(trunkEnd, 0, trunkStart), Direction.EAST, radius, changedLogs, changedLeaves, boundingBox);
-	            this.generateBranch(world, random, pos.offset(trunkEnd, 0, trunkEnd), Direction.SOUTH, radius, changedLogs, changedLeaves, boundingBox);
-	            this.generateBranch(world, random, pos.offset(trunkStart, 0, trunkEnd), Direction.WEST, radius, changedLogs, changedLeaves, boundingBox);
-            }
+            this.generateLeafLayer(world, random, pos, radius,  changedLeaves, boundingBox);
+
             pos = pos.below();
         }
 
+        this.placeSpanishMoss(world, random, pos);
+
+        // We make the radius to check 1 less than the width
+        int trunkRadius = this.trunkWidth - 1;
+
         // Generate the trunk
-        for (int y = 0; y < height - 1; y++)
+        for (int x = -trunkRadius; x <= trunkRadius; x++)
         {
-            int trunkWidth = (this.trunkWidth * ((baseHeight + 5) - y) / (baseHeight + 5)) + 1;
-            int trunkStart = MathHelper.ceil(0.25D - trunkWidth / 2.0D);
-            int trunkEnd = MathHelper.floor(0.25D + trunkWidth / 2.0D);
-
-            if (trunkWidth < 1)
+            for (int z = -trunkRadius; z <= trunkRadius; z++)
             {
-                trunkStart = 0;
-                trunkEnd = 0;
-            }
+                int dist = Math.abs(x) + Math.abs(z);
 
-            for (int x = trunkStart; x <= trunkEnd; x++)
-            {
-                for (int z = trunkStart; z <= trunkEnd; z++)
+                if (dist > trunkRadius)
                 {
-                    this.placeLog(world, startPos.offset(x, y, z), changedLogs, boundingBox);
+                    continue;
+                }
+
+                int heightHere = height - 1;
+                if (dist == 1)
+                {
+                    heightHere = (int) (height * (0.2 + random.nextDouble() * 0.15));
+                }
+
+                heightHere += random.nextInt(2);
+
+                for (int y = 0; y < heightHere; y++)
+                {
+                    BlockPos local = startPos.offset(x, y, z);
+                    boolean air = world.getBlockState(local).getFluidState().isEmpty();
+
+                    this.placeLog(world, local, changedLogs, boundingBox);
+
+                    if (x == 0 && z == 0 && air && y < heightHere - leavesHeight + 1)
+                    {
+                        if (y >= baseHeight && random.nextInt(3) == 0)
+                        {
+                            // Big branch
+                            double theta = Math.PI * random.nextDouble() * 2;
+
+                            int length = 2 + random.nextInt(3);
+
+                            BlockPos branchPos = null;
+                            for (int i = 0; i < length; i++)
+                            {
+                                branchPos = local.offset(Math.cos(theta) * i, i / 2, Math.sin(theta) * i);
+
+                                this.placeLog(world, branchPos, changedLogs, boundingBox);
+                            }
+
+                            generateLeafLayer(world, random, branchPos, 2, changedLeaves, boundingBox);
+                            generateLeafLayer(world, random, branchPos.above(), 1, changedLeaves, boundingBox);
+                            if (random.nextBoolean())
+                            {
+                                generateLeafLayer(world, random, branchPos.above(2), 0, changedLeaves, boundingBox);
+                            }
+
+                            this.placeSpanishMoss(world, random, branchPos);
+
+                        }
+                        else if (y >= baseHeight && random.nextInt(3) == 0)
+                        {
+                            // Small branch
+                            Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
+                            BlockPos offset = local.relative(direction);
+
+                            this.placeLog(world, offset, changedLogs, boundingBox);
+
+                            for (Direction dir : Direction.values())
+                            {
+                                if (random.nextDouble() > 0.2)
+                                {
+                                    this.placeLeaves(world, offset.relative(dir), changedLeaves, boundingBox);
+                                }
+                            }
+
+                            this.placeSpanishMoss(world, random, offset);
+                        }
+                    }
                 }
             }
         }
@@ -250,5 +294,50 @@ public class CypressTreeFeature extends TreeFeatureBase
             return true;
         }
         return false;
+    }
+
+    private void placeSpanishMoss(IWorld p_236429_1_, Random p_236429_2_, BlockPos p_236429_3_)
+    {
+        BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
+
+        for(int i = 0; i < 50; ++i)
+        {
+            blockpos$mutable.setWithOffset(p_236429_3_, p_236429_2_.nextInt(5) - p_236429_2_.nextInt(5), p_236429_2_.nextInt(3) - p_236429_2_.nextInt(3), p_236429_2_.nextInt(5) - p_236429_2_.nextInt(5));
+            if (p_236429_1_.isEmptyBlock(blockpos$mutable))
+            {
+                BlockState blockstate = p_236429_1_.getBlockState(blockpos$mutable.above());
+                if (blockstate.getBlock() == BOPBlocks.willow_leaves)
+                {
+                    int j = MathHelper.nextInt(p_236429_2_, 1, 3);
+
+                    if (p_236429_2_.nextInt(5) == 0)
+                    {
+                        j = 1;
+                    }
+
+                    placeSpanishMossColumn(p_236429_1_, p_236429_2_, blockpos$mutable, j, 17, 25);
+                }
+            }
+        }
+    }
+
+    public static void placeSpanishMossColumn(IWorld p_236427_0_, Random p_236427_1_, BlockPos.Mutable p_236427_2_, int p_236427_3_, int p_236427_4_, int p_236427_5_)
+    {
+        for(int i = 0; i <= p_236427_3_; ++i)
+        {
+            if (p_236427_0_.isEmptyBlock(p_236427_2_))
+            {
+                if (i == p_236427_3_ || !p_236427_0_.isEmptyBlock(p_236427_2_.below()))
+                {
+                    p_236427_0_.setBlock(p_236427_2_, BOPBlocks.spanish_moss.defaultBlockState().setValue(AbstractTopPlantBlock.AGE, Integer.valueOf(MathHelper.nextInt(p_236427_1_, p_236427_4_, p_236427_5_))), 2);
+                    break;
+                }
+
+                p_236427_0_.setBlock(p_236427_2_, BOPBlocks.spanish_moss_plant.defaultBlockState(), 2);
+            }
+
+            p_236427_2_.move(Direction.DOWN);
+        }
+
     }
 }

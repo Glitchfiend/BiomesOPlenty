@@ -7,6 +7,7 @@
  ******************************************************************************/
 package biomesoplenty.common.biome.overworld;
 
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.BiomeTemplate;
 import biomesoplenty.common.world.gen.feature.BOPConfiguredFeatures;
@@ -14,28 +15,23 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
-import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilders;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
-public class SilkgladeBiome extends BiomeTemplate
+public class TallDeadForestBiome extends BiomeTemplate
 {
-    public SilkgladeBiome()
+    public TallDeadForestBiome()
     {
-        this.addWeight(BOPClimates.DRY_TEMPERATE, 1);
-        this.setBeachBiome(null);
-        this.setRiverBiome(null);
-        this.setGrassColorFunction(this::getGrassColor);
+        this.setBeachBiome(BOPBiomes.gravel_beach);
     }
 
     @Override
     protected void configureBiome(Biome.Builder builder)
     {
-        builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.FOREST).depth(0.1F).scale(0.25F).temperature(0.75F).downfall(0.2F);
+        builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.TAIGA).depth(0.5F).scale(0.1F).temperature(0.3F).downfall(0.3F);
 
-        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(0x82826A).waterFogColor(0x0D0F09).fogColor(12638463).skyColor(calculateSkyColor(0.75F)).grassColorOverride(0x939F76).foliageColorOverride(0xDEE1C6).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
+        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(calculateSkyColor(0.3F)).grassColorOverride(0xBAAD64).foliageColorOverride(0xB7B763).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
 
     @Override
@@ -44,13 +40,14 @@ public class SilkgladeBiome extends BiomeTemplate
         builder.surfaceBuilder(ConfiguredSurfaceBuilders.GRASS);
 
         // Structures
-        builder.addStructureStart(StructureFeatures.SWAMP_HUT);
         DefaultBiomeFeatures.addDefaultOverworldLandStructures(builder);
-        builder.addStructureStart(StructureFeatures.RUINED_PORTAL_SWAMP);
+        builder.addStructureStart(StructureFeatures.RUINED_PORTAL_STANDARD);
 
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(builder);
-        DefaultBiomeFeatures.addDefaultLakes(builder);
+
+        builder.addFeature(GenerationStage.Decoration.LAKES, Features.LAKE_WATER);
+
         DefaultBiomeFeatures.addDefaultMonsterRoom(builder);
         DefaultBiomeFeatures.addDefaultUndergroundVariety(builder);
         DefaultBiomeFeatures.addDefaultOres(builder);
@@ -59,13 +56,10 @@ public class SilkgladeBiome extends BiomeTemplate
         ////////////////////////////////////////////////////////////
 
         // Vegetation
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.SILKGLADE_TREES);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.TALL_DEAD_FOREST_TREES);
 
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.STANDARD_GRASS_6);
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.TOADSTOOL_NORMAL);
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.BROWN_MUSHROOM_NORMAL);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.PATCH_PUMPKIN);
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.RED_MUSHROOM_NORMAL);
 
         ////////////////////////////////////////////////////////////
 
@@ -80,13 +74,12 @@ public class SilkgladeBiome extends BiomeTemplate
         // Entities
         builder.addSpawn(EntityClassification.AMBIENT, new MobSpawnInfo.Spawners(EntityType.BAT, 10, 8, 8));
         builder.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SPIDER, 100, 4, 4));
-        builder.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.CAVE_SPIDER, 50, 4, 4));
+        builder.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIE, 95, 4, 4));
+        builder.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIE_VILLAGER, 5, 1, 1));
+        builder.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SKELETON, 100, 4, 4));
+        builder.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.CREEPER, 100, 4, 4));
         builder.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SLIME, 100, 4, 4));
-    }
-
-    private int getGrassColor(double x, double z)
-    {
-       double d0 = Biome.BIOME_INFO_NOISE.getValue(x * 0.0225D, z * 0.0225D, false);
-       return d0 < -0.1D ? 0xB2B39F : 0x939F76;
+        builder.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 10, 1, 4));
+        builder.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.WITCH, 5, 1, 1));
     }
 }

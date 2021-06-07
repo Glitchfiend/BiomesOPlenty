@@ -48,6 +48,9 @@ public class DeepBayouBiome extends BiomeTemplate
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(builder);
         DefaultBiomeFeatures.addDefaultLakes(builder);
+
+        builder.addFeature(GenerationStage.Decoration.LAKES, BOPConfiguredFeatures.WATER_LAKE_UNCOMMON);
+
         DefaultBiomeFeatures.addDefaultMonsterRoom(builder);
         DefaultBiomeFeatures.addDefaultUndergroundVariety(builder);
         DefaultBiomeFeatures.addDefaultOres(builder);

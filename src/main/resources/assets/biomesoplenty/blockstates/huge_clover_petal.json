@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=east": { "model": "biomesoplenty:block/huge_clover_petal", "y": 90 },
+        "facing=south": { "model": "biomesoplenty:block/huge_clover_petal", "y": 180 },
+        "facing=west": { "model": "biomesoplenty:block/huge_clover_petal", "y": 270 },
+        "facing=north": { "model": "biomesoplenty:block/huge_clover_petal", "y": 0 }
+    }
+}

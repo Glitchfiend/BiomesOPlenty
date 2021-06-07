@@ -144,11 +144,11 @@ public class RedwoodTreeFeature extends TreeFeatureBase
         {
             for (int z = 0; z <= this.trunkWidth - 1; z++)
             {
-		        if (!this.placeOn.matches(world, startPos.offset(x, 0, z)))
-		        {
-		            // Abandon if we can't place the tree on this block
-		            return false;
-		        }
+                if (!this.placeOn.matches(world, startPos.offset(x, 0, z)))
+                {
+                    // Abandon if we can't place the tree on this block
+                    return false;
+                }
             }
         }
 
@@ -190,41 +190,86 @@ public class RedwoodTreeFeature extends TreeFeatureBase
             }
             else
             {
-	            this.generateBranch(world, random, pos.offset(trunkStart, 0, trunkStart), Direction.NORTH, radius, changedLogs, changedLeaves, boundingBox);
-	            this.generateBranch(world, random, pos.offset(trunkEnd, 0, trunkStart), Direction.EAST, radius, changedLogs, changedLeaves, boundingBox);
-	            this.generateBranch(world, random, pos.offset(trunkEnd, 0, trunkEnd), Direction.SOUTH, radius, changedLogs, changedLeaves, boundingBox);
-	            this.generateBranch(world, random, pos.offset(trunkStart, 0, trunkEnd), Direction.WEST, radius, changedLogs, changedLeaves, boundingBox);
+                this.generateBranch(world, random, pos.offset(trunkStart, 0, trunkStart), Direction.NORTH, radius, changedLogs, changedLeaves, boundingBox);
+                this.generateBranch(world, random, pos.offset(trunkEnd, 0, trunkStart), Direction.EAST, radius, changedLogs, changedLeaves, boundingBox);
+                this.generateBranch(world, random, pos.offset(trunkEnd, 0, trunkEnd), Direction.SOUTH, radius, changedLogs, changedLeaves, boundingBox);
+                this.generateBranch(world, random, pos.offset(trunkStart, 0, trunkEnd), Direction.WEST, radius, changedLogs, changedLeaves, boundingBox);
             }
             pos = pos.below();
         }
 
+        // Create the trunk widths scales
+        double[] scalingFactors = new double[]{
+                (0.35 + random.nextDouble() * 0.15),
+                (0.07 + random.nextDouble() * 0.1),
+                (random.nextDouble() * 0.06)
+        };
+
+        if (this.trunkWidth == 3) {
+            scalingFactors = new double[]{
+                    (0.6 + random.nextDouble() * 0.2),
+                    (0.1 + random.nextDouble() * 0.2),
+                    (0.03 + random.nextDouble() * 0.09)
+            };
+        }
+
         // Generate the trunk
-        for (int y = 0; y < height - 1; y++)
-        {
-            int trunkWidth = (this.trunkWidth * (height - y) / height) + 1;
-            int trunkStart = MathHelper.ceil(0.25D - trunkWidth / 2.0D);
-            int trunkEnd = MathHelper.floor(0.25D + trunkWidth / 2.0D);
+        for (int x = -this.trunkWidth; x <= this.trunkWidth; x++) {
+            for (int z = -this.trunkWidth; z <= this.trunkWidth; z++) {
+                int dist = Math.abs(x) + Math.abs(z);
 
-            if (trunkWidth < 1)
-            {
-                trunkStart = 0;
-                trunkEnd = 0;
-            }
+                int heightHere = height - 2;
 
-            for (int x = trunkStart; x <= trunkEnd; x++)
-            {
-                for (int z = trunkStart; z <= trunkEnd; z++)
-                {
-                    this.placeLog(world, startPos.offset(x, y, z), changedLogs, boundingBox);
+                // If we're not the center of the trunk on a single trunk width, give up
+                if (this.trunkWidth == 1 && dist > 0) {
+                    continue;
                 }
-            }
 
-            if (trunkWidth > 1 && y > 2 && y < (baseHeight - 2))
-            {
-                if (random.nextInt(5) == 0)
+                // Scale bigger widths
+                if (dist == 1) {
+                    heightHere = (int) (height * scalingFactors[0]);
+                } else if (dist == 2) {
+                    heightHere = (int) (height * scalingFactors[1]);
+                } else if (dist == 3) {
+                    heightHere = (int) (height * scalingFactors[2]);
+                } else if (dist > 3) {
+                    continue;
+                }
+
+                heightHere += random.nextInt(2);
+
+                for (int y = 0; y < heightHere; y++)
                 {
-                    Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
-                    this.generateBush(changedLogs, changedLeaves, world, random, startPos.offset(direction.getStepX()*(trunkWidth-1), y, direction.getStepZ()*(trunkWidth-1)), boundingBox);
+                    BlockPos local = startPos.offset(x, y, z);
+                    this.placeLog(world, local, changedLogs, boundingBox);
+
+                    if (dist > 0 && y > 4 && y < (baseHeight - 2) && random.nextInt(10) == 0) {
+                        double theta;
+                        if (x == 0 && z == 0) {
+                            // Prevents bushes originating from the center from generating too low
+                            if (y < 10) {
+                                continue;
+                            }
+
+                            theta = Math.PI * random.nextDouble() * 2;
+                        } else {
+                            // Make sure the branches only go in the same direction of the current trunk position from the center
+                            double angleFromCenter = Math.atan2(x, z);
+
+                            theta = angleFromCenter + (Math.PI * (random.nextDouble() * 0.5 - 0.25));
+                        }
+
+                        int branchLength = (3 - dist) + 1 + random.nextInt(2);
+
+                        BlockPos branchPos = null;
+                        for (int i = 0; i < branchLength; i++) {
+                            branchPos = local.offset(Math.cos(theta) * i, i / 2, Math.sin(theta) * i);
+
+                            this.placeLog(world, branchPos, changedLogs, boundingBox);
+                        }
+
+                        this.generateBush(changedLogs, changedLeaves, world, random, branchPos, boundingBox);
+                    }
                 }
             }
         }
@@ -234,17 +279,17 @@ public class RedwoodTreeFeature extends TreeFeatureBase
 
     protected boolean generateBush(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, IWorld world, Random random, BlockPos pos, MutableBoundingBox boundingBox)
     {
-        //Generate a bush 3 blocks tall, with the bottom block already set to a log
-        for (int y = 0; y < 2; ++y)
+        //Generate a bush 3 blocks tall, with the center block set to a log
+        for (int y = -1; y < 2; ++y)
         {
             // log in the center
-            if (2 - y > 1)
+            if (y == 0)
             {
                 this.placeLog(world, pos.offset(0, y, 0), changedLogs, boundingBox);
             }
 
             //Reduces the radius closer to the top of the bush
-            int leavesRadius = (2 - y > 1 ? 2 : 1);
+            int leavesRadius = y == 0 ? 2 : 1;
 
             for (int x = -leavesRadius; x <= leavesRadius; ++x)
             {

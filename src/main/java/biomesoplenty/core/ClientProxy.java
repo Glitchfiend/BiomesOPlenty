@@ -37,7 +37,7 @@ public class ClientProxy extends CommonProxy
     @Override
     public void init()
     {
-        addClassicPack();
+        //addClassicPack();
 
         BlockColors blockColors = Minecraft.getInstance().getBlockColors();
         ItemColors itemColors = Minecraft.getInstance().getItemColors();
@@ -45,7 +45,7 @@ public class ClientProxy extends CommonProxy
         //Grass Coloring
         blockColors.register((state, world, pos, tintIndex) ->
             world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos) : GrassColors.get(0.5D, 1.0D),
-            BOPBlocks.sprout, BOPBlocks.watergrass, BOPBlocks.potted_sprout);
+            BOPBlocks.sprout, BOPBlocks.clover, BOPBlocks.huge_clover_petal, BOPBlocks.watergrass, BOPBlocks.potted_sprout, BOPBlocks.potted_clover);
         
         //Foliage Coloring
         blockColors.register((state, world, pos, tintIndex) ->
@@ -62,8 +62,8 @@ public class ClientProxy extends CommonProxy
         itemColors.register((stack, tintIndex) -> {
             BlockState BlockState = ((BlockItem)stack.getItem()).getBlock().defaultBlockState();
             return blockColors.getColor(BlockState, null, null, tintIndex); }, 
-        	BOPBlocks.sprout, BOPBlocks.bush, BOPBlocks.flowering_oak_leaves, BOPBlocks.mahogany_leaves,
-        	BOPBlocks.palm_leaves, BOPBlocks.willow_leaves, BOPBlocks.willow_vine);
+        	BOPBlocks.sprout, BOPBlocks.bush, BOPBlocks.clover, BOPBlocks.huge_clover_petal, BOPBlocks.flowering_oak_leaves,
+            BOPBlocks.mahogany_leaves, BOPBlocks.palm_leaves, BOPBlocks.willow_leaves, BOPBlocks.willow_vine);
     }
 
     public static void addClassicPack()

@@ -8,10 +8,9 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPBlocks;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.BushBlock;
+import biomesoplenty.common.world.gen.feature.BOPConfiguredFeatures;
+import biomesoplenty.common.world.gen.feature.BOPFeatures;
+import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -24,12 +23,17 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.feature.IFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.PlantType;
 
 import javax.annotation.Nullable;
+import java.util.Random;
 
-public class FoliageBlockBOP extends BushBlock implements IPlantable
+public class FoliageBlockBOP extends BushBlock implements IPlantable, IGrowable
 {
 	protected static final VoxelShape NORMAL = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
 	protected static final VoxelShape SHORT = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 7.0D, 15.0D);
@@ -44,7 +48,7 @@ public class FoliageBlockBOP extends BushBlock implements IPlantable
     {
     	Block block = state.getBlock();
         
-        if (block == BOPBlocks.desert_grass)
+        if (block == BOPBlocks.desert_grass || block == BOPBlocks.clover)
         {
         	return SHORT;
         }
@@ -105,5 +109,52 @@ public class FoliageBlockBOP extends BushBlock implements IPlantable
     public PlantType getPlantType(IBlockReader world, BlockPos pos)
     {
     	return PlantType.PLAINS;
+    }
+
+    @Override
+    public boolean isValidBonemealTarget(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient)
+    {
+        Block block = state.getBlock();
+
+        if (block == BOPBlocks.clover)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean isBonemealSuccess(World worldIn, Random rand, BlockPos pos, BlockState state)
+    {
+        Block block = state.getBlock();
+
+        if (block == BOPBlocks.clover) { return (double)rand.nextFloat() < 0.4D; }
+
+        return false;
+    }
+
+    @Override
+    public void performBonemeal(ServerWorld world, Random rand, BlockPos pos, BlockState state)
+    {
+        Block block = state.getBlock();
+
+        if (block == BOPBlocks.clover) { this.growHugeClover(world, rand, pos, state); }
+    }
+
+    public boolean growHugeClover(ServerWorld world, Random rand, BlockPos pos, BlockState state)
+    {
+        world.removeBlock(pos, false);
+        ConfiguredFeature<NoFeatureConfig, ?> configuredfeature = BOPFeatures.HUGE_CLOVER.configured(IFeatureConfig.NONE);
+
+        if (configuredfeature.place(world, world.getChunkSource().getGenerator(), rand, pos))
+        {
+            return true;
+        }
+        else
+        {
+            world.setBlock(pos, state, 3);
+            return false;
+        }
     }
 }

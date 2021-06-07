@@ -18,9 +18,9 @@ import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilders;
 
-public class MushroomyMuskegBiome extends BiomeTemplate
+public class ShroomyWetlandBiome extends BiomeTemplate
 {
-    public MushroomyMuskegBiome()
+    public ShroomyWetlandBiome()
     {
         this.setBeachBiome(null);
     }
@@ -28,9 +28,9 @@ public class MushroomyMuskegBiome extends BiomeTemplate
     @Override
     protected void configureBiome(Biome.Builder builder)
     {
-        builder.precipitation(Biome.RainType.SNOW).biomeCategory(Biome.Category.ICY).depth(-0.175F).scale(-0.05F).temperature(-0.25F).downfall(0.6F);
+        builder.precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.SWAMP).depth(0.0F).scale(0.0F).temperature(0.6F).downfall(0.7F);
 
-        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(calculateSkyColor(-0.25F)).grassColorOverride(0x94966E).foliageColorOverride(0x8D9B6B).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
+        builder.specialEffects((new BiomeAmbience.Builder()).waterColor(0x272179).waterFogColor(0x0C031B).fogColor(12638463).skyColor(calculateSkyColor(0.6F)).grassColorOverride(0x5A935F).foliageColorOverride(0x4F9657).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build());
     }
 
     @Override
@@ -45,29 +45,34 @@ public class MushroomyMuskegBiome extends BiomeTemplate
 
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(builder);
-        DefaultBiomeFeatures.addDefaultLakes(builder);
 
         builder.addFeature(GenerationStage.Decoration.LAKES, BOPConfiguredFeatures.WATER_LAKE_UNCOMMON);
 
         DefaultBiomeFeatures.addDefaultMonsterRoom(builder);
         DefaultBiomeFeatures.addDefaultUndergroundVariety(builder);
         DefaultBiomeFeatures.addDefaultOres(builder);
-
-        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Features.DISK_CLAY);
-        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Features.DISK_GRAVEL);
+        DefaultBiomeFeatures.addSwampClayDisk(builder);
+        
         builder.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, BOPConfiguredFeatures.MUD_DISK);
 
         ////////////////////////////////////////////////////////////
 
         // Vegetation
-        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.MUSHROOMY_MUSKEG_TREES);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.SHROOMY_WETLAND_TREES);
 
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.CATTAIL_12);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.FERN_GRASS_8);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.LILY_PAD_5);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.REED_5);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.STANDARD_GRASS_3);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.TOADSTOOL_EXTRA);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.WATERGRASS_5);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.HUGE_BROWN_MUSHROOM_EXTRA);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.PODZOL_SPLATTER);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.SMALL_BROWN_MUSHROOM);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.BROWN_MUSHROOM_NORMAL);
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.RED_MUSHROOM_NORMAL);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.SEAGRASS_SWAMP);
 
         ////////////////////////////////////////////////////////////
 

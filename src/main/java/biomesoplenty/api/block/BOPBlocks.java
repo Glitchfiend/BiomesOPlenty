@@ -290,9 +290,13 @@ public class BOPBlocks
     public static Block goldenrod;
     
     public static Block willow_vine;
+    public static Block spanish_moss;
+    public static Block spanish_moss_plant;
 
     public static Block sprout;
     public static Block bush;
+    public static Block clover;
+    public static Block huge_clover_petal;
     public static Block dune_grass;
     public static Block desert_grass;
     public static Block dead_grass;
@@ -336,6 +340,7 @@ public class BOPBlocks
     public static Block potted_wilted_lily;
     public static Block potted_burning_blossom;
     public static Block potted_sprout;
+    public static Block potted_clover;
     public static Block potted_toadstool;
     public static Block potted_glowshroom;
 }

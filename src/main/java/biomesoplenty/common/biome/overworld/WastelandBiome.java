@@ -45,7 +45,7 @@ public class WastelandBiome extends BiomeTemplate
 
         // Structures
         DefaultBiomeFeatures.addDefaultOverworldLandStructures(builder);
-        builder.addStructureStart(StructureFeatures.RUINED_PORTAL_JUNGLE);
+        builder.addStructureStart(StructureFeatures.RUINED_PORTAL_STANDARD);
 
         // Underground
         DefaultBiomeFeatures.addDefaultCarvers(builder);
@@ -56,6 +56,9 @@ public class WastelandBiome extends BiomeTemplate
         ////////////////////////////////////////////////////////////
 
         // Vegetation
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.WASTELAND_TREES);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.WASTELAND_FLOWERS);
+
         builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.WASTELAND_GRASS_2);
 
         ////////////////////////////////////////////////////////////

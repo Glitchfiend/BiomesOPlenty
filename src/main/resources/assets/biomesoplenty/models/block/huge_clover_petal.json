@@ -1,0 +1,29 @@
+{
+	"ambientocclusion": false,
+    "textures": {
+		"petal": "biomesoplenty:block/huge_clover_petal",
+		"stem": "biomesoplenty:block/huge_clover_stem",
+		"stem_back": "biomesoplenty:block/huge_clover_stem_back",
+        "particle": "#petal"
+    },
+    "elements": [
+		{
+			"from": [0, 15, 0],
+			"to": [16, 15, 16],
+			"faces": {
+				"up": {"uv": [0, 0, 16, 16], "texture": "#petal", "tintindex": 0},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#petal", "rotation": 270, "tintindex": 0}
+			}
+		},
+		{
+			"from": [0, 0, 8],
+			"to": [16, 16, 8],
+			"shade": false,
+			"rotation": {"angle": -45, "axis": "y", "origin": [8, 8, 8], "rescale": true},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#stem_back", "tintindex": 0},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#stem", "tintindex": 0}
+			}
+		}
+    ]
+}
