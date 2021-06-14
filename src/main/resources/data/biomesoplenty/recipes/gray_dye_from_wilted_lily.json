@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "gray_dye",
+  "ingredients": [
+    {
+      "item": "biomesoplenty:wilted_lily"
+    }
+  ],
+  "result": {
+    "item": "minecraft:gray_dye",
+    "count": 1
+  }
+}

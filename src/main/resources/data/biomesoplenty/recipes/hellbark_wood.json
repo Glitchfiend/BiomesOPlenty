@@ -1,0 +1,17 @@
+{
+  "type": "crafting_shaped",
+  "group": "bark",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "biomesoplenty:hellbark_log"
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:hellbark_wood",
+    "count": 3
+  }
+}

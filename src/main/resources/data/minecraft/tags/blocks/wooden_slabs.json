@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "biomesoplenty:fir_slab",
+	"biomesoplenty:redwood_slab",
+	"biomesoplenty:cherry_slab",
+	"biomesoplenty:mahogany_slab",
+	"biomesoplenty:jacaranda_slab",
+	"biomesoplenty:palm_slab",
+	"biomesoplenty:willow_slab",
+	"biomesoplenty:dead_slab",
+	"biomesoplenty:magic_slab",
+	"biomesoplenty:umbran_slab",
+	"biomesoplenty:hellbark_slab"
+  ]
+}

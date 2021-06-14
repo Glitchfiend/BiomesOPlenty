@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "biomesoplenty:block/white_cherry_sapling"
+    }
+}

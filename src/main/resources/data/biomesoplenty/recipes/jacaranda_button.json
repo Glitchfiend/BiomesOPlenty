@@ -1,0 +1,12 @@
+{
+  "type": "crafting_shapeless",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "biomesoplenty:jacaranda_planks"
+    }
+  ],
+  "result": {
+    "item": "biomesoplenty:jacaranda_button"
+  }
+}

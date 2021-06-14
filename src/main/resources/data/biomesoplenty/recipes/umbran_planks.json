@@ -1,0 +1,13 @@
+{
+  "type": "crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "biomesoplenty:umbran_logs"
+    }
+  ],
+  "result": {
+    "item": "biomesoplenty:umbran_planks",
+    "count": 4
+  }
+}

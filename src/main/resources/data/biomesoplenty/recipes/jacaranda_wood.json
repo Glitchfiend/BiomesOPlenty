@@ -1,0 +1,17 @@
+{
+  "type": "crafting_shaped",
+  "group": "bark",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "biomesoplenty:jacaranda_log"
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:jacaranda_wood",
+    "count": 3
+  }
+}

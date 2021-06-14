@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+	"biomesoplenty:hellbark_log",
+    "biomesoplenty:hellbark_wood",
+    "biomesoplenty:stripped_hellbark_log",
+    "biomesoplenty:stripped_hellbark_wood",
+	"biomesoplenty:hellbark_planks",
+	"biomesoplenty:hellbark_slab",
+	"biomesoplenty:hellbark_pressure_plate",
+	"biomesoplenty:hellbark_fence",
+	"biomesoplenty:hellbark_trapdoor",
+	"biomesoplenty:hellbark_fence_gate",
+	"biomesoplenty:hellbark_stairs",
+	"biomesoplenty:hellbark_button",
+	"biomesoplenty:hellbark_door"
+  ]
+}

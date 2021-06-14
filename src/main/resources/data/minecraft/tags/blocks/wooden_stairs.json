@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "biomesoplenty:fir_stairs",
+	"biomesoplenty:redwood_stairs",
+	"biomesoplenty:cherry_stairs",
+	"biomesoplenty:mahogany_stairs",
+	"biomesoplenty:jacaranda_stairs",
+	"biomesoplenty:palm_stairs",
+	"biomesoplenty:willow_stairs",
+	"biomesoplenty:dead_stairs",
+	"biomesoplenty:magic_stairs",
+	"biomesoplenty:umbran_stairs",
+	"biomesoplenty:hellbark_stairs"
+  ]
+}

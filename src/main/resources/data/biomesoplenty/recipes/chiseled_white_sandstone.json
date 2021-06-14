@@ -1,0 +1,15 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "biomesoplenty:white_sandstone_slab"
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:chiseled_white_sandstone"
+  }
+}

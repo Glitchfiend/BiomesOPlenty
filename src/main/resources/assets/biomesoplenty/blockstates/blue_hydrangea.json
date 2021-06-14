@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=lower": { "model": "biomesoplenty:block/blue_hydrangea_bottom" },
+        "half=upper": { "model": "biomesoplenty:block/blue_hydrangea_top" }
+    }
+}

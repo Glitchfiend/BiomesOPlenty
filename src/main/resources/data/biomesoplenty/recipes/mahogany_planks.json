@@ -1,0 +1,13 @@
+{
+  "type": "crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "biomesoplenty:mahogany_logs"
+    }
+  ],
+  "result": {
+    "item": "biomesoplenty:mahogany_planks",
+    "count": 4
+  }
+}

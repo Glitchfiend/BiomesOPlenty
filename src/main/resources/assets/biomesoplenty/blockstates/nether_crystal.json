@@ -1,0 +1,51 @@
+{
+  "variants": {
+    "face=ceiling,facing=east": {
+      "model": "biomesoplenty:block/nether_crystal",
+      "x": 180
+    },
+    "face=ceiling,facing=north": {
+      "model": "biomesoplenty:block/nether_crystal",
+      "x": 180
+    },
+    "face=ceiling,facing=south": {
+      "model": "biomesoplenty:block/nether_crystal",
+      "x": 180
+    },
+    "face=ceiling,facing=west": {
+      "model": "biomesoplenty:block/nether_crystal",
+      "x": 180
+    },
+    "face=floor,facing=east": {
+      "model": "biomesoplenty:block/nether_crystal"
+    },
+    "face=floor,facing=north": {
+      "model": "biomesoplenty:block/nether_crystal"
+    },
+    "face=floor,facing=south": {
+      "model": "biomesoplenty:block/nether_crystal"
+    },
+    "face=floor,facing=west": {
+      "model": "biomesoplenty:block/nether_crystal"
+    },
+    "face=wall,facing=east": {
+      "model": "biomesoplenty:block/nether_crystal",
+      "y": 90,
+      "x": 90
+    },
+    "face=wall,facing=north": {
+      "model": "biomesoplenty:block/nether_crystal",
+      "x": 90
+    },
+    "face=wall,facing=south": {
+      "model": "biomesoplenty:block/nether_crystal",
+      "y": 180,
+      "x": 90
+    },
+    "face=wall,facing=west": {
+      "model": "biomesoplenty:block/nether_crystal",
+      "y": 270,
+      "x": 90
+    }
+  }
+}

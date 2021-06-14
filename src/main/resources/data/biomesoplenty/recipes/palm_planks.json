@@ -1,0 +1,13 @@
+{
+  "type": "crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "biomesoplenty:palm_logs"
+    }
+  ],
+  "result": {
+    "item": "biomesoplenty:palm_planks",
+    "count": 4
+  }
+}

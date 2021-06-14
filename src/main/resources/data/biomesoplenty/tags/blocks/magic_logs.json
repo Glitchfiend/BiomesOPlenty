@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "biomesoplenty:magic_log",
+    "biomesoplenty:magic_wood",
+    "biomesoplenty:stripped_magic_log",
+    "biomesoplenty:stripped_magic_wood"
+  ]
+}

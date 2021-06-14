@@ -1,0 +1,10 @@
+{
+  "music_disc.wanderer": {
+    "sounds": [
+      {
+        "name": "biomesoplenty:music_disc/wanderer",
+        "stream": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "crafting_shaped",
+  "group": "boat",
+  "pattern": [
+    "# #",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "biomesoplenty:umbran_planks"
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:umbran_boat"
+  }
+}

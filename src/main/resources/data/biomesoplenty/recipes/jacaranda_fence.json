@@ -1,0 +1,20 @@
+{
+  "type": "crafting_shaped",
+  "group": "wooden_fence",
+  "pattern": [
+    "W#W",
+    "W#W"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "W": {
+      "item": "biomesoplenty:jacaranda_planks"
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:jacaranda_fence",
+    "count": 3
+  }
+}

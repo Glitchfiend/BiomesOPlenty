@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "biomesoplenty:fir_boat",
+	"biomesoplenty:redwood_boat",
+	"biomesoplenty:cherry_boat",
+	"biomesoplenty:mahogany_boat",
+	"biomesoplenty:jacaranda_boat",
+	"biomesoplenty:palm_boat",
+	"biomesoplenty:willow_boat",
+	"biomesoplenty:dead_boat",
+	"biomesoplenty:magic_boat",
+	"biomesoplenty:umbran_boat",
+	"biomesoplenty:hellbark_boat"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "biomesoplenty:fir_trapdoor",
+	"biomesoplenty:redwood_trapdoor",
+	"biomesoplenty:cherry_trapdoor",
+	"biomesoplenty:mahogany_trapdoor",
+	"biomesoplenty:jacaranda_trapdoor",
+	"biomesoplenty:palm_trapdoor",
+	"biomesoplenty:willow_trapdoor",
+	"biomesoplenty:dead_trapdoor",
+	"biomesoplenty:magic_trapdoor",
+	"biomesoplenty:umbran_trapdoor",
+	"biomesoplenty:hellbark_trapdoor"
+  ]
+}

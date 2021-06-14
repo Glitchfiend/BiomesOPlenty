@@ -1,0 +1,27 @@
+{
+    "ambientocclusion": false,
+    "textures": {
+		"branch": "biomesoplenty:block/dead_branch",
+        "particle": "#branch"
+    },
+    "elements": [
+        {   
+		    "from": [ 8, 0, 0 ], 
+            "to": [ 8, 16, 16 ], 
+            "rotation": { "origin": [ 8, 8, 14 ], "axis": "y", "angle": 22.5 },
+            "faces": {
+                "east": { "texture": "#branch", "uv": [ 0, 0, 16, 16 ] },
+                "west": { "texture": "#branch", "uv": [ 16, 0, 0, 16 ] }
+            }
+        },
+        {
+            "from": [ 8, 0, 0 ], 
+            "to": [ 8, 16, 16 ], 
+            "rotation": { "origin": [ 8, 8, 14 ], "axis": "y", "angle": -22.5 },
+            "faces": {
+                "east": { "texture": "#branch", "uv": [ 0, 0, 16, 16 ] },
+                "west": { "texture": "#branch", "uv": [ 16, 0, 0, 16 ] }
+            }
+        }
+    ]
+}

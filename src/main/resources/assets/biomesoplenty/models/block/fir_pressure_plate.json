@@ -1,0 +1,6 @@
+{
+    "parent": "block/pressure_plate_up",
+    "textures": {
+        "texture": "biomesoplenty:block/fir_planks"
+    }
+}

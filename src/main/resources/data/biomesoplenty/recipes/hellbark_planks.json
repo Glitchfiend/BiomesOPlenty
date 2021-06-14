@@ -1,0 +1,13 @@
+{
+  "type": "crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "biomesoplenty:hellbark_logs"
+    }
+  ],
+  "result": {
+    "item": "biomesoplenty:hellbark_planks",
+    "count": 4
+  }
+}

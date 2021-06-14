@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+	"biomesoplenty:black_sandstone_slab",
+	"biomesoplenty:cut_black_sandstone_slab",
+	"biomesoplenty:smooth_black_sandstone_slab",
+	"biomesoplenty:orange_sandstone_slab",
+	"biomesoplenty:cut_orange_sandstone_slab",
+	"biomesoplenty:smooth_orange_sandstone_slab",
+	"biomesoplenty:white_sandstone_slab",
+	"biomesoplenty:cut_white_sandstone_slab",
+	"biomesoplenty:smooth_white_sandstone_slab",
+	"biomesoplenty:mud_brick_slab",
+    "biomesoplenty:fir_slab",
+	"biomesoplenty:redwood_slab",
+	"biomesoplenty:cherry_slab",
+	"biomesoplenty:mahogany_slab",
+	"biomesoplenty:jacaranda_slab",
+	"biomesoplenty:palm_slab",
+	"biomesoplenty:willow_slab",
+	"biomesoplenty:dead_slab",
+	"biomesoplenty:magic_slab",
+	"biomesoplenty:umbran_slab",
+	"biomesoplenty:hellbark_slab"
+  ]
+}

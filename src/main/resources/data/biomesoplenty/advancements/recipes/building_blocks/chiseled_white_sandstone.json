@@ -1,0 +1,53 @@
+{
+  "rewards": {
+    "recipes": [
+      "biomesoplenty:chiseled_white_sandstone"
+    ]
+  },
+  "criteria": {
+    "has_white_sandstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "biomesoplenty:white_sandstone"
+          }
+        ]
+      }
+    },
+    "has_chiseled_white_sandstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "biomesoplenty:chiseled_white_sandstone"
+          }
+        ]
+      }
+    },
+    "has_cut_white_sandstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "biomesoplenty:cut_white_sandstone"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "biomesoplenty:chiseled_white_sandstone"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_white_sandstone",
+      "has_chiseled_white_sandstone",
+      "has_cut_white_sandstone",
+      "has_the_recipe"
+    ]
+  ]
+}

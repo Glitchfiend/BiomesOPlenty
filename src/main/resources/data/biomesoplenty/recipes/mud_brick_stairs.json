@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  #",
+    " ##",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "biomesoplenty:mud_bricks"
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:mud_brick_stairs",
+    "count": 4
+  }
+}

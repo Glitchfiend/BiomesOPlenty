@@ -1,0 +1,53 @@
+{
+  "rewards": {
+    "recipes": [
+      "biomesoplenty:chiseled_black_sandstone"
+    ]
+  },
+  "criteria": {
+    "has_black_sandstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "biomesoplenty:black_sandstone"
+          }
+        ]
+      }
+    },
+    "has_chiseled_black_sandstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "biomesoplenty:chiseled_black_sandstone"
+          }
+        ]
+      }
+    },
+    "has_cut_black_sandstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "biomesoplenty:cut_black_sandstone"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "biomesoplenty:chiseled_black_sandstone"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_black_sandstone",
+      "has_chiseled_black_sandstone",
+      "has_cut_black_sandstone",
+      "has_the_recipe"
+    ]
+  ]
+}

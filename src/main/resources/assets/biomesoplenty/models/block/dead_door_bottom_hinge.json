@@ -1,0 +1,7 @@
+{
+    "parent": "block/door_bottom_rh",
+    "textures": {
+        "bottom": "biomesoplenty:block/dead_door_bottom",
+        "top": "biomesoplenty:block/dead_door_top"
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=east": { "model": "biomesoplenty:block/dead_branch", "y": 90 },
+        "facing=south": { "model": "biomesoplenty:block/dead_branch", "y": 180 },
+        "facing=west": { "model": "biomesoplenty:block/dead_branch", "y": 270 },
+        "facing=north": { "model": "biomesoplenty:block/dead_branch", "y": 0 }
+    }
+}

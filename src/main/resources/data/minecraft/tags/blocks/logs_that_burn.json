@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "#biomesoplenty:fir_logs",
+	"#biomesoplenty:redwood_logs",
+	"#biomesoplenty:cherry_logs",
+	"#biomesoplenty:mahogany_logs",
+	"#biomesoplenty:jacaranda_logs",
+	"#biomesoplenty:palm_logs",
+	"#biomesoplenty:willow_logs",
+	"#biomesoplenty:dead_logs",
+	"#biomesoplenty:magic_logs",
+	"#biomesoplenty:umbran_logs"
+  ]
+}

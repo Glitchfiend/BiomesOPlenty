@@ -1,0 +1,10 @@
+{
+    "variants": {
+		"": [
+            { "model": "biomesoplenty:block/flesh" },
+            { "model": "biomesoplenty:block/flesh", "y": 90 },
+            { "model": "biomesoplenty:block/flesh", "y": 180 },
+            { "model": "biomesoplenty:block/flesh", "y": 270 }
+        ]
+    }
+}

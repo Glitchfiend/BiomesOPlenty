@@ -1,0 +1,39 @@
+{   "parent": "block/block",
+    "ambientocclusion": false,
+    "textures": {
+        "plant": "biomesoplenty:block/bramble",
+		"thorns": "biomesoplenty:block/bramble_thorns",
+        "particle": "biomesoplenty:block/bramble"
+    },
+    "elements": [
+	    {   "from": [ 0.8, 0, 8 ],
+            "to": [ 15.2, 16, 8 ],
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45, "rescale": true },
+            "shade": false,
+            "faces": {
+                "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#thorns" },
+                "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#thorns" }
+            }
+        },
+        {   "from": [ 8, 0, 0.8 ],
+            "to": [ 8, 16, 15.2 ],
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45, "rescale": true },
+            "shade": false,
+            "faces": {
+                "west": { "uv": [ 0, 0, 16, 16 ], "texture": "#thorns" },
+                "east": { "uv": [ 0, 0, 16, 16 ], "texture": "#thorns" }
+            }
+        },
+        {   "from": [ 4, 4, 4 ],
+            "to": [ 12, 12, 12 ],
+            "faces": {
+                "down":  { "uv": [ 12, 12, 4, 4 ], "texture": "#plant" },
+                "up":    { "uv": [ 4, 4, 12, 12 ], "texture": "#plant" },
+                "north": { "uv": [ 4, 4, 12, 12 ], "texture": "#plant" },
+                "south": { "uv": [ 4, 4, 12, 12 ], "texture": "#plant" },
+                "west":  { "uv": [ 4, 4, 12, 12 ], "texture": "#plant" },
+                "east":  { "uv": [ 4, 4, 12, 12 ], "texture": "#plant" }
+            }
+        }
+    ]
+}

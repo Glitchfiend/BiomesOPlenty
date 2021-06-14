@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "biomesoplenty:fir_planks",
+	"biomesoplenty:redwood_planks",
+	"biomesoplenty:cherry_planks",
+	"biomesoplenty:mahogany_planks",
+	"biomesoplenty:jacaranda_planks",
+	"biomesoplenty:palm_planks",
+	"biomesoplenty:willow_planks",
+	"biomesoplenty:dead_planks",
+	"biomesoplenty:magic_planks",
+	"biomesoplenty:umbran_planks",
+	"biomesoplenty:hellbark_planks"
+  ]
+}

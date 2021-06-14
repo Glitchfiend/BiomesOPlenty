@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "biomesoplenty:black_sandstone",
+    "biomesoplenty:cut_black_sandstone",
+    "biomesoplenty:chiseled_black_sandstone",
+    "biomesoplenty:smooth_black_sandstone",
+    "biomesoplenty:orange_sandstone",
+    "biomesoplenty:cut_orange_sandstone",
+    "biomesoplenty:chiseled_orange_sandstone",
+    "biomesoplenty:smooth_orange_sandstone",
+    "biomesoplenty:white_sandstone",
+    "biomesoplenty:cut_white_sandstone",
+    "biomesoplenty:chiseled_white_sandstone",
+    "biomesoplenty:smooth_white_sandstone"
+  ]
+}

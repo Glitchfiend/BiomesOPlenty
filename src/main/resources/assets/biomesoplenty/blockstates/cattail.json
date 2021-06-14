@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=lower": { "model": "biomesoplenty:block/cattail_bottom" },
+        "half=upper": { "model": "biomesoplenty:block/cattail_top" }
+    }
+}

@@ -1,0 +1,22 @@
+modLoader="javafml"
+license="Creative Commons Attribution-NonCommercial-NoDerivatives 4.0"
+loaderVersion="[24,)"
+issueTrackerURL="https://github.com/Glitchfiend/BiomesOPlenty/issues"
+displayURL="https://minecraft.curseforge.com/projects/biomes-o-plenty"
+logoFile="bop_logo.png"
+
+[[mods]]
+    modId="biomesoplenty"
+    version="${version}"
+    displayName="Biomes O' Plenty"
+	authors="Forstride, Adubbz"
+    description='''
+    Adds over 50 new biomes, blocks, and more!
+    '''
+
+[[dependencies.biomesoplenty]]
+    modId="forge"
+    mandatory=true
+    versionRange="[35.1.10,)"
+    ordering="NONE"
+    side="BOTH"

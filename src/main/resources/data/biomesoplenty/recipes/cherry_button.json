@@ -1,0 +1,12 @@
+{
+  "type": "crafting_shapeless",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "biomesoplenty:cherry_planks"
+    }
+  ],
+  "result": {
+    "item": "biomesoplenty:cherry_button"
+  }
+}

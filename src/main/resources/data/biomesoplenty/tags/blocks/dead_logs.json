@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "biomesoplenty:dead_log",
+    "biomesoplenty:dead_wood",
+    "biomesoplenty:stripped_dead_log",
+    "biomesoplenty:stripped_dead_wood"
+  ]
+}

@@ -1,0 +1,188 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        maven { url = 'https://files.minecraftforge.net/maven' }
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
+    }
+}
+
+plugins {
+    id "com.matthewprenger.cursegradle" version "1.4.0"
+}
+
+apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'maven'
+
+repositories { mavenLocal() }
+
+group = "com.github.glitchfiend.biomesoplenty"
+archivesBaseName = "BiomesOPlenty"
+
+def getGitHash = {
+    def stdout = new ByteArrayOutputStream()
+    exec {
+        commandLine 'git', 'rev-parse', '--short', 'HEAD'
+        standardOutput = stdout
+    }
+    return stdout.toString().trim()
+}
+
+version = "${minecraft_version}-${mod_version}.${System.getenv().BUILD_NUMBER}"
+
+minecraft {
+    mappings channel: 'official', version: minecraft_version
+
+    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+
+    runs {
+        client = {
+            workingDirectory = project.file("run").canonicalPath
+            source sourceSets.main
+        }
+        server = {
+            workingDirectory = project.file("run").canonicalPath
+            source sourceSets.main
+        }
+    }
+}
+
+processResources {
+    from (sourceSets.main.resources.srcDirs) {
+        include 'META-INF/mods.toml'
+        expand 'version': project.version
+    }
+}
+
+jar {
+    classifier = 'universal'
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:' + minecraft_version + '-' + forge_version
+}
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allJava
+    from (sourceSets.main.output) {
+        include 'LICENSE.txt'
+    }
+
+    classifier = 'sources'
+}
+
+task deobfJar(type: Jar) {
+    from sourceSets.main.output
+    classifier = 'deobf'
+}
+
+task apiJar(type: Jar) {
+    from(sourceSets.main.allJava) {
+        include 'biomesoplenty/api/**'
+    }
+    from (sourceSets.main.output) {
+        include 'LICENSE.txt'
+        include 'biomesoplenty/api/**'
+    }
+
+    classifier = 'api'
+}
+
+def changelog_file = rootProject.file("build/BiomesOPlenty-${version}-changelog.txt")
+
+curseforge {
+    if (project.hasProperty('curseApiKey')) {
+        apiKey = project.getProperty('curseApiKey')
+        project {
+            id = '220318'
+
+            if (changelog_file.exists()) {
+                changelog = changelog_file
+            }
+
+            releaseType = 'beta'
+
+            mainArtifact(jar) {
+                displayName = "Biomes O' Plenty ${version}"
+            }
+            addArtifact sourcesJar
+            addArtifact deobfJar
+            addArtifact apiJar
+        }
+    }
+}
+
+artifacts {
+    if (changelog_file.exists()) {
+        archives changelog_file
+    }
+    archives jar
+    archives sourcesJar
+    archives deobfJar
+    archives apiJar
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+			if (project.hasProperty('forgeMavenPassword')) {
+				repository(url: "https://files.minecraftforge.net/maven/manage/upload") {
+					authentication(userName: project.getProperty('forgeMavenUsername'), password: project.getProperty('forgeMavenPassword'))
+				}
+			}
+			else {
+				// local repo folder. Might wanna juset use  gradle install   if you wanans end it to maven-local
+				repository(url: 'file://localhost/' + project.file('repo').getAbsolutePath())
+			}
+
+            pom {
+                groupId = project.group
+                version = project.version
+                artifactId = project.archivesBaseName
+                project {
+                    name project.archivesBaseName
+                    packaging 'jar'
+                    description 'Biomes O Plenty'
+                    url 'https://github.com/Glitchfiend/BiomesOPlenty'
+                
+                    scm {
+                        url 'https://github.com/Glitchfiend/BiomesOPlenty'
+                        connection 'scm:git:git://github.com/Glitchfiend/BiomesOPlenty.git'
+                        developerConnection 'scm:git:git@github.com:Glitchfiend/BiomesOPlenty.git'
+                    }
+                
+                    issueManagement {
+                        system 'github'
+                        url 'https://github.com/Glitchfiend/BiomesOPlenty/issues'
+                    }
+                
+                    licenses {
+                        license {
+                            name 'Creative Commons Attribution-NonCommercial-NoDerivs 4.0 International Public License'
+                            url 'http://creativecommons.org/licenses/by-nc-nd/4.0/'
+                            distribution 'repo'
+                        }
+                    }
+                
+                    developers {
+                        developer {
+                            id 'Adubbz'
+                            name 'Adubbz'
+                            roles { role 'developer' }
+                        }
+                        developer {
+                            id 'Forstride'
+                            name 'Forstride'
+                            roles { role 'developer' }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

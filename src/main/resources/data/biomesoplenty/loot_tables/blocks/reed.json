@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "biomesoplenty:reed",
+              "properties": {
+                "half": "lower"
+              }
+            }
+          ],
+          "name": "biomesoplenty:reed"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:match_tool",
+          "predicate": {
+            "tag": "forge:shears"
+          }
+        }
+      ]
+    }
+  ]
+}

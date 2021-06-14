@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "biomesoplenty:block/white_sandstone_top",
+        "side": "biomesoplenty:block/chiseled_white_sandstone"
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "parent": "block/button",
+    "textures": {
+        "texture": "biomesoplenty:block/hellbark_planks"
+    }
+}

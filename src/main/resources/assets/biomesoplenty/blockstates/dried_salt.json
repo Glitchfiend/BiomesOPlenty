@@ -1,0 +1,10 @@
+{
+    "variants": {
+		"": [
+            { "model": "biomesoplenty:block/dried_salt" },
+            { "model": "biomesoplenty:block/dried_salt", "y": 90 },
+            { "model": "biomesoplenty:block/dried_salt", "y": 180 },
+            { "model": "biomesoplenty:block/dried_salt", "y": 270 }
+        ]
+    }
+}

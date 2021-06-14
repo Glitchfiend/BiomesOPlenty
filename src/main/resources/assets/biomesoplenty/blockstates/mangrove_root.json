@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=lower": { "model": "biomesoplenty:block/mangrove_root_bottom" },
+        "half=upper": { "model": "biomesoplenty:block/mangrove_root_top" }
+    }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "crafting_shaped",
+  "group": "wooden_slab",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "biomesoplenty:fir_planks"
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:fir_slab",
+    "count": 6
+  }
+}

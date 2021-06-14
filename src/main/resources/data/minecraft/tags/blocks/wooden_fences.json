@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "biomesoplenty:fir_fence",
+	"biomesoplenty:redwood_fence",
+	"biomesoplenty:cherry_fence",
+	"biomesoplenty:mahogany_fence",
+	"biomesoplenty:jacaranda_fence",
+	"biomesoplenty:palm_fence",
+	"biomesoplenty:willow_fence",
+	"biomesoplenty:dead_fence",
+	"biomesoplenty:magic_fence",
+	"biomesoplenty:umbran_fence",
+	"biomesoplenty:hellbark_fence"
+  ]
+}

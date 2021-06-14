@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "biomesoplenty:cut_black_sandstone_slab"
+    ]
+  },
+  "criteria": {
+    "has_cut_black_sandstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "biomesoplenty:cut_black_sandstone"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "biomesoplenty:cut_black_sandstone_slab"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_cut_black_sandstone",
+      "has_the_recipe"
+    ]
+  ]
+}

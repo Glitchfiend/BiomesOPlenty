@@ -1,0 +1,28 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "biomesoplenty:dead_boat"
+    ]
+  },
+  "criteria": {
+    "in_water": {
+      "trigger": "minecraft:enter_block",
+      "conditions": {
+        "block": "minecraft:water"
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "biomesoplenty:dead_boat"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_water",
+      "has_the_recipe"
+    ]
+  ]
+}

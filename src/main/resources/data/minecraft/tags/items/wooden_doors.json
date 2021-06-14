@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "biomesoplenty:fir_door",
+	"biomesoplenty:redwood_door",
+	"biomesoplenty:cherry_door",
+	"biomesoplenty:mahogany_door",
+	"biomesoplenty:jacaranda_door",
+	"biomesoplenty:palm_door",
+	"biomesoplenty:willow_door",
+	"biomesoplenty:dead_door",
+	"biomesoplenty:magic_door",
+	"biomesoplenty:umbran_door",
+	"biomesoplenty:hellbark_door"
+  ]
+}

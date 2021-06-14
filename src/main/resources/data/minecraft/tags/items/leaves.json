@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "biomesoplenty:origin_leaves",
+	"biomesoplenty:flowering_oak_leaves",
+	"biomesoplenty:rainbow_birch_leaves",
+	"biomesoplenty:yellow_autumn_leaves",
+	"biomesoplenty:orange_autumn_leaves",
+	"biomesoplenty:maple_leaves",
+	"biomesoplenty:fir_leaves",
+	"biomesoplenty:redwood_leaves",
+	"biomesoplenty:white_cherry_leaves",
+	"biomesoplenty:pink_cherry_leaves",
+	"biomesoplenty:mahogany_leaves",
+	"biomesoplenty:jacaranda_leaves",
+	"biomesoplenty:palm_leaves",
+	"biomesoplenty:willow_leaves",
+	"biomesoplenty:dead_leaves",
+	"biomesoplenty:magic_leaves",
+	"biomesoplenty:umbran_leaves",
+	"biomesoplenty:hellbark_leaves"
+  ]
+}

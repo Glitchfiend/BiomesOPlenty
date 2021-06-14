@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "biomesoplenty:fir_pressure_plate",
+	"biomesoplenty:redwood_pressure_plate",
+	"biomesoplenty:cherry_pressure_plate",
+	"biomesoplenty:mahogany_pressure_plate",
+	"biomesoplenty:jacaranda_pressure_plate",
+	"biomesoplenty:palm_pressure_plate",
+	"biomesoplenty:willow_pressure_plate",
+	"biomesoplenty:dead_pressure_plate",
+	"biomesoplenty:magic_pressure_plate",
+	"biomesoplenty:umbran_pressure_plate",
+	"biomesoplenty:hellbark_pressure_plate"
+  ]
+}

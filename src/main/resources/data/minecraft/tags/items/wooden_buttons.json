@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "biomesoplenty:fir_button",
+	"biomesoplenty:redwood_button",
+	"biomesoplenty:cherry_button",
+	"biomesoplenty:mahogany_button",
+	"biomesoplenty:jacaranda_button",
+	"biomesoplenty:palm_button",
+	"biomesoplenty:willow_button",
+	"biomesoplenty:dead_button",
+	"biomesoplenty:magic_button",
+	"biomesoplenty:umbran_button",
+	"biomesoplenty:hellbark_button"
+  ]
+}
