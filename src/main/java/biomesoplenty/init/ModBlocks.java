@@ -300,6 +300,10 @@ public class ModBlocks
         willow_vine = registerBlock(new VineBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT).randomTicks().noCollission().strength(0.2F).sound(SoundType.GRASS)), "willow_vine");
         spanish_moss = registerBlock(new SpanishMossBottomBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT).randomTicks().noCollission().instabreak().sound(SoundType.GRASS)), "spanish_moss");
         spanish_moss_plant = registerBlockNoGroup(new SpanishMossBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS)), "spanish_moss_plant");
+        glowworm_silk = registerBlock(new GlowwormSilkBottomBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL).lightLevel((state) -> 8)), "glowworm_silk");
+        glowworm_silk_strand = registerBlockNoGroup(new GlowwormSilkBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL).lightLevel((state) -> 10)), "glowworm_silk_strand");
+        hanging_cobweb = registerBlock(new HangingCobwebBottomBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL)), "hanging_cobweb");
+        hanging_cobweb_strand = registerBlockNoGroup(new HangingCobwebBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL)), "hanging_cobweb_strand");
 
         //Plants
         sprout = registerBlock(new FoliageBlockBOP(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS)), "sprout");
@@ -415,6 +419,10 @@ public class ModBlocks
             RenderTypeLookup.setRenderLayer(willow_vine, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(spanish_moss, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(spanish_moss_plant, cutoutRenderType);
+            RenderTypeLookup.setRenderLayer(glowworm_silk, cutoutRenderType);
+            RenderTypeLookup.setRenderLayer(glowworm_silk_strand, cutoutRenderType);
+            RenderTypeLookup.setRenderLayer(hanging_cobweb, cutoutRenderType);
+            RenderTypeLookup.setRenderLayer(hanging_cobweb_strand, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(sprout, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(bush, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(clover, cutoutRenderType);

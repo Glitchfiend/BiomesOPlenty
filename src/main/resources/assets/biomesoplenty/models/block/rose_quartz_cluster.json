@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "biomesoplenty:block/rose_quartz_cluster"
+  }
+}

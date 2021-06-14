@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/carpet",
+  "textures": {
+    "wool": "biomesoplenty:block/glowing_moss_block"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "biomesoplenty:block/rose_quartz_block"
+  }
+}

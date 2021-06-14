@@ -1,0 +1,11 @@
+  {
+  "parent": "biomesoplenty:item/rose_quartz_bud",
+  "textures": {
+    "layer0": "biomesoplenty:block/medium_rose_quartz_bud"
+  },
+  "display": {
+    "fixed": {
+      "translation": [ 0, 6, 0 ]
+    }
+  }
+}
