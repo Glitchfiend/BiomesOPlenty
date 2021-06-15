@@ -37,6 +37,10 @@ public class GuiEventHandler
     {
         for (BiomeGeneratorTypeScreens screen : BiomeGeneratorTypeScreens.PRESETS)
         {
+            // Skip screens that don't use a TranslationTextComponent because definitely they're not ours
+            if (!(screen.description instanceof TranslationTextComponent))
+                continue;
+
             TranslationTextComponent desc = (TranslationTextComponent)screen.description;
 
             if (desc.getKey().equals("generator.minecraft.biomesoplenty"))
