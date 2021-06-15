@@ -1,8 +1,0 @@
-{
-  "variants": {
-	"": [
-		{ "model": "biomesoplenty:block/filled_honeycomb_block" },
-		{ "model": "biomesoplenty:block/filled_honeycomb_block_alt" }
-	]
-  }
-}
