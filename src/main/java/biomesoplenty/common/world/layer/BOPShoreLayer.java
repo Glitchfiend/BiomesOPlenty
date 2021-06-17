@@ -92,9 +92,7 @@ public enum BOPShoreLayer implements ICastleTransformer
                     if (BiomeUtil.hasMetadata(biome))
                     {
                         BiomeMetadata meta = BiomeUtil.getMetadata(biome);
-
-                        if (meta.getBeachBiome() == null) return biomeId;
-                        else return BiomeUtil.getBiomeId(meta.getBeachBiome());
+                        return getBiomeIdIfPresent(meta.getBeachBiome(), biomeId);
                     }
                     else
                     {
@@ -122,7 +120,7 @@ public enum BOPShoreLayer implements ICastleTransformer
 
     private static int getBiomeIdIfPresent(RegistryKey<Biome> biome, int fallbackId)
     {
-        return BiomeUtil.exists(biome) ? BiomeUtil.getBiomeId(biome) : fallbackId;
+        return biome != null && BiomeUtil.exists(biome) ? BiomeUtil.getBiomeId(biome) : fallbackId;
     }
 
     private static boolean isJungleCompatible(int biomeId)
