@@ -292,6 +292,8 @@ public class BOPBlocks
     public static Block willow_vine;
     public static Block spanish_moss;
     public static Block spanish_moss_plant;
+    public static Block tree_roots;
+    public static Block tree_roots_stem;
     public static Block glowworm_silk;
     public static Block glowworm_silk_strand;
     public static Block hanging_cobweb;

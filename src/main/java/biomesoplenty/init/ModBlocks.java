@@ -300,6 +300,8 @@ public class ModBlocks
         willow_vine = registerBlock(new VineBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT).randomTicks().noCollission().strength(0.2F).sound(SoundType.GRASS)), "willow_vine");
         spanish_moss = registerBlock(new SpanishMossBottomBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT).randomTicks().noCollission().instabreak().sound(SoundType.GRASS)), "spanish_moss");
         spanish_moss_plant = registerBlockNoGroup(new SpanishMossBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS)), "spanish_moss_plant");
+        tree_roots = registerBlock(new TreeRootsBottomBlock(AbstractBlock.Properties.of(Material.WOOD).randomTicks().noCollission().harvestLevel(0).harvestTool(ToolType.AXE).strength(0.3F).sound(SoundType.WOOD)), "tree_roots");
+        tree_roots_stem = registerBlockNoGroup(new TreeRootsBlock(AbstractBlock.Properties.of(Material.WOOD).noCollission().harvestLevel(0).harvestTool(ToolType.AXE).strength(0.3F).sound(SoundType.WOOD)), "tree_roots_stem");
         glowworm_silk = registerBlock(new GlowwormSilkBottomBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL).lightLevel((state) -> 8)), "glowworm_silk");
         glowworm_silk_strand = registerBlockNoGroup(new GlowwormSilkBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL).lightLevel((state) -> 10)), "glowworm_silk_strand");
         hanging_cobweb = registerBlock(new HangingCobwebBottomBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL)), "hanging_cobweb");
@@ -419,6 +421,8 @@ public class ModBlocks
             RenderTypeLookup.setRenderLayer(willow_vine, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(spanish_moss, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(spanish_moss_plant, cutoutRenderType);
+            RenderTypeLookup.setRenderLayer(tree_roots, cutoutRenderType);
+            RenderTypeLookup.setRenderLayer(tree_roots_stem, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(glowworm_silk, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(glowworm_silk_strand, cutoutRenderType);
             RenderTypeLookup.setRenderLayer(hanging_cobweb, cutoutRenderType);
