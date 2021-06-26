@@ -37,8 +37,6 @@ public class ClientProxy extends CommonProxy
     @Override
     public void init()
     {
-        //addClassicPack();
-
         BlockColors blockColors = Minecraft.getInstance().getBlockColors();
         ItemColors itemColors = Minecraft.getInstance().getItemColors();
 
@@ -64,12 +62,6 @@ public class ClientProxy extends CommonProxy
             return blockColors.getColor(BlockState, null, null, tintIndex); }, 
         	BOPBlocks.sprout, BOPBlocks.bush, BOPBlocks.clover, BOPBlocks.huge_clover_petal, BOPBlocks.flowering_oak_leaves,
             BOPBlocks.mahogany_leaves, BOPBlocks.palm_leaves, BOPBlocks.willow_leaves, BOPBlocks.willow_vine);
-    }
-
-    public static void addClassicPack()
-    {
-        if (Minecraft.getInstance() == null) { return; }
-        Minecraft.getInstance().getResourcePackRepository().addPackFinder((consumer, iFactory) -> consumer.accept(ResourcePackInfo.create(new ResourceLocation(BiomesOPlenty.MOD_ID, "classic_textures").toString(), false, () -> new BOPClassicPack(ModList.get().getModFileById(BiomesOPlenty.MOD_ID).getFile()), iFactory, ResourcePackInfo.Priority.TOP, iTextComponent -> iTextComponent)));
     }
 
     public static int getRainbowBirchColor(IBlockDisplayReader world, BlockPos pos)

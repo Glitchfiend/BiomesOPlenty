@@ -15,6 +15,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourcePackInfo;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -46,6 +47,8 @@ public class BiomesOPlenty
 
         ModBiomes.setup();
         ModConfig.setup();
+
+        addClassicPack();
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
@@ -65,5 +68,12 @@ public class BiomesOPlenty
     {
         proxy.init();
         ModCompatibility.setup();
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    public static void addClassicPack()
+    {
+        if (Minecraft.getInstance() == null) { return; }
+        Minecraft.getInstance().getResourcePackRepository().addPackFinder((consumer, iFactory) -> consumer.accept(ResourcePackInfo.create(new ResourceLocation(BiomesOPlenty.MOD_ID, "classic_textures").toString(), false, () -> new BOPClassicPack(ModList.get().getModFileById(BiomesOPlenty.MOD_ID).getFile()), iFactory, ResourcePackInfo.Priority.TOP, iTextComponent -> iTextComponent)));
     }
 }
