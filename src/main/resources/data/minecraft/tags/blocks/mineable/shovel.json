@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+	"biomesoplenty:white_sand",
+	"biomesoplenty:orange_sand",
+	"biomesoplenty:black_sand",
+	"biomesoplenty:mud",
+	"biomesoplenty:origin_grass_block"
+  ]
+}
