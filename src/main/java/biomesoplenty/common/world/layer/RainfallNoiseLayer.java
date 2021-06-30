@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright 2014-2019, the Biomes O' Plenty Team
+ * Copyright 2014-2021, the Biomes O' Plenty Team
  *
  * This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License.
  *
@@ -21,10 +21,6 @@ public enum RainfallNoiseLayer implements IBOPAreaTransformer0
 
     private final double scale;
 
-    private long seed;
-    private double xOffset;
-    private double zOffset;
-
     RainfallNoiseLayer(double scale)
     {
         this.scale = scale;
@@ -34,29 +30,20 @@ public enum RainfallNoiseLayer implements IBOPAreaTransformer0
     public int applyPixel(IBOPContextExtended context, int x, int z)
     {
         long seed = context.getWorldSeed();
+        double noiseVal = SimplexNoise.noise(seed ^ 0xE157A1DC3B2A298CL, x * this.scale + SimplexNoise.TRIANGLE_START_Y, z * this.scale + SimplexNoise.TRIANGLE_START_X);
 
-        // If the seed has changed, re-initialize offsets
-        if (this.seed != seed) {
-            Random random = new Random(seed - 123);
-            this.xOffset = (random.nextDouble() - 0.5) * 8192;
-            this.zOffset = (random.nextDouble() - 0.5) * 8192;
-            this.seed = seed;
-        }
-
-        double noiseVal = SimplexNoise.noise((x + this.xOffset) * this.scale, (z + this.zOffset) * this.scale);
-
-        // boundaries were determined empirically by analyzing statistically output from the SimplexNoise function, and splitting into 12 equally likely groups
-        if (noiseVal < -0.637D) return 0;
-        else if (noiseVal < -0.575D) return 1;
-        else if (noiseVal < -0.465D) return 2;
-        else if (noiseVal < -0.295D) return 3;
-        else if (noiseVal < -0.148D) return 4;
-        else if (noiseVal < -0.034D) return 5;
-        else if (noiseVal < 0.132D) return 6;
-        else if (noiseVal < 0.246D) return 7;
-        else if (noiseVal < 0.400D) return 8;
-        else if (noiseVal < 0.551D) return 9;
-        else if (noiseVal < 0.634D) return 10;
+        // boundaries were determined empirically by analyzing statistically the output from the SimplexNoise function, and splitting into 12 equally likely groups
+        if (noiseVal < -0.7804209166984755) return 0;
+        else if (noiseVal < -0.6263615214979332) return 1;
+        else if (noiseVal < -0.47131115810932966) return 2;
+        else if (noiseVal < -0.31471113670415907) return 3;
+        else if (noiseVal < -0.15717936237854807) return 4;
+        else if (noiseVal < 0.0) return 5;
+        else if (noiseVal < 0.15717936237854807) return 6;
+        else if (noiseVal < 0.31471113670415907) return 7;
+        else if (noiseVal < 0.47131115810932966) return 8;
+        else if (noiseVal < 0.6263615214979332) return 9;
+        else if (noiseVal < 0.7804209166984755) return 10;
         else return 11;
     }
 }
