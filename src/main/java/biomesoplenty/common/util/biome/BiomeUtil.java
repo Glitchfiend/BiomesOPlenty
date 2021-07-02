@@ -11,10 +11,10 @@ import biomesoplenty.common.biome.BiomeMetadata;
 import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.init.ModBiomes;
 import net.minecraft.client.Minecraft;
-import net.minecraft.util.RegistryKey;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.registry.DynamicRegistries;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.biome.Biome;
+import net.minecraft.core.Registry;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.ForgeRegistry;
 
@@ -22,17 +22,17 @@ import javax.annotation.Nullable;
 
 public class BiomeUtil
 {
-    public static RegistryKey<Biome> createKey(Biome biome)
+    public static ResourceKey<Biome> createKey(Biome biome)
     {
-        return biome == null ? null : RegistryKey.create(Registry.BIOME_REGISTRY, biome.delegate.name());
+        return biome == null ? null : ResourceKey.create(Registry.BIOME_REGISTRY, biome.delegate.name());
     }
 
-    public static RegistryKey<Biome> createKey(int id)
+    public static ResourceKey<Biome> createKey(int id)
     {
         return createKey(getBiome(id));
     }
 
-    public static Biome getBiome(RegistryKey<Biome> key)
+    public static Biome getBiome(ResourceKey<Biome> key)
     {
         Biome biome = ForgeRegistries.BIOMES.getValue(key.location());
         if (biome == null) throw new RuntimeException("Attempted to get unregistered biome " + key);
@@ -53,12 +53,12 @@ public class BiomeUtil
         return id;
     }
 
-    public static int getBiomeId(RegistryKey<Biome> key)
+    public static int getBiomeId(ResourceKey<Biome> key)
     {
         return getBiomeId(getBiome(key));
     }
 
-    public static boolean hasMetadata(RegistryKey<Biome> key)
+    public static boolean hasMetadata(ResourceKey<Biome> key)
     {
         return ModBiomes.biomeMetadata.containsKey(key);
     }
@@ -68,7 +68,7 @@ public class BiomeUtil
         return hasMetadata(createKey(biome));
     }
 
-    public static BiomeMetadata getMetadata(RegistryKey<Biome> key)
+    public static BiomeMetadata getMetadata(ResourceKey<Biome> key)
     {
         return ModBiomes.biomeMetadata.get(key);
     }
@@ -78,7 +78,7 @@ public class BiomeUtil
         return getMetadata(createKey(biome));
     }
 
-    public static boolean exists(RegistryKey<Biome> key)
+    public static boolean exists(ResourceKey<Biome> key)
     {
         return ForgeRegistries.BIOMES.containsKey(key.location());
     }
@@ -89,7 +89,7 @@ public class BiomeUtil
     }
 
     @Nullable
-    public static RegistryKey<Biome> getClientKey(Biome biome)
+    public static ResourceKey<Biome> getClientKey(Biome biome)
     {
         return Minecraft.getInstance().level.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY).getResourceKey(biome).orElse(null);
     }

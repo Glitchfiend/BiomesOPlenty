@@ -5,11 +5,11 @@ import com.mojang.serialization.Codec;
 import java.util.Random;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.core.BlockPos;
 import net.minecraft.world.gen.feature.FeatureSpreadConfig;
-import net.minecraft.world.gen.placement.SimplePlacement;
+import net.minecraft.world.level.levelgen.placement.SimpleFeatureDecorator;
 
-public class BOPCountPlacement extends SimplePlacement<DenseFeatureSpreadConfig>
+public class BOPCountPlacement extends SimpleFeatureDecorator<DenseFeatureSpreadConfig>
 {
     public BOPCountPlacement(Codec<DenseFeatureSpreadConfig> codec)
     {

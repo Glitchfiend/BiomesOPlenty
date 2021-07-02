@@ -9,11 +9,11 @@ package biomesoplenty.common.world.gen.feature.tree;
 
 import biomesoplenty.common.util.biome.GeneratorUtil;
 import biomesoplenty.common.util.block.IBlockPosQuery;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.material.Material;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MutableBoundingBox;
-import net.minecraft.world.IWorld;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.world.level.LevelAccessor;
 
 import java.util.Random;
 import java.util.Set;
@@ -42,7 +42,7 @@ public class PoplarTreeFeature extends TreeFeatureBase
     }
 
     @Override
-    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, IWorld world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
+    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, LevelAccessor world, Random random, BlockPos startPos, BoundingBox boundingBox)
     {
         // Move down until we reach the ground
     	while (startPos.getY() > 1 && world.isEmptyBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES) {startPos = startPos.below();}
@@ -107,7 +107,7 @@ public class PoplarTreeFeature extends TreeFeatureBase
 	    return (int)(r + 0.5F);
     }
     
-    public boolean checkSpace(IWorld world, BlockPos pos, int baseHeight, int height)
+    public boolean checkSpace(LevelAccessor world, BlockPos pos, int baseHeight, int height)
     {
         for (int y = 0; y <= height; y++)
         {
@@ -130,7 +130,7 @@ public class PoplarTreeFeature extends TreeFeatureBase
     }
     
     // generates a layer of leafs with the given radius
-    public void generateLeafLayer(IWorld world, BlockPos pos, int radius, Set<BlockPos> changedLeaves, MutableBoundingBox boundingBox)
+    public void generateLeafLayer(LevelAccessor world, BlockPos pos, int radius, Set<BlockPos> changedLeaves, BoundingBox boundingBox)
     {
         for(int x = -radius; x <= radius; x++)
         {

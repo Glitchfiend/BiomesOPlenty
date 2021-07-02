@@ -1,0 +1,131 @@
+buildscript {
+    repositories {
+        maven { url = 'https://maven.minecraftforge.net' }
+        mavenCentral()
+    }
+    dependencies {
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '4.+', changing: true
+        classpath 'com.google.code.gson:gson:2.8.7'
+    }
+}
+
+repositories {
+    maven { url = 'https://maven.minecraftforge.net' }
+    mavenCentral()
+}
+
+import net.minecraftforge.gradle.common.task.TaskApplyRangeMap
+import net.minecraftforge.gradle.common.task.TaskExtractExistingFiles
+import net.minecraftforge.gradle.common.task.TaskExtractRangeMap
+import net.minecraftforge.gradle.common.util.MinecraftRepo
+import net.minecraftforge.srgutils.IMappingBuilder
+import net.minecraftforge.srgutils.IMappingFile
+
+def doingUpdate = hasProperty('UPDATE_CLASSNAMES')
+
+if (doingUpdate) {
+    afterEvaluate { project ->
+        def javaCompile = project.tasks.getByName('compileJava') as JavaCompile
+        def sourceSets = (project.convention.plugins.get('java') as JavaPluginConvention).sourceSets
+        Set<File> srcDirs = new HashSet<>()
+        (project.findProperty('UPDATE_SOURCESETS') ?: 'main').toString().split(';').each {
+            srcDirs.addAll(sourceSets.getByName(it).java.srcDirs)
+        }
+
+        if (srcDirs.empty)
+            throw new RuntimeException("No java source directories found to update!")
+
+        task extractRangeMap(type: TaskExtractRangeMap) {
+            sources srcDirs
+            addDependencies javaCompile.getClasspath()
+        }
+
+        task chainMappings(type: CreatedChainMojmapsTask) {
+            dependsOn(extractSrg)
+            mcVersion MinecraftRepo.getMCVersion(minecraft?.mappingVersion ?: '1.16.5')
+            extractSrgInput tasks.extractSrg.output
+        }
+
+        task applyRangeMap(type: TaskApplyRangeMap) {
+            dependsOn(extractRangeMap, chainMappings)
+            rangeMap tasks.extractRangeMap.output
+            setSrgFiles chainMappings.output //, tasks.createMcpToSrg.output
+            sources srcDirs
+        }
+
+        task extractMappedNew(type: TaskExtractExistingFiles) { task ->
+            dependsOn(applyRangeMap)
+            archive tasks.applyRangeMap.output
+            srcDirs.each { task.addTarget(it) }
+        }
+
+        task updateClassnames {
+            dependsOn(extractMappedNew)
+        }
+    }
+}
+
+class CreatedChainMojmapsTask extends DefaultTask {
+    private static final String MANIFEST_URL = "https://launchermeta.mojang.com/mc/game/version_manifest.json"
+    private static final com.google.gson.Gson GSON = new com.google.gson.GsonBuilder().create()
+    @Input String mcVersion
+    @InputFile File extractSrgInput
+    @OutputFile File output = new File(project.buildDir, name + "/chainedmappings.tsrg")
+
+    @TaskAction
+    void doTask() {
+        def mojToObf = IMappingFile.load(getMojmaps())
+        def obfToSrg = IMappingFile.load(extractSrgInput)
+
+        def mojToSrg = mojToObf.chain(obfToSrg)
+        def builder = IMappingBuilder.create()
+
+        mojToSrg.getClasses().each {builder.addClass(it.mapped, it.original) }
+
+        builder.build().write(output.toPath(), IMappingFile.Format.TSRG2)
+    }
+
+    @Internal
+    InputStream getMojmaps() {
+        InputStream manIn = new URL(MANIFEST_URL).openStream()
+        URL url = GSON.fromJson(new InputStreamReader(manIn), ManifestJson.class).getUrl(mcVersion)
+
+        InputStream verIn = url.openStream()
+        VersionJson json = GSON.fromJson(new InputStreamReader(verIn), VersionJson.class)
+
+        VersionJson.Download download = json.downloads.get("client_mappings")
+
+        return download.url.openStream()
+    }
+}
+
+class ManifestJson {
+    VersionInfo[] versions
+
+    static class VersionInfo {
+        String id
+        URL url
+    }
+
+    URL getUrl(String version) {
+        if (version == null) {
+            return null
+        }
+        for (VersionInfo info : versions) {
+            if (version == info.id) {
+                return info.url
+            }
+        }
+        return null
+    }
+}
+
+class VersionJson {
+    Map<String, Download> downloads
+
+    static class Download {
+        String sha1
+        int size
+        URL url
+    }
+}

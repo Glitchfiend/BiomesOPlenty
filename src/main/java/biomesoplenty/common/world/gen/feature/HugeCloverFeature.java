@@ -5,28 +5,33 @@ import biomesoplenty.common.util.block.IBlockPosQuery;
 import com.ibm.icu.impl.CalendarAstronomer;
 import com.mojang.serialization.Codec;
 import net.minecraft.block.*;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.core.Direction;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 import java.util.Random;
 
-public class HugeCloverFeature extends Feature<NoFeatureConfig>
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.state.BlockState;
+
+public class HugeCloverFeature extends Feature<NoneFeatureConfiguration>
 {
     protected IBlockPosQuery placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK;
     protected IBlockPosQuery replace = (world, pos) -> world.getBlockState(pos).canBeReplacedByLeaves(world, pos) || world.getBlockState(pos).getBlock() instanceof BushBlock;
 
-    public HugeCloverFeature(Codec<NoFeatureConfig> deserializer)
+    public HugeCloverFeature(Codec<NoneFeatureConfiguration> deserializer)
     {
         super(deserializer);
     }
 
     @Override
-    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random rand, BlockPos startPos, NoFeatureConfig config)
+    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, Random rand, BlockPos startPos, NoneFeatureConfiguration config)
     {
         while (startPos.getY() > 1 && this.replace.matches(world, startPos)) {startPos = startPos.below();}
 
@@ -44,15 +49,15 @@ public class HugeCloverFeature extends Feature<NoFeatureConfig>
 
         BlockPos pos = startPos.above();
 
-        this.setBlock(world, pos, BOPBlocks.huge_clover_petal.defaultBlockState().setValue(HorizontalBlock.FACING, Direction.NORTH));
-        this.setBlock(world, pos.south(), BOPBlocks.huge_clover_petal.defaultBlockState().setValue(HorizontalBlock.FACING, Direction.WEST));
-        this.setBlock(world, pos.east(), BOPBlocks.huge_clover_petal.defaultBlockState().setValue(HorizontalBlock.FACING, Direction.EAST));
-        this.setBlock(world, pos.south().east(), BOPBlocks.huge_clover_petal.defaultBlockState().setValue(HorizontalBlock.FACING, Direction.SOUTH));
+        this.setBlock(world, pos, BOPBlocks.huge_clover_petal.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, Direction.NORTH));
+        this.setBlock(world, pos.south(), BOPBlocks.huge_clover_petal.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, Direction.WEST));
+        this.setBlock(world, pos.east(), BOPBlocks.huge_clover_petal.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, Direction.EAST));
+        this.setBlock(world, pos.south().east(), BOPBlocks.huge_clover_petal.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, Direction.SOUTH));
 
         return true;
     }
 
-    public boolean setBlock(IWorld world, BlockPos pos, BlockState state)
+    public boolean setBlock(LevelAccessor world, BlockPos pos, BlockState state)
     {
         if (this.replace.matches(world, pos))
         {
@@ -62,7 +67,7 @@ public class HugeCloverFeature extends Feature<NoFeatureConfig>
         return false;
     }
 
-    public boolean checkSpace(IWorld world, BlockPos pos)
+    public boolean checkSpace(LevelAccessor world, BlockPos pos)
     {
         for (int x = 0; x <= 1; x++)
         {

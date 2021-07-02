@@ -3,32 +3,32 @@ package biomesoplenty.common.world.gen.feature;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import com.mojang.serialization.Codec;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.BushBlock;
-import net.minecraft.block.HugeMushroomBlock;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.HugeMushroomBlock;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.gen.feature.structure.StructureManager;
 
 import java.util.Random;
 
-public class SmallToadstoolFeature extends Feature<NoFeatureConfig>
+public class SmallToadstoolFeature extends Feature<NoneFeatureConfiguration>
 {
     protected IBlockPosQuery placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK || world.getBlockState(pos).getBlock() == Blocks.MYCELIUM;
     protected IBlockPosQuery replace = (world, pos) -> world.getBlockState(pos).canBeReplacedByLeaves(world, pos) || world.getBlockState(pos).getBlock() instanceof BushBlock;
 
-    public SmallToadstoolFeature(Codec<NoFeatureConfig> deserializer)
+    public SmallToadstoolFeature(Codec<NoneFeatureConfiguration> deserializer)
     {
         super(deserializer);
     }
 
     @Override
-    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random rand, BlockPos startPos, NoFeatureConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, Random rand, BlockPos startPos, NoneFeatureConfiguration config) {
         while (startPos.getY() > 1 && this.replace.matches(world, startPos)) {
             startPos = startPos.below();
         }
@@ -56,7 +56,7 @@ public class SmallToadstoolFeature extends Feature<NoFeatureConfig>
         return true;
     }
 
-    public boolean setBlock(IWorld world, BlockPos pos, BlockState state)
+    public boolean setBlock(LevelAccessor world, BlockPos pos, BlockState state)
     {
         if (this.replace.matches(world, pos))
         {
@@ -66,7 +66,7 @@ public class SmallToadstoolFeature extends Feature<NoFeatureConfig>
         return false;
     }
 
-    public boolean checkSpace(IWorld world, BlockPos pos)
+    public boolean checkSpace(LevelAccessor world, BlockPos pos)
     {
         for (int y = 0; y <= 4; y++)
         {

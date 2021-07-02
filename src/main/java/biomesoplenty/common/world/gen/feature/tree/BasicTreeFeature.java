@@ -9,14 +9,21 @@ package biomesoplenty.common.world.gen.feature.tree;
 
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import net.minecraft.block.*;
-import net.minecraft.block.material.Material;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MutableBoundingBox;
-import net.minecraft.world.IWorld;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.core.Direction;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.world.level.LevelAccessor;
 
 import java.util.Random;
 import java.util.Set;
+
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CocoaBlock;
+import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.VineBlock;
+import net.minecraft.world.level.block.state.BlockState;
 
 public class BasicTreeFeature extends TreeFeatureBase
 {
@@ -91,7 +98,7 @@ public class BasicTreeFeature extends TreeFeatureBase
     }
 
     @Override
-    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, IWorld world, Random random, BlockPos pos, MutableBoundingBox boundingBox)
+    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, LevelAccessor world, Random random, BlockPos pos, BoundingBox boundingBox)
     {
         int height = random.nextInt(this.maxHeight - this.minHeight) + this.minHeight;
         boolean hasSpace = true;
@@ -284,7 +291,7 @@ public class BasicTreeFeature extends TreeFeatureBase
         }
     }
 
-    protected void generateTrunk(Set<BlockPos> changedBlocks, MutableBoundingBox boundingBox, IWorld world, BlockPos start, int height)
+    protected void generateTrunk(Set<BlockPos> changedBlocks, BoundingBox boundingBox, LevelAccessor world, BlockPos start, int height)
     {
         //Create the trunk from the bottom up, using < to ensure it is covered with one layer of leaves
         for (int layer = 0; layer < height; ++layer)
@@ -297,7 +304,7 @@ public class BasicTreeFeature extends TreeFeatureBase
         }
     }
 
-    protected void generateHanging(IWorld world, BlockPos start, Random rand, int height)
+    protected void generateHanging(LevelAccessor world, BlockPos start, Random rand, int height)
     {
         //Generate below the bottom layer of leaves
         int y = start.getY() + (height - this.leafLayers);
@@ -316,7 +323,7 @@ public class BasicTreeFeature extends TreeFeatureBase
         }
     }
 
-    private void generateTrunkFruit(IWorld world, int age, BlockPos pos, Direction direction)
+    private void generateTrunkFruit(LevelAccessor world, int age, BlockPos pos, Direction direction)
     {
         if (this.trunkFruit == Blocks.COCOA.defaultBlockState())
         {
@@ -333,7 +340,7 @@ public class BasicTreeFeature extends TreeFeatureBase
         return this.vine.getBlock() instanceof VineBlock ? this.vine.setValue(VineBlock.getPropertyForFace(side), Boolean.valueOf(true)) : this.vine;
     }
 
-    private void extendVines(IWorld world, BlockPos pos, Direction side)
+    private void extendVines(LevelAccessor world, BlockPos pos, Direction side)
     {
         BlockState vineState = this.getVineStateForSide(side);
         this.setBlock(world, pos, vineState);

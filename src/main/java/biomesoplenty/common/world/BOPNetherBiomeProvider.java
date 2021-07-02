@@ -12,21 +12,21 @@ import biomesoplenty.common.util.biome.BiomeUtil;
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.util.RegistryKey;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryLookupCodec;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.RegistryLookupCodec;
 import net.minecraft.util.registry.WorldGenRegistries;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.biome.provider.BiomeProvider;
-import net.minecraft.world.gen.layer.Layer;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biomes;
+import net.minecraft.world.level.biome.BiomeSource;
+import net.minecraft.world.level.newbiome.layer.Layer;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class BOPNetherBiomeProvider extends BiomeProvider
+public class BOPNetherBiomeProvider extends BiomeSource
 {
     public static final Codec<BOPNetherBiomeProvider> CODEC = RecordCodecBuilder.create((builder) ->
     {
@@ -35,7 +35,7 @@ public class BOPNetherBiomeProvider extends BiomeProvider
                 RegistryLookupCodec.create(Registry.BIOME_REGISTRY).forGetter((biomeProvider) -> biomeProvider.biomes)
         ).apply(builder, builder.stable(BOPNetherBiomeProvider::new));
     });
-    private static final List<RegistryKey<Biome>> VANILLA_POSSIBLE_BIOMES = ImmutableList.of(Biomes.NETHER_WASTES, Biomes.SOUL_SAND_VALLEY, Biomes.CRIMSON_FOREST, Biomes.WARPED_FOREST, Biomes.BASALT_DELTAS);
+    private static final List<ResourceKey<Biome>> VANILLA_POSSIBLE_BIOMES = ImmutableList.of(Biomes.NETHER_WASTES, Biomes.SOUL_SAND_VALLEY, Biomes.CRIMSON_FOREST, Biomes.WARPED_FOREST, Biomes.BASALT_DELTAS);
 
     private final long seed;
     private final Layer noiseBiomeLayer;
@@ -50,13 +50,13 @@ public class BOPNetherBiomeProvider extends BiomeProvider
     }
 
     @Override
-    protected Codec<? extends BiomeProvider> codec()
+    protected Codec<? extends BiomeSource> codec()
     {
         return CODEC;
     }
 
     @Override
-    public BiomeProvider withSeed(long seed)
+    public BiomeSource withSeed(long seed)
     {
         return new BOPNetherBiomeProvider(seed, this.biomes);
     }

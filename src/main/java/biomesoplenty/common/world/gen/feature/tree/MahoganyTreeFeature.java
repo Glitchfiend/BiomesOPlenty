@@ -10,15 +10,15 @@ package biomesoplenty.common.world.gen.feature.tree;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.biome.GeneratorUtil;
 import biomesoplenty.common.util.block.IBlockPosQuery;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.SaplingBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.block.material.Material;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MutableBoundingBox;
-import net.minecraft.world.IWorld;
+import net.minecraft.core.Direction;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.world.level.LevelAccessor;
 
 import java.util.Random;
 import java.util.Set;
@@ -50,7 +50,7 @@ public class MahoganyTreeFeature extends TreeFeatureBase
     }
 
     @Override
-    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, IWorld world, Random random, BlockPos pos, MutableBoundingBox boundingBox)
+    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, LevelAccessor world, Random random, BlockPos pos, BoundingBox boundingBox)
     {
         int height = random.nextInt(this.maxHeight - this.minHeight) + this.minHeight;
         boolean hasSpace = true;
@@ -127,7 +127,7 @@ public class MahoganyTreeFeature extends TreeFeatureBase
         }
     }
 
-    protected void generateTrunk(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, MutableBoundingBox boundingBox, IWorld world, BlockPos start, int height)
+    protected void generateTrunk(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, BoundingBox boundingBox, LevelAccessor world, BlockPos start, int height)
     {
         int endHeight = height;
 
@@ -150,7 +150,7 @@ public class MahoganyTreeFeature extends TreeFeatureBase
         generateBranch(changedLogs, changedLeaves, boundingBox, world, branchStartPos, Direction.WEST);
     }
 
-    private void generateBranch(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, MutableBoundingBox boundingBox, IWorld world, BlockPos middle, Direction direction)
+    private void generateBranch(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, BoundingBox boundingBox, LevelAccessor world, BlockPos middle, Direction direction)
     {
         BlockPos pos = middle;
         int length = 1 + world.getRandom().nextInt(2);

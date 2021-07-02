@@ -7,22 +7,22 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.SixWayBlock;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.pathfinding.PathType;
-import net.minecraft.state.StateContainer;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.World;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.PipeBlock;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.pathfinder.PathComputationType;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.core.Direction;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.Level;
 
-public class BrambleBlock extends SixWayBlock
+public class BrambleBlock extends PipeBlock
 {
     public BrambleBlock(Block.Properties builder)
     {
@@ -31,12 +31,12 @@ public class BrambleBlock extends SixWayBlock
     }
     
     @Override
-    public BlockState getStateForPlacement(BlockItemUseContext context)
+    public BlockState getStateForPlacement(BlockPlaceContext context)
     {
         return this.makeConnections(context.getLevel(), context.getClickedPos());
     }
 
-    public BlockState makeConnections(IBlockReader reader, BlockPos pos)
+    public BlockState makeConnections(BlockGetter reader, BlockPos pos)
     {
         BlockState block = reader.getBlockState(pos.below());
         BlockState block1 = reader.getBlockState(pos.above());
@@ -54,7 +54,7 @@ public class BrambleBlock extends SixWayBlock
     }
 
      @Override
-     public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos)
+     public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, LevelAccessor worldIn, BlockPos currentPos, BlockPos facingPos)
      {
     	Block block = facingState.getBlock();
      	boolean flag = block == this || Block.isShapeFullBlock(facingState.getCollisionShape(worldIn, facingPos));
@@ -62,23 +62,23 @@ public class BrambleBlock extends SixWayBlock
      }
 
      @Override
-     public void entityInside(BlockState state, World worldIn, BlockPos pos, Entity entityIn)
+     public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn)
      {
-         if (entityIn instanceof PlayerEntity)
+         if (entityIn instanceof Player)
          {
-             PlayerEntity playerEntity = (PlayerEntity) entityIn;
+             Player playerEntity = (Player) entityIn;
              playerEntity.hurt(DamageSource.CACTUS, 1.0F);
          }
       }
 
      @Override
-     protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder)
+     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder)
      {
         builder.add(NORTH, EAST, SOUTH, WEST, UP, DOWN);
      }
 
      @Override
-     public boolean isPathfindable(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type)
+     public boolean isPathfindable(BlockState state, BlockGetter worldIn, BlockPos pos, PathComputationType type)
      {
         return false;
      }

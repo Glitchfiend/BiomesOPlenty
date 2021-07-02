@@ -24,13 +24,13 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
-import net.minecraft.entity.villager.VillagerType;
-import net.minecraft.util.RegistryKey;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeColors;
-import net.minecraft.world.biome.Biomes;
+import net.minecraft.world.entity.npc.VillagerType;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.Registry;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.client.renderer.BiomeColors;
+import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.ColorResolver;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.BiomeDictionary;
@@ -57,7 +57,7 @@ public class ModBiomes
 
     public static Multimap<Integer, WeightedSubBiome> subBiomes = HashMultimap.create();
     public static List<Integer> islandBiomeIds = Lists.newArrayList();
-    public static Map<RegistryKey<Biome>, BiomeMetadata> biomeMetadata = Maps.newHashMap();
+    public static Map<ResourceKey<Biome>, BiomeMetadata> biomeMetadata = Maps.newHashMap();
 
     public static void setup()
     {
@@ -69,7 +69,7 @@ public class ModBiomes
 
             BiomeColors.GRASS_COLOR_RESOLVER = (biome, posX, posZ) ->
             {
-                RegistryKey<Biome> key = BiomeUtil.getClientKey(biome);
+                ResourceKey<Biome> key = BiomeUtil.getClientKey(biome);
                 BiomeMetadata meta = BiomeUtil.getMetadata(key);
 
                 if (meta != null && meta.getGrassColorFunction() != null)
@@ -82,7 +82,7 @@ public class ModBiomes
 
             BiomeColors.FOLIAGE_COLOR_RESOLVER = (biome, posX, posZ) ->
             {
-                RegistryKey<Biome> key = BiomeUtil.getClientKey(biome);
+                ResourceKey<Biome> key = BiomeUtil.getClientKey(biome);
                 BiomeMetadata meta = BiomeUtil.getMetadata(key);
 
                 if (meta != null && meta.getFoliageColorFunction() != null)
@@ -95,7 +95,7 @@ public class ModBiomes
 
             BiomeColors.WATER_COLOR_RESOLVER = (biome, posX, posZ) ->
             {
-                RegistryKey<Biome> key = BiomeUtil.getClientKey(biome);
+                ResourceKey<Biome> key = BiomeUtil.getClientKey(biome);
                 BiomeMetadata meta = BiomeUtil.getMetadata(key);
 
                 if (meta != null && meta.getWaterColorFunction() != null)
@@ -507,7 +507,7 @@ public class ModBiomes
         registerVillagerType(woodland, VillagerType.PLAINS);
     }
 
-    private static void registerBiomeToDictionary(RegistryKey<Biome> key, Type...type)
+    private static void registerBiomeToDictionary(ResourceKey<Biome> key, Type...type)
     {
         if (BiomeUtil.exists(key))
         {
@@ -515,7 +515,7 @@ public class ModBiomes
         }
     }
 
-    private static void registerVillagerType(RegistryKey<Biome> key, VillagerType type)
+    private static void registerVillagerType(ResourceKey<Biome> key, VillagerType type)
     {
         if (BiomeUtil.exists(key))
         {
@@ -537,28 +537,28 @@ public class ModBiomes
         BiomeRegistry.deferTechnicalBiomeRegistration(biome, name);
     }
 
-    public static void registerSubBiome(RegistryKey<Biome> parent, RegistryKey<Biome> child, float rarity, int weight)
+    public static void registerSubBiome(ResourceKey<Biome> parent, ResourceKey<Biome> child, float rarity, int weight)
     {
         BiomeRegistry.deferSubBiomeRegistration(parent, child, weight, rarity);
     }
 
-    public static void registerIslandBiome(RegistryKey<Biome> key, BOPClimates climate, int weight)
+    public static void registerIslandBiome(ResourceKey<Biome> key, BOPClimates climate, int weight)
     {
         BiomeRegistry.deferIslandBiomeRegistration(key, climate, weight);
     }
 
-    private static void registerVanillaBiome(RegistryKey<Biome> key, BOPClimates climate, int weight)
+    private static void registerVanillaBiome(ResourceKey<Biome> key, BOPClimates climate, int weight)
     {
         BiomeRegistry.deferVanillaBiomeRegistration(key, climate, weight);
     }
 
     public static class WeightedSubBiome
     {
-        public final RegistryKey<Biome> biome;
+        public final ResourceKey<Biome> biome;
         public final float rarity;
         public final int weight;
 
-        public WeightedSubBiome(RegistryKey<Biome> biome, float rarity, int weight)
+        public WeightedSubBiome(ResourceKey<Biome> biome, float rarity, int weight)
         {
             this.biome = biome;
             this.rarity = rarity;

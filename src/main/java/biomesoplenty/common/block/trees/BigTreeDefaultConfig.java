@@ -7,40 +7,45 @@
  ******************************************************************************/
 package biomesoplenty.common.block.trees;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.trees.BigTree;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.grower.AbstractMegaTreeGrower;
+import net.minecraft.core.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
-import net.minecraft.world.gen.ChunkGenerator;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.server.level.ServerLevel;
 
 import javax.annotation.Nullable;
 import java.util.Random;
 
-public abstract class BigTreeDefaultConfig extends BigTree
+import net.minecraft.data.worldgen.Features;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+
+public abstract class BigTreeDefaultConfig extends AbstractMegaTreeGrower
 {
     @Override
     @Nullable
-    protected ConfiguredFeature<BaseTreeFeatureConfig, ?> getConfiguredFeature(Random random, boolean hasFlowers)
+    protected ConfiguredFeature<TreeConfiguration, ?> getConfiguredFeature(Random random, boolean hasFlowers)
     {
         return null;
     }
 
     @Override
     @Nullable
-    protected ConfiguredFeature<BaseTreeFeatureConfig, ?> getConfiguredMegaFeature(Random random)
+    protected ConfiguredFeature<TreeConfiguration, ?> getConfiguredMegaFeature(Random random)
     {
         return null;
     }
 
-    protected abstract Feature<? extends BaseTreeFeatureConfig> getFeature(Random random);
-    protected abstract Feature<? extends BaseTreeFeatureConfig> getBigFeature(Random random);
+    protected abstract Feature<? extends TreeConfiguration> getFeature(Random random);
+    protected abstract Feature<? extends TreeConfiguration> getBigFeature(Random random);
 
     @Override
-    public boolean growTree(ServerWorld world, ChunkGenerator generator, BlockPos pos, BlockState state, Random random)
+    public boolean growTree(ServerLevel world, ChunkGenerator generator, BlockPos pos, BlockState state, Random random)
     {
         for (int i = 0; i >= -1; --i)
         {
@@ -53,7 +58,7 @@ public abstract class BigTreeDefaultConfig extends BigTree
             }
         }
 
-        Feature<BaseTreeFeatureConfig> feature = (Feature<BaseTreeFeatureConfig>)this.getFeature(random);
+        Feature<TreeConfiguration> feature = (Feature<TreeConfiguration>)this.getFeature(random);
 
         if (feature == null)
         {
@@ -75,9 +80,9 @@ public abstract class BigTreeDefaultConfig extends BigTree
     }
 
     @Override
-    public boolean placeMega(ServerWorld world, ChunkGenerator generator, BlockPos pos, BlockState state, Random random, int x, int z)
+    public boolean placeMega(ServerLevel world, ChunkGenerator generator, BlockPos pos, BlockState state, Random random, int x, int z)
     {
-        Feature<BaseTreeFeatureConfig> feature = (Feature<BaseTreeFeatureConfig>)this.getBigFeature(random);
+        Feature<TreeConfiguration> feature = (Feature<TreeConfiguration>)this.getBigFeature(random);
         if (feature == null)
         {
             return false;

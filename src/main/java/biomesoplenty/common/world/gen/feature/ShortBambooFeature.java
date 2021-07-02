@@ -2,21 +2,21 @@ package biomesoplenty.common.world.gen.feature;
 
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import com.mojang.serialization.Codec;
-import net.minecraft.block.BambooBlock;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.state.properties.BambooLeaves;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.level.block.BambooBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.properties.BambooLeaves;
+import net.minecraft.core.Direction;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.gen.feature.structure.StructureManager;
 
 import java.util.Random;
 
-public class ShortBambooFeature extends Feature<NoFeatureConfig>
+public class ShortBambooFeature extends Feature<NoneFeatureConfiguration>
 {
     protected IBlockPosQuery placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK;
     protected IBlockPosQuery replace = (world, pos) -> world.getBlockState(pos).canBeReplacedByLeaves(world, pos);
@@ -25,13 +25,13 @@ public class ShortBambooFeature extends Feature<NoFeatureConfig>
     private static final BlockState field_214568_aT = field_214566_a.setValue(BambooBlock.LEAVES, BambooLeaves.LARGE).setValue(BambooBlock.STAGE, Integer.valueOf(1));
     private static final BlockState field_214569_aU = field_214566_a.setValue(BambooBlock.LEAVES, BambooLeaves.SMALL).setValue(BambooBlock.STAGE, Integer.valueOf(1));
 
-    public ShortBambooFeature(Codec<NoFeatureConfig> deserializer)
+    public ShortBambooFeature(Codec<NoneFeatureConfiguration> deserializer)
     {
         super(deserializer);
     }
 
     @Override
-    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random rand, BlockPos pos, NoFeatureConfig config)
+    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, Random rand, BlockPos pos, NoneFeatureConfiguration config)
     {
         while (pos.getY() > 1 && this.replace.matches(world, pos)) {pos = pos.below();}
 
@@ -43,7 +43,7 @@ public class ShortBambooFeature extends Feature<NoFeatureConfig>
 
         pos = pos.above();
 
-        BlockPos.Mutable blockpos$mutableblockpos = new BlockPos.Mutable(pos.getX(), pos.getY(), pos.getZ());
+        BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos(pos.getX(), pos.getY(), pos.getZ());
         if (world.isEmptyBlock(blockpos$mutableblockpos))
         {
             if (Blocks.BAMBOO.defaultBlockState().canSurvive(world, blockpos$mutableblockpos))

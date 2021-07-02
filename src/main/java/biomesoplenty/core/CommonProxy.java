@@ -8,7 +8,7 @@
 package biomesoplenty.core;
 
 import biomesoplenty.api.particle.BOPParticleTypes;
-import net.minecraft.world.World;
+import net.minecraft.world.level.Level;
 
 public class CommonProxy
 {
@@ -19,5 +19,5 @@ public class CommonProxy
 
     public void init() {}
 
-    public void spawnParticle(BOPParticleTypes type, World parWorld, double x, double y, double z, Object... info) {}
+    public void spawnParticle(BOPParticleTypes type, Level parWorld, double x, double y, double z, Object... info) {}
 }

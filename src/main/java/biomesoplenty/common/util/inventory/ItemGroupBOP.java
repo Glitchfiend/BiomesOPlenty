@@ -8,12 +8,12 @@
 package biomesoplenty.common.util.inventory;
 
 import biomesoplenty.api.item.BOPItems;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 
-public class ItemGroupBOP extends ItemGroup
+public class ItemGroupBOP extends CreativeModeTab
 {
-    public static final ItemGroupBOP instance = new ItemGroupBOP(ItemGroup.TABS.length, "biomesoplenty");
+    public static final ItemGroupBOP instance = new ItemGroupBOP(CreativeModeTab.TABS.length, "biomesoplenty");
 
     private ItemGroupBOP(int index, String label)
     {

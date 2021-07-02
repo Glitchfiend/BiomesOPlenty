@@ -12,16 +12,16 @@ import biomesoplenty.common.biome.BiomeMetadata;
 import biomesoplenty.common.biome.BiomeTemplate;
 import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.common.world.BOPLayerUtil;
-import net.minecraft.util.RegistryKey;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.gen.INoiseRandom;
-import net.minecraft.world.gen.layer.traits.ICastleTransformer;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biomes;
+import net.minecraft.world.level.newbiome.context.Context;
+import net.minecraft.world.level.newbiome.layer.traits.CastleTransformer;
 
 import java.util.Optional;
 
-public enum BOPShoreLayer implements ICastleTransformer
+public enum BOPShoreLayer implements CastleTransformer
 {
     INSTANCE;
 
@@ -49,10 +49,10 @@ public enum BOPShoreLayer implements ICastleTransformer
     private static final int TAIGA = BiomeUtil.getBiomeId(Biomes.TAIGA);
 
     @Override
-    public int apply(INoiseRandom context, int northBiomeId, int eastBiomeId, int southBiomeId, int westBiomeId, int biomeId)
+    public int apply(Context context, int northBiomeId, int eastBiomeId, int southBiomeId, int westBiomeId, int biomeId)
     {
         Biome biome = BiomeUtil.getBiome(biomeId);
-        RegistryKey<Biome> key = BiomeUtil.createKey(biome);
+        ResourceKey<Biome> key = BiomeUtil.createKey(biome);
 
         if (biomeId == MUSHROOM_FIELDS)
         {
@@ -61,7 +61,7 @@ public enum BOPShoreLayer implements ICastleTransformer
                 return MUSHROOM_FIELD_SHORE;
             }
         }
-        else if (biome != null && biome.getBiomeCategory() == Biome.Category.JUNGLE && biomeId != getBiomeIdIfPresent(BOPBiomes.rainforest, biomeId) && biomeId != getBiomeIdIfPresent(BOPBiomes.rainforest_floodplain, biomeId) && biomeId != getBiomeIdIfPresent(BOPBiomes.rainforest_cliffs, biomeId) && biomeId != getBiomeIdIfPresent(BOPBiomes.fungal_jungle, biomeId) && biomeId != getBiomeIdIfPresent(BOPBiomes.fungal_field, biomeId))
+        else if (biome != null && biome.getBiomeCategory() == Biome.BiomeCategory.JUNGLE && biomeId != getBiomeIdIfPresent(BOPBiomes.rainforest, biomeId) && biomeId != getBiomeIdIfPresent(BOPBiomes.rainforest_floodplain, biomeId) && biomeId != getBiomeIdIfPresent(BOPBiomes.rainforest_cliffs, biomeId) && biomeId != getBiomeIdIfPresent(BOPBiomes.fungal_jungle, biomeId) && biomeId != getBiomeIdIfPresent(BOPBiomes.fungal_field, biomeId))
         {
             if (!isJungleCompatible(northBiomeId) || !isJungleCompatible(eastBiomeId) || !isJungleCompatible(southBiomeId) || !isJungleCompatible(westBiomeId))
             {
@@ -70,7 +70,7 @@ public enum BOPShoreLayer implements ICastleTransformer
         }
         else if (biomeId != MOUNTAINS && biomeId != WOODED_MOUNTAINS && biomeId != MOUNTAIN_EDGE)
         {
-            if (biome != null && biome.getPrecipitation() == Biome.RainType.SNOW)
+            if (biome != null && biome.getPrecipitation() == Biome.Precipitation.SNOW)
             {
                 if (!BOPLayerUtil.isOcean(biomeId) && (BOPLayerUtil.isOcean(northBiomeId) || BOPLayerUtil.isOcean(eastBiomeId) || BOPLayerUtil.isOcean(southBiomeId) || BOPLayerUtil.isOcean(westBiomeId)))
                 {
@@ -119,7 +119,7 @@ public enum BOPShoreLayer implements ICastleTransformer
         return biomeId;
     }
 
-    private static int getBiomeIdIfPresent(RegistryKey<Biome> biome, int fallbackId)
+    private static int getBiomeIdIfPresent(ResourceKey<Biome> biome, int fallbackId)
     {
         return biome != null && BiomeUtil.exists(biome) ? BiomeUtil.getBiomeId(biome) : fallbackId;
     }
@@ -128,7 +128,7 @@ public enum BOPShoreLayer implements ICastleTransformer
     {
         Biome biome = BiomeUtil.getBiome(biomeId);
 
-        if (biome != null && biome.getBiomeCategory() == Biome.Category.JUNGLE)
+        if (biome != null && biome.getBiomeCategory() == Biome.BiomeCategory.JUNGLE)
         {
             return true;
         }

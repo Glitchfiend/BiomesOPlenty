@@ -4,11 +4,11 @@ package biomesoplenty.client;
 
 import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.base.Joiner;
-import net.minecraft.resources.ResourcePack;
-import net.minecraft.resources.ResourcePackFileNotFoundException;
-import net.minecraft.resources.ResourcePackType;
-import net.minecraft.resources.data.IMetadataSectionSerializer;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.server.packs.AbstractPackResources;
+import net.minecraft.server.packs.ResourcePackFileNotFoundException;
+import net.minecraft.server.packs.PackType;
+import net.minecraft.server.packs.metadata.MetadataSectionSerializer;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.loading.moddiscovery.ModFile;
@@ -26,7 +26,7 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 @OnlyIn(Dist.CLIENT)
-public class BOPClassicPack extends ResourcePack
+public class BOPClassicPack extends AbstractPackResources
 {
     private final ModFile modFile;
     private static final String subDir = "classic/";
@@ -38,7 +38,7 @@ public class BOPClassicPack extends ResourcePack
     }
 
     @Override
-    public Set<String> getNamespaces(ResourcePackType type)
+    public Set<String> getNamespaces(PackType type)
     {
         try
         {
@@ -73,7 +73,7 @@ public class BOPClassicPack extends ResourcePack
     }
 
     @Override
-    public Collection<ResourceLocation> getResources(ResourcePackType type, String namespaceIn, String pathIn, int maxDepthIn, Predicate<String> filterIn)
+    public Collection<ResourceLocation> getResources(PackType type, String namespaceIn, String pathIn, int maxDepthIn, Predicate<String> filterIn)
     {
         try
         {
@@ -99,7 +99,7 @@ public class BOPClassicPack extends ResourcePack
 
     @Nullable
     @Override
-    public <T> T getMetadataSection(IMetadataSectionSerializer<T> serializer) throws IOException
+    public <T> T getMetadataSection(MetadataSectionSerializer<T> serializer) throws IOException
     {
         InputStream inputStream = getResource("pack.mcmeta");
         Throwable throwable = null;

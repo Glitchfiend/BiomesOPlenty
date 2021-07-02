@@ -4,34 +4,34 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.VineBlock;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.VineBlock;
+import net.minecraft.core.Direction;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 import java.util.List;
 import java.util.Random;
 
-public class RainforestCliffsVinesFeature extends Feature<NoFeatureConfig>
+public class RainforestCliffsVinesFeature extends Feature<NoneFeatureConfiguration>
 {
     protected IBlockPosQuery placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.DIRT || world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK || world.getBlockState(pos).getBlock() == Blocks.STONE || world.getBlockState(pos).getBlock() == Blocks.TERRACOTTA || world.getBlockState(pos).getBlock() == Blocks.ANDESITE || world.getBlockState(pos).getBlock() == Blocks.GRANITE || world.getBlockState(pos).getBlock() == Blocks.DIORITE;
     protected IBlockPosQuery replace = (world, pos) -> world.getBlockState(pos).isAir(world, pos);
     int minHeight = 7;
     int maxHeight = 14;
 
-    public RainforestCliffsVinesFeature(Codec<NoFeatureConfig> deserializer)
+    public RainforestCliffsVinesFeature(Codec<NoneFeatureConfiguration> deserializer)
     {
         super(deserializer);
     }
 
     @Override
-    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random rand, BlockPos startPos, NoFeatureConfig config)
+    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, Random rand, BlockPos startPos, NoneFeatureConfiguration config)
     {
         while (startPos.getY() > 1 && this.replace.matches(world, startPos)) {startPos = startPos.below();}
 
@@ -84,7 +84,7 @@ public class RainforestCliffsVinesFeature extends Feature<NoFeatureConfig>
         return true;
     }
 
-    public boolean setBlock(IWorld world, BlockPos pos, BlockState state)
+    public boolean setBlock(LevelAccessor world, BlockPos pos, BlockState state)
     {
         if (this.replace.matches(world, pos))
         {

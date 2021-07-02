@@ -10,12 +10,12 @@ package biomesoplenty.common.util.biome;
 import biomesoplenty.common.world.gen.feature.DenseFeatureSpreadConfig;
 import biomesoplenty.common.world.gen.placement.BOPPlacements;
 import net.minecraft.world.gen.feature.FeatureSpreadConfig;
-import net.minecraft.world.gen.placement.ConfiguredPlacement;
+import net.minecraft.world.level.levelgen.placement.ConfiguredDecorator;
 import net.minecraft.world.gen.placement.Placement;
 
 public class FeatureUtil
 {
-    public static ConfiguredPlacement<?> denseCount(int count)
+    public static ConfiguredDecorator<?> denseCount(int count)
     {
         return BOPPlacements.COUNT.configured(new DenseFeatureSpreadConfig(count));
     }

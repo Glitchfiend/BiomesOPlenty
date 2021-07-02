@@ -9,13 +9,13 @@ package biomesoplenty.common.world.gen.feature.tree;
 
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import com.google.common.collect.Lists;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.MutableBoundingBox;
-import net.minecraft.world.IWorld;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.core.Direction;
+import net.minecraft.core.BlockPos;
+import net.minecraft.util.Mth;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.world.level.LevelAccessor;
 
 import java.util.List;
 import java.util.Objects;
@@ -79,7 +79,7 @@ public class BigTreeFeature extends TreeFeatureBase
     // radius is the radius of the section from the center
     // direction is the direction the cross section is pointed, 0 for x, 1
     // for y, 2 for z material is the index number for the material to use
-    private void crossSection(IWorld world, BlockPos pos, float radius, Random random, MutableBoundingBox boundingBox, Set<BlockPos> changedBlocks)
+    private void crossSection(LevelAccessor world, BlockPos pos, float radius, Random random, BoundingBox boundingBox, Set<BlockPos> changedBlocks)
     {
         final int r = (int)((double)radius + trunkHeightScale);
 
@@ -133,7 +133,7 @@ public class BigTreeFeature extends TreeFeatureBase
         float radius = (float)height / 2.0F;
         float adjacent = radius - (float)y;
 
-        float distance = MathHelper.sqrt(radius * radius - adjacent * adjacent);
+        float distance = Mth.sqrt(radius * radius - adjacent * adjacent);
 
         if (adjacent == 0.0F)
         {
@@ -182,7 +182,7 @@ public class BigTreeFeature extends TreeFeatureBase
     // Generate a cluster of foliage, with the base at blockPos
     // The shape of the cluster is derived from foliageShape
     // crossection is called to make each level.
-    private void foliageCluster(IWorld world, BlockPos pos, Random random, MutableBoundingBox boundingBox, Set<BlockPos> changedBlocks)
+    private void foliageCluster(LevelAccessor world, BlockPos pos, Random random, BoundingBox boundingBox, Set<BlockPos> changedBlocks)
     {
         for (int y = 0; y < foliageHeight; y++)
         {
@@ -197,7 +197,7 @@ public class BigTreeFeature extends TreeFeatureBase
     // Examples:
     // If the third block searched is stone, return 2
     // If the first block searched is lava, return 0
-    private int checkLineAndOptionallySet(Set<BlockPos> changedBlocks, IWorld world, BlockPos startPos, BlockPos endPos, boolean set, MutableBoundingBox boundingBox)
+    private int checkLineAndOptionallySet(Set<BlockPos> changedBlocks, LevelAccessor world, BlockPos startPos, BlockPos endPos, boolean set, BoundingBox boundingBox)
     {
         if (!set && Objects.equals(startPos, endPos)) {
             return -1;
@@ -236,9 +236,9 @@ public class BigTreeFeature extends TreeFeatureBase
      */
     private int getGreatestDistance(BlockPos posIn)
     {
-        int i = MathHelper.abs(posIn.getX());
-        int j = MathHelper.abs(posIn.getY());
-        int k = MathHelper.abs(posIn.getZ());
+        int i = Mth.abs(posIn.getX());
+        int j = Mth.abs(posIn.getY());
+        int k = Mth.abs(posIn.getZ());
         return k > i && k > j ? k : (j > i ? j : i);
     }
 
@@ -268,7 +268,7 @@ public class BigTreeFeature extends TreeFeatureBase
         return axis;
     }
 
-    private void makeFoliage(IWorld worldIn, int height, BlockPos pos, List<FoliageCoordinates> coordinates, Random random, MutableBoundingBox boundingBox, Set<BlockPos> changedBlocks)
+    private void makeFoliage(LevelAccessor worldIn, int height, BlockPos pos, List<FoliageCoordinates> coordinates, Random random, BoundingBox boundingBox, Set<BlockPos> changedBlocks)
     {
         for (FoliageCoordinates coordinate : coordinates)
         {
@@ -284,7 +284,7 @@ public class BigTreeFeature extends TreeFeatureBase
         return (double)localY >= (double)height * 0.2D;
     }
 
-    private void makeTrunk(Set<BlockPos> changedBlocks, IWorld world, BlockPos pos, int height, MutableBoundingBox boundingBox)
+    private void makeTrunk(Set<BlockPos> changedBlocks, LevelAccessor world, BlockPos pos, int height, BoundingBox boundingBox)
     {
         this.checkLineAndOptionallySet(changedBlocks, world, pos, pos.above(height), true, boundingBox);
 
@@ -311,7 +311,7 @@ public class BigTreeFeature extends TreeFeatureBase
         }
     }
 
-    private void makeBranches(Set<BlockPos> changedBlocks, IWorld world, int height, BlockPos origin, List<FoliageCoordinates> coordinates, MutableBoundingBox boundingBox)
+    private void makeBranches(Set<BlockPos> changedBlocks, LevelAccessor world, int height, BlockPos origin, List<FoliageCoordinates> coordinates, BoundingBox boundingBox)
     {
         for (FoliageCoordinates coordinate : coordinates)
         {
@@ -325,7 +325,7 @@ public class BigTreeFeature extends TreeFeatureBase
     }
 
     @Override
-    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, IWorld world, Random rand, BlockPos pos, MutableBoundingBox boundingBox)
+    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, LevelAccessor world, Random rand, BlockPos pos, BoundingBox boundingBox)
     {
         Random random = new Random(rand.nextLong());
         int height = this.checkLocation(changedLogs, world, pos, this.minHeight + random.nextInt(this.maxHeight), boundingBox);
@@ -401,7 +401,7 @@ public class BigTreeFeature extends TreeFeatureBase
         }
     }
 
-    private int checkLocation(Set<BlockPos> changedBlocks, IWorld world, BlockPos pos, int height, MutableBoundingBox boundingBox)
+    private int checkLocation(Set<BlockPos> changedBlocks, LevelAccessor world, BlockPos pos, int height, BoundingBox boundingBox)
     {
         if (!this.placeOn.matches(world, pos.below()))
         {

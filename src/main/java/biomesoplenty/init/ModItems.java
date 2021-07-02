@@ -11,7 +11,7 @@ import biomesoplenty.common.entity.item.BoatEntityBOP;
 import biomesoplenty.common.item.BoatItemBOP;
 import biomesoplenty.common.item.MusicDiscItemBOP;
 import biomesoplenty.common.util.inventory.ItemGroupBOP;
-import net.minecraft.item.Item;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;

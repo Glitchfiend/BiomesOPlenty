@@ -18,9 +18,9 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.gson.reflect.TypeToken;
-import net.minecraft.util.RegistryKey;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.biome.Biome;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.commons.lang3.tuple.Pair;
@@ -48,7 +48,7 @@ public class BiomeRegistry
         defer(RegistrationType.TECHNICAL_BIOME, new ToggleableStandardBiomeRegistrationData(biome, name, true));
     }
 
-    public static void deferSubBiomeRegistration(RegistryKey<Biome> parent, RegistryKey<Biome> child, int weight, float rarity)
+    public static void deferSubBiomeRegistration(ResourceKey<Biome> parent, ResourceKey<Biome> child, int weight, float rarity)
     {
         // Don't register sub biome if the parent or child don't exist
         if (!BiomeUtil.exists(parent) || !BiomeUtil.exists(child)) {
@@ -58,7 +58,7 @@ public class BiomeRegistry
         defer(RegistrationType.SUB_BIOME, new SubBiomeRegistrationData(parent, child, weight, rarity));
     }
 
-    public static void deferIslandBiomeRegistration(RegistryKey<Biome> key, BOPClimates climate, int weight)
+    public static void deferIslandBiomeRegistration(ResourceKey<Biome> key, BOPClimates climate, int weight)
     {
         if (!BiomeUtil.exists(key))
             return;
@@ -66,7 +66,7 @@ public class BiomeRegistry
         defer(RegistrationType.ISLAND_BIOME, new SingleClimateRegistrationData(key, climate, weight));
     }
 
-    public static void deferVanillaBiomeRegistration(RegistryKey<Biome> key, BOPClimates climate, int weight)
+    public static void deferVanillaBiomeRegistration(ResourceKey<Biome> key, BOPClimates climate, int weight)
     {
         if (!BiomeUtil.exists(key))
             return;
@@ -352,9 +352,9 @@ public class BiomeRegistry
 
         if (type == RegistrationType.SUB_BIOME)
         {
-            Set<RegistryKey<Biome>> children = Sets.newHashSet();
+            Set<ResourceKey<Biome>> children = Sets.newHashSet();
             deferrances.get(RegistrationType.SUB_BIOME).forEach((reg) -> {
-                RegistryKey<Biome> biome = ((SubBiomeRegistrationData)reg.regData).getChild();
+                ResourceKey<Biome> biome = ((SubBiomeRegistrationData)reg.regData).getChild();
                 if (children.contains(biome))
                 {
                     throw new RuntimeException(String.format("Sub biome %s cannot be added to multiple parents", biome.location().toString()));
@@ -555,12 +555,12 @@ public class BiomeRegistry
 
     private static class SubBiomeRegistrationData implements IRegistrationData
     {
-        private final RegistryKey<Biome> parent;
-        private final RegistryKey<Biome> child;
+        private final ResourceKey<Biome> parent;
+        private final ResourceKey<Biome> child;
         private int weight;
         private float rarity;
 
-        public SubBiomeRegistrationData(RegistryKey<Biome> parent, RegistryKey<Biome> child, int weight, float rarity)
+        public SubBiomeRegistrationData(ResourceKey<Biome> parent, ResourceKey<Biome> child, int weight, float rarity)
         {
             this.parent = parent;
             this.child = child;
@@ -568,12 +568,12 @@ public class BiomeRegistry
             this.rarity = rarity;
         }
 
-        public RegistryKey<Biome> getParent()
+        public ResourceKey<Biome> getParent()
         {
             return this.parent;
         }
 
-        public RegistryKey<Biome> getChild()
+        public ResourceKey<Biome> getChild()
         {
             return this.child;
         }
@@ -602,17 +602,17 @@ public class BiomeRegistry
     private static class SingleClimateRegistrationData implements IRegistrationData
     {
         private final BOPClimates climate;
-        private final RegistryKey<Biome> biome;
+        private final ResourceKey<Biome> biome;
         private int weight;
 
-        public SingleClimateRegistrationData(RegistryKey<Biome> biome, BOPClimates climate, int weight)
+        public SingleClimateRegistrationData(ResourceKey<Biome> biome, BOPClimates climate, int weight)
         {
             this.biome = biome;
             this.climate = climate;
             this.weight = weight;
         }
 
-        public RegistryKey<Biome> getBiome()
+        public ResourceKey<Biome> getBiome()
         {
             return this.biome;
         }

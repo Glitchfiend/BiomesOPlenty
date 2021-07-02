@@ -12,8 +12,8 @@ import biomesoplenty.client.BOPClassicPack;
 import biomesoplenty.client.renderer.BoatRendererBOP;
 import biomesoplenty.init.*;
 import net.minecraft.client.Minecraft;
-import net.minecraft.resources.ResourcePackInfo;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.server.packs.repository.Pack;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.DistExecutor;
@@ -74,6 +74,6 @@ public class BiomesOPlenty
     public static void addClassicPack()
     {
         if (Minecraft.getInstance() == null) { return; }
-        Minecraft.getInstance().getResourcePackRepository().addPackFinder((consumer, iFactory) -> consumer.accept(ResourcePackInfo.create(new ResourceLocation(BiomesOPlenty.MOD_ID, "classic_textures").toString(), false, () -> new BOPClassicPack(ModList.get().getModFileById(BiomesOPlenty.MOD_ID).getFile()), iFactory, ResourcePackInfo.Priority.TOP, iTextComponent -> iTextComponent)));
+        Minecraft.getInstance().getResourcePackRepository().addPackFinder((consumer, iFactory) -> consumer.accept(Pack.create(new ResourceLocation(BiomesOPlenty.MOD_ID, "classic_textures").toString(), false, () -> new BOPClassicPack(ModList.get().getModFileById(BiomesOPlenty.MOD_ID).getFile()), iFactory, Pack.Position.TOP, iTextComponent -> iTextComponent)));
     }
 }

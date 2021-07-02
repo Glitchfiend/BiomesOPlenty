@@ -11,16 +11,22 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.biome.GeneratorUtil;
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import net.minecraft.block.*;
-import net.minecraft.block.material.Material;
+import net.minecraft.world.level.material.Material;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.MutableBoundingBox;
-import net.minecraft.world.IWorld;
+import net.minecraft.core.Direction;
+import net.minecraft.core.BlockPos;
+import net.minecraft.util.Mth;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.world.level.LevelAccessor;
 
 import java.util.Random;
 import java.util.Set;
+
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.GrowingPlantHeadBlock;
+import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.state.BlockState;
 
 public class CypressTreeFeature extends TreeFeatureBase
 {
@@ -58,7 +64,7 @@ public class CypressTreeFeature extends TreeFeatureBase
         this.trunkWidth = trunkWidth;
     }
 
-    public boolean checkSpace(IWorld world, BlockPos pos, int baseHeight, int height)
+    public boolean checkSpace(LevelAccessor world, BlockPos pos, int baseHeight, int height)
     {
         for (int y = 0; y <= height; y++)
         {
@@ -88,7 +94,7 @@ public class CypressTreeFeature extends TreeFeatureBase
     }
 
     // generates a layer of leaves
-    public void generateLeafLayer(IWorld world, Random rand, BlockPos pos, int leavesRadius, Set<BlockPos> changedLeaves, MutableBoundingBox boundingBox)
+    public void generateLeafLayer(LevelAccessor world, Random rand, BlockPos pos, int leavesRadius, Set<BlockPos> changedLeaves, BoundingBox boundingBox)
     {
         int start = -leavesRadius;
         int end = leavesRadius;
@@ -114,7 +120,7 @@ public class CypressTreeFeature extends TreeFeatureBase
         }
     }
 
-    public void generateBranch(IWorld world, Random rand, BlockPos pos, Direction direction, int length, Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, MutableBoundingBox boundingBox)
+    public void generateBranch(LevelAccessor world, Random rand, BlockPos pos, Direction direction, int length, Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, BoundingBox boundingBox)
     {
         Direction.Axis axis = direction.getAxis();
         Direction sideways = direction.getClockWise();
@@ -141,7 +147,7 @@ public class CypressTreeFeature extends TreeFeatureBase
 
 
     @Override
-    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, IWorld world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
+    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, LevelAccessor world, Random random, BlockPos startPos, BoundingBox boundingBox)
     {
         // Move down until we reach the ground
         while (startPos.getY() > 1 && this.replace.matches(world, startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES) {startPos = startPos.below();}
@@ -165,8 +171,8 @@ public class CypressTreeFeature extends TreeFeatureBase
         int baseLeavesHeight = leavesHeight;
         if (leavesHeight < 3) {return false;}
 
-        leavesHeight = MathHelper.clamp(leavesHeight, 3, 5);
-        leavesHeight = MathHelper.clamp(leavesHeight + random.nextInt(3), 0, baseLeavesHeight);
+        leavesHeight = Mth.clamp(leavesHeight, 3, 5);
+        leavesHeight = Mth.clamp(leavesHeight + random.nextInt(3), 0, baseLeavesHeight);
 
         if (!this.checkSpace(world, startPos.above(), baseHeight, height))
         {
@@ -285,7 +291,7 @@ public class CypressTreeFeature extends TreeFeatureBase
     }
 
     @Override
-    public boolean placeLeaves(IWorld world, BlockPos pos, Set<BlockPos> changedBlocks, MutableBoundingBox boundingBox)
+    public boolean placeLeaves(LevelAccessor world, BlockPos pos, Set<BlockPos> changedBlocks, BoundingBox boundingBox)
     {
         if (world.getBlockState(pos).canBeReplacedByLeaves(world, pos))
         {
@@ -296,9 +302,9 @@ public class CypressTreeFeature extends TreeFeatureBase
         return false;
     }
 
-    private void placeSpanishMoss(IWorld p_236429_1_, Random p_236429_2_, BlockPos p_236429_3_)
+    private void placeSpanishMoss(LevelAccessor p_236429_1_, Random p_236429_2_, BlockPos p_236429_3_)
     {
-        BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos blockpos$mutable = new BlockPos.MutableBlockPos();
 
         for(int i = 0; i < 50; ++i)
         {
@@ -308,7 +314,7 @@ public class CypressTreeFeature extends TreeFeatureBase
                 BlockState blockstate = p_236429_1_.getBlockState(blockpos$mutable.above());
                 if (blockstate.getBlock() == BOPBlocks.willow_leaves)
                 {
-                    int j = MathHelper.nextInt(p_236429_2_, 1, 3);
+                    int j = Mth.nextInt(p_236429_2_, 1, 3);
 
                     if (p_236429_2_.nextInt(5) == 0)
                     {
@@ -321,7 +327,7 @@ public class CypressTreeFeature extends TreeFeatureBase
         }
     }
 
-    public static void placeSpanishMossColumn(IWorld p_236427_0_, Random p_236427_1_, BlockPos.Mutable p_236427_2_, int p_236427_3_, int p_236427_4_, int p_236427_5_)
+    public static void placeSpanishMossColumn(LevelAccessor p_236427_0_, Random p_236427_1_, BlockPos.MutableBlockPos p_236427_2_, int p_236427_3_, int p_236427_4_, int p_236427_5_)
     {
         for(int i = 0; i <= p_236427_3_; ++i)
         {
@@ -329,7 +335,7 @@ public class CypressTreeFeature extends TreeFeatureBase
             {
                 if (i == p_236427_3_ || !p_236427_0_.isEmptyBlock(p_236427_2_.below()))
                 {
-                    p_236427_0_.setBlock(p_236427_2_, BOPBlocks.spanish_moss.defaultBlockState().setValue(AbstractTopPlantBlock.AGE, Integer.valueOf(MathHelper.nextInt(p_236427_1_, p_236427_4_, p_236427_5_))), 2);
+                    p_236427_0_.setBlock(p_236427_2_, BOPBlocks.spanish_moss.defaultBlockState().setValue(GrowingPlantHeadBlock.AGE, Integer.valueOf(Mth.nextInt(p_236427_1_, p_236427_4_, p_236427_5_))), 2);
                     break;
                 }
 

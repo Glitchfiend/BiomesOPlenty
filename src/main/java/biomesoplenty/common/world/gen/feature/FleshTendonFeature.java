@@ -4,24 +4,24 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.NetherCrystalBlock;
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import com.mojang.serialization.Codec;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.state.properties.AttachFace;
 import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.core.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.MutableBoundingBox;
-import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.gen.feature.structure.StructureManager;
 
 import java.util.Random;
 
-public class FleshTendonFeature extends Feature<NoFeatureConfig>
+public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
 {
     protected IBlockPosQuery replace = (world, pos) -> world.getBlockState(pos).canBeReplacedByLeaves(world, pos) || world.getBlockState(pos).getBlock() == BOPBlocks.nether_crystal;
 
@@ -30,7 +30,7 @@ public class FleshTendonFeature extends Feature<NoFeatureConfig>
     private static final float MID_POS_MULTIPLIER = 0.9F;
     private static final float TENDON_STEP = 0.005f;
 
-    public FleshTendonFeature(Codec<NoFeatureConfig> deserializer)
+    public FleshTendonFeature(Codec<NoneFeatureConfiguration> deserializer)
     {
         super(deserializer);
     }
@@ -38,12 +38,12 @@ public class FleshTendonFeature extends Feature<NoFeatureConfig>
     private static BlockPos quadratic(float t, BlockPos v0, BlockPos v1, BlockPos v2)
     {
         float dt = 1f - t;
-        Vector3d v = new Vector3d(v0.getX(), v0.getY(), v0.getZ()).scale(dt * dt).add(new Vector3d(v1.getX(), v1.getY(), v1.getZ()).scale(2 * dt * t)).add(new Vector3d(v2.getX(), v2.getY(), v2.getZ()).scale(t * t));
+        Vec3 v = new Vec3(v0.getX(), v0.getY(), v0.getZ()).scale(dt * dt).add(new Vec3(v1.getX(), v1.getY(), v1.getZ()).scale(2 * dt * t)).add(new Vec3(v2.getX(), v2.getY(), v2.getZ()).scale(t * t));
         return new BlockPos(v.x, v.y, v.z);
     }
 
     @Override
-    public boolean place(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config)
+    public boolean place(WorldGenLevel world, ChunkGenerator generator, Random rand, BlockPos pos, NoneFeatureConfiguration config)
     {
         BlockState below = world.getBlockState(pos.below());
         if (!below.is(BOPBlocks.flesh))
@@ -91,7 +91,7 @@ public class FleshTendonFeature extends Feature<NoFeatureConfig>
         return true;
     }
 
-    public boolean generateFleshBall(ISeedReader world, BlockPos pos, Random rand)
+    public boolean generateFleshBall(WorldGenLevel world, BlockPos pos, Random rand)
     {
         this.setBlock(world, pos, BOPBlocks.flesh.defaultBlockState());
         this.setBlock(world, pos.north(), Blocks.SHROOMLIGHT.defaultBlockState(), 2);
@@ -118,7 +118,7 @@ public class FleshTendonFeature extends Feature<NoFeatureConfig>
         return true;
     }
 
-    public boolean setBlock(IWorld world, BlockPos pos, BlockState state)
+    public boolean setBlock(LevelAccessor world, BlockPos pos, BlockState state)
     {
         if (this.replace.matches(world, pos))
         {
@@ -128,7 +128,7 @@ public class FleshTendonFeature extends Feature<NoFeatureConfig>
         return false;
     }
 
-    public boolean setBlock(IWorld world, BlockPos pos, BlockState state, int flags)
+    public boolean setBlock(LevelAccessor world, BlockPos pos, BlockState state, int flags)
     {
         if (this.replace.matches(world, pos))
         {

@@ -5,21 +5,21 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Lifecycle;
 import net.minecraft.util.RegistryKey;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.registry.MutableRegistry;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.SimpleRegistry;
-import net.minecraft.world.Dimension;
-import net.minecraft.world.DimensionType;
-import net.minecraft.world.biome.Biome;
+import net.minecraft.core.Registry;
+import net.minecraft.core.MappedRegistry;
+import net.minecraft.world.level.dimension.LevelStem;
+import net.minecraft.world.level.dimension.DimensionType;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.FuzzedBiomeMagnifier;
 import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.biome.provider.EndBiomeProvider;
 import net.minecraft.world.biome.provider.NetherBiomeProvider;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.DimensionSettings;
-import net.minecraft.world.gen.NoiseChunkGenerator;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.NoiseGeneratorSettings;
+import net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator;
 
 import java.util.Optional;
 import java.util.OptionalLong;
@@ -35,16 +35,16 @@ public class BOPDimensionType extends DimensionType
         super(p_i241972_1_, p_i241972_2_, p_i241972_3_, p_i241972_4_, p_i241972_5_, p_i241972_6_, p_i241972_8_, p_i241972_9_, p_i241972_10_, p_i241972_11_, p_i241972_12_, p_i241972_13_, p_i241972_14_, p_i241972_15_);
     }
 
-    private static ChunkGenerator bopNetherGenerator(Registry<Biome> biomeRegistry, Registry<DimensionSettings> dimensionSettingsRegistry, long seed)
+    private static ChunkGenerator bopNetherGenerator(Registry<Biome> biomeRegistry, Registry<NoiseGeneratorSettings> dimensionSettingsRegistry, long seed)
     {
-        return new NoiseChunkGenerator(new BOPNetherBiomeProvider(seed, biomeRegistry), seed, () -> dimensionSettingsRegistry.getOrThrow(DimensionSettings.NETHER));
+        return new NoiseBasedChunkGenerator(new BOPNetherBiomeProvider(seed, biomeRegistry), seed, () -> dimensionSettingsRegistry.getOrThrow(NoiseGeneratorSettings.NETHER));
     }
 
-    public static SimpleRegistry<Dimension> bopDimensions(Registry<Biome> biomeRegistry, Registry<DimensionSettings> dimensionSettingsRegistry, long seed)
+    public static MappedRegistry<LevelStem> bopDimensions(Registry<Biome> biomeRegistry, Registry<NoiseGeneratorSettings> dimensionSettingsRegistry, long seed)
     {
-        SimpleRegistry<Dimension> registry = new SimpleRegistry<>(Registry.LEVEL_STEM_REGISTRY, Lifecycle.experimental());
-        registry.register(Dimension.NETHER, new Dimension(() -> DEFAULT_NETHER, ModConfig.GenerationConfig.useBopNether.get() ? bopNetherGenerator(biomeRegistry, dimensionSettingsRegistry, seed) : DimensionType.defaultNetherGenerator(biomeRegistry, dimensionSettingsRegistry, seed)), Lifecycle.stable());
-        registry.register(Dimension.END, new Dimension(() -> DEFAULT_END, DimensionType.defaultEndGenerator(biomeRegistry, dimensionSettingsRegistry, seed)), Lifecycle.stable());
+        MappedRegistry<LevelStem> registry = new MappedRegistry<>(Registry.LEVEL_STEM_REGISTRY, Lifecycle.experimental());
+        registry.register(LevelStem.NETHER, new LevelStem(() -> DEFAULT_NETHER, ModConfig.GenerationConfig.useBopNether.get() ? bopNetherGenerator(biomeRegistry, dimensionSettingsRegistry, seed) : DimensionType.defaultNetherGenerator(biomeRegistry, dimensionSettingsRegistry, seed)), Lifecycle.stable());
+        registry.register(LevelStem.END, new LevelStem(() -> DEFAULT_END, DimensionType.defaultEndGenerator(biomeRegistry, dimensionSettingsRegistry, seed)), Lifecycle.stable());
         return registry;
     }
 }

@@ -3,19 +3,19 @@ package biomesoplenty.common.entity.item;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.init.ModEntities;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.item.BoatEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.network.IPacket;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.vehicle.Boat;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.protocol.Packet;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.GameRules;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.level.GameRules;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.fml.network.FMLPlayMessages;
 import net.minecraftforge.fml.network.NetworkHooks;
@@ -23,36 +23,39 @@ import net.minecraftforge.fml.network.NetworkHooks;
 import java.util.Arrays;
 import java.util.function.Supplier;
 
-public class BoatEntityBOP extends BoatEntity {
-    public BoatEntityBOP(EntityType<? extends BoatEntityBOP> type, World world) {
+import net.minecraft.world.entity.vehicle.Boat.Status;
+import net.minecraft.world.entity.vehicle.Boat.Type;
+
+public class BoatEntityBOP extends Boat {
+    public BoatEntityBOP(EntityType<? extends BoatEntityBOP> type, Level world) {
         super(type, world);
     }
 
-    public BoatEntityBOP(World world, double x, double y, double z) {
+    public BoatEntityBOP(Level world, double x, double y, double z) {
         super(ModEntities.boat, world);
         setPos(x, y, z);
-        setDeltaMovement(Vector3d.ZERO);
+        setDeltaMovement(Vec3.ZERO);
         this.xo = x;
         this.yo = y;
         this.zo = z;
     }
 
-    public BoatEntityBOP(FMLPlayMessages.SpawnEntity spawnEntity, World world) {
+    public BoatEntityBOP(FMLPlayMessages.SpawnEntity spawnEntity, Level world) {
         this(world, spawnEntity.getPosX(), spawnEntity.getPosY(), spawnEntity.getPosZ());
     }
 
     @Override
-    public IPacket<?> getAddEntityPacket() {
+    public Packet<?> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
 
     @Override
-    protected void addAdditionalSaveData(CompoundNBT nbt) {
+    protected void addAdditionalSaveData(CompoundTag nbt) {
         nbt.putString("model", getModel().getName());
     }
 
     @Override
-    protected void readAdditionalSaveData(CompoundNBT nbt) {
+    protected void readAdditionalSaveData(CompoundTag nbt) {
         if (nbt.contains("model", Constants.NBT.TAG_STRING)) {
             this.entityData.set(DATA_ID_TYPE, BoatModel.byName(nbt.getString("model")).ordinal());
         }

@@ -10,8 +10,8 @@ package biomesoplenty.init;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.collect.Lists;
-import net.minecraft.util.RegistryKey;
-import net.minecraft.world.biome.Biome;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 
@@ -41,7 +41,7 @@ public class ModCompatibility
     }
 
     // TODO: Make this more accurate, possibly analyze heights, temps, rainfall and/or biome dictionary tags
-    private static void remapBiomeToBoP(RegistryKey<Biome> biome, BiomeManager.BiomeType type, int weight)
+    private static void remapBiomeToBoP(ResourceKey<Biome> biome, BiomeManager.BiomeType type, int weight)
     {
         /* If any of our climates already have the biome (from a mod using our api), then skip this biome */
         for (BOPClimates climate : BOPClimates.values())

@@ -4,23 +4,23 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.NetherCrystalBlock;
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import com.mojang.serialization.Codec;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.block.LeavesBlock;
-import net.minecraft.state.properties.AttachFace;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.level.block.state.properties.AttachFace;
+import net.minecraft.core.Direction;
+import net.minecraft.core.BlockPos;
+import net.minecraft.util.Mth;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.gen.feature.structure.StructureManager;
 
 import java.util.Random;
 
-public class LargeCrystalFeature extends Feature<NoFeatureConfig>
+public class LargeCrystalFeature extends Feature<NoneFeatureConfiguration>
 {
     protected IBlockPosQuery placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.NETHERRACK;
     protected IBlockPosQuery replace = (world, pos) -> world.getBlockState(pos).canBeReplacedByLeaves(world, pos) || world.getBlockState(pos).getBlock() == BOPBlocks.nether_crystal;
@@ -29,13 +29,13 @@ public class LargeCrystalFeature extends Feature<NoFeatureConfig>
     private int minHeight = 3;
     private int maxHeight = 15;
 
-    public LargeCrystalFeature(Codec<NoFeatureConfig> deserializer)
+    public LargeCrystalFeature(Codec<NoneFeatureConfiguration> deserializer)
     {
         super(deserializer);
     }
 
     @Override
-    public boolean place(ISeedReader world, ChunkGenerator p_230362_3_, Random rand, BlockPos pos, NoFeatureConfig p_230362_6_)
+    public boolean place(WorldGenLevel world, ChunkGenerator p_230362_3_, Random rand, BlockPos pos, NoneFeatureConfiguration p_230362_6_)
     {
         if (!world.isEmptyBlock(pos))
         {
@@ -56,8 +56,8 @@ public class LargeCrystalFeature extends Feature<NoFeatureConfig>
                 for (int y = 0; y <= height; y++)
                 {
                     int radius = (randRadius * (height - y) / height) + 1;
-                    int radiusStart = MathHelper.ceil(0.25D - radius / 2.0D);
-                    int radiusEnd = MathHelper.floor(0.25D + radius / 2.0D);
+                    int radiusStart = Mth.ceil(0.25D - radius / 2.0D);
+                    int radiusEnd = Mth.floor(0.25D + radius / 2.0D);
 
                     for (int x = radiusStart; x <= radiusEnd; x++) {
                         for (int z = radiusStart; z <= radiusEnd; z++) {
@@ -73,7 +73,7 @@ public class LargeCrystalFeature extends Feature<NoFeatureConfig>
         }
     }
 
-    public boolean generateCrystals(ISeedReader world, BlockPos pos, Random rand)
+    public boolean generateCrystals(WorldGenLevel world, BlockPos pos, Random rand)
     {
         int i = 0;
 
@@ -111,7 +111,7 @@ public class LargeCrystalFeature extends Feature<NoFeatureConfig>
         return i > 0;
     }
 
-    public boolean setBlock(IWorld world, BlockPos pos, BlockState state)
+    public boolean setBlock(LevelAccessor world, BlockPos pos, BlockState state)
     {
         if (this.replace.matches(world, pos))
         {
@@ -121,7 +121,7 @@ public class LargeCrystalFeature extends Feature<NoFeatureConfig>
         return false;
     }
 
-    public boolean checkSpace(IWorld world, BlockPos pos)
+    public boolean checkSpace(LevelAccessor world, BlockPos pos)
     {
         for (int y = 0; y <= 15; y--)
         {

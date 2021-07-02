@@ -7,10 +7,12 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
-import net.minecraft.block.TallFlowerBlock;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockReader;
+import net.minecraft.world.level.block.TallFlowerBlock;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraftforge.common.PlantType;
+
+import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 
 public class TallFlowerBlockBOP extends TallFlowerBlock
 {
@@ -20,7 +22,7 @@ public class TallFlowerBlockBOP extends TallFlowerBlock
     }
 
     @Override
-    public PlantType getPlantType(IBlockReader world, BlockPos pos)
+    public PlantType getPlantType(BlockGetter world, BlockPos pos)
     {
         return PlantType.PLAINS;
     }

@@ -11,14 +11,20 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.biome.GeneratorUtil;
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import net.minecraft.block.*;
-import net.minecraft.block.material.Material;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MutableBoundingBox;
-import net.minecraft.world.IWorld;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.core.Direction;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.world.level.LevelAccessor;
 
 import java.util.Random;
 import java.util.Set;
+
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.state.BlockState;
 
 public class PalmTreeFeature extends TreeFeatureBase
 {
@@ -51,7 +57,7 @@ public class PalmTreeFeature extends TreeFeatureBase
     }
 
     @Override
-    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, IWorld world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
+    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, LevelAccessor world, Random random, BlockPos startPos, BoundingBox boundingBox)
     {
         // Move down until we reach the ground
     	while (startPos.getY() > 1 && world.isEmptyBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES) {startPos = startPos.below();}
@@ -115,7 +121,7 @@ public class PalmTreeFeature extends TreeFeatureBase
         return true;
     }
     
-    public boolean checkSpace(IWorld world, BlockPos pos, int height, int radius)
+    public boolean checkSpace(LevelAccessor world, BlockPos pos, int height, int radius)
     {
         for (int y = 0; y <= height; y++)
         {
@@ -136,7 +142,7 @@ public class PalmTreeFeature extends TreeFeatureBase
     }
 
     // generate the top of the tree (3 blocks)
-    public void generateLeavesTop(IWorld world, BlockPos pos, int maxRadius, Set<BlockPos> changedLeaves, MutableBoundingBox boundingBox)
+    public void generateLeavesTop(LevelAccessor world, BlockPos pos, int maxRadius, Set<BlockPos> changedLeaves, BoundingBox boundingBox)
     {
         placeLeaves(world, pos.offset(2, -1, 0), changedLeaves, boundingBox);
         placeLeaves(world, pos.offset(-2, -1, 0), changedLeaves, boundingBox);

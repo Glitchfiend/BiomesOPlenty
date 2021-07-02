@@ -7,17 +7,17 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.Entity;
-import net.minecraft.fluid.FluidState;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.level.material.FluidState;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.World;
+import net.minecraft.core.Direction;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.common.PlantType;
 
 public class MudBlock extends Block
@@ -28,13 +28,13 @@ public class MudBlock extends Block
     }
 
     @Override
-    public void stepOn(World worldIn, BlockPos pos, Entity entityIn)
+    public void stepOn(Level worldIn, BlockPos pos, Entity entityIn)
     {
         entityIn.setDeltaMovement(entityIn.getDeltaMovement().multiply(0.5D, 1.0D, 0.5D));
     }
 
     @Override
-    public boolean canSustainPlant(BlockState state, IBlockReader world, BlockPos pos, Direction facing, net.minecraftforge.common.IPlantable plantable)
+    public boolean canSustainPlant(BlockState state, BlockGetter world, BlockPos pos, Direction facing, net.minecraftforge.common.IPlantable plantable)
     {
         PlantType type = plantable.getPlantType(world, pos.relative(facing));
 

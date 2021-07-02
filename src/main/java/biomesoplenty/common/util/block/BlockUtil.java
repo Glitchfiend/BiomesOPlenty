@@ -7,14 +7,14 @@
  ******************************************************************************/
 package biomesoplenty.common.util.block;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.state.Property;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.chunk.ChunkStatus;
-import net.minecraft.world.chunk.IChunk;
-import net.minecraft.world.gen.Heightmap;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.Property;
+import net.minecraft.core.Direction;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.chunk.ChunkStatus;
+import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.levelgen.Heightmap;
 
 import java.util.Collection;
 
@@ -34,9 +34,9 @@ public class BlockUtil
         return null;
     }
 
-    public static BlockPos getTopSolidOrLiquidBlock(IWorld world, int x, int z)
+    public static BlockPos getTopSolidOrLiquidBlock(LevelAccessor world, int x, int z)
     {
-        IChunk chunk = world.getChunk(x >> 4, z >> 4, ChunkStatus.FULL);
-        return new BlockPos(x, chunk.getHeight(Heightmap.Type.MOTION_BLOCKING, x & 15, z & 15), z);
+        ChunkAccess chunk = world.getChunk(x >> 4, z >> 4, ChunkStatus.FULL);
+        return new BlockPos(x, chunk.getHeight(Heightmap.Types.MOTION_BLOCKING, x & 15, z & 15), z);
     }
 }

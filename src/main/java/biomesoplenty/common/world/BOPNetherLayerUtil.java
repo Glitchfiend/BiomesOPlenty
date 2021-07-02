@@ -11,33 +11,39 @@ import biomesoplenty.common.world.layer.BOPShoreLayer;
 import biomesoplenty.common.world.layer.LandLayer;
 import biomesoplenty.common.world.layer.NetherBiomeLayer;
 import biomesoplenty.common.world.layer.traits.LazyAreaLayerContextBOP;
-import net.minecraft.world.gen.IExtendedNoiseRandom;
-import net.minecraft.world.gen.area.IArea;
-import net.minecraft.world.gen.area.IAreaFactory;
-import net.minecraft.world.gen.area.LazyArea;
+import net.minecraft.world.level.newbiome.context.BigContext;
+import net.minecraft.world.level.newbiome.area.Area;
+import net.minecraft.world.level.newbiome.area.AreaFactory;
+import net.minecraft.world.level.newbiome.area.LazyArea;
 import net.minecraft.world.gen.layer.*;
 
 import java.util.function.LongFunction;
 
+import net.minecraft.world.level.newbiome.layer.AddIslandLayer;
+import net.minecraft.world.level.newbiome.layer.Layer;
+import net.minecraft.world.level.newbiome.layer.Layers;
+import net.minecraft.world.level.newbiome.layer.SmoothLayer;
+import net.minecraft.world.level.newbiome.layer.ZoomLayer;
+
 public class BOPNetherLayerUtil
 {
-    public static <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> createBiomeFactory(IAreaFactory<T> landFactory, LongFunction<C> contextFactory)
+    public static <T extends Area, C extends BigContext<T>> AreaFactory<T> createBiomeFactory(AreaFactory<T> landFactory, LongFunction<C> contextFactory)
     {
-        IAreaFactory<T> biomeFactory = NetherBiomeLayer.INSTANCE.run(contextFactory.apply(200L));
+        AreaFactory<T> biomeFactory = NetherBiomeLayer.INSTANCE.run(contextFactory.apply(200L));
         // magnify the biome layer
-        biomeFactory = LayerUtil.zoom(1000L, ZoomLayer.NORMAL, biomeFactory, 2, contextFactory);
+        biomeFactory = Layers.zoom(1000L, ZoomLayer.NORMAL, biomeFactory, 2, contextFactory);
         return biomeFactory;
     }
 
-    public static <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> createAreaFactories(LongFunction<C> contextFactory)
+    public static <T extends Area, C extends BigContext<T>> AreaFactory<T> createAreaFactories(LongFunction<C> contextFactory)
     {
         int biomeSize = 4;
 
         // The nether has no oceans, only land
-        IAreaFactory<T> landFactory = LandLayer.INSTANCE.run(contextFactory.apply(1L));
+        AreaFactory<T> landFactory = LandLayer.INSTANCE.run(contextFactory.apply(1L));
 
         // Allocate the biomes
-        IAreaFactory<T> biomesFactory = createBiomeFactory(landFactory, contextFactory);
+        AreaFactory<T> biomesFactory = createBiomeFactory(landFactory, contextFactory);
 
         // Zoom more based on the biome size
         for (int i = 0; i < biomeSize; ++i)
@@ -53,7 +59,7 @@ public class BOPNetherLayerUtil
 
     public static Layer createGenLayers(long seed)
     {
-        IAreaFactory<LazyArea> factory = createAreaFactories((seedModifier) ->
+        AreaFactory<LazyArea> factory = createAreaFactories((seedModifier) ->
         {
             return new LazyAreaLayerContextBOP(1, seed, seedModifier);
         });

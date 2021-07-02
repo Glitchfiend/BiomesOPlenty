@@ -9,19 +9,19 @@ package biomesoplenty.core;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.client.BOPClassicPack;
-import net.minecraft.block.BlockState;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.color.BlockColors;
-import net.minecraft.client.renderer.color.ItemColors;
-import net.minecraft.item.BlockItem;
+import net.minecraft.client.color.block.BlockColors;
+import net.minecraft.client.color.item.ItemColors;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.resources.ResourcePackInfo;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.FoliageColors;
-import net.minecraft.world.GrassColors;
-import net.minecraft.world.IBlockDisplayReader;
-import net.minecraft.world.biome.BiomeColors;
+import net.minecraft.core.BlockPos;
+import net.minecraft.util.Mth;
+import net.minecraft.world.level.FoliageColor;
+import net.minecraft.world.level.GrassColor;
+import net.minecraft.world.level.BlockAndTintGetter;
+import net.minecraft.client.renderer.BiomeColors;
 import net.minecraftforge.fml.ModList;
 
 import java.awt.*;
@@ -42,18 +42,18 @@ public class ClientProxy extends CommonProxy
 
         //Grass Coloring
         blockColors.register((state, world, pos, tintIndex) ->
-            world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos) : GrassColors.get(0.5D, 1.0D),
+            world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos) : GrassColor.get(0.5D, 1.0D),
             BOPBlocks.sprout, BOPBlocks.clover, BOPBlocks.huge_clover_petal, BOPBlocks.watergrass, BOPBlocks.potted_sprout, BOPBlocks.potted_clover);
         
         //Foliage Coloring
         blockColors.register((state, world, pos, tintIndex) ->
-	        world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColors.getDefaultColor(),
+	        world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColor.getDefaultColor(),
 	        BOPBlocks.bush, BOPBlocks.flowering_oak_leaves, BOPBlocks.mahogany_leaves, BOPBlocks.palm_leaves,
 	        BOPBlocks.willow_leaves, BOPBlocks.willow_vine);
 
         //Rainbow Birch Leaf Coloring
         blockColors.register((state, world, pos, tintIndex) ->
-            world != null && pos != null ? getRainbowBirchColor(world, pos) : FoliageColors.getDefaultColor(),
+            world != null && pos != null ? getRainbowBirchColor(world, pos) : FoliageColor.getDefaultColor(),
             BOPBlocks.rainbow_birch_leaves);
         
         //Item Coloring
@@ -64,9 +64,9 @@ public class ClientProxy extends CommonProxy
             BOPBlocks.mahogany_leaves, BOPBlocks.palm_leaves, BOPBlocks.willow_leaves, BOPBlocks.willow_vine);
     }
 
-    public static int getRainbowBirchColor(IBlockDisplayReader world, BlockPos pos)
+    public static int getRainbowBirchColor(BlockAndTintGetter world, BlockPos pos)
     {
-        Color foliage = Color.getHSBColor((((float)pos.getX() + MathHelper.sin(((float)pos.getZ() + (float)pos.getX()) / 35) * 35) % 150) / 150, 0.6F, 1.0F);
+        Color foliage = Color.getHSBColor((((float)pos.getX() + Mth.sin(((float)pos.getZ() + (float)pos.getX()) / 35) * 35) % 150) / 150, 0.6F, 1.0F);
 
         return foliage.getRGB();
     }

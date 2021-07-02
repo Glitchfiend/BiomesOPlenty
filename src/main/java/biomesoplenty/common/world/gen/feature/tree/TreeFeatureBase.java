@@ -11,19 +11,25 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.block.BlockUtil;
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import net.minecraft.block.*;
-import net.minecraft.state.Property;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MutableBoundingBox;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.IWorldWriter;
-import net.minecraft.world.gen.IWorldGenerationReader;
-import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
-import net.minecraft.world.gen.feature.TreeFeature;
+import net.minecraft.core.Direction;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelWriter;
+import net.minecraft.world.level.LevelSimulatedRW;
+import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import net.minecraft.world.level.levelgen.feature.TreeFeature;
 
 import java.util.Random;
 import java.util.Set;
+
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.VineBlock;
+import net.minecraft.world.level.block.state.BlockState;
 
 public abstract class TreeFeatureBase extends TreeFeature
 {
@@ -101,7 +107,7 @@ public abstract class TreeFeatureBase extends TreeFeature
 
     protected TreeFeatureBase(IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState altLeaves, BlockState vine, BlockState hanging, BlockState trunkFruit, int minHeight, int maxHeight)
     {
-        super(BaseTreeFeatureConfig.CODEC.stable());
+        super(TreeConfiguration.CODEC.stable());
 
         this.placeOn = placeOn;
         this.replace = replace;
@@ -116,7 +122,7 @@ public abstract class TreeFeatureBase extends TreeFeature
         this.maxHeight = maxHeight;
     }
 
-    public boolean placeLeaves(IWorld world, BlockPos pos, Set<BlockPos> changedBlocks, MutableBoundingBox boundingBox)
+    public boolean placeLeaves(LevelAccessor world, BlockPos pos, Set<BlockPos> changedBlocks, BoundingBox boundingBox)
     {
         if (this.replace.matches(world, pos))
         {
@@ -126,12 +132,12 @@ public abstract class TreeFeatureBase extends TreeFeature
         return false;
     }
 
-    public boolean placeLog(IWorld world, BlockPos pos, Set<BlockPos> changedBlocks, MutableBoundingBox boundingBox)
+    public boolean placeLog(LevelAccessor world, BlockPos pos, Set<BlockPos> changedBlocks, BoundingBox boundingBox)
     {
         return this.placeLog(world, pos, null, changedBlocks, boundingBox);
     }
 
-    public boolean placeLog(IWorld world, BlockPos pos, Direction.Axis axis, Set<BlockPos> changedBlocks, MutableBoundingBox boundingBox)
+    public boolean placeLog(LevelAccessor world, BlockPos pos, Direction.Axis axis, Set<BlockPos> changedBlocks, BoundingBox boundingBox)
     {
         BlockState directedLog = (axis != null && this.logAxisProperty != null) ? this.log.setValue(this.logAxisProperty, axis) : this.log;
         if (this.replace.matches(world, pos))
@@ -144,7 +150,7 @@ public abstract class TreeFeatureBase extends TreeFeature
         return false;
     }
 
-    public boolean setVine(IWorld world, Random rand, BlockPos pos, Direction side, int length)
+    public boolean setVine(LevelAccessor world, Random rand, BlockPos pos, Direction side, int length)
     {
         BlockState vineState = this.vine.getBlock() instanceof VineBlock ? this.vine.setValue(VineBlock.NORTH, Boolean.valueOf(side == Direction.NORTH)).setValue(VineBlock.EAST, Boolean.valueOf(side == Direction.EAST)).setValue(VineBlock.SOUTH, Boolean.valueOf(side == Direction.SOUTH)).setValue(VineBlock.WEST, Boolean.valueOf(side == Direction.WEST)) : this.vine;
         boolean setOne = false;
@@ -158,7 +164,7 @@ public abstract class TreeFeatureBase extends TreeFeature
         return setOne;
     }
 
-    public boolean setHanging(IWorld world, BlockPos pos)
+    public boolean setHanging(LevelAccessor world, BlockPos pos)
     {
         if (this.replace.matches(world, pos))
         {
@@ -167,7 +173,7 @@ public abstract class TreeFeatureBase extends TreeFeature
         return false;
     }
 
-    public boolean setTrunkFruit(IWorld world, BlockPos pos)
+    public boolean setTrunkFruit(LevelAccessor world, BlockPos pos)
     {
         if (this.trunkFruit == null) {return false;}
         if (this.replace.matches(world, pos))
@@ -177,7 +183,7 @@ public abstract class TreeFeatureBase extends TreeFeature
         return false;
     }
 
-    public boolean setAltLeaves(IWorld world, BlockPos pos, Set<BlockPos> changedBlocks, MutableBoundingBox boundingBox)
+    public boolean setAltLeaves(LevelAccessor world, BlockPos pos, Set<BlockPos> changedBlocks, BoundingBox boundingBox)
     {
         if (this.replace.matches(world, pos))
         {
@@ -188,17 +194,17 @@ public abstract class TreeFeatureBase extends TreeFeature
     }
 
     @Override
-    public boolean doPlace(IWorldGenerationReader reader, Random random, BlockPos pos, Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, MutableBoundingBox boundingBox, BaseTreeFeatureConfig config)
+    public boolean doPlace(LevelSimulatedRW reader, Random random, BlockPos pos, Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, BoundingBox boundingBox, TreeConfiguration config)
     {
-        return place(changedLogs, changedLeaves, (IWorld)reader, random, pos, boundingBox);
+        return place(changedLogs, changedLeaves, (LevelAccessor)reader, random, pos, boundingBox);
     }
 
-    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, IWorld world, Random rand, BlockPos position, MutableBoundingBox boundingBox)
+    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, LevelAccessor world, Random rand, BlockPos position, BoundingBox boundingBox)
     {
         return false;
     }
 
-    protected boolean placeBlock(IWorld world, BlockPos pos, BlockState state, Set<BlockPos> changedBlocks, MutableBoundingBox boundingBox)
+    protected boolean placeBlock(LevelAccessor world, BlockPos pos, BlockState state, Set<BlockPos> changedBlocks, BoundingBox boundingBox)
     {
         if (!isFree(world, pos))
         {
@@ -212,9 +218,9 @@ public abstract class TreeFeatureBase extends TreeFeature
         }
     }
 
-    protected static void setBlock(IWorldWriter world, BlockPos pos, BlockState state, MutableBoundingBox boundingBox)
+    protected static void setBlock(LevelWriter world, BlockPos pos, BlockState state, BoundingBox boundingBox)
     {
         setBlockKnownShape(world, pos, state);
-        boundingBox.expand(new MutableBoundingBox(pos, pos));
+        boundingBox.expand(new BoundingBox(pos, pos));
     }
 }

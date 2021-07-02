@@ -8,19 +8,19 @@
 package biomesoplenty.common.world.gen.carver;
 
 import biomesoplenty.core.BiomesOPlenty;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.world.gen.carver.ICarverConfig;
-import net.minecraft.world.gen.carver.WorldCarver;
-import net.minecraft.world.gen.feature.ProbabilityConfig;
+import net.minecraft.world.level.levelgen.carver.CarverConfiguration;
+import net.minecraft.world.level.levelgen.carver.WorldCarver;
+import net.minecraft.world.level.levelgen.feature.configurations.ProbabilityFeatureConfiguration;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class BOPWorldCarvers
 {
     //Carvers
-    public static final WorldCarver<ProbabilityConfig> ORIGIN_CAVE = register("origin_cave", new OriginCaveWorldCarver(ProbabilityConfig.CODEC, 256));
+    public static final WorldCarver<ProbabilityFeatureConfiguration> ORIGIN_CAVE = register("origin_cave", new OriginCaveWorldCarver(ProbabilityFeatureConfiguration.CODEC, 256));
 
-    private static <C extends ICarverConfig, F extends WorldCarver<C>> F register(String key, F carver)
+    private static <C extends CarverConfiguration, F extends WorldCarver<C>> F register(String key, F carver)
     {
         carver.setRegistryName(new ResourceLocation(BiomesOPlenty.MOD_ID, key));
         ForgeRegistries.WORLD_CARVERS.register(carver);

@@ -7,13 +7,13 @@
  ******************************************************************************/
 package biomesoplenty.common.world.layer.traits;
 
-import net.minecraft.world.gen.IExtendedNoiseRandom;
-import net.minecraft.world.gen.area.IArea;
+import net.minecraft.world.level.newbiome.context.BigContext;
+import net.minecraft.world.level.newbiome.area.Area;
 
 /***
  * Provides extra information beyond that used by Mojang.
  */
-public interface IBOPContextExtended<R extends IArea> extends IExtendedNoiseRandom<R>
+public interface IBOPContextExtended<R extends Area> extends BigContext<R>
 {
     long getWorldSeed();
 }

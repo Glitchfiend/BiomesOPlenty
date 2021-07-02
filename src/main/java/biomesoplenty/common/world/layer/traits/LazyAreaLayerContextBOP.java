@@ -7,10 +7,10 @@
  ******************************************************************************/
 package biomesoplenty.common.world.layer.traits;
 
-import net.minecraft.world.gen.LazyAreaLayerContext;
-import net.minecraft.world.gen.area.LazyArea;
+import net.minecraft.world.level.newbiome.context.LazyAreaContext;
+import net.minecraft.world.level.newbiome.area.LazyArea;
 
-public class LazyAreaLayerContextBOP extends LazyAreaLayerContext implements IBOPContextExtended<LazyArea>
+public class LazyAreaLayerContextBOP extends LazyAreaContext implements IBOPContextExtended<LazyArea>
 {
     private long worldSeed;
 

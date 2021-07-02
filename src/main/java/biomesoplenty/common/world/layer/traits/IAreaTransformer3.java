@@ -7,15 +7,15 @@
  ******************************************************************************/
 package biomesoplenty.common.world.layer.traits;
 
-import net.minecraft.world.gen.IExtendedNoiseRandom;
-import net.minecraft.world.gen.INoiseRandom;
-import net.minecraft.world.gen.area.IArea;
-import net.minecraft.world.gen.area.IAreaFactory;
-import net.minecraft.world.gen.layer.traits.IDimTransformer;
+import net.minecraft.world.level.newbiome.context.BigContext;
+import net.minecraft.world.level.newbiome.context.Context;
+import net.minecraft.world.level.newbiome.area.Area;
+import net.minecraft.world.level.newbiome.area.AreaFactory;
+import net.minecraft.world.level.newbiome.layer.traits.DimensionTransformer;
 
-public interface IAreaTransformer3 extends IDimTransformer
+public interface IAreaTransformer3 extends DimensionTransformer
 {
-    default <R extends IArea> IAreaFactory<R> run(IExtendedNoiseRandom<R> context, IAreaFactory<R> areaFactory1, IAreaFactory<R> areaFactory2, IAreaFactory<R> areaFactory3)
+    default <R extends Area> AreaFactory<R> run(BigContext<R> context, AreaFactory<R> areaFactory1, AreaFactory<R> areaFactory2, AreaFactory<R> areaFactory3)
     {
         return () ->
         {
@@ -31,5 +31,5 @@ public interface IAreaTransformer3 extends IDimTransformer
         };
     }
 
-    int applyPixel(INoiseRandom context, IArea area1, IArea area2, IArea area3, int x, int z);
+    int applyPixel(Context context, Area area1, Area area2, Area area3, int x, int z);
 }

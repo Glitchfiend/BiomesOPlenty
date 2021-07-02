@@ -9,16 +9,16 @@ package biomesoplenty.common.world.layer;
 
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.common.util.biome.BiomeUtil;
-import net.minecraft.util.RegistryKey;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.gen.INoiseRandom;
-import net.minecraft.world.gen.layer.LayerUtil;
-import net.minecraft.world.gen.layer.traits.ICastleTransformer;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biomes;
+import net.minecraft.world.level.newbiome.context.Context;
+import net.minecraft.world.level.newbiome.layer.Layers;
+import net.minecraft.world.level.newbiome.layer.traits.CastleTransformer;
 
 import java.util.Optional;
 
-public enum BOPBiomeEdgeLayer implements ICastleTransformer
+public enum BOPBiomeEdgeLayer implements CastleTransformer
 {
     INSTANCE;
 
@@ -40,7 +40,7 @@ public enum BOPBiomeEdgeLayer implements ICastleTransformer
     private static final int SNOWY_TAIGA = BiomeUtil.getBiomeId(Biomes.SNOWY_TAIGA);
 
     @Override
-    public int apply(INoiseRandom context, int northBiomeId, int eastBiomeId, int southBiomeId, int westBiomeId, int biomeId)
+    public int apply(Context context, int northBiomeId, int eastBiomeId, int southBiomeId, int westBiomeId, int biomeId)
     {
         int[] outBiomeId = new int[1];
 
@@ -87,7 +87,7 @@ public enum BOPBiomeEdgeLayer implements ICastleTransformer
         return biomeId;
     }
 
-    private boolean replaceBiomeEdge(int[] outId, int northBiomeId, int eastBiomeId, int southBiomeId, int westBiomeId, int biomeId, RegistryKey<Biome> fromBiome, RegistryKey<Biome> toBiome)
+    private boolean replaceBiomeEdge(int[] outId, int northBiomeId, int eastBiomeId, int southBiomeId, int westBiomeId, int biomeId, ResourceKey<Biome> fromBiome, ResourceKey<Biome> toBiome)
     {
         return BiomeUtil.exists(fromBiome) && BiomeUtil.exists(toBiome) && this.replaceBiomeEdge(outId, northBiomeId, eastBiomeId, southBiomeId, westBiomeId, biomeId, BiomeUtil.getBiomeId(fromBiome), BiomeUtil.getBiomeId(toBiome));
     }
@@ -100,7 +100,7 @@ public enum BOPBiomeEdgeLayer implements ICastleTransformer
         }
         else
         {
-            if (LayerUtil.isSame(northBiomeId, fromBiome) && LayerUtil.isSame(eastBiomeId, fromBiome) && LayerUtil.isSame(westBiomeId, fromBiome) && LayerUtil.isSame(southBiomeId, fromBiome))
+            if (Layers.isSame(northBiomeId, fromBiome) && Layers.isSame(eastBiomeId, fromBiome) && Layers.isSame(westBiomeId, fromBiome) && Layers.isSame(southBiomeId, fromBiome))
             {
                 outId[0] = biomeId;
             }

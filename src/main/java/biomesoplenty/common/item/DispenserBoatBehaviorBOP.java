@@ -2,14 +2,14 @@ package biomesoplenty.common.item;
 
 import biomesoplenty.common.entity.item.BoatEntityBOP;
 import biomesoplenty.common.entity.item.BoatEntityBOP.BoatModel;
-import net.minecraft.block.DispenserBlock;
-import net.minecraft.dispenser.DefaultDispenseItemBehavior;
-import net.minecraft.dispenser.IBlockSource;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.level.block.DispenserBlock;
+import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
+import net.minecraft.core.BlockSource;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.core.Direction;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.Level;
 
 public class DispenserBoatBehaviorBOP extends DefaultDispenseItemBehavior {
     private final DefaultDispenseItemBehavior defaultDispenseItemBehavior = new DefaultDispenseItemBehavior();
@@ -20,9 +20,9 @@ public class DispenserBoatBehaviorBOP extends DefaultDispenseItemBehavior {
     }
 
     @Override
-    public ItemStack execute(IBlockSource source, ItemStack stack) {
+    public ItemStack execute(BlockSource source, ItemStack stack) {
         Direction direction = source.getBlockState().getValue(DispenserBlock.FACING);
-        World world = source.getLevel();
+        Level world = source.getLevel();
         double d0 = source.x() + (double) ((float) direction.getStepX() * 1.125f);
         double d1 = source.y() + (double) ((float) direction.getStepY() * 1.125f);
         double d2 = source.z() + (double) ((float) direction.getStepZ() * 1.125f);

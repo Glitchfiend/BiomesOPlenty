@@ -9,7 +9,7 @@ package biomesoplenty.common.world.layer;
 
 import biomesoplenty.common.world.layer.traits.IBOPAreaTransformer0;
 import biomesoplenty.common.world.layer.traits.IBOPContextExtended;
-import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.Mth;
 
 public enum TemperatureLatitudeLayer implements IBOPAreaTransformer0
 {
@@ -26,6 +26,6 @@ public enum TemperatureLatitudeLayer implements IBOPAreaTransformer0
         int offset = (int) (context.getWorldSeed() % ((int) (PERIOD * 2)));
 
         double yOffset = z + offset + ((context.nextRandom(1001) - 500) * OFFSET_VARIATION / 500.0D);
-        return MathHelper.floor(AMPLITUDE * Math.abs((Math.abs(yOffset % PERIOD) - HALF_PERIOD)));
+        return Mth.floor(AMPLITUDE * Math.abs((Math.abs(yOffset % PERIOD) - HALF_PERIOD)));
     }
 }

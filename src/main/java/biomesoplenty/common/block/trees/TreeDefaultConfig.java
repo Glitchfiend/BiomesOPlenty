@@ -7,34 +7,39 @@
  ******************************************************************************/
 package biomesoplenty.common.block.trees;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.trees.Tree;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.grower.AbstractTreeGrower;
+import net.minecraft.core.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
-import net.minecraft.world.gen.ChunkGenerator;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.server.level.ServerLevel;
 
 import javax.annotation.Nullable;
 import java.util.Random;
 
-public abstract class TreeDefaultConfig extends Tree
+import net.minecraft.data.worldgen.Features;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+
+public abstract class TreeDefaultConfig extends AbstractTreeGrower
 {
     @Override
     @Nullable
-    protected ConfiguredFeature<BaseTreeFeatureConfig, ?> getConfiguredFeature(Random random, boolean hasFlowers)
+    protected ConfiguredFeature<TreeConfiguration, ?> getConfiguredFeature(Random random, boolean hasFlowers)
     {
         return null;
     }
 
-    protected abstract Feature<? extends BaseTreeFeatureConfig> getFeature(Random random);
+    protected abstract Feature<? extends TreeConfiguration> getFeature(Random random);
 
     @Override
-    public boolean growTree(ServerWorld world, ChunkGenerator generator, BlockPos pos, BlockState state, Random random)
+    public boolean growTree(ServerLevel world, ChunkGenerator generator, BlockPos pos, BlockState state, Random random)
     {
-        Feature<BaseTreeFeatureConfig> feature = (Feature<BaseTreeFeatureConfig>)this.getFeature(random);
+        Feature<TreeConfiguration> feature = (Feature<TreeConfiguration>)this.getFeature(random);
         if (feature == null)
         {
             return false;

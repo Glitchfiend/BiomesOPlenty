@@ -8,21 +8,21 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPBlocks;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.FlowerBlock;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.particles.ParticleTypes;
-import net.minecraft.potion.Effect;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerBlock;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.potion.Effects;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.ISelectionContext;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.IWorldReader;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
@@ -32,10 +32,10 @@ public class FlowerBlockBOP extends FlowerBlock
 {
 	protected static final VoxelShape NORMAL = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
 	protected static final VoxelShape LARGE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 14.0D, 15.0D);
-    private final Effect stewEffect;
+    private final MobEffect stewEffect;
     private final int stewEffectDuration;
 	
-    public FlowerBlockBOP(Effect p_i49984_1_, int effectDuration, Block.Properties properties)
+    public FlowerBlockBOP(MobEffect p_i49984_1_, int effectDuration, Block.Properties properties)
     {
         super(p_i49984_1_, 0, properties);
         this.stewEffect = p_i49984_1_;
@@ -47,7 +47,7 @@ public class FlowerBlockBOP extends FlowerBlock
     }
 
     @Override
-    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext selectionContext)
+    public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext selectionContext)
     {
     	Block block = state.getBlock();
         
@@ -60,7 +60,7 @@ public class FlowerBlockBOP extends FlowerBlock
     }
     
     @Override
-    public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos)
+    public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos)
     {
         Block ground = worldIn.getBlockState(pos.below()).getBlock();
 
@@ -77,7 +77,7 @@ public class FlowerBlockBOP extends FlowerBlock
     }
     
     @Override
-    public void entityInside(BlockState stateIn, World worldIn, BlockPos pos, Entity entityIn)
+    public void entityInside(BlockState stateIn, Level worldIn, BlockPos pos, Entity entityIn)
     {
     	Block block = stateIn.getBlock();
     	
@@ -92,7 +92,7 @@ public class FlowerBlockBOP extends FlowerBlock
     
     @Override
     @OnlyIn(Dist.CLIENT)
-    public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand)
+    public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, Random rand)
     {
        super.animateTick(stateIn, worldIn, pos, rand);
        Block block = stateIn.getBlock();
@@ -111,7 +111,7 @@ public class FlowerBlockBOP extends FlowerBlock
     }
 
     @Override
-    public Effect getSuspiciousStewEffect() {
+    public MobEffect getSuspiciousStewEffect() {
         return this.stewEffect;
     }
 

@@ -10,22 +10,28 @@ package biomesoplenty.common.block;
 import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.*;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.world.IWorldReader;
+import net.minecraft.core.Direction;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraft.world.level.LevelReader;
 
 import java.util.Random;
 
-public class SpanishMossBottomBlock extends AbstractTopPlantBlock {
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.GrowingPlantHeadBlock;
+import net.minecraft.world.level.block.NetherVines;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+
+public class SpanishMossBottomBlock extends GrowingPlantHeadBlock {
     protected static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
-    public SpanishMossBottomBlock(AbstractBlock.Properties p_i241194_1_) {
+    public SpanishMossBottomBlock(BlockBehaviour.Properties p_i241194_1_) {
         super(p_i241194_1_, Direction.DOWN, SHAPE, false, 0.01D);
     }
 
     protected int getBlocksToGrowWhenBonemealed(Random p_230332_1_) {
-        return PlantBlockHelper.getBlocksToGrowWhenBonemealed(p_230332_1_);
+        return NetherVines.getBlocksToGrowWhenBonemealed(p_230332_1_);
     }
 
     protected Block getBodyBlock() {
@@ -33,11 +39,11 @@ public class SpanishMossBottomBlock extends AbstractTopPlantBlock {
     }
 
     protected boolean canGrowInto(BlockState p_230334_1_) {
-        return PlantBlockHelper.isValidGrowthState(p_230334_1_);
+        return NetherVines.isValidGrowthState(p_230334_1_);
     }
 
     @Override
-    public boolean canSurvive(BlockState p_196260_1_, IWorldReader p_196260_2_, BlockPos p_196260_3_) {
+    public boolean canSurvive(BlockState p_196260_1_, LevelReader p_196260_2_, BlockPos p_196260_3_) {
         BlockPos blockpos = p_196260_3_.relative(this.growthDirection.getOpposite());
         BlockState blockstate = p_196260_2_.getBlockState(blockpos);
         Block block = blockstate.getBlock();

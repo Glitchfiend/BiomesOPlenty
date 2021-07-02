@@ -14,10 +14,10 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
-import net.minecraft.util.RegistryKey;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.gen.INoiseRandom;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biomes;
+import net.minecraft.world.level.newbiome.context.Context;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.BiomeManager.BiomeType;
 
@@ -56,7 +56,7 @@ public enum BOPClimates
         this.biomeType = biomeType;
     }
 
-    public BOPClimates addBiome(int weight, RegistryKey<Biome> biome)
+    public BOPClimates addBiome(int weight, ResourceKey<Biome> biome)
     {
         return this.addBiome(new WeightedBiomeEntry(weight, biome));
     }
@@ -68,7 +68,7 @@ public enum BOPClimates
         return this;
     }
 
-    public BOPClimates addIslandBiome(int weight, RegistryKey<Biome> biome)
+    public BOPClimates addIslandBiome(int weight, ResourceKey<Biome> biome)
     {
         return this.addIslandBiome(new WeightedBiomeEntry(weight, biome));
     }
@@ -80,7 +80,7 @@ public enum BOPClimates
         return this;
     }
 
-    public RegistryKey<Biome> getRandomBiome(INoiseRandom context, RegistryKey<Biome> fallback)
+    public ResourceKey<Biome> getRandomBiome(Context context, ResourceKey<Biome> fallback)
     {
         if (this.totalBiomesWeight == 0)
             return fallback;
@@ -97,7 +97,7 @@ public enum BOPClimates
         return item.biome;
     }
 
-    public RegistryKey<Biome> getRandomIslandBiome(INoiseRandom context, RegistryKey<Biome> fallback)
+    public ResourceKey<Biome> getRandomIslandBiome(Context context, ResourceKey<Biome> fallback)
     {
         if (this.totalIslandBiomesWeight == 0)
             return fallback;
@@ -114,7 +114,7 @@ public enum BOPClimates
         return item.biome;
     }
 
-    public RegistryKey<Biome> getRandomOceanBiome(INoiseRandom context, boolean deep)
+    public ResourceKey<Biome> getRandomOceanBiome(Context context, boolean deep)
     {
         return (deep ? Biomes.DEEP_OCEAN : Biomes.OCEAN);
     }
@@ -165,9 +165,9 @@ public enum BOPClimates
         return out;
     }
 
-    public static ImmutableSet<RegistryKey<Biome>> getOverworldBiomes()
+    public static ImmutableSet<ResourceKey<Biome>> getOverworldBiomes()
     {
-        Set<RegistryKey<Biome>> set = Sets.newHashSet();
+        Set<ResourceKey<Biome>> set = Sets.newHashSet();
 
         for (BOPClimates climate : BOPClimates.values())
         {
@@ -187,9 +187,9 @@ public enum BOPClimates
     public static class WeightedBiomeEntry
     {
         public final int weight;
-        public final RegistryKey<Biome> biome;
+        public final ResourceKey<Biome> biome;
 
-        public WeightedBiomeEntry(int weight, RegistryKey<Biome> biome)
+        public WeightedBiomeEntry(int weight, ResourceKey<Biome> biome)
         {
             this.weight = weight;
             this.biome = biome;

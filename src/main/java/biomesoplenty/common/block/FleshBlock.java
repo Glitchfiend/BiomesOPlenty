@@ -7,10 +7,10 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.Level;
 
 public class FleshBlock extends Block
 {
@@ -20,7 +20,7 @@ public class FleshBlock extends Block
     }
 
     @Override
-    public void stepOn(World worldIn, BlockPos pos, Entity entityIn)
+    public void stepOn(Level worldIn, BlockPos pos, Entity entityIn)
     {
         entityIn.setDeltaMovement(entityIn.getDeltaMovement().multiply(0.95D, 1.0D, 0.95D));
     }

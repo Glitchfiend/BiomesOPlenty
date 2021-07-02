@@ -3,10 +3,16 @@ package biomesoplenty.init;
 import biomesoplenty.api.block.BOPBlocks;
 import com.google.common.collect.Maps;
 import net.minecraft.block.*;
-import net.minecraft.item.AxeItem;
-import net.minecraft.item.HoeItem;
-import net.minecraft.item.ShovelItem;
-import net.minecraft.util.IItemProvider;
+import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.HoeItem;
+import net.minecraft.world.item.ShovelItem;
+import net.minecraft.world.level.ItemLike;
+
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ComposterBlock;
+import net.minecraft.world.level.block.FireBlock;
+import net.minecraft.world.level.block.state.BlockState;
 
 public class ModVanillaCompat
 {
@@ -269,7 +275,7 @@ public class ModVanillaCompat
         ShovelItem.FLATTENABLES.put(block, flattened_block);
     }
 
-    public static void registerCompostable(float chance, IItemProvider itemIn) {
+    public static void registerCompostable(float chance, ItemLike itemIn) {
         ComposterBlock.COMPOSTABLES.put(itemIn.asItem(), chance);
     }
 

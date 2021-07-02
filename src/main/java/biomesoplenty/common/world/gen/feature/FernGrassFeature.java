@@ -8,21 +8,21 @@
 package biomesoplenty.common.world.gen.feature;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.gen.feature.structure.StructureManager;
 
 import java.util.Random;
 
-public class FernGrassFeature extends Feature<NoFeatureConfig>
+public class FernGrassFeature extends Feature<NoneFeatureConfiguration>
 {
-	public FernGrassFeature(Codec<NoFeatureConfig> deserializer)
+	public FernGrassFeature(Codec<NoneFeatureConfiguration> deserializer)
 	{
 		super(deserializer);
 	}
@@ -33,7 +33,7 @@ public class FernGrassFeature extends Feature<NoFeatureConfig>
 	}
 
 	@Override
-	public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random rand, BlockPos pos, NoFeatureConfig config)
+	public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, Random rand, BlockPos pos, NoneFeatureConfiguration config)
 	{
 		BlockState BlockState = this.chooseGrassState(rand);
 

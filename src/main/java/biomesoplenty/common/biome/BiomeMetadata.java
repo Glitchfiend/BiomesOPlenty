@@ -10,8 +10,8 @@ package biomesoplenty.common.biome;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.util.biome.BiomeUtil;
 import com.google.common.collect.ImmutableMap;
-import net.minecraft.util.RegistryKey;
-import net.minecraft.world.biome.Biome;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 
 import javax.annotation.Nullable;
@@ -24,10 +24,10 @@ public class BiomeMetadata
     private final ImmutableMap<BOPClimates, Integer> weightMap;
 
     @Nullable
-    private final RegistryKey<Biome> beachBiome;
+    private final ResourceKey<Biome> beachBiome;
 
     @Nullable
-    private final RegistryKey<Biome> riverBiome;
+    private final ResourceKey<Biome> riverBiome;
 
     @Nullable
     private final BiFunction<Double, Double, Integer> foliageColorFunction;
@@ -38,7 +38,7 @@ public class BiomeMetadata
     @Nullable
     private final BiFunction<Double, Double, Integer> waterColorFunction;
 
-    protected BiomeMetadata(Map<BOPClimates, Integer> weights, @Nullable RegistryKey<Biome> beachBiome, @Nullable RegistryKey<Biome> riverBiome, BiFunction<Double, Double, Integer> foliageColorFunction, BiFunction<Double, Double, Integer> grassColorFunction, BiFunction<Double, Double, Integer> waterColorFunction)
+    protected BiomeMetadata(Map<BOPClimates, Integer> weights, @Nullable ResourceKey<Biome> beachBiome, @Nullable ResourceKey<Biome> riverBiome, BiFunction<Double, Double, Integer> foliageColorFunction, BiFunction<Double, Double, Integer> grassColorFunction, BiFunction<Double, Double, Integer> waterColorFunction)
     {
         this.weightMap = ImmutableMap.copyOf(weights);
         this.beachBiome = beachBiome;
@@ -54,13 +54,13 @@ public class BiomeMetadata
     }
 
     @Nullable
-    public RegistryKey<Biome> getBeachBiome()
+    public ResourceKey<Biome> getBeachBiome()
     {
         return this.beachBiome;
     }
 
     @Nullable
-    public RegistryKey<Biome> getRiverBiome()
+    public ResourceKey<Biome> getRiverBiome()
     {
         return this.riverBiome;
     }

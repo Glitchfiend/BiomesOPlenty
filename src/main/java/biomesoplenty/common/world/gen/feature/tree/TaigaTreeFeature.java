@@ -9,14 +9,14 @@ package biomesoplenty.common.world.gen.feature.tree;
 
 import biomesoplenty.common.util.biome.GeneratorUtil;
 import biomesoplenty.common.util.block.IBlockPosQuery;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.material.Material;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.MutableBoundingBox;
-import net.minecraft.world.IWorld;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.core.Direction;
+import net.minecraft.core.BlockPos;
+import net.minecraft.util.Mth;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.world.level.LevelAccessor;
 
 import java.util.Random;
 import java.util.Set;
@@ -55,13 +55,13 @@ public class TaigaTreeFeature extends TreeFeatureBase
         this.trunkWidth = trunkWidth;
     }
 
-    public boolean checkSpace(IWorld world, BlockPos pos, int baseHeight, int height)
+    public boolean checkSpace(LevelAccessor world, BlockPos pos, int baseHeight, int height)
     {
         for (int y = 0; y <= height; y++)
         {
             int trunkWidth = (this.trunkWidth * (height - y) / height) + 1;
-            int trunkStart = MathHelper.ceil(0.25D - trunkWidth / 2.0D);
-            int trunkEnd = MathHelper.floor(0.25D + trunkWidth / 2.0D);
+            int trunkStart = Mth.ceil(0.25D - trunkWidth / 2.0D);
+            int trunkEnd = Mth.floor(0.25D + trunkWidth / 2.0D);
 
             // require 3x3 for the leaves, 1x1 for the trunk
             int start = (y <= baseHeight ? trunkStart : trunkStart - 1);
@@ -84,7 +84,7 @@ public class TaigaTreeFeature extends TreeFeatureBase
     }
 
     // generates a layer of leafs
-    public void generateLeafLayer(IWorld world, Random rand, BlockPos pos, int leavesRadius, int trunkStart, int trunkEnd, Set<BlockPos> changedLeaves, MutableBoundingBox boundingBox)
+    public void generateLeafLayer(LevelAccessor world, Random rand, BlockPos pos, int leavesRadius, int trunkStart, int trunkEnd, Set<BlockPos> changedLeaves, BoundingBox boundingBox)
     {
         int start = trunkStart - leavesRadius;
         int end = trunkEnd + leavesRadius;
@@ -106,7 +106,7 @@ public class TaigaTreeFeature extends TreeFeatureBase
         }
     }
 
-    public void generateBranch(IWorld world, Random rand, BlockPos pos, Direction direction, int length, Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, MutableBoundingBox boundingBox)
+    public void generateBranch(LevelAccessor world, Random rand, BlockPos pos, Direction direction, int length, Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, BoundingBox boundingBox)
     {
         Direction.Axis axis = direction.getAxis();
         Direction sideways = direction.getClockWise();
@@ -133,7 +133,7 @@ public class TaigaTreeFeature extends TreeFeatureBase
 
 
     @Override
-    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, IWorld world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
+    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, LevelAccessor world, Random random, BlockPos startPos, BoundingBox boundingBox)
     {
         // Move down until we reach the ground
         while (startPos.getY() > 1 && world.isEmptyBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES) {startPos = startPos.below();}
@@ -174,8 +174,8 @@ public class TaigaTreeFeature extends TreeFeatureBase
         {
 
             int trunkWidth = (this.trunkWidth * i / height) + 1;
-            int trunkStart = MathHelper.ceil(0.25D - trunkWidth / 2.0D);
-            int trunkEnd = MathHelper.floor(0.25D + trunkWidth / 2.0D);
+            int trunkStart = Mth.ceil(0.25D - trunkWidth / 2.0D);
+            int trunkEnd = Mth.floor(0.25D + trunkWidth / 2.0D);
 
 
             int radius = Math.min(Math.min((i + 2) / 3, 3 + (leavesHeight - i)), 6);
@@ -213,8 +213,8 @@ public class TaigaTreeFeature extends TreeFeatureBase
         for (int y = 0; y < height - 1; y++)
         {
             int trunkWidth = (this.trunkWidth * (height - y) / height) + 1;
-            int trunkStart = MathHelper.ceil(0.25D - trunkWidth / 2.0D);
-            int trunkEnd = MathHelper.floor(0.25D + trunkWidth / 2.0D);
+            int trunkStart = Mth.ceil(0.25D - trunkWidth / 2.0D);
+            int trunkEnd = Mth.floor(0.25D + trunkWidth / 2.0D);
 
             if (trunkWidth < 1 || trunkWidth > this.trunkWidth)
             {

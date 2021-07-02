@@ -9,33 +9,33 @@ package biomesoplenty.common.world.biome;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
-import net.minecraft.block.BlockState;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.world.gen.blockplacer.DoublePlantBlockPlacer;
-import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
-import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
-import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
+import net.minecraft.world.level.levelgen.feature.blockplacers.DoublePlantPlacer;
+import net.minecraft.world.level.levelgen.feature.blockplacers.SimpleBlockPlacer;
+import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
+import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 
 public class BiomeFeatureHelper
 {
-    public static BlockClusterFeatureConfig createClusterConfiguration(BlockState state)
+    public static RandomPatchConfiguration createClusterConfiguration(BlockState state)
     {
-        return (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(state), new SimpleBlockPlacer())).tries(64).noProjection().build();
+        return (new RandomPatchConfiguration.GrassConfigurationBuilder(new SimpleStateProvider(state), new SimpleBlockPlacer())).tries(64).noProjection().build();
     }
 
-    public static BlockClusterFeatureConfig createClusterConfigurationDouble(BlockState state)
+    public static RandomPatchConfiguration createClusterConfigurationDouble(BlockState state)
     {
-        return (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(state), new DoublePlantBlockPlacer())).tries(64).noProjection().build();
+        return (new RandomPatchConfiguration.GrassConfigurationBuilder(new SimpleStateProvider(state), new DoublePlantPlacer())).tries(64).noProjection().build();
     }
 
-    public static BlockClusterFeatureConfig createClusterConfigurationDoubleProjects(BlockState state)
+    public static RandomPatchConfiguration createClusterConfigurationDoubleProjects(BlockState state)
     {
-        return (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(state), new DoublePlantBlockPlacer())).tries(64).build();
+        return (new RandomPatchConfiguration.GrassConfigurationBuilder(new SimpleStateProvider(state), new DoublePlantPlacer())).tries(64).build();
     }
 
-    public static BlockClusterFeatureConfig createClusterConfigurationDoubleWater(BlockState state)
+    public static RandomPatchConfiguration createClusterConfigurationDoubleWater(BlockState state)
     {
-        return (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(state), new DoublePlantBlockPlacer())).canReplace().tries(64).noProjection().build();
+        return (new RandomPatchConfiguration.GrassConfigurationBuilder(new SimpleStateProvider(state), new DoublePlantPlacer())).canReplace().tries(64).noProjection().build();
     }
 
 }

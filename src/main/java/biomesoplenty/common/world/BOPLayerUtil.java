@@ -11,14 +11,29 @@ import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.common.world.layer.*;
 import biomesoplenty.common.world.layer.traits.LazyAreaLayerContextBOP;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.gen.IExtendedNoiseRandom;
-import net.minecraft.world.gen.area.IArea;
-import net.minecraft.world.gen.area.IAreaFactory;
-import net.minecraft.world.gen.area.LazyArea;
+import net.minecraft.world.level.biome.Biomes;
+import net.minecraft.world.level.newbiome.context.BigContext;
+import net.minecraft.world.level.newbiome.area.Area;
+import net.minecraft.world.level.newbiome.area.AreaFactory;
+import net.minecraft.world.level.newbiome.area.LazyArea;
 import net.minecraft.world.gen.layer.*;
 
 import java.util.function.LongFunction;
+
+import net.minecraft.world.level.newbiome.layer.AddDeepOceanLayer;
+import net.minecraft.world.level.newbiome.layer.AddIslandLayer;
+import net.minecraft.world.level.newbiome.layer.AddMushroomIslandLayer;
+import net.minecraft.world.level.newbiome.layer.IslandLayer;
+import net.minecraft.world.level.newbiome.layer.Layer;
+import net.minecraft.world.level.newbiome.layer.Layers;
+import net.minecraft.world.level.newbiome.layer.OceanLayer;
+import net.minecraft.world.level.newbiome.layer.RareBiomeLargeLayer;
+import net.minecraft.world.level.newbiome.layer.RareBiomeSpotLayer;
+import net.minecraft.world.level.newbiome.layer.RemoveTooMuchOceanLayer;
+import net.minecraft.world.level.newbiome.layer.RiverInitLayer;
+import net.minecraft.world.level.newbiome.layer.RiverLayer;
+import net.minecraft.world.level.newbiome.layer.SmoothLayer;
+import net.minecraft.world.level.newbiome.layer.ZoomLayer;
 
 public class BOPLayerUtil
 {
@@ -33,10 +48,10 @@ public class BOPLayerUtil
     public static final int DEEP_COLD_OCEAN = BiomeUtil.getBiomeId(Biomes.DEEP_COLD_OCEAN);
     public static final int DEEP_FROZEN_OCEAN = BiomeUtil.getBiomeId(Biomes.DEEP_FROZEN_OCEAN);
 
-    public static <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> createInitialLandAndSeaFactory(LongFunction<C> contextFactory)
+    public static <T extends Area, C extends BigContext<T>> AreaFactory<T> createInitialLandAndSeaFactory(LongFunction<C> contextFactory)
     {
         // NOTE: Normally AddSnow, CoolWarm, HeatIce and Special GenLayers occur here, but we handle those ourselves
-        IAreaFactory<T> factory = IslandLayer.INSTANCE.run(contextFactory.apply(1L));
+        AreaFactory<T> factory = IslandLayer.INSTANCE.run(contextFactory.apply(1L));
         factory = ZoomLayer.FUZZY.run(contextFactory.apply(2000L), factory);
         factory = AddIslandLayer.INSTANCE.run(contextFactory.apply(1L), factory);
         factory = ZoomLayer.NORMAL.run(contextFactory.apply(2001L), factory);
@@ -56,9 +71,9 @@ public class BOPLayerUtil
     }
 
     // superimpose hot and cold regions an a land and sea layer
-    public static <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> createClimateFactory(LongFunction<C> contextFactory, BOPOverworldGenSettings settings)
+    public static <T extends Area, C extends BigContext<T>> AreaFactory<T> createClimateFactory(LongFunction<C> contextFactory, BOPOverworldGenSettings settings)
     {
-        IAreaFactory<T> temperatureFactory;
+        AreaFactory<T> temperatureFactory;
 
         switch (settings.getTempScheme())
         {
@@ -79,7 +94,7 @@ public class BOPLayerUtil
                 break;
         }
 
-        IAreaFactory<T> rainfallFactory;
+        AreaFactory<T> rainfallFactory;
         switch(settings.getRainScheme())
         {
             case SMALL_ZONES:
@@ -99,24 +114,24 @@ public class BOPLayerUtil
         return ClimateLayer.INSTANCE.run(contextFactory.apply(103L), temperatureFactory, rainfallFactory);
     }
 
-    public static <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> createBiomeFactory(IAreaFactory<T> landSeaAreaFactory, IAreaFactory<T> climateAreaFactory, LongFunction<C> contextFactory)
+    public static <T extends Area, C extends BigContext<T>> AreaFactory<T> createBiomeFactory(AreaFactory<T> landSeaAreaFactory, AreaFactory<T> climateAreaFactory, LongFunction<C> contextFactory)
     {
-        IAreaFactory<T> biomeFactory = BOPBiomeLayer.INSTANCE.run(contextFactory.apply(200L), landSeaAreaFactory, climateAreaFactory);
-        biomeFactory = AddBambooForestLayer.INSTANCE.run(contextFactory.apply(1001L), biomeFactory);
-        biomeFactory = LayerUtil.zoom(1000L, ZoomLayer.NORMAL, biomeFactory, 2, contextFactory);
+        AreaFactory<T> biomeFactory = BOPBiomeLayer.INSTANCE.run(contextFactory.apply(200L), landSeaAreaFactory, climateAreaFactory);
+        biomeFactory = RareBiomeLargeLayer.INSTANCE.run(contextFactory.apply(1001L), biomeFactory);
+        biomeFactory = Layers.zoom(1000L, ZoomLayer.NORMAL, biomeFactory, 2, contextFactory);
         biomeFactory = BOPBiomeEdgeLayer.INSTANCE.run(contextFactory.apply(1000L), biomeFactory);
         return biomeFactory;
     }
 
-    public static <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> createAreaFactories(BOPOverworldGenSettings settings, LongFunction<C> contextFactory)
+    public static <T extends Area, C extends BigContext<T>> AreaFactory<T> createAreaFactories(BOPOverworldGenSettings settings, LongFunction<C> contextFactory)
     {
         // Create the initial land and sea layer. Is also responsible for adding deep oceans
         // and mushroom islands
-        IAreaFactory<T> landSeaFactory = createInitialLandAndSeaFactory(contextFactory);
+        AreaFactory<T> landSeaFactory = createInitialLandAndSeaFactory(contextFactory);
 
         // Determines positions for all of the new ocean subbiomes added in 1.13
-        IAreaFactory<T> oceanBiomeFactory = OceanLayer.INSTANCE.run(contextFactory.apply(2L));
-        oceanBiomeFactory = LayerUtil.zoom(2001L, ZoomLayer.NORMAL, oceanBiomeFactory, 6, contextFactory);
+        AreaFactory<T> oceanBiomeFactory = OceanLayer.INSTANCE.run(contextFactory.apply(2L));
+        oceanBiomeFactory = Layers.zoom(2001L, ZoomLayer.NORMAL, oceanBiomeFactory, 6, contextFactory);
 
         int biomeSize = 4;
         int riverSize = biomeSize;
@@ -127,28 +142,28 @@ public class BOPLayerUtil
         }
 
         // Create the climates
-        IAreaFactory<T> climateFactory = createClimateFactory(contextFactory, settings);
+        AreaFactory<T> climateFactory = createClimateFactory(contextFactory, settings);
 
         // Add islands and deep oceans
         landSeaFactory = AddMushroomIslandLayer.INSTANCE.run(contextFactory.apply(5L), landSeaFactory);
         landSeaFactory = LargeIslandLayer.INSTANCE.run(contextFactory.apply(5L), landSeaFactory, climateFactory);
-        landSeaFactory = DeepOceanLayer.INSTANCE.run(contextFactory.apply(4L), landSeaFactory);
+        landSeaFactory = AddDeepOceanLayer.INSTANCE.run(contextFactory.apply(4L), landSeaFactory);
 
         // Allocate the biomes
-        IAreaFactory<T> biomesFactory = createBiomeFactory(landSeaFactory, climateFactory, contextFactory);
+        AreaFactory<T> biomesFactory = createBiomeFactory(landSeaFactory, climateFactory, contextFactory);
 
         // Fork off a new branch as a seed for rivers and sub biomes
-        IAreaFactory<T> riverAndSubBiomesInitFactory = StartRiverLayer.INSTANCE.run(contextFactory.apply(100L), landSeaFactory);
-        riverAndSubBiomesInitFactory = LayerUtil.zoom(1000L, ZoomLayer.NORMAL, riverAndSubBiomesInitFactory, 2, contextFactory);
+        AreaFactory<T> riverAndSubBiomesInitFactory = RiverInitLayer.INSTANCE.run(contextFactory.apply(100L), landSeaFactory);
+        riverAndSubBiomesInitFactory = Layers.zoom(1000L, ZoomLayer.NORMAL, riverAndSubBiomesInitFactory, 2, contextFactory);
         biomesFactory = SubBiomeLayer.INSTANCE.run(contextFactory.apply(1000L), biomesFactory, riverAndSubBiomesInitFactory);
 
         // Develop the rivers branch
-        IAreaFactory<T> riversInitFactory = LayerUtil.zoom(1000L, ZoomLayer.NORMAL, riverAndSubBiomesInitFactory, riverSize, contextFactory);
+        AreaFactory<T> riversInitFactory = Layers.zoom(1000L, ZoomLayer.NORMAL, riverAndSubBiomesInitFactory, riverSize, contextFactory);
         riversInitFactory = RiverLayer.INSTANCE.run(contextFactory.apply(1L), riversInitFactory);
         riversInitFactory = SmoothLayer.INSTANCE.run(contextFactory.apply(1000L), riversInitFactory);
 
         // Mix in rare biomes into biomes branch
-        biomesFactory = RareBiomeLayer.INSTANCE.run(contextFactory.apply(1001L), biomesFactory);
+        biomesFactory = RareBiomeSpotLayer.INSTANCE.run(contextFactory.apply(1001L), biomesFactory);
 
         // Zoom more based on the biome size
         for (int i = 0; i < biomeSize; ++i)
@@ -163,14 +178,14 @@ public class BOPLayerUtil
         // Mix rivers into the biomes branch
         biomesFactory = BOPRiverMixLayer.INSTANCE.run(contextFactory.apply(100L), biomesFactory, riversInitFactory);
 
-        climateFactory = LayerUtil.zoom(2001L, ZoomLayer.NORMAL, climateFactory, biomeSize + 2, contextFactory);
+        climateFactory = Layers.zoom(2001L, ZoomLayer.NORMAL, climateFactory, biomeSize + 2, contextFactory);
         biomesFactory = BOPMixOceansLayer.INSTANCE.run(contextFactory.apply(100L), biomesFactory, oceanBiomeFactory, climateFactory);
         return biomesFactory;
     }
 
     public static Layer createGenLayers(long seed, BOPOverworldGenSettings settings)
     {
-        IAreaFactory<LazyArea> factory = createAreaFactories(settings, (seedModifier) ->
+        AreaFactory<LazyArea> factory = createAreaFactories(settings, (seedModifier) ->
         {
             return new LazyAreaLayerContextBOP(1, seed, seedModifier);
         });

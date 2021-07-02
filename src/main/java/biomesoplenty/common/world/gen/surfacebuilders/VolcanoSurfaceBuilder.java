@@ -8,23 +8,23 @@
 package biomesoplenty.common.world.gen.surfacebuilders;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.block.BlockState;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.chunk.IChunk;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilder;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderBaseConfiguration;
 
 import java.util.Random;
 
-public class VolcanoSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
+public class VolcanoSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderBaseConfiguration>
 {
-	public VolcanoSurfaceBuilder(Codec<SurfaceBuilderConfig> deserializer)
+	public VolcanoSurfaceBuilder(Codec<SurfaceBuilderBaseConfiguration> deserializer)
 	{
 		super(deserializer);
 	}
 
 	@Override
-	public void apply(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config)
+	public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderBaseConfiguration config)
 	{
 		if (noise > 2.7F)
 		{

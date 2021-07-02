@@ -9,23 +9,23 @@ package biomesoplenty.common.world.gen.surfacebuilders;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-import net.minecraft.world.gen.surfacebuilders.ValleySurfaceBuilder;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderBaseConfiguration;
+import net.minecraft.world.level.levelgen.surfacebuilders.NetherCappedSurfaceBuilder;
 
 import java.util.Random;
 
-public class WitheredAbyssSurfaceBuilder extends ValleySurfaceBuilder {
+public class WitheredAbyssSurfaceBuilder extends NetherCappedSurfaceBuilder {
 	private static final BlockState BLACKSTONE = Blocks.BLACKSTONE.defaultBlockState();
 	private static final BlockState OBSIDIAN = Blocks.OBSIDIAN.defaultBlockState();
 	private static final ImmutableList<BlockState> BLOCK_STATES = ImmutableList.of(BLACKSTONE);
 
-	public WitheredAbyssSurfaceBuilder(Codec<SurfaceBuilderConfig> p_i232135_1_) {
+	public WitheredAbyssSurfaceBuilder(Codec<SurfaceBuilderBaseConfiguration> p_i232135_1_) {
 		super(p_i232135_1_);
 	}
 

@@ -9,14 +9,14 @@ package biomesoplenty.common.world.gen.feature.tree;
 
 import biomesoplenty.common.util.biome.GeneratorUtil;
 import biomesoplenty.common.util.block.IBlockPosQuery;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.DirectionalBlock;
-import net.minecraft.block.material.Material;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MutableBoundingBox;
-import net.minecraft.world.IWorld;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DirectionalBlock;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.core.Direction;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.world.level.LevelAccessor;
 
 import java.util.Random;
 import java.util.Set;
@@ -44,7 +44,7 @@ public class BulbTreeFeature extends TreeFeatureBase
         super(placeOn, replace, log, leaves, altLeaves, vine, hanging, trunkFruit, minHeight, maxHeight);
     }
 
-    public boolean setCocoa(IWorld world, BlockPos pos, Direction side)
+    public boolean setCocoa(LevelAccessor world, BlockPos pos, Direction side)
     {
         BlockState cocoaState = Blocks.COCOA.defaultBlockState().setValue(DirectionalBlock.FACING, side);
         if (this.replace.matches(world, pos))
@@ -55,7 +55,7 @@ public class BulbTreeFeature extends TreeFeatureBase
         return false;
     }
 
-    public boolean checkSpace(IWorld world, BlockPos pos, int baseHeight, int height)
+    public boolean checkSpace(LevelAccessor world, BlockPos pos, int baseHeight, int height)
     {
         for (int y = 0; y <= height; y++)
         {
@@ -79,7 +79,7 @@ public class BulbTreeFeature extends TreeFeatureBase
     }
 
     // generates a 'branch' of a leaf layer
-    public void generateBranch(IWorld world, Random random, BlockPos pos, Direction direction, Set<BlockPos> changedLeaves, MutableBoundingBox boundingBox)
+    public void generateBranch(LevelAccessor world, Random random, BlockPos pos, Direction direction, Set<BlockPos> changedLeaves, BoundingBox boundingBox)
     {
         Direction sideways = direction.getClockWise();
         this.placeLeaves(world, pos.relative(direction, 1), changedLeaves, boundingBox);
@@ -91,7 +91,7 @@ public class BulbTreeFeature extends TreeFeatureBase
     }
 
     // generates a layer of leafs (2 blocks high)
-    public void generateLeafLayer(IWorld world, Random random, BlockPos pos, Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, MutableBoundingBox boundingBox)
+    public void generateLeafLayer(LevelAccessor world, Random random, BlockPos pos, Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, BoundingBox boundingBox)
     {
         for (Direction direction : Direction.Plane.HORIZONTAL)
         {
@@ -103,7 +103,7 @@ public class BulbTreeFeature extends TreeFeatureBase
         this.placeLog(world, pos.above(), changedLogs, boundingBox);
     }
 
-    public void generateTop(IWorld world, Random random, BlockPos pos, int topHeight, Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, MutableBoundingBox boundingBox)
+    public void generateTop(LevelAccessor world, Random random, BlockPos pos, int topHeight, Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, BoundingBox boundingBox)
     {
         for (int y = 0; y < topHeight; y++)
         {
@@ -131,7 +131,7 @@ public class BulbTreeFeature extends TreeFeatureBase
     }
 
     @Override
-    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, IWorld world, Random random, BlockPos startPos, MutableBoundingBox boundingBox)
+    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, LevelAccessor world, Random random, BlockPos startPos, BoundingBox boundingBox)
     {
         // Move down until we reach the ground
         while (startPos.getY() > 1 && world.isEmptyBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES) {startPos = startPos.below();}
@@ -185,7 +185,7 @@ public class BulbTreeFeature extends TreeFeatureBase
         return true;
     }
 
-    protected void addVines(IWorld world, Random rand, BlockPos startPos, int baseHeight, int height, int leavesRadius, int generationAttempts)
+    protected void addVines(LevelAccessor world, Random rand, BlockPos startPos, int baseHeight, int height, int leavesRadius, int generationAttempts)
     {
         if (this.vine == null) {return;}
         for (int i = 0; i < generationAttempts; i++)
@@ -209,7 +209,7 @@ public class BulbTreeFeature extends TreeFeatureBase
         }
     }
 
-    protected void addCocoa(IWorld world, Random rand, BlockPos startPos, int baseHeight, int generationAttempts)
+    protected void addCocoa(LevelAccessor world, Random rand, BlockPos startPos, int baseHeight, int generationAttempts)
     {
         for (int i = 0; i < generationAttempts; i++)
         {

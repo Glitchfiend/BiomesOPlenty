@@ -1,32 +1,32 @@
 package biomesoplenty.common.world.gen.feature;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.block.BlockState;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.CarvedPumpkinBlock;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.Heightmap;
-import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
-import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
+import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 
 import java.util.Random;
 
-public class RandomPatchAboveGroundFeature extends Feature<BlockClusterFeatureConfig> {
-	public RandomPatchAboveGroundFeature(Codec<BlockClusterFeatureConfig> p_i231979_1_) {
+public class RandomPatchAboveGroundFeature extends Feature<RandomPatchConfiguration> {
+	public RandomPatchAboveGroundFeature(Codec<RandomPatchConfiguration> p_i231979_1_) {
 		super(p_i231979_1_);
 	}
 
-	public boolean place(ISeedReader p_241855_1_, ChunkGenerator p_241855_2_, Random p_241855_3_, BlockPos p_241855_4_, BlockClusterFeatureConfig p_241855_5_) {
+	public boolean place(WorldGenLevel p_241855_1_, ChunkGenerator p_241855_2_, Random p_241855_3_, BlockPos p_241855_4_, RandomPatchConfiguration p_241855_5_) {
 		BlockState blockstate = p_241855_5_.stateProvider.getState(p_241855_3_, p_241855_4_);
 		BlockPos blockpos;
 		if (p_241855_5_.project) {
-			blockpos = p_241855_1_.getHeightmapPos(Heightmap.Type.WORLD_SURFACE_WG, p_241855_4_);
+			blockpos = p_241855_1_.getHeightmapPos(Heightmap.Types.WORLD_SURFACE_WG, p_241855_4_);
 		} else {
 			blockpos = p_241855_4_;
 		}
@@ -37,7 +37,7 @@ public class RandomPatchAboveGroundFeature extends Feature<BlockClusterFeatureCo
 		}
 
 		int i = 0;
-		BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
+		BlockPos.MutableBlockPos blockpos$mutable = new BlockPos.MutableBlockPos();
 
 		for(int j = 0; j < p_241855_5_.tries; ++j) {
 			blockpos$mutable.setWithOffset(blockpos, p_241855_3_.nextInt(p_241855_5_.xspread + 1) - p_241855_3_.nextInt(p_241855_5_.xspread + 1), p_241855_3_.nextInt(p_241855_5_.yspread + 1) - p_241855_3_.nextInt(p_241855_5_.yspread + 1), p_241855_3_.nextInt(p_241855_5_.zspread + 1) - p_241855_3_.nextInt(p_241855_5_.zspread + 1));

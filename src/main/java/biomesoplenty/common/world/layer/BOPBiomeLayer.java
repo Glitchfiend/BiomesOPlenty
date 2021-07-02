@@ -10,13 +10,13 @@ package biomesoplenty.common.world.layer;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.init.ModBiomes;
-import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.gen.INoiseRandom;
-import net.minecraft.world.gen.area.IArea;
-import net.minecraft.world.gen.layer.traits.IAreaTransformer2;
-import net.minecraft.world.gen.layer.traits.IDimOffset0Transformer;
+import net.minecraft.world.level.biome.Biomes;
+import net.minecraft.world.level.newbiome.context.Context;
+import net.minecraft.world.level.newbiome.area.Area;
+import net.minecraft.world.level.newbiome.layer.traits.AreaTransformer2;
+import net.minecraft.world.level.newbiome.layer.traits.DimensionOffset0Transformer;
 
-public enum BOPBiomeLayer implements IAreaTransformer2, IDimOffset0Transformer
+public enum BOPBiomeLayer implements AreaTransformer2, DimensionOffset0Transformer
 {
     INSTANCE;
 
@@ -24,7 +24,7 @@ public enum BOPBiomeLayer implements IAreaTransformer2, IDimOffset0Transformer
     private static final int MUSHROOM_FIELDS = BiomeUtil.getBiomeId(Biomes.MUSHROOM_FIELDS);
 
     @Override
-    public int applyPixel(INoiseRandom context, IArea area1, IArea area2, int x, int z)
+    public int applyPixel(Context context, Area area1, Area area2, int x, int z)
     {
         int landSeaVal = area1.get(x, z);
         int climateVal = area2.get(x, z);

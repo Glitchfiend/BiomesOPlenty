@@ -14,16 +14,16 @@ import biomesoplenty.common.world.BOPLayerUtil;
 import biomesoplenty.common.world.layer.traits.IAreaTransformer3;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.gen.INoiseRandom;
-import net.minecraft.world.gen.area.IArea;
-import net.minecraft.world.gen.layer.traits.IDimOffset0Transformer;
+import net.minecraft.world.level.newbiome.context.Context;
+import net.minecraft.world.level.newbiome.area.Area;
+import net.minecraft.world.level.newbiome.layer.traits.DimensionOffset0Transformer;
 
-public enum BOPMixOceansLayer implements IAreaTransformer3, IDimOffset0Transformer
+public enum BOPMixOceansLayer implements IAreaTransformer3, DimensionOffset0Transformer
 {
     INSTANCE;
 
     @Override
-    public int applyPixel(INoiseRandom context, IArea biomeArea, IArea oceanArea, IArea climateArea, int x, int z)
+    public int applyPixel(Context context, Area biomeArea, Area oceanArea, Area climateArea, int x, int z)
     {
         int biomeId = biomeArea.get(x, z);
         int oceanId = oceanArea.get(x, z);

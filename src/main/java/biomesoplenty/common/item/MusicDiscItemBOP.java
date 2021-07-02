@@ -9,15 +9,15 @@ package biomesoplenty.common.item;
 
 import biomesoplenty.common.util.inventory.ItemGroupBOP;
 import biomesoplenty.core.BiomesOPlenty;
-import net.minecraft.item.Item;
-import net.minecraft.item.MusicDiscItem;
-import net.minecraft.item.Rarity;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.RecordItem;
+import net.minecraft.world.item.Rarity;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class MusicDiscItemBOP extends MusicDiscItem
+public class MusicDiscItemBOP extends RecordItem
 {
 	//Provide a resource location and the correct registry to retrieve a SoundEvent supplier
     public static RegistryObject<SoundEvent> soundProvider(String soundName) {

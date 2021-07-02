@@ -9,28 +9,34 @@ package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.*;
-import net.minecraft.block.trees.Tree;
-import net.minecraft.state.IntegerProperty;
-import net.minecraft.state.StateContainer;
-import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.ISelectionContext;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.world.IBlockReader;
+import net.minecraft.world.level.block.grower.AbstractTreeGrower;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.IWorld;
-import net.minecraft.world.IWorldReader;
-import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.Level;
+import net.minecraft.server.level.ServerLevel;
 
 import java.util.Random;
 
-public class SaplingBlockBOP extends SaplingBlock implements IGrowable
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BonemealableBlock;
+import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.state.BlockState;
+
+public class SaplingBlockBOP extends SaplingBlock implements BonemealableBlock
 {
    public static final IntegerProperty STAGE = BlockStateProperties.STAGE;
    public static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
-   private final Tree tree;
+   private final AbstractTreeGrower tree;
 
-   public SaplingBlockBOP(Tree tree, Block.Properties properties)
+   public SaplingBlockBOP(AbstractTreeGrower tree, Block.Properties properties)
    {
       super(tree, properties);
       this.tree = tree;
@@ -38,13 +44,13 @@ public class SaplingBlockBOP extends SaplingBlock implements IGrowable
    }
 
    @Override
-   public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext selectionContext)
+   public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext selectionContext)
    {
       return SHAPE;
    }
 
    @Override
-   public void tick(BlockState state, ServerWorld world, BlockPos pos, Random random)
+   public void tick(BlockState state, ServerLevel world, BlockPos pos, Random random)
    {
       super.tick(state, world, pos, random);
       if (!world.isAreaLoaded(pos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light
@@ -55,7 +61,7 @@ public class SaplingBlockBOP extends SaplingBlock implements IGrowable
    }
 
    @Override
-   public void performBonemeal(ServerWorld world, Random rand, BlockPos pos, BlockState state)
+   public void performBonemeal(ServerLevel world, Random rand, BlockPos pos, BlockState state)
    {
       if (state.getValue(STAGE) == 0)
       {
@@ -73,25 +79,25 @@ public class SaplingBlockBOP extends SaplingBlock implements IGrowable
     * Whether this IGrowable can grow
     */
    @Override
-   public boolean isValidBonemealTarget(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient)
+   public boolean isValidBonemealTarget(BlockGetter worldIn, BlockPos pos, BlockState state, boolean isClient)
    {
       return true;
    }
 
    @Override
-   public boolean isBonemealSuccess(World worldIn, Random rand, BlockPos pos, BlockState state)
+   public boolean isBonemealSuccess(Level worldIn, Random rand, BlockPos pos, BlockState state)
    {
       return (double)worldIn.random.nextFloat() < 0.45D;
    }
 
    @Override
-   public void advanceTree(ServerWorld world, BlockPos pos, BlockState state, Random rand)
+   public void advanceTree(ServerLevel world, BlockPos pos, BlockState state, Random rand)
    {
       this.performBonemeal(world, rand, pos, state);
    }
    
    @Override
-   public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos)
+   public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos)
    {
        Block ground = worldIn.getBlockState(pos.below()).getBlock();
 
@@ -108,7 +114,7 @@ public class SaplingBlockBOP extends SaplingBlock implements IGrowable
    }
 
    @Override
-   public void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder)
+   public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder)
    {
       builder.add(STAGE);
    }

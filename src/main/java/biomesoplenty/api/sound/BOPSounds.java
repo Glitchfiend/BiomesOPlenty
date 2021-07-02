@@ -7,7 +7,7 @@
  ******************************************************************************/
 package biomesoplenty.api.sound;
 
-import net.minecraft.util.SoundEvent;
+import net.minecraft.sounds.SoundEvent;
 
 public class BOPSounds
 {

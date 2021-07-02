@@ -8,28 +8,28 @@
 package biomesoplenty.common.world.gen.feature;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.HugeMushroomBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.HugeMushroomBlock;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.gen.feature.BigMushroomFeatureConfig;
-import net.minecraft.world.gen.feature.BigRedMushroomFeature;
+import net.minecraft.core.Direction;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.levelgen.feature.configurations.HugeMushroomFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.HugeRedMushroomFeature;
 
 import java.util.Random;
 
-public class BOPBigRedMushroomFeature extends BigRedMushroomFeature
+public class BOPBigRedMushroomFeature extends HugeRedMushroomFeature
 {
-    public BOPBigRedMushroomFeature(Codec<BigMushroomFeatureConfig> deserializer)
+    public BOPBigRedMushroomFeature(Codec<HugeMushroomFeatureConfiguration> deserializer)
     {
         super(deserializer);
     }
 
     @Override
-    protected void placeTrunk(IWorld world, Random random, BlockPos pos, BigMushroomFeatureConfig config, int height, BlockPos.Mutable mutablePos)
+    protected void placeTrunk(LevelAccessor world, Random random, BlockPos pos, HugeMushroomFeatureConfiguration config, int height, BlockPos.MutableBlockPos mutablePos)
     {
         for (int i = 0; i < height; ++i)
         {
@@ -43,7 +43,7 @@ public class BOPBigRedMushroomFeature extends BigRedMushroomFeature
     }
 
     @Override
-    protected void makeCap(IWorld world, Random random, BlockPos pos, int height, BlockPos.Mutable mutablePos, BigMushroomFeatureConfig config)
+    protected void makeCap(LevelAccessor world, Random random, BlockPos pos, int height, BlockPos.MutableBlockPos mutablePos, HugeMushroomFeatureConfiguration config)
     {
         for (int y = height - 3; y <= height; ++y)
         {
@@ -75,7 +75,7 @@ public class BOPBigRedMushroomFeature extends BigRedMushroomFeature
     }
 
     @Override
-    protected boolean isValidPosition(IWorld world, BlockPos pos, int height, BlockPos.Mutable mutablePos, BigMushroomFeatureConfig config)
+    protected boolean isValidPosition(LevelAccessor world, BlockPos pos, int height, BlockPos.MutableBlockPos mutablePos, HugeMushroomFeatureConfiguration config)
     {
         int i = pos.getY();
         if (i >= 1 && i + height + 1 < world.getMaxBuildHeight())

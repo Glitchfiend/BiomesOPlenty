@@ -9,20 +9,20 @@ package biomesoplenty.common.world.layer;
 
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.util.biome.BiomeUtil;
-import net.minecraft.util.RegistryKey;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.INoiseRandom;
-import net.minecraft.world.gen.area.IArea;
-import net.minecraft.world.gen.layer.traits.IAreaTransformer2;
-import net.minecraft.world.gen.layer.traits.IDimOffset1Transformer;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.newbiome.context.Context;
+import net.minecraft.world.level.newbiome.area.Area;
+import net.minecraft.world.level.newbiome.layer.traits.AreaTransformer2;
+import net.minecraft.world.level.newbiome.layer.traits.DimensionOffset1Transformer;
 
-public enum LargeIslandLayer implements IAreaTransformer2, IDimOffset1Transformer
+public enum LargeIslandLayer implements AreaTransformer2, DimensionOffset1Transformer
 {
     INSTANCE;
 
     @Override
-    public int applyPixel(INoiseRandom context, IArea landSeaArea, IArea climateArea, int x, int z)
+    public int applyPixel(Context context, Area landSeaArea, Area climateArea, int x, int z)
     {
         int centerVal = landSeaArea.get(x + 1, z + 1);
 
@@ -50,7 +50,7 @@ public enum LargeIslandLayer implements IAreaTransformer2, IDimOffset1Transforme
 
             if (centerVal == 0 && northVal == 0 && eastVal == 0 && southVal == 0 && westVal == 0)
             {
-                RegistryKey<Biome> islandBiome = climate.getRandomIslandBiome(context, null);
+                ResourceKey<Biome> islandBiome = climate.getRandomIslandBiome(context, null);
 
                 if (islandBiome == null)
                 {

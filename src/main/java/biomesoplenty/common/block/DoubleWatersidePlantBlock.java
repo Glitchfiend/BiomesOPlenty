@@ -7,16 +7,16 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.state.properties.DoubleBlockHalf;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.IWorldReader;
+import net.minecraft.core.Direction;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelReader;
 import net.minecraftforge.common.PlantType;
 
 import java.util.Iterator;
@@ -29,13 +29,13 @@ public class DoubleWatersidePlantBlock extends DoublePlantBlockBOP
     }
     
     @Override
-    public PlantType getPlantType(IBlockReader world, BlockPos pos)
+    public PlantType getPlantType(BlockGetter world, BlockPos pos)
     {
     	return PlantType.BEACH;
     }
 
     @Override
-    public boolean canSurvive(BlockState state, IWorldReader worldReader, BlockPos pos)
+    public boolean canSurvive(BlockState state, LevelReader worldReader, BlockPos pos)
     {
         if (state.getBlock() != this) return super.canSurvive(state, worldReader, pos);
         if (state.getValue(HALF) != DoubleBlockHalf.UPPER)

@@ -16,20 +16,20 @@ import biomesoplenty.init.ModBiomes;
 import com.google.common.collect.Lists;
 import it.unimi.dsi.fastutil.ints.Int2IntMap;
 import it.unimi.dsi.fastutil.ints.Int2IntOpenHashMap;
-import net.minecraft.util.Util;
+import net.minecraft.Util;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.gen.INoiseRandom;
-import net.minecraft.world.gen.area.IArea;
-import net.minecraft.world.gen.layer.LayerUtil;
-import net.minecraft.world.gen.layer.traits.IAreaTransformer2;
-import net.minecraft.world.gen.layer.traits.IDimOffset1Transformer;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biomes;
+import net.minecraft.world.level.newbiome.context.Context;
+import net.minecraft.world.level.newbiome.area.Area;
+import net.minecraft.world.level.newbiome.layer.Layers;
+import net.minecraft.world.level.newbiome.layer.traits.AreaTransformer2;
+import net.minecraft.world.level.newbiome.layer.traits.DimensionOffset1Transformer;
 
 import java.util.Iterator;
 import java.util.List;
 
-public enum SubBiomeLayer implements IAreaTransformer2, IDimOffset1Transformer
+public enum SubBiomeLayer implements AreaTransformer2, DimensionOffset1Transformer
 {
     INSTANCE;
 
@@ -85,7 +85,7 @@ public enum SubBiomeLayer implements IAreaTransformer2, IDimOffset1Transformer
     });
 
     @Override
-    public int applyPixel(INoiseRandom context, IArea biomeArea, IArea riverAndSubBiomesInitArea, int x, int z)
+    public int applyPixel(Context context, Area biomeArea, Area riverAndSubBiomesInitArea, int x, int z)
     {
         int biomeId = biomeArea.get(this.getParentX(x + 1), this.getParentY(z + 1));
         int initVal = riverAndSubBiomesInitArea.get(this.getParentX(x + 1), this.getParentY(z + 1));
@@ -117,13 +117,13 @@ public enum SubBiomeLayer implements IAreaTransformer2, IDimOffset1Transformer
             if (mutatedBiomeId != biomeId)
             {
                 int surroundingSimilarCount = 0;
-                if (LayerUtil.isSame(biomeArea.get(x + 1, z + 0), biomeId))
+                if (Layers.isSame(biomeArea.get(x + 1, z + 0), biomeId))
                     ++surroundingSimilarCount;
-                if (LayerUtil.isSame(biomeArea.get(x + 2, z + 1), biomeId))
+                if (Layers.isSame(biomeArea.get(x + 2, z + 1), biomeId))
                     ++surroundingSimilarCount;
-                if (LayerUtil.isSame(biomeArea.get(x + 0, z + 1), biomeId))
+                if (Layers.isSame(biomeArea.get(x + 0, z + 1), biomeId))
                     ++surroundingSimilarCount;
-                if (LayerUtil.isSame(biomeArea.get(x + 1, z + 2), biomeId))
+                if (Layers.isSame(biomeArea.get(x + 1, z + 2), biomeId))
                     ++surroundingSimilarCount;
 
                 if (surroundingSimilarCount >= 3)
@@ -134,7 +134,7 @@ public enum SubBiomeLayer implements IAreaTransformer2, IDimOffset1Transformer
         return biomeId;
     }
 
-    public int getCommonSubBiomeId(INoiseRandom context, int originalBiomeId)
+    public int getCommonSubBiomeId(Context context, int originalBiomeId)
     {
         float rarity = (float)context.nextRandom(100) / 100.0f;
         List<BOPClimates.WeightedBiomeEntry> weightedBiomeEntryList = Lists.newArrayList();
@@ -168,7 +168,7 @@ public enum SubBiomeLayer implements IAreaTransformer2, IDimOffset1Transformer
         return selectedBiomeId;
     }
 
-    public int getRareSubBiomeId(INoiseRandom context, int originalBiomeId)
+    public int getRareSubBiomeId(Context context, int originalBiomeId)
     {
         int mutatedBiomeId = originalBiomeId;
         if (originalBiomeId == DESERT) mutatedBiomeId = DESERT_HILLS;
@@ -191,7 +191,7 @@ public enum SubBiomeLayer implements IAreaTransformer2, IDimOffset1Transformer
         else if (originalBiomeId == BOPLayerUtil.FROZEN_OCEAN) mutatedBiomeId = BOPLayerUtil.DEEP_FROZEN_OCEAN;
         else if (originalBiomeId == MOUNTAINS) mutatedBiomeId = WOODED_MOUNTAINS;
         else if (originalBiomeId == SAVANNA) mutatedBiomeId = SAVANA_PLATEAU;
-        else if (LayerUtil.isSame(originalBiomeId, WOODED_BADLANDS_PLATEAU)) mutatedBiomeId = BADLANDS;
+        else if (Layers.isSame(originalBiomeId, WOODED_BADLANDS_PLATEAU)) mutatedBiomeId = BADLANDS;
         /*else if ((originalBiomeId == BOPLayerUtil.DEEP_OCEAN || originalBiomeId == BOPLayerUtil.DEEP_LUKEWARM_OCEAN || originalBiomeId == BOPLayerUtil.DEEP_COLD_OCEAN || originalBiomeId == BOPLayerUtil.DEEP_FROZEN_OCEAN) && context.random(3) == 0)
         {
             mutatedBiomeId = context.random(2) == 0 ? PLAINS : FOREST;

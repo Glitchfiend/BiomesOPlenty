@@ -10,16 +10,16 @@ package biomesoplenty.common.world.gen.surfacebuilders;
 import biomesoplenty.api.block.BOPBlocks;
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
-import net.minecraft.block.BlockState;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-import net.minecraft.world.gen.surfacebuilders.ValleySurfaceBuilder;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderBaseConfiguration;
+import net.minecraft.world.level.levelgen.surfacebuilders.NetherCappedSurfaceBuilder;
 
-public class FleshSurfaceBuilder extends ValleySurfaceBuilder {
+public class FleshSurfaceBuilder extends NetherCappedSurfaceBuilder {
 	private static final BlockState FLESH = BOPBlocks.flesh.defaultBlockState();
 	private static final ImmutableList<BlockState> BLOCK_STATES = ImmutableList.of(FLESH);
 
-	public FleshSurfaceBuilder(Codec<SurfaceBuilderConfig> p_i232135_1_) {
+	public FleshSurfaceBuilder(Codec<SurfaceBuilderBaseConfiguration> p_i232135_1_) {
 		super(p_i232135_1_);
 	}
 

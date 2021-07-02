@@ -7,9 +7,9 @@
  ******************************************************************************/
 package biomesoplenty.common.world.layer.traits;
 
-import net.minecraft.world.gen.IExtendedNoiseRandom;
-import net.minecraft.world.gen.area.IArea;
-import net.minecraft.world.gen.area.IAreaFactory;
+import net.minecraft.world.level.newbiome.context.BigContext;
+import net.minecraft.world.level.newbiome.area.Area;
+import net.minecraft.world.level.newbiome.area.AreaFactory;
 
 /***
  * An area transformer that takes 0 existing AreaDimensions. Classes implementing
@@ -17,7 +17,7 @@ import net.minecraft.world.gen.area.IAreaFactory;
  */
 public interface IBOPAreaTransformer0
 {
-    default <R extends IArea> IAreaFactory<R> run(IExtendedNoiseRandom<R> context)
+    default <R extends Area> AreaFactory<R> run(BigContext<R> context)
     {
         if (!(context instanceof IBOPContextExtended))
             throw new IllegalArgumentException("Context must be an IBOPContextExtended");
