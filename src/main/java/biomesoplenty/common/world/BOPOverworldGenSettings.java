@@ -79,24 +79,20 @@ public class BOPOverworldGenSettings
 
     public int getBiomeSize()
     {
-//        return ModConfig.GenerationConfig.biomeSize.get().value;
-        return 4;
+        return ModConfig.GenerationConfig.biomeSize.get().value;
     }
     public int getRiverSize()
     {
-//        return ModConfig.GenerationConfig.riverSize.get().value;
-        return 4;
+        return ModConfig.GenerationConfig.riverSize.get().value;
     }
 
     public TemperatureVariationScheme getTempScheme()
     {
-//        return ModConfig.GenerationConfig.temperatureVariationScheme.get();
-        return TemperatureVariationScheme.MEDIUM_ZONES;
+        return ModConfig.GenerationConfig.temperatureVariationScheme.get();
     }
 
     public RainfallVariationScheme getRainScheme()
     {
-//        return ModConfig.GenerationConfig.rainfallVariationScheme.get();
-        return RainfallVariationScheme.MEDIUM_ZONES;
+        return ModConfig.GenerationConfig.rainfallVariationScheme.get();
     }
 }
