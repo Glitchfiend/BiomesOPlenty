@@ -30,6 +30,8 @@ public class ModItems
         MUD_BALL = registerItem(new Item(new Item.Properties().tab(CreativeModeTabBOP.INSTANCE)), "mud_ball");
         MUD_BRICK = registerItem(new Item(new Item.Properties().tab(CreativeModeTabBOP.INSTANCE)), "mud_brick");
 
+        ROSE_QUARTZ_SHARD = registerItem(new Item(new Item.Properties().tab(CreativeModeTabBOP.INSTANCE)), "rose_quartz_shard");
+
         MUSIC_DISC_WANDERER = registerItem(new MusicDiscItemBOP("music_disc.wanderer"), "music_disc_wanderer");
 
         FIR_BOAT = registerItem(new BoatItem(Boat.Type.OAK, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "fir_boat");

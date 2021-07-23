@@ -13,6 +13,8 @@ public class BOPItems
     public static Item MUD_BALL;
     public static Item MUD_BRICK;
 
+    public static Item ROSE_QUARTZ_SHARD;
+
     public static Item FIR_BOAT;
     public static Item REDWOOD_BOAT;
     public static Item CHERRY_BOAT;

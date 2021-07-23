@@ -34,7 +34,7 @@ public class BOPSurfaceBuilders
     public static final SurfaceBuilderBaseConfiguration ORIGIN_GRASS_SURFACE = new SurfaceBuilderBaseConfiguration(BOPBlocks.ORIGIN_GRASS_BLOCK.defaultBlockState(), Blocks.DIRT.defaultBlockState(), Blocks.GRAVEL.defaultBlockState());
     public static final SurfaceBuilderBaseConfiguration BASIN_SURFACE = new SurfaceBuilderBaseConfiguration(Blocks.AIR.defaultBlockState(), Blocks.STONE.defaultBlockState(), Blocks.GRAVEL.defaultBlockState());
     public static final SurfaceBuilderBaseConfiguration GRAVEL_BEACH_SURFACE = new SurfaceBuilderBaseConfiguration(Blocks.AIR.defaultBlockState(), Blocks.GRAVEL.defaultBlockState(), Blocks.GRAVEL.defaultBlockState());
-    public static final SurfaceBuilderBaseConfiguration POWDER_SNOW_SURFACE = new SurfaceBuilderBaseConfiguration(Blocks.POWDER_SNOW.defaultBlockState(), Blocks.POWDER_SNOW.defaultBlockState(), Blocks.GRAVEL.defaultBlockState());
+    public static final SurfaceBuilderBaseConfiguration POWDER_SNOW_SURFACE = new SurfaceBuilderBaseConfiguration(Blocks.POWDER_SNOW.defaultBlockState(), Blocks.SNOW_BLOCK.defaultBlockState(), Blocks.GRAVEL.defaultBlockState());
 
     public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> DRYLAND = register("dryland", new DrylandSurfaceBuilder(SurfaceBuilderBaseConfiguration.CODEC.stable()));
     public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> HIGHLAND_CRAG = register("highland_crag", new HighlandCragSurfaceBuilder(SurfaceBuilderBaseConfiguration.CODEC.stable()));
