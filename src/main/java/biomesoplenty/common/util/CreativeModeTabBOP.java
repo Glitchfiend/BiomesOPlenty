@@ -11,21 +11,23 @@ import net.minecraft.world.item.ItemStack;
 
 public class CreativeModeTabBOP extends CreativeModeTab
 {
-    public static final CreativeModeTab INSTANCE;
-
-    public CreativeModeTabBOP(int i, String label)
+    public static final CreativeModeTab INSTANCE = new CreativeModeTab(CreativeModeTab.TABS.length, "biomesoplenty")
     {
-        super(i, label);
+        @Override
+        public ItemStack makeIcon()
+        {
+            return new ItemStack(BOPItems.BOP_ICON);
+        }
+    };
+
+    private CreativeModeTabBOP(int index, String label)
+    {
+        super(index, label);
     }
 
     @Override
     public ItemStack makeIcon()
     {
         return new ItemStack(BOPItems.BOP_ICON);
-    }
-
-    static
-    {
-        INSTANCE = new CreativeModeTabBOP(CreativeModeTab.TABS.length - 1, BiomesOPlenty.MOD_ID);
     }
 }

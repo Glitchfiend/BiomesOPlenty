@@ -21,6 +21,7 @@ import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.commons.lang3.tuple.Pair;
 
 import javax.annotation.Nullable;
@@ -385,8 +386,8 @@ public class BiomeRegistry
                 return;
             }
 
-//            biome.setRegistryName(new ResourceLocation(BiomesOPlenty.MOD_ID, name));
-//            ForgeRegistries.BIOMES.register(biome);
+            biome.setRegistryName(new ResourceLocation(BiomesOPlenty.MOD_ID, name));
+            ForgeRegistries.BIOMES.register(biome);
             BuiltinRegistries.register(BuiltinRegistries.BIOME, new ResourceLocation(BiomesOPlenty.MOD_ID, name), biome);
 
             for (Map.Entry<BOPClimates, Integer> entry : data.getWeights().entrySet())
@@ -415,8 +416,8 @@ public class BiomeRegistry
                 return;
             }
 
-//            biome.setRegistryName(new ResourceLocation(BiomesOPlenty.MOD_ID, name));
-//            ForgeRegistries.BIOMES.register(biome);
+            biome.setRegistryName(new ResourceLocation(BiomesOPlenty.MOD_ID, name));
+            ForgeRegistries.BIOMES.register(biome);
             BuiltinRegistries.register(BuiltinRegistries.BIOME, new ResourceLocation(BiomesOPlenty.MOD_ID, name), biome);
 
             if (data.getMetadata() != null)
