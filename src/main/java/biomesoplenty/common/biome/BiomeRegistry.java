@@ -388,7 +388,6 @@ public class BiomeRegistry
 
             biome.setRegistryName(new ResourceLocation(BiomesOPlenty.MOD_ID, name));
             ForgeRegistries.BIOMES.register(biome);
-            BuiltinRegistries.register(BuiltinRegistries.BIOME, new ResourceLocation(BiomesOPlenty.MOD_ID, name), biome);
 
             for (Map.Entry<BOPClimates, Integer> entry : data.getWeights().entrySet())
             {
@@ -418,7 +417,6 @@ public class BiomeRegistry
 
             biome.setRegistryName(new ResourceLocation(BiomesOPlenty.MOD_ID, name));
             ForgeRegistries.BIOMES.register(biome);
-            BuiltinRegistries.register(BuiltinRegistries.BIOME, new ResourceLocation(BiomesOPlenty.MOD_ID, name), biome);
 
             if (data.getMetadata() != null)
             {

@@ -25,6 +25,7 @@ import net.minecraft.world.level.levelgen.feature.blockplacers.SimpleBlockPlacer
 import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class BOPFeatures
 {
@@ -175,7 +176,8 @@ public class BOPFeatures
 
 	private static <C extends FeatureConfiguration, F extends Feature<C>> F register(String key, F value)
 	{
-		Registry.register(Registry.FEATURE, new ResourceLocation(BiomesOPlenty.MOD_ID, key), value);
+		value.setRegistryName(new ResourceLocation(BiomesOPlenty.MOD_ID, key));
+		ForgeRegistries.FEATURES.register(value);
 		return value;
 	}
 }

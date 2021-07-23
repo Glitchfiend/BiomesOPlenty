@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderBaseConfiguration;
 import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderConfiguration;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class BOPSurfaceBuilders
 {
@@ -54,9 +55,10 @@ public class BOPSurfaceBuilders
     public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> BLACK_SAND = register("black_sand", new BlackSandSurfaceBuilder(SurfaceBuilderBaseConfiguration.CODEC.stable()));
     public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> COLD_DESERT = register("cold_desert", new ColdDesertSurfaceBuilder(SurfaceBuilderBaseConfiguration.CODEC.stable()));
 
-    private static <C extends SurfaceBuilderConfiguration, F extends SurfaceBuilder<C>> F register(String key, F builder)
+    private static <C extends SurfaceBuilderBaseConfiguration, F extends SurfaceBuilder<C>> F register(String key, F builder)
     {
-        Registry.register(Registry.SURFACE_BUILDER, new ResourceLocation(BiomesOPlenty.MOD_ID, key), builder);
+        builder.setRegistryName(new ResourceLocation(BiomesOPlenty.MOD_ID, key));
+        ForgeRegistries.SURFACE_BUILDERS.register(builder);
         return builder;
     }
 }

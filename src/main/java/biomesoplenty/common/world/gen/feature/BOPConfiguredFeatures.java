@@ -258,8 +258,7 @@ public class BOPConfiguredFeatures
     public static final ConfiguredFeature<?, ?> LARGE_FERN_14 = register("large_fern_14", Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfigurationDouble(Blocks.LARGE_FERN.defaultBlockState())).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE.count(14)));
     public static final ConfiguredFeature<?, ?> LARGE_FERN_25 = register("large_fern_25", Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfigurationDouble(Blocks.LARGE_FERN.defaultBlockState())).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE.count(25)));
 
-    public static final ConfiguredFeature<SimpleBlockConfiguration, ?> MOSS_FOREST = register("moss_forest", Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(new WeightedStateProvider(weightedBlockStateBuilder().add(Blocks.MOSS_CARPET.defaultBlockState(), 25).add(Blocks.GRASS.defaultBlockState(), 50).add(Blocks.TALL_GRASS.defaultBlockState(), 10)))));
-    public static final ConfiguredFeature<VegetationPatchConfiguration, ?> MOSS_PATCH_FOREST = register("moss_patch_forest", Feature.VEGETATION_PATCH.configured(new VegetationPatchConfiguration(BlockTags.MOSS_REPLACEABLE.getName(), new SimpleStateProvider(Blocks.MOSS_BLOCK.defaultBlockState()), () -> { return MOSS_FOREST; }, CaveSurface.FLOOR, ConstantInt.of(1), 0.0F, 5, 0.8F, UniformInt.of(4, 7), 0.3F)));
+    public static final ConfiguredFeature<?, ?> DRIPLEAVES = register("dripleaves", Features.DRIPLEAF.decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE.count(25)));
 
     /////////////////////////////////////////////////////////////////////
 

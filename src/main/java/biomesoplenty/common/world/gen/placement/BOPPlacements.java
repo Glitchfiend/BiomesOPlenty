@@ -14,6 +14,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.feature.configurations.DecoratorConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneDecoratorConfiguration;
 import net.minecraft.world.level.levelgen.placement.FeatureDecorator;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class BOPPlacements
 {
@@ -22,7 +23,8 @@ public class BOPPlacements
 
     private static <T extends DecoratorConfiguration, G extends FeatureDecorator<T>> G register(String key, G placement)
     {
-        Registry.register(Registry.DECORATOR, new ResourceLocation(BiomesOPlenty.MOD_ID, key), placement);
+        placement.setRegistryName(new ResourceLocation(BiomesOPlenty.MOD_ID, key));
+        ForgeRegistries.DECORATORS.register(placement);
         return placement;
     }
 }

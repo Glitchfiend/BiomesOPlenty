@@ -33,6 +33,9 @@ import net.minecraft.world.level.ColorResolver;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -44,6 +47,7 @@ import java.util.Map;
 
 import static biomesoplenty.api.biome.BOPBiomes.*;
 
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModBiomes
 {
     public static BOPWorldType bopWorldType = new BOPWorldType();
@@ -120,7 +124,8 @@ public class ModBiomes
         Registry.register(Registry.BIOME_SOURCE, "biomesoplenty_nether", BOPNetherBiomeProvider.CODEC);
     }
 
-    public static void registerBiomes()
+    @SubscribeEvent
+    public static void registerBiomes(RegistryEvent.Register<Biome> event)
     {
         //Technical Biomes (Need to be registered before main biomes that use them)
         registerTechnicalBiome(new GravelBeachBiome(), "gravel_beach");

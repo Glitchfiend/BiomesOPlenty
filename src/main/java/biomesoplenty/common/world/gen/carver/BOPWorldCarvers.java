@@ -14,6 +14,7 @@ import net.minecraft.world.level.levelgen.carver.CarverConfiguration;
 import net.minecraft.world.level.levelgen.carver.CaveCarverConfiguration;
 import net.minecraft.world.level.levelgen.carver.WorldCarver;
 import net.minecraft.world.level.levelgen.feature.configurations.ProbabilityFeatureConfiguration;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class BOPWorldCarvers
 {
@@ -22,7 +23,8 @@ public class BOPWorldCarvers
 
     private static <C extends CarverConfiguration, F extends WorldCarver<C>> F register(String key, F carver)
     {
-        Registry.register(Registry.CARVER, new ResourceLocation(BiomesOPlenty.MOD_ID, key), carver);
+        carver.setRegistryName(new ResourceLocation(BiomesOPlenty.MOD_ID, key));
+        ForgeRegistries.WORLD_CARVERS.register(carver);
         return carver;
     }
 }
