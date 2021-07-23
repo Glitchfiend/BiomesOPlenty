@@ -10,10 +10,13 @@ package biomesoplenty.common.block;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.world.gen.feature.BOPFeatures;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.MushroomBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -22,7 +25,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 
 import java.util.Random;
 
-public class MushroomBlockBOP extends MushroomBlock //TODO: implements IGrowable
+public class MushroomBlockBOP extends MushroomBlock implements BonemealableBlock
 {
     public MushroomBlockBOP(Block.Properties properties)
     {
@@ -34,15 +37,14 @@ public class MushroomBlockBOP extends MushroomBlock //TODO: implements IGrowable
     {
     }
 
-// TODO:
-//    @Override
-//    public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos)
-//    {
-//        Block ground = worldIn.getBlockState(pos.below()).getBlock();
-//        BlockState BlockState = worldIn.getBlockState(pos.below());
-//
-//        return BlockState.canSustainPlant(worldIn, pos.below(), net.minecraft.util.Direction.UP, this);
-//    }
+    @Override
+    public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos)
+    {
+        Block ground = worldIn.getBlockState(pos.below()).getBlock();
+        BlockState BlockState = worldIn.getBlockState(pos.below());
+
+        return BlockState.canSustainPlant(worldIn, pos.below(), Direction.UP, this);
+    }
 
     @Override
     public boolean growMushroom(ServerLevel world, BlockPos p_226940_2_, BlockState p_226940_3_, Random p_226940_4_)
@@ -88,9 +90,5 @@ public class MushroomBlockBOP extends MushroomBlock //TODO: implements IGrowable
     @Override
     public void performBonemeal(ServerLevel p_225535_1_, Random p_225535_2_, BlockPos p_225535_3_, BlockState p_225535_4_) {
         this.growMushroom(p_225535_1_, p_225535_3_, p_225535_4_, p_225535_2_);
-    }
-
-    public boolean hasPostProcess(BlockState state, BlockGetter worldIn, BlockPos pos) {
-        return true;
     }
 }

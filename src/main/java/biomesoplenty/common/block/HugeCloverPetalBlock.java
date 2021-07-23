@@ -19,11 +19,12 @@ import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.common.IPlantable;
+import net.minecraftforge.common.PlantType;
 
-public class HugeCloverPetalBlock extends HorizontalDirectionalBlock // TODO: implements IPlantable
+public class HugeCloverPetalBlock extends HorizontalDirectionalBlock implements IPlantable
 {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final VoxelShape SHAPE = Block.box(0.0D, 13.0D, 0.0D, 16.0D, 15.0D, 16.0D);
@@ -54,26 +55,26 @@ public class HugeCloverPetalBlock extends HorizontalDirectionalBlock // TODO: im
     }
 
     @Override
-    public boolean canSurvive(BlockState p_196260_1_, LevelReader p_196260_2_, BlockPos p_196260_3_) {
+    public boolean canSurvive(BlockState p_196260_1_, LevelReader p_196260_2_, BlockPos p_196260_3_)
+    {
         BlockPos blockpos = p_196260_3_.below();
         if (p_196260_1_.getBlock() == this) //Forge: This function is called during world gen and placement, before this block is set, so if we are not 'here' then assume it's the pre-check.
-//            return p_196260_2_.getBlockState(blockpos).canSustainPlant(p_196260_2_, blockpos, Direction.UP, this);
-            return this.mayPlaceOn(p_196260_2_.getBlockState(blockpos), p_196260_2_, blockpos);
+            return p_196260_2_.getBlockState(blockpos).canSustainPlant(p_196260_2_, blockpos, Direction.UP, this);
         return this.mayPlaceOn(p_196260_2_.getBlockState(blockpos), p_196260_2_, blockpos);
     }
 
-//    @Override
-//    public PlantType getPlantType(BlockGetter world, BlockPos pos)
-//    {
-//        return PlantType.PLAINS;
-//    }
+    @Override
+    public PlantType getPlantType(BlockGetter world, BlockPos pos)
+    {
+        return PlantType.PLAINS;
+    }
 
-//    @Override
-//    public BlockState getPlant(BlockGetter world, BlockPos pos) {
-//        BlockState state = world.getBlockState(pos);
-//        if (state.getBlock() != this) return defaultBlockState();
-//        return state;
-//    }
+    @Override
+    public BlockState getPlant(BlockGetter world, BlockPos pos) {
+        BlockState state = world.getBlockState(pos);
+        if (state.getBlock() != this) return defaultBlockState();
+        return state;
+    }
 
     public BlockState getStateForPlacement(BlockPlaceContext p_196258_1_) {
         return this.defaultBlockState().setValue(FACING, p_196258_1_.getHorizontalDirection());
