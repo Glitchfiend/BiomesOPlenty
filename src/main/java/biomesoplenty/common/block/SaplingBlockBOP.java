@@ -100,7 +100,7 @@ public class SaplingBlockBOP extends SaplingBlock implements BonemealableBlock
 
        if (this == BOPBlocks.PALM_SAPLING)
        {
-           return ground == BOPBlocks.WHITE_SAND || ground == BOPBlocks.ORANGE_SAND || ground == BOPBlocks.BLACK_SAND || ground == Blocks.RED_SAND || ground == Blocks.SAND || super.canSurvive(state, worldIn, pos);
+           return ground == BOPBlocks.WHITE_SAND || ground == BOPBlocks.ORANGE_SAND || ground == BOPBlocks.BLACK_SAND || ground == BOPBlocks.ROOTED_SAND || ground == Blocks.RED_SAND || ground == Blocks.SAND || super.canSurvive(state, worldIn, pos);
        }
        if (this == BOPBlocks.HELLBARK_SAPLING)
        {

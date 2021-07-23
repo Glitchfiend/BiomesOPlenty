@@ -86,11 +86,11 @@ public class FoliageBlockBOP extends BushBlock implements BonemealableBlock, IPl
         }
         if (this == BOPBlocks.DUNE_GRASS)
         {
-            return ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.WHITE_SAND || ground == BOPBlocks.ORANGE_SAND || ground == BOPBlocks.BLACK_SAND;
+            return ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.WHITE_SAND || ground == BOPBlocks.ORANGE_SAND || ground == BOPBlocks.BLACK_SAND || ground == BOPBlocks.ROOTED_SAND;
         }
         if (this == BOPBlocks.DESERT_GRASS || this == BOPBlocks.DEAD_GRASS)
         {
-            return ground == BOPBlocks.DRIED_SALT || ground == Blocks.GRAVEL || ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.WHITE_SAND || ground == BOPBlocks.ORANGE_SAND || ground == BOPBlocks.BLACK_SAND || ground == Blocks.NETHERRACK || super.canSurvive(state, worldIn, pos);
+            return ground == BOPBlocks.DRIED_SALT || ground == Blocks.GRAVEL || ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.WHITE_SAND || ground == BOPBlocks.ORANGE_SAND || ground == BOPBlocks.BLACK_SAND || ground == BOPBlocks.ROOTED_SAND || ground == Blocks.NETHERRACK || super.canSurvive(state, worldIn, pos);
         }
 
         return super.canSurvive(state, worldIn, pos);

@@ -80,6 +80,7 @@ public class ModBlocks
         MUD_BRICK_WALL = registerBlock(new WallBlock(Block.Properties.copy(MUD_BRICKS)),"mud_brick_wall");
 
         ORIGIN_GRASS_BLOCK = registerBlock(new GrassBlock(BlockBehaviour.Properties.of(Material.GRASS).randomTicks().strength(0.6F).sound(SoundType.GRASS)), "origin_grass_block");
+        ROOTED_SAND = registerBlock(new RootedSandBlock(BlockBehaviour.Properties.of(Material.SAND, MaterialColor.SAND).strength(0.7F).sound(SoundType.SAND)), "rooted_sand");
         DRIED_SALT = registerBlock(new DriedSaltBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.WOOD).strength(1.0F).sound(new SoundType(1.0F, 0.5F, SoundEvents.GRAVEL_BREAK, SoundEvents.GRAVEL_STEP, SoundEvents.GRAVEL_PLACE, SoundEvents.GRAVEL_HIT, SoundEvents.GRAVEL_FALL))), "dried_salt");
         FLESH = registerBlock(new FleshBlock(BlockBehaviour.Properties.of(Material.SPONGE, MaterialColor.TERRACOTTA_RED).strength(0.4F).sound(new SoundType(1.0F, 0.5F, SoundEvents.CORAL_BLOCK_BREAK, SoundEvents.CORAL_BLOCK_STEP, SoundEvents.CORAL_BLOCK_PLACE, SoundEvents.CORAL_BLOCK_HIT, SoundEvents.CORAL_BLOCK_FALL))), "flesh");
 
@@ -324,6 +325,7 @@ public class ModBlocks
         //Tall Plants
         CATTAIL = registerBlock(new DoubleWatersidePlantBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.DIRT).noCollission().instabreak().sound(SoundType.GRASS)), "cattail");
         BARLEY = registerBlock(new DoublePlantBlockBOP(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.TERRACOTTA_YELLOW).noCollission().instabreak().sound(SoundType.GRASS)), "barley");
+        SEA_OATS = registerBlock(new SeaOatsBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.SAND).randomTicks().noCollission().instabreak().sound(SoundType.GRASS)), "sea_oats");
         REED = registerBlock(new DoubleWaterPlantBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_WATER_PLANT, MaterialColor.DIRT).noCollission().instabreak().sound(SoundType.GRASS)), "reed");
         WATERGRASS = registerBlock(new DoubleWaterPlantBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_WATER_PLANT).noCollission().instabreak().sound(SoundType.GRASS)), "watergrass");
         MANGROVE_ROOT = registerBlock(new DoubleWaterPlantBlock(BlockBehaviour.Properties.of(Material.WATER_PLANT, MaterialColor.TERRACOTTA_WHITE).noCollission().strength(1.0F, 1.5F).sound(SoundType.WOOD)), "mangrove_root");
@@ -443,6 +445,7 @@ public class ModBlocks
             ItemBlockRenderTypes.setRenderLayer(DEAD_GRASS, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(CATTAIL, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(BARLEY, cutoutRenderType);
+            ItemBlockRenderTypes.setRenderLayer(SEA_OATS, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(REED, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(WATERGRASS, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(MANGROVE_ROOT, cutoutRenderType);

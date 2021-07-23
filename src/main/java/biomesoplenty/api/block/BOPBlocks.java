@@ -47,6 +47,7 @@ public class BOPBlocks
     public static Block MUD_BRICK_STAIRS;
     public static Block MUD_BRICK_WALL;
     public static Block ORIGIN_GRASS_BLOCK;
+    public static Block ROOTED_SAND;
     public static Block DRIED_SALT;
     public static Block FLESH;
     public static Block ROSE_QUARTZ_BLOCK;
@@ -288,6 +289,7 @@ public class BOPBlocks
     public static Block DEAD_GRASS;
     public static Block CATTAIL;
     public static Block BARLEY;
+    public static Block SEA_OATS;
     public static Block REED;
     public static Block WATERGRASS;
     public static Block MANGROVE_ROOT;

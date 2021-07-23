@@ -191,10 +191,10 @@ public enum SubBiomeLayer implements AreaTransformer2, DimensionOffset0Transform
         else if (originalBiomeId == MOUNTAINS) mutatedBiomeId = WOODED_MOUNTAINS;
         else if (originalBiomeId == SAVANNA) mutatedBiomeId = SAVANA_PLATEAU;
         else if (Layers.isSame(originalBiomeId, WOODED_BADLANDS_PLATEAU)) mutatedBiomeId = BADLANDS;
-        /*else if ((originalBiomeId == BOPLayerUtil.DEEP_OCEAN || originalBiomeId == BOPLayerUtil.DEEP_LUKEWARM_OCEAN || originalBiomeId == BOPLayerUtil.DEEP_COLD_OCEAN || originalBiomeId == BOPLayerUtil.DEEP_FROZEN_OCEAN) && context.random(3) == 0)
+        else if ((originalBiomeId == BOPLayerUtil.DEEP_OCEAN || originalBiomeId == BOPLayerUtil.DEEP_LUKEWARM_OCEAN) && context.nextRandom(3) == 0)
         {
-            mutatedBiomeId = context.random(2) == 0 ? PLAINS : FOREST;
-        }*/
+            mutatedBiomeId = (BiomeUtil.exists(BOPBiomes.dunes)) ? BiomeUtil.getBiomeId(BOPBiomes.dunes) : originalBiomeId;
+        }
 
         return mutatedBiomeId;
     }

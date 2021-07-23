@@ -130,6 +130,7 @@ public class ModBiomes
     public static void registerBiomes(RegistryEvent.Register<Biome> event)
     {
         //Technical Biomes (Need to be registered before main biomes that use them)
+        registerTechnicalBiome(new DunesBiome(), "dunes");
         registerTechnicalBiome(new GravelBeachBiome(), "gravel_beach");
         registerTechnicalBiome(new TropicBeachBiome(), "tropic_beach");
         registerTechnicalBiome(new AlpsFoothillsBiome(), "alps_foothills");
@@ -356,6 +357,7 @@ public class ModBiomes
 //        registerBiomeToDictionary(dense_woodland, Type.OVERWORLD, Type.DENSE, Type.FOREST);
 //        registerBiomeToDictionary(dryland, Type.OVERWORLD, Type.HOT, Type.SPARSE, Type.DRY, Type.SAVANNA, Type.SANDY);
 //        registerBiomeToDictionary(dry_boneyard, Type.OVERWORLD, Type.HOT, Type.SPARSE, Type.DRY, Type.SAVANNA, Type.DEAD, Type.SANDY, Type.WASTELAND);
+//        registerBiomeToDictionary(dunes, Type.OVERWORLD, Type.BEACH, Type.LUSH);
 //        registerBiomeToDictionary(fir_clearing, Type.OVERWORLD, Type.SPARSE, Type.CONIFEROUS, Type.FOREST);
 //        registerBiomeToDictionary(flower_meadow, Type.OVERWORLD, Type.SPARSE, Type.CONIFEROUS, Type.LUSH, Type.PLAINS);
 //        registerBiomeToDictionary(fungal_field, Type.OVERWORLD, Type.HOT, Type.WET, Type.JUNGLE, Type.LUSH, Type.MUSHROOM, Type.RARE, Type.PLAINS);
@@ -442,6 +444,7 @@ public class ModBiomes
         registerVillagerType(dense_woodland, VillagerType.PLAINS);
         registerVillagerType(dryland, VillagerType.PLAINS);
         registerVillagerType(dry_boneyard, VillagerType.PLAINS);
+        registerVillagerType(dunes, VillagerType.PLAINS);
         registerVillagerType(fir_clearing, VillagerType.TAIGA);
         registerVillagerType(flower_meadow, VillagerType.TAIGA);
         registerVillagerType(fungal_field, VillagerType.JUNGLE);

@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=lower": { "model": "biomesoplenty:block/sea_oats_bottom" },
+        "half=upper": { "model": "biomesoplenty:block/sea_oats_top" }
+    }
+}

@@ -242,6 +242,7 @@ public class BOPConfiguredFeatures
     public static final ConfiguredFeature<?, ?> CLOVER_250 = register("clover_250", Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.CLOVER.defaultBlockState())).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureUtil.denseCount(250)));
 
     public static final ConfiguredFeature<?, ?> DUNE_GRASS_128 = register("dune_grass_128", Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.DUNE_GRASS.defaultBlockState())).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(128)));
+    public static final ConfiguredFeature<?, ?> DUNE_GRASS_250 = register("dune_grass_250", Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.DUNE_GRASS.defaultBlockState())).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureUtil.denseCount(250)));
 
     public static final ConfiguredFeature<?, ?> DESERT_GRASS_10 = register("desert_grass_10", Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.DESERT_GRASS.defaultBlockState())).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(10)));
     public static final ConfiguredFeature<?, ?> DESERT_GRASS_20 = register("desert_grass_20", Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.DESERT_GRASS.defaultBlockState())).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(20)));
@@ -273,6 +274,7 @@ public class BOPConfiguredFeatures
     public static final ConfiguredFeature<?, ?> GLOWSHROOM_UNCOMMON = register("glowshroom_uncommon", Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.GLOWSHROOM.defaultBlockState())).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(7)));
     public static final ConfiguredFeature<?, ?> GLOWSHROOM_NORMAL = register("glowshroom_normal", Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.GLOWSHROOM.defaultBlockState())).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(20)));
     public static final ConfiguredFeature<?, ?> BARLEY = register("barley", Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfigurationDoubleProjects(BOPBlocks.BARLEY.defaultBlockState())).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(15));
+    public static final ConfiguredFeature<?, ?> SEA_OATS = register("sea_oats", Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfigurationDouble(BOPBlocks.SEA_OATS.defaultBlockState())).decorated(Features.Decorators.HEIGHTMAP_SQUARE.count(20)));
 
     // Water Plants
     public static final ConfiguredFeature<?, ?> REED_5 = register("reed_5", Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfigurationDoubleWater(BOPBlocks.REED.defaultBlockState())).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(5)));
