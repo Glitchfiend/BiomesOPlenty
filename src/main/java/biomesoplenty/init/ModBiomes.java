@@ -24,8 +24,6 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
@@ -34,6 +32,8 @@ import net.minecraft.world.entity.npc.VillagerType;
 import net.minecraft.world.level.ColorResolver;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;
@@ -54,7 +54,7 @@ public class ModBiomes
 
     public static void setup()
     {
-        if (FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT)
+        if (FMLEnvironment.dist == Dist.CLIENT)
         {
             ColorResolver grassColorResolver = BiomeColors.GRASS_COLOR_RESOLVER;
             ColorResolver foliageColorResolver = BiomeColors.FOLIAGE_COLOR_RESOLVER;
