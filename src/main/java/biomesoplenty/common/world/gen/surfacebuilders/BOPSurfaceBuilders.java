@@ -20,7 +20,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class BOPSurfaceBuilders
 {
     public static final SurfaceBuilderBaseConfiguration BLACKSTONE_SURFACE = new SurfaceBuilderBaseConfiguration(Blocks.BLACKSTONE.defaultBlockState(), Blocks.BLACKSTONE.defaultBlockState(), Blocks.BLACKSTONE.defaultBlockState());
-    public static final SurfaceBuilderBaseConfiguration BASALT_SURFACE = new SurfaceBuilderBaseConfiguration(Blocks.BASALT.defaultBlockState(), Blocks.BASALT.defaultBlockState(), Blocks.GRAVEL.defaultBlockState());
+    public static final SurfaceBuilderBaseConfiguration BASALT_SURFACE = new SurfaceBuilderBaseConfiguration(Blocks.SMOOTH_BASALT.defaultBlockState(), Blocks.SMOOTH_BASALT.defaultBlockState(), Blocks.SMOOTH_BASALT.defaultBlockState());
     public static final SurfaceBuilderBaseConfiguration TERRACOTTA_SURFACE = new SurfaceBuilderBaseConfiguration(Blocks.TERRACOTTA.defaultBlockState(), Blocks.TERRACOTTA.defaultBlockState(), Blocks.GRAVEL.defaultBlockState());
     public static final SurfaceBuilderBaseConfiguration CALCITE_SURFACE = new SurfaceBuilderBaseConfiguration(Blocks.CALCITE.defaultBlockState(), Blocks.CALCITE.defaultBlockState(), Blocks.CALCITE.defaultBlockState());
     public static final SurfaceBuilderBaseConfiguration MAGMA_SURFACE = new SurfaceBuilderBaseConfiguration(Blocks.MAGMA_BLOCK.defaultBlockState(), Blocks.MAGMA_BLOCK.defaultBlockState(), Blocks.BASALT.defaultBlockState());

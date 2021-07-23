@@ -47,7 +47,7 @@ public abstract class TreeFeatureBase extends TreeFeature
         public BuilderBase()
         {
             this.placeOn = BOPFeatureUtil::isSoil;
-            this.replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).is(BlockTags.SAPLINGS) || world.getBlockState(pos).getBlock() == Blocks.VINE || world.getBlockState(pos).getBlock() == BOPBlocks.WILLOW_VINE || world.getBlockState(pos).getBlock() == BOPBlocks.DEAD_BRANCH || world.getBlockState(pos).getBlock() instanceof BushBlock;
+            this.replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).is(BlockTags.SAPLINGS) || world.getBlockState(pos).getBlock() == Blocks.VINE || world.getBlockState(pos).getBlock() == BOPBlocks.WILLOW_VINE || world.getBlockState(pos).getBlock() == BOPBlocks.DEAD_BRANCH || world.getBlockState(pos).getBlock() == Blocks.MOSS_CARPET || world.getBlockState(pos).getBlock() instanceof BushBlock;
             this.log = Blocks.OAK_LOG.defaultBlockState();
             this.leaves = Blocks.OAK_LEAVES.defaultBlockState();
             this.vine = Blocks.AIR.defaultBlockState();

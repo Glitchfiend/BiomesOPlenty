@@ -137,6 +137,7 @@ public class BOPFeatures
 	public static final Feature<NoneFeatureConfiguration> HUGE_TOADSTOOL = register("huge_toadstool", new HugeToadstoolFeature(NoneFeatureConfiguration.CODEC.stable()));
 	public static final Feature<NoneFeatureConfiguration> LARGE_CRYSTAL = register("large_crystal", new LargeCrystalFeature(NoneFeatureConfiguration.CODEC.stable()));
 	public static final Feature<NoneFeatureConfiguration> MANGROVE = register("mangrove", new MangroveFeature(NoneFeatureConfiguration.CODEC.stable()));
+	public static final Feature<NoneFeatureConfiguration> MOSS_SPLATTER = register("moss_splatter", new MossSplatterFeature(NoneFeatureConfiguration.CODEC.stable()));
 	public static final Feature<NoneFeatureConfiguration> MYCELIUM_SPLATTER = register("mycelium_splatter", new MyceliumSplatterFeature(NoneFeatureConfiguration.CODEC.stable()));
 	public static final Feature<NoneFeatureConfiguration> NETHER_VINES = register("nether_vines", new NetherVinesFeature(NoneFeatureConfiguration.CODEC.stable()));
 	public static final Feature<NoneFeatureConfiguration> OBSIDIAN_SPLATTER = register("obsidian_splatter", new ObsidianSplatterFeature(NoneFeatureConfiguration.CODEC.stable()));
