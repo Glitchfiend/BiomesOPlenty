@@ -13,6 +13,7 @@ import biomesoplenty.common.world.biome.BiomeFeatureHelper;
 import biomesoplenty.common.world.gen.placement.BOPPlacements;
 import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.collect.ImmutableList;
+import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.data.worldgen.Features;
@@ -22,6 +23,7 @@ import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SmallDripleafBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -258,8 +260,6 @@ public class BOPConfiguredFeatures
     public static final ConfiguredFeature<?, ?> LARGE_FERN_14 = register("large_fern_14", Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfigurationDouble(Blocks.LARGE_FERN.defaultBlockState())).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE.count(14)));
     public static final ConfiguredFeature<?, ?> LARGE_FERN_25 = register("large_fern_25", Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfigurationDouble(Blocks.LARGE_FERN.defaultBlockState())).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE.count(25)));
 
-    public static final ConfiguredFeature<?, ?> DRIPLEAVES = register("dripleaves", Features.DRIPLEAF.decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE.count(25)));
-
     /////////////////////////////////////////////////////////////////////
 
     // Plants
@@ -320,7 +320,7 @@ public class BOPConfiguredFeatures
     public static final ConfiguredFeature<?, ?> BRAMBLE_EXTRA = register("bramble_extra", BOPFeatures.BRAMBLE.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(10)));
     public static final ConfiguredFeature<?, ?> CRAG_SPLATTER = register("crag_splatter", BOPFeatures.CRAG_SPLATTER.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.decorated(FeatureUtil.denseCount(300))));
     public static final ConfiguredFeature<?, ?> DEEP_BAYOU_VINES = register("deep_bayou_vines", BOPFeatures.DEEP_BAYOU_VINES.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(128));
-    public static final ConfiguredFeature<?, ?> DIORITE_DISK = register("diorite_disk", Feature.DISK.configured(new DiskConfiguration(Blocks.DIORITE.defaultBlockState(), UniformInt.of(3, 7), 2, ImmutableList.of(Blocks.DIRT.defaultBlockState(), Blocks.GRASS_BLOCK.defaultBlockState(), Blocks.PODZOL.defaultBlockState(), Blocks.SAND.defaultBlockState(), Blocks.GRAVEL.defaultBlockState(), Blocks.GRANITE.defaultBlockState(), Blocks.ANDESITE.defaultBlockState(), Blocks.DIORITE.defaultBlockState(), Blocks.COAL_ORE.defaultBlockState(), Blocks.IRON_ORE.defaultBlockState(), Blocks.STONE.defaultBlockState()))).decorated(Features.Decorators.TOP_SOLID_HEIGHTMAP_SQUARE).count(14));
+    public static final ConfiguredFeature<?, ?> CALCITE_DISK = register("calcite_disk", Feature.DISK.configured(new DiskConfiguration(Blocks.CALCITE.defaultBlockState(), UniformInt.of(3, 7), 2, ImmutableList.of(Blocks.DIRT.defaultBlockState(), Blocks.GRASS_BLOCK.defaultBlockState(), Blocks.PODZOL.defaultBlockState(), Blocks.SAND.defaultBlockState(), Blocks.GRAVEL.defaultBlockState(), Blocks.GRANITE.defaultBlockState(), Blocks.ANDESITE.defaultBlockState(), Blocks.DIORITE.defaultBlockState(), Blocks.COAL_ORE.defaultBlockState(), Blocks.IRON_ORE.defaultBlockState(), Blocks.STONE.defaultBlockState(), Blocks.CALCITE.defaultBlockState()))).decorated(Features.Decorators.TOP_SOLID_HEIGHTMAP_SQUARE).count(14));
     public static final ConfiguredFeature<?, ?> FLESH_TENDON = register("flesh_tendon", BOPFeatures.FLESH_TENDON.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(65)));
     public static final ConfiguredFeature<?, ?> GRAVEL_DISK_EXTRA = register("gravel_disk_extra", Feature.DISK.configured(new DiskConfiguration(Blocks.GRAVEL.defaultBlockState(), UniformInt.of(4, 6), 1, ImmutableList.of(Blocks.DIRT.defaultBlockState(), Blocks.GRASS_BLOCK.defaultBlockState()))).decorated(Features.Decorators.TOP_SOLID_HEIGHTMAP_SQUARE).count(6));
     public static final ConfiguredFeature<?, ?> HUGE_BROWN_MUSHROOM_EXTRA = register("huge_brown_mushroom_extra", Features.HUGE_BROWN_MUSHROOM.decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(21)));
@@ -345,7 +345,7 @@ public class BOPConfiguredFeatures
     public static final ConfiguredFeature<?, ?> SHORT_BAMBOO_10 = register("short_bamboo_10", BOPFeatures.SHORT_BAMBOO.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(10)));
     public static final ConfiguredFeature<?, ?> SHORT_BAMBOO_5 = register("short_bamboo_5", BOPFeatures.SHORT_BAMBOO.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(5)));
     public static final ConfiguredFeature<?, ?> SMALL_BROWN_MUSHROOM = register("small_brown_mushroom", BOPFeatures.SMALL_BROWN_MUSHROOM.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(3)));
-    public static final ConfiguredFeature<?, ?> SMALL_CRYSTAL = register("small_crystal", BOPFeatures.SMALL_CRYSTAL.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(40)));
+    public static final ConfiguredFeature<?, ?> SMALL_CRYSTAL = register("small_crystal", BOPFeatures.SMALL_CRYSTAL.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(75)));
     public static final ConfiguredFeature<?, ?> SMALL_GLOWSHROOM_UNCOMMON = register("small_glowshroom_uncommon", BOPFeatures.SMALL_GLOWSHROOM.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(1)));
     public static final ConfiguredFeature<?, ?> SMALL_GLOWSHROOM = register("small_glowshroom", BOPFeatures.SMALL_GLOWSHROOM.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(3)));
     public static final ConfiguredFeature<?, ?> SMALL_RED_MUSHROOM = register("small_red_mushroom", BOPFeatures.SMALL_RED_MUSHROOM.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(1)));

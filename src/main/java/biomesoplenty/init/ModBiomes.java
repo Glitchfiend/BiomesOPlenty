@@ -309,7 +309,6 @@ public class ModBiomes
 
         // Set up vanilla biomes
         registerVanillaBiome(Biomes.SNOWY_TUNDRA, BOPClimates.ICE_CAP, 10);
-        registerVanillaBiome(Biomes.FROZEN_OCEAN, BOPClimates.ICE_CAP, 3);
         registerVanillaBiome(Biomes.MOUNTAINS, BOPClimates.TUNDRA, 10);
         registerVanillaBiome(Biomes.SNOWY_TAIGA, BOPClimates.TUNDRA, 7);
         registerVanillaBiome(Biomes.TAIGA, BOPClimates.WET_BOREAL, 10);
@@ -319,7 +318,6 @@ public class ModBiomes
         registerVanillaBiome(Biomes.FOREST, BOPClimates.COOL_TEMPERATE, 10);
         registerVanillaBiome(Biomes.PLAINS, BOPClimates.WARM_TEMPERATE, 10);
         registerVanillaBiome(Biomes.SWAMP, BOPClimates.SUBTROPICAL, 7);
-        registerVanillaBiome(Biomes.LUKEWARM_OCEAN, BOPClimates.SUBTROPICAL, 3);
         registerVanillaBiome(Biomes.JUNGLE, BOPClimates.TROPICAL, 10);
         registerVanillaBiome(Biomes.SAVANNA, BOPClimates.SAVANNA, 10);
         registerVanillaBiome(Biomes.DESERT, BOPClimates.HOT_DESERT, 15);

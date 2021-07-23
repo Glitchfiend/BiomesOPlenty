@@ -14,6 +14,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.GrowingPlantBodyBlock;
 import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
@@ -21,26 +22,19 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.Random;
 
-public class HangingStrandBlock extends GrowingPlantHeadBlock
+public class HangingStrandBlock extends GrowingPlantBodyBlock
 {
     public static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
     public HangingStrandBlock(Properties properties)
     {
-        super(properties, Direction.DOWN, SHAPE, false, 0.0D);
+        super(properties, Direction.DOWN, SHAPE, false);
     }
 
     @Override
     protected GrowingPlantHeadBlock getHeadBlock() {
         return null;
     }
-
-    @Override
-    protected Block getBodyBlock()
-    {
-        return null;
-    }
-
 
     @Override
     public boolean canSurvive(BlockState blockState, LevelReader levelReader, BlockPos blockPos)
@@ -81,17 +75,5 @@ public class HangingStrandBlock extends GrowingPlantHeadBlock
     @Override
     public void performBonemeal(ServerLevel serverLevel, Random random, BlockPos blockPos, BlockState blockState)
     {
-    }
-
-    @Override
-    protected int getBlocksToGrowWhenBonemealed(Random random)
-    {
-        return 0;
-    }
-
-    @Override
-    protected boolean canGrowInto(BlockState blockState)
-    {
-        return false;
     }
 }

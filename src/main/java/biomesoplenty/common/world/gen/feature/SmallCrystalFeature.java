@@ -36,7 +36,28 @@ public class SmallCrystalFeature extends Feature<NoneFeatureConfiguration>
       {
          Direction direction = Direction.getRandom(rand);
 
-         BlockState state = BOPBlocks.ROSE_QUARTZ_CLUSTER.defaultBlockState().setValue(AmethystClusterBlock.FACING, direction);
+         BlockState cluster_state;
+         switch (rand.nextInt(5))
+         {
+            case 3:
+            default:
+               cluster_state = BOPBlocks.ROSE_QUARTZ_CLUSTER.defaultBlockState();
+               break;
+
+            case 2:
+               cluster_state = BOPBlocks.LARGE_ROSE_QUARTZ_BUD.defaultBlockState();
+               break;
+
+            case 1:
+               cluster_state = BOPBlocks.MEDIUM_ROSE_QUARTZ_BUD.defaultBlockState();
+               break;
+
+            case 0:
+               cluster_state = BOPBlocks.SMALL_ROSE_QUARTZ_BUD.defaultBlockState();
+               break;
+         }
+
+         BlockState state = cluster_state.setValue(AmethystClusterBlock.FACING, direction);
          BlockPos blockpos = pos.offset(rand.nextInt(4) - rand.nextInt(4), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(4) - rand.nextInt(4));
 
          if (world.isEmptyBlock(blockpos) && state.canSurvive(world, blockpos))

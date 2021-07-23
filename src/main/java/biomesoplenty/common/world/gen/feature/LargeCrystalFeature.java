@@ -9,6 +9,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.AmethystClusterBlock;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.AttachFace;
@@ -64,9 +65,16 @@ public class LargeCrystalFeature extends Feature<NoneFeatureConfiguration>
                     int radiusStart = Mth.ceil(0.25D - radius / 2.0D);
                     int radiusEnd = Mth.floor(0.25D + radius / 2.0D);
 
-                    for (int x = radiusStart; x <= radiusEnd; x++) {
-                        for (int z = radiusStart; z <= radiusEnd; z++) {
-                            this.setBlock(world, pos.offset(x, -y, z), BOPBlocks.ROSE_QUARTZ_BLOCK.defaultBlockState());
+                    for (int x = radiusStart; x <= radiusEnd; x++)
+                    {
+                        for (int z = radiusStart; z <= radiusEnd; z++)
+                        {
+                            BlockState state = BOPBlocks.ROSE_QUARTZ_BLOCK.defaultBlockState();
+                            if (rand.nextInt(7) == 0)
+                            {
+                                state = BOPBlocks.BUDDING_ROSE_QUARTZ.defaultBlockState();
+                            }
+                            this.setBlock(world, pos.offset(x, -y, z), state);
                         }
                     }
 
@@ -86,7 +94,28 @@ public class LargeCrystalFeature extends Feature<NoneFeatureConfiguration>
         {
             Direction direction = Direction.getRandom(rand);
 
-            BlockState state = BOPBlocks.ROSE_QUARTZ_CLUSTER.defaultBlockState().setValue(AmethystClusterBlock.FACING, direction);
+            BlockState cluster_state;
+            switch (rand.nextInt(5))
+            {
+                case 3:
+                default:
+                    cluster_state = BOPBlocks.ROSE_QUARTZ_CLUSTER.defaultBlockState();
+                    break;
+
+                case 2:
+                    cluster_state = BOPBlocks.LARGE_ROSE_QUARTZ_BUD.defaultBlockState();
+                    break;
+
+                case 1:
+                    cluster_state = BOPBlocks.MEDIUM_ROSE_QUARTZ_BUD.defaultBlockState();
+                    break;
+
+                case 0:
+                    cluster_state = BOPBlocks.SMALL_ROSE_QUARTZ_BUD.defaultBlockState();
+                    break;
+            }
+
+            BlockState state = cluster_state.setValue(AmethystClusterBlock.FACING, direction);
             BlockPos blockpos = pos.offset(rand.nextInt(3) - rand.nextInt(3), rand.nextInt(2) - rand.nextInt(2), rand.nextInt(3) - rand.nextInt(3));
 
             if (world.isEmptyBlock(blockpos) && state.canSurvive(world, blockpos))
