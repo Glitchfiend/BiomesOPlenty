@@ -47,6 +47,7 @@ public class MysticPlainsBiome extends BiomeTemplate
 
         builder.addFeature(GenerationStep.Decoration.LAKES, Features.LAKE_WATER);
 
+        BiomeDefaultFeatures.addDefaultCrystalFormations(builder);
         BiomeDefaultFeatures.addDefaultMonsterRoom(builder);
         BiomeDefaultFeatures.addDefaultUndergroundVariety(builder);
         BiomeDefaultFeatures.addDefaultOres(builder);

@@ -48,6 +48,7 @@ public class RainforestBiome extends BiomeTemplate
         // Underground
         BiomeDefaultFeatures.addDefaultCarvers(builder);
         BiomeDefaultFeatures.addDefaultLakes(builder);
+        BiomeDefaultFeatures.addDefaultCrystalFormations(builder);
         BiomeDefaultFeatures.addDefaultMonsterRoom(builder);
         BiomeDefaultFeatures.addDefaultUndergroundVariety(builder);
         BiomeDefaultFeatures.addDefaultOres(builder);

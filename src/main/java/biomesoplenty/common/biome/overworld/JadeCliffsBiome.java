@@ -46,6 +46,7 @@ public class JadeCliffsBiome extends BiomeTemplate
 
         // Underground
         BiomeDefaultFeatures.addDefaultCarvers(builder);
+        BiomeDefaultFeatures.addDefaultCrystalFormations(builder);
         BiomeDefaultFeatures.addDefaultMonsterRoom(builder);
         BiomeDefaultFeatures.addDefaultUndergroundVariety(builder);
         BiomeDefaultFeatures.addDefaultOres(builder);

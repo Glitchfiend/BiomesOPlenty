@@ -44,6 +44,7 @@ public class TundraBasinBiome extends BiomeTemplate
 
         // Underground
         BiomeDefaultFeatures.addDefaultCarvers(builder);
+        BiomeDefaultFeatures.addDefaultCrystalFormations(builder);
         BiomeDefaultFeatures.addDefaultMonsterRoom(builder);
 
         builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, Features.ORE_GRAVEL);

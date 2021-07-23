@@ -49,6 +49,7 @@ public class VolcanicPlainsBiome extends BiomeTemplate
 
         builder.addFeature(GenerationStep.Decoration.LAKES, Features.LAKE_LAVA);
 
+        BiomeDefaultFeatures.addDefaultCrystalFormations(builder);
         BiomeDefaultFeatures.addDefaultMonsterRoom(builder);
         BiomeDefaultFeatures.addDefaultUndergroundVariety(builder);
         BiomeDefaultFeatures.addDefaultOres(builder);

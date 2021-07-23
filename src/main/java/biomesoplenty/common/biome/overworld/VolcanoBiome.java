@@ -50,6 +50,7 @@ public class VolcanoBiome extends BiomeTemplate
 
         builder.addFeature(GenerationStep.Decoration.LAKES, BOPConfiguredFeatures.LAVA_LAKE_COMMON);
 
+        BiomeDefaultFeatures.addDefaultCrystalFormations(builder);
         BiomeDefaultFeatures.addDefaultMonsterRoom(builder);
         BiomeDefaultFeatures.addDefaultUndergroundVariety(builder);
         BiomeDefaultFeatures.addDefaultOres(builder);

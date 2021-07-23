@@ -51,6 +51,7 @@ public class MuskegBiome extends BiomeTemplate
 
         builder.addFeature(GenerationStep.Decoration.LAKES, BOPConfiguredFeatures.WATER_LAKE_UNCOMMON);
 
+        BiomeDefaultFeatures.addDefaultCrystalFormations(builder);
         BiomeDefaultFeatures.addDefaultMonsterRoom(builder);
         BiomeDefaultFeatures.addDefaultUndergroundVariety(builder);
         BiomeDefaultFeatures.addDefaultOres(builder);
