@@ -37,6 +37,8 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.loading.FMLEnvironment;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.GameData;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;
@@ -105,19 +107,19 @@ public class ModBiomes
         }
 
         // Obtain the game data logger and disable it temporarily
-//        Logger gameDataLogger = (Logger)LogManager.getLogger(GameData.class);
-//        Level oldLevel = gameDataLogger.getLevel();
-//        gameDataLogger.setLevel(Level.OFF);
+        Logger gameDataLogger = (Logger)LogManager.getLogger(GameData.class);
+        Level oldLevel = gameDataLogger.getLevel();
+        gameDataLogger.setLevel(Level.OFF);
 
         // Register our world type
         // We intentionally use the minecraft namespace so we continue using "biomesoplenty" in server.properties
         // This is markedly better than the alternative of biomesoplenty:biomesoplenty.
         // We do this with GameData logging disabled to prevent people whining at us.
-//        bopWorldType.setRegistryName(new ResourceLocation("biomesoplenty"));
-//        ForgeRegistries.WORLD_TYPES.register(bopWorldType);
+        bopWorldType.setRegistryName(new ResourceLocation("biomesoplenty"));
+        ForgeRegistries.WORLD_TYPES.register(bopWorldType);
 
         // Re-enable the game data logger
-//        gameDataLogger.setLevel(oldLevel);
+        gameDataLogger.setLevel(oldLevel);
 
         // Register biome providers
         Registry.register(Registry.BIOME_SOURCE, "biomesoplenty_overworld", BOPBiomeProvider.CODEC);
