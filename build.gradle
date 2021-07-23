@@ -20,7 +20,7 @@ repositories { mavenLocal() }
 group = "com.github.glitchfiend"
 archivesBaseName = "BiomesOPlenty"
 
-sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = 16
+java.toolchain.languageVersion = JavaLanguageVersion.of(16)
 
 def getGitHash = {
     def stdout = new ByteArrayOutputStream()
@@ -69,6 +69,8 @@ processResources {
         include 'META-INF/mods.toml'
         expand 'version': project.version
     }
+	
+	duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
 
 jar {

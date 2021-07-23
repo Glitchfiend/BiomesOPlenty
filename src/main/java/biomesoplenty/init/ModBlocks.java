@@ -77,8 +77,12 @@ public class ModBlocks
         DRIED_SALT = registerBlock(new DriedSaltBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.WOOD).strength(1.0F).sound(new SoundType(1.0F, 0.5F, SoundEvents.GRAVEL_BREAK, SoundEvents.GRAVEL_STEP, SoundEvents.GRAVEL_PLACE, SoundEvents.GRAVEL_HIT, SoundEvents.GRAVEL_FALL))), "dried_salt");
         FLESH = registerBlock(new FleshBlock(BlockBehaviour.Properties.of(Material.SPONGE, MaterialColor.TERRACOTTA_RED).strength(0.4F).sound(new SoundType(1.0F, 0.5F, SoundEvents.CORAL_BLOCK_BREAK, SoundEvents.CORAL_BLOCK_STEP, SoundEvents.CORAL_BLOCK_PLACE, SoundEvents.CORAL_BLOCK_HIT, SoundEvents.CORAL_BLOCK_FALL))), "flesh");
 
-        NETHER_CRYSTAL_BLOCK = registerBlock(new Block(BlockBehaviour.Properties.of(Material.GLASS, MaterialColor.CRIMSON_STEM).strength(0.4F).sound(new SoundType(1.0F, 0.75F, SoundEvents.GLASS_BREAK, SoundEvents.GLASS_STEP, SoundEvents.GLASS_PLACE, SoundEvents.GLASS_HIT, SoundEvents.GLASS_FALL)).lightLevel((state) -> 10)), "nether_crystal_block");
-        NETHER_CRYSTAL = registerBlock(new NetherCrystalBlock(BlockBehaviour.Properties.of(Material.GLASS, MaterialColor.CRIMSON_STEM).noCollission().strength(0.3F).sound(new SoundType(1.0F, 0.75F, SoundEvents.GLASS_BREAK, SoundEvents.GLASS_STEP, SoundEvents.GLASS_PLACE, SoundEvents.GLASS_HIT, SoundEvents.GLASS_FALL)).lightLevel((state) -> 8)), "nether_crystal");
+        ROSE_QUARTZ_BLOCK = registerBlock(new AmethystBlock(BlockBehaviour.Properties.of(Material.AMETHYST, MaterialColor.CRIMSON_STEM).strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops().lightLevel((state) -> 10)),"rose_quartz_block");
+        BUDDING_ROSE_QUARTZ = registerBlock(new BuddingRoseQuartzBlock(BlockBehaviour.Properties.of(Material.AMETHYST, MaterialColor.CRIMSON_STEM).randomTicks().strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops().lightLevel((state) -> 10)),"budding_rose_quartz");
+        ROSE_QUARTZ_CLUSTER = registerBlock(new AmethystClusterBlock(7, 3, BlockBehaviour.Properties.of(Material.AMETHYST, MaterialColor.CRIMSON_STEM).noOcclusion().randomTicks().sound(SoundType.AMETHYST_CLUSTER).strength(1.5F).lightLevel((state) -> 8)),"rose_quartz_cluster");
+        LARGE_ROSE_QUARTZ_BUD = registerBlock(new AmethystClusterBlock(5, 3, BlockBehaviour.Properties.copy(ROSE_QUARTZ_CLUSTER).sound(SoundType.MEDIUM_AMETHYST_BUD).lightLevel((state) -> 7)), "large_rose_quartz_bud");
+        MEDIUM_ROSE_QUARTZ_BUD = registerBlock(new AmethystClusterBlock(4, 3, BlockBehaviour.Properties.copy(ROSE_QUARTZ_CLUSTER).sound(SoundType.LARGE_AMETHYST_BUD).lightLevel((state) -> 6)),"medium_rose_quartz_bud");
+        SMALL_ROSE_QUARTZ_BUD = registerBlock(new AmethystClusterBlock(3, 4, BlockBehaviour.Properties.copy(ROSE_QUARTZ_CLUSTER).sound(SoundType.SMALL_AMETHYST_BUD).lightLevel((state) -> 5)),"small_rose_quartz_bud");
 
         TOADSTOOL_BLOCK = registerBlock(new HugeMushroomBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_ORANGE).strength(0.2F).sound(SoundType.WOOD)), "toadstool_block");
         GLOWSHROOM_BLOCK = registerBlock(new HugeMushroomBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.DIAMOND).strength(0.2F).sound(SoundType.WOOD).lightLevel((state) -> 10)), "glowshroom_block");
@@ -381,8 +385,10 @@ public class ModBlocks
             ItemBlockRenderTypes.setRenderLayer(MAGIC_LEAVES, transparentRenderType);
             ItemBlockRenderTypes.setRenderLayer(UMBRAN_LEAVES, transparentRenderType);
             ItemBlockRenderTypes.setRenderLayer(HELLBARK_LEAVES, transparentRenderType);
-
-            ItemBlockRenderTypes.setRenderLayer(NETHER_CRYSTAL, cutoutRenderType);
+            ItemBlockRenderTypes.setRenderLayer(ROSE_QUARTZ_CLUSTER, cutoutRenderType);
+            ItemBlockRenderTypes.setRenderLayer(LARGE_ROSE_QUARTZ_BUD, cutoutRenderType);
+            ItemBlockRenderTypes.setRenderLayer(MEDIUM_ROSE_QUARTZ_BUD, cutoutRenderType);
+            ItemBlockRenderTypes.setRenderLayer(SMALL_ROSE_QUARTZ_BUD, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(ORIGIN_SAPLING, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(FLOWERING_OAK_SAPLING, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(RAINBOW_BIRCH_SAPLING, cutoutRenderType);

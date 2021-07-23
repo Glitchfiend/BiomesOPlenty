@@ -2,16 +2,18 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "biomesoplenty:nether_crystal_block"
+      "biomesoplenty:rose_quartz_block"
     ]
   },
   "criteria": {
-    "has_nether_crystal": {
+    "has_rose_quartz_shard": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "biomesoplenty:nether_crystal"
+            "items": [
+              "biomesoplenty:rose_quartz_shard"
+            ]
           }
         ]
       }
@@ -19,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "biomesoplenty:nether_crystal_block"
+        "recipe": "biomesoplenty:rose_quartz_block"
       }
     }
   },
   "requirements": [
     [
-      "has_nether_crystal",
+      "has_rose_quartz_shard",
       "has_the_recipe"
     ]
   ]

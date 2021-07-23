@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SS",
+    "SS"
+  ],
+  "key": {
+    "S": {
+      "item": "biomesoplenty:rose_quartz_shard"
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:rose_quartz_block"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "biomesoplenty:block/rose_quartz_cluster",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "biomesoplenty:block/rose_quartz_cluster",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "biomesoplenty:block/rose_quartz_cluster",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "biomesoplenty:block/rose_quartz_cluster",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "biomesoplenty:block/rose_quartz_cluster"
+    },
+    "facing=west": {
+      "model": "biomesoplenty:block/rose_quartz_cluster",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

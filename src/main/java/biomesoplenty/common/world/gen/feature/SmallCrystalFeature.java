@@ -1,11 +1,11 @@
 package biomesoplenty.common.world.gen.feature;
 
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.common.block.NetherCrystalBlock;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.AmethystClusterBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.AttachFace;
 import net.minecraft.world.level.chunk.ChunkGenerator;
@@ -34,25 +34,9 @@ public class SmallCrystalFeature extends Feature<NoneFeatureConfiguration>
 
       for(int j = 0; j < 128; ++j)
       {
-         Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
-         AttachFace face;
-         switch (rand.nextInt(3))
-         {
-            default:
-            case 0:
-               face = AttachFace.FLOOR;
-               break;
+         Direction direction = Direction.getRandom(rand);
 
-            case 1:
-               face = AttachFace.CEILING;
-               break;
-
-            case 2:
-               face = AttachFace.WALL;
-               break;
-         }
-
-         BlockState state = BOPBlocks.NETHER_CRYSTAL.defaultBlockState().setValue(NetherCrystalBlock.FACING, direction).setValue(NetherCrystalBlock.FACE, face);
+         BlockState state = BOPBlocks.ROSE_QUARTZ_CLUSTER.defaultBlockState().setValue(AmethystClusterBlock.FACING, direction);
          BlockPos blockpos = pos.offset(rand.nextInt(4) - rand.nextInt(4), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(4) - rand.nextInt(4));
 
          if (world.isEmptyBlock(blockpos) && state.canSurvive(world, blockpos))

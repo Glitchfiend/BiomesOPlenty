@@ -2,11 +2,12 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "rolls": 1,
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "biomesoplenty:nether_crystal"
+          "name": "biomesoplenty:rose_quartz_block"
         }
       ],
       "conditions": [

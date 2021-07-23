@@ -49,8 +49,12 @@ public class BOPBlocks
     public static Block ORIGIN_GRASS_BLOCK;
     public static Block DRIED_SALT;
     public static Block FLESH;
-    public static Block NETHER_CRYSTAL_BLOCK;
-    public static Block NETHER_CRYSTAL;
+    public static Block ROSE_QUARTZ_BLOCK;
+    public static Block BUDDING_ROSE_QUARTZ;
+    public static Block ROSE_QUARTZ_CLUSTER;
+    public static Block LARGE_ROSE_QUARTZ_BUD;
+    public static Block MEDIUM_ROSE_QUARTZ_BUD;
+    public static Block SMALL_ROSE_QUARTZ_BUD;
     public static Block TOADSTOOL_BLOCK;
     public static Block GLOWSHROOM_BLOCK;
     public static Block ORIGIN_SAPLING;

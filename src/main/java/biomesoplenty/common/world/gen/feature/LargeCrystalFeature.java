@@ -1,7 +1,6 @@
 package biomesoplenty.common.world.gen.feature;
 
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.common.block.NetherCrystalBlock;
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
@@ -9,6 +8,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.AmethystClusterBlock;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.AttachFace;
@@ -23,7 +23,7 @@ import java.util.Random;
 public class LargeCrystalFeature extends Feature<NoneFeatureConfiguration>
 {
     protected IBlockPosQuery placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.NETHERRACK;
-    protected IBlockPosQuery replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() == BOPBlocks.NETHER_CRYSTAL;
+    protected IBlockPosQuery replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() == BOPBlocks.ROSE_QUARTZ_CLUSTER || world.getBlockState(pos).getBlock() == BOPBlocks.LARGE_ROSE_QUARTZ_BUD || world.getBlockState(pos).getBlock() == BOPBlocks.MEDIUM_ROSE_QUARTZ_BUD || world.getBlockState(pos).getBlock() == BOPBlocks.SMALL_ROSE_QUARTZ_BUD;
     private int minRadius = 2;
     private int maxRadius = 3;
     private int minHeight = 3;
@@ -66,7 +66,7 @@ public class LargeCrystalFeature extends Feature<NoneFeatureConfiguration>
 
                     for (int x = radiusStart; x <= radiusEnd; x++) {
                         for (int z = radiusStart; z <= radiusEnd; z++) {
-                            this.setBlock(world, pos.offset(x, -y, z), BOPBlocks.NETHER_CRYSTAL_BLOCK.defaultBlockState());
+                            this.setBlock(world, pos.offset(x, -y, z), BOPBlocks.ROSE_QUARTZ_BLOCK.defaultBlockState());
                         }
                     }
 
@@ -84,25 +84,9 @@ public class LargeCrystalFeature extends Feature<NoneFeatureConfiguration>
 
         for(int j = 0; j < 48; ++j)
         {
-            Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
-            AttachFace face;
-            switch (rand.nextInt(3))
-            {
-                default:
-                case 0:
-                    face = AttachFace.FLOOR;
-                    break;
+            Direction direction = Direction.getRandom(rand);
 
-                case 1:
-                    face = AttachFace.CEILING;
-                    break;
-
-                case 2:
-                    face = AttachFace.WALL;
-                    break;
-            }
-
-            BlockState state = BOPBlocks.NETHER_CRYSTAL.defaultBlockState().setValue(NetherCrystalBlock.FACING, direction).setValue(NetherCrystalBlock.FACE, face);
+            BlockState state = BOPBlocks.ROSE_QUARTZ_CLUSTER.defaultBlockState().setValue(AmethystClusterBlock.FACING, direction);
             BlockPos blockpos = pos.offset(rand.nextInt(3) - rand.nextInt(3), rand.nextInt(2) - rand.nextInt(2), rand.nextInt(3) - rand.nextInt(3));
 
             if (world.isEmptyBlock(blockpos) && state.canSurvive(world, blockpos))
