@@ -17,6 +17,7 @@ import net.minecraft.world.level.material.Material;
 
 import java.util.Random;
 import java.util.Set;
+import java.util.function.BiConsumer;
 
 public class PoplarTreeFeature extends TreeFeatureBase
 {
@@ -42,7 +43,7 @@ public class PoplarTreeFeature extends TreeFeatureBase
     }
 
     @Override
-    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, LevelAccessor world, Random random, BlockPos startPos, BoundingBox boundingBox)
+    protected boolean place(LevelAccessor world, Random random, BlockPos startPos, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves)
     {
         // Move down until we reach the ground
     	while (startPos.getY() > 1 && world.isEmptyBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES) {startPos = startPos.below();}
@@ -71,7 +72,7 @@ public class PoplarTreeFeature extends TreeFeatureBase
         // Generate bottom of tree (trunk only)
         for(int i = 0; i < baseHeight; i++)
         {
-            this.placeLog(world, pos, changedLogs, boundingBox);
+            this.placeLog(world, pos, logs);
             pos = pos.above();
         }
 
@@ -81,7 +82,7 @@ public class PoplarTreeFeature extends TreeFeatureBase
             {
                 for (int zz = -1; zz < 2; zz++)
                 {
-                    this.placeLeaves(world, pos.offset(xx, i, zz), changedLeaves, boundingBox);
+                    this.placeLeaves(world, pos.offset(xx, i, zz), leaves);
                 }
             }
         }
@@ -90,8 +91,8 @@ public class PoplarTreeFeature extends TreeFeatureBase
         for(int i = 0; i < leavesHeight; i++)
         {
             int radius = radius(i, leavesHeight);
-            this.generateLeafLayer(world, pos, radius, changedLeaves, boundingBox);
-            if (leavesHeight - i > 2) {this.placeLog(world, pos, changedLogs, boundingBox);}
+            this.generateLeafLayer(world, pos, radius, leaves);
+            if (leavesHeight - i > 2) {this.placeLog(world, pos, logs);}
             pos = pos.above();
         }
         
@@ -130,7 +131,7 @@ public class PoplarTreeFeature extends TreeFeatureBase
     }
     
     // generates a layer of leafs with the given radius
-    public void generateLeafLayer(LevelAccessor world, BlockPos pos, int radius, Set<BlockPos> changedLeaves, BoundingBox boundingBox)
+    public void generateLeafLayer(LevelAccessor world, BlockPos pos, int radius, BiConsumer<BlockPos, BlockState> leaves)
     {
         for(int x = -radius; x <= radius; x++)
         {
@@ -140,7 +141,7 @@ public class PoplarTreeFeature extends TreeFeatureBase
                 {
                     if (x*x + z*z <= radius*radius)
                     {
-                        this.placeLeaves(world, pos.offset(x, 0, z), changedLeaves, boundingBox);
+                        this.placeLeaves(world, pos.offset(x, 0, z), leaves);
                     }
                 }
                 else
@@ -150,12 +151,12 @@ public class PoplarTreeFeature extends TreeFeatureBase
                     if (x == -radius || x == radius || z == -radius || z == radius)
                     {
                         if (world.getRandom().nextInt(3) != 0) {
-                            this.placeLeaves(world, pos.offset(x, 0, z), changedLeaves, boundingBox);
+                            this.placeLeaves(world, pos.offset(x, 0, z), leaves);
                         }
                     }
                     else
                     {
-                        this.placeLeaves(world, pos.offset(x, 0, z), changedLeaves, boundingBox);
+                        this.placeLeaves(world, pos.offset(x, 0, z), leaves);
                     }
                 }
             }

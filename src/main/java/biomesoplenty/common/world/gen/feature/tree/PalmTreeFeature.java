@@ -17,13 +17,13 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LeavesBlock;
-import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.material.Material;
 
 import java.util.Random;
 import java.util.Set;
+import java.util.function.BiConsumer;
 
 public class PalmTreeFeature extends TreeFeatureBase
 {
@@ -56,7 +56,7 @@ public class PalmTreeFeature extends TreeFeatureBase
     }
 
     @Override
-    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, LevelAccessor world, Random random, BlockPos startPos, BoundingBox boundingBox)
+    protected boolean place(LevelAccessor world, Random random, BlockPos startPos, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves)
     {
         // Move down until we reach the ground
     	while (startPos.getY() > 1 && world.isEmptyBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES) {startPos = startPos.below();}
@@ -106,12 +106,12 @@ public class PalmTreeFeature extends TreeFeatureBase
             if (step == heightMinusTop)
             {
                 // Generate top of tree
-                this.placeLog(world, offsetPos, changedLogs, boundingBox);
-                generateLeavesTop(world, offsetPos, leavesRadius, changedLeaves, boundingBox);
+                this.placeLog(world, offsetPos, logs);
+                generateLeavesTop(world, offsetPos, leavesRadius, leaves);
                 break;
             }
             
-            this.placeLog(world, offsetPos, changedLogs, boundingBox);
+            this.placeLog(world, offsetPos, logs);
             
             //As the height increases, slant more drastically
             slantOffset *= slantMultiplier;
@@ -141,31 +141,31 @@ public class PalmTreeFeature extends TreeFeatureBase
     }
 
     // generate the top of the tree (3 blocks)
-    public void generateLeavesTop(LevelAccessor world, BlockPos pos, int maxRadius, Set<BlockPos> changedLeaves, BoundingBox boundingBox)
+    public void generateLeavesTop(LevelAccessor world, BlockPos pos, int maxRadius, BiConsumer<BlockPos, BlockState> leaves)
     {
-        placeLeaves(world, pos.offset(2, -1, 0), changedLeaves, boundingBox);
-        placeLeaves(world, pos.offset(-2, -1, 0), changedLeaves, boundingBox);
-        placeLeaves(world, pos.offset(0, -1, 2), changedLeaves, boundingBox);
-        placeLeaves(world, pos.offset(0, -1, -2), changedLeaves, boundingBox);
+        placeLeaves(world, pos.offset(2, -1, 0), leaves);
+        placeLeaves(world, pos.offset(-2, -1, 0), leaves);
+        placeLeaves(world, pos.offset(0, -1, 2), leaves);
+        placeLeaves(world, pos.offset(0, -1, -2), leaves);
 
-        placeLeaves(world, pos.offset(1, 0, 0), changedLeaves, boundingBox);
-        placeLeaves(world, pos.offset(-1, 0, 0), changedLeaves, boundingBox);
-        placeLeaves(world, pos.offset(0, 0, 1), changedLeaves, boundingBox);
-        placeLeaves(world, pos.offset(0, 0, -1), changedLeaves, boundingBox);
-        placeLeaves(world, pos.offset(2, 0, 2), changedLeaves, boundingBox);
-        placeLeaves(world, pos.offset(-2, 0, -2), changedLeaves, boundingBox);
-        placeLeaves(world, pos.offset(2, 0, -2), changedLeaves, boundingBox);
-        placeLeaves(world, pos.offset(-2, 0, 2), changedLeaves, boundingBox);
+        placeLeaves(world, pos.offset(1, 0, 0), leaves);
+        placeLeaves(world, pos.offset(-1, 0, 0), leaves);
+        placeLeaves(world, pos.offset(0, 0, 1), leaves);
+        placeLeaves(world, pos.offset(0, 0, -1), leaves);
+        placeLeaves(world, pos.offset(2, 0, 2), leaves);
+        placeLeaves(world, pos.offset(-2, 0, -2), leaves);
+        placeLeaves(world, pos.offset(2, 0, -2), leaves);
+        placeLeaves(world, pos.offset(-2, 0, 2), leaves);
 
-        placeLeaves(world, pos.offset(1, 1, -1), changedLeaves, boundingBox);
-        placeLeaves(world, pos.offset(-1, 1, 1), changedLeaves, boundingBox);
-        placeLeaves(world, pos.offset(1, 1, 1), changedLeaves, boundingBox);
-        placeLeaves(world, pos.offset(-1, 1, -1), changedLeaves, boundingBox);
-        placeLeaves(world, pos.offset(0, 1, 0), changedLeaves, boundingBox);
+        placeLeaves(world, pos.offset(1, 1, -1), leaves);
+        placeLeaves(world, pos.offset(-1, 1, 1), leaves);
+        placeLeaves(world, pos.offset(1, 1, 1), leaves);
+        placeLeaves(world, pos.offset(-1, 1, -1), leaves);
+        placeLeaves(world, pos.offset(0, 1, 0), leaves);
 
-        placeLeaves(world, pos.offset(2, 2, 0), changedLeaves, boundingBox);
-        placeLeaves(world, pos.offset(-2, 2, 0), changedLeaves, boundingBox);
-        placeLeaves(world, pos.offset(0, 2, 2), changedLeaves, boundingBox);
-        placeLeaves(world, pos.offset(0, 2, -2), changedLeaves, boundingBox);
+        placeLeaves(world, pos.offset(2, 2, 0), leaves);
+        placeLeaves(world, pos.offset(-2, 2, 0), leaves);
+        placeLeaves(world, pos.offset(0, 2, 2), leaves);
+        placeLeaves(world, pos.offset(0, 2, -2), leaves);
     }
 }

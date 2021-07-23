@@ -19,7 +19,6 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.GrowingPlantHeadBlock;
-import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
@@ -27,6 +26,7 @@ import net.minecraft.world.level.material.Material;
 
 import java.util.Random;
 import java.util.Set;
+import java.util.function.BiConsumer;
 
 public class CypressTreeFeature extends TreeFeatureBase
 {
@@ -94,7 +94,7 @@ public class CypressTreeFeature extends TreeFeatureBase
     }
 
     // generates a layer of leaves
-    public void generateLeafLayer(LevelAccessor world, Random rand, BlockPos pos, int leavesRadius, Set<BlockPos> changedLeaves, BoundingBox boundingBox)
+    public void generateLeafLayer(LevelAccessor world, Random rand, BlockPos pos, int leavesRadius, BiConsumer<BlockPos, BlockState> leaves)
     {
         int start = -leavesRadius;
         int end = leavesRadius;
@@ -115,12 +115,12 @@ public class CypressTreeFeature extends TreeFeatureBase
                     continue;
                 }
 
-                this.placeLeaves(world, pos.offset(x, 0, z), changedLeaves, boundingBox);
+                this.placeLeaves(world, pos.offset(x, 0, z), leaves);
             }
         }
     }
 
-    public void generateBranch(LevelAccessor world, Random rand, BlockPos pos, Direction direction, int length, Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, BoundingBox boundingBox)
+    public void generateBranch(LevelAccessor world, Random rand, BlockPos pos, Direction direction, int length, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves)
     {
         Direction.Axis axis = direction.getAxis();
         Direction sideways = direction.getClockWise();
@@ -132,22 +132,22 @@ public class CypressTreeFeature extends TreeFeatureBase
             {
                 if (i < length || rand.nextInt(2) == 0)
                 {
-                    this.placeLeaves(world, pos1.relative(sideways, j), changedLeaves, boundingBox);
+                    this.placeLeaves(world, pos1.relative(sideways, j), leaves);
                 }
             }
             if (length - i > 2)
             {
-                this.placeLeaves(world, pos1.above(), changedLeaves, boundingBox);
-                this.placeLeaves(world, pos1.above().relative(sideways, -1), changedLeaves, boundingBox);
-                this.placeLeaves(world, pos1.above().relative(sideways, 1), changedLeaves, boundingBox);
-                this.placeLog(world, pos1, axis, changedLogs, boundingBox);
+                this.placeLeaves(world, pos1.above(), leaves);
+                this.placeLeaves(world, pos1.above().relative(sideways, -1), leaves);
+                this.placeLeaves(world, pos1.above().relative(sideways, 1), leaves);
+                this.placeLog(world, pos1, axis, logs);
             }
         }
     }
 
 
     @Override
-    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, LevelAccessor world, Random random, BlockPos startPos, BoundingBox boundingBox)
+    protected boolean place(LevelAccessor world, Random random, BlockPos startPos, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves)
     {
         // Move down until we reach the ground
         while (startPos.getY() > 1 && this.replace.matches(world, startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES) {startPos = startPos.below();}
@@ -184,7 +184,7 @@ public class CypressTreeFeature extends TreeFeatureBase
         BlockPos pos = startPos.above(height);
 
         // Leaves at the top
-        this.placeLeaves(world, pos, changedLeaves, boundingBox);
+        this.placeLeaves(world, pos, leaves);
         pos.below();
 
         // Add layers of leaves
@@ -200,7 +200,7 @@ public class CypressTreeFeature extends TreeFeatureBase
                 radius = 2;
             }
 
-            this.generateLeafLayer(world, random, pos, radius,  changedLeaves, boundingBox);
+            this.generateLeafLayer(world, random, pos, radius, leaves);
 
             pos = pos.below();
         }
@@ -235,7 +235,7 @@ public class CypressTreeFeature extends TreeFeatureBase
                     BlockPos local = startPos.offset(x, y, z);
                     boolean air = world.getBlockState(local).getFluidState().isEmpty();
 
-                    this.placeLog(world, local, changedLogs, boundingBox);
+                    this.placeLog(world, local, logs);
 
                     if (x == 0 && z == 0 && air && y < heightHere - leavesHeight + 1)
                     {
@@ -251,14 +251,14 @@ public class CypressTreeFeature extends TreeFeatureBase
                             {
                                 branchPos = local.offset(Math.cos(theta) * i, i / 2, Math.sin(theta) * i);
 
-                                this.placeLog(world, branchPos, changedLogs, boundingBox);
+                                this.placeLog(world, branchPos, logs);
                             }
 
-                            generateLeafLayer(world, random, branchPos, 2, changedLeaves, boundingBox);
-                            generateLeafLayer(world, random, branchPos.above(), 1, changedLeaves, boundingBox);
+                            generateLeafLayer(world, random, branchPos, 2, leaves);
+                            generateLeafLayer(world, random, branchPos.above(), 1, leaves);
                             if (random.nextBoolean())
                             {
-                                generateLeafLayer(world, random, branchPos.above(2), 0, changedLeaves, boundingBox);
+                                generateLeafLayer(world, random, branchPos.above(2), 0, leaves);
                             }
 
                             this.placeSpanishMoss(world, random, branchPos);
@@ -270,13 +270,13 @@ public class CypressTreeFeature extends TreeFeatureBase
                             Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
                             BlockPos offset = local.relative(direction);
 
-                            this.placeLog(world, offset, changedLogs, boundingBox);
+                            this.placeLog(world, offset, logs);
 
                             for (Direction dir : Direction.values())
                             {
                                 if (random.nextDouble() > 0.2)
                                 {
-                                    this.placeLeaves(world, offset.relative(dir), changedLeaves, boundingBox);
+                                    this.placeLeaves(world, offset.relative(dir), leaves);
                                 }
                             }
 
@@ -291,12 +291,11 @@ public class CypressTreeFeature extends TreeFeatureBase
     }
 
     @Override
-    public boolean placeLeaves(LevelAccessor world, BlockPos pos, Set<BlockPos> changedBlocks, BoundingBox boundingBox)
+    public boolean placeLeaves(LevelAccessor world, BlockPos pos, BiConsumer<BlockPos, BlockState> leaves)
     {
         if (TreeFeature.isAirOrLeaves(world, pos))
         {
-            this.setBlock(world, pos, this.leaves);
-            this.placeBlock(world, pos, this.leaves, changedBlocks, boundingBox);
+            leaves.accept(pos, this.leaves);
             return true;
         }
         return false;

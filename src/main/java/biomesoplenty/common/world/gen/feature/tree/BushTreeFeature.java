@@ -13,11 +13,10 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.material.Material;
 
 import java.util.Random;
-import java.util.Set;
+import java.util.function.BiConsumer;
 
 public class BushTreeFeature extends TreeFeatureBase
 {
@@ -49,7 +48,7 @@ public class BushTreeFeature extends TreeFeatureBase
     }
 
     @Override
-    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, LevelAccessor world, Random random, BlockPos startPos, BoundingBox boundingBox)
+    protected boolean place(LevelAccessor world, Random random, BlockPos startPos, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves)
     {
         // Move down until we reach the ground
         while (startPos.getY() > 1 && (world.isEmptyBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.AIR)) {startPos = startPos.below();}
@@ -72,7 +71,7 @@ public class BushTreeFeature extends TreeFeatureBase
             // log in the center
             if (height - y > 1)
             {
-                this.placeLog(world, pos.offset(0, y, 0), changedLogs, boundingBox);
+                this.placeLog(world, pos.offset(0, y, 0), logs);
             }
 
             //Reduces the radius closer to the top of the bush
@@ -89,16 +88,16 @@ public class BushTreeFeature extends TreeFeatureBase
                         {
                             if (random.nextInt(4) == 0)
                             {
-                                this.setAltLeaves(world, pos.offset(x, y, z), changedLeaves, boundingBox);
+                                this.placeAltLeaves(world, pos.offset(x, y, z), leaves);
                             }
                             else
                             {
-                                this.placeLeaves(world, pos.offset(x, y, z), changedLeaves, boundingBox);
+                                this.placeLeaves(world, pos.offset(x, y, z), leaves);
                             }
                         }
                         else
                         {
-                            this.placeLeaves(world, pos.offset(x, y, z), changedLeaves, boundingBox);
+                            this.placeLeaves(world, pos.offset(x, y, z), leaves);
                         }
                     }
                 }

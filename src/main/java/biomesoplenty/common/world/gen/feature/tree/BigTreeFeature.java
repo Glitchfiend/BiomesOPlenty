@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 import java.util.Set;
+import java.util.function.BiConsumer;
 
 /*This class is heavily based on https://gist.github.com/grum/62cfdec0537e8db24eb3#file-bigtreefeature-java
 additional information has been added from http://pastebin.com/XBLdGqXQ. This class has been cross-checked*/
@@ -79,7 +80,7 @@ public class BigTreeFeature extends TreeFeatureBase
     // radius is the radius of the section from the center
     // direction is the direction the cross section is pointed, 0 for x, 1
     // for y, 2 for z material is the index number for the material to use
-    private void crossSection(LevelAccessor world, BlockPos pos, float radius, Random random, BoundingBox boundingBox, Set<BlockPos> changedBlocks)
+    private void crossSection(LevelAccessor world, BlockPos pos, float radius, Random random, BiConsumer<BlockPos, BlockState> leaves)
     {
         final int r = (int)((double)radius + trunkHeightScale);
 
@@ -99,16 +100,16 @@ public class BigTreeFeature extends TreeFeatureBase
 
                             if (rand == 0)
                             {
-                                this.placeBlock(world, blockpos, this.altLeaves, changedBlocks, boundingBox);
+                                this.placeAltLeaves(world, blockpos, leaves);
                             }
                             else
                             {
-                                this.placeBlock(world, blockpos, this.leaves, changedBlocks, boundingBox);
+                                this.placeLeaves(world, blockpos,leaves);
                             }
                         }
                         else
                         {
-                            this.placeBlock(world, blockpos, this.leaves, changedBlocks, boundingBox);
+                            this.placeLeaves(world, blockpos, leaves);
                         }
                     }
                 }
@@ -182,11 +183,11 @@ public class BigTreeFeature extends TreeFeatureBase
     // Generate a cluster of foliage, with the base at blockPos
     // The shape of the cluster is derived from foliageShape
     // crossection is called to make each level.
-    private void foliageCluster(LevelAccessor world, BlockPos pos, Random random, BoundingBox boundingBox, Set<BlockPos> changedBlocks)
+    private void foliageCluster(LevelAccessor world, BlockPos pos, Random random, BiConsumer<BlockPos, BlockState> leaves)
     {
         for (int y = 0; y < foliageHeight; y++)
         {
-            this.crossSection(world, pos.above(y), this.foliageShape(y), random, boundingBox, changedBlocks);
+            this.crossSection(world, pos.above(y), this.foliageShape(y), random, leaves);
         }
     }
 
@@ -197,7 +198,7 @@ public class BigTreeFeature extends TreeFeatureBase
     // Examples:
     // If the third block searched is stone, return 2
     // If the first block searched is lava, return 0
-    private int checkLineAndOptionallySet(Set<BlockPos> changedBlocks, LevelAccessor world, BlockPos startPos, BlockPos endPos, boolean set, BoundingBox boundingBox)
+    private int checkLineAndOptionallySet(LevelAccessor world, BlockPos startPos, BlockPos endPos, boolean set, BiConsumer<BlockPos, BlockState> logs)
     {
         if (!set && Objects.equals(startPos, endPos)) {
             return -1;
@@ -219,7 +220,7 @@ public class BigTreeFeature extends TreeFeatureBase
                 BlockPos deltaPos = startPos.offset((double)(0.5F + (float)j * dx), (double)(0.5F + (float)j * dy), (double)(0.5F + (float)j * dz));
                 if (set)
                 {
-                    this.placeLog(world, deltaPos, this.getLogAxis(startPos, deltaPos), changedBlocks, boundingBox);
+                    this.placeLog(world, deltaPos, this.getLogAxis(startPos, deltaPos), logs);
                 }
                 else if (!this.isFree(world, deltaPos))
                 {
@@ -268,13 +269,13 @@ public class BigTreeFeature extends TreeFeatureBase
         return axis;
     }
 
-    private void makeFoliage(LevelAccessor worldIn, int height, BlockPos pos, List<FoliageCoordinates> coordinates, Random random, BoundingBox boundingBox, Set<BlockPos> changedBlocks)
+    private void makeFoliage(LevelAccessor worldIn, int height, BlockPos pos, List<FoliageCoordinates> coordinates, Random random, BiConsumer<BlockPos, BlockState> leaves)
     {
         for (FoliageCoordinates coordinate : coordinates)
         {
             if (this.trimBranches(height, coordinate.getBranchBase() - pos.getY()))
             {
-                this.foliageCluster(worldIn, coordinate, random, boundingBox, changedBlocks);
+                this.foliageCluster(worldIn, coordinate, random, leaves);
             }
         }
     }
@@ -284,34 +285,34 @@ public class BigTreeFeature extends TreeFeatureBase
         return (double)localY >= (double)height * 0.2D;
     }
 
-    private void makeTrunk(Set<BlockPos> changedBlocks, LevelAccessor world, BlockPos pos, int height, BoundingBox boundingBox)
+    private void makeTrunk(LevelAccessor world, BlockPos pos, int height, BiConsumer<BlockPos, BlockState> logs)
     {
-        this.checkLineAndOptionallySet(changedBlocks, world, pos, pos.above(height), true, boundingBox);
+        this.checkLineAndOptionallySet(world, pos, pos.above(height), true, logs);
 
         if (trunkWidth == 2)
         {
-            this.checkLineAndOptionallySet(changedBlocks, world, pos.east(), pos.above(height).east(), true, boundingBox);
-            this.checkLineAndOptionallySet(changedBlocks, world, pos.east().south(), pos.above(height).east().south(), true, boundingBox);
-            this.checkLineAndOptionallySet(changedBlocks, world, pos.south(), pos.above(height).south(), true, boundingBox);
+            this.checkLineAndOptionallySet(world, pos.east(), pos.above(height).east(), true, logs);
+            this.checkLineAndOptionallySet(world, pos.east().south(), pos.above(height).east().south(), true, logs);
+            this.checkLineAndOptionallySet(world, pos.south(), pos.above(height).south(), true, logs);
         }
 
         if (trunkWidth == 4)
         {
-            this.checkLineAndOptionallySet(changedBlocks, world, pos.east(), pos.above(height).east(), true, boundingBox);
-            this.checkLineAndOptionallySet(changedBlocks, world, pos.east().south(), pos.above(height).east().south(), true, boundingBox);
-            this.checkLineAndOptionallySet(changedBlocks, world, pos.south(), pos.above(height).south(), true, boundingBox);
-            this.checkLineAndOptionallySet(changedBlocks, world, pos.north(), pos.above(height).north(), true, boundingBox);
-            this.checkLineAndOptionallySet(changedBlocks, world, pos.north().east(), pos.above(height).north().east(), true, boundingBox);
-            this.checkLineAndOptionallySet(changedBlocks, world, pos.east().east(), pos.above(height).east().east(), true, boundingBox);
-            this.checkLineAndOptionallySet(changedBlocks, world, pos.south().east().east(), pos.above(height).south().east().east(), true, boundingBox);
-            this.checkLineAndOptionallySet(changedBlocks, world, pos.south().south().east(), pos.above(height).south().south().east(), true, boundingBox);
-            this.checkLineAndOptionallySet(changedBlocks, world, pos.south().south(), pos.above(height).south().south(), true, boundingBox);
-            this.checkLineAndOptionallySet(changedBlocks, world, pos.west().south(), pos.above(height).west().south(), true, boundingBox);
-            this.checkLineAndOptionallySet(changedBlocks, world, pos.west(), pos.above(height).west(), true, boundingBox);
+            this.checkLineAndOptionallySet(world, pos.east(), pos.above(height).east(), true, logs);
+            this.checkLineAndOptionallySet(world, pos.east().south(), pos.above(height).east().south(), true, logs);
+            this.checkLineAndOptionallySet(world, pos.south(), pos.above(height).south(), true, logs);
+            this.checkLineAndOptionallySet(world, pos.north(), pos.above(height).north(), true, logs);
+            this.checkLineAndOptionallySet(world, pos.north().east(), pos.above(height).north().east(), true, logs);
+            this.checkLineAndOptionallySet(world, pos.east().east(), pos.above(height).east().east(), true, logs);
+            this.checkLineAndOptionallySet(world, pos.south().east().east(), pos.above(height).south().east().east(), true, logs);
+            this.checkLineAndOptionallySet(world, pos.south().south().east(), pos.above(height).south().south().east(), true, logs);
+            this.checkLineAndOptionallySet(world, pos.south().south(), pos.above(height).south().south(), true, logs);
+            this.checkLineAndOptionallySet(world, pos.west().south(), pos.above(height).west().south(), true, logs);
+            this.checkLineAndOptionallySet(world, pos.west(), pos.above(height).west(), true, logs);
         }
     }
 
-    private void makeBranches(Set<BlockPos> changedBlocks, LevelAccessor world, int height, BlockPos origin, List<FoliageCoordinates> coordinates, BoundingBox boundingBox)
+    private void makeBranches(LevelAccessor world, int height, BlockPos origin, List<FoliageCoordinates> coordinates, BiConsumer<BlockPos, BlockState> logs)
     {
         for (FoliageCoordinates coordinate : coordinates)
         {
@@ -319,16 +320,16 @@ public class BigTreeFeature extends TreeFeatureBase
             BlockPos baseCoord = new BlockPos(origin.getX(), branchBase, origin.getZ());
             if (!baseCoord.equals(coordinate) && this.trimBranches(height, branchBase - origin.getY()))
             {
-                this.checkLineAndOptionallySet(changedBlocks, world, baseCoord, coordinate, true, boundingBox);
+                this.checkLineAndOptionallySet(world, baseCoord, coordinate, true, logs);
             }
         }
     }
 
     @Override
-    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, LevelAccessor world, Random rand, BlockPos pos, BoundingBox boundingBox)
+    protected boolean place(LevelAccessor world, Random rand, BlockPos pos, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves)
     {
         Random random = new Random(rand.nextLong());
-        int height = this.checkLocation(changedLogs, world, pos, this.minHeight + random.nextInt(this.maxHeight), boundingBox);
+        int height = this.checkLocation(world, pos, this.minHeight + random.nextInt(this.maxHeight), logs);
         if (height == -1) {
             return false;
         } else {
@@ -374,7 +375,7 @@ public class BigTreeFeature extends TreeFeatureBase
                     final BlockPos checkEnd = checkStart.above(5);
 
                     // check the center column of the cluster for obstructions.
-                    if (this.checkLineAndOptionallySet(changedLogs, world, checkStart, checkEnd, false, boundingBox) == -1)
+                    if (this.checkLineAndOptionallySet(world, checkStart, checkEnd, false, logs) == -1)
                     {
                         // If the cluster can be created, check the branch path for obstructions.
                         final int dx = pos.getX() - checkStart.getX();
@@ -385,7 +386,7 @@ public class BigTreeFeature extends TreeFeatureBase
                         final BlockPos checkBranchBase = new BlockPos(pos.getX(), branchTop, pos.getZ());
 
                         // Now check the branch path
-                        if (this.checkLineAndOptionallySet(changedLogs, world, checkBranchBase, checkStart, false, boundingBox) == -1)
+                        if (this.checkLineAndOptionallySet(world, checkBranchBase, checkStart, false, logs) == -1)
                         {
                             // If the branch path is clear, add the position to the list of foliage positions
                             foliageCoords.add(new FoliageCoordinates(checkStart, checkBranchBase.getY()));
@@ -394,14 +395,14 @@ public class BigTreeFeature extends TreeFeatureBase
                 }
             }
 
-            this.makeFoliage(world, height, pos, foliageCoords, random, boundingBox, changedLeaves);
-            this.makeTrunk(changedLogs, world, pos, trunkHeight, boundingBox);
-            this.makeBranches(changedLogs, world, height, pos, foliageCoords, boundingBox);
+            this.makeFoliage(world, height, pos, foliageCoords, random, leaves);
+            this.makeTrunk(world, pos, trunkHeight, logs);
+            this.makeBranches(world, height, pos, foliageCoords, logs);
             return true;
         }
     }
 
-    private int checkLocation(Set<BlockPos> changedBlocks, LevelAccessor world, BlockPos pos, int height, BoundingBox boundingBox)
+    private int checkLocation(LevelAccessor world, BlockPos pos, int height, BiConsumer<BlockPos, BlockState> logs)
     {
         if (!this.placeOn.matches(world, pos.below()))
         {
@@ -409,7 +410,7 @@ public class BigTreeFeature extends TreeFeatureBase
         }
         else
         {
-            int step = this.checkLineAndOptionallySet(changedBlocks, world, pos, pos.above(height - 1), false, boundingBox);
+            int step = this.checkLineAndOptionallySet(world, pos, pos.above(height - 1), false, logs);
 
             if (step == -1)
             {

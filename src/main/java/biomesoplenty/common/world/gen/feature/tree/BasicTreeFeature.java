@@ -14,11 +14,10 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.material.Material;
 
 import java.util.Random;
-import java.util.Set;
+import java.util.function.BiConsumer;
 
 public class BasicTreeFeature extends TreeFeatureBase
 {
@@ -93,7 +92,7 @@ public class BasicTreeFeature extends TreeFeatureBase
     }
 
     @Override
-    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, LevelAccessor world, Random random, BlockPos pos, BoundingBox boundingBox)
+    protected boolean place(LevelAccessor world, Random random, BlockPos pos, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves)
     {
         int height = random.nextInt(this.maxHeight - this.minHeight) + this.minHeight;
         boolean hasSpace = true;
@@ -183,16 +182,16 @@ public class BasicTreeFeature extends TreeFeatureBase
                                         {
                                             if (random.nextInt(4) == 0)
                                             {
-                                                this.setAltLeaves(world, leavesPos, changedLeaves, boundingBox);
+                                                this.placeAltLeaves(world, leavesPos, leaves);
                                             }
                                             else
                                             {
-                                                this.placeLeaves(world, leavesPos, changedLeaves, boundingBox);
+                                                this.placeLeaves(world, leavesPos, leaves);
                                             }
                                         }
                                         else
                                         {
-                                            this.placeLeaves(world, leavesPos, changedLeaves, boundingBox);
+                                            this.placeLeaves(world, leavesPos, leaves);
                                         }
                                     }
                                 }
@@ -200,7 +199,7 @@ public class BasicTreeFeature extends TreeFeatureBase
                         }
                     }
 
-                    this.generateTrunk(changedLogs, boundingBox, world, pos, height);
+                    this.generateTrunk(world, pos, height, logs);
 
                     if (this.vine != Blocks.AIR.defaultBlockState())
                     {
@@ -286,7 +285,7 @@ public class BasicTreeFeature extends TreeFeatureBase
         }
     }
 
-    protected void generateTrunk(Set<BlockPos> changedBlocks, BoundingBox boundingBox, LevelAccessor world, BlockPos start, int height)
+    protected void generateTrunk(LevelAccessor world, BlockPos start, int height, BiConsumer<BlockPos, BlockState> logs)
     {
         //Create the trunk from the bottom up, using < to ensure it is covered with one layer of leaves
         for (int layer = 0; layer < height; ++layer)
@@ -294,7 +293,7 @@ public class BasicTreeFeature extends TreeFeatureBase
             BlockPos blockpos2 = start.above(layer);
             if (this.replace.matches(world, blockpos2))
             {
-                this.placeLog(world, start.above(layer), changedBlocks, boundingBox);
+                this.placeLog(world, start.above(layer), logs);
             }
         }
     }

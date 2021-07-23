@@ -15,12 +15,9 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.LevelSimulatedRW;
-import net.minecraft.world.level.LevelWriter;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BushBlock;
-import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.VineBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
@@ -28,7 +25,6 @@ import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 
-import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 import java.util.function.BiConsumer;
@@ -124,29 +120,39 @@ public abstract class TreeFeatureBase extends TreeFeature
         this.maxHeight = maxHeight;
     }
 
-    public boolean placeLeaves(LevelAccessor world, BlockPos pos, Set<BlockPos> changedBlocks, BoundingBox boundingBox)
+    public boolean placeLeaves(LevelAccessor world, BlockPos pos, BiConsumer<BlockPos, BlockState> leaves)
     {
         if (this.replace.matches(world, pos))
         {
-            this.placeBlock(world, pos, this.leaves, changedBlocks, boundingBox);
+            leaves.accept(pos, this.leaves);
             return true;
         }
         return false;
     }
 
-    public boolean placeLog(LevelAccessor world, BlockPos pos, Set<BlockPos> changedBlocks, BoundingBox boundingBox)
+    public boolean placeAltLeaves(LevelAccessor world, BlockPos pos, BiConsumer<BlockPos, BlockState> leaves)
     {
-        return this.placeLog(world, pos, null, changedBlocks, boundingBox);
+        if (this.replace.matches(world, pos))
+        {
+            leaves.accept(pos, this.altLeaves);
+            return true;
+        }
+        return false;
     }
 
-    public boolean placeLog(LevelAccessor world, BlockPos pos, Direction.Axis axis, Set<BlockPos> changedBlocks, BoundingBox boundingBox)
+    public boolean placeLog(LevelAccessor world, BlockPos pos, BiConsumer<BlockPos, BlockState> logs)
+    {
+        return this.placeLog(world, pos, null, logs);
+    }
+
+    public boolean placeLog(LevelAccessor world, BlockPos pos, Direction.Axis axis, BiConsumer<BlockPos, BlockState> logs)
     {
         BlockState directedLog = (axis != null && this.logAxisProperty != null) ? this.log.setValue(this.logAxisProperty, axis) : this.log;
         if (this.replace.matches(world, pos))
         {
             // Logs must be added to the "changedBlocks" so that the leaves have their distance property updated,
             // preventing incorrect decay
-            this.placeBlock(world, pos, directedLog, changedBlocks, boundingBox);
+            logs.accept(pos, directedLog);
             return true;
         }
         return false;
@@ -177,55 +183,23 @@ public abstract class TreeFeatureBase extends TreeFeature
 
     public boolean setTrunkFruit(LevelAccessor world, BlockPos pos)
     {
-        if (this.trunkFruit == null) {return false;}
-        if (this.replace.matches(world, pos))
-        {
+        if (this.trunkFruit == null) {
+            return false;
+        }
+        if (this.replace.matches(world, pos)) {
             setBlock(world, pos, this.trunkFruit);
         }
         return false;
     }
 
-    public boolean setAltLeaves(LevelAccessor world, BlockPos pos, Set<BlockPos> changedBlocks, BoundingBox boundingBox)
-    {
-        if (this.replace.matches(world, pos))
-        {
-            this.placeBlock(world, pos, this.altLeaves, changedBlocks, boundingBox);
-            return true;
-        }
-        return false;
-    }
-
     @Override
-    public boolean doPlace(WorldGenLevel reader, Random random, BlockPos pos, BiConsumer<BlockPos, BlockState> biConsumer, BiConsumer<BlockPos, BlockState> biConsumer2, TreeConfiguration config)
+    public boolean doPlace(WorldGenLevel reader, Random random, BlockPos pos, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves, TreeConfiguration config)
     {
-        // TODO: sets, add properly
-        return place(new HashSet<>(), new HashSet<>(), reader, random, pos, BoundingBox.infinite());
+        return place(reader, random, pos, logs, leaves);
     }
 
-
-
-    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, LevelAccessor world, Random rand, BlockPos position, BoundingBox boundingBox)
+    protected boolean place(LevelAccessor world, Random rand, BlockPos position, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves)
     {
         return false;
-    }
-
-    protected boolean placeBlock(LevelAccessor world, BlockPos pos, BlockState state, Set<BlockPos> changedBlocks, BoundingBox boundingBox)
-    {
-        if (!isFree(world, pos))
-        {
-            return false;
-        }
-        else
-        {
-            setBlock(world, pos, state, boundingBox);
-            changedBlocks.add(pos.immutable());
-            return true;
-        }
-    }
-
-    protected static void setBlock(LevelWriter world, BlockPos pos, BlockState state, BoundingBox boundingBox)
-    {
-        world.setBlock(pos, state, 19);
-        boundingBox.encapsulate(new BoundingBox(pos));
     }
 }

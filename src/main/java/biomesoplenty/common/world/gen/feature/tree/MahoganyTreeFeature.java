@@ -15,12 +15,12 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 
 import java.util.Random;
 import java.util.Set;
+import java.util.function.BiConsumer;
 
 public class MahoganyTreeFeature extends TreeFeatureBase
 {
@@ -49,7 +49,7 @@ public class MahoganyTreeFeature extends TreeFeatureBase
     }
 
     @Override
-    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, LevelAccessor world, Random random, BlockPos pos, BoundingBox boundingBox)
+    protected boolean place(LevelAccessor world, Random random, BlockPos pos, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves)
     {
         int height = random.nextInt(this.maxHeight - this.minHeight) + this.minHeight;
         boolean hasSpace = true;
@@ -110,7 +110,7 @@ public class MahoganyTreeFeature extends TreeFeatureBase
                 {
                     world.setBlock(soilPos, Blocks.DIRT.defaultBlockState(), 3);
 
-                    this.generateTrunk(changedLogs, changedLeaves, boundingBox, world, pos, height);
+                    this.generateTrunk(logs, leaves, world, pos, height);
 
                     return true;
                 }
@@ -126,7 +126,7 @@ public class MahoganyTreeFeature extends TreeFeatureBase
         }
     }
 
-    protected void generateTrunk(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, BoundingBox boundingBox, LevelAccessor world, BlockPos start, int height)
+    protected void generateTrunk(BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves, LevelAccessor world, BlockPos start, int height)
     {
         int endHeight = height;
 
@@ -136,20 +136,20 @@ public class MahoganyTreeFeature extends TreeFeatureBase
 
             if (this.replace.matches(world, middlePos))
             {
-                this.placeLog(world, middlePos, changedLogs, boundingBox);
+                this.placeLog(world, middlePos, logs);
             }
         }
 
         //Generate upper branches
         BlockPos branchStartPos = start.above(endHeight - 3);
 
-        generateBranch(changedLogs, changedLeaves, boundingBox, world, branchStartPos, Direction.NORTH);
-        generateBranch(changedLogs, changedLeaves, boundingBox, world, branchStartPos, Direction.EAST);
-        generateBranch(changedLogs, changedLeaves, boundingBox, world, branchStartPos, Direction.SOUTH);
-        generateBranch(changedLogs, changedLeaves, boundingBox, world, branchStartPos, Direction.WEST);
+        generateBranch(logs, leaves, world, branchStartPos, Direction.NORTH);
+        generateBranch(logs, leaves, world, branchStartPos, Direction.EAST);
+        generateBranch(logs, leaves, world, branchStartPos, Direction.SOUTH);
+        generateBranch(logs, leaves, world, branchStartPos, Direction.WEST);
     }
 
-    private void generateBranch(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, BoundingBox boundingBox, LevelAccessor world, BlockPos middle, Direction direction)
+    private void generateBranch(BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves, LevelAccessor world, BlockPos middle, Direction direction)
     {
         BlockPos pos = middle;
         int length = 1 + world.getRandom().nextInt(2);
@@ -158,7 +158,7 @@ public class MahoganyTreeFeature extends TreeFeatureBase
         {
             if (replace.matches(world, pos.relative(direction, i+1)))
             {
-                this.placeLog(world, pos.relative(direction, i+1), direction.getAxis(), changedLogs, boundingBox);
+                this.placeLog(world, pos.relative(direction, i+1), direction.getAxis(), logs);
             }
         }
 
@@ -167,7 +167,7 @@ public class MahoganyTreeFeature extends TreeFeatureBase
         {
             if (replace.matches(world, pos.relative(direction, length+1).above(i+1)))
             {
-                this.placeLog(world, pos.relative(direction, length+1).above(i+1), Direction.Axis.Y, changedLogs, boundingBox);
+                this.placeLog(world, pos.relative(direction, length+1).above(i+1), Direction.Axis.Y, logs);
             }
         }
 
@@ -179,7 +179,7 @@ public class MahoganyTreeFeature extends TreeFeatureBase
         {
             for (int z = -(radius - 1); z <= (radius - 1); z++)
             {
-                this.placeLeaves(world, pos.offset(x,0,z), changedLeaves, boundingBox);
+                this.placeLeaves(world, pos.offset(x,0,z), leaves);
             }
         }
 
@@ -193,7 +193,7 @@ public class MahoganyTreeFeature extends TreeFeatureBase
                 }
                 else
                 {
-                    this.placeLeaves(world, pos.offset(x,-1,z), changedLeaves, boundingBox);
+                    this.placeLeaves(world, pos.offset(x,-1,z), leaves);
                 }
             }
         }

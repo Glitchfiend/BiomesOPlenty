@@ -21,6 +21,7 @@ import net.minecraft.world.level.material.Material;
 
 import java.util.Random;
 import java.util.Set;
+import java.util.function.BiConsumer;
 
 public class RedwoodTreeFeature extends TreeFeatureBase
 {
@@ -86,7 +87,7 @@ public class RedwoodTreeFeature extends TreeFeatureBase
     }
 
     // generates a layer of leafs
-    public void generateLeafLayer(LevelAccessor world, Random rand, BlockPos pos, int leavesRadius, int trunkStart, int trunkEnd, Set<BlockPos> changedLeaves, BoundingBox boundingBox)
+    public void generateLeafLayer(LevelAccessor world, Random rand, BlockPos pos, int leavesRadius, int trunkStart, int trunkEnd, BiConsumer<BlockPos, BlockState> leaves)
     {
         int start = trunkStart - leavesRadius;
         int end = trunkEnd + leavesRadius;
@@ -102,13 +103,13 @@ public class RedwoodTreeFeature extends TreeFeatureBase
                 // set leaves as long as it's not too far from the trunk to survive
                 if (distFromTrunk < 4 || (distFromTrunk == 4 && rand.nextInt(2) == 0))
                 {
-                    this.placeLeaves(world, pos.offset(x, 0, z), changedLeaves, boundingBox);
+                    this.placeLeaves(world, pos.offset(x, 0, z), leaves);
                 }
             }
         }
     }
 
-    public void generateBranch(LevelAccessor world, Random rand, BlockPos pos, Direction direction, int length, Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, BoundingBox boundingBox)
+    public void generateBranch(LevelAccessor world, Random rand, BlockPos pos, Direction direction, int length, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves)
     {
         Direction.Axis axis = direction.getAxis();
         Direction sideways = direction.getClockWise();
@@ -120,22 +121,22 @@ public class RedwoodTreeFeature extends TreeFeatureBase
             {
                 if (i < length || rand.nextInt(2) == 0)
                 {
-                    this.placeLeaves(world, pos1.relative(sideways, j), changedLeaves, boundingBox);
+                    this.placeLeaves(world, pos1.relative(sideways, j), leaves);
                 }
             }
             if (length - i > 2)
             {
-                this.placeLeaves(world, pos1.above(), changedLeaves, boundingBox);
-                this.placeLeaves(world, pos1.above().relative(sideways, -1), changedLeaves, boundingBox);
-                this.placeLeaves(world, pos1.above().relative(sideways, 1), changedLeaves, boundingBox);
-                this.placeLog(world, pos1, axis, changedLogs, boundingBox);
+                this.placeLeaves(world, pos1.above(), leaves);
+                this.placeLeaves(world, pos1.above().relative(sideways, -1), leaves);
+                this.placeLeaves(world, pos1.above().relative(sideways, 1), leaves);
+                this.placeLog(world, pos1, axis, logs);
             }
         }
     }
 
 
     @Override
-    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, LevelAccessor world, Random random, BlockPos startPos, BoundingBox boundingBox)
+    protected boolean place(LevelAccessor world, Random random, BlockPos startPos, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves)
     {
         // Move down until we reach the ground
         while (startPos.getY() > 1 && world.isEmptyBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES) {startPos = startPos.below();}
@@ -168,7 +169,7 @@ public class RedwoodTreeFeature extends TreeFeatureBase
         BlockPos pos = startPos.above(height);
 
         // Leaves at the top
-        this.placeLeaves(world, pos, changedLeaves, boundingBox);
+        this.placeLeaves(world, pos, leaves);
         pos.below();
 
         // Add layers of leaves
@@ -182,18 +183,18 @@ public class RedwoodTreeFeature extends TreeFeatureBase
             int radius = Math.min(Math.min((i + 2) / 4, 2 + (leavesHeight - i)), 4);
             if (radius == 0)
             {
-                this.placeLeaves(world, pos, changedLeaves, boundingBox);
+                this.placeLeaves(world, pos, leaves);
             }
             else if (radius < 2)
             {
-                this.generateLeafLayer(world, random, pos, radius, trunkStart, trunkEnd, changedLeaves, boundingBox);
+                this.generateLeafLayer(world, random, pos, radius, trunkStart, trunkEnd, leaves);
             }
             else
             {
-                this.generateBranch(world, random, pos.offset(trunkStart, 0, trunkStart), Direction.NORTH, radius, changedLogs, changedLeaves, boundingBox);
-                this.generateBranch(world, random, pos.offset(trunkEnd, 0, trunkStart), Direction.EAST, radius, changedLogs, changedLeaves, boundingBox);
-                this.generateBranch(world, random, pos.offset(trunkEnd, 0, trunkEnd), Direction.SOUTH, radius, changedLogs, changedLeaves, boundingBox);
-                this.generateBranch(world, random, pos.offset(trunkStart, 0, trunkEnd), Direction.WEST, radius, changedLogs, changedLeaves, boundingBox);
+                this.generateBranch(world, random, pos.offset(trunkStart, 0, trunkStart), Direction.NORTH, radius, logs, leaves);
+                this.generateBranch(world, random, pos.offset(trunkEnd, 0, trunkStart), Direction.EAST, radius, logs, leaves);
+                this.generateBranch(world, random, pos.offset(trunkEnd, 0, trunkEnd), Direction.SOUTH, radius, logs, leaves);
+                this.generateBranch(world, random, pos.offset(trunkStart, 0, trunkEnd), Direction.WEST, radius, logs, leaves);
             }
             pos = pos.below();
         }
@@ -241,7 +242,7 @@ public class RedwoodTreeFeature extends TreeFeatureBase
                 for (int y = 0; y < heightHere; y++)
                 {
                     BlockPos local = startPos.offset(x, y, z);
-                    this.placeLog(world, local, changedLogs, boundingBox);
+                    this.placeLog(world, local, logs);
 
                     if (dist > 0 && y > 4 && y < (baseHeight - 2) && random.nextInt(10) == 0) {
                         double theta;
@@ -265,10 +266,10 @@ public class RedwoodTreeFeature extends TreeFeatureBase
                         for (int i = 0; i < branchLength; i++) {
                             branchPos = local.offset(Math.cos(theta) * i, i / 2, Math.sin(theta) * i);
 
-                            this.placeLog(world, branchPos, changedLogs, boundingBox);
+                            this.placeLog(world, branchPos, logs);
                         }
 
-                        this.generateBush(changedLogs, changedLeaves, world, random, branchPos, boundingBox);
+                        this.generateBush(logs, leaves, world, random, branchPos);
                     }
                 }
             }
@@ -277,7 +278,7 @@ public class RedwoodTreeFeature extends TreeFeatureBase
         return true;
     }
 
-    protected boolean generateBush(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, LevelAccessor world, Random random, BlockPos pos, BoundingBox boundingBox)
+    protected boolean generateBush(BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves, LevelAccessor world, Random random, BlockPos pos)
     {
         //Generate a bush 3 blocks tall, with the center block set to a log
         for (int y = -1; y < 2; ++y)
@@ -285,7 +286,7 @@ public class RedwoodTreeFeature extends TreeFeatureBase
             // log in the center
             if (y == 0)
             {
-                this.placeLog(world, pos.offset(0, y, 0), changedLogs, boundingBox);
+                this.placeLog(world, pos.offset(0, y, 0), logs);
             }
 
             //Reduces the radius closer to the top of the bush
@@ -302,16 +303,16 @@ public class RedwoodTreeFeature extends TreeFeatureBase
                         {
                             if (random.nextInt(4) == 0)
                             {
-                                this.setAltLeaves(world, pos.offset(x, y, z), changedLeaves, boundingBox);
+                                this.placeAltLeaves(world, pos.offset(x, y, z), leaves);
                             }
                             else
                             {
-                                this.placeLeaves(world, pos.offset(x, y, z), changedLeaves, boundingBox);
+                                this.placeLeaves(world, pos.offset(x, y, z), leaves);
                             }
                         }
                         else
                         {
-                            this.placeLeaves(world, pos.offset(x, y, z), changedLeaves, boundingBox);
+                            this.placeLeaves(world, pos.offset(x, y, z), leaves);
                         }
                     }
                 }

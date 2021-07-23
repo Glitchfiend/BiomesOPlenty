@@ -20,6 +20,7 @@ import net.minecraft.world.level.material.Material;
 
 import java.util.Random;
 import java.util.Set;
+import java.util.function.BiConsumer;
 
 public class BulbTreeFeature extends TreeFeatureBase
 {
@@ -79,31 +80,31 @@ public class BulbTreeFeature extends TreeFeatureBase
     }
 
     // generates a 'branch' of a leaf layer
-    public void generateBranch(LevelAccessor world, Random random, BlockPos pos, Direction direction, Set<BlockPos> changedLeaves, BoundingBox boundingBox)
+    public void generateBranch(LevelAccessor world, Random random, BlockPos pos, Direction direction, BiConsumer<BlockPos, BlockState> leaves)
     {
         Direction sideways = direction.getClockWise();
-        this.placeLeaves(world, pos.relative(direction, 1), changedLeaves, boundingBox);
-        this.placeLeaves(world, pos.above().relative(direction, 1), changedLeaves, boundingBox);
+        this.placeLeaves(world, pos.relative(direction, 1), leaves);
+        this.placeLeaves(world, pos.above().relative(direction, 1), leaves);
         if (random.nextInt(3) > 0)
         {
-            this.placeLeaves(world, pos.above().relative(direction, 1).relative(sideways, 1), changedLeaves, boundingBox);
+            this.placeLeaves(world, pos.above().relative(direction, 1).relative(sideways, 1), leaves);
         }
     }
 
     // generates a layer of leafs (2 blocks high)
-    public void generateLeafLayer(LevelAccessor world, Random random, BlockPos pos, Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, BoundingBox boundingBox)
+    public void generateLeafLayer(LevelAccessor world, Random random, BlockPos pos, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves)
     {
         for (Direction direction : Direction.Plane.HORIZONTAL)
         {
-            this.generateBranch(world, random, pos, direction, changedLeaves, boundingBox);
+            this.generateBranch(world, random, pos, direction, leaves);
         }
 
         // add the trunk in the middle
-        this.placeLog(world, pos, changedLogs, boundingBox);
-        this.placeLog(world, pos.above(), changedLogs, boundingBox);
+        this.placeLog(world, pos, logs);
+        this.placeLog(world, pos.above(), logs);
     }
 
-    public void generateTop(LevelAccessor world, Random random, BlockPos pos, int topHeight, Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, BoundingBox boundingBox)
+    public void generateTop(LevelAccessor world, Random random, BlockPos pos, int topHeight, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves)
     {
         for (int y = 0; y < topHeight; y++)
         {
@@ -115,23 +116,23 @@ public class BulbTreeFeature extends TreeFeatureBase
                 {
                     if (Math.abs(x) < radius || Math.abs(z) < radius || random.nextInt(2) == 0)
                     {
-                        this.placeLeaves(world, pos.offset(x, y, z), changedLeaves, boundingBox);
+                        this.placeLeaves(world, pos.offset(x, y, z), leaves);
                     }
                 }
             }
             if (y < topHeight - 1)
             {
                 // add the trunk in the middle
-                this.placeLog(world, pos.offset(0, y, 0), changedLogs, boundingBox);
+                this.placeLog(world, pos.offset(0, y, 0), logs);
             } else {
                 // add leaves on top for certain
-                this.placeLeaves(world, pos.offset(0, y, 0), changedLeaves, boundingBox);
+                this.placeLeaves(world, pos.offset(0, y, 0), leaves);
             }
         }
     }
 
     @Override
-    protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, LevelAccessor world, Random random, BlockPos startPos, BoundingBox boundingBox)
+    protected boolean place(LevelAccessor world, Random random, BlockPos startPos, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves)
     {
         // Move down until we reach the ground
         while (startPos.getY() > 1 && world.isEmptyBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES) {startPos = startPos.below();}
@@ -162,19 +163,19 @@ public class BulbTreeFeature extends TreeFeatureBase
         // Generate bottom of tree (trunk only)
         for(int i = 0; i < baseHeight; i++)
         {
-            this.placeLog(world, pos, changedLogs, boundingBox);
+            this.placeLog(world, pos, logs);
             pos = pos.above();
         }
 
         // Generate middle of the tree - 2 steps at a time (trunk and leaves)
         for (int i = 0; i < numBranches; i++)
         {
-            this.generateLeafLayer(world, random, pos, changedLogs, changedLeaves, boundingBox);
+            this.generateLeafLayer(world, random, pos, logs, leaves);
             pos = pos.above(2);
         }
 
         // Generate the top of the tree
-        this.generateTop(world, random, pos, topHeight, changedLogs, changedLeaves, boundingBox);
+        this.generateTop(world, random, pos, topHeight, logs, leaves);
 
         // Add vines
         this.addVines(world, random, startPos, baseHeight, height, 3, 10);
