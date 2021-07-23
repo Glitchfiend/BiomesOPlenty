@@ -117,6 +117,12 @@
                 "biome": "biomesoplenty:dry_boneyard"
             }
         },
+		"dunes": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:dunes"
+            }
+        },
 		"fir_clearing": {
             "trigger": "minecraft:location",
             "conditions": {

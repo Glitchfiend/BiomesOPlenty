@@ -116,6 +116,12 @@
                 "biome": "biomesoplenty:dry_boneyard"
             }
         },
+		"dunes": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:dunes"
+            }
+        },
 		"fir_clearing": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -514,6 +520,7 @@
 			"dense_woodland",
 			"dryland",
 			"dry_boneyard",
+			"dunes",
 			"fir_clearing",
 			"flower_meadow",
 			"fungal_field",
