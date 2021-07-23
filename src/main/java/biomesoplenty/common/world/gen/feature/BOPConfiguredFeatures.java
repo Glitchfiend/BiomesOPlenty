@@ -17,19 +17,29 @@ import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.data.worldgen.Features;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.blockplacers.SimpleBlockPlacer;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
+import net.minecraft.world.level.levelgen.placement.CaveSurface;
 import net.minecraft.world.level.levelgen.placement.ChanceDecoratorConfiguration;
 import net.minecraft.world.level.levelgen.placement.FeatureDecorator;
 import net.minecraft.world.level.levelgen.placement.FrequencyWithExtraChanceDecoratorConfiguration;
 
 public class BOPConfiguredFeatures
 {
+    static SimpleWeightedRandomList.Builder<BlockState> weightedBlockStateBuilder() {
+        return SimpleWeightedRandomList.builder();
+    }
+
     // Trees
     public static final ConfiguredFeature<?, ?> ACACIA_BUSH = register("acacia_bush", BOPFeatures.ACACIA_BUSH.configured(Features.OAK.config()));
     public static final ConfiguredFeature<?, ?> ACACIA_TWIGLET = register("acacia_twiglet", BOPFeatures.ACACIA_TWIGLET.configured(Features.OAK.config()));
@@ -247,6 +257,9 @@ public class BOPConfiguredFeatures
     public static final ConfiguredFeature<?, ?> LARGE_FERN_7 = register("large_fern_7", Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfigurationDouble(Blocks.LARGE_FERN.defaultBlockState())).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE.count(7)));
     public static final ConfiguredFeature<?, ?> LARGE_FERN_14 = register("large_fern_14", Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfigurationDouble(Blocks.LARGE_FERN.defaultBlockState())).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE.count(14)));
     public static final ConfiguredFeature<?, ?> LARGE_FERN_25 = register("large_fern_25", Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfigurationDouble(Blocks.LARGE_FERN.defaultBlockState())).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE.count(25)));
+
+    public static final ConfiguredFeature<SimpleBlockConfiguration, ?> MOSS_FOREST = register("moss_forest", Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(new WeightedStateProvider(weightedBlockStateBuilder().add(Blocks.MOSS_CARPET.defaultBlockState(), 25).add(Blocks.GRASS.defaultBlockState(), 50).add(Blocks.TALL_GRASS.defaultBlockState(), 10)))));
+    public static final ConfiguredFeature<VegetationPatchConfiguration, ?> MOSS_PATCH_FOREST = register("moss_patch_forest", Feature.VEGETATION_PATCH.configured(new VegetationPatchConfiguration(BlockTags.MOSS_REPLACEABLE.getName(), new SimpleStateProvider(Blocks.MOSS_BLOCK.defaultBlockState()), () -> { return MOSS_FOREST; }, CaveSurface.FLOOR, ConstantInt.of(1), 0.0F, 5, 0.8F, UniformInt.of(4, 7), 0.3F)));
 
     /////////////////////////////////////////////////////////////////////
 

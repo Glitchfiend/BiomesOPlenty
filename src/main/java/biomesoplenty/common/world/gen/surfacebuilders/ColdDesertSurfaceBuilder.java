@@ -28,7 +28,7 @@ public class ColdDesertSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderBaseC
 	{
 		if (noise > 2.6D)
 		{
-			SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, startY, seed, BOPSurfaceBuilders.SNOW_SNOW_GRAVEL_SURFACE);
+			SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, startY, seed, BOPSurfaceBuilders.POWDER_SNOW_SURFACE);
 		}
 		else
 		{

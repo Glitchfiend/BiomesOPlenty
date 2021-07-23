@@ -23,6 +23,7 @@ public class CherryBlossomGroveBiome extends BiomeTemplate
     public CherryBlossomGroveBiome()
     {
         this.addWeight(BOPClimates.COOL_TEMPERATE, 1);
+        this.setBeachBiome(null);
     }
 
     @Override

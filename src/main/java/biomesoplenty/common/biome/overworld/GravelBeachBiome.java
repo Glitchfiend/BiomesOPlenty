@@ -10,10 +10,12 @@ package biomesoplenty.common.biome.overworld;
 import biomesoplenty.common.biome.BiomeTemplate;
 import biomesoplenty.common.world.gen.surfacebuilders.BOPConfiguredSurfaceBuilders;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
+import net.minecraft.data.worldgen.Features;
 import net.minecraft.data.worldgen.StructureFeatures;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.*;
+import net.minecraft.world.level.levelgen.GenerationStep;
 
 public class GravelBeachBiome extends BiomeTemplate
 {
@@ -33,7 +35,7 @@ public class GravelBeachBiome extends BiomeTemplate
     @Override
     protected void configureGeneration(BiomeGenerationSettings.Builder builder)
     {
-        builder.surfaceBuilder(BOPConfiguredSurfaceBuilders.GRAVEL_FULL);
+        builder.surfaceBuilder(BOPConfiguredSurfaceBuilders.GRAVEL_BEACH);
 
         // Structures
         builder.addStructureStart(StructureFeatures.MINESHAFT);
@@ -48,7 +50,10 @@ public class GravelBeachBiome extends BiomeTemplate
         BiomeDefaultFeatures.addDefaultMonsterRoom(builder);
         BiomeDefaultFeatures.addDefaultUndergroundVariety(builder);
         BiomeDefaultFeatures.addDefaultOres(builder);
-        BiomeDefaultFeatures.addDefaultSoftDisks(builder);
+
+        builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, Features.DISK_CLAY);
+        builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, Features.DISK_GRAVEL);
+
         BiomeDefaultFeatures.addDefaultSprings(builder);
         BiomeDefaultFeatures.addSurfaceFreezing(builder);
     }

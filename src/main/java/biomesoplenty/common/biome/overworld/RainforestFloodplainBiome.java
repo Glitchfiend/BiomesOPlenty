@@ -65,6 +65,7 @@ public class RainforestFloodplainBiome extends BiomeTemplate
         builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.TALL_GRASS_24);
         builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.WATERGRASS_250);
         builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, Features.SEAGRASS_SWAMP);
+        builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, Features.DRIPLEAF);
 
         ////////////////////////////////////////////////////////////
 

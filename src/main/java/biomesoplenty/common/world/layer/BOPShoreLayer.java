@@ -93,7 +93,7 @@ public enum BOPShoreLayer implements CastleTransformer
                     }
                     else
                     {
-                        if (key == Biomes.TAIGA || key == Biomes.TAIGA_MOUNTAINS || key == Biomes.TAIGA_HILLS || key == Biomes.GIANT_TREE_TAIGA || key == Biomes.GIANT_SPRUCE_TAIGA || key == Biomes.GIANT_TREE_TAIGA_HILLS || key == Biomes.GIANT_SPRUCE_TAIGA_HILLS || key == Biomes.BIRCH_FOREST_HILLS || key == Biomes.BIRCH_FOREST || key == Biomes.TALL_BIRCH_HILLS || key == Biomes.TALL_BIRCH_FOREST || key == Biomes.DARK_FOREST_HILLS || key == Biomes.DARK_FOREST)
+                        if (key == Biomes.TAIGA || key == Biomes.TAIGA_MOUNTAINS || key == Biomes.TAIGA_HILLS || key == Biomes.GIANT_TREE_TAIGA || key == Biomes.GIANT_SPRUCE_TAIGA || key == Biomes.GIANT_TREE_TAIGA_HILLS || key == Biomes.GIANT_SPRUCE_TAIGA_HILLS || key == Biomes.BIRCH_FOREST_HILLS || key == Biomes.BIRCH_FOREST || key == Biomes.TALL_BIRCH_HILLS || key == Biomes.TALL_BIRCH_FOREST || key == Biomes.DARK_FOREST_HILLS || key == Biomes.DARK_FOREST || key == Biomes.FOREST || key == Biomes.FLOWER_FOREST || key == Biomes.WOODED_HILLS)
                         {
                             return getBiomeIdIfPresent(BOPBiomes.gravel_beach, biomeId);
                         }

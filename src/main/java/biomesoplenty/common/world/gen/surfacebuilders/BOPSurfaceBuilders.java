@@ -21,7 +21,7 @@ public class BOPSurfaceBuilders
     public static final SurfaceBuilderBaseConfiguration BLACKSTONE_SURFACE = new SurfaceBuilderBaseConfiguration(Blocks.BLACKSTONE.defaultBlockState(), Blocks.BLACKSTONE.defaultBlockState(), Blocks.BLACKSTONE.defaultBlockState());
     public static final SurfaceBuilderBaseConfiguration BASALT_SURFACE = new SurfaceBuilderBaseConfiguration(Blocks.BASALT.defaultBlockState(), Blocks.BASALT.defaultBlockState(), Blocks.GRAVEL.defaultBlockState());
     public static final SurfaceBuilderBaseConfiguration TERRACOTTA_SURFACE = new SurfaceBuilderBaseConfiguration(Blocks.TERRACOTTA.defaultBlockState(), Blocks.TERRACOTTA.defaultBlockState(), Blocks.GRAVEL.defaultBlockState());
-    public static final SurfaceBuilderBaseConfiguration DIORITE_SURFACE = new SurfaceBuilderBaseConfiguration(Blocks.DIORITE.defaultBlockState(), Blocks.DIORITE.defaultBlockState(), Blocks.DIORITE.defaultBlockState());
+    public static final SurfaceBuilderBaseConfiguration CALCITE_SURFACE = new SurfaceBuilderBaseConfiguration(Blocks.CALCITE.defaultBlockState(), Blocks.CALCITE.defaultBlockState(), Blocks.CALCITE.defaultBlockState());
     public static final SurfaceBuilderBaseConfiguration MAGMA_SURFACE = new SurfaceBuilderBaseConfiguration(Blocks.MAGMA_BLOCK.defaultBlockState(), Blocks.MAGMA_BLOCK.defaultBlockState(), Blocks.BASALT.defaultBlockState());
     public static final SurfaceBuilderBaseConfiguration SNOW_SNOW_GRAVEL_SURFACE = new SurfaceBuilderBaseConfiguration(Blocks.SNOW_BLOCK.defaultBlockState(), Blocks.SNOW_BLOCK.defaultBlockState(), Blocks.GRAVEL.defaultBlockState());
     public static final SurfaceBuilderBaseConfiguration MUD_SURFACE = new SurfaceBuilderBaseConfiguration(BOPBlocks.MUD.defaultBlockState(), BOPBlocks.MUD.defaultBlockState(), BOPBlocks.MUD.defaultBlockState());
@@ -32,6 +32,8 @@ public class BOPSurfaceBuilders
     public static final SurfaceBuilderBaseConfiguration DRIED_SALT_SURFACE = new SurfaceBuilderBaseConfiguration(BOPBlocks.DRIED_SALT.defaultBlockState(), BOPBlocks.DRIED_SALT.defaultBlockState(), BOPBlocks.DRIED_SALT.defaultBlockState());
     public static final SurfaceBuilderBaseConfiguration ORIGIN_GRASS_SURFACE = new SurfaceBuilderBaseConfiguration(BOPBlocks.ORIGIN_GRASS_BLOCK.defaultBlockState(), Blocks.DIRT.defaultBlockState(), Blocks.GRAVEL.defaultBlockState());
     public static final SurfaceBuilderBaseConfiguration BASIN_SURFACE = new SurfaceBuilderBaseConfiguration(Blocks.AIR.defaultBlockState(), Blocks.STONE.defaultBlockState(), Blocks.GRAVEL.defaultBlockState());
+    public static final SurfaceBuilderBaseConfiguration GRAVEL_BEACH_SURFACE = new SurfaceBuilderBaseConfiguration(Blocks.AIR.defaultBlockState(), Blocks.GRAVEL.defaultBlockState(), Blocks.GRAVEL.defaultBlockState());
+    public static final SurfaceBuilderBaseConfiguration POWDER_SNOW_SURFACE = new SurfaceBuilderBaseConfiguration(Blocks.POWDER_SNOW.defaultBlockState(), Blocks.POWDER_SNOW.defaultBlockState(), Blocks.GRAVEL.defaultBlockState());
 
     public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> DRYLAND = register("dryland", new DrylandSurfaceBuilder(SurfaceBuilderBaseConfiguration.CODEC.stable()));
     public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> HIGHLAND_CRAG = register("highland_crag", new HighlandCragSurfaceBuilder(SurfaceBuilderBaseConfiguration.CODEC.stable()));

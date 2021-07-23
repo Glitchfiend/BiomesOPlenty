@@ -22,6 +22,7 @@ public class BambooBlossomGroveBiome extends BiomeTemplate
 {
     public BambooBlossomGroveBiome()
     {
+        this.setBeachBiome(null);
     }
 
     @Override
