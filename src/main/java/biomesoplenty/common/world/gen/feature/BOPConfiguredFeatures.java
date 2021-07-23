@@ -25,6 +25,7 @@ import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SmallDripleafBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.blockplacers.SimpleBlockPlacer;
@@ -338,6 +339,9 @@ public class BOPConfiguredFeatures
     public static final ConfiguredFeature<?, ?> NETHER_VINES = register("nether_vines", BOPFeatures.NETHER_VINES.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).decorated(FeatureUtil.denseCount(150)));
     public static final ConfiguredFeature<?, ?> OBSIDIAN_SPLATTER = register("obsidian_splatter", BOPFeatures.OBSIDIAN_SPLATTER.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(12)));
     public static final ConfiguredFeature<?, ?> ORANGE_SAND_DISK = register("orange_sand_disk", Feature.DISK.configured(new DiskConfiguration(BOPBlocks.ORANGE_SAND.defaultBlockState(), UniformInt.of(2, 6), 2, ImmutableList.of(Blocks.DIRT.defaultBlockState(), Blocks.GRASS_BLOCK.defaultBlockState()))).decorated(Features.Decorators.TOP_SOLID_HEIGHTMAP_SQUARE).count(3));
+    public static final ConfiguredFeature<?, ?> ORE_COAL_EXTRA = register("ore_coal_extra", Feature.ORE.configured(new OreConfiguration(Features.ORE_COAL_TARGET_LIST, 9)).rangeUniform(VerticalAnchor.absolute(32), VerticalAnchor.absolute(79)).squared().count(20));
+    public static final ConfiguredFeature<?, ?> ORE_COPPER_EXTRA = register("ore_copper_extra", Feature.ORE.configured(new OreConfiguration(Features.ORE_COPPER_TARGET_LIST, 9)).rangeUniform(VerticalAnchor.absolute(32), VerticalAnchor.absolute(79)).squared().count(20));
+    public static final ConfiguredFeature<?, ?> ORE_IRON_EXTRA = register("ore_iron_extra", Feature.ORE.configured(new OreConfiguration(Features.ORE_IRON_TARGET_LIST, 9)).rangeUniform(VerticalAnchor.absolute(32), VerticalAnchor.absolute(79)).squared().count(20));
     public static final ConfiguredFeature<?, ?> PODZOL_SPLATTER = register("podzol_splatter", BOPFeatures.PODZOL_SPLATTER.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(22)));
     public static final ConfiguredFeature<?, ?> PUMPKIN_PATCH = register("pumpkin_patch", BOPFeatures.PUMPKIN_PATCH.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(35)));
     public static final ConfiguredFeature<?, ?> RAINFOREST_CLIFFS_VINES = register("overgrown_cliffs_vines", BOPFeatures.RAINFOREST_CLIFFS_VINES.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(128));

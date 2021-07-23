@@ -53,6 +53,7 @@ public class RainforestBiome extends BiomeTemplate
         BiomeDefaultFeatures.addDefaultUndergroundVariety(builder);
         BiomeDefaultFeatures.addDefaultOres(builder);
 
+        builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BOPConfiguredFeatures.ORE_COPPER_EXTRA);
         builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BOPConfiguredFeatures.ORANGE_SAND_DISK);
 
         ////////////////////////////////////////////////////////////

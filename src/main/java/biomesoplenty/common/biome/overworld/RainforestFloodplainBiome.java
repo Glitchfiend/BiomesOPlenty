@@ -53,6 +53,8 @@ public class RainforestFloodplainBiome extends BiomeTemplate
         BiomeDefaultFeatures.addDefaultUndergroundVariety(builder);
         BiomeDefaultFeatures.addDefaultOres(builder);
 
+        builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BOPConfiguredFeatures.ORE_COPPER_EXTRA);
+
         ////////////////////////////////////////////////////////////
 
         // Vegetation

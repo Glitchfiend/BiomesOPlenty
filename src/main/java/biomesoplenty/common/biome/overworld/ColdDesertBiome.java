@@ -56,6 +56,9 @@ public class ColdDesertBiome extends BiomeTemplate
         BiomeDefaultFeatures.addDefaultMonsterRoom(builder);
         BiomeDefaultFeatures.addDefaultUndergroundVariety(builder);
         BiomeDefaultFeatures.addDefaultOres(builder);
+
+        builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BOPConfiguredFeatures.ORE_IRON_EXTRA);
+
         BiomeDefaultFeatures.addDefaultSoftDisks(builder);
 
         ////////////////////////////////////////////////////////////

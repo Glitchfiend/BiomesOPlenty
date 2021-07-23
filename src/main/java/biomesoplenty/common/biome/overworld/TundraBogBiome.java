@@ -51,6 +51,9 @@ public class TundraBogBiome extends BiomeTemplate
         BiomeDefaultFeatures.addDefaultMonsterRoom(builder);
         BiomeDefaultFeatures.addDefaultUndergroundVariety(builder);
         BiomeDefaultFeatures.addDefaultOres(builder);
+
+        builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BOPConfiguredFeatures.ORE_COAL_EXTRA);
+
         BiomeDefaultFeatures.addSwampClayDisk(builder);
 
         ////////////////////////////////////////////////////////////

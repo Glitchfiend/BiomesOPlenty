@@ -9,6 +9,7 @@ package biomesoplenty.common.biome.overworld;
 
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.common.biome.BiomeTemplate;
+import biomesoplenty.common.world.gen.feature.BOPConfiguredFeatures;
 import biomesoplenty.common.world.gen.surfacebuilders.BOPConfiguredSurfaceBuilders;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.data.worldgen.Features;
@@ -50,6 +51,9 @@ public class TundraBasinBiome extends BiomeTemplate
         builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, Features.ORE_GRAVEL);
 
         BiomeDefaultFeatures.addDefaultOres(builder);
+
+        builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BOPConfiguredFeatures.ORE_COAL_EXTRA);
+
         BiomeDefaultFeatures.addDefaultSoftDisks(builder);
 
         ////////////////////////////////////////////////////////////
