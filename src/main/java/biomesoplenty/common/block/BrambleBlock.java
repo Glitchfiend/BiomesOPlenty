@@ -7,20 +7,20 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.PipeBlock;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.pathfinder.PathComputationType;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.core.Direction;
-import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.PipeBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.pathfinder.PathComputationType;
 
 public class BrambleBlock extends PipeBlock
 {
@@ -78,7 +78,7 @@ public class BrambleBlock extends PipeBlock
      }
 
      @Override
-     public boolean isPathfindable(BlockState state, BlockGetter worldIn, BlockPos pos, PathComputationType type)
+     public boolean isPathfindable(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, PathComputationType pathComputationType)
      {
         return false;
      }

@@ -7,14 +7,11 @@
  ******************************************************************************/
 package biomesoplenty.common.world.biome;
 
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Sets;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.blockplacers.DoublePlantPlacer;
 import net.minecraft.world.level.levelgen.feature.blockplacers.SimpleBlockPlacer;
-import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
+import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 
 public class BiomeFeatureHelper
 {

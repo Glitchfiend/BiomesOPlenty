@@ -7,16 +7,15 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.material.FluidState;
-import net.minecraft.tags.FluidTags;
-import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelReader;
-import net.minecraftforge.common.PlantType;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.FluidState;
 
 import java.util.Iterator;
 
@@ -27,19 +26,21 @@ public class WatersidePlantBlock extends PlantBlockBOP
         super(properties);
     }
     
-    @Override
-    public PlantType getPlantType(BlockGetter world, BlockPos pos)
-    {
-    	Block block = world.getBlockState(pos).getBlock();
-    	
-    	return PlantType.BEACH;
-    }
+//    @Override
+//    public PlantType getPlantType(BlockGetter world, BlockPos pos)
+//    {
+//    	Block block = world.getBlockState(pos).getBlock();
+//
+//    	return PlantType.BEACH;
+//    }
 
     @Override
     public boolean canSurvive(BlockState state, LevelReader worldReader, BlockPos pos)
     {
         BlockState soil = worldReader.getBlockState(pos.below());
-        if (soil.canSustainPlant(worldReader, pos.below(), Direction.UP, this))
+//        if (soil.canSustainPlant(worldReader, pos.below(), Direction.UP, this))
+//        {
+        if (this.mayPlaceOn(worldReader.getBlockState(pos), worldReader, pos))
         {
             BlockPos blockpos = pos.below();
             Iterator var7 = Direction.Plane.HORIZONTAL.iterator();

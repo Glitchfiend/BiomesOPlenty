@@ -1,24 +1,24 @@
 /*******************************************************************************
  * Copyright 2014-2019, the Biomes O' Plenty Team
- * 
+ *
  * This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License.
- * 
+ *
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  ******************************************************************************/
 
 package biomesoplenty.core;
 
-import biomesoplenty.client.BOPClassicPack;
-import biomesoplenty.client.renderer.BoatRendererBOP;
-import biomesoplenty.init.*;
+import biomesoplenty.init.ModBiomes;
+import biomesoplenty.init.ModCompatibility;
+import biomesoplenty.init.ModConfig;
+import biomesoplenty.init.ModVanillaCompat;
 import net.minecraft.client.Minecraft;
-import net.minecraft.server.packs.repository.Pack;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.repository.Pack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModList;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -39,7 +39,7 @@ public class BiomesOPlenty
 
     public BiomesOPlenty()
     {
-    	instance = this;
+        instance = this;
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
@@ -47,8 +47,6 @@ public class BiomesOPlenty
 
         ModBiomes.setup();
         ModConfig.setup();
-
-        addClassicPack();
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
@@ -61,19 +59,11 @@ public class BiomesOPlenty
 
     private void clientSetup(final FMLClientSetupEvent event)
     {
-        RenderingRegistry.registerEntityRenderingHandler(ModEntities.boat, BoatRendererBOP::new);
     }
 
-    private void loadComplete(final FMLLoadCompleteEvent event) // PostRegistrationEven
+    private void loadComplete(final FMLLoadCompleteEvent event)
     {
         proxy.init();
         ModCompatibility.setup();
-    }
-
-    @OnlyIn(Dist.CLIENT)
-    public static void addClassicPack()
-    {
-        if (Minecraft.getInstance() == null) { return; }
-        Minecraft.getInstance().getResourcePackRepository().addPackFinder((consumer, iFactory) -> consumer.accept(Pack.create(new ResourceLocation(BiomesOPlenty.MOD_ID, "classic_textures").toString(), false, () -> new BOPClassicPack(ModList.get().getModFileById(BiomesOPlenty.MOD_ID).getFile()), iFactory, Pack.Position.TOP, iTextComponent -> iTextComponent)));
     }
 }

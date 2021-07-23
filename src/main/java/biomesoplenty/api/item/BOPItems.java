@@ -1,32 +1,29 @@
 /*******************************************************************************
- * Copyright 2014-2019, the Biomes O' Plenty Team
- * 
- * This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License.
- * 
- * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
+ * Copyright 2021, the Glitchfiend Team.
+ * All rights reserved.
  ******************************************************************************/
 package biomesoplenty.api.item;
 
 import net.minecraft.world.item.Item;
 
-public class BOPItems 
+public class BOPItems
 {
-    public static Item bop_icon;
+    public static Item BOP_ICON;
 
-    public static Item mud_ball;
-    public static Item mud_brick;
+    public static Item MUD_BALL;
+    public static Item MUD_BRICK;
 
-    public static Item fir_boat;
-    public static Item redwood_boat;
-    public static Item cherry_boat;
-    public static Item mahogany_boat;
-    public static Item jacaranda_boat;
-    public static Item palm_boat;
-    public static Item willow_boat;
-    public static Item dead_boat;
-    public static Item magic_boat;
-    public static Item umbran_boat;
-    public static Item hellbark_boat;
+    public static Item FIR_BOAT;
+    public static Item REDWOOD_BOAT;
+    public static Item CHERRY_BOAT;
+    public static Item MAHOGANY_BOAT;
+    public static Item JACARANDA_BOAT;
+    public static Item PALM_BOAT;
+    public static Item WILLOW_BOAT;
+    public static Item DEAD_BOAT;
+    public static Item MAGIC_BOAT;
+    public static Item UMBRAN_BOAT;
+    public static Item HELLBARK_BOAT;
 
-    public static Item music_disc_wanderer;
+    public static Item MUSIC_DISC_WANDERER;
 }

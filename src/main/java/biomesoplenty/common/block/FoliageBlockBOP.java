@@ -8,121 +8,118 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.common.world.gen.feature.BOPConfiguredFeatures;
 import biomesoplenty.common.world.gen.feature.BOPFeatures;
-import net.minecraft.block.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.stats.Stats;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.core.Direction;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraftforge.common.IPlantable;
-import net.minecraftforge.common.PlantType;
-
-import javax.annotation.Nullable;
-import java.util.Random;
-
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class FoliageBlockBOP extends BushBlock implements IPlantable, BonemealableBlock
+import javax.annotation.Nullable;
+import java.util.Random;
+
+public class FoliageBlockBOP extends BushBlock implements BonemealableBlock // TODO: implements IPlantable, IGrowable
 {
-	protected static final VoxelShape NORMAL = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
-	protected static final VoxelShape SHORT = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 7.0D, 15.0D);
-	
+    protected static final VoxelShape NORMAL = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
+    protected static final VoxelShape SHORT = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 7.0D, 15.0D);
+
     public FoliageBlockBOP(Block.Properties properties)
     {
         super(properties);
     }
-    
+
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext selectionContext)
     {
-    	Block block = state.getBlock();
-        
-        if (block == BOPBlocks.desert_grass || block == BOPBlocks.clover)
+        Block block = state.getBlock();
+
+        if (block == BOPBlocks.DESERT_GRASS || block == BOPBlocks.CLOVER)
         {
-        	return SHORT;
+            return SHORT;
         }
-        
+
         return NORMAL;
     }
-    
+
     @Override
     public void playerDestroy(Level worldIn, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity te, ItemStack stack)
     {
         if (!worldIn.isClientSide && stack.getItem() == Items.SHEARS)
         {
-           player.awardStat(Stats.BLOCK_MINED.get(this));
-           player.causeFoodExhaustion(0.005F);
-           this.popResource(worldIn, pos, new ItemStack(this));
+            player.awardStat(Stats.BLOCK_MINED.get(this));
+            player.causeFoodExhaustion(0.005F);
+            this.popResource(worldIn, pos, new ItemStack(this));
         }
         else
         {
-           super.playerDestroy(worldIn, player, pos, state, te, stack);
+            super.playerDestroy(worldIn, player, pos, state, te, stack);
         }
-     }
-    
-    public java.util.List<ItemStack> onSheared(ItemStack item, net.minecraft.world.level.LevelAccessor world, BlockPos pos, int fortune)
-    {
-       world.setBlock(pos, Blocks.AIR.defaultBlockState(), 11);
-       return java.util.Arrays.asList(new ItemStack(this));
     }
-    
+
+// TODO:
+//    @Override
+//    public List<ItemStack> onSheared(ItemStack item, net.minecraft.world.ILevel world, BlockPos pos, int fortune)
+//    {
+//        world.setBlock(pos, Blocks.AIR.defaultBlockState(), 11);
+//        return java.util.Arrays.asList(new ItemStack(this));
+//    }
+
     @Override
     public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos)
     {
         BlockState groundState = worldIn.getBlockState(pos.below());
         Block ground = groundState.getBlock();
 
-        if (this == BOPBlocks.sprout)
+        if (this == BOPBlocks.SPROUT)
         {
             return groundState.isFaceSturdy(worldIn, pos.below(), Direction.UP) || super.canSurvive(state, worldIn, pos);
         }
-        if (this == BOPBlocks.dune_grass)
+        if (this == BOPBlocks.DUNE_GRASS)
         {
-            return ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.white_sand || ground == BOPBlocks.orange_sand || ground == BOPBlocks.black_sand;
+            return ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.WHITE_SAND || ground == BOPBlocks.ORANGE_SAND || ground == BOPBlocks.BLACK_SAND;
         }
-        if (this == BOPBlocks.desert_grass || this == BOPBlocks.dead_grass)
+        if (this == BOPBlocks.DESERT_GRASS || this == BOPBlocks.DEAD_GRASS)
         {
-            return ground == BOPBlocks.dried_salt || ground == Blocks.GRAVEL || ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.white_sand || ground == BOPBlocks.orange_sand || ground == BOPBlocks.black_sand || ground == Blocks.NETHERRACK || super.canSurvive(state, worldIn, pos);
+            return ground == BOPBlocks.DRIED_SALT || ground == Blocks.GRAVEL || ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.WHITE_SAND || ground == BOPBlocks.ORANGE_SAND || ground == BOPBlocks.BLACK_SAND || ground == Blocks.NETHERRACK || super.canSurvive(state, worldIn, pos);
         }
 
         return super.canSurvive(state, worldIn, pos);
     }
-    
+
     @Override
     public Block.OffsetType getOffsetType()
     {
         return Block.OffsetType.XYZ;
     }
-    
-    @Override
-    public PlantType getPlantType(BlockGetter world, BlockPos pos)
-    {
-    	return PlantType.PLAINS;
-    }
+
+//    @Override
+//    public PlantType getPlantType(BlockGetter world, BlockPos pos)
+//    {
+//        return PlantType.PLAINS;
+//    }
 
     @Override
     public boolean isValidBonemealTarget(BlockGetter worldIn, BlockPos pos, BlockState state, boolean isClient)
     {
         Block block = state.getBlock();
 
-        if (block == BOPBlocks.clover)
+        if (block == BOPBlocks.CLOVER)
         {
             return true;
         }
@@ -135,7 +132,7 @@ public class FoliageBlockBOP extends BushBlock implements IPlantable, Bonemealab
     {
         Block block = state.getBlock();
 
-        if (block == BOPBlocks.clover) { return (double)rand.nextFloat() < 0.4D; }
+        if (block == BOPBlocks.CLOVER) { return (double)rand.nextFloat() < 0.4D; }
 
         return false;
     }
@@ -145,7 +142,7 @@ public class FoliageBlockBOP extends BushBlock implements IPlantable, Bonemealab
     {
         Block block = state.getBlock();
 
-        if (block == BOPBlocks.clover) { this.growHugeClover(world, rand, pos, state); }
+        if (block == BOPBlocks.CLOVER) { this.growHugeClover(world, rand, pos, state); }
     }
 
     public boolean growHugeClover(ServerLevel world, Random rand, BlockPos pos, BlockState state)

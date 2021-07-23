@@ -12,17 +12,13 @@ import biomesoplenty.common.util.biome.BiomeUtil;
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.util.registry.DynamicRegistries;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.RegistryLookupCodec;
-import net.minecraft.util.registry.WorldGenRegistries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.BiomeSource;
+import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.newbiome.layer.Layer;
-import net.minecraft.world.gen.layer.LayerUtil;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -50,6 +46,15 @@ public class BOPBiomeProvider extends BiomeSource
         this.seed = seed;
         this.noiseBiomeLayer = BOPLayerUtil.createGenLayers(seed, new BOPOverworldGenSettings());
         this.biomes = biomes;
+        BiomeUtil.DYNAMIC_REGISTRY = biomes;
+
+        // TODO: make a custom layer sampler that doesn't need this hack
+        for (Biome biome : biomes) {
+            int id = biomes.getId(biome);
+            if (!net.minecraft.data.worldgen.biome.Biomes.TO_NAME.containsKey(id)) {
+                net.minecraft.data.worldgen.biome.Biomes.TO_NAME.put(id, biomes.getResourceKey(biome).get());
+            }
+        }
     }
 
     @Override

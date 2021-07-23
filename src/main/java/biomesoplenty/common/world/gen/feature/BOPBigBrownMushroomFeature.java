@@ -8,15 +8,16 @@
 package biomesoplenty.common.world.gen.feature;
 
 import com.mojang.serialization.Codec;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.HugeMushroomBlock;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.core.Direction;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.HugeBrownMushroomFeature;
+import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.HugeMushroomFeatureConfiguration;
 
 import java.util.Random;
@@ -35,7 +36,8 @@ public class BOPBigBrownMushroomFeature extends HugeBrownMushroomFeature
         {
             mutablePos.set(pos).move(Direction.UP, i);
             // Fix Forge's inversion bug
-            if (world.getBlockState(mutablePos).canBeReplacedByLeaves(world, mutablePos))
+
+            if (TreeFeature.isAirOrLeaves(world, mutablePos))
             {
                 this.setBlock(world, mutablePos, config.stemProvider.getState(random, pos));
             }
@@ -61,7 +63,7 @@ public class BOPBigBrownMushroomFeature extends HugeBrownMushroomFeature
                 {
                     mutablePos.set(pos).move(x, height, z);
                     // Fix Forge's inversion bug
-                    if (world.getBlockState(mutablePos).canBeReplacedByLeaves(world, mutablePos))
+                    if (TreeFeature.isAirOrLeaves(world, mutablePos))
                     {
                         boolean westFace = westEdge || northOrSouthEdge && x == 1 - radius;
                         boolean eastFace = eastEdge || northOrSouthEdge && x == radius - 1;
@@ -80,9 +82,10 @@ public class BOPBigBrownMushroomFeature extends HugeBrownMushroomFeature
         int i = pos.getY();
         if (i >= 1 && i + height + 1 < world.getMaxBuildHeight())
         {
-            Block groundBlock = world.getBlockState(pos.below()).getBlock();
+            BlockState state = world.getBlockState(pos.below());
+            Block groundBlock = state.getBlock();
             // Allow growth in the nether
-            if (!isDirt(groundBlock) && groundBlock != Blocks.NETHERRACK && groundBlock != Blocks.SOUL_SAND)
+            if (!isDirt(state) && groundBlock != Blocks.NETHERRACK && groundBlock != Blocks.SOUL_SAND)
             {
                 return false;
             }
@@ -97,7 +100,7 @@ public class BOPBigBrownMushroomFeature extends HugeBrownMushroomFeature
                         for (int z = -radius; z <= radius; ++z)
                         {
                             BlockState obstructingState = world.getBlockState(mutablePos.set(pos).move(x, y, z));
-                            if (!obstructingState.isAir(world, mutablePos) && !obstructingState.is(BlockTags.LEAVES))
+                            if (!obstructingState.isAir() && !obstructingState.is(BlockTags.LEAVES))
                             {
                                 return false;
                             }

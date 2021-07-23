@@ -1,16 +1,15 @@
 package biomesoplenty.common.world.gen.placement;
 
+import biomesoplenty.common.world.AlphaOctavePerlinNoise;
+import com.mojang.serialization.Codec;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneDecoratorConfiguration;
+import net.minecraft.world.level.levelgen.placement.DecorationContext;
+import net.minecraft.world.level.levelgen.placement.FeatureDecorator;
+
 import java.util.Random;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
-
-import biomesoplenty.common.world.AlphaOctavePerlinNoise;
-import com.mojang.serialization.Codec;
-
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.levelgen.placement.DecorationContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneDecoratorConfiguration;
-import net.minecraft.world.level.levelgen.placement.FeatureDecorator;
 
 public class AlphaTreePlacement extends FeatureDecorator<NoneDecoratorConfiguration>
 {
@@ -26,7 +25,7 @@ public class AlphaTreePlacement extends FeatureDecorator<NoneDecoratorConfigurat
 	public Stream<BlockPos> getPositions(DecorationContext decoratorContext, Random random, NoneDecoratorConfiguration config, BlockPos pos)
 	{
 		// If the seed has changed, then re-initialize the noise.
-		long seed = decoratorContext.level.getSeed();
+		long seed = decoratorContext.getLevel().getSeed();
 		if (this.treeNoise == null || seed != this.seed) {
 			this.treeNoise = new AlphaOctavePerlinNoise(new Random(seed), 8);
 			this.seed = seed;

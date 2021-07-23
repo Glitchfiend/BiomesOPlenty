@@ -1,13 +1,14 @@
 package biomesoplenty.common.world.gen.feature;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 import java.util.Random;
@@ -20,8 +21,13 @@ public class CragSplatterFeature extends Feature<NoneFeatureConfiguration>
    }
 
    @Override
-   public boolean place(WorldGenLevel worldIn, ChunkGenerator chunkGenerator, Random rand, BlockPos pos, NoneFeatureConfiguration config)
+   public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext)
    {
+      WorldGenLevel worldIn = featurePlaceContext.level();
+      ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
+      Random rand = featurePlaceContext.random();
+      BlockPos pos = featurePlaceContext.origin();
+      NoneFeatureConfiguration config = featurePlaceContext.config();
       BlockPos.MutableBlockPos mutable = pos.mutable();
       int placed = 0;
       int radius = rand.nextInt(8 - 2) + 2;
@@ -69,7 +75,7 @@ public class CragSplatterFeature extends Feature<NoneFeatureConfiguration>
                            break;
 
                         case 10:
-                           if (blockstate1.isAir(worldIn, mutable.move(Direction.UP)))
+                           if (this.isAir(worldIn, mutable.move(Direction.UP)))
                               {
                                  worldIn.setBlock(mutable, Blocks.GRASS.defaultBlockState(), 2);
                                  worldIn.setBlock(mutable.move(Direction.DOWN), Blocks.GRASS_BLOCK.defaultBlockState(), 2);

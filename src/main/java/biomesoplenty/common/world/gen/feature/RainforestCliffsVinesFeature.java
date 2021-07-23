@@ -1,18 +1,18 @@
 package biomesoplenty.common.world.gen.feature;
 
-import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
-import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.VineBlock;
-import net.minecraft.core.Direction;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 import java.util.List;
@@ -21,7 +21,7 @@ import java.util.Random;
 public class RainforestCliffsVinesFeature extends Feature<NoneFeatureConfiguration>
 {
     protected IBlockPosQuery placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.DIRT || world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK || world.getBlockState(pos).getBlock() == Blocks.STONE || world.getBlockState(pos).getBlock() == Blocks.TERRACOTTA || world.getBlockState(pos).getBlock() == Blocks.ANDESITE || world.getBlockState(pos).getBlock() == Blocks.GRANITE || world.getBlockState(pos).getBlock() == Blocks.DIORITE;
-    protected IBlockPosQuery replace = (world, pos) -> world.getBlockState(pos).isAir(world, pos);
+    protected IBlockPosQuery replace = (world, pos) -> this.isAir(world, pos);
     int minHeight = 7;
     int maxHeight = 14;
 
@@ -31,8 +31,13 @@ public class RainforestCliffsVinesFeature extends Feature<NoneFeatureConfigurati
     }
 
     @Override
-    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, Random rand, BlockPos startPos, NoneFeatureConfiguration config)
+    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext)
     {
+        WorldGenLevel world = featurePlaceContext.level();
+        ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
+        Random rand = featurePlaceContext.random();
+        BlockPos startPos = featurePlaceContext.origin();
+        NoneFeatureConfiguration config = featurePlaceContext.config();
         while (startPos.getY() > 1 && this.replace.matches(world, startPos)) {startPos = startPos.below();}
 
         if (!this.placeOn.matches(world, startPos.offset(2, 0, 2)))

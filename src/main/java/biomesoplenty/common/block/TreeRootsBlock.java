@@ -8,15 +8,13 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPBlocks;
-import net.minecraft.world.level.block.GrowingPlantHeadBlock;
+import net.minecraft.core.BlockPos;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.LevelReader;
-
-import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 
 public class TreeRootsBlock extends HangingStrandBlock {
 
@@ -24,8 +22,10 @@ public class TreeRootsBlock extends HangingStrandBlock {
         super(p_i241195_1_);
     }
 
-    protected GrowingPlantHeadBlock getHeadBlock() {
-        return (GrowingPlantHeadBlock) BOPBlocks.tree_roots;
+    @Override
+    protected GrowingPlantHeadBlock getHeadBlock()
+    {
+        return (GrowingPlantHeadBlock) BOPBlocks.TREE_ROOTS;
     }
 
     @Override
@@ -33,10 +33,10 @@ public class TreeRootsBlock extends HangingStrandBlock {
         BlockPos blockpos = p_196260_3_.relative(this.growthDirection.getOpposite());
         BlockState blockstate = p_196260_2_.getBlockState(blockpos);
         Block block = blockstate.getBlock();
-        if (!this.canAttachToBlock(block)) {
+        if (!this.canAttachTo(blockstate)) {
             return false;
         } else {
-            return block == this.getHeadBlock() || block == this.getBodyBlock() || blockstate.getMaterial() == Material.DIRT || blockstate.getBlock().is(BlockTags.LOGS);
+            return block == this.getHeadBlock() || block == this.getBodyBlock() || blockstate.getMaterial() == Material.DIRT || blockstate.is(BlockTags.LOGS);
         }
     }
 }

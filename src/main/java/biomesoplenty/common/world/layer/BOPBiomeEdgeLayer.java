@@ -16,8 +16,6 @@ import net.minecraft.world.level.newbiome.context.Context;
 import net.minecraft.world.level.newbiome.layer.Layers;
 import net.minecraft.world.level.newbiome.layer.traits.CastleTransformer;
 
-import java.util.Optional;
-
 public enum BOPBiomeEdgeLayer implements CastleTransformer
 {
     INSTANCE;

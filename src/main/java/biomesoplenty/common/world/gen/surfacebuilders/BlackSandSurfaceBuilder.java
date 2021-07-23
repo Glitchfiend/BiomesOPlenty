@@ -2,10 +2,10 @@ package biomesoplenty.common.world.gen.surfacebuilders;
 
 import biomesoplenty.api.block.BOPBlocks;
 import com.mojang.serialization.Codec;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderBaseConfiguration;
@@ -17,7 +17,7 @@ public class BlackSandSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderBaseCo
         super(p_i232124_1_);
     }
 
-    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderBaseConfiguration config) {
+    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, int startY, long seed, SurfaceBuilderBaseConfiguration config) {
         this.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, config.getTopMaterial(), config.getUnderMaterial(), config.getUnderwaterMaterial(), seaLevel);
     }
 
@@ -87,10 +87,10 @@ public class BlackSandSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderBaseCo
                 {
                     --i;
                     chunkIn.setBlockState(blockpos$mutable, blockstate1, false);
-                    if (i == 0 && blockstate1.is(BOPBlocks.black_sand) && j > 1)
+                    if (i == 0 && blockstate1.is(BOPBlocks.BLACK_SAND) && j > 1)
                     {
                         i = random.nextInt(4) + Math.max(0, i1 - 63);
-                        blockstate1 = BOPBlocks.black_sandstone.defaultBlockState();
+                        blockstate1 = BOPBlocks.BLACK_SANDSTONE.defaultBlockState();
                     }
                 }
             }

@@ -7,8 +7,6 @@
  ******************************************************************************/
 package biomesoplenty.common.world.layer;
 
-import java.util.Random;
-
 import biomesoplenty.common.world.SimplexNoise;
 import biomesoplenty.common.world.layer.traits.IBOPAreaTransformer0;
 import biomesoplenty.common.world.layer.traits.IBOPContextExtended;

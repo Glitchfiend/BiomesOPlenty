@@ -2,17 +2,18 @@ package biomesoplenty.common.world.gen.feature;
 
 import biomesoplenty.api.block.BOPBlocks;
 import com.mojang.serialization.Codec;
-import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.LeavesBlock;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.gen.feature.structure.StructureManager;
+import net.minecraft.world.level.material.Material;
 
 import java.util.Random;
 
@@ -24,16 +25,21 @@ public class MangroveFeature extends Feature<NoneFeatureConfiguration> {
 	}
 
 	@Override
-	public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, Random rand, BlockPos pos, NoneFeatureConfiguration config)
+	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext)
 	{
+		WorldGenLevel world = featurePlaceContext.level();
+		ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
+		Random rand = featurePlaceContext.random();
+		BlockPos pos = featurePlaceContext.origin();
+		NoneFeatureConfiguration config = featurePlaceContext.config();
 		int i = 0;
-		BlockState blockstate = BOPBlocks.mangrove_root.defaultBlockState();
+		BlockState blockstate = BOPBlocks.MANGROVE_ROOT.defaultBlockState();
 
 		for(int j = 0; j < 64; ++j) {
 			BlockPos blockpos = pos.offset(rand.nextInt(8) - rand.nextInt(8), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(8) - rand.nextInt(8));
 			if (world.getBlockState(blockpos).getMaterial() == Material.WATER && world.isEmptyBlock(blockpos.above()) && (!world.dimensionType().hasCeiling() || blockpos.getY() < world.getLevel().getHeight() - 1) && blockstate.canSurvive(world, blockpos)) {
 				world.setBlock(blockpos, blockstate, 2);
-				((DoublePlantBlock)blockstate.getBlock()).placeAt(world, blockpos, 2);
+				((DoublePlantBlock)blockstate.getBlock()).placeAt(world, blockstate, blockpos, 2);
 
 				if (rand.nextInt(5) != 0)
 				{
@@ -44,30 +50,30 @@ public class MangroveFeature extends Feature<NoneFeatureConfiguration> {
 					BlockPos leaves5 = leaves1.west();
 					BlockPos leaves6 = leaves1.above();
 
-					if (world.getBlockState(leaves1).canBeReplacedByLeaves(world, leaves1))
+					if (TreeFeature.isAirOrLeaves(world, leaves1))
 					{
 						world.setBlock(leaves1, Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2);
 					}
 
 					if (rand.nextInt(2) == 0)
 					{
-						if (world.getBlockState(leaves2).canBeReplacedByLeaves(world, leaves2))
+						if (TreeFeature.isAirOrLeaves(world, leaves2))
 						{
 							world.setBlock(leaves2, Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2);
 						}
-						if (world.getBlockState(leaves3).canBeReplacedByLeaves(world, leaves3))
+						if (TreeFeature.isAirOrLeaves(world, leaves3))
 						{
 							world.setBlock(leaves3, Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2);
 						}
-						if (world.getBlockState(leaves4).canBeReplacedByLeaves(world, leaves4))
+						if (TreeFeature.isAirOrLeaves(world, leaves4))
 						{
 							world.setBlock(leaves4, Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2);
 						}
-						if (world.getBlockState(leaves5).canBeReplacedByLeaves(world, leaves5))
+						if (TreeFeature.isAirOrLeaves(world, leaves5))
 						{
 							world.setBlock(leaves5, Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2);
 						}
-						if (world.getBlockState(leaves6).canBeReplacedByLeaves(world, leaves6))
+						if (TreeFeature.isAirOrLeaves(world, leaves6))
 						{
 							world.setBlock(leaves6, Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2);
 						}

@@ -7,40 +7,48 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
-import net.minecraft.world.level.block.GrowingPlantBodyBlock;
-import net.minecraft.world.level.block.GrowingPlantHeadBlock;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
-import net.minecraft.core.Direction;
-import net.minecraft.core.BlockPos;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.Level;
-import net.minecraft.server.level.ServerLevel;
 
 import java.util.Random;
 
-import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
-
-public class HangingStrandBlock extends GrowingPlantBodyBlock {
+public class HangingStrandBlock extends GrowingPlantHeadBlock
+{
     public static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
-    public HangingStrandBlock(Properties p_i241195_1_) {
-        super(p_i241195_1_, Direction.DOWN, SHAPE, false);
+    public HangingStrandBlock(Properties properties)
+    {
+        super(properties, Direction.DOWN, SHAPE, false, 0.0D);
     }
 
+    @Override
     protected GrowingPlantHeadBlock getHeadBlock() {
         return null;
     }
 
     @Override
-    public boolean canSurvive(BlockState p_196260_1_, LevelReader p_196260_2_, BlockPos p_196260_3_) {
-        BlockPos blockpos = p_196260_3_.relative(this.growthDirection.getOpposite());
-        BlockState blockstate = p_196260_2_.getBlockState(blockpos);
+    protected Block getBodyBlock()
+    {
+        return null;
+    }
+
+
+    @Override
+    public boolean canSurvive(BlockState blockState, LevelReader levelReader, BlockPos blockPos)
+    {
+        BlockPos blockpos = blockPos.relative(this.growthDirection.getOpposite());
+        BlockState blockstate = levelReader.getBlockState(blockpos);
         Block block = blockstate.getBlock();
-        if (!this.canAttachToBlock(block)) {
+        if (!this.canAttachTo(blockstate)) {
             return false;
         } else {
             return block == this.getHeadBlock() || block == this.getBodyBlock() || blockstate.getMaterial() == Material.STONE;
@@ -48,30 +56,42 @@ public class HangingStrandBlock extends GrowingPlantBodyBlock {
     }
 
     @Override
-    public boolean isRandomlyTicking(BlockState p_149653_1_)
+    public boolean isRandomlyTicking(BlockState state)
     {
         return false;
     }
 
     @Override
-    public void randomTick(BlockState p_225542_1_, ServerLevel p_225542_2_, BlockPos p_225542_3_, Random p_225542_4_)
+    public void randomTick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, Random random)
     {
     }
 
     @Override
-    public boolean isValidBonemealTarget(BlockGetter p_176473_1_, BlockPos p_176473_2_, BlockState p_176473_3_, boolean p_176473_4_)
+    public boolean isValidBonemealTarget(BlockGetter blockGetter, BlockPos blockPos, BlockState blockState, boolean bl)
     {
         return false;
     }
 
     @Override
-    public boolean isBonemealSuccess(Level p_180670_1_, Random p_180670_2_, BlockPos p_180670_3_, BlockState p_180670_4_)
+    public boolean isBonemealSuccess(Level level, Random random, BlockPos blockPos, BlockState blockState)
     {
         return false;
     }
 
     @Override
-    public void performBonemeal(ServerLevel p_225535_1_, Random p_225535_2_, BlockPos p_225535_3_, BlockState p_225535_4_)
+    public void performBonemeal(ServerLevel serverLevel, Random random, BlockPos blockPos, BlockState blockState)
     {
+    }
+
+    @Override
+    protected int getBlocksToGrowWhenBonemealed(Random random)
+    {
+        return 0;
+    }
+
+    @Override
+    protected boolean canGrowInto(BlockState blockState)
+    {
+        return false;
     }
 }

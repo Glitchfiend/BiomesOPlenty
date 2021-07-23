@@ -8,31 +8,19 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPBlocks;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.Maps;
-import net.minecraft.block.*;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.world.level.pathfinder.PathComputationType;
-import net.minecraft.state.DirectionProperty;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.AttachFace;
-import net.minecraft.core.Direction;
-import net.minecraft.util.Mirror;
-import net.minecraft.util.Rotation;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.IWorld;
 import net.minecraft.world.level.LevelReader;
-
-import javax.annotation.Nullable;
-import java.util.Map;
-
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FaceAttachedHorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.AttachFace;
+import net.minecraft.world.level.pathfinder.PathComputationType;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class NetherCrystalBlock extends FaceAttachedHorizontalDirectionalBlock
 {
@@ -51,7 +39,7 @@ public class NetherCrystalBlock extends FaceAttachedHorizontalDirectionalBlock
 
     protected static boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
         Block block = state.getBlock();
-        return block == Blocks.NETHERRACK || block == Blocks.NETHER_QUARTZ_ORE || block == Blocks.BLACKSTONE || block == BOPBlocks.nether_crystal_block;
+        return block == Blocks.NETHERRACK || block == Blocks.NETHER_QUARTZ_ORE || block == Blocks.BLACKSTONE || block == BOPBlocks.NETHER_CRYSTAL_BLOCK;
     }
 
     @Override

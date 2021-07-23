@@ -8,14 +8,11 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPBlocks;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.block.material.Material;
-import net.minecraft.core.Direction;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.LevelReader;
-
-import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 
 public class HangingCobwebBottomBlock extends HangingStrandBottomBlock {
 
@@ -23,8 +20,9 @@ public class HangingCobwebBottomBlock extends HangingStrandBottomBlock {
         super(p_i241195_1_);
     }
 
+    @Override
     protected Block getBodyBlock() {
-        return BOPBlocks.hanging_cobweb_strand;
+        return BOPBlocks.HANGING_COBWEB_STRAND;
     }
 
     @Override
@@ -32,7 +30,7 @@ public class HangingCobwebBottomBlock extends HangingStrandBottomBlock {
         BlockPos blockpos = p_196260_3_.relative(this.growthDirection.getOpposite());
         BlockState blockstate = p_196260_2_.getBlockState(blockpos);
         Block block = blockstate.getBlock();
-        if (!this.canAttachToBlock(block)) {
+        if (!this.canAttachTo(blockstate)) {
             return false;
         } else {
             return block == this.getHeadBlock() || block == this.getBodyBlock() || blockstate.isFaceSturdy(p_196260_2_, blockpos, Direction.DOWN);

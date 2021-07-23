@@ -1,14 +1,14 @@
 package biomesoplenty.common.world.gen.feature;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.NetherWartBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.NetherWartBlock;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.gen.feature.structure.StructureManager;
 
 import java.util.Random;
 
@@ -20,14 +20,19 @@ public class NetherWartFeature extends Feature<NoneFeatureConfiguration>
    }
 
    @Override
-   public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, Random rand, BlockPos pos, NoneFeatureConfiguration config)
+   public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext)
    {
+      WorldGenLevel world = featurePlaceContext.level();
+      ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
+      Random rand = featurePlaceContext.random();
+      BlockPos pos = featurePlaceContext.origin();
+      NoneFeatureConfiguration config = featurePlaceContext.config();
       int i = 0;
 
       for(int j = 0; j < 64; ++j)
       {
          BlockPos blockpos = pos.offset(rand.nextInt(4) - rand.nextInt(4), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(4) - rand.nextInt(4));
-         if (world.getBlockState(blockpos).isAir(world, blockpos) && world.getBlockState(blockpos.below()).getBlock() == Blocks.NETHERRACK && world.getBlockState(blockpos.below().east()).getBlock() == Blocks.NETHERRACK && world.getBlockState(blockpos.below().west()).getBlock() == Blocks.NETHERRACK && world.getBlockState(blockpos.below().north()).getBlock() == Blocks.NETHERRACK && world.getBlockState(blockpos.below().south()).getBlock() == Blocks.NETHERRACK)
+         if (this.isAir(world, blockpos) && world.getBlockState(blockpos.below()).getBlock() == Blocks.NETHERRACK && world.getBlockState(blockpos.below().east()).getBlock() == Blocks.NETHERRACK && world.getBlockState(blockpos.below().west()).getBlock() == Blocks.NETHERRACK && world.getBlockState(blockpos.below().north()).getBlock() == Blocks.NETHERRACK && world.getBlockState(blockpos.below().south()).getBlock() == Blocks.NETHERRACK)
          {
             world.setBlock(blockpos.below(), Blocks.SOUL_SAND.defaultBlockState(), 2);
         	world.setBlock(blockpos, Blocks.NETHER_WART.defaultBlockState().setValue(NetherWartBlock.AGE, rand.nextInt(4)), 2);

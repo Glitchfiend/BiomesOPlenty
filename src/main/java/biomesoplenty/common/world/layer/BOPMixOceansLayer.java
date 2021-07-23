@@ -12,10 +12,8 @@ import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.common.world.BOPLayerUtil;
 import biomesoplenty.common.world.layer.traits.IAreaTransformer3;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.level.newbiome.context.Context;
 import net.minecraft.world.level.newbiome.area.Area;
+import net.minecraft.world.level.newbiome.context.Context;
 import net.minecraft.world.level.newbiome.layer.traits.DimensionOffset0Transformer;
 
 public enum BOPMixOceansLayer implements IAreaTransformer3, DimensionOffset0Transformer

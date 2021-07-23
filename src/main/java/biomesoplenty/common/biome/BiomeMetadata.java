@@ -8,14 +8,11 @@
 package biomesoplenty.common.biome;
 
 import biomesoplenty.api.enums.BOPClimates;
-import biomesoplenty.common.util.biome.BiomeUtil;
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.biome.Biomes;
 
 import javax.annotation.Nullable;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.function.BiFunction;
 

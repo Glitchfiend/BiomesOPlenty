@@ -10,26 +10,28 @@ package biomesoplenty.common.world.gen.feature.tree;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.block.BlockUtil;
 import biomesoplenty.common.util.block.IBlockPosQuery;
-import net.minecraft.block.*;
-import net.minecraft.world.level.block.state.properties.Property;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.core.Direction;
+import biomesoplenty.common.world.gen.BOPFeatureUtil;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.LevelWriter;
 import net.minecraft.world.level.LevelSimulatedRW;
-import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
-import net.minecraft.world.level.levelgen.feature.TreeFeature;
-
-import java.util.Random;
-import java.util.Set;
-
+import net.minecraft.world.level.LevelWriter;
+import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.VineBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.Property;
+import net.minecraft.world.level.levelgen.feature.TreeFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
+
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
+import java.util.function.BiConsumer;
 
 public abstract class TreeFeatureBase extends TreeFeature
 {
@@ -48,8 +50,8 @@ public abstract class TreeFeatureBase extends TreeFeature
 
         public BuilderBase()
         {
-            this.placeOn = (world, pos) -> world.getBlockState(pos).canSustainPlant(world, pos, Direction.UP, (SaplingBlock)Blocks.OAK_SAPLING);
-            this.replace = (world, pos) -> world.getBlockState(pos).canBeReplacedByLeaves(world, pos) || world.getBlockState(pos).getBlock().is(BlockTags.SAPLINGS) || world.getBlockState(pos).getBlock() == Blocks.VINE || world.getBlockState(pos).getBlock() == BOPBlocks.willow_vine || world.getBlockState(pos).getBlock() == BOPBlocks.dead_branch || world.getBlockState(pos).getBlock() instanceof BushBlock;
+            this.placeOn = BOPFeatureUtil::isSoil;
+            this.replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).is(BlockTags.SAPLINGS) || world.getBlockState(pos).getBlock() == Blocks.VINE || world.getBlockState(pos).getBlock() == BOPBlocks.WILLOW_VINE || world.getBlockState(pos).getBlock() == BOPBlocks.DEAD_BRANCH || world.getBlockState(pos).getBlock() instanceof BushBlock;
             this.log = Blocks.OAK_LOG.defaultBlockState();
             this.leaves = Blocks.OAK_LEAVES.defaultBlockState();
             this.vine = Blocks.AIR.defaultBlockState();
@@ -154,7 +156,7 @@ public abstract class TreeFeatureBase extends TreeFeature
     {
         BlockState vineState = this.vine.getBlock() instanceof VineBlock ? this.vine.setValue(VineBlock.NORTH, Boolean.valueOf(side == Direction.NORTH)).setValue(VineBlock.EAST, Boolean.valueOf(side == Direction.EAST)).setValue(VineBlock.SOUTH, Boolean.valueOf(side == Direction.SOUTH)).setValue(VineBlock.WEST, Boolean.valueOf(side == Direction.WEST)) : this.vine;
         boolean setOne = false;
-        while (world.getBlockState(pos).getBlock().isAir(world.getBlockState(pos), world, pos) && length > 0 && rand.nextInt(12) > 0)
+        while (world.getBlockState(pos).isAir() && length > 0 && rand.nextInt(12) > 0)
         {
             setBlock(world, pos, vineState);
             setOne = true;
@@ -194,10 +196,13 @@ public abstract class TreeFeatureBase extends TreeFeature
     }
 
     @Override
-    public boolean doPlace(LevelSimulatedRW reader, Random random, BlockPos pos, Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, BoundingBox boundingBox, TreeConfiguration config)
+    public boolean doPlace(WorldGenLevel reader, Random random, BlockPos pos, BiConsumer<BlockPos, BlockState> biConsumer, BiConsumer<BlockPos, BlockState> biConsumer2, TreeConfiguration config)
     {
-        return place(changedLogs, changedLeaves, (LevelAccessor)reader, random, pos, boundingBox);
+        // TODO: sets, add properly
+        return place(new HashSet<>(), new HashSet<>(), reader, random, pos, BoundingBox.infinite());
     }
+
+
 
     protected boolean place(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, LevelAccessor world, Random rand, BlockPos position, BoundingBox boundingBox)
     {
@@ -220,7 +225,7 @@ public abstract class TreeFeatureBase extends TreeFeature
 
     protected static void setBlock(LevelWriter world, BlockPos pos, BlockState state, BoundingBox boundingBox)
     {
-        setBlockKnownShape(world, pos, state);
-        boundingBox.expand(new BoundingBox(pos, pos));
+        world.setBlock(pos, state, 19);
+        boundingBox.encapsulate(new BoundingBox(pos));
     }
 }

@@ -7,21 +7,15 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
-import biomesoplenty.api.block.BOPBlocks;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.world.level.block.BushBlock;
-import net.minecraft.util.Direction;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.LevelReader;
-import net.minecraftforge.common.IPlantable;
-import net.minecraftforge.common.PlantType;
 
-public class PlantBlockBOP extends BushBlock implements IPlantable
+public class PlantBlockBOP extends BushBlock //TODO: implements IPlantable
 {
 	protected static final VoxelShape NORMAL = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
 	
@@ -31,10 +25,9 @@ public class PlantBlockBOP extends BushBlock implements IPlantable
     }
     
     @Override
-    public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext selectionContext)
+    public VoxelShape getShape(BlockState state, BlockGetter blockGetter, BlockPos pos, CollisionContext selectionContext)
     {
         Block block = state.getBlock();
-
         return NORMAL;
     }
     
@@ -44,15 +37,10 @@ public class PlantBlockBOP extends BushBlock implements IPlantable
         return Block.OffsetType.XZ;
     }
 
-    @Override
-    public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos)
-    {
-        return super.canSurvive(state, worldIn, pos);
-    }
-
-    @Override
-    public PlantType getPlantType(BlockGetter world, BlockPos pos)
-    {
-    	return PlantType.PLAINS;
-    }
+// TODO:
+//    @Override
+//    public PlantType getPlantType(BlockGetter world, BlockPos pos)
+//    {
+//    	return PlantType.PLAINS;
+//    }
 }

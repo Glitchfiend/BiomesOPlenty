@@ -8,9 +8,9 @@
 package biomesoplenty.common.world.gen.surfacebuilders;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderBaseConfiguration;
@@ -25,7 +25,7 @@ public class MarshSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderBaseConfig
 	}
 
 	@Override
-	public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderBaseConfiguration config)
+	public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, int startY, long seed, SurfaceBuilderBaseConfiguration config)
 	{
 		double d0 = Biome.BIOME_INFO_NOISE.getValue((double)x * 0.25D, (double)z * 0.25D, false);
 		if (d0 > 0.0D) {
@@ -44,6 +44,6 @@ public class MarshSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderBaseConfig
 			}
 		}
 
-		SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, config);
+		SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, startY, seed, config);
 	}
 }

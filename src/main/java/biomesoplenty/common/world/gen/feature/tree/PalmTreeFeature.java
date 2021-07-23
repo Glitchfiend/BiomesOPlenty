@@ -10,21 +10,20 @@ package biomesoplenty.common.world.gen.feature.tree;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.biome.GeneratorUtil;
 import biomesoplenty.common.util.block.IBlockPosQuery;
-import net.minecraft.block.*;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.core.Direction;
+import biomesoplenty.common.world.gen.BOPFeatureUtil;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.core.Direction;
 import net.minecraft.world.level.LevelAccessor;
-
-import java.util.Random;
-import java.util.Set;
-
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.world.level.material.Material;
+
+import java.util.Random;
+import java.util.Set;
 
 public class PalmTreeFeature extends TreeFeatureBase
 {
@@ -35,12 +34,12 @@ public class PalmTreeFeature extends TreeFeatureBase
         	this.placeOn = (world, pos) ->
         	{
         		Block ground = world.getBlockState(pos).getBlock();
-        		return (world.getBlockState(pos).canSustainPlant(world, pos, Direction.UP, (SaplingBlock)Blocks.OAK_SAPLING) || (ground == BOPBlocks.white_sand || ground == Blocks.RED_SAND || ground == Blocks.SAND));
+        		return BOPFeatureUtil.isSoil(world, pos) || (ground == BOPBlocks.WHITE_SAND || ground == Blocks.RED_SAND || ground == Blocks.SAND);
         	};
             this.minHeight = 10;
             this.maxHeight = 14;
-            this.log = BOPBlocks.palm_log.defaultBlockState();
-            this.leaves = BOPBlocks.palm_leaves.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true);
+            this.log = BOPBlocks.PALM_LOG.defaultBlockState();
+            this.leaves = BOPBlocks.PALM_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true);
         }
 
         @Override

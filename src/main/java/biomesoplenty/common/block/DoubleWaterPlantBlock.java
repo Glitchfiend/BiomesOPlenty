@@ -7,35 +7,29 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
-import biomesoplenty.core.BiomesOPlenty;
-import net.minecraft.block.*;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
-import net.minecraft.tags.FluidTags;
-import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.BlockGetter;
+import net.minecraft.core.Direction;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.Level;
-import net.minecraftforge.common.PlantType;
-
-import javax.annotation.Nullable;
-
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
-import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.material.Material;
+
+import javax.annotation.Nullable;
 
 public class DoubleWaterPlantBlock extends DoublePlantBlock implements SimpleWaterloggedBlock
 {
@@ -86,17 +80,12 @@ public class DoubleWaterPlantBlock extends DoublePlantBlock implements SimpleWat
         }
     }
 
-    @Override
-    public void placeAt(LevelAccessor worldIn, BlockPos pos, int flags) {
-        worldIn.setBlock(pos, this.defaultBlockState().setValue(HALF, DoubleBlockHalf.LOWER).setValue(WATERLOGGED, true), flags);
-        worldIn.setBlock(pos.above(), this.defaultBlockState().setValue(HALF, DoubleBlockHalf.UPPER).setValue(WATERLOGGED, false), flags);
-    }
-
-    @Override
-    public PlantType getPlantType(BlockGetter world, BlockPos pos)
-    {
-        return PlantType.PLAINS;
-    }
+// TODO:
+//    @Override
+//    public PlantType getPlantType(BlockGetter world, BlockPos pos)
+//    {
+//        return PlantType.PLAINS;
+//    }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {

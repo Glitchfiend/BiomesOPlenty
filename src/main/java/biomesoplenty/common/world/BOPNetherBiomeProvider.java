@@ -8,19 +8,16 @@
 package biomesoplenty.common.world;
 
 import biomesoplenty.api.enums.BOPClimates;
-import biomesoplenty.common.util.biome.BiomeUtil;
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.RegistryLookupCodec;
-import net.minecraft.util.registry.WorldGenRegistries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.BiomeSource;
+import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.newbiome.layer.Layer;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.List;
 import java.util.stream.Collectors;

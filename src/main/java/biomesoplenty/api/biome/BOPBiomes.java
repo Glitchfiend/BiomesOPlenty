@@ -8,9 +8,9 @@
 package biomesoplenty.api.biome;
 
 import biomesoplenty.core.BiomesOPlenty;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.core.Registry;
 import net.minecraft.world.level.biome.Biome;
 
 public class BOPBiomes

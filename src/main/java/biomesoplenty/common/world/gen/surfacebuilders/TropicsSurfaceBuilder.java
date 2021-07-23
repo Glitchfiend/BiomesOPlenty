@@ -2,10 +2,10 @@ package biomesoplenty.common.world.gen.surfacebuilders;
 
 import biomesoplenty.api.block.BOPBlocks;
 import com.mojang.serialization.Codec;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderBaseConfiguration;
@@ -17,7 +17,7 @@ public class TropicsSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderBaseConf
         super(p_i232124_1_);
     }
 
-    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderBaseConfiguration config) {
+    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, int startY, long seed, SurfaceBuilderBaseConfiguration config) {
         this.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, config.getTopMaterial(), config.getUnderMaterial(), config.getUnderwaterMaterial(), seaLevel);
     }
 
@@ -49,8 +49,8 @@ public class TropicsSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderBaseConf
                     }
                     else if (i1 >= sealevel - 4 && i1 <= sealevel + 1)
                     {
-                        blockstate = BOPBlocks.white_sand.defaultBlockState();
-                        blockstate1 = BOPBlocks.white_sand.defaultBlockState();
+                        blockstate = BOPBlocks.WHITE_SAND.defaultBlockState();
+                        blockstate1 = BOPBlocks.WHITE_SAND.defaultBlockState();
                     }
 
                     if (i1 < sealevel && (blockstate == null || blockstate.isAir()))
@@ -87,10 +87,10 @@ public class TropicsSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderBaseConf
                 {
                     --i;
                     chunkIn.setBlockState(blockpos$mutable, blockstate1, false);
-                    if (i == 0 && blockstate1.is(BOPBlocks.white_sand) && j > 1)
+                    if (i == 0 && blockstate1.is(BOPBlocks.WHITE_SAND) && j > 1)
                     {
                         i = random.nextInt(4) + Math.max(0, i1 - 63);
-                        blockstate1 = BOPBlocks.white_sandstone.defaultBlockState();
+                        blockstate1 = BOPBlocks.WHITE_SANDSTONE.defaultBlockState();
                     }
                 }
             }

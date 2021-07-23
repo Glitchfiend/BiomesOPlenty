@@ -7,26 +7,15 @@
  ******************************************************************************/
 package biomesoplenty.common.biome.overworld;
 
-import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.BiomeTemplate;
 import biomesoplenty.common.world.gen.feature.BOPConfiguredFeatures;
 import biomesoplenty.common.world.gen.surfacebuilders.BOPConfiguredSurfaceBuilders;
-import biomesoplenty.common.world.gen.surfacebuilders.BOPSurfaceBuilders;
-import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.biome.*;
-import net.minecraft.world.level.levelgen.GenerationStep;
-import net.minecraft.data.worldgen.Features;
-import net.minecraft.world.gen.feature.structure.StructureFeatures;
-import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
-import net.minecraft.world.level.biome.AmbientMoodSettings;
-import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.BiomeGenerationSettings;
-import net.minecraft.world.level.biome.BiomeSpecialEffects;
-import net.minecraft.world.level.biome.MobSpawnSettings;
+import net.minecraft.data.worldgen.Features;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.level.biome.*;
+import net.minecraft.world.level.levelgen.GenerationStep;
 
 public class LushSavannaBiome extends BiomeTemplate
 {

@@ -7,7 +7,6 @@
  ******************************************************************************/
 package biomesoplenty.common.biome;
 
-import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.common.util.config.JsonUtil;
@@ -18,18 +17,20 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.gson.reflect.TypeToken;
+import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraftforge.fml.loading.FMLPaths;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.commons.lang3.tuple.Pair;
 
 import javax.annotation.Nullable;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 import java.util.function.Consumer;
 
 public class BiomeRegistry
@@ -320,8 +321,8 @@ public class BiomeRegistry
 
     private static File getConfigDirFile()
     {
-        Path configPath = FMLPaths.CONFIGDIR.get();
-        Path bopConfigPath = Paths.get(configPath.toAbsolutePath().toString(), "biomesoplenty");
+//        Path configPath = FMLPaths.CONFIGDIR.get();
+        Path bopConfigPath = Paths.get("config", "biomesoplenty");
         return bopConfigPath.toFile();
     }
 
@@ -384,8 +385,9 @@ public class BiomeRegistry
                 return;
             }
 
-            biome.setRegistryName(new ResourceLocation(BiomesOPlenty.MOD_ID, name));
-            ForgeRegistries.BIOMES.register(biome);
+//            biome.setRegistryName(new ResourceLocation(BiomesOPlenty.MOD_ID, name));
+//            ForgeRegistries.BIOMES.register(biome);
+            BuiltinRegistries.register(BuiltinRegistries.BIOME, new ResourceLocation(BiomesOPlenty.MOD_ID, name), biome);
 
             for (Map.Entry<BOPClimates, Integer> entry : data.getWeights().entrySet())
             {
@@ -413,8 +415,9 @@ public class BiomeRegistry
                 return;
             }
 
-            biome.setRegistryName(new ResourceLocation(BiomesOPlenty.MOD_ID, name));
-            ForgeRegistries.BIOMES.register(biome);
+//            biome.setRegistryName(new ResourceLocation(BiomesOPlenty.MOD_ID, name));
+//            ForgeRegistries.BIOMES.register(biome);
+            BuiltinRegistries.register(BuiltinRegistries.BIOME, new ResourceLocation(BiomesOPlenty.MOD_ID, name), biome);
 
             if (data.getMetadata() != null)
             {

@@ -7,23 +7,21 @@
  ******************************************************************************/
 package biomesoplenty.common.block.trees;
 
-import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.core.BlockPos;
+import net.minecraft.data.worldgen.Features;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.grower.AbstractMegaTreeGrower;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.biome.DefaultBiomeFeatures;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.*;
-import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 
 import javax.annotation.Nullable;
 import java.util.Random;
-
-import net.minecraft.data.worldgen.Features;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 
 public abstract class BigTreeDefaultConfig extends AbstractMegaTreeGrower
 {
@@ -67,7 +65,7 @@ public abstract class BigTreeDefaultConfig extends AbstractMegaTreeGrower
         else
         {
             world.setBlock(pos, Blocks.AIR.defaultBlockState(), 4);
-            if (feature.place(world, generator, random, pos, Features.OAK.config()))
+            if (feature.place(new FeaturePlaceContext<>(world, generator, random, pos, Features.OAK.config())))
             {
                 return true;
             }
@@ -94,7 +92,7 @@ public abstract class BigTreeDefaultConfig extends AbstractMegaTreeGrower
             world.setBlock(pos.offset(x + 1, 0, z), blockstate, 4);
             world.setBlock(pos.offset(x, 0, z + 1), blockstate, 4);
             world.setBlock(pos.offset(x + 1, 0, z + 1), blockstate, 4);
-            if (feature.place(world, generator, random, pos.offset(x, 0, z), Features.OAK.config()))
+            if (feature.place(new FeaturePlaceContext<>(world, generator, random, pos.offset(x, 0, z), Features.OAK.config())))
             {
                 return true;
             }

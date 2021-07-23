@@ -8,25 +8,23 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPBlocks;
-import net.minecraft.block.*;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.LevelReader;
-
-import java.util.Random;
-
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.NetherVines;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class SpanishMossBottomBlock extends GrowingPlantHeadBlock {
+import java.util.Random;
+
+public class SpanishMossBottomBlock extends GrowingPlantHeadBlock
+{
     protected static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
-    public SpanishMossBottomBlock(BlockBehaviour.Properties p_i241194_1_) {
+    public SpanishMossBottomBlock(Properties p_i241194_1_) {
         super(p_i241194_1_, Direction.DOWN, SHAPE, false, 0.01D);
     }
 
@@ -34,8 +32,9 @@ public class SpanishMossBottomBlock extends GrowingPlantHeadBlock {
         return NetherVines.getBlocksToGrowWhenBonemealed(p_230332_1_);
     }
 
+    @Override
     protected Block getBodyBlock() {
-        return BOPBlocks.spanish_moss_plant;
+        return BOPBlocks.SPANISH_MOSS_PLANT;
     }
 
     protected boolean canGrowInto(BlockState p_230334_1_) {
@@ -47,10 +46,10 @@ public class SpanishMossBottomBlock extends GrowingPlantHeadBlock {
         BlockPos blockpos = p_196260_3_.relative(this.growthDirection.getOpposite());
         BlockState blockstate = p_196260_2_.getBlockState(blockpos);
         Block block = blockstate.getBlock();
-        if (!this.canAttachToBlock(block)) {
+        if (!this.canAttachTo(blockstate)) {
             return false;
         } else {
-            return block == this.getHeadBlock() || block == this.getBodyBlock() || blockstate.getBlock().is(BlockTags.LEAVES) || blockstate.getBlock().is(BlockTags.LOGS);
+            return block == this.getHeadBlock() || block == this.getBodyBlock() || blockstate.is(BlockTags.LEAVES) || blockstate.is(BlockTags.LOGS);
         }
     }
 }

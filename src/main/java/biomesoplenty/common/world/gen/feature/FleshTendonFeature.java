@@ -1,29 +1,25 @@
 package biomesoplenty.common.world.gen.feature;
 
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.common.block.NetherCrystalBlock;
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import com.mojang.serialization.Codec;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.state.properties.AttachFace;
-import net.minecraft.util.Direction;
 import net.minecraft.core.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.MutableBoundingBox;
-import net.minecraft.world.phys.Vec3;
-import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.gen.feature.structure.StructureManager;
+import net.minecraft.world.phys.Vec3;
 
 import java.util.Random;
 
 public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
 {
-    protected IBlockPosQuery replace = (world, pos) -> world.getBlockState(pos).canBeReplacedByLeaves(world, pos) || world.getBlockState(pos).getBlock() == BOPBlocks.nether_crystal;
+    protected IBlockPosQuery replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() == BOPBlocks.NETHER_CRYSTAL;
 
     private static final int MIN_DISTANCE = 8;
     private static final int MAX_DISTANCE = 32;
@@ -43,10 +39,14 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
     }
 
     @Override
-    public boolean place(WorldGenLevel world, ChunkGenerator generator, Random rand, BlockPos pos, NoneFeatureConfiguration config)
+    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context)
     {
+        WorldGenLevel world = context.level();
+        Random rand = context.random();
+        BlockPos pos = context.origin();
+
         BlockState below = world.getBlockState(pos.below());
-        if (!below.is(BOPBlocks.flesh))
+        if (!below.is(BOPBlocks.FLESH))
         {
             return false;
         }
@@ -76,7 +76,7 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
 
             if (curPos.getY() < 126)
             {
-                this.setBlock(world, curPos, BOPBlocks.flesh.defaultBlockState());
+                this.setBlock(world, curPos, BOPBlocks.FLESH.defaultBlockState());
                 if (rand.nextInt(75) == 0)
                 {
                     this.generateFleshBall(world, curPos, rand);
@@ -93,27 +93,27 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
 
     public boolean generateFleshBall(WorldGenLevel world, BlockPos pos, Random rand)
     {
-        this.setBlock(world, pos, BOPBlocks.flesh.defaultBlockState());
+        this.setBlock(world, pos, BOPBlocks.FLESH.defaultBlockState());
         this.setBlock(world, pos.north(), Blocks.SHROOMLIGHT.defaultBlockState(), 2);
         this.setBlock(world, pos.south(), Blocks.SHROOMLIGHT.defaultBlockState(), 2);
         this.setBlock(world, pos.east(), Blocks.SHROOMLIGHT.defaultBlockState(), 2);
         this.setBlock(world, pos.west(), Blocks.SHROOMLIGHT.defaultBlockState(), 2);
-        this.setBlock(world, pos.north().west(), BOPBlocks.flesh.defaultBlockState());
-        this.setBlock(world, pos.south().west(), BOPBlocks.flesh.defaultBlockState());
-        this.setBlock(world, pos.north().east(), BOPBlocks.flesh.defaultBlockState());
-        this.setBlock(world, pos.south().east(), BOPBlocks.flesh.defaultBlockState());
+        this.setBlock(world, pos.north().west(), BOPBlocks.FLESH.defaultBlockState());
+        this.setBlock(world, pos.south().west(), BOPBlocks.FLESH.defaultBlockState());
+        this.setBlock(world, pos.north().east(), BOPBlocks.FLESH.defaultBlockState());
+        this.setBlock(world, pos.south().east(), BOPBlocks.FLESH.defaultBlockState());
 
-        this.setBlock(world, pos.above(), BOPBlocks.flesh.defaultBlockState());
-        this.setBlock(world, pos.above().north(), BOPBlocks.flesh.defaultBlockState());
-        this.setBlock(world, pos.above().south(), BOPBlocks.flesh.defaultBlockState());
-        this.setBlock(world, pos.above().east(), BOPBlocks.flesh.defaultBlockState());
-        this.setBlock(world, pos.above().west(), BOPBlocks.flesh.defaultBlockState());
+        this.setBlock(world, pos.above(), BOPBlocks.FLESH.defaultBlockState());
+        this.setBlock(world, pos.above().north(), BOPBlocks.FLESH.defaultBlockState());
+        this.setBlock(world, pos.above().south(), BOPBlocks.FLESH.defaultBlockState());
+        this.setBlock(world, pos.above().east(), BOPBlocks.FLESH.defaultBlockState());
+        this.setBlock(world, pos.above().west(), BOPBlocks.FLESH.defaultBlockState());
 
-        this.setBlock(world, pos.below(), BOPBlocks.flesh.defaultBlockState());
-        this.setBlock(world, pos.below().north(), BOPBlocks.flesh.defaultBlockState());
-        this.setBlock(world, pos.below().south(), BOPBlocks.flesh.defaultBlockState());
-        this.setBlock(world, pos.below().east(), BOPBlocks.flesh.defaultBlockState());
-        this.setBlock(world, pos.below().west(), BOPBlocks.flesh.defaultBlockState());
+        this.setBlock(world, pos.below(), BOPBlocks.FLESH.defaultBlockState());
+        this.setBlock(world, pos.below().north(), BOPBlocks.FLESH.defaultBlockState());
+        this.setBlock(world, pos.below().south(), BOPBlocks.FLESH.defaultBlockState());
+        this.setBlock(world, pos.below().east(), BOPBlocks.FLESH.defaultBlockState());
+        this.setBlock(world, pos.below().west(), BOPBlocks.FLESH.defaultBlockState());
 
         return true;
     }

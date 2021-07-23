@@ -9,14 +9,14 @@ package biomesoplenty.common.world.gen.feature;
 
 import biomesoplenty.api.block.BOPBlocks;
 import com.mojang.serialization.Codec;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.core.BlockPos;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.gen.feature.structure.StructureManager;
 
 import java.util.Random;
 
@@ -29,15 +29,20 @@ public class WastelandGrassFeature extends Feature<NoneFeatureConfiguration>
 
 	public BlockState chooseGrassState(Random rand)
 	{
-		return rand.nextInt(3) == 0 ? BOPBlocks.desert_grass.defaultBlockState() : BOPBlocks.dead_grass.defaultBlockState();
+		return rand.nextInt(3) == 0 ? BOPBlocks.DESERT_GRASS.defaultBlockState() : BOPBlocks.DEAD_GRASS.defaultBlockState();
 	}
 
 	@Override
-	public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, Random rand, BlockPos pos, NoneFeatureConfiguration config)
+	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext)
 	{
+		WorldGenLevel world = featurePlaceContext.level();
+		ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
+		Random rand = featurePlaceContext.random();
+		BlockPos pos = featurePlaceContext.origin();
+		NoneFeatureConfiguration config = featurePlaceContext.config();
 		BlockState BlockState = this.chooseGrassState(rand);
 
-		for (BlockState BlockState1 = world.getBlockState(pos); (BlockState1.isAir(world, pos) || BlockState1.is(BlockTags.LEAVES)) && pos.getY() > 0; BlockState1 = world.getBlockState(pos))
+		for (BlockState BlockState1 = world.getBlockState(pos); (this.isAir(world, pos) || BlockState1.is(BlockTags.LEAVES)) && pos.getY() > 0; BlockState1 = world.getBlockState(pos))
 		{
 			pos = pos.below();
 		}

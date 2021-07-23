@@ -11,19 +11,20 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.BrambleBlock;
 import biomesoplenty.common.util.biome.GeneratorUtil;
 import biomesoplenty.common.util.block.IBlockPosQuery;
+import biomesoplenty.common.world.gen.BOPFeatureUtil;
 import com.mojang.serialization.Codec;
-import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.SaplingBlock;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.core.Direction;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.gen.feature.structure.StructureManager;
+import net.minecraft.world.level.material.Material;
 
 import java.util.Random;
 
@@ -37,14 +38,19 @@ public class BrambleFeature extends Feature<NoneFeatureConfiguration>
 	protected IBlockPosQuery placeOn = (world, pos) ->
     {
         BlockState state = world.getBlockState(pos);
-        return state.canSustainPlant(world, pos, Direction.UP, (SaplingBlock)Blocks.OAK_SAPLING) || state.getBlock() == Blocks.NETHERRACK;
+        return BOPFeatureUtil.isSoil(world, pos) || state.getBlock() == Blocks.NETHERRACK;
     };
     
     protected IBlockPosQuery replace = (world, pos) -> world.getBlockState(pos).getMaterial() == Material.AIR;
 
 	@Override
-	public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, Random rand, BlockPos startPos, NoneFeatureConfiguration config)
-    {
+	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext)
+	{
+		WorldGenLevel world = featurePlaceContext.level();
+		ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
+		Random rand = featurePlaceContext.random();
+		BlockPos startPos = featurePlaceContext.origin();
+		NoneFeatureConfiguration config = featurePlaceContext.config();
         for (int i = 0; i < 128; ++i)
         {
             BlockPos genPos = startPos.offset(rand.nextInt(4) - rand.nextInt(4), rand.nextInt(3) - rand.nextInt(3), rand.nextInt(4) - rand.nextInt(4));
@@ -59,13 +65,13 @@ public class BrambleFeature extends Feature<NoneFeatureConfiguration>
                 {  
                 	//if (BrambleBlock.canPlaceBlockAt(world, genPos))
                 	//{
-                		world.setBlock(genPos, ((BrambleBlock)BOPBlocks.bramble).makeConnections(world, genPos), 2);
+                		world.setBlock(genPos, ((BrambleBlock)BOPBlocks.BRAMBLE).makeConnections(world, genPos), 2);
 
                 		for (Direction face : Direction.values())
                 		{
-                			if (world.getBlockState(genPos.relative(face)).getBlock() == BOPBlocks.bramble)
+                			if (world.getBlockState(genPos.relative(face)).getBlock() == BOPBlocks.BRAMBLE)
                 			{
-                				world.setBlock(genPos.relative(face), ((BrambleBlock)BOPBlocks.bramble).makeConnections(world, genPos.relative(face)), 2);
+                				world.setBlock(genPos.relative(face), ((BrambleBlock)BOPBlocks.BRAMBLE).makeConnections(world, genPos.relative(face)), 2);
                 			}
                 		}
 	                    
@@ -83,9 +89,9 @@ public class BrambleFeature extends Feature<NoneFeatureConfiguration>
 	                    		world.setBlock(leafPos, Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 19);
 	                    		for (Direction face : Direction.values())
 	                    		{
-	                    			if (world.getBlockState(leafPos.relative(face)).getBlock() == BOPBlocks.bramble)
+	                    			if (world.getBlockState(leafPos.relative(face)).getBlock() == BOPBlocks.BRAMBLE)
 	                    			{
-	                    				world.setBlock(leafPos.relative(face), ((BrambleBlock)BOPBlocks.bramble).makeConnections(world, leafPos.relative(face)), 2);
+	                    				world.setBlock(leafPos.relative(face), ((BrambleBlock)BOPBlocks.BRAMBLE).makeConnections(world, leafPos.relative(face)), 2);
 	                    			}
 	                    		}
 	                    	}

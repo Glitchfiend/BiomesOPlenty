@@ -9,7 +9,6 @@ package biomesoplenty.common.world.layer;
 
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.util.biome.BiomeUtil;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.newbiome.context.Context;
 import net.minecraft.world.level.newbiome.layer.traits.AreaTransformer0;

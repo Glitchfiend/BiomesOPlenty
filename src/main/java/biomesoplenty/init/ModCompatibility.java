@@ -8,12 +8,10 @@
 package biomesoplenty.init;
 
 import biomesoplenty.api.enums.BOPClimates;
-import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.collect.Lists;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.common.BiomeManager;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 
 import java.util.List;
 import java.util.stream.Collectors;

@@ -7,8 +7,8 @@
  ******************************************************************************/
 package biomesoplenty.common.world.layer.traits;
 
-import net.minecraft.world.level.newbiome.context.BigContext;
 import net.minecraft.world.level.newbiome.area.Area;
+import net.minecraft.world.level.newbiome.context.BigContext;
 
 /***
  * Provides extra information beyond that used by Mojang.

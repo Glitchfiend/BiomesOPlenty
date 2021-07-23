@@ -7,10 +7,10 @@
  ******************************************************************************/
 package biomesoplenty.common.world.layer.traits;
 
-import net.minecraft.world.level.newbiome.context.BigContext;
-import net.minecraft.world.level.newbiome.context.Context;
 import net.minecraft.world.level.newbiome.area.Area;
 import net.minecraft.world.level.newbiome.area.AreaFactory;
+import net.minecraft.world.level.newbiome.context.BigContext;
+import net.minecraft.world.level.newbiome.context.Context;
 import net.minecraft.world.level.newbiome.layer.traits.DimensionTransformer;
 
 public interface IAreaTransformer3 extends DimensionTransformer

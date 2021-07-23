@@ -2,24 +2,25 @@ package biomesoplenty.common.world.gen.feature;
 
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import com.mojang.serialization.Codec;
-import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.HugeMushroomBlock;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.gen.feature.structure.StructureManager;
 
 import java.util.Random;
 
 public class SmallRedMushroomFeature extends Feature<NoneFeatureConfiguration>
 {
     protected IBlockPosQuery placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK || world.getBlockState(pos).getBlock() == Blocks.MYCELIUM;
-    protected IBlockPosQuery replace = (world, pos) -> world.getBlockState(pos).canBeReplacedByLeaves(world, pos) || world.getBlockState(pos).getBlock() instanceof BushBlock;
+    protected IBlockPosQuery replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() instanceof BushBlock;
 
     public SmallRedMushroomFeature(Codec<NoneFeatureConfiguration> deserializer)
     {
@@ -27,7 +28,13 @@ public class SmallRedMushroomFeature extends Feature<NoneFeatureConfiguration>
     }
 
     @Override
-    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, Random rand, BlockPos startPos, NoneFeatureConfiguration config) {
+    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext)
+    {
+        WorldGenLevel world = featurePlaceContext.level();
+        ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
+        Random rand = featurePlaceContext.random();
+        BlockPos startPos = featurePlaceContext.origin();
+        NoneFeatureConfiguration config = featurePlaceContext.config();
         while (startPos.getY() > 1 && this.replace.matches(world, startPos)) {
             startPos = startPos.below();
         }

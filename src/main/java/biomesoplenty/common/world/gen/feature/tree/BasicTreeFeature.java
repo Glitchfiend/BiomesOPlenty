@@ -8,22 +8,17 @@
 package biomesoplenty.common.world.gen.feature.tree;
 
 import biomesoplenty.common.util.block.IBlockPosQuery;
-import net.minecraft.block.*;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.core.Direction;
+import biomesoplenty.common.world.gen.BOPFeatureUtil;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.core.Direction;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.world.level.material.Material;
 
 import java.util.Random;
 import java.util.Set;
-
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.CocoaBlock;
-import net.minecraft.world.level.block.SaplingBlock;
-import net.minecraft.world.level.block.VineBlock;
-import net.minecraft.world.level.block.state.BlockState;
 
 public class BasicTreeFeature extends TreeFeatureBase
 {
@@ -153,11 +148,11 @@ public class BasicTreeFeature extends TreeFeatureBase
             {
                 BlockPos soilPos = pos.below();
                 Block soil = world.getBlockState(soilPos).getBlock();
-                boolean isSoil = soil.canSustainPlant(world.getBlockState(soilPos), world, soilPos, Direction.UP, (SaplingBlock) Blocks.OAK_SAPLING);
+                boolean isSoil = BOPFeatureUtil.isSoil(world, soilPos);
 
                 if (this.placeOn.matches(world, soilPos) && isSoil && pos.getY() < 256 - height - 1)
                 {
-                    soil.onPlantGrow(world.getBlockState(soilPos), world, soilPos, pos);
+                    world.setBlock(soilPos, Blocks.DIRT.defaultBlockState(), 3);
                     int leavesLayers = (this.leafLayers - 1);
 
                     //Generates leaves at the top of the tree, going one block above the top log (<= rather than <)

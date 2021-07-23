@@ -2,24 +2,25 @@ package biomesoplenty.common.world.gen.feature;
 
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import com.mojang.serialization.Codec;
-import net.minecraft.world.level.block.BambooBlock;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.properties.BambooLeaves;
-import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.BambooBlock;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BambooLeaves;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.gen.feature.structure.StructureManager;
 
 import java.util.Random;
 
 public class ShortBambooFeature extends Feature<NoneFeatureConfiguration>
 {
     protected IBlockPosQuery placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK;
-    protected IBlockPosQuery replace = (world, pos) -> world.getBlockState(pos).canBeReplacedByLeaves(world, pos);
+    protected IBlockPosQuery replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos);
     private static final BlockState field_214566_a = Blocks.BAMBOO.defaultBlockState().setValue(BambooBlock.AGE, Integer.valueOf(1)).setValue(BambooBlock.LEAVES, BambooLeaves.NONE).setValue(BambooBlock.STAGE, Integer.valueOf(1));
     private static final BlockState field_214567_aS = field_214566_a.setValue(BambooBlock.LEAVES, BambooLeaves.LARGE).setValue(BambooBlock.STAGE, Integer.valueOf(1));
     private static final BlockState field_214568_aT = field_214566_a.setValue(BambooBlock.LEAVES, BambooLeaves.LARGE).setValue(BambooBlock.STAGE, Integer.valueOf(1));
@@ -31,8 +32,12 @@ public class ShortBambooFeature extends Feature<NoneFeatureConfiguration>
     }
 
     @Override
-    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, Random rand, BlockPos pos, NoneFeatureConfiguration config)
+    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context)
     {
+        WorldGenLevel world = context.level();
+        BlockPos pos = context.origin();
+        Random rand = context.random();
+
         while (pos.getY() > 1 && this.replace.matches(world, pos)) {pos = pos.below();}
 
         if (!this.placeOn.matches(world, pos.offset(2, 0, 2)))

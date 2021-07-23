@@ -10,14 +10,14 @@ package biomesoplenty.common.world.gen.feature.tree;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.biome.GeneratorUtil;
 import biomesoplenty.common.util.block.IBlockPosQuery;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
-import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.world.level.material.Material;
 
 import java.util.Random;
 import java.util.Set;
@@ -34,8 +34,8 @@ public class RedwoodTreeFeature extends TreeFeatureBase
         {
             this.minHeight = 10;
             this.maxHeight = 30;
-            this.log = BOPBlocks.redwood_log.defaultBlockState();
-            this.leaves = BOPBlocks.redwood_leaves.defaultBlockState();
+            this.log = BOPBlocks.REDWOOD_LOG.defaultBlockState();
+            this.leaves = BOPBlocks.REDWOOD_LEAVES.defaultBlockState();
             this.vine = Blocks.VINE.defaultBlockState();
             this.trunkWidth = 1;
         }

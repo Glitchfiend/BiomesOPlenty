@@ -9,17 +9,13 @@ package biomesoplenty.common.world.layer;
 
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.common.biome.BiomeMetadata;
-import biomesoplenty.common.biome.BiomeTemplate;
 import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.common.world.BOPLayerUtil;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.newbiome.context.Context;
 import net.minecraft.world.level.newbiome.layer.traits.CastleTransformer;
-
-import java.util.Optional;
 
 public enum BOPShoreLayer implements CastleTransformer
 {

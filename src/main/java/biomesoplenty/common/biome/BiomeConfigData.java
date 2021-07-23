@@ -10,7 +10,6 @@ package biomesoplenty.common.biome;
 import com.google.common.collect.Maps;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.Map;
 import java.util.TreeMap;
 
 public class BiomeConfigData

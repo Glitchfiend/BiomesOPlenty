@@ -9,19 +9,11 @@ package biomesoplenty.common.biome.overworld;
 
 import biomesoplenty.common.biome.BiomeTemplate;
 import biomesoplenty.common.world.gen.surfacebuilders.BOPConfiguredSurfaceBuilders;
-import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.biome.*;
-import net.minecraft.data.worldgen.StructureFeatures;
-import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
-import net.minecraft.world.level.biome.AmbientMoodSettings;
-import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.BiomeGenerationSettings;
-import net.minecraft.world.level.biome.BiomeSpecialEffects;
-import net.minecraft.world.level.biome.MobSpawnSettings;
+import net.minecraft.data.worldgen.StructureFeatures;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.level.biome.*;
 
 public class GravelBeachBiome extends BiomeTemplate
 {

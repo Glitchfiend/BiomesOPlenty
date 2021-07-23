@@ -4,24 +4,23 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '4.+', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.+', changing: true
     }
 }
 
 plugins {
     id "com.matthewprenger.cursegradle" version "1.4.0"
 }
+
 apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'eclipse'
 apply plugin: 'idea'
-apply from: 'classremapper.gradle'
 
 repositories { mavenLocal() }
 
-group = "com.github.glitchfiend.biomesoplenty"
+group = "com.github.glitchfiend"
 archivesBaseName = "BiomesOPlenty"
 
-sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = 16
 
 def getGitHash = {
     def stdout = new ByteArrayOutputStream()
@@ -51,6 +50,20 @@ minecraft {
     }
 }
 
+// configure  the source folders
+sourceSets {
+    main {
+        java {
+            srcDir "src/main/java"
+            srcDir "public/src/main/java"
+        }
+        resources {
+            srcDir "src/main/resources"
+            srcDir "public/src/main/resources"
+        }
+    }
+}
+
 processResources {
     from (sourceSets.main.resources.srcDirs) {
         include 'META-INF/mods.toml'
@@ -64,15 +77,6 @@ jar {
 
 dependencies {
     minecraft 'net.minecraftforge:forge:' + minecraft_version + '-' + forge_version
-}
-
-task sourcesJar(type: Jar) {
-    from sourceSets.main.allJava
-    from (sourceSets.main.output) {
-        include 'LICENSE.txt'
-    }
-
-    classifier = 'sources'
 }
 
 task deobfJar(type: Jar) {
@@ -109,7 +113,7 @@ curseforge {
             mainArtifact(jar) {
                 displayName = "Biomes O' Plenty ${version}"
             }
-            addArtifact sourcesJar
+
             addArtifact deobfJar
             addArtifact apiJar
         }
@@ -121,7 +125,6 @@ artifacts {
         archives changelog_file
     }
     archives jar
-    archives sourcesJar
     archives deobfJar
     archives apiJar
 }

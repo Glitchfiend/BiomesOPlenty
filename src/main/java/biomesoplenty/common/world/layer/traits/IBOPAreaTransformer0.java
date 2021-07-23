@@ -7,9 +7,9 @@
  ******************************************************************************/
 package biomesoplenty.common.world.layer.traits;
 
-import net.minecraft.world.level.newbiome.context.BigContext;
 import net.minecraft.world.level.newbiome.area.Area;
 import net.minecraft.world.level.newbiome.area.AreaFactory;
+import net.minecraft.world.level.newbiome.context.BigContext;
 
 /***
  * An area transformer that takes 0 existing AreaDimensions. Classes implementing

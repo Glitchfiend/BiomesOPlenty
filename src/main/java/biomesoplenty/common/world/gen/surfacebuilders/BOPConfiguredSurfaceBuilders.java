@@ -8,13 +8,13 @@
 package biomesoplenty.common.world.gen.surfacebuilders;
 
 import biomesoplenty.core.BiomesOPlenty;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.surfacebuilders.ConfiguredSurfaceBuilder;
-import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderConfiguration;
 import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderBaseConfiguration;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderConfiguration;
 
 public class BOPConfiguredSurfaceBuilders
 {

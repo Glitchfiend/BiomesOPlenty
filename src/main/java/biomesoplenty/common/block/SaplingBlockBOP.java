@@ -8,29 +8,25 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPBlocks;
-import net.minecraft.block.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;
-import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.Level;
-import net.minecraft.server.level.ServerLevel;
 
 import java.util.Random;
 
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.BonemealableBlock;
-import net.minecraft.world.level.block.SaplingBlock;
-import net.minecraft.world.level.block.state.BlockState;
-
-public class SaplingBlockBOP extends SaplingBlock implements BonemealableBlock
+public class SaplingBlockBOP extends SaplingBlock // TODO: implements IGrowable
 {
    public static final IntegerProperty STAGE = BlockStateProperties.STAGE;
    public static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
@@ -44,7 +40,7 @@ public class SaplingBlockBOP extends SaplingBlock implements BonemealableBlock
    }
 
    @Override
-   public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext selectionContext)
+   public VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, CollisionContext collisionContext)
    {
       return SHAPE;
    }
@@ -53,7 +49,7 @@ public class SaplingBlockBOP extends SaplingBlock implements BonemealableBlock
    public void tick(BlockState state, ServerLevel world, BlockPos pos, Random random)
    {
       super.tick(state, world, pos, random);
-      if (!world.isAreaLoaded(pos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light
+      // TODO: if (!world.isAreaLoaded(pos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light
       if (world.getMaxLocalRawBrightness(pos.above()) >= 9 && random.nextInt(7) == 0) {
          this.performBonemeal(world, random, pos, state);
       }
@@ -69,7 +65,7 @@ public class SaplingBlockBOP extends SaplingBlock implements BonemealableBlock
       }
       else
       {
-         if (!net.minecraftforge.event.ForgeEventFactory.saplingGrowTree(world, rand, pos)) return;
+         // TODO: if (!net.minecraftforge.event.ForgeEventFactory.saplingGrowTree(world, rand, pos)) return;
          this.tree.growTree(world, world.getChunkSource().getGenerator(), pos, state, rand);
       }
 
@@ -101,11 +97,11 @@ public class SaplingBlockBOP extends SaplingBlock implements BonemealableBlock
    {
        Block ground = worldIn.getBlockState(pos.below()).getBlock();
 
-       if (this == BOPBlocks.palm_sapling)
+       if (this == BOPBlocks.PALM_SAPLING)
        {
-           return ground == BOPBlocks.white_sand || ground == BOPBlocks.orange_sand || ground == BOPBlocks.black_sand || ground == Blocks.RED_SAND || ground == Blocks.SAND || super.canSurvive(state, worldIn, pos);
+           return ground == BOPBlocks.WHITE_SAND || ground == BOPBlocks.ORANGE_SAND || ground == BOPBlocks.BLACK_SAND || ground == Blocks.RED_SAND || ground == Blocks.SAND || super.canSurvive(state, worldIn, pos);
        }
-       if (this == BOPBlocks.hellbark_sapling)
+       if (this == BOPBlocks.HELLBARK_SAPLING)
        {
            return ground == Blocks.NETHERRACK || super.canSurvive(state, worldIn, pos);
        }

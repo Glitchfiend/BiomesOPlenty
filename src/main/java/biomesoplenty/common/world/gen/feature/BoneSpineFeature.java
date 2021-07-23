@@ -3,23 +3,24 @@ package biomesoplenty.common.world.gen.feature;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import com.mojang.serialization.Codec;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.gen.feature.structure.StructureManager;
+import net.minecraft.world.level.material.Material;
 
 import java.util.Random;
 
 public class BoneSpineFeature extends Feature<NoneFeatureConfiguration>
 {
-    protected IBlockPosQuery placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == BOPBlocks.flesh || world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK;
-    protected IBlockPosQuery replace = (world, pos) -> world.getBlockState(pos).isAir(world, pos) || world.getBlockState(pos).canBeReplacedByLeaves(world, pos) || world.getBlockState(pos).getMaterial() == Material.WATER;
+    protected IBlockPosQuery placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == BOPBlocks.FLESH || world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK;
+    protected IBlockPosQuery replace = (world, pos) -> this.isAir(world, pos) || TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getMaterial() == Material.WATER;
     private int maxHeight = 3;
 
     public BoneSpineFeature(Codec<NoneFeatureConfiguration> deserializer)
@@ -28,8 +29,13 @@ public class BoneSpineFeature extends Feature<NoneFeatureConfiguration>
     }
 
     @Override
-    public boolean place(WorldGenLevel world, ChunkGenerator p_230362_3_, Random rand, BlockPos startPos, NoneFeatureConfiguration p_230362_6_)
+    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext)
     {
+        WorldGenLevel world = featurePlaceContext.level();
+        ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
+        Random rand = featurePlaceContext.random();
+        BlockPos startPos = featurePlaceContext.origin();
+        NoneFeatureConfiguration config = featurePlaceContext.config();
         while (startPos.getY() > 1 && this.replace.matches(world, startPos)) {startPos = startPos.below();}
 
         if (!this.placeOn.matches(world, startPos))

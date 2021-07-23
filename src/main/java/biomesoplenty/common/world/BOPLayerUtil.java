@@ -10,30 +10,14 @@ package biomesoplenty.common.world;
 import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.common.world.layer.*;
 import biomesoplenty.common.world.layer.traits.LazyAreaLayerContextBOP;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.level.biome.Biomes;
-import net.minecraft.world.level.newbiome.context.BigContext;
 import net.minecraft.world.level.newbiome.area.Area;
 import net.minecraft.world.level.newbiome.area.AreaFactory;
 import net.minecraft.world.level.newbiome.area.LazyArea;
-import net.minecraft.world.gen.layer.*;
+import net.minecraft.world.level.newbiome.context.BigContext;
+import net.minecraft.world.level.newbiome.layer.*;
 
 import java.util.function.LongFunction;
-
-import net.minecraft.world.level.newbiome.layer.AddDeepOceanLayer;
-import net.minecraft.world.level.newbiome.layer.AddIslandLayer;
-import net.minecraft.world.level.newbiome.layer.AddMushroomIslandLayer;
-import net.minecraft.world.level.newbiome.layer.IslandLayer;
-import net.minecraft.world.level.newbiome.layer.Layer;
-import net.minecraft.world.level.newbiome.layer.Layers;
-import net.minecraft.world.level.newbiome.layer.OceanLayer;
-import net.minecraft.world.level.newbiome.layer.RareBiomeLargeLayer;
-import net.minecraft.world.level.newbiome.layer.RareBiomeSpotLayer;
-import net.minecraft.world.level.newbiome.layer.RemoveTooMuchOceanLayer;
-import net.minecraft.world.level.newbiome.layer.RiverInitLayer;
-import net.minecraft.world.level.newbiome.layer.RiverLayer;
-import net.minecraft.world.level.newbiome.layer.SmoothLayer;
-import net.minecraft.world.level.newbiome.layer.ZoomLayer;
 
 public class BOPLayerUtil
 {

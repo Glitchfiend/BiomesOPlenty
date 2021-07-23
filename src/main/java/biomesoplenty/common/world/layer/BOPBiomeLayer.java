@@ -11,8 +11,8 @@ import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.init.ModBiomes;
 import net.minecraft.world.level.biome.Biomes;
-import net.minecraft.world.level.newbiome.context.Context;
 import net.minecraft.world.level.newbiome.area.Area;
+import net.minecraft.world.level.newbiome.context.Context;
 import net.minecraft.world.level.newbiome.layer.traits.AreaTransformer2;
 import net.minecraft.world.level.newbiome.layer.traits.DimensionOffset0Transformer;
 

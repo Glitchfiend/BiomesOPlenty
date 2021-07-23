@@ -11,19 +11,13 @@ import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.BiomeTemplate;
 import biomesoplenty.common.world.gen.feature.BOPConfiguredFeatures;
 import biomesoplenty.common.world.gen.surfacebuilders.BOPConfiguredSurfaceBuilders;
-import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.biome.*;
-import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.data.worldgen.Features;
 import net.minecraft.data.worldgen.StructureFeatures;
-
-import net.minecraft.data.worldgen.BiomeDefaultFeatures;
-import net.minecraft.world.level.biome.AmbientMoodSettings;
-import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.BiomeGenerationSettings;
-import net.minecraft.world.level.biome.BiomeSpecialEffects;
-import net.minecraft.world.level.biome.MobSpawnSettings;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.level.biome.*;
+import net.minecraft.world.level.levelgen.GenerationStep;
 
 public class ColdDesertBiome extends BiomeTemplate
 {

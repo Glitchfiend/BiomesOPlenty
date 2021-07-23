@@ -8,16 +8,13 @@
 package biomesoplenty.common.world.layer;
 
 import biomesoplenty.common.biome.BiomeMetadata;
-import biomesoplenty.common.biome.BiomeRegistry;
-import biomesoplenty.common.biome.BiomeTemplate;
 import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.common.world.BOPLayerUtil;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
-import net.minecraft.world.level.newbiome.context.Context;
 import net.minecraft.world.level.newbiome.area.Area;
+import net.minecraft.world.level.newbiome.context.Context;
 import net.minecraft.world.level.newbiome.layer.traits.AreaTransformer2;
 import net.minecraft.world.level.newbiome.layer.traits.DimensionOffset0Transformer;
 

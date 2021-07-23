@@ -17,19 +17,18 @@ import com.google.common.collect.Lists;
 import it.unimi.dsi.fastutil.ints.Int2IntMap;
 import it.unimi.dsi.fastutil.ints.Int2IntOpenHashMap;
 import net.minecraft.Util;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
-import net.minecraft.world.level.newbiome.context.Context;
 import net.minecraft.world.level.newbiome.area.Area;
+import net.minecraft.world.level.newbiome.context.Context;
 import net.minecraft.world.level.newbiome.layer.Layers;
 import net.minecraft.world.level.newbiome.layer.traits.AreaTransformer2;
-import net.minecraft.world.level.newbiome.layer.traits.DimensionOffset1Transformer;
+import net.minecraft.world.level.newbiome.layer.traits.DimensionOffset0Transformer;
 
 import java.util.Iterator;
 import java.util.List;
 
-public enum SubBiomeLayer implements AreaTransformer2, DimensionOffset1Transformer
+public enum SubBiomeLayer implements AreaTransformer2, DimensionOffset0Transformer
 {
     INSTANCE;
 

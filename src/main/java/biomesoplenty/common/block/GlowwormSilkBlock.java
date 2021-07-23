@@ -8,27 +8,22 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPBlocks;
-import net.minecraft.block.AbstractBodyPlantBlock;
-import net.minecraft.world.level.block.GrowingPlantHeadBlock;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.util.Direction;
-import net.minecraft.core.BlockPos;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.world.level.LevelReader;
 
-import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
-
-public class GlowwormSilkBlock extends HangingStrandBlock {
-
-    public GlowwormSilkBlock(Properties p_i241195_1_) {
-        super(p_i241195_1_);
+public class GlowwormSilkBlock extends HangingStrandBlock
+{
+    public GlowwormSilkBlock(Properties properties) {
+        super(properties);
     }
 
+    @Override
     protected GrowingPlantHeadBlock getHeadBlock() {
-        return (GrowingPlantHeadBlock) BOPBlocks.glowworm_silk;
+        return (GrowingPlantHeadBlock) BOPBlocks.GLOWWORM_SILK;
     }
 
     @Override
@@ -36,7 +31,7 @@ public class GlowwormSilkBlock extends HangingStrandBlock {
         BlockPos blockpos = p_196260_3_.relative(this.growthDirection.getOpposite());
         BlockState blockstate = p_196260_2_.getBlockState(blockpos);
         Block block = blockstate.getBlock();
-        if (!this.canAttachToBlock(block)) {
+        if (!this.canAttachTo(blockstate)) {
             return false;
         } else {
             return block == this.getHeadBlock() || block == this.getBodyBlock() || blockstate.getMaterial() == Material.STONE;

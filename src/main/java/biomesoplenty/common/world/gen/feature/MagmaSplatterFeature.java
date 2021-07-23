@@ -1,14 +1,15 @@
 package biomesoplenty.common.world.gen.feature;
 
-import biomesoplenty.api.block.BOPBlocks;
 import com.mojang.serialization.Codec;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 import java.util.Random;
@@ -21,8 +22,13 @@ public class MagmaSplatterFeature extends Feature<NoneFeatureConfiguration>
    }
 
    @Override
-   public boolean place(WorldGenLevel worldIn, ChunkGenerator chunkGenerator, Random rand, BlockPos pos, NoneFeatureConfiguration config)
+   public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext)
    {
+      WorldGenLevel worldIn = featurePlaceContext.level();
+      ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
+      Random rand = featurePlaceContext.random();
+      BlockPos pos = featurePlaceContext.origin();
+      NoneFeatureConfiguration config = featurePlaceContext.config();
       int i = 0;
       int j = rand.nextInt(2) + 1;
 
@@ -42,7 +48,7 @@ public class MagmaSplatterFeature extends Feature<NoneFeatureConfiguration>
 
                   if (rand.nextInt(6) != 0)
                   {
-                     if (blockstate.getBlock() == Blocks.GRASS_BLOCK && (blockstate1.canBeReplacedByLeaves(worldIn, blockpos.above()) || blockstate1.getBlock() instanceof BushBlock))
+                     if (blockstate.getBlock() == Blocks.GRASS_BLOCK && (TreeFeature.isAirOrLeaves(worldIn, blockpos.above()) || blockstate1.getBlock() instanceof BushBlock))
                      {
                         worldIn.setBlock(blockpos, Blocks.MAGMA_BLOCK.defaultBlockState(), 2);
                         worldIn.setBlock(blockpos.above(), Blocks.FIRE.defaultBlockState(), 2);

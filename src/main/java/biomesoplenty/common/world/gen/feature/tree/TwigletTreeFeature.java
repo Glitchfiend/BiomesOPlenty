@@ -8,15 +8,15 @@
 package biomesoplenty.common.world.gen.feature.tree;
 
 import biomesoplenty.common.util.block.IBlockPosQuery;
-import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.CocoaBlock;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.core.Direction;
-import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
-import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.material.Material;
 
 import java.util.Random;
 import java.util.Set;

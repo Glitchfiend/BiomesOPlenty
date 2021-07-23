@@ -4,26 +4,26 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.NetherCrystalBlock;
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import com.mojang.serialization.Codec;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.block.LeavesBlock;
-import net.minecraft.world.level.block.state.properties.AttachFace;
-import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
-import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.AttachFace;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.gen.feature.structure.StructureManager;
 
 import java.util.Random;
 
 public class LargeCrystalFeature extends Feature<NoneFeatureConfiguration>
 {
     protected IBlockPosQuery placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.NETHERRACK;
-    protected IBlockPosQuery replace = (world, pos) -> world.getBlockState(pos).canBeReplacedByLeaves(world, pos) || world.getBlockState(pos).getBlock() == BOPBlocks.nether_crystal;
+    protected IBlockPosQuery replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() == BOPBlocks.NETHER_CRYSTAL;
     private int minRadius = 2;
     private int maxRadius = 3;
     private int minHeight = 3;
@@ -35,8 +35,13 @@ public class LargeCrystalFeature extends Feature<NoneFeatureConfiguration>
     }
 
     @Override
-    public boolean place(WorldGenLevel world, ChunkGenerator p_230362_3_, Random rand, BlockPos pos, NoneFeatureConfiguration p_230362_6_)
+    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext)
     {
+        WorldGenLevel world = featurePlaceContext.level();
+        ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
+        Random rand = featurePlaceContext.random();
+        BlockPos pos = featurePlaceContext.origin();
+        NoneFeatureConfiguration config = featurePlaceContext.config();
         if (!world.isEmptyBlock(pos))
         {
             return false;
@@ -61,7 +66,7 @@ public class LargeCrystalFeature extends Feature<NoneFeatureConfiguration>
 
                     for (int x = radiusStart; x <= radiusEnd; x++) {
                         for (int z = radiusStart; z <= radiusEnd; z++) {
-                            this.setBlock(world, pos.offset(x, -y, z), BOPBlocks.nether_crystal_block.defaultBlockState());
+                            this.setBlock(world, pos.offset(x, -y, z), BOPBlocks.NETHER_CRYSTAL_BLOCK.defaultBlockState());
                         }
                     }
 
@@ -97,7 +102,7 @@ public class LargeCrystalFeature extends Feature<NoneFeatureConfiguration>
                     break;
             }
 
-            BlockState state = BOPBlocks.nether_crystal.defaultBlockState().setValue(NetherCrystalBlock.FACING, direction).setValue(NetherCrystalBlock.FACE, face);
+            BlockState state = BOPBlocks.NETHER_CRYSTAL.defaultBlockState().setValue(NetherCrystalBlock.FACING, direction).setValue(NetherCrystalBlock.FACE, face);
             BlockPos blockpos = pos.offset(rand.nextInt(3) - rand.nextInt(3), rand.nextInt(2) - rand.nextInt(2), rand.nextInt(3) - rand.nextInt(3));
 
             if (world.isEmptyBlock(blockpos) && state.canSurvive(world, blockpos))

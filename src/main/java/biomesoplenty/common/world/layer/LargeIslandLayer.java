@@ -10,14 +10,13 @@ package biomesoplenty.common.world.layer;
 import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.util.biome.BiomeUtil;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.newbiome.context.Context;
 import net.minecraft.world.level.newbiome.area.Area;
+import net.minecraft.world.level.newbiome.context.Context;
 import net.minecraft.world.level.newbiome.layer.traits.AreaTransformer2;
-import net.minecraft.world.level.newbiome.layer.traits.DimensionOffset1Transformer;
+import net.minecraft.world.level.newbiome.layer.traits.DimensionOffset0Transformer;
 
-public enum LargeIslandLayer implements AreaTransformer2, DimensionOffset1Transformer
+public enum LargeIslandLayer implements AreaTransformer2, DimensionOffset0Transformer
 {
     INSTANCE;
 

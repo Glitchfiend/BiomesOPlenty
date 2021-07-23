@@ -1,16 +1,17 @@
 package biomesoplenty.common.world.gen.feature;
 
 import com.mojang.serialization.Codec;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CarvedPumpkinBlock;
 import net.minecraft.world.level.block.LeavesBlock;
-import net.minecraft.core.Direction;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.gen.feature.structure.StructureManager;
 
 import java.util.Random;
 
@@ -22,14 +23,19 @@ public class PumpkinPatchFeature extends Feature<NoneFeatureConfiguration>
 	}
 
 	@Override
-	public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, Random rand, BlockPos pos, NoneFeatureConfiguration config)
+	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext)
 	{
+		WorldGenLevel world = featurePlaceContext.level();
+		ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
+		Random rand = featurePlaceContext.random();
+		BlockPos pos = featurePlaceContext.origin();
+		NoneFeatureConfiguration config = featurePlaceContext.config();
 		int i = 0;
 
 		for(int j = 0; j < 64; ++j)
 		{
 			BlockPos blockpos = pos.offset(rand.nextInt(8) - rand.nextInt(8), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(8) - rand.nextInt(8));
-			if (world.getBlockState(blockpos).canBeReplacedByLeaves(world, blockpos) && world.getBlockState(blockpos.below()).getBlock() == Blocks.GRASS_BLOCK)
+			if (TreeFeature.isAirOrLeaves(world, blockpos) && world.getBlockState(blockpos.below()).getBlock() == Blocks.GRASS_BLOCK)
 			{
 
 				if (rand.nextInt(3) == 0)

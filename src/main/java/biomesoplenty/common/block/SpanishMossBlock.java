@@ -8,37 +8,46 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPBlocks;
-import net.minecraft.block.*;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.pathfinding.PathType;
-import net.minecraft.state.StateContainer;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.util.DamageSource;
-import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.IWorld;
+import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.World;
-
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.GrowingPlantBodyBlock;
 import net.minecraft.world.level.block.GrowingPlantHeadBlock;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class SpanishMossBlock extends GrowingPlantBodyBlock {
+import java.util.Random;
+
+public class SpanishMossBlock extends GrowingPlantHeadBlock
+{
     public static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
-    public SpanishMossBlock(BlockBehaviour.Properties p_i241195_1_) {
-        super(p_i241195_1_, Direction.DOWN, SHAPE, false);
+    public SpanishMossBlock(Properties p_i241195_1_) {
+        super(p_i241195_1_, Direction.DOWN, SHAPE, false, 0.0D);
     }
 
+    @Override
+    protected int getBlocksToGrowWhenBonemealed(Random random)
+    {
+        return 0;
+    }
+
+    @Override
+    protected boolean canGrowInto(BlockState blockState)
+    {
+        return false;
+    }
+
+    @Override
     protected GrowingPlantHeadBlock getHeadBlock() {
-        return (GrowingPlantHeadBlock) BOPBlocks.spanish_moss;
+        return (GrowingPlantHeadBlock) BOPBlocks.SPANISH_MOSS;
+    }
+
+    @Override
+    protected Block getBodyBlock()
+    {
+        return null;
     }
 
     @Override
@@ -46,10 +55,10 @@ public class SpanishMossBlock extends GrowingPlantBodyBlock {
         BlockPos blockpos = p_196260_3_.relative(this.growthDirection.getOpposite());
         BlockState blockstate = p_196260_2_.getBlockState(blockpos);
         Block block = blockstate.getBlock();
-        if (!this.canAttachToBlock(block)) {
+        if (!this.canAttachTo(blockstate)) {
             return false;
         } else {
-            return block == this.getHeadBlock() || block == this.getBodyBlock() || blockstate.getBlock().is(BlockTags.LEAVES) || blockstate.getBlock().is(BlockTags.LOGS);
+            return block == this.getHeadBlock() || block == this.getBodyBlock() || blockstate.is(BlockTags.LEAVES) || blockstate.is(BlockTags.LOGS);
         }
     }
 }

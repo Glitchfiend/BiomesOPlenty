@@ -11,19 +11,13 @@ import biomesoplenty.common.world.layer.BOPShoreLayer;
 import biomesoplenty.common.world.layer.LandLayer;
 import biomesoplenty.common.world.layer.NetherBiomeLayer;
 import biomesoplenty.common.world.layer.traits.LazyAreaLayerContextBOP;
-import net.minecraft.world.level.newbiome.context.BigContext;
 import net.minecraft.world.level.newbiome.area.Area;
 import net.minecraft.world.level.newbiome.area.AreaFactory;
 import net.minecraft.world.level.newbiome.area.LazyArea;
-import net.minecraft.world.gen.layer.*;
+import net.minecraft.world.level.newbiome.context.BigContext;
+import net.minecraft.world.level.newbiome.layer.*;
 
 import java.util.function.LongFunction;
-
-import net.minecraft.world.level.newbiome.layer.AddIslandLayer;
-import net.minecraft.world.level.newbiome.layer.Layer;
-import net.minecraft.world.level.newbiome.layer.Layers;
-import net.minecraft.world.level.newbiome.layer.SmoothLayer;
-import net.minecraft.world.level.newbiome.layer.ZoomLayer;
 
 public class BOPNetherLayerUtil
 {

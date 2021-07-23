@@ -2,28 +2,27 @@ package biomesoplenty.common.world.gen.feature;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.block.IBlockPosQuery;
-import com.ibm.icu.impl.CalendarAstronomer;
 import com.mojang.serialization.Codec;
-import net.minecraft.block.*;
-import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.core.Direction;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.chunk.ChunkGenerator;
-import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-
-import java.util.Random;
-
+import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.feature.TreeFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+
+import java.util.Random;
 
 public class HugeCloverFeature extends Feature<NoneFeatureConfiguration>
 {
     protected IBlockPosQuery placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK;
-    protected IBlockPosQuery replace = (world, pos) -> world.getBlockState(pos).canBeReplacedByLeaves(world, pos) || world.getBlockState(pos).getBlock() instanceof BushBlock;
+    protected IBlockPosQuery replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() instanceof BushBlock;
 
     public HugeCloverFeature(Codec<NoneFeatureConfiguration> deserializer)
     {
@@ -31,8 +30,13 @@ public class HugeCloverFeature extends Feature<NoneFeatureConfiguration>
     }
 
     @Override
-    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, Random rand, BlockPos startPos, NoneFeatureConfiguration config)
+    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext)
     {
+        WorldGenLevel world = featurePlaceContext.level();
+        ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
+        Random rand = featurePlaceContext.random();
+        BlockPos startPos = featurePlaceContext.origin();
+        NoneFeatureConfiguration config = featurePlaceContext.config();
         while (startPos.getY() > 1 && this.replace.matches(world, startPos)) {startPos = startPos.below();}
 
         if (!this.placeOn.matches(world, startPos))
@@ -49,10 +53,10 @@ public class HugeCloverFeature extends Feature<NoneFeatureConfiguration>
 
         BlockPos pos = startPos.above();
 
-        this.setBlock(world, pos, BOPBlocks.huge_clover_petal.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, Direction.NORTH));
-        this.setBlock(world, pos.south(), BOPBlocks.huge_clover_petal.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, Direction.WEST));
-        this.setBlock(world, pos.east(), BOPBlocks.huge_clover_petal.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, Direction.EAST));
-        this.setBlock(world, pos.south().east(), BOPBlocks.huge_clover_petal.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, Direction.SOUTH));
+        this.setBlock(world, pos, BOPBlocks.HUGE_CLOVER_PETAL.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, Direction.NORTH));
+        this.setBlock(world, pos.south(), BOPBlocks.HUGE_CLOVER_PETAL.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, Direction.WEST));
+        this.setBlock(world, pos.east(), BOPBlocks.HUGE_CLOVER_PETAL.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, Direction.EAST));
+        this.setBlock(world, pos.south().east(), BOPBlocks.HUGE_CLOVER_PETAL.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, Direction.SOUTH));
 
         return true;
     }

@@ -9,13 +9,13 @@ package biomesoplenty.common.world.gen.feature.tree;
 
 import biomesoplenty.common.util.block.IBlockPosQuery;
 import com.google.common.collect.Lists;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
-import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
 
 import java.util.List;
 import java.util.Objects;

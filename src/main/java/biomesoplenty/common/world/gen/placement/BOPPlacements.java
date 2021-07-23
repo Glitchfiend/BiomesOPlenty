@@ -9,13 +9,8 @@ package biomesoplenty.common.world.gen.placement;
 
 import biomesoplenty.common.world.gen.feature.DenseFeatureSpreadConfig;
 import biomesoplenty.core.BiomesOPlenty;
-import com.mojang.serialization.Codec;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.gen.feature.FeatureSpreadConfig;
-import net.minecraft.world.gen.placement.*;
-import net.minecraftforge.registries.ForgeRegistries;
-
 import net.minecraft.world.level.levelgen.feature.configurations.DecoratorConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneDecoratorConfiguration;
 import net.minecraft.world.level.levelgen.placement.FeatureDecorator;
@@ -27,8 +22,7 @@ public class BOPPlacements
 
     private static <T extends DecoratorConfiguration, G extends FeatureDecorator<T>> G register(String key, G placement)
     {
-        placement.setRegistryName(new ResourceLocation(BiomesOPlenty.MOD_ID, key));
-        ForgeRegistries.DECORATORS.register(placement);
+        Registry.register(Registry.DECORATOR, new ResourceLocation(BiomesOPlenty.MOD_ID, key), placement);
         return placement;
     }
 }

@@ -8,17 +8,16 @@
 package biomesoplenty.common.world.gen.feature.tree;
 
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.common.util.biome.GeneratorUtil;
 import biomesoplenty.common.util.block.IBlockPosQuery;
+import biomesoplenty.common.world.gen.BOPFeatureUtil;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SaplingBlock;
-import net.minecraft.block.material.Material;
-import net.minecraft.core.Direction;
-import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
-import net.minecraft.world.level.LevelAccessor;
 
 import java.util.Random;
 import java.util.Set;
@@ -29,8 +28,8 @@ public class MahoganyTreeFeature extends TreeFeatureBase
     {
         public Builder()
         {
-            this.log = BOPBlocks.mahogany_log.defaultBlockState();
-            this.leaves = BOPBlocks.mahogany_leaves.defaultBlockState();
+            this.log = BOPBlocks.MAHOGANY_LOG.defaultBlockState();
+            this.leaves = BOPBlocks.MAHOGANY_LEAVES.defaultBlockState();
             this.minHeight = 8;
             this.maxHeight = 14;
         }
@@ -105,11 +104,11 @@ public class MahoganyTreeFeature extends TreeFeatureBase
             {
                 BlockPos soilPos = pos.below();
                 Block soil = world.getBlockState(soilPos).getBlock();
-                boolean isSoil = soil.canSustainPlant(world.getBlockState(soilPos), world, soilPos, Direction.UP, (SaplingBlock) Blocks.OAK_SAPLING);
+                boolean isSoil = BOPFeatureUtil.isSoil(world, soilPos);
 
                 if (this.placeOn.matches(world, soilPos) && isSoil && pos.getY() < 256 - height - 1)
                 {
-                    soil.onPlantGrow(world.getBlockState(soilPos), world, soilPos, pos);
+                    world.setBlock(soilPos, Blocks.DIRT.defaultBlockState(), 3);
 
                     this.generateTrunk(changedLogs, changedLeaves, boundingBox, world, pos, height);
 

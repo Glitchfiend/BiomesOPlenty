@@ -10,23 +10,23 @@ package biomesoplenty.common.world.gen.feature.tree;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.biome.GeneratorUtil;
 import biomesoplenty.common.util.block.IBlockPosQuery;
-import net.minecraft.block.*;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.core.Direction;
+import biomesoplenty.common.world.gen.BOPFeatureUtil;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
-import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.LevelAccessor;
-
-import java.util.Random;
-import java.util.Set;
-
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.TreeFeature;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.world.level.material.Material;
+
+import java.util.Random;
+import java.util.Set;
 
 public class CypressTreeFeature extends TreeFeatureBase
 {
@@ -40,11 +40,11 @@ public class CypressTreeFeature extends TreeFeatureBase
         {
             this.minHeight = 6;
             this.maxHeight = 15;
-            this.placeOn = (world, pos) -> world.getBlockState(pos).canSustainPlant(world, pos, Direction.UP, (SaplingBlock)Blocks.OAK_SAPLING);
-            this.replace = (world, pos) -> world.getBlockState(pos).canBeReplacedByLeaves(world, pos) || world.getBlockState(pos).getMaterial() == Material.WATER || world.getBlockState(pos).getBlock().is(BlockTags.SAPLINGS) || world.getBlockState(pos).getBlock() == Blocks.VINE || world.getBlockState(pos).getBlock() == BOPBlocks.willow_vine || world.getBlockState(pos).getBlock() == BOPBlocks.spanish_moss_plant || world.getBlockState(pos).getBlock() == BOPBlocks.spanish_moss || world.getBlockState(pos).getBlock() instanceof BushBlock;
-            this.log = BOPBlocks.willow_log.defaultBlockState();
-            this.leaves = BOPBlocks.willow_leaves.defaultBlockState();
-            this.vine = BOPBlocks.willow_vine.defaultBlockState();
+            this.placeOn = BOPFeatureUtil::isSoil;
+            this.replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getMaterial() == Material.WATER || world.getBlockState(pos).is(BlockTags.SAPLINGS) || world.getBlockState(pos).getBlock() == Blocks.VINE || world.getBlockState(pos).getBlock() == BOPBlocks.WILLOW_VINE || world.getBlockState(pos).getBlock() == BOPBlocks.SPANISH_MOSS_PLANT || world.getBlockState(pos).getBlock() == BOPBlocks.SPANISH_MOSS || world.getBlockState(pos).getBlock() instanceof BushBlock;
+            this.log = BOPBlocks.WILLOW_LOG.defaultBlockState();
+            this.leaves = BOPBlocks.WILLOW_LEAVES.defaultBlockState();
+            this.vine = BOPBlocks.WILLOW_VINE.defaultBlockState();
             this.trunkWidth = 1;
         }
 
@@ -85,7 +85,7 @@ public class CypressTreeFeature extends TreeFeatureBase
         }
 
         BlockPos pos2 = pos.offset(0, height - 2,0);
-        if (!world.getBlockState(pos2).canBeReplacedByLeaves(world, pos2))
+        if (!TreeFeature.isAirOrLeaves(world, pos2))
         {
             return false;
         }
@@ -293,7 +293,7 @@ public class CypressTreeFeature extends TreeFeatureBase
     @Override
     public boolean placeLeaves(LevelAccessor world, BlockPos pos, Set<BlockPos> changedBlocks, BoundingBox boundingBox)
     {
-        if (world.getBlockState(pos).canBeReplacedByLeaves(world, pos))
+        if (TreeFeature.isAirOrLeaves(world, pos))
         {
             this.setBlock(world, pos, this.leaves);
             this.placeBlock(world, pos, this.leaves, changedBlocks, boundingBox);
@@ -312,7 +312,7 @@ public class CypressTreeFeature extends TreeFeatureBase
             if (p_236429_1_.isEmptyBlock(blockpos$mutable))
             {
                 BlockState blockstate = p_236429_1_.getBlockState(blockpos$mutable.above());
-                if (blockstate.getBlock() == BOPBlocks.willow_leaves)
+                if (blockstate.getBlock() == BOPBlocks.WILLOW_LEAVES)
                 {
                     int j = Mth.nextInt(p_236429_2_, 1, 3);
 
@@ -335,11 +335,11 @@ public class CypressTreeFeature extends TreeFeatureBase
             {
                 if (i == p_236427_3_ || !p_236427_0_.isEmptyBlock(p_236427_2_.below()))
                 {
-                    p_236427_0_.setBlock(p_236427_2_, BOPBlocks.spanish_moss.defaultBlockState().setValue(GrowingPlantHeadBlock.AGE, Integer.valueOf(Mth.nextInt(p_236427_1_, p_236427_4_, p_236427_5_))), 2);
+                    p_236427_0_.setBlock(p_236427_2_, BOPBlocks.SPANISH_MOSS.defaultBlockState().setValue(GrowingPlantHeadBlock.AGE, Integer.valueOf(Mth.nextInt(p_236427_1_, p_236427_4_, p_236427_5_))), 2);
                     break;
                 }
 
-                p_236427_0_.setBlock(p_236427_2_, BOPBlocks.spanish_moss_plant.defaultBlockState(), 2);
+                p_236427_0_.setBlock(p_236427_2_, BOPBlocks.SPANISH_MOSS_PLANT.defaultBlockState(), 2);
             }
 
             p_236427_2_.move(Direction.DOWN);

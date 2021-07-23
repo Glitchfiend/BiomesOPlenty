@@ -11,12 +11,11 @@ import biomesoplenty.api.block.BOPBlocks;
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderBaseConfiguration;
 import net.minecraft.world.level.levelgen.surfacebuilders.NetherCappedSurfaceBuilder;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderBaseConfiguration;
 
 public class FleshSurfaceBuilder extends NetherCappedSurfaceBuilder {
-	private static final BlockState FLESH = BOPBlocks.flesh.defaultBlockState();
+	private static final BlockState FLESH = BOPBlocks.FLESH.defaultBlockState();
 	private static final ImmutableList<BlockState> BLOCK_STATES = ImmutableList.of(FLESH);
 
 	public FleshSurfaceBuilder(Codec<SurfaceBuilderBaseConfiguration> p_i232135_1_) {

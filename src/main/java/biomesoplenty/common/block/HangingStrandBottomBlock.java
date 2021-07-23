@@ -7,32 +7,29 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
-import biomesoplenty.api.block.BOPBlocks;
-import net.minecraft.world.level.block.GrowingPlantHeadBlock;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.block.PlantBlockHelper;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.Level;
+import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.GrowingPlantHeadBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.Random;
 
-import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
-
-public class HangingStrandBottomBlock extends GrowingPlantHeadBlock {
+public class HangingStrandBottomBlock extends GrowingPlantHeadBlock
+{
     protected static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
     public HangingStrandBottomBlock(Properties p_i241194_1_) {
         super(p_i241194_1_, Direction.DOWN, SHAPE, false, 0.01D);
     }
 
+    @Override
     protected Block getBodyBlock() {
         return null;
     }
@@ -42,7 +39,7 @@ public class HangingStrandBottomBlock extends GrowingPlantHeadBlock {
         BlockPos blockpos = p_196260_3_.relative(this.growthDirection.getOpposite());
         BlockState blockstate = p_196260_2_.getBlockState(blockpos);
         Block block = blockstate.getBlock();
-        if (!this.canAttachToBlock(block)) {
+        if (!this.canAttachTo(blockstate)) {
             return false;
         } else {
             return block == this.getHeadBlock() || block == this.getBodyBlock() || blockstate.getMaterial() == Material.STONE;
