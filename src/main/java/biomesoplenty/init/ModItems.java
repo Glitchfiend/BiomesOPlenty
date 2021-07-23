@@ -12,12 +12,18 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.item.BoatItem;
 import net.minecraft.world.item.Item;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import static biomesoplenty.api.item.BOPItems.*;
 
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModItems
 {
-    public static void registerItems()
+    @SubscribeEvent
+    public static void registerItems(RegistryEvent.Register<Item> event)
     {
         BOP_ICON = registerItem(new Item(new Item.Properties()), "bop_icon");
 
@@ -41,7 +47,8 @@ public class ModItems
 
     public static Item registerItem(Item item, String name)
     {
-        Registry.register(Registry.ITEM, new ResourceLocation(BiomesOPlenty.MOD_ID, name), item);
+        item.setRegistryName(name);
+        ForgeRegistries.ITEMS.register(item);
         return item;
     }
 }

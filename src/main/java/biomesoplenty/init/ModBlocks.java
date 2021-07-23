@@ -22,13 +22,19 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.loading.FMLEnvironment;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import static biomesoplenty.api.block.BOPBlocks.*;
 
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModBlocks
 {
-    public static void registerBlocks()
+    @SubscribeEvent
+    public static void registerBlocks(RegistryEvent.Register<Block> event)
     {
         //Terrain
         WHITE_SAND = registerBlock(new SandBlockBOP(0xF3F1E4, BlockBehaviour.Properties.of(Material.SAND, MaterialColor.QUARTZ).strength(0.5F).sound(SoundType.SAND)), "white_sand");
@@ -512,24 +518,30 @@ public class ModBlocks
     public static Block registerBlock(Block block, String name)
     {
         BlockItem itemBlock = new BlockItem(block, new Item.Properties().tab(CreativeModeTabBOP.INSTANCE));
-        Registry.register(Registry.BLOCK, new ResourceLocation(BiomesOPlenty.MOD_ID, name), block);
-        Registry.register(Registry.ITEM, new ResourceLocation(BiomesOPlenty.MOD_ID, name), itemBlock);
+        block.setRegistryName(name);
+        itemBlock.setRegistryName(name);
+        ForgeRegistries.BLOCKS.register(block);
+        ForgeRegistries.ITEMS.register(itemBlock);
         return block;
     }
 
     public static Block registerBlockNoGroup(Block block, String name)
     {
         BlockItem itemBlock = new BlockItem(block, new Item.Properties().tab(null));
-        Registry.register(Registry.BLOCK, new ResourceLocation(BiomesOPlenty.MOD_ID, name), block);
-        Registry.register(Registry.ITEM, new ResourceLocation(BiomesOPlenty.MOD_ID, name), itemBlock);
+        block.setRegistryName(name);
+        itemBlock.setRegistryName(name);
+        ForgeRegistries.BLOCKS.register(block);
+        ForgeRegistries.ITEMS.register(itemBlock);
         return block;
     }
 
     public static Block registerBlock(Block block, BlockItem itemBlock, String name) {
-        Registry.register(Registry.BLOCK, new ResourceLocation(BiomesOPlenty.MOD_ID, name), block);
+        block.setRegistryName(name);
+        ForgeRegistries.BLOCKS.register(block);
 
         if (itemBlock != null) {
-            Registry.register(Registry.ITEM, new ResourceLocation(BiomesOPlenty.MOD_ID, name), itemBlock);
+            itemBlock.setRegistryName(name);
+            ForgeRegistries.ITEMS.register(itemBlock);
         }
 
         return block;
