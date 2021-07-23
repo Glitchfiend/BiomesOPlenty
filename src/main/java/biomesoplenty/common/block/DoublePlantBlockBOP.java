@@ -7,8 +7,11 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DoublePlantBlock;
+import net.minecraftforge.common.PlantType;
 
 public class DoublePlantBlockBOP extends DoublePlantBlock
 {
@@ -17,10 +20,9 @@ public class DoublePlantBlockBOP extends DoublePlantBlock
         super(properties);
     }
 
-// TODO:
-//    @Override
-//    public PlantType getPlantType(BlockGetter world, BlockPos pos)
-//    {
-//        return PlantType.PLAINS;
-//    }
+    @Override
+    public PlantType getPlantType(BlockGetter world, BlockPos pos)
+    {
+        return PlantType.PLAINS;
+    }
 }

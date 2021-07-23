@@ -30,11 +30,13 @@ import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfigur
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.common.IPlantable;
 
 import javax.annotation.Nullable;
+import java.util.List;
 import java.util.Random;
 
-public class FoliageBlockBOP extends BushBlock implements BonemealableBlock // TODO: implements IPlantable, IGrowable
+public class FoliageBlockBOP extends BushBlock implements BonemealableBlock, IPlantable
 {
     protected static final VoxelShape NORMAL = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
     protected static final VoxelShape SHORT = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 7.0D, 15.0D);
@@ -71,14 +73,6 @@ public class FoliageBlockBOP extends BushBlock implements BonemealableBlock // T
             super.playerDestroy(worldIn, player, pos, state, te, stack);
         }
     }
-
-// TODO:
-//    @Override
-//    public List<ItemStack> onSheared(ItemStack item, net.minecraft.world.ILevel world, BlockPos pos, int fortune)
-//    {
-//        world.setBlock(pos, Blocks.AIR.defaultBlockState(), 11);
-//        return java.util.Arrays.asList(new ItemStack(this));
-//    }
 
     @Override
     public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos)

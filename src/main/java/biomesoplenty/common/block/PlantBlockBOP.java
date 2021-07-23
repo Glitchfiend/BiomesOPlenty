@@ -14,8 +14,10 @@ import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.common.IPlantable;
+import net.minecraftforge.common.PlantType;
 
-public class PlantBlockBOP extends BushBlock //TODO: implements IPlantable
+public class PlantBlockBOP extends BushBlock implements IPlantable
 {
 	protected static final VoxelShape NORMAL = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
 	
@@ -37,10 +39,9 @@ public class PlantBlockBOP extends BushBlock //TODO: implements IPlantable
         return Block.OffsetType.XZ;
     }
 
-// TODO:
-//    @Override
-//    public PlantType getPlantType(BlockGetter world, BlockPos pos)
-//    {
-//    	return PlantType.PLAINS;
-//    }
+    @Override
+    public PlantType getPlantType(BlockGetter world, BlockPos pos)
+    {
+    	return PlantType.PLAINS;
+    }
 }

@@ -13,6 +13,7 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
@@ -28,6 +29,7 @@ import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.Material;
+import net.minecraftforge.common.PlantType;
 
 import javax.annotation.Nullable;
 
@@ -80,12 +82,11 @@ public class DoubleWaterPlantBlock extends DoublePlantBlock implements SimpleWat
         }
     }
 
-// TODO:
-//    @Override
-//    public PlantType getPlantType(BlockGetter world, BlockPos pos)
-//    {
-//        return PlantType.PLAINS;
-//    }
+    @Override
+    public PlantType getPlantType(BlockGetter world, BlockPos pos)
+    {
+        return PlantType.PLAINS;
+    }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {

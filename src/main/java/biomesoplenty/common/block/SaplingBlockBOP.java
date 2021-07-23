@@ -15,6 +15,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 import net.minecraft.world.level.block.state.BlockState;
@@ -26,7 +27,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.Random;
 
-public class SaplingBlockBOP extends SaplingBlock // TODO: implements IGrowable
+public class SaplingBlockBOP extends SaplingBlock implements BonemealableBlock
 {
    public static final IntegerProperty STAGE = BlockStateProperties.STAGE;
    public static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
@@ -49,7 +50,7 @@ public class SaplingBlockBOP extends SaplingBlock // TODO: implements IGrowable
    public void tick(BlockState state, ServerLevel world, BlockPos pos, Random random)
    {
       super.tick(state, world, pos, random);
-      // TODO: if (!world.isAreaLoaded(pos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light
+      if (!world.isAreaLoaded(pos, 1)) return;
       if (world.getMaxLocalRawBrightness(pos.above()) >= 9 && random.nextInt(7) == 0) {
          this.performBonemeal(world, random, pos, state);
       }
@@ -65,7 +66,7 @@ public class SaplingBlockBOP extends SaplingBlock // TODO: implements IGrowable
       }
       else
       {
-         // TODO: if (!net.minecraftforge.event.ForgeEventFactory.saplingGrowTree(world, rand, pos)) return;
+         if (!net.minecraftforge.event.ForgeEventFactory.saplingGrowTree(world, rand, pos)) return;
          this.tree.growTree(world, world.getChunkSource().getGenerator(), pos, state, rand);
       }
 
