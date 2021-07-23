@@ -7,7 +7,7 @@ logoFile="bop_logo.png"
 
 [[mods]]
     modId="biomesoplenty"
-    version="${version}"
+    version="1"
     displayName="Biomes O' Plenty"
 	authors="Forstride, Adubbz"
     description='''
