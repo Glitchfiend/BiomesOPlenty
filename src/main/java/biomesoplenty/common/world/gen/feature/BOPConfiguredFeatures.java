@@ -312,6 +312,7 @@ public class BOPConfiguredFeatures
     /////////////////////////////////////////////////////////////////////
 
     // Features
+    public static final ConfiguredFeature<?, ?> BIG_DRIPLEAF = register("big_dripleaf", BOPFeatures.BIG_DRIPLEAF.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(10)));
     public static final ConfiguredFeature<?, ?> BIG_PUMPKIN = register("big_pumpkin", BOPFeatures.BIG_PUMPKIN.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(3)));
     public static final ConfiguredFeature<?, ?> BLACK_SAND_DISK = register("black_sand_disk", Feature.DISK.configured(new DiskConfiguration(BOPBlocks.BLACK_SAND.defaultBlockState(), UniformInt.of(2, 6), 2, ImmutableList.of(Blocks.DIRT.defaultBlockState(), Blocks.GRASS_BLOCK.defaultBlockState()))).decorated(Features.Decorators.TOP_SOLID_HEIGHTMAP_SQUARE).count(2));
     public static final ConfiguredFeature<?, ?> BLACK_SAND_SPLATTER = register("black_sand_splatter", BOPFeatures.BLACK_SAND_SPLATTER.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(25)));
@@ -347,6 +348,7 @@ public class BOPConfiguredFeatures
     public static final ConfiguredFeature<?, ?> SHORT_BAMBOO_5 = register("short_bamboo_5", BOPFeatures.SHORT_BAMBOO.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(5)));
     public static final ConfiguredFeature<?, ?> SMALL_BROWN_MUSHROOM = register("small_brown_mushroom", BOPFeatures.SMALL_BROWN_MUSHROOM.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(3)));
     public static final ConfiguredFeature<?, ?> SMALL_CRYSTAL = register("small_crystal", BOPFeatures.SMALL_CRYSTAL.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(75)));
+    public static final ConfiguredFeature<?, ?> SMALL_DRIPLEAF = register("small_dripleaf", BOPFeatures.SMALL_DRIPLEAF.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(25)));
     public static final ConfiguredFeature<?, ?> SMALL_GLOWSHROOM_UNCOMMON = register("small_glowshroom_uncommon", BOPFeatures.SMALL_GLOWSHROOM.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(1)));
     public static final ConfiguredFeature<?, ?> SMALL_GLOWSHROOM = register("small_glowshroom", BOPFeatures.SMALL_GLOWSHROOM.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(3)));
     public static final ConfiguredFeature<?, ?> SMALL_RED_MUSHROOM = register("small_red_mushroom", BOPFeatures.SMALL_RED_MUSHROOM.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(1)));
