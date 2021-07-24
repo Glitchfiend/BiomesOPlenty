@@ -70,7 +70,7 @@ processResources {
         expand 'version': project.version
     }
 	
-	duplicatesStrategy = DuplicatesStrategy.REPLACE
+	duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
 
 jar {
