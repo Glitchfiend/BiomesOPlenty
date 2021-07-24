@@ -31,6 +31,12 @@
 	"biomesoplenty:mud_bricks",
 	"biomesoplenty:mud_brick_stairs",
 	"biomesoplenty:mud_brick_slab",
-	"biomesoplenty:dried_salt"
+	"biomesoplenty:dried_salt",
+	"biomesoplenty:rose_quartz_cluster",
+    "biomesoplenty:small_rose_quartz_bud",
+    "biomesoplenty:medium_rose_quartz_bud",
+    "biomesoplenty:large_rose_quartz_bud",
+    "biomesoplenty:rose_quartz_block",
+    "biomesoplenty:budding_rose_quartz"
   ]
 }
