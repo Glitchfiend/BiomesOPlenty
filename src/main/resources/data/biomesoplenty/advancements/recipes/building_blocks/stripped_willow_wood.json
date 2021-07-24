@@ -11,7 +11,9 @@
       "conditions": {
         "items": [
           {
-            "item": "biomesoplenty:stripped_willow_log"
+            "items": [
+               "biomesoplenty:stripped_willow_log"
+            ]
           }
         ]
       }

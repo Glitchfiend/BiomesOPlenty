@@ -11,7 +11,9 @@
       "conditions": {
         "items": [
           {
-            "item": "biomesoplenty:cherry_log"
+            "items": [
+              "biomesoplenty:cherry_log"
+            ]
           }
         ]
       }

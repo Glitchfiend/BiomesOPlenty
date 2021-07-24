@@ -10,7 +10,9 @@
       "conditions": {
         "items": [
           {
-            "item": "biomesoplenty:lavender"
+            "items": [
+               "biomesoplenty:lavender"
+            ]
           }
         ]
       }

@@ -16,7 +16,9 @@
       "conditions": {
         "items": [
           {
-            "item": "biomesoplenty:mud_bricks"
+            "items": [
+               "biomesoplenty:mud_bricks"
+            ]
           }
         ]
       }

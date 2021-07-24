@@ -10,7 +10,9 @@
       "conditions": {
         "items": [
           {
-            "item": "biomesoplenty:violet"
+            "items": [
+               "biomesoplenty:violet"
+            ]
           }
         ]
       }

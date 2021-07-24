@@ -11,7 +11,9 @@
       "conditions": {
         "items": [
           {
-            "item": "biomesoplenty:magic_log"
+            "items": [
+               "biomesoplenty:magic_log"
+            ]
           }
         ]
       }

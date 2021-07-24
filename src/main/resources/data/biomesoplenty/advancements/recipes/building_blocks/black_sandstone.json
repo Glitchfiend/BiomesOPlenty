@@ -16,7 +16,9 @@
       "conditions": {
         "items": [
           {
-            "item": "biomesoplenty:black_sand"
+            "items": [
+              "biomesoplenty:black_sand"
+            ]
           }
         ]
       }

@@ -10,7 +10,9 @@
       "conditions": {
         "items": [
           {
-            "item": "biomesoplenty:white_sandstone"
+            "items": [
+               "biomesoplenty:white_sandstone"
+            ]
           }
         ]
       }

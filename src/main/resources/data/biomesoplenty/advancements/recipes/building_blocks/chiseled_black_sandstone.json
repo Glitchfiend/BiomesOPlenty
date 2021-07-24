@@ -10,7 +10,9 @@
       "conditions": {
         "items": [
           {
-            "item": "biomesoplenty:black_sandstone"
+            "items": [
+              "biomesoplenty:black_sandstone"
+            ]
           }
         ]
       }
@@ -20,7 +22,9 @@
       "conditions": {
         "items": [
           {
-            "item": "biomesoplenty:chiseled_black_sandstone"
+            "items": [
+              "biomesoplenty:chiseled_black_sandstone"
+            ]
           }
         ]
       }
@@ -30,7 +34,9 @@
       "conditions": {
         "items": [
           {
-            "item": "biomesoplenty:cut_black_sandstone"
+            "items": [
+              "biomesoplenty:cut_black_sandstone"
+            ]
           }
         ]
       }

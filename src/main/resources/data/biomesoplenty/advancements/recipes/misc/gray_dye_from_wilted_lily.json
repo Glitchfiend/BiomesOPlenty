@@ -10,7 +10,9 @@
       "conditions": {
         "items": [
           {
-            "item": "biomesoplenty:wilted_lily"
+            "items": [
+               "biomesoplenty:wilted_lily"
+            ]
           }
         ]
       }

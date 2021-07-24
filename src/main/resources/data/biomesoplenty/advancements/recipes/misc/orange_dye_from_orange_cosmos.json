@@ -10,7 +10,9 @@
       "conditions": {
         "items": [
           {
-            "item": "biomesoplenty:orange_cosmos"
+            "items": [
+               "biomesoplenty:orange_cosmos"
+            ]
           }
         ]
       }
