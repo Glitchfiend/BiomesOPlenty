@@ -111,6 +111,7 @@ curseforge {
             }
 
             releaseType = 'beta'
+            addGameVersion minecraft_version
 
             mainArtifact(jar) {
                 displayName = "Biomes O' Plenty ${version}"
