@@ -95,6 +95,7 @@ task apiJar(type: Jar) {
         include 'biomesoplenty/api/**'
     }
 
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
     classifier = 'api'
 }
 
