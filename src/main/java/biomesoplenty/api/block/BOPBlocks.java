@@ -58,6 +58,8 @@ public class BOPBlocks
     public static Block SMALL_ROSE_QUARTZ_BUD;
     public static Block TOADSTOOL_BLOCK;
     public static Block GLOWSHROOM_BLOCK;
+    public static Block GLOWING_MOSS_CARPET;
+    public static Block GLOWING_MOSS_BLOCK;
     public static Block ORIGIN_SAPLING;
     public static Block ORIGIN_LEAVES;
     public static Block FLOWERING_OAK_SAPLING;

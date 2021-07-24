@@ -8,6 +8,7 @@ import biomesoplenty.api.enums.BOPClimates;
 import biomesoplenty.common.biome.BiomeMetadata;
 import biomesoplenty.common.biome.BiomeRegistry;
 import biomesoplenty.common.biome.BiomeTemplate;
+import biomesoplenty.common.biome.cave.GlowingGrottoBiome;
 import biomesoplenty.common.biome.nether.CrystallineChasmBiome;
 import biomesoplenty.common.biome.nether.UndergrowthBiome;
 import biomesoplenty.common.biome.nether.VisceralHeapBiome;
@@ -161,6 +162,7 @@ public class ModBiomes
         registerBiome(new FlowerMeadowBiome(), "flower_meadow");
         registerBiome(new FungalFieldBiome(), "fungal_field");
         registerBiome(new FungalJungleBiome(), "fungal_jungle");
+        registerBiome(new GlowingGrottoBiome(), "glowing_grotto");
         registerBiome(new GoldenPrairieBiome(), "golden_prairie");
         registerBiome(new GrasslandBiome(), "grassland");
         registerBiome(new GrasslandCloverPatchBiome(), "grassland_clover_patch");
@@ -447,6 +449,7 @@ public class ModBiomes
         registerVillagerType(flower_meadow, VillagerType.TAIGA);
         registerVillagerType(fungal_field, VillagerType.JUNGLE);
         registerVillagerType(fungal_jungle, VillagerType.JUNGLE);
+        registerVillagerType(glowing_grotto, VillagerType.PLAINS);
         registerVillagerType(golden_prairie, VillagerType.PLAINS);
         registerVillagerType(grassland, VillagerType.PLAINS);
         registerVillagerType(grassland_clover_patch, VillagerType.PLAINS);

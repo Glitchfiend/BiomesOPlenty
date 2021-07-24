@@ -18,12 +18,12 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 
 import java.util.Random;
 
-public class HugeGlowshroomFeature extends Feature<NoneFeatureConfiguration>
+public class MediumGlowshroomFeature extends Feature<NoneFeatureConfiguration>
 {
     protected IBlockPosQuery placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK || world.getBlockState(pos).getBlock() == Blocks.MYCELIUM || world.getBlockState(pos).getBlock() == Blocks.STONE || world.getBlockState(pos).getBlock() == Blocks.DEEPSLATE || world.getBlockState(pos).getBlock() == BOPBlocks.GLOWING_MOSS_BLOCK;
     protected IBlockPosQuery replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() instanceof BushBlock || world.getBlockState(pos).getBlock() == BOPBlocks.GLOWING_MOSS_CARPET || world.getBlockState(pos).getBlock() == Blocks.MOSS_CARPET;
 
-    public HugeGlowshroomFeature(Codec<NoneFeatureConfiguration> deserializer)
+    public MediumGlowshroomFeature(Codec<NoneFeatureConfiguration> deserializer)
     {
         super(deserializer);
     }
@@ -52,8 +52,8 @@ public class HugeGlowshroomFeature extends Feature<NoneFeatureConfiguration>
 
         BlockPos pos = startPos.above();
 
-        int height = 6 + rand.nextInt(10);
-        int radius = 2 + rand.nextInt(2);
+        int height = 4 + rand.nextInt(4);
+        int radius = 2 + rand.nextInt(1);
 
         for (int y = 0; y < height; y++) {
             this.setBlock(world, pos.above(y), Blocks.MUSHROOM_STEM.defaultBlockState());

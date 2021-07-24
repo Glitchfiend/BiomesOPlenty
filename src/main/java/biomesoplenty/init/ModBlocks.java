@@ -94,6 +94,9 @@ public class ModBlocks
         TOADSTOOL_BLOCK = registerBlock(new HugeMushroomBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_ORANGE).strength(0.2F).sound(SoundType.WOOD)), "toadstool_block");
         GLOWSHROOM_BLOCK = registerBlock(new HugeMushroomBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.DIAMOND).strength(0.2F).sound(SoundType.WOOD).lightLevel((state) -> 10)), "glowshroom_block");
 
+        GLOWING_MOSS_CARPET = registerBlock(new CarpetBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.DIAMOND).strength(0.1F).sound(SoundType.MOSS_CARPET).lightLevel((state) -> 8)), "glowing_moss_carpet");
+        GLOWING_MOSS_BLOCK = registerBlock(new GlowingMossBlock(BlockBehaviour.Properties.of(Material.MOSS, MaterialColor.DIAMOND).strength(0.1F).sound(SoundType.MOSS).lightLevel((state) -> 8)), "glowing_moss_block");
+
         //Trees
         ORIGIN_SAPLING = registerBlock(new SaplingBlockBOP(new OriginTree(), BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "origin_sapling");
         ORIGIN_LEAVES = registerBlock(new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES, MaterialColor.EMERALD).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion()), "origin_leaves");

@@ -20,8 +20,8 @@ import java.util.Random;
 
 public class SmallGlowshroomFeature extends Feature<NoneFeatureConfiguration>
 {
-    protected IBlockPosQuery placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK || world.getBlockState(pos).getBlock() == Blocks.MYCELIUM;
-    protected IBlockPosQuery replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() instanceof BushBlock;
+    protected IBlockPosQuery placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK || world.getBlockState(pos).getBlock() == Blocks.MYCELIUM || world.getBlockState(pos).getBlock() == Blocks.STONE || world.getBlockState(pos).getBlock() == Blocks.DEEPSLATE || world.getBlockState(pos).getBlock() == BOPBlocks.GLOWING_MOSS_BLOCK;
+    protected IBlockPosQuery replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() instanceof BushBlock || world.getBlockState(pos).getBlock() == BOPBlocks.GLOWING_MOSS_CARPET || world.getBlockState(pos).getBlock() == Blocks.MOSS_CARPET;
 
     public SmallGlowshroomFeature(Codec<NoneFeatureConfiguration> deserializer)
     {
@@ -36,7 +36,7 @@ public class SmallGlowshroomFeature extends Feature<NoneFeatureConfiguration>
         Random rand = featurePlaceContext.random();
         BlockPos startPos = featurePlaceContext.origin();
         NoneFeatureConfiguration config = featurePlaceContext.config();
-        while (startPos.getY() > 1 && this.replace.matches(world, startPos)) {
+        while (startPos.getY() > -64 && this.replace.matches(world, startPos)) {
             startPos = startPos.below();
         }
 

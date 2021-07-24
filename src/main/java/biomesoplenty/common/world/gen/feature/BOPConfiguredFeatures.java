@@ -18,8 +18,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CaveVines;
+import net.minecraft.world.level.block.CaveVinesBlock;
 import net.minecraft.world.level.block.SmallDripleafBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
@@ -27,12 +30,10 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.blockplacers.SimpleBlockPlacer;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
+import net.minecraft.world.level.levelgen.feature.stateproviders.RandomizedIntStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
-import net.minecraft.world.level.levelgen.placement.CaveSurface;
-import net.minecraft.world.level.levelgen.placement.ChanceDecoratorConfiguration;
-import net.minecraft.world.level.levelgen.placement.FeatureDecorator;
-import net.minecraft.world.level.levelgen.placement.FrequencyWithExtraChanceDecoratorConfiguration;
+import net.minecraft.world.level.levelgen.placement.*;
 
 public class BOPConfiguredFeatures
 {
@@ -363,6 +364,32 @@ public class BOPConfiguredFeatures
     public static final ConfiguredFeature<?, ?> WATER_SPRING_EXTRA = register("water_spring_extra", Feature.SPRING.configured(BOPFeatures.WATER_SPRING_EXTRA_CONFIG).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(128));
     public static final ConfiguredFeature<?, ?> WHITE_SAND_DISK = register("white_sand_disk", Feature.DISK.configured(new DiskConfiguration(BOPBlocks.WHITE_SAND.defaultBlockState(), UniformInt.of(2, 6), 2, ImmutableList.of(Blocks.DIRT.defaultBlockState(), Blocks.GRASS_BLOCK.defaultBlockState()))).decorated(Features.Decorators.TOP_SOLID_HEIGHTMAP_SQUARE).count(2));
     public static final ConfiguredFeature<?, ?> WHITE_SAND_DISK_EXTRA = register("white_sand_disk_extra", Feature.DISK.configured(new DiskConfiguration(BOPBlocks.WHITE_SAND.defaultBlockState(), UniformInt.of(4, 6), 1, ImmutableList.of(Blocks.DIRT.defaultBlockState(), Blocks.GRASS_BLOCK.defaultBlockState()))).decorated(Features.Decorators.TOP_SOLID_HEIGHTMAP_SQUARE).count(8));
+
+    /////////////////////////////////////////////////////////////////////
+
+    // Cave Features
+    public static final ConfiguredFeature<GrowingPlantConfiguration, ?> GLOWWORM_SILK = register("glowworm_silk", Feature.GROWING_PLANT.configured(new GrowingPlantConfiguration(SimpleWeightedRandomList.<IntProvider>builder().add(UniformInt.of(1, 12), 2).add(UniformInt.of(1, 6), 3).add(UniformInt.of(1, 3), 10).build(), Direction.DOWN, new SimpleStateProvider(BOPBlocks.GLOWWORM_SILK_STRAND.defaultBlockState()), new SimpleStateProvider(BOPBlocks.GLOWWORM_SILK.defaultBlockState()), false)));
+    public static final ConfiguredFeature<?, ?> GLOWWORM_SILK_STRANDS = register("glowworm_silk_strands", GLOWWORM_SILK.decorated(FeatureDecorator.CAVE_SURFACE.configured(new CaveDecoratorConfiguration(CaveSurface.CEILING, 12))).range(Features.Decorators.RANGE_BOTTOM_TO_60).squared().count(60));
+
+    public static final ConfiguredFeature<SimpleBlockConfiguration, ?> GLOWING_GROTTO_FLOOR_PLANTS = register("glowing_grotto_floor_plants", Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(new WeightedStateProvider(weightedBlockStateBuilder().add(BOPBlocks.GLOWSHROOM.defaultBlockState(), 8).add(BOPBlocks.GLOWING_MOSS_CARPET.defaultBlockState(), 25)))));
+    public static final ConfiguredFeature<VegetationPatchConfiguration, ?>  GLOWING_MOSS_PATCH = register("glowing_moss_patch", Feature.VEGETATION_PATCH.configured(new VegetationPatchConfiguration(BlockTags.MOSS_REPLACEABLE.getName(), new SimpleStateProvider(BOPBlocks.GLOWING_MOSS_BLOCK.defaultBlockState()), () -> {
+        return GLOWING_GROTTO_FLOOR_PLANTS;
+    }, CaveSurface.FLOOR, ConstantInt.of(1), 0.0F, 5, 0.5F, UniformInt.of(4, 7), 0.3F)));
+    public static final ConfiguredFeature<VegetationPatchConfiguration, ?>  GLOWING_MOSS_PATCH_BONEMEAL = register("glowing_moss_patch_bonemeal", Feature.VEGETATION_PATCH.configured(new VegetationPatchConfiguration(BlockTags.MOSS_REPLACEABLE.getName(), new SimpleStateProvider(BOPBlocks.GLOWING_MOSS_BLOCK.defaultBlockState()), () -> {
+        return GLOWING_GROTTO_FLOOR_PLANTS;
+    }, CaveSurface.FLOOR, ConstantInt.of(1), 0.0F, 5, 0.4F, UniformInt.of(1, 2), 0.75F)));
+    public static final ConfiguredFeature<?, ?> GLOWING_GROTTO_VEGETATION = register("glowing_grotto_vegetation", GLOWING_MOSS_PATCH.decorated(FeatureDecorator.CAVE_SURFACE.configured(new CaveDecoratorConfiguration(CaveSurface.FLOOR, 12))).range(Features.Decorators.RANGE_BOTTOM_TO_60).squared().count(16));
+
+    public static final ConfiguredFeature<?, ?> MEDIUM_GLOWSHROOM_CAVE = register("medium_glowshroom_cave", BOPFeatures.MEDIUM_GLOWSHROOM.configured(FeatureConfiguration.NONE).decorated(FeatureDecorator.CAVE_SURFACE.configured(new CaveDecoratorConfiguration(CaveSurface.FLOOR, 12))).range(Features.Decorators.RANGE_BOTTOM_TO_60).squared().count(75));
+    public static final ConfiguredFeature<?, ?> SMALL_GLOWSHROOM_CAVE = register("small_glowshroom_cave", BOPFeatures.SMALL_GLOWSHROOM.configured(FeatureConfiguration.NONE).decorated(FeatureDecorator.CAVE_SURFACE.configured(new CaveDecoratorConfiguration(CaveSurface.FLOOR, 12))).range(Features.Decorators.RANGE_BOTTOM_TO_60).squared().count(100));
+
+    public static final ConfiguredFeature<SimpleBlockConfiguration, ?> MUD_PLANTS = register("mud_plants", Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(new SimpleStateProvider(BOPBlocks.GLOWING_MOSS_CARPET.defaultBlockState()))));
+    public static final ConfiguredFeature<VegetationPatchConfiguration, ?>  MUD_PATCH = register("mud_patch", Feature.VEGETATION_PATCH.configured(new VegetationPatchConfiguration(BlockTags.MOSS_REPLACEABLE.getName(), new SimpleStateProvider(BOPBlocks.MUD.defaultBlockState()), () -> {
+        return MUD_PLANTS;
+    }, CaveSurface.FLOOR, ConstantInt.of(1), 0.0F, 5, 0.05F, UniformInt.of(4, 7), 0.3F)));
+    public static final ConfiguredFeature<?, ?> GLOWING_GROTTO_MUD = register("glowing_grotto_mud", MUD_PATCH.decorated(FeatureDecorator.CAVE_SURFACE.configured(new CaveDecoratorConfiguration(CaveSurface.FLOOR, 12))).range(Features.Decorators.RANGE_BOTTOM_TO_60).squared().count(10));
+
+    /////////////////////////////////////////////////////////////////////
 
     private static <FC extends FeatureConfiguration> ConfiguredFeature<FC, ?> register(String key, ConfiguredFeature<FC, ?> feature)
     {
