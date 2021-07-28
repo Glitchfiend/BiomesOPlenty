@@ -1,0 +1,8 @@
+{
+    "parent": "block/cube_bottom_top",
+    "textures": {
+        "top": "biomesoplenty:block/spider_egg_top",
+		"bottom": "biomesoplenty:block/spider_egg_bottom",
+        "side": "biomesoplenty:block/spider_egg_side"
+    }
+}

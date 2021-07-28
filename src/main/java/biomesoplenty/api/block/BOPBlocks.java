@@ -60,6 +60,7 @@ public class BOPBlocks
     public static Block GLOWSHROOM_BLOCK;
     public static Block GLOWING_MOSS_CARPET;
     public static Block GLOWING_MOSS_BLOCK;
+    public static Block SPIDER_EGG;
     public static Block ORIGIN_SAPLING;
     public static Block ORIGIN_LEAVES;
     public static Block FLOWERING_OAK_SAPLING;
@@ -282,6 +283,7 @@ public class BOPBlocks
     public static Block GLOWWORM_SILK_STRAND;
     public static Block HANGING_COBWEB;
     public static Block HANGING_COBWEB_STRAND;
+    public static Block WEBBING;
     public static Block SPROUT;
     public static Block BUSH;
     public static Block CLOVER;

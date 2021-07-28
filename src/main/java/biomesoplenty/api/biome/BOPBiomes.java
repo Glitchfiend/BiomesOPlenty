@@ -33,7 +33,6 @@ public class BOPBiomes
     public static ResourceKey<Biome> flower_meadow = register("flower_meadow");
     public static ResourceKey<Biome> fungal_field = register("fungal_field");
     public static ResourceKey<Biome> fungal_jungle = register("fungal_jungle");
-    public static ResourceKey<Biome> glowing_grotto = register("glowing_grotto");
     public static ResourceKey<Biome> golden_prairie = register("golden_prairie");
     public static ResourceKey<Biome> grassland = register("grassland");
     public static ResourceKey<Biome> grassland_clover_patch = register("grassland_clover_patch");
@@ -95,6 +94,9 @@ public class BOPBiomes
     public static ResourceKey<Biome> undergrowth = register("undergrowth");
     public static ResourceKey<Biome> visceral_heap = register("visceral_heap");
     public static ResourceKey<Biome> withered_abyss = register("withered_abyss");
+
+    public static ResourceKey<Biome> glowing_grotto = register("glowing_grotto");
+    public static ResourceKey<Biome> spider_nest = register("spider_nest");
 
     private static ResourceKey<Biome> register(String name)
     {

@@ -97,6 +97,8 @@ public class ModBlocks
         GLOWING_MOSS_CARPET = registerBlock(new CarpetBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.DIAMOND).strength(0.1F).sound(SoundType.MOSS_CARPET).lightLevel((state) -> 8)), "glowing_moss_carpet");
         GLOWING_MOSS_BLOCK = registerBlock(new GlowingMossBlock(BlockBehaviour.Properties.of(Material.MOSS, MaterialColor.DIAMOND).strength(0.1F).sound(SoundType.MOSS).lightLevel((state) -> 8)), "glowing_moss_block");
 
+        SPIDER_EGG = registerBlock(new SpiderEggBlock(BlockBehaviour.Properties.of(Material.EGG).sound(SoundType.METAL).lightLevel((state) -> 5)), "spider_egg");
+
         //Trees
         ORIGIN_SAPLING = registerBlock(new SaplingBlockBOP(new OriginTree(), BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "origin_sapling");
         ORIGIN_LEAVES = registerBlock(new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES, MaterialColor.EMERALD).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion()), "origin_leaves");
@@ -315,6 +317,7 @@ public class ModBlocks
         GLOWWORM_SILK_STRAND = registerBlockNoGroup(new GlowwormSilkBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL).lightLevel((state) -> 10)), "glowworm_silk_strand");
         HANGING_COBWEB = registerBlock(new HangingCobwebBottomBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL)), "hanging_cobweb");
         HANGING_COBWEB_STRAND = registerBlockNoGroup(new HangingCobwebBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL)), "hanging_cobweb_strand");
+        WEBBING = registerBlock(new WebbingBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL)), "webbing");
 
         //Plants
         SPROUT = registerBlock(new FoliageBlockBOP(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS)), "sprout");
@@ -439,6 +442,7 @@ public class ModBlocks
             ItemBlockRenderTypes.setRenderLayer(GLOWWORM_SILK_STRAND, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(HANGING_COBWEB, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(HANGING_COBWEB_STRAND, cutoutRenderType);
+            ItemBlockRenderTypes.setRenderLayer(WEBBING, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(SPROUT, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(BUSH, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(CLOVER, cutoutRenderType);
