@@ -2,21 +2,21 @@ package biomesoplenty.common.world.gen.feature;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.MultifaceBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 import java.util.Random;
 
-public class MagmaSplatterFeature extends Feature<NoneFeatureConfiguration>
+public class ExtraGlowLichenFeature extends Feature<NoneFeatureConfiguration>
 {
-   public MagmaSplatterFeature(Codec<NoneFeatureConfiguration> deserializer)
+   public ExtraGlowLichenFeature(Codec<NoneFeatureConfiguration> deserializer)
    {
       super(deserializer);
    }
@@ -30,7 +30,7 @@ public class MagmaSplatterFeature extends Feature<NoneFeatureConfiguration>
       BlockPos pos = featurePlaceContext.origin();
       NoneFeatureConfiguration config = featurePlaceContext.config();
       int i = 0;
-      int j = rand.nextInt(2) + 1;
+      int j = rand.nextInt(4 - 2) + 2;
 
       for (int k = pos.getX() - j; k <= pos.getX() + j; ++k)
       {
@@ -40,19 +40,27 @@ public class MagmaSplatterFeature extends Feature<NoneFeatureConfiguration>
             int j1 = l - pos.getZ();
             if (i1 * i1 + j1 * j1 <= j * j)
             {
-               for (int k1 = pos.getY() - 2; k1 <= pos.getY() + 2; ++k1)
+               for (int k1 = pos.getY() - j; k1 <= pos.getY() + j; ++k1)
                {
                   BlockPos blockpos = new BlockPos(k, k1, l);
                   BlockState blockstate = worldIn.getBlockState(blockpos);
-                  BlockState blockstate1 = worldIn.getBlockState(blockpos.above());
+                  BlockState lichenstate = Blocks.GLOW_LICHEN.defaultBlockState();
 
-                  if (rand.nextInt(6) != 0)
+                  int faces = 0;
+
+                  for (Direction direction : Direction.values())
                   {
-                     if (blockstate.getBlock() == Blocks.GRASS_BLOCK && (TreeFeature.isAirOrLeaves(worldIn, blockpos.above()) || blockstate1.getBlock() instanceof BushBlock))
+                     BlockState blockstate1 = worldIn.getBlockState(blockpos.relative(direction));
+                     if (blockstate1 == Blocks.STONE.defaultBlockState() || blockstate1 == Blocks.ANDESITE.defaultBlockState() || blockstate1 == Blocks.DIORITE.defaultBlockState() || blockstate1 == Blocks.GRANITE.defaultBlockState() || blockstate1 == Blocks.DRIPSTONE_BLOCK.defaultBlockState() || blockstate1 == Blocks.CALCITE.defaultBlockState() || blockstate1 == Blocks.TUFF.defaultBlockState() || blockstate1 == Blocks.DEEPSLATE.defaultBlockState())
                      {
-                        worldIn.setBlock(blockpos, Blocks.MAGMA_BLOCK.defaultBlockState(), 2);
-                        worldIn.setBlock(blockpos.above(), Blocks.FIRE.defaultBlockState(), 2);
+                        lichenstate = lichenstate.setValue(MultifaceBlock.getFaceProperty(direction), true);
+                        faces++;
                      }
+                  }
+
+                  if (blockstate.isAir() && faces > 0)
+                  {
+                     worldIn.setBlock(blockpos, lichenstate, 2);
 
                      ++i;
                      break;

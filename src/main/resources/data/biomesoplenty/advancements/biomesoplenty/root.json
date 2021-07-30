@@ -122,6 +122,12 @@
                 "biome": "biomesoplenty:dunes"
             }
         },
+		"erupting_inferno": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:erupting_inferno"
+            }
+        },
 		"fir_clearing": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -521,6 +527,7 @@
 			"dryland",
 			"dry_boneyard",
 			"dunes",
+			"erupting_inferno",
 			"fir_clearing",
 			"flower_meadow",
 			"fungal_field",

@@ -40,6 +40,7 @@ public class BOPConfiguredSurfaceBuilders
     public static final ConfiguredSurfaceBuilder<SurfaceBuilderBaseConfiguration> VISCERAL_HEAP = register("visceral_heap", new ConfiguredSurfaceBuilder(BOPSurfaceBuilders.FLESH, SurfaceBuilder.CONFIG_HELL));
     public static final ConfiguredSurfaceBuilder<SurfaceBuilderBaseConfiguration> WASTELAND = register("wasteland", new ConfiguredSurfaceBuilder(SurfaceBuilder.DEFAULT, BOPSurfaceBuilders.DRIED_SALT_SURFACE));
     public static final ConfiguredSurfaceBuilder<SurfaceBuilderBaseConfiguration> WITHERED_ABYSS = register("withered_abyss", new ConfiguredSurfaceBuilder(BOPSurfaceBuilders.WITHERED_ABYSS, BOPSurfaceBuilders.BLACKSTONE_SURFACE));
+    public static final ConfiguredSurfaceBuilder<SurfaceBuilderBaseConfiguration> ERUPTING_INFERNO = register("erupting_inferno", new ConfiguredSurfaceBuilder(BOPSurfaceBuilders.BRIMSTONE, SurfaceBuilder.CONFIG_HELL));
 
     private static <C extends SurfaceBuilderConfiguration, F extends ConfiguredSurfaceBuilder<C>> F register(String key, F builder)
     {

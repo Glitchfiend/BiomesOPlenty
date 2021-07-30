@@ -51,6 +51,7 @@ public class BOPSurfaceBuilders
     public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> LUSH_DESERT = register("lush_desert", new LushDesertSurfaceBuilder(SurfaceBuilderBaseConfiguration.CODEC.stable()));
     public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> BLACK_SAND = register("black_sand", new BlackSandSurfaceBuilder(SurfaceBuilderBaseConfiguration.CODEC.stable()));
     public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> COLD_DESERT = register("cold_desert", new ColdDesertSurfaceBuilder(SurfaceBuilderBaseConfiguration.CODEC.stable()));
+    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> BRIMSTONE = register("brimstone", new BrimstoneSurfaceBuilder(SurfaceBuilderBaseConfiguration.CODEC.stable()));
 
     private static <C extends SurfaceBuilderBaseConfiguration, F extends SurfaceBuilder<C>> F register(String key, F builder)
     {

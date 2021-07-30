@@ -50,7 +50,7 @@ public class LargeCrystalFeature extends Feature<NoneFeatureConfiguration>
         else
         {
             BlockState blockstate = world.getBlockState(pos.above());
-            if (!blockstate.is(Blocks.NETHERRACK) && !blockstate.is(Blocks.BASALT) && !blockstate.is(Blocks.BLACKSTONE) && !blockstate.is(Blocks.NETHER_QUARTZ_ORE))
+            if (!blockstate.is(Blocks.NETHERRACK) && !blockstate.is(Blocks.BASALT) && !blockstate.is(Blocks.BLACKSTONE) && !blockstate.is(Blocks.NETHER_QUARTZ_ORE) && !blockstate.is(Blocks.NETHER_GOLD_ORE))
             {
                 return false;
             }
@@ -70,10 +70,6 @@ public class LargeCrystalFeature extends Feature<NoneFeatureConfiguration>
                         for (int z = radiusStart; z <= radiusEnd; z++)
                         {
                             BlockState state = BOPBlocks.ROSE_QUARTZ_BLOCK.defaultBlockState();
-                            if (rand.nextInt(7) == 0)
-                            {
-                                state = BOPBlocks.BUDDING_ROSE_QUARTZ.defaultBlockState();
-                            }
                             this.setBlock(world, pos.offset(x, -y, z), state);
                         }
                     }

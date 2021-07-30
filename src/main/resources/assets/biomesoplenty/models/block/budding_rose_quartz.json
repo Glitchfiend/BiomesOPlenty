@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "biomesoplenty:block/budding_rose_quartz"
-  }
-}

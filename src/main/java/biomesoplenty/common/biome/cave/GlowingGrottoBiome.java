@@ -83,6 +83,7 @@ public class GlowingGrottoBiome extends BiomeTemplate
         builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.GLOWWORM_SILK_STRANDS);
         builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.MEDIUM_GLOWSHROOM_CAVE);
         builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.SMALL_GLOWSHROOM_CAVE);
+        builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPConfiguredFeatures.EXTRA_GLOW_LICHEN);
 
         ////////////////////////////////////////////////////////////
 

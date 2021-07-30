@@ -83,13 +83,9 @@ public class ModBlocks
         ROOTED_SAND = registerBlock(new RootedSandBlock(BlockBehaviour.Properties.of(Material.SAND, MaterialColor.SAND).strength(0.7F).sound(SoundType.SAND)), "rooted_sand");
         DRIED_SALT = registerBlock(new DriedSaltBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.WOOD).strength(1.0F).sound(new SoundType(1.0F, 0.5F, SoundEvents.GRAVEL_BREAK, SoundEvents.GRAVEL_STEP, SoundEvents.GRAVEL_PLACE, SoundEvents.GRAVEL_HIT, SoundEvents.GRAVEL_FALL))), "dried_salt");
         FLESH = registerBlock(new FleshBlock(BlockBehaviour.Properties.of(Material.SPONGE, MaterialColor.TERRACOTTA_RED).strength(0.4F).sound(new SoundType(1.0F, 0.5F, SoundEvents.CORAL_BLOCK_BREAK, SoundEvents.CORAL_BLOCK_STEP, SoundEvents.CORAL_BLOCK_PLACE, SoundEvents.CORAL_BLOCK_HIT, SoundEvents.CORAL_BLOCK_FALL))), "flesh");
-
+        BRIMSTONE = registerBlock(new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_YELLOW).strength(0.5F)), "brimstone");
+        BRIMSTONE_FUMAROLE = registerBlock(new BrimstoneFumaroleBlock(BlockBehaviour.Properties.copy(BRIMSTONE)), "brimstone_fumarole");
         ROSE_QUARTZ_BLOCK = registerBlock(new AmethystBlock(BlockBehaviour.Properties.of(Material.AMETHYST, MaterialColor.CRIMSON_STEM).strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops().lightLevel((state) -> 10)),"rose_quartz_block");
-        BUDDING_ROSE_QUARTZ = registerBlock(new BuddingRoseQuartzBlock(BlockBehaviour.Properties.of(Material.AMETHYST, MaterialColor.CRIMSON_STEM).randomTicks().strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops().lightLevel((state) -> 10)),"budding_rose_quartz");
-        ROSE_QUARTZ_CLUSTER = registerBlock(new AmethystClusterBlock(7, 3, BlockBehaviour.Properties.of(Material.AMETHYST, MaterialColor.CRIMSON_STEM).noOcclusion().randomTicks().sound(SoundType.AMETHYST_CLUSTER).strength(1.5F).lightLevel((state) -> 8)),"rose_quartz_cluster");
-        LARGE_ROSE_QUARTZ_BUD = registerBlock(new AmethystClusterBlock(5, 3, BlockBehaviour.Properties.copy(ROSE_QUARTZ_CLUSTER).sound(SoundType.MEDIUM_AMETHYST_BUD).lightLevel((state) -> 7)), "large_rose_quartz_bud");
-        MEDIUM_ROSE_QUARTZ_BUD = registerBlock(new AmethystClusterBlock(4, 3, BlockBehaviour.Properties.copy(ROSE_QUARTZ_CLUSTER).sound(SoundType.LARGE_AMETHYST_BUD).lightLevel((state) -> 6)),"medium_rose_quartz_bud");
-        SMALL_ROSE_QUARTZ_BUD = registerBlock(new AmethystClusterBlock(3, 4, BlockBehaviour.Properties.copy(ROSE_QUARTZ_CLUSTER).sound(SoundType.SMALL_AMETHYST_BUD).lightLevel((state) -> 5)),"small_rose_quartz_bud");
 
         TOADSTOOL_BLOCK = registerBlock(new HugeMushroomBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_ORANGE).strength(0.2F).sound(SoundType.WOOD)), "toadstool_block");
         GLOWSHROOM_BLOCK = registerBlock(new HugeMushroomBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.DIAMOND).strength(0.2F).sound(SoundType.WOOD).lightLevel((state) -> 10)), "glowshroom_block");
@@ -97,7 +93,7 @@ public class ModBlocks
         GLOWING_MOSS_CARPET = registerBlock(new CarpetBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.DIAMOND).strength(0.1F).sound(SoundType.MOSS_CARPET).lightLevel((state) -> 8)), "glowing_moss_carpet");
         GLOWING_MOSS_BLOCK = registerBlock(new GlowingMossBlock(BlockBehaviour.Properties.of(Material.MOSS, MaterialColor.DIAMOND).strength(0.1F).sound(SoundType.MOSS).lightLevel((state) -> 8)), "glowing_moss_block");
 
-        SPIDER_EGG = registerBlock(new SpiderEggBlock(BlockBehaviour.Properties.of(Material.EGG).sound(SoundType.METAL).lightLevel((state) -> 5)), "spider_egg");
+        SPIDER_EGG = registerBlock(new SpiderEggBlock(BlockBehaviour.Properties.of(Material.EGG).strength(0.1F).sound(SoundType.METAL).lightLevel((state) -> 5)), "spider_egg");
 
         //Trees
         ORIGIN_SAPLING = registerBlock(new SaplingBlockBOP(new OriginTree(), BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "origin_sapling");
@@ -341,6 +337,13 @@ public class ModBlocks
         TOADSTOOL = registerBlock(new MushroomBlockBOP(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.COLOR_ORANGE).noCollission().instabreak().sound(SoundType.GRASS)), "toadstool");
         GLOWSHROOM = registerBlock(new MushroomBlockBOP(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.DIAMOND).noCollission().instabreak().sound(SoundType.GRASS).lightLevel((state) -> 6)), "glowshroom");
 
+        BRIMSTONE_BUD = registerBlock(new BrimstoneBudBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.DIAMOND).noCollission().strength(0.2F).sound(SoundType.STONE)), "brimstone_bud");
+
+        ROSE_QUARTZ_CLUSTER = registerBlock(new AmethystClusterBlock(7, 3, BlockBehaviour.Properties.of(Material.AMETHYST, MaterialColor.CRIMSON_STEM).noOcclusion().randomTicks().sound(SoundType.AMETHYST_CLUSTER).strength(1.5F).lightLevel((state) -> 8)),"rose_quartz_cluster");
+        LARGE_ROSE_QUARTZ_BUD = registerBlock(new AmethystClusterBlock(5, 3, BlockBehaviour.Properties.copy(ROSE_QUARTZ_CLUSTER).sound(SoundType.MEDIUM_AMETHYST_BUD).lightLevel((state) -> 7)), "large_rose_quartz_bud");
+        MEDIUM_ROSE_QUARTZ_BUD = registerBlock(new AmethystClusterBlock(4, 3, BlockBehaviour.Properties.copy(ROSE_QUARTZ_CLUSTER).sound(SoundType.LARGE_AMETHYST_BUD).lightLevel((state) -> 6)),"medium_rose_quartz_bud");
+        SMALL_ROSE_QUARTZ_BUD = registerBlock(new AmethystClusterBlock(3, 4, BlockBehaviour.Properties.copy(ROSE_QUARTZ_CLUSTER).sound(SoundType.SMALL_AMETHYST_BUD).lightLevel((state) -> 5)),"small_rose_quartz_bud");
+
         //Potted Plants
         POTTED_ORIGIN_SAPLING = registerBlockNoGroup(new FlowerPotBlock(ORIGIN_SAPLING, BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_origin_sapling");
         POTTED_FLOWERING_OAK_SAPLING = registerBlockNoGroup(new FlowerPotBlock(FLOWERING_OAK_SAPLING, BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_flowering_oak_sapling");
@@ -399,10 +402,6 @@ public class ModBlocks
             ItemBlockRenderTypes.setRenderLayer(MAGIC_LEAVES, transparentRenderType);
             ItemBlockRenderTypes.setRenderLayer(UMBRAN_LEAVES, transparentRenderType);
             ItemBlockRenderTypes.setRenderLayer(HELLBARK_LEAVES, transparentRenderType);
-            ItemBlockRenderTypes.setRenderLayer(ROSE_QUARTZ_CLUSTER, cutoutRenderType);
-            ItemBlockRenderTypes.setRenderLayer(LARGE_ROSE_QUARTZ_BUD, cutoutRenderType);
-            ItemBlockRenderTypes.setRenderLayer(MEDIUM_ROSE_QUARTZ_BUD, cutoutRenderType);
-            ItemBlockRenderTypes.setRenderLayer(SMALL_ROSE_QUARTZ_BUD, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(ORIGIN_SAPLING, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(FLOWERING_OAK_SAPLING, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(RAINBOW_BIRCH_SAPLING, cutoutRenderType);
@@ -460,6 +459,11 @@ public class ModBlocks
             ItemBlockRenderTypes.setRenderLayer(BRAMBLE, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(TOADSTOOL, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(GLOWSHROOM, cutoutRenderType);
+            ItemBlockRenderTypes.setRenderLayer(BRIMSTONE_BUD, cutoutRenderType);
+            ItemBlockRenderTypes.setRenderLayer(ROSE_QUARTZ_CLUSTER, cutoutRenderType);
+            ItemBlockRenderTypes.setRenderLayer(LARGE_ROSE_QUARTZ_BUD, cutoutRenderType);
+            ItemBlockRenderTypes.setRenderLayer(MEDIUM_ROSE_QUARTZ_BUD, cutoutRenderType);
+            ItemBlockRenderTypes.setRenderLayer(SMALL_ROSE_QUARTZ_BUD, cutoutRenderType);
 
             ItemBlockRenderTypes.setRenderLayer(POTTED_ORIGIN_SAPLING, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(POTTED_FLOWERING_OAK_SAPLING, cutoutRenderType);

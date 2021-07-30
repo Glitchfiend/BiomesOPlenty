@@ -10,6 +10,7 @@ import biomesoplenty.common.world.biome.BiomeFeatureHelper;
 import biomesoplenty.common.world.gen.placement.BOPPlacements;
 import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableSet;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
@@ -21,19 +22,16 @@ import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.CaveVines;
-import net.minecraft.world.level.block.CaveVinesBlock;
-import net.minecraft.world.level.block.SmallDripleafBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.blockplacers.SimpleBlockPlacer;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
-import net.minecraft.world.level.levelgen.feature.stateproviders.RandomizedIntStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.placement.*;
+import net.minecraft.world.level.material.Fluids;
 
 public class BOPConfiguredFeatures
 {
@@ -273,6 +271,7 @@ public class BOPConfiguredFeatures
     public static final ConfiguredFeature<?, ?> GLOWSHROOM_NORMAL = register("glowshroom_normal", Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.GLOWSHROOM.defaultBlockState())).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(20)));
     public static final ConfiguredFeature<?, ?> BARLEY = register("barley", Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfigurationDoubleProjects(BOPBlocks.BARLEY.defaultBlockState())).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(15));
     public static final ConfiguredFeature<?, ?> SEA_OATS = register("sea_oats", Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfigurationDouble(BOPBlocks.SEA_OATS.defaultBlockState())).decorated(Features.Decorators.HEIGHTMAP_SQUARE.count(20)));
+    public static final ConfiguredFeature<?, ?> BRIMSTONE_BUD = register("brimstone_bud", Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.BRIMSTONE_BUD.defaultBlockState())).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.decorated(FeatureUtil.denseCount(200))));
 
     // Water Plants
     public static final ConfiguredFeature<?, ?> REED_5 = register("reed_5", Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfigurationDoubleWater(BOPBlocks.REED.defaultBlockState())).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(5)));
@@ -320,6 +319,8 @@ public class BOPConfiguredFeatures
     public static final ConfiguredFeature<?, ?> BONE_SPINE = register("bone_spine", BOPFeatures.BONE_SPINE.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(3)));
     public static final ConfiguredFeature<?, ?> BRAMBLE = register("bramble", BOPFeatures.BRAMBLE.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(3)));
     public static final ConfiguredFeature<?, ?> BRAMBLE_EXTRA = register("bramble_extra", BOPFeatures.BRAMBLE.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(10)));
+    public static final ConfiguredFeature<?, ?> LARGE_FUMAROLE = register("large_fumarole", BOPFeatures.LARGE_FUMARLE.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.decorated(FeatureUtil.denseCount(200))));
+    public static final ConfiguredFeature<?, ?> SMALL_FUMAROLE = register("small_fumarole", BOPFeatures.SMALL_FUMARLE.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(100)));
     public static final ConfiguredFeature<?, ?> CRAG_SPLATTER = register("crag_splatter", BOPFeatures.CRAG_SPLATTER.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.decorated(FeatureUtil.denseCount(300))));
     public static final ConfiguredFeature<?, ?> DEEP_BAYOU_VINES = register("deep_bayou_vines", BOPFeatures.DEEP_BAYOU_VINES.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(128));
     public static final ConfiguredFeature<?, ?> CALCITE_DISK = register("calcite_disk", Feature.DISK.configured(new DiskConfiguration(Blocks.CALCITE.defaultBlockState(), UniformInt.of(3, 7), 2, ImmutableList.of(Blocks.DIRT.defaultBlockState(), Blocks.GRASS_BLOCK.defaultBlockState(), Blocks.PODZOL.defaultBlockState(), Blocks.SAND.defaultBlockState(), Blocks.GRAVEL.defaultBlockState(), Blocks.GRANITE.defaultBlockState(), Blocks.ANDESITE.defaultBlockState(), Blocks.DIORITE.defaultBlockState(), Blocks.COAL_ORE.defaultBlockState(), Blocks.IRON_ORE.defaultBlockState(), Blocks.STONE.defaultBlockState(), Blocks.CALCITE.defaultBlockState()))).decorated(Features.Decorators.TOP_SOLID_HEIGHTMAP_SQUARE).count(14));
@@ -330,6 +331,9 @@ public class BOPConfiguredFeatures
     public static final ConfiguredFeature<?, ?> HUGE_GLOWSHROOM = register("huge_glowshroom", BOPFeatures.HUGE_GLOWSHROOM.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(6)));
     public static final ConfiguredFeature<?, ?> HUGE_RED_MUSHROOM_EXTRA = register("huge_red_mushroom_extra", Features.HUGE_RED_MUSHROOM.decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(6)));
     public static final ConfiguredFeature<?, ?> HUGE_TOADSTOOL = register("huge_toadstool", BOPFeatures.HUGE_TOADSTOOL.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(1)));
+    public static final ConfiguredFeature<?, ?> INFERNO_SPLATTER = register("inferno_splatter", BOPFeatures.INFERNO_SPLATTER.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(16)));
+    public static final ConfiguredFeature<?, ?> INFERNO_LAVA_SPRING = register("inferno_lava_spring", Feature.SPRING.configured(new SpringConfiguration(Fluids.LAVA.defaultFluidState(), false, 4, 1, ImmutableSet.of(Blocks.NETHERRACK))).range(Features.Decorators.RANGE_4_4).squared().count(24));
+    public static final ConfiguredFeature<?, ?> INFERNO_DELTA = register("inferno_delta", Feature.DELTA_FEATURE.configured(new DeltaFeatureConfiguration(Blocks.LAVA.defaultBlockState(), BOPBlocks.BRIMSTONE.defaultBlockState(), UniformInt.of(5, 8), UniformInt.of(2, 3))).decorated(FeatureDecorator.COUNT_MULTILAYER.configured(new CountConfiguration(6))));
     public static final ConfiguredFeature<?, ?> LARGE_CRYSTAL = register("large_crystal", BOPFeatures.LARGE_CRYSTAL.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).decorated(FeatureUtil.denseCount(200)));
     public static final ConfiguredFeature<?, ?> LAVA_LAKE_COMMON = register("lava_lake_common", Feature.LAKE.configured(new BlockStateConfiguration(Blocks.LAVA.defaultBlockState())).decorated(FeatureDecorator.LAVA_LAKE.configured(new ChanceDecoratorConfiguration(10))));
     public static final ConfiguredFeature<?, ?> MOSS_SPLATTER = register("moss_splatter", BOPFeatures.MOSS_SPLATTER.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(12)));
@@ -362,7 +366,6 @@ public class BOPConfiguredFeatures
     public static final ConfiguredFeature<?, ?> WATER_LAKE_COMMON = register("water_lake_common", Feature.LAKE.configured(new BlockStateConfiguration(Blocks.WATER.defaultBlockState())).range(Features.Decorators.FULL_RANGE).squared().count(1));
     public static final ConfiguredFeature<?, ?> WATER_LAKE_UNCOMMON = register("water_lake_uncommon", Feature.LAKE.configured(new BlockStateConfiguration(Blocks.WATER.defaultBlockState())).range(Features.Decorators.FULL_RANGE).squared().rarity(3));
     public static final ConfiguredFeature<?, ?> WATER_SPRING_EXTRA = register("water_spring_extra", Feature.SPRING.configured(BOPFeatures.WATER_SPRING_EXTRA_CONFIG).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(128));
-    public static final ConfiguredFeature<?, ?> WEBBING = register("webbing", BOPFeatures.WEBBING.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(20)));
     public static final ConfiguredFeature<?, ?> WHITE_SAND_DISK = register("white_sand_disk", Feature.DISK.configured(new DiskConfiguration(BOPBlocks.WHITE_SAND.defaultBlockState(), UniformInt.of(2, 6), 2, ImmutableList.of(Blocks.DIRT.defaultBlockState(), Blocks.GRASS_BLOCK.defaultBlockState()))).decorated(Features.Decorators.TOP_SOLID_HEIGHTMAP_SQUARE).count(2));
     public static final ConfiguredFeature<?, ?> WHITE_SAND_DISK_EXTRA = register("white_sand_disk_extra", Feature.DISK.configured(new DiskConfiguration(BOPBlocks.WHITE_SAND.defaultBlockState(), UniformInt.of(4, 6), 1, ImmutableList.of(Blocks.DIRT.defaultBlockState(), Blocks.GRASS_BLOCK.defaultBlockState()))).decorated(Features.Decorators.TOP_SOLID_HEIGHTMAP_SQUARE).count(8));
 
@@ -383,20 +386,22 @@ public class BOPConfiguredFeatures
     public static final ConfiguredFeature<VegetationPatchConfiguration, ?>  MUD_PATCH = register("mud_patch", Feature.VEGETATION_PATCH.configured(new VegetationPatchConfiguration(BlockTags.MOSS_REPLACEABLE.getName(), new SimpleStateProvider(BOPBlocks.MUD.defaultBlockState()), () -> {
         return MUD_PLANTS;
     }, CaveSurface.FLOOR, ConstantInt.of(1), 0.0F, 5, 0.05F, UniformInt.of(4, 7), 0.3F)));
-    public static final ConfiguredFeature<?, ?> GLOWING_GROTTO_MUD = register("glowing_grotto_mud", MUD_PATCH.decorated(FeatureDecorator.CAVE_SURFACE.configured(new CaveDecoratorConfiguration(CaveSurface.FLOOR, 12))).range(Features.Decorators.RANGE_BOTTOM_TO_60).squared().count(10));
+    public static final ConfiguredFeature<?, ?> GLOWING_GROTTO_MUD = register("glowing_grotto_mud", MUD_PATCH.decorated(FeatureDecorator.CAVE_SURFACE.configured(new CaveDecoratorConfiguration(CaveSurface.FLOOR, 12))).range(Features.Decorators.RANGE_BOTTOM_TO_60).squared().count(12));
 
     public static final ConfiguredFeature<GrowingPlantConfiguration, ?> GLOWWORM_SILK = register("glowworm_silk", Feature.GROWING_PLANT.configured(new GrowingPlantConfiguration(SimpleWeightedRandomList.<IntProvider>builder().add(UniformInt.of(1, 12), 2).add(UniformInt.of(1, 6), 3).add(UniformInt.of(1, 3), 10).build(), Direction.DOWN, new SimpleStateProvider(BOPBlocks.GLOWWORM_SILK_STRAND.defaultBlockState()), new SimpleStateProvider(BOPBlocks.GLOWWORM_SILK.defaultBlockState()), false)));
     public static final ConfiguredFeature<?, ?> GLOWWORM_SILK_STRANDS = register("glowworm_silk_strands", GLOWWORM_SILK.decorated(FeatureDecorator.CAVE_SURFACE.configured(new CaveDecoratorConfiguration(CaveSurface.CEILING, 12))).range(Features.Decorators.RANGE_BOTTOM_TO_60).squared().count(60));
 
     public static final ConfiguredFeature<?, ?> MEDIUM_GLOWSHROOM_CAVE = register("medium_glowshroom_cave", BOPFeatures.MEDIUM_GLOWSHROOM.configured(FeatureConfiguration.NONE).decorated(FeatureDecorator.CAVE_SURFACE.configured(new CaveDecoratorConfiguration(CaveSurface.FLOOR, 12))).range(Features.Decorators.RANGE_BOTTOM_TO_60).squared().count(75));
     public static final ConfiguredFeature<?, ?> SMALL_GLOWSHROOM_CAVE = register("small_glowshroom_cave", BOPFeatures.SMALL_GLOWSHROOM.configured(FeatureConfiguration.NONE).decorated(FeatureDecorator.CAVE_SURFACE.configured(new CaveDecoratorConfiguration(CaveSurface.FLOOR, 12))).range(Features.Decorators.RANGE_BOTTOM_TO_60).squared().count(100));
+    public static final ConfiguredFeature<?, ?> EXTRA_GLOW_LICHEN = register("extra_glow_lichen", BOPFeatures.EXTRA_GLOW_LICHEN.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(10)));
 
     // Spider Nest
     public static final ConfiguredFeature<GrowingPlantConfiguration, ?> HANGING_COBWEB = register("hanging_cobweb", Feature.GROWING_PLANT.configured(new GrowingPlantConfiguration(SimpleWeightedRandomList.<IntProvider>builder().add(UniformInt.of(1, 8), 2).add(UniformInt.of(1, 4), 8).add(UniformInt.of(1, 2), 4).build(), Direction.DOWN, new SimpleStateProvider(BOPBlocks.HANGING_COBWEB_STRAND.defaultBlockState()), new SimpleStateProvider(BOPBlocks.HANGING_COBWEB.defaultBlockState()), false)));
     public static final ConfiguredFeature<?, ?> HANGING_COBWEBS = register("hanging_cobwebs", HANGING_COBWEB.decorated(FeatureDecorator.CAVE_SURFACE.configured(new CaveDecoratorConfiguration(CaveSurface.CEILING, 12))).range(Features.Decorators.RANGE_BOTTOM_TO_60).squared().count(200));
     public static final ConfiguredFeature<?, ?> CORNER_COBWEBS = register("corner_cobwebs", BOPFeatures.CORNER_COBWEBS.configured(FeatureConfiguration.NONE).decorated(FeatureDecorator.CAVE_SURFACE.configured(new CaveDecoratorConfiguration(CaveSurface.FLOOR, 24))).range(Features.Decorators.RANGE_BOTTOM_TO_60).squared().count(20));
     public static final ConfiguredFeature<SimpleBlockConfiguration, ?> SPIDER_EGG = register("spider_egg", Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(new SimpleStateProvider(BOPBlocks.SPIDER_EGG.defaultBlockState()))));
-    public static final ConfiguredFeature<?, ?> SPIDER_EGGS = register("spider_eggs", SPIDER_EGG.decorated(FeatureDecorator.CAVE_SURFACE.configured(new CaveDecoratorConfiguration(CaveSurface.FLOOR, 12))).range(Features.Decorators.RANGE_BOTTOM_TO_60).squared().count(25));
+    public static final ConfiguredFeature<?, ?> SPIDER_EGGS = register("spider_eggs", SPIDER_EGG.decorated(FeatureDecorator.CAVE_SURFACE.configured(new CaveDecoratorConfiguration(CaveSurface.FLOOR, 12))).range(Features.Decorators.RANGE_BOTTOM_TO_60).squared().count(30));
+    public static final ConfiguredFeature<?, ?> WEBBING = register("webbing", BOPFeatures.WEBBING.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(20)));
 
     /////////////////////////////////////////////////////////////////////
 

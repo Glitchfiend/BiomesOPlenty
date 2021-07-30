@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-	"biomesoplenty:rose_quartz_block",
-	"biomesoplenty:budding_rose_quartz"
+	"biomesoplenty:rose_quartz_block"
   ]
 }

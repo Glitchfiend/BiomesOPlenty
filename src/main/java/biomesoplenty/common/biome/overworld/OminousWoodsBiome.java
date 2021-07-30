@@ -31,7 +31,7 @@ public class OminousWoodsBiome extends BiomeTemplate
     {
         builder.precipitation(Biome.Precipitation.RAIN).biomeCategory(Biome.BiomeCategory.TAIGA).depth(0.25F).scale(0.15F).temperature(0.6F).downfall(0.6F);
 
-        builder.specialEffects((new BiomeSpecialEffects.Builder()).waterColor(0x312346).waterFogColor(0x0A030C).fogColor(0x7881A5).skyColor(0x84A1CC).grassColorOverride(0x4C4A70).foliageColorOverride(0x6B487C).ambientParticle(new AmbientParticleSettings(ParticleTypes.SMOKE, 0.00023065104F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build());
+        builder.specialEffects((new BiomeSpecialEffects.Builder()).waterColor(0x312346).waterFogColor(0x0A030C).fogColor(0x7881A5).skyColor(0x84A1CC).grassColorOverride(0x4C4A70).foliageColorOverride(0x6B487C).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build());
     }
 
     @Override

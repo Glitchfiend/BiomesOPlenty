@@ -50,12 +50,9 @@ public class BOPBlocks
     public static Block ROOTED_SAND;
     public static Block DRIED_SALT;
     public static Block FLESH;
+    public static Block BRIMSTONE;
+    public static Block BRIMSTONE_FUMAROLE;
     public static Block ROSE_QUARTZ_BLOCK;
-    public static Block BUDDING_ROSE_QUARTZ;
-    public static Block ROSE_QUARTZ_CLUSTER;
-    public static Block LARGE_ROSE_QUARTZ_BUD;
-    public static Block MEDIUM_ROSE_QUARTZ_BUD;
-    public static Block SMALL_ROSE_QUARTZ_BUD;
     public static Block TOADSTOOL_BLOCK;
     public static Block GLOWSHROOM_BLOCK;
     public static Block GLOWING_MOSS_CARPET;
@@ -301,6 +298,11 @@ public class BOPBlocks
     public static Block BRAMBLE;
     public static Block TOADSTOOL;
     public static Block GLOWSHROOM;
+    public static Block BRIMSTONE_BUD;
+    public static Block ROSE_QUARTZ_CLUSTER;
+    public static Block LARGE_ROSE_QUARTZ_BUD;
+    public static Block MEDIUM_ROSE_QUARTZ_BUD;
+    public static Block SMALL_ROSE_QUARTZ_BUD;
     public static Block POTTED_ORIGIN_SAPLING;
     public static Block POTTED_FLOWERING_OAK_SAPLING;
     public static Block POTTED_RAINBOW_BIRCH_SAPLING;

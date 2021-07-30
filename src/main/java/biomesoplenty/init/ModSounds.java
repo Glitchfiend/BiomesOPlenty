@@ -13,7 +13,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import static biomesoplenty.api.sound.BOPSounds.MUSIC_DISC_WANDERER;
+import static biomesoplenty.api.sound.BOPSounds.*;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModSounds
@@ -22,6 +22,11 @@ public class ModSounds
     public static void registerSounds(RegistryEvent.Register<SoundEvent> event)
     {
         MUSIC_DISC_WANDERER = registerSound("music_disc.wanderer");
+        MUSIC_BIOME_CRYSTALLINE_CHASM = registerSound("music.nether.crystalline_chasm");
+        MUSIC_BIOME_ERUPTING_INFERNO = registerSound("music.nether.erupting_inferno");
+        MUSIC_BIOME_UNDERGROWTH = registerSound("music.nether.undergrowth");
+        MUSIC_BIOME_VISCERAL_HEAP = registerSound("music.nether.visceral_heap");
+        MUSIC_BIOME_WITHERED_ABYSS = registerSound("music.nether.withered_abyss");
     }
 
     private static SoundEvent registerSound(String soundName)

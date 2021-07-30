@@ -10,10 +10,7 @@ import biomesoplenty.common.biome.BiomeRegistry;
 import biomesoplenty.common.biome.BiomeTemplate;
 import biomesoplenty.common.biome.cave.GlowingGrottoBiome;
 import biomesoplenty.common.biome.cave.SpiderNestBiome;
-import biomesoplenty.common.biome.nether.CrystallineChasmBiome;
-import biomesoplenty.common.biome.nether.UndergrowthBiome;
-import biomesoplenty.common.biome.nether.VisceralHeapBiome;
-import biomesoplenty.common.biome.nether.WitheredAbyssBiome;
+import biomesoplenty.common.biome.nether.*;
 import biomesoplenty.common.biome.overworld.*;
 import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.common.world.BOPBiomeProvider;
@@ -217,6 +214,7 @@ public class ModBiomes
 
         //Nether Biomes
         registerBiome(new CrystallineChasmBiome(), "crystalline_chasm");
+        registerBiome(new EruptingInfernoBiome(), "erupting_inferno");
         registerBiome(new UndergrowthBiome(), "undergrowth");
         registerBiome(new VisceralHeapBiome(), "visceral_heap");
         registerBiome(new WitheredAbyssBiome(), "withered_abyss");
@@ -329,11 +327,11 @@ public class ModBiomes
         registerVanillaBiome(Biomes.BADLANDS_PLATEAU, BOPClimates.HOT_DESERT, 10);
         registerVanillaBiome(Biomes.WOODED_BADLANDS_PLATEAU, BOPClimates.HOT_DESERT, 3);
 
-        registerVanillaBiome(Biomes.BASALT_DELTAS, BOPClimates.NETHER, 10);
+        registerVanillaBiome(Biomes.BASALT_DELTAS, BOPClimates.NETHER, 7);
         registerVanillaBiome(Biomes.CRIMSON_FOREST, BOPClimates.NETHER, 10);
         registerVanillaBiome(Biomes.NETHER_WASTES, BOPClimates.NETHER, 10);
         registerVanillaBiome(Biomes.SOUL_SAND_VALLEY, BOPClimates.NETHER, 10);
-        registerVanillaBiome(Biomes.WARPED_FOREST, BOPClimates.NETHER, 10);
+        registerVanillaBiome(Biomes.WARPED_FOREST, BOPClimates.NETHER, 7);
 
         BiomeRegistry.configureVanillaBiomes();
         BiomeRegistry.finalizeRegistrations(BiomeRegistry.RegistrationType.VANILLA_BIOME);
@@ -425,6 +423,7 @@ public class ModBiomes
 
         //Nether Biomes
         registerBiomeToDictionary(crystalline_chasm, Type.NETHER, Type.HOT, Type.DRY, Type.MAGICAL);
+        registerBiomeToDictionary(erupting_inferno, Type.NETHER, Type.HOT, Type.DRY);
         registerBiomeToDictionary(undergrowth, Type.NETHER, Type.HOT, Type.DRY, Type.FOREST);
         registerBiomeToDictionary(visceral_heap, Type.NETHER, Type.HOT, Type.DRY);
         registerBiomeToDictionary(withered_abyss, Type.NETHER, Type.HOT, Type.DRY, Type.VOID);

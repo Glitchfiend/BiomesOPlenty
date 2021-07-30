@@ -10,9 +10,8 @@ logoFile="bop_logo.png"
     version="1"
     displayName="Biomes O' Plenty"
 	authors="Forstride, Adubbz"
-    description='''
-    Adds over 50 new biomes, blocks, and more!
-    '''
+	credits="Tim Rurkowski, cheeserolls, ted80"
+    description="Adds over 50 new biomes, blocks, and more!"
 
 [[dependencies.biomesoplenty]]
     modId="forge"

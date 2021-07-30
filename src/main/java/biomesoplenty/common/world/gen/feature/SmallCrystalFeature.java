@@ -37,14 +37,14 @@ public class SmallCrystalFeature extends Feature<NoneFeatureConfiguration>
          Direction direction = Direction.getRandom(rand);
 
          BlockState cluster_state;
-         switch (rand.nextInt(5))
+         switch (rand.nextInt(6))
          {
             case 3:
-            default:
                cluster_state = BOPBlocks.ROSE_QUARTZ_CLUSTER.defaultBlockState();
                break;
 
             case 2:
+            default:
                cluster_state = BOPBlocks.LARGE_ROSE_QUARTZ_BUD.defaultBlockState();
                break;
 

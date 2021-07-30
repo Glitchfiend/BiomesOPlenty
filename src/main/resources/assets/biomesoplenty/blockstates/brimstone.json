@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "": [
+            { "model": "biomesoplenty:block/brimstone" },
+            { "model": "biomesoplenty:block/brimstone", "y": 90 },
+            { "model": "biomesoplenty:block/brimstone", "y": 180 },
+            { "model": "biomesoplenty:block/brimstone", "y": 270 }
+        ]
+    }
+}
