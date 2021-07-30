@@ -337,7 +337,8 @@ public class ModBlocks
         TOADSTOOL = registerBlock(new MushroomBlockBOP(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.COLOR_ORANGE).noCollission().instabreak().sound(SoundType.GRASS)), "toadstool");
         GLOWSHROOM = registerBlock(new MushroomBlockBOP(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.DIAMOND).noCollission().instabreak().sound(SoundType.GRASS).lightLevel((state) -> 6)), "glowshroom");
 
-        BRIMSTONE_BUD = registerBlock(new BrimstoneBudBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.DIAMOND).noCollission().strength(0.2F).sound(SoundType.STONE)), "brimstone_bud");
+        BRIMSTONE_BUD = registerBlock(new BrimstoneBudBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_YELLOW).noCollission().strength(0.2F).sound(SoundType.STONE)), "brimstone_bud");
+        BRIMSTONE_CLUSTER = registerBlock(new BrimstoneClusterBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_YELLOW).strength(0.2F).sound(SoundType.STONE)), "brimstone_cluster");
 
         ROSE_QUARTZ_CLUSTER = registerBlock(new AmethystClusterBlock(7, 3, BlockBehaviour.Properties.of(Material.AMETHYST, MaterialColor.CRIMSON_STEM).noOcclusion().randomTicks().sound(SoundType.AMETHYST_CLUSTER).strength(1.5F).lightLevel((state) -> 8)),"rose_quartz_cluster");
         LARGE_ROSE_QUARTZ_BUD = registerBlock(new AmethystClusterBlock(5, 3, BlockBehaviour.Properties.copy(ROSE_QUARTZ_CLUSTER).sound(SoundType.MEDIUM_AMETHYST_BUD).lightLevel((state) -> 7)), "large_rose_quartz_bud");
@@ -460,6 +461,7 @@ public class ModBlocks
             ItemBlockRenderTypes.setRenderLayer(TOADSTOOL, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(GLOWSHROOM, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(BRIMSTONE_BUD, cutoutRenderType);
+            ItemBlockRenderTypes.setRenderLayer(BRIMSTONE_CLUSTER, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(ROSE_QUARTZ_CLUSTER, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(LARGE_ROSE_QUARTZ_BUD, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(MEDIUM_ROSE_QUARTZ_BUD, cutoutRenderType);

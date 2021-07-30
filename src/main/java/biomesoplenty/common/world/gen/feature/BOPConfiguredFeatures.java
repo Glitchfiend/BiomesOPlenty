@@ -272,6 +272,7 @@ public class BOPConfiguredFeatures
     public static final ConfiguredFeature<?, ?> BARLEY = register("barley", Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfigurationDoubleProjects(BOPBlocks.BARLEY.defaultBlockState())).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(15));
     public static final ConfiguredFeature<?, ?> SEA_OATS = register("sea_oats", Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfigurationDouble(BOPBlocks.SEA_OATS.defaultBlockState())).decorated(Features.Decorators.HEIGHTMAP_SQUARE.count(20)));
     public static final ConfiguredFeature<?, ?> BRIMSTONE_BUD = register("brimstone_bud", Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfiguration(BOPBlocks.BRIMSTONE_BUD.defaultBlockState())).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.decorated(FeatureUtil.denseCount(200))));
+    public static final ConfiguredFeature<?, ?> BRIMSTONE_CLUSTER = register("brimstone_cluster", Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfigurationDouble(BOPBlocks.BRIMSTONE_CLUSTER.defaultBlockState())).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(22)));
 
     // Water Plants
     public static final ConfiguredFeature<?, ?> REED_5 = register("reed_5", Feature.RANDOM_PATCH.configured(BiomeFeatureHelper.createClusterConfigurationDoubleWater(BOPBlocks.REED.defaultBlockState())).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(5)));

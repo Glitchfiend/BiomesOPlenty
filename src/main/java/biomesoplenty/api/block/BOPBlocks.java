@@ -299,6 +299,7 @@ public class BOPBlocks
     public static Block TOADSTOOL;
     public static Block GLOWSHROOM;
     public static Block BRIMSTONE_BUD;
+    public static Block BRIMSTONE_CLUSTER;
     public static Block ROSE_QUARTZ_CLUSTER;
     public static Block LARGE_ROSE_QUARTZ_BUD;
     public static Block MEDIUM_ROSE_QUARTZ_BUD;

@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=lower": { "model": "biomesoplenty:block/brimstone_cluster_bottom" },
+        "half=upper": { "model": "biomesoplenty:block/brimstone_cluster_top" }
+    }
+}

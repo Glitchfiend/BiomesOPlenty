@@ -54,6 +54,7 @@ public class EruptingInfernoBiome extends NetherBiomeTemplate
         builder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPConfiguredFeatures.LARGE_FUMAROLE);
         builder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPConfiguredFeatures.SMALL_FUMAROLE);
         builder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPConfiguredFeatures.BRIMSTONE_BUD);
+        builder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPConfiguredFeatures.BRIMSTONE_CLUSTER);
 
         BiomeDefaultFeatures.addNetherDefaultOres(builder);
     }

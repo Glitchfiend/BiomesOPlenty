@@ -18,7 +18,7 @@ import java.util.Random;
 public class LargeFumaroleFeature extends Feature<NoneFeatureConfiguration>
 {
     protected IBlockPosQuery placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == BOPBlocks.BRIMSTONE;
-    protected IBlockPosQuery replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() == BOPBlocks.BRIMSTONE_BUD;
+    protected IBlockPosQuery replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() == BOPBlocks.BRIMSTONE_BUD || world.getBlockState(pos).getBlock() == BOPBlocks.BRIMSTONE_CLUSTER;
 
     public LargeFumaroleFeature(Codec<NoneFeatureConfiguration> deserializer)
     {
