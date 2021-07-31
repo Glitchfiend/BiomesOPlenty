@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "type=bottom": { "model": "biomesoplenty:block/mahogany_slab" },
-        "type=top": { "model": "biomesoplenty:block/mahogany_slab_top" },
-        "type=double": { "model": "biomesoplenty:block/mahogany_planks" }
-    }
-}

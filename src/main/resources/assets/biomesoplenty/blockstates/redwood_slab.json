@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "type=bottom": { "model": "biomesoplenty:block/redwood_slab" },
-        "type=top": { "model": "biomesoplenty:block/redwood_slab_top" },
-        "type=double": { "model": "biomesoplenty:block/redwood_planks" }
-    }
-}

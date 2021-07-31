@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "axis=y": { "model": "biomesoplenty:block/stripped_willow_wood" },
-        "axis=z": { "model": "biomesoplenty:block/stripped_willow_wood", "x": 90 },
-        "axis=x": { "model": "biomesoplenty:block/stripped_willow_wood", "x": 90, "y": 90 }
-    }
-}

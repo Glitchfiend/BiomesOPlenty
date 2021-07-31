@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "type=bottom": { "model": "biomesoplenty:block/umbran_slab" },
-        "type=top": { "model": "biomesoplenty:block/umbran_slab_top" },
-        "type=double": { "model": "biomesoplenty:block/umbran_planks" }
-    }
-}

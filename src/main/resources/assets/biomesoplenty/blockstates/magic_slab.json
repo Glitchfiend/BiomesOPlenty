@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "type=bottom": { "model": "biomesoplenty:block/magic_slab" },
-        "type=top": { "model": "biomesoplenty:block/magic_slab_top" },
-        "type=double": { "model": "biomesoplenty:block/magic_planks" }
-    }
-}

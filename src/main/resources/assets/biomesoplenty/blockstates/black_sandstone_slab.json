@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "type=bottom": { "model": "biomesoplenty:block/black_sandstone_slab" },
-        "type=top": { "model": "biomesoplenty:block/black_sandstone_slab_top" },
-        "type=double": { "model": "biomesoplenty:block/black_sandstone" }
-    }
-}

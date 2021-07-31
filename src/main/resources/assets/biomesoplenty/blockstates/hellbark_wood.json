@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "axis=y": { "model": "biomesoplenty:block/hellbark_wood" },
-        "axis=z": { "model": "biomesoplenty:block/hellbark_wood", "x": 90 },
-        "axis=x": { "model": "biomesoplenty:block/hellbark_wood", "x": 90, "y": 90 }
-    }
-}

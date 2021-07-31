@@ -6,12 +6,18 @@
 
 **Biomes O' Plenty** is a **Minecraft mod** that adds **over 50 new biomes** to the Overworld, Nether, and End. From Lavender Fields to Redwood Forests and many more, all of our biomes are decorated with a variety of **new trees, flowers, and plants!**
 
+This repository contains the mod's API and language files. Issues can also be reported on the issue tracker.
+
 -----------------
 
 **Note:** To use the mod on a **server**, you must set the **level-type** setting in your server's config file to **biomesoplenty**
 
 -----------------
 
- [<img src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png">](http://creativecommons.org/licenses/by-nc-nd/4.0/deed.en_US)
+## Source access
 
-Biomes O' Plenty is licensed under a [Creative Commons Attribution-NonCommercial-NoDerivs 4.0 Unported License](http://creativecommons.org/licenses/by-nc-nd/4.0/deed.en_US).
+If you are a reputable modder, or we know you well, please reach out to us on Discord if you require source access.
+
+-----------------
+
+© 2021 Glitchfiend. All rights reserved.

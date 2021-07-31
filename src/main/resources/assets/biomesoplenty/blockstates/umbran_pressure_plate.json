@@ -1,6 +1,0 @@
-{
-    "variants": {
-        "powered=false": { "model": "biomesoplenty:block/umbran_pressure_plate" },
-        "powered=true": { "model": "biomesoplenty:block/umbran_pressure_plate_down" }
-    }
-}

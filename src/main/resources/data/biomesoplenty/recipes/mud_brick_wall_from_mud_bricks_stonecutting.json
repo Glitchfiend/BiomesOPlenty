@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "biomesoplenty:mud_bricks"
-  },
-  "result": "biomesoplenty:mud_brick_wall",
-  "count": 1
-}

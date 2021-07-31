@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "axis=y": { "model": "biomesoplenty:block/jacaranda_wood" },
-        "axis=z": { "model": "biomesoplenty:block/jacaranda_wood", "x": 90 },
-        "axis=x": { "model": "biomesoplenty:block/jacaranda_wood", "x": 90, "y": 90 }
-    }
-}

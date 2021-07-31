@@ -1,8 +1,0 @@
-{
-    "parent": "block/slab_top",
-    "textures": {
-        "bottom": "biomesoplenty:block/magic_planks",
-        "top": "biomesoplenty:block/magic_planks",
-        "side": "biomesoplenty:block/magic_planks"
-    }
-}

@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "type=bottom": { "model": "biomesoplenty:block/willow_slab" },
-        "type=top": { "model": "biomesoplenty:block/willow_slab_top" },
-        "type=double": { "model": "biomesoplenty:block/willow_planks" }
-    }
-}

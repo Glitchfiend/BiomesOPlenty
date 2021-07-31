@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "type=bottom": { "model": "biomesoplenty:block/palm_slab" },
-        "type=top": { "model": "biomesoplenty:block/palm_slab_top" },
-        "type=double": { "model": "biomesoplenty:block/palm_planks" }
-    }
-}

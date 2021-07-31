@@ -1,7 +1,0 @@
-{
-    "parent": "biomesoplenty:block/leaves_overlay",
-    "textures": {
-        "leaves": "biomesoplenty:block/flowering_oak_leaves",
-        "overlay": "biomesoplenty:block/flowering_oak_leaves_overlay"
-    }
-}
