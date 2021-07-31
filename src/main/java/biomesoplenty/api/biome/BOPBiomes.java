@@ -91,9 +91,13 @@ public class BOPBiomes
     public static ResourceKey<Biome> woodland = register("woodland");
 
     public static ResourceKey<Biome> crystalline_chasm = register("crystalline_chasm");
+    public static ResourceKey<Biome> erupting_inferno = register("erupting_inferno");
     public static ResourceKey<Biome> undergrowth = register("undergrowth");
     public static ResourceKey<Biome> visceral_heap = register("visceral_heap");
     public static ResourceKey<Biome> withered_abyss = register("withered_abyss");
+
+    public static ResourceKey<Biome> glowing_grotto = register("glowing_grotto");
+    public static ResourceKey<Biome> spider_nest = register("spider_nest");
 
     private static ResourceKey<Biome> register(String name)
     {
