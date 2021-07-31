@@ -19,22 +19,22 @@
             "apply": { "model": "biomesoplenty:block/glowshroom_block", "x": 90, "uvlock": true }
         },
         {   "when": { "north": false },
-            "apply": { "model": "block/mushroom_block_inside" }
+            "apply": { "model": "biomesoplenty:block/glowshroom_block_inside" }
         },
         {   "when": { "east": false },
-            "apply": { "model": "block/mushroom_block_inside", "y": 90, "uvlock": false }
+            "apply": { "model": "biomesoplenty:block/glowshroom_block_inside", "y": 90, "uvlock": false }
         },
         {   "when": { "south": false },
-            "apply": { "model": "block/mushroom_block_inside", "y": 180, "uvlock": false }
+            "apply": { "model": "biomesoplenty:block/glowshroom_block_inside", "y": 180, "uvlock": false }
         },
         {   "when": { "west": false },
-            "apply": { "model": "block/mushroom_block_inside", "y": 270, "uvlock": false }
+            "apply": { "model": "biomesoplenty:block/glowshroom_block_inside", "y": 270, "uvlock": false }
         },
         {   "when": { "up": false },
-            "apply": { "model": "block/mushroom_block_inside", "x": 270, "uvlock": false }
+            "apply": { "model": "biomesoplenty:block/glowshroom_block_inside", "x": 270, "uvlock": false }
         },
         {   "when": { "down": false },
-            "apply": { "model": "block/mushroom_block_inside", "x": 90, "uvlock": false }
+            "apply": { "model": "biomesoplenty:block/glowshroom_block_inside", "x": 90, "uvlock": false }
         }
     ]
 }

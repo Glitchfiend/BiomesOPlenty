@@ -1,0 +1,7 @@
+{
+    "parent": "block/template_single_face",
+    "ambientocclusion": false,
+    "textures": {
+        "texture": "biomesoplenty:block/glowshroom_block_inside"
+    }
+}
