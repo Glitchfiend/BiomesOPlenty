@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/Glitchfiend/BiomesOPlenty.git
+	branch = BOP-public
+	commit = 7d8d5a11ce096903a75e28774e01fdb1fc218d5d
+	parent = 663c36ec65a73686a5706f80adbae1260eb6d9e6
+	method = merge
+	cmdver = 0.4.3
