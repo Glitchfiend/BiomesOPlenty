@@ -8,7 +8,11 @@ import biomesoplenty.common.block.*;
 import biomesoplenty.common.block.trees.*;
 import biomesoplenty.common.util.CreativeModeTabBOP;
 import biomesoplenty.core.BiomesOPlenty;
+import com.mojang.blaze3d.vertex.DefaultVertexFormat;
+import com.mojang.blaze3d.vertex.VertexFormat;
+import net.minecraft.Util;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderStateShard;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
@@ -22,11 +26,14 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.ForgeRenderTypes;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.registries.ForgeRegistries;
+
+import java.util.function.Function;
 
 import static biomesoplenty.api.block.BOPBlocks.*;
 
@@ -90,8 +97,8 @@ public class ModBlocks
         TOADSTOOL_BLOCK = registerBlock(new HugeMushroomBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_ORANGE).strength(0.2F).sound(SoundType.WOOD)), "toadstool_block");
         GLOWSHROOM_BLOCK = registerBlock(new HugeMushroomBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.DIAMOND).strength(0.2F).sound(SoundType.WOOD).lightLevel((state) -> 10)), "glowshroom_block");
 
-        GLOWING_MOSS_CARPET = registerBlock(new CarpetBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.DIAMOND).strength(0.1F).sound(SoundType.MOSS_CARPET).lightLevel((state) -> 8)), "glowing_moss_carpet");
-        GLOWING_MOSS_BLOCK = registerBlock(new GlowingMossBlock(BlockBehaviour.Properties.of(Material.MOSS, MaterialColor.DIAMOND).strength(0.1F).sound(SoundType.MOSS).lightLevel((state) -> 8)), "glowing_moss_block");
+        GLOWING_MOSS_CARPET = registerBlock(new CarpetBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.DIAMOND).strength(0.1F).sound(SoundType.MOSS_CARPET).lightLevel((state) -> 6)), "glowing_moss_carpet");
+        GLOWING_MOSS_BLOCK = registerBlock(new GlowingMossBlock(BlockBehaviour.Properties.of(Material.MOSS, MaterialColor.DIAMOND).strength(0.1F).sound(SoundType.MOSS).lightLevel((state) -> 6)), "glowing_moss_block");
 
         SPIDER_EGG = registerBlock(new SpiderEggBlock(BlockBehaviour.Properties.of(Material.EGG).strength(0.1F).sound(SoundType.METAL).lightLevel((state) -> 5)), "spider_egg");
 
@@ -309,8 +316,8 @@ public class ModBlocks
         SPANISH_MOSS_PLANT = registerBlockNoGroup(new SpanishMossBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS)), "spanish_moss_plant");
         TREE_ROOTS = registerBlock(new TreeRootsBottomBlock(BlockBehaviour.Properties.of(Material.WOOD).randomTicks().noCollission().strength(0.3F).sound(SoundType.WOOD)), "tree_roots");
         TREE_ROOTS_STEM = registerBlockNoGroup(new TreeRootsBlock(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(0.3F).sound(SoundType.WOOD)), "tree_roots_stem");
-        GLOWWORM_SILK = registerBlock(new GlowwormSilkBottomBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL).lightLevel((state) -> 8)), "glowworm_silk");
-        GLOWWORM_SILK_STRAND = registerBlockNoGroup(new GlowwormSilkBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL).lightLevel((state) -> 10)), "glowworm_silk_strand");
+        GLOWWORM_SILK = registerBlock(new GlowwormSilkBottomBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL).lightLevel((state) -> 2).emissiveRendering((state, world, pos) -> true)), "glowworm_silk");
+        GLOWWORM_SILK_STRAND = registerBlockNoGroup(new GlowwormSilkBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL).lightLevel((state) -> 2).emissiveRendering((state, world, pos) -> true)), "glowworm_silk_strand");
         HANGING_COBWEB = registerBlock(new HangingCobwebBottomBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL)), "hanging_cobweb");
         HANGING_COBWEB_STRAND = registerBlockNoGroup(new HangingCobwebBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL)), "hanging_cobweb_strand");
         WEBBING = registerBlock(new WebbingBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL)), "webbing");
@@ -335,7 +342,7 @@ public class ModBlocks
         DEAD_BRANCH = registerBlock(new DeadBranchBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_GRAY).noCollission().instabreak().sound(SoundType.WOOD)), "dead_branch");
         BRAMBLE = registerBlock(new BrambleBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.NETHER).strength(0.4F).sound(SoundType.WOOD)), "bramble");
         TOADSTOOL = registerBlock(new MushroomBlockBOP(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.COLOR_ORANGE).noCollission().instabreak().sound(SoundType.GRASS)), "toadstool");
-        GLOWSHROOM = registerBlock(new MushroomBlockBOP(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.DIAMOND).noCollission().instabreak().sound(SoundType.GRASS).lightLevel((state) -> 6)), "glowshroom");
+        GLOWSHROOM = registerBlock(new MushroomBlockBOP(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.DIAMOND).noCollission().instabreak().sound(SoundType.GRASS).lightLevel((state) -> 6).emissiveRendering((state, world, pos) -> pos.getY() < 60)), "glowshroom");
 
         BRIMSTONE_BUD = registerBlock(new BrimstoneBudBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_YELLOW).noCollission().strength(0.2F).sound(SoundType.STONE)), "brimstone_bud");
         BRIMSTONE_CLUSTER = registerBlock(new BrimstoneClusterBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_YELLOW).strength(0.2F).sound(SoundType.STONE)), "brimstone_cluster");

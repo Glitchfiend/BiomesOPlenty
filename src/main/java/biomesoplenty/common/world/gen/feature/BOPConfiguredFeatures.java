@@ -374,7 +374,7 @@ public class BOPConfiguredFeatures
 
     // Cave Features
     // Glowing Grotto
-    public static final ConfiguredFeature<SimpleBlockConfiguration, ?> GLOWING_GROTTO_FLOOR_PLANTS = register("glowing_grotto_floor_plants", Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(new WeightedStateProvider(weightedBlockStateBuilder().add(BOPBlocks.GLOWSHROOM.defaultBlockState(), 8).add(BOPBlocks.GLOWING_MOSS_CARPET.defaultBlockState(), 25)))));
+    public static final ConfiguredFeature<SimpleBlockConfiguration, ?> GLOWING_GROTTO_FLOOR_PLANTS = register("glowing_grotto_floor_plants", Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(new WeightedStateProvider(weightedBlockStateBuilder().add(BOPBlocks.GLOWSHROOM.defaultBlockState(), 6).add(BOPBlocks.GLOWING_MOSS_CARPET.defaultBlockState(), 25)))));
     public static final ConfiguredFeature<VegetationPatchConfiguration, ?>  GLOWING_MOSS_PATCH = register("glowing_moss_patch", Feature.VEGETATION_PATCH.configured(new VegetationPatchConfiguration(BlockTags.MOSS_REPLACEABLE.getName(), new SimpleStateProvider(BOPBlocks.GLOWING_MOSS_BLOCK.defaultBlockState()), () -> {
         return GLOWING_GROTTO_FLOOR_PLANTS;
     }, CaveSurface.FLOOR, ConstantInt.of(1), 0.0F, 5, 0.5F, UniformInt.of(4, 7), 0.3F)));
@@ -390,7 +390,7 @@ public class BOPConfiguredFeatures
     public static final ConfiguredFeature<?, ?> GLOWING_GROTTO_MUD = register("glowing_grotto_mud", MUD_PATCH.decorated(FeatureDecorator.CAVE_SURFACE.configured(new CaveDecoratorConfiguration(CaveSurface.FLOOR, 12))).range(Features.Decorators.RANGE_BOTTOM_TO_60).squared().count(12));
 
     public static final ConfiguredFeature<GrowingPlantConfiguration, ?> GLOWWORM_SILK = register("glowworm_silk", Feature.GROWING_PLANT.configured(new GrowingPlantConfiguration(SimpleWeightedRandomList.<IntProvider>builder().add(UniformInt.of(1, 12), 2).add(UniformInt.of(1, 6), 3).add(UniformInt.of(1, 3), 10).build(), Direction.DOWN, new SimpleStateProvider(BOPBlocks.GLOWWORM_SILK_STRAND.defaultBlockState()), new SimpleStateProvider(BOPBlocks.GLOWWORM_SILK.defaultBlockState()), false)));
-    public static final ConfiguredFeature<?, ?> GLOWWORM_SILK_STRANDS = register("glowworm_silk_strands", GLOWWORM_SILK.decorated(FeatureDecorator.CAVE_SURFACE.configured(new CaveDecoratorConfiguration(CaveSurface.CEILING, 12))).range(Features.Decorators.RANGE_BOTTOM_TO_60).squared().count(60));
+    public static final ConfiguredFeature<?, ?> GLOWWORM_SILK_STRANDS = register("glowworm_silk_strands", GLOWWORM_SILK.decorated(FeatureDecorator.CAVE_SURFACE.configured(new CaveDecoratorConfiguration(CaveSurface.CEILING, 12))).range(Features.Decorators.RANGE_BOTTOM_TO_60).squared().count(75));
 
     public static final ConfiguredFeature<?, ?> MEDIUM_GLOWSHROOM_CAVE = register("medium_glowshroom_cave", BOPFeatures.MEDIUM_GLOWSHROOM.configured(FeatureConfiguration.NONE).decorated(FeatureDecorator.CAVE_SURFACE.configured(new CaveDecoratorConfiguration(CaveSurface.FLOOR, 12))).range(Features.Decorators.RANGE_BOTTOM_TO_60).squared().count(75));
     public static final ConfiguredFeature<?, ?> SMALL_GLOWSHROOM_CAVE = register("small_glowshroom_cave", BOPFeatures.SMALL_GLOWSHROOM.configured(FeatureConfiguration.NONE).decorated(FeatureDecorator.CAVE_SURFACE.configured(new CaveDecoratorConfiguration(CaveSurface.FLOOR, 12))).range(Features.Decorators.RANGE_BOTTOM_TO_60).squared().count(100));

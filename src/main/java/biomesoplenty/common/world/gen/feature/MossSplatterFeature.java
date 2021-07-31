@@ -7,6 +7,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -47,18 +48,28 @@ public class MossSplatterFeature extends Feature<NoneFeatureConfiguration>
                   BlockState blockstate = worldIn.getBlockState(blockpos);
                   BlockState blockstate1 = worldIn.getBlockState(blockpos.above());
 
-                  if (blockstate.is(BlockTags.MOSS_REPLACEABLE) && (this.isAir(worldIn, blockpos.above()) || blockstate1.getBlock() instanceof BushBlock))
+                  if (blockstate.is(BlockTags.MOSS_REPLACEABLE) && (this.isAir(worldIn, blockpos.above()) || blockstate1.getBlock() instanceof BushBlock || blockstate1.getBlock() instanceof BushBlock))
                   {
                      worldIn.setBlock(blockpos, Blocks.MOSS_BLOCK.defaultBlockState(), 2);
-                     switch (rand.nextInt(3))
+                     switch (rand.nextInt(4))
                      {
                         case 2:
                            worldIn.setBlock(blockpos.above(), Blocks.GRASS.defaultBlockState(), 2);
                            break;
 
-                        default:
+                        case 1:
                            worldIn.setBlock(blockpos.above(), Blocks.MOSS_CARPET.defaultBlockState(), 2);
                            break;
+
+                        case 0:
+                        default:
+                           worldIn.setBlock(blockpos.above(), Blocks.AIR.defaultBlockState(), 2);
+                           break;
+                     }
+
+                     if (worldIn.getBlockState(blockpos.above(2)).getBlock() instanceof DoublePlantBlock)
+                     {
+                        worldIn.setBlock(blockpos.above(2), Blocks.AIR.defaultBlockState(), 2);
                      }
 
                      ++i;
