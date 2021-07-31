@@ -1,13 +1,13 @@
 modLoader="javafml"
 license="All Rights Reserved"
-loaderVersion="[24,)"
+loaderVersion="[37,)"
 issueTrackerURL="https://github.com/Glitchfiend/BiomesOPlenty/issues"
 displayURL="https://minecraft.curseforge.com/projects/biomes-o-plenty"
 logoFile="bop_logo.png"
 
 [[mods]]
     modId="biomesoplenty"
-    version="1"
+    version="${file.jarVersion}"
     displayName="Biomes O' Plenty"
 	authors="Forstride, Adubbz"
 	credits="Tim Rurkowski, cheeserolls, ted80"

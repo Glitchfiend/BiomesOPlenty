@@ -65,16 +65,16 @@ sourceSets {
 }
 
 processResources {
-    from (sourceSets.main.resources.srcDirs) {
-        include 'META-INF/mods.toml'
-        expand 'version': project.version
-    }
-	
 	duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
 
 jar {
     classifier = 'universal'
+    manifest {
+        attributes([
+            "Implementation-Version": project.version
+        ])
+    }
 }
 
 dependencies {
