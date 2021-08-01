@@ -2,8 +2,8 @@
 	"parent": "block/block",
 	"textures": {
 		"top": "biomesoplenty:block/brimstone_fumarole",
-		"side": "biomesoplenty:block/brimstone",
-		"particle": "biomesoplenty:block/brimstone"
+		"side": "biomesoplenty:block/brimstone_fumarole_side",
+		"particle": "biomesoplenty:block/brimstone_fumarole_side"
 	},
 	"elements": [
 		{
