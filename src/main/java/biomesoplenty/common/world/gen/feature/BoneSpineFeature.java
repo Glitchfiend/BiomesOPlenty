@@ -2,6 +2,7 @@ package biomesoplenty.common.world.gen.feature;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.block.IBlockPosQuery;
+import biomesoplenty.init.ModTags;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.LevelAccessor;
@@ -19,7 +20,7 @@ import java.util.Random;
 
 public class BoneSpineFeature extends Feature<NoneFeatureConfiguration>
 {
-    protected IBlockPosQuery placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == BOPBlocks.FLESH || world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK;
+    protected IBlockPosQuery placeOn = (world, pos) -> world.getBlockState(pos).is(ModTags.Blocks.FLESH) || world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK;
     protected IBlockPosQuery replace = (world, pos) -> this.isAir(world, pos) || TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getMaterial() == Material.WATER;
     private int maxHeight = 3;
 

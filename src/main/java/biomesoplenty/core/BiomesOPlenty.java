@@ -5,22 +5,17 @@
 
 package biomesoplenty.core;
 
-import biomesoplenty.init.ModBiomes;
-import biomesoplenty.init.ModCompatibility;
-import biomesoplenty.init.ModConfig;
-import biomesoplenty.init.ModVanillaCompat;
-import net.minecraft.client.Minecraft;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.packs.repository.Pack;
+import biomesoplenty.client.handler.FluidFogHandler;
+import biomesoplenty.init.*;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.DistExecutor;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -42,6 +37,11 @@ public class BiomesOPlenty
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
 
+        if (FMLEnvironment.dist == Dist.CLIENT)
+        {
+            MinecraftForge.EVENT_BUS.register(new FluidFogHandler());
+        }
+
         ModBiomes.setup();
         ModConfig.setup();
     }
@@ -61,6 +61,7 @@ public class BiomesOPlenty
     private void loadComplete(final FMLLoadCompleteEvent event)
     {
         proxy.init();
+        ModTags.setup();
         ModCompatibility.setup();
     }
 }

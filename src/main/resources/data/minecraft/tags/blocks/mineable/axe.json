@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [	
-	"biomesoplenty:flesh",
+	"#biomesoplenty:flesh",
 	"biomesoplenty:willow_vine",
 	"biomesoplenty:tree_roots",
 	"biomesoplenty:tree_roots_stem",

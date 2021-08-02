@@ -92,6 +92,7 @@
   "biome.biomesoplenty.wooded_scrubland": "Wooded Scrubland",
   "biome.biomesoplenty.woodland": "Woodland",
 
+  "item.biomesoplenty.blood_bucket": "Blood Bucket",
   "item.biomesoplenty.bop_icon": "BOP Icon",
   "item.biomesoplenty.cherry_boat": "Cherry Boat",
   "item.biomesoplenty.dead_boat": "Dead Boat",
@@ -116,6 +117,7 @@
   "block.biomesoplenty.black_sandstone_slab": "Black Sandstone Slab",
   "block.biomesoplenty.black_sandstone_stairs": "Black Sandstone Stairs",
   "block.biomesoplenty.black_sandstone_wall": "Black Sandstone Wall",
+  "block.biomesoplenty.blood": "Blood",
   "block.biomesoplenty.blue_hydrangea": "Blue Hydrangea",
   "block.biomesoplenty.bramble": "Bramble",
   "block.biomesoplenty.brimstone": "Brimstone",
@@ -298,6 +300,7 @@
   "block.biomesoplenty.pink_cherry_sapling": "Pink Cherry Sapling",
   "block.biomesoplenty.pink_daffodil": "Pink Daffodil",
   "block.biomesoplenty.pink_hibiscus": "Pink Hibiscus",
+  "block.biomesoplenty.porous_flesh": "Porous Flesh",
   "block.biomesoplenty.potted_burning_blossom": "Potted Burning Blossom",
   "block.biomesoplenty.potted_clover": "Potted Clover",
   "block.biomesoplenty.potted_dead_sapling": "Potted Dead Sapling",

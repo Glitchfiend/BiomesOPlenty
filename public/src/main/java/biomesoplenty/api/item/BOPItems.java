@@ -28,4 +28,6 @@ public class BOPItems
     public static Item HELLBARK_BOAT;
 
     public static Item MUSIC_DISC_WANDERER;
+
+    public static Item BLOOD_BUCKET;
 }

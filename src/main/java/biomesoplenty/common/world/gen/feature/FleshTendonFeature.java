@@ -2,6 +2,7 @@ package biomesoplenty.common.world.gen.feature;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.block.IBlockPosQuery;
+import biomesoplenty.init.ModTags;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.LevelAccessor;
@@ -14,6 +15,7 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.fml.common.Mod;
 
 import java.util.Random;
 
@@ -46,7 +48,7 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
         BlockPos pos = context.origin();
 
         BlockState below = world.getBlockState(pos.below());
-        if (!below.is(BOPBlocks.FLESH))
+        if (!below.is(ModTags.Blocks.FLESH))
         {
             return false;
         }
@@ -76,7 +78,13 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
 
             if (curPos.getY() < 126)
             {
-                this.setBlock(world, curPos, BOPBlocks.FLESH.defaultBlockState());
+                BlockState fleshBlock = BOPBlocks.FLESH.defaultBlockState();
+                if (rand.nextInt(5) == 0)
+                {
+                    fleshBlock = BOPBlocks.POROUS_FLESH.defaultBlockState();
+                }
+
+                this.setBlock(world, curPos, fleshBlock);
                 if (rand.nextInt(75) == 0)
                 {
                     this.generateFleshBall(world, curPos, rand);
@@ -93,7 +101,7 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
 
     public boolean generateFleshBall(WorldGenLevel world, BlockPos pos, Random rand)
     {
-        this.setBlock(world, pos, BOPBlocks.FLESH.defaultBlockState());
+        this.setBlock(world, pos, BOPBlocks.POROUS_FLESH.defaultBlockState());
         this.setBlock(world, pos.north(), Blocks.SHROOMLIGHT.defaultBlockState(), 2);
         this.setBlock(world, pos.south(), Blocks.SHROOMLIGHT.defaultBlockState(), 2);
         this.setBlock(world, pos.east(), Blocks.SHROOMLIGHT.defaultBlockState(), 2);

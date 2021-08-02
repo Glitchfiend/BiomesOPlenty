@@ -1,0 +1,10 @@
+{
+    "variants": {
+		"": [
+            { "model": "biomesoplenty:block/porous_flesh" },
+            { "model": "biomesoplenty:block/porous_flesh", "y": 90 },
+            { "model": "biomesoplenty:block/porous_flesh", "y": 180 },
+            { "model": "biomesoplenty:block/porous_flesh", "y": 270 }
+        ]
+    }
+}

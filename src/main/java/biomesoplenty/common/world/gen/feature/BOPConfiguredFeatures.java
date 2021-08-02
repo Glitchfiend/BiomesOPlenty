@@ -5,10 +5,12 @@
 package biomesoplenty.common.world.gen.feature;
 
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.block.BOPFluids;
 import biomesoplenty.common.util.biome.FeatureUtil;
 import biomesoplenty.common.world.biome.BiomeFeatureHelper;
 import biomesoplenty.common.world.gen.placement.BOPPlacements;
 import biomesoplenty.core.BiomesOPlenty;
+import biomesoplenty.init.ModTags;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import net.minecraft.core.Direction;
@@ -31,6 +33,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.placement.*;
+import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import net.minecraft.world.level.material.Fluids;
 
 public class BOPConfiguredFeatures
@@ -317,6 +320,8 @@ public class BOPConfiguredFeatures
     public static final ConfiguredFeature<?, ?> BIG_PUMPKIN = register("big_pumpkin", BOPFeatures.BIG_PUMPKIN.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(3)));
     public static final ConfiguredFeature<?, ?> BLACK_SAND_DISK = register("black_sand_disk", Feature.DISK.configured(new DiskConfiguration(BOPBlocks.BLACK_SAND.defaultBlockState(), UniformInt.of(2, 6), 2, ImmutableList.of(Blocks.DIRT.defaultBlockState(), Blocks.GRASS_BLOCK.defaultBlockState()))).decorated(Features.Decorators.TOP_SOLID_HEIGHTMAP_SQUARE).count(2));
     public static final ConfiguredFeature<?, ?> BLACK_SAND_SPLATTER = register("black_sand_splatter", BOPFeatures.BLACK_SAND_SPLATTER.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(25)));
+    public static final ConfiguredFeature<?, ?> BLOOD_LAKE = register("blood_lake", Feature.LAKE.configured(new BlockStateConfiguration(BOPBlocks.BLOOD.defaultBlockState())).range(Features.Decorators.FULL_RANGE).squared().count(16));
+    public static final ConfiguredFeature<?, ?> BLOOD_SPRING = register("blood_spring", Feature.SPRING.configured(new SpringConfiguration(BOPFluids.BLOOD.defaultFluidState(), false, 4, 1, ImmutableSet.of(Blocks.NETHERRACK, BOPBlocks.FLESH, BOPBlocks.POROUS_FLESH))).range(Features.Decorators.RANGE_4_4).squared().count(12));
     public static final ConfiguredFeature<?, ?> BONE_SPINE = register("bone_spine", BOPFeatures.BONE_SPINE.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(3)));
     public static final ConfiguredFeature<?, ?> BRAMBLE = register("bramble", BOPFeatures.BRAMBLE.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(3)));
     public static final ConfiguredFeature<?, ?> BRAMBLE_EXTRA = register("bramble_extra", BOPFeatures.BRAMBLE.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(10)));
@@ -348,6 +353,7 @@ public class BOPConfiguredFeatures
     public static final ConfiguredFeature<?, ?> ORE_COPPER_EXTRA = register("ore_copper_extra", Feature.ORE.configured(new OreConfiguration(Features.ORE_COPPER_TARGET_LIST, 9)).rangeUniform(VerticalAnchor.absolute(32), VerticalAnchor.absolute(79)).squared().count(20));
     public static final ConfiguredFeature<?, ?> ORE_IRON_EXTRA = register("ore_iron_extra", Feature.ORE.configured(new OreConfiguration(Features.ORE_IRON_TARGET_LIST, 9)).rangeUniform(VerticalAnchor.absolute(32), VerticalAnchor.absolute(79)).squared().count(20));
     public static final ConfiguredFeature<?, ?> PODZOL_SPLATTER = register("podzol_splatter", BOPFeatures.PODZOL_SPLATTER.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(22)));
+    public static final ConfiguredFeature<?, ?> POROUS_FLESH = register("porous_flesh", Feature.ORE.configured(new OreConfiguration(new TagMatchTest(ModTags.Blocks.FLESH), BOPBlocks.POROUS_FLESH.defaultBlockState(), 16)).range(Features.Decorators.RANGE_10_10).squared().count(80));
     public static final ConfiguredFeature<?, ?> PUMPKIN_PATCH = register("pumpkin_patch", BOPFeatures.PUMPKIN_PATCH.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(35)));
     public static final ConfiguredFeature<?, ?> RAINFOREST_CLIFFS_VINES = register("overgrown_cliffs_vines", BOPFeatures.RAINFOREST_CLIFFS_VINES.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(128));
     public static final ConfiguredFeature<?, ?> SCATTERED_ROCKS = register("scattered_rocks", BOPFeatures.SCATTERED_ROCKS.configured(FeatureConfiguration.NONE).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE.count(3)));
