@@ -130,6 +130,7 @@ public class BOPFeatures
 	public static final Feature<NoneFeatureConfiguration> FERN = register("fern", new FernFeature(NoneFeatureConfiguration.CODEC.stable()));
 	public static final Feature<NoneFeatureConfiguration> FERN_GRASS = register("fern_grass", new FernGrassFeature(NoneFeatureConfiguration.CODEC.stable()));
 	public static final Feature<NoneFeatureConfiguration> FLESH_TENDON = register("flesh_tendon", new FleshTendonFeature(NoneFeatureConfiguration.CODEC.stable()));
+	public static final Feature<NoneFeatureConfiguration> FLESH_TENDONS = register("flesh_tendons", new FleshTendonsFeature(NoneFeatureConfiguration.CODEC.stable()));
 	public static final Feature<NoneFeatureConfiguration> GIANT_GLOWSHROOM = register("giant_glowshroom", new GiantGlowshroomFeature(NoneFeatureConfiguration.CODEC.stable()));
 	public static final Feature<NoneFeatureConfiguration> GRASS_SPLATTER = register("grass_splatter", new GrassSplatterFeature(NoneFeatureConfiguration.CODEC.stable()));
 	public static final Feature<NoneFeatureConfiguration> HUGE_CLOVER = register("huge_clover", new HugeCloverFeature(NoneFeatureConfiguration.CODEC.stable()));

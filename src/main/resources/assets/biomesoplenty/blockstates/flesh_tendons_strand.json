@@ -1,0 +1,8 @@
+{
+    "variants": {
+		"": [
+            { "model": "biomesoplenty:block/flesh_tendons_strand" },
+            { "model": "biomesoplenty:block/flesh_tendons_strand_alt" }
+        ]
+    }
+}

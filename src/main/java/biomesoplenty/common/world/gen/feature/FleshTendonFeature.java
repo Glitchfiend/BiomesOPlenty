@@ -5,8 +5,11 @@ import biomesoplenty.common.util.block.IBlockPosQuery;
 import biomesoplenty.init.ModTags;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.util.Mth;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
@@ -85,9 +88,14 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
                 }
 
                 this.setBlock(world, curPos, fleshBlock);
+
                 if (rand.nextInt(75) == 0)
                 {
                     this.generateFleshBall(world, curPos, rand);
+                }
+                if (rand.nextInt(4) == 0)
+                {
+                    this.placeFleshTendonColumn(world, rand, curPos.below(), Mth.nextInt(rand, 1, 4));
                 }
             }
             else
@@ -124,6 +132,38 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
         this.setBlock(world, pos.below().west(), BOPBlocks.FLESH.defaultBlockState());
 
         return true;
+    }
+
+    public static void placeFleshTendonColumn(LevelAccessor p_67377_, Random p_67378_, BlockPos p_67379_, int p_67380_)
+    {
+        BlockPos.MutableBlockPos blockpos$mutable = new BlockPos.MutableBlockPos();
+        blockpos$mutable.set(p_67379_);
+
+
+        if (p_67377_.getBlockState(blockpos$mutable.above()).is(ModTags.Blocks.FLESH))
+        {
+            for(int i = 0; i <= p_67380_; ++i)
+            {
+                Block fleshCheck = p_67377_.getBlockState(blockpos$mutable.below()).getBlock();
+                if (fleshCheck == BOPBlocks.FLESH_TENDONS || fleshCheck == BOPBlocks.FLESH_TENDONS_STRAND)
+                {
+                    break;
+                }
+
+                if (p_67377_.isEmptyBlock(blockpos$mutable))
+                {
+                    if (i == p_67380_ || !p_67377_.isEmptyBlock(blockpos$mutable.below()))
+                    {
+                        p_67377_.setBlock(blockpos$mutable, BOPBlocks.FLESH_TENDONS.defaultBlockState(), 2);
+                        break;
+                    }
+
+                    p_67377_.setBlock(blockpos$mutable, BOPBlocks.FLESH_TENDONS_STRAND.defaultBlockState(), 2);
+                }
+
+                blockpos$mutable.move(Direction.DOWN);
+            }
+        }
     }
 
     public boolean setBlock(LevelAccessor world, BlockPos pos, BlockState state)

@@ -37,7 +37,7 @@ public class SmallFumaroleFeature extends Feature<NoneFeatureConfiguration>
 			{
 				if (rand.nextInt(5) == 0)
 				{
-					if (rand.nextInt(3) == 0)
+					if (rand.nextInt(2) == 0)
 					{
 						world.setBlock(blockpos, BOPBlocks.BRIMSTONE.defaultBlockState(), 2);
 						world.setBlock(blockpos.above(), BOPBlocks.BRIMSTONE_FUMAROLE.defaultBlockState(), 2);
