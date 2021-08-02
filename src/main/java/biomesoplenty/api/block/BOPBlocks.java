@@ -5,6 +5,7 @@
 package biomesoplenty.api.block;
 
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.material.FlowingFluid;
 
 public class BOPBlocks
 {
@@ -50,6 +51,7 @@ public class BOPBlocks
     public static Block ROOTED_SAND;
     public static Block DRIED_SALT;
     public static Block FLESH;
+    public static Block POROUS_FLESH;
     public static Block BRIMSTONE;
     public static Block BRIMSTONE_FUMAROLE;
     public static Block ROSE_QUARTZ_BLOCK;
@@ -304,6 +306,8 @@ public class BOPBlocks
     public static Block LARGE_ROSE_QUARTZ_BUD;
     public static Block MEDIUM_ROSE_QUARTZ_BUD;
     public static Block SMALL_ROSE_QUARTZ_BUD;
+    public static Block BLOOD;
+
     public static Block POTTED_ORIGIN_SAPLING;
     public static Block POTTED_FLOWERING_OAK_SAPLING;
     public static Block POTTED_RAINBOW_BIRCH_SAPLING;
