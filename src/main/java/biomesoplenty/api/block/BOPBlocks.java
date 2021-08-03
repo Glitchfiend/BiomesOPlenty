@@ -308,6 +308,8 @@ public class BOPBlocks
     public static Block LARGE_ROSE_QUARTZ_BUD;
     public static Block MEDIUM_ROSE_QUARTZ_BUD;
     public static Block SMALL_ROSE_QUARTZ_BUD;
+    public static Block BLACKSTONE_SPINES;
+    public static Block BLACKSTONE_BULB;
     public static Block BLOOD;
 
     public static Block POTTED_ORIGIN_SAPLING;
