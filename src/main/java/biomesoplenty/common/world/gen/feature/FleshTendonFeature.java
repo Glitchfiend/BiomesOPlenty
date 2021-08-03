@@ -24,7 +24,7 @@ import java.util.Random;
 
 public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
 {
-    protected IBlockPosQuery replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() == BOPBlocks.ROSE_QUARTZ_CLUSTER || world.getBlockState(pos).getBlock() == BOPBlocks.LARGE_ROSE_QUARTZ_BUD || world.getBlockState(pos).getBlock() == BOPBlocks.MEDIUM_ROSE_QUARTZ_BUD || world.getBlockState(pos).getBlock() == BOPBlocks.SMALL_ROSE_QUARTZ_BUD;
+    protected IBlockPosQuery replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() == BOPBlocks.ROSE_QUARTZ_CLUSTER || world.getBlockState(pos).getBlock() == BOPBlocks.LARGE_ROSE_QUARTZ_BUD || world.getBlockState(pos).getBlock() == BOPBlocks.MEDIUM_ROSE_QUARTZ_BUD || world.getBlockState(pos).getBlock() == BOPBlocks.SMALL_ROSE_QUARTZ_BUD || world.getBlockState(pos).getBlock() == BOPBlocks.FLESH_TENDONS_STRAND || world.getBlockState(pos).getBlock() == BOPBlocks.FLESH_TENDONS;
 
     private static final int MIN_DISTANCE = 8;
     private static final int MAX_DISTANCE = 32;
@@ -95,7 +95,7 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
                 }
                 if (rand.nextInt(4) == 0)
                 {
-                    this.placeFleshTendonColumn(world, rand, curPos.below(), Mth.nextInt(rand, 1, 4));
+                    this.placeFleshTendonColumn(world, rand, curPos.below());
                 }
             }
             else
@@ -131,18 +131,24 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
         this.setBlock(world, pos.below().east(), BOPBlocks.FLESH.defaultBlockState());
         this.setBlock(world, pos.below().west(), BOPBlocks.FLESH.defaultBlockState());
 
+        this.placeFleshTendonColumn(world, rand, pos.below(2));
+
         return true;
     }
 
-    public static void placeFleshTendonColumn(LevelAccessor p_67377_, Random p_67378_, BlockPos p_67379_, int p_67380_)
+    public void placeFleshTendonColumn(LevelAccessor p_67377_, Random p_67378_, BlockPos p_67379_)
     {
         BlockPos.MutableBlockPos blockpos$mutable = new BlockPos.MutableBlockPos();
         blockpos$mutable.set(p_67379_);
 
+        int rand = p_67378_.nextInt(6);
+        int minHeight = rand == 0 ? 4 : 1;
+        int maxHeight = rand == 0 ? 8 : 4;
+        int height = Mth.nextInt(p_67378_, minHeight, maxHeight);
 
         if (p_67377_.getBlockState(blockpos$mutable.above()).is(ModTags.Blocks.FLESH))
         {
-            for(int i = 0; i <= p_67380_; ++i)
+            for(int i = 0; i <= height; ++i)
             {
                 Block fleshCheck = p_67377_.getBlockState(blockpos$mutable.below()).getBlock();
                 if (fleshCheck == BOPBlocks.FLESH_TENDONS || fleshCheck == BOPBlocks.FLESH_TENDONS_STRAND)
@@ -152,13 +158,13 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
 
                 if (p_67377_.isEmptyBlock(blockpos$mutable))
                 {
-                    if (i == p_67380_ || !p_67377_.isEmptyBlock(blockpos$mutable.below()))
+                    if (i == height || !p_67377_.isEmptyBlock(blockpos$mutable.below()))
                     {
-                        p_67377_.setBlock(blockpos$mutable, BOPBlocks.FLESH_TENDONS.defaultBlockState(), 2);
+                        this.setBlock(p_67377_, blockpos$mutable, BOPBlocks.FLESH_TENDONS.defaultBlockState(), 2);
                         break;
                     }
 
-                    p_67377_.setBlock(blockpos$mutable, BOPBlocks.FLESH_TENDONS_STRAND.defaultBlockState(), 2);
+                    this.setBlock(p_67377_, blockpos$mutable, BOPBlocks.FLESH_TENDONS_STRAND.defaultBlockState(), 2);
                 }
 
                 blockpos$mutable.move(Direction.DOWN);

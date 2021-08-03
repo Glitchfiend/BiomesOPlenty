@@ -7,21 +7,19 @@ package biomesoplenty.common.block;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BOPFluids;
 import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.init.ModParticles;
 import biomesoplenty.init.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleOptions;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.tags.FluidTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -29,7 +27,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.level.material.Fluids;
 
 import javax.annotation.Nullable;
 import java.util.Optional;
@@ -64,8 +61,9 @@ public abstract class BloodFluid extends FlowingFluid
 
     @Nullable
     @Override
-    public ParticleOptions getDripParticle() {
-        return ParticleTypes.DRIPPING_LAVA;
+    public ParticleOptions getDripParticle()
+    {
+        return ModParticles.DRIPPING_BLOOD.get();
     }
 
     @Override

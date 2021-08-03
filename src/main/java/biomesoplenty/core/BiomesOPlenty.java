@@ -6,6 +6,7 @@
 package biomesoplenty.core;
 
 import biomesoplenty.client.handler.FluidFogHandler;
+import biomesoplenty.client.handler.ParticleFactoryHandler;
 import biomesoplenty.init.*;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -35,6 +36,9 @@ public class BiomesOPlenty
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
+
+        ModParticles.PARTICLES.register(FMLJavaModLoadingContext.get().getModEventBus());
+
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
 
         if (FMLEnvironment.dist == Dist.CLIENT)
