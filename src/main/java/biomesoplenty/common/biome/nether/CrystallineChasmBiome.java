@@ -48,7 +48,7 @@ public class CrystallineChasmBiome extends NetherBiomeTemplate
         builder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, Features.SPRING_CLOSED);
 
         //Decoration
-        builder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPConfiguredFeatures.LARGE_CRYSTAL);
+        builder.addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, BOPConfiguredFeatures.LARGE_ROSE_QUARTZ);
         builder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPConfiguredFeatures.SMALL_CRYSTAL);
 
         BiomeDefaultFeatures.addNetherDefaultOres(builder);

@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.LargeDripstoneFeature;
 import net.minecraft.world.level.levelgen.feature.blockplacers.SimpleBlockPlacer;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
@@ -160,6 +161,8 @@ public class BOPFeatures
 	public static final Feature<NoneFeatureConfiguration> STANDARD_GRASS = register("standard_grass", new StandardGrassFeature(NoneFeatureConfiguration.CODEC.stable()));
 	public static final Feature<NoneFeatureConfiguration> WASTELAND_GRASS = register("wasteland_grass", new WastelandGrassFeature(NoneFeatureConfiguration.CODEC.stable()));
 	public static final Feature<NoneFeatureConfiguration> WEBBING = register("webbing", new WebbingFeature(NoneFeatureConfiguration.CODEC.stable()));
+
+	public static final Feature<LargeDripstoneConfiguration> LARGE_ROSE_QUARTZ = register("large_rose_quartz", new LargeRoseQuartzFeature(LargeDripstoneConfiguration.CODEC));
 
 	//Flowers
 	public static final RandomPatchConfiguration CHERRY_BLOSSOM_GROVE_FLOWER_CONFIG = (new RandomPatchConfiguration.GrassConfigurationBuilder((new WeightedStateProvider(weightedBlockStateBuilder().add(BOPBlocks.PINK_DAFFODIL.defaultBlockState(), 1).add(Blocks.LILY_OF_THE_VALLEY.defaultBlockState(), 1))), SimpleBlockPlacer.INSTANCE)).tries(64).build();
