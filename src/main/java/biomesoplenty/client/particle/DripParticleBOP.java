@@ -33,46 +33,52 @@ public class DripParticleBOP extends TextureSheetParticle
         return this.type;
     }
 
+    @Override
     public ParticleRenderType getRenderType() {
         return ParticleRenderType.PARTICLE_SHEET_OPAQUE;
     }
 
+    @Override
     public int getLightColor(float p_106065_) {
         return this.isGlowing ? 240 : super.getLightColor(p_106065_);
     }
 
-    public void tick() {
+    @Override
+    public void tick()
+    {
         this.xo = this.x;
         this.yo = this.y;
         this.zo = this.z;
         this.preMoveUpdate();
-        if (!this.removed) {
+        if (!this.removed)
+        {
             this.yd -= (double)this.gravity;
             this.move(this.xd, this.yd, this.zd);
             this.postMoveUpdate();
-            if (!this.removed) {
+            if (!this.removed)
+            {
                 this.xd *= (double)0.98F;
                 this.yd *= (double)0.98F;
                 this.zd *= (double)0.98F;
                 BlockPos blockpos = new BlockPos(this.x, this.y, this.z);
                 FluidState fluidstate = this.level.getFluidState(blockpos);
-                if (fluidstate.getType() == this.type && this.y < (double)((float)blockpos.getY() + fluidstate.getHeight(this.level, blockpos))) {
+                if (fluidstate.getType() == this.type && this.y < (double)((float)blockpos.getY() + fluidstate.getHeight(this.level, blockpos)))
+                {
                     this.remove();
                 }
-
             }
         }
     }
 
-    protected void preMoveUpdate() {
-        if (this.lifetime-- <= 0) {
+    protected void preMoveUpdate()
+    {
+        if (this.lifetime-- <= 0)
+        {
             this.remove();
         }
-
     }
 
-    protected void postMoveUpdate() {
-    }
+    protected void postMoveUpdate() {}
 
     @OnlyIn(Dist.CLIENT)
     static class DripHangParticle extends DripParticleBOP {

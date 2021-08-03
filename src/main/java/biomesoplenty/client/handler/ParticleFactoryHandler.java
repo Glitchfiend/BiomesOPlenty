@@ -1,6 +1,7 @@
 package biomesoplenty.client.handler;
 
 import biomesoplenty.client.particle.DripParticleBOP;
+import biomesoplenty.client.particle.GlowwormParticle;
 import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.init.ModParticles;
 import net.minecraft.client.Minecraft;
@@ -18,5 +19,7 @@ public class ParticleFactoryHandler
         Minecraft.getInstance().particleEngine.register(ModParticles.DRIPPING_BLOOD.get(), DripParticleBOP.BloodHangProvider::new);
         Minecraft.getInstance().particleEngine.register(ModParticles.FALLING_BLOOD.get(), DripParticleBOP.BloodFallProvider::new);
         Minecraft.getInstance().particleEngine.register(ModParticles.LANDING_BLOOD.get(), DripParticleBOP.BloodLandProvider::new);
+
+        Minecraft.getInstance().particleEngine.register(ModParticles.GLOWWORM.get(), GlowwormParticle.Provider::new);
     }
 }
