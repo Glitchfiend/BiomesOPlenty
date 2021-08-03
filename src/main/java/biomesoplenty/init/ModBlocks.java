@@ -19,7 +19,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.FlowingFluid;
-import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.api.distmarker.Dist;
@@ -355,6 +354,9 @@ public class ModBlocks
         MEDIUM_ROSE_QUARTZ_BUD = registerBlock(new AmethystClusterBlock(4, 3, BlockBehaviour.Properties.copy(ROSE_QUARTZ_CLUSTER).sound(SoundType.LARGE_AMETHYST_BUD).lightLevel((state) -> 6)),"medium_rose_quartz_bud");
         SMALL_ROSE_QUARTZ_BUD = registerBlock(new AmethystClusterBlock(3, 4, BlockBehaviour.Properties.copy(ROSE_QUARTZ_CLUSTER).sound(SoundType.SMALL_AMETHYST_BUD).lightLevel((state) -> 5)),"small_rose_quartz_bud");
 
+        BLACKSTONE_SPINES = registerBlock(new BlackstoneDecorationBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_BLACK).noCollission().strength(0.2F).sound(SoundType.STONE)), "blackstone_spines");
+        BLACKSTONE_BULB = registerBlock(new BlackstoneDecorationBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_BLACK).noCollission().strength(0.2F).sound(SoundType.STONE).lightLevel((state) -> 2).emissiveRendering((state, world, pos) -> true)), "blackstone_bulb");
+
         //Potted Plants
         POTTED_ORIGIN_SAPLING = registerBlockNoGroup(new FlowerPotBlock(ORIGIN_SAPLING, BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_origin_sapling");
         POTTED_FLOWERING_OAK_SAPLING = registerBlockNoGroup(new FlowerPotBlock(FLOWERING_OAK_SAPLING, BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_flowering_oak_sapling");
@@ -478,6 +480,8 @@ public class ModBlocks
             ItemBlockRenderTypes.setRenderLayer(LARGE_ROSE_QUARTZ_BUD, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(MEDIUM_ROSE_QUARTZ_BUD, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(SMALL_ROSE_QUARTZ_BUD, cutoutRenderType);
+            ItemBlockRenderTypes.setRenderLayer(BLACKSTONE_SPINES, cutoutRenderType);
+            ItemBlockRenderTypes.setRenderLayer(BLACKSTONE_BULB, cutoutRenderType);
 
             ItemBlockRenderTypes.setRenderLayer(POTTED_ORIGIN_SAPLING, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(POTTED_FLOWERING_OAK_SAPLING, cutoutRenderType);

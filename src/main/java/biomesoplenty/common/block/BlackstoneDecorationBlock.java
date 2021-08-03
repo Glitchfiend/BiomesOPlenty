@@ -4,7 +4,6 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
-import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -18,11 +17,11 @@ import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class BrimstoneBudBlock extends Block
+public class BlackstoneDecorationBlock extends Block
 {
-    protected static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 3.0D, 14.0D);
+    protected static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 8.0D, 15.0D);
 
-    public BrimstoneBudBlock(Properties properties)
+    public BlackstoneDecorationBlock(Properties properties)
     {
         super(properties);
     }
@@ -37,7 +36,7 @@ public class BrimstoneBudBlock extends Block
     public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos)
     {
         BlockState groundState = worldIn.getBlockState(pos.below());
-        return groundState.getBlock() == BOPBlocks.BRIMSTONE;
+        return groundState.getBlock() == Blocks.BLACKSTONE;
     }
 
     @Override
@@ -58,7 +57,7 @@ public class BrimstoneBudBlock extends Block
     }
 
     @Override
-    public Block.OffsetType getOffsetType()
+    public OffsetType getOffsetType()
     {
         return OffsetType.XZ;
     }
