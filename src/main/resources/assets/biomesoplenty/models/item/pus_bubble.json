@@ -1,7 +1,7 @@
 {
   "parent": "biomesoplenty:item/rose_quartz_bud",
   "textures": {
-    "layer0": "biomesoplenty:block/desert_grass"
+    "layer0": "biomesoplenty:item/pus_bubble"
   },
   "display": {
     "firstperson_righthand": {

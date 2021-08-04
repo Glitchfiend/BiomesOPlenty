@@ -21,7 +21,7 @@ import java.util.Random;
 public class BoneSpineFeature extends Feature<NoneFeatureConfiguration>
 {
     protected IBlockPosQuery placeOn = (world, pos) -> world.getBlockState(pos).is(ModTags.Blocks.FLESH) || world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK;
-    protected IBlockPosQuery replace = (world, pos) -> this.isAir(world, pos) || TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getMaterial() == Material.WATER;
+    protected IBlockPosQuery replace = (world, pos) -> this.isAir(world, pos) || TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getMaterial() == Material.WATER || world.getBlockState(pos).getBlock() == BOPBlocks.PUS_BUBBLE || world.getBlockState(pos).getBlock() == BOPBlocks.HAIR;
     private int maxHeight = 3;
 
     public BoneSpineFeature(Codec<NoneFeatureConfiguration> deserializer)

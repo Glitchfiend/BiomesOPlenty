@@ -14,6 +14,6 @@ public class ModParticles
     public static final RegistryObject<SimpleParticleType> DRIPPING_BLOOD = PARTICLES.register("dripping_blood", () -> new SimpleParticleType(false));
     public static final RegistryObject<SimpleParticleType> FALLING_BLOOD = PARTICLES.register("falling_blood", () -> new SimpleParticleType(false));
     public static final RegistryObject<SimpleParticleType> LANDING_BLOOD = PARTICLES.register("landing_blood", () -> new SimpleParticleType(false));
-
+    public static final RegistryObject<SimpleParticleType> PUS = PARTICLES.register("pus", () -> new SimpleParticleType(false));
     public static final RegistryObject<SimpleParticleType> GLOWWORM = PARTICLES.register("glowworm", () -> new SimpleParticleType(false));
 }

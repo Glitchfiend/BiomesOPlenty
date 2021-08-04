@@ -53,6 +53,8 @@ public class VisceralHeapBiome extends NetherBiomeTemplate
         builder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPConfiguredFeatures.FLESH_TENDON);
         builder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPConfiguredFeatures.FLESH_TENDONS);
         builder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPConfiguredFeatures.POROUS_FLESH);
+        builder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPConfiguredFeatures.PUS_BUBBLES);
+        builder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPConfiguredFeatures.HAIR);
 
         BiomeDefaultFeatures.addNetherDefaultOres(builder);
     }

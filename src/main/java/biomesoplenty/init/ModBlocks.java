@@ -344,8 +344,10 @@ public class ModBlocks
         TOADSTOOL = registerBlock(new MushroomBlockBOP(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.COLOR_ORANGE).noCollission().instabreak().sound(SoundType.GRASS)), "toadstool");
         GLOWSHROOM = registerBlock(new MushroomBlockBOP(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.DIAMOND).noCollission().instabreak().sound(SoundType.GRASS).lightLevel((state) -> 6).emissiveRendering((state, world, pos) -> pos.getY() < 60)), "glowshroom");
 
+        PUS_BUBBLE = registerBlock(new PusBubbleBlock(BlockBehaviour.Properties.of(Material.SPONGE, MaterialColor.TERRACOTTA_PINK).noCollission().instabreak().sound(new SoundType(1.0F, 1.0F, SoundEvents.LAVA_POP, SoundEvents.LAVA_POP, SoundEvents.CORAL_BLOCK_PLACE, SoundEvents.LAVA_POP, SoundEvents.LAVA_POP))), "pus_bubble");
         FLESH_TENDONS = registerBlock(new FleshTendonsBottomBlock(BlockBehaviour.Properties.of(Material.SPONGE, MaterialColor.TERRACOTTA_RED).noCollission().strength(0.2F).sound(new SoundType(1.0F, 0.5F, SoundEvents.CORAL_BLOCK_BREAK, SoundEvents.CORAL_BLOCK_STEP, SoundEvents.CORAL_BLOCK_PLACE, SoundEvents.CORAL_BLOCK_HIT, SoundEvents.CORAL_BLOCK_FALL))), "flesh_tendons");
         FLESH_TENDONS_STRAND = registerBlockNoGroup(new FleshTendonsBlock(BlockBehaviour.Properties.of(Material.SPONGE, MaterialColor.TERRACOTTA_RED).noCollission().strength(0.2F).sound(new SoundType(1.0F, 0.5F, SoundEvents.CORAL_BLOCK_BREAK, SoundEvents.CORAL_BLOCK_STEP, SoundEvents.CORAL_BLOCK_PLACE, SoundEvents.CORAL_BLOCK_HIT, SoundEvents.CORAL_BLOCK_FALL))), "flesh_tendons_strand");
+        HAIR = registerBlock(new HairBlock(BlockBehaviour.Properties.of(Material.WOOL, MaterialColor.RAW_IRON).noCollission().instabreak().sound(SoundType.WOOL)), "hair");
         BRIMSTONE_BUD = registerBlock(new BrimstoneBudBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_YELLOW).noCollission().strength(0.2F).sound(SoundType.STONE)), "brimstone_bud");
         BRIMSTONE_CLUSTER = registerBlock(new BrimstoneClusterBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_YELLOW).strength(0.2F).sound(SoundType.STONE)), "brimstone_cluster");
 
@@ -472,8 +474,10 @@ public class ModBlocks
             ItemBlockRenderTypes.setRenderLayer(BRAMBLE, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(TOADSTOOL, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(GLOWSHROOM, cutoutRenderType);
+            ItemBlockRenderTypes.setRenderLayer(PUS_BUBBLE, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(FLESH_TENDONS, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(FLESH_TENDONS_STRAND, cutoutRenderType);
+            ItemBlockRenderTypes.setRenderLayer(HAIR, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(BRIMSTONE_BUD, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(BRIMSTONE_CLUSTER, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(ROSE_QUARTZ_CLUSTER, cutoutRenderType);

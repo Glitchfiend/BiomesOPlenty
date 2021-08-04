@@ -300,8 +300,10 @@ public class BOPBlocks
     public static Block BRAMBLE;
     public static Block TOADSTOOL;
     public static Block GLOWSHROOM;
+    public static Block PUS_BUBBLE;
     public static Block FLESH_TENDONS;
     public static Block FLESH_TENDONS_STRAND;
+    public static Block HAIR;
     public static Block BRIMSTONE_BUD;
     public static Block BRIMSTONE_CLUSTER;
     public static Block ROSE_QUARTZ_CLUSTER;

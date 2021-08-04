@@ -137,7 +137,6 @@ public class BOPFeatures
 	public static final Feature<NoneFeatureConfiguration> HUGE_CLOVER = register("huge_clover", new HugeCloverFeature(NoneFeatureConfiguration.CODEC.stable()));
 	public static final Feature<NoneFeatureConfiguration> HUGE_GLOWSHROOM = register("huge_glowshroom", new HugeGlowshroomFeature(NoneFeatureConfiguration.CODEC.stable()));
 	public static final Feature<NoneFeatureConfiguration> HUGE_TOADSTOOL = register("huge_toadstool", new HugeToadstoolFeature(NoneFeatureConfiguration.CODEC.stable()));
-	public static final Feature<NoneFeatureConfiguration> LARGE_CRYSTAL = register("large_crystal", new LargeCrystalFeature(NoneFeatureConfiguration.CODEC.stable()));
 	public static final Feature<NoneFeatureConfiguration> INFERNO_SPLATTER = register("inferno_splatter", new InfernoSplatterFeature(NoneFeatureConfiguration.CODEC.stable()));
 	public static final Feature<NoneFeatureConfiguration> MANGROVE = register("mangrove", new MangroveFeature(NoneFeatureConfiguration.CODEC.stable()));
 	public static final Feature<NoneFeatureConfiguration> MEDIUM_GLOWSHROOM = register("medium_glowshroom", new MediumGlowshroomFeature(NoneFeatureConfiguration.CODEC.stable()));
