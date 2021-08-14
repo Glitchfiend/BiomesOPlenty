@@ -22,8 +22,6 @@ import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.Random;
 
@@ -88,7 +86,6 @@ public class PusBubbleBlock extends Block
         }
     }
 
-    @OnlyIn(Dist.CLIENT)
     public static void spawnParticles(Level p_55480_, BlockPos pos)
     {
         Random rand = p_55480_.random;
