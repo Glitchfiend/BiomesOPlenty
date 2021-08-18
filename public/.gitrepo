@@ -6,7 +6,7 @@
 [subrepo]
 	remote = https://github.com/Glitchfiend/BiomesOPlenty.git
 	branch = BOP-public
-	commit = d54666a0eda3a72e7b001af575ccd26f74be4334
-	parent = d7eb834718b039e79c5c5df0c804ad8ead1b3e59
+	commit = 3ebc6bee5d9405009d19a993081b71be0cdf62d9
+	parent = 35641716531b87c6f8cfce9a16d45000b5cb3fa5
 	method = merge
 	cmdver = 0.4.3
