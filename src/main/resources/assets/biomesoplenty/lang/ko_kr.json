@@ -146,7 +146,11 @@
   "block.biomesoplenty.cut_black_sandstone_slab": "깎인 검은 사암 반 블록",
   "block.biomesoplenty.cut_orange_sandstone": "깎인 주황 사암",
   "block.biomesoplenty.cut_orange_sandstone_slab": "깎인 주황 사암 반 블록",
+<<<<<<< HEAD
   "block.biomesoplenty.cut_white_sandstone": "깍인 하얀 사암",
+=======
+  "block.biomesoplenty.cut_white_sandstone": "깎인 하얀 사암",
+>>>>>>> refs/subrepo/public/fetch
   "block.biomesoplenty.cut_white_sandstone_slab": "깎인 하얀 사암 반 블록",
   "block.biomesoplenty.dead_branch": "죽은 나뭇가지",
   "block.biomesoplenty.dead_button": "죽은 나무 버튼",
