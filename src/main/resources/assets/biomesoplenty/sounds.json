@@ -10,22 +10,27 @@
   "music.nether.crystalline_chasm": {
     "sounds": [
 	  {
-        "name": "minecraft:music/game/nether/nether1",
+        "name": "biomesoplenty:music/game/nether/redhead",
+        "stream": true,
+		"weight": 4
+      },
+	  {
+        "name": "biomesoplenty:music/game/nether/blot",
         "stream": true,
 		"weight": 1
       },
 	  {
-        "name": "minecraft:music/game/nether/nether2",
+        "name": "biomesoplenty:music/game/nether/timber",
         "stream": true,
 		"weight": 1
       },
 	  {
-        "name": "minecraft:music/game/nether/nether3",
+        "name": "biomesoplenty:music/game/nether/mesh",
         "stream": true,
 		"weight": 1
       },
 	  {
-        "name": "minecraft:music/game/nether/nether4",
+        "name": "biomesoplenty:music/game/nether/cortisol",
         "stream": true,
 		"weight": 1
       }
@@ -34,22 +39,27 @@
   "music.nether.erupting_inferno": {
     "sounds": [
 	  {
-        "name": "minecraft:music/game/nether/nether1",
+        "name": "biomesoplenty:music/game/nether/blot",
+        "stream": true,
+		"weight": 4
+      },
+	  {
+        "name": "biomesoplenty:music/game/nether/redhead",
         "stream": true,
 		"weight": 1
       },
 	  {
-        "name": "minecraft:music/game/nether/nether2",
+        "name": "biomesoplenty:music/game/nether/timber",
         "stream": true,
 		"weight": 1
       },
 	  {
-        "name": "minecraft:music/game/nether/nether3",
+        "name": "biomesoplenty:music/game/nether/mesh",
         "stream": true,
 		"weight": 1
       },
 	  {
-        "name": "minecraft:music/game/nether/nether4",
+        "name": "biomesoplenty:music/game/nether/cortisol",
         "stream": true,
 		"weight": 1
       }
@@ -58,22 +68,27 @@
   "music.nether.undergrowth": {
     "sounds": [
 	  {
-        "name": "minecraft:music/game/nether/nether1",
+        "name": "biomesoplenty:music/game/nether/timber",
+        "stream": true,
+		"weight": 4
+      },
+	  {
+        "name": "biomesoplenty:music/game/nether/redhead",
         "stream": true,
 		"weight": 1
       },
 	  {
-        "name": "minecraft:music/game/nether/nether2",
+        "name": "biomesoplenty:music/game/nether/blot",
         "stream": true,
 		"weight": 1
       },
 	  {
-        "name": "minecraft:music/game/nether/nether3",
+        "name": "biomesoplenty:music/game/nether/mesh",
         "stream": true,
 		"weight": 1
       },
 	  {
-        "name": "minecraft:music/game/nether/nether4",
+        "name": "biomesoplenty:music/game/nether/cortisol",
         "stream": true,
 		"weight": 1
       }
@@ -82,22 +97,27 @@
   "music.nether.visceral_heap": {
     "sounds": [
 	  {
-        "name": "minecraft:music/game/nether/nether1",
+        "name": "biomesoplenty:music/game/nether/mesh",
+        "stream": true,
+		"weight": 4
+      },
+	  {
+        "name": "biomesoplenty:music/game/nether/redhead",
         "stream": true,
 		"weight": 1
       },
 	  {
-        "name": "minecraft:music/game/nether/nether2",
+        "name": "biomesoplenty:music/game/nether/blot",
         "stream": true,
 		"weight": 1
       },
 	  {
-        "name": "minecraft:music/game/nether/nether3",
+        "name": "biomesoplenty:music/game/nether/timber",
         "stream": true,
 		"weight": 1
       },
 	  {
-        "name": "minecraft:music/game/nether/nether4",
+        "name": "biomesoplenty:music/game/nether/cortisol",
         "stream": true,
 		"weight": 1
       }
@@ -106,22 +126,27 @@
   "music.nether.withered_abyss": {
     "sounds": [
 	  {
-        "name": "minecraft:music/game/nether/nether1",
+        "name": "biomesoplenty:music/game/nether/cortisol",
+        "stream": true,
+		"weight": 4
+      },
+	  {
+        "name": "biomesoplenty:music/game/nether/redhead",
         "stream": true,
 		"weight": 1
       },
 	  {
-        "name": "minecraft:music/game/nether/nether2",
+        "name": "biomesoplenty:music/game/nether/blot",
         "stream": true,
 		"weight": 1
       },
 	  {
-        "name": "minecraft:music/game/nether/nether3",
+        "name": "biomesoplenty:music/game/nether/timber",
         "stream": true,
 		"weight": 1
       },
 	  {
-        "name": "minecraft:music/game/nether/nether4",
+        "name": "biomesoplenty:music/game/nether/mesh",
         "stream": true,
 		"weight": 1
       }

@@ -10,7 +10,7 @@ logoFile="bop_logo.png"
     version="${file.jarVersion}"
     displayName="Biomes O' Plenty"
 	authors="Forstride, Adubbz"
-	credits="Tim Rurkowski, cheeserolls, ted80"
+	credits="LudoCrypt, Tim Rurkowski, cheeserolls, ted80"
     description="Adds over 50 new biomes, blocks, and more!"
 
 [[dependencies.biomesoplenty]]
