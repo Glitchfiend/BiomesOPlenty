@@ -35,6 +35,8 @@ public class DenseWoodlandBiome extends BiomeTemplate
         builder.surfaceBuilder(SurfaceBuilders.GRASS);
 
         // Structures
+        builder.addStructureStart(StructureFeatures.WOODLAND_MANSION);
+
         BiomeDefaultFeatures.addDefaultOverworldLandStructures(builder);
         builder.addStructureStart(StructureFeatures.RUINED_PORTAL_STANDARD);
 

@@ -10,6 +10,7 @@ import biomesoplenty.common.world.gen.feature.BOPConfiguredFeatures;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.data.worldgen.Features;
+import net.minecraft.data.worldgen.StructureFeatures;
 import net.minecraft.data.worldgen.SurfaceBuilders;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -39,6 +40,7 @@ public class MysticGroveBiome extends BiomeTemplate
         builder.surfaceBuilder(SurfaceBuilders.GRASS);
 
         // Structures
+        builder.addStructureStart(StructureFeatures.WOODLAND_MANSION);
         BiomeDefaultFeatures.addDefaultOverworldLandStructures(builder);
 
         // Underground

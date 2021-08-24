@@ -39,6 +39,8 @@ public class WoodlandBiome extends BiomeTemplate
         // Structures
         builder.addStructureStart(StructureFeatures.VILLAGE_PLAINS);
         builder.addStructureStart(StructureFeatures.PILLAGER_OUTPOST);
+        builder.addStructureStart(StructureFeatures.WOODLAND_MANSION);
+        
         BiomeDefaultFeatures.addDefaultOverworldLandStructures(builder);
         builder.addStructureStart(StructureFeatures.RUINED_PORTAL_STANDARD);
 
