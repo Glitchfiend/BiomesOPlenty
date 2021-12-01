@@ -1,8 +1,6 @@
 package biomesoplenty.common.block;
 
-import biomesoplenty.common.world.gen.feature.BOPConfiguredFeatures;
 import net.minecraft.core.BlockPos;
-import net.minecraft.data.worldgen.Features;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -10,8 +8,6 @@ import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.MossBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 
 import java.util.Random;
 
@@ -36,6 +32,7 @@ public class GlowingMossBlock extends MossBlock implements BonemealableBlock
     @Override
     public void performBonemeal(ServerLevel p_153792_, Random p_153793_, BlockPos p_153794_, BlockState p_153795_)
     {
-        Feature.VEGETATION_PATCH.place(new FeaturePlaceContext<>(p_153792_, p_153792_.getChunkSource().getGenerator(), p_153793_, p_153794_.above(), BOPConfiguredFeatures.GLOWING_MOSS_PATCH_BONEMEAL.config()));
+// TODO:
+//        Feature.VEGETATION_PATCH.place(new FeaturePlaceContext<>(p_153792_, p_153792_.getChunkSource().getGenerator(), p_153793_, p_153794_.above(), BOPConfiguredFeatures.GLOWING_MOSS_PATCH_BONEMEAL.config()));
     }
 }

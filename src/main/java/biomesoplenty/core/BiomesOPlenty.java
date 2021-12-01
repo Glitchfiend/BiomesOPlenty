@@ -46,7 +46,7 @@ public class BiomesOPlenty
             MinecraftForge.EVENT_BUS.register(new FluidFogHandler());
         }
 
-        ModBiomes.setup();
+//        ModBiomes.setup();
         ModConfig.setup();
     }
 
@@ -66,6 +66,5 @@ public class BiomesOPlenty
     {
         proxy.init();
         ModTags.setup();
-        ModCompatibility.setup();
     }
 }

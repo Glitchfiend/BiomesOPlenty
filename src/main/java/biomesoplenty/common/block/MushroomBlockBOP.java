@@ -4,8 +4,6 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
-import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.common.world.gen.feature.BOPFeatures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -16,9 +14,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.MushroomBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 import java.util.Random;
 
@@ -46,32 +41,34 @@ public class MushroomBlockBOP extends MushroomBlock implements BonemealableBlock
     @Override
     public boolean growMushroom(ServerLevel world, BlockPos p_226940_2_, BlockState p_226940_3_, Random p_226940_4_)
     {
-        world.removeBlock(p_226940_2_, false);
-        ConfiguredFeature<NoneFeatureConfiguration, ?> configuredfeature;
-        if (this == BOPBlocks.GLOWSHROOM)
-        {
-            configuredfeature = BOPFeatures.HUGE_GLOWSHROOM.configured(FeatureConfiguration.NONE);
-        }
-        else
-        {
-            if (this != BOPBlocks.TOADSTOOL)
-            {
-                world.setBlock(p_226940_2_, p_226940_3_, 3);
-                return false;
-            }
-
-            configuredfeature = BOPFeatures.HUGE_TOADSTOOL.configured(FeatureConfiguration.NONE);
-        }
-
-        if (configuredfeature.place(world, world.getChunkSource().getGenerator(), p_226940_4_, p_226940_2_))
-        {
-            return true;
-        }
-        else
-        {
-            world.setBlock(p_226940_2_, p_226940_3_, 3);
-            return false;
-        }
+        return false;
+// TODO:
+//        world.removeBlock(p_226940_2_, false);
+//        ConfiguredFeature<NoneFeatureConfiguration, ?> configuredfeature;
+//        if (this == BOPBlocks.GLOWSHROOM)
+//        {
+//            configuredfeature = BOPFeatures.HUGE_GLOWSHROOM.configured(FeatureConfiguration.NONE);
+//        }
+//        else
+//        {
+//            if (this != BOPBlocks.TOADSTOOL)
+//            {
+//                world.setBlock(p_226940_2_, p_226940_3_, 3);
+//                return false;
+//            }
+//
+//            configuredfeature = BOPFeatures.HUGE_TOADSTOOL.configured(FeatureConfiguration.NONE);
+//        }
+//
+//        if (configuredfeature.place(world, world.getChunkSource().getGenerator(), p_226940_4_, p_226940_2_))
+//        {
+//            return true;
+//        }
+//        else
+//        {
+//            world.setBlock(p_226940_2_, p_226940_3_, 3);
+//            return false;
+//        }
     }
 
     @Override

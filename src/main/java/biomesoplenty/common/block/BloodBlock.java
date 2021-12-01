@@ -124,7 +124,7 @@ public class BloodBlock extends LiquidBlock implements BucketPickup
     @Override
     public void onPlace(BlockState p_54754_, Level p_54755_, BlockPos p_54756_, BlockState p_54757_, boolean p_54758_) {
         if (this.shouldSpreadLiquid(p_54755_, p_54756_, p_54754_)) {
-            p_54755_.getLiquidTicks().scheduleTick(p_54756_, p_54754_.getFluidState().getType(), this.getFluid().getTickDelay(p_54755_));
+            p_54755_.scheduleTick(p_54756_, p_54754_.getFluidState().getType(), this.getFluid().getTickDelay(p_54755_));
         }
 
     }
@@ -132,7 +132,7 @@ public class BloodBlock extends LiquidBlock implements BucketPickup
     @Override
     public BlockState updateShape(BlockState p_54723_, Direction p_54724_, BlockState p_54725_, LevelAccessor p_54726_, BlockPos p_54727_, BlockPos p_54728_) {
         if (p_54723_.getFluidState().isSource() || p_54725_.getFluidState().isSource()) {
-            p_54726_.getLiquidTicks().scheduleTick(p_54727_, p_54723_.getFluidState().getType(), this.getFluid().getTickDelay(p_54726_));
+            p_54726_.scheduleTick(p_54727_, p_54723_.getFluidState().getType(), this.getFluid().getTickDelay(p_54726_));
         }
 
         return p_54723_;
@@ -141,7 +141,7 @@ public class BloodBlock extends LiquidBlock implements BucketPickup
     @Override
     public void neighborChanged(BlockState p_54709_, Level p_54710_, BlockPos p_54711_, Block p_54712_, BlockPos p_54713_, boolean p_54714_) {
         if (this.shouldSpreadLiquid(p_54710_, p_54711_, p_54709_)) {
-            p_54710_.getLiquidTicks().scheduleTick(p_54711_, p_54709_.getFluidState().getType(), this.getFluid().getTickDelay(p_54710_));
+            p_54710_.scheduleTick(p_54711_, p_54709_.getFluidState().getType(), this.getFluid().getTickDelay(p_54710_));
         }
 
     }

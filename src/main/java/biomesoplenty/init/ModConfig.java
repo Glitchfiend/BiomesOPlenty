@@ -4,7 +4,6 @@
  ******************************************************************************/
 package biomesoplenty.init;
 
-import biomesoplenty.common.world.BOPOverworldGenSettings;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -36,35 +35,6 @@ public class ModConfig
         }
     }
 
-
-    public static class GenerationConfig
-    {
-        public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
-        public static final ForgeConfigSpec SPEC;
-
-        public static final ForgeConfigSpec.EnumValue<BOPOverworldGenSettings.BiomeSize> biomeSize;
-        public static final ForgeConfigSpec.EnumValue<BOPOverworldGenSettings.RiverSize> riverSize;
-        public static final ForgeConfigSpec.EnumValue<BOPOverworldGenSettings.TemperatureVariationScheme> temperatureVariationScheme;
-        public static final ForgeConfigSpec.EnumValue<BOPOverworldGenSettings.RainfallVariationScheme> rainfallVariationScheme;
-        public static final ForgeConfigSpec.BooleanValue enhanceVanillaBiomes;
-        public static final ForgeConfigSpec.BooleanValue useBopNether;
-
-        static
-        {
-            BUILDER.comment("World generation related options.");
-            BUILDER.push("overworld");
-            biomeSize = BUILDER.comment("The size of generated biomes.").defineEnum("biome_size", BOPOverworldGenSettings.BiomeSize.MEDIUM);
-            riverSize = BUILDER.comment("The size of generated rivers.").defineEnum("river_size", BOPOverworldGenSettings.RiverSize.MEDIUM);
-            temperatureVariationScheme = BUILDER.comment("Type of temperature zones to use during biome placement.").defineEnum("temperature_variation_scheme", BOPOverworldGenSettings.TemperatureVariationScheme.MEDIUM_ZONES);
-            rainfallVariationScheme = BUILDER.comment("Type of rainfall zones to use during biome placement.").defineEnum("rainfall_variation_scheme", BOPOverworldGenSettings.RainfallVariationScheme.MEDIUM_ZONES);
-            enhanceVanillaBiomes = BUILDER.comment("Enhance vanilla biomes by adding additional decoration.").define("enhance_vanilla_biomes", true);
-            useBopNether = BUILDER.comment("Enable nether generation from Biomes O' Plenty.").define("use_bop_nether", true);
-            BUILDER.pop();
-
-            SPEC = BUILDER.build();
-        }
-    }
-
     public static void setup()
     {
         Path configPath = FMLPaths.CONFIGDIR.get();
@@ -84,7 +54,6 @@ public class ModConfig
             BiomesOPlenty.logger.error("Failed to create biomesoplenty config directory", e);
         }
 
-        ModLoadingContext.get().registerConfig(net.minecraftforge.fml.config.ModConfig.Type.COMMON, GenerationConfig.SPEC, "biomesoplenty/generation.toml");
         ModLoadingContext.get().registerConfig(net.minecraftforge.fml.config.ModConfig.Type.CLIENT, ClientConfig.SPEC, "biomesoplenty/client.toml");
     }
 }

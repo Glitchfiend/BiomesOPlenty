@@ -5,7 +5,6 @@
 package biomesoplenty.common.block.trees;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.data.worldgen.Features;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;
@@ -13,7 +12,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 
 import javax.annotation.Nullable;
@@ -41,15 +39,17 @@ public abstract class TreeDefaultConfig extends AbstractTreeGrower
         else
         {
             world.setBlock(pos, Blocks.AIR.defaultBlockState(), 4);
-            if (feature.place(new FeaturePlaceContext<>(world, generator, random, pos, TreeFeatures.OAK.config())))
-            {
-                return true;
-            }
-            else
-            {
-                world.setBlock(pos, state, 4);
-                return false;
-            }
+            return false;
+//TODO:
+//            if (feature.place(new FeaturePlaceContext<>(world, generator, random, pos, TreeFeatures.OAK.config())))
+//            {
+//                return true;
+//            }
+//            else
+//            {
+//                world.setBlock(pos, state, 4);
+//                return false;
+//            }
         }
     }
 }

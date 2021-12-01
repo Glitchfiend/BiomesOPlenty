@@ -16,7 +16,7 @@ public class FluidFogHandler
     @SubscribeEvent
     public void getFogDensity(EntityViewRenderEvent.FogDensity event)
     {
-        Camera camera = event.getInfo();
+        Camera camera = event.getCamera();
 
         FluidState fluidstate = camera.level.getFluidState(camera.blockPosition);
         if (fluidstate.is(ModTags.Fluids.BLOOD) && camera.position.y < (double)((float)camera.blockPosition.getY() + fluidstate.getHeight(camera.level, camera.blockPosition)))
@@ -30,7 +30,7 @@ public class FluidFogHandler
     @SubscribeEvent
     public void getFogColor(EntityViewRenderEvent.FogColors event)
     {
-        Camera camera = event.getInfo();
+        Camera camera = event.getCamera();
 
         FluidState fluidstate = camera.level.getFluidState(camera.blockPosition);
         if (fluidstate.is(ModTags.Fluids.BLOOD))
