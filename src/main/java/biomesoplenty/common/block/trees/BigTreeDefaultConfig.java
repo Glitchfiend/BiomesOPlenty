@@ -62,7 +62,7 @@ public abstract class BigTreeDefaultConfig extends AbstractMegaTreeGrower
         else
         {
             world.setBlock(pos, Blocks.AIR.defaultBlockState(), 4);
-            if (feature.place(new FeaturePlaceContext<>(world, generator, random, pos, Features.OAK.config())))
+            if (feature.place(new FeaturePlaceContext<>(world, generator, random, pos, TreeFeatures.OAK.config())))
             {
                 return true;
             }
@@ -89,7 +89,7 @@ public abstract class BigTreeDefaultConfig extends AbstractMegaTreeGrower
             world.setBlock(pos.offset(x + 1, 0, z), blockstate, 4);
             world.setBlock(pos.offset(x, 0, z + 1), blockstate, 4);
             world.setBlock(pos.offset(x + 1, 0, z + 1), blockstate, 4);
-            if (feature.place(new FeaturePlaceContext<>(world, generator, random, pos.offset(x, 0, z), Features.OAK.config())))
+            if (feature.place(new FeaturePlaceContext<>(world, generator, random, pos.offset(x, 0, z), TreeFeatures.OAK.config())))
             {
                 return true;
             }

@@ -41,7 +41,7 @@ public abstract class TreeDefaultConfig extends AbstractTreeGrower
         else
         {
             world.setBlock(pos, Blocks.AIR.defaultBlockState(), 4);
-            if (feature.place(new FeaturePlaceContext<>(world, generator, random, pos, Features.OAK.config())))
+            if (feature.place(new FeaturePlaceContext<>(world, generator, random, pos, TreeFeatures.OAK.config())))
             {
                 return true;
             }

@@ -20,7 +20,7 @@ repositories { mavenLocal() }
 group = "com.github.glitchfiend"
 archivesBaseName = "BiomesOPlenty"
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(16)
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 def getGitHash = {
     def stdout = new ByteArrayOutputStream()
@@ -46,6 +46,14 @@ minecraft {
         server = {
             workingDirectory = project.file("run").canonicalPath
             source sourceSets.main
+        }
+    }
+}
+
+allprojects {
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xmaxerrs" << "10000"
         }
     }
 }
