@@ -24,9 +24,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-public class BiomeSimulator {
+public class BiomeSimulator
+{
     private static final Map<ResourceKey<Biome>, Integer> COLORS = new HashMap<>();
-    static {
+
+    static
+    {
         SharedConstants.tryDetectVersion();
         Bootstrap.bootStrap();
 
@@ -92,12 +95,14 @@ public class BiomeSimulator {
         COLORS.put(BOPBiomes.CONIFEROUS_FOREST, 0x3d7350);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
 
         init(new NoiseSimulationHelper(new Random().nextLong()));
     }
 
-    public static void init(NoiseSimulationHelper sampler) {
+    public static void init(NoiseSimulationHelper sampler)
+    {
         ImmutableList.Builder<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> builder = ImmutableList.builder();
         (new BOPOverworldBiomeBuilder()).addBiomes(builder::add);
 
@@ -108,18 +113,23 @@ public class BiomeSimulator {
         Reference2IntOpenHashMap<ResourceKey<Biome>> map = new Reference2IntOpenHashMap<>();
         map.defaultReturnValue(0);
 
-        for (int x = 0; x < 2048; x++) {
-            if (x % 256 == 0) {
+        for (int x = 0; x < 2048; x++)
+        {
+            if (x % 256 == 0)
+            {
                 System.out.println("Mapping... " + (x / 256));
             }
 
-            for (int z = 0; z < 2048; z++) {
+            for (int z = 0; z < 2048; z++)
+            {
                 NoiseSampler.FlatNoiseData data = sampler.noiseData(x, z, Blender.empty());
                 int ay = 0;
-                for (int y = -8; y < 40; y++) {
+                for (int y = -8; y < 40; y++)
+                {
                     double offset = sampler.offset(y * 8, data.terrainInfo());
 
-                    if (offset < -4) {
+                    if (offset < -4)
+                    {
                         ay = y + 3;
                         break;
                     }
@@ -135,14 +145,17 @@ public class BiomeSimulator {
             }
         }
 
-        for (Reference2IntMap.Entry<ResourceKey<Biome>> entry : map.reference2IntEntrySet()) {
+        for (Reference2IntMap.Entry<ResourceKey<Biome>> entry : map.reference2IntEntrySet())
+        {
             System.out.println(entry.getKey().location() + ": " + (entry.getIntValue() / (2048.0 * 2048.0)) * 100 + "%");
         }
 
         Path p = Paths.get(".", "run", "biomes.png");
-        try {
+        try
+        {
             ImageIO.write(image, "png", p.toAbsolutePath().toFile());
-        } catch (IOException e) {
+        } catch (IOException e)
+        {
             e.printStackTrace();
         }
     }
