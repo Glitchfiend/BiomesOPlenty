@@ -5,6 +5,7 @@
 package biomesoplenty.core;
 
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.common.util.BOPWorldType;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.color.item.ItemColors;
@@ -29,6 +30,8 @@ public class ClientProxy extends CommonProxy
     @Override
     public void init()
     {
+        new BOPWorldType();
+
         BlockColors blockColors = Minecraft.getInstance().getBlockColors();
         ItemColors itemColors = Minecraft.getInstance().getItemColors();
 
