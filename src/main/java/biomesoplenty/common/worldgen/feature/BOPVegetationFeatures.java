@@ -36,6 +36,7 @@ public class BOPVegetationFeatures
 
     // Flowers
     public static final ConfiguredFeature<RandomPatchConfiguration, ?> FLOWER_CONIFEROUS_FOREST = register("flower_coniferous_forest", Feature.FLOWER.configured(grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.CORNFLOWER.defaultBlockState(), 1).add(Blocks.OXEYE_DAISY.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1)), 64)));
+    public static final ConfiguredFeature<RandomPatchConfiguration, ?> FLOWER_CHERRY_BLOSSOM_GROVE = register("flower_cherry_blossom_grove", Feature.FLOWER.configured(grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BOPBlocks.PINK_DAFFODIL.defaultBlockState(), 1).add(Blocks.LILY_OF_THE_VALLEY.defaultBlockState(), 1)), 64)));
     public static final ConfiguredFeature<RandomPatchConfiguration, ?> FLOWER_DEFAULT_EXTENDED = register("flower_default_extended", Feature.FLOWER.configured(grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.OXEYE_DAISY.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1)), 64)));
 
     // Trees
