@@ -12,8 +12,9 @@ import net.minecraft.world.level.biome.Biome;
 
 public class BOPBiomes
 {
-    public static final ResourceKey<Biome> CONIFEROUS_FOREST = register("coniferous_forest");
     public static final ResourceKey<Biome> BAMBOO_BLOSSOM_GROVE = register("bamboo_blossom_grove");
+    public static final ResourceKey<Biome> CHERRY_BLOSSOM_GROVE = register("cherry_blossom_grove");
+    public static final ResourceKey<Biome> CONIFEROUS_FOREST = register("coniferous_forest");
     public static final ResourceKey<Biome> WOODLAND = register("woodland");
 
     private static ResourceKey<Biome> register(String name)

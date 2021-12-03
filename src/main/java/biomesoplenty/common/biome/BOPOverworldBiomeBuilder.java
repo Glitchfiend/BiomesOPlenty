@@ -98,19 +98,19 @@ public final class BOPOverworldBiomeBuilder
     };
 
     private final ResourceKey<Biome>[][] MIDDLE_BIOMES_BOP = new ResourceKey[][]{
-            {null, null,                        null,               null, null},
-            {null, BOPBiomes.CONIFEROUS_FOREST, null,               null, null},
-            {null, null,                        null,               null, null},
-            {null, null,                        BOPBiomes.WOODLAND, null, null},
-            {null, null,                        null,               null, null}
+            {null, null, null,                        null,                           null},
+            {null, null, BOPBiomes.CONIFEROUS_FOREST, null,                           null},
+            {null, null, null,                        BOPBiomes.CHERRY_BLOSSOM_GROVE, null},
+            {null, null, BOPBiomes.WOODLAND,          null,                           null},
+            {null, null, null,                        null,                           null}
     };
 
     private final ResourceKey<Biome>[][] MIDDLE_BIOMES_VARIANT_BOP = new ResourceKey[][]{
-            {null, null, null, null, null},
-            {null, null, null, null, null},
-            {null, null, null, null, BOPBiomes.BAMBOO_BLOSSOM_GROVE},
-            {null, null, null, null, null},
-            {null, null, null, null, null}
+            {null, null, null, null,                           null},
+            {null, null, null, null,                           null},
+            {null, null, null, BOPBiomes.BAMBOO_BLOSSOM_GROVE, null},
+            {null, null, null, null,                           null},
+            {null, null, null, null,                           null}
     };
 
     private final ResourceKey<Biome>[][] PLATEAU_BIOMES = new ResourceKey[][]{
