@@ -9,23 +9,20 @@ import biomesoplenty.common.worldgen.feature.BOPTreeFeatures;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
-import net.minecraft.data.worldgen.features.TreeFeatures;
-import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 public class BOPTreePlacements
 {
-    public static final PlacedFeature FIR_CHECKED = PlacementUtils.register("fir", BOPTreeFeatures.FIR.filteredByBlockSurvival(BOPBlocks.FIR_SAPLING));
-    public static final PlacedFeature FIR_LARGE_CHECKED = PlacementUtils.register("fir_large", BOPTreeFeatures.LARGE_FIR.filteredByBlockSurvival(BOPBlocks.FIR_SAPLING));
-    public static final PlacedFeature WHITE_CHERRY_TREE_BEES_CHECKED = PlacementUtils.register("white_cherry_tree_bees_checked", BOPTreeFeatures.WHITE_CHERRY_TREE_BEES.filteredByBlockSurvival(BOPBlocks.WHITE_CHERRY_SAPLING));
-    public static final PlacedFeature PINK_CHERRY_TREE_BEES_CHECKED = PlacementUtils.register("pink_cherry_tree_bees_checked", BOPTreeFeatures.PINK_CHERRY_TREE_BEES.filteredByBlockSurvival(BOPBlocks.PINK_CHERRY_SAPLING));
-    public static final PlacedFeature FLOWERING_OAK_TREE_BEES_CHECKED = PlacementUtils.register("flowering_oak_tree_bees", BOPTreeFeatures.FLOWERING_OAK_TREE_BEES.filteredByBlockSurvival(BOPBlocks.FLOWERING_OAK_SAPLING));
-    public static final PlacedFeature FLOWERING_OAK_BUSH_CHECKED = PlacementUtils.register("flowering_oak_bush", BOPTreeFeatures.FLOWERING_OAK_BUSH.filteredByBlockSurvival(BOPBlocks.FLOWERING_OAK_SAPLING));
-    public static final PlacedFeature BIG_WHITE_CHERRY_TREE_CHECKED = PlacementUtils.register("big_white_cherry_tree", BOPTreeFeatures.BIG_WHITE_CHERRY_TREE.filteredByBlockSurvival(BOPBlocks.WHITE_CHERRY_SAPLING));
-    public static final PlacedFeature BIG_PINK_CHERRY_TREE_CHECKED = PlacementUtils.register("big_pink_cherry_tree", BOPTreeFeatures.BIG_PINK_CHERRY_TREE.filteredByBlockSurvival(BOPBlocks.PINK_CHERRY_SAPLING));
-    public static final PlacedFeature BIG_FLOWERING_TREE_CHECKED = PlacementUtils.register("big_flowering_tree", BOPTreeFeatures.BIG_FLOWERING_TREE.filteredByBlockSurvival(BOPBlocks.FLOWERING_OAK_SAPLING));
+    public static final PlacedFeature FIR_CHECKED = register("fir", BOPTreeFeatures.FIR.filteredByBlockSurvival(BOPBlocks.FIR_SAPLING));
+    public static final PlacedFeature FIR_LARGE_CHECKED = register("fir_large", BOPTreeFeatures.LARGE_FIR.filteredByBlockSurvival(BOPBlocks.FIR_SAPLING));
+    public static final PlacedFeature WHITE_CHERRY_TREE_BEES_CHECKED = register("white_cherry_tree_bees_checked", BOPTreeFeatures.WHITE_CHERRY_TREE_BEES.filteredByBlockSurvival(BOPBlocks.WHITE_CHERRY_SAPLING));
+    public static final PlacedFeature PINK_CHERRY_TREE_BEES_CHECKED = register("pink_cherry_tree_bees_checked", BOPTreeFeatures.PINK_CHERRY_TREE_BEES.filteredByBlockSurvival(BOPBlocks.PINK_CHERRY_SAPLING));
+    public static final PlacedFeature FLOWERING_OAK_TREE_BEES_CHECKED = register("flowering_oak_tree_bees", BOPTreeFeatures.FLOWERING_OAK_TREE_BEES.filteredByBlockSurvival(BOPBlocks.FLOWERING_OAK_SAPLING));
+    public static final PlacedFeature FLOWERING_OAK_BUSH_CHECKED = register("flowering_oak_bush", BOPTreeFeatures.FLOWERING_OAK_BUSH.filteredByBlockSurvival(BOPBlocks.FLOWERING_OAK_SAPLING));
+    public static final PlacedFeature BIG_WHITE_CHERRY_TREE_CHECKED = register("big_white_cherry_tree", BOPTreeFeatures.BIG_WHITE_CHERRY_TREE.filteredByBlockSurvival(BOPBlocks.WHITE_CHERRY_SAPLING));
+    public static final PlacedFeature BIG_PINK_CHERRY_TREE_CHECKED = register("big_pink_cherry_tree", BOPTreeFeatures.BIG_PINK_CHERRY_TREE.filteredByBlockSurvival(BOPBlocks.PINK_CHERRY_SAPLING));
+    public static final PlacedFeature BIG_FLOWERING_TREE_CHECKED = register("big_flowering_tree", BOPTreeFeatures.BIG_FLOWERING_TREE.filteredByBlockSurvival(BOPBlocks.FLOWERING_OAK_SAPLING));
 
     public static PlacedFeature register(String key, PlacedFeature feature)
     {
