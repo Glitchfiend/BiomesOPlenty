@@ -22,7 +22,10 @@ public class ModBiomes
     {
         registerBiome(BOPBiomes.CONIFEROUS_FOREST, BOPOverworldBiomes.coniferousForest());
         registerBiome(BOPBiomes.BAMBOO_BLOSSOM_GROVE, BOPOverworldBiomes.bambooBlossomGrove());
+        registerBiome(BOPBiomes.WOODLAND, BOPOverworldBiomes.woodland());
     }
+
+    // TODO: Villagers, other stuff
 
     public static void registerBiome(ResourceKey<Biome> key, Biome biome)
     {
