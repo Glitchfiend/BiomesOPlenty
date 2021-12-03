@@ -6,15 +6,14 @@ package biomesoplenty.common.worldgen.feature.configurations;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 
 import java.util.List;
 
-public class TaigaTreeConfiguration extends BOPTreeConfiguration
+public class BigTreeConfiguration extends BOPTreeConfiguration
 {
-    public static final Codec<TaigaTreeConfiguration> CODEC = RecordCodecBuilder.create((builder) -> {
+    public static final Codec<BigTreeConfiguration> CODEC = RecordCodecBuilder.create((builder) -> {
         return builder.group(
                 BlockStateProvider.CODEC.fieldOf("trunk_provider").forGetter((instance) -> instance.trunkProvider),
                 BlockStateProvider.CODEC.fieldOf("foliage_provider").forGetter((instance) -> instance.foliageProvider),
@@ -25,41 +24,46 @@ public class TaigaTreeConfiguration extends BOPTreeConfiguration
                 Codec.INT.fieldOf("min_height").forGetter((instance) -> instance.minHeight),
                 Codec.INT.fieldOf("max_height").forGetter((instance) -> instance.maxHeight),
                 TreeDecorator.CODEC.listOf().fieldOf("decorators").forGetter(instance -> instance.decorators),
-                Codec.INT.fieldOf("trunk_width").forGetter((instance) -> instance.trunkWidth)
-        ).apply(builder, TaigaTreeConfiguration::new);
+                Codec.INT.fieldOf("trunk_width").forGetter((instance) -> instance.trunkWidth),
+                Codec.INT.fieldOf("foliage_height").forGetter((instance) -> instance.foliageHeight),
+                Codec.DOUBLE.fieldOf("foliage_density").forGetter((instance) -> instance.foliageDensity)
+        ).apply(builder, BigTreeConfiguration::new);
     });
-
     public final int trunkWidth;
+    public final int foliageHeight;
+    public final double foliageDensity;
 
-    protected TaigaTreeConfiguration(BlockStateProvider trunkProvider, BlockStateProvider foliageProvider, BlockStateProvider vineProvider, BlockStateProvider hangingProvider, BlockStateProvider trunkFruitProvider, BlockStateProvider altFoliageProvider, int minHeight, int maxHeight, List<TreeDecorator> decorators, int trunkWidth)
+    protected BigTreeConfiguration(BlockStateProvider trunkProvider, BlockStateProvider foliageProvider, BlockStateProvider vineProvider, BlockStateProvider hangingProvider, BlockStateProvider trunkFruitProvider, BlockStateProvider altFoliageProvider, int minHeight, int maxHeight, List<TreeDecorator> decorators, int trunkWidth, int foliageHeight, double foliageDensity)
     {
         super(trunkProvider, foliageProvider, vineProvider, hangingProvider, trunkFruitProvider, altFoliageProvider, minHeight, maxHeight, decorators);
+
         this.trunkWidth = trunkWidth;
+        this.foliageHeight = foliageHeight;
+        this.foliageDensity = foliageDensity;
     }
 
     public static class Builder extends BOPTreeConfiguration.Builder<Builder>
     {
         private int trunkWidth;
+        private int foliageHeight;
+        private double foliageDensity;
+
+        public Builder trunkWidth(int a) {this.trunkWidth = a; return this;}
+        public Builder foliageHeight(int a) {this.foliageHeight = a; return this;}
+        public Builder foliageDensity(int a) {this.foliageDensity = a; return this;}
 
         public Builder()
         {
-            this.minHeight = 6;
+            this.minHeight = 5;
             this.maxHeight = 12;
-            this.trunkProvider = BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState());
-            this.foliageProvider = BlockStateProvider.simple(Blocks.SPRUCE_LEAVES.defaultBlockState());
-            this.vineProvider = BlockStateProvider.simple(Blocks.VINE.defaultBlockState());
             this.trunkWidth = 1;
+            this.foliageHeight = 5;
+            this.foliageDensity = 1.0F;
         }
 
-        public Builder trunkWidth(int a)
+        public BigTreeConfiguration build()
         {
-            this.trunkWidth = a;
-            return this;
-        }
-
-        public TaigaTreeConfiguration build()
-        {
-            return new TaigaTreeConfiguration(this.trunkProvider, this.foliageProvider, this.vineProvider, this.hangingProvider, this.trunkFruitProvider, this.altFoliageProvider, this.minHeight, this.maxHeight, this.decorators,this.trunkWidth);
+            return new BigTreeConfiguration(this.trunkProvider, this.foliageProvider, this.vineProvider, this.hangingProvider, this.trunkFruitProvider, this.altFoliageProvider, this.minHeight, this.maxHeight, this.decorators, this.trunkWidth, this.foliageHeight, this.foliageDensity);
         }
     }
 }
