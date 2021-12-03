@@ -86,7 +86,7 @@ public final class BOPOverworldBiomeBuilder
             {Biomes.PLAINS,        Biomes.PLAINS,       Biomes.FOREST,       Biomes.TAIGA,        Biomes.OLD_GROWTH_SPRUCE_TAIGA},
             {Biomes.FLOWER_FOREST, Biomes.PLAINS,       Biomes.FOREST,       Biomes.BIRCH_FOREST, Biomes.DARK_FOREST},
             {Biomes.SAVANNA,       Biomes.SAVANNA,      Biomes.FOREST,       Biomes.JUNGLE,       Biomes.JUNGLE},
-            {Biomes.DESERT,        Biomes.DESERT,       Biomes.DESERT,       Biomes.DESERT,       Biomes.DESERT}
+            {Biomes.DESERT,        Biomes.DESERT,       Biomes.DESERT,       Biomes.DESERT,       /*Biomes.DESERT*/BOPBiomes.WOODLAND}
     };
 
     private final ResourceKey<Biome>[][] MIDDLE_BIOMES_VARIANT = new ResourceKey[][]{
@@ -98,11 +98,11 @@ public final class BOPOverworldBiomeBuilder
     };
 
     private final ResourceKey<Biome>[][] PLATEAU_BIOMES = new ResourceKey[][]{
-            {Biomes.SNOWY_PLAINS,    Biomes.SNOWY_PLAINS,    Biomes.SNOWY_PLAINS,                           Biomes.SNOWY_TAIGA,     Biomes.SNOWY_TAIGA},
-            {Biomes.MEADOW,          Biomes.MEADOW,          /*Biomes.FOREST*/ BOPBiomes.CONIFEROUS_FOREST, Biomes.TAIGA,           Biomes.OLD_GROWTH_SPRUCE_TAIGA},
-            {Biomes.MEADOW,          Biomes.MEADOW,          Biomes.MEADOW,                                 Biomes.MEADOW,          Biomes.DARK_FOREST},
-            {Biomes.SAVANNA_PLATEAU, Biomes.SAVANNA_PLATEAU, Biomes.FOREST,                                 Biomes.FOREST,          Biomes.JUNGLE},
-            {Biomes.BADLANDS,        Biomes.BADLANDS,        Biomes.BADLANDS,                               Biomes.WOODED_BADLANDS, Biomes.WOODED_BADLANDS}
+            {Biomes.SNOWY_PLAINS,    Biomes.SNOWY_PLAINS,                              Biomes.SNOWY_PLAINS,                           Biomes.SNOWY_TAIGA,     Biomes.SNOWY_TAIGA},
+            {Biomes.MEADOW,          Biomes.MEADOW,                                    /*Biomes.FOREST*/ BOPBiomes.CONIFEROUS_FOREST, Biomes.TAIGA,           Biomes.OLD_GROWTH_SPRUCE_TAIGA},
+            {Biomes.MEADOW,          /*Biomes.MEADOW*/ BOPBiomes.BAMBOO_BLOSSOM_GROVE, Biomes.MEADOW,                                 Biomes.MEADOW,          Biomes.DARK_FOREST},
+            {Biomes.SAVANNA_PLATEAU, Biomes.SAVANNA_PLATEAU,                           Biomes.FOREST,                                 Biomes.FOREST,          Biomes.JUNGLE},
+            {Biomes.BADLANDS,        Biomes.BADLANDS,                                  Biomes.BADLANDS,                               Biomes.WOODED_BADLANDS, Biomes.WOODED_BADLANDS}
     };
 
     private final ResourceKey<Biome>[][] PLATEAU_BIOMES_VARIANT = new ResourceKey[][]{
