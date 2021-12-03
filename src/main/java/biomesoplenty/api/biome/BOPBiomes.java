@@ -13,6 +13,7 @@ import net.minecraft.world.level.biome.Biome;
 public class BOPBiomes
 {
     public static final ResourceKey<Biome> CONIFEROUS_FOREST = register("coniferous_forest");
+    public static final ResourceKey<Biome> WOODLAND = register("woodland");
 
     private static ResourceKey<Biome> register(String name)
     {
