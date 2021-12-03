@@ -86,23 +86,39 @@ public final class BOPOverworldBiomeBuilder
             {Biomes.PLAINS,        Biomes.PLAINS,       Biomes.FOREST,       Biomes.TAIGA,        Biomes.OLD_GROWTH_SPRUCE_TAIGA},
             {Biomes.FLOWER_FOREST, Biomes.PLAINS,       Biomes.FOREST,       Biomes.BIRCH_FOREST, Biomes.DARK_FOREST},
             {Biomes.SAVANNA,       Biomes.SAVANNA,      Biomes.FOREST,       Biomes.JUNGLE,       Biomes.JUNGLE},
-            {Biomes.DESERT,        Biomes.DESERT,       Biomes.DESERT,       Biomes.DESERT,       /*Biomes.DESERT*/BOPBiomes.WOODLAND}
+            {Biomes.DESERT,        Biomes.DESERT,       Biomes.DESERT,       Biomes.DESERT,       Biomes.DESERT}
     };
 
     private final ResourceKey<Biome>[][] MIDDLE_BIOMES_VARIANT = new ResourceKey[][]{
-            {Biomes.ICE_SPIKES,       null, Biomes.SNOWY_TAIGA, null,                                 null},
-            {null,                    null, null,               /*null*/ BOPBiomes.CONIFEROUS_FOREST, Biomes.OLD_GROWTH_PINE_TAIGA},
-            {Biomes.SUNFLOWER_PLAINS, null, null,               Biomes.OLD_GROWTH_BIRCH_FOREST,       null},
-            {null,                    null, Biomes.PLAINS,      Biomes.SPARSE_JUNGLE,                 Biomes.BAMBOO_JUNGLE},
-            {null,                    null, null,               null,                                 null}
+            {Biomes.ICE_SPIKES,       null, Biomes.SNOWY_TAIGA, null,                           null},
+            {null,                    null, null,               null,                           Biomes.OLD_GROWTH_PINE_TAIGA},
+            {Biomes.SUNFLOWER_PLAINS, null, null,               Biomes.OLD_GROWTH_BIRCH_FOREST, null},
+            {null,                    null, Biomes.PLAINS,      Biomes.SPARSE_JUNGLE,           Biomes.BAMBOO_JUNGLE},
+            {null,                    null, null,               null,                           null}
+    };
+
+    private final ResourceKey<Biome>[][] MIDDLE_BIOMES_BOP = new ResourceKey[][]{
+            {null, null,                        null,               null, null},
+            {null, BOPBiomes.CONIFEROUS_FOREST, null,               null, null},
+            {null, null,                        null,               null, null},
+            {null, null,                        BOPBiomes.WOODLAND, null, null},
+            {null, null,                        null,               null, null}
+    };
+
+    private final ResourceKey<Biome>[][] MIDDLE_BIOMES_VARIANT_BOP = new ResourceKey[][]{
+            {null, null, null, null, null},
+            {null, null, null, null, null},
+            {null, null, null, null, BOPBiomes.BAMBOO_BLOSSOM_GROVE},
+            {null, null, null, null, null},
+            {null, null, null, null, null}
     };
 
     private final ResourceKey<Biome>[][] PLATEAU_BIOMES = new ResourceKey[][]{
-            {Biomes.SNOWY_PLAINS,    Biomes.SNOWY_PLAINS,                              Biomes.SNOWY_PLAINS,                           Biomes.SNOWY_TAIGA,     Biomes.SNOWY_TAIGA},
-            {Biomes.MEADOW,          Biomes.MEADOW,                                    /*Biomes.FOREST*/ BOPBiomes.CONIFEROUS_FOREST, Biomes.TAIGA,           Biomes.OLD_GROWTH_SPRUCE_TAIGA},
-            {Biomes.MEADOW,          /*Biomes.MEADOW*/ BOPBiomes.BAMBOO_BLOSSOM_GROVE, Biomes.MEADOW,                                 Biomes.MEADOW,          Biomes.DARK_FOREST},
-            {Biomes.SAVANNA_PLATEAU, Biomes.SAVANNA_PLATEAU,                           Biomes.FOREST,                                 Biomes.FOREST,          Biomes.JUNGLE},
-            {Biomes.BADLANDS,        Biomes.BADLANDS,                                  Biomes.BADLANDS,                               Biomes.WOODED_BADLANDS, Biomes.WOODED_BADLANDS}
+            {Biomes.SNOWY_PLAINS,    Biomes.SNOWY_PLAINS,    Biomes.SNOWY_PLAINS, Biomes.SNOWY_TAIGA,     Biomes.SNOWY_TAIGA},
+            {Biomes.MEADOW,          Biomes.MEADOW,          Biomes.FOREST,       Biomes.TAIGA,           Biomes.OLD_GROWTH_SPRUCE_TAIGA},
+            {Biomes.MEADOW,          Biomes.MEADOW,          Biomes.MEADOW,       Biomes.MEADOW,          Biomes.DARK_FOREST},
+            {Biomes.SAVANNA_PLATEAU, Biomes.SAVANNA_PLATEAU, Biomes.FOREST,       Biomes.FOREST,          Biomes.JUNGLE},
+            {Biomes.BADLANDS,        Biomes.BADLANDS,        Biomes.BADLANDS,     Biomes.WOODED_BADLANDS, Biomes.WOODED_BADLANDS}
     };
 
     private final ResourceKey<Biome>[][] PLATEAU_BIOMES_VARIANT = new ResourceKey[][]{
@@ -401,7 +417,28 @@ public final class BOPOverworldBiomeBuilder
 
     private ResourceKey<Biome> pickMiddleBiome(int temperatureIndex, int humidityIndex, Climate.Parameter weirdness)
     {
-        if (weirdness.max() < 0L)
+        return weirdness.max() < 0L ? pickBOPMiddleBiome(temperatureIndex, humidityIndex, weirdness) : pickVanillaMiddleBiome(temperatureIndex, humidityIndex, weirdness);
+    }
+
+    private ResourceKey<Biome> pickBOPMiddleBiome(int temperatureIndex, int humidityIndex, Climate.Parameter weirdness)
+    {
+        if (weirdness.max() < -3750L)
+        {
+            // TODO: Remove this null fallback once our array is complete
+            ResourceKey<Biome> biome = this.MIDDLE_BIOMES_BOP[temperatureIndex][humidityIndex];
+            return biome == null ? this.MIDDLE_BIOMES[temperatureIndex][humidityIndex] : biome;
+        }
+        else
+        {
+            // TODO: Use MIDDLE_BIOMES_BOP as the fallback
+            ResourceKey<Biome> variantBiome = this.MIDDLE_BIOMES_VARIANT_BOP[temperatureIndex][humidityIndex];
+            return variantBiome == null ? this.MIDDLE_BIOMES[temperatureIndex][humidityIndex] : variantBiome;
+        }
+    }
+
+    private ResourceKey<Biome> pickVanillaMiddleBiome(int temperatureIndex, int humidityIndex, Climate.Parameter weirdness)
+    {
+        if (weirdness.max() > 3750L)
         {
             return this.MIDDLE_BIOMES[temperatureIndex][humidityIndex];
         }
