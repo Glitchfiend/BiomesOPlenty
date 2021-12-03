@@ -21,7 +21,10 @@ public class ModBiomes
     public static void registerBiomes(RegistryEvent.Register<Biome> event)
     {
         registerBiome(BOPBiomes.CONIFEROUS_FOREST, BOPOverworldBiomes.coniferousForest());
+        registerBiome(BOPBiomes.WOODLAND, BOPOverworldBiomes.woodland());
     }
+
+    // TODO: Villagers, other stuff
 
     public static void registerBiome(ResourceKey<Biome> key, Biome biome)
     {
