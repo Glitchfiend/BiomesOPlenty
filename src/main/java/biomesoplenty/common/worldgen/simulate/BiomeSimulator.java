@@ -96,6 +96,7 @@ public class BiomeSimulator
 
         COLORS.put(BOPBiomes.CONIFEROUS_FOREST, 0x3d7350);
         COLORS.put(BOPBiomes.BAMBOO_BLOSSOM_GROVE, 0x85CE71);
+        COLORS.put(BOPBiomes.CHERRY_BLOSSOM_GROVE, 0xce71af);
         COLORS.put(BOPBiomes.WOODLAND, 0xA7C047);
     }
 
