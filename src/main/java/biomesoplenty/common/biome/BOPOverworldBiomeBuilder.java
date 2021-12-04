@@ -6,19 +6,15 @@ package biomesoplenty.common.biome;
 
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.common.worldgen.BOPClimate;
-import biomesoplenty.core.BiomesOPlenty;
 import com.mojang.datafixers.util.Pair;
 
 import java.util.List;
 import java.util.function.Consumer;
 
 import net.minecraft.SharedConstants;
-import net.minecraft.data.worldgen.TerrainProvider;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
-import net.minecraft.world.level.biome.Climate;
 import net.minecraft.world.level.biome.TerrainShaper;
 
 public final class BOPOverworldBiomeBuilder
@@ -216,22 +212,24 @@ public final class BOPOverworldBiomeBuilder
             {
                 BOPClimate.Parameter humidity = this.humidities[j];
 
-                ResourceKey<Biome> middleBiomeVanilla         = this.pickVanillaMiddleBiome(i, j, weirdness);
-                ResourceKey<Biome> middleBiomeBOP             = this.pickBOPMiddleBiome(i, j, weirdness);
+                ResourceKey<Biome> middleBiomeVanilla           = this.pickMiddleBiomeVanilla(i, j, weirdness);
+                ResourceKey<Biome> middleBiomeBOP               = this.pickMiddleBiomeBOP(i, j, weirdness);
+                ResourceKey<Biome> middleOrBadlandsBiomeVanilla = this.pickMiddleBiomeOrBadlandsIfHotVanilla(i, j, weirdness);
+                ResourceKey<Biome> middleOrBadlandsBiomeBOP     = this.pickMiddleBiomeOrBadlandsIfHotBOP(i, j, weirdness);
 
-                ResourceKey<Biome> middleOrBadlandsBiome      = this.pickMiddleBiomeOrBadlandsIfHot(i, j, weirdness);
-                ResourceKey<Biome> middleBadlandsOrSlopeBiome = this.pickMiddleBiomeOrBadlandsIfHotOrSlopeIfCold(i, j, weirdness);
-                ResourceKey<Biome> plateauBiome               = this.pickPlateauBiome(i, j, weirdness);
-                ResourceKey<Biome> extremeHillsBiome          = this.pickExtremeHillsBiome(i, j, weirdness);
-                ResourceKey<Biome> shatteredBiome             = this.maybePickShatteredBiome(i, j, weirdness, extremeHillsBiome);
-                ResourceKey<Biome> peakBiome                  = this.pickPeakBiome(i, j, weirdness);
+                ResourceKey<Biome> middleBadlandsOrSlopeBiome   = this.pickMiddleBiomeOrBadlandsIfHotOrSlopeIfCold(i, j, weirdness);
+
+                ResourceKey<Biome> plateauBiome                 = this.pickPlateauBiome(i, j, weirdness);
+                ResourceKey<Biome> extremeHillsBiome            = this.pickExtremeHillsBiome(i, j, weirdness);
+                ResourceKey<Biome> shatteredBiome               = this.maybePickShatteredBiome(i, j, weirdness, extremeHillsBiome);
+                ResourceKey<Biome> peakBiome                    = this.pickPeakBiome(i, j, weirdness);
 
                 this.addSurfaceBiome(mapper, temperature, humidity, BOPClimate.Parameter.span(this.coastContinentalness, this.farInlandContinentalness), this.erosions[0], weirdness, 0.0F, peakBiome);
                 this.addSurfaceBiome(mapper, temperature, humidity, BOPClimate.Parameter.span(this.coastContinentalness, this.nearInlandContinentalness), this.erosions[1], weirdness, 0.0F, middleBadlandsOrSlopeBiome);
                 this.addSurfaceBiome(mapper, temperature, humidity, BOPClimate.Parameter.span(this.midInlandContinentalness, this.farInlandContinentalness), this.erosions[1], weirdness, 0.0F, peakBiome);
                 this.addParallelSurfaceBiomes(mapper, temperature, humidity, BOPClimate.Parameter.span(this.coastContinentalness, this.nearInlandContinentalness), BOPClimate.Parameter.span(this.erosions[2], this.erosions[3]), weirdness, 0.0F, middleBiomeVanilla, middleBiomeBOP);
                 this.addSurfaceBiome(mapper, temperature, humidity, BOPClimate.Parameter.span(this.midInlandContinentalness, this.farInlandContinentalness), this.erosions[2], weirdness, 0.0F, plateauBiome);
-                this.addSurfaceBiome(mapper, temperature, humidity, this.midInlandContinentalness, this.erosions[3], weirdness, 0.0F, middleOrBadlandsBiome);
+                this.addParallelSurfaceBiomes(mapper, temperature, humidity, this.midInlandContinentalness, this.erosions[3], weirdness, 0.0F, middleOrBadlandsBiomeVanilla, middleOrBadlandsBiomeBOP);
                 this.addSurfaceBiome(mapper, temperature, humidity, this.farInlandContinentalness, this.erosions[3], weirdness, 0.0F, plateauBiome);
                 this.addParallelSurfaceBiomes(mapper, temperature, humidity, BOPClimate.Parameter.span(this.coastContinentalness, this.farInlandContinentalness), this.erosions[4], weirdness, 0.0F, middleBiomeVanilla, middleBiomeBOP);
                 this.addSurfaceBiome(mapper, temperature, humidity, BOPClimate.Parameter.span(this.coastContinentalness, this.nearInlandContinentalness), this.erosions[5], weirdness, 0.0F, shatteredBiome);
@@ -252,10 +250,11 @@ public final class BOPOverworldBiomeBuilder
             {
                 BOPClimate.Parameter humidity = this.humidities[j];
 
-                ResourceKey<Biome> middleBiomeVanilla         = this.pickVanillaMiddleBiome(i, j, weirdness);
-                ResourceKey<Biome> middleBiomeBOP             = this.pickBOPMiddleBiome(i, j, weirdness);
+                ResourceKey<Biome> middleBiomeVanilla         = this.pickMiddleBiomeVanilla(i, j, weirdness);
+                ResourceKey<Biome> middleBiomeBOP             = this.pickMiddleBiomeBOP(i, j, weirdness);
+                ResourceKey<Biome> middleOrBadlandsBiomeVanilla = this.pickMiddleBiomeOrBadlandsIfHotVanilla(i, j, weirdness);
+                ResourceKey<Biome> middleOrBadlandsBiomeBOP     = this.pickMiddleBiomeOrBadlandsIfHotBOP(i, j, weirdness);
 
-                ResourceKey<Biome> middleOrBadlandsBiome      = this.pickMiddleBiomeOrBadlandsIfHot(i, j, weirdness);
                 ResourceKey<Biome> middleBadlandsOrSlopeBiome = this.pickMiddleBiomeOrBadlandsIfHotOrSlopeIfCold(i, j, weirdness);
                 ResourceKey<Biome> plateauBiome               = this.pickPlateauBiome(i, j, weirdness);
                 ResourceKey<Biome> extremeHillsBiome          = this.pickExtremeHillsBiome(i, j, weirdness);
@@ -270,7 +269,7 @@ public final class BOPOverworldBiomeBuilder
                 this.addSurfaceBiome(mapper, temperature, humidity, BOPClimate.Parameter.span(this.midInlandContinentalness, this.farInlandContinentalness), this.erosions[1], weirdness, 0.0F, slopeBiome);
                 this.addParallelSurfaceBiomes(mapper, temperature, humidity, BOPClimate.Parameter.span(this.coastContinentalness, this.nearInlandContinentalness), BOPClimate.Parameter.span(this.erosions[2], this.erosions[3]), weirdness, 0.0F, middleBiomeVanilla, middleBiomeBOP);
                 this.addSurfaceBiome(mapper, temperature, humidity, BOPClimate.Parameter.span(this.midInlandContinentalness, this.farInlandContinentalness), this.erosions[2], weirdness, 0.0F, plateauBiome);
-                this.addSurfaceBiome(mapper, temperature, humidity, this.midInlandContinentalness, this.erosions[3], weirdness, 0.0F, middleOrBadlandsBiome);
+                this.addParallelSurfaceBiomes(mapper, temperature, humidity, this.midInlandContinentalness, this.erosions[3], weirdness, 0.0F, middleOrBadlandsBiomeVanilla, middleOrBadlandsBiomeBOP);
                 this.addSurfaceBiome(mapper, temperature, humidity, this.farInlandContinentalness, this.erosions[3], weirdness, 0.0F, plateauBiome);
                 this.addParallelSurfaceBiomes(mapper, temperature, humidity, BOPClimate.Parameter.span(this.coastContinentalness, this.farInlandContinentalness), this.erosions[4], weirdness, 0.0F, middleBiomeVanilla, middleBiomeBOP);
                 this.addSurfaceBiome(mapper, temperature, humidity, BOPClimate.Parameter.span(this.coastContinentalness, this.nearInlandContinentalness), this.erosions[5], weirdness, 0.0F, shatteredBiome);
@@ -294,10 +293,11 @@ public final class BOPOverworldBiomeBuilder
             {
                 BOPClimate.Parameter humidity = this.humidities[j];
 
-                ResourceKey<Biome> middleBiomeVanilla         = this.pickVanillaMiddleBiome(i, j, weirdness);
-                ResourceKey<Biome> middleBiomeBOP             = this.pickBOPMiddleBiome(i, j, weirdness);
+                ResourceKey<Biome> middleBiomeVanilla         = this.pickMiddleBiomeVanilla(i, j, weirdness);
+                ResourceKey<Biome> middleBiomeBOP             = this.pickMiddleBiomeBOP(i, j, weirdness);
+                ResourceKey<Biome> middleOrBadlandsBiomeVanilla = this.pickMiddleBiomeOrBadlandsIfHotVanilla(i, j, weirdness);
+                ResourceKey<Biome> middleOrBadlandsBiomeBOP     = this.pickMiddleBiomeOrBadlandsIfHotBOP(i, j, weirdness);
 
-                ResourceKey<Biome> middleOrBadlandsBiome      = this.pickMiddleBiomeOrBadlandsIfHot(i, j, weirdness);
                 ResourceKey<Biome> middleBadlandsOrSlopeBiome = this.pickMiddleBiomeOrBadlandsIfHotOrSlopeIfCold(i, j, weirdness);
                 ResourceKey<Biome> extremeHillsBiome          = this.pickExtremeHillsBiome(i, j, weirdness);
                 ResourceKey<Biome> plateauBiome               = this.pickPlateauBiome(i, j, weirdness);
@@ -310,10 +310,10 @@ public final class BOPOverworldBiomeBuilder
                 this.addSurfaceBiome(mapper, temperature, humidity, BOPClimate.Parameter.span(this.nearInlandContinentalness, this.midInlandContinentalness), this.erosions[1], weirdness, 0.0F, middleBadlandsOrSlopeBiome);
                 this.addSurfaceBiome(mapper, temperature, humidity, this.farInlandContinentalness, this.erosions[1], weirdness, 0.0F, i == 0 ? slopeBiome : plateauBiome);
                 this.addParallelSurfaceBiomes(mapper, temperature, humidity, this.nearInlandContinentalness, this.erosions[2], weirdness, 0.0F, middleBiomeVanilla, middleBiomeBOP);
-                this.addSurfaceBiome(mapper, temperature, humidity, this.midInlandContinentalness, this.erosions[2], weirdness, 0.0F, middleOrBadlandsBiome);
+                this.addParallelSurfaceBiomes(mapper, temperature, humidity, this.midInlandContinentalness, this.erosions[2], weirdness, 0.0F, middleOrBadlandsBiomeVanilla, middleOrBadlandsBiomeBOP);
                 this.addSurfaceBiome(mapper, temperature, humidity, this.farInlandContinentalness, this.erosions[2], weirdness, 0.0F, plateauBiome);
                 this.addParallelSurfaceBiomes(mapper, temperature, humidity, BOPClimate.Parameter.span(this.coastContinentalness, this.nearInlandContinentalness), this.erosions[3], weirdness, 0.0F, middleBiomeVanilla, middleBiomeBOP);
-                this.addSurfaceBiome(mapper, temperature, humidity, BOPClimate.Parameter.span(this.midInlandContinentalness, this.farInlandContinentalness), this.erosions[3], weirdness, 0.0F, middleOrBadlandsBiome);
+                this.addParallelSurfaceBiomes(mapper, temperature, humidity, BOPClimate.Parameter.span(this.midInlandContinentalness, this.farInlandContinentalness), this.erosions[3], weirdness, 0.0F, middleOrBadlandsBiomeVanilla, middleOrBadlandsBiomeBOP);
 
                 if (weirdness.max() < 0L)
                 {
@@ -359,22 +359,23 @@ public final class BOPOverworldBiomeBuilder
             {
                 BOPClimate.Parameter humidity = this.humidities[j];
 
-                ResourceKey<Biome> middleBiomeVanilla         = this.pickVanillaMiddleBiome(i, j, weirdness);
-                ResourceKey<Biome> middleBiomeBOP             = this.pickBOPMiddleBiome(i, j, weirdness);
+                ResourceKey<Biome> middleBiomeVanilla         = this.pickMiddleBiomeVanilla(i, j, weirdness);
+                ResourceKey<Biome> middleBiomeBOP             = this.pickMiddleBiomeBOP(i, j, weirdness);
+                ResourceKey<Biome> middleOrBadlandsBiomeVanilla = this.pickMiddleBiomeOrBadlandsIfHotVanilla(i, j, weirdness);
+                ResourceKey<Biome> middleOrBadlandsBiomeBOP     = this.pickMiddleBiomeOrBadlandsIfHotBOP(i, j, weirdness);
 
-                ResourceKey<Biome> middleOrBadlandsBiome      = this.pickMiddleBiomeOrBadlandsIfHot(i, j, weirdness);
                 ResourceKey<Biome> middleBadlandsOrSlopeBiome = this.pickMiddleBiomeOrBadlandsIfHotOrSlopeIfCold(i, j, weirdness);
                 ResourceKey<Biome> beachBiome                 = this.pickBeachBiome(i, j);
                 ResourceKey<Biome> shatteredBiome             = this.maybePickShatteredBiome(i, j, weirdness, middleBiomeVanilla);
                 ResourceKey<Biome> shatteredCoastBiome        = this.pickShatteredCoastBiome(i, j, weirdness);
 
                 // Lowest to low erosion
-                this.addSurfaceBiome(mapper, temperature, humidity, this.nearInlandContinentalness, BOPClimate.Parameter.span(this.erosions[0], this.erosions[1]), weirdness, 0.0F, middleOrBadlandsBiome);
+                this.addParallelSurfaceBiomes(mapper, temperature, humidity, this.nearInlandContinentalness, BOPClimate.Parameter.span(this.erosions[0], this.erosions[1]), weirdness, 0.0F, middleOrBadlandsBiomeVanilla, middleOrBadlandsBiomeBOP);
                 this.addSurfaceBiome(mapper, temperature, humidity, BOPClimate.Parameter.span(this.midInlandContinentalness, this.farInlandContinentalness), BOPClimate.Parameter.span(this.erosions[0], this.erosions[1]), weirdness, 0.0F, middleBadlandsOrSlopeBiome);
 
                 // Reduced to moderate erosion
                 this.addParallelSurfaceBiomes(mapper, temperature, humidity, this.nearInlandContinentalness, BOPClimate.Parameter.span(this.erosions[2], this.erosions[3]), weirdness, 0.0F, middleBiomeVanilla, middleBiomeBOP);
-                this.addSurfaceBiome(mapper, temperature, humidity, BOPClimate.Parameter.span(this.midInlandContinentalness, this.farInlandContinentalness), BOPClimate.Parameter.span(this.erosions[2], this.erosions[3]), weirdness, 0.0F, middleOrBadlandsBiome);
+                this.addParallelSurfaceBiomes(mapper, temperature, humidity, BOPClimate.Parameter.span(this.midInlandContinentalness, this.farInlandContinentalness), BOPClimate.Parameter.span(this.erosions[2], this.erosions[3]), weirdness, 0.0F, middleOrBadlandsBiomeVanilla, middleOrBadlandsBiomeBOP);
 
                 // Moderate to increased erosion
                 this.addSurfaceBiome(mapper, temperature, humidity, this.coastContinentalness, BOPClimate.Parameter.span(this.erosions[3], this.erosions[4]), weirdness, 0.0F, beachBiome);
@@ -417,8 +418,9 @@ public final class BOPOverworldBiomeBuilder
             for (int j = 0; j < this.humidities.length; ++j)
             {
                 BOPClimate.Parameter humidity = this.humidities[j];
-                ResourceKey<Biome> resourcekey = this.pickMiddleBiomeOrBadlandsIfHot(i, j, weirdness);
-                this.addSurfaceBiome(mapper, temperature, humidity, BOPClimate.Parameter.span(this.midInlandContinentalness, this.farInlandContinentalness), BOPClimate.Parameter.span(this.erosions[0], this.erosions[1]), weirdness, 0.0F, resourcekey);
+                ResourceKey<Biome> middleOrBadlandsBiomeVanilla = this.pickMiddleBiomeOrBadlandsIfHotVanilla(i, j, weirdness);
+                ResourceKey<Biome> middleOrBadlandsBiomeBOP     = this.pickMiddleBiomeOrBadlandsIfHotBOP(i, j, weirdness);
+                this.addParallelSurfaceBiomes(mapper, temperature, humidity, BOPClimate.Parameter.span(this.midInlandContinentalness, this.farInlandContinentalness), BOPClimate.Parameter.span(this.erosions[0], this.erosions[1]), weirdness, 0.0F, middleOrBadlandsBiomeVanilla, middleOrBadlandsBiomeBOP);
             }
         }
 
@@ -430,7 +432,7 @@ public final class BOPOverworldBiomeBuilder
         this.addUndergroundBiome(mapper, this.FULL_RANGE, BOPClimate.Parameter.span(0.7F, 1.0F), this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, 0.0F, Biomes.LUSH_CAVES);
     }
 
-    private ResourceKey<Biome> pickVanillaMiddleBiome(int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
+    private ResourceKey<Biome> pickMiddleBiomeVanilla(int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
     {
         if (weirdness.max() < 0L)
         {
@@ -443,7 +445,7 @@ public final class BOPOverworldBiomeBuilder
         }
     }
 
-    private ResourceKey<Biome> pickBOPMiddleBiome(int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
+    private ResourceKey<Biome> pickMiddleBiomeBOP(int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
     {
         if (weirdness.max() < 0L)
         {
@@ -453,20 +455,30 @@ public final class BOPOverworldBiomeBuilder
         }
         else
         {
-            // TODO: Use MIDDLE_BIOMES_BOP as the fallback
+            // TODO: Use MIDDLE_BIOMES_BOP solely as the fallback
+            ResourceKey<Biome> biome = this.MIDDLE_BIOMES_BOP[temperatureIndex][humidityIndex];
             ResourceKey<Biome> variantBiome = this.MIDDLE_BIOMES_VARIANT_BOP[temperatureIndex][humidityIndex];
-            return variantBiome == null ? this.MIDDLE_BIOMES[temperatureIndex][humidityIndex] : variantBiome;
+
+            if (variantBiome == null)
+                return biome == null ? this.MIDDLE_BIOMES[temperatureIndex][humidityIndex] : biome;
+
+            return variantBiome;
         }
     }
 
-    private ResourceKey<Biome> pickMiddleBiomeOrBadlandsIfHot(int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
+    private ResourceKey<Biome> pickMiddleBiomeOrBadlandsIfHotVanilla(int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
     {
-        return temperatureIndex == 4 ? this.pickBadlandsBiome(humidityIndex, weirdness) : this.pickVanillaMiddleBiome(temperatureIndex, humidityIndex, weirdness);
+        return temperatureIndex == 4 ? this.pickBadlandsBiome(humidityIndex, weirdness) : this.pickMiddleBiomeVanilla(temperatureIndex, humidityIndex, weirdness);
+    }
+
+    private ResourceKey<Biome> pickMiddleBiomeOrBadlandsIfHotBOP(int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
+    {
+        return temperatureIndex == 4 ? this.pickBadlandsBiome(humidityIndex, weirdness) : this.pickMiddleBiomeBOP(temperatureIndex, humidityIndex, weirdness);
     }
 
     private ResourceKey<Biome> pickMiddleBiomeOrBadlandsIfHotOrSlopeIfCold(int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
     {
-        return temperatureIndex == 0 ? this.pickSlopeBiome(temperatureIndex, humidityIndex, weirdness) : this.pickMiddleBiomeOrBadlandsIfHot(temperatureIndex, humidityIndex, weirdness);
+        return temperatureIndex == 0 ? this.pickSlopeBiome(temperatureIndex, humidityIndex, weirdness) : this.pickMiddleBiomeOrBadlandsIfHotVanilla(temperatureIndex, humidityIndex, weirdness);
     }
 
     private ResourceKey<Biome> maybePickShatteredBiome(int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness, ResourceKey<Biome> extremeHillsBiome)
@@ -476,7 +488,7 @@ public final class BOPOverworldBiomeBuilder
 
     private ResourceKey<Biome> pickShatteredCoastBiome(int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
     {
-        ResourceKey<Biome> resourcekey = weirdness.max() >= 0L ? this.pickVanillaMiddleBiome(temperatureIndex, humidityIndex, weirdness) : this.pickBeachBiome(temperatureIndex, humidityIndex);
+        ResourceKey<Biome> resourcekey = weirdness.max() >= 0L ? this.pickMiddleBiomeVanilla(temperatureIndex, humidityIndex, weirdness) : this.pickBeachBiome(temperatureIndex, humidityIndex);
         return this.maybePickShatteredBiome(temperatureIndex, humidityIndex, weirdness, resourcekey);
     }
 
@@ -544,7 +556,7 @@ public final class BOPOverworldBiomeBuilder
     private ResourceKey<Biome> pickExtremeHillsBiome(int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
     {
         ResourceKey<Biome> resourcekey = this.EXTREME_HILLS[temperatureIndex][humidityIndex];
-        return resourcekey == null ? this.pickVanillaMiddleBiome(temperatureIndex, humidityIndex, weirdness) : resourcekey;
+        return resourcekey == null ? this.pickMiddleBiomeVanilla(temperatureIndex, humidityIndex, weirdness) : resourcekey;
     }
 
     private void addParallelSurfaceBiomes(Consumer<Pair<BOPClimate.ParameterPoint, ResourceKey<Biome>>> mapper, BOPClimate.Parameter temperature, BOPClimate.Parameter humidity, BOPClimate.Parameter continentalness, BOPClimate.Parameter erosion, BOPClimate.Parameter weirdness, float offset, ResourceKey<Biome> vanillaBiome, ResourceKey<Biome> bopBiome)
@@ -556,6 +568,7 @@ public final class BOPOverworldBiomeBuilder
     private void addSurfaceBiome(Consumer<Pair<BOPClimate.ParameterPoint, ResourceKey<Biome>>> mapper, BOPClimate.Parameter temperature, BOPClimate.Parameter humidity, BOPClimate.Parameter continentalness, BOPClimate.Parameter erosion, BOPClimate.Parameter weirdness, float offset, ResourceKey<Biome> biome)
     {
         addSurfaceBiome(mapper, temperature, humidity, continentalness, erosion, weirdness, VANILLA_UNIQUENESS_RANGE, offset, biome);
+        addSurfaceBiome(mapper, temperature, humidity, continentalness, erosion, weirdness, BOP_UNIQUENESS_RANGE, offset, biome);
     }
 
     private void addSurfaceBiome(Consumer<Pair<BOPClimate.ParameterPoint, ResourceKey<Biome>>> mapper, BOPClimate.Parameter temperature, BOPClimate.Parameter humidity, BOPClimate.Parameter continentalness, BOPClimate.Parameter erosion, BOPClimate.Parameter weirdness, BOPClimate.Parameter uniqueness, float offset, ResourceKey<Biome> biome)

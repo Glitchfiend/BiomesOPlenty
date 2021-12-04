@@ -202,7 +202,7 @@ public class BOPClimate
                 throw new IllegalArgumentException("Need at least one value to build the search tree.");
             } else {
                 int i = p_186936_.get(0).getFirst().parameterSpace().size();
-                if (i != 8) {
+                if (i != PARAMETER_COUNT) {
                     throw new IllegalStateException("Expecting parameter space to be 8, got " + i);
                 } else {
                     List<RTree.Leaf<T>> list = p_186936_.stream().map((p_186934_) -> {
@@ -474,7 +474,7 @@ public class BOPClimate
     {
         @VisibleForTesting
         protected long[] toParameterArray() {
-            return new long[]{this.temperature, this.humidity, this.continentalness, this.erosion, this.depth, this.weirdness, 0L, this.uniqueness};
+            return new long[]{this.temperature, this.humidity, this.continentalness, this.erosion, this.depth, this.weirdness, this.uniqueness, 0L};
         }
     }
 }
