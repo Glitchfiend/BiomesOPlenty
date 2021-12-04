@@ -2,6 +2,8 @@ package biomesoplenty.common.worldgen.simulate;
 
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.common.biome.BOPOverworldBiomeBuilder;
+import biomesoplenty.common.worldgen.BOPClimate;
+import biomesoplenty.common.worldgen.BOPNoiseSampler;
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import it.unimi.dsi.fastutil.objects.Reference2IntMap;
@@ -105,10 +107,10 @@ public class BiomeSimulator
 
     public static void init(NoiseSimulationHelper sampler)
     {
-        ImmutableList.Builder<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> builder = ImmutableList.builder();
+        ImmutableList.Builder<Pair<BOPClimate.ParameterPoint, ResourceKey<Biome>>> builder = ImmutableList.builder();
         (new BOPOverworldBiomeBuilder()).addBiomes(builder::add);
 
-        Climate.ParameterList<ResourceKey<Biome>> params = new Climate.ParameterList<>(builder.build());
+        BOPClimate.ParameterList<ResourceKey<Biome>> params = new BOPClimate.ParameterList<>(builder.build());
 
         BufferedImage image = new BufferedImage(2048, 2048, BufferedImage.TYPE_INT_RGB);
 
@@ -124,7 +126,7 @@ public class BiomeSimulator
 
             for (int z = 0; z < 2048; z++)
             {
-                NoiseSampler.FlatNoiseData data = sampler.noiseData(x, z, Blender.empty());
+                BOPNoiseSampler.FlatNoiseData data = sampler.noiseData(x, z, Blender.empty());
                 int ay = 0;
                 for (int y = -8; y < 40; y++)
                 {
@@ -137,7 +139,7 @@ public class BiomeSimulator
                     }
                 }
 
-                ResourceKey<Biome> value = params.findValue(sampler.sample(x, ay, z), Biomes.THE_VOID);
+                ResourceKey<Biome> value = params.findValue(sampler.sampleBOP(x, ay, z), Biomes.THE_VOID);
 
                 if (!COLORS.containsKey(value)) throw new RuntimeException("Resource key not found: " + value);
 

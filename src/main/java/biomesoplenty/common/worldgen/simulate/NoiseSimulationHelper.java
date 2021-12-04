@@ -1,5 +1,7 @@
 package biomesoplenty.common.worldgen.simulate;
 
+import biomesoplenty.common.worldgen.BOPClimate;
+import biomesoplenty.common.worldgen.BOPNoiseSampler;
 import net.minecraft.SharedConstants;
 import net.minecraft.core.QuartPos;
 import net.minecraft.util.Mth;
@@ -13,7 +15,7 @@ import net.minecraft.world.level.levelgen.TerrainInfo;
 import net.minecraft.world.level.levelgen.blending.Blender;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
 
-public class NoiseSimulationHelper implements Climate.Sampler
+public class NoiseSimulationHelper implements BOPClimate.Sampler
 {
     private static final NormalNoise.NoiseParameters SHIFT = new NormalNoise.NoiseParameters(-3, 1.0, 1.0, 1.0, 0.0);
     private static final NormalNoise.NoiseParameters TEMPERATURE = new NormalNoise.NoiseParameters(-10, 1.5, 0.0, 1.0, 0.0, 0.0, 0.0);
@@ -21,6 +23,7 @@ public class NoiseSimulationHelper implements Climate.Sampler
     private static final NormalNoise.NoiseParameters CONTINENTALNESS = new NormalNoise.NoiseParameters(-9, 1.0, 1.0, 2.0, 2.0, 2.0, 1.0, 1.0, 1.0, 1.0);
     private static final NormalNoise.NoiseParameters EROSION = new NormalNoise.NoiseParameters(-9, 1.0, 1.0, 0.0, 1.0, 1.0);
     private static final NormalNoise.NoiseParameters WEIRDNESS = new NormalNoise.NoiseParameters(-7, 1.0, 2.0, 1.0, 0.0, 0.0, 0.0);
+    private static final NormalNoise.NoiseParameters UNIQUENESS = new NormalNoise.NoiseParameters(-8, 1.0, 2.0, 1.0, 0.0, 0.0, 0.0);
 
     private final NormalNoise offsetNoise;
     private final NormalNoise temperatureNoise;
@@ -28,6 +31,7 @@ public class NoiseSimulationHelper implements Climate.Sampler
     private final NormalNoise continentalnessNoise;
     private final NormalNoise erosionNoise;
     private final NormalNoise weirdnessNoise;
+    private final NormalNoise uniquenessNoise;
     private final TerrainShaper terrainShaper = TerrainShaper.overworld(false);
 
     public NoiseSimulationHelper(long seed)
@@ -40,10 +44,11 @@ public class NoiseSimulationHelper implements Climate.Sampler
         this.continentalnessNoise = NormalNoise.create(random, CONTINENTALNESS);
         this.erosionNoise = NormalNoise.create(random, EROSION);
         this.weirdnessNoise = NormalNoise.create(random, WEIRDNESS);
+        this.uniquenessNoise = NormalNoise.create(random, UNIQUENESS);
     }
 
     @Override
-    public Climate.TargetPoint sample(int i, int j, int k)
+    public BOPClimate.TargetPoint sampleBOP(int i, int j, int k)
     {
         return this.target(i, j, k, this.noiseData(i, k, Blender.empty()));
     }
@@ -54,15 +59,16 @@ public class NoiseSimulationHelper implements Climate.Sampler
         return g * (double) (g > 0.0 ? 4 : 1);
     }
 
-    public NoiseSampler.FlatNoiseData noiseData(int i, int j, Blender blender)
+    public BOPNoiseSampler.FlatNoiseData noiseData(int i, int j, Blender blender)
     {
         double d = (double) i + this.getOffset(i, 0, j);
         double e = (double) j + this.getOffset(j, i, 0);
         double f = this.getContinentalness(d, 0.0, e);
         double g = this.getWeirdness(d, 0.0, e);
+        double k = this.getUniqueness(d, 0.0, e);
         double h = this.getErosion(d, 0.0, e);
         TerrainInfo terrainInfo = this.terrainInfo(QuartPos.toBlock(i), QuartPos.toBlock(j), (float) f, (float) g, (float) h, blender);
-        return new NoiseSampler.FlatNoiseData(d, e, f, g, h, terrainInfo);
+        return new BOPNoiseSampler.FlatNoiseData(d, e, f, g, k, h, terrainInfo);
     }
 
     public TerrainInfo terrainInfo(int i, int j, float f, float g, float h, Blender blender)
@@ -82,19 +88,20 @@ public class NoiseSimulationHelper implements Climate.Sampler
     }
 
     @VisibleForDebug
-    public Climate.TargetPoint target(int i, int j, int k, NoiseSampler.FlatNoiseData flatNoiseData)
+    public BOPClimate.TargetPoint target(int i, int j, int k, BOPNoiseSampler.FlatNoiseData flatNoiseData)
     {
         double d = flatNoiseData.shiftedX();
         double e = (double) j + this.getOffset(j, k, i);
         double f = flatNoiseData.shiftedZ();
         double baseDensity = this.computeBaseDensity(QuartPos.toBlock(j), flatNoiseData.terrainInfo());
-        return Climate.target(
+        return BOPClimate.target(
                 (float) this.getTemperature(d, e, f),
                 (float) this.getHumidity(d, e, f),
                 (float) flatNoiseData.continentalness(),
                 (float) flatNoiseData.erosion(),
                 (float) baseDensity,
-                (float) flatNoiseData.weirdness());
+                (float) flatNoiseData.weirdness(),
+                (float) flatNoiseData.uniqueness());
     }
 
     public double getOffset(int i, int j, int k)
@@ -162,5 +169,11 @@ public class NoiseSimulationHelper implements Climate.Sampler
     public double getWeirdness(double d, double e, double f)
     {
         return this.weirdnessNoise.getValue(d, e, f);
+    }
+
+    @VisibleForDebug
+    public double getUniqueness(double d, double e, double f)
+    {
+        return this.uniquenessNoise.getValue(d, e, f);
     }
 }

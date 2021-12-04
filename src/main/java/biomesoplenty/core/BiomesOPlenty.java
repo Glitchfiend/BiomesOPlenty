@@ -7,6 +7,7 @@ package biomesoplenty.core;
 
 import biomesoplenty.client.handler.FluidFogHandler;
 import biomesoplenty.client.handler.ParticleFactoryHandler;
+import biomesoplenty.common.worldgen.simulate.BiomeSimulator;
 import biomesoplenty.init.*;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -46,7 +47,7 @@ public class BiomesOPlenty
             MinecraftForge.EVENT_BUS.register(new FluidFogHandler());
         }
 
-//        ModBiomes.setup();
+        ModBiomes.setup();
         ModConfig.setup();
     }
 
