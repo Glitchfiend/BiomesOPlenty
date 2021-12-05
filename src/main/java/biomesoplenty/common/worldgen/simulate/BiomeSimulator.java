@@ -13,8 +13,6 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.Bootstrap;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
-import net.minecraft.world.level.biome.Climate;
-import net.minecraft.world.level.levelgen.NoiseSampler;
 import net.minecraft.world.level.levelgen.blending.Blender;
 
 import javax.imageio.ImageIO;
@@ -127,7 +125,7 @@ public class BiomeSimulator
 
             for (int z = 0; z < 2048; z++)
             {
-                BOPNoiseSampler.FlatNoiseData data = sampler.noiseData(x, z, Blender.empty());
+                BOPNoiseSampler.BOPFlatNoiseData data = sampler.noiseData(x, z, Blender.empty());
                 int ay = 0;
                 for (int y = -8; y < 40; y++)
                 {

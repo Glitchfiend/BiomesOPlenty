@@ -4,8 +4,6 @@
  ******************************************************************************/
 package biomesoplenty.common.worldgen;
 
-import biomesoplenty.common.worldgen.material.BOPMaterialRuleList;
-import biomesoplenty.common.worldgen.material.BOPWorldGenMaterialRule;
 import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Maps;
@@ -67,8 +65,8 @@ public class BOPNoiseBasedChunkGenerator extends NoiseBasedChunkGenerator
     protected long seed;
     protected Supplier<NoiseGeneratorSettings> settings;
     protected BOPNoiseSampler sampler;
-    protected BOPSurfaceSystem surfaceSystem;
-    protected BOPWorldGenMaterialRule materialRule;
+    protected SurfaceSystem surfaceSystem;
+    protected WorldGenMaterialRule materialRule;
     protected Aquifer.FluidPicker globalFluidPicker;
     protected Map<ChunkAccess, WrappedChunkAccess> wrappedChunkAccesses;
 
@@ -85,10 +83,10 @@ public class BOPNoiseBasedChunkGenerator extends NoiseBasedChunkGenerator
         this.defaultBlock = noisegeneratorsettings.getDefaultBlock();
         NoiseSettings noisesettings = noisegeneratorsettings.noiseSettings();
         this.sampler = new BOPNoiseSampler(noisesettings, noisegeneratorsettings.isNoiseCavesEnabled(), p_188617_, p_188614_, noisegeneratorsettings.getRandomSource());
-        ImmutableList.Builder<BOPWorldGenMaterialRule> builder = ImmutableList.builder();
-        builder.add(BOPNoiseChunk::updateNoiseAndGenerateBaseState);
-        builder.add(BOPNoiseChunk::oreVeinify);
-        this.materialRule = new BOPMaterialRuleList(builder.build());
+        ImmutableList.Builder<WorldGenMaterialRule> builder = ImmutableList.builder();
+        builder.add(NoiseChunk::updateNoiseAndGenerateBaseState);
+        builder.add(NoiseChunk::oreVeinify);
+        this.materialRule = new MaterialRuleList(builder.build());
         Aquifer.FluidStatus aquifer$fluidstatus = new Aquifer.FluidStatus(-54, Blocks.LAVA.defaultBlockState());
         int i = noisegeneratorsettings.seaLevel();
         Aquifer.FluidStatus aquifer$fluidstatus1 = new Aquifer.FluidStatus(i, noisegeneratorsettings.getDefaultFluid());
@@ -96,7 +94,7 @@ public class BOPNoiseBasedChunkGenerator extends NoiseBasedChunkGenerator
         this.globalFluidPicker = (p_198228_, p_198229_, p_198230_) -> {
             return p_198229_ < Math.min(-54, i) ? aquifer$fluidstatus : aquifer$fluidstatus1;
         };
-        this.surfaceSystem = new BOPSurfaceSystem(p_188614_, this.defaultBlock, i, p_188617_, noisegeneratorsettings.getRandomSource());
+        this.surfaceSystem = new SurfaceSystem(p_188614_, this.defaultBlock, i, p_188617_, noisegeneratorsettings.getRandomSource());
         this.wrappedChunkAccesses = Maps.newHashMap();
     }
 
@@ -112,14 +110,15 @@ public class BOPNoiseBasedChunkGenerator extends NoiseBasedChunkGenerator
     private void doCreateBiomes(Registry<Biome> p_197000_, Blender p_197001_, StructureFeatureManager p_197002_, ChunkAccess chunkAccess) {
         WrappedChunkAccess wrappedChunkAccess = getOrCreateWrappedChunkAccess(chunkAccess);
         BOPNoiseChunk noiseChunk = wrappedChunkAccess.getOrCreateNoiseChunk(this.sampler, () -> {
-            return new BOPBeardifier(p_197002_, chunkAccess);
+            return new Beardifier(p_197002_, chunkAccess);
         }, this.settings.get(), this.globalFluidPicker, p_197001_);
         BiomeResolver biomeresolver = BelowZeroRetrogen.getBiomeResolver(p_197001_.getBiomeResolver(this.runtimeBiomeSource), p_197000_, chunkAccess);
         wrappedChunkAccess.fillBiomesFromNoise(biomeresolver, (p_188655_, p_188656_, p_188657_) -> {
-            return this.sampler.target(p_188655_, p_188656_, p_188657_, noiseChunk.noiseData(p_188655_, p_188657_));
+            return this.sampler.targetBOP(p_188655_, p_188656_, p_188657_, noiseChunk.noiseDataBOP(p_188655_, p_188657_));
         });
     }
 
+    @Override
     public Climate.Sampler climateSampler() {
         return this.sampler;
     }
@@ -210,7 +209,7 @@ public class BOPNoiseBasedChunkGenerator extends NoiseBasedChunkGenerator
             NoiseGeneratorSettings noisegeneratorsettings = this.settings.get();
             WrappedChunkAccess wrappedChunkAccess = getOrCreateWrappedChunkAccess(p_188638_);
             BOPNoiseChunk noisechunk = wrappedChunkAccess.getOrCreateNoiseChunk(this.sampler, () -> {
-                return new BOPBeardifier(p_188637_, p_188638_);
+                return new Beardifier(p_188637_, p_188638_);
             }, noisegeneratorsettings, this.globalFluidPicker, Blender.of(p_188636_));
             this.surfaceSystem.buildSurface(p_188636_.getBiomeManager(), p_188636_.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY), noisegeneratorsettings.useLegacyRandomSource(), worldgenerationcontext, p_188638_, noisechunk, noisegeneratorsettings.surfaceRule());
         }
@@ -226,10 +225,10 @@ public class BOPNoiseBasedChunkGenerator extends NoiseBasedChunkGenerator
         ChunkPos chunkpos = chunkAccess.getPos();
         WrappedChunkAccess wrappedChunkAccess = getOrCreateWrappedChunkAccess(chunkAccess);
         BOPNoiseChunk noisechunk = wrappedChunkAccess.getOrCreateNoiseChunk(this.sampler, () -> {
-            return new BOPBeardifier(p_188632_, chunkAccess);
+            return new Beardifier(p_188632_, chunkAccess);
         }, this.settings.get(), this.globalFluidPicker, Blender.of(p_188629_));
         Aquifer aquifer = noisechunk.aquifer();
-        BOPCarvingContext carvingcontext = new BOPCarvingContext(this, p_188629_.registryAccess(), chunkAccess.getHeightAccessorForGeneration(), noisechunk);
+        CarvingContext carvingcontext = new CarvingContext(this, p_188629_.registryAccess(), chunkAccess.getHeightAccessorForGeneration(), noisechunk);
         CarvingMask carvingmask = ((ProtoChunk)chunkAccess).getOrCreateCarvingMask(p_188634_);
 
         for(int j = -8; j <= 8; ++j) {
@@ -292,7 +291,7 @@ public class BOPNoiseBasedChunkGenerator extends NoiseBasedChunkGenerator
         NoiseGeneratorSettings noisegeneratorsettings = this.settings.get();
         WrappedChunkAccess wrappedChunkAccess = getOrCreateWrappedChunkAccess(p_188665_);
         BOPNoiseChunk noisechunk = wrappedChunkAccess.getOrCreateNoiseChunk(this.sampler, () -> {
-            return new BOPBeardifier(p_188664_, p_188665_);
+            return new Beardifier(p_188664_, p_188665_);
         }, noisegeneratorsettings, this.globalFluidPicker, p_188663_);
         Heightmap heightmap = p_188665_.getOrCreateHeightmapUnprimed(Heightmap.Types.OCEAN_FLOOR_WG);
         Heightmap heightmap1 = p_188665_.getOrCreateHeightmapUnprimed(Heightmap.Types.WORLD_SURFACE_WG);
@@ -448,7 +447,7 @@ public class BOPNoiseBasedChunkGenerator extends NoiseBasedChunkGenerator
 
     /** @deprecated */
     @Deprecated
-    public Optional<BlockState> topMaterial(BOPCarvingContext p_188669_, Function<BlockPos, Biome> p_188670_, ChunkAccess p_188671_, BOPNoiseChunk p_188672_, BlockPos p_188673_, boolean p_188674_) {
+    public Optional<BlockState> topMaterial(CarvingContext p_188669_, Function<BlockPos, Biome> p_188670_, ChunkAccess p_188671_, BOPNoiseChunk p_188672_, BlockPos p_188673_, boolean p_188674_) {
         return this.surfaceSystem.topMaterial(this.settings.get().surfaceRule(), p_188669_, p_188670_, p_188671_, p_188672_, p_188673_, p_188674_);
     }
 
