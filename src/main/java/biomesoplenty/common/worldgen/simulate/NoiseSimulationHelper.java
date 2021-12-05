@@ -7,10 +7,8 @@ import net.minecraft.core.QuartPos;
 import net.minecraft.util.Mth;
 import net.minecraft.util.VisibleForDebug;
 import net.minecraft.world.level.ChunkPos;
-import net.minecraft.world.level.biome.Climate;
 import net.minecraft.world.level.biome.TerrainShaper;
 import net.minecraft.world.level.levelgen.LegacyRandomSource;
-import net.minecraft.world.level.levelgen.NoiseSampler;
 import net.minecraft.world.level.levelgen.TerrainInfo;
 import net.minecraft.world.level.levelgen.blending.Blender;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
@@ -59,7 +57,7 @@ public class NoiseSimulationHelper implements BOPClimate.Sampler
         return g * (double) (g > 0.0 ? 4 : 1);
     }
 
-    public BOPNoiseSampler.FlatNoiseData noiseData(int i, int j, Blender blender)
+    public BOPNoiseSampler.BOPFlatNoiseData noiseData(int i, int j, Blender blender)
     {
         double d = (double) i + this.getOffset(i, 0, j);
         double e = (double) j + this.getOffset(j, i, 0);
@@ -68,7 +66,7 @@ public class NoiseSimulationHelper implements BOPClimate.Sampler
         double k = this.getUniqueness(d, 0.0, e);
         double h = this.getErosion(d, 0.0, e);
         TerrainInfo terrainInfo = this.terrainInfo(QuartPos.toBlock(i), QuartPos.toBlock(j), (float) f, (float) g, (float) h, blender);
-        return new BOPNoiseSampler.FlatNoiseData(d, e, f, g, k, h, terrainInfo);
+        return new BOPNoiseSampler.BOPFlatNoiseData(d, e, f, g, k, h, terrainInfo);
     }
 
     public TerrainInfo terrainInfo(int i, int j, float f, float g, float h, Blender blender)
@@ -88,7 +86,7 @@ public class NoiseSimulationHelper implements BOPClimate.Sampler
     }
 
     @VisibleForDebug
-    public BOPClimate.TargetPoint target(int i, int j, int k, BOPNoiseSampler.FlatNoiseData flatNoiseData)
+    public BOPClimate.TargetPoint target(int i, int j, int k, BOPNoiseSampler.BOPFlatNoiseData flatNoiseData)
     {
         double d = flatNoiseData.shiftedX();
         double e = (double) j + this.getOffset(j, k, i);
