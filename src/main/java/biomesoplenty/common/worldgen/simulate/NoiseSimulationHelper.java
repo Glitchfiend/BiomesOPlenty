@@ -21,7 +21,7 @@ public class NoiseSimulationHelper implements BOPClimate.Sampler
     private static final NormalNoise.NoiseParameters CONTINENTALNESS = new NormalNoise.NoiseParameters(-9, 1.0, 1.0, 2.0, 2.0, 2.0, 1.0, 1.0, 1.0, 1.0);
     private static final NormalNoise.NoiseParameters EROSION = new NormalNoise.NoiseParameters(-9, 1.0, 1.0, 0.0, 1.0, 1.0);
     private static final NormalNoise.NoiseParameters WEIRDNESS = new NormalNoise.NoiseParameters(-7, 1.0, 2.0, 1.0, 0.0, 0.0, 0.0);
-    private static final NormalNoise.NoiseParameters UNIQUENESS = new NormalNoise.NoiseParameters(-8, 1.0, 2.0, 1.0, 0.0, 0.0, 0.0);
+    private static final NormalNoise.NoiseParameters UNIQUENESS = new NormalNoise.NoiseParameters(-9, 1.0, 2.0, 1.0, 0.0, 0.0, 0.0);
 
     private final NormalNoise offsetNoise;
     private final NormalNoise temperatureNoise;
