@@ -144,6 +144,31 @@ public class BOPOverworldBiomes
         return biome(Biome.Precipitation.RAIN, Biome.BiomeCategory.TAIGA, 0.45F,  0.5F,  spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }
 
+    public static Biome redwoodForest()
+    {
+        // Mob spawns
+        MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.commonSpawns(spawnBuilder);
+        BiomeDefaultFeatures.farmAnimals(spawnBuilder);
+        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.WOLF, 5, 4, 4));
+        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.RABBIT, 4, 2, 3));
+        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.FOX, 8, 2, 4));
+
+        // Biome features
+        BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder();
+        globalOverworldGeneration(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
+
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_REDWOOD_FOREST);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_FERN_GRASS_5);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_LARGE_FERN_2);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.MOSS_SPLATTER);
+
+        return biomeWithColorOverrides(Biome.Precipitation.RAIN, Biome.BiomeCategory.TAIGA, 0.8F,  0.6F, 0xB5D55C, 0x8EBF42, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
+    }
+
     public static Biome woodland()
     {
         // Mob spawns
@@ -215,7 +240,6 @@ public class BOPOverworldBiomes
     public static ResourceKey<Biome> highland_crag = register("highland_crag");
     public static ResourceKey<Biome> highland_moor = register("highland_moor");
     public static ResourceKey<Biome> jade_cliffs = register("jade_cliffs");
-    public static ResourceKey<Biome> lavender_field = register("lavender_field");
     public static ResourceKey<Biome> lavender_forest = register("lavender_forest");
     public static ResourceKey<Biome> lush_desert = register("lush_desert");
     public static ResourceKey<Biome> lush_savanna = register("lush_savanna");
@@ -234,7 +258,6 @@ public class BOPOverworldBiomes
     public static ResourceKey<Biome> rainforest = register("rainforest");
     public static ResourceKey<Biome> rainforest_cliffs = register("rainforest_cliffs");
     public static ResourceKey<Biome> rainforest_floodplain = register("rainforest_floodplain");
-    public static ResourceKey<Biome> redwood_forest = register("redwood_forest");
     public static ResourceKey<Biome> scrubland = register("scrubland");
     public static ResourceKey<Biome> seasonal_forest = register("seasonal_forest");
     public static ResourceKey<Biome> seasonal_orchard = register("seasonal_orchard");

@@ -34,6 +34,7 @@ public class BOPVegetationFeatures
     public static final ConfiguredFeature<RandomPatchConfiguration, ?> ROSE_BUSH = register("rose_bush", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.ROSE_BUSH))))));
     public static final ConfiguredFeature<RandomPatchConfiguration, ?> TOADSTOOL_NORMAL = register("toadstool_normal", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.TOADSTOOL))))));
     public static final ConfiguredFeature<?, ?> SHORT_BAMBOO = register("short_bamboo", BOPBaseFeatures.SHORT_BAMBOO.configured(NoneFeatureConfiguration.INSTANCE));
+    public static final ConfiguredFeature<NoneFeatureConfiguration, ?> MOSS_SPLATTER = register("moss_splatter", BOPBaseFeatures.MOSS_SPLATTER.configured(NoneFeatureConfiguration.INSTANCE));
 
     // Flowers
     public static final ConfiguredFeature<RandomPatchConfiguration, ?> FLOWER_LAVENDER = register("flower_lavender", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.LAVENDER))))));
@@ -47,6 +48,7 @@ public class BOPVegetationFeatures
     public static final ConfiguredFeature<?, ?> TREES_LAVENDER_FIELD = register("lavender_field_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(BOPTreePlacements.FLOWERING_OAK_TREE_BEES_CHECKED, 0.2F), new WeightedPlacedFeature(BOPTreePlacements.BIG_FLOWERING_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(BOPTreePlacements.BIG_JACARANDA_TREE_CHECKED, 0.1F)), BOPTreePlacements.JACARANDA_TREE_BEES_CHECKED)));
 
     public static final ConfiguredFeature<RandomFeatureConfiguration, ?> TREES_CONIFEROUS_FOREST = register("trees_coniferous_forest", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(BOPTreePlacements.FIR_CHECKED, 0.33333334F)), BOPTreePlacements.FIR_LARGE_CHECKED)));
+    public static final ConfiguredFeature<RandomFeatureConfiguration, ?> TREES_REDWOOD_FOREST = register("trees_redwood_forest", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(BOPTreePlacements.REDWOOD_TREE_CHECKED, 0.3f), new WeightedPlacedFeature(BOPTreePlacements.REDWOOD_TREE_LARGE_CHECKED, 0.5f)), BOPTreePlacements.REDWOOD_TREE_MEDIUM_CHECKED)));
 
     private static <FC extends FeatureConfiguration> ConfiguredFeature<FC, ?> register(String key, ConfiguredFeature<FC, ?> feature)
     {

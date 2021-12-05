@@ -16,6 +16,7 @@ public class BOPBiomes
     public static final ResourceKey<Biome> CHERRY_BLOSSOM_GROVE = register("cherry_blossom_grove");
     public static final ResourceKey<Biome> CONIFEROUS_FOREST = register("coniferous_forest");
     public static final ResourceKey<Biome> LAVENDER_FIELD = register("lavender_field");
+    public static final ResourceKey<Biome> REDWOOD_FOREST = register("redwood_forest");
     public static final ResourceKey<Biome> WOODLAND = register("woodland");
 
     private static ResourceKey<Biome> register(String name)
