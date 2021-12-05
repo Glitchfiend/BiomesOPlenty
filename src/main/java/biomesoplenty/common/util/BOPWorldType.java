@@ -4,6 +4,7 @@ import biomesoplenty.common.biome.BOPOverworldBiomeBuilder;
 import biomesoplenty.common.worldgen.BOPClimate;
 import biomesoplenty.common.worldgen.BOPMultiNoiseBiomeSource;
 import biomesoplenty.common.worldgen.BOPNoiseBasedChunkGenerator;
+import biomesoplenty.common.worldgen.BOPNoiseGeneratorSettings;
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.client.gui.screens.worldselection.WorldPreset;
@@ -27,7 +28,7 @@ public class BOPWorldType extends WorldPreset {
     protected ChunkGenerator generator(RegistryAccess registryAccess, long seed)
     {
         return new BOPNoiseBasedChunkGenerator(registryAccess.registryOrThrow(Registry.NOISE_REGISTRY), BOPMultiNoiseBiomeSource.Preset.OVERWORLD.biomeSource(registryAccess.registryOrThrow(Registry.BIOME_REGISTRY), false), seed, () -> {
-            return registryAccess.registryOrThrow(Registry.NOISE_GENERATOR_SETTINGS_REGISTRY).getOrThrow(NoiseGeneratorSettings.OVERWORLD);
+            return BOPNoiseGeneratorSettings.BOP;
         });
     }
 }

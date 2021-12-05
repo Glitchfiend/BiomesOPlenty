@@ -23,6 +23,9 @@ public class BOPTreePlacements
     public static final PlacedFeature BIG_WHITE_CHERRY_TREE_CHECKED = register("big_white_cherry_tree", BOPTreeFeatures.BIG_WHITE_CHERRY_TREE.filteredByBlockSurvival(BOPBlocks.WHITE_CHERRY_SAPLING));
     public static final PlacedFeature BIG_PINK_CHERRY_TREE_CHECKED = register("big_pink_cherry_tree", BOPTreeFeatures.BIG_PINK_CHERRY_TREE.filteredByBlockSurvival(BOPBlocks.PINK_CHERRY_SAPLING));
     public static final PlacedFeature BIG_FLOWERING_TREE_CHECKED = register("big_flowering_tree", BOPTreeFeatures.BIG_FLOWERING_TREE.filteredByBlockSurvival(BOPBlocks.FLOWERING_OAK_SAPLING));
+    public static final PlacedFeature REDWOOD_TREE_CHECKED = register("redwood_tree", BOPTreeFeatures.REDWOOD_TREE.filteredByBlockSurvival(BOPBlocks.REDWOOD_SAPLING));
+    public static final PlacedFeature REDWOOD_TREE_MEDIUM_CHECKED = register("redwood_tree_medium", BOPTreeFeatures.REDWOOD_TREE_MEDIUM.filteredByBlockSurvival(BOPBlocks.REDWOOD_SAPLING));
+    public static final PlacedFeature REDWOOD_TREE_LARGE_CHECKED = register("redwood_tree_large", BOPTreeFeatures.REDWOOD_TREE_LARGE.filteredByBlockSurvival(BOPBlocks.REDWOOD_SAPLING));
 
     public static PlacedFeature register(String key, PlacedFeature feature)
     {
