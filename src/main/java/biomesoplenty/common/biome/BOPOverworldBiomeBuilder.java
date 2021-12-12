@@ -101,7 +101,7 @@ public final class BOPOverworldBiomeBuilder
 
     private final ResourceKey<Biome>[][] MIDDLE_BIOMES_BOP = new ResourceKey[][]{
             {null,                     null, BOPBiomes.SNOWY_CONIFEROUS_FOREST, null,                           BOPBiomes.SEASONAL_FOREST},
-            {null,                     null, BOPBiomes.CONIFEROUS_FOREST,       null,                           null},
+            {null,                     null, BOPBiomes.CONIFEROUS_FOREST,       BOPBiomes.FIELD,                null},
             {BOPBiomes.LAVENDER_FIELD, null, null,                              BOPBiomes.CHERRY_BLOSSOM_GROVE, null},
             {null,                     null, BOPBiomes.WOODLAND,                BOPBiomes.REDWOOD_FOREST,       null},
             {null,                     null, null,                              null,                           null}
