@@ -100,17 +100,17 @@ public final class BOPOverworldBiomeBuilder
     };
 
     private final ResourceKey<Biome>[][] MIDDLE_BIOMES_BOP = new ResourceKey[][]{
-            {null,                     null,                BOPBiomes.SNOWY_CONIFEROUS_FOREST, null,                           BOPBiomes.SEASONAL_FOREST},
-            {BOPBiomes.GRASSLAND,      BOPBiomes.GRASSLAND, BOPBiomes.CONIFEROUS_FOREST,       BOPBiomes.FIELD,                null},
-            {BOPBiomes.LAVENDER_FIELD, null,                null,                              BOPBiomes.CHERRY_BLOSSOM_GROVE, null},
-            {null,                     null,                BOPBiomes.WOODLAND,                BOPBiomes.REDWOOD_FOREST,       null},
-            {BOPBiomes.WASTELAND,      null,                null,                              null,                           null}
+            {null,                null,                      BOPBiomes.SNOWY_CONIFEROUS_FOREST, null,                           null},
+            {null,                BOPBiomes.SEASONAL_FOREST, BOPBiomes.CONIFEROUS_FOREST,       null,                           BOPBiomes.FIELD},
+            {null,                BOPBiomes.LAVENDER_FIELD,  null,                              BOPBiomes.GRASSLAND,            BOPBiomes.CHERRY_BLOSSOM_GROVE},
+            {null,                null,                      BOPBiomes.WOODLAND,                BOPBiomes.REDWOOD_FOREST,       null},
+            {BOPBiomes.WASTELAND, null,                      null,                              null,                           null}
     };
 
     private final ResourceKey<Biome>[][] MIDDLE_BIOMES_VARIANT_BOP = new ResourceKey[][]{
             {null, null, null, null,                           null},
             {null, null, null, null,                           null},
-            {null, null, null, BOPBiomes.BAMBOO_BLOSSOM_GROVE, null},
+            {null, null, null, null,                           BOPBiomes.BAMBOO_BLOSSOM_GROVE},
             {null, null, null, null,                           null},
             {null, null, null, null,                           null}
     };
