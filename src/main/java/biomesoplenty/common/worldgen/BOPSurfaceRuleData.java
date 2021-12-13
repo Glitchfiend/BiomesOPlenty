@@ -1,6 +1,7 @@
 package biomesoplenty.common.worldgen;
 
 import biomesoplenty.api.biome.BOPBiomes;
+import biomesoplenty.api.block.BOPBlocks;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.block.Block;
@@ -36,6 +37,8 @@ public class BOPSurfaceRuleData
     private static final SurfaceRules.RuleSource ICE = makeStateRule(Blocks.ICE);
     private static final SurfaceRules.RuleSource WATER = makeStateRule(Blocks.WATER);
     private static final SurfaceRules.RuleSource LAVA = makeStateRule(Blocks.LAVA);
+
+    // Nether
     private static final SurfaceRules.RuleSource NETHERRACK = makeStateRule(Blocks.NETHERRACK);
     private static final SurfaceRules.RuleSource SOUL_SAND = makeStateRule(Blocks.SOUL_SAND);
     private static final SurfaceRules.RuleSource SOUL_SOIL = makeStateRule(Blocks.SOUL_SOIL);
@@ -46,6 +49,9 @@ public class BOPSurfaceRuleData
     private static final SurfaceRules.RuleSource NETHER_WART_BLOCK = makeStateRule(Blocks.NETHER_WART_BLOCK);
     private static final SurfaceRules.RuleSource CRIMSON_NYLIUM = makeStateRule(Blocks.CRIMSON_NYLIUM);
     private static final SurfaceRules.RuleSource ENDSTONE = makeStateRule(Blocks.END_STONE);
+
+    // BOP
+    private static final SurfaceRules.RuleSource DRIED_SALT = makeStateRule(BOPBlocks.DRIED_SALT);
 
     private static SurfaceRules.RuleSource makeStateRule(Block p_194811_) {
         return SurfaceRules.state(p_194811_.defaultBlockState());
@@ -291,7 +297,8 @@ public class BOPSurfaceRuleData
 
     private static SurfaceRules.RuleSource makeBOPRules() {
         return SurfaceRules.sequence(
-                SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.REDWOOD_FOREST), PODZOL)
+            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.REDWOOD_FOREST), PODZOL),
+            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.WASTELAND), DRIED_SALT)
         );
     }
 
