@@ -114,18 +114,6 @@ public class TaigaTreeFeature extends BOPTreeFeature<TaigaTreeConfiguration>
             startPos = startPos.below();
         }
 
-        for (int x = 0; x <= config.trunkWidth - 1; x++)
-        {
-            for (int z = 0; z <= config.trunkWidth - 1; z++)
-            {
-                if (!this.canPlaceOn(world, startPos.offset(x, 0, z)))
-                {
-                    // Abandon if we can't place the tree on this block
-                    return false;
-                }
-            }
-        }
-
         // Choose heights
         int height = GeneratorUtil.nextIntBetween(random, config.minHeight, config.maxHeight);
         int baseHeight = GeneratorUtil.nextIntBetween(random, height / 5, height / 3);

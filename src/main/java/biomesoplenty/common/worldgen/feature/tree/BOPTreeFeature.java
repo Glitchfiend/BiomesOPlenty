@@ -112,11 +112,6 @@ public abstract class BOPTreeFeature<FC extends BOPTreeConfiguration> extends Tr
         return false;
     }
 
-    protected boolean canPlaceOn(LevelAccessor level, BlockPos pos)
-    {
-        return level.getBlockState(pos).canSustainPlant(level, pos, Direction.UP, (SaplingBlock) Blocks.OAK_SAPLING);
-    }
-
     protected boolean canReplace(LevelAccessor level, BlockPos pos)
     {
         return TreeFeature.isAirOrLeaves(level, pos) || level.getBlockState(pos).is(BlockTags.SAPLINGS) || level.getBlockState(pos).getBlock() == Blocks.VINE || level.getBlockState(pos).getBlock() == BOPBlocks.WILLOW_VINE || level.getBlockState(pos).getBlock() == BOPBlocks.DEAD_BRANCH || level.getBlockState(pos).getBlock() == Blocks.MOSS_CARPET || level.getBlockState(pos).getBlock() instanceof BushBlock;

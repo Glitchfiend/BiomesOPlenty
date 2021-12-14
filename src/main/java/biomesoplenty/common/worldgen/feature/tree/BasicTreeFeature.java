@@ -80,134 +80,127 @@ public class BasicTreeFeature extends BOPTreeFeature<BasicTreeConfiguration>
                 BlockPos soilPos = pos.below();
                 Block soil = world.getBlockState(soilPos).getBlock();
 
-                if (this.canPlaceOn(world, soilPos) && pos.getY() < 256 - height - 1)
+                world.setBlock(soilPos, Blocks.DIRT.defaultBlockState(), 3);
+                int leavesLayers = (config.leafLayers - 1);
+
+                //Generates leaves at the top of the tree, going one block above the top log (<= rather than <)
+                for (int y = pos.getY() + height - leavesLayers; y <= pos.getY() + height; y++)
                 {
-                    world.setBlock(soilPos, Blocks.DIRT.defaultBlockState(), 3);
-                    int leavesLayers = (config.leafLayers - 1);
+                    //Determines the distance from the top of the tree as a negative number
+                    int currentLayer = y - (pos.getY() + height);
+                    //Uses integer division truncation (-3 / 2 = -1, -2 / 2 = -1) to reduce
+                    //the radius closer to the top of the tree. (2, 2, 1, 1)
+                    int leavesRadius =  config.maxLeavesRadius - currentLayer / config.leavesLayerHeight;
 
-                    //Generates leaves at the top of the tree, going one block above the top log (<= rather than <)
-                    for (int y = pos.getY() + height - leavesLayers; y <= pos.getY() + height; y++)
+                    for (int x = pos.getX() - leavesRadius; x <= pos.getX() + leavesRadius; x++)
                     {
-                        //Determines the distance from the top of the tree as a negative number
-                        int currentLayer = y - (pos.getY() + height);
-                        //Uses integer division truncation (-3 / 2 = -1, -2 / 2 = -1) to reduce
-                        //the radius closer to the top of the tree. (2, 2, 1, 1)
-                        int leavesRadius =  config.maxLeavesRadius - currentLayer / config.leavesLayerHeight;
+                        int xDiff = x - pos.getX();
 
-                        for (int x = pos.getX() - leavesRadius; x <= pos.getX() + leavesRadius; x++)
+                        for (int z = pos.getZ() - leavesRadius; z <= pos.getZ() + leavesRadius; ++z)
                         {
-                            int xDiff = x - pos.getX();
+                            int zDiff = z - pos.getZ();
 
-                            for (int z = pos.getZ() - leavesRadius; z <= pos.getZ() + leavesRadius; ++z)
+                            //Randomly prevent the generation of leaves on the corners of each layer
+                            //If the layer is the top layer, never generate the corners
+                            if (Math.abs(xDiff) != leavesRadius || Math.abs(zDiff) != leavesRadius || random.nextInt(2) != 0 && currentLayer != 0)
                             {
-                                int zDiff = z - pos.getZ();
-
-                                //Randomly prevent the generation of leaves on the corners of each layer
-                                //If the layer is the top layer, never generate the corners
-                                if (Math.abs(xDiff) != leavesRadius || Math.abs(zDiff) != leavesRadius || random.nextInt(2) != 0 && currentLayer != 0)
+                                BlockPos leavesPos = new BlockPos(x, y, z);
+                                if (this.canReplace(world, leavesPos))
                                 {
-                                    BlockPos leavesPos = new BlockPos(x, y, z);
-                                    if (this.canReplace(world, leavesPos))
+                                    if (config.altFoliageProvider.getState(random, pos) != Blocks.AIR.defaultBlockState())
                                     {
-                                        if (config.altFoliageProvider.getState(random, pos) != Blocks.AIR.defaultBlockState())
+                                        if (random.nextInt(4) == 0)
                                         {
-                                            if (random.nextInt(4) == 0)
-                                            {
-                                                this.placeAltLeaves(world, leavesPos, leaves, config);
-                                            }
-                                            else
-                                            {
-                                                this.placeLeaves(world, leavesPos, leaves, config);
-                                            }
+                                            this.placeAltLeaves(world, leavesPos, leaves, config);
                                         }
                                         else
                                         {
                                             this.placeLeaves(world, leavesPos, leaves, config);
                                         }
                                     }
-                                }
-                            }
-                        }
-                    }
-
-                    this.generateTrunk(world, pos, height, logs, config);
-
-                    if (config.vineProvider.getState(random, pos) != Blocks.AIR.defaultBlockState())
-                    {
-                        for (int y = pos.getY() - leavesLayers + height; y <= pos.getY() + height; y++)
-                        {
-                            //Determines the distance from the top of the tree as a negative number
-                            int currentLayer = y - (pos.getY() + height);
-                            //Uses integer division truncation (-3 / 2 = -1, -2 / 2 = -1) to reduce
-                            //the radius closer to the top of the tree. (3, 3, 2, 2)
-                            int leavesRadius = (config.maxLeavesRadius + config.leavesOffset) - currentLayer / config.leavesLayerHeight;
-
-                            for (int x = pos.getX() - leavesRadius; x <= pos.getX() + leavesRadius; x++)
-                            {
-                                for (int z = pos.getZ() - leavesRadius; z <= pos.getZ() + leavesRadius; z++)
-                                {
-                                    BlockPos blockpos3 = new BlockPos(x, y, z);
-
-                                    //Surround leaves on the edge of the tree with vines and extend them downwards
-                                    if (world.getBlockState(blockpos3).getMaterial() == Material.LEAVES)
+                                    else
                                     {
-                                        BlockPos westPos = blockpos3.west();
-                                        BlockPos eastPos = blockpos3.east();
-                                        BlockPos northPos = blockpos3.north();
-                                        BlockPos southPos = blockpos3.south();
-
-                                        if (random.nextInt(4) == 0 && this.canPlaceVinesOn(world, westPos))
-                                        {
-                                            this.extendVines(world, random, westPos, Direction.EAST, config);
-                                        }
-
-                                        if (random.nextInt(4) == 0 && this.canPlaceVinesOn(world, eastPos))
-                                        {
-                                            this.extendVines(world, random, eastPos, Direction.WEST, config);
-                                        }
-
-                                        if (random.nextInt(4) == 0 && this.canPlaceVinesOn(world, northPos))
-                                        {
-                                            this.extendVines(world, random, northPos, Direction.SOUTH, config);
-                                        }
-
-                                        if (random.nextInt(4) == 0 && this.canPlaceVinesOn(world, southPos))
-                                        {
-                                            this.extendVines(world, random, southPos, Direction.NORTH, config);
-                                        }
+                                        this.placeLeaves(world, leavesPos, leaves, config);
                                     }
                                 }
                             }
                         }
                     }
-
-                    //Generate fruit or any other blocks that may hang off of the tree
-                    if (config.hangingProvider.getState(random, pos) != Blocks.AIR.defaultBlockState()) this.generateHanging(world, pos, random, height,config);
-
-                    if (config.trunkFruitProvider.getState(random, pos) != Blocks.AIR.defaultBlockState())
-                    {
-                        if (random.nextInt(5) == 0 && height > 5)
-                        {
-                            for (int l3 = 0; l3 < 2; ++l3)
-                            {
-                                for (Direction Direction : Direction.Plane.HORIZONTAL)
-                                {
-                                    if (random.nextInt(4 - l3) == 0)
-                                    {
-                                        Direction Direction1 = Direction.getOpposite();
-                                        this.generateTrunkFruit(world, random, random.nextInt(3), pos.offset(Direction1.getStepX(), height - 5 + l3, Direction1.getStepZ()), Direction, config);
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    return true;
                 }
-                else
+
+                this.generateTrunk(world, pos, height, logs, config);
+
+                if (config.vineProvider.getState(random, pos) != Blocks.AIR.defaultBlockState())
                 {
-                    return false;
+                    for (int y = pos.getY() - leavesLayers + height; y <= pos.getY() + height; y++)
+                    {
+                        //Determines the distance from the top of the tree as a negative number
+                        int currentLayer = y - (pos.getY() + height);
+                        //Uses integer division truncation (-3 / 2 = -1, -2 / 2 = -1) to reduce
+                        //the radius closer to the top of the tree. (3, 3, 2, 2)
+                        int leavesRadius = (config.maxLeavesRadius + config.leavesOffset) - currentLayer / config.leavesLayerHeight;
+
+                        for (int x = pos.getX() - leavesRadius; x <= pos.getX() + leavesRadius; x++)
+                        {
+                            for (int z = pos.getZ() - leavesRadius; z <= pos.getZ() + leavesRadius; z++)
+                            {
+                                BlockPos blockpos3 = new BlockPos(x, y, z);
+
+                                //Surround leaves on the edge of the tree with vines and extend them downwards
+                                if (world.getBlockState(blockpos3).getMaterial() == Material.LEAVES)
+                                {
+                                    BlockPos westPos = blockpos3.west();
+                                    BlockPos eastPos = blockpos3.east();
+                                    BlockPos northPos = blockpos3.north();
+                                    BlockPos southPos = blockpos3.south();
+
+                                    if (random.nextInt(4) == 0 && this.canPlaceVinesOn(world, westPos))
+                                    {
+                                        this.extendVines(world, random, westPos, Direction.EAST, config);
+                                    }
+
+                                    if (random.nextInt(4) == 0 && this.canPlaceVinesOn(world, eastPos))
+                                    {
+                                        this.extendVines(world, random, eastPos, Direction.WEST, config);
+                                    }
+
+                                    if (random.nextInt(4) == 0 && this.canPlaceVinesOn(world, northPos))
+                                    {
+                                        this.extendVines(world, random, northPos, Direction.SOUTH, config);
+                                    }
+
+                                    if (random.nextInt(4) == 0 && this.canPlaceVinesOn(world, southPos))
+                                    {
+                                        this.extendVines(world, random, southPos, Direction.NORTH, config);
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
+
+                //Generate fruit or any other blocks that may hang off of the tree
+                if (config.hangingProvider.getState(random, pos) != Blocks.AIR.defaultBlockState()) this.generateHanging(world, pos, random, height,config);
+
+                if (config.trunkFruitProvider.getState(random, pos) != Blocks.AIR.defaultBlockState())
+                {
+                    if (random.nextInt(5) == 0 && height > 5)
+                    {
+                        for (int l3 = 0; l3 < 2; ++l3)
+                        {
+                            for (Direction Direction : Direction.Plane.HORIZONTAL)
+                            {
+                                if (random.nextInt(4 - l3) == 0)
+                                {
+                                    Direction Direction1 = Direction.getOpposite();
+                                    this.generateTrunkFruit(world, random, random.nextInt(3), pos.offset(Direction1.getStepX(), height - 5 + l3, Direction1.getStepZ()), Direction, config);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return true;
             }
         }
         else

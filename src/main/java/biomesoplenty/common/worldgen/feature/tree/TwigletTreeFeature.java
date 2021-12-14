@@ -38,12 +38,6 @@ public class TwigletTreeFeature extends BOPTreeFeature<TwigletTreeConfiguration>
             startPos = startPos.below();
         }
 
-        if (!this.canPlaceOn(world, startPos))
-        {
-            // Abandon if we can't place the tree on this block
-            return false;
-        }
-
         // choose a random height
         int height = config.minHeight + random.nextInt(1 + config.maxHeight - config.minHeight);
         int baseHeight = height / 3;

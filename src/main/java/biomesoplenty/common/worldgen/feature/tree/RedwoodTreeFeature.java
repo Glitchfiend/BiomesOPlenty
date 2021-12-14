@@ -109,18 +109,6 @@ public class RedwoodTreeFeature extends BOPTreeFeature<TaigaTreeConfiguration>
         // Move down until we reach the ground
         while (startPos.getY() > 1 && world.isEmptyBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES) {startPos = startPos.below();}
 
-        for (int x = 0; x <= config.trunkWidth - 1; x++)
-        {
-            for (int z = 0; z <= config.trunkWidth - 1; z++)
-            {
-                if (!this.canPlaceOn(world, startPos.offset(x, 0, z)))
-                {
-                    // Abandon if we can't place the tree on this block
-                    return false;
-                }
-            }
-        }
-
         // Choose heights
         int height = GeneratorUtil.nextIntBetween(random, config.minHeight, config.maxHeight);
         int baseHeight = GeneratorUtil.nextIntBetween(random, (int)(height * 0.6F), (int)(height * 0.4F));

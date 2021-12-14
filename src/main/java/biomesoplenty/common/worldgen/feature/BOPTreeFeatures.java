@@ -41,6 +41,9 @@ public class BOPTreeFeatures
     public static final ConfiguredFeature<TreeConfiguration, ?> BIG_PINK_CHERRY_TREE = register("big_pink_cherry_tree", BOPBaseFeatures.BIG_TREE.configured(new BigTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.CHERRY_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.PINK_CHERRY_LEAVES)).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> BIG_WHITE_CHERRY_TREE = register("big_white_cherry_tree", BOPBaseFeatures.BIG_TREE.configured(new BigTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.CHERRY_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.WHITE_CHERRY_LEAVES)).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> BIG_YELLOW_AUTUMN_TREE = register("big_yellow_autumn_tree", BOPBaseFeatures.BIG_TREE.configured(new BigTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.BIRCH_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.YELLOW_AUTUMN_LEAVES)).build()));
+    public static final ConfiguredFeature<TreeConfiguration, ?> DYING_TREE = register("dying_tree", BOPBaseFeatures.BIG_TREE.configured(new BigTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.DEAD_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.DEAD_LEAVES)).maxHeight(10).foliageHeight(2).build()));
+    public static final ConfiguredFeature<TreeConfiguration, ?> DYING_TREE_WASTELAND = register("dying_tree_wasteland", BOPBaseFeatures.BIG_TREE.configured(new BigTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.DEAD_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.DEAD_LEAVES)).maxHeight(10).foliageHeight(1).build()));
+    public static final ConfiguredFeature<TreeConfiguration, ?> SPARSE_OAK_TREE = register("sparse_oak_tree", BOPBaseFeatures.BIG_TREE.configured(new BigTreeConfiguration.Builder().maxHeight(10).foliageHeight(2).build()));
 
     // Conifer trees
     public static final ConfiguredFeature<TreeConfiguration, ?> FIR_TREE = register("fir_tree", BOPBaseFeatures.TAIGA_TREE.configured(createFir().minHeight(5).maxHeight(28).build()));
@@ -48,20 +51,20 @@ public class BOPTreeFeatures
     public static final ConfiguredFeature<TreeConfiguration, ?> TALL_SPRUCE_TREE = register("tall_spruce_tree", BOPBaseFeatures.TAIGA_TREE.configured(new TaigaTreeConfiguration.Builder().maxHeight(13).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> TALL_SPRUCE_TREE_BEES = register("tall_spruce_tree_bees", BOPBaseFeatures.TAIGA_TREE.configured(new TaigaTreeConfiguration.Builder().maxHeight(13).decorator(new BeehiveDecorator(0.05f)).build()));
 
-    // Sparse trees
-    public static final ConfiguredFeature<TreeConfiguration, ?> DYING_TREE = register("dying_tree", BOPBaseFeatures.BIG_TREE.configured(new BigTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.DEAD_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.DEAD_LEAVES)).maxHeight(10).foliageHeight(2).build()));
-    public static final ConfiguredFeature<TreeConfiguration, ?> DYING_TREE_WASTELAND = register("dying_tree_wasteland", BOPBaseFeatures.BIG_TREE.configured(new BigTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.DEAD_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.DEAD_LEAVES)).maxHeight(10).foliageHeight(1).build()));
-
-    // Bushes/twiglets
-    public static final ConfiguredFeature<TreeConfiguration, ?> DEAD_TWIGLET_TREE = register("dead_twiglet_tree", BOPBaseFeatures.TWIGLET_TREE.configured(new TwigletTreeConfiguration.Builder().trunkFruit(BlockStateProvider.simple(BOPBlocks.DEAD_BRANCH)).leafChance(0.05F, 0.25F).trunk(BlockStateProvider.simple(BOPBlocks.DEAD_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.DEAD_LEAVES)).minHeight(6).maxHeight(10).build()));
-    public static final ConfiguredFeature<TreeConfiguration, ?> OAK_BUSH = register("bush", BOPBaseFeatures.BUSH_TREE.configured(new BasicTreeConfiguration.Builder().maxHeight(2).minHeight(2).trunk(BlockStateProvider.simple(Blocks.OAK_LOG)).foliage(BlockStateProvider.simple(Blocks.OAK_LEAVES)).build()));
+    // Bush trees
     public static final ConfiguredFeature<TreeConfiguration, ?> FLOWERING_OAK_BUSH = register("flowering_oak_bush", BOPBaseFeatures.BUSH_TREE.configured(new BasicTreeConfiguration.Builder().maxHeight(2).minHeight(2).trunk(BlockStateProvider.simple(Blocks.OAK_LOG)).foliage(BlockStateProvider.simple(Blocks.OAK_LEAVES)).altFoliage(BlockStateProvider.simple(BOPBlocks.FLOWERING_OAK_LEAVES)).build()));
+    public static final ConfiguredFeature<TreeConfiguration, ?> OAK_BUSH = register("bush", BOPBaseFeatures.BUSH_TREE.configured(new BasicTreeConfiguration.Builder().maxHeight(2).minHeight(2).trunk(BlockStateProvider.simple(Blocks.OAK_LOG)).foliage(BlockStateProvider.simple(Blocks.OAK_LEAVES)).build()));
+
+    // Twiglets
+    public static final ConfiguredFeature<TreeConfiguration, ?> ACACIA_TWIGLET_SMALL = register("acacia_twiglet_small", BOPBaseFeatures.TWIGLET_TREE.configured(new TwigletTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.ACACIA_LOG)).foliage(BlockStateProvider.simple(Blocks.ACACIA_LEAVES)).minHeight(1).maxHeight(2).build()));
+    public static final ConfiguredFeature<TreeConfiguration, ?> DEAD_TREE_WASTELAND = register("dead_tree_wasteland", BOPBaseFeatures.TWIGLET_TREE.configured(new TwigletTreeConfiguration.Builder().trunkFruit(BlockStateProvider.simple(BOPBlocks.DEAD_BRANCH)).leafChance(0.0F, 0.0F).trunk(BlockStateProvider.simple(BOPBlocks.DEAD_LOG)).foliage(BlockStateProvider.simple(Blocks.AIR)).minHeight(6).maxHeight(10).build()));
+    public static final ConfiguredFeature<TreeConfiguration, ?> DEAD_TWIGLET_TREE = register("dead_twiglet_tree", BOPBaseFeatures.TWIGLET_TREE.configured(new TwigletTreeConfiguration.Builder().trunkFruit(BlockStateProvider.simple(BOPBlocks.DEAD_BRANCH)).leafChance(0.05F, 0.25F).trunk(BlockStateProvider.simple(BOPBlocks.DEAD_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.DEAD_LEAVES)).minHeight(6).maxHeight(10).build()));
+    public static final ConfiguredFeature<TreeConfiguration, ?> TWIGLET_TREE = register("twiglet_tree", BOPBaseFeatures.TWIGLET_TREE.configured(new TwigletTreeConfiguration.Builder().minHeight(1).maxHeight(2).build()));
 
     // Special trees
-    public static final ConfiguredFeature<TreeConfiguration, ?> DEAD_TREE_WASTELAND = register("dead_tree_wasteland", BOPBaseFeatures.TWIGLET_TREE.configured(new TwigletTreeConfiguration.Builder().trunkFruit(BlockStateProvider.simple(BOPBlocks.DEAD_BRANCH)).leafChance(0.0F, 0.0F).trunk(BlockStateProvider.simple(BOPBlocks.DEAD_LOG)).foliage(BlockStateProvider.simple(Blocks.AIR)).minHeight(6).maxHeight(10).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> REDWOOD_TREE = register("redwood_tree", BOPBaseFeatures.REDWOOD_TREE.configured(createRedwood().minHeight(10).maxHeight(30).build()));
-    public static final ConfiguredFeature<TreeConfiguration, ?> REDWOOD_TREE_MEDIUM = register("redwood_tree_medium", BOPBaseFeatures.REDWOOD_TREE.configured(createRedwood().minHeight(25).maxHeight(40).trunkWidth(2).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> REDWOOD_TREE_LARGE = register("redwood_tree_large", BOPBaseFeatures.REDWOOD_TREE.configured(createRedwood().minHeight(45).maxHeight(60).trunkWidth(3).build()));
+    public static final ConfiguredFeature<TreeConfiguration, ?> REDWOOD_TREE_MEDIUM = register("redwood_tree_medium", BOPBaseFeatures.REDWOOD_TREE.configured(createRedwood().minHeight(25).maxHeight(40).trunkWidth(2).build()));
 
     private static TaigaTreeConfiguration.Builder createFir()
     {

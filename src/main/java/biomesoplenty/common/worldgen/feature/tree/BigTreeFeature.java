@@ -364,22 +364,15 @@ public class BigTreeFeature extends BOPTreeFeature<BigTreeConfiguration>
 
     private int checkLocation(LevelAccessor world, BlockPos pos, int height, BiConsumer<BlockPos, BlockState> logs, BigTreeConfiguration config)
     {
-        if (!this.canPlaceOn(world, pos.below()))
+        int step = this.checkLineAndOptionallySet(world, pos, pos.above(height - 1), false, logs, config);
+
+        if (step == -1)
         {
-            return -1;
+            return height;
         }
         else
         {
-            int step = this.checkLineAndOptionallySet(world, pos, pos.above(height - 1), false, logs, config);
-
-            if (step == -1)
-            {
-                return height;
-            }
-            else
-            {
-                return step < 6 ? -1 : step;
-            }
+            return step < 6 ? -1 : step;
         }
     }
 
