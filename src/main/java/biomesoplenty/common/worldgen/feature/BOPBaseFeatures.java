@@ -9,6 +9,7 @@ import biomesoplenty.common.worldgen.feature.configurations.BigTreeConfiguration
 import biomesoplenty.common.worldgen.feature.configurations.TaigaTreeConfiguration;
 import biomesoplenty.common.worldgen.feature.configurations.TwigletTreeConfiguration;
 import biomesoplenty.common.worldgen.feature.misc.MossSplatterFeature;
+import biomesoplenty.common.worldgen.feature.misc.ScrubFeature;
 import biomesoplenty.common.worldgen.feature.misc.ShortBambooFeature;
 import biomesoplenty.common.worldgen.feature.tree.*;
 import biomesoplenty.core.BiomesOPlenty;
@@ -28,6 +29,7 @@ public class BOPBaseFeatures
     public static final BOPTreeFeature<BigTreeConfiguration> BIG_TREE = register("big_tree", new BigTreeFeature(BigTreeConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> MOSS_SPLATTER = register("moss_splatter", new MossSplatterFeature(NoneFeatureConfiguration.CODEC));
     public static final BOPTreeFeature<TaigaTreeConfiguration> REDWOOD_TREE = register("redwood_tree", new RedwoodTreeFeature(TaigaTreeConfiguration.CODEC));
+    public static final Feature<NoneFeatureConfiguration> SCRUB = register("scrub", new ScrubFeature(NoneFeatureConfiguration.CODEC));
     public static final BOPTreeFeature<TwigletTreeConfiguration> TWIGLET_TREE = register("twiglet_tree", new TwigletTreeFeature(TwigletTreeConfiguration.CODEC));
 
     private static <C extends FeatureConfiguration, F extends Feature<C>> F register(String key, F value)

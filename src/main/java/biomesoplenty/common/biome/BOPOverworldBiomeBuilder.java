@@ -103,7 +103,7 @@ public final class BOPOverworldBiomeBuilder
             {BOPBiomes.COLD_DESERT, null,                      BOPBiomes.SNOWY_CONIFEROUS_FOREST, null,                           BOPBiomes.DEAD_FOREST},
             {null,                  BOPBiomes.SEASONAL_FOREST, BOPBiomes.CONIFEROUS_FOREST,       null,                           BOPBiomes.FIELD},
             {BOPBiomes.PRAIRIE,     BOPBiomes.LAVENDER_FIELD,  null,                              BOPBiomes.GRASSLAND,            BOPBiomes.CHERRY_BLOSSOM_GROVE},
-            {null,                  null,                      BOPBiomes.WOODLAND,                BOPBiomes.REDWOOD_FOREST,       null},
+            {BOPBiomes.SCRUBLAND,   null,                      BOPBiomes.WOODLAND,                BOPBiomes.REDWOOD_FOREST,       null},
             {BOPBiomes.WASTELAND,   BOPBiomes.DRYLAND,         null,                              null,                           null}
     };
 

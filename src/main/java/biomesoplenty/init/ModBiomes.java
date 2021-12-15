@@ -39,6 +39,7 @@ public class ModBiomes
         registerBiome(BOPBiomes.LAVENDER_FIELD, BOPOverworldBiomes.lavenderField());
         registerBiome(BOPBiomes.PRAIRIE, BOPOverworldBiomes.prairie());
         registerBiome(BOPBiomes.REDWOOD_FOREST, BOPOverworldBiomes.redwoodForest());
+        registerBiome(BOPBiomes.SCRUBLAND, BOPOverworldBiomes.scrubland());
         registerBiome(BOPBiomes.SEASONAL_FOREST, BOPOverworldBiomes.seasonalForest());
         registerBiome(BOPBiomes.SNOWY_CONIFEROUS_FOREST, BOPOverworldBiomes.coniferousForest(true));
         registerBiome(BOPBiomes.WASTELAND, BOPOverworldBiomes.wasteland());
