@@ -21,6 +21,7 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.BeehiveDecorato
 public class BOPTreeFeatures
 {
     // Standard trees
+    public static final ConfiguredFeature<TreeConfiguration, ?> FLOWERING_OAK_TREE = register("flowering_oak_tree", BOPBaseFeatures.BASIC_TREE.configured(new BasicTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.OAK_LOG)).foliage(BlockStateProvider.simple(Blocks.OAK_LEAVES)).altFoliage(BlockStateProvider.simple(BOPBlocks.FLOWERING_OAK_LEAVES)).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> FLOWERING_OAK_TREE_BEES = register("flowering_oak_tree_bees", BOPBaseFeatures.BASIC_TREE.configured(new BasicTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.OAK_LOG)).foliage(BlockStateProvider.simple(Blocks.OAK_LEAVES)).altFoliage(BlockStateProvider.simple(BOPBlocks.FLOWERING_OAK_LEAVES)).decorator(new BeehiveDecorator(0.05f)).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> JACARANDA_TREE_BEES = register("jacaranda_tree_bees", BOPBaseFeatures.BASIC_TREE.configured(new BasicTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.JACARANDA_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.JACARANDA_LEAVES)).decorator(new BeehiveDecorator(0.02f)).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> MAPLE_TREE = register("maple_tree", BOPBaseFeatures.BASIC_TREE.configured(new BasicTreeConfiguration.Builder().foliage(BlockStateProvider.simple(BOPBlocks.MAPLE_LEAVES)).minHeight(5).maxHeight(10).build()));
