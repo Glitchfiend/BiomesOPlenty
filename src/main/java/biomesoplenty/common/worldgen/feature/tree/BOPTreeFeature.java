@@ -11,13 +11,11 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.BushBlock;
-import net.minecraft.world.level.block.SaplingBlock;
-import net.minecraft.world.level.block.VineBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
+import net.minecraft.world.level.material.Material;
 
 import java.util.Collection;
 import java.util.Random;
@@ -114,7 +112,11 @@ public abstract class BOPTreeFeature<FC extends BOPTreeConfiguration> extends Tr
 
     protected boolean canReplace(LevelAccessor level, BlockPos pos)
     {
-        return TreeFeature.isAirOrLeaves(level, pos) || level.getBlockState(pos).is(BlockTags.SAPLINGS) || level.getBlockState(pos).getBlock() == Blocks.VINE || level.getBlockState(pos).getBlock() == BOPBlocks.WILLOW_VINE || level.getBlockState(pos).getBlock() == BOPBlocks.DEAD_BRANCH || level.getBlockState(pos).getBlock() == Blocks.MOSS_CARPET || level.getBlockState(pos).getBlock() instanceof BushBlock;
+        return TreeFeature.isAirOrLeaves(level, pos) || level.isStateAtPosition(pos, (state) -> {
+            Material material = state.getMaterial();
+            Block block = state.getBlock();
+            return material == Material.REPLACEABLE_PLANT || state.is(BlockTags.SAPLINGS) || block == Blocks.VINE || block == BOPBlocks.WILLOW_VINE || block == BOPBlocks.DEAD_BRANCH || block == Blocks.MOSS_CARPET || block instanceof BushBlock;
+        });
     }
 
     protected Property getLogAxisProperty(LevelAccessor level, BlockPos pos, FC config)

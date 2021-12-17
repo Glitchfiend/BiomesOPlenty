@@ -52,6 +52,8 @@ public class BOPSurfaceRuleData
 
     // BOP
     private static final SurfaceRules.RuleSource DRIED_SALT = makeStateRule(BOPBlocks.DRIED_SALT);
+    private static final SurfaceRules.RuleSource ORANGE_SAND = makeStateRule(BOPBlocks.ORANGE_SAND);
+    private static final SurfaceRules.RuleSource ORANGE_SANDSTONE = makeStateRule(BOPBlocks.ORANGE_SANDSTONE);
 
     private static SurfaceRules.RuleSource makeStateRule(Block p_194811_) {
         return SurfaceRules.state(p_194811_.defaultBlockState());
@@ -326,7 +328,17 @@ public class BOPSurfaceRuleData
         return SurfaceRules.sequence(
             SurfaceRules.ifTrue(
                 isAtOrAboveWaterLevel,
-                SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.REDWOOD_FOREST), PODZOL)
+                SurfaceRules.sequence(
+                    SurfaceRules.ifTrue(
+                        SurfaceRules.isBiome(BOPBiomes.LUSH_DESERT),
+                        SurfaceRules.ifTrue(SurfaceRules.ON_CEILING, ORANGE_SANDSTONE)
+                    ),
+                    SurfaceRules.ifTrue(
+                        SurfaceRules.isBiome(BOPBiomes.MEDITERRANEAN_FOREST),
+                        SurfaceRules.ifTrue(surfaceNoiseAbove(1.9D), PODZOL)
+                    ),
+                    SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.REDWOOD_FOREST), PODZOL)
+                )
             ),
             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.COLD_DESERT),
                 SurfaceRules.sequence(
@@ -336,6 +348,13 @@ public class BOPSurfaceRuleData
             ),
             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.DRYLAND),
                 SurfaceRules.ifTrue(surfaceNoiseAbove(1.75D), SAND)
+            ),
+            SurfaceRules.ifTrue(
+                SurfaceRules.isBiome(BOPBiomes.LUSH_DESERT),
+                SurfaceRules.sequence(
+                    SurfaceRules.ifTrue(surfaceNoiseAbove(1.9D), ORANGE_SANDSTONE),
+                    ORANGE_SAND
+                )
             ),
             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.WASTELAND), DRIED_SALT)
         );

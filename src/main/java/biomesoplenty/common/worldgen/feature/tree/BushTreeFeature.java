@@ -27,7 +27,7 @@ public class BushTreeFeature extends BOPTreeFeature<BasicTreeConfiguration>
         // Move down until we reach the ground
         while (startPos.getY() > 1 && (world.isEmptyBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.AIR)) {startPos = startPos.below();}
 
-        if (!this.canReplace(world, startPos))
+        if (!this.canReplace(world, startPos.above()))
         {
             // Abandon if we can't place the tree on this block
             return false;
