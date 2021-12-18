@@ -62,7 +62,7 @@ public class BiomesOPlenty
 
     private void clientSetup(final FMLClientSetupEvent event)
     {
-        NoiseSimulator.run();
+//        NoiseSimulator.run();
     }
 
     private void loadComplete(final FMLLoadCompleteEvent event)

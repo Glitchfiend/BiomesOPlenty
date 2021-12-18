@@ -22,7 +22,7 @@ public class ModBiomes
 {
     public static void setup()
     {
-        registerNoise(BOPNoises.UNIQUENESS, -9, 1.0D, 2.0D, 1.0D, 0.0D, 0.0D, 0.0D);
+        registerNoise(BOPNoises.UNIQUENESS, -6, 1.0D, 2.0D, 1.0D, 0.0D, 0.0D, 0.0D);
     }
 
     @SubscribeEvent

@@ -327,17 +327,20 @@ public class BOPSurfaceRuleData
 
         return SurfaceRules.sequence(
             SurfaceRules.ifTrue(
-                isAtOrAboveWaterLevel,
-                SurfaceRules.sequence(
-                    SurfaceRules.ifTrue(
-                        SurfaceRules.isBiome(BOPBiomes.LUSH_DESERT),
-                        SurfaceRules.ifTrue(SurfaceRules.ON_CEILING, ORANGE_SANDSTONE)
-                    ),
-                    SurfaceRules.ifTrue(
-                        SurfaceRules.isBiome(BOPBiomes.MEDITERRANEAN_FOREST),
-                        SurfaceRules.ifTrue(surfaceNoiseAbove(1.9D), PODZOL)
-                    ),
-                    SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.REDWOOD_FOREST), PODZOL)
+                SurfaceRules.ON_FLOOR,
+                SurfaceRules.ifTrue(
+                    isAtOrAboveWaterLevel,
+                    SurfaceRules.sequence(
+                        SurfaceRules.ifTrue(
+                            SurfaceRules.isBiome(BOPBiomes.LUSH_DESERT),
+                            SurfaceRules.ifTrue(SurfaceRules.ON_CEILING, ORANGE_SANDSTONE)
+                        ),
+                        SurfaceRules.ifTrue(
+                            SurfaceRules.isBiome(BOPBiomes.MEDITERRANEAN_FOREST),
+                            SurfaceRules.ifTrue(surfaceNoiseAbove(1.9D), PODZOL)
+                        ),
+                        SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.REDWOOD_FOREST), PODZOL)
+                    )
                 )
             ),
             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.COLD_DESERT),
