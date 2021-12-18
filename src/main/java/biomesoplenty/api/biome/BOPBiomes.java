@@ -30,6 +30,7 @@ public class BOPBiomes
     public static final ResourceKey<Biome> SCRUBLAND = register("scrubland");
     public static final ResourceKey<Biome> SHRUBLAND = register("shrubland");
     public static final ResourceKey<Biome> SEASONAL_FOREST = register("seasonal_forest");
+    public static final ResourceKey<Biome> SEASONAL_PUMPKIN_PATCH = register("seasonal_pumpkin_patch");
     public static final ResourceKey<Biome> TUNDRA = register("tundra");
     public static final ResourceKey<Biome> SNOWY_CONIFEROUS_FOREST = register("snowy_coniferous_forest");
     public static final ResourceKey<Biome> WASTELAND = register("wasteland");
