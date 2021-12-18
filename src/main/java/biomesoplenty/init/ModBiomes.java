@@ -34,7 +34,7 @@ public class ModBiomes
         registerBiome(BOPBiomes.DEAD_FOREST, BOPOverworldBiomes.deadForest());
         registerBiome(BOPBiomes.DRYLAND, BOPOverworldBiomes.dryland());
         registerBiome(BOPBiomes.FIELD, BOPOverworldBiomes.field());
-        registerBiome(BOPBiomes.FIR_CLEARING, BOPOverworldBiomes.firClearing());
+        registerBiome(BOPBiomes.FIR_CLEARING, BOPOverworldBiomes.firClearing(false));
         registerBiome(BOPBiomes.GRASSLAND, BOPOverworldBiomes.grassland());
         registerBiome(BOPBiomes.LAVENDER_FIELD, BOPOverworldBiomes.lavenderField(false));
         registerBiome(BOPBiomes.LAVENDER_FOREST, BOPOverworldBiomes.lavenderField(true));
@@ -49,6 +49,7 @@ public class ModBiomes
         registerBiome(BOPBiomes.SEASONAL_FOREST, BOPOverworldBiomes.seasonalForest());
         registerBiome(BOPBiomes.SEASONAL_PUMPKIN_PATCH, BOPOverworldBiomes.seasonalPumpkinPatch());
         registerBiome(BOPBiomes.SNOWY_CONIFEROUS_FOREST, BOPOverworldBiomes.coniferousForest(true));
+        registerBiome(BOPBiomes.SNOWY_FIR_CLEARING, BOPOverworldBiomes.firClearing(true));
         registerBiome(BOPBiomes.TUNDRA, BOPOverworldBiomes.tundra());
         registerBiome(BOPBiomes.WASTELAND, BOPOverworldBiomes.wasteland());
         registerBiome(BOPBiomes.WOODED_SCRUBLAND, BOPOverworldBiomes.scrubland(true));
