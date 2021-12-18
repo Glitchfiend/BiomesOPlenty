@@ -14,6 +14,7 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.blending.Blender;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
+import net.minecraftforge.common.BiomeDictionary;
 import org.apache.commons.compress.utils.Lists;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWVidMode;
@@ -26,6 +27,7 @@ import java.awt.*;
 import java.nio.IntBuffer;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL13.GL_TEXTURE0;
@@ -190,10 +192,24 @@ public class NoiseSimulator
 
                     int color;
 
-                    if (biome.location().getNamespace().equals("biomesoplenty"))
-                        color = 0x0000FF;
+                    if (biome.location().getNamespace().equals("biomesoplenty")) color = 0xFF0000;
                     else
-                        color = 0x00FF00;
+                    {
+                        Set<BiomeDictionary.Type> types = BiomeDictionary.getTypes(biome);
+
+                        if (types.contains(BiomeDictionary.Type.OCEAN) || types.contains(BiomeDictionary.Type.RIVER))
+                        {
+                            color = 0x0000FF;
+                        }
+                        else if (types.contains(BiomeDictionary.Type.BEACH))
+                        {
+                            color = 0x808080;
+                        }
+                        else
+                        {
+                            color = 0x00FF00;
+                        }
+                    }
 
 //                    double uniqueness = data.uniqueness();
 //                    if (uniqueness < 0.0D) val = 0xFFFFFF;

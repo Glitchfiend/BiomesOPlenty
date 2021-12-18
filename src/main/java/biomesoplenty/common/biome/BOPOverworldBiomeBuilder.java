@@ -479,23 +479,25 @@ public final class BOPOverworldBiomeBuilder
 
     private ResourceKey<Biome> pickMiddleBiomeBOP(int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
     {
-        if (weirdness.max() < 0L)
-        {
-            // TODO: Remove this null fallback once our array is complete
-            ResourceKey<Biome> biome = this.MIDDLE_BIOMES_BOP[temperatureIndex][humidityIndex];
-            return biome == null ? this.MIDDLE_BIOMES[temperatureIndex][humidityIndex] : biome;
-        }
-        else
-        {
-            // TODO: Use MIDDLE_BIOMES_BOP solely as the fallback
-            ResourceKey<Biome> biome = this.MIDDLE_BIOMES_BOP[temperatureIndex][humidityIndex];
-            ResourceKey<Biome> variantBiome = this.MIDDLE_BIOMES_VARIANT_BOP[temperatureIndex][humidityIndex];
+        return BOPBiomes.CONIFEROUS_FOREST;
 
-            if (variantBiome == null)
-                return biome == null ? this.MIDDLE_BIOMES[temperatureIndex][humidityIndex] : biome;
-
-            return variantBiome;
-        }
+//        if (weirdness.max() < 0L)
+//        {
+//            // TODO: Remove this null fallback once our array is complete
+//            ResourceKey<Biome> biome = this.MIDDLE_BIOMES_BOP[temperatureIndex][humidityIndex];
+//            return biome == null ? this.MIDDLE_BIOMES[temperatureIndex][humidityIndex] : biome;
+//        }
+//        else
+//        {
+//            // TODO: Use MIDDLE_BIOMES_BOP solely as the fallback
+//            ResourceKey<Biome> biome = this.MIDDLE_BIOMES_BOP[temperatureIndex][humidityIndex];
+//            ResourceKey<Biome> variantBiome = this.MIDDLE_BIOMES_VARIANT_BOP[temperatureIndex][humidityIndex];
+//
+//            if (variantBiome == null)
+//                return biome == null ? this.MIDDLE_BIOMES[temperatureIndex][humidityIndex] : biome;
+//
+//            return variantBiome;
+//        }
     }
 
     private ResourceKey<Biome> pickMiddleBiomeOrBadlandsIfHotVanilla(int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
@@ -505,7 +507,8 @@ public final class BOPOverworldBiomeBuilder
 
     private ResourceKey<Biome> pickMiddleBiomeOrBadlandsIfHotBOP(int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
     {
-        return temperatureIndex == 4 ? this.pickBadlandsBiome(humidityIndex, weirdness) : this.pickMiddleBiomeBOP(temperatureIndex, humidityIndex, weirdness);
+        return BOPBiomes.CONIFEROUS_FOREST;
+//        return temperatureIndex == 4 ? this.pickBadlandsBiome(humidityIndex, weirdness) : this.pickMiddleBiomeBOP(temperatureIndex, humidityIndex, weirdness);
     }
 
     private ResourceKey<Biome> pickMiddleBiomeOrBadlandsIfHotOrSlopeIfColdVanilla(int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
@@ -515,7 +518,8 @@ public final class BOPOverworldBiomeBuilder
 
     private ResourceKey<Biome> pickMiddleBiomeOrBadlandsIfHotOrSlopeIfColdBOP(int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
     {
-        return temperatureIndex == 0 ? this.pickSlopeBiome(temperatureIndex, humidityIndex, weirdness) : this.pickMiddleBiomeOrBadlandsIfHotBOP(temperatureIndex, humidityIndex, weirdness);
+        return BOPBiomes.CONIFEROUS_FOREST;
+//        return temperatureIndex == 0 ? this.pickSlopeBiome(temperatureIndex, humidityIndex, weirdness) : this.pickMiddleBiomeOrBadlandsIfHotBOP(temperatureIndex, humidityIndex, weirdness);
     }
 
     private ResourceKey<Biome> maybePickShatteredBiome(int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness, ResourceKey<Biome> extremeHillsBiome)
@@ -568,17 +572,18 @@ public final class BOPOverworldBiomeBuilder
 
     private ResourceKey<Biome> pickPlateauBiomeBOP(int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
     {
-        if (weirdness.max() < 0L)
-        {
-            ResourceKey<Biome> plateau = this.PLATEAU_BIOMES_BOP[temperatureIndex][humidityIndex];
-            return plateau == null ? this.PLATEAU_BIOMES[temperatureIndex][humidityIndex] : plateau;
-        }
-        else
-        {
-            ResourceKey<Biome> resourcekey = this.PLATEAU_BIOMES_VARIANT_BOP[temperatureIndex][humidityIndex];
-            ResourceKey<Biome> plateau = this.PLATEAU_BIOMES_BOP[temperatureIndex][humidityIndex];
-            return resourcekey == null ? (plateau == null ? this.PLATEAU_BIOMES[temperatureIndex][humidityIndex] : plateau) : resourcekey;
-        }
+        return BOPBiomes.CONIFEROUS_FOREST;
+//        if (weirdness.max() < 0L)
+//        {
+//            ResourceKey<Biome> plateau = this.PLATEAU_BIOMES_BOP[temperatureIndex][humidityIndex];
+//            return plateau == null ? this.PLATEAU_BIOMES[temperatureIndex][humidityIndex] : plateau;
+//        }
+//        else
+//        {
+//            ResourceKey<Biome> resourcekey = this.PLATEAU_BIOMES_VARIANT_BOP[temperatureIndex][humidityIndex];
+//            ResourceKey<Biome> plateau = this.PLATEAU_BIOMES_BOP[temperatureIndex][humidityIndex];
+//            return resourcekey == null ? (plateau == null ? this.PLATEAU_BIOMES[temperatureIndex][humidityIndex] : plateau) : resourcekey;
+//        }
     }
 
     private ResourceKey<Biome> pickPeakBiome(int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
@@ -613,8 +618,9 @@ public final class BOPOverworldBiomeBuilder
 
     private ResourceKey<Biome> pickExtremeHillsBiomeBOP(int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
     {
-        ResourceKey<Biome> resourcekey = this.EXTREME_HILLS_BOP[temperatureIndex][humidityIndex];
-        return resourcekey == null ? this.pickExtremeHillsBiomeVanilla(temperatureIndex, humidityIndex, weirdness) : resourcekey;
+        return BOPBiomes.CONIFEROUS_FOREST;
+//        ResourceKey<Biome> resourcekey = this.EXTREME_HILLS_BOP[temperatureIndex][humidityIndex];
+//        return resourcekey == null ? this.pickExtremeHillsBiomeVanilla(temperatureIndex, humidityIndex, weirdness) : resourcekey;
     }
 
     private void addParallelSurfaceBiomes(Consumer<Pair<BOPClimate.ParameterPoint, ResourceKey<Biome>>> mapper, BOPClimate.Parameter temperature, BOPClimate.Parameter humidity, BOPClimate.Parameter continentalness, BOPClimate.Parameter erosion, BOPClimate.Parameter weirdness, float offset, ResourceKey<Biome> vanillaBiome, ResourceKey<Biome> bopBiome)
