@@ -21,20 +21,21 @@ public class NoiseSimulationHelper implements BOPClimate.Sampler
     private static final NormalNoise.NoiseParameters CONTINENTALNESS = new NormalNoise.NoiseParameters(-9, 1.0, 1.0, 2.0, 2.0, 2.0, 1.0, 1.0, 1.0, 1.0);
     private static final NormalNoise.NoiseParameters EROSION = new NormalNoise.NoiseParameters(-9, 1.0, 1.0, 0.0, 1.0, 1.0);
     private static final NormalNoise.NoiseParameters WEIRDNESS = new NormalNoise.NoiseParameters(-7, 1.0, 2.0, 1.0, 0.0, 0.0, 0.0);
-    private static final NormalNoise.NoiseParameters UNIQUENESS = new NormalNoise.NoiseParameters(-9, 1.0, 2.0, 1.0, 0.0, 0.0, 0.0);
+    private static final NormalNoise.NoiseParameters UNIQUENESS = new NormalNoise.NoiseParameters(-7, 1.0, 2.0, 1.0, 0.0, 0.0, 0.0);
 
+    protected final LegacyRandomSource random;
     private final NormalNoise offsetNoise;
     private final NormalNoise temperatureNoise;
     private final NormalNoise humidityNoise;
     private final NormalNoise continentalnessNoise;
     private final NormalNoise erosionNoise;
     private final NormalNoise weirdnessNoise;
-    private final NormalNoise uniquenessNoise;
+    protected NormalNoise uniquenessNoise;
     private final TerrainShaper terrainShaper = TerrainShaper.overworld(false);
 
     public NoiseSimulationHelper(long seed)
     {
-        LegacyRandomSource random = new LegacyRandomSource(seed);
+        this.random = new LegacyRandomSource(seed);
 
         this.offsetNoise = NormalNoise.create(random, SHIFT);
         this.temperatureNoise = NormalNoise.create(random, TEMPERATURE);
