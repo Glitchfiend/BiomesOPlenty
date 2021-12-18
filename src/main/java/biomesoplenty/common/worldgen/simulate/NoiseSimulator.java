@@ -80,12 +80,17 @@ public class NoiseSimulator
                         "}";
 
         private int[] textureColours = new int[CANVAS_WIDTH * CANVAS_HEIGHT];
+
+        private int firstOctave = DEFAULT_FIRST_OCTAVE_VALUE;
         private List<Double> amplitudes = Lists.newArrayList();
         private List<JSlider> amplitudeSliders = Lists.newArrayList();
         private List<JLabel> amplitudeLabels = Lists.newArrayList();
+
         private NoiseSimulationHelper sampler = new NoiseSimulationHelper(new Random().nextLong());
         private BOPClimate.ParameterList<ResourceKey<Biome>> params;
-        private int firstOctave = DEFAULT_FIRST_OCTAVE_VALUE;
+
+        private boolean showUniqueness = false;
+
         private int vertexBuffer = 0;
         private int textureId = 0;
 
@@ -168,7 +173,11 @@ public class NoiseSimulator
             System.out.println("Noise refreshed. First octave " + this.firstOctave);
             System.out.println("Amplitudes " + this.amplitudes);
             this.sampler.uniquenessNoise = NormalNoise.create(this.sampler.random, new NormalNoise.NoiseParameters(this.firstOctave, this.amplitudes));
+            this.redraw();
+        }
 
+        private void redraw()
+        {
             // Translate colours into texture colours
             for (int x = 0; x < CANVAS_WIDTH; x++)
             {
@@ -188,37 +197,35 @@ public class NoiseSimulator
                         }
                     }
 
-                    ResourceKey<Biome> biome = params.findValue(sampler.sampleBOP(x, ay, z), Biomes.THE_VOID);
-
                     int color;
 
-                    if (biome.location().getNamespace().equals("biomesoplenty")) color = 0xFF0000;
+                    if (this.showUniqueness)
+                    {
+                        double uniqueness = data.uniqueness();
+                        if (uniqueness < 0.0D) color = 0x00FF00;
+                        else color = 0xFF0000;
+                    }
                     else
                     {
-                        Set<BiomeDictionary.Type> types = BiomeDictionary.getTypes(biome);
+                        ResourceKey<Biome> biome = params.findValue(sampler.sampleBOP(x, ay, z), Biomes.THE_VOID);
 
-                        if (types.contains(BiomeDictionary.Type.OCEAN) || types.contains(BiomeDictionary.Type.RIVER))
-                        {
-                            color = 0x0000FF;
-                        }
-                        else if (types.contains(BiomeDictionary.Type.BEACH))
-                        {
-                            color = 0x808080;
-                        }
+                        if (biome.location().getNamespace().equals("biomesoplenty")) color = 0xFF0000;
                         else
                         {
-                            color = 0x00FF00;
+                            Set<BiomeDictionary.Type> types = BiomeDictionary.getTypes(biome);
+
+                            if (types.contains(BiomeDictionary.Type.OCEAN)) color = 0x000070;
+                            else if (types.contains(BiomeDictionary.Type.RIVER)) color = 0x3030AF;
+                            else if (types.contains(BiomeDictionary.Type.BEACH)) color = 0xFADE55;
+                            else if (types.contains(BiomeDictionary.Type.MUSHROOM)) color = 0x805f8a;
+                            else color = 0x00FF00;
                         }
                     }
-
-//                    double uniqueness = data.uniqueness();
-//                    if (uniqueness < 0.0D) val = 0xFFFFFF;
 
                     color = ((color >> 16) & 0xFF | color & 0xFF00 | (color << 16) & 0xFF0000);
                     this.textureColours[x + ((CANVAS_WIDTH - 1) - z) * CANVAS_HEIGHT] = color;
                 }
             }
-
         }
 
         private void refreshAmplitudes()
@@ -314,10 +321,24 @@ public class NoiseSimulator
 
             var addAmplitudeButton = new JButton("Add amplitude");
             var removeAmplitudeButton = new JButton("Remove amplitude");
+            var toggleUniquenessButton = new JButton("Toggle uniqueness");
+            var regenButton = new JButton("Regenerate");
             addAmplitudeButton.addActionListener((e) -> this.addAmplitude(frame, sliderPanel) );
             removeAmplitudeButton.addActionListener((e) -> this.removeAmplitude(frame, sliderPanel) );
+            toggleUniquenessButton.addActionListener((e) ->
+            {
+                this.showUniqueness = !this.showUniqueness;
+                this.redraw();
+            });
+            regenButton.addActionListener((e) ->
+            {
+                this.sampler = new NoiseSimulationHelper(new Random().nextLong());
+                this.refreshNoise();
+            });
             bottomPanel.add(addAmplitudeButton);
             bottomPanel.add(removeAmplitudeButton);
+            bottomPanel.add(toggleUniquenessButton);
+            bottomPanel.add(regenButton);
             frame.add(bottomPanel, BorderLayout.SOUTH);
 
             frame.pack();
