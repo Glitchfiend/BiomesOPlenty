@@ -111,7 +111,7 @@ public final class BOPOverworldBiomeBuilder
             {null, null, null, null,                           null},
             {null, null, null, null,                           null},
             {BOPBiomes.ORCHARD, null, null, null,                           BOPBiomes.BAMBOO_BLOSSOM_GROVE},
-            {null, null, null, null,                           null},
+            {BOPBiomes.WOODED_SCRUBLAND, null, null, null,                           null},
             {null, null, null, null,                           null}
     };
 
