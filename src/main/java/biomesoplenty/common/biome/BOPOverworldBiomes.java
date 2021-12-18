@@ -252,6 +252,32 @@ public class BOPOverworldBiomes
         return biomeWithColorOverrides(Biome.Precipitation.RAIN, Biome.BiomeCategory.TAIGA, 0.4F, 0.7F, 0x63B26D, 0x63B26D, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }
 
+    public static Biome firClearing()
+    {
+        // Mob spawns
+        MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.commonSpawns(spawnBuilder);
+        BiomeDefaultFeatures.farmAnimals(spawnBuilder);
+        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.WOLF, 5, 4, 4));
+        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.RABBIT, 4, 2, 3));
+        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.FOX, 8, 2, 4));
+
+        // Biome features
+        BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder();
+        globalOverworldGeneration(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_PUMPKIN);
+        BiomeDefaultFeatures.addRareBerryBushes(biomeBuilder);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_FIR_CLEARING);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.FLOWER_CONIFEROUS_FOREST);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_FERN_GRASS_8);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TOADSTOOL_NORMAL);
+
+        return biome(Biome.Precipitation.RAIN, Biome.BiomeCategory.TAIGA, 0.45F, 0.5F, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
+    }
+
     public static Biome grassland()
     {
         // Mob spawns

@@ -48,6 +48,7 @@ public class BOPTreeFeatures
     // Conifer trees
     public static final ConfiguredFeature<TreeConfiguration, ?> FIR_TREE = register("fir_tree", BOPBaseFeatures.TAIGA_TREE.configured(createFir().minHeight(5).maxHeight(28).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> FIR_TREE_LARGE = register("fir_tree_large", BOPBaseFeatures.TAIGA_TREE.configured(createFir().minHeight(20).maxHeight(40).trunkWidth(2).build()));
+    public static final ConfiguredFeature<TreeConfiguration, ?> FIR_TREE_SMALL = register("fir_tree_small", BOPBaseFeatures.TAIGA_TREE.configured(createFir().minHeight(5).maxHeight(11).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> TALL_SPRUCE_TREE = register("tall_spruce_tree", BOPBaseFeatures.TAIGA_TREE.configured(new TaigaTreeConfiguration.Builder().maxHeight(13).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> TALL_SPRUCE_TREE_BEES = register("tall_spruce_tree_bees", BOPBaseFeatures.TAIGA_TREE.configured(new TaigaTreeConfiguration.Builder().maxHeight(13).decorator(new BeehiveDecorator(0.05f)).build()));
 

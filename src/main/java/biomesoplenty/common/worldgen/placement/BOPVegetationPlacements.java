@@ -4,6 +4,8 @@
  ******************************************************************************/
 package biomesoplenty.common.worldgen.placement;
 
+import biomesoplenty.api.biome.BOPBiomes;
+import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.worldgen.feature.BOPTreeFeatures;
 import biomesoplenty.common.worldgen.feature.BOPVegetationFeatures;
 import biomesoplenty.core.BiomesOPlenty;
@@ -29,6 +31,7 @@ public class BOPVegetationPlacements
     public static final PlacedFeature PATCH_DUNE_GRASS_128 = register("patch_dune_grass_128", BOPVegetationFeatures.PATCH_DUNE_GRASS.placed(CountPlacement.of(128), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature PATCH_FERN_GRASS_4 = register("patch_fern_grass_4", BOPVegetationFeatures.PATCH_FERN_GRASS.placed(CountPlacement.of(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature PATCH_FERN_GRASS_5 = register("patch_fern_grass_5", BOPVegetationFeatures.PATCH_FERN_GRASS.placed(CountPlacement.of(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+    public static final PlacedFeature PATCH_FERN_GRASS_8 = register("patch_fern_grass_8", BOPVegetationFeatures.PATCH_FERN_GRASS.placed(CountPlacement.of(8), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature PATCH_FERN_GRASS_16 = register("patch_fern_grass_16", BOPVegetationFeatures.PATCH_FERN_GRASS.placed(CountPlacement.of(16), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature PATCH_GRASS_1 = register("patch_grass_1", VegetationFeatures.PATCH_GRASS.placed(CountPlacement.of(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature PATCH_GRASS_3 = register("patch_grass_3", VegetationFeatures.PATCH_GRASS.placed(CountPlacement.of(6), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
@@ -89,6 +92,7 @@ public class BOPVegetationPlacements
     public static final PlacedFeature TREES_DEAD_FOREST = register("trees_dead_forest", BOPVegetationFeatures.TREES_DEAD_FOREST.placed(treePlacement(PlacementUtils.countExtra(2, 0.1F, 1))));
     public static final PlacedFeature TREES_DRYLAND = register("trees_dryland", BOPVegetationFeatures.TREES_DRYLAND.placed(treePlacement(PlacementUtils.countExtra(2, 0.1F, 1))));
     public static final PlacedFeature TREES_FIELD = register("trees_field", BOPVegetationFeatures.TREES_FIELD.placed(treePlacement(PlacementUtils.countExtra(4, 0.1F, 1))));
+    public static final PlacedFeature TREES_FIR_CLEARING = register("trees_fir_clearing", BOPTreeFeatures.FIR_TREE_SMALL.placed(treePlacement(PlacementUtils.countExtra(1, 0.1F, 1), BOPBlocks.FIR_SAPLING)));
     public static final PlacedFeature TREES_LAVENDER_FIELD = register("trees_lavender_field", BOPVegetationFeatures.TREES_LAVENDER_FIELD.placed(treePlacement(PlacementUtils.countExtra(1, 0.1F, 1))));
     public static final PlacedFeature TREES_LAVENDER_FOREST = register("trees_lavender_forest", BOPVegetationFeatures.TREES_LAVENDER_FOREST.placed(treePlacement(PlacementUtils.countExtra(7, 0.1F, 1))));
     public static final PlacedFeature TREES_LUSH_DESERT = register("trees_lush_desert", BOPVegetationFeatures.TREES_LUSH_DESERT.placed(treePlacement(PlacementUtils.countExtra(5, 0.1F, 1))));

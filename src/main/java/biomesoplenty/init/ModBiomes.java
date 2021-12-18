@@ -34,6 +34,7 @@ public class ModBiomes
         registerBiome(BOPBiomes.DEAD_FOREST, BOPOverworldBiomes.deadForest());
         registerBiome(BOPBiomes.DRYLAND, BOPOverworldBiomes.dryland());
         registerBiome(BOPBiomes.FIELD, BOPOverworldBiomes.field());
+        registerBiome(BOPBiomes.FIR_CLEARING, BOPOverworldBiomes.firClearing());
         registerBiome(BOPBiomes.GRASSLAND, BOPOverworldBiomes.grassland());
         registerBiome(BOPBiomes.LAVENDER_FIELD, BOPOverworldBiomes.lavenderField(false));
         registerBiome(BOPBiomes.LAVENDER_FOREST, BOPOverworldBiomes.lavenderField(true));
