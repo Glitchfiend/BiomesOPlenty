@@ -46,6 +46,7 @@ public class ModBiomes
         registerBiome(BOPBiomes.SCRUBLAND, BOPOverworldBiomes.scrubland(false));
         registerBiome(BOPBiomes.SHRUBLAND, BOPOverworldBiomes.shrubland());
         registerBiome(BOPBiomes.SEASONAL_FOREST, BOPOverworldBiomes.seasonalForest());
+        registerBiome(BOPBiomes.SEASONAL_PUMPKIN_PATCH, BOPOverworldBiomes.seasonalPumpkinPatch());
         registerBiome(BOPBiomes.SNOWY_CONIFEROUS_FOREST, BOPOverworldBiomes.coniferousForest(true));
         registerBiome(BOPBiomes.TUNDRA, BOPOverworldBiomes.tundra());
         registerBiome(BOPBiomes.WASTELAND, BOPOverworldBiomes.wasteland());

@@ -99,6 +99,7 @@ public class BOPVegetationPlacements
     public static final PlacedFeature TREES_REDWOOD_FOREST = register("trees_redwood_forest", BOPVegetationFeatures.TREES_REDWOOD_FOREST.placed(treePlacement(PlacementUtils.countExtra(16, 0.2F, 1))));
     public static final PlacedFeature TREES_SHRUBLAND = register("trees_shrubland", BOPTreeFeatures.OAK_BUSH.placed(treePlacement(PlacementUtils.countExtra(10, 0.1F, 1), Blocks.OAK_SAPLING)));
     public static final PlacedFeature TREES_SEASONAL_FOREST = register("trees_seasonal_forest", BOPVegetationFeatures.TREES_SEASONAL_FOREST.placed(treePlacement(PlacementUtils.countExtra(10, 0.1F, 1))));
+    public static final PlacedFeature TREES_SEASONAL_PUMPKIN_PATCH = register("trees_seasonal_pumpkin_patch", BOPVegetationFeatures.TREES_SEASONAL_PUMPKIN_PATCH.placed(treePlacement(PlacementUtils.countExtra(6, 0.1F, 1))));
     public static final PlacedFeature TREES_SNOWY_CONIFEROUS_FOREST = register("trees_snowy_coniferous_forest", BOPVegetationFeatures.TREES_SNOWY_CONIFEROUS_FOREST.placed(treePlacement(PlacementUtils.countExtra(6, 0.1F, 1))));
     public static final PlacedFeature TREES_TUNDRA = register("trees_tundra", BOPVegetationFeatures.TREES_TUNDRA.placed(treePlacement(PlacementUtils.countExtra(1, 0.1F, 1))));
     public static final PlacedFeature TREES_WOODED_SCRUBLAND = register("trees_wooded_scrubland", BOPVegetationFeatures.TREES_WOODED_SCRUBLAND.placed(treePlacement(PlacementUtils.countExtra(6, 0.1F, 1))));
@@ -106,7 +107,9 @@ public class BOPVegetationPlacements
 
     // Misc
     public static final PlacedFeature BIG_DRIPLEAF = register("big_dripleaf", BOPVegetationFeatures.BIG_DRIPLEAF.placed(CountPlacement.of(10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+    public static final PlacedFeature BIG_PUMPKIN = register("big_pumpkin", BOPVegetationFeatures.PUMPKIN_PATCH.placed(CountPlacement.of(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature MOSS_SPLATTER = register("moss_splatter", BOPVegetationFeatures.MOSS_SPLATTER.placed(CountPlacement.of(12), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+    public static final PlacedFeature PUMPKIN_PATCH = register("pumpkin_patch", BOPVegetationFeatures.PUMPKIN_PATCH.placed(CountPlacement.of(35), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature SCATTERED_ROCKS = register("scattered_rocks", BOPVegetationFeatures.SCATTERED_ROCKS.placed(CountPlacement.of(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature SCRUB_EXTRA = register("scrub_extra", BOPVegetationFeatures.SCRUB.placed(CountPlacement.of(35), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature SCRUB_NORMAL = register("scrub_normal", BOPVegetationFeatures.SCRUB.placed(CountPlacement.of(10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
