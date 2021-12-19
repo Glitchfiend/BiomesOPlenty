@@ -142,12 +142,12 @@ public class BOPMultiNoiseBiomeSource extends BiomeSource
                 return p_187113_.getOrThrow(Biomes.BASALT_DELTAS);
             })));
         });
-        public static final BOPMultiNoiseBiomeSource.Preset OVERWORLD = new BOPMultiNoiseBiomeSource.Preset(new ResourceLocation(BiomesOPlenty.MOD_ID, "overworld"), (p_187108_) -> {
+        public static final BOPMultiNoiseBiomeSource.Preset OVERWORLD = new BOPMultiNoiseBiomeSource.Preset(new ResourceLocation(BiomesOPlenty.MOD_ID, "overworld"), (biomeRegistry) -> {
             ImmutableList.Builder<Pair<BOPClimate.ParameterPoint, Supplier<Biome>>> builder = ImmutableList.builder();
-            (new BOPOverworldBiomeBuilder()).addBiomes((p_187098_) -> {
+            (new BOPOverworldBiomeBuilder()).addBiomes(biomeRegistry, (p_187098_) -> {
                 builder.add(p_187098_.mapSecond((p_187103_) -> {
                     return () -> {
-                        return p_187108_.getOrThrow(p_187103_);
+                        return biomeRegistry.getOrThrow(p_187103_);
                     };
                 }));
             });

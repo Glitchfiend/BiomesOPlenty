@@ -32,6 +32,7 @@ public class ModBiomes
         registerBiome(BOPBiomes.COLD_DESERT, BOPOverworldBiomes.coldDesert());
         registerBiome(BOPBiomes.CONIFEROUS_FOREST, BOPOverworldBiomes.coniferousForest(false));
         registerBiome(BOPBiomes.DEAD_FOREST, BOPOverworldBiomes.deadForest());
+        registerBiome(BOPBiomes.DENSE_WOODLAND, BOPOverworldBiomes.woodland(true));
         registerBiome(BOPBiomes.DRYLAND, BOPOverworldBiomes.dryland());
         registerBiome(BOPBiomes.FIELD, BOPOverworldBiomes.field());
         registerBiome(BOPBiomes.FIR_CLEARING, BOPOverworldBiomes.firClearing(false));
@@ -53,7 +54,7 @@ public class ModBiomes
         registerBiome(BOPBiomes.TUNDRA, BOPOverworldBiomes.tundra());
         registerBiome(BOPBiomes.WASTELAND, BOPOverworldBiomes.wasteland());
         registerBiome(BOPBiomes.WOODED_SCRUBLAND, BOPOverworldBiomes.scrubland(true));
-        registerBiome(BOPBiomes.WOODLAND, BOPOverworldBiomes.woodland());
+        registerBiome(BOPBiomes.WOODLAND, BOPOverworldBiomes.woodland(false));
     }
 
     // TODO: Villagers, other stuff

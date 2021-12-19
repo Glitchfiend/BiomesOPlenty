@@ -9,6 +9,7 @@ import biomesoplenty.common.worldgen.BOPClimate;
 import biomesoplenty.common.worldgen.BOPNoiseSampler;
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
+import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
@@ -290,7 +291,7 @@ public class NoiseSimulator
         private void setupGeneration()
         {
             ImmutableList.Builder<Pair<BOPClimate.ParameterPoint, ResourceKey<Biome>>> builder = ImmutableList.builder();
-            (new BOPOverworldBiomeBuilder()).addBiomes(builder::add);
+            (new BOPOverworldBiomeBuilder()).addBiomes(BuiltinRegistries.BIOME, builder::add);
             this.params = new BOPClimate.ParameterList<>(builder.build());
         }
 

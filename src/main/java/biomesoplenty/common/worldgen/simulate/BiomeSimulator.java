@@ -9,11 +9,13 @@ import com.mojang.datafixers.util.Pair;
 import it.unimi.dsi.fastutil.objects.Reference2IntMap;
 import it.unimi.dsi.fastutil.objects.Reference2IntOpenHashMap;
 import net.minecraft.SharedConstants;
+import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.Bootstrap;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.blending.Blender;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -107,7 +109,7 @@ public class BiomeSimulator
     public static void init(NoiseSimulationHelper sampler)
     {
         ImmutableList.Builder<Pair<BOPClimate.ParameterPoint, ResourceKey<Biome>>> builder = ImmutableList.builder();
-        (new BOPOverworldBiomeBuilder()).addBiomes(builder::add);
+        (new BOPOverworldBiomeBuilder()).addBiomes(BuiltinRegistries.BIOME, builder::add);
 
         BOPClimate.ParameterList<ResourceKey<Biome>> params = new BOPClimate.ParameterList<>(builder.build());
 
