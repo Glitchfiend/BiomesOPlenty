@@ -150,6 +150,8 @@ def create_tree_feature(args):
         configuration += 'new CypressTreeConfiguration.Builder()'
     elif args.type == 'poplar_tree':
         configuration += 'new PoplarTreeConfiguration.Builder()'
+    elif args.type == 'taiga_tree':
+        configuration += 'new TaigaTreeConfiguration.Builder()'
     elif args.type == 'twiglet_tree':
         configuration += 'new TwigletTreeConfiguration.Builder()'
 
@@ -177,6 +179,8 @@ def create_tree_feature(args):
         if args.foliage_density is not None:
             configuration += create_builder_call('foliageDensity', f'{args.foliage_density}D')
     elif args.type == 'cypress_tree':
+        configuration += create_builder_call('trunkWidth', args.trunk_width)
+    elif args.type == 'taiga_tree':
         configuration += create_builder_call('trunkWidth', args.trunk_width)
     elif args.type == 'twiglet_tree' and args.leaf_chance_even is not None and args.leaf_chance_odd is not None:
         configuration += create_builder_call('leafChance', f'{args.leaf_chance_even}F, {args.leaf_chance_odd}F')
@@ -238,6 +242,10 @@ def add_tree_subparser_args(parser):
 
     poplar_tree_parser = subparsers.add_parser('poplar_tree')
     add_common_tree_subparser_args(poplar_tree_parser)
+
+    taiga_tree_parser = subparsers.add_parser('taiga_tree')
+    taiga_tree_parser.add_argument('--trunk_width', dest='trunk_width', type=int)
+    add_common_tree_subparser_args(taiga_tree_parser)
 
     twiglet_tree_parser = subparsers.add_parser('twiglet_tree')
     twiglet_tree_parser.add_argument('--leaf_chance_even', dest='leaf_chance_even', type=float)

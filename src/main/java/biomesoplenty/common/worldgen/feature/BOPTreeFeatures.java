@@ -52,6 +52,8 @@ public class BOPTreeFeatures
     public static final ConfiguredFeature<TreeConfiguration, ?> FIR_TREE_SMALL = register("fir_tree_small", BOPBaseFeatures.TAIGA_TREE.configured(createFir().minHeight(5).maxHeight(11).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> TALL_SPRUCE_TREE = register("tall_spruce_tree", BOPBaseFeatures.TAIGA_TREE.configured(new TaigaTreeConfiguration.Builder().maxHeight(13).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> TALL_SPRUCE_TREE_BEES = register("tall_spruce_tree_bees", BOPBaseFeatures.TAIGA_TREE.configured(new TaigaTreeConfiguration.Builder().maxHeight(13).decorator(new BeehiveDecorator(0.05f)).build()));
+    public static final ConfiguredFeature<TreeConfiguration, ?> TALL_UMBRAN_TREE = register("tall_umbran_tree", BOPBaseFeatures.TAIGA_TREE.configured(new TaigaTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.UMBRAN_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.UMBRAN_LEAVES)).minHeight(20).maxHeight(3).trunkWidth(2).build()));
+    public static final ConfiguredFeature<TreeConfiguration, ?> UMBRAN_TREE = register("umbran_tree", BOPBaseFeatures.TAIGA_TREE.configured(new TaigaTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.UMBRAN_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.UMBRAN_LEAVES)).maxHeight(20).build()));
 
     // Poplar trees
     public static final ConfiguredFeature<TreeConfiguration, ?> DARK_OAK_POPLAR_TREE = register("dark_oak_poplar_tree", BOPBaseFeatures.POPLAR_TREE.configured(new PoplarTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.DARK_OAK_LOG)).foliage(BlockStateProvider.simple(Blocks.DARK_OAK_LEAVES)).build()));
@@ -78,10 +80,10 @@ public class BOPTreeFeatures
     public static final ConfiguredFeature<TreeConfiguration, ?> TWIGLET_TREE = register("twiglet_tree", BOPBaseFeatures.TWIGLET_TREE.configured(new TwigletTreeConfiguration.Builder().minHeight(1).maxHeight(2).build()));
 
     // Special trees
-    public static final ConfiguredFeature<TreeConfiguration, ?> REDWOOD_TREE_MEDIUM = register("redwood_tree_medium", BOPBaseFeatures.REDWOOD_TREE.configured(createRedwood().minHeight(25).maxHeight(40).trunkWidth(2).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> REDWOOD_TREE = register("redwood_tree", BOPBaseFeatures.REDWOOD_TREE.configured(createRedwood().minHeight(10).maxHeight(30).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> REDWOOD_TREE_LARGE = register("redwood_tree_large", BOPBaseFeatures.REDWOOD_TREE.configured(createRedwood().minHeight(45).maxHeight(60).trunkWidth(3).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> MAHOGANY_TREE = register("mahogany_tree", BOPBaseFeatures.MAHOGANY_TREE.configured(new MahoganyTreeConfiguration.Builder().build()));
+    public static final ConfiguredFeature<TreeConfiguration, ?> REDWOOD_TREE_MEDIUM = register("redwood_tree_medium", BOPBaseFeatures.REDWOOD_TREE.configured(createRedwood().minHeight(25).maxHeight(40).trunkWidth(2).build()));
 
     private static TaigaTreeConfiguration.Builder createFir()
     {

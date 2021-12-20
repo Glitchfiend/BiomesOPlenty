@@ -33,7 +33,9 @@ public final class BOPOverworldBiomeBuilder
     public static final float FAR_INLAND_START = 0.3F;
     public static final float EROSION_INDEX_1_START = -0.78F;
     public static final float EROSION_INDEX_2_START = -0.375F;
+
     private final BOPClimate.Parameter FULL_RANGE = BOPClimate.Parameter.span(-1.0F, 1.0F);
+    private static final float RARE_BIOME_START = 0.35F;
 
     /* Terminology:
         Continentalness: Low to generate near coasts, far to generate away from coasts
@@ -143,6 +145,14 @@ public final class BOPOverworldBiomeBuilder
             {Biomes.MEADOW,          Biomes.MEADOW,          Biomes.MEADOW,       Biomes.MEADOW,          Biomes.DARK_FOREST},
             {Biomes.SAVANNA_PLATEAU, Biomes.SAVANNA_PLATEAU, Biomes.FOREST,       Biomes.FOREST,          Biomes.JUNGLE},
             {Biomes.BADLANDS,        Biomes.BADLANDS,        Biomes.BADLANDS,     Biomes.WOODED_BADLANDS, Biomes.WOODED_BADLANDS}
+    };
+
+    private final ResourceKey<Biome>[][] RARE_BIOMES_BOP = new ResourceKey[][]{
+            {null,                            null,                            null,                    null,                    null},
+            {null,                            null,                            BOPBiomes.OMINOUS_WOODS, null,                    null},
+            {null,                            null,                            null,                    null,                    null},
+            {null,                            null,                            null,                    null,                    null},
+            {null,                            null,                            null,                    null,                    null}
     };
 
     private final ResourceKey<Biome>[][] PLATEAU_BIOMES_VARIANT = new ResourceKey[][]{
@@ -517,13 +527,15 @@ public final class BOPOverworldBiomeBuilder
 
     private ResourceKey<Biome> pickMiddleBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
     {
-        if (weirdness.max() < 0L)
-        {
-            return biomeOrFallback(biomeRegistry, this.MIDDLE_BIOMES_BOP[temperatureIndex][humidityIndex], this.MIDDLE_BIOMES[temperatureIndex][humidityIndex]);
-        }
+        ResourceKey<Biome> middleBiome = biomeOrFallback(biomeRegistry, this.MIDDLE_BIOMES_BOP[temperatureIndex][humidityIndex], this.MIDDLE_BIOMES[temperatureIndex][humidityIndex]);
+
+        if (weirdness.max() < 0) return middleBiome;
         else
         {
-            return biomeOrFallback(biomeRegistry, this.MIDDLE_BIOMES_VARIANT_BOP[temperatureIndex][humidityIndex], this.MIDDLE_BIOMES_BOP[temperatureIndex][humidityIndex], this.MIDDLE_BIOMES[temperatureIndex][humidityIndex]);
+            ResourceKey<Biome> variantBiome = biomeOrFallback(biomeRegistry, this.MIDDLE_BIOMES_VARIANT_BOP[temperatureIndex][humidityIndex], middleBiome);
+
+            if (weirdness.max() < RARE_BIOME_START) return variantBiome;
+            else return biomeOrFallback(biomeRegistry, this.RARE_BIOMES_BOP[temperatureIndex][humidityIndex], variantBiome);
         }
     }
 

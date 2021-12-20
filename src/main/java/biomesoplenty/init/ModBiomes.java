@@ -73,6 +73,7 @@ public class ModBiomes
         registerBiome(BOPBiomes.MEDITERRANEAN_LAKES, BOPOverworldBiomes.mediterraneanLakes());
         registerBiome(BOPBiomes.MUSKEG, BOPOverworldBiomes.muskeg());
         registerBiome(BOPBiomes.OLD_GROWTH_DEAD_FOREST, BOPOverworldBiomes.oldGrowthDeadForest());
+        registerBiome(BOPBiomes.OMINOUS_WOODS, BOPOverworldBiomes.ominousWoods());
         registerBiome(BOPBiomes.ORCHARD, BOPOverworldBiomes.orchard());
         registerBiome(BOPBiomes.PRAIRIE, BOPOverworldBiomes.prairie());
         registerBiome(BOPBiomes.RAINFOREST, BOPOverworldBiomes.rainforest());
