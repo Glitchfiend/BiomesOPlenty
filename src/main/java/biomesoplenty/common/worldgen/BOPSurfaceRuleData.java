@@ -319,6 +319,9 @@ public class BOPSurfaceRuleData
     private static SurfaceRules.RuleSource makeBOPRules()
     {
         SurfaceRules.ConditionSource isAtOrAboveWaterLevel = SurfaceRules.waterBlockCheck(-1, 0);
+        SurfaceRules.ConditionSource isAbove62 = SurfaceRules.yBlockCheck(VerticalAnchor.absolute(62), 0);
+        SurfaceRules.ConditionSource isAbove63 = SurfaceRules.yBlockCheck(VerticalAnchor.absolute(63), 0);
+
 
         SurfaceRules.RuleSource powderedSnowSurface = SurfaceRules.sequence(
             SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, POWDER_SNOW),
@@ -328,18 +331,32 @@ public class BOPSurfaceRuleData
         return SurfaceRules.sequence(
             SurfaceRules.ifTrue(
                 SurfaceRules.ON_FLOOR,
-                SurfaceRules.ifTrue(
-                    isAtOrAboveWaterLevel,
-                    SurfaceRules.sequence(
+                SurfaceRules.sequence(
+                    SurfaceRules.ifTrue(
+                        SurfaceRules.isBiome(BOPBiomes.RAINFOREST_FLOODPLAIN),
                         SurfaceRules.ifTrue(
-                            SurfaceRules.isBiome(BOPBiomes.LUSH_DESERT),
-                            SurfaceRules.ifTrue(SurfaceRules.ON_CEILING, ORANGE_SANDSTONE)
-                        ),
-                        SurfaceRules.ifTrue(
-                            SurfaceRules.isBiome(BOPBiomes.MEDITERRANEAN_FOREST),
-                            SurfaceRules.ifTrue(surfaceNoiseAbove(1.9D), PODZOL)
-                        ),
-                        SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.REDWOOD_FOREST), PODZOL)
+                            isAbove62,
+                            SurfaceRules.ifTrue(SurfaceRules.not(isAbove63),
+                                SurfaceRules.ifTrue(
+                                    SurfaceRules.noiseCondition(Noises.SWAMP, 0.0D),
+                                    WATER
+                                )
+                            )
+                        )
+                    ),
+                    SurfaceRules.ifTrue(
+                        isAtOrAboveWaterLevel,
+                        SurfaceRules.sequence(
+                            SurfaceRules.ifTrue(
+                                SurfaceRules.isBiome(BOPBiomes.LUSH_DESERT),
+                                SurfaceRules.ifTrue(SurfaceRules.ON_CEILING, ORANGE_SANDSTONE)
+                            ),
+                            SurfaceRules.ifTrue(
+                                SurfaceRules.isBiome(BOPBiomes.MEDITERRANEAN_FOREST),
+                                SurfaceRules.ifTrue(surfaceNoiseAbove(1.9D), PODZOL)
+                            ),
+                            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.REDWOOD_FOREST), PODZOL)
+                        )
                     )
                 )
             ),
