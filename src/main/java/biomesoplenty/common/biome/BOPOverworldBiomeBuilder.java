@@ -127,11 +127,11 @@ public final class BOPOverworldBiomeBuilder
 
     private final ResourceKey<Biome>[][] SWAMP_BIOMES_BOP = new ResourceKey[][]{
             // NOTE: Frozen biomes not applicable for swamp biomes
-            {null,                            null,                            null,                   null,                    null},
-            {null,                            null,                            BOPBiomes.WETLAND,      BOPBiomes.WETLAND,       BOPBiomes.WETLAND},
-            {BOPBiomes.MARSH,                 BOPBiomes.MARSH,                 BOPBiomes.MARSH,        BOPBiomes.MARSH,         BOPBiomes.MARSH},
-            {null,                            BOPBiomes.MEDITERRANEAN_LAKES,   BOPBiomes.BAYOU,        BOPBiomes.BAYOU,         BOPBiomes.RAINFOREST_FLOODPLAIN},
-            {null,                            null,                            null,                   null,                    null}
+            {null,            null,                          null,              null,              null},
+            {BOPBiomes.BOG,   BOPBiomes.BOG,                 BOPBiomes.WETLAND, BOPBiomes.WETLAND, BOPBiomes.WETLAND},
+            {BOPBiomes.MARSH, BOPBiomes.MARSH,               BOPBiomes.MARSH,   BOPBiomes.MARSH,   BOPBiomes.MARSH},
+            {null,            BOPBiomes.MEDITERRANEAN_LAKES, BOPBiomes.BAYOU,   BOPBiomes.BAYOU,   BOPBiomes.RAINFOREST_FLOODPLAIN},
+            {null,            null,                          null,              null,              null}
     };
 
     private final ResourceKey<Biome>[][] PLATEAU_BIOMES = new ResourceKey[][]{
