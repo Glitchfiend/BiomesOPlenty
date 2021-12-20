@@ -40,6 +40,7 @@ public class ModBiomes
         registerBiome(BOPBiomes.FIR_CLEARING, BOPOverworldBiomes.firClearing(false));
         registerBiome(BOPBiomes.FORESTED_FIELD, BOPOverworldBiomes.field(true));
         registerBiome(BOPBiomes.GRASSLAND, BOPOverworldBiomes.grassland());
+        registerBiome(BOPBiomes.GOLDEN_PRAIRIE, BOPOverworldBiomes.goldenPrairie());
         registerBiome(BOPBiomes.LAVENDER_FIELD, BOPOverworldBiomes.lavenderField(false));
         registerBiome(BOPBiomes.LAVENDER_FOREST, BOPOverworldBiomes.lavenderField(true));
         registerBiome(BOPBiomes.LUSH_DESERT, BOPOverworldBiomes.lushDesert());
@@ -61,6 +62,7 @@ public class ModBiomes
         registerBiome(BOPBiomes.SNOWY_FIR_CLEARING, BOPOverworldBiomes.firClearing(true));
         registerBiome(BOPBiomes.SNOWY_MAPLE_FOREST, BOPOverworldBiomes.snowyMapleForest());
         registerBiome(BOPBiomes.TUNDRA, BOPOverworldBiomes.tundra());
+        registerBiome(BOPBiomes.TUNDRA_BASIN, BOPOverworldBiomes.tundraBasin());
         registerBiome(BOPBiomes.WASTELAND, BOPOverworldBiomes.wasteland());
         registerBiome(BOPBiomes.WETLAND, BOPOverworldBiomes.wetland());
         registerBiome(BOPBiomes.WOODED_SCRUBLAND, BOPOverworldBiomes.scrubland(true));
