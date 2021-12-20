@@ -10,6 +10,7 @@ import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.data.worldgen.placement.AquaticPlacements;
+import net.minecraft.data.worldgen.placement.MiscOverworldPlacements;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.sounds.Music;
 import net.minecraft.util.Mth;
@@ -244,7 +245,7 @@ public class BOPOverworldBiomes
         return biomeWithColorOverrides(Biome.Precipitation.NONE, Biome.BiomeCategory.SAVANNA, 0.85F, 0.05F, 4159204, 329011, 12638463, 0xE5DFA9, 0xDAE0B3, 0x9E9DFF, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }
 
-    public static Biome field()
+    public static Biome field(boolean forest)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
@@ -260,16 +261,25 @@ public class BOPOverworldBiomes
         BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_PUMPKIN);
         BiomeDefaultFeatures.addRareBerryBushes(biomeBuilder);
-
-        // Vegetation
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_FIELD);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.FLOWER_FIELD_1);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.FLOWER_FIELD_2);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.LILAC_1);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.ROSE_BUSH_1);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_SPROUTS_10);
+
+        // Vegetation
+        if (forest)
+        {
+            biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_FIELD_FOREST);
+            biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_SPROUTS_15);
+        }
+        else
+        {
+            biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_FIELD);
+            biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.FLOWER_FIELD_2);
+            biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_SPROUTS_10);
+            biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.SUNFLOWER_1);
+        }
+
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_6);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.SUNFLOWER_1);
 
         return biomeWithColorOverrides(Biome.Precipitation.RAIN, Biome.BiomeCategory.TAIGA, 0.4F, 0.7F, 0x63B26D, 0x63B26D, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }
@@ -398,6 +408,25 @@ public class BOPOverworldBiomes
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_3);
 
         return biome(Biome.Precipitation.RAIN, Biome.BiomeCategory.FOREST, 0.8F, 0.275F, 4566514, 267827, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
+    }
+
+    public static Biome muskeg()
+    {
+        // Mob spawns
+        MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.commonSpawns(spawnBuilder);
+
+        // Biome features
+        BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder();
+        globalOverworldGeneration(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
+        biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, MiscOverworldPlacements.DISK_CLAY);
+        biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, MiscOverworldPlacements.DISK_GRAVEL);
+        biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BOPMiscOverworldPlacements.DISK_MUD);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_MUSKEG);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_1);
+
+        return biomeWithColorOverrides(Biome.Precipitation.SNOW, Biome.BiomeCategory.ICY, -0.25F, 0.6F, 0x94966E, 0x8D9B6B, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }
 
     public static Biome oldGrowthDeadForest()

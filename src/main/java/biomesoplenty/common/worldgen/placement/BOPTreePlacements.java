@@ -44,7 +44,7 @@ public class BOPTreePlacements
     public static final PlacedFeature MAHOGANY_TREE_CHECKED = register("mahogany_tree", BOPTreeFeatures.MAHOGANY_TREE.filteredByBlockSurvival(BOPBlocks.MAHOGANY_SAPLING));
     public static final PlacedFeature MAPLE_TREE_CHECKED = register("maple_tree_checked", BOPTreeFeatures.MAPLE_TREE.filteredByBlockSurvival(BOPBlocks.MAPLE_SAPLING));
     public static final PlacedFeature MAPLE_TWIGLET_TREE_CHECKED = register("maple_twiglet_tree", BOPTreeFeatures.MAPLE_TWIGLET_TREE.filteredByBlockSurvival(BOPBlocks.MAPLE_SAPLING));
-    public static final PlacedFeature OAK_BUSH = register("oak_bush", BOPTreeFeatures.OAK_BUSH.filteredByBlockSurvival(Blocks.OAK_SAPLING));
+    public static final PlacedFeature OAK_BUSH_CHECKED = register("oak_bush", BOPTreeFeatures.OAK_BUSH.filteredByBlockSurvival(Blocks.OAK_SAPLING));
     public static final PlacedFeature ORANGE_AUTUMN_TREE_CHECKED = register("orange_autumn_tree", BOPTreeFeatures.ORANGE_AUTUMN_TREE.filteredByBlockSurvival(BOPBlocks.ORANGE_AUTUMN_SAPLING));
     public static final PlacedFeature PINK_CHERRY_TREE_BEES_CHECKED = register("pink_cherry_tree_bees", BOPTreeFeatures.PINK_CHERRY_TREE_BEES.filteredByBlockSurvival(BOPBlocks.PINK_CHERRY_SAPLING));
     public static final PlacedFeature REDWOOD_TREE_CHECKED = register("redwood_tree", BOPTreeFeatures.REDWOOD_TREE.filteredByBlockSurvival(BOPBlocks.REDWOOD_SAPLING));

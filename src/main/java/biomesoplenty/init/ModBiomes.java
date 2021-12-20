@@ -35,13 +35,15 @@ public class ModBiomes
         registerBiome(BOPBiomes.DENSE_WOODLAND, BOPOverworldBiomes.woodland(true));
         registerBiome(BOPBiomes.DRY_BONEYARD, BOPOverworldBiomes.dryBoneyard());
         registerBiome(BOPBiomes.DRYLAND, BOPOverworldBiomes.dryland());
-        registerBiome(BOPBiomes.FIELD, BOPOverworldBiomes.field());
+        registerBiome(BOPBiomes.FIELD, BOPOverworldBiomes.field(false));
         registerBiome(BOPBiomes.FIR_CLEARING, BOPOverworldBiomes.firClearing(false));
+        registerBiome(BOPBiomes.FORESTED_FIELD, BOPOverworldBiomes.field(true));
         registerBiome(BOPBiomes.GRASSLAND, BOPOverworldBiomes.grassland());
         registerBiome(BOPBiomes.LAVENDER_FIELD, BOPOverworldBiomes.lavenderField(false));
         registerBiome(BOPBiomes.LAVENDER_FOREST, BOPOverworldBiomes.lavenderField(true));
         registerBiome(BOPBiomes.LUSH_DESERT, BOPOverworldBiomes.lushDesert());
         registerBiome(BOPBiomes.MEDITERRANEAN_FOREST, BOPOverworldBiomes.mediterraneanForest());
+        registerBiome(BOPBiomes.MUSKEG, BOPOverworldBiomes.muskeg());
         registerBiome(BOPBiomes.OLD_GROWTH_DEAD_FOREST, BOPOverworldBiomes.oldGrowthDeadForest());
         registerBiome(BOPBiomes.ORCHARD, BOPOverworldBiomes.orchard());
         registerBiome(BOPBiomes.PRAIRIE, BOPOverworldBiomes.prairie());

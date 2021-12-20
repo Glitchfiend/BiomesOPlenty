@@ -46,6 +46,7 @@ public class BOPVegetationPlacements
     public static final PlacedFeature PATCH_LARGE_FERN_25 = register("patch_large_fern_25", VegetationFeatures.PATCH_LARGE_FERN.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature PATCH_SPROUTS_5 = register("patch_sprouts_5", BOPVegetationFeatures.PATCH_SPROUTS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature PATCH_SPROUTS_10 = register("patch_sprouts_10", BOPVegetationFeatures.PATCH_SPROUTS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(4)));
+    public static final PlacedFeature PATCH_SPROUTS_15 = register("patch_sprouts_15", BOPVegetationFeatures.PATCH_SPROUTS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(6)));
     public static final PlacedFeature PATCH_TALL_GRASS_6 = register("patch_tall_grass_6", VegetationFeatures.PATCH_TALL_GRASS.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature PATCH_TALL_GRASS_12 = register("patch_tall_grass_12", VegetationFeatures.PATCH_TALL_GRASS.placed(RarityFilter.onAverageOnceEvery(8), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature PATCH_TALL_GRASS_24 = register("patch_tall_grass_24", VegetationFeatures.PATCH_TALL_GRASS.placed(RarityFilter.onAverageOnceEvery(12), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
@@ -99,11 +100,13 @@ public class BOPVegetationPlacements
     public static final PlacedFeature TREES_DRY_BONEYARD = register("trees_dry_boneyard", BOPVegetationFeatures.TREES_DRYLAND.placed(treePlacement(PlacementUtils.countExtra(1, 0.1F, 1))));
     public static final PlacedFeature TREES_DRYLAND = register("trees_dryland", BOPVegetationFeatures.TREES_DRYLAND.placed(treePlacement(PlacementUtils.countExtra(2, 0.1F, 1))));
     public static final PlacedFeature TREES_FIELD = register("trees_field", BOPVegetationFeatures.TREES_FIELD.placed(treePlacement(PlacementUtils.countExtra(4, 0.1F, 1))));
+    public static final PlacedFeature TREES_FIELD_FOREST = register("trees_field_forest", BOPVegetationFeatures.TREES_FIELD_FOREST.placed(treePlacement(PlacementUtils.countExtra(8, 0.1F, 1))));
     public static final PlacedFeature TREES_FIR_CLEARING = register("trees_fir_clearing", BOPTreeFeatures.FIR_TREE_SMALL.placed(treePlacement(PlacementUtils.countExtra(1, 0.1F, 1), BOPBlocks.FIR_SAPLING)));
     public static final PlacedFeature TREES_LAVENDER_FIELD = register("trees_lavender_field", BOPVegetationFeatures.TREES_LAVENDER_FIELD.placed(treePlacement(PlacementUtils.countExtra(1, 0.1F, 1))));
     public static final PlacedFeature TREES_LAVENDER_FOREST = register("trees_lavender_forest", BOPVegetationFeatures.TREES_LAVENDER_FOREST.placed(treePlacement(PlacementUtils.countExtra(7, 0.1F, 1))));
     public static final PlacedFeature TREES_LUSH_DESERT = register("trees_lush_desert", BOPVegetationFeatures.TREES_LUSH_DESERT.placed(treePlacement(PlacementUtils.countExtra(5, 0.1F, 1))));
     public static final PlacedFeature TREES_MEDITERRANEAN_FOREST = register("trees_mediterranean_forest", BOPVegetationFeatures.TREES_MEDITERRANEAN_FOREST.placed(treePlacement(PlacementUtils.countExtra(3, 0.1F, 1))));
+    public static final PlacedFeature TREES_MUSKEG = register("trees_muskeg", BOPVegetationFeatures.TREES_MUSKEG.placed(treePlacement(PlacementUtils.countExtra(1, 0.1F, 1))));
     public static final PlacedFeature TREES_OLD_GROWTH_DEAD_FOREST = register("trees_old_growth_dead_forest", BOPVegetationFeatures.TREES_OLD_GROWTH_DEAD_FOREST.placed(treePlacement(PlacementUtils.countExtra(4, 0.1F, 1))));
     public static final PlacedFeature TREES_ORCHARD = register("trees_orchard", BOPVegetationFeatures.TREES_ORCHARD.placed(treePlacement(PlacementUtils.countExtra(2, 0.2F, 1))));
     public static final PlacedFeature TREES_PRAIRIE = register("trees_prairie", BOPVegetationFeatures.TREES_PRAIRIE.placed(treePlacement(PlacementUtils.countExtra(1, 0.1F, 1))));

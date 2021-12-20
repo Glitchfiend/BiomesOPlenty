@@ -110,7 +110,7 @@ public final class BOPOverworldBiomeBuilder
 
     private final ResourceKey<Biome>[][] MIDDLE_BIOMES_VARIANT_BOP = new ResourceKey[][]{
             {null,                             null,                     BOPBiomes.SNOWY_FIR_CLEARING, BOPBiomes.SNOWY_MAPLE_FOREST, BOPBiomes.OLD_GROWTH_DEAD_FOREST},
-            {BOPBiomes.SEASONAL_PUMPKIN_PATCH, BOPBiomes.FIR_CLEARING,   null,                         null,                         null},
+            {BOPBiomes.SEASONAL_PUMPKIN_PATCH, BOPBiomes.FIR_CLEARING,   null,                         null,                         BOPBiomes.FORESTED_FIELD},
             {null,                             BOPBiomes.LAVENDER_FIELD, BOPBiomes.REDWOOD_FOREST,     null,                         BOPBiomes.CHERRY_BLOSSOM_GROVE},
             {null,                             null,                     BOPBiomes.DENSE_WOODLAND,     null,                         null},
             {null,                             null,                     BOPBiomes.DRY_BONEYARD,       null,                         null}
@@ -446,8 +446,12 @@ public final class BOPOverworldBiomeBuilder
         this.addSurfaceBiome(mapper, this.UNFROZEN_RANGE, this.FULL_RANGE, this.nearInlandContinentalness, BOPClimate.Parameter.span(this.erosions[0], this.erosions[1]), weirdness, 0.0F, Biomes.RIVER);
         this.addSurfaceBiome(mapper, this.FROZEN_RANGE, this.FULL_RANGE, BOPClimate.Parameter.span(this.coastContinentalness, this.farInlandContinentalness), BOPClimate.Parameter.span(this.erosions[2], this.erosions[5]), weirdness, 0.0F, Biomes.FROZEN_RIVER);
         this.addSurfaceBiome(mapper, this.UNFROZEN_RANGE, this.FULL_RANGE, BOPClimate.Parameter.span(this.coastContinentalness, this.farInlandContinentalness), BOPClimate.Parameter.span(this.erosions[2], this.erosions[5]), weirdness, 0.0F, Biomes.RIVER);
+
+        // Coastal watery valleys
         this.addSurfaceBiome(mapper, this.FROZEN_RANGE, this.FULL_RANGE, this.coastContinentalness, this.erosions[6], weirdness, 0.0F, Biomes.FROZEN_RIVER);
         this.addSurfaceBiome(mapper, this.UNFROZEN_RANGE, this.FULL_RANGE, this.coastContinentalness, this.erosions[6], weirdness, 0.0F, Biomes.RIVER);
+
+        // Inland watery valleys
         this.addSurfaceBiome(mapper, this.UNFROZEN_RANGE, this.FULL_RANGE, BOPClimate.Parameter.span(this.inlandContinentalness, this.farInlandContinentalness), this.erosions[6], weirdness, 0.0F, Biomes.SWAMP);
         this.addSurfaceBiome(mapper, this.FROZEN_RANGE, this.FULL_RANGE, BOPClimate.Parameter.span(this.inlandContinentalness, this.farInlandContinentalness), this.erosions[6], weirdness, 0.0F, Biomes.FROZEN_RIVER);
 

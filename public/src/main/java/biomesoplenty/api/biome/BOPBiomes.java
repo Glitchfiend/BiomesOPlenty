@@ -22,11 +22,13 @@ public class BOPBiomes
     public static final ResourceKey<Biome> DRYLAND = register("dryland");
     public static final ResourceKey<Biome> FIELD = register("field");
     public static final ResourceKey<Biome> FIR_CLEARING = register("fir_clearing");
+    public static final ResourceKey<Biome> FORESTED_FIELD = register("forested_field");
     public static final ResourceKey<Biome> GRASSLAND = register("grassland");
     public static final ResourceKey<Biome> LAVENDER_FIELD = register("lavender_field");
     public static final ResourceKey<Biome> LAVENDER_FOREST = register("lavender_forest");
     public static final ResourceKey<Biome> LUSH_DESERT = register("lush_desert");
     public static final ResourceKey<Biome> MEDITERRANEAN_FOREST = register("mediterranean_forest");
+    public static final ResourceKey<Biome> MUSKEG = register("muskeg");
     public static final ResourceKey<Biome> OLD_GROWTH_DEAD_FOREST = register("old_growth_dead_forest");
     public static final ResourceKey<Biome> ORCHARD = register("orchard");
     public static final ResourceKey<Biome> PRAIRIE = register("prairie");
