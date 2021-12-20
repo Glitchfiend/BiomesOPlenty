@@ -104,6 +104,7 @@ public class BOPVegetationPlacements
     public static final PlacedFeature TREES_LAVENDER_FOREST = register("trees_lavender_forest", BOPVegetationFeatures.TREES_LAVENDER_FOREST.placed(treePlacement(PlacementUtils.countExtra(7, 0.1F, 1))));
     public static final PlacedFeature TREES_LUSH_DESERT = register("trees_lush_desert", BOPVegetationFeatures.TREES_LUSH_DESERT.placed(treePlacement(PlacementUtils.countExtra(5, 0.1F, 1))));
     public static final PlacedFeature TREES_MEDITERRANEAN_FOREST = register("trees_mediterranean_forest", BOPVegetationFeatures.TREES_MEDITERRANEAN_FOREST.placed(treePlacement(PlacementUtils.countExtra(3, 0.1F, 1))));
+    public static final PlacedFeature TREES_OLD_GROWTH_DEAD_FOREST = register("trees_old_growth_dead_forest", BOPVegetationFeatures.TREES_OLD_GROWTH_DEAD_FOREST.placed(treePlacement(PlacementUtils.countExtra(4, 0.1F, 1))));
     public static final PlacedFeature TREES_ORCHARD = register("trees_orchard", BOPVegetationFeatures.TREES_ORCHARD.placed(treePlacement(PlacementUtils.countExtra(2, 0.2F, 1))));
     public static final PlacedFeature TREES_PRAIRIE = register("trees_prairie", BOPVegetationFeatures.TREES_PRAIRIE.placed(treePlacement(PlacementUtils.countExtra(1, 0.1F, 1))));
     public static final PlacedFeature TREES_WASTELAND = register("trees_wasteland", BOPVegetationFeatures.TREES_WASTELAND.placed(treePlacement(PlacementUtils.countExtra(1, 0.1F, 1))));

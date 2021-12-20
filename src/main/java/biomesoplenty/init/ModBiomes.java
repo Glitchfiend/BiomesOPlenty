@@ -42,6 +42,7 @@ public class ModBiomes
         registerBiome(BOPBiomes.LAVENDER_FOREST, BOPOverworldBiomes.lavenderField(true));
         registerBiome(BOPBiomes.LUSH_DESERT, BOPOverworldBiomes.lushDesert());
         registerBiome(BOPBiomes.MEDITERRANEAN_FOREST, BOPOverworldBiomes.mediterraneanForest());
+        registerBiome(BOPBiomes.OLD_GROWTH_DEAD_FOREST, BOPOverworldBiomes.oldGrowthDeadForest());
         registerBiome(BOPBiomes.ORCHARD, BOPOverworldBiomes.orchard());
         registerBiome(BOPBiomes.PRAIRIE, BOPOverworldBiomes.prairie());
         registerBiome(BOPBiomes.RAINFOREST, BOPOverworldBiomes.rainforest());
