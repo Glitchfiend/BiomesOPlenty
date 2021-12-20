@@ -69,6 +69,9 @@ public final class BOPOverworldBiomeBuilder
     private static final BOPClimate.Parameter VANILLA_UNIQUENESS_RANGE = BOPClimate.Parameter.span(-1.0F, -0.1F);
     private static final BOPClimate.Parameter BOP_UNIQUENESS_RANGE = BOPClimate.Parameter.span(-0.1F, 1.0F);
 
+    private static final BOPClimate.Parameter VANILLA_UNIQUENESS_RANGE_MODERATE_BOP_BIAS = BOPClimate.Parameter.span(-1.0F, -0.35F);
+    private static final BOPClimate.Parameter BOP_UNIQUENESS_RANGE_MODERATE_BOP_BIAS = BOPClimate.Parameter.span(-0.35F, 1.0F);
+
     private final BOPClimate.Parameter FROZEN_RANGE = this.temperatures[0];
     private final BOPClimate.Parameter UNFROZEN_RANGE = BOPClimate.Parameter.span(this.temperatures[1], this.temperatures[4]);
     private final BOPClimate.Parameter mushroomFieldsContinentalness = BOPClimate.Parameter.span(-1.2F, -1.05F);
@@ -130,7 +133,7 @@ public final class BOPOverworldBiomeBuilder
             {null,            null,                          null,              null,              null},
             {BOPBiomes.BOG,   BOPBiomes.BOG,                 BOPBiomes.WETLAND, BOPBiomes.WETLAND, BOPBiomes.WETLAND},
             {BOPBiomes.MARSH, BOPBiomes.MARSH,               BOPBiomes.MARSH,   BOPBiomes.MARSH,   BOPBiomes.MARSH},
-            {null,            BOPBiomes.MEDITERRANEAN_LAKES, BOPBiomes.BAYOU,   BOPBiomes.BAYOU,   BOPBiomes.RAINFOREST_FLOODPLAIN},
+            {BOPBiomes.BAYOU, BOPBiomes.MEDITERRANEAN_LAKES, BOPBiomes.BAYOU,   BOPBiomes.BAYOU,   BOPBiomes.RAINFOREST_FLOODPLAIN},
             {null,            null,                          null,              null,              null}
     };
 
@@ -153,6 +156,7 @@ public final class BOPOverworldBiomeBuilder
     private final ResourceKey<Biome>[][] PLATEAU_BIOMES_BOP = new ResourceKey[][]{
             {BOPBiomes.COLD_DESERT,      BOPBiomes.TUNDRA,               BOPBiomes.SNOWY_FIR_CLEARING, null,                  BOPBiomes.DEAD_FOREST},
             {BOPBiomes.SEASONAL_FOREST,  BOPBiomes.CONIFEROUS_FOREST,    null,                         null,                  BOPBiomes.FIELD},
+            {BOPBiomes.ORCHARD,          null,                           null,                         null,                  null},
             {BOPBiomes.ORCHARD,          null,                           null,                         null,                  null},
             {BOPBiomes.WOODED_SCRUBLAND, BOPBiomes.MEDITERRANEAN_FOREST, BOPBiomes.WOODLAND,           BOPBiomes.RAINFOREST,  null},
             {BOPBiomes.WASTELAND,        BOPBiomes.WASTELAND,            BOPBiomes.DRYLAND,            BOPBiomes.LUSH_DESERT, null}
@@ -393,7 +397,7 @@ public final class BOPOverworldBiomeBuilder
                 }
                 else
                 {
-                    this.addParallelSurfaceBiomes(mapper, temperature, humidity, BOPClimate.Parameter.span(this.nearInlandContinentalness, this.farInlandContinentalness), this.erosions[6], weirdness, 0.0F, Biomes.SWAMP, swampBiomeBOP);
+                    this.addParallelSurfaceBiomesWithModerateBOPBias(mapper, temperature, humidity, BOPClimate.Parameter.span(this.nearInlandContinentalness, this.farInlandContinentalness), this.erosions[6], weirdness, 0.0F, Biomes.SWAMP, swampBiomeBOP);
                 }
             }
         }
@@ -449,7 +453,7 @@ public final class BOPOverworldBiomeBuilder
                 }
                 else
                 {
-                    this.addParallelSurfaceBiomes(mapper, temperature, humidity, BOPClimate.Parameter.span(this.nearInlandContinentalness, this.farInlandContinentalness), this.erosions[6], weirdness, 0.0F, Biomes.SWAMP, swampBiomeBOP);
+                    this.addParallelSurfaceBiomesWithModerateBOPBias(mapper, temperature, humidity, BOPClimate.Parameter.span(this.nearInlandContinentalness, this.farInlandContinentalness), this.erosions[6], weirdness, 0.0F, Biomes.SWAMP, swampBiomeBOP);
                 }
             }
         }
@@ -487,7 +491,7 @@ public final class BOPOverworldBiomeBuilder
 
                 if (i != 0)
                 {
-                    this.addParallelSurfaceBiomes(mapper, temperature, humidity, BOPClimate.Parameter.span(this.inlandContinentalness, this.farInlandContinentalness), this.erosions[6], weirdness, 0.0F, Biomes.SWAMP, swampBiomeBOP);
+                    this.addParallelSurfaceBiomesWithModerateBOPBias(mapper, temperature, humidity, BOPClimate.Parameter.span(this.inlandContinentalness, this.farInlandContinentalness), this.erosions[6], weirdness, 0.0F, Biomes.SWAMP, swampBiomeBOP);
                 }
             }
         }
@@ -549,7 +553,7 @@ public final class BOPOverworldBiomeBuilder
 
     private ResourceKey<Biome> pickSwampBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
     {
-        return biomeOrFallback(biomeRegistry, this.SWAMP_BIOMES_BOP[temperatureIndex][humidityIndex], Biomes.SWAMP);
+        return biomeOrFallback(biomeRegistry, this.SWAMP_BIOMES_BOP[temperatureIndex][humidityIndex], this.pickMiddleBiomeBOP(biomeRegistry, temperatureIndex, humidityIndex, weirdness), Biomes.SWAMP);
     }
 
     private ResourceKey<Biome> maybePickShatteredBiome(int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness, ResourceKey<Biome> extremeHillsBiome)
@@ -658,6 +662,12 @@ public final class BOPOverworldBiomeBuilder
     {
         addSurfaceBiome(mapper, temperature, humidity, continentalness, erosion, weirdness, VANILLA_UNIQUENESS_RANGE, offset, vanillaBiome);
         addSurfaceBiome(mapper, temperature, humidity, continentalness, erosion, weirdness, BOP_UNIQUENESS_RANGE, offset, bopBiome);
+    }
+
+    private void addParallelSurfaceBiomesWithModerateBOPBias(Consumer<Pair<BOPClimate.ParameterPoint, ResourceKey<Biome>>> mapper, BOPClimate.Parameter temperature, BOPClimate.Parameter humidity, BOPClimate.Parameter continentalness, BOPClimate.Parameter erosion, BOPClimate.Parameter weirdness, float offset, ResourceKey<Biome> vanillaBiome, ResourceKey<Biome> bopBiome)
+    {
+        addSurfaceBiome(mapper, temperature, humidity, continentalness, erosion, weirdness, VANILLA_UNIQUENESS_RANGE_MODERATE_BOP_BIAS, offset, vanillaBiome);
+        addSurfaceBiome(mapper, temperature, humidity, continentalness, erosion, weirdness, BOP_UNIQUENESS_RANGE_MODERATE_BOP_BIAS, offset, bopBiome);
     }
 
     private void addSurfaceBiome(Consumer<Pair<BOPClimate.ParameterPoint, ResourceKey<Biome>>> mapper, BOPClimate.Parameter temperature, BOPClimate.Parameter humidity, BOPClimate.Parameter continentalness, BOPClimate.Parameter erosion, BOPClimate.Parameter weirdness, float offset, ResourceKey<Biome> biome)
