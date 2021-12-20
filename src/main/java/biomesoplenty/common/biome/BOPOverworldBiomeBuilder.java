@@ -157,7 +157,6 @@ public final class BOPOverworldBiomeBuilder
             {BOPBiomes.COLD_DESERT,      BOPBiomes.TUNDRA,               BOPBiomes.SNOWY_FIR_CLEARING, null,                  BOPBiomes.DEAD_FOREST},
             {BOPBiomes.SEASONAL_FOREST,  BOPBiomes.CONIFEROUS_FOREST,    null,                         null,                  BOPBiomes.FIELD},
             {BOPBiomes.ORCHARD,          null,                           null,                         null,                  null},
-            {BOPBiomes.ORCHARD,          null,                           null,                         null,                  null},
             {BOPBiomes.WOODED_SCRUBLAND, BOPBiomes.MEDITERRANEAN_FOREST, BOPBiomes.WOODLAND,           BOPBiomes.RAINFOREST,  null},
             {BOPBiomes.WASTELAND,        BOPBiomes.WASTELAND,            BOPBiomes.DRYLAND,            BOPBiomes.LUSH_DESERT, null}
     };
