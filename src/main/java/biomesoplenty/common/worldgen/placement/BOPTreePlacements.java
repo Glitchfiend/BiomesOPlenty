@@ -35,6 +35,7 @@ public class BOPTreePlacements
     public static final PlacedFeature DYING_TREE_WASTELAND_CHECKED = register("dying_tree_wasteland", BOPTreeFeatures.DYING_TREE_WASTELAND.filteredByBlockSurvival(BOPBlocks.DEAD_SAPLING));
     public static final PlacedFeature FIR_TREE_CHECKED = register("fir_tree", BOPTreeFeatures.FIR_TREE.filteredByBlockSurvival(BOPBlocks.FIR_SAPLING));
     public static final PlacedFeature FIR_TREE_LARGE_CHECKED = register("fir_tree_large", BOPTreeFeatures.FIR_TREE_LARGE.filteredByBlockSurvival(BOPBlocks.FIR_SAPLING));
+    public static final PlacedFeature FIR_TREE_SMALL_CHECKED = register("fir_tree_small", BOPTreeFeatures.FIR_TREE_SMALL.filteredByBlockSurvival(BOPBlocks.FIR_SAPLING));
     public static final PlacedFeature FLOWERING_OAK_BUSH_CHECKED = register("flowering_oak_bush", BOPTreeFeatures.FLOWERING_OAK_BUSH.filteredByBlockSurvival(BOPBlocks.FLOWERING_OAK_SAPLING));
     public static final PlacedFeature FLOWERING_OAK_TREE_BEES_CHECKED = register("flowering_oak_tree_bees", BOPTreeFeatures.FLOWERING_OAK_TREE_BEES.filteredByBlockSurvival(BOPBlocks.FLOWERING_OAK_SAPLING));
     public static final PlacedFeature FLOWERING_OAK_TREE_CHECKED = register("flowering_oak_tree", BOPTreeFeatures.FLOWERING_OAK_TREE.filteredByBlockSurvival(BOPBlocks.FLOWERING_OAK_SAPLING));

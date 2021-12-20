@@ -115,6 +115,7 @@ public class BOPVegetationPlacements
     public static final PlacedFeature TREES_SEASONAL_FOREST = register("trees_seasonal_forest", BOPVegetationFeatures.TREES_SEASONAL_FOREST.placed(treePlacement(PlacementUtils.countExtra(10, 0.1F, 1))));
     public static final PlacedFeature TREES_SEASONAL_PUMPKIN_PATCH = register("trees_seasonal_pumpkin_patch", BOPVegetationFeatures.TREES_SEASONAL_PUMPKIN_PATCH.placed(treePlacement(PlacementUtils.countExtra(6, 0.1F, 1))));
     public static final PlacedFeature TREES_SNOWY_CONIFEROUS_FOREST = register("trees_snowy_coniferous_forest", BOPVegetationFeatures.TREES_SNOWY_CONIFEROUS_FOREST.placed(treePlacement(PlacementUtils.countExtra(6, 0.1F, 1))));
+    public static final PlacedFeature TREES_SNOWY_MAPLE_FOREST = register("trees_snowy_maple_forest", BOPVegetationFeatures.TREES_SNOWY_MAPLE_FOREST.placed(treePlacement(PlacementUtils.countExtra(10, 0.1F, 1))));
     public static final PlacedFeature TREES_TUNDRA = register("trees_tundra", BOPVegetationFeatures.TREES_TUNDRA.placed(treePlacement(PlacementUtils.countExtra(1, 0.1F, 1))));
 
     // Misc
