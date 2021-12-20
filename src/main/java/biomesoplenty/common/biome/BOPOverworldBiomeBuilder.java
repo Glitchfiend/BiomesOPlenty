@@ -116,6 +116,14 @@ public final class BOPOverworldBiomeBuilder
             {null,                             null,                     BOPBiomes.DRY_BONEYARD,       null,                         null}
     };
 
+    private final ResourceKey<Biome>[][] VALLEY_BIOMES_BOP = new ResourceKey[][]{
+            {null,                            null,                            null,                   null,                    null},
+            {null,                            null,                            null,                   null,                    null},
+            {null,                            null,                            null,                   null,                    null},
+            {null,                            null,                            null,                   null,                    null},
+            {null,                            null,                            null,                   null,                    null}
+    };
+
     private final ResourceKey<Biome>[][] PLATEAU_BIOMES = new ResourceKey[][]{
             {Biomes.SNOWY_PLAINS,    Biomes.SNOWY_PLAINS,    Biomes.SNOWY_PLAINS, Biomes.SNOWY_TAIGA,     Biomes.SNOWY_TAIGA},
             {Biomes.MEADOW,          Biomes.MEADOW,          Biomes.FOREST,       Biomes.TAIGA,           Biomes.OLD_GROWTH_SPRUCE_TAIGA},
@@ -451,8 +459,8 @@ public final class BOPOverworldBiomeBuilder
             {
                 BOPClimate.Parameter humidity = this.humidities[j];
                 ResourceKey<Biome> middleOrBadlandsBiomeVanilla = this.pickMiddleBiomeOrBadlandsIfHotVanilla(i, j, weirdness);
-                ResourceKey<Biome> middleBiomeBOP               = this.pickMiddleBiomeBOP(biomeRegistry, i, j, weirdness);
-                this.addParallelSurfaceBiomes(mapper, temperature, humidity, BOPClimate.Parameter.span(this.midInlandContinentalness, this.farInlandContinentalness), BOPClimate.Parameter.span(this.erosions[0], this.erosions[1]), weirdness, 0.0F, middleOrBadlandsBiomeVanilla, middleBiomeBOP);
+                ResourceKey<Biome> middleOrValleyBiomeBOP       = this.pickMiddleOrValleyBOP(biomeRegistry, i, j, weirdness);
+                this.addParallelSurfaceBiomes(mapper, temperature, humidity, BOPClimate.Parameter.span(this.midInlandContinentalness, this.farInlandContinentalness), BOPClimate.Parameter.span(this.erosions[0], this.erosions[1]), weirdness, 0.0F, middleOrBadlandsBiomeVanilla, middleOrValleyBiomeBOP);
             }
         }
     }
@@ -501,6 +509,14 @@ public final class BOPOverworldBiomeBuilder
     private ResourceKey<Biome> pickMiddleBiomeOrBadlandsIfHotOrSlopeIfColdBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
     {
         return temperatureIndex == 0 ? this.pickSlopeBiomeBOP(biomeRegistry, temperatureIndex, humidityIndex, weirdness) : this.pickMiddleBiomeBOP(biomeRegistry, temperatureIndex, humidityIndex, weirdness);
+    }
+
+    private ResourceKey<Biome> pickMiddleOrValleyBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
+    {
+        ResourceKey<Biome> middleBiome = this.pickMiddleBiomeBOP(biomeRegistry, temperatureIndex, humidityIndex, weirdness);
+
+        if (weirdness.max() < 0L) return middleBiome;
+        else return biomeOrFallback(biomeRegistry, this.VALLEY_BIOMES_BOP[temperatureIndex][humidityIndex], middleBiome);
     }
 
     private ResourceKey<Biome> maybePickShatteredBiome(int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness, ResourceKey<Biome> extremeHillsBiome)
@@ -553,14 +569,8 @@ public final class BOPOverworldBiomeBuilder
 
     private ResourceKey<Biome> pickPlateauBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
     {
-        if (weirdness.max() < 0L)
-        {
-            return biomeOrFallback(biomeRegistry, this.PLATEAU_BIOMES_BOP[temperatureIndex][humidityIndex], this.PLATEAU_BIOMES[temperatureIndex][humidityIndex]);
-        }
-        else
-        {
-            return biomeOrFallback(biomeRegistry, this.PLATEAU_BIOMES_VARIANT_BOP[temperatureIndex][humidityIndex], this.PLATEAU_BIOMES_BOP[temperatureIndex][humidityIndex], this.PLATEAU_BIOMES[temperatureIndex][humidityIndex]);
-        }
+        if (weirdness.max() < 0L) return biomeOrFallback(biomeRegistry, this.PLATEAU_BIOMES_BOP[temperatureIndex][humidityIndex], this.PLATEAU_BIOMES[temperatureIndex][humidityIndex]);
+        else return biomeOrFallback(biomeRegistry, this.PLATEAU_BIOMES_VARIANT_BOP[temperatureIndex][humidityIndex], this.PLATEAU_BIOMES_BOP[temperatureIndex][humidityIndex], this.PLATEAU_BIOMES[temperatureIndex][humidityIndex]);
     }
 
     private ResourceKey<Biome> pickPeakBiome(int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
