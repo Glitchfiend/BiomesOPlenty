@@ -24,7 +24,8 @@ public class BOPNoiseGeneratorSettings
             BOPSurfaceRuleData.overworld(),
             63, false, true, true, true, true, false);
 
-    static {
-        Registry.register(BuiltinRegistries.NOISE_GENERATOR_SETTINGS, new ResourceLocation(BiomesOPlenty.MOD_ID, "bop"), BOP);
+    static
+    {
+        Registry.register(BuiltinRegistries.NOISE_GENERATOR_SETTINGS, new ResourceLocation(BiomesOPlenty.MOD_ID, "overworld"), BOP);
     }
 }

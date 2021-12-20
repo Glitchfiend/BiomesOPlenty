@@ -7,21 +7,44 @@ package biomesoplenty.init;
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.common.biome.BOPOverworldBiomes;
 import biomesoplenty.common.worldgen.BOPNoises;
+import biomesoplenty.common.worldgen.BOPWorldType;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.GameData;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.core.Logger;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModBiomes
 {
+    private static BOPWorldType bopWorldType = new BOPWorldType();
+
     public static void setup()
     {
         registerNoise(BOPNoises.UNIQUENESS, -6, 1.0D, 1.5D, 1.0D, 1.5D, 0.0D);
+
+        // Obtain the game data logger and disable it temporarily
+        Logger gameDataLogger = (Logger) LogManager.getLogger(GameData.class);
+        Level oldLevel = gameDataLogger.getLevel();
+        gameDataLogger.setLevel(Level.OFF);
+
+        // Register our world type
+        // We intentionally use the minecraft namespace so we continue using "biomesoplenty" in server.properties
+        // This is markedly better than the alternative of biomesoplenty:biomesoplenty.
+        // We do this with GameData logging disabled to prevent people whining at us.
+        bopWorldType.setRegistryName(new ResourceLocation("biomesoplenty"));
+        ForgeRegistries.WORLD_TYPES.register(bopWorldType);
+
+        // Re-enable the game data logger
+        gameDataLogger.setLevel(oldLevel);
     }
 
     @SubscribeEvent

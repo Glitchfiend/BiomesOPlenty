@@ -50,7 +50,7 @@ public class GuiEventHandler
 
             TranslatableComponent desc = (TranslatableComponent)screen.description;
 
-            if (desc.getKey().equals("generator.biomesoplenty"))
+            if (desc.getKey().equals("generator.minecraft.biomesoplenty"))
             {
                 return screen;
             }

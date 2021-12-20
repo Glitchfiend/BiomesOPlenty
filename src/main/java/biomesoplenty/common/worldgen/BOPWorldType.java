@@ -1,4 +1,4 @@
-package biomesoplenty.common.util;
+package biomesoplenty.common.worldgen;
 
 import biomesoplenty.common.biome.BOPOverworldBiomeBuilder;
 import biomesoplenty.common.worldgen.BOPClimate;
@@ -15,20 +15,18 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.MultiNoiseBiomeSource;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.NoiseGeneratorSettings;
+import net.minecraftforge.common.world.ForgeWorldPreset;
 
 import java.util.function.Supplier;
 
-public class BOPWorldType extends WorldPreset {
-    public BOPWorldType() {
-        super("biomesoplenty");
-        PRESETS.add(this);
-    }
-
-    @Override
-    protected ChunkGenerator generator(RegistryAccess registryAccess, long seed)
+public class BOPWorldType extends ForgeWorldPreset
+{
+    public BOPWorldType()
     {
-        return new BOPNoiseBasedChunkGenerator(registryAccess.registryOrThrow(Registry.NOISE_REGISTRY), BOPMultiNoiseBiomeSource.Preset.OVERWORLD.biomeSource(registryAccess.registryOrThrow(Registry.BIOME_REGISTRY), false), seed, () -> {
-            return BOPNoiseGeneratorSettings.BOP;
+        super((RegistryAccess registryAccess, long seed, String generatorSettings) -> {
+            return new BOPNoiseBasedChunkGenerator(registryAccess.registryOrThrow(Registry.NOISE_REGISTRY), BOPMultiNoiseBiomeSource.Preset.OVERWORLD.biomeSource(registryAccess.registryOrThrow(Registry.BIOME_REGISTRY), false), seed, () -> {
+                return BOPNoiseGeneratorSettings.BOP;
+            });
         });
     }
 }
