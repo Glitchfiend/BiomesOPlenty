@@ -140,7 +140,9 @@ def write_tree_features(file_path, features):
 def create_tree_feature(args):
     configuration = ''
 
-    if args.type == 'big_tree':
+    if args.type == 'basic_tree':
+        configuration += 'new BasicTreeConfiguration.Builder()'
+    elif args.type == 'big_tree':
         configuration += 'new BigTreeConfiguration.Builder()'
     elif args.type == 'bush_tree':
         configuration += 'new BasicTreeConfiguration.Builder()'
@@ -160,6 +162,14 @@ def create_tree_feature(args):
     configuration += create_builder_call('minHeight', args.min_height)
     configuration += create_builder_call('maxHeight', args.max_height)
 
+    if args.type == 'basic_tree':
+        configuration += create_builder_call('leafLayers', args.leaf_layers)
+        configuration += create_builder_call('leavesOffset', args.leaves_offset)
+        configuration += create_builder_call('maxLeavesRadius', args.max_leaves_radius)
+        configuration += create_builder_call('leavesLayerHeight', args.leaves_layer_height)
+
+        if args.hanging_chance is not None:
+            configuration += create_builder_call('hangingChance', f'{args.hanging_chance}F')
     if args.type == 'big_tree':
         configuration += create_builder_call('trunkWidth', args.trunk_width)
         configuration += create_builder_call('foliageHeight', args.foliage_height)
@@ -204,6 +214,14 @@ def add_tree_subparser_args(parser):
     parser.add_argument('source', choices=ALLOWED_FEATURE_SOURCES)
     parser.add_argument('survival_filter_block')
     subparsers = parser.add_subparsers(dest='type', required=True)
+
+    basic_tree_parser = subparsers.add_parser('basic_tree')
+    basic_tree_parser.add_argument('--leaf_layers', dest='leaf_layers', type=int)
+    basic_tree_parser.add_argument('--leaves_offset', dest='leaves_offset', type=int)
+    basic_tree_parser.add_argument('--max_leaves_radius', dest='max_leaves_radius', type=int)
+    basic_tree_parser.add_argument('--leaves_layer_height', dest='leaves_layer_height', type=int)
+    basic_tree_parser.add_argument('--hanging_chance', dest='hanging_chance', type=float)
+    add_common_tree_subparser_args(basic_tree_parser)
 
     big_tree_parser = subparsers.add_parser('big_tree')
     big_tree_parser.add_argument('--trunk_width', dest='trunk_width', type=int)

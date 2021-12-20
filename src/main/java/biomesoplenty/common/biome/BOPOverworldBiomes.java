@@ -803,6 +803,35 @@ public class BOPOverworldBiomes
         return biomeWithColorOverridesAndParticles(Biome.Precipitation.NONE, Biome.BiomeCategory.DESERT, 2.0F, 0.0F, 0x433721, 0x0C0C03, 0xDBDDC1, 0xAD9364, 0xB5A76C, 0x70ADEF, spawnBuilder, biomeBuilder, ParticleTypes.MYCELIUM, 0.00357F, NORMAL_MUSIC);
     }
 
+    public static Biome wetland()
+    {
+        // Mob spawns
+        MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.commonSpawns(spawnBuilder);
+        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.PIG, 10, 4, 4));
+        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.FOX, 8, 2, 4));
+
+        // Biome features
+        BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder();
+        globalOverworldGeneration(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
+        BiomeDefaultFeatures.addSwampClayDisk(biomeBuilder);
+        biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BOPMiscOverworldPlacements.DISK_MUD);
+        BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultExtraVegetation(biomeBuilder);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEAGRASS_SWAMP);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_WETLAND);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.FLOWER_WETLAND);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_CATTAIL_24);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_FERN_GRASS_16);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.LILY_PAD_10);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TOADSTOOL_NORMAL);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_REED_5);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_WATERGRASS_10);
+
+        return biomeWithColorOverrides(Biome.Precipitation.RAIN, Biome.BiomeCategory.SWAMP, 0.6F, 0.7F, 0x272179, 0x0C031B, 12638463, 0x5A935F, 0x4F9657, calculateSkyColor(0.6F), spawnBuilder, biomeBuilder, NORMAL_MUSIC);
+    }
+
     public static Biome woodland(boolean dense)
     {
         // Mob spawns

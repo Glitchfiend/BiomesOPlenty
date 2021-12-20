@@ -29,6 +29,7 @@ public class BOPTreeFeatures
     public static final ConfiguredFeature<TreeConfiguration, ?> PINK_CHERRY_TREE_BEES = register("pink_cherry_tree_bees", BOPBaseFeatures.BASIC_TREE.configured(new BasicTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.CHERRY_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.PINK_CHERRY_LEAVES)).decorator(new BeehiveDecorator(0.05f)).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> SMALL_DEAD_TREE = register("small_dead_tree", BOPBaseFeatures.BASIC_TREE.configured(new BasicTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.DEAD_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.DEAD_LEAVES)).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> WHITE_CHERRY_TREE_BEES = register("white_cherry_tree_bees", BOPBaseFeatures.BASIC_TREE.configured(new BasicTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.CHERRY_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.WHITE_CHERRY_LEAVES)).decorator(new BeehiveDecorator(0.05f)).build()));
+    public static final ConfiguredFeature<TreeConfiguration, ?> WILLOW_TREE = register("willow_tree", BOPBaseFeatures.BASIC_TREE.configured(new BasicTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.WILLOW_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.WILLOW_LEAVES)).vine(BlockStateProvider.simple(BOPBlocks.WILLOW_VINE)).minHeight(6).maxHeight(10).leavesOffset(0).maxLeavesRadius(2).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> YELLOW_AUTUMN_TREE = register("yellow_autumn_tree", BOPBaseFeatures.BASIC_TREE.configured(new BasicTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.BIRCH_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.YELLOW_AUTUMN_LEAVES)).minHeight(5).maxHeight(8).build()));
 
     // Big trees
@@ -77,10 +78,10 @@ public class BOPTreeFeatures
     public static final ConfiguredFeature<TreeConfiguration, ?> TWIGLET_TREE = register("twiglet_tree", BOPBaseFeatures.TWIGLET_TREE.configured(new TwigletTreeConfiguration.Builder().minHeight(1).maxHeight(2).build()));
 
     // Special trees
-    public static final ConfiguredFeature<TreeConfiguration, ?> REDWOOD_TREE = register("redwood_tree", BOPBaseFeatures.REDWOOD_TREE.configured(createRedwood().minHeight(10).maxHeight(30).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> REDWOOD_TREE_MEDIUM = register("redwood_tree_medium", BOPBaseFeatures.REDWOOD_TREE.configured(createRedwood().minHeight(25).maxHeight(40).trunkWidth(2).build()));
-    public static final ConfiguredFeature<TreeConfiguration, ?> MAHOGANY_TREE = register("mahogany_tree", BOPBaseFeatures.MAHOGANY_TREE.configured(new MahoganyTreeConfiguration.Builder().build()));
+    public static final ConfiguredFeature<TreeConfiguration, ?> REDWOOD_TREE = register("redwood_tree", BOPBaseFeatures.REDWOOD_TREE.configured(createRedwood().minHeight(10).maxHeight(30).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> REDWOOD_TREE_LARGE = register("redwood_tree_large", BOPBaseFeatures.REDWOOD_TREE.configured(createRedwood().minHeight(45).maxHeight(60).trunkWidth(3).build()));
+    public static final ConfiguredFeature<TreeConfiguration, ?> MAHOGANY_TREE = register("mahogany_tree", BOPBaseFeatures.MAHOGANY_TREE.configured(new MahoganyTreeConfiguration.Builder().build()));
 
     private static TaigaTreeConfiguration.Builder createFir()
     {
