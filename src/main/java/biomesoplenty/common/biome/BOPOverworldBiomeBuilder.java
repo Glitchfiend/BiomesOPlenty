@@ -130,7 +130,7 @@ public final class BOPOverworldBiomeBuilder
             {null,                            null,                            null,                   null,                    null},
             {null,                            null,                            null,                   null,                    null},
             {null,                            null,                            null,                   null,                    null},
-            {null,                            null,                            null,                   null,                    BOPBiomes.RAINFOREST_FLOODPLAIN},
+            {null,                            null,                            BOPBiomes.BAYOU,        BOPBiomes.BAYOU,         BOPBiomes.RAINFOREST_FLOODPLAIN},
             {null,                            null,                            null,                   null,                    null}
     };
 

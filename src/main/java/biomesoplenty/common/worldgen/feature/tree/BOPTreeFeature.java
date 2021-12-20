@@ -115,7 +115,7 @@ public abstract class BOPTreeFeature<FC extends BOPTreeConfiguration> extends Tr
         return TreeFeature.isAirOrLeaves(level, pos) || level.isStateAtPosition(pos, (state) -> {
             Material material = state.getMaterial();
             Block block = state.getBlock();
-            return material == Material.REPLACEABLE_PLANT || state.is(BlockTags.SAPLINGS) || block == Blocks.VINE || block == BOPBlocks.WILLOW_VINE || block == BOPBlocks.DEAD_BRANCH || block == Blocks.MOSS_CARPET || block instanceof BushBlock;
+            return material == Material.REPLACEABLE_PLANT || state.is(BlockTags.SAPLINGS) || block == Blocks.VINE || block == BOPBlocks.WILLOW_VINE || block == BOPBlocks.DEAD_BRANCH || block == Blocks.MOSS_CARPET || block == BOPBlocks.SPANISH_MOSS || block instanceof BushBlock;
         });
     }
 

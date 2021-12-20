@@ -122,13 +122,15 @@ def write_tree_features(file_path, features):
     taiga_trees = filter_features('bop', 'taiga_tree')
     bush_trees = filter_features('bop', 'bush_tree')
     poplar_trees = filter_features('bop', 'poplar_tree')
+    cypress_trees = filter_features('bop', 'cypress_tree')
     twiglet_trees = filter_features('bop', 'twiglet_tree')
-    special_trees = set(features) - set(basic_trees + big_trees + taiga_trees + bush_trees + poplar_trees + twiglet_trees)
+    special_trees = set(features) - set(basic_trees + big_trees + taiga_trees + bush_trees + poplar_trees + cypress_trees + twiglet_trees)
 
     code = generate_section('Standard trees', basic_trees)
     code += generate_section('Big trees', big_trees)
     code += generate_section('Conifer trees', taiga_trees)
     code += generate_section('Poplar trees', poplar_trees)
+    code += generate_section('Swamp trees', cypress_trees)
     code += generate_section('Bush trees', bush_trees)
     code += generate_section('Twiglets', twiglet_trees)
     code += generate_section('Special trees', special_trees, False)
@@ -142,6 +144,8 @@ def create_tree_feature(args):
         configuration += 'new BigTreeConfiguration.Builder()'
     elif args.type == 'bush_tree':
         configuration += 'new BasicTreeConfiguration.Builder()'
+    elif args.type == 'cypress_tree':
+        configuration += 'new CypressTreeConfiguration.Builder()'
     elif args.type == 'poplar_tree':
         configuration += 'new PoplarTreeConfiguration.Builder()'
     elif args.type == 'twiglet_tree':
@@ -162,6 +166,8 @@ def create_tree_feature(args):
 
         if args.foliage_density is not None:
             configuration += create_builder_call('foliageDensity', f'{args.foliage_density}D')
+    elif args.type == 'cypress_tree':
+        configuration += create_builder_call('trunkWidth', args.trunk_width)
     elif args.type == 'twiglet_tree' and args.leaf_chance_even is not None and args.leaf_chance_odd is not None:
         configuration += create_builder_call('leafChance', f'{args.leaf_chance_even}F, {args.leaf_chance_odd}F')
 
@@ -207,6 +213,10 @@ def add_tree_subparser_args(parser):
 
     bush_tree_parser = subparsers.add_parser('bush_tree')
     add_common_tree_subparser_args(bush_tree_parser)
+
+    cypress_tree_parser = subparsers.add_parser('cypress_tree')
+    cypress_tree_parser.add_argument('--trunk_width', dest='trunk_width', type=int)
+    add_common_tree_subparser_args(cypress_tree_parser)
 
     poplar_tree_parser = subparsers.add_parser('poplar_tree')
     add_common_tree_subparser_args(poplar_tree_parser)
