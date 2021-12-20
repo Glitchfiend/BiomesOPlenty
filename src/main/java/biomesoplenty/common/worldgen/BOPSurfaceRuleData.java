@@ -333,7 +333,7 @@ public class BOPSurfaceRuleData
                 SurfaceRules.ON_FLOOR,
                 SurfaceRules.sequence(
                     SurfaceRules.ifTrue(
-                        SurfaceRules.isBiome(BOPBiomes.RAINFOREST_FLOODPLAIN),
+                        SurfaceRules.isBiome(BOPBiomes.MARSH, BOPBiomes.RAINFOREST_FLOODPLAIN),
                         SurfaceRules.ifTrue(
                             isAbove62,
                             SurfaceRules.ifTrue(SurfaceRules.not(isAbove63),

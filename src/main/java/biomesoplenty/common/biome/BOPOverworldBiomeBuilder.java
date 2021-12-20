@@ -129,7 +129,7 @@ public final class BOPOverworldBiomeBuilder
             // NOTE: Frozen biomes not applicable for swamp biomes
             {null,                            null,                            null,                   null,                    null},
             {null,                            null,                            null,                   null,                    null},
-            {null,                            null,                            null,                   null,                    null},
+            {BOPBiomes.MARSH,                 BOPBiomes.MARSH,                 BOPBiomes.MARSH,        BOPBiomes.MARSH,         BOPBiomes.MARSH},
             {null,                            null,                            BOPBiomes.BAYOU,        BOPBiomes.BAYOU,         BOPBiomes.RAINFOREST_FLOODPLAIN},
             {null,                            null,                            null,                   null,                    null}
     };
