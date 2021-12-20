@@ -30,6 +30,7 @@ public class BOPBiomes
     public static final ResourceKey<Biome> LUSH_DESERT = register("lush_desert");
     public static final ResourceKey<Biome> MARSH = register("marsh");
     public static final ResourceKey<Biome> MEDITERRANEAN_FOREST = register("mediterranean_forest");
+    public static final ResourceKey<Biome> MEDITERRANEAN_LAKES = register("mediterranean_lakes");
     public static final ResourceKey<Biome> MUSKEG = register("muskeg");
     public static final ResourceKey<Biome> OLD_GROWTH_DEAD_FOREST = register("old_growth_dead_forest");
     public static final ResourceKey<Biome> ORCHARD = register("orchard");
