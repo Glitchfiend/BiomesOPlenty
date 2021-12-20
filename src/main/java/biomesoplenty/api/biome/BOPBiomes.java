@@ -45,6 +45,7 @@ public class BOPBiomes
     public static final ResourceKey<Biome> SNOWY_FIR_CLEARING = register("snowy_fir_clearing");
     public static final ResourceKey<Biome> SNOWY_MAPLE_FOREST = register("snowy_maple_forest");
     public static final ResourceKey<Biome> TUNDRA = register("tundra");
+    public static final ResourceKey<Biome> TUNDRA_BASIN = register("tundra_basin");
     public static final ResourceKey<Biome> SNOWY_CONIFEROUS_FOREST = register("snowy_coniferous_forest");
     public static final ResourceKey<Biome> WASTELAND = register("wasteland");
     public static final ResourceKey<Biome> WETLAND = register("wetland");
