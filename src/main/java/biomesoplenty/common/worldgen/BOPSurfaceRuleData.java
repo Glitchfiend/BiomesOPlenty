@@ -357,6 +357,10 @@ public class BOPSurfaceRuleData
                             ),
                             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.REDWOOD_FOREST), PODZOL)
                         )
+                    ),
+                    SurfaceRules.ifTrue(
+                        SurfaceRules.not(isAtOrAboveWaterLevel),
+                        SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.TUNDRA_BASIN), GRAVEL)
                     )
                 )
             ),
@@ -376,6 +380,7 @@ public class BOPSurfaceRuleData
                     ORANGE_SAND
                 )
             ),
+            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.TUNDRA_BASIN), STONE),
             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.WASTELAND), DRIED_SALT)
         );
     }

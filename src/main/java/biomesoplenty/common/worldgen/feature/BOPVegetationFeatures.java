@@ -8,20 +8,25 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.worldgen.placement.BOPTreePlacements;
 import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.collect.ImmutableList;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.TreePlacements;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
+
+import java.util.List;
 
 public class BOPVegetationFeatures
 {
@@ -40,9 +45,9 @@ public class BOPVegetationFeatures
     public static final ConfiguredFeature<RandomPatchConfiguration, ?> PATCH_FERN_GRASS = register("patch_fern_grass", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.FERN))))));
     public static final ConfiguredFeature<RandomPatchConfiguration, ?> PATCH_LILAC = register("patch_lilac", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.LILAC))))));
     public static final ConfiguredFeature<RandomPatchConfiguration, ?> PATCH_PEONY = register("patch_peony", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.PEONY))))));
-    public static final ConfiguredFeature<RandomPatchConfiguration, ?> PATCH_REED = register("patch_reed", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.REED))))));
+    public static final ConfiguredFeature<RandomPatchConfiguration, ?> PATCH_REED = register("patch_reed", Feature.RANDOM_PATCH.configured(waterPatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.REED))))));
     public static final ConfiguredFeature<RandomPatchConfiguration, ?> PATCH_SPROUTS = register("patch_sprouts", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.SPROUT))))));
-    public static final ConfiguredFeature<RandomPatchConfiguration, ?> PATCH_WATERGRASS = register("patch_watergrass", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.WATERGRASS))))));
+    public static final ConfiguredFeature<RandomPatchConfiguration, ?> PATCH_WATERGRASS = register("patch_watergrass", Feature.RANDOM_PATCH.configured(waterPatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.WATERGRASS))))));
     public static final ConfiguredFeature<?, ?> PUMPKIN_PATCH = register("pumpkin_patch", BOPBaseFeatures.PUMPKIN_PATCH.configured(NoneFeatureConfiguration.INSTANCE));
     public static final ConfiguredFeature<RandomPatchConfiguration, ?> ROSE_BUSH = register("rose_bush", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.ROSE_BUSH))))));
     public static final ConfiguredFeature<NoneFeatureConfiguration, ?> SCATTERED_ROCKS = register("scattered_rocks", BOPBaseFeatures.SCATTERED_ROCKS.configured(NoneFeatureConfiguration.INSTANCE));
@@ -107,5 +112,15 @@ public class BOPVegetationFeatures
     private static RandomPatchConfiguration grassPatch(BlockStateProvider stateProvider, int tries)
     {
         return FeatureUtils.simpleRandomPatchConfiguration(tries, Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(stateProvider)).onlyWhenEmpty());
+    }
+
+    private static RandomPatchConfiguration waterPatchConfiguration(ConfiguredFeature<?, ?> feature, int tries)
+    {
+        return FeatureUtils.simpleRandomPatchConfiguration(tries, feature.filtered(BlockPredicate.matchesBlock(Blocks.WATER, BlockPos.ZERO)));
+    }
+
+    private static RandomPatchConfiguration waterPatchConfiguration(ConfiguredFeature<?, ?> feature)
+    {
+        return waterPatchConfiguration(feature, 96);
     }
 }

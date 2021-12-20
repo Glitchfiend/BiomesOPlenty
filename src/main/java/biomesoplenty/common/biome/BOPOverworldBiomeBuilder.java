@@ -113,7 +113,7 @@ public final class BOPOverworldBiomeBuilder
     };
 
     private final ResourceKey<Biome>[][] MIDDLE_BIOMES_VARIANT_BOP = new ResourceKey[][]{
-            {null,                             BOPBiomes.TUNDRA_BASIN,   BOPBiomes.SNOWY_FIR_CLEARING, BOPBiomes.SNOWY_MAPLE_FOREST, BOPBiomes.OLD_GROWTH_DEAD_FOREST},
+            {null,                             null,                     BOPBiomes.SNOWY_FIR_CLEARING, BOPBiomes.SNOWY_MAPLE_FOREST, BOPBiomes.OLD_GROWTH_DEAD_FOREST},
             {BOPBiomes.SEASONAL_PUMPKIN_PATCH, BOPBiomes.FIR_CLEARING,   null,                         null,                         BOPBiomes.FORESTED_FIELD},
             {BOPBiomes.GOLDEN_PRAIRIE,         BOPBiomes.LAVENDER_FIELD, BOPBiomes.REDWOOD_FOREST,     null,                         BOPBiomes.CHERRY_BLOSSOM_GROVE},
             {null,                             null,                     BOPBiomes.DENSE_WOODLAND,     null,                         null},
@@ -121,7 +121,7 @@ public final class BOPOverworldBiomeBuilder
     };
 
     private final ResourceKey<Biome>[][] VALLEY_BIOMES_BOP = new ResourceKey[][]{
-            {null,                            null,                            null,                   null,                    null},
+            {null,                            BOPBiomes.TUNDRA_BASIN,          null,                   null,                    null},
             {null,                            null,                            null,                   null,                    null},
             {null,                            null,                            null,                   null,                    null},
             {null,                            null,                            null,                   null,                    null},

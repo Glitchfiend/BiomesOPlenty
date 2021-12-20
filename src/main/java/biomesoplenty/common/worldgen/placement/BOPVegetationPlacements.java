@@ -14,6 +14,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.data.worldgen.features.TreeFeatures;
 import net.minecraft.data.worldgen.features.VegetationFeatures;
+import net.minecraft.data.worldgen.placement.AquaticPlacements;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceLocation;
@@ -74,11 +75,11 @@ public class BOPVegetationPlacements
     public static final PlacedFeature LILY_PAD_5 = register("patch_lily_pad_5", VegetationFeatures.PATCH_WATERLILY.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature LILY_PAD_10 = register("patch_lily_pad_10", VegetationFeatures.PATCH_WATERLILY.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature LILY_PAD_15 = register("patch_lily_pad_15", VegetationFeatures.PATCH_WATERLILY.placed(RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-    public static final PlacedFeature PATCH_REED_5 = register("patch_reed_5", BOPVegetationFeatures.PATCH_REED.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-    public static final PlacedFeature PATCH_REED_10 = register("patch_reed_10", BOPVegetationFeatures.PATCH_REED.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-    public static final PlacedFeature PATCH_WATERGRASS_10 = register("patch_watergrass_10", BOPVegetationFeatures.PATCH_WATERGRASS.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-    public static final PlacedFeature PATCH_WATERGRASS_50 = register("patch_watergrass_50", BOPVegetationFeatures.PATCH_WATERGRASS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(50)));
-    public static final PlacedFeature PATCH_WATERGRASS_250 = register("patch_watergrass_250", BOPVegetationFeatures.PATCH_WATERGRASS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(250)));
+    public static final PlacedFeature PATCH_REED_5 = register("patch_reed_5", BOPVegetationFeatures.PATCH_REED.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
+    public static final PlacedFeature PATCH_REED_10 = register("patch_reed_10", BOPVegetationFeatures.PATCH_REED.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
+    public static final PlacedFeature PATCH_WATERGRASS_10 = register("patch_watergrass_10", BOPVegetationFeatures.PATCH_WATERGRASS.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
+    public static final PlacedFeature PATCH_WATERGRASS_50 = register("patch_watergrass_50", BOPVegetationFeatures.PATCH_WATERGRASS.placed(AquaticPlacements.seagrassPlacement(50)));
+    public static final PlacedFeature PATCH_WATERGRASS_250 = register("patch_watergrass_250", BOPVegetationFeatures.PATCH_WATERGRASS.placed(AquaticPlacements.seagrassPlacement(250)));
 
     // Flowers
     public static final PlacedFeature FLOWER_LAVENDER = register("flower_lavender", BOPVegetationFeatures.FLOWER_LAVENDER.placed(VegetationPlacements.worldSurfaceSquaredWithCount(20)));
