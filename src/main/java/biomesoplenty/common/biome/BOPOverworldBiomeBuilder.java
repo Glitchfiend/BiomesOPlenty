@@ -113,7 +113,7 @@ public final class BOPOverworldBiomeBuilder
             {BOPBiomes.SEASONAL_PUMPKIN_PATCH, BOPBiomes.FIR_CLEARING,   null,                         null, null},
             {null,                             BOPBiomes.LAVENDER_FIELD, BOPBiomes.REDWOOD_FOREST,     null, BOPBiomes.CHERRY_BLOSSOM_GROVE},
             {null,                             null,                     BOPBiomes.DENSE_WOODLAND,     null, null},
-            {null,                             null,                     null,                         null, null}
+            {null,                             null,                     BOPBiomes.DRY_BONEYARD,       null, null}
     };
 
     private final ResourceKey<Biome>[][] PLATEAU_BIOMES = new ResourceKey[][]{

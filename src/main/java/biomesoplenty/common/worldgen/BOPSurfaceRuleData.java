@@ -349,7 +349,7 @@ public class BOPSurfaceRuleData
                     GRAVEL
                 )
             ),
-            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.DRYLAND),
+            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.DRY_BONEYARD, BOPBiomes.DRYLAND),
                 SurfaceRules.ifTrue(surfaceNoiseAbove(1.75D), SAND)
             ),
             SurfaceRules.ifTrue(

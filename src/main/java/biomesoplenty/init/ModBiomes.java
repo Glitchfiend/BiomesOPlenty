@@ -33,6 +33,7 @@ public class ModBiomes
         registerBiome(BOPBiomes.CONIFEROUS_FOREST, BOPOverworldBiomes.coniferousForest(false));
         registerBiome(BOPBiomes.DEAD_FOREST, BOPOverworldBiomes.deadForest());
         registerBiome(BOPBiomes.DENSE_WOODLAND, BOPOverworldBiomes.woodland(true));
+        registerBiome(BOPBiomes.DRY_BONEYARD, BOPOverworldBiomes.dryBoneyard());
         registerBiome(BOPBiomes.DRYLAND, BOPOverworldBiomes.dryland());
         registerBiome(BOPBiomes.FIELD, BOPOverworldBiomes.field());
         registerBiome(BOPBiomes.FIR_CLEARING, BOPOverworldBiomes.firClearing(false));
