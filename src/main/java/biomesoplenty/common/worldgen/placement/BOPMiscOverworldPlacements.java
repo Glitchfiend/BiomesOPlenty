@@ -18,6 +18,7 @@ import net.minecraft.world.level.levelgen.placement.*;
 public class BOPMiscOverworldPlacements
 {
     public static final PlacedFeature BONE_SPINE = register("bone_spine", BOPMiscOverworldFeatures.BONE_SPINE.placed(CountPlacement.of(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+    public static final PlacedFeature DISK_CALCITE = register("disk_calcite", BOPMiscOverworldFeatures.DISK_CALCITE.placed(CountPlacement.of(14), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
     public static final PlacedFeature DISK_GRAVEL_EXTRA = register("disk_gravel_extra", BOPMiscOverworldFeatures.DISK_GRAVEL_EXTRA.placed(CountPlacement.of(6), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
     public static final PlacedFeature DISK_MUD = register("disk_mud", BOPMiscOverworldFeatures.DISK_MUD.placed(CountPlacement.of(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
     public static final PlacedFeature DISK_ORANGE_SAND = register("disk_orange_sand", BOPMiscOverworldFeatures.DISK_ORANGE_SAND.placed(CountPlacement.of(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));

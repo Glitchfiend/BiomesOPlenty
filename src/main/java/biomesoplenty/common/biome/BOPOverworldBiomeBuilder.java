@@ -130,7 +130,7 @@ public final class BOPOverworldBiomeBuilder
             {null,                            null,                            null,                   null,                    null},
             {null,                            null,                            null,                   null,                    null},
             {BOPBiomes.MARSH,                 BOPBiomes.MARSH,                 BOPBiomes.MARSH,        BOPBiomes.MARSH,         BOPBiomes.MARSH},
-            {null,                            null,                            BOPBiomes.BAYOU,        BOPBiomes.BAYOU,         BOPBiomes.RAINFOREST_FLOODPLAIN},
+            {null,                            BOPBiomes.MEDITERRANEAN_LAKES,   BOPBiomes.BAYOU,        BOPBiomes.BAYOU,         BOPBiomes.RAINFOREST_FLOODPLAIN},
             {null,                            null,                            null,                   null,                    null}
     };
 
