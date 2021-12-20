@@ -292,6 +292,17 @@ public class CypressTreeFeature  extends BOPTreeFeature<CypressTreeConfiguration
     }
 
     @Override
+    public boolean placeLeaves(LevelAccessor level, BlockPos pos, BiConsumer<BlockPos, BlockState> leaves, CypressTreeConfiguration config)
+    {
+        if (TreeFeature.isAirOrLeaves(level, pos))
+        {
+            leaves.accept(pos, config.foliageProvider.getState(level.getRandom(), pos));
+            return true;
+        }
+        return false;
+    }
+
+    @Override
     protected boolean canReplace(LevelAccessor level, BlockPos pos)
     {
         return super.canReplace(level, pos) || level.isStateAtPosition(pos, (state) -> {

@@ -9,6 +9,7 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.worldgen.feature.BOPTreeFeatures;
 import biomesoplenty.common.worldgen.feature.BOPVegetationFeatures;
 import biomesoplenty.core.BiomesOPlenty;
+import com.google.common.collect.ImmutableList;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.data.worldgen.features.TreeFeatures;
@@ -18,6 +19,10 @@ import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraft.world.level.block.Blocks;
+
+import java.util.List;
+
+import static net.minecraft.data.worldgen.placement.VegetationPlacements.TREE_THRESHOLD;
 import static net.minecraft.data.worldgen.placement.VegetationPlacements.treePlacement;
 
 public class BOPVegetationPlacements
@@ -97,7 +102,7 @@ public class BOPVegetationPlacements
 
     // Trees
     public static final PlacedFeature TREES_BAMBOO_BLOSSOM_GROVE = register("trees_bamboo_blossom_grove", BOPVegetationFeatures.TREES_BAMBOO_BLOSSOM_GROVE.placed(treePlacement(PlacementUtils.countExtra(7, 0.1F, 1))));
-    public static final PlacedFeature TREES_BAYOU = register("trees_bayou", BOPVegetationFeatures.TREES_BAYOU.placed(treePlacement(PlacementUtils.countExtra(2, 0.2F, 1))));
+    public static final PlacedFeature TREES_BAYOU = register("trees_bayou", BOPVegetationFeatures.TREES_BAYOU.placed(waterTreePlacement(PlacementUtils.countExtra(2, 0.2F, 1))));
     public static final PlacedFeature TREES_CHERRY_BLOSSOM_GROVE = register("trees_cherry_blossom_grove", BOPVegetationFeatures.TREES_CHERRY_BLOSSOM_GROVE.placed(treePlacement(PlacementUtils.countExtra(5, 0.1F, 1))));
     public static final PlacedFeature TREES_CONIFEROUS_FOREST = register("trees_coniferous_forest", BOPVegetationFeatures.TREES_CONIFEROUS_FOREST.placed(treePlacement(PlacementUtils.countExtra(10, 0.1F, 1))));
     public static final PlacedFeature TREES_DEAD_FOREST = register("trees_dead_forest", BOPVegetationFeatures.TREES_DEAD_FOREST.placed(treePlacement(PlacementUtils.countExtra(2, 0.1F, 1))));
@@ -142,5 +147,10 @@ public class BOPVegetationPlacements
     public static PlacedFeature register(String key, PlacedFeature feature)
     {
         return Registry.register(BuiltinRegistries.PLACED_FEATURE, new ResourceLocation(BiomesOPlenty.MOD_ID, key), feature);
+    }
+
+    public static List<PlacementModifier> waterTreePlacement(PlacementModifier modifier)
+    {
+        return ImmutableList.<PlacementModifier>builder().add(modifier).add(InSquarePlacement.spread()).add(PlacementUtils.HEIGHTMAP_TOP_SOLID).add(BiomeFilter.biome()).build();
     }
 }

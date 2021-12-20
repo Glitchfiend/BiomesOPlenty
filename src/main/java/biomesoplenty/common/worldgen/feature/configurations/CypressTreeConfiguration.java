@@ -44,7 +44,7 @@ public class CypressTreeConfiguration extends BOPTreeConfiguration
 
         public Builder()
         {
-            this.minHeight = 6;
+            this.minHeight = 8;
             this.maxHeight = 15;
             this.trunkProvider = BlockStateProvider.simple(BOPBlocks.WILLOW_LOG.defaultBlockState());
             this.foliageProvider = BlockStateProvider.simple(BOPBlocks.WILLOW_LEAVES.defaultBlockState());

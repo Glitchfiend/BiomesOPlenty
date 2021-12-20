@@ -58,7 +58,7 @@ public class BOPTreeFeatures
 
     // Swamp trees
     public static final ConfiguredFeature<TreeConfiguration, ?> CYPRESS_TREE = register("cypress_tree", BOPBaseFeatures.CYPRESS_TREE.configured(new CypressTreeConfiguration.Builder().build()));
-    public static final ConfiguredFeature<TreeConfiguration, ?> CYPRESS_TREE_MEDIUM = register("cypress_tree_medium", BOPBaseFeatures.CYPRESS_TREE.configured(new CypressTreeConfiguration.Builder().minHeight(15).maxHeight(25).trunkWidth(2).build()));
+    public static final ConfiguredFeature<TreeConfiguration, ?> CYPRESS_TREE_MEDIUM = register("cypress_tree_medium", BOPBaseFeatures.CYPRESS_TREE.configured(new CypressTreeConfiguration.Builder().minHeight(18).maxHeight(25).trunkWidth(2).build()));
 
     // Bush trees
     public static final ConfiguredFeature<TreeConfiguration, ?> ACACIA_BUSH_TREE = register("acacia_bush_tree", BOPBaseFeatures.BUSH_TREE.configured(new BasicTreeConfiguration.Builder().maxHeight(2).minHeight(2).trunk(BlockStateProvider.simple(Blocks.ACACIA_LOG)).foliage(BlockStateProvider.simple(Blocks.ACACIA_LEAVES)).build()));

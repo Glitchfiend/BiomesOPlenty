@@ -14,6 +14,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 
 public class BOPTreePlacements
 {
@@ -28,8 +29,8 @@ public class BOPTreePlacements
     public static final PlacedFeature BIG_PINK_CHERRY_TREE_CHECKED = register("big_pink_cherry_tree", BOPTreeFeatures.BIG_PINK_CHERRY_TREE.filteredByBlockSurvival(BOPBlocks.PINK_CHERRY_SAPLING));
     public static final PlacedFeature BIG_WHITE_CHERRY_TREE_CHECKED = register("big_white_cherry_tree", BOPTreeFeatures.BIG_WHITE_CHERRY_TREE.filteredByBlockSurvival(BOPBlocks.WHITE_CHERRY_SAPLING));
     public static final PlacedFeature BIG_YELLOW_AUTUMN_TREE_CHECKED = register("big_yellow_autumn_tree", BOPTreeFeatures.BIG_YELLOW_AUTUMN_TREE.filteredByBlockSurvival(BOPBlocks.YELLOW_AUTUMN_SAPLING));
-    public static final PlacedFeature CYPRESS_TREE_CHECKED = register("cypress_tree", BOPTreeFeatures.CYPRESS_TREE.filteredByBlockSurvival(BOPBlocks.WILLOW_SAPLING));
-    public static final PlacedFeature CYPRESS_TREE_MEDIUM_CHECKED = register("cypress_tree_medium", BOPTreeFeatures.CYPRESS_TREE_MEDIUM.filteredByBlockSurvival(BOPBlocks.WILLOW_SAPLING));
+    public static final PlacedFeature CYPRESS_TREE_CHECKED = register("cypress_tree", BOPTreeFeatures.CYPRESS_TREE.placed());
+    public static final PlacedFeature CYPRESS_TREE_MEDIUM_CHECKED = register("cypress_tree_medium", BOPTreeFeatures.CYPRESS_TREE_MEDIUM.placed());
     public static final PlacedFeature DARK_OAK_POPLAR_TREE_CHECKED = register("dark_oak_poplar_tree", BOPTreeFeatures.DARK_OAK_POPLAR_TREE.filteredByBlockSurvival(Blocks.DARK_OAK_SAPLING));
     public static final PlacedFeature DEAD_TREE_WASTELAND_CHECKED = register("dead_tree_wasteland", BOPTreeFeatures.DEAD_TREE_WASTELAND.filteredByBlockSurvival(BOPBlocks.DEAD_SAPLING));
     public static final PlacedFeature DEAD_TWIGLET_TREE_CHECKED = register("dead_twiglet_tree", BOPTreeFeatures.DEAD_TWIGLET_TREE.filteredByBlockSurvival(BOPBlocks.DEAD_SAPLING));
