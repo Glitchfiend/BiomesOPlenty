@@ -20,6 +20,7 @@ import java.util.function.Consumer;
 public class BOPNoiseSampler extends NoiseSampler implements BOPClimate.Sampler
 {
     private final NormalNoise uniquenessNoise;
+    private final NormalNoise rarenessNoise;
 
     private final List<BOPClimate.ParameterPoint> spawnTarget = (new BOPOverworldBiomeBuilder()).spawnTarget();
     private boolean noiseDataCallsAllowed = false;
@@ -37,6 +38,7 @@ public class BOPNoiseSampler extends NoiseSampler implements BOPClimate.Sampler
 
         PositionalRandomFactory positionalrandomfactory = randomSource.newInstance(seed).forkPositional();
         this.uniquenessNoise = Noises.instantiate(noiseParamRegistry, positionalrandomfactory, BOPNoises.UNIQUENESS);
+        this.rarenessNoise = Noises.instantiate(noiseParamRegistry, positionalrandomfactory, BOPNoises.RARENESS);
     }
 
     @Override
@@ -68,9 +70,10 @@ public class BOPNoiseSampler extends NoiseSampler implements BOPClimate.Sampler
         double continentalness = this.getContinentalness(shiftedX, 0.0D, shiftedZ);
         double weirdness = this.getWeirdness(shiftedX, 0.0D, shiftedZ);
         double uniqueness = this.getUniqueness(shiftedX, 0.0D, shiftedZ);
+        double rareness = this.getRareness(shiftedX, 0.0D, shiftedZ);
         double erosion = this.getErosion(shiftedX, 0.0D, shiftedZ);
         TerrainInfo terraininfo = this.terrainInfo(QuartPos.toBlock(x), QuartPos.toBlock(z), (float)continentalness, (float)weirdness, (float)erosion, blender);
-        return new BOPFlatNoiseData(shiftedX, shiftedZ, continentalness, weirdness, uniqueness, erosion, terraininfo);
+        return new BOPFlatNoiseData(shiftedX, shiftedZ, continentalness, weirdness, uniqueness, rareness, erosion, terraininfo);
     }
 
     @Override
@@ -86,7 +89,7 @@ public class BOPNoiseSampler extends NoiseSampler implements BOPClimate.Sampler
         double d1 = (double)p_188978_ + this.getOffset(p_188978_, p_188979_, p_188977_);
         double d2 = p_188980_.shiftedZ();
         double d3 = this.computeBaseDensity(QuartPos.toBlock(p_188978_), p_188980_.terrainInfo());
-        return BOPClimate.target((float)this.getTemperature(d0, d1, d2), (float)this.getHumidity(d0, d1, d2), (float)p_188980_.continentalness(), (float)p_188980_.erosion(), (float)d3, (float)p_188980_.weirdness(), (float)p_188980_.uniqueness());
+        return BOPClimate.target((float)this.getTemperature(d0, d1, d2), (float)this.getHumidity(d0, d1, d2), (float)p_188980_.continentalness(), (float)p_188980_.erosion(), (float)d3, (float)p_188980_.weirdness(), (float)p_188980_.uniqueness(), (float)p_188980_.rareness());
     }
 
     @Override
@@ -100,6 +103,11 @@ public class BOPNoiseSampler extends NoiseSampler implements BOPClimate.Sampler
         return this.uniquenessNoise.getValue(x, y, z);
     }
 
+    @VisibleForDebug
+    public double getRareness(double x, double y, double z) {
+        return this.rarenessNoise.getValue(x, y, z);
+    }
+
     public synchronized void doWithNoiseDataCallsAllowed(Consumer<BOPNoiseSampler> consumer)
     {
         this.noiseDataCallsAllowed = true;
@@ -107,5 +115,5 @@ public class BOPNoiseSampler extends NoiseSampler implements BOPClimate.Sampler
         this.noiseDataCallsAllowed = false;
     }
 
-    public record BOPFlatNoiseData(double shiftedX, double shiftedZ, double continentalness, double weirdness, double uniqueness, double erosion, TerrainInfo terrainInfo) {}
+    public record BOPFlatNoiseData(double shiftedX, double shiftedZ, double continentalness, double weirdness, double uniqueness, double rareness, double erosion, TerrainInfo terrainInfo) {}
 }

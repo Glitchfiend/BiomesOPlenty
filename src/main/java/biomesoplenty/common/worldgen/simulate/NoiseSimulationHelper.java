@@ -21,7 +21,8 @@ public class NoiseSimulationHelper implements BOPClimate.Sampler
     private static final NormalNoise.NoiseParameters CONTINENTALNESS = new NormalNoise.NoiseParameters(-9, 1.0, 1.0, 2.0, 2.0, 2.0, 1.0, 1.0, 1.0, 1.0);
     private static final NormalNoise.NoiseParameters EROSION = new NormalNoise.NoiseParameters(-9, 1.0, 1.0, 0.0, 1.0, 1.0);
     private static final NormalNoise.NoiseParameters WEIRDNESS = new NormalNoise.NoiseParameters(-7, 1.0, 2.0, 1.0, 0.0, 0.0, 0.0);
-    private static final NormalNoise.NoiseParameters UNIQUENESS = new NormalNoise.NoiseParameters(-7, 1.0, 2.0, 1.0, 0.0, 0.0, 0.0);
+    protected static final NormalNoise.NoiseParameters UNIQUENESS = new NormalNoise.NoiseParameters(-6, 1.0D, 1.5D, 1.0D, 1.5D, 0.0D);
+    protected static final NormalNoise.NoiseParameters RARENESS = new NormalNoise.NoiseParameters(-9, 0.6D, 1.5D, 0.6D, 0.0D, 0.0D);
 
     protected final LegacyRandomSource random;
     private final NormalNoise offsetNoise;
@@ -31,6 +32,7 @@ public class NoiseSimulationHelper implements BOPClimate.Sampler
     private final NormalNoise erosionNoise;
     private final NormalNoise weirdnessNoise;
     protected NormalNoise uniquenessNoise;
+    protected NormalNoise rarenessNoise;
     private final TerrainShaper terrainShaper = TerrainShaper.overworld(false);
 
     public NoiseSimulationHelper(long seed)
@@ -44,6 +46,7 @@ public class NoiseSimulationHelper implements BOPClimate.Sampler
         this.erosionNoise = NormalNoise.create(random, EROSION);
         this.weirdnessNoise = NormalNoise.create(random, WEIRDNESS);
         this.uniquenessNoise = NormalNoise.create(random, UNIQUENESS);
+        this.rarenessNoise = NormalNoise.create(random, RARENESS);
     }
 
     @Override
@@ -65,9 +68,10 @@ public class NoiseSimulationHelper implements BOPClimate.Sampler
         double f = this.getContinentalness(d, 0.0, e);
         double g = this.getWeirdness(d, 0.0, e);
         double k = this.getUniqueness(d, 0.0, e);
+        double l = this.getRareness(d, 0.0, e);
         double h = this.getErosion(d, 0.0, e);
         TerrainInfo terrainInfo = this.terrainInfo(QuartPos.toBlock(i), QuartPos.toBlock(j), (float) f, (float) g, (float) h, blender);
-        return new BOPNoiseSampler.BOPFlatNoiseData(d, e, f, g, k, h, terrainInfo);
+        return new BOPNoiseSampler.BOPFlatNoiseData(d, e, f, g, k, l, h, terrainInfo);
     }
 
     public TerrainInfo terrainInfo(int i, int j, float f, float g, float h, Blender blender)
@@ -100,7 +104,8 @@ public class NoiseSimulationHelper implements BOPClimate.Sampler
                 (float) flatNoiseData.erosion(),
                 (float) baseDensity,
                 (float) flatNoiseData.weirdness(),
-                (float) flatNoiseData.uniqueness());
+                (float) flatNoiseData.uniqueness(),
+                (float) flatNoiseData.rareness());
     }
 
     public double getOffset(int i, int j, int k)
@@ -174,5 +179,11 @@ public class NoiseSimulationHelper implements BOPClimate.Sampler
     public double getUniqueness(double d, double e, double f)
     {
         return this.uniquenessNoise.getValue(d, e, f);
+    }
+
+    @VisibleForDebug
+    public double getRareness(double d, double e, double f)
+    {
+        return this.rarenessNoise.getValue(d, e, f);
     }
 }

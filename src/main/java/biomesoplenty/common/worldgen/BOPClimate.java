@@ -29,21 +29,21 @@ public class BOPClimate
     private static final boolean DEBUG_SLOW_BIOME_SEARCH = false;
     private static final float QUANTIZATION_FACTOR = 10000.0F;
     @VisibleForTesting
-    protected static final int PARAMETER_COUNT = 8;
+    protected static final int PARAMETER_COUNT = 9;
 
-    public static TargetPoint target(float temperature, float humidity, float continentalness, float erosion, float depth, float weirdness, float uniqueness)
+    public static TargetPoint target(float temperature, float humidity, float continentalness, float erosion, float depth, float weirdness, float uniqueness, float rareness)
     {
-        return new TargetPoint(quantizeCoord(temperature), quantizeCoord(humidity), quantizeCoord(continentalness), quantizeCoord(erosion), quantizeCoord(depth), quantizeCoord(weirdness), quantizeCoord(uniqueness));
+        return new TargetPoint(quantizeCoord(temperature), quantizeCoord(humidity), quantizeCoord(continentalness), quantizeCoord(erosion), quantizeCoord(depth), quantizeCoord(weirdness), quantizeCoord(uniqueness), quantizeCoord(rareness));
     }
 
-    public static ParameterPoint parameters(float temperature, float humidity, float continentalness, float erosion, float depth, float weirdness, float uniqueness, float offset)
+    public static ParameterPoint parameters(float temperature, float humidity, float continentalness, float erosion, float depth, float weirdness, float uniqueness, float rareness, float offset)
     {
-        return new ParameterPoint(Parameter.point(temperature), Parameter.point(humidity), Parameter.point(continentalness), Parameter.point(erosion), Parameter.point(depth), Parameter.point(weirdness), Parameter.point(uniqueness), quantizeCoord(offset));
+        return new ParameterPoint(Parameter.point(temperature), Parameter.point(humidity), Parameter.point(continentalness), Parameter.point(erosion), Parameter.point(depth), Parameter.point(weirdness), Parameter.point(uniqueness), Parameter.point(rareness), quantizeCoord(offset));
     }
 
-    public static ParameterPoint parameters(Parameter temperature, Parameter humidity, Parameter continentalness, Parameter erosion, Parameter depth, Parameter weirdness, Parameter uniqueness, float offset)
+    public static ParameterPoint parameters(Parameter temperature, Parameter humidity, Parameter continentalness, Parameter erosion, Parameter depth, Parameter weirdness, Parameter uniqueness, Parameter rareness, float offset)
     {
-        return new ParameterPoint(temperature, humidity, continentalness, erosion, depth, weirdness, uniqueness, quantizeCoord(offset));
+        return new ParameterPoint(temperature, humidity, continentalness, erosion, depth, weirdness, uniqueness, rareness, quantizeCoord(offset));
     }
 
     public static long quantizeCoord(float coord) {
@@ -155,7 +155,7 @@ public class BOPClimate
         }
     }
 
-    public record ParameterPoint(Parameter temperature, Parameter humidity, Parameter continentalness, Parameter erosion, Parameter depth, Parameter weirdness, Parameter uniqueness, long offset)
+    public record ParameterPoint(Parameter temperature, Parameter humidity, Parameter continentalness, Parameter erosion, Parameter depth, Parameter weirdness, Parameter uniqueness, Parameter rareness, long offset)
     {
         public static final Codec<ParameterPoint> CODEC = RecordCodecBuilder.create((p_186885_) -> {
             return p_186885_.group(Parameter.CODEC.fieldOf("temperature").forGetter((p_186905_) -> {
@@ -172,17 +172,19 @@ public class BOPClimate
                 return p_186888_.weirdness;
             }), Parameter.CODEC.fieldOf("uniqueness").forGetter((p_186888_) -> {
                 return p_186888_.uniqueness;
+            }), Parameter.CODEC.fieldOf("rareness").forGetter((p_186888_) -> {
+                return p_186888_.rareness;
             }), Codec.floatRange(0.0F, 1.0F).fieldOf("offset").xmap(BOPClimate::quantizeCoord, BOPClimate::unquantizeCoord).forGetter((p_186881_) -> {
                 return p_186881_.offset;
             })).apply(p_186885_, ParameterPoint::new);
         });
 
         long fitness(TargetPoint p_186883_) {
-            return Mth.square(this.temperature.distance(p_186883_.temperature)) + Mth.square(this.humidity.distance(p_186883_.humidity)) + Mth.square(this.continentalness.distance(p_186883_.continentalness)) + Mth.square(this.erosion.distance(p_186883_.erosion)) + Mth.square(this.depth.distance(p_186883_.depth)) + Mth.square(this.weirdness.distance(p_186883_.weirdness)) + Mth.square(this.uniqueness.distance(p_186883_.uniqueness)) + Mth.square(this.offset);
+            return Mth.square(this.temperature.distance(p_186883_.temperature)) + Mth.square(this.humidity.distance(p_186883_.humidity)) + Mth.square(this.continentalness.distance(p_186883_.continentalness)) + Mth.square(this.erosion.distance(p_186883_.erosion)) + Mth.square(this.depth.distance(p_186883_.depth)) + Mth.square(this.weirdness.distance(p_186883_.weirdness)) + Mth.square(this.uniqueness.distance(p_186883_.uniqueness)) + Mth.square(this.rareness.distance(p_186883_.rareness)) + Mth.square(this.offset);
         }
 
         protected List<Parameter> parameterSpace() {
-            return ImmutableList.of(this.temperature, this.humidity, this.continentalness, this.erosion, this.depth, this.weirdness, this.uniqueness, new Parameter(this.offset, this.offset));
+            return ImmutableList.of(this.temperature, this.humidity, this.continentalness, this.erosion, this.depth, this.weirdness, this.uniqueness, this.rareness, new Parameter(this.offset, this.offset));
         }
     }
 
@@ -456,7 +458,7 @@ public class BOPClimate
             int i = 2;
             long j = (long)((double)Mth.square(10000.0F) * Math.pow((double)(Mth.square((long)p_186990_) + Mth.square((long)p_186991_)) / d0, 2.0D));
             TargetPoint climate$targetpoint = p_186989_.sampleBOP(QuartPos.fromBlock(p_186990_), 0, QuartPos.fromBlock(p_186991_));
-            TargetPoint climate$targetpoint1 = new TargetPoint(climate$targetpoint.temperature(), climate$targetpoint.humidity(), climate$targetpoint.continentalness(), climate$targetpoint.erosion(), 0L, climate$targetpoint.weirdness(), climate$targetpoint.uniqueness());
+            TargetPoint climate$targetpoint1 = new TargetPoint(climate$targetpoint.temperature(), climate$targetpoint.humidity(), climate$targetpoint.continentalness(), climate$targetpoint.erosion(), 0L, climate$targetpoint.weirdness(), climate$targetpoint.uniqueness(), climate$targetpoint.rareness());
             long k = Long.MAX_VALUE;
 
             for(ParameterPoint climate$parameterpoint : p_186988_) {
@@ -470,11 +472,11 @@ public class BOPClimate
         }
     }
 
-    public record TargetPoint(long temperature, long humidity, long continentalness, long erosion, long depth, long weirdness, long uniqueness)
+    public record TargetPoint(long temperature, long humidity, long continentalness, long erosion, long depth, long weirdness, long uniqueness, long rareness)
     {
         @VisibleForTesting
         protected long[] toParameterArray() {
-            return new long[]{this.temperature, this.humidity, this.continentalness, this.erosion, this.depth, this.weirdness, this.uniqueness, 0L};
+            return new long[]{this.temperature, this.humidity, this.continentalness, this.erosion, this.depth, this.weirdness, this.uniqueness, this.rareness, 0L};
         }
     }
 }

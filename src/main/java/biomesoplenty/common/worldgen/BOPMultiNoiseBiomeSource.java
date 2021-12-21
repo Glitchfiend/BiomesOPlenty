@@ -130,15 +130,15 @@ public class BOPMultiNoiseBiomeSource extends BiomeSource
     {
         static final Map<ResourceLocation, BOPMultiNoiseBiomeSource.Preset> BY_NAME = Maps.newHashMap();
         public static final BOPMultiNoiseBiomeSource.Preset NETHER = new BOPMultiNoiseBiomeSource.Preset(new ResourceLocation("nether"), (p_187113_) -> {
-            return new BOPClimate.ParameterList<>(ImmutableList.of(Pair.of(BOPClimate.parameters(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F), () -> {
+            return new BOPClimate.ParameterList<>(ImmutableList.of(Pair.of(BOPClimate.parameters(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F), () -> {
                 return p_187113_.getOrThrow(Biomes.NETHER_WASTES);
-            }), Pair.of(BOPClimate.parameters(0.0F, -0.5F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F), () -> {
+            }), Pair.of(BOPClimate.parameters(0.0F, -0.5F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F), () -> {
                 return p_187113_.getOrThrow(Biomes.SOUL_SAND_VALLEY);
-            }), Pair.of(BOPClimate.parameters(0.4F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F), () -> {
+            }), Pair.of(BOPClimate.parameters(0.4F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F), () -> {
                 return p_187113_.getOrThrow(Biomes.CRIMSON_FOREST);
-            }), Pair.of(BOPClimate.parameters(0.0F, 0.5F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.375F), () -> {
+            }), Pair.of(BOPClimate.parameters(0.0F, 0.5F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.375F), () -> {
                 return p_187113_.getOrThrow(Biomes.WARPED_FOREST);
-            }), Pair.of(BOPClimate.parameters(-0.5F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.175F), () -> {
+            }), Pair.of(BOPClimate.parameters(-0.5F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.175F), () -> {
                 return p_187113_.getOrThrow(Biomes.BASALT_DELTAS);
             })));
         });

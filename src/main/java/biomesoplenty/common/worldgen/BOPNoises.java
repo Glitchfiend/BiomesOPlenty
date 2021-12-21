@@ -13,6 +13,7 @@ import net.minecraft.world.level.levelgen.synth.NormalNoise;
 public class BOPNoises
 {
     public static final ResourceKey<NormalNoise.NoiseParameters> UNIQUENESS = createKey("uniqueness");
+    public static final ResourceKey<NormalNoise.NoiseParameters> RARENESS = createKey("rareness");
 
     private static ResourceKey<NormalNoise.NoiseParameters> createKey(String name)
     {
