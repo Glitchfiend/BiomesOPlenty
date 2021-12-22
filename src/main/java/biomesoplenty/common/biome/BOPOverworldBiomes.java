@@ -252,6 +252,25 @@ public class BOPOverworldBiomes
         return biome(Biome.Precipitation.RAIN, Biome.BiomeCategory.TAIGA, isSnowy ? -0.25F : 0.45F, 0.5F, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }
 
+    public static Biome crag()
+    {
+        // Mob spawns
+        MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.commonSpawns(spawnBuilder);
+        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.GOAT, 10, 4, 6));
+
+        // Biome features
+        BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder();
+        globalOverworldGeneration(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPMiscOverworldPlacements.CRAG_SPLATTER);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_12);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_TALL_GRASS_24);
+
+        return biome(Biome.Precipitation.RAIN, Biome.BiomeCategory.EXTREME_HILLS, 0.6F, 0.6F, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
+    }
+
     public static Biome deadForest()
     {
         // Mob spawns
@@ -398,6 +417,7 @@ public class BOPOverworldBiomes
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_SUGAR_CANE_DESERT);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.CLOVER_6);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_3);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.HUGE_CLOVER);
 
         return biomeWithColorOverrides(Biome.Precipitation.RAIN, Biome.BiomeCategory.PLAINS, 0.6F, 0.7F, 0x88C57F, 0x6AB66F, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }

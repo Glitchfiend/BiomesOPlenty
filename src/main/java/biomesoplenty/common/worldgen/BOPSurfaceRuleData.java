@@ -329,6 +329,9 @@ public class BOPSurfaceRuleData
         );
 
         return SurfaceRules.sequence(
+            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.CRAG),
+                SurfaceRules.ifTrue(surfaceNoiseAbove(1.9D), GRAVEL)
+            ),
             SurfaceRules.ifTrue(
                 SurfaceRules.ON_FLOOR,
                 SurfaceRules.sequence(
@@ -357,6 +360,10 @@ public class BOPSurfaceRuleData
                             ),
                             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.REDWOOD_FOREST), PODZOL)
                         )
+                    ),
+                    SurfaceRules.ifTrue(
+                        SurfaceRules.not(isAtOrAboveWaterLevel),
+                        SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.CRAG), GRAVEL)
                     )
                 )
             ),
@@ -366,6 +373,7 @@ public class BOPSurfaceRuleData
                     GRAVEL
                 )
             ),
+            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.CRAG), STONE),
             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.DRY_BONEYARD, BOPBiomes.DRYLAND),
                 SurfaceRules.ifTrue(surfaceNoiseAbove(1.75D), SAND)
             ),

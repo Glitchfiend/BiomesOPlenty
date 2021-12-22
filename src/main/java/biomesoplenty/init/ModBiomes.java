@@ -58,6 +58,7 @@ public class ModBiomes
         registerBiome(BOPBiomes.CHERRY_BLOSSOM_GROVE, BOPOverworldBiomes.cherryBlossomGrove());
         registerBiome(BOPBiomes.COLD_DESERT, BOPOverworldBiomes.coldDesert());
         registerBiome(BOPBiomes.CONIFEROUS_FOREST, BOPOverworldBiomes.coniferousForest(false));
+        registerBiome(BOPBiomes.CRAG, BOPOverworldBiomes.crag());
         registerBiome(BOPBiomes.DEAD_FOREST, BOPOverworldBiomes.deadForest());
         registerBiome(BOPBiomes.DENSE_WOODLAND, BOPOverworldBiomes.woodland(true));
         registerBiome(BOPBiomes.DRY_BONEYARD, BOPOverworldBiomes.dryBoneyard());

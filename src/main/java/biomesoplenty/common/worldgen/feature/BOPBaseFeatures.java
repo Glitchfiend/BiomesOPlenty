@@ -23,9 +23,11 @@ public class BOPBaseFeatures
     public static final BOPTreeFeature<BasicTreeConfiguration> BUSH_TREE = register("bush_tree", new BushTreeFeature(BasicTreeConfiguration.CODEC));
     public static final BOPTreeFeature<BigTreeConfiguration> BIG_TREE = register("big_tree", new BigTreeFeature(BigTreeConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> BRAMBLE = register("bramble", new BrambleFeature(NoneFeatureConfiguration.CODEC));
+    public static final Feature<NoneFeatureConfiguration> CRAG_SPLATTER = register("crag_splatter", new CragSplatterFeature(NoneFeatureConfiguration.CODEC));
     public static final BOPTreeFeature<CypressTreeConfiguration> CYPRESS_TREE = register("cypress_tree", new CypressTreeFeature(CypressTreeConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> BONE_SPINE = register("bone_spine", new BoneSpineFeature(NoneFeatureConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> HUGE_TOADSTOOL = register("huge_toadstool", new HugeToadstoolFeature(NoneFeatureConfiguration.CODEC));
+    public static final Feature<NoneFeatureConfiguration> HUGE_CLOVER = register("huge_clover", new HugeCloverFeature(NoneFeatureConfiguration.CODEC));
     public static final BOPTreeFeature<MahoganyTreeConfiguration> MAHOGANY_TREE = register("mahogany_tree", new MahoganyTreeFeature(MahoganyTreeConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> MOSS_SPLATTER = register("moss_splatter", new MossSplatterFeature(NoneFeatureConfiguration.CODEC));
     public static final BOPTreeFeature<PoplarTreeConfiguration> POPLAR_TREE = register("poplar_tree", new PoplarTreeFeature(PoplarTreeConfiguration.CODEC));

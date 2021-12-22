@@ -32,6 +32,7 @@ public class BOPVegetationPlacements
     public static final PlacedFeature CLOVER_3 = register("patch_clover_3", BOPVegetationFeatures.PATCH_CLOVER.placed(VegetationPlacements.worldSurfaceSquaredWithCount(3)));
     public static final PlacedFeature CLOVER_6 = register("patch_clover_6", BOPVegetationFeatures.PATCH_CLOVER.placed(VegetationPlacements.worldSurfaceSquaredWithCount(6)));
     public static final PlacedFeature HUGE_TOADSTOOL = register("huge_toadstool", BOPVegetationFeatures.HUGE_TOADSTOOL.placed(RarityFilter.onAverageOnceEvery(8), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+    public static final PlacedFeature HUGE_CLOVER = register("huge_clover", BOPVegetationFeatures.HUGE_CLOVER.placed(VegetationPlacements.worldSurfaceSquaredWithCount(25)));
     public static final PlacedFeature HUGE_RED_MUSHROOM_EXTRA = register("huge_red_mushroom_extra", TreeFeatures.HUGE_RED_MUSHROOM.placed(VegetationPlacements.worldSurfaceSquaredWithCount(6)));
     public static final PlacedFeature PATCH_BARLEY_15 = register("patch_barley_15", BOPVegetationFeatures.PATCH_BARLEY.placed(VegetationPlacements.worldSurfaceSquaredWithCount(15)));
     public static final PlacedFeature PATCH_BLUE_HYDRANGEA_1 = register("patch_blue_hydrangea_1", BOPVegetationFeatures.PATCH_BLUE_HYDRANGEA.placed(VegetationPlacements.worldSurfaceSquaredWithCount(1)));

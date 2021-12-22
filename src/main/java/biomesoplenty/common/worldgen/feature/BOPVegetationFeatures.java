@@ -34,6 +34,7 @@ public class BOPVegetationFeatures
     public static final ConfiguredFeature<?, ?> BIG_PUMPKIN = register("big_pumpkin", BOPBaseFeatures.BIG_PUMPKIN.configured(NoneFeatureConfiguration.INSTANCE));
     public static final ConfiguredFeature<?, ?> BRAMBLE = register("bramble", BOPBaseFeatures.BRAMBLE.configured(NoneFeatureConfiguration.INSTANCE));
     public static final ConfiguredFeature<RandomPatchConfiguration, ?> GOLDENROD = register("goldenrod", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.GOLDENROD))))));
+    public static final ConfiguredFeature<?, ?> HUGE_CLOVER = register("huge_clover", BOPBaseFeatures.HUGE_CLOVER.configured(NoneFeatureConfiguration.INSTANCE));
     public static final ConfiguredFeature<?, ?> HUGE_TOADSTOOL = register("huge_toadstool", BOPBaseFeatures.HUGE_TOADSTOOL.configured(NoneFeatureConfiguration.INSTANCE));
     public static final ConfiguredFeature<NoneFeatureConfiguration, ?> MOSS_SPLATTER = register("moss_splatter", BOPBaseFeatures.MOSS_SPLATTER.configured(NoneFeatureConfiguration.INSTANCE));
     public static final ConfiguredFeature<RandomPatchConfiguration, ?> PATCH_BARLEY = register("patch_barley", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.BARLEY))))));
