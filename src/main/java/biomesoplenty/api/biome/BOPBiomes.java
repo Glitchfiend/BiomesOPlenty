@@ -34,6 +34,7 @@ public class BOPBiomes
     public static final ResourceKey<Biome> MEDITERRANEAN_FOREST = register("mediterranean_forest");
     public static final ResourceKey<Biome> MEDITERRANEAN_LAKES = register("mediterranean_lakes");
     public static final ResourceKey<Biome> MUSKEG = register("muskeg");
+    public static final ResourceKey<Biome> MYSTIC_GROVE = register("mystic_grove");
     public static final ResourceKey<Biome> OLD_GROWTH_DEAD_FOREST = register("old_growth_dead_forest");
     public static final ResourceKey<Biome> OMINOUS_WOODS = register("ominous_woods");
     public static final ResourceKey<Biome> ORCHARD = register("orchard");
@@ -48,7 +49,6 @@ public class BOPBiomes
     public static final ResourceKey<Biome> SNOWY_FIR_CLEARING = register("snowy_fir_clearing");
     public static final ResourceKey<Biome> SNOWY_MAPLE_FOREST = register("snowy_maple_forest");
     public static final ResourceKey<Biome> TUNDRA = register("tundra");
-    public static final ResourceKey<Biome> TUNDRA_BASIN = register("tundra_basin");
     public static final ResourceKey<Biome> SNOWY_CONIFEROUS_FOREST = register("snowy_coniferous_forest");
     public static final ResourceKey<Biome> WASTELAND = register("wasteland");
     public static final ResourceKey<Biome> WETLAND = register("wetland");
