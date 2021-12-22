@@ -133,20 +133,20 @@ public final class BOPOverworldBiomeBuilder
             {null,            null,                          null,              null,              null}
     };
 
-    private final ResourceKey<Biome>[][] PLATEAU_BIOMES = new ResourceKey[][]{
-            {Biomes.SNOWY_PLAINS,    Biomes.SNOWY_PLAINS,    Biomes.SNOWY_PLAINS, Biomes.SNOWY_TAIGA,     Biomes.SNOWY_TAIGA},
-            {Biomes.MEADOW,          Biomes.MEADOW,          Biomes.FOREST,       Biomes.TAIGA,           Biomes.OLD_GROWTH_SPRUCE_TAIGA},
-            {Biomes.MEADOW,          Biomes.MEADOW,          Biomes.MEADOW,       Biomes.MEADOW,          Biomes.DARK_FOREST},
-            {Biomes.SAVANNA_PLATEAU, Biomes.SAVANNA_PLATEAU, Biomes.FOREST,       Biomes.FOREST,          Biomes.JUNGLE},
-            {Biomes.BADLANDS,        Biomes.BADLANDS,        Biomes.BADLANDS,     Biomes.WOODED_BADLANDS, Biomes.WOODED_BADLANDS}
-    };
-
     private final ResourceKey<Biome>[][] RARE_BIOMES_BOP = new ResourceKey[][]{
             {null,                            null,                            null,                    null,                    BOPBiomes.BURNT_FOREST},
             {null,                            null,                            BOPBiomes.OMINOUS_WOODS, null,                    null},
             {null,                            null,                            null,                    BOPBiomes.MYSTIC_GROVE,  null},
             {null,                            null,                            null,                    null,                    null},
             {null,                            null,                            null,                    null,                    null}
+    };
+
+    private final ResourceKey<Biome>[][] PLATEAU_BIOMES = new ResourceKey[][]{
+            {Biomes.SNOWY_PLAINS,    Biomes.SNOWY_PLAINS,    Biomes.SNOWY_PLAINS, Biomes.SNOWY_TAIGA,     Biomes.SNOWY_TAIGA},
+            {Biomes.MEADOW,          Biomes.MEADOW,          Biomes.FOREST,       Biomes.TAIGA,           Biomes.OLD_GROWTH_SPRUCE_TAIGA},
+            {Biomes.MEADOW,          Biomes.MEADOW,          Biomes.MEADOW,       Biomes.MEADOW,          Biomes.DARK_FOREST},
+            {Biomes.SAVANNA_PLATEAU, Biomes.SAVANNA_PLATEAU, Biomes.FOREST,       Biomes.FOREST,          Biomes.JUNGLE},
+            {Biomes.BADLANDS,        Biomes.BADLANDS,        Biomes.BADLANDS,     Biomes.WOODED_BADLANDS, Biomes.WOODED_BADLANDS}
     };
 
     private final ResourceKey<Biome>[][] PLATEAU_BIOMES_VARIANT = new ResourceKey[][]{
@@ -159,8 +159,8 @@ public final class BOPOverworldBiomeBuilder
 
     private final ResourceKey<Biome>[][] PLATEAU_BIOMES_BOP = new ResourceKey[][]{
             {BOPBiomes.COLD_DESERT,      BOPBiomes.TUNDRA,               BOPBiomes.SNOWY_FIR_CLEARING, null,                  BOPBiomes.DEAD_FOREST},
-            {BOPBiomes.SEASONAL_FOREST,  BOPBiomes.CONIFEROUS_FOREST,    null,                         null,                  BOPBiomes.FIELD},
-            {BOPBiomes.ORCHARD,          null,                           null,                         null,                  null},
+            {BOPBiomes.SEASONAL_FOREST,  BOPBiomes.CONIFEROUS_FOREST,    BOPBiomes.HIGHLAND,           BOPBiomes.HIGHLAND,    BOPBiomes.FIELD},
+            {BOPBiomes.ORCHARD,          null,                           null,                         BOPBiomes.HIGHLAND,    BOPBiomes.HIGHLAND},
             {BOPBiomes.WOODED_SCRUBLAND, BOPBiomes.MEDITERRANEAN_FOREST, BOPBiomes.WOODLAND,           BOPBiomes.RAINFOREST,  null},
             {BOPBiomes.WASTELAND,        BOPBiomes.WASTELAND,            BOPBiomes.DRYLAND,            BOPBiomes.LUSH_DESERT, null}
     };
