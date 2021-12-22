@@ -213,10 +213,7 @@ public class NoiseSimulator
 
                         if (biome.location().getNamespace().equals("biomesoplenty"))
                         {
-                            if (biome == BOPBiomes.OMINOUS_WOODS) color = 0x800080;
-                            else if (biome == BOPBiomes.CONIFEROUS_FOREST) color = 0x006400;
-                            else if (biome == BOPBiomes.TUNDRA_BASIN) color = 0x808080;
-                            else color = 0xFF0000;
+                            color = 0xFF0000;
                         }
                         else
                         {

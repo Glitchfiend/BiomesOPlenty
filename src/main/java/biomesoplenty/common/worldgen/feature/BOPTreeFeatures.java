@@ -11,8 +11,8 @@ import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
@@ -23,6 +23,7 @@ public class BOPTreeFeatures
     // Standard trees
     public static final ConfiguredFeature<TreeConfiguration, ?> FLOWERING_OAK_TREE = register("flowering_oak_tree", BOPBaseFeatures.BASIC_TREE.configured(new BasicTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.OAK_LOG)).foliage(BlockStateProvider.simple(Blocks.OAK_LEAVES)).altFoliage(BlockStateProvider.simple(BOPBlocks.FLOWERING_OAK_LEAVES)).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> FLOWERING_OAK_TREE_BEES = register("flowering_oak_tree_bees", BOPBaseFeatures.BASIC_TREE.configured(new BasicTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.OAK_LOG)).foliage(BlockStateProvider.simple(Blocks.OAK_LEAVES)).altFoliage(BlockStateProvider.simple(BOPBlocks.FLOWERING_OAK_LEAVES)).decorator(new BeehiveDecorator(0.05f)).build()));
+    public static final ConfiguredFeature<TreeConfiguration, ?> JACARANDA_TREE = register("jacaranda_tree", BOPBaseFeatures.BASIC_TREE.configured(new BasicTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.JACARANDA_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.JACARANDA_LEAVES)).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> JACARANDA_TREE_BEES = register("jacaranda_tree_bees", BOPBaseFeatures.BASIC_TREE.configured(new BasicTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.JACARANDA_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.JACARANDA_LEAVES)).decorator(new BeehiveDecorator(0.02f)).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> MAPLE_TREE = register("maple_tree", BOPBaseFeatures.BASIC_TREE.configured(new BasicTreeConfiguration.Builder().foliage(BlockStateProvider.simple(BOPBlocks.MAPLE_LEAVES)).minHeight(5).maxHeight(10).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> ORANGE_AUTUMN_TREE = register("orange_autumn_tree", BOPBaseFeatures.BASIC_TREE.configured(new BasicTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.DARK_OAK_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.ORANGE_AUTUMN_LEAVES)).minHeight(5).maxHeight(8).build()));
@@ -43,6 +44,7 @@ public class BOPTreeFeatures
     public static final ConfiguredFeature<TreeConfiguration, ?> BIG_YELLOW_AUTUMN_TREE = register("big_yellow_autumn_tree", BOPBaseFeatures.BIG_TREE.configured(new BigTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.BIRCH_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.YELLOW_AUTUMN_LEAVES)).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> DYING_TREE = register("dying_tree", BOPBaseFeatures.BIG_TREE.configured(new BigTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.DEAD_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.DEAD_LEAVES)).maxHeight(10).foliageHeight(2).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> DYING_TREE_WASTELAND = register("dying_tree_wasteland", BOPBaseFeatures.BIG_TREE.configured(new BigTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.DEAD_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.DEAD_LEAVES)).maxHeight(10).foliageHeight(1).build()));
+    public static final ConfiguredFeature<TreeConfiguration, ?> GIANT_TREE = register("giant_tree", BOPBaseFeatures.BIG_TREE.configured(new BigTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.DARK_OAK_LOG)).foliage(BlockStateProvider.simple(Blocks.DARK_OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true))).minHeight(15).maxHeight(20).trunkWidth(4).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> SPARSE_ACACIA_TREE = register("sparse_acacia_tree", BOPBaseFeatures.BIG_TREE.configured(new BigTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.ACACIA_LOG)).foliage(BlockStateProvider.simple(Blocks.ACACIA_LEAVES)).maxHeight(8).foliageHeight(1).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> SPARSE_OAK_TREE = register("sparse_oak_tree", BOPBaseFeatures.BIG_TREE.configured(new BigTreeConfiguration.Builder().maxHeight(10).foliageHeight(2).build()));
 
@@ -56,7 +58,9 @@ public class BOPTreeFeatures
     public static final ConfiguredFeature<TreeConfiguration, ?> UMBRAN_TREE = register("umbran_tree", BOPBaseFeatures.TAIGA_TREE.configured(new TaigaTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.UMBRAN_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.UMBRAN_LEAVES)).maxHeight(20).build()));
 
     // Poplar trees
+    public static final ConfiguredFeature<TreeConfiguration, ?> BIG_MAGIC_TREE = register("big_magic_tree", BOPBaseFeatures.POPLAR_TREE.configured(new PoplarTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.MAGIC_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.MAGIC_LEAVES)).minHeight(16).maxHeight(20).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> DARK_OAK_POPLAR_TREE = register("dark_oak_poplar_tree", BOPBaseFeatures.POPLAR_TREE.configured(new PoplarTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.DARK_OAK_LOG)).foliage(BlockStateProvider.simple(Blocks.DARK_OAK_LEAVES)).build()));
+    public static final ConfiguredFeature<TreeConfiguration, ?> MAGIC_TREE = register("magic_tree", BOPBaseFeatures.POPLAR_TREE.configured(new PoplarTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.MAGIC_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.MAGIC_LEAVES)).minHeight(8).maxHeight(12).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> SPRUCE_POPLAR_TREE = register("spruce_poplar_tree", BOPBaseFeatures.POPLAR_TREE.configured(new PoplarTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.SPRUCE_LOG)).foliage(BlockStateProvider.simple(Blocks.SPRUCE_LEAVES)).build()));
 
     // Swamp trees
@@ -81,9 +85,9 @@ public class BOPTreeFeatures
 
     // Special trees
     public static final ConfiguredFeature<TreeConfiguration, ?> REDWOOD_TREE = register("redwood_tree", BOPBaseFeatures.REDWOOD_TREE.configured(createRedwood().minHeight(10).maxHeight(30).build()));
-    public static final ConfiguredFeature<TreeConfiguration, ?> REDWOOD_TREE_LARGE = register("redwood_tree_large", BOPBaseFeatures.REDWOOD_TREE.configured(createRedwood().minHeight(45).maxHeight(60).trunkWidth(3).build()));
-    public static final ConfiguredFeature<TreeConfiguration, ?> MAHOGANY_TREE = register("mahogany_tree", BOPBaseFeatures.MAHOGANY_TREE.configured(new MahoganyTreeConfiguration.Builder().build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> REDWOOD_TREE_MEDIUM = register("redwood_tree_medium", BOPBaseFeatures.REDWOOD_TREE.configured(createRedwood().minHeight(25).maxHeight(40).trunkWidth(2).build()));
+    public static final ConfiguredFeature<TreeConfiguration, ?> MAHOGANY_TREE = register("mahogany_tree", BOPBaseFeatures.MAHOGANY_TREE.configured(new MahoganyTreeConfiguration.Builder().build()));
+    public static final ConfiguredFeature<TreeConfiguration, ?> REDWOOD_TREE_LARGE = register("redwood_tree_large", BOPBaseFeatures.REDWOOD_TREE.configured(createRedwood().minHeight(45).maxHeight(60).trunkWidth(3).build()));
 
     private static TaigaTreeConfiguration.Builder createFir()
     {

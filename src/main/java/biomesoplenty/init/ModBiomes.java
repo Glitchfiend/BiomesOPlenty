@@ -73,6 +73,7 @@ public class ModBiomes
         registerBiome(BOPBiomes.MEDITERRANEAN_FOREST, BOPOverworldBiomes.mediterraneanForest());
         registerBiome(BOPBiomes.MEDITERRANEAN_LAKES, BOPOverworldBiomes.mediterraneanLakes());
         registerBiome(BOPBiomes.MUSKEG, BOPOverworldBiomes.muskeg());
+        registerBiome(BOPBiomes.MYSTIC_GROVE, BOPOverworldBiomes.mysticGrove());
         registerBiome(BOPBiomes.OLD_GROWTH_DEAD_FOREST, BOPOverworldBiomes.oldGrowthDeadForest());
         registerBiome(BOPBiomes.OMINOUS_WOODS, BOPOverworldBiomes.ominousWoods());
         registerBiome(BOPBiomes.ORCHARD, BOPOverworldBiomes.orchard());
@@ -88,7 +89,6 @@ public class ModBiomes
         registerBiome(BOPBiomes.SNOWY_FIR_CLEARING, BOPOverworldBiomes.firClearing(true));
         registerBiome(BOPBiomes.SNOWY_MAPLE_FOREST, BOPOverworldBiomes.snowyMapleForest());
         registerBiome(BOPBiomes.TUNDRA, BOPOverworldBiomes.tundra());
-        registerBiome(BOPBiomes.TUNDRA_BASIN, BOPOverworldBiomes.tundraBasin());
         registerBiome(BOPBiomes.WASTELAND, BOPOverworldBiomes.wasteland());
         registerBiome(BOPBiomes.WETLAND, BOPOverworldBiomes.wetland());
         registerBiome(BOPBiomes.WOODED_SCRUBLAND, BOPOverworldBiomes.scrubland(true));

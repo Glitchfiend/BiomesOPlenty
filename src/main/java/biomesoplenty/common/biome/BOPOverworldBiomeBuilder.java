@@ -124,14 +124,6 @@ public final class BOPOverworldBiomeBuilder
             {null,                             null,                     BOPBiomes.DRY_BONEYARD,       null,                         null}
     };
 
-    private final ResourceKey<Biome>[][] VALLEY_BIOMES_BOP = new ResourceKey[][]{
-            {null,                            BOPBiomes.TUNDRA_BASIN,          null,                   null,                    null},
-            {null,                            null,                            null,                   null,                    null},
-            {null,                            null,                            null,                   null,                    null},
-            {null,                            null,                            null,                   null,                    null},
-            {null,                            null,                            null,                   null,                    null}
-    };
-
     private final ResourceKey<Biome>[][] SWAMP_BIOMES_BOP = new ResourceKey[][]{
             // NOTE: Frozen biomes not applicable for swamp biomes
             {null,            null,                          null,              null,              null},
@@ -152,7 +144,7 @@ public final class BOPOverworldBiomeBuilder
     private final ResourceKey<Biome>[][] RARE_BIOMES_BOP = new ResourceKey[][]{
             {null,                            null,                            null,                    null,                    null},
             {null,                            null,                            BOPBiomes.OMINOUS_WOODS, null,                    null},
-            {null,                            null,                            null,                    null,                    null},
+            {null,                            null,                            null,                    BOPBiomes.MYSTIC_GROVE,  null},
             {null,                            null,                            null,                    null,                    null},
             {null,                            null,                            null,                    null,                    null}
     };
@@ -500,11 +492,11 @@ public final class BOPOverworldBiomeBuilder
             {
                 BOPClimate.Parameter humidity = this.humidities[j];
                 ResourceKey<Biome> middleOrBadlandsBiomeVanilla = this.pickMiddleBiomeOrBadlandsIfHotVanilla(i, j, weirdness);
-                ResourceKey<Biome> middleOrValleyBiomeBOP       = this.pickMiddleOrValleyBOP(biomeRegistry, i, j, weirdness);
+                ResourceKey<Biome> middleBiomeBOP               = this.pickMiddleBiomeBOP(biomeRegistry, i, j, weirdness);
                 ResourceKey<Biome> rareBiomeBOP                 = this.pickRareBiomeBOP(biomeRegistry, i, j, weirdness);
                 ResourceKey<Biome> swampBiomeBOP                = this.pickSwampBiomeBOP(biomeRegistry, i, j, weirdness);
 
-                this.addParallelSurfaceBiomes(mapper, temperature, humidity, BOPClimate.Parameter.span(this.midInlandContinentalness, this.farInlandContinentalness), BOPClimate.Parameter.span(this.erosions[0], this.erosions[1]), weirdness, 0.0F, middleOrBadlandsBiomeVanilla, middleOrValleyBiomeBOP, rareBiomeBOP);
+                this.addParallelSurfaceBiomes(mapper, temperature, humidity, BOPClimate.Parameter.span(this.midInlandContinentalness, this.farInlandContinentalness), BOPClimate.Parameter.span(this.erosions[0], this.erosions[1]), weirdness, 0.0F, middleOrBadlandsBiomeVanilla, middleBiomeBOP, rareBiomeBOP);
 
                 if (i != 0)
                 {
@@ -563,14 +555,6 @@ public final class BOPOverworldBiomeBuilder
     private ResourceKey<Biome> pickMiddleBiomeOrBadlandsIfHotOrSlopeIfColdBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
     {
         return temperatureIndex == 0 ? this.pickSlopeBiomeBOP(biomeRegistry, temperatureIndex, humidityIndex, weirdness) : this.pickMiddleBiomeBOP(biomeRegistry, temperatureIndex, humidityIndex, weirdness);
-    }
-
-    private ResourceKey<Biome> pickMiddleOrValleyBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
-    {
-        ResourceKey<Biome> middleBiome = this.pickMiddleBiomeBOP(biomeRegistry, temperatureIndex, humidityIndex, weirdness);
-
-        if (weirdness.max() < 0L) return middleBiome;
-        else return biomeOrFallback(biomeRegistry, this.VALLEY_BIOMES_BOP[temperatureIndex][humidityIndex], middleBiome);
     }
 
     private ResourceKey<Biome> pickSwampBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
