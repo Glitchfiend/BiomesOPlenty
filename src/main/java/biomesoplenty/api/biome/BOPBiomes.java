@@ -30,6 +30,7 @@ public class BOPBiomes
     public static final ResourceKey<Biome> GRASSLAND = register("grassland");
     public static final ResourceKey<Biome> GOLDEN_PRAIRIE = register("golden_prairie");
     public static final ResourceKey<Biome> HIGHLAND = register("highland");
+    public static final ResourceKey<Biome> HIGHLAND_MOOR = register("highland_moor");
     public static final ResourceKey<Biome> LAVENDER_FIELD = register("lavender_field");
     public static final ResourceKey<Biome> LAVENDER_FOREST = register("lavender_forest");
     public static final ResourceKey<Biome> LUSH_DESERT = register("lush_desert");
