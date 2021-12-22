@@ -142,7 +142,7 @@ public final class BOPOverworldBiomeBuilder
     };
 
     private final ResourceKey<Biome>[][] RARE_BIOMES_BOP = new ResourceKey[][]{
-            {null,                            null,                            null,                    null,                    null},
+            {null,                            null,                            null,                    null,                    BOPBiomes.BURNT_FOREST},
             {null,                            null,                            BOPBiomes.OMINOUS_WOODS, null,                    null},
             {null,                            null,                            null,                    BOPBiomes.MYSTIC_GROVE,  null},
             {null,                            null,                            null,                    null,                    null},

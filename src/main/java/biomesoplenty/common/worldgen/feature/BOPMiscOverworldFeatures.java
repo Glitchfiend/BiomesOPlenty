@@ -26,6 +26,7 @@ import java.util.List;
 
 public class BOPMiscOverworldFeatures
 {
+    public static final ConfiguredFeature<?, ?> BLACK_SAND_SPLATTER = register("black_sand_splatter", BOPBaseFeatures.BLACK_SAND_SPLATTER.configured(NoneFeatureConfiguration.INSTANCE));
     public static final ConfiguredFeature<?, ?> BONE_SPINE = register("bone_spine", BOPBaseFeatures.BONE_SPINE.configured(NoneFeatureConfiguration.INSTANCE));
     public static final ConfiguredFeature<DiskConfiguration, ?> DISK_BLACK_SAND = register("disk_black_sand", Feature.DISK.configured(new DiskConfiguration(BOPBlocks.BLACK_SAND.defaultBlockState(), UniformInt.of(2, 6), 2, List.of(Blocks.DIRT.defaultBlockState(), Blocks.GRASS_BLOCK.defaultBlockState()))));
     public static final ConfiguredFeature<DiskConfiguration, ?> DISK_CALCITE = register("disk_calcite", Feature.DISK.configured(new DiskConfiguration(Blocks.CALCITE.defaultBlockState(), UniformInt.of(3, 7), 2, ImmutableList.of(Blocks.DIRT.defaultBlockState(), Blocks.GRASS_BLOCK.defaultBlockState(), Blocks.PODZOL.defaultBlockState(), Blocks.SAND.defaultBlockState(), Blocks.GRAVEL.defaultBlockState(), Blocks.GRANITE.defaultBlockState(), Blocks.ANDESITE.defaultBlockState(), Blocks.DIORITE.defaultBlockState(), Blocks.COAL_ORE.defaultBlockState(), Blocks.IRON_ORE.defaultBlockState(), Blocks.STONE.defaultBlockState(), Blocks.CALCITE.defaultBlockState()))));

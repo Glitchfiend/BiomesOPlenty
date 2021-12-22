@@ -13,6 +13,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
@@ -75,6 +76,7 @@ public class BOPTreeFeatures
     // Twiglets
     public static final ConfiguredFeature<TreeConfiguration, ?> ACACIA_TWIGLET = register("acacia_twiglet", BOPBaseFeatures.TWIGLET_TREE.configured(new TwigletTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.ACACIA_LOG)).foliage(BlockStateProvider.simple(Blocks.ACACIA_LEAVES)).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> ACACIA_TWIGLET_SMALL = register("acacia_twiglet_small", BOPBaseFeatures.TWIGLET_TREE.configured(new TwigletTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.ACACIA_LOG)).foliage(BlockStateProvider.simple(Blocks.ACACIA_LEAVES)).minHeight(1).maxHeight(2).build()));
+    public static final ConfiguredFeature<TreeConfiguration, ?> BURNT_TREE = register("burnt_tree", BOPBaseFeatures.TWIGLET_TREE.configured(new TwigletTreeConfiguration.Builder().leafChance(0.0F, 0.0F).foliage(BlockStateProvider.simple(Blocks.AIR)).trunk(BlockStateProvider.simple(BOPBlocks.STRIPPED_HELLBARK_LOG)).minHeight(3).maxHeight(5).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> DEAD_TREE_WASTELAND = register("dead_tree_wasteland", BOPBaseFeatures.TWIGLET_TREE.configured(new TwigletTreeConfiguration.Builder().trunkFruit(BlockStateProvider.simple(BOPBlocks.DEAD_BRANCH)).leafChance(0.0F, 0.0F).trunk(BlockStateProvider.simple(BOPBlocks.DEAD_LOG)).foliage(BlockStateProvider.simple(Blocks.AIR)).minHeight(6).maxHeight(10).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> DEAD_TWIGLET_TREE = register("dead_twiglet_tree", BOPBaseFeatures.TWIGLET_TREE.configured(new TwigletTreeConfiguration.Builder().trunkFruit(BlockStateProvider.simple(BOPBlocks.DEAD_BRANCH)).leafChance(0.05F, 0.25F).trunk(BlockStateProvider.simple(BOPBlocks.DEAD_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.DEAD_LEAVES)).minHeight(6).maxHeight(10).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> MAPLE_TWIGLET_TREE = register("maple_twiglet_tree", BOPBaseFeatures.TWIGLET_TREE.configured(new TwigletTreeConfiguration.Builder().foliage(BlockStateProvider.simple(BOPBlocks.MAPLE_LEAVES)).minHeight(1).maxHeight(2).build()));

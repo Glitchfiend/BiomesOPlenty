@@ -43,6 +43,7 @@ public class BOPVegetationPlacements
     public static final PlacedFeature PATCH_CATTAIL_24 = register("patch_cattail_24", BOPVegetationFeatures.PATCH_CATTAIL.placed(VegetationPlacements.worldSurfaceSquaredWithCount(24)));
     public static final PlacedFeature PATCH_DEAD_GRASS_2 = register("patch_dead_grass_2", BOPVegetationFeatures.PATCH_DEAD_GRASS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(1)));
     public static final PlacedFeature PATCH_DEAD_GRASS_5 = register("patch_dead_grass_5", BOPVegetationFeatures.PATCH_DEAD_GRASS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(3)));
+    public static final PlacedFeature PATCH_DEAD_GRASS_25 = register("patch_dead_grass_25", BOPVegetationFeatures.PATCH_DEAD_GRASS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(15)));
     public static final PlacedFeature PATCH_DESERT_GRASS_10 = register("patch_desert_grass_10", BOPVegetationFeatures.PATCH_DESERT_GRASS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(5)));
     public static final PlacedFeature PATCH_DUNE_GRASS_128 = register("patch_dune_grass_128", BOPVegetationFeatures.PATCH_DUNE_GRASS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(10)));
     public static final PlacedFeature PATCH_FERN_GRASS_4 = register("patch_fern_grass_4", BOPVegetationFeatures.PATCH_FERN_GRASS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(4)));
@@ -117,6 +118,7 @@ public class BOPVegetationPlacements
     public static final PlacedFeature TREES_BAMBOO_BLOSSOM_GROVE = register("trees_bamboo_blossom_grove", BOPVegetationFeatures.TREES_BAMBOO_BLOSSOM_GROVE.placed(treePlacement(PlacementUtils.countExtra(7, 0.1F, 1))));
     public static final PlacedFeature TREES_BAYOU = register("trees_bayou", BOPVegetationFeatures.TREES_BAYOU.placed(waterTreePlacement(PlacementUtils.countExtra(2, 0.2F, 1))));
     public static final PlacedFeature TREES_BOG = register("trees_bog", BOPVegetationFeatures.TREES_BOG.placed(treePlacement(PlacementUtils.countExtra(16, 0.2F, 1))));
+    public static final PlacedFeature TREES_BURNT_FOREST = register("trees_burnt_forest", BOPVegetationFeatures.TREES_BURNT_FOREST.placed(treePlacement(PlacementUtils.countExtra(4, 0.2F, 1))));
     public static final PlacedFeature TREES_CHERRY_BLOSSOM_GROVE = register("trees_cherry_blossom_grove", BOPVegetationFeatures.TREES_CHERRY_BLOSSOM_GROVE.placed(treePlacement(PlacementUtils.countExtra(5, 0.1F, 1))));
     public static final PlacedFeature TREES_CONIFEROUS_FOREST = register("trees_coniferous_forest", BOPVegetationFeatures.TREES_CONIFEROUS_FOREST.placed(treePlacement(PlacementUtils.countExtra(10, 0.1F, 1))));
     public static final PlacedFeature TREES_DEAD_FOREST = register("trees_dead_forest", BOPVegetationFeatures.TREES_DEAD_FOREST.placed(treePlacement(PlacementUtils.countExtra(2, 0.1F, 1))));
