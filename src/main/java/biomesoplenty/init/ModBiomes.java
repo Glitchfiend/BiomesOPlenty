@@ -54,6 +54,7 @@ public class ModBiomes
         registerBiome(BOPBiomes.BAMBOO_BLOSSOM_GROVE, BOPOverworldBiomes.bambooBlossomGrove());
         registerBiome(BOPBiomes.BAYOU, BOPOverworldBiomes.bayou());
         registerBiome(BOPBiomes.BOG, BOPOverworldBiomes.bog());
+        registerBiome(BOPBiomes.BOREAL_FOREST, BOPOverworldBiomes.borealForest());
         registerBiome(BOPBiomes.BURNT_FOREST, BOPOverworldBiomes.burntForest());
         registerBiome(BOPBiomes.CHERRY_BLOSSOM_GROVE, BOPOverworldBiomes.cherryBlossomGrove());
         registerBiome(BOPBiomes.COLD_DESERT, BOPOverworldBiomes.coldDesert());

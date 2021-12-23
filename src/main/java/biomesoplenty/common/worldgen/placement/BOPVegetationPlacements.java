@@ -121,6 +121,7 @@ public class BOPVegetationPlacements
     public static final PlacedFeature TREES_BAMBOO_BLOSSOM_GROVE = register("trees_bamboo_blossom_grove", BOPVegetationFeatures.TREES_BAMBOO_BLOSSOM_GROVE.placed(treePlacement(PlacementUtils.countExtra(7, 0.1F, 1))));
     public static final PlacedFeature TREES_BAYOU = register("trees_bayou", BOPVegetationFeatures.TREES_BAYOU.placed(waterTreePlacement(PlacementUtils.countExtra(2, 0.2F, 1))));
     public static final PlacedFeature TREES_BOG = register("trees_bog", BOPVegetationFeatures.TREES_BOG.placed(treePlacement(PlacementUtils.countExtra(16, 0.2F, 1))));
+    public static final PlacedFeature TREES_BOREAL_FOREST = register("trees_boreal_forest", BOPVegetationFeatures.TREES_BOREAL_FOREST.placed(treePlacement(PlacementUtils.countExtra(3, 0.2F, 1))));
     public static final PlacedFeature TREES_BURNT_FOREST = register("trees_burnt_forest", BOPVegetationFeatures.TREES_BURNT_FOREST.placed(treePlacement(PlacementUtils.countExtra(4, 0.2F, 1))));
     public static final PlacedFeature TREES_CHERRY_BLOSSOM_GROVE = register("trees_cherry_blossom_grove", BOPVegetationFeatures.TREES_CHERRY_BLOSSOM_GROVE.placed(treePlacement(PlacementUtils.countExtra(5, 0.1F, 1))));
     public static final PlacedFeature TREES_CONIFEROUS_FOREST = register("trees_coniferous_forest", BOPVegetationFeatures.TREES_CONIFEROUS_FOREST.placed(treePlacement(PlacementUtils.countExtra(10, 0.1F, 1))));
