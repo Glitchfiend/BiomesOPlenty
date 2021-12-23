@@ -11,6 +11,8 @@ import com.google.common.collect.ImmutableSet;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.data.worldgen.features.FeatureUtils;
+import net.minecraft.data.worldgen.features.MiscOverworldFeatures;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
@@ -20,6 +22,10 @@ import net.minecraft.world.level.levelgen.feature.configurations.DiskConfigurati
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.SpringConfiguration;
+import net.minecraft.world.level.levelgen.placement.BiomeFilter;
+import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.levelgen.placement.RarityFilter;
 import net.minecraft.world.level.material.Fluids;
 
 import java.util.List;
@@ -35,6 +41,7 @@ public class BOPMiscOverworldFeatures
     public static final ConfiguredFeature<DiskConfiguration, ?> DISK_ORANGE_SAND = register("disk_orange_sand", Feature.DISK.configured(new DiskConfiguration(BOPBlocks.ORANGE_SAND.defaultBlockState(), UniformInt.of(2, 6), 2, List.of(Blocks.DIRT.defaultBlockState(), Blocks.GRASS_BLOCK.defaultBlockState()))));
     public static final ConfiguredFeature<DiskConfiguration, ?> DISK_WHITE_SAND = register("disk_white_sand", Feature.DISK.configured(new DiskConfiguration(BOPBlocks.WHITE_SAND.defaultBlockState(), UniformInt.of(2, 6), 2, List.of(Blocks.DIRT.defaultBlockState(), Blocks.GRASS_BLOCK.defaultBlockState()))));
     public static final ConfiguredFeature<DiskConfiguration, ?> DISK_MUD = register("disk_mud", Feature.DISK.configured(new DiskConfiguration(BOPBlocks.MUD.defaultBlockState(), UniformInt.of(4, 6), 2, List.of(Blocks.DIRT.defaultBlockState(), Blocks.GRASS_BLOCK.defaultBlockState()))));
+    public static final ConfiguredFeature<SpringConfiguration, ?> SPRING_LAVA_VOLCANO = register("spring_lava_volcano", Feature.SPRING.configured(new SpringConfiguration(Fluids.LAVA.defaultFluidState(), true, 4, 1, ImmutableSet.of(Blocks.BASALT, Blocks.MAGMA_BLOCK, BOPBlocks.BLACK_SAND, BOPBlocks.BLACK_SANDSTONE, Blocks.STONE, Blocks.GRANITE, Blocks.DIORITE, Blocks.ANDESITE))));
     public static final ConfiguredFeature<SpringConfiguration, ?> SPRING_WATER_EXTRA = register("spring_water_extra", Feature.SPRING.configured(new SpringConfiguration(Fluids.WATER.defaultFluidState(), true, 4, 1, ImmutableSet.of(Blocks.DIRT, Blocks.TERRACOTTA, Blocks.STONE, Blocks.GRANITE, Blocks.DIORITE, Blocks.ANDESITE, BOPBlocks.ORANGE_SANDSTONE))));
 
     private static <FC extends FeatureConfiguration> ConfiguredFeature<FC, ?> register(String key, ConfiguredFeature<FC, ?> feature)

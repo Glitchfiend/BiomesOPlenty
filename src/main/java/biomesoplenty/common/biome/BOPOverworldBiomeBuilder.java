@@ -162,7 +162,7 @@ public final class BOPOverworldBiomeBuilder
             {BOPBiomes.SEASONAL_FOREST,  BOPBiomes.CONIFEROUS_FOREST,    BOPBiomes.HIGHLAND,           BOPBiomes.HIGHLAND,    BOPBiomes.FIELD},
             {BOPBiomes.ORCHARD,          null,                           null,                         BOPBiomes.HIGHLAND,    BOPBiomes.HIGHLAND},
             {BOPBiomes.WOODED_SCRUBLAND, BOPBiomes.MEDITERRANEAN_FOREST, BOPBiomes.WOODLAND,           BOPBiomes.RAINFOREST,  null},
-            {BOPBiomes.WASTELAND,        BOPBiomes.WASTELAND,            BOPBiomes.DRYLAND,            BOPBiomes.LUSH_DESERT, null}
+            {BOPBiomes.WASTELAND,        BOPBiomes.WASTELAND,            BOPBiomes.DRYLAND,            BOPBiomes.LUSH_DESERT, BOPBiomes.VOLCANO}
     };
 
     private final ResourceKey<Biome>[][] PLATEAU_BIOMES_VARIANT_BOP = new ResourceKey[][]{
@@ -186,7 +186,7 @@ public final class BOPOverworldBiomeBuilder
             {null,                            null,                            BOPBiomes.CRAG,         BOPBiomes.CRAG, null},
             {null,                            null,                            BOPBiomes.JADE_CLIFFS,  BOPBiomes.CRAG, BOPBiomes.CRAG},
             {null,                            null,                            null,                   null,           null},
-            {null,                            null,                            null,                   null,           null}
+            {null,                            null,                            null,                   null,           BOPBiomes.VOLCANO}
     };
 
     public List<BOPClimate.ParameterPoint> spawnTarget()

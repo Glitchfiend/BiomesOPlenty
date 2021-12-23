@@ -37,6 +37,7 @@ public class BOPSurfaceRuleData
     private static final SurfaceRules.RuleSource ICE = makeStateRule(Blocks.ICE);
     private static final SurfaceRules.RuleSource WATER = makeStateRule(Blocks.WATER);
     private static final SurfaceRules.RuleSource LAVA = makeStateRule(Blocks.LAVA);
+    private static final SurfaceRules.RuleSource MAGMA = makeStateRule(Blocks.MAGMA_BLOCK);
 
     // Nether
     private static final SurfaceRules.RuleSource NETHERRACK = makeStateRule(Blocks.NETHERRACK);
@@ -363,7 +364,13 @@ public class BOPSurfaceRuleData
                     ),
                     SurfaceRules.ifTrue(
                         SurfaceRules.not(isAtOrAboveWaterLevel),
-                        SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.CRAG), GRAVEL)
+                        SurfaceRules.sequence(
+                            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.CRAG), GRAVEL),
+                            SurfaceRules.ifTrue(
+                                SurfaceRules.isBiome(BOPBiomes.VOLCANO),
+                                SurfaceRules.ifTrue(surfaceNoiseAbove(2.7D), BASALT)
+                            )
+                        )
                     )
                 )
             ),
@@ -383,6 +390,13 @@ public class BOPSurfaceRuleData
                 SurfaceRules.sequence(
                     SurfaceRules.ifTrue(surfaceNoiseAbove(1.9D), ORANGE_SANDSTONE),
                     ORANGE_SAND
+                )
+            ),
+            SurfaceRules.ifTrue(
+                SurfaceRules.isBiome(BOPBiomes.VOLCANO),
+                SurfaceRules.sequence(
+                    SurfaceRules.ifTrue(surfaceNoiseAbove(2.7D), MAGMA),
+                    BASALT
                 )
             ),
             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.WASTELAND), DRIED_SALT)

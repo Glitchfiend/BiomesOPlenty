@@ -1015,21 +1015,23 @@ public class BOPOverworldBiomes
         return biomeWithColorOverrides(Biome.Precipitation.RAIN, Biome.BiomeCategory.TAIGA, 0.2F, 0.5F, 0xC08359, 0xC5975C, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }
 
-    public static Biome tundraBasin()
+    public static Biome volcano()
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.STRAY, 80, 4, 4));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder();
         globalOverworldGeneration(biomeBuilder);
+        biomeBuilder.addFeature(GenerationStep.Decoration.LAKES, BOPMiscOverworldPlacements.LAKE_LAVA_SURFACE_EXTRA);
+        biomeBuilder.addFeature(GenerationStep.Decoration.FLUID_SPRINGS, BOPMiscOverworldPlacements.SPRING_LAVA_VOLCANO);
         BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
-        BiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
+        biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, MiscOverworldPlacements.DISK_GRAVEL);
+        BiomeDefaultFeatures.addExtraEmeralds(biomeBuilder);
+        BiomeDefaultFeatures.addInfestedStone(biomeBuilder);
 
-        // TODO: Extra coal?
-        return biomeWithColorOverrides(Biome.Precipitation.RAIN, Biome.BiomeCategory.TAIGA, 0.2F, 0.5F, 0xC08359, 0xC5975C, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
+        return biomeWithColorOverridesAndParticles(Biome.Precipitation.NONE, Biome.BiomeCategory.NONE, 0.95F, 0.3F, 4566514, 267827, 0x7F7F7F, 0x4A703B, 0x547D42, calculateSkyColor(0.95F), spawnBuilder, biomeBuilder, ParticleTypes.WHITE_ASH, 0.059046667F, NORMAL_MUSIC);
     }
 
     public static Biome wasteland()
