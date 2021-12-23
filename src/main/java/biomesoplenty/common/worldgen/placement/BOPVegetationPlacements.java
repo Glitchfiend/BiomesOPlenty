@@ -99,6 +99,7 @@ public class BOPVegetationPlacements
     public static final PlacedFeature FLOWER_MOOR = register("flower_moor", BOPVegetationFeatures.FLOWER_MOOR.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature FLOWER_MYSTIC_GROVE = register("flower_mystic_grove", BOPVegetationFeatures.FLOWER_MYSTIC_GROVE.placed(VegetationPlacements.worldSurfaceSquaredWithCount(18)));
     public static final PlacedFeature FLOWER_OMINOUS_WOODS = register("flower_ominous_woods", BOPVegetationFeatures.FLOWER_OMINOUS_WOODS.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+    public static final PlacedFeature FLOWER_ORIGIN_VALLEY = register("flower_origin_valley", BOPVegetationFeatures.FLOWER_ORIGIN_VALLEY.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature FLOWER_RAINFOREST = register("flower_rainforest", BOPVegetationFeatures.FLOWER_RAINFOREST.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature FLOWER_SCRUBLAND = register("flower_scrubland", BOPVegetationFeatures.FLOWER_WILDFLOWER.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature FLOWER_SHRUBLAND = register("flower_shrubland", BOPVegetationFeatures.FLOWER_SHRUBLAND.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
@@ -143,6 +144,7 @@ public class BOPVegetationPlacements
     public static final PlacedFeature TREES_MYSTIC_GROVE = register("trees_mystic_grove", BOPVegetationFeatures.TREES_MYSTIC_GROVE.placed(treePlacement(PlacementUtils.countExtra(10, 0.2F, 1))));
     public static final PlacedFeature TREES_OMINOUS_WOODS = register("trees_ominous_woods", BOPVegetationFeatures.TREES_OMINOUS_WOODS.placed(treePlacement(PlacementUtils.countExtra(7, 0.2F, 1))));
     public static final PlacedFeature TREES_ORCHARD = register("trees_orchard", BOPVegetationFeatures.TREES_ORCHARD.placed(treePlacement(PlacementUtils.countExtra(2, 0.2F, 1))));
+    public static final PlacedFeature TREES_ORIGIN_VALLEY = register("trees_origin_valley", BOPVegetationFeatures.TREES_ORIGIN_VALLEY.placed(treePlacement(PlacementUtils.countExtra(2, 0.2F, 1))));
     public static final PlacedFeature TREES_PRAIRIE = register("trees_prairie", BOPVegetationFeatures.TREES_PRAIRIE.placed(treePlacement(PlacementUtils.countExtra(1, 0.1F, 1))));
     public static final PlacedFeature TREES_WASTELAND = register("trees_wasteland", BOPVegetationFeatures.TREES_WASTELAND.placed(treePlacement(PlacementUtils.countExtra(1, 0.1F, 1))));
     public static final PlacedFeature TREES_WETLAND = register("trees_wetland", BOPVegetationFeatures.TREES_WETLAND.placed(treePlacement(PlacementUtils.countExtra(7, 0.1F, 1))));

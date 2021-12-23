@@ -57,6 +57,7 @@ public class BOPSurfaceRuleData
     private static final SurfaceRules.RuleSource ORANGE_SANDSTONE = makeStateRule(BOPBlocks.ORANGE_SANDSTONE);
     private static final SurfaceRules.RuleSource BLACK_SAND = makeStateRule(BOPBlocks.BLACK_SAND);
     private static final SurfaceRules.RuleSource BLACK_SANDSTONE = makeStateRule(BOPBlocks.BLACK_SANDSTONE);
+    private static final SurfaceRules.RuleSource ORIGIN_GRASS = makeStateRule(BOPBlocks.ORIGIN_GRASS_BLOCK);
 
     private static SurfaceRules.RuleSource makeStateRule(Block p_194811_) {
         return SurfaceRules.state(p_194811_.defaultBlockState());
@@ -420,6 +421,7 @@ public class BOPSurfaceRuleData
                         // Grass substitutes
                         isAtOrAboveWaterLevel,
                         SurfaceRules.sequence(
+                            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.ORIGIN_VALLEY), ORIGIN_GRASS),
                             SurfaceRules.ifTrue(
                                 SurfaceRules.isBiome(BOPBiomes.MEDITERRANEAN_FOREST),
                                 SurfaceRules.ifTrue(surfaceNoiseAbove(1.9D), PODZOL)

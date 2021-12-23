@@ -92,6 +92,14 @@ public final class BOPOverworldBiomeBuilder
             {Biomes.FROZEN_OCEAN,      Biomes.COLD_OCEAN,      Biomes.OCEAN,      Biomes.LUKEWARM_OCEAN,      Biomes.WARM_OCEAN}
     };
 
+    private final ResourceKey<Biome>[][] ISLAND_BIOMES_BOP = new ResourceKey[][]{
+            {null,                            null,                            null,                    null,                    null},
+            {null,                            null,                            null,                    null,                    null},
+            {BOPBiomes.ORIGIN_VALLEY,         BOPBiomes.ORIGIN_VALLEY,         BOPBiomes.ORIGIN_VALLEY, BOPBiomes.ORIGIN_VALLEY, BOPBiomes.ORIGIN_VALLEY},
+            {null,                            null,                            null,                    null,                    null},
+            {null,                            null,                            null,                    null,                    null}
+    };
+
     private final ResourceKey<Biome>[][] MIDDLE_BIOMES = new ResourceKey[][]{
             {Biomes.SNOWY_PLAINS,  Biomes.SNOWY_PLAINS, Biomes.SNOWY_PLAINS, Biomes.SNOWY_TAIGA,  Biomes.TAIGA},
             {Biomes.PLAINS,        Biomes.PLAINS,       Biomes.FOREST,       Biomes.TAIGA,        Biomes.OLD_GROWTH_SPRUCE_TAIGA},
@@ -205,19 +213,26 @@ public final class BOPOverworldBiomeBuilder
         }
         else
         {
-            this.addOffCoastBiomes(mapper);
+            this.addOffCoastBiomes(biomeRegistry, mapper);
             this.addInlandBiomes(biomeRegistry, mapper);
             this.addUndergroundBiomes(mapper);
         }
     }
 
-    private void addOffCoastBiomes(Consumer<Pair<BOPClimate.ParameterPoint, ResourceKey<Biome>>> mapper)
+    private void addOffCoastBiomes(Registry<Biome> biomeRegistry, Consumer<Pair<BOPClimate.ParameterPoint, ResourceKey<Biome>>> mapper)
     {
-        this.addSurfaceBiomeGlobal(mapper, this.FULL_RANGE, this.FULL_RANGE, this.mushroomFieldsContinentalness, this.FULL_RANGE, this.FULL_RANGE, 0.0F, Biomes.MUSHROOM_FIELDS);
-
         for (int i = 0; i < this.temperatures.length; ++i)
         {
             BOPClimate.Parameter temperature = this.temperatures[i];
+
+            for (int j = 0; j < this.humidities.length; ++j)
+            {
+                BOPClimate.Parameter humidity = this.humidities[j];
+                ResourceKey<Biome> islandBiomeBOP = this.pickIslandBiomeBOP(biomeRegistry, i, j);
+
+                this.addSurfaceBiomeGlobal(mapper, temperature, humidity, this.mushroomFieldsContinentalness, this.FULL_RANGE, this.FULL_RANGE, 0.0F, islandBiomeBOP);
+            }
+
             this.addSurfaceBiomeGlobal(mapper, temperature, this.FULL_RANGE, this.deepOceanContinentalness, this.FULL_RANGE, this.FULL_RANGE, 0.0F, this.OCEANS[0][i]);
             this.addSurfaceBiomeGlobal(mapper, temperature, this.FULL_RANGE, this.oceanContinentalness, this.FULL_RANGE, this.FULL_RANGE, 0.0F, this.OCEANS[1][i]);
         }
@@ -510,6 +525,11 @@ public final class BOPOverworldBiomeBuilder
     {
         this.addUndergroundBiome(mapper, this.FULL_RANGE, this.FULL_RANGE, BOPClimate.Parameter.span(0.8F, 1.0F), this.FULL_RANGE, this.FULL_RANGE, 0.0F, Biomes.DRIPSTONE_CAVES);
         this.addUndergroundBiome(mapper, this.FULL_RANGE, BOPClimate.Parameter.span(0.7F, 1.0F), this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, 0.0F, Biomes.LUSH_CAVES);
+    }
+
+    private ResourceKey<Biome> pickIslandBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex)
+    {
+        return biomeOrFallback(biomeRegistry, this.ISLAND_BIOMES_BOP[temperatureIndex][humidityIndex], Biomes.MUSHROOM_FIELDS);
     }
 
     private ResourceKey<Biome> pickMiddleBiomeVanilla(int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
