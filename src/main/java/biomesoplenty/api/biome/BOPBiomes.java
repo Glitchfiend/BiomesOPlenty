@@ -25,6 +25,7 @@ public class BOPBiomes
     public static final ResourceKey<Biome> DENSE_WOODLAND = register("dense_woodland");
     public static final ResourceKey<Biome> DRY_BONEYARD = register("dry_boneyard");
     public static final ResourceKey<Biome> DRYLAND = register("dryland");
+    public static final ResourceKey<Biome> DUNES = register("dunes");
     public static final ResourceKey<Biome> FIELD = register("field");
     public static final ResourceKey<Biome> FIR_CLEARING = register("fir_clearing");
     public static final ResourceKey<Biome> FORESTED_FIELD = register("forested_field");
