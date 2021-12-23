@@ -184,7 +184,7 @@ public final class BOPOverworldBiomeBuilder
     private final ResourceKey<Biome>[][] EXTREME_HILLS_BOP = new ResourceKey[][]{
             {null,                            null,                            null,                   null,           null},
             {null,                            null,                            BOPBiomes.CRAG,         BOPBiomes.CRAG, null},
-            {null,                            null,                            null,                   BOPBiomes.CRAG, BOPBiomes.CRAG},
+            {null,                            null,                            BOPBiomes.JADE_CLIFFS,  BOPBiomes.CRAG, BOPBiomes.CRAG},
             {null,                            null,                            null,                   null,           null},
             {null,                            null,                            null,                   null,           null}
     };

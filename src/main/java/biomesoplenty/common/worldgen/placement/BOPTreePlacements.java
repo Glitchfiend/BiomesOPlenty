@@ -59,6 +59,7 @@ public class BOPTreePlacements
     public static final PlacedFeature SMALL_DEAD_TREE_CHECKED = register("small_dead_tree", BOPTreeFeatures.SMALL_DEAD_TREE.filteredByBlockSurvival(BOPBlocks.DEAD_SAPLING));
     public static final PlacedFeature SPARSE_ACACIA_TREE_CHECKED = register("sparse_acacia_tree", BOPTreeFeatures.SPARSE_ACACIA_TREE.filtered(BlockPredicate.matchesBlock(BOPBlocks.ORANGE_SAND, new BlockPos(0, -1, 0))));
     public static final PlacedFeature SPARSE_OAK_TREE_CHECKED = register("sparse_oak_tree", BOPTreeFeatures.SPARSE_OAK_TREE.filteredByBlockSurvival(Blocks.OAK_SAPLING));
+    public static final PlacedFeature SPRUCE_BUSH_CHECKED = register("spruce_bush", BOPTreeFeatures.SPRUCE_BUSH.filteredByBlockSurvival(Blocks.SPRUCE_SAPLING));
     public static final PlacedFeature SPRUCE_POPLAR_TREE_CHECKED = register("spruce_poplar_tree", BOPTreeFeatures.SPRUCE_POPLAR_TREE.filteredByBlockSurvival(Blocks.SPRUCE_SAPLING));
     public static final PlacedFeature SPRUCE_TWIGLET_TREE_CHECKED = register("spruce_twiglet_tree", BOPTreeFeatures.SPRUCE_TWIGLET_TREE.filteredByBlockSurvival(Blocks.SPRUCE_SAPLING));
     public static final PlacedFeature TALL_DEAD_TWIGLET_TREE_CHECKED = register("tall_dead_twiglet_tree", BOPTreeFeatures.TALL_DEAD_TWIGLET_TREE.filteredByBlockSurvival(BOPBlocks.DEAD_SAPLING));

@@ -72,6 +72,7 @@ public class ModBiomes
         registerBiome(BOPBiomes.GOLDEN_PRAIRIE, BOPOverworldBiomes.goldenPrairie());
         registerBiome(BOPBiomes.HIGHLAND, BOPOverworldBiomes.highland(false));
         registerBiome(BOPBiomes.HIGHLAND_MOOR, BOPOverworldBiomes.highland(true));
+        registerBiome(BOPBiomes.JADE_CLIFFS, BOPOverworldBiomes.jadeCliffs());
         registerBiome(BOPBiomes.LAVENDER_FIELD, BOPOverworldBiomes.lavenderField(false));
         registerBiome(BOPBiomes.LAVENDER_FOREST, BOPOverworldBiomes.lavenderField(true));
         registerBiome(BOPBiomes.LUSH_DESERT, BOPOverworldBiomes.lushDesert());
