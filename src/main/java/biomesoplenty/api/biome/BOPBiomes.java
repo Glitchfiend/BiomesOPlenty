@@ -45,6 +45,7 @@ public class BOPBiomes
     public static final ResourceKey<Biome> OLD_GROWTH_DEAD_FOREST = register("old_growth_dead_forest");
     public static final ResourceKey<Biome> OMINOUS_WOODS = register("ominous_woods");
     public static final ResourceKey<Biome> ORCHARD = register("orchard");
+    public static final ResourceKey<Biome> ORIGIN_VALLEY = register("origin_valley");
     public static final ResourceKey<Biome> PRAIRIE = register("prairie");
     public static final ResourceKey<Biome> RAINFOREST = register("rainforest");
     public static final ResourceKey<Biome> RAINFOREST_FLOODPLAIN = register("rainforest_floodplain");
