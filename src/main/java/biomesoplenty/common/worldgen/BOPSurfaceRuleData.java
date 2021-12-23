@@ -55,6 +55,8 @@ public class BOPSurfaceRuleData
     private static final SurfaceRules.RuleSource DRIED_SALT = makeStateRule(BOPBlocks.DRIED_SALT);
     private static final SurfaceRules.RuleSource ORANGE_SAND = makeStateRule(BOPBlocks.ORANGE_SAND);
     private static final SurfaceRules.RuleSource ORANGE_SANDSTONE = makeStateRule(BOPBlocks.ORANGE_SANDSTONE);
+    private static final SurfaceRules.RuleSource BLACK_SAND = makeStateRule(BOPBlocks.BLACK_SAND);
+    private static final SurfaceRules.RuleSource BLACK_SANDSTONE = makeStateRule(BOPBlocks.BLACK_SANDSTONE);
 
     private static SurfaceRules.RuleSource makeStateRule(Block p_194811_) {
         return SurfaceRules.state(p_194811_.defaultBlockState());
@@ -104,7 +106,42 @@ public class BOPSurfaceRuleData
 
         SurfaceRules.RuleSource surfacerules$rulesource4 = SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.POWDER_SNOW, 0.45D, 0.58D), POWDER_SNOW);
         SurfaceRules.RuleSource surfacerules$rulesource5 = SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.POWDER_SNOW, 0.35D, 0.6D), POWDER_SNOW);
-        SurfaceRules.RuleSource surfacerules$rulesource6 = SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.isBiome(Biomes.FROZEN_PEAKS), SurfaceRules.sequence(SurfaceRules.ifTrue(isSteep, PACKED_ICE), SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.PACKED_ICE, -0.5D, 0.2D), PACKED_ICE), SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.ICE, -0.0625D, 0.025D), ICE), SNOW_BLOCK)), SurfaceRules.ifTrue(SurfaceRules.isBiome(Biomes.SNOWY_SLOPES), SurfaceRules.sequence(SurfaceRules.ifTrue(isSteep, STONE), surfacerules$rulesource4, SNOW_BLOCK)), SurfaceRules.ifTrue(SurfaceRules.isBiome(Biomes.JAGGED_PEAKS), STONE), SurfaceRules.ifTrue(SurfaceRules.isBiome(Biomes.GROVE), SurfaceRules.sequence(surfacerules$rulesource4, DIRT)), surfacerules$rulesource3, SurfaceRules.ifTrue(SurfaceRules.isBiome(Biomes.WINDSWEPT_SAVANNA), SurfaceRules.ifTrue(surfaceNoiseAbove(1.75D), STONE)), SurfaceRules.ifTrue(SurfaceRules.isBiome(Biomes.WINDSWEPT_GRAVELLY_HILLS), SurfaceRules.sequence(SurfaceRules.ifTrue(surfaceNoiseAbove(2.0D), surfacerules$rulesource2), SurfaceRules.ifTrue(surfaceNoiseAbove(1.0D), STONE), SurfaceRules.ifTrue(surfaceNoiseAbove(-1.0D), DIRT), surfacerules$rulesource2)), DIRT);
+        SurfaceRules.RuleSource surfacerules$rulesource6 = SurfaceRules.sequence(
+            SurfaceRules.ifTrue(
+                SurfaceRules.isBiome(Biomes.FROZEN_PEAKS),
+                SurfaceRules.sequence(
+                    SurfaceRules.ifTrue(isSteep, PACKED_ICE),
+                    SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.PACKED_ICE, -0.5D, 0.2D), PACKED_ICE),
+                    SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.ICE, -0.0625D, 0.025D), ICE), SNOW_BLOCK
+                )
+            ),
+            SurfaceRules.ifTrue(
+                SurfaceRules.isBiome(Biomes.SNOWY_SLOPES),
+                SurfaceRules.sequence(
+                    SurfaceRules.ifTrue(isSteep, STONE), surfacerules$rulesource4, SNOW_BLOCK
+                )
+            ),
+            SurfaceRules.ifTrue(SurfaceRules.isBiome(Biomes.JAGGED_PEAKS), STONE),
+            SurfaceRules.ifTrue(
+                SurfaceRules.isBiome(Biomes.GROVE),
+                SurfaceRules.sequence(surfacerules$rulesource4, DIRT)
+            ),
+            surfacerules$rulesource3,
+            SurfaceRules.ifTrue(
+                SurfaceRules.isBiome(Biomes.WINDSWEPT_SAVANNA),
+                SurfaceRules.ifTrue(surfaceNoiseAbove(1.75D), STONE)
+            ),
+            SurfaceRules.ifTrue(
+                SurfaceRules.isBiome(Biomes.WINDSWEPT_GRAVELLY_HILLS),
+                SurfaceRules.sequence(
+                    SurfaceRules.ifTrue(surfaceNoiseAbove(2.0D), surfacerules$rulesource2),
+                    SurfaceRules.ifTrue(surfaceNoiseAbove(1.0D), STONE),
+                    SurfaceRules.ifTrue(surfaceNoiseAbove(-1.0D), DIRT),
+                    surfacerules$rulesource2
+                )
+            ),
+            DIRT
+        );
 
         SurfaceRules.RuleSource atOrAboveWaterLevelRules = SurfaceRules.sequence(
             SurfaceRules.ifTrue(
@@ -319,28 +356,59 @@ public class BOPSurfaceRuleData
 
     private static SurfaceRules.RuleSource makeBOPRules()
     {
+        // Conditions
         SurfaceRules.ConditionSource isAtOrAboveWaterLevel = SurfaceRules.waterBlockCheck(-1, 0);
+        SurfaceRules.ConditionSource sixBelowWater = SurfaceRules.waterStartCheck(-6, -1);
         SurfaceRules.ConditionSource isAbove62 = SurfaceRules.yBlockCheck(VerticalAnchor.absolute(62), 0);
         SurfaceRules.ConditionSource isAbove63 = SurfaceRules.yBlockCheck(VerticalAnchor.absolute(63), 0);
-
 
         SurfaceRules.RuleSource powderedSnowSurface = SurfaceRules.sequence(
             SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, POWDER_SNOW),
             SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, POWDER_SNOW)
         );
 
+        SurfaceRules.RuleSource mixedLushDesertSurface = SurfaceRules.sequence(
+            SurfaceRules.ifTrue(surfaceNoiseAbove(1.9D), ORANGE_SANDSTONE),
+            ORANGE_SAND
+        );
+
+        // Sandstone linings
+        SurfaceRules.RuleSource lushDesertSandstoneLinedOrangeSand = SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.ON_CEILING, ORANGE_SANDSTONE), mixedLushDesertSurface);
+        SurfaceRules.RuleSource blackSandstoneLining = SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.ON_CEILING, BLACK_SANDSTONE), BLACK_SAND);
+
         return SurfaceRules.sequence(
             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.CRAG),
                 SurfaceRules.ifTrue(surfaceNoiseAbove(1.9D), GRAVEL)
             ),
             SurfaceRules.ifTrue(
+                sixBelowWater,
+                SurfaceRules.sequence(
+                    SurfaceRules.ifTrue(
+                        SurfaceRules.UNDER_FLOOR,
+                        SurfaceRules.sequence(
+                            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.LUSH_DESERT), lushDesertSandstoneLinedOrangeSand),
+                            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.VOLCANIC_PLAINS), blackSandstoneLining)
+                        )
+                    ),
+                    SurfaceRules.ifTrue(
+                        SurfaceRules.stoneDepthCheck(0, true, true, CaveSurface.FLOOR),
+                        SurfaceRules.sequence(
+                            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.LUSH_DESERT), ORANGE_SANDSTONE),
+                            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.VOLCANIC_PLAINS), BLACK_SANDSTONE)
+                        )
+                    )
+                )
+            ),
+            SurfaceRules.ifTrue(
                 SurfaceRules.ON_FLOOR,
                 SurfaceRules.sequence(
                     SurfaceRules.ifTrue(
+                        // Swamp water noise
                         SurfaceRules.isBiome(BOPBiomes.MARSH, BOPBiomes.RAINFOREST_FLOODPLAIN),
                         SurfaceRules.ifTrue(
                             isAbove62,
-                            SurfaceRules.ifTrue(SurfaceRules.not(isAbove63),
+                            SurfaceRules.ifTrue(
+                                SurfaceRules.not(isAbove63),
                                 SurfaceRules.ifTrue(
                                     SurfaceRules.noiseCondition(Noises.SWAMP, 0.0D),
                                     WATER
@@ -349,12 +417,9 @@ public class BOPSurfaceRuleData
                         )
                     ),
                     SurfaceRules.ifTrue(
+                        // Grass substitutes
                         isAtOrAboveWaterLevel,
                         SurfaceRules.sequence(
-                            SurfaceRules.ifTrue(
-                                SurfaceRules.isBiome(BOPBiomes.LUSH_DESERT),
-                                SurfaceRules.ifTrue(SurfaceRules.ON_CEILING, ORANGE_SANDSTONE)
-                            ),
                             SurfaceRules.ifTrue(
                                 SurfaceRules.isBiome(BOPBiomes.MEDITERRANEAN_FOREST),
                                 SurfaceRules.ifTrue(surfaceNoiseAbove(1.9D), PODZOL)
@@ -363,6 +428,7 @@ public class BOPSurfaceRuleData
                         )
                     ),
                     SurfaceRules.ifTrue(
+                        // Underwater lining
                         SurfaceRules.not(isAtOrAboveWaterLevel),
                         SurfaceRules.sequence(
                             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.CRAG), GRAVEL),
@@ -385,13 +451,6 @@ public class BOPSurfaceRuleData
                 SurfaceRules.ifTrue(surfaceNoiseAbove(1.75D), SAND)
             ),
             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.GRAVEL_BEACH), GRAVEL),
-            SurfaceRules.ifTrue(
-                SurfaceRules.isBiome(BOPBiomes.LUSH_DESERT),
-                SurfaceRules.sequence(
-                    SurfaceRules.ifTrue(surfaceNoiseAbove(1.9D), ORANGE_SANDSTONE),
-                    ORANGE_SAND
-                )
-            ),
             SurfaceRules.ifTrue(
                 SurfaceRules.isBiome(BOPBiomes.VOLCANO),
                 SurfaceRules.sequence(

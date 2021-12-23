@@ -170,7 +170,7 @@ public final class BOPOverworldBiomeBuilder
             {BOPBiomes.BOREAL_FOREST, null,                      null,                         null,                    null},
             {null,                    BOPBiomes.LAVENDER_FOREST, null,                         BOPBiomes.HIGHLAND_MOOR, BOPBiomes.BAMBOO_BLOSSOM_GROVE},
             {null,                    null,                      null,                         null,                    null},
-            {null,                    null,                      null,                         null,                    null}
+            {null,                    null,                      null,                         null,                    BOPBiomes.VOLCANIC_PLAINS}
     };
 
     private final ResourceKey<Biome>[][] EXTREME_HILLS = new ResourceKey[][]{
