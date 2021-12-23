@@ -64,6 +64,7 @@ public class ModBiomes
         registerBiome(BOPBiomes.DENSE_WOODLAND, BOPOverworldBiomes.woodland(true));
         registerBiome(BOPBiomes.DRY_BONEYARD, BOPOverworldBiomes.dryBoneyard());
         registerBiome(BOPBiomes.DRYLAND, BOPOverworldBiomes.dryland());
+        registerBiome(BOPBiomes.DUNES, BOPOverworldBiomes.dunes());
         registerBiome(BOPBiomes.FIELD, BOPOverworldBiomes.field(false));
         registerBiome(BOPBiomes.FIR_CLEARING, BOPOverworldBiomes.firClearing(false));
         registerBiome(BOPBiomes.FORESTED_FIELD, BOPOverworldBiomes.field(true));

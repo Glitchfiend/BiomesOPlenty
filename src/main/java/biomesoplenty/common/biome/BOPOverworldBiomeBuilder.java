@@ -373,9 +373,9 @@ public final class BOPOverworldBiomeBuilder
                 ResourceKey<Biome> extremeHillsBiomeBOP       = this.pickExtremeHillsBiomeBOP(i, j, weirdness);
                 ResourceKey<Biome> plateauBiomeVanilla        = this.pickPlateauBiomeVanilla(i, j, weirdness);
                 ResourceKey<Biome> plateauBiomeBOP            = this.pickPlateauBiomeBOP(biomeRegistry, i, j, weirdness);
-                ResourceKey<Biome> beachBiome                 = this.pickBeachBiome(i, j);
+                ResourceKey<Biome> beachBiome                 = this.pickBeachBiome(biomeRegistry, i, j);
                 ResourceKey<Biome> shatteredBiome             = this.maybePickShatteredBiome(i, j, weirdness, middleBiomeVanilla);
-                ResourceKey<Biome> shatteredCoastBiome        = this.pickShatteredCoastBiome(i, j, weirdness);
+                ResourceKey<Biome> shatteredCoastBiome        = this.pickShatteredCoastBiome(biomeRegistry, i, j, weirdness);
                 ResourceKey<Biome> slopeBiomeVanilla          = this.pickSlopeBiomeVanilla(i, j, weirdness);
                 ResourceKey<Biome> slopeBiomeBOP              = this.pickSlopeBiomeBOP(biomeRegistry, i, j, weirdness);
                 ResourceKey<Biome> swampBiomeBOP              = this.pickSwampBiomeBOP(biomeRegistry, i, j, weirdness);
@@ -443,9 +443,9 @@ public final class BOPOverworldBiomeBuilder
                 ResourceKey<Biome> middleBadlandsOrSlopeBiomeVanilla   = this.pickMiddleBiomeOrBadlandsIfHotOrSlopeIfColdVanilla(i, j, weirdness);
                 ResourceKey<Biome> middleBadlandsOrSlopeBiomeBOP       = this.pickMiddleBiomeOrBadlandsIfHotOrSlopeIfColdBOP(biomeRegistry, i, j, weirdness);
 
-                ResourceKey<Biome> beachBiome                   = this.pickBeachBiome(i, j);
+                ResourceKey<Biome> beachBiome                   = this.pickBeachBiome(biomeRegistry, i, j);
                 ResourceKey<Biome> shatteredBiome               = this.maybePickShatteredBiome(i, j, weirdness, middleBiomeVanilla);
-                ResourceKey<Biome> shatteredCoastBiome          = this.pickShatteredCoastBiome(i, j, weirdness);
+                ResourceKey<Biome> shatteredCoastBiome          = this.pickShatteredCoastBiome(biomeRegistry, i, j, weirdness);
 
                 ResourceKey<Biome> rareBiomeBOP                 = this.pickRareBiomeBOP(biomeRegistry, i, j, weirdness);
                 ResourceKey<Biome> swampBiomeBOP                = this.pickSwampBiomeBOP(biomeRegistry, i, j, weirdness);
@@ -587,18 +587,23 @@ public final class BOPOverworldBiomeBuilder
         return temperatureIndex > 1 && humidityIndex < 4 && weirdness.max() >= 0L ? Biomes.WINDSWEPT_SAVANNA : extremeHillsBiome;
     }
 
-    private ResourceKey<Biome> pickShatteredCoastBiome(int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
+    private ResourceKey<Biome> pickShatteredCoastBiome(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
     {
-        ResourceKey<Biome> resourcekey = weirdness.max() >= 0L ? this.pickMiddleBiomeVanilla(temperatureIndex, humidityIndex, weirdness) : this.pickBeachBiome(temperatureIndex, humidityIndex);
+        ResourceKey<Biome> resourcekey = weirdness.max() >= 0L ? this.pickMiddleBiomeVanilla(temperatureIndex, humidityIndex, weirdness) : this.pickBeachBiome(biomeRegistry, temperatureIndex, humidityIndex);
         return this.maybePickShatteredBiome(temperatureIndex, humidityIndex, weirdness, resourcekey);
     }
 
-    private ResourceKey<Biome> pickBeachBiome(int temperatureIndex, int humidityIndex)
+    private ResourceKey<Biome> pickBeachBiome(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex)
     {
         if (temperatureIndex == 0)
             return Biomes.SNOWY_BEACH;
-        else if (temperatureIndex == 1 || (temperatureIndex == 2 && humidityIndex >= 2))
-            return BOPBiomes.GRAVEL_BEACH;
+        else if (temperatureIndex == 1)
+            return biomeOrFallback(biomeRegistry, BOPBiomes.GRAVEL_BEACH, Biomes.BEACH);
+        else if (temperatureIndex == 2)
+        {
+            if (humidityIndex < 2) return biomeOrFallback(biomeRegistry, BOPBiomes.DUNES, Biomes.BEACH);
+            else return biomeOrFallback(biomeRegistry, BOPBiomes.GRAVEL_BEACH, Biomes.BEACH);
+        }
         else
         {
             return temperatureIndex == 4 ? Biomes.DESERT : Biomes.BEACH;
