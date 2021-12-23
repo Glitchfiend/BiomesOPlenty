@@ -90,6 +90,7 @@ public class ModBiomes
         registerBiome(BOPBiomes.RAINFOREST, BOPOverworldBiomes.rainforest());
         registerBiome(BOPBiomes.RAINFOREST_FLOODPLAIN, BOPOverworldBiomes.rainforestFloodplain());
         registerBiome(BOPBiomes.REDWOOD_FOREST, BOPOverworldBiomes.redwoodForest());
+        registerBiome(BOPBiomes.ROCKY_SHRUBLAND, BOPOverworldBiomes.rockyShrubland());
         registerBiome(BOPBiomes.SCRUBLAND, BOPOverworldBiomes.scrubland(false));
         registerBiome(BOPBiomes.SHRUBLAND, BOPOverworldBiomes.shrubland());
         registerBiome(BOPBiomes.SEASONAL_FOREST, BOPOverworldBiomes.seasonalForest());
