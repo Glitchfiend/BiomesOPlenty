@@ -64,6 +64,7 @@ public class BOPVegetationPlacements
     public static final PlacedFeature PATCH_SPROUTS_5 = register("patch_sprouts_5", BOPVegetationFeatures.PATCH_SPROUTS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature PATCH_SPROUTS_10 = register("patch_sprouts_10", BOPVegetationFeatures.PATCH_SPROUTS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(4)));
     public static final PlacedFeature PATCH_SPROUTS_15 = register("patch_sprouts_15", BOPVegetationFeatures.PATCH_SPROUTS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(6)));
+    public static final PlacedFeature PATCH_SPROUTS_25 = register("patch_sprouts_25", BOPVegetationFeatures.PATCH_SPROUTS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(10)));
     public static final PlacedFeature PATCH_SPROUTS_50 = register("patch_sprouts_50", BOPVegetationFeatures.PATCH_SPROUTS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(20)));
     public static final PlacedFeature PATCH_SPROUTS_200 = register("patch_sprouts_200", BOPVegetationFeatures.PATCH_SPROUTS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(80)));
     public static final PlacedFeature PATCH_TALL_GRASS_6 = register("patch_tall_grass_6", VegetationFeatures.PATCH_TALL_GRASS.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
@@ -71,6 +72,7 @@ public class BOPVegetationPlacements
     public static final PlacedFeature PATCH_TALL_GRASS_24 = register("patch_tall_grass_24", VegetationFeatures.PATCH_TALL_GRASS.placed(RarityFilter.onAverageOnceEvery(12), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature PATCH_TALL_GRASS_64 = register("patch_tall_grass_64", VegetationFeatures.PATCH_TALL_GRASS.placed(RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature PATCH_TALL_GRASS_250 = register("patch_tall_grass_250", VegetationFeatures.PATCH_TALL_GRASS.placed(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+    public static final PlacedFeature RAINFOREST_CLIFFS_VINES = register("rainforest_cliffs_vines", BOPVegetationFeatures.RAINFOREST_CLIFFS_VINES.placed(VegetationPlacements.worldSurfaceSquaredWithCount(10)));
     public static final PlacedFeature SMALL_TOADSTOOL = register("small_toadstool", BOPVegetationFeatures.SMALL_TOADSTOOL.placed(RarityFilter.onAverageOnceEvery(6), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature SMALL_RED_MUSHROOM = register("small_red_mushroom", BOPVegetationFeatures.SMALL_RED_MUSHROOM.placed(RarityFilter.onAverageOnceEvery(6), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature WASTELAND_GRASS_1 = register("wasteland_grass_1", BOPVegetationFeatures.WASTELAND_GRASS.placed(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
@@ -156,6 +158,7 @@ public class BOPVegetationPlacements
     public static final PlacedFeature TREES_WOODED_SCRUBLAND = register("trees_wooded_scrubland", BOPVegetationFeatures.TREES_WOODED_SCRUBLAND.placed(treePlacement(PlacementUtils.countExtra(6, 0.1F, 1))));
     public static final PlacedFeature TREES_WOODLAND = register("trees_woodland", TreeFeatures.OAK.placed(treePlacement(PlacementUtils.countExtra(6, 0.1F, 1), Blocks.OAK_SAPLING)));
     public static final PlacedFeature TREES_RAINFOREST = register("trees_rainforest", BOPVegetationFeatures.TREES_RAINFOREST.placed(treePlacement(PlacementUtils.countExtra(12, 0.2F, 1))));
+    public static final PlacedFeature TREES_RAINFOREST_CLIFFS = register("trees_rainforest_cliffs", BOPVegetationFeatures.TREES_RAINFOREST_CLIFFS.placed(treePlacement(PlacementUtils.countExtra(20, 0.2F, 1))));
     public static final PlacedFeature TREES_RAINFOREST_FLOODPLAIN = register("trees_rainforest_floodplain", BOPVegetationFeatures.TREES_RAINFOREST_FLOODPLAIN.placed(treePlacement(PlacementUtils.countExtra(1, 0.2F, 1))));
     public static final PlacedFeature TREES_REDWOOD_FOREST = register("trees_redwood_forest", BOPVegetationFeatures.TREES_REDWOOD_FOREST.placed(treePlacement(PlacementUtils.countExtra(16, 0.2F, 1))));
     public static final PlacedFeature TREES_ROCKY_SHRUBLAND = register("trees_rocky_shrubland", BOPTreeFeatures.OAK_BUSH.placed(treePlacement(PlacementUtils.countExtra(10, 0.05F, 1), Blocks.OAK_SAPLING)));

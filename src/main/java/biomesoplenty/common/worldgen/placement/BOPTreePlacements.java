@@ -47,6 +47,7 @@ public class BOPTreePlacements
     public static final PlacedFeature GIANT_TREE_CHECKED = register("giant_tree", BOPTreeFeatures.GIANT_TREE.filteredByBlockSurvival(Blocks.DARK_OAK_SAPLING));
     public static final PlacedFeature JACARANDA_TREE_BEES_CHECKED = register("jacaranda_tree_bees", BOPTreeFeatures.JACARANDA_TREE_BEES.filteredByBlockSurvival(BOPBlocks.JACARANDA_SAPLING));
     public static final PlacedFeature JACARANDA_TREE_CHECKED = register("jacaranda_tree", BOPTreeFeatures.JACARANDA_TREE.filteredByBlockSurvival(BOPBlocks.JACARANDA_SAPLING));
+    public static final PlacedFeature JUNGLE_TWIGLET_TREE_CHECKED = register("jungle_twiglet_tree", BOPTreeFeatures.JUNGLE_TWIGLET_TREE.filteredByBlockSurvival(Blocks.JUNGLE_SAPLING));
     public static final PlacedFeature MAGIC_TREE_CHECKED = register("magic_tree", BOPTreeFeatures.MAGIC_TREE.filteredByBlockSurvival(BOPBlocks.MAGIC_SAPLING));
     public static final PlacedFeature MAHOGANY_TREE_CHECKED = register("mahogany_tree", BOPTreeFeatures.MAHOGANY_TREE.filteredByBlockSurvival(BOPBlocks.MAHOGANY_SAPLING));
     public static final PlacedFeature MAPLE_TREE_CHECKED = register("maple_tree_checked", BOPTreeFeatures.MAPLE_TREE.filteredByBlockSurvival(BOPBlocks.MAPLE_SAPLING));

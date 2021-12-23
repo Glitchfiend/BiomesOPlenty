@@ -383,6 +383,9 @@ public class BOPSurfaceRuleData
             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.CRAG),
                 SurfaceRules.ifTrue(surfaceNoiseAbove(1.9D), GRAVEL)
             ),
+            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.RAINFOREST_CLIFFS),
+                SurfaceRules.ifTrue(surfaceNoiseAbove(1.9D), TERRACOTTA)
+            ),
             SurfaceRules.ifTrue(
                 sixBelowWater,
                 SurfaceRules.sequence(
@@ -439,7 +442,7 @@ public class BOPSurfaceRuleData
                         // Underwater lining
                         SurfaceRules.not(isAtOrAboveWaterLevel),
                         SurfaceRules.sequence(
-                            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.CRAG), GRAVEL),
+                            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.CRAG, BOPBiomes.RAINFOREST_CLIFFS), GRAVEL),
                             SurfaceRules.ifTrue(
                                 SurfaceRules.isBiome(BOPBiomes.VOLCANO),
                                 SurfaceRules.ifTrue(surfaceNoiseAbove(2.7D), BASALT)

@@ -169,7 +169,7 @@ public final class BOPOverworldBiomeBuilder
             {BOPBiomes.COLD_DESERT,      BOPBiomes.TUNDRA,               BOPBiomes.SNOWY_FIR_CLEARING, null,                  BOPBiomes.DEAD_FOREST},
             {BOPBiomes.SEASONAL_FOREST,  BOPBiomes.CONIFEROUS_FOREST,    BOPBiomes.HIGHLAND,           BOPBiomes.HIGHLAND,    BOPBiomes.FIELD},
             {BOPBiomes.ORCHARD,          BOPBiomes.ROCKY_SHRUBLAND,      BOPBiomes.ROCKY_SHRUBLAND,    BOPBiomes.HIGHLAND,    BOPBiomes.HIGHLAND},
-            {BOPBiomes.WOODED_SCRUBLAND, BOPBiomes.MEDITERRANEAN_FOREST, BOPBiomes.WOODLAND,           BOPBiomes.RAINFOREST,  null},
+            {BOPBiomes.WOODED_SCRUBLAND, BOPBiomes.MEDITERRANEAN_FOREST, BOPBiomes.WOODLAND,           BOPBiomes.RAINFOREST,  BOPBiomes.RAINFOREST_CLIFFS},
             {BOPBiomes.WASTELAND,        BOPBiomes.WASTELAND,            BOPBiomes.DRYLAND,            BOPBiomes.LUSH_DESERT, BOPBiomes.VOLCANO}
     };
 
@@ -193,7 +193,7 @@ public final class BOPOverworldBiomeBuilder
             {null,                            null,                            null,                   null,           null},
             {null,                            null,                            BOPBiomes.CRAG,         BOPBiomes.CRAG, null},
             {null,                            null,                            BOPBiomes.JADE_CLIFFS,  BOPBiomes.CRAG, BOPBiomes.CRAG},
-            {null,                            null,                            null,                   null,           null},
+            {null,                            null,                            null,                   null,           BOPBiomes.RAINFOREST_CLIFFS},
             {null,                            null,                            null,                   null,           BOPBiomes.VOLCANO}
     };
 

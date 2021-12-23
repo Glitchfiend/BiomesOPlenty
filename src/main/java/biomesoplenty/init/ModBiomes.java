@@ -89,6 +89,7 @@ public class ModBiomes
         registerBiome(BOPBiomes.ORIGIN_VALLEY, BOPOverworldBiomes.originValley());
         registerBiome(BOPBiomes.PRAIRIE, BOPOverworldBiomes.prairie());
         registerBiome(BOPBiomes.RAINFOREST, BOPOverworldBiomes.rainforest());
+        registerBiome(BOPBiomes.RAINFOREST_CLIFFS, BOPOverworldBiomes.rainforestCliffs());
         registerBiome(BOPBiomes.RAINFOREST_FLOODPLAIN, BOPOverworldBiomes.rainforestFloodplain());
         registerBiome(BOPBiomes.REDWOOD_FOREST, BOPOverworldBiomes.redwoodForest());
         registerBiome(BOPBiomes.ROCKY_SHRUBLAND, BOPOverworldBiomes.rockyShrubland());
