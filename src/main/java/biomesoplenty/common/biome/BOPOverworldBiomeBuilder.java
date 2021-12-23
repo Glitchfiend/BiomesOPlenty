@@ -129,7 +129,7 @@ public final class BOPOverworldBiomeBuilder
             {BOPBiomes.SEASONAL_PUMPKIN_PATCH, BOPBiomes.FIR_CLEARING,   null,                         null,                         BOPBiomes.FORESTED_FIELD},
             {BOPBiomes.GOLDEN_PRAIRIE,         BOPBiomes.LAVENDER_FIELD, BOPBiomes.REDWOOD_FOREST,     null,                         BOPBiomes.CHERRY_BLOSSOM_GROVE},
             {null,                             null,                     BOPBiomes.DENSE_WOODLAND,     null,                         null},
-            {null,                             null,                     BOPBiomes.DRY_BONEYARD,       null,                         null}
+            {null,                             null,                     BOPBiomes.DRY_BONEYARD,       BOPBiomes.LUSH_SAVANNA,       null}
     };
 
     private final ResourceKey<Biome>[][] SWAMP_BIOMES_BOP = new ResourceKey[][]{
@@ -178,7 +178,7 @@ public final class BOPOverworldBiomeBuilder
             {BOPBiomes.BOREAL_FOREST, null,                      null,                         null,                    null},
             {null,                    BOPBiomes.LAVENDER_FOREST, null,                         BOPBiomes.HIGHLAND_MOOR, BOPBiomes.BAMBOO_BLOSSOM_GROVE},
             {null,                    null,                      null,                         null,                    null},
-            {null,                    null,                      null,                         null,                    BOPBiomes.VOLCANIC_PLAINS}
+            {null,                    null,                      null,                         BOPBiomes.LUSH_SAVANNA,  BOPBiomes.VOLCANIC_PLAINS}
     };
 
     private final ResourceKey<Biome>[][] EXTREME_HILLS = new ResourceKey[][]{
