@@ -576,9 +576,9 @@ public final class BOPOverworldBiomeBuilder
     private ResourceKey<Biome> pickBeachBiome(int temperatureIndex, int humidityIndex)
     {
         if (temperatureIndex == 0)
-        {
             return Biomes.SNOWY_BEACH;
-        }
+        else if (temperatureIndex == 1 || (temperatureIndex == 2 && humidityIndex >= 2))
+            return BOPBiomes.GRAVEL_BEACH;
         else
         {
             return temperatureIndex == 4 ? Biomes.DESERT : Biomes.BEACH;

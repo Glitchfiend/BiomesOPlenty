@@ -377,6 +377,7 @@ public class BOPSurfaceRuleData
             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.DRY_BONEYARD, BOPBiomes.DRYLAND),
                 SurfaceRules.ifTrue(surfaceNoiseAbove(1.75D), SAND)
             ),
+            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.GRAVEL_BEACH), GRAVEL),
             SurfaceRules.ifTrue(
                 SurfaceRules.isBiome(BOPBiomes.LUSH_DESERT),
                 SurfaceRules.sequence(

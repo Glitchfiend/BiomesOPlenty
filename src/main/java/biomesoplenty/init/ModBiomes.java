@@ -67,6 +67,7 @@ public class ModBiomes
         registerBiome(BOPBiomes.FIR_CLEARING, BOPOverworldBiomes.firClearing(false));
         registerBiome(BOPBiomes.FORESTED_FIELD, BOPOverworldBiomes.field(true));
         registerBiome(BOPBiomes.GRASSLAND, BOPOverworldBiomes.grassland());
+        registerBiome(BOPBiomes.GRAVEL_BEACH, BOPOverworldBiomes.gravelBeach());
         registerBiome(BOPBiomes.GOLDEN_PRAIRIE, BOPOverworldBiomes.goldenPrairie());
         registerBiome(BOPBiomes.HIGHLAND, BOPOverworldBiomes.highland(false));
         registerBiome(BOPBiomes.HIGHLAND_MOOR, BOPOverworldBiomes.highland(true));
