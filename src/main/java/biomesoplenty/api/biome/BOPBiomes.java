@@ -38,6 +38,7 @@ public class BOPBiomes
     public static final ResourceKey<Biome> LAVENDER_FIELD = register("lavender_field");
     public static final ResourceKey<Biome> LAVENDER_FOREST = register("lavender_forest");
     public static final ResourceKey<Biome> LUSH_DESERT = register("lush_desert");
+    public static final ResourceKey<Biome> LUSH_SAVANNA = register("lush_savanna");
     public static final ResourceKey<Biome> MARSH = register("marsh");
     public static final ResourceKey<Biome> MEDITERRANEAN_FOREST = register("mediterranean_forest");
     public static final ResourceKey<Biome> MEDITERRANEAN_LAKES = register("mediterranean_lakes");
