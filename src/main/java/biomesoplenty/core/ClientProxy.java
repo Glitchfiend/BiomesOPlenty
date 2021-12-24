@@ -4,17 +4,22 @@
  ******************************************************************************/
 package biomesoplenty.core;
 
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.BlockAndTintGetter;
+import net.minecraft.world.level.ColorResolver;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.GrassColor;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.state.BlockState;
 
 import java.awt.*;
@@ -54,6 +59,29 @@ public class ClientProxy extends CommonProxy
             return blockColors.getColor(state, null, null, tintIndex); },
         	BOPBlocks.SPROUT, BOPBlocks.BUSH, BOPBlocks.CLOVER, BOPBlocks.HUGE_CLOVER_PETAL, BOPBlocks.FLOWERING_OAK_LEAVES,
             BOPBlocks.MAHOGANY_LEAVES, BOPBlocks.PALM_LEAVES, BOPBlocks.WILLOW_LEAVES, BOPBlocks.WILLOW_VINE);
+
+        ColorResolver grassColorResolver = BiomeColors.GRASS_COLOR_RESOLVER;
+        ColorResolver foliageColorResolver = BiomeColors.FOLIAGE_COLOR_RESOLVER;
+        ColorResolver waterColorResolver = BiomeColors.WATER_COLOR_RESOLVER;
+
+        BiomeColors.GRASS_COLOR_RESOLVER = (biome, posX, posZ) ->
+        {
+            ResourceKey<Biome> key = Minecraft.getInstance().level.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY).getResourceKey(biome).orElse(null);
+
+            if (key == BOPBiomes.RAINBOW_HILLS)
+            {
+                double d0 = Biome.BIOME_INFO_NOISE.getValue(posX * 0.0225D, posZ * 0.0225D, false);
+                return d0 < -0.1D ? 0x77CE7F : 0x75CE8D;
+            }
+
+            return grassColorResolver.getColor(biome, posX, posZ);
+        };
+
+        BiomeColors.FOLIAGE_COLOR_RESOLVER = (biome, posX, posZ) ->
+        {
+            ResourceKey<Biome> key = Minecraft.getInstance().level.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY).getResourceKey(biome).orElse(null);
+            return foliageColorResolver.getColor(biome, posX, posZ);
+        };
     }
 
     public static int getRainbowBirchColor(BlockAndTintGetter world, BlockPos pos)
