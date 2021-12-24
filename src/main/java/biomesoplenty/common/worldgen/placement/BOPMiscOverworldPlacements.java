@@ -13,7 +13,9 @@ import net.minecraft.data.worldgen.features.MiscOverworldFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
+import net.minecraft.world.level.levelgen.heightproviders.VeryBiasedToBottomHeight;
 import net.minecraft.world.level.levelgen.placement.*;
 
 public class BOPMiscOverworldPlacements
@@ -27,6 +29,10 @@ public class BOPMiscOverworldPlacements
     public static final PlacedFeature DISK_MUD = register("disk_mud", BOPMiscOverworldFeatures.DISK_MUD.placed(CountPlacement.of(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
     public static final PlacedFeature DISK_ORANGE_SAND = register("disk_orange_sand", BOPMiscOverworldFeatures.DISK_ORANGE_SAND.placed(CountPlacement.of(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
     public static final PlacedFeature DISK_WHITE_SAND = register("disk_white_sand", BOPMiscOverworldFeatures.DISK_WHITE_SAND.placed(CountPlacement.of(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
+    public static final PlacedFeature DISK_WHITE_SAND_EXTRA = register("disk_white_sand_extra", BOPMiscOverworldFeatures.DISK_WHITE_SAND_EXTRA.placed(CountPlacement.of(8), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
+    public static final PlacedFeature GRASS_SPLATTER = register("grass_splatter", BOPMiscOverworldFeatures.GRASS_SPLATTER.placed(CountPlacement.of(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
+    public static final PlacedFeature LAKE_LAVA_SURFACE_EXTRA = register("lake_lava_surface_extra", MiscOverworldFeatures.LAKE_LAVA.placed(CountPlacement.of(30), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
+    public static final PlacedFeature SPRING_LAVA_VOLCANO = register("spring_lava_volcano", BOPMiscOverworldFeatures.SPRING_LAVA_VOLCANO.placed(CountPlacement.of(128), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome()));
     public static final PlacedFeature SPRING_WATER_EXTRA = register("spring_water_extra", BOPMiscOverworldFeatures.SPRING_WATER_EXTRA.placed(CountPlacement.of(128), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(192)), BiomeFilter.biome()));
 
     public static PlacedFeature register(String key, PlacedFeature feature)

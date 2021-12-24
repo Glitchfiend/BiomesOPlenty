@@ -11,7 +11,7 @@ import net.minecraft.world.level.levelgen.*;
 public class BOPNoiseGeneratorSettings
 {
     public static final NoiseGeneratorSettings BOP = new NoiseGeneratorSettings(
-            new StructureSettings(true),
+            new BOPStructureSettings(true),
             NoiseSettings.create(
                     -64, 384,
                     new NoiseSamplingSettings(1.0D, 1.0D, 80.0D, 160.0D),
