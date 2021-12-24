@@ -88,11 +88,8 @@ public class ModBiomes
         registerBiome(BOPBiomes.ORIGIN_VALLEY, BOPOverworldBiomes.originValley());
         registerBiome(BOPBiomes.PASTURE, BOPOverworldBiomes.pasture());
         registerBiome(BOPBiomes.PRAIRIE, BOPOverworldBiomes.prairie());
-<<<<<<< HEAD
         registerBiome(BOPBiomes.PUMPKIN_PATCH, BOPOverworldBiomes.pumpkinPatch());
-=======
         registerBiome(BOPBiomes.RAINBOW_HILLS, BOPOverworldBiomes.rainbowHills());
->>>>>>> e73df6ba (Rainbow hills WIP)
         registerBiome(BOPBiomes.RAINFOREST, BOPOverworldBiomes.rainforest());
         registerBiome(BOPBiomes.RAINFOREST_CLIFFS, BOPOverworldBiomes.rainforestCliffs());
         registerBiome(BOPBiomes.REDWOOD_FOREST, BOPOverworldBiomes.redwoodForest());
