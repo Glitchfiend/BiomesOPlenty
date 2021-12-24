@@ -126,8 +126,8 @@ public final class BOPOverworldBiomeBuilder
 
     private final ResourceKey<Biome>[][] MIDDLE_BIOMES_VARIANT_BOP = new ResourceKey[][]{
             {null,                             null,                     BOPBiomes.SNOWY_FIR_CLEARING, BOPBiomes.SNOWY_MAPLE_FOREST, BOPBiomes.OLD_GROWTH_DEAD_FOREST},
-            {BOPBiomes.SEASONAL_PUMPKIN_PATCH, BOPBiomes.FIR_CLEARING,   null,                         null,                         BOPBiomes.FORESTED_FIELD},
-            {BOPBiomes.GOLDEN_PRAIRIE,         BOPBiomes.LAVENDER_FIELD, BOPBiomes.REDWOOD_FOREST,     null,                         BOPBiomes.CHERRY_BLOSSOM_GROVE},
+            {BOPBiomes.PUMPKIN_PATCH, BOPBiomes.FIR_CLEARING,   null,                         null,                         BOPBiomes.FORESTED_FIELD},
+            {BOPBiomes.PASTURE,         BOPBiomes.LAVENDER_FIELD, BOPBiomes.REDWOOD_FOREST,     null,                         BOPBiomes.CHERRY_BLOSSOM_GROVE},
             {null,                             null,                     BOPBiomes.DENSE_WOODLAND,     null,                         null},
             {null,                             null,                     BOPBiomes.DRY_BONEYARD,       BOPBiomes.LUSH_SAVANNA,       null}
     };
@@ -137,12 +137,12 @@ public final class BOPOverworldBiomeBuilder
             {null,            null,                          null,              null,              null},
             {BOPBiomes.BOG,   BOPBiomes.BOG,                 BOPBiomes.WETLAND, BOPBiomes.WETLAND, BOPBiomes.WETLAND},
             {BOPBiomes.MARSH, BOPBiomes.MARSH,               BOPBiomes.MARSH,   BOPBiomes.MARSH,   BOPBiomes.MARSH},
-            {BOPBiomes.BAYOU, BOPBiomes.MEDITERRANEAN_LAKES, BOPBiomes.BAYOU,   BOPBiomes.BAYOU,   BOPBiomes.RAINFOREST_FLOODPLAIN},
+            {BOPBiomes.BAYOU, BOPBiomes.MEDITERRANEAN_LAKES, BOPBiomes.BAYOU,   BOPBiomes.BAYOU,   BOPBiomes.FLOODPLAIN},
             {null,            null,                          null,              null,              null}
     };
 
     private final ResourceKey<Biome>[][] RARE_BIOMES_BOP = new ResourceKey[][]{
-            {null,                            null,                            null,                    null,                    BOPBiomes.BURNT_FOREST},
+            {null,                            null,                            null,                    null,                    null},
             {null,                            null,                            BOPBiomes.OMINOUS_WOODS, null,                    null},
             {null,                            null,                            null,                    BOPBiomes.MYSTIC_GROVE,  null},
             {null,                            null,                            null,                    null,                    BOPBiomes.FUNGAL_JUNGLE},
@@ -176,7 +176,7 @@ public final class BOPOverworldBiomeBuilder
     private final ResourceKey<Biome>[][] PLATEAU_BIOMES_VARIANT_BOP = new ResourceKey[][]{
             {null,                    null,                      BOPBiomes.SNOWY_MAPLE_FOREST, null,                    null},
             {BOPBiomes.BOREAL_FOREST, null,                      null,                         null,                    null},
-            {null,                    BOPBiomes.LAVENDER_FOREST, null,                         BOPBiomes.HIGHLAND_MOOR, BOPBiomes.BAMBOO_BLOSSOM_GROVE},
+            {null,                    BOPBiomes.LAVENDER_FOREST, null,                         BOPBiomes.HIGHLAND_MOOR, BOPBiomes.BAMBOO_GROVE},
             {null,                    null,                      null,                         null,                    null},
             {null,                    null,                      null,                         BOPBiomes.LUSH_SAVANNA,  BOPBiomes.VOLCANIC_PLAINS}
     };
@@ -597,12 +597,9 @@ public final class BOPOverworldBiomeBuilder
     {
         if (temperatureIndex == 0)
             return Biomes.SNOWY_BEACH;
-        else if (temperatureIndex == 1)
-            return biomeOrFallback(biomeRegistry, BOPBiomes.GRAVEL_BEACH, Biomes.BEACH);
-        else if (temperatureIndex == 2)
+        else if (temperatureIndex == 2 && humidityIndex <= 2)
         {
-            if (humidityIndex < 2) return biomeOrFallback(biomeRegistry, BOPBiomes.DUNES, Biomes.BEACH);
-            else return biomeOrFallback(biomeRegistry, BOPBiomes.GRAVEL_BEACH, Biomes.BEACH);
+            return biomeOrFallback(biomeRegistry, BOPBiomes.DUNE_BEACH, Biomes.BEACH);
         }
         else
         {

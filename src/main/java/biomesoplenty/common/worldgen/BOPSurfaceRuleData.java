@@ -86,7 +86,7 @@ public class BOPSurfaceRuleData
         SurfaceRules.RuleSource sandstoneLinedSand = SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.ON_CEILING, SANDSTONE), SAND);
         SurfaceRules.RuleSource stoneLinedGravel = SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.ON_CEILING, STONE), GRAVEL);
 
-        SurfaceRules.ConditionSource isSandstoneLiningBiome = SurfaceRules.isBiome(Biomes.WARM_OCEAN, Biomes.DESERT, Biomes.BEACH, Biomes.SNOWY_BEACH, BOPBiomes.DUNES);
+        SurfaceRules.ConditionSource isSandstoneLiningBiome = SurfaceRules.isBiome(Biomes.WARM_OCEAN, Biomes.DESERT, Biomes.BEACH, Biomes.SNOWY_BEACH, BOPBiomes.DUNE_BEACH);
 
         SurfaceRules.RuleSource surfacerules$rulesource3 = SurfaceRules.sequence(
             SurfaceRules.ifTrue(
@@ -410,7 +410,7 @@ public class BOPSurfaceRuleData
                 SurfaceRules.sequence(
                     SurfaceRules.ifTrue(
                         // Swamp water noise
-                        SurfaceRules.isBiome(BOPBiomes.MARSH, BOPBiomes.RAINFOREST_FLOODPLAIN),
+                        SurfaceRules.isBiome(BOPBiomes.MARSH, BOPBiomes.FLOODPLAIN),
                         SurfaceRules.ifTrue(
                             isAbove62,
                             SurfaceRules.ifTrue(
@@ -461,7 +461,6 @@ public class BOPSurfaceRuleData
             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.DRY_BONEYARD, BOPBiomes.DRYLAND),
                 SurfaceRules.ifTrue(surfaceNoiseAbove(1.75D), SAND)
             ),
-            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.GRAVEL_BEACH), GRAVEL),
             SurfaceRules.ifTrue(
                 SurfaceRules.isBiome(BOPBiomes.VOLCANO),
                 SurfaceRules.sequence(
