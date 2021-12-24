@@ -116,8 +116,11 @@ public class ModBiomes
 
     public static void registerBiome(ResourceKey<Biome> key, Biome biome)
     {
-        biome.setRegistryName(key.location());
-        ForgeRegistries.BIOMES.register(biome);
+        if (ModConfig.isBiomeEnabled(key))
+        {
+            biome.setRegistryName(key.location());
+            ForgeRegistries.BIOMES.register(biome);
+        }
     }
 
     private static void registerNoise(ResourceKey<NormalNoise.NoiseParameters> key, int firstOctave, double firstAmplitude, double... amplitudes)

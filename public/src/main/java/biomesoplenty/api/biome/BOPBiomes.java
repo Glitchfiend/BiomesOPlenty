@@ -17,6 +17,7 @@ import java.util.List;
 public class BOPBiomes
 {
     private static List<ResourceKey<Biome>> overworldBiomes = Lists.newArrayList();
+    private static List<ResourceKey<Biome>> allBiomes = Lists.newArrayList();
 
     public static final ResourceKey<Biome> BAMBOO_GROVE = registerOverworld("bamboo_grove");
     public static final ResourceKey<Biome> BAYOU = registerOverworld("bayou");
@@ -79,21 +80,28 @@ public class BOPBiomes
     public static final ResourceKey<Biome> WOODED_SCRUBLAND = registerOverworld("wooded_scrubland");
     public static final ResourceKey<Biome> WOODLAND = registerOverworld("woodland");
 
-    public static List<ResourceKey<Biome>> getBOPOverworldBiomes()
+    public static List<ResourceKey<Biome>> getOverworldBiomes()
     {
         return ImmutableList.copyOf(overworldBiomes);
     }
 
+    public static List<ResourceKey<Biome>> getAllBiomes()
+    {
+        return ImmutableList.copyOf(allBiomes);
+    }
+
     private static ResourceKey<Biome> registerOverworld(String name)
     {
-        ResourceKey<Biome> key = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(BiomesOPlenty.MOD_ID, name));;
+        ResourceKey<Biome> key = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(BiomesOPlenty.MOD_ID, name));
         overworldBiomes.add(key);
+        allBiomes.add(key);
         return key;
     }
 
     private static ResourceKey<Biome> register(String name)
     {
-        ResourceKey<Biome> key = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(BiomesOPlenty.MOD_ID, name));;
+        ResourceKey<Biome> key = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(BiomesOPlenty.MOD_ID, name));
+        allBiomes.add(key);
         return key;
     }
 }

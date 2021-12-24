@@ -287,7 +287,7 @@ public final class BOPOverworldBiomeBuilder
                 ResourceKey<Biome> plateauBiome                           = this.pickPlateauBiomeVanilla(i, j, weirdness);
                 ResourceKey<Biome> plateauBiomeBOP                        = this.pickPlateauBiomeBOP(biomeRegistry, i, j, weirdness);
                 ResourceKey<Biome> extremeHillsBiome                      = this.pickExtremeHillsBiomeVanilla(i, j, weirdness);
-                ResourceKey<Biome> extremeHillsBiomeBOP                   = this.pickExtremeHillsBiomeBOP(i, j, weirdness);
+                ResourceKey<Biome> extremeHillsBiomeBOP                   = this.pickExtremeHillsBiomeBOP(biomeRegistry, i, j, weirdness);
                 ResourceKey<Biome> shatteredBiome                         = this.maybePickShatteredBiome(i, j, weirdness, extremeHillsBiome);
                 ResourceKey<Biome> peakBiome                              = this.pickPeakBiome(i, j, weirdness);
 
@@ -327,7 +327,7 @@ public final class BOPOverworldBiomeBuilder
                 ResourceKey<Biome> plateauBiome               = this.pickPlateauBiomeVanilla(i, j, weirdness);
                 ResourceKey<Biome> plateauBiomeBOP            = this.pickPlateauBiomeBOP(biomeRegistry, i, j, weirdness);
                 ResourceKey<Biome> extremeHillsBiome          = this.pickExtremeHillsBiomeVanilla(i, j, weirdness);
-                ResourceKey<Biome> extremeHillsBiomeBOP       = this.pickExtremeHillsBiomeBOP(i, j, weirdness);
+                ResourceKey<Biome> extremeHillsBiomeBOP       = this.pickExtremeHillsBiomeBOP(biomeRegistry, i, j, weirdness);
                 ResourceKey<Biome> shatteredBiome             = this.maybePickShatteredBiome(i, j, weirdness, middleBiomeVanilla);
                 ResourceKey<Biome> slopeBiomeVanilla          = this.pickSlopeBiomeVanilla(i, j, weirdness);
                 ResourceKey<Biome> slopeBiomeBOP              = this.pickSlopeBiomeBOP(biomeRegistry, i, j, weirdness);
@@ -370,7 +370,7 @@ public final class BOPOverworldBiomeBuilder
                 ResourceKey<Biome> middleBadlandsOrSlopeBiomeBOP       = this.pickMiddleBiomeOrBadlandsIfHotOrSlopeIfColdBOP(biomeRegistry, i, j, weirdness);
 
                 ResourceKey<Biome> extremeHillsBiome          = this.pickExtremeHillsBiomeVanilla(i, j, weirdness);
-                ResourceKey<Biome> extremeHillsBiomeBOP       = this.pickExtremeHillsBiomeBOP(i, j, weirdness);
+                ResourceKey<Biome> extremeHillsBiomeBOP       = this.pickExtremeHillsBiomeBOP(biomeRegistry, i, j, weirdness);
                 ResourceKey<Biome> plateauBiomeVanilla        = this.pickPlateauBiomeVanilla(i, j, weirdness);
                 ResourceKey<Biome> plateauBiomeBOP            = this.pickPlateauBiomeBOP(biomeRegistry, i, j, weirdness);
                 ResourceKey<Biome> beachBiome                 = this.pickBeachBiome(biomeRegistry, i, j);
@@ -682,10 +682,9 @@ public final class BOPOverworldBiomeBuilder
         return resourcekey == null ? this.pickMiddleBiomeVanilla(temperatureIndex, humidityIndex, weirdness) : resourcekey;
     }
 
-    private ResourceKey<Biome> pickExtremeHillsBiomeBOP(int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
+    private ResourceKey<Biome> pickExtremeHillsBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
     {
-        ResourceKey<Biome> resourcekey = this.EXTREME_HILLS_BOP[temperatureIndex][humidityIndex];
-        return resourcekey == null ? this.pickExtremeHillsBiomeVanilla(temperatureIndex, humidityIndex, weirdness) : resourcekey;
+        return biomeOrFallback(biomeRegistry, this.EXTREME_HILLS_BOP[temperatureIndex][humidityIndex], this.pickExtremeHillsBiomeVanilla(temperatureIndex, humidityIndex, weirdness));
     }
 
     private void addParallelSurfaceBiomes(Consumer<Pair<BOPClimate.ParameterPoint, ResourceKey<Biome>>> mapper, BOPClimate.Parameter temperature, BOPClimate.Parameter humidity, BOPClimate.Parameter continentalness, BOPClimate.Parameter erosion, BOPClimate.Parameter weirdness, float offset, ResourceKey<Biome> vanillaBiome, ResourceKey<Biome> bopBiome)

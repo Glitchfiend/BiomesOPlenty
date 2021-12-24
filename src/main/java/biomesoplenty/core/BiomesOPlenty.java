@@ -5,6 +5,7 @@
 
 package biomesoplenty.core;
 
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.client.handler.FluidFogHandler;
 import biomesoplenty.client.handler.ParticleFactoryHandler;
 import biomesoplenty.common.worldgen.simulate.BiomeSimulator;
@@ -48,8 +49,8 @@ public class BiomesOPlenty
             MinecraftForge.EVENT_BUS.register(new FluidFogHandler());
         }
 
-        ModBiomes.setup();
         ModConfig.setup();
+        ModBiomes.setup();
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
