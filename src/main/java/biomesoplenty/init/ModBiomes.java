@@ -66,6 +66,7 @@ public class ModBiomes
         registerBiome(BOPBiomes.DRYLAND, BOPOverworldBiomes.dryland());
         registerBiome(BOPBiomes.FIELD, BOPOverworldBiomes.field(false));
         registerBiome(BOPBiomes.FIR_CLEARING, BOPOverworldBiomes.firClearing(false));
+        registerBiome(BOPBiomes.FUNGAL_JUNGLE, BOPOverworldBiomes.fungalJungle());
         registerBiome(BOPBiomes.FORESTED_FIELD, BOPOverworldBiomes.field(true));
         registerBiome(BOPBiomes.GRASSLAND, BOPOverworldBiomes.grassland());
         registerBiome(BOPBiomes.GRAVEL_BEACH, BOPOverworldBiomes.gravelBeach());

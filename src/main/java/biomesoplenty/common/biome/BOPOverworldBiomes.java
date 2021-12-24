@@ -429,6 +429,36 @@ public class BOPOverworldBiomes
         }
     }
 
+    public static Biome fungalJungle()
+    {
+        // Mob spawns
+        MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.commonSpawns(spawnBuilder);
+        BiomeDefaultFeatures.farmAnimals(spawnBuilder);
+
+        // Biome features
+        BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder();
+        globalOverworldGeneration(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
+
+        BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_SUGAR_CANE);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEAGRASS_SWAMP);
+
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_FUNGAL_JUNGLE);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.HUGE_GLOWSHROOM);
+
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.SMALL_GLOWSHROOM);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GLOWSHROOM_20);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.MYCELIUM_SPLATTER);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_FERN_GRASS_16);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_LARGE_FERN_7);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_TALL_GRASS_12);
+
+        return biome(Biome.Precipitation.SNOW, Biome.BiomeCategory.ICY, 0.9F, 0.9F, 0x4AA2F9, 0x4ADCF9, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
+    }
+
     public static Biome grassland()
     {
         // Mob spawns

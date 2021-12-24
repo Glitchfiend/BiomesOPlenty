@@ -28,6 +28,7 @@ public class BOPBiomes
     public static final ResourceKey<Biome> FIELD = register("field");
     public static final ResourceKey<Biome> FIR_CLEARING = register("fir_clearing");
     public static final ResourceKey<Biome> FORESTED_FIELD = register("forested_field");
+    public static final ResourceKey<Biome> FUNGAL_JUNGLE = register("fungal_jungle");
     public static final ResourceKey<Biome> GRASSLAND = register("grassland");
     public static final ResourceKey<Biome> GRAVEL_BEACH = register("gravel_beach");
     public static final ResourceKey<Biome> GOLDEN_PRAIRIE = register("golden_prairie");

@@ -137,7 +137,7 @@ public final class BOPOverworldBiomeBuilder
             {null,                            null,                            null,                    null,                    BOPBiomes.BURNT_FOREST},
             {null,                            null,                            BOPBiomes.OMINOUS_WOODS, null,                    null},
             {null,                            null,                            null,                    BOPBiomes.MYSTIC_GROVE,  null},
-            {null,                            null,                            null,                    null,                    null},
+            {null,                            null,                            null,                    null,                    BOPBiomes.FUNGAL_JUNGLE},
             {null,                            null,                            null,                    null,                    null}
     };
 
