@@ -36,6 +36,7 @@ public class BOPBiomes
     public static final ResourceKey<Biome> FLOODPLAIN = registerOverworld("floodplain");
     public static final ResourceKey<Biome> FORESTED_FIELD = registerOverworld("forested_field");
     public static final ResourceKey<Biome> FUNGAL_JUNGLE = registerOverworld("fungal_jungle");
+    public static final ResourceKey<Biome> GLOWING_GROTTO = register("glowing_grotto");
     public static final ResourceKey<Biome> GRASSLAND = registerOverworld("grassland");
     public static final ResourceKey<Biome> HIGHLAND = registerOverworld("highland");
     public static final ResourceKey<Biome> HIGHLAND_MOOR = registerOverworld("highland_moor");
