@@ -50,7 +50,11 @@ public class BOPBiomes
     public static final ResourceKey<Biome> ORIGIN_VALLEY = register("origin_valley");
     public static final ResourceKey<Biome> PASTURE = register("pasture");
     public static final ResourceKey<Biome> PRAIRIE = register("prairie");
+<<<<<<< HEAD
     public static final ResourceKey<Biome> PUMPKIN_PATCH = register("pumpkin_patch");
+=======
+    public static final ResourceKey<Biome> RAINBOW_HILLS = register("rainbow_hills");
+>>>>>>> e73df6ba (Rainbow hills WIP)
     public static final ResourceKey<Biome> RAINFOREST = register("rainforest");
     public static final ResourceKey<Biome> RAINFOREST_CLIFFS = register("rainforest_cliffs");
     public static final ResourceKey<Biome> REDWOOD_FOREST = register("redwood_forest");
