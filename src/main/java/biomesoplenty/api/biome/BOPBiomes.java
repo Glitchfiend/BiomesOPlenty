@@ -5,13 +5,19 @@
 package biomesoplenty.api.biome;
 
 import biomesoplenty.core.BiomesOPlenty;
+import com.google.common.collect.ImmutableList;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
+import org.apache.commons.compress.utils.Lists;
+
+import java.util.List;
 
 public class BOPBiomes
 {
+    private static List<ResourceKey<Biome>> bopBiomes = Lists.newArrayList();
+
     public static final ResourceKey<Biome> BAMBOO_GROVE = register("bamboo_grove");
     public static final ResourceKey<Biome> BAYOU = register("bayou");
     public static final ResourceKey<Biome> BOG = register("bog");
@@ -71,8 +77,15 @@ public class BOPBiomes
     public static final ResourceKey<Biome> WOODED_SCRUBLAND = register("wooded_scrubland");
     public static final ResourceKey<Biome> WOODLAND = register("woodland");
 
+    public static List<ResourceKey<Biome>> getBOPBiomes()
+    {
+        return ImmutableList.copyOf(bopBiomes);
+    }
+
     private static ResourceKey<Biome> register(String name)
     {
-        return ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(BiomesOPlenty.MOD_ID, name));
+        ResourceKey<Biome> key = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(BiomesOPlenty.MOD_ID, name));;
+        bopBiomes.add(key);
+        return key;
     }
 }
