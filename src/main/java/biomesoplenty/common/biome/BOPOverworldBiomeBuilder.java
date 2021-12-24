@@ -215,7 +215,7 @@ public final class BOPOverworldBiomeBuilder
         {
             this.addOffCoastBiomes(biomeRegistry, mapper);
             this.addInlandBiomes(biomeRegistry, mapper);
-            this.addUndergroundBiomes(mapper);
+            this.addUndergroundBiomes(biomeRegistry, mapper);
         }
     }
 
@@ -521,10 +521,11 @@ public final class BOPOverworldBiomeBuilder
         }
     }
 
-    private void addUndergroundBiomes(Consumer<Pair<BOPClimate.ParameterPoint, ResourceKey<Biome>>> mapper)
+    private void addUndergroundBiomes(Registry<Biome> biomeRegistry, Consumer<Pair<BOPClimate.ParameterPoint, ResourceKey<Biome>>> mapper)
     {
         this.addUndergroundBiome(mapper, this.FULL_RANGE, this.FULL_RANGE, BOPClimate.Parameter.span(0.8F, 1.0F), this.FULL_RANGE, this.FULL_RANGE, 0.0F, Biomes.DRIPSTONE_CAVES);
         this.addUndergroundBiome(mapper, this.FULL_RANGE, BOPClimate.Parameter.span(0.7F, 1.0F), this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, 0.0F, Biomes.LUSH_CAVES);
+        this.addUndergroundBiome(mapper, this.FULL_RANGE, BOPClimate.Parameter.span(0.3F, 0.7F), this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, 0.0F, biomeOrFallback(biomeRegistry, BOPBiomes.SPIDER_NEST, Biomes.DRIPSTONE_CAVES));
     }
 
     private ResourceKey<Biome> pickIslandBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex)
@@ -723,7 +724,7 @@ public final class BOPOverworldBiomeBuilder
 
     private void addUndergroundBiome(Consumer<Pair<BOPClimate.ParameterPoint, ResourceKey<Biome>>> mapper, BOPClimate.Parameter temperature, BOPClimate.Parameter humidity, BOPClimate.Parameter continentalness, BOPClimate.Parameter erosion, BOPClimate.Parameter weirdness, float offset, ResourceKey<Biome> biome)
     {
-        mapper.accept(Pair.of(BOPClimate.parameters(temperature, humidity, continentalness, erosion, BOPClimate.Parameter.span(0.2F, 0.9F), weirdness, VANILLA_UNIQUENESS_RANGE, this.FULL_RANGE, offset), biome));
+        mapper.accept(Pair.of(BOPClimate.parameters(temperature, humidity, continentalness, erosion, BOPClimate.Parameter.span(0.2F, 0.9F), weirdness, this.FULL_RANGE, this.FULL_RANGE, offset), biome));
     }
 
     private static ResourceKey<Biome> biomeOrFallback(Registry<Biome> biomeRegistry, ResourceKey<Biome>... biomes)

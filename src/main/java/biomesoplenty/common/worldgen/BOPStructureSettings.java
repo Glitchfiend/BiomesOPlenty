@@ -12,7 +12,6 @@ import com.google.common.collect.Maps;
 import net.minecraft.data.worldgen.StructureFeatures;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.StructureSettings;
 import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
@@ -77,7 +76,7 @@ public class BOPStructureSettings extends StructureSettings
         Set<ResourceKey<Biome>> ruinedPortalStandardBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.BAMBOO_GROVE).add(BOPBiomes.BOREAL_FOREST).add(BOPBiomes.CHERRY_BLOSSOM_GROVE).add(BOPBiomes.CONIFEROUS_FOREST).add(BOPBiomes.DEAD_FOREST).add(BOPBiomes.DENSE_WOODLAND).add(BOPBiomes.FIELD).add(BOPBiomes.FIR_CLEARING).add(BOPBiomes.FORESTED_FIELD).add(BOPBiomes.GRASSLAND).add(BOPBiomes.PASTURE).add(BOPBiomes.LAVENDER_FIELD).add(BOPBiomes.LAVENDER_FOREST).add(BOPBiomes.MEDITERRANEAN_FOREST).add(BOPBiomes.MEDITERRANEAN_LAKES).add(BOPBiomes.MUSKEG).add(BOPBiomes.MYSTIC_GROVE).add(BOPBiomes.OLD_GROWTH_DEAD_FOREST).add(BOPBiomes.OMINOUS_WOODS).add(BOPBiomes.ORCHARD).add(BOPBiomes.PRAIRIE).add(BOPBiomes.REDWOOD_FOREST).add(BOPBiomes.ROCKY_SHRUBLAND).add(BOPBiomes.SCRUBLAND).add(BOPBiomes.SHRUBLAND).add(BOPBiomes.SEASONAL_FOREST).add(BOPBiomes.PUMPKIN_PATCH).add(BOPBiomes.SNOWY_CONIFEROUS_FOREST).add(BOPBiomes.SNOWY_FIR_CLEARING).add(BOPBiomes.SNOWY_MAPLE_FOREST).add(BOPBiomes.TUNDRA).add(BOPBiomes.WOODED_SCRUBLAND).add(BOPBiomes.WOODLAND).build();
         Set<ResourceKey<Biome>> ruinedPortalSwampBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.BAYOU).add(BOPBiomes.BOG).add(BOPBiomes.MARSH).add(BOPBiomes.FLOODPLAIN).add(BOPBiomes.WETLAND).build();
 
-        Set<ResourceKey<Biome>> mineshaftBiomes = ImmutableSet.copyOf(BOPBiomes.getBOPBiomes().stream().filter((key -> key != BOPBiomes.ORIGIN_VALLEY)).toList());
+        Set<ResourceKey<Biome>> mineshaftBiomes = ImmutableSet.copyOf(BOPBiomes.getBOPOverworldBiomes().stream().filter((key -> key != BOPBiomes.ORIGIN_VALLEY)).toList());
 
         register(mapper, StructureFeatures.MINESHAFT, mineshaftBiomes);
 
