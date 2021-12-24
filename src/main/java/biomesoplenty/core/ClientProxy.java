@@ -13,6 +13,7 @@ import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.BlockAndTintGetter;
@@ -20,6 +21,7 @@ import net.minecraft.world.level.ColorResolver;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.GrassColor;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
 import java.awt.*;
@@ -67,13 +69,6 @@ public class ClientProxy extends CommonProxy
         BiomeColors.GRASS_COLOR_RESOLVER = (biome, posX, posZ) ->
         {
             ResourceKey<Biome> key = Minecraft.getInstance().level.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY).getResourceKey(biome).orElse(null);
-
-            if (key == BOPBiomes.RAINBOW_HILLS)
-            {
-                double d0 = Biome.BIOME_INFO_NOISE.getValue(posX * 0.0225D, posZ * 0.0225D, false);
-                return d0 < -0.1D ? 0x77CE7F : 0x75CE8D;
-            }
-
             return grassColorResolver.getColor(biome, posX, posZ);
         };
 
@@ -86,7 +81,21 @@ public class ClientProxy extends CommonProxy
 
     public static int getRainbowBirchColor(BlockAndTintGetter world, BlockPos pos)
     {
-        Color foliage = Color.getHSBColor((((float)pos.getX() + Mth.sin(((float)pos.getZ() + (float)pos.getX()) / 35) * 35) % 150) / 150, 0.6F, 1.0F);
+        float saturation;
+        if (world.getBlockState(pos.above()).is(BlockTags.SNOW))
+        {
+            saturation = 0.2F;
+        }
+        else if (world.getBlockState(pos.above(2)).is(BlockTags.SNOW))
+        {
+            saturation = 0.4F;
+        }
+        else
+        {
+            saturation = 0.6F;
+        }
+
+        Color foliage = Color.getHSBColor((((float)pos.getX() + Mth.sin(((float)pos.getZ() + (float)pos.getX()) / 35) * 35) % 150) / 150, saturation, 1.0F);
 
         return foliage.getRGB();
     }

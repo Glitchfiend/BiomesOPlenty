@@ -30,13 +30,13 @@ public class BOPVegetationPlacements
     // Foliage
     public static final PlacedFeature CLOVER_3 = register("patch_clover_3", BOPVegetationFeatures.PATCH_CLOVER.placed(VegetationPlacements.worldSurfaceSquaredWithCount(3)));
     public static final PlacedFeature CLOVER_6 = register("patch_clover_6", BOPVegetationFeatures.PATCH_CLOVER.placed(VegetationPlacements.worldSurfaceSquaredWithCount(6)));
-    public static final PlacedFeature HUGE_TOADSTOOL = register("huge_toadstool", BOPVegetationFeatures.HUGE_TOADSTOOL.placed(RarityFilter.onAverageOnceEvery(8), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-    public static final PlacedFeature HUGE_CLOVER = register("huge_clover", BOPVegetationFeatures.HUGE_CLOVER.placed(VegetationPlacements.worldSurfaceSquaredWithCount(25)));
+    public static final PlacedFeature HUGE_TOADSTOOL = register("huge_toadstool", BOPVegetationFeatures.HUGE_TOADSTOOL.placed(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+    public static final PlacedFeature HUGE_CLOVER = register("huge_clover", BOPVegetationFeatures.HUGE_CLOVER.placed(VegetationPlacements.worldSurfaceSquaredWithCount(10)));
     public static final PlacedFeature HUGE_GLOWSHROOM = register("huge_glowshroom", BOPVegetationFeatures.HUGE_GLOWSHROOM.placed(VegetationPlacements.worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature HUGE_RED_MUSHROOM_EXTRA = register("huge_red_mushroom_extra", TreeFeatures.HUGE_RED_MUSHROOM.placed(VegetationPlacements.worldSurfaceSquaredWithCount(6)));
     public static final PlacedFeature PATCH_BARLEY_15 = register("patch_barley_15", BOPVegetationFeatures.PATCH_BARLEY.placed(VegetationPlacements.worldSurfaceSquaredWithCount(15)));
-    public static final PlacedFeature PATCH_BLUE_HYDRANGEA_1 = register("patch_blue_hydrangea_1", BOPVegetationFeatures.PATCH_BLUE_HYDRANGEA.placed(VegetationPlacements.worldSurfaceSquaredWithCount(1)));
-    public static final PlacedFeature PATCH_BLUE_HYDRANGEA_4 = register("patch_blue_hydrangea_4", BOPVegetationFeatures.PATCH_BLUE_HYDRANGEA.placed(VegetationPlacements.worldSurfaceSquaredWithCount(4)));
+    public static final PlacedFeature PATCH_BLUE_HYDRANGEA_1 = register("patch_blue_hydrangea_1", BOPVegetationFeatures.PATCH_BLUE_HYDRANGEA.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+    public static final PlacedFeature PATCH_BLUE_HYDRANGEA_4 = register("patch_blue_hydrangea_4", BOPVegetationFeatures.PATCH_BLUE_HYDRANGEA.placed(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature PATCH_BUSH_5 = register("patch_bush_5", BOPVegetationFeatures.PATCH_BUSH.placed(VegetationPlacements.worldSurfaceSquaredWithCount(1)));
     public static final PlacedFeature PATCH_BUSH_10 = register("patch_bush_10", BOPVegetationFeatures.PATCH_BUSH.placed(VegetationPlacements.worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature PATCH_BUSH_15 = register("patch_bush_15", BOPVegetationFeatures.PATCH_BUSH.placed(VegetationPlacements.worldSurfaceSquaredWithCount(4)));
@@ -61,36 +61,36 @@ public class BOPVegetationPlacements
     public static final PlacedFeature PATCH_GRASS_24 = register("patch_grass_24", VegetationFeatures.PATCH_GRASS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(24)));
     public static final PlacedFeature PATCH_LARGE_FERN_7 = register("patch_large_fern_7", VegetationFeatures.PATCH_LARGE_FERN.placed(RarityFilter.onAverageOnceEvery(8), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature PATCH_LARGE_FERN_25 = register("patch_large_fern_25", VegetationFeatures.PATCH_LARGE_FERN.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-    public static final PlacedFeature PATCH_SEA_OATS = register("patch_sea_oats", BOPVegetationFeatures.PATCH_SEA_OATS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(8)));
-    public static final PlacedFeature PATCH_SPROUTS_5 = register("patch_sprouts_5", BOPVegetationFeatures.PATCH_SPROUTS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(2)));
+    public static final PlacedFeature PATCH_SEA_OATS = register("patch_sea_oats", BOPVegetationFeatures.PATCH_SEA_OATS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(4)));
+    public static final PlacedFeature PATCH_SPROUTS_5 = register("patch_sprouts_5", BOPVegetationFeatures.PATCH_SPROUTS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(1)));
     public static final PlacedFeature PATCH_SPROUTS_10 = register("patch_sprouts_10", BOPVegetationFeatures.PATCH_SPROUTS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(4)));
-    public static final PlacedFeature PATCH_SPROUTS_15 = register("patch_sprouts_15", BOPVegetationFeatures.PATCH_SPROUTS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(6)));
-    public static final PlacedFeature PATCH_SPROUTS_25 = register("patch_sprouts_25", BOPVegetationFeatures.PATCH_SPROUTS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(10)));
-    public static final PlacedFeature PATCH_SPROUTS_50 = register("patch_sprouts_50", BOPVegetationFeatures.PATCH_SPROUTS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(20)));
+    public static final PlacedFeature PATCH_SPROUTS_15 = register("patch_sprouts_15", BOPVegetationFeatures.PATCH_SPROUTS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(8)));
+    public static final PlacedFeature PATCH_SPROUTS_25 = register("patch_sprouts_25", BOPVegetationFeatures.PATCH_SPROUTS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(16)));
+    public static final PlacedFeature PATCH_SPROUTS_50 = register("patch_sprouts_50", BOPVegetationFeatures.PATCH_SPROUTS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(32)));
     public static final PlacedFeature PATCH_SPROUTS_200 = register("patch_sprouts_200", BOPVegetationFeatures.PATCH_SPROUTS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(80)));
-    public static final PlacedFeature PATCH_TALL_GRASS_6 = register("patch_tall_grass_6", VegetationFeatures.PATCH_TALL_GRASS.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-    public static final PlacedFeature PATCH_TALL_GRASS_12 = register("patch_tall_grass_12", VegetationFeatures.PATCH_TALL_GRASS.placed(RarityFilter.onAverageOnceEvery(8), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-    public static final PlacedFeature PATCH_TALL_GRASS_24 = register("patch_tall_grass_24", VegetationFeatures.PATCH_TALL_GRASS.placed(RarityFilter.onAverageOnceEvery(12), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-    public static final PlacedFeature PATCH_TALL_GRASS_64 = register("patch_tall_grass_64", VegetationFeatures.PATCH_TALL_GRASS.placed(RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+    public static final PlacedFeature PATCH_TALL_GRASS_6 = register("patch_tall_grass_6", VegetationFeatures.PATCH_TALL_GRASS.placed(RarityFilter.onAverageOnceEvery(8), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+    public static final PlacedFeature PATCH_TALL_GRASS_12 = register("patch_tall_grass_12", VegetationFeatures.PATCH_TALL_GRASS.placed(RarityFilter.onAverageOnceEvery(6), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+    public static final PlacedFeature PATCH_TALL_GRASS_24 = register("patch_tall_grass_24", VegetationFeatures.PATCH_TALL_GRASS.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+    public static final PlacedFeature PATCH_TALL_GRASS_64 = register("patch_tall_grass_64", VegetationFeatures.PATCH_TALL_GRASS.placed(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature PATCH_TALL_GRASS_250 = register("patch_tall_grass_250", VegetationFeatures.PATCH_TALL_GRASS.placed(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature RAINFOREST_CLIFFS_VINES = register("rainforest_cliffs_vines", BOPVegetationFeatures.RAINFOREST_CLIFFS_VINES.placed(VegetationPlacements.worldSurfaceSquaredWithCount(10)));
-    public static final PlacedFeature SMALL_TOADSTOOL = register("small_toadstool", BOPVegetationFeatures.SMALL_TOADSTOOL.placed(RarityFilter.onAverageOnceEvery(6), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+    public static final PlacedFeature SMALL_TOADSTOOL = register("small_toadstool", BOPVegetationFeatures.SMALL_TOADSTOOL.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature SMALL_RED_MUSHROOM = register("small_red_mushroom", BOPVegetationFeatures.SMALL_RED_MUSHROOM.placed(RarityFilter.onAverageOnceEvery(6), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature WASTELAND_GRASS_1 = register("wasteland_grass_1", BOPVegetationFeatures.WASTELAND_GRASS.placed(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature WASTELAND_GRASS_2 = register("wasteland_grass_2", BOPVegetationFeatures.WASTELAND_GRASS.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-    public static final PlacedFeature PATCH_GLOWSHROOM_20 = register("patch_glowshroom_20", BOPVegetationFeatures.PATCH_GLOWSHROOM.placed(VegetationPlacements.worldSurfaceSquaredWithCount(20)));
-    public static final PlacedFeature MYCELIUM_SPLATTER = register("mycelium_splatter", BOPVegetationFeatures.MYCELIUM_SPLATTER.placed(VegetationPlacements.worldSurfaceSquaredWithCount(14)));
+    public static final PlacedFeature PATCH_GLOWSHROOM_20 = register("patch_glowshroom_20", BOPVegetationFeatures.PATCH_GLOWSHROOM.placed(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+    public static final PlacedFeature MYCELIUM_SPLATTER = register("mycelium_splatter", BOPVegetationFeatures.MYCELIUM_SPLATTER.placed(VegetationPlacements.worldSurfaceSquaredWithCount(3)));
 
     // Plants
-    public static final PlacedFeature TOADSTOOL_NORMAL = register("toadstool_normal", BOPVegetationFeatures.TOADSTOOL_NORMAL.placed(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-    public static final PlacedFeature TOADSTOOL_EXTRA = register("toadstool_extra", BOPVegetationFeatures.TOADSTOOL_NORMAL.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+    public static final PlacedFeature TOADSTOOL_NORMAL = register("toadstool_normal", BOPVegetationFeatures.TOADSTOOL_NORMAL.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+    public static final PlacedFeature TOADSTOOL_EXTRA = register("toadstool_extra", BOPVegetationFeatures.TOADSTOOL_NORMAL.placed(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
 
     // Water Plants
     public static final PlacedFeature LILY_PAD_5 = register("patch_lily_pad_5", VegetationFeatures.PATCH_WATERLILY.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-    public static final PlacedFeature LILY_PAD_10 = register("patch_lily_pad_10", VegetationFeatures.PATCH_WATERLILY.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-    public static final PlacedFeature LILY_PAD_15 = register("patch_lily_pad_15", VegetationFeatures.PATCH_WATERLILY.placed(RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+    public static final PlacedFeature LILY_PAD_10 = register("patch_lily_pad_10", VegetationFeatures.PATCH_WATERLILY.placed(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+    public static final PlacedFeature LILY_PAD_15 = register("patch_lily_pad_15", VegetationFeatures.PATCH_WATERLILY.placed(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature PATCH_REED_5 = register("patch_reed_5", BOPVegetationFeatures.PATCH_REED.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
-    public static final PlacedFeature PATCH_REED_10 = register("patch_reed_10", BOPVegetationFeatures.PATCH_REED.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
+    public static final PlacedFeature PATCH_REED_10 = register("patch_reed_10", BOPVegetationFeatures.PATCH_REED.placed(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
     public static final PlacedFeature PATCH_WATERGRASS_10 = register("patch_watergrass_10", BOPVegetationFeatures.PATCH_WATERGRASS.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
     public static final PlacedFeature PATCH_WATERGRASS_50 = register("patch_watergrass_50", BOPVegetationFeatures.PATCH_WATERGRASS.placed(AquaticPlacements.seagrassPlacement(50)));
     public static final PlacedFeature PATCH_WATERGRASS_250 = register("patch_watergrass_250", BOPVegetationFeatures.PATCH_WATERGRASS.placed(AquaticPlacements.seagrassPlacement(250)));
@@ -109,7 +109,6 @@ public class BOPVegetationPlacements
     public static final PlacedFeature FLOWER_OMINOUS_WOODS = register("flower_ominous_woods", BOPVegetationFeatures.FLOWER_OMINOUS_WOODS.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature FLOWER_ORIGIN_VALLEY = register("flower_origin_valley", BOPVegetationFeatures.FLOWER_ORIGIN_VALLEY.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature FLOWER_POPPY = register("flower_poppy", BOPVegetationFeatures.FLOWER_POPPY.placed(VegetationPlacements.worldSurfaceSquaredWithCount(15)));
-    public static final PlacedFeature FLOWER_RAINBOW_HILLS = register("flower_rainbow_hills", BOPVegetationFeatures.FLOWER_RAINBOW_HILLS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(25)));
     public static final PlacedFeature FLOWER_RAINFOREST = register("flower_rainforest", BOPVegetationFeatures.FLOWER_RAINFOREST.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature FLOWER_SCRUBLAND = register("flower_scrubland", BOPVegetationFeatures.FLOWER_WILDFLOWER.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature FLOWER_SHRUBLAND = register("flower_shrubland", BOPVegetationFeatures.FLOWER_SHRUBLAND.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
@@ -120,16 +119,16 @@ public class BOPVegetationPlacements
     public static final PlacedFeature FLOWER_WETLAND = register("flower_wetland", BOPVegetationFeatures.FLOWER_WETLAND.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
 
     // Large flowers
-    public static final PlacedFeature GOLDENROD_2 = register("goldenrod_2", BOPVegetationFeatures.GOLDENROD.placed(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-    public static final PlacedFeature GOLDENROD_10 = register("goldenrod_10", BOPVegetationFeatures.GOLDENROD.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+    public static final PlacedFeature GOLDENROD_2 = register("goldenrod_2", BOPVegetationFeatures.GOLDENROD.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+    public static final PlacedFeature GOLDENROD_10 = register("goldenrod_10", BOPVegetationFeatures.GOLDENROD.placed(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature LILAC_1 = register("patch_lilac_1", BOPVegetationFeatures.PATCH_LILAC.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-    public static final PlacedFeature LILAC_2 = register("patch_lilac_2", BOPVegetationFeatures.PATCH_LILAC.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-    public static final PlacedFeature LILAC_4 = register("patch_lilac_4", BOPVegetationFeatures.PATCH_LILAC.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+    public static final PlacedFeature LILAC_2 = register("patch_lilac_2", BOPVegetationFeatures.PATCH_LILAC.placed(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+    public static final PlacedFeature LILAC_4 = register("patch_lilac_4", BOPVegetationFeatures.PATCH_LILAC.placed(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature PEONY_1 = register("patch_peony_1", BOPVegetationFeatures.PATCH_PEONY.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature ROSE_BUSH_1 = register("rose_bush_1", BOPVegetationFeatures.ROSE_BUSH.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-    public static final PlacedFeature ROSE_BUSH_2 = register("rose_bush_2", BOPVegetationFeatures.ROSE_BUSH.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+    public static final PlacedFeature ROSE_BUSH_2 = register("rose_bush_2", BOPVegetationFeatures.ROSE_BUSH.placed(RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature ROSE_BUSH_4 = register("rose_bush_4", BOPVegetationFeatures.ROSE_BUSH.placed(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-    public static final PlacedFeature ROSE_BUSH_15 = register("rose_bush_15", BOPVegetationFeatures.ROSE_BUSH.placed(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+    public static final PlacedFeature ROSE_BUSH_15 = register("rose_bush_15", BOPVegetationFeatures.ROSE_BUSH.placed(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature SUNFLOWER_1 = register("sunflower_1", BOPVegetationFeatures.SUNFLOWER.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
 
     // Trees
@@ -164,7 +163,7 @@ public class BOPVegetationPlacements
     public static final PlacedFeature TREES_WETLAND = register("trees_wetland", BOPVegetationFeatures.TREES_WETLAND.placed(treePlacement(PlacementUtils.countExtra(7, 0.1F, 1))));
     public static final PlacedFeature TREES_WOODED_SCRUBLAND = register("trees_wooded_scrubland", BOPVegetationFeatures.TREES_WOODED_SCRUBLAND.placed(treePlacement(PlacementUtils.countExtra(6, 0.1F, 1))));
     public static final PlacedFeature TREES_WOODLAND = register("trees_woodland", TreeFeatures.OAK.placed(treePlacement(PlacementUtils.countExtra(6, 0.1F, 1), Blocks.OAK_SAPLING)));
-    public static final PlacedFeature TREES_RAINBOW_HILLS = register("trees_rainbow_hills", BOPVegetationFeatures.TREES_RAINBOW_HILLS.placed(treePlacement(PlacementUtils.countExtra(15, 0.2F, 1))));
+    public static final PlacedFeature TREES_RAINBOW_HILLS = register("trees_rainbow_hills", BOPVegetationFeatures.TREES_RAINBOW_HILLS.placed(treePlacement(PlacementUtils.countExtra(12, 0.2F, 1))));
     public static final PlacedFeature TREES_RAINFOREST = register("trees_rainforest", BOPVegetationFeatures.TREES_RAINFOREST.placed(treePlacement(PlacementUtils.countExtra(12, 0.2F, 1))));
     public static final PlacedFeature TREES_RAINFOREST_CLIFFS = register("trees_rainforest_cliffs", BOPVegetationFeatures.TREES_RAINFOREST_CLIFFS.placed(treePlacement(PlacementUtils.countExtra(20, 0.2F, 1))));
     public static final PlacedFeature TREES_RAINFOREST_FLOODPLAIN = register("trees_rainforest_floodplain", BOPVegetationFeatures.TREES_RAINFOREST_FLOODPLAIN.placed(treePlacement(PlacementUtils.countExtra(1, 0.2F, 1))));
@@ -185,8 +184,8 @@ public class BOPVegetationPlacements
     public static final PlacedFeature BRAMBLE = register("bramble", BOPVegetationFeatures.BRAMBLE.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature MOSS_SPLATTER = register("moss_splatter", BOPVegetationFeatures.MOSS_SPLATTER.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature PUMPKIN_PATCH = register("pumpkin_patch", BOPVegetationFeatures.PUMPKIN_PATCH.placed(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-    public static final PlacedFeature SCATTERED_ROCKS = register("scattered_rocks", BOPVegetationFeatures.SCATTERED_ROCKS.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-    public static final PlacedFeature SCRUB_EXTRA = register("scrub_extra", BOPVegetationFeatures.SCRUB.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+    public static final PlacedFeature SCATTERED_ROCKS = register("scattered_rocks", BOPVegetationFeatures.SCATTERED_ROCKS.placed(RarityFilter.onAverageOnceEvery(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+    public static final PlacedFeature SCRUB_EXTRA = register("scrub_extra", BOPVegetationFeatures.SCRUB.placed(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature SCRUB_NORMAL = register("scrub_normal", BOPVegetationFeatures.SCRUB.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature SHORT_BAMBOO_5 = register("short_bamboo_5", BOPVegetationFeatures.SHORT_BAMBOO.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature SHORT_BAMBOO_10 = register("short_bamboo_10", BOPVegetationFeatures.SHORT_BAMBOO.placed(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
