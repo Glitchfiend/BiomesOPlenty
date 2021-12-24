@@ -525,6 +525,7 @@ public final class BOPOverworldBiomeBuilder
     {
         this.addUndergroundBiome(mapper, this.FULL_RANGE, this.FULL_RANGE, BOPClimate.Parameter.span(0.8F, 1.0F), this.FULL_RANGE, this.FULL_RANGE, 0.0F, Biomes.DRIPSTONE_CAVES);
         this.addUndergroundBiome(mapper, this.FULL_RANGE, BOPClimate.Parameter.span(0.7F, 1.0F), this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, 0.0F, Biomes.LUSH_CAVES);
+        this.addUndergroundBiome(mapper, this.FULL_RANGE, this.FULL_RANGE, BOPClimate.Parameter.span(0.4F, 0.8F), this.FULL_RANGE, this.FULL_RANGE, 0.0F, biomeOrFallback(biomeRegistry, BOPBiomes.GLOWING_GROTTO, Biomes.LUSH_CAVES));
         this.addUndergroundBiome(mapper, this.FULL_RANGE, BOPClimate.Parameter.span(0.3F, 0.7F), this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, 0.0F, biomeOrFallback(biomeRegistry, BOPBiomes.SPIDER_NEST, Biomes.DRIPSTONE_CAVES));
     }
 

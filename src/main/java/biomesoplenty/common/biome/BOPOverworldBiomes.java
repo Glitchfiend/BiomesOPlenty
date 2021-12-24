@@ -470,6 +470,29 @@ public class BOPOverworldBiomes
         return biomeWithColorOverrides(Biome.Precipitation.SNOW, Biome.BiomeCategory.ICY, 0.9F, 0.9F, 4445678, 270131, 12638463, 0x4AA2F9, 0x4ADCF9, calculateSkyColor(0.9F), spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }
 
+    public static Biome glowingGrotto()
+    {
+        MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.commonSpawns(spawnBuilder);
+
+        BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder();
+        globalOverworldGeneration(biomeBuilder);
+        BiomeDefaultFeatures.addPlainGrass(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultOres(biomeBuilder, true);
+        BiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
+        BiomeDefaultFeatures.addPlainVegetation(biomeBuilder);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPCavePlacements.GLOWING_GROTTO_VEGETATION);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPCavePlacements.GLOWING_GROTTO_MUD);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPCavePlacements.GLOWWORM_SILK_STRANDS);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPCavePlacements.GIANT_GLOWSHROOM_CAVE);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPCavePlacements.HUGE_GLOWSHROOM_CAVE);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPCavePlacements.MEDIUM_GLOWSHROOM_CAVE);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPCavePlacements.SMALL_GLOWSHROOM_CAVE);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPCavePlacements.EXTRA_GLOW_LICHEN);
+
+        return biome(Biome.Precipitation.RAIN, Biome.BiomeCategory.UNDERGROUND, 0.5F, 0.5F, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
+    }
+
     public static Biome grassland()
     {
         // Mob spawns
