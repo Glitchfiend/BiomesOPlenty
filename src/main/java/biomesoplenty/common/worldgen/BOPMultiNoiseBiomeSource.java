@@ -4,7 +4,9 @@
  ******************************************************************************/
 package biomesoplenty.common.worldgen;
 
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.common.biome.BOPOverworldBiomeBuilder;
+import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Maps;
@@ -18,6 +20,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.QuartPos;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.RegistryLookupCodec;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.VisibleForDebug;
@@ -129,19 +132,16 @@ public class BOPMultiNoiseBiomeSource extends BiomeSource
     public static class Preset
     {
         static final Map<ResourceLocation, BOPMultiNoiseBiomeSource.Preset> BY_NAME = Maps.newHashMap();
-        public static final BOPMultiNoiseBiomeSource.Preset NETHER = new BOPMultiNoiseBiomeSource.Preset(new ResourceLocation("nether"), (p_187113_) -> {
-            return new BOPClimate.ParameterList<>(ImmutableList.of(Pair.of(BOPClimate.parameters(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F), () -> {
-                return p_187113_.getOrThrow(Biomes.NETHER_WASTES);
-            }), Pair.of(BOPClimate.parameters(0.0F, -0.5F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F), () -> {
-                return p_187113_.getOrThrow(Biomes.SOUL_SAND_VALLEY);
-            }), Pair.of(BOPClimate.parameters(0.4F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F), () -> {
-                return p_187113_.getOrThrow(Biomes.CRIMSON_FOREST);
-            }), Pair.of(BOPClimate.parameters(0.0F, 0.5F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.375F), () -> {
-                return p_187113_.getOrThrow(Biomes.WARPED_FOREST);
-            }), Pair.of(BOPClimate.parameters(-0.5F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.175F), () -> {
-                return p_187113_.getOrThrow(Biomes.BASALT_DELTAS);
-            })));
+
+        public static final BOPMultiNoiseBiomeSource.Preset NETHER = new BOPMultiNoiseBiomeSource.Preset(new ResourceLocation("nether"), (biomeRegistry) -> {
+            return new BOPClimate.ParameterList<>(ImmutableList.of(Pair.of(BOPClimate.parameters(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, -1.0F, 0.0F, 0.0F, 0.0F), () -> biomeRegistry.getOrThrow(Biomes.NETHER_WASTES)),
+                Pair.of(BOPClimate.parameters(0.0F, -0.5F, 0.0F, 0.0F, 0.0F, -1.0F, 0.0F, 0.0F, 0.0F), () -> biomeRegistry.getOrThrow(Biomes.SOUL_SAND_VALLEY)),
+                Pair.of(BOPClimate.parameters(0.4F, 0.0F, 0.0F, 0.0F, 0.0F, -1.0F, 0.0F, 0.0F, 0.0F), () -> biomeRegistry.getOrThrow(Biomes.CRIMSON_FOREST)),
+                Pair.of(BOPClimate.parameters(0.0F, 0.5F, 0.0F, 0.0F, 0.0F, -1.0F, 0.0F, 0.0F, 0.375F), () -> biomeRegistry.getOrThrow(Biomes.WARPED_FOREST)),
+                Pair.of(BOPClimate.parameters(-0.5F, 0.0F, 0.0F, 0.0F, 0.0F, -1.0F, 0.0F, 0.0F, 0.175F), () -> biomeRegistry.getOrThrow(Biomes.BASALT_DELTAS)),
+                Pair.of(BOPClimate.parameters(-0.5F, 0.0F, 0.0F, 0.0F, 0.0F, 1.0F, 0.0F, 0.0F, 0.0F), () -> biomeRegistry.getOrThrow(BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.WITHERED_ABYSS, Biomes.NETHER_WASTES)))));
         });
+
         public static final BOPMultiNoiseBiomeSource.Preset OVERWORLD = new BOPMultiNoiseBiomeSource.Preset(new ResourceLocation(BiomesOPlenty.MOD_ID, "overworld"), (biomeRegistry) -> {
             ImmutableList.Builder<Pair<BOPClimate.ParameterPoint, Supplier<Biome>>> builder = ImmutableList.builder();
             (new BOPOverworldBiomeBuilder()).addBiomes(biomeRegistry, (p_187098_) -> {

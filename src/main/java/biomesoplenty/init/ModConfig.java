@@ -17,6 +17,7 @@ import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
@@ -50,9 +51,28 @@ public class ModConfig
         }
     }
 
+    public static class GenerationConfig
+    {
+        public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
+        public static final ForgeConfigSpec SPEC;
+
+        public static final ForgeConfigSpec.BooleanValue useBopNether;
+
+        static
+        {
+            BUILDER.comment("World generation related options.");
+            BUILDER.push("overworld");
+            useBopNether = BUILDER.comment("Enable nether generation from Biomes O' Plenty.").define("use_bop_nether", true);
+            BUILDER.pop();
+
+            SPEC = BUILDER.build();
+        }
+    }
+
     public static void setup()
     {
         createConfigDirectoryIfNecessary();
+        ModLoadingContext.get().registerConfig(net.minecraftforge.fml.config.ModConfig.Type.COMMON, GenerationConfig.SPEC, "biomesoplenty/generation.toml");
         ModLoadingContext.get().registerConfig(net.minecraftforge.fml.config.ModConfig.Type.CLIENT, ClientConfig.SPEC, "biomesoplenty/client.toml");
     }
 
@@ -60,7 +80,14 @@ public class ModConfig
     {
         String optionName = getBiomeConfigOptionName(key);
         Map<String, Boolean> biomeToggles = getBiomeToggles();
-        return biomeToggles.containsKey(optionName) && biomeToggles.get(optionName);
+
+        // Add the biome toggle if it is missing
+        if (!biomeToggles.containsKey(optionName) && key.location().getNamespace().equals("biomesoplenty"))
+        {
+            addBiomeToggle(key);
+        }
+
+        return biomeToggles.get(optionName);
     }
 
     private static Map<String, Boolean> getBiomeToggles()
@@ -76,6 +103,17 @@ public class ModConfig
     private static String getBiomeConfigOptionName(ResourceKey<Biome> key)
     {
         return key.location().getPath() + "_enabled";
+    }
+
+    private static void addBiomeToggle(ResourceKey<Biome> key)
+    {
+        getBiomeToggles().put(getBiomeConfigOptionName(key), true);
+        updateConfigFile();
+    }
+
+    private static void updateConfigFile()
+    {
+        JsonUtil.writeFile(getBOPConfigFile(), getBiomeToggles());
     }
 
     private static void createConfigDirectoryIfNecessary()
@@ -99,6 +137,11 @@ public class ModConfig
     {
         Path configPath = FMLPaths.CONFIGDIR.get();
         return Paths.get(configPath.toAbsolutePath().toString(), "biomesoplenty");
+    }
+
+    private static File getBOPConfigFile()
+    {
+        return new File(getBOPConfigPath().toFile(), BIOME_CONFIG_FILE_NAME);
     }
 
     static

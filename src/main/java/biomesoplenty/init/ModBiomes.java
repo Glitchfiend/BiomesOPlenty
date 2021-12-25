@@ -5,6 +5,7 @@
 package biomesoplenty.init;
 
 import biomesoplenty.api.biome.BOPBiomes;
+import biomesoplenty.common.biome.BOPNetherBiomes;
 import biomesoplenty.common.biome.BOPOverworldBiomes;
 import biomesoplenty.common.worldgen.BOPNoises;
 import biomesoplenty.common.worldgen.BOPWorldType;
@@ -108,6 +109,7 @@ public class ModBiomes
         registerBiome(BOPBiomes.VOLCANIC_PLAINS, BOPOverworldBiomes.volcanicPlains());
         registerBiome(BOPBiomes.WASTELAND, BOPOverworldBiomes.wasteland());
         registerBiome(BOPBiomes.WETLAND, BOPOverworldBiomes.wetland());
+        registerBiome(BOPBiomes.WITHERED_ABYSS, BOPNetherBiomes.witheredAbyss());
         registerBiome(BOPBiomes.WOODED_SCRUBLAND, BOPOverworldBiomes.scrubland(true));
         registerBiome(BOPBiomes.WOODLAND, BOPOverworldBiomes.woodland(false));
     }

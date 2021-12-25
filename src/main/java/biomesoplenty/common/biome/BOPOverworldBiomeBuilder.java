@@ -5,6 +5,7 @@
 package biomesoplenty.common.biome;
 
 import biomesoplenty.api.biome.BOPBiomes;
+import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.common.worldgen.BOPClimate;
 import com.mojang.datafixers.util.Pair;
 
@@ -14,7 +15,6 @@ import java.util.function.Consumer;
 import net.minecraft.SharedConstants;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.TerrainShaper;
@@ -525,13 +525,13 @@ public final class BOPOverworldBiomeBuilder
     {
         this.addUndergroundBiome(mapper, this.FULL_RANGE, this.FULL_RANGE, BOPClimate.Parameter.span(0.8F, 1.0F), this.FULL_RANGE, this.FULL_RANGE, 0.0F, Biomes.DRIPSTONE_CAVES);
         this.addUndergroundBiome(mapper, this.FULL_RANGE, BOPClimate.Parameter.span(0.7F, 1.0F), this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, 0.0F, Biomes.LUSH_CAVES);
-        this.addUndergroundBiome(mapper, this.FULL_RANGE, this.FULL_RANGE, BOPClimate.Parameter.span(0.4F, 0.8F), this.FULL_RANGE, this.FULL_RANGE, 0.0F, biomeOrFallback(biomeRegistry, BOPBiomes.GLOWING_GROTTO, Biomes.LUSH_CAVES));
-        this.addUndergroundBiome(mapper, this.FULL_RANGE, BOPClimate.Parameter.span(0.3F, 0.7F), this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, 0.0F, biomeOrFallback(biomeRegistry, BOPBiomes.SPIDER_NEST, Biomes.DRIPSTONE_CAVES));
+        this.addUndergroundBiome(mapper, this.FULL_RANGE, this.FULL_RANGE, BOPClimate.Parameter.span(0.4F, 0.8F), this.FULL_RANGE, this.FULL_RANGE, 0.0F, BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.GLOWING_GROTTO, Biomes.LUSH_CAVES));
+        this.addUndergroundBiome(mapper, this.FULL_RANGE, BOPClimate.Parameter.span(0.3F, 0.7F), this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, 0.0F, BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.SPIDER_NEST, Biomes.DRIPSTONE_CAVES));
     }
 
     private ResourceKey<Biome> pickIslandBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex)
     {
-        return biomeOrFallback(biomeRegistry, this.ISLAND_BIOMES_BOP[temperatureIndex][humidityIndex], Biomes.MUSHROOM_FIELDS);
+        return BiomeUtil.biomeOrFallback(biomeRegistry, this.ISLAND_BIOMES_BOP[temperatureIndex][humidityIndex], Biomes.MUSHROOM_FIELDS);
     }
 
     private ResourceKey<Biome> pickMiddleBiomeVanilla(int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
@@ -549,19 +549,19 @@ public final class BOPOverworldBiomeBuilder
 
     private ResourceKey<Biome> pickMiddleBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
     {
-        ResourceKey<Biome> middleBiome = biomeOrFallback(biomeRegistry, this.MIDDLE_BIOMES_BOP[temperatureIndex][humidityIndex], this.MIDDLE_BIOMES[temperatureIndex][humidityIndex]);
+        ResourceKey<Biome> middleBiome = BiomeUtil.biomeOrFallback(biomeRegistry, this.MIDDLE_BIOMES_BOP[temperatureIndex][humidityIndex], this.MIDDLE_BIOMES[temperatureIndex][humidityIndex]);
 
         if (weirdness.max() < 0) return middleBiome;
         else
         {
-            return biomeOrFallback(biomeRegistry, this.MIDDLE_BIOMES_VARIANT_BOP[temperatureIndex][humidityIndex], middleBiome);
+            return BiomeUtil.biomeOrFallback(biomeRegistry, this.MIDDLE_BIOMES_VARIANT_BOP[temperatureIndex][humidityIndex], middleBiome);
         }
     }
 
     private ResourceKey<Biome> pickRareBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
     {
         ResourceKey<Biome> middleBiome = this.pickMiddleBiomeBOP(biomeRegistry, temperatureIndex, humidityIndex, weirdness);
-        return biomeOrFallback(biomeRegistry, this.RARE_BIOMES_BOP[temperatureIndex][humidityIndex], middleBiome);
+        return BiomeUtil.biomeOrFallback(biomeRegistry, this.RARE_BIOMES_BOP[temperatureIndex][humidityIndex], middleBiome);
     }
 
     private ResourceKey<Biome> pickMiddleBiomeOrBadlandsIfHotVanilla(int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
@@ -581,7 +581,7 @@ public final class BOPOverworldBiomeBuilder
 
     private ResourceKey<Biome> pickSwampBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
     {
-        return biomeOrFallback(biomeRegistry, this.SWAMP_BIOMES_BOP[temperatureIndex][humidityIndex], this.pickMiddleBiomeBOP(biomeRegistry, temperatureIndex, humidityIndex, weirdness), Biomes.SWAMP);
+        return BiomeUtil.biomeOrFallback(biomeRegistry, this.SWAMP_BIOMES_BOP[temperatureIndex][humidityIndex], this.pickMiddleBiomeBOP(biomeRegistry, temperatureIndex, humidityIndex, weirdness), Biomes.SWAMP);
     }
 
     private ResourceKey<Biome> maybePickShatteredBiome(int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness, ResourceKey<Biome> extremeHillsBiome)
@@ -601,7 +601,7 @@ public final class BOPOverworldBiomeBuilder
             return Biomes.SNOWY_BEACH;
         else if (temperatureIndex == 2 && humidityIndex <= 2)
         {
-            return biomeOrFallback(biomeRegistry, BOPBiomes.DUNE_BEACH, Biomes.BEACH);
+            return BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.DUNE_BEACH, Biomes.BEACH);
         }
         else
         {
@@ -636,8 +636,8 @@ public final class BOPOverworldBiomeBuilder
 
     private ResourceKey<Biome> pickPlateauBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
     {
-        if (weirdness.max() < 0L) return biomeOrFallback(biomeRegistry, this.PLATEAU_BIOMES_BOP[temperatureIndex][humidityIndex], this.PLATEAU_BIOMES[temperatureIndex][humidityIndex]);
-        else return biomeOrFallback(biomeRegistry, this.PLATEAU_BIOMES_VARIANT_BOP[temperatureIndex][humidityIndex], this.PLATEAU_BIOMES_BOP[temperatureIndex][humidityIndex], this.PLATEAU_BIOMES[temperatureIndex][humidityIndex]);
+        if (weirdness.max() < 0L) return BiomeUtil.biomeOrFallback(biomeRegistry, this.PLATEAU_BIOMES_BOP[temperatureIndex][humidityIndex], this.PLATEAU_BIOMES[temperatureIndex][humidityIndex]);
+        else return BiomeUtil.biomeOrFallback(biomeRegistry, this.PLATEAU_BIOMES_VARIANT_BOP[temperatureIndex][humidityIndex], this.PLATEAU_BIOMES_BOP[temperatureIndex][humidityIndex], this.PLATEAU_BIOMES[temperatureIndex][humidityIndex]);
     }
 
     private ResourceKey<Biome> pickPeakBiome(int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
@@ -684,7 +684,7 @@ public final class BOPOverworldBiomeBuilder
 
     private ResourceKey<Biome> pickExtremeHillsBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
     {
-        return biomeOrFallback(biomeRegistry, this.EXTREME_HILLS_BOP[temperatureIndex][humidityIndex], this.pickExtremeHillsBiomeVanilla(temperatureIndex, humidityIndex, weirdness));
+        return BiomeUtil.biomeOrFallback(biomeRegistry, this.EXTREME_HILLS_BOP[temperatureIndex][humidityIndex], this.pickExtremeHillsBiomeVanilla(temperatureIndex, humidityIndex, weirdness));
     }
 
     private void addParallelSurfaceBiomes(Consumer<Pair<BOPClimate.ParameterPoint, ResourceKey<Biome>>> mapper, BOPClimate.Parameter temperature, BOPClimate.Parameter humidity, BOPClimate.Parameter continentalness, BOPClimate.Parameter erosion, BOPClimate.Parameter weirdness, float offset, ResourceKey<Biome> vanillaBiome, ResourceKey<Biome> bopBiome)
@@ -725,22 +725,6 @@ public final class BOPOverworldBiomeBuilder
     private void addUndergroundBiome(Consumer<Pair<BOPClimate.ParameterPoint, ResourceKey<Biome>>> mapper, BOPClimate.Parameter temperature, BOPClimate.Parameter humidity, BOPClimate.Parameter continentalness, BOPClimate.Parameter erosion, BOPClimate.Parameter weirdness, float offset, ResourceKey<Biome> biome)
     {
         mapper.accept(Pair.of(BOPClimate.parameters(temperature, humidity, continentalness, erosion, BOPClimate.Parameter.span(0.2F, 0.9F), weirdness, this.FULL_RANGE, this.FULL_RANGE, offset), biome));
-    }
-
-    private static ResourceKey<Biome> biomeOrFallback(Registry<Biome> biomeRegistry, ResourceKey<Biome>... biomes)
-    {
-        for (ResourceKey<Biome> key : biomes)
-        {
-            if (key == null)
-                continue;
-
-            Biome biome = biomeRegistry.get(key);
-
-            if (biome != null)
-                return key;
-        }
-
-        throw new RuntimeException("Failed to find fallback for biome!");
     }
 
     public static String getDebugStringForPeaksAndValleys(double p_187156_)
