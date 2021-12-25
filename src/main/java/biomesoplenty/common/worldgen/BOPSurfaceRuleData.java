@@ -459,7 +459,7 @@ public class BOPSurfaceRuleData
                 )
             ),
             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.CRAG), STONE),
-            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.DRY_BONEYARD, BOPBiomes.DRYLAND),
+            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.DRYLAND),
                 SurfaceRules.ifTrue(surfaceNoiseAbove(1.75D), SAND)
             ),
             SurfaceRules.ifTrue(
@@ -473,7 +473,7 @@ public class BOPSurfaceRuleData
                 SurfaceRules.isBiome(BOPBiomes.ROCKY_SHRUBLAND),
                 SurfaceRules.ifTrue(surfaceNoiseAbove(1.7D), STONE)
             ),
-            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.WASTELAND), DRIED_SALT)
+            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.WASTELAND, BOPBiomes.WOODED_WASTELAND), DRIED_SALT)
         );
     }
 

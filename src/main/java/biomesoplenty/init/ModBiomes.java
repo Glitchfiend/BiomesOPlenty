@@ -61,8 +61,6 @@ public class ModBiomes
         registerBiome(BOPBiomes.CONIFEROUS_FOREST, BOPOverworldBiomes.coniferousForest(false));
         registerBiome(BOPBiomes.CRAG, BOPOverworldBiomes.crag());
         registerBiome(BOPBiomes.DEAD_FOREST, BOPOverworldBiomes.deadForest());
-        registerBiome(BOPBiomes.DENSE_WOODLAND, BOPOverworldBiomes.woodland(true));
-        registerBiome(BOPBiomes.DRY_BONEYARD, BOPOverworldBiomes.dryBoneyard());
         registerBiome(BOPBiomes.DRYLAND, BOPOverworldBiomes.dryland());
         registerBiome(BOPBiomes.DUNE_BEACH, BOPOverworldBiomes.duneBeach());
         registerBiome(BOPBiomes.FIELD, BOPOverworldBiomes.field(false));
@@ -79,12 +77,14 @@ public class ModBiomes
         registerBiome(BOPBiomes.LAVENDER_FOREST, BOPOverworldBiomes.lavenderField(true));
         registerBiome(BOPBiomes.LUSH_DESERT, BOPOverworldBiomes.lushDesert());
         registerBiome(BOPBiomes.LUSH_SAVANNA, BOPOverworldBiomes.lushSavanna());
+        registerBiome(BOPBiomes.MAPLE_FOREST, BOPOverworldBiomes.mapleForest());
         registerBiome(BOPBiomes.MARSH, BOPOverworldBiomes.marsh());
         registerBiome(BOPBiomes.MEDITERRANEAN_FOREST, BOPOverworldBiomes.mediterraneanForest());
         registerBiome(BOPBiomes.MEDITERRANEAN_LAKES, BOPOverworldBiomes.mediterraneanLakes());
         registerBiome(BOPBiomes.MUSKEG, BOPOverworldBiomes.muskeg());
         registerBiome(BOPBiomes.MYSTIC_GROVE, BOPOverworldBiomes.mysticGrove());
         registerBiome(BOPBiomes.OLD_GROWTH_DEAD_FOREST, BOPOverworldBiomes.oldGrowthDeadForest());
+        registerBiome(BOPBiomes.OLD_GROWTH_WOODLAND, BOPOverworldBiomes.woodland(true));
         registerBiome(BOPBiomes.OMINOUS_WOODS, BOPOverworldBiomes.ominousWoods());
         registerBiome(BOPBiomes.ORCHARD, BOPOverworldBiomes.orchard());
         registerBiome(BOPBiomes.ORIGIN_VALLEY, BOPOverworldBiomes.originValley());
@@ -107,10 +107,11 @@ public class ModBiomes
         registerBiome(BOPBiomes.TUNDRA, BOPOverworldBiomes.tundra());
         registerBiome(BOPBiomes.VOLCANO, BOPOverworldBiomes.volcano());
         registerBiome(BOPBiomes.VOLCANIC_PLAINS, BOPOverworldBiomes.volcanicPlains());
-        registerBiome(BOPBiomes.WASTELAND, BOPOverworldBiomes.wasteland());
+        registerBiome(BOPBiomes.WASTELAND, BOPOverworldBiomes.wasteland(false));
         registerBiome(BOPBiomes.WETLAND, BOPOverworldBiomes.wetland());
         registerBiome(BOPBiomes.WITHERED_ABYSS, BOPNetherBiomes.witheredAbyss());
         registerBiome(BOPBiomes.WOODED_SCRUBLAND, BOPOverworldBiomes.scrubland(true));
+        registerBiome(BOPBiomes.WOODED_WASTELAND, BOPOverworldBiomes.wasteland(true));
         registerBiome(BOPBiomes.WOODLAND, BOPOverworldBiomes.woodland(false));
     }
 
