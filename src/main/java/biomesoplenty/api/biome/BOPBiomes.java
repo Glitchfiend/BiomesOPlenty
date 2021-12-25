@@ -28,8 +28,6 @@ public class BOPBiomes
     public static final ResourceKey<Biome> CONIFEROUS_FOREST = registerOverworld("coniferous_forest");
     public static final ResourceKey<Biome> CRAG = registerOverworld("crag");
     public static final ResourceKey<Biome> DEAD_FOREST = registerOverworld("dead_forest");
-    public static final ResourceKey<Biome> DENSE_WOODLAND = registerOverworld("dense_woodland");
-    public static final ResourceKey<Biome> DRY_BONEYARD = registerOverworld("dry_boneyard");
     public static final ResourceKey<Biome> DRYLAND = registerOverworld("dryland");
     public static final ResourceKey<Biome> DUNE_BEACH = registerOverworld("dune_beach");
     public static final ResourceKey<Biome> FIELD = registerOverworld("field");
@@ -53,6 +51,7 @@ public class BOPBiomes
     public static final ResourceKey<Biome> MUSKEG = registerOverworld("muskeg");
     public static final ResourceKey<Biome> MYSTIC_GROVE = registerOverworld("mystic_grove");
     public static final ResourceKey<Biome> OLD_GROWTH_DEAD_FOREST = registerOverworld("old_growth_dead_forest");
+    public static final ResourceKey<Biome> OLD_GROWTH_WOODLAND = registerOverworld("old_growth_woodland");
     public static final ResourceKey<Biome> OMINOUS_WOODS = registerOverworld("ominous_woods");
     public static final ResourceKey<Biome> ORCHARD = registerOverworld("orchard");
     public static final ResourceKey<Biome> ORIGIN_VALLEY = registerOverworld("origin_valley");
@@ -79,6 +78,7 @@ public class BOPBiomes
     public static final ResourceKey<Biome> WETLAND = registerOverworld("wetland");
     public static final ResourceKey<Biome> WITHERED_ABYSS = register("withered_abyss");
     public static final ResourceKey<Biome> WOODED_SCRUBLAND = registerOverworld("wooded_scrubland");
+    public static final ResourceKey<Biome> WOODED_WASTELAND = registerOverworld("wooded_wasteland");
     public static final ResourceKey<Biome> WOODLAND = registerOverworld("woodland");
 
     public static List<ResourceKey<Biome>> getOverworldBiomes()
