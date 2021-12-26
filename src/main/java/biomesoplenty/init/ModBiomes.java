@@ -68,7 +68,6 @@ public class ModBiomes
         registerBiome(BOPBiomes.FLOODPLAIN, BOPOverworldBiomes.floodplain());
         registerBiome(BOPBiomes.FUNGAL_JUNGLE, BOPOverworldBiomes.fungalJungle());
         registerBiome(BOPBiomes.FORESTED_FIELD, BOPOverworldBiomes.field(true));
-        registerBiome(BOPBiomes.GLOWING_GROTTO, BOPOverworldBiomes.glowingGrotto());
         registerBiome(BOPBiomes.GRASSLAND, BOPOverworldBiomes.grassland());
         registerBiome(BOPBiomes.HIGHLAND, BOPOverworldBiomes.highland(false));
         registerBiome(BOPBiomes.HIGHLAND_MOOR, BOPOverworldBiomes.highland(true));
@@ -102,17 +101,23 @@ public class ModBiomes
         registerBiome(BOPBiomes.SNOWY_CONIFEROUS_FOREST, BOPOverworldBiomes.coniferousForest(true));
         registerBiome(BOPBiomes.SNOWY_FIR_CLEARING, BOPOverworldBiomes.firClearing(true));
         registerBiome(BOPBiomes.SNOWY_MAPLE_FOREST, BOPOverworldBiomes.snowyMapleForest());
-        registerBiome(BOPBiomes.SPIDER_NEST, BOPOverworldBiomes.spiderNest());
         registerBiome(BOPBiomes.TROPICS, BOPOverworldBiomes.tropics());
         registerBiome(BOPBiomes.TUNDRA, BOPOverworldBiomes.tundra());
         registerBiome(BOPBiomes.VOLCANO, BOPOverworldBiomes.volcano());
         registerBiome(BOPBiomes.VOLCANIC_PLAINS, BOPOverworldBiomes.volcanicPlains());
         registerBiome(BOPBiomes.WASTELAND, BOPOverworldBiomes.wasteland(false));
         registerBiome(BOPBiomes.WETLAND, BOPOverworldBiomes.wetland());
-        registerBiome(BOPBiomes.WITHERED_ABYSS, BOPNetherBiomes.witheredAbyss());
         registerBiome(BOPBiomes.WOODED_SCRUBLAND, BOPOverworldBiomes.scrubland(true));
         registerBiome(BOPBiomes.WOODED_WASTELAND, BOPOverworldBiomes.wasteland(true));
         registerBiome(BOPBiomes.WOODLAND, BOPOverworldBiomes.woodland(false));
+
+        // Cave biomes
+        registerBiome(BOPBiomes.GLOWING_GROTTO, BOPOverworldBiomes.glowingGrotto());
+        registerBiome(BOPBiomes.SPIDER_NEST, BOPOverworldBiomes.spiderNest());
+
+        // Nether biomes
+        registerBiome(BOPBiomes.CRYSTALLINE_CHASM, BOPNetherBiomes.crystallineChasm());
+        registerBiome(BOPBiomes.WITHERED_ABYSS, BOPNetherBiomes.witheredAbyss());
     }
 
     // TODO: Villagers, other stuff
