@@ -137,7 +137,7 @@ public class BOPOverworldBiomes
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_FERN_GRASS_8);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_LARGE_FERN_7);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.LILY_PAD_10);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_6);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_12);
 
         return biomeWithColorOverrides(Biome.Precipitation.RAIN, Biome.BiomeCategory.SWAMP, 0.95F, 0.9F, 0x62AF84, 0x0C211C, 12638463, 0x6FAA50, 0x8BDB67, calculateSkyColor(0.95F), spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }
@@ -157,10 +157,10 @@ public class BOPOverworldBiomes
         BiomeDefaultFeatures.addCommonBerryBushes(biomeBuilder);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_BOG);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_BUSH_50);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_FERN_GRASS_8);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_FERN_GRASS_5);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_REED_10);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_6);
 
-        // TODO: Extra coal?
         return biomeWithColorOverrides(Biome.Precipitation.RAIN, Biome.BiomeCategory.TAIGA, 0.2F, 0.5F, 0xA89557, 0xC67F5B, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }
 
@@ -229,7 +229,6 @@ public class BOPOverworldBiomes
         globalOverworldGeneration(biomeBuilder);
         BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.WASTELAND_GRASS_1);
-        // TODO: Extra iron?
 
         return biomeWithColorOverrides(Biome.Precipitation.NONE, Biome.BiomeCategory.ICY, 0.25F, 0.0F, 0xAD9364, 0xB5A76C, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }
@@ -266,6 +265,7 @@ public class BOPOverworldBiomes
 
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_FERN_GRASS_4);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TOADSTOOL_NORMAL);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_12);
 
         return biome(Biome.Precipitation.RAIN, Biome.BiomeCategory.TAIGA, isSnowy ? -0.25F : 0.45F, 0.5F, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }
@@ -408,14 +408,39 @@ public class BOPOverworldBiomes
         if (!snowy)
         {
             biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.FLOWER_CONIFEROUS_FOREST);
-            biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_FERN_GRASS_8);
+            biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_FERN_GRASS_5);
             biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TOADSTOOL_NORMAL);
+            biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_12);
             return biome(Biome.Precipitation.RAIN, Biome.BiomeCategory.TAIGA, 0.45F, 0.5F, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
         }
         else
         {
+            biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.FLOWER_SNOWY);
+            biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_FERN_GRASS_4);
+            biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_3);
             return biome(Biome.Precipitation.SNOW, Biome.BiomeCategory.ICY, -0.25F, 0.5F, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
         }
+    }
+
+    public static Biome floodplain()
+    {
+        // Mob spawns
+        MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.commonSpawns(spawnBuilder);
+
+        // Biome features
+        BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder();
+        globalOverworldGeneration(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEAGRASS_SWAMP);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_RAINFOREST_FLOODPLAIN);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.FLOWER_RAINFOREST);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.LILY_PAD_15);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_12);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_TALL_GRASS_24);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_WATERGRASS_250);
+
+        return biome(Biome.Precipitation.RAIN, Biome.BiomeCategory.JUNGLE, 1.2F, 2.0F, 4566514, 267827, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }
 
     public static Biome fungalJungle()
@@ -441,8 +466,9 @@ public class BOPOverworldBiomes
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.SMALL_GLOWSHROOM);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GLOWSHROOM_20);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.MYCELIUM_SPLATTER);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_FERN_GRASS_16);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_FERN_GRASS_8);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_LARGE_FERN_7);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_12);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_TALL_GRASS_12);
 
         return biomeWithColorOverrides(Biome.Precipitation.SNOW, Biome.BiomeCategory.ICY, 0.9F, 0.9F, 4445678, 270131, 12638463, 0x4AA2F9, 0x4ADCF9, calculateSkyColor(0.9F), spawnBuilder, biomeBuilder, NORMAL_MUSIC);
@@ -487,23 +513,6 @@ public class BOPOverworldBiomes
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.HUGE_CLOVER);
 
         return biomeWithColorOverrides(Biome.Precipitation.RAIN, Biome.BiomeCategory.PLAINS, 0.6F, 0.7F, 0x88C57F, 0x6AB66F, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
-    }
-
-    public static Biome pasture()
-    {
-        // Mob spawns
-        MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-        BiomeDefaultFeatures.plainsSpawns(spawnBuilder);
-
-        // Biome features
-        BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder();
-        globalOverworldGeneration(biomeBuilder);
-        BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_BARLEY_15);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_24);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_TALL_GRASS_64);
-
-        return biomeWithColorOverrides(Biome.Precipitation.RAIN, Biome.BiomeCategory.PLAINS, 0.8F, 0.3F, 0xE4EA77, 0xC7E672, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }
 
     public static Biome highland(boolean moor)
@@ -640,7 +649,7 @@ public class BOPOverworldBiomes
         return biomeWithColorOverrides(Biome.Precipitation.RAIN, Biome.BiomeCategory.DESERT, 0.9F, 0.5F, 4566514, 267827, 0xEFE182, 0xD3D156, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }
 
-    public static Biome mapleForest()
+    public static Biome mapleWoods(boolean snowy)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
@@ -657,11 +666,23 @@ public class BOPOverworldBiomes
         BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_PUMPKIN);
         BiomeDefaultFeatures.addRareBerryBushes(biomeBuilder);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_MAPLE_FOREST);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.FLOWER_SNOWY);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_FERN_GRASS_4);
 
-        return biome(Biome.Precipitation.RAIN, Biome.BiomeCategory.TAIGA, 0.25F, 0.5F, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
+        if (!snowy)
+        {
+            biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_MAPLE_FOREST);
+            biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.FLOWER_SNOWY);
+            biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_FERN_GRASS_4);
+            biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_6);
+            return biome(Biome.Precipitation.RAIN, Biome.BiomeCategory.TAIGA, 0.25F, 0.5F, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
+        }
+        else
+        {
+            biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_SNOWY_MAPLE_FOREST);
+            biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.FLOWER_SNOWY);
+            biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_FERN_GRASS_4);
+            biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_3);
+            return biome(Biome.Precipitation.SNOW, Biome.BiomeCategory.ICY, -0.25F, 0.5F, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
+        }
     }
 
     public static Biome marsh()
@@ -677,7 +698,7 @@ public class BOPOverworldBiomes
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEAGRASS_SWAMP);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_TALL_GRASS_250);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_REED_10);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_12);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_22);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_WATERGRASS_50);
 
         return biome(Biome.Precipitation.RAIN, Biome.BiomeCategory.SWAMP, 0.65F, 0.7F, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
@@ -875,6 +896,23 @@ public class BOPOverworldBiomes
         return biomeWithColorOverrides(Biome.Precipitation.RAIN, Biome.BiomeCategory.NONE, 0.6F, 0.6F, 0x0E31FF, 0x070059, 0xB0CFFF, 0x9AFF5F, 0x3AFF00, 0x8CBDFF, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }
 
+    public static Biome pasture()
+    {
+        // Mob spawns
+        MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.plainsSpawns(spawnBuilder);
+
+        // Biome features
+        BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder();
+        globalOverworldGeneration(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_BARLEY_15);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_24);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_TALL_GRASS_64);
+
+        return biomeWithColorOverrides(Biome.Precipitation.RAIN, Biome.BiomeCategory.PLAINS, 0.8F, 0.3F, 0xE4EA77, 0xC7E672, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
+    }
+
     public static Biome prairie()
     {
         // Mob spawns
@@ -892,6 +930,32 @@ public class BOPOverworldBiomes
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_TALL_GRASS_24);
 
         return biomeWithColorOverrides(Biome.Precipitation.RAIN, Biome.BiomeCategory.PLAINS, 0.8F, 0.3F, 0xE4EA77, 0xC7E672, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
+    }
+
+    public static Biome pumpkinPatch()
+    {
+        // Mob spawns
+        MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.commonSpawns(spawnBuilder);
+        BiomeDefaultFeatures.farmAnimals(spawnBuilder);
+        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.WOLF, 5, 4, 4));
+        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.FOX, 8, 2, 4));
+
+        // Biome features
+        BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder();
+        globalOverworldGeneration(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_SEASONAL_PUMPKIN_PATCH);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.BIG_PUMPKIN);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PUMPKIN_PATCH);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TOADSTOOL_NORMAL);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_SPROUTS_10);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_REED_5);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_6);
+
+        return biomeWithColorOverrides(Biome.Precipitation.RAIN, Biome.BiomeCategory.FOREST, 0.4F, 0.8F, 0xDDBF4A, 0xCED14A, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }
 
     public static Biome rainbowHills()
@@ -942,10 +1006,9 @@ public class BOPOverworldBiomes
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.LILY_PAD_10);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.SMALL_DRIPLEAF);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_SPROUTS_5);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_12);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_TALL_GRASS_12);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_WATERGRASS_10);
-
-        // TODO: Extra copper?
 
         return biomeWithColorOverrides(Biome.Precipitation.RAIN, Biome.BiomeCategory.JUNGLE, 1.2F, 2.0F, 0x3FDF99, 0x042F26, 0xA7E140, 0x88E140, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }
@@ -973,37 +1036,11 @@ public class BOPOverworldBiomes
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_LARGE_FERN_7);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.RAINFOREST_CLIFFS_VINES);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_SPROUTS_25);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_12);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_TALL_GRASS_24);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_WATERGRASS_10);
 
-        // TODO: Extra copper?
         return biomeWithColorOverrides(Biome.Precipitation.RAIN, Biome.BiomeCategory.JUNGLE, 1.2F, 2.0F, 0x3FDF99, 0x042F26, 0xA7E140, 0x88E140, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
-    }
-
-    public static Biome floodplain()
-    {
-        // Mob spawns
-        MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-        BiomeDefaultFeatures.commonSpawns(spawnBuilder);
-
-        // Biome features
-        BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder();
-        globalOverworldGeneration(biomeBuilder);
-        BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEAGRASS_SWAMP);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_RAINFOREST_FLOODPLAIN);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.FLOWER_RAINFOREST);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.BIG_DRIPLEAF);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_FERN_GRASS_16);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_LARGE_FERN_7);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.LILY_PAD_15);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.SMALL_DRIPLEAF);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_TALL_GRASS_24);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_WATERGRASS_250);
-
-        // TODO: Extra copper?
-
-        return biome(Biome.Precipitation.RAIN, Biome.BiomeCategory.JUNGLE, 1.2F, 2.0F, 4566514, 267827, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }
 
     public static Biome redwoodForest()
@@ -1121,8 +1158,8 @@ public class BOPOverworldBiomes
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_PUMPKIN);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_SEASONAL_FOREST);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TOADSTOOL_EXTRA);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_12);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_REED_5);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_12);
 
         return biomeWithColorOverrides(Biome.Precipitation.RAIN, Biome.BiomeCategory.FOREST, 0.4F, 0.8F, 0xDD9A4A, 0xD1B24A, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }
@@ -1144,56 +1181,6 @@ public class BOPOverworldBiomes
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPCavePlacements.SPIDER_EGGS);
 
         return biome(Biome.Precipitation.RAIN, Biome.BiomeCategory.UNDERGROUND, 0.5F, 0.5F, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
-    }
-
-    public static Biome pumpkinPatch()
-    {
-        // Mob spawns
-        MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-        BiomeDefaultFeatures.commonSpawns(spawnBuilder);
-        BiomeDefaultFeatures.farmAnimals(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.WOLF, 5, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.FOX, 8, 2, 4));
-
-        // Biome features
-        BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder();
-        globalOverworldGeneration(biomeBuilder);
-        BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
-        BiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
-        BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_SEASONAL_PUMPKIN_PATCH);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.BIG_PUMPKIN);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PUMPKIN_PATCH);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TOADSTOOL_NORMAL);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_SPROUTS_10);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_6);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_REED_5);
-
-        return biomeWithColorOverrides(Biome.Precipitation.RAIN, Biome.BiomeCategory.FOREST, 0.4F, 0.8F, 0xDDBF4A, 0xCED14A, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
-    }
-
-    public static Biome snowyMapleForest()
-    {
-        // Mob spawns
-        MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-        BiomeDefaultFeatures.commonSpawns(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.WOLF, 5, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.RABBIT, 4, 2, 3));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.FOX, 8, 2, 4));
-
-        // Biome features
-        BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder();
-        globalOverworldGeneration(biomeBuilder);
-        BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
-        BiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
-        BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_PUMPKIN);
-        BiomeDefaultFeatures.addRareBerryBushes(biomeBuilder);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_SNOWY_MAPLE_FOREST);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.FLOWER_SNOWY);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_FERN_GRASS_4);
-
-        return biome(Biome.Precipitation.SNOW, Biome.BiomeCategory.ICY, -0.25F, 0.5F, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }
 
     public static Biome tropics()
@@ -1239,11 +1226,11 @@ public class BOPOverworldBiomes
         BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
         biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BOPMiscOverworldPlacements.DISK_GRAVEL_EXTRA);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_TUNDRA);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_FERN_GRASS_4);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_FERN_GRASS_5);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_REED_5);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_6);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.SCATTERED_ROCKS);
 
-        // TODO: Extra coal?
         return biomeWithColorOverrides(Biome.Precipitation.RAIN, Biome.BiomeCategory.TAIGA, 0.2F, 0.5F, 0xC08359, 0xC5975C, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }
 
@@ -1332,6 +1319,7 @@ public class BOPOverworldBiomes
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.LILY_PAD_10);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TOADSTOOL_NORMAL);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_REED_5);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_12);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_WATERGRASS_10);
 
         return biomeWithColorOverrides(Biome.Precipitation.RAIN, Biome.BiomeCategory.SWAMP, 0.6F, 0.7F, 0x272179, 0x0C031B, 12638463, 0x5A935F, 0x4F9657, calculateSkyColor(0.6F), spawnBuilder, biomeBuilder, NORMAL_MUSIC);

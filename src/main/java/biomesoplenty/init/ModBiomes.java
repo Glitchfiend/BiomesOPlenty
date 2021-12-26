@@ -76,7 +76,7 @@ public class ModBiomes
         registerBiome(BOPBiomes.LAVENDER_FOREST, BOPOverworldBiomes.lavenderField(true));
         registerBiome(BOPBiomes.LUSH_DESERT, BOPOverworldBiomes.lushDesert());
         registerBiome(BOPBiomes.LUSH_SAVANNA, BOPOverworldBiomes.lushSavanna());
-        registerBiome(BOPBiomes.MAPLE_FOREST, BOPOverworldBiomes.mapleForest());
+        registerBiome(BOPBiomes.MAPLE_WOODS, BOPOverworldBiomes.mapleWoods(false));
         registerBiome(BOPBiomes.MARSH, BOPOverworldBiomes.marsh());
         registerBiome(BOPBiomes.MEDITERRANEAN_FOREST, BOPOverworldBiomes.mediterraneanForest());
         registerBiome(BOPBiomes.MEDITERRANEAN_LAKES, BOPOverworldBiomes.mediterraneanLakes());
@@ -100,7 +100,7 @@ public class ModBiomes
         registerBiome(BOPBiomes.SEASONAL_FOREST, BOPOverworldBiomes.seasonalForest());
         registerBiome(BOPBiomes.SNOWY_CONIFEROUS_FOREST, BOPOverworldBiomes.coniferousForest(true));
         registerBiome(BOPBiomes.SNOWY_FIR_CLEARING, BOPOverworldBiomes.firClearing(true));
-        registerBiome(BOPBiomes.SNOWY_MAPLE_FOREST, BOPOverworldBiomes.snowyMapleForest());
+        registerBiome(BOPBiomes.SNOWY_MAPLE_WOODS, BOPOverworldBiomes.mapleWoods(true));
         registerBiome(BOPBiomes.TROPICS, BOPOverworldBiomes.tropics());
         registerBiome(BOPBiomes.TUNDRA, BOPOverworldBiomes.tundra());
         registerBiome(BOPBiomes.VOLCANO, BOPOverworldBiomes.volcano());

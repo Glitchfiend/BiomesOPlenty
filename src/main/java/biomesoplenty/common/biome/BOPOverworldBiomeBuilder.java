@@ -117,7 +117,7 @@ public final class BOPOverworldBiomeBuilder
     };
 
     private final ResourceKey<Biome>[][] MIDDLE_BIOMES_BOP = new ResourceKey[][]{
-            {BOPBiomes.COLD_DESERT,     BOPBiomes.TUNDRA,               BOPBiomes.SNOWY_CONIFEROUS_FOREST, BOPBiomes.MAPLE_FOREST,BOPBiomes.DEAD_FOREST},
+            {BOPBiomes.COLD_DESERT,     BOPBiomes.TUNDRA,               BOPBiomes.SNOWY_CONIFEROUS_FOREST, BOPBiomes.MAPLE_WOODS, BOPBiomes.DEAD_FOREST},
             {BOPBiomes.SEASONAL_FOREST, BOPBiomes.CONIFEROUS_FOREST,    BOPBiomes.CONIFEROUS_FOREST,       BOPBiomes.FIELD,       BOPBiomes.FIELD},
             {BOPBiomes.PRAIRIE,         BOPBiomes.SHRUBLAND,            BOPBiomes.SHRUBLAND,               BOPBiomes.GRASSLAND,   BOPBiomes.GRASSLAND},
             {BOPBiomes.SCRUBLAND,       BOPBiomes.MEDITERRANEAN_FOREST, BOPBiomes.WOODLAND,                BOPBiomes.RAINFOREST,  BOPBiomes.RAINFOREST},
@@ -125,7 +125,7 @@ public final class BOPOverworldBiomeBuilder
     };
 
     private final ResourceKey<Biome>[][] MIDDLE_BIOMES_VARIANT_BOP = new ResourceKey[][]{
-            {null,                    null,                         BOPBiomes.SNOWY_FIR_CLEARING,   BOPBiomes.SNOWY_MAPLE_FOREST, BOPBiomes.OLD_GROWTH_DEAD_FOREST},
+            {null,                    null,                         BOPBiomes.SNOWY_FIR_CLEARING,   BOPBiomes.SNOWY_MAPLE_WOODS,  BOPBiomes.OLD_GROWTH_DEAD_FOREST},
             {BOPBiomes.PUMPKIN_PATCH, BOPBiomes.FIR_CLEARING,       null,                           null,                         BOPBiomes.FORESTED_FIELD},
             {BOPBiomes.PASTURE,       BOPBiomes.LAVENDER_FIELD,     BOPBiomes.REDWOOD_FOREST,       null,                         BOPBiomes.CHERRY_BLOSSOM_GROVE},
             {null,                    null,                         BOPBiomes.OLD_GROWTH_WOODLAND,  null,                         null},
@@ -134,11 +134,11 @@ public final class BOPOverworldBiomeBuilder
 
     private final ResourceKey<Biome>[][] SWAMP_BIOMES_BOP = new ResourceKey[][]{
             // NOTE: Frozen biomes not applicable for swamp biomes
-            {null,            null,                          null,              null,              null},
-            {BOPBiomes.BOG,   BOPBiomes.BOG,                 BOPBiomes.WETLAND, BOPBiomes.WETLAND, BOPBiomes.WETLAND},
-            {BOPBiomes.MARSH, BOPBiomes.MARSH,               BOPBiomes.MARSH,   BOPBiomes.MARSH,   BOPBiomes.MARSH},
-            {BOPBiomes.BAYOU, BOPBiomes.MEDITERRANEAN_LAKES, BOPBiomes.BAYOU,   BOPBiomes.BAYOU,   BOPBiomes.FLOODPLAIN},
-            {null,            null,                          null,              null,              null}
+            {null,            null,                          null,              null,                 null},
+            {BOPBiomes.BOG,   BOPBiomes.BOG,                 BOPBiomes.WETLAND, BOPBiomes.WETLAND,    BOPBiomes.WETLAND},
+            {BOPBiomes.MARSH, BOPBiomes.MARSH,               BOPBiomes.MARSH,   BOPBiomes.MARSH,      BOPBiomes.MARSH},
+            {BOPBiomes.BAYOU, BOPBiomes.MEDITERRANEAN_LAKES, BOPBiomes.BAYOU,   BOPBiomes.FLOODPLAIN, BOPBiomes.FLOODPLAIN},
+            {null,            null,                          null,              null,                 null}
     };
 
     private final ResourceKey<Biome>[][] RARE_BIOMES_BOP = new ResourceKey[][]{
@@ -166,7 +166,7 @@ public final class BOPOverworldBiomeBuilder
     };
 
     private final ResourceKey<Biome>[][] PLATEAU_BIOMES_BOP = new ResourceKey[][]{
-            {BOPBiomes.COLD_DESERT,      BOPBiomes.TUNDRA,               BOPBiomes.SNOWY_FIR_CLEARING, null,                  BOPBiomes.DEAD_FOREST},
+            {BOPBiomes.COLD_DESERT,      BOPBiomes.TUNDRA,               BOPBiomes.SNOWY_FIR_CLEARING, BOPBiomes.MAPLE_WOODS, BOPBiomes.DEAD_FOREST},
             {BOPBiomes.SEASONAL_FOREST,  BOPBiomes.CONIFEROUS_FOREST,    BOPBiomes.HIGHLAND,           BOPBiomes.HIGHLAND,    BOPBiomes.FIELD},
             {BOPBiomes.ORCHARD,          BOPBiomes.ROCKY_SHRUBLAND,      BOPBiomes.ROCKY_SHRUBLAND,    BOPBiomes.HIGHLAND,    BOPBiomes.HIGHLAND},
             {BOPBiomes.WOODED_SCRUBLAND, BOPBiomes.MEDITERRANEAN_FOREST, BOPBiomes.WOODLAND,           BOPBiomes.RAINFOREST,  BOPBiomes.RAINFOREST_CLIFFS},
@@ -174,7 +174,7 @@ public final class BOPOverworldBiomeBuilder
     };
 
     private final ResourceKey<Biome>[][] PLATEAU_BIOMES_VARIANT_BOP = new ResourceKey[][]{
-            {null,                    null,                      null, BOPBiomes.SNOWY_MAPLE_FOREST, null},
+            {null,                    null,                      null, BOPBiomes.SNOWY_MAPLE_WOODS,  null},
             {BOPBiomes.BOREAL_FOREST, null,                      null, null,                         null},
             {null,                    BOPBiomes.LAVENDER_FOREST, null, BOPBiomes.HIGHLAND_MOOR,      BOPBiomes.BAMBOO_GROVE},
             {null,                    null,                      null, null,                         null},
