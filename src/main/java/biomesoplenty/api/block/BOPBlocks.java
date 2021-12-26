@@ -295,7 +295,6 @@ public class BOPBlocks
     public static Block SEA_OATS;
     public static Block REED;
     public static Block WATERGRASS;
-    public static Block MANGROVE_ROOT;
     public static Block DEAD_BRANCH;
     public static Block BRAMBLE;
     public static Block TOADSTOOL;
