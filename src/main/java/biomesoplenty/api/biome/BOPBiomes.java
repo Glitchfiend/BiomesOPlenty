@@ -45,7 +45,7 @@ public class BOPBiomes
     public static final ResourceKey<Biome> LAVENDER_FOREST = registerOverworld("lavender_forest");
     public static final ResourceKey<Biome> LUSH_DESERT = registerOverworld("lush_desert");
     public static final ResourceKey<Biome> LUSH_SAVANNA = registerOverworld("lush_savanna");
-    public static final ResourceKey<Biome> MAPLE_FOREST = registerOverworld("maple_forest");
+    public static final ResourceKey<Biome> MAPLE_WOODS = registerOverworld("maple_woods");
     public static final ResourceKey<Biome> MARSH = registerOverworld("marsh");
     public static final ResourceKey<Biome> MEDITERRANEAN_FOREST = registerOverworld("mediterranean_forest");
     public static final ResourceKey<Biome> MEDITERRANEAN_LAKES = registerOverworld("mediterranean_lakes");
@@ -69,7 +69,7 @@ public class BOPBiomes
     public static final ResourceKey<Biome> SEASONAL_FOREST = registerOverworld("seasonal_forest");
     public static final ResourceKey<Biome> SNOWY_CONIFEROUS_FOREST = registerOverworld("snowy_coniferous_forest");
     public static final ResourceKey<Biome> SNOWY_FIR_CLEARING = registerOverworld("snowy_fir_clearing");
-    public static final ResourceKey<Biome> SNOWY_MAPLE_FOREST = registerOverworld("snowy_maple_forest");
+    public static final ResourceKey<Biome> SNOWY_MAPLE_WOODS = registerOverworld("snowy_maple_woods");
     public static final ResourceKey<Biome> SPIDER_NEST = register("spider_nest");
     public static final ResourceKey<Biome> TROPICS = registerOverworld("tropics");
     public static final ResourceKey<Biome> TUNDRA = registerOverworld("tundra");
