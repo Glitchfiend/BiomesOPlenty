@@ -666,14 +666,7 @@ public final class BOPOverworldBiomeBuilder
 
     private ResourceKey<Biome> pickSlopeBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
     {
-        if (temperatureIndex >= 3)
-        {
-            return this.pickPlateauBiomeBOP(biomeRegistry, temperatureIndex, humidityIndex, weirdness);
-        }
-        else
-        {
-            return humidityIndex <= 1 ? Biomes.SNOWY_SLOPES : Biomes.GROVE;
-        }
+        return this.pickPlateauBiomeBOP(biomeRegistry, temperatureIndex, humidityIndex, weirdness);
     }
 
     private ResourceKey<Biome> pickExtremeHillsBiomeVanilla(int temperatureIndex, int humidityIndex, BOPClimate.Parameter weirdness)
