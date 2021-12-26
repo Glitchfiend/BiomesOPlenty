@@ -95,7 +95,7 @@ public class ModBlocks
         ROSE_QUARTZ_BLOCK = registerBlock(new AmethystBlock(BlockBehaviour.Properties.of(Material.AMETHYST, MaterialColor.CRIMSON_STEM).strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops().lightLevel((state) -> 10)),"rose_quartz_block");
 
         TOADSTOOL_BLOCK = registerBlock(new HugeMushroomBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_ORANGE).strength(0.2F).sound(SoundType.WOOD)), "toadstool_block");
-        GLOWSHROOM_BLOCK = registerBlock(new HugeMushroomBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.DIAMOND).strength(0.2F).sound(SoundType.WOOD).lightLevel((state) -> 10).emissiveRendering((state, world, pos) -> pos.getY() < 60)), "glowshroom_block");
+        GLOWSHROOM_BLOCK = registerBlock(new HugeMushroomBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.DIAMOND).strength(0.2F).sound(SoundType.WOOD).lightLevel((state) -> 10).emissiveRendering((state, world, pos) -> true)), "glowshroom_block");
 
         GLOWING_MOSS_CARPET = registerBlock(new CarpetBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.DIAMOND).strength(0.1F).sound(SoundType.MOSS_CARPET).lightLevel((state) -> 6)), "glowing_moss_carpet");
         GLOWING_MOSS_BLOCK = registerBlock(new GlowingMossBlock(BlockBehaviour.Properties.of(Material.MOSS, MaterialColor.DIAMOND).strength(0.1F).sound(SoundType.MOSS).lightLevel((state) -> 6)), "glowing_moss_block");
@@ -337,12 +337,11 @@ public class ModBlocks
         SEA_OATS = registerBlock(new SeaOatsBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.SAND).randomTicks().noCollission().instabreak().sound(SoundType.GRASS)), "sea_oats");
         REED = registerBlock(new DoubleWaterPlantBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_WATER_PLANT, MaterialColor.DIRT).noCollission().instabreak().sound(SoundType.GRASS)), "reed");
         WATERGRASS = registerBlock(new DoubleWaterPlantBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_WATER_PLANT).noCollission().instabreak().sound(SoundType.GRASS)), "watergrass");
-        MANGROVE_ROOT = registerBlock(new DoubleWaterPlantBlock(BlockBehaviour.Properties.of(Material.WATER_PLANT, MaterialColor.TERRACOTTA_WHITE).noCollission().strength(1.0F, 1.5F).sound(SoundType.WOOD)), "mangrove_root");
 
         DEAD_BRANCH = registerBlock(new DeadBranchBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_GRAY).noCollission().instabreak().sound(SoundType.WOOD)), "dead_branch");
         BRAMBLE = registerBlock(new BrambleBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.NETHER).strength(0.4F).sound(SoundType.WOOD)), "bramble");
         TOADSTOOL = registerBlock(new MushroomBlockBOP(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.COLOR_ORANGE).noCollission().instabreak().sound(SoundType.GRASS)), "toadstool");
-        GLOWSHROOM = registerBlock(new MushroomBlockBOP(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.DIAMOND).noCollission().instabreak().sound(SoundType.GRASS).lightLevel((state) -> 6).emissiveRendering((state, world, pos) -> pos.getY() < 60)), "glowshroom");
+        GLOWSHROOM = registerBlock(new MushroomBlockBOP(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.DIAMOND).noCollission().instabreak().sound(SoundType.GRASS).lightLevel((state) -> 6).emissiveRendering((state, world, pos) -> true)), "glowshroom");
 
         PUS_BUBBLE = registerBlock(new PusBubbleBlock(BlockBehaviour.Properties.of(Material.SPONGE, MaterialColor.TERRACOTTA_PINK).noCollission().instabreak().sound(new SoundType(1.0F, 1.0F, SoundEvents.LAVA_POP, SoundEvents.LAVA_POP, SoundEvents.CORAL_BLOCK_PLACE, SoundEvents.LAVA_POP, SoundEvents.LAVA_POP))), "pus_bubble");
         FLESH_TENDONS = registerBlock(new FleshTendonsBottomBlock(BlockBehaviour.Properties.of(Material.SPONGE, MaterialColor.TERRACOTTA_RED).noCollission().strength(0.2F).sound(new SoundType(1.0F, 0.5F, SoundEvents.CORAL_BLOCK_BREAK, SoundEvents.CORAL_BLOCK_STEP, SoundEvents.CORAL_BLOCK_PLACE, SoundEvents.CORAL_BLOCK_HIT, SoundEvents.CORAL_BLOCK_FALL))), "flesh_tendons");
@@ -469,7 +468,6 @@ public class ModBlocks
             ItemBlockRenderTypes.setRenderLayer(SEA_OATS, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(REED, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(WATERGRASS, cutoutRenderType);
-            ItemBlockRenderTypes.setRenderLayer(MANGROVE_ROOT, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(DEAD_BRANCH, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(BRAMBLE, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(TOADSTOOL, cutoutRenderType);

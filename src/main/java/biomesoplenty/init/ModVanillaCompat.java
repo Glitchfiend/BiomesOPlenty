@@ -250,7 +250,6 @@ public class ModVanillaCompat
         registerCompostable(0.5F, BOPBlocks.BARLEY);
         registerCompostable(0.5F, BOPBlocks.REED);
         registerCompostable(0.5F, BOPBlocks.WATERGRASS);
-        registerCompostable(0.5F, BOPBlocks.MANGROVE_ROOT);
 
         registerCompostable(0.3F, BOPBlocks.DEAD_BRANCH);
         registerCompostable(0.3F, BOPBlocks.BRAMBLE);
