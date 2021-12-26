@@ -59,7 +59,7 @@ public class BOPTreeFeatures
     public static final ConfiguredFeature<TreeConfiguration, ?> FIR_TREE_SMALL = register("fir_tree_small", BOPBaseFeatures.TAIGA_TREE.configured(createFir().minHeight(5).maxHeight(11).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> TALL_SPRUCE_TREE = register("tall_spruce_tree", BOPBaseFeatures.TAIGA_TREE.configured(new TaigaTreeConfiguration.Builder().maxHeight(13).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> TALL_SPRUCE_TREE_BEES = register("tall_spruce_tree_bees", BOPBaseFeatures.TAIGA_TREE.configured(new TaigaTreeConfiguration.Builder().maxHeight(13).decorator(new BeehiveDecorator(0.05f)).build()));
-    public static final ConfiguredFeature<TreeConfiguration, ?> TALL_UMBRAN_TREE = register("tall_umbran_tree", BOPBaseFeatures.TAIGA_TREE.configured(new TaigaTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.UMBRAN_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.UMBRAN_LEAVES)).minHeight(20).maxHeight(3).trunkWidth(2).build()));
+    public static final ConfiguredFeature<TreeConfiguration, ?> TALL_UMBRAN_TREE = register("tall_umbran_tree", BOPBaseFeatures.TAIGA_TREE.configured(new TaigaTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.UMBRAN_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.UMBRAN_LEAVES)).minHeight(3).maxHeight(20).trunkWidth(2).build()));
     public static final ConfiguredFeature<TreeConfiguration, ?> UMBRAN_TREE = register("umbran_tree", BOPBaseFeatures.TAIGA_TREE.configured(new TaigaTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.UMBRAN_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.UMBRAN_LEAVES)).maxHeight(20).build()));
 
     // Poplar trees
