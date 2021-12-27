@@ -7,8 +7,12 @@ package biomesoplenty.init;
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.common.biome.BOPNetherBiomes;
 import biomesoplenty.common.biome.BOPOverworldBiomes;
+import biomesoplenty.common.worldgen.BOPMultiNoiseBiomeSource;
+import biomesoplenty.common.worldgen.BOPNoiseBasedChunkGenerator;
 import biomesoplenty.common.worldgen.BOPNoises;
 import biomesoplenty.common.worldgen.BOPWorldType;
+import biomesoplenty.core.BiomesOPlenty;
+import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -50,6 +54,9 @@ public class ModBiomes
 
         // Re-enable the game data logger
         gameDataLogger.setLevel(oldLevel);
+
+        Registry.register(Registry.BIOME_SOURCE, new ResourceLocation(BiomesOPlenty.MOD_ID, "multi_noise"), BOPMultiNoiseBiomeSource.CODEC);
+        Registry.register(Registry.CHUNK_GENERATOR, new ResourceLocation(BiomesOPlenty.MOD_ID, "noise"), BOPNoiseBasedChunkGenerator.CODEC);
     }
 
     @SubscribeEvent
