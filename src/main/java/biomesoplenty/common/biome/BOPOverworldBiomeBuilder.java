@@ -142,7 +142,7 @@ public final class BOPOverworldBiomeBuilder
     };
 
     private final ResourceKey<Biome>[][] RARE_BIOMES_BOP = new ResourceKey[][]{
-            {null, null, null,                    null,                    null},
+            {null, null, null,                    BOPBiomes.MUSKEG,        null},
             {null, null, BOPBiomes.OMINOUS_WOODS, null,                    null},
             {null, null, null,                    BOPBiomes.MYSTIC_GROVE,  null},
             {null, null, null,                    null,                    BOPBiomes.FUNGAL_JUNGLE},
@@ -414,7 +414,7 @@ public final class BOPOverworldBiomeBuilder
 
                 if (i == 0)
                 {
-                    this.addParallelSurfaceBiomes(mapper, temperature, humidity, BOPClimate.Parameter.span(this.nearInlandContinentalness, this.farInlandContinentalness), this.erosions[6], weirdness, 0.0F, middleBiomeVanilla, middleBiomeBOP, rareBiomeBOP);
+                    this.addParallelSurfaceBiomes(mapper, temperature, humidity, BOPClimate.Parameter.span(this.nearInlandContinentalness, this.farInlandContinentalness), this.erosions[6], weirdness, 0.0F, middleBiomeVanilla, middleBiomeBOP, BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.MUSKEG, rareBiomeBOP));
                 }
                 else
                 {
@@ -472,7 +472,7 @@ public final class BOPOverworldBiomeBuilder
 
                 if (i == 0)
                 {
-                    this.addParallelSurfaceBiomes(mapper, temperature, humidity, BOPClimate.Parameter.span(this.nearInlandContinentalness, this.farInlandContinentalness), this.erosions[6], weirdness, 0.0F, middleBiomeVanilla, middleBiomeBOP, rareBiomeBOP);
+                    this.addParallelSurfaceBiomes(mapper, temperature, humidity, BOPClimate.Parameter.span(this.nearInlandContinentalness, this.farInlandContinentalness), this.erosions[6], weirdness, 0.0F, middleBiomeVanilla, middleBiomeBOP, BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.MUSKEG, rareBiomeBOP));
                 }
                 else
                 {
