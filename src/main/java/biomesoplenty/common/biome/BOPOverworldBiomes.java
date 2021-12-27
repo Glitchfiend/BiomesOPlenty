@@ -567,7 +567,7 @@ public class BOPOverworldBiomes
 
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_6);
 
-        return biomeWithColorOverrides(Biome.Precipitation.RAIN, Biome.BiomeCategory.EXTREME_HILLS, 0.8F, 0.85F, 4159204, 329011, 0x7CA568, 0x8BB76E, 0xBBD1D5, 0xB7CCAD, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
+        return biomeWithColorOverrides(Biome.Precipitation.RAIN, Biome.BiomeCategory.EXTREME_HILLS, 0.8F, 0.85F, 4159204, 329011, 0xBBD1D5, 0x7CA568, 0x8BB76E, 0xB7CCAD, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }
 
     public static Biome lavenderField(boolean forest)
