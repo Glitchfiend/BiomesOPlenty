@@ -59,6 +59,7 @@ public class BOPSurfaceRuleData
     private static final SurfaceRules.RuleSource BLACK_SAND = makeStateRule(BOPBlocks.BLACK_SAND);
     private static final SurfaceRules.RuleSource BLACK_SANDSTONE = makeStateRule(BOPBlocks.BLACK_SANDSTONE);
     private static final SurfaceRules.RuleSource ORIGIN_GRASS = makeStateRule(BOPBlocks.ORIGIN_GRASS_BLOCK);
+    private static final SurfaceRules.RuleSource FLESH = makeStateRule(BOPBlocks.FLESH);
 
     private static SurfaceRules.RuleSource makeStateRule(Block p_194811_) {
         return SurfaceRules.state(p_194811_.defaultBlockState());
@@ -486,6 +487,13 @@ public class BOPSurfaceRuleData
         SurfaceRules.RuleSource obsidianPatchRules = SurfaceRules.ifTrue(isSuitablePatchNoise, SurfaceRules.ifTrue(isAbove30, SurfaceRules.ifTrue(isBelow35, OBSIDIAN)));
 
         return SurfaceRules.sequence(
+            SurfaceRules.ifTrue(
+                SurfaceRules.isBiome(BOPBiomes.VISCERAL_HEAP),
+                SurfaceRules.sequence(
+                    SurfaceRules.ifTrue(SurfaceRules.UNDER_CEILING, FLESH),
+                    SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, FLESH)
+                )
+            ),
             SurfaceRules.ifTrue(
                 SurfaceRules.isBiome(BOPBiomes.WITHERED_ABYSS),
                 SurfaceRules.sequence(

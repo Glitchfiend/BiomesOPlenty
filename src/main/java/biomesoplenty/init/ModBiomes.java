@@ -103,6 +103,7 @@ public class ModBiomes
         registerBiome(BOPBiomes.SNOWY_MAPLE_WOODS, BOPOverworldBiomes.mapleWoods(true));
         registerBiome(BOPBiomes.TROPICS, BOPOverworldBiomes.tropics());
         registerBiome(BOPBiomes.TUNDRA, BOPOverworldBiomes.tundra());
+        registerBiome(BOPBiomes.VISCERAL_HEAP, BOPNetherBiomes.visceralHeap());
         registerBiome(BOPBiomes.VOLCANO, BOPOverworldBiomes.volcano());
         registerBiome(BOPBiomes.VOLCANIC_PLAINS, BOPOverworldBiomes.volcanicPlains());
         registerBiome(BOPBiomes.WASTELAND, BOPOverworldBiomes.wasteland(false));

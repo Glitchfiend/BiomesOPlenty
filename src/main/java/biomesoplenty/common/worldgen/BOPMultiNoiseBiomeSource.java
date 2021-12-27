@@ -139,6 +139,7 @@ public class BOPMultiNoiseBiomeSource extends BiomeSource
                 Pair.of(BOPClimate.parameters(0.4F, 0.0F, 0.0F, 0.0F, 0.0F, -1.0F, 0.0F, 0.0F, 0.0F), () -> biomeRegistry.getOrThrow(Biomes.CRIMSON_FOREST)),
                 Pair.of(BOPClimate.parameters(0.0F, 0.5F, 0.0F, 0.0F, 0.0F, -1.0F, 0.0F, 0.0F, 0.375F), () -> biomeRegistry.getOrThrow(Biomes.WARPED_FOREST)),
                 Pair.of(BOPClimate.parameters(-0.5F, 0.0F, 0.0F, 0.0F, 0.0F, -1.0F, 0.0F, 0.0F, 0.175F), () -> biomeRegistry.getOrThrow(Biomes.BASALT_DELTAS)),
+                Pair.of(BOPClimate.parameters(0.0F, -0.5F, 0.0F, 0.0F, 0.0F, 1.0F, 0.0F, 0.0F, 0.0F), () ->  biomeRegistry.getOrThrow(BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.VISCERAL_HEAP, Biomes.SOUL_SAND_VALLEY))),
                 Pair.of(BOPClimate.parameters(0.4F, 0.0F, 0.0F, 0.0F, 0.0F, 1.0F, 0.0F, 0.0F, 0.0F), () -> biomeRegistry.getOrThrow(BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.CRYSTALLINE_CHASM, Biomes.CRIMSON_FOREST))),
                 Pair.of(BOPClimate.parameters(-0.5F, 0.0F, 0.0F, 0.0F, 0.0F, 1.0F, 0.0F, 0.0F, 0.0F), () -> biomeRegistry.getOrThrow(BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.WITHERED_ABYSS, Biomes.NETHER_WASTES)))));
         });

@@ -73,6 +73,7 @@ public class BOPBiomes
     public static final ResourceKey<Biome> SPIDER_NEST = register("spider_nest");
     public static final ResourceKey<Biome> TROPICS = registerOverworld("tropics");
     public static final ResourceKey<Biome> TUNDRA = registerOverworld("tundra");
+    public static final ResourceKey<Biome> VISCERAL_HEAP = register("visceral_heap");
     public static final ResourceKey<Biome> VOLCANO = registerOverworld("volcano");
     public static final ResourceKey<Biome> VOLCANIC_PLAINS = registerOverworld("volcanic_plains");
     public static final ResourceKey<Biome> WASTELAND = registerOverworld("wasteland");
