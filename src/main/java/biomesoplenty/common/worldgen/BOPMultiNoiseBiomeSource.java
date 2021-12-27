@@ -203,8 +203,4 @@ public class BOPMultiNoiseBiomeSource extends BiomeSource
             return this.preset.biomeSource(this, true);
         }
     }
-
-    static {
-        Registry.register(Registry.BIOME_SOURCE, new ResourceLocation(BiomesOPlenty.MOD_ID, "multi_noise"), BOPMultiNoiseBiomeSource.CODEC);
-    }
 }

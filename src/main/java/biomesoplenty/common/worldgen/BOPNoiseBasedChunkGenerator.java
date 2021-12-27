@@ -128,7 +128,7 @@ public class BOPNoiseBasedChunkGenerator extends NoiseBasedChunkGenerator
     }
 
     public ChunkGenerator withSeed(long p_64374_) {
-        return new NoiseBasedChunkGenerator(this.noises, this.biomeSource.withSeed(p_64374_), p_64374_, this.settings);
+        return new BOPNoiseBasedChunkGenerator(this.noises, this.biomeSource.withSeed(p_64374_), p_64374_, this.settings);
     }
 
     public boolean stable(long p_64376_, ResourceKey<NoiseGeneratorSettings> p_64377_) {
@@ -449,10 +449,5 @@ public class BOPNoiseBasedChunkGenerator extends NoiseBasedChunkGenerator
     @Deprecated
     public Optional<BlockState> topMaterial(CarvingContext p_188669_, Function<BlockPos, Biome> p_188670_, ChunkAccess p_188671_, BOPNoiseChunk p_188672_, BlockPos p_188673_, boolean p_188674_) {
         return this.surfaceSystem.topMaterial(this.settings.get().surfaceRule(), p_188669_, p_188670_, p_188671_, p_188672_, p_188673_, p_188674_);
-    }
-
-    static
-    {
-        Registry.register(Registry.CHUNK_GENERATOR, new ResourceLocation(BiomesOPlenty.MOD_ID, "noise"), BOPNoiseBasedChunkGenerator.CODEC);
     }
 }
