@@ -8,6 +8,7 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.SimpleBlockPredicate;
 import biomesoplenty.init.ModTags;
 import com.mojang.serialization.Codec;
+import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
@@ -21,6 +22,10 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.registries.GameData;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.core.Logger;
 
 import java.util.Random;
 
@@ -75,6 +80,11 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
             return false;
         }
 
+        // Temporarily disable the util logger to prevent whining about chunk boundaries
+        Logger utilLogger = (Logger) LogManager.getLogger(Util.class);
+        Level oldLevel = utilLogger.getLevel();
+        utilLogger.setLevel(Level.OFF);
+
         BlockPos midPos = endPos.offset(0, -(endPos.getY() - pos.getY()) * MID_POS_MULTIPLIER, 0);
 
         for (float d = 0.0f; d < 1.0f; d += TENDON_STEP)
@@ -105,6 +115,9 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
                 break;
             }
         }
+
+        // Re-enable the util logger
+        utilLogger.setLevel(oldLevel);
 
         return true;
     }
