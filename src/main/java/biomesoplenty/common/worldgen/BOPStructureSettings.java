@@ -76,6 +76,10 @@ public class BOPStructureSettings extends StructureSettings
         Set<ResourceKey<Biome>> ruinedPortalStandardBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.BAMBOO_GROVE).add(BOPBiomes.BOREAL_FOREST).add(BOPBiomes.CHERRY_BLOSSOM_GROVE).add(BOPBiomes.CONIFEROUS_FOREST).add(BOPBiomes.DEAD_FOREST).add(BOPBiomes.OLD_GROWTH_WOODLAND).add(BOPBiomes.FIELD).add(BOPBiomes.FIR_CLEARING).add(BOPBiomes.FORESTED_FIELD).add(BOPBiomes.GRASSLAND).add(BOPBiomes.PASTURE).add(BOPBiomes.LAVENDER_FIELD).add(BOPBiomes.LAVENDER_FOREST).add(BOPBiomes.MAPLE_WOODS).add(BOPBiomes.MEDITERRANEAN_FOREST).add(BOPBiomes.MEDITERRANEAN_LAKES).add(BOPBiomes.MUSKEG).add(BOPBiomes.MYSTIC_GROVE).add(BOPBiomes.OLD_GROWTH_DEAD_FOREST).add(BOPBiomes.OMINOUS_WOODS).add(BOPBiomes.ORCHARD).add(BOPBiomes.PRAIRIE).add(BOPBiomes.REDWOOD_FOREST).add(BOPBiomes.ROCKY_SHRUBLAND).add(BOPBiomes.SCRUBLAND).add(BOPBiomes.SHRUBLAND).add(BOPBiomes.SEASONAL_FOREST).add(BOPBiomes.PUMPKIN_PATCH).add(BOPBiomes.SNOWY_CONIFEROUS_FOREST).add(BOPBiomes.SNOWY_FIR_CLEARING).add(BOPBiomes.SNOWY_MAPLE_WOODS).add(BOPBiomes.TUNDRA).add(BOPBiomes.WOODED_SCRUBLAND).add(BOPBiomes.WOODLAND).build();
         Set<ResourceKey<Biome>> ruinedPortalSwampBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.BAYOU).add(BOPBiomes.BOG).add(BOPBiomes.MARSH).add(BOPBiomes.FLOODPLAIN).add(BOPBiomes.WETLAND).build();
 
+        Set<ResourceKey<Biome>> ruinedPortalNetherBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.CRYSTALLINE_CHASM).add(BOPBiomes.ERUPTING_INFERNO).add(BOPBiomes.UNDERGROWTH).add(BOPBiomes.VISCERAL_HEAP).build();
+        Set<ResourceKey<Biome>> netherBridgeBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.CRYSTALLINE_CHASM).add(BOPBiomes.ERUPTING_INFERNO).add(BOPBiomes.UNDERGROWTH).add(BOPBiomes.VISCERAL_HEAP).add(BOPBiomes.WITHERED_ABYSS).build();
+        Set<ResourceKey<Biome>> bastionRemnantBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.CRYSTALLINE_CHASM).add(BOPBiomes.ERUPTING_INFERNO).add(BOPBiomes.UNDERGROWTH).add(BOPBiomes.VISCERAL_HEAP).add(BOPBiomes.WITHERED_ABYSS).build();
+
         Set<ResourceKey<Biome>> mineshaftBiomes = ImmutableSet.copyOf(BOPBiomes.getOverworldBiomes().stream().filter((key -> key != BOPBiomes.ORIGIN_VALLEY)).toList());
 
         register(mapper, StructureFeatures.MINESHAFT, mineshaftBiomes);
@@ -104,6 +108,10 @@ public class BOPStructureSettings extends StructureSettings
         register(mapper, StructureFeatures.RUINED_PORTAL_MOUNTAIN, ruinedPortalMountainBiomes);
         register(mapper, StructureFeatures.RUINED_PORTAL_STANDARD, ruinedPortalStandardBiomes);
         register(mapper, StructureFeatures.RUINED_PORTAL_SWAMP, ruinedPortalSwampBiomes);
+
+        register(mapper, StructureFeatures.RUINED_PORTAL_NETHER, ruinedPortalNetherBiomes);
+        register(mapper, StructureFeatures.NETHER_BRIDGE, netherBridgeBiomes);
+        register(mapper, StructureFeatures.BASTION_REMNANT, bastionRemnantBiomes);
     }
 
     private static void register(BiConsumer<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>> mapper, ConfiguredStructureFeature<?, ?> structure, Set<ResourceKey<Biome>> biomes)
