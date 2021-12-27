@@ -128,7 +128,7 @@ public class BOPNoiseBasedChunkGenerator extends NoiseBasedChunkGenerator
     }
 
     public ChunkGenerator withSeed(long p_64374_) {
-        return new NoiseBasedChunkGenerator(this.noises, this.biomeSource.withSeed(p_64374_), p_64374_, this.settings);
+        return new BOPNoiseBasedChunkGenerator(this.noises, this.biomeSource.withSeed(p_64374_), p_64374_, this.settings);
     }
 
     public boolean stable(long p_64376_, ResourceKey<NoiseGeneratorSettings> p_64377_) {
