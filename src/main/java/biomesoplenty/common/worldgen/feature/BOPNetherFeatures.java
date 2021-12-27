@@ -26,6 +26,7 @@ import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
+import net.minecraft.world.level.material.Fluids;
 
 public class BOPNetherFeatures
 {
@@ -33,10 +34,16 @@ public class BOPNetherFeatures
     public static final ConfiguredFeature<RandomPatchConfiguration, ?> BLACKSTONE_SPINES = register("blackstone_spines", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.BLACKSTONE_SPINES))))));
     public static final ConfiguredFeature<LakeFeature.Configuration, ?> BLOOD_LAKE = register("blood_lake", Feature.LAKE.configured(new LakeFeature.Configuration(BlockStateProvider.simple(BOPBlocks.BLOOD), BlockStateProvider.simple(BOPBlocks.FLESH))));
     public static final ConfiguredFeature<SpringConfiguration, ?> BLOOD_SPRING = register("blood_spring", Feature.SPRING.configured(new SpringConfiguration(BOPFluids.BLOOD.defaultFluidState(), false, 4, 1, ImmutableSet.of(Blocks.NETHERRACK, BOPBlocks.FLESH, BOPBlocks.POROUS_FLESH))));
+    public static final ConfiguredFeature<RandomPatchConfiguration, ?> BRIMSTONE_BUD = register("brimstone_bud", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.BRIMSTONE_BUD))))));
+    public static final ConfiguredFeature<RandomPatchConfiguration, ?> BRIMSTONE_CLUSTER = register("brimstone_cluster", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.BRIMSTONE_CLUSTER))))));
     public static final ConfiguredFeature<RandomPatchConfiguration, ?> DEAD_GRASS = register("dead_grass", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.DEAD_GRASS))))));
     public static final ConfiguredFeature<?, ?> FLESH_TENDON = register("flesh_tendon", BOPBaseFeatures.FLESH_TENDON.configured(NoneFeatureConfiguration.INSTANCE));
     public static final ConfiguredFeature<RandomPatchConfiguration, ?> HAIR = register("hair", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.HAIR))))));
     public static final ConfiguredFeature<?, ?> HANGING_FLESH_TENDON = register("hanging_flesh_tendon", BOPBaseFeatures.HANGING_FLESH_TENDON.configured(NoneFeatureConfiguration.INSTANCE));
+    public static final ConfiguredFeature<?, ?> INFERNO_DELTA = register("inferno_delta", Feature.DELTA_FEATURE.configured(new DeltaFeatureConfiguration(Blocks.LAVA.defaultBlockState(), BOPBlocks.BRIMSTONE.defaultBlockState(), UniformInt.of(5, 8), UniformInt.of(2, 3))));
+    public static final ConfiguredFeature<?, ?> INFERNO_LAVA_SPRING = register("inferno_lava_spring", Feature.SPRING.configured(new SpringConfiguration(Fluids.LAVA.defaultFluidState(), false, 4, 1, ImmutableSet.of(Blocks.NETHERRACK))));
+    public static final ConfiguredFeature<?, ?> INFERNO_SPLATTER = register("inferno_splatter", BOPBaseFeatures.INFERNO_SPLATTER.configured(NoneFeatureConfiguration.INSTANCE));
+    public static final ConfiguredFeature<?, ?> LARGE_FUMAROLE = register("large_fumarole", BOPBaseFeatures.LARGE_FUMAROLE.configured(NoneFeatureConfiguration.INSTANCE));
     public static final ConfiguredFeature<?, ?> LARGE_ROSE_QUARTZ = register("large_rose_quartz", BOPBaseFeatures.LARGE_ROSE_QUARTZ.configured(new LargeDripstoneConfiguration(30, UniformInt.of(3, 7), UniformFloat.of(0.3F, 1.8F), 0.33F, UniformFloat.of(0.3F, 0.9F), UniformFloat.of(0.4F, 1.0F), UniformFloat.of(0.0F, 0.3F), 4, 0.6F)));
     public static final ConfiguredFeature<?, ?> NETHER_BONE_SPINE = register("nether_bone_spine", BOPBaseFeatures.BONE_SPINE.configured(NoneFeatureConfiguration.INSTANCE));
     public static final ConfiguredFeature<?, ?> NETHER_BRAMBLE = register("nether_bramble", BOPBaseFeatures.BRAMBLE.configured(NoneFeatureConfiguration.INSTANCE));
@@ -45,6 +52,7 @@ public class BOPNetherFeatures
     public static final ConfiguredFeature<?, ?> POROUS_FLESH = register("porous_flesh", Feature.ORE.configured(new OreConfiguration(new TagMatchTest(ModTags.Blocks.FLESH), BOPBlocks.POROUS_FLESH.defaultBlockState(), 16)));
     public static final ConfiguredFeature<RandomPatchConfiguration, ?> PUS_BUBBLES = register("pus_bubbles", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.PUS_BUBBLE))))));
     public static final ConfiguredFeature<?, ?> SMALL_CRYSTAL = register("small_crystal", BOPBaseFeatures.SMALL_CRYSTAL.configured(NoneFeatureConfiguration.INSTANCE));
+    public static final ConfiguredFeature<?, ?> SMALL_FUMAROLE = register("small_fumarole", BOPBaseFeatures.SMALL_FUMAROLE.configured(NoneFeatureConfiguration.INSTANCE));
     public static final ConfiguredFeature<RandomPatchConfiguration, ?> SPROUTS_UNDERGROWTH = register("sprouts_undergrowth", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.SPROUT))))));
     public static final ConfiguredFeature<?, ?> TREES_UNDERGROWTH = register("trees_undergrowth", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(BOPTreePlacements.BIG_HELLBARK_TREE_CHECKED, 0.1F)), BOPTreePlacements.HELLBARK_TREE_CHECKED)));
     public static final ConfiguredFeature<RandomPatchConfiguration, ?> UNDERGROWTH_FLOWERS = register("undergrowth_flowers", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.BURNING_BLOSSOM))))));

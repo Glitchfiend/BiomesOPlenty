@@ -117,6 +117,7 @@ public class ModBiomes
 
         // Nether biomes
         registerBiome(BOPBiomes.CRYSTALLINE_CHASM, BOPNetherBiomes.crystallineChasm());
+        registerBiome(BOPBiomes.ERUPTING_INFERNO, BOPNetherBiomes.eruptingInferno());
         registerBiome(BOPBiomes.UNDERGROWTH, BOPNetherBiomes.undergrowth());
         registerBiome(BOPBiomes.VISCERAL_HEAP, BOPNetherBiomes.visceralHeap());
         registerBiome(BOPBiomes.WITHERED_ABYSS, BOPNetherBiomes.witheredAbyss());

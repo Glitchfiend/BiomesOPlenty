@@ -39,6 +39,7 @@ public class BOPSurfaceRuleData
     private static final SurfaceRules.RuleSource LAVA = makeStateRule(Blocks.LAVA);
     private static final SurfaceRules.RuleSource MAGMA = makeStateRule(Blocks.MAGMA_BLOCK);
     private static final SurfaceRules.RuleSource OBSIDIAN = makeStateRule(Blocks.OBSIDIAN);
+    private static final SurfaceRules.RuleSource TUFF = makeStateRule(Blocks.TUFF);
 
     // Nether
     private static final SurfaceRules.RuleSource NETHERRACK = makeStateRule(Blocks.NETHERRACK);
@@ -60,6 +61,7 @@ public class BOPSurfaceRuleData
     private static final SurfaceRules.RuleSource BLACK_SANDSTONE = makeStateRule(BOPBlocks.BLACK_SANDSTONE);
     private static final SurfaceRules.RuleSource ORIGIN_GRASS = makeStateRule(BOPBlocks.ORIGIN_GRASS_BLOCK);
     private static final SurfaceRules.RuleSource FLESH = makeStateRule(BOPBlocks.FLESH);
+    private static final SurfaceRules.RuleSource BRIMSTONE = makeStateRule(BOPBlocks.BRIMSTONE);
 
     private static SurfaceRules.RuleSource makeStateRule(Block p_194811_) {
         return SurfaceRules.state(p_194811_.defaultBlockState());
@@ -483,10 +485,25 @@ public class BOPSurfaceRuleData
         SurfaceRules.ConditionSource isAbove30 = SurfaceRules.yStartCheck(VerticalAnchor.absolute(30), 0);
         SurfaceRules.ConditionSource isBelow35 = SurfaceRules.not(SurfaceRules.yStartCheck(VerticalAnchor.absolute(35), 0));
         SurfaceRules.ConditionSource isSuitablePatchNoise = SurfaceRules.noiseCondition(Noises.PATCH, -0.012D);
+        SurfaceRules.ConditionSource isStateSelectorNoiseSuitable = SurfaceRules.noiseCondition(Noises.NETHER_STATE_SELECTOR, 0.0D);
 
         SurfaceRules.RuleSource obsidianPatchRules = SurfaceRules.ifTrue(isSuitablePatchNoise, SurfaceRules.ifTrue(isAbove30, SurfaceRules.ifTrue(isBelow35, OBSIDIAN)));
+        SurfaceRules.RuleSource tuffPatchRules = SurfaceRules.ifTrue(isSuitablePatchNoise, SurfaceRules.ifTrue(isAbove30, SurfaceRules.ifTrue(isBelow35, TUFF)));
 
         return SurfaceRules.sequence(
+            SurfaceRules.ifTrue(
+                SurfaceRules.isBiome(BOPBiomes.ERUPTING_INFERNO),
+                SurfaceRules.sequence(
+                    SurfaceRules.ifTrue(SurfaceRules.UNDER_CEILING, NETHERRACK),
+                    SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR,
+                        SurfaceRules.sequence(
+                            tuffPatchRules,
+                            SurfaceRules.ifTrue(isStateSelectorNoiseSuitable, BRIMSTONE),
+                            NETHERRACK
+                        )
+                    )
+                )
+            ),
             SurfaceRules.ifTrue(
                 SurfaceRules.isBiome(BOPBiomes.VISCERAL_HEAP),
                 SurfaceRules.sequence(
