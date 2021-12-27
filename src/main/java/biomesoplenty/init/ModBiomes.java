@@ -69,8 +69,8 @@ public class ModBiomes
         registerBiome(BOPBiomes.FIELD, BOPOverworldBiomes.field(false));
         registerBiome(BOPBiomes.FIR_CLEARING, BOPOverworldBiomes.firClearing(false));
         registerBiome(BOPBiomes.FLOODPLAIN, BOPOverworldBiomes.floodplain());
-        registerBiome(BOPBiomes.FUNGAL_JUNGLE, BOPOverworldBiomes.fungalJungle());
         registerBiome(BOPBiomes.FORESTED_FIELD, BOPOverworldBiomes.field(true));
+        registerBiome(BOPBiomes.FUNGAL_JUNGLE, BOPOverworldBiomes.fungalJungle());
         registerBiome(BOPBiomes.GRASSLAND, BOPOverworldBiomes.grassland());
         registerBiome(BOPBiomes.HIGHLAND, BOPOverworldBiomes.highland(false));
         registerBiome(BOPBiomes.HIGHLAND_MOOR, BOPOverworldBiomes.highland(true));
@@ -99,15 +99,15 @@ public class ModBiomes
         registerBiome(BOPBiomes.REDWOOD_FOREST, BOPOverworldBiomes.redwoodForest());
         registerBiome(BOPBiomes.ROCKY_SHRUBLAND, BOPOverworldBiomes.rockyShrubland());
         registerBiome(BOPBiomes.SCRUBLAND, BOPOverworldBiomes.scrubland(false));
-        registerBiome(BOPBiomes.SHRUBLAND, BOPOverworldBiomes.shrubland());
         registerBiome(BOPBiomes.SEASONAL_FOREST, BOPOverworldBiomes.seasonalForest());
+        registerBiome(BOPBiomes.SHRUBLAND, BOPOverworldBiomes.shrubland());
         registerBiome(BOPBiomes.SNOWY_CONIFEROUS_FOREST, BOPOverworldBiomes.coniferousForest(true));
         registerBiome(BOPBiomes.SNOWY_FIR_CLEARING, BOPOverworldBiomes.firClearing(true));
         registerBiome(BOPBiomes.SNOWY_MAPLE_WOODS, BOPOverworldBiomes.mapleWoods(true));
         registerBiome(BOPBiomes.TROPICS, BOPOverworldBiomes.tropics());
         registerBiome(BOPBiomes.TUNDRA, BOPOverworldBiomes.tundra());
-        registerBiome(BOPBiomes.VOLCANO, BOPOverworldBiomes.volcano());
         registerBiome(BOPBiomes.VOLCANIC_PLAINS, BOPOverworldBiomes.volcanicPlains());
+        registerBiome(BOPBiomes.VOLCANO, BOPOverworldBiomes.volcano());
         registerBiome(BOPBiomes.WASTELAND, BOPOverworldBiomes.wasteland(false));
         registerBiome(BOPBiomes.WETLAND, BOPOverworldBiomes.wetland());
         registerBiome(BOPBiomes.WOODED_SCRUBLAND, BOPOverworldBiomes.scrubland(true));
@@ -134,8 +134,8 @@ public class ModBiomes
         //Overworld Biomes
         registerBiomeToDictionary(BOPBiomes.BAMBOO_GROVE, Type.OVERWORLD, Type.WET, Type.LUSH, Type.RARE, Type.FOREST);
         registerBiomeToDictionary(BOPBiomes.BAYOU, Type.OVERWORLD, Type.HOT, Type.WET, Type.SWAMP);
-        // TODO: Bog
-        // TODO: Boreal forest
+        registerBiomeToDictionary(BOPBiomes.BOG, Type.OVERWORLD, Type.COLD, Type.SPARSE, Type.WET, Type.SWAMP);
+        registerBiomeToDictionary(BOPBiomes.BOREAL_FOREST, Type.OVERWORLD, Type.FOREST);
         registerBiomeToDictionary(BOPBiomes.CHERRY_BLOSSOM_GROVE, Type.OVERWORLD, Type.WET, Type.LUSH, Type.RARE, Type.FOREST);
         registerBiomeToDictionary(BOPBiomes.COLD_DESERT, Type.OVERWORLD, Type.COLD, Type.SPARSE, Type.SNOWY, Type.DRY);
         registerBiomeToDictionary(BOPBiomes.CONIFEROUS_FOREST, Type.OVERWORLD, Type.DENSE, Type.CONIFEROUS, Type.FOREST);
@@ -144,10 +144,9 @@ public class ModBiomes
         registerBiomeToDictionary(BOPBiomes.DRYLAND, Type.OVERWORLD, Type.HOT, Type.SPARSE, Type.DRY, Type.SAVANNA, Type.SANDY);
         registerBiomeToDictionary(BOPBiomes.DUNE_BEACH, Type.OVERWORLD, Type.BEACH, Type.LUSH);
         registerBiomeToDictionary(BOPBiomes.FIR_CLEARING, Type.OVERWORLD, Type.SPARSE, Type.CONIFEROUS, Type.FOREST);
-        // TODO: Field
-        // TODO: Fir clearing
-        // TODO: Floodplain
-        // TODO: Forested field
+        registerBiomeToDictionary(BOPBiomes.FIELD, Type.OVERWORLD, Type.WET, Type.CONIFEROUS, Type.FOREST);
+        registerBiomeToDictionary(BOPBiomes.FLOODPLAIN, Type.OVERWORLD, Type.HOT, Type.WET, Type.JUNGLE, Type.LUSH, Type.SWAMP);
+        registerBiomeToDictionary(BOPBiomes.FORESTED_FIELD, Type.OVERWORLD, Type.WET, Type.CONIFEROUS, Type.FOREST);
         registerBiomeToDictionary(BOPBiomes.FUNGAL_JUNGLE, Type.OVERWORLD, Type.HOT, Type.WET, Type.JUNGLE, Type.LUSH, Type.MUSHROOM, Type.RARE);
         registerBiomeToDictionary(BOPBiomes.GRASSLAND, Type.OVERWORLD, Type.SPARSE, Type.PLAINS, Type.WET);
         registerBiomeToDictionary(BOPBiomes.HIGHLAND, Type.OVERWORLD, Type.SPARSE, Type.MOUNTAIN, Type.PLAINS);
@@ -157,24 +156,25 @@ public class ModBiomes
         registerBiomeToDictionary(BOPBiomes.LAVENDER_FOREST, Type.OVERWORLD, Type.DENSE, Type.LUSH, Type.FOREST);
         registerBiomeToDictionary(BOPBiomes.LUSH_DESERT, Type.OVERWORLD, Type.HOT, Type.SPARSE, Type.SAVANNA, Type.LUSH, Type.RARE, Type.SANDY);
         registerBiomeToDictionary(BOPBiomes.LUSH_SAVANNA, Type.OVERWORLD, Type.HOT, Type.SPARSE, Type.SAVANNA, Type.LUSH, Type.RARE, Type.PLAINS);
-        // TODO: Maple woods
+        registerBiomeToDictionary(BOPBiomes.MAPLE_WOODS, Type.OVERWORLD, Type.COLD, Type.DENSE, Type.CONIFEROUS, Type.FOREST);
         registerBiomeToDictionary(BOPBiomes.MARSH, Type.OVERWORLD, Type.SPARSE, Type.WET, Type.SWAMP);
-        // TODO: Mediterranean Forest
-        // TODO: Mediterranean Lakes
+        registerBiomeToDictionary(BOPBiomes.MEDITERRANEAN_FOREST, Type.OVERWORLD, Type.FOREST, Type.HILLS);
+        registerBiomeToDictionary(BOPBiomes.MEDITERRANEAN_LAKES, Type.OVERWORLD, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.MUSKEG, Type.OVERWORLD, Type.COLD, Type.SPARSE, Type.WET, Type.DEAD, Type.RARE, Type.SWAMP, Type.SNOWY);
         registerBiomeToDictionary(BOPBiomes.MYSTIC_GROVE, Type.OVERWORLD, Type.WET, Type.LUSH, Type.MAGICAL, Type.RARE, Type.FOREST);
-        // TODO: Old Growth Dead Forest
-        // TODO: Old Growth Woodland
+        registerBiomeToDictionary(BOPBiomes.OLD_GROWTH_DEAD_FOREST, Type.OVERWORLD, Type.COLD, Type.DEAD, Type.RARE, Type.FOREST);
+        registerBiomeToDictionary(BOPBiomes.OLD_GROWTH_WOODLAND, Type.OVERWORLD, Type.DENSE, Type.FOREST);
         registerBiomeToDictionary(BOPBiomes.OMINOUS_WOODS, Type.OVERWORLD, Type.COLD, Type.WET, Type.CONIFEROUS, Type.SPOOKY, Type.RARE, Type.FOREST);
         registerBiomeToDictionary(BOPBiomes.ORCHARD, Type.OVERWORLD, Type.SPARSE, Type.LUSH, Type.FOREST, Type.PLAINS);
         registerBiomeToDictionary(BOPBiomes.ORIGIN_VALLEY, Type.OVERWORLD, Type.RARE);
-        // TODO: Pasture
+        registerBiomeToDictionary(BOPBiomes.PASTURE, Type.OVERWORLD, Type.DRY, Type.PLAINS);
         registerBiomeToDictionary(BOPBiomes.PRAIRIE, Type.OVERWORLD, Type.SPARSE, Type.DRY, Type.PLAINS);
-        registerBiomeToDictionary(BOPBiomes.RAINBOW_HILLS, Type.OVERWORLD, Type.DENSE, Type.WET, Type.LUSH, Type.MAGICAL, Type.FOREST, Type.HILLS);
+        registerBiomeToDictionary(BOPBiomes.PUMPKIN_PATCH, Type.OVERWORLD, Type.SPARSE, Type.FOREST);
+        registerBiomeToDictionary(BOPBiomes.RAINBOW_HILLS, Type.OVERWORLD, Type.COLD, Type.DENSE, Type.MAGICAL, Type.FOREST, Type.SNOWY);
         registerBiomeToDictionary(BOPBiomes.RAINFOREST, Type.OVERWORLD, Type.HOT, Type.DENSE, Type.WET, Type.JUNGLE, Type.LUSH, Type.FOREST);
         registerBiomeToDictionary(BOPBiomes.RAINFOREST_CLIFFS, Type.OVERWORLD, Type.HOT, Type.DENSE, Type.WET, Type.JUNGLE, Type.LUSH, Type.PLATEAU);
         registerBiomeToDictionary(BOPBiomes.REDWOOD_FOREST, Type.OVERWORLD, Type.DENSE, Type.FOREST);
-        // TODO: Rocky shrubland
+        registerBiomeToDictionary(BOPBiomes.ROCKY_SHRUBLAND, Type.OVERWORLD, Type.PLAINS, Type.HILLS);
         registerBiomeToDictionary(BOPBiomes.SCRUBLAND, Type.OVERWORLD, Type.HOT, Type.SPARSE, Type.DRY, Type.SAVANNA);
         registerBiomeToDictionary(BOPBiomes.SEASONAL_FOREST, Type.OVERWORLD, Type.FOREST);
         registerBiomeToDictionary(BOPBiomes.SHRUBLAND, Type.OVERWORLD, Type.SPARSE, Type.PLAINS);
@@ -188,7 +188,7 @@ public class ModBiomes
         registerBiomeToDictionary(BOPBiomes.WASTELAND, Type.OVERWORLD, Type.HOT, Type.SPARSE, Type.DRY, Type.SAVANNA, Type.DEAD, Type.RARE, Type.WASTELAND);
         registerBiomeToDictionary(BOPBiomes.WETLAND, Type.OVERWORLD, Type.WET, Type.FOREST, Type.SWAMP);
         registerBiomeToDictionary(BOPBiomes.WOODED_SCRUBLAND, Type.OVERWORLD, Type.HOT, Type.SPARSE, Type.SAVANNA);
-        // TODO: Wooded Wasteland
+        registerBiomeToDictionary(BOPBiomes.WOODED_WASTELAND, Type.OVERWORLD, Type.HOT, Type.SPARSE, Type.DRY, Type.SAVANNA, Type.DEAD, Type.RARE, Type.WASTELAND);
         registerBiomeToDictionary(BOPBiomes.WOODLAND, Type.OVERWORLD, Type.FOREST);
 
         // TODO: Glowing Grotto
@@ -204,22 +204,21 @@ public class ModBiomes
 
     private static void registerVillagerTypes()
     {
-        // TODO: Bamboo Grove
+        registerVillagerType(BOPBiomes.BAMBOO_GROVE, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.BAYOU, VillagerType.SWAMP);
-        // TODO: Bog
-        // TODO: Boreal forest
+        registerVillagerType(BOPBiomes.BOG, VillagerType.SWAMP);
+        registerVillagerType(BOPBiomes.BOREAL_FOREST, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.CHERRY_BLOSSOM_GROVE, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.COLD_DESERT, VillagerType.SNOW);
         registerVillagerType(BOPBiomes.CONIFEROUS_FOREST, VillagerType.TAIGA);
         registerVillagerType(BOPBiomes.CRAG, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.DEAD_FOREST, VillagerType.TAIGA);
-        registerVillagerType(BOPBiomes.DRYLAND, VillagerType.PLAINS);
-        // TODO: Dune beach
+        registerVillagerType(BOPBiomes.DRYLAND, VillagerType.SAVANNA);
+        registerVillagerType(BOPBiomes.DUNE_BEACH, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.FIR_CLEARING, VillagerType.TAIGA);
-        // TODO: Field
-        // TODO: Fir clearing
-        // TODO: Floodplain
-        // TODO: Forested field
+        registerVillagerType(BOPBiomes.FIELD, VillagerType.TAIGA);
+        registerVillagerType(BOPBiomes.FLOODPLAIN, VillagerType.JUNGLE);
+        registerVillagerType(BOPBiomes.FORESTED_FIELD, VillagerType.TAIGA);
         registerVillagerType(BOPBiomes.FUNGAL_JUNGLE, VillagerType.JUNGLE);
         registerVillagerType(BOPBiomes.GRASSLAND, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.HIGHLAND, VillagerType.PLAINS);
@@ -229,30 +228,31 @@ public class ModBiomes
         registerVillagerType(BOPBiomes.LAVENDER_FOREST, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.LUSH_DESERT, VillagerType.SAVANNA);
         registerVillagerType(BOPBiomes.LUSH_SAVANNA, VillagerType.SAVANNA);
-        // TODO: Maple woods
+        registerVillagerType(BOPBiomes.MAPLE_WOODS, VillagerType.TAIGA);
         registerVillagerType(BOPBiomes.MARSH, VillagerType.SWAMP);
-        // TODO: Mediterranean Forest
-        // TODO: Mediterranean Lakes
+        registerVillagerType(BOPBiomes.MEDITERRANEAN_FOREST, VillagerType.PLAINS);
+        registerVillagerType(BOPBiomes.MEDITERRANEAN_LAKES, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.MUSKEG, VillagerType.SNOW);
         registerVillagerType(BOPBiomes.MYSTIC_GROVE, VillagerType.PLAINS);
-        // TODO: Old Growth Dead Forest
-        // TODO: Old Growth Woodland
+        registerVillagerType(BOPBiomes.OLD_GROWTH_DEAD_FOREST, VillagerType.TAIGA);
+        registerVillagerType(BOPBiomes.OLD_GROWTH_WOODLAND, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.OMINOUS_WOODS, VillagerType.SWAMP);
         registerVillagerType(BOPBiomes.ORCHARD, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.ORIGIN_VALLEY, VillagerType.PLAINS);
-        // TODO: Pasture
+        registerVillagerType(BOPBiomes.PASTURE, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.PRAIRIE, VillagerType.PLAINS);
-        registerVillagerType(BOPBiomes.RAINBOW_HILLS, VillagerType.PLAINS);
+        registerVillagerType(BOPBiomes.PUMPKIN_PATCH, VillagerType.PLAINS);
+        registerVillagerType(BOPBiomes.RAINBOW_HILLS, VillagerType.SNOW);
         registerVillagerType(BOPBiomes.RAINFOREST, VillagerType.JUNGLE);
         registerVillagerType(BOPBiomes.RAINFOREST_CLIFFS, VillagerType.JUNGLE);
         registerVillagerType(BOPBiomes.REDWOOD_FOREST, VillagerType.PLAINS);
-        // TODO: Rocky shrubland
+        registerVillagerType(BOPBiomes.ROCKY_SHRUBLAND, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.SCRUBLAND, VillagerType.SAVANNA);
         registerVillagerType(BOPBiomes.SEASONAL_FOREST, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.SHRUBLAND, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.SNOWY_CONIFEROUS_FOREST, VillagerType.SNOW);
         registerVillagerType(BOPBiomes.SNOWY_FIR_CLEARING, VillagerType.SNOW);
-        // TODO: Snowy Maple Forest
+        registerVillagerType(BOPBiomes.SNOWY_MAPLE_WOODS, VillagerType.TAIGA);
         registerVillagerType(BOPBiomes.TROPICS, VillagerType.JUNGLE);
         registerVillagerType(BOPBiomes.TUNDRA, VillagerType.TAIGA);
         registerVillagerType(BOPBiomes.VOLCANIC_PLAINS, VillagerType.PLAINS);
@@ -260,7 +260,7 @@ public class ModBiomes
         registerVillagerType(BOPBiomes.WASTELAND, VillagerType.DESERT);
         registerVillagerType(BOPBiomes.WETLAND, VillagerType.SWAMP);
         registerVillagerType(BOPBiomes.WOODED_SCRUBLAND, VillagerType.SAVANNA);
-        // TODO: Wooded Wasteland
+        registerVillagerType(BOPBiomes.WOODED_WASTELAND, VillagerType.DESERT);
         registerVillagerType(BOPBiomes.WOODLAND, VillagerType.PLAINS);
     }
 
