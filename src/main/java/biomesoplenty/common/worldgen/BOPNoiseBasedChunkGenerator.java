@@ -65,7 +65,7 @@ public class BOPNoiseBasedChunkGenerator extends NoiseBasedChunkGenerator
     protected long seed;
     protected Supplier<NoiseGeneratorSettings> settings;
     protected BOPNoiseSampler sampler;
-    protected SurfaceSystem surfaceSystem;
+    protected BOPSurfaceSystem surfaceSystem;
     protected WorldGenMaterialRule materialRule;
     protected Aquifer.FluidPicker globalFluidPicker;
     protected Map<ChunkAccess, WrappedChunkAccess> wrappedChunkAccesses;
@@ -94,7 +94,7 @@ public class BOPNoiseBasedChunkGenerator extends NoiseBasedChunkGenerator
         this.globalFluidPicker = (p_198228_, p_198229_, p_198230_) -> {
             return p_198229_ < Math.min(-54, i) ? aquifer$fluidstatus : aquifer$fluidstatus1;
         };
-        this.surfaceSystem = new SurfaceSystem(p_188614_, this.defaultBlock, i, p_188617_, noisegeneratorsettings.getRandomSource());
+        this.surfaceSystem = new BOPSurfaceSystem(p_188614_, this.defaultBlock, i, p_188617_, noisegeneratorsettings.getRandomSource());
         this.wrappedChunkAccesses = Maps.newHashMap();
     }
 

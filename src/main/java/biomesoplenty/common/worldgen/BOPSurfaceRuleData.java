@@ -434,7 +434,6 @@ public class BOPSurfaceRuleData
                                 SurfaceRules.isBiome(BOPBiomes.LUSH_SAVANNA),
                                 SurfaceRules.ifTrue(surfaceNoiseAbove(2.1D), COARSE_DIRT)
                             ),
-                            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.ORIGIN_VALLEY), ORIGIN_GRASS),
                             SurfaceRules.ifTrue(
                                 SurfaceRules.isBiome(BOPBiomes.MEDITERRANEAN_FOREST),
                                 SurfaceRules.ifTrue(surfaceNoiseAbove(1.9D), PODZOL)
