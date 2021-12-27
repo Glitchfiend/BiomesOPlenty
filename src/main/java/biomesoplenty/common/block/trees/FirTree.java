@@ -1,23 +1,27 @@
 package biomesoplenty.common.block.trees;
 
+import biomesoplenty.common.worldgen.feature.BOPTreeFeatures;
+import net.minecraft.world.level.block.grower.AbstractMegaTreeGrower;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;
 
-public class FirTree extends BigTreeDefaultConfig
+public class FirTree extends AbstractMegaTreeGrower
 {
+   @Nullable
    @Override
-   protected Feature<? extends TreeConfiguration> getFeature(Random random)
+   protected ConfiguredFeature<?, ?> getConfiguredMegaFeature(Random random)
    {
-      return null;
-      // TODO: return BOPFeatures.FIR_TREE;
+      return BOPTreeFeatures.FIR_TREE_LARGE;
    }
 
+   @Nullable
    @Override
-   protected Feature<? extends TreeConfiguration> getBigFeature(Random random)
+   protected ConfiguredFeature<?, ?> getConfiguredFeature(Random random, boolean flowers)
    {
-      return null;
-      // TODO: return BOPFeatures.FIR_TREE_LARGE;
+      return BOPTreeFeatures.FIR_TREE;
    }
 }

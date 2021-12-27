@@ -5,6 +5,7 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.common.worldgen.feature.BOPBaseFeatures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -21,6 +22,9 @@ import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.common.IPlantable;
@@ -133,19 +137,17 @@ public class FoliageBlockBOP extends BushBlock implements BonemealableBlock, IPl
 
     public boolean growHugeClover(ServerLevel world, Random rand, BlockPos pos, BlockState state)
     {
-        return false;
-// TODO:
-//        world.removeBlock(pos, false);
-//        ConfiguredFeature<NoneFeatureConfiguration, ?> configuredfeature = BOPFeatures.HUGE_CLOVER.configured(FeatureConfiguration.NONE);
-//
-//        if (configuredfeature.place(world, world.getChunkSource().getGenerator(), rand, pos))
-//        {
-//            return true;
-//        }
-//        else
-//        {
-//            world.setBlock(pos, state, 3);
-//            return false;
-//        }
+        world.removeBlock(pos, false);
+        ConfiguredFeature<NoneFeatureConfiguration, ?> configuredfeature = BOPBaseFeatures.HUGE_CLOVER.configured(FeatureConfiguration.NONE);
+
+        if (configuredfeature.place(world, world.getChunkSource().getGenerator(), rand, pos))
+        {
+            return true;
+        }
+        else
+        {
+            world.setBlock(pos, state, 3);
+            return false;
+        }
     }
 }

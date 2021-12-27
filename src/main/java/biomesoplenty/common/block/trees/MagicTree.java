@@ -1,16 +1,18 @@
 package biomesoplenty.common.block.trees;
 
+import biomesoplenty.common.worldgen.feature.BOPTreeFeatures;
+import net.minecraft.world.level.block.grower.AbstractTreeGrower;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 
 import java.util.Random;
 
-public class MagicTree extends TreeDefaultConfig
+public class MagicTree extends AbstractTreeGrower
 {
 	@Override
-	protected Feature<? extends TreeConfiguration> getFeature(Random random)
+	protected ConfiguredFeature<?, ?> getConfiguredFeature(Random random, boolean flowers)
 	{
-		return null;
-		// TODO: return (random.nextInt(10) == 0 ? BOPFeatures.BIG_MAGIC_TREE : BOPFeatures.MAGIC_TREE);
+		return (random.nextInt(10) == 0 ? BOPTreeFeatures.BIG_MAGIC_TREE : BOPTreeFeatures.MAGIC_TREE);
 	}
 }

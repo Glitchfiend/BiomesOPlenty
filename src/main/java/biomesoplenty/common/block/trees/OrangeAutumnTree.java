@@ -1,16 +1,18 @@
 package biomesoplenty.common.block.trees;
 
+import biomesoplenty.common.worldgen.feature.BOPTreeFeatures;
+import net.minecraft.world.level.block.grower.AbstractTreeGrower;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 
 import java.util.Random;
 
-public class OrangeAutumnTree extends TreeDefaultConfig
+public class OrangeAutumnTree extends AbstractTreeGrower
 {
    @Override
-   protected Feature<? extends TreeConfiguration> getFeature(Random random)
+   protected ConfiguredFeature<?, ?> getConfiguredFeature(Random random, boolean flowers)
    {
-      return null;
-      // TODO: return (random.nextInt(10) == 0 ? BOPFeatures.BIG_ORANGE_AUTUMN_TREE : BOPFeatures.ORANGE_AUTUMN_TREE);
+      return (random.nextInt(10) == 0 ? BOPTreeFeatures.BIG_ORANGE_AUTUMN_TREE : BOPTreeFeatures.ORANGE_AUTUMN_TREE);
    }
 }
