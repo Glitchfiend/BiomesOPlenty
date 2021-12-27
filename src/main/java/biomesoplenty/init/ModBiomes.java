@@ -46,7 +46,7 @@ public class ModBiomes
         // This is markedly better than the alternative of biomesoplenty:biomesoplenty.
         // We do this with GameData logging disabled to prevent people whining at us.
         bopWorldType.setRegistryName(new ResourceLocation("biomesoplenty"));
-        ForgeRegistries.WORLD_TypeS.register(bopWorldType);
+        ForgeRegistries.WORLD_TYPES.register(bopWorldType);
 
         // Re-enable the game data logger
         gameDataLogger.setLevel(oldLevel);
