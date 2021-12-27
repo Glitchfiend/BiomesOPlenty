@@ -191,8 +191,8 @@ public final class BOPOverworldBiomeBuilder
 
     private final ResourceKey<Biome>[][] EXTREME_HILLS_BOP = new ResourceKey[][]{
             {null,                            null,                            null,                   null,           null},
-            {null,                            null,                            BOPBiomes.CRAG,         BOPBiomes.CRAG, null},
-            {null,                            null,                            null,                   BOPBiomes.CRAG, BOPBiomes.CRAG},
+            {null,                            null,                            null,                   null,           null},
+            {null,                            null,                            null,                   null,           null},
             {null,                            null,                            null,                   null,           BOPBiomes.RAINFOREST_CLIFFS},
             {null,                            null,                            null,                   null,           BOPBiomes.VOLCANO}
     };
@@ -658,10 +658,8 @@ public final class BOPOverworldBiomeBuilder
     {
         ResourceKey<Biome> peakBiome = this.pickPeakBiome(temperatureIndex, humidityIndex, weirdness);
 
-        if (temperatureIndex == 2)
-        {
-            return BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.JADE_CLIFFS, peakBiome);
-        }
+        if (temperatureIndex == 1) return BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.CRAG, peakBiome);
+        else if (temperatureIndex == 2) return BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.JADE_CLIFFS, peakBiome);
         else return peakBiome;
     }
 
@@ -681,10 +679,8 @@ public final class BOPOverworldBiomeBuilder
     {
         ResourceKey<Biome> plateauBiome = this.pickPlateauBiomeBOP(biomeRegistry, temperatureIndex, humidityIndex, weirdness);
 
-        if (temperatureIndex == 2)
-        {
-            return BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.JADE_CLIFFS, plateauBiome);
-        }
+        if (temperatureIndex == 1) return BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.CRAG, plateauBiome);
+        else if (temperatureIndex == 2) return BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.JADE_CLIFFS, plateauBiome);
         else return plateauBiome;
     }
 
