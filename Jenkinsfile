@@ -6,8 +6,7 @@ pipeline {
     }
     agent {
         docker {
-            image 'gradle:jdk8'
-            args '-v forgegc:/home/gradle/.gradle/'
+            image 'gradle:7-jdk16'
         }
     }
     environment {
