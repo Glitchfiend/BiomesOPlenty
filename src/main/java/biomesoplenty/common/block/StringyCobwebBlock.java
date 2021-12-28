@@ -70,57 +70,36 @@ public class StringyCobwebBlock extends Block
     }
 
     @Override
-    public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos)
+    public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos)
     {
         Direction direction = state.getValue(FACING);
-        BlockPos blockpos = pos.relative(direction.getOpposite());
-        BlockState blockstate = worldIn.getBlockState(blockpos);
-        BlockState blockstate1 = worldIn.getBlockState(pos.below());
-        BlockPos blockpos1 = pos.relative(direction);
-        BlockState blockstate2 = worldIn.getBlockState(blockpos1);
-        BlockState blockstate3 = worldIn.getBlockState(pos.above());
+        BlockPos abovePos = pos.relative(direction).above();
+        BlockPos belowPos = pos.relative(direction.getOpposite()).below();
+        BlockState aboveState = level.getBlockState(abovePos);
+        BlockState belowState = level.getBlockState(belowPos);
 
-        BlockPos webpos = pos.relative(direction);
-        BlockPos webpos1 = pos.relative(direction.getOpposite());
-        BlockState webstate = worldIn.getBlockState(webpos.above());
-        BlockState webstate1 = worldIn.getBlockState(webpos1.below());
+        if ((aboveState.getMaterial().isSolid() || aboveState.getBlock() == BOPBlocks.STRINGY_COBWEB) && (belowState.getMaterial().isSolid() || belowState.getBlock() == BOPBlocks.STRINGY_COBWEB))
+            return true;
 
-        if (blockstate.getMaterial().isSolid() || blockstate1.getMaterial().isSolid())
-        {
-            if (webstate.getBlock() == BOPBlocks.STRINGY_COBWEB)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        else
-        {
-            if (blockstate2.getMaterial().isSolid() || blockstate3.getMaterial().isSolid())
-            {
-                if (webstate1.getBlock() == BOPBlocks.STRINGY_COBWEB)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (webstate.getBlock() == BOPBlocks.STRINGY_COBWEB && webstate1.getBlock() == BOPBlocks.STRINGY_COBWEB)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-        }
+        return false;
+    }
+
+    @Override
+    public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean p_55572_)
+    {
+        super.onRemove(state, level, pos, newState, p_55572_);
+
+        Direction direction = state.getValue(FACING);
+        BlockPos abovePos = pos.relative(direction).above();
+        BlockPos belowPos = pos.relative(direction.getOpposite()).below();
+        BlockState aboveState = level.getBlockState(abovePos);
+        BlockState belowState = level.getBlockState(belowPos);
+
+        if (aboveState.getBlock() == BOPBlocks.STRINGY_COBWEB)
+            level.destroyBlock(abovePos, false);
+
+        if (belowState.getBlock() == BOPBlocks.STRINGY_COBWEB)
+            level.destroyBlock(belowPos, false);
     }
 
     @Override
