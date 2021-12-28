@@ -14,6 +14,8 @@ public class BOPNoises
 {
     public static final ResourceKey<NormalNoise.NoiseParameters> UNIQUENESS = createKey("uniqueness");
     public static final ResourceKey<NormalNoise.NoiseParameters> RARENESS = createKey("rareness");
+    public static final ResourceKey<NormalNoise.NoiseParameters> UNIQUENESS_LARGE = createKey("uniqueness_large");
+    public static final ResourceKey<NormalNoise.NoiseParameters> RARENESS_LARGE = createKey("rareness_large");
 
     private static ResourceKey<NormalNoise.NoiseParameters> createKey(String name)
     {

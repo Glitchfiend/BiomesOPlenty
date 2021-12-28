@@ -1,6 +1,7 @@
 package biomesoplenty.common.worldgen;
 
 import biomesoplenty.core.BiomesOPlenty;
+import biomesoplenty.init.ModConfig;
 import com.google.common.collect.Maps;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
@@ -24,7 +25,7 @@ public class BOPNoiseGeneratorSettings
                     new NoiseSamplingSettings(1.0D, 1.0D, 80.0D, 160.0D),
                     new NoiseSlider(-0.078125D, 2, 8),
                     new NoiseSlider(0.1171875D, 3, 0),
-                    1, 2, false, false, false,
+                    1, 2, false, false, ModConfig.GenerationConfig.largeBiomes.get(),
                     TerrainProvider.overworld(false)),
             Blocks.STONE.defaultBlockState(),
             Blocks.WATER.defaultBlockState(),

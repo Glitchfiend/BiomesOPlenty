@@ -4,6 +4,7 @@
  ******************************************************************************/
 package biomesoplenty.common.worldgen;
 
+import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.common.biome.BOPOverworldBiomeBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.QuartPos;
@@ -36,9 +37,10 @@ public class BOPNoiseSampler extends NoiseSampler implements BOPClimate.Sampler
             });
         };
 
+        boolean largeBiomes = noiseSettings.largeBiomes();
         PositionalRandomFactory positionalrandomfactory = randomSource.newInstance(seed).forkPositional();
-        this.uniquenessNoise = Noises.instantiate(noiseParamRegistry, positionalrandomfactory, BOPNoises.UNIQUENESS);
-        this.rarenessNoise = Noises.instantiate(noiseParamRegistry, positionalrandomfactory, BOPNoises.RARENESS);
+        this.uniquenessNoise = Noises.instantiate(noiseParamRegistry, positionalrandomfactory, largeBiomes ? BOPNoises.UNIQUENESS_LARGE : BOPNoises.UNIQUENESS);
+        this.rarenessNoise = Noises.instantiate(noiseParamRegistry, positionalrandomfactory, largeBiomes ? BOPNoises.RARENESS_LARGE : BOPNoises.RARENESS);
     }
 
     @Override

@@ -57,12 +57,14 @@ public class ModConfig
         public static final ForgeConfigSpec SPEC;
 
         public static final ForgeConfigSpec.BooleanValue useBopNether;
+        public static final ForgeConfigSpec.BooleanValue largeBiomes;
 
         static
         {
             BUILDER.comment("World generation related options.");
             BUILDER.push("overworld");
             useBopNether = BUILDER.comment("Enable nether generation from Biomes O' Plenty.").define("use_bop_nether", true);
+            largeBiomes = BUILDER.comment("Generate large biomes.").define("large_biomes", false);
             BUILDER.pop();
 
             SPEC = BUILDER.build();

@@ -527,8 +527,12 @@ public final class BOPOverworldBiomeBuilder
     {
         this.addUndergroundBiome(mapper, this.FULL_RANGE, this.FULL_RANGE, BOPClimate.Parameter.span(0.8F, 1.0F), this.FULL_RANGE, this.FULL_RANGE, 0.0F, Biomes.DRIPSTONE_CAVES);
         this.addUndergroundBiome(mapper, this.FULL_RANGE, BOPClimate.Parameter.span(0.7F, 1.0F), this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, 0.0F, Biomes.LUSH_CAVES);
-        this.addUndergroundBiome(mapper, this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, BOPClimate.Parameter.span(0.8F, 1.0F), 0.0F, BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.GLOWING_GROTTO, Biomes.LUSH_CAVES));
-        this.addUndergroundBiome(mapper, BOPClimate.Parameter.span(0.4F, 0.7F), this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, 0.0F, BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.SPIDER_NEST, Biomes.DRIPSTONE_CAVES));
+
+        if (biomeRegistry.get(BOPBiomes.GLOWING_GROTTO) != null)
+            this.addUndergroundBiome(mapper, this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, BOPClimate.Parameter.span(0.8F, 1.0F), 0.0F, BOPBiomes.GLOWING_GROTTO);
+
+        if (biomeRegistry.get(BOPBiomes.SPIDER_NEST) != null)
+            this.addUndergroundBiome(mapper, BOPClimate.Parameter.span(0.4F, 0.7F), this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, 0.0F, BOPBiomes.SPIDER_NEST);
     }
 
     private ResourceKey<Biome> pickIslandBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex)
