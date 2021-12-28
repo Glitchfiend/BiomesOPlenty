@@ -38,7 +38,7 @@ body:
       description: |
         Replace ×'s with the mod version you are using.
         You can find your mod version by checking the ``Mods`` menu on the title screen.
-      placeholder: ×.×.×.x
+      placeholder: ×.×.×.×
     validations:
       required: true
   - type: textarea
