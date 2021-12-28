@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
 
 public class ModConfig
 {
-    private static final String BIOME_CONFIG_FILE_NAME = "biomes.json";
+    private static final String BIOME_CONFIG_FILE_NAME = "biome_toggles.json";
     private static Map<String, Boolean> biomeToggles;
     private static final TreeMap<String, Boolean> defaultBiomeToggles = Maps.newTreeMap();
 
