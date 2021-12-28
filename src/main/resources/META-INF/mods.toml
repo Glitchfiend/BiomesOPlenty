@@ -1,6 +1,6 @@
 modLoader="javafml"
 license="All Rights Reserved"
-loaderVersion="[37,)"
+loaderVersion="[39,)"
 issueTrackerURL="https://github.com/Glitchfiend/BiomesOPlenty/issues"
 displayURL="https://minecraft.curseforge.com/projects/biomes-o-plenty"
 logoFile="bop_logo.png"
@@ -16,6 +16,6 @@ logoFile="bop_logo.png"
 [[dependencies.biomesoplenty]]
     modId="forge"
     mandatory=true
-    versionRange="[37.0.1,)"
+    versionRange="[39.0.8,)"
     ordering="NONE"
     side="BOTH"
