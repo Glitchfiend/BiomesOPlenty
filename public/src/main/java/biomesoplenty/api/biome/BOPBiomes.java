@@ -6,11 +6,11 @@ package biomesoplenty.api.biome;
 
 import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
-import org.apache.commons.compress.utils.Lists;
 
 import java.util.List;
 

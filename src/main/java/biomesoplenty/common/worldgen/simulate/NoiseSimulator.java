@@ -4,7 +4,6 @@
  ******************************************************************************/
 package biomesoplenty.common.worldgen.simulate;
 
-import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.common.biome.BOPOverworldBiomeBuilder;
 import biomesoplenty.common.worldgen.BOPClimate;
 import biomesoplenty.common.worldgen.BOPNoiseSampler;
