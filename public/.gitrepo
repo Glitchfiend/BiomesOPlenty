@@ -4,8 +4,9 @@
 ; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
 ;
 [subrepo]
-	remote = none
+	remote = https://github.com/Glitchfiend/BiomesOPlenty.git
 	branch = master
-	commit = 
+	commit = be81f357db28ea20e4383a6aeadb08580bd4e1ca
 	method = merge
 	cmdver = 0.4.3
+	parent = d0ce02125eb3ae91527569e81a01e1305aeecffa
