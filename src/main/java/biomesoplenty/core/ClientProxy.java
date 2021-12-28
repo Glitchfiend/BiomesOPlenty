@@ -84,15 +84,11 @@ public class ClientProxy extends CommonProxy
         float saturation;
         if (world.getBlockState(pos.above()).is(BlockTags.SNOW))
         {
-            saturation = 0.2F;
-        }
-        else if (world.getBlockState(pos.above(2)).is(BlockTags.SNOW))
-        {
-            saturation = 0.4F;
+            saturation = 0.25F;
         }
         else
         {
-            saturation = 0.6F;
+            saturation = 0.5F;
         }
 
         Color foliage = Color.getHSBColor((((float)pos.getX() + Mth.sin(((float)pos.getZ() + (float)pos.getX()) / 35) * 35) % 150) / 150, saturation, 1.0F);
