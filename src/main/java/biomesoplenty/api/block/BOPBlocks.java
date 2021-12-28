@@ -282,6 +282,7 @@ public class BOPBlocks
     public static Block GLOWWORM_SILK_STRAND;
     public static Block HANGING_COBWEB;
     public static Block HANGING_COBWEB_STRAND;
+    public static Block STRINGY_COBWEB;
     public static Block WEBBING;
     public static Block SPROUT;
     public static Block BUSH;
@@ -295,7 +296,6 @@ public class BOPBlocks
     public static Block SEA_OATS;
     public static Block REED;
     public static Block WATERGRASS;
-    public static Block MANGROVE_ROOT;
     public static Block DEAD_BRANCH;
     public static Block BRAMBLE;
     public static Block TOADSTOOL;

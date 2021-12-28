@@ -5,102 +5,108 @@
 package biomesoplenty.api.biome;
 
 import biomesoplenty.core.BiomesOPlenty;
+import com.google.common.collect.ImmutableList;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
+import org.apache.commons.compress.utils.Lists;
+
+import java.util.List;
 
 public class BOPBiomes
 {
-    public static ResourceKey<Biome> alps = register("alps");
-    public static ResourceKey<Biome> alps_foothills = register("alps_foothills");
-    public static ResourceKey<Biome> bamboo_blossom_grove = register("bamboo_blossom_grove");
-    public static ResourceKey<Biome> bayou = register("bayou");
-    public static ResourceKey<Biome> bayou_mangrove = register("bayou_mangrove");
-    public static ResourceKey<Biome> burnt_forest = register("burnt_forest");
-    public static ResourceKey<Biome> cherry_blossom_grove = register("cherry_blossom_grove");
-    public static ResourceKey<Biome> cold_desert = register("cold_desert");
-    public static ResourceKey<Biome> coniferous_forest = register("coniferous_forest");
-    public static ResourceKey<Biome> coniferous_lakes = register("coniferous_lakes");
-    public static ResourceKey<Biome> dead_forest = register("dead_forest");
-    public static ResourceKey<Biome> deep_bayou = register("deep_bayou");
-    public static ResourceKey<Biome> dense_marsh = register("dense_marsh");
-    public static ResourceKey<Biome> dense_woodland = register("dense_woodland");
-    public static ResourceKey<Biome> dryland = register("dryland");
-    public static ResourceKey<Biome> dry_boneyard = register("dry_boneyard");
-    public static ResourceKey<Biome> dunes = register("dunes");
-    public static ResourceKey<Biome> fir_clearing = register("fir_clearing");
-    public static ResourceKey<Biome> flower_meadow = register("flower_meadow");
-    public static ResourceKey<Biome> fungal_field = register("fungal_field");
-    public static ResourceKey<Biome> fungal_jungle = register("fungal_jungle");
-    public static ResourceKey<Biome> golden_prairie = register("golden_prairie");
-    public static ResourceKey<Biome> grassland = register("grassland");
-    public static ResourceKey<Biome> grassland_clover_patch = register("grassland_clover_patch");
-    public static ResourceKey<Biome> gravel_beach = register("gravel_beach");
-    public static ResourceKey<Biome> grove = register("grove");
-    public static ResourceKey<Biome> grove_clearing = register("grove_clearing");
-    public static ResourceKey<Biome> grove_lakes = register("grove_lakes");
-    public static ResourceKey<Biome> highland = register("highland");
-    public static ResourceKey<Biome> highland_crag = register("highland_crag");
-    public static ResourceKey<Biome> highland_moor = register("highland_moor");
-    public static ResourceKey<Biome> jade_cliffs = register("jade_cliffs");
-    public static ResourceKey<Biome> lavender_field = register("lavender_field");
-    public static ResourceKey<Biome> lavender_forest = register("lavender_forest");
-    public static ResourceKey<Biome> lush_desert = register("lush_desert");
-    public static ResourceKey<Biome> lush_savanna = register("lush_savanna");
-    public static ResourceKey<Biome> marsh = register("marsh");
-    public static ResourceKey<Biome> meadow = register("meadow");
-    public static ResourceKey<Biome> meadow_forest = register("meadow_forest");
-    public static ResourceKey<Biome> muskeg = register("muskeg");
-    public static ResourceKey<Biome> mystic_grove = register("mystic_grove");
-    public static ResourceKey<Biome> mystic_plains = register("mystic_plains");
-    public static ResourceKey<Biome> ominous_woods = register("ominous_woods");
-    public static ResourceKey<Biome> ominous_mire = register("ominous_mire");
-    public static ResourceKey<Biome> orchard = register("orchard");
-    public static ResourceKey<Biome> origin_valley = register("origin_valley");
-    public static ResourceKey<Biome> prairie = register("prairie");
-    public static ResourceKey<Biome> rainbow_hills = register("rainbow_hills");
-    public static ResourceKey<Biome> rainforest = register("rainforest");
-    public static ResourceKey<Biome> rainforest_cliffs = register("rainforest_cliffs");
-    public static ResourceKey<Biome> rainforest_floodplain = register("rainforest_floodplain");
-    public static ResourceKey<Biome> redwood_forest = register("redwood_forest");
-    public static ResourceKey<Biome> redwood_forest_edge = register("redwood_forest_edge");
-    public static ResourceKey<Biome> redwood_hills = register("redwood_hills");
-    public static ResourceKey<Biome> scrubland = register("scrubland");
-    public static ResourceKey<Biome> seasonal_forest = register("seasonal_forest");
-    public static ResourceKey<Biome> seasonal_orchard = register("seasonal_orchard");
-    public static ResourceKey<Biome> seasonal_pumpkin_patch = register("seasonal_pumpkin_patch");
-    public static ResourceKey<Biome> shroomy_wetland = register("shroomy_wetland");
-    public static ResourceKey<Biome> shrubland = register("shrubland");
-    public static ResourceKey<Biome> shrubland_hills = register("shrubland_hills");
-    public static ResourceKey<Biome> snowy_coniferous_forest = register("snowy_coniferous_forest");
-    public static ResourceKey<Biome> snowy_fir_clearing = register("snowy_fir_clearing");
-    public static ResourceKey<Biome> snowy_maple_forest = register("snowy_maple_forest");
-    public static ResourceKey<Biome> tall_dead_forest = register("tall_dead_forest");
-    public static ResourceKey<Biome> tropic_beach = register("tropic_beach");
-    public static ResourceKey<Biome> tropics = register("tropics");
-    public static ResourceKey<Biome> tundra = register("tundra");
-    public static ResourceKey<Biome> tundra_basin = register("tundra_basin");
-    public static ResourceKey<Biome> tundra_bog = register("tundra_bog");
-    public static ResourceKey<Biome> volcanic_plains = register("volcanic_plains");
-    public static ResourceKey<Biome> volcano = register("volcano");
-    public static ResourceKey<Biome> wasteland = register("wasteland");
-    public static ResourceKey<Biome> wetland = register("wetland");
-    public static ResourceKey<Biome> wetland_forest = register("wetland_forest");
-    public static ResourceKey<Biome> wooded_scrubland = register("wooded_scrubland");
-    public static ResourceKey<Biome> woodland = register("woodland");
+    private static List<ResourceKey<Biome>> overworldBiomes = Lists.newArrayList();
+    private static List<ResourceKey<Biome>> allBiomes = Lists.newArrayList();
 
-    public static ResourceKey<Biome> crystalline_chasm = register("crystalline_chasm");
-    public static ResourceKey<Biome> erupting_inferno = register("erupting_inferno");
-    public static ResourceKey<Biome> undergrowth = register("undergrowth");
-    public static ResourceKey<Biome> visceral_heap = register("visceral_heap");
-    public static ResourceKey<Biome> withered_abyss = register("withered_abyss");
+    public static final ResourceKey<Biome> BAMBOO_GROVE = registerOverworld("bamboo_grove");
+    public static final ResourceKey<Biome> BAYOU = registerOverworld("bayou");
+    public static final ResourceKey<Biome> BOG = registerOverworld("bog");
+    public static final ResourceKey<Biome> BOREAL_FOREST = registerOverworld("boreal_forest");
+    public static final ResourceKey<Biome> CHERRY_BLOSSOM_GROVE = registerOverworld("cherry_blossom_grove");
+    public static final ResourceKey<Biome> COLD_DESERT = registerOverworld("cold_desert");
+    public static final ResourceKey<Biome> CONIFEROUS_FOREST = registerOverworld("coniferous_forest");
+    public static final ResourceKey<Biome> CRAG = registerOverworld("crag");
+    public static final ResourceKey<Biome> CRYSTALLINE_CHASM = register("crystalline_chasm");
+    public static final ResourceKey<Biome> DEAD_FOREST = registerOverworld("dead_forest");
+    public static final ResourceKey<Biome> DRYLAND = registerOverworld("dryland");
+    public static final ResourceKey<Biome> DUNE_BEACH = registerOverworld("dune_beach");
+    public static final ResourceKey<Biome> ERUPTING_INFERNO = register("erupting_inferno");
+    public static final ResourceKey<Biome> FIELD = registerOverworld("field");
+    public static final ResourceKey<Biome> FIR_CLEARING = registerOverworld("fir_clearing");
+    public static final ResourceKey<Biome> FLOODPLAIN = registerOverworld("floodplain");
+    public static final ResourceKey<Biome> FORESTED_FIELD = registerOverworld("forested_field");
+    public static final ResourceKey<Biome> FUNGAL_JUNGLE = registerOverworld("fungal_jungle");
+    public static final ResourceKey<Biome> GLOWING_GROTTO = register("glowing_grotto");
+    public static final ResourceKey<Biome> GRASSLAND = registerOverworld("grassland");
+    public static final ResourceKey<Biome> HIGHLAND = registerOverworld("highland");
+    public static final ResourceKey<Biome> HIGHLAND_MOOR = registerOverworld("highland_moor");
+    public static final ResourceKey<Biome> JADE_CLIFFS = registerOverworld("jade_cliffs");
+    public static final ResourceKey<Biome> LAVENDER_FIELD = registerOverworld("lavender_field");
+    public static final ResourceKey<Biome> LAVENDER_FOREST = registerOverworld("lavender_forest");
+    public static final ResourceKey<Biome> LUSH_DESERT = registerOverworld("lush_desert");
+    public static final ResourceKey<Biome> LUSH_SAVANNA = registerOverworld("lush_savanna");
+    public static final ResourceKey<Biome> MAPLE_WOODS = registerOverworld("maple_woods");
+    public static final ResourceKey<Biome> MARSH = registerOverworld("marsh");
+    public static final ResourceKey<Biome> MEDITERRANEAN_FOREST = registerOverworld("mediterranean_forest");
+    public static final ResourceKey<Biome> MEDITERRANEAN_LAKES = registerOverworld("mediterranean_lakes");
+    public static final ResourceKey<Biome> MUSKEG = registerOverworld("muskeg");
+    public static final ResourceKey<Biome> MYSTIC_GROVE = registerOverworld("mystic_grove");
+    public static final ResourceKey<Biome> OLD_GROWTH_DEAD_FOREST = registerOverworld("old_growth_dead_forest");
+    public static final ResourceKey<Biome> OLD_GROWTH_WOODLAND = registerOverworld("old_growth_woodland");
+    public static final ResourceKey<Biome> OMINOUS_WOODS = registerOverworld("ominous_woods");
+    public static final ResourceKey<Biome> ORCHARD = registerOverworld("orchard");
+    public static final ResourceKey<Biome> ORIGIN_VALLEY = registerOverworld("origin_valley");
+    public static final ResourceKey<Biome> PASTURE = registerOverworld("pasture");
+    public static final ResourceKey<Biome> PRAIRIE = registerOverworld("prairie");
+    public static final ResourceKey<Biome> PUMPKIN_PATCH = registerOverworld("pumpkin_patch");
+    public static final ResourceKey<Biome> RAINBOW_HILLS = registerOverworld("rainbow_hills");
+    public static final ResourceKey<Biome> RAINFOREST = registerOverworld("rainforest");
+    public static final ResourceKey<Biome> RAINFOREST_CLIFFS = registerOverworld("rainforest_cliffs");
+    public static final ResourceKey<Biome> REDWOOD_FOREST = registerOverworld("redwood_forest");
+    public static final ResourceKey<Biome> ROCKY_SHRUBLAND = registerOverworld("rocky_shrubland");
+    public static final ResourceKey<Biome> SCRUBLAND = registerOverworld("scrubland");
+    public static final ResourceKey<Biome> SEASONAL_FOREST = registerOverworld("seasonal_forest");
+    public static final ResourceKey<Biome> SHRUBLAND = registerOverworld("shrubland");
+    public static final ResourceKey<Biome> SNOWY_CONIFEROUS_FOREST = registerOverworld("snowy_coniferous_forest");
+    public static final ResourceKey<Biome> SNOWY_FIR_CLEARING = registerOverworld("snowy_fir_clearing");
+    public static final ResourceKey<Biome> SNOWY_MAPLE_WOODS = registerOverworld("snowy_maple_woods");
+    public static final ResourceKey<Biome> SPIDER_NEST = register("spider_nest");
+    public static final ResourceKey<Biome> TROPICS = registerOverworld("tropics");
+    public static final ResourceKey<Biome> TUNDRA = registerOverworld("tundra");
+    public static final ResourceKey<Biome> UNDERGROWTH = register("undergrowth");
+    public static final ResourceKey<Biome> VISCERAL_HEAP = register("visceral_heap");
+    public static final ResourceKey<Biome> VOLCANO = registerOverworld("volcano");
+    public static final ResourceKey<Biome> VOLCANIC_PLAINS = registerOverworld("volcanic_plains");
+    public static final ResourceKey<Biome> WASTELAND = registerOverworld("wasteland");
+    public static final ResourceKey<Biome> WETLAND = registerOverworld("wetland");
+    public static final ResourceKey<Biome> WITHERED_ABYSS = register("withered_abyss");
+    public static final ResourceKey<Biome> WOODED_SCRUBLAND = registerOverworld("wooded_scrubland");
+    public static final ResourceKey<Biome> WOODED_WASTELAND = registerOverworld("wooded_wasteland");
+    public static final ResourceKey<Biome> WOODLAND = registerOverworld("woodland");
 
-    public static ResourceKey<Biome> glowing_grotto = register("glowing_grotto");
-    public static ResourceKey<Biome> spider_nest = register("spider_nest");
+    public static List<ResourceKey<Biome>> getOverworldBiomes()
+    {
+        return ImmutableList.copyOf(overworldBiomes);
+    }
+
+    public static List<ResourceKey<Biome>> getAllBiomes()
+    {
+        return ImmutableList.copyOf(allBiomes);
+    }
+
+    private static ResourceKey<Biome> registerOverworld(String name)
+    {
+        ResourceKey<Biome> key = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(BiomesOPlenty.MOD_ID, name));
+        overworldBiomes.add(key);
+        allBiomes.add(key);
+        return key;
+    }
 
     private static ResourceKey<Biome> register(String name)
     {
-        return ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(BiomesOPlenty.MOD_ID, name));
+        ResourceKey<Biome> key = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(BiomesOPlenty.MOD_ID, name));
+        allBiomes.add(key);
+        return key;
     }
 }
