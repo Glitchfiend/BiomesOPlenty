@@ -4,11 +4,11 @@
  ******************************************************************************/
 package biomesoplenty.common.worldgen.simulate;
 
-import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.common.biome.BOPOverworldBiomeBuilder;
 import biomesoplenty.common.worldgen.BOPClimate;
 import biomesoplenty.common.worldgen.BOPNoiseSampler;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceKey;
@@ -17,7 +17,6 @@ import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.blending.Blender;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import net.minecraftforge.common.BiomeDictionary;
-import org.apache.commons.compress.utils.Lists;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.opengl.GL;
