@@ -83,8 +83,8 @@ public class BOPSurfaceSystem extends SurfaceSystem
 
                 // Evade the surface rules system for these biomes because it is garbage
                 if (biomeKey == Biomes.ERODED_BADLANDS) this.erodedBadlandsExtension(blockcolumn, x, z, height, chunkAccess);
-                else if (biomeKey == BOPBiomes.ORIGIN_VALLEY) this.originValleyExtension(chunkAccess, chunkRandom, biome, x, z, height);
-                else if (biomeKey == BOPBiomes.TROPICS) this.tropicsExtension(chunkAccess, chunkRandom, biome, x, z, height);
+                //else if (biomeKey == BOPBiomes.ORIGIN_VALLEY) this.originValleyExtension(chunkAccess, chunkRandom, biome, x, z, height);
+                //else if (biomeKey == BOPBiomes.TROPICS) this.tropicsExtension(chunkAccess, chunkRandom, biome, x, z, height);
 
                 int l1 = chunkAccess.getHeight(Heightmap.Types.WORLD_SURFACE_WG, localX, localZ) + 1;
                 ruleContext.updateXZ(x, z);
