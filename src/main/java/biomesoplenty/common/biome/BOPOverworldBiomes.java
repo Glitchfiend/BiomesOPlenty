@@ -1177,6 +1177,7 @@ public class BOPOverworldBiomes
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPCavePlacements.CORNER_COBWEBS);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPCavePlacements.WEBBING);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPCavePlacements.SPIDER_EGGS);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPCavePlacements.STRINGY_COBWEB);
 
         return biome(Biome.Precipitation.RAIN, Biome.BiomeCategory.UNDERGROUND, 0.5F, 0.5F, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }

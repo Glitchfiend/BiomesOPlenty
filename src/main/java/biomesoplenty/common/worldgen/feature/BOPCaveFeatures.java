@@ -55,11 +55,11 @@ public class BOPCaveFeatures
     public static final ConfiguredFeature<?, ?> SMALL_GLOWSHROOM_CAVE = register("small_glowshroom_cave", BOPBaseFeatures.SMALL_GLOWSHROOM.configured(NoneFeatureConfiguration.INSTANCE));
     public static final ConfiguredFeature<?, ?> EXTRA_GLOW_LICHEN = register("extra_glow_lichen", BOPBaseFeatures.EXTRA_GLOW_LICHEN.configured(NoneFeatureConfiguration.INSTANCE));
 
-
     // Spider Nest
     public static final ConfiguredFeature<BlockColumnConfiguration, ?> HANGING_COBWEB = register("hanging_cobweb", Feature.BLOCK_COLUMN.configured(new BlockColumnConfiguration(List.of(BlockColumnConfiguration.layer(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder().add(UniformInt.of(0, 15), 2).add(UniformInt.of(0, 3), 3).add(UniformInt.of(0, 7), 3).build()), BlockStateProvider.simple(BOPBlocks.HANGING_COBWEB_STRAND)), BlockColumnConfiguration.layer(ConstantInt.of(1), BlockStateProvider.simple(BOPBlocks.HANGING_COBWEB))), Direction.DOWN, BlockPredicate.ONLY_IN_AIR_PREDICATE, true)));
     public static final ConfiguredFeature<?, ?> CORNER_COBWEBS = register("corner_cobwebs", BOPBaseFeatures.CORNER_COBWEBS.configured(NoneFeatureConfiguration.INSTANCE));
     public static final ConfiguredFeature<SimpleBlockConfiguration, ?> SPIDER_EGG = register("spider_egg", Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.SPIDER_EGG))));
+    public static final ConfiguredFeature<?, ?> STRINGY_COBWEB = register("stringy_cobweb", BOPBaseFeatures.STRINGY_COBWEB.configured(NoneFeatureConfiguration.INSTANCE));
     public static final ConfiguredFeature<?, ?> WEBBING = register("webbing", BOPBaseFeatures.WEBBING.configured(NoneFeatureConfiguration.INSTANCE));
 
     private static <FC extends FeatureConfiguration> ConfiguredFeature<FC, ?> register(String key, ConfiguredFeature<FC, ?> feature)
