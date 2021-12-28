@@ -4,11 +4,13 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
+import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -44,6 +46,36 @@ public class StringyCobwebBlock extends Block
     public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, LevelAccessor worldIn, BlockPos currentPos, BlockPos facingPos)
     {
         return facing.getOpposite() == stateIn.getValue(FACING) && !stateIn.canSurvive(worldIn, currentPos) ? Blocks.AIR.defaultBlockState() : stateIn;
+    }
+
+    @Override
+    public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos)
+    {
+        Direction direction = state.getValue(FACING);
+        BlockPos blockpos = pos.relative(direction.getOpposite());
+        BlockState blockstate = worldIn.getBlockState(blockpos);
+        BlockState blockstate1 = worldIn.getBlockState(pos.below());
+
+        BlockPos webpos = pos.relative(direction);
+        BlockPos webpos1 = pos.relative(direction.getOpposite());
+        BlockState webstate = worldIn.getBlockState(webpos.above());
+        BlockState webstate1 = worldIn.getBlockState(webpos1.below());
+
+        if (webstate.getBlock() != BOPBlocks.STRINGY_COBWEB && webstate1.getBlock() != BOPBlocks.STRINGY_COBWEB)
+        {
+            if (!blockstate.getMaterial().isSolid() && !blockstate1.getMaterial().isSolid())
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        else
+        {
+            return true;
+        }
     }
 
     @Override
