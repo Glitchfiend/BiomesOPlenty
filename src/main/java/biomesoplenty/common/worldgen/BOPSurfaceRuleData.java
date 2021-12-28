@@ -40,6 +40,7 @@ public class BOPSurfaceRuleData
     private static final SurfaceRules.RuleSource MAGMA = makeStateRule(Blocks.MAGMA_BLOCK);
     private static final SurfaceRules.RuleSource OBSIDIAN = makeStateRule(Blocks.OBSIDIAN);
     private static final SurfaceRules.RuleSource TUFF = makeStateRule(Blocks.TUFF);
+    private static final SurfaceRules.RuleSource SMOOTH_BASALT = makeStateRule(Blocks.SMOOTH_BASALT);
 
     // Nether
     private static final SurfaceRules.RuleSource NETHERRACK = makeStateRule(Blocks.NETHERRACK);
@@ -448,7 +449,7 @@ public class BOPSurfaceRuleData
                             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.CRAG, BOPBiomes.RAINFOREST_CLIFFS), GRAVEL),
                             SurfaceRules.ifTrue(
                                 SurfaceRules.isBiome(BOPBiomes.VOLCANO),
-                                SurfaceRules.ifTrue(surfaceNoiseAbove(2.7D), BASALT)
+                                SurfaceRules.ifTrue(surfaceNoiseAbove(2.7D), SMOOTH_BASALT)
                             )
                         )
                     )
@@ -468,7 +469,7 @@ public class BOPSurfaceRuleData
                 SurfaceRules.isBiome(BOPBiomes.VOLCANO),
                 SurfaceRules.sequence(
                     SurfaceRules.ifTrue(surfaceNoiseAbove(2.7D), MAGMA),
-                    BASALT
+                    SMOOTH_BASALT
                 )
             ),
             SurfaceRules.ifTrue(
