@@ -282,6 +282,7 @@ public class BOPBlocks
     public static Block GLOWWORM_SILK_STRAND;
     public static Block HANGING_COBWEB;
     public static Block HANGING_COBWEB_STRAND;
+    public static Block STRINGY_COBWEB;
     public static Block WEBBING;
     public static Block SPROUT;
     public static Block BUSH;

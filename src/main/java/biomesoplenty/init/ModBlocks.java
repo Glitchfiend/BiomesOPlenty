@@ -320,6 +320,7 @@ public class ModBlocks
         GLOWWORM_SILK_STRAND = registerBlockNoGroup(new GlowwormSilkBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL).lightLevel((state) -> 2).emissiveRendering((state, world, pos) -> true)), "glowworm_silk_strand");
         HANGING_COBWEB = registerBlock(new HangingCobwebBottomBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL)), "hanging_cobweb");
         HANGING_COBWEB_STRAND = registerBlockNoGroup(new HangingCobwebBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL)), "hanging_cobweb_strand");
+        STRINGY_COBWEB = registerBlock(new StringyCobwebBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL)), "stringy_cobweb");
         WEBBING = registerBlock(new WebbingBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL)), "webbing");
 
         //Plants
@@ -455,6 +456,7 @@ public class ModBlocks
             ItemBlockRenderTypes.setRenderLayer(GLOWWORM_SILK_STRAND, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(HANGING_COBWEB, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(HANGING_COBWEB_STRAND, cutoutRenderType);
+            ItemBlockRenderTypes.setRenderLayer(STRINGY_COBWEB, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(WEBBING, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(SPROUT, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(BUSH, cutoutRenderType);

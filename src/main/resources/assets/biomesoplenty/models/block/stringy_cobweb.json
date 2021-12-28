@@ -1,0 +1,19 @@
+{
+	"ambientocclusion": false,
+	"textures": {
+		"string": "biomesoplenty:block/stringy_cobweb",
+		"particle": "biomesoplenty:block/stringy_cobweb"
+	},
+	"elements": [
+		{
+			"from": [8, 8, -8],
+			"to": [8, 24, 8],
+			"shade": false,
+			"rotation": {"angle": 45, "axis": "x", "origin": [0, 0, 0], "rescale": true},
+			"faces": {
+				"east": {"uv": [0, 0, 16, 16], "texture": "#string"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#string"}
+			}
+		}
+	]
+}

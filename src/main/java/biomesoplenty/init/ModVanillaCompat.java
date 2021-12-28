@@ -143,6 +143,8 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.GLOWWORM_SILK_STRAND, 60, 100);
         registerFlammable(BOPBlocks.HANGING_COBWEB, 60, 100);
         registerFlammable(BOPBlocks.HANGING_COBWEB_STRAND, 60, 100);
+        registerFlammable(BOPBlocks.STRINGY_COBWEB, 60, 100);
+        registerFlammable(BOPBlocks.WEBBING, 60, 100);
         registerFlammable(BOPBlocks.SPROUT, 60, 100);
         registerFlammable(BOPBlocks.BUSH, 60, 100);
         registerFlammable(BOPBlocks.CLOVER, 60, 100);
