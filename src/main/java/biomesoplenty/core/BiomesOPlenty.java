@@ -5,11 +5,7 @@
 
 package biomesoplenty.core;
 
-import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.client.handler.FluidFogHandler;
-import biomesoplenty.client.handler.ParticleFactoryHandler;
-import biomesoplenty.common.worldgen.simulate.BiomeSimulator;
-import biomesoplenty.common.worldgen.simulate.NoiseSimulator;
 import biomesoplenty.init.*;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -70,5 +66,6 @@ public class BiomesOPlenty
     {
         proxy.init();
         ModTags.setup();
+//        DataGenerator.generateData();
     }
 }

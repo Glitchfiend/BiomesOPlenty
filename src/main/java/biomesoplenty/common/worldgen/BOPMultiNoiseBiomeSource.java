@@ -40,8 +40,8 @@ import java.util.function.Supplier;
 public class BOPMultiNoiseBiomeSource extends BiomeSource
 {
     public static final MapCodec<BOPMultiNoiseBiomeSource> DIRECT_CODEC = RecordCodecBuilder.mapCodec((p_187070_) -> {
-        return p_187070_.group(ExtraCodecs.<Pair<BOPClimate.ParameterPoint, Supplier<Biome>>>nonEmptyList(RecordCodecBuilder.<Pair<BOPClimate.ParameterPoint, Supplier<Biome>>>create((p_187078_) -> {
-            return p_187078_.group(BOPClimate.ParameterPoint.CODEC.fieldOf("parameters").forGetter(Pair::getFirst), Biome.CODEC.fieldOf("biome").forGetter(Pair::getSecond)).apply(p_187078_, Pair::of);
+        return p_187070_.group(ExtraCodecs.<Pair<BOPClimate.ParameterPoint, Supplier<Biome>>>nonEmptyList(RecordCodecBuilder.<Pair<BOPClimate.ParameterPoint, Supplier<Biome>>>create((biomeMapping) -> {
+            return biomeMapping.group(BOPClimate.ParameterPoint.CODEC.fieldOf("parameters").forGetter(Pair::getFirst), Biome.CODEC.fieldOf("biome").forGetter(Pair::getSecond)).apply(biomeMapping, Pair::of);
         }).listOf()).xmap(BOPClimate.ParameterList::new, (Function<BOPClimate.ParameterList<Supplier<Biome>>, List<Pair<BOPClimate.ParameterPoint, Supplier<Biome>>>>) BOPClimate.ParameterList::values).fieldOf("biomes").forGetter((p_187080_) -> {
             return p_187080_.parameters;
         })).apply(p_187070_, BOPMultiNoiseBiomeSource::new);

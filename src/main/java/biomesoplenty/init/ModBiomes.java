@@ -33,7 +33,7 @@ import org.apache.logging.log4j.core.Logger;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModBiomes
 {
-    private static BOPWorldType bopWorldType = new BOPWorldType();
+    public static BOPWorldType bopWorldType = new BOPWorldType();
 
     public static void setup()
     {
