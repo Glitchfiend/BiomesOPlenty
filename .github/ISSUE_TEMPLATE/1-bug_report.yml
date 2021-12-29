@@ -1,8 +1,6 @@
 name: 1.18.1 Bug Report
 description: File a bug report
-#assignees:
 labels: [bug]
-title: "[Bug] [1.18.1] "
 body:
   - type: markdown
     attributes:

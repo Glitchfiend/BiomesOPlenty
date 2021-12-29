@@ -1,8 +1,6 @@
 name: 1.18.1 Crash Report
 description: File a crash report
-#assignees:
 labels: [crash]
-title: "[Crash] [1.18.1] "
 body:
   - type: markdown
     attributes:
@@ -32,6 +30,8 @@ body:
         Logs can be found in your Minecraft directory under `/logs/latest.log`.
         If your issue caused Minecraft to crash, include the crash report by creating a [gist](https://gist.github.com/) and pasting the link here.
         If your don't include logs in instances of crash related issues, we will ask you to provide one.
+    validations:
+      required: true
   - type: input
     attributes:
       label: Mod Version
