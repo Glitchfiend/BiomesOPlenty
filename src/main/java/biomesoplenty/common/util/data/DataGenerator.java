@@ -6,9 +6,12 @@ package biomesoplenty.common.util.data;
 
 import biomesoplenty.common.util.config.JsonUtil;
 import biomesoplenty.init.ModBiomes;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.*;
+import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.JsonOps;
 import net.minecraft.core.Registry;
@@ -21,13 +24,20 @@ import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.levelgen.NoiseGeneratorSettings;
 import net.minecraft.world.level.levelgen.WorldGenSettings;
+import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
+import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePool;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.levelgen.structure.templatesystem.ProcessorRule;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
+import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import net.minecraftforge.fml.loading.FMLPaths;
 
 import java.io.IOException;
 import java.nio.file.Path;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Supplier;
 
 public class DataGenerator
@@ -38,25 +48,32 @@ public class DataGenerator
 
     public static void generateData()
     {
-        WorldGenSettings settings = ModBiomes.bopWorldType.createSettings(RegistryAccess.builtin(), 0, true, false, "");
-
         RegistryAccess registryAccess = RegistryAccess.builtin();
         Registry<DimensionType> dimensionTypeRegistry = registryAccess.registryOrThrow(Registry.DIMENSION_TYPE_REGISTRY);
-        Registry<Biome> biomeRegistry = registryAccess.registryOrThrow(Registry.BIOME_REGISTRY);
+        WorldGenSettings settings = ModBiomes.bopWorldType.createSettings(registryAccess, 0, true, false, "");
 
-        addRegistrySubstitutions(BuiltinRegistries.BIOME, Biome.CODEC);
-        addRegistrySubstitutions(dimensionTypeRegistry, DimensionType.CODEC);
-        addRegistrySubstitutions(BuiltinRegistries.NOISE_GENERATOR_SETTINGS, NoiseGeneratorSettings.CODEC);
+        ImmutableSet<Pair<Registry, Codec>> registryCodecs = ImmutableSet.<Pair<Registry, Codec>>builder()
+            .add(Pair.of(settings.dimensions(), LevelStem.CODEC))
+            .add(Pair.of(dimensionTypeRegistry, DimensionType.CODEC))
+            .add(Pair.of(BuiltinRegistries.BIOME, Biome.CODEC))
+            .add(Pair.of(BuiltinRegistries.CONFIGURED_CARVER, ConfiguredWorldCarver.CODEC))
+            .add(Pair.of(BuiltinRegistries.CONFIGURED_FEATURE, ConfiguredFeature.CODEC))
+            .add(Pair.of(BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE, ConfiguredStructureFeature.CODEC))
+            .add(Pair.of(BuiltinRegistries.NOISE, NormalNoise.NoiseParameters.CODEC))
+            .add(Pair.of(BuiltinRegistries.NOISE_GENERATOR_SETTINGS, NoiseGeneratorSettings.CODEC))
+            .add(Pair.of(BuiltinRegistries.PLACED_FEATURE, PlacedFeature.CODEC))
+            .add(Pair.of(BuiltinRegistries.PROCESSOR_LIST, StructureProcessorType.LIST_CODEC))
+            .add(Pair.of(BuiltinRegistries.TEMPLATE_POOL, StructureTemplatePool.CODEC))
+            .build();
 
-        try
+        for (Pair<Registry, Codec> registryCodecPair : registryCodecs)
         {
-            generateRegistryJsons(settings.dimensions(), LevelStem.CODEC);
-            generateRegistryJsons(dimensionTypeRegistry, DimensionType.CODEC);
-            generateRegistryJsons(biomeRegistry, Biome.CODEC);
+            addRegistrySubstitutions(registryCodecPair.getFirst(), registryCodecPair.getSecond());
         }
-        catch (IOException e)
+
+        for (Pair<Registry, Codec> registryCodecPair : registryCodecs)
         {
-            e.printStackTrace();
+            generateRegistryJsons(registryCodecPair.getFirst(), registryCodecPair.getSecond());
         }
     }
 
@@ -71,7 +88,7 @@ public class DataGenerator
         }
     }
 
-    private static <T> void generateRegistryJsons(Registry<T> registry, Codec codec) throws IOException
+    private static <T> void generateRegistryJsons(Registry<T> registry, Codec codec)
     {
         for (var entry : registry.entrySet())
         {
@@ -82,31 +99,39 @@ public class DataGenerator
     private static <T> void generateJson(Registry<T> registry, ResourceKey<T> key, Codec codec)
     {
         T type = registry.get(key);
-        Optional<JsonElement> encodedResult;
+        Optional<JsonElement> encodedResult = encodeJson(type, codec);
         Path path = DATA_PATH.resolve(key.getRegistryName().getPath());
-
-        try
-        {
-            encodedResult = ((Codec<Supplier<T>>)codec).encodeStart(JsonOps.INSTANCE, () -> type).result();
-        }
-        catch (ClassCastException e)
-        {
-            encodedResult = ((Codec<T>)codec).encodeStart(JsonOps.INSTANCE, type).result();
-        }
 
         if (encodedResult.isPresent())
         {
             JsonElement element = encodedResult.get();
-            substituteWithLocations(element, Set.of("biome", "settings", "type"));
+            substituteWithLocations(element);
             JsonUtil.writeFile(path.resolve(key.location().getPath() + ".json").toFile(), element);
         }
     }
 
-    private static void substituteWithLocations(JsonElement element, Set<String> substitutions)
+    private static void substituteWithLocations(JsonElement element)
     {
         if (element.isJsonArray())
         {
-            element.getAsJsonArray().forEach(arrayElement -> substituteWithLocations(arrayElement, substitutions));
+            JsonArray array = element.getAsJsonArray();
+            Iterator<JsonElement> it = array.iterator();
+            List<JsonElement> elementsToInsert = Lists.newArrayList();
+
+            while (it.hasNext())
+            {
+                JsonElement arrayElement = it.next();
+                int hash = arrayElement.hashCode();
+
+                if (locationSubstitions.containsKey(hash))
+                {
+                    it.remove();
+                    elementsToInsert.add(new JsonPrimitive(locationSubstitions.get(hash).toString()));
+                }
+                else substituteWithLocations(arrayElement);
+            }
+
+            elementsToInsert.forEach(elementToInsert -> array.add(elementToInsert));
             return;
         }
         else if (!element.isJsonObject()) return;
@@ -116,25 +141,28 @@ public class DataGenerator
         for (var entry : obj.entrySet())
         {
             String fieldName = entry.getKey();
+            int hash = entry.getValue().hashCode();
 
-            if (substitutions.contains(fieldName))
+            if (locationSubstitions.containsKey(hash))
             {
-                int hash = entry.getValue().hashCode();
-
-                if (locationSubstitions.containsKey(hash))
-                {
-                    obj.add(fieldName, new JsonPrimitive(locationSubstitions.get(hash).toString()));
-                    continue;
-                }
+                obj.add(fieldName, new JsonPrimitive(locationSubstitions.get(hash).toString()));
+                continue;
             }
 
             if (entry.getValue().isJsonObject() || entry.getValue().isJsonArray())
-                substituteWithLocations(entry.getValue(), substitutions);
+                substituteWithLocations(entry.getValue());
         }
     }
 
-    private static <T> Optional<JsonElement> encodeJson(T type, Codec<Supplier<T>> codec)
+    private static <T> Optional<JsonElement> encodeJson(T type, Codec codec)
     {
-        return codec.encodeStart(JsonOps.INSTANCE, () -> type).result();
+        try
+        {
+            return ((Codec<Supplier<T>>)codec).encodeStart(JsonOps.INSTANCE, () -> type).result();
+        }
+        catch (ClassCastException e)
+        {
+            return ((Codec<T>)codec).encodeStart(JsonOps.INSTANCE, type).result();
+        }
     }
 }

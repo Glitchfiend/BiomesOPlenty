@@ -66,6 +66,5 @@ public class BiomesOPlenty
     {
         proxy.init();
         ModTags.setup();
-//        DataGenerator.generateData();
     }
 }

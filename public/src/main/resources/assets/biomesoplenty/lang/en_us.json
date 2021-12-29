@@ -4,6 +4,7 @@
   "advancements.biomesoplenty.all_biomes.title": "Wanderer",
   "advancements.biomesoplenty.all_biomes.description": "Discover every biome in Biomes O' Plenty",
 
+  "commands.biomesoplenty.gendata.success": "Successfully generated data",
   "generator.minecraft.biomesoplenty": "Biomes O' Plenty",
   "itemGroup.biomesoplenty": "Biomes O' Plenty",
   
